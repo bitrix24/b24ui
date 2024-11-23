@@ -1,0 +1,15 @@
+{
+  "name": "@bitrix24/b24ui-nuxt-playground",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "generate": "nuxi generate"
+  },
+  "dependencies": {
+    "@bitrix24/b24ui-nuxt": "latest",
+    "nuxt": "^3.14.1592"
+  }
+}

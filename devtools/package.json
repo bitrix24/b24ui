@@ -1,0 +1,19 @@
+{
+  "name": "@bitrix24/b24ui-devtools",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@bitrix24/b24ui-nuxt": "latest",
+    "knitwork": "^1.1.0",
+    "nuxt": "^3.14.1592",
+    "prettier": "^3.3.3",
+    "zod": "^3.23.8"
+  }
+}
