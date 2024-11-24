@@ -6,14 +6,14 @@ export default defineNuxtConfig({
 
   modules: ['../src/module'],
   devtools: { enabled: true },
-  
-  b24ui: {},
 
   future: {
     compatibilityVersion: 4
   },
 
   compatibilityDate: '2024-04-12',
+
+  b24ui: {},
 
   // @ts-expect-error - `nuxt-component-meta` is used as CLI
   componentMeta: {

@@ -20,7 +20,7 @@ appConfig.toaster = reactive({
 const router = useRouter()
 
 const components = [
-  'skeleton',
+  'skeleton'
 ]
 
 const items = components.map(component => ({ label: upperName(component), to: `/components/${component}` }))

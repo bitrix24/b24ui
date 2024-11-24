@@ -18,7 +18,7 @@ const isDark = computed({
 })
 
 const components = [
-  'skeleton',
+  'skeleton'
 ]
 
 const items = components.map(component => ({ label: upperName(component), to: `/components/${component}` }))
