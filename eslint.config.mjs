@@ -17,5 +17,8 @@ export default createConfigForNuxt({
   '@typescript-eslint/no-empty-object-type': 'off',
   '@typescript-eslint/no-explicit-any': 'off'
 }).prepend({
-  ignores: ['src/devtools/.component-meta']
+  ignores: [
+    'src/devtools/.component-meta',
+    'devtools/app/workers/prettier.min.js'
+  ]
 })
