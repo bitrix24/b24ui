@@ -5,7 +5,7 @@ import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/skeleton'
 import { extendDevtoolsMeta } from '../composables/extendDevtoolsMeta'
 
-const appConfig = _appConfig as AppConfig & { ui: { skeleton: Partial<typeof theme> } }
+const appConfig = _appConfig as AppConfig & { b24ui: { skeleton: Partial<typeof theme> } }
 
 const skeleton = tv({ extend: tv(theme), ...(appConfig.b24ui?.skeleton || {}) })
 

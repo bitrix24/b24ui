@@ -57,29 +57,20 @@ export function getTemplates(options: ModuleOptions, uiConfig: Record<string, an
     getContents: () => Object.keys(theme).map(component => `export { default as ${component} } from './${kebabCase(component)}'`).join('\n')
   })
 
-  // FIXME: `typeof colors[number]` should include all colors from the theme
   templates.push({
     filename: 'types/ui.d.ts',
     getContents: () => `import * as ui from '#build/b24ui'
 import type { DeepPartial } from '#b24ui/types/utils'
-import colors from 'tailwindcss/colors'
 
 const icons = ${JSON.stringify(uiConfig.icons)};
 
-type NeutralColor = 'slate' | 'gray' | 'zinc' | 'neutral' | 'stone'
-type Color = Exclude<keyof typeof colors, 'inherit' | 'current' | 'transparent' | 'black' | 'white' | NeutralColor>
-
 type AppConfigUI = {
-  colors?: {
-    ${options.theme?.colors?.map(color => `${color}?: Color`).join('\n\t\t')}
-    neutral?: NeutralColor
-  }
   icons?: Partial<typeof icons>
 } & DeepPartial<typeof ui>
 
 declare module '@nuxt/schema' {
   interface AppConfigInput {
-    ui?: AppConfigUI
+    b24ui?: AppConfigUI
   }
 }
 
