@@ -20,6 +20,7 @@ appConfig.toaster = reactive({
 const router = useRouter()
 
 const components = [
+  'link',
   'skeleton'
 ]
 

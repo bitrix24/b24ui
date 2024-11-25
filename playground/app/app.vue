@@ -18,6 +18,7 @@ const isDark = computed({
 })
 
 const components = [
+  'link',
   'skeleton'
 ]
 
