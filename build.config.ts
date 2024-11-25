@@ -10,7 +10,7 @@ export default defineBuildConfig({
     emitCJS: true
   },
   replace: {
-    'process.env.DEV': 'false',
+    'process.env.DEV': 'false'
   },
   hooks: {
     'mkdist:entry:options'(ctx, entry, options) {

@@ -1,5 +1,5 @@
 import { defu } from 'defu'
-import { createResolver, defineNuxtModule, addComponentsDir, addImportsDir, addVitePlugin, addPlugin, installModule, extendPages, hasNuxtModule } from '@nuxt/kit'
+import { createResolver, defineNuxtModule, addComponentsDir, addImportsDir, addVitePlugin, addPlugin, installModule, hasNuxtModule } from '@nuxt/kit'
 import { addTemplates } from './templates'
 import { defaultOptions, getDefaultUiConfig } from './defaults'
 
