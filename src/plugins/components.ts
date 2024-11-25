@@ -46,7 +46,7 @@ export default function ComponentImportPlugin(
     },
     AutoImportComponents[framework]({
       dts: options.dts ?? true,
-      exclude: [/[\\/]node_modules[\\/](?!\.pnpm|@nuxt\/ui)/, /[\\/]\.git[\\/]/, /[\\/]\.nuxt[\\/]/],
+      exclude: [/[\\/]node_modules[\\/](?!\.pnpm|@bitrix24\/b24ui)/, /[\\/]\.git[\\/]/, /[\\/]\.nuxt[\\/]/],
       resolvers: [
         (componentName) => {
           if (overrideNames.has(componentName)) {
