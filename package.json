@@ -52,34 +52,38 @@
 		"vue-plugin.d.ts"
 	],
 	"scripts": {
-		"__dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground && nuxi prepare devtools && vite build playground-vue",
+				"__dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground && nuxi prepare devtools && vite build playground-vue",
 		"dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground && nuxi prepare devtools",
 		
-		"devtools:prepare": "nuxt-component-meta playground --outputDir ../src/devtools/.component-meta/",
+			"devtools:prepare": "nuxt-component-meta playground --outputDir ../src/devtools/.component-meta/",
 		
-		"build": "nuxt-module-build build && pnpm devtools:build",
-		"prepack": "pnpm build",
+			"build": "nuxt-module-build build && pnpm devtools:build",
+			"prepack": "pnpm build",
 		
-		"build:build": "nuxt-module-build build",
+				"__dev": "DEV=true nuxi dev playground",
+			"dev": "set DEV=true && nuxi dev playground",
+				"__dev:vue": "DEV=true vite playground-vue",
+			"dev:vue": "set DEV=true && vite playground-vue",
+				"__dev:build": "nuxi build playground",
+			"dev:build": "nuxi build playground",
 		
-		"dev": "DEV=true nuxi dev playground",
-		"dev:vue": "DEV=true vite playground-vue",
-		"dev:build": "nuxi build playground",
-		
-		"devtools": "BITRIX24_UI_DEVTOOLS_LOCAL=true nuxi dev playground",
+				"__devtools": "BITRIX24_UI_DEVTOOLS_LOCAL=true nuxi dev playground",
+			"devtools": "set BITRIX24_UI_DEVTOOLS_LOCAL=true && nuxi dev playground",
 		"devtools:build": "nuxi generate devtools",
 		
 		"docs:dev": "vitepress dev docs",
 		"docs:build": "vitepress build docs",
 		"docs:preview": "vitepress preview docs",
-		"__docs:prepare": "nuxt-component-meta docs",
+				"__docs:prepare": "nuxt-component-meta docs",
 		
 		"lint": "eslint .",
 		"lint:fix": "eslint . --fix",
-		"typecheck": "vue-tsc --noEmit && nuxi typecheck playground && nuxi typecheck docs && nuxi typecheck devtools && cd playground-vue && vue-tsc --noEmit",
+			"__typecheck": "vue-tsc --noEmit && nuxi typecheck playground && nuxi typecheck devtools && cd playground-vue && vue-tsc --noEmit",
+		"typecheck": "vue-tsc --noEmit && nuxi typecheck playground && nuxi typecheck devtools",
+		
 		"test": "vitest",
-		"test:vue": "vitest -c vitest.vue.config.ts",
-		"test:vue:build": "vite build playground-vue",
+			"test:vue": "vitest -c vitest.vue.config.ts",
+			"test:vue:build": "vite build playground-vue",
 		
 		"work:done": "pnpm lint && pnpm typecheck"
 	},
