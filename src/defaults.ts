@@ -7,8 +7,5 @@ export const getDefaultUiConfig = () => ({
 })
 
 export const defaultOptions = {
-  colorMode: true,
-  devtools: {
-    enabled: true
-  }
+  colorMode: true
 }

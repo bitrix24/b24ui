@@ -5,7 +5,6 @@ import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import type { RouterLinkProps, RouteLocationRaw } from 'vue-router'
 import theme from '#build/b24ui/link'
-import { extendDevtoolsMeta } from '../composables/extendDevtoolsMeta'
 
 interface NuxtLinkProps extends Omit<RouterLinkProps, 'to'> {
   /**
@@ -88,8 +87,6 @@ export interface LinkProps extends NuxtLinkProps {
 export interface LinkSlots {
   default(props: { active: boolean }): any
 }
-
-extendDevtoolsMeta({ example: 'LinkExample' })
 </script>
 
 <script setup lang="ts">

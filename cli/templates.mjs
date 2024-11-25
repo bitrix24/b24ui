@@ -172,7 +172,7 @@ const doc = ({ name, pro }) => {
   const upperName = splitByCase(name).map(p => upperFirst(p)).join('')
 
   return {
-    filename: `docs/content/components/${kebabName}.md`,
+    filename: `docs/components/${kebabName}.md`,
     contents: `---
 description:
 links: ${pro

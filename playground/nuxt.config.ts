@@ -5,7 +5,7 @@ const { resolve } = createResolver(import.meta.url)
 export default defineNuxtConfig({
 
   modules: ['../src/module'],
-  devtools: { enabled: true },
+  devtools: { enabled: false },
 
   future: {
     compatibilityVersion: 4
