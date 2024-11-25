@@ -2,7 +2,6 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImports from 'unplugin-auto-import/vite'
 import VueComponents from 'unplugin-vue-components'
-
 import b24ui from '../src/vite'
 
 // https://vitejs.dev/config/

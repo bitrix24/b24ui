@@ -24,12 +24,12 @@ import type { DeepPartial } from './runtime/types/utils'
 // type NeutralColor = 'slate' | 'gray' | 'zinc' | 'neutral' | 'stone'
 // type Color = Exclude<keyof typeof colors, 'inherit' | 'current' | 'transparent' | 'black' | 'white' | NeutralColor> | (string & {})
 
-type AppConfigUI = {} & DeepPartial<typeof b24ui>
+type AppConfigB24UI = {} & DeepPartial<typeof b24ui>
 
-export interface Bitrix24UIOptions extends Omit<ModuleOptions, 'fonts' | 'colorMode'> {
+export interface Bitrix24UIOptions extends Omit<ModuleOptions, 'colorMode'> {
   /** Whether to generate declaration files for auto-imported components. */
   dts?: boolean
-  b24ui?: AppConfigUI
+  b24ui?: AppConfigB24UI
   /**
    * Enable or disable `@vueuse/core` color-mode integration
    * @defaultValue `true`

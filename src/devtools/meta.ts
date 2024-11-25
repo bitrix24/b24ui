@@ -39,6 +39,7 @@ function extractDevtoolsMeta(code: string): string | null {
 }
 
 // A Plugin to parse additional metadata for the Bitrix24 UI Devtools.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function devtoolsMetaPlugin({ resolve, options, templates }: { resolve: Resolver['resolve'], options: ModuleOptions, templates: Record<string, any> }) {
   return {
     name: 'b24ui-devtools-component-meta',
@@ -109,8 +110,8 @@ export function devtoolsMetaPlugin({ resolve, options, templates }: { resolve: R
                 }
               })
 
-              const label = key.replace(/^U/, options.prefix ?? 'U')
-              acc[kebabCase(key.replace(/^U/, ''))] = { ...value, label, slug }
+              const label = key.replace(/^B24/, 'B24')
+              acc[kebabCase(key.replace(/^B24/, ''))] = { ...value, label, slug }
               return acc
             }, {} as Record<string, any>),
             devtoolsComponentMeta

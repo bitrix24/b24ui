@@ -48,7 +48,7 @@ defineShortcuts({
 
         <div class="fixed top-15 lg:top-3 right-4 flex items-center gap-2">
           <ClientOnly v-if="!colorMode?.forced">
-            <B24utton
+            <B24Button
               :icon="isDark ? 'i-lucide-moon' : 'i-lucide-sun'"
               color="neutral"
               variant="ghost"
@@ -68,7 +68,7 @@ defineShortcuts({
 
         <B24Modal v-model:open="isCommandPaletteOpen" class="sm:h-96">
           <template #content>
-            <B24CommandPalette placeholder="Search a component..." :groups="[{ id: 'items', items }]" :fuse="{ resultLimit: 100 }" @update:model-value="onSelect" @update:open="value => isCommandPaletteOpen = value" />
+            <B24CommandPalette placeholder="Search a component..." :groups="[{ id: 'items', items }]" :fuse="{ resultLimit: 100 }" @update:model-value="onSelect" @update:open="(value: boolean) => isCommandPaletteOpen = value" />
           </template>
         </B24Modal>
       </div>

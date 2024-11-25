@@ -66,7 +66,7 @@ defineShortcuts({
 
     <B24Modal v-model:open="isCommandPaletteOpen" class="sm:h-96">
       <template #content>
-        <B24CommandPalette placeholder="Search a component..." :groups="[{ id: 'items', items }]" :fuse="{ resultLimit: 100 }" @update:model-value="onSelect" @update:open="value => isCommandPaletteOpen = value" />
+        <B24CommandPalette placeholder="Search a component..." :groups="[{ id: 'items', items }]" :fuse="{ resultLimit: 100 }" @update:model-value="onSelect" @update:open="(value: boolean) => isCommandPaletteOpen = value" />
       </template>
     </B24Modal>
   </B24App>

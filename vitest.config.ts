@@ -7,7 +7,7 @@ export default defineVitestConfig({
     testTimeout: 1000,
     globals: true,
     silent: true,
-    exclude: [...defaultExclude, './test/vue/**.spec.ts'],
+    exclude: [...defaultExclude, './test/vue/**.spec.ts', './@tmp'],
     environment: 'nuxt',
     environmentOptions: {
       nuxt: {
