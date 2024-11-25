@@ -52,24 +52,16 @@
 		"vue-plugin.d.ts"
 	],
 	"scripts": {
-				"__dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground && nuxi prepare devtools && vite build playground-vue",
-		"dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground && nuxi prepare devtools",
-		
-			"devtools:prepare": "nuxt-component-meta playground --outputDir ../src/devtools/.component-meta/",
-		
-			"build": "nuxt-module-build build && pnpm devtools:build",
+			"__dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground && vite build playground-vue",
+		"dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+			"build": "nuxt-module-build build",
 			"prepack": "pnpm build",
 		
-				"__dev": "DEV=true nuxi dev playground",
-			"dev": "set DEV=true && nuxi dev playground",
+			"__dev": "DEV=true nuxi dev playground",
+		"dev": "set DEV=true && nuxi dev playground",
 				"__dev:vue": "DEV=true vite playground-vue",
 			"dev:vue": "set DEV=true && vite playground-vue",
-				"__dev:build": "nuxi build playground",
-			"dev:build": "nuxi build playground",
-		
-				"__devtools": "BITRIX24_UI_DEVTOOLS_LOCAL=true nuxi dev playground",
-			"devtools": "set BITRIX24_UI_DEVTOOLS_LOCAL=true && nuxi dev playground",
-		"devtools:build": "nuxi generate devtools",
+		"dev:build": "nuxi build playground",
 		
 		"docs:dev": "vitepress dev docs",
 		"docs:build": "vitepress build docs",
@@ -78,9 +70,7 @@
 		
 		"lint": "eslint .",
 		"lint:fix": "eslint . --fix",
-			"__typecheck": "vue-tsc --noEmit && nuxi typecheck playground && nuxi typecheck devtools && cd playground-vue && vue-tsc --noEmit",
-		"typecheck": "vue-tsc --noEmit && nuxi typecheck playground && nuxi typecheck devtools",
-		
+		"typecheck": "vue-tsc --noEmit && nuxi typecheck playground && cd playground-vue && vue-tsc --noEmit",
 		"test": "vitest",
 			"test:vue": "vitest -c vitest.vue.config.ts",
 			"test:vue:build": "vite build playground-vue",
@@ -91,7 +81,6 @@
 		"@bitrix24/b24style": "latest",
 		"@bitrix24/b24icons-vue": "latest",
 		"@internationalized/number": "^3.5.4",
-		"@nuxt/devtools-kit": "^1.6.0",
 		"@nuxt/kit": "^3.14.1592",
 		"@nuxt/schema": "^3.14.1592",
 		"@nuxtjs/color-mode": "^3.5.2",
@@ -111,7 +100,6 @@
 		"embla-carousel-vue": "^8.4.0",
 		"embla-carousel-wheel-gestures": "^8.0.1",
 		"fuse.js": "^7.0.0",
-		"get-port-please": "^3.1.2",
 		"knitwork": "^1.1.0",
 		"magic-string": "^0.30.13",
 		"mlly": "^1.7.3",
@@ -119,7 +107,6 @@
 		"pathe": "^1.1.2",
 		"radix-vue": "^1.9.10",
 		"scule": "^1.3.0",
-		"sirv": "^3.0.0",
 		"tailwind-variants": "^0.3.0",
 		"tailwindcss": "4.0.0-beta.2",
 		"tinyglobby": "^0.2.10",
