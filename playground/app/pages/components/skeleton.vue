@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center gap-4">
-    <B24Skeleton class="h-12 w-12 rounded-full" />
+    <B24Skeleton class="h-12 w-12 rounded-full bg-base-50" />
 
     <div class="space-y-2">
       <B24Skeleton class="h-4 w-[250px]" />
