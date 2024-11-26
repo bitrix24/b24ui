@@ -1,3 +1,4 @@
+@plugin '@bitrix24/b24style';
 @import './keyframes.css';
 
 @variant dark (&:where(.dark, .dark *));

@@ -79,6 +79,6 @@ defineShortcuts({
 
 <style>
 @import "tailwindcss";
-@plugin '@bitrix24/b24style';
+
 @import "@bitrix24/b24ui-nuxt";
 </style>
