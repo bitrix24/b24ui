@@ -9,6 +9,7 @@
     "generate": "nuxi generate"
   },
   "dependencies": {
+    "@bitrix24/b24icons-vue": "latest",
     "@bitrix24/b24ui-nuxt": "latest",
     "nuxt": "^3.14.1592"
   }
