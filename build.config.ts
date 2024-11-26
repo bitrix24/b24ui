@@ -1,6 +1,11 @@
 import { defineBuildConfig } from 'unbuild'
 
 export default defineBuildConfig({
+  clean: true,
+  // @memo fix _1 ////
+  declaration: false,
+  // @memo fix _1 ////
+  failOnWarn: false,
   entries: [
     // Vue support
     './src/unplugin',

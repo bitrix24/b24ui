@@ -2,7 +2,7 @@
 	"name": "@bitrix24/b24ui-nuxt",
 	"description": "Bitrix24 UI-Kit for developing web applications REST API for NUXT & VUE",
 	"version": "0.1.0",
-	"packageManager": "pnpm@9.14.1",
+	"packageManager": "pnpm@9.14.2",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/bitrix24/b24ui.git"
@@ -54,8 +54,8 @@
 	"scripts": {
 			"__dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground && vite build playground-vue",
 		"dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
-			"build": "nuxt-module-build build",
-			"prepack": "pnpm build",
+		"build": "nuxt-module-build build",
+		"prepack": "pnpm build",
 		
 			"__dev": "DEV=true nuxi dev playground",
 		"dev": "set DEV=true && nuxi dev playground",
@@ -80,7 +80,7 @@
 	"dependencies": {
 		"@bitrix24/b24style": "latest",
 		"@bitrix24/b24icons-vue": "latest",
-		"@internationalized/number": "^3.5.4",
+		"@internationalized/number": "^3.6.0",
 		"@nuxt/kit": "^3.14.1592",
 		"@nuxt/schema": "^3.14.1592",
 		"@nuxtjs/color-mode": "^3.5.2",
@@ -88,16 +88,16 @@
 		"@tailwindcss/vite": "4.0.0-beta.2",
 		"@tanstack/vue-table": "^8.20.5",
 		"@unhead/vue": "^1.11.11",
-		"@vueuse/core": "^11.2.0",
-		"@vueuse/integrations": "^11.2.0",
+		"@vueuse/core": "^11.3.0",
+		"@vueuse/integrations": "^11.3.0",
 		"consola": "^3.2.3",
 		"defu": "^6.1.4",
-		"embla-carousel-auto-height": "^8.4.0",
-		"embla-carousel-auto-scroll": "^8.4.0",
-		"embla-carousel-autoplay": "^8.4.0",
-		"embla-carousel-class-names": "^8.4.0",
-		"embla-carousel-fade": "^8.4.0",
-		"embla-carousel-vue": "^8.4.0",
+		"embla-carousel-auto-height": "^8.5.1",
+		"embla-carousel-auto-scroll": "^8.5.1",
+		"embla-carousel-autoplay": "^8.5.1",
+		"embla-carousel-class-names": "^8.5.1",
+		"embla-carousel-fade": "^8.5.1",
+		"embla-carousel-vue": "^8.5.1",
 		"embla-carousel-wheel-gestures": "^8.0.1",
 		"fuse.js": "^7.0.0",
 		"knitwork": "^1.1.0",
@@ -122,7 +122,7 @@
 		"@nuxt/test-utils": "^3.14.4",
 		"@standard-schema/spec": "1.0.0-beta.3",
 		"@vue/test-utils": "^2.4.6",
-		"embla-carousel": "^8.4.0",
+		"embla-carousel": "^8.5.1",
 		"eslint": "^9.15.0",
 		"happy-dom": "^15.7.4",
 		"joi": "^17.13.3",
@@ -138,11 +138,12 @@
 		"zod": "^3.23.8"
 	},
 	"peerDependencies": {
-		"typescript": "5.6.3"
+		"typescript": "^5.6.3"
 	},
 	"resolutions": {
 		"@bitrix24/b24ui-nuxt": "workspace:*",
 		"happy-dom": "14.12.3",
-		"rollup": "^4.24.0"
+		"rollup": "^4.24.0",
+		"typescript": "5.6.3"
 	}
 }
