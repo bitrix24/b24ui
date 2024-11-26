@@ -31,9 +31,9 @@
         Link raw
       </B24Link>
 
-      <UB24Link to="/components/link">
+      <B24Link to="/components/link">
         Link active
-      </UB24Link>
+      </B24Link>
       <B24Link to="/components/link" class="font-medium" active-class="text-[var(--ui-text-highlighted)]">
         Link active with class
       </B24Link>
