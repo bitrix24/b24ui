@@ -1,3 +1,9 @@
+<script setup lang="ts">
+definePageMeta({
+  title: 'Links'
+})
+</script>
+
 <template>
   <div class="flex items-center gap-6">
     <div class="flex flex-col items-start gap-4 text-sm">
@@ -18,7 +24,7 @@
       <B24Link>
         Button inactive
       </B24Link>
-      <B24Link class="font-medium" inactive-class="hover:text-alert-link">
+      <B24Link class="font-medium" inactive-class="hover:not-disabled:not-aria-disabled:text-alert-link">
         Button inactive with class
       </B24Link>
       <B24Link disabled>
@@ -44,7 +50,7 @@
       <B24Link to="/components/button">
         Link inactive
       </B24Link>
-      <B24Link to="/components/button" class="font-medium" inactive-class="hover:text-alert-link">
+      <B24Link to="/components/button" class="font-medium" inactive-class="hover:not-disabled:not-aria-disabled:text-alert-link">
         Link inactive with class
       </B24Link>
       <B24Link to="/components/button" disabled>
