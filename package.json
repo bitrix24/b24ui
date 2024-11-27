@@ -1,142 +1,142 @@
 {
-	"name": "@bitrix24/b24ui-nuxt",
-	"description": "Bitrix24 UI-Kit for developing web applications REST API for NUXT & VUE",
-	"version": "0.1.0",
-	"packageManager": "pnpm@9.14.2",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/bitrix24/b24ui.git"
-	},
-	"homepage": "https://bitrix24.github.io/b24ui/",
-	"type": "module",
-	"license": "MIT",
-	"exports": {
-		".": {
-			"types": "./dist/module.d.ts",
-			"import": "./dist/module.mjs",
-			"require": "./dist/module.cjs",
-			"style": "./dist/runtime/index.css"
-		},
-		"./unplugin": {
-			"types": "./dist/unplugin.d.ts",
-			"import": "./dist/unplugin.mjs",
-			"require": "./dist/unplugin.cjs"
-		},
-		"./vite": {
-			"types": "./dist/vite.d.ts",
-			"import": "./dist/vite.mjs",
-			"require": "./dist/vite.cjs"
-		},
-		"./vue-plugin": {
-			"types": "./vue-plugin.d.ts"
-		},
-		"./runtime/*": "./dist/runtime/*",
-		"./locale": {
-			"types": "./dist/runtime/locale/index.d.ts",
-			"import": "./dist/runtime/locale/index.js"
-		}
-	},
-	"imports": {
-		"#build/b24ui/*": "./.nuxt/b24ui/*.ts"
-	},
-	"bin": {
-		"bitrix24-ui": "./cli/index.mjs"
-	},
-	"style": "./dist/runtime/index.css",
-	"main": "./dist/module.cjs",
-	"types": "./dist/types.d.ts",
-	"files": [
-		".nuxt/b24ui",
-		"dist",
-		"cli",
-		"vue-plugin.d.ts"
-	],
-	"scripts": {
-		"__dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground && vite build playground-vue",
-		"dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
-		"build": "nuxt-module-build build",
-		"prepack": "pnpm build",
-		"dev": "set DEV=true && nuxi dev playground",
-		"dev:vue": "set DEV=true && vite playground-vue",
-		"dev:build": "nuxi build playground",
-		"docs:dev": "vitepress dev docs",
-		"docs:build": "vitepress build docs",
-		"docs:preview": "vitepress preview docs",
-		"lint": "eslint .",
-		"lint:fix": "eslint . --fix",
-		"typecheck": "vue-tsc --noEmit && nuxi typecheck playground && cd playground-vue && vue-tsc --noEmit",
-		"test": "vitest",
-		"test:vue": "vitest -c vitest.vue.config.ts",
-		"test:vue:build": "vite build playground-vue",
-		"work:done": "pnpm lint && pnpm typecheck"
-	},
-	"dependencies": {
-		"@bitrix24/b24icons-vue": "latest",
-		"@bitrix24/b24style": "latest",
-		"@internationalized/number": "^3.6.0",
-		"@nuxt/kit": "^3.14.1592",
-		"@nuxt/schema": "^3.14.1592",
-		"@nuxtjs/color-mode": "^3.5.2",
-		"@tailwindcss/postcss": "4.0.0-beta.2",
-		"@tailwindcss/vite": "4.0.0-beta.2",
-		"@tanstack/vue-table": "^8.20.5",
-		"@unhead/vue": "^1.11.13",
-		"@vueuse/core": "^11.3.0",
-		"@vueuse/integrations": "^11.3.0",
-		"consola": "^3.2.3",
-		"defu": "^6.1.4",
-		"embla-carousel-auto-height": "^8.5.1",
-		"embla-carousel-auto-scroll": "^8.5.1",
-		"embla-carousel-autoplay": "^8.5.1",
-		"embla-carousel-class-names": "^8.5.1",
-		"embla-carousel-fade": "^8.5.1",
-		"embla-carousel-vue": "^8.5.1",
-		"embla-carousel-wheel-gestures": "^8.0.1",
-		"fuse.js": "^7.0.0",
-		"knitwork": "^1.1.0",
-		"magic-string": "^0.30.14",
-		"mlly": "^1.7.3",
-		"ohash": "^1.1.4",
-		"pathe": "^1.1.2",
-		"radix-vue": "^1.9.10",
-		"scule": "^1.3.0",
-		"tailwind-variants": "^0.3.0",
-		"tailwindcss": "4.0.0-beta.2",
-		"tinyglobby": "^0.2.10",
-		"unplugin": "^1.16.0",
-		"unplugin-auto-import": "^0.18.5",
-		"unplugin-vue-components": "^0.27.4",
-		"vaul-vue": "^0.2.0"
-	},
-	"devDependencies": {
-		"@nuxt/eslint-config": "^0.7.2",
-		"@nuxt/module-builder": "^0.8.4",
-		"@nuxt/test-utils": "^3.14.4",
-		"@standard-schema/spec": "1.0.0-beta.3",
-		"@vue/test-utils": "^2.4.6",
-		"embla-carousel": "^8.5.1",
-		"eslint": "^9.15.0",
-		"happy-dom": "14.12.3",
-		"joi": "^17.13.3",
-		"knitwork": "^1.1.0",
-		"nuxt": "^3.14.1592",
-		"nuxt-component-meta": "^0.9.0",
-		"superstruct": "^2.0.2",
-		"valibot": "^0.42.1",
-		"vitepress": "^1.5.0",
-		"vitest": "^2.1.5",
-		"vitest-environment-nuxt": "^1.0.1",
-		"vue-tsc": "^2.1.10",
-		"yup": "^1.4.0",
-		"zod": "^3.23.8"
-	},
-	"peerDependencies": {
-		"typescript": "^5.6.3"
-	},
-	"resolutions": {
-		"@bitrix24/b24ui-nuxt": "workspace:*",
-		"happy-dom": "14.12.3",
-		"rollup": "^4.24.0",
-		"typescript": "5.6.3"
-	}
+  "name": "@bitrix24/b24ui-nuxt",
+  "description": "Bitrix24 UI-Kit for developing web applications REST API for NUXT & VUE",
+  "version": "0.1.0",
+  "packageManager": "pnpm@9.14.2",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bitrix24/b24ui.git"
+  },
+  "homepage": "https://bitrix24.github.io/b24ui/",
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/module.d.ts",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs",
+      "style": "./dist/runtime/index.css"
+    },
+    "./unplugin": {
+      "types": "./dist/unplugin.d.ts",
+      "import": "./dist/unplugin.mjs",
+      "require": "./dist/unplugin.cjs"
+    },
+    "./vite": {
+      "types": "./dist/vite.d.ts",
+      "import": "./dist/vite.mjs",
+      "require": "./dist/vite.cjs"
+    },
+    "./vue-plugin": {
+      "types": "./vue-plugin.d.ts"
+    },
+    "./runtime/*": "./dist/runtime/*",
+    "./locale": {
+      "types": "./dist/runtime/locale/index.d.ts",
+      "import": "./dist/runtime/locale/index.js"
+    }
+  },
+  "imports": {
+    "#build/b24ui/*": "./.nuxt/b24ui/*.ts"
+  },
+  "bin": {
+    "bitrix24-ui": "./cli/index.mjs"
+  },
+  "style": "./dist/runtime/index.css",
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    ".nuxt/b24ui",
+    "dist",
+    "cli",
+    "vue-plugin.d.ts"
+  ],
+  "scripts": {
+    "__dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground && vite build playground-vue",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "build": "nuxt-module-build build",
+    "prepack": "pnpm build",
+    "dev": "set DEV=true && nuxi dev playground",
+    "dev:vue": "set DEV=true && vite playground-vue",
+    "dev:build": "nuxi build playground",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "vue-tsc --noEmit && nuxi typecheck playground && cd playground-vue && vue-tsc --noEmit",
+    "test": "vitest",
+    "test:vue": "vitest -c vitest.vue.config.ts",
+    "test:vue:build": "vite build playground-vue",
+    "work:done": "pnpm lint && pnpm typecheck"
+  },
+  "dependencies": {
+    "@bitrix24/b24icons-vue": "latest",
+    "@bitrix24/b24style": "latest",
+    "@internationalized/number": "^3.6.0",
+    "@nuxt/kit": "^3.14.1592",
+    "@nuxt/schema": "^3.14.1592",
+    "@nuxtjs/color-mode": "^3.5.2",
+    "@tailwindcss/postcss": "4.0.0-beta.2",
+    "@tailwindcss/vite": "4.0.0-beta.2",
+    "@tanstack/vue-table": "^8.20.5",
+    "@unhead/vue": "^1.11.13",
+    "@vueuse/core": "^11.3.0",
+    "@vueuse/integrations": "^11.3.0",
+    "consola": "^3.2.3",
+    "defu": "^6.1.4",
+    "embla-carousel-auto-height": "^8.5.1",
+    "embla-carousel-auto-scroll": "^8.5.1",
+    "embla-carousel-autoplay": "^8.5.1",
+    "embla-carousel-class-names": "^8.5.1",
+    "embla-carousel-fade": "^8.5.1",
+    "embla-carousel-vue": "^8.5.1",
+    "embla-carousel-wheel-gestures": "^8.0.1",
+    "fuse.js": "^7.0.0",
+    "knitwork": "^1.1.0",
+    "magic-string": "^0.30.14",
+    "mlly": "^1.7.3",
+    "ohash": "^1.1.4",
+    "pathe": "^1.1.2",
+    "radix-vue": "^1.9.10",
+    "scule": "^1.3.0",
+    "tailwind-variants": "^0.3.0",
+    "tailwindcss": "4.0.0-beta.2",
+    "tinyglobby": "^0.2.10",
+    "unplugin": "^1.16.0",
+    "unplugin-auto-import": "^0.18.5",
+    "unplugin-vue-components": "^0.27.4",
+    "vaul-vue": "^0.2.0"
+  },
+  "devDependencies": {
+    "@nuxt/eslint-config": "^0.7.2",
+    "@nuxt/module-builder": "^0.8.4",
+    "@nuxt/test-utils": "^3.14.4",
+    "@standard-schema/spec": "1.0.0-beta.3",
+    "@vue/test-utils": "^2.4.6",
+    "embla-carousel": "^8.5.1",
+    "eslint": "^9.15.0",
+    "happy-dom": "14.12.3",
+    "joi": "^17.13.3",
+    "knitwork": "^1.1.0",
+    "nuxt": "^3.14.1592",
+    "nuxt-component-meta": "^0.9.0",
+    "superstruct": "^2.0.2",
+    "valibot": "^0.42.1",
+    "vitepress": "^1.5.0",
+    "vitest": "^2.1.5",
+    "vitest-environment-nuxt": "^1.0.1",
+    "vue-tsc": "^2.1.10",
+    "yup": "^1.4.0",
+    "zod": "^3.23.8"
+  },
+  "peerDependencies": {
+    "typescript": "^5.6.3"
+  },
+  "resolutions": {
+    "@bitrix24/b24ui-nuxt": "workspace:*",
+    "happy-dom": "14.12.3",
+    "rollup": "^4.24.0",
+    "typescript": "5.6.3"
+  }
 }

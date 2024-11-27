@@ -169,7 +169,11 @@ function resolveLinkClass({ route, isActive, isExactActive }: any) {
 </script>
 
 <template>
-  <NuxtLink v-slot="{ href, navigate, route: linkRoute, rel, target, isExternal, isActive, isExactActive }" v-bind="nuxtLinkProps" custom>
+  <NuxtLink
+    v-slot="{ href, navigate, route: linkRoute, rel, target, isExternal, isActive, isExactActive }"
+    v-bind="nuxtLinkProps"
+    custom
+  >
     <template v-if="custom">
       <slot
         v-bind="{
