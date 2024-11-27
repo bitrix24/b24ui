@@ -66,6 +66,7 @@
     "lint:fix": "eslint . --fix",
     "typecheck": "vue-tsc --noEmit && nuxi typecheck playground && cd playground-vue && vue-tsc --noEmit",
     "test": "vitest",
+    "test:save": "vitest -u",
     "test:vue": "vitest -c vitest.vue.config.ts",
     "test:vue:build": "vite build playground-vue",
     "work:done": "pnpm lint && pnpm typecheck"
