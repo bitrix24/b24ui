@@ -177,7 +177,7 @@ const doc = ({ name, pro }) => {
 
   return {
     filename: `docs/components/${kebabName}.md`,
-    contents: `---
+    contents: replaceBrackets(`---
 title: ${upperName}
 description:
 links: ${pro
@@ -196,6 +196,8 @@ links: ${pro
 ## Usage
 
 ## Examples
+[Example path="/b24ui/examples/${upperName.toLowerCase()}/${upperName}Example.vue" /]
+<<< @/examples/${upperName.toLowerCase()}/${upperName}Example.vue
 
 ## API
 
@@ -210,11 +212,7 @@ links: ${pro
 ### Emits
 
 :component-emits
-
-## Theme
-
-:component-theme
-`
+`)
   }
 }
 
