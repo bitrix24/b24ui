@@ -3,6 +3,8 @@ import { defineConfig } from 'vitepress'
 import { configParams } from './params'
 import path from 'node:path'
 import pc from 'picocolors'
+import tailwindcss from '@tailwindcss/vite'
+import bitrix24UIPluginVite from '@bitrix24/b24ui-nuxt/vite'
 
 const customAlias: any = [
   {
@@ -66,7 +68,11 @@ export const shared = defineConfig({
     },
     resolve: {
       alias: customAlias
-    }
+    },
+    plugins: [
+      tailwindcss(),
+      bitrix24UIPluginVite()
+    ]
   },
   transformHtml: (html, id) => {
     const exceptionsByFile = {
