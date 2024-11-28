@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImports from 'unplugin-auto-import/vite'
 import VueComponents from 'unplugin-vue-components'
-import Bitrix24UIPluginVite from '../src/vite'
+import bitrix24UIPluginVite from '../src/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -13,7 +13,7 @@ export default defineConfig({
   },
   plugins: [
     vue(),
-    Bitrix24UIPluginVite({
+    bitrix24UIPluginVite({
       b24ui: {}
     }),
     // these are required as we share the component pages with the Nuxt playground
