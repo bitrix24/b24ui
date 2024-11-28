@@ -1,5 +1,9 @@
 import { splitByCase, upperFirst, camelCase, kebabCase } from 'scule'
 
+function replaceBrackets(value) {
+  return value.replace(/\[/g, '<').replace(/\]/g, '>')
+}
+
 const playground = ({ name, pro }) => {
   const upperName = splitByCase(name).map(p => upperFirst(p)).join('')
   const kebabName = kebabCase(name)
@@ -8,13 +12,13 @@ const playground = ({ name, pro }) => {
     filename: `playground/app/pages/components/${kebabName}.vue`,
     contents: pro
       ? undefined
-      : `
-<template>
-  <div>
-    <B24${upperName} />
-  </div>
-</template>
-`
+      : replaceBrackets(`
+[template]
+  [div]
+    [B24${upperName} /]
+  [/div]
+[/template]
+`)
   }
 }
 
@@ -32,8 +36,8 @@ const component = ({ name, primitive, pro, prose, content }) => {
   return {
     filename: `src/runtime/components/${prose ? 'prose/' : ''}${content ? 'content/' : ''}${upperName}.vue`,
     contents: primitive
-      ? `
-<script lang="ts">
+      ? replaceBrackets(`
+[script lang="ts"]
 import { tv } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
@@ -56,25 +60,25 @@ export interface ${upperName}Props {
 export interface ${upperName}Slots {
   default(props?: {}): any
 }
-</script>
+[/script]
 
-<script setup lang="ts">
+[script setup lang="ts"]
 import { Primitive } from 'radix-vue'
 
 const props = withDefaults(defineProps<${upperName}Props>(), { as: 'div' })
 defineSlots<${upperName}Slots>()
 
 const ui = ${camelName}()
-</script>
+[/script]
 
-<template>
-  <Primitive :as="as" :class="ui.root({ class: [props.class, props.ui?.root] })">
-    <slot />
-  </Primitive>
-</template>
-`
-      : `
-<script lang="ts">
+[template]
+  [Primitive :as="as" :class="ui.root({ class: [props.class, props.ui?.root] })"]
+    [slot /]
+  [/Primitive]
+[/template]
+`)
+      : replaceBrackets(`
+[script lang="ts"]
 import { tv, type VariantProps } from 'tailwind-variants'
 import type { ${upperName}RootProps, ${upperName}RootEmits } from 'radix-vue'
 import type { AppConfig } from '@nuxt/schema'
@@ -95,9 +99,9 @@ export interface ${upperName}Props extends Pick<${upperName}RootProps> {
 export interface ${upperName}Emits extends ${upperName}RootEmits {}
 
 export interface ${upperName}Slots {}
-</script>
+[/script]
 
-<script setup lang="ts">
+[script setup lang="ts"]
 import { ${upperName}Root, useForwardPropsEmits } from 'radix-vue'
 import { reactivePick } from '@vueuse/core'
 
@@ -108,12 +112,12 @@ const slots = defineSlots<${upperName}Slots>()
 const rootProps = useForwardPropsEmits(reactivePick(props), emits)
 
 const ui = ${camelName}()
-</script>
+[/script]
 
-<template>
-  <${upperName}Root v-bind="rootProps" :class="ui.root({ class: [props.class, props.ui?.root] })" />
-</template>
-`
+[template]
+  [${upperName}Root v-bind="rootProps" :class="ui.root({ class: [props.class, props.ui?.root] })" /]
+[/template]
+`)
   }
 }
 
@@ -174,6 +178,7 @@ const doc = ({ name, pro }) => {
   return {
     filename: `docs/components/${kebabName}.md`,
     contents: `---
+title: ${upperName}
 description:
 links: ${pro
   ? ''
@@ -185,6 +190,8 @@ links: ${pro
     icon: i-simple-icons-github
     to: https://github.com/bitrix24/b24ui/tree/v3/src/runtime/components/${upperName}.vue
 ---
+
+# ${upperName}
 
 ## Usage
 
