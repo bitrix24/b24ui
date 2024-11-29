@@ -1,12 +1,26 @@
 @import "tailwindcss" source("../../../docs");
-
 @import "@bitrix24/b24ui-nuxt";
 
+/**
+ * bxshef: Custom
+ * -------------------------------------------------------------------------- */
 
-.bg-grid-gray-50 {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='%23EEF2F4'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+:root
+{
 }
 
-.dark\:bg-grid-gray-700\/25:is(.dark *) {
+.dark
+{
+  --vp-c-bg: #0f172a;
+  --vp-c-bg-alt: #161618;
+  --vp-c-bg-elv: #202127;
+  --vp-c-bg-soft: #202127;
+}
+
+.bg-grid-example {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(130 139 149 / 0.25)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+}
+
+.dark\:bg-grid-example:is(.dark *) {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(130 139 149 / 0.25)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
 }
