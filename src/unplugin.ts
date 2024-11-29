@@ -5,12 +5,14 @@ import { createUnplugin } from 'unplugin'
 import AutoImport from 'unplugin-auto-import'
 import { defu } from 'defu'
 import tailwind from '@tailwindcss/vite'
+// @todo remove this
 // import type colors from 'tailwindcss/colors'
 
 import type * as b24ui from '#build/b24ui'
 
 import { defaultOptions, getDefaultUiConfig } from './defaults'
 import type { ModuleOptions } from './module'
+// @todo remove this
 // import type icons from './theme/icons'
 
 import TemplatePlugin from './plugins/templates'
@@ -21,6 +23,7 @@ import Bitrix24EnvironmentPlugin from './plugins/bitrix24-environment'
 
 import type { DeepPartial } from './runtime/types/utils'
 
+// @todo remove this
 // type NeutralColor = 'slate' | 'gray' | 'zinc' | 'neutral' | 'stone'
 // type Color = Exclude<keyof typeof colors, 'inherit' | 'current' | 'transparent' | 'black' | 'white' | NeutralColor> | (string & {})
 
