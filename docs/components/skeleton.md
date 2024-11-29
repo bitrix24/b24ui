@@ -6,12 +6,14 @@ links:
     icon: i-simple-icons-github
     to: https://github.com/bitrix24/b24ui/tree/v3/src/runtime/components/Skeleton.vue
 ---
-<script setup type="ts">
-import Example from '~/.vitepress/theme/components/ui/Example.vue';
-</script>
-
 # Skeleton
-A placeholder to show while content is loading.
+
+<Description
+  nuxt-ui="https://ui.nuxt.com/components/skeleton"
+  git="https://github.com/bitrix24/b24ui/tree/v3/src/runtime/components/Skeleton.vue"
+>
+  A placeholder to show while content is loading.
+</Description>
 
 ## Usage
 
