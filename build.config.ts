@@ -2,6 +2,8 @@ import { defineBuildConfig } from 'unbuild'
 
 export default defineBuildConfig({
   entries: [
+    // component-meta support
+    './src/meta',
     // Vue support
     './src/unplugin',
     './src/vite'

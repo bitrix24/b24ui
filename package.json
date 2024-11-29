@@ -22,6 +22,11 @@
       "import": "./dist/unplugin.mjs",
       "require": "./dist/unplugin.cjs"
     },
+    "./meta": {
+      "types": "./dist/meta.d.ts",
+      "import": "./dist/meta.mjs",
+      "require": "./dist/meta.cjs"
+    },
     "./vite": {
       "types": "./dist/vite.d.ts",
       "import": "./dist/vite.mjs",
@@ -52,7 +57,13 @@
     "vue-plugin.d.ts"
   ],
   "scripts": {
-    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground && vite build playground-vue",
+    "prepare": "npm-run-all -s prepare:*",
+    "prepare:build_stub": "nuxt-module-build build --stub",
+    "prepare:build_prepare": "nuxt-module-build prepare",
+    "prepare:playground": "nuxi prepare playground",
+    "prepare:playground-vue": "vite build playground-vue",
+    "prepare:playground_components-meta": "nuxt-component-meta playground --outputDir ../src/.component-meta/",
+
     "build": "nuxt-module-build build",
     "prepack": "pnpm build",
     "dev": "set DEV=true && nuxi dev playground",
