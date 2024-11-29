@@ -1,30 +1,28 @@
 <script setup lang="ts">
-import { defineProps, onMounted, ref, defineAsyncComponent } from 'vue'
+import { defineAsyncComponent } from 'vue'
+import ExampleLoadingComponent from './ExampleLoadingComponent.vue'
 
 const $props = defineProps<{
-  path: string
+  group: string
+  file: string
 }>()
 
-const asyncComponent = ref(null)
-const loadComponent = async (url: string) => {
-  asyncComponent.value = defineAsyncComponent(() => import(/* @vite-ignore */ `${url}`))
-}
-
-onMounted(async () => {
-  if ($props.path) {
-    await loadComponent($props.path)
-  }
+const asyncComponent = defineAsyncComponent({
+  loader: () => import(/* @vite-ignore */'./../../../../examples/' + $props.group + '/' + $props.file + '.vue'),
+  loadingComponent: ExampleLoadingComponent
 })
 </script>
 
 <template>
-  <div class="relative rounded-lg overflow-hidden bg-gray-20 dark:bg-gray-800/25">
+  <div class="relative rounded-lg overflow-hidden bg-tertiary dark:bg-tertiary/25">
     <div
       style="background-position: 10px 10px"
       class="
         absolute inset-0
-        bg-grid-gray-50 [mask-image:linear-gradient(0deg,#fff,rgba(255,255,255,0.6))]
-        dark:bg-grid-gray-700/25 dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]
+        bg-grid-example
+        dark:bg-grid-example
+        [mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]
+        dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]
       "
     />
     <div
