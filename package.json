@@ -2,7 +2,7 @@
   "name": "@bitrix24/b24ui-nuxt",
   "description": "Bitrix24 UI-Kit for developing web applications REST API for NUXT & VUE",
   "version": "0.1.0",
-  "packageManager": "pnpm@9.14.2",
+  "packageManager": "pnpm@9.14.3",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bitrix24/b24ui.git"
@@ -66,19 +66,24 @@
 
     "build": "nuxt-module-build build",
     "prepack": "pnpm build",
+
     "dev": "set DEV=true && nuxi dev playground",
     "dev:vue": "set DEV=true && vite playground-vue",
     "dev:build": "nuxi build playground",
+
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
+
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "vue-tsc --noEmit && nuxi typecheck playground && cd playground-vue && vue-tsc --noEmit",
+
     "test": "vitest",
     "test:save": "vitest -u",
     "test:vue": "vitest -c vitest.vue.config.ts",
     "test:vue:build": "vite build playground-vue",
+
     "work:done": "pnpm lint && pnpm typecheck"
   },
   "dependencies": {
@@ -120,6 +125,7 @@
     "vaul-vue": "^0.2.0"
   },
   "devDependencies": {
+    "npm-run-all": "^4.1.5",
     "@nuxt/eslint-config": "^0.7.2",
     "@nuxt/module-builder": "^0.8.4",
     "@nuxt/test-utils": "^3.14.4",
