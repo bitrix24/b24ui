@@ -175,43 +175,45 @@ const doc = ({ name, pro }) => {
   const kebabName = kebabCase(name)
   const upperName = splitByCase(name).map(p => upperFirst(p)).join('')
 
+  if (pro) {
+    // @memo for pro
+  }
+
   return {
     filename: `docs/components/${kebabName}.md`,
     contents: replaceBrackets(`---
 title: ${upperName}
 description:
-links: ${pro
-  ? ''
-  : `
-  - label: ${upperName}
-    icon: i-custom-radix-vue
-    to: https://www.radix-vue.com/components/${kebabName}.html`}
-  - label: GitHub
-    icon: i-simple-icons-github
-    to: https://github.com/bitrix24/b24ui/tree/v3/src/runtime/components/${upperName}.vue
 ---
 
 # ${upperName}
 
+[Description
+  nuxt-ui="https://ui.nuxt.com/components/${kebabName}"
+  radix-vue="https://www.radix-vue.com/components/${kebabName}.html"
+  git="https://github.com/bitrix24/b24ui/tree/v3/src/runtime/components/${upperName}.vue"
+]
+  A placeholder to show while content is loading.
+[/Description]
+
 ## Usage
 
-## Examples
-[Example path="/b24ui/examples/${upperName.toLowerCase()}/${upperName}Example.vue" /]
+[ComponentExample group="${upperName.toLowerCase()}" file="${upperName}Example" /]
 <<< @/examples/${upperName.toLowerCase()}/${upperName}Example.vue
 
 ## API
 
 ### Props
 
-:component-props
+[ComponentProps component="${upperName}" /]
 
 ### Slots
 
-:component-slots
+[ComponentSlots component="${upperName}" /]
 
 ### Emits
 
-:component-emits
+[ComponentEmits component="${upperName}" /]
 `)
   }
 }
