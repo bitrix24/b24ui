@@ -2,6 +2,9 @@
 title: Skeleton
 description: A placeholder to show while content is loading.
 ---
+<script setup>
+import SkeletonExample from '/examples/skeleton/SkeletonExample.vue';
+</script>
 # Skeleton
 
 <Description
@@ -13,7 +16,12 @@ description: A placeholder to show while content is loading.
 
 ## Usage
 
-<ComponentExample group="skeleton" file="SkeletonExample" />
+<ComponentShowExample>
+  <iframe data-why class="w-full min-h-[80px]">
+    <SkeletonExample />
+  </iframe>
+</ComponentShowExample>
+
 <<< @/examples/skeleton/SkeletonExample.vue
 
 ## API

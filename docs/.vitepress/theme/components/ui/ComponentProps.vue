@@ -29,13 +29,6 @@ const $props = withDefaults(defineProps<{
   ]
 })
 
-// @todo remove this
-console.log([
-  'B24UIMeta',
-  $props.component,
-  B24UIMeta
-])
-
 const camelName = camelCase($props.component)
 const name = `B24${upperFirst(camelName)}`
 const meta = B24UIMeta[name] || {}

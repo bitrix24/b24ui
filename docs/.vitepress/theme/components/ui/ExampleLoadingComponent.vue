@@ -4,6 +4,6 @@ import BtnClockIcon from '@bitrix24/b24icons-vue/button-specialized/BtnClockIcon
 
 <template>
   <div class="scale-[4]">
-    <BtnClockIcon class="text-subtle" />
+    <BtnClockIcon class="text-gray-150" />
   </div>
 </template>

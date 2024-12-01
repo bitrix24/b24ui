@@ -1,5 +1,7 @@
 import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vitepress'
+import { whyframe } from '@whyframe/core'
+import { whyframeVue } from '@whyframe/vue'
 import { configParams } from './params'
 import path from 'node:path'
 import pc from 'picocolors'
@@ -71,7 +73,21 @@ export const shared = defineConfig({
     },
     plugins: [
       tailwindcss(),
-      bitrix24UIPluginVite()
+      bitrix24UIPluginVite(),
+      whyframe({
+        defaultSrc: `${configParams.baseFolder}frames/default.html`,
+        /**
+         * @memo fix base url for dev mode.
+         * @memo At prod this work
+         * @link https://github.com/bluwy/whyframe/issues/34
+         */
+        // value: `${options.shBase || '/'}@id/__${entryId}` ////
+        // @ts-ignore ////
+        shBase: configParams.baseFolder
+      }),
+      whyframeVue({
+        include: /\.(?:vue|md)$/
+      })
     ]
   },
   transformHtml: (html, id) => {
