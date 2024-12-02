@@ -30,7 +30,7 @@ function nav(): DefaultTheme.NavItem[] {
   return [
     { text: 'Quickstart', link: '/guide/getting-started' },
     { text: 'Reference', link: '/reference/index' },
-    { text: 'Components', link: '/components/skeleton' },
+    { text: 'Components', link: '/components/link' },
     {
       text: configParams.version,
       items: [
@@ -75,6 +75,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       text: 'Components',
       collapsed: false,
       items: [
+        { text: 'Link', link: 'link' },
         { text: 'Skeleton', link: 'skeleton' }
       ]
     }

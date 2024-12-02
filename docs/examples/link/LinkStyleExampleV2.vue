@@ -1,0 +1,10 @@
+<template>
+  <B24Link
+    raw
+    to="/components/link"
+    active-class="font-bold"
+    inactive-class="text-red-500"
+  >
+    Link
+  </B24Link>
+</template>
