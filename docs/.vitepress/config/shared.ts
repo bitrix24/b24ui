@@ -43,7 +43,12 @@ export const shared = defineConfig({
     // ['meta', { property: 'og:image', content: `${configParams.domain}${configParams.baseFolder}bitrix24_b24uijpg` }],
     ['meta', { property: 'og:url', content: `${configParams.domain}${configParams.baseFolder}` }]
   ],
-
+  /**
+   * @todo off this
+   */
+  ignoreDeadLinks: [
+    /\/components\//
+  ],
   themeConfig: {
     siteTitle: false,
     logo: { src: '/b24-logo.svg' },

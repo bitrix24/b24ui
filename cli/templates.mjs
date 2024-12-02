@@ -183,7 +183,8 @@ const doc = ({ name, pro }) => {
     filename: `docs/components/${kebabName}.md`,
     contents: replaceBrackets(`---
 title: ${upperName}
-description:
+description: @todo change me
+outline: deep
 ---
 [script setup]
 import ${upperName}Example from '/examples/${upperName.toLowerCase()}/${upperName}Example.vue';
@@ -194,9 +195,9 @@ import ${upperName}Example from '/examples/${upperName.toLowerCase()}/${upperNam
   nuxt-ui="https://ui.nuxt.com/components/${kebabName}"
   radix-vue="https://www.radix-vue.com/components/${kebabName}"
   radix-vue-title="${kebabName}"
-  git="https://github.com/bitrix24/b24ui/tree/v3/src/runtime/components/${upperName}.vue"
+  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/${upperName}.vue"
 ]
-  ....
+  @todo change me
 [/Description]
 
 ## Usage
