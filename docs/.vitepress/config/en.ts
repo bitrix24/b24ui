@@ -10,7 +10,8 @@ export const en = defineConfig({
 
     sidebar: {
       '/guide/': { base: '/guide/', items: sidebarGuide() },
-      '/reference/': { base: '/reference/', items: sidebarReference() }
+      '/reference/': { base: '/reference/', items: sidebarReference() },
+      '/components/': { base: '/components/', items: sidebarComponents() }
     },
 
     editLink: {
@@ -29,6 +30,7 @@ function nav(): DefaultTheme.NavItem[] {
   return [
     { text: 'Quickstart', link: '/guide/getting-started' },
     { text: 'Reference', link: '/reference/index' },
+    { text: 'Components', link: '/components/skeleton' },
     {
       text: configParams.version,
       items: [
@@ -62,6 +64,18 @@ function sidebarReference(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: 'Reference', link: 'index' }
+      ]
+    }
+  ]
+}
+
+function sidebarComponents(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'Components',
+      collapsed: false,
+      items: [
+        { text: 'Skeleton', link: 'skeleton' }
       ]
     }
   ]
