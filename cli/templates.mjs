@@ -190,7 +190,8 @@ description:
 
 [Description
   nuxt-ui="https://ui.nuxt.com/components/${kebabName}"
-  radix-vue="https://www.radix-vue.com/components/${kebabName}.html"
+  radix-vue="https://www.radix-vue.com/components/${kebabName}"
+  radix-vue-title="${kebabName}"
   git="https://github.com/bitrix24/b24ui/tree/v3/src/runtime/components/${upperName}.vue"
 ]
   A placeholder to show while content is loading.
