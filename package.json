@@ -57,7 +57,7 @@
     "vue-plugin.d.ts"
   ],
   "scripts": {
-    "prepare": "npm-run-all -s prepare:*",
+    "dev:prepare": "npm-run-all -s prepare:*",
     "prepare:build_stub": "nuxt-module-build build --stub",
     "prepare:build_prepare": "nuxt-module-build prepare",
     "prepare:playground": "nuxi prepare playground",
