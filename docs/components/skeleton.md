@@ -17,9 +17,7 @@ import SkeletonExample from '/examples/skeleton/SkeletonExample.vue';
 ## Usage
 
 <ComponentShowExample>
-  <iframe data-why class="min-h-[80px]" allowtransparency="true">
     <SkeletonExample />
-  </iframe>
 </ComponentShowExample>
 
 <<< @/examples/skeleton/SkeletonExample.vue
