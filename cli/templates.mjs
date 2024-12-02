@@ -185,7 +185,9 @@ const doc = ({ name, pro }) => {
 title: ${upperName}
 description:
 ---
-
+[script setup]
+import ${upperName}Example from '/examples/${upperName.toLowerCase()}/${upperName}Example.vue';
+[/script]
 # ${upperName}
 
 [Description
@@ -194,12 +196,17 @@ description:
   radix-vue-title="${kebabName}"
   git="https://github.com/bitrix24/b24ui/tree/v3/src/runtime/components/${upperName}.vue"
 ]
-  A placeholder to show while content is loading.
+  ....
 [/Description]
 
 ## Usage
 
-[ComponentExample group="${upperName.toLowerCase()}" file="${upperName}Example" /]
+[ComponentShowExample ]
+  [iframe data-why class="min-h-[80px]" allowtransparency="true"]
+    [${upperName}Example /]
+  [/iframe]
+[/ComponentShowExample]
+
 <<< @/examples/${upperName.toLowerCase()}/${upperName}Example.vue
 
 ## API

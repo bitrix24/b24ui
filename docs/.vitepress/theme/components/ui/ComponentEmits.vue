@@ -16,7 +16,7 @@ const meta = B24UIMeta[name] || {}
     <ProseThead>
       <ProseTr>
         <ProseTh>
-          Slot
+          Event
         </ProseTh>
         <ProseTh>
           Type
@@ -25,20 +25,16 @@ const meta = B24UIMeta[name] || {}
     </ProseThead>
     <tbody>
       <ProseTr
-        v-for="slot in (meta?.meta?.slots || [])"
-        :key="slot.name"
+        v-for="event in (meta?.meta?.events || [])"
+        :key="event.name"
       >
         <ProseTd translate="no">
-          <ProseCode>{{ slot.name }}</ProseCode>
+          <ProseCode>{{ event.name }}</ProseCode>
         </ProseTd>
         <ProseTd translate="no">
-          <ProseCode v-if="slot.type">
-            {{ slot.type }}
+          <ProseCode v-if="event.type">
+            {{ event.type }}
           </ProseCode>
-
-          <ProseData v-if="slot.description">
-            {{ slot.description }}
-          </ProseData>
         </ProseTd>
       </ProseTr>
     </tbody>

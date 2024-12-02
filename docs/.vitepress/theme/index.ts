@@ -9,10 +9,12 @@ import ProseTh from '~/.vitepress/theme/components/prose/ProseTh.vue'
 import ProseTbody from '~/.vitepress/theme/components/prose/ProseTbody.vue'
 import ProseTd from '~/.vitepress/theme/components/prose/ProseTd.vue'
 import ProseCode from '~/.vitepress/theme/components/prose/ProseCode.vue'
+import ProseData from '~/.vitepress/theme/components/prose/ProseData.vue'
 import DynamicLayout from '~/.vitepress/theme/components/ui/DynamicLayout.vue'
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
 import ComponentProps from '~/.vitepress/theme/components/ui/ComponentProps.vue'
 import ComponentSlots from '~/.vitepress/theme/components/ui/ComponentSlots.vue'
+import ComponentEmits from '~/.vitepress/theme/components/ui/ComponentEmits.vue'
 import Description from '~/.vitepress/theme/components/ui/Description.vue'
 
 export default {
@@ -23,6 +25,7 @@ export default {
       .component('ComponentShowExample', ComponentShowExample)
       .component('ComponentProps', ComponentProps)
       .component('ComponentSlots', ComponentSlots)
+      .component('ComponentEmits', ComponentEmits)
       .component('ProseTable', ProseTable)
       .component('ProseThead', ProseThead)
       .component('ProseTr', ProseTr)
@@ -30,5 +33,6 @@ export default {
       .component('ProseTbody', ProseTbody)
       .component('ProseTd', ProseTd)
       .component('ProseCode', ProseCode)
+      .component('ProseData', ProseData)
   }
 } satisfies Theme

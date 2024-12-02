@@ -103,18 +103,18 @@ const metaProps: ComputedRef<ComponentMeta['props']> = computed(() => {
           </ProseCode>
         </ProseTd>
         <ProseTd translate="no">
-          <div v-if="prop.default">
+          <ProseCode v-if="prop.default">
             {{ prop.default }}
-          </div>
+          </ProseCode>
         </ProseTd>
         <ProseTd translate="no">
-          <div v-if="prop.type">
+          <ProseCode v-if="prop.type">
             {{ prop.type }}
-          </div>
+          </ProseCode>
 
-          <div v-if="prop.description">
+          <ProseData v-if="prop.description">
             {{ prop.description }}
-          </div>
+          </ProseData>
         </ProseTd>
       </ProseTr>
     </ProseTbody>
