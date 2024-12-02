@@ -17,37 +17,35 @@ const meta = B24UIMeta[name] || {}
 </script>
 
 <template>
-  <div class="info-wrapper">
-    <table class="info">
-      <thead>
-        <tr>
-          <th class="value-info-1">
-            Slot
-          </th>
-          <th class="value-info-3">
-            Type
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="slot in (meta?.meta?.slots || [])"
-          :key="slot.name"
-        >
-          <td translate="no" class="variable">
-            {{ slot.name }}
-          </td>
-          <td translate="no" class="value">
-            <div v-if="slot.type">
-              {{ slot.type }}
-            </div>
+  <ProseTable>
+    <ProseThead>
+      <ProseTr>
+        <ProseTh>
+          Slot
+        </ProseTh>
+        <ProseTh>
+          Type
+        </ProseTh>
+      </ProseTr>
+    </ProseThead>
+    <tbody>
+      <ProseTr
+        v-for="slot in (meta?.meta?.slots || [])"
+        :key="slot.name"
+      >
+        <ProseTd translate="no">
+          <ProseCode>{{ slot.name }}</ProseCode>
+        </ProseTd>
+        <ProseTd translate="no">
+          <div v-if="slot.type">
+            {{ slot.type }}
+          </div>
 
-            <div v-if="slot.description" class="text-red-500 mt-1">
-              {{ slot.description }}
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+          <div v-if="slot.description">
+            {{ slot.description }}
+          </div>
+        </ProseTd>
+      </ProseTr>
+    </tbody>
+  </ProseTable>
 </template>

@@ -78,45 +78,45 @@ const metaProps: ComputedRef<ComponentMeta['props']> = computed(() => {
 </script>
 
 <template>
-  <div class="info-wrapper">
-    <table class="info">
-      <thead>
-        <tr>
-          <th class="value-info-1">
-            Prop
-          </th>
-          <th class="value-info-2">
-            Default
-          </th>
-          <th class="value-info-3">
-            Type
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="prop in metaProps"
-          :key="prop.name"
-        >
-          <td translate="no" class="variable">
+  <ProseTable>
+    <ProseThead>
+      <ProseTr>
+        <ProseTh class="value-info-1">
+          Prop
+        </ProseTh>
+        <ProseTh class="value-info-2">
+          Default
+        </ProseTh>
+        <ProseTh class="value-info-3">
+          Type
+        </ProseTh>
+      </ProseTr>
+    </ProseThead>
+    <ProseTbody>
+      <ProseTr
+        v-for="prop in metaProps"
+        :key="prop.name"
+      >
+        <ProseTd translate="no">
+          <ProseCode>
             {{ prop.name }}
-          </td>
-          <td translate="no" class="value">
-            <div v-if="prop.default">
-              {{ prop.default }}
-            </div>
-          </td>
-          <td translate="no" class="value">
-            <div v-if="prop.type">
-              {{ prop.type }}
-            </div>
+          </ProseCode>
+        </ProseTd>
+        <ProseTd translate="no">
+          <div v-if="prop.default">
+            {{ prop.default }}
+          </div>
+        </ProseTd>
+        <ProseTd translate="no">
+          <div v-if="prop.type">
+            {{ prop.type }}
+          </div>
 
-            <div v-if="prop.description" class="text-red-500 mt-1">
-              {{ prop.description }}
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+          <div v-if="prop.description">
+            {{ prop.description }}
+          </div>
+        </ProseTd>
+      </ProseTr>
+    </ProseTbody>
+  </ProseTable>
 </template>
