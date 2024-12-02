@@ -15,6 +15,12 @@ const customAlias: any = [
   }
 ]
 
+/**
+ * @memo fix base url for dev mode.
+ * @memo At prod this work
+ * @todo fix this
+ * @link https://github.com/bluwy/whyframe/issues/34
+ */
 export const shared = defineConfig({
   title: '@bitrix24/b24ui',
 
@@ -75,15 +81,7 @@ export const shared = defineConfig({
       tailwindcss(),
       bitrix24UIPluginVite(),
       whyframe({
-        defaultSrc: `${configParams.baseFolder}frames/default.html`,
-        /**
-         * @memo fix base url for dev mode.
-         * @memo At prod this work
-         * @link https://github.com/bluwy/whyframe/issues/34
-         */
-        // value: `${options.shBase || '/'}@id/__${entryId}` ////
-        // @ts-ignore ////
-        shBase: configParams.baseFolder
+        defaultSrc: `${configParams.baseFolder}frames/default.html`
       }),
       whyframeVue({
         include: /\.(?:vue|md)$/
@@ -91,8 +89,7 @@ export const shared = defineConfig({
     ]
   },
   transformHtml: (html, id) => {
-    const exceptionsByFile = {
-    }
+    const exceptionsByFile: Record<string, string[]> = {}
 
     // eslint-disable-next-line regexp/no-obscure-range
     const cyrillicMatches = html.match(/[а-яА-ЯЁё]+/g)
@@ -105,7 +102,7 @@ export const shared = defineConfig({
         .replace('dist/', '')
 
       const exceptions = exceptionsByFile[relativePath] || []
-      const filteredMatches = [...new Set(cyrillicMatches.filter(word => !exceptions.includes(word)))]
+      const filteredMatches = [...new Set(cyrillicMatches.filter((word: string) => !exceptions.includes(word)))]
 
       if (filteredMatches.length > 0) {
         console.warn()
