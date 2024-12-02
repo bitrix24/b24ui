@@ -110,7 +110,7 @@ const props = withDefaults(defineProps<LinkProps>(), {
 defineSlots<LinkSlots>()
 
 const route = useRoute()
-const routerLinkProps = useForwardProps(reactiveOmit(props, 'as', 'type', 'disabled', 'active', 'exact', 'exactQuery', 'exactHash', 'activeClass', 'inactiveClass', 'to'))
+const routerLinkProps = useForwardProps(reactiveOmit(props, 'as', 'type', 'disabled', 'active', 'exact', 'exactQuery', 'exactHash', 'activeClass', 'inactiveClass', 'to', 'raw', 'class'))
 
 const ui = computed(() => tv({
   extend: link,
@@ -177,7 +177,7 @@ function resolveLinkClass({ route, isActive, isExactActive }: any) {
         }"
       />
     </template>
-    <ULinkBase
+    <B24LinkBase
       v-else
       v-bind="{
         ...$attrs,
@@ -190,6 +190,6 @@ function resolveLinkClass({ route, isActive, isExactActive }: any) {
       :class="resolveLinkClass({ route: linkRoute, isActive: isActive, isExactActive: isExactActive })"
     >
       <slot :active="isLinkActive({ route: linkRoute, isActive, isExactActive })" />
-    </ULinkBase>
+    </B24LinkBase>
   </RouterLink>
 </template>
