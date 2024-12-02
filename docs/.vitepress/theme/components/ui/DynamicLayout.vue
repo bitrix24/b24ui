@@ -6,10 +6,6 @@ import FrameDefaultLayout from './FrameDefaultLayout.vue'
 const route = useRoute()
 
 const baseFolder = import.meta.env.BASE_URL
-
-if (route.path.startsWith(`${baseFolder}frames/default`)) {
-  import('./../../tailwind.post.css')
-}
 </script>
 
 <template>

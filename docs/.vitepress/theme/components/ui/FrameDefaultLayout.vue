@@ -11,6 +11,14 @@ onMounted(() => {
 
 <template>
   <div ref="app" class="w-full h-screen bg-transparent flex flex-col flex-nowrap items-center justify-center">
-    <div class="text-gray-500">Loading ...</div>
+    <div class="text-gray-500">
+      Loading ...
+    </div>
   </div>
 </template>
+
+<style>
+body {
+  background-color: transparent;
+}
+</style>

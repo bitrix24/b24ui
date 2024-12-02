@@ -1,6 +1,6 @@
 <template>
   <thead
-    class="bg-[var(--ui-bg-muted)]"
+    class="bg-base-500"
   >
     <slot />
   </thead>
