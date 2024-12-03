@@ -7,6 +7,7 @@ import bitrix24UIPluginVite from '../src/vite'
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
+    port: 5174,
     fs: {
       allow: ['..']
     }
