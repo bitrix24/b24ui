@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { splitByCase, upperFirst } from 'scule'
 import usePageMeta from '../../playground/app/composables/usePageMeta'
 import { useRouter, useRoute } from 'vue-router'
 import { reactive, ref } from 'vue'
@@ -29,10 +28,6 @@ function onSelect(item: any) {
 defineShortcuts({
   meta_k: () => isCommandPaletteOpen.value = true
 })
-
-function upperName(name: string) {
-  return splitByCase(name).map(p => upperFirst(p)).join('')
-}
 </script>
 
 <template>
