@@ -33,6 +33,9 @@ const menuList: IMenuItem[] = [
 ]
 
 const components = [
+  { id: 'button', descr: 'A button element that can act as a link or trigger an action.' },
+  { id: 'button-group', descr: 'Group multiple button-like elements together.' },
+  { id: 'input', descr: 'An input element to enter text.' },
   { id: 'link', descr: 'A wrapper around NuxtLink with extra props.' },
   { id: 'skeleton', descr: 'A placeholder to show while content is loading.' }
 ]
