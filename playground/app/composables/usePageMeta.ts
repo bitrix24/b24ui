@@ -33,6 +33,7 @@ const menuList: IMenuItem[] = [
 ]
 
 const components = [
+  { id: 'avatar', descr: 'An img element with fallback and Nuxt Image support.' },
   { id: 'button', descr: 'A button element that can act as a link or trigger an action.' },
   { id: 'button-group', descr: 'Group multiple button-like elements together.' },
   { id: 'input', descr: 'An input element to enter text.' },

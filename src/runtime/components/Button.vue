@@ -49,9 +49,9 @@ import { useButtonGroup } from '../composables/useButtonGroup'
 import { formLoadingInjectionKey } from '../composables/useFormField'
 import { omit } from '../utils'
 import { pickLinkProps } from '../utils/link'
-import UIcon from './Icon.vue'
-import UAvatar from './Avatar.vue'
-import ULink from './Link.vue'
+import B24Icon from './Icon.vue'
+import B24Avatar from './Avatar.vue'
+import B24Link from './Link.vue'
 
 const props = defineProps<ButtonProps>()
 const slots = defineSlots<ButtonSlots>()
