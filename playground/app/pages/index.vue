@@ -1,7 +1,7 @@
 <script setup lang="ts">
-definePageMeta({
-  title: 'Playground'
-})
+import usePageMeta from './../composables/usePageMeta'
+
+usePageMeta.setPageTitle('Playground')
 </script>
 
 <template>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-definePageMeta({
-  title: 'Links'
-})
+import usePageMeta from './../../composables/usePageMeta'
+
+usePageMeta.setPageTitle('Links')
 </script>
 
 <template>
