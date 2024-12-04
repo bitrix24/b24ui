@@ -1,18 +1,35 @@
+import ArrowToTheLeftIcon from '@bitrix24/b24icons-vue/actions/ArrowToTheLeftIcon'
+import ArrowToTheRightIcon from '@bitrix24/b24icons-vue/actions/ArrowToTheRightIcon'
+import CheckIcon from '@bitrix24/b24icons-vue/main/CheckIcon'
+import ChevronUpIcon from '@bitrix24/b24icons-vue/actions/ChevronUpIcon'
+import ChevronDownIcon from '@bitrix24/b24icons-vue/actions/ChevronDownIcon'
+import ChevronToTheLeftIcon from '@bitrix24/b24icons-vue/actions/ChevronToTheLeftIcon'
+import ChevronToTheRightIcon from '@bitrix24/b24icons-vue/actions/ChevronToTheRightIcon'
+import DoubleShevronsRightIcon from '@bitrix24/b24icons-vue/actions/DoubleShevronsRightIcon'
+import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
+import DotsIcon from '@bitrix24/b24icons-vue/button/DotsIcon'
+import OpenIn50Icon from '@bitrix24/b24icons-vue/actions/OpenIn50Icon'
+import Refresh5Icon from '@bitrix24/b24icons-vue/actions/Refresh5Icon'
+import Minus30Icon from '@bitrix24/b24icons-vue/actions/Minus30Icon'
+import Plus30Icon from '@bitrix24/b24icons-vue/actions/Plus30Icon'
+import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
+
 export default {
-  arrowLeft: 'i-lucide-arrow-left',
-  arrowRight: 'i-lucide-arrow-right',
-  check: 'i-lucide-check',
-  chevronDoubleLeft: 'i-lucide-chevrons-left',
-  chevronDoubleRight: 'i-lucide-chevrons-right',
-  chevronDown: 'i-lucide-chevron-down',
-  chevronLeft: 'i-lucide-chevron-left',
-  chevronRight: 'i-lucide-chevron-right',
-  chevronUp: 'i-lucide-chevron-up',
-  close: 'i-lucide-x',
-  ellipsis: 'i-lucide-ellipsis',
-  external: 'i-lucide-arrow-up-right',
-  loading: 'i-lucide-refresh-ccw',
-  minus: 'i-lucide-minus',
-  plus: 'i-lucide-plus',
-  search: 'i-lucide-search'
+  arrowLeft: ArrowToTheLeftIcon,
+  arrowRight: ArrowToTheRightIcon,
+  check: CheckIcon,
+  // @todo make normal component ////
+  chevronDoubleLeft: ChevronToTheLeftIcon,
+  chevronDoubleRight: DoubleShevronsRightIcon,
+  chevronDown: ChevronDownIcon,
+  chevronLeft: ChevronToTheLeftIcon,
+  chevronRight: ChevronToTheRightIcon,
+  chevronUp: ChevronUpIcon,
+  close: Cross30Icon,
+  ellipsis: DotsIcon,
+  external: OpenIn50Icon,
+  loading: Refresh5Icon,
+  minus: Minus30Icon,
+  plus: Plus30Icon,
+  search: Search2Icon
 }
