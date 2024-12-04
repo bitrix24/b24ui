@@ -3,7 +3,8 @@ import { upperFirst } from 'scule'
 import theme from '#build/b24ui/input'
 
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
-const variants = Object.keys(theme.variants.variant) as Array<keyof typeof theme.variants.variant>
+const variants = []
+// const variants = Object.keys(theme.variants.variant) as Array<keyof typeof theme.variants.variant>
 </script>
 
 <template>

@@ -3,7 +3,9 @@ import { upperFirst } from 'scule'
 import theme from '#build/b24ui/button'
 
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
-const variants = Object.keys(theme.variants.variant) as Array<keyof typeof theme.variants.variant>
+
+const variants = []
+// const variants = Object.keys(theme.variants.variant) as Array<keyof typeof theme.variants.variant>
 
 function onClick() {
   return new Promise<void>(res => setTimeout(res, 5000))
