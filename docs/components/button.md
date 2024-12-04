@@ -9,9 +9,6 @@ import ButtonExample from '/examples/button/ButtonExample.vue';
 # Button
 
 <Description
-  nuxt-ui="https://ui.nuxt.com/components/button"
-  radix-vue="https://www.radix-vue.com/components/button"
-  radix-vue-title="button"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Button.vue"
 >
   @todo change me

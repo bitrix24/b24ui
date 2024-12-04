@@ -9,9 +9,6 @@ import ButtonGroupExample from '/examples/buttongroup/ButtonGroupExample.vue';
 # ButtonGroup
 
 <Description
-  nuxt-ui="https://ui.nuxt.com/components/button-group"
-  radix-vue="https://www.radix-vue.com/components/button-group"
-  radix-vue-title="button-group"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/ButtonGroup.vue"
 >
   @todo change me
