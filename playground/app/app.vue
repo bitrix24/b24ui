@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useColorMode } from '#imports'
 import usePageMeta from './composables/usePageMeta'
+import Clock2Icon from '@bitrix24/b24icons-vue/main/Clock2Icon'
+import ClockFillIcon from '@bitrix24/b24icons-vue/main/ClockFillIcon'
 
 const route = useRoute()
 const router = useRouter()
@@ -76,11 +78,10 @@ defineShortcuts({
           </div>
         </div>
         <div vaul-drawer-wrapper class="flex flex-col lg:flex-row h-[calc(100vh-4.1rem)] w-screen overflow-hidden min-h-0">
-          <div class="fixed top-15 lg:top-3 right-4 flex items-center gap-2">
+          <div class="fixed top-15 right-4 flex items-center gap-2">
             <ClientOnly v-if="!colorMode?.forced">
               <B24Button
-                :icon="isDark ? 'i-lucide-moon' : 'i-lucide-sun'"
-                color="neutral"
+                :icon="isDark ? ClockFillIcon : Clock2Icon"
                 variant="ghost"
                 :aria-label="`Switch to ${isDark ? 'light' : 'dark'} mode`"
                 @click="isDark = !isDark"

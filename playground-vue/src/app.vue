@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import usePageMeta from '../../playground/app/composables/usePageMeta'
+import Clock2Icon from '@bitrix24/b24icons-vue/main/Clock2Icon'
+import ClockFillIcon from '@bitrix24/b24icons-vue/main/ClockFillIcon'
 import { useRouter, useRoute } from 'vue-router'
 import { reactive, ref } from 'vue'
 import { useColorMode } from '@vueuse/core'
@@ -71,10 +73,9 @@ defineShortcuts({
         </div>
       </div>
       <div vaul-drawer-wrapper class="flex flex-col lg:flex-row h-[calc(100vh-4.1rem)] w-screen overflow-hidden min-h-0">
-        <div class="fixed top-15 lg:top-3 right-4 flex items-center gap-2">
+        <div class="fixed top-15 right-4 flex items-center gap-2">
           <B24Button
-            :icon="mode === 'dark' ? 'i-lucide-moon' : 'i-lucide-sun'"
-            color="neutral"
+            :icon="mode === 'dark' ? ClockFillIcon : Clock2Icon"
             variant="ghost"
             :aria-label="`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`"
             @click="mode = mode === 'dark' ? 'light' : 'dark'"
