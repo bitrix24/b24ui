@@ -43,7 +43,7 @@ export interface ButtonSlots {
 
 <script setup lang="ts">
 import { type Ref, computed, ref, inject } from 'vue'
-import { useForwardProps } from 'radix-vue'
+import { useForwardProps } from 'reka-ui'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useButtonGroup } from '../composables/useButtonGroup'
 import { formLoadingInjectionKey } from '../composables/useFormField'
@@ -105,17 +105,17 @@ const b24ui = computed(() => button({
   >
     <slot name="leading">
       <B24Icon v-if="isLeading && leadingIconName" :name="leadingIconName" :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })" />
-      <B24Avatar v-else-if="!!avatar" :size="((props.ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])" v-bind="avatar" :class="b24ui.leadingAvatar({ class: props.ui?.leadingAvatar })" />
+      <B24Avatar v-else-if="!!avatar" :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])" v-bind="avatar" :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })" />
     </slot>
 
     <slot>
-      <span v-if="label" :class="b24ui.label({ class: props.ui?.label })">
+      <span v-if="label" :class="b24ui.label({ class: props.b24ui?.label })">
         {{ label }}
       </span>
     </slot>
 
     <slot name="trailing">
-      <B24Icon v-if="isTrailing && trailingIconName" :name="trailingIconName" :class="b24ui.trailingIcon({ class: props.ui?.trailingIcon })" />
+      <B24Icon v-if="isTrailing && trailingIconName" :name="trailingIconName" :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })" />
     </slot>
   </B24Link>
 </template>

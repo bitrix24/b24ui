@@ -15,6 +15,11 @@ const input = tv({ extend: tv(theme), ...(appConfig.b24ui?.input || {}) })
 type InputVariants = VariantProps<typeof input>
 
 export interface InputProps extends UseComponentIconsProps {
+  /**
+   * The element or component this component should render as.
+   * @defaultValue 'div'
+   */
+  as?: any
   id?: string
   name?: string
   type?: InputHTMLAttributes['type']
@@ -49,6 +54,7 @@ export interface InputSlots {
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
+import { Primitive } from 'reka-ui'
 import { useButtonGroup } from '../composables/useButtonGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
@@ -147,7 +153,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div :class="b24ui.root({ class: [props.class, props.ui?.root] })">
+  <Primitive :as="as" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
     <input
       :id="id"
       ref="inputRef"
@@ -155,7 +161,7 @@ onMounted(() => {
       :value="modelValue"
       :name="name"
       :placeholder="placeholder"
-      :class="b24ui.base({ class: props.ui?.base })"
+      :class="b24ui.base({ class: props.b24ui?.base })"
       :disabled="disabled"
       :required="required"
       :autocomplete="autocomplete"
@@ -167,17 +173,17 @@ onMounted(() => {
 
     <slot />
 
-    <span v-if="isLeading || !!avatar || !!slots.leading" :class="b24ui.leading({ class: props.ui?.leading })">
+    <span v-if="isLeading || !!avatar || !!slots.leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
       <slot name="leading">
-        <B24Icon v-if="isLeading && leadingIconName" :name="leadingIconName" :class="b24ui.leadingIcon({ class: props.ui?.leadingIcon })" />
-        <B24Avatar v-else-if="!!avatar" :size="((props.ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])" v-bind="avatar" :class="b24ui.leadingAvatar({ class: props.ui?.leadingAvatar })" />
+        <B24Icon v-if="isLeading && leadingIconName" :name="leadingIconName" :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })" />
+        <B24Avatar v-else-if="!!avatar" :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])" v-bind="avatar" :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })" />
       </slot>
     </span>
 
-    <span v-if="isTrailing || !!slots.trailing" :class="b24ui.trailing({ class: props.ui?.trailing })">
+    <span v-if="isTrailing || !!slots.trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
       <slot name="trailing">
-        <B24Icon v-if="trailingIconName" :name="trailingIconName" :class="b24ui.trailingIcon({ class: props.ui?.trailingIcon })" />
+        <B24Icon v-if="trailingIconName" :name="trailingIconName" :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })" />
       </slot>
     </span>
-  </div>
+  </Primitive>
 </template>

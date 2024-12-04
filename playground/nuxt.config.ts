@@ -4,8 +4,8 @@ import { readFileSync } from 'node:fs'
 const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
-
   modules: ['../src/module'],
+
   devtools: { enabled: false },
   devServer: {
     loadingTemplate: () => {

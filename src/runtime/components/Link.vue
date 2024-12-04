@@ -92,7 +92,7 @@ export interface LinkSlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { isEqual, diff } from 'ohash'
-import { useForwardProps } from 'radix-vue'
+import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 import { useRoute } from '#imports'
 import B24LinkBase from './LinkBase.vue'
@@ -111,7 +111,7 @@ defineSlots<LinkSlots>()
 const route = useRoute()
 const nuxtLinkProps = useForwardProps(reactiveOmit(props, 'as', 'type', 'disabled', 'active', 'exact', 'exactQuery', 'exactHash', 'activeClass', 'inactiveClass', 'raw', 'class'))
 
-const ui = computed(() => tv({
+const b24ui = computed(() => tv({
   extend: link,
   variants: {
     active: {
@@ -164,7 +164,7 @@ function resolveLinkClass({ route, isActive, isExactActive }: any) {
     return [props.class, active ? props.activeClass : props.inactiveClass]
   }
 
-  return ui.value({ class: props.class, active, disabled: props.disabled })
+  return b24ui.value({ class: props.class, active, disabled: props.disabled })
 }
 </script>
 

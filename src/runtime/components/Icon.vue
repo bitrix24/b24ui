@@ -14,7 +14,7 @@ export interface IconProps {
 
 <script setup lang="ts">
 import { B24Icon } from '@bitrix24/b24icons-vue'
-import { useForwardProps } from 'radix-vue'
+import { useForwardProps } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 
 const props = defineProps<IconProps>()

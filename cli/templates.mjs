@@ -54,7 +54,7 @@ export interface ${upperName}Props {
    */
   as?: any
   class?: any
-  ui?: Partial<typeof ${camelName}.slots>
+  b24ui?: Partial<typeof ${camelName}.slots>
 }
 
 export interface ${upperName}Slots {
@@ -63,16 +63,16 @@ export interface ${upperName}Slots {
 [/script]
 
 [script setup lang="ts"]
-import { Primitive } from 'radix-vue'
+import { Primitive } from 'reka-ui'
 
 const props = withDefaults(defineProps<${upperName}Props>(), { as: 'div' })
 defineSlots<${upperName}Slots>()
 
-const ui = ${camelName}()
+const b24ui = ${camelName}()
 [/script]
 
 [template]
-  [Primitive :as="as" :class="ui.root({ class: [props.class, props.ui?.root] })"]
+  [Primitive :as="as" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })"]
     [slot /]
   [/Primitive]
 [/template]
@@ -80,7 +80,7 @@ const ui = ${camelName}()
       : replaceBrackets(`
 [script lang="ts"]
 import { tv, type VariantProps } from 'tailwind-variants'
-import type { ${upperName}RootProps, ${upperName}RootEmits } from 'radix-vue'
+import type { ${upperName}RootProps, ${upperName}RootEmits } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/${path}/${prose ? 'prose/' : ''}${content ? 'content/' : ''}${kebabName}'
@@ -93,7 +93,7 @@ type ${upperName}Variants = VariantProps<typeof ${camelName}>
 
 export interface ${upperName}Props extends Pick<${upperName}RootProps> {
   class?: any
-  ui?: Partial<typeof ${camelName}.slots>
+  b24ui?: Partial<typeof ${camelName}.slots>
 }
 
 export interface ${upperName}Emits extends ${upperName}RootEmits {}
@@ -102,7 +102,7 @@ export interface ${upperName}Slots {}
 [/script]
 
 [script setup lang="ts"]
-import { ${upperName}Root, useForwardPropsEmits } from 'radix-vue'
+import { ${upperName}Root, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 
 const props = defineProps<${upperName}Props>()
@@ -111,11 +111,11 @@ const slots = defineSlots<${upperName}Slots>()
 
 const rootProps = useForwardPropsEmits(reactivePick(props), emits)
 
-const ui = ${camelName}()
+const b24ui = ${camelName}()
 [/script]
 
 [template]
-  [${upperName}Root v-bind="rootProps" :class="ui.root({ class: [props.class, props.ui?.root] })" /]
+  [${upperName}Root v-bind="rootProps" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })" /]
 [/template]
 `)
   }
@@ -157,9 +157,9 @@ import ComponentRender from '../${content ? '../' : ''}component-render'
 describe('${upperName}', () => {
   it.each([
     // Props
-    ['with as', { props: { as: 'div' } }],
+    ['with as', { props: { as: 'section' } }],
     ['with class', { props: { class: '' } }],
-    ['with ui', { props: { ui: {} } }],
+    ['with b24ui', { props: { b24ui: {} } }],
     // Slots
     ['with default slot', { slots: { default: () => 'Default slot' } }]
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: ${upperName}Props, slots?: Partial<${upperName}Slots> }) => {
@@ -193,8 +193,8 @@ import ${upperName}Example from '/examples/${upperName.toLowerCase()}/${upperNam
 
 [Description
   nuxt-ui="https://ui.nuxt.com/components/${kebabName}"
-  radix-vue="https://www.radix-vue.com/components/${kebabName}"
-  radix-vue-title="${kebabName}"
+  reka-ui="https://www.reka-ui.com/components/${kebabName}.html"
+  reka-ui-title="${kebabName}"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/${upperName}.vue"
 ]
   @todo change me

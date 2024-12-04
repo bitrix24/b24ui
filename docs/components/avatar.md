@@ -2,8 +2,8 @@
 description: An img element with fallback and Nuxt Image support.
 links:
   - label: Avatar
-    icon: i-custom-radix-vue
-    to: https://www.radix-vue.com/components/avatar.html
+    icon: i-custom-reka-ui
+    to: https://reka-ui.com/docs/components/avatar
   - label: GitHub
     icon: i-simple-icons-github
     to: https://github.com/nuxt/ui/tree/v3/src/runtime/components/Avatar.vue
@@ -22,7 +22,7 @@ Use the `src` prop to set the image URL. You can pass any property from HTML `<i
 ::component-code
 ---
 props:
-  src: 'https://github.com/benjamincanac.png'
+src: 'https://github.com/benjamincanac.png'
 ---
 ::
 
@@ -33,8 +33,8 @@ Use the `size` prop to set the size of the Avatar.
 ::component-code
 ---
 ignore:
-  - src
-props:
+- src
+  props:
   src: 'https://github.com/benjamincanac.png'
   size: xl
 ---
@@ -51,8 +51,8 @@ Use the `icon` prop to display a fallback [Icon](/components/icon).
 ::component-code
 ---
 props:
-  icon: 'i-lucide-image'
-  size: md
+icon: 'i-lucide-image'
+size: md
 ---
 ::
 
@@ -63,8 +63,8 @@ Use the `text` prop to display a fallback text.
 ::component-code
 ---
 props:
-  text: '+1'
-  size: md
+text: '+1'
+size: md
 ---
 ::
 
@@ -75,8 +75,8 @@ When no icon or text is provided, the **initials** of the `alt` prop is used as 
 ::component-code
 ---
 props:
-  alt: 'Benjamin Canac'
-  size: md
+alt: 'Benjamin Canac'
+size: md
 ---
 ::
 
