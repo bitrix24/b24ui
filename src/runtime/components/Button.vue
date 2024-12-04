@@ -16,8 +16,6 @@ type ButtonVariants = VariantProps<typeof button>
 
 export interface ButtonProps extends UseComponentIconsProps, Omit<LinkProps, 'raw' | 'custom'> {
   label?: string
-  color?: ButtonVariants['color']
-  variant?: ButtonVariants['variant']
   size?: ButtonVariants['size']
   /** Render the button with equal padding on all sides. */
   square?: boolean
@@ -27,7 +25,7 @@ export interface ButtonProps extends UseComponentIconsProps, Omit<LinkProps, 'ra
   loadingAuto?: boolean
   onClick?: ((event: MouseEvent) => void | Promise<void>) | Array<((event: MouseEvent) => void | Promise<void>)>
   class?: any
-  ui?: PartialString<typeof button.slots>
+  b24ui?: PartialString<typeof button.slots>
 }
 
 export interface ButtonSlots {
@@ -45,7 +43,6 @@ import { useButtonGroup } from '../composables/useButtonGroup'
 import { formLoadingInjectionKey } from '../composables/useFormField'
 import { omit } from '../utils'
 import { pickLinkProps } from '../utils/link'
-import B24Icon from './Icon.vue'
 import B24Avatar from './Avatar.vue'
 import B24Link from './Link.vue'
 
@@ -78,8 +75,6 @@ const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponen
 )
 
 const b24ui = computed(() => button({
-  color: props.color,
-  variant: props.variant,
   size: buttonSize.value,
   loading: isLoading.value,
   block: props.block,
@@ -100,7 +95,7 @@ const b24ui = computed(() => button({
     @click="onClickWrapper"
   >
     <slot name="leading">
-      <B24Icon v-if="isLeading && leadingIconName" :name="leadingIconName" :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })" />
+      <Component v-if="isLeading && leadingIconName" :is="leadingIconName" :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })" />
       <B24Avatar v-else-if="!!avatar" :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])" v-bind="avatar" :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })" />
     </slot>
 
@@ -111,7 +106,7 @@ const b24ui = computed(() => button({
     </slot>
 
     <slot name="trailing">
-      <B24Icon v-if="isTrailing && trailingIconName" :name="trailingIconName" :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })" />
+      <Component v-if="isTrailing && trailingIconName" :is="trailingIconName" :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })" />
     </slot>
   </B24Link>
 </template>

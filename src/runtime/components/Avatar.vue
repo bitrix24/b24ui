@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { DefineComponent } from 'vue'
 import { tv, type VariantProps } from 'tailwind-variants'
 import type { AvatarFallbackProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
@@ -19,7 +20,7 @@ export interface AvatarProps extends Pick<AvatarFallbackProps, 'delayMs'> {
   as?: any
   src?: string
   alt?: string
-  icon?: string
+  icon?: DefineComponent
   text?: string
   size?: AvatarVariants['size']
   class?: any
@@ -32,7 +33,6 @@ import { computed } from 'vue'
 import { AvatarRoot, AvatarImage, AvatarFallback, useForwardProps } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAvatarGroup } from '../composables/useAvatarGroup'
-import UIcon from './Icon.vue'
 import ImageComponent from '#build/b24ui-image-component'
 
 defineOptions({ inheritAttrs: false })
@@ -77,7 +77,7 @@ const sizePx = computed(() => ({
     />
 
     <AvatarFallback as-child v-bind="fallbackProps">
-      <UIcon v-if="icon" :name="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
+      <Component v-if="icon" :is="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
       <span v-else :class="b24ui.fallback({ class: props.b24ui?.fallback })">{{ fallback }}</span>
     </AvatarFallback>
   </AvatarRoot>
