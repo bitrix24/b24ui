@@ -2,7 +2,6 @@
 import { tv, type VariantProps } from 'tailwind-variants'
 import type { AvatarFallbackProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
-import { extendDevtoolsMeta } from '../composables/extendDevtoolsMeta'
 import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/avatar'
 
@@ -26,8 +25,6 @@ export interface AvatarProps extends Pick<AvatarFallbackProps, 'delayMs'> {
   class?: any
   b24ui?: Partial<typeof avatar.slots>
 }
-
-extendDevtoolsMeta<AvatarProps>({ defaultProps: { src: 'https://avatars.githubusercontent.com/u/739984?v=4', alt: 'Benjamin Canac' } })
 </script>
 
 <script setup lang="ts">
@@ -36,7 +33,7 @@ import { AvatarRoot, AvatarImage, AvatarFallback, useForwardProps } from 'reka-u
 import { reactivePick } from '@vueuse/core'
 import { useAvatarGroup } from '../composables/useAvatarGroup'
 import UIcon from './Icon.vue'
-import ImageComponent from '#build/ui-image-component'
+import ImageComponent from '#build/b24ui-image-component'
 
 defineOptions({ inheritAttrs: false })
 

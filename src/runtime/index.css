@@ -1,16 +1,1 @@
-@plugin '@bitrix24/b24style';
-@import './keyframes.css';
-
-@variant dark (&:where(.dark, .dark *));
-
-@layer base {
-  body {
-    @apply antialiased text-[var(--ui-text)] bg-[var(--ui-bg)] scheme-light dark:scheme-dark;
-  }
-
-  :root {
-  }
-
-  .dark {
-  }
-}
+@plugin "@bitrix24/b24style";@import "./keyframes.css";@variant dark (&:where(.dark, .dark *));@layer base{body{@apply antialiased text-[var(--ui-text)] bg-[var(--ui-bg)] scheme-light dark:scheme-dark}}

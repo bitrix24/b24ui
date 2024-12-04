@@ -5,7 +5,6 @@ import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/button'
 import type { LinkProps } from './Link.vue'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
-import { extendDevtoolsMeta } from '../composables/extendDevtoolsMeta'
 import type { AvatarProps } from '../types'
 import type { PartialString } from '../types/utils'
 
@@ -30,9 +29,6 @@ export interface ButtonProps extends UseComponentIconsProps, Omit<LinkProps, 'ra
   class?: any
   ui?: PartialString<typeof button.slots>
 }
-
-// Injects props to use as default in the devtools playground.
-extendDevtoolsMeta<ButtonProps>({ defaultProps: { label: 'Click me!' } })
 
 export interface ButtonSlots {
   leading(props?: {}): any
