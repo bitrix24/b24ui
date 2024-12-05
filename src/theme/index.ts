@@ -1,6 +1,7 @@
 export { default as avatar } from './avatar'
 export { default as button } from './button'
 export { default as buttonGroup } from './button-group'
+export { default as chip } from './chip'
+export { default as input } from './input'
 export { default as link } from './link'
 export { default as skeleton } from './skeleton'
-export { default as input } from './input'

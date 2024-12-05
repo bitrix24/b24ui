@@ -36,6 +36,7 @@ const components = [
   { id: 'avatar', descr: 'An img element with fallback and Nuxt Image support.' },
   { id: 'button', descr: 'A button element that can act as a link or trigger an action.' },
   { id: 'button-group', descr: 'Group multiple button-like elements together.' },
+  { id: 'chip', descr: 'An indicator of a numeric value or a state.' },
   { id: 'input', descr: 'An input element to enter text.' },
   { id: 'link', descr: 'A wrapper around NuxtLink with extra props.' },
   { id: 'skeleton', descr: 'A placeholder to show while content is loading.' }
