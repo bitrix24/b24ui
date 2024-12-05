@@ -27,15 +27,15 @@ export default (options: Required<ModuleOptions>) => ({
       },
       md: {
         base: 'px-2.5 py-1.5 text-sm gap-1.5',
-        leadingIcon: 'size-5',
+        leadingIcon: 'size-10',
         leadingAvatarSize: '2xs',
-        trailingIcon: 'size-5'
+        trailingIcon: 'size-10'
       },
       lg: {
         base: 'px-3 py-2 text-sm gap-2',
-        leadingIcon: 'size-5',
+        leadingIcon: 'size-15',
         leadingAvatarSize: '2xs',
-        trailingIcon: 'size-5'
+        trailingIcon: 'size-15'
       }
     },
     block: {
