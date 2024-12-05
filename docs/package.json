@@ -5,9 +5,8 @@
 	"description": "",
 	"type": "module",
 	"devDependencies": {
-		"postcss": "^8.4.49",
-		"tailwindcss": "^4.0.0-beta.2",
-		"@tailwindcss/vite": "next",
+		"tailwindcss": "^4.0.0-beta.5",
+		"@tailwindcss/vite": "4.0.0-beta.5",
 		"@vueuse/core": "^12.0.0",
 		"@whyframe/core": "^0.1.11",
 		"@whyframe/vue": "^0.1.7"
