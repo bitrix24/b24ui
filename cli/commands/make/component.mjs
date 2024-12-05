@@ -67,7 +67,7 @@ export default defineCommand({
 
       await fsp.writeFile(filePath, contents.trim() + '\n')
 
-      consola.success(`🪄 Generated ${filePath}!`)
+      consola.success(`Generated ${filePath}!`)
     }
 
     const themePath = resolve(path, `src/theme/${args.prose ? 'prose/' : ''}${args.content ? 'content/' : ''}index.ts`)
