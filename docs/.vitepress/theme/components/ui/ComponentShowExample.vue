@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="relative rounded-lg overflow-hidden bg-tertiary dark:bg-tertiary/25">
+  <div class="relative rounded-lg overflow-hidden bg-tertiary dark:bg-tertiary/5">
     <div
       style="background-position: 10px 10px"
       class="
