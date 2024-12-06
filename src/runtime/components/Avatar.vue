@@ -26,6 +26,10 @@ export interface AvatarProps extends Pick<AvatarFallbackProps, 'delayMs'> {
   class?: any
   b24ui?: Partial<typeof avatar.slots>
 }
+
+export interface AvatarSlots {
+  default(props?: {}): any
+}
 </script>
 
 <script setup lang="ts">
@@ -77,8 +81,10 @@ const sizePx = computed(() => ({
     />
 
     <AvatarFallback as-child v-bind="fallbackProps">
-      <Component v-if="icon" :is="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
-      <span v-else :class="b24ui.fallback({ class: props.b24ui?.fallback })">{{ fallback }}</span>
+      <slot>
+        <Component :is="icon" v-if="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
+        <span v-else :class="b24ui.fallback({ class: props.b24ui?.fallback })">{{ fallback }}</span>
+      </slot>
     </AvatarFallback>
   </AvatarRoot>
 </template>
