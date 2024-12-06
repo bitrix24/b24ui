@@ -1,47 +1,97 @@
 <script setup lang="ts">
 /**
- * @todo fig B24Button color
- * @todo fig B24Avatar color
+ * @todo fix B24Button color
+ * @todo fix B24Avatar color
+ * @todo fix add standalone
  */
 import theme from '#build/b24ui/chip'
+import ExampleGrid from '../../components/ExampleGrid.vue'
+import ExampleCard from '../../components/ExampleCard.vue'
+import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import BellIcon from '@bitrix24/b24icons-vue/main/BellIcon'
 import MessageChatWithPointIcon from '@bitrix24/b24icons-vue/main/MessageChatWithPointIcon'
 import MailIcon from '@bitrix24/b24icons-vue/main/MailIcon'
 import usePageMeta from './../../composables/usePageMeta'
 
 usePageMeta.setPageTitle('Chip')
+const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 const positions = Object.keys(theme.variants.position) as Array<keyof typeof theme.variants.position>
 
-const items = [{
-  name: 'messages',
-  icon: MessageChatWithPointIcon,
-  count: 3
-}, {
-  name: 'notifications',
-  icon: BellIcon,
-  count: 0
-}]
+const items = [
+  {
+    name: 'messages-1',
+    icon: MessageChatWithPointIcon,
+    count: 1
+  },
+  {
+    name: 'messages-2',
+    icon: MessageChatWithPointIcon,
+    count: 53
+  },
+  {
+    name: 'notifications-3',
+    icon: BellIcon,
+    count: 100
+  },
+  {
+    name: 'notifications-4',
+    icon: BellIcon,
+    count: 1000
+  }
+]
 </script>
 
 <template>
-  <div class="flex flex-col gap-8 p-4 bg-white rounded-lg">
-    <div class="flex items-center gap-4">
-      <B24Chip color="danger" v-for="position in positions" :key="position" :position="position">
-        <B24Button class="px-1 py-1 bg-gray-300 rounded-xs" :icon="MailIcon" color="default" depth="normal" />
-      </B24Chip>
-    </div>
-
-    <div class="flex items-center gap-4">
-      <B24Chip color="primary" v-for="{ name, icon, count } in items" :key="name" :text="count" :show="count > 0" size="lg">
-        <B24Button class="px-1 py-1 bg-gray-300 rounded-md text-xl" :icon="icon" size="md" color="default" depth="normal" />
-      </B24Chip>
-    </div>
-
-    <div class="flex items-center gap-4">
-      <B24Chip v-for="size in sizes" :key="size" :size="size" inset text="1">
-        <B24Avatar class="border-1 border-base-300 p-0.5" src="https://github.com/bitrix24.png" />
-      </B24Chip>
-    </div>
-  </div>
+  <ExampleGrid>
+    <ExampleCard title="inset">
+      <template v-for="size in sizes" :key="size">
+        <ExampleCardSubTitle :title="size" />
+        <div class="mb-4 flex items-center gap-4">
+          <B24Chip
+            v-for="position in positions"
+            :key="position"
+            :position="position"
+            :size="size"
+            color="success"
+            inset
+          >
+            <B24Avatar class="border-1 border-base-300 p-0.5" src="https://github.com/bitrix24.png" :size="size" />
+          </B24Chip>
+        </div>
+      </template>
+    </ExampleCard>
+    <template v-for="color in colors" :key="color">
+      <ExampleCard :title="color">
+        <template v-for="size in sizes" :key="size">
+          <ExampleCardSubTitle :title="size" />
+          <div class="mb-4 flex items-center gap-4">
+            <B24Chip v-for="position in positions" :key="position" :position="position" :size="size" :color="color">
+              <B24Button class="px-1 py-1 bg-gray-300 rounded-xs" :icon="MailIcon" color="default" depth="normal" />
+            </B24Chip>
+          </div>
+        </template>
+      </ExampleCard>
+    </template>
+    <ExampleCard title="B24Button">
+      <template v-for="size in sizes" :key="size">
+        <ExampleCardSubTitle :title="size" />
+        <div class="mb-4 flex items-center gap-4">
+          <B24Chip v-for="{ name, icon, count } in items" :key="name" :text="count" :size="size">
+            <B24Button class="px-1 py-1 bg-gray-300 rounded-md text-xl" :icon="icon" size="md" color="default" depth="normal" />
+          </B24Chip>
+        </div>
+      </template>
+    </ExampleCard>
+    <ExampleCard title="B24Avatar">
+      <template v-for="size in sizes" :key="size">
+        <ExampleCardSubTitle :title="size" />
+        <div class="mb-4 flex items-center gap-4">
+          <B24Chip v-for="{ name, count } in items" :key="name" :text="count" :size="size">
+            <B24Avatar class="border-1 border-base-300 p-0.5" src="https://github.com/bitrix24.png" :size="size" />
+          </B24Chip>
+        </div>
+      </template>
+    </ExampleCard>
+  </ExampleGrid>
 </template>
