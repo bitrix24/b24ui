@@ -15,20 +15,20 @@ function getPageTitle(): Ref<string> {
 
 const menuList: IMenuItem[] = [
   {
-    title: 'API Docs',
-    href: 'https://apidocs.bitrix24.com'
-  },
-  {
-    title: '@bitrix24/b24jssdk',
-    href: 'https://bitrix24.github.io/b24jssdk/'
-  },
-  {
-    title: '@bitrix24/b24style',
+    title: 'b24style',
     href: 'https://bitrix24.github.io/b24style/'
   },
   {
-    title: '@bitrix24/b24icons',
+    title: 'b24icons',
     href: 'https://bitrix24.github.io/b24icons/'
+  },
+  {
+    title: 'b24jssdk',
+    href: 'https://bitrix24.github.io/b24jssdk/'
+  },
+  {
+    title: 'API Docs',
+    href: 'https://apidocs.bitrix24.com'
   }
 ]
 
