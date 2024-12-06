@@ -26,8 +26,8 @@ export default (options: Required<ModuleOptions>) => ({
       warning: 'bg-orange-500 dark:bg-orange-800',
       primary: 'bg-blue-500 dark:bg-blue-800',
       secondary: 'bg-accent-aqua dark:bg-accent-turquoise',
-      ai: 'bg-[#e7d8fa] dark:bg-copilot-dark',
-      link: 'bg-[#b0b4bb] dark:bg-base-800'
+      ai: 'bg-accent-lavender dark:bg-copilot-dark',
+      link: 'bg-base-900/15 dark:bg-white/30 text-base-900 dark:text-white'
     },
     size: {
       '3xs': 'h-2xs min-w-2xs text-[0px] text-transparent',

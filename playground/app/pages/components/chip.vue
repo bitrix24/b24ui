@@ -66,7 +66,7 @@ const items = [
         <template v-for="size in sizes" :key="size">
           <ExampleCardSubTitle :title="size" />
           <div class="mb-4 flex items-center gap-4">
-            <B24Chip v-for="position in positions" :key="position" :position="position" :size="size" :color="color">
+            <B24Chip v-for="position in positions" :key="position" :position="position" :size="size" :color="color" text="123">
               <B24Button class="px-1 py-1 bg-gray-300 rounded-xs" :icon="MailIcon" color="default" depth="normal" />
             </B24Chip>
           </div>
