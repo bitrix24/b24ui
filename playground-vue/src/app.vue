@@ -37,19 +37,19 @@ defineShortcuts({
     <div class="flex flex-col">
       <div class="px-lg">
         <div class="min-h-7xl h-7xl w-full flex flex-row items-center justify-normal gap-lg2 border-b border-b-base-200">
-          <div class="pl-xs2 text-4xl font-light font-b24-secondary text-base-master">
-            <span class="text-base-600">Vue::</span>{{ usePageMeta.getPageTitle() }}
+          <div class="pl-xs2 text-4xl font-light font-b24-secondary text-base-master dark:text-base-100">
+            <span class="text-base-600 dark:text-base-500">Vue::</span>{{ usePageMeta.getPageTitle() }}
           </div>
           <div class="pr-xs2 grow flex gap-4 flex-row items-center justify-end text-lg">
             <div v-if="route.path !== '/'" class="grow font-b24-primary">
               <div class="flex flex-row gap-2xs items-end">
                 <div class="flex flex-col">
-                  <div class="text-3xs leading-tight opacity-70 text-base-500 items-center">
+                  <div class="text-3xs leading-tight opacity-70 text-base-500 dark:text-base-700 items-center">
                     Playground
                   </div>
                   <B24Link
                     to="/"
-                    class="text-sm text-primary-link hover:opacity-80 border-b border-dashed border-b-primary-link"
+                    class="text-sm text-primary-link hover:opacity-80 border-b border-dashed border-b-primary-link dark:text-base-700 dark:border-b-base-700 dark:hover:text-info-background-on! dark:hover:border-b-info-background-on"
                   >
                     main page
                   </B24Link>
@@ -64,7 +64,7 @@ defineShortcuts({
               <B24Link
                 :to="menuItem.href"
                 target="_blank"
-                class="pr-2 whitespace-nowrap hover:underline underline-offset-2"
+                class="pr-2 whitespace-nowrap hover:underline underline-offset-2 dark:text-base-700"
               >
                 {{ menuItem.title }}
               </B24Link>
@@ -91,26 +91,24 @@ defineShortcuts({
               :key="group.id"
               class="mb-md"
             >
-              <div class="mb-sm font-b24-secondary text-h4 font-light leading-8 text-base-900">
+              <div class="mb-sm font-b24-secondary text-h4 font-light leading-8 text-base-900 dark:text-base-200">
                 {{ group.label }}
               </div>
               <div class="grid grid-cols-[repeat(auto-fill,minmax(266px,1fr))] gap-y-sm gap-x-xs">
                 <B24Link
                   v-for="(item) in group.items"
                   :key="item.id"
-                  class="bg-white py-sm2 px-xs2 cursor-pointer rounded-md flex flex-row gap-sm border-2 transition-shadow shadow hover:shadow-lg relative border-white hover:border-primary"
+                  class="bg-white dark:bg-white/10 py-sm2 px-xs2 cursor-pointer rounded-md flex flex-row gap-sm border-2 transition-shadow shadow hover:shadow-lg relative border-white dark:border-white/10 hover:border-primary"
                   :to="`/${group.id}/${item.id}`"
                 >
-                  <div class="rounded-full bg-blue-200 size-14 min-w-14 min-h-14 flex items-center justify-center">
+                  <div class="rounded-full bg-blue-200 dark:bg-blue-900 size-14 min-w-14 min-h-14 flex items-center justify-center">
                     <component
                       :is="item.icon"
-                      class="size-12 text-info-text"
+                      class="size-12 text-info-text dark:text-blue-700"
                     />
                   </div>
                   <div class="max-w-11/12">
-                    <div
-                      class="font-b24-secondary text-black text-h6 leading-4 mb-xs font-semibold line-clamp-2"
-                    >
+                    <div class="font-b24-secondary text-black dark:text-base-150 text-h6 leading-4 mb-xs font-semibold line-clamp-2">
                       {{ item.label }}
                     </div>
                     <div

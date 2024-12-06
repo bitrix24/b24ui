@@ -7,7 +7,7 @@ const $props = withDefaults(defineProps<{
 </script>
 
 <template>
-  <div class="text-h6 text-base-200 mb-1">
+  <div class="text-h6 text-base-200 dark:text-base-800 mb-1">
     -- {{ $props.title }} --
   </div>
 </template>
