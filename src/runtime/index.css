@@ -1,1 +1,35 @@
-@plugin "@bitrix24/b24style";@import "./keyframes.css";@variant dark (&:where(.dark, .dark *));@layer base{body{@apply antialiased text-[var(--ui-text)] bg-[var(--ui-bg)] scheme-light dark:scheme-dark}}
+@plugin '@bitrix24/b24style';
+@import './keyframes.css';
+
+@variant dark (&:where(.dark, .dark *));
+
+/* ---------------
+use Violet
+*/
+@theme {
+  --color-ai-50: #f5f3ff;
+  --color-ai-100: #ede9fe;
+  --color-ai-200: #ddd6ff;
+  --color-ai-300: #c4b4ff;
+  --color-ai-350: #B095DC; /* << copilot-secondary */
+  --color-ai-400: #a684ff;
+  --color-ai-450: #A77BDE; /* << accent-purple */
+  --color-ai-500: #8E52EC; /* << copilot-primary|accent-lavender -> new_#8e51ff (2.46) | old_#8b5cf6 (3.02)  */
+  --color-ai-600: #7f22fe;
+  --color-ai-700: #7008e7;
+  --color-ai-800: #682AC6; /* << copilot-dark -  -> new_#5d0ec0(4.15) | old_#6d28d9 (2.54) */
+  --color-ai-900: #4d179a;
+  --color-ai-950: #2f0d68;
+}
+
+@layer base {
+  body {
+    @apply antialiased text-base-master bg-tertiary scheme-light dark:scheme-dark;
+  }
+
+  :root {
+  }
+
+  .dark {
+  }
+}
