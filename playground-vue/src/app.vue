@@ -40,7 +40,7 @@ defineShortcuts({
           <div class="pl-xs2 text-4xl font-light font-b24-secondary text-base-master dark:text-base-100">
             <span class="text-base-600 dark:text-base-500">Vue::</span>{{ usePageMeta.getPageTitle() }}
           </div>
-          <div class="pr-xs2 grow flex gap-4 flex-row items-center justify-end text-lg">
+          <div class="pr-xs grow flex gap-4 flex-row items-center justify-end text-lg">
             <div v-if="route.path !== '/'" class="grow font-b24-primary">
               <div class="flex flex-row gap-2xs items-end">
                 <div class="flex flex-col">
@@ -81,7 +81,7 @@ defineShortcuts({
             @click="mode = mode === 'dark' ? 'light' : 'dark'"
           />
         </div>
-        <div class="flex-1 flex flex-col items-center justify-evenly overflow-y-auto w-full py-14 px-4">
+        <div class="py-14 px-3xl flex flex-col items-center justify-evenly overflow-y-auto w-full">
           <Suspense>
             <RouterView />
           </Suspense>
