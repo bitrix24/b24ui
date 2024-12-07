@@ -1,8 +1,6 @@
 <script setup lang="ts">
 /**
- * @todo fix B24Button color
- * @todo fix B24Avatar color
- * @todo fix add standalone
+ * @todo add standalone
  */
 import theme from '#build/b24ui/chip'
 import ExampleGrid from '../../components/ExampleGrid.vue'
@@ -66,7 +64,7 @@ const items = [
         <template v-for="size in sizes" :key="size">
           <ExampleCardSubTitle :title="size" />
           <div class="mb-4 flex items-center gap-4">
-            <B24Chip v-for="position in positions" :key="position" :position="position" :size="size" :color="color" text="123">
+            <B24Chip v-for="position in positions" :key="position" :position="position" :size="size" :color="color">
               <B24Button class="px-1 py-1 bg-gray-300 rounded-xs" :icon="MailIcon" color="default" depth="normal" />
             </B24Chip>
           </div>
