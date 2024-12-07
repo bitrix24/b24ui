@@ -2,7 +2,7 @@
   "name": "@bitrix24/b24ui-nuxt",
   "description": "Bitrix24 UI-Kit for developing web applications REST API for NUXT & VUE",
   "version": "0.1.0",
-  "packageManager": "pnpm@9.14.4",
+  "packageManager": "pnpm@9.15.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bitrix24/b24ui.git"
@@ -95,8 +95,8 @@
     "@nuxt/kit": "^3.14.1592",
     "@nuxt/schema": "^3.14.1592",
     "@nuxtjs/color-mode": "^3.5.2",
-    "@tailwindcss/postcss": "4.0.0-beta.5",
-    "@tailwindcss/vite": "4.0.0-beta.5",
+    "@tailwindcss/postcss": "4.0.0-beta.6",
+    "@tailwindcss/vite": "4.0.0-beta.6",
     "@tanstack/vue-table": "^8.20.5",
     "@unhead/vue": "^1.11.13",
     "@vueuse/core": "^12.0.0",
@@ -119,7 +119,7 @@
     "pathe": "^1.1.2",
     "scule": "^1.3.0",
     "tailwind-variants": "^0.3.0",
-    "tailwindcss": "4.0.0-beta.5",
+    "tailwindcss": "4.0.0-beta.6",
     "tinyglobby": "^0.2.10",
     "unplugin": "^1.16.0",
     "unplugin-auto-import": "^0.18.6",

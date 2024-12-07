@@ -5,8 +5,8 @@
 	"description": "",
 	"type": "module",
 	"devDependencies": {
-		"tailwindcss": "^4.0.0-beta.5",
-		"@tailwindcss/vite": "4.0.0-beta.5",
+		"tailwindcss": "^4.0.0-beta.6",
+		"@tailwindcss/vite": "4.0.0-beta.6",
 		"@vueuse/core": "^12.0.0",
 		"@whyframe/core": "^0.1.11",
 		"@whyframe/vue": "^0.1.7"
