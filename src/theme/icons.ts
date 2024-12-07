@@ -1,3 +1,12 @@
+/**
+ * Default icons
+ * ---
+ * @link https://bitrix24.github.io/b24icons/
+ */
+/**
+ * @todo make normal component chevronDoubleLeft
+ * @todo rename DoubleShevronsRightIcon
+ */
 import ArrowToTheLeftIcon from '@bitrix24/b24icons-vue/actions/ArrowToTheLeftIcon'
 import ArrowToTheRightIcon from '@bitrix24/b24icons-vue/actions/ArrowToTheRightIcon'
 import CheckIcon from '@bitrix24/b24icons-vue/main/CheckIcon'
@@ -18,7 +27,6 @@ export default {
   arrowLeft: ArrowToTheLeftIcon,
   arrowRight: ArrowToTheRightIcon,
   check: CheckIcon,
-  // @todo make normal component ////
   chevronDoubleLeft: ChevronToTheLeftIcon,
   chevronDoubleRight: DoubleShevronsRightIcon,
   chevronDown: ChevronDownIcon,

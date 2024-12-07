@@ -6,6 +6,10 @@ import type { Resolver } from '@nuxt/kit'
 import type { ModuleOptions } from './module'
 import * as theme from './theme'
 
+function replaceBrackets(value) {
+  return value.replace(/\[\[/g, '<').replace(/\]\]/g, '>')
+}
+
 export function buildTemplates(options: ModuleOptions) {
   return Object.entries(theme).reduce((acc, [key, component]) => {
     acc[key] = typeof component === 'function' ? component(options as Required<ModuleOptions>) : component
@@ -59,14 +63,14 @@ export function getTemplates(options: ModuleOptions, uiConfig: Record<string, an
 
   templates.push({
     filename: 'types/ui.d.ts',
-    getContents: () => `import * as ui from '#build/b24ui'
+    getContents: () => replaceBrackets(`import * as b24ui from '#build/b24ui'
 import type { DeepPartial } from '#b24ui/types/utils'
 
 const icons = ${JSON.stringify(uiConfig.icons)};
 
 type AppConfigUI = {
-  icons?: Partial<typeof icons>
-} & DeepPartial<typeof ui>
+  icons?: Partial[[typeof icons]]
+} & DeepPartial[[typeof b24ui]]
 
 declare module '@nuxt/schema' {
   interface AppConfigInput {
@@ -75,7 +79,7 @@ declare module '@nuxt/schema' {
 }
 
 export {}
-`
+`)
   })
 
   templates.push({

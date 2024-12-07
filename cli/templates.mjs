@@ -1,7 +1,7 @@
 import { splitByCase, upperFirst, camelCase, kebabCase } from 'scule'
 
 function replaceBrackets(value) {
-  return value.replace(/\[/g, '<').replace(/\]/g, '>')
+  return value.replace(/\[\[/g, '<').replace(/\]\]/g, '>')
 }
 
 const playground = ({ name, pro }) => {
@@ -13,11 +13,11 @@ const playground = ({ name, pro }) => {
     contents: pro
       ? undefined
       : replaceBrackets(`
-[template]
-  [div]
-    [B24${upperName} /]
-  [/div]
-[/template]
+[[template]]
+  [[div]]
+    [[B24${upperName} /]]
+  [[/div]]
+[[/template]]
 `)
   }
 }
@@ -37,7 +37,7 @@ const component = ({ name, primitive, pro, prose, content }) => {
     filename: `src/runtime/components/${prose ? 'prose/' : ''}${content ? 'content/' : ''}${upperName}.vue`,
     contents: primitive
       ? replaceBrackets(`
-[script lang="ts"]
+[[script lang="ts"]]
 import { tv } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
@@ -60,48 +60,48 @@ export interface ${upperName}Props {
 export interface ${upperName}Slots {
   default(props?: {}): any
 }
-[/script]
+[[/script]]
 
-[script setup lang="ts"]
+[[script setup lang="ts"]]
 import { Primitive } from 'reka-ui'
 
 const props = withDefaults(defineProps<${upperName}Props>(), { as: 'div' })
 defineSlots<${upperName}Slots>()
 
 const b24ui = ${camelName}()
-[/script]
+[[/script]]
 
-[template]
-  [Primitive :as="as" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })"]
-    [slot /]
-  [/Primitive]
-[/template]
+[[template]]
+  [[Primitive :as="as" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })"]]
+    [[slot /]]
+  [[/Primitive]]
+[[/template]]
 `)
       : replaceBrackets(`
-[script lang="ts"]
+[[script lang="ts"]]
 import { tv, type VariantProps } from 'tailwind-variants'
 import type { ${upperName}RootProps, ${upperName}RootEmits } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/${path}/${prose ? 'prose/' : ''}${content ? 'content/' : ''}${kebabName}'
 
-const appConfig = _appConfig as AppConfig & { ${key}: { ${prose ? 'prose: { ' : ''}${camelName}: Partial<typeof theme> } }${prose ? ' }' : ''}
+const appConfig = _appConfig as AppConfig & { ${key}: { ${prose ? 'prose: { ' : ''}${camelName}: Partial[[typeof theme]] } }${prose ? ' }' : ''}
 
 const ${camelName} = tv({ extend: tv(theme), ...(appConfig.${key}?.${prose ? 'prose?.' : ''}${camelName} || {}) })
 
-type ${upperName}Variants = VariantProps<typeof ${camelName}>
+type ${upperName}Variants = VariantProps[[typeof ${camelName}]]
 
-export interface ${upperName}Props extends Pick<${upperName}RootProps> {
+export interface ${upperName}Props extends Pick[[${upperName}RootProps]] {
   class?: any
-  b24ui?: Partial<typeof ${camelName}.slots>
+  b24ui?: Partial[[typeof ${camelName}.slots]]
 }
 
 export interface ${upperName}Emits extends ${upperName}RootEmits {}
 
 export interface ${upperName}Slots {}
-[/script]
+[[/script]]
 
-[script setup lang="ts"]
+[[script setup lang="ts"]]
 import { ${upperName}Root, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 
@@ -112,11 +112,11 @@ const slots = defineSlots<${upperName}Slots>()
 const rootProps = useForwardPropsEmits(reactivePick(props), emits)
 
 const b24ui = ${camelName}()
-[/script]
+[[/script]]
 
-[template]
-  [${upperName}Root v-bind="rootProps" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })" /]
-[/template]
+[[template]]
+  [[${upperName}Root v-bind="rootProps" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })" /]]
+[[/template]]
 `)
   }
 }
@@ -186,27 +186,27 @@ title: ${upperName}
 description: _todo_ change me
 outline: deep
 ---
-[script setup]
+[[script setup]]
 import ${upperName}Example from '/examples/${upperName.toLowerCase()}/${upperName}Example.vue';
-[/script]
+[[/script]]
 # ${upperName}
 
-[Description
+[[Description
   nuxt-ui="https://ui.nuxt.com/components/${kebabName}"
   reka-ui="https://www.reka-ui.com/components/${kebabName}.html"
   reka-ui-title="${kebabName}"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/${upperName}.vue"
-]
+]]
   @todo change me
-[/Description]
+[[/Description]]
 
 ## Usage
 
-[ComponentShowExample ]
-  [iframe data-why class="min-h-[80px]" allowtransparency="true"]
-    [${upperName}Example /]
-  [/iframe]
-[/ComponentShowExample]
+[[ComponentShowExample ]]
+  [[iframe data-why class="min-h-[80px]" allowtransparency="true"]]
+    [[${upperName}Example /]]
+  [[/iframe]]
+[[/ComponentShowExample]]
 
 <<< @/examples/${upperName.toLowerCase()}/${upperName}Example.vue
 
@@ -214,15 +214,15 @@ import ${upperName}Example from '/examples/${upperName.toLowerCase()}/${upperNam
 
 ### Props
 
-[ComponentProps component="${upperName}" /]
+[[ComponentProps component="${upperName}" /]]
 
 ### Slots
 
-[ComponentSlots component="${upperName}" /]
+[[ComponentSlots component="${upperName}" /]]
 
 ### Emits
 
-[ComponentEmits component="${upperName}" /]
+[[ComponentEmits component="${upperName}" /]]
 `)
   }
 }
