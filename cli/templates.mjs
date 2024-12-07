@@ -26,8 +26,8 @@ const component = ({ name, primitive, pro, prose, content }) => {
   const upperName = splitByCase(name).map(p => upperFirst(p)).join('')
   const camelName = camelCase(name)
   const kebabName = kebabCase(name)
-  const key = 'ui'
-  const path = 'ui'
+  const key = 'b24ui'
+  const path = 'b24ui'
 
   if (pro) {
     // pro
