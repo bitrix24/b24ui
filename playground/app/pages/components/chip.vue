@@ -1,6 +1,8 @@
 <script setup lang="ts">
 /**
  * @todo add standalone
+ * @todo remove class from B24Button
+ * @todo remove class from B24Avatar
  */
 import theme from '#build/b24ui/chip'
 import usePageMeta from './../../composables/usePageMeta'

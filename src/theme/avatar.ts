@@ -1,3 +1,10 @@
+/**
+ * Avatar
+ * An img element with fallback and Nuxt Image support.
+ * ---
+ * @see bitrix/js/...
+ * @todo carry out stylization
+ */
 export default {
   slots: {
     root: 'inline-flex items-center justify-center shrink-0 select-none overflow-hidden rounded-full align-middle bg-[var(--ui-bg-elevated)]',
