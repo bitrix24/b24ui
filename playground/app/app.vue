@@ -78,7 +78,7 @@ defineShortcuts({
           </div>
         </div>
         <div vaul-drawer-wrapper class="flex flex-col lg:flex-row h-[calc(100vh-4.1rem)] w-screen overflow-hidden min-h-0">
-          <div class="fixed top-15 right-4 flex items-center gap-2">
+          <div class="fixed z-50 top-15 right-4 flex items-center gap-2">
             <ClientOnly v-if="!colorMode?.forced">
               <B24Button
                 :icon="isDark ? ClockFillIcon : Clock2Icon"

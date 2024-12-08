@@ -11,13 +11,13 @@ usePageMeta.setPageTitle('Links')
   <ExampleGrid>
     <ExampleCard title="Button">
       <ExampleCardSubTitle title="raw" />
-      <div class="flex flex-col items-start gap-4 text-sm">
+      <div class="mb-4 flex flex-col items-start gap-4 text-sm">
         <B24Link raw>
           Button raw
         </B24Link>
       </div>
       <ExampleCardSubTitle title="active" />
-      <div class="flex flex-col items-start gap-4 text-sm">
+      <div class="mb-4 flex flex-col items-start gap-4 text-sm">
         <B24Link active>
           Button active
         </B24Link>
@@ -29,7 +29,7 @@ usePageMeta.setPageTitle('Links')
         </B24Link>
       </div>
       <ExampleCardSubTitle title="inactive" />
-      <div class="flex flex-col items-start gap-4 text-sm">
+      <div class="mb-4 flex flex-col items-start gap-4 text-sm">
         <B24Link>
           Button inactive
         </B24Link>
@@ -43,13 +43,13 @@ usePageMeta.setPageTitle('Links')
     </ExampleCard>
     <ExampleCard title="B24Link">
       <ExampleCardSubTitle title="raw" />
-      <div class="flex flex-col items-start gap-4 text-sm">
+      <div class="mb-4 flex flex-col items-start gap-4 text-sm">
         <B24Link to="/components/link" raw>
           Link raw
         </B24Link>
       </div>
       <ExampleCardSubTitle title="active" />
-      <div class="flex flex-col items-start gap-4 text-sm">
+      <div class="mb-4 flex flex-col items-start gap-4 text-sm">
         <B24Link to="/components/link">
           Link active
         </B24Link>
@@ -61,7 +61,7 @@ usePageMeta.setPageTitle('Links')
         </B24Link>
       </div>
       <ExampleCardSubTitle title="inactive" />
-      <div class="flex flex-col items-start gap-4 text-sm">
+      <div class="mb-4 flex flex-col items-start gap-4 text-sm">
         <B24Link to="/components/button">
           Link inactive
         </B24Link>
