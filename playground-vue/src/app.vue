@@ -36,7 +36,7 @@ defineShortcuts({
   <B24App :toaster="(appConfig.toaster as any)">
     <div class="flex flex-col">
       <div class="px-lg">
-        <div class="min-h-7xl h-7xl w-full flex flex-row items-center justify-normal gap-lg2 border-b border-b-base-200">
+        <div class="min-h-7xl h-7xl w-full flex flex-row items-center justify-normal gap-lg2 border-b border-b-base-200 dark:border-b-base-900">
           <div class="pl-xs2 text-4xl font-light font-b24-secondary text-base-master dark:text-base-100">
             <span class="text-base-600 dark:text-base-500">Vue::</span>{{ usePageMeta.getPageTitle() }}
           </div>
