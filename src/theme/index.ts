@@ -1,4 +1,4 @@
-export * from './content'
+// export * from './content'
 export { default as avatar } from './avatar'
 export { default as button } from './button'
 export { default as buttonGroup } from './button-group'

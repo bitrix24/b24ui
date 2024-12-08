@@ -5,8 +5,10 @@ import type { Nuxt, NuxtTemplate, NuxtTypeTemplate } from '@nuxt/schema'
 import type { Resolver } from '@nuxt/kit'
 import type { ModuleOptions } from './module'
 import * as theme from './theme'
+import * as themeProse from './theme/prose'
+import * as themeContent from './theme/content'
 
-function replaceBrackets(value) {
+function replaceBrackets(value: string): string {
   return value.replace(/\[\[/g, '<').replace(/\]\]/g, '>')
 }
 
@@ -44,6 +46,76 @@ export function getTemplates(options: ModuleOptions, uiConfig: Record<string, an
         if (process.env.DEV) {
           return [
             `import template from ${JSON.stringify(fileURLToPath(new URL(`./theme/${kebabCase(component)}`, import.meta.url)))}`,
+            `const result = typeof template === 'function' ? template(${JSON.stringify(options)}) : template`,
+            `const json = ${json}`,
+            `export default result as typeof json`
+          ].join('\n')
+        }
+
+        return `export default ${json}`
+      }
+    })
+  }
+
+  for (const component in themeProse) {
+    templates.push({
+      filename: `b24ui/prose/${kebabCase(component)}.ts`,
+      write: true,
+      getContents: async () => {
+        const template = (themeProse as any)[component]
+        const result = typeof template === 'function' ? template(options) : template
+
+        const variants = Object.keys(result.variants || {})
+
+        let json = JSON.stringify(result, null, 2)
+
+        for (const variant of variants) {
+          json = json.replace(new RegExp(`("${variant}": "[^"]+")`, 'g'), '$1 as const')
+          json = json.replace(new RegExp(`("${variant}": \\[\\s*)((?:"[^"]+",?\\s*)+)(\\])`, 'g'), (_, before, match, after) => {
+            const replaced = match.replace(/("[^"]+")/g, '$1 as const')
+            return `${before}${replaced}${after}`
+          })
+        }
+
+        // For local development, directly import from themeProse
+        if (process.env.DEV) {
+          return [
+            `import template from ${JSON.stringify(fileURLToPath(new URL(`./theme/prose/${kebabCase(component)}`, import.meta.url)))}`,
+            `const result = typeof template === 'function' ? template(${JSON.stringify(options)}) : template`,
+            `const json = ${json}`,
+            `export default result as typeof json`
+          ].join('\n')
+        }
+
+        return `export default ${json}`
+      }
+    })
+  }
+
+  for (const component in themeContent) {
+    templates.push({
+      filename: `b24ui/content/${kebabCase(component)}.ts`,
+      write: true,
+      getContents: async () => {
+        const template = (themeContent as any)[component]
+        const result = typeof template === 'function' ? template(options) : template
+
+        const variants = Object.keys(result.variants || {})
+
+        let json = JSON.stringify(result, null, 2)
+
+        for (const variant of variants) {
+          json = json.replace(new RegExp(`("${variant}": "[^"]+")`, 'g'), '$1 as const')
+          json = json.replace(new RegExp(`("${variant}": \\[\\s*)((?:"[^"]+",?\\s*)+)(\\])`, 'g'), (_, before, match, after) => {
+            const replaced = match.replace(/("[^"]+")/g, '$1 as const')
+            return `${before}${replaced}${after}`
+          })
+        }
+
+        // For local development, directly import from themeContent
+        if (process.env.DEV) {
+          return [
+            `import template from ${JSON.stringify(fileURLToPath(new URL(`./theme/content/${kebabCase(component)}`, import.meta.url)))}`,
             `const result = typeof template === 'function' ? template(${JSON.stringify(options)}) : template`,
             `const json = ${json}`,
             `export default result as typeof json`
