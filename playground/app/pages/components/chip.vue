@@ -3,13 +3,13 @@
  * @todo add standalone
  */
 import theme from '#build/b24ui/chip'
+import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
 import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import BellIcon from '@bitrix24/b24icons-vue/main/BellIcon'
 import MessageChatWithPointIcon from '@bitrix24/b24icons-vue/main/MessageChatWithPointIcon'
 import MailIcon from '@bitrix24/b24icons-vue/main/MailIcon'
-import usePageMeta from './../../composables/usePageMeta'
 
 usePageMeta.setPageTitle('Chip')
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
