@@ -46,7 +46,7 @@ const items = [
   <ExampleGrid>
     <ExampleCard title="inset">
       <template v-for="size in sizes" :key="size">
-        <ExampleCardSubTitle :title="size" />
+        <ExampleCardSubTitle :title="size as string" />
         <div class="mb-4 flex items-center gap-4">
           <B24Chip
             v-for="position in positions"
@@ -56,15 +56,15 @@ const items = [
             color="success"
             inset
           >
-            <B24Avatar class="border-1 border-base-300 p-0.5" src="https://github.com/bitrix24.png" :size="size" />
+            <B24Avatar class="border-1 border-base-300 p-0.5" src="https://github.com/bitrix24.png" :size="size" text="B24" />
           </B24Chip>
         </div>
       </template>
     </ExampleCard>
     <template v-for="color in colors" :key="color">
-      <ExampleCard :title="color">
+      <ExampleCard :title="color as string">
         <template v-for="size in sizes" :key="size">
-          <ExampleCardSubTitle :title="size" />
+          <ExampleCardSubTitle :title="size as string" />
           <div class="mb-4 flex items-center gap-4">
             <B24Chip v-for="position in positions" :key="position" :position="position" :size="size" :color="color">
               <B24Button class="px-1 py-1 bg-gray-300 rounded-xs" :icon="MailIcon" color="default" depth="normal" />
@@ -75,7 +75,7 @@ const items = [
     </template>
     <ExampleCard title="B24Button">
       <template v-for="size in sizes" :key="size">
-        <ExampleCardSubTitle :title="size" />
+        <ExampleCardSubTitle :title="size as string" />
         <div class="mb-4 flex items-center gap-4">
           <B24Chip v-for="{ name, icon, count } in items" :key="name" :text="count" :size="size">
             <B24Button class="px-1 py-1 bg-gray-300 rounded-md text-xl" :icon="icon" size="md" color="default" depth="normal" />
@@ -85,10 +85,10 @@ const items = [
     </ExampleCard>
     <ExampleCard title="B24Avatar">
       <template v-for="size in sizes" :key="size">
-        <ExampleCardSubTitle :title="size" />
+        <ExampleCardSubTitle :title="size as string" />
         <div class="mb-4 flex items-center gap-4">
           <B24Chip v-for="{ name, count } in items" :key="name" :text="count" :size="size">
-            <B24Avatar class="border-1 border-base-300 p-0.5" src="https://github.com/bitrix24.png" :size="size" />
+            <B24Avatar class="border-1 border-base-300 p-0.5" src="https://github.com/bitrix24.png" :size="size" text="B24" />
           </B24Chip>
         </div>
       </template>

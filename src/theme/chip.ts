@@ -16,26 +16,27 @@ import type { ModuleOptions } from '../module'
 export default (options: Required<ModuleOptions>) => ({
   slots: {
     root: 'relative inline-flex items-center justify-center shrink-0',
-    base: 'rounded-sm ring ring-white dark:ring-base-900 flex items-center justify-center p-1 text-white text-3xs font-semibold font-b24-secondary whitespace-nowrap'
+    base: 'rounded-sm ring ring-white dark:ring-base-900 flex items-center justify-center p-1 text-white leading-none font-semibold font-b24-secondary whitespace-nowrap'
   },
   variants: {
     color: {
-      default: 'bg-base-500 dark:bg-base-800',
-      danger: 'bg-red-500 dark:bg-red-800',
-      success: 'bg-green-500 dark:bg-green-800',
-      warning: 'bg-orange-500 dark:bg-orange-800',
-      primary: 'bg-blue-500 dark:bg-blue-800',
+      // 800 >> 600
+      default: 'bg-base-500 dark:bg-base-900 dark:text-base-100',
+      danger: 'bg-red-500 dark:bg-red-600 dark:text-red-250',
+      success: 'bg-green-500 dark:bg-green-600 dark:text-green-250',
+      warning: 'bg-orange-500 dark:bg-orange-600 dark:text-orange-250',
+      primary: 'bg-blue-500 dark:bg-blue-600 dark:text-blue-250',
       secondary: 'bg-accent-aqua dark:bg-accent-turquoise',
-      ai: 'bg-ai-500 dark:bg-ai-800',
-      link: 'bg-base-900/75 text-white dark:bg-white/80 dark:text-base-900'
+      ai: 'bg-ai-500 dark:bg-ai-600 dark:text-ai-250',
+      link: 'bg-base-900/85 text-white dark:bg-white/85 dark:text-base-900'
     },
     size: {
       '3xs': 'h-2xs min-w-2xs text-[0px] text-transparent',
       '2xs': 'h-2xs2 min-w-2xs2 text-[0px] text-transparent',
       'xs': 'h-xs2 min-w-xs2 text-[0px] text-transparent',
       'sm': 'h-sm min-w-sm text-4xs font-regular',
-      'md': 'h-md min-w-md',
-      'lg': 'h-lg min-w-lg rounded-md'
+      'md': 'h-md min-w-md text-3xs',
+      'lg': 'h-lg min-w-lg rounded-md text-xs'
     },
     position: {
       'top-right': 'top-0 right-0',
