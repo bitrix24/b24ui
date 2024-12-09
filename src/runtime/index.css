@@ -7,6 +7,8 @@
 use Violet
 */
 @theme {
+  --color-base-dark: #0F0F0F;
+
   --color-ai-50: #f5f3ff;
   --color-ai-100: #ede9fe;
   --color-ai-200: #ddd6ff;

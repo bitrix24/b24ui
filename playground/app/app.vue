@@ -12,7 +12,7 @@ const colorMode = useColorMode()
 useHead({
   title: 'Playground',
   bodyAttrs: {
-    class: 'bg-tertiary dark:bg-[#1d1d1d] font-b24-system text-base-900 antialiased'
+    class: 'bg-tertiary dark:bg-base-dark font-b24-system text-base-900 antialiased'
   }
 })
 
