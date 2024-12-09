@@ -57,7 +57,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
         />
       </div>
     </ExampleCard>
-    <ExampleCard title="Avatar Group" class="col-span-3">
+    <ExampleCard title="Avatar Group" class="col-span-4">
       <ExampleCardSubTitle title="max:2" />
       <div class="flex items-center justify-start gap-4">
         <B24AvatarGroup v-for="size in sizes" :key="size" :size="size" :max="2">

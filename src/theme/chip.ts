@@ -35,7 +35,10 @@ export default (options: Required<ModuleOptions>) => ({
       'xs': 'h-xs2 min-w-xs2 text-[0px] text-transparent',
       'sm': 'h-sm min-w-sm text-4xs font-regular',
       'md': 'h-md min-w-md text-3xs',
-      'lg': 'h-lg min-w-lg rounded-md text-xs'
+      'lg': 'h-lg min-w-lg rounded-md text-xs',
+      'xl': 'h-lg min-w-lg rounded-md text-xs',
+      '2xl': 'h-lg min-w-lg rounded-md text-xs',
+      '3xl': 'h-lg min-w-lg rounded-md text-xs',
     },
     position: {
       'top-right': 'top-0 right-0',
@@ -75,27 +78,51 @@ export default (options: Required<ModuleOptions>) => ({
     // inset: md | lg ////
     {
       position: 'top-right',
-      size: ['md', 'lg'],
+      size: ['md', 'lg', 'xl', '2xl'],
       inset: true,
       class: '-translate-y-1/3 translate-x-1/3 transform'
     },
     {
+      position: 'top-right',
+      size: ['3xl'],
+      inset: true,
+      class: '-translate-y-1/5 translate-x-1/5 transform'
+    },
+    {
       position: 'bottom-right',
-      size: ['md', 'lg'],
+      size: ['md', 'lg', 'xl', '2xl'],
       inset: true,
       class: 'translate-y-1/3 translate-x-1/3 transform'
     },
     {
+      position: 'bottom-right',
+      size: ['3xl'],
+      inset: true,
+      class: 'translate-y-1/5 translate-x-1/5 transform'
+    },
+    {
       position: 'top-left',
-      size: ['md', 'lg'],
+      size: ['md', 'lg', 'xl', '2xl'],
       inset: true,
       class: '-translate-y-1/3 -translate-x-1/3 transform'
     },
     {
+      position: 'top-left',
+      size: ['3xl'],
+      inset: true,
+      class: '-translate-y-1/5 -translate-x-1/5 transform'
+    },
+    {
       position: 'bottom-left',
-      size: ['md', 'lg'],
+      size: ['md', 'lg', 'xl', '2xl'],
       inset: true,
       class: 'translate-y-1/3 -translate-x-1/3 transform'
+    },
+    {
+      position: 'bottom-left',
+      size: ['3xl'],
+      inset: true,
+      class: 'translate-y-1/5 -translate-x-1/5 transform'
     }
   ],
   defaultVariants: {

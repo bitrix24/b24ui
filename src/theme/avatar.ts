@@ -2,9 +2,7 @@
  * Avatar
  * An img element with fallback and Nuxt Image support.
  * ---
- * @see bitrix/js/ui/avatar
  * @see bitrix/js/im/v2/component/elements/dist/registry.bundle.min.css
- * @todo carry out stylization
  */
 export default {
   slots: {
@@ -16,28 +14,28 @@ export default {
   variants: {
     size: {
       '2xs': {
-        root: 'size-5 text-4xs font-regular' // 14px; font-size ?
+        root: 'size-5 text-4xs font-regular'
       },
       'xs': {
-        root: 'size-6 text-3xs font-regular' // 18px; font-size ?
+        root: 'size-6 text-3xs font-regular'
       },
       'sm': {
-        root: 'size-7 text-xs' // 22px; font-size ?
+        root: 'size-7 text-xs'
       },
       'md': {
-        root: 'size-8 text-sm' // 32px; font-size - --ui-font-size-sm 13px
+        root: 'size-8 text-sm'
       },
       'lg': {
-        root: 'size-[42px] text-2xl' // 42px; font-size - --ui-font-size-2xl, 18px
+        root: 'size-[42px] text-2xl'
       },
       'xl': {
-        root: 'size-12 text-2xl' // 48px; font-size - --ui-font-size-2xl, 18px
+        root: 'size-12 text-2xl'
       },
       '2xl': {
-        root: 'size-[60px] text-5xl' // 60px; font-size - --ui-font-size-5xl, 28px
+        root: 'size-[60px] text-5xl'
       },
       '3xl': {
-        root: 'size-[94px] text-[34px]' // 94px; font-size - 34px
+        root: 'size-[94px] text-[34px]'
       }
     }
   },

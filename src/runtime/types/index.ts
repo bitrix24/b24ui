@@ -1,4 +1,5 @@
 export * from '../components/Avatar.vue'
+export * from '../components/AvatarGroup.vue'
 export * from '../components/Button.vue'
 export * from '../components/Chip.vue'
 export * from '../components/Input.vue'
