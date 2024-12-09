@@ -3,6 +3,7 @@ import { useColorMode } from '#imports'
 import usePageMeta from './composables/usePageMeta'
 import Clock2Icon from '@bitrix24/b24icons-vue/main/Clock2Icon'
 import ClockFillIcon from '@bitrix24/b24icons-vue/main/ClockFillIcon'
+import IncertImageIcon from "@bitrix24/b24icons-vue/dist/editor/IncertImageIcon";
 
 const route = useRoute()
 const router = useRouter()
@@ -110,12 +111,10 @@ defineShortcuts({
                     class="bg-white dark:bg-white/10 py-sm2 px-xs2 cursor-pointer rounded-md flex flex-row gap-sm border-2 transition-shadow shadow hover:shadow-lg relative border-white dark:border-white/10 hover:border-primary"
                     :to="`/${group.id}/${item.id}`"
                   >
-                    <div class="rounded-full bg-blue-200 dark:bg-blue-900 size-14 min-w-14 min-h-14 flex items-center justify-center">
-                      <component
-                        :is="item.icon"
-                        class="size-12 text-info-text dark:text-blue-700"
-                      />
-                    </div>
+                    <B24Avatar
+                      :icon="item.icon"
+                      size="2xl"
+                    />
                     <div class="max-w-11/12">
                       <div class="font-b24-secondary text-black dark:text-base-150 text-h6 leading-4 mb-xs font-semibold line-clamp-2">
                         {{ item.label }}
