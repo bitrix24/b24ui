@@ -16,11 +16,10 @@ import type { ModuleOptions } from '../module'
 export default (options: Required<ModuleOptions>) => ({
   slots: {
     root: 'relative inline-flex items-center justify-center shrink-0',
-    base: 'rounded-sm ring ring-white dark:ring-base-900 flex items-center justify-center p-1 text-white leading-none font-semibold font-b24-secondary whitespace-nowrap'
+    base: 'select-none rounded-sm ring ring-white dark:ring-base-700 flex items-center justify-center p-1 text-white leading-none font-semibold font-b24-secondary whitespace-nowrap'
   },
   variants: {
     color: {
-      // 800 >> 600
       default: 'bg-base-500 dark:bg-base-900 dark:text-base-100',
       danger: 'bg-red-500 dark:bg-red-600 dark:text-red-250',
       success: 'bg-green-500 dark:bg-green-600 dark:text-green-250',
