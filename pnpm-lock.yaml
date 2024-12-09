@@ -96,8 +96,8 @@ importers:
         specifier: ^1.1.2
         version: 1.1.2
       reka-ui:
-        specifier: https://pkg.pr.new/reka-ui@8238615
-        version: https://pkg.pr.new/reka-ui@8238615(typescript@5.6.3)(vue@3.5.13(typescript@5.6.3))
+        specifier: 1.0.0-alpha.6
+        version: 1.0.0-alpha.6(typescript@5.6.3)(vue@3.5.13(typescript@5.6.3))
       scule:
         specifier: ^1.3.0
         version: 1.3.0
@@ -4621,9 +4621,8 @@ packages:
     resolution: {integrity: sha512-qx+xQGZVsy55CH0a1hiVwHmqjLryfh7wQyF5HO07XJ9f7dQMY/gPQHhlyDkIzJKC+x2fUCpCcUODUUUFrm7SHA==}
     hasBin: true
 
-  reka-ui@https://pkg.pr.new/reka-ui@8238615:
-    resolution: {tarball: https://pkg.pr.new/reka-ui@8238615}
-    version: 1.0.0-alpha.5
+  reka-ui@1.0.0-alpha.6:
+    resolution: {integrity: sha512-/t9IhuJxdPg1NR4JLKTI8FZzvgkeQon/gfoLDqxLODdPHfhawNfLz4/qwP7SnLnwk8dw7TK/E6e/ngdGFlgPyw==}
     peerDependencies:
       vue: '>= 3.2.0'
 
@@ -10531,7 +10530,7 @@ snapshots:
     dependencies:
       jsesc: 0.5.0
 
-  reka-ui@https://pkg.pr.new/reka-ui@8238615(typescript@5.6.3)(vue@3.5.13(typescript@5.6.3)):
+  reka-ui@1.0.0-alpha.6(typescript@5.6.3)(vue@3.5.13(typescript@5.6.3)):
     dependencies:
       '@floating-ui/dom': 1.6.12
       '@floating-ui/vue': 1.1.5(vue@3.5.13(typescript@5.6.3))
