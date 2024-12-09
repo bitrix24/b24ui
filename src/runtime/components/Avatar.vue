@@ -45,7 +45,13 @@ const props = withDefaults(defineProps<AvatarProps>(), { as: 'span' })
 
 const fallbackProps = useForwardProps(reactivePick(props, 'delayMs'))
 
-const fallback = computed(() => props.text || (props.alt || '').split(' ').map(word => word.charAt(0)).join('').substring(0, 2))
+const fallback = computed(() => props.text || (props.alt || '')
+  .replace(/[\+\-\*\)\(\}\]\[\{\}]/g, '')
+  .split(' ')
+  .map(word => word.charAt(0))
+  .join('')
+  .substring(0, 2)
+)
 
 const { size } = useAvatarGroup(props)
 
@@ -55,15 +61,14 @@ const b24ui = computed(() => avatar({
 }))
 
 const sizePx = computed(() => ({
-  '3xs': 16,
-  '2xs': 20,
-  'xs': 24,
-  'sm': 28,
+  '2xs': 14,
+  'xs': 18,
+  'sm': 22,
   'md': 32,
-  'lg': 36,
-  'xl': 40,
-  '2xl': 44,
-  '3xl': 48
+  'lg': 42,
+  'xl': 48,
+  '2xl': 60,
+  '3xl': 94
 })[props.size || 'md'])
 </script>
 
