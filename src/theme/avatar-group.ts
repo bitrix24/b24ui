@@ -1,7 +1,7 @@
 export default {
   slots: {
-    root: 'inline-flex flex-row-reverse justify-end',
-    base: 'relative rounded-full ring-white dark:ring-base-700 first:me-0'
+    root: 'inline-flex justify-end',
+    base: 'relative rounded-full ring-white dark:ring-base-700 last:me-0'
   },
   variants: {
     size: {
@@ -12,7 +12,7 @@ export default {
         base: 'ring -me-0.5'
       },
       'sm': {
-        base: 'ring-2 -me-1.5'
+        base: 'ring -me-1.5'
       },
       'md': {
         base: 'ring-2 -me-1.5'

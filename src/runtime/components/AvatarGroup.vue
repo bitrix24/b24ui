@@ -39,7 +39,7 @@ import B24Avatar from './Avatar.vue'
 const props = defineProps<AvatarGroupProps>()
 const slots = defineSlots<AvatarGroupSlots>()
 
-const ui = computed(() => avatarGroup({
+const b24ui = computed(() => avatarGroup({
   size: props.size
 }))
 
@@ -71,10 +71,10 @@ const visibleAvatars = computed(() => {
   }
 
   if (!max.value || max.value <= 0) {
-    return [...children.value].reverse()
+    return [...children.value]
   }
 
-  return [...children.value].slice(0, max.value).reverse()
+  return [...children.value].slice(0, max.value)
 })
 
 const hiddenCount = computed(() => {
@@ -91,8 +91,8 @@ provide(avatarGroupInjectionKey, computed(() => ({
 </script>
 
 <template>
-  <Primitive :as="as" :class="ui.root({ class: [props.class, props.ui?.root] })">
-    <B24Avatar v-if="hiddenCount > 0" :text="`+${hiddenCount}`" :class="ui.base({ class: props.ui?.base })" />
-    <component :is="avatar" v-for="(avatar, count) in visibleAvatars" :key="count" :class="ui.base({ class: props.ui?.base })" />
+  <Primitive :as="as" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
+    <component :is="avatar" v-for="(avatar, count) in visibleAvatars" :key="count" :class="b24ui.base({ class: props.b24ui?.base })" />
+    <B24Avatar v-if="hiddenCount > 0" :text="`+${hiddenCount}`" :class="b24ui.base({ class: props.b24ui?.base })" />
   </Primitive>
 </template>

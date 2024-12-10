@@ -56,7 +56,7 @@ const items = [
             color="success"
             inset
           >
-            <B24Avatar src="https://github.com/bitrix24.png" size="lg" text="B24" />
+            <B24Avatar src="https://github.com/bitrix24.png" size="lg" text="B24" class="border border-2 border-base-150 dark:border-base-700" />
           </B24Chip>
         </div>
       </template>
@@ -88,7 +88,7 @@ const items = [
         <ExampleCardSubTitle :title="size as string" />
         <div class="mb-4 flex items-center gap-4">
           <B24Chip v-for="{ name, count } in items" :key="name" :text="count" :size="size" inset>
-            <B24Avatar src="https://github.com/bitrix24.png" size="xl" text="B24" />
+            <B24Avatar src="https://github.com/IgorShevchik.png" alt="Shevchik Igor" size="xl" />
           </B24Chip>
         </div>
       </template>
