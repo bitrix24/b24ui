@@ -1,14 +1,17 @@
 <script setup lang="ts">
 import { useColorMode } from '#imports'
+import { useTextDirection } from '@vueuse/core'
 import usePageMeta from './composables/usePageMeta'
 import Clock2Icon from '@bitrix24/b24icons-vue/main/Clock2Icon'
 import ClockFillIcon from '@bitrix24/b24icons-vue/main/ClockFillIcon'
-import IncertImageIcon from "@bitrix24/b24icons-vue/dist/editor/IncertImageIcon";
+import RightAlignIcon from '@bitrix24/b24icons-vue/editor/RightAlignIcon'
+import LeftAlignIcon from '@bitrix24/b24icons-vue/editor/LeftAlignIcon'
 
 const route = useRoute()
 const router = useRouter()
 const appConfig = useAppConfig()
 const colorMode = useColorMode()
+const dir = useTextDirection()
 
 useHead({
   title: 'Playground',
@@ -23,6 +26,15 @@ const isDark = computed({
   },
   set() {
     colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+  }
+})
+
+const isLtr = computed({
+  get() {
+    return dir.value === 'ltr'
+  },
+  set() {
+    dir.value = dir.value === 'rtl' ? 'ltr' : 'rtl'
   }
 })
 
@@ -79,13 +91,18 @@ defineShortcuts({
           </div>
         </div>
         <div vaul-drawer-wrapper class="flex flex-col lg:flex-row h-[calc(100vh-4.1rem)] w-screen overflow-hidden min-h-0">
-          <div class="fixed z-50 top-15 right-4 flex items-center gap-2">
+          <div class="fixed z-50 top-15 right-4 flex items-center gap-2 rtl:flex-row-reverse">
             <ClientOnly v-if="!colorMode?.forced">
               <B24Button
                 :icon="isDark ? ClockFillIcon : Clock2Icon"
                 variant="ghost"
                 :aria-label="`Switch to ${isDark ? 'light' : 'dark'} mode`"
                 @click="isDark = !isDark"
+              />
+              <B24Button
+                :icon="isLtr ? LeftAlignIcon : RightAlignIcon"
+                :aria-label="`Switch to ${isLtr ? 'Right-to-left' : 'Left-to-right'} mode`"
+                @click="isLtr = !isLtr"
               />
 
               <template #fallback>

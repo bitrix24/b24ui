@@ -2,15 +2,18 @@
 import usePageMeta from '../../playground/app/composables/usePageMeta'
 import Clock2Icon from '@bitrix24/b24icons-vue/main/Clock2Icon'
 import ClockFillIcon from '@bitrix24/b24icons-vue/main/ClockFillIcon'
+import RightAlignIcon from '@bitrix24/b24icons-vue/editor/RightAlignIcon'
+import LeftAlignIcon from '@bitrix24/b24icons-vue/editor/LeftAlignIcon'
 import { useRouter, useRoute } from 'vue-router'
 import { reactive, ref } from 'vue'
-import { useColorMode } from '@vueuse/core'
+import { useColorMode, useTextDirection } from '@vueuse/core'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore included for compatibility with Nuxt playground
 import { useAppConfig } from '#imports'
 
 const appConfig = useAppConfig()
 const mode = useColorMode()
+const dir = useTextDirection()
 
 appConfig.toaster = reactive({
   position: 'bottom-right' as const,
@@ -73,12 +76,16 @@ defineShortcuts({
         </div>
       </div>
       <div vaul-drawer-wrapper class="flex flex-col lg:flex-row h-[calc(100vh-4.1rem)] w-screen overflow-hidden min-h-0">
-        <div class="fixed z-50 top-15 right-4 flex items-center gap-2">
+        <div class="fixed z-50 top-15 right-4 flex items-center gap-2 rtl:flex-row-reverse">
           <B24Button
             :icon="mode === 'dark' ? ClockFillIcon : Clock2Icon"
-            variant="ghost"
             :aria-label="`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`"
             @click="mode = mode === 'dark' ? 'light' : 'dark'"
+          />
+          <B24Button
+            :icon="dir === 'ltr' ? LeftAlignIcon : RightAlignIcon"
+            :aria-label="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`"
+            @click="dir = dir === 'ltr' ? 'rtl' : 'ltr'"
           />
         </div>
         <div class="py-14 px-3xl flex flex-col items-center justify-evenly overflow-y-auto w-full">
