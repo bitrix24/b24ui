@@ -20,18 +20,29 @@ describe('Input', () => {
     ['with disabled', { props: { disabled: true } }],
     ['with required', { props: { required: true } }],
     ['with file type', { props: { type: 'file' } }],
+    // @todo fix this ////
     ['with icon', { props: { icon: 'i-lucide-search' } }],
+    // @todo fix this ////
     ['with leading and icon', { props: { leading: true, icon: 'i-lucide-arrow-left' } }],
+    // @todo fix this ////
     ['with leadingIcon', { props: { leadingIcon: 'i-lucide-arrow-left' } }],
+    // @todo fix this ////
     ['with trailing and icon', { props: { trailing: true, icon: 'i-lucide-arrow-right' } }],
+    // @todo fix this ////
     ['with trailingIcon', { props: { trailingIcon: 'i-lucide-arrow-right' } }],
+    // @todo fix this ////
     ['with avatar', { props: { avatar: { src: 'https://github.com/benjamincanac.png' } } }],
+    // @todo fix this ////
     ['with avatar and leadingIcon', { props: { avatar: { src: 'https://github.com/benjamincanac.png' }, leadingIcon: 'i-lucide-arrow-left' } }],
+    // @todo fix this ////
     ['with avatar and trailingIcon', { props: { avatar: { src: 'https://github.com/benjamincanac.png' }, trailingIcon: 'i-lucide-arrow-right' } }],
     ['with loading', { props: { loading: true } }],
+    // @todo fix this ////
     ['with loading and avatar', { props: { loading: true, avatar: { src: 'https://github.com/benjamincanac.png' } } }],
     ['with loading trailing', { props: { loading: true, trailing: true } }],
+    // @todo fix this ////
     ['with loading trailing and avatar', { props: { loading: true, trailing: true, avatar: { src: 'https://github.com/benjamincanac.png' } } }],
+    // @todo fix this ////
     ['with loadingIcon', { props: { loading: true, loadingIcon: 'i-lucide-sparkles' } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { size } }]),
     ...variants.map((variant: string) => [`with primary variant ${variant}`, { props: { variant } }]),

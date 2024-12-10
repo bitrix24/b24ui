@@ -11,6 +11,7 @@ describe('Avatar', () => {
     ['with src', { props: { src: 'https://github.com/benjamincanac.png' } }],
     ['with alt', { props: { alt: 'Benjamin Canac' } }],
     ['with text', { props: { text: '+1' } }],
+    // @todo fix this ////
     ['with icon', { props: { icon: 'i-lucide-image' } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { src: 'https://github.com/benjamincanac.png', size } }]),
     ['with as', { props: { as: 'section' } }],

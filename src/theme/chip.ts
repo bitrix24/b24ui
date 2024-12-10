@@ -2,7 +2,7 @@
  * Chip
  * As a source we will choose `counter` and `labels`
  * ---
- * @link https://dev.1c-bitrix.ru/api_d7/bitrix/ui/labels/index.php
+ * @link /api_d7/bitrix/ui/labels/index.php
  * @see bitrix/js/ui/cnt/src/cnt-color.js
  * @see bitrix/js/ui/cnt/ui.cnt.css
  * @see bitrix/js/ui/label/src/label-color.js
@@ -10,10 +10,7 @@
  * @todo add animation >> demo >> https://github.com/nuxt/ui/blob/v3/docs/app/components/content/examples/chip/ChipShowExample.vue
  */
 
-import type { ModuleOptions } from '../module'
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export default (options: Required<ModuleOptions>) => ({
+export default {
   slots: {
     root: 'relative inline-flex items-center justify-center shrink-0',
     base: 'select-none rounded-sm ring ring-white dark:ring-base-700 flex items-center justify-center p-1 text-white leading-none font-semibold font-b24-secondary whitespace-nowrap'
@@ -38,7 +35,7 @@ export default (options: Required<ModuleOptions>) => ({
       'lg': 'h-lg min-w-lg rounded-md text-xs',
       'xl': 'h-lg min-w-lg rounded-md text-xs',
       '2xl': 'h-lg min-w-lg rounded-md text-xs',
-      '3xl': 'h-lg min-w-lg rounded-md text-xs',
+      '3xl': 'h-lg min-w-lg rounded-md text-xs'
     },
     position: {
       'top-right': 'top-0 right-0',
@@ -130,4 +127,4 @@ export default (options: Required<ModuleOptions>) => ({
     color: 'danger',
     position: 'top-right'
   }
-})
+}
