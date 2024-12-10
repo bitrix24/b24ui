@@ -22,11 +22,12 @@ export default {
   base: 'relative',
   variants: {
     size: {
-      xs: '',
-      sm: '',
-      md: '',
-      lg: '',
-      xl: ''
+      '2xs': '',
+      'xs': '',
+      'sm': '',
+      'md': '',
+      'lg': '',
+      'xl': ''
     },
     orientation: {
       horizontal: 'inline-flex -space-x-px',

@@ -12,26 +12,39 @@ import {
 
 describe('Button', () => {
   const sizes = Object.keys(theme.variants.size) as any
-  const variants = Object.keys(theme.variants.variant) as any
+  const colors = Object.keys(theme.variants.color) as any
+  const depths = Object.keys(theme.variants.depth) as any
 
   it.each([
     // Props
     ['with label', { props: { label: 'Button' } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { label: 'Button', size } }]),
-    ...variants.map((variant: string) => [`with primary variant ${variant}`, { props: { label: 'Button', variant } }]),
-    ...variants.map((variant: string) => [`with neutral variant ${variant}`, { props: { label: 'Button', variant, color: 'neutral' } }]),
+    ...colors.map((color: string) => [`with normal color ${color}`, { props: { label: 'Button', color } }]),
+    ...colors.map((color: string) => [`with light color ${color}`, { props: { label: 'Button', color, depth: 'light' } }]),
+    ...colors.map((color: string) => [`with dark color ${color}`, { props: { label: 'Button', color, depth: 'dark' } }]),
+    // @todo fix this ////
     ['with icon', { props: { icon: 'i-lucide-rocket' } }],
+    // @todo fix this ////
     ['with leading and icon', { props: { leading: true, icon: 'i-lucide-arrow-left' } }],
+    // @todo fix this ////
     ['with leadingIcon', { props: { leadingIcon: 'i-lucide-arrow-left' } }],
+    // @todo fix this ////
     ['with trailing and icon', { props: { trailing: true, icon: 'i-lucide-arrow-right' } }],
+    // @todo fix this ////
     ['with trailingIcon', { props: { trailingIcon: 'i-lucide-arrow-right' } }],
+    // @todo fix this ////
     ['with avatar', { props: { avatar: { src: 'https://github.com/benjamincanac.png' } } }],
+    // @todo fix this ////
     ['with avatar and leadingIcon', { props: { avatar: { src: 'https://github.com/benjamincanac.png' }, leadingIcon: 'i-lucide-arrow-left' } }],
+    // @todo fix this ////
     ['with avatar and trailingIcon', { props: { avatar: { src: 'https://github.com/benjamincanac.png' }, trailingIcon: 'i-lucide-arrow-right' } }],
     ['with loading', { props: { loading: true } }],
+    // @todo fix this ////
     ['with loading and avatar', { props: { loading: true, avatar: { src: 'https://github.com/benjamincanac.png' } } }],
     ['with loading trailing', { props: { loading: true, trailing: true } }],
+    // @todo fix this ////
     ['with loading trailing and avatar', { props: { loading: true, trailing: true, avatar: { src: 'https://github.com/benjamincanac.png' } } }],
+    // @todo fix this ////
     ['with loadingIcon', { props: { loading: true, loadingIcon: 'i-lucide-sparkles' } }],
     ['with disabled', { props: { label: 'Button', disabled: true } }],
     ['with disabled and with link', { props: { label: 'Button', disabled: true, to: '/link' } }],
@@ -72,6 +85,7 @@ describe('Button', () => {
     const icon = wrapper.findComponent({ name: 'Icon' })
 
     expect(icon.classes()).toContain('animate-spin')
+    // @todo fix this ////
     expect(icon?.vm?.name).toBe('i-lucide-refresh-cw')
 
     resolve?.(null)
@@ -103,6 +117,7 @@ describe('Button', () => {
     const icon = wrapper.findComponent({ name: 'Icon' })
 
     expect(icon.classes()).toContain('animate-spin')
+    // @todo fix this ////
     expect(icon?.vm?.name).toBe('i-lucide-refresh-cw')
 
     resolve?.(null)
