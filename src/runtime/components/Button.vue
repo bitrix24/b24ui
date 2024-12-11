@@ -25,6 +25,8 @@ export interface ButtonProps extends UseComponentIconsProps, Omit<LinkProps, 'ra
   block?: boolean
   /** Set loading state automatically based on the `@click` promise state */
   loadingAuto?: boolean
+  /** Disable uppercase label */
+  normalCase?: boolean
   onClick?: ((event: MouseEvent) => void | Promise<void>) | Array<((event: MouseEvent) => void | Promise<void>)>
   class?: any
   b24ui?: PartialString<typeof button.slots>
@@ -82,6 +84,7 @@ const b24ui = computed(() => button({
   size: buttonSize.value,
   loading: isLoading.value,
   block: props.block,
+  normalCase: props.normalCase,
   square: props.square || (!slots.default && !props.label),
   leading: isLeading.value,
   trailing: isTrailing.value,

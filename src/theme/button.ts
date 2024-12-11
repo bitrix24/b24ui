@@ -6,14 +6,19 @@
  * @see bitrix/js/ui/buttons/src/button/button-color.js
  * @see bitrix/js/ui/buttons/src/button/button-size.js
  */
+
+/**
+ * @todo add linkHelp: 'text-sm h-auto py-0 text-gray-700 font-normal rounded-none border border-x-0 border-t-0 border-dashed border-b-gray-700 hover:text-red-900 hover:border-b-red-900 focus-visible:outline-gray-700',
+ */
 import { buttonGroupVariant } from './button-group'
 
 export default {
   slots: {
     base: [
-      'cursor-pointer rounded-md font-medium inline-flex items-center focus:outline-hidden',
-      'disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75',
-      'transition-colors'
+      'select-none cursor-pointer rounded-2xs',
+      'inline-flex items-center focus:outline-hidden',
+      'disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-40 aria-disabled:opacity-40',
+      'transition duration-150 ease-linear' // transition-colors
     ],
     label: 'truncate',
     leadingIcon: 'shrink-0',
@@ -21,33 +26,73 @@ export default {
     leadingAvatarSize: '',
     trailingIcon: 'shrink-0'
   },
-  /*
-    custom: '',
-    default: 'border text-white border-[#868d95] bg-[#868d95] active:text-white active:border-[#3b506e] active:bg-[#3b506e] hover:text-white hover:border-[#5b6573] hover:bg-[#5b6573] disabled:text-white disabled:border-[#868d95] disabled:bg-[#868d95] focus-visible:outline-[#868d95]',
-    success: 'border text-base-900 border-[#bbed21] bg-[#bbed21] active:text-base-900 active:border-[#b2e232] active:bg-[#b2e232] hover:text-base-900 hover:border-[#d2f95f] hover:bg-[#d2f95f] disabled:border-[#bbed21] disabled:bg-[#bbed21] focus-visible:outline-[#bbed21]',
-    successLight: 'border text-[#668d13] border-[#dfeeafcc] bg-[#dfeeafcc] active:text-[#668d13] active:border-[#d3e59a] active:bg-[#d3e59a] hover:text-[#668d13] hover:border-[#eaf5c5] hover:bg-[#eaf5c5] disabled:border-[#dfeeafcc] disabled:bg-[#dfeeafcc] focus-visible:outline-[#dfeeafcc]',
-    danger: 'border text-white border-[#f1361a] bg-[#f1361a] active:text-white active:border-[#d24430] active:bg-[#d24430] hover:text-white hover:border-[#cc1c00] hover:bg-[#cc1c00] disabled:text-white disabled:border-[#f1361a] disabled:bg-[#f1361a] focus-visible:outline-[#f1361a]',
-    dangerDark: 'border text-white border-[#a21429] bg-[#a21429] active:text-white active:border-[#851021] active:bg-[#851021] hover:text-white hover:border-[#c43d51] hover:bg-[#c43d51] disabled:text-white disabled:border-[#a21429] disabled:bg-[#a21429] focus-visible:outline-[#a21429]',
-    dangerLight: 'border text-[#d7413c] border-[#fdcac8cc] bg-[#fdcac8cc] active:text-[#d7413c] active:border-[#f2b6b3] active:bg-[#f2b6b3] hover:text-[#d7413c] hover:border-[#ffdcdb] hover:bg-[#ffdcdb] disabled:text-[#d7413c] disabled:border-[#fdcac8cc] disabled:bg-[#fdcac8cc] focus-visible:outline-[#fdcac8cc]',
-    primary: 'border text-white border-[#3bc8f5] bg-[#3bc8f5] active:text-white active:border-[#12b1e3] active:bg-[#12b1e3] hover:text-white hover:border-[#3eddff] hover:bg-[#3eddff] disabled:text-white disabled:border-[#3bc8f5] disabled:bg-[#3bc8f5] focus-visible:outline-[#3bc8f5]',
-    primaryDark: 'border text-white border-[#399fc2] bg-[#399fc2] active:text-white active:border-[#328ba9] active:bg-[#328ba9] hover:text-white hover:border-[#37aed4] hover:bg-[#37aed4] disabled:text-white disabled:border-[#399fc2] disabled:bg-[#399fc2] focus-visible:outline-[#399fc2]',
-    secondary: 'border text-base-900 border-[#aee0f2] bg-[#c5e7f4] active:text-base-900 active:border-[#aee0f2] active:bg-[#aee0f2] hover:text-base-900 hover:border-[#aee0f2] hover:bg-[#d1eef9] disabled:text-base-900 disabled:border-[#aee0f2] disabled:bg-[#c5e7f4] focus-visible:outline-[#c5e7f4]',
-    link: 'px-0 border text-base-900 decoration-gray-900 bg-transparent border-transparent hover:text-[#80868e] focus-visible:outline-base-400',
-    linkHelp: 'text-sm h-auto px-0 py-0 text-gray-700 font-normal rounded-none border border-x-0 border-t-0 border-dashed border-b-gray-700 hover:text-red-900 hover:border-b-red-900 focus-visible:outline-gray-700',
-    light: 'text-base-900 bg-transparent active:text-base-solid active:border-[#d6f1fb] active:bg-[#d6f1fb] hover:text-base-master hover:border-[#f6f8f9] hover:bg-[#f6f8f9] disabled:text-base-master disabled:border-[#f6f8f9] disabled:bg-[#f6f8f9] focus-visible:outline-[#f6f8f9]',
-    lightBorder: 'border text-base-900 border-[#c6cdd3] bg-transparent active:text-base-900 active:border-[#9fa4ab] active:bg-[#dde2e5] hover:text-base-900 hover:border-[#c6cdd3] hover:bg-[#cfd4d8] disabled:text-base-900 disabled:border-[#c6cdd3] disabled:bg-transparent focus-visible:outline-[#c6cdd3]',
-  */
   variants: {
     ...buttonGroupVariant,
     color: {
-      default: 'bg-base-500 dark:bg-base-900 dark:text-base-100',
-      danger: 'bg-red-500 dark:bg-red-600 dark:text-red-250',
-      success: 'bg-green-500 dark:bg-green-600 dark:text-green-250',
-      warning: 'bg-orange-500 dark:bg-orange-600 dark:text-orange-250',
-      primary: 'bg-blue-500 dark:bg-blue-600 dark:text-blue-250',
-      secondary: 'bg-accent-aqua dark:bg-accent-turquoise',
-      ai: 'bg-ai-500 dark:bg-ai-600 dark:text-ai-250',
-      link: 'bg-base-900/85 text-white dark:bg-white/85 dark:text-base-900'
+      // DEFAULT ////
+      default: [
+        'text-white bg-[#868d95]',
+        'hover:bg-[#5b6573]',
+        'active:bg-[#3b506e]',
+        'disabled:bg-[#868d95] aria-disabled:bg-[#868d95]',
+        'focus-visible:outline-[#868d95]'
+      ].join(' '),
+      danger: [
+        'text-white bg-[#f1361a]',
+        'hover:bg-[#cc1c00]',
+        'active:bg-[#d24430]',
+        'disabled:bg-[#f1361a] aria-disabled:bg-[#f1361a]',
+        'focus-visible:outline-[#f1361a]'
+      ].join(' '),
+      // SUCCESS ////
+      success: [
+        'text-base-900 bg-[#bbed21]',
+        'hover:bg-[#d2f95f]',
+        'active:bg-[#b2e232]',
+        'disabled:bg-[#bbed21] aria-disabled:bg-[#bbed21]',
+        'focus-visible:outline-[#bbed21]'
+      ].join(' '),
+      // new WARNING ////
+      warning: [
+        'text-[#a07f27] bg-[#edda7b]',
+        'hover:bg-orange-500',
+        'active:bg-[#eba51c]',
+        'disabled:bg-[#edda7b] aria-disabled:bg-[#edda7b]',
+        'focus-visible:outline-[#edda7b]'
+      ].join(' '),
+      // PRIMARY ////
+      primary: [
+        'text-white bg-[#3bc8f5]',
+        'hover:bg-[#3eddff]',
+        'active:bg-[#12b1e3]',
+        'disabled:bg-[#3bc8f5] aria-disabled:bg-[#3bc8f5]',
+        'focus-visible:outline-[#3bc8f5]'
+      ].join(' '),
+      // SECONDARY ////
+      secondary: [
+        'text-base-900 bg-[#c5e7f4]',
+        'hover:bg-[#d1eef9]',
+        'active:bg-[#aee0f2]',
+        'disabled:bg-[#c5e7f4] aria-disabled:bg-[#c5e7f4]',
+        'focus-visible:outline-[#c5e7f4]'
+      ].join(' '),
+      // AI ////
+      ai: [
+        'text-white bg-[#935BEC]',
+        'hover:bg-[#A977FA]',
+        'active:bg-[#8447E4]',
+        'disabled:bg-[#935BEC] aria-disabled:bg-[#935BEC]',
+        'focus-visible:outline-[#935BEC]'
+      ].join(' '),
+      // LINK ////
+      link: [
+        'no-underline decoration-solid decoration-auto',
+        'text-base-900 decoration-gray-900 bg-transparent',
+        'hover:text-[#80868e]',
+        'active:text-base-900',
+        'disabled:text-base-900 aria-disabled:text-base-900',
+        'focus-visible:outline-base-400'
+      ].join(' ')
     },
     depth: {
       light: '',
@@ -56,40 +101,34 @@ export default {
     },
     size: {
       '2xs': {
-        base: 'px-2 py-1 text-xs gap-1',
-        leadingIcon: 'size-4',
-        leadingAvatarSize: '3xs',
-        trailingIcon: 'size-4'
+        base: 'h-lg2 px-3.5 text-4xs leading-none gap-1',
+        leadingIcon: 'size-lg2', // 22px
+        leadingAvatarSize: '3xs', // size-4
+        trailingIcon: 'size-lg'
       },
       'xs': {
-        base: 'px-2 py-1 text-xs gap-1',
-        leadingIcon: 'size-4',
-        leadingAvatarSize: '3xs',
-        trailingIcon: 'size-4'
+        base: 'h-xl2 px-4 text-3xs leading-none gap-1',
+        leadingIcon: 'size-xl2', // 26px
+        leadingAvatarSize: '3xs', // size-4
+        trailingIcon: 'size-xl2'
       },
       'sm': {
-        base: 'px-2.5 py-1.5 text-xs gap-1.5',
-        leadingIcon: 'size-4',
-        leadingAvatarSize: '3xs',
-        trailingIcon: 'size-4'
+        base: 'h-3xl px-[18px] text-xs leading-none gap-1.5',
+        leadingIcon: 'size-3xl', // 32px
+        leadingAvatarSize: '3xs', // size-4
+        trailingIcon: 'size-3xl'
       },
       'md': {
-        base: 'px-2.5 py-1.5 text-sm gap-1.5',
-        leadingIcon: 'size-10',
-        leadingAvatarSize: '2xs',
-        trailingIcon: 'size-10'
+        base: 'h-5xl px-5 text-xs leading-none gap-1.5',
+        leadingIcon: 'size-5xl', // 40px
+        leadingAvatarSize: '2xs', // size-5
+        trailingIcon: 'size-5xl'
       },
       'lg': {
-        base: 'px-3 py-2 text-sm gap-2',
-        leadingIcon: 'size-15',
-        leadingAvatarSize: '2xs',
-        trailingIcon: 'size-15'
-      },
-      'xl': {
-        base: 'px-3 py-2 text-sm gap-2',
-        leadingIcon: 'size-15',
-        leadingAvatarSize: '2xs',
-        trailingIcon: 'size-15'
+        base: 'h-6xl px-[28px] text-xs leading-none gap-2',
+        leadingIcon: 'size-6xl', // ? 48px
+        leadingAvatarSize: '2xs', // size-5
+        trailingIcon: 'size-6xl'
       }
     },
     block: {
@@ -110,69 +149,96 @@ export default {
     },
     loading: {
       true: ''
+    },
+    normalCase: {
+      true: 'font-semibold normal-case',
+      false: 'font-bold uppercase'
     }
   },
   compoundVariants: [
     // region default ////
     {
+      // BASE_LIGHT ////
       color: 'default',
       depth: 'light',
-      class: ''
+      class: [
+        'text-base-800 bg-base-200 border border-base-200',
+        'hover:bg-[#cfd4d8] hover:border-[#c6cdd3]',
+        'active:bg-[#dde2e5] active:border-[#9fa4ab]',
+        'disabled:bg-[base-200] aria-disabled:bg-[base-200] disabled:border-[base-200] aria-disabled:border-base-200',
+        'focus-visible:outline-[base-200]'
+      ].join(' ')
     },
     {
-      color: 'default',
-      depth: 'normal',
-      class: ''
-    },
-    {
+      // new BASE_DARK ////
       color: 'default',
       depth: 'dark',
-      class: ''
+      class: [
+        'text-white bg-base-900',
+        'hover:bg-base-black',
+        'active:bg-base-dark',
+        'disabled:bg-[base-900] aria-disabled:bg-[base-900]',
+        'focus-visible:outline-[base-900]'
+      ].join(' ')
     },
     // endregion ////
     // region danger ////
     {
+      // DANGER_LIGHT ////
       color: 'danger',
       depth: 'light',
-      class: ''
+      class: [
+        'text-[#d7413c] bg-[#fdcac8]/80',
+        'hover:bg-[#ffdcdb]',
+        'active:bg-[#f2b6b3]',
+        'disabled:bg-[#fdcac8]/80 aria-disabled:bg-[#fdcac8]/80',
+        'focus-visible:outline-[#fdcac8]/80'
+      ].join(' ')
     },
     {
-      color: 'danger',
-      depth: 'normal',
-      class: ''
-    },
-    {
+      // DANGER_DARK ////
       color: 'danger',
       depth: 'dark',
-      class: ''
+      class: [
+        'text-white bg-[#a21429]',
+        'hover:bg-[#c43d51]',
+        'active:bg-[#851021]',
+        'disabled:bg-[#a21429] aria-disabled:bg-[#a21429]',
+        'focus-visible:outline-[#a21429]'
+      ].join(' ')
     },
     // endregion ////
     // region success ////
     {
+      // SUCCESS_LIGHT ////
       color: 'success',
       depth: 'light',
-      class: ''
+      class: [
+        'text-[#668d13] bg-[#dfeeaf]/80',
+        'hover:bg-[#eaf5c5]',
+        'active:bg-[#d3e59a]',
+        'disabled:bg-[#dfeeaf]/80 aria-disabled:bg-[#dfeeaf]/80',
+        'focus-visible:outline-[#dfeeaf]/80'
+      ].join(' ')
     },
     {
-      color: 'success',
-      depth: 'normal',
-      class: ''
-    },
-    {
+      // SUCCESS_DARK ////
       color: 'success',
       depth: 'dark',
-      class: ''
+      class: [
+        'text-white bg-[#86a732]',
+        'hover:bg-[#a2bf54]',
+        'active:bg-[#a2bf54]',
+        'disabled:bg-[#86a732] aria-disabled:bg-[#86a732]',
+        'focus-visible:outline-[#86a732]'
+      ].join(' ')
     },
     // endregion ////
     // region warning ////
     {
+      // WARNING_LIGHT ////
       color: 'warning',
       depth: 'light',
-      class: ''
-    },
-    {
-      color: 'warning',
-      depth: 'normal',
       class: ''
     },
     {
@@ -188,26 +254,30 @@ export default {
       class: ''
     },
     {
-      color: 'primary',
-      depth: 'normal',
-      class: ''
-    },
-    {
+      // PRIMARY_DARK ////
       color: 'primary',
       depth: 'dark',
-      class: ''
+      class: [
+        'text-white bg-[#399fc2]',
+        'hover:bg-[#37aed4]',
+        'active:bg-[#328ba9]',
+        'disabled:bg-[#399fc2] aria-disabled:bg-[#399fc2]',
+        'focus-visible:outline-[#399fc2]'
+      ].join(' ')
     },
     // endregion ////
     // region secondary ////
     {
+      // SECONDARY_LIGHT ////
       color: 'secondary',
       depth: 'light',
-      class: ''
-    },
-    {
-      color: 'secondary',
-      depth: 'normal',
-      class: ''
+      class: [
+        'text-white bg-[#b6edff]/80',
+        'hover:bg-[#d1eef9]',
+        'active:bg-[#aee0f2]',
+        'disabled:bg-[#b6edff]/80 aria-disabled:bg-[#b6edff]/80',
+        'focus-visible:outline-[#b6edff]/80'
+      ].join(' ')
     },
     {
       color: 'secondary',
@@ -223,30 +293,37 @@ export default {
     },
     {
       color: 'ai',
-      depth: 'normal',
-      class: ''
-    },
-    {
-      color: 'ai',
       depth: 'dark',
       class: ''
     },
     // endregion ////
     // region link ////
     {
+      // LIGHT ////
       color: 'link',
       depth: 'light',
-      class: ''
+      class: [
+        'px-1.5',
+        'text-base-900 bg-transparent',
+        'hover:text-base-master hover:bg-[#f6f8f9]',
+        'active:text-base-solid active:bg-[#d6f1fb]',
+        'disabled:text-base-master disabled:bg-[#f6f8f9] aria-disabled:bg-[#f6f8f9]',
+        'focus-visible:outline-[#f6f8f9]'
+      ].join(' ')
     },
-    {
-      color: 'link',
-      depth: 'normal',
-      class: ''
-    },
+    // LIGHT_BORDER ////
     {
       color: 'link',
       depth: 'dark',
-      class: ''
+      class: [
+        '',
+        'border',
+        'text-base-900 bg-transparent border-[#c6cdd3]',
+        'hover:bg-[#cfd4d8] hover:border-[#c6cdd3]',
+        'active:bg-[#dde2e5] active:border-[#9fa4ab]',
+        'disabled:bg-transparent disabled:border-[#c6cdd3] aria-disabled:bg-transparent aria-disabled:border-[#c6cdd3]',
+        'focus-visible:outline-[#c6cdd3]'
+      ].join(' ')
     },
     // endregion ////
     // region size && square ////
@@ -275,11 +352,6 @@ export default {
       square: true,
       class: 'p-2'
     },
-    {
-      size: 'xl',
-      square: true,
-      class: 'p-2'
-    },
     // endregion ////
     // region loading | leading ////
     {
@@ -296,6 +368,23 @@ export default {
       class: {
         trailingIcon: 'animate-spin'
       }
+    },
+    // endregion ////
+    // region noCaps ////
+    {
+      normalCase: true,
+      size: ['2xs', 'xs'],
+      class: 'text-xs'
+    },
+    {
+      normalCase: true,
+      size: 'sm',
+      class: 'text-sm'
+    },
+    {
+      normalCase: true,
+      size: ['md', 'lg'],
+      class: 'text-md'
     }
     // endregion ////
   ],
