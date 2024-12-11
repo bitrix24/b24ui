@@ -46,7 +46,7 @@ const items = [
     <ExampleCard title="inset">
       <template v-for="size in sizes" :key="size">
         <ExampleCardSubTitle :title="size as string" />
-        <div class="mb-4 flex items-center gap-4">
+        <div class="mb-4 flex items-center justify-start gap-4">
           <B24Chip
             v-for="position in positions"
             :key="position"
@@ -64,7 +64,7 @@ const items = [
       <ExampleCard :title="color as string">
         <template v-for="size in sizes" :key="size">
           <ExampleCardSubTitle :title="size as string" />
-          <div class="mb-4 flex items-center gap-4">
+          <div class="mb-4 flex items-center justify-start gap-4">
             <B24Chip v-for="position in positions" :key="position" :position="position" :size="size" :color="color">
               <B24Button class="px-1 py-1 bg-gray-300 rounded-xs" :icon="MailIcon" color="default" depth="normal" />
             </B24Chip>
@@ -75,7 +75,7 @@ const items = [
     <ExampleCard title="B24Button">
       <template v-for="size in sizes" :key="size">
         <ExampleCardSubTitle :title="size as string" />
-        <div class="mb-4 flex items-center gap-4">
+        <div class="mb-4 flex items-center justify-start gap-4">
           <B24Chip v-for="{ name, icon, count } in items" :key="name" :text="count" :size="size">
             <B24Button class="px-1 py-1 bg-gray-300 rounded-md text-xl" :icon="icon" size="md" color="default" depth="normal" />
           </B24Chip>
@@ -85,7 +85,7 @@ const items = [
     <ExampleCard title="B24Avatar">
       <template v-for="size in sizes" :key="size">
         <ExampleCardSubTitle :title="size as string" />
-        <div class="mb-4 flex items-center gap-4">
+        <div class="mb-4 flex items-center justify-start gap-4">
           <B24Chip v-for="{ name, count } in items" :key="name" :text="count" :size="size" inset>
             <B24Avatar src="https://github.com/IgorShevchik.png" alt="Shevchik Igor" size="xl" />
           </B24Chip>
