@@ -38,7 +38,7 @@ defineShortcuts({
 <template>
   <B24App :toaster="(appConfig.toaster as any)">
     <div class="flex flex-col">
-      <div class="px-lg">
+      <div class="px-lg overflow-hidden">
         <div class="min-h-7xl h-7xl w-full flex flex-row items-center justify-normal gap-lg2 border-b border-b-base-200 dark:border-b-base-900">
           <div class="pl-xs2 text-4xl font-light font-b24-secondary text-base-master dark:text-base-100">
             <span class="text-base-600 dark:text-base-500">Vue::</span>{{ usePageMeta.getPageTitle() }}
@@ -76,7 +76,7 @@ defineShortcuts({
         </div>
       </div>
       <div vaul-drawer-wrapper class="flex flex-col lg:flex-row h-[calc(100vh-4.1rem)] w-screen overflow-hidden min-h-0">
-        <div class="fixed z-50 top-15 right-4 flex items-center gap-2 rtl:flex-row-reverse">
+        <div class="fixed z-50 top-20 right-4 flex items-center gap-2 rtl:flex-row-reverse">
           <B24Button
             :icon="mode === 'dark' ? ClockFillIcon : Clock2Icon"
             :aria-label="`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`"
