@@ -80,11 +80,17 @@ defineShortcuts({
           <B24Button
             :icon="mode === 'dark' ? ClockFillIcon : Clock2Icon"
             :aria-label="`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`"
+            color="link"
+            depth="light"
+            size="xs"
             @click="mode = mode === 'dark' ? 'light' : 'dark'"
           />
           <B24Button
             :icon="dir === 'ltr' ? LeftAlignIcon : RightAlignIcon"
             :aria-label="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`"
+            color="link"
+            depth="light"
+            size="xs"
             @click="dir = dir === 'ltr' ? 'rtl' : 'ltr'"
           />
         </div>

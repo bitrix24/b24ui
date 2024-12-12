@@ -96,17 +96,19 @@ defineShortcuts({
               <B24Button
                 :icon="isDark ? ClockFillIcon : Clock2Icon"
                 :aria-label="`Switch to ${isDark ? 'light' : 'dark'} mode`"
+                color="link"
+                depth="light"
+                size="xs"
                 @click="isDark = !isDark"
               />
               <B24Button
                 :icon="isLtr ? LeftAlignIcon : RightAlignIcon"
                 :aria-label="`Switch to ${isLtr ? 'Right-to-left' : 'Left-to-right'} mode`"
+                color="link"
+                depth="light"
+                size="xs"
                 @click="isLtr = !isLtr"
               />
-
-              <template #fallback>
-                <div class="size-8" />
-              </template>
             </ClientOnly>
           </div>
           <div class="py-14 px-3xl flex flex-col items-center justify-evenly overflow-y-auto w-full">
