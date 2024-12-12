@@ -1,6 +1,7 @@
 import { computed, toValue, type MaybeRefOrGetter, type DefineComponent } from 'vue'
 import { useAppConfig } from '#imports'
 import type { AvatarProps } from '../types'
+import icons from '../../theme/icons'
 
 export interface UseComponentIconsProps {
   /** Display an icon based on the `leading` and `trailing` props. */
@@ -19,7 +20,7 @@ export interface UseComponentIconsProps {
   loading?: boolean
   /**
    * The icon when the `loading` prop is `true`.
-   * @defaultValue appConfig.b24ui.icons.loading
+   * @defaultValue icons.loading
    */
   loadingIcon?: DefineComponent
 }
@@ -29,19 +30,25 @@ export function useComponentIcons(componentProps: MaybeRefOrGetter<UseComponentI
 
   const props = computed(() => toValue(componentProps))
 
-  const isLeading = computed(() => (props.value.icon && props.value.leading) || (props.value.icon && !props.value.trailing) || (props.value.loading && !props.value.trailing) || !!props.value.leadingIcon)
+  const isLeading = computed(() => (props.value.icon && props.value.leading)
+    || (props.value.avatar && !props.value.trailing)
+    || (props.value.icon && !props.value.trailing)
+    || (props.value.loading && !props.value.trailing)
+    || !!props.value.leadingIcon
+  )
   const isTrailing = computed(() => (props.value.icon && props.value.trailing) || (props.value.loading && props.value.trailing) || !!props.value.trailingIcon)
 
   const leadingIconName = computed(() => {
     if (props.value.loading) {
-      return props.value.loadingIcon || appConfig.b24ui.icons.loading
+      console.log(icons.loading)
+      return props.value.loadingIcon || icons.loading
     }
 
     return props.value.leadingIcon || props.value.icon
   })
   const trailingIconName = computed(() => {
     if (props.value.loading && !isLeading.value) {
-      return props.value.loadingIcon || appConfig.b24ui.icons.loading
+      return props.value.loadingIcon || icons.loading
     }
 
     return props.value.trailingIcon || props.value.icon

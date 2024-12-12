@@ -7,6 +7,7 @@ import type { ModuleOptions } from './module'
 import * as theme from './theme'
 import * as themeProse from './theme/prose'
 import * as themeContent from './theme/content'
+import { getDefaultUiConfig } from './defaults'
 
 function replaceBrackets(value: string): string {
   return value.replace(/\[\[/g, '<').replace(/\]\]/g, '>')
@@ -134,15 +135,11 @@ export function getTemplates(options: ModuleOptions, uiConfig: Record<string, an
   })
 
   templates.push({
-    filename: 'types/ui.d.ts',
+    filename: 'types/b24ui.d.ts',
     getContents: () => replaceBrackets(`import * as b24ui from '#build/b24ui'
 import type { DeepPartial } from '#b24ui/types/utils'
 
-const icons = ${JSON.stringify(uiConfig.icons)};
-
-type AppConfigUI = {
-  icons?: Partial[[typeof icons]]
-} & DeepPartial[[typeof b24ui]]
+type AppConfigUI = {} & DeepPartial[[typeof b24ui]]
 
 declare module '@nuxt/schema' {
   interface AppConfigInput {

@@ -61,6 +61,9 @@ export default defineNuxtModule<ModuleOptions>({
     }
 
     addPlugin({ src: resolve('./runtime/plugins/colors') })
+    /**
+     * @todo on this
+     */
     // addPlugin({ src: resolve('./runtime/plugins/modal') })
     // addPlugin({ src: resolve('./runtime/plugins/slideover') })
 
