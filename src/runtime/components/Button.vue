@@ -19,8 +19,8 @@ export interface ButtonProps extends UseComponentIconsProps, Omit<LinkProps, 'ra
   color?: ButtonVariants['color']
   depth?: ButtonVariants['depth']
   size?: ButtonVariants['size']
-  /** Render the button with equal padding on all sides. */
-  square?: boolean
+  /** Rounds the corners of the button. */
+  rounded?: boolean
   /** Render the button full width. */
   block?: boolean
   /** Set loading state automatically based on the `@click` promise state */
@@ -40,7 +40,7 @@ export interface ButtonSlots {
 </script>
 
 <script setup lang="ts">
-import { type Ref, computed, ref, inject } from 'vue'
+import { type Ref, computed, ref, inject, useSlots } from 'vue'
 import { useForwardProps } from 'reka-ui'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useButtonGroup } from '../composables/useButtonGroup'
@@ -52,6 +52,7 @@ import B24Link from './Link.vue'
 
 const props = defineProps<ButtonProps>()
 const slots = defineSlots<ButtonSlots>()
+const $slots = useSlots()
 
 const linkProps = useForwardProps(pickLinkProps(props))
 
@@ -78,14 +79,25 @@ const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponen
   computed(() => ({ ...props, loading: isLoading.value }))
 )
 
+const isLabel = computed(() => {
+  let isUseSlot = false
+
+  if ($slots.default && ($slots.default()[0].children as string).length > 0) {
+    isUseSlot = true
+  }
+
+  return (props?.label || '').length > 0 || isUseSlot
+})
+
 const b24ui = computed(() => button({
   color: props.color,
   depth: props.depth,
   size: buttonSize.value,
   loading: isLoading.value,
+  useLabel: isLabel.value,
   block: props.block,
   normalCase: props.normalCase,
-  square: props.square || (!slots.default && !props.label),
+  rounded: props.rounded,
   leading: isLeading.value,
   trailing: isTrailing.value,
   buttonGroup: orientation.value
@@ -103,8 +115,8 @@ const b24ui = computed(() => button({
   >
     <slot name="leading">
       <Component
-        v-if="isLeading && leadingIconName"
         :is="leadingIconName"
+        v-if="isLeading && (typeof leadingIconName !== 'undefined')"
         :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
       />
       <B24Avatar

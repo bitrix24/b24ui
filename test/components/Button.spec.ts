@@ -49,7 +49,7 @@ describe('Button', () => {
     ['with disabled', { props: { label: 'Button', disabled: true } }],
     ['with disabled and with link', { props: { label: 'Button', disabled: true, to: '/link' } }],
     ['with block', { props: { label: 'Button', block: true } }],
-    ['with square', { props: { label: 'Button', square: true } }],
+    ['with rounded', { props: { label: 'Button', rounded: true } }],
     ['with as', { props: { label: 'Button', as: 'div' } }],
     ['with class', { props: { label: 'Button', class: 'rounded-full font-bold' } }],
     ['with b24ui', { props: { label: 'Button', b24ui: { label: 'font-bold' } } }],

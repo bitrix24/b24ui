@@ -15,7 +15,7 @@ import { buttonGroupVariant } from './button-group'
 export default {
   slots: {
     base: [
-      'select-none cursor-pointer rounded-2xs',
+      'select-none cursor-pointer',
       'inline-flex items-center focus:outline-hidden',
       'disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-40 aria-disabled:opacity-40',
       'transition duration-150 ease-linear' // transition-colors
@@ -31,63 +31,63 @@ export default {
     color: {
       // DEFAULT ////
       default: [
-        'text-white bg-[#868d95]',
-        'hover:bg-[#5b6573]',
-        'active:bg-[#3b506e]',
-        'disabled:bg-[#868d95] aria-disabled:bg-[#868d95]',
+        'text-white bg-[#868d95] border border-[#868d95]',
+        'hover:bg-[#5b6573] hover:border-[#5b6573]',
+        'active:bg-[#3b506e] active:border-[#3b506e]',
+        'disabled:bg-[#868d95] aria-disabled:bg-[#868d95] disabled:border-[#868d95] aria-disabled:border-[#868d95]',
         'focus-visible:outline-[#868d95]'
       ].join(' '),
       danger: [
-        'text-white bg-[#f1361a]',
-        'hover:bg-[#cc1c00]',
-        'active:bg-[#d24430]',
-        'disabled:bg-[#f1361a] aria-disabled:bg-[#f1361a]',
+        'text-white bg-[#f1361a] border border-[#f1361a]',
+        'hover:bg-[#cc1c00] hover:border-[#cc1c00]',
+        'active:bg-[#d24430] active:border-[#d24430]',
+        'disabled:bg-[#f1361a] aria-disabled:bg-[#f1361a] disabled:border-[#f1361a] aria-disabled:border-[#f1361a]',
         'focus-visible:outline-[#f1361a]'
       ].join(' '),
       // SUCCESS ////
       success: [
-        'text-base-900 bg-[#bbed21]',
-        'hover:bg-[#d2f95f]',
-        'active:bg-[#b2e232]',
-        'disabled:bg-[#bbed21] aria-disabled:bg-[#bbed21]',
+        'text-base-900 bg-[#bbed21] border border-[#bbed21]',
+        'hover:bg-[#d2f95f] hover:border-[#d2f95f]',
+        'active:bg-[#b2e232] active:border-[#b2e232]',
+        'disabled:bg-[#bbed21] aria-disabled:bg-[#bbed21] disabled:border-[#bbed21] aria-disabled:border-[#bbed21]',
         'focus-visible:outline-[#bbed21]'
       ].join(' '),
       // new WARNING ////
       warning: [
-        'text-[#a07f27] bg-[#edda7b]',
-        'hover:bg-orange-500',
-        'active:bg-[#eba51c]',
-        'disabled:bg-[#edda7b] aria-disabled:bg-[#edda7b]',
-        'focus-visible:outline-[#edda7b]'
+        'text-white bg-orange-500 border border-orange-500',
+        'hover:bg-orange-500/75 hover:border-orange-500/75',
+        'active:bg-orange-500/85 active:border-orange-500/85',
+        'disabled:bg-orange-500 aria-disabled:bg-orange-500 disabled:border-bg-orange-500 aria-disabled:border-bg-orange-500',
+        'focus-visible:outline-orange-500'
       ].join(' '),
       // PRIMARY ////
       primary: [
-        'text-white bg-[#3bc8f5]',
-        'hover:bg-[#3eddff]',
-        'active:bg-[#12b1e3]',
-        'disabled:bg-[#3bc8f5] aria-disabled:bg-[#3bc8f5]',
+        'text-white bg-[#3bc8f5] border border-[#3bc8f5]',
+        'hover:bg-[#3eddff] hover:border-[#3eddff]',
+        'active:bg-[#12b1e3] active:border-[#12b1e3]',
+        'disabled:bg-[#3bc8f5] aria-disabled:bg-[#3bc8f5] disabled:border-[#3bc8f5] aria-disabled:border-[#3bc8f5]',
         'focus-visible:outline-[#3bc8f5]'
       ].join(' '),
       // SECONDARY ////
       secondary: [
-        'text-base-900 bg-[#c5e7f4]',
-        'hover:bg-[#d1eef9]',
-        'active:bg-[#aee0f2]',
-        'disabled:bg-[#c5e7f4] aria-disabled:bg-[#c5e7f4]',
+        'text-base-900 bg-[#c5e7f4] border border-[#aee0f2]',
+        'hover:bg-[#d1eef9] hover:border-[#aee0f2]',
+        'active:bg-[#aee0f2] active:border-[#aee0f2]',
+        'disabled:bg-[#c5e7f4] aria-disabled:bg-[#c5e7f4] disabled:border-[#aee0f2] aria-disabled:border-[#aee0f2]',
         'focus-visible:outline-[#c5e7f4]'
       ].join(' '),
       // AI ////
       ai: [
-        'text-white bg-[#935BEC]',
-        'hover:bg-[#A977FA]',
-        'active:bg-[#8447E4]',
-        'disabled:bg-[#935BEC] aria-disabled:bg-[#935BEC]',
+        'text-white bg-[#935BEC] border border-[#935BEC]',
+        'hover:bg-[#A977FA] hover:border-[#A977FA]',
+        'active:bg-[#8447E4] active:border-[#8447E4]',
+        'disabled:bg-[#935BEC] aria-disabled:bg-[#935BEC] disabled:border-[#935BEC] aria-disabled:border-[#935BEC]',
         'focus-visible:outline-[#935BEC]'
       ].join(' '),
       // LINK ////
       link: [
         'no-underline decoration-solid decoration-auto',
-        'text-base-900 decoration-gray-900 bg-transparent',
+        'text-base-900 decoration-gray-900 bg-transparent border border-transparent',
         'hover:text-[#80868e]',
         'active:text-base-900',
         'disabled:text-base-900 aria-disabled:text-base-900',
@@ -101,33 +101,33 @@ export default {
     },
     size: {
       '2xs': {
-        base: 'h-lg2 px-3.5 text-4xs leading-none gap-1',
-        leadingIcon: 'size-lg2', // 22px
-        leadingAvatarSize: '3xs', // size-4
+        base: 'h-lg2 min-w-lg2 px-3.5 text-4xs leading-none gap-1', // 22px
+        leadingIcon: 'size-4',
+        leadingAvatarSize: '2xs',
         trailingIcon: 'size-lg'
       },
       'xs': {
-        base: 'h-xl2 px-4 text-3xs leading-none gap-1',
-        leadingIcon: 'size-xl2', // 26px
-        leadingAvatarSize: '3xs', // size-4
+        base: 'h-xl2 min-w-xl2 px-4 text-3xs leading-none gap-1', // 26px
+        leadingIcon: 'size-5',
+        leadingAvatarSize: '2xs',
         trailingIcon: 'size-xl2'
       },
       'sm': {
-        base: 'h-3xl px-[18px] text-xs leading-none gap-1.5',
-        leadingIcon: 'size-3xl', // 32px
-        leadingAvatarSize: '3xs', // size-4
+        base: 'h-3xl min-w-3xl px-[18px] text-xs leading-none gap-1.5', // 32px
+        leadingIcon: 'size-6',
+        leadingAvatarSize: 'xs',
         trailingIcon: 'size-3xl'
       },
       'md': {
-        base: 'h-5xl px-5 text-xs leading-none gap-1.5',
-        leadingIcon: 'size-5xl', // 40px
-        leadingAvatarSize: '2xs', // size-5
+        base: 'h-5xl min-w-5xl px-5 text-xs leading-none gap-1.5', // 40px
+        leadingIcon: 'size-xl2',
+        leadingAvatarSize: 'sm',
         trailingIcon: 'size-5xl'
       },
       'lg': {
-        base: 'h-6xl px-[28px] text-xs leading-none gap-2',
-        leadingIcon: 'size-6xl', // ? 48px
-        leadingAvatarSize: '2xs', // size-5
+        base: 'h-6xl min-w-6xl px-[28px] text-xs leading-none gap-2', // ? 48px
+        leadingIcon: 'size-xl2',
+        leadingAvatarSize: 'md',
         trailingIcon: 'size-6xl'
       }
     },
@@ -138,11 +138,16 @@ export default {
         trailingIcon: 'ms-auto'
       }
     },
-    square: {
-      true: ''
+    rounded: {
+      true: 'rounded-full',
+      false: 'rounded-2xs'
     },
     leading: {
       true: ''
+    },
+    useLabel: {
+      true: '',
+      false: 'px-0.5 justify-center'
     },
     trailing: {
       true: ''
@@ -165,7 +170,7 @@ export default {
         'text-base-800 bg-base-200 border border-base-200',
         'hover:bg-[#cfd4d8] hover:border-[#c6cdd3]',
         'active:bg-[#dde2e5] active:border-[#9fa4ab]',
-        'disabled:bg-[base-200] aria-disabled:bg-[base-200] disabled:border-[base-200] aria-disabled:border-base-200',
+        'disabled:bg-[base-200] aria-disabled:bg-[base-200] disabled:border-base-200 aria-disabled:border-base-200',
         'focus-visible:outline-[base-200]'
       ].join(' ')
     },
@@ -174,10 +179,10 @@ export default {
       color: 'default',
       depth: 'dark',
       class: [
-        'text-white bg-base-900',
-        'hover:bg-base-black',
-        'active:bg-base-dark',
-        'disabled:bg-[base-900] aria-disabled:bg-[base-900]',
+        'text-white bg-base-900 border border-base-900',
+        'hover:bg-base-900/75 hover:border-base-900/75',
+        'active:bg-base-900/85 active:border-base-900/85',
+        'disabled:bg-base-900 aria-disabled:bg-base-900 disabled:border-base-900 aria-disabled:border-base-900',
         'focus-visible:outline-[base-900]'
       ].join(' ')
     },
@@ -188,10 +193,10 @@ export default {
       color: 'danger',
       depth: 'light',
       class: [
-        'text-[#d7413c] bg-[#fdcac8]/80',
-        'hover:bg-[#ffdcdb]',
-        'active:bg-[#f2b6b3]',
-        'disabled:bg-[#fdcac8]/80 aria-disabled:bg-[#fdcac8]/80',
+        'text-[#d7413c] bg-[#fdcac8]/80 border border-[#fdcac8]/80',
+        'hover:bg-[#ffdcdb] hover:border-[#ffdcdb]',
+        'active:bg-[#f2b6b3] active:border-[#f2b6b3]',
+        'disabled:bg-[#fdcac8]/80 aria-disabled:bg-[#fdcac8]/80 disabled:border-[#fdcac8]/80 aria-disabled:border-[#fdcac8]/80',
         'focus-visible:outline-[#fdcac8]/80'
       ].join(' ')
     },
@@ -200,10 +205,10 @@ export default {
       color: 'danger',
       depth: 'dark',
       class: [
-        'text-white bg-[#a21429]',
-        'hover:bg-[#c43d51]',
-        'active:bg-[#851021]',
-        'disabled:bg-[#a21429] aria-disabled:bg-[#a21429]',
+        'text-white bg-[#a21429] border border-[#a21429]',
+        'hover:bg-[#c43d51] hover:border-[#c43d51]',
+        'active:bg-[#851021] active:border-[#851021]',
+        'disabled:bg-[#a21429] aria-disabled:bg-[#a21429] disabled:border-[#a21429] aria-disabled:border-[#a21429]',
         'focus-visible:outline-[#a21429]'
       ].join(' ')
     },
@@ -214,10 +219,10 @@ export default {
       color: 'success',
       depth: 'light',
       class: [
-        'text-[#668d13] bg-[#dfeeaf]/80',
-        'hover:bg-[#eaf5c5]',
-        'active:bg-[#d3e59a]',
-        'disabled:bg-[#dfeeaf]/80 aria-disabled:bg-[#dfeeaf]/80',
+        'text-[#668d13] bg-[#dfeeaf]/80 border border-[#dfeeaf]/80',
+        'hover:bg-[#eaf5c5] hover:border-[#eaf5c5]',
+        'active:bg-[#d3e59a] active:border-[#eaf5c5]',
+        'disabled:bg-[#dfeeaf]/80 aria-disabled:bg-[#dfeeaf]/80 disabled:border-[#dfeeaf]/80 aria-disabled:border-[#dfeeaf]/80',
         'focus-visible:outline-[#dfeeaf]/80'
       ].join(' ')
     },
@@ -226,10 +231,10 @@ export default {
       color: 'success',
       depth: 'dark',
       class: [
-        'text-white bg-[#86a732]',
-        'hover:bg-[#a2bf54]',
-        'active:bg-[#a2bf54]',
-        'disabled:bg-[#86a732] aria-disabled:bg-[#86a732]',
+        'text-white bg-[#86a732] border border-[#86a732]',
+        'hover:bg-[#a2bf54] hover:border-[#a2bf54]',
+        'active:bg-[#a2bf54] active:border-[#a2bf54]',
+        'disabled:bg-[#86a732] aria-disabled:bg-[#86a732] disabled:border-[#86a732] aria-disabled:border-[#86a732]',
         'focus-visible:outline-[#86a732]'
       ].join(' ')
     },
@@ -239,29 +244,49 @@ export default {
       // WARNING_LIGHT ////
       color: 'warning',
       depth: 'light',
-      class: ''
+      class: [
+        'text-[#a07f27] bg-[#edda7b]/80 border border-[#edda7b]/80',
+        'hover:bg-orange/65',
+        'active:bg-[#eba51c]',
+        'disabled:bg-[#edda7b]/80 aria-disabled:bg-[#edda7b]/80',
+        'focus-visible:outline-[#edda7b]/80'
+      ].join(' ')
     },
     {
+      // new WARNING_DARK ////
       color: 'warning',
       depth: 'dark',
-      class: ''
+      class: [
+        'text-white bg-orange-600 border border-orange-600',
+        'hover:bg-orange-600/75 hover:border-orange-600/75',
+        'active:bg-orange-600/85 active:border-orange-600/85',
+        'disabled:bg-orange-600 aria-disabled:bg-orange-600 disabled:border-orange-600 aria-disabled:border-orange-600',
+        'focus-visible:outline-orange-600'
+      ].join(' ')
     },
     // endregion ////
     // region primary ////
     {
+      // new PRIMARY_LIGHT ////
       color: 'primary',
       depth: 'light',
-      class: ''
+      class: [
+        'text-blue-800 bg-blue-300 border border-blue-400',
+        'hover:bg-blue-300/75',
+        'active:bg-blue-300/85',
+        'disabled:bg-blue-300 aria-disabled:bg-blue-300',
+        'focus-visible:outline-blue-300'
+      ].join(' ')
     },
     {
       // PRIMARY_DARK ////
       color: 'primary',
       depth: 'dark',
       class: [
-        'text-white bg-[#399fc2]',
-        'hover:bg-[#37aed4]',
-        'active:bg-[#328ba9]',
-        'disabled:bg-[#399fc2] aria-disabled:bg-[#399fc2]',
+        'text-white bg-[#399fc2] border border-[#399fc2]',
+        'hover:bg-[#37aed4] hover:border-[#37aed4]',
+        'active:bg-[#328ba9] active:border-[#328ba9]',
+        'disabled:bg-[#399fc2] aria-disabled:bg-[#399fc2] disabled:border-[#399fc2] aria-disabled:border-[#399fc2]',
         'focus-visible:outline-[#399fc2]'
       ].join(' ')
     },
@@ -272,7 +297,7 @@ export default {
       color: 'secondary',
       depth: 'light',
       class: [
-        'text-white bg-[#b6edff]/80',
+        'text-[#0aa0d0] bg-[#b6edff]/80 border border-[#b6edff]/80',
         'hover:bg-[#d1eef9]',
         'active:bg-[#aee0f2]',
         'disabled:bg-[#b6edff]/80 aria-disabled:bg-[#b6edff]/80',
@@ -280,21 +305,42 @@ export default {
       ].join(' ')
     },
     {
+      // new SECONDARY_DARK ////
       color: 'secondary',
       depth: 'dark',
-      class: ''
+      class: [
+        'text-base-900 bg-accent-aqua border-accent-turquoise',
+        'hover:bg-accent-aqua/75',
+        'active:bg-accent-aqua/85',
+        'disabled:bg-accent-aqua aria-disabled:bg-accent-aqua',
+        'focus-visible:outline-accent-aqua'
+      ].join(' ')
     },
     // endregion ////
     // region ai ////
     {
+      // new AI_LIGHT ////
       color: 'ai',
       depth: 'light',
-      class: ''
+      class: [
+        'text-ai-900 bg-[#A977FA] border border-[#A977FA]',
+        'hover:bg-[#A977FA]/75',
+        'active:bg-[#A977FA]/85',
+        'disabled:bg-[#A977FA] aria-disabled:bg-[#A977FA]',
+        'focus-visible:outline-[#A977FA]'
+      ].join(' ')
     },
     {
+      // new AI_DARK ////
       color: 'ai',
       depth: 'dark',
-      class: ''
+      class: [
+        'text-white bg-[#8447E4] border border-[#8447E4]',
+        'hover:bg-[#8447E4]/75 hover:border-[#8447E4]/75',
+        'active:bg-[#8447E4]/85 active:border-[#8447E4]/85',
+        'disabled:bg-[#8447E4] aria-disabled:bg-[#8447E4] disabled:border-[#8447E4] aria-disabled:border-[#8447E4]',
+        'focus-visible:outline-[#8447E4]'
+      ].join(' ')
     },
     // endregion ////
     // region link ////
@@ -303,16 +349,23 @@ export default {
       color: 'link',
       depth: 'light',
       class: [
-        'px-1.5',
-        'text-base-900 bg-transparent',
+        '',
+        'text-base-900 bg-transparent border border-transparent',
         'hover:text-base-master hover:bg-[#f6f8f9]',
         'active:text-base-solid active:bg-[#d6f1fb]',
         'disabled:text-base-master disabled:bg-[#f6f8f9] aria-disabled:bg-[#f6f8f9]',
         'focus-visible:outline-[#f6f8f9]'
       ].join(' ')
     },
-    // LIGHT_BORDER ////
     {
+      // LIGHT_BORDER ////
+      color: 'link',
+      depth: 'light',
+      useLabel: true,
+      class: 'px-1.5'
+    },
+    {
+      // LIGHT_BORDER ////
       color: 'link',
       depth: 'dark',
       class: [
@@ -326,31 +379,68 @@ export default {
       ].join(' ')
     },
     // endregion ////
-    // region size && square ////
+    // region size && leading ////
     {
       size: '2xs',
-      square: true,
-      class: 'p-0.5'
+      leading: true,
+      useLabel: true,
+      class: 'ps-0.5 pe-1.5'
     },
     {
       size: 'xs',
-      square: true,
-      class: 'p-1'
+      leading: true,
+      useLabel: true,
+      class: 'ps-1.5 pe-2.5'
     },
     {
       size: 'sm',
-      square: true,
-      class: 'p-1.5'
+      leading: true,
+      useLabel: true,
+      class: 'ps-2.5 pe-4'
     },
     {
       size: 'md',
-      square: true,
-      class: 'p-1.5'
+      leading: true,
+      useLabel: true,
+      class: 'ps-3.5 pe-5'
     },
     {
       size: 'lg',
-      square: true,
-      class: 'p-2'
+      leading: true,
+      useLabel: true,
+      class: 'ps-4 pe-xl2'
+    },
+    // endregion ////
+    // region size && trailing ////
+    {
+      size: '2xs',
+      trailing: true,
+      useLabel: true,
+      class: 'pe-0.5 ps-1.5'
+    },
+    {
+      size: 'xs',
+      trailing: true,
+      useLabel: true,
+      class: 'pe-1.5 ps-2.5'
+    },
+    {
+      size: 'sm',
+      trailing: true,
+      useLabel: true,
+      class: 'pe-2.5 ps-4'
+    },
+    {
+      size: 'md',
+      trailing: true,
+      useLabel: true,
+      class: 'pe-3.5 ps-5'
+    },
+    {
+      size: 'lg',
+      trailing: true,
+      useLabel: true,
+      class: 'pe-4 ps-xl2'
     },
     // endregion ////
     // region loading | leading ////
