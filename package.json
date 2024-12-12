@@ -61,8 +61,8 @@
     "prepare:build_stub": "nuxt-module-build build --stub",
     "prepare:build_prepare": "nuxt-module-build prepare",
     "prepare:playground": "nuxi prepare playground",
-    "prepare:playground-vue": "vite build playground-vue",
-    "prepare:playground_components-meta": "nuxt-component-meta playground --outputDir ../src/.component-meta/",
+    "_prepare:playground-vue": "vite build playground-vue",
+    "_prepare:playground_components-meta": "nuxt-component-meta playground --outputDir ../src/.component-meta/",
 
     "prepack": "pnpm build",
     "build": "npm-run-all -s build:*",
@@ -70,8 +70,9 @@
     "build:build": "nuxt-module-build build",
 
     "dev": "set DEV=true && nuxi dev playground",
-    "dev:vue": "set DEV=true && vite playground-vue",
+    "_dev:vue": "set DEV=true && vite playground-vue",
     "dev:build": "nuxi build playground",
+    "dev:generate": "nuxt generate playground",
 
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
