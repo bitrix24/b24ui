@@ -171,7 +171,7 @@ describe('${upperName}', () => {
   }
 }
 
-const doc = ({ name, pro }) => {
+const docs = ({ name, pro, primitive }) => {
   const kebabName = kebabCase(name)
   const upperName = splitByCase(name).map(p => upperFirst(p)).join('')
 
@@ -191,10 +191,13 @@ import ${upperName}Example from '/examples/${upperName.toLowerCase()}/${upperNam
 [[/script]]
 # ${upperName}
 
-[[Description
+[[Description ${
+  primitive
+    ? ''
+    : `
   nuxt-ui="https://ui.nuxt.com/components/${kebabName}"
   reka-ui="https://www.reka-ui.com/components/${kebabName}.html"
-  reka-ui-title="${kebabName}"
+  reka-ui-title="${kebabName}"`}
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/${upperName}.vue"
 ]]
   @todo change me
@@ -232,5 +235,5 @@ export default {
   component,
   theme,
   test,
-  doc
+  docs
 }
