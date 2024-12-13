@@ -22,6 +22,8 @@ export interface ButtonGroupProps {
    * @defaultValue 'horizontal'
    */
   orientation?: ButtonGroupVariants['orientation']
+  /** Disable split */
+  noSplit?: boolean
   class?: any
 }
 
@@ -36,12 +38,14 @@ import { Primitive } from 'reka-ui'
 import { buttonGroupInjectionKey } from '../composables/useButtonGroup'
 
 const props = withDefaults(defineProps<ButtonGroupProps>(), {
-  orientation: 'horizontal'
+  orientation: 'horizontal',
+  noSplit: false
 })
 defineSlots<ButtonGroupSlots>()
 
 provide(buttonGroupInjectionKey, computed(() => ({
   orientation: props.orientation,
+  noSplit: props.orientation === 'vertical' || Boolean(props.noSplit),
   size: props.size
 })))
 </script>

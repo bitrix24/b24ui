@@ -1,7 +1,17 @@
 export const buttonGroupVariant = {
   buttonGroup: {
-    horizontal: 'not-only:first:rounded-e-none not-only:last:rounded-s-none not-last:not-first:rounded-none',
-    vertical: 'not-only:first:rounded-b-none not-only:last:rounded-t-none not-last:not-first:rounded-none'
+    horizontal: [
+      'not-only:first:rounded-e-none not-only:last:rounded-s-none not-last:not-first:rounded-none',
+      'not-only:first:border-e-0 not-only:not-first:border-s-0'
+    ].join(' '),
+    vertical: 'not-only:first:rounded-b-none not-only:last:rounded-t-none not-last:not-first:rounded-none',
+  },
+  noSplit: {
+    false: [
+      'not-only:not-first:after:content-[\'\'] not-only:not-first:after:absolute',
+      'not-only:not-first:after:top-[7px] not-only:not-first:after:bottom-[6px] not-only:not-first:after:left-0 not-only:not-first:after:w-px',
+      'not-only:not-first:after:bg-current/30'
+    ].join(' ')
   }
 }
 
@@ -26,7 +36,7 @@ export default {
       'xs': '',
       'sm': '',
       'md': '',
-      'lg': '',
+      'lg': ''
     },
     orientation: {
       horizontal: 'inline-flex -space-x-px',

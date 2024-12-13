@@ -6,6 +6,7 @@ import type { GetObjectField } from '../types/utils'
 export const buttonGroupInjectionKey: InjectionKey<ComputedRef<{
   size: ButtonGroupProps['size']
   orientation: ButtonGroupProps['orientation']
+  noSplit: ButtonGroupProps['noSplit']
 }>> = Symbol('bitrix24-ui.button-group')
 
 type Props<T> = {
@@ -16,6 +17,7 @@ export function useButtonGroup<T>(props: Props<T>) {
   const buttonGroup = inject(buttonGroupInjectionKey, undefined)
   return {
     orientation: computed(() => buttonGroup?.value.orientation),
-    size: computed(() => props?.size ?? buttonGroup?.value.size)
+    size: computed(() => props?.size ?? buttonGroup?.value.size),
+    noSplit: computed(() => buttonGroup?.value.noSplit === true)
   }
 }
