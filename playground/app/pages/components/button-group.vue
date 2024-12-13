@@ -23,12 +23,16 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
           <template v-for="depth in depths" :key="depth">
             <B24ButtonGroup>
-              <B24Button :color="color" :depth="depth">Button</B24Button>
+              <B24Button :color="color" :depth="depth">
+                Button
+              </B24Button>
               <B24Button :color="color" :depth="depth" use-dropdown />
             </B24ButtonGroup>
           </template>
           <B24ButtonGroup>
-            <B24Button rounded :color="color">Button</B24Button>
+            <B24Button rounded :color="color">
+              Button
+            </B24Button>
             <B24Button rounded :color="color" use-dropdown />
           </B24ButtonGroup>
         </div>

@@ -45,7 +45,7 @@ defineSlots<ButtonGroupSlots>()
 
 provide(buttonGroupInjectionKey, computed(() => ({
   orientation: props.orientation,
-  noSplit: props.orientation === 'vertical' || Boolean(props.noSplit),
+  noSplit: Boolean(props.noSplit),
   size: props.size
 })))
 </script>

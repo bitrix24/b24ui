@@ -18,6 +18,6 @@ export function useButtonGroup<T>(props: Props<T>) {
   return {
     orientation: computed(() => buttonGroup?.value.orientation),
     size: computed(() => props?.size ?? buttonGroup?.value.size),
-    noSplit: computed(() => buttonGroup?.value.noSplit === true)
+    noSplit: computed(() => (buttonGroup?.value.orientation !== 'horizontal') || buttonGroup?.value.noSplit === true)
   }
 }
