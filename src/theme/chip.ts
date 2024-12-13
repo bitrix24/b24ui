@@ -55,21 +55,25 @@ export default {
     {
       position: 'top-right',
       inset: false,
+      standalone: false,
       class: '-translate-y-1/2 translate-x-1/2 transform'
     },
     {
       position: 'bottom-right',
       inset: false,
+      standalone: false,
       class: 'translate-y-1/2 translate-x-1/2 transform'
     },
     {
       position: 'top-left',
       inset: false,
+      standalone: false,
       class: '-translate-y-1/2 -translate-x-1/2 transform'
     },
     {
       position: 'bottom-left',
       inset: false,
+      standalone: false,
       class: 'translate-y-1/2 -translate-x-1/2 transform'
     },
     // inset: md | lg ////
@@ -77,48 +81,56 @@ export default {
       position: 'top-right',
       size: ['md', 'lg', 'xl', '2xl'],
       inset: true,
+      standalone: false,
       class: '-translate-y-1/3 translate-x-1/3 transform'
     },
     {
       position: 'top-right',
       size: ['3xl'],
       inset: true,
+      standalone: false,
       class: '-translate-y-1/5 translate-x-1/5 transform'
     },
     {
       position: 'bottom-right',
       size: ['md', 'lg', 'xl', '2xl'],
       inset: true,
+      standalone: false,
       class: 'translate-y-1/3 translate-x-1/3 transform'
     },
     {
       position: 'bottom-right',
       size: ['3xl'],
       inset: true,
+      standalone: false,
       class: 'translate-y-1/5 translate-x-1/5 transform'
     },
     {
       position: 'top-left',
       size: ['md', 'lg', 'xl', '2xl'],
       inset: true,
+      standalone: false,
       class: '-translate-y-1/3 -translate-x-1/3 transform'
     },
     {
       position: 'top-left',
       size: ['3xl'],
       inset: true,
+      standalone: false,
       class: '-translate-y-1/5 -translate-x-1/5 transform'
     },
     {
       position: 'bottom-left',
       size: ['md', 'lg', 'xl', '2xl'],
       inset: true,
+      standalone: false,
       class: 'translate-y-1/3 -translate-x-1/3 transform'
     },
     {
       position: 'bottom-left',
       size: ['3xl'],
       inset: true,
+      standalone: false,
       class: 'translate-y-1/5 -translate-x-1/5 transform'
     }
   ],
