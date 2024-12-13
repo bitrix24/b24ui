@@ -155,8 +155,10 @@
   },
   "resolutions": {
     "@bitrix24/b24ui-nuxt": "workspace:*",
+    "chokidar": "3.6.0",
     "happy-dom": "14.12.3",
     "rollup": "^4.24.0",
-    "typescript": "5.6.3"
+    "typescript": "5.6.3",
+    "unimport": "3.14.5"
   }
 }
