@@ -31,17 +31,17 @@ describe('Input', () => {
     // @todo fix this ////
     ['with trailingIcon', { props: { trailingIcon: 'i-lucide-arrow-right' } }],
     // @todo fix this ////
-    ['with avatar', { props: { avatar: { src: 'https://github.com/benjamincanac.png' } } }],
+    ['with avatar', { props: { avatar: { src: 'https://github.com/IgorShevchik.png' } } }],
     // @todo fix this ////
-    ['with avatar and leadingIcon', { props: { avatar: { src: 'https://github.com/benjamincanac.png' }, leadingIcon: 'i-lucide-arrow-left' } }],
+    ['with avatar and leadingIcon', { props: { avatar: { src: 'https://github.com/IgorShevchik.png' }, leadingIcon: 'i-lucide-arrow-left' } }],
     // @todo fix this ////
-    ['with avatar and trailingIcon', { props: { avatar: { src: 'https://github.com/benjamincanac.png' }, trailingIcon: 'i-lucide-arrow-right' } }],
+    ['with avatar and trailingIcon', { props: { avatar: { src: 'https://github.com/IgorShevchik.png' }, trailingIcon: 'i-lucide-arrow-right' } }],
     ['with loading', { props: { loading: true } }],
     // @todo fix this ////
-    ['with loading and avatar', { props: { loading: true, avatar: { src: 'https://github.com/benjamincanac.png' } } }],
+    ['with loading and avatar', { props: { loading: true, avatar: { src: 'https://github.com/IgorShevchik.png' } } }],
     ['with loading trailing', { props: { loading: true, trailing: true } }],
     // @todo fix this ////
-    ['with loading trailing and avatar', { props: { loading: true, trailing: true, avatar: { src: 'https://github.com/benjamincanac.png' } } }],
+    ['with loading trailing and avatar', { props: { loading: true, trailing: true, avatar: { src: 'https://github.com/IgorShevchik.png' } } }],
     // @todo fix this ////
     ['with loadingIcon', { props: { loading: true, loadingIcon: 'i-lucide-sparkles' } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { size } }]),

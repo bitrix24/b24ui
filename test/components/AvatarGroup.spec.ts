@@ -11,7 +11,7 @@ const AvatarGroupWrapper = defineComponent({
     B24AvatarGroup: AvatarGroup
   },
   template: `<B24AvatarGroup>
-  <B24Avatar src="https://github.com/benjamincanac.png" alt="Benjamin Canac" />
+  <B24Avatar src="https://github.com/IgorShevchik.png" alt="Igor Shevchik" />
   <B24Avatar src="https://github.com/romhml.png" alt="Romain Hamel" />
   <B24Avatar src="https://github.com/noook.png" alt="Neil Richter" />
 </B24AvatarGroup>`
