@@ -6,7 +6,6 @@ import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
 import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
-import ChevronDownIcon from '@bitrix24/b24icons-vue/actions/ChevronDownIcon'
 import DownloadDoubleIcon from '@bitrix24/b24icons-vue/actions/DownloadDoubleIcon'
 import TaskIcon from '@bitrix24/b24icons-vue/button/TaskIcon'
 import PhoneDownIcon from '@bitrix24/b24icons-vue/button/PhoneDownIcon'
@@ -17,7 +16,7 @@ const depths = Object.keys(theme.variants.depth) as Array<keyof typeof theme.var
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
 function onClick() {
-  return new Promise<void>(res => setTimeout(res, 5000))
+  return new Promise<void>(res => setTimeout(res, 4000))
 }
 </script>
 
@@ -31,10 +30,96 @@ function onClick() {
             <B24Button
               v-for="depth in depths"
               :key="depth"
+              to="/"
+              :color="color"
+              :depth="depth"
+              :size="size"
+            >
+              Link Long Text
+            </B24Button>
+          </div>
+
+          <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+            <B24Button
+              v-for="depth in depths"
+              :key="depth"
               label="Button"
               :color="color"
               :depth="depth"
               :size="size"
+            />
+          </div>
+          <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+            <B24Button
+              v-for="depth in depths"
+              :key="depth"
+              label="Button Long Text"
+              :color="color"
+              :depth="depth"
+              :size="size"
+              rounded
+            />
+          </div>
+
+          <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+            <B24Button
+              v-for="depth in depths"
+              :key="depth"
+              label="Button"
+              :icon="RocketIcon"
+              :color="color"
+              :depth="depth"
+              :size="size"
+            />
+          </div>
+
+          <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+            <B24Button
+              v-for="depth in depths"
+              :key="depth"
+              label="Button"
+              :avatar="{ src: 'https://github.com/IgorShevchik.png' }"
+              :color="color"
+              :depth="depth"
+              :size="size"
+            />
+          </div>
+
+          <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+            <B24Button
+              v-for="depth in depths"
+              :key="depth"
+              label="Button"
+              :color="color"
+              :depth="depth"
+              :size="size"
+              use-dropdown
+            />
+          </div>
+
+          <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+            <B24Button
+              v-for="depth in depths"
+              :key="depth"
+              label="Button"
+              :icon="RocketIcon"
+              :color="color"
+              :depth="depth"
+              :size="size"
+              use-dropdown
+            />
+          </div>
+
+          <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+            <B24Button
+              v-for="depth in depths"
+              :key="depth"
+              label="Button"
+              :avatar="{ src: 'https://github.com/IgorShevchik.png' }"
+              :color="color"
+              :depth="depth"
+              :size="size"
+              use-dropdown
             />
           </div>
         </template>
@@ -60,18 +145,6 @@ function onClick() {
             class="font-thin"
           >
             Button
-          </B24Button>
-        </div>
-        <ExampleCardSubTitle title="tag link" />
-        <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-          <B24Button
-            v-for="depth in depths"
-            :key="depth"
-            :color="color"
-            :depth="depth"
-            to="/"
-          >
-            Link
           </B24Button>
         </div>
         <ExampleCardSubTitle title="disabled" />
@@ -101,106 +174,85 @@ function onClick() {
         <ExampleCardSubTitle title="loading" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
           <B24Button
-            v-for="depth in depths"
-            :key="depth"
             :color="color"
-            :depth="depth"
+            loading
+            use-wait
+          >
+            Loading
+          </B24Button>
+
+          <B24Button
+            :color="color"
+            loading
+            use-clock
+          >
+            Loading
+          </B24Button>
+
+          <B24Button
+            :color="color"
             loading
           >
             Loading
           </B24Button>
-        </div>
-        <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+
           <B24Button
-            v-for="depth in depths"
-            :key="depth"
             :color="color"
-            :depth="depth"
             loading-auto
+            use-clock
             @click="onClick"
           >
             Loading auto
           </B24Button>
         </div>
-        <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-          <B24Button
-            v-for="depth in depths"
-            :key="depth"
-            :color="color"
-            :depth="depth"
-            loading
-            trailing
-          >
-            Loading trailing
-          </B24Button>
-        </div>
         <ExampleCardSubTitle title="block" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
           <B24Button
-            v-for="depth in depths"
-            :key="depth"
             :color="color"
-            :depth="depth"
             :icon="RocketIcon"
-            :trailing-icon="ChevronDownIcon"
-            label="Block"
+            label="Block Long Text"
             block
+            use-dropdown
             class="max-w-[160px]"
           />
         </div>
-        <ExampleCardSubTitle title="group" />
+        <ExampleCardSubTitle title="tw-group" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
           <B24Button
-            v-for="depth in depths"
-            :key="depth"
             :color="color"
-            :depth="depth"
             :icon="DownloadDoubleIcon"
             label="Button"
             class="group"
             :b24ui="{ leadingIcon: 'group-hover:animate-pulse' }"
           />
         </div>
+        <ExampleCardSubTitle title="chip" />
+        <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+          <B24Chip text="+1">
+            <B24Button
+              :color="color"
+              label="Button"
+            />
+          </B24Chip>
+          <B24Chip>
+            <B24Button
+              :color="color"
+              label="Button"
+            />
+          </B24Chip>
+          <B24Button
+            :color="color"
+            label="Button"
+          >
+            <template #trailing>
+              <B24Chip standalone text="+1" />
+            </template>
+          </B24Button>
+        </div>
       </ExampleCard>
     </template>
   </ExampleGrid>
   <ExampleGrid class="mb-2">
-    <ExampleCard title="label & icon" class="col-span-2">
-      <template v-for="size in sizes" :key="size">
-        <ExampleCardSubTitle :title="size as string" />
-        <template v-for="color in colors" :key="color">
-          <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-            <B24Button
-              v-for="depth in depths"
-              :key="depth"
-              :label="upperFirst([color as string, depth as string].join(' '))"
-              :icon="PhoneDownIcon"
-              :color="color"
-              :depth="depth"
-              :size="size"
-            />
-          </div>
-        </template>
-      </template>
-    </ExampleCard>
-    <ExampleCard title="label & avatar" class="col-span-2">
-      <template v-for="size in sizes" :key="size">
-        <ExampleCardSubTitle :title="size as string" />
-        <template v-for="color in colors" :key="color">
-          <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-            <B24Button
-              v-for="depth in depths"
-              :key="depth"
-              :label="upperFirst(color as string)"
-              :avatar="{ src: 'https://github.com/IgorShevchik.png' }"
-              :color="color"
-              :depth="depth"
-              :size="size"
-            />
-          </div>
-        </template>
-      </template>
-    </ExampleCard>
     <ExampleCard title="icon">
       <template v-for="size in sizes" :key="size">
         <ExampleCardSubTitle :title="size as string" />
@@ -248,44 +300,6 @@ function onClick() {
               :color="color"
               :depth="depth"
               :size="size"
-            />
-          </div>
-        </template>
-      </template>
-    </ExampleCard>
-    <ExampleCard title="rounded icon" class="col-span-2">
-      <template v-for="size in sizes" :key="size">
-        <ExampleCardSubTitle :title="size as string" />
-        <template v-for="color in colors" :key="color">
-          <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-            <B24Button
-              v-for="depth in depths"
-              :key="depth"
-              rounded
-              :icon="RocketIcon"
-              :color="color"
-              :depth="depth"
-              :size="size"
-              label="Rounded"
-            />
-          </div>
-        </template>
-      </template>
-    </ExampleCard>
-    <ExampleCard title="rounded avatar" class="col-span-2">
-      <template v-for="size in sizes" :key="size">
-        <ExampleCardSubTitle :title="size as string" />
-        <template v-for="color in colors" :key="color">
-          <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-            <B24Button
-              v-for="depth in depths"
-              :key="depth"
-              rounded
-              :avatar="{ src: 'https://github.com/IgorShevchik.png' }"
-              :color="color"
-              :depth="depth"
-              :size="size"
-              label="Rounded"
             />
           </div>
         </template>

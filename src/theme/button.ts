@@ -15,10 +15,13 @@ import { buttonGroupVariant } from './button-group'
 export default {
   slots: {
     base: [
-      'select-none cursor-pointer',
-      'inline-flex items-center focus:outline-hidden',
-      'disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-40 aria-disabled:opacity-40',
+      'select-none cursor-pointer inline-flex items-center',
+      'relative focus:outline-hidden',
+      'disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50',
       'transition duration-150 ease-linear' // transition-colors
+    ],
+    baseLine: [
+      'inline-flex items-center'
     ],
     label: 'truncate',
     leadingIcon: 'shrink-0',
@@ -101,39 +104,45 @@ export default {
     },
     size: {
       '2xs': {
-        base: 'h-lg2 min-w-lg2 px-3.5 text-4xs leading-none gap-1', // 22px
-        leadingIcon: 'size-4',
+        base: 'h-lg2 min-w-lg2 ps-3.5 pe-3.5 text-4xs leading-none', // 22px
+        baseLine: 'gap-1',
+        leadingIcon: 'size-3.5',
         leadingAvatarSize: '2xs',
-        trailingIcon: 'size-lg'
+        trailingIcon: 'size-sm'
       },
       'xs': {
-        base: 'h-xl2 min-w-xl2 px-4 text-3xs leading-none gap-1', // 26px
+        base: 'h-xl2 min-w-xl2 ps-4 pe-4 text-3xs leading-none', // 26px
+        baseLine: 'gap-1',
         leadingIcon: 'size-5',
         leadingAvatarSize: '2xs',
-        trailingIcon: 'size-xl2'
+        trailingIcon: 'size-md2'
       },
       'sm': {
-        base: 'h-3xl min-w-3xl px-[18px] text-xs leading-none gap-1.5', // 32px
+        base: 'h-3xl min-w-3xl ps-[18px] pe-[18px] text-xs leading-none', // 32px
+        baseLine: 'gap-1.5',
         leadingIcon: 'size-6',
         leadingAvatarSize: 'xs',
-        trailingIcon: 'size-3xl'
+        trailingIcon: 'size-lg'
       },
       'md': {
-        base: 'h-5xl min-w-5xl px-5 text-xs leading-none gap-1.5', // 40px
+        base: 'h-5xl min-w-5xl ps-5 pe-5 text-xs leading-none', // 40px
+        baseLine: 'gap-1.5',
         leadingIcon: 'size-xl2',
         leadingAvatarSize: 'sm',
-        trailingIcon: 'size-5xl'
+        trailingIcon: 'size-lg'
       },
       'lg': {
-        base: 'h-6xl min-w-6xl px-[28px] text-xs leading-none gap-2', // ? 48px
+        base: 'h-6xl min-w-6xl ps-[28px] pe-[28px] text-xs leading-none', // ? 48px
+        baseLine: 'gap-2',
         leadingIcon: 'size-xl2',
         leadingAvatarSize: 'md',
-        trailingIcon: 'size-6xl'
+        trailingIcon: 'size-lg'
       }
     },
     block: {
       true: {
-        base: 'w-full justify-center',
+        base: 'w-full',
+        baseLine: 'w-full justify-center',
         leadingAvatarSize: 'xs',
         trailingIcon: 'ms-auto'
       }
@@ -147,9 +156,15 @@ export default {
     },
     useLabel: {
       true: '',
-      false: 'px-0.5 justify-center'
+      false: 'ps-0.5 pe-0.5 justify-center'
     },
-    trailing: {
+    useDropdown: {
+      true: ''
+    },
+    useWait: {
+      true: ''
+    },
+    useClock: {
       true: ''
     },
     loading: {
@@ -362,7 +377,7 @@ export default {
       color: 'link',
       depth: 'light',
       useLabel: true,
-      class: 'px-1.5'
+      class: 'ps-1.5 pe-1.5'
     },
     {
       // LIGHT_BORDER ////
@@ -384,80 +399,110 @@ export default {
       size: '2xs',
       leading: true,
       useLabel: true,
-      class: 'ps-0.5 pe-1.5'
+      useDropdown: false,
+      class: 'ps-1.5 pe-3'
     },
     {
       size: 'xs',
       leading: true,
       useLabel: true,
-      class: 'ps-1.5 pe-2.5'
+      useDropdown: false,
+      class: 'ps-1.5 pe-4'
     },
     {
       size: 'sm',
       leading: true,
       useLabel: true,
-      class: 'ps-2.5 pe-4'
+      useDropdown: false,
+      class: 'ps-2.5 pe-[18px]'
     },
     {
       size: 'md',
       leading: true,
       useLabel: true,
+      useDropdown: false,
       class: 'ps-3.5 pe-5'
     },
     {
       size: 'lg',
       leading: true,
       useLabel: true,
-      class: 'ps-4 pe-xl2'
+      useDropdown: false,
+      class: 'ps-4 pe-[28px]'
     },
     // endregion ////
-    // region size && trailing ////
+    // region size && useDropdown ////
     {
       size: '2xs',
-      trailing: true,
+      leading: false,
       useLabel: true,
-      class: 'pe-0.5 ps-1.5'
+      useDropdown: true,
+      class: 'ps-3 pe-1.5'
     },
     {
       size: 'xs',
-      trailing: true,
+      leading: false,
       useLabel: true,
-      class: 'pe-1.5 ps-2.5'
+      useDropdown: true,
+      class: 'ps-4 pe-1.5'
     },
     {
       size: 'sm',
-      trailing: true,
+      leading: false,
       useLabel: true,
-      class: 'pe-2.5 ps-4'
+      useDropdown: true,
+      class: 'ps-[18px] pe-1.5'
     },
     {
       size: 'md',
-      trailing: true,
+      leading: false,
       useLabel: true,
-      class: 'pe-3.5 ps-5'
+      useDropdown: true,
+      class: 'ps-5 pe-2.5'
     },
     {
       size: 'lg',
-      trailing: true,
+      leading: false,
       useLabel: true,
-      class: 'pe-4 ps-xl2'
+      useDropdown: true,
+      class: 'ps-[28px] pe-3.5'
     },
     // endregion ////
-    // region loading | leading ////
+    // region size && leading && useDropdown ////
     {
-      loading: true,
+      size: '2xs',
       leading: true,
-      class: {
-        leadingIcon: 'animate-spin'
-      }
+      useLabel: true,
+      useDropdown: true,
+      class: 'ps-1.5 pe-1.5'
     },
     {
-      loading: true,
-      leading: false,
-      trailing: true,
-      class: {
-        trailingIcon: 'animate-spin'
-      }
+      size: 'xs',
+      leading: true,
+      useLabel: true,
+      useDropdown: true,
+      class: 'ps-1.5 pe-1.5'
+    },
+    {
+      size: 'sm',
+      leading: true,
+      useLabel: true,
+      useDropdown: true,
+      class: 'ps-2.5 pe-1.5'
+    },
+    {
+      size: 'md',
+      leading: true,
+      useLabel: true,
+      useDropdown: true,
+      class: 'ps-3.5 pe-2.5'
+    },
+    {
+      size: 'lg',
+      leading: true,
+      useLabel: true,
+      useDropdown: true,
+      class: 'ps-4 pe-3.5'
     },
     // endregion ////
     // region noCaps ////

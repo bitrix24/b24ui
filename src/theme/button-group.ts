@@ -27,7 +27,6 @@ export default {
       'sm': '',
       'md': '',
       'lg': '',
-      'xl': ''
     },
     orientation: {
       horizontal: 'inline-flex -space-x-px',
