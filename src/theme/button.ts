@@ -182,11 +182,11 @@ export default {
       color: 'default',
       depth: 'light',
       class: [
-        'text-base-800 bg-base-200 border border-base-200',
-        'hover:bg-[#cfd4d8] hover:border-[#c6cdd3]',
-        'active:bg-[#dde2e5] active:border-[#9fa4ab]',
-        'disabled:bg-[base-200] aria-disabled:bg-[base-200] disabled:border-base-200 aria-disabled:border-base-200',
-        'focus-visible:outline-[base-200]'
+        'text-base-800 bg-base-200 border border-base-300',
+        'hover:bg-[#cfd4d8] hover:border-[#cfd4d8]',
+        'active:bg-[#dde2e5] active:border-[#dde2e5]',
+        'disabled:bg-base-200 aria-disabled:bg-base-200 disabled:border-base-300 aria-disabled:border-base-300',
+        'focus-visible:outline-base-200'
       ].join(' ')
     },
     {
@@ -287,9 +287,9 @@ export default {
       depth: 'light',
       class: [
         'text-blue-800 bg-blue-300 border border-blue-400',
-        'hover:bg-blue-300/75',
-        'active:bg-blue-300/85',
-        'disabled:bg-blue-300 aria-disabled:bg-blue-300',
+        'hover:bg-blue-300/75 hover:border-blue-300/75',
+        'active:bg-blue-300/85 active:border-blue-300/85',
+        'disabled:bg-blue-300 aria-disabled:bg-blue-300 disabled:border-blue-300 aria-disabled:border-blue-300',
         'focus-visible:outline-blue-300'
       ].join(' ')
     },

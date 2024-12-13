@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { upperFirst } from 'scule'
 import theme from '#build/b24ui/button'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
@@ -8,7 +7,6 @@ import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
 import DownloadDoubleIcon from '@bitrix24/b24icons-vue/actions/DownloadDoubleIcon'
 import TaskIcon from '@bitrix24/b24icons-vue/button/TaskIcon'
-import PhoneDownIcon from '@bitrix24/b24icons-vue/button/PhoneDownIcon'
 
 usePageMeta.setPageTitle('Button')
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>

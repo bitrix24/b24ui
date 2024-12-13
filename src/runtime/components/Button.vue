@@ -66,7 +66,7 @@ const $slots = useSlots()
 
 const linkProps = useForwardProps(pickLinkProps(props))
 
-const { orientation, size: buttonSize } = useButtonGroup<ButtonProps>(props)
+const { orientation, size: buttonSize, noSplit } = useButtonGroup<ButtonProps>(props)
 
 const loadingAutoState = ref(false)
 const formLoading = inject<Ref<boolean> | undefined>(formLoadingInjectionKey, undefined)
@@ -103,6 +103,7 @@ const b24ui = computed(() => button({
   color: props.color,
   depth: props.depth,
   size: buttonSize.value,
+  noSplit: Boolean(noSplit.value),
   loading: Boolean(isLoading.value),
   useLabel: Boolean(isLabel.value),
   block: Boolean(props.block),
