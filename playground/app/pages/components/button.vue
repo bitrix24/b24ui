@@ -19,9 +19,9 @@ function onClick() {
 </script>
 
 <template>
-  <ExampleGrid v-once>
+  <ExampleGrid v-once class="mb-2">
     <template v-for="color in colors" :key="color">
-      <ExampleCard :title="color as string">
+      <ExampleCard :title="color as string" class="md:col-span-2">
         <template v-for="size in sizes" :key="size">
           <ExampleCardSubTitle :title="size as string" />
           <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
