@@ -1,14 +1,37 @@
 <script setup lang="ts">
 import { upperFirst } from 'scule'
 import theme from '#build/b24ui/input'
+import usePageMeta from './../../composables/usePageMeta'
+import ExampleGrid from '../../components/ExampleGrid.vue'
+import ExampleCard from '../../components/ExampleCard.vue'
+import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 
+usePageMeta.setPageTitle('Input')
+
+const colors = []
+// const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 const variants = []
 // const variants = Object.keys(theme.variants.variant) as Array<keyof typeof theme.variants.variant>
 </script>
 
 <template>
-  <div class="flex flex-col items-center gap-4">
+  <ExampleGrid v-once>
+    <ExampleCard title="base">
+      <ExampleCardSubTitle title="base" />
+      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+        <B24Input autofocus placeholder="Search..." />
+      </div>
+      <template v-for="color in colors" :key="color">
+        <ExampleCardSubTitle :title="color" />
+        <div class="mb-4 flex flex-wrap items-center justify-start gap-4" />
+      </template>
+      <ExampleCardSubTitle title="some more" />
+      <div class="mb-4 flex flex-wrap items-center justify-start gap-4" />
+    </ExampleCard>
+  </ExampleGrid>
+
+  <!-- div class="flex flex-col items-center gap-4">
     <div class="flex flex-col gap-4 w-48">
       <B24Input autofocus placeholder="Search..." />
     </div>
@@ -89,5 +112,5 @@ const variants = []
         class="w-48"
       />
     </div>
-  </div>
+  </div -->
 </template>
