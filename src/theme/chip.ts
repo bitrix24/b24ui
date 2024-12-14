@@ -27,9 +27,9 @@ export default {
       link: 'bg-base-900/85 text-white dark:bg-white/85 dark:text-base-900'
     },
     size: {
-      '3xs': 'h-2xs min-w-2xs text-[0px] text-transparent',
-      '2xs': 'h-2xs2 min-w-2xs2 text-[0px] text-transparent',
-      'xs': 'h-xs2 min-w-xs2 text-[0px] text-transparent',
+      '3xs': 'h-1 min-w-1 text-[0px] text-transparent p-0',
+      '2xs': 'h-1.5 min-w-1.5 text-[0px] text-transparent p-0',
+      'xs': 'h-xs2 min-w-xs2 text-[0px] text-transparent  p-0',
       'sm': 'h-sm min-w-sm text-4xs font-regular',
       'md': 'h-md min-w-md text-3xs',
       'lg': 'h-lg min-w-lg rounded-md text-xs',
@@ -76,62 +76,62 @@ export default {
       standalone: false,
       class: 'translate-y-1/2 -translate-x-1/2 transform'
     },
-    // inset: md | lg ////
+    // inset ////
     {
       position: 'top-right',
-      size: ['md', 'lg', 'xl', '2xl'],
+      size: ['2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'],
       inset: true,
       standalone: false,
       class: '-translate-y-1/3 translate-x-1/3 transform'
     },
     {
       position: 'top-right',
-      size: ['3xl'],
+      size: ['2xs', '3xl'],
       inset: true,
       standalone: false,
-      class: '-translate-y-1/5 translate-x-1/5 transform'
+      class: 'translate-y-0 translate-x-0 transform'
     },
     {
       position: 'bottom-right',
-      size: ['md', 'lg', 'xl', '2xl'],
+      size: ['2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'],
       inset: true,
       standalone: false,
       class: 'translate-y-1/3 translate-x-1/3 transform'
     },
     {
       position: 'bottom-right',
-      size: ['3xl'],
+      size: ['2xs', '3xl'],
       inset: true,
       standalone: false,
-      class: 'translate-y-1/5 translate-x-1/5 transform'
+      class: 'translate-y-0 translate-x-0 transform'
     },
     {
       position: 'top-left',
-      size: ['md', 'lg', 'xl', '2xl'],
+      size: ['2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'],
       inset: true,
       standalone: false,
       class: '-translate-y-1/3 -translate-x-1/3 transform'
     },
     {
       position: 'top-left',
-      size: ['3xl'],
+      size: ['2xs', '3xl'],
       inset: true,
       standalone: false,
-      class: '-translate-y-1/5 -translate-x-1/5 transform'
+      class: '-translate-y-0 -translate-x-0 transform'
     },
     {
       position: 'bottom-left',
-      size: ['md', 'lg', 'xl', '2xl'],
+      size: ['2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'],
       inset: true,
       standalone: false,
       class: 'translate-y-1/3 -translate-x-1/3 transform'
     },
     {
       position: 'bottom-left',
-      size: ['3xl'],
+      size: ['2xs', '3xl'],
       inset: true,
       standalone: false,
-      class: 'translate-y-1/5 -translate-x-1/5 transform'
+      class: 'translate-y-0 -translate-x-0 transform'
     }
   ],
   defaultVariants: {

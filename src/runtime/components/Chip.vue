@@ -60,8 +60,8 @@ const b24ui = computed(() => chip({
   color: props.color,
   size: size.value,
   position: props.position,
-  inset: props.inset,
-  standalone: props.standalone
+  inset: Boolean(props.inset),
+  standalone: Boolean(props.standalone)
 }))
 </script>
 
