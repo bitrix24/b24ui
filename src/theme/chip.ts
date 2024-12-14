@@ -13,7 +13,7 @@
 export default {
   slots: {
     root: 'relative inline-flex items-center justify-center shrink-0',
-    base: 'select-none rounded-sm ring ring-white dark:ring-base-700 flex items-center justify-center p-1 text-white leading-none font-semibold font-b24-secondary whitespace-nowrap'
+    base: 'select-none rounded-sm flex items-center justify-center p-1 text-white leading-none font-semibold font-b24-secondary whitespace-nowrap'
   },
   variants: {
     color: {
@@ -47,7 +47,8 @@ export default {
       false: ''
     },
     standalone: {
-      false: 'absolute'
+      true: '',
+      false: 'ring ring-white dark:ring-base-700 absolute'
     }
   },
   compoundVariants: [
