@@ -52,7 +52,7 @@ defineShortcuts({
                   </div>
                   <B24Link
                     to="/"
-                    class="text-sm text-primary-link hover:opacity-80 border-b border-dashed border-b-primary-link dark:text-base-700 dark:border-b-base-700 dark:hover:text-info-background-on! dark:hover:border-b-info-background-on"
+                    class="text-nowrap text-sm text-primary-link hover:opacity-80 border-b border-dashed border-b-primary-link dark:text-base-700 dark:border-b-base-700 dark:hover:text-info-background-on! dark:hover:border-b-info-background-on"
                   >
                     main page
                   </B24Link>
