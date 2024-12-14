@@ -14,7 +14,7 @@ const button = tv({ extend: tv(theme), ...(appConfig.b24ui?.button || {}) })
 
 type ButtonVariants = VariantProps<typeof button>
 
-export interface ButtonProps extends UseComponentIconsProps, Omit<LinkProps, 'raw' | 'custom'> {
+export interface ButtonProps extends Omit<UseComponentIconsProps, 'trailing' | 'trailingIcon'>, Omit<LinkProps, 'raw' | 'custom'> {
   label?: string
   color?: ButtonVariants['color']
   depth?: ButtonVariants['depth']
