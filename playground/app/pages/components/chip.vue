@@ -1,8 +1,4 @@
 <script setup lang="ts">
-/**
- * @todo add standalone
- * @todo remove class from B24Button
- */
 import theme from '#build/b24ui/chip'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
@@ -20,7 +16,7 @@ const positions = Object.keys(theme.variants.position) as Array<keyof typeof the
 const items = [
   {
     name: 'messages-1',
-    icon: MessageChatWithPointIcon,
+    icon: BellIcon,
     count: 1
   },
   {
@@ -30,7 +26,7 @@ const items = [
   },
   {
     name: 'notifications-3',
-    icon: BellIcon,
+    icon: MailIcon,
     count: 100
   },
   {
@@ -42,7 +38,7 @@ const items = [
 </script>
 
 <template>
-  <ExampleGrid>
+  <ExampleGrid v-once>
     <ExampleCard title="inset">
       <template v-for="size in sizes" :key="size">
         <ExampleCardSubTitle :title="size as string" />
@@ -55,7 +51,12 @@ const items = [
             color="success"
             inset
           >
-            <B24Avatar src="https://github.com/bitrix24.png" size="lg" text="B24" class="border border-2 border-base-150 dark:border-base-700" />
+            <B24Avatar
+              src="https://github.com/bitrix24.png"
+              :size="(size === '3xs' ? '2xs' : size)"
+              text="B24"
+              class="border border-2 border-base-150 dark:border-base-700"
+            />
           </B24Chip>
         </div>
       </template>
@@ -66,7 +67,7 @@ const items = [
           <ExampleCardSubTitle :title="size as string" />
           <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
             <B24Chip v-for="position in positions" :key="position" :position="position" :size="size" :color="color">
-              <B24Button class="px-1 py-1 bg-gray-300 rounded-xs" :icon="MailIcon" color="default" depth="normal" />
+              <B24Button :icon="MailIcon" color="link" depth="dark" />
             </B24Chip>
           </div>
         </template>
@@ -77,7 +78,7 @@ const items = [
         <ExampleCardSubTitle :title="size as string" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
           <B24Chip v-for="{ name, icon, count } in items" :key="name" :text="count" :size="size">
-            <B24Button class="px-1 py-1 bg-gray-300 rounded-md text-xl" :icon="icon" size="md" color="default" depth="normal" />
+            <B24Button :icon="icon" color="link" depth="dark" />
           </B24Chip>
         </div>
       </template>

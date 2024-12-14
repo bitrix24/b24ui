@@ -19,7 +19,7 @@ function onClick() {
 </script>
 
 <template>
-  <ExampleGrid custom-grid-cols class="mb-2 grid-cols-[repeat(auto-fill,minmax(460px,1fr))]">
+  <ExampleGrid v-once>
     <template v-for="color in colors" :key="color">
       <ExampleCard :title="color as string">
         <template v-for="size in sizes" :key="size">
@@ -250,7 +250,7 @@ function onClick() {
       </ExampleCard>
     </template>
   </ExampleGrid>
-  <ExampleGrid class="mb-2">
+  <ExampleGrid v-once class="mb-2">
     <ExampleCard title="icon">
       <template v-for="size in sizes" :key="size">
         <ExampleCardSubTitle :title="size as string" />

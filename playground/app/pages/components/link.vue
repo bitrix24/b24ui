@@ -8,7 +8,7 @@ usePageMeta.setPageTitle('Links')
 </script>
 
 <template>
-  <ExampleGrid>
+  <ExampleGrid v-once>
     <ExampleCard title="Button">
       <ExampleCardSubTitle title="raw" />
       <div class="mb-4 flex flex-col items-start gap-4 text-sm">

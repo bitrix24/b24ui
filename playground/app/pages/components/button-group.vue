@@ -16,7 +16,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
 </script>
 
 <template>
-  <ExampleGrid custom-grid-cols class="mb-2 grid-cols-[repeat(auto-fill,minmax(460px,1fr))]">
+  <ExampleGrid v-once>
     <ExampleCard title="base">
       <template v-for="color in colors" :key="color">
         <ExampleCardSubTitle :title="color" />
