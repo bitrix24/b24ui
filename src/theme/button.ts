@@ -9,6 +9,7 @@
 
 /**
  * @todo add linkHelp: 'text-sm h-auto py-0 text-gray-700 font-normal rounded-none border border-x-0 border-t-0 border-dashed border-b-gray-700 hover:text-red-900 hover:border-b-red-900 focus-visible:outline-gray-700',
+ * @todo add dark
  */
 import { buttonGroupVariant } from './button-group'
 

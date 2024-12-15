@@ -18,7 +18,7 @@ export interface UseComponentIconsProps {
 export function useComponentIcons(componentProps: MaybeRefOrGetter<UseComponentIconsProps>) {
   const props = computed(() => toValue(componentProps))
 
-  const isLeading = computed(() => (props.value.icon) || (props.value.avatar))
+  const isLeading = computed(() => (props.value.icon && !props.value.trailing) || (props.value.avatar))
 
   const isTrailing = computed(() => (props.value.icon && props.value.trailing) || (props.value.loading && props.value.trailing) || !!props.value.trailingIcon)
 

@@ -25,6 +25,13 @@ export const buttonGroupVariantWithRoot = {
       root: 'group',
       base: 'group-not-only:group-first:rounded-b-none group-not-only:group-last:rounded-t-none group-not-last:group-not-first:rounded-none'
     }
+  },
+  noSplit: {
+    false: [
+      'not-only:not-first:after:content-[\'\'] not-only:not-first:after:absolute',
+      'not-only:not-first:after:top-[7px] not-only:not-first:after:bottom-[6px] not-only:not-first:after:left-0 not-only:not-first:after:w-px',
+      'not-only:not-first:after:bg-current/30'
+    ].join(' ')
   }
 }
 

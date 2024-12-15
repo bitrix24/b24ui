@@ -25,7 +25,10 @@ export interface InputProps extends UseComponentIconsProps {
   type?: InputHTMLAttributes['type']
   /** The placeholder text when the input is empty. */
   placeholder?: string
+  color?: InputVariants['color']
   size?: InputVariants['size']
+  /** Rounds the corners of the button. */
+  rounded?: boolean
   required?: boolean
   autocomplete?: InputHTMLAttributes['autocomplete']
   autofocus?: boolean
@@ -79,11 +82,13 @@ const inputSize = computed(() => buttonGroupSize.value || formGroupSize.value)
 
 const b24ui = computed(() => input({
   type: props.type as InputVariants['type'],
+  color: props.color,
   size: inputSize?.value,
   loading: props.loading,
   highlight: highlight.value,
-  leading: isLeading.value || !!props.avatar || !!slots.leading,
-  trailing: isTrailing.value || !!slots.trailing,
+  rounded: Boolean(props.rounded),
+  leading: Boolean(isLeading.value || !!props.avatar || !!slots.leading),
+  trailing: Boolean(isTrailing.value || !!slots.trailing),
   buttonGroup: orientation.value
 }))
 
@@ -170,14 +175,27 @@ onMounted(() => {
 
     <span v-if="isLeading || !!avatar || !!slots.leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
       <slot name="leading">
-        <Component v-if="isLeading && leadingIconName" :is="leadingIconName" :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })" />
-        <B24Avatar v-else-if="!!avatar" :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])" v-bind="avatar" :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })" />
+        <Component
+          :is="leadingIconName"
+          v-if="isLeading && leadingIconName"
+          :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
+        />
+        <B24Avatar
+          v-else-if="!!avatar"
+          :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+          v-bind="avatar"
+          :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
+        />
       </slot>
     </span>
 
     <span v-if="isTrailing || !!slots.trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
       <slot name="trailing">
-        <Component v-if="trailingIconName" :is="trailingIconName" :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })" />
+        <Component
+          :is="trailingIconName"
+          v-if="trailingIconName"
+          :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
+        />
       </slot>
     </span>
   </Primitive>
