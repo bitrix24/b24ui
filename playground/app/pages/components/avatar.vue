@@ -32,8 +32,8 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
         <B24Avatar
           v-for="size in sizes"
           :key="size"
-          src="https://github.com/IgorShevchik.png"
-          text="Shevchik Igor"
+          src="/avatar/employee.png"
+          text="Employee Name"
           :size="size"
         />
       </div>
@@ -60,18 +60,18 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
       <ExampleCardSubTitle title="max:2" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24AvatarGroup v-for="size in sizes" :key="size" :size="size" :max="2">
-          <B24Avatar src="https://github.com/bitrix24.png" text="B24" />
-          <B24Avatar src="https://github.com/serg-vostrikov-bitrix.png" alt="Serg Vostrikov" />
-          <B24Avatar src="https://github.com/IgorShevchik.png" alt="Shevchik Igor" />
+          <B24Avatar src="/avatar/employee.png" text="Employee" />
+          <B24Avatar src="/avatar/assistant.png" alt="Assistant Name" />
+          <B24Avatar src="/avatar/employee.png" text="Employee" class="grayscale" />
         </B24AvatarGroup>
       </div>
       <ExampleCardSubTitle title="max:4" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24AvatarGroup v-for="size in sizes" :key="size" :size="size" :max="4" :b24ui="{ base: 'ring-green-550 dark:ring-green-700' }">
-          <B24Avatar src="https://github.com/bitrix24.png" alt="John Doe" :size="size" />
-          <B24Avatar src="https://github.com/serg-vostrikov-bitrix.png" alt="Serg Vostrikov" :size="size" />
-          <B24Chip inset :size="size === '3xl' ? 'sm' : '3xs'">
-            <B24Avatar src="https://github.com/IgorShevchik.png" alt="Shevchik Igor" :size="size" />
+          <B24Avatar src="/avatar/employee.png" text="Employee" :size="size" />
+          <B24Avatar src="/avatar/assistant.png" alt="Assistant Name" :size="size" />
+          <B24Chip inset :size="size">
+            <B24Avatar src="/avatar/employee.png" text="Employee" class="rotate-y-180" :size="size" />
           </B24Chip>
         </B24AvatarGroup>
       </div>

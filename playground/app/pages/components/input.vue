@@ -31,9 +31,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
       <ExampleCardSubTitle title="underline" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24Input
-          v-for="color in colors"
-          :key="color"
-          :color="color"
+          color="success"
           underline
           placeholder="Search..."
           class="w-3/4"
@@ -87,7 +85,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
         <B24Input loading placeholder="Search..." class="w-3/4" />
         <B24Input loading trailing placeholder="Search..." class="w-3/4" />
         <B24Input loading :icon="RocketIcon" :trailing-icon="TaskIcon" placeholder="Search..." class="w-3/4" />
-        <B24Input loading :avatar="{ src: 'https://github.com/IgorShevchik.png' }" placeholder="Search..." class="w-3/4" />
+        <B24Input loading :avatar="{ src: '/avatar/employee.png' }" placeholder="Search..." class="w-3/4" />
       </div>
     </ExampleCard>
     <ExampleCard title="color">
@@ -119,8 +117,8 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
           <B24Input :icon="Search2Icon" placeholder="Search..." :size="size" class="w-40" />
           <B24Input :icon="Cross20Icon" trailing placeholder="Search..." :size="size" class="w-40" />
           <B24Input :icon="Search2Icon" :trailing-icon="Cross20Icon" placeholder="Search..." :size="size" class="w-40" />
-          <B24Input :avatar="{ src: 'https://github.com/IgorShevchik.png' }" placeholder="Search..." :size="size" class="w-40" />
-          <B24Input :avatar="{ src: 'https://github.com/IgorShevchik.png' }" :trailing-icon="Cross20Icon" placeholder="Search..." :size="size" class="w-40" />
+          <B24Input :avatar="{ src: '/avatar/employee.png' }" placeholder="Search..." :size="size" class="w-40" />
+          <B24Input :avatar="{ src: '/avatar/assistant.png' }" :trailing-icon="Cross20Icon" placeholder="Search..." :size="size" class="w-40" />
         </div>
       </template>
     </ExampleCard>
