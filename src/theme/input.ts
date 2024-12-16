@@ -10,14 +10,8 @@
 
 /**
  * @todo add @see uri
- * @todo set disabled:opacity
- * @todo fix color
- * @todo remove color link
- * @todo remove animate-spin
- * @todo add tad
- * @todo add test color && rounded && etc
+ * @todo add test color && rounded && tag noBorder && noPadding && underline && etc
  * @todo test noSplit from buttonGroupVariantWithRoot
- * @todo add dark
  */
 import { buttonGroupVariantWithRoot } from './button-group'
 
@@ -25,67 +19,112 @@ export default {
   slots: {
     root: 'relative inline-flex items-center',
     base: [
-      'w-full border-0 placeholder:text-base-400 focus:outline-none',
-      'disabled:cursor-not-allowed disabled:opacity-75',
-      'transition-colors',
-      'text-base-900 bg-white',
-      'ring ring-inset ring-base-300'
+      'w-full py-0 border-0 focus:outline-none',
+      'disabled:cursor-not-allowed disabled:bg-base-30/37 disabled:resize-none disabled:text-base-500',
+      'dark:disabled:bg-base-900/37 dark:disabled:text-base-800',
+      'appearance-none transition duration-300 ease-linear', // transition-colors
+      'ring ring-inset ring-base-300',
+      'dark:ring-base-800',
+      'text-black bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900',
+      'dark:text-base-300 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350',
+      'font-b24-primary font-regular text-md leading-none',
+      'align-middle',
+      'text-ellipsis whitespace-nowrap'
     ],
     leading: 'absolute inset-y-0 start-0 flex items-center',
     leadingIcon: 'shrink-0 text-base-400',
     leadingAvatar: 'shrink-0',
     leadingAvatarSize: '',
     trailing: 'absolute inset-y-0 end-0 flex items-center',
-    trailingIcon: 'shrink-0 text-base-400'
+    trailingIcon: 'shrink-0 text-base-400',
+    tag: [
+      'pointer-events-none select-none',
+      'absolute z-10 -top-1.5 right-3 h-[13px] px-1.5 align-middle text-center',
+      'font-b24-primary font-bold text-white text-7xs leading-[13px] uppercase rounded-full'
+    ]
   },
   variants: {
     ...buttonGroupVariantWithRoot,
     size: {
       xs: {
-        base: 'px-2 py-1 text-xs gap-1',
-        leading: 'ps-2',
-        trailing: 'pe-2',
-        leadingIcon: 'size-4',
-        leadingAvatarSize: '3xs',
-        trailingIcon: 'size-4'
+        base: 'px-3 h-xl2 gap-1', // 26px
+        leading: 'px-1',
+        trailing: 'px-1',
+        leadingIcon: 'size-lg2',
+        leadingAvatarSize: '2xs',
+        trailingIcon: 'size-lg2'
       },
       sm: {
-        base: 'px-2.5 py-1.5 text-xs gap-1.5',
-        leading: 'ps-2.5',
-        trailing: 'pe-2.5',
-        leadingIcon: 'size-4',
-        leadingAvatarSize: '3xs',
-        trailingIcon: 'size-4'
+        base: 'px-3 h-8 gap-1.5', // 32px
+        leading: 'px-1.5',
+        trailing: 'px-1.5',
+        leadingIcon: 'size-lg2',
+        leadingAvatarSize: 'xs',
+        trailingIcon: 'size-lg2'
       },
       md: {
-        base: 'px-2.5 py-1.5 text-sm gap-1.5',
-        leading: 'ps-2.5',
-        trailing: 'pe-2.5',
-        leadingIcon: 'size-5',
-        leadingAvatarSize: '2xs',
-        trailingIcon: 'size-5'
+        base: 'px-3 h-10 gap-1.5', // 40px
+        leading: 'px-2',
+        trailing: 'px-2',
+        leadingIcon: 'size-[24px]',
+        leadingAvatarSize: 'sm',
+        trailingIcon: 'size-[24px]'
       },
       lg: {
-        base: 'px-3 py-2 text-sm gap-2',
-        leading: 'ps-3',
-        trailing: 'pe-3',
-        leadingIcon: 'size-5',
-        leadingAvatarSize: '2xs',
-        trailingIcon: 'size-5'
+        base: 'px-3 h-12 gap-2', // 48px
+        leading: 'px-2',
+        trailing: 'px-2',
+        leadingIcon: 'size-[24px]',
+        leadingAvatarSize: 'md',
+        trailingIcon: 'size-[24px]'
       }
     },
     color: {
       default: '',
       danger: '',
       success: '',
+      warning: '',
       primary: '',
       secondary: '',
-      ai: '',
-      link: ''
+      ai: ''
+    },
+    tagColor: {
+      default: {
+        tag: 'bg-base-900 dark:bg-base-900 dark:text-base-100'
+      },
+      danger: {
+        tag: 'bg-red-500 dark:bg-red-600 dark:text-red-250'
+      },
+      success: {
+        tag: 'bg-green-500 dark:bg-green-600 dark:text-green-250'
+      },
+      warning: {
+        tag: 'bg-orange-500 dark:bg-orange-600 dark:text-orange-250'
+      },
+      primary: {
+        tag: 'bg-blue-500 dark:bg-blue-600 dark:text-blue-250'
+      },
+      secondary: {
+        tag: 'bg-accent-aqua dark:bg-accent-turquoise'
+      },
+      ai: {
+        tag: 'bg-ai-500 dark:bg-ai-800 dark:text-ai-250'
+      }
     },
     rounded: {
       true: 'rounded-full',
       false: 'rounded-2xs'
+    },
+    noPadding: {
+      true: {
+        base: 'px-0'
+      }
+    },
+    noBorder: {
+      true: 'ring-0 focus-visible:ring-0'
+    },
+    underline: {
+      true: 'ring-0 focus-visible:ring-0 border-b border-b-base-300 rounded-none'
     },
     leading: {
       true: ''
@@ -97,96 +136,228 @@ export default {
       true: ''
     },
     type: {
-      file: 'file:me-1.5 file:font-medium file:text-base-500 file:outline-none'
+      file: 'file:me-1.5 file:text-base-500 file:outline-none'
     }
   },
   compoundVariants: [
+    // region ring for focus and highlight ////
     // region default ////
     {
       color: 'default',
-      class: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-base-900'
+      noBorder: false,
+      underline: false,
+      class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-base-900 dark:focus-visible:ring-base-350'
     },
     {
       color: 'default',
       highlight: true,
-      class: 'ring ring-inset ring-base-900'
+      noBorder: false,
+      underline: false,
+      class: 'ring ring-inset ring-base-900 dark:ring-base-350'
+    },
+    {
+      color: 'default',
+      noBorder: false,
+      underline: true,
+      class: 'focus-visible:border-base-900 dark:focus-visible:border-b-base-350'
+    },
+    {
+      color: 'default',
+      highlight: true,
+      noBorder: false,
+      underline: true,
+      class: 'border-b-base-900 dark:border-b-base-350'
     },
     // endregion ////
     // region danger ////
     {
       color: 'danger',
-      class: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-red-500'
+      noBorder: false,
+      underline: false,
+      class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-red-500 dark:focus-visible:ring-red-600'
     },
     {
       color: 'danger',
       highlight: true,
-      class: 'ring ring-inset ring-red-500'
+      noBorder: false,
+      underline: false,
+      class: 'ring ring-inset ring-red-500 dark:ring-red-600'
+    },
+    {
+      color: 'danger',
+      noBorder: false,
+      underline: true,
+      class: 'focus-visible:border-b-red-500 dark:focus-visible:border-b-red-600'
+    },
+    {
+      color: 'danger',
+      highlight: true,
+      noBorder: false,
+      underline: true,
+      class: 'border-b-red-500 dark:border-b-red-600'
     },
     // endregion ////
     // region success ////
     {
       color: 'success',
-      class: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-green-500'
+      noBorder: false,
+      underline: false,
+      class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-green-500 dark:focus-visible:ring-green-600'
     },
     {
       color: 'success',
       highlight: true,
-      class: 'ring ring-inset ring-green-500'
+      noBorder: false,
+      underline: false,
+      class: 'ring ring-inset ring-green-500 dark:ring-green-600'
+    },
+    {
+      color: 'success',
+      noBorder: false,
+      underline: true,
+      class: 'focus-visible:border-b-green-500 dark:focus-visible:border-b-green-600'
+    },
+    {
+      color: 'success',
+      highlight: true,
+      noBorder: false,
+      underline: true,
+      class: 'border-b-green-500 dark:border-b-green-600'
     },
     // endregion ////
     // region warning ////
     {
       color: 'warning',
-      class: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-orange-500'
+      noBorder: false,
+      underline: false,
+      class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-orange-500 dark:focus-visible:ring-orange-600'
     },
     {
       color: 'warning',
       highlight: true,
-      class: 'ring ring-inset ring-orange-500'
+      noBorder: false,
+      underline: false,
+      class: 'ring ring-inset ring-orange-500 dark:ring-orange-600'
+    },
+    {
+      color: 'warning',
+      noBorder: false,
+      underline: true,
+      class: 'focus-visible:border-b-orange-500 dark:focus-visible:border-b-orange-600'
+    },
+    {
+      color: 'warning',
+      highlight: true,
+      noBorder: false,
+      underline: true,
+      class: 'border-b-orange-500 dark:border-b-orange-600'
     },
     // endregion ////
     // region primary ////
     {
       color: 'primary',
-      class: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-500'
+      noBorder: false,
+      underline: false,
+      class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600'
     },
     {
-      color: 'warning',
+      color: 'primary',
       highlight: true,
-      class: 'ring ring-inset ring-blue-500'
+      noBorder: false,
+      underline: false,
+      class: 'ring ring-inset ring-blue-500 dark:ring-blue-600'
+    },
+    {
+      color: 'primary',
+      noBorder: false,
+      underline: true,
+      class: 'focus-visible:border-b-blue-500 dark:focus-visible:border-b-blue-600'
+    },
+    {
+      color: 'primary',
+      highlight: true,
+      noBorder: false,
+      underline: true,
+      class: 'border-b-blue-500 dark:border-b-blue-600'
     },
     // endregion ////
     // region secondary ////
     {
       color: 'secondary',
-      class: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent-aqua'
+      noBorder: false,
+      underline: false,
+      class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-accent-aqua dark:focus-visible:ring-accent-turquoise'
     },
     {
       color: 'secondary',
       highlight: true,
-      class: 'ring ring-inset ring-accent-aqua'
+      noBorder: false,
+      underline: false,
+      class: 'ring ring-inset ring-accent-aqua dark:ring-accent-turquoise'
+    },
+    {
+      color: 'secondary',
+      noBorder: false,
+      underline: true,
+      class: 'focus-visible:border-b-accent-aqua dark:focus-visible:border-b-accent-turquoise'
+    },
+    {
+      color: 'secondary',
+      highlight: true,
+      noBorder: false,
+      underline: true,
+      class: 'border-b-accent-aqua dark:border-b-accent-turquoise'
     },
     // endregion ////
     // region ai ////
     {
       color: 'ai',
-      class: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ai-500'
+      noBorder: false,
+      underline: false,
+      class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-ai-500 dark:focus-visible:ring-ai-600'
     },
     {
       color: 'ai',
       highlight: true,
-      class: 'ring ring-inset ring-ai-500'
+      noBorder: false,
+      underline: false,
+      class: 'ring ring-inset ring-ai-500 dark:ring-ai-600'
+    },
+    {
+      color: 'ai',
+      noBorder: false,
+      underline: true,
+      class: 'focus-visible:border-b-ai-500 dark:focus-visible:border-b-ai-600'
+    },
+    {
+      color: 'ai',
+      highlight: true,
+      noBorder: false,
+      underline: true,
+      class: 'border-b-ai-500 dark:border-b-ai-600'
     },
     // endregion ////
-    // region link ////
+    // endregion ////
+    // region type file ////
     {
-      color: 'link',
-      class: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-base-900'
+      type: 'file',
+      size: 'xs',
+      class: 'py-1.5'
     },
     {
-      color: 'link',
-      highlight: true,
-      class: 'ring ring-inset ring-base-900'
+      type: 'file',
+      size: 'sm',
+      class: 'py-2.5'
+    },
+    {
+      type: 'file',
+      size: 'md',
+      class: 'py-3'
+    },
+    {
+      type: 'file',
+      size: 'lg',
+      class: 'py-4'
     },
     // endregion ////
     // region leading ////
@@ -203,12 +374,12 @@ export default {
     {
       leading: true,
       size: 'md',
-      class: 'ps-9'
+      class: 'ps-[39px]'
     },
     {
       leading: true,
       size: 'lg',
-      class: 'ps-10'
+      class: 'ps-[42px]'
     },
     // endregion ////
     // region trailing ////
@@ -225,12 +396,12 @@ export default {
     {
       trailing: true,
       size: 'md',
-      class: 'pe-9'
+      class: 'pe-[39px]'
     },
     {
       trailing: true,
       size: 'lg',
-      class: 'pe-10'
+      class: 'pe-[39px]'
     },
     // endregion ////
     // region loading ////
@@ -238,7 +409,7 @@ export default {
       loading: true,
       leading: true,
       class: {
-        leadingIcon: 'animate-spin'
+        leadingIcon: 'size-[21px]'
       }
     },
     {
@@ -246,13 +417,14 @@ export default {
       leading: false,
       trailing: true,
       class: {
-        trailingIcon: 'animate-spin'
+        trailingIcon: 'size-[21px]'
       }
     }
     // endregion ////
   ],
   defaultVariants: {
     size: 'md',
-    color: 'primary'
+    color: 'primary',
+    tagColor: 'primary'
   }
 }

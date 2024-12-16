@@ -1,7 +1,4 @@
 <script lang="ts">
-/**
- * @todo remove useSlots
- */
 import { tv, type VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
@@ -49,7 +46,7 @@ export interface ButtonSlots {
 </script>
 
 <script setup lang="ts">
-import { type Ref, computed, ref, inject } from 'vue' // useSlots
+import { type Ref, computed, ref, inject } from 'vue'
 import { useForwardProps } from 'reka-ui'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useButtonGroup } from '../composables/useButtonGroup'
@@ -65,7 +62,6 @@ import ChevronDownIcon from '@bitrix24/b24icons-vue/actions/ChevronDownIcon'
 
 const props = defineProps<ButtonProps>()
 const slots = defineSlots<ButtonSlots>()
-// const $slots = useSlots()
 
 const linkProps = useForwardProps(pickLinkProps(props))
 
@@ -95,7 +91,6 @@ const { isLeading, leadingIconName } = useComponentIcons(
 const isLabel = computed(() => {
   let isUseSlot = false
 
-  // if ($slots.default && ($slots.default()[0].children as string).length > 0) {
   if (slots && !!slots.default) {
     isUseSlot = true
   }

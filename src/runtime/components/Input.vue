@@ -27,6 +27,12 @@ export interface InputProps extends UseComponentIconsProps {
   placeholder?: string
   color?: InputVariants['color']
   size?: InputVariants['size']
+  /** Removes padding from input. */
+  noPadding?: boolean
+  /** removes all borders (rings). */
+  noBorder?: boolean
+  /** removes all borders (rings) except the bottom one. */
+  underline?: boolean
   /** Rounds the corners of the button. */
   rounded?: boolean
   required?: boolean
@@ -34,6 +40,8 @@ export interface InputProps extends UseComponentIconsProps {
   autofocus?: boolean
   autofocusDelay?: number
   disabled?: boolean
+  tag?: string
+  tagColor?: InputVariants['tagColor']
   /** Highlight the ring color like a focus state. */
   highlight?: boolean
   class?: any
@@ -80,13 +88,21 @@ const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponen
 
 const inputSize = computed(() => buttonGroupSize.value || formGroupSize.value)
 
+const isTag = computed(() => {
+  return props.tag
+})
+
 const b24ui = computed(() => input({
   type: props.type as InputVariants['type'],
-  color: props.color,
+  color: color.value,
   size: inputSize?.value,
   loading: props.loading,
+  tagColor: props.tagColor,
   highlight: highlight.value,
   rounded: Boolean(props.rounded),
+  noPadding: Boolean(props.noPadding),
+  noBorder: Boolean(props.noBorder),
+  underline: Boolean(props.underline),
   leading: Boolean(isLeading.value || !!props.avatar || !!slots.leading),
   trailing: Boolean(isTrailing.value || !!slots.trailing),
   buttonGroup: orientation.value
@@ -154,6 +170,10 @@ onMounted(() => {
 
 <template>
   <Primitive :as="as" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
+    <div v-if="isTag" :class="b24ui.tag({ class: props.b24ui?.tag })">
+      {{ props.tag }}
+    </div>
+
     <input
       :id="id"
       ref="inputRef"

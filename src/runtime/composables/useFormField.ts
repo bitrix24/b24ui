@@ -70,7 +70,7 @@ export function useFormField<T>(props?: Props<T>, opts?: { bind?: boolean }) {
     id: computed(() => props?.id ?? inputId?.value),
     name: computed(() => props?.name ?? formField?.value.name),
     size: computed(() => props?.size ?? formField?.value.size),
-    color: computed(() => formField?.value.error ? 'error' : props?.color),
+    color: computed(() => formField?.value.error ? 'danger' : props?.color),
     highlight: computed(() => formField?.value.error ? true : props?.highlight),
     disabled: computed(() => formOptions?.value.disabled || props?.disabled),
     emitFormBlur,
