@@ -203,18 +203,20 @@ function onClick() {
 
       <template v-for="size in sizes" :key="size">
         <ExampleCardSubTitle :title="size as string" />
-        <B24ButtonGroup :size="size" no-split>
-          <B24Input placeholder="Search..." />
-          <B24Button
-            color="link"
-            depth="dark"
-            loading-auto
-            use-clock
-            @click="onClick"
-          >
-            Button
-          </B24Button>
-        </B24ButtonGroup>
+          <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+          <B24ButtonGroup :size="size" no-split>
+            <B24Input placeholder="Search..." />
+            <B24Button
+              color="link"
+              depth="dark"
+              loading-auto
+              use-clock
+              @click="onClick"
+            >
+              Button
+            </B24Button>
+          </B24ButtonGroup>
+        </div>
       </template>
     </ExampleCard>
   </ExampleGrid>

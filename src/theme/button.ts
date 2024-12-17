@@ -104,28 +104,28 @@ export default {
       dark: ''
     },
     size: {
-      'xs': {
+      xs: {
         base: 'h-xl2 min-w-xl2 ps-4 pe-4 text-3xs leading-none', // 26px
         baseLine: 'gap-1',
         leadingIcon: 'size-5',
         leadingAvatarSize: '2xs',
         trailingIcon: 'size-md2'
       },
-      'sm': {
+      sm: {
         base: 'h-3xl min-w-3xl ps-[18px] pe-[18px] text-xs leading-none', // 32px
         baseLine: 'gap-1.5',
         leadingIcon: 'size-6',
         leadingAvatarSize: 'xs',
         trailingIcon: 'size-lg'
       },
-      'md': {
+      md: {
         base: 'h-5xl min-w-5xl ps-5 pe-5 text-xs leading-none', // 40px
         baseLine: 'gap-1.5',
         leadingIcon: 'size-xl2',
         leadingAvatarSize: 'sm',
         trailingIcon: 'size-lg'
       },
-      'lg': {
+      lg: {
         base: 'h-6xl min-w-6xl ps-[28px] pe-[28px] text-xs leading-none', // ? 48px
         baseLine: 'gap-2',
         leadingIcon: 'size-xl2',
