@@ -61,8 +61,8 @@
     "prepare:build_stub": "nuxt-module-build build --stub",
     "prepare:build_prepare": "nuxt-module-build prepare",
     "prepare:playground": "nuxi prepare playground",
-    "prepare:playground-vue": "vite build playground-vue",
-    "prepare:playground_components-meta": "nuxt-component-meta playground --outputDir ../src/.component-meta/",
+    "_prepare:playground-vue": "vite build playground-vue",
+    "_prepare:playground_components-meta": "nuxt-component-meta playground --outputDir ../src/.component-meta/",
 
     "prepack": "pnpm build",
     "build": "npm-run-all -s build:*",
@@ -70,7 +70,7 @@
     "build:build": "nuxt-module-build build",
 
     "dev": "set DEV=true && nuxi dev playground",
-    "dev:vue": "set DEV=true && vite playground-vue",
+    "_dev:vue": "set DEV=true && vite playground-vue",
     "dev:build": "nuxi build playground",
     "dev:generate": "nuxt generate playground",
 
@@ -99,7 +99,7 @@
     "@tailwindcss/postcss": "4.0.0-beta.6",
     "@tailwindcss/vite": "4.0.0-beta.6",
     "@tanstack/vue-table": "^8.20.5",
-    "@unhead/vue": "^1.11.13",
+    "@unhead/vue": "^1.11.14",
     "@vueuse/core": "^12.0.0",
     "@vueuse/integrations": "^12.0.0",
     "consola": "^3.2.3",
@@ -113,30 +113,30 @@
     "embla-carousel-wheel-gestures": "^8.0.1",
     "fuse.js": "^7.0.0",
     "knitwork": "^1.1.0",
-    "magic-string": "^0.30.14",
+    "magic-string": "^0.30.16",
     "mlly": "^1.7.3",
     "ohash": "^1.1.4",
-    "reka-ui": "1.0.0-alpha.6",
+    "reka-ui": "1.0.0-alpha.7",
     "pathe": "^1.1.2",
     "scule": "^1.3.0",
     "tailwind-variants": "^0.3.0",
     "tailwindcss": "4.0.0-beta.6",
     "tinyglobby": "^0.2.10",
     "unplugin": "^1.16.0",
-    "unplugin-auto-import": "^0.18.6",
-    "unplugin-vue-components": "^0.27.5",
+    "unplugin-auto-import": "^0.19.0",
+    "unplugin-vue-components": "^0.28.0",
     "vaul-vue": "^0.2.0"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.5",
-    "@nuxt/eslint-config": "^0.7.2",
+    "@nuxt/eslint-config": "^0.7.3",
     "@nuxt/module-builder": "^0.8.4",
     "@nuxt/test-utils": "^3.15.1",
     "@standard-schema/spec": "1.0.0-beta.4",
     "@vue/test-utils": "^2.4.6",
     "embla-carousel": "^8.5.1",
-    "eslint": "^9.16.0",
-    "happy-dom": "14.12.3",
+    "eslint": "^9.17.0",
+    "happy-dom": "^15.7.4",
     "joi": "^17.13.3",
     "knitwork": "^1.1.0",
     "nuxt": "^3.14.1592",
@@ -148,7 +148,7 @@
     "vitest-environment-nuxt": "^1.0.1",
     "vue-tsc": "^2.1.10",
     "yup": "^1.4.0",
-    "zod": "^3.23.8"
+    "zod": "^3.24.1"
   },
   "peerDependencies": {
     "typescript": "^5.6.3"
@@ -156,6 +156,7 @@
   "resolutions": {
     "@bitrix24/b24ui-nuxt": "workspace:*",
     "chokidar": "3.6.0",
+    "debug": "4.3.7",
     "happy-dom": "14.12.3",
     "rollup": "^4.24.0",
     "typescript": "5.6.3",
