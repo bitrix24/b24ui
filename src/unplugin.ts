@@ -1,5 +1,4 @@
 import { fileURLToPath } from 'node:url'
-
 import { join, normalize } from 'pathe'
 import { createUnplugin } from 'unplugin'
 import AutoImport from 'unplugin-auto-import'
