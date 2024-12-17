@@ -104,13 +104,6 @@ export default {
       dark: ''
     },
     size: {
-      '2xs': {
-        base: 'h-lg2 min-w-lg2 ps-3.5 pe-3.5 text-4xs leading-none', // 22px
-        baseLine: 'gap-1',
-        leadingIcon: 'size-3.5',
-        leadingAvatarSize: '2xs',
-        trailingIcon: 'size-sm'
-      },
       'xs': {
         base: 'h-xl2 min-w-xl2 ps-4 pe-4 text-3xs leading-none', // 26px
         baseLine: 'gap-1',
@@ -397,13 +390,6 @@ export default {
     // endregion ////
     // region size && leading ////
     {
-      size: '2xs',
-      leading: true,
-      useLabel: true,
-      useDropdown: false,
-      class: 'ps-1.5 pe-3'
-    },
-    {
       size: 'xs',
       leading: true,
       useLabel: true,
@@ -434,13 +420,6 @@ export default {
     // endregion ////
     // region size && useDropdown ////
     {
-      size: '2xs',
-      leading: false,
-      useLabel: true,
-      useDropdown: true,
-      class: 'ps-3 pe-1.5'
-    },
-    {
       size: 'xs',
       leading: false,
       useLabel: true,
@@ -470,13 +449,6 @@ export default {
     },
     // endregion ////
     // region size && leading && useDropdown ////
-    {
-      size: '2xs',
-      leading: true,
-      useLabel: true,
-      useDropdown: true,
-      class: 'ps-1.5 pe-1.5'
-    },
     {
       size: 'xs',
       leading: true,
@@ -509,7 +481,7 @@ export default {
     // region noCaps ////
     {
       normalCase: true,
-      size: ['2xs', 'xs'],
+      size: 'xs',
       class: 'text-xs'
     },
     {

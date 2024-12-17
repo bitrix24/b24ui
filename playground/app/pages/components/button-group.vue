@@ -1,8 +1,6 @@
 <script setup lang="ts">
-/**
- * @todo add B24Input
- */
 import theme from '#build/b24ui/button'
+import themeInput from '#build/b24ui/input'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
@@ -22,6 +20,22 @@ function onClick() {
 <template>
   <ExampleGrid v-once>
     <ExampleCard title="base" class="md:col-span-2">
+      <ExampleCardSubTitle title="single" />
+      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+        <B24ButtonGroup>
+          <B24Button
+            loading-auto
+            use-clock
+            @click="onClick"
+          >
+            Button
+          </B24Button>
+        </B24ButtonGroup>
+
+        <B24ButtonGroup>
+          <B24Input placeholder="Search..." />
+        </B24ButtonGroup>
+      </div>
       <template v-for="color in colors" :key="color">
         <ExampleCardSubTitle :title="color" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
@@ -53,6 +67,7 @@ function onClick() {
           </B24ButtonGroup>
         </div>
       </template>
+
       <ExampleCardSubTitle title="some more" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24ButtonGroup>
@@ -80,6 +95,7 @@ function onClick() {
           <B24Button color="default" use-dropdown />
         </B24ButtonGroup>
       </div>
+
       <ExampleCardSubTitle title="size && no-split" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24ButtonGroup size="sm" no-split>
@@ -142,39 +158,64 @@ function onClick() {
         </B24ButtonGroup>
       </div>
     </ExampleCard>
+    <ExampleCard title="input" class="md:col-span-4">
+      <ExampleCardSubTitle title="color" />
+      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+        <B24ButtonGroup orientation="vertical">
+          <B24Button
+            color="link"
+            depth="dark"
+            loading-auto
+            use-clock
+            @click="onClick"
+          >
+            Button
+          </B24Button>
+          <B24Input placeholder="Search..." />
+        </B24ButtonGroup>
+
+        <B24ButtonGroup no-split>
+          <B24Input placeholder="Search..." />
+          <B24Button
+            color="link"
+            depth="dark"
+            loading-auto
+            use-clock
+            @click="onClick"
+          >
+            Button
+          </B24Button>
+        </B24ButtonGroup>
+
+        <B24ButtonGroup no-split>
+          <B24Button
+            color="link"
+            depth="dark"
+            loading-auto
+            use-clock
+            @click="onClick"
+          >
+            Button
+          </B24Button>
+          <B24Input placeholder="Search..." />
+        </B24ButtonGroup>
+      </div>
+
+      <template v-for="size in sizes" :key="size">
+        <ExampleCardSubTitle :title="size as string" />
+        <B24ButtonGroup :size="size" no-split>
+          <B24Input placeholder="Search..." />
+          <B24Button
+            color="link"
+            depth="dark"
+            loading-auto
+            use-clock
+            @click="onClick"
+          >
+            Button
+          </B24Button>
+        </B24ButtonGroup>
+      </template>
+    </ExampleCard>
   </ExampleGrid>
-  <!-- div class="flex flex-col gap-4 items-center">
-      <B24ButtonGroup>
-        <B24Input placeholder="Search..." />
-      </B24ButtonGroup
-
-      <B24ButtonGroup orientation="vertical">
-        <B24Button color="neutral" variant="outline">
-          Button
-        </B24Button>
-        <B24Input placeholder="Search..." />
-      </B24ButtonGroup>
-
-      <B24ButtonGroup>
-        <B24Button color="neutral" variant="outline">
-          Button
-        </B24Button>
-        <B24Input placeholder="Search..." />
-      </B24ButtonGroup>
-
-      <B24ButtonGroup>
-        <B24Input placeholder="Search..." />
-        <B24Button color="neutral" variant="outline">
-          Button
-        </B24Button>
-      </B24ButtonGroup>
-    <div class="flex gap-4 items-center justify-center">
-      <B24ButtonGroup v-for="size in sizes" :key="size" :size="size">
-        <B24Input placeholder="Search..." />
-        <B24Button color="neutral" variant="outline">
-          Button
-        </B24Button>
-      </B24ButtonGroup>
-    </div>
-  </div -->
 </template>
