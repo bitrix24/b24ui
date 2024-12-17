@@ -39,8 +39,8 @@ export default {
     trailingIcon: 'shrink-0 text-base-400',
     tag: [
       'pointer-events-none select-none',
-      'absolute z-10 -top-1.5 right-3 h-[13px] px-1.5 align-middle text-center',
-      'font-b24-primary font-bold text-white text-7xs leading-[13px] uppercase rounded-full'
+      'absolute z-10 -top-1.5 right-3 h-sm px-1.5 flex flex-col justify-center items-center',
+      'font-b24-primary font-bold text-6xs leading-none uppercase rounded-full'
     ]
   },
   variants: {
@@ -90,25 +90,25 @@ export default {
     },
     tagColor: {
       default: {
-        tag: 'bg-base-900 dark:bg-base-900 dark:text-base-100'
+        tag: 'text-white bg-base-900 dark:text-base-100 dark:bg-base-900'
       },
       danger: {
-        tag: 'bg-red-500 dark:bg-red-600 dark:text-red-250'
+        tag: 'text-white bg-red-500 dark:text-red-250 dark:bg-red-600'
       },
       success: {
-        tag: 'bg-green-500 dark:bg-green-600 dark:text-green-250'
+        tag: 'text-white bg-green-500 dark:text-green-250 dark:bg-green-600'
       },
       warning: {
-        tag: 'bg-orange-500 dark:bg-orange-600 dark:text-orange-250'
+        tag: 'text-white bg-orange-500 dark:text-orange-250 dark:bg-orange-600'
       },
       primary: {
-        tag: 'bg-blue-500 dark:bg-blue-600 dark:text-blue-250'
+        tag: 'text-white bg-blue-500 dark:text-blue-250 dark:bg-blue-600'
       },
       secondary: {
-        tag: 'bg-accent-aqua dark:bg-accent-turquoise'
+        tag: 'text-white bg-accent-aqua dark:text-base-100 dark:bg-accent-turquoise'
       },
       ai: {
-        tag: 'bg-ai-500 dark:bg-ai-800 dark:text-ai-250'
+        tag: 'text-white bg-ai-500 dark:text-ai-200 dark:bg-ai-800'
       }
     },
     rounded: {
