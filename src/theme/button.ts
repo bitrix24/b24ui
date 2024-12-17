@@ -91,10 +91,10 @@ export default {
       // LINK ////
       link: [
         'no-underline decoration-solid decoration-auto',
-        'text-base-900 decoration-gray-900 bg-transparent border border-transparent',
-        'hover:text-[#80868e]',
-        'active:text-base-900',
-        'disabled:text-base-900 aria-disabled:text-base-900',
+        'text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300',
+        'hover:text-[#80868e] dark:hover:text-base-400',
+        'active:text-base-900 dark:active:text-base-700',
+        'disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300',
         'focus-visible:outline-base-400'
       ].join(' ')
     },
@@ -366,10 +366,10 @@ export default {
       depth: 'light',
       class: [
         '',
-        'text-base-900 bg-transparent border border-transparent',
-        'hover:text-base-master hover:bg-[#f6f8f9]',
-        'active:text-base-solid active:bg-[#d6f1fb]',
-        'disabled:text-base-master disabled:bg-[#f6f8f9] aria-disabled:bg-[#f6f8f9]',
+        'text-base-900 bg-transparent border border-transparent dark:text-base-300',
+        'hover:text-base-master hover:bg-[#f6f8f9] dark:hover:text-base-800',
+        'active:text-base-solid active:bg-[#d6f1fb] dark:active:text-base-900',
+        'disabled:text-base-master disabled:bg-[#f6f8f9] aria-disabled:bg-[#f6f8f9] dark:disabled:text-base-800 dark:aria-disabled:text-base-800',
         'focus-visible:outline-[#f6f8f9]'
       ].join(' ')
     },
@@ -387,10 +387,10 @@ export default {
       class: [
         '',
         'border',
-        'text-base-900 bg-transparent border-[#c6cdd3]',
-        'hover:bg-[#cfd4d8] hover:border-[#c6cdd3]',
-        'active:bg-[#dde2e5] active:border-[#9fa4ab]',
-        'disabled:bg-transparent disabled:border-[#c6cdd3] aria-disabled:bg-transparent aria-disabled:border-[#c6cdd3]',
+        'text-base-900 bg-transparent border-[#c6cdd3] dark:text-base-300 dark:border-base-800',
+        'hover:bg-[#cfd4d8] hover:border-[#c6cdd3] dark:hover:text-base-800',
+        'active:bg-[#dde2e5] active:border-[#9fa4ab] dark:active:text-base-900',
+        'disabled:bg-transparent disabled:border-[#c6cdd3] aria-disabled:bg-transparent aria-disabled:border-[#c6cdd3] dark:disabled:text-base-800 dark:aria-disabled:text-base-800',
         'focus-visible:outline-[#c6cdd3]'
       ].join(' ')
     },

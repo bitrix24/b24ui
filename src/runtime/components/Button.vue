@@ -85,7 +85,7 @@ const isLoading = computed(() => {
 })
 
 const { isLeading, leadingIconName } = useComponentIcons(
-  computed(() => ({ ...props, loading: isLoading.value }))
+  computed(() => ({ ...props, loading: false }))
 )
 
 const isLabel = computed(() => {
