@@ -14,28 +14,36 @@ export default {
   variants: {
     size: {
       '2xs': {
-        root: 'size-5 text-4xs font-regular'
+        root: 'size-5 text-4xs font-regular',
+        icon: 'size-5'
       },
       'xs': {
-        root: 'size-6 text-3xs font-regular'
+        root: 'size-6 text-3xs font-regular',
+        icon: 'size-6'
       },
       'sm': {
-        root: 'size-7 text-xs'
+        root: 'size-7 text-xs',
+        icon: 'size-7'
       },
       'md': {
-        root: 'size-8 text-sm'
+        root: 'size-8 text-sm',
+        icon: 'size-8'
       },
       'lg': {
-        root: 'size-[42px] text-2xl'
+        root: 'size-[42px] text-2xl',
+        icon: 'size-[42px]'
       },
       'xl': {
-        root: 'size-12 text-2xl'
+        root: 'size-12 text-2xl',
+        icon: 'size-12'
       },
       '2xl': {
-        root: 'size-[60px] text-5xl'
+        root: 'size-[60px] text-5xl',
+        icon: 'size-[60px]'
       },
       '3xl': {
-        root: 'size-[94px] text-[34px]'
+        root: 'size-[94px] text-[34px]',
+        icon: 'size-[94px]'
       }
     }
   },

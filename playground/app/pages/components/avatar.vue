@@ -60,18 +60,18 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
       <ExampleCardSubTitle title="max:2" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24AvatarGroup v-for="size in sizes" :key="size" :size="size" :max="2">
-          <B24Avatar src="/avatar/employee.png" text="Employee" />
+          <B24Avatar src="/avatar/employee.png" alt="Employee Name" />
           <B24Avatar src="/avatar/assistant.png" alt="Assistant Name" />
-          <B24Avatar src="/avatar/employee.png" text="Employee" class="grayscale" />
+          <B24Avatar src="/avatar/employee.png" alt="Employee Name" class="grayscale" />
         </B24AvatarGroup>
       </div>
       <ExampleCardSubTitle title="max:4" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24AvatarGroup v-for="size in sizes" :key="size" :size="size" :max="4" :b24ui="{ base: 'ring-green-550 dark:ring-green-700' }">
-          <B24Avatar src="/avatar/employee.png" text="Employee" :size="size" />
+          <B24Avatar src="/avatar/employee.png" alt="Employee Name" :size="size" />
           <B24Avatar src="/avatar/assistant.png" alt="Assistant Name" :size="size" />
           <B24Chip inset :size="size">
-            <B24Avatar src="/avatar/employee.png" text="Employee" class="rotate-y-180" :size="size" />
+            <B24Avatar src="/avatar/employee.png" alt="Employee Name" class="rotate-y-180" :size="size" />
           </B24Chip>
         </B24AvatarGroup>
       </div>
