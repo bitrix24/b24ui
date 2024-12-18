@@ -36,6 +36,7 @@ const components = [
   { id: 'chip', descr: 'An indicator of a numeric value or a state.' },
   { id: 'input', descr: 'An input element to enter text.' },
   { id: 'link', descr: 'A wrapper around NuxtLink with extra props.' },
+  { id: 'radio-group', descr: 'A set of radio buttons to select a single option from a list.' },
   { id: 'skeleton', descr: 'A placeholder to show while content is loading.' }
 ]
 
