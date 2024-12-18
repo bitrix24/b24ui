@@ -4,11 +4,6 @@
  * ---
  */
 
-/**
- * @todo: fix size
- * @todo: fix color
- * @todo: fix dark mode
- */
 export default {
   slots: {
     root: 'relative',
