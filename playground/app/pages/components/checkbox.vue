@@ -14,7 +14,7 @@ const checked = ref(true)
 <template>
   <ExampleGrid v-once>
     <ExampleCard title="Color">
-      <ExampleCardSubTitle title="various statuses" />
+      <ExampleCardSubTitle title="different color" />
       <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
         <div class="flex flex-col gap-4">
           <B24Checkbox label="Default" color="default" :default-value="true" />

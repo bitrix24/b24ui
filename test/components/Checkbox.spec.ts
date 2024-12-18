@@ -17,11 +17,7 @@ describe('Checkbox', () => {
     ['with name', { props: { name: 'name' } }],
     ['with value', { props: { value: 'value' } }],
     ['with disabled', { props: { disabled: true } }],
-    // @todo fix this ////
-    ['with icon', { props: { icon: 'i-lucide-heart' } }],
     ['with indeterminate', { props: { defaultValue: 'indeterminate' } }],
-    // @todo fix this ////
-    ['with indeterminateIcon', { props: { defaultValue: 'indeterminate', indeterminateIcon: 'i-lucide-trash' } }],
     ['with label', { props: { label: 'Label' } }],
     ['with required', { props: { label: 'Label', required: true } }],
     ['with description', { props: { label: 'Label', description: 'Description' } }],

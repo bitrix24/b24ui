@@ -11,7 +11,7 @@ export default {
     wrapper: 'font-b24-primary ms-2',
     icon: 'shrink-0 size-full',
     label: 'block font-regular text-base-master dark:text-base-400',
-    description: 'text-base-600 dark:text-base-600'
+    description: 'text-base-500 dark:text-base-600'
   },
   variants: {
     color: {
@@ -20,7 +20,7 @@ export default {
       success: 'focus-visible:outline-green-500 dark:focus-visible:outline-green-600',
       warning: 'focus-visible:outline-orange-500 dark:focus-visible:outline-orange-600',
       primary: 'focus-visible:outline-blue-500 dark:focus-visible:outline-blue-600',
-      secondary: 'focus-visible:outline-accent-aqua dark:focus-visible:outline-turquoise',
+      secondary: 'focus-visible:outline-accent-aqua dark:focus-visible:outline-accent-turquoise',
       ai: 'focus-visible:outline-ai-500 dark:focus-visible:outline-ai-600'
     },
     size: {
@@ -51,7 +51,7 @@ export default {
     },
     required: {
       true: {
-        label: 'after:content-[\'*\'] after:ms-0.5 after:text-red-500'
+        label: 'after:content-[\'*\'] after:ms-0.5 after:text-red-500 dark:after:text-red-600'
       }
     },
     disabled: {
