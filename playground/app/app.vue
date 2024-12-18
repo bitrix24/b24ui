@@ -132,6 +132,7 @@ defineShortcuts({
                     <B24Avatar
                       :icon="item.icon"
                       size="2xl"
+                      :b24ui="{ icon: 'pr-px' }"
                     />
                     <div class="max-w-11/12">
                       <div class="font-b24-secondary text-black dark:text-base-150 text-h6 leading-4 mb-xs font-semibold line-clamp-2">
