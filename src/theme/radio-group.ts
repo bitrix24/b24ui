@@ -13,8 +13,8 @@ export default {
     base: 'cursor-pointer rounded-full ring ring-inset ring-base-300 dark:ring-base-700 focus-visible:outline-2 focus-visible:outline-offset-2',
     indicator: ' flex items-center justify-center size-full rounded-full after:bg-white dark:after:bg-base-dark after:rounded-full',
     container: 'flex items-center',
-    wrapper: 'ms-2',
-    label: 'cursor-pointer block font-regular text-base-master dark:text-base-400',
+    wrapper: 'font-b24-primary font-regular ms-2',
+    label: 'cursor-pointer block text-base-master dark:text-base-400',
     description: 'text-base-500 dark:text-base-600'
   },
   variants: {
