@@ -35,6 +35,7 @@ const components = [
   { id: 'checkbox', descr: 'An input element to toggle between checked and unchecked states.' },
   { id: 'chip', descr: 'An indicator of a numeric value or a state.' },
   { id: 'input', descr: 'An input element to enter text.' },
+  { id: 'kbd', descr: 'A kbd element to display a keyboard key.' },
   { id: 'link', descr: 'A wrapper around NuxtLink with extra props.' },
   { id: 'radio-group', descr: 'A set of radio buttons to select a single option from a list.' },
   { id: 'skeleton', descr: 'A placeholder to show while content is loading.' },
