@@ -1,0 +1,134 @@
+<script lang="ts">
+import { tv, type VariantProps } from 'tailwind-variants'
+import type { SwitchRootProps } from 'reka-ui'
+import type { AppConfig } from '@nuxt/schema'
+import _appConfig from '#build/app.config'
+import theme from '#build/b24ui/switch'
+import type { PartialString } from '../types/utils'
+import type {DefineComponent} from "vue";
+
+const appConfig = _appConfig as AppConfig & { b24ui: { switch: Partial<typeof theme> } }
+
+const switchTv = tv({ extend: tv(theme), ...(appConfig.b24ui?.switch || {}) })
+
+type SwitchVariants = VariantProps<typeof switchTv>
+
+export interface SwitchProps extends Pick<SwitchRootProps, 'disabled' | 'id' | 'name' | 'required' | 'value' | 'defaultValue'> {
+  /**
+   * The element or component this component should render as.
+   * @defaultValue 'div'
+   */
+  as?: any
+  color?: SwitchVariants['color']
+  size?: SwitchVariants['size']
+  /** When `true`, the loading icon will be displayed. */
+  loading?: boolean
+  /**
+   * The icon when the `loading` prop is `true`.
+   * @defaultValue icons.refresh
+   */
+  loadingIcon?: DefineComponent
+  /** Display an icon when the switch is checked. */
+  checkedIcon?: DefineComponent
+  /** Display an icon when the switch is unchecked. */
+  uncheckedIcon?: DefineComponent
+  label?: string
+  description?: string
+  class?: any
+  b24ui?: PartialString<typeof switchTv.slots>
+}
+
+export type SwitchEmits = {
+  change: [payload: Event]
+}
+
+export interface SwitchSlots {
+  label(props: { label?: string }): any
+  description(props: { description?: string }): any
+}
+</script>
+
+<script setup lang="ts">
+import { computed, useId } from 'vue'
+import { Primitive, SwitchRoot, SwitchThumb, useForwardProps, Label } from 'reka-ui'
+import { reactivePick } from '@vueuse/core'
+import { useAppConfig } from '#imports'
+import { useFormField } from '../composables/useFormField'
+import icons from '../../theme/icons'
+
+const props = defineProps<SwitchProps>()
+const slots = defineSlots<SwitchSlots>()
+const emits = defineEmits<SwitchEmits>()
+
+const modelValue = defineModel<boolean>({ default: undefined })
+
+const appConfig = useAppConfig()
+const rootProps = useForwardProps(reactivePick(props, 'required', 'value', 'defaultValue'))
+
+const { id: _id, emitFormChange, emitFormInput, size, color, name, disabled } = useFormField<SwitchProps>(props)
+const id = _id.value ?? useId()
+
+const b24ui = computed(() => switchTv({
+  size: size.value,
+  color: color.value,
+  required: props.required,
+  loading: props.loading,
+  disabled: disabled.value || props.loading
+}))
+
+function onUpdate(value: any) {
+  // @ts-expect-error - 'target' does not exist in type 'EventInit'
+  const event = new Event('change', { target: { value } })
+  emits('change', event)
+  emitFormChange()
+  emitFormInput()
+}
+</script>
+
+<template>
+  <Primitive :as="as" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
+    <div :class="b24ui.container({ class: props.b24ui?.container })">
+      <SwitchRoot
+        :id="id"
+        v-bind="rootProps"
+        v-model="modelValue"
+        :name="name"
+        :disabled="disabled || loading"
+        :class="b24ui.base({ class: props.b24ui?.base })"
+        @update:model-value="onUpdate"
+      >
+        <SwitchThumb :class="b24ui.thumb({ class: props.b24ui?.thumb })">
+          <Component
+            :is="loadingIcon || icons.refresh"
+            v-if="loading"
+            :class="b24ui.icon({ class: props.b24ui?.icon, checked: true, unchecked: true })"
+          />
+          <template v-else>
+            <Component
+              :is="checkedIcon"
+              v-if="checkedIcon"
+              :class="b24ui.icon({ class: props.b24ui?.icon, checked: true })"
+            />
+            <Component
+              :is="uncheckedIcon"
+              v-if="uncheckedIcon"
+              :class="b24ui.icon({ class: props.b24ui?.icon, unchecked: true })"
+            />
+          </template>
+        </SwitchThumb>
+      </SwitchRoot>
+    </div>
+    <div v-if="(label || !!slots.label) || (description || !!slots.description)" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
+      <Label v-if="label || !!slots.label" :for="id" :class="b24ui.label({ class: props.b24ui?.label })">
+        <slot name="label" :label="label">
+          {{ label }}
+        </slot>
+      </Label>
+      <p v-if="description || !!slots.description" :class="b24ui.description({ class: props.b24ui?.description })">
+        <slot name="description" :description="description">
+          {{ description }}
+        </slot>
+      </p>
+    </div>
+  </Primitive>
+</template>
