@@ -3,31 +3,25 @@
  * An input element to toggle between checked and unchecked states.
  * ---
  */
-
-/**
- * @todo: fix color
- * @todo: fix size
- * @todo: add dark mode
- */
 export default {
   slots: {
     root: 'relative flex items-start',
-    base: 'shrink-0 flex items-center justify-center rounded-2xs text-white ring ring-inset ring-base-300 focus-visible:outline-2 focus-visible:outline-offset-2',
+    base: 'shrink-0 flex items-center justify-center rounded-2xs text-white dark:text-base-100 ring ring-inset ring-base-300 dark:ring-base-700 focus-visible:outline-2 focus-visible:outline-offset-2',
     container: 'flex items-center',
     wrapper: 'font-b24-primary ms-2',
     icon: 'shrink-0 size-full',
-    label: 'block font-regular text-base-master',
-    description: 'text-base-600'
+    label: 'block font-regular text-base-master dark:text-base-400',
+    description: 'text-base-600 dark:text-base-600'
   },
   variants: {
     color: {
-      default: 'focus-visible:outline-base-900',
-      danger: 'focus-visible:outline-red-500',
-      success: 'focus-visible:outline-green-500',
-      warning: 'focus-visible:outline-orange-500',
-      primary: 'focus-visible:outline-blue-500',
-      secondary: 'focus-visible:outline-accent-aqua',
-      ai: 'focus-visible:outline-ai-500'
+      default: 'focus-visible:outline-base-900 dark:focus-visible:outline-base-900',
+      danger: 'focus-visible:outline-red-500 dark:focus-visible:outline-red-600',
+      success: 'focus-visible:outline-green-500 dark:focus-visible:outline-green-600',
+      warning: 'focus-visible:outline-orange-500 dark:focus-visible:outline-orange-600',
+      primary: 'focus-visible:outline-blue-500 dark:focus-visible:outline-blue-600',
+      secondary: 'focus-visible:outline-accent-aqua dark:focus-visible:outline-turquoise',
+      ai: 'focus-visible:outline-ai-500 dark:focus-visible:outline-ai-600'
     },
     size: {
       xs: {
@@ -75,37 +69,37 @@ export default {
     {
       color: 'default',
       checked: true,
-      class: 'ring-2 ring-base-900 bg-base-900'
+      class: 'ring-2 ring-base-900 bg-base-900 dark:ring-base-700 dark:bg-base-700 dark:text-base-100'
     },
     {
       color: 'danger',
       checked: true,
-      class: 'ring-2 ring-red-500 bg-red-500'
+      class: 'ring-2 ring-red-500 bg-red-500 dark:ring-red-600 dark:bg-red-600 dark:text-red-250'
     },
     {
       color: 'success',
       checked: true,
-      class: 'ring-2 ring-green-500 bg-green-500'
+      class: 'ring-2 ring-green-500 bg-green-500 dark:ring-green-600 dark:bg-green-600 dark:text-green-250'
     },
     {
       color: 'warning',
       checked: true,
-      class: 'ring-2 ring-orange-500 bg-orange-500'
+      class: 'ring-2 ring-orange-500 bg-orange-500 dark:ring-orange-600 dark:bg-orange-600 dark:text-orange-250'
     },
     {
       color: 'primary',
       checked: true,
-      class: 'ring-2 ring-blue-500 bg-blue-500'
+      class: 'ring-2 ring-blue-500 bg-blue-500 dark:ring-blue-600 dark:bg-blue-600 dark:text-blue-250'
     },
     {
       color: 'secondary',
       checked: true,
-      class: 'ring-2 ring-accent-aqua bg-accent-aqua'
+      class: 'ring-2 ring-accent-aqua bg-accent-aqua dark:ring-accent-turquoise dark:bg-accent-turquoise'
     },
     {
       color: 'ai',
       checked: true,
-      class: 'ring-2 ring-ai-500 bg-ai-500'
+      class: 'ring-2 ring-ai-500 bg-ai-500 dark:ring-ai-600 dark:bg-ai-600 dark:text-ai-250'
     }
   ],
   defaultVariants: {
