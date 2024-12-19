@@ -8,11 +8,6 @@
  * @see bitrix/js/ui/..
  */
 
-/**
- * @todo add @see uri
- * @todo add test color && rounded && tag noBorder && noPadding && underline && etc
- * @todo test noSplit from buttonGroupVariantWithRoot
- */
 import { buttonGroupVariantWithRoot } from './button-group'
 
 export default {
@@ -112,7 +107,7 @@ export default {
       }
     },
     rounded: {
-      true: 'rounded-full',
+      true: 'rounded-3xl',
       false: 'rounded-2xs'
     },
     noPadding: {
@@ -127,6 +122,9 @@ export default {
       true: 'ring-0 focus-visible:ring-0 border-b border-b-base-300 rounded-none'
     },
     leading: {
+      true: ''
+    },
+    trailing: {
       true: ''
     },
     loading: {

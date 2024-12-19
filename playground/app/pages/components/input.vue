@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { upperFirst } from 'scule'
 import theme from '#build/b24ui/input'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
@@ -15,7 +14,6 @@ import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
 import Cross20Icon from '@bitrix24/b24icons-vue/actions/Cross20Icon'
 
 usePageMeta.setPageTitle('Input')
-
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
 const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof theme.variants.tagColor>
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
@@ -28,6 +26,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24Input autofocus placeholder="Search..." class="w-3/4" />
       </div>
+
       <ExampleCardSubTitle title="underline" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24Input
@@ -37,14 +36,17 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
           class="w-3/4"
         />
       </div>
+
       <ExampleCardSubTitle title="no border" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24Input no-border placeholder="Search..." class="w-3/4" />
       </div>
+
       <ExampleCardSubTitle title="no padding" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24Input no-padding placeholder="Search..." class="w-3/4" />
       </div>
+
       <ExampleCardSubTitle title="some error" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24Input placeholder="Insert value ..." highlight color="danger" class="w-3/4" />
@@ -88,6 +90,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
         <B24Input loading :avatar="{ src: '/avatar/employee.png' }" placeholder="Search..." class="w-3/4" />
       </div>
     </ExampleCard>
+
     <ExampleCard title="color">
       <template v-for="color in colors" :key="color">
         <ExampleCardSubTitle :title="color as string" />
@@ -101,6 +104,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
         </div>
       </template>
     </ExampleCard>
+
     <ExampleCard title="tag">
       <template v-for="tagColor in tagColors" :key="tagColor">
         <ExampleCardSubTitle :title="tagColor as string" />
@@ -109,6 +113,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
         </div>
       </template>
     </ExampleCard>
+
     <ExampleCard title="size" class="sm:col-span-2">
       <template v-for="size in sizes" :key="size">
         <ExampleCardSubTitle :title="size as string" />
@@ -123,12 +128,4 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
       </template>
     </ExampleCard>
   </ExampleGrid>
-
-  <!-- div class="flex flex-col items-center gap-4">
-    <div class="flex flex-col gap-4 w-3/4">
-      <B24Input loading placeholder="Search..." />
-      <B24Input loading trailing placeholder="Search..." />
-      <B24Input loading icon="i-lucide-search" trailing-icon="i-lucide-chevron-down" placeholder="Search..." />
-    </div>
-  </div -->
 </template>
