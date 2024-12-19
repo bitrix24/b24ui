@@ -1,7 +1,10 @@
 import { ref, type Ref } from 'vue'
-import type { IMenuItem, IPageGroup, IPageItem } from '~/types'
-import ItemIcon from '@bitrix24/b24icons-vue/crm/ItemIcon'
+import type { IMenuItem, IPageGroup, IPageItem, IComponentInfo } from '~/types'
 import { splitByCase, upperFirst } from 'scule'
+import ItemIcon from '@bitrix24/b24icons-vue/crm/ItemIcon'
+import FourCubes2Icon from '@bitrix24/b24icons-vue/actions/FourCubes2Icon'
+import PersonIcon from '@bitrix24/b24icons-vue/main/PersonIcon'
+import FormIcon from '@bitrix24/b24icons-vue/crm/FormIcon'
 
 const title = ref('PlayGround')
 
@@ -28,18 +31,18 @@ const menuList: IMenuItem[] = [
   }
 ]
 
-const components = [
-  { id: 'avatar', descr: 'An img element with fallback and Nuxt Image support.' },
-  { id: 'button', descr: 'A button element that can act as a link or trigger an action.' },
-  { id: 'button-group', descr: 'Group multiple button-like elements together.' },
-  { id: 'checkbox', descr: 'An input element to toggle between checked and unchecked states.' },
-  { id: 'chip', descr: 'An indicator of a numeric value or a state.' },
-  { id: 'input', descr: 'An input element to enter text.' },
-  { id: 'kbd', descr: 'A kbd element to display a keyboard key.' },
-  { id: 'link', descr: 'A wrapper around NuxtLink with extra props.' },
-  { id: 'radio-group', descr: 'A set of radio buttons to select a single option from a list.' },
-  { id: 'skeleton', descr: 'A placeholder to show while content is loading.' },
-  { id: 'switch', descr: 'A control that toggles between two states.' }
+const components: IComponentInfo[] = [
+  { id: 'avatar', description: 'An img element with fallback and Nuxt Image support.', icon: PersonIcon },
+  { id: 'link', description: 'A wrapper around NuxtLink with extra props.', icon: FourCubes2Icon },
+  { id: 'button', description: 'A button element that can act as a link or trigger an action.', icon: FourCubes2Icon },
+  { id: 'button-group', description: 'Group multiple button-like elements together.', icon: FourCubes2Icon },
+  { id: 'input', description: 'An input element to enter text.', icon: FormIcon },
+  { id: 'switch', description: 'A control that toggles between two states.', icon: FormIcon },
+  { id: 'checkbox', description: 'An input element to toggle between checked and unchecked states.', icon: FormIcon },
+  { id: 'radio-group', description: 'A set of radio buttons to select a single option from a list.', icon: FormIcon },
+  { id: 'chip', description: 'An indicator of a numeric value or a state.', icon: ItemIcon, iconUi: 'pr-px' },
+  { id: 'kbd', description: 'A kbd element to display a keyboard key.', icon: ItemIcon, iconUi: 'pr-px' },
+  { id: 'skeleton', description: 'A placeholder to show while content is loading.', icon: ItemIcon, iconUi: 'pr-px' }
 ]
 
 const groups: IPageGroup[] = [
@@ -48,9 +51,10 @@ const groups: IPageGroup[] = [
     label: 'Components',
     items: components.map(component => ({
       id: component.id,
-      icon: ItemIcon,
+      icon: component.icon ?? ItemIcon,
+      iconClass: { icon: component.iconUi ?? (component.icon ? '' : 'pr-px') },
       label: `<B24${upperName(component.id)}>`,
-      description: component.descr,
+      description: component.description,
       isActive: false
     } as IPageItem))
   } as IPageGroup

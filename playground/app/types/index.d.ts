@@ -10,12 +10,24 @@ export interface IMenuItem {
   href: string
 }
 
-export interface IPageItem {
+export interface IComponentInfo {
   id: string
-  icon: any
-  label: string
   description: string
+  icon?: DefineComponent
+  iconUi?: string
+}
+
+export interface IPageItem extends IComponentInfo {
+  icon: DefineComponent
+  label: string
   isActive: boolean
+  iconClass: Record<'icon', string>
+}
+
+export interface IPageGroup {
+  id: string
+  label: string
+  items: IPageItem[]
 }
 
 export interface IPageGroup {
