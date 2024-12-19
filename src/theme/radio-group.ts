@@ -21,7 +21,7 @@ export default {
     color: {
       default: {
         base: 'focus-visible:outline-base-900 dark:focus-visible:outline-base-900',
-        indicator: 'bg-base-900 dark:bg-base-700'
+        indicator: 'bg-base-900 dark:bg-base-350'
       },
       danger: {
         base: 'focus-visible:outline-red-500 dark:focus-visible:outline-red-600',

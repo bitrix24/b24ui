@@ -15,7 +15,7 @@ export default {
   },
   variants: {
     color: {
-      default: 'focus-visible:outline-base-900 dark:focus-visible:outline-base-900',
+      default: 'focus-visible:outline-base-900 dark:focus-visible:outline-base-350',
       danger: 'focus-visible:outline-red-500 dark:focus-visible:outline-red-600',
       success: 'focus-visible:outline-green-500 dark:focus-visible:outline-green-600',
       warning: 'focus-visible:outline-orange-500 dark:focus-visible:outline-orange-600',
@@ -69,7 +69,7 @@ export default {
     {
       color: 'default',
       checked: true,
-      class: 'ring-2 ring-base-900 bg-base-900 dark:ring-base-700 dark:bg-base-700 dark:text-base-100'
+      class: 'ring-2 ring-base-900 bg-base-900 dark:ring-base-350 dark:bg-base-350 dark:text-base-800'
     },
     {
       color: 'danger',

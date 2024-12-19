@@ -26,10 +26,18 @@ const kbdKeys = Object.keys(kbdKeysMap)
         <B24Kbd v-for="size in sizes" :key="size" value="meta" :size="size" />
       </div>
     </ExampleCard>
-    <ExampleCard title="Vlues" class="sm:col-span-2 md:col-span-4">
-      <ExampleCardSubTitle title="list" />
+    <ExampleCard title="Values" class="sm:col-span-2 md:col-span-4">
+      <ExampleCardSubTitle title="sm" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Kbd v-for="(kdbKey, index) in kbdKeys" :key="index" :value="kdbKey" />
+        <B24Kbd v-for="(kdbKey, index) in kbdKeys" :key="index" :value="kdbKey" size="sm" />
+      </div>
+      <ExampleCardSubTitle title="md" />
+      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+        <B24Kbd v-for="(kdbKey, index) in kbdKeys" :key="index" :value="kdbKey" size="md" />
+      </div>
+      <ExampleCardSubTitle title="lg" />
+      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+        <B24Kbd v-for="(kdbKey, index) in kbdKeys" :key="index" :value="kdbKey" size="lg" />
       </div>
     </ExampleCard>
   </ExampleGrid>
