@@ -37,6 +37,7 @@ const components: IComponentInfo[] = [
   { id: 'button', description: 'A button element that can act as a link or trigger an action.', icon: FourCubes2Icon },
   { id: 'button-group', description: 'Group multiple button-like elements together.', icon: FourCubes2Icon },
   { id: 'input', description: 'An input element to enter text.', icon: FormIcon },
+  { id: 'textarea', description: 'A textarea element to input multi-line text.', icon: FormIcon },
   { id: 'switch', description: 'A control that toggles between two states.', icon: FormIcon },
   { id: 'checkbox', description: 'An input element to toggle between checked and unchecked states.', icon: FormIcon },
   { id: 'radio-group', description: 'A set of radio buttons to select a single option from a list.', icon: FormIcon },
