@@ -1,5 +1,3 @@
-// import { pick } from './runtime/utils'
-
 export const getDefaultUiConfig = () => ({
 })
 

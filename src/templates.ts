@@ -7,7 +7,6 @@ import type { ModuleOptions } from './module'
 import * as theme from './theme'
 import * as themeProse from './theme/prose'
 import * as themeContent from './theme/content'
-import { getDefaultUiConfig } from './defaults'
 
 function replaceBrackets(value: string): string {
   return value.replace(/\[\[/g, '<').replace(/\]\]/g, '>')
@@ -20,8 +19,15 @@ export function buildTemplates(options: ModuleOptions) {
   }, {} as Record<string, any>)
 }
 
-export function getTemplates(options: ModuleOptions, uiConfig: Record<string, any>) {
+export function getTemplates(options: ModuleOptions) {
   const templates: NuxtTemplate[] = []
+
+  function generateVariantDeclarations(variants: string[], result: any) {
+    return variants.map((variant) => {
+      const keys = Object.keys(result.variants[variant])
+      return `const ${variant} = ${JSON.stringify(keys, null, 2)} as const`
+    })
+  }
 
   for (const component in theme) {
     templates.push({
@@ -31,29 +37,42 @@ export function getTemplates(options: ModuleOptions, uiConfig: Record<string, an
         const template = (theme as any)[component]
         const result = typeof template === 'function' ? template(options) : template
 
-        const variants = Object.keys(result.variants || {})
+        const variants = Object.entries(result.variants || {})
+          .filter(([_, values]) => {
+            const keys = Object.keys(values as Record<string, unknown>)
+            return keys.some(key => key !== 'true' && key !== 'false')
+          })
+          .map(([key]) => key)
 
         let json = JSON.stringify(result, null, 2)
 
         for (const variant of variants) {
-          json = json.replace(new RegExp(`("${variant}": "[^"]+")`, 'g'), '$1 as const')
+          json = json.replace(new RegExp(`("${variant}": "[^"]+")`, 'g'), `$1 as typeof ${variant}[number]`)
           json = json.replace(new RegExp(`("${variant}": \\[\\s*)((?:"[^"]+",?\\s*)+)(\\])`, 'g'), (_, before, match, after) => {
-            const replaced = match.replace(/("[^"]+")/g, '$1 as const')
+            const replaced = match.replace(/("[^"]+")/g, `$1 as typeof ${variant}[number]`)
             return `${before}${replaced}${after}`
           })
         }
 
-        // For local development, directly import from theme
+        // function generateVariantDeclarations(variants: string[]) { ////
+
+        // For local development, import directly from theme
         if (process.env.DEV) {
+          const templatePath = fileURLToPath(new URL(`./theme/${kebabCase(component)}`, import.meta.url))
           return [
-            `import template from ${JSON.stringify(fileURLToPath(new URL(`./theme/${kebabCase(component)}`, import.meta.url)))}`,
-            `const result = typeof template === 'function' ? template(${JSON.stringify(options)}) : template`,
-            `const json = ${json}`,
-            `export default result as typeof json`
-          ].join('\n')
+            `import template from ${JSON.stringify(templatePath)}`,
+            ...generateVariantDeclarations(variants, result),
+            `const result = typeof template === 'function' ? template(${JSON.stringify(options, null, 2)}) : template`,
+            `const theme = ${json}`,
+            `export default result as typeof theme`
+          ].join('\n\n')
         }
 
-        return `export default ${json}`
+        // For production build
+        return [
+          ...generateVariantDeclarations(variants, result),
+          `export default ${json}`
+        ].join('\n\n')
       }
     })
   }
@@ -66,29 +85,42 @@ export function getTemplates(options: ModuleOptions, uiConfig: Record<string, an
         const template = (themeProse as any)[component]
         const result = typeof template === 'function' ? template(options) : template
 
-        const variants = Object.keys(result.variants || {})
+        const variants = Object.entries(result.variants || {})
+          .filter(([_, values]) => {
+            const keys = Object.keys(values as Record<string, unknown>)
+            return keys.some(key => key !== 'true' && key !== 'false')
+          })
+          .map(([key]) => key)
 
         let json = JSON.stringify(result, null, 2)
 
         for (const variant of variants) {
-          json = json.replace(new RegExp(`("${variant}": "[^"]+")`, 'g'), '$1 as const')
+          json = json.replace(new RegExp(`("${variant}": "[^"]+")`, 'g'), `$1 as typeof ${variant}[number]`)
           json = json.replace(new RegExp(`("${variant}": \\[\\s*)((?:"[^"]+",?\\s*)+)(\\])`, 'g'), (_, before, match, after) => {
-            const replaced = match.replace(/("[^"]+")/g, '$1 as const')
+            const replaced = match.replace(/("[^"]+")/g, `$1 as typeof ${variant}[number]`)
             return `${before}${replaced}${after}`
           })
         }
 
-        // For local development, directly import from themeProse
+        // function generateVariantDeclarations(variants: string[]) { ////
+
+        // For local development, import directly from theme/prose
         if (process.env.DEV) {
+          const templatePath = fileURLToPath(new URL(`./theme/prose/${kebabCase(component)}`, import.meta.url))
           return [
-            `import template from ${JSON.stringify(fileURLToPath(new URL(`./theme/prose/${kebabCase(component)}`, import.meta.url)))}`,
-            `const result = typeof template === 'function' ? template(${JSON.stringify(options)}) : template`,
-            `const json = ${json}`,
-            `export default result as typeof json`
-          ].join('\n')
+            `import template from ${JSON.stringify(templatePath)}`,
+            ...generateVariantDeclarations(variants, result),
+            `const result = typeof template === 'function' ? template(${JSON.stringify(options, null, 2)}) : template`,
+            `const theme = ${json}`,
+            `export default result as typeof theme`
+          ].join('\n\n')
         }
 
-        return `export default ${json}`
+        // For production build
+        return [
+          ...generateVariantDeclarations(variants, result),
+          `export default ${json}`
+        ].join('\n\n')
       }
     })
   }
@@ -101,29 +133,42 @@ export function getTemplates(options: ModuleOptions, uiConfig: Record<string, an
         const template = (themeContent as any)[component]
         const result = typeof template === 'function' ? template(options) : template
 
-        const variants = Object.keys(result.variants || {})
+        const variants = Object.entries(result.variants || {})
+          .filter(([_, values]) => {
+            const keys = Object.keys(values as Record<string, unknown>)
+            return keys.some(key => key !== 'true' && key !== 'false')
+          })
+          .map(([key]) => key)
 
         let json = JSON.stringify(result, null, 2)
 
         for (const variant of variants) {
-          json = json.replace(new RegExp(`("${variant}": "[^"]+")`, 'g'), '$1 as const')
+          json = json.replace(new RegExp(`("${variant}": "[^"]+")`, 'g'), `$1 as typeof ${variant}[number]`)
           json = json.replace(new RegExp(`("${variant}": \\[\\s*)((?:"[^"]+",?\\s*)+)(\\])`, 'g'), (_, before, match, after) => {
-            const replaced = match.replace(/("[^"]+")/g, '$1 as const')
+            const replaced = match.replace(/("[^"]+")/g, `$1 as typeof ${variant}[number]`)
             return `${before}${replaced}${after}`
           })
         }
 
-        // For local development, directly import from themeContent
+        // function generateVariantDeclarations(variants: string[]) { ////
+
+        // For local development, import directly from theme/content
         if (process.env.DEV) {
+          const templatePath = fileURLToPath(new URL(`./theme/content/${kebabCase(component)}`, import.meta.url))
           return [
-            `import template from ${JSON.stringify(fileURLToPath(new URL(`./theme/content/${kebabCase(component)}`, import.meta.url)))}`,
-            `const result = typeof template === 'function' ? template(${JSON.stringify(options)}) : template`,
-            `const json = ${json}`,
-            `export default result as typeof json`
-          ].join('\n')
+            `import template from ${JSON.stringify(templatePath)}`,
+            ...generateVariantDeclarations(variants, result),
+            `const result = typeof template === 'function' ? template(${JSON.stringify(options, null, 2)}) : template`,
+            `const theme = ${json}`,
+            `export default result as typeof theme`
+          ].join('\n\n')
         }
 
-        return `export default ${json}`
+        // For production build
+        return [
+          ...generateVariantDeclarations(variants, result),
+          `export default ${json}`
+        ].join('\n\n')
       }
     })
   }
@@ -165,7 +210,7 @@ export {}
 }
 
 export function addTemplates(options: ModuleOptions, nuxt: Nuxt, resolve: Resolver['resolve']) {
-  const templates = getTemplates(options, nuxt.options.appConfig.b24ui)
+  const templates = getTemplates(options)
   for (const template of templates) {
     if (template.filename!.endsWith('.d.ts')) {
       addTypeTemplate(template as NuxtTypeTemplate)
