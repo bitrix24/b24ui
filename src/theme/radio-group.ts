@@ -8,7 +8,7 @@ export default {
   slots: {
     root: 'relative',
     fieldset: 'flex',
-    legend: 'mb-1 block font-medium text-base-master dark:text-base-400',
+    legend: 'mb-1.5 block font-medium text-base-master dark:text-base-400',
     item: 'flex items-start',
     base: 'cursor-pointer rounded-full ring ring-inset ring-base-300 dark:ring-base-700 focus-visible:outline-2 focus-visible:outline-offset-2',
     indicator: ' flex items-center justify-center size-full rounded-full after:bg-white dark:after:bg-base-dark after:rounded-full',
@@ -59,7 +59,7 @@ export default {
     },
     size: {
       xs: {
-        fieldset: 'gap-0.5',
+        fieldset: 'gap-1',
         legend: 'text-xs',
         base: 'size-3',
         item: 'text-xs',
@@ -68,7 +68,7 @@ export default {
         indicator: 'after:size-1'
       },
       sm: {
-        fieldset: 'gap-0.5',
+        fieldset: 'gap-1.5',
         legend: 'text-xs',
         base: 'size-3.5',
         item: 'text-sm',
@@ -86,7 +86,7 @@ export default {
         indicator: 'after:size-1.5'
       },
       lg: {
-        fieldset: 'gap-1',
+        fieldset: 'gap-1.5',
         legend: 'text-sm',
         base: 'size-5',
         item: 'text-xl',

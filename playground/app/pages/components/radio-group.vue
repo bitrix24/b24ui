@@ -50,7 +50,12 @@ const itemsWithDescription = [
           <B24RadioGroup :items="literalOptions" legend="Literal options" />
           <B24RadioGroup :items="items" legend="Required" required />
           <B24RadioGroup :items="items" legend="Disabled" disabled />
-          <B24RadioGroup :items="items" legend="Horizontal" orientation="horizontal" />
+          <B24RadioGroup
+            :items="items"
+            legend="Horizontal"
+            orientation="horizontal"
+            :b24ui="{ label: 'whitespace-nowrap' }"
+          />
           <B24RadioGroup :items="items">
             <template #legend>
               <span class="italic font-bold">
@@ -68,12 +73,12 @@ const itemsWithDescription = [
     </ExampleCard>
     <ExampleCard title="Size" class="sm:col-span-2 md:col-span-4">
       <ExampleCardSubTitle title="simple" />
-      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24RadioGroup v-for="size in sizes" :key="size" :size="size" :items="items" :legend="size as string" />
+      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
+        <B24RadioGroup v-for="size in sizes" :key="size" :size="size" :items="items" :legend="`legend for ${size}`" />
       </div>
       <ExampleCardSubTitle title="with description" />
-      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24RadioGroup v-for="size in sizes" :key="size" :size="size" :items="itemsWithDescription" :legend="size as string" />
+      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
+        <B24RadioGroup v-for="size in sizes" :key="size" :size="size" :items="itemsWithDescription" :legend="`legend for ${size}`" />
       </div>
     </ExampleCard>
   </ExampleGrid>
