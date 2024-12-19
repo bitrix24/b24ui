@@ -44,7 +44,7 @@ const checked = ref(true)
     </ExampleCard>
     <ExampleCard title="Size" class="sm:col-span-2 md:col-span-4">
       <ExampleCardSubTitle title="simple" />
-      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
         <B24Switch
           v-for="size in sizes"
           :key="size"
@@ -52,7 +52,7 @@ const checked = ref(true)
           label="Switch me"
         />
       </div>
-      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
         <B24Switch
           v-for="size in sizes"
           :key="size"
@@ -64,7 +64,7 @@ const checked = ref(true)
       </div>
 
       <ExampleCardSubTitle title="with description" />
-      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
         <B24Switch
           v-for="size in sizes"
           :key="size"
@@ -73,7 +73,7 @@ const checked = ref(true)
           description="This is a description"
         />
       </div>
-      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
         <B24Switch
           v-for="size in sizes"
           :key="size"
@@ -87,9 +87,8 @@ const checked = ref(true)
 
       <ExampleCardSubTitle title="with icon" />
 
-
       <ExampleCardSubTitle title="with icon && loading" />
-      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
         <B24Switch
           v-for="size in sizes"
           :key="size"
@@ -101,7 +100,7 @@ const checked = ref(true)
           :default-value="true"
         />
       </div>
-      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
         <B24Switch
           v-for="size in sizes"
           :key="size"
