@@ -6,11 +6,11 @@
 export default {
   slots: {
     root: 'relative flex items-start',
-    base: 'shrink-0 flex items-center justify-center rounded-2xs text-white dark:text-base-100 ring ring-inset ring-base-300 dark:ring-base-700 focus-visible:outline-2 focus-visible:outline-offset-2',
+    base: 'cursor-pointer shrink-0 flex items-center justify-center rounded-2xs text-white dark:text-base-100 ring ring-inset ring-base-300 dark:ring-base-700 focus-visible:outline-2 focus-visible:outline-offset-2',
     container: 'flex items-center',
     wrapper: 'font-b24-primary ms-2',
     icon: 'shrink-0 size-full',
-    label: 'block font-regular text-base-master dark:text-base-400',
+    label: 'cursor-pointer block font-regular text-base-master dark:text-base-400',
     description: 'text-base-500 dark:text-base-600'
   },
   variants: {
