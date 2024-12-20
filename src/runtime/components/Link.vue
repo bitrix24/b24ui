@@ -1,10 +1,10 @@
 <script lang="ts">
 import type { ButtonHTMLAttributes } from 'vue'
-import { tv } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import type { RouterLinkProps, RouteLocationRaw } from 'vue-router'
 import theme from '#build/b24ui/link'
+import { tv } from '../utils/tv'
 
 interface NuxtLinkProps extends Omit<RouterLinkProps, 'to'> {
   /**

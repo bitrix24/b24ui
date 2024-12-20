@@ -1,11 +1,12 @@
 <script lang="ts">
-import { tv, type VariantProps } from 'tailwind-variants'
+import type { DefineComponent } from 'vue'
+import type { VariantProps } from 'tailwind-variants'
 import type { SwitchRootProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/switch'
+import { tv } from '../utils/tv'
 import type { PartialString } from '../types/utils'
-import type {DefineComponent} from "vue";
 
 const appConfig = _appConfig as AppConfig & { b24ui: { switch: Partial<typeof theme> } }
 

@@ -1,8 +1,8 @@
 <script lang="ts">
-import { tv } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/content/skeleton-task-add'
+import { tv } from '../../utils/tv'
 
 const appConfig = _appConfig as AppConfig & { b24ui: { skeletonTaskAdd: Partial<typeof theme> } }
 
