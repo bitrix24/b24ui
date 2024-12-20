@@ -85,10 +85,10 @@ const sizePx = computed(() => ({
       :class="b24ui.image({ class: props.b24ui?.image })"
     />
 
-    <AvatarFallback as-child v-bind="fallbackProps">
+    <AvatarFallback as-child v-bind="{ ...fallbackProps, ...$attrs }">
       <slot>
         <Component :is="icon" v-if="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
-        <span v-else :class="b24ui.fallback({ class: props.b24ui?.fallback })">{{ fallback }}</span>
+        <span v-else :class="b24ui.fallback({ class: props.b24ui?.fallback })">{{ fallback || '&nbsp;' }}</span>
       </slot>
     </AvatarFallback>
   </AvatarRoot>
