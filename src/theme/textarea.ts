@@ -13,7 +13,7 @@ export default {
   slots: {
     root: 'relative inline-flex items-center',
     base: [
-      'w-full py-1.5 border-0 focus:outline-none',
+      'w-full px-3 py-1.5 border-0 focus:outline-none',
       'disabled:cursor-not-allowed disabled:bg-base-30/37 disabled:resize-none disabled:text-base-500',
       'dark:disabled:bg-base-900/37 dark:disabled:text-base-800',
       'appearance-none transition duration-300 ease-linear', // transition-colors
@@ -21,16 +21,10 @@ export default {
       'dark:ring-base-800',
       'text-black bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900',
       'dark:text-base-300 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350',
-      'font-b24-primary font-regular text-md leading-none',
+      'font-b24-primary font-regular text-md leading-normal',
       'align-middle',
       'text-ellipsis whitespace-nowrap'
     ],
-    leading: 'absolute inset-y-0 start-0 flex items-center',
-    leadingIcon: 'shrink-0 text-base-400',
-    leadingAvatar: 'shrink-0',
-    leadingAvatarSize: '',
-    trailing: 'absolute inset-y-0 end-0 flex items-center',
-    trailingIcon: 'shrink-0 text-base-400',
     tag: [
       'pointer-events-none select-none',
       'absolute z-10 -top-1.5 right-3 h-sm px-1.5 flex flex-col justify-center items-center',
@@ -39,40 +33,6 @@ export default {
   },
   variants: {
     ...buttonGroupVariantWithRoot,
-    size: {
-      xs: {
-        base: 'px-3 min-h-[calc(20px*1.5-2px)] gap-1', // 26px
-        leading: 'px-1',
-        trailing: 'px-1',
-        leadingIcon: 'size-lg2',
-        leadingAvatarSize: '2xs',
-        trailingIcon: 'size-lg2'
-      },
-      sm: {
-        base: 'px-3 min-h-[calc(28px*1.5-2px)] gap-1.5', // 32px
-        leading: 'px-1.5',
-        trailing: 'px-1.5',
-        leadingIcon: 'size-lg2',
-        leadingAvatarSize: 'xs',
-        trailingIcon: 'size-lg2'
-      },
-      md: {
-        base: 'px-3 min-h-[calc(40px*1.5-2px)] gap-1.5', // 40px
-        leading: 'px-2',
-        trailing: 'px-2',
-        leadingIcon: 'size-[24px]',
-        leadingAvatarSize: 'sm',
-        trailingIcon: 'size-[24px]'
-      },
-      lg: {
-        base: 'px-3 min-h-[calc(48px*1.5-2px)] gap-2', // 48px
-        leading: 'px-2',
-        trailing: 'px-2',
-        leadingIcon: 'size-[24px]',
-        leadingAvatarSize: 'md',
-        trailingIcon: 'size-[24px]'
-      }
-    },
     color: {
       default: '',
       danger: '',
@@ -119,15 +79,6 @@ export default {
     },
     underline: {
       true: 'ring-0 focus-visible:ring-0 border-b border-b-base-300 rounded-none'
-    },
-    leading: {
-      true: ''
-    },
-    trailing: {
-      true: ''
-    },
-    loading: {
-      true: ''
     },
     highlight: {
       true: ''
@@ -329,73 +280,11 @@ export default {
       noBorder: false,
       underline: true,
       class: 'border-b-ai-500 dark:border-b-ai-600'
-    },
-    // endregion ////
-    // endregion ////
-    // region leading ////
-    {
-      leading: true,
-      size: 'xs',
-      class: 'ps-7'
-    },
-    {
-      leading: true,
-      size: 'sm',
-      class: 'ps-8'
-    },
-    {
-      leading: true,
-      size: 'md',
-      class: 'ps-[39px]'
-    },
-    {
-      leading: true,
-      size: 'lg',
-      class: 'ps-[42px]'
-    },
-    // endregion ////
-    // region trailing ////
-    {
-      trailing: true,
-      size: 'xs',
-      class: 'pe-7'
-    },
-    {
-      trailing: true,
-      size: 'sm',
-      class: 'pe-8'
-    },
-    {
-      trailing: true,
-      size: 'md',
-      class: 'pe-[39px]'
-    },
-    {
-      trailing: true,
-      size: 'lg',
-      class: 'pe-[39px]'
-    },
-    // endregion ////
-    // region loading ////
-    {
-      loading: true,
-      leading: true,
-      class: {
-        leadingIcon: 'size-[21px]'
-      }
-    },
-    {
-      loading: true,
-      leading: false,
-      trailing: true,
-      class: {
-        trailingIcon: 'size-[21px]'
-      }
     }
+    // endregion ////
     // endregion ////
   ],
   defaultVariants: {
-    size: 'sm',
     color: 'primary',
     tagColor: 'primary'
   }

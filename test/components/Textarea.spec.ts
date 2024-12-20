@@ -7,9 +7,6 @@ import { renderForm } from '../utils/form'
 import type { FormInputEvents } from '~/src/module'
 
 describe('Textarea', () => {
-  const sizes = Object.keys(theme.variants.size) as any
-  const variants = Object.keys(theme.variants.variant) as any
-
   it.each([
     // Props
     ['with id', { props: { id: 'id' } }],
@@ -18,9 +15,8 @@ describe('Textarea', () => {
     ['with required', { props: { required: true } }],
     ['with disabled', { props: { disabled: true } }],
     ['with rows', { props: { rows: 5 } }],
-    ...sizes.map((size: string) => [`with size ${size}`, { props: { size } }]),
-    ...variants.map((variant: string) => [`with primary variant ${variant}`, { props: { variant } }]),
-    ...variants.map((variant: string) => [`with success variant ${variant}`, { props: { variant, color: 'success' } }]),
+    ['with primary'],
+    ['with success', { props: { color: 'success' } }],
     ['with as', { props: { as: 'section' } }],
     ['with class', { props: { class: 'w-48' } }],
     ['with b24ui', { props: { b24ui: { wrapper: 'ms-4' } } }],

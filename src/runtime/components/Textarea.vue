@@ -21,7 +21,6 @@ export interface TextareaProps {
   /** The placeholder text when the textarea is empty. */
   placeholder?: string
   color?: TextareaVariants['color']
-  size?: TextareaVariants['size']
   /** Removes padding from input. */
   noPadding?: boolean
   /** removes all borders (rings). */
@@ -66,7 +65,7 @@ defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(defineProps<TextareaProps>(), {
   rows: 3,
-  maxrows: 0,
+  maxrows: 5,
   autofocusDelay: 0
 })
 defineSlots<TextareaSlots>()
@@ -74,7 +73,7 @@ const emits = defineEmits<TextareaEmits>()
 
 const [modelValue, modelModifiers] = defineModel<string | number>()
 
-const { emitFormBlur, emitFormInput, emitFormChange, size, color, id, name, highlight, disabled } = useFormField<TextareaProps>(props)
+const { emitFormBlur, emitFormInput, emitFormChange, color, id, name, highlight, disabled } = useFormField<TextareaProps>(props)
 
 const isTag = computed(() => {
   return props.tag
@@ -82,7 +81,6 @@ const isTag = computed(() => {
 
 const b24ui = computed(() => textarea({
   color: color.value,
-  size: size?.value,
   highlight: highlight.value,
   tagColor: props.tagColor,
   rounded: Boolean(props.rounded),

@@ -7,7 +7,7 @@ import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 
 usePageMeta.setPageTitle('Textarea')
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
-const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
+const rows = [1, 2, 3, 4]
 const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof theme.variants.tagColor>
 </script>
 
@@ -88,11 +88,11 @@ const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof the
       </template>
     </ExampleCard>
 
-    <ExampleCard title="size" class="sm:col-span-2">
-      <template v-for="size in sizes" :key="size">
-        <ExampleCardSubTitle :title="size as string" />
+    <ExampleCard title="rows autoresize" class="sm:col-span-2">
+      <template v-for="row in rows" :key="row">
+        <ExampleCardSubTitle :title="String(row)" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-          <B24Textarea placeholder="Type something...." :size="size" class="w-full" autoresize :maxrows="5" :rows="1" />
+          <B24Textarea placeholder="Type something...." class="w-full" autoresize :maxrows="5" :rows="row" />
         </div>
       </template>
     </ExampleCard>
