@@ -4,6 +4,7 @@ import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/form-field'
 import { tv } from '../utils/tv'
+import WarningIcon from '@bitrix24/b24icons-vue/main/WarningIcon'
 
 const appConfig = _appConfig as AppConfig & { b24ui: { formField: Partial<typeof theme> } }
 
@@ -55,7 +56,8 @@ const slots = defineSlots<FormFieldSlots>()
 
 const b24ui = computed(() => formField({
   size: props.size,
-  required: props.required
+  required: props.required,
+  useDescription: Boolean(props.description) || !!slots.description,
 }))
 
 const formErrors = inject<Ref<FormError[]> | null>('form-errors', null)
@@ -102,11 +104,14 @@ provide(formFieldInjectionKey, computed(() => ({
     <div :class="[(label || !!slots.label || description || !!slots.description) && b24ui.container({ class: props.b24ui?.container })]">
       <slot :error="error" />
 
-      <p v-if="(typeof error === 'string' && error) || !!slots.error" :class="b24ui.error({ class: props.b24ui?.error })">
+      <div v-if="(typeof error === 'string' && error) || !!slots.error" :class="b24ui.error({ class: props.b24ui?.error })">
         <slot name="error" :error="error">
-          {{ error }}
+          <div class="flex flex-row flex-nowram gap-0.5">
+            <WarningIcon :class="b24ui.errorIcon()" />
+            <div>{{ error }}</div>
+          </div>
         </slot>
-      </p>
+      </div>
       <p v-else-if="help || !!slots.help" :class="b24ui.help({ class: props.b24ui?.help })">
         <slot name="help" :help="help">
           {{ help }}
