@@ -44,6 +44,7 @@ const components: IComponentInfo[] = [
   { id: 'form-field', description: 'A wrapper for form elements that provides validation and error handling.', icon: FormIcon },
   { id: 'chip', description: 'An indicator of a numeric value or a state.', icon: ItemIcon, iconUi: 'pr-px' },
   { id: 'kbd', description: 'A kbd element to display a keyboard key.', icon: ItemIcon, iconUi: 'pr-px' },
+  { id: 'shortcuts', description: 'A composable to define keyboard shortcuts in your app.', icon: ItemIcon, iconUi: 'pr-px' },
   { id: 'skeleton', description: 'A placeholder to show while content is loading.', icon: ItemIcon, iconUi: 'pr-px' }
 ]
 

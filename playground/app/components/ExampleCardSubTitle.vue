@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const $props = withDefaults(defineProps<{
-  title: string
+  title?: string
 }>(), {
   title: 'Some line'
 })
@@ -8,6 +8,6 @@ const $props = withDefaults(defineProps<{
 
 <template>
   <div class="text-h6 text-base-200 dark:text-base-800 mb-1">
-    -- {{ $props.title }} --
+    <slot>-- {{ $props.title }} --</slot>
   </div>
 </template>
