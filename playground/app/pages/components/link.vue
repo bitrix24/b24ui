@@ -41,7 +41,7 @@ usePageMeta.setPageTitle('Links')
         </B24Link>
       </div>
     </ExampleCard>
-    <ExampleCard title="B24Link">
+    <ExampleCard title="Link">
       <ExampleCardSubTitle title="raw" />
       <div class="mb-4 flex flex-col items-start gap-4 text-sm">
         <B24Link to="/components/link" raw>
