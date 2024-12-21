@@ -30,15 +30,36 @@ function onSelect(item: any) {
   router.push(item.to)
 }
 
+function toogleDir() {
+  dir.value = dir.value === 'ltr' ? 'rtl' : 'ltr'
+}
+
+function toogleMode() {
+  mode.value = mode.value === 'dark' ? 'light' : 'dark'
+}
+
 defineShortcuts({
-  ctrl_k: () => { alert('@todo open CommandPaletteOpen'); isCommandPaletteOpen.value = true },
+  ctrl_k: () => {
+    alert('@todo open CommandPaletteOpen')
+    isCommandPaletteOpen.value = true
+  },
   ctrl_arrowleft: () => {
-    if(route.path === '/')
-    {
+    if (route.path === '/') {
       return
     }
-
     router.push('/')
+  },
+  shift_arrowright: () => {
+    dir.value = 'rtl'
+  },
+  shift_arrowleft: () => {
+    dir.value = 'ltr'
+  },
+  shift_arrowup: () => {
+    mode.value = 'light'
+  },
+  shift_arrowdown: () => {
+    mode.value = 'dark'
   }
 })
 </script>
@@ -93,22 +114,26 @@ defineShortcuts({
       </div>
       <div vaul-drawer-wrapper class="flex flex-col lg:flex-row h-[calc(100vh-4.1rem)] w-screen overflow-hidden min-h-0">
         <div class="fixed z-50 top-20 right-4 flex items-center gap-2 rtl:flex-row-reverse">
-          <B24Button
-            :icon="mode === 'dark' ? ClockFillIcon : Clock2Icon"
-            :aria-label="`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`"
-            color="link"
-            depth="light"
-            size="xs"
-            @click="mode = mode === 'dark' ? 'light' : 'dark'"
-          />
-          <B24Button
-            :icon="dir === 'ltr' ? LeftAlignIcon : RightAlignIcon"
-            :aria-label="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`"
-            color="link"
-            depth="light"
-            size="xs"
-            @click="dir = dir === 'ltr' ? 'rtl' : 'ltr'"
-          />
+          <B24Tooltip :text="`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`" :kbds="['shift', mode === 'dark' ? 'arrowup' : 'arrowdown']">
+            <B24Button
+              :icon="mode === 'dark' ? ClockFillIcon : Clock2Icon"
+              :aria-label="`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`"
+              color="link"
+              depth="light"
+              size="xs"
+              @click="toogleMode"
+            />
+          </B24Tooltip>
+          <B24Tooltip :text="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', dir === 'ltr' ? 'arrowright' : 'arrowleft']">
+            <B24Button
+              :icon="dir === 'ltr' ? LeftAlignIcon : RightAlignIcon"
+              :aria-label="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`"
+              color="link"
+              depth="light"
+              size="xs"
+              @click="toogleDir"
+            />
+          </B24Tooltip>
         </div>
         <div class="py-14 px-3xl flex flex-col items-center justify-evenly overflow-y-auto w-full">
           <Suspense>

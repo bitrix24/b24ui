@@ -45,14 +45,28 @@ function onSelect(item: any) {
 }
 
 defineShortcuts({
-  ctrl_k: () => { alert('@todo open CommandPaletteOpen'); isCommandPaletteOpen.value = true },
+  ctrl_k: () => {
+    alert('@todo open CommandPaletteOpen')
+    isCommandPaletteOpen.value = true
+  },
   ctrl_arrowleft: () => {
-    if(route.path === '/')
-    {
+    if (route.path === '/') {
       return
     }
 
     router.push('/')
+  },
+  shift_arrowright: () => {
+    dir.value = 'rtl'
+  },
+  shift_arrowleft: () => {
+    dir.value = 'ltr'
+  },
+  shift_arrowup: () => {
+    colorMode.preference = 'light'
+  },
+  shift_arrowdown: () => {
+    colorMode.preference = 'dark'
   }
 })
 </script>
@@ -109,22 +123,26 @@ defineShortcuts({
         <div vaul-drawer-wrapper class="flex flex-col lg:flex-row h-[calc(100vh-4.1rem)] w-screen overflow-hidden min-h-0">
           <div class="fixed z-50 top-20 right-4 flex items-center gap-2 rtl:flex-row-reverse">
             <ClientOnly v-if="!colorMode?.forced">
-              <B24Button
-                :icon="isDark ? ClockFillIcon : Clock2Icon"
-                :aria-label="`Switch to ${isDark ? 'light' : 'dark'} mode`"
-                color="link"
-                depth="light"
-                size="xs"
-                @click="isDark = !isDark"
-              />
-              <B24Button
-                :icon="isLtr ? LeftAlignIcon : RightAlignIcon"
-                :aria-label="`Switch to ${isLtr ? 'Right-to-left' : 'Left-to-right'} mode`"
-                color="link"
-                depth="light"
-                size="xs"
-                @click="isLtr = !isLtr"
-              />
+              <B24Tooltip :text="`Switch to ${isDark ? 'light' : 'dark'} mode`" :kbds="['shift', isDark ? 'arrowup' : 'arrowdown']">
+                <B24Button
+                  :icon="isDark ? ClockFillIcon : Clock2Icon"
+                  :aria-label="`Switch to ${isDark ? 'light' : 'dark'} mode`"
+                  color="link"
+                  depth="light"
+                  size="xs"
+                  @click="isDark = !isDark"
+                />
+              </B24Tooltip>
+              <B24Tooltip :text="`Switch to ${isLtr ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', isLtr ? 'arrowright' : 'arrowleft']">
+                <B24Button
+                  :icon="isLtr ? LeftAlignIcon : RightAlignIcon"
+                  :aria-label="`Switch to ${isLtr ? 'Right-to-left' : 'Left-to-right'} mode`"
+                  color="link"
+                  depth="light"
+                  size="xs"
+                  @click="isLtr = !isLtr"
+                />
+              </B24Tooltip>
             </ClientOnly>
           </div>
           <div class="py-14 px-3xl flex flex-col items-center justify-evenly overflow-y-auto w-full">
