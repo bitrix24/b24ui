@@ -1,7 +1,77 @@
-# @bitrix24/b24ui
-Bitrix24 UI-Kit for developing web applications REST API for NUXT & VUE
+# Bitrix24 UI
+
+Bitrix24 UI for developing web applications REST API for NUXT & VUE
 
 Find more details in the [documentation](https://bitrix24.github.io/b24ui/)
+
+## Installation
+
+```bash [pnpm]
+pnpm add @bitrix24/b24ui-nuxt@next
+```
+
+```bash [npm]
+npm install @bitrix24/b24ui-nuxt@next
+```
+
+### Nuxt
+
+1. Add the Bitrix24 UI module in your `nuxt.config.ts`:
+
+```ts [nuxt.config.ts]
+export default defineNuxtConfig({
+  modules: ['@bitrix24/b24ui-nuxt']
+})
+```
+
+2. Import Tailwind CSS and Bitrix24 UI in your CSS:
+
+```css [assets/css/main.css]
+@import "tailwindcss";
+@import "@bitrix24/b24ui-nuxt";
+```
+
+Learn more in the [installation guide](https://bitrix24.github.io/b24ui/guide/installation-nuxt-app.html).
+
+### Vue
+
+1. Add the Bitrix24 UI Vite plugin in your `vite.config.ts`:
+
+```ts [vite.config.ts]
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import bitrix24UIPluginVite from '@bitrix24/b24ui-nuxt/vite'
+
+export default defineConfig({
+  plugins: [
+    vue(),
+    bitrix24UIPluginVite()
+  ]
+})
+```
+
+2. Use the Bitrix24 UI Vue plugin in your `main.ts`:
+
+```ts [main.ts]
+import { createApp } from 'vue'
+import uiPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'
+import App from './App.vue'
+
+const app = createApp(App)
+
+app.use(uiPlugin)
+
+app.mount('#app')
+```
+
+3. Import Tailwind CSS and Bitrix24 UI in your CSS:
+
+```css [assets/main.css]
+@import "tailwindcss";
+@import "@bitrix24/b24ui-nuxt";
+```
+
+Learn more in the [installation guide](https://bitrix24.github.io/b24ui/guide/installation-vue.html).
 
 ## Credits
 
