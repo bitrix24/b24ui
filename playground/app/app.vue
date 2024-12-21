@@ -123,7 +123,7 @@ defineShortcuts({
         <div vaul-drawer-wrapper class="flex flex-col lg:flex-row h-[calc(100vh-4.1rem)] w-screen overflow-hidden min-h-0">
           <div class="fixed z-50 top-20 right-4 flex items-center gap-2 rtl:flex-row-reverse">
             <ClientOnly v-if="!colorMode?.forced">
-              <B24Tooltip :text="`Switch to ${isDark ? 'light' : 'dark'} mode`" :kbds="['shift', isDark ? 'arrowup' : 'arrowdown']">
+              <B24Tooltip :content="{ side: 'left' }" :text="`Switch to ${isDark ? 'light' : 'dark'} mode`" :kbds="['shift', isDark ? 'arrowup' : 'arrowdown']">
                 <B24Button
                   :icon="isDark ? ClockFillIcon : Clock2Icon"
                   :aria-label="`Switch to ${isDark ? 'light' : 'dark'} mode`"
@@ -133,7 +133,7 @@ defineShortcuts({
                   @click="isDark = !isDark"
                 />
               </B24Tooltip>
-              <B24Tooltip :text="`Switch to ${isLtr ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', isLtr ? 'arrowright' : 'arrowleft']">
+              <B24Tooltip :content="{ side: 'left' }" :text="`Switch to ${isLtr ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', isLtr ? 'arrowright' : 'arrowleft']">
                 <B24Button
                   :icon="isLtr ? LeftAlignIcon : RightAlignIcon"
                   :aria-label="`Switch to ${isLtr ? 'Right-to-left' : 'Left-to-right'} mode`"

@@ -114,7 +114,7 @@ defineShortcuts({
       </div>
       <div vaul-drawer-wrapper class="flex flex-col lg:flex-row h-[calc(100vh-4.1rem)] w-screen overflow-hidden min-h-0">
         <div class="fixed z-50 top-20 right-4 flex items-center gap-2 rtl:flex-row-reverse">
-          <B24Tooltip :text="`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`" :kbds="['shift', mode === 'dark' ? 'arrowup' : 'arrowdown']">
+          <B24Tooltip :content="{ side: 'left' }" :text="`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`" :kbds="['shift', mode === 'dark' ? 'arrowup' : 'arrowdown']">
             <B24Button
               :icon="mode === 'dark' ? ClockFillIcon : Clock2Icon"
               :aria-label="`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`"
@@ -124,7 +124,7 @@ defineShortcuts({
               @click="toogleMode"
             />
           </B24Tooltip>
-          <B24Tooltip :text="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', dir === 'ltr' ? 'arrowright' : 'arrowleft']">
+          <B24Tooltip :content="{ side: 'left' }" :text="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', dir === 'ltr' ? 'arrowright' : 'arrowleft']">
             <B24Button
               :icon="dir === 'ltr' ? LeftAlignIcon : RightAlignIcon"
               :aria-label="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`"
