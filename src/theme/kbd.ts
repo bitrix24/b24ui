@@ -3,12 +3,6 @@
  * A kbd element to display a keyboard key.
  */
 
-/**
- * @todo fix depth
- * @todo fix size
- * @todo fix dark mode color
- * @todo fix font family
- */
 export default {
   base: 'inline-flex items-center justify-center px-1 rounded-2xs font-normal font-b24-system-mono',
   variants: {
@@ -21,11 +15,11 @@ export default {
       normal: [
         'ring ring-inset',
         'bg-base-100 text-base-master ring-base-350',
-        'dark:bg-base-900/85 dark:text-base-350 dark:ring-base-700'
+        'dark:bg-base-900/85 dark:text-base-200 dark:ring-base-700'
       ].join(' '),
       dark: [
-        'bg-base-900 text-white',
-        'dark:bg-base-350 dark:text-base-900'
+        'bg-base-dark/85 text-white',
+        'dark:bg-base-900/85 dark:text-base-200'
       ].join(' ')
     },
     size: {
