@@ -21,7 +21,7 @@ usePageMeta.setPageTitle('Links')
         <B24Link active>
           Button active
         </B24Link>
-        <B24Link active class="font-medium" active-class="text-alert-link">
+        <B24Link active class="font-medium" active-class="text-red-500 dark:text-red-600">
           Button active with class
         </B24Link>
         <B24Link active disabled>
@@ -33,7 +33,7 @@ usePageMeta.setPageTitle('Links')
         <B24Link>
           Button inactive
         </B24Link>
-        <B24Link class="font-medium" inactive-class="hover:not-disabled:not-aria-disabled:text-alert-link">
+        <B24Link class="font-medium" inactive-class="hover:not-disabled:not-aria-disabled:text-red-500 dark:hover:not-disabled:not-aria-disabled:text-red-600">
           Button inactive with class
         </B24Link>
         <B24Link disabled>
@@ -53,7 +53,7 @@ usePageMeta.setPageTitle('Links')
         <B24Link to="/components/link">
           Link active
         </B24Link>
-        <B24Link to="/components/link" class="font-medium" active-class="text-alert-link">
+        <B24Link to="/components/link" class="font-medium" active-class="text-red-500 dark:text-red-600">
           Link active with class
         </B24Link>
         <B24Link to="/components/link" disabled>
@@ -65,7 +65,7 @@ usePageMeta.setPageTitle('Links')
         <B24Link to="/components/button">
           Link inactive
         </B24Link>
-        <B24Link to="/components/button" class="font-medium" inactive-class="hover:not-disabled:not-aria-disabled:text-alert-link">
+        <B24Link to="/components/button" class="font-medium" inactive-class="hover:not-disabled:not-aria-disabled:text-red-500 dark:hover:not-disabled:not-aria-disabled:text-red-600">
           Link inactive with class
         </B24Link>
         <B24Link to="/components/button" disabled>
