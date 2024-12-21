@@ -31,9 +31,9 @@ export const buttonGroupVariantWithRoot = {
   },
   noSplit: {
     false: [
-     'not-only:not-first:after:content-[\'\'] not-only:not-first:after:absolute',
-     'not-only:not-first:after:top-[7px] not-only:not-first:after:bottom-[6px] not-only:not-first:after:left-0 not-only:not-first:after:w-px',
-     'not-only:not-first:after:bg-current/30'
+      'not-only:not-first:after:content-[\'\'] not-only:not-first:after:absolute',
+      'not-only:not-first:after:top-[7px] not-only:not-first:after:bottom-[6px] not-only:not-first:after:left-0 not-only:not-first:after:w-px',
+      'not-only:not-first:after:bg-current/30'
     ].join(' ')
   }
 }
