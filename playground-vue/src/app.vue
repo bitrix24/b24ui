@@ -31,7 +31,15 @@ function onSelect(item: any) {
 }
 
 defineShortcuts({
-  meta_k: () => isCommandPaletteOpen.value = true
+  ctrl_k: () => { alert('@todo open CommandPaletteOpen'); isCommandPaletteOpen.value = true },
+  ctrl_arrowleft: () => {
+    if(route.path === '/')
+    {
+      return
+    }
+
+    router.push('/')
+  }
 })
 </script>
 
@@ -45,29 +53,37 @@ defineShortcuts({
           </div>
           <div class="pr-xs grow flex gap-4 flex-row items-center justify-end text-lg">
             <div v-if="route.path !== '/'" class="grow font-b24-primary">
-              <div class="flex flex-row gap-2xs items-end">
+              <div class="flex flex-row gap-1.5 items-center">
                 <div class="flex flex-col">
-                  <div class="text-3xs leading-tight opacity-70 text-base-500 dark:text-base-700 items-center">
+                  <div class="text-3xs leading-tight text-base-500/85 dark:text-base-500/85 items-center">
                     Playground
                   </div>
-                  <B24Link
-                    to="/"
-                    class="text-nowrap text-sm text-primary-link hover:opacity-80 border-b border-dashed border-b-primary-link dark:text-base-700 dark:border-b-base-700 dark:hover:text-info-background-on! dark:hover:border-b-info-background-on"
-                  >
-                    main page
-                  </B24Link>
+                  <div class="flex flex-row flex-nowrap items-center justify-center gap-1">
+                    <B24Link
+                      to="/"
+                      class="text-nowrap text-sm border-b border-dashed border-b-base-900 hover:not-disabled:not-aria-disabled:border-b-blue-700 dark:border-b-base-300 dark:hover:not-disabled:not-aria-disabled:border-b-blue-300"
+                    >
+                      <span>main page</span>
+                    </B24Link>
+                  </div>
+                </div>
+                <div class="invisible md:visible flex flex-row flex-nowrap items-center justify-center gap-0.5">
+                  <B24Kbd value="ctrl" size="sm" /> <B24Kbd value="arrowleft" size="sm" />
                 </div>
               </div>
+            </div>
+            <div class="invisible md:visible flex flex-row flex-nowrap items-center justify-center gap-0.5">
+              <B24Kbd value="ctrl" size="sm" /> <B24Kbd value="K" size="sm" />
             </div>
             <div
               v-for="(menuItem, menuIndex) in usePageMeta.menuList"
               :key="menuIndex"
-              class="text-md font-light"
+              class="text-md font-light invisible md:visible"
             >
               <B24Link
                 :to="menuItem.href"
                 target="_blank"
-                class="pr-2 whitespace-nowrap hover:underline underline-offset-2 dark:text-base-700"
+                class="pr-2 whitespace-nowrap hover:underline underline-offset-2"
               >
                 {{ menuItem.title }}
               </B24Link>
@@ -98,42 +114,6 @@ defineShortcuts({
           <Suspense>
             <RouterView />
           </Suspense>
-          <div v-if="route.path === '/'" class="w-full">
-            <div
-              v-for="(group) in usePageMeta.groups"
-              :key="group.id"
-              class="mb-md"
-            >
-              <div class="mb-sm font-b24-secondary text-h4 font-light leading-8 text-base-900 dark:text-base-200">
-                {{ group.label }}
-              </div>
-              <div class="grid grid-cols-[repeat(auto-fill,minmax(266px,1fr))] gap-y-sm gap-x-xs">
-                <B24Link
-                  v-for="(item) in group.items"
-                  :key="item.id"
-                  class="bg-white dark:bg-white/10 py-sm2 px-xs2 cursor-pointer rounded-md flex flex-row gap-sm border-2 transition-shadow shadow hover:shadow-lg relative border-white dark:border-white/10 hover:border-primary"
-                  :to="`/${group.id}/${item.id}`"
-                >
-                  <B24Avatar
-                    :icon="item.icon"
-                    size="2xl"
-                    :b24ui="item.iconClass"
-                  />
-                  <div class="max-w-11/12">
-                    <div class="font-b24-secondary text-black dark:text-base-150 text-h6 leading-4 mb-xs font-semibold line-clamp-2">
-                      {{ item.label }}
-                    </div>
-                    <div
-                      class="font-b24-primary text-sm text-base-500 line-clamp-2"
-                      :title="item.description"
-                    >
-                      <div>{{ item.description }}</div>
-                    </div>
-                  </div>
-                </B24Link>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
