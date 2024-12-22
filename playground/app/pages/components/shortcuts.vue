@@ -96,7 +96,7 @@ defineShortcuts({
       <template #title>
         <div class="flex items-center justify-between gap-4">
           <div>[Logs]</div>
-          <div class="flex flex-row flex-nowrap items-center justify-between gap-2">
+          <div class="flex flex-row flex-nowrap items-center justify-between gap-1.5">
             <B24Button
               :icon="TrashBinIcon"
               size="sm"
@@ -104,7 +104,8 @@ defineShortcuts({
               depth="light"
               @click="logs = []"
             />
-            <B24Kbd value="ctrl+q" />
+            <B24Kbd value="ctrl" sixe="sm" />
+            <B24Kbd value="q" sixe="sm" />
           </div>
         </div>
       </template>

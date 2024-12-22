@@ -11,7 +11,7 @@ usePageMeta.setPageTitle('Container')
   <ExampleGrid v-once>
     <ExampleCard title="Usage" class="sm:col-span-2 md:col-span-4">
       <ExampleCardSubTitle title="default" />
-      <B24Container class="">
+      <B24Container>
         <Placeholder class="h-32" />
       </B24Container>
     </ExampleCard>

@@ -1,5 +1,5 @@
 <template>
-  <div class="relative overflow-hidden rounded-2xs border border-dashed border-base-300 dark:border-base-700 opacity-75 px-4 flex items-center justify-center">
+  <div class="relative overflow-hidden rounded-md border border-dashed border-base-300 dark:border-base-700 opacity-75 px-4 flex items-center justify-center">
     <svg class="absolute inset-0 h-full w-full stroke-base-900/10 dark:stroke-base-100/10" fill="none">
       <defs>
         <pattern
