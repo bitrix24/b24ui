@@ -35,6 +35,7 @@ const menuList: IMenuItem[] = [
 const components: IComponentInfo[] = [
   { id: 'avatar', description: 'An img element with fallback and Nuxt Image support.', icon: PersonIcon },
   { id: 'container', description: 'A container lets you center and constrain the width of your content.', icon: GroupIcon },
+  { id: 'separator', description: 'Separates content horizontally or vertically.', icon: GroupIcon },
   { id: 'link', description: 'A wrapper around NuxtLink with extra props.', icon: FourCubes2Icon },
   { id: 'tooltip', description: 'A popup that reveals information when hovering over an element.', icon: FourCubes2Icon },
   { id: 'button', description: 'A button element that can act as a link or trigger an action.', icon: FourCubes2Icon },
