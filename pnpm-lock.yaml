@@ -53,12 +53,9 @@ importers:
       '@vueuse/integrations':
         specifier: ^12.1.0
         version: 12.2.0(change-case@5.4.4)(focus-trap@7.6.2)(fuse.js@7.0.0)(typescript@5.6.3)
-      '@vueuse/math':
-        specifier: ^12.1.0
-        version: 12.2.0(typescript@5.6.3)
       consola:
-        specifier: ^3.2.3
-        version: 3.2.3
+        specifier: ^3.3.0
+        version: 3.3.0
       defu:
         specifier: ^6.1.4
         version: 6.1.4
@@ -87,10 +84,10 @@ importers:
         specifier: ^7.0.0
         version: 7.0.0
       knitwork:
-        specifier: ^1.1.0
-        version: 1.1.0
+        specifier: ^1.2.0
+        version: 1.2.0
       magic-string:
-        specifier: ^0.30.16
+        specifier: ^0.30.17
         version: 0.30.17
       mlly:
         specifier: ^1.7.3
@@ -2037,9 +2034,6 @@ packages:
       universal-cookie:
         optional: true
 
-  '@vueuse/math@12.2.0':
-    resolution: {integrity: sha512-dBWvdZAKfwg6L6fxEvBQ1yF+dWmOHgXcph67+LAzO8SXMzdkP4BXy4+5JXRF11ZJlTFIdSuhFm3LZr70gzQpBw==}
-
   '@vueuse/metadata@10.11.1':
     resolution: {integrity: sha512-IGa5FXd003Ug1qAZmyE8wF3sJ81xGLSqTqtQ6jaVfkeZ4i5kS2mwQF61yhVqojRnenVew5PldLyRgvdl4YYuSw==}
 
@@ -2448,10 +2442,6 @@ packages:
 
   config-chain@1.1.13:
     resolution: {integrity: sha512-qj+f8APARXHrM0hraqXYb2/bOVSV4PvJQlNZ/DVj0QrmNM2q2euizkeuVckQ57J+W0mRH6Hvi+k50M4Jul2VRQ==}
-
-  consola@3.2.3:
-    resolution: {integrity: sha512-I5qxpzLv+sJhTVEoLYNcTW+bThDCPsit0vLNKShZx6rLtpilNpmmeTPaeqJb9ZE9dV3DGaeby6Vuhrw38WjeyQ==}
-    engines: {node: ^14.18.0 || >=16.10.0}
 
   consola@3.3.0:
     resolution: {integrity: sha512-kxltocVQCwQNFvw40dlVRYeAkAvtYjMFZYNlOcsF5wExPpGwPxMwgx4IfDJvBRPtBpnQwItd5WkTaR0ZwT/TmQ==}
@@ -3649,6 +3639,9 @@ packages:
 
   knitwork@1.1.0:
     resolution: {integrity: sha512-oHnmiBUVHz1V+URE77PNot2lv3QiYU2zQf1JjOVkMt3YDKGbu8NAFr+c4mcNOhdsGrB/VpVbRwPwhiXrPhxQbw==}
+
+  knitwork@1.2.0:
+    resolution: {integrity: sha512-xYSH7AvuQ6nXkq42x0v5S8/Iry+cfulBz/DJQzhIyESdLD7425jXsPy4vn5cCXU+HhRN2kVw51Vd1K6/By4BQg==}
 
   kolorist@1.8.0:
     resolution: {integrity: sha512-Y+60/zizpJ3HRH8DCss+q95yr6145JXZo46OTpFvDZWLfRCE4qChOyk1b26nMaNpfHHgxagk9dXT5OP0Tfe+dQ==}
@@ -6627,7 +6620,7 @@ snapshots:
       ignore: 6.0.2
       jiti: 2.4.0
       klona: 2.0.6
-      knitwork: 1.1.0
+      knitwork: 1.2.0
       mlly: 1.7.3
       pathe: 1.1.2
       pkg-types: 1.2.1
@@ -6770,7 +6763,7 @@ snapshots:
       get-port-please: 3.1.2
       h3: 1.13.0
       jiti: 2.4.0
-      knitwork: 1.1.0
+      knitwork: 1.2.0
       magic-string: 0.30.17
       mlly: 1.7.3
       ohash: 1.1.4
@@ -7702,13 +7695,6 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@vueuse/math@12.2.0(typescript@5.6.3)':
-    dependencies:
-      '@vueuse/shared': 12.2.0(typescript@5.6.3)
-      vue: 3.5.13(typescript@5.6.3)
-    transitivePeerDependencies:
-      - typescript
-
   '@vueuse/metadata@10.11.1': {}
 
   '@vueuse/metadata@11.3.0': {}
@@ -8136,8 +8122,6 @@ snapshots:
     dependencies:
       ini: 1.3.8
       proto-list: 1.2.4
-
-  consola@3.2.3: {}
 
   consola@3.3.0: {}
 
@@ -9492,6 +9476,8 @@ snapshots:
 
   knitwork@1.1.0: {}
 
+  knitwork@1.2.0: {}
+
   kolorist@1.8.0: {}
 
   launch-editor@2.9.1:
@@ -9837,7 +9823,7 @@ snapshots:
       ioredis: 5.4.1
       jiti: 2.4.0
       klona: 2.0.6
-      knitwork: 1.1.0
+      knitwork: 1.2.0
       listhen: 1.9.0
       magic-string: 0.30.17
       magicast: 0.3.5
@@ -11456,7 +11442,7 @@ snapshots:
 
   unwasm@0.3.9:
     dependencies:
-      knitwork: 1.1.0
+      knitwork: 1.2.0
       magic-string: 0.30.17
       mlly: 1.7.3
       pathe: 1.1.2
