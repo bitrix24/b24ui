@@ -18,7 +18,7 @@ usePageMeta.setPageTitle('Playground')
         <template v-for="(item) in group.items" :key="item.id">
           <B24Tooltip :disabled="item.description.length < 43" :text="item.description" :content="{ side: 'top' }" arrow>
             <B24Link
-              class="bg-white dark:bg-white/10 py-sm2 px-xs2 cursor-pointer rounded-md flex flex-row gap-sm border-2 transition-shadow shadow hover:shadow-lg relative border-white dark:border-white/10 hover:border-primary"
+              class="bg-white dark:bg-white/10 py-sm2 px-xs2 cursor-pointer rounded-md flex flex-row gap-sm border-2 transition-shadow shadow hover:shadow-lg relative border-base-master/10 dark:border-base-100/20 hover:border-primary"
               :to="`/${group.id}/${item.id}`"
             >
               <B24Avatar

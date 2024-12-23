@@ -12,10 +12,10 @@
   "license": "MIT",
   "exports": {
     ".": {
+      "style": "./dist/runtime/index.css",
       "types": "./dist/module.d.ts",
       "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs",
-      "style": "./dist/runtime/index.css"
+      "require": "./dist/module.cjs"
     },
     "./unplugin": {
       "types": "./dist/unplugin.d.ts",

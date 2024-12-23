@@ -23,9 +23,9 @@ export default {
       ].join(' ')
     },
     size: {
-      sm: 'h-[16px] min-w-[16px] text-3xs leading-none',
-      md: 'h-[20px] min-w-[20px] text-xs leading-none',
-      lg: 'h-[24px] min-w-[24px] text-md leading-none'
+      sm: 'h-[20px] min-w-[20px] text-[10px] leading-none',
+      md: 'h-[24px] min-w-[24px] text-[14px] leading-none',
+      lg: 'h-[28px] min-w-[28px] text-[18px] leading-none'
     }
   },
   defaultVariants: {
