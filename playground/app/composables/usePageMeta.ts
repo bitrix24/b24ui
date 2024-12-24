@@ -2,7 +2,6 @@ import { ref, type Ref } from 'vue'
 import type { IMenuItem, IPageGroup, IPageItem, IComponentInfo } from '~/types'
 import { splitByCase, upperFirst } from 'scule'
 import ItemIcon from '@bitrix24/b24icons-vue/crm/ItemIcon'
-import FourCubes2Icon from '@bitrix24/b24icons-vue/actions/FourCubes2Icon'
 import PersonIcon from '@bitrix24/b24icons-vue/main/PersonIcon'
 import FormIcon from '@bitrix24/b24icons-vue/crm/FormIcon'
 import GroupIcon from '@bitrix24/b24icons-vue/main/GroupIcon'
@@ -36,13 +35,13 @@ const components: IComponentInfo[] = [
   { id: 'avatar', description: 'An img element with fallback and Nuxt Image support.', icon: PersonIcon },
   { id: 'container', description: 'A container lets you center and constrain the width of your content.', icon: GroupIcon },
   { id: 'separator', description: 'Separates content horizontally or vertically.', icon: GroupIcon },
-  { id: 'link', description: 'A wrapper around NuxtLink with extra props.', icon: FourCubes2Icon },
-  { id: 'tooltip', description: 'A popup that reveals information when hovering over an element.', icon: FourCubes2Icon },
-  { id: 'button', description: 'A button element that can act as a link or trigger an action.', icon: FourCubes2Icon },
-  { id: 'button-group', description: 'Group multiple button-like elements together.', icon: FourCubes2Icon },
+  { id: 'progress', description: 'An indicator showing the progress of a task.', icon: GroupIcon },
+  { id: 'link', description: 'A wrapper around NuxtLink with extra props.', icon: GroupIcon },
+  { id: 'tooltip', description: 'A popup that reveals information when hovering over an element.', icon: GroupIcon },
+  { id: 'button', description: 'A button element that can act as a link or trigger an action.', icon: GroupIcon },
+  { id: 'button-group', description: 'Group multiple button-like elements together.', icon: GroupIcon },
   { id: 'input', description: 'An input element to enter text.', icon: FormIcon },
   { id: 'textarea', description: 'A textarea element to input multi-line text.', icon: FormIcon },
-  { id: 'progress', description: 'An indicator showing the progress of a task.', icon: FormIcon },
   { id: 'switch', description: 'A control that toggles between two states.', icon: FormIcon },
   { id: 'checkbox', description: 'An input element to toggle between checked and unchecked states.', icon: FormIcon },
   { id: 'radio-group', description: 'A set of radio buttons to select a single option from a list.', icon: FormIcon },

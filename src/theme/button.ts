@@ -105,28 +105,28 @@ export default {
     },
     size: {
       xs: {
-        base: 'h-xl2 min-w-xl2 ps-4 pe-4 text-3xs leading-none', // 26px
+        base: 'h-xl2 ps-4 pe-4 text-3xs leading-none', // 26px
         baseLine: 'gap-1',
         leadingIcon: 'size-5',
         leadingAvatarSize: '2xs',
         trailingIcon: 'size-md2'
       },
       sm: {
-        base: 'h-3xl min-w-3xl ps-[18px] pe-[18px] text-xs leading-none', // 32px
+        base: 'h-3xl ps-[18px] pe-[18px] text-xs leading-none', // 32px
         baseLine: 'gap-1.5',
         leadingIcon: 'size-6',
         leadingAvatarSize: 'xs',
         trailingIcon: 'size-lg'
       },
       md: {
-        base: 'h-5xl min-w-5xl ps-5 pe-5 text-xs leading-none', // 40px
+        base: 'h-5xl ps-5 pe-5 text-xs leading-none', // 40px
         baseLine: 'gap-1.5',
         leadingIcon: 'size-xl2',
         leadingAvatarSize: 'sm',
         trailingIcon: 'size-lg'
       },
       lg: {
-        base: 'h-6xl min-w-6xl ps-[28px] pe-[28px] text-xs leading-none', // ? 48px
+        base: 'h-6xl ps-[28px] pe-[28px] text-xs leading-none', // ? 48px
         baseLine: 'gap-2',
         leadingIcon: 'size-xl2',
         leadingAvatarSize: 'md',
@@ -150,10 +150,10 @@ export default {
     },
     useLabel: {
       true: '',
-      false: 'ps-0.5 pe-0.5 justify-center'
+      false: 'ps-1.5 pe-1.5 justify-center'
     },
     useDropdown: {
-      true: ''
+      true: 'ps-2 pe-2'
     },
     useWait: {
       true: ''
@@ -381,9 +381,11 @@ export default {
         '',
         'border',
         'text-base-900 bg-transparent border-[#c6cdd3] dark:text-base-300 dark:border-base-800',
-        'hover:bg-[#cfd4d8] hover:border-[#c6cdd3] dark:hover:text-base-800',
-        'active:bg-[#dde2e5] active:border-[#9fa4ab] dark:active:text-base-900',
-        'disabled:bg-transparent disabled:border-[#c6cdd3] aria-disabled:bg-transparent aria-disabled:border-[#c6cdd3] dark:disabled:text-base-800 dark:aria-disabled:text-base-800',
+        'hover:text-base-900 hover:bg-[#cfd4d8] hover:border-[#c6cdd3] dark:hover:text-base-900',
+        'active:text-base-900 active:bg-[#dde2e5] active:border-[#9fa4ab] dark:active:text-base-900',
+        'disabled:bg-transparent disabled:border-[#c6cdd3] aria-disabled:bg-transparent aria-disabled:border-[#c6cdd3]',
+        'dark:disabled:text-base-800 dark:aria-disabled:text-base-800',
+        'dark:disabled:border-base-900 dark:aria-disabled:border-base-900',
         'focus-visible:outline-[#c6cdd3]'
       ].join(' ')
     },

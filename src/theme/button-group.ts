@@ -22,7 +22,7 @@ export const buttonGroupVariantWithRoot = {
       base: [
         'group-not-only:group-first:rounded-e-none group-not-only:group-last:rounded-s-none group-not-last:group-not-first:rounded-none',
         'group-not-only:group-first:border-e-0 group-not-only:group-not-first:border-s-0'
-      ].join(' '),
+      ].join(' ')
     },
     vertical: {
       root: 'group',
@@ -42,10 +42,10 @@ export default {
   base: 'relative',
   variants: {
     size: {
-      'xs': '',
-      'sm': '',
-      'md': '',
-      'lg': ''
+      xs: '',
+      sm: '',
+      md: '',
+      lg: ''
     },
     orientation: {
       horizontal: 'inline-flex -space-x-px',
