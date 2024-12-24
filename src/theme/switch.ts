@@ -22,8 +22,9 @@ export default {
   variants: {
     color: {
       default: {
-        base: 'data-[state=checked]:bg-base-900 focus-visible:outline-base-900 dark:data-[state=checked]:bg-base-900 dark:focus-visible:outline-base-900',
-        icon: 'group-data-[state=checked]:text-base-900 dark:group-data-[state=checked]:text-base-900'
+        base: 'data-[state=checked]:bg-base-900 focus-visible:outline-base-900 dark:data-[state=checked]:bg-base-100 dark:focus-visible:outline-base-100',
+        icon: 'group-data-[state=checked]:text-base-900 dark:group-data-[state=checked]:text-base-900',
+        thumb: 'dark:data-[state=checked]:bg-base-master'
       },
       danger: {
         base: 'data-[state=checked]:bg-red-500 focus-visible:outline-red-500 dark:data-[state=checked]:bg-red-600 dark:focus-visible:outline-red-600',
