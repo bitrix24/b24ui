@@ -350,7 +350,7 @@
 
   0%,
   100% {
-    width: 50%
+    width: 30%
   }
 
   0% {
@@ -358,16 +358,15 @@
   }
 
   100% {
-    transform: translateX(200%)
+    transform: translateX(370%)
   }
 }
-
 
 @keyframes carousel-rtl {
 
   0%,
   100% {
-    width: 50%
+    width: 30%
   }
 
   0% {
@@ -375,16 +374,15 @@
   }
 
   100% {
-    transform: translateX(-200%)
+    transform: translateX(-370%)
   }
 }
-
 
 @keyframes carousel-vertical {
 
   0%,
   100% {
-    height: 50%
+    height: 30%
   }
 
   0% {
@@ -392,7 +390,7 @@
   }
 
   100% {
-    transform: translateY(200%)
+    transform: translateY(370%)
   }
 }
 
@@ -400,11 +398,11 @@
 
   0%,
   100% {
-    width: 50%
+    width: 30%
   }
 
   0% {
-    transform: translateX(200%)
+    transform: translateX(370%)
   }
 
   100% {
@@ -416,11 +414,11 @@
 
   0%,
   100% {
-    width: 50%
+    width: 30%
   }
 
   0% {
-    transform: translateX(-200%)
+    transform: translateX(-370%)
   }
 
   100% {
@@ -432,11 +430,11 @@
 
   0%,
   100% {
-    height: 50%
+    height: 30%
   }
 
   0% {
-    transform: translateY(200%)
+    transform: translateY(370%)
   }
 
   100% {
@@ -448,7 +446,7 @@
 
   0%,
   100% {
-    width: 50%
+    width: 30%
   }
 
   0%,
@@ -457,7 +455,7 @@
   }
 
   50% {
-    transform: translateX(125%)
+    transform: translateX(275%)
   }
 }
 
@@ -465,7 +463,7 @@
 
   0%,
   100% {
-    height: 50%
+    height: 30%
   }
 
   0%,
@@ -474,7 +472,7 @@
   }
 
   50% {
-    transform: translateY(125%)
+    transform: translateY(275%)
   }
 }
 
@@ -494,7 +492,6 @@
 }
 
 @keyframes elastic-vertical {
-
   0%,
   100% {
     height: 50%;
@@ -504,5 +501,43 @@
   50% {
     height: 90%;
     margin-top: 5%;
+  }
+}
+
+
+@keyframes progressbar-loading {
+  0%,
+  100% {
+    width: 30%
+  }
+
+  0% {
+    transform: translateX(-200%)
+  }
+
+  50% {
+    transform: translateX(350%)
+  }
+
+  100% {
+    transform: translateX(-200%)
+  }
+}
+
+@keyframes progressbar-loading-vertical {
+  0%,
+  100% {
+    height: 30%
+  }
+  0% {
+    transform: translateY(-200%)
+  }
+
+  50% {
+    transform: translateY(350%)
+  }
+
+  100% {
+    transform: translateY(-200%)
   }
 }

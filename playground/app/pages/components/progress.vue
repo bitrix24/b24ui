@@ -8,6 +8,8 @@ import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 
 usePageMeta.setPageTitle('Progress')
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
+const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
+const animations = Object.keys(theme.variants.animation) as Array<keyof typeof theme.variants.animation>
 
 const value1 = ref(0)
 const value2 = ref(0)
@@ -36,44 +38,84 @@ onMounted(() => {
 
 <template>
   <ExampleGrid v-once>
-    <ExampleCard title="Color" class="sm:col-span-2 md:col-span-4">
-      <ExampleCardSubTitle title="different color" />
-      <div class="flex flex-col gap-8 items-center">
-        <div class="flex flex-col gap-4 w-48">
-          <B24Progress />
-          <B24Progress color="neutral" />
-          <B24Progress color="error" />
-          <B24Progress animation="carousel-inverse" />
-          <B24Progress animation="swing" />
-          <B24Progress animation="elastic" />
-          <B24Progress v-model="value2" :max="max" status />
-          <B24Progress v-model="value2" :max="max" status inverted />
+    <ExampleCard title="color">
+      <template v-for="color in colors" :key="color">
+        <ExampleCardSubTitle :title="color as string" />
+        <div class="mb-6 flex flex-col items-center gap-4">
+          <B24Progress :color="color" />
         </div>
+      </template>
+    </ExampleCard>
 
-        <div class="flex items-center gap-4">
-          <B24Progress v-for="size in sizes" :key="size" v-model="value1" :size="size" class="w-48" />
+    <ExampleCard title="animation">
+      <template v-for="animation in animations" :key="animation">
+        <ExampleCardSubTitle :title="animation as string" />
+        <div class="mb-6 flex flex-col items-center gap-4">
+          <B24Progress :animation="animation" />
         </div>
+      </template>
 
-        <div class="h-48 flex items-center gap-8">
-          <B24Progress orientation="vertical" />
-          <B24Progress orientation="vertical" animation="carousel-inverse" />
-          <B24Progress orientation="vertical" animation="swing" />
-          <B24Progress orientation="vertical" animation="elastic" />
-          <B24Progress v-model="value2" orientation="vertical" :max="max" status class="w-48 justify-start" />
-          <B24Progress
-            v-model="value2"
-            orientation="vertical"
-            :max="max"
-            status
-            inverted
-            class="w-48 justify-start"
-          />
-        </div>
-
-        <div class="h-48 flex items-center gap-8">
-          <B24Progress v-for="size in sizes" :key="size" v-model="value1" orientation="vertical" :size="size" />
-        </div>
+      <ExampleCardSubTitle title="status" />
+      <div class="mb-6 flex flex-col items-center gap-4">
+        <B24Progress v-model="value2" :max="max" status />
       </div>
+
+      <ExampleCardSubTitle title="status inverted" />
+      <div class="mb-6 flex flex-col items-center gap-4">
+        <B24Progress v-model="value2" :max="max" status inverted />
+      </div>
+    </ExampleCard>
+
+    <ExampleCard title="size">
+      <template v-for="size in sizes" :key="size">
+        <ExampleCardSubTitle :title="size as string" />
+        <div class="mb-6 flex flex-col items-center gap-4">
+          <B24Progress v-model="value1" :size="size" />
+        </div>
+      </template>
+    </ExampleCard>
+
+    <ExampleCard title="vertical color">
+      <div class="mb-6 h-48 flex flex-row items-center justify-center gap-8">
+        <template v-for="color in colors" :key="color">
+          <B24Progress orientation="vertical" :color="color" />
+        </template>
+      </div>
+    </ExampleCard>
+
+    <ExampleCard title="vertical animation">
+      <div class="mb-6 h-48 flex flex-row items-center justify-center gap-8">
+        <template v-for="animation in animations" :key="animation">
+          <B24Progress orientation="vertical" :animation="animation" />
+        </template>
+      </div>
+
+      <ExampleCardSubTitle title="status" />
+      <div class="mb-6 h-48 flex flex-row items-center justify-start gap-2">
+        <B24Progress v-model="value2" orientation="vertical" :max="max" status class="w-48 justify-start" />
+        <B24Progress
+          v-model="value2"
+          orientation="vertical"
+          :max="max"
+          status
+          inverted
+          class="w-48 justify-start"
+        />
+      </div>
+    </ExampleCard>
+
+    <ExampleCard title="vertical size">
+      <div class="mb-6 h-48 flex flex-row items-center justify-center gap-8">
+        <template v-for="size in sizes" :key="size">
+          <B24Progress v-model="value1" orientation="vertical" :size="size" />
+        </template>
+      </div>
+      <template v-for="size in sizes" :key="size">
+        <ExampleCardSubTitle :title="size as string" />
+        <div class="mb-6 flex flex-col items-center gap-4">
+          <B24Progress v-model="value1" :size="size" />
+        </div>
+      </template>
     </ExampleCard>
   </ExampleGrid>
 </template>

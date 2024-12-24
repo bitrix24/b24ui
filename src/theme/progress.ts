@@ -7,13 +7,12 @@
  */
 
 /**
- * @todo set color
  * @todo set dark mode
  */
 export default {
   slots: {
     root: 'gap-2',
-    base: 'relative overflow-hidden rounded-full bg-base-300 dark:base-700',
+    base: 'relative overflow-hidden rounded-full bg-base-300 dark:bg-base-800',
     indicator: 'rounded-full size-full transition-transform duration-200 ease-out',
     status: 'flex justify-end text-base-400 dark:text-base-700 transition-[width] duration-200',
     steps: 'grid items-end',
@@ -21,6 +20,7 @@ export default {
   },
   variants: {
     animation: {
+      'loading': '',
       'carousel': '',
       'carousel-inverse': '',
       'swing': '',
@@ -28,7 +28,7 @@ export default {
     },
     color: {
       default: {
-        indicator: 'bg-base-900',
+        indicator: 'bg-base-900 dark:bg-base-100',
         steps: 'text-base-500'
       },
       danger: {
@@ -97,7 +97,7 @@ export default {
       vertical: {
         root: 'h-full flex flex-row-reverse',
         base: 'h-full',
-        status: 'flex-col'
+        status: 'flex-col min-w-[32px]'
       }
     },
     inverted: {
@@ -254,6 +254,20 @@ export default {
       animation: 'elastic',
       class: {
         indicator: 'data-[state=indeterminate]:animate-[elastic-vertical_2s_ease-in-out_infinite]'
+      }
+    },
+    {
+      orientation: 'horizontal',
+      animation: 'loading',
+      class: {
+        indicator: 'data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]'
+      }
+    },
+    {
+      orientation: 'vertical',
+      animation: 'loading',
+      class: {
+        indicator: 'data-[state=indeterminate]:animate-[progressbar-loading-vertical_2s_infinite]'
       }
     }
     // endregion ////
