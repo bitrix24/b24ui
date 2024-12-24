@@ -9,7 +9,7 @@ usePageMeta.setPageTitle('Links')
 
 <template>
   <ExampleGrid v-once>
-    <ExampleCard title="Button">
+    <ExampleCard title="button">
       <ExampleCardSubTitle title="raw" />
       <div class="mb-4 flex flex-col items-start gap-4 text-sm">
         <B24Link raw>
@@ -41,7 +41,7 @@ usePageMeta.setPageTitle('Links')
         </B24Link>
       </div>
     </ExampleCard>
-    <ExampleCard title="Link">
+    <ExampleCard title="link">
       <ExampleCardSubTitle title="raw" />
       <div class="mb-4 flex flex-col items-start gap-4 text-sm">
         <B24Link to="/components/link" raw>

@@ -88,7 +88,7 @@ defineShortcuts({
         </div>
 
         <ExampleCardSubTitle title="Input to focus" />
-        <B24Input placeholder="Input to focus" color="default" v-model="inputValue" />
+        <B24Input placeholder="Input to focus" v-model="inputValue" color="default" />
       </div>
     </ExampleCard>
 
@@ -104,8 +104,8 @@ defineShortcuts({
               depth="light"
               @click="logs = []"
             />
-            <B24Kbd value="ctrl" sixe="sm" />
-            <B24Kbd value="q" sixe="sm" />
+            <B24Kbd value="ctrl" size="sm" />
+            <B24Kbd value="q" size="sm" />
           </div>
         </div>
       </template>

@@ -1,6 +1,8 @@
 <script setup lang="ts">
+/**
+ * @todo add Popover
+ */
 import theme from '#build/b24ui/button'
-import themeInput from '#build/b24ui/input'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
@@ -96,7 +98,7 @@ function onClick() {
         </B24ButtonGroup>
       </div>
 
-      <ExampleCardSubTitle title="size && no-split" />
+      <ExampleCardSubTitle title="size & no-split" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24ButtonGroup size="sm" no-split>
           <B24Button
@@ -158,8 +160,9 @@ function onClick() {
         </B24ButtonGroup>
       </div>
     </ExampleCard>
+
     <ExampleCard title="input" class="md:col-span-4">
-      <ExampleCardSubTitle title="color" />
+      <ExampleCardSubTitle title="orientation" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24ButtonGroup orientation="vertical">
           <B24Button
@@ -203,11 +206,24 @@ function onClick() {
 
       <template v-for="size in sizes" :key="size">
         <ExampleCardSubTitle :title="size as string" />
-          <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+        <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
           <B24ButtonGroup :size="size" no-split>
             <B24Input placeholder="Search..." />
             <B24Button
               color="link"
+              depth="dark"
+              loading-auto
+              use-clock
+              @click="onClick"
+            >
+              Button
+            </B24Button>
+          </B24ButtonGroup>
+
+          <B24ButtonGroup :size="size" no-split>
+            <B24Input placeholder="Search..." />
+            <B24Button
+              color="primary"
               depth="dark"
               loading-auto
               use-clock

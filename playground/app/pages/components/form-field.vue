@@ -45,21 +45,6 @@ const feedbacks = [
       </div>
     </ExampleCard>
 
-    <ExampleCard title="stream rtl" dir="rtl">
-      <ExampleCardSubTitle title="اسم ووصف الإدارة" />
-      <div class="mb-4 flex flex-nowrap flex-col items-stretch justify gap-4">
-        <B24FormField label="الإدارة الرئيسية" name="department">
-          <B24Input placeholder="حدد القسم الرئيسي" />
-        </B24FormField>
-        <B24FormField label="الاسم" name="name" required error="أدخل اسم الإدارة">
-          <B24Input placeholder="أدخل اسم الإدارة" />
-        </B24FormField>
-        <B24FormField label="الوصف" name="description">
-          <B24Textarea placeholder="أدخل وصف الإدارة" :rows="5" />
-        </B24FormField>
-      </div>
-    </ExampleCard>
-
     <ExampleCard title="Size" class="md:col-span-3">
       <ExampleCardSubTitle title="simple" />
       <div class="mb-4 flex flex-wrap items-start justify-start gap-6">
@@ -70,7 +55,7 @@ const feedbacks = [
           label="Email"
           name="email"
         >
-          <B24Input placeholder="john@lennon.com" class="w-full" />
+          <B24Input placeholder="john@lennon.com" />
         </B24FormField>
       </div>
 
@@ -88,7 +73,7 @@ const feedbacks = [
           name="email"
           required
         >
-          <B24Input placeholder="john@lennon.com" class="w-full" />
+          <B24Input placeholder="john@lennon.com" />
         </B24FormField>
       </div>
 
@@ -105,7 +90,7 @@ const feedbacks = [
           name="email"
           required
         >
-          <B24Input placeholder="john@lennon.com" class="w-full" />
+          <B24Input placeholder="john@lennon.com" />
         </B24FormField>
       </div>
     </ExampleCard>

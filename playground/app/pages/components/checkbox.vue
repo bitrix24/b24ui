@@ -7,27 +7,29 @@ import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 
 usePageMeta.setPageTitle('Checkbox')
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
+const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
 
 const checked = ref(true)
 </script>
 
 <template>
   <ExampleGrid v-once>
-    <ExampleCard title="Color">
-      <ExampleCardSubTitle title="different color" />
+    <ExampleCard title="color">
+      <ExampleCardSubTitle title="default" />
       <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
         <div class="flex flex-col gap-4">
-          <B24Checkbox label="Default" color="default" :default-value="true" />
-          <B24Checkbox label="Danger" color="danger" :model-value="true" />
-          <B24Checkbox label="Success" color="success" :model-value="true" />
-          <B24Checkbox label="Warning" color="warning" :model-value="true" />
-          <B24Checkbox v-model="checked" label="Primary" />
-          <B24Checkbox label="Secondary" color="secondary" :model-value="true" />
-          <B24Checkbox label="Ai" color="ai" :model-value="true" />
+          <B24Checkbox v-model="checked" label="primary" />
+        </div>
+      </div>
+
+      <ExampleCardSubTitle title="variants" />
+      <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
+        <div class="flex flex-col gap-4">
+          <B24Checkbox v-for="color in colors" :key="color" :color="color" :label="color" :default-value="true" />
         </div>
       </div>
     </ExampleCard>
-    <ExampleCard title="Statuses">
+    <ExampleCard title="statuses">
       <ExampleCardSubTitle title="variants" />
       <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
         <div class="flex flex-col gap-4">
@@ -38,7 +40,7 @@ const checked = ref(true)
         </div>
       </div>
     </ExampleCard>
-    <ExampleCard title="Size" class="sm:col-span-2 md:col-span-4">
+    <ExampleCard title="size" class="sm:col-span-2 md:col-span-4">
       <ExampleCardSubTitle title="simple" />
       <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
         <B24Checkbox v-for="size in sizes" :key="size" label="Check me" :size="size" />

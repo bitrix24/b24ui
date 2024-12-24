@@ -7,6 +7,7 @@ import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 
 usePageMeta.setPageTitle('RadioGroup')
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
+const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
 
 const literalOptions = [
   'Option 1',
@@ -28,21 +29,22 @@ const itemsWithDescription = [
 
 <template>
   <ExampleGrid v-once>
-    <ExampleCard title="Color">
+    <ExampleCard title="color">
+      <ExampleCardSubTitle title="default" />
+      <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
+        <div class="flex flex-col gap-4">
+          <B24RadioGroup :items="items" legend="primary" default-value="1" />
+        </div>
+      </div>
+
       <ExampleCardSubTitle title="different color" />
       <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
         <div class="flex flex-col gap-4">
-          <B24RadioGroup :items="items" legend="Default" color="default" default-value="1" />
-          <B24RadioGroup :items="items" legend="Danger" color="danger" default-value="1" />
-          <B24RadioGroup :items="items" legend="Success" color="success" default-value="1" />
-          <B24RadioGroup :items="items" legend="Warning" color="warning" default-value="1" />
-          <B24RadioGroup :items="items" legend="Primary" default-value="1" />
-          <B24RadioGroup :items="items" legend="Secondary" color="secondary" default-value="1" />
-          <B24RadioGroup :items="items" legend="Ai" color="ai" default-value="1" />
+          <B24RadioGroup :items="items" v-for="color in colors" :key="color" :color="color" :legend="color" default-value="1" />
         </div>
       </div>
     </ExampleCard>
-    <ExampleCard title="Statuses">
+    <ExampleCard title="statuses">
       <ExampleCardSubTitle title="variants" />
       <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
         <div class="flex flex-col gap-4">
@@ -71,7 +73,7 @@ const itemsWithDescription = [
         </div>
       </div>
     </ExampleCard>
-    <ExampleCard title="Size" class="sm:col-span-2 md:col-span-4">
+    <ExampleCard title="size" class="sm:col-span-2 md:col-span-4">
       <ExampleCardSubTitle title="simple" />
       <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
         <B24RadioGroup v-for="size in sizes" :key="size" :size="size" :items="items" :legend="`legend for ${size}`" />

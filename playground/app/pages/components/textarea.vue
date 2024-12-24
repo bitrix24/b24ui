@@ -16,7 +16,7 @@ const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof the
     <ExampleCard title="base">
       <ExampleCardSubTitle title="autofocus" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Textarea autofocus class="w-full" />
+        <B24Textarea autofocus />
       </div>
 
       <ExampleCardSubTitle title="underline" />
@@ -25,7 +25,7 @@ const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof the
           color="success"
           underline
           placeholder="Type something..."
-          class="w-full"
+
         />
       </div>
 
@@ -34,7 +34,7 @@ const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof the
         <B24Textarea
           no-border
           placeholder="Type something..."
-          class="w-full"
+
         />
       </div>
 
@@ -43,7 +43,7 @@ const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof the
         <B24Textarea
           no-padding
           placeholder="Type something..."
-          class="w-full"
+
         />
       </div>
 
@@ -53,7 +53,7 @@ const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof the
           color="danger"
           highlight
           placeholder="Type something..."
-          class="w-full"
+
         />
       </div>
 
@@ -73,7 +73,7 @@ const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof the
             placeholder="Type something..."
             :color="color"
             highlight
-            class="w-full"
+
           />
         </div>
       </template>
@@ -83,7 +83,7 @@ const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof the
       <template v-for="tagColor in tagColors" :key="tagColor">
         <ExampleCardSubTitle :title="tagColor as string" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-          <B24Textarea :tag-color="tagColor" tag="some text" placeholder="Type something...." class="w-full" />
+          <B24Textarea :tag-color="tagColor" tag="some text" placeholder="Type something...." />
         </div>
       </template>
     </ExampleCard>
@@ -92,7 +92,7 @@ const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof the
       <template v-for="row in rows" :key="row">
         <ExampleCardSubTitle :title="String(row)" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-          <B24Textarea placeholder="Type something...." class="w-full" autoresize :maxrows="5" :rows="row" />
+          <B24Textarea placeholder="Type something...." class="w-3/4" autoresize :maxrows="5" :rows="row" />
         </div>
       </template>
     </ExampleCard>

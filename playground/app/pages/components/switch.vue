@@ -9,27 +9,29 @@ import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
 
 usePageMeta.setPageTitle('Switch')
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
+const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
 
 const checked = ref(true)
 </script>
 
 <template>
   <ExampleGrid v-once>
-    <ExampleCard title="Color">
-      <ExampleCardSubTitle title="different color" />
+    <ExampleCard title="color">
+      <ExampleCardSubTitle title="default" />
       <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
         <div class="flex flex-col gap-4">
-          <B24Switch color="default" label="Default" :default-value="true" />
-          <B24Switch color="danger" label="Danger" :default-value="true" />
-          <B24Switch color="success" label="Success" :default-value="true" />
-          <B24Switch color="warning" label="Warning" :default-value="true" />
-          <B24Switch v-model="checked" label="Primary" />
-          <B24Switch color="secondary" label="Secondary" :default-value="true" />
-          <B24Switch color="ai" label="Ai" :default-value="true" />
+          <B24Switch v-model="checked" label="primary" />
+        </div>
+      </div>
+
+      <ExampleCardSubTitle title="variants" />
+      <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
+        <div class="flex flex-col gap-4">
+          <B24Switch v-for="color in colors" :key="color" :color="color" :label="color" :default-value="true" />
         </div>
       </div>
     </ExampleCard>
-    <ExampleCard title="Statuses">
+    <ExampleCard title="statuses">
       <ExampleCardSubTitle title="variants" />
       <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
         <div class="flex flex-col gap-4">
@@ -42,7 +44,7 @@ const checked = ref(true)
         </div>
       </div>
     </ExampleCard>
-    <ExampleCard title="Size" class="sm:col-span-2 md:col-span-4">
+    <ExampleCard title="size" class="sm:col-span-2 md:col-span-4">
       <ExampleCardSubTitle title="simple" />
       <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
         <B24Switch
