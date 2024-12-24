@@ -46,6 +46,7 @@ const components: IComponentInfo[] = [
   { id: 'checkbox', description: 'An input element to toggle between checked and unchecked states.', icon: FormIcon },
   { id: 'radio-group', description: 'A set of radio buttons to select a single option from a list.', icon: FormIcon },
   { id: 'form-field', description: 'A wrapper for form elements that provides validation and error handling.', icon: FormIcon },
+  { id: 'slider', description: 'An input to select a numeric value within a range.', icon: FormIcon },
   { id: 'chip', description: 'An indicator of a numeric value or a state.', icon: ItemIcon, iconUi: 'pr-px' },
   { id: 'kbd', description: 'A kbd element to display a keyboard key.', icon: ItemIcon, iconUi: 'pr-px' },
   { id: 'shortcuts', description: 'A composable to define keyboard shortcuts in your app.', icon: ItemIcon, iconUi: 'pr-px' },

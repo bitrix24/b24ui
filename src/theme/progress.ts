@@ -6,9 +6,6 @@
  * @see /bitrix/js/ui/progressbar/
  */
 
-/**
- * @todo set dark mode
- */
 export default {
   slots: {
     root: 'gap-2',
