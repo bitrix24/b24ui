@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import usePageMeta from '../../playground/app/composables/usePageMeta'
-import Clock2Icon from '@bitrix24/b24icons-vue/main/Clock2Icon'
-import ClockFillIcon from '@bitrix24/b24icons-vue/main/ClockFillIcon'
 import RightAlignIcon from '@bitrix24/b24icons-vue/editor/RightAlignIcon'
 import LeftAlignIcon from '@bitrix24/b24icons-vue/editor/LeftAlignIcon'
+import SunIcon from '@bitrix24/b24icons-vue/main/SunIcon'
+import TmpMoon from '../../playground/app/components/TmpMoon.vue'
 import { useRouter, useRoute } from 'vue-router'
 import { reactive, ref } from 'vue'
 import { useColorMode, useTextDirection } from '@vueuse/core'
@@ -116,10 +116,10 @@ defineShortcuts({
         <div class="fixed z-50 top-20 right-4 flex items-center gap-2 rtl:flex-row-reverse">
           <B24Tooltip :content="{ side: 'left' }" :text="`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`" :kbds="['shift', mode === 'dark' ? 'arrowup' : 'arrowdown']">
             <B24Button
-              :icon="mode === 'dark' ? ClockFillIcon : Clock2Icon"
+              :icon="mode === 'dark' ? TmpMoon : SunIcon"
               :aria-label="`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`"
               color="link"
-              depth="light"
+              depth="normal"
               size="xs"
               @click="toogleMode"
             />
@@ -129,7 +129,7 @@ defineShortcuts({
               :icon="dir === 'ltr' ? LeftAlignIcon : RightAlignIcon"
               :aria-label="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`"
               color="link"
-              depth="light"
+              depth="normal"
               size="xs"
               @click="toogleDir"
             />

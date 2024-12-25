@@ -2,10 +2,10 @@
 import { useColorMode } from '#imports'
 import { useTextDirection } from '@vueuse/core'
 import usePageMeta from './composables/usePageMeta'
-import Clock2Icon from '@bitrix24/b24icons-vue/main/Clock2Icon'
-import ClockFillIcon from '@bitrix24/b24icons-vue/main/ClockFillIcon'
 import RightAlignIcon from '@bitrix24/b24icons-vue/editor/RightAlignIcon'
 import LeftAlignIcon from '@bitrix24/b24icons-vue/editor/LeftAlignIcon'
+import SunIcon from '@bitrix24/b24icons-vue/main/SunIcon'
+import TmpMoon from './components/TmpMoon.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -125,10 +125,10 @@ defineShortcuts({
             <ClientOnly v-if="!colorMode?.forced">
               <B24Tooltip :content="{ side: 'left' }" :text="`Switch to ${isDark ? 'light' : 'dark'} mode`" :kbds="['shift', isDark ? 'arrowup' : 'arrowdown']">
                 <B24Button
-                  :icon="isDark ? ClockFillIcon : Clock2Icon"
+                  :icon="isDark ? TmpMoon : SunIcon"
                   :aria-label="`Switch to ${isDark ? 'light' : 'dark'} mode`"
                   color="link"
-                  depth="light"
+                  depth="normal"
                   size="xs"
                   @click="isDark = !isDark"
                 />
@@ -138,7 +138,7 @@ defineShortcuts({
                   :icon="isLtr ? LeftAlignIcon : RightAlignIcon"
                   :aria-label="`Switch to ${isLtr ? 'Right-to-left' : 'Left-to-right'} mode`"
                   color="link"
-                  depth="light"
+                  depth="normal"
                   size="xs"
                   @click="isLtr = !isLtr"
                 />
