@@ -173,6 +173,22 @@ export function getTemplates(options: ModuleOptions) {
     })
   }
 
+  /**
+   * use to generate tw colors
+   * @memo not use now
+   * in `index.css` need add `@import '#build/b24ui.css';`
+   */
+  /*
+  templates.push({
+    filename: 'b24ui.css',
+    write: true,
+    getContents: () => `@theme default {
+  ${['default'].map(color => [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map(shade => `--color-${color}-${shade}: var(--ui-color-${color}-${shade});`).join('\n\t')).join('\n\t')}
+}
+`
+  })
+  */
+
   templates.push({
     filename: 'b24ui/index.ts',
     write: true,
