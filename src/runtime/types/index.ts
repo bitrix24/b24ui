@@ -1,6 +1,7 @@
 export * from '../components/App.vue'
 export * from '../components/Avatar.vue'
 export * from '../components/AvatarGroup.vue'
+export * from '../components/Badge.vue'
 export * from '../components/Button.vue'
 export * from '../components/Checkbox.vue'
 export * from '../components/Chip.vue'

@@ -33,6 +33,7 @@ const menuList: IMenuItem[] = [
 
 const components: IComponentInfo[] = [
   { id: 'avatar', description: 'An img element with fallback and Nuxt Image support.', icon: PersonIcon },
+  { id: 'badge', description: 'A short text to represent a status or a category.', icon: ItemIcon, iconUi: 'pr-px' },
   { id: 'button', description: 'A button element that can act as a link or trigger an action.', icon: GroupIcon },
   { id: 'button-group', description: 'Group multiple button-like elements together.', icon: GroupIcon },
   { id: 'checkbox', description: 'An input element to toggle between checked and unchecked states.', icon: FormIcon },

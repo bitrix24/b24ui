@@ -1,5 +1,6 @@
 export { default as avatar } from './avatar'
 export { default as avatarGroup } from './avatar-group'
+export { default as badge } from './badge'
 export { default as button } from './button'
 export { default as buttonGroup } from './button-group'
 export { default as checkbox } from './checkbox'
