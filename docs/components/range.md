@@ -1,7 +1,7 @@
 ---
 description: An input to select a numeric value within a range.
 links:
-  - label: Slider
+  - label: Range
     icon: i-custom-reka-ui
     to: https://reka-ui.com/docs/components/slider
   - label: GitHub
@@ -11,7 +11,7 @@ links:
 
 ## Usage
 
-Use the `v-model` directive to control the value of the Slider.
+Use the `v-model` directive to control the value of the Range.
 
 ::component-code
 ---
@@ -35,7 +35,7 @@ props:
 
 ### Min / Max
 
-Use the `min` and `max` props to set the minimum and maximum values of the Slider. Defaults to `0` and `100`.
+Use the `min` and `max` props to set the minimum and maximum values of the Range. Defaults to `0` and `100`.
 
 ::component-code
 ---
@@ -50,7 +50,7 @@ props:
 
 ### Step
 
-Use the `step` prop to set the increment value of the Slider. Defaults to `1`.
+Use the `step` prop to set the increment value of the Range. Defaults to `1`.
 
 ::component-code
 ---
@@ -64,7 +64,7 @@ props:
 
 ### Multiple
 
-Use the `v-model` directive or the `default-value` prop with an array of values to create a range Slider.
+Use the `v-model` directive or the `default-value` prop with an array of values to create a range Range.
 
 ::component-code
 ---
@@ -93,7 +93,7 @@ props:
 
 ### Orientation
 
-Use the `orientation` prop to change the orientation of the Slider. Defaults to `horizontal`.
+Use the `orientation` prop to change the orientation of the Range. Defaults to `horizontal`.
 
 ::component-code
 ---
@@ -109,7 +109,7 @@ props:
 
 ### Color
 
-Use the `color` prop to change the color of the Slider.
+Use the `color` prop to change the color of the Range.
 
 ::component-code
 ---
@@ -123,7 +123,7 @@ props:
 
 ### Size
 
-Use the `size` prop to change the size of the Slider.
+Use the `size` prop to change the size of the Range.
 
 ::component-code
 ---
@@ -137,7 +137,7 @@ props:
 
 ### Disabled
 
-Use the `disabled` prop to disable the Slider.
+Use the `disabled` prop to disable the Range.
 
 ::component-code
 ---
@@ -151,7 +151,7 @@ props:
 
 ### Inverted
 
-Use the `inverted` prop to visually invert the Slider.
+Use the `inverted` prop to visually invert the Range.
 
 ::component-code
 ---

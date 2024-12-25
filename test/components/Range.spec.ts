@@ -1,12 +1,12 @@
 import { describe, it, expect, test } from 'vitest'
-import Slider, { type SliderProps } from '../../src/runtime/components/Slider.vue'
+import Range, { type RangeProps } from '../../src/runtime/components/Range.vue'
 import ComponentRender from '../component-render'
-import theme from '#build/b24ui/slider'
+import theme from '#build/b24ui/range'
 import { flushPromises, mount } from '@vue/test-utils'
 import { renderForm } from '../utils/form'
 import type { FormInputEvents } from '~/src/module'
 
-describe('Slider', () => {
+describe('Range', () => {
   const sizes = Object.keys(theme.variants.size) as any
 
   it.each([
@@ -25,25 +25,25 @@ describe('Slider', () => {
     ['with as', { props: { as: 'section' } }],
     ['with class', { props: { class: 'w-48' } }],
     ['with b24ui', { props: { b24ui: { track: 'bg-red-200' } } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: SliderProps }) => {
-    const html = await ComponentRender(nameOrHtml, options, Slider)
+  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: RangeProps }) => {
+    const html = await ComponentRender(nameOrHtml, options, Range)
     expect(html).toMatchSnapshot()
   })
 
   describe('emits', () => {
     test('update:modelValue event', async () => {
-      const wrapper = mount(Slider)
+      const wrapper = mount(Range)
 
-      const input = wrapper.findComponent({ name: 'SliderRoot' })
+      const input = wrapper.findComponent({ name: 'RangeRoot' })
       input.vm.$emit('update:modelValue', 1)
 
       expect(wrapper.emitted()).toMatchObject({ 'update:modelValue': [[1], [1]] })
     })
 
     test('change event', async () => {
-      const wrapper = mount(Slider)
+      const wrapper = mount(Range)
 
-      const input = wrapper.findComponent({ name: 'SliderRoot' })
+      const input = wrapper.findComponent({ name: 'RangeRoot' })
       input.vm.$emit('valueCommit')
 
       expect(wrapper.emitted()).toMatchObject({ change: [[{ type: 'change' }]] })
@@ -64,11 +64,11 @@ describe('Slider', () => {
         },
         slotTemplate: `
         <B24FormField name="value">
-          <B24Slider v-model="state.value" />
+          <B24Range v-model="state.value" />
         </B24FormField>
         `
       })
-      const input = wrapper.findComponent({ name: 'SliderRoot' })
+      const input = wrapper.findComponent({ name: 'RangeRoot' })
       return {
         wrapper,
         input

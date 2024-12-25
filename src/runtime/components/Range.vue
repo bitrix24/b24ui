@@ -3,35 +3,35 @@ import type { VariantProps } from 'tailwind-variants'
 import type { SliderRootProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
-import theme from '#build/b24ui/slider'
+import theme from '#build/b24ui/range'
 import { tv } from '../utils/tv'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { slider: Partial<typeof theme> } }
+const appConfig = _appConfig as AppConfig & { b24ui: { range: Partial<typeof theme> } }
 
-const slider = tv({ extend: tv(theme), ...(appConfig.b24ui?.slider || {}) })
+const range = tv({ extend: tv(theme), ...(appConfig.b24ui?.range || {}) })
 
-type SliderVariants = VariantProps<typeof slider>
+type RangeVariants = VariantProps<typeof range>
 
-export interface SliderProps extends Pick<SliderRootProps, 'name' | 'disabled' | 'inverted' | 'min' | 'max' | 'step' | 'minStepsBetweenThumbs'> {
+export interface RangeProps extends Pick<SliderRootProps, 'name' | 'disabled' | 'inverted' | 'min' | 'max' | 'step' | 'minStepsBetweenThumbs'> {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
    */
   as?: any
-  size?: SliderVariants['size']
-  color?: SliderVariants['color']
+  size?: RangeVariants['size']
+  color?: RangeVariants['color']
   /**
-   * The orientation of the slider.
+   * The orientation of the Range.
    * @defaultValue 'horizontal'
    */
   orientation?: SliderRootProps['orientation']
-  /** The value of the slider when initially rendered. Use when you do not need to control the state of the slider. */
+  /** The value of the Range when initially rendered. Use when you do not need to control the state of the Range. */
   defaultValue?: number | number[]
   class?: any
-  b24ui?: Partial<typeof slider.slots>
+  b24ui?: Partial<typeof range.slots>
 }
 
-export interface SliderEmits {
+export interface RangeEmits {
   (e: 'update:modelValue', payload: number | number[]): void
   (e: 'change', payload: Event): void
 }
@@ -43,42 +43,42 @@ import { SliderRoot, SliderRange, SliderTrack, SliderThumb, useForwardPropsEmits
 import { reactivePick } from '@vueuse/core'
 import { useFormField } from '../composables/useFormField'
 
-const props = withDefaults(defineProps<SliderProps>(), {
+const props = withDefaults(defineProps<RangeProps>(), {
   min: 0,
   max: 100,
   step: 1,
   orientation: 'horizontal'
 })
-const emits = defineEmits<SliderEmits>()
+const emits = defineEmits<RangeEmits>()
 
 const modelValue = defineModel<number | number[]>()
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'orientation', 'min', 'max', 'step', 'minStepsBetweenThumbs', 'inverted'), emits)
 
-const { id, emitFormChange, emitFormInput, size, color, name, disabled } = useFormField<SliderProps>(props)
+const { id, emitFormChange, emitFormInput, size, color, name, disabled } = useFormField<RangeProps>(props)
 
-const defaultSliderValue = computed(() => {
+const defaultRangeValue = computed(() => {
   if (typeof props.defaultValue === 'number') {
     return [props.defaultValue]
   }
   return props.defaultValue
 })
 
-const sliderValue = computed({
+const rangeValue = computed({
   get() {
     if (typeof modelValue.value === 'number') {
       return [modelValue.value]
     }
-    return modelValue.value ?? defaultSliderValue.value
+    return modelValue.value ?? defaultRangeValue.value
   },
   set(value) {
     modelValue.value = value?.length !== 1 ? value : value[0]
   }
 })
 
-const thumbsCount = computed(() => sliderValue.value?.length ?? 1)
+const thumbsCount = computed(() => rangeValue.value?.length ?? 1)
 
-const b24ui = computed(() => slider({
+const b24ui = computed(() => range({
   disabled: disabled.value,
   size: size.value,
   color: color.value,
@@ -97,17 +97,17 @@ function onChange(value: any) {
   <SliderRoot
     v-bind="rootProps"
     :id="id"
-    v-model="sliderValue"
+    v-model="rangeValue"
     :name="name"
     :disabled="disabled"
     :class="b24ui.root({ class: [props.class, props.b24ui?.root] })"
-    :default-value="defaultSliderValue"
+    :default-value="defaultRangeValue"
     @update:model-value="emitFormInput()"
     @value-commit="onChange"
   >
-    <SliderTrack :class="b24ui.track({ class: props.b24ui?.track })">
+    <RangeTrack :class="b24ui.track({ class: props.b24ui?.track })">
       <SliderRange :class="b24ui.range({ class: props.b24ui?.range })" />
-    </SliderTrack>
+    </RangeTrack>
 
     <SliderThumb v-for="count in thumbsCount" :key="count" :class="b24ui.thumb({ class: props.b24ui?.thumb })" />
   </SliderRoot>
