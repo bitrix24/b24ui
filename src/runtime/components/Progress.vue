@@ -59,7 +59,7 @@ const props = withDefaults(defineProps<ProgressProps>(), {
   orientation: 'horizontal'
 })
 const emits = defineEmits<ProgressEmits>()
-defineSlots<ProgressSlots>()
+const slots = defineSlots<ProgressSlots>()
 
 const { dir } = useLocale()
 
@@ -161,7 +161,7 @@ const b24ui = computed(() => progress({
 
 <template>
   <Primitive :as="as" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
-    <div v-if="!isIndeterminate && (status || $slots.status)" :class="b24ui.status({ class: props.b24ui?.status })" :style="statusStyle">
+    <div v-if="!isIndeterminate && (status || !!slots.status)" :class="b24ui.status({ class: props.b24ui?.status })" :style="statusStyle">
       <slot name="status" :percent="percent">
         {{ percent }}%
       </slot>
