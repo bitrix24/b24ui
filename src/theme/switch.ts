@@ -13,7 +13,7 @@ export default {
     root: 'relative flex items-start',
     base: ['cursor-pointer inline-flex items-center shrink-0 rounded-full border-2 border-transparent focus-visible:outline-2 focus-visible:outline-offset-2 data-[state=unchecked]:bg-base-200 dark:data-[state=unchecked]:bg-base-800', 'transition-colors duration-200'],
     container: 'flex items-center',
-    thumb: 'group pointer-events-none rounded-full bg-white dark:bg-white shadow-lg ring-0 transition-transform duration-200 data-[state=unchecked]:translate-x-0 data-[state=unchecked]:rtl:-translate-x-0 flex items-center justify-center',
+    thumb: 'group pointer-events-none rounded-full bg-white dark:bg-base-100 shadow-lg ring-0 transition-transform duration-200 data-[state=unchecked]:translate-x-0 data-[state=unchecked]:rtl:-translate-x-0 flex items-center justify-center',
     icon: ['absolute shrink-0 group-data-[state=unchecked]:text-base-400 dark:group-data-[state=unchecked]:text-base-700 opacity-0 p-0.5 size-10/10', 'transition-[color,opacity] duration-200'],
     wrapper: 'font-b24-primary font-regular ms-2',
     label: 'cursor-pointer block text-base-master dark:text-base-400',
