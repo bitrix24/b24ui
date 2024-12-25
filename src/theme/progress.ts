@@ -9,9 +9,9 @@
 export default {
   slots: {
     root: 'gap-2',
-    base: 'relative overflow-hidden rounded-full bg-base-300 dark:bg-base-800',
+    base: 'relative overflow-hidden rounded-full bg-base-200 dark:bg-base-800',
     indicator: 'rounded-full size-full transition-transform duration-200 ease-out',
-    status: 'flex justify-end text-base-400 dark:text-base-700 transition-[width] duration-200',
+    status: 'flex justify-end text-base-500 dark:text-base-600 transition-[width] duration-200',
     steps: 'grid items-end',
     step: 'truncate text-end row-start-1 col-start-1 transition-opacity'
   },
