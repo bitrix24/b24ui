@@ -29,27 +29,27 @@ export default {
         steps: 'text-base-500'
       },
       danger: {
-        indicator: 'bg-red-500',
+        indicator: 'bg-red-500 dark:bg-red-600',
         steps: 'text-base-500'
       },
       success: {
-        indicator: 'bg-green-500',
+        indicator: 'bg-green-500 dark:bg-green-600',
         steps: 'text-base-500'
       },
       warning: {
-        indicator: 'bg-orange-500',
+        indicator: 'bg-orange-500 dark:bg-orange-600',
         steps: 'text-base-500'
       },
       primary: {
-        indicator: 'bg-blue-500',
+        indicator: 'bg-blue-500 dark:bg-blue-600',
         steps: 'text-base-500'
       },
       secondary: {
-        indicator: 'bg-accent-aqua',
+        indicator: 'bg-accent-aqua dark:bg-accent-turquoise',
         steps: 'text-base-500'
       },
       ai: {
-        indicator: 'bg-ai-500',
+        indicator: 'bg-ai-500 dark:bg-ai-900/85',
         steps: 'text-base-500'
       }
     },
@@ -270,7 +270,7 @@ export default {
     // endregion ////
   ],
   defaultVariants: {
-    animation: 'carousel',
+    animation: 'loading',
     color: 'primary',
     size: 'md'
   }
