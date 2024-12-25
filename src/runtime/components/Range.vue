@@ -105,9 +105,9 @@ function onChange(value: any) {
     @update:model-value="emitFormInput()"
     @value-commit="onChange"
   >
-    <RangeTrack :class="b24ui.track({ class: props.b24ui?.track })">
+    <SliderTrack :class="b24ui.track({ class: props.b24ui?.track })">
       <SliderRange :class="b24ui.range({ class: props.b24ui?.range })" />
-    </RangeTrack>
+    </SliderTrack>
 
     <SliderThumb v-for="count in thumbsCount" :key="count" :class="b24ui.thumb({ class: props.b24ui?.thumb })" />
   </SliderRoot>

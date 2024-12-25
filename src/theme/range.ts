@@ -5,45 +5,44 @@
  */
 
 /**
- * @todo set color
- * @todo set dark mode
+ * @FIXME error if range disabled at init mode
  */
 export default {
   slots: {
     root: 'relative flex items-center select-none touch-none',
     track: 'relative bg-base-200 dark:bg-base-800 overflow-hidden rounded-full grow',
     range: 'absolute rounded-full',
-    thumb: 'rounded-full bg-white dark:base-dark ring-2 focus-visible:outline-2 focus-visible:outline-offset-2'
+    thumb: 'rounded-full bg-white dark:bg-base-100 ring-2 focus-visible:outline-2 focus-visible:outline-offset-2'
   },
   variants: {
     color: {
       default: {
         range: 'bg-base-900 dark:bg-base-350',
-        thumb: 'ring-base-900 dark:ring-base-700 focus-visible:outline-base-900/50 dark:focus-visible:outline-base-700/50'
+        thumb: 'ring-base-900 dark:ring-base-400 focus-visible:outline-base-900/50 dark:focus-visible:outline-base-700/50'
       },
       danger: {
         range: 'bg-red-500 dark:bg-red-600',
-        thumb: 'ring-red-500 dark:ring-base-600 focus-visible:outline-red-500/50 dark:focus-visible:outline-red-600/50'
+        thumb: 'ring-red-500 dark:ring-red-600 focus-visible:outline-red-500/50 dark:focus-visible:outline-red-600/50'
       },
       success: {
         range: 'bg-green-500 dark:bg-green-600',
-        thumb: 'ring-green-500 dark:ring-base-600 focus-visible:outline-green-500/50 dark:focus-visible:outline-green-600/50'
+        thumb: 'ring-green-500 dark:ring-green-600 focus-visible:outline-green-500/50 dark:focus-visible:outline-green-600/50'
       },
       warning: {
         range: 'bg-orange-500 dark:bg-orange-600',
-        thumb: 'ring-orange-500 dark:ring-base-600 focus-visible:outline-orange-500/50 dark:focus-visible:outline-orange-600/50'
+        thumb: 'ring-orange-500 dark:ring-orange-600 focus-visible:outline-orange-500/50 dark:focus-visible:outline-orange-600/50'
       },
       primary: {
         range: 'bg-blue-500 dark:bg-blue-600',
-        thumb: 'ring-blue-500 dark:ring-base-600 focus-visible:outline-blue-500/50 dark:focus-visible:outline-blue-600/50'
+        thumb: 'ring-blue-500 dark:ring-blue-600 focus-visible:outline-blue-500/50 dark:focus-visible:outline-blue-600/50'
       },
       secondary: {
         range: 'bg-accent-aqua dark:bg-accent-turquoise',
-        thumb: 'ring-accent-aqua dark:ring-base-600 focus-visible:outline-accent-aqua/50 dark:focus-visible:outline-accent-turquoise/50'
+        thumb: 'ring-accent-aqua dark:ring-accent-turquoise focus-visible:outline-accent-aqua/50 dark:focus-visible:outline-accent-turquoise/50'
       },
       ai: {
         range: 'bg-ai-500 dark:bg-ai-600',
-        thumb: 'ring-ai-500 dark:ring-base-600 focus-visible:outline-ai-500/50 dark:focus-visible:outline-ai-600/50'
+        thumb: 'ring-ai-500 dark:ring-ai-600 focus-visible:outline-ai-500/50 dark:focus-visible:outline-ai-600/50'
       }
     },
     size: {
