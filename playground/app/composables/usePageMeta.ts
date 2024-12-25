@@ -61,7 +61,7 @@ const groups: IPageGroup[] = [
       id: component.id,
       icon: component.icon ?? ItemIcon,
       iconClass: { icon: component.iconUi ?? (component.icon ? '' : 'pr-px') },
-      label: `<B24${upperName(component.id)}>`,
+      label: `${upperName(component.id)}`,
       description: component.description,
       isActive: false
     } as IPageItem))

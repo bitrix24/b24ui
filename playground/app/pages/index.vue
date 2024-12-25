@@ -14,7 +14,7 @@ usePageMeta.setPageTitle('Playground')
       <div class="mb-sm font-b24-secondary text-h4 font-light leading-8 text-base-900 dark:text-base-200">
         {{ group.label }}
       </div>
-      <div class="grid grid-cols-[repeat(auto-fill,minmax(266px,1fr))] gap-y-sm gap-x-xs">
+      <div class="grid grid-cols-[repeat(auto-fill,minmax(266px,1fr))] gap-y-sm gap-x-sm">
         <template v-for="(item) in group.items" :key="item.id">
           <B24Tooltip :disabled="item.description.length < 43" :text="item.description" :content="{ side: 'top' }" arrow>
             <B24Link
@@ -23,7 +23,7 @@ usePageMeta.setPageTitle('Playground')
             >
               <B24Avatar
                 :icon="item.icon"
-                size="2xl"
+                size="xl"
                 :b24ui="item.iconClass"
               />
               <div class="max-w-11/12">
