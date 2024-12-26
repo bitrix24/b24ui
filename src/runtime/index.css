@@ -7,7 +7,7 @@
 use Violet
 */
 @theme {
-
+/* region gray */
   --color-white: #ffffff;
   --color-gray-20: #f8fafb;
   --color-gray-30: #f5f7f8;
@@ -36,12 +36,14 @@ use Violet
   --color-gray-900: #525c69;
   --color-gray-950: #3b506e;
   --color-black: #333333;
-  --color-gray-dark: #0F0F0F;
+  --color-gray-dark: #0f0f0f;
   /** @memo not use --color-solid -> this reset border-solid */
   --color-gray-solid: #000000;
-
+/* endregion */
+/* region base */
   --color-base-dark: var(--color-gray-dark);
-
+/* endregion */
+/* region slate */
   --color-slate-50: #f0f6ff;
   --color-slate-100: #dce3ef;
   --color-slate-200: #c8d1df;
@@ -55,7 +57,106 @@ use Violet
   --color-slate-850: #3b506e;
   --color-slate-900: #2f4265;
   --color-slate-950: #162455;
-
+/* endregion */
+/* region red */
+  --color-red-100: #fff8f8;
+  --color-red-130: #fff0f0;
+  --color-red-200: #ffe8e8;
+  --color-red-250: #ffdcdb;
+  --color-red-300: #ffcdcc;
+  --color-red-320: #fdcac8;
+  --color-red-350: #f2b6b3;
+  --color-red-400: #ff9a97;
+  --color-red-450: #ff7c78;
+  --color-red-500: #ff5752;
+  --color-red-600: #f4433e;
+  --color-red-pink: #fb6dba;
+  --color-red-700: #e92f2a;
+  --color-red-solid: #f0371b;
+  --color-red-730: #d24430;
+  --color-red-750: #d7413c;
+  --color-red-760: #c43d51;
+  --color-red-790: #cc1c00;
+  --color-red-800: #c21b16;
+  --color-red-850: #a21429;
+  --color-red-900: #9a0703;
+  --color-red-950: #851021;
+  --color-red-990: #800602;
+/* endregion */
+/* region orange */
+  --color-orange-100: #fffaf0;
+  --color-orange-beige: #fdfae1;
+  --color-orange-150: #fff5e3;
+  --color-orange-200: #fff1d6;
+  --color-orange-230: #fef3b8; /* << accent-yellow */
+  --color-orange-250: #ffe9be;
+  --color-orange-300: #ffe1a6;
+  --color-orange-350: #f1e295;
+  --color-orange-tag-7: #dfc684;
+  --color-orange-400: #ffc34d;
+  --color-orange-500: #ffa900;
+  --color-orange-530: #fba467;
+  --color-orange-550: #eba51c;
+  --color-orange-600: #e89b06;
+  --color-orange-700: #c48300;
+  --color-orange-750: #a07f27;
+  --color-orange-760: #ae914b; /* << accent-brown */
+  --color-orange-800: #9f6a00;
+  --color-orange-900: #7a5100;
+  --color-orange-950: #614000;
+/* endregion */
+/* region green */
+  --color-green-100: #fafded;
+  --color-green-150: #f5fcde;
+  --color-green-200: #f1fbd0;
+  --color-green-250: #faf6c3;
+  --color-green-270: #eaf5c5;
+  --color-green-290: #e5f1bf;
+  --color-green-300: #e2f1b3;
+  --color-green-330: #d3e59a;
+  --color-green-350: #cfe780;
+  --color-green-tag-3: #dbf087;
+  --color-green-370: #d2f95f;
+  --color-green-400: #bbde4d;
+  --color-green-430: #bbed21;
+  --color-green-460: #b2e232;
+  --color-green-500: #9dcf00;
+  --color-green-550: #95c500;
+  --color-green-570: #a2bf54;
+  --color-green-600: #8dbb00;
+  --color-green-700: #7fa800;
+  --color-green-730: #86a732;
+  --color-green-760: #668d13;
+  --color-green-800: #688800;
+  --color-green-900: #506900;
+  --color-green-950: #3d4f00;
+/* endregion */
+/* region blue */
+  --color-blue-100: #f4fcfe;
+  --color-blue-150: #ecfafe;
+  --color-blue-200: #e5f9ff;
+  --color-blue-250: #d3f4ff;
+  --color-blue-270: #d6f1fb;
+  --color-blue-300: #c3f0ff;
+  --color-blue-tag-1: #bcedfc;
+  --color-blue-350: #c5f1ff;
+  --color-blue-400: #7fdefc;
+  --color-blue-450: #3eddff;
+  --color-blue-500: #2fc6f6;
+  --color-blue-530: #3bc8f5;
+  --color-blue-550: #12b1e3;
+  --color-blue-tag-2: #00baf2;
+  --color-blue-600: #009ea3;
+  --color-blue-620: #0aa0d0;
+  --color-blue-630: #37aed4;
+  --color-blue-650: #399fc2;
+  --color-blue-700: #008dba;
+  --color-blue-750: #328ba9;
+  --color-blue-800: #00789e;
+  --color-blue-900: #006484;
+  --color-blue-950: #004F69;
+/* endregion */
+/* region secondary */
   --color-secondary-50: #e9f9fc;
   --color-secondary-100: #dbf3fa;
   --color-secondary-125: #d1eef9;
@@ -75,7 +176,8 @@ use Violet
   --color-secondary-850: #004f69; /* << secondary-link */
   --color-secondary-900: #004157;
   --color-secondary-950: #003242;
-
+/* endregion */
+/* region ai */
   --color-ai-10: #f6f2fe;
   --color-ai-50: #f0edfc;
   --color-ai-100: #e3ddf7;
@@ -94,6 +196,7 @@ use Violet
   --color-ai-800: #682ac6; /* << copilot-dark */
   --color-ai-900: #6026b8;
   --color-ai-950: #501e9f;
+/* endregion */
 }
 
 @layer base {
