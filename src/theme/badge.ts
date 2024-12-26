@@ -12,61 +12,88 @@
  * @todo dark mode
  * @todo close icon
  * @todo link mode
- * @todo font
  */
 export default {
   slots: {
-    base: 'font-medium inline-flex items-center',
-    label: 'truncate',
+    base: [
+      'select-none font-b24-primary font-normal leading-none inline-flex items-center transition-all duration-200 ease-linear',
+      'px-2 text-xs leading-none  rounded-md'
+    ],
+    label: 'max-w-full whitespace-nowrap text-ellipsis', // truncate ////
     leadingIcon: 'shrink-0',
     leadingAvatar: 'shrink-0',
     leadingAvatarSize: '',
-    trailingIcon: 'shrink-0'
+    trailingIcon: 'shrink-0 cursor-pointer'
   },
   variants: {
+    useLink: {
+      true: {
+        base: 'cursor-pointer group',
+        label: 'group-hover:border-b group-hover:border-dashed group-hover:border-t group-hover:border-t-transparent'
+      }
+    },
+    useClose: {
+      true: 'pe-0.5'
+    },
+    useFill: {
+      true: '',
+      false: 'bg-transparent'
+    },
+    leading: {
+      true: 'ps-2xs'
+    },
     color: {
-      default: '',
-      danger: '',
+      default: 'font-semibold',
+      //danger: '',
       success: '',
-      warning: '',
-      primary: '',
-      secondary: '',
-      ai: ''
+      warning: 'font-semibold',
+      //primary: '',
+     // secondary: '',
+     // ai: ''
     },
     depth: {
-      light: '',
+      //light: '',
       normal: '',
-      dark: ''
+     // dark: ''
     },
     size: {
       xs: {
-        base: 'text-[8px]/3 px-1 py-0.5 gap-1 rounded-2xs',
-        leadingIcon: 'size-lg2',
-        leadingAvatarSize: '2xs',
-        trailingIcon: 'size-lg2'
+        base: 'h-[15px] text-3xs leading-none gap-0.5', // 15px
+        label: 'underline-offset-1',
+        leadingIcon: 'size-sm',
+        leadingAvatarSize: '3xs',
+        trailingIcon: 'size-sm '
       },
       sm: {
-        base: 'text-[10px]/3 px-1.5 py-1 gap-1 rounded-2xs',
-        leadingIcon: 'size-lg2',
-        leadingAvatarSize: 'xs',
-        trailingIcon: 'size-lg2'
+        base: 'h-[17px] gap-1', // 17px
+        label: 'underline-offset-1',
+        leadingIcon: 'size-sm2',
+        leadingAvatarSize: '3xs',
+        trailingIcon: 'size-sm2'
       },
       md: {
-        base: 'text-xs px-2 py-1 gap-1 rounded-md',
-        leadingIcon: 'size-[24px]',
-        leadingAvatarSize: 'sm',
-        trailingIcon: 'size-[24px]'
+        base: 'h-[19px] gap-1', // 19px
+        leadingIcon: 'size-[18px]',
+        leadingAvatarSize: '3xs',
+        trailingIcon: 'size-[18px]'
       },
       lg: {
-        base: 'text-sm px-2 py-1 gap-1.5 rounded-md',
-        leadingIcon: 'size-[24px]',
-        leadingAvatarSize: 'md',
-        trailingIcon: 'size-[24px]'
+        base: 'h-[25px] gap-1 rounded-lg',
+        leadingIcon: 'size-[22px]',
+        leadingAvatarSize: '2xs',
+        trailingIcon: 'size-[22px]'
+      },
+      xl: {
+        base: 'h-[31px] text-md leading-none gap-1 rounded-xl',
+        leadingIcon: 'size-[26px]',
+        leadingAvatarSize: 'xs',
+        trailingIcon: 'size-[26px]'
       }
     }
   },
   compoundVariants: [
     // region default ////
+    // TAG_LIGHT ////
     {
       color: 'default',
       depth: 'light',
@@ -75,15 +102,17 @@ export default {
         'dark:ring-base-700 dark:text-base-150 dark:bg-dark:base-dark'
       ].join(' ')
     },
+    // DEFAULT ////
     {
       color: 'default',
       depth: 'normal',
       class: [
-        'dark:text-black bg-base-100',
-        'dark:text-base-150 dark:bg-base-900'
+        'text-base-800 bg-base-150 ring ring-inset ring-base-150',
+        'dark:text-base-250 dark:bg-base-600 dark:ring-base-600'
       ].join(' ')
     },
     {
+      // LIGHT ////
       color: 'default',
       depth: 'dark',
       class: [
@@ -94,11 +123,13 @@ export default {
     // endregion ////
     // region danger ////
     {
+      // LIGHT_RED ////
       color: 'danger',
       depth: 'light',
       class: 'text-[var(--ui-bg)] bg-[var(--ui-bg-inverted)]'
     },
     {
+      // DANGER ////
       color: 'danger',
       depth: 'normal',
       class: 'ring ring-inset ring-[var(--ui-border-accented)] text-[var(--ui-text)] bg-[var(--ui-bg)]'
@@ -111,14 +142,19 @@ export default {
     // endregion ////
     // region success ////
     {
+      // LIGHT_GREEN ////
       color: 'success',
       depth: 'light',
       class: 'text-[var(--ui-bg)] bg-[var(--ui-bg-inverted)]'
     },
+    // SUCCESS ////
     {
       color: 'success',
       depth: 'normal',
-      class: 'ring ring-inset ring-[var(--ui-border-accented)] text-[var(--ui-text)] bg-[var(--ui-bg)]'
+      class: [
+        'text-green-800 bg-green-300 ring ring-inset ring-green-300',
+        'dark:text-green-250 dark:bg-green-600 dark:ring-green-600'
+      ].join(' ')
     },
     {
       color: 'success',
@@ -128,16 +164,22 @@ export default {
     // endregion ////
     // region warning ////
     {
+      // LIGHT_ORANGE ////
       color: 'warning',
       depth: 'light',
       class: 'text-[var(--ui-bg)] bg-[var(--ui-bg-inverted)]'
     },
+    // WARNING ////
     {
       color: 'warning',
       depth: 'normal',
-      class: 'ring ring-inset ring-[var(--ui-border-accented)] text-[var(--ui-text)] bg-[var(--ui-bg)]'
+      class: [
+        'text-white bg-orange-500 ring ring-inset ring-orange-500',
+        'dark:text-orange-250 dark:bg-orange-600 dark:ring-orange-600'
+      ].join(' ')
     },
     {
+      // ORANGE ////
       color: 'warning',
       depth: 'dark',
       class: 'text-[var(--ui-text)] bg-[var(--ui-bg-elevated)]'
@@ -145,11 +187,13 @@ export default {
     // endregion ////
     // region primary ////
     {
+      // LIGHT_BLUE ////
       color: 'primary',
       depth: 'light',
       class: 'text-[var(--ui-bg)] bg-[var(--ui-bg-inverted)]'
     },
     {
+      // PRIMARY ////
       color: 'primary',
       depth: 'normal',
       class: 'ring ring-inset ring-[var(--ui-border-accented)] text-[var(--ui-text)] bg-[var(--ui-bg)]'
@@ -162,11 +206,13 @@ export default {
     // endregion ////
     // region secondary ////
     {
+      // TAG_SECONDARY ////
       color: 'secondary',
       depth: 'light',
       class: 'text-[var(--ui-bg)] bg-[var(--ui-bg-inverted)]'
     },
     {
+      // SECONDARY ////
       color: 'secondary',
       depth: 'normal',
       class: 'ring ring-inset ring-[var(--ui-border-accented)] text-[var(--ui-text)] bg-[var(--ui-bg)]'
@@ -179,42 +225,48 @@ export default {
     // endregion ////
     // region ai ////
     {
+      // COPILOT_LIGHT ////
       color: 'ai',
       depth: 'light',
       class: 'text-[var(--ui-bg)] bg-[var(--ui-bg-inverted)]'
     },
     {
+      // LAVENDER ////
       color: 'ai',
       depth: 'normal',
       class: 'ring ring-inset ring-[var(--ui-border-accented)] text-[var(--ui-text)] bg-[var(--ui-bg)]'
     },
     {
+      // COPILOT_LIGHT_REVERSE ////
       color: 'ai',
       depth: 'dark',
       class: 'text-[var(--ui-text)] bg-[var(--ui-bg-elevated)]'
     },
     // endregion ////
-    // region DEMO @todo remove ////
-    ...([]).map((color: string) => ({
-      color,
-      depth: 'light',
-      class: `bg-[var(--ui-${color})] text-[var(--ui-bg)]`
-    })),
-    ...([]).map((color: string) => ({
-      color,
-      depth: 'normal',
-      class: `text-[var(--ui-${color})] ring ring-inset ring-[var(--ui-${color})]/50`
-    })),
-    ...([]).map((color: string) => ({
-      color,
-      depth: 'dark',
-      class: `bg-[var(--ui-${color})]/10 text-[var(--ui-${color})]`
-    }))
+    // region useLink & useFill ////
+    {
+      useLink: true,
+      useFill: false,
+      class: [
+        'hover:bg-base-100 dark:hover:bg-base-900'
+      ].join(' ')
+    },
+    {
+      useFill: false,
+      class: 'text-base-800 dark:text-base-250 bg-transparent dark:bg-transparent'
+    },
+    // endregion ////
+    // region useClose ////
+    {
+      useClose: true,
+      class: ''
+    }
     // endregion ////
   ],
   defaultVariants: {
     color: 'default',
     depth: 'normal',
-    size: 'md'
+    size: 'md',
+    useFill: false
   }
 }

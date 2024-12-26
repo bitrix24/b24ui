@@ -3,6 +3,7 @@ import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/badge'
+import type { LinkProps } from './Link.vue'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
 import { tv } from '../utils/tv'
 import type { AvatarProps } from '../types'
@@ -13,7 +14,7 @@ const badge = tv({ extend: tv(theme), ...(appConfig.b24ui?.badge || {}) })
 
 type BadgeVariants = VariantProps<typeof badge>
 
-export interface BadgeProps extends Omit<UseComponentIconsProps, 'loading' | 'loadingIcon'> {
+export interface BadgeProps extends Omit<UseComponentIconsProps, 'loading' | 'loadingIcon'>, Omit<LinkProps, 'raw' | 'custom'> {
   /**
    * The element or component this component should render as.
    * @defaultValue 'span'
@@ -23,6 +24,13 @@ export interface BadgeProps extends Omit<UseComponentIconsProps, 'loading' | 'lo
   color?: BadgeVariants['color']
   depth?: BadgeVariants['depth']
   size?: BadgeVariants['size']
+  /** Shows 'underline' on hover */
+  useLink?: boolean
+  /** Shows `Cross20Icon` icon on the right side */
+  useClose?: boolean
+  onCloseClick?: ((event: MouseEvent) => void | Promise<void>) | Array<((event: MouseEvent) => void | Promise<void>)>
+  /** Fills the background */
+  useFill?: boolean
   class?: any
   b24ui?: Partial<typeof badge.slots>
 }
@@ -36,25 +44,53 @@ export interface BadgeSlots {
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { Primitive } from 'reka-ui'
+import { Primitive, useForwardProps } from 'reka-ui'
+import { omit } from '../utils'
+import { pickLinkProps } from '../utils/link'
 import { useComponentIcons } from '../composables/useComponentIcons'
+import Cross20Icon from '@bitrix24/b24icons-vue/actions/Cross20Icon'
 
 const props = withDefaults(defineProps<BadgeProps>(), {
   as: 'span'
 })
 defineSlots<BadgeSlots>()
 
-const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props)
+const linkProps = useForwardProps(pickLinkProps(props))
+
+async function onCloseClickWrapper(event: MouseEvent) {
+  const callbacks = Array.isArray(props.onCloseClick) ? props.onCloseClick : [props.onCloseClick]
+  try {
+    await Promise.all(callbacks.map(fn => fn?.(event)))
+  } finally {}
+}
+
+const { isLeading, leadingIconName } = useComponentIcons(props)
+
+/**
+ * @toso get from props
+ */
+const useLink = computed(() => {
+  return !!props.to
+})
 
 const b24ui = computed(() => badge({
   color: props.color,
   depth: props.depth,
-  size: props.size
+  size: props.size,
+  useLink: Boolean(useLink.value),
+  useClose: Boolean(props.useClose),
+  useFill: Boolean(props.useFill),
+  leading: Boolean(isLeading.value)
 }))
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.base({ class: [props.class, props.b24ui?.base] })">
+  <B24Link
+    :as="as"
+    :class="b24ui.base({ class: [props.class, props.b24ui?.base] })"
+    v-bind="omit(linkProps, ['type', 'disabled'])"
+    raw
+  >
     <slot name="leading">
       <Component
         :is="leadingIconName"
@@ -76,11 +112,12 @@ const b24ui = computed(() => badge({
     </slot>
 
     <slot name="trailing">
-      <Component
-        :is="trailingIconName"
-        v-if="isTrailing && trailingIconName"
+      <Cross20Icon
+        v-if="useClose"
         :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
+        aria-hidden="true"
+        @click.stop.prevent="onCloseClickWrapper"
       />
     </slot>
-  </Primitive>
+  </B24Link>
 </template>
