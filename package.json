@@ -12,8 +12,8 @@
   "license": "MIT",
   "exports": {
     ".": {
-      "style": "./dist/runtime/index.css",
       "types": "./dist/module.d.ts",
+      "style": "./dist/runtime/index.css",
       "import": "./dist/module.mjs",
       "require": "./dist/module.cjs"
     },
@@ -122,7 +122,7 @@
     "tailwind-variants": "^0.3.0",
     "tailwindcss": "4.0.0-beta.8",
     "tinyglobby": "^0.2.10",
-    "unplugin": "^1.16.0",
+    "unplugin": "^2.1.0",
     "unplugin-auto-import": "^0.19.0",
     "unplugin-vue-components": "^0.28.0",
     "vaul-vue": "^0.2.0"
@@ -161,6 +161,7 @@
     "rollup": "^4.24.0",
     "unimport": "3.14.5",
     "typescript": "5.6.3",
-    "vue-tsc": "^2.2.0"
+    "vue-tsc": "^2.2.0",
+    "vite": "^6.0.6"
   }
 }
