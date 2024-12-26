@@ -13,6 +13,10 @@ export default {
   },
   variants: {
     size: {
+      '3xs': {
+        root: 'size-xs2 text-4xs font-regular',
+        icon: 'size-xs2'
+      },
       '2xs': {
         root: 'size-5 text-4xs font-regular',
         icon: 'size-5'

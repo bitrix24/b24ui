@@ -62,6 +62,7 @@ const b24ui = computed(() => avatar({
 }))
 
 const sizePx = computed(() => ({
+  '3xs': 10,
   '2xs': 14,
   'xs': 18,
   'sm': 22,
