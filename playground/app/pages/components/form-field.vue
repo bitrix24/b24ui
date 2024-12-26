@@ -24,7 +24,7 @@ const feedbacks = [
       <div class="mb-4 flex flex-wrap flex-col items-center gap-4">
         <div v-for="(feedback, count) in feedbacks" :key="count" class="flex items-center">
           <B24FormField v-bind="feedback" label="Email" name="email">
-            <B24Input placeholder="john@lennon.com" />
+            <B24Input name="email" aria-label="Email" type="email" placeholder="john@lennon.com" />
           </B24FormField>
         </div>
       </div>
@@ -34,13 +34,13 @@ const feedbacks = [
       <ExampleCardSubTitle title="Department name and description" />
       <div class="mb-4 flex flex-nowrap flex-col items-stretch justify gap-4">
         <B24FormField label="Parent department" name="department">
-          <B24Input placeholder="Select parent department" />
+          <B24Input name="parent_department" aria-label="Parent department" type="text" placeholder="Select parent department" />
         </B24FormField>
         <B24FormField label="Name" name="name" required error="Enter department name">
-          <B24Input placeholder="Enter department name" />
+          <B24Input name="department_name" aria-label="Department name" type="text" placeholder="Enter department name" />
         </B24FormField>
         <B24FormField label="Description" name="description">
-          <B24Textarea placeholder="Enter department description" :rows="5" />
+          <B24Textarea name="department_description" aria-label="Department description" placeholder="Enter department description" :rows="5" />
         </B24FormField>
       </div>
     </ExampleCard>
@@ -55,7 +55,7 @@ const feedbacks = [
           label="Email"
           name="email"
         >
-          <B24Input placeholder="john@lennon.com" />
+          <B24Input aria-label="Email" type="email" placeholder="john@lennon.com" />
         </B24FormField>
       </div>
 
@@ -73,7 +73,7 @@ const feedbacks = [
           name="email"
           required
         >
-          <B24Input placeholder="john@lennon.com" />
+          <B24Input aria-label="Email" type="email" placeholder="john@lennon.com" />
         </B24FormField>
       </div>
 
@@ -90,7 +90,7 @@ const feedbacks = [
           name="email"
           required
         >
-          <B24Input placeholder="john@lennon.com" />
+          <B24Input aria-label="Email" type="email" placeholder="john@lennon.com" />
         </B24FormField>
       </div>
     </ExampleCard>

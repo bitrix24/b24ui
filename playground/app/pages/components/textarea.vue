@@ -16,7 +16,7 @@ const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof the
     <ExampleCard title="base">
       <ExampleCardSubTitle title="autofocus" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Textarea autofocus />
+        <B24Textarea autofocus name="something" aria-label="Type something" />
       </div>
 
       <ExampleCardSubTitle title="underline" />
@@ -24,8 +24,9 @@ const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof the
         <B24Textarea
           color="success"
           underline
-          placeholder="Type something..."
-
+          name="something"
+          placeholder="Type something&hellip;"
+          aria-label="Type something"
         />
       </div>
 
@@ -33,8 +34,9 @@ const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof the
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24Textarea
           no-border
-          placeholder="Type something..."
-
+          name="something"
+          placeholder="Type something&hellip;"
+          aria-label="Type something"
         />
       </div>
 
@@ -42,8 +44,9 @@ const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof the
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24Textarea
           no-padding
-          placeholder="Type something..."
-
+          name="something"
+          placeholder="Type something&hellip;"
+          aria-label="Type something"
         />
       </div>
 
@@ -52,16 +55,17 @@ const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof the
         <B24Textarea
           color="danger"
           highlight
-          placeholder="Type something..."
-
+          name="something"
+          placeholder="Type something&hellip;"
+          aria-label="Type something"
         />
       </div>
 
       <ExampleCardSubTitle title="some more" />
       <div class="mb-4 flex flex-col gap-4 w-full">
-        <B24Textarea placeholder="Disabled" disabled />
-        <B24Textarea placeholder="Required" required />
-        <B24Textarea placeholder="Rounded" rounded />
+        <B24Textarea name="disabled" placeholder="Disabled" aria-label="Disabled" disabled />
+        <B24Textarea name="required" placeholder="Required" aria-label="Required" required />
+        <B24Textarea name="rounded" placeholder="Rounded" aria-label="Rounded" rounded />
       </div>
     </ExampleCard>
 
@@ -70,10 +74,11 @@ const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof the
         <ExampleCardSubTitle :title="color as string" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
           <B24Textarea
-            placeholder="Type something..."
+            name="something"
+            placeholder="Type something&hellip;"
+            aria-label="Type something"
             :color="color"
             highlight
-
           />
         </div>
       </template>
@@ -83,7 +88,7 @@ const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof the
       <template v-for="tagColor in tagColors" :key="tagColor">
         <ExampleCardSubTitle :title="tagColor as string" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-          <B24Textarea :tag-color="tagColor" tag="some text" placeholder="Type something...." />
+          <B24Textarea :tag-color="tagColor" tag="some text" name="something" placeholder="Type something&hellip;" aria-label="Type something" />
         </div>
       </template>
     </ExampleCard>
@@ -92,7 +97,7 @@ const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof the
       <template v-for="row in rows" :key="row">
         <ExampleCardSubTitle :title="String(row)" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-          <B24Textarea placeholder="Type something...." class="w-3/4" autoresize :maxrows="5" :rows="row" />
+          <B24Textarea name="something" placeholder="Type something&hellip;" aria-label="Type something" class="w-3/4" autoresize :maxrows="5" :rows="row" />
         </div>
       </template>
     </ExampleCard>

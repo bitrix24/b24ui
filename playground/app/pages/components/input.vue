@@ -24,7 +24,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
     <ExampleCard title="base">
       <ExampleCardSubTitle title="autofocus" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Input autofocus placeholder="Search..." class="w-3/4" />
+        <B24Input autofocus name="some_value" placeholder="Insert value&hellip;" aria-label="Insert value" class="w-3/4" />
       </div>
 
       <ExampleCardSubTitle title="underline" />
@@ -32,42 +32,79 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
         <B24Input
           color="success"
           underline
-          placeholder="Search..."
+          name="some_value"
+          placeholder="Insert value&hellip;"
+          aria-label="Insert value"
+          type="search"
           class="w-3/4"
         />
       </div>
 
       <ExampleCardSubTitle title="no border" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Input no-border placeholder="Search..." class="w-3/4" />
+        <B24Input no-border name="some_value" placeholder="Insert value&hellip;" aria-label="Insert value" class="w-3/4" />
       </div>
 
       <ExampleCardSubTitle title="no padding" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Input no-padding placeholder="Search..." class="w-3/4" />
+        <B24Input no-padding name="some_value" placeholder="Insert value&hellip;" aria-label="Insert value" class="w-3/4" />
       </div>
 
       <ExampleCardSubTitle title="some error" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Input placeholder="Insert value ..." highlight color="danger" class="w-3/4" />
+        <B24Input
+          name="some_value"
+          placeholder="Insert value&hellip;"
+          aria-label="Insert value"
+          highlight
+          color="danger"
+          class="w-3/4"
+        />
       </div>
+
       <ExampleCardSubTitle title="some more" />
       <div class="mb-4 flex flex-col gap-4 w-3/4">
-        <B24Input placeholder="Disabled" disabled />
-        <B24Input placeholder="Required" required />
-        <B24Input placeholder="Rounded" rounded :icon="ALetterIcon" :trailing-icon="TaskIcon" />
+        <B24Input name="disabled" placeholder="Disabled" aria-label="Disabled" disabled />
+        <B24Input name="required" placeholder="Required" aria-label="Required" required />
+        <B24Input
+          name="rounded"
+          placeholder="Rounded"
+          aria-label="Rounded"
+          rounded
+          :icon="ALetterIcon"
+          :trailing-icon="TaskIcon"
+        />
       </div>
-      <ExampleCardSubTitle title="type" />
+    </ExampleCard>
+
+    <ExampleCard title="type">
+      <ExampleCardSubTitle title="text" />
       <div class="mb-4 flex flex-col gap-4 w-3/4">
-        <B24Input type="text" :icon="ALetterIcon" />
-        <B24Input type="number" :icon="CalculatorIcon" :model-value="10" />
-        <B24Input type="password" :icon="CrossedEye2Icon" model-value="password" />
-        <B24Input type="search" :icon="Search2Icon" />
-        <B24Input type="file" :icon="FolderEmptyIcon" size="xs" />
-        <B24Input type="file" :icon="FolderEmptyIcon" size="sm" />
-        <B24Input type="file" :icon="FolderEmptyIcon" />
-        <B24Input type="file" :icon="FolderEmptyIcon" size="lg" />
-        <!-- / @memo types are supported but not used
+        <B24Input type="text" name="text" aria-label="Some text" :icon="ALetterIcon" />
+      </div>
+      <ExampleCardSubTitle title="number" />
+      <div class="mb-4 flex flex-col gap-4 w-3/4">
+        <B24Input type="number" name="number" aria-label="Some number" :icon="CalculatorIcon" :model-value="10" />
+      </div>
+      <ExampleCardSubTitle title="password" />
+      <div class="mb-4 flex flex-col gap-4 w-3/4">
+        <B24Input type="password" name="password" aria-label="Some password" :icon="CrossedEye2Icon" model-value="password" />
+      </div>
+      <ExampleCardSubTitle title="search" />
+      <div class="mb-4 flex flex-col gap-4 w-3/4">
+        <B24Input type="search" name="search" aria-label="Search" :icon="Search2Icon" />
+      </div>
+      <ExampleCardSubTitle title="file" />
+      <div class="mb-4 flex flex-col gap-4 w-3/4">
+        <B24Input type="file" name="file" aria-label="Some file" :icon="FolderEmptyIcon" size="xs" />
+        <B24Input type="file" name="file" aria-label="Some file" :icon="FolderEmptyIcon" size="sm" />
+        <B24Input type="file" name="file" aria-label="Some file" :icon="FolderEmptyIcon" />
+        <B24Input type="file" name="file" aria-label="Some file" :icon="FolderEmptyIcon" size="lg" />
+      </div>
+      <!-- / @memo types are supported but not used
+      <ExampleCardSubTitle title="make this" />
+      <div class="mb-4 flex flex-col gap-4 w-3/4">
+
         <B24Input type="date" :model-value="new Date().toISOString().substring(0, 10)" />
         <B24Input type="checkbox" />
         <B24Input type="radio" />
@@ -78,16 +115,39 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
         <B24Input type="color" />
         <B24Input type="submit" />
         <B24Input type="reset" />
-        / -->
       </div>
+      / -->
     </ExampleCard>
+
     <ExampleCard title="loading">
       <ExampleCardSubTitle title="loading" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Input loading placeholder="Search..." class="w-3/4" />
-        <B24Input loading trailing placeholder="Search..." class="w-3/4" />
-        <B24Input loading :icon="RocketIcon" :trailing-icon="TaskIcon" placeholder="Search..." class="w-3/4" />
-        <B24Input loading :avatar="{ src: '/avatar/employee.png' }" placeholder="Search..." class="w-3/4" />
+        <B24Input loading name="some_value" placeholder="Insert value&hellip;" aria-label="Insert value" class="w-3/4" />
+        <B24Input
+          loading
+          trailing
+          name="some_value"
+          placeholder="Insert value&hellip;"
+          aria-label="Insert value"
+          class="w-3/4"
+        />
+        <B24Input
+          loading
+          :icon="RocketIcon"
+          :trailing-icon="TaskIcon"
+          name="some_value"
+          placeholder="Insert value&hellip;"
+          aria-label="Insert value"
+          class="w-3/4"
+        />
+        <B24Input
+          loading
+          :avatar="{ src: '/avatar/employee.png' }"
+          name="some_value"
+          placeholder="Insert value&hellip;"
+          aria-label="Insert value"
+          class="w-3/4"
+        />
       </div>
     </ExampleCard>
 
@@ -96,7 +156,9 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
         <ExampleCardSubTitle :title="color as string" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
           <B24Input
-            placeholder="Search..."
+            name="some_value"
+            placeholder="Insert value&hellip;"
+            aria-label="Insert value"
             :color="color"
             highlight
             class="w-3/4"
@@ -109,7 +171,14 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
       <template v-for="tagColor in tagColors" :key="tagColor">
         <ExampleCardSubTitle :title="tagColor as string" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-          <B24Input :tag-color="tagColor" tag="some text" placeholder="Search..." class="w-3/4" />
+          <B24Input
+            :tag-color="tagColor"
+            tag="some text"
+            name="some_value"
+            placeholder="Insert value&hellip;"
+            aria-label="Insert value"
+            class="w-3/4"
+          />
         </div>
       </template>
     </ExampleCard>
@@ -118,12 +187,50 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
       <template v-for="size in sizes" :key="size">
         <ExampleCardSubTitle :title="size as string" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-          <B24Input placeholder="Search..." :size="size" class="w-40" />
-          <B24Input :icon="Search2Icon" placeholder="Search..." :size="size" class="w-40" />
-          <B24Input :icon="Cross20Icon" trailing placeholder="Search..." :size="size" class="w-40" />
-          <B24Input :icon="Search2Icon" :trailing-icon="Cross20Icon" placeholder="Search..." :size="size" class="w-40" />
-          <B24Input :avatar="{ src: '/avatar/employee.png' }" placeholder="Search..." :size="size" class="w-40" />
-          <B24Input :avatar="{ src: '/avatar/assistant.png' }" :trailing-icon="Cross20Icon" placeholder="Search..." :size="size" class="w-40" />
+          <B24Input name="some_value" placeholder="Insert value&hellip;" aria-label="Insert value" :size="size" class="w-40" />
+          <B24Input
+            :icon="Search2Icon"
+            name="some_value"
+            placeholder="Insert value&hellip;"
+            aria-label="Insert value"
+            :size="size"
+            class="w-40"
+          />
+          <B24Input
+            :icon="Cross20Icon"
+            trailing
+            name="some_value"
+            placeholder="Insert value&hellip;"
+            aria-label="Insert value"
+            :size="size"
+            class="w-40"
+          />
+          <B24Input
+            :icon="Search2Icon"
+            :trailing-icon="Cross20Icon"
+            name="some_value"
+            placeholder="Insert value&hellip;"
+            aria-label="Insert value"
+            :size="size"
+            class="w-40"
+          />
+          <B24Input
+            :avatar="{ src: '/avatar/employee.png' }"
+            name="some_value"
+            placeholder="Insert value&hellip;"
+            aria-label="Insert value"
+            :size="size"
+            class="w-40"
+          />
+          <B24Input
+            :avatar="{ src: '/avatar/assistant.png' }"
+            :trailing-icon="Cross20Icon"
+            name="some_value"
+            placeholder="Insert value&hellip;"
+            aria-label="Insert value"
+            :size="size"
+            class="w-40"
+          />
         </div>
       </template>
     </ExampleCard>

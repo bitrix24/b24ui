@@ -47,6 +47,7 @@ defineShortcuts({
               </div>
             </template>
             <B24Switch
+              name="switch"
               label="Required"
               :default-value="true"
               :unchecked-icon="Cross30Icon"
@@ -64,7 +65,7 @@ defineShortcuts({
           text="When the performer completes the task, it will come to you for review. You can accept the work (and then the task will be closed) or return the task for revision."
         >
           <div class="flex flex-row flex-nowrap items-center justify-start gap-1.5">
-            <B24Checkbox label="Default value" :default-value="true" />
+            <B24Checkbox name="checkbox" label="Default value" :default-value="true" />
             <div class="cursor-help ring ring-transparent text-base-500 dark:text-base-800">
               <HelpIcon class="size-5" />
             </div>

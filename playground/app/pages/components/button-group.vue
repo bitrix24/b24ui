@@ -35,9 +35,10 @@ function onClick() {
         </B24ButtonGroup>
 
         <B24ButtonGroup>
-          <B24Input placeholder="Search..." />
+          <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
         </B24ButtonGroup>
       </div>
+
       <template v-for="color in colors" :key="color">
         <ExampleCardSubTitle :title="color" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
@@ -174,11 +175,11 @@ function onClick() {
           >
             Button
           </B24Button>
-          <B24Input placeholder="Search..." />
+          <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
         </B24ButtonGroup>
 
         <B24ButtonGroup no-split>
-          <B24Input placeholder="Search..." />
+          <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
           <B24Button
             color="link"
             depth="dark"
@@ -200,7 +201,7 @@ function onClick() {
           >
             Button
           </B24Button>
-          <B24Input placeholder="Search..." />
+          <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
         </B24ButtonGroup>
       </div>
 
@@ -208,7 +209,7 @@ function onClick() {
         <ExampleCardSubTitle :title="size as string" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
           <B24ButtonGroup :size="size" no-split>
-            <B24Input placeholder="Search..." />
+            <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
             <B24Button
               color="link"
               depth="dark"
@@ -221,7 +222,7 @@ function onClick() {
           </B24ButtonGroup>
 
           <B24ButtonGroup :size="size" no-split>
-            <B24Input placeholder="Search..." />
+            <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
             <B24Button
               color="primary"
               depth="dark"

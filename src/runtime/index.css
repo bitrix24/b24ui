@@ -36,10 +36,11 @@ use Violet
   --color-gray-900: #525c69;
   --color-gray-950: #3b506e;
   --color-black: #333333;
-  --color-dark: #0F0F0F;
-  --color-solid: #000000;
+  --color-gray-dark: #0F0F0F;
+  /** @memo not use --color-solid -> this reset border-solid */
+  --color-gray-solid: #000000;
 
-  --color-base-dark: var(--color-dark);
+  --color-base-dark: var(--color-gray-dark);
 
   --color-slate-50: #f0f6ff;
   --color-slate-100: #dce3ef;
