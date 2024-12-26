@@ -31,6 +31,7 @@ const checked = ref(true)
         </div>
       </div>
     </ExampleCard>
+
     <ExampleCard title="statuses">
       <ExampleCardSubTitle title="variants" />
       <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
@@ -44,6 +45,7 @@ const checked = ref(true)
         </div>
       </div>
     </ExampleCard>
+
     <ExampleCard title="size" class="sm:col-span-2 md:col-span-4">
       <ExampleCardSubTitle title="simple" />
       <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
