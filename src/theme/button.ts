@@ -326,11 +326,11 @@ export default {
       color: 'secondary',
       depth: 'dark',
       class: [
-        'text-base-900 bg-accent-aqua border-accent-turquoise',
-        'hover:bg-accent-aqua/75',
-        'active:bg-accent-aqua/85',
-        'disabled:bg-accent-aqua aria-disabled:bg-accent-aqua',
-        'focus-visible:outline-accent-aqua'
+        'text-base-900 bg-secondary-350 border-secondary-500',
+        'hover:bg-secondary-350/75',
+        'active:bg-secondary-350/85',
+        'disabled:bg-secondary-350 aria-disabled:bg-secondary-350',
+        'focus-visible:outline-secondary-350'
       ].join(' ')
     },
     // endregion ////

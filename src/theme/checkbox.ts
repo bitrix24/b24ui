@@ -20,7 +20,7 @@ export default {
       success: 'focus-visible:outline-green-500 dark:focus-visible:outline-green-600',
       warning: 'focus-visible:outline-orange-500 dark:focus-visible:outline-orange-600',
       primary: 'focus-visible:outline-blue-500 dark:focus-visible:outline-blue-600',
-      secondary: 'focus-visible:outline-accent-aqua dark:focus-visible:outline-accent-turquoise',
+      secondary: 'focus-visible:outline-secondary-350 dark:focus-visible:outline-secondary-500',
       collab: 'focus-visible:outline-collab-500 dark:focus-visible:outline-collab-600',
       ai: 'focus-visible:outline-ai-500 dark:focus-visible:outline-ai-600'
     },
@@ -95,7 +95,7 @@ export default {
     {
       color: 'secondary',
       checked: true,
-      class: 'ring-2 ring-accent-aqua bg-accent-aqua dark:ring-accent-turquoise dark:bg-accent-turquoise'
+      class: 'ring-2 ring-secondary-350 bg-secondary-350 dark:ring-secondary-500 dark:bg-secondary-500'
     },
     {
       color: 'collab',

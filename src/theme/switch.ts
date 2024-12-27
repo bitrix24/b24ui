@@ -43,8 +43,8 @@ export default {
         icon: 'group-data-[state=checked]:text-blue-500 dark:group-data-[state=checked]:text-blue-600'
       },
       secondary: {
-        base: 'data-[state=checked]:bg-accent-aqua focus-visible:outline-accent-aqua dark:data-[state=checked]:bg-accent-turquoise dark:focus-visible:outline-accent-turquoise',
-        icon: 'group-data-[state=checked]:text-accent-aqua dark:group-data-[state=checked]:text-accent-turquoise'
+        base: 'data-[state=checked]:bg-secondary-350 focus-visible:outline-secondary-350 dark:data-[state=checked]:bg-secondary-500 dark:focus-visible:outline-secondary-500',
+        icon: 'group-data-[state=checked]:text-secondary-350 dark:group-data-[state=checked]:text-secondary-500'
       },
       collab: {
         base: 'data-[state=checked]:bg-collab-500 focus-visible:outline-collab-500 dark:data-[state=checked]:bg-collab-600 dark:focus-visible:outline-collab-600',
