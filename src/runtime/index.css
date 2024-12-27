@@ -167,14 +167,14 @@ use Violet
   --color-collab-100: #f2fee2;
   --color-collab-150: #eeffda;
   --color-collab-200: #e9ffcf;
+  --color-collab-250: #dbfcbe;
   --color-collab-300: #d4fdb0;
   --color-collab-380: #87eda0; /* << tag-4 */
   --color-collab-400: #8cef73;
   --color-collab-500: #6be860; /* << collabe-btn-hover v2 */
   --color-collab-600: #19cc45; /* << collabe-btn */
   --color-collab-650: #29ad49; /* << accent-green */
-  --color-collab-680: #00a94e; /* << collabe-btn-hover */
-  --color-collab-700: #00a94e;
+  --color-collab-700: #00a94e; /* << collabe-btn-hover */
   --color-collab-800: #1e8d36;
   --color-collab-900: #065217;
   --color-collab-950: #052e16;
@@ -234,6 +234,7 @@ use Violet
   --color-ai-100: #e3ddf7;
   --color-ai-150: #e7d8fa; /* << Lable-lavander */
   --color-ai-200: #d1c5ef;
+  --color-ai-250: #cdbfe8;
   --color-ai-300: #c0ade6;
   --color-ai-330: #b095dc; /* << copilot-secondary */
   --color-ai-350: #a77bde; /* << accent-purple */
