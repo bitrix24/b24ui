@@ -3,7 +3,6 @@ import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/badge'
-import type { LinkProps } from './Link.vue'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
 import { tv } from '../utils/tv'
 import type { AvatarProps } from '../types'
@@ -14,7 +13,7 @@ const badge = tv({ extend: tv(theme), ...(appConfig.b24ui?.badge || {}) })
 
 type BadgeVariants = VariantProps<typeof badge>
 
-export interface BadgeProps extends Omit<UseComponentIconsProps, 'loading' | 'loadingIcon'>, Omit<LinkProps, 'raw' | 'custom'> {
+export interface BadgeProps extends Omit<UseComponentIconsProps, 'loading' | 'loadingIcon'> {
   /**
    * The element or component this component should render as.
    * @defaultValue 'span'
@@ -44,9 +43,7 @@ export interface BadgeSlots {
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { Primitive, useForwardProps } from 'reka-ui'
-import { omit } from '../utils'
-import { pickLinkProps } from '../utils/link'
+import { Primitive } from 'reka-ui'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import Cross20Icon from '@bitrix24/b24icons-vue/actions/Cross20Icon'
 
@@ -55,29 +52,20 @@ const props = withDefaults(defineProps<BadgeProps>(), {
 })
 defineSlots<BadgeSlots>()
 
-const linkProps = useForwardProps(pickLinkProps(props))
-
 async function onCloseClickWrapper(event: MouseEvent) {
   const callbacks = Array.isArray(props.onCloseClick) ? props.onCloseClick : [props.onCloseClick]
   try {
     await Promise.all(callbacks.map(fn => fn?.(event)))
-  } finally {}
+  } finally { /* empty */ }
 }
 
 const { isLeading, leadingIconName } = useComponentIcons(props)
-
-/**
- * @toso get from props
- */
-const useLink = computed(() => {
-  return !!props.to
-})
 
 const b24ui = computed(() => badge({
   color: props.color,
   depth: props.depth,
   size: props.size,
-  useLink: Boolean(useLink.value),
+  useLink: Boolean(props.useLink),
   useClose: Boolean(props.useClose),
   useFill: Boolean(props.useFill),
   leading: Boolean(isLeading.value)
@@ -85,32 +73,34 @@ const b24ui = computed(() => badge({
 </script>
 
 <template>
-  <B24Link
+  <Primitive
     :as="as"
     :class="b24ui.base({ class: [props.class, props.b24ui?.base] })"
-    v-bind="omit(linkProps, ['type', 'disabled'])"
-    raw
   >
-    <slot name="leading">
-      <Component
-        :is="leadingIconName"
-        v-if="isLeading && leadingIconName"
-        :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
-      />
-      <B24Avatar
-        v-else-if="!!avatar"
-        :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
-        v-bind="avatar"
-        :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
-      />
-    </slot>
+    <Primitive
+      :as="as"
+      :class="b24ui.wrapper({ class: props.b24ui?.wrapper })"
+    >
+      <slot name="leading">
+        <Component
+          :is="leadingIconName"
+          v-if="isLeading && leadingIconName"
+          :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
+        />
+        <B24Avatar
+          v-else-if="!!avatar"
+          :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+          v-bind="avatar"
+          :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
+        />
+      </slot>
 
-    <slot>
-      <span v-if="label" :class="b24ui.label({ class: props.b24ui?.label })">
-        {{ label }}
-      </span>
-    </slot>
-
+      <slot>
+        <span v-if="label" :class="b24ui.label({ class: props.b24ui?.label })">
+          {{ label }}
+        </span>
+      </slot>
+    </Primitive>
     <slot name="trailing">
       <Cross20Icon
         v-if="useClose"
@@ -119,5 +109,5 @@ const b24ui = computed(() => badge({
         @click.stop.prevent="onCloseClickWrapper"
       />
     </slot>
-  </B24Link>
+  </Primitive>
 </template>

@@ -12,14 +12,17 @@ const depths = Object.keys(theme.variants.depth) as Array<keyof typeof theme.var
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
 
 function onCloseClick(event: MouseEvent) {
-  const parentNode = event.target.parentElement
- if(!!parentNode)
- {
-   parentNode.classList.add('invisible')
-   setTimeout(() => {
-     parentNode.classList.remove('invisible')
-   }, 3000)
- }
+  const { target } = event
+  if (target) {
+    const parentNode = (target as HTMLElement).closest('span')
+    if (parentNode) {
+      parentNode.classList.add('invisible')
+
+      setTimeout(() => {
+        parentNode.classList.remove('invisible')
+      }, 3000)
+    }
+  }
 }
 </script>
 
@@ -75,7 +78,8 @@ function onCloseClick(event: MouseEvent) {
               :label="`${size} ${depth}`"
               :depth="depth"
               :icon="InfoIcon"
-              to="/"
+              use-close
+              use-link
             />
           </div>
         </template>
@@ -97,8 +101,8 @@ function onCloseClick(event: MouseEvent) {
               :icon="InfoIcon"
               use-fill
               use-close
-              :onCloseClick="onCloseClick"
-              to="/"
+              :on-close-click="onCloseClick"
+              use-link
             />
           </div>
         </template>
@@ -118,7 +122,8 @@ function onCloseClick(event: MouseEvent) {
               :label="`${size} ${depth}`"
               :depth="depth"
               :avatar="{ src: '/avatar/employee.png' }"
-              to="/"
+              use-close
+              use-link
             />
           </div>
         </template>
@@ -140,8 +145,8 @@ function onCloseClick(event: MouseEvent) {
               :avatar="{ src: '/avatar/employee.png' }"
               use-fill
               use-close
-              :onCloseClick="onCloseClick"
-              to="/"
+              :on-close-click="onCloseClick"
+              use-link
             />
           </div>
         </template>

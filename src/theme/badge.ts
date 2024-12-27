@@ -16,24 +16,28 @@
 export default {
   slots: {
     base: [
-      'select-none font-b24-primary font-normal leading-none inline-flex items-center transition-all duration-200 ease-linear',
-      'px-2 text-xs leading-none  rounded-md'
+      'select-none font-b24-primary font-normal',
+      'inline-flex items-center',
+      'transition-all duration-200 ease-linear',
+      'px-2 leading-normal rounded-md'
     ],
+    wrapper: 'inline-flex items-center',
     label: 'max-w-full whitespace-nowrap text-ellipsis', // truncate ////
     leadingIcon: 'shrink-0',
     leadingAvatar: 'shrink-0',
     leadingAvatarSize: '',
-    trailingIcon: 'shrink-0 cursor-pointer'
+    trailingIcon: 'shrink-0 cursor-pointer  hover:rounded-full hover:bg-current/20 dark:hover:bg-current/35'
   },
   variants: {
     useLink: {
       true: {
-        base: 'cursor-pointer group',
-        label: 'group-hover:border-b group-hover:border-dashed group-hover:border-t group-hover:border-t-transparent'
+        base: 'cursor-pointer',
+        wrapper: 'group',
+        label: 'group-hover:underline group-hover:decoration-dashed'
       }
     },
     useClose: {
-      true: 'pe-0.5'
+      true: 'pe-2xs'
     },
     useFill: {
       true: '',
@@ -44,13 +48,13 @@ export default {
     },
     color: {
       default: 'font-semibold',
-      //danger: '',
-      success: '',
+      danger: 'font-semibold',
+      success: 'font-semibold',
       warning: 'font-semibold',
-      //primary: '',
-     // secondary: '',
-     // collab: '',
-     // ai: ''
+      primary: 'font-semibold',
+      secondary: 'font-semibold',
+      collab: 'font-semibold',
+      ai: 'font-semibold'
     },
     depth: {
       //light: '',
@@ -59,33 +63,39 @@ export default {
     },
     size: {
       xs: {
-        base: 'h-[15px] text-3xs leading-none gap-0.5', // 15px
+        base: 'text-5xs gap-0.5',
+        wrapper: 'h-[14px] gap-0.5',
         label: 'underline-offset-1',
         leadingIcon: 'size-sm',
         leadingAvatarSize: '3xs',
         trailingIcon: 'size-sm '
       },
       sm: {
-        base: 'h-[17px] gap-1', // 17px
+        base: 'gap-1 text-4xs',
+        wrapper: 'h-[16px] gap-1',
         label: 'underline-offset-1',
         leadingIcon: 'size-sm2',
         leadingAvatarSize: '3xs',
         trailingIcon: 'size-sm2'
       },
       md: {
-        base: 'h-[19px] gap-1', // 19px
-        leadingIcon: 'size-[18px]',
+        base: 'gap-1 text-3xs',
+        wrapper: 'h-[18px] gap-1',
+        label: 'underline-offset-1',
+        leadingIcon: 'size-[17px]',
         leadingAvatarSize: '3xs',
-        trailingIcon: 'size-[18px]'
+        trailingIcon: 'size-[17px]'
       },
       lg: {
-        base: 'h-[25px] gap-1 rounded-lg',
+        base: 'text-xs gap-1 rounded-lg',
+        wrapper: 'h-[24px] gap-1',
         leadingIcon: 'size-[22px]',
         leadingAvatarSize: '2xs',
         trailingIcon: 'size-[22px]'
       },
       xl: {
-        base: 'h-[31px] text-md leading-none gap-1 rounded-xl',
+        base: 'text-md gap-1 rounded-xl',
+        wrapper: 'h-[31px] gap-1',
         leadingIcon: 'size-[26px]',
         leadingAvatarSize: 'xs',
         trailingIcon: 'size-[26px]'
@@ -129,11 +139,14 @@ export default {
       depth: 'light',
       class: 'text-[var(--ui-bg)] bg-[var(--ui-bg-inverted)]'
     },
+    // DANGER ////
     {
-      // DANGER ////
       color: 'danger',
       depth: 'normal',
-      class: 'ring ring-inset ring-[var(--ui-border-accented)] text-[var(--ui-text)] bg-[var(--ui-bg)]'
+      class: [
+        'text-red-800 bg-red-250 ring ring-inset ring-red-250',
+        'dark:text-red-800 dark:bg-red-350 dark:ring-red-350'
+      ].join(' ')
     },
     {
       color: 'danger',
@@ -154,7 +167,7 @@ export default {
       depth: 'normal',
       class: [
         'text-green-800 bg-green-300 ring ring-inset ring-green-300',
-        'dark:text-green-250 dark:bg-green-600 dark:ring-green-600'
+        'dark:text-green-800 dark:bg-green-330 dark:ring-green-330'
       ].join(' ')
     },
     {
@@ -193,11 +206,14 @@ export default {
       depth: 'light',
       class: 'text-[var(--ui-bg)] bg-[var(--ui-bg-inverted)]'
     },
+    // PRIMARY ////
     {
-      // PRIMARY ////
       color: 'primary',
       depth: 'normal',
-      class: 'ring ring-inset ring-[var(--ui-border-accented)] text-[var(--ui-text)] bg-[var(--ui-bg)]'
+      class: [
+        'text-blue-700 bg-blue-250 ring ring-inset ring-blue-250',
+        'dark:text-blue-700 dark:bg-blue-300 dark:ring-blue-300'
+      ].join(' ')
     },
     {
       color: 'primary',
@@ -212,14 +228,39 @@ export default {
       depth: 'light',
       class: 'text-[var(--ui-bg)] bg-[var(--ui-bg-inverted)]'
     },
+    // SECONDARY ////
     {
-      // SECONDARY ////
       color: 'secondary',
       depth: 'normal',
-      class: 'ring ring-inset ring-[var(--ui-border-accented)] text-[var(--ui-text)] bg-[var(--ui-bg)]'
+      class: [
+        'text-white bg-secondary-350 ring ring-inset ring-secondary-350',
+        'dark:text-base-150 dark:bg-secondary-400 dark:ring-secondary-400'
+      ].join(' ')
     },
     {
       color: 'secondary',
+      depth: 'dark',
+      class: 'text-[var(--ui-text)] bg-[var(--ui-bg-elevated)]'
+    },
+    // endregion ////
+    // region collab ////
+    {
+      color: 'collab',
+      depth: 'light',
+      class: 'text-[var(--ui-bg)] bg-[var(--ui-bg-inverted)]'
+    },
+    // collab ////
+    {
+      color: 'collab',
+      depth: 'normal',
+      class: [
+        'text-collab-800 bg-collab-300 ring ring-inset ring-collab-300',
+        'dark:text-collab-800 dark:bg-collab-300 dark:ring-collab-300'
+      ].join(' ')
+    },
+    {
+      // collab_dark ////
+      color: 'collab',
       depth: 'dark',
       class: 'text-[var(--ui-text)] bg-[var(--ui-bg-elevated)]'
     },
@@ -231,11 +272,14 @@ export default {
       depth: 'light',
       class: 'text-[var(--ui-bg)] bg-[var(--ui-bg-inverted)]'
     },
+    // LAVENDER ////
     {
-      // LAVENDER ////
       color: 'ai',
       depth: 'normal',
-      class: 'ring ring-inset ring-[var(--ui-border-accented)] text-[var(--ui-text)] bg-[var(--ui-bg)]'
+      class: [
+        'text-ai-500 bg-ai-150 ring ring-inset ring-ai-150',
+        'dark:text-ai-600 dark:bg-ai-200 dark:ring-ai-200'
+      ].join(' ')
     },
     {
       // COPILOT_LIGHT_REVERSE ////
@@ -249,7 +293,7 @@ export default {
       useLink: true,
       useFill: false,
       class: [
-        'hover:bg-base-100 dark:hover:bg-base-900'
+        // 'hover:bg-base-100 dark:hover:bg-base-900'
       ].join(' ')
     },
     {
