@@ -40,6 +40,10 @@ export default {
         range: 'bg-accent-aqua dark:bg-accent-turquoise',
         thumb: 'ring-accent-aqua dark:ring-accent-turquoise focus-visible:outline-accent-aqua/50 dark:focus-visible:outline-accent-turquoise/50'
       },
+      collab: {
+        range: 'bg-collab-500 dark:bg-collab-600',
+        thumb: 'ring-collab-500 dark:ring-collab-600 focus-visible:outline-collab-500/50 dark:focus-visible:outline-collab-600/50'
+      },
       ai: {
         range: 'bg-ai-500 dark:bg-ai-600',
         thumb: 'ring-ai-500 dark:ring-ai-600 focus-visible:outline-ai-500/50 dark:focus-visible:outline-ai-600/50'

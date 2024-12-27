@@ -46,6 +46,10 @@ export default {
         base: 'data-[state=checked]:bg-accent-aqua focus-visible:outline-accent-aqua dark:data-[state=checked]:bg-accent-turquoise dark:focus-visible:outline-accent-turquoise',
         icon: 'group-data-[state=checked]:text-accent-aqua dark:group-data-[state=checked]:text-accent-turquoise'
       },
+      collab: {
+        base: 'data-[state=checked]:bg-collab-500 focus-visible:outline-collab-500 dark:data-[state=checked]:bg-collab-600 dark:focus-visible:outline-collab-600',
+        icon: 'group-data-[state=checked]:text-collab-500 dark:group-data-[state=checked]:text-collab-600'
+      },
       ai: {
         base: 'data-[state=checked]:bg-ai-500 focus-visible:outline-ai-500 dark:data-[state=checked]:bg-ai-600 dark:focus-visible:outline-ai-600',
         icon: 'group-data-[state=checked]:text-ai-500 dark:group-data-[state=checked]:text-ai-600'

@@ -21,6 +21,7 @@ export default {
       warning: 'focus-visible:outline-orange-500 dark:focus-visible:outline-orange-600',
       primary: 'focus-visible:outline-blue-500 dark:focus-visible:outline-blue-600',
       secondary: 'focus-visible:outline-accent-aqua dark:focus-visible:outline-accent-turquoise',
+      collab: 'focus-visible:outline-collab-500 dark:focus-visible:outline-collab-600',
       ai: 'focus-visible:outline-ai-500 dark:focus-visible:outline-ai-600'
     },
     size: {
@@ -95,6 +96,11 @@ export default {
       color: 'secondary',
       checked: true,
       class: 'ring-2 ring-accent-aqua bg-accent-aqua dark:ring-accent-turquoise dark:bg-accent-turquoise'
+    },
+    {
+      color: 'collab',
+      checked: true,
+      class: 'ring-2 ring-collab-500 bg-collab-500 dark:ring-collab-600 dark:bg-collab-600 dark:text-collab-250'
     },
     {
       color: 'ai',

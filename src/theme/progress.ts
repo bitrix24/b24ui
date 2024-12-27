@@ -48,6 +48,10 @@ export default {
         indicator: 'bg-accent-aqua dark:bg-accent-turquoise',
         steps: 'text-base-500'
       },
+      collab: {
+        indicator: 'bg-collab-500 dark:bg-collab-900/85',
+        steps: 'text-base-500'
+      },
       ai: {
         indicator: 'bg-ai-500 dark:bg-ai-900/85',
         steps: 'text-base-500'

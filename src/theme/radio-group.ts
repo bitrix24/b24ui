@@ -43,6 +43,10 @@ export default {
         base: 'focus-visible:outline-accent-aqua dark:focus-visible:outline-accent-turquoise',
         indicator: 'bg-accent-aqua dark:bg-accent-turquoise'
       },
+      collab: {
+        base: 'focus-visible:outline-collab-500 dark:focus-visible:outline-collab-600',
+        indicator: 'bg-collab-500 dark:bg-collab-600'
+      },
       ai: {
         base: 'focus-visible:outline-ai-500 dark:focus-visible:outline-ai-600',
         indicator: 'bg-ai-500 dark:bg-ai-600'

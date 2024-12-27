@@ -40,6 +40,7 @@ export default {
       warning: '',
       primary: '',
       secondary: '',
+      collab: '',
       ai: ''
     },
     tagColor: {
@@ -60,6 +61,9 @@ export default {
       },
       secondary: {
         tag: 'text-white bg-accent-aqua dark:text-base-100 dark:bg-accent-turquoise'
+      },
+      collab: {
+        tag: 'text-white bg-collab-500 dark:text-collab-200 dark:bg-collab-800'
       },
       ai: {
         tag: 'text-white bg-ai-500 dark:text-ai-200 dark:bg-ai-800'
@@ -252,6 +256,34 @@ export default {
       noBorder: false,
       underline: true,
       class: 'border-b-accent-aqua dark:border-b-accent-turquoise'
+    },
+    // endregion ////
+    // region collab ////
+    {
+      color: 'collab',
+      noBorder: false,
+      underline: false,
+      class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-collab-500 dark:focus-visible:ring-collab-600'
+    },
+    {
+      color: 'collab',
+      highlight: true,
+      noBorder: false,
+      underline: false,
+      class: 'ring ring-inset ring-collab-500 dark:ring-collab-600'
+    },
+    {
+      color: 'collab',
+      noBorder: false,
+      underline: true,
+      class: 'focus-visible:border-b-collab-500 dark:focus-visible:border-b-collab-600'
+    },
+    {
+      color: 'collab',
+      highlight: true,
+      noBorder: false,
+      underline: true,
+      class: 'border-b-collab-500 dark:border-b-collab-600'
     },
     // endregion ////
     // region ai ////

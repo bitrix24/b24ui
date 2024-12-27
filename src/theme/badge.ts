@@ -49,6 +49,7 @@ export default {
       warning: 'font-semibold',
       //primary: '',
      // secondary: '',
+     // collab: '',
      // ai: ''
     },
     depth: {

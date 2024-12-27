@@ -22,6 +22,7 @@ export default {
       warning: { border: 'border-orange-500 dark:border-orange-600' },
       primary: { border: 'border-blue-500 dark:border-blue-600' },
       secondary: { border: 'border-accent-aqua dark:border-accent-turquoise' },
+      collab: { border: 'border-collab-500 dark:border-collab-600' },
       ai: { border: 'border-ai-500 dark:border-ai-600' }
     },
     orientation: {

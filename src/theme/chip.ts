@@ -23,6 +23,7 @@ export default {
       warning: 'bg-orange-500 dark:bg-orange-600 dark:text-orange-250',
       primary: 'bg-blue-500 dark:bg-blue-600 dark:text-blue-250',
       secondary: 'bg-accent-aqua dark:bg-accent-turquoise',
+      collab: 'bg-collab-500 dark:bg-collab-800 dark:text-collab-250',
       ai: 'bg-ai-500 dark:bg-ai-800 dark:text-ai-250',
       link: 'bg-base-900/85 text-white dark:bg-white/85 dark:text-base-900'
     },

@@ -80,6 +80,14 @@ export default {
         'disabled:bg-[#c5e7f4] aria-disabled:bg-[#c5e7f4] disabled:border-[#aee0f2] aria-disabled:border-[#aee0f2]',
         'focus-visible:outline-[#c5e7f4]'
       ].join(' '),
+      // COLLAB ////
+      collab: [
+        'text-white bg-collab-600 border border-collab-600',
+        'hover:bg-collab-500 hover:border-collab-500',
+        'active:bg-collab-700 active:border-collab-700',
+        'disabled:bg-collab-600 aria-disabled:bg-collab-600 disabled:border-collab-600 aria-disabled:border-collab-600',
+        'focus-visible:outline-collab-600'
+      ].join(' '),
       // AI ////
       ai: [
         'text-white bg-[#935BEC] border border-[#935BEC]',
@@ -323,6 +331,32 @@ export default {
         'active:bg-accent-aqua/85',
         'disabled:bg-accent-aqua aria-disabled:bg-accent-aqua',
         'focus-visible:outline-accent-aqua'
+      ].join(' ')
+    },
+    // endregion ////
+    // region collab ////
+    {
+      // new AI_LIGHT ////
+      color: 'collab',
+      depth: 'light',
+      class: [
+        'text-ai-900 bg-collab-500 border border-collab-500',
+        'hover:bg-collab-500/75',
+        'active:bg-collab-500/85',
+        'disabled:bg-collab-500 aria-disabled:bg-collab-500',
+        'focus-visible:outline-collab-500'
+      ].join(' ')
+    },
+    {
+      // new AI_DARK ////
+      color: 'collab',
+      depth: 'dark',
+      class: [
+        'text-white bg-collab-700 border border-collab-700',
+        'hover:bg-collab-700/75 hover:border-collab-700/75',
+        'active:bg-collab-700/85 active:border-collab-700/85',
+        'disabled:bg-collab-700 aria-disabled:bg-collab-700 disabled:border-collab-700 aria-disabled:border-collab-700',
+        'focus-visible:outline-collab-700'
       ].join(' ')
     },
     // endregion ////
