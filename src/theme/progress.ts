@@ -49,7 +49,7 @@ export default {
         steps: 'text-base-500'
       },
       collab: {
-        indicator: 'bg-collab-500 dark:bg-collab-900/85',
+        indicator: 'bg-collab-500 dark:bg-collab-600',
         steps: 'text-base-500'
       },
       ai: {

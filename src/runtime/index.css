@@ -3,9 +3,6 @@
 
 @variant dark (&:where(.dark, .dark *));
 
-/* ---------------
-use Violet
-*/
 @theme {
 /* region base */
   --color-white: #ffffff;
@@ -15,7 +12,7 @@ use Violet
   --color-gray-20: #f8fafb;
   --color-gray-30: #f5f7f8;
   --color-gray-40: #f1f4f6;
-  --color-gray-50: #eef2f4;
+  --color-gray-50: #eef2f4; /* << tertiary */
   --color-gray-100: #edeef0;
   --color-gray-150: #e6e8e9;
   --color-gray-190: #e2e3e5; /* << tag-9 */
@@ -253,7 +250,7 @@ use Violet
 
 @layer base {
   body {
-    @apply antialiased text-base-master bg-tertiary scheme-light dark:scheme-dark;
+    @apply antialiased scheme-light dark:scheme-dark;
   }
 
   :root {

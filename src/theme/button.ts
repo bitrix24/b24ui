@@ -336,11 +336,11 @@ export default {
     // endregion ////
     // region collab ////
     {
-      // new AI_LIGHT ////
+      // new collab_LIGHT ////
       color: 'collab',
       depth: 'light',
       class: [
-        'text-ai-900 bg-collab-500 border border-collab-500',
+        'text-collab-900 bg-collab-500 border border-collab-500',
         'hover:bg-collab-500/75',
         'active:bg-collab-500/85',
         'disabled:bg-collab-500 aria-disabled:bg-collab-500',
@@ -348,7 +348,7 @@ export default {
       ].join(' ')
     },
     {
-      // new AI_DARK ////
+      // new collab_DARK ////
       color: 'collab',
       depth: 'dark',
       class: [

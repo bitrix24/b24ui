@@ -16,7 +16,7 @@ const dir = useTextDirection()
 useHead({
   title: 'Playground',
   bodyAttrs: {
-    class: 'bg-tertiary dark:bg-base-dark font-b24-system text-base-900 antialiased'
+    class: 'text-base-master dark:text-base-150 bg-base-50 dark:bg-base-dark font-b24-system antialiased'
   }
 })
 
