@@ -7,21 +7,24 @@
 use Violet
 */
 @theme {
-/* region gray */
+/* region base */
   --color-white: #ffffff;
+  --color-black: #333333;
+/* endregion */
+/* region gray */
   --color-gray-20: #f8fafb;
   --color-gray-30: #f5f7f8;
   --color-gray-40: #f1f4f6;
   --color-gray-50: #eef2f4;
   --color-gray-100: #edeef0;
   --color-gray-150: #e6e8e9;
-  --color-gray-tag-9: #e2e3e5;
+  --color-gray-190: #e2e3e5; /* << tag-9 */
   --color-gray-200: #dfe0e3;
   --color-gray-250: #dde2e5;
   --color-gray-300: #d5d7db;
   --color-gray-320: #cfd4d8;
   --color-gray-330: #c6cdd3;
-  --color-gray-tag-8: #ccd3dd;
+  --color-gray-340: #ccd3dd;  /* << tag-8 */
   --color-gray-350: #c9ccd0;
   --color-gray-400: #bdc1c6;
   --color-gray-500: #a8adb4;
@@ -30,15 +33,13 @@ use Violet
   --color-gray-650: #868d95;
   --color-gray-700: #838c95;
   --color-gray-750: #80868e;
-  --color-gray-subtle: #828b95;
+  --color-gray-760: #828b95; /* << symlink-subtle */
   --color-gray-800: #6a737f;
   --color-gray-850: #5b6573;
   --color-gray-900: #525c69;
-  --color-gray-950: #3b506e;
-  --color-black: #333333;
+  --color-gray-950: var(--color-black);
   --color-gray-dark: #0f0f0f;
-  /** @memo not use --color-solid -> this reset border-solid */
-  --color-gray-solid: #000000;
+  --color-gray-solid: #000000; /* @memo not use --color-solid -> this reset border-solid */
 /* endregion */
 /* region base */
   --color-base-20: var(--color-gray-20);
@@ -47,13 +48,13 @@ use Violet
   --color-base-50: var(--color-gray-50);
   --color-base-100: var(--color-gray-100);
   --color-base-150: var(--color-gray-150);
-  --color-base-tag-9: var(--color-gray-tag-9);
+  --color-base-tag-9: var(--color-gray-190);
   --color-base-200: var(--color-gray-200);
   --color-base-250: var(--color-gray-250);
   --color-base-300: var(--color-gray-300);
   --color-base-320: var(--color-gray-320);
   --color-base-330: var(--color-gray-330);
-  --color-base-tag-8: var(--color-gray-tag-8);
+  --color-base-tag-8: var(--color-gray-340);
   --color-base-350: var(--color-gray-350);
   --color-base-400: var(--color-gray-400);
   --color-base-500: var(--color-gray-500);
@@ -62,20 +63,21 @@ use Violet
   --color-base-650: var(--color-gray-650);
   --color-base-700: var(--color-gray-700);
   --color-base-750: var(--color-gray-750);
-  --color-base-subtle: var(--color-gray-subtle);
+  --color-base-subtle: var(--color-gray-760);
   --color-base-800: var(--color-gray-800);
   --color-base-850: var(--color-gray-850);
   --color-base-900: var(--color-gray-900);
   --color-base-950: var(--color-gray-950);
-  --color-base-master: var(--color-black);
+  --color-base-master: var(--color-gray-950);
   --color-base-dark: var(--color-gray-dark);
   --color-base-solid: var(--color-gray-solid);
 /* endregion */
 /* region slate */
   --color-slate-50: #f0f6ff;
   --color-slate-100: #dce3ef;
+  --color-slate-150: #d2dae7;
   --color-slate-200: #c8d1df;
-  --color-slate-tag-5: #c2d1f0;
+  --color-slate-250: #c2d1f0; /* << tag-5 */
   --color-slate-300: #b7c2d2;
   --color-slate-400: #a3afc2;
   --color-slate-500: #93a0b4;
@@ -88,19 +90,20 @@ use Violet
 /* endregion */
 /* region red */
   --color-red-100: #fff8f8;
-  --color-red-130: #fff0f0;
+  --color-red-150: #fff0f0;
   --color-red-200: #ffe8e8;
   --color-red-250: #ffdcdb;
+  --color-red-270: #fdd5d3;
   --color-red-300: #ffcdcc;
-  --color-red-320: #fdcac8;
   --color-red-350: #f2b6b3;
   --color-red-400: #ff9a97;
   --color-red-450: #ff7c78;
   --color-red-500: #ff5752;
   --color-red-600: #f4433e;
-  --color-red-pink: #fb6dba;
+  --color-red-650: #fb6dba; /* << accent-pink */
   --color-red-700: #e92f2a;
-  --color-red-solid: #f0371b;
+  --color-red-740: #f0371b;
+  --color-red-solid: var(--color-red-740);
   --color-red-730: #d24430;
   --color-red-750: #d7413c;
   --color-red-760: #c43d51;
@@ -113,14 +116,14 @@ use Violet
 /* endregion */
 /* region orange */
   --color-orange-100: #fffaf0;
-  --color-orange-beige: #fdfae1;
+  --color-orange-130: #fdfae1; /* << beige */
   --color-orange-150: #fff5e3;
   --color-orange-200: #fff1d6;
   --color-orange-230: #fef3b8; /* << accent-yellow */
   --color-orange-250: #ffe9be;
   --color-orange-300: #ffe1a6;
   --color-orange-350: #f1e295;
-  --color-orange-tag-7: #dfc684;
+  --color-orange-370: #dfc684; /* << tag-7 */
   --color-orange-400: #ffc34d;
   --color-orange-500: #ffa900;
   --color-orange-530: #fba467;
@@ -143,11 +146,11 @@ use Violet
   --color-green-300: #e2f1b3;
   --color-green-330: #d3e59a;
   --color-green-350: #cfe780;
-  --color-green-tag-3: #dbf087;
+  --color-green-360: #dbf087; /* << tag-3 */
   --color-green-370: #d2f95f;
   --color-green-400: #bbde4d;
-  --color-green-430: #bbed21;
-  --color-green-460: #b2e232;
+  --color-green-430: #b2e232;
+  --color-green-450: #bbed21;
   --color-green-500: #9dcf00;
   --color-green-550: #95c500;
   --color-green-570: #a2bf54;
@@ -159,6 +162,23 @@ use Violet
   --color-green-900: #506900;
   --color-green-950: #3d4f00;
 /* endregion */
+/* region collab */
+  --color-collab-50: #f8fff0;
+  --color-collab-100: #f2fee2;
+  --color-collab-150: #eeffda;
+  --color-collab-200: #e9ffcf;
+  --color-collab-300: #d4fdb0;
+  --color-collab-380: #87eda0; /* << tag-4 */
+  --color-collab-400: #8cef73;
+  --color-collab-500: #6be860; /* << collabe-btn-hover v2 */
+  --color-collab-600: #19cc45; /* << collabe-btn */
+  --color-collab-650: #29ad49; /* << accent-green */
+  --color-collab-680: #00a94e; /* << collabe-btn-hover */
+  --color-collab-700: #00a94e;
+  --color-collab-800: #1e8d36;
+  --color-collab-900: #065217;
+  --color-collab-950: #052e16;
+/* endregion */
 /* region blue */
   --color-blue-100: #f4fcfe;
   --color-blue-150: #ecfafe;
@@ -166,23 +186,26 @@ use Violet
   --color-blue-250: #d3f4ff;
   --color-blue-270: #d6f1fb;
   --color-blue-300: #c3f0ff;
-  --color-blue-tag-1: #bcedfc;
-  --color-blue-350: #c5f1ff;
+  --color-blue-310: #c5f1ff;
+  --color-blue-320: #bcedfc; /* << tag-1 */
   --color-blue-400: #7fdefc;
   --color-blue-450: #3eddff;
   --color-blue-500: #2fc6f6;
   --color-blue-530: #3bc8f5;
   --color-blue-550: #12b1e3;
-  --color-blue-tag-2: #00baf2;
-  --color-blue-600: #009ea3;
+  --color-blue-570: #00baf2; /* << tag-2 */
+  --color-blue-575: #00ace3; /* << --im-color-accent-blue */
+  --color-blue-600: #11a9d9;
   --color-blue-620: #0aa0d0;
   --color-blue-630: #37aed4;
   --color-blue-650: #399fc2;
+  --color-blue-660: #559be6; /* << accent-light-blue */
   --color-blue-700: #008dba;
   --color-blue-750: #328ba9;
   --color-blue-800: #00789e;
+  --color-blue-850: #2066b0; /* << primary-link */
   --color-blue-900: #006484;
-  --color-blue-950: #004F69;
+  --color-blue-950: #004f69;
 /* endregion */
 /* region secondary */
   --color-secondary-50: #e9f9fc;
@@ -191,7 +214,7 @@ use Violet
   --color-secondary-150: #c5e7f4;
   --color-secondary-200: #c3e6f4;
   --color-secondary-230: #aee0f2;
-  --color-secondary-tag-6: #ace5ec;
+  --color-secondary-250: #ace5ec; /* << tag-6 */
   --color-secondary-300: #89d9eb;
   --color-secondary-310: #80dce8;
   --color-secondary-320: #6ed7e5;
@@ -209,7 +232,7 @@ use Violet
   --color-ai-10: #f6f2fe;
   --color-ai-50: #f0edfc;
   --color-ai-100: #e3ddf7;
-  --color-ai-150: #e7d8fa;
+  --color-ai-150: #e7d8fa; /* << Lable-lavander */
   --color-ai-200: #d1c5ef;
   --color-ai-300: #c0ade6;
   --color-ai-330: #b095dc; /* << copilot-secondary */
@@ -217,7 +240,7 @@ use Violet
   --color-ai-370: #a977fa;
   --color-ai-400: #a36ff1;
   --color-ai-450: #935bec;
-  --color-ai-500: #8e52ec; /* << copilot-primary|accent-lavender */
+  --color-ai-500: #8e52ec; /* << copilot-primary | accent-lavender */
   --color-ai-550: #8447e4;
   --color-ai-600: #8044df;
   --color-ai-700: #7437d3;
