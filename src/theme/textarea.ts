@@ -19,8 +19,8 @@ export default {
       'appearance-none transition duration-300 ease-linear', // transition-colors
       'ring ring-inset ring-base-300',
       'dark:ring-base-800',
-      'text-black bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900',
-      'dark:text-base-300 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350',
+      'text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900',
+      'dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350',
       'font-b24-primary font-regular text-md leading-normal',
       'align-middle',
       'text-ellipsis whitespace-nowrap'
@@ -45,7 +45,7 @@ export default {
     },
     tagColor: {
       default: {
-        tag: 'text-white bg-base-900 dark:text-base-100 dark:bg-base-900'
+        tag: 'text-white bg-base-900 dark:text-base-150 dark:bg-base-900'
       },
       danger: {
         tag: 'text-white bg-red-500 dark:text-red-250 dark:bg-red-600'
@@ -60,7 +60,7 @@ export default {
         tag: 'text-white bg-blue-500 dark:text-blue-250 dark:bg-blue-600'
       },
       secondary: {
-        tag: 'text-white bg-accent-aqua dark:text-base-100 dark:bg-accent-turquoise'
+        tag: 'text-white bg-accent-aqua dark:text-base-150 dark:bg-accent-turquoise'
       },
       collab: {
         tag: 'text-white bg-collab-500 dark:text-collab-200 dark:bg-collab-800'

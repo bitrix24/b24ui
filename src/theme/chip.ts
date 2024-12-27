@@ -17,7 +17,7 @@ export default {
   },
   variants: {
     color: {
-      default: 'bg-base-500 dark:bg-base-900 dark:text-base-100',
+      default: 'bg-base-500 dark:bg-base-900 dark:text-base-150',
       danger: 'bg-red-500 dark:bg-red-600 dark:text-red-250',
       success: 'bg-green-500 dark:bg-green-600 dark:text-green-250',
       warning: 'bg-orange-500 dark:bg-orange-600 dark:text-orange-250',

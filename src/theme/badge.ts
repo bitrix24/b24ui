@@ -99,7 +99,7 @@ export default {
       color: 'default',
       depth: 'light',
       class: [
-        'ring ring-inset ring-base-300 text-black bg-white',
+        'ring ring-inset ring-base-300 text-base-master bg-white',
         'dark:ring-base-700 dark:text-base-150 dark:bg-dark:base-dark'
       ].join(' ')
     },
@@ -118,7 +118,7 @@ export default {
       depth: 'dark',
       class: [
         'text-white bg-base-900',
-        'dark:text-base-100 dark:bg-base-350'
+        'dark:text-base-150 dark:bg-base-350'
       ].join(' ')
     },
     // endregion ////
