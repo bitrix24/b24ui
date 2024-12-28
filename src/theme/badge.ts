@@ -10,16 +10,15 @@
  * @todo color
  * @todo depth
  * @todo dark mode
- * @todo close icon
- * @todo link mode
  */
 export default {
   slots: {
     base: [
-      'select-none font-b24-primary font-normal',
+      'select-none font-b24-secondary font-normal',
       'inline-flex items-center',
       'transition-all duration-200 ease-linear',
       'px-2 leading-normal rounded-md'
+      // 'text-base-800 dark:text-base-250'
     ],
     wrapper: 'inline-flex items-center',
     label: 'max-w-full whitespace-nowrap text-ellipsis', // truncate ////
@@ -47,19 +46,21 @@ export default {
       true: 'ps-2xs'
     },
     color: {
-      default: 'font-semibold',
-      danger: 'font-semibold',
-      success: 'font-semibold',
-      warning: 'font-semibold',
-      primary: 'font-semibold',
-      secondary: 'font-semibold',
-      collab: 'font-semibold',
-      ai: 'font-semibold'
+      default: '',
+      danger: ''
+      /*
+      success: '',
+      warning: '',
+      primary: '',
+      secondary: '',
+      collab: '',
+      ai: ''
+      */
     },
     depth: {
-      //light: '',
-      normal: '',
-     // dark: ''
+      light: 'font-normal',
+      normal: 'font-bold',
+      dark: 'font-bold'
     },
     size: {
       xs: {
@@ -80,11 +81,11 @@ export default {
       },
       md: {
         base: 'gap-1 text-3xs',
-        wrapper: 'h-[18px] gap-1',
+        wrapper: 'h-[17px] gap-1',
         label: 'underline-offset-1',
-        leadingIcon: 'size-[17px]',
+        leadingIcon: 'size-[15px]',
         leadingAvatarSize: '3xs',
-        trailingIcon: 'size-[17px]'
+        trailingIcon: 'size-[15px]'
       },
       lg: {
         base: 'text-xs gap-1 rounded-lg',
@@ -109,8 +110,8 @@ export default {
       color: 'default',
       depth: 'light',
       class: [
-        'ring ring-inset ring-base-300 text-base-master bg-white',
-        'dark:ring-base-700 dark:text-base-150 dark:bg-dark:base-dark'
+        'text-base-900 bg-base-100 ring ring-inset ring-base-100',
+        'dark:text-base-900 dark:bg-base-200 dark:ring-base-200'
       ].join(' ')
     },
     // DEFAULT ////
@@ -119,25 +120,29 @@ export default {
       depth: 'normal',
       class: [
         'text-base-800 bg-base-150 ring ring-inset ring-base-150',
-        'dark:text-base-250 dark:bg-base-600 dark:ring-base-600'
+        'dark:text-base-950 dark:bg-base-250 dark:ring-base-250'
       ].join(' ')
     },
+    // LIGHT ////
+    // @memo it should be LIGHT but that's equivalent to DEFAULT -> so we make it really dark ////
     {
-      // LIGHT ////
       color: 'default',
       depth: 'dark',
       class: [
-        'text-white bg-base-900',
-        'dark:text-base-150 dark:bg-base-350'
+        'text-white bg-base-500 ring ring-inset ring-base-500',
+        'dark:text-base-50 dark:bg-base-600 dark:ring-base-600'
       ].join(' ')
     },
     // endregion ////
     // region danger ////
+    // LIGHT_RED ////
     {
-      // LIGHT_RED ////
       color: 'danger',
       depth: 'light',
-      class: 'text-[var(--ui-bg)] bg-[var(--ui-bg-inverted)]'
+      class: [
+        'text-red-800 bg-red-500/17 ring ring-inset ring-red-500/17',
+        'dark:text-red-800 dark:bg-red-300 dark:ring-red-300'
+      ].join(' ')
     },
     // DANGER ////
     {
@@ -151,7 +156,10 @@ export default {
     {
       color: 'danger',
       depth: 'dark',
-      class: 'text-[var(--ui-text)] bg-[var(--ui-bg-elevated)]'
+      class: [
+        'text-red-900 bg-red-400 ring ring-inset ring-red-400',
+        'dark:text-base-50 dark:bg-red-900 dark:ring-red-900'
+      ].join(' ')
     },
     // endregion ////
     // region success ////
@@ -233,7 +241,7 @@ export default {
       color: 'secondary',
       depth: 'normal',
       class: [
-        'text-white bg-secondary-350 ring ring-inset ring-secondary-350',
+        'text-secondary-800 bg-secondary-350 ring ring-inset ring-secondary-350', // text-white
         'dark:text-base-150 dark:bg-secondary-400 dark:ring-secondary-400'
       ].join(' ')
     },

@@ -89,8 +89,6 @@ const checked = ref(true)
         />
       </div>
 
-      <ExampleCardSubTitle title="with icon" />
-
       <ExampleCardSubTitle title="with icon && loading" />
       <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
         <B24Switch

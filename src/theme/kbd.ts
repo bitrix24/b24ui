@@ -3,6 +3,9 @@
  * A kbd element to display a keyboard key.
  */
 
+/**
+ * @todo make bg -> use badge
+ */
 export default {
   base: 'inline-flex items-center justify-center px-1 rounded-2xs font-normal font-b24-system-mono',
   variants: {

@@ -11,6 +11,10 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
 const depths = Object.keys(theme.variants.depth) as Array<keyof typeof theme.variants.depth>
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
 
+function onClick() {
+  alert('Some action alert')
+}
+
 function onCloseClick(event: MouseEvent) {
   const { target } = event
   if (target) {
@@ -28,92 +32,146 @@ function onCloseClick(event: MouseEvent) {
 
 <template>
   <ExampleGrid v-once custom-grid-cols class="grid-cols-[repeat(auto-fill,minmax(412px,1fr))]">
-    <ExampleCard title="default">
+    <ExampleCard title="color">
+      <ExampleCardSubTitle title="default" />
+      <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
+        <div class="flex flex-col gap-4">
+          <B24Badge
+            size="xl"
+            color="primary"
+            label="Employee Name"
+            :avatar="{ src: '/avatar/employee.png', text: 'Employee Name' }"
+            use-fill
+            use-link
+            use-close
+            :on-close-click="onCloseClick"
+            @click="onClick"
+          />
+        </div>
+      </div>
+
       <template v-for="color in colors" :key="color">
         <ExampleCardSubTitle :title="`${color}`" />
-        <template v-for="size in sizes" :key="size">
-          <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
-            <B24Badge
-              v-for="depth in depths"
-              :key="depth"
-              :color="color"
-              :size="size"
-              :label="`${size} ${depth}`"
-              :depth="depth"
-            />
-          </div>
-        </template>
+        <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
+          <B24Badge
+            v-for="depth in depths"
+            :key="depth"
+            :color="color"
+            :label="`${depth}`"
+            :depth="depth"
+          />
+        </div>
+        <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
+          <B24Badge
+            v-for="depth in depths"
+            :key="depth"
+            :color="color"
+            :label="`fill / ${depth}`"
+            :depth="depth"
+            use-fill
+          />
+        </div>
       </template>
     </ExampleCard>
 
-    <ExampleCard title="fill">
-      <template v-for="color in colors" :key="color">
-        <ExampleCardSubTitle :title="`${color}`" />
-        <template v-for="size in sizes" :key="size">
-          <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
-            <B24Badge
-              v-for="depth in depths"
-              :key="depth"
-              :color="color"
-              :size="size"
-              :label="`${size} ${depth}`"
-              :depth="depth"
-              use-fill
-            />
-          </div>
-        </template>
+    <ExampleCard title="size">
+      <template v-for="size in sizes" :key="size">
+        <ExampleCardSubTitle :title="`${size}`" />
+        <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
+          <B24Badge
+            v-for="depth in depths"
+            :key="depth"
+            :size="size"
+            :label="`${depth}`"
+            :depth="depth"
+          />
+        </div>
+        <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
+          <B24Badge
+            v-for="depth in depths"
+            :key="depth"
+            :size="size"
+            :label="`fill / ${depth}`"
+            :depth="depth"
+            use-fill
+          />
+        </div>
       </template>
     </ExampleCard>
 
-    <ExampleCard title="icon">
-      <template v-for="color in colors" :key="color">
-        <ExampleCardSubTitle :title="color as string" />
-        <template v-for="size in sizes" :key="size">
-          <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
-            <B24Badge
-              v-for="depth in depths"
-              :key="depth"
-              :color="color"
-              :size="size"
-              :label="`${size} ${depth}`"
-              :depth="depth"
-              :icon="InfoIcon"
-              use-close
-              use-link
-            />
-          </div>
-        </template>
-      </template>
-    </ExampleCard>
+    <ExampleCard title="variants">
+      <ExampleCardSubTitle title="link" />
+      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
+        <B24Badge
+          v-for="depth in depths"
+          :key="depth"
+          :label="`${depth}`"
+          :depth="depth"
+          use-link
+        />
+      </div>
+      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
+        <B24Badge
+          v-for="depth in depths"
+          :key="depth"
+          :label="`fill / ${depth}`"
+          :depth="depth"
+          use-link
+          use-fill
+        />
+      </div>
 
-    <ExampleCard title="icon fill">
-      <template v-for="color in colors" :key="color">
-        <ExampleCardSubTitle :title="color as string" />
-        <template v-for="size in sizes" :key="size">
-          <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
-            <B24Badge
-              v-for="depth in depths"
-              :key="depth"
-              :color="color"
-              :size="size"
-              :label="`${size} ${depth}`"
-              :depth="depth"
-              :icon="InfoIcon"
-              use-fill
-              use-close
-              :on-close-click="onCloseClick"
-              use-link
-            />
-          </div>
-        </template>
-      </template>
-    </ExampleCard>
+      <ExampleCardSubTitle title="close icon" />
+      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
+        <B24Badge
+          v-for="depth in depths"
+          :key="depth"
+          :label="`${depth}`"
+          :depth="depth"
+          use-close
+        />
+      </div>
+      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
+        <B24Badge
+          v-for="depth in depths"
+          :key="depth"
+          :label="`fill / ${depth}`"
+          :depth="depth"
+          use-close
+          use-fill
+        />
+      </div>
 
+      <ExampleCardSubTitle title="icon" />
+      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
+        <B24Badge
+          v-for="depth in depths"
+          :key="depth"
+          :label="`${depth}`"
+          :depth="depth"
+          :icon="InfoIcon"
+        />
+      </div>
+      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
+        <B24Badge
+          v-for="depth in depths"
+          :key="depth"
+          :label="`fill / ${depth}`"
+          :depth="depth"
+          :icon="InfoIcon"
+          use-fill
+          size="lg"
+        />
+      </div>
+    </ExampleCard>
+  </ExampleGrid>
+
+  <ExampleGrid custom-grid-cols class="mt-xs grid-cols-[repeat(auto-fill,minmax(532px,1fr))]">
     <ExampleCard title="avatar">
       <template v-for="color in colors" :key="color">
         <ExampleCardSubTitle :title="color as string" />
         <template v-for="size in sizes" :key="size">
-          <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
+          <div class="mb-4 flex flex-wrap items-start justify-start gap-2">
             <B24Badge
               v-for="depth in depths"
               :key="depth"
@@ -130,7 +188,7 @@ function onCloseClick(event: MouseEvent) {
       </template>
     </ExampleCard>
 
-    <ExampleCard title="avatar fill">
+    <ExampleCard title="filled avatar">
       <template v-for="color in colors" :key="color">
         <ExampleCardSubTitle :title="color as string" />
         <template v-for="size in sizes" :key="size">
@@ -140,13 +198,12 @@ function onCloseClick(event: MouseEvent) {
               :key="depth"
               :color="color"
               :size="size"
-              :label="`${size} ${depth}`"
+              :label="`fill / ${size} / ${depth}`"
               :depth="depth"
-              :avatar="{ src: '/avatar/employee.png' }"
-              use-fill
+              :avatar="{ src: '/avatar/assistant.png' }"
               use-close
-              :on-close-click="onCloseClick"
               use-link
+              use-fill
             />
           </div>
         </template>

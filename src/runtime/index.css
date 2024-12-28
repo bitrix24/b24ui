@@ -13,7 +13,7 @@
   --color-gray-30: #f5f7f8;
   --color-gray-40: #f1f4f6;
   --color-gray-50: #eef2f4; /* << tertiary */
-  --color-gray-100: #edeef0;
+  --color-gray-100: #edeef0; /* <<< ui-label-tag-light */
   --color-gray-150: #e6e8e9;
   --color-gray-190: #e2e3e5; /* << tag-9 */
   --color-gray-200: #dfe0e3;
@@ -31,7 +31,7 @@
   --color-gray-700: #838c95;
   --color-gray-750: #80868e;
   --color-gray-760: #828b95; /* << symlink-subtle */
-  --color-gray-800: #6a737f;
+  --color-gray-800: #6a737f; /* <<< --ui-label-color */
   --color-gray-850: #5b6573;
   --color-gray-900: #525c69;
   --color-gray-950: var(--color-black);
