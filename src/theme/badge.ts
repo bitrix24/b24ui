@@ -141,7 +141,8 @@ export default {
       color: 'danger',
       depth: 'light',
       class: [
-        'text-red-800 bg-red-500/17 ring ring-inset ring-red-500/17',
+        'ring ring-inset',
+        'text-red-800 bg-red-500/17 ring-red-500/17',
         'dark:text-red-900 dark:bg-red-300 dark:ring-red-300'
       ].join(' ')
     },
@@ -150,7 +151,8 @@ export default {
       color: 'danger',
       depth: 'normal',
       class: [
-        'text-red-800 bg-red-250 ring ring-inset ring-red-250',
+        'ring ring-inset',
+        'text-red-800 bg-red-250 ring-red-250',
         'dark:text-red-800 dark:bg-red-350 dark:ring-red-350'
       ].join(' ')
     },
@@ -159,7 +161,8 @@ export default {
       color: 'danger',
       depth: 'dark',
       class: [
-        'text-white bg-red-500 ring ring-inset ring-red-500',
+        'ring ring-inset',
+        'text-white bg-red-500 ring-red-500',
         'dark:text-red-250 dark:bg-red-600 dark:ring-red-600'
       ].join(' ')
     },
@@ -171,7 +174,8 @@ export default {
       color: 'success',
       depth: 'light',
       class: [
-        'text-green-800 bg-green-500/17 ring ring-inset ring-green-500/17',
+        'ring ring-inset',
+        'text-green-800 bg-green-500/17 ring-green-500/17',
         'dark:text-green-900 dark:bg-green-300 dark:ring-green-300'
       ].join(' ')
     },
@@ -180,7 +184,8 @@ export default {
       color: 'success',
       depth: 'normal',
       class: [
-        'text-green-800 bg-green-300 ring ring-inset ring-green-300',
+        'ring ring-inset',
+        'text-green-800 bg-green-300 ring-green-300',
         'dark:text-green-800 dark:bg-green-330 dark:ring-green-330'
       ].join(' ')
     },
@@ -189,7 +194,8 @@ export default {
       color: 'success',
       depth: 'dark',
       class: [
-        'text-white bg-green-500 ring ring-inset ring-green-500',
+        'ring ring-inset',
+        'text-white bg-green-500 ring-green-500',
         'dark:text-green-250 dark:bg-green-600 dark:ring-green-600'
       ].join(' ')
     },
@@ -200,7 +206,8 @@ export default {
       color: 'warning',
       depth: 'light',
       class: [
-        'text-orange-800 bg-orange-250 ring ring-inset ring-orange-300',
+        'ring ring-inset',
+        'text-orange-800 bg-orange-250 ring-orange-300',
         'dark:text-orange-900 dark:bg-orange-300 dark:ring-orange-300'
       ].join(' ')
     },
@@ -209,7 +216,8 @@ export default {
       color: 'warning',
       depth: 'normal',
       class: [
-        'text-orange-800 bg-orange-300 ring ring-inset ring-orange-300',
+        'ring ring-inset',
+        'text-orange-800 bg-orange-300 ring-orange-300',
         'dark:text-orange-800 dark:bg-orange-400 dark:ring-orange-400'
       ].join(' ')
     },
@@ -218,7 +226,8 @@ export default {
       color: 'warning',
       depth: 'dark',
       class: [
-        'text-white bg-orange-500 ring ring-inset ring-orange-500',
+        'ring ring-inset',
+        'text-white bg-orange-500 ring-orange-500',
         'dark:text-orange-250 dark:bg-orange-600 dark:ring-orange-600'
       ].join(' ')
     },
@@ -230,7 +239,8 @@ export default {
       color: 'primary',
       depth: 'light',
       class: [
-        'text-blue-800 bg-blue-500/17 ring ring-inset ring-blue-500/17',
+        'ring ring-inset',
+        'text-blue-800 bg-blue-500/17 ring-blue-500/17',
         'dark:text-blue-900 dark:bg-blue-300 dark:ring-blue-300'
       ].join(' ')
     },
@@ -239,7 +249,8 @@ export default {
       color: 'primary',
       depth: 'normal',
       class: [
-        'text-blue-700 bg-blue-250 ring ring-inset ring-blue-250',
+        'ring ring-inset',
+        'text-blue-700 bg-blue-250 ring-blue-250',
         'dark:text-blue-700 dark:bg-blue-300 dark:ring-blue-300'
       ].join(' ')
     },
@@ -248,7 +259,8 @@ export default {
       color: 'primary',
       depth: 'dark',
       class: [
-        'text-white bg-blue-500 ring ring-inset ring-blue-500',
+        'ring ring-inset',
+        'text-white bg-blue-500 ring-blue-500',
         'dark:text-blue-250 dark:bg-blue-600 dark:ring-blue-600'
       ].join(' ')
     },
@@ -259,7 +271,8 @@ export default {
       color: 'secondary',
       depth: 'light',
       class: [
-        'text-base-master bg-blue-320 ring ring-inset ring-blue-320',
+        'ring ring-inset',
+        'text-base-master bg-blue-320 ring-blue-320',
         'dark:text-base-master dark:bg-blue-400 dark:ring-blue-400'
       ].join(' ')
     },
@@ -268,7 +281,8 @@ export default {
       color: 'secondary',
       depth: 'normal',
       class: [
-        'text-white bg-secondary-350 ring ring-inset ring-secondary-350',
+        'ring ring-inset',
+        'text-white bg-secondary-350 ring-secondary-350',
         'dark:text-secondary-100 dark:bg-secondary-400 dark:ring-secondary-400'
       ].join(' ')
     },
@@ -277,7 +291,8 @@ export default {
       color: 'secondary',
       depth: 'dark',
       class: [
-        'text-white bg-secondary-500 ring ring-inset ring-secondary-500',
+        'ring ring-inset',
+        'text-white bg-secondary-500 ring-secondary-500',
         'dark:text-secondary-250 dark:bg-secondary-600 dark:ring-secondary-600'
       ].join(' ')
     },
@@ -287,7 +302,8 @@ export default {
       color: 'collab',
       depth: 'light',
       class: [
-        'text-collab-800 bg-collab-500/17 ring ring-inset ring-collab-500/17',
+        'ring ring-inset',
+        'text-collab-800 bg-collab-500/17 ring-collab-500/17',
         'dark:text-collab-900 dark:bg-collab-300 dark:ring-collab-300'
       ].join(' ')
     },
@@ -295,7 +311,7 @@ export default {
       color: 'collab',
       depth: 'normal',
       class: [
-        'text-collab-800 bg-collab-300 ring ring-inset ring-collab-300',
+        'text-collab-800 bg-collab-300 ring-collab-300',
         'dark:text-collab-800 dark:bg-collab-300 dark:ring-collab-300'
       ].join(' ')
     },
@@ -303,7 +319,8 @@ export default {
       color: 'collab',
       depth: 'dark',
       class: [
-        'text-white bg-collab-500 ring ring-inset ring-collab-500',
+        'ring ring-inset',
+        'text-white bg-collab-500 ring-collab-500',
         'dark:text-collab-250 dark:bg-collab-600 dark:ring-collab-600'
       ].join(' ')
     },
@@ -314,7 +331,8 @@ export default {
       color: 'ai',
       depth: 'light',
       class: [
-        'text-ai-500 bg-white ring ring-inset ring-ai-10',
+        'ring ring-inset',
+        'text-ai-500 bg-white ring-ai-10',
         'dark:text-ai-500 dark:bg-ai-50 dark:ring-ai-50'
       ].join(' ')
     },
@@ -323,7 +341,8 @@ export default {
       color: 'ai',
       depth: 'normal',
       class: [
-        'text-ai-500 bg-ai-150 ring ring-inset ring-ai-150',
+        'ring ring-inset',
+        'text-ai-500 bg-ai-150 ring-ai-150',
         'dark:text-ai-600 dark:bg-ai-200 dark:ring-ai-200'
       ].join(' ')
     },
@@ -332,7 +351,8 @@ export default {
       color: 'ai',
       depth: 'dark',
       class: [
-        'text-white bg-ai-330 ring ring-inset ring-ai-330',
+        'ring ring-inset',
+        'text-white bg-ai-330 ring-ai-330',
         'dark:text-ai-100 dark:bg-ai-400 dark:ring-ai-400'
       ].join(' ')
     },
