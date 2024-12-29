@@ -59,6 +59,7 @@ function onCloseClick(event: MouseEvent) {
             :color="color"
             :label="`${depth}`"
             :depth="depth"
+            size="lg"
           />
         </div>
         <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
@@ -69,6 +70,7 @@ function onCloseClick(event: MouseEvent) {
             :label="`fill / ${depth}`"
             :depth="depth"
             use-fill
+            size="lg"
           />
         </div>
       </template>

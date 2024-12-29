@@ -47,15 +47,13 @@ export default {
     },
     color: {
       default: '',
-      danger: ''
-      /*
+      danger: '',
       success: '',
       warning: '',
       primary: '',
       secondary: '',
       collab: '',
       ai: ''
-      */
     },
     depth: {
       light: 'font-normal',
@@ -111,7 +109,7 @@ export default {
       depth: 'light',
       class: [
         'text-base-900 bg-base-100 ring ring-inset ring-base-100',
-        'dark:text-base-900 dark:bg-base-200 dark:ring-base-200'
+        'dark:text-base-900 dark:bg-base-150 dark:ring-base-150'
       ].join(' ')
     },
     // DEFAULT ////
@@ -120,7 +118,7 @@ export default {
       depth: 'normal',
       class: [
         'text-base-800 bg-base-150 ring ring-inset ring-base-150',
-        'dark:text-base-950 dark:bg-base-250 dark:ring-base-250'
+        'dark:text-base-950 dark:bg-base-200 dark:ring-base-200'
       ].join(' ')
     },
     // LIGHT ////
@@ -141,7 +139,7 @@ export default {
       depth: 'light',
       class: [
         'text-red-800 bg-red-500/17 ring ring-inset ring-red-500/17',
-        'dark:text-red-800 dark:bg-red-300 dark:ring-red-300'
+        'dark:text-red-900 dark:bg-red-300 dark:ring-red-300'
       ].join(' ')
     },
     // DANGER ////
@@ -153,21 +151,26 @@ export default {
         'dark:text-red-800 dark:bg-red-350 dark:ring-red-350'
       ].join(' ')
     },
+    // danger_dark ////
     {
       color: 'danger',
       depth: 'dark',
       class: [
-        'text-red-900 bg-red-400 ring ring-inset ring-red-400',
-        'dark:text-base-50 dark:bg-red-900 dark:ring-red-900'
+        'text-white bg-red-500 ring ring-inset ring-red-500',
+        'dark:text-red-250 dark:bg-red-600 dark:ring-red-600'
       ].join(' ')
     },
     // endregion ////
     // region success ////
+    // LIGHT_GREEN ////
+    // @memo it should be LIGHT_GREEN but that's equivalent to SUCCESS -> so we make it really light ////
     {
-      // LIGHT_GREEN ////
       color: 'success',
       depth: 'light',
-      class: 'text-[var(--ui-bg)] bg-[var(--ui-bg-inverted)]'
+      class: [
+        'text-green-800 bg-green-500/17 ring ring-inset ring-green-500/17',
+        'dark:text-green-900 dark:bg-green-300 dark:ring-green-300'
+      ].join(' ')
     },
     // SUCCESS ////
     {
@@ -178,41 +181,55 @@ export default {
         'dark:text-green-800 dark:bg-green-330 dark:ring-green-330'
       ].join(' ')
     },
+    // success_dark ////
     {
       color: 'success',
       depth: 'dark',
-      class: 'text-[var(--ui-text)] bg-[var(--ui-bg-elevated)]'
+      class: [
+        'text-white bg-green-500 ring ring-inset ring-green-500',
+        'dark:text-green-250 dark:bg-green-600 dark:ring-green-600'
+      ].join(' ')
     },
     // endregion ////
     // region warning ////
+    // ORANGE ////
     {
-      // LIGHT_ORANGE ////
       color: 'warning',
       depth: 'light',
-      class: 'text-[var(--ui-bg)] bg-[var(--ui-bg-inverted)]'
+      class: [
+        'text-orange-800 bg-orange-250 ring ring-inset ring-orange-300',
+        'dark:text-orange-900 dark:bg-orange-300 dark:ring-orange-300'
+      ].join(' ')
+    },
+    // LIGHT_ORANGE ////
+    {
+      color: 'warning',
+      depth: 'normal',
+      class: [
+        'text-orange-800 bg-orange-300 ring ring-inset ring-orange-300',
+        'dark:text-orange-800 dark:bg-orange-400 dark:ring-orange-400'
+      ].join(' ')
     },
     // WARNING ////
     {
       color: 'warning',
-      depth: 'normal',
+      depth: 'dark',
       class: [
         'text-white bg-orange-500 ring ring-inset ring-orange-500',
         'dark:text-orange-250 dark:bg-orange-600 dark:ring-orange-600'
       ].join(' ')
     },
-    {
-      // ORANGE ////
-      color: 'warning',
-      depth: 'dark',
-      class: 'text-[var(--ui-text)] bg-[var(--ui-bg-elevated)]'
-    },
     // endregion ////
     // region primary ////
+    // LIGHT_BLUE ////
+    // @memo it should be LIGHT_BLUE but that's equivalent to PRIMARY -> so we make it really light ////
     {
-      // LIGHT_BLUE ////
       color: 'primary',
       depth: 'light',
-      class: 'text-[var(--ui-bg)] bg-[var(--ui-bg-inverted)]'
+      class: [
+        'text-blue-800 bg-blue-500/17 ring ring-inset ring-blue-500/17',
+        'dark:text-blue-900 dark:bg-blue-300 dark:ring-blue-300'
+      ].join(' ')
     },
     // PRIMARY ////
     {
@@ -223,41 +240,54 @@ export default {
         'dark:text-blue-700 dark:bg-blue-300 dark:ring-blue-300'
       ].join(' ')
     },
+    // primary_dark ////
     {
       color: 'primary',
       depth: 'dark',
-      class: 'text-[var(--ui-text)] bg-[var(--ui-bg-elevated)]'
+      class: [
+        'text-white bg-blue-500 ring ring-inset ring-blue-500',
+        'dark:text-blue-250 dark:bg-blue-600 dark:ring-blue-600'
+      ].join(' ')
     },
     // endregion ////
     // region secondary ////
+    // TAG_SECONDARY ////
     {
-      // TAG_SECONDARY ////
       color: 'secondary',
       depth: 'light',
-      class: 'text-[var(--ui-bg)] bg-[var(--ui-bg-inverted)]'
+      class: [
+        'text-base-master bg-blue-320 ring ring-inset ring-blue-320',
+        'dark:text-base-master dark:bg-blue-400 dark:ring-blue-400'
+      ].join(' ')
     },
     // SECONDARY ////
     {
       color: 'secondary',
       depth: 'normal',
       class: [
-        'text-secondary-800 bg-secondary-350 ring ring-inset ring-secondary-350', // text-white
-        'dark:text-base-150 dark:bg-secondary-400 dark:ring-secondary-400'
+        'text-white bg-secondary-350 ring ring-inset ring-secondary-350',
+        'dark:text-secondary-100 dark:bg-secondary-400 dark:ring-secondary-400'
       ].join(' ')
     },
+    // secondary_dark ////
     {
       color: 'secondary',
       depth: 'dark',
-      class: 'text-[var(--ui-text)] bg-[var(--ui-bg-elevated)]'
+      class: [
+        'text-white bg-secondary-500 ring ring-inset ring-secondary-500',
+        'dark:text-secondary-250 dark:bg-secondary-600 dark:ring-secondary-600'
+      ].join(' ')
     },
     // endregion ////
     // region collab ////
     {
       color: 'collab',
       depth: 'light',
-      class: 'text-[var(--ui-bg)] bg-[var(--ui-bg-inverted)]'
+      class: [
+        'text-collab-800 bg-collab-500/17 ring ring-inset ring-collab-500/17',
+        'dark:text-collab-900 dark:bg-collab-300 dark:ring-collab-300'
+      ].join(' ')
     },
-    // collab ////
     {
       color: 'collab',
       depth: 'normal',
@@ -267,18 +297,23 @@ export default {
       ].join(' ')
     },
     {
-      // collab_dark ////
       color: 'collab',
       depth: 'dark',
-      class: 'text-[var(--ui-text)] bg-[var(--ui-bg-elevated)]'
+      class: [
+        'text-white bg-collab-500 ring ring-inset ring-collab-500',
+        'dark:text-collab-250 dark:bg-collab-600 dark:ring-collab-600'
+      ].join(' ')
     },
     // endregion ////
     // region ai ////
+    // COPILOT_LIGHT_REVERSE ////
     {
-      // COPILOT_LIGHT ////
       color: 'ai',
       depth: 'light',
-      class: 'text-[var(--ui-bg)] bg-[var(--ui-bg-inverted)]'
+      class: [
+        'text-ai-500 bg-white ring ring-inset ring-ai-10',
+        'dark:text-ai-500 dark:bg-ai-50 dark:ring-ai-50'
+      ].join(' ')
     },
     // LAVENDER ////
     {
@@ -289,11 +324,14 @@ export default {
         'dark:text-ai-600 dark:bg-ai-200 dark:ring-ai-200'
       ].join(' ')
     },
+    // COPILOT_LIGHT ////
     {
-      // COPILOT_LIGHT_REVERSE ////
       color: 'ai',
       depth: 'dark',
-      class: 'text-[var(--ui-text)] bg-[var(--ui-bg-elevated)]'
+      class: [
+        'text-white bg-ai-330 ring ring-inset ring-ai-330',
+        'dark:text-ai-100 dark:bg-ai-400 dark:ring-ai-400'
+      ].join(' ')
     },
     // endregion ////
     // region useLink & useFill ////
