@@ -12,17 +12,18 @@ export default {
     depth: {
       light: [
         'ring ring-inset',
-        'bg-white text-base-900 ring-base-350',
-        'dark:bg-base-dark dark:text-base-400 dark:ring-base-700'
+        'text-base-900 bg-base-800/5 ring-base-800/20',
+        'dark:text-base-150 dark:bg-base-200/5 dark:ring-base-200/20'
       ].join(' '),
       normal: [
         'ring ring-inset',
-        'bg-base-100 text-base-master ring-base-350',
-        'dark:bg-base-900/85 dark:text-base-200 dark:ring-base-700'
+        'text-base-800 bg-base-150 ring-base-150',
+        'dark:text-base-950 dark:bg-base-200 dark:ring-base-200'
       ].join(' '),
       dark: [
-        'bg-base-dark/85 text-white',
-        'dark:bg-base-900/85 dark:text-base-200'
+        'ring ring-inset',
+        'text-white bg-base-500 ring-base-500',
+        'dark:text-base-50 dark:bg-base-600 dark:ring-base-600'
       ].join(' ')
     },
     size: {
