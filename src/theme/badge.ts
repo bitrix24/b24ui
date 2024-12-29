@@ -108,7 +108,8 @@ export default {
       color: 'default',
       depth: 'light',
       class: [
-        'text-base-900 bg-base-100 ring ring-inset ring-base-100',
+        'ring ring-inset',
+        'text-base-900 bg-base-100 ring-base-100',
         'dark:text-base-900 dark:bg-base-150 dark:ring-base-150'
       ].join(' ')
     },
@@ -117,7 +118,8 @@ export default {
       color: 'default',
       depth: 'normal',
       class: [
-        'text-base-800 bg-base-150 ring ring-inset ring-base-150',
+        'ring ring-inset',
+        'text-base-800 bg-base-150 ring-base-150',
         'dark:text-base-950 dark:bg-base-200 dark:ring-base-200'
       ].join(' ')
     },
@@ -127,7 +129,8 @@ export default {
       color: 'default',
       depth: 'dark',
       class: [
-        'text-white bg-base-500 ring ring-inset ring-base-500',
+        'ring ring-inset',
+        'text-white bg-base-500 ring-base-500',
         'dark:text-base-50 dark:bg-base-600 dark:ring-base-600'
       ].join(' ')
     },
