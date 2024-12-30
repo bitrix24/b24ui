@@ -3,10 +3,11 @@ import theme from '#build/b24ui/separator'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
-import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import Bitrix24Icon from '@bitrix24/b24icons-vue/common-service/Bitrix24Icon'
 
 usePageMeta.setPageTitle('Separator')
+const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
+const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
 </script>
 
 <template>
@@ -54,23 +55,24 @@ usePageMeta.setPageTitle('Separator')
 
     <ExampleCard title="size">
       <div class="mt-4 flex flex-col gap-4">
-        <B24Separator label="xs" size="xs" />
-        <B24Separator label="sm" size="sm" />
-        <B24Separator label="md" size="md"/>
-        <B24Separator label="lg" size="lg" />
-        <B24Separator label="xl" size="xl" />
+        <B24Separator
+          v-for="size in sizes"
+          :key="size"
+          :size="size"
+          :label="size as string"
+        />
       </div>
     </ExampleCard>
 
     <ExampleCard title="color">
       <div class="mt-4 flex flex-col gap-4">
-        <B24Separator label="default" size="xl" color="default" />
-        <B24Separator label="danger" size="xl" color="danger" />
-        <B24Separator label="success" size="xl" color="success" />
-        <B24Separator label="warning" size="xl" color="warning" />
-        <B24Separator label="primary" size="xl" color="primary" />
-        <B24Separator label="secondary" size="xl" color="secondary" />
-        <B24Separator label="ai" size="xl" color="ai" />
+        <B24Separator
+          v-for="color in colors"
+          :key="color"
+          :label="color as string"
+          size="xl"
+          :color="color"
+        />
       </div>
     </ExampleCard>
 
