@@ -10,7 +10,7 @@
 /* endregion */
 /* region gray */
   --color-gray-20: #f8fafb;
-  --color-gray-30: #f5f7f8;
+  --color-gray-30: #f5f7f8; /* << #f6f8f9 ~ 0.2 */
   --color-gray-40: #f1f4f6;
   --color-gray-50: #eef2f4; /* << tertiary */
   --color-gray-100: #edeef0; /* <<< ui-label-tag-light */
@@ -99,7 +99,7 @@
   --color-red-600: #f4433e;
   --color-red-650: #fb6dba; /* << accent-pink */
   --color-red-700: #e92f2a;
-  --color-red-740: #f0371b;
+  --color-red-740: #f0371b; /* << #f1361a ~ 0.17 */
   --color-red-solid: var(--color-red-740);
   --color-red-730: #d24430;
   --color-red-750: #d7413c;
@@ -108,8 +108,8 @@
   --color-red-800: #c21b16;
   --color-red-850: #a21429;
   --color-red-900: #9a0703;
-  --color-red-950: #851021;
-  --color-red-990: #800602;
+  --color-red-930: #851021;
+  --color-red-950: #800602;
 /* endregion */
 /* region orange */
   --color-orange-100: #fffaf0;
@@ -119,7 +119,7 @@
   --color-orange-230: #fef3b8; /* << accent-yellow */
   --color-orange-250: #ffe9be;
   --color-orange-300: #ffe1a6;
-  --color-orange-350: #f1e295;
+  --color-orange-350: #f1e295; /* #f1e295 ~ 3.62 */
   --color-orange-370: #dfc684; /* << tag-7 */
   --color-orange-400: #ffc34d;
   --color-orange-500: #ffa900;
@@ -139,7 +139,7 @@
   --color-green-200: #f1fbd0;
   --color-green-250: #faf6c3;
   --color-green-270: #eaf5c5;
-  --color-green-290: #e5f1bf;
+  --color-green-280: #e5f1bf;
   --color-green-300: #e2f1b3;
   --color-green-330: #d3e59a;
   --color-green-350: #cfe780;
@@ -154,7 +154,7 @@
   --color-green-600: #8dbb00;
   --color-green-700: #7fa800;
   --color-green-730: #86a732;
-  --color-green-760: #668d13;
+  --color-green-780: #668d13;
   --color-green-800: #688800;
   --color-green-900: #506900;
   --color-green-950: #3d4f00;
@@ -184,7 +184,7 @@
   --color-blue-270: #d6f1fb;
   --color-blue-300: #c3f0ff;
   --color-blue-310: #c5f1ff;
-  --color-blue-320: #bcedfc; /* << tag-1 */
+  --color-blue-320: #bcedfc; /* << tag-1 | #b6edff ~ 1.27 */
   --color-blue-400: #7fdefc;
   --color-blue-450: #3eddff;
   --color-blue-500: #2fc6f6;
