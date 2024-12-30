@@ -6,11 +6,6 @@
  * @see bitrix/js/ui/label/
  */
 
-/**
- * @todo color
- * @todo depth
- * @todo dark mode
- */
 export default {
   slots: {
     base: [
@@ -311,7 +306,7 @@ export default {
       color: 'collab',
       depth: 'normal',
       class: [
-         'ring ring-inset',
+        'ring ring-inset',
         'text-collab-800 bg-collab-300 ring-collab-300',
         'dark:text-collab-800 dark:bg-collab-300 dark:ring-collab-300'
       ].join(' ')
