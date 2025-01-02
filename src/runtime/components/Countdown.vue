@@ -36,10 +36,10 @@ export interface CountdownProps {
   interval?: number
   /** Generate the current time of a specific time zone. */
   now?: () => number
-  /** The time (in milliseconds) to count down from. */
-  time?: number
-  /** Transforms the output props before render. */
-  transform?: (props: CountdownData) => CountdownData
+  /** Number of seconds to countdown. */
+  seconds?: number
+  /** Should seconds be divided into minutes? */
+  showMinutes?: boolean
   class?: any
   b24ui?: Partial<typeof countdown.slots>
 }
@@ -50,7 +50,7 @@ export interface CountdownEmits {
 }
 
 export interface CountdownSlots {
-  default(props?: CountdownData): any
+  default(props: CountdownData & { formatTime: string }): any
 }
 </script>
 
@@ -72,8 +72,8 @@ const props = withDefaults(defineProps<CountdownProps>(), {
   emitEvents: true,
   interval: 1000,
   now: () => Date.now(),
-  time: 0,
-  transform: (props: CountdownData) => props
+  seconds: 0,
+  showMinutes: true
 })
 
 const emits = defineEmits<CountdownEmits>()
@@ -100,7 +100,7 @@ const totalMilliseconds = ref<number>(0)
 const requestId = ref<number>(0)
 // endregion ////
 
-// region Mount ////
+// region events ////
 onMounted(() => {
   document.addEventListener('visibilitychange', handleVisibilityChange.bind(this))
 })
@@ -118,8 +118,8 @@ onBeforeUnmount(() => {
 watch(
   () => props,
   () => {
-    totalMilliseconds.value = props.time
-    endTime.value = props.now() + props.time
+    totalMilliseconds.value = props.seconds * 1000
+    endTime.value = props.now() + props.seconds * 1000
 
     if (props.autoStart) {
       start()
@@ -157,7 +157,7 @@ const minutes = computed((): number => {
 /**
  * Remaining seconds.
  */
-const seconds = computed((): number => {
+const secondsValue = computed((): number => {
   return Math.floor((totalMilliseconds.value % MILLISECONDS_MINUTE) / MILLISECONDS_SECOND)
 })
 
@@ -195,6 +195,17 @@ const totalMinutes = computed((): number => {
 const totalSeconds = computed((): number => {
   return Math.floor(totalMilliseconds.value / MILLISECONDS_SECOND)
 })
+
+const formatTime = computed((): string => {
+  if (props.showMinutes) {
+    const minutesValue = minutes.value
+    const remainingSeconds = secondsValue.value
+
+    return `${minutesValue < 10 ? '0' : ''}${minutesValue}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`
+  }
+
+  return String(totalSeconds.value)
+})
 // endregion ////
 
 // region actions ////
@@ -209,8 +220,8 @@ function start(): void {
   counting.value = true
 
   if (!props.autoStart) {
-    totalMilliseconds.value = props.time
-    endTime.value = props.now() + props.time
+    totalMilliseconds.value = props.seconds * 1000
+    endTime.value = props.now() + props.seconds * 1000
   }
 
   if (props.emitEvents) {
@@ -290,7 +301,7 @@ function progress(): void {
       days: days.value,
       hours: hours.value,
       minutes: minutes.value,
-      seconds: seconds.value,
+      seconds: secondsValue.value,
       milliseconds: milliseconds.value,
       totalDays: totalDays.value,
       totalHours: totalHours.value,
@@ -356,8 +367,8 @@ function update(): void {
  */
 function restart(): void {
   pause()
-  totalMilliseconds.value = props.time
-  endTime.value = props.now() + props.time
+  totalMilliseconds.value = props.seconds * 1000
+  endTime.value = props.now() + props.seconds * 1000
   counting.value = false
   start()
 }
@@ -378,26 +389,35 @@ function handleVisibilityChange(): void {
   }
 }
 // endregion ////
+
+defineExpose({
+  start,
+  abort,
+  end,
+  restart
+})
 </script>
 
 <template>
   <Primitive
     :as="as"
     v-bind="$attrs"
-    :v-slot="transform({
-      days: days,
-      hours: hours,
-      minutes: minutes,
-      seconds: seconds,
-      milliseconds: milliseconds,
-      totalDays: totalDays,
-      totalHours: totalHours,
-      totalMinutes: totalMinutes,
-      totalSeconds: totalSeconds,
-      totalMilliseconds: totalMilliseconds
-    })"
     :class="b24ui.root({ class: [props.class, props.b24ui?.root] })"
   >
-    {{ totalSeconds }}
+    <slot
+      :days="days"
+      :hours="hours"
+      :minutes="minutes"
+      :seconds="secondsValue"
+      :milliseconds="milliseconds"
+      :total-days="totalDays"
+      :total-hours="totalHours"
+      :total-minutes="totalMinutes"
+      :total-seconds="totalSeconds"
+      :total-milliseconds="totalMilliseconds"
+      :format-time="formatTime"
+    >
+      {{ formatTime }}
+    </slot>
   </Primitive>
 </template>
