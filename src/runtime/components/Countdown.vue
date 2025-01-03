@@ -36,7 +36,7 @@ export interface CountdownProps extends Omit<UseComponentIconsProps, 'loading' |
   /** Emits the countdown events. */
   emitEvents?: boolean
   /** Number of seconds to countdown. */
-  seconds?: number
+  seconds?: number|string
   /** Should seconds be divided into minutes? */
   showMinutes?: boolean
   /** Shows a `Circle` around the countdown */
@@ -139,8 +139,8 @@ onBeforeUnmount(() => {
 watch(
   () => props,
   () => {
-    totalMilliseconds.value = props.seconds * 1000
-    endTime.value = props.now() + props.seconds * 1000
+    totalMilliseconds.value = Number(props.seconds) * 1000
+    endTime.value = props.now() + Number(props.seconds) * 1000
 
     if (props.needStartImmediately) {
       start()
@@ -241,15 +241,15 @@ function start(): void {
   counting.value = true
 
   if (!props.needStartImmediately) {
-    totalMilliseconds.value = props.seconds * 1000
-    endTime.value = props.now() + props.seconds * 1000
+    totalMilliseconds.value = Number(props.seconds) * 1000
+    endTime.value = props.now() + Number(props.seconds) * 1000
   }
 
   if (props.emitEvents) {
     emits('start')
   }
 
-  if (document.visibilityState === 'visible') {
+  if (document?.visibilityState === 'visible') {
     continueProcess()
   }
 }
@@ -388,8 +388,8 @@ function update(): void {
  */
 function restart(): void {
   pause()
-  totalMilliseconds.value = props.seconds * 1000
-  endTime.value = props.now() + props.seconds * 1000
+  totalMilliseconds.value = Number(props.seconds) * 1000
+  endTime.value = props.now() + Number(props.seconds) * 1000
   counting.value = false
   start()
 }
@@ -398,7 +398,7 @@ function restart(): void {
  * Visibility change event handler.
  */
 function handleVisibilityChange(): void {
-  switch (document.visibilityState) {
+  switch (document?.visibilityState) {
     case 'visible':
       update()
       continueProcess()
@@ -416,8 +416,13 @@ const fullDashArray = computed((): string => {
   const fullDashArray = 283
 
   const calculateTimeFraction = (): number => {
-    const rawTimeFraction = totalSeconds.value / props.seconds
-    return rawTimeFraction - (1 / props.seconds) * (1 - rawTimeFraction)
+    if(Number(props.seconds) < 0)
+    {
+      return 1
+    }
+
+    const rawTimeFraction = totalSeconds.value / Number(props.seconds)
+    return rawTimeFraction - (1 / Number(props.seconds)) * (1 - rawTimeFraction)
   }
 
   return [

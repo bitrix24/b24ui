@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import theme from '#build/b24ui/countdown'
 import B24Countdown from '@bitrix24/b24ui-nuxt/runtime/components/Countdown.vue'
-import type { CountdownData } from '@bitrix24/b24ui-nuxt/runtime/components/Countdown.vue'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
@@ -93,19 +92,17 @@ function onControlCountdownEnd() {
   console.log('event:end')
 }
 
-function onControlCountdownProgress(params: CountdownData) {
+function onControlCountdownProgress(params: any) {
   console.log('event:progress', params.totalSeconds, params)
 }
 // endregion ////
 
 // region Round ////
-const countdownRoundRef = ref<typeof B24Countdown | null>(null)
 const secondsRound = ref(15)
 const countingRound = ref(false)
 
 const startCountdownRound = async () => {
   countingRound.value = true
-  countdownRoundRef.value?.start()
 }
 
 const onCountdownRoundEnd = () => {
@@ -113,7 +110,7 @@ const onCountdownRoundEnd = () => {
 }
 
 const onCountdownRoundStop = () => {
-  countdownRoundRef.value?.stop()
+  countingRound.value = false
 }
 // endregion ////
 </script>
@@ -202,8 +199,8 @@ const onCountdownRoundStop = () => {
             v-if="counting"
             v-slot="{ totalSeconds }"
             :seconds="secondsShort"
-            @end="onCountdownEnd"
             class="text-white dark:text-white text-3xs leading-none"
+            @end="onCountdownEnd"
           >
             Fetch again {{ totalSeconds }} sec. later
           </B24Countdown>
@@ -226,7 +223,6 @@ const onCountdownRoundStop = () => {
         />
         <B24Button
           color="primary"
-          type="button"
           label="Some action"
           size="xs"
           :disabled="countingV2"
@@ -274,20 +270,18 @@ const onCountdownRoundStop = () => {
       <ExampleCardSubTitle title="ver 1" />
       <div class="mb-4 flex flex-wrap flex-row items-center justify-center gap-4">
         <B24Button
-          v-show="countingRound"
+          v-if="countingRound"
           color="link"
           depth="normal"
           size="sm"
-          @click="onCountdownRoundStop"
           class="p-0"
+          @click="onCountdownRoundStop"
         >
           <div class="shrink-0 relative size-8 group">
             <B24Countdown
               as="div"
               class="size-full absolute inset-x-0 inset-y-0 z-30 group-hover:z-10 group-hover:opacity-40"
-              ref="countdownRoundRef"
               :seconds="secondsRound"
-              :need-start-immediately="false"
               use-circle
               size="lg"
               @end="onCountdownRoundEnd"
@@ -296,11 +290,10 @@ const onCountdownRoundStop = () => {
           </div>
         </B24Button>
         <B24Button
+          v-if="!countingRound"
           color="primary"
-          type="button"
           size="sm"
           label="Some action"
-          v-show="!countingRound"
           @click="startCountdownRound"
         />
       </div>
