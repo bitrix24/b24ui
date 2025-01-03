@@ -61,7 +61,10 @@ import BtnWaitIcon from '@bitrix24/b24icons-vue/button-specialized/BtnWaitIcon'
 import BtnSpinnerIcon from '@bitrix24/b24icons-vue/button-specialized/BtnSpinnerIcon'
 import ChevronDownIcon from '@bitrix24/b24icons-vue/actions/ChevronDownIcon'
 
-const props = defineProps<ButtonProps>()
+const props = withDefaults(defineProps<ButtonProps>(), {
+  type: 'button'
+})
+
 const slots = defineSlots<ButtonSlots>()
 
 const linkProps = useForwardProps(pickLinkProps(props))

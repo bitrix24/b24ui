@@ -217,4 +217,3 @@ function resolveLinkClass({ route, isActive, isExactActive }: any) {
     </B24LinkBase>
   </NuxtLink>
 </template>
-
