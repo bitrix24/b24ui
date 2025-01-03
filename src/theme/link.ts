@@ -19,6 +19,18 @@ export default (options: Required<ModuleOptions>) => ({
     },
     disabled: {
       true: 'cursor-not-allowed opacity-75'
+    },
+    isAction: {
+      true: [
+        'text-nowrap',
+        'text-sm h-auto py-0 font-normal rounded-none',
+        'border border-x-0 border-t-0 border-dashed border-b-base-900',
+        'text-base-900 dark:text-base-300 ',
+        'dark:border-b-base-300',
+        'hover:text-blue-700 hover:not-disabled:not-aria-disabled:text-blue-700 hover:border-b-blue-700',
+        'dark:hover:text-blue-300 dark:hover:not-disabled:not-aria-disabled:text-blue-300 dark:hover:border-b-blue-300',
+        'focus-visible:outline-base-700'
+      ].join(' ')
     }
   }
 })

@@ -79,6 +79,8 @@ export interface LinkProps extends NuxtLinkProps {
   /** The class to apply when the link is inactive. */
   inactiveClass?: string
   custom?: boolean
+  /** When `true`, uses special underlined styling. */
+  isAction?: boolean
   /** When `true`, only styles from `class`, `activeClass`, and `inactiveClass` will be applied. */
   raw?: boolean
   class?: any
@@ -104,6 +106,7 @@ const props = withDefaults(defineProps<LinkProps>(), {
   as: 'button',
   type: 'button',
   active: undefined,
+  isAction: false,
   activeClass: '',
   inactiveClass: ''
 })
@@ -158,7 +161,12 @@ function resolveLinkClass({ route, isActive, isExactActive }: any) {
     return [props.class, active ? props.activeClass : props.inactiveClass]
   }
 
-  return ui.value({ class: props.class, active, disabled: props.disabled })
+  return ui.value({
+    class: props.class,
+    active,
+    disabled: props.disabled,
+    isAction: Boolean(props.isAction)
+  })
 }
 </script>
 

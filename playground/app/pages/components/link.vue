@@ -16,6 +16,12 @@ usePageMeta.setPageTitle('Links')
           Button raw
         </B24Link>
       </div>
+      <div class="mb-4 flex flex-col items-start gap-4 text-sm">
+        <B24Link is-action>
+          Some action
+        </B24Link>
+      </div>
+
       <ExampleCardSubTitle title="active" />
       <div class="mb-4 flex flex-col items-start gap-4 text-sm">
         <B24Link active>
@@ -28,6 +34,7 @@ usePageMeta.setPageTitle('Links')
           Button active disabled
         </B24Link>
       </div>
+
       <ExampleCardSubTitle title="inactive" />
       <div class="mb-4 flex flex-col items-start gap-4 text-sm">
         <B24Link>
@@ -48,6 +55,12 @@ usePageMeta.setPageTitle('Links')
           Link raw
         </B24Link>
       </div>
+      <div class="mb-4 flex flex-col items-start gap-4 text-sm">
+        <B24Link to="/components/link" is-action>
+          Some action
+        </B24Link>
+      </div>
+
       <ExampleCardSubTitle title="active" />
       <div class="mb-4 flex flex-col items-start gap-4 text-sm">
         <B24Link to="/components/link">
@@ -60,6 +73,7 @@ usePageMeta.setPageTitle('Links')
           Link active disabled
         </B24Link>
       </div>
+
       <ExampleCardSubTitle title="inactive" />
       <div class="mb-4 flex flex-col items-start gap-4 text-sm">
         <B24Link to="/components/button">
