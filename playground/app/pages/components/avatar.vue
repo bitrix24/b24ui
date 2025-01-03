@@ -75,7 +75,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
           </B24Chip>
         </B24AvatarGroup>
       </div>
-      <ExampleCardSubTitle title="bg && ring" />
+      <ExampleCardSubTitle title="bg & ring" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24AvatarGroup v-for="size in sizes" :key="size" :size="size" :max="4" :b24ui="{ base: 'bg-white ring-base-150' }">
           <B24Avatar :icon="PersonIcon" alt="Person" :b24ui="{ icon: 'text-base-150' }" />

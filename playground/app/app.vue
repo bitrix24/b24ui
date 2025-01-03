@@ -90,7 +90,7 @@ defineShortcuts({
                     <div class="flex flex-row flex-nowrap items-center justify-center gap-1">
                       <B24Link
                         to="/"
-                        class="text-nowrap text-sm border-b border-dashed border-b-base-900 hover:not-disabled:not-aria-disabled:border-b-blue-700 dark:border-b-base-300 dark:hover:not-disabled:not-aria-disabled:border-b-blue-300"
+                        is-action
                       >
                         <span>main page</span>
                       </B24Link>
