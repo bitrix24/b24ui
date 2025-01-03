@@ -102,7 +102,7 @@ defineShortcuts({
               class="text-md font-light invisible md:visible"
             >
               <B24Link
-                :to="menuItem.href"
+                :href="menuItem.href"
                 target="_blank"
                 class="pr-2 whitespace-nowrap hover:underline underline-offset-2"
               >
