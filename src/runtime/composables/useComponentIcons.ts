@@ -22,9 +22,6 @@ export function useComponentIcons(componentProps: MaybeRefOrGetter<UseComponentI
 
   const isTrailing = computed(() => (props.value.icon && props.value.trailing) || (props.value.loading && props.value.trailing) || !!props.value.trailingIcon)
 
-  /**
-   * @todo test btn
-   */
   const leadingIconName = computed(() => {
     if (props.value.loading) {
       return icons.loading

@@ -1,13 +1,17 @@
 <script lang="ts">
-// import type { VariantProps } from 'tailwind-variants'
+import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/countdown'
+import type { UseComponentIconsProps } from '../composables/useComponentIcons'
 import { tv } from '../utils/tv'
+import type { AvatarProps } from '../types'
 
 const appConfig = _appConfig as AppConfig & { b24ui: { countdown: Partial<typeof theme> } }
 
 const countdown = tv({ extend: tv(theme), ...(appConfig.b24ui?.countdown || {}) })
+
+type CountdownVariants = VariantProps<typeof countdown>
 
 export interface CountdownData {
   days: number
@@ -22,41 +26,49 @@ export interface CountdownData {
   totalMilliseconds: number
 }
 
-export interface CountdownProps {
+export interface CountdownProps extends Omit<UseComponentIconsProps, 'loading' | 'trailing' | 'trailingIcon'> {
   /**
    * The element or component this component should render as.
    * @defaultValue 'span'
    */
   as?: any
-  /** Starts the countdown automatically when initialized. */
-  autoStart?: boolean
+  size?: CountdownVariants['size']
   /** Emits the countdown events. */
   emitEvents?: boolean
-  /** The interval time (in milliseconds) of the countdown progress. */
-  interval?: number
-  /** Generate the current time of a specific time zone. */
-  now?: () => number
   /** Number of seconds to countdown. */
   seconds?: number
   /** Should seconds be divided into minutes? */
   showMinutes?: boolean
+  /** Shows a `Circle` around the countdown */
+  useCircle?: boolean
+  /** The interval time (in milliseconds) of the countdown progress. */
+  interval?: number
+  /** Starts the countdown automatically when initialized. */
+  needStartImmediately?: boolean
+  /** Generate the current time of a specific time zone. */
+  now?: () => number
   class?: any
   b24ui?: Partial<typeof countdown.slots>
 }
 
 export interface CountdownEmits {
-  (e: 'abort' | 'end' | 'start'): void
+  (e: 'start'): void
   (e: 'progress', payload: CountdownData): void
+  (e: 'abort'): void
+  (e: 'end'): void
 }
 
 export interface CountdownSlots {
+  leading(props?: {}): any
   default(props: CountdownData & { formatTime: string }): any
 }
 </script>
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue'
+import { useComponentIcons } from '../composables/useComponentIcons'
 import { Primitive } from 'reka-ui'
+import B24Avatar from './Avatar.vue'
 
 const MILLISECONDS_SECOND = 1000
 const MILLISECONDS_MINUTE = 60 * MILLISECONDS_SECOND
@@ -66,21 +78,30 @@ const MILLISECONDS_DAY = 24 * MILLISECONDS_HOUR
 defineOptions({ inheritAttrs: false })
 
 // region data ////
+
+const { isLeading, leadingIconName } = useComponentIcons(
+  computed(() => ({ ...props, loading: false }))
+)
+
 const props = withDefaults(defineProps<CountdownProps>(), {
   as: 'span',
-  autoStart: true,
+  needStartImmediately: true,
   emitEvents: true,
   interval: 1000,
   now: () => Date.now(),
   seconds: 0,
-  showMinutes: true
+  showMinutes: true,
+  useCircle: false
 })
 
 const emits = defineEmits<CountdownEmits>()
 defineSlots<CountdownSlots>()
 
-// eslint-disable-next-line vue/no-dupe-keys
-const b24ui = countdown()
+const b24ui = computed(() => countdown({
+  size: props.size,
+  leading: Boolean(isLeading.value),
+  useCircle: Boolean(props.useCircle)
+}))
 
 /**
  * It is counting down.
@@ -121,7 +142,7 @@ watch(
     totalMilliseconds.value = props.seconds * 1000
     endTime.value = props.now() + props.seconds * 1000
 
-    if (props.autoStart) {
+    if (props.needStartImmediately) {
       start()
     }
   },
@@ -197,11 +218,11 @@ const totalSeconds = computed((): number => {
 })
 
 const formatTime = computed((): string => {
-  if (props.showMinutes) {
-    const minutesValue = minutes.value
-    const remainingSeconds = secondsValue.value
-
-    return `${minutesValue < 10 ? '0' : ''}${minutesValue}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`
+  if (props.showMinutes && !props.useCircle) {
+    return `${totalMinutes.value < 10 ? '0' : ''}${totalMinutes.value}:${secondsValue.value < 10 ? '0' : ''}${secondsValue.value}`
+  }
+  else if(props.useCircle) {
+    return `:${totalSeconds.value}`
   }
 
   return String(totalSeconds.value)
@@ -219,7 +240,7 @@ function start(): void {
 
   counting.value = true
 
-  if (!props.autoStart) {
+  if (!props.needStartImmediately) {
     totalMilliseconds.value = props.seconds * 1000
     endTime.value = props.now() + props.seconds * 1000
   }
@@ -272,7 +293,7 @@ function continueProcess(): void {
 
     requestId.value = requestAnimationFrame(step)
   } else {
-    end()
+    stop()
   }
 }
 
@@ -334,9 +355,9 @@ function abort(): void {
 }
 
 /**
- * Ends the countdown.
+ * Stop the countdown.
  */
-function end(): void {
+function stop(): void {
   if (!counting.value) {
     return
   }
@@ -390,10 +411,26 @@ function handleVisibilityChange(): void {
 }
 // endregion ////
 
+// region Round ////
+const fullDashArray = computed((): string => {
+  const fullDashArray = 283
+
+  const calculateTimeFraction = (): number => {
+    const rawTimeFraction = totalSeconds.value / props.seconds
+    return rawTimeFraction - (1 / props.seconds) * (1 - rawTimeFraction)
+  }
+
+  return [
+    (calculateTimeFraction() * fullDashArray).toFixed(0),
+    fullDashArray
+  ].join(' ')
+})
+// endregion ////
+
 defineExpose({
   start,
   abort,
-  end,
+  stop,
   restart
 })
 </script>
@@ -402,8 +439,43 @@ defineExpose({
   <Primitive
     :as="as"
     v-bind="$attrs"
-    :class="b24ui.root({ class: [props.class, props.b24ui?.root] })"
+    :class="b24ui.base({ class: [props.class, props.b24ui?.base] })"
   >
+    <svg
+      v-if="props.useCircle"
+      :class="b24ui.circleBase({ class: [props.b24ui?.circleBase] })"
+      viewBox="0 0 100 100"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        :class="b24ui.circleGroup({ class: [props.b24ui?.circleGroup] })"
+      >
+        <circle
+          :class="b24ui.circleElement({ class: [props.b24ui?.circleElement] })"
+          cx="50"
+          cy="50"
+          r="45"
+        />
+        <path
+          :class="b24ui.circlePath({ class: [props.b24ui?.circlePath] })"
+          :stroke-dasharray="fullDashArray"
+          d="M 50, 50 m -45, 0 a 45,45 0 1,0 90,0 a 45,45 0 1,0 -90,0"
+        />
+      </g>
+    </svg>
+    <slot name="leading">
+      <Component
+        :is="leadingIconName"
+        v-if="isLeading && (typeof leadingIconName !== 'undefined')"
+        :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
+      />
+      <B24Avatar
+        v-else-if="!!avatar"
+        :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+        v-bind="avatar"
+        :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
+      />
+    </slot>
     <slot
       :days="days"
       :hours="hours"
@@ -417,7 +489,9 @@ defineExpose({
       :total-milliseconds="totalMilliseconds"
       :format-time="formatTime"
     >
-      {{ formatTime }}
+      <span :class="b24ui.label({ class: props.b24ui?.label })">
+        {{ formatTime }}
+      </span>
     </slot>
   </Primitive>
 </template>

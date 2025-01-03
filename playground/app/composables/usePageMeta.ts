@@ -40,7 +40,7 @@ const components: IComponentInfo[] = [
   { id: 'checkbox', description: 'An input element to toggle between checked and unchecked states.', icon: FormIcon },
   { id: 'chip', description: 'An indicator of a numeric value or a state.', icon: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'container', description: 'A container lets you center and constrain the width of your content.', icon: GroupIcon },
-  { id: 'countdown', description: '?? @todo.', icon: Clock1Icon },
+  { id: 'countdown', description: 'Countdown with options control.', icon: Clock1Icon },
   { id: 'form-field', description: 'A wrapper for form elements that provides validation and error handling.', icon: FormIcon },
   { id: 'input', description: 'An input element to enter text.', icon: FormIcon },
   { id: 'kbd', description: 'A kbd element to display a keyboard key.', icon: ItemIcon, iconUi: 'pr-px pb-[3px]' },
