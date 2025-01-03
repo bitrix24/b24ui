@@ -65,7 +65,7 @@ export default {
         trailingIcon: 'size-sm '
       },
       sm: {
-        base: 'gap-1 text-4xs',
+        base: 'text-4xs gap-1',
         wrapper: 'h-[16px] gap-1',
         label: 'underline-offset-1',
         leadingIcon: 'size-sm2',
@@ -73,7 +73,7 @@ export default {
         trailingIcon: 'size-sm2'
       },
       md: {
-        base: 'gap-1 text-3xs',
+        base: 'text-3xs gap-1',
         wrapper: 'h-[17px] gap-1',
         label: 'underline-offset-1',
         leadingIcon: 'size-[15px]',
