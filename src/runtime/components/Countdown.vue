@@ -36,7 +36,7 @@ export interface CountdownProps extends Omit<UseComponentIconsProps, 'loading' |
   /** Emits the countdown events. */
   emitEvents?: boolean
   /** Number of seconds to countdown. */
-  seconds?: number|string
+  seconds?: number | string
   /** Should seconds be divided into minutes? */
   showMinutes?: boolean
   /** Shows a `Circle` around the countdown */
@@ -79,10 +79,6 @@ defineOptions({ inheritAttrs: false })
 
 // region data ////
 
-const { isLeading, leadingIconName } = useComponentIcons(
-  computed(() => ({ ...props, loading: false }))
-)
-
 const props = withDefaults(defineProps<CountdownProps>(), {
   as: 'span',
   needStartImmediately: true,
@@ -96,6 +92,10 @@ const props = withDefaults(defineProps<CountdownProps>(), {
 
 const emits = defineEmits<CountdownEmits>()
 defineSlots<CountdownSlots>()
+
+const { isLeading, leadingIconName } = useComponentIcons(
+  computed(() => ({ ...props, loading: false }))
+)
 
 const b24ui = computed(() => countdown({
   size: props.size,
@@ -220,8 +220,7 @@ const totalSeconds = computed((): number => {
 const formatTime = computed((): string => {
   if (props.showMinutes && !props.useCircle) {
     return `${totalMinutes.value < 10 ? '0' : ''}${totalMinutes.value}:${secondsValue.value < 10 ? '0' : ''}${secondsValue.value}`
-  }
-  else if(props.useCircle) {
+  } else if (props.useCircle) {
     return `:${totalSeconds.value}`
   }
 
@@ -416,8 +415,7 @@ const fullDashArray = computed((): string => {
   const fullDashArray = 283
 
   const calculateTimeFraction = (): number => {
-    if(Number(props.seconds) < 0)
-    {
+    if (Number(props.seconds) < 0) {
       return 1
     }
 

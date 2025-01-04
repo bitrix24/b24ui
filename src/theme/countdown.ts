@@ -4,7 +4,7 @@
  * ---
  * @link https://github.com/fengyuanchen/vue-countdown
  * @link /api_d7/bitrix/ui/ui_countdown.php
- * @see ...
+ * @see bitrix/js/ui/countdown/src
  */
 
 /**

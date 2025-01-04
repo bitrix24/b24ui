@@ -1,3 +1,4 @@
+export { default as advice } from './advice'
 export { default as avatar } from './avatar'
 export { default as avatarGroup } from './avatar-group'
 export { default as badge } from './badge'
