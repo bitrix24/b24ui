@@ -4,7 +4,6 @@ import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/form-field'
 import { tv } from '../utils/tv'
-import WarningIcon from '@bitrix24/b24icons-vue/main/WarningIcon'
 
 const appConfig = _appConfig as AppConfig & { b24ui: { formField: Partial<typeof theme> } }
 
@@ -50,6 +49,7 @@ import { computed, ref, inject, provide, type Ref, useId } from 'vue'
 import { Primitive, Label } from 'reka-ui'
 import { formFieldInjectionKey, inputIdInjectionKey } from '../composables/useFormField'
 import type { FormError, FormFieldInjectedOptions } from '../types/form'
+import WarningIcon from '@bitrix24/b24icons-vue/main/WarningIcon'
 
 const props = defineProps<FormFieldProps>()
 const slots = defineSlots<FormFieldSlots>()
@@ -106,7 +106,7 @@ provide(formFieldInjectionKey, computed(() => ({
 
       <div v-if="(typeof error === 'string' && error) || !!slots.error" :class="b24ui.error({ class: props.b24ui?.error })">
         <slot name="error" :error="error">
-          <div class="flex flex-row flex-nowram gap-0.5">
+          <div class="flex flex-row flex-nowrap gap-0.5">
             <WarningIcon :class="b24ui.errorIcon()" />
             <div>{{ error }}</div>
           </div>
