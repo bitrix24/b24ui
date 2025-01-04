@@ -50,6 +50,7 @@ import Cross20Icon from '@bitrix24/b24icons-vue/actions/Cross20Icon'
 const props = withDefaults(defineProps<BadgeProps>(), {
   as: 'span'
 })
+
 defineSlots<BadgeSlots>()
 
 async function onCloseClickWrapper(event: MouseEvent) {

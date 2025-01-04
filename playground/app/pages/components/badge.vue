@@ -168,7 +168,7 @@ function onCloseClick(event: MouseEvent) {
     </ExampleCard>
   </ExampleGrid>
 
-  <ExampleGrid custom-grid-cols class="mt-xs grid-cols-[repeat(auto-fill,minmax(532px,1fr))]">
+  <ExampleGrid v-once custom-grid-cols class="mt-xs grid-cols-[repeat(auto-fill,minmax(532px,1fr))]">
     <ExampleCard title="avatar">
       <template v-for="color in colors" :key="color">
         <ExampleCardSubTitle :title="color as string" />
