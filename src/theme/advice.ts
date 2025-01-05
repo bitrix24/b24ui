@@ -50,7 +50,7 @@ export default {
         root: 'items-start',
         leading: 'mt-0.5',
         descriptionAngle: [
-          'start-[0.8px] top-[8px]',
+          'start-[0.8px] top-[9px]',
           'scale-x-100 -scale-y-100',
           'rtl:-scale-x-100'
         ].join(' ')
@@ -58,7 +58,7 @@ export default {
       bottom: {
         root: 'items-end',
         descriptionAngle: [
-          'start-[0.8px] bottom-[8px]',
+          'start-[0.8px] bottom-[9px]',
           'rtl:-scale-x-100'
         ].join(' ')
       }
