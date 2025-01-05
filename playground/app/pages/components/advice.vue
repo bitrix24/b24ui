@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import theme from '#build/b24ui/advice'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
