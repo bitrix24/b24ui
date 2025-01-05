@@ -10,10 +10,11 @@ export default (options: Required<ModuleOptions>) => ({
   base: 'cursor-pointer focus-visible:outline-info-text',
   variants: {
     active: {
-      true: 'text-blue-900 dark:text-blue-250',
+      true: 'text-blue-700 dark:text-blue-300 hover:not-disabled:not-aria-disabled:underline underline-offset-2',
       false: [
         'text-base-900 hover:not-disabled:not-aria-disabled:text-blue-700',
         'dark:text-base-300 dark:hover:not-disabled:not-aria-disabled:text-blue-300',
+        'hover:not-disabled:not-aria-disabled:underline underline-offset-2',
         'transition-colors'
       ]
     },
@@ -27,6 +28,7 @@ export default (options: Required<ModuleOptions>) => ({
         'border border-x-0 border-t-0 border-dashed border-b-base-900',
         'text-base-900 dark:text-base-300 ',
         'dark:border-b-base-300',
+        'hover:not-disabled:not-aria-disabled:no-underline',
         'hover:text-blue-700 hover:not-disabled:not-aria-disabled:text-blue-700 hover:border-b-blue-700',
         'dark:hover:text-blue-300 dark:hover:not-disabled:not-aria-disabled:text-blue-300 dark:hover:border-b-blue-300',
         'focus-visible:outline-base-700'

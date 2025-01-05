@@ -112,7 +112,7 @@ defineShortcuts({
                 <B24Link
                   :href="menuItem.href"
                   target="_blank"
-                  class="pr-2 whitespace-nowrap hover:underline underline-offset-2 dark:text-base-700"
+                  class="pr-2 whitespace-nowrap"
                 >
                   {{ menuItem.title }}
                 </B24Link>
