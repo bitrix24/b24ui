@@ -50,6 +50,7 @@ const components: IComponentInfo[] = [
   { id: 'progress', description: 'An indicator showing the progress of a task.', icon: GroupIcon },
   { id: 'radio-group', description: 'A set of radio buttons to select a single option from a list.', icon: FormIcon },
   { id: 'range', description: 'An input to select a numeric value within a range.', icon: FormIcon },
+  { id: 'select', description: 'A select element to choose from a list of options.', icon: FormIcon },
   { id: 'separator', description: 'Separates content horizontally or vertically.', icon: GroupIcon },
   { id: 'shortcuts', description: 'A composable to define keyboard shortcuts in your app.', icon: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'skeleton', description: 'A placeholder to show while content is loading.', icon: ItemIcon, iconUi: 'pr-px pb-[3px]' },
