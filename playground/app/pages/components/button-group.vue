@@ -14,6 +14,12 @@ const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.var
 const depths = Object.keys(theme.variants.depth) as Array<keyof typeof theme.variants.depth>
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
+// @todo set crm words ////
+const fruits = ['Apple', 'Banana', 'Blueberry', 'Grapes', 'Pineapple']
+const vegetables = ['Aubergine', 'Broccoli', 'Carrot', 'Courgette', 'Leek']
+
+const items = [[{ label: 'Fruits', type: 'label' }, ...fruits], [{ label: 'Vegetables', type: 'label' }, ...vegetables]]
+
 function onClick() {
   return new Promise<void>(res => setTimeout(res, 3000))
 }
@@ -223,6 +229,19 @@ function onClick() {
 
           <B24ButtonGroup :size="size" no-split>
             <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
+            <B24Button
+              color="primary"
+              depth="dark"
+              loading-auto
+              use-clock
+              @click="onClick"
+            >
+              Button
+            </B24Button>
+          </B24ButtonGroup>
+
+          <B24ButtonGroup :size="size" no-split>
+            <B24Select :items="items" name="some_value" placeholder="Choose a value&hellip;" aria-label="Choose a value" />
             <B24Button
               color="primary"
               depth="dark"

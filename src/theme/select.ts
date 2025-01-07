@@ -13,19 +13,19 @@
  * @todo font
  * @todo icon
  * @todo fix icons problems
- * @todo show scroll at drop-down list
  */
 import { defuFn } from 'defu'
 import input from './input'
-import { buttonGroupVariant } from './button-group'
+import { buttonGroupVariant, buttonGroupVariantWithRoot } from './button-group'
 
 export default () => {
   return defuFn(
     {
       slots: {
-        root: () => undefined,
+        // root: () => undefined,
+        root: () => 'relative inline-flex items-center w-full',
         base: () => [
-          'relative group inline-flex items-center',
+          'relative inline-flex items-center', // group
           'w-full py-0 border-0 focus:outline-none',
           'cursor-pointer disabled:cursor-not-allowed',
           'disabled:bg-base-30/37 disabled:text-base-500',
@@ -43,7 +43,20 @@ export default () => {
         value: 'truncate pointer-events-none',
         placeholder: 'truncate text-base-400 dark:text-base-300',
         arrow: 'fill-base-master/10 dark:fill-base-100/20',
-        content: 'max-h-60 w-[var(--reka-popper-anchor-width)] bg-[var(--ui-bg)] shadow-lg rounded-[calc(var(--ui-radius)*1.5)] ring ring-[var(--ui-border)] overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in]',
+        content: [
+          'max-h-60 w-[var(--reka-popper-anchor-width)]',
+          'bg-white dark:bg-base-900', // @todo fix this ////
+          'shadow-md rounded-2xs ring ring-[var(--ui-border)]',
+          'overflow-hidden',
+          'data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in]'
+        ],
+        scrollUpDownButton: [
+          // @todo add dark mode
+          'flex items-center justify-center h-[25px] cursor-default backdrop-blur',
+          'text-base-800 bg-white',
+          'dark:text-base-100 dark:bg-base-900' // @todo fix this ////
+        ],
+        scrollUpDownButtonIcon: '',
         viewport: 'divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1',
         group: 'p-1 isolate',
         empty: 'py-2 text-center text-sm text-[var(--ui-text-muted)]',
@@ -51,7 +64,7 @@ export default () => {
         separator: '-mx-1 my-1 h-px bg-base-master/10 dark:bg-base-100/20',
         item: [
           'group relative w-full flex items-center select-none outline-none',
-          'before:absolute before:z-[-1] before:inset-px before:rounded-[calc(var(--ui-radius)*1.5)]',
+          'before:absolute before:z-[-1] before:inset-px before:rounded-2xs',
           'cursor-pointer',
           'data-disabled:cursor-not-allowed data-disabled:opacity-75',
           'text-[var(--ui-text)] data-highlighted:text-[var(--ui-text-highlighted)] data-highlighted:before:bg-[var(--ui-bg-elevated)]/50',
@@ -70,7 +83,8 @@ export default () => {
         itemLabel: 'truncate'
       },
       variants: {
-        ...buttonGroupVariant,
+        // ...buttonGroupVariant,
+        ...buttonGroupVariantWithRoot,
         size: {
           xs: {
             label: 'p-1 text-[10px]/3 gap-1',
@@ -79,7 +93,8 @@ export default () => {
             itemLeadingAvatarSize: '3xs',
             itemLeadingChip: 'size-4',
             itemLeadingChipSize: 'sm',
-            itemTrailingIcon: 'size-4'
+            itemTrailingIcon: 'size-4',
+            scrollUpDownButtonIcon: 'size-4'
           },
           sm: {
             label: 'p-1.5 text-[10px]/3 gap-1.5',
@@ -88,7 +103,8 @@ export default () => {
             itemLeadingAvatarSize: '3xs',
             itemLeadingChip: 'size-4',
             itemLeadingChipSize: 'sm',
-            itemTrailingIcon: 'size-4'
+            itemTrailingIcon: 'size-4',
+            scrollUpDownButtonIcon: 'size-4'
           },
           md: {
             label: 'p-1.5 text-xs gap-1.5',
@@ -97,7 +113,8 @@ export default () => {
             itemLeadingAvatarSize: '2xs',
             itemLeadingChip: 'size-5',
             itemLeadingChipSize: 'md',
-            itemTrailingIcon: 'size-5'
+            itemTrailingIcon: 'size-5',
+            scrollUpDownButtonIcon: 'size-5'
           },
           lg: {
             label: 'p-2 text-xs gap-2',
@@ -106,7 +123,8 @@ export default () => {
             itemLeadingAvatarSize: '2xs',
             itemLeadingChip: 'size-5',
             itemLeadingChipSize: 'md',
-            itemTrailingIcon: 'size-5'
+            itemTrailingIcon: 'size-5',
+            scrollUpDownButtonIcon: 'size-5'
           }
         }
       }

@@ -115,7 +115,7 @@ export interface SelectSlots<T, M extends boolean> {
 
 <script setup lang="ts" generic="T extends MaybeArrayOfArrayItem<I>, I extends MaybeArrayOfArray<SelectItem | AcceptableValue | boolean> = MaybeArrayOfArray<SelectItem | AcceptableValue | boolean>, V extends SelectItemKey<T> | undefined = undefined, M extends boolean = false">
 import { computed, toRef } from 'vue'
-import { SelectRoot, SelectArrow, SelectTrigger, SelectPortal, SelectContent, SelectViewport, SelectLabel, SelectGroup, SelectItem, SelectItemIndicator, SelectItemText, SelectSeparator, useForwardPropsEmits } from 'reka-ui'
+import { SelectRoot, SelectArrow, SelectTrigger, SelectPortal, SelectContent, SelectViewport, SelectScrollUpButton, SelectScrollDownButton, SelectLabel, SelectGroup, SelectItem, SelectItemIndicator, SelectItemText, SelectSeparator, useForwardPropsEmits } from 'reka-ui'
 import { defu } from 'defu'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
@@ -254,6 +254,12 @@ function onUpdateOpen(value: boolean) {
 
     <SelectPortal :disabled="!portal">
       <SelectContent :class="b24ui.content({ class: props.b24ui?.content })" v-bind="contentProps">
+        <SelectScrollUpButton :class="b24ui.scrollUpDownButton({ class: props.b24ui?.scrollUpDownButton })">
+          <Component
+            :is="icons.chevronUp"
+            :class="b24ui.scrollUpDownButtonIcon({ class: props.b24ui?.scrollUpDownButtonIcon })"
+          />
+        </SelectScrollUpButton>
         <SelectViewport :class="b24ui.viewport({ class: props.b24ui?.viewport })">
           <SelectGroup v-for="(group, groupIndex) in groups" :key="`group-${groupIndex}`" :class="b24ui.group({ class: props.b24ui?.group })">
             <template v-for="(item, index) in group" :key="`group-${groupIndex}-${index}`">
@@ -308,7 +314,12 @@ function onUpdateOpen(value: boolean) {
             </template>
           </SelectGroup>
         </SelectViewport>
-
+        <SelectScrollDownButton :class="b24ui.scrollUpDownButton({ class: props.b24ui?.scrollUpDownButton })">
+          <Component
+            :is="icons.chevronDown"
+            :class="b24ui.scrollUpDownButtonIcon({ class: props.b24ui?.scrollUpDownButtonIcon })"
+          />
+        </SelectScrollDownButton>
         <SelectArrow v-if="!!arrow" v-bind="arrowProps" :class="b24ui.arrow({ class: props.b24ui?.arrow })" />
       </SelectContent>
     </SelectPortal>

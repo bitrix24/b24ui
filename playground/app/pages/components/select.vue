@@ -10,11 +10,7 @@ import ALetterIcon from '@bitrix24/b24icons-vue/main/ALetterIcon'
 import Expand1Icon from '@bitrix24/b24icons-vue/actions/Expand1Icon'
 import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
 import UserIcon from '@bitrix24/b24icons-vue/common-b24/UserIcon'
-import CalculatorIcon from '@bitrix24/b24icons-vue/main/CalculatorIcon'
 import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
-import TaskIcon from '@bitrix24/b24icons-vue/button/TaskIcon'
-import FolderEmptyIcon from '@bitrix24/b24icons-vue/main/FolderEmptyIcon'
-import CrossedEye2Icon from '@bitrix24/b24icons-vue/main/CrossedEye2Icon'
 
 import Cross20Icon from '@bitrix24/b24icons-vue/actions/Cross20Icon'
 
@@ -22,9 +18,8 @@ usePageMeta.setPageTitle('Select')
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
 const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof theme.variants.tagColor>
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
-const variants = []
 
-// set crm words ////
+// @todo set crm words ////
 const fruits = ['Apple', 'Banana', 'Blueberry', 'Grapes', 'Pineapple']
 const vegetables = ['Aubergine', 'Broccoli', 'Carrot', 'Courgette', 'Leek']
 
@@ -112,8 +107,8 @@ function getUserAvatar(value: string) {
         <B24Select
           :items="items"
           name="some_value"
-          placeholder="Insert value&hellip;"
-          aria-label="Insert value"
+          placeholder="Choose a value&hellip;"
+          aria-label="Choose a value"
           default-value="Apple"
           class="w-3/4"
         />
@@ -124,8 +119,8 @@ function getUserAvatar(value: string) {
         <B24Select
           :items="items"
           name="some_value"
-          placeholder="Insert value&hellip;"
-          aria-label="Insert value"
+          placeholder="Choose a value&hellip;"
+          aria-label="Choose a value"
           default-value="Apple"
           class="w-3/4"
           color="success"
@@ -138,8 +133,8 @@ function getUserAvatar(value: string) {
         <B24Select
           :items="items"
           name="some_value"
-          placeholder="Insert value&hellip;"
-          aria-label="Insert value"
+          placeholder="Choose a value&hellip;"
+          aria-label="Choose a value"
           default-value="Apple"
           class="w-3/4"
           no-border
@@ -151,8 +146,8 @@ function getUserAvatar(value: string) {
         <B24Select
           :items="items"
           name="some_value"
-          placeholder="Insert value&hellip;"
-          aria-label="Insert value"
+          placeholder="Choose a value&hellip;"
+          aria-label="Choose a value"
           default-value="Apple"
           class="w-3/4"
           no-padding
@@ -164,8 +159,8 @@ function getUserAvatar(value: string) {
         <B24Select
           :items="items"
           name="some_value"
-          placeholder="Insert value&hellip;"
-          aria-label="Insert value"
+          placeholder="Choose a value&hellip;"
+          aria-label="Choose a value"
           default-value="Apple"
           class="w-3/4"
           highlight
@@ -204,8 +199,8 @@ function getUserAvatar(value: string) {
           :items="items"
           loading
           name="some_value"
-          placeholder="Insert value&hellip;"
-          aria-label="Insert value"
+          placeholder="Choose a value&hellip;"
+          aria-label="Choose a value"
           class="w-3/4"
         />
         <B24Select
@@ -213,8 +208,8 @@ function getUserAvatar(value: string) {
           loading
           trailing
           name="some_value"
-          placeholder="Insert value&hellip;"
-          aria-label="Insert value"
+          placeholder="Choose a value&hellip;"
+          aria-label="Choose a value"
           class="w-3/4"
         />
         <B24Select
@@ -223,8 +218,8 @@ function getUserAvatar(value: string) {
           :icon="RocketIcon"
           :trailing-icon="Expand1Icon"
           name="some_value"
-          placeholder="Insert value&hellip;"
-          aria-label="Insert value"
+          placeholder="Choose a value&hellip;"
+          aria-label="Choose a value"
           class="w-3/4"
         />
         <B24Select
@@ -232,8 +227,8 @@ function getUserAvatar(value: string) {
           loading
           :avatar="{ src: '/avatar/employee.png' }"
           name="some_value"
-          placeholder="Insert value&hellip;"
-          aria-label="Insert value"
+          placeholder="Choose a value&hellip;"
+          aria-label="Choose a value"
           class="w-3/4"
         />
       </div>
@@ -246,8 +241,8 @@ function getUserAvatar(value: string) {
           <B24Select
             :items="items"
             name="some_value"
-            placeholder="Insert value&hellip;"
-            aria-label="Insert value"
+            placeholder="Choose a value&hellip;"
+            aria-label="Choose a value"
             :color="color"
             highlight
             class="w-3/4"
@@ -265,8 +260,8 @@ function getUserAvatar(value: string) {
             :tag-color="tagColor"
             tag="some text"
             name="some_value"
-            placeholder="Insert value&hellip;"
-            aria-label="Insert value"
+            placeholder="Choose a value&hellip;"
+            aria-label="Choose a value"
             class="w-3/4"
           />
         </div>
@@ -280,8 +275,8 @@ function getUserAvatar(value: string) {
           <B24Select
             :items="items"
             name="some_value"
-            placeholder="Insert value&hellip;"
-            aria-label="Insert value"
+            placeholder="Choose a value&hellip;"
+            aria-label="Choose a value"
             :size="size"
             class="w-40"
           />
@@ -289,8 +284,8 @@ function getUserAvatar(value: string) {
             :items="items"
             :icon="Search2Icon"
             name="some_value"
-            placeholder="Insert value&hellip;"
-            aria-label="Insert value"
+            placeholder="Choose a value&hellip;"
+            aria-label="Choose a value"
             :size="size"
             class="w-40"
           />
@@ -299,8 +294,8 @@ function getUserAvatar(value: string) {
             :icon="Cross20Icon"
             trailing
             name="some_value"
-            placeholder="Insert value&hellip;"
-            aria-label="Insert value"
+            placeholder="Choose a value&hellip;"
+            aria-label="Choose a value"
             :size="size"
             class="w-40"
           />
@@ -326,8 +321,8 @@ function getUserAvatar(value: string) {
             :items="items"
             :avatar="{ src: '/avatar/employee.png' }"
             name="some_value"
-            placeholder="Insert value&hellip;"
-            aria-label="Insert value"
+            placeholder="Choose a value&hellip;"
+            aria-label="Choose a value"
             :size="size"
             class="w-40"
           />
