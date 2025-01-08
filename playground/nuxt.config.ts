@@ -4,9 +4,14 @@ import { readFileSync } from 'node:fs'
 const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
-  modules: ['../src/module'],
+  modules: [
+    '../src/module',
+    '@nuxthub/core'
+  ],
 
-  devtools: { enabled: false },
+  devtools: {
+    enabled: false
+  },
   devServer: {
     loadingTemplate: () => {
       return readFileSync('./playground/template/devServer-loading.html', 'utf-8')
