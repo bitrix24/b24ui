@@ -12,28 +12,28 @@
   "license": "MIT",
   "exports": {
     ".": {
-      "types": "./dist/module.d.ts",
       "style": "./dist/runtime/index.css",
+      "types": "./dist/module.d.mts",
       "import": "./dist/module.mjs",
       "require": "./dist/module.cjs"
     },
     "./unplugin": {
-      "types": "./dist/unplugin.d.ts",
+      "types": "./dist/unplugin.d.mts",
       "import": "./dist/unplugin.mjs",
       "require": "./dist/unplugin.cjs"
     },
     "./meta": {
-      "types": "./dist/meta.d.ts",
+      "types": "./dist/meta.d.mts",
       "import": "./dist/meta.mjs",
       "require": "./dist/meta.cjs"
     },
     "./vite": {
-      "types": "./dist/vite.d.ts",
+      "types": "./dist/vite.d.mts",
       "import": "./dist/vite.mjs",
       "require": "./dist/vite.cjs"
     },
     "./vue-plugin": {
-      "types": "./vue-plugin.d.ts"
+      "types": "./vue-plugin.d.mts"
     },
     "./runtime/*": "./dist/runtime/*",
     "./locale": {
@@ -49,12 +49,11 @@
   },
   "style": "./dist/runtime/index.css",
   "main": "./dist/module.cjs",
-  "types": "./dist/types.d.ts",
   "files": [
     ".nuxt/b24ui",
     "dist",
     "cli",
-    "vue-plugin.d.ts"
+    "vue-plugin.d.mts"
   ],
   "scripts": {
     "dev:prepare": "npm-run-all -s prepare:*",
@@ -130,7 +129,7 @@
   "devDependencies": {
     "npm-run-all": "^4.1.5",
     "@nuxt/eslint-config": "^0.7.4",
-    "@nuxt/module-builder": "^0.8.4",
+    "@nuxt/module-builder": "1.0.0-alpha.1",
     "@nuxt/test-utils": "^3.15.1",
     "@standard-schema/spec": "1.0.0-beta.4",
     "@vue/test-utils": "^2.4.6",
