@@ -121,7 +121,7 @@ describe('Select', () => {
   })
 
   describe('form integration', async () => {
-    async function createForm(validateOn?: FormInputEvents[]) {
+    async function createForm(validateOn?: FormInputEvents[], eagerValidation?: boolean) {
       const wrapper = await renderForm({
         props: {
           validateOn,
@@ -136,10 +136,13 @@ describe('Select', () => {
           items: ['Option 1', 'Option 2']
         },
         slotTemplate: `
-        <B24FormField name="value">
+        <B24FormField name="value" :eager-validation="eagerValidation">
           <B24Select id="input" v-model="state.value" :items="items" />
         </B24FormField>
-        `
+        `,
+        slotVars: {
+          eagerValidation
+        }
       })
       const input = wrapper.findComponent({ name: 'SelectRoot' })
       return {
@@ -173,6 +176,7 @@ describe('Select', () => {
       expect(wrapper.text()).not.toContain('Error message')
     })
 
+    // @todo fix this -> see test/components/Input.spec.ts
     test('validate on input works', async () => {
       const { input, wrapper } = await createForm(['input'])
 

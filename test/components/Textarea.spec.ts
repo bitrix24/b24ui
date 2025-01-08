@@ -85,7 +85,7 @@ describe('Textarea', () => {
   })
 
   describe('form integration', async () => {
-    async function createForm(validateOn?: FormInputEvents[]) {
+    async function createForm(validateOn?: FormInputEvents[], eagerValidation?: boolean) {
       const wrapper = await renderForm({
         props: {
           validateOn,
@@ -97,10 +97,13 @@ describe('Textarea', () => {
           }
         },
         slotTemplate: `
-        <B24FormField name="value">
+        <B24FormField name="value" :eager-validation="eagerValidation">
           <B24Textarea id="input" v-model="state.value" />
         </B24FormField>
-        `
+        `,
+        slotVars: {
+          eagerValidation
+        }
       })
       const input = wrapper.find('#input')
       return {
@@ -130,7 +133,22 @@ describe('Textarea', () => {
     })
 
     test('validate on input works', async () => {
+      const { input, wrapper } = await createForm(['input'], true)
+      await input.setValue('value')
+      expect(wrapper.text()).toContain('Error message')
+
+      await input.setValue('valid')
+      expect(wrapper.text()).not.toContain('Error message')
+    })
+
+    test('validate on input without eager validation works', async () => {
       const { input, wrapper } = await createForm(['input'])
+
+      await input.setValue('value')
+      expect(wrapper.text()).not.toContain('Error message')
+
+      await input.trigger('blur')
+
       await input.setValue('value')
       expect(wrapper.text()).toContain('Error message')
 

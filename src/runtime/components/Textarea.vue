@@ -74,7 +74,7 @@ const emits = defineEmits<TextareaEmits>()
 
 const [modelValue, modelModifiers] = defineModel<string | number>()
 
-const { emitFormBlur, emitFormInput, emitFormChange, color, id, name, highlight, disabled } = useFormField<TextareaProps>(props)
+const { emitFormBlur, emitFormInput, emitFormChange, color, id, name, highlight, disabled } = useFormField<TextareaProps>(props, { deferInputValidation: true })
 
 const isTag = computed(() => {
   return props.tag
