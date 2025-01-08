@@ -14,23 +14,19 @@
     ".": {
       "style": "./dist/runtime/index.css",
       "types": "./dist/module.d.mts",
-      "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs"
+      "import": "./dist/module.mjs"
     },
     "./unplugin": {
       "types": "./dist/unplugin.d.mts",
-      "import": "./dist/unplugin.mjs",
-      "require": "./dist/unplugin.cjs"
+      "import": "./dist/unplugin.mjs"
     },
     "./meta": {
       "types": "./dist/meta.d.mts",
-      "import": "./dist/meta.mjs",
-      "require": "./dist/meta.cjs"
+      "import": "./dist/meta.mjs"
     },
     "./vite": {
       "types": "./dist/vite.d.mts",
-      "import": "./dist/vite.mjs",
-      "require": "./dist/vite.cjs"
+      "import": "./dist/vite.mjs"
     },
     "./vue-plugin": {
       "types": "./vue-plugin.d.mts"
@@ -47,8 +43,6 @@
   "bin": {
     "bitrix24-ui": "./cli/index.mjs"
   },
-  "style": "./dist/runtime/index.css",
-  "main": "./dist/module.cjs",
   "files": [
     ".nuxt/b24ui",
     "dist",
