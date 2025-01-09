@@ -5,7 +5,7 @@ import usePageMeta from './composables/usePageMeta'
 import RightAlignIcon from '@bitrix24/b24icons-vue/editor/RightAlignIcon'
 import LeftAlignIcon from '@bitrix24/b24icons-vue/editor/LeftAlignIcon'
 import SunIcon from '@bitrix24/b24icons-vue/main/SunIcon'
-import TmpMoon from './components/TmpMoon.vue'
+import MoonIcon from '@bitrix24/b24icons-vue/main/MoonIcon'
 
 const route = useRoute()
 const router = useRouter()
@@ -125,7 +125,7 @@ defineShortcuts({
             <ClientOnly v-if="!colorMode?.forced">
               <B24Tooltip :content="{ side: 'left' }" :text="`Switch to ${isDark ? 'light' : 'dark'} mode`" :kbds="['shift', isDark ? 'arrowup' : 'arrowdown']">
                 <B24Button
-                  :icon="isDark ? TmpMoon : SunIcon"
+                  :icon="isDark ? MoonIcon : SunIcon"
                   :aria-label="`Switch to ${isDark ? 'light' : 'dark'} mode`"
                   color="link"
                   depth="normal"

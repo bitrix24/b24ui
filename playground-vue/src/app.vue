@@ -3,7 +3,7 @@ import usePageMeta from '../../playground/app/composables/usePageMeta'
 import RightAlignIcon from '@bitrix24/b24icons-vue/editor/RightAlignIcon'
 import LeftAlignIcon from '@bitrix24/b24icons-vue/editor/LeftAlignIcon'
 import SunIcon from '@bitrix24/b24icons-vue/main/SunIcon'
-import TmpMoon from '../../playground/app/components/TmpMoon.vue'
+import MoonIcon from '@bitrix24/b24icons-vue/main/MoonIcon'
 import { useRouter, useRoute } from 'vue-router'
 import { reactive, ref } from 'vue'
 import { useColorMode, useTextDirection } from '@vueuse/core'
@@ -116,7 +116,7 @@ defineShortcuts({
         <div class="fixed z-50 top-20 right-4 flex items-center gap-2 rtl:flex-row-reverse">
           <B24Tooltip :content="{ side: 'left' }" :text="`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`" :kbds="['shift', mode === 'dark' ? 'arrowup' : 'arrowdown']">
             <B24Button
-              :icon="mode === 'dark' ? TmpMoon : SunIcon"
+              :icon="mode === 'dark' ? MoonIcon : SunIcon"
               :aria-label="`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`"
               color="link"
               depth="normal"
