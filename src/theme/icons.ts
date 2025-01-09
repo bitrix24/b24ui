@@ -22,7 +22,7 @@ import Refresh6Icon from '@bitrix24/b24icons-vue/actions/Refresh6Icon' ////
 import Minus30Icon from '@bitrix24/b24icons-vue/actions/Minus30Icon'
 import Plus30Icon from '@bitrix24/b24icons-vue/actions/Plus30Icon'
 import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
-import BtnWaitIcon from '@bitrix24/b24icons-vue/button-specialized/BtnWaitIcon'
+import LoaderWaitIcon from '@bitrix24/b24icons-vue/animated/LoaderWaitIcon'
 
 export default {
   arrowLeft: ArrowToTheLeftIcon,
@@ -37,7 +37,7 @@ export default {
   close: Cross30Icon,
   ellipsis: DotsIcon,
   external: OpenIn50Icon,
-  loading: BtnWaitIcon,
+  loading: LoaderWaitIcon,
   refresh: Refresh6Icon,
   minus: Minus30Icon,
   plus: Plus30Icon,

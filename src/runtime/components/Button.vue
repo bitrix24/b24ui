@@ -56,10 +56,10 @@ import { omit } from '../utils'
 import { pickLinkProps } from '../utils/link'
 import B24Avatar from './Avatar.vue'
 import B24Link from './Link.vue'
-import BtnClockIcon from '@bitrix24/b24icons-vue/button-specialized/BtnClockIcon'
-import BtnWaitIcon from '@bitrix24/b24icons-vue/button-specialized/BtnWaitIcon'
-import BtnSpinnerIcon from '@bitrix24/b24icons-vue/button-specialized/BtnSpinnerIcon'
 import ChevronDownIcon from '@bitrix24/b24icons-vue/actions/ChevronDownIcon'
+import LoaderWaitIcon from '@bitrix24/b24icons-vue/animated/LoaderWaitIcon'
+import LoaderClockIcon from '@bitrix24/b24icons-vue/animated/LoaderClockIcon'
+import SpinnerIcon from '@bitrix24/b24icons-vue/specialized/SpinnerIcon'
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   type: 'button'
@@ -135,9 +135,9 @@ const b24ui = computed(() => button({
         isLoading ? 'visible' : 'invisible'
       ]"
     >
-      <BtnWaitIcon v-if="useWait" class="size-[21px]" aria-hidden="true" />
-      <BtnClockIcon v-else-if="useClock" class="size-lg" aria-hidden="true" />
-      <BtnSpinnerIcon v-else class="animate-spin-slow stroke-[6px] size-lg" />
+      <LoaderWaitIcon v-if="useWait" class="size-2xl" aria-hidden="true" />
+      <LoaderClockIcon v-else-if="useClock" class="size-2xl" aria-hidden="true" />
+      <SpinnerIcon v-else class="animate-spin stroke-2 size-lg" />
     </div>
     <div
       :class="[
