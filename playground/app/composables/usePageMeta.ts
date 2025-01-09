@@ -7,6 +7,7 @@ import FormIcon from '@bitrix24/b24icons-vue/crm/FormIcon'
 import GroupIcon from '@bitrix24/b24icons-vue/main/GroupIcon'
 import Clock1Icon from '@bitrix24/b24icons-vue/main/Clock1Icon'
 import ChatMessageIcon from '@bitrix24/b24icons-vue/main/ChatMessageIcon'
+import AlertIcon from '@bitrix24/b24icons-vue/button/AlertIcon'
 
 const title = ref('PlayGround')
 
@@ -35,6 +36,7 @@ const menuList: IMenuItem[] = [
 
 const components: IComponentInfo[] = [
   { id: 'advice', description: 'A couple of lines of text and an avatar.', icon: ChatMessageIcon, iconUi: 'pr-3xs' },
+  { id: 'alert', description: 'A callout to draw user\'s attention.', icon: AlertIcon },
   { id: 'avatar', description: 'An img element with fallback and Nuxt Image support.', icon: PersonIcon },
   { id: 'badge', description: 'A short text to represent a status or a category.', icon: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'button', description: 'A button element that can act as a link or trigger an action.', icon: GroupIcon },

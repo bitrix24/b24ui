@@ -1,0 +1,35 @@
+import { describe, it, expect } from 'vitest'
+import Alert, { type AlertProps, type AlertSlots } from '../../src/runtime/components/Alert.vue'
+import ComponentRender from '../component-render'
+import theme from '#build/b24ui/alert'
+
+describe('Alert', () => {
+  const variants = Object.keys(theme.variants.variant) as any
+
+  const props = { title: 'Alert' }
+
+  it.each([
+    // Props
+    ['with title', { props }],
+    ['with description', { props: { ...props, description: 'Description' } }],
+    // @todo fix this ////
+    ['with icon', { props: { ...props, icon: 'i-lucide-lightbulb' } }],
+    // @todo fix this ////
+    ['with avatar', { props: { ...props, avatar: { src: 'https://github.com/benjamincanac.png' } } }],
+    ['with close', { props: { ...props, close: true } }],
+    // @todo fix this ////
+    ['with closeIcon', { props: { ...props, close: true, closeIcon: 'i-lucide-trash' } }],
+    [`with success`, { props: { ...props, variant, color: 'success' } }],
+    ['with as', { props: { ...props, as: 'article' } }],
+    ['with class', { props: { ...props, class: 'w-48' } }],
+    ['with b24ui', { props: { ...props, b24ui: { title: 'font-bold' } } }],
+    // Slots
+    ['with leading slot', { props, slots: { title: () => 'Leading slot' } }],
+    ['with title slot', { props, slots: { title: () => 'Title slot' } }],
+    ['with description slot', { props, slots: { description: () => 'Description slot' } }],
+    ['with close slot', { props, slots: { close: () => 'Close slot' } }]
+  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: AlertProps, slots?: Partial<AlertSlots> }) => {
+    const html = await ComponentRender(nameOrHtml, options, Alert)
+    expect(html).toMatchSnapshot()
+  })
+})

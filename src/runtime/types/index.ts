@@ -1,4 +1,5 @@
 export * from '../components/Advice.vue'
+export * from '../components/Alert.vue'
 export * from '../components/App.vue'
 export * from '../components/Avatar.vue'
 export * from '../components/AvatarGroup.vue'
