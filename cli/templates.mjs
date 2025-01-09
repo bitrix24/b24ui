@@ -38,10 +38,10 @@ const component = ({ name, primitive, pro, prose, content }) => {
     contents: primitive
       ? replaceBrackets(`
 [[script lang="ts"]]
-import { tv } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/${path}/${prose ? 'prose/' : ''}${content ? 'content/' : ''}${kebabName}'
+import { tv } from '../utils/tv'
 
 const appConfig = _appConfig as AppConfig & { ${key}: { ${prose ? 'prose: { ' : ''}${camelName}: Partial<typeof theme> } }${prose ? ' }' : ''}
 
@@ -79,11 +79,12 @@ const b24ui = ${camelName}()
 `)
       : replaceBrackets(`
 [[script lang="ts"]]
-import { tv, type VariantProps } from 'tailwind-variants'
+import type { VariantProps } from 'tailwind-variants'
 import type { ${upperName}RootProps, ${upperName}RootEmits } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/${path}/${prose ? 'prose/' : ''}${content ? 'content/' : ''}${kebabName}'
+import { tv } from '../utils/tv'
 
 const appConfig = _appConfig as AppConfig & { ${key}: { ${prose ? 'prose: { ' : ''}${camelName}: Partial[[typeof theme]] } }${prose ? ' }' : ''}
 
