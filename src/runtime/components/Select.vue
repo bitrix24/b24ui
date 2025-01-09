@@ -205,125 +205,125 @@ function onUpdateOpen(value: boolean) {
 <!-- eslint-disable vue/no-template-shadow -->
 <template>
   <Primitive as="div" :class="b24ui.root({ class: [props.b24ui?.root] })">
-  <SelectRoot
-    :id="id"
-    v-slot="{ modelValue, open }"
-    v-bind="rootProps"
-    :name="name"
-    :autocomplete="autocomplete"
-    :disabled="disabled"
-    @update:model-value="onUpdate"
-    @update:open="onUpdateOpen"
-  >
-    <SelectTrigger :class="b24ui.base({ class: [props.class, props.b24ui?.base] })">
-      <div v-if="isTag" :class="b24ui.tag({ class: props.b24ui?.tag })">
-        {{ props.tag }}
-      </div>
+    <SelectRoot
+      :id="id"
+      v-slot="{ modelValue, open }"
+      v-bind="rootProps"
+      :name="name"
+      :autocomplete="autocomplete"
+      :disabled="disabled"
+      @update:model-value="onUpdate"
+      @update:open="onUpdateOpen"
+    >
+      <SelectTrigger :class="b24ui.base({ class: [props.class, props.b24ui?.base] })">
+        <div v-if="isTag" :class="b24ui.tag({ class: props.b24ui?.tag })">
+          {{ props.tag }}
+        </div>
 
-      <span v-if="isLeading || !!avatar || !!slots.leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
-        <slot name="leading" :model-value="(modelValue as M extends true ? AcceptableValue[] : AcceptableValue)" :open="open" :b24ui="b24ui">
-          <Component
-            :is="leadingIconName"
-            v-if="isLeading && leadingIconName"
-            :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
-          />
-          <B24Avatar v-else-if="!!avatar" :size="((props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])" v-bind="avatar" :class="b24ui.itemLeadingAvatar({ class: props.b24ui?.itemLeadingAvatar })" />
+        <span v-if="isLeading || !!avatar || !!slots.leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
+          <slot name="leading" :model-value="(modelValue as M extends true ? AcceptableValue[] : AcceptableValue)" :open="open" :b24ui="b24ui">
+            <Component
+              :is="leadingIconName"
+              v-if="isLeading && leadingIconName"
+              :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
+            />
+            <B24Avatar v-else-if="!!avatar" :size="((props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])" v-bind="avatar" :class="b24ui.itemLeadingAvatar({ class: props.b24ui?.itemLeadingAvatar })" />
+          </slot>
+        </span>
+
+        <slot :model-value="(modelValue as M extends true ? AcceptableValue[] : AcceptableValue)" :open="open">
+          <template v-for="displayedModelValue in [displayValue(modelValue)]" :key="displayedModelValue">
+            <span v-if="displayedModelValue" :class="b24ui.value({ class: props.b24ui?.value })">
+              {{ displayedModelValue }}
+            </span>
+            <span v-else :class="b24ui.placeholder({ class: props.b24ui?.placeholder })">
+              {{ placeholder ?? '&nbsp;' }}
+            </span>
+          </template>
         </slot>
-      </span>
 
-      <slot :model-value="(modelValue as M extends true ? AcceptableValue[] : AcceptableValue)" :open="open">
-        <template v-for="displayedModelValue in [displayValue(modelValue)]" :key="displayedModelValue">
-          <span v-if="displayedModelValue" :class="b24ui.value({ class: props.b24ui?.value })">
-            {{ displayedModelValue }}
-          </span>
-          <span v-else :class="b24ui.placeholder({ class: props.b24ui?.placeholder })">
-            {{ placeholder ?? '&nbsp;' }}
-          </span>
-        </template>
-      </slot>
+        <span v-if="isTrailing || !!slots.trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
+          <slot name="trailing" :model-value="(modelValue as M extends true ? AcceptableValue[] : AcceptableValue)" :open="open" :b24ui="b24ui">
+            <Component
+              :is="trailingIconName"
+              v-if="trailingIconName"
+              :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
+            />
+          </slot>
+        </span>
+      </SelectTrigger>
 
-      <span v-if="isTrailing || !!slots.trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
-        <slot name="trailing" :model-value="(modelValue as M extends true ? AcceptableValue[] : AcceptableValue)" :open="open" :b24ui="b24ui">
-          <Component
-            :is="trailingIconName"
-            v-if="trailingIconName"
-            :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
-          />
-        </slot>
-      </span>
-    </SelectTrigger>
+      <SelectPortal :disabled="!portal">
+        <SelectContent :class="b24ui.content({ class: props.b24ui?.content })" v-bind="contentProps">
+          <SelectScrollUpButton :class="b24ui.scrollUpDownButton({ class: props.b24ui?.scrollUpDownButton })">
+            <Component
+              :is="icons.chevronUp"
+              :class="b24ui.scrollUpDownButtonIcon({ class: props.b24ui?.scrollUpDownButtonIcon })"
+            />
+          </SelectScrollUpButton>
+          <SelectViewport :class="b24ui.viewport({ class: props.b24ui?.viewport })">
+            <SelectGroup v-for="(group, groupIndex) in groups" :key="`group-${groupIndex}`" :class="b24ui.group({ class: props.b24ui?.group })">
+              <template v-for="(item, index) in group" :key="`group-${groupIndex}-${index}`">
+                <SelectLabel v-if="item?.type === 'label'" :class="b24ui.label({ class: props.b24ui?.label })">
+                  {{ get(item, props.labelKey as string) }}
+                </SelectLabel>
 
-    <SelectPortal :disabled="!portal">
-      <SelectContent :class="b24ui.content({ class: props.b24ui?.content })" v-bind="contentProps">
-        <SelectScrollUpButton :class="b24ui.scrollUpDownButton({ class: props.b24ui?.scrollUpDownButton })">
-          <Component
-            :is="icons.chevronUp"
-            :class="b24ui.scrollUpDownButtonIcon({ class: props.b24ui?.scrollUpDownButtonIcon })"
-          />
-        </SelectScrollUpButton>
-        <SelectViewport :class="b24ui.viewport({ class: props.b24ui?.viewport })">
-          <SelectGroup v-for="(group, groupIndex) in groups" :key="`group-${groupIndex}`" :class="b24ui.group({ class: props.b24ui?.group })">
-            <template v-for="(item, index) in group" :key="`group-${groupIndex}-${index}`">
-              <SelectLabel v-if="item?.type === 'label'" :class="b24ui.label({ class: props.b24ui?.label })">
-                {{ get(item, props.labelKey as string) }}
-              </SelectLabel>
+                <SelectSeparator v-else-if="item?.type === 'separator'" :class="b24ui.separator({ class: props.b24ui?.separator })" />
 
-              <SelectSeparator v-else-if="item?.type === 'separator'" :class="b24ui.separator({ class: props.b24ui?.separator })" />
-
-              <SelectItem
-                v-else
-                :class="b24ui.item({ class: props.b24ui?.item })"
-                :disabled="item.disabled"
-                :value="typeof item === 'object' ? get(item, props.valueKey as string) : item"
-              >
-                <slot name="item" :item="(item as T)" :index="index">
-                  <slot name="item-leading" :item="(item as T)" :index="index">
-                    <Component
-                      :is="item.icon"
-                      v-if="item.icon"
-                      :class="b24ui.itemLeadingIcon({ class: props.b24ui?.itemLeadingIcon })"
-                    />
-                    <B24Avatar v-else-if="item.avatar" :size="((props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])" v-bind="item.avatar" :class="b24ui.itemLeadingAvatar({ class: props.b24ui?.itemLeadingAvatar })" />
-                    <B24Chip
-                      v-else-if="item.chip"
-                      :size="((props.b24ui?.itemLeadingChipSize || b24ui.itemLeadingChipSize()) as ChipProps['size'])"
-                      inset
-                      standalone
-                      v-bind="item.chip"
-                      :class="b24ui.itemLeadingChip({ class: props.b24ui?.itemLeadingChip })"
-                    />
-                  </slot>
-
-                  <SelectItemText :class="b24ui.itemLabel({ class: props.b24ui?.itemLabel })">
-                    <slot name="item-label" :item="(item as T)" :index="index">
-                      {{ typeof item === 'object' ? get(item, props.labelKey as string) : item }}
-                    </slot>
-                  </SelectItemText>
-
-                  <span :class="b24ui.itemTrailing({ class: props.b24ui?.itemTrailing })">
-                    <slot name="item-trailing" :item="(item as T)" :index="index" />
-
-                    <SelectItemIndicator as-child>
+                <SelectItem
+                  v-else
+                  :class="b24ui.item({ class: props.b24ui?.item })"
+                  :disabled="item.disabled"
+                  :value="typeof item === 'object' ? get(item, props.valueKey as string) : item"
+                >
+                  <slot name="item" :item="(item as T)" :index="index">
+                    <slot name="item-leading" :item="(item as T)" :index="index">
                       <Component
-                        :is="selectedIcon || icons.check"
-                        :class="b24ui.itemTrailingIcon({ class: props.b24ui?.itemTrailingIcon })"
+                        :is="item.icon"
+                        v-if="item.icon"
+                        :class="b24ui.itemLeadingIcon({ class: props.b24ui?.itemLeadingIcon })"
                       />
-                    </SelectItemIndicator>
-                  </span>
-                </slot>
-              </SelectItem>
-            </template>
-          </SelectGroup>
-        </SelectViewport>
-        <SelectScrollDownButton :class="b24ui.scrollUpDownButton({ class: props.b24ui?.scrollUpDownButton })">
-          <Component
-            :is="icons.chevronDown"
-            :class="b24ui.scrollUpDownButtonIcon({ class: props.b24ui?.scrollUpDownButtonIcon })"
-          />
-        </SelectScrollDownButton>
-        <SelectArrow v-if="!!arrow" v-bind="arrowProps" :class="b24ui.arrow({ class: props.b24ui?.arrow })" />
-      </SelectContent>
-    </SelectPortal>
-  </SelectRoot>
+                      <B24Avatar v-else-if="item.avatar" :size="((props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])" v-bind="item.avatar" :class="b24ui.itemLeadingAvatar({ class: props.b24ui?.itemLeadingAvatar })" />
+                      <B24Chip
+                        v-else-if="item.chip"
+                        :size="((props.b24ui?.itemLeadingChipSize || b24ui.itemLeadingChipSize()) as ChipProps['size'])"
+                        inset
+                        standalone
+                        v-bind="item.chip"
+                        :class="b24ui.itemLeadingChip({ class: props.b24ui?.itemLeadingChip })"
+                      />
+                    </slot>
+
+                    <SelectItemText :class="b24ui.itemLabel({ class: props.b24ui?.itemLabel })">
+                      <slot name="item-label" :item="(item as T)" :index="index">
+                        {{ typeof item === 'object' ? get(item, props.labelKey as string) : item }}
+                      </slot>
+                    </SelectItemText>
+
+                    <span :class="b24ui.itemTrailing({ class: props.b24ui?.itemTrailing })">
+                      <slot name="item-trailing" :item="(item as T)" :index="index" />
+
+                      <SelectItemIndicator as-child>
+                        <Component
+                          :is="selectedIcon || icons.check"
+                          :class="b24ui.itemTrailingIcon({ class: props.b24ui?.itemTrailingIcon })"
+                        />
+                      </SelectItemIndicator>
+                    </span>
+                  </slot>
+                </SelectItem>
+              </template>
+            </SelectGroup>
+          </SelectViewport>
+          <SelectScrollDownButton :class="b24ui.scrollUpDownButton({ class: props.b24ui?.scrollUpDownButton })">
+            <Component
+              :is="icons.chevronDown"
+              :class="b24ui.scrollUpDownButtonIcon({ class: props.b24ui?.scrollUpDownButtonIcon })"
+            />
+          </SelectScrollDownButton>
+          <SelectArrow v-if="!!arrow" v-bind="arrowProps" :class="b24ui.arrow({ class: props.b24ui?.arrow })" />
+        </SelectContent>
+      </SelectPortal>
+    </SelectRoot>
   </Primitive>
 </template>
