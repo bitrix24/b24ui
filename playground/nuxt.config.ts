@@ -5,8 +5,9 @@ const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
   modules: [
-    '../src/module',
-    '@nuxthub/core'
+    '../src/module'
+    // @memo ERROR  NuxtHub is not compatible with nuxt generate as it needs a server to run.
+    // '@nuxthub/core'
   ],
 
   devtools: {

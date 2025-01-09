@@ -8,10 +8,12 @@
     "build": "nuxi build",
     "generate": "nuxi generate"
   },
+  "dd_dependencies": {
+    "@nuxthub/core": "^0.8.10"
+  },
   "dependencies": {
     "@bitrix24/b24icons-vue": "latest",
     "@bitrix24/b24ui-nuxt": "latest",
-    "@nuxthub/core": "^0.8.10",
     "nuxt": "^3.15.1"
   }
 }
