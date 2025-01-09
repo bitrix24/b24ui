@@ -12,7 +12,6 @@
  * @todo dark mode
  * @todo test slot def | descr and href
  * @todo test slot leading
- * @todo add props (up / down arrow and etc)
  */
 export default {
   slots: {

@@ -7,26 +7,35 @@
  */
 
 /**
- * @todo props
- * @todo color
- * @todo dark
  * @todo font
  * @todo icon
  * @todo fix icons problems
+ * @todo fix group - select - size
  */
 import { defuFn } from 'defu'
 import input from './input'
-import { buttonGroupVariant, buttonGroupVariantWithRoot } from './button-group'
+import { buttonGroupVariantWithRoot } from './button-group'
+
+const defSize = {
+  label: 'h-9 ps-3 pe-4 text-sm gap-2',
+  item: 'h-9 ps-4 pe-4 text-sm gap-2',
+  itemLeadingIcon: 'size-5',
+  itemLeadingAvatarSize: '2xs',
+  itemLeadingChip: 'size-3',
+  itemLeadingChipSize: 'sm',
+  itemTrailingIcon: 'size-3',
+  scrollUpDownButtonIcon: 'size-4',
+  trailingIcon: 'size-lg2'
+}
 
 export default () => {
   return defuFn(
     {
       slots: {
-        // root: () => undefined,
-        root: () => 'relative inline-flex items-center w-full',
+        root: () => 'relative inline-flex items-center min-w-full w-full',
         base: () => [
-          'relative inline-flex items-center', // group
-          'w-full py-0 border-0 focus:outline-none',
+          'relative inline-flex items-center group',
+          'min-w-full w-full py-0 border-0 focus:outline-none',
           'cursor-pointer disabled:cursor-not-allowed',
           'disabled:bg-base-30/37 disabled:text-base-500',
           'dark:disabled:bg-base-900/37 dark:disabled:text-base-800',
@@ -36,7 +45,7 @@ export default () => {
           'dark:ring-base-800',
           'text-base-master bg-white hover:text-base-900 focus:text-base-900 active:text-base-900',
           'dark:text-base-150 dark:bg-transparent dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350',
-          'font-b24-primary font-regular text-md leading-none',
+          'font-b24-primary font-regular text-sm',
           'align-middle',
           'text-ellipsis whitespace-nowrap'
         ],
@@ -45,33 +54,35 @@ export default () => {
         arrow: 'fill-base-master/10 dark:fill-base-100/20',
         content: [
           'max-h-60 w-[var(--reka-popper-anchor-width)]',
-          'bg-white dark:bg-base-900', // @todo fix this ////
-          'shadow-md rounded-2xs ring ring-[var(--ui-border)]',
+          'bg-white dark:bg-base-dark',
+          'shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800',
           'overflow-hidden',
           'data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in]'
         ],
         scrollUpDownButton: [
-          // @todo add dark mode
           'flex items-center justify-center h-[25px] cursor-default backdrop-blur',
           'text-base-800 bg-white',
-          'dark:text-base-100 dark:bg-base-900' // @todo fix this ////
+          'dark:text-base-100 dark:bg-base-dark'
         ],
         scrollUpDownButtonIcon: '',
         viewport: 'divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1',
         group: 'p-1 isolate',
-        empty: 'py-2 text-center text-sm text-[var(--ui-text-muted)]',
-        label: 'font-semibold text-[var(--ui-text-highlighted)]',
+        empty: 'py-2 text-center text-sm text-base-500 dark:text-base-600',
+        label: [
+          'flex items-center',
+          'font-semibold text-base-900 dark:text-base-200'
+        ],
         separator: '-mx-1 my-1 h-px bg-base-master/10 dark:bg-base-100/20',
         item: [
           'group relative w-full flex items-center select-none outline-none',
           'before:absolute before:z-[-1] before:inset-px before:rounded-2xs',
           'cursor-pointer',
           'data-disabled:cursor-not-allowed data-disabled:opacity-75',
-          'text-[var(--ui-text)] data-highlighted:text-[var(--ui-text-highlighted)] data-highlighted:before:bg-[var(--ui-bg-elevated)]/50',
+          'text-base-black dark:text-base-150 data-highlighted:text-base-900 dark:data-highlighted:text-base-200 data-highlighted:before:bg-base-100/50 dark:data-highlighted:before:bg-base-900',
           'transition-colors before:transition-colors'
         ],
         itemLeadingIcon: [
-          'shrink-0 text-[var(--ui-text-dimmed)] group-data-highlighted:text-[var(--ui-text)]',
+          'shrink-0 text-base-500 dark:text-base-700 group-data-highlighted:text-base-black dark:group-data-highlighted:text-base-150',
           'transition-colors'
         ],
         itemLeadingAvatar: 'shrink-0',
@@ -83,51 +94,14 @@ export default () => {
         itemLabel: 'truncate'
       },
       variants: {
-        // ...buttonGroupVariant,
         ...buttonGroupVariantWithRoot,
         size: {
-          xs: {
-            label: 'p-1 text-[10px]/3 gap-1',
-            item: 'p-1 text-xs gap-1',
-            itemLeadingIcon: 'size-4',
-            itemLeadingAvatarSize: '3xs',
-            itemLeadingChip: 'size-4',
-            itemLeadingChipSize: 'sm',
-            itemTrailingIcon: 'size-4',
-            scrollUpDownButtonIcon: 'size-4'
-          },
-          sm: {
-            label: 'p-1.5 text-[10px]/3 gap-1.5',
-            item: 'p-1.5 text-xs gap-1.5',
-            itemLeadingIcon: 'size-4',
-            itemLeadingAvatarSize: '3xs',
-            itemLeadingChip: 'size-4',
-            itemLeadingChipSize: 'sm',
-            itemTrailingIcon: 'size-4',
-            scrollUpDownButtonIcon: 'size-4'
-          },
-          md: {
-            label: 'p-1.5 text-xs gap-1.5',
-            item: 'p-1.5 text-sm gap-1.5',
-            itemLeadingIcon: 'size-5',
-            itemLeadingAvatarSize: '2xs',
-            itemLeadingChip: 'size-5',
-            itemLeadingChipSize: 'md',
-            itemTrailingIcon: 'size-5',
-            scrollUpDownButtonIcon: 'size-5'
-          },
-          lg: {
-            label: 'p-2 text-xs gap-2',
-            item: 'p-2 text-sm gap-2',
-            itemLeadingIcon: 'size-5',
-            itemLeadingAvatarSize: '2xs',
-            itemLeadingChip: 'size-5',
-            itemLeadingChipSize: 'md',
-            itemTrailingIcon: 'size-5',
-            scrollUpDownButtonIcon: 'size-5'
-          }
+          xs: defSize,
+          sm: defSize,
+          md: defSize,
+          lg: defSize
         }
-      }
+      },
     },
     input
   )

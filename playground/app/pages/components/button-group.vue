@@ -241,7 +241,7 @@ function onClick() {
           </B24ButtonGroup>
 
           <B24ButtonGroup :size="size" no-split>
-            <B24Select :items="items" name="some_value" placeholder="Choose a value&hellip;" aria-label="Choose a value" />
+            <B24Select class="w-40" :items="items" name="some_value" placeholder="Choose a value&hellip;" aria-label="Choose a value" />
             <B24Button
               color="primary"
               depth="dark"

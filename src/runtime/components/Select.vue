@@ -115,7 +115,7 @@ export interface SelectSlots<T, M extends boolean> {
 
 <script setup lang="ts" generic="T extends MaybeArrayOfArrayItem<I>, I extends MaybeArrayOfArray<SelectItem | AcceptableValue | boolean> = MaybeArrayOfArray<SelectItem | AcceptableValue | boolean>, V extends SelectItemKey<T> | undefined = undefined, M extends boolean = false">
 import { computed, toRef } from 'vue'
-import { SelectRoot, SelectArrow, SelectTrigger, SelectPortal, SelectContent, SelectViewport, SelectScrollUpButton, SelectScrollDownButton, SelectLabel, SelectGroup, SelectItem, SelectItemIndicator, SelectItemText, SelectSeparator, useForwardPropsEmits } from 'reka-ui'
+import { Primitive, SelectRoot, SelectArrow, SelectTrigger, SelectPortal, SelectContent, SelectViewport, SelectScrollUpButton, SelectScrollDownButton, SelectLabel, SelectGroup, SelectItem, SelectItemIndicator, SelectItemText, SelectSeparator, useForwardPropsEmits } from 'reka-ui'
 import { defu } from 'defu'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
@@ -204,6 +204,7 @@ function onUpdateOpen(value: boolean) {
 
 <!-- eslint-disable vue/no-template-shadow -->
 <template>
+  <Primitive as="div" :class="b24ui.root({ class: [props.b24ui?.root] })">
   <SelectRoot
     :id="id"
     v-slot="{ modelValue, open }"
@@ -324,4 +325,5 @@ function onUpdateOpen(value: boolean) {
       </SelectContent>
     </SelectPortal>
   </SelectRoot>
+  </Primitive>
 </template>

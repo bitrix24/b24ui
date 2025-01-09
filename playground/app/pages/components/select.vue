@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { upperFirst } from 'scule'
 import theme from '#build/b24ui/select'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
@@ -11,8 +10,11 @@ import Expand1Icon from '@bitrix24/b24icons-vue/actions/Expand1Icon'
 import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
 import UserIcon from '@bitrix24/b24icons-vue/common-b24/UserIcon'
 import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
-
-import Cross20Icon from '@bitrix24/b24icons-vue/actions/Cross20Icon'
+import HelpIcon from '@bitrix24/b24icons-vue/button/HelpIcon'
+import PlusInCircleIcon from '@bitrix24/b24icons-vue/actions/PlusInCircleIcon'
+import ArrowTopIcon from '@bitrix24/b24icons-vue/actions/ArrowTopIcon'
+import CircleCheckIcon from '@bitrix24/b24icons-vue/main/CircleCheckIcon'
+import CancelIcon from '@bitrix24/b24icons-vue/button/CancelIcon'
 
 usePageMeta.setPageTitle('Select')
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
@@ -59,27 +61,27 @@ const statuses = [
   {
     label: 'Backlog',
     value: 'backlog',
-    icon: 'i-lucide-circle-help'
+    icon: HelpIcon
   },
   {
     label: 'Todo',
     value: 'todo',
-    icon: 'i-lucide-circle-plus'
+    icon: PlusInCircleIcon
   },
   {
     label: 'In Progress',
     value: 'in_progress',
-    icon: 'i-lucide-circle-arrow-up'
+    icon: ArrowTopIcon
   },
   {
     label: 'Done',
     value: 'done',
-    icon: 'i-lucide-circle-check'
+    icon: CircleCheckIcon
   },
   {
     label: 'Canceled',
     value: 'canceled',
-    icon: 'i-lucide-circle-x'
+    icon: CancelIcon
   }
 ]
 
@@ -272,99 +274,94 @@ function getUserAvatar(value: string) {
       <template v-for="size in sizes" :key="size">
         <ExampleCardSubTitle :title="size as string" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-          <B24Select
-            :items="items"
-            name="some_value"
-            placeholder="Choose a value&hellip;"
-            aria-label="Choose a value"
-            :size="size"
-            class="w-40"
-          />
-          <B24Select
-            :items="items"
-            :icon="Search2Icon"
-            name="some_value"
-            placeholder="Choose a value&hellip;"
-            aria-label="Choose a value"
-            :size="size"
-            class="w-40"
-          />
-          <B24Select
-            :items="items"
-            :icon="Cross20Icon"
-            trailing
-            name="some_value"
-            placeholder="Choose a value&hellip;"
-            aria-label="Choose a value"
-            :size="size"
-            class="w-40"
-          />
-          <B24Select
-            :items="statuses"
-            :icon="Search2Icon"
-            :trailing-icon="Expand1Icon"
-            name="some_value"
-            placeholder="Search status&hellip;"
-            aria-label="Search status"
-            :size="size"
-            class="w-40"
-          >
-            <template #leading="{ modelValue, b24ui }">
-              <Component
-                :is="getStatusIcon(modelValue as string)"
-                v-if="modelValue"
-                :class="b24ui.leadingIcon()"
-              />
-            </template>
-          </B24Select>
-          <B24Select
-            :items="items"
-            :avatar="{ src: '/avatar/employee.png' }"
-            name="some_value"
-            placeholder="Choose a value&hellip;"
-            aria-label="Choose a value"
-            :size="size"
-            class="w-40"
-          />
-          <B24Select
-            :items="users || []"
-            :loading="status === 'pending'"
-            :icon="UserIcon"
-            :trailing-icon="Expand1Icon"
-            name="some_users"
-            placeholder="Search users&hellip;"
-            aria-label="Search users"
-            :size="size"
-            class="w-40"
-          >
-            <template #leading="{ modelValue, b24ui }">
-              <B24Avatar
-                v-if="modelValue"
-                :size="b24ui.itemLeadingAvatarSize()"
-                v-bind="getUserAvatar(modelValue as string)"
-              />
-            </template>
-          </B24Select>
-	        
-          <B24Select
-            v-model="chipValue"
-            :items="chipItems"
-            name="some_chips"
-            aria-label="Search chips"
-            :size="size"
-            class="w-40"
-          >
-            <template #leading="{ modelValue, b24ui }">
-              <B24Chip
-                v-if="modelValue"
-                v-bind="getChip(modelValue as string)"
-                inset
-                standalone
-                :size="b24ui.itemLeadingChipSize()"
-                :class="b24ui.itemLeadingChip()"
-              />
-            </template>
-          </B24Select>
+          <div class="w-40">
+            <B24Select
+              :items="items"
+              name="some_value"
+              placeholder="Choose a value&hellip;"
+              aria-label="Choose a value"
+              :size="size"
+            />
+          </div>
+          <div class="w-40">
+            <B24Select
+              :items="items"
+              :icon="Search2Icon"
+              name="some_value"
+              placeholder="Choose a value&hellip;"
+              aria-label="Choose a value"
+              :size="size"
+            />
+          </div>
+          <div class="w-40">
+            <B24Select
+              :items="statuses"
+              :icon="Search2Icon"
+              :trailing-icon="Expand1Icon"
+              name="some_value"
+              placeholder="Search status&hellip;"
+              aria-label="Search status"
+              :size="size"
+            >
+              <template #leading="{ modelValue, b24ui }">
+                <Component
+                  :is="getStatusIcon(modelValue as string)"
+                  v-if="modelValue"
+                  :class="b24ui.leadingIcon()"
+                />
+              </template>
+            </B24Select>
+          </div>
+          <div class="w-40">
+            <B24Select
+              :items="items"
+              :avatar="{ src: '/avatar/employee.png' }"
+              name="some_value"
+              placeholder="Choose a value&hellip;"
+              aria-label="Choose a value"
+              :size="size"
+            />
+          </div>
+          <div class="w-60">
+            <B24Select
+              :items="users || []"
+              :loading="status === 'pending'"
+              :icon="UserIcon"
+              :trailing-icon="Expand1Icon"
+              name="some_users"
+              placeholder="Search users&hellip;"
+              aria-label="Search users"
+              :size="size"
+            >
+              <template #leading="{ modelValue, b24ui }">
+                <B24Avatar
+                  v-if="modelValue"
+                  :size="b24ui.itemLeadingAvatarSize()"
+                  v-bind="getUserAvatar(modelValue as string)"
+                />
+              </template>
+            </B24Select>
+          </div>
+          <div class="w-40">
+            <B24Select
+              v-model="chipValue"
+              :items="chipItems"
+              name="some_chips"
+              aria-label="Search chips"
+              :size="size"
+            >
+              <template #leading="{ modelValue, b24ui }">
+                <B24Chip
+                  v-if="modelValue"
+                  v-bind="getChip(modelValue as string)"
+                  inset
+                  standalone
+                  :size="b24ui.itemLeadingChipSize()"
+                  :class="b24ui.itemLeadingChip()"
+                />
+              </template>
+            </B24Select>
+          </div>
         </div>
       </template>
     </ExampleCard>
