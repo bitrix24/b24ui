@@ -1,7 +1,7 @@
 /**
  * Alert
  * A callout to draw user's attention.
- * --
+ * ---
  * @link /api_d7/bitrix/ui/messages/alerts.php
  * @see bitrix/js/ui/alerts/src
  */

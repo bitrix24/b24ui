@@ -1,7 +1,7 @@
 /**
  * Advice
  * A couple of lines of text and an avatar
- * --
+ * ---
  * @link /api_d7/bitrix/ui/ui_advice.php
  * @see bitrix/js/ui/advice/src
  */

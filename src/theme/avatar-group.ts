@@ -1,3 +1,8 @@
+/**
+ * AvatarGroup
+ * Stack multiple avatars in a group.
+ * ---
+ */
 export default {
   slots: {
     root: 'inline-flex justify-end',
