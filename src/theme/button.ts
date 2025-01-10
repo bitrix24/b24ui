@@ -353,11 +353,11 @@ export default {
       color: 'collab',
       depth: 'light',
       class: [
-        'text-collab-900 dark:text-collab-900 bg-collab-500 border border-collab-500',
-        'hover:bg-collab-500/75 hover:focus-visible:ring-0',
-        'active:bg-collab-500/85 active:focus-visible:ring-0',
-        'disabled:bg-collab-500 aria-disabled:bg-collab-500',
-        'focus-visible:outline-collab-500'
+        'text-collab-900 dark:text-collab-900 bg-collab-300 border border-collab-400',
+        'hover:bg-collab-300/75 hover:border-collab-300/75 hover:focus-visible:ring-0',
+        'active:bg-collab-300/85 active:border-collab-300/85 active:focus-visible:ring-0',
+        'disabled:bg-collab-300 aria-disabled:bg-collab-300 disabled:border-collab-300 aria-disabled:border-collab-300',
+        'focus-visible:outline-collab-300'
       ].join(' ')
     },
     {
@@ -379,11 +379,11 @@ export default {
       color: 'ai',
       depth: 'light',
       class: [
-        'text-ai-900 dark:text-ai-900 bg-ai-370 border border-ai-370',
-        'hover:bg-ai-370/75 hover:focus-visible:ring-0',
-        'active:bg-ai-370/85 active:focus-visible:ring-0',
-        'disabled:bg-ai-370 aria-disabled:bg-ai-370',
-        'focus-visible:outline-ai-370'
+        'text-ai-900 dark:text-ai-900 bg-ai-300 border border-ai-400',
+        'hover:bg-ai-300/75 hover:border-ai-300/75 hover:focus-visible:ring-0',
+        'active:bg-ai-300/85 active:border-ai-300/85 active:focus-visible:ring-0',
+        'disabled:bg-ai-300 aria-disabled:bg-ai-300 disabled:border-ai-300 aria-disabled:border-ai-300',
+        'focus-visible:outline-ai-300'
       ].join(' ')
     },
     {

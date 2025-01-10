@@ -15,10 +15,13 @@ const depths = Object.keys(theme.variants.depth) as Array<keyof typeof theme.var
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
 // @todo set crm words ////
-const fruits = ['Apple', 'Banana', 'Blueberry', 'Grapes', 'Pineapple']
-const vegetables = ['Aubergine', 'Broccoli', 'Carrot', 'Courgette', 'Leek']
+const knowledgeBase = ['Select', 'Create']
+const smartScripts = ['Scripts', 'Create script', 'Install from Bitrix24.Market']
 
-const items = [[{ label: 'Fruits', type: 'label' }, ...fruits], [{ label: 'Vegetables', type: 'label' }, ...vegetables]]
+const items = [
+  [{ label: 'Knowledge base', type: 'label' }, ...knowledgeBase],
+  [{ label: 'Smart scripts', type: 'label' }, ...smartScripts],
+]
 
 function onClick() {
   return new Promise<void>(res => setTimeout(res, 3000))
