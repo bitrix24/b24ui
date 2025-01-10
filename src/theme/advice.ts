@@ -27,7 +27,7 @@ export default {
     ],
     description: [
       'grow',
-      'w-9/12 py-3 px-md2 ms-2',
+      'w-11/12 py-3 px-md2 ms-2', // -9/12
       'rounded-[23px]',
       'font-b24-secondary text-md leading-md font-normal',
       'border-1',
