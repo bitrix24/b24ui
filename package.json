@@ -12,24 +12,28 @@
   "license": "MIT",
   "exports": {
     ".": {
-      "style": "./dist/runtime/index.css",
-      "types": "./dist/module.d.mts",
-      "import": "./dist/module.mjs"
+      "types": "./dist/module.d.ts",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs",
+      "style": "./dist/runtime/index.css"
     },
     "./unplugin": {
-      "types": "./dist/unplugin.d.mts",
-      "import": "./dist/unplugin.mjs"
+      "types": "./dist/unplugin.d.ts",
+      "import": "./dist/unplugin.mjs",
+      "require": "./dist/unplugin.cjs"
     },
     "./meta": {
-      "types": "./dist/meta.d.mts",
-      "import": "./dist/meta.mjs"
+      "types": "./dist/meta.d.ts",
+      "import": "./dist/meta.mjs",
+      "require": "./dist/meta.cjs"
     },
     "./vite": {
-      "types": "./dist/vite.d.mts",
-      "import": "./dist/vite.mjs"
+      "types": "./dist/vite.d.ts",
+      "import": "./dist/vite.mjs",
+      "require": "./dist/vite.cjs"
     },
     "./vue-plugin": {
-      "types": "./vue-plugin.d.mts"
+      "types": "./vue-plugin.d.ts"
     },
     "./runtime/*": "./dist/runtime/*",
     "./locale": {
@@ -43,11 +47,14 @@
   "bin": {
     "bitrix24-ui": "./cli/index.mjs"
   },
+  "style": "./dist/runtime/index.css",
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
   "files": [
     ".nuxt/b24ui",
     "dist",
     "cli",
-    "vue-plugin.d.mts"
+    "vue-plugin.d.ts"
   ],
   "scripts": {
     "dev:prepare": "npm-run-all -s prepare:*",
@@ -122,7 +129,7 @@
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.7.4",
-    "@nuxt/module-builder": "1.0.0-alpha.1",
+    "@nuxt/module-builder": "^0.8.4",
     "@nuxt/test-utils": "^3.15.1",
     "@standard-schema/spec": "1.0.0-beta.4",
     "@vue/test-utils": "^2.4.6",
