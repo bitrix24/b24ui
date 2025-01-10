@@ -21,33 +21,47 @@ const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.var
 const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof theme.variants.tagColor>
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
-// @todo set crm words ////
-const fruits = ['Apple', 'Banana', 'Blueberry', 'Grapes', 'Pineapple']
-const vegetables = ['Aubergine', 'Broccoli', 'Carrot', 'Courgette', 'Leek']
+const knowledgeBase = ['Select Knowledge base', 'Create knowledge base']
+const smartScripts = ['Scripts', 'Create script', 'Install from Bitrix24.Market']
+const smartProcess = ['Smart Process Automation']
+const settings = ['CRM settings', 'My company details', 'Access permissions', 'CRM Payment', 'CRM.Delivery']
 
-const items = [[{ label: 'Fruits', type: 'label' }, ...fruits], [{ label: 'Vegetables', type: 'label' }, ...vegetables]]
-const selectedItems = ref([fruits[0]!, vegetables[0]!])
+const items = [
+  [...knowledgeBase],
+  [{ label: 'Smart scripts', type: 'label' }, ...smartScripts],
+  ['Bitrix24.Market'],
+  [{ label: 'Smart Process Automation', type: 'label' }, ...smartProcess],
+  [{ label: 'Settings', type: 'label' }, ...settings]
+]
+const selectedItems = ref([knowledgeBase[0]!, smartProcess[0]!])
 
 const chipItems = ref([
   {
-    label: 'bug',
-    value: 'bug',
+    label: 'New message',
+    value: 'message',
     chip: {
-      color: 'danger' as const
+      color: 'collab' as const
     }
   },
   {
-    label: 'feature',
-    value: 'feature',
+    label: 'New information',
+    value: 'information',
+    chip: {
+      color: 'primary' as const
+    }
+  },
+  {
+    label: 'Online',
+    value: 'online',
     chip: {
       color: 'success' as const
     }
   },
   {
-    label: 'enhancement',
-    value: 'enhancement',
+    label: 'Offline',
+    value: 'offline',
     chip: {
-      color: 'primary' as const
+      color: 'default' as const
     }
   }
 ])
@@ -270,7 +284,7 @@ function getUserAvatar(value: string) {
       </template>
     </ExampleCard>
 
-    <ExampleCard title="size" class="sm:col-span-3">
+    <ExampleCard title="size" class="sm:col-span-2 md:col-span-4 lg:col-span-6">
       <template v-for="size in sizes" :key="size">
         <ExampleCardSubTitle :title="size as string" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">

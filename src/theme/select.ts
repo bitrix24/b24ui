@@ -17,11 +17,11 @@ import input from './input'
 import { buttonGroupVariantWithRoot } from './button-group'
 
 const defSize = {
-  label: 'h-9 ps-3 pe-4 text-sm gap-2',
-  item: 'h-9 ps-4 pe-4 text-sm gap-2',
+  label: 'h-9 ps-2 pe-3 text-sm gap-2',
+  item: 'h-9 ps-3 pe-3 text-sm gap-2',
   itemLeadingIcon: 'size-5',
   itemLeadingAvatarSize: '2xs',
-  itemLeadingChip: 'size-3',
+  itemLeadingChip: 'size-3 not-group-data-reka-collection-item:ps-2.5',
   itemLeadingChipSize: 'sm',
   itemTrailingIcon: 'size-3',
   scrollUpDownButtonIcon: 'size-4',
@@ -40,7 +40,6 @@ export default () => {
           'disabled:bg-base-30/37 disabled:text-base-500',
           'dark:disabled:bg-base-900/37 dark:disabled:text-base-800',
           'appearance-none transition duration-300 ease-linear', // transition-colors
-          // // // // //
           'ring ring-inset ring-base-300',
           'dark:ring-base-800',
           'text-base-master bg-white hover:text-base-900 focus:text-base-900 active:text-base-900',
@@ -78,11 +77,11 @@ export default () => {
           'before:absolute before:z-[-1] before:inset-px before:rounded-2xs',
           'cursor-pointer',
           'data-disabled:cursor-not-allowed data-disabled:opacity-75',
-          'text-base-black dark:text-base-150 data-highlighted:text-base-900 dark:data-highlighted:text-base-200 data-highlighted:before:bg-base-100/50 dark:data-highlighted:before:bg-base-900',
+          'text-base-master dark:text-base-150 data-highlighted:text-base-900 dark:data-highlighted:text-base-200 data-highlighted:before:bg-base-100/50 dark:data-highlighted:before:bg-base-900',
           'transition-colors before:transition-colors'
         ],
         itemLeadingIcon: [
-          'shrink-0 text-base-500 dark:text-base-700 group-data-highlighted:text-base-black dark:group-data-highlighted:text-base-150',
+          'shrink-0 text-base-500 dark:text-base-700 group-data-highlighted:text-base-master dark:group-data-highlighted:text-base-150',
           'transition-colors'
         ],
         itemLeadingAvatar: 'shrink-0',
@@ -101,7 +100,7 @@ export default () => {
           md: defSize,
           lg: defSize
         }
-      },
+      }
     },
     input
   )
