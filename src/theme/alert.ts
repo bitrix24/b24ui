@@ -57,7 +57,7 @@ export default {
       },
       secondary: {
         root: [
-          'text-secondary-700 bg-secondary-200',
+          'text-secondary-700 bg-secondary-125',
           'dark:text-secondary-750 dark:bg-secondary-300'
         ],
         close: 'text-secondary-700 dark:text-secondary-750 hover:text-secondary-800 dark:hover:text-secondary-800'

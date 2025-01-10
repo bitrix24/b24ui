@@ -30,7 +30,7 @@ const actions = (color: string) => [
   },
   {
     icon: DotsIcon,
-    color: 'link',
+    color: color as any,
     depth: 'light',
     click() {
       console.log('Action 3 clicked')
@@ -38,9 +38,10 @@ const actions = (color: string) => [
   }
 ]
 
+// @todo change text
 const data = {
   title: 'Heads up!',
-  description: 'You can change the primary color in your app config.',
+  description: 'Let\'s signal the manager that the deal is not moving, the manager does not call the client back and does not respond to his messages. Let\'s assign a task to the manager on behalf of the manager.',
   icon: SignIcon,
   close: true
 }
