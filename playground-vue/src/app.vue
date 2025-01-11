@@ -49,17 +49,11 @@ defineShortcuts({
     }
     router.push('/')
   },
-  shift_arrowright: () => {
-    dir.value = 'rtl'
+  shift_L: () => {
+    dir.value = dir.value === 'rtl' ? 'ltr' : 'rtl'
   },
-  shift_arrowleft: () => {
-    dir.value = 'ltr'
-  },
-  shift_arrowup: () => {
-    mode.value = 'light'
-  },
-  shift_arrowdown: () => {
-    mode.value = 'dark'
+  shift_D: () => {
+    mode.value = mode.value === 'light' ? 'dark' : 'light'
   }
 })
 </script>
@@ -88,18 +82,40 @@ defineShortcuts({
                     </B24Link>
                   </div>
                 </div>
-                <div class="invisible md:visible flex flex-row flex-nowrap items-center justify-center gap-0.5">
+                <div class="hidden md:flex flex-row flex-nowrap items-center justify-center gap-0.5">
                   <B24Kbd value="ctrl" size="sm" /> <B24Kbd value="arrowleft" size="sm" />
                 </div>
               </div>
             </div>
-            <div class="invisible md:visible flex flex-row flex-nowrap items-center justify-center gap-0.5">
-              <B24Kbd value="ctrl" size="sm" /> <B24Kbd value="K" size="sm" />
+            <div class="flex items-center gap-1.5 rtl:flex-row-reverse">
+              <B24Tooltip :content="{ side: 'left' }" :text="`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`" :kbds="['shift', 'D']">
+                <B24Button
+                  :icon="mode === 'dark' ? MoonIcon : SunIcon"
+                  :aria-label="`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`"
+                  color="link"
+                  depth="normal"
+                  size="xs"
+                  @click="toogleMode"
+                />
+              </B24Tooltip>
+              <B24Tooltip :content="{ side: 'left' }" :text="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', 'L']">
+                <B24Button
+                  :icon="dir === 'ltr' ? LeftAlignIcon : RightAlignIcon"
+                  :aria-label="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`"
+                  color="link"
+                  depth="normal"
+                  size="xs"
+                  @click="toogleDir"
+                />
+              </B24Tooltip>
+              <div class="hidden mx-2 md:flex flex-row flex-nowrap items-center justify-center gap-0.5">
+                <B24Kbd value="ctrl" size="sm" /> <B24Kbd value="K" size="sm" />
+              </div>
             </div>
             <div
               v-for="(menuItem, menuIndex) in usePageMeta.menuList"
               :key="menuIndex"
-              class="text-md font-light invisible md:visible"
+              class="text-md font-light hidden md:flex flex-row flex-nowrap items-center justify-center"
             >
               <B24Link
                 :href="menuItem.href"
@@ -113,28 +129,6 @@ defineShortcuts({
         </div>
       </div>
       <div vaul-drawer-wrapper class="flex flex-col lg:flex-row h-[calc(100vh-4.1rem)] w-screen overflow-hidden min-h-0">
-        <div class="fixed z-50 top-20 right-4 flex items-center gap-2 rtl:flex-row-reverse">
-          <B24Tooltip :content="{ side: 'left' }" :text="`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`" :kbds="['shift', mode === 'dark' ? 'arrowup' : 'arrowdown']">
-            <B24Button
-              :icon="mode === 'dark' ? MoonIcon : SunIcon"
-              :aria-label="`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`"
-              color="link"
-              depth="normal"
-              size="xs"
-              @click="toogleMode"
-            />
-          </B24Tooltip>
-          <B24Tooltip :content="{ side: 'left' }" :text="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', dir === 'ltr' ? 'arrowright' : 'arrowleft']">
-            <B24Button
-              :icon="dir === 'ltr' ? LeftAlignIcon : RightAlignIcon"
-              :aria-label="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`"
-              color="link"
-              depth="normal"
-              size="xs"
-              @click="toogleDir"
-            />
-          </B24Tooltip>
-        </div>
         <div class="py-14 px-3xl flex flex-col items-center justify-evenly overflow-y-auto w-full">
           <Suspense>
             <RouterView />
