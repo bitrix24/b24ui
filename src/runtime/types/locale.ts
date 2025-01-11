@@ -9,6 +9,7 @@ export type Messages = {
     decrement: string
   }
   commandPalette: {
+    placeholder: string
     noMatch: string
     noData: string
     close: string
@@ -17,6 +18,7 @@ export type Messages = {
     noMatch: string
     noData: string
     create: string
+    search: string
   }
   toast: {
     close: string
