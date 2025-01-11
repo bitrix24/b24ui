@@ -285,8 +285,12 @@ const onCountdownRoundStop = () => {
               use-circle
               size="lg"
               @end="onCountdownRoundEnd"
+              @click="onCountdownRoundEnd"
             />
-            <Cross30Icon class="size-full opacity-0 group-hover:opacity-100 text-base-500 dark:text-base-600 group-hover:text-base-900 dark:group-hover:text-base-100 absolute inset-x-0 inset-y-0 z-20" />
+            <Cross30Icon
+              class="size-full opacity-0 group-hover:opacity-100 text-base-500 dark:text-base-600 group-hover:text-base-900 dark:group-hover:text-base-100 absolute inset-x-0 inset-y-0 z-20"
+              @click="onCountdownRoundEnd"
+            />
           </div>
         </B24Button>
         <B24Button

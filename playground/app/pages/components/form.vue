@@ -70,6 +70,7 @@ const fillState = () => {
                 use-circle
                 size="sm"
                 @end="resetState"
+                @click="resetState"
               />
               <Cross30Icon
                 class="cursor-pointer size-full opacity-0 group-hover:opacity-100 text-base-500 dark:text-base-600 group-hover:text-base-900 dark:group-hover:text-base-100 absolute inset-x-0 inset-y-0 z-20"
@@ -136,6 +137,7 @@ const fillState = () => {
             <B24Button type="submit" label="Submit" color="success" />
             <B24Button
               type="button"
+              class="text-base-300 dark:text-base-700"
               color="link"
               :icon="Shining2Icon"
               @click="fillState"
