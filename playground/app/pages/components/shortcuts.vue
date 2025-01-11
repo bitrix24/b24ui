@@ -57,11 +57,16 @@ defineShortcuts({
 
 <template>
   <ExampleGrid>
-    <ExampleCard title="Settings" class="col-span-1">
+    <ExampleCard title="Settings">
       <div class="space-y-6">
         <div>
-          <ExampleCardSubTitle class="text-base-400 mb-2 mt-4">
-            shortcut: <B24Kbd :value="shortcutsState.a.label" />
+          <ExampleCardSubTitle class="mb-2 mt-4">
+            <div class="flex flex-row flex-nowrap items-center gap-2">
+              <div>
+                shortcut:
+              </div>
+              <B24Kbd :value="shortcutsState.a.label" />
+            </div>
           </ExampleCardSubTitle>
           <div class="flex flex-col gap-4">
             <B24Switch v-model="shortcutsState.a.disabled" :label="`Disable`" :unchecked-icon="Cross30Icon" :checked-icon="CheckIcon" />
@@ -69,8 +74,13 @@ defineShortcuts({
           </div>
         </div>
         <div>
-          <ExampleCardSubTitle class="text-base-400 mb-2 mt-4">
-            shortcut: <B24Kbd :value="shortcutsState.shift_i.label" />
+          <ExampleCardSubTitle class="mb-2 mt-4">
+            <div class="flex flex-row flex-nowrap items-center gap-2">
+              <div>
+                shortcut:
+              </div>
+              <B24Kbd :value="shortcutsState.shift_i.label" />
+            </div>
           </ExampleCardSubTitle>
           <div class="flex flex-col gap-4">
             <B24Switch v-model="shortcutsState.shift_i.disabled" :label="`Disable`" :unchecked-icon="Cross30Icon" :checked-icon="CheckIcon" />
@@ -78,8 +88,13 @@ defineShortcuts({
           </div>
         </div>
         <div>
-          <ExampleCardSubTitle class="text-base-400 mb-2 mt-4">
-            shortcut: <B24Kbd :value="shortcutsState['g-i'].label" />
+          <ExampleCardSubTitle class="mb-2 mt-4">
+            <div class="flex flex-row flex-nowrap items-center gap-2">
+              <div>
+                shortcut:
+              </div>
+              <B24Kbd :value="shortcutsState['g-i'].label" />
+            </div>
           </ExampleCardSubTitle>
           <div class="flex flex-col gap-4">
             <B24Switch v-model="shortcutsState['g-i'].disabled" :label="`Disable`" :unchecked-icon="Cross30Icon" :checked-icon="CheckIcon" />
@@ -88,11 +103,11 @@ defineShortcuts({
         </div>
 
         <ExampleCardSubTitle title="Input to focus" />
-        <B24Input placeholder="Input to focus" v-model="inputValue" color="default" />
+        <B24Input v-model="inputValue" placeholder="Input to focus" />
       </div>
     </ExampleCard>
 
-    <ExampleCard class="col-span-4">
+    <ExampleCard class="md:col-span-2 lg:col-span-4">
       <template #title>
         <div class="flex items-center justify-between gap-4">
           <div>[Logs]</div>
