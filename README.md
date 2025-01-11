@@ -54,12 +54,18 @@ export default defineConfig({
 
 ```ts [main.ts]
 import { createApp } from 'vue'
-import uiPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'
+import { createRouter, createWebHistory } from 'vue-router'
+import b24UiPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'
 import App from './App.vue'
 
 const app = createApp(App)
+const router = createRouter({
+  routes: [],
+  history: createWebHistory()
+})
 
-app.use(uiPlugin)
+app.use(router)
+app.use(b24UiPlugin)
 
 app.mount('#app')
 ```
