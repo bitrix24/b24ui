@@ -103,7 +103,7 @@ function fillState() {
     v-if="isShowResult"
     :icon="SuccessIcon"
     description="The form has been submitted."
-    size="xs"
+    size="sm"
     color="success"
   >
     <template #description>
