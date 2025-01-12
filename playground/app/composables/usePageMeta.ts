@@ -9,6 +9,7 @@ import GroupIcon from '@bitrix24/b24icons-vue/main/GroupIcon'
 import Clock1Icon from '@bitrix24/b24icons-vue/main/Clock1Icon'
 import ChatMessageIcon from '@bitrix24/b24icons-vue/main/ChatMessageIcon'
 import AlertIcon from '@bitrix24/b24icons-vue/button/AlertIcon'
+import FolderEmptyIcon from '@bitrix24/b24icons-vue/main/FolderEmptyIcon'
 
 const title = ref('PlayGround')
 
@@ -59,6 +60,7 @@ const components: IComponentInfo[] = [
   { id: 'shortcuts', description: 'A composable to define keyboard shortcuts in your app.', icon: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'skeleton', description: 'A placeholder to show while content is loading.', icon: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'switch', description: 'A control that toggles between two states.', icon: FormIcon },
+  { id: 'tabs', description: 'A set of tab panels that are displayed one at a time.', icon: FolderEmptyIcon },
   { id: 'textarea', description: 'A textarea element to input multi-line text.', icon: FormIcon },
   { id: 'tooltip', description: 'A popup that reveals information when hovering over an element.', icon: GroupIcon }
 ]
