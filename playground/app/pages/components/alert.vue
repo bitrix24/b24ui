@@ -100,7 +100,7 @@ const data = {
             :icon="data.icon"
             :close="data.close"
             :color="color"
-            :actions="actions(color)"
+            :actions="actions(color as string)"
             size="xs"
           />
           <B24Alert
@@ -109,8 +109,8 @@ const data = {
             :icon="data.icon"
             :close="data.close"
             :color="color"
-            :actions="actions(color)"
-            size="xs"
+            :actions="actions(color as string)"
+            size="sm"
           />
         </div>
         <ExampleCardSubTitle title="md" />
@@ -127,7 +127,7 @@ const data = {
             :icon="data.icon"
             :close="data.close"
             :color="color"
-            :actions="actions(color)"
+            :actions="actions(color as string)"
           />
           <B24Alert
             :title="data.title"
@@ -135,7 +135,7 @@ const data = {
             :icon="data.icon"
             :close="data.close"
             :color="color"
-            :actions="actions(color)"
+            :actions="actions(color as string)"
           />
         </div>
       </ExampleCard>

@@ -78,7 +78,7 @@ export default {
       }
     },
     size: {
-      xs: {
+      sm: {
         root: 'py-xs ps-sm pe-xs gap-2',
         title: 'text-sm leading-normal',
         description: 'text-sm leading-normal',
