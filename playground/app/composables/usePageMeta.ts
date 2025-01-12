@@ -62,6 +62,7 @@ const components: IComponentInfo[] = [
   { id: 'switch', description: 'A control that toggles between two states.', icon: FormIcon },
   { id: 'tabs', description: 'A set of tab panels that are displayed one at a time.', icon: FolderEmptyIcon },
   { id: 'textarea', description: 'A textarea element to input multi-line text.', icon: FormIcon },
+  { id: 'toast', description: 'A succinct message to provide information or feedback to the user.', icon: GroupIcon },
   { id: 'tooltip', description: 'A popup that reveals information when hovering over an element.', icon: GroupIcon }
 ]
 
