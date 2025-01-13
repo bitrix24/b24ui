@@ -38,7 +38,7 @@ onMounted(() => {
       <div class="mb-6 flex flex-col items-center gap-8">
         <B24Range v-model="value" aria-label="Some range" />
         <B24Range :default-value="100" aria-label="Some range" />
-        <B24Range :default-value="40" inverted  aria-label="Some inverted range" />
+        <B24Range :default-value="40" inverted aria-label="Some inverted range" />
       </div>
       <ExampleCardSubTitle title="disabled" />
       <div class="mb-6 flex flex-col items-center gap-8">
