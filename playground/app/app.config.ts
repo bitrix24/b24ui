@@ -1,8 +1,8 @@
 export default defineAppConfig({
   toaster: {
-    position: 'bottom-right' as const,
+    position: 'top-right' as const,
     expand: true,
-    duration: 5000
+    duration: 8000
   },
   b24ui: {}
 })

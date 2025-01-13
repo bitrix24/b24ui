@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { DefineComponent } from 'vue'
 import type { VariantProps } from 'tailwind-variants'
 import type { ToastRootProps, ToastRootEmits } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
@@ -21,7 +22,7 @@ export interface ToastProps extends Pick<ToastRootProps, 'defaultOpen' | 'open' 
   as?: any
   title?: string
   description?: string
-  icon?: string
+  icon?: DefineComponent
   avatar?: AvatarProps
   color?: ToastVariants['color']
   /**
@@ -41,7 +42,7 @@ export interface ToastProps extends Pick<ToastRootProps, 'defaultOpen' | 'open' 
    * The icon displayed in the close button.
    * @defaultValue icons.close
    */
-  closeIcon?: string
+  closeIcon?: DefineComponent
   class?: any
   b24ui?: Partial<typeof toast.slots>
 }
@@ -61,8 +62,9 @@ export interface ToastSlots {
 import { ref, computed, onMounted } from 'vue'
 import { ToastRoot, ToastTitle, ToastDescription, ToastAction, ToastClose, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
-import { useAppConfig } from '#imports'
+// import { useAppConfig } from '#imports'
 import { useLocale } from '../composables/useLocale'
+import icons from '../../theme/icons'
 import B24Avatar from './Avatar.vue'
 import B24Button from './Button.vue'
 
@@ -73,7 +75,7 @@ const emits = defineEmits<ToastEmits>()
 const slots = defineSlots<ToastSlots>()
 
 const { t } = useLocale()
-const appConfig = useAppConfig()
+// const appConfig = useAppConfig()
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'defaultOpen', 'open', 'duration', 'type'), emits)
 
@@ -153,7 +155,7 @@ defineExpose({
           <B24Button
             v-if="close"
             :icon="closeIcon || icons.close"
-            size="sm"
+            size="xs"
             color="link"
             :aria-label="t('toast.close')"
             v-bind="typeof close === 'object' ? close : undefined"

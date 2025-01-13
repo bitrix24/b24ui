@@ -1,6 +1,5 @@
 <script setup lang="ts">
 /**
- * @todo add toast
  * @todo add selectMenu
  * @todo add selectMenuMultiple
  * @todo add inputMenu
@@ -8,8 +7,9 @@
  * @todo add inputNumber
  * @todo add PinInput
  */
-import * as z from 'zod'
 import { reactive, ref, useTemplateRef } from 'vue'
+import { useToast } from '@bitrix24/b24ui-nuxt/runtime/composables/useToast.ts'
+import * as z from 'zod'
 import type { FormSubmitEvent } from '@bitrix24/b24ui-nuxt'
 import SuccessIcon from '@bitrix24/b24icons-vue/button/SuccessIcon'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
@@ -68,9 +68,9 @@ const items = [
   { label: 'Option 3', value: 'option-3' }
 ]
 
-// const toast = useToast()
+const toast = useToast()
 async function onSubmit(event: FormSubmitEvent<any>) {
-  // toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'success' })
+  toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'success' })
   console.log(event.data, state)
   isShowResult.value = true
 }

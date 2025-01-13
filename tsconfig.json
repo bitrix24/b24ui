@@ -1,5 +1,9 @@
 {
   // https://nuxt.com/docs/guide/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    // @memo need for src/runtime/components/Toast.vue ////
+    "noImplicitAny": false
+  },
   "exclude": ["@tmp", "cli", "docs", "dist", "playground", "playground-vue", "node_modules"]
 }

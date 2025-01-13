@@ -1,10 +1,10 @@
 <script setup lang="ts">
 /**
  * @memo You should use `state` to get all the form input values.
- * @todo add toast
  */
 import { reactive, ref } from 'vue'
 import * as z from 'zod'
+import { useToast } from '@bitrix24/b24ui-nuxt/runtime/composables/useToast.ts'
 import type { FormSubmitEvent } from '@bitrix24/b24ui-nuxt'
 import SuccessIcon from '@bitrix24/b24icons-vue/button/SuccessIcon'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
@@ -65,9 +65,9 @@ function fillState() {
     price: 20.31
   })
 }
-// const toast = useToast()
+const toast = useToast()
 async function onSubmit(event: FormSubmitEvent<any>) {
-  // toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'success' })
+  toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'success' })
   console.log(event.data, state)
   isShowResult.value = true
 }

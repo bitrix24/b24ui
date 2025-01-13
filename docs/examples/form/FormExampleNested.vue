@@ -1,9 +1,9 @@
 <script setup lang="ts">
 /**
  * @memo You should use `state` to get all the form input values.
- * @todo add toast
  */
 import { reactive, ref } from 'vue'
+import { useToast } from '@bitrix24/b24ui-nuxt/runtime/composables/useToast.ts'
 import * as z from 'zod'
 import type { FormSubmitEvent } from '@bitrix24/b24ui-nuxt'
 import SuccessIcon from '@bitrix24/b24icons-vue/button/SuccessIcon'
@@ -28,9 +28,9 @@ const autoResultSeconds = ref(20)
 
 const state = reactive<Partial<Schema & NestedSchema>>({ })
 
-// const toast = useToast()
+const toast = useToast()
 async function onSubmit(event: FormSubmitEvent<any>) {
-  // toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'success' })
+  toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'success' })
   console.log(event.data, state)
   isShowResult.value = true
 }

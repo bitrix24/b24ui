@@ -1,7 +1,14 @@
 <script setup lang="ts">
 import theme from '#build/b24ui/toaster'
+import themeToast from '#build/b24ui/toast'
+import usePageMeta from './../../composables/usePageMeta'
+import ExampleGrid from '../../components/ExampleGrid.vue'
+import ExampleCard from '../../components/ExampleCard.vue'
 import { useAppConfig } from '#imports'
+import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
 
+usePageMeta.setPageTitle('Toast')
+const colors = Object.keys(themeToast.variants.color) as Array<keyof typeof themeToast.variants.color>
 const positions = Object.keys(theme.variants.position)
 
 const { toasts, add, update, remove } = useToast()
@@ -10,69 +17,106 @@ const appConfig = useAppConfig()
 const count = ref(1)
 const last = computed(() => toasts.value[toasts.value.length - 1])
 
-const templates = (id: number) => [{
-  title: 'Toast',
-  description: `This is the toast ${id}`
-}, {
-  title: `Toast ${id}`
-}, {
-  description: `This is the toast ${id}`
-}, {
-  title: 'Toast',
-  description: `This is the toast ${id}`,
-  icon: 'i-lucide-rocket'
-}, {
-  title: `Toast ${id}`,
-  icon: 'i-lucide-rocket'
-}, {
-  description: `This is the toast ${id}`,
-  icon: 'i-lucide-rocket'
-}, {
-  title: 'Toast',
-  description: `This is the toast ${id}`,
-  avatar: {
-    src: 'https://github.com/benjamincanac.png'
-  }
-}, {
-  title: 'Toast',
-  description: `This is the toast ${id}`,
-  avatar: {
-    src: 'https://github.com/benjamincanac.png'
+const messageList: string[] = [
+  '',
+  'File report-for-february.docs successfully deleted. ',
+  'File successfully deleted. '
+]
+
+function getRandomString<T>(array: T[]): T {
+  const randomIndex = Math.floor(Math.random() * array.length)
+  return array[randomIndex] as T
+}
+
+const templates = (id: number) => [
+  {
+    title: `Title for toast ${id}`,
+    description: `${getRandomString(messageList)}Description for toast ${id}`,
+    color: getRandomString(colors)
   },
-  actions: [{
-    label: 'Action',
-    click() {
-      console.log(`Toast ${id} action clicked`)
-    }
-  }]
-}, {
-  title: `Toast ${id}`,
-  icon: 'i-lucide-rocket',
-  actions: [{
-    label: 'Action 1',
-    color: 'neutral' as const,
-    click() {
-      console.log(`Toast ${id} action 1 clicked`)
-    }
-  }, {
-    label: 'Action 2',
-    color: 'neutral' as const,
-    variant: 'outline' as const,
-    click() {
-      console.log(`Toast ${id} action 2 clicked`)
-    }
-  }]
-}, {
-  description: `This is the toast ${id}`,
-  icon: 'i-lucide-rocket',
-  actions: [{
-    label: 'Action',
-    variant: 'outline' as const,
-    click() {
-      console.log(`Toast ${id} action clicked`)
-    }
-  }]
-}]
+  {
+    title: `Title for toast ${id}`
+  },
+  {
+    description: `${getRandomString(messageList)}Description for toast ${id}`,
+    color: getRandomString(colors)
+  },
+  {
+    title: `Title for toast ${id}`,
+    description: `${getRandomString(messageList)}Description for toast ${id}`,
+    icon: RocketIcon,
+    color: getRandomString(colors)
+  },
+  {
+    title: `Title for toast ${id}`,
+    icon: RocketIcon,
+    color: getRandomString(colors)
+  },
+  {
+    description: `${getRandomString(messageList)}Description for toast ${id}`,
+    icon: RocketIcon,
+    color: getRandomString(colors)
+  },
+  {
+    title: `Title for toast ${id}`,
+    description: `${getRandomString(messageList)}Description for toast ${id}`,
+    avatar: {
+      src: '/avatar/employee.png'
+    },
+    color: getRandomString(colors)
+  },
+  {
+    title: `Title for toast ${id}`,
+    description: `${getRandomString(messageList)}Description for toast ${id}`,
+    color: getRandomString(colors),
+    avatar: {
+      src: '/avatar/assistant.png'
+    },
+    actions: [{
+      label: 'Action 4',
+      onClick: () => {
+        console.log(`Toast ${id} action 4 clicked`)
+      }
+    }]
+  },
+  {
+    title: `Title for toast ${id}`,
+    icon: RocketIcon,
+    color: getRandomString(colors),
+    actions: [
+      {
+        label: 'Trash',
+        color: 'primary' as const,
+        onClick: () => {
+          console.log(`Toast ${id} action _Trash_ clicked`)
+        }
+      },
+      {
+        label: 'Cancel',
+        color: 'default' as const,
+        depth: 'dark' as const,
+        onClick: () => {
+          console.log(`Toast ${id} action _Cancel_ clicked`)
+        }
+      }
+    ]
+  },
+  {
+    description: `File successfully deleted`,
+    color: getRandomString(colors),
+    icon: RocketIcon,
+    actions: [{
+      label: 'Cancel',
+      color: 'link' as const,
+      depth: 'normal' as const,
+      class: 'text-blue-500 hover:text-blue-400 active:text-blue-500 dark:text-blue-500 dark:hover:text-blue-400 dark:active:text-blue-500 ' as const,
+      normalCase: true,
+      onClick: () => {
+        console.log(`Toast ${id} action Cancel clicked`)
+      }
+    }]
+  }
+]
 
 function addToast() {
   const id = count.value++
@@ -82,7 +126,7 @@ function addToast() {
   add({
     id,
     ...template,
-    click(toast) {
+    click: (toast) => {
       console.log(`Toast ${toast.id} clicked`)
     }
   })
@@ -109,17 +153,34 @@ function removeToast() {
 </script>
 
 <template>
-  <div class="flex flex-col items-center gap-8">
-    <div class="flex flex-col gap-2">
-      <B24RadioGroup v-model="appConfig.toaster.position" :items="positions" />
-      <B24Checkbox v-model="appConfig.toaster.expand" label="Expand" class="mt-1" />
-      <B24Input v-model="appConfig.toaster.duration" label="Duration" type="number" class="mt-1" />
-    </div>
-
-    <div class="flex items-center gap-2">
-      <B24Button label="Add new" color="neutral" variant="outline" @click="addToast" />
-      <B24Button label="Update last" color="neutral" variant="outline" @click="updateToast" />
-      <B24Button label="Remove last" color="neutral" variant="outline" @click="removeToast" />
-    </div>
-  </div>
+  <ExampleGrid v-once>
+    <ExampleCard title="settings">
+      <B24Separator class="my-3" type="dotted" />
+      <div class="space-y-6 mb-3">
+        <B24RadioGroup v-model="appConfig.toaster.position" legend="Position" :items="positions" />
+        <B24Switch v-model="appConfig.toaster.expand" label="Expand" class="mt-1" />
+        <B24FormField
+          label="Duration"
+          :hint="`${appConfig.toaster.duration} ms.`"
+          name="duration"
+        >
+          <B24Range
+            v-model.number="appConfig.toaster.duration"
+            aria-label="Duration"
+            :min="1000"
+            :max="50000"
+            :step="500"
+          />
+        </B24FormField>
+      </div>
+    </ExampleCard>
+    <ExampleCard title="actions">
+      <B24Separator class="my-3" type="dotted" />
+      <div class="mt-3 flex flex-rows items-center justify-start gap-2">
+        <B24Button label="Add" color="primary" @click="addToast" />
+        <B24Button label="Update" color="secondary" :disabled="!last" @click="updateToast" />
+        <B24Button label="Remove" :disabled="!last" @click="removeToast" />
+      </div>
+    </ExampleCard>
+  </ExampleGrid>
 </template>

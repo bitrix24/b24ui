@@ -1,6 +1,8 @@
 import { useState } from '#imports'
 import type { ToastProps } from '../types'
 
+const maxList = 12
+
 export interface Toast extends Omit<ToastProps, 'defaultOpen'> {
   id: string | number
   click?: (toast: Toast) => void
@@ -21,7 +23,7 @@ export function useToast() {
       toasts.value.push(body)
     }
 
-    toasts.value = toasts.value.slice(-5)
+    toasts.value = toasts.value.slice(-1 * maxList)
 
     return body
   }

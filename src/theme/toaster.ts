@@ -1,13 +1,9 @@
 /**
  * Toaster
+ * ---
+ * @see src/theme/toast.ts
  */
 
-/**
- * @todo add info / link
- * @todo add color
- * @todo add dark mode
- * @todo add fonts
- */
 export default {
   slots: {
     viewport: 'fixed flex flex-col w-[calc(100%-2rem)] sm:w-96 z-[100] data-[expanded=true]:h-[var(--height)] focus:outline-none',
@@ -41,26 +37,44 @@ export default {
       left: 'data-[swipe=end]:animate-[toast-slide-left_200ms_ease-out]'
     }
   },
-  compoundVariants: [{
-    position: ['top-left', 'top-center', 'top-right'],
-    class: {
-      viewport: 'top-4',
-      base: 'top-0 data-[state=open]:animate-[slide-in-from-top_200ms_ease-in-out]'
-    }
-  }, {
-    position: ['bottom-left', 'bottom-center', 'bottom-right'],
-    class: {
-      viewport: 'bottom-4',
-      base: 'bottom-0 data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out]'
-    }
-  }, {
-    swipeDirection: ['left', 'right'],
-    class: 'data-[swipe=move]:translate-x-[var(--reka-toast-swipe-move-x)] data-[swipe=end]:translate-x-[var(--reka-toast-swipe-end-x)] data-[swipe=cancel]:translate-x-0'
-  }, {
-    swipeDirection: ['up', 'down'],
-    class: 'data-[swipe=move]:translate-y-[var(--reka-toast-swipe-move-y)] data-[swipe=end]:translate-y-[var(--reka-toast-swipe-end-y)] data-[swipe=cancel]:translate-y-0'
-  }],
+  compoundVariants: [
+    {
+      position: [
+        'top-left',
+        'top-center',
+        'top-right'
+      ],
+      class: {
+        viewport: 'top-4',
+        base: 'top-0 data-[state=open]:animate-[slide-in-from-top_200ms_ease-in-out]'
+      }
+    },
+    {
+      position: [
+        'bottom-left',
+        'bottom-center',
+        'bottom-right'
+      ],
+      class: {
+        viewport: 'bottom-4',
+        base: 'bottom-0 data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out]'
+      }
+    },
+    {
+      swipeDirection: [
+        'left',
+        'right'
+      ],
+      class: 'data-[swipe=move]:translate-x-[var(--reka-toast-swipe-move-x)] data-[swipe=end]:translate-x-[var(--reka-toast-swipe-end-x)] data-[swipe=cancel]:translate-x-0'
+    },
+    {
+      swipeDirection: [
+        'up',
+        'down'
+      ],
+      class: 'data-[swipe=move]:translate-y-[var(--reka-toast-swipe-move-y)] data-[swipe=end]:translate-y-[var(--reka-toast-swipe-end-y)] data-[swipe=cancel]:translate-y-0'
+    }],
   defaultVariants: {
-    position: 'bottom-right'
+    position: 'top-right'
   }
 }

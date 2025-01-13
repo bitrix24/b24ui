@@ -16,9 +16,9 @@ const mode = useColorMode()
 const dir = useTextDirection()
 
 appConfig.toaster = reactive({
-  position: 'bottom-right' as const,
+  position: 'top-right' as const,
   expand: true,
-  duration: 5000
+  duration: 8000
 })
 
 const route = useRoute()

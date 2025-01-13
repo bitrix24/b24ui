@@ -1,8 +1,6 @@
 <script setup lang="ts">
-/**
- * @todo add toast
- */
 import { ref, reactive } from 'vue'
+import { useToast } from '@bitrix24/b24ui-nuxt/runtime/composables/useToast.ts'
 import type { FormError, FormSubmitEvent } from '@bitrix24/b24ui-nuxt'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
 import Shining2Icon from '@bitrix24/b24icons-vue/main/Shining2Icon'
@@ -27,9 +25,9 @@ const validate = (state: any): FormError[] => {
   return errors
 }
 
-// const toast = useToast()
+const toast = useToast()
 async function onSubmit(event: FormSubmitEvent<any>) {
-  // toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'success' })
+  toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'success' })
   console.log(event.data, state)
   isShowResult.value = true
 }
