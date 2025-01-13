@@ -1,7 +1,6 @@
 <script setup lang="ts">
 /**
  * @todo add B24SelectMenu
- * @todo add FormExampleElements
  */
 import FormExample from '../../../../docs/examples/form/FormExample.vue'
 import FormExampleNested from '../../../../docs/examples/form/FormExampleNested.vue'
