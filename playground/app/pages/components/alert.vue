@@ -85,7 +85,7 @@ const data = {
     </ExampleCard>
     <template v-for="color in colors" :key="color">
       <ExampleCard :title="color as string" class="sm:col-span-3">
-        <ExampleCardSubTitle title="xs" />
+        <ExampleCardSubTitle title="sm" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-6">
           <B24Alert
             :title="data.title"
@@ -93,7 +93,7 @@ const data = {
             :icon="data.icon"
             :close="data.close"
             :color="color"
-            size="xs"
+            size="sm"
           />
           <B24Alert
             :title="data.title"
@@ -101,7 +101,7 @@ const data = {
             :close="data.close"
             :color="color"
             :actions="actions(color as string)"
-            size="xs"
+            size="sm"
           />
           <B24Alert
             :title="data.title"
