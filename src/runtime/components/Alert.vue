@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { DefineComponent } from 'vue'
 import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
@@ -20,7 +21,7 @@ export interface AlertProps {
   as?: any
   title?: string
   description?: string
-  icon?: string
+  icon?: DefineComponent
   avatar?: AvatarProps
   color?: AlertVariants['color']
   size?: AlertVariants['size']
@@ -42,7 +43,7 @@ export interface AlertProps {
    * The icon displayed in the close button.
    * @defaultValue icons.close
    */
-  closeIcon?: string
+  closeIcon?: DefineComponent
   class?: any
   b24ui?: Partial<typeof alert.slots>
 }
