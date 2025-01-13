@@ -4,13 +4,11 @@
  * Like this:
  * - crm.entity.detail -> tabs
  * - slider -> left items
- * - slider.settings -> in content
+ * - slider.Settings -> in content
  * ---
  */
 
 /**
- * @todo color
- * @todo dark mode
  * @todo font
  * @todo variant crm.detail
  * @todo variant slider.lef.menu
@@ -25,17 +23,17 @@ export default {
     indicator: 'absolute transition-[translate,width] duration-200',
     trigger: [
       'group relative inline-flex items-center shrink-0 min-w-0',
-      'data-[state=inactive]:text-[var(--ui-text-muted)]',
-      'hover:data-[state=inactive]:not-disabled:text-[var(--ui-text)]',
+      'data-[state=inactive]:text-base-600 dark:data-[state=inactive]:text-base-600',
+      'hover:data-[state=inactive]:not-disabled:text-base-master dark:hover:data-[state=inactive]:not-disabled:text-base-150',
       'font-medium rounded-xl',
-      'disabled:cursor-not-allowed disabled:opacity-75 focus:outline-hidden',
+      'cursor-pointer disabled:cursor-not-allowed disabled:opacity-75 focus:outline-hidden',
       'transition-colors'
     ],
     content: 'focus:outline-none w-full',
     leadingIcon: 'shrink-0',
     leadingAvatar: 'shrink-0',
     leadingAvatarSize: '',
-    label: 'truncate'
+    label: ''
   },
   variants: {
     color: {
@@ -50,12 +48,12 @@ export default {
     },
     variant: {
       pill: {
-        list: 'bg-[var(--ui-bg-elevated)] rounded-[calc(var(--ui-radius)*2)]',
+        list: 'bg-base-100 dark:bg-transparent rounded-md',
         trigger: 'flex-1 w-full',
         indicator: 'rounded-xl shadow-xs'
       },
       link: {
-        list: 'border-[var(--ui-border)]',
+        list: 'border-base-300 dark:border-base-800',
         indicator: 'rounded-full'
       }
     },
@@ -147,16 +145,206 @@ export default {
       color: 'default',
       variant: 'pill',
       class: {
-        indicator: 'bg-[var(--ui-bg-inverted)]',
-        trigger: 'data-[state=active]:text-[var(--ui-bg)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ui-border-inverted)]'
+        indicator: 'bg-base-900 dark:bg-base-900',
+        trigger: [
+          'data-[state=active]:text-white focus-visible:outline-base-900',
+          'dark:data-[state=active]:text-base-200 dark:focus-visible:outline-base-900',
+          'focus-visible:outline-2 focus-visible:outline-offset-2]'
+        ]
       }
     },
     {
       color: 'default',
       variant: 'link',
       class: {
-        indicator: 'bg-[var(--ui-bg-inverted)]',
-        trigger: 'data-[state=active]:text-[var(--ui-text-highlighted)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-border-inverted)]'
+        indicator: 'bg-base-900 dark:dark:bg-base-350',
+        trigger: [
+          'focus-visible:ring-2 focus-visible:ring-inset',
+          'data-[state=active]:text-base-900 focus-visible:ring-base-900',
+          'dark:data-[state=active]:text-base-350 dark:focus-visible:ring-base-350'
+        ]
+      }
+    },
+    // endregion ////
+    // region color.danger ////
+    {
+      color: 'danger',
+      variant: 'pill',
+      class: {
+        indicator: 'bg-red-900 dark:bg-red-900',
+        trigger: [
+          'data-[state=active]:text-white focus-visible:outline-red-900',
+          'dark:data-[state=active]:text-red-200 dark:focus-visible:outline-red-900',
+          'focus-visible:outline-2 focus-visible:outline-offset-2]'
+        ]
+      }
+    },
+    {
+      color: 'danger',
+      variant: 'link',
+      class: {
+        indicator: 'bg-red-900 dark:dark:bg-red-300',
+        trigger: [
+          'focus-visible:ring-2 focus-visible:ring-inset',
+          'data-[state=active]:text-red-900 focus-visible:ring-red-900',
+          'dark:data-[state=active]:text-red-300 dark:focus-visible:ring-red-300'
+        ]
+      }
+    },
+    // endregion ////
+    // region color.success ////
+    {
+      color: 'success',
+      variant: 'pill',
+      class: {
+        indicator: 'bg-green-900 dark:bg-green-900',
+        trigger: [
+          'data-[state=active]:text-white focus-visible:outline-green-900',
+          'dark:data-[state=active]:text-green-200 dark:focus-visible:outline-green-900',
+          'focus-visible:outline-2 focus-visible:outline-offset-2]'
+        ]
+      }
+    },
+    {
+      color: 'success',
+      variant: 'link',
+      class: {
+        indicator: 'bg-green-900 dark:dark:bg-green-300',
+        trigger: [
+          'focus-visible:ring-2 focus-visible:ring-inset',
+          'data-[state=active]:text-green-900 focus-visible:ring-green-900',
+          'dark:data-[state=active]:text-green-300 dark:focus-visible:ring-green-300'
+        ]
+      }
+    },
+    // endregion ////
+    // region color.warning ////
+    {
+      color: 'warning',
+      variant: 'pill',
+      class: {
+        indicator: 'bg-orange-900 dark:bg-orange-900',
+        trigger: [
+          'data-[state=active]:text-white focus-visible:outline-orange-900',
+          'dark:data-[state=active]:text-orange-200 dark:focus-visible:outline-orange-900',
+          'focus-visible:outline-2 focus-visible:outline-offset-2]'
+        ]
+      }
+    },
+    {
+      color: 'warning',
+      variant: 'link',
+      class: {
+        indicator: 'bg-orange-900 dark:dark:bg-orange-300',
+        trigger: [
+          'focus-visible:ring-2 focus-visible:ring-inset',
+          'data-[state=active]:text-orange-900 focus-visible:ring-orange-900',
+          'dark:data-[state=active]:text-orange-300 dark:focus-visible:ring-orange-300'
+        ]
+      }
+    },
+    // endregion ////
+    // region color.primary ////
+    {
+      color: 'primary',
+      variant: 'pill',
+      class: {
+        indicator: 'bg-blue-900 dark:bg-blue-900',
+        trigger: [
+          'data-[state=active]:text-white focus-visible:outline-blue-900',
+          'dark:data-[state=active]:text-blue-200 dark:focus-visible:outline-blue-900',
+          'focus-visible:outline-2 focus-visible:outline-offset-2]'
+        ]
+      }
+    },
+    {
+      color: 'primary',
+      variant: 'link',
+      class: {
+        indicator: 'bg-blue-900 dark:dark:bg-blue-300',
+        trigger: [
+          'focus-visible:ring-2 focus-visible:ring-inset',
+          'data-[state=active]:text-blue-900 focus-visible:ring-blue-900',
+          'dark:data-[state=active]:text-blue-300 dark:focus-visible:ring-blue-300'
+        ]
+      }
+    },
+    // endregion ////
+    // region color.secondary ////
+    {
+      color: 'secondary',
+      variant: 'pill',
+      class: {
+        indicator: 'bg-secondary-900 dark:bg-secondary-900',
+        trigger: [
+          'data-[state=active]:text-white focus-visible:outline-secondary-900',
+          'dark:data-[state=active]:text-secondary-200 dark:focus-visible:outline-secondary-900',
+          'focus-visible:outline-2 focus-visible:outline-offset-2]'
+        ]
+      }
+    },
+    {
+      color: 'secondary',
+      variant: 'link',
+      class: {
+        indicator: 'bg-secondary-900 dark:dark:bg-secondary-300',
+        trigger: [
+          'focus-visible:ring-2 focus-visible:ring-inset',
+          'data-[state=active]:text-secondary-900 focus-visible:ring-secondary-900',
+          'dark:data-[state=active]:text-secondary-300 dark:focus-visible:ring-secondary-300'
+        ]
+      }
+    },
+    // endregion ////
+    // region color.collab ////
+    {
+      color: 'collab',
+      variant: 'pill',
+      class: {
+        indicator: 'bg-collab-900 dark:bg-collab-900',
+        trigger: [
+          'data-[state=active]:text-white focus-visible:outline-collab-900',
+          'dark:data-[state=active]:text-collab-200 dark:focus-visible:outline-collab-900',
+          'focus-visible:outline-2 focus-visible:outline-offset-2]'
+        ]
+      }
+    },
+    {
+      color: 'collab',
+      variant: 'link',
+      class: {
+        indicator: 'bg-collab-900 dark:dark:bg-collab-300',
+        trigger: [
+          'focus-visible:ring-2 focus-visible:ring-inset',
+          'data-[state=active]:text-collab-900 focus-visible:ring-collab-900',
+          'dark:data-[state=active]:text-collab-300 dark:focus-visible:ring-collab-300'
+        ]
+      }
+    },
+    // endregion ////
+    // region color.ai ////
+    {
+      color: 'ai',
+      variant: 'pill',
+      class: {
+        indicator: 'bg-ai-900 dark:bg-ai-900',
+        trigger: [
+          'data-[state=active]:text-white focus-visible:outline-ai-900',
+          'dark:data-[state=active]:text-ai-200 dark:focus-visible:outline-ai-900',
+          'focus-visible:outline-2 focus-visible:outline-offset-2]'
+        ]
+      }
+    },
+    {
+      color: 'ai',
+      variant: 'link',
+      class: {
+        indicator: 'bg-ai-900 dark:dark:bg-ai-300',
+        trigger: [
+          'focus-visible:ring-2 focus-visible:ring-inset',
+          'data-[state=active]:text-ai-900 focus-visible:ring-ai-900',
+          'dark:data-[state=active]:text-ai-300 dark:focus-visible:ring-ai-300'
+        ]
       }
     }
     // endregion ////

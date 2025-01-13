@@ -5,6 +5,7 @@ import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
 // import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import Shining2Icon from '@bitrix24/b24icons-vue/main/Shining2Icon'
+import ChevronDownIcon from '@bitrix24/b24icons-vue/actions/ChevronDownIcon'
 
 usePageMeta.setPageTitle('Tabs')
 const colors = Object.keys(theme.variants.color)
@@ -69,14 +70,10 @@ const items = [
     <ExampleCard title="settings">
       <B24Separator class="my-3" type="dotted" />
       <div class="space-y-4">
+        <B24RadioGroup v-model="variant" legend="Variant" :items="variants" />
+        <B24RadioGroup v-model="orientation" legend="Orientation" :items="orientations" />
         <B24FormField label="Color" name="color">
           <B24Select v-model="color" :items="colors" />
-        </B24FormField>
-        <B24FormField label="Variant" name="variant">
-          <B24Select v-model="variant" :items="variants" />
-        </B24FormField>
-        <B24FormField label="Orientation" name="color">
-          <B24Select v-model="orientation" :items="orientations" />
         </B24FormField>
         <B24FormField label="Size" name="size">
           <B24Select v-model="size" :items="sizes" />
@@ -104,14 +101,11 @@ const items = [
         :orientation="orientation"
         :size="size"
         :items="items"
-        class="w-96"
+        class="w-full"
       >
-        <template #default="{ item }">
+        <template #trailing="{ item }">
           <template v-if="item.label === 'More'">
-            <B24Button normal-case use-dropdown :label="item.label" color="link" />
-          </template>
-          <template v-else>
-            {{ item.label }}
+            <ChevronDownIcon class="shrink-0 size-4" />
           </template>
         </template>
         <template #custom="{ item }">

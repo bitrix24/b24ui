@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { DefineComponent } from 'vue'
 import type { VariantProps } from 'tailwind-variants'
 import type { TabsRootProps, TabsRootEmits } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
@@ -14,7 +15,7 @@ const tabs = tv({ extend: tv(theme), ...(appConfig.b24ui?.tabs || {}) })
 
 export interface TabsItem {
   label?: string
-  icon?: string
+  icon?: DefineComponent
   avatar?: AvatarProps
   slot?: string
   content?: string
