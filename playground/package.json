@@ -12,7 +12,7 @@
     "@nuxthub/core": "^0.8.11"
   },
   "dependencies": {
-    "@bitrix24/b24icons-vue": "latest",
+    "@bitrix24/b24icons-vue": "1.0.3",
     "@bitrix24/b24ui-nuxt": "latest",
     "nuxt": "^3.15.1"
   }
