@@ -45,7 +45,7 @@ export default {
         steps: 'text-base-500'
       },
       secondary: {
-        indicator: 'bg-secondary-350 dark:bg-secondary-500',
+        indicator: 'bg-cyan-350 dark:bg-cyan-500',
         steps: 'text-base-500'
       },
       collab: {

@@ -101,7 +101,7 @@ export default {
         tag: 'text-white bg-blue-500 dark:text-blue-250 dark:bg-blue-600'
       },
       secondary: {
-        tag: 'text-white bg-secondary-350 dark:text-base-150 dark:bg-secondary-500'
+        tag: 'text-white bg-cyan-350 dark:text-base-150 dark:bg-cyan-500'
       },
       collab: {
         tag: 'text-white bg-collab-500 dark:text-collab-200 dark:bg-collab-800'
@@ -288,27 +288,27 @@ export default {
       color: 'secondary',
       noBorder: false,
       underline: false,
-      class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-secondary-350 dark:focus-visible:ring-secondary-500'
+      class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-cyan-350 dark:focus-visible:ring-cyan-500'
     },
     {
       color: 'secondary',
       highlight: true,
       noBorder: false,
       underline: false,
-      class: 'ring ring-inset ring-secondary-350 dark:ring-secondary-500'
+      class: 'ring ring-inset ring-cyan-350 dark:ring-cyan-500'
     },
     {
       color: 'secondary',
       noBorder: false,
       underline: true,
-      class: 'focus-visible:border-b-secondary-350 dark:focus-visible:border-b-secondary-500'
+      class: 'focus-visible:border-b-cyan-350 dark:focus-visible:border-b-cyan-500'
     },
     {
       color: 'secondary',
       highlight: true,
       noBorder: false,
       underline: true,
-      class: 'border-b-secondary-350 dark:border-b-secondary-500'
+      class: 'border-b-cyan-350 dark:border-b-cyan-500'
     },
     // endregion ////
     // region collab ////

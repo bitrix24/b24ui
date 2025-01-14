@@ -40,8 +40,8 @@ export default {
         indicator: 'bg-blue-500 dark:bg-blue-600'
       },
       secondary: {
-        base: 'focus-visible:outline-secondary-350 dark:focus-visible:outline-secondary-500',
-        indicator: 'bg-secondary-350 dark:bg-secondary-500'
+        base: 'focus-visible:outline-cyan-350 dark:focus-visible:outline-cyan-500',
+        indicator: 'bg-cyan-350 dark:bg-cyan-500'
       },
       collab: {
         base: 'focus-visible:outline-collab-500 dark:focus-visible:outline-collab-600',

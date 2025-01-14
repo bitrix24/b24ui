@@ -57,10 +57,10 @@ export default {
       },
       secondary: {
         root: [
-          'text-secondary-700 bg-secondary-125',
-          'dark:text-secondary-750 dark:bg-secondary-300'
+          'text-cyan-700 bg-cyan-150',
+          'dark:text-cyan-750 dark:bg-cyan-300'
         ],
-        close: 'text-secondary-700 dark:text-secondary-750 hover:text-secondary-800 dark:hover:text-secondary-800'
+        close: 'text-cyan-700 dark:text-cyan-750 hover:text-cyan-800 dark:hover:text-cyan-800'
       },
       collab: {
         root: [

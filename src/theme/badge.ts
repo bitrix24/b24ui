@@ -277,8 +277,8 @@ export default {
       depth: 'normal',
       class: [
         'ring ring-inset',
-        'text-white bg-secondary-350 ring-secondary-350',
-        'dark:text-secondary-100 dark:bg-secondary-400 dark:ring-secondary-400'
+        'text-white bg-cyan-350 ring-cyan-350',
+        'dark:text-cyan-100 dark:bg-cyan-400 dark:ring-cyan-400'
       ].join(' ')
     },
     // secondary_dark ////
@@ -287,8 +287,8 @@ export default {
       depth: 'dark',
       class: [
         'ring ring-inset',
-        'text-white bg-secondary-500 ring-secondary-500',
-        'dark:text-secondary-250 dark:bg-secondary-600 dark:ring-secondary-600'
+        'text-white bg-cyan-500 ring-cyan-500',
+        'dark:text-cyan-250 dark:bg-cyan-600 dark:ring-cyan-600'
       ].join(' ')
     },
     // endregion ////

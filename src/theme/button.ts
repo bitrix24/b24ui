@@ -39,11 +39,11 @@ export default {
         'ring-base-850 focus-visible:ring-base-850'
       ].join(' '),
       danger: [
-        'text-white dark:text-red-100 bg-red-740 border border-red-740',
+        'text-white dark:text-red-100 bg-red-720 border border-red-720',
         'hover:bg-red-790 hover:border-red-790 hover:focus-visible:ring-0',
         'active:bg-red-730 active:border-red-730 active:focus-visible:ring-0',
-        'disabled:bg-red-740 aria-disabled:bg-red-740 disabled:border-red-740 aria-disabled:border-red-740',
-        'focus-visible:outline-red-740',
+        'disabled:bg-red-720 aria-disabled:bg-red-720 disabled:border-red-720 aria-disabled:border-red-720',
+        'focus-visible:outline-red-720',
         'ring-red-800 focus-visible:ring-red-800'
       ].join(' '),
       // SUCCESS ////
@@ -75,12 +75,12 @@ export default {
       ].join(' '),
       // SECONDARY ////
       secondary: [
-        'text-base-900 bg-secondary-150 border border-secondary-230',
-        'hover:bg-secondary-125 hover:border-secondary-230 hover:focus-visible:ring-0',
-        'active:bg-secondary-230 active:border-secondary-230 active:focus-visible:ring-0',
-        'disabled:bg-secondary-150 aria-disabled:bg-secondary-150 disabled:border-secondary-230 aria-disabled:border-secondary-230',
-        'focus-visible:outline-secondary-150',
-        'ring-secondary-500 focus-visible:ring-secondary-500'
+        'text-base-900 bg-cyan-160 border border-cyan-230',
+        'hover:bg-cyan-150 hover:border-cyan-230 hover:focus-visible:ring-0',
+        'active:bg-cyan-230 active:border-cyan-230 active:focus-visible:ring-0',
+        'disabled:bg-cyan-160 aria-disabled:bg-cyan-160 disabled:border-cyan-230 aria-disabled:border-cyan-230',
+        'focus-visible:outline-cyan-160',
+        'ring-cyan-500 focus-visible:ring-cyan-500'
       ].join(' '),
       // COLLAB ////
       collab: [
@@ -327,8 +327,8 @@ export default {
       depth: 'light',
       class: [
         'text-blue-620 dark:text-blue-850 bg-blue-310 border border-blue-310',
-        'hover:bg-secondary-125 hover:border-secondary-125 hover:focus-visible:ring-0',
-        'active:bg-secondary-230 active:border-secondary-230 active:focus-visible:ring-0',
+        'hover:bg-cyan-150 hover:border-cyan-150 hover:focus-visible:ring-0',
+        'active:bg-cyan-230 active:border-cyan-230 active:focus-visible:ring-0',
         'disabled:bg-blue-310 aria-disabled:bg-blue-310 disabled:border-blue-310 aria-disabled:border-blue-310',
         'focus-visible:outline-blue-310'
       ].join(' ')
@@ -338,12 +338,12 @@ export default {
       color: 'secondary',
       depth: 'dark',
       class: [
-        'text-base-900 bg-secondary-350 border-secondary-500',
-        'hover:bg-secondary-350/75 hover:focus-visible:ring-0',
-        'active:bg-secondary-350/85 active:focus-visible:ring-0',
-        'disabled:bg-secondary-350 aria-disabled:bg-secondary-350',
-        'focus-visible:outline-secondary-350',
-        'ring-secondary-900 focus-visible:ring-secondary-900'
+        'text-base-900 bg-cyan-350 border-cyan-500',
+        'hover:bg-cyan-350/75 hover:focus-visible:ring-0',
+        'active:bg-cyan-350/85 active:focus-visible:ring-0',
+        'disabled:bg-cyan-350 aria-disabled:bg-cyan-350',
+        'focus-visible:outline-cyan-350',
+        'ring-cyan-900 focus-visible:ring-cyan-900'
       ].join(' ')
     },
     // endregion ////
@@ -408,7 +408,7 @@ export default {
       class: [
         'text-base-900 dark:text-base-300 bg-transparent border border-transparent',
         'hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0',
-        'active:text-base-solid active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0',
+        'active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0',
         'disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850',
         'focus-visible:outline-base-30 dark:focus-visible:outline-base-850'
       ].join(' ')

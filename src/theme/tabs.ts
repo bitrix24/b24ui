@@ -275,10 +275,10 @@ export default {
       color: 'secondary',
       variant: 'pill',
       class: {
-        indicator: 'bg-secondary-900 dark:bg-secondary-900',
+        indicator: 'bg-cyan-900 dark:bg-cyan-900',
         trigger: [
-          'data-[state=active]:text-white focus-visible:outline-secondary-900',
-          'dark:data-[state=active]:text-secondary-200 dark:focus-visible:outline-secondary-900',
+          'data-[state=active]:text-white focus-visible:outline-cyan-900',
+          'dark:data-[state=active]:text-cyan-200 dark:focus-visible:outline-cyan-900',
           'focus-visible:outline-2 focus-visible:outline-offset-2]'
         ]
       }
@@ -287,11 +287,11 @@ export default {
       color: 'secondary',
       variant: 'link',
       class: {
-        indicator: 'bg-secondary-900 dark:dark:bg-secondary-300',
+        indicator: 'bg-cyan-900 dark:dark:bg-cyan-300',
         trigger: [
           'focus-visible:ring-2 focus-visible:ring-inset',
-          'data-[state=active]:text-secondary-900 focus-visible:ring-secondary-900',
-          'dark:data-[state=active]:text-secondary-300 dark:focus-visible:ring-secondary-300'
+          'data-[state=active]:text-cyan-900 focus-visible:ring-cyan-900',
+          'dark:data-[state=active]:text-cyan-300 dark:focus-visible:ring-cyan-300'
         ]
       }
     },

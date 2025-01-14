@@ -37,8 +37,8 @@ export default {
         thumb: 'ring-blue-500 dark:ring-blue-600 focus-visible:outline-blue-500/50 dark:focus-visible:outline-blue-600/50'
       },
       secondary: {
-        range: 'bg-secondary-350 dark:bg-secondary-500',
-        thumb: 'ring-secondary-350 dark:ring-secondary-500 focus-visible:outline-secondary-350/50 dark:focus-visible:outline-secondary-500/50'
+        range: 'bg-cyan-350 dark:bg-cyan-500',
+        thumb: 'ring-cyan-350 dark:ring-cyan-500 focus-visible:outline-cyan-350/50 dark:focus-visible:outline-cyan-500/50'
       },
       collab: {
         range: 'bg-collab-500 dark:bg-collab-600',

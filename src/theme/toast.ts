@@ -33,7 +33,7 @@ export default {
       'relative group overflow-hidden rounded-[26px] py-3.5 ps-6 pe-4 flex gap-2.5 focus:outline-none',
       'font-b24-primary',
       'dark:ring-2 dark:ring-base-900',
-      'bg-base-solid/80 dark:bg-base-dark',
+      'bg-base-ebony/80 dark:bg-base-dark',
       'text-sm font-normal',
       'text-white dark:text-base-150'
     ],
@@ -75,9 +75,9 @@ export default {
         progress: 'bg-blue-500 dark:bg-blue-500'
       },
       secondary: {
-        root: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-secondary-400 dark:focus-visible:ring-secondary-400',
-        icon: 'text-secondary-500',
-        progress: 'bg-secondary-500 dark:bg-secondary-500'
+        root: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan-400 dark:focus-visible:ring-cyan-400',
+        icon: 'text-cyan-500',
+        progress: 'bg-cyan-500 dark:bg-cyan-500'
       },
       collab: {
         root: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-collab-400 dark:focus-visible:ring-collab-400',

@@ -43,8 +43,8 @@ export default {
         icon: 'group-data-[state=checked]:text-blue-500 dark:group-data-[state=checked]:text-blue-600'
       },
       secondary: {
-        base: 'data-[state=checked]:bg-secondary-350 focus-visible:outline-secondary-350 dark:data-[state=checked]:bg-secondary-500 dark:focus-visible:outline-secondary-500',
-        icon: 'group-data-[state=checked]:text-secondary-350 dark:group-data-[state=checked]:text-secondary-500'
+        base: 'data-[state=checked]:bg-cyan-350 focus-visible:outline-cyan-350 dark:data-[state=checked]:bg-cyan-500 dark:focus-visible:outline-cyan-500',
+        icon: 'group-data-[state=checked]:text-cyan-350 dark:group-data-[state=checked]:text-cyan-500'
       },
       collab: {
         base: 'data-[state=checked]:bg-collab-500 focus-visible:outline-collab-500 dark:data-[state=checked]:bg-collab-600 dark:focus-visible:outline-collab-600',
