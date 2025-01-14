@@ -13,32 +13,55 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
 
 const actions = (color: string) => [
   {
-    label: 'Action 1',
-    color: color as any,
-    depth: 'dark',
-    click() {
-      console.log('Action 1 clicked')
-    }
-  },
-  {
-    label: 'Action 2',
-    color: color as any,
-    depth: 'normal',
-    click() {
-      console.log('Action 2 clicked')
-    }
-  },
-  {
     icon: DotsIcon,
     color: color as any,
     depth: 'light',
-    click() {
+    onClick() {
       console.log('Action 3 clicked')
     }
   }
 ]
 
-// @todo change text
+const multipleActions = (color: string) => [
+  {
+    label: 'Action',
+    color: color as any,
+    onClick() {
+      console.log('Action clicked')
+    }
+  },
+  {
+    label: 'Another action',
+    color: color as any,
+    onClick() {
+      console.log('Another action clicked')
+    }
+  },
+  {
+    label: 'One more action',
+    color: color as any,
+    onClick() {
+      console.log('One more action clicked')
+    }
+  },
+  {
+    label: 'And one more',
+    color: color as any,
+    icon: SignIcon,
+    onClick() {
+      console.log('And one more clicked')
+    }
+  },
+  {
+    label: 'Last one',
+    color: color as any,
+    icon: DotsIcon,
+    onClick() {
+      console.log('Last one clicked')
+    }
+  }
+]
+
 const data = {
   title: 'Heads up!',
   description: 'Let\'s signal the manager that the deal is not moving, the manager does not call the client back and does not respond to his messages. Let\'s assign a task to the manager on behalf of the manager.',
@@ -53,6 +76,7 @@ const data = {
       <ExampleCardSubTitle title="simple" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24Alert :title="data.title" />
+        <B24Alert :title="data.title" :icon="data.icon" description="example with multiple actions." :actions="multipleActions('default')" />
       </div>
       <template v-for="size in sizes" :key="size">
         <ExampleCardSubTitle :title="size as string" />
@@ -109,7 +133,7 @@ const data = {
             :icon="data.icon"
             :close="data.close"
             :color="color"
-            :actions="actions(color as string)"
+            :actions="multipleActions(color as string)"
             size="sm"
           />
         </div>
@@ -135,7 +159,7 @@ const data = {
             :icon="data.icon"
             :close="data.close"
             :color="color"
-            :actions="actions(color as string)"
+            :actions="multipleActions(color as string)"
           />
         </div>
       </ExampleCard>
