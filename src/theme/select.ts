@@ -56,7 +56,8 @@ export default () => {
           'bg-white dark:bg-base-dark',
           'shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800',
           'overflow-hidden',
-          'data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in]'
+          'data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in]',
+          'pointer-events-auto'
         ],
         scrollUpDownButton: [
           'flex items-center justify-center h-[25px] cursor-default backdrop-blur',
