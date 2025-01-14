@@ -47,6 +47,7 @@ const components: IComponentInfo[] = [
   { id: 'chip', description: 'An indicator of a numeric value or a state.', icon: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'container', description: 'A container lets you center and constrain the width of your content.', icon: GroupIcon },
   { id: 'countdown', description: 'Countdown with options control.', icon: Clock1Icon },
+  { id: 'content/description-list', description: 'For cases where you need to convert data from one row of a table into a separate table to make the page look more complete.', icon: GroupIcon },
   { id: 'form', description: 'A form component with built-in validation and submission handling.', icon: FormSettingsIcon },
   { id: 'form-field', description: 'A wrapper for form elements that provides validation and error handling.', icon: FormIcon },
   { id: 'input', description: 'An input element to enter text.', icon: FormIcon },
