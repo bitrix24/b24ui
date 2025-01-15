@@ -1,0 +1,14 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Countdown > renders with as correctly 1`] = `
+"<section class="relative flex flex-row flex-nowrap items-center justify-between text-base-500 dark:text-base-600 gap-1 text-md leading-none">
+  <!--v-if-->
+  <!--v-if--><span class="">00:00</span>
+</section>"
+`;
+
+exports[`Countdown > renders with b24ui correctly 1`] = `"<span class="relative flex flex-row flex-nowrap items-center justify-between text-base-500 dark:text-base-600 gap-1 text-md leading-none"><!--v-if--><!--v-if--><span class="">00:00</span></span>"`;
+
+exports[`Countdown > renders with class correctly 1`] = `"<span class="relative flex flex-row flex-nowrap items-center justify-between text-base-500 dark:text-base-600 gap-1 text-md leading-none"><!--v-if--><!--v-if--><span class="">00:00</span></span>"`;
+
+exports[`Countdown > renders with default slot correctly 1`] = `"<span class="relative flex flex-row flex-nowrap items-center justify-between text-base-500 dark:text-base-600 gap-1 text-md leading-none"><!--v-if--><!--v-if-->Default slot</span>"`;

@@ -10,12 +10,12 @@ import {
   B24Textarea,
   B24Checkbox,
   B24Select,
-  B24SelectMenu,
-  B24InputMenu,
-  B24InputNumber,
+  // B24SelectMenu,
+  // B24InputMenu,
+  // B24InputNumber,
   B24Switch,
-  B24Slider,
-  B24PinInput
+  B24Range
+  // B24PinInput
 } from '#components'
 
 export async function renderForm(options: {
@@ -45,12 +45,12 @@ export async function renderForm(options: {
           B24Textarea,
           B24Checkbox,
           B24Select,
-          B24SelectMenu,
-          B24InputMenu,
-          B24InputNumber,
+          // B24SelectMenu,
+          // B24InputMenu,
+          // B24InputNumber,
           B24Switch,
-          B24Slider,
-          B24PinInput
+          B24Range
+          // B24PinInput
         },
         template: options.slotTemplate
       }

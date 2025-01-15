@@ -19,7 +19,7 @@ describe('Alert', () => {
     ['with close', { props: { ...props, close: true } }],
     // @todo fix this ////
     ['with closeIcon', { props: { ...props, close: true, closeIcon: 'i-lucide-trash' } }],
-    [`with success`, { props: { ...props, variant, color: 'success' } }],
+    [`with success`, { props: { ...props, color: 'success' } }],
     ['with as', { props: { ...props, as: 'article' } }],
     ['with class', { props: { ...props, class: 'w-48' } }],
     ['with b24ui', { props: { ...props, b24ui: { title: 'font-bold' } } }],

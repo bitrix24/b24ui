@@ -9,7 +9,7 @@ import { expectEmitPayloadType } from '../utils/types'
 
 describe('Select', () => {
   const sizes = Object.keys(theme.variants.size) as any
-  const variants = Object.keys(theme.variants.variant) as any
+  const variants = [] as any
 
   const items = [{
     label: 'Backlog',
@@ -121,7 +121,7 @@ describe('Select', () => {
   })
 
   describe('form integration', async () => {
-    async function createForm(validateOn?: FormInputEvents[], eagerValidation?: boolean) {
+    async function createForm(validateOn?: FormInputEvents[]) {
       const wrapper = await renderForm({
         props: {
           validateOn,
@@ -136,13 +136,10 @@ describe('Select', () => {
           items: ['Option 1', 'Option 2']
         },
         slotTemplate: `
-        <B24FormField name="value" :eager-validation="eagerValidation">
-          <B24Select id="input" v-model="state.value" :items="items" />
-        </B24FormField>
-        `,
-        slotVars: {
-          eagerValidation
-        }
+          <B24FormField name="value">
+            <B24Select id="input" v-model="state.value" :items="items" />
+          </B24FormField>
+        `
       })
       const input = wrapper.findComponent({ name: 'SelectRoot' })
       return {

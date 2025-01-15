@@ -14,12 +14,12 @@ export default defineLocale({
       decrement: 'Уменьшить'
     },
     commandPalette: {
+      placeholder: 'Введите команду или выполните поиск...',
       noMatch: 'Совпадений не найдено',
       noData: 'Нет данных',
       close: 'Закрыть'
     },
     selectMenu: {
-      placeholder: 'Введите команду или выполните поиск...',
       noMatch: 'Совпадений не найдено',
       noData: 'Нет данных',
       create: 'Создать "{label}"',

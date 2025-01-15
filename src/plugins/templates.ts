@@ -7,8 +7,8 @@ import type { UnpluginOptions } from 'unplugin'
  * This plugin is responsible for getting the generated virtual templates and
  * making them available to the Vue build.
  */
-export default function TemplatePlugin(options: Bitrix24UIOptions, appConfig: Record<string, any>) {
-  const templates = getTemplates(options, appConfig.b24ui)
+export default function TemplatePlugin(options: Bitrix24UIOptions) {
+  const templates = getTemplates(options)
   const templateKeys = new Set(templates.map(t => `#build/${t.filename}`))
 
   return {

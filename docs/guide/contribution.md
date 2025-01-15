@@ -215,7 +215,7 @@ pnpm run test:vue # for Vue
 ```
 
 ::tip
-If you have to update the snapshots, press `u` when running the tests.
+If you have to update the snapshots, press `u` when running the tests. Or run `pnpm run test:save`
 ::
 
 ### Commit Conventions
