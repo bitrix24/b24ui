@@ -1,10 +1,10 @@
 import { describe, it, expect } from 'vitest'
 import Alert, { type AlertProps, type AlertSlots } from '../../src/runtime/components/Alert.vue'
 import ComponentRender from '../component-render'
-import theme from '#build/b24ui/alert'
+// import theme from '#build/b24ui/alert'
 
 describe('Alert', () => {
-  const variants = Object.keys(theme.variants.variant) as any
+  // const variants = Object.keys(theme.variants.variant) as any
 
   const props = { title: 'Alert' }
 

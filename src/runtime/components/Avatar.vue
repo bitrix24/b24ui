@@ -47,7 +47,7 @@ const props = withDefaults(defineProps<AvatarProps>(), { as: 'span' })
 const fallbackProps = useForwardProps(reactivePick(props, 'delayMs'))
 
 const fallback = computed(() => props.text || (props.alt || '')
-  .replace(/[\+\-\*\)\(\}\]\[\{\}]/g, '')
+  .replace(/[+\-*)(}\][{]/g, '')
   .split(' ')
   .map(word => word.charAt(0))
   .join('')

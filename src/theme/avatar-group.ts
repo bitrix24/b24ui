@@ -10,6 +10,9 @@ export default {
   },
   variants: {
     size: {
+      '3xs': {
+        base: 'ring -me-0.5'
+      },
       '2xs': {
         base: 'ring -me-0.5'
       },

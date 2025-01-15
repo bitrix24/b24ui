@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import theme from '#build/b24ui/content/description-list'
+// import theme from '#build/b24ui/content/description-list'
 import usePageMeta from './../../../composables/usePageMeta'
 import ExampleGrid from '../../../components/ExampleGrid.vue'
 import ExampleCard from '../../../components/ExampleCard.vue'
@@ -8,11 +8,13 @@ import B24DescriptionList from '@bitrix24/b24ui-nuxt/runtime/components/content/
 
 usePageMeta.setPageTitle('DescriptionList')
 
+/*
 const items = [
   { value: '1', label: 'Option 1' },
   { value: '2', label: 'Option 2' },
   { value: '3', label: 'Option 3' }
 ]
+ */
 </script>
 
 <template>

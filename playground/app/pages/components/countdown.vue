@@ -255,10 +255,24 @@ const onCountdownRoundStop = () => {
             <B24Button :disabled="!countingControl" size="sm" :icon="StopIcon" color="primary" @click="onControlStop" />
           </B24Tooltip>
           <B24Tooltip text="Abort counting">
-            <B24Button :disabled="!countingControl" size="sm" :icon="StopHandIcon" color="link" depth="dark" @click="onControlAbort" />
+            <B24Button
+              :disabled="!countingControl"
+              size="sm"
+              :icon="StopHandIcon"
+              color="link"
+              depth="dark"
+              @click="onControlAbort"
+            />
           </B24Tooltip>
           <B24Tooltip text="Restart counting">
-            <B24Button :disabled="!countingControl" size="sm" :icon="Refresh5Icon" color="link" depth="dark" @click="onControlRestart" />
+            <B24Button
+              :disabled="!countingControl"
+              size="sm"
+              :icon="Refresh5Icon"
+              color="link"
+              depth="dark"
+              @click="onControlRestart"
+            />
           </B24Tooltip>
         </div>
         <B24Switch v-model="isControlShowMinutess" label="Should minutes be shown?" />

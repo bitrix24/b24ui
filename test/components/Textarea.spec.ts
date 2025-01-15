@@ -2,7 +2,7 @@ import { describe, it, expect, test } from 'vitest'
 import { mount } from '@vue/test-utils'
 import Textarea, { type TextareaProps, type TextareaSlots } from '../../src/runtime/components/Textarea.vue'
 import ComponentRender from '../component-render'
-import theme from '#build/b24ui/textarea'
+// import theme from '#build/b24ui/textarea'
 import { renderForm } from '../utils/form'
 import type { FormInputEvents } from '~/src/module'
 

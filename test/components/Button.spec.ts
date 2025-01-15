@@ -13,7 +13,7 @@ import {
 describe('Button', () => {
   const sizes = Object.keys(theme.variants.size) as any
   const colors = Object.keys(theme.variants.color) as any
-  const depths = Object.keys(theme.variants.depth) as any
+  // const depths = Object.keys(theme.variants.depth) as any
 
   it.each([
     // Props

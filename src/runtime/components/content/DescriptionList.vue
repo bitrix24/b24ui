@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { VariantProps } from 'tailwind-variants'
+// import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/content/description-list'
@@ -7,6 +7,7 @@ import { tv } from '../../utils/tv'
 
 const appConfig = _appConfig as AppConfig & { b24ui: { descriptionList: Partial<typeof theme> } }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const descriptionList = tv({ extend: tv(theme), ...(appConfig.b24ui?.descriptionList || {}) })
 
 // type DescriptionListVariants = VariantProps<typeof descriptionList>
@@ -22,14 +23,13 @@ export interface DescriptionListProps {
 </script>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+// import { computed } from 'vue'
 
-const props = defineProps<DescriptionListProps>()
+// const props = defineProps<DescriptionListProps>()
 // const emits = defineEmits<DescriptionListEmits>()
 // const slots = defineSlots<DescriptionListSlots>()
 
-// eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => descriptionList({}))
+// const b24ui = computed(() => descriptionList({}))
 </script>
 
 <template>

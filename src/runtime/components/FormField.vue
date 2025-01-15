@@ -57,7 +57,7 @@ const slots = defineSlots<FormFieldSlots>()
 const b24ui = computed(() => formField({
   size: props.size,
   required: props.required,
-  useDescription: Boolean(props.description) || !!slots.description,
+  useDescription: Boolean(props.description) || !!slots.description
 }))
 
 const formErrors = inject<Ref<FormError[]> | null>('form-errors', null)

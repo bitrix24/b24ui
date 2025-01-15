@@ -20,7 +20,7 @@ const smartScripts = ['Scripts', 'Create script', 'Install from Bitrix24.Market'
 
 const items = [
   [{ label: 'Knowledge base', type: 'label' }, ...knowledgeBase],
-  [{ label: 'Smart scripts', type: 'label' }, ...smartScripts],
+  [{ label: 'Smart scripts', type: 'label' }, ...smartScripts]
 ]
 
 function onClick() {
