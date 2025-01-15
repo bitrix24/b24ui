@@ -24,45 +24,45 @@ It requires two props:
 ::
 
 ::tabs
-  ::component-example{label="Valibot"}
+::component-example{label="Valibot"}
   ---
-  name: 'form-example-valibot'
-  props:
-    class: 'w-60'
+name: 'form-example-valibot'
+props:
+class: 'w-60'
   ---
-  ::
-  
-  ::component-example{label="Zod"}
-  ---
-  name: 'form-example-zod'
-  props:
-    class: 'w-60'
-  ---
-  ::
+::
 
-  ::component-example{label="Yup"}
+::component-example{label="Zod"}
+---
+name: 'form-example-zod'
+props:
+class: 'w-60'
   ---
-  name: 'form-example-yup'
-  props:
-    class: 'w-60'
-  ---
-  ::
+::
 
-  ::component-example{label="Joi"}
+::component-example{label="Yup"}
+---
+name: 'form-example-yup'
+props:
+class: 'w-60'
   ---
-  name: 'form-example-joi'
-  props:
-    class: 'w-60'
-  ---
-  ::
+::
 
-  ::component-example{label="Superstruct"}
+::component-example{label="Joi"}
+---
+name: 'form-example-joi'
+props:
+class: 'w-60'
   ---
-  name: 'form-example-superstruct'
-  props:
-    class: 'w-60'
+::
+
+::component-example{label="Superstruct"}
+---
+name: 'form-example-superstruct'
+props:
+class: 'w-60'
   ---
-  ::
+::
 ::
 
 Errors are reported directly to the [FormField](/components/form-field) component based on the `name` or `error-pattern` prop. This means the validation rules defined for the `email` attribute in your schema will be applied to `<FormField name="email">`{lang="vue"}.
@@ -86,7 +86,7 @@ It can be used alongside the `schema` prop to handle complex use cases.
 ---
 name: 'form-example-basic'
 props:
-  class: 'w-60'
+class: 'w-60'
 ---
 ::
 
@@ -105,16 +105,16 @@ You can control when validation happens this using the `validate-on` prop.
 source: false
 name: 'form-example-elements'
 options:
-  - name: 'validate-on'
-    label: 'validate-on'
-    items:
-    - 'input'
-    - 'change'
-    - 'blur'
+- name: 'validate-on'
+  label: 'validate-on'
+  items:
+  - 'input'
+  - 'change'
+  - 'blur'
     default:
-    - 'input'
-    - 'change'
-    - 'blur'
+  - 'input'
+  - 'change'
+  - 'blur'
     multiple: true
 ---
 ::
@@ -138,7 +138,7 @@ Here's an example that focuses the first input element with an error after the f
 name: 'form-example-on-error'
 collapse: true
 props:
-  class: 'w-60'
+class: 'w-60'
 ---
 ::
 
@@ -182,22 +182,22 @@ You can access the typed component instance using [`useTemplateRef`](https://vue
 
 ```vue
 <script setup lang="ts">
-const form = useTemplateRef('form')
+  const form = useTemplateRef('form')
 </script>
 
 <template>
-  <UForm ref="form" />
+  <B24Form ref="form" />
 </template>
 ```
 
 This will give you access to the following:
 
-| Name | Type |
-| ---- | ---- |
-| `submit()`{lang="ts-type"} | `Promise<void>`{lang="ts-type"} <br> <div class="text-[var(--ui-text-toned)] mt-1"><p>Triggers form submission.</p> |
-| `validate(path?: string \| string[], opts: { silent?: boolean })`{lang="ts-type"} | `Promise<T>`{lang="ts-type"} <br> <div class="text-[var(--ui-text-toned)] mt-1"><p>Triggers form validation. Will raise any errors unless `opts.silent` is set to true.</p> |
-| `clear(path?: string)`{lang="ts-type"} | `void` <br> <div class="text-[var(--ui-text-toned)] mt-1"><p>Clears form errors associated with a specific path. If no path is provided, clears all form errors.</p> |
-| `getErrors(path?: string)`{lang="ts-type"} | `FormError[]`{lang="ts-type"} <br> <div class="text-[var(--ui-text-toned)] mt-1"><p>Retrieves form errors associated with a specific path. If no path is provided, returns all form errors.</p></div> |
-| `setErrors(errors: FormError[], path?: string)`{lang="ts-type"} | `void` <br> <div class="text-[var(--ui-text-toned)] mt-1"><p>Sets form errors for a given path. If no path is provided, overrides all errors.</p> |
-| `errors`{lang="ts-type"} | `Ref<FormError[]>`{lang="ts-type"} <br> <div class="text-[var(--ui-text-toned)] mt-1"><p>A reference to the array containing validation errors. Use this to access or manipulate the error information.</p> |
-| `disabled`{lang="ts-type"} | `Ref<boolean>`{lang="ts-type"} |
+| Name                                                                                                                     | Type                                                                                                                                                                                                        |
+|--------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `submit()`{lang="ts-type"}                                                                                               | `Promise<void>`{lang="ts-type"} <br> <div class="text-[var(--ui-text-toned)] mt-1"><p>Triggers form submission.</p>                                                                                         |
+| `validate(opts: { name?: string \| string[], silent?: boolean, nested?: boolean, transform?: boolean })`{lang="ts-type"} | `Promise<T>`{lang="ts-type"} <br> <div class="text-[var(--ui-text-toned)] mt-1"><p>Triggers form validation. Will raise any errors unless `opts.silent` is set to true.</p>                                 |
+| `clear(path?: string)`{lang="ts-type"}                                                                                   | `void` <br> <div class="text-[var(--ui-text-toned)] mt-1"><p>Clears form errors associated with a specific path. If no path is provided, clears all form errors.</p>                                        |
+| `getErrors(path?: string)`{lang="ts-type"}                                                                               | `FormError[]`{lang="ts-type"} <br> <div class="text-[var(--ui-text-toned)] mt-1"><p>Retrieves form errors associated with a specific path. If no path is provided, returns all form errors.</p></div>       |
+| `setErrors(errors: FormError[], path?: string)`{lang="ts-type"}                                                          | `void` <br> <div class="text-[var(--ui-text-toned)] mt-1"><p>Sets form errors for a given path. If no path is provided, overrides all errors.</p>                                                           |
+| `errors`{lang="ts-type"}                                                                                                 | `Ref<FormError[]>`{lang="ts-type"} <br> <div class="text-[var(--ui-text-toned)] mt-1"><p>A reference to the array containing validation errors. Use this to access or manipulate the error information.</p> |
+| `disabled`{lang="ts-type"}                                                                                               | `Ref<boolean>`{lang="ts-type"}                                                                                                                                                                              |
