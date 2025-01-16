@@ -12,6 +12,18 @@ exports[`FormField > renders with as correctly 1`] = `
 </section>"
 `;
 
+exports[`FormField > renders with b24ui correctly 1`] = `
+"<div class="font-regular text-sm">
+  <div class="leading-none mb-2.5">
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+  <div class="">
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
 exports[`FormField > renders with class correctly 1`] = `
 "<div class="text-sm relative">
   <div class="">

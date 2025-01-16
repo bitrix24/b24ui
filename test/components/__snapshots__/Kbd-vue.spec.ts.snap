@@ -6,6 +6,12 @@ exports[`Kbd > renders with class correctly 1`] = `"<kbd class="inline-flex item
 
 exports[`Kbd > renders with default slot correctly 1`] = `"<kbd class="inline-flex items-center justify-center px-1 rounded-[var(--ui-radius)] font-medium font-sans bg-[var(--ui-bg)] text-[var(--ui-text-highlighted)] ring ring-inset ring-[var(--ui-border-accented)] h-5 min-w-[20px] text-[11px]">Default slot</kbd>"`;
 
+exports[`Kbd > renders with depth dark correctly 1`] = `"<kbd class="inline-flex items-center justify-center px-1 rounded-2xs font-normal font-b24-system-mono ring ring-inset text-white bg-base-500 ring-base-500 dark:text-base-50 dark:bg-base-600 dark:ring-base-600 h-[24px] min-w-[24px] text-[14px] leading-none">K</kbd>"`;
+
+exports[`Kbd > renders with depth light correctly 1`] = `"<kbd class="inline-flex items-center justify-center px-1 rounded-2xs font-normal font-b24-system-mono ring ring-inset text-base-900 bg-base-800/5 ring-base-800/20 dark:text-base-150 dark:bg-base-200/5 dark:ring-base-200/20 h-[24px] min-w-[24px] text-[14px] leading-none">K</kbd>"`;
+
+exports[`Kbd > renders with depth normal correctly 1`] = `"<kbd class="inline-flex items-center justify-center px-1 rounded-2xs font-normal font-b24-system-mono ring ring-inset text-base-800 bg-base-150 ring-base-150 dark:text-base-950 dark:bg-base-200 dark:ring-base-200 h-[24px] min-w-[24px] text-[14px] leading-none">K</kbd>"`;
+
 exports[`Kbd > renders with size lg correctly 1`] = `"<kbd class="inline-flex items-center justify-center px-1 rounded-[var(--ui-radius)] font-medium font-sans bg-[var(--ui-bg)] text-[var(--ui-text-highlighted)] ring ring-inset ring-[var(--ui-border-accented)] h-6 min-w-[24px] text-[12px]">K</kbd>"`;
 
 exports[`Kbd > renders with size md correctly 1`] = `"<kbd class="inline-flex items-center justify-center px-1 rounded-[var(--ui-radius)] font-medium font-sans bg-[var(--ui-bg)] text-[var(--ui-text-highlighted)] ring ring-inset ring-[var(--ui-border-accented)] h-5 min-w-[20px] text-[11px]">K</kbd>"`;

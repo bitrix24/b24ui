@@ -8,6 +8,8 @@ exports[`Avatar > renders with as correctly 1`] = `
 </section>"
 `;
 
+exports[`Avatar > renders with b24ui correctly 1`] = `"<span class="inline-flex items-center justify-center shrink-0 select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-8 text-sm"><!--v-if--><span class="text-base-500 dark:text-base-600 truncate font-bold"> </span></span>"`;
+
 exports[`Avatar > renders with class correctly 1`] = `"<span class="inline-flex items-center justify-center shrink-0 select-none overflow-hidden rounded-full align-middle size-8 text-base bg-[var(--ui-bg)]"><!--v-if--><span class="font-medium leading-none text-[var(--ui-text-muted)] truncate"></span></span>"`;
 
 exports[`Avatar > renders with default slot correctly 1`] = `"<span class="inline-flex items-center justify-center shrink-0 select-none overflow-hidden rounded-full align-middle bg-[var(--ui-bg-elevated)] size-8 text-base"><!--v-if-->🇫🇷</span>"`;

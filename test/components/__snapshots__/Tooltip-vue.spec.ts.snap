@@ -15,6 +15,22 @@ exports[`Tooltip > renders with arrow correctly 1`] = `
 <!--teleport end-->"
 `;
 
+exports[`Tooltip > renders with b24ui correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
+  <div data-state="instant-open" style="--reka-tooltip-content-transform-origin: var(--reka-popper-transform-origin); --reka-tooltip-content-available-width: var(--reka-popper-available-width); --reka-tooltip-content-available-height: var(--reka-popper-available-height); --reka-tooltip-trigger-width: var(--reka-popper-anchor-width); --reka-tooltip-trigger-height: var(--reka-popper-anchor-height); animation: none;" data-dismissable-layer="" class="flex items-center gap-1 shadow-sm rounded-2xs select-none data-[state=delayed-open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] min-h-6 px-2 py-1 bg-base-dark/85 text-white dark:bg-base-dark dark:text-base-150 dark:ring dark:ring-base-100/20 pointer-events-auto text-sm" data-side="bottom" data-align="center"><span class="text-pretty max-w-[200px]">Tooltip</span>
+    <!--v-if-->
+    <!--v-if--><span aria-hidden="true" style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); white-space: nowrap; word-wrap: normal;" id="" role="tooltip">Tooltip</span>
+  </div>
+</div>
+
+
+<!--teleport end-->"
+`;
+
 exports[`Tooltip > renders with class correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
