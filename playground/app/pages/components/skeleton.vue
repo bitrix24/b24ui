@@ -3,7 +3,6 @@ import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
 import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
-import B24SkeletonTaskAdd from '@bitrix24/b24ui-nuxt/runtime/components/content/SkeletonTaskAdd.vue'
 
 usePageMeta.setPageTitle('Skeleton')
 </script>

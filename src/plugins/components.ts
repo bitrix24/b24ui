@@ -14,7 +14,26 @@ export default function ComponentImportPlugin(
   options: Bitrix24UIOptions
 ) {
   const components = globSync('**/*.vue', { cwd: join(runtimeDir, 'components') })
-  const componentNames = new Set(components.map(c => `B24${c.replace(/\.vue$/, '')}`))
+  const componentNames = new Set(components.map(c => `B24${
+    c.replace(/\.vue$/, '')
+  }`))
+
+  const componentsContent = globSync('**/*.vue', { cwd: join(runtimeDir, 'components/content') })
+  const componentContentNames = new Set(componentsContent.map(c => `B24${
+    c.replace(/\.vue$/, '')
+  }`))
+
+  const componentsProse = globSync('**/*.vue', { cwd: join(runtimeDir, 'components/prose') })
+  const componentProseNames = new Set(componentsContent.map(c => `B24${
+    c.replace(/\.vue$/, '')
+  }`))
+
+  console.log({
+    componentsContent,
+    componentContentNames,
+    componentsProse,
+    componentProseNames
+  })
 
   const overrides = globSync('**/*.vue', { cwd: join(runtimeDir, 'vue/components') })
   const overrideNames = new Set(overrides.map(c => `B24${c.replace(/\.vue$/, '')}`))
@@ -55,6 +74,21 @@ export default function ComponentImportPlugin(
               from: join(runtimeDir, 'vue/components', `${componentName.slice('B24'.length)}.vue`)
             }
           }
+
+          if (componentContentNames.has(componentName)) {
+            return {
+              name: 'default',
+              from: join(runtimeDir, 'components/content', `${componentName.slice('B24'.length)}.vue`)
+            }
+          }
+
+          if (componentProseNames.has(componentName)) {
+            return {
+              name: 'default',
+              from: join(runtimeDir, 'components/prose', `${componentName.slice('B24'.length)}.vue`)
+            }
+          }
+
           if (componentNames.has(componentName)) {
             return {
               name: 'default',
