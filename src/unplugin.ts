@@ -44,7 +44,7 @@ export const Bitrix24UIPlugin = createUnplugin<Bitrix24UIOptions | undefined>((_
     AutoImport[meta.framework]({ dts: options.dts ?? true, dirs: [join(runtimeDir, 'composables')] }),
     tailwind(),
     PluginsPlugin(options),
-    TemplatePlugin(options, appConfig),
+    TemplatePlugin(options),
     AppConfigPlugin(options, appConfig)
   ]
 })
