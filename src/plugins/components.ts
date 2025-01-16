@@ -28,13 +28,6 @@ export default function ComponentImportPlugin(
     c.replace(/\.vue$/, '')
   }`))
 
-  console.log({
-    componentsContent,
-    componentContentNames,
-    componentsProse,
-    componentProseNames
-  })
-
   const overrides = globSync('**/*.vue', { cwd: join(runtimeDir, 'vue/components') })
   const overrideNames = new Set(overrides.map(c => `B24${c.replace(/\.vue$/, '')}`))
 
