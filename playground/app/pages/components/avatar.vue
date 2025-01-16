@@ -1,7 +1,4 @@
 <script setup lang="ts">
-/**
- * @todo remove class from B24Button
- */
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
