@@ -11,7 +11,7 @@ usePageMeta.setPageTitle('Alert')
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
-const actions = (color: string) => [
+const action = (color: string) => [
   {
     icon: DotsIcon,
     color: color as any,
@@ -124,7 +124,7 @@ const data = {
             :icon="data.icon"
             :close="data.close"
             :color="color"
-            :actions="actions(color as string)"
+            :actions="action(color as string)"
             size="sm"
           />
           <B24Alert
@@ -151,7 +151,7 @@ const data = {
             :icon="data.icon"
             :close="data.close"
             :color="color"
-            :actions="actions(color as string)"
+            :actions="action(color as string)"
           />
           <B24Alert
             :title="data.title"
