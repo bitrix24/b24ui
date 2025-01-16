@@ -15,7 +15,7 @@ export default {
     icon: 'shrink-0 size-6',
     avatar: 'shrink-0',
     avatarSize: '',
-    actions: 'flex flex-wrap  gap-1.5 shrink-0',
+    actions: 'flex flex-wrap gap-1.5 shrink-0',
     close: 'p-0.5'
   },
   variants: {
