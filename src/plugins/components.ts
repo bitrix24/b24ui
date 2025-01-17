@@ -24,7 +24,7 @@ export default function ComponentImportPlugin(
   }`))
 
   const componentsProse = globSync('**/*.vue', { cwd: join(runtimeDir, 'components/prose') })
-  const componentProseNames = new Set(componentsContent.map(c => `B24${
+  const componentProseNames = new Set(componentsProse.map(c => `B24${
     c.replace(/\.vue$/, '')
   }`))
 
