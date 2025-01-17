@@ -1,4 +1,3 @@
-// @todo remove colors
 import { computed } from 'vue'
 import {
   defineNuxtPlugin,
@@ -23,15 +22,18 @@ export default defineNuxtPlugin(() => {
   // }
 
   const root = computed(() => {
-    // const { neutral, ...colors } = appConfig.b24ui.colors
+    // const { base, ...colors } = appConfig.b24ui.colors
 
-    return `:root {
-  ${[].join('\n  ')}
-
-  ${[].join('\n  ')}
-}
-.dark {
-  ${[].join('\n  ')}
+    return `@layer base {
+  :root {
+    ${[].join('\n  ')}
+  }
+  :root, .light {
+    ${[].join('\n  ')}
+  }
+  .dark {
+    ${[].join('\n  ')}
+  }
 }`
   })
 
