@@ -150,7 +150,6 @@ export default {
       true: {
         base: 'w-full',
         baseLine: 'w-full justify-center',
-        leadingAvatarSize: 'xs',
         trailingIcon: 'ms-auto'
       }
     },
