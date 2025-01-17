@@ -9,10 +9,7 @@ import DescriptionListExample from '/examples/descriptionlist/DescriptionListExa
 # DescriptionList
 
 <Description 
-  nuxt-ui="https://ui.nuxt.com/components/description-list"
-  reka-ui="https://www.reka-ui.com/components/description-list.html"
-  reka-ui-title="description-list"
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/DescriptionList.vue"
+  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/content/DescriptionList.vue"
 >
   @todo change me
 </Description>

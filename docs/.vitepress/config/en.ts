@@ -64,6 +64,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: 'defineShortcuts', link: '/composables/define-shortcuts' },
+        { text: 'useFormField', link: '/composables/use-form-field' },
         { text: 'useToast', link: '/composables/use-toast' }
       ]
     },

@@ -1,4 +1,4 @@
-@import "tailwindcss" source("../../../docs");
+@import "tailwindcss" source("../../");
 @import "@bitrix24/b24ui-nuxt";
 
 /**
