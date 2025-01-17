@@ -7,14 +7,11 @@ hero:
   tagline: for REST API web-application development
   actions:
     - theme: brand
-      text: Components
-      link: /components/skeleton
-    - theme: brand
       text: Guide
       link: /guide/getting-started
     - theme: brand
-      text: Reference
-      link: /reference/index
+      text: Components
+      link: /components/app
     - theme: alt
       text: GitHub
       link: https://github.com/bitrix24/b24ui
