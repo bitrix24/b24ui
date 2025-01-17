@@ -1,6 +1,7 @@
 @plugin '@bitrix24/b24style';
 @import './keyframes.css';
 
+@variant light (&:where(.light, .light *));
 @variant dark (&:where(.dark, .dark *));
 
 @layer base {
@@ -8,9 +9,7 @@
     @apply antialiased scheme-light dark:scheme-dark;
   }
 
-  :root {
-  }
+  :root, .light {}
 
-  .dark {
-  }
+  .dark {}
 }
