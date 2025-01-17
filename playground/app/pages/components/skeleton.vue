@@ -28,12 +28,5 @@ usePageMeta.setPageTitle('Skeleton')
         <B24Skeleton class="h-12 w-12 rounded-full" />
       </div>
     </ExampleCard>
-
-    <ExampleCard title="task" class="sm:col-span-2 md:col-span-4">
-      <ExampleCardSubTitle title="task-add" />
-      <div class="border border-gray-500 border-dashed min-h-[200px] w-full">
-        <B24SkeletonTaskAdd />
-      </div>
-    </ExampleCard>
   </ExampleGrid>
 </template>
