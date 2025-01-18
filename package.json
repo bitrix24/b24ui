@@ -74,8 +74,10 @@
     "dev:build": "nuxi build playground",
     "dev:generate": "nuxt generate playground",
 
+    "docs:full:dev": "pnpm build && vitepress dev docs",
+    "docs:full:build": "vitepress build docs",
     "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
+    "docs:build": "pnpm build && vitepress build docs",
     "docs:preview": "vitepress preview docs",
 
     "lint": "eslint .",

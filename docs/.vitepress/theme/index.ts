@@ -16,11 +16,13 @@ import ComponentProps from '~/.vitepress/theme/components/ui/ComponentProps.vue'
 import ComponentSlots from '~/.vitepress/theme/components/ui/ComponentSlots.vue'
 import ComponentEmits from '~/.vitepress/theme/components/ui/ComponentEmits.vue'
 import Description from '~/.vitepress/theme/components/ui/Description.vue'
+// import uiPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'
 
 export default {
   extends: DefaultTheme,
   Layout: DynamicLayout,
   enhanceApp({ app }) {
+    // region components ////
     app.component('Description', Description)
       .component('ComponentShowExample', ComponentShowExample)
       .component('ComponentProps', ComponentProps)
@@ -34,5 +36,10 @@ export default {
       .component('ProseTd', ProseTd)
       .component('ProseCode', ProseCode)
       .component('ProseData', ProseData)
+    // endregion ////
+
+    // region plugin ////
+    // app.use(uiPlugin)
+    // endregion ////
   }
 } satisfies Theme
