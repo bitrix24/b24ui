@@ -1,6 +1,7 @@
 // https://vitepress.dev/guide/custom-theme
 import type { Theme } from 'vitepress'
-import DefaultTheme from 'vitepress/theme'
+// import DefaultTheme from 'vitepress/theme'
+import DefaultTheme from 'vitepress/theme-without-fonts'
 import './tailwind.post.css'
 import ProseTable from '~/.vitepress/theme/components/prose/ProseTable.vue'
 import ProseThead from '~/.vitepress/theme/components/prose/ProseThead.vue'
