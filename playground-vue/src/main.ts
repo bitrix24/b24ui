@@ -5,7 +5,6 @@ import uiPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'
 import App from './app.vue'
 
 const pages = import.meta.glob('../../playground/app/pages/**/*.vue')
-// const pagesContent = import.meta.glob('../../playground/app/pages/content/**/*.vue')
 const components = import.meta.glob('../../playground/app/components/**/*.vue')
 
 const routes = [
@@ -16,14 +15,6 @@ const routes = [
       component: pages[path]
     }
   })
-  // ,
-  // ...Object.keys(pagesContent).map((path) => {
-  //   const name = path.match(/\.\.\/\.\.\/playground\/app\/pages\/content(.*)\.vue$/)![1].toLowerCase()
-  //   return {
-  //     path: name === '/index' ? '/' : name,
-  //     component: pages[path]
-  //   }
-  // })
 ]
 
 const router = createRouter({
