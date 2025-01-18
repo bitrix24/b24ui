@@ -123,7 +123,7 @@ import { useButtonGroup } from '../composables/useButtonGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
 import { get, compare } from '../utils'
-import icons from '../../theme/icons'
+import icons from '../dictionary/icons'
 import B24Avatar from './Avatar.vue'
 import B24Chip from './Chip.vue'
 

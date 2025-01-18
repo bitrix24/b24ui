@@ -64,7 +64,7 @@ import { ToastRoot, ToastTitle, ToastDescription, ToastAction, ToastClose, useFo
 import { reactivePick } from '@vueuse/core'
 // import { useAppConfig } from '#imports'
 import { useLocale } from '../composables/useLocale'
-import icons from '../../theme/icons'
+import icons from '../dictionary/icons'
 import B24Avatar from './Avatar.vue'
 import B24Button from './Button.vue'
 

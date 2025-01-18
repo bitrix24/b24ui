@@ -1,6 +1,6 @@
 import { computed, toValue, type MaybeRefOrGetter, type DefineComponent } from 'vue'
 import type { AvatarProps } from '../types'
-import icons from '../../theme/icons'
+import icons from '../dictionary/icons'
 
 export interface UseComponentIconsProps {
   /** Display an icon on the left side. */

@@ -55,7 +55,7 @@ import { Primitive, SwitchRoot, SwitchThumb, useForwardProps, Label } from 'reka
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useFormField } from '../composables/useFormField'
-import icons from '../../theme/icons'
+import icons from '../dictionary/icons'
 
 const props = defineProps<SwitchProps>()
 const slots = defineSlots<SwitchSlots>()

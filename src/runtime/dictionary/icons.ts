@@ -18,7 +18,7 @@ import DoubleShevronsRightIcon from '@bitrix24/b24icons-vue/actions/DoubleShevro
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
 import DotsIcon from '@bitrix24/b24icons-vue/button/DotsIcon'
 import OpenIn50Icon from '@bitrix24/b24icons-vue/actions/OpenIn50Icon'
-import Refresh6Icon from '@bitrix24/b24icons-vue/actions/Refresh6Icon' ////
+import Refresh6Icon from '@bitrix24/b24icons-vue/actions/Refresh6Icon'
 import Minus30Icon from '@bitrix24/b24icons-vue/actions/Minus30Icon'
 import Plus30Icon from '@bitrix24/b24icons-vue/actions/Plus30Icon'
 import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'

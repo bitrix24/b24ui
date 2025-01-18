@@ -66,7 +66,7 @@ import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
 import { useLocale } from '../composables/useLocale'
-import icons from '../../theme/icons'
+import icons from '../dictionary/icons'
 import B24Avatar from './Avatar.vue'
 import B24Button from './Button.vue'
 
