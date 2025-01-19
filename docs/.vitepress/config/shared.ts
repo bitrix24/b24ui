@@ -93,23 +93,20 @@ export const shared = defineConfig({
       })
     ]
   },
-  transformHead({ assets }) {
-    console.log(assets)
-    const myFontFile = assets.find((file) => /font-name\.\w+\.woff2/)
-    if (myFontFile) {
-      return [
-        [
-          'link',
-          {
-            rel: 'preload',
-            href: myFontFile,
-            as: 'font',
-            type: 'font/woff2',
-            crossorigin: ''
-          }
-        ]
-      ]
+  transformHead: (context) => {
+    // https://vitepress.dev/ru/reference/site-config#transformhead ////
+    if (context.pageData.relativePath === 'frames/default.md') {
+      console.log({
+        relativePath: context.pageData.relativePath,
+        pageData: context.pageData
+        // siteHead: [...siteConfig.site.head]
+        // userConfigHead: siteConfig.userConfig.head,
+        // siteConfigAll: siteConfig
+      })
     }
+
+    console.log(context.pageData.relativePath)
+    console.log('')
   },
   transformHtml: (html, id) => {
     const exceptionsByFile: Record<string, string[]> = {}

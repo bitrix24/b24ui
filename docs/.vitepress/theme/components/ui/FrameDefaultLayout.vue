@@ -8,6 +8,23 @@ const appRef = ref()
 
 onMounted(async () => {
   try {
+    console.log('>> Before.style >>> ', document.querySelectorAll('style'))
+
+    const list = document.querySelectorAll('style')
+
+    list.forEach((row) => {
+      const viteDevId = row?.dataset?.viteDevId || '?'
+
+      if (
+        viteDevId.includes('theme-default')
+        || viteDevId.includes('docsearch')
+        || viteDevId.includes('tailwind.post.css')
+      ) {
+        row.parentNode.removeChild(row)
+      }
+    })
+    console.log('<< After.style <<< ', document.querySelectorAll('style'))
+
     createApp(
       appRef.value,
       {

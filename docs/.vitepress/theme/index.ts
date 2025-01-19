@@ -1,7 +1,7 @@
 // https://vitepress.dev/guide/custom-theme
 import type { Theme } from 'vitepress'
-// import DefaultTheme from 'vitepress/theme'
-import DefaultTheme from 'vitepress/theme-without-fonts'
+import DefaultTheme from 'vitepress/theme'
+import './tailwind.frame.css'
 import './tailwind.post.css'
 import ProseTable from '~/.vitepress/theme/components/prose/ProseTable.vue'
 import ProseThead from '~/.vitepress/theme/components/prose/ProseThead.vue'
@@ -37,10 +37,6 @@ export default {
       .component('ProseTd', ProseTd)
       .component('ProseCode', ProseCode)
       .component('ProseData', ProseData)
-    // endregion ////
-
-    // region plugin ////
-    // app.use(uiPlugin)
     // endregion ////
   }
 } satisfies Theme
