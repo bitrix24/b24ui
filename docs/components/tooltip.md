@@ -1,130 +1,100 @@
 ---
+title: Tooltip
 description: A popup that reveals information when hovering over an element.
-links:
-  - label: Tooltip
-    icon: i-custom-reka-ui
-    to: https://reka-ui.com/docs/components/tooltip
-  - label: GitHub
-    icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/tree/v3/src/runtime/components/Tooltip.vue
+outline: deep
 ---
+<script setup>
+import TooltipExample from '/examples/tooltip/TooltipExample.vue';
+import TooltipKbdsExample from '/examples/tooltip/TooltipKbdsExample.vue';
+import TooltipDelayExample from '/examples/tooltip/TooltipDelayExample.vue';
+import TooltipContentExample from '/examples/tooltip/TooltipContentExample.vue';
+</script>
+# Tooltip
+
+<Description
+  nuxt-ui="https://ui3.nuxt.dev/components/tooltip"
+  reka-ui="https://reka-ui.com/docs/components/tooltip"
+  reka-ui-title="Tooltip"
+  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Tooltip.vue"
+>
+  A popup that reveals information when hovering over an element.
+</Description>
 
 ## Usage
 
-Use a [Button](/components/button) or any other component in the default slot of the Tooltip.
+Use a [B24Button](/components/button) or any other component in the default slot of the Tooltip.
 
-::warning
-Make sure to wrap your app with the [`App`](/components/app) component which uses the [`TooltipProvider`](https://reka-ui.com/docs/components/tooltip#provider) component from Reka UI.
-::
+::: warning
+Make sure to wrap your app with the [`B24App`](/components/app) component which uses the [`TooltipProvider`](https://reka-ui.com/docs/components/tooltip#provider) component from Reka UI.
+:::
 
-::tip{to="/components/app#props"}
-You can check the `App` component `tooltip` prop to see how to configure the Tooltip globally.
-::
+::: tip
+You can [check](/components/app#props}) the `App` component `tooltip` prop to see how to configure the Tooltip globally.
+:::
 
 ### Text
 
 Use the `text` prop to set the content of the Tooltip.
 
-::component-code
----
-prettier: true
-props:
-  text: 'Open on GitHub'
-slots:
-  default: |
+<ComponentShowExample >
+  <iframe data-why class="min-h-[100px] sm:min-h-[100px]" allowtransparency="true">
+    <B24App>
+      <TooltipExample />
+    </B24App>
+  </iframe>
+</ComponentShowExample>
 
-    <UButton label="Open" color="neutral" variant="subtle" />
----
-
-:u-button{label="Open" color="neutral" variant="subtle"}
-::
+<<< @/examples/tooltip/TooltipExample.vue
 
 ### Kbds
 
 Use the `kbds` prop to render [Kbd](/components/kbd) components in the Tooltip.
 
-::component-code
----
-prettier: true
-ignore:
-  - text
-  - kbds
-props:
-  text: 'Open on GitHub'
-  kbds:
-    - meta
-    - G
-slots:
-  default: |
+::: warning
+`Kbds` are displayed starting from breakpoint `lg`
+:::
 
-    <UButton label="Open" color="neutral" variant="subtle" />
----
+<ComponentShowExample >
+  <iframe data-why class="w-[1200px] min-h-[100px] sm:min-h-[100px]" allowtransparency="true">
+    <B24App>
+      <TooltipKbdsExample />
+    </B24App>
+  </iframe>
+</ComponentShowExample>
 
-:u-button{label="Open" color="neutral" variant="subtle"}
-::
+<<< @/examples/tooltip/TooltipKbdsExample.vue
 
-::tip
+:::tip
 You can use special keys like `meta` that displays as `⌘` on macOS and `Ctrl` on other platforms.
-::
+:::
 
 ### Delay
 
 Use the `delay-duration` prop to change the delay before the Tooltip appears. For example, you can make it appear instantly by setting it to `0`.
 
-::component-code
----
-prettier: true
-ignore:
-  - text
-props:
-  delayDuration: 0
-  text: 'Open on GitHub'
-slots:
-  default: |
+<ComponentShowExample >
+  <iframe data-why class="min-h-[100px] sm:min-h-[100px]" allowtransparency="true">
+    <B24App>
+      <TooltipDelayExample />
+    </B24App>
+  </iframe>
+</ComponentShowExample>
 
-    <UButton label="Open" color="neutral" variant="subtle" />
----
-
-:u-button{label="Open" color="neutral" variant="subtle"}
-::
-
-::tip
-This can be configured globally through the `tooltip.delayDuration` option in the [`App`](/components/app) component.
-::
+<<< @/examples/tooltip/TooltipDelayExample.vue
 
 ### Content
 
 Use the `content` prop to control how the Tooltip content is rendered, like its `align` or `side` for example.
 
-::component-code
----
-prettier: true
-ignore:
-  - text
-items:
-  content.align:
-    - start
-    - center
-    - end
-  content.side:
-    - right
-    - left
-    - top
-    - bottom
-props:
-  content:
-    align: center
-    side: bottom
-    sideOffset: 8
-  text: 'Open on GitHub'
-slots:
-  default: |
+<ComponentShowExample >
+  <iframe data-why class="min-h-[100px] sm:min-h-[100px]" allowtransparency="true">
+    <B24App>
+      <TooltipContentExample />
+    </B24App>
+  </iframe>
+</ComponentShowExample>
 
-    <UButton label="Open" color="neutral" variant="subtle" />
----
-
-:u-button{label="Open" color="neutral" variant="subtle"}
-::
+<<< @/examples/tooltip/TooltipContentExample.vue
 
 ### Arrow
 
@@ -189,16 +159,12 @@ In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), y
 
 ### Props
 
-:component-props
+<ComponentProps component="Tooltip" />
 
 ### Slots
 
-:component-slots
+<ComponentSlots component="Tooltip" />
 
 ### Emits
 
-:component-emits
-
-## Theme
-
-:component-theme
+<ComponentEmits component="Tooltip" />

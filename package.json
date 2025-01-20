@@ -76,6 +76,7 @@
 
     "docs:full:dev": "pnpm build && vitepress dev docs",
     "docs:full:build": "pnpm build && vitepress build docs",
+
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",

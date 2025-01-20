@@ -92,7 +92,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'Chip', link: 'chip' },
         { text: 'Toast', link: 'toast' },
         { text: 'Progress', link: 'progress' },
-        { text: 'Tooltip', link: 'tooltip' }
+        { text: '✔️ Tooltip', link: 'tooltip' }
       ]
     },
     {

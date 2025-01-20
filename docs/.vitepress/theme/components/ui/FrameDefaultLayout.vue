@@ -3,14 +3,14 @@ import { ref, onMounted } from 'vue'
 import { createApp } from 'whyframe:app'
 import { createRouter, createWebHistory } from 'vue-router'
 import bitrix24UIPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'
-import { useData } from 'vitepress'
+// import { useData } from 'vitepress'
 
 const appRef = ref()
 
 console.log()
 
 onMounted(async () => {
-  const { isDark } = useData()
+  // const { isDark } = useData()
   try {
     if (import.meta.env.DEV) {
       // region clear dev ////
@@ -71,11 +71,16 @@ onMounted(async () => {
       }
     )
 
+    /**
+     * @memo this is not a very good idea
+     */
+    /*
     setTimeout(() => {
       if (isDark.value) {
         document.querySelector('html').classList.add('dark')
       }
     }, 1000)
+    */
   } catch (error) {
     console.error(error)
   }

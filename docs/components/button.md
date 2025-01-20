@@ -1,6 +1,6 @@
 ---
 title: Button
-description: _todo_ change me
+description: A button element that can act as a link or trigger an action.
 outline: deep
 ---
 <script setup>
@@ -12,7 +12,7 @@ import ButtonExample from '/examples/button/ButtonExample.vue';
   nuxt-ui="https://ui3.nuxt.dev/components/button"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Button.vue"
 >
-  @todo A button element that can act as a link or trigger an action.
+  A button element that can act as a link or trigger an action.
 </Description>
 
 ## Usage
