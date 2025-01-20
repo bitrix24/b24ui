@@ -1,12 +1,11 @@
 <script lang="ts">
-import type { DefineComponent } from 'vue'
 import type { VariantProps } from 'tailwind-variants'
 import type { ToastRootProps, ToastRootEmits } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/toast'
 import { tv } from '../utils/tv'
-import type { AvatarProps, ButtonProps } from '../types'
+import type { AvatarProps, ButtonProps, IconComponent } from '../types'
 
 const appConfig = _appConfig as AppConfig & { b24ui: { toast: Partial<typeof theme> } }
 
@@ -22,7 +21,7 @@ export interface ToastProps extends Pick<ToastRootProps, 'defaultOpen' | 'open' 
   as?: any
   title?: string
   description?: string
-  icon?: DefineComponent
+  icon?: IconComponent
   avatar?: AvatarProps
   color?: ToastVariants['color']
   /**
@@ -42,7 +41,7 @@ export interface ToastProps extends Pick<ToastRootProps, 'defaultOpen' | 'open' 
    * The icon displayed in the close button.
    * @defaultValue icons.close
    */
-  closeIcon?: DefineComponent
+  closeIcon?: IconComponent
   class?: any
   b24ui?: Partial<typeof toast.slots>
 }

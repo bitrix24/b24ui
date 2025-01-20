@@ -1,12 +1,11 @@
 <script lang="ts">
-import type { DefineComponent } from 'vue'
 import type { VariantProps } from 'tailwind-variants'
 import type { TabsRootProps, TabsRootEmits } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/tabs'
 import { tv } from '../utils/tv'
-import type { AvatarProps } from '../types'
+import type { AvatarProps, IconComponent } from '../types'
 import type { DynamicSlots, PartialString } from '../types/utils'
 
 const appConfig = _appConfig as AppConfig & { b24ui: { tabs: Partial<typeof theme> } }
@@ -15,7 +14,7 @@ const tabs = tv({ extend: tv(theme), ...(appConfig.b24ui?.tabs || {}) })
 
 export interface TabsItem {
   label?: string
-  icon?: DefineComponent
+  icon?: IconComponent
   avatar?: AvatarProps
   slot?: string
   content?: string

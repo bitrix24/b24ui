@@ -1,11 +1,11 @@
 <script lang="ts">
-import type { DefineComponent } from 'vue'
 import type { VariantProps } from 'tailwind-variants'
 import type { AvatarFallbackProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/avatar'
 import { tv } from '../utils/tv'
+import type { IconComponent } from '../types'
 
 const appConfig = _appConfig as AppConfig & { b24ui: { avatar: Partial<typeof theme> } }
 
@@ -21,7 +21,7 @@ export interface AvatarProps extends Pick<AvatarFallbackProps, 'delayMs'> {
   as?: any
   src?: string
   alt?: string
-  icon?: DefineComponent
+  icon?: IconComponent
   text?: string
   size?: AvatarVariants['size']
   class?: any

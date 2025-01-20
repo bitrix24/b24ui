@@ -1,12 +1,11 @@
 <script lang="ts">
-import type { DefineComponent } from 'vue'
 import type { VariantProps } from 'tailwind-variants'
 import type { SeparatorProps as _SeparatorProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/separator'
 import { tv } from '../utils/tv'
-import type { AvatarProps } from '../types'
+import type { AvatarProps, IconComponent } from '../types'
 
 const appConfig = _appConfig as AppConfig & { b24ui: { separator: Partial<typeof theme> } }
 
@@ -23,7 +22,7 @@ export interface SeparatorProps extends Pick<_SeparatorProps, 'decorative'> {
   /** Display a label in the middle. */
   label?: string
   /** Display an icon in the middle. */
-  icon?: DefineComponent
+  icon?: IconComponent
   /** Display an avatar in the middle. */
   avatar?: AvatarProps
   color?: SeparatorVariants['color']

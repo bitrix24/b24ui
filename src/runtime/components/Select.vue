@@ -1,5 +1,4 @@
 <script lang="ts">
-import type { DefineComponent } from 'vue'
 import type { VariantProps } from 'tailwind-variants'
 import type { SelectRootProps, SelectRootEmits, SelectContentProps, SelectArrowProps, AcceptableValue } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
@@ -7,7 +6,7 @@ import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/select'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
 import { tv } from '../utils/tv'
-import type { AvatarProps, ChipProps, InputProps } from '../types'
+import type { AvatarProps, ChipProps, InputProps, IconComponent } from '../types'
 import type { PartialString, MaybeArrayOfArray, MaybeArrayOfArrayItem, SelectModelValue, SelectModelValueEmits, SelectItemKey } from '../types/utils'
 
 const appConfig = _appConfig as AppConfig & { b24ui: { select: Partial<typeof theme> } }
@@ -16,7 +15,7 @@ const select = tv({ extend: tv(theme), ...(appConfig.b24ui?.select || {}) })
 
 export interface SelectItem {
   label?: string
-  icon?: DefineComponent
+  icon?: IconComponent
   avatar?: AvatarProps
   chip?: ChipProps
   /**
@@ -50,12 +49,12 @@ export interface SelectProps<T extends MaybeArrayOfArrayItem<I>, I extends Maybe
    * The icon displayed to open the menu.
    * @defaultValue icons.chevronDown = `ChevronDownIcon`
    */
-  trailingIcon?: DefineComponent
+  trailingIcon?: IconComponent
   /**
    * The icon displayed when an item is selected.
    * @defaultValue icons.check = `CheckIcon`
    */
-  selectedIcon?: DefineComponent
+  selectedIcon?: IconComponent
   /**
    * The content of the menu.
    * @defaultValue { side: 'bottom', sideOffset: 8, collisionPadding: 8, position: 'popper' }

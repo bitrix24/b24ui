@@ -1,10 +1,10 @@
-import { computed, toValue, type MaybeRefOrGetter, type DefineComponent } from 'vue'
-import type { AvatarProps } from '../types'
+import { computed, toValue, type MaybeRefOrGetter } from 'vue'
+import type { AvatarProps, IconComponent } from '../types'
 import icons from '../dictionary/icons'
 
 export interface UseComponentIconsProps {
   /** Display an icon on the left side. */
-  icon?: DefineComponent
+  icon?: IconComponent
   /** Display an avatar on the left side. */
   avatar?: AvatarProps
   /** When `true`, the loading icon will be displayed. */
@@ -12,7 +12,7 @@ export interface UseComponentIconsProps {
   /** When `true`, the icon will be displayed on the right side. */
   trailing?: boolean
   /** Display an icon on the right side. */
-  trailingIcon?: DefineComponent
+  trailingIcon?: IconComponent
 }
 
 export function useComponentIcons(componentProps: MaybeRefOrGetter<UseComponentIconsProps>) {

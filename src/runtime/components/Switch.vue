@@ -1,11 +1,11 @@
 <script lang="ts">
-import type { DefineComponent } from 'vue'
 import type { VariantProps } from 'tailwind-variants'
 import type { SwitchRootProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/switch'
 import { tv } from '../utils/tv'
+import type { IconComponent } from '../types'
 import type { PartialString } from '../types/utils'
 
 const appConfig = _appConfig as AppConfig & { b24ui: { switch: Partial<typeof theme> } }
@@ -28,11 +28,11 @@ export interface SwitchProps extends Pick<SwitchRootProps, 'disabled' | 'id' | '
    * The icon when the `loading` prop is `true`.
    * @defaultValue icons.refresh
    */
-  loadingIcon?: DefineComponent
+  loadingIcon?: IconComponent
   /** Display an icon when the switch is checked. */
-  checkedIcon?: DefineComponent
+  checkedIcon?: IconComponent
   /** Display an icon when the switch is unchecked. */
-  uncheckedIcon?: DefineComponent
+  uncheckedIcon?: IconComponent
   label?: string
   description?: string
   class?: any

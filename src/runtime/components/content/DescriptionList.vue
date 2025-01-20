@@ -1,11 +1,10 @@
 <script lang="ts">
-import type { DefineComponent } from 'vue'
 import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/content/description-list'
 import { tv } from '../../utils/tv'
-import type { AvatarProps, ButtonProps } from '../../types'
+import type { AvatarProps, ButtonProps, IconComponent } from '../../types'
 import type { DynamicSlots } from '../../types/utils'
 
 const appConfig = _appConfig as AppConfig & { b24ui: { descriptionList: Partial<typeof theme> } }
@@ -16,7 +15,7 @@ type DescriptionListVariants = VariantProps<typeof descriptionList>
 
 export interface DescriptionListItem {
   label?: string
-  icon?: DefineComponent
+  icon?: IconComponent
   avatar?: AvatarProps
   slot?: string
   description?: string
@@ -190,7 +189,7 @@ const normalizedItems = computed(() => {
             </slot>
           </span>
           <span
-            v-if="(item.actions?.length || slots.actions)"
+            v-if="item.actions?.length || !!slots.actions"
             :class="b24ui.actions({
               class: [
                 props.b24ui?.actions,
