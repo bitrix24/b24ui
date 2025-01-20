@@ -1,5 +1,6 @@
 .component-meta/
 component-meta.*
+/ecosystem.config.cjs
 
 # Nuxt dev/build outputs
 .output
