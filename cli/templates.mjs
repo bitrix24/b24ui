@@ -196,7 +196,7 @@ import ${upperName}Example from '/examples/${upperName.toLowerCase()}/${upperNam
   primitive
     ? ''
     : `
-  nuxt-ui="https://ui.nuxt.com/components/${kebabName}"
+  nuxt-ui="https://ui3.nuxt.dev/components/${kebabName}"
   reka-ui="https://www.reka-ui.com/components/${kebabName}.html"
   reka-ui-title="${kebabName}"`}
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/${upperName}.vue"
