@@ -11,7 +11,7 @@ import ChatMessageIcon from '@bitrix24/b24icons-vue/main/ChatMessageIcon'
 import AlertIcon from '@bitrix24/b24icons-vue/button/AlertIcon'
 import FolderEmptyIcon from '@bitrix24/b24icons-vue/main/FolderEmptyIcon'
 
-const title = ref('PlayGround')
+const title = ref('Playground')
 
 function setPageTitle(value: string): void {
   title.value = value
