@@ -1,5 +1,4 @@
 import type { UnpluginOptions } from 'unplugin'
-
 import type { Bitrix24UIOptions } from '../unplugin'
 
 /**
