@@ -4,11 +4,10 @@
   "version": "0.0.0",
   "description": "",
   "type": "module",
-  "dependencies": {
-    "@bitrix24/b24icons-vue": "1.0.3",
-    "@bitrix24/b24ui-nuxt": "latest"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@bitrix24/b24icons-vue": "1.0.3",
+    "@bitrix24/b24ui-nuxt": "latest",
     "tailwindcss": "^4.0.0-beta.9",
     "@tailwindcss/vite": "4.0.0-beta.9",
     "vitepress": "^1.5.0",

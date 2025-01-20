@@ -212,14 +212,13 @@ importers:
         version: 1.3.0
 
   docs:
-    dependencies:
+    devDependencies:
       '@bitrix24/b24icons-vue':
         specifier: 1.0.3
         version: 1.0.3(vue@3.5.13(typescript@5.6.3))
       '@bitrix24/b24ui-nuxt':
         specifier: workspace:*
         version: link:..
-    devDependencies:
       '@tailwindcss/vite':
         specifier: 4.0.0-beta.9
         version: 4.0.0-beta.9(vite@6.0.7(@types/node@22.10.6)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.37.0)(yaml@2.7.0))
