@@ -1,11 +1,4 @@
-/*
-@plugin '@bitrix24/b24style';
-@plugin "@bitrix24/b24ui-nuxt";
-*/
-@import "tailwindcss" source("../../");
+@import "tailwindcss";
 @import "@bitrix24/b24ui-nuxt";
-/*
-*/
 
-
-
+@source "../../../docs/";

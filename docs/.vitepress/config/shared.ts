@@ -23,6 +23,10 @@ const customAlias: any = [
  */
 export const shared = defineConfig({
   title: '@bitrix24/b24ui',
+  /**
+   * @memo we has some problems at frame if change dark mode
+   */
+  appearance: false,
 
   lastUpdated: true,
   cleanUrls: false,
@@ -92,21 +96,6 @@ export const shared = defineConfig({
         include: /\.(?:vue|md)$/
       })
     ]
-  },
-  transformHead: (context) => {
-    // https://vitepress.dev/ru/reference/site-config#transformhead ////
-    if (context.pageData.relativePath === 'frames/default.md') {
-      console.log({
-        relativePath: context.pageData.relativePath,
-        pageData: context.pageData
-        // siteHead: [...siteConfig.site.head]
-        // userConfigHead: siteConfig.userConfig.head,
-        // siteConfigAll: siteConfig
-      })
-    }
-
-    console.log(context.pageData.relativePath)
-    console.log('')
   },
   transformHtml: (html, id) => {
     const exceptionsByFile: Record<string, string[]> = {}

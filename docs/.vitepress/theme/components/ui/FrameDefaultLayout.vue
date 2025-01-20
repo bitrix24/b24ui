@@ -3,29 +3,58 @@ import { ref, onMounted } from 'vue'
 import { createApp } from 'whyframe:app'
 import { createRouter, createWebHistory } from 'vue-router'
 import bitrix24UIPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'
+import { useData } from 'vitepress'
 
 const appRef = ref()
 
+console.log()
+
 onMounted(async () => {
+  const { isDark } = useData()
   try {
-    // region clear dev ////
-    console.log('>> Before.style >>> ', document.querySelectorAll('style'))
+    if (import.meta.env.DEV) {
+      // region clear dev ////
+      const list = document.querySelectorAll('style')
 
-    const list = document.querySelectorAll('style')
+      list.forEach((row) => {
+        const viteDevId = row?.dataset?.viteDevId || '?'
 
-    list.forEach((row) => {
-      const viteDevId = row?.dataset?.viteDevId || '?'
+        if (
+          viteDevId.includes('theme-default')
+          || viteDevId.includes('docsearch')
+          || viteDevId.includes('tailwind.post.css')
+        ) {
+          row.parentNode.removeChild(row)
+        }
+      })
+      // endregion ////
+    } else {
+      // region clear prod ////
+      Array.from(document.styleSheets).forEach((styleSheet) => {
+        if (!styleSheet.href || !styleSheet.href.includes('style.')) {
+          console.log(styleSheet)
+          return
+        }
 
-      if (
-        viteDevId.includes('theme-default')
-        || viteDevId.includes('docsearch')
-        || viteDevId.includes('tailwind.post.css')
-      ) {
-        row.parentNode.removeChild(row)
-      }
-    })
-    console.log('<< After.style <<< ', document.querySelectorAll('style'))
-    // endregion ////
+        const rules = styleSheet.cssRules || styleSheet.rules
+        let isFindStart = false
+
+        for (let j = rules.length - 1; j >= 0; j--) {
+          const rule = rules[j]
+          if (rule.cssText.includes('--sh-is-start-frame')) {
+            // @memo after this moment all rules deleted ////
+            // @memo `--sh-is-start-frame` -> look at bottom this page ////
+            isFindStart = true
+            continue
+          }
+
+          if (isFindStart) {
+            styleSheet.deleteRule(j)
+          }
+        }
+      })
+      // endregion ////
+    }
 
     createApp(
       appRef.value,
@@ -41,8 +70,14 @@ onMounted(async () => {
         }
       }
     )
+
+    setTimeout(() => {
+      if (isDark.value) {
+        document.querySelector('html').classList.add('dark')
+      }
+    }, 1000)
   } catch (error) {
-    console.log(error)
+    console.error(error)
   }
 })
 </script>
@@ -58,12 +93,18 @@ onMounted(async () => {
 <style>
 :root
 {
+  --sh-is-start-frame: 1;
   --sh-scrollbar-thumb: rgb(60, 60, 67);
   --sh-scrollbar-background: #ebebef;
 }
+
 body {
   background-color: transparent;
   min-width: 200px !important;
+}
+
+.dark body {
+  background-color: #0f172a;
 }
 
 /** region scrollbar */

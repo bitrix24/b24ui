@@ -5,9 +5,7 @@ async function onClick() {
 </script>
 
 <template>
-  <span class="text-red-500">Button</span>
-  https://github.com/vuejs/vitepress/pull/239/commits/d60e3bc18b95df51dac61b6d440b673d423fa094
-  <B24Button type="button" loading-auto color="success" @click="onClick">
+  <B24Button type="button" loading-auto color="collab" @click="onClick">
     Button
   </B24Button>
 </template>

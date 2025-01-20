@@ -5,11 +5,13 @@
   "description": "",
   "type": "module",
   "dependencies": {},
+  "ddd-devDependencies": {
+    "tailwindcss": "^4.0.0-beta.9",
+    "@tailwindcss/vite": "4.0.0-beta.9"
+  },
   "devDependencies": {
     "@bitrix24/b24icons-vue": "1.0.3",
     "@bitrix24/b24ui-nuxt": "latest",
-    "tailwindcss": "^4.0.0-beta.9",
-    "@tailwindcss/vite": "4.0.0-beta.9",
     "vitepress": "^1.5.0",
     "@vueuse/core": "^12.0.0",
     "@whyframe/core": "^0.1.12",
