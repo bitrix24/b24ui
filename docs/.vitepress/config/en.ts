@@ -126,7 +126,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: 'Container', link: 'container' },
-        { text: 'DescriptionList', link: 'description-list' },
+        { text: 'DescriptionList', link: '/content/description-list' },
         { text: 'Link', link: 'link' },
         { text: 'Separator', link: 'separator' },
         { text: 'Skeleton', link: 'skeleton' },

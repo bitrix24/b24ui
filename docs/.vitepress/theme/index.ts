@@ -1,8 +1,4 @@
 // https://vitepress.dev/guide/custom-theme
-import type { Theme } from 'vitepress'
-import DefaultTheme from 'vitepress/theme'
-import './tailwind.frame.css'
-import './tailwind.post.css'
 import ProseTable from '~/.vitepress/theme/components/prose/ProseTable.vue'
 import ProseThead from '~/.vitepress/theme/components/prose/ProseThead.vue'
 import ProseTr from '~/.vitepress/theme/components/prose/ProseTr.vue'
@@ -17,7 +13,11 @@ import ComponentProps from '~/.vitepress/theme/components/ui/ComponentProps.vue'
 import ComponentSlots from '~/.vitepress/theme/components/ui/ComponentSlots.vue'
 import ComponentEmits from '~/.vitepress/theme/components/ui/ComponentEmits.vue'
 import Description from '~/.vitepress/theme/components/ui/Description.vue'
-// import uiPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'
+import bitrix24UIPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'
+import type { Theme } from 'vitepress'
+import DefaultTheme from 'vitepress/theme'
+import './tailwind.frame.css'
+import './tailwind.post.css'
 
 export default {
   extends: DefaultTheme,
@@ -38,5 +38,7 @@ export default {
       .component('ProseCode', ProseCode)
       .component('ProseData', ProseData)
     // endregion ////
+
+    app.use(bitrix24UIPlugin)
   }
 } satisfies Theme

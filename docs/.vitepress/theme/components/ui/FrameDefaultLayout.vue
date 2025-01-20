@@ -2,12 +2,13 @@
 import { ref, onMounted } from 'vue'
 import { createApp } from 'whyframe:app'
 import { createRouter, createWebHistory } from 'vue-router'
-import uiPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'
+import bitrix24UIPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'
 
 const appRef = ref()
 
 onMounted(async () => {
   try {
+    // region clear dev ////
     console.log('>> Before.style >>> ', document.querySelectorAll('style'))
 
     const list = document.querySelectorAll('style')
@@ -24,6 +25,7 @@ onMounted(async () => {
       }
     })
     console.log('<< After.style <<< ', document.querySelectorAll('style'))
+    // endregion ////
 
     createApp(
       appRef.value,
@@ -33,8 +35,9 @@ onMounted(async () => {
             routes: [],
             history: createWebHistory()
           })
+
           app.use(router)
-          app.use(uiPlugin)
+          app.use(bitrix24UIPlugin)
         }
       }
     )
@@ -53,7 +56,36 @@ onMounted(async () => {
 </template>
 
 <style>
+:root
+{
+  --sh-scrollbar-thumb: rgb(60, 60, 67);
+  --sh-scrollbar-background: #ebebef;
+}
 body {
   background-color: transparent;
+  min-width: 200px !important;
 }
+
+/** region scrollbar */
+* {
+  scrollbar-color: var(--sh-scrollbar-thumb) var(--sh-scrollbar-background);
+  scrollbar-width: thin;
+}
+
+/* Styling the scrollbar in Chrome and Safari */
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Set thumb color for Chrome and Safari */
+*::-webkit-scrollbar-thumb {
+  background-color: var(--sh-scrollbar-thumb);
+  border-radius: 4px;
+}
+
+/* Set track color for Chrome and Safari */
+*::-webkit-scrollbar-track {
+  background-color: var(--sh-scrollbar-background);
+}
+/** endregion */
 </style>

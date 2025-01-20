@@ -16,7 +16,7 @@
     <div
       class="
         relative rounded-lg overflow-hidden
-        p-8 min-h-40
+        p-4 min-h-40
         flex flex-col flex-nowrap
         justify-center items-center
       "
