@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
-import { useToast } from '@bitrix24/b24ui-nuxt/runtime/composables/useToast.ts'
 import type { FormError, FormSubmitEvent } from '@bitrix24/b24ui-nuxt'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
 import Shining2Icon from '@bitrix24/b24icons-vue/main/Shining2Icon'

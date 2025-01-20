@@ -4,7 +4,6 @@
  */
 import { reactive, ref } from 'vue'
 import * as z from 'zod'
-import { useToast } from '@bitrix24/b24ui-nuxt/runtime/composables/useToast.ts'
 import type { FormSubmitEvent } from '@bitrix24/b24ui-nuxt'
 import SuccessIcon from '@bitrix24/b24icons-vue/button/SuccessIcon'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'

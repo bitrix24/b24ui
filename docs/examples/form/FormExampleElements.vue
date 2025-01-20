@@ -8,7 +8,6 @@
  * @todo add PinInput
  */
 import { reactive, ref, useTemplateRef } from 'vue'
-import { useToast } from '@bitrix24/b24ui-nuxt/runtime/composables/useToast.ts'
 import * as z from 'zod'
 import type { FormSubmitEvent } from '@bitrix24/b24ui-nuxt'
 import SuccessIcon from '@bitrix24/b24icons-vue/button/SuccessIcon'
