@@ -23,10 +23,6 @@ const customAlias: any = [
  */
 export const shared = defineConfig({
   title: '@bitrix24/b24ui',
-  /**
-   * @memo we has some problems at frame if change dark mode
-   */
-  appearance: false,
 
   lastUpdated: true,
   cleanUrls: false,

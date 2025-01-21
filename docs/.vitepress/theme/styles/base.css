@@ -1,0 +1,251 @@
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+html {
+  line-height: 1.4;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+  line-height: 24px;
+  font-family: var(--vp-font-family-base);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--vp-c-text-1);
+  background-color: var(--vp-c-bg);
+  font-synthesis: style;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.Layout main {
+  display: block;
+}
+
+.Layout h1,
+.Layout h2,
+.Layout h3,
+.Layout h4,
+.Layout h5,
+.Layout h6 {
+  margin: 0;
+  line-height: 24px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.Layout p {
+  margin: 0;
+}
+
+.Layout strong,
+.Layout b {
+  font-weight: 600;
+}
+
+/**
+ * Avoid 300ms click delay on touch devices that support the `touch-action`
+ * CSS property.
+ *
+ * In particular, unlike most other browsers, IE11+Edge on Windows 10 on
+ * touch devices and IE Mobile 10-11 DON'T remove the click delay when
+ * `<meta name="viewport" content="width=device-width">` is present.
+ * However, they DO support removing the click delay via
+ * `touch-action: manipulation`.
+ *
+ * See:
+ * - http://v4-alpha.getbootstrap.com/content/reboot/#click-delay-optimization-for-touch
+ * - http://caniuse.com/#feat=css-touch-action
+ * - http://patrickhlauke.github.io/touch/tests/results/#suppressing-300ms-delay
+ */
+.Layout a,
+.Layout area,
+.Layout button,
+.Layout [role='button'],
+.Layout input,
+.Layout label,
+.Layout select,
+.Layout summary,
+.Layout textarea {
+  touch-action: manipulation;
+}
+
+.Layout a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.Layout ol,
+.Layout ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Layout blockquote {
+  margin: 0;
+}
+
+.Layout pre,
+.Layout code,
+.Layout kbd,
+.Layout samp {
+  font-family: var(--vp-font-family-mono);
+}
+
+.Layout img,
+.Layout svg,
+.Layout video,
+.Layout canvas,
+.Layout audio,
+.Layout iframe,
+.Layout embed,
+.Layout object {
+  display: block;
+}
+
+.Layout figure {
+  margin: 0;
+}
+
+.Layout img,
+.Layout video {
+  max-width: 100%;
+  height: auto;
+}
+
+.Layout button,
+.Layout input,
+.Layout optgroup,
+.Layout select,
+.Layout textarea {
+  border: 0;
+  padding: 0;
+  line-height: inherit;
+  color: inherit;
+}
+
+.Layout button {
+  padding: 0;
+  font-family: inherit;
+  background-color: transparent;
+  background-image: none;
+}
+
+.Layout button:enabled,
+.Layout [role='button']:enabled {
+  cursor: pointer;
+}
+
+.Layout button:focus,
+.Layout button:focus-visible {
+  outline: 1px dotted;
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.Layout button:focus:not(:focus-visible) {
+  outline: none !important;
+}
+
+.Layout input:focus,
+.Layout textarea:focus,
+.Layout select:focus {
+  outline: none;
+}
+
+.Layout table {
+  border-collapse: collapse;
+}
+
+.Layout input {
+  background-color: transparent;
+}
+
+.Layout input:-ms-input-placeholder,
+.Layout textarea:-ms-input-placeholder {
+  color: var(--vp-c-text-3);
+}
+
+.Layout input::-ms-input-placeholder,
+.Layout textarea::-ms-input-placeholder {
+  color: var(--vp-c-text-3);
+}
+
+.Layout input::placeholder,
+.Layout textarea::placeholder {
+  color: var(--vp-c-text-3);
+}
+
+.Layout input::-webkit-outer-spin-button,
+.Layout input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.Layout input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.Layout textarea {
+  resize: vertical;
+}
+
+.Layout select {
+  -webkit-appearance: none;
+}
+
+.Layout fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+.Layout h1,
+.Layout h2,
+.Layout h3,
+.Layout h4,
+.Layout h5,
+.Layout h6,
+.Layout li,
+.Layout p {
+  overflow-wrap: break-word;
+}
+
+vite-error-overlay {
+  z-index: 9999;
+}
+
+mjx-container {
+  overflow-x: auto;
+}
+
+mjx-container > svg {
+  display: inline-block;
+  margin: auto;
+}

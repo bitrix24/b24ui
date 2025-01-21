@@ -22,7 +22,7 @@ import DescriptionListCustomExample from '/examples/content/descriptionlist/Desc
 ### Simple
 
 <ComponentShowExample class="mt-2" >
-  <iframe data-why class="min-h-[500px] sm:min-h-[400px]" allowtransparency="true">
+  <iframe data-why class="min-h-[500px] sm:min-h-[280px]" allowtransparency="true">
       <DescriptionListExample class="bg-white dark:bg-base-900 p-4 rounded-lg" />
   </iframe>
 </ComponentShowExample>
@@ -33,7 +33,7 @@ import DescriptionListCustomExample from '/examples/content/descriptionlist/Desc
 ### Icons
 
 <ComponentShowExample class="mt-2" >
-  <iframe data-why class="min-h-[500px] sm:min-h-[400px]" allowtransparency="true">
+  <iframe data-why class="min-h-[500px] sm:min-h-[300px]" allowtransparency="true">
       <DescriptionListIconsExample class="bg-white dark:bg-base-900 p-4 rounded-lg" />
   </iframe>
 </ComponentShowExample>
@@ -45,7 +45,7 @@ import DescriptionListCustomExample from '/examples/content/descriptionlist/Desc
 @todo
 
 <ComponentShowExample class="mt-2" >
-  <iframe data-why class="min-h-[500px] sm:min-h-[400px]" allowtransparency="true">
+  <iframe data-why class="min-h-[740px] sm:min-h-[520px]" allowtransparency="true">
       <DescriptionListActionsExample class="bg-white dark:bg-base-900 p-4 rounded-lg" />
   </iframe>
 </ComponentShowExample>

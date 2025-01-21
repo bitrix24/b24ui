@@ -1,8 +1,8 @@
 <script setup>
 import { computed } from 'vue'
 import { useRoute } from 'vitepress'
-import Theme from 'vitepress/theme'
-// import VPLayout from 'vitepress/dist/client/theme-default/Layout.vue'
+// import Theme from 'vitepress/theme'
+import VPLayout from 'vitepress/dist/client/theme-default/Layout.vue'
 import FrameDefaultLayout from './FrameDefaultLayout.vue'
 
 const route = useRoute()
@@ -26,5 +26,5 @@ onMounted(async () => {
 
 <template>
   <FrameDefaultLayout v-if="isFrameContent" />
-  <Theme.Layout v-else />
+  <VPLayout v-else />
 </template>

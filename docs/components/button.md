@@ -17,7 +17,7 @@ import ButtonExample from '/examples/button/ButtonExample.vue';
 
 ## Usage
 
-<ComponentShowExample >
+<ComponentShowExample>
   <iframe data-why class="min-h-<80px>" allowtransparency="true">
     <ButtonExample />
   </iframe>

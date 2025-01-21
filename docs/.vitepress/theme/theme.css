@@ -4,6 +4,8 @@
 
 :root
 {
+  --sh-scrollbar-thumb: #3c3c43;
+  --sh-scrollbar-background: #ebebef;
 }
 
 .dark
@@ -12,6 +14,10 @@
   --vp-c-bg-alt: #161618;
   --vp-c-bg-elv: #202127;
   --vp-c-bg-soft: #202127;
+  --vp-code-block-bg: #1a2234;
+
+  --sh-scrollbar-thumb: #bdc1c6;
+  --sh-scrollbar-background: #3c3c43;
 }
 
 .bg-grid-example {
@@ -27,4 +33,28 @@ iframe
   min-width: 100%;
   border: none;
   scrollbar-width: thin;
+  background-color: transparent;
 }
+
+/** region scrollbar */
+* {
+  scrollbar-color: var(--sh-scrollbar-thumb) var(--sh-scrollbar-background);
+  scrollbar-width: thin;
+}
+
+/* Styling the scrollbar in Chrome and Safari */
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Set thumb color for Chrome and Safari */
+*::-webkit-scrollbar-thumb {
+  background-color: var(--sh-scrollbar-thumb);
+  border-radius: 4px;
+}
+
+/* Set track color for Chrome and Safari */
+*::-webkit-scrollbar-track {
+  background-color: var(--sh-scrollbar-background);
+}
+/** endregion */

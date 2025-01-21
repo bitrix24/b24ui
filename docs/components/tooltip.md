@@ -22,10 +22,10 @@ import TooltipContentExample from '/examples/tooltip/TooltipContentExample.vue';
 
 ## Usage
 
-Use a [B24Button](/components/button) or any other component in the default slot of the Tooltip.
+Use a [Button](/components/button) or any other component in the default slot of the Tooltip.
 
 ::: warning
-Make sure to wrap your app with the [`B24App`](/components/app) component which uses the [`TooltipProvider`](https://reka-ui.com/docs/components/tooltip#provider) component from Reka UI.
+Make sure to wrap your app with the [`App`](/components/app) component which uses the [`TooltipProvider`](https://reka-ui.com/docs/components/tooltip#provider) component from Reka UI.
 :::
 
 ::: tip
