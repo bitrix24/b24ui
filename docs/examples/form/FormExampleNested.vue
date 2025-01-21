@@ -11,7 +11,7 @@ import Shining2Icon from '@bitrix24/b24icons-vue/main/Shining2Icon'
 
 const schema = z.object({
   name: z.string().min(2),
-  news: z.boolean()
+  news: z.boolean().default(false)
 })
 
 type Schema = z.output<typeof schema>
@@ -91,7 +91,7 @@ function fillState() {
       </B24FormField>
 
       <div>
-        <B24Checkbox v-model="state.news" name="news" label="Register to our newsletter" />
+        <B24Checkbox v-model="state.news" name="news" label="Register to our newsletter" @update:model-value="state.email = undefined"  />
       </div>
 
       <B24Form v-if="state.news" :state="state" :schema="nestedSchema">
