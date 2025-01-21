@@ -22,7 +22,10 @@ onMounted(async () => {
       {
         enhanceApp: (app) => {
           const router = createRouter({
-            routes: [],
+            routes: [
+              { path: '', component: app },
+              { path: '/b24ui/frames/default.html', component: app }
+            ],
             history: createWebHistory()
           })
 
@@ -43,7 +46,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div ref="appRef" class="px-0.5 w-full h-screen bg-transparent flex flex-col flex-nowrap items-center justify-center">
+  <div ref="appRef" class="px-0.5 w-full h-screen bg-transparent flex flex-col flex-nowrap items-center justify-center gap-12">
     <div class="text-gray-500">
       Loading ...
     </div>
