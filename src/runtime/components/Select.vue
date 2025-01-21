@@ -135,11 +135,11 @@ const emits = defineEmits<SelectEmits<T, V, M>>()
 const slots = defineSlots<SelectSlots<T, M>>()
 
 const appConfig = useAppConfig()
-const rootProps = useForwardPropsEmits(reactivePick(props, 'modelValue', 'defaultValue', 'open', 'defaultOpen', 'disabled', 'autocomplete', 'required', 'multiple'), emits)
+const rootProps = useForwardPropsEmits(reactivePick(props, 'open', 'defaultOpen', 'disabled', 'autocomplete', 'required', 'multiple'), emits)
 const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffset: 8, collisionPadding: 8, position: 'popper' }) as SelectContentProps)
 const arrowProps = toRef(() => props.arrow as SelectArrowProps)
 
-const { emitFormChange, emitFormInput, emitFormBlur, size: formGroupSize, color, id, name, highlight, disabled } = useFormField<InputProps>(props, { deferInputValidation: true })
+const { emitFormChange, emitFormInput, emitFormBlur, size: formGroupSize, color, id, name, highlight, disabled, ariaAttrs } = useFormField<InputProps>(props, { deferInputValidation: true })
 const { orientation, size: buttonGroupSize } = useButtonGroup<InputProps>(props)
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(toRef(() => defu(
   props,
@@ -205,16 +205,17 @@ function onUpdateOpen(value: boolean) {
 <template>
   <Primitive as="div" :class="b24ui.root({ class: [props.b24ui?.root] })">
     <SelectRoot
-      :id="id"
       v-slot="{ modelValue, open }"
-      v-bind="rootProps"
       :name="name"
+      v-bind="rootProps"
       :autocomplete="autocomplete"
       :disabled="disabled"
+      :default-value="defaultValue as (AcceptableValue | AcceptableValue[] | undefined)"
+      :model-value="modelValue as (AcceptableValue | AcceptableValue[] | undefined)"
       @update:model-value="onUpdate"
       @update:open="onUpdateOpen"
     >
-      <SelectTrigger :class="b24ui.base({ class: [props.class, props.b24ui?.base] })">
+      <SelectTrigger :id="id" :class="b24ui.base({ class: [props.class, props.b24ui?.base] })" v-bind="ariaAttrs">
         <div v-if="isTag" :class="b24ui.tag({ class: props.b24ui?.tag })">
           {{ props.tag }}
         </div>

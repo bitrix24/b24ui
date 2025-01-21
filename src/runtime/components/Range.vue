@@ -55,7 +55,7 @@ const modelValue = defineModel<number | number[]>()
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'orientation', 'min', 'max', 'step', 'minStepsBetweenThumbs', 'inverted'), emits)
 
-const { id, emitFormChange, emitFormInput, size, color, name, disabled } = useFormField<RangeProps>(props)
+const { id, emitFormChange, emitFormInput, size, color, name, disabled, ariaAttrs } = useFormField<RangeProps>(props)
 
 const defaultRangeValue = computed(() => {
   if (typeof props.defaultValue === 'number') {
@@ -95,7 +95,7 @@ function onChange(value: any) {
 
 <template>
   <SliderRoot
-    v-bind="rootProps"
+    v-bind="{ ...rootProps, ...ariaAttrs }"
     :id="id"
     v-model="rangeValue"
     :name="name"

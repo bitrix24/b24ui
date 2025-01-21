@@ -54,7 +54,7 @@ const modelValue = defineModel<boolean | 'indeterminate'>({ default: undefined }
 const rootProps = useForwardProps(reactivePick(props, 'required', 'value', 'defaultValue'))
 
 const appConfig = useAppConfig()
-const { id: _id, emitFormChange, emitFormInput, size, color, name, disabled } = useFormField<CheckboxProps>(props)
+const { id: _id, emitFormChange, emitFormInput, size, color, name, disabled, ariaAttrs } = useFormField<CheckboxProps>(props)
 const id = _id.value ?? useId()
 
 const b24ui = computed(() => checkbox({
@@ -80,7 +80,7 @@ function onUpdate(value: any) {
     <div :class="b24ui.container({ class: props.b24ui?.container })">
       <CheckboxRoot
         :id="id"
-        v-bind="rootProps"
+        v-bind="{ ...rootProps, ...ariaAttrs }"
         v-model="modelValue"
         :name="name"
         :disabled="disabled"

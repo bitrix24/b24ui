@@ -65,6 +65,9 @@ const formErrors = inject<Ref<FormError[]> | null>('form-errors', null)
 const error = computed(() => props.error || formErrors?.value?.find(error => error.name === props.name || (props.errorPattern && error.name.match(props.errorPattern)))?.message)
 
 const id = ref(useId())
+// Copies id's initial value to bind aria-attributes such as aria-describedby.
+// This is required for the RadioGroup component which unsets the id value.
+const ariaId = id.value
 
 provide(inputIdInjectionKey, id)
 
@@ -74,7 +77,10 @@ provide(formFieldInjectionKey, computed(() => ({
   size: props.size,
   eagerValidation: props.eagerValidation,
   validateOnInputDelay: props.validateOnInputDelay,
-  errorPattern: props.errorPattern
+  errorPattern: props.errorPattern,
+  hint: props.hint,
+  description: props.description,
+  ariaId
 }) as FormFieldInjectedOptions<FormFieldProps>))
 </script>
 
@@ -87,14 +93,14 @@ provide(formFieldInjectionKey, computed(() => ({
             {{ label }}
           </slot>
         </Label>
-        <span v-if="hint || !!slots.hint" :class="b24ui.hint({ class: props.b24ui?.hint })">
+        <span v-if="hint || !!slots.hint" :id="`${ariaId}-hint`" :class="b24ui.hint({ class: props.b24ui?.hint })">
           <slot name="hint" :hint="hint">
             {{ hint }}
           </slot>
         </span>
       </div>
 
-      <p v-if="description || !!slots.description" :class="b24ui.description({ class: props.b24ui?.description })">
+      <p v-if="description || !!slots.description" :id="`${ariaId}-description`" :class="b24ui.description({ class: props.b24ui?.description })">
         <slot name="description" :description="description">
           {{ description }}
         </slot>
@@ -104,7 +110,7 @@ provide(formFieldInjectionKey, computed(() => ({
     <div :class="[(label || !!slots.label || description || !!slots.description) && b24ui.container({ class: props.b24ui?.container })]">
       <slot :error="error" />
 
-      <div v-if="(typeof error === 'string' && error) || !!slots.error" :class="b24ui.error({ class: props.b24ui?.error })">
+      <div v-if="(typeof error === 'string' && error) || !!slots.error" :id="`${ariaId}-error`" :class="b24ui.error({ class: props.b24ui?.error })">
         <slot name="error" :error="error">
           <div class="flex flex-row flex-nowrap gap-0.5">
             <WarningIcon :class="b24ui.errorIcon()" />

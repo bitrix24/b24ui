@@ -84,7 +84,7 @@ const slots = defineSlots<RadioGroupSlots<T>>()
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'modelValue', 'defaultValue', 'orientation', 'loop', 'required'), emits)
 
-const { emitFormChange, emitFormInput, color, name, size, id: _id, disabled } = useFormField<RadioGroupProps<T>>(props, { bind: false })
+const { emitFormChange, emitFormInput, color, name, size, id: _id, disabled, ariaAttrs } = useFormField<RadioGroupProps<T>>(props, { bind: false })
 const id = _id.value ?? useId()
 
 const b24ui = computed(() => radioGroup({
@@ -144,7 +144,7 @@ function onUpdate(value: any) {
     :class="b24ui.root({ class: [props.class, props.b24ui?.root] })"
     @update:model-value="onUpdate"
   >
-    <fieldset :class="b24ui.fieldset({ class: props.b24ui?.fieldset })">
+    <fieldset :class="b24ui.fieldset({ class: props.b24ui?.fieldset })" v-bind="ariaAttrs">
       <legend v-if="legend || !!slots.legend" :class="b24ui.legend({ class: props.b24ui?.legend })">
         <slot name="legend">
           {{ legend }}
