@@ -1,7 +1,8 @@
 ---
 title: useToast
-description: 'A composable to display toast notifications in your app.'
+description: 'A composable for showing toast notifications in your app.'
 ---
+# useToast
 
 ## Usage
 
@@ -13,17 +14,17 @@ const toast = useToast()
 </script>
 ```
 
-- The `useToast` composable uses Nuxt's `useState` to manage the toast state, ensuring reactivity across your application.
-- A maximum of 5 toasts are displayed at a time. When adding a new toast that would exceed this limit, the oldest toast is automatically removed.
-- When removing a toast, there's a 200ms delay before it's actually removed from the state, allowing for exit animations.
+- The `useToast` composable leverages Nuxt's `useState` to handle the toast state, ensuring reactivity throughout your application.
+- Up to 12 toasts can be shown at once. If a new toast is added beyond this limit, the oldest toast is automatically discarded.
+- Upon removing a toast, a 200ms delay is applied before it is removed from the state, allowing for exit animations.
 
-::warning
-Make sure to wrap your app with the [`App`](/components/app) component which uses our [`Toaster`](https://github.com/nuxt/ui/blob/v3/src/runtime/components/Toaster.vue) component which uses the [`ToastProvider`](https://reka-ui.com/docs/components/toast#provider) component from Reka UI.
-::
+::: warning
+Be certain to wrap your app with the [`App`](/components/app) component, which integrates our [`Toaster`](https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Toaster.vue) component, leveraging the [`ToastProvider`](https://reka-ui.com/docs/components/toast#provider) from Reka UI.
+:::
 
-::tip{to="/components/toast"}
-Learn how to customize the appearance and behavior of toasts in the **Toast** component documentation.
-::
+::: tip
+Explore how to modify the appearance and behavior of toasts in the [`Toast`](/components/toast) component documentation.
+:::
 
 ## API
 
