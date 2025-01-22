@@ -1,17 +1,17 @@
 ---
 title: Tooltip
-description: A popup that reveals information when hovering over an element.
+description: A small window that shows details when you move your mouse over an item.
 outline: deep
 ---
 <script setup>
-import TooltipExample from '/examples/tooltip/TooltipExample.vue';
-import TooltipKbdsExample from '/examples/tooltip/TooltipKbdsExample.vue';
-import TooltipDelayExample from '/examples/tooltip/TooltipDelayExample.vue';
-import TooltipContentExample from '/examples/tooltip/TooltipContentExample.vue';
-import TooltipArrowExample from '/examples/tooltip/TooltipArrowExample.vue';
-import TooltipDisabledExample from '/examples/tooltip/TooltipDisabledExample.vue';
-import TooltipOpenExample from '/examples/tooltip/TooltipOpenExample.vue';
-import TooltipHardcodedExample from '/examples/tooltip/TooltipHardcodedExample.vue';
+import TextExample from '/examples/tooltip/Text.vue';
+import KbdsExample from '/examples/tooltip/Kbds.vue';
+import DelayExample from '/examples/tooltip/Delay.vue';
+import ContentExample from '/examples/tooltip/Content.vue';
+import ArrowExample from '/examples/tooltip/Arrow.vue';
+import DisabledExample from '/examples/tooltip/Disabled.vue';
+import OpenExample from '/examples/tooltip/Open.vue';
+import HardcodedExample from '/examples/tooltip/Hardcoded.vue';
 </script>
 # Tooltip
 
@@ -21,148 +21,116 @@ import TooltipHardcodedExample from '/examples/tooltip/TooltipHardcodedExample.v
   reka-ui-title="Tooltip"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Tooltip.vue"
 >
-  A popup that reveals information when hovering over an element.
+  A small window that shows details when you move your mouse over an item.
 </Description>
 
 ## Usage
 
-Use a [Button](/components/button) or any other component in the default slot of the Tooltip.
+Place a [Button](/components/button) or any other component in the Tooltip's default slot.
 
 ::: warning
-Make sure to wrap your app with the [`App`](/components/app) component which uses the [`TooltipProvider`](https://reka-ui.com/docs/components/tooltip#provider) component from Reka UI.
+Ensure your application is enclosed with the [`App`](/components/app) component, which incorporates the [`TooltipProvider`](https://reka-ui.com/docs/components/tooltip#provider) from Reka UI.
 :::
 
 ::: tip
-You can [check](/components/app#props}) the `App` component `tooltip` prop to see how to configure the Tooltip globally.
+You can [review](/components/app#props}) the `tooltip` property of the `App` component to learn how to set up the Tooltip globally.
 :::
 
 ### Text
 
-Use the `text` prop to set the content of the Tooltip.
+Apply the `text` prop to specify what the Tooltip will display.
 
-<ComponentShowExample >
-  <iframe data-why class="min-h-[500px] sm:min-h-[300px]" allowtransparency="true">
-    <B24App>
-      <TooltipExample />
-    </B24App>
-  </iframe>
-</ComponentShowExample>
+<ClientOnly>
+  <TextExample />
+</ClientOnly>
 
-<<< @/examples/tooltip/TooltipExample.vue
+<<< @/examples/tooltip/demo/Text.vue{15 vue:line-numbers}
 
 ### Kbds
 
-Use the `kbds` prop to render [Kbd](/components/kbd) components in the Tooltip.
+Apply the `kbds` prop to render [Kbd](/components/kbd) components inside the Tooltip.
 
 ::: warning
 `Kbds` are displayed starting from breakpoint `lg`
 :::
 
-<ComponentShowExample >
-  <iframe data-why class="w-[1200px] min-h-[300px] sm:min-h-[100px]" allowtransparency="true">
-    <B24App>
-      <TooltipKbdsExample />
-    </B24App>
-  </iframe>
-</ComponentShowExample>
+<ClientOnly>
+  <KbdsExample />
+</ClientOnly>
 
-<<< @/examples/tooltip/TooltipKbdsExample.vue
+<<< @/examples/tooltip/demo/Kbds.vue{8 vue:line-numbers}
 
 :::tip
-You can use special keys like `meta` that displays as `⌘` on macOS and `Ctrl` on other platforms.
+You can utilize special keys such as `meta`, which appears as `⌘` on macOS and `Ctrl` on other systems.
 :::
 
 ### Delay
 
-Use the `delay-duration` prop to change the delay before the Tooltip appears. For example, you can make it appear instantly by setting it to `0`.
+Apply the `delay-duration` prop to modify the delay before the Tooltip becomes visible. You can make it appear immediately by setting it to `0`.
 
-<ComponentShowExample >
-  <iframe data-why class="min-h-[500px] sm:min-h-[300px]" allowtransparency="true">
-    <B24App>
-      <TooltipDelayExample />
-    </B24App>
-  </iframe>
-</ComponentShowExample>
+<ClientOnly>
+  <DelayExample />
+</ClientOnly>
 
-<<< @/examples/tooltip/TooltipDelayExample.vue
+<<< @/examples/tooltip/demo/Delay.vue{8 vue:line-numbers}
 
 ### Content
 
-Use the `content` prop to control how the Tooltip content is rendered, like its `align` or `side` for example.
+Apply the `content` prop to dictate how the Tooltip content is displayed, including options like `align` or `side`.
 
-<ComponentShowExample >
-  <iframe data-why class="min-h-[650px] sm:min-h-[450px]" allowtransparency="true">
-    <B24App>
-      <TooltipContentExample />
-    </B24App>
-  </iframe>
-</ComponentShowExample>
+<ClientOnly>
+  <ContentExample />
+</ClientOnly>
 
-<<< @/examples/tooltip/TooltipContentExample.vue
+<<< @/examples/tooltip/demo/Content.vue{29 vue:line-numbers}
 
 ### Arrow
 
-Use the `arrow` prop to display an arrow on the Tooltip.
+Apply the `arrow` prop to add an arrow to the Tooltip.
 
-<ComponentShowExample >
-  <iframe data-why class="min-h-[400px] sm:min-h-[100px]" allowtransparency="true">
-    <B24App>
-      <TooltipArrowExample />
-    </B24App>
-  </iframe>
-</ComponentShowExample>
+<ClientOnly>
+  <ArrowExample />
+</ClientOnly>
 
-<<< @/examples/tooltip/TooltipArrowExample.vue
+<<< @/examples/tooltip/demo/Arrow.vue{8 vue:line-numbers}
 
 ### Disabled
 
-Use the `disabled` prop to disable the Tooltip.
+2. Apply the `disabled` prop to turn off the Tooltip.
 
-<ComponentShowExample >
-  <iframe data-why class="min-h-[500px] sm:min-h-[300px]" allowtransparency="true">
-    <B24App>
-      <TooltipDisabledExample />
-    </B24App>
-  </iframe>
-</ComponentShowExample>
+<ClientOnly>
+  <DisabledExample />
+</ClientOnly>
 
-<<< @/examples/tooltip/TooltipDisabledExample.vue
+<<< @/examples/tooltip/demo/Disabled.vue{16 vue:line-numbers}
 
 ## Examples
 
 ### Control open state
 
-You can control the open state by using the `default-open` prop or the `v-model:open` directive.
+You can manage the open state with the `default-open` prop or the `v-model:open` directive.
 
 ::: info
-In this example, leveraging [`defineShortcuts`](composables/define-shortcuts).
+In this example, using [`defineShortcuts`](composables/define-shortcuts).
 
-You can toggle the Tooltip by click in frame and pressing `O`.
+Press `O` to toggle the Tooltip.
 :::
 
-<ComponentShowExample >
-  <iframe data-why class="min-h-[300px] sm:min-h-[100px]" allowtransparency="true">
-    <B24App>
-      <TooltipOpenExample />
-    </B24App>
-  </iframe>
-</ComponentShowExample>
+<ClientOnly>
+  <OpenExample />
+</ClientOnly>
 
-<<< @/examples/tooltip/TooltipOpenExample.vue
+<<< @/examples/tooltip/demo/Open.vue{5,7-9,14,16 vue:line-numbers}
 
 ### Hardcoded appearance change
 
-See how you can change the appearance of the tooltip. Don't forget to check how it all looks in the dark theme
+Discover ways to alter the tooltip's appearance. Don't forget to verify its appearance in the dark theme.
 
-<ComponentShowExample >
-  <iframe data-why class="min-h-[300px] sm:min-h-[400px]" allowtransparency="true">
-    <B24App>
-      <TooltipHardcodedExample />
-    </B24App>
-  </iframe>
-</ComponentShowExample>
+<ClientOnly>
+  <HardcodedExample />
+</ClientOnly>
 
-<<< @/examples/tooltip/TooltipHardcodedExample.vue
+<<< @/examples/tooltip/demo/Hardcoded.vue{9-11,13-22,34,40 vue:line-numbers}
 
 ## API
 
@@ -177,3 +145,4 @@ See how you can change the appearance of the tooltip. Don't forget to check how 
 ### Emits
 
 <ComponentEmits component="Tooltip" />
+
