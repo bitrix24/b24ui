@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import type { ToastProps } from '@bitrix24/b24ui-nuxt'
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
 import Demo from './demo/Color.vue'
 
@@ -62,7 +63,7 @@ const chipItems = ref([
   }
 
 ])
-const chipValue = ref(chipItems.value[0]?.value)
+const chipValue = ref<ToastProps['color']>((chipItems.value[0]?.value) as ToastProps['color'])
 
 function getChip(value: string) {
   return chipItems.value.find(item => item.value === value)?.chip
