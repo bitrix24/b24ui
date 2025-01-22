@@ -276,6 +276,7 @@
 
 .vp-doc div[class*='language-'],
 .vp-block {
+  isolation: isolate;
   position: relative;
   margin: 16px -24px;
   background-color: var(--vp-code-block-bg);

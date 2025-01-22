@@ -65,7 +65,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'defineShortcuts', link: '/composables/define-shortcuts' },
         { text: 'useFormField', link: '/composables/use-form-field' },
-        { text: '✔️ useToast', link: '/composables/use-toast' }
+        { text: '✔️useToast', link: '/composables/use-toast' }
       ]
     },
     {
@@ -90,9 +90,9 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'Alert', link: 'alert' },
         { text: 'Advice', link: 'advice' },
         { text: 'Chip', link: 'chip' },
-        { text: '🔨 Toast', link: 'toast' },
+        { text: '✔️Toast', link: 'toast' },
         { text: 'Progress', link: 'progress' },
-        { text: '✔️ Tooltip', link: 'tooltip' }
+        { text: '✔️Tooltip', link: 'tooltip' }
       ]
     },
     {
@@ -118,7 +118,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'Switch', link: 'switch' },
         { text: 'Range', link: 'range' },
         { text: 'Select', link: 'select' },
-        { text: 'Textarea', link: 'textarea' }
+        { text: '🔨Textarea', link: 'textarea' }
       ]
     },
     {
