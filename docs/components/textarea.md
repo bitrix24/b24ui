@@ -1,71 +1,76 @@
 ---
-description: A textarea element to input multi-line text.
-links:
-  - label: GitHub
-    icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/tree/v3/src/runtime/components/Textarea.vue
+title: Textarea
+description: A textarea for entering multi-line text.
+outline: deep
 ---
+<script setup>
+import TextareaExample from '/examples/textarea/Textarea.vue';
+import PlaceholderExample from '/examples/textarea/Placeholder.vue';
+import ColorExample from '/examples/textarea/Color.vue';
+import TagExample from '/examples/textarea/Tag.vue';
+</script>
+# Textarea
+
+<Description
+  nuxt-ui="https://ui3.nuxt.dev/components/textarea"
+  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Textarea.vue"
+>
+  A textarea for entering multi-line text.
+</Description>
 
 ## Usage
 
 Use the `v-model` directive to control the value of the Textarea.
 
-::component-code
----
-ignore:
-  - modelValue
-external:
-  - modelValue
-props:
-  modelValue: ''
----
-::
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <TextareaExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/textarea/demo/Textarea.vue{4,8 vue:line-numbers}
 
 ### Placeholder
 
 Use the `placeholder` prop to set a placeholder text.
 
-::component-code
----
-props:
-  placeholder: 'Type something...'
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <PlaceholderExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/textarea/demo/Placeholder.vue{4,8 vue:line-numbers}
 
 ### Color
 
 Use the `color` prop to change the ring color when the Textarea is focused.
 
-::component-code
----
-ignore:
-  - placeholder
-props:
-  color: neutral
-  highlight: true
-  placeholder: 'Type something...'
----
-::
-
-::note
+::: info
 The `highlight` prop is used here to show the focus state. It's used internally when a validation error occurs.
-::
+:::
 
-### Variant
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <ColorExample />
+  </ClientOnly>
+</div>
 
-Use the `variant` prop to change the variant of the Textarea.
+<<< @/examples/textarea/demo/Color.vue{17-18 vue:line-numbers}
 
-::component-code
----
-ignore:
-  - placeholder
-props:
-  color: neutral
-  variant: subtle
-  highlight: false
-  placeholder: 'Type something...'
----
-::
+### Tag
+
+Use the `tag` property to display a small legend on top of the text area.
+
+Use the `tagColor` property to set the color for `tag`.
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <TagExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/textarea/demo/Tag.vue{17-18 vue:line-numbers}
 
 ### Size
 

@@ -11,7 +11,7 @@ const slots = defineSlots<ExampleSlots>()
   <div data-example class="flex flex-col flex-nowrap justify-center items-center gap-5">
     <div
       v-if="slots['actions']"
-      class="w-full flex flex-wrap flex-row justify-start items-start p-4 gap-4 rounded bg-tertiary/70 dark:bg-tertiary/5"
+      class="isolate w-full flex flex-wrap flex-row justify-start items-start p-4 gap-4 rounded bg-tertiary/70 dark:bg-tertiary/5"
     >
       <slot name="actions" />
     </div>
@@ -26,7 +26,7 @@ const slots = defineSlots<ExampleSlots>()
           dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]
         "
       />
-      <div class="relative p-4 min-h-40 w-full h-full flex flex-col flex-nowrap justify-center items-center gap-4" >
+      <div class="isolate relative p-4 min-h-40 w-full h-full flex flex-col flex-nowrap justify-center items-center gap-4" >
         <slot />
       </div>
       <div
