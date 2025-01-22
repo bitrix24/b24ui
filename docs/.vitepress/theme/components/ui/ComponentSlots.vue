@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import { upperFirst, camelCase } from 'scule'
 import B24UIMeta from '@bitrix24/b24ui-nuxt/meta'
+import ProseTable from '../prose/ProseTable.vue'
+import ProseThead from '../prose/ProseThead.vue'
+import ProseTbody from '../prose/ProseTbody.vue'
+import ProseTr from '../prose/ProseTr.vue'
+import ProseTh from '../prose/ProseTh.vue'
+import ProseTd from '../prose/ProseTd.vue'
+import ProseCode from '../prose/ProseCode.vue'
+import ProseData from '../prose/ProseData.vue'
 
 const $props = withDefaults(defineProps<{
   component: string
@@ -23,7 +31,7 @@ const meta = B24UIMeta[name] || {}
         </ProseTh>
       </ProseTr>
     </ProseThead>
-    <tbody>
+    <ProseTbody>
       <ProseTr
         v-for="slot in (meta?.meta?.slots || [])"
         :key="slot.name"
@@ -41,6 +49,6 @@ const meta = B24UIMeta[name] || {}
           </ProseData>
         </ProseTd>
       </ProseTr>
-    </tbody>
+    </ProseTbody>
   </ProseTable>
 </template>

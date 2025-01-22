@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import TailwindCssLink from '~/.vitepress/theme/components/ui/TailwindCssLink.vue'
-import NuxtUiLink from '~/.vitepress/theme/components/ui/NuxtUiLink.vue'
-import RekaUiLink from '~/.vitepress/theme/components/ui/RekaUiLink.vue'
-import GitLink from '~/.vitepress/theme/components/ui/GitLink.vue'
+import TailwindCssLink from './TailwindCssLink.vue'
+import NuxtUiLink from './NuxtUiLink.vue'
+import RekaUiLink from './RekaUiLink.vue'
+import GitLink from './GitLink.vue'
 
 const $props = defineProps<{
   tailwindcss?: string
@@ -24,10 +24,10 @@ const $props = defineProps<{
       <slot />
     </div>
     <div class="flex flex-col sm:flex-row gap-2">
-      <GitLink v-if="$props.git" :to="$props.git" />
       <TailwindCssLink v-if="$props.tailwindcss" :to="$props.tailwindcss" />
       <RekaUiLink v-if="$props.rekaUi" :to="$props.rekaUi" :title="$props.rekaUiTitle" />
       <NuxtUiLink v-if="$props.nuxtUi" :to="$props.nuxtUi" />
+      <GitLink v-if="$props.git" :to="$props.git" />
     </div>
   </div>
 </template>
