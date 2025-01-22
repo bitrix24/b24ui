@@ -9,7 +9,7 @@
     "generate": "nuxi generate"
   },
   "dd_dependencies": {
-    "@nuxthub/core": "^0.8.12"
+    "@nuxthub/core": "^0.8.13"
   },
   "dependencies": {
     "@bitrix24/b24icons-vue": "1.0.3",
