@@ -37,7 +37,6 @@ import './styles/components/vp-sponsor.css'
 // endregion ////
 import './theme.css'
 
-
 export { default as VPBadge } from 'vitepress/dist/client/theme-default/components/VPBadge.vue'
 export { default as VPImage } from 'vitepress/dist/client/theme-default/components/VPImage.vue'
 export { default as VPButton } from 'vitepress/dist/client/theme-default/components/VPButton.vue'
