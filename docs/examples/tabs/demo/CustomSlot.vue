@@ -1,22 +1,26 @@
 <script setup lang="ts">
+import { reactive } from 'vue'
+import UserIcon from '@bitrix24/b24icons-vue/common-b24/UserIcon'
+import Shield2ContourIcon from '@bitrix24/b24icons-vue/main/Shield2ContourIcon'
+
 const items = [
   {
     label: 'Account',
     description: 'Make changes to your account here. Click save when you\'re done.',
-    icon: 'i-lucide-user',
+    icon: UserIcon,
     slot: 'account'
   },
   {
     label: 'Password',
     description: 'Change your password here. After saving, you\'ll be logged out.',
-    icon: 'i-lucide-lock',
+    icon: Shield2ContourIcon,
     slot: 'password'
   }
 ]
 
 const state = reactive({
-  name: 'Benjamin Canac',
-  username: 'benjamincanac',
+  name: 'System User',
+  username: 'systemuser',
   currentPassword: '',
   newPassword: '',
   confirmPassword: ''
@@ -26,7 +30,7 @@ const state = reactive({
 <template>
   <B24Tabs :items="items" variant="link" class="gap-4 w-full" :ui="{ trigger: 'flex-1' }">
     <template #account="{ item }">
-      <p class="text-[var(--ui-text-muted)] mb-4">
+      <p class="text-base-500 dark:text-base-400 mb-4 text-md">
         {{ item.description }}
       </p>
 
@@ -38,12 +42,12 @@ const state = reactive({
           <B24Input v-model="state.username" class="w-full" />
         </B24FormField>
 
-        <UButton label="Save changes" type="submit" variant="soft" class="self-end" />
+        <B24Button label="Save changes" type="submit" color="success" class="self-end" />
       </B24Form>
     </template>
 
     <template #password="{ item }">
-      <p class="text-[var(--ui-text-muted)] mb-4">
+      <p class="text-base-500 dark:text-base-400 mb-4 text-md">
         {{ item.description }}
       </p>
 
@@ -58,7 +62,7 @@ const state = reactive({
           <B24Input v-model="state.confirmPassword" type="password" required class="w-full" />
         </B24FormField>
 
-        <B24Button label="Change password" type="submit" variant="soft" class="self-end" />
+        <B24Button label="Change password" type="submit" color="success" class="self-end" />
       </B24Form>
     </template>
   </B24Tabs>

@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
+
 const items = [
   {
-    label: 'Account'
+    label: 'My Bitrix24'
   },
   {
-    label: 'Password'
+    label: 'Start page'
   }
 ]
 
@@ -19,5 +21,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <B24Tabs v-model="active" :content="false" :items="items" class="w-full" />
+  <B24Tabs
+    v-model="active"
+    :content="false"
+    :items="items"
+    class="w-full"
+  />
 </template>
