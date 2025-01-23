@@ -22,8 +22,7 @@ export default {
       'text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900',
       'dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350',
       'font-b24-primary font-regular text-md leading-normal',
-      'align-middle',
-      'text-ellipsis whitespace-nowrap'
+      'align-middle'
     ],
     tag: [
       'pointer-events-none select-none',

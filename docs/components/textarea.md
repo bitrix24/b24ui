@@ -8,6 +8,10 @@ import TextareaExample from '/examples/textarea/Textarea.vue';
 import PlaceholderExample from '/examples/textarea/Placeholder.vue';
 import ColorExample from '/examples/textarea/Color.vue';
 import TagExample from '/examples/textarea/Tag.vue';
+import DisabledExample from '/examples/textarea/Disabled.vue';
+import RowsExample from '/examples/textarea/Rows.vue';
+import AutoresizeExample from '/examples/textarea/Autoresize.vue';
+import MaxrowsExample from '/examples/textarea/Maxrows.vue';
 </script>
 # Textarea
 
@@ -40,7 +44,7 @@ Use the `placeholder` prop to set a placeholder text.
   </ClientOnly>
 </div>
 
-<<< @/examples/textarea/demo/Placeholder.vue{4,8 vue:line-numbers}
+<<< @/examples/textarea/demo/Placeholder.vue{12 vue:line-numbers}
 
 ### Color
 
@@ -60,7 +64,7 @@ The `highlight` prop is used here to show the focus state. It's used internally 
 
 ### Tag
 
-Use the `tag` property to display a small legend on top of the text area.
+Use the `tag` property to display a small legend on top of the Textarea.
 
 Use the `tagColor` property to set the color for `tag`.
 
@@ -72,98 +76,70 @@ Use the `tagColor` property to set the color for `tag`.
 
 <<< @/examples/textarea/demo/Tag.vue{17-18 vue:line-numbers}
 
-### Size
-
-Use the `size` prop to change the size of the Textarea.
-
-::component-code
----
-ignore:
-  - placeholder
-props:
-  size: xl
-  placeholder: 'Type something...'
----
-::
-
 ### Disabled
 
 Use the `disabled` prop to disable the Textarea.
 
-::component-code
----
-ignore:
-  - placeholder
-props:
-  disabled: true
-  placeholder: 'Type something...'
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <DisabledExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/textarea/demo/Disabled.vue{15 vue:line-numbers}
 
 ### Rows
 
 Use the `rows` prop to set the number of rows. Defaults to `3`.
 
-::component-code
----
-props:
-  rows: 12
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <RowsExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/textarea/demo/Rows.vue{13 vue:line-numbers}
 
 ### Autoresize
 
 Use the `autoresize` prop to enable autoresizing the height of the Textarea.
 
-::component-code
----
-ignore:
-  - modelValue
-external:
-  - modelValue
-props:
-  modelValue: 'This is a long text that will autoresize the height of the Textarea.'
-  autoresize: true
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <AutoresizeExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/textarea/demo/Autoresize.vue{18 vue:line-numbers}
 
 Use the `maxrows` prop to set the maximum number of rows when autoresizing. If set to `0`, the Textarea will grow indefinitely.
 
-::component-code
----
-ignore:
-  - modelValue
-external:
-  - modelValue
-props:
-  modelValue: 'This is a long text that will autoresize the height of the Textarea with a maximum of 4 rows.'
-  maxrows: 4
-  autoresize: true
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <MaxrowsExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/textarea/demo/Maxrows.vue{18 vue:line-numbers}
 
 ## API
 
 ### Props
 
-:component-props
+<ComponentProps component="Toast" />
 
 ### Slots
 
-:component-slots
+<ComponentSlots component="Toast" />
 
 ### Emits
 
-:component-emits
+<ComponentEmits component="Toast" />
 
 ### Expose
 
 When accessing the component via a template ref, you can use the following:
 
-| Name | Type |
-| ---- | ---- |
+| Name                          | Type                                               |
+|-------------------------------|----------------------------------------------------|
 | `textareaRef`{lang="ts-type"} | `Ref<HTMLTextAreaElement \| null>`{lang="ts-type"} |
-
-## Theme
-
-:component-theme
