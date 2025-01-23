@@ -117,7 +117,7 @@ const metaProps: ComputedRef<ComponentMeta['props']> = computed(() => {
         </ProseTd>
         <ProseTd translate="no">
           <ProseCode v-if="prop.type">
-            {{ prop.type }}
+            {{ prop.type.replace(' | undefined', '').replace('undefined | ', '') }}
           </ProseCode>
 
           <ProseData v-if="prop.description">

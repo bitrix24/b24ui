@@ -41,7 +41,7 @@ const meta = B24UIMeta[name] || {}
         </ProseTd>
         <ProseTd translate="no">
           <ProseCode v-if="slot.type">
-            {{ slot.type }}
+            {{ slot.type.replace(' | undefined', '').replace('undefined | ', '') }}
           </ProseCode>
 
           <ProseData v-if="slot.description">
