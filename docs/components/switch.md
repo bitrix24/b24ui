@@ -1,200 +1,160 @@
 ---
-description: A control that toggles between two states.
-links:
-  - label: Switch
-    icon: i-custom-reka-ui
-    to: https://reka-ui.com/docs/components/switch
-  - label: GitHub
-    icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/tree/v3/src/runtime/components/Switch.vue
+title: Switch
+description: A toggle control for switching between two states.
+outline: deep
 ---
+<script setup>
+import SwitchExample from '/examples/switch/Switch.vue';
+import SwitchDefExample from '/examples/switch/SwitchDef.vue';
+import LabelExample from '/examples/switch/Label.vue';
+import DescriptionExample from '/examples/switch/Description.vue';
+import IconExample from '/examples/switch/Icon.vue';
+import LoadingExample from '/examples/switch/Loading.vue';
+import LoadingIconExample from '/examples/switch/LoadingIcon.vue';
+import ColorExample from '/examples/switch/Color.vue';
+import SizeExample from '/examples/switch/Size.vue';
+import DisabledExample from '/examples/switch/Disabled.vue';
+</script>
+# Switch
+<Description
+  nuxt-ui="https://ui3.nuxt.dev/components/switch"
+  reka-ui="https://reka-ui.com/docs/components/switch"
+  reka-ui-title="Switch"
+  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Switch.vue"
+>
+  A toggle control for switching between two states.
+</Description>
 
 ## Usage
 
 Use the `v-model` directive to control the checked state of the Switch.
 
-::component-code
----
-ignore:
-  - modelValue
-external:
-  - modelValue
-props:
-  modelValue: true
----
-::
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <SwitchExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/switch/demo/Switch.vue{4,8 vue:line-numbers}
 
 Use the `default-value` prop to set the initial value when you do not need to control its state.
 
-::component-code
----
-ignore:
-  - defaultValue
-props:
-  defaultValue: true
----
-::
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <SwitchDefExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/switch/demo/SwitchDef.vue{2 vue:line-numbers}
 
 ### Label
 
 Use the `label` prop to set the label of the Switch.
 
-::component-code
----
-props:
-  label: Check me
----
-::
-
 When using the `required` prop, an asterisk is be added next to the label.
 
-::component-code
----
-ignore:
-  - label
-props:
-  required: true
-  label: Check me
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <LabelExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/switch/demo/Label.vue{15,16 vue:line-numbers}
 
 ### Description
 
 Use the `description` prop to set the description of the Switch.
 
-::component-code
----
-ignore:
-  - label
-props:
-  label: Check me
-  description: 'This is a checkbox.'
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <DescriptionExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/switch/demo/Description.vue{14 vue:line-numbers}
 
 ### Icon
 
 Use the `checked-icon` and `unchecked-icon` props to set the icons of the Switch when checked and unchecked.
 
-::component-code
----
-prettier: true
-ignore:
-  - label
-  - defaultValue
-props:
-  uncheckedIcon: 'i-lucide-x'
-  checkedIcon: 'i-lucide-check'
-  defaultValue: true
-  label: Check me
----
-::
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <IconExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/switch/demo/Icon.vue{8,9 vue:line-numbers}
 
 ### Loading
 
 Use the `loading` prop to show a loading icon on the Switch.
 
-::component-code
----
-ignore:
-  - label
-  - defaultValue
-props:
-  loading: true
-  defaultValue: true
-  label: Check me
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <LoadingExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/switch/demo/Loading.vue{13 vue:line-numbers}
 
 ### Loading Icon
 
 Use the `loading-icon` prop to customize the loading icon. Defaults to `i-lucide-refresh-cw`.
 
-::component-code
----
-ignore:
-  - label
-  - defaultValue
-props:
-  loading: true
-  loadingIcon: 'i-lucide-repeat-2'
-  defaultValue: true
-  label: Check me
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <LoadingIconExample />
+  </ClientOnly>
+</div>
 
-::framework-only
-#nuxt
-:::tip{to="/getting-started/icons/nuxt#theme"}
-You can customize this icon globally in your `app.config.ts` under `ui.icons.loading` key.
-:::
-
-#vue
-:::tip{to="/getting-started/icons/vue#theme"}
-You can customize this icon globally in your `vite.config.ts` under `ui.icons.loading` key.
-:::
-::
+<<< @/examples/switch/demo/LoadingIcon.vue{16 vue:line-numbers}
 
 ### Color
 
 Use the `color` prop to change the color of the Switch.
 
-::component-code
----
-ignore:
-  - label
-  - defaultValue
-props:
-  color: neutral
-  defaultValue: true
-  label: Check me
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <ColorExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/switch/demo/Color.vue{15 vue:line-numbers}
 
 ### Size
 
 Use the `size` prop to change the size of the Switch.
 
-::component-code
----
-ignore:
-  - label
-  - defaultValue
-props:
-  size: xl
-  defaultValue: true
-  label: Check me
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <SizeExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/switch/demo/Size.vue{13 vue:line-numbers}
 
 ### Disabled
 
 Use the `disabled` prop to disable the Switch.
 
-::component-code
----
-ignore:
-  - label
-props:
-  disabled: true
-  label: Check me
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <DisabledExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/switch/demo/Disabled.vue{13 vue:line-numbers}
 
 ## API
 
 ### Props
 
-:component-props
+<ComponentProps component="Toast" />
 
 ### Slots
 
-:component-slots
+<ComponentSlots component="Toast" />
 
 ### Emits
 
-:component-emits
-
-## Theme
-
-:component-theme
+<ComponentEmits component="Toast" />
