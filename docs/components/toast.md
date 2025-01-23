@@ -108,7 +108,6 @@ Pass a `close` field to customize or hide the close button (with `false` value).
 
 <<< @/examples/toast/demo/Close.vue{11-15 vue:line-numbers}
 
-
 ### Close Icon
 
 Pass a `closeIcon` field to customize the close button [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html).
