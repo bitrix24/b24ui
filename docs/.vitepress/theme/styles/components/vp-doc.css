@@ -91,12 +91,12 @@
  * Paragraph and inline elements
  * -------------------------------------------------------------------------- */
 
-.vp-doc p,
+.vp-doc p:not(div[data-example] p),
 .vp-doc summary {
   margin: 16px 0;
 }
 
-.vp-doc p {
+.vp-doc p:not(div[data-example] p) {
   line-height: 28px;
 }
 
@@ -114,7 +114,7 @@
   transition: color 0.5s;
 }
 
-.vp-doc a {
+.vp-doc a:not(div[data-example] a) {
   font-weight: 500;
   color: var(--vp-c-brand-1);
   text-decoration: underline;
@@ -124,7 +124,7 @@
     opacity 0.25s;
 }
 
-.vp-doc a:hover {
+.vp-doc a:not(div[data-example] a):hover {
   color: var(--vp-c-brand-2);
 }
 
