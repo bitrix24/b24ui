@@ -40,9 +40,11 @@ You can [review](/components/app#props}) the `tooltip` property of the `App` com
 
 Apply the `text` prop to specify what the Tooltip will display.
 
-<ClientOnly>
-  <TextExample />
-</ClientOnly>
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <TextExample />
+  </ClientOnly>
+</div>
 
 <<< @/examples/tooltip/demo/Text.vue{15 vue:line-numbers}
 
@@ -54,9 +56,11 @@ Apply the `kbds` prop to render [Kbd](/components/kbd) components inside the Too
 `Kbds` are displayed starting from breakpoint `lg`
 :::
 
-<ClientOnly>
-  <KbdsExample />
-</ClientOnly>
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <KbdsExample />
+  </ClientOnly>
+</div>
 
 <<< @/examples/tooltip/demo/Kbds.vue{8 vue:line-numbers}
 
@@ -68,9 +72,11 @@ You can utilize special keys such as `meta`, which appears as `⌘` on macOS and
 
 Apply the `delay-duration` prop to modify the delay before the Tooltip becomes visible. You can make it appear immediately by setting it to `0`.
 
-<ClientOnly>
-  <DelayExample />
-</ClientOnly>
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <DelayExample />
+  </ClientOnly>
+</div>
 
 <<< @/examples/tooltip/demo/Delay.vue{8 vue:line-numbers}
 
@@ -78,9 +84,11 @@ Apply the `delay-duration` prop to modify the delay before the Tooltip becomes v
 
 Apply the `content` prop to dictate how the Tooltip content is displayed, including options like `align` or `side`.
 
-<ClientOnly>
-  <ContentExample />
-</ClientOnly>
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <ContentExample />
+  </ClientOnly>
+</div>
 
 <<< @/examples/tooltip/demo/Content.vue{29 vue:line-numbers}
 
@@ -88,19 +96,23 @@ Apply the `content` prop to dictate how the Tooltip content is displayed, includ
 
 Apply the `arrow` prop to add an arrow to the Tooltip.
 
-<ClientOnly>
-  <ArrowExample />
-</ClientOnly>
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <ArrowExample />
+  </ClientOnly>
+</div>
 
 <<< @/examples/tooltip/demo/Arrow.vue{8 vue:line-numbers}
 
 ### Disabled
 
-2. Apply the `disabled` prop to turn off the Tooltip.
+Apply the `disabled` prop to turn off the Tooltip.
 
-<ClientOnly>
-  <DisabledExample />
-</ClientOnly>
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <DisabledExample />
+  </ClientOnly>
+</div>
 
 <<< @/examples/tooltip/demo/Disabled.vue{16 vue:line-numbers}
 
@@ -116,9 +128,11 @@ In this example, using [`defineShortcuts`](composables/define-shortcuts).
 Press `O` to toggle the Tooltip.
 :::
 
-<ClientOnly>
-  <OpenExample />
-</ClientOnly>
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <OpenExample />
+  </ClientOnly>
+</div>
 
 <<< @/examples/tooltip/demo/Open.vue{5,7-9,14,16 vue:line-numbers}
 
@@ -126,9 +140,11 @@ Press `O` to toggle the Tooltip.
 
 Discover ways to alter the tooltip's appearance. Don't forget to verify its appearance in the dark theme.
 
-<ClientOnly>
-  <HardcodedExample />
-</ClientOnly>
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <HardcodedExample />
+  </ClientOnly>
+</div>
 
 <<< @/examples/tooltip/demo/Hardcoded.vue{9-11,13-22,34,40 vue:line-numbers}
 
