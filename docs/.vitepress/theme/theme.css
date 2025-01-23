@@ -4,6 +4,7 @@
 
 :root
 {
+  --scrollbar-width: 0;
   --sh-scrollbar-thumb: #3c3c43;
   --sh-scrollbar-background: #ebebef;
 }
@@ -20,6 +21,7 @@
   --sh-scrollbar-background: #3c3c43;
 }
 
+/** region bg-grid-example */
 .bg-grid-example {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(130 139 149 / 0.25)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
 }
@@ -27,31 +29,34 @@
 .dark\:bg-grid-example:is(.dark *) {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(130 139 149 / 0.25)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
 }
+/** endregion */
+
+/** region scrollbar */
+* {
+  scrollbar-width: thin;
+}
+/** endregion */
+
+/** region some fix */
+@media (min-width: 960px) {
+  .VPNav {
+    padding-right: var(--scrollbar-width);
+  }
+}
+
+@media (min-width: 1440px) {
+  .VPSidebar {
+    padding-left: max(32px, calc((100vw - (var(--vp-layout-max-width) - 64px)) / 2)) !important;
+    width: calc((100vw - (var(--vp-layout-max-width) - 64px)) / 2 + var(--vp-sidebar-width) - 32px) !important;
+  }
+}
 
 .dark .search-bar input[type=search] {
   color: var(--vp-c-text-1);
   background-color: transparent;
 }
-
-/** region scrollbar */
-* {
-  scrollbar-color: var(--sh-scrollbar-thumb) var(--sh-scrollbar-background);
-  scrollbar-width: thin;
-}
-
-/* Styling the scrollbar in Chrome and Safari */
-*::-webkit-scrollbar {
-  width: 6px;
-}
-
-/* Set thumb color for Chrome and Safari */
-*::-webkit-scrollbar-thumb {
-  background-color: var(--sh-scrollbar-thumb);
-  border-radius: 4px;
-}
-
-/* Set track color for Chrome and Safari */
-*::-webkit-scrollbar-track {
-  background-color: var(--sh-scrollbar-background);
-}
 /** endregion */
+
+
+
+

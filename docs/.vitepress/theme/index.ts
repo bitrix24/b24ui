@@ -3,7 +3,7 @@
  * We change some css
  * @see node_modules/vitepress/dist/client/theme-default/index.js
  */
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createMemoryHistory } from 'vue-router'
 import bitrix24UIPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'
 import Layout from './components/ui/Layout.vue'
 import ComponentShowExample from './components/ui/ComponentShowExample.vue'
@@ -39,9 +39,10 @@ export default {
     if (!import.meta.env.SSR) {
       const router = createRouter({
         routes: [
-          { path: '', component: app }
+          // { path: '', component: app }
         ],
-        history: createWebHistory()
+        history: createMemoryHistory()
+        // history: createWebHistory()
       })
       app.use(router)
 
