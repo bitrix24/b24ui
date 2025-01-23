@@ -118,7 +118,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'Switch', link: 'switch' },
         { text: 'Range', link: 'range' },
         { text: 'Select', link: 'select' },
-        { text: '🔨Textarea', link: 'textarea' }
+        { text: '✔️Textarea', link: 'textarea' }
       ]
     },
     {
@@ -130,7 +130,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'Link', link: 'link' },
         { text: 'Separator', link: 'separator' },
         { text: 'Skeleton', link: 'skeleton' },
-        { text: 'Tabs', link: 'tabs' }
+        { text: '🔨Tabs', link: 'tabs' }
       ]
     }
   ]
