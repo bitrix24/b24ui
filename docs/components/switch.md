@@ -149,12 +149,12 @@ Use the `disabled` prop to disable the Switch.
 
 ### Props
 
-<ComponentProps component="Toast" />
+<ComponentProps component="Switch" />
 
 ### Slots
 
-<ComponentSlots component="Toast" />
+<ComponentSlots component="Switch" />
 
 ### Emits
 
-<ComponentEmits component="Toast" />
+<ComponentEmits component="Switch" />
