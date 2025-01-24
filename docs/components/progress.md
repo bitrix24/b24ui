@@ -1,123 +1,122 @@
 ---
-description: An indicator showing the progress of a task.
-links:
-  - label: Progress
-    icon: i-custom-reka-ui
-    to: https://reka-ui.com/docs/components/progress
-  - label: GitHub
-    icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/tree/v3/src/runtime/components/Progress.vue
+title: Progress
+description: A progress bar displaying task completion status.
+outline: deep
 ---
+<script setup>
+import ProgressExample from '/examples/progress/Progress.vue';
+import MaxExample from '/examples/progress/Max.vue';
+import MaxArrayExample from '/examples/progress/MaxArray.vue';
+import StatusExample from '/examples/progress/Status.vue';
+import IndeterminateExample from '/examples/progress/Indeterminate.vue';
+import AnimationExample from '/examples/progress/Animation.vue';
+import OrientationExample from '/examples/progress/Orientation.vue';
+import ColorExample from '/examples/progress/Color.vue';
+</script>
+# Progress
+
+<Description
+  nuxt-ui="https://ui3.nuxt.dev/components/progress"
+  reka-ui="https://reka-ui.com/docs/components/progress"
+  reka-ui-title="Progress"
+  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Progress.vue"
+>
+  A progress bar displaying task completion status.
+</Description>
 
 ## Usage
 
 Use the `v-model` directive to control the value of the Progress.
 
-::component-code
----
-external:
-  - modelValue
-props:
-  modelValue: 50
----
-::
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <ProgressExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/progress/demo/Progress.vue{8 vue:line-numbers}
 
 ### Max
 
 Use the `max` prop to set the maximum value of the Progress.
 
-::component-code
----
-external:
-  - modelValue
-props:
-  modelValue: 3
-  max: 4
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <MaxExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/progress/demo/Max.vue{18 vue:line-numbers}
 
 Use the `max` prop with an array of strings to display the active step under the bar, the maximum value of the Progress is the length of the array.
 
-::component-code
----
-prettier: true
-ignore:
-  - max
-external:
-  - modelValue
-props:
-  modelValue: 3
-  max:
-    - 'Waiting...'
-    - 'Cloning...'
-    - 'Migrating...'
-    - 'Deploying...'
-    - 'Done!'
----
-::
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <MaxArrayExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/progress/demo/MaxArray.vue{4,10 vue:line-numbers}
 
 ### Status
 
 Use the `status` prop to display the current Progress value above the bar.
 
-::component-code
----
-external:
-  - modelValue
-props:
-  modelValue: 50
-  status: true
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <StatusExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/progress/demo/Status.vue{18 vue:line-numbers}
 
 ### Indeterminate
 
 When no `v-model` is set or the value is `null`, the Progress becomes _indeterminate_. The progress bar is animated as a `carousel`, but you can change it using the [`animation`](#animation) prop.
 
-::component-code
----
-external:
-  - modelValue
-props:
-  modelValue: null
----
-::
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <IndeterminateExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/progress/demo/Indeterminate.vue{4,8 vue:line-numbers}
 
 ### Animation
 
 Use the `animation` prop to change the animation of the Progress to an inverse carousel, a swinging bar or an elastic bar. Defaults to `carousel`.
 
-::component-code
----
-props:
-  animation: swing
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <AnimationExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/progress/demo/Animation.vue{13 vue:line-numbers}
 
 ### Orientation
 
 Use the `orientation` prop to change the orientation of the Progress. Defaults to `horizontal`.
 
-::component-code
----
-ignore:
-  - class
-props:
-  orientation: vertical
-  class: 'h-48'
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <OrientationExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/progress/demo/Orientation.vue{13 vue:line-numbers}
 
 ### Color
 
 Use the `color` prop to change the color of the Slider.
 
-::component-code
----
-props:
-  color: neutral
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <ColorExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/progress/demo/Color.vue{13 vue:line-numbers}
 
 ### Size
 
