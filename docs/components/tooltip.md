@@ -123,9 +123,7 @@ Apply the `disabled` prop to turn off the Tooltip.
 You can manage the open state with the `default-open` prop or the `v-model:open` directive.
 
 ::: info
-In this example, using [`defineShortcuts`](composables/define-shortcuts).
-
-Press `O` to toggle the Tooltip.
+In this example, using [`defineShortcuts`](composables/define-shortcuts). Press `O` to toggle the Tooltip.
 :::
 
 <div class="lg:min-h-[160px]">
