@@ -1,17 +1,18 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const items = ref(['Backlog', 'Todo', 'In Progress', 'Done'])
-const value = ref('Backlog')
+const open = ref(false)
+const items = ref(['CRM settings', 'My company details', 'Access permissions'])
+const value = ref('My company details')
 </script>
 
 <template>
   <B24Select
     v-model="value"
+    v-model:open="open"
     :items="items"
-    :ui="{
+    :b24ui="{
       trailingIcon: 'group-data-[state=open]:rotate-180 transition-transform duration-200'
     }"
-    class="w-48"
   />
 </template>
