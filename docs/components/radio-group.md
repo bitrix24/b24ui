@@ -1,14 +1,28 @@
 ---
 title: RadioGroup
-description: A set of radio buttons to select a single option from a list.
-links:
-  - label: RadioGroup
-    icon: i-custom-reka-ui
-    to: https://reka-ui.com/docs/components/radio-group
-  - label: GitHub
-    icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/tree/v3/src/runtime/components/RadioGroup.vue
+description: A collection of radio buttons to pick a single choice from several options.
+outline: deep
 ---
+<script setup>
+import RadioGroupExample from '/examples/radiogroup/RadioGroup.vue';
+import ArrayExample from '/examples/radiogroup/Array.vue';
+import ArrayValueKeyExample from '/examples/radiogroup/ArrayValueKey.vue';
+import LegendExample from '/examples/radiogroup/Legend.vue';
+import OrientationExample from '/examples/radiogroup/Orientation.vue';
+import ColorExample from '/examples/radiogroup/Color.vue';
+import SizeExample from '/examples/radiogroup/Size.vue';
+import DisabledExample from '/examples/radiogroup/Disabled.vue';
+</script>
+# RadioGroup
+
+<Description
+  nuxt-ui="https://ui3.nuxt.dev/components/radio-group"
+  reka-ui="https://reka-ui.com/docs/components/radio-group"
+  reka-ui-title="RadioGroup"
+  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/RadioGroup.vue"
+>
+  A collection of radio buttons to pick a single choice from several options.
+</Description>
 
 ## Usage
 
@@ -18,23 +32,13 @@ Use the `v-model` directive to control the value of the RadioGroup or the `defau
 
 Use the `items` prop as an array of strings, numbers or booleans:
 
-::component-code
----
-prettier: true
-ignore:
-  - modelValue
-  - items
-external:
-  - items
-  - modelValue
-props:
-  modelValue: 'System'
-  items:
-    - 'System'
-    - 'Light'
-    - 'Dark'
----
-::
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <RadioGroupExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/radiogroup/demo/RadioGroup.vue{4,5,10,11 vue:line-numbers}
 
 You can also pass an array of objects with the following properties:
 
@@ -43,186 +47,100 @@ You can also pass an array of objects with the following properties:
 - [`value?: string`{lang="ts-type"}](#value-key)
 - `disabled?: boolean`{lang="ts-type"}
 
-::component-code
----
-ignore:
-  - modelValue
-  - items
-external:
-  - items
-  - modelValue
-props:
-  modelValue: 'system'
-  items:
-    - label: 'System'
-      description: 'This is the first option.'
-      value: 'system'
-    - label: 'Light'
-      description: 'This is the second option.'
-      value: 'light'
-    - label: 'Dark'
-      description: 'This is the third option.'
-      value: 'dark'
----
-::
-
-::caution
+::: danger
 When using objects, you need to reference the `value` property of the object in the `v-model` directive or the `default-value` prop.
-::
+:::
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <ArrayExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/radiogroup/demo/Array.vue{4-20 vue:line-numbers}
 
 ### Value Key
 
 You can change the property that is used to set the value by using the `value-key` prop. Defaults to `value`.
 
-::component-code
----
-ignore:
-  - modelValue
-  - items
-  - valueKey
-external:
-  - items
-  - modelValue
-props:
-  modelValue: 'light'
-  valueKey: 'id'
-  items:
-    - label: 'System'
-      description: 'This is the first option.'
-      id: 'system'
-    - label: 'Light'
-      description: 'This is the second option.'
-      id: 'light'
-    - label: 'Dark'
-      description: 'This is the third option.'
-      id: 'dark'
----
-::
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <ArrayValueKeyExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/radiogroup/demo/ArrayValueKey.vue{8,13,18,27 vue:line-numbers}
 
 ### Legend
 
 Use the `legend` prop to set the legend of the RadioGroup.
 
-::component-code
----
-prettier: true
-ignore:
-  - defaultValue
-  - items
-external:
-  - items
-props:
-  legend: 'Theme'
-  defaultValue: 'System'
-  items:
-    - 'System'
-    - 'Light'
-    - 'Dark'
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <LegendExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/radiogroup/demo/Legend.vue{20 vue:line-numbers}
 
 ### Orientation
 
 Use the `orientation` prop to change the orientation of the RadioGroup. Defaults to `vertical`.
 
-::component-code
----
-prettier: true
-ignore:
-  - defaultValue
-  - items
-external:
-  - items
-props:
-  orientation: 'horizontal'
-  defaultValue: 'System'
-  items:
-    - 'System'
-    - 'Light'
-    - 'Dark'
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <OrientationExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/radiogroup/demo/Orientation.vue{20 vue:line-numbers}
 
 ### Color
 
 Use the `color` prop to change the color of the RadioGroup.
 
-::component-code
----
-prettier: true
-ignore:
-  - defaultValue
-  - items
-external:
-  - items
-props:
-  color: neutral
-  defaultValue: 'System'
-  items:
-    - 'System'
-    - 'Light'
-    - 'Dark'
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <ColorExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/radiogroup/demo/Color.vue{20 vue:line-numbers}
 
 ### Size
 
 Use the `size` prop to change the size of the RadioGroup.
 
-::component-code
----
-prettier: true
-ignore:
-  - defaultValue
-  - items
-external:
-  - items
-props:
-  size: 'xl'
-  defaultValue: 'System'
-  items:
-    - 'System'
-    - 'Light'
-    - 'Dark'
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <SizeExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/radiogroup/demo/Size.vue{20 vue:line-numbers}
 
 ### Disabled
 
 Use the `disabled` prop to disable the RadioGroup.
 
-::component-code
----
-prettier: true
-ignore:
-  - defaultValue
-  - items
-external:
-  - items
-props:
-  disabled: true
-  defaultValue: 'System'
-  items:
-    - 'System'
-    - 'Light'
-    - 'Dark'
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <DisabledExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/radiogroup/demo/Disabled.vue{20 vue:line-numbers}
 
 ## API
 
 ### Props
 
-:component-props
+<ComponentProps component="Switch" />
 
 ### Slots
 
-:component-slots
+<ComponentSlots component="Switch" />
 
 ### Emits
 
-:component-emits
-
-## Theme
-
-:component-theme
+<ComponentEmits component="Switch" />
