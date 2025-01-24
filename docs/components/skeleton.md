@@ -1,26 +1,43 @@
 ---
 title: Skeleton
-description: A placeholder to show while content is loading.
+description: A toggle control for switching between two states.
 outline: deep
 ---
 <script setup>
-import SkeletonExample from '/examples/skeleton/SkeletonExample.vue';
+import SkeletonExample from '/examples/skeleton/Skeleton.vue';
+import TaskAddExample from '/examples/skeleton/TaskAdd.vue';
 </script>
 # Skeleton
-
 <Description
+  nuxt-ui="https://ui3.nuxt.dev/components/skeleton"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Skeleton.vue"
 >
-  A placeholder to show while content is loading.
+  A loading indicator shown while content is being fetched.
 </Description>
 
 ## Usage
 
-<ComponentShowExample>
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
     <SkeletonExample />
-</ComponentShowExample>
+  </ClientOnly>
+</div>
 
-<<< @/examples/skeleton/SkeletonExample.vue
+<<< @/examples/skeleton/demo/Skeleton.vue{3,6,7 vue:line-numbers}
+
+## Examples
+
+### Something more complex
+
+Example of a loading indicator for a task creation form.
+
+<div class="lg:min-h-[623px]">
+  <ClientOnly>
+    <TaskAddExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/skeleton/demo/TaskAdd.vue{vue:line-numbers}
 
 ## API
 

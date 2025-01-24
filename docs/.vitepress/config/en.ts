@@ -115,9 +115,9 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'Input', link: 'input' },
         { text: 'RadioGroup', link: 'radio-group' },
         { text: 'Checkbox', link: 'checkbox' },
-        { text: 'Switch', link: 'switch' },
-        { text: 'Range', link: 'range' },
-        { text: 'Select', link: 'select' },
+        { text: '✔️Switch', link: 'switch' },
+        { text: '✔️Range', link: 'range' },
+        { text: '✔️Select', link: 'select' },
         { text: '✔️Textarea', link: 'textarea' }
       ]
     },
@@ -128,9 +128,9 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'Container', link: 'container' },
         { text: 'DescriptionList', link: '/content/description-list' },
         { text: 'Link', link: 'link' },
-        { text: 'Separator', link: 'separator' },
-        { text: 'Skeleton', link: 'skeleton' },
-        { text: '🔨Tabs', link: 'tabs' }
+        { text: '🔨Separator', link: 'separator' },
+        { text: '✔️Skeleton', link: 'skeleton' },
+        { text: '✔️Tabs', link: 'tabs' }
       ]
     }
   ]
