@@ -1,124 +1,131 @@
 ---
-description: Separates content horizontally or vertically.
-links:
-  - label: Separator
-    icon: i-custom-reka-ui
-    to: https://reka-ui.com/docs/components/separator
-  - label: GitHub
-    icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/tree/v3/src/runtime/components/Separator.vue
+title: Separator
+description: Divides content in a horizontal or vertical manner.
+outline: deep
 ---
+<script setup>
+import SeparatorExample from '/examples/separator/Separator.vue';
+import OrientationExample from '/examples/separator/Orientation.vue';
+import LabelExample from '/examples/separator/Label.vue';
+import IconExample from '/examples/separator/Icon.vue';
+import AvatarExample from '/examples/separator/Avatar.vue';
+import ColorExample from '/examples/separator/Color.vue';
+import TypeExample from '/examples/separator/Type.vue';
+import SizeExample from '/examples/separator/Size.vue';
+</script>
+# Separator
+
+<Description
+  nuxt-ui="https://ui3.nuxt.dev/components/separator"
+  reka-ui="https://reka-ui.com/docs/components/separator"
+  reka-ui-title="Separator"
+  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Separator.vue"
+>
+  Divides content in a horizontal or vertical manner.
+</Description>
 
 ## Usage
 
 Use the Separator component as-is to separate content.
 
-::component-code
----
-class: 'p-8'
----
-::
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <SeparatorExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/separator/demo/Separator.vue{2 vue:line-numbers}
 
 ### Orientation
 
 Use the `orientation` prop to change the orientation of the Separator. Defaults to `horizontal`.
 
-::component-code
----
-ignore:
-  - class
-class: 'p-8'
-props:
-  orientation: vertical
-  class: 'h-48'
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <OrientationExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/separator/demo/Orientation.vue{13 vue:line-numbers}
 
 ### Label
 
 Use the `label` prop to display a label in the middle of the Separator.
 
-::component-code
----
-class: 'p-8'
-props:
-  label: 'Hello World'
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <LabelExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/separator/demo/Label.vue{13 vue:line-numbers}
 
 ### Icon
 
 Use the `icon` prop to display an icon in the middle of the Separator.
 
-::component-code
----
-class: 'p-8'
-props:
-  icon: 'i-simple-icons-nuxtdotjs'
----
-::
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <IconExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/separator/demo/Icon.vue{2,7 vue:line-numbers}
 
 ### Avatar
 
 Use the `avatar` prop to display an avatar in the middle of the Separator.
 
-::component-code
----
-prettier: true
-class: 'p-8'
-props:
-  avatar:
-    src: 'https://github.com/nuxt.png'
----
-::
+<div class="lg:min-h-[172px]">
+  <ClientOnly>
+    <AvatarExample />
+  </ClientOnly>
+</div>
 
-### Color
-
-Use the `color` prop to change the color of the Separator. Defaults to `neutral`.
-
-::component-code
----
-class: 'p-8'
-props:
-  color: primary
-  type: solid
----
-::
+<<< @/examples/separator/demo/Avatar.vue{2,7,10 vue:line-numbers}
 
 ### Type
 
 Use the `type` prop to change the type of the Separator. Defaults to `solid`.
 
-::component-code
----
-class: 'p-8'
-props:
-  type: dashed
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <TypeExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/separator/demo/Type.vue{14 vue:line-numbers}
+
+### Color
+
+Use the `color` prop to change the color of the Separator. Defaults to `default`.
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <ColorExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/separator/demo/Color.vue{15 vue:line-numbers}
 
 ### Size
 
 Use the `size` prop to change the size of the Separator. Defaults to `xs`.
 
-::component-code
----
-class: 'p-8'
-props:
-  size: lg
----
-::
+<div class="lg:min-h-[333px]">
+  <ClientOnly>
+    <SizeExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/separator/demo/Size.vue{19 vue:line-numbers}
 
 ## API
 
 ### Props
 
-:component-props
+<ComponentProps component="Switch" />
 
 ### Slots
 
-:component-slots
-
-## Theme
-
-:component-theme
+<ComponentSlots component="Switch" />

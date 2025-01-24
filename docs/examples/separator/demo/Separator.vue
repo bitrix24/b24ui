@@ -1,3 +1,3 @@
 <template>
-  @todo make me
+  <B24Separator />
 </template>
