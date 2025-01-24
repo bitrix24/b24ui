@@ -138,13 +138,13 @@ Use the `disabled` prop to disable the Range.
 
 Use the `inverted` prop to visually invert the Range.
 
-<div class="lg:min-h-[275px]">
+<div class="lg:min-h-[160px]">
   <ClientOnly>
     <InvertedExample />
   </ClientOnly>
 </div>
 
-<<< @/examples/range/demo/Inverted.vue{13 vue:line-numbers}
+<<< @/examples/range/demo/Inverted.vue{3 vue:line-numbers}
 
 ## API
 

@@ -5,6 +5,8 @@ import Demo from './demo/Range.vue'
 
 <template>
   <ComponentShowExample>
-    <Demo />
+    <div class="w-full flex flex-col gap-8">
+      <Demo />
+    </div>
   </ComponentShowExample>
 </template>
