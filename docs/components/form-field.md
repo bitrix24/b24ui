@@ -1,11 +1,25 @@
 ---
 title: FormField
-description: A wrapper for form elements that provides validation and error handling.
-links:
-  - label: GitHub
-    icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/tree/v3/src/runtime/components/FormField.vue
+description: A container for form elements with built-in validation and error management.
+outline: deep
 ---
+<script setup>
+import FormFieldExample from '/examples/formfield/FormField.vue';
+import RequiredExample from '/examples/formfield/Required.vue';
+import DescriptionExample from '/examples/formfield/Description.vue';
+import HintExample from '/examples/formfield/Hint.vue';
+import HelpExample from '/examples/formfield/Help.vue';
+import ErrorExample from '/examples/formfield/Error.vue';
+import SizeExample from '/examples/formfield/Size.vue';
+</script>
+# FormField
+
+<Description
+  nuxt-ui="https://ui3.nuxt.dev/components/form-field"
+  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/FormField.vue"
+>
+  A container for form elements with built-in validation and error management.
+</Description>
 
 ## Usage
 
@@ -15,105 +29,63 @@ Wrap any form component with a FormField. Used in a [Form](/components/form), it
 
 Use the `label` prop to set the label for the form control.
 
-::component-code
----
-prettier: true
-props:
-  label: Email
-slots:
-  default: |
-
-    <UInput placeholder="Enter your email" />
----
-
-:u-input{placeholder="Enter your email"}
-::
-
-::note
+::: info
 The label `for` attribute and the form control are associated with a unique `id` if not provided.
-::
+:::
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <FormFieldExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/formfield/demo/FormField.vue{12 vue:line-numbers}
 
 When using the `required` prop, an asterisk is be added next to the label.
 
-::component-code
----
-prettier: true
-ignore:
-  - label
-props:
-  label: Email
-  required: true
-slots:
-  default: |
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <RequiredExample />
+  </ClientOnly>
+</div>
 
-    <UInput placeholder="Enter your email" />
----
-
-:u-input{placeholder="Enter your email"}
-::
+<<< @/examples/formfield/demo/Required.vue{16 vue:line-numbers}
 
 ### Description
 
 Use the `description` prop to provide additional information below the label.
 
-::component-code
----
-prettier: true
-ignore:
-  - label
-props:
-  label: Email
-  description: We'll never share your email with anyone else.
-slots:
-  default: |
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <DescriptionExample />
+  </ClientOnly>
+</div>
 
-    <UInput placeholder="Enter your email" class="w-full" />
----
-
-:u-input{placeholder="Enter your email" class="w-full"}
-::
+<<< @/examples/formfield/demo/Description.vue{13 vue:line-numbers}
 
 ### Hint
 
 Use the `hint` prop to display a hint message next to the label.
 
-::component-code
----
-prettier: true
-ignore:
-  - label
-props:
-  label: Email
-  hint: Optional
-slots:
-  default: |
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <HintExample />
+  </ClientOnly>
+</div>
 
-    <UInput placeholder="Enter your email" />
----
-
-:u-input{placeholder="Enter your email"}
-::
+<<< @/examples/formfield/demo/Hint.vue{13 vue:line-numbers}
 
 ### Help
 
 Use the `help` prop to display a help message below the form control.
 
-::component-code
----
-prettier: true
-ignore:
-  - label
-props:
-  label: Email
-  help: Please enter a valid email address.
-slots:
-  default: |
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <HelpExample />
+  </ClientOnly>
+</div>
 
-    <UInput placeholder="Enter your email" class="w-full" />
----
-
-:u-input{placeholder="Enter your email" class="w-full"}
-::
+<<< @/examples/formfield/demo/Help.vue{13 vue:line-numbers}
 
 ### Error
 
@@ -121,64 +93,36 @@ Use the `error` prop to display an error message below the form control. When us
 
 When used inside a [Form](/components/form), this is automatically set when a validation error occurs.
 
-::component-code
----
-prettier: true
-ignore:
-  - label
-props:
-  label: Email
-  error: Please enter a valid email address.
-slots:
-  default: |
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <ErrorExample />
+  </ClientOnly>
+</div>
 
-    <UInput placeholder="Enter your email" class="w-full" />
----
-
-:u-input{placeholder="Enter your email" class="w-full"}
-::
-
-::tip{to="/getting-started/theme#colors"}
-This sets the `color` to `error` on the form control. You can change it globally in your `app.config.ts`.
-::
+<<< @/examples/formfield/demo/Error.vue{13 vue:line-numbers}
 
 ### Size
 
 Use the `size` prop to change the size of the FormField, the `size` is proxied to the form control.
 
-::component-code
----
-prettier: true
-ignore:
-  - label
-  - description
-  - hint
-  - help
-props:
-  label: Email
-  description: We'll never share your email with anyone else.
-  hint: Optional
-  help: Please enter a valid email address.
-  size: xl
-slots:
-  default: |
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <SizeExample />
+  </ClientOnly>
+</div>
 
-    <UInput placeholder="Enter your email" class="w-full" />
----
-
-:u-input{placeholder="Enter your email" class="w-full"}
-::
+<<< @/examples/formfield/demo/Size.vue{13 vue:line-numbers}
 
 ## API
 
 ### Props
 
-:component-props
+<ComponentProps component="FormField" />
 
 ### Slots
 
-:component-slots
+<ComponentSlots component="FormField" />
 
-## Theme
+### Emits
 
-:component-theme
+<ComponentEmits component="FormField" />
