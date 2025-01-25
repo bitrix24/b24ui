@@ -135,12 +135,12 @@ Use the `disabled` prop to disable the RadioGroup.
 
 ### Props
 
-<ComponentProps component="Switch" />
+<ComponentProps component="RadioGroup" />
 
 ### Slots
 
-<ComponentSlots component="Switch" />
+<ComponentSlots component="RadioGroup" />
 
 ### Emits
 
-<ComponentEmits component="Switch" />
+<ComponentEmits component="RadioGroup" />

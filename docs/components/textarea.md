@@ -126,15 +126,15 @@ Use the `maxrows` prop to set the maximum number of rows when autoresizing. If s
 
 ### Props
 
-<ComponentProps component="Toast" />
+<ComponentProps component="Textarea" />
 
 ### Slots
 
-<ComponentSlots component="Toast" />
+<ComponentSlots component="Textarea" />
 
 ### Emits
 
-<ComponentEmits component="Toast" />
+<ComponentEmits component="Textarea" />
 
 ### Expose
 

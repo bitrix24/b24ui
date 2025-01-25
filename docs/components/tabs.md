@@ -170,12 +170,12 @@ Use the `slot` property to customize a specific item.
 
 ### Props
 
-<ComponentProps component="Toast" />
+<ComponentProps component="Tabs" />
 
 ### Slots
 
-<ComponentSlots component="Toast" />
+<ComponentSlots component="Tabs" />
 
 ### Emits
 
-<ComponentEmits component="Toast" />
+<ComponentEmits component="Tabs" />

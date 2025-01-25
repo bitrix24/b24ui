@@ -381,12 +381,12 @@ You can fetch items from an API and use them in the Select.
 
 ### Props
 
-<ComponentProps component="Switch" />
+<ComponentProps component="Select" />
 
 ### Slots
 
-<ComponentSlots component="Switch" />
+<ComponentSlots component="Select" />
 
 ### Emits
 
-<ComponentEmits component="Switch" />
+<ComponentEmits component="Select" />

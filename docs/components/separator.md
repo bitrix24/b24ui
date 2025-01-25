@@ -124,8 +124,8 @@ Use the `size` prop to change the size of the Separator. Defaults to `xs`.
 
 ### Props
 
-<ComponentProps component="Switch" />
+<ComponentProps component="Separator" />
 
 ### Slots
 
-<ComponentSlots component="Switch" />
+<ComponentSlots component="Separator" />
