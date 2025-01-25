@@ -1,31 +1,36 @@
 ---
-description: A container lets you center and constrain the width of your content.
-links:
-  - label: GitHub
-    icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/tree/v3/src/runtime/components/Container.vue
+title: ComponentName
+description: A box for centering and setting a maximum width for your content.
+outline: deep
 ---
+<script setup>
+import ContainerExample from '/examples/container/Container.vue';
+</script>
+# Container
+
+<Description
+  nuxt-ui="https://ui3.nuxt.dev/components/container"
+  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Container.vue"
+>
+  A box for centering and setting a maximum width for your content.
+</Description>
 
 ## Usage
 
-::component-example
----
-name: 'container-example'
-props:
-class: 'w-full'
----
-::
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <ContainerExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/container/demo/Container.vue{2 vue:line-numbers}
 
 ## API
 
 ### Props
 
-:component-props
+<ComponentProps component="Container" />
 
 ### Slots
 
-:component-slots
-
-## Theme
-
-:component-theme
+<ComponentSlots component="Container" />
