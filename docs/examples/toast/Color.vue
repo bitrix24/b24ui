@@ -73,7 +73,7 @@ function getChip(value: string) {
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="color" class="w-full" aria-label="Select color for toast">
+      <B24FormField label="color" class="w-full">
         <B24Select
           v-model="chipValue"
           :items="chipItems"

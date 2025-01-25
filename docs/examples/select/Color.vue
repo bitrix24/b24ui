@@ -77,7 +77,7 @@ function getChip(value: string) {
       <B24FormField label="isHighlight">
         <B24Switch v-model="isHighlight" size="xs" />
       </B24FormField>
-      <B24FormField label="color" class="w-1/2" aria-label="Select color for toast">
+      <B24FormField label="color" class="w-1/2">
         <B24Select
           v-model="chipValue"
           :items="chipItems"

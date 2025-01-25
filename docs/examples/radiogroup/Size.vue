@@ -12,7 +12,7 @@ const size = ref('lg' as const)
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24RadioGroup v-model="size" legend="sizes" :items="sizes" orientation="horizontal" />
+      <B24RadioGroup v-model="size" legend="size" :items="sizes" orientation="horizontal" />
     </template>
     <Demo :size="size" />
   </ComponentShowExample>

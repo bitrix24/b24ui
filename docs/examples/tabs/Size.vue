@@ -80,9 +80,9 @@ const size = ref('md' as const)
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24RadioGroup v-model="size" legend="sizes" :items="sizes" orientation="horizontal" />
+      <B24RadioGroup v-model="size" legend="size" :items="sizes" orientation="horizontal" />
       <B24RadioGroup v-model="variant" legend="variant" :items="variants" orientation="horizontal" />
-      <B24FormField label="color" class="w-1/3" aria-label="Select color for toast">
+      <B24FormField label="color" class="w-1/3">
         <B24Select
           v-model="chipValue"
           :items="chipItems"
