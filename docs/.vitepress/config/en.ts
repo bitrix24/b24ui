@@ -91,7 +91,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'Advice', link: 'advice' },
         { text: 'Chip', link: 'chip' },
         { text: '✔️Toast', link: 'toast' },
-        { text: 'Progress', link: 'progress' },
+        { text: '🔨Progress', link: 'progress' },
         { text: '✔️Tooltip', link: 'tooltip' }
       ]
     },
@@ -113,7 +113,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'Form', link: 'form' },
         { text: 'FormField', link: 'form-field' },
         { text: 'Input', link: 'input' },
-        { text: '🔨RadioGroup', link: 'radio-group' },
+        { text: '✔️RadioGroup', link: 'radio-group' },
         { text: 'Checkbox', link: 'checkbox' },
         { text: '✔️Switch', link: 'switch' },
         { text: '✔️Range', link: 'range' },

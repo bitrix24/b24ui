@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import theme from '#build/b24ui/progress'
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
 import Demo from './demo/Color.vue'
 
@@ -63,7 +62,7 @@ const chipItems = ref([
   }
 
 ])
-const chipValue = ref((chipItems.value[0]?.value))
+const chipValue = ref((chipItems.value[7]?.value))
 
 function getChip(value: string) {
   return chipItems.value.find(item => item.value === value)?.chip

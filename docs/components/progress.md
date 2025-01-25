@@ -12,6 +12,8 @@ import IndeterminateExample from '/examples/progress/Indeterminate.vue';
 import AnimationExample from '/examples/progress/Animation.vue';
 import OrientationExample from '/examples/progress/Orientation.vue';
 import ColorExample from '/examples/progress/Color.vue';
+import SizeExample from '/examples/progress/Size.vue';
+import InvertedExample from '/examples/progress/Inverted.vue';
 </script>
 # Progress
 
@@ -122,39 +124,37 @@ Use the `color` prop to change the color of the Slider.
 
 Use the `size` prop to change the size of the Slider.
 
-::component-code
----
-props:
-  size: xl
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <SizeExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/progress/demo/Size.vue{13 vue:line-numbers}
 
 ### Inverted
 
 Use the `inverted` prop to visually invert the Progress.
 
-::component-code
----
-props:
-  inverted: true
-  modelValue: 25
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <InvertedExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/progress/demo/Inverted.vue{18 vue:line-numbers}
 
 ## API
 
 ### Props
 
-:component-props
+<ComponentProps component="Progress" />
 
 ### Slots
 
-:component-slots
+<ComponentSlots component="Progress" />
 
 ### Emits
 
-:component-emits
+<ComponentEmits component="Progress" />
 
-## Theme
-
-:component-theme
