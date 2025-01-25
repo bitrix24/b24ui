@@ -170,7 +170,7 @@ The `highlight` prop is used here to show the focus state. It's used internally 
 
 ### Tag
 
-Use the `tag` property to display a small legend on top of the Textarea.
+Use the `tag` property to display a small legend on top of the Select.
 
 Use the `tagColor` property to set the color for `tag`.
 
