@@ -13,6 +13,6 @@ const placeholder = ref('Enter a company description')
         <B24Input v-model="placeholder" type="search" />
       </B24FormField>
     </template>
-    <Demo :placeholder="placeholder"/>
+    <Demo :placeholder="placeholder" />
   </ComponentShowExample>
 </template>

@@ -26,7 +26,7 @@ const slots = defineSlots<ExampleSlots>()
           dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]
         "
       />
-      <div class="isolate relative p-4 min-h-40 w-full h-full flex flex-col flex-nowrap justify-center items-center gap-4" >
+      <div class="isolate relative p-4 min-h-40 w-full h-full flex flex-col flex-nowrap justify-center items-center gap-4">
         <slot />
       </div>
       <div

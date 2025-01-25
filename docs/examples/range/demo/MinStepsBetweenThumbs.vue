@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+
 export interface ExampleProps {
   minStepsBetweenThumbs?: number
 }

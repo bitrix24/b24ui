@@ -6,7 +6,7 @@ export interface ExampleProps {
 }
 
 withDefaults(defineProps<ExampleProps>(), {
-  orientation: 'horizontal',
+  orientation: 'horizontal'
 })
 
 const items = ref(['Payment', 'Delivery', 'Scripts'])

@@ -91,7 +91,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'Advice', link: 'advice' },
         { text: 'Chip', link: 'chip' },
         { text: '✔️Toast', link: 'toast' },
-        { text: '🔨Progress', link: 'progress' },
+        { text: '✔️Progress', link: 'progress' },
         { text: '✔️Tooltip', link: 'tooltip' }
       ]
     },
@@ -127,7 +127,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'Container', link: 'container' },
         { text: 'DescriptionList', link: '/content/description-list' },
-        { text: 'Link', link: 'link' },
+        { text: '🔨Link', link: 'link' },
         { text: '✔️Separator', link: 'separator' },
         { text: '✔️Skeleton', link: 'skeleton' },
         { text: '✔️Tabs', link: 'tabs' }

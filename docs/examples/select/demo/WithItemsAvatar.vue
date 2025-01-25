@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import MyPlanIcon from '@bitrix24/b24icons-vue/main/MyPlanIcon'
 
 const items = ref([
   {
