@@ -3,11 +3,19 @@ title: Link
 description: A wrapper around NuxtLink with extra props.
 outline: deep
 ---
+<script setup>
+import LinkExample from '/examples/link/Link.vue';
+import LinkToExample from '/examples/link/LinkTo.vue';
+import RawExample from '/examples/link/Raw.vue';
+import IsActionExample from '/examples/link/IsAction.vue';
+</script>
 # Link
+
 <Description
+  nuxt-ui="https://ui3.nuxt.dev/components/link"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Link.vue"
 >
-  A wrapper around <ProseCode>NuxtLink</ProseCode> with extra props.
+  A wrapper around <code>NuxtLink</code> with extra props.
 </Description>
 
 ## Usage
@@ -17,34 +25,59 @@ The Link component is a wrapper around [`<NuxtLink>`](https://nuxt.com/docs/api/
 - `inactive-class` prop to set a class when the link is inactive, `active-class` is used when active.
 - `exact` prop to style with `active-class` when the link is active and the route is exactly the same as the current route.
 - `exact-query` and `exact-hash` props to style with `active-class` when the link is active and the query or hash is exactly the same as the current query or hash.
-  - use `exact-query="partial"` to style with `active-class` when the link is active and the query partially match the current query. 
+  - use `exact-query="partial"` to style with `active-class` when the link is active and the query partially match the current query.
 
 The incentive behind this is to provide the same API as NuxtLink back in Nuxt 2 / Vue 2. You can read more about it in the Vue Router [migration from Vue 2](https://router.vuejs.org/guide/migration/#removal-of-the-exact-prop-in-router-link) guide.
 
-> [!NOTE]
-> It is used by the [`Breadcrumb`](/components/breadcrumb), [`Button`](/components/button), [`ContextMenu`](/components/context-menu), [`DropdownMenu`](/components/dropdown-menu) and [`NavigationMenu`](/components/navigation-menu) components.
+::: info
+It is used by the [`Button`](/components/button) components.
+:::
 
 ### Tag
 
 The `Link` components renders an `<a>` tag when a `to` prop is provided, otherwise it renders a `<button>` tag. You can use the `as` prop to change fallback tag.
 
-<<< @/examples/link/LinkTagExample.vue
+::: info
+You can inspect the rendered HTML.
+:::
 
-> [!NOTE]
-> You can inspect the rendered HTML by changing the `to` prop.
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <LinkExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/link/demo/Link.vue{12,15 vue:line-numbers}
 
 ### Style
 
 By default, the link has default active and inactive styles.
 
-<<< @/examples/link/LinkStyleExample.vue
-
-> [!NOTE]
-> Changing the `to` prop to see the active and inactive states.
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <LinkToExample />
+  </ClientOnly>
+</div>
 
 You can override this behavior by using the `raw` prop and provide your own styles using `class`, `active-class` and `inactive-class`.
 
-<<< @/examples/link/LinkStyleExampleV2.vue
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <RawExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/link/demo/Raw.vue{4,5,6,13,15 vue:line-numbers}
+
+You can use the `is-action prop` to indicate a pseudo-link.
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <IsActionExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/link/demo/IsAction.vue{2,5 vue:line-numbers}
 
 ## IntelliSense
 
@@ -63,7 +96,7 @@ If you're using VSCode and wish to get autocompletion for the classes `active-cl
 
 ### Props
 
-<ComponentProps component="Link" :ignore="['custom']" />
+<ComponentProps component="Link" />
 
 ### Slots
 
