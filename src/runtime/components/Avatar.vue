@@ -108,7 +108,7 @@ onMounted(() => {
       @load="imageLoaded = true"
     />
 
-    <AvatarFallback as-child v-bind="{ ...fallbackProps, ...$attrs }">
+    <AvatarFallback v-if="!imageLoaded" as-child v-bind="{ ...fallbackProps, ...$attrs }">
       <slot>
         <Component :is="icon" v-if="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
         <span v-else :class="b24ui.fallback({ class: props.b24ui?.fallback })">{{ fallback || '&nbsp;' }}</span>
