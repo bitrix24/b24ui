@@ -103,7 +103,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'AvatarGroup', link: 'avatar-group' },
         { text: 'Badge', link: 'badge' },
         { text: 'Countdown', link: 'countdown' },
-        { text: 'Kbd', link: 'kbd' }
+        { text: '✔️Kbd', link: 'kbd' }
       ]
     },
     {
@@ -112,7 +112,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'Form', link: 'form' },
         { text: 'FormField', link: 'form-field' },
-        { text: 'Input', link: 'input' },
+        { text: '🔨Input', link: 'input' },
         { text: '✔️RadioGroup', link: 'radio-group' },
         { text: 'Checkbox', link: 'checkbox' },
         { text: '✔️Switch', link: 'switch' },
@@ -127,7 +127,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'Container', link: 'container' },
         { text: 'DescriptionList', link: '/content/description-list' },
-        { text: '🔨Link', link: 'link' },
+        { text: '✔️Link', link: 'link' },
         { text: '✔️Separator', link: 'separator' },
         { text: '✔️Skeleton', link: 'skeleton' },
         { text: '✔️Tabs', link: 'tabs' }
