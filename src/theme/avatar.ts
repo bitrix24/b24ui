@@ -7,7 +7,7 @@
 export default {
   slots: {
     root: 'inline-flex items-center justify-center shrink-0 select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900',
-    image: 'h-full w-full rounded-[inherit] object-cover',
+    image: 'h-full w-full rounded-[inherit] object-cover data-[error]:hidden',
     fallback: 'font-medium text-base-500 dark:text-base-600 truncate',
     icon: 'text-base-500 shrink-0 dark:text-base-600'
   },
