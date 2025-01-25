@@ -12,7 +12,7 @@ export interface Form<T extends object> {
   clear (path?: string): void
   errors: Ref<FormError[]>
   setErrors (errs: FormError[], name?: keyof T): void
-  getErrors (name?: string): FormError[]
+  getErrors (name?: keyof T): FormError[]
   submit (): Promise<void>
   disabled: ComputedRef<boolean>
   dirty: ComputedRef<boolean>
