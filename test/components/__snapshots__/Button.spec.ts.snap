@@ -17,7 +17,7 @@ exports[`Button > renders with avatar and leadingIcon correctly 1`] = `
   <div class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center invisible"><svg viewBox="0 0 64 64" width="1em" xmlns="http://www.w3.org/2000/svg" class="animate-spin stroke-2 size-lg">
       <path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"></path>
     </svg></div>
-  <div class="inline-flex items-center gap-1.5"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-7 text-xs shrink-0"><img role="img" src="https://github.com/IgorShevchik.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate"> </span></span>
+  <div class="inline-flex items-center gap-1.5"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-7 text-xs shrink-0"><img role="img" src="https://github.com/IgorShevchik.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate"> </span></span>
     <!--v-if-->
     <!--v-if-->
   </div>
@@ -29,7 +29,7 @@ exports[`Button > renders with avatar and trailingIcon correctly 1`] = `
   <div class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center invisible"><svg viewBox="0 0 64 64" width="1em" xmlns="http://www.w3.org/2000/svg" class="animate-spin stroke-2 size-lg">
       <path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"></path>
     </svg></div>
-  <div class="inline-flex items-center gap-1.5"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-7 text-xs shrink-0"><img role="img" src="https://github.com/IgorShevchik.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate"> </span></span>
+  <div class="inline-flex items-center gap-1.5"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-7 text-xs shrink-0"><img role="img" src="https://github.com/IgorShevchik.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate"> </span></span>
     <!--v-if-->
     <!--v-if-->
   </div>
@@ -41,7 +41,7 @@ exports[`Button > renders with avatar correctly 1`] = `
   <div class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center invisible"><svg viewBox="0 0 64 64" width="1em" xmlns="http://www.w3.org/2000/svg" class="animate-spin stroke-2 size-lg">
       <path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"></path>
     </svg></div>
-  <div class="inline-flex items-center gap-1.5"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-7 text-xs shrink-0"><img role="img" src="https://github.com/IgorShevchik.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate"> </span></span>
+  <div class="inline-flex items-center gap-1.5"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-7 text-xs shrink-0"><img role="img" src="https://github.com/IgorShevchik.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate"> </span></span>
     <!--v-if-->
     <!--v-if-->
   </div>
@@ -404,7 +404,7 @@ exports[`Button > renders with loading and avatar correctly 1`] = `
   <div class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center visible"><svg viewBox="0 0 64 64" width="1em" xmlns="http://www.w3.org/2000/svg" class="animate-spin stroke-2 size-lg">
       <path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"></path>
     </svg></div>
-  <div class="inline-flex items-center gap-1.5 invisible"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-7 text-xs shrink-0"><img role="img" src="https://github.com/IgorShevchik.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate"> </span></span>
+  <div class="inline-flex items-center gap-1.5 invisible"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-7 text-xs shrink-0"><img role="img" src="https://github.com/IgorShevchik.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate"> </span></span>
     <!--v-if-->
     <!--v-if-->
   </div>
@@ -429,7 +429,7 @@ exports[`Button > renders with loading trailing and avatar correctly 1`] = `
   <div class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center visible"><svg viewBox="0 0 64 64" width="1em" xmlns="http://www.w3.org/2000/svg" class="animate-spin stroke-2 size-lg">
       <path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"></path>
     </svg></div>
-  <div class="inline-flex items-center gap-1.5 invisible"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-7 text-xs shrink-0"><img role="img" src="https://github.com/IgorShevchik.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate"> </span></span>
+  <div class="inline-flex items-center gap-1.5 invisible"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-7 text-xs shrink-0"><img role="img" src="https://github.com/IgorShevchik.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate"> </span></span>
     <!--v-if-->
     <!--v-if-->
   </div>

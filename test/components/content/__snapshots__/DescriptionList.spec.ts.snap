@@ -2,60 +2,36 @@
 
 exports[`DescriptionList > renders with as correctly 1`] = `
 "<div class="w-full shrink-0" as="section">
-  <h2 class="text-base/7 font-semibold text-base-950 sm:text-sm/6 dark:text-white"> Order #1011 </h2>
-  <p class="mt-0.5 max-w-2/3 text-sm/6 text-gray-500"> Personal details and application. </p>
-  <dl class="mt-4 grid grid-cols-1 text-base/6 sm:grid-cols-[min(50%,theme(spacing.80))_auto] sm:text-sm/6">
-    <dt class="col-start-1 border-t border-base-950/5 pt-3 text-base-500 sm:border-t sm:border-base-950/5 sm:py-3 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5"> Customer </dt>
-    <dd class="pb-3 pt-1 text-base-950 sm:border-t sm:border-base-950/5 sm:py-3 dark:text-white dark:sm:border-white/5"> Leslie Alexander </dd>
-    <dt class="col-start-1 border-t border-base-950/5 pt-3 text-base-500 sm:border-t sm:border-base-950/5 sm:py-3 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5"> Email </dt>
-    <dd class="pb-3 pt-1 text-base-950 sm:border-t sm:border-base-950/5 sm:py-3 dark:text-white dark:sm:border-white/5"><a href="mailto:leslie.alexander@example.com">leslie.alexander@example.com</a></dd>
-    <dt class="col-start-1 border-t border-base-950/5 pt-3 text-base-500 sm:border-t sm:border-base-950/5 sm:py-3 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5"> Access </dt>
-    <dd class="pb-3 pt-1 text-base-950 sm:border-t sm:border-base-950/5 sm:py-3 dark:text-white dark:sm:border-white/5"> Admin </dd>
-  </dl>
+  <!--v-if-->
+  <!--v-if-->
+  <dl class="grid grid-cols-1 sm:grid-cols-[min(50%,theme(spacing.80))_auto] mt-3 text-lg"></dl>
+  <!--v-if-->
 </div>"
 `;
 
 exports[`DescriptionList > renders with b24ui correctly 1`] = `
-"<div class="w-full shrink-0" b24ui="[object Object]">
-  <h2 class="text-base/7 font-semibold text-base-950 sm:text-sm/6 dark:text-white"> Order #1011 </h2>
-  <p class="mt-0.5 max-w-2/3 text-sm/6 text-gray-500"> Personal details and application. </p>
-  <dl class="mt-4 grid grid-cols-1 text-base/6 sm:grid-cols-[min(50%,theme(spacing.80))_auto] sm:text-sm/6">
-    <dt class="col-start-1 border-t border-base-950/5 pt-3 text-base-500 sm:border-t sm:border-base-950/5 sm:py-3 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5"> Customer </dt>
-    <dd class="pb-3 pt-1 text-base-950 sm:border-t sm:border-base-950/5 sm:py-3 dark:text-white dark:sm:border-white/5"> Leslie Alexander </dd>
-    <dt class="col-start-1 border-t border-base-950/5 pt-3 text-base-500 sm:border-t sm:border-base-950/5 sm:py-3 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5"> Email </dt>
-    <dd class="pb-3 pt-1 text-base-950 sm:border-t sm:border-base-950/5 sm:py-3 dark:text-white dark:sm:border-white/5"><a href="mailto:leslie.alexander@example.com">leslie.alexander@example.com</a></dd>
-    <dt class="col-start-1 border-t border-base-950/5 pt-3 text-base-500 sm:border-t sm:border-base-950/5 sm:py-3 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5"> Access </dt>
-    <dd class="pb-3 pt-1 text-base-950 sm:border-t sm:border-base-950/5 sm:py-3 dark:text-white dark:sm:border-white/5"> Admin </dd>
-  </dl>
+"<div class="w-full shrink-0">
+  <!--v-if-->
+  <!--v-if-->
+  <dl class="grid grid-cols-1 sm:grid-cols-[min(50%,theme(spacing.80))_auto] mt-3 text-lg"></dl>
+  <!--v-if-->
 </div>"
 `;
 
 exports[`DescriptionList > renders with class correctly 1`] = `
 "<div class="w-full shrink-0">
-  <h2 class="text-base/7 font-semibold text-base-950 sm:text-sm/6 dark:text-white"> Order #1011 </h2>
-  <p class="mt-0.5 max-w-2/3 text-sm/6 text-gray-500"> Personal details and application. </p>
-  <dl class="mt-4 grid grid-cols-1 text-base/6 sm:grid-cols-[min(50%,theme(spacing.80))_auto] sm:text-sm/6">
-    <dt class="col-start-1 border-t border-base-950/5 pt-3 text-base-500 sm:border-t sm:border-base-950/5 sm:py-3 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5"> Customer </dt>
-    <dd class="pb-3 pt-1 text-base-950 sm:border-t sm:border-base-950/5 sm:py-3 dark:text-white dark:sm:border-white/5"> Leslie Alexander </dd>
-    <dt class="col-start-1 border-t border-base-950/5 pt-3 text-base-500 sm:border-t sm:border-base-950/5 sm:py-3 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5"> Email </dt>
-    <dd class="pb-3 pt-1 text-base-950 sm:border-t sm:border-base-950/5 sm:py-3 dark:text-white dark:sm:border-white/5"><a href="mailto:leslie.alexander@example.com">leslie.alexander@example.com</a></dd>
-    <dt class="col-start-1 border-t border-base-950/5 pt-3 text-base-500 sm:border-t sm:border-base-950/5 sm:py-3 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5"> Access </dt>
-    <dd class="pb-3 pt-1 text-base-950 sm:border-t sm:border-base-950/5 sm:py-3 dark:text-white dark:sm:border-white/5"> Admin </dd>
-  </dl>
+  <!--v-if-->
+  <!--v-if-->
+  <dl class="grid grid-cols-1 sm:grid-cols-[min(50%,theme(spacing.80))_auto] mt-3 text-lg"></dl>
+  <!--v-if-->
 </div>"
 `;
 
 exports[`DescriptionList > renders with default slot correctly 1`] = `
 "<div class="w-full shrink-0">
-  <h2 class="text-base/7 font-semibold text-base-950 sm:text-sm/6 dark:text-white"> Order #1011 </h2>
-  <p class="mt-0.5 max-w-2/3 text-sm/6 text-gray-500"> Personal details and application. </p>
-  <dl class="mt-4 grid grid-cols-1 text-base/6 sm:grid-cols-[min(50%,theme(spacing.80))_auto] sm:text-sm/6">
-    <dt class="col-start-1 border-t border-base-950/5 pt-3 text-base-500 sm:border-t sm:border-base-950/5 sm:py-3 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5"> Customer </dt>
-    <dd class="pb-3 pt-1 text-base-950 sm:border-t sm:border-base-950/5 sm:py-3 dark:text-white dark:sm:border-white/5"> Leslie Alexander </dd>
-    <dt class="col-start-1 border-t border-base-950/5 pt-3 text-base-500 sm:border-t sm:border-base-950/5 sm:py-3 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5"> Email </dt>
-    <dd class="pb-3 pt-1 text-base-950 sm:border-t sm:border-base-950/5 sm:py-3 dark:text-white dark:sm:border-white/5"><a href="mailto:leslie.alexander@example.com">leslie.alexander@example.com</a></dd>
-    <dt class="col-start-1 border-t border-base-950/5 pt-3 text-base-500 sm:border-t sm:border-base-950/5 sm:py-3 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5"> Access </dt>
-    <dd class="pb-3 pt-1 text-base-950 sm:border-t sm:border-base-950/5 sm:py-3 dark:text-white dark:sm:border-white/5"> Admin </dd>
-  </dl>
+  <!--v-if-->
+  <!--v-if-->
+  <dl class="grid grid-cols-1 sm:grid-cols-[min(50%,theme(spacing.80))_auto] mt-3 text-lg"></dl>
+  <!--v-if-->
 </div>"
 `;

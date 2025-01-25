@@ -52,7 +52,7 @@ exports[`FormField > renders with description slot correctly 1`] = `
 "<div class="font-regular text-sm">
   <div class="leading-none mb-1.5">
     <!--v-if-->
-    <p class="mt-0.5 leading-tight text-base-500 dark:text-base-600">Description slot</p>
+    <p id="v-0-0-description" class="mt-0.5 leading-tight text-base-500 dark:text-base-600">Description slot</p>
   </div>
   <div class="relative">
     <!--v-if-->
@@ -67,7 +67,7 @@ exports[`FormField > renders with error correctly 1`] = `
     <!--v-if-->
   </div>
   <div class="">
-    <div class="mt-1 text-red-500 dark:text-red-600">
+    <div id="v-0-0-error" class="mt-1 text-red-500 dark:text-red-600">
       <div class="flex flex-row flex-nowrap gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-lg size-md2">
           <path fill="currentColor" fill-rule="evenodd" d="m20.016 15.912-6.88-11.457c-.53-.88-1.792-.88-2.311 0l-6.88 11.457c-.54.902.113 2.041 1.162 2.041h13.758a1.347 1.347 0 0 0 1.15-2.04m-9.022-7.465a.91.91 0 0 1 .913-.914h.124a.91.91 0 0 1 .914.914v3.417a.91.91 0 0 1-.914.913h-.124a.91.91 0 0 1-.913-.913zm2.131 6.63c0 .632-.518 1.151-1.15 1.151s-1.15-.519-1.15-1.15c0-.632.519-1.15 1.15-1.15.632 0 1.15.518 1.15 1.15" clip-rule="evenodd"></path>
         </svg>
@@ -85,7 +85,7 @@ exports[`FormField > renders with error slot correctly 1`] = `
     <!--v-if-->
   </div>
   <div class="">
-    <div class="mt-1 text-red-500 dark:text-red-600">Error slot</div>
+    <div id="v-0-0-error" class="mt-1 text-red-500 dark:text-red-600">Error slot</div>
   </div>
 </div>"
 `;
@@ -144,7 +144,7 @@ exports[`FormField > renders with label and description correctly 1`] = `
     <div class="flex content-center items-center justify-between"><label for="v-0-0" class="block text-base-900 dark:text-base-400">Username</label>
       <!--v-if-->
     </div>
-    <p class="mt-0.5 leading-tight text-base-500 dark:text-base-600">Enter your username</p>
+    <p id="v-0-0-description" class="mt-0.5 leading-tight text-base-500 dark:text-base-600">Enter your username</p>
   </div>
   <div class="relative">
     <!--v-if-->
@@ -186,7 +186,7 @@ exports[`FormField > renders with size lg correctly 1`] = `
     <div class="flex content-center items-center justify-between"><label for="v-0-0" class="block text-base-900 dark:text-base-400">Username</label>
       <!--v-if-->
     </div>
-    <p class="mt-0.5 leading-tight text-base-500 dark:text-base-600">Enter your username</p>
+    <p id="v-0-0-description" class="mt-0.5 leading-tight text-base-500 dark:text-base-600">Enter your username</p>
   </div>
   <div class="relative">
     <!--v-if-->
@@ -200,7 +200,7 @@ exports[`FormField > renders with size md correctly 1`] = `
     <div class="flex content-center items-center justify-between"><label for="v-0-0" class="block text-base-900 dark:text-base-400">Username</label>
       <!--v-if-->
     </div>
-    <p class="mt-0.5 leading-tight text-base-500 dark:text-base-600">Enter your username</p>
+    <p id="v-0-0-description" class="mt-0.5 leading-tight text-base-500 dark:text-base-600">Enter your username</p>
   </div>
   <div class="relative">
     <!--v-if-->
@@ -214,7 +214,7 @@ exports[`FormField > renders with size sm correctly 1`] = `
     <div class="flex content-center items-center justify-between"><label for="v-0-0" class="block text-base-900 dark:text-base-400">Username</label>
       <!--v-if-->
     </div>
-    <p class="mt-0.5 leading-tight text-base-500 dark:text-base-600">Enter your username</p>
+    <p id="v-0-0-description" class="mt-0.5 leading-tight text-base-500 dark:text-base-600">Enter your username</p>
   </div>
   <div class="relative">
     <!--v-if-->
@@ -228,7 +228,7 @@ exports[`FormField > renders with size xs correctly 1`] = `
     <div class="flex content-center items-center justify-between"><label for="v-0-0" class="block text-base-900 dark:text-base-400">Username</label>
       <!--v-if-->
     </div>
-    <p class="mt-0.5 leading-tight text-base-500 dark:text-base-600">Enter your username</p>
+    <p id="v-0-0-description" class="mt-0.5 leading-tight text-base-500 dark:text-base-600">Enter your username</p>
   </div>
   <div class="relative">
     <!--v-if-->

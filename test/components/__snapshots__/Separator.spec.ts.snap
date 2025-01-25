@@ -5,7 +5,7 @@ exports[`Separator > renders with as correctly 1`] = `"<span data-orientation="h
 exports[`Separator > renders with avatar correctly 1`] = `
 "<div data-orientation="horizontal" role="separator" class="flex items-center align-center text-center w-full flex-row">
   <div class="border-base-master/10 dark:border-base-100/20 w-full border-solid border-t"></div>
-  <div class="font-b24-primary font-normal text-base-500 flex mx-3 whitespace-nowrap"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-7 text-xs shrink-0"><img role="img" src="https://github.com/benjamincanac.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate"> </span></span></div>
+  <div class="font-b24-primary font-normal text-base-500 flex mx-3 whitespace-nowrap"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-7 text-xs shrink-0"><img role="img" src="https://github.com/benjamincanac.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate"> </span></span></div>
   <div class="border-base-master/10 dark:border-base-100/20 w-full border-solid border-t"></div>
 </div>"
 `;
