@@ -1,11 +1,23 @@
 ---
 title: Form
-description: A form component with built-in validation and submission handling.
-links:
-  - label: GitHub
-    icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/tree/v3/src/runtime/components/Form.vue
+description: A form component designed for validation and handling submissions.
+outline: deep
 ---
+<script setup>
+import FormExample from '/examples/form/VPFormExample.vue';
+import ElementsExample from '/examples/form/VPFormExampleElements.vue';
+import OnErrorExample from '/examples/form/VPFormExampleOnError.vue';
+import NestedExample from '/examples/form/VPFormExampleNested.vue';
+import NestedListExample from '/examples/form/VPFormExampleNestedList.vue';
+</script>
+# Form
+
+<Description
+  nuxt-ui="https://ui3.nuxt.dev/components/form"
+  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Form.vue"
+>
+  A form component designed for validation and handling submissions.
+</Description>
 
 ## Usage
 
@@ -24,37 +36,6 @@ It requires two props:
 **No validation library is included** by default, ensure you **install the one you need**.
 :::
 
-?tabs
-?component-example{label="Valibot"}
-
-name: 'form-example-valibot'
-props:
-class: 'w-60'
-
-?component-example{label="Zod"}
-name: 'form-example-zod'
-props:
-class: 'w-60'
-
-?component-example{label="Yup"}
-
-name: 'form-example-yup'
-props:
-class: 'w-60'
-
-?component-example{label="Joi"}
-
-name: 'form-example-joi'
-props:
-class: 'w-60'
-
-?component-example{label="Superstruct"}
-
-name: 'form-example-superstruct'
-props:
-class: 'w-60'
-
-
 Errors are reported directly to the [FormField](/components/form-field) component based on the `name` or `error-pattern` prop. This means the validation rules defined for the `email` attribute in your schema will be applied to `<FormField name="email">`{lang="vue"}.
 
 Nested validation rules are handled using dot notation. For example, a rule like `{ user: z.object({ email: z.string() }) }`{lang="ts"} will be applied to `<FormField name="user.email">`{lang="vue"}.
@@ -68,15 +49,19 @@ The validation function must return a list of errors with the following attribut
 - `message` - the error message to display.
 - `name` - the `name` of the `FormField` to send the error to.
 
-::: tip
+::: info
 It can be used alongside the `schema` prop to handle complex use cases.
 :::
 
-?component-example
+<div class="lg:min-h-[300px]">
+  <ClientOnly>
+    <ComponentShowExample>
+      <FormExample />
+    </ComponentShowExample>
+  </ClientOnly>
+</div>
 
-name: 'form-example-basic'
-props:
-class: 'w-60'
+<<< @/examples/form/FormExample.vue{vue:line-numbers}
 
 ### Input Events
 
@@ -88,29 +73,23 @@ The Form component automatically triggers validation when an input emits an `inp
 
 You can control when validation happens this using the `validate-on` prop.
 
-?component-example{label="Default"}
-source: false
-name: 'form-example-elements'
-options:
-- name: 'validate-on'
-  label: 'validate-on'
-  items:
-  - 'input'
-  - 'change'
-  - 'blur'
-    default:
-  - 'input'
-  - 'change'
-  - 'blur'
-    multiple: true
-
-:::tip
-You can use the [`useFormField`](composables/use-form-field) composable to implement this inside your own components.
+::: tip
+You can use the [`useFormField`](/composables/use-form-field) composable to implement this inside your own components.
 :::
+
+<div class="lg:min-h-[300px]">
+  <ClientOnly>
+    <ComponentShowExample>
+      <ElementsExample />
+    </ComponentShowExample>
+  </ClientOnly>
+</div>
+
+<<< @/examples/form/VPFormExampleElements.vue{vue:line-numbers}
 
 ### Error Event
 
-You can listen to the `?error` event to handle errors. This event is triggered when the form is submitted and contains an array of `FormError` objects with the following fields:
+You can listen to the `@error` event to handle errors. This event is triggered when the form is submitted and contains an array of `FormError` objects with the following fields:
 
 - `id` - the input's `id`.
 - `name` - the `name` of the `FormField`
@@ -118,11 +97,15 @@ You can listen to the `?error` event to handle errors. This event is triggered w
 
 Here's an example that focuses the first input element with an error after the form is submitted:
 
-?component-example
-name: 'form-example-on-error'
-collapse: true
-props:
-class: 'w-60'
+<div class="lg:min-h-[270px]">
+  <ClientOnly>
+    <ComponentShowExample>
+      <OnErrorExample />
+    </ComponentShowExample>
+  </ClientOnly>
+</div>
+
+<<< @/examples/form/VPFormExampleOnError.vue{vue:line-numbers}
 
 ### Nesting Forms
 
@@ -130,29 +113,41 @@ Nesting form components allows you to manage complex data structures, such as li
 
 For example, it can be used to dynamically add fields based on user's input:
 
-?component-example
-collapse: true
-name: 'form-example-nested'
+<div class="lg:min-h-[300px]">
+  <ClientOnly>
+    <ComponentShowExample>
+      <NestedExample />
+    </ComponentShowExample>
+  </ClientOnly>
+</div>
+
+<<< @/examples/form/VPFormExampleNested.vue{vue:line-numbers}
+
 Or to validate list inputs:
-?component-example
-collapse: true
-name: 'form-example-nested-list'
+
+<div class="lg:min-h-[300px]">
+  <ClientOnly>
+    <ComponentShowExample>
+      <NestedListExample />
+    </ComponentShowExample>
+  </ClientOnly>
+</div>
+
+<<< @/examples/form/VPFormExampleNestedList.vue{vue:line-numbers}
 
 ## API
 
 ### Props
-```
-?todo Props
-```
+
+<ComponentProps component="Form" />
+
 ### Slots
 
-```
-?todo slots
-```
+<ComponentSlots component="Form" />
+
 ### Emits
-```
-?todo Emits
-```
+
+<ComponentEmits component="Form" />
 
 ### Expose
 
@@ -170,12 +165,16 @@ You can access the typed component instance using [`useTemplateRef`](https://vue
 
 This will give you access to the following:
 
-| Name                                                                                                                     | Type                                                                                                                                                    |
-|--------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `submit()`{lang="ts-type"}                                                                                               | `Promise<void>`{lang="ts-type"}<p>Triggers form submission.</p>                                                                                         |
-| `validate(opts: { name?: string \| string[], silent?: boolean, nested?: boolean, transform?: boolean })`{lang="ts-type"} | `Promise<T>`{lang="ts-type"}<p>Triggers form validation. Will raise any errors unless `opts.silent` is set to true.</p>                                 |
-| `clear(path?: string)`{lang="ts-type"}                                                                                   | `void`<p>Clears form errors associated with a specific path. If no path is provided, clears all form errors.</p>                                        |
-| `getErrors(path?: string)`{lang="ts-type"}                                                                               | `FormError[]`{lang="ts-type"}<p>Retrieves form errors associated with a specific path. If no path is provided, returns all form errors.</p>             |
-| `setErrors(errors: FormError[], path?: string)`{lang="ts-type"}                                                          | `void`<p>Sets form errors for a given path. If no path is provided, overrides all errors.</p>                                                           |
-| `errors`{lang="ts-type"}                                                                                                 | `Ref<FormError[]>`{lang="ts-type"}<p>A reference to the array containing validation errors. Use this to access or manipulate the error information.</p> |
-| `disabled`{lang="ts-type"}                                                                                               | `Ref<boolean>`{lang="ts-type"}                                                                                                                          |
+| Name                                                                                                                         | Type                                                                                                                                                          |
+|------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `submit()`{lang="ts-type"}                                                                                                   | `Promise<void>`{lang="ts-type"} <br> <p>Triggers form submission.</p>                                                                                         |
+| `validate(opts: { name?: keyof T \| (keyof T)[], silent?: boolean, nested?: boolean, transform?: boolean })`{lang="ts-type"} | `Promise<T>`{lang="ts-type"} <br> <p>Triggers form validation. Will raise any errors unless `opts.silent` is set to true.</p>                                 |
+| `clear(path?: keyof T)`{lang="ts-type"}                                                                                      | `void` <br> <p>Clears form errors associated with a specific path. If no path is provided, clears all form errors.</p>                                        |
+| `getErrors(path?: keyof T)`{lang="ts-type"}                                                                                  | `FormError[]`{lang="ts-type"} <br> <p>Retrieves form errors associated with a specific path. If no path is provided, returns all form errors.</p>             |
+| `setErrors(errors: FormError[], path?: keyof T)`{lang="ts-type"}                                                             | `void` <br> <p>Sets form errors for a given path. If no path is provided, overrides all errors.</p>                                                           |
+| `errors`{lang="ts-type"}                                                                                                     | `Ref<FormError[]>`{lang="ts-type"} <br> <p>A reference to the array containing validation errors. Use this to access or manipulate the error information.</p> |
+| `disabled`{lang="ts-type"}                                                                                                   | `Ref<boolean>`{lang="ts-type"}                                                                                                                                |
+| `dirty`{lang="ts-type"}                                                                                                      | `Ref<boolean>`{lang="ts-type"} `true` if at least one form field has been updated by the user.                                                                |
+| `dirtyFields`{lang="ts-type"}                                                                                                | `DeepReadonly<Set<keyof T>>`{lang="ts-type"} Tracks fields that have been modified by the user.                                                               |
+| `touchedFields`{lang="ts-type"}                                                                                              | `DeepReadonly<Set<keyof T>>`{lang="ts-type"} Tracks fields that the user interacted with.                                                                     |
+| `blurredFields`{lang="ts-type"}                                                                                              | `DeepReadonly<Set<keyof T>>`{lang="ts-type"} Tracks fields blurred by the user.                                                                               |

@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import type { FormError, FormErrorEvent, FormSubmitEvent } from '#ui/types'
+import { reactive } from 'vue'
+import type { FormError, FormErrorEvent, FormSubmitEvent } from '#b24ui/types'
 
 const state = reactive({
   email: undefined,
@@ -29,17 +30,17 @@ async function onError(event: FormErrorEvent) {
 </script>
 
 <template>
-  <UForm :validate="validate" :state="state" class="space-y-4" @submit="onSubmit" @error="onError">
-    <UFormField label="Email" name="email">
-      <UInput v-model="state.email" />
-    </UFormField>
+  <B24Form :validate="validate" :state="state" class="space-y-4" @submit="onSubmit" @error="onError">
+    <B24FormField label="Email" name="email">
+      <B24Input v-model="state.email" />
+    </B24FormField>
 
-    <UFormField label="Password" name="password">
-      <UInput v-model="state.password" type="password" />
-    </UFormField>
+    <B24FormField label="Password" name="password">
+      <B24Input v-model="state.password" type="password" />
+    </B24FormField>
 
-    <UButton type="submit">
+    <B24Button type="submit" color="success">
       Submit
-    </UButton>
-  </UForm>
+    </B24Button>
+  </B24Form>
 </template>
