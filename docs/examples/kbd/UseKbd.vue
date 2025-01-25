@@ -1,0 +1,21 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import { kbdKeysMap } from '@bitrix24/b24ui-nuxt/runtime/composables/useKbd.js'
+import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
+import Demo from './demo/UseKbd.vue'
+
+const values = Object.keys(kbdKeysMap)
+
+const value = ref('meta' as const)
+</script>
+
+<template>
+  <ComponentShowExample>
+    <template #actions>
+      <B24FormField label="value" class="w-1/2">
+        <B24Select v-model="value" :items="values" />
+      </B24FormField>
+    </template>
+    <Demo :value="value" />
+  </ComponentShowExample>
+</template>

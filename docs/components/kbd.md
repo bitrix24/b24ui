@@ -1,13 +1,24 @@
 ---
 title: Keyboard Key
-description: A kbd element to display a keyboard key.
-links:
-  - label: GitHub
-    icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/tree/v3/src/runtime/components/Kbd.vue
-navigation:
-  title: Kbd
+description: A kbd element for indicating a keyboard input.
+outline: deep
 ---
+<script setup>
+import KbdExample from '/examples/kbd/Kbd.vue';
+import ValueExample from '/examples/kbd/Value.vue';
+import UseKbdExample from '/examples/kbd/UseKbd.vue';
+import DepthExample from '/examples/kbd/Depth.vue';
+import SizeExample from '/examples/kbd/Size.vue';
+import WithClassExample from '/examples/kbd/WithClass.vue';
+</script>
+# Keyboard Key
+
+<Description
+  nuxt-ui="https://ui3.nuxt.dev/components/kbd"
+  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Kbd.vue"
+>
+  A kbd element for indicating a keyboard input.
+</Description>
 
 ## Usage
 
@@ -15,79 +26,57 @@ navigation:
 
 Use the default slot to set the value of the Kbd.
 
-::component-code
----
-slots:
-  default: K
----
-::
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <KbdExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/kbd/demo/Kbd.vue{2 vue:line-numbers}
 
 You can achieve the same result by using the `value` prop.
 
-::component-code
----
-props:
-  value: K
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <ValueExample />
+  </ClientOnly>
+</div>
 
-You can pass special keys to the `value` prop that goes through the [`useKbd`](https://github.com/nuxt/ui/blob/v3/src/runtime/composables/useKbd.ts) composable. For example, the `meta` key displays as `⌘` on macOS and `⊞` on other platforms.
+<<< @/examples/kbd/demo/Value.vue{12 vue:line-numbers}
 
-::component-code
----
-props:
-  value: meta
-items:
-  value:
-    - meta
-    - win
-    - command
-    - shift
-    - ctrl
-    - option
-    - alt
-    - enter
-    - delete
-    - backspace
-    - escape
-    - tab
-    - capslock
-    - arrowup
-    - arrowright
-    - arrowdown
-    - arrowleft
-    - pageup
-    - pagedown
-    - home
-    - end
----
-::
+You can pass special keys to the `value` prop that goes through the [`useKbd`](https://github.com/bitrix24/b24ui/blob/main/src/runtime/composables/useKbd.ts) composable. For example, the `meta` key displays as `⌘` on macOS and `⊞` on other platforms.
 
-### Variant
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <UseKbdExample />
+  </ClientOnly>
+</div>
 
-Use the `variant` prop to change the variant of the Kbd.
+<<< @/examples/kbd/demo/UseKbd.vue{12 vue:line-numbers}
 
-::component-code
----
-props:
-  variant: solid
-slots:
-  default: K
----
-::
+### Depth
+
+Use the `depth` parameter to change the intensity of Kbd.
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <DepthExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/kbd/demo/Depth.vue{12 vue:line-numbers}
 
 ### Size
 
 Use the `size` prop to change the size of the Kbd.
 
-::component-code
----
-props:
-  size: lg
-slots:
-  default: K
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <SizeExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/kbd/demo/Size.vue{12 vue:line-numbers}
 
 ## Examples
 
@@ -95,26 +84,20 @@ slots:
 
 Use the `class` prop to override the base styles of the Badge.
 
-::component-code
----
-props:
-  class: 'font-bold rounded-full'
-  variant: subtle
-slots:
-  default: K
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <WithClassExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/kbd/demo/WithClass.vue{8,14 vue:line-numbers}
 
 ## API
 
 ### Props
 
-:component-props
+<ComponentProps component="Kbd" />
 
 ### Slots
 
-:component-slots
-
-## Theme
-
-:component-theme
+<ComponentSlots component="Kbd" />
