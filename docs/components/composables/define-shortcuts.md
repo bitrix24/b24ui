@@ -94,7 +94,7 @@ The `usingInput` option allows you to specify that a shortcut should only trigge
 
 ```vue
 <template>
-  <UInput v-model="query" name="queryInput" />
+  <B24Input v-model="query" name="queryInput" />
 </template>
 
 <script setup lang="ts">
