@@ -92,7 +92,7 @@ Use the `inset` prop to display the Chip inside the component. This is useful wh
   </ClientOnly>
 </div>
 
-<<< @/examples/chip/demo/Inset.vue{17,22 vue:line-numbers}
+<<< @/examples/chip/demo/Inset.vue{16,22,27 vue:line-numbers}
 
 ### Standalone
 
@@ -104,7 +104,7 @@ Use the `standalone` prop alongside the `inset` prop to display the Chip inline.
   </ClientOnly>
 </div>
 
-<<< @/examples/chip/demo/Standalone.vue{17,22 vue:line-numbers}
+<<< @/examples/chip/demo/Standalone.vue{30 vue:line-numbers}
 
 ::: info
 It's used this way in the [`Select`](/components/select) components for example.
@@ -116,7 +116,7 @@ It's used this way in the [`Select`](/components/select) components for example.
 
 You can control the visibility of the Chip using the `show` prop.
 
-::: note
+::: info
 In this example, the Chip has a color per status and is displayed when the status is not `offline`.
 :::
 
@@ -126,7 +126,7 @@ In this example, the Chip has a color per status and is displayed when the statu
   </ClientOnly>
 </div>
 
-<<< @/examples/chip/demo/WithShow.vue{17,22 vue:line-numbers}
+<<< @/examples/chip/demo/WithShow.vue{vue:line-numbers}
 
 ## API
 

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
-import MailIcon from '@bitrix24/b24icons-vue/main/MailIcon'
 
 const statuses = ['online', 'away', 'busy', 'offline']
 const status = ref(statuses[0])
@@ -28,7 +27,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <B24Chip :color="color" :show="show">
-    <B24Button :icon="MailIcon" depth="light" />
+  <B24Chip :color="color" :show="show" inset size="xs">
+    <B24Avatar src="/b24ui/avatar/employee.png" size="md" />
   </B24Chip>
 </template>
