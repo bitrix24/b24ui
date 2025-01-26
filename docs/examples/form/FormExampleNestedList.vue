@@ -26,7 +26,10 @@ const isShowResult = ref(false)
 const autoResultSeconds = ref(20)
 
 const state = reactive<Partial<Schema & { items: Partial<ItemSchema>[] }>>({
-  items: [{}]
+  items: [{
+    description: '',
+    price: 0.01
+  }]
 })
 
 function addItem() {
@@ -47,7 +50,10 @@ function removeItem() {
 
 function resetState() {
   state.customer = undefined
-  state.items = [{}]
+  state.items = [{
+    description: '',
+    price: 0.01
+  }]
 
   isShowResult.value = false
 }
@@ -143,7 +149,7 @@ async function onSubmit(event: FormSubmitEvent<any>) {
       <B24Button type="submit" label="Submit" color="success" />
       <B24Button
         type="button"
-        class="text-base-300 dark:text-base-700"
+        class="text-base-master/10 dark:text-base-100/20"
         color="link"
         :icon="Shining2Icon"
         @click="fillState"

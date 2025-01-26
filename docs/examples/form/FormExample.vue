@@ -48,7 +48,7 @@ function fillState() {
 
 <template>
   <div class="flex flex-col gap-4">
-    <B24Advice v-if="isShowResult" :avatar="{ src: '/avatar/employee.png' }">
+    <B24Advice v-if="isShowResult" :avatar="{ src: `${$attrs?.base}/avatar/employee.png` }">
       <div class="flex flex-row items-start justify-between gap-2">
         <div>The form has been submitted.</div>
         <div class="shrink-0 relative size-6 group">
@@ -101,7 +101,7 @@ function fillState() {
         <B24Button type="submit" label="Submit" color="success" />
         <B24Button
           type="button"
-          class="text-base-300 dark:text-base-700"
+          class="text-base-master/10 dark:text-base-100/20"
           color="link"
           :icon="Shining2Icon"
           @click="fillState"

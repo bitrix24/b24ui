@@ -1,12 +1,4 @@
 <script setup lang="ts">
-/**
- * @todo add selectMenu
- * @todo add selectMenuMultiple
- * @todo add inputMenu
- * @todo add inputMenuMultiple
- * @todo add inputNumber
- * @todo add PinInput
- */
 import { reactive, ref, useTemplateRef } from 'vue'
 import * as z from 'zod'
 import type { FormSubmitEvent } from '@bitrix24/b24ui-nuxt'
@@ -18,27 +10,10 @@ defineOptions({ inheritAttrs: false })
 
 const schema = z.object({
   input: z.string().min(10),
-  // inputNumber: z.number().min(10),
-  /*
-  inputMenu: z.any().refine(option => option?.value === 'option-2', {
-    message: 'Select Option 2'
-  }),
-  inputMenuMultiple: z.any().refine(values => !!values?.find((option: any) => option.value === 'option-2'), {
-    message: 'Include Option 2'
-  }),
-  */
   textarea: z.string().min(10),
   select: z.string().refine(value => value === 'option-2', {
     message: 'Select Option 2'
   }),
-  /*
-  selectMenu: z.any().refine(option => option?.value === 'option-2', {
-    message: 'Select Option 2'
-  }),
-  selectMenuMultiple: z.any().refine(values => !!values?.find((option: any) => option.value === 'option-2'), {
-    message: 'Include Option 2'
-  }),
-   */
   switch: z.boolean().refine(value => value === true, {
     message: 'Toggle me'
   }),
@@ -49,7 +24,6 @@ const schema = z.object({
     message: 'Select Option 2'
   }),
   range: z.number().max(20, { message: 'Must be less than 20' })
-  // pin: z.string().regex(/^\d$/).array().length(5)
 })
 
 type Schema = z.input<typeof schema>
@@ -155,26 +129,6 @@ function fillState() {
       <B24Select v-model="state.select" :items="items" class="w-full" />
     </B24FormField>
 
-    <!-- B24FormField name="selectMenu" label="Select Menu">
-        <B24SelectMenu v-model="state.selectMenu" :items="items" class="w-full" />
-      </B24FormField -->
-
-    <!-- B24FormField name="selectMenuMultiple" label="Select Menu (Multiple)">
-        <B24SelectMenu v-model="state.selectMenuMultiple" multiple :items="items" class="w-full" />
-      </B24FormField -->
-
-    <!-- B24FormField name="inputMenu" label="Input Menu">
-        <B24InputMenu v-model="state.inputMenu" :items="items" class="w-full" />
-      </B24FormField -->
-
-    <!-- B24FormField name="inputMenuMultiple" label="Input Menu (Multiple)">
-        <B24InputMenu v-model="state.inputMenuMultiple" multiple :items="items" class="w-full" />
-      </B24FormField -->
-
-    <!-- B24FormField name="inputNumber" label="Input Number">
-        <B24InputNumber v-model="state.inputNumber" class="w-full" />
-      </B24FormField -->
-
     <B24FormField label="Textarea" name="textarea">
       <B24Textarea v-model="state.textarea" class="w-full" />
     </B24FormField>
@@ -183,23 +137,19 @@ function fillState() {
       <B24RadioGroup v-model="state.radioGroup" legend="Radio group" :items="items" />
     </B24FormField>
 
-    <!-- B24FormField name="pin" label="Pin Input" :error-pattern="/(pin)\..*/">
-        <B24PinInput v-model="state.pin" />
-      </B24FormField -->
-
     <B24Separator class="mt-6 mb-3" />
     <div class="flex flex-row gap-4 items-center justify-between">
       <div class="flex gap-2">
-        <B24Button type="submit" label="Submit" color="success" :disabled="$attrs.disabled" />
-        <B24Button label="Clear" color="link" :disabled="$attrs.disabled" @click="form?.clear(); resetState()" />
+        <B24Button type="submit" label="Submit" color="success" :disabled="!!$attrs?.disabled" />
+        <B24Button label="Clear" color="link" :disabled="!!$attrs?.disabled" @click="form?.clear(); resetState()" />
       </div>
 
       <B24Button
         type="button"
-        class="text-base-300 dark:text-base-700"
+        class="text-base-master/10 dark:text-base-100/20"
         color="link"
         :icon="Shining2Icon"
-        :disabled="$attrs.disabled"
+        :disabled="!!$attrs?.disabled"
         @click="fillState"
       />
     </div>

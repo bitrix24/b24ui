@@ -4,11 +4,11 @@ description: A form component designed for validation and handling submissions.
 outline: deep
 ---
 <script setup>
-import FormExample from '/examples/form/VPFormExample.vue';
-import ElementsExample from '/examples/form/VPFormExampleElements.vue';
-import OnErrorExample from '/examples/form/VPFormExampleOnError.vue';
-import NestedExample from '/examples/form/VPFormExampleNested.vue';
-import NestedListExample from '/examples/form/VPFormExampleNestedList.vue';
+import FormExample from '/examples/form/FormExample.vue';
+import ElementsExample from '/examples/form/FormExampleElementsWrap.vue';
+import OnErrorExample from '/examples/form/FormExampleOnError.vue';
+import NestedExample from '/examples/form/FormExampleNested.vue';
+import NestedListExample from '/examples/form/FormExampleNestedList.vue';
 </script>
 # Form
 
@@ -53,10 +53,10 @@ The validation function must return a list of errors with the following attribut
 It can be used alongside the `schema` prop to handle complex use cases.
 :::
 
-<div class="lg:min-h-[300px]">
+<div>
   <ClientOnly>
     <ComponentShowExample>
-      <FormExample />
+      <FormExample base="/b24ui" class="w-full sm:w-2/3" />
     </ComponentShowExample>
   </ClientOnly>
 </div>
@@ -77,15 +77,13 @@ You can control when validation happens this using the `validate-on` prop.
 You can use the [`useFormField`](/composables/use-form-field) composable to implement this inside your own components.
 :::
 
-<div class="lg:min-h-[300px]">
+<div>
   <ClientOnly>
-    <ComponentShowExample>
       <ElementsExample />
-    </ComponentShowExample>
   </ClientOnly>
 </div>
 
-<<< @/examples/form/VPFormExampleElements.vue{vue:line-numbers}
+<<< @/examples/form/FormExampleElements.vue{vue:line-numbers}
 
 ### Error Event
 
@@ -97,15 +95,15 @@ You can listen to the `@error` event to handle errors. This event is triggered w
 
 Here's an example that focuses the first input element with an error after the form is submitted:
 
-<div class="lg:min-h-[270px]">
+<div>
   <ClientOnly>
     <ComponentShowExample>
-      <OnErrorExample />
+      <OnErrorExample class="w-full sm:w-2/3" />
     </ComponentShowExample>
   </ClientOnly>
 </div>
 
-<<< @/examples/form/VPFormExampleOnError.vue{vue:line-numbers}
+<<< @/examples/form/FormExampleOnError.vue{vue:line-numbers}
 
 ### Nesting Forms
 
@@ -113,27 +111,27 @@ Nesting form components allows you to manage complex data structures, such as li
 
 For example, it can be used to dynamically add fields based on user's input:
 
-<div class="lg:min-h-[300px]">
+<div>
   <ClientOnly>
     <ComponentShowExample>
-      <NestedExample />
+      <NestedExample class="w-full sm:w-2/3" />
     </ComponentShowExample>
   </ClientOnly>
 </div>
 
-<<< @/examples/form/VPFormExampleNested.vue{vue:line-numbers}
+<<< @/examples/form/FormExampleNested.vue{vue:line-numbers}
 
 Or to validate list inputs:
 
-<div class="lg:min-h-[300px]">
+<div>
   <ClientOnly>
     <ComponentShowExample>
-      <NestedListExample />
+      <NestedListExample class="w-full sm:w-2/3" />
     </ComponentShowExample>
   </ClientOnly>
 </div>
 
-<<< @/examples/form/VPFormExampleNestedList.vue{vue:line-numbers}
+<<< @/examples/form/FormExampleNestedList.vue{vue:line-numbers}
 
 ## API
 

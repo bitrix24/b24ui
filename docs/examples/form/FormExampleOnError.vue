@@ -30,17 +30,27 @@ async function onError(event: FormErrorEvent) {
 </script>
 
 <template>
-  <B24Form :validate="validate" :state="state" class="space-y-4" @submit="onSubmit" @error="onError">
-    <B24FormField label="Email" name="email">
-      <B24Input v-model="state.email" />
-    </B24FormField>
+  <div class="flex flex-col gap-4">
+    <B24Form
+      :validate="validate"
+      :state="state"
+      class="space-y-4"
+      @submit="onSubmit"
+      @error="onError"
+    >
+      <B24FormField label="Email" name="email">
+        <B24Input v-model="state.email" />
+      </B24FormField>
 
-    <B24FormField label="Password" name="password">
-      <B24Input v-model="state.password" type="password" />
-    </B24FormField>
+      <B24FormField label="Password" name="password">
+        <B24Input v-model="state.password" type="password" />
+      </B24FormField>
 
-    <B24Button type="submit" color="success">
-      Submit
-    </B24Button>
-  </B24Form>
+      <B24Separator class="mt-6 mb-3" />
+
+      <B24Button type="submit" color="success">
+        Submit
+      </B24Button>
+    </B24Form>
+  </div>
 </template>
