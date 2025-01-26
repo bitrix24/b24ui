@@ -1,204 +1,135 @@
 ---
-description: An input element to toggle between checked and unchecked states.
-links:
-  - label: Checkbox
-    icon: i-custom-reka-ui
-    to: https://reka-ui.com/docs/components/checkbox
-  - label: GitHub
-    icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/tree/v3/src/runtime/components/Checkbox.vue
+title: Checkbox
+description: A toggle input for marking as checked or unchecked.
+outline: deep
 ---
+<script setup>
+import CheckboxExample from '/examples/checkbox/Checkbox.vue';
+import CheckboxDefExample from '/examples/checkbox/CheckboxDef.vue';
+import IndeterminateExample from '/examples/checkbox/Indeterminate.vue';
+import LabelExample from '/examples/checkbox/Label.vue';
+import DescriptionExample from '/examples/checkbox/Description.vue';
+import ColorExample from '/examples/checkbox/Color.vue';
+import SizeExample from '/examples/checkbox/Size.vue';
+import DisabledExample from '/examples/checkbox/Disabled.vue';
+</script>
+# Checkbox
+
+<Description
+  nuxt-ui="https://ui3.nuxt.dev/components/checkbox"
+  reka-ui="https://reka-ui.com/docs/components/checkbox"
+  reka-ui-title="Checkbox"
+  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Checkbox.vue"
+>
+  A toggle input for marking as checked or unchecked.
+</Description>
 
 ## Usage
 
 Use the `v-model` directive to control the checked state of the Checkbox.
 
-::component-code
----
-ignore:
-  - modelValue
-external:
-  - modelValue
-props:
-  modelValue: true
----
-::
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <CheckboxExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/checkbox/demo/Checkbox.vue{4,8 vue:line-numbers}
 
 Use the `default-value` prop to set the initial value when you do not need to control its state.
 
-::component-code
----
-ignore:
-  - defaultValue
-props:
-  defaultValue: true
----
-::
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <CheckboxDefExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/checkbox/demo/CheckboxDef.vue{2 vue:line-numbers}
 
 ### Indeterminate
 
 Use the `indeterminate` value in the `v-model` directive or `default-value` prop to set the Checkbox to an [indeterminate state](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#indeterminate_state_checkboxes).
 
-::component-code
----
-ignore:
-  - defaultValue
-props:
-  defaultValue: 'indeterminate'
----
-::
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <IndeterminateExample />
+  </ClientOnly>
+</div>
 
-### Indeterminate Icon
-
-Use the `indeterminate-icon` prop to customize the indeterminate icon. Defaults to `i-lucide-minus`.
-
-::component-code
----
-ignore:
-  - defaultValue
-props:
-  defaultValue: 'indeterminate'
-  indeterminateIcon: 'i-lucide-plus'
----
-::
-
-::framework-only
-#nuxt
-:::tip{to="/getting-started/icons/nuxt#theme"}
-You can customize this icon globally in your `app.config.ts` under `ui.icons.minus` key.
-:::
-
-#vue
-:::tip{to="/getting-started/icons/vue#theme"}
-You can customize this icon globally in your `vite.config.ts` under `ui.icons.minus` key.
-:::
-::
+<<< @/examples/checkbox/demo/Indeterminate.vue{2 vue:line-numbers}
 
 ### Label
 
 Use the `label` prop to set the label of the Checkbox.
 
-::component-code
----
-props:
-  label: Check me
----
-::
-
 When using the `required` prop, an asterisk is added next to the label.
 
-::component-code
----
-ignore:
-  - label
-props:
-  required: true
-  label: Check me
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <LabelExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/checkbox/demo/Label.vue{15,16 vue:line-numbers}
 
 ### Description
 
 Use the `description` prop to set the description of the Checkbox.
 
-::component-code
----
-ignore:
-  - label
-props:
-  label: Check me
-  description: 'This is a checkbox.'
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <DescriptionExample />
+  </ClientOnly>
+</div>
 
-### Icon
-
-Use the `icon` prop to set the icon of the Checkbox when it is checked. Defaults to `i-lucide-check`.
-
-::component-code
----
-ignore:
-  - label
-  - defaultValue
-props:
-  icon: 'i-lucide-heart'
-  defaultValue: true
-  label: Check me
----
-::
-
-::framework-only
-#nuxt
-:::tip{to="/getting-started/icons/nuxt#theme"}
-You can customize this icon globally in your `app.config.ts` under `ui.icons.check` key.
-:::
-
-#vue
-:::tip{to="/getting-started/icons/vue#theme"}
-You can customize this icon globally in your `vite.config.ts` under `ui.icons.check` key.
-:::
-::
+<<< @/examples/checkbox/demo/Description.vue{14 vue:line-numbers}
 
 ### Color
 
 Use the `color` prop to change the color of the Checkbox.
 
-::component-code
----
-ignore:
-  - label
-  - defaultValue
-props:
-  color: neutral
-  defaultValue: true
-  label: Check me
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <ColorExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/checkbox/demo/Color.vue{15 vue:line-numbers}
 
 ### Size
 
 Use the `size` prop to change the size of the Checkbox.
 
-::component-code
----
-ignore:
-  - label
-  - defaultValue
-props:
-  size: xl
-  defaultValue: true
-  label: Check me
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <SizeExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/checkbox/demo/Size.vue{15 vue:line-numbers}
 
 ### Disabled
 
 Use the `disabled` prop to disable the Checkbox.
 
-::component-code
----
-ignore:
-  - label
-props:
-  disabled: true
-  label: Check me
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <DisabledExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/checkbox/demo/Disabled.vue{13 vue:line-numbers}
 
 ## API
 
 ### Props
 
-:component-props
+<ComponentProps component="Checkbox" />
 
 ### Slots
 
-:component-slots
+<ComponentSlots component="Checkbox" />
 
 ### Emits
 
-:component-emits
-
-## Theme
-
-:component-theme
+<ComponentEmits component="Checkbox" />
