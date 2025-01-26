@@ -10,10 +10,10 @@ const description = ref('Is there anything else you need help with?')
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="title" class="w-full">
+      <B24FormField label="title" class="w-full sm:w-44">
         <B24Input v-model="title" />
       </B24FormField>
-      <B24FormField label="description" class="w-full">
+      <B24FormField label="description" class="w-full sm:w-44">
         <B24Input v-model="description" />
       </B24FormField>
     </template>

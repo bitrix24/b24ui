@@ -9,7 +9,7 @@ const description = ref('We\'ll never share your email with anyone else.')
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="description" class="w-full">
+      <B24FormField label="description" class="w-full sm:w-44">
         <B24Input v-model="description" />
       </B24FormField>
     </template>

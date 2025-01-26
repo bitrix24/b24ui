@@ -9,7 +9,7 @@ const placeholder = ref('Enter a company description')
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="placeholder" class="w-full">
+      <B24FormField label="placeholder" class="w-full sm:w-44">
         <B24Input v-model="placeholder" />
       </B24FormField>
     </template>

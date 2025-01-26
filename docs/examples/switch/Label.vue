@@ -17,6 +17,8 @@ const isRequired = ref(true)
         <B24Input v-model="label" />
       </B24FormField>
     </template>
-    <Demo :label="label" :is-required="isRequired" />
+    <div class="w-auto sm:max-w-2/3">
+      <Demo :label="label" :is-required="isRequired" />
+    </div>
   </ComponentShowExample>
 </template>
