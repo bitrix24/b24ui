@@ -9,8 +9,8 @@ const label = ref('Bitrix24 UI')
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="label" class="w-1/2">
-        <B24Input v-model="label" type="search" />
+      <B24FormField label="label" class="w-full sm:w-44">
+        <B24Input v-model="label" />
       </B24FormField>
     </template>
     <div class="bg-white dark:bg-base-900 rounded w-full h-[70px] p-2 flex flex-col items-center justify-center gap-5">

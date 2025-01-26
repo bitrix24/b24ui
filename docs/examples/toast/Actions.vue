@@ -11,7 +11,7 @@ const description = ref('Is there anything else you need help with?')
   <ComponentShowExample>
     <template #actions>
       <B24FormField label="description" class="w-full">
-        <B24Input v-model="description" type="search" />
+        <B24Input v-model="description" />
       </B24FormField>
     </template>
     <Demo :title="title" :description="description" />

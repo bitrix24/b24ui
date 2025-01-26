@@ -10,7 +10,7 @@ const isAutoresize = ref(true)
   <ComponentShowExample>
     <template #actions>
       <B24FormField label="isAutoresize">
-        <B24Switch v-model="isAutoresize" size="xs" />
+        <B24Switch v-model="isAutoresize" />
       </B24FormField>
     </template>
     <Demo :is-autoresize="isAutoresize" />

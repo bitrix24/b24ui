@@ -10,7 +10,7 @@ const label = ref('Email')
   <ComponentShowExample>
     <template #actions>
       <B24FormField label="label" class="1/2">
-        <B24Input v-model="label" type="search" />
+        <B24Input v-model="label" />
       </B24FormField>
     </template>
     <Demo :label="label" />

@@ -9,8 +9,8 @@ const placeholder = ref('Search...')
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="placeholder" class="w-1/2">
-        <B24Input v-model="placeholder" type="search" />
+      <B24FormField label="placeholder" class="w-full sm:w-44">
+        <B24Input v-model="placeholder" />
       </B24FormField>
     </template>
     <Demo :placeholder="placeholder" />

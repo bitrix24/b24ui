@@ -5,7 +5,7 @@ import Demo from './demo/WithItemsIcons.vue'
 
 <template>
   <ComponentShowExample>
-    <div class="w-1/3">
+    <div class="w-full sm:w-1/3">
       <Demo />
     </div>
   </ComponentShowExample>

@@ -10,7 +10,7 @@ const isUnmountOnHide = ref(false)
   <ComponentShowExample>
     <template #actions>
       <B24FormField label="isUnmountOnHide">
-        <B24Switch v-model="isUnmountOnHide" size="xs" />
+        <B24Switch v-model="isUnmountOnHide" />
       </B24FormField>
     </template>
     <Demo :unmount-on-hide="isUnmountOnHide" />

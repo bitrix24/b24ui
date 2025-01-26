@@ -10,7 +10,7 @@ const isStatus = ref(true)
   <ComponentShowExample>
     <template #actions>
       <B24FormField label="isStatus">
-        <B24Switch v-model="isStatus" size="xs" />
+        <B24Switch v-model="isStatus" />
       </B24FormField>
     </template>
     <Demo :is-status="isStatus" />

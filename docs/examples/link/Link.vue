@@ -9,8 +9,8 @@ const asTag = ref('button')
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="as" class="w-1/2">
-        <B24Input v-model="asTag" type="search" />
+      <B24FormField label="as" class="w-full sm:w-44">
+        <B24Input v-model="asTag" />
       </B24FormField>
     </template>
     <div class="w-full flex flex-col items-center gap-8">

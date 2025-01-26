@@ -10,7 +10,7 @@ const error = ref('The email you specified is incorrect. Please enter a correct 
   <ComponentShowExample>
     <template #actions>
       <B24FormField label="error" class="w-full">
-        <B24Input v-model="error" type="search" />
+        <B24Input v-model="error" />
       </B24FormField>
     </template>
     <Demo :error="error" />

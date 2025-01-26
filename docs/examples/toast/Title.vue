@@ -10,7 +10,7 @@ const title = ref('The calculation of indicators has been completed')
   <ComponentShowExample>
     <template #actions>
       <B24FormField label="title" class="w-full">
-        <B24Input v-model="title" type="search" />
+        <B24Input v-model="title" />
       </B24FormField>
     </template>
     <Demo :title="title" />

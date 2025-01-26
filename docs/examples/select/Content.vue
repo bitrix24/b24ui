@@ -22,7 +22,7 @@ const contentSideOffset = ref(8)
         <B24Input v-model.number="contentSideOffset" type="number" :min="0" size="md" />
       </B24FormField>
     </template>
-    <div class="w-1/3">
+    <div class="w-full sm:w-1/3">
       <Demo
         :content-align="contentAlign"
         :content-side="contentSide"

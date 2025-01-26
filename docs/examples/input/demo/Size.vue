@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import type { InputProps } from '@bitrix24/b24ui-nuxt'
 
 export interface ExampleProps {
-  size?: any
+  size?: InputProps['size']
 }
 
 withDefaults(defineProps<ExampleProps>(), {
-  size: 'md'
+  size: 'md' as const
 })
 </script>
 

@@ -10,7 +10,7 @@ const hint = ref('Optional')
   <ComponentShowExample>
     <template #actions>
       <B24FormField label="hint" class="w-full">
-        <B24Input v-model="hint" type="search" />
+        <B24Input v-model="hint" />
       </B24FormField>
     </template>
     <Demo :hint="hint" />

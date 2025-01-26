@@ -11,10 +11,10 @@ const isRequired = ref(true)
   <ComponentShowExample>
     <template #actions>
       <B24FormField label="required">
-        <B24Switch v-model="isRequired" size="xs" />
+        <B24Switch v-model="isRequired" />
       </B24FormField>
-      <B24FormField label="label" class="w-1/2">
-        <B24Input v-model="label" type="search" />
+      <B24FormField label="label" class="w-full sm:w-44">
+        <B24Input v-model="label" />
       </B24FormField>
     </template>
     <Demo :label="label" :is-required="isRequired" />

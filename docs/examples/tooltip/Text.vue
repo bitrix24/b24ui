@@ -10,7 +10,7 @@ const text = ref('Opens the deal creation form in the slider')
   <ComponentShowExample>
     <template #actions>
       <B24FormField label="text" class="w-full">
-        <B24Input v-model="text" type="search" />
+        <B24Input v-model="text" />
       </B24FormField>
     </template>
     <Demo :text="text" />

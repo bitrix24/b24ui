@@ -10,7 +10,7 @@ const isDisabled = ref(true)
   <ComponentShowExample>
     <template #actions>
       <B24FormField label="isDisabled">
-        <B24Switch v-model="isDisabled" size="xs" />
+        <B24Switch v-model="isDisabled" />
       </B24FormField>
     </template>
     <Demo :is-disabled="isDisabled" />

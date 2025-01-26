@@ -9,7 +9,7 @@ const max = ref(48)
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="max" class="w-1/2">
+      <B24FormField label="max" class="w-full sm:w-44">
         <B24Input v-model.number="max" type="number" :min="1" :max="200" />
       </B24FormField>
     </template>

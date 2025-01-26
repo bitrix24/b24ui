@@ -14,7 +14,7 @@ const maxrows = ref(4)
         <B24Input v-model.number="maxrows" type="number" :min="0" :max="1000" />
       </B24FormField>
       <B24FormField label="isAutoresize">
-        <B24Switch v-model="isAutoresize" size="xs" />
+        <B24Switch v-model="isAutoresize" />
       </B24FormField>
     </template>
     <Demo :maxrows="maxrows" :is-autoresize="isAutoresize" />

@@ -10,7 +10,7 @@ const isLoading = ref(true)
   <ComponentShowExample>
     <template #actions>
       <B24FormField label="isLoading">
-        <B24Switch v-model="isLoading" size="xs" />
+        <B24Switch v-model="isLoading" />
       </B24FormField>
     </template>
     <Demo :is-loading="isLoading" />

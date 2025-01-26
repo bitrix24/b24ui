@@ -76,7 +76,7 @@ const type = ref('dashed' as const)
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="color" class="w-1/3">
+      <B24FormField label="color" class="w-full sm:w-44">
         <B24Select
           v-model="chipValue"
           :items="chipItems"

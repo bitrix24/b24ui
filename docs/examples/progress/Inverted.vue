@@ -10,7 +10,7 @@ const isInverted = ref(true)
   <ComponentShowExample>
     <template #actions>
       <B24FormField label="isInverted">
-        <B24Switch v-model="isInverted" size="xs" />
+        <B24Switch v-model="isInverted" />
       </B24FormField>
     </template>
     <Demo :is-inverted="isInverted" />

@@ -10,7 +10,7 @@ const help = ref('Please enter a valid email address.')
   <ComponentShowExample>
     <template #actions>
       <B24FormField label="help" class="w-full">
-        <B24Input v-model="help" type="search" />
+        <B24Input v-model="help" />
       </B24FormField>
     </template>
     <Demo :help="help" />

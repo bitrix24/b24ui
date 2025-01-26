@@ -9,8 +9,8 @@ const legend = ref('You need to choose')
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="legend" class="w-1/2">
-        <B24Input v-model="legend" type="search" />
+      <B24FormField label="legend" class="w-full sm:w-44">
+        <B24Input v-model="legend" />
       </B24FormField>
     </template>
     <Demo :legend="legend" />
