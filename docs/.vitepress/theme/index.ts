@@ -12,6 +12,7 @@ import ComponentProps from './components/ui/ComponentProps.vue'
 import ComponentSlots from './components/ui/ComponentSlots.vue'
 import ComponentEmits from './components/ui/ComponentEmits.vue'
 import Description from './components/ui/Description.vue'
+import Placeholder from './components/ui/Placeholder.vue'
 import VPBadge from 'vitepress/dist/client/theme-default/components/VPBadge.vue'
 import 'vitepress/dist/client/theme-default/styles/fonts.css'
 import './tailwind.css'
@@ -55,6 +56,7 @@ export default {
       .component('ComponentProps', ComponentProps)
       .component('ComponentSlots', ComponentSlots)
       .component('ComponentEmits', ComponentEmits)
+      .component('Placeholder', Placeholder)
     // endregion ////
 
     if (!import.meta.env.SSR) {

@@ -89,7 +89,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'Alert', link: 'alert' },
         { text: 'Advice', link: 'advice' },
-        { text: 'Chip', link: 'chip' },
+        { text: '🔨Chip', link: 'chip' },
         { text: '✔️Toast', link: 'toast' },
         { text: '✔️Progress', link: 'progress' },
         { text: '✔️Tooltip', link: 'tooltip' }
@@ -110,9 +110,9 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       text: 'Data input',
       collapsed: false,
       items: [
-        { text: 'Form', link: 'form' },
-        { text: 'FormField', link: 'form-field' },
-        { text: '🔨Input', link: 'input' },
+        { text: '✔️Form', link: 'form' },
+        { text: '✔️FormField', link: 'form-field' },
+        { text: '✔️Input', link: 'input' },
         { text: '✔️RadioGroup', link: 'radio-group' },
         { text: 'Checkbox', link: 'checkbox' },
         { text: '✔️Switch', link: 'switch' },
@@ -125,7 +125,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       text: 'Layout & Navigation',
       collapsed: false,
       items: [
-        { text: 'Container', link: 'container' },
+        { text: '✔️Container', link: 'container' },
         { text: 'DescriptionList', link: '/content/description-list' },
         { text: '✔️Link', link: 'link' },
         { text: '✔️Separator', link: 'separator' },

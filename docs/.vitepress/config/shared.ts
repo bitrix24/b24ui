@@ -39,7 +39,8 @@ export const shared = defineConfig({
    * @todo off this
    */
   ignoreDeadLinks: [
-    /\/components\//
+    /\/components\//,
+    /\/composables\//
   ],
   themeConfig: {
     siteTitle: false,
