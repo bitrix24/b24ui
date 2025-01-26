@@ -1,28 +1,90 @@
 ---
 title: ButtonGroup
-description: _todo_ change me
+description: Organize several button-type elements into a group.
 outline: deep
 ---
 <script setup>
-import ButtonGroupExample from '/examples/buttongroup/ButtonGroupExample.vue';
+import ButtonGroupExample from '/examples/buttongroup/ButtonGroup.vue';
+import SizeExample from '/examples/buttongroup/Size.vue';
+import OrientationExample from '/examples/buttongroup/Orientation.vue';
+import WithInputExample from '/examples/buttongroup/WithInput.vue';
+import WithTooltipExample from '/examples/buttongroup/WithTooltip.vue';
 </script>
 # ButtonGroup
 
 <Description
+  nuxt-ui="https://ui3.nuxt.dev/components/button-group"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/ButtonGroup.vue"
 >
-  @todo change me
+  Organize several button-type elements into a group.
 </Description>
 
 ## Usage
 
-<ComponentShowExample >
-  <iframe data-why class="min-h-<80px>" allowtransparency="true">
-    <ButtonGroupExample />
-  </iframe>
-</ComponentShowExample>
+Wrap multiple [Button](/components/button) within a ButtonGroup to group them together.
 
-<<< @/examples/buttongroup/ButtonGroupExample.vue
+::: info
+If you use elements with different colors, use the `no-split` property to disable the display of the separator.
+:::
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <ButtonGroupExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/buttongroup/demo/ButtonGroup.vue{6,9,10,14 vue:line-numbers}
+
+### Size
+
+Use the `size` prop to change the size of all the buttons.
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <SizeExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/buttongroup/demo/Size.vue{16,22 vue:line-numbers}
+
+### Orientation
+
+Use the `orientation` prop to change the orientation of the buttons. Defaults to `horizontal`.
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <OrientationExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/buttongroup/demo/Orientation.vue{16,22 vue:line-numbers}
+
+## Examples
+
+### With input
+
+You can use components like [Input](/components/input), [Select](/components/select) etc. within a button group.
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <WithInputExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/buttongroup/demo/WithInput.vue{14,15,17,21,23 vue:line-numbers}
+
+### With tooltip
+
+You can use a [Tooltip](/components/tooltip.html#usage) within a button group.
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <WithTooltipExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/buttongroup/demo/WithTooltip.vue{24-28,35 vue:line-numbers}
+
 
 ## API
 
@@ -33,120 +95,3 @@ import ButtonGroupExample from '/examples/buttongroup/ButtonGroupExample.vue';
 ### Slots
 
 <ComponentSlots component="ButtonGroup" />
-
-### Emits
-
-<ComponentEmits component="ButtonGroup" />
-
----
-title: ButtonGroup
-description: Group multiple button-like elements together.
-links:
-- label: GitHub
-  icon: i-simple-icons-github
-  to: https://github.com/nuxt/ui/tree/v3/src/runtime/components/ButtonGroup.vue
----
-
-## Usage
-
-Wrap multiple [Button](/components/button) within a ButtonGroup to group them together.
-
-::component-code
----
-prettier: true
-slots:
-default: |
-
-    <UButton color="neutral" variant="subtle" label="Button" />
-    <UButton color="neutral" variant="outline" icon="i-lucide-chevron-down" />
----
-:u-button{color="neutral" variant="subtle" label="Button"}
-:u-button{color="neutral" variant="outline" icon="i-lucide-chevron-down"}
-::
-
-### Size
-
-Use the `size` prop to change the size of all the buttons.
-
-::component-code
----
-prettier: true
-props:
-size: xl
-slots:
-default: |
-
-    <UButton color="neutral" variant="subtle" label="Button" />
-    <UButton color="neutral" variant="outline" icon="i-lucide-chevron-down" />
----
-:u-button{color="neutral" variant="subtle" label="Button"}
-:u-button{color="neutral" variant="outline" icon="i-lucide-chevron-down"}
-::
-
-### Orientation
-
-Use the `orientation` prop to change the orientation of the buttons. Defaults to `horizontal`.
-
-::component-code
----
-prettier: true
-props:
-orientation: vertical
-slots:
-default: |
-
-    <UButton color="neutral" variant="subtle" label="Submit" />
-    <UButton color="neutral" variant="outline" label="Cancel" />
----
-:u-button{color="neutral" variant="subtle" label="Submit"}
-:u-button{color="neutral" variant="outline" label="Cancel"}
-::
-
-## Examples
-
-### With input
-
-You can use components like [Input](/components/input), [InputMenu](/components/input-menu), [Select](/components/select) [SelectMenu](/components/select-menu), etc. within a button group.
-
-::component-code
-
-
----
-prettier: true
-slots:
-default: |
-
-    <UInput color="neutral" variant="outline" placeholder="Enter token" />
-
-    <UButton color="neutral" variant="subtle" icon="i-lucide-clipboard" />
----
-:u-input{color="neutral" variant="outline" placeholder="Enter token"}
-:u-button{color="neutral" variant="subtle" icon="i-lucide-clipboard"}
-::
-
-### With tooltip
-
-You can use a tooltip within a button group.
-
-:component-example{name="button-group-tooltip-example"}
-
-### With dropdown
-
-You can use a dropdown menu within a button group.
-
-:component-example{name="button-group-dropdown-example"}
-
-## API
-
-### Props
-
-:component-props
-
-### Slots
-
-:component-slots
-
-## Theme
-
-:component-theme
-
