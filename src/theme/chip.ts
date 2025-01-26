@@ -137,7 +137,7 @@ export default {
     }
   ],
   defaultVariants: {
-    size: 'md',
+    size: 'sm',
     color: 'danger',
     position: 'top-right'
   }

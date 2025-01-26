@@ -1,127 +1,114 @@
 ---
-description: An indicator of a numeric value or a state.
-links:
-  - label: GitHub
-    icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/tree/v3/src/runtime/components/Chip.vue
+title: Chip
+description: An indicator that shows either a number or a state.
+outline: deep
 ---
+<script setup>
+import ChipExample from '/examples/chip/Chip.vue';
+import ColorExample from '/examples/chip/Color.vue';
+import SizeExample from '/examples/chip/Size.vue';
+import TextExample from '/examples/chip/Text.vue';
+import PositionExample from '/examples/chip/Position.vue';
+import InsetExample from '/examples/chip/Inset.vue';
+import StandaloneExample from '/examples/chip/Standalone.vue';
+import WithShowExample from '/examples/chip/WithShow.vue';
+</script>
+# Chip
+
+<Description
+  nuxt-ui="https://ui3.nuxt.dev/components/chip"
+  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Chip.vue"
+>
+  An indicator that shows either a number or a state.
+</Description>
 
 ## Usage
 
 Wrap any component with a Chip to display an indicator.
 
-::component-code
----
-prettier: true
-slots:
-default: |
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <ChipExample />
+  </ClientOnly>
+</div>
 
-    <UButton icon="i-lucide-mail" color="neutral" variant="subtle" />
----
-:u-button{icon="i-lucide-mail" color="neutral" variant="subtle"}
-::
+<<< @/examples/chip/demo/Chip.vue{6,8 vue:line-numbers}
 
 ### Color
 
 Use the `color` prop to change the color of the Chip.
 
-::component-code
----
-prettier: true
-props:
-color: neutral
-slots:
-default: |
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <ColorExample />
+  </ClientOnly>
+</div>
 
-    <UButton icon="i-lucide-mail" color="neutral" variant="subtle" />
----
-:u-button{icon="i-lucide-mail" color="neutral" variant="subtle"}
-::
+<<< @/examples/chip/demo/Color.vue{16 vue:line-numbers}
 
 ### Size
 
 Use the `size` prop to change the size of the Chip.
 
-::component-code
----
-prettier: true
-props:
-size: 3xl
-slots:
-default: |
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <SizeExample />
+  </ClientOnly>
+</div>
 
-    <UButton icon="i-lucide-mail" color="neutral" variant="subtle" />
----
-:u-button{icon="i-lucide-mail" color="neutral" variant="subtle"}
-::
+<<< @/examples/chip/demo/Size.vue{16vue:line-numbers}
 
 ### Text
 
 Use the `text` prop to set the text of the Chip.
 
-::component-code
----
-prettier: true
-props:
-text: 5
-size: 3xl
-slots:
-default: |
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <TextExample />
+  </ClientOnly>
+</div>
 
-    <UButton icon="i-lucide-mail" color="neutral" variant="subtle" />
----
-:u-button{icon="i-lucide-mail" color="neutral" variant="subtle"}
-::
+<<< @/examples/chip/demo/Text.vue{18 vue:line-numbers}
 
 ### Position
 
 Use the `position` prop to change the position of the Chip.
 
-::component-code
----
-prettier: true
-props:
-position: 'bottom-left'
-slots:
-default: |
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <PositionExample />
+  </ClientOnly>
+</div>
 
-    <UButton icon="i-lucide-mail" color="neutral" variant="subtle" />
----
-:u-button{icon="i-lucide-mail" color="neutral" variant="subtle"}
-::
+<<< @/examples/chip/demo/Position.vue{18 vue:line-numbers}
 
 ### Inset
 
 Use the `inset` prop to display the Chip inside the component. This is useful when dealing with rounded components.
 
-::component-code
----
-prettier: true
-props:
-inset: true
-slots:
-default: |
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <InsetExample />
+  </ClientOnly>
+</div>
 
-    <UAvatar src="https://github.com/benjamincanac.png" />
----
-:u-avatar{src="https://github.com/benjamincanac.png"}
-::
+<<< @/examples/chip/demo/Inset.vue{17,22 vue:line-numbers}
 
 ### Standalone
 
 Use the `standalone` prop alongside the `inset` prop to display the Chip inline.
 
-::component-code
----
-props:
-standalone: true
-inset: true
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <StandaloneExample />
+  </ClientOnly>
+</div>
 
-::note
-It's used this way in the [`CommandPalette`](/components/command-palette), [`InputMenu`](/components/input-menu), [`Select`](/components/select) or [`SelectMenu`](/components/select-menu) components for example.
-::
+<<< @/examples/chip/demo/Standalone.vue{17,22 vue:line-numbers}
+
+::: info
+It's used this way in the [`Select`](/components/select) components for example.
+:::
 
 ## Examples
 
@@ -129,22 +116,24 @@ It's used this way in the [`CommandPalette`](/components/command-palette), [`Inp
 
 You can control the visibility of the Chip using the `show` prop.
 
-:component-example{name="chip-show-example"}
-
-::note
+::: note
 In this example, the Chip has a color per status and is displayed when the status is not `offline`.
-::
+:::
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <WithShowExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/chip/demo/WithShow.vue{17,22 vue:line-numbers}
 
 ## API
 
 ### Props
 
-:component-props
+<ComponentProps component="Chip" />
 
 ### Slots
 
-:component-slots
-
-## Theme
-
-:component-theme
+<ComponentSlots component="Chip" />

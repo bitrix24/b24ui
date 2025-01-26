@@ -1,8 +1,19 @@
 <script setup lang="ts">
+import { ref, computed, onMounted } from 'vue'
+import MailIcon from '@bitrix24/b24icons-vue/main/MailIcon'
+
 const statuses = ['online', 'away', 'busy', 'offline']
 const status = ref(statuses[0])
 
-const color = computed(() => status.value ? { online: 'success', away: 'warning', busy: 'error', offline: 'neutral' }[status.value] as any : 'online')
+const color = computed(() => status.value
+  ? {
+      online: 'success',
+      away: 'warning',
+      busy: 'danger',
+      offline: 'default'
+    }[status.value] as any
+  : 'online'
+)
 
 const show = computed(() => status.value !== 'offline')
 
@@ -17,7 +28,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <B24Chip :color="color" :show="show" inset>
-    <B24Avatar src="https://github.com/benjamincanac.png" />
+  <B24Chip :color="color" :show="show">
+    <B24Button :icon="MailIcon" depth="light" />
   </B24Chip>
 </template>
