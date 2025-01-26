@@ -5,6 +5,6 @@ import Demo from './demo/Container.vue'
 
 <template>
   <ComponentShowExample>
-    <Demo />
+    <Demo class="w-full"/>
   </ComponentShowExample>
 </template>

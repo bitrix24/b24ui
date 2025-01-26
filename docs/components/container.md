@@ -23,7 +23,7 @@ import ContainerExample from '/examples/container/Container.vue';
   </ClientOnly>
 </div>
 
-<<< @/examples/container/demo/Container.vue{2 vue:line-numbers}
+<<< @/examples/container/demo/Container.vue{3 vue:line-numbers}
 
 ## API
 
