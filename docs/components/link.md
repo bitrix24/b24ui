@@ -47,7 +47,9 @@ You can inspect the rendered HTML.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/link/demo/Link.vue{12,15 vue:line-numbers}
+:::
 
 ### Style
 
@@ -67,7 +69,9 @@ You can override this behavior by using the `raw` prop and provide your own styl
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/link/demo/Raw.vue{4,5,6,13,15 vue:line-numbers}
+:::
 
 You can use the `is-action prop` to indicate a pseudo-link.
 
@@ -77,7 +81,9 @@ You can use the `is-action prop` to indicate a pseudo-link.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/link/demo/IsAction.vue{2,5 vue:line-numbers}
+:::
 
 ## IntelliSense
 

@@ -39,7 +39,9 @@ The label `for` attribute and the form control are associated with a unique `id`
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/formfield/demo/FormField.vue{12 vue:line-numbers}
+:::
 
 When using the `required` prop, an asterisk is be added next to the label.
 
@@ -49,7 +51,9 @@ When using the `required` prop, an asterisk is be added next to the label.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/formfield/demo/Required.vue{16 vue:line-numbers}
+:::
 
 ### Description
 
@@ -61,7 +65,9 @@ Use the `description` prop to provide additional information below the label.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/formfield/demo/Description.vue{13 vue:line-numbers}
+:::
 
 ### Hint
 
@@ -73,7 +79,9 @@ Use the `hint` prop to display a hint message next to the label.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/formfield/demo/Hint.vue{13 vue:line-numbers}
+:::
 
 ### Help
 
@@ -85,7 +93,9 @@ Use the `help` prop to display a help message below the form control.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/formfield/demo/Help.vue{13 vue:line-numbers}
+:::
 
 ### Error
 
@@ -99,7 +109,9 @@ When used inside a [Form](/components/form), this is automatically set when a va
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/formfield/demo/Error.vue{13 vue:line-numbers}
+:::
 
 ### Size
 
@@ -111,7 +123,9 @@ Use the `size` prop to change the size of the FormField, the `size` is proxied t
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/formfield/demo/Size.vue{13 vue:line-numbers}
+:::
 
 ## API
 

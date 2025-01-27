@@ -35,7 +35,9 @@ Use the `title` prop to set the title of the Alert.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/alert/demo/Alert.vue{12 vue:line-numbers}
+:::
 
 ### Description
 
@@ -47,7 +49,9 @@ Use the `description` prop to set the description of the Alert.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/alert/demo/Description.vue{16 vue:line-numbers}
+:::
 
 ### Icon
 
@@ -59,7 +63,9 @@ Use the `icon` prop to show an [@bitrix24/b24icons](https://bitrix24.github.io/b
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/alert/demo/Icon.vue{2,7 vue:line-numbers}
+:::
 
 ### Avatar
 
@@ -71,7 +77,9 @@ Use the `avatar` prop to show an [Avatar](/components/avatar).
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/alert/demo/Avatar.vue{7,12 vue:line-numbers}
+:::
 
 ### Color
 
@@ -83,7 +91,9 @@ Use the `color` prop to change the color of the Alert.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/alert/demo/Color.vue{16 vue:line-numbers}
+:::
 
 ### Size
 
@@ -95,7 +105,9 @@ Use the `size` prop to change the size of the Alert.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/alert/demo/Size.vue{16 vue:line-numbers}
+:::
 
 ### Close
 
@@ -111,7 +123,9 @@ An `update:open` event will be emitted when the close button is clicked.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/alert/demo/Close.vue{10 vue:line-numbers}
+:::
 
 You can pass any property from the [Button](/components/button) component to customize it.
 
@@ -121,7 +135,9 @@ You can pass any property from the [Button](/components/button) component to cus
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/alert/demo/CloseButton.vue{10 vue:line-numbers}
+:::
 
 ### Actions
 
@@ -137,7 +153,9 @@ Actions renders differently when the description is not set. You can try to remo
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/alert/demo/Actions.vue{10 vue:line-numbers}
+:::
 
 ## API
 

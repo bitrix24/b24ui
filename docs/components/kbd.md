@@ -32,7 +32,9 @@ Use the default slot to set the value of the Kbd.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/kbd/demo/Kbd.vue{2 vue:line-numbers}
+:::
 
 You can achieve the same result by using the `value` prop.
 
@@ -42,7 +44,9 @@ You can achieve the same result by using the `value` prop.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/kbd/demo/Value.vue{12 vue:line-numbers}
+:::
 
 You can pass special keys to the `value` prop that goes through the [`useKbd`](https://github.com/bitrix24/b24ui/blob/main/src/runtime/composables/useKbd.ts) composable. For example, the `meta` key displays as `⌘` on macOS and `⊞` on other platforms.
 
@@ -52,7 +56,9 @@ You can pass special keys to the `value` prop that goes through the [`useKbd`](h
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/kbd/demo/UseKbd.vue{12 vue:line-numbers}
+:::
 
 ### Depth
 
@@ -64,7 +70,9 @@ Use the `depth` parameter to change the intensity of the Kbd.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/kbd/demo/Depth.vue{12 vue:line-numbers}
+:::
 
 ### Size
 
@@ -76,7 +84,9 @@ Use the `size` prop to change the size of the Kbd.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/kbd/demo/Size.vue{12 vue:line-numbers}
+:::
 
 ## Examples
 
@@ -90,7 +100,9 @@ Use the `class` prop to override the base styles of the Badge.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/kbd/demo/WithClass.vue{8,14 vue:line-numbers}
+:::
 
 ## API
 

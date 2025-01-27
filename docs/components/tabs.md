@@ -46,7 +46,9 @@ Use the `items` prop as an array of objects with the following properties:
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/tabs/demo/Tabs.vue{5-16,20 vue:line-numbers}
+:::
 
 ### Content
 
@@ -58,7 +60,9 @@ Set the `content` prop to `false` to turn the Tabs into a toggle-only control wi
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/tabs/demo/Content.vue{21 vue:line-numbers}
+:::
 
 ### Unmount
 
@@ -74,7 +78,9 @@ You can inspect the DOM to see each item's content being rendered.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/tabs/demo/Unmount.vue{29 vue:line-numbers}
+:::
 
 ### Color
 
@@ -86,7 +92,9 @@ Use the `color` prop to change the color of the Tabs.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/tabs/demo/Color.vue{28 vue:line-numbers}
+:::
 
 ### Variant
 
@@ -98,7 +106,9 @@ Use the `variant` prop to change the variant of the Tabs.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/tabs/demo/Variant.vue{25 vue:line-numbers}
+:::
 
 ### Size
 
@@ -110,7 +120,9 @@ Use the `size` prop to change the size of the Tabs.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/tabs/demo/Size.vue{28 vue:line-numbers}
+:::
 
 ### Orientation
 
@@ -122,7 +134,9 @@ Use the `orientation` prop to change the orientation of the Tabs. Defaults to `h
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/tabs/demo/Orientation.vue{28 vue:line-numbers}
+:::
 
 ## Examples
 
@@ -140,7 +154,9 @@ You can also pass the `value` of one of the items if provided.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/tabs/demo/ModelValue.vue{25 vue:line-numbers}
+:::
 
 ### With content slot
 
@@ -152,7 +168,9 @@ Use the `#content` slot to customize the content of each item.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/tabs/demo/Slot.vue{9,14,21-23 vue:line-numbers}
+:::
 
 ### With custom slot
 
@@ -164,7 +182,9 @@ Use the `slot` property to customize a specific item.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/tabs/demo/CustomSlot.vue{11,17,32,49 vue:line-numbers}
+:::
 
 ## API
 

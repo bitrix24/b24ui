@@ -61,7 +61,9 @@ It can be used alongside the `schema` prop to handle complex use cases.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/form/FormExample.vue{vue:line-numbers}
+:::
 
 ### Input Events
 
@@ -83,7 +85,9 @@ You can use the [`useFormField`](/composables/use-form-field) composable to impl
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/form/FormExampleElements.vue{vue:line-numbers}
+:::
 
 ### Error Event
 
@@ -103,7 +107,9 @@ Here's an example that focuses the first input element with an error after the f
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/form/FormExampleOnError.vue{vue:line-numbers}
+:::
 
 ### Nesting Forms
 
@@ -119,7 +125,9 @@ For example, it can be used to dynamically add fields based on user's input:
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/form/FormExampleNested.vue{vue:line-numbers}
+:::
 
 Or to validate list inputs:
 
@@ -131,7 +139,9 @@ Or to validate list inputs:
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/form/FormExampleNestedList.vue{vue:line-numbers}
+:::
 
 ## API
 

@@ -46,7 +46,9 @@ Apply the `text` prop to specify what the Tooltip will display.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/tooltip/demo/Text.vue{15 vue:line-numbers}
+:::
 
 ### Kbds
 
@@ -62,7 +64,9 @@ Apply the `kbds` prop to render [Kbd](/components/kbd) components inside the Too
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/tooltip/demo/Kbds.vue{8 vue:line-numbers}
+:::
 
 :::tip
 You can utilize special keys such as `meta`, which appears as `⌘` on macOS and `Ctrl` on other systems.
@@ -78,7 +82,9 @@ Apply the `delay-duration` prop to modify the delay before the Tooltip becomes v
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/tooltip/demo/Delay.vue{8 vue:line-numbers}
+:::
 
 ### Content
 
@@ -90,7 +96,9 @@ Apply the `content` prop to dictate how the Tooltip content is displayed, includ
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/tooltip/demo/Content.vue{29 vue:line-numbers}
+:::
 
 ### Arrow
 
@@ -102,7 +110,9 @@ Apply the `arrow` prop to add an arrow to the Tooltip.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/tooltip/demo/Arrow.vue{8 vue:line-numbers}
+:::
 
 ### Disabled
 
@@ -114,7 +124,9 @@ Apply the `disabled` prop to turn off the Tooltip.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/tooltip/demo/Disabled.vue{16 vue:line-numbers}
+:::
 
 ## Examples
 
@@ -132,7 +144,9 @@ In this example, using [`defineShortcuts`](composables/define-shortcuts). Press 
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/tooltip/demo/Open.vue{5,7-9,14,16 vue:line-numbers}
+:::
 
 ### Hardcoded appearance change
 
@@ -144,7 +158,9 @@ Discover ways to alter the tooltip's appearance. Don't forget to verify its appe
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/tooltip/demo/Hardcoded.vue{9-11,13-22,34,40 vue:line-numbers}
+:::
 
 ## API
 
@@ -159,4 +175,3 @@ Discover ways to alter the tooltip's appearance. Don't forget to verify its appe
 ### Emits
 
 <ComponentEmits component="Tooltip" />
-

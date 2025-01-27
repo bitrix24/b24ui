@@ -41,7 +41,9 @@ Use the `src` prop to set the image URL.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/avatar/demo/Avatar.vue{2 vue:line-numbers}
+:::
 
 ### Size
 
@@ -57,7 +59,9 @@ The `<img>` element's `width` and `height` are automatically set based on the `s
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/avatar/demo/Size.vue{17 vue:line-numbers}
+:::
 
 ### Icon
 
@@ -69,7 +73,9 @@ Use the `icon` prop to display a fallback [@bitrix24/b24icons](https://bitrix24.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/avatar/demo/Icon.vue{2,7 vue:line-numbers}
+:::
 
 ### Text
 
@@ -81,7 +87,9 @@ Use the `text` prop to display a fallback text.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/avatar/demo/Text.vue{17 vue:line-numbers}
+:::
 
 ### Alt
 
@@ -97,7 +105,9 @@ The `alt` prop is passed to the `img` element as the `alt` attribute.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/avatar/demo/Alt.vue{17 vue:line-numbers}
+:::
 
 ## Examples
 
@@ -111,7 +121,9 @@ You can use a [Tooltip](/components/tooltip) component to display a tooltip when
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/avatar/demo/WithTooltip.vue{2,4 vue:line-numbers}
+:::
 
 ### With chip
 
@@ -123,7 +135,9 @@ You can use a [Chip](/components/chip) component to display a chip around the Av
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/avatar/demo/WithChip.vue{2,4 vue:line-numbers}
+:::
 
 ## API
 

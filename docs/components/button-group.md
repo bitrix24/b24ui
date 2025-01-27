@@ -33,7 +33,9 @@ If you use elements with different colors, use the `no-split` property to disabl
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/buttongroup/demo/ButtonGroup.vue{6,9,10,14 vue:line-numbers}
+:::
 
 ### Size
 
@@ -45,7 +47,9 @@ Use the `size` prop to change the size of all the buttons.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/buttongroup/demo/Size.vue{16,22 vue:line-numbers}
+:::
 
 ### Orientation
 
@@ -57,7 +61,9 @@ Use the `orientation` prop to change the orientation of the buttons. Defaults to
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/buttongroup/demo/Orientation.vue{16,22 vue:line-numbers}
+:::
 
 ## Examples
 
@@ -71,7 +77,9 @@ You can use components like [Input](/components/input), [Select](/components/sel
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/buttongroup/demo/WithInput.vue{14,15,17,21,23 vue:line-numbers}
+:::
 
 ### With tooltip
 
@@ -83,8 +91,9 @@ You can use a [Tooltip](/components/tooltip.html#usage) within a button group.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/buttongroup/demo/WithTooltip.vue{24-28,35 vue:line-numbers}
-
+:::
 
 ## API
 

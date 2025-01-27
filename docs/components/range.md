@@ -38,7 +38,9 @@ Use the `default-value` prop to set the initial value when you do not need to co
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/range/demo/Range.vue{9,12 vue:line-numbers}
+:::
 
 ### Min / Max
 
@@ -50,7 +52,9 @@ Use the `min` and `max` props to set the minimum and maximum values of the Range
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/range/demo/MinMax.vue{15,16 vue:line-numbers}
+:::
 
 ### Step
 
@@ -62,7 +66,9 @@ Use the `step` prop to set the increment value of the Range. Defaults to `1`.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/range/demo/Step.vue{13 vue:line-numbers}
+:::
 
 ### Multiple
 
@@ -74,7 +80,9 @@ Use the `v-model` directive or the `default-value` prop with an array of values 
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/range/demo/Multiple.vue{12 vue:line-numbers}
+:::
 
 Use the `min-steps-between-thumbs` prop to limit the minimum distance between the thumbs.
 
@@ -84,7 +92,9 @@ Use the `min-steps-between-thumbs` prop to limit the minimum distance between th
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/range/demo/MinStepsBetweenThumbs.vue{21 vue:line-numbers}
+:::
 
 ### Orientation
 
@@ -96,7 +106,9 @@ Use the `orientation` prop to change the orientation of the Range. Defaults to `
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/range/demo/Orientation.vue{13,15 vue:line-numbers}
+:::
 
 ### Color
 
@@ -108,7 +120,9 @@ Use the `color` prop to change the color of the Range.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/range/demo/Color.vue{15 vue:line-numbers}
+:::
 
 ### Size
 
@@ -120,7 +134,9 @@ Use the `size` prop to change the size of the Range.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/range/demo/Size.vue{13 vue:line-numbers}
+:::
 
 ### Disabled
 
@@ -132,7 +148,9 @@ Use the `disabled` prop to disable the Range.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/range/demo/Disabled.vue{4,7,13 vue:line-numbers}
+:::
 
 ### Inverted
 
@@ -144,7 +162,9 @@ Use the `inverted` prop to visually invert the Range.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/range/demo/Inverted.vue{3 vue:line-numbers}
+:::
 
 ## API
 

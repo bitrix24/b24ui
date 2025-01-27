@@ -54,7 +54,9 @@ Use the `items` prop as an array of strings, numbers or booleans:
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/select/demo/Select.vue{4,5,10,11 vue:line-numbers}
+:::
 
 You can also pass an array of objects with the following properties:
 
@@ -76,7 +78,9 @@ When using objects, you need to reference the `value` property of the object in 
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/select/demo/Array.vue{4-17,18,23,24 vue:line-numbers}
+:::
 
 You can also pass an array of arrays to the `items` prop to display separated groups of items.
 
@@ -86,7 +90,9 @@ You can also pass an array of arrays to the `items` prop to display separated gr
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/select/demo/ArrayGroup.vue{4-7,14 vue:line-numbers}
+:::
 
 ### Value Key
 
@@ -98,7 +104,9 @@ You can change the property that is used to set the value by using the `value-ke
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/select/demo/ArrayKey.vue{7,11,15,24 vue:line-numbers}
+:::
 
 ### Multiple
 
@@ -114,7 +122,9 @@ Ensure to pass an array to the `default-value` prop or the `v-model` directive.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/select/demo/Multiple.vue{5,11 vue:line-numbers}
+:::
 
 ### Placeholder
 
@@ -126,7 +136,9 @@ Use the `placeholder` prop to set a placeholder text.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/select/demo/Placeholder.vue{20 vue:line-numbers}
+:::
 
 ### Content
 
@@ -138,7 +150,9 @@ Use the `content` prop to control how the Select content is rendered, like its `
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/select/demo/Content.vue{32 vue:line-numbers}
+:::
 
 ### Arrow
 
@@ -150,7 +164,9 @@ Use the `arrow` prop to display an arrow on the Select.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/select/demo/Arrow.vue{11 vue:line-numbers}
+:::
 
 ### Color
 
@@ -166,7 +182,9 @@ The `highlight` prop is used here to show the focus state. It's used internally 
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/select/demo/Color.vue{21,22 vue:line-numbers}
+:::
 
 ### Tag
 
@@ -180,7 +198,9 @@ Use the `tagColor` property to set the color for `tag`.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/select/demo/Tag.vue{21,22 vue:line-numbers}
+:::
 
 ### Size
 
@@ -192,7 +212,9 @@ Use the `size` prop to change the size of the Select.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/select/demo/Size.vue{19 vue:line-numbers}
+:::
 
 ### Icon
 
@@ -204,11 +226,13 @@ Use the `icon` prop to show an [@bitrix24/b24icons](https://bitrix24.github.io/b
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/select/demo/Icon.vue{3,13 vue:line-numbers}
+:::
 
 ### Trailing Icon
 
-Use the `trailing-icon` prop to customize the trailing [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html). Defaults to `i-lucide-chevron-down`.
+Use the `trailing-icon` prop to customize the trailing [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html). Defaults to `Actions::ChevronDownIcon`.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -216,7 +240,9 @@ Use the `trailing-icon` prop to customize the trailing [@bitrix24/b24icons](http
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/select/demo/TrailingIcon.vue{3,13 vue:line-numbers}
+:::
 
 ### Selected Icon
 
@@ -228,7 +254,9 @@ Use the `selected-icon` prop to customize the icon when an item is selected. Def
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/select/demo/SelectedIcon.vue{3,13 vue:line-numbers}
+:::
 
 ### Avatar
 
@@ -240,7 +268,9 @@ Use the `avatar` prop to show an [Avatar](/components/avatar) inside the Select.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/select/demo/Avatar.vue{3,13,18 vue:line-numbers}
+:::
 
 ### Loading
 
@@ -252,7 +282,9 @@ Use the `loading` prop to show a loading icon on the Select.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/select/demo/Loading.vue{20 vue:line-numbers}
+:::
 
 ### Disabled
 
@@ -264,7 +296,9 @@ Use the `disabled` prop to disable the Select.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/select/demo/Disabled.vue{20 vue:line-numbers}
+:::
 
 ## Examples
 
@@ -278,7 +312,9 @@ You can use the `type` property with `separator` to display a separator between 
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/select/demo/WithItemsType.vue{5-8,12-14,15-18 vue:line-numbers}
+:::
 
 ### With icons in items
 
@@ -298,7 +334,9 @@ You can also use the `#leading` slot to display the selected icon.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/select/demo/WithItemsIcons.vue{11,16,21,26,33 vue:line-numbers}
+:::
 
 ### With avatar in items
 
@@ -318,7 +356,9 @@ You can also use the `#leading` slot to display the selected avatar.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/select/demo/WithItemsAvatar.vue{9-12,17-20,25,32 vue:line-numbers}
+:::
 
 
 ### With chip in items
@@ -335,7 +375,9 @@ In this example, the `#leading` slot is used to display the selected chip.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/select/demo/WithItemsChip.vue{8-10,15-17,20,22-24,33-42 vue:line-numbers}
+:::
 
 ### Control open state
 
@@ -351,7 +393,9 @@ In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), y
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/select/demo/WithControlOpenState.vue{8-10,17 vue:line-numbers}
+:::
 
 ### With rotating icon
 
@@ -363,7 +407,9 @@ Here is an example with a rotating icon that indicates the open state of the Sel
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/select/demo/WithRotatingIcon.vue{14-16 vue:line-numbers}
+:::
 
 ### With fetched items
 
@@ -375,7 +421,9 @@ You can fetch items from an API and use them in the Select.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/select/demo/WithFetchedItems.vue{vue:line-numbers}
+:::
 
 ## API
 

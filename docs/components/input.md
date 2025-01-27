@@ -35,7 +35,9 @@ Use the `v-model` directive to control the value of the Input.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/input/demo/Input.vue{4,8 vue:line-numbers}
+:::
 
 ### Type
 
@@ -49,7 +51,9 @@ Some types have been implemented in their own components such as [Checkbox](/com
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/input/demo/Type.vue{13 vue:line-numbers}
+:::
 
 ::: info
 You can check all the available types on the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types).
@@ -65,7 +69,9 @@ Use the `placeholder` prop to set a placeholder text.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/input/demo/Placeholder.vue{13 vue:line-numbers}
+:::
 
 ### Color
 
@@ -81,7 +87,9 @@ The `highlight` prop is used here to show the focus state. It's used internally 
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/input/demo/Color.vue{17,18 vue:line-numbers}
+:::
 
 ### Tag
 
@@ -95,7 +103,9 @@ Use the `tagColor` property to set the color for `tag`.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/input/demo/Tag.vue{17-18 vue:line-numbers}
+:::
 
 ### Size
 
@@ -111,7 +121,9 @@ Use the `size` prop to change the size of the Switch.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/input/demo/Size.vue{15 vue:line-numbers}
+:::
 
 ### Icon
 
@@ -123,7 +135,9 @@ Use the `icon` prop to show an [@bitrix24/b24icons](https://bitrix24.github.io/b
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/input/demo/Icon.vue{7 vue:line-numbers}
+:::
 
 Use the `leading-icon` and `trailing-icon` props to set a different icon for each position.
 
@@ -133,7 +147,9 @@ Use the `leading-icon` and `trailing-icon` props to set a different icon for eac
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/input/demo/IconLeadingTrailing.vue{8,9 vue:line-numbers}
+:::
 
 ### Avatar
 
@@ -145,7 +161,9 @@ Use the `avatar` prop to show an [Avatar](/components/avatar) inside the Input.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/input/demo/Avatar.vue{7,11 vue:line-numbers}
+:::
 
 ### Loading
 
@@ -157,7 +175,9 @@ Use the `loading` prop to show a loading icon on the Input.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/input/demo/Loading.vue{14 vue:line-numbers}
+:::
 
 ### Disabled
 
@@ -169,7 +189,9 @@ Use the `disabled` prop to disable the Input.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/input/demo/Disabled.vue{14 vue:line-numbers}
+:::
 
 ## API
 

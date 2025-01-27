@@ -36,7 +36,9 @@ Use the `v-model` directive to control the value of the Progress.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/progress/demo/Progress.vue{8 vue:line-numbers}
+:::
 
 ### Max
 
@@ -48,7 +50,9 @@ Use the `max` prop to set the maximum value of the Progress.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/progress/demo/Max.vue{18 vue:line-numbers}
+:::
 
 Use the `max` prop with an array of strings to display the active step under the bar, the maximum value of the Progress is the length of the array.
 
@@ -58,7 +62,9 @@ Use the `max` prop with an array of strings to display the active step under the
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/progress/demo/MaxArray.vue{4,10 vue:line-numbers}
+:::
 
 ### Status
 
@@ -70,7 +76,9 @@ Use the `status` prop to display the current Progress value above the bar.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/progress/demo/Status.vue{18 vue:line-numbers}
+:::
 
 ### Indeterminate
 
@@ -82,7 +90,9 @@ When no `v-model` is set or the value is `null`, the Progress becomes _indetermi
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/progress/demo/Indeterminate.vue{4,8 vue:line-numbers}
+:::
 
 ### Animation
 
@@ -94,7 +104,9 @@ Use the `animation` prop to change the animation of the Progress to an inverse c
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/progress/demo/Animation.vue{13 vue:line-numbers}
+:::
 
 ### Orientation
 
@@ -106,7 +118,9 @@ Use the `orientation` prop to change the orientation of the Progress. Defaults t
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/progress/demo/Orientation.vue{13 vue:line-numbers}
+:::
 
 ### Color
 
@@ -118,7 +132,9 @@ Use the `color` prop to change the color of the Slider.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/progress/demo/Color.vue{13 vue:line-numbers}
+:::
 
 ### Size
 
@@ -130,7 +146,9 @@ Use the `size` prop to change the size of the Slider.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/progress/demo/Size.vue{13 vue:line-numbers}
+:::
 
 ### Inverted
 
@@ -142,7 +160,9 @@ Use the `inverted` prop to visually invert the Progress.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/progress/demo/Inverted.vue{18 vue:line-numbers}
+:::
 
 ## API
 

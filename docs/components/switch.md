@@ -35,7 +35,9 @@ Use the `v-model` directive to control the checked state of the Switch.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/switch/demo/Switch.vue{4,8 vue:line-numbers}
+:::
 
 Use the `default-value` prop to set the initial value when you do not need to control its state.
 
@@ -45,7 +47,9 @@ Use the `default-value` prop to set the initial value when you do not need to co
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/switch/demo/SwitchDef.vue{2 vue:line-numbers}
+:::
 
 ### Label
 
@@ -59,7 +63,9 @@ When using the `required` prop, an asterisk is be added next to the label.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/switch/demo/Label.vue{15,16 vue:line-numbers}
+:::
 
 ### Description
 
@@ -71,7 +77,9 @@ Use the `description` prop to set the description of the Switch.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/switch/demo/Description.vue{14 vue:line-numbers}
+:::
 
 ### Icon
 
@@ -83,7 +91,9 @@ Use the `checked-icon` and `unchecked-icon` props to set the icons of the Switch
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/switch/demo/Icon.vue{8,9 vue:line-numbers}
+:::
 
 ### Loading
 
@@ -95,7 +105,9 @@ Use the `loading` prop to show a loading icon on the Switch.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/switch/demo/Loading.vue{13 vue:line-numbers}
+:::
 
 ### Loading Icon
 
@@ -107,7 +119,9 @@ Use the `loading-icon` prop to customize the loading icon. Defaults to `i-lucide
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/switch/demo/LoadingIcon.vue{16 vue:line-numbers}
+:::
 
 ### Color
 
@@ -119,7 +133,9 @@ Use the `color` prop to change the color of the Switch.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/switch/demo/Color.vue{15 vue:line-numbers}
+:::
 
 ### Size
 
@@ -131,7 +147,9 @@ Use the `size` prop to change the size of the Switch.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/switch/demo/Size.vue{13 vue:line-numbers}
+:::
 
 ### Disabled
 
@@ -143,7 +161,9 @@ Use the `disabled` prop to disable the Switch.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/switch/demo/Disabled.vue{13 vue:line-numbers}
+:::
 
 ## API
 

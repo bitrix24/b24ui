@@ -32,7 +32,9 @@ Wrap any component with a Chip to display an indicator.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/chip/demo/Chip.vue{6,8 vue:line-numbers}
+:::
 
 ### Color
 
@@ -44,7 +46,9 @@ Use the `color` prop to change the color of the Chip.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/chip/demo/Color.vue{16 vue:line-numbers}
+:::
 
 ### Size
 
@@ -56,7 +60,9 @@ Use the `size` prop to change the size of the Chip.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/chip/demo/Size.vue{16vue:line-numbers}
+:::
 
 ### Text
 
@@ -68,7 +74,9 @@ Use the `text` prop to set the text of the Chip.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/chip/demo/Text.vue{18 vue:line-numbers}
+:::
 
 ### Position
 
@@ -80,7 +88,9 @@ Use the `position` prop to change the position of the Chip.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/chip/demo/Position.vue{18 vue:line-numbers}
+:::
 
 ### Inset
 
@@ -92,7 +102,9 @@ Use the `inset` prop to display the Chip inside the component. This is useful wh
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/chip/demo/Inset.vue{16,22,27 vue:line-numbers}
+:::
 
 ### Standalone
 
@@ -104,7 +116,9 @@ Use the `standalone` prop alongside the `inset` prop to display the Chip inline.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/chip/demo/Standalone.vue{30 vue:line-numbers}
+:::
 
 ::: info
 It's used this way in the [`Select`](/components/select) components for example.
@@ -126,7 +140,9 @@ In this example, the Chip has a color per status and is displayed when the statu
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/chip/demo/WithShow.vue{vue:line-numbers}
+:::
 
 ## API
 

@@ -23,7 +23,9 @@ import TaskAddExample from '/examples/skeleton/TaskAdd.vue';
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/skeleton/demo/Skeleton.vue{3,6,7 vue:line-numbers}
+:::
 
 ## Examples
 
@@ -37,7 +39,9 @@ Example of a loading indicator for a task creation form.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/skeleton/demo/TaskAdd.vue{vue:line-numbers}
+:::
 
 ## API
 

@@ -32,7 +32,9 @@ Use the `v-model` directive to control the value of the Textarea.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/textarea/demo/Textarea.vue{4,8 vue:line-numbers}
+:::
 
 ### Placeholder
 
@@ -44,7 +46,9 @@ Use the `placeholder` prop to set a placeholder text.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/textarea/demo/Placeholder.vue{12 vue:line-numbers}
+:::
 
 ### Color
 
@@ -60,7 +64,9 @@ The `highlight` prop is used here to show the focus state. It's used internally 
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/textarea/demo/Color.vue{17-18 vue:line-numbers}
+:::
 
 ### Tag
 
@@ -74,7 +80,9 @@ Use the `tagColor` property to set the color for `tag`.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/textarea/demo/Tag.vue{17-18 vue:line-numbers}
+:::
 
 ### Disabled
 
@@ -86,7 +94,9 @@ Use the `disabled` prop to disable the Textarea.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/textarea/demo/Disabled.vue{15 vue:line-numbers}
+:::
 
 ### Rows
 
@@ -98,7 +108,9 @@ Use the `rows` prop to set the number of rows. Defaults to `3`.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/textarea/demo/Rows.vue{13 vue:line-numbers}
+:::
 
 ### Autoresize
 
@@ -110,7 +122,9 @@ Use the `autoresize` prop to enable autoresizing the height of the Textarea.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/textarea/demo/Autoresize.vue{18 vue:line-numbers}
+:::
 
 Use the `maxrows` prop to set the maximum number of rows when autoresizing. If set to `0`, the Textarea will grow indefinitely.
 
@@ -120,7 +134,9 @@ Use the `maxrows` prop to set the maximum number of rows when autoresizing. If s
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/textarea/demo/Maxrows.vue{18 vue:line-numbers}
+:::
 
 ## API
 

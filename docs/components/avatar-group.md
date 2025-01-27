@@ -30,7 +30,9 @@ Wrap multiple [Avatar](/components/avatar) within an AvatarGroup to stack them.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/avatargroup/demo/AvatarGroup.vue{2,6 vue:line-numbers}
+:::
 
 ### Size
 
@@ -42,7 +44,9 @@ Use the `size` prop to change the size of all the avatars.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/avatargroup/demo/Size.vue{14 vue:line-numbers}
+:::
 
 ### Max
 
@@ -54,7 +58,9 @@ Use the `max` prop to limit the number of avatars displayed. The rest is display
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/avatargroup/demo/Max.vue{13 vue:line-numbers}
+:::
 
 ## Examples
 
@@ -68,7 +74,9 @@ Wrap each avatar with a [Tooltip](/components/tooltip) to display a tooltip on h
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/avatargroup/demo/WithTooltip.vue{3,6,9 vue:line-numbers}
+:::
 
 ### With chip
 
@@ -80,7 +88,9 @@ Wrap each avatar with a [Chip](/components/chip) to display a chip around the av
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/avatargroup/demo/WithChip.vue{3,6,9 vue:line-numbers}
+:::
 
 ### With link
 
@@ -92,7 +102,9 @@ Wrap each avatar with a [Link](/components/link) to make them clickable.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/avatargroup/demo/WithLink.vue{3-8,10 vue:line-numbers}
+:::
 
 ## API
 

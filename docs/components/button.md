@@ -40,7 +40,9 @@ Use the default slot to set the label of the Button.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/button/demo/Button.vue{2 vue:line-numbers}
+:::
 
 You can achieve the same result by using the `label` prop.
 
@@ -50,7 +52,9 @@ You can achieve the same result by using the `label` prop.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/button/demo/ButtonLabel.vue{13 vue:line-numbers}
+:::
 
 ### Link
 
@@ -62,7 +66,9 @@ You can pass any property from the [Link](/components/link#props) component such
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/button/demo/Link.vue{3,4 vue:line-numbers}
+:::
 
 ### Color
 
@@ -74,7 +80,9 @@ Use the `color` prop to change the color of the Button.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/button/demo/Color.vue{15 vue:line-numbers}
+:::
 
 ### Depth
 
@@ -86,7 +94,9 @@ Use the `depth` parameter to change the intensity of the Button.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/button/demo/Depth.vue{10 vue:line-numbers}
+:::
 
 ### Size
 
@@ -98,7 +108,9 @@ Use the `size` prop to change the size of the Button.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/button/demo/Size.vue{15 vue:line-numbers}
+:::
 
 ### Icon
 
@@ -112,7 +124,9 @@ The `label` as prop or slot is optional so you can use the Button as an icon-onl
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/button/demo/Icon.vue{23 vue:line-numbers}
+:::
 
 Use the `use-dropdown` prop to show trailing-icon.
 
@@ -122,7 +136,9 @@ Use the `use-dropdown` prop to show trailing-icon.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/button/demo/UseDropdown.vue{7 vue:line-numbers}
+:::
 
 ### Avatar
 
@@ -136,7 +152,9 @@ The `label` as prop or slot is optional so you can use the Button as an avatar-o
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/button/demo/Avatar.vue{25 vue:line-numbers}
+:::
 
 ### Loading
 
@@ -152,7 +170,9 @@ Use `use-clock`, `use-wait` props to show different loading icons.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/button/demo/Loading.vue{24,31-32,40-41 vue:line-numbers}
+:::
 
 Use the `loading-auto` prop to show the loading icon automatically while the `@click` promise is pending.
 
@@ -162,7 +182,9 @@ Use the `loading-auto` prop to show the loading icon automatically while the `@c
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/button/demo/LoadingAuto.vue{5-7,13-14,19-21,26-28 vue:line-numbers}
+:::
 
 This also works with the [Form](/components/form) component.
 
@@ -172,7 +194,9 @@ This also works with the [Form](/components/form) component.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/button/demo/Form.vue{17,21-23 vue:line-numbers}
+:::
 
 ### Disabled
 
@@ -184,7 +208,9 @@ Use the `disabled` prop to disable the Button.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/button/demo/Disabled.vue{2414 vue:line-numbers}
+:::
 
 ### Rounded
 
@@ -196,7 +222,9 @@ Use the `rounded` prop to round the Button.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/button/demo/Rounded.vue{14 vue:line-numbers}
+:::
 
 ## API
 

@@ -38,7 +38,9 @@ Use the `items` prop as an array of strings, numbers or booleans:
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/radiogroup/demo/RadioGroup.vue{4,5,10,11 vue:line-numbers}
+:::
 
 You can also pass an array of objects with the following properties:
 
@@ -57,7 +59,9 @@ When using objects, you need to reference the `value` property of the object in 
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/radiogroup/demo/Array.vue{4-20 vue:line-numbers}
+:::
 
 ### Value Key
 
@@ -69,7 +73,9 @@ You can change the property that is used to set the value by using the `value-ke
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/radiogroup/demo/ArrayValueKey.vue{8,13,18,27 vue:line-numbers}
+:::
 
 ### Legend
 
@@ -81,7 +87,9 @@ Use the `legend` prop to set the legend of the RadioGroup.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/radiogroup/demo/Legend.vue{20 vue:line-numbers}
+:::
 
 ### Orientation
 
@@ -93,7 +101,9 @@ Use the `orientation` prop to change the orientation of the RadioGroup. Defaults
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/radiogroup/demo/Orientation.vue{20 vue:line-numbers}
+:::
 
 ### Color
 
@@ -105,7 +115,9 @@ Use the `color` prop to change the color of the RadioGroup.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/radiogroup/demo/Color.vue{20 vue:line-numbers}
+:::
 
 ### Size
 
@@ -117,7 +129,9 @@ Use the `size` prop to change the size of the RadioGroup.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/radiogroup/demo/Size.vue{20 vue:line-numbers}
+:::
 
 ### Disabled
 
@@ -129,7 +143,9 @@ Use the `disabled` prop to disable the RadioGroup.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/radiogroup/demo/Disabled.vue{20 vue:line-numbers}
+:::
 
 ## API
 

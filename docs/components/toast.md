@@ -46,19 +46,23 @@ Pass a `title` field to the `toast.add` method to display a title.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/toast/demo/Title.vue{7,13 vue:line-numbers}
+:::
 
 ### Description
 
 Pass a `description` field to the `toast.add` method to display a description.
 
-<div class="lg:min-h-[350px]">
+<div class="lg:min-h-[275px]">
   <ClientOnly>
     <DescriptionExample />
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/toast/demo/Description.vue{8-9,15 vue:line-numbers}
+:::
 
 ### Icon
 
@@ -70,7 +74,9 @@ Pass an `icon` field to the `toast.add` method to display an [@bitrix24/b24icons
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/toast/demo/Icon.vue{2,10 vue:line-numbers}
+:::
 
 ### Avatar
 
@@ -82,7 +88,9 @@ Pass an `avatar` field to the `toast.add` method to display an [Avatar](/compone
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/toast/demo/Avatar.vue{9 vue:line-numbers}
+:::
 
 ### Color
 
@@ -94,7 +102,9 @@ Pass a `color` field to the `toast.add` method to change the color of the Toast.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/toast/demo/Color.vue{16 vue:line-numbers}
+:::
 
 ### Close
 
@@ -106,7 +116,9 @@ Pass a `close` field to customize or hide the close button (with `false` value).
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/toast/demo/Close.vue{11-15 vue:line-numbers}
+:::
 
 ### Close Icon
 
@@ -118,7 +130,9 @@ Pass a `closeIcon` field to customize the close button [@bitrix24/b24icons](http
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/toast/demo/CloseIcon.vue{12 vue:line-numbers}
+:::
 
 ### Actions
 
@@ -134,7 +148,9 @@ Actions renders differently when the description is not set. You can try to remo
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/toast/demo/Actions.vue{22-29 vue:line-numbers}
+:::
 
 ## API
 

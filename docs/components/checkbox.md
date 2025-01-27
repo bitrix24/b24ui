@@ -34,7 +34,9 @@ Use the `v-model` directive to control the checked state of the Checkbox.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/checkbox/demo/Checkbox.vue{4,8 vue:line-numbers}
+:::
 
 Use the `default-value` prop to set the initial value when you do not need to control its state.
 
@@ -44,7 +46,9 @@ Use the `default-value` prop to set the initial value when you do not need to co
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/checkbox/demo/CheckboxDef.vue{2 vue:line-numbers}
+:::
 
 ### Indeterminate
 
@@ -56,7 +60,9 @@ Use the `indeterminate` value in the `v-model` directive or `default-value` prop
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/checkbox/demo/Indeterminate.vue{2 vue:line-numbers}
+:::
 
 ### Label
 
@@ -70,7 +76,9 @@ When using the `required` prop, an asterisk is added next to the label.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/checkbox/demo/Label.vue{15,16 vue:line-numbers}
+:::
 
 ### Description
 
@@ -82,7 +90,9 @@ Use the `description` prop to set the description of the Checkbox.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/checkbox/demo/Description.vue{14 vue:line-numbers}
+:::
 
 ### Color
 
@@ -94,7 +104,9 @@ Use the `color` prop to change the color of the Checkbox.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/checkbox/demo/Color.vue{15 vue:line-numbers}
+:::
 
 ### Size
 
@@ -106,7 +118,9 @@ Use the `size` prop to change the size of the Checkbox.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/checkbox/demo/Size.vue{15 vue:line-numbers}
+:::
 
 ### Disabled
 
@@ -118,7 +132,9 @@ Use the `disabled` prop to disable the Checkbox.
   </ClientOnly>
 </div>
 
+::: details
 <<< @/examples/checkbox/demo/Disabled.vue{13 vue:line-numbers}
+:::
 
 ## API
 
