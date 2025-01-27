@@ -1,28 +1,34 @@
 ---
 title: Advice
-description: _todo_ change me
+description: A couple of lines of text and an avatar
 outline: deep
 ---
 <script setup>
-import AdviceExample from '/examples/advice/AdviceExample.vue';
+import AdviceExample from '/examples/advice/Advice.vue';
 </script>
-# Advice
+# Countdown
 
-<Description 
+<Description
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Advice.vue"
 >
-  @todo change me
+  A couple of lines of text and an avatar
 </Description>
+
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
 
 ## Usage
 
-<ComponentShowExample >
-  <iframe data-why class="min-h-[80px]" allowtransparency="true">
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
     <AdviceExample />
-  </iframe>
-</ComponentShowExample>
+  </ClientOnly>
+</div>
 
-<<< @/examples/advice/AdviceExample.vue
+::: details
+<<< @/examples/advice/demo/Advice.vue{2 vue:line-numbers}
+:::
 
 ## API
 
