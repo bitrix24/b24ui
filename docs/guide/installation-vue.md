@@ -1,6 +1,7 @@
 ---
 title: Installation in a Vue app
 description: 'Learn how to install and configure Bitrix24 UI in your Vue application.'
+outline: deep
 ---
 # Installation
 
