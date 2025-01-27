@@ -1,10 +1,27 @@
 ---
-description: A callout to draw user's attention.
-links:
-  - label: GitHub
-    icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/tree/v3/src/runtime/components/Alert.vue
+title: Alert
+description: An alert designed to capture the user's attention.
+outline: deep
 ---
+<script setup>
+import AlertExample from '/examples/alert/Alert.vue';
+import DescriptionExample from '/examples/alert/Description.vue';
+import IconExample from '/examples/alert/Icon.vue';
+import AvatarExample from '/examples/alert/Avatar.vue';
+import ColorExample from '/examples/alert/Color.vue';
+import SizeExample from '/examples/alert/Size.vue';
+import CloseExample from '/examples/alert/Close.vue';
+import CloseButtonExample from '/examples/alert/CloseButton.vue';
+import ActionsExample from '/examples/alert/Actions.vue';
+</script>
+# Alert
+
+<Description
+  nuxt-ui="https://ui3.nuxt.dev/components/alert"
+git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Alert.vue"
+>
+  An alert designed to capture the user's attention.
+</Description>
 
 ## Usage
 
@@ -12,267 +29,126 @@ links:
 
 Use the `title` prop to set the title of the Alert.
 
-::component-code
----
-props:
-  title: 'Heads up!'
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <AlertExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/alert/demo/Alert.vue{12 vue:line-numbers}
 
 ### Description
 
 Use the `description` prop to set the description of the Alert.
 
-::component-code
----
-prettier: true
-props:
-  title: 'Heads up!'
-  description: 'You can change the primary color in your app config.'
----
-::
+<div class="lg:min-h-[389px]">
+  <ClientOnly>
+    <DescriptionExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/alert/demo/Description.vue{16 vue:line-numbers}
 
 ### Icon
 
-Use the `icon` prop to show an [Icon](/components/icon).
+Use the `icon` prop to show an [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html).
 
-::component-code
----
-prettier: true
-ignore:
-  - title
-  - description
-props:
-  title: 'Heads up!'
-  description: 'You can change the primary color in your app config.'
-  icon: 'i-lucide-terminal'
----
-::
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <IconExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/alert/demo/Icon.vue{2,7 vue:line-numbers}
 
 ### Avatar
 
 Use the `avatar` prop to show an [Avatar](/components/avatar).
 
-::component-code
----
-prettier: true
-ignore:
-  - title
-  - description
-props:
-  title: 'Heads up!'
-  description: 'You can change the primary color in your app config.'
-  avatar.src: 'https://github.com/nuxt.png'
----
-::
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <AvatarExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/alert/demo/Avatar.vue{7,12 vue:line-numbers}
 
 ### Color
 
 Use the `color` prop to change the color of the Alert.
 
-::component-code
----
-prettier: true
-ignore:
-  - title
-  - description
-  - icon
-props:
-  color: neutral
-  title: 'Heads up!'
-  description: 'You can change the primary color in your app config.'
-  icon: 'i-lucide-terminal'
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <ColorExample />
+  </ClientOnly>
+</div>
 
-### Variant
+<<< @/examples/alert/demo/Color.vue{16 vue:line-numbers}
 
-Use the `variant` prop to change the variant of the Alert.
+### Size
 
-::component-code
----
-prettier: true
-ignore:
-  - title
-  - description
-  - icon
-props:
-  color: neutral
-  variant: subtle
-  title: 'Heads up!'
-  description: 'You can change the primary color in your app config.'
-  icon: 'i-lucide-terminal'
----
-::
+Use the `size` prop to change the size of the Alert.
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <SizeExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/alert/demo/Size.vue{16 vue:line-numbers}
 
 ### Close
 
 Use the `close` prop to display a [Button](/components/button) to dismiss the Alert.
 
-::tip
+::: tip
 An `update:open` event will be emitted when the close button is clicked.
-::
+:::
 
-::component-code
----
-prettier: true
-ignore:
-  - title
-  - description
-  - close
-  - color
-  - variant
-props:
-  title: 'Heads up!'
-  description: 'You can change the primary color in your app config.'
-  color: neutral
-  variant: outline
-  close: true
----
-::
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <CloseExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/alert/demo/Close.vue{10 vue:line-numbers}
 
 You can pass any property from the [Button](/components/button) component to customize it.
 
-::component-code
----
-prettier: true
-ignore:
-  - title
-  - description
-  - close.color
-  - close.variant
-  - color
-  - variant
-props:
-  title: 'Heads up!'
-  description: 'You can change the primary color in your app config.'
-  color: neutral
-  variant: outline
-  close:
-    color: primary
-    variant: outline
-    class: 'rounded-full'
----
-::
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <CloseButtonExample />
+  </ClientOnly>
+</div>
 
-### Close Icon
-
-Use the `close-icon` prop to customize the close button [Icon](/components/icon). Defaults to `i-lucide-x`.
-
-::component-code
----
-prettier: true
-ignore:
-  - title
-  - description
-  - close
-  - color
-  - variant
-props:
-  title: 'Heads up!'
-  description: 'You can change the primary color in your app config.'
-  color: neutral
-  variant: outline
-  close: true
-  closeIcon: 'i-lucide-arrow-right'
----
-::
-
-::framework-only
-#nuxt
-:::tip{to="/getting-started/icons/nuxt#theme"}
-You can customize this icon globally in your `app.config.ts` under `ui.icons.close` key.
-:::
-
-#vue
-:::tip{to="/getting-started/icons/vue#theme"}
-You can customize this icon globally in your `vite.config.ts` under `ui.icons.close` key.
-:::
-::
+<<< @/examples/alert/demo/CloseButton.vue{10 vue:line-numbers}
 
 ### Actions
 
 Use the `actions` prop to add some [Button](/components/button) actions to the Alert.
 
-::component-code
----
-prettier: true
-ignore:
-  - title
-  - actions
-  - color
-  - variant
-props:
-  title: 'Heads up!'
-  description: 'You can change the primary color in your app config.'
-  color: neutral
-  variant: outline
-  actions:
-    - label: Action 1
-    - label: Action 2
-      color: neutral
-      variant: subtle
----
-::
-
-::note
+::: info
 Actions renders differently when the description is not set. You can try to remove it.
-::
+:::
 
-## Examples
+<div class="lg:min-h-[316px]">
+  <ClientOnly>
+    <ActionsExample />
+  </ClientOnly>
+</div>
 
-### `class` prop
-
-Use the `class` prop to override the base styles of the Alert.
-
-::component-code
----
-prettier: true
-ignore:
-  - title
-  - description
-props:
-  title: 'Heads up!'
-  description: 'You can change the primary color in your app config.'
-  class: 'rounded-none'
----
-::
-
-### `ui` prop
-
-Use the `ui` prop to override the slots styles of the Alert.
-
-::component-code
----
-prettier: true
-ignore:
-  - ui
-  - title
-  - description
-  - icon
-props:
-  title: 'Heads up!'
-  description: 'You can change the primary color in your app config.'
-  icon: i-lucide-rocket
-  ui:
-    icon: 'size-11'
----
-::
+<<< @/examples/alert/demo/Actions.vue{10 vue:line-numbers}
 
 ## API
 
 ### Props
 
-:component-props
+<ComponentProps component="Alert" />
 
 ### Slots
 
-:component-slots
+<ComponentSlots component="Alert" />
 
 ### Emits
 
-:component-emits
-
-## Theme
-
-:component-theme
+<ComponentEmits component="Alert" />
