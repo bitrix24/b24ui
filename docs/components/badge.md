@@ -1,10 +1,25 @@
 ---
-description: A short text to represent a status or a category.
-links:
-  - label: GitHub
-    icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/tree/v3/src/runtime/components/Badge.vue
+title: Badge
+description: A short descriptor for a status or category.
+outline: deep
 ---
+<script setup>
+import BadgeExample from '/examples/badge/Badge.vue';
+import LabelExample from '/examples/badge/Label.vue';
+import ColorExample from '/examples/badge/Color.vue';
+import DepthExample from '/examples/badge/Depth.vue';
+import SizeExample from '/examples/badge/Size.vue';
+import IconExample from '/examples/badge/Icon.vue';
+import AvatarExample from '/examples/badge/Avatar.vue';
+</script>
+# Badge
+
+<Description
+  nuxt-ui="https://ui3.nuxt.dev/components/badge"
+  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Badge.vue"
+>
+  A short descriptor for a status or category.
+</Description>
 
 ## Usage
 
@@ -12,135 +27,96 @@ links:
 
 Use the default slot to set the label of the Badge.
 
-::component-code
----
-slots:
-  default: Badge
----
-::
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <BadgeExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/badge/demo/Badge.vue{2,3 vue:line-numbers}
 
 You can achieve the same result by using the `label` prop.
 
-::component-code
----
-props:
-  label: Badge
----
-::
+Use the `use-link` prop to show underline.
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <LabelExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/badge/demo/Label.vue{12,13,14 vue:line-numbers}
 
 ### Color
 
 Use the `color` prop to change the color of the Badge.
 
-::component-code
----
-props:
-  color: neutral
-slots:
-  default: Badge
----
-::
+Use the `use-fill` prop to change the filling of the Badge.
 
-### Variant
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <ColorExample />
+  </ClientOnly>
+</div>
 
-Use the `variant` props to change the variant of the Badge.
+<<< @/examples/badge/demo/Color.vue{20-21 vue:line-numbers}
 
-::component-code
----
-props:
-  color: neutral
-  variant: outline
-slots:
-  default: Badge
----
-::
+### Depth
+
+Use the `depth` parameter to change the intensity of the Badge.
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <DepthExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/badge/demo/Depth.vue{23 vue:line-numbers}
 
 ### Size
 
 Use the `size` prop to change the size of the Badge.
 
-::component-code
----
-props:
-  size: xl
-slots:
-  default: Badge
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <SizeExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/badge/demo/Size.vue{23 vue:line-numbers}
 
 ### Icon
 
-Use the `icon` prop to show an [Icon](/components/icon) inside the Badge.
+Use the `icon` prop to show an [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html) inside the Badge.
 
-::component-code
----
-props:
-  icon: i-lucide-rocket
-  size: md
-  color: primary
-  variant: solid
-slots:
-  default: Badge
----
-::
+Use the `use-close` prop to show close icon.
 
-Use the `leading` and `trailing` props to set the icon position or the `leading-icon` and `trailing-icon` props to set a different icon for each position.
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <IconExample />
+  </ClientOnly>
+</div>
 
-::component-code
----
-props:
-  trailingIcon: i-lucide-arrow-right
-  size: md
-slots:
-  default: Badge
----
-::
+<<< @/examples/badge/demo/Icon.vue{29,37,38,46 vue:line-numbers}
 
 ### Avatar
 
 Use the `avatar` prop to show an [Avatar](/components/avatar) inside the Badge.
 
-::component-code
----
-prettier: true
-props:
-  avatar:
-    src: 'https://github.com/nuxt.png'
-  size: md
-  color: neutral
-  variant: outline
-slots:
-  default: |
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <AvatarExample />
+  </ClientOnly>
+</div>
 
-    Badge
----
-::
-
-## Examples
-
-### `class` prop
-
-Use the `class` prop to override the base styles of the Badge.
-
-::component-code
----
-props:
-  class: 'font-bold rounded-full'
-slots:
-  default: Badge
----
-::
+<<< @/examples/badge/demo/Avatar.vue{28,36 vue:line-numbers}
 
 ## API
 
 ### Props
 
-:component-props
+<ComponentProps component="Badge" />
 
 ### Slots
 
-:component-slots
-
-## Theme
-
-:component-theme
+<ComponentSlots component="Badge" />
