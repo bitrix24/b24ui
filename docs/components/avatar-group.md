@@ -1,72 +1,60 @@
 ---
 title: AvatarGroup
-description: Stack multiple avatars in a group.
-links:
-  - label: GitHub
-    icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/tree/v3/src/runtime/components/AvatarGroup.vue
+description: Pile multiple avatars into a single group.
+outline: deep
 ---
+<script setup>
+import AvatarGroupExample from '/examples/avatargroup/AvatarGroup.vue';
+import SizeExample from '/examples/avatargroup/Size.vue';
+import MaxExample from '/examples/avatargroup/Max.vue';
+import WithTooltipExample from '/examples/avatargroup/WithTooltip.vue';
+import WithChipExample from '/examples/avatargroup/WithChip.vue';
+import WithLinkExample from '/examples/avatargroup/WithLink.vue';
+</script>
+# AvatarGroup
+
+<Description
+  nuxt-ui="https://ui3.nuxt.dev/components/avatar-group"
+  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/AvatarGroup.vue"
+>
+  Pile multiple avatars into a single group.
+</Description>
 
 ## Usage
 
 Wrap multiple [Avatar](/components/avatar) within an AvatarGroup to stack them.
 
-::component-code
----
-prettier: true
-slots:
-  default: |
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <AvatarGroupExample />
+  </ClientOnly>
+</div>
 
-    <UAvatar src="https://github.com/benjamincanac.png" alt="Benjamin Canac" />
-    <UAvatar src="https://github.com/romhml.png" alt="Romain Hamel" />
-    <UAvatar src="https://github.com/noook.png" alt="Neil Richter" />
----
-:u-avatar{src="https://github.com/benjamincanac.png" alt="Benjamin Canac"}
-:u-avatar{src="https://github.com/romhml.png" alt="Romain Hamel"}
-:u-avatar{src="https://github.com/noook.png" alt="Neil Richter"}
-::
+<<< @/examples/avatargroup/demo/AvatarGroup.vue{2,6 vue:line-numbers}
 
 ### Size
 
 Use the `size` prop to change the size of all the avatars.
 
-::component-code
----
-prettier: true
-props:
-  size: xl
-slots:
-  default: |
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <SizeExample />
+  </ClientOnly>
+</div>
 
-    <UAvatar src="https://github.com/benjamincanac.png" alt="Benjamin Canac" />
-    <UAvatar src="https://github.com/romhml.png" alt="Romain Hamel" />
-    <UAvatar src="https://github.com/noook.png" alt="Neil Richter" />
----
-:u-avatar{src="https://github.com/benjamincanac.png" alt="Benjamin Canac"}
-:u-avatar{src="https://github.com/romhml.png" alt="Romain Hamel"}
-:u-avatar{src="https://github.com/noook.png" alt="Neil Richter"}
-::
+<<< @/examples/avatargroup/demo/Size.vue{14 vue:line-numbers}
 
 ### Max
 
 Use the `max` prop to limit the number of avatars displayed. The rest is displayed as an `+X` avatar.
 
-::component-code
----
-prettier: true
-props:
-  max: 2
-slots:
-  default: |
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <MaxExample />
+  </ClientOnly>
+</div>
 
-    <UAvatar src="https://github.com/benjamincanac.png" alt="Benjamin Canac" />
-    <UAvatar src="https://github.com/romhml.png" alt="Romain Hamel" />
-    <UAvatar src="https://github.com/noook.png" alt="Neil Richter" />
----
-:u-avatar{src="https://github.com/benjamincanac.png" alt="Benjamin Canac"}
-:u-avatar{src="https://github.com/romhml.png" alt="Romain Hamel"}
-:u-avatar{src="https://github.com/noook.png" alt="Neil Richter"}
-::
+<<< @/examples/avatargroup/demo/Max.vue{13 vue:line-numbers}
 
 ## Examples
 
@@ -74,30 +62,44 @@ slots:
 
 Wrap each avatar with a [Tooltip](/components/tooltip) to display a tooltip on hover.
 
-:component-example{name="avatar-group-tooltip-example"}
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <WithTooltipExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/avatargroup/demo/WithTooltip.vue{3,6,9 vue:line-numbers}
 
 ### With chip
 
 Wrap each avatar with a [Chip](/components/chip) to display a chip around the avatar.
 
-:component-example{name="avatar-group-chip-example"}
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <WithChipExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/avatargroup/demo/WithChip.vue{3,6,9 vue:line-numbers}
 
 ### With link
 
 Wrap each avatar with a [Link](/components/link) to make them clickable.
 
-:component-example{name="avatar-group-link-example"}
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <WithLinkExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/avatargroup/demo/WithLink.vue{3-8,10 vue:line-numbers}
 
 ## API
 
 ### Props
 
-:component-props
+<ComponentProps component="AvatarGroup" />
 
 ### Slots
 
-:component-slots
-
-## Theme
-
-:component-theme
+<ComponentSlots component="AvatarGroup" />
