@@ -1,8 +1,15 @@
 ---
 title: useFormField
-description: 'A composable to integrate custom inputs with the Form component'
-navigation: false
+description: 'A composable to merge custom inputs with the Form component'
 ---
+# useFormField
+
+<Description
+  nuxt-ui="https://ui3.nuxt.dev/composables/use-form-field"
+  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/composables/useFormField.ts"
+>
+  A composable to merge custom inputs with the Form component
+</Description>
 
 ## Usage
 

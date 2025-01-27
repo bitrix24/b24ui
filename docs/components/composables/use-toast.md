@@ -4,6 +4,13 @@ description: 'A composable for showing toast notifications in your app.'
 ---
 # useToast
 
+<Description
+  nuxt-ui="https://ui3.nuxt.dev/composables/use-toast"
+  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/composables/useToast.ts"
+>
+  A composable for showing toast notifications in your app.
+</Description>
+
 ## Usage
 
 Use the auto-imported `useToast` composable to display [Toast](/components/toast) notifications.
