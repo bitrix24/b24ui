@@ -1,68 +1,75 @@
 ---
 title: DescriptionList
-description: _todo_ change me
+description: 'For instances requiring the conversion of a table row into its own table to enhance page completeness.'
 outline: deep
 ---
 <script setup>
-import DescriptionListExample from '/examples/content/descriptionlist/DescriptionListExample.vue';
-import DescriptionListIconsExample from '/examples/content/descriptionlist/DescriptionListIconsExample.vue';
-import DescriptionListActionsExample from '/examples/content/descriptionlist/DescriptionListActionsExample.vue';
-import DescriptionListCustomExample from '/examples/content/descriptionlist/DescriptionListCustomExample.vue';
+import DescriptionListExample from '/examples/content/descriptionlist/DescriptionList.vue';
+import IconsExample from '/examples/content/descriptionlist/Icons.vue';
+import ActionsExample from '/examples/content/descriptionlist/Actions.vue';
+import CustomExample from '/examples/content/descriptionlist/Custom.vue';
 </script>
 # DescriptionList
 
 <Description 
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/content/DescriptionList.vue"
 >
-  @todo change me
+  For instances requiring the conversion of a table row into its own table to enhance page completeness.
 </Description>
+
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
 
 ## Usage
 
 ### Simple
 
-<ComponentShowExample class="mt-2" >
-  <iframe data-why class="min-h-[500px] sm:min-h-[280px]" allowtransparency="true">
-      <DescriptionListExample class="bg-white dark:bg-base-900 p-4 rounded-lg" />
-  </iframe>
-</ComponentShowExample>
+<div class="lg:min-h-[315px]">
+  <ClientOnly>
+    <DescriptionListExample />
+  </ClientOnly>
+</div>
 
-<<< @/examples/content/descriptionlist/DescriptionListExample.vue
-
+::: details
+<<< @/examples/content/descriptionlist/demo/DescriptionList.vue{vue:line-numbers}
+:::
 
 ### Icons
 
-<ComponentShowExample class="mt-2" >
-  <iframe data-why class="min-h-[500px] sm:min-h-[300px]" allowtransparency="true">
-      <DescriptionListIconsExample class="bg-white dark:bg-base-900 p-4 rounded-lg" />
-  </iframe>
-</ComponentShowExample>
+<div class="lg:min-h-[331px]">
+  <ClientOnly>
+    <IconsExample />
+  </ClientOnly>
+</div>
 
-<<< @/examples/content/descriptionlist/DescriptionListIconsExample.vue
+::: details
+<<< @/examples/content/descriptionlist/demo/Icons.vue{vue:line-numbers}
+:::
 
 ### Actions 
 
-@todo
+<div class="lg:min-h-[533px]">
+  <ClientOnly>
+    <ActionsExample />
+  </ClientOnly>
+</div>
 
-<ComponentShowExample class="mt-2" >
-  <iframe data-why class="min-h-[740px] sm:min-h-[520px]" allowtransparency="true">
-      <DescriptionListActionsExample class="bg-white dark:bg-base-900 p-4 rounded-lg" />
-  </iframe>
-</ComponentShowExample>
-
-<<< @/examples/content/descriptionlist/DescriptionListActionsExample.vue
+::: details
+<<< @/examples/content/descriptionlist/demo/Actions.vue{vue:line-numbers}
+:::
 
 ### Custom 
 
-@todo
+<div class="lg:min-h-[400px]">
+  <ClientOnly>
+    <CustomExample />
+  </ClientOnly>
+</div>
 
-<ComponentShowExample class="mt-2" >
-  <iframe data-why class="min-h-[500px] sm:min-h-[400px]" allowtransparency="true">
-      <DescriptionListCustomExample class="bg-white dark:bg-base-900 p-4 rounded-lg" />
-  </iframe>
-</ComponentShowExample>
-
-<<< @/examples/content/descriptionlist/DescriptionListCustomExample.vue
+::: details
+<<< @/examples/content/descriptionlist/demo/Custom.vue{vue:line-numbers}
+:::
 
 ## API
 
