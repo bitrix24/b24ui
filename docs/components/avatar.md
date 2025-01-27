@@ -1,88 +1,103 @@
 ---
-description: An img element with fallback and Nuxt Image support.
-links:
-  - label: Avatar
-    icon: i-custom-reka-ui
-    to: https://reka-ui.com/docs/components/avatar
-  - label: GitHub
-    icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/tree/v3/src/runtime/components/Avatar.vue
+title: Avatar
+description: An img element that includes fallback and supports Nuxt Image.
+outline: deep
 ---
+<script setup>
+import AvatarExample from '/examples/avatar/Avatar.vue';
+import SizeExample from '/examples/avatar/Size.vue';
+import IconExample from '/examples/avatar/Icon.vue';
+import TextExample from '/examples/avatar/Text.vue';
+import AltExample from '/examples/avatar/Alt.vue';
+import WithTooltipExample from '/examples/avatar/WithTooltip.vue';
+import WithChipExample from '/examples/avatar/WithChip.vue';
+</script>
+# Avatar
+
+<Description
+  nuxt-ui="https://ui3.nuxt.dev/components/avatar"
+  reka-ui="https://reka-ui.com/docs/components/avatar"
+  reka-ui-title="Avatar"
+  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Avatar.vue"
+>
+  An img element that includes fallback and supports Nuxt Image.
+</Description>
 
 ## Usage
 
-::tip
-The Avatar uses the `NuxtImg` component when [`@nuxt/image`](https://github.com/nuxt/image) is installed, falling back to `img` otherwise.
-::
+The Avatar uses the `<NuxtImg>` component when [`@nuxt/image`](https://github.com/nuxt/image) is installed, falling back to `img` otherwise.
+
+::: info
+You can pass any property from the HTML `<img>` element such as `alt`, `loading`, etc.
+:::
 
 ### Src
 
-Use the `src` prop to set the image URL. You can pass any property from HTML `<img>` element such as `alt`, `loading`, etc.
+Use the `src` prop to set the image URL.
 
-::component-code
----
-props:
-src: 'https://github.com/benjamincanac.png'
----
-::
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <AvatarExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/avatar/demo/Avatar.vue{2 vue:line-numbers}
 
 ### Size
 
 Use the `size` prop to set the size of the Avatar.
 
-::component-code
----
-ignore:
-- src
-  props:
-  src: 'https://github.com/benjamincanac.png'
-  size: xl
----
-::
-
-::note
+::: info
 The `<img>` element's `width` and `height` are automatically set based on the `size` prop.
-::
+:::
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <SizeExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/avatar/demo/Size.vue{17 vue:line-numbers}
 
 ### Icon
 
-Use the `icon` prop to display a fallback [Icon](/components/icon).
+Use the `icon` prop to display a fallback [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html).
 
-::component-code
----
-props:
-icon: 'i-lucide-image'
-size: md
----
-::
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <IconExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/avatar/demo/Icon.vue{2,7 vue:line-numbers}
 
 ### Text
 
 Use the `text` prop to display a fallback text.
 
-::component-code
----
-props:
-text: '+1'
-size: md
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <TextExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/avatar/demo/Text.vue{17 vue:line-numbers}
 
 ### Alt
 
 When no icon or text is provided, the **initials** of the `alt` prop is used as fallback.
 
-::component-code
----
-props:
-alt: 'Benjamin Canac'
-size: md
----
-::
-
-::note
+::: info
 The `alt` prop is passed to the `img` element as the `alt` attribute.
-::
+:::
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <AltExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/avatar/demo/Alt.vue{17 vue:line-numbers}
 
 ## Examples
 
@@ -90,20 +105,28 @@ The `alt` prop is passed to the `img` element as the `alt` attribute.
 
 You can use a [Tooltip](/components/tooltip) component to display a tooltip when hovering the Avatar.
 
-:component-example{name="avatar-tooltip-example"}
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <WithTooltipExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/avatar/demo/WithTooltip.vue{2,4 vue:line-numbers}
 
 ### With chip
 
 You can use a [Chip](/components/chip) component to display a chip around the Avatar.
 
-:component-example{name="avatar-chip-example"}
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <WithChipExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/avatar/demo/WithChip.vue{2,4 vue:line-numbers}
 
 ## API
 
 ### Props
 
-:component-props
-
-## Theme
-
-:component-theme
+<ComponentProps component="Avatar" />
