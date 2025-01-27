@@ -1,28 +1,34 @@
 ---
 title: Countdown
-description: _todo_ change me
+description: Countdown with options control.
 outline: deep
 ---
 <script setup>
-import CountdownExample from '/examples/countdown/CountdownExample.vue';
+import CountdownExample from '/examples/countdown/Countdown.vue';
 </script>
 # Countdown
 
 <Description 
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Countdown.vue"
 >
-  @todo change me
+  Countdown with options control.
 </Description>
+
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
 
 ## Usage
 
-<ComponentShowExample >
-  <iframe data-why class="min-h-[80px]" allowtransparency="true">
+<div class="lg:min-h-[260px]">
+  <ClientOnly>
     <CountdownExample />
-  </iframe>
-</ComponentShowExample>
+  </ClientOnly>
+</div>
 
-<<< @/examples/countdown/CountdownExample.vue
+::: details
+<<< @/examples/countdown/demo/Countdown.vue{vue:line-numbers}
+:::
 
 ## API
 
