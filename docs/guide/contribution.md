@@ -1,14 +1,21 @@
 ---
 title: Contribution Guide
-description: 'A comprehensive guide on contributing to Bitrix24 UI, including project structure, development workflow, and best practices.'
-navigation: false
+description: 'A detailed guide on how to contribute to Bitrix24 UI, including insights on project structure, development workflow, and best practices.'
+outline: deep
 ---
 
-Bitrix24 UI thrives thanks to its incredible community ❤️. We welcome all contributions through bug reports, pull requests, and feedback to help make this library even better.
+# Contribution Guide
+The goal of this project is to provide components identical to Bitrix24 to enhance the user experience and simplify the development of applications for Bitrix24.
 
-::caution
+We have chosen [Nuxt UI v3](https://ui3.nuxt.dev/) as the foundation.
+
+We are just beginning our journey, and there is still much work ahead in writing and testing. But we have already taken the first step. Join us!
+
+We welcome your contributions in the form of bug reports, pull requests, and feedback to make this library even better.
+
+::: danger Attention
 Before reporting a bug or requesting a feature, make sure that you have read through our [documentation](https://bitrix24.github.io/b24ui/) and existing [issues](https://github.com/bitrix24/b24ui/issues?q=is%3Aissue%20is%3Aopen%20sort%3Aupdated-desc%20label%3Av3).
-::
+:::
 
 ## Project Structure
 
@@ -16,11 +23,7 @@ Here's an overview of the key directories and files in the Bitrix24 UI project s
 
 ### Documentation
 
-The documentation lives in the `docs` folder as a `vitepress`. See the [Getting Started](https://vitepress.dev/guide/getting-started) for details on how it works. Here's a breakdown of its structure:
-
-```bash
-@todo
-```
+The documentation lives in the `docs` folder as a `vitepress`. See the [Getting Started](https://vitepress.dev/guide/getting-started) for details on how it works.
 
 ### Module
 
@@ -30,7 +33,7 @@ The module code resides in the `src` folder. Here's a breakdown of its structure
 ├── plugins/
 ├── runtime/
 │   ├── components/        # Where all the components are located
-│   │   ├── Accordion.vue
+│   │   ├── Advice.vue
 │   │   ├── Alert.vue
 │   │   └── ...
 │   ├── composables/
@@ -42,7 +45,7 @@ The module code resides in the `src` folder. Here's a breakdown of its structure
 │       ├── components/
 │       └── plugins/
 ├── theme/                 # This where the theme for each component is located
-│   ├── accordion.ts       # Theme for Accordion component
+│   ├── Advice.ts          # Theme for Advice component
 │   ├── alert.ts
 │   └── ...
 └── module.ts
@@ -93,9 +96,9 @@ bitrix24-ui make component block --pro --content
 bitrix24-ui make component my-component --template=docs
 ```
 
-::note
+::: info
 When creating a new component, the CLI will automatically generate all the necessary files like the component itself, theme, tests, and documentation.
-::
+:::
 
 ### Locales
 
@@ -105,9 +108,9 @@ You can create new locales using the following command:
 bitrix24-ui make locale --code <code> --name <name>
 ```
 
-::note{to="/getting-started/i18n/nuxt#supported-languages"}
-Learn more about **i18n** in the documentation.
-::
+::: tip
+Learn more about **i18n** in the documentation^ [Nuxt](/guide/i18n-nuxt#locale) or [Vue](/guide/i18n-vue#locale) app.
+:::
 
 ## Submit a Pull Request (PR)
 
@@ -119,38 +122,36 @@ If there isn't, open a new issue to discuss the problem or feature.
 
 To begin local development, follow these steps:
 
-::steps{level="4"}
-
-#### Clone the `@bitrix24/b24ui-nuxt` repository to your local machine
+#### 1.Clone the `@bitrix24/b24ui-nuxt` repository to your local machine
 
 ```sh
-git clone -b v3 https://github.com/bitrix24/b24ui.git
+git clone https://github.com/bitrix24/b24ui.git
 ```
 
-#### Enable [Corepack](https://github.com/nodejs/corepack)
+#### 2.Enable [Corepack](https://github.com/nodejs/corepack)
 
 ```sh
 corepack enable
 ```
 
-#### Install dependencies
+#### 3.Install dependencies
 
 ```sh
 pnpm install
 ```
 
-#### Generate type stubs
+#### 4.Generate type stubs
 
 ```sh
 pnpm run dev:prepare
 ```
 
-#### Start development
+#### 5.Start development
 
 - To work on the **documentation** located in the `docs` folder, run:
 
 ```sh
-pnpm run docs
+pnpm run docs:dev
 ```
 
 - To test the Nuxt components using the **playground**, run:
@@ -165,11 +166,9 @@ pnpm run dev
 pnpm run dev:vue
 ```
 
-::
-
-::note{to="#cli"}
-If you're working on implementing a new component, check the **CLI** section to kickstart the process.
-::
+::: info
+If you're working on implementing a new component, check the [CLI](#cli) section to kickstart the process.
+:::
 
 ### IDE Setup
 
@@ -184,9 +183,9 @@ We recommend using VSCode alongside the [ESLint extension](https://marketplace.v
 }
 ```
 
-::warning
+::: warning
 Since ESLint is already configured to format the code, there's no need for duplicating functionality with **Prettier**. If you have it installed in your editor, we recommend disabling it to avoid conflicts.
-::
+:::
 
 ### Linting
 
@@ -214,9 +213,9 @@ pnpm run test # for Nuxt
 pnpm run test:vue # for Vue
 ```
 
-::tip
+::: tip
 If you have to update the snapshots, press `u` when running the tests. Or run `pnpm run test:save`
-::
+:::
 
 ### Commit Conventions
 
@@ -227,7 +226,7 @@ We use [Conventional Commits](https://www.conventionalcommits.org/) for commit m
 
 ### Making a Pull Request
 
-- Follow along the [instructions](https://github.com/bitrix24/b24ui/blob/.github/PULL_REQUEST_TEMPLATE.md?plain=1) provided when creating a PR
+- Follow along the [instructions](https://github.com/bitrix24/b24ui/blob/main/.github/PULL_REQUEST_TEMPLATE.md?plain=1) provided when creating a PR
 
 - Ensure your PR's title adheres to the [Conventional Commits](https://www.conventionalcommits.org/) since it will be used once the code is merged.
 
@@ -237,6 +236,4 @@ We use [Conventional Commits](https://www.conventionalcommits.org/) for commit m
 
 We'll review it promptly. If assigned to a maintainer, they'll review it carefully. Ignore the red text; it's for tracking purposes.
 
-## Thanks
-
-Thank you again for being interested in this project!
+Thanks
