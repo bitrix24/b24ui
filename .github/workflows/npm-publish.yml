@@ -10,6 +10,9 @@ jobs:
       - name: 'Checkout'
         uses: actions/checkout@v4
 
+      - name: 'Setup pnpm'
+        uses: pnpm/action-setup@v4
+
       - name: 'Setup Node.js v22.*'
         uses: actions/setup-node@v3
         with:
