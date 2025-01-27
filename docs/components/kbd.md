@@ -56,7 +56,7 @@ You can pass special keys to the `value` prop that goes through the [`useKbd`](h
 
 ### Depth
 
-Use the `depth` parameter to change the intensity of Kbd.
+Use the `depth` parameter to change the intensity of the Kbd.
 
 <div class="lg:min-h-[275px]">
   <ClientOnly>
