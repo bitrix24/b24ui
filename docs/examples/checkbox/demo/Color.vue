@@ -6,7 +6,7 @@ export interface ExampleProps {
 }
 
 withDefaults(defineProps<ExampleProps>(), {
-  color: 'default'
+  color: 'default' as const
 })
 </script>
 
