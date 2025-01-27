@@ -2,24 +2,24 @@
  * Headings
  * -------------------------------------------------------------------------- */
 
-.vp-doc h1,
-.vp-doc h2,
-.vp-doc h3,
-.vp-doc h4,
-.vp-doc h5,
-.vp-doc h6 {
+.vp-doc h1:not(div[data-example] h1),
+.vp-doc h2:not(div[data-example] h2),
+.vp-doc h3:not(div[data-example] h3),
+.vp-doc h4:not(div[data-example] h4),
+.vp-doc h5:not(div[data-example] h5),
+.vp-doc h6:not(div[data-example] h6) {
   position: relative;
   font-weight: 600;
   outline: none;
 }
 
-.vp-doc h1 {
+.vp-doc h1:not(div[data-example] h1) {
   letter-spacing: -0.02em;
   line-height: 40px;
   font-size: 28px;
 }
 
-.vp-doc h2 {
+.vp-doc h2:not(div[data-example] h2) {
   margin: 48px 0 16px;
   border-top: 1px solid var(--vp-c-divider);
   padding-top: 24px;
@@ -28,14 +28,14 @@
   font-size: 24px;
 }
 
-.vp-doc h3 {
+.vp-doc h3:not(div[data-example] h3) {
   margin: 32px 0 0;
   letter-spacing: -0.01em;
   line-height: 28px;
   font-size: 20px;
 }
 
-.vp-doc h4 {
+.vp-doc h4:not(div[data-example] h4) {
   margin: 24px 0 0;
   letter-spacing: -0.01em;
   line-height: 24px;
