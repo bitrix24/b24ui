@@ -1,6 +1,8 @@
 import { defineConfig, type DefaultTheme } from 'vitepress'
 import { configParams } from './params'
 
+// ✔️ 🔨 //////
+
 export const en = defineConfig({
   lang: 'en-US',
   description: 'Bitrix24 UI-Kit for REST API web-application development',
@@ -42,27 +44,26 @@ function nav(): DefaultTheme.NavItem[] {
   ]
 }
 
-// ✔️ 🔨 //////
 function sidebarGuide(): DefaultTheme.SidebarItem[] {
   return [
-    { text: '✔️Introduction', link: 'getting-started' },
+    { text: 'Introduction', link: 'getting-started' },
     {
       text: 'Nuxt',
       collapsed: false,
       items: [
-        { text: '✔️Installation', link: 'installation-nuxt-app' },
-        { text: 'I18n', link: 'i18n-nuxt' }
+        { text: 'Installation', link: 'installation-nuxt-app' }
+        // { text: 'I18n', link: 'i18n-nuxt' }
       ]
     },
     {
       text: 'Vue',
       collapsed: false,
       items: [
-        { text: '✔️Installation', link: 'installation-vue' },
-        { text: 'I18n', link: 'i18n-vue' }
+        { text: 'Installation', link: 'installation-vue' }
+        // { text: 'I18n', link: 'i18n-vue' }
       ]
     },
-    { text: '✔️Contribution Guide', link: 'contribution' }
+    { text: 'Contribution Guide', link: 'contribution' }
   ]
 }
 

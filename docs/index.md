@@ -15,13 +15,13 @@ hero:
     - theme: alt
       text: GitHub
       link: https://github.com/bitrix24/b24ui
-
-features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
+<script setup>
+import PromoExample from '/examples/index/Promo_v1.vue';
+</script>
 
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <PromoExample />
+  </ClientOnly>
+</div>
