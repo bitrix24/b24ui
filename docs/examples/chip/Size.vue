@@ -5,7 +5,6 @@ import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShow
 import Demo from './demo/Size.vue'
 
 const sizes = Object.keys(theme.variants.size)
-
 const size = ref('md' as const)
 </script>
 

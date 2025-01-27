@@ -7,8 +7,8 @@ export interface ExampleProps {
 }
 
 withDefaults(defineProps<ExampleProps>(), {
-  depth: 'dark',
-  color: 'default'
+  depth: 'dark' as const,
+  color: 'default' as const
 })
 </script>
 
