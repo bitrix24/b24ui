@@ -1,10 +1,23 @@
 ---
 title: Button
-description: A button element that can act as a link or trigger an action.
+description: A button capable of linking or performing an action.
 outline: deep
 ---
 <script setup>
-import ButtonExample from '/examples/button/ButtonExample.vue';
+import ButtonExample from '/examples/button/Button.vue';
+import ButtonLabelExample from '/examples/button/ButtonLabel.vue';
+import LinkExample from '/examples/button/Link.vue';
+import ColorExample from '/examples/button/Color.vue';
+import DepthExample from '/examples/button/Depth.vue';
+import SizeExample from '/examples/button/Size.vue';
+import IconExample from '/examples/button/Icon.vue';
+import UseDropdownExample from '/examples/button/UseDropdown.vue';
+import AvatarExample from '/examples/button/Avatar.vue';
+import LoadingExample from '/examples/button/Loading.vue';
+import LoadingAutoExample from '/examples/button/LoadingAuto.vue';
+import FormExample from '/examples/button/Form.vue';
+import DisabledExample from '/examples/button/Disabled.vue';
+import RoundedExample from '/examples/button/Rounded.vue';
 </script>
 # Button
 
@@ -12,41 +25,8 @@ import ButtonExample from '/examples/button/ButtonExample.vue';
   nuxt-ui="https://ui3.nuxt.dev/components/button"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Button.vue"
 >
-  A button element that can act as a link or trigger an action.
+  A button capable of linking or performing an action.
 </Description>
-
-## Usage
-
-<ComponentShowExample>
-  <iframe data-why class="min-h-<80px>" allowtransparency="true">
-    <ButtonExample />
-  </iframe>
-</ComponentShowExample>
-
-<<< @/examples/button/ButtonExample.vue
-
-## API
-
-### Props
-
-<ComponentProps component="Button" />
-
-### Slots
-
-<ComponentSlots component="Button" />
-
-### Emits
-
-<ComponentEmits component="Button" />
-
-
----
-description: A button element that can act as a link or trigger an action.
-links:
-- label: GitHub
-  icon: i-simple-icons-github
-  to: https://github.com/nuxt/ui/tree/v3/src/runtime/components/Button.vue
----
 
 ## Usage
 
@@ -54,272 +34,180 @@ links:
 
 Use the default slot to set the label of the Button.
 
-::component-code
----
-slots:
-default: Button
----
-::
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <ButtonExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/button/demo/Button.vue{2 vue:line-numbers}
 
 You can achieve the same result by using the `label` prop.
 
-::component-code
----
-props:
-label: Button
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <ButtonLabelExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/button/demo/ButtonLabel.vue{13 vue:line-numbers}
 
 ### Link
 
 You can pass any property from the [Link](/components/link#props) component such as `to`, `target`, etc.
 
-::component-code
----
-ignore:
-- label
-- target
-  props:
-  to: https://github.com/nuxt/ui
-  target: _blank
-  slots:
-  default: Button
----
-::
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <LinkExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/button/demo/Link.vue{3,4 vue:line-numbers}
 
 ### Color
 
 Use the `color` prop to change the color of the Button.
 
-::component-code
----
-props:
-color: neutral
-slots:
-default: Button
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <ColorExample />
+  </ClientOnly>
+</div>
 
-### Variant
+<<< @/examples/button/demo/Color.vue{15 vue:line-numbers}
 
-Use the `variant` prop to change the variant of the Button.
+### Depth
 
-::component-code
----
-props:
-color: neutral
-variant: outline
-slots:
-default: Button
----
-::
+Use the `depth` parameter to change the intensity of the Button.
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <DepthExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/button/demo/Depth.vue{10 vue:line-numbers}
 
 ### Size
 
 Use the `size` prop to change the size of the Button.
 
-::component-code
----
-props:
-size: xl
-slots:
-default: Button
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <SizeExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/button/demo/Size.vue{15 vue:line-numbers}
 
 ### Icon
 
-Use the `icon` prop to show an [Icon](/components/icon) inside the Button.
-
-::component-code
----
-props:
-icon: i-lucide-rocket
-size: md
-color: primary
-variant: solid
-slots:
-default: Button
----
-::
-
-Use the `leading` and `trailing` props to set the icon position or the `leading-icon` and `trailing-icon` props to set a different icon for each position.
-
-::component-code
----
-props:
-trailingIcon: i-lucide-arrow-right
-size: md
-slots:
-default: Button
----
-::
+Use the `icon` prop to show an [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html) inside the Button.
 
 The `label` as prop or slot is optional so you can use the Button as an icon-only button.
 
-::component-code
----
-props:
-icon: i-lucide-search
-size: md
-color: primary
-variant: solid
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <IconExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/button/demo/Icon.vue{23 vue:line-numbers}
+
+Use the `use-dropdown` prop to show trailing-icon.
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <UseDropdownExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/button/demo/UseDropdown.vue{7 vue:line-numbers}
 
 ### Avatar
 
 Use the `avatar` prop to show an [Avatar](/components/avatar) inside the Button.
 
-::component-code
----
-prettier: true
-props:
-avatar:
-src: 'https://github.com/nuxt.png'
-size: md
-color: neutral
-variant: outline
-slots:
-default: |
-
-    Button
----
-::
-
 The `label` as prop or slot is optional so you can use the Button as an avatar-only button.
 
-::component-code
----
-prettier: true
-props:
-avatar:
-src: 'https://github.com/nuxt.png'
-size: md
-color: neutral
-variant: outline
----
-::
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <AvatarExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/button/demo/Avatar.vue{25 vue:line-numbers}
 
 ### Loading
 
 Use the `loading` prop to show a loading icon and disable the Button.
 
-::component-code
----
-props:
-loading: true
-trailing: false
-slots:
-default: Button
----
-Button
-::
+::: tip
+Use `use-clock`, `use-wait` props to show different loading icons.
+:::
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <LoadingExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/button/demo/Loading.vue{24,31-32,40-41 vue:line-numbers}
 
 Use the `loading-auto` prop to show the loading icon automatically while the `@click` promise is pending.
 
-:component-example{name="button-loading-auto-example"}
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <LoadingAutoExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/button/demo/LoadingAuto.vue{5-7,13-14,19-21,26-28 vue:line-numbers}
 
 This also works with the [Form](/components/form) component.
 
-:component-example{name="button-loading-auto-form-example"}
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <FormExample />
+  </ClientOnly>
+</div>
 
-### Loading Icon
-
-Use the `loading-icon` prop to customize the loading icon. Defaults to `i-lucide-refresh-cw`.
-
-::component-code
----
-props:
-loading: true
-loadingIcon: 'i-lucide-repeat-2'
-slots:
-default: Button
----
-Button
-::
-
-::framework-only
-#nuxt
-:::tip{to="/getting-started/icons/nuxt#theme"}
-You can customize this icon globally in your `app.config.ts` under `ui.icons.loading` key.
-:::
-
-#vue
-:::tip{to="/getting-started/icons/vue#theme"}
-You can customize this icon globally in your `vite.config.ts` under `ui.icons.loading` key.
-:::
-::
+<<< @/examples/button/demo/Form.vue{17,21-23 vue:line-numbers}
 
 ### Disabled
 
 Use the `disabled` prop to disable the Button.
 
-::component-code
----
-props:
-disabled: true
-slots:
-default: Button
----
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <DisabledExample />
+  </ClientOnly>
+</div>
 
-Button
-::
+<<< @/examples/button/demo/Disabled.vue{2414 vue:line-numbers}
 
-## Examples
+### Rounded
 
-### `class` prop
+Use the `rounded` prop to round the Button.
 
-Use the `class` prop to override the base styles of the Button.
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <RoundedExample />
+  </ClientOnly>
+</div>
 
-::component-code
----
-props:
-class: 'font-bold rounded-full'
-slots:
-default: Button
----
-::
-
-### `ui` prop
-
-Use the `ui` prop to override the slots styles of the Button.
-
-::component-code
----
-prettier: true
-ignore:
-- ui
-- color
-- variant
-- icon
-  props:
-  icon: i-lucide-rocket
-  color: neutral
-  variant: outline
-  ui:
-  leadingIcon: 'text-[var(--ui-primary)]'
-  slots:
-  default: |
-
-  Button
----
-::
+<<< @/examples/button/demo/Rounded.vue{14 vue:line-numbers}
 
 ## API
 
 ### Props
 
-:component-props
+::: info
+The `Button` component extends the `Link` component. Check out the source code on [GitHub](https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Link.vue#L13).
+:::
 
-::callout{icon="i-simple-icons-github" to="https://github.com/nuxt/ui/blob/v3/src/runtime/components/Link.vue#L13"}
-The `Button` component extends the `Link` component. Check out the source code on GitHub.
-::
+<ComponentProps component="Button" />
 
 ### Slots
 
-:component-slots
-
-## Theme
-
-:component-theme
+<ComponentSlots component="Button" />

@@ -18,7 +18,7 @@ async function validate(data: Partial<typeof state>) {
     <B24FormField name="fullName" label="Full name">
       <B24Input v-model="state.fullName" />
     </B24FormField>
-    <B24Button type="submit" class="mt-2" loading-auto>
+    <B24Button type="submit" color="success" use-clock class="mt-2" loading-auto>
       Submit
     </B24Button>
   </B24Form>
