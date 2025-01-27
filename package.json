@@ -62,7 +62,7 @@
     "prepare:build_prepare": "nuxt-module-build prepare",
     "prepare:playground": "nuxi prepare playground",
     "prepare:playground-vue": "vite build playground-vue",
-    "__prepare:playground_components-meta": "nuxt-component-meta playground --outputDir ../src/.component-meta/",
+    "prepare:playground_components-meta": "nuxt-component-meta playground --outputDir ../src/.component-meta/",
 
     "prepack": "pnpm build",
     "build": "npm-run-all -s build:*",
