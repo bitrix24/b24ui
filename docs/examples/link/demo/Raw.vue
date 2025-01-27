@@ -17,5 +17,3 @@
     Link (not active)
   </B24Link>
 </template>
-<script setup lang="ts">
-</script>

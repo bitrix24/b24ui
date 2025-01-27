@@ -26,5 +26,3 @@
     </B24Link>
   </B24AvatarGroup>
 </template>
-<script setup lang="ts">
-</script>

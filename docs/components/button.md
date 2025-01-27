@@ -183,7 +183,7 @@ Use the `loading-auto` prop to show the loading icon automatically while the `@c
 </div>
 
 ::: details
-<<< @/examples/button/demo/LoadingAuto.vue{5-7,13-14,19-21,26-28 vue:line-numbers}
+<<< @/examples/button/demo/LoadingAuto.vue{4-6,12-13,18-20,25-27 vue:line-numbers}
 :::
 
 This also works with the [Form](/components/form) component.

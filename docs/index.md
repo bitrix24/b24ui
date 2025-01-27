@@ -7,7 +7,7 @@ hero:
   tagline: for REST API web-application development
   actions:
     - theme: brand
-      text: Guide
+      text: Docs
       link: /guide/getting-started
     - theme: brand
       text: Components

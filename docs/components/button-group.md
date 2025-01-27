@@ -78,7 +78,7 @@ You can use components like [Input](/components/input), [Select](/components/sel
 </div>
 
 ::: details
-<<< @/examples/buttongroup/demo/WithInput.vue{14,15,17,21,23 vue:line-numbers}
+<<< @/examples/buttongroup/demo/WithInput.vue{vue:line-numbers}
 :::
 
 ### With tooltip
@@ -92,7 +92,7 @@ You can use a [Tooltip](/components/tooltip.html#usage) within a button group.
 </div>
 
 ::: details
-<<< @/examples/buttongroup/demo/WithTooltip.vue{24-28,35 vue:line-numbers}
+<<< @/examples/buttongroup/demo/WithTooltip.vue{vue:line-numbers}
 :::
 
 ## API

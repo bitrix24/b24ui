@@ -27,7 +27,7 @@ export const en = defineConfig({
 
 function nav(): DefaultTheme.NavItem[] {
   return [
-    { text: 'Quickstart', link: '/guide/getting-started' },
+    { text: 'Docs', link: '/guide/getting-started' },
     { text: 'Components', link: '/components/app' },
     {
       text: configParams.version,
@@ -42,98 +42,105 @@ function nav(): DefaultTheme.NavItem[] {
   ]
 }
 
+// ✔️ 🔨 //////
 function sidebarGuide(): DefaultTheme.SidebarItem[] {
   return [
+    { text: '✔️Introduction', link: 'getting-started' },
     {
-      text: 'Guide',
+      text: 'Nuxt',
       collapsed: false,
       items: [
-        { text: 'Getting Started', link: 'getting-started' },
-        { text: 'Install in a Nuxt app', link: 'installation-nuxt-app' },
-        { text: 'I18n in a Nuxt app', link: 'i18n-nuxt' },
-        { text: 'Install in a Vue app', link: 'installation-vue' },
-        { text: 'I18n in a Vue app', link: 'i18n-vue' },
-        { text: 'Contribution Guide', link: 'contribution' }
+        { text: '✔️Installation', link: 'installation-nuxt-app' },
+        { text: 'I18n', link: 'i18n-nuxt' }
       ]
-    }
+    },
+    {
+      text: 'Vue',
+      collapsed: false,
+      items: [
+        { text: '✔️Installation', link: 'installation-vue' },
+        { text: 'I18n', link: 'i18n-vue' }
+      ]
+    },
+    { text: '✔️Contribution Guide', link: 'contribution' }
   ]
 }
 
 function sidebarComponents(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: '✔️Composables',
-      collapsed: true,
+      text: 'Composables',
+      collapsed: false,
       base: '/components/composables/',
       items: [
-        { text: '✔️defineShortcuts', link: 'define-shortcuts' },
-        { text: '✔️useFormField', link: 'use-form-field' },
-        { text: '✔️useToast', link: 'use-toast' }
+        { text: 'defineShortcuts', link: 'define-shortcuts' },
+        { text: 'useFormField', link: 'use-form-field' },
+        { text: 'useToast', link: 'use-toast' }
       ]
     },
     {
-      text: '✔️Application',
-      collapsed: true,
+      text: 'Application',
+      collapsed: false,
       items: [
-        { text: '✔️App', link: 'app' }
+        { text: 'App', link: 'app' }
       ]
     },
     {
-      text: '✔️Actions',
-      collapsed: true,
+      text: 'Actions',
+      collapsed: false,
       items: [
-        { text: '✔️Button', link: 'button' },
-        { text: '✔️ButtonGroup', link: 'button-group' }
+        { text: 'Button', link: 'button' },
+        { text: 'ButtonGroup', link: 'button-group' }
       ]
     },
     {
       text: 'Notifications',
       collapsed: false,
       items: [
-        { text: '✔️Alert', link: 'alert' },
+        { text: 'Alert', link: 'alert' },
         { text: 'Advice', link: 'advice' },
-        { text: '✔️Chip', link: 'chip' },
-        { text: '✔️Toast', link: 'toast' },
-        { text: '✔️Progress', link: 'progress' },
-        { text: '✔️Tooltip', link: 'tooltip' }
+        { text: 'Chip', link: 'chip' },
+        { text: 'Toast', link: 'toast' },
+        { text: 'Progress', link: 'progress' },
+        { text: 'Tooltip', link: 'tooltip' }
       ]
     },
     {
       text: 'Data display',
       collapsed: false,
       items: [
-        { text: '✔️Avatar', link: 'avatar' },
-        { text: '✔️AvatarGroup', link: 'avatar-group' },
-        { text: '✔️Badge', link: 'badge' },
-        { text: '🔨Countdown', link: 'countdown' },
-        { text: '✔️Kbd', link: 'kbd' }
+        { text: 'Avatar', link: 'avatar' },
+        { text: 'AvatarGroup', link: 'avatar-group' },
+        { text: 'Badge', link: 'badge' },
+        { text: 'Countdown', link: 'countdown' },
+        { text: 'Kbd', link: 'kbd' }
       ]
     },
     {
-      text: '✔️Data input',
-      collapsed: true,
+      text: 'Data input',
+      collapsed: false,
       items: [
-        { text: '✔️Form', link: 'form' },
-        { text: '✔️FormField', link: 'form-field' },
-        { text: '✔️Input', link: 'input' },
-        { text: '✔️RadioGroup', link: 'radio-group' },
-        { text: '✔️Checkbox', link: 'checkbox' },
-        { text: '✔️Switch', link: 'switch' },
-        { text: '✔️Range', link: 'range' },
-        { text: '✔️Select', link: 'select' },
-        { text: '✔️Textarea', link: 'textarea' }
+        { text: 'Form', link: 'form' },
+        { text: 'FormField', link: 'form-field' },
+        { text: 'Input', link: 'input' },
+        { text: 'RadioGroup', link: 'radio-group' },
+        { text: 'Checkbox', link: 'checkbox' },
+        { text: 'Switch', link: 'switch' },
+        { text: 'Range', link: 'range' },
+        { text: 'Select', link: 'select' },
+        { text: 'Textarea', link: 'textarea' }
       ]
     },
     {
-      text: '✔️Layout & Navigation',
-      collapsed: true,
+      text: 'Layout & Navigation',
+      collapsed: false,
       items: [
-        { text: '✔️Container', link: 'container' },
-        { text: '✔️DescriptionList', base: '/components/content/', link: 'description-list' },
-        { text: '✔️Link', link: 'link' },
-        { text: '✔️Separator', link: 'separator' },
-        { text: '✔️Skeleton', link: 'skeleton' },
-        { text: '✔️Tabs', link: 'tabs' }
+        { text: 'Container', link: 'container' },
+        { text: 'DescriptionList', base: '/components/content/', link: 'description-list' },
+        { text: 'Link', link: 'link' },
+        { text: 'Separator', link: 'separator' },
+        { text: 'Skeleton', link: 'skeleton' },
+        { text: 'Tabs', link: 'tabs' }
       ]
     }
   ]

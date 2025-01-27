@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
+
 export interface ExampleProps {
   description?: string
 }
