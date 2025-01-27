@@ -1,11 +1,16 @@
 ---
 title: App
-description: Wraps your app to provide global configurations and more.
-links:
-  - label: GitHub
-    icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/tree/v3/src/runtime/components/App.vue
+description: Encases your app to deliver global settings and additional features.
+outline: deep
 ---
+# App
+
+<Description
+  nuxt-ui="https://ui3.nuxt.dev/components/app"
+  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/App.vue"
+>
+Encases your app to deliver global settings and additional features.
+</Description>
 
 ## Usage
 
@@ -15,36 +20,28 @@ This component implements Reka UI [ConfigProvider](https://reka-ui.com/docs/util
 - Enables changing the behavior of scroll body when setting body lock.
 - Much more controls to prevent layout shifts.
 
-It's also using [ToastProvider](https://reka-ui.com/docs/components/toast#provider) and [TooltipProvider](https://reka-ui.com/docs/components/tooltip#provider) to provide global toasts and tooltips, as well as programmatic modals and slideovers.
+It's also using [ToastProvider](https://reka-ui.com/docs/components/toast#provider) and [TooltipProvider](https://reka-ui.com/docs/components/tooltip#provider) to provide global toasts and tooltips.
 
 Use it as at the root of your app:
 
 ```vue [app.vue]
 <template>
-  <UApp>
+  <B24App>
     <NuxtPage />
-  </UApp>
+  </B24App>
 </template>
 ```
 
-::framework-only
-#nuxt
-:::tip{to="/getting-started/i18n/nuxt#locale"}
-Learn how to use the `locale` prop to change the locale of your app.
+::: tip
+Learn how to use the `locale` property to change the locale of your [Nuxt](/guide/i18n-nuxt#locale) or [Vue](/guide/i18n-vue#locale) app.
 :::
-
-#vue
-:::tip{to="/getting-started/i18n/vue#locale"}
-Learn how to use the `locale` prop to change the locale of your app.
-:::
-::
 
 ## API
 
 ### Props
 
-:component-props
+<ComponentProps component="App" />
 
 ### Slots
 
-:component-slots
+<ComponentSlots component="App" />
