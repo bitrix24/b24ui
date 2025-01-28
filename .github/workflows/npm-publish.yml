@@ -13,7 +13,7 @@ jobs:
       - name: 'Setup pnpm'
         uses: pnpm/action-setup@v4
 
-      - name: 'Setup Node.js v22.*'
+      - name: 'Use Node LTS'
         uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
@@ -26,7 +26,8 @@ jobs:
       - name: 'Run build'
         run: pnpm build
 
-      - name: 'Publish package'
-        uses: simenandre/publish-with-pnpm@v2
-        with:
-          npm-auth-token: ${{ secrets.NPM_AUTH_TOKEN }}
+      - name: 'Publish 🚀'
+        shell: bash
+        run: pnpm publish --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
