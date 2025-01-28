@@ -5,9 +5,9 @@ import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/textarea'
 import { tv } from '../utils/tv'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { textarea: Partial<typeof theme> } }
+const appConfigTextarea = _appConfig as AppConfig & { b24ui: { textarea: Partial<typeof theme> } }
 
-const textarea = tv({ extend: tv(theme), ...(appConfig.b24ui?.textarea || {}) })
+const textarea = tv({ extend: tv(theme), ...(appConfigTextarea.b24ui?.textarea || {}) })
 
 type TextareaVariants = VariantProps<typeof textarea>
 

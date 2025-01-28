@@ -7,9 +7,9 @@ import type { UseComponentIconsProps } from '../composables/useComponentIcons'
 import { tv } from '../utils/tv'
 import type { AvatarProps } from '../types'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { advice: Partial<typeof theme> } }
+const appConfigAdvice = _appConfig as AppConfig & { b24ui: { advice: Partial<typeof theme> } }
 
-const advice = tv({ extend: tv(theme), ...(appConfig.b24ui?.advice || {}) })
+const advice = tv({ extend: tv(theme), ...(appConfigAdvice.b24ui?.advice || {}) })
 
 type AdviceVariants = VariantProps<typeof advice>
 

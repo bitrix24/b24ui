@@ -6,9 +6,9 @@ import theme from '#build/b24ui/alert'
 import { tv } from '../utils/tv'
 import type { AvatarProps, ButtonProps, IconComponent } from '../types'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { alert: Partial<typeof theme> } }
+const appConfigAlert = _appConfig as AppConfig & { b24ui: { alert: Partial<typeof theme> } }
 
-const alert = tv({ extend: tv(theme), ...(appConfig.b24ui?.alert || {}) })
+const alert = tv({ extend: tv(theme), ...(appConfigAlert.b24ui?.alert || {}) })
 
 type AlertVariants = VariantProps<typeof alert>
 
@@ -63,7 +63,6 @@ export interface AlertSlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
-import { useAppConfig } from '#imports'
 import { useLocale } from '../composables/useLocale'
 import icons from '../dictionary/icons'
 import B24Avatar from './Avatar.vue'
@@ -74,7 +73,6 @@ const emits = defineEmits<AlertEmits>()
 const slots = defineSlots<AlertSlots>()
 
 const { t } = useLocale()
-const appConfig = useAppConfig()
 
 const multiline = computed(() => !!props.title && !!props.description)
 

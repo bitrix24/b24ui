@@ -7,9 +7,9 @@ import theme from '#build/b24ui/separator'
 import { tv } from '../utils/tv'
 import type { AvatarProps, IconComponent } from '../types'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { separator: Partial<typeof theme> } }
+const appConfigSeparator = _appConfig as AppConfig & { b24ui: { separator: Partial<typeof theme> } }
 
-const separator = tv({ extend: tv(theme), ...(appConfig.b24ui?.separator || {}) })
+const separator = tv({ extend: tv(theme), ...(appConfigSeparator.b24ui?.separator || {}) })
 
 type SeparatorVariants = VariantProps<typeof separator>
 

@@ -6,9 +6,9 @@ import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/toaster'
 import { tv } from '../utils/tv'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { toaster: Partial<typeof theme> } }
+const appConfigToaster = _appConfig as AppConfig & { b24ui: { toaster: Partial<typeof theme> } }
 
-const toaster = tv({ extend: tv(theme), ...(appConfig.b24ui?.toaster || {}) })
+const toaster = tv({ extend: tv(theme), ...(appConfigToaster.b24ui?.toaster || {}) })
 
 type ToasterVariants = VariantProps<typeof toaster>
 

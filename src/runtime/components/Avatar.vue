@@ -7,9 +7,9 @@ import theme from '#build/b24ui/avatar'
 import { tv } from '../utils/tv'
 import type { IconComponent } from '../types'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { avatar: Partial<typeof theme> } }
+const appConfigAvatar = _appConfig as AppConfig & { b24ui: { avatar: Partial<typeof theme> } }
 
-const avatar = tv({ extend: tv(theme), ...(appConfig.b24ui?.avatar || {}) })
+const avatar = tv({ extend: tv(theme), ...(appConfigAvatar.b24ui?.avatar || {}) })
 
 type AvatarVariants = VariantProps<typeof avatar>
 

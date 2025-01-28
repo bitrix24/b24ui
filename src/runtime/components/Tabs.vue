@@ -8,9 +8,9 @@ import { tv } from '../utils/tv'
 import type { AvatarProps, IconComponent } from '../types'
 import type { DynamicSlots, PartialString } from '../types/utils'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { tabs: Partial<typeof theme> } }
+const appConfigTabs = _appConfig as AppConfig & { b24ui: { tabs: Partial<typeof theme> } }
 
-const tabs = tv({ extend: tv(theme), ...(appConfig.b24ui?.tabs || {}) })
+const tabs = tv({ extend: tv(theme), ...(appConfigTabs.b24ui?.tabs || {}) })
 
 export interface TabsItem {
   label?: string

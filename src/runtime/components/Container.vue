@@ -4,9 +4,9 @@ import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/container'
 import { tv } from '../utils/tv'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { container: Partial<typeof theme> } }
+const appConfigContainer = _appConfig as AppConfig & { b24ui: { container: Partial<typeof theme> } }
 
-const container = tv({ extend: tv(theme), ...(appConfig.b24ui?.container || {}) })
+const container = tv({ extend: tv(theme), ...(appConfigContainer.b24ui?.container || {}) })
 
 export interface ContainerProps {
   /**

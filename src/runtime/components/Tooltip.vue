@@ -6,9 +6,9 @@ import theme from '#build/b24ui/tooltip'
 import { tv } from '../utils/tv'
 import type { KbdProps } from '../types'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { tooltip: Partial<typeof theme> } }
+const appConfigTooltip = _appConfig as AppConfig & { b24ui: { tooltip: Partial<typeof theme> } }
 
-const tooltip = tv({ extend: tv(theme), ...(appConfig.b24ui?.tooltip || {}) })
+const tooltip = tv({ extend: tv(theme), ...(appConfigTooltip.b24ui?.tooltip || {}) })
 
 export interface TooltipProps extends TooltipRootProps {
   /** The text content of the tooltip. */

@@ -7,9 +7,9 @@ import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/progress'
 import { tv } from '../utils/tv'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { progress: Partial<typeof theme> } }
+const appConfigProgress = _appConfig as AppConfig & { b24ui: { progress: Partial<typeof theme> } }
 
-const progress = tv({ extend: tv(theme), ...(appConfig.b24ui?.progress || {}) })
+const progress = tv({ extend: tv(theme), ...(appConfigProgress.b24ui?.progress || {}) })
 
 type ProgressVariants = VariantProps<typeof progress>
 

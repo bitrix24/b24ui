@@ -7,9 +7,9 @@ import theme from '#build/b24ui/toast'
 import { tv } from '../utils/tv'
 import type { AvatarProps, ButtonProps, IconComponent } from '../types'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { toast: Partial<typeof theme> } }
+const appConfigToast = _appConfig as AppConfig & { b24ui: { toast: Partial<typeof theme> } }
 
-const toast = tv({ extend: tv(theme), ...(appConfig.b24ui?.toast || {}) })
+const toast = tv({ extend: tv(theme), ...(appConfigToast.b24ui?.toast || {}) })
 
 type ToastVariants = VariantProps<typeof toast>
 
@@ -61,7 +61,6 @@ export interface ToastSlots {
 import { ref, computed, onMounted } from 'vue'
 import { ToastRoot, ToastTitle, ToastDescription, ToastAction, ToastClose, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
-// import { useAppConfig } from '#imports'
 import { useLocale } from '../composables/useLocale'
 import icons from '../dictionary/icons'
 import B24Avatar from './Avatar.vue'
@@ -74,7 +73,6 @@ const emits = defineEmits<ToastEmits>()
 const slots = defineSlots<ToastSlots>()
 
 const { t } = useLocale()
-// const appConfig = useAppConfig()
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'defaultOpen', 'open', 'duration', 'type'), emits)
 

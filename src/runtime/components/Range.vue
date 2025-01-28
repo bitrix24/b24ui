@@ -6,9 +6,9 @@ import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/range'
 import { tv } from '../utils/tv'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { range: Partial<typeof theme> } }
+const appConfigRange = _appConfig as AppConfig & { b24ui: { range: Partial<typeof theme> } }
 
-const range = tv({ extend: tv(theme), ...(appConfig.b24ui?.range || {}) })
+const range = tv({ extend: tv(theme), ...(appConfigRange.b24ui?.range || {}) })
 
 type RangeVariants = VariantProps<typeof range>
 

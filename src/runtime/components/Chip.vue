@@ -5,9 +5,9 @@ import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/chip'
 import { tv } from '../utils/tv'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { chip: Partial<typeof theme> } }
+const appConfigChip = _appConfig as AppConfig & { b24ui: { chip: Partial<typeof theme> } }
 
-const chip = tv({ extend: tv(theme), ...(appConfig.b24ui?.chip || {}) })
+const chip = tv({ extend: tv(theme), ...(appConfigChip.b24ui?.chip || {}) })
 
 type ChipVariants = VariantProps<typeof chip>
 

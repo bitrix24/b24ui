@@ -7,9 +7,9 @@ import type { UseComponentIconsProps } from '../composables/useComponentIcons'
 import { tv } from '../utils/tv'
 import type { AvatarProps } from '../types'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { countdown: Partial<typeof theme> } }
+const appConfigCountdown = _appConfig as AppConfig & { b24ui: { countdown: Partial<typeof theme> } }
 
-const countdown = tv({ extend: tv(theme), ...(appConfig.b24ui?.countdown || {}) })
+const countdown = tv({ extend: tv(theme), ...(appConfigCountdown.b24ui?.countdown || {}) })
 
 type CountdownVariants = VariantProps<typeof countdown>
 

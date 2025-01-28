@@ -5,9 +5,9 @@ import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/avatar-group'
 import { tv } from '../utils/tv'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { avatarGroup: Partial<typeof theme> } }
+const appConfigAvatarGroup = _appConfig as AppConfig & { b24ui: { avatarGroup: Partial<typeof theme> } }
 
-const avatarGroup = tv({ extend: tv(theme), ...(appConfig.b24ui?.avatarGroup || {}) })
+const avatarGroup = tv({ extend: tv(theme), ...(appConfigAvatarGroup.b24ui?.avatarGroup || {}) })
 
 type AvatarGroupVariants = VariantProps<typeof avatarGroup>
 

@@ -5,9 +5,9 @@ import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/button-group'
 import { tv } from '../utils/tv'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { buttonGroup: Partial<typeof theme> } }
+const appConfigButtonGroup = _appConfig as AppConfig & { b24ui: { buttonGroup: Partial<typeof theme> } }
 
-const buttonGroup = tv({ extend: tv(theme), ...(appConfig.b24ui?.buttonGroup) })
+const buttonGroup = tv({ extend: tv(theme), ...(appConfigButtonGroup.b24ui?.buttonGroup) })
 
 type ButtonGroupVariants = VariantProps<typeof buttonGroup>
 

@@ -6,9 +6,9 @@ import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/checkbox'
 import { tv } from '../utils/tv'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { checkbox: Partial<typeof theme> } }
+const appConfigCheckbox = _appConfig as AppConfig & { b24ui: { checkbox: Partial<typeof theme> } }
 
-const checkbox = tv({ extend: tv(theme), ...(appConfig.b24ui?.checkbox || {}) })
+const checkbox = tv({ extend: tv(theme), ...(appConfigCheckbox.b24ui?.checkbox || {}) })
 
 type CheckboxVariants = VariantProps<typeof checkbox>
 
@@ -40,7 +40,6 @@ export interface CheckboxSlots {
 import { computed, useId } from 'vue'
 import { Primitive, CheckboxRoot, CheckboxIndicator, Label, useForwardProps } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
-import { useAppConfig } from '#imports'
 import { useFormField } from '../composables/useFormField'
 import Minus20Icon from '@bitrix24/b24icons-vue/actions/Minus20Icon'
 import CheckIcon from '@bitrix24/b24icons-vue/main/CheckIcon'
@@ -53,7 +52,6 @@ const modelValue = defineModel<boolean | 'indeterminate'>({ default: undefined }
 
 const rootProps = useForwardProps(reactivePick(props, 'required', 'value', 'defaultValue'))
 
-const appConfig = useAppConfig()
 const { id: _id, emitFormChange, emitFormInput, size, color, name, disabled, ariaAttrs } = useFormField<CheckboxProps>(props)
 const id = _id.value ?? useId()
 

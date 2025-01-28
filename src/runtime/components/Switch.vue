@@ -8,9 +8,9 @@ import { tv } from '../utils/tv'
 import type { IconComponent } from '../types'
 import type { PartialString } from '../types/utils'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { switch: Partial<typeof theme> } }
+const appConfigSwitch = _appConfig as AppConfig & { b24ui: { switch: Partial<typeof theme> } }
 
-const switchTv = tv({ extend: tv(theme), ...(appConfig.b24ui?.switch || {}) })
+const switchTv = tv({ extend: tv(theme), ...(appConfigSwitch.b24ui?.switch || {}) })
 
 type SwitchVariants = VariantProps<typeof switchTv>
 
@@ -53,7 +53,6 @@ export interface SwitchSlots {
 import { computed, useId } from 'vue'
 import { Primitive, SwitchRoot, SwitchThumb, useForwardProps, Label } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
-import { useAppConfig } from '#imports'
 import { useFormField } from '../composables/useFormField'
 import icons from '../dictionary/icons'
 
@@ -63,7 +62,6 @@ const emits = defineEmits<SwitchEmits>()
 
 const modelValue = defineModel<boolean>({ default: undefined })
 
-const appConfig = useAppConfig()
 const rootProps = useForwardProps(reactivePick(props, 'required', 'value', 'defaultValue'))
 
 const { id: _id, emitFormChange, emitFormInput, size, color, name, disabled, ariaAttrs } = useFormField<SwitchProps>(props)

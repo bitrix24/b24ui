@@ -6,9 +6,9 @@ import theme from '#build/b24ui/kbd'
 import type { KbdKey } from '../composables/useKbd'
 import { tv } from '../utils/tv'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { kbd: Partial<typeof theme> } }
+const appConfigKbd = _appConfig as AppConfig & { b24ui: { kbd: Partial<typeof theme> } }
 
-const kbd = tv({ extend: tv(theme), ...(appConfig.b24ui?.kbd || {}) })
+const kbd = tv({ extend: tv(theme), ...(appConfigKbd.b24ui?.kbd || {}) })
 
 type KbdVariants = VariantProps<typeof kbd>
 

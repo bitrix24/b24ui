@@ -4,9 +4,9 @@ import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/skeleton'
 import { tv } from '../utils/tv'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { skeleton: Partial<typeof theme> } }
+const appConfigSkeleton = _appConfig as AppConfig & { b24ui: { skeleton: Partial<typeof theme> } }
 
-const skeleton = tv({ extend: tv(theme), ...(appConfig.b24ui?.skeleton || {}) })
+const skeleton = tv({ extend: tv(theme), ...(appConfigSkeleton.b24ui?.skeleton || {}) })
 
 export interface SkeletonProps {
   /**

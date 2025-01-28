@@ -7,9 +7,9 @@ import type { UseComponentIconsProps } from '../composables/useComponentIcons'
 import { tv } from '../utils/tv'
 import type { AvatarProps } from '../types'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { badge: Partial<typeof theme> } }
+const appConfigBadge = _appConfig as AppConfig & { b24ui: { badge: Partial<typeof theme> } }
 
-const badge = tv({ extend: tv(theme), ...(appConfig.b24ui?.badge || {}) })
+const badge = tv({ extend: tv(theme), ...(appConfigBadge.b24ui?.badge || {}) })
 
 type BadgeVariants = VariantProps<typeof badge>
 

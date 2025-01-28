@@ -9,9 +9,9 @@ import { tv } from '../utils/tv'
 import type { AvatarProps } from '../types'
 import type { PartialString } from '../types/utils'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { input: Partial<typeof theme> } }
+const appConfigInput = _appConfig as AppConfig & { b24ui: { input: Partial<typeof theme> } }
 
-const input = tv({ extend: tv(theme), ...(appConfig.b24ui?.input || {}) })
+const input = tv({ extend: tv(theme), ...(appConfigInput.b24ui?.input || {}) })
 
 type InputVariants = VariantProps<typeof input>
 

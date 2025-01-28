@@ -9,9 +9,9 @@ import { tv } from '../utils/tv'
 import type { AvatarProps, ChipProps, InputProps, IconComponent } from '../types'
 import type { PartialString, MaybeArrayOfArray, MaybeArrayOfArrayItem, SelectModelValue, SelectModelValueEmits, SelectItemKey } from '../types/utils'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { select: Partial<typeof theme> } }
+const appConfigSelect = _appConfig as AppConfig & { b24ui: { select: Partial<typeof theme> } }
 
-const select = tv({ extend: tv(theme), ...(appConfig.b24ui?.select || {}) })
+const select = tv({ extend: tv(theme), ...(appConfigSelect.b24ui?.select || {}) })
 
 export interface SelectItem {
   label?: string
@@ -117,7 +117,6 @@ import { computed, toRef } from 'vue'
 import { Primitive, SelectRoot, SelectArrow, SelectTrigger, SelectPortal, SelectContent, SelectViewport, SelectScrollUpButton, SelectScrollDownButton, SelectLabel, SelectGroup, SelectItem, SelectItemIndicator, SelectItemText, SelectSeparator, useForwardPropsEmits } from 'reka-ui'
 import { defu } from 'defu'
 import { reactivePick } from '@vueuse/core'
-import { useAppConfig } from '#imports'
 import { useButtonGroup } from '../composables/useButtonGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
@@ -134,7 +133,6 @@ const props = withDefaults(defineProps<SelectProps<T, I, V, M>>(), {
 const emits = defineEmits<SelectEmits<T, V, M>>()
 const slots = defineSlots<SelectSlots<T, M>>()
 
-const appConfig = useAppConfig()
 const rootProps = useForwardPropsEmits(reactivePick(props, 'open', 'defaultOpen', 'disabled', 'autocomplete', 'required', 'multiple'), emits)
 const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffset: 8, collisionPadding: 8, position: 'popper' }) as SelectContentProps)
 const arrowProps = toRef(() => props.arrow as SelectArrowProps)

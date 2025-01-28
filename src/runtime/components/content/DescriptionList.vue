@@ -7,9 +7,9 @@ import { tv } from '../../utils/tv'
 import type { AvatarProps, ButtonProps, IconComponent } from '../../types'
 import type { DynamicSlots } from '../../types/utils'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { descriptionList: Partial<typeof theme> } }
+const appConfigDescriptionList = _appConfig as AppConfig & { b24ui: { descriptionList: Partial<typeof theme> } }
 
-const descriptionList = tv({ extend: tv(theme), ...(appConfig.b24ui?.descriptionList || {}) })
+const descriptionList = tv({ extend: tv(theme), ...(appConfigDescriptionList.b24ui?.descriptionList || {}) })
 
 type DescriptionListVariants = VariantProps<typeof descriptionList>
 

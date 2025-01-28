@@ -6,9 +6,9 @@ import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/radio-group'
 import { tv } from '../utils/tv'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { radioGroup: Partial<typeof theme> } }
+const appConfigRadioGroup = _appConfig as AppConfig & { b24ui: { radioGroup: Partial<typeof theme> } }
 
-const radioGroup = tv({ extend: tv(theme), ...(appConfig.b24ui?.radioGroup || {}) })
+const radioGroup = tv({ extend: tv(theme), ...(appConfigRadioGroup.b24ui?.radioGroup || {}) })
 
 type RadioGroupVariants = VariantProps<typeof radioGroup>
 

@@ -5,9 +5,9 @@ import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/form-field'
 import { tv } from '../utils/tv'
 
-const appConfig = _appConfig as AppConfig & { b24ui: { formField: Partial<typeof theme> } }
+const appConfigFormField = _appConfig as AppConfig & { b24ui: { formField: Partial<typeof theme> } }
 
-const formField = tv({ extend: tv(theme), ...(appConfig.b24ui?.formField || {}) })
+const formField = tv({ extend: tv(theme), ...(appConfigFormField.b24ui?.formField || {}) })
 
 type FormFieldVariants = VariantProps<typeof formField>
 
