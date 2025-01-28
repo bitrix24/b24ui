@@ -121,7 +121,7 @@ const isLoading = ref(true)
         <B24Switch v-model="isLoading" />
       </B24FormField>
     </template>
-    <div class="flex flex-row items-center justify-between gap-5">
+    <div class="flex flex-col sm:flex-row flex-wrap items-center justify-between gap-5">
       <Demo
         :label="label"
         :depth="depth"

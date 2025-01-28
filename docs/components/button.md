@@ -40,9 +40,7 @@ Use the default slot to set the label of the Button.
   </ClientOnly>
 </div>
 
-::: details
 <<< @/examples/button/demo/Button.vue{2 vue:line-numbers}
-:::
 
 You can achieve the same result by using the `label` prop.
 
@@ -95,7 +93,7 @@ Use the `depth` parameter to change the intensity of the Button.
 </div>
 
 ::: details
-<<< @/examples/button/demo/Depth.vue{10 vue:line-numbers}
+<<< @/examples/button/demo/Depth.vue{18 vue:line-numbers}
 :::
 
 ### Size
@@ -125,7 +123,7 @@ The `label` as prop or slot is optional so you can use the Button as an icon-onl
 </div>
 
 ::: details
-<<< @/examples/button/demo/Icon.vue{23 vue:line-numbers}
+<<< @/examples/button/demo/Icon.vue{3,26 vue:line-numbers}
 :::
 
 Use the `use-dropdown` prop to show trailing-icon.
@@ -209,7 +207,7 @@ Use the `disabled` prop to disable the Button.
 </div>
 
 ::: details
-<<< @/examples/button/demo/Disabled.vue{2414 vue:line-numbers}
+<<< @/examples/button/demo/Disabled.vue{14 vue:line-numbers}
 :::
 
 ### Rounded
