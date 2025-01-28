@@ -1,21 +1,21 @@
 ---
-title: Installation in a Nuxt app
+title: Installation in Nuxt Application
 description: Learn how to install and configure Bitrix24 UI in your Nuxt application.
 outline: deep
 ---
-# Installation
+# Installation in Nuxt Application
 
 <Description
   nuxt-ui="https://ui3.nuxt.dev/getting-started/installation/nuxt"
 >
-  Learn how to install and configure Bitrix24 UI in your Nuxt application.
+  Learn how to install and configure Bitrix24 UI `@bitrix24/b24ui-nuxt` in your Nuxt application.
 </Description>
 
 ## Setup
 
 ### Add to a Nuxt project
 
-**1. Install the Bitrix24 UI and @bitrix24/b24icons-vu package**
+**1. Install @bitrix24/b24ui and @bitrix24/b24icons-vue packages**
 
 ::: code-group
 

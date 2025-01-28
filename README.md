@@ -8,10 +8,22 @@ Find more details in the [documentation](https://bitrix24.github.io/b24ui/)
 
 ```bash [pnpm]
 pnpm add @bitrix24/b24ui-nuxt@next
+pnpm add @bitrix24/b24icons-vue@next
+```
+
+```bash [yarn]
+yarn add @bitrix24/b24ui-nuxt@next
+yarn add @bitrix24/b24icons-vue@next
 ```
 
 ```bash [npm]
 npm install @bitrix24/b24ui-nuxt@next
+npm install @bitrix24/b24icons-vue@next
+```
+
+```bash [bun]
+yarn add @bitrix24/b24ui-nuxt@next
+yarn add @bitrix24/b24icons-vue@next
 ```
 
 ### Nuxt

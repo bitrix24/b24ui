@@ -1,21 +1,21 @@
 ---
-title: Installation in a Vue app
+title: Installation in Vue Application
 description: 'Learn how to install and configure Bitrix24 UI in your Vue application.'
 outline: deep
 ---
-# Installation
+# Installation in Vue Application
 
 <Description
   nuxt-ui="https://ui3.nuxt.dev/getting-started/installation/vue"
 >
-  Learn how to install and configure Bitrix24 UI in your Vue application.
+  Learn how to install and configure Bitrix24 UI `@bitrix24/b24ui-nuxt` in your Vue application.
 </Description>
 
 ## Setup
 
 ### Add to a Vue project
 
-**1. Install the Bitrix24 UI and @bitrix24/b24icons-vu package**
+**1. Install @bitrix24/b24ui and @bitrix24/b24icons-vue packages**
 
 ::: code-group
 
@@ -91,7 +91,7 @@ components.d.ts
 ```ts [main.ts]{3,14}
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
-import uiPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'
+import b24UiPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'
 import App from './App.vue'
 
 const app = createApp(App)
@@ -102,7 +102,7 @@ const router = createRouter({
 })
 
 app.use(router)
-app.use(uiPlugin)
+app.use(b24UiPlugin)
 
 app.mount('#app')
 ```
@@ -124,7 +124,7 @@ import './assets/main.css'
 
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
-import uiPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'
+import b24UiPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'
 import App from './App.vue'
 
 const app = createApp(App)
@@ -135,7 +135,7 @@ const router = createRouter({
 })
 
 app.use(router)
-app.use(uiPlugin)
+app.use(b24UiPlugin)
 
 app.mount('#app')
 ```
