@@ -25,8 +25,7 @@ jobs:
       - name: 'Run build (pnpm run build) 🔧...'
         run: pnpm run build
 
-      - name: 'Publish package from ./'
-        uses: JS-DevTools/pnpm-publish@v3
+      - name: 'Publish package'
+        uses: simenandre/publish-with-pnpm@v2
         with:
-          registry: 'https://registry.npmjs.org/'
-          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          npm-auth-token: ${{ secrets.NPM_AUTH_TOKEN }}
