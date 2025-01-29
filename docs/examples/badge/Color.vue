@@ -78,7 +78,7 @@ const isFill = ref(true)
       <B24FormField label="use-fill">
         <B24Switch v-model="isFill" />
       </B24FormField>
-      <B24FormField label="color" class="w-full sm:w-44">
+      <B24FormField label="color" class="w-full sm:w-1/4">
         <B24Select
           v-model="chipValue"
           :items="chipItems"
@@ -96,7 +96,7 @@ const isFill = ref(true)
           </template>
         </B24Select>
       </B24FormField>
-      <B24FormField label="label" class="w-full sm:w-44">
+      <B24FormField label="label" class="w-full sm:w-1/4">
         <B24Input v-model="label" />
       </B24FormField>
     </template>

@@ -79,8 +79,8 @@ const size = ref('lg' as const)
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24RadioGroup v-model="size" legend="size" :items="sizes" orientation="horizontal" class="w-full sm:w-44" />
-      <B24FormField label="color" class="w-full sm:w-44">
+      <B24RadioGroup v-model="size" legend="size" :items="sizes" orientation="horizontal" class="w-full sm:w-1/4" />
+      <B24FormField label="color" class="w-full sm:w-1/4">
         <B24Select
           v-model="chipValue"
           :items="chipItems"

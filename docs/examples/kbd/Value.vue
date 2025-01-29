@@ -9,7 +9,7 @@ const value = ref('K')
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="value" class="w-full sm:w-44">
+      <B24FormField label="value" class="w-full sm:w-1/4">
         <B24Input v-model="value" />
       </B24FormField>
     </template>

@@ -33,9 +33,7 @@ If you use elements with different colors, use the `no-split` property to disabl
   </ClientOnly>
 </div>
 
-::: details
 <<< @/examples/buttongroup/demo/ButtonGroup.vue{6,9,10,14 vue:line-numbers}
-:::
 
 ### Size
 

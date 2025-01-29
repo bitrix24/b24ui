@@ -84,7 +84,7 @@ const depth = ref('normal' as const)
   <ComponentShowExample>
     <template #actions>
       <B24RadioGroup v-model="depth" legend="depth" :items="depths" orientation="horizontal" />
-      <B24FormField label="color" class="w-full sm:w-44">
+      <B24FormField label="color" class="w-full sm:w-1/4">
         <B24Select
           v-model="chipValue"
           :items="chipItems"

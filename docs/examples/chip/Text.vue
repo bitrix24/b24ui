@@ -13,10 +13,10 @@ const size = ref('md' as const)
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="text" class="w-full sm:w-44">
+      <B24FormField label="text" class="w-full sm:w-1/4">
         <B24Input v-model="text" />
       </B24FormField>
-      <B24FormField label="size" class="w-full sm:w-44">
+      <B24FormField label="size" class="w-full sm:w-1/4">
         <B24Select v-model="size" :items="sizes" />
       </B24FormField>
     </template>

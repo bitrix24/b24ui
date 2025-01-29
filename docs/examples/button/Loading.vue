@@ -90,15 +90,15 @@ const isLoading = ref(true)
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="label" class="w-full sm:w-44">
+      <B24FormField label="label" class="w-full sm:w-1/4">
         <B24Input v-model="label" />
       </B24FormField>
-      <div class="w-full sm:w-44">
+      <div class="w-full sm:w-1/4">
         <B24FormField label="size">
           <B24Select v-model="size" :items="sizes" />
         </B24FormField>
       </div>
-      <B24FormField label="color" class="w-full sm:w-44">
+      <B24FormField label="color" class="w-full sm:w-1/4">
         <B24Select
           v-model="chipValue"
           :items="chipItems"

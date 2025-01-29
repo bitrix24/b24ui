@@ -9,7 +9,7 @@ const label = ref('Badge')
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="label" class="w-full sm:w-44">
+      <B24FormField label="label" class="w-full sm:w-1/4">
         <B24Input v-model="label" />
       </B24FormField>
     </template>

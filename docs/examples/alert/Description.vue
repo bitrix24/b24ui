@@ -10,10 +10,10 @@ const description = ref('Let\'s signal the manager that the deal is not moving.'
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="title" class="w-full sm:w-1/2">
+      <B24FormField label="title" class="w-full sm:flex-1">
         <B24Input v-model="title" />
       </B24FormField>
-      <B24FormField label="description" class="w-full sm:w-1/2">
+      <B24FormField label="description" class="w-full sm:flex-1">
         <B24Textarea v-model="description" />
       </B24FormField>
     </template>

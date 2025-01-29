@@ -10,31 +10,35 @@ function onClick() {
 </script>
 
 <template>
-  <B24ButtonGroup
-    class="w-44"
-    no-split
-  >
-    <B24Select v-model="value" :items="items" />
-    <B24Button
-      label="Button"
-      color="link"
-      depth="dark"
-      loading-auto
-      use-clock
-      @click="onClick"
-    />
-  </B24ButtonGroup>
-  <B24ButtonGroup
-    no-split
-  >
-    <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
-    <B24Button
-      label="Button"
-      color="link"
-      depth="dark"
-      loading-auto
-      use-clock
-      @click="onClick"
-    />
-  </B24ButtonGroup>
+  <div class="w-full">
+    <B24ButtonGroup
+      no-split
+    >
+      <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
+      <B24Button
+        label="Button"
+        color="link"
+        depth="dark"
+        loading-auto
+        use-clock
+        @click="onClick"
+      />
+    </B24ButtonGroup>
+  </div>
+  <div class="w-full">
+    <B24ButtonGroup
+      class="w-2/3"
+      no-split
+    >
+      <B24Select v-model="value" :items="items" />
+      <B24Button
+        label="Button"
+        color="link"
+        depth="dark"
+        loading-auto
+        use-clock
+        @click="onClick"
+      />
+    </B24ButtonGroup>
+  </div>
 </template>

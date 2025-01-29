@@ -9,7 +9,7 @@ const text = ref('Opens the deal creation form in the slider')
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="text" class="w-full sm:w-44">
+      <B24FormField label="text" class="w-full sm:w-1/4">
         <B24Input v-model="text" />
       </B24FormField>
     </template>

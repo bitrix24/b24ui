@@ -82,14 +82,14 @@ const size = ref('xl' as const)
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="size" class="w-full sm:w-44">
+      <B24FormField label="size" class="w-full sm:w-1/4">
         <B24Select v-model="size" :items="sizes" />
       </B24FormField>
       <B24FormField label="use-fill">
         <B24Switch v-model="isFill" />
       </B24FormField>
       <B24RadioGroup v-model="depth" legend="depth" :items="depths" orientation="horizontal" />
-      <B24FormField label="color" class="w-full sm:w-44">
+      <B24FormField label="color" class="w-full sm:w-1/4">
         <B24Select
           v-model="chipValue"
           :items="chipItems"
@@ -107,7 +107,7 @@ const size = ref('xl' as const)
           </template>
         </B24Select>
       </B24FormField>
-      <B24FormField label="label" class="w-full sm:w-44">
+      <B24FormField label="label" class="w-full sm:w-1/4">
         <B24Input v-model="label" />
       </B24FormField>
     </template>

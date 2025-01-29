@@ -29,28 +29,26 @@ git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Alert.vu
 
 Use the `title` prop to set the title of the Alert.
 
-<div class="lg:min-h-[275px]">
+<div class="lg:min-h-[160px]">
   <ClientOnly>
     <AlertExample />
   </ClientOnly>
 </div>
 
-::: details
-<<< @/examples/alert/demo/Alert.vue{12 vue:line-numbers}
-:::
+<<< @/examples/alert/demo/Alert.vue{2 vue:line-numbers}
 
 ### Description
 
 Use the `description` prop to set the description of the Alert.
 
-<div class="lg:min-h-[389px]">
+<div class="lg:min-h-[310px]">
   <ClientOnly>
     <DescriptionExample />
   </ClientOnly>
 </div>
 
 ::: details
-<<< @/examples/alert/demo/Description.vue{16 vue:line-numbers}
+<<< @/examples/alert/demo/Description.vue{15-16 vue:line-numbers}
 :::
 
 ### Icon
@@ -136,7 +134,7 @@ You can pass any property from the [Button](/components/button) component to cus
 </div>
 
 ::: details
-<<< @/examples/alert/demo/CloseButton.vue{10 vue:line-numbers}
+<<< @/examples/alert/demo/CloseButton.vue{11-15 vue:line-numbers}
 :::
 
 ### Actions
@@ -154,7 +152,7 @@ Actions renders differently when the description is not set. You can try to remo
 </div>
 
 ::: details
-<<< @/examples/alert/demo/Actions.vue{10 vue:line-numbers}
+<<< @/examples/alert/demo/Actions.vue{19-28 vue:line-numbers}
 :::
 
 ## API

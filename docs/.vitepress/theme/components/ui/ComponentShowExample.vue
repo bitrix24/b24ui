@@ -11,7 +11,7 @@ const slots = defineSlots<ExampleSlots>()
   <div data-example class="flex flex-col flex-nowrap justify-center items-center gap-5">
     <div
       v-if="slots['actions']"
-      class="isolate w-full flex flex-wrap flex-row justify-start items-start p-4 gap-4 rounded bg-tertiary/70 dark:bg-tertiary/5"
+      class="isolate w-full flex flex-wrap flex-col sm:flex-row justify-start items-start p-4 gap-4 rounded bg-tertiary/70 dark:bg-tertiary/5"
     >
       <slot name="actions" />
     </div>

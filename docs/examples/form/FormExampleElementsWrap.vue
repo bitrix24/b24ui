@@ -10,7 +10,7 @@ const isDisabled = ref(false)
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="Validate on" class="w-full sm:w-44">
+      <B24FormField label="Validate on" class="w-full sm:w-1/4">
         <B24Select v-model="validateOn" :items="['input', 'change', 'blur']" multiple />
       </B24FormField>
       <B24FormField label="isDisabled">

@@ -13,7 +13,7 @@ const isRequired = ref(true)
       <B24FormField label="isRequired">
         <B24Switch v-model="isRequired" />
       </B24FormField>
-      <B24FormField label="label" class="w-full sm:w-44">
+      <B24FormField label="label" class="w-full sm:w-1/4">
         <B24Input v-model="label" />
       </B24FormField>
     </template>

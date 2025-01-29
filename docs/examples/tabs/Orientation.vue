@@ -81,7 +81,7 @@ const orientation = ref('vertical' as const)
     <template #actions>
       <B24RadioGroup v-model="orientation" legend="orientations" :items="orientations" orientation="horizontal" />
       <B24RadioGroup v-model="variant" legend="variant" :items="variants" orientation="horizontal" />
-      <B24FormField label="color" class="w-full sm:w-44">
+      <B24FormField label="color" class="w-full sm:w-1/4">
         <B24Select
           v-model="chipValue"
           :items="chipItems"

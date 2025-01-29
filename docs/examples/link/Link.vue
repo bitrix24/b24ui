@@ -9,7 +9,7 @@ const asTag = ref('button')
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="as" class="w-full sm:w-44">
+      <B24FormField label="as" class="w-full sm:w-1/4">
         <B24Input v-model="asTag" />
       </B24FormField>
     </template>

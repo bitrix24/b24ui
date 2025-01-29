@@ -77,7 +77,7 @@ const variant = ref('pill' as const)
   <ComponentShowExample>
     <template #actions>
       <B24RadioGroup v-model="variant" legend="variant" :items="variants" orientation="horizontal" />
-      <B24FormField label="color" class="w-full sm:w-44">
+      <B24FormField label="color" class="w-full sm:w-1/4">
         <B24Select
           v-model="chipValue"
           :items="chipItems"

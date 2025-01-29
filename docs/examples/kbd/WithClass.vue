@@ -13,7 +13,7 @@ const classValue = ref('text-ai-500 dark:text-orange-500 font-bold rounded-full'
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="class" class="w-full sm:w-44">
+      <B24FormField label="class" class="w-full sm:w-1/4">
         <B24Input v-model="classValue" />
       </B24FormField>
       <B24RadioGroup v-model="depth" legend="depth" :items="depths" orientation="horizontal" />

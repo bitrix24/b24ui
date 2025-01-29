@@ -9,7 +9,7 @@ const description = ref('Broadcast posting is allowed in Feed. These posts will 
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="description" class="w-full sm:w-44">
+      <B24FormField label="description" class="w-full sm:w-1/4">
         <B24Input v-model="description" />
       </B24FormField>
     </template>
