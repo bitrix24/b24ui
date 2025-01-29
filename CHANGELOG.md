@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.3 (2025-01-29)
+
+### Bug Fixes
+
+* **Tooltip:** bg-color
+
 ## 0.1.2 (2025-01-29)
 
 ### Bug Fixes
