@@ -1,7 +1,14 @@
 # Changelog
 
+## 0.1.2 (2025-01-29)
+
+### Bug Fixes
+
+* **icon:** fixed typing of icons in components
+
 ## 0.1.1 (2025-01-28)
 
+### Features
 - components
   - Advice
   - Alert
