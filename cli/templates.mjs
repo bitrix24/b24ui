@@ -197,7 +197,7 @@ import ${upperName}Example from '/examples/${upperName.toLowerCase()}/${upperNam
     ? ''
     : `
   nuxt-ui="https://ui3.nuxt.dev/components/${kebabName}"
-  reka-ui="https://www.reka-ui.com/components/${kebabName}.html"
+  reka-ui="https://reka-ui.com/docs/components/${kebabName}"
   reka-ui-title="${kebabName}"`}
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/${upperName}.vue"
 ]]
