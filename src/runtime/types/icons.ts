@@ -1,3 +1,3 @@
 import type { FunctionalComponent, HTMLAttributes, VNodeProps } from 'vue'
 
-export interface IconComponent extends FunctionalComponent<HTMLAttributes & VNodeProps, {}, any, {}> {}
+export type IconComponent = FunctionalComponent<HTMLAttributes & VNodeProps>
