@@ -4,7 +4,26 @@ exports[`DescriptionList > renders with as correctly 1`] = `
 "<div class="w-full shrink-0" as="section">
   <!--v-if-->
   <!--v-if-->
-  <dl class="grid grid-cols-1 sm:grid-cols-[min(50%,theme(spacing.80))_auto] mt-3 text-lg"></dl>
+  <dl class="grid grid-cols-1 sm:grid-cols-[min(50%,theme(spacing.80))_auto] mt-3 text-lg">
+    <dt class="col-start-1 border-t border-base-950/5 text-base-500 first:border-none sm:border-t sm:border-base-950/5 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5 flex flex-nowrap flex-row items-center justify-start gap-1.5 pt-3 sm:py-3">
+      <!--v-if--><span class="">Item 1</span>
+    </dt>
+    <dd class="text-base-950 sm:border-t sm:border-base-950/5 dark:text-white dark:sm:border-white/5 sm:[&:nth-child(2)]:border-none pb-3 pt-1 sm:py-3 w-full flex flex-row items-center justify-between gap-4"><span class="text-base-900 dark:text-base-150"></span>
+      <!--v-if-->
+    </dd>
+    <dt class="col-start-1 border-t border-base-950/5 text-base-500 first:border-none sm:border-t sm:border-base-950/5 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5 flex flex-nowrap flex-row items-center justify-start gap-1.5 pt-3 sm:py-3">
+      <!--v-if--><span class="">Item 2</span>
+    </dt>
+    <dd class="text-base-950 sm:border-t sm:border-base-950/5 dark:text-white dark:sm:border-white/5 sm:[&:nth-child(2)]:border-none pb-3 pt-1 sm:py-3 w-full flex flex-row items-center justify-between gap-4"><span class="text-base-900 dark:text-base-150"></span>
+      <!--v-if-->
+    </dd>
+    <dt class="col-start-1 border-t border-base-950/5 text-base-500 first:border-none sm:border-t sm:border-base-950/5 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5 flex flex-nowrap flex-row items-center justify-start gap-1.5 pt-3 sm:py-3">
+      <!--v-if--><span class="">Item 3</span>
+    </dt>
+    <dd class="text-base-950 sm:border-t sm:border-base-950/5 dark:text-white dark:sm:border-white/5 sm:[&:nth-child(2)]:border-none pb-3 pt-1 sm:py-3 w-full flex flex-row items-center justify-between gap-4"><span class="text-base-900 dark:text-base-150"></span>
+      <!--v-if-->
+    </dd>
+  </dl>
   <!--v-if-->
 </div>"
 `;
@@ -13,7 +32,26 @@ exports[`DescriptionList > renders with b24ui correctly 1`] = `
 "<div class="w-full shrink-0">
   <!--v-if-->
   <!--v-if-->
-  <dl class="grid grid-cols-1 sm:grid-cols-[min(50%,theme(spacing.80))_auto] mt-3 text-lg"></dl>
+  <dl class="grid grid-cols-1 sm:grid-cols-[min(50%,theme(spacing.80))_auto] mt-3 text-lg">
+    <dt class="col-start-1 border-t border-base-950/5 text-base-500 first:border-none sm:border-t sm:border-base-950/5 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5 flex flex-nowrap flex-row items-center justify-start gap-1.5 pt-3 sm:py-3">
+      <!--v-if--><span class="">Item 1</span>
+    </dt>
+    <dd class="text-base-950 sm:border-t sm:border-base-950/5 dark:text-white dark:sm:border-white/5 sm:[&:nth-child(2)]:border-none pb-3 pt-1 sm:py-3 w-full flex flex-row items-center justify-between gap-4"><span class="text-base-900 dark:text-base-150"></span>
+      <!--v-if-->
+    </dd>
+    <dt class="col-start-1 border-t border-base-950/5 text-base-500 first:border-none sm:border-t sm:border-base-950/5 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5 flex flex-nowrap flex-row items-center justify-start gap-1.5 pt-3 sm:py-3">
+      <!--v-if--><span class="">Item 2</span>
+    </dt>
+    <dd class="text-base-950 sm:border-t sm:border-base-950/5 dark:text-white dark:sm:border-white/5 sm:[&:nth-child(2)]:border-none pb-3 pt-1 sm:py-3 w-full flex flex-row items-center justify-between gap-4"><span class="text-base-900 dark:text-base-150"></span>
+      <!--v-if-->
+    </dd>
+    <dt class="col-start-1 border-t border-base-950/5 text-base-500 first:border-none sm:border-t sm:border-base-950/5 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5 flex flex-nowrap flex-row items-center justify-start gap-1.5 pt-3 sm:py-3">
+      <!--v-if--><span class="">Item 3</span>
+    </dt>
+    <dd class="text-base-950 sm:border-t sm:border-base-950/5 dark:text-white dark:sm:border-white/5 sm:[&:nth-child(2)]:border-none pb-3 pt-1 sm:py-3 w-full flex flex-row items-center justify-between gap-4"><span class="text-base-900 dark:text-base-150"></span>
+      <!--v-if-->
+    </dd>
+  </dl>
   <!--v-if-->
 </div>"
 `;
@@ -22,7 +60,26 @@ exports[`DescriptionList > renders with class correctly 1`] = `
 "<div class="w-full shrink-0">
   <!--v-if-->
   <!--v-if-->
-  <dl class="grid grid-cols-1 sm:grid-cols-[min(50%,theme(spacing.80))_auto] mt-3 text-lg"></dl>
+  <dl class="grid grid-cols-1 sm:grid-cols-[min(50%,theme(spacing.80))_auto] mt-3 text-lg">
+    <dt class="col-start-1 border-t border-base-950/5 text-base-500 first:border-none sm:border-t sm:border-base-950/5 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5 flex flex-nowrap flex-row items-center justify-start gap-1.5 pt-3 sm:py-3">
+      <!--v-if--><span class="">Item 1</span>
+    </dt>
+    <dd class="text-base-950 sm:border-t sm:border-base-950/5 dark:text-white dark:sm:border-white/5 sm:[&:nth-child(2)]:border-none pb-3 pt-1 sm:py-3 w-full flex flex-row items-center justify-between gap-4"><span class="text-base-900 dark:text-base-150"></span>
+      <!--v-if-->
+    </dd>
+    <dt class="col-start-1 border-t border-base-950/5 text-base-500 first:border-none sm:border-t sm:border-base-950/5 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5 flex flex-nowrap flex-row items-center justify-start gap-1.5 pt-3 sm:py-3">
+      <!--v-if--><span class="">Item 2</span>
+    </dt>
+    <dd class="text-base-950 sm:border-t sm:border-base-950/5 dark:text-white dark:sm:border-white/5 sm:[&:nth-child(2)]:border-none pb-3 pt-1 sm:py-3 w-full flex flex-row items-center justify-between gap-4"><span class="text-base-900 dark:text-base-150"></span>
+      <!--v-if-->
+    </dd>
+    <dt class="col-start-1 border-t border-base-950/5 text-base-500 first:border-none sm:border-t sm:border-base-950/5 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5 flex flex-nowrap flex-row items-center justify-start gap-1.5 pt-3 sm:py-3">
+      <!--v-if--><span class="">Item 3</span>
+    </dt>
+    <dd class="text-base-950 sm:border-t sm:border-base-950/5 dark:text-white dark:sm:border-white/5 sm:[&:nth-child(2)]:border-none pb-3 pt-1 sm:py-3 w-full flex flex-row items-center justify-between gap-4"><span class="text-base-900 dark:text-base-150"></span>
+      <!--v-if-->
+    </dd>
+  </dl>
   <!--v-if-->
 </div>"
 `;
@@ -32,6 +89,34 @@ exports[`DescriptionList > renders with default slot correctly 1`] = `
   <!--v-if-->
   <!--v-if-->
   <dl class="grid grid-cols-1 sm:grid-cols-[min(50%,theme(spacing.80))_auto] mt-3 text-lg"></dl>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`DescriptionList > renders with items correctly 1`] = `
+"<div class="w-full shrink-0">
+  <!--v-if-->
+  <!--v-if-->
+  <dl class="grid grid-cols-1 sm:grid-cols-[min(50%,theme(spacing.80))_auto] mt-3 text-lg">
+    <dt class="col-start-1 border-t border-base-950/5 text-base-500 first:border-none sm:border-t sm:border-base-950/5 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5 flex flex-nowrap flex-row items-center justify-start gap-1.5 pt-3 sm:py-3">
+      <!--v-if--><span class="">Item 1</span>
+    </dt>
+    <dd class="text-base-950 sm:border-t sm:border-base-950/5 dark:text-white dark:sm:border-white/5 sm:[&:nth-child(2)]:border-none pb-3 pt-1 sm:py-3 w-full flex flex-row items-center justify-between gap-4"><span class="text-base-900 dark:text-base-150"></span>
+      <!--v-if-->
+    </dd>
+    <dt class="col-start-1 border-t border-base-950/5 text-base-500 first:border-none sm:border-t sm:border-base-950/5 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5 flex flex-nowrap flex-row items-center justify-start gap-1.5 pt-3 sm:py-3">
+      <!--v-if--><span class="">Item 2</span>
+    </dt>
+    <dd class="text-base-950 sm:border-t sm:border-base-950/5 dark:text-white dark:sm:border-white/5 sm:[&:nth-child(2)]:border-none pb-3 pt-1 sm:py-3 w-full flex flex-row items-center justify-between gap-4"><span class="text-base-900 dark:text-base-150"></span>
+      <!--v-if-->
+    </dd>
+    <dt class="col-start-1 border-t border-base-950/5 text-base-500 first:border-none sm:border-t sm:border-base-950/5 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5 flex flex-nowrap flex-row items-center justify-start gap-1.5 pt-3 sm:py-3">
+      <!--v-if--><span class="">Item 3</span>
+    </dt>
+    <dd class="text-base-950 sm:border-t sm:border-base-950/5 dark:text-white dark:sm:border-white/5 sm:[&:nth-child(2)]:border-none pb-3 pt-1 sm:py-3 w-full flex flex-row items-center justify-between gap-4"><span class="text-base-900 dark:text-base-150"></span>
+      <!--v-if-->
+    </dd>
+  </dl>
   <!--v-if-->
 </div>"
 `;

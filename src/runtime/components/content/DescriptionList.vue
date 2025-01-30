@@ -62,7 +62,7 @@ export type DescriptionListSlots<T extends { slot?: string }> = {
 } & DynamicSlots<T, SlotProps<T>>
 </script>
 
-<script setup lang="ts"  generic="T extends DescriptionListItem">
+<script setup lang="ts" generic="T extends DescriptionListItem">
 import { computed } from 'vue'
 import { get } from '../../utils'
 import B24Avatar from '../Avatar.vue'
