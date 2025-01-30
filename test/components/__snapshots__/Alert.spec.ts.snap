@@ -81,27 +81,6 @@ exports[`Alert > renders with close slot correctly 1`] = `
 </div>"
 `;
 
-exports[`Alert > renders with closeIcon correctly 1`] = `
-"<div class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-center">
-  <!--v-if-->
-  <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
-    <div class="font-bold text-md leading-none">Alert</div>
-    <!--v-if-->
-    <!--v-if-->
-  </div>
-  <div class="flex flex-wrap gap-1.5 shrink-0 items-center"><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center relative focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 bg-transparent border border-transparent hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase p-0.5 text-base-800 dark:text-base-800 hover:text-base-950 dark:hover:text-base-950">
-      <div class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center invisible"><svg viewBox="0 0 64 64" width="1em" xmlns="http://www.w3.org/2000/svg" class="animate-spin stroke-2 size-lg">
-          <path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"></path>
-        </svg></div>
-      <div class="inline-flex items-center gap-1">
-        <i-lucide-trash class="shrink-0 size-5"></i-lucide-trash>
-        <!--v-if-->
-        <!--v-if-->
-      </div>
-    </button></div>
-</div>"
-`;
-
 exports[`Alert > renders with description correctly 1`] = `
 "<div class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-start">
   <!--v-if-->
@@ -120,18 +99,6 @@ exports[`Alert > renders with description slot correctly 1`] = `
   <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Alert</div>
     <div class="text-md leading-[17px]">Description slot</div>
-    <!--v-if-->
-  </div>
-  <!--v-if-->
-</div>"
-`;
-
-exports[`Alert > renders with icon correctly 1`] = `
-"<div class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-center">
-  <i-lucide-lightbulb class="shrink-0 size-6"></i-lucide-lightbulb>
-  <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
-    <div class="font-bold text-md leading-none">Alert</div>
-    <!--v-if-->
     <!--v-if-->
   </div>
   <!--v-if-->

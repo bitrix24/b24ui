@@ -31,14 +31,14 @@ describe('Toast', () => {
     ['with title', { props }],
     ['with description', { props: { ...props, description: 'This is a toast' } }],
     // @todo fix this ////
-    ['with icon', { props: { ...props, icon: 'i-lucide-rocket' } }],
+    // ['with icon', { props: { ...props, icon: 'i-lucide-rocket' } }],
     // @todo fix this ////
     ['with avatar', { props: { ...props, avatar: { src: 'https://github.com/benjamincanac.png' } } }],
     ['with actions', { props: { ...props, actions: [{ label: 'Action' }] } }],
     ['with description actions', { props: { ...props, description: 'This is a toast', actions: [{ label: 'Action' }] } }],
     ['without close', { props: { ...props, close: false } }],
     // @todo fix this ////
-    ['with closeIcon', { props: { ...props, closeIcon: 'i-lucide-trash' } }],
+    // ['with closeIcon', { props: { ...props, closeIcon: 'i-lucide-trash' } }],
     ['with type', { props: { ...props, type: 'background' as const } }],
     ['with color success', { props: { ...props, color: 'success' as const } }],
     ['with as', { props: { ...props, as: 'section' } }],

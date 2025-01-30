@@ -15,11 +15,12 @@ describe('Textarea', () => {
     ['with required', { props: { required: true } }],
     ['with disabled', { props: { disabled: true } }],
     ['with rows', { props: { rows: 5 } }],
-    ['with primary'],
-    ['with success', { props: { color: 'success' } }],
+    ['with primary', { props: {} }],
+    ['with success', { props: { color: 'success' as const } }],
     ['with as', { props: { as: 'section' } }],
     ['with class', { props: { class: 'w-48' } }],
-    ['with b24ui', { props: { b24ui: { wrapper: 'ms-4' } } }],
+    // @memo wrapper not exist at theme ////
+    ['with b24ui', { props: { b24ui: { root: 'ms-4' } } }],
     // Slots
     ['with default slot', { slots: { default: () => 'Default slot' } }]
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: TextareaProps, slots?: Partial<TextareaSlots> }) => {

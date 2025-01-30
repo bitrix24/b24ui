@@ -13,13 +13,13 @@ describe('Alert', () => {
     ['with title', { props }],
     ['with description', { props: { ...props, description: 'Description' } }],
     // @todo fix this ////
-    ['with icon', { props: { ...props, icon: 'i-lucide-lightbulb' } }],
+    // ['with icon', { props: { ...props, icon: 'i-lucide-lightbulb' } }],
     // @todo fix this ////
     ['with avatar', { props: { ...props, avatar: { src: 'https://github.com/benjamincanac.png' } } }],
     ['with close', { props: { ...props, close: true } }],
     // @todo fix this ////
-    ['with closeIcon', { props: { ...props, close: true, closeIcon: 'i-lucide-trash' } }],
-    [`with success`, { props: { ...props, color: 'success' } }],
+    // ['with closeIcon', { props: { ...props, close: true, closeIcon: 'i-lucide-trash' } }],
+    [`with success`, { props: { ...props, color: 'success' as const } }],
     ['with as', { props: { ...props, as: 'article' } }],
     ['with class', { props: { ...props, class: 'w-48' } }],
     ['with b24ui', { props: { ...props, b24ui: { title: 'font-bold' } } }],

@@ -7,7 +7,7 @@ exports[`Textarea > renders with as correctly 1`] = `
 `;
 
 exports[`Textarea > renders with b24ui correctly 1`] = `
-"<div class="relative inline-flex items-center w-full">
+"<div class="relative inline-flex items-center w-full ms-4">
   <!--v-if--><textarea rows="3" class="w-full px-3 py-1.5 border-0 focus:outline-none disabled:cursor-not-allowed disabled:bg-base-30/37 disabled:resize-none disabled:text-base-500 dark:disabled:bg-base-900/37 dark:disabled:text-base-800 appearance-none transition duration-300 ease-linear ring ring-inset ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-normal align-middle not-only:not-first:after:content-[''] not-only:not-first:after:absolute not-only:not-first:after:top-[7px] not-only:not-first:after:bottom-[6px] not-only:not-first:after:left-0 not-only:not-first:after:w-px not-only:not-first:after:bg-current/30 rounded-2xs focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600"></textarea>
 </div>"
 `;
@@ -48,7 +48,11 @@ exports[`Textarea > renders with placeholder correctly 1`] = `
 </div>"
 `;
 
-exports[`Textarea > renders with primary correctly 1`] = `"with primary"`;
+exports[`Textarea > renders with primary correctly 1`] = `
+"<div class="relative inline-flex items-center w-full">
+  <!--v-if--><textarea rows="3" class="w-full px-3 py-1.5 border-0 focus:outline-none disabled:cursor-not-allowed disabled:bg-base-30/37 disabled:resize-none disabled:text-base-500 dark:disabled:bg-base-900/37 dark:disabled:text-base-800 appearance-none transition duration-300 ease-linear ring ring-inset ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-normal align-middle not-only:not-first:after:content-[''] not-only:not-first:after:absolute not-only:not-first:after:top-[7px] not-only:not-first:after:bottom-[6px] not-only:not-first:after:left-0 not-only:not-first:after:w-px not-only:not-first:after:bg-current/30 rounded-2xs focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600"></textarea>
+</div>"
+`;
 
 exports[`Textarea > renders with required correctly 1`] = `
 "<div class="relative inline-flex items-center w-full">

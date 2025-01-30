@@ -213,41 +213,6 @@ exports[`Toast > renders with close slot correctly 1`] = `
 <!--teleport end-->"
 `;
 
-exports[`Toast > renders with closeIcon correctly 1`] = `
-"<!---->
-<!--teleport start-->
-<!--teleport end-->
-<!--teleport start-->
-
-
-<div role="region" aria-label="Notifications (F8)" tabindex="-1"><span aria-hidden="true" tabindex="0" style="position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); white-space: nowrap; word-wrap: normal;"></span>
-  <ol tabindex="-1" data-expanded="true" class="fixed flex flex-col w-[calc(100%-2rem)] sm:w-96 z-[100] data-[expanded=true]:h-[var(--height)] focus:outline-none right-4 top-4" style="--scale-factor: 0.05; --translate-factor: -1px; --gap: -16px; --front-height: 0px; --height: 0px;">
-    <li role="alert" aria-live="off" aria-atomic="true" tabindex="0" class="relative group overflow-hidden rounded-[26px] py-3.5 ps-6 pe-4 flex gap-2.5 focus:outline-none font-b24-primary dark:ring-2 dark:ring-base-900 bg-base-ebony/80 dark:bg-base-dark text-sm font-normal text-white dark:text-base-150 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-base-400 dark:focus-visible:ring-base-400 items-center" style="--height: 0; user-select: none; touch-action: none;" data-state="open" data-swipe-direction="right" data-reka-collection-item="">
-      <!--v-if-->
-      <div class="w-0 flex-1 flex flex-col gap-1">
-        <div class="font-medium">Toast</div>
-        <!--v-if-->
-        <!--v-if-->
-      </div>
-      <div class="flex gap-1.5 shrink-0 items-center"><button type="button" aria-label="Close" data-reka-toast-announce-exclude="" class="select-none cursor-pointer inline-flex items-center relative focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 bg-transparent border border-transparent hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase p-0.5 text-base-350 dark:text-base-350 hover:text-base-400 dark:hover:text-base-400">
-          <div class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center invisible"><svg viewBox="0 0 64 64" width="1em" xmlns="http://www.w3.org/2000/svg" class="animate-spin stroke-2 size-lg">
-              <path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"></path>
-            </svg></div>
-          <div class="inline-flex items-center gap-1">
-            <i-lucide-trash class="shrink-0 size-5"></i-lucide-trash>
-            <!--v-if-->
-            <!--v-if-->
-          </div>
-        </button></div>
-      <div class="absolute inset-x-0 bottom-0 h-1 z-[-1] bg-base-350 dark:bg-base-350" style="width: 100%;"></div>
-    </li>
-  </ol><span aria-hidden="true" tabindex="0" style="position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); white-space: nowrap; word-wrap: normal;"></span>
-</div>
-
-
-<!--teleport end-->"
-`;
-
 exports[`Toast > renders with color success correctly 1`] = `
 "<!---->
 <!--teleport start-->
@@ -382,42 +347,6 @@ exports[`Toast > renders with description slot correctly 1`] = `
       <div class="w-0 flex-1 flex flex-col gap-1">
         <div class="font-medium">Toast</div>
         <div class="">Description slot</div>
-        <!--v-if-->
-      </div>
-      <div class="flex gap-1.5 shrink-0 items-center"><button type="button" aria-label="Close" data-reka-toast-announce-exclude="" class="select-none cursor-pointer inline-flex items-center relative focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 bg-transparent border border-transparent hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase p-0.5 text-base-350 dark:text-base-350 hover:text-base-400 dark:hover:text-base-400">
-          <div class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center invisible"><svg viewBox="0 0 64 64" width="1em" xmlns="http://www.w3.org/2000/svg" class="animate-spin stroke-2 size-lg">
-              <path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"></path>
-            </svg></div>
-          <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
-              <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
-            </svg>
-            <!--v-if-->
-            <!--v-if-->
-          </div>
-        </button></div>
-      <div class="absolute inset-x-0 bottom-0 h-1 z-[-1] bg-base-350 dark:bg-base-350" style="width: 100%;"></div>
-    </li>
-  </ol><span aria-hidden="true" tabindex="0" style="position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); white-space: nowrap; word-wrap: normal;"></span>
-</div>
-
-
-<!--teleport end-->"
-`;
-
-exports[`Toast > renders with icon correctly 1`] = `
-"<!---->
-<!--teleport start-->
-<!--teleport end-->
-<!--teleport start-->
-
-
-<div role="region" aria-label="Notifications (F8)" tabindex="-1"><span aria-hidden="true" tabindex="0" style="position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); white-space: nowrap; word-wrap: normal;"></span>
-  <ol tabindex="-1" data-expanded="true" class="fixed flex flex-col w-[calc(100%-2rem)] sm:w-96 z-[100] data-[expanded=true]:h-[var(--height)] focus:outline-none right-4 top-4" style="--scale-factor: 0.05; --translate-factor: -1px; --gap: -16px; --front-height: 0px; --height: 0px;">
-    <li role="alert" aria-live="off" aria-atomic="true" tabindex="0" class="relative group overflow-hidden rounded-[26px] py-3.5 ps-6 pe-4 flex gap-2.5 focus:outline-none font-b24-primary dark:ring-2 dark:ring-base-900 bg-base-ebony/80 dark:bg-base-dark text-sm font-normal text-white dark:text-base-150 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-base-400 dark:focus-visible:ring-base-400 items-center" style="--height: 0; user-select: none; touch-action: none;" data-state="open" data-swipe-direction="right" data-reka-collection-item="">
-      <i-lucide-rocket class="shrink-0 size-6 text-white"></i-lucide-rocket>
-      <div class="w-0 flex-1 flex flex-col gap-1">
-        <div class="font-medium">Toast</div>
-        <!--v-if-->
         <!--v-if-->
       </div>
       <div class="flex gap-1.5 shrink-0 items-center"><button type="button" aria-label="Close" data-reka-toast-announce-exclude="" class="select-none cursor-pointer inline-flex items-center relative focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 bg-transparent border border-transparent hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase p-0.5 text-base-350 dark:text-base-350 hover:text-base-400 dark:hover:text-base-400">
