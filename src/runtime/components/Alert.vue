@@ -85,12 +85,12 @@ const b24ui = computed(() => alert({
 <template>
   <Primitive :as="as" :class="b24ui.root({ class: [props.class, props.b24ui?.root], multiline })">
     <slot name="leading">
-      <B24Avatar v-if="avatar" :size="((props.b24ui?.avatarSize || b24ui.avatarSize()) as AvatarProps['size'])" v-bind="avatar" :class="b24ui.avatar({ class: props.b24ui?.avatar })" />
       <Component
         :is="icon"
         v-if="icon"
         :class="b24ui.icon({ class: props.b24ui?.icon })"
       />
+      <B24Avatar v-else-if="avatar" :size="((props.b24ui?.avatarSize || b24ui.avatarSize()) as AvatarProps['size'])" v-bind="avatar" :class="b24ui.avatar({ class: props.b24ui?.avatar })" />
     </slot>
 
     <div :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
