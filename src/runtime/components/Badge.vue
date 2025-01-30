@@ -46,6 +46,7 @@ import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import Cross20Icon from '@bitrix24/b24icons-vue/actions/Cross20Icon'
+import B24Avatar from './Avatar.vue'
 
 const props = withDefaults(defineProps<BadgeProps>(), {
   as: 'span'
