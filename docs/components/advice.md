@@ -6,7 +6,7 @@ outline: deep
 <script setup>
 import AdviceExample from '/examples/advice/Advice.vue';
 </script>
-# Countdown
+# Advice
 
 <Description
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Advice.vue"
