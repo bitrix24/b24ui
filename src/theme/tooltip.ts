@@ -17,7 +17,7 @@ export default {
       'bg-base-dark text-white',
       'dark:bg-base-dark dark:text-base-150 dark:ring dark:ring-base-100/20',
       'pointer-events-auto'
-    ],
+    ].join(' '),
     arrow: 'fill-base-dark dark:fill-base-100/20',
     text: 'text-pretty max-w-[200px]', // truncate
     kbds: `hidden lg:inline-flex items-center shrink-0 gap-0.5 before:content-[''] before:me-0.5`,

@@ -28,7 +28,7 @@ export default {
       'font-medium rounded-xl',
       'cursor-pointer disabled:cursor-not-allowed disabled:opacity-75 focus:outline-hidden',
       'transition-colors'
-    ],
+    ].join(' '),
     content: 'focus:outline-none w-full',
     leadingIcon: 'shrink-0',
     leadingAvatar: 'shrink-0',

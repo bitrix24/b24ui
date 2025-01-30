@@ -13,8 +13,7 @@ export default {
       'inline-flex items-center',
       'transition-all duration-200 ease-linear',
       'px-2 leading-normal rounded-md'
-      // 'text-base-800 dark:text-base-250'
-    ],
+    ].join(' '),
     wrapper: 'inline-flex items-center',
     label: 'max-w-full whitespace-nowrap text-ellipsis', // truncate ////
     leadingIcon: 'shrink-0',

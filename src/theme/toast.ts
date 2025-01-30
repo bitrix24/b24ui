@@ -36,7 +36,7 @@ export default {
       'bg-base-ebony/80 dark:bg-base-dark',
       'text-sm font-normal',
       'text-white dark:text-base-150'
-    ],
+    ].join(' '),
     wrapper: 'w-0 flex-1 flex flex-col gap-1',
     title: 'font-medium',
     description: '',

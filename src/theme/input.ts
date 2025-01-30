@@ -25,7 +25,7 @@ export default {
       'font-b24-primary font-regular text-md leading-none',
       'align-middle',
       'text-ellipsis whitespace-nowrap'
-    ],
+    ].join(' '),
     leading: 'absolute inset-y-0 start-0 flex items-center',
     leadingIcon: 'shrink-0 text-base-400',
     leadingAvatar: 'shrink-0',
@@ -36,7 +36,7 @@ export default {
       'pointer-events-none select-none',
       'absolute z-10 -top-1.5 right-3 h-sm px-1.5 flex flex-col justify-center items-center',
       'font-b24-primary font-bold text-6xs leading-none uppercase rounded-full'
-    ]
+    ].join(' ')
   },
   variants: {
     ...buttonGroupVariantWithRoot,

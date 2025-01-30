@@ -47,7 +47,7 @@ export default () => {
           'font-b24-primary font-regular text-sm',
           'align-middle',
           'text-ellipsis whitespace-nowrap'
-        ],
+        ].join(' '),
         value: 'truncate pointer-events-none',
         placeholder: 'truncate text-base-400 dark:text-base-300',
         arrow: 'fill-base-master/10 dark:fill-base-100/20',
@@ -58,12 +58,12 @@ export default () => {
           'overflow-hidden',
           'data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in]',
           'pointer-events-auto'
-        ],
+        ].join(' '),
         scrollUpDownButton: [
           'flex items-center justify-center h-[25px] cursor-default backdrop-blur',
           'text-base-800 bg-white',
           'dark:text-base-100 dark:bg-base-dark'
-        ],
+        ].join(' '),
         scrollUpDownButtonIcon: '',
         viewport: 'divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1',
         group: 'p-1 isolate',
@@ -71,7 +71,7 @@ export default () => {
         label: [
           'flex items-center',
           'font-semibold text-base-900 dark:text-base-200'
-        ],
+        ].join(' '),
         separator: '-mx-1 my-1 h-px bg-base-master/10 dark:bg-base-100/20',
         item: [
           'group relative w-full flex items-center select-none outline-none',
@@ -80,11 +80,11 @@ export default () => {
           'data-disabled:cursor-not-allowed data-disabled:opacity-75',
           'text-base-master dark:text-base-150 data-highlighted:text-base-900 dark:data-highlighted:text-base-200 data-highlighted:before:bg-base-100/50 dark:data-highlighted:before:bg-base-900',
           'transition-colors before:transition-colors'
-        ],
+        ].join(' '),
         itemLeadingIcon: [
           'shrink-0 text-base-500 dark:text-base-700 group-data-highlighted:text-base-master dark:group-data-highlighted:text-base-150',
           'transition-colors'
-        ],
+        ].join(' '),
         itemLeadingAvatar: 'shrink-0',
         itemLeadingAvatarSize: '',
         itemLeadingChip: 'shrink-0',

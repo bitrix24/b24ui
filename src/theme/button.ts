@@ -19,7 +19,7 @@ export default {
     ],
     baseLine: [
       'inline-flex items-center'
-    ],
+    ].join(' '),
     label: 'truncate',
     leadingIcon: 'shrink-0',
     leadingAvatar: 'shrink-0',

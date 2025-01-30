@@ -16,7 +16,7 @@ export default {
     base: [
       'relative flex flex-row flex-nowrap items-center justify-between',
       'text-base-500 dark:text-base-600'
-    ],
+    ].join(' '),
     label: '',
     leadingIcon: 'shrink-0',
     leadingAvatar: 'shrink-0',
@@ -26,7 +26,7 @@ export default {
     circleElement: 'stroke-transparent stroke-1',
     circlePath: [
       'stroke-[7px] rotate-90 origin-center stroke-current transition-all duration-1000 ease-linear'
-    ]
+    ].join(' ')
   },
   variants: {
     size: {

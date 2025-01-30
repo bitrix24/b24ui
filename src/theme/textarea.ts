@@ -23,12 +23,12 @@ export default {
       'dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350',
       'font-b24-primary font-regular text-md leading-normal',
       'align-middle'
-    ],
+    ].join(' '),
     tag: [
       'pointer-events-none select-none',
       'absolute z-10 -top-1.5 right-3 h-sm px-1.5 flex flex-col justify-center items-center',
       'font-b24-primary font-bold text-6xs leading-none uppercase rounded-full'
-    ]
+    ].join(' ')
   },
   variants: {
     ...buttonGroupVariantWithRoot,

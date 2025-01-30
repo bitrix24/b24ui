@@ -14,17 +14,17 @@ export default {
     root: 'flex items-end',
     descriptionWrapper: [
       'relative'
-    ],
+    ].join(' '),
     descriptionBorder: [
       'fill-blue-500 dark:fill-blue-300'
-    ],
+    ].join(' '),
     descriptionBg: [
       'fill-white dark:fill-base-900'
-    ],
+    ].join(' '),
     descriptionAngle: [
       'absolute',
       'w-[14px] h-[12px]'
-    ],
+    ].join(' '),
     description: [
       'grow',
       'w-11/12 py-3 px-md2 ms-2', // -9/12
@@ -33,7 +33,7 @@ export default {
       'border-1',
       'border-blue-500 bg-white text-base-950',
       'dark:border-blue-300 dark:bg-base-900 dark:text-base-200'
-    ],
+    ].join(' '),
     leading: 'me-1.5 ms-2',
     leadingIcon: 'shrink-0 size-[42px]',
     leadingAvatar: 'shrink-0',
