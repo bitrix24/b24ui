@@ -7,7 +7,13 @@ import Shining2Icon from '@bitrix24/b24icons-vue/main/Shining2Icon'
 const isShowResult = ref(false)
 const autoResultSeconds = ref(20)
 
-const state = reactive({
+interface State {
+  email: string | undefined
+  password: string | undefined
+  tos: boolean | undefined
+}
+
+const state = reactive<State>({
   email: undefined,
   password: undefined,
   tos: undefined

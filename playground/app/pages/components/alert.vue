@@ -15,7 +15,7 @@ const action = (color: string) => [
   {
     icon: DotsIcon,
     color: color as any,
-    depth: 'light',
+    depth: 'light' as const,
     onClick() {
       console.log('Action 3 clicked')
     }
@@ -124,7 +124,7 @@ const data = {
             :icon="data.icon"
             :close="data.close"
             :color="color"
-            :actions="action(color as string)"
+            :actions="action(color)"
             size="sm"
           />
           <B24Alert
@@ -133,7 +133,7 @@ const data = {
             :icon="data.icon"
             :close="data.close"
             :color="color"
-            :actions="multipleActions(color as string)"
+            :actions="multipleActions(color)"
             size="sm"
           />
         </div>
@@ -151,7 +151,7 @@ const data = {
             :icon="data.icon"
             :close="data.close"
             :color="color"
-            :actions="action(color as string)"
+            :actions="action(color)"
           />
           <B24Alert
             :title="data.title"
@@ -159,7 +159,7 @@ const data = {
             :icon="data.icon"
             :close="data.close"
             :color="color"
-            :actions="multipleActions(color as string)"
+            :actions="multipleActions(color)"
           />
         </div>
       </ExampleCard>

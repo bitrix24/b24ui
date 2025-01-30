@@ -36,9 +36,7 @@ defineShortcuts({
           <B24Tooltip
             :delay-duration="100"
             :content="{ side: 'right' }"
-            :b24ui="{
-              content: ['bg-blue-400/70 dark:bg-red-400/70']
-            }"
+            :b24ui="{ content: 'bg-blue-400/70 dark:bg-red-400/70' }"
           >
             <template #content>
               <div class="text-pretty max-w-[200px]">
