@@ -49,7 +49,7 @@ const description = ref('Let\'s signal the manager that the deal is not moving, 
               Reference information
             </div>
             <div>Typically, instructions on how to add a SAML application and add the ACS URL and SP Entity ID can be found in the Microsoft Azure technical documentation.</div>
-            <div class="mt-2 flex flex-row items-start justify-between gap-2">
+            <div class="mt-2 flex flex-row flex-wrap items-start justify-between gap-2">
               <B24Button size="xs" color="primary" label="some action 1" />
               <B24Button size="xs" color="link" depth="dark" label="some action 2" />
               <B24Button size="xs" color="link" depth="light" :icon="DotsIcon" />
