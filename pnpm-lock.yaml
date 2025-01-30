@@ -108,8 +108,8 @@ importers:
         specifier: ^2.0.2
         version: 2.0.2
       reka-ui:
-        specifier: 1.0.0-alpha.8
-        version: 1.0.0-alpha.8(typescript@5.6.3)(vue@3.5.13(typescript@5.6.3))
+        specifier: 1.0.0-alpha.9
+        version: 1.0.0-alpha.9(@internationalized/date@3.7.0)(@internationalized/number@3.6.0)(typescript@5.6.3)(vue@3.5.13(typescript@5.6.3))
       scule:
         specifier: ^1.3.0
         version: 1.3.0
@@ -4481,9 +4481,11 @@ packages:
     resolution: {integrity: sha512-qx+xQGZVsy55CH0a1hiVwHmqjLryfh7wQyF5HO07XJ9f7dQMY/gPQHhlyDkIzJKC+x2fUCpCcUODUUUFrm7SHA==}
     hasBin: true
 
-  reka-ui@1.0.0-alpha.8:
-    resolution: {integrity: sha512-FmAUxWFLWtvbheBLvjgotR/RsE1KSjciMJOLmo7wL0Sbe+sW7M35O8K6f141a0Vc1cE0mH57UHcWBuVpeJNQNA==}
+  reka-ui@1.0.0-alpha.9:
+    resolution: {integrity: sha512-DkHU39TaMGDkJ4tFxgbU71aXJEnL6eQWHYr6iz1ZdOBrTtOU+/nwKtpqMMTIsBYMtAQfnf8+hfRigtfQR2tSfQ==}
     peerDependencies:
+      '@internationalized/date': '>=3.5.0'
+      '@internationalized/number': '>=3.5.0'
       vue: '>= 3.2.0'
 
   require-directory@2.1.1:
@@ -10438,7 +10440,7 @@ snapshots:
     dependencies:
       jsesc: 0.5.0
 
-  reka-ui@1.0.0-alpha.8(typescript@5.6.3)(vue@3.5.13(typescript@5.6.3)):
+  reka-ui@1.0.0-alpha.9(@internationalized/date@3.7.0)(@internationalized/number@3.6.0)(typescript@5.6.3)(vue@3.5.13(typescript@5.6.3)):
     dependencies:
       '@floating-ui/dom': 1.6.13
       '@floating-ui/vue': 1.1.6(vue@3.5.13(typescript@5.6.3))
@@ -10446,7 +10448,7 @@ snapshots:
       '@internationalized/number': 3.6.0
       '@tanstack/vue-virtual': 3.11.2(vue@3.5.13(typescript@5.6.3))
       '@vueuse/core': 12.5.0(typescript@5.6.3)
-      '@vueuse/shared': 12.4.0(typescript@5.6.3)
+      '@vueuse/shared': 12.5.0(typescript@5.6.3)
       aria-hidden: 1.2.4
       defu: 6.1.4
       ohash: 1.1.4
