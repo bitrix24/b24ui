@@ -19,18 +19,22 @@ describe('Select', () => {
   }, {
     label: 'Todo',
     value: 'todo',
+    // @todo fix this ////
     icon: 'i-lucide-circle-plus'
   }, {
     label: 'In Progress',
     value: 'in_progress',
+    // @todo fix this ////
     icon: 'i-lucide-circle-arrow-up'
   }, {
     label: 'Done',
     value: 'done',
+    // @todo fix this ////
     icon: 'i-lucide-circle-check'
   }, {
     label: 'Canceled',
     value: 'canceled',
+    // @todo fix this ////
     icon: 'i-lucide-circle-x'
   }]
 
@@ -136,9 +140,9 @@ describe('Select', () => {
           items: ['Option 1', 'Option 2']
         },
         slotTemplate: `
-          <B24FormField name="value">
-            <B24Select id="input" v-model="state.value" :items="items" />
-          </B24FormField>
+        <B24FormField name="value">
+          <B24Select id="input" v-model="state.value" :items="items" />
+        </B24FormField>
         `
       })
       const input = wrapper.findComponent({ name: 'SelectRoot' })
@@ -173,7 +177,6 @@ describe('Select', () => {
       expect(wrapper.text()).not.toContain('Error message')
     })
 
-    // @todo fix this -> see test/components/Input.spec.ts
     test('validate on input works', async () => {
       const { input, wrapper } = await createForm(['input'])
 

@@ -34,7 +34,7 @@ describe('Range', () => {
     test('update:modelValue event', async () => {
       const wrapper = mount(Range)
 
-      const input = wrapper.findComponent({ name: 'RangeRoot' })
+      const input = wrapper.findComponent({ name: 'SliderRoot' })
       input.vm.$emit('update:modelValue', 1)
 
       expect(wrapper.emitted()).toMatchObject({ 'update:modelValue': [[1], [1]] })
@@ -43,7 +43,7 @@ describe('Range', () => {
     test('change event', async () => {
       const wrapper = mount(Range)
 
-      const input = wrapper.findComponent({ name: 'RangeRoot' })
+      const input = wrapper.findComponent({ name: 'SliderRoot' })
       input.vm.$emit('valueCommit')
 
       expect(wrapper.emitted()).toMatchObject({ change: [[{ type: 'change' }]] })
@@ -68,7 +68,7 @@ describe('Range', () => {
         </B24FormField>
         `
       })
-      const input = wrapper.findComponent({ name: 'RangeRoot' })
+      const input = wrapper.findComponent({ name: 'SliderRoot' })
       return {
         wrapper,
         input

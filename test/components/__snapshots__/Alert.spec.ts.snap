@@ -3,7 +3,6 @@
 exports[`Alert > renders with as correctly 1`] = `
 "<article class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-center">
   <!--v-if-->
-  <!--v-if-->
   <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Alert</div>
     <!--v-if-->
@@ -15,7 +14,6 @@ exports[`Alert > renders with as correctly 1`] = `
 
 exports[`Alert > renders with avatar correctly 1`] = `
 "<div class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-center"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-12 text-2xl shrink-0"><img role="img" src="https://github.com/benjamincanac.png" width="48" height="48" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate"> </span></span>
-  <!--v-if-->
   <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Alert</div>
     <!--v-if-->
@@ -27,7 +25,6 @@ exports[`Alert > renders with avatar correctly 1`] = `
 
 exports[`Alert > renders with b24ui correctly 1`] = `
 "<div class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-center">
-  <!--v-if-->
   <!--v-if-->
   <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
     <div class="text-md leading-none font-bold">Alert</div>
@@ -41,7 +38,6 @@ exports[`Alert > renders with b24ui correctly 1`] = `
 exports[`Alert > renders with class correctly 1`] = `
 "<div class="relative overflow-hidden rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-center w-48">
   <!--v-if-->
-  <!--v-if-->
   <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Alert</div>
     <!--v-if-->
@@ -53,7 +49,6 @@ exports[`Alert > renders with class correctly 1`] = `
 
 exports[`Alert > renders with close correctly 1`] = `
 "<div class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-center">
-  <!--v-if-->
   <!--v-if-->
   <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Alert</div>
@@ -77,7 +72,6 @@ exports[`Alert > renders with close correctly 1`] = `
 exports[`Alert > renders with close slot correctly 1`] = `
 "<div class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-center">
   <!--v-if-->
-  <!--v-if-->
   <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Alert</div>
     <!--v-if-->
@@ -89,7 +83,6 @@ exports[`Alert > renders with close slot correctly 1`] = `
 
 exports[`Alert > renders with closeIcon correctly 1`] = `
 "<div class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-center">
-  <!--v-if-->
   <!--v-if-->
   <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Alert</div>
@@ -112,7 +105,6 @@ exports[`Alert > renders with closeIcon correctly 1`] = `
 exports[`Alert > renders with description correctly 1`] = `
 "<div class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-start">
   <!--v-if-->
-  <!--v-if-->
   <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Alert</div>
     <div class="text-md leading-[17px]">Description</div>
@@ -125,7 +117,6 @@ exports[`Alert > renders with description correctly 1`] = `
 exports[`Alert > renders with description slot correctly 1`] = `
 "<div class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-center">
   <!--v-if-->
-  <!--v-if-->
   <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Alert</div>
     <div class="text-md leading-[17px]">Description slot</div>
@@ -137,7 +128,6 @@ exports[`Alert > renders with description slot correctly 1`] = `
 
 exports[`Alert > renders with icon correctly 1`] = `
 "<div class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-center">
-  <!--v-if-->
   <i-lucide-lightbulb class="shrink-0 size-6"></i-lucide-lightbulb>
   <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Alert</div>
@@ -151,7 +141,6 @@ exports[`Alert > renders with icon correctly 1`] = `
 exports[`Alert > renders with leading slot correctly 1`] = `
 "<div class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-center">
   <!--v-if-->
-  <!--v-if-->
   <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Leading slot</div>
     <!--v-if-->
@@ -163,7 +152,6 @@ exports[`Alert > renders with leading slot correctly 1`] = `
 
 exports[`Alert > renders with success correctly 1`] = `
 "<div class="relative overflow-hidden w-full rounded-3xs flex text-green-780 bg-green-200 dark:text-green-780 dark:bg-green-300 py-md ps-md pe-xs gap-2.5 items-center">
-  <!--v-if-->
   <!--v-if-->
   <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Alert</div>
@@ -177,7 +165,6 @@ exports[`Alert > renders with success correctly 1`] = `
 exports[`Alert > renders with title correctly 1`] = `
 "<div class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-center">
   <!--v-if-->
-  <!--v-if-->
   <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Alert</div>
     <!--v-if-->
@@ -189,7 +176,6 @@ exports[`Alert > renders with title correctly 1`] = `
 
 exports[`Alert > renders with title slot correctly 1`] = `
 "<div class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-center">
-  <!--v-if-->
   <!--v-if-->
   <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Title slot</div>
