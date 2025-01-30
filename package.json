@@ -72,7 +72,7 @@
 
     "dev:vue": "set DEV=true && vite playground-vue",
     "dev:vue:build": "vite build playground-vue",
-    "dev:vue:generate": "vite generate playground-vue",
+    "dev:vue:preview": "vite preview playground-vue",
 
     "docs:full:dev": "pnpm build && vitepress dev docs",
     "docs:full:build": "pnpm build && vitepress build docs",
