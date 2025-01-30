@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.4 (2025-01-30)
+
+### Docs
+* **Advice:** improve
+* **Chip:** improve
+
+### Bug Fixes
+
+* **Badge:** missing `B24Avatar` import
+* **Toast|Alert:** if/else for Icons and Avatars
+* **Select:** remove from useFormField deferInputValidation
+* **theme:** Cast them slots types to string
+* **Test:** improve
+
 ## 0.1.3 (2025-01-29)
 
 ### Bug Fixes

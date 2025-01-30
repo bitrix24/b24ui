@@ -34,6 +34,9 @@ jobs:
       - name: 'Install dependencies'
         run: pnpm install
 
+      - name: Prepare
+        run: pnpm run dev:prepare
+
       - name: 'Build with VitePress'
         run: pnpm run docs:full:build
 

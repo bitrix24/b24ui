@@ -23,8 +23,23 @@ jobs:
       - name: 'Install dependencies'
         run: pnpm install
 
-      - name: 'Run build'
+      - name: Prepare
+        run: pnpm run dev:prepare
+
+      - name: Lint
+        run: pnpm run lint
+
+      - name: Typecheck
+        run: pnpm run typecheck
+
+      - name: Test
+        run: pnpm run test
+
+      - name: Build
         run: pnpm build
+
+      - name: Build vue fixture
+        run: pnpm run test:vue:build
 
       - name: 'Publish 🚀'
         shell: bash
