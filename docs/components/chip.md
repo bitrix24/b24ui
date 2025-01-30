@@ -32,9 +32,7 @@ Wrap any component with a Chip to display an indicator.
   </ClientOnly>
 </div>
 
-::: details
 <<< @/examples/chip/demo/Chip.vue{6,8 vue:line-numbers}
-:::
 
 ### Color
 
@@ -117,7 +115,7 @@ Use the `standalone` prop alongside the `inset` prop to display the Chip inline.
 </div>
 
 ::: details
-<<< @/examples/chip/demo/Standalone.vue{30 vue:line-numbers}
+<<< @/examples/chip/demo/Standalone.vue{15 vue:line-numbers}
 :::
 
 ::: info
@@ -141,7 +139,7 @@ In this example, the Chip has a color per status and is displayed when the statu
 </div>
 
 ::: details
-<<< @/examples/chip/demo/WithShow.vue{vue:line-numbers}
+<<< @/examples/chip/demo/WithShow.vue{30 vue:line-numbers}
 :::
 
 ## API
