@@ -71,8 +71,6 @@
     "dev:generate": "nuxt generate playground",
 
     "dev:vue": "set DEV=true && vite playground-vue",
-    "dev:vue:build": "vite build playground-vue",
-    "dev:vue:preview": "vite preview playground-vue",
 
     "docs:full:dev": "pnpm build && vitepress dev docs",
     "docs:full:build": "pnpm build && vitepress build docs",
@@ -86,7 +84,6 @@
     "typecheck": "vue-tsc --noEmit && nuxi typecheck playground && cd playground-vue && vue-tsc --noEmit",
 
     "test": "vitest",
-    "test:save": "vitest -u",
     "test:vue": "vitest -c vitest.vue.config.ts",
     "test:vue:build": "vite build playground-vue",
 
