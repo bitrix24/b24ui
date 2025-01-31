@@ -46,15 +46,13 @@ Pass a `title` field to the `toast.add` method to display a title.
   </ClientOnly>
 </div>
 
-::: details
 <<< @/examples/toast/demo/Title.vue{7,13 vue:line-numbers}
-:::
 
 ### Description
 
 Pass a `description` field to the `toast.add` method to display a description.
 
-<div class="lg:min-h-[275px]">
+<div class="lg:min-h-[310px]">
   <ClientOnly>
     <DescriptionExample />
   </ClientOnly>
@@ -142,7 +140,7 @@ Pass an `actions` field to add some [Button](/components/button) actions to the 
 Actions renders differently when the description is not set. You can try to remove it.
 :::
 
-<div class="lg:min-h-[275px]">
+<div class="lg:min-h-[310px]">
   <ClientOnly>
     <ActionsExample />
   </ClientOnly>

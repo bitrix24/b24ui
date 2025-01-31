@@ -10,8 +10,8 @@ const description = ref('Is there anything else you need help with?')
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="description" class="w-full sm:w-1/4">
-        <B24Input v-model="description" />
+      <B24FormField label="description" class="w-full sm:flex-1">
+        <B24Textarea v-model="description" />
       </B24FormField>
     </template>
     <Demo :title="title" :description="description" />
