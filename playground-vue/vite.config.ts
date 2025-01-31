@@ -1,13 +1,11 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import AutoImports from 'unplugin-auto-import/vite'
-import VueComponents from 'unplugin-vue-components'
+
 import bitrix24UIPluginVite from '../src/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
-    port: 5174,
     fs: {
       allow: ['..']
     }
@@ -15,12 +13,13 @@ export default defineConfig({
   plugins: [
     vue(),
     bitrix24UIPluginVite({
-      b24ui: {}
-    }),
-    // these are required as we share the component pages with the Nuxt playground
-    AutoImports({ imports: ['vue'] }),
-    VueComponents.vite({
-      dirs: ['../playground/app/components']
+      b24ui: {},
+      autoImport: {
+        imports: ['vue']
+      },
+      components: {
+        dirs: ['../playground/app/components']
+      }
     })
   ],
   optimizeDeps: {

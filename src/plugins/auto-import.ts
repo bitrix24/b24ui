@@ -1,0 +1,20 @@
+import { join } from 'pathe'
+import type { UnpluginContextMeta, UnpluginOptions } from 'unplugin'
+import { defu } from 'defu'
+
+import { runtimeDir } from '../unplugin'
+import type { Bitrix24UIOptions } from '../unplugin'
+import AutoImport from 'unplugin-auto-import'
+import type { Options as AutoImportOptions } from 'unplugin-auto-import/types'
+
+/**
+ * This plugin adds all the Bitrix24 UI composables as auto-imports.
+ */
+export default function AutoImportPlugin(options: Bitrix24UIOptions, meta: UnpluginContextMeta): UnpluginOptions {
+  const pluginOptions = defu(options.autoImport, <AutoImportOptions>{
+    dts: options.dts ?? true,
+    dirs: [join(runtimeDir, 'composables')]
+  })
+
+  return AutoImport.raw(pluginOptions, meta) as UnpluginOptions
+}
