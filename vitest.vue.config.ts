@@ -1,5 +1,5 @@
 import vue from '@vitejs/plugin-vue'
-import ui from './src/vite'
+import bitrix24UIPluginVite from './src/vite'
 import { defineConfig } from 'vitest/config'
 import { glob } from 'tinyglobby'
 import { resolve } from 'pathe'
@@ -19,7 +19,7 @@ export default defineConfig({
   },
   plugins: [
     vue(),
-    ui({ dts: false }),
+    bitrix24UIPluginVite({ dts: false }),
     {
       name: 'bitrix24-ui-test:components',
       enforce: 'pre',
@@ -47,7 +47,7 @@ export default defineConfig({
               return ''
             }
             renderedComponents.add(componentName)
-            return `export { default as U${componentName} } from '${file}'`
+            return `export { default as B24${componentName} } from '${file}'`
           }).join('\n')
         }
       }
