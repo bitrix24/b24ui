@@ -99,6 +99,7 @@ import { reactiveOmit } from '@vueuse/core'
 import { hasProtocol } from 'ufo'
 import { useRoute } from '#imports'
 import { RouterLink } from 'vue-router'
+import B24LinkBase from './../../components/LinkBase.vue'
 
 defineOptions({ inheritAttrs: false })
 
