@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.5 (2025-01-31)
+
+### Features
+* **unplugin:**  expose options for embedded plugins, throw warnings for duplication
+
+### Bug Fixes
+
+* **test-vue:** improve
+
+### Docs
+
+* **Toast:** improve
+* **Progress:** improve
+
 ## 0.1.4 (2025-01-30)
 
 ### Docs
