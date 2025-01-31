@@ -36,9 +36,7 @@ Use the `v-model` directive to control the value of the Progress.
   </ClientOnly>
 </div>
 
-::: details
 <<< @/examples/progress/demo/Progress.vue{8 vue:line-numbers}
-:::
 
 ### Max
 
@@ -82,7 +80,7 @@ Use the `status` prop to display the current Progress value above the bar.
 
 ### Indeterminate
 
-When no `v-model` is set or the value is `null`, the Progress becomes _indeterminate_. The progress bar is animated as a `carousel`, but you can change it using the [`animation`](#animation) prop.
+When no `v-model` is set or the value is `null`, the Progress becomes _indeterminate_. The progress bar is animated as a `loading`, but you can change it using the [`animation`](#animation) prop.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -96,7 +94,7 @@ When no `v-model` is set or the value is `null`, the Progress becomes _indetermi
 
 ### Animation
 
-Use the `animation` prop to change the animation of the Progress to an inverse carousel, a swinging bar or an elastic bar. Defaults to `carousel`.
+Use the `animation` prop to change the animation of the Progress to an inverse carousel, a swinging bar or an elastic bar. Defaults to `loading`.
 
 <div class="lg:min-h-[275px]">
   <ClientOnly>
@@ -105,7 +103,7 @@ Use the `animation` prop to change the animation of the Progress to an inverse c
 </div>
 
 ::: details
-<<< @/examples/progress/demo/Animation.vue{13 vue:line-numbers}
+<<< @/examples/progress/demo/Animation.vue{15 vue:line-numbers}
 :::
 
 ### Orientation
@@ -119,7 +117,7 @@ Use the `orientation` prop to change the orientation of the Progress. Defaults t
 </div>
 
 ::: details
-<<< @/examples/progress/demo/Orientation.vue{13 vue:line-numbers}
+<<< @/examples/progress/demo/Orientation.vue{15 vue:line-numbers}
 :::
 
 ### Color
@@ -133,7 +131,7 @@ Use the `color` prop to change the color of the Slider.
 </div>
 
 ::: details
-<<< @/examples/progress/demo/Color.vue{13 vue:line-numbers}
+<<< @/examples/progress/demo/Color.vue{15 vue:line-numbers}
 :::
 
 ### Size
@@ -147,7 +145,7 @@ Use the `size` prop to change the size of the Slider.
 </div>
 
 ::: details
-<<< @/examples/progress/demo/Size.vue{13 vue:line-numbers}
+<<< @/examples/progress/demo/Size.vue{15 vue:line-numbers}
 :::
 
 ### Inverted

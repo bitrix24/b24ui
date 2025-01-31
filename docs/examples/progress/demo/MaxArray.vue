@@ -7,6 +7,6 @@ const value = ref(3)
 <template>
   <B24Progress
     v-model="value"
-    :max="['Waiting...', 'Cloning...', 'Migrating...', 'Deploying...', 'Done!']"
+    :max="['Prospecting...', 'Qualifying...', 'Presenting...', 'Negotiating...', 'Closed!']"
   />
 </template>

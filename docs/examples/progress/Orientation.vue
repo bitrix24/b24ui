@@ -13,6 +13,8 @@ const orientation = ref('vertical' as const)
     <template #actions>
       <B24RadioGroup v-model="orientation" legend="orientations" :items="orientations" orientation="horizontal" />
     </template>
-    <Demo :orientation="orientation" />
+    <div class="h-48 w-full flex flex-col items-center justify-center">
+      <Demo :orientation="orientation" />
+    </div>
   </ComponentShowExample>
 </template>

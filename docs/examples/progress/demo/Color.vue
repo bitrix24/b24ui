@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import type { ProgressProps } from '@bitrix24/b24ui-nuxt'
+
 export interface ExampleProps {
-  color?: any
+  color?: ProgressProps['color']
 }
 
 withDefaults(defineProps<ExampleProps>(), {
-  color: 'default'
+  color: 'default' as const
 })
 </script>
 

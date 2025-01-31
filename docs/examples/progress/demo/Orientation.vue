@@ -1,16 +1,17 @@
 <script setup lang="ts">
+import type { ProgressProps } from '@bitrix24/b24ui-nuxt'
+
 export interface ExampleProps {
-  orientation?: any
+  orientation?: ProgressProps['orientation']
 }
 
 withDefaults(defineProps<ExampleProps>(), {
-  orientation: 'horizontal'
+  orientation: 'horizontal' as const
 })
 </script>
 
 <template>
   <B24Progress
     :orientation="orientation"
-    class="h-48"
   />
 </template>

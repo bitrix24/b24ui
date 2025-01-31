@@ -6,13 +6,15 @@ import Demo from './demo/Animation.vue'
 
 const animations = Object.keys(theme.variants.animation)
 
-const animation = ref('swing' as const)
+const animation = ref('loading' as const)
 </script>
 
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24RadioGroup v-model="animation" legend="animation" :items="animations" orientation="horizontal" />
+      <B24FormField label="animation" class="w-full sm:w-1/4">
+        <B24Select v-model="animation" :items="animations" />
+      </B24FormField>
     </template>
     <Demo :animation="animation" />
   </ComponentShowExample>
