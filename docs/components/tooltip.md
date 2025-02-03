@@ -12,6 +12,7 @@ import ArrowExample from '/examples/tooltip/Arrow.vue';
 import DisabledExample from '/examples/tooltip/Disabled.vue';
 import OpenExample from '/examples/tooltip/Open.vue';
 import HardcodedExample from '/examples/tooltip/Hardcoded.vue';
+import HelpIconExample from '/examples/tooltip/HelpIcon.vue';
 </script>
 # Tooltip
 
@@ -46,9 +47,7 @@ Apply the `text` prop to specify what the Tooltip will display.
   </ClientOnly>
 </div>
 
-::: details
 <<< @/examples/tooltip/demo/Text.vue{15 vue:line-numbers}
-:::
 
 ### Kbds
 
@@ -83,7 +82,7 @@ Apply the `delay-duration` prop to modify the delay before the Tooltip becomes v
 </div>
 
 ::: details
-<<< @/examples/tooltip/demo/Delay.vue{8 vue:line-numbers}
+<<< @/examples/tooltip/demo/Delay.vue{9,16 vue:line-numbers}
 :::
 
 ### Content
@@ -97,7 +96,7 @@ Apply the `content` prop to dictate how the Tooltip content is displayed, includ
 </div>
 
 ::: details
-<<< @/examples/tooltip/demo/Content.vue{29 vue:line-numbers}
+<<< @/examples/tooltip/demo/Content.vue{11-15,29 vue:line-numbers}
 :::
 
 ### Arrow
@@ -159,7 +158,21 @@ Discover ways to alter the tooltip's appearance. Don't forget to verify its appe
 </div>
 
 ::: details
-<<< @/examples/tooltip/demo/Hardcoded.vue{9-11,13-22,34,40 vue:line-numbers}
+<<< @/examples/tooltip/demo/Hardcoded.vue{7-11,12-21,29 vue:line-numbers}
+:::
+
+### Help Icon
+
+You can use the [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html) and the Tooltip.
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <HelpIconExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/tooltip/demo/HelpIcon.vue{8-12,14,16 vue:line-numbers}
 :::
 
 ## API

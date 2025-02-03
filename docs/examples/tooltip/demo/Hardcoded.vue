@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
 import CheckIcon from '@bitrix24/b24icons-vue/main/CheckIcon'
-import HelpIcon from '@bitrix24/b24icons-vue/main/HelpIcon'
 </script>
 
 <template>
   <B24Tooltip
     :delay-duration="100"
     :content="{ side: 'right' }"
-    :b24ui="{ content: ['bg-blue-400/70 dark:bg-red-400/70'] }"
+    :b24ui="{ content: 'bg-blue-400/70 dark:bg-red-400/70' }"
   >
     <template #content>
       <div class="text-pretty max-w-[200px]">
@@ -28,17 +27,4 @@ import HelpIcon from '@bitrix24/b24icons-vue/main/HelpIcon'
       :checked-icon="CheckIcon"
     />
   </B24Tooltip>
-
-  <div class="flex flex-row flex-nowrap items-center justify-start gap-1.5">
-    <B24Checkbox name="checkbox" label="Default value" :default-value="true" />
-    <B24Tooltip
-      :delay-duration="100"
-      :content="{ side: 'right' }"
-      text="When the performer completes the task, it will come to you for review. You can accept the work (and then the task will be closed) or return the task for revision."
-    >
-      <div class="cursor-help ring ring-transparent text-base-500 dark:text-base-800">
-        <HelpIcon class="size-5" />
-      </div>
-    </B24Tooltip>
-  </div>
 </template>
