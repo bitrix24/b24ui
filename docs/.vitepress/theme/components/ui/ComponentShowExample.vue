@@ -15,7 +15,7 @@ const slots = defineSlots<ExampleSlots>()
     >
       <slot name="actions" />
     </div>
-    <div class="w-full relative rounded-lg overflow-hidden bg-tertiary dark:bg-tertiary/5">
+    <div class="w-full relative rounded-lg overflow-hidden bg-tertiary/10 dark:bg-tertiary/5">
       <div
         style="background-position: 10px 10px"
         class="
