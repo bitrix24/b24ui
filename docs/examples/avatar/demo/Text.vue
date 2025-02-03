@@ -7,7 +7,7 @@ export interface ExampleProps {
 }
 
 withDefaults(defineProps<ExampleProps>(), {
-  text: '+1',
+  text: '+24',
   size: 'xl' as const
 })
 </script>

@@ -5,5 +5,6 @@ import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
 <template>
   <B24Avatar
     :icon="RocketIcon"
+    size="lg"
   />
 </template>

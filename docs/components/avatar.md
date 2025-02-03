@@ -41,9 +41,7 @@ Use the `src` prop to set the image URL.
   </ClientOnly>
 </div>
 
-::: details
 <<< @/examples/avatar/demo/Avatar.vue{2 vue:line-numbers}
-:::
 
 ### Size
 
