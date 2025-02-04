@@ -58,7 +58,7 @@ importers:
         version: 12.5.0(typescript@5.6.3)
       '@vueuse/integrations':
         specifier: ^12.5.0
-        version: 12.5.0(change-case@5.4.4)(focus-trap@7.6.4)(fuse.js@7.0.0)(typescript@5.6.3)
+        version: 12.5.0(change-case@5.4.4)(focus-trap@7.6.4)(fuse.js@7.1.0)(typescript@5.6.3)
       colortranslator:
         specifier: ^4.1.0
         version: 4.1.0
@@ -90,8 +90,8 @@ importers:
         specifier: ^8.0.1
         version: 8.0.1(embla-carousel@8.5.2)
       fuse.js:
-        specifier: ^7.0.0
-        version: 7.0.0
+        specifier: ^7.1.0
+        version: 7.1.0
       knitwork:
         specifier: ^1.2.0
         version: 1.2.0
@@ -135,8 +135,8 @@ importers:
         specifier: ^28.0.0
         version: 28.0.0(@babel/parser@7.26.5)(@nuxt/kit@3.15.4(magicast@0.3.5)(rollup@4.30.1))(rollup@4.30.1)(vue@3.5.13(typescript@5.6.3))
       vaul-vue:
-        specifier: ^0.2.0
-        version: 0.2.0(radix-vue@1.9.12(vue@3.5.13(typescript@5.6.3)))(vue@3.5.13(typescript@5.6.3))
+        specifier: ^0.2.1
+        version: 0.2.1(radix-vue@1.9.12(vue@3.5.13(typescript@5.6.3)))(vue@3.5.13(typescript@5.6.3))
     devDependencies:
       '@nuxt/eslint-config':
         specifier: ^1.0.0
@@ -179,7 +179,7 @@ importers:
         version: 0.42.1(typescript@5.6.3)
       vitepress:
         specifier: ^1.5.0
-        version: 1.5.0(@algolia/client-search@5.19.0)(@types/node@22.10.6)(change-case@5.4.4)(fuse.js@7.0.0)(jiti@2.4.2)(lightningcss@1.29.1)(postcss@8.5.1)(search-insights@2.17.3)(terser@5.37.0)(typescript@5.6.3)(yaml@2.7.0)
+        version: 1.5.0(@algolia/client-search@5.19.0)(@types/node@22.10.6)(change-case@5.4.4)(fuse.js@7.1.0)(jiti@2.4.2)(lightningcss@1.29.1)(postcss@8.5.1)(search-insights@2.17.3)(terser@5.37.0)(typescript@5.6.3)(yaml@2.7.0)
       vitest:
         specifier: ^3.0.4
         version: 3.0.4(@types/node@22.10.6)(happy-dom@14.12.3)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.37.0)(yaml@2.7.0)
@@ -224,7 +224,7 @@ importers:
         version: 12.4.0(typescript@5.6.3)
       vitepress:
         specifier: ^1.5.0
-        version: 1.5.0(@algolia/client-search@5.19.0)(@types/node@22.10.6)(change-case@5.4.4)(fuse.js@7.0.0)(jiti@2.4.2)(lightningcss@1.29.1)(postcss@8.5.1)(search-insights@2.17.3)(terser@5.37.0)(typescript@5.6.3)(yaml@2.7.0)
+        version: 1.5.0(@algolia/client-search@5.19.0)(@types/node@22.10.6)(change-case@5.4.4)(fuse.js@7.1.0)(jiti@2.4.2)(lightningcss@1.29.1)(postcss@8.5.1)(search-insights@2.17.3)(terser@5.37.0)(typescript@5.6.3)(yaml@2.7.0)
       vue:
         specifier: ^3.5.13
         version: 3.5.13(typescript@5.6.3)
@@ -2865,8 +2865,8 @@ packages:
   function-bind@1.1.2:
     resolution: {integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==}
 
-  fuse.js@7.0.0:
-    resolution: {integrity: sha512-14F4hBIxqKvD4Zz/XjDc3y94mNZN6pRv3U13Udo0lNLCWRBUsrMv2xwcF/y/Z5sV6+FQW+/ow68cHpm4sunt8Q==}
+  fuse.js@7.1.0:
+    resolution: {integrity: sha512-trLf4SzuuUxfusZADLINj+dE8clK1frKdmqiJNb1Es75fmI5oY6X2mxLVUciLLjxqw/xr72Dhy+lER6dGd02FQ==}
     engines: {node: '>=10'}
 
   gensync@1.0.0-beta.2:
@@ -4858,8 +4858,8 @@ packages:
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
 
-  vaul-vue@0.2.0:
-    resolution: {integrity: sha512-YV0zqxc8NiVzr1z/Awwbaty0UDDchxj5BfhFbLiYu+Uz0rCfSaDK2zwmuXZvejBJKLGbWw9I5GLHJRse14lQew==}
+  vaul-vue@0.2.1:
+    resolution: {integrity: sha512-iF91R1JQZzxb9mb9uGNHYv8rVFxR5bL5Fj51iqvyXjzMPAzNMciCrXb9OUBu2NdlhcF6rVtEADXnQoTY+pKIeA==}
     peerDependencies:
       radix-vue: ^1.4.0
       vue: ^3.3.0
@@ -5906,7 +5906,7 @@ snapshots:
       clipboardy: 4.0.0
       consola: 3.4.0
       defu: 6.1.4
-      fuse.js: 7.0.0
+      fuse.js: 7.1.0
       giget: 1.2.4
       h3: 1.14.0
       httpxy: 0.1.7
@@ -7092,7 +7092,7 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@vueuse/integrations@11.3.0(change-case@5.4.4)(focus-trap@7.6.4)(fuse.js@7.0.0)(vue@3.5.13(typescript@5.6.3))':
+  '@vueuse/integrations@11.3.0(change-case@5.4.4)(focus-trap@7.6.4)(fuse.js@7.1.0)(vue@3.5.13(typescript@5.6.3))':
     dependencies:
       '@vueuse/core': 11.3.0(vue@3.5.13(typescript@5.6.3))
       '@vueuse/shared': 11.3.0(vue@3.5.13(typescript@5.6.3))
@@ -7100,12 +7100,12 @@ snapshots:
     optionalDependencies:
       change-case: 5.4.4
       focus-trap: 7.6.4
-      fuse.js: 7.0.0
+      fuse.js: 7.1.0
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
 
-  '@vueuse/integrations@12.5.0(change-case@5.4.4)(focus-trap@7.6.4)(fuse.js@7.0.0)(typescript@5.6.3)':
+  '@vueuse/integrations@12.5.0(change-case@5.4.4)(focus-trap@7.6.4)(fuse.js@7.1.0)(typescript@5.6.3)':
     dependencies:
       '@vueuse/core': 12.5.0(typescript@5.6.3)
       '@vueuse/shared': 12.5.0(typescript@5.6.3)
@@ -7113,7 +7113,7 @@ snapshots:
     optionalDependencies:
       change-case: 5.4.4
       focus-trap: 7.6.4
-      fuse.js: 7.0.0
+      fuse.js: 7.1.0
     transitivePeerDependencies:
       - typescript
 
@@ -8135,7 +8135,7 @@ snapshots:
 
   function-bind@1.1.2: {}
 
-  fuse.js@7.0.0: {}
+  fuse.js@7.1.0: {}
 
   gensync@1.0.0-beta.2: {}
 
@@ -10378,7 +10378,7 @@ snapshots:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
-  vaul-vue@0.2.0(radix-vue@1.9.12(vue@3.5.13(typescript@5.6.3)))(vue@3.5.13(typescript@5.6.3)):
+  vaul-vue@0.2.1(radix-vue@1.9.12(vue@3.5.13(typescript@5.6.3)))(vue@3.5.13(typescript@5.6.3)):
     dependencies:
       '@vueuse/core': 10.11.1(vue@3.5.13(typescript@5.6.3))
       radix-vue: 1.9.12(vue@3.5.13(typescript@5.6.3))
@@ -10490,7 +10490,7 @@ snapshots:
       terser: 5.37.0
       yaml: 2.7.0
 
-  vitepress@1.5.0(@algolia/client-search@5.19.0)(@types/node@22.10.6)(change-case@5.4.4)(fuse.js@7.0.0)(jiti@2.4.2)(lightningcss@1.29.1)(postcss@8.5.1)(search-insights@2.17.3)(terser@5.37.0)(typescript@5.6.3)(yaml@2.7.0):
+  vitepress@1.5.0(@algolia/client-search@5.19.0)(@types/node@22.10.6)(change-case@5.4.4)(fuse.js@7.1.0)(jiti@2.4.2)(lightningcss@1.29.1)(postcss@8.5.1)(search-insights@2.17.3)(terser@5.37.0)(typescript@5.6.3)(yaml@2.7.0):
     dependencies:
       '@docsearch/css': 3.8.2
       '@docsearch/js': 3.8.2(@algolia/client-search@5.19.0)(search-insights@2.17.3)
@@ -10503,7 +10503,7 @@ snapshots:
       '@vue/devtools-api': 7.7.0
       '@vue/shared': 3.5.13
       '@vueuse/core': 11.3.0(vue@3.5.13(typescript@5.6.3))
-      '@vueuse/integrations': 11.3.0(change-case@5.4.4)(focus-trap@7.6.4)(fuse.js@7.0.0)(vue@3.5.13(typescript@5.6.3))
+      '@vueuse/integrations': 11.3.0(change-case@5.4.4)(focus-trap@7.6.4)(fuse.js@7.1.0)(vue@3.5.13(typescript@5.6.3))
       focus-trap: 7.6.4
       mark.js: 8.11.1
       minisearch: 7.1.1

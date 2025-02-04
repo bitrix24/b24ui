@@ -61,29 +61,21 @@
   "scripts": {
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground && vite build playground-vue && nuxt-component-meta playground --outputDir ../src/.component-meta/",
     "dev:prepare_short": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground && vite build playground-vue",
-
     "prepack": "pnpm build",
     "build": "nuxt-module-build build",
-    "build_short": "nuxt-module-build build",
-
     "dev": "set DEV=true && nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:generate": "nuxt generate playground",
-
     "dev:vue": "set DEV=true && vite playground-vue",
-
     "docs:full:dev": "pnpm build && vitepress dev docs",
     "docs:full:build": "pnpm build && vitepress build docs",
-
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
-
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "vue-tsc --noEmit && nuxi typecheck playground && cd playground-vue && vue-tsc --noEmit",
     "typecheck-window": "vue-tsc --noEmit && nuxi typecheck playground && cd ../playground-vue && vue-tsc --noEmit",
-
     "test": "vitest",
     "test:vue": "vitest -c vitest.vue.config.ts",
     "test:vue:build": "vite build playground-vue"
@@ -112,7 +104,7 @@
     "embla-carousel-fade": "^8.5.2",
     "embla-carousel-vue": "^8.5.2",
     "embla-carousel-wheel-gestures": "^8.0.1",
-    "fuse.js": "^7.0.0",
+    "fuse.js": "^7.1.0",
     "knitwork": "^1.2.0",
     "magic-string": "^0.30.17",
     "mlly": "^1.7.4",
@@ -126,7 +118,7 @@
     "unplugin": "^2.1.2",
     "unplugin-auto-import": "^19.0.0",
     "unplugin-vue-components": "^28.0.0",
-    "vaul-vue": "^0.2.0"
+    "vaul-vue": "^0.2.1"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^1.0.0",
