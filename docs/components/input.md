@@ -19,7 +19,7 @@ import DisabledExample from '/examples/input/Disabled.vue';
 # Input
 
 <Description
-  nuxt-ui="https://ui3.nuxt.dev/components/Input"
+  nuxt-ui="https://ui3.nuxt.dev/components/input"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Input.vue"
 >
   An input box designed for text entry.
