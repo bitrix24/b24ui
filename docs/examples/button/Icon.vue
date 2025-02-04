@@ -93,7 +93,7 @@ const label = ref('Button')
       </B24FormField>
       <div class="w-full sm:w-1/4">
         <B24FormField label="size">
-          <B24Select v-model="size" :items="sizes" />
+          <B24Select v-model="size" :items="sizes" class="w-full" />
         </B24FormField>
       </div>
       <B24FormField label="color" class="w-full sm:w-1/4">
@@ -101,6 +101,7 @@ const label = ref('Button')
           v-model="chipValue"
           :items="chipItems"
           name="color"
+          class="w-full"
         >
           <template #leading="{ modelValue, b24ui }">
             <B24Chip

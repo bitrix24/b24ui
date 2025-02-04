@@ -13,7 +13,7 @@ const value = ref('meta' as const)
   <ComponentShowExample>
     <template #actions>
       <B24FormField label="value" class="w-full sm:w-1/4">
-        <B24Select v-model="value" :items="values" />
+        <B24Select v-model="value" :items="values" class="w-full" />
       </B24FormField>
     </template>
     <Demo :value="value" />

@@ -83,6 +83,7 @@ function getChip(value: string) {
           v-model="chipValue"
           :items="chipItems"
           name="color"
+          class="w-full"
         >
           <template #leading="{ modelValue, b24ui }">
             <B24Chip

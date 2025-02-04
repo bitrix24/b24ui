@@ -15,10 +15,10 @@ const position = ref('bottom-left' as const)
   <ComponentShowExample>
     <template #actions>
       <B24FormField label="position" class="w-full sm:w-1/4">
-        <B24Select v-model="position" :items="positions" />
+        <B24Select v-model="position" :items="positions" class="w-full" />
       </B24FormField>
       <B24FormField label="size" class="w-full sm:w-1/4">
-        <B24Select v-model="size" :items="sizes" />
+        <B24Select v-model="size" :items="sizes" class="w-full" />
       </B24FormField>
     </template>
     <Demo :position="position" :size="size" />

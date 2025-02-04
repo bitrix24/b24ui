@@ -12,7 +12,7 @@ const size = ref('xl' as const)
   <ComponentShowExample>
     <template #actions>
       <B24FormField label="size" class="w-full sm:w-1/4">
-        <B24Select v-model="size" :items="sizes" />
+        <B24Select v-model="size" :items="sizes" class="w-full" />
       </B24FormField>
     </template>
     <Demo :size="size" />

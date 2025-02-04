@@ -13,7 +13,7 @@ const animation = ref('loading' as const)
   <ComponentShowExample>
     <template #actions>
       <B24FormField label="animation" class="w-full sm:w-1/4">
-        <B24Select v-model="animation" :items="animations" />
+        <B24Select v-model="animation" :items="animations" class="w-full" />
       </B24FormField>
     </template>
     <Demo :animation="animation" />

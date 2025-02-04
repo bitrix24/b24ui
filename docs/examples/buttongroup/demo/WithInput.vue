@@ -14,7 +14,7 @@ function onClick() {
     <B24ButtonGroup
       no-split
     >
-      <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
+      <B24Input class="w-40" name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
       <B24Button
         label="Button"
         color="link"
@@ -30,7 +30,7 @@ function onClick() {
       class="w-2/3"
       no-split
     >
-      <B24Select v-model="value" :items="items" />
+      <B24Select v-model="value" :items="items" class="w-40" />
       <B24Button
         label="Button"
         color="link"
