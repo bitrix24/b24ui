@@ -14,7 +14,6 @@ const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.var
 const depths = Object.keys(theme.variants.depth) as Array<keyof typeof theme.variants.depth>
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
-// @todo set crm words ////
 const knowledgeBase = ['Select', 'Create']
 const smartScripts = ['Scripts', 'Create script', 'Install from Bitrix24.Market']
 
@@ -45,6 +44,14 @@ function onClick() {
 
         <B24ButtonGroup>
           <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
+        </B24ButtonGroup>
+
+        <B24ButtonGroup>
+          <B24Badge color="default" use-fill label="https://" />
+        </B24ButtonGroup>
+
+        <B24ButtonGroup>
+          <B24Select class="w-40" :items="items" name="some_value" placeholder="Choose a value&hellip;" aria-label="Choose a value" />
         </B24ButtonGroup>
       </div>
 
@@ -170,7 +177,6 @@ function onClick() {
         </B24ButtonGroup>
       </div>
     </ExampleCard>
-
     <ExampleCard title="input" class="md:col-span-4">
       <ExampleCardSubTitle title="orientation" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
@@ -244,7 +250,13 @@ function onClick() {
           </B24ButtonGroup>
 
           <B24ButtonGroup :size="size" no-split>
-            <B24Select class="w-40" :items="items" name="some_value" placeholder="Choose a value&hellip;" aria-label="Choose a value" />
+            <B24Select
+              class="w-40"
+              :items="items"
+              name="some_value"
+              placeholder="Choose a value&hellip;"
+              aria-label="Choose a value"
+            />
             <B24Button
               color="primary"
               depth="dark"
@@ -255,8 +267,57 @@ function onClick() {
               Button
             </B24Button>
           </B24ButtonGroup>
+
+          <B24ButtonGroup :size="size" no-split>
+            <B24Badge color="default" use-fill label="https://" />
+            <B24Input type="url" placeholder="www.example.com" />
+          </B24ButtonGroup>
         </div>
       </template>
+
+      <ExampleCardSubTitle title="not-use-group" />
+
+      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+        <B24Select :items="items" name="some_value" placeholder="Choose a value&hellip;" aria-label="Choose a value" />
+        <B24Select :items="items" name="some_value" placeholder="Choose a value&hellip;" aria-label="Choose a value" />
+        <B24Select :items="items" name="some_value" placeholder="Choose a value&hellip;" aria-label="Choose a value" />
+      </div>
+
+      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+        <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
+        <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
+        <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
+      </div>
+
+      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+        <B24Button
+          color="primary"
+          depth="dark"
+          loading-auto
+          use-clock
+          @click="onClick"
+        >
+          Button
+        </B24Button>
+        <B24Button
+          color="primary"
+          depth="dark"
+          loading-auto
+          use-clock
+          @click="onClick"
+        >
+          Button
+        </B24Button>
+        <B24Button
+          color="primary"
+          depth="dark"
+          loading-auto
+          use-clock
+          @click="onClick"
+        >
+          Button
+        </B24Button>
+      </div>
     </ExampleCard>
   </ExampleGrid>
 </template>
