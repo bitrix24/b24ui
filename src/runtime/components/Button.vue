@@ -130,10 +130,8 @@ const b24ui = computed(() => button({
     @click="onClickWrapper"
   >
     <div
+      v-if="isLoading"
       class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center"
-      :class="[
-        isLoading ? 'visible' : 'invisible'
-      ]"
     >
       <LoaderWaitIcon v-if="useWait" class="size-2xl" aria-hidden="true" />
       <LoaderClockIcon v-else-if="useClock" class="size-2xl" aria-hidden="true" />
