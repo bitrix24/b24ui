@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.1.6 (2025-02-04)
+
+### Features
+* **Select:** improve
+* **ButtonGroup:** improve split mode
+* **Badge:** add support within button groups
+
+### Bug Fixes
+
+* **Link:** add import B24LinkBase
+
+### Docs
+
+* **Tooltip:** improve
+* **Avatar:** improve
+
 ## 0.1.5 (2025-01-31)
 
 ### Features
