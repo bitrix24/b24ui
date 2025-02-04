@@ -186,8 +186,22 @@ function getUserAvatar(value: string) {
 
       <ExampleCardSubTitle title="some more" />
       <div class="mb-4 flex flex-col gap-4 w-3/4">
-        <B24Select class="w-full" :items="items" name="disabled" placeholder="Disabled" aria-label="Disabled" disabled />
-        <B24Select class="w-full" :items="items" name="required" placeholder="Required" aria-label="Required" required />
+        <B24Select
+          class="w-full"
+          :items="items"
+          name="disabled"
+          placeholder="Disabled"
+          aria-label="Disabled"
+          disabled
+        />
+        <B24Select
+          class="w-full"
+          :items="items"
+          name="required"
+          placeholder="Required"
+          aria-label="Required"
+          required
+        />
         <B24Select
           v-model="selectedItems"
           :items="items"
