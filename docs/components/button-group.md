@@ -9,6 +9,7 @@ import SizeExample from '/examples/buttongroup/Size.vue';
 import OrientationExample from '/examples/buttongroup/Orientation.vue';
 import WithInputExample from '/examples/buttongroup/WithInput.vue';
 import WithTooltipExample from '/examples/buttongroup/WithTooltip.vue';
+import WithBadgeExample from '/examples/buttongroup/WithBadge.vue';
 </script>
 # ButtonGroup
 
@@ -91,6 +92,21 @@ You can use a [Tooltip](/components/tooltip.html#usage) within a button group.
 
 ::: details
 <<< @/examples/buttongroup/demo/WithTooltip.vue{vue:line-numbers}
+:::
+
+
+### With badge
+
+You can use a [Badge](/components/badge) within a button group.
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <WithBadgeExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/buttongroup/demo/WithBadge.vue{3 vue:line-numbers}
 :::
 
 ## API

@@ -44,6 +44,7 @@ export interface BadgeSlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
+import { useButtonGroup } from '../composables/useButtonGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import Cross20Icon from '@bitrix24/b24icons-vue/actions/Cross20Icon'
 import B24Avatar from './Avatar.vue'
@@ -61,12 +62,14 @@ async function onCloseClickWrapper(event: MouseEvent) {
   } finally { /* empty */ }
 }
 
+const { orientation, size: buttonGroupSize } = useButtonGroup<BadgeProps>(props)
 const { isLeading, leadingIconName } = useComponentIcons(props)
 
 const b24ui = computed(() => badge({
   color: props.color,
   depth: props.depth,
-  size: props.size,
+  size: buttonGroupSize.value || props.size,
+  buttonGroup: orientation.value,
   useLink: Boolean(props.useLink),
   useClose: Boolean(props.useClose),
   useFill: Boolean(props.useFill),

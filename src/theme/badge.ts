@@ -5,6 +5,7 @@
  * @link /api_d7/bitrix/ui/labels/index.php
  * @see bitrix/js/ui/label/
  */
+import { buttonGroupVariant } from './button-group'
 
 export default {
   slots: {
@@ -22,6 +23,7 @@ export default {
     trailingIcon: 'shrink-0 cursor-pointer  hover:rounded-full hover:bg-current/20 dark:hover:bg-current/35'
   },
   variants: {
+    ...buttonGroupVariant,
     useLink: {
       true: {
         base: 'cursor-pointer',
@@ -113,8 +115,8 @@ export default {
       depth: 'normal',
       class: [
         'ring ring-inset',
-        'text-base-800 bg-base-150 ring-base-150',
-        'dark:text-base-950 dark:bg-base-200 dark:ring-base-200'
+        'text-base-800 bg-base-150 ring-base-300',
+        'dark:text-base-950 dark:bg-base-200 dark:ring-base-800'
       ].join(' ')
     },
     // LIGHT ////
@@ -369,6 +371,12 @@ export default {
     {
       useClose: true,
       class: ''
+    },
+    // endregion ////
+    // region buttonGroup ////
+    {
+      buttonGroup: ['horizontal', 'vertical'],
+      class: 'rounded-2xs'
     }
     // endregion ////
   ],
