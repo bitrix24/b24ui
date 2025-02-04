@@ -224,7 +224,7 @@ function onClick() {
         <ExampleCardSubTitle :title="size as string" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
           <B24ButtonGroup :size="size" no-split>
-            <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
+            <B24Input class="w-40" name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
             <B24Button
               color="link"
               depth="dark"
@@ -237,7 +237,7 @@ function onClick() {
           </B24ButtonGroup>
 
           <B24ButtonGroup :size="size" no-split>
-            <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
+            <B24Input class="w-40" name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
             <B24Button
               color="primary"
               depth="dark"
@@ -270,7 +270,7 @@ function onClick() {
 
           <B24ButtonGroup :size="size" no-split>
             <B24Badge color="default" use-fill label="https://" />
-            <B24Input type="url" placeholder="www.example.com" />
+            <B24Input class="w-40" type="url" placeholder="www.example.com" />
           </B24ButtonGroup>
         </div>
       </template>

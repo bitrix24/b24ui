@@ -32,10 +32,10 @@ export default () => {
   return defuFn(
     {
       slots: {
-        root: () => 'relative inline-flex items-center min-w-full w-full',
+        root: () => 'relative inline-flex items-center w-full',
         base: () => [
           'relative inline-flex items-center group',
-          'min-w-full w-full py-0 border-0 focus:outline-none',
+          'py-0 border-0 focus:outline-none',
           'cursor-pointer disabled:cursor-not-allowed',
           'disabled:bg-base-30/37 disabled:text-base-500',
           'dark:disabled:bg-base-900/37 dark:disabled:text-base-800',
@@ -44,7 +44,7 @@ export default () => {
           'dark:ring-base-800',
           'text-base-master bg-white hover:text-base-900 focus:text-base-900 active:text-base-900',
           'dark:text-base-150 dark:bg-transparent dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350',
-          'font-b24-primary font-regular text-sm',
+          'font-b24-primary font-regular text-sm leading-none',
           'align-middle',
           'text-ellipsis whitespace-nowrap'
         ].join(' '),

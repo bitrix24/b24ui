@@ -24,7 +24,7 @@ export const buttonGroupVariant = {
 export const buttonGroupVariantWithRoot = {
   buttonGroup: {
     horizontal: {
-      root: 'group',
+      root: 'group leading-none',
       base: [
         'focus-visible:outline-none',
         'ring ring-inset ring-1 focus-visible:ring-2',

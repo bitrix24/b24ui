@@ -186,11 +186,12 @@ function getUserAvatar(value: string) {
 
       <ExampleCardSubTitle title="some more" />
       <div class="mb-4 flex flex-col gap-4 w-3/4">
-        <B24Select :items="items" name="disabled" placeholder="Disabled" aria-label="Disabled" disabled />
-        <B24Select :items="items" name="required" placeholder="Required" aria-label="Required" required />
+        <B24Select class="w-full" :items="items" name="disabled" placeholder="Disabled" aria-label="Disabled" disabled />
+        <B24Select class="w-full" :items="items" name="required" placeholder="Required" aria-label="Required" required />
         <B24Select
           v-model="selectedItems"
           :items="items"
+          class="w-full"
           name="multiple"
           placeholder="Multiple"
           aria-label="Multiple"
@@ -198,6 +199,7 @@ function getUserAvatar(value: string) {
         />
         <B24Select
           :items="items"
+          class="w-full"
           name="rounded"
           placeholder="Rounded"
           aria-label="Rounded"
@@ -291,6 +293,7 @@ function getUserAvatar(value: string) {
           <div class="w-40">
             <B24Select
               :items="items"
+              class="w-full"
               name="some_value"
               placeholder="Choose a value&hellip;"
               aria-label="Choose a value"
@@ -301,6 +304,7 @@ function getUserAvatar(value: string) {
             <B24Select
               :items="items"
               :icon="Search2Icon"
+              class="w-full"
               name="some_value"
               placeholder="Choose a value&hellip;"
               aria-label="Choose a value"
@@ -312,6 +316,7 @@ function getUserAvatar(value: string) {
               :items="statuses"
               :icon="Search2Icon"
               :trailing-icon="Expand1Icon"
+              class="w-full"
               name="some_value"
               placeholder="Search status&hellip;"
               aria-label="Search status"
@@ -330,6 +335,7 @@ function getUserAvatar(value: string) {
             <B24Select
               :items="items"
               :avatar="{ src: '/avatar/employee.png' }"
+              class="w-full"
               name="some_value"
               placeholder="Choose a value&hellip;"
               aria-label="Choose a value"
@@ -342,6 +348,7 @@ function getUserAvatar(value: string) {
               :loading="status === 'pending'"
               :icon="UserIcon"
               :trailing-icon="Expand1Icon"
+              class="w-full"
               name="some_users"
               placeholder="Search users&hellip;"
               aria-label="Search users"
@@ -356,10 +363,12 @@ function getUserAvatar(value: string) {
               </template>
             </B24Select>
           </div>
+
           <div class="w-40">
             <B24Select
               v-model="chipValue"
               :items="chipItems"
+              class="w-full"
               name="some_chips"
               aria-label="Search chips"
               :size="size"
