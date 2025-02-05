@@ -44,9 +44,8 @@ provide(localeContextInjectionKey, locale)
         <slot />
       </B24Toaster>
       <slot v-else />
+      <!-- B24ModalProvider / -->
+      <!-- B24SlideoverProvider / -->
     </TooltipProvider>
-
-    <!-- B24ModalProvider / -->
-    <!-- B24SlideoverProvider / -->
   </ConfigProvider>
 </template>
