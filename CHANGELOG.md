@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.1.7 (2025-02-05)
+
+### Features
+
+* **SelectMenu:** new component
+
+### Bug Fixes
+
+* **Button:** not render loaders if not loading
+* **form:** import types from `@bitrix24/b24ui-nuxt`
+* **App:** wrap `ModalProvider` / `SlideoverProvider` inside `TooltipProvider`
+
+### Chore
+* **types:** export `utils`
+* **templates:** import from `@bitrix24/b24ui-nuxt`
+* **package:** export `utils`
+
 ## 0.1.6 (2025-02-04)
 
 ### Features
