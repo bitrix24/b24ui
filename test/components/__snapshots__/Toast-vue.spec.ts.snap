@@ -17,17 +17,13 @@ exports[`Toast > renders with actions correctly 1`] = `
         <!--v-if-->
       </div>
       <div class="flex gap-1.5 shrink-0 items-center"><button type="button" data-reka-toast-announce-exclude="" data-reka-toast-announce-alt="Action" class="select-none cursor-pointer inline-flex items-center relative focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear text-white dark:text-base-100 bg-base-650 border border-base-650 hover:bg-base-850 hover:border-base-850 hover:focus-visible:ring-0 active:bg-slate-850 active:border-slate-850 active:focus-visible:ring-0 disabled:bg-base-650 aria-disabled:bg-base-650 disabled:border-base-650 aria-disabled:border-base-650 focus-visible:outline-base-650 ring-base-850 focus-visible:ring-base-850 h-xl2 ps-4 pe-4 text-3xs leading-none rounded-2xs font-bold uppercase" isaction="false">
-          <div class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center invisible"><svg viewBox="0 0 64 64" width="1em" xmlns="http://www.w3.org/2000/svg" class="animate-spin stroke-2 size-lg">
-              <path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"></path>
-            </svg></div>
+          <!--v-if-->
           <div class="inline-flex items-center gap-1">
             <!--v-if--><span class="truncate">Action</span>
             <!--v-if-->
           </div>
         </button><button type="button" aria-label="Close" data-reka-toast-announce-exclude="" class="select-none cursor-pointer inline-flex items-center relative focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 bg-transparent border border-transparent hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase p-0.5 text-base-350 dark:text-base-350 hover:text-base-400 dark:hover:text-base-400" isaction="false">
-          <div class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center invisible"><svg viewBox="0 0 64 64" width="1em" xmlns="http://www.w3.org/2000/svg" class="animate-spin stroke-2 size-lg">
-              <path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"></path>
-            </svg></div>
+          <!--v-if-->
           <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
               <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
             </svg>
@@ -61,9 +57,7 @@ exports[`Toast > renders with as correctly 1`] = `
         <!--v-if-->
       </div>
       <div class="flex gap-1.5 shrink-0 items-center"><button type="button" aria-label="Close" data-reka-toast-announce-exclude="" class="select-none cursor-pointer inline-flex items-center relative focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 bg-transparent border border-transparent hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase p-0.5 text-base-350 dark:text-base-350 hover:text-base-400 dark:hover:text-base-400" isaction="false">
-          <div class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center invisible"><svg viewBox="0 0 64 64" width="1em" xmlns="http://www.w3.org/2000/svg" class="animate-spin stroke-2 size-lg">
-              <path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"></path>
-            </svg></div>
+          <!--v-if-->
           <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
               <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
             </svg>
@@ -96,9 +90,7 @@ exports[`Toast > renders with avatar correctly 1`] = `
         <!--v-if-->
       </div>
       <div class="flex gap-1.5 shrink-0 items-center"><button type="button" aria-label="Close" data-reka-toast-announce-exclude="" class="select-none cursor-pointer inline-flex items-center relative focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 bg-transparent border border-transparent hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase p-0.5 text-base-350 dark:text-base-350 hover:text-base-400 dark:hover:text-base-400" isaction="false">
-          <div class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center invisible"><svg viewBox="0 0 64 64" width="1em" xmlns="http://www.w3.org/2000/svg" class="animate-spin stroke-2 size-lg">
-              <path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"></path>
-            </svg></div>
+          <!--v-if-->
           <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
               <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
             </svg>
@@ -132,9 +124,7 @@ exports[`Toast > renders with b24ui correctly 1`] = `
         <!--v-if-->
       </div>
       <div class="flex gap-1.5 shrink-0 items-center"><button type="button" aria-label="Close" data-reka-toast-announce-exclude="" class="select-none cursor-pointer inline-flex items-center relative focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 bg-transparent border border-transparent hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase p-0.5 text-base-350 dark:text-base-350 hover:text-base-400 dark:hover:text-base-400" isaction="false">
-          <div class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center invisible"><svg viewBox="0 0 64 64" width="1em" xmlns="http://www.w3.org/2000/svg" class="animate-spin stroke-2 size-lg">
-              <path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"></path>
-            </svg></div>
+          <!--v-if-->
           <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
               <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
             </svg>
@@ -168,9 +158,7 @@ exports[`Toast > renders with class correctly 1`] = `
         <!--v-if-->
       </div>
       <div class="flex gap-1.5 shrink-0 items-center"><button type="button" aria-label="Close" data-reka-toast-announce-exclude="" class="select-none cursor-pointer inline-flex items-center relative focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 bg-transparent border border-transparent hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase p-0.5 text-base-350 dark:text-base-350 hover:text-base-400 dark:hover:text-base-400" isaction="false">
-          <div class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center invisible"><svg viewBox="0 0 64 64" width="1em" xmlns="http://www.w3.org/2000/svg" class="animate-spin stroke-2 size-lg">
-              <path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"></path>
-            </svg></div>
+          <!--v-if-->
           <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
               <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
             </svg>
@@ -230,9 +218,7 @@ exports[`Toast > renders with color success correctly 1`] = `
         <!--v-if-->
       </div>
       <div class="flex gap-1.5 shrink-0 items-center"><button type="button" aria-label="Close" data-reka-toast-announce-exclude="" class="select-none cursor-pointer inline-flex items-center relative focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 bg-transparent border border-transparent hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase p-0.5 text-base-350 dark:text-base-350 hover:text-base-400 dark:hover:text-base-400" isaction="false">
-          <div class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center invisible"><svg viewBox="0 0 64 64" width="1em" xmlns="http://www.w3.org/2000/svg" class="animate-spin stroke-2 size-lg">
-              <path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"></path>
-            </svg></div>
+          <!--v-if-->
           <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
               <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
             </svg>
@@ -264,9 +250,7 @@ exports[`Toast > renders with description actions correctly 1`] = `
         <div class="font-medium">Toast</div>
         <div class="">This is a toast</div>
         <div class="flex gap-1.5 shrink-0 items-start mt-1"><button type="button" data-reka-toast-announce-exclude="" data-reka-toast-announce-alt="Action" class="select-none cursor-pointer inline-flex items-center relative focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear text-white dark:text-base-100 bg-base-650 border border-base-650 hover:bg-base-850 hover:border-base-850 hover:focus-visible:ring-0 active:bg-slate-850 active:border-slate-850 active:focus-visible:ring-0 disabled:bg-base-650 aria-disabled:bg-base-650 disabled:border-base-650 aria-disabled:border-base-650 focus-visible:outline-base-650 ring-base-850 focus-visible:ring-base-850 h-xl2 ps-4 pe-4 text-3xs leading-none rounded-2xs font-bold uppercase" isaction="false">
-            <div class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center invisible"><svg viewBox="0 0 64 64" width="1em" xmlns="http://www.w3.org/2000/svg" class="animate-spin stroke-2 size-lg">
-                <path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"></path>
-              </svg></div>
+            <!--v-if-->
             <div class="inline-flex items-center gap-1">
               <!--v-if--><span class="truncate">Action</span>
               <!--v-if-->
@@ -275,9 +259,7 @@ exports[`Toast > renders with description actions correctly 1`] = `
       </div>
       <div class="flex gap-1.5 shrink-0 items-center">
         <!--v-if--><button type="button" aria-label="Close" data-reka-toast-announce-exclude="" class="select-none cursor-pointer inline-flex items-center relative focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 bg-transparent border border-transparent hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase p-0.5 text-base-350 dark:text-base-350 hover:text-base-400 dark:hover:text-base-400" isaction="false">
-          <div class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center invisible"><svg viewBox="0 0 64 64" width="1em" xmlns="http://www.w3.org/2000/svg" class="animate-spin stroke-2 size-lg">
-              <path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"></path>
-            </svg></div>
+          <!--v-if-->
           <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
               <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
             </svg>
@@ -313,9 +295,7 @@ exports[`Toast > renders with description correctly 1`] = `
       </div>
       <div class="flex gap-1.5 shrink-0 items-center">
         <!--v-if--><button type="button" aria-label="Close" data-reka-toast-announce-exclude="" class="select-none cursor-pointer inline-flex items-center relative focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 bg-transparent border border-transparent hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase p-0.5 text-base-350 dark:text-base-350 hover:text-base-400 dark:hover:text-base-400" isaction="false">
-          <div class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center invisible"><svg viewBox="0 0 64 64" width="1em" xmlns="http://www.w3.org/2000/svg" class="animate-spin stroke-2 size-lg">
-              <path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"></path>
-            </svg></div>
+          <!--v-if-->
           <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
               <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
             </svg>
@@ -350,9 +330,7 @@ exports[`Toast > renders with description slot correctly 1`] = `
         <!--v-if-->
       </div>
       <div class="flex gap-1.5 shrink-0 items-center"><button type="button" aria-label="Close" data-reka-toast-announce-exclude="" class="select-none cursor-pointer inline-flex items-center relative focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 bg-transparent border border-transparent hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase p-0.5 text-base-350 dark:text-base-350 hover:text-base-400 dark:hover:text-base-400" isaction="false">
-          <div class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center invisible"><svg viewBox="0 0 64 64" width="1em" xmlns="http://www.w3.org/2000/svg" class="animate-spin stroke-2 size-lg">
-              <path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"></path>
-            </svg></div>
+          <!--v-if-->
           <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
               <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
             </svg>
@@ -384,9 +362,7 @@ exports[`Toast > renders with leading slot correctly 1`] = `
         <!--v-if-->
       </div>
       <div class="flex gap-1.5 shrink-0 items-center"><button type="button" aria-label="Close" data-reka-toast-announce-exclude="" class="select-none cursor-pointer inline-flex items-center relative focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 bg-transparent border border-transparent hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase p-0.5 text-base-350 dark:text-base-350 hover:text-base-400 dark:hover:text-base-400" isaction="false">
-          <div class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center invisible"><svg viewBox="0 0 64 64" width="1em" xmlns="http://www.w3.org/2000/svg" class="animate-spin stroke-2 size-lg">
-              <path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"></path>
-            </svg></div>
+          <!--v-if-->
           <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
               <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
             </svg>
@@ -420,9 +396,7 @@ exports[`Toast > renders with title correctly 1`] = `
         <!--v-if-->
       </div>
       <div class="flex gap-1.5 shrink-0 items-center"><button type="button" aria-label="Close" data-reka-toast-announce-exclude="" class="select-none cursor-pointer inline-flex items-center relative focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 bg-transparent border border-transparent hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase p-0.5 text-base-350 dark:text-base-350 hover:text-base-400 dark:hover:text-base-400" isaction="false">
-          <div class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center invisible"><svg viewBox="0 0 64 64" width="1em" xmlns="http://www.w3.org/2000/svg" class="animate-spin stroke-2 size-lg">
-              <path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"></path>
-            </svg></div>
+          <!--v-if-->
           <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
               <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
             </svg>
@@ -456,9 +430,7 @@ exports[`Toast > renders with title slot correctly 1`] = `
         <!--v-if-->
       </div>
       <div class="flex gap-1.5 shrink-0 items-center"><button type="button" aria-label="Close" data-reka-toast-announce-exclude="" class="select-none cursor-pointer inline-flex items-center relative focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 bg-transparent border border-transparent hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase p-0.5 text-base-350 dark:text-base-350 hover:text-base-400 dark:hover:text-base-400" isaction="false">
-          <div class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center invisible"><svg viewBox="0 0 64 64" width="1em" xmlns="http://www.w3.org/2000/svg" class="animate-spin stroke-2 size-lg">
-              <path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"></path>
-            </svg></div>
+          <!--v-if-->
           <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
               <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
             </svg>
@@ -492,9 +464,7 @@ exports[`Toast > renders with type correctly 1`] = `
         <!--v-if-->
       </div>
       <div class="flex gap-1.5 shrink-0 items-center"><button type="button" aria-label="Close" data-reka-toast-announce-exclude="" class="select-none cursor-pointer inline-flex items-center relative focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 bg-transparent border border-transparent hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase p-0.5 text-base-350 dark:text-base-350 hover:text-base-400 dark:hover:text-base-400" isaction="false">
-          <div class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center invisible"><svg viewBox="0 0 64 64" width="1em" xmlns="http://www.w3.org/2000/svg" class="animate-spin stroke-2 size-lg">
-              <path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"></path>
-            </svg></div>
+          <!--v-if-->
           <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
               <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
             </svg>
