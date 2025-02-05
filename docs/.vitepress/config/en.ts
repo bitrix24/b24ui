@@ -129,6 +129,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'Switch', link: 'switch' },
         { text: 'Range', link: 'range' },
         { text: 'Select', link: 'select' },
+        { text: 'SelectMenu', link: 'select-menu' },
         { text: 'Textarea', link: 'textarea' }
       ]
     },
