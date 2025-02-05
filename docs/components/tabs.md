@@ -33,7 +33,7 @@ import CustomSlotExample from '/examples/tabs/CustomSlot.vue';
 Use the `items` prop as an array of objects with the following properties:
 
 - `label?: string`{lang="ts-type"}
-- `icon?: string`{lang="ts-type"}
+- `icon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts-type"}
 - `avatar?: AvatarProps`{lang="ts-type"}
 - `content?: string`{lang="ts-type"}
 - `value?: string | number`{lang="ts-type"}

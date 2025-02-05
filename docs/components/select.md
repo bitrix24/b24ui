@@ -54,16 +54,14 @@ Use the `items` prop as an array of strings, numbers or booleans:
   </ClientOnly>
 </div>
 
-::: details
 <<< @/examples/select/demo/Select.vue{4,5,10,11 vue:line-numbers}
-:::
 
 You can also pass an array of objects with the following properties:
 
 - `label?: string`{lang="ts-type"}
 - [`value?: string`{lang="ts-type"}](#value-key)
 - [`type?: "label" | "separator" | "item"`{lang="ts-type"}](#with-items-type)
-- [`icon?: string`{lang="ts-type"}](#with-icons-in-items)
+- [`icon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts-type"}](#with-icons-in-items)
 - [`avatar?: AvatarProps`{lang="ts-type"}](#with-avatar-in-items)
 - [`chip?: ChipProps`{lang="ts-type"}](#with-chip-in-items)
 - `disabled?: boolean`{lang="ts-type"}
