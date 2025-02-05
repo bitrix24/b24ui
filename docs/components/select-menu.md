@@ -32,7 +32,7 @@ Use this over a [`Select`](/components/select) to take advantage of Reka UI's [`
 :::
 
 ::: info
-This component is similar to the [`InputMenu`](/components/input-menu) but it's using a Select instead of an Input with the search inside the menu.
+This component is similar to the `InputMenu` but it's using a Select instead of an Input with the search inside the menu.
 :::
 
 ### Items
@@ -230,7 +230,7 @@ __component-example
 You can control the open state by using the `default-open` prop or the `v-model:open` directive.
 
 ::: info
-In this example, leveraging [`defineShortcuts`](/composables/define-shortcuts), you can toggle the SelectMenu by pressing :kbd{value="O"}.
+In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), you can toggle the SelectMenu by pressing :kbd{value="O"}.
 :::
 
 __component-example
