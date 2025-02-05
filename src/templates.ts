@@ -198,7 +198,7 @@ export function getTemplates(options: ModuleOptions) {
   templates.push({
     filename: 'types/b24ui.d.ts',
     getContents: () => replaceBrackets(`import * as b24ui from '#build/b24ui'
-import type { DeepPartial } from '#b24ui/types/utils'
+import type { DeepPartial } from '@bitrix24/b24ui-nuxt'
 import type { defaultConfig } from 'tailwind-variants'
 
 type AppConfigUI = {
