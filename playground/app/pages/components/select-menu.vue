@@ -1,8 +1,8 @@
 <script setup lang="ts">
 /**
- * @see playground/app/pages/components/select-menu.vue
+ * @see playground/app/pages/components/select.vue
  */
-import theme from '#build/b24ui/select'
+import theme from '#build/b24ui/select-menu'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
@@ -24,6 +24,7 @@ const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.var
 const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof theme.variants.tagColor>
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
+// region Single List ////
 const knowledgeBase = ['Select Knowledge base', 'Create knowledge base']
 const smartScripts = ['Scripts', 'Create script', 'Install from Bitrix24.Market']
 const smartProcess = ['Smart Process Automation']
@@ -37,7 +38,21 @@ const items = [
   [{ label: 'Settings', type: 'label' }, ...settings]
 ]
 const selectedItems = ref([knowledgeBase[0]!, smartProcess[0]!])
+// endregion ////
 
+// region Simple Items ////
+const itemsSimple = ref<string[]>([
+  ...settings
+])
+const value = ref('Access permissions')
+
+function onCreate(item: string) {
+  itemsSimple.value.unshift(item)
+  value.value = item
+}
+// endregion ////
+
+// region Chip ////
 const chipItems = ref([
   {
     label: 'New message',
@@ -68,12 +83,10 @@ const chipItems = ref([
     }
   }
 ])
-const chipValue = ref(chipItems.value[0]?.value)
+const chipValue = ref(chipItems.value[0])
+// endregion ////
 
-function getChip(value: string) {
-  return chipItems.value.find(item => item.value === value)?.chip
-}
-
+// region Staus ////
 const statuses = [
   {
     label: 'Backlog',
@@ -101,21 +114,20 @@ const statuses = [
     icon: CancelIcon
   }
 ]
+// endregion ////
 
+// region useFetch ////
 const { data: users, status } = await useFetch('https://jsonplaceholder.typicode.com/users', {
   transform: (data: IUser[]) => {
-    return data?.map(user => ({ label: user.name, value: String(user.id), avatar: { src: `https://i.pravatar.cc/120?img=${user.id}` } })) || []
+    return data?.map(user => ({
+      label: user.name,
+      value: String(user.id),
+      avatar: { src: `https://i.pravatar.cc/120?img=${user.id}` }
+    })) || []
   },
   lazy: true
 })
-
-function getStatusIcon(value: string) {
-  return statuses.find(status => status.value === value)?.icon || UserIcon
-}
-
-function getUserAvatar(value: string) {
-  return users.value?.find(user => user.value === value)?.avatar || {}
-}
+// endregion ////
 </script>
 
 <template>
@@ -123,7 +135,7 @@ function getUserAvatar(value: string) {
     <ExampleCard title="base">
       <ExampleCardSubTitle title="simple" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Select
+        <B24SelectMenu
           :items="items"
           name="some_value"
           placeholder="Choose a value&hellip;"
@@ -135,7 +147,7 @@ function getUserAvatar(value: string) {
 
       <ExampleCardSubTitle title="underline" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Select
+        <B24SelectMenu
           :items="items"
           name="some_value"
           placeholder="Choose a value&hellip;"
@@ -149,7 +161,7 @@ function getUserAvatar(value: string) {
 
       <ExampleCardSubTitle title="no border" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Select
+        <B24SelectMenu
           :items="items"
           name="some_value"
           placeholder="Choose a value&hellip;"
@@ -162,7 +174,7 @@ function getUserAvatar(value: string) {
 
       <ExampleCardSubTitle title="no padding" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Select
+        <B24SelectMenu
           :items="items"
           name="some_value"
           placeholder="Choose a value&hellip;"
@@ -175,7 +187,7 @@ function getUserAvatar(value: string) {
 
       <ExampleCardSubTitle title="some error" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Select
+        <B24SelectMenu
           :items="items"
           name="some_value"
           placeholder="Choose a value&hellip;"
@@ -189,7 +201,7 @@ function getUserAvatar(value: string) {
 
       <ExampleCardSubTitle title="some more" />
       <div class="mb-4 flex flex-col gap-4 w-3/4">
-        <B24Select
+        <B24SelectMenu
           class="w-full"
           :items="items"
           name="disabled"
@@ -197,7 +209,7 @@ function getUserAvatar(value: string) {
           aria-label="Disabled"
           disabled
         />
-        <B24Select
+        <B24SelectMenu
           class="w-full"
           :items="items"
           name="required"
@@ -205,7 +217,7 @@ function getUserAvatar(value: string) {
           aria-label="Required"
           required
         />
-        <B24Select
+        <B24SelectMenu
           v-model="selectedItems"
           :items="items"
           class="w-full"
@@ -214,7 +226,7 @@ function getUserAvatar(value: string) {
           aria-label="Multiple"
           multiple
         />
-        <B24Select
+        <B24SelectMenu
           :items="items"
           class="w-full"
           name="rounded"
@@ -230,7 +242,7 @@ function getUserAvatar(value: string) {
     <ExampleCard title="loading">
       <ExampleCardSubTitle title="loading" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Select
+        <B24SelectMenu
           :items="items"
           loading
           name="some_value"
@@ -238,7 +250,7 @@ function getUserAvatar(value: string) {
           aria-label="Choose a value"
           class="w-3/4"
         />
-        <B24Select
+        <B24SelectMenu
           :items="items"
           loading
           trailing
@@ -247,7 +259,7 @@ function getUserAvatar(value: string) {
           aria-label="Choose a value"
           class="w-3/4"
         />
-        <B24Select
+        <B24SelectMenu
           :items="items"
           loading
           :icon="RocketIcon"
@@ -257,7 +269,7 @@ function getUserAvatar(value: string) {
           aria-label="Choose a value"
           class="w-3/4"
         />
-        <B24Select
+        <B24SelectMenu
           :items="items"
           loading
           :avatar="{ src: '/avatar/employee.png' }"
@@ -273,7 +285,7 @@ function getUserAvatar(value: string) {
       <template v-for="color in colors" :key="color">
         <ExampleCardSubTitle :title="color as string" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-          <B24Select
+          <B24SelectMenu
             :items="items"
             name="some_value"
             placeholder="Choose a value&hellip;"
@@ -290,7 +302,7 @@ function getUserAvatar(value: string) {
       <template v-for="tagColor in tagColors" :key="tagColor">
         <ExampleCardSubTitle :title="tagColor as string" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-          <B24Select
+          <B24SelectMenu
             :items="items"
             :tag-color="tagColor"
             tag="some text"
@@ -308,7 +320,7 @@ function getUserAvatar(value: string) {
         <ExampleCardSubTitle :title="size as string" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
           <div class="w-40">
-            <B24Select
+            <B24SelectMenu
               :items="items"
               class="w-full"
               name="some_value"
@@ -317,19 +329,31 @@ function getUserAvatar(value: string) {
               :size="size"
             />
           </div>
+
           <div class="w-40">
-            <B24Select
-              :items="items"
+            <B24SelectMenu
+              v-model="value"
+              :create-item="{
+                position: 'bottom',
+                when: 'always'
+              }"
+              :items="itemsSimple"
               :icon="Search2Icon"
               class="w-full"
               name="some_value"
               placeholder="Choose a value&hellip;"
               aria-label="Choose a value"
               :size="size"
+              tag-color="ai"
+              highlight
+              tag="+ item"
+              color="ai"
+              @create="onCreate"
             />
           </div>
+
           <div class="w-40">
-            <B24Select
+            <B24SelectMenu
               :items="statuses"
               :icon="Search2Icon"
               :trailing-icon="Expand1Icon"
@@ -341,15 +365,16 @@ function getUserAvatar(value: string) {
             >
               <template #leading="{ modelValue, b24ui }">
                 <Component
-                  :is="getStatusIcon(modelValue as string)"
+                  :is="modelValue.icon"
                   v-if="modelValue"
                   :class="b24ui.leadingIcon()"
                 />
               </template>
-            </B24Select>
+            </B24SelectMenu>
           </div>
+
           <div class="w-40">
-            <B24Select
+            <B24SelectMenu
               :items="items"
               :avatar="{ src: '/avatar/employee.png' }"
               class="w-full"
@@ -359,8 +384,9 @@ function getUserAvatar(value: string) {
               :size="size"
             />
           </div>
+
           <div class="w-60">
-            <B24Select
+            <B24SelectMenu
               :items="users || []"
               :loading="status === 'pending'"
               :icon="UserIcon"
@@ -375,14 +401,15 @@ function getUserAvatar(value: string) {
                 <B24Avatar
                   v-if="modelValue"
                   :size="b24ui.itemLeadingAvatarSize()"
-                  v-bind="getUserAvatar(modelValue as string)"
+                  :class="b24ui.leadingAvatar()"
+                  v-bind="modelValue.avatar"
                 />
               </template>
-            </B24Select>
+            </B24SelectMenu>
           </div>
 
           <div class="w-40">
-            <B24Select
+            <B24SelectMenu
               v-model="chipValue"
               :items="chipItems"
               class="w-full"
@@ -393,14 +420,14 @@ function getUserAvatar(value: string) {
               <template #leading="{ modelValue, b24ui }">
                 <B24Chip
                   v-if="modelValue"
-                  v-bind="getChip(modelValue as string)"
+                  v-bind="modelValue.chip"
                   inset
                   standalone
                   :size="b24ui.itemLeadingChipSize()"
                   :class="b24ui.itemLeadingChip()"
                 />
               </template>
-            </B24Select>
+            </B24SelectMenu>
           </div>
         </div>
       </template>

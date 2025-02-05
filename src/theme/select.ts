@@ -6,12 +6,6 @@
  * @see bitrix/js/ui/..
  */
 
-/**
- * @todo font
- * @todo icon
- * @todo fix icons problems
- * @todo fix group - select - size
- */
 import { defuFn } from 'defu'
 import input from './input'
 import { buttonGroupVariantWithRoot } from './button-group'
@@ -44,7 +38,7 @@ export default () => {
           'dark:ring-base-800',
           'text-base-master bg-white hover:text-base-900 focus:text-base-900 active:text-base-900',
           'dark:text-base-150 dark:bg-transparent dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350',
-          'font-b24-primary font-regular text-sm leading-none',
+          'font-b24-primary font-regular text-sm leading-tight',
           'align-middle',
           'text-ellipsis whitespace-nowrap'
         ].join(' '),
@@ -52,7 +46,9 @@ export default () => {
         placeholder: 'truncate text-base-400 dark:text-base-300',
         arrow: 'fill-base-master/10 dark:fill-base-100/20',
         content: [
-          'max-h-60 w-[var(--reka-popper-anchor-width)]',
+          'w-[var(--reka-popper-anchor-width)]',
+          'max-h-60',
+          // 'h-[var(--reka-popper-available-height)]',
           'bg-white dark:bg-base-dark',
           'shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800',
           'overflow-hidden',
@@ -78,11 +74,15 @@ export default () => {
           'before:absolute before:z-[-1] before:inset-px before:rounded-2xs',
           'cursor-pointer',
           'data-disabled:cursor-not-allowed data-disabled:opacity-75',
-          'text-base-master dark:text-base-150 data-highlighted:text-base-900 dark:data-highlighted:text-base-200 data-highlighted:before:bg-base-100/50 dark:data-highlighted:before:bg-base-900',
+          'text-base-master dark:text-base-150',
+          'data-highlighted:text-base-900 dark:data-highlighted:text-base-200 data-highlighted:before:bg-base-100/50 dark:data-highlighted:before:bg-base-900',
+          'data-[state=checked]:text-base-900 dark:data-[state=checked]:text-base-200 data-[state=checked]:before:bg-base-100/50 dark:data-[state=checked]:before:bg-base-900',
           'transition-colors before:transition-colors'
         ].join(' '),
         itemLeadingIcon: [
-          'shrink-0 text-base-500 dark:text-base-700 group-data-highlighted:text-base-master dark:group-data-highlighted:text-base-150',
+          'shrink-0 text-base-500 dark:text-base-700',
+          'group-data-highlighted:text-base-master dark:group-data-highlighted:text-base-150',
+          'group-data-[state=checked]:text-base-master dark:group-data-[state=checked]:text-base-150',
           'transition-colors'
         ].join(' '),
         itemLeadingAvatar: 'shrink-0',

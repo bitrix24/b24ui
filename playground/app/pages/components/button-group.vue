@@ -194,6 +194,7 @@ function onClick() {
         </B24ButtonGroup>
 
         <B24ButtonGroup no-split>
+          <B24Badge color="default" use-fill label="https://" />
           <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
           <B24Button
             color="link"
@@ -237,19 +238,6 @@ function onClick() {
           </B24ButtonGroup>
 
           <B24ButtonGroup :size="size" no-split>
-            <B24Input class="w-40" name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
-            <B24Button
-              color="primary"
-              depth="dark"
-              loading-auto
-              use-clock
-              @click="onClick"
-            >
-              Button
-            </B24Button>
-          </B24ButtonGroup>
-
-          <B24ButtonGroup :size="size" no-split>
             <B24Select
               class="w-40"
               :items="items"
@@ -272,21 +260,38 @@ function onClick() {
             <B24Badge color="default" use-fill label="https://" />
             <B24Input class="w-40" type="url" placeholder="www.example.com" />
           </B24ButtonGroup>
+
+          <B24ButtonGroup :size="size" no-split>
+            <B24SelectMenu
+              class="w-40"
+              :items="items"
+              name="some_value"
+              placeholder="Choose a value&hellip;"
+              aria-label="Choose a value"
+            />
+            <B24Button
+              color="ai"
+              loading-auto
+              use-clock
+              @click="onClick"
+            >
+              Button
+            </B24Button>
+          </B24ButtonGroup>
         </div>
       </template>
 
       <ExampleCardSubTitle title="not-use-group" />
-
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Select :items="items" name="some_value" placeholder="Choose a value&hellip;" aria-label="Choose a value" />
-        <B24Select :items="items" name="some_value" placeholder="Choose a value&hellip;" aria-label="Choose a value" />
-        <B24Select :items="items" name="some_value" placeholder="Choose a value&hellip;" aria-label="Choose a value" />
+        <B24Select class="w-40" :items="items" name="some_value" placeholder="Choose a value&hellip;" aria-label="Choose a value" />
+        <B24Select class="w-40" :items="items" name="some_value" placeholder="Choose a value&hellip;" aria-label="Choose a value" />
+        <B24Select class="w-40" :items="items" name="some_value" placeholder="Choose a value&hellip;" aria-label="Choose a value" />
       </div>
 
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
-        <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
-        <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
+        <B24Input class="w-40" name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
+        <B24Input class="w-40" name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
+        <B24Input class="w-40" name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
       </div>
 
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
