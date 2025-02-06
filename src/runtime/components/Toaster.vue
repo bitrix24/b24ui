@@ -118,10 +118,10 @@ function getOffset(index: number) {
         '--transform': 'translateY(var(--translate)) scale(var(--scale))'
       }"
       :class="[b24ui.base(), {
-        'cursor-pointer': !!toast.click
+        'cursor-pointer': !!toast.onClick
       }]"
       @update:open="onUpdateOpen($event, toast.id)"
-      @click="toast.click && toast.click(toast)"
+      @click="toast.onClick && toast.onClick(toast)"
     />
 
     <ToastPortal :disabled="!portal">
