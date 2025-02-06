@@ -7,23 +7,23 @@ Find more details in the [documentation](https://bitrix24.github.io/b24ui/)
 ## Installation
 
 ```bash [pnpm]
-pnpm add @bitrix24/b24ui-nuxt@next
-pnpm add @bitrix24/b24icons-vue@next
+pnpm add @bitrix24/b24ui-nuxt
+pnpm add @bitrix24/b24icons-vue
 ```
 
 ```bash [yarn]
-yarn add @bitrix24/b24ui-nuxt@next
-yarn add @bitrix24/b24icons-vue@next
+yarn add @bitrix24/b24ui-nuxt
+yarn add @bitrix24/b24icons-vue
 ```
 
 ```bash [npm]
-npm install @bitrix24/b24ui-nuxt@next
-npm install @bitrix24/b24icons-vue@next
+npm install @bitrix24/b24ui-nuxt
+npm install @bitrix24/b24icons-vue
 ```
 
 ```bash [bun]
-yarn add @bitrix24/b24ui-nuxt@next
-yarn add @bitrix24/b24icons-vue@next
+yarn add @bitrix24/b24ui-nuxt
+yarn add @bitrix24/b24icons-vue
 ```
 
 ### Nuxt
