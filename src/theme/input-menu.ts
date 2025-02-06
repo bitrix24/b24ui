@@ -132,7 +132,7 @@ export default () => {
             'py-1.5 ps-1.5 pe-[39px]'
           ].join(' '),
           tagsInput: [
-            'w-full border-0 bg-transparent ps-1.5 pe-3 py-0',
+            'w-2/5 border-0 bg-transparent ps-1.5 pe-3 py-0',
             'placeholder:text-base-400 dark:placeholder:text-base-300',
             'focus:outline-none disabled:cursor-not-allowed disabled:opacity-75',
             'focus:ring-0 focus-visible:ring-0'
