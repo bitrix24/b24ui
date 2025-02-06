@@ -225,7 +225,7 @@ You can control the open state by using the `default-open` prop or the `v-model:
 __component-code
 
 ::: info
-In this example, leveraging [`defineShortcuts`](/composables/define-shortcuts), you can toggle the InputMenu by pressing :kbd{value="O"}.
+In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), you can toggle the InputMenu by pressing :kbd{value="O"}.
 :::
 
 ### Control open state on focus
