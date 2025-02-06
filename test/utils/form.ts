@@ -11,7 +11,7 @@ import {
   B24Checkbox,
   B24Select,
   B24SelectMenu,
-  // B24InputMenu,
+  B24InputMenu,
   // B24InputNumber,
   B24Switch,
   B24Range
@@ -47,7 +47,7 @@ export async function renderForm(options: {
           B24Checkbox,
           B24Select,
           B24SelectMenu,
-          // B24InputMenu,
+          B24InputMenu,
           // B24InputNumber,
           B24Switch,
           B24Range
