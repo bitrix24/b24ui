@@ -91,7 +91,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: 'Button', link: 'button' },
-        { text: 'ButtonGroup', link: 'button-group' }
+        { text: 'ButtonGroup💡', link: 'button-group' }
       ]
     },
     {
@@ -124,14 +124,14 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'Form', link: 'form' },
         { text: 'FormField', link: 'form-field' },
         { text: 'Input', link: 'input' },
-        { text: 'InputMenu', link: 'input-menu' },
+        { text: 'InputMenu💡', link: 'input-menu' },
+        { text: 'Textarea', link: 'textarea' },
+        { text: 'Select', link: 'select' },
+        { text: 'SelectMenu💡', link: 'select-menu' },
         { text: 'RadioGroup', link: 'radio-group' },
         { text: 'Checkbox', link: 'checkbox' },
         { text: 'Switch', link: 'switch' },
-        { text: 'Range', link: 'range' },
-        { text: 'Select', link: 'select' },
-        { text: 'SelectMenu', link: 'select-menu' },
-        { text: 'Textarea', link: 'textarea' }
+        { text: 'Range', link: 'range' }
       ]
     },
     {
