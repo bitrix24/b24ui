@@ -160,5 +160,22 @@
     "vue-tsc": "^2.2.0",
     "unplugin": "^2.1.2",
     "vite": "^6.0.7"
-  }
+  },
+  "keywords": [
+    "bitrix24-ui",
+    "bitrix24",
+    "nuxt",
+    "vue3",
+    "tailwindcss",
+    "component library",
+    "vue",
+    "vuejs",
+    "vue.js",
+    "typescript",
+    "vue-components",
+    "ui",
+    "tailwind",
+    "framework",
+    "ui-framework"
+  ]
 }
