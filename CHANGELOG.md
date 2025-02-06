@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.2.1 (2025-02-06)
+
+### Features
+
+* **Alert/Toast/DescriptionList:** add `orientation` prop
+* **Toast:** handle vnodes in `title` and `description`
+* **useToast:** proxy emits
+* **InputMenu:** new component
+
+### Bug Fixes
+
+* **Toast:** rename `click` to `onClick` for consistency
+* **useToast:** don't return a promise on `add`
+
+### Docs
+
+* **Install:** improve
+* **SelectMenu:** improve
+* **InputMenu:** improve
+
 ## 0.1.7 (2025-02-05)
 
 ### Features
