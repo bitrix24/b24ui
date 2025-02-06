@@ -7,6 +7,7 @@ outline: deep
 import SelectMenuExample from '/examples/selectmenu/SelectMenu.vue';
 import ArrayExample from '/examples/selectmenu/Array.vue';
 import ArrayGroupExample from '/examples/selectmenu/ArrayGroup.vue';
+import MultipleExample from '/examples/selectmenu/Multiple.vue';
 </script>
 # SelectMenu
 
@@ -32,7 +33,7 @@ Use this over a [`Select`](/components/select) to take advantage of Reka UI's [`
 :::
 
 ::: info
-This component is similar to the `InputMenu` but it's using a Select instead of an Input with the search inside the menu.
+This component is similar to the [`InputMenu`](/components/input-menu) but it's using a Select instead of an Input with the search inside the menu.
 :::
 
 ### Items
@@ -93,10 +94,18 @@ __component-code
 
 Use the `multiple` prop to allow multiple selections, the selected items will be separated by a comma in the trigger.
 
-__component-code
-
 ::: danger
 Ensure to pass an array to the `default-value` prop or the `v-model` directive.
+:::
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <MultipleExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/selectmenu/demo/Multiple.vue{4-5,11 vue:line-numbers}
 :::
 
 ### Placeholder
