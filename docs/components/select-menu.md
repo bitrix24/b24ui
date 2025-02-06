@@ -1,5 +1,5 @@
 ---
-title: Select
+title: SelectMenu
 description: A refined and searchable selection component.
 outline: deep
 ---
