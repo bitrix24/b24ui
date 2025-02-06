@@ -28,6 +28,7 @@ export default () => {
       slots: {
         root: () => 'relative inline-flex items-center w-full',
         base: () => [
+          'px-3',
           'relative inline-flex items-center group',
           'py-0 border-0 focus:outline-none',
           'cursor-pointer disabled:cursor-not-allowed',
