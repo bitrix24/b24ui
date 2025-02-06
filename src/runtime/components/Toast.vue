@@ -6,6 +6,7 @@ import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/toast'
 import { tv } from '../utils/tv'
 import type { AvatarProps, ButtonProps, IconComponent } from '../types'
+import type { StringOrVNode } from '../types/utils'
 
 const appConfigToast = _appConfig as AppConfig & { b24ui: { toast: Partial<typeof theme> } }
 
@@ -19,8 +20,8 @@ export interface ToastProps extends Pick<ToastRootProps, 'defaultOpen' | 'open' 
    * @defaultValue 'li'
    */
   as?: any
-  title?: string
-  description?: string
+  title?: StringOrVNode
+  description?: StringOrVNode
   icon?: IconComponent
   avatar?: AvatarProps
   color?: ToastVariants['color']
@@ -123,12 +124,20 @@ defineExpose({
     <div :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
       <ToastTitle v-if="title || !!slots.title" :class="b24ui.title({ class: props.b24ui?.title })">
         <slot name="title">
-          {{ title }}
+          <component :is="title()" v-if="typeof title === 'function'" />
+          <component :is="title" v-else-if="typeof title === 'object'" />
+          <template v-else>
+            {{ title }}
+          </template>
         </slot>
       </ToastTitle>
       <ToastDescription v-if="description || !!slots.description" :class="b24ui.description({ class: props.b24ui?.description })">
         <slot name="description">
-          {{ description }}
+          <component :is="description()" v-if="typeof description === 'function'" />
+          <component :is="description" v-else-if="typeof description === 'object'" />
+          <template v-else>
+            {{ description }}
+          </template>
         </slot>
       </ToastDescription>
 
