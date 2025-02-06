@@ -20,7 +20,7 @@ export default {
     leadingIcon: 'shrink-0',
     leadingAvatar: 'shrink-0',
     leadingAvatarSize: '',
-    trailingIcon: 'shrink-0 cursor-pointer  hover:rounded-full hover:bg-current/20 dark:hover:bg-current/35'
+    trailingIcon: 'shrink-0 cursor-pointer hover:rounded-full hover:bg-current/20 dark:hover:bg-current/35'
   },
   variants: {
     ...buttonGroupVariant,
