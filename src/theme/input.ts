@@ -14,6 +14,7 @@ export default {
   slots: {
     root: 'relative inline-flex items-center w-full',
     base: [
+      'px-3',
       'w-full py-0 border-0 focus:outline-none',
       'disabled:cursor-not-allowed disabled:bg-base-30/37 disabled:resize-none disabled:text-base-500',
       'dark:disabled:bg-base-900/37 dark:disabled:text-base-800',
@@ -42,7 +43,7 @@ export default {
     ...buttonGroupVariantWithRoot,
     size: {
       xs: {
-        base: 'px-3 h-xl2 gap-1', // 26px
+        base: 'h-xl2 gap-1', // 26px
         leading: 'px-1',
         trailing: 'px-1',
         leadingIcon: 'size-lg2',
@@ -50,7 +51,7 @@ export default {
         trailingIcon: 'size-lg2'
       },
       sm: {
-        base: 'px-3 h-8 gap-1.5', // 32px
+        base: 'h-8 gap-1.5', // 32px
         leading: 'px-1.5',
         trailing: 'px-1.5',
         leadingIcon: 'size-lg2',
@@ -58,7 +59,7 @@ export default {
         trailingIcon: 'size-lg2'
       },
       md: {
-        base: 'px-3 h-10 gap-1.5', // 40px
+        base: 'h-10 gap-1.5', // 40px
         leading: 'px-2',
         trailing: 'px-2',
         leadingIcon: 'size-[24px]',
@@ -66,7 +67,7 @@ export default {
         trailingIcon: 'size-[24px]'
       },
       lg: {
-        base: 'px-3 h-12 gap-2', // 48px
+        base: 'h-12 gap-2', // 48px
         leading: 'px-2',
         trailing: 'px-2',
         leadingIcon: 'size-[24px]',
