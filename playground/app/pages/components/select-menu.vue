@@ -19,7 +19,7 @@ import ArrowTopIcon from '@bitrix24/b24icons-vue/actions/ArrowTopIcon'
 import CircleCheckIcon from '@bitrix24/b24icons-vue/main/CircleCheckIcon'
 import CancelIcon from '@bitrix24/b24icons-vue/button/CancelIcon'
 
-usePageMeta.setPageTitle('Select')
+usePageMeta.setPageTitle('SelectMenu')
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
 const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof theme.variants.tagColor>
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
