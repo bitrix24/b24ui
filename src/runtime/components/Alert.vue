@@ -115,7 +115,7 @@ const b24ui = computed(() => alert({
       </div>
     </div>
 
-    <div v-if="(orientation === 'horizontal' && actions?.length) || close" :class="b24ui.actions({ class: props.b24ui?.actions,orientation: 'horizontal' })">
+    <div v-if="(orientation === 'horizontal' && actions?.length) || close" :class="b24ui.actions({ class: props.b24ui?.actions, orientation: 'horizontal' })">
       <template v-if="orientation === 'horizontal' && actions?.length">
         <slot name="actions">
           <B24Button v-for="(action, index) in actions" :key="index" size="xs" v-bind="action" />
