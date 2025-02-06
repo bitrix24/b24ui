@@ -85,6 +85,11 @@ const groups: IPageGroup[] = [
 ]
 
 function upperName(name: string) {
+  if (name.includes('content/')) {
+    return ['content / ', ...splitByCase(name.replace('content/', '')).map(p => upperFirst(p))].join('')
+  } else if (name.includes('prose/')) {
+    return ['prose / ', ...splitByCase(name.replace('prose/', '')).map(p => upperFirst(p))].join('')
+  }
   return splitByCase(name).map(p => upperFirst(p)).join('')
 }
 

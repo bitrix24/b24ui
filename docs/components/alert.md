@@ -13,6 +13,7 @@ import SizeExample from '/examples/alert/Size.vue';
 import CloseExample from '/examples/alert/Close.vue';
 import CloseButtonExample from '/examples/alert/CloseButton.vue';
 import ActionsExample from '/examples/alert/Actions.vue';
+import OrientationExample from '/examples/alert/Orientation.vue';
 </script>
 # Alert
 
@@ -141,10 +142,6 @@ You can pass any property from the [Button](/components/button) component to cus
 
 Use the `actions` prop to add some [Button](/components/button) actions to the Alert.
 
-::: info
-Actions renders differently when the description is not set. You can try to remove it.
-:::
-
 <div class="lg:min-h-[316px]">
   <ClientOnly>
     <ActionsExample />
@@ -153,6 +150,20 @@ Actions renders differently when the description is not set. You can try to remo
 
 ::: details
 <<< @/examples/alert/demo/Actions.vue{19-28 vue:line-numbers}
+:::
+
+### Orientation
+
+Use the `orientation` prop to change the orientation of the Alert.
+
+<div class="lg:min-h-[316px]">
+  <ClientOnly>
+    <OrientationExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/alert/demo/Orientation.vue{20 vue:line-numbers}
 :::
 
 ## API

@@ -77,7 +77,8 @@ const templates = (id: number) => [
       onClick: () => {
         console.log(`Toast ${id} action 4 clicked`)
       }
-    }]
+    }],
+    orientation: 'horizontal' as const
   },
   {
     title: `Title for toast ${id}`,
@@ -114,7 +115,8 @@ const templates = (id: number) => [
       onClick: () => {
         console.log(`Toast ${id} action Cancel clicked`)
       }
-    }]
+    }],
+    orientation: 'horizontal' as const
   }
 ]
 

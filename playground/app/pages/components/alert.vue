@@ -125,6 +125,7 @@ const data = {
             :close="data.close"
             :color="color"
             :actions="action(color)"
+            orientation="horizontal"
             size="sm"
           />
           <B24Alert
@@ -152,6 +153,7 @@ const data = {
             :close="data.close"
             :color="color"
             :actions="action(color)"
+            orientation="horizontal"
           />
           <B24Alert
             :title="data.title"

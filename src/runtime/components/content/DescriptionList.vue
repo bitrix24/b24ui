@@ -19,10 +19,11 @@ export interface DescriptionListItem {
   avatar?: AvatarProps
   slot?: string
   description?: string
+  orientation?: DescriptionListVariants['orientation']
   /**
    * Display a list of actions:
-   * - under the description if multiline
-   * - next to the description if not multiline
+   * - under the description when orientation is `vertical`
+   * - next to the description when orientation is `horizontal`
    * `{ size: 'xs' }`{lang="ts-type"}
    */
   actions?: ButtonProps[]
@@ -81,13 +82,13 @@ const b24ui = computed(() => descriptionList({
 function normalizeItem(item: any) {
   const label = get(item, props.labelKey as string)
   const description = get(item, props.descriptionKey as string)
-  const multiline = (item.actions || []).length > 1
+  const orientation = item?.orientation || 'vertical'
 
   return {
     ...item,
     label,
     description,
-    multiline
+    orientation
   }
 }
 
@@ -166,12 +167,13 @@ const normalizedItems = computed(() => {
           </span>
         </dt>
         <dd
+          :data-orientation="item.orientation"
           :class="b24ui.descriptionWrapper({
             class: [
               props.b24ui?.descriptionWrapper,
               item?.b24ui?.descriptionWrapper
             ],
-            multiline: item.multiline
+            orientation: item.orientation
           })"
         >
           <span
@@ -181,7 +183,7 @@ const normalizedItems = computed(() => {
                 props.b24ui?.description,
                 item?.b24ui?.description
               ],
-              multiline: item.multiline
+              orientation: item.orientation
             })"
           >
             <slot name="description" :item="item" :index="index">
@@ -195,7 +197,7 @@ const normalizedItems = computed(() => {
                 props.b24ui?.actions,
                 item?.b24ui?.actions
               ],
-              multiline: item.multiline
+              orientation: item.orientation
             })"
           >
             <slot name="actions" :item="item" :index="index">

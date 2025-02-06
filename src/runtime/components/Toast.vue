@@ -24,10 +24,11 @@ export interface ToastProps extends Pick<ToastRootProps, 'defaultOpen' | 'open' 
   icon?: IconComponent
   avatar?: AvatarProps
   color?: ToastVariants['color']
+  orientation?: ToastVariants['orientation']
   /**
    * Display a list of actions:
-   * - under the title and description if multiline
-   * - next to the close button if not multiline
+   * - under the title and description when orientation is `vertical`
+   * - next to the close button when orientation is `horizontal`
    * `{ size: 'xs' }`{lang="ts-type"}
    */
   actions?: ButtonProps[]
@@ -67,7 +68,8 @@ import B24Avatar from './Avatar.vue'
 import B24Button from './Button.vue'
 
 const props = withDefaults(defineProps<ToastProps>(), {
-  close: true
+  close: true,
+  orientation: 'vertical'
 })
 const emits = defineEmits<ToastEmits>()
 const slots = defineSlots<ToastSlots>()
@@ -76,10 +78,10 @@ const { t } = useLocale()
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'defaultOpen', 'open', 'duration', 'type'), emits)
 
-const multiline = computed(() => !!props.title && !!props.description)
-
 const b24ui = computed(() => toast({
-  color: props.color
+  color: props.color,
+  orientation: props.orientation,
+  title: !!props.title || !!slots.title
 }))
 
 const el = ref()
@@ -105,7 +107,8 @@ defineExpose({
     ref="el"
     v-slot="{ remaining, duration }"
     v-bind="rootProps"
-    :class="b24ui.root({ class: [props.class, props.b24ui?.root], multiline })"
+    :data-orientation="orientation"
+    :class="b24ui.root({ class: [props.class, props.b24ui?.root] })"
     :style="{ '--height': height }"
   >
     <slot name="leading">
@@ -129,7 +132,7 @@ defineExpose({
         </slot>
       </ToastDescription>
 
-      <div v-if="multiline && actions?.length" :class="b24ui.actions({ class: props.b24ui?.actions, multiline: true })">
+      <div v-if="orientation === 'vertical' && actions?.length" :class="b24ui.actions({ class: props.b24ui?.actions })">
         <slot name="actions">
           <ToastAction v-for="(action, index) in actions" :key="index" :alt-text="action.label || 'Action'" as-child @click.stop>
             <B24Button size="xs" :color="color" v-bind="action" />
@@ -138,8 +141,8 @@ defineExpose({
       </div>
     </div>
 
-    <div v-if="(!multiline && actions?.length) || close !== null" :class="b24ui.actions({ class: props.b24ui?.actions, multiline: false })">
-      <template v-if="!multiline">
+    <div v-if="(orientation === 'horizontal' && actions?.length) || close !== null" :class="b24ui.actions({ class: props.b24ui?.actions, orientation: 'horizontal' })">
+      <template v-if="orientation === 'horizontal' && actions?.length">
         <slot name="actions">
           <ToastAction v-for="(action, index) in actions" :key="index" :alt-text="action.label || 'Action'" as-child @click.stop>
             <B24Button size="xs" :color="color" v-bind="action" />

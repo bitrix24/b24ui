@@ -94,17 +94,20 @@ const itemsActions: DescriptionListItem[] = [
   {
     label: 'Line 2.1',
     description: 'Description 2.1',
-    actions: action('link')
+    actions: action('link'),
+    orientation: 'horizontal' as const
   },
   {
     label: 'Line 2.2',
     description: 'Description 2.2',
-    actions: action('primary')
+    actions: action('primary'),
+    orientation: 'horizontal' as const
   },
   {
     label: 'Line 2.3',
     description: 'Description 2.3',
-    actions: action('link')
+    actions: action('link'),
+    orientation: 'horizontal' as const
   },
   {
     label: 'Line 2.4',

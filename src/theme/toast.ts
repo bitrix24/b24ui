@@ -6,27 +6,6 @@
  * @see bitrix/js/ui/notification
  */
 
-/*
-  // @memo: use at b24
-  BX.UI.Notification.Center.notify({
-    content: "Успешно удален файл отчет-за-февраль.docs",
-    autoHideDelay: 500000,
-    actions: [{
-      title: "Отмена",
-      events: {
-        click: function(event, balloon, action) {
-          balloon.close();
-        }
-      }
-    }]
-  });
- */
-
-/**
- * @todo color
- * @todo add to form demo
- */
-
 export default {
   slots: {
     root: [
@@ -37,7 +16,7 @@ export default {
       'text-sm font-normal',
       'text-white dark:text-base-150'
     ].join(' '),
-    wrapper: 'w-0 flex-1 flex flex-col gap-1',
+    wrapper: 'w-0 flex-1 flex flex-col',
     title: 'font-medium',
     description: '',
     icon: 'shrink-0 size-6',
@@ -45,7 +24,7 @@ export default {
     avatarSize: 'xl',
     actions: 'flex gap-1.5 shrink-0',
     progress: 'absolute inset-x-0 bottom-0 h-1 z-[-1]',
-    close: 'p-0.5 text-base-350 dark:text-base-350 hover:text-base-400 dark:hover:text-base-400'
+    close: 'p-0 text-base-350 dark:text-base-350 hover:text-base-400 dark:hover:text-base-400'
   },
   variants: {
     color: {
@@ -90,14 +69,19 @@ export default {
         progress: 'bg-ai-500 dark:bg-ai-500'
       }
     },
-    multiline: {
-      true: {
-        root: 'items-start',
-        actions: 'items-start mt-1'
-      },
-      false: {
+    orientation: {
+      horizontal: {
         root: 'items-center',
         actions: 'items-center'
+      },
+      vertical: {
+        root: 'items-start',
+        actions: 'items-start mt-1'
+      }
+    },
+    title: {
+      true: {
+        description: 'mt-1'
       }
     }
   },

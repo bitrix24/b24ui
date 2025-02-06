@@ -12,6 +12,7 @@ import ColorExample from '/examples/toast/Color.vue';
 import CloseExample from '/examples/toast/Close.vue';
 import CloseIconExample from '/examples/toast/CloseIcon.vue';
 import ActionsExample from '/examples/toast/Actions.vue';
+import OrientationExample from '/examples/toast/Orientation.vue';
 </script>
 # Toast
 
@@ -134,11 +135,7 @@ Pass a `closeIcon` field to customize the close button [@bitrix24/b24icons](http
 
 ### Actions
 
-Pass an `actions` field to add some [Button](/components/button) actions to the Alert.
-
-::: info
-Actions renders differently when the description is not set. You can try to remove it.
-:::
+Pass an `actions` field to add some [Button](/components/button) actions to the Toast.
 
 <div class="lg:min-h-[310px]">
   <ClientOnly>
@@ -148,6 +145,20 @@ Actions renders differently when the description is not set. You can try to remo
 
 ::: details
 <<< @/examples/toast/demo/Actions.vue{22-29 vue:line-numbers}
+:::
+
+### Orientation
+
+Use the `orientation` prop to change the orientation of the Toast.
+
+<div class="lg:min-h-[316px]">
+  <ClientOnly>
+    <OrientationExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/toast/demo/Orientation.vue{vue:line-numbers}
 :::
 
 ## API

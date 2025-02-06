@@ -5,13 +5,15 @@
  */
 export default {
   slots: {
-    root: 'w-full shrink-0', // ????
+    root: 'w-full shrink-0',
     legend: 'font-semibold text-black dark:text-base-150',
     text: 'text-base-500 dark:text-base-400',
     container: 'grid grid-cols-1 sm:grid-cols-[min(50%,theme(spacing.80))_auto]',
     labelWrapper: [
-      'col-start-1 border-t border-base-950/5 text-base-500 first:border-none sm:border-t sm:border-base-950/5 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5',
-      'flex flex-nowrap flex-row items-center justify-start gap-1.5'
+      'col-start-1 border-t first:border-none sm:border-t',
+      'flex flex-nowrap flex-row items-center justify-start gap-1.5',
+      'border-base-950/5 text-base-500 sm:border-base-950/5',
+      'dark:border-white/5 dark:text-base-400 sm:dark:border-white/5'
     ].join(' '),
     icon: 'shrink-0 size-6 text-base-500 dark:text-base-400',
     avatar: 'shrink-0',
@@ -47,14 +49,19 @@ export default {
         footer: 'mt-4 p-4'
       }
     },
-    multiline: {
-      true: {
-        descriptionWrapper: '',
-        actions: 'items-start mt-2.5'
-      },
-      false: {
+    orientation: {
+      horizontal: {
         descriptionWrapper: 'w-full flex flex-row items-center justify-between gap-4',
         actions: 'items-center'
+      },
+      vertical: {
+        descriptionWrapper: '',
+        actions: 'items-start mt-2.5'
+      }
+    },
+    title: {
+      true: {
+        description: 'mt-1'
       }
     }
   },

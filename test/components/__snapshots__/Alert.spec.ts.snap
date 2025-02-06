@@ -1,9 +1,27 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Alert > renders with as correctly 1`] = `
-"<article class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-center">
+exports[`Alert > renders with actions correctly 1`] = `
+"<div data-orientation="vertical" class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-start">
   <!--v-if-->
-  <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
+  <div class="min-w-0 flex-1 flex flex-col font-b24-primary font-normal">
+    <div class="font-bold text-md leading-none">Alert</div>
+    <!--v-if-->
+    <div class="flex flex-wrap gap-1.5 shrink-0 items-start mt-2"><button type="button" class="select-none cursor-pointer inline-flex items-center relative focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear text-white dark:text-base-100 bg-base-650 border border-base-650 hover:bg-base-850 hover:border-base-850 hover:focus-visible:ring-0 active:bg-slate-850 active:border-slate-850 active:focus-visible:ring-0 disabled:bg-base-650 aria-disabled:bg-base-650 disabled:border-base-650 aria-disabled:border-base-650 focus-visible:outline-base-650 ring-base-850 focus-visible:ring-base-850 h-xl2 ps-4 pe-4 text-3xs leading-none rounded-2xs font-bold uppercase">
+        <!--v-if-->
+        <div class="inline-flex items-center gap-1">
+          <!--v-if--><span class="truncate">Action</span>
+          <!--v-if-->
+        </div>
+      </button></div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`Alert > renders with as correctly 1`] = `
+"<article data-orientation="vertical" class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-start">
+  <!--v-if-->
+  <div class="min-w-0 flex-1 flex flex-col font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Alert</div>
     <!--v-if-->
     <!--v-if-->
@@ -13,8 +31,8 @@ exports[`Alert > renders with as correctly 1`] = `
 `;
 
 exports[`Alert > renders with avatar correctly 1`] = `
-"<div class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-center"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-12 text-2xl shrink-0"><img role="img" src="https://github.com/benjamincanac.png" width="48" height="48" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate"> </span></span>
-  <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
+"<div data-orientation="vertical" class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-start"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-12 text-2xl shrink-0"><img role="img" src="https://github.com/bitrix24.png" width="48" height="48" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate"> </span></span>
+  <div class="min-w-0 flex-1 flex flex-col font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Alert</div>
     <!--v-if-->
     <!--v-if-->
@@ -24,9 +42,9 @@ exports[`Alert > renders with avatar correctly 1`] = `
 `;
 
 exports[`Alert > renders with b24ui correctly 1`] = `
-"<div class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-center">
+"<div data-orientation="vertical" class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-start">
   <!--v-if-->
-  <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
+  <div class="min-w-0 flex-1 flex flex-col font-b24-primary font-normal">
     <div class="text-md leading-none font-bold">Alert</div>
     <!--v-if-->
     <!--v-if-->
@@ -36,9 +54,9 @@ exports[`Alert > renders with b24ui correctly 1`] = `
 `;
 
 exports[`Alert > renders with class correctly 1`] = `
-"<div class="relative overflow-hidden rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-center w-48">
+"<div data-orientation="vertical" class="relative overflow-hidden rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-start w-48">
   <!--v-if-->
-  <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
+  <div class="min-w-0 flex-1 flex flex-col font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Alert</div>
     <!--v-if-->
     <!--v-if-->
@@ -48,14 +66,15 @@ exports[`Alert > renders with class correctly 1`] = `
 `;
 
 exports[`Alert > renders with close correctly 1`] = `
-"<div class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-center">
+"<div data-orientation="vertical" class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-start">
   <!--v-if-->
-  <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
+  <div class="min-w-0 flex-1 flex flex-col font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Alert</div>
     <!--v-if-->
     <!--v-if-->
   </div>
-  <div class="flex flex-wrap gap-1.5 shrink-0 items-center"><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center relative focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 bg-transparent border border-transparent hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase p-0.5 text-base-800 dark:text-base-800 hover:text-base-950 dark:hover:text-base-950">
+  <div class="flex flex-wrap gap-1.5 shrink-0 items-center">
+    <!--v-if--><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center relative focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 bg-transparent border border-transparent hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase p-0 text-base-800 dark:text-base-800 hover:text-base-950 dark:hover:text-base-950">
       <!--v-if-->
       <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
           <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
@@ -63,14 +82,15 @@ exports[`Alert > renders with close correctly 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
-    </button></div>
+    </button>
+  </div>
 </div>"
 `;
 
 exports[`Alert > renders with close slot correctly 1`] = `
-"<div class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-center">
+"<div data-orientation="vertical" class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-start">
   <!--v-if-->
-  <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
+  <div class="min-w-0 flex-1 flex flex-col font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Alert</div>
     <!--v-if-->
     <!--v-if-->
@@ -79,12 +99,34 @@ exports[`Alert > renders with close slot correctly 1`] = `
 </div>"
 `;
 
-exports[`Alert > renders with description correctly 1`] = `
-"<div class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-start">
+exports[`Alert > renders with closeIcon correctly 1`] = `
+"<div data-orientation="vertical" class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-start">
   <!--v-if-->
-  <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
+  <div class="min-w-0 flex-1 flex flex-col font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Alert</div>
-    <div class="text-md leading-[17px]">Description</div>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+  <div class="flex flex-wrap gap-1.5 shrink-0 items-center">
+    <!--v-if--><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center relative focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 bg-transparent border border-transparent hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase p-0 text-base-800 dark:text-base-800 hover:text-base-950 dark:hover:text-base-950">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
+          <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button>
+  </div>
+</div>"
+`;
+
+exports[`Alert > renders with description correctly 1`] = `
+"<div data-orientation="vertical" class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-start">
+  <!--v-if-->
+  <div class="min-w-0 flex-1 flex flex-col font-b24-primary font-normal">
+    <div class="font-bold text-md leading-none">Alert</div>
+    <div class="text-md leading-[17px] mt-1">Description</div>
     <!--v-if-->
   </div>
   <!--v-if-->
@@ -92,11 +134,24 @@ exports[`Alert > renders with description correctly 1`] = `
 `;
 
 exports[`Alert > renders with description slot correctly 1`] = `
-"<div class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-center">
+"<div data-orientation="vertical" class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-start">
   <!--v-if-->
-  <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
+  <div class="min-w-0 flex-1 flex flex-col font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Alert</div>
-    <div class="text-md leading-[17px]">Description slot</div>
+    <div class="text-md leading-[17px] mt-1">Description slot</div>
+    <!--v-if-->
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`Alert > renders with icon correctly 1`] = `
+"<div data-orientation="vertical" class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-start"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-6">
+    <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+  </svg>
+  <div class="min-w-0 flex-1 flex flex-col font-b24-primary font-normal">
+    <div class="font-bold text-md leading-none">Alert</div>
+    <!--v-if-->
     <!--v-if-->
   </div>
   <!--v-if-->
@@ -104,9 +159,9 @@ exports[`Alert > renders with description slot correctly 1`] = `
 `;
 
 exports[`Alert > renders with leading slot correctly 1`] = `
-"<div class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-center">
+"<div data-orientation="vertical" class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-start">
   <!--v-if-->
-  <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
+  <div class="min-w-0 flex-1 flex flex-col font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Leading slot</div>
     <!--v-if-->
     <!--v-if-->
@@ -115,10 +170,50 @@ exports[`Alert > renders with leading slot correctly 1`] = `
 </div>"
 `;
 
-exports[`Alert > renders with success correctly 1`] = `
-"<div class="relative overflow-hidden w-full rounded-3xs flex text-green-780 bg-green-200 dark:text-green-780 dark:bg-green-300 py-md ps-md pe-xs gap-2.5 items-center">
+exports[`Alert > renders with orientation horizontal correctly 1`] = `
+"<div data-orientation="horizontal" class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-6">
+    <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+  </svg>
+  <div class="min-w-0 flex-1 flex flex-col font-b24-primary font-normal">
+    <div class="font-bold text-md leading-none">Alert</div>
+    <div class="text-md leading-[17px] mt-1">This is a description</div>
+    <!--v-if-->
+  </div>
+  <div class="flex flex-wrap gap-1.5 shrink-0 items-center"><button type="button" class="select-none cursor-pointer inline-flex items-center relative focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear text-white dark:text-base-100 bg-base-650 border border-base-650 hover:bg-base-850 hover:border-base-850 hover:focus-visible:ring-0 active:bg-slate-850 active:border-slate-850 active:focus-visible:ring-0 disabled:bg-base-650 aria-disabled:bg-base-650 disabled:border-base-650 aria-disabled:border-base-650 focus-visible:outline-base-650 ring-base-850 focus-visible:ring-base-850 h-xl2 ps-4 pe-4 text-3xs leading-none rounded-2xs font-bold uppercase">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1">
+        <!--v-if--><span class="truncate">Action</span>
+        <!--v-if-->
+      </div>
+    </button>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`Alert > renders with orientation vertical correctly 1`] = `
+"<div data-orientation="vertical" class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-start"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-6">
+    <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+  </svg>
+  <div class="min-w-0 flex-1 flex flex-col font-b24-primary font-normal">
+    <div class="font-bold text-md leading-none">Alert</div>
+    <div class="text-md leading-[17px] mt-1">This is a description</div>
+    <div class="flex flex-wrap gap-1.5 shrink-0 items-start mt-2"><button type="button" class="select-none cursor-pointer inline-flex items-center relative focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear text-white dark:text-base-100 bg-base-650 border border-base-650 hover:bg-base-850 hover:border-base-850 hover:focus-visible:ring-0 active:bg-slate-850 active:border-slate-850 active:focus-visible:ring-0 disabled:bg-base-650 aria-disabled:bg-base-650 disabled:border-base-650 aria-disabled:border-base-650 focus-visible:outline-base-650 ring-base-850 focus-visible:ring-base-850 h-xl2 ps-4 pe-4 text-3xs leading-none rounded-2xs font-bold uppercase">
+        <!--v-if-->
+        <div class="inline-flex items-center gap-1">
+          <!--v-if--><span class="truncate">Action</span>
+          <!--v-if-->
+        </div>
+      </button></div>
+  </div>
   <!--v-if-->
-  <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
+</div>"
+`;
+
+exports[`Alert > renders with success correctly 1`] = `
+"<div data-orientation="vertical" class="relative overflow-hidden w-full rounded-3xs flex text-green-780 bg-green-200 dark:text-green-780 dark:bg-green-300 py-md ps-md pe-xs gap-2.5 items-start">
+  <!--v-if-->
+  <div class="min-w-0 flex-1 flex flex-col font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Alert</div>
     <!--v-if-->
     <!--v-if-->
@@ -128,9 +223,9 @@ exports[`Alert > renders with success correctly 1`] = `
 `;
 
 exports[`Alert > renders with title correctly 1`] = `
-"<div class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-center">
+"<div data-orientation="vertical" class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-start">
   <!--v-if-->
-  <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
+  <div class="min-w-0 flex-1 flex flex-col font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Alert</div>
     <!--v-if-->
     <!--v-if-->
@@ -140,9 +235,9 @@ exports[`Alert > renders with title correctly 1`] = `
 `;
 
 exports[`Alert > renders with title slot correctly 1`] = `
-"<div class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-center">
+"<div data-orientation="vertical" class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-start">
   <!--v-if-->
-  <div class="min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal">
+  <div class="min-w-0 flex-1 flex flex-col font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Title slot</div>
     <!--v-if-->
     <!--v-if-->

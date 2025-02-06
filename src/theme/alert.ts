@@ -9,14 +9,14 @@
 export default {
   slots: {
     root: 'relative overflow-hidden w-full rounded-3xs flex',
-    wrapper: 'min-w-0 flex-1 flex flex-col gap-1 font-b24-primary font-normal',
+    wrapper: 'min-w-0 flex-1 flex flex-col font-b24-primary font-normal',
     title: 'font-bold',
     description: '',
     icon: 'shrink-0 size-6',
     avatar: 'shrink-0',
     avatarSize: '',
     actions: 'flex flex-wrap gap-1.5 shrink-0',
-    close: 'p-0.5'
+    close: 'p-0'
   },
   variants: {
     color: {
@@ -91,14 +91,19 @@ export default {
         avatarSize: 'xl'
       }
     },
-    multiline: {
-      true: {
-        root: 'items-start',
-        actions: 'items-start mt-2'
-      },
-      false: {
+    orientation: {
+      horizontal: {
         root: 'items-center',
         actions: 'items-center'
+      },
+      vertical: {
+        root: 'items-start',
+        actions: 'items-start mt-2'
+      }
+    },
+    title: {
+      true: {
+        description: 'mt-1'
       }
     }
   },

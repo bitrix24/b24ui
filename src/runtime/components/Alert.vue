@@ -23,11 +23,12 @@ export interface AlertProps {
   icon?: IconComponent
   avatar?: AvatarProps
   color?: AlertVariants['color']
+  orientation?: AlertVariants['orientation']
   size?: AlertVariants['size']
   /**
    * Display a list of actions:
-   * - under the title and description if multiline
-   * - next to the close button if not multiline
+   * - under the title and description when orientation is `vertical`
+   * - next to the close button when orientation is `horizontal`
    * `{ size: 'xs' }`{lang="ts-type"}
    */
   actions?: ButtonProps[]
@@ -68,22 +69,24 @@ import icons from '../dictionary/icons'
 import B24Avatar from './Avatar.vue'
 import B24Button from './Button.vue'
 
-const props = defineProps<AlertProps>()
+const props = withDefaults(defineProps<AlertProps>(), {
+  orientation: 'vertical'
+})
 const emits = defineEmits<AlertEmits>()
 const slots = defineSlots<AlertSlots>()
 
 const { t } = useLocale()
 
-const multiline = computed(() => !!props.title && !!props.description)
-
 const b24ui = computed(() => alert({
   color: props.color,
-  size: props.size
+  size: props.size,
+  orientation: props.orientation,
+  title: !!props.title || !!slots.title
 }))
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.class, props.b24ui?.root], multiline })">
+  <Primitive :as="as" :data-orientation="orientation" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
     <slot name="leading">
       <Component
         :is="icon"
@@ -105,15 +108,15 @@ const b24ui = computed(() => alert({
         </slot>
       </div>
 
-      <div v-if="multiline && actions?.length" :class="b24ui.actions({ class: props.b24ui?.actions, multiline: true })">
+      <div v-if="orientation === 'vertical' && actions?.length" :class="b24ui.actions({ class: props.b24ui?.actions })">
         <slot name="actions">
           <B24Button v-for="(action, index) in actions" :key="index" size="xs" v-bind="action" />
         </slot>
       </div>
     </div>
 
-    <div v-if="(!multiline && actions?.length) || close" :class="b24ui.actions({ class: props.b24ui?.actions, multiline: false })">
-      <template v-if="!multiline">
+    <div v-if="(orientation === 'horizontal' && actions?.length) || close" :class="b24ui.actions({ class: props.b24ui?.actions,orientation: 'horizontal' })">
+      <template v-if="orientation === 'horizontal' && actions?.length">
         <slot name="actions">
           <B24Button v-for="(action, index) in actions" :key="index" size="xs" v-bind="action" />
         </slot>
