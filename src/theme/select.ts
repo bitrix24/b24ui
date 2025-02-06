@@ -47,7 +47,7 @@ export default () => {
         arrow: 'fill-base-master/10 dark:fill-base-100/20',
         content: [
           'w-[var(--reka-popper-anchor-width)]',
-          'max-h-60',
+          // 'max-h-60',
           // 'h-[var(--reka-popper-available-height)]',
           'bg-white dark:bg-base-dark',
           'shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800',

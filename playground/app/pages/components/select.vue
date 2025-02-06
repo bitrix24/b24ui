@@ -27,7 +27,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
 const knowledgeBase = ['Select Knowledge base', 'Create knowledge base']
 const smartScripts = ['Scripts', 'Create script', 'Install from Bitrix24.Market']
 const smartProcess = ['Smart Process Automation']
-const settings = ['CRM settings', 'My company details', 'Access permissions', 'CRM Payment', 'CRM.Delivery']
+const settings = ['CRM settings', 'My company details', 'Access permissions']
 
 const items = [
   [...knowledgeBase],
@@ -130,6 +130,16 @@ function getUserAvatar(value: string) {
           aria-label="Choose a value"
           default-value="Apple"
           class="w-3/4"
+        />
+        <B24Separator label="fix height" type="dotted" />
+        <B24Select
+          :items="items"
+          name="some_value"
+          placeholder="Choose a value&hellip;"
+          aria-label="Choose a value"
+          default-value="Apple"
+          class="w-3/4"
+          :b24ui="{ content: 'max-h-60' }"
         />
       </div>
 

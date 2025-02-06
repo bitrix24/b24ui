@@ -48,6 +48,14 @@ Use the `v-model` directive to control the value of the Select or the `default-v
 
 Use the `items` prop as an array of strings, numbers or booleans:
 
+::: info
+If you need to limit the height of a dropdown list, you can use custom style parameters.
+
+For example, to set the maximum height of the list to 60 units, add the parameter :b24ui="{ content: 'max-h-60' }".
+
+This will help control the content display and improve the user experience.
+:::
+
 <div class="lg:min-h-[160px]">
   <ClientOnly>
     <SelectExample />
