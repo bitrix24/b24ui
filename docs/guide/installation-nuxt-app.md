@@ -20,29 +20,29 @@ outline: deep
 ::: code-group
 
 ```bash [pnpm]
-pnpm add @bitrix24/b24ui-nuxt@next
-pnpm add @bitrix24/b24icons-vue@next
+pnpm add @bitrix24/b24ui-nuxt
+pnpm add @bitrix24/b24icons-vue
 ```
 
 ```bash [yarn]
-yarn add @bitrix24/b24ui-nuxt@next
-yarn add @bitrix24/b24icons-vue@next
+yarn add @bitrix24/b24ui-nuxt
+yarn add @bitrix24/b24icons-vue
 ```
 
 ```bash [npm]
-npm install @bitrix24/b24ui-nuxt@next
-npm install @bitrix24/b24icons-vue@next
+npm install @bitrix24/b24ui-nuxt
+npm install @bitrix24/b24icons-vue
 ```
 
 ```bash [bun]
-bun add @bitrix24/b24ui-nuxt@next
-bun add @bitrix24/b24icons-vue@next
+bun add @bitrix24/b24ui-nuxt
+bun add @bitrix24/b24icons-vue
 ```
 
 :::
 
 ::: warning
-If you're using **pnpm**, ensure that you either set [`shamefully-hoist=true`](https://pnpm.io/npmrc#shamefully-hoist) in your `.npmrc` file or install `tailwindcss@next` in your project's root directory.
+If you're using **pnpm**, ensure that you either set [`shamefully-hoist=true`](https://pnpm.io/npmrc#shamefully-hoist) in your `.npmrc` file or install `tailwindcss` in your project's root directory.
 :::
 
 **2. Add the Bitrix24 UI module in your `nuxt.config.ts`{lang="ts-type"}**
