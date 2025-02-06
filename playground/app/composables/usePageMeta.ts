@@ -51,7 +51,7 @@ const components: IComponentInfo[] = [
   { id: 'form', description: 'A form component with built-in validation and submission handling.', icon: FormSettingsIcon },
   { id: 'form-field', description: 'A wrapper for form elements that provides validation and error handling.', icon: FormIcon },
   { id: 'input', description: 'An input element to enter text.', icon: FormIcon },
-  // { id: 'input-menu', description: 'An autocomplete input with real-time suggestions.', icon: FormIcon },
+  { id: 'input-menu', description: 'An autocomplete input with real-time suggestions.', icon: FormIcon },
   { id: 'kbd', description: 'A kbd element to display a keyboard key.', icon: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'link', description: 'A wrapper around NuxtLink with extra props.', icon: GroupIcon },
   { id: 'progress', description: 'An indicator showing the progress of a task.', icon: GroupIcon },
