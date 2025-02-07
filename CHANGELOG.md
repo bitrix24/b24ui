@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.2 (2025-02-07)
+
+### Features
+
+* **module:** fake generate `tailwindcss` theme colors (for compatibility only)
+* **DropdownMenu:** new component
+
 ## 0.2.1 (2025-02-06)
 
 ### Features
