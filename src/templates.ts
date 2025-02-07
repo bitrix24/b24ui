@@ -7,6 +7,7 @@ import type { ModuleOptions } from './module'
 import * as theme from './theme'
 import * as themeProse from './theme/prose'
 import * as themeContent from './theme/content'
+// import colors from 'tailwindcss/colors'
 
 function replaceBrackets(value: string): string {
   return value.replace(/\[\[/g, '<').replace(/\]\]/g, '>')
@@ -175,19 +176,37 @@ export function getTemplates(options: ModuleOptions) {
 
   /**
    * use to generate tw colors
-   * @memo not use now
-   * in `index.css` need add `@import '#build/b24ui.css';`
+   * in `index.css` add `@import '#build/b24ui.css';`
+   * @memo we use `@plugin '@bitrix24/b24style'`. This for compatibility only
    */
   /*
   templates.push({
     filename: 'b24ui.css',
     write: true,
     getContents: () => `@theme default {
-  ${['default'].map(color => [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map(shade => `--color-${color}-${shade}: var(--ui-color-${color}-${shade});`).join('\n\t')).join('\n\t')}
+  --color-old-neutral-50: ${colors.neutral[50]};
+  --color-old-neutral-100: ${colors.neutral[100]};
+  --color-old-neutral-200: ${colors.neutral[200]};
+  --color-old-neutral-300: ${colors.neutral[300]};
+  --color-old-neutral-400: ${colors.neutral[400]};
+  --color-old-neutral-500: ${colors.neutral[500]};
+  --color-old-neutral-600: ${colors.neutral[600]};
+  --color-old-neutral-700: ${colors.neutral[700]};
+  --color-old-neutral-800: ${colors.neutral[800]};
+  --color-old-neutral-900: ${colors.neutral[900]};
+  --color-old-neutral-950: ${colors.neutral[950]};
+  ${[...([]), 'default'].map(color => [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map(shade => `--color-${color}-${shade}: var(--ui-color-${color}-${shade});`).join('\n\t')).join('\n\t')}
 }
 `
   })
   */
+  templates.push({
+    filename: 'b24ui.css',
+    write: true,
+    getContents: () => `@theme default {
+}
+`
+  })
 
   templates.push({
     filename: 'b24ui/index.ts',

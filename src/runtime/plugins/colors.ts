@@ -11,15 +11,19 @@ import type {} from '#app'
 export default defineNuxtPlugin(() => {
   // const appConfig = useAppConfig()
   const nuxtApp = useNuxtApp()
+  /**
+   * @see src/templates.ts -> getTemplates
+   */
+  /*
+  const shades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950]
 
-  // const shades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950]
-
-  // function generateShades(key: string, value: string) {
-  //   return `${shades.map(shade => `--ui-color-${key}-${shade}: var(--color-${value}-${shade});`).join('\n  ')}`
-  // }
-  // function generateColor(key: string, shade: number) {
-  //   return `--ui-${key}: var(--ui-color-${key}-${shade});`
-  // }
+  function generateShades(key: string, value: string) {
+    return `${shades.map(shade => `--ui-color-${key}-${shade}: var(--color-${value === 'neutral' ? 'old-neutral' : value}-${shade});`).join('\n  ')}`
+  }
+  function generateColor(key: string, shade: number) {
+    return `--ui-${key}: var(--ui-color-${key}-${shade});`
+  }
+  */
 
   const root = computed(() => {
     // const { base, ...colors } = appConfig.b24ui.colors

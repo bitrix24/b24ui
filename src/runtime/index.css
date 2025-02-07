@@ -1,4 +1,5 @@
 @plugin '@bitrix24/b24style';
+@import '#build/b24ui.css';
 @import './keyframes.css';
 
 @variant light (&:where(.light, .light *));
