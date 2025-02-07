@@ -180,6 +180,7 @@ function resolveLinkClass({ route, isActive, isExactActive }: any) {
           as,
           type,
           disabled,
+          target: props.target ? props.target : undefined,
           href: to ? (isExternal ? to as string : href) : undefined,
           navigate,
           active: isLinkActive({ route: linkRoute, isActive, isExactActive })
