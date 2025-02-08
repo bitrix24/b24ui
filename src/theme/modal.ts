@@ -4,17 +4,30 @@
  * ---
  * @link: /api_d7/bitrix/ui/dialogs/dialogs.php
  * @see bitrix/js/ui/dialogs/messagebox/..
+ *
+ * @todo: use modal template from - What's new in Bitrix24
+ * @todo: set position ?? -> top / right
+ * @todo: btn:link/normal - padding ?? remove -> see :b24ui="{ base: 'ps-0 pe-0' }"
+ * @todo: how close modal from btn ??
+ */
+/*
+  BX.UI.Dialogs.MessageBox.alert("Message", "Title", (messageBox, button, event) => {}, "OK");
  */
 export default {
   slots: {
-    overlay: 'fixed inset-0 bg-base-100/75 dark:bg-base-100/75 ',
-    content: 'fixed w-full h-dvh bg-white dark:bg-base-dark divide-y divide-base-30 dark:divide-base-800 flex flex-col focus:outline-none',
-    header: 'px-4 py-5 sm:px-6',
-    body: 'flex-1 overflow-y-auto p-4 sm:p-6',
-    footer: 'flex items-center gap-1.5 p-4 sm:px-6',
-    title: 'text-(--ui-text-highlighted) font-semibold',
-    description: 'mt-1 text-(--ui-text-muted) text-sm',
-    close: 'absolute top-4 end-4'
+    overlay: 'fixed inset-0 bg-base-950/20 dark:bg-base-950/30',
+    content: [
+      'py-md2 px-5',
+      'fixed w-full h-dvh bg-white dark:bg-base-950',
+      // 'divide-y divide-base-30 dark:divide-white/10',
+      'flex flex-col focus:outline-none'
+    ].join(' '),
+    header: 'pe-5 pt-0',
+    body: 'flex-1 overflow-y-auto my-2.5 text-md leading-normal',
+    footer: 'flex items-center justify-center gap-3 mt-2.5 pt-4 border-t border-t-1 border-t-base-900/10 dark:border-t-white/20',
+    title: 'font-bold text-md leading-normal text-black dark:text-base-150',
+    description: 'mt-0.5 mb-1 text-base-500 dark:text-base-400 text-sm',
+    close: 'absolute top-2 end-1.5'
   },
   variants: {
     transition: {
@@ -28,7 +41,12 @@ export default {
         content: 'inset-0'
       },
       false: {
-        content: 'top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] sm:max-w-[512px] sm:h-auto sm:max-h-[calc(100vh-4rem)] sm:rounded-md sm:shadow-lg sm:ring ring-base-300 dark:ring-base-800'
+        content: [
+          'top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]',
+          'sm:max-w-[512px] sm:h-auto sm:max-h-[calc(100vh-4rem)]',
+          'sm:rounded-md sm:shadow-lg',
+          'sm:ring ring-base-300 dark:ring-base-800'
+        ].join(' ')
       }
     }
   }
