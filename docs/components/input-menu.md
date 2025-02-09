@@ -106,7 +106,7 @@ Ensure to pass an array to the `default-value` prop or the `v-model` directive.
 
 ### Delete Icon
 
-With `multiple`, use the `delete-icon` prop to customize the delete [`defineShortcuts`](composables/define-shortcuts) in the badges. Defaults to `i-lucide-x`.
+With `multiple`, use the `delete-icon` prop to customize the delete icon [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html) in the badges. Defaults to `Cross30Icon`.
 
 __component-code
 
@@ -152,13 +152,13 @@ __component-code
 
 ### Trailing Icon
 
-Use the `trailing-icon` prop to customize the trailing [`defineShortcuts`](composables/define-shortcuts). Defaults to `i-lucide-chevron-down`.
+Use the `trailing-icon` prop to customize the trailing icon [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html). Defaults to `ChevronDownIcon`.
 
 __component-code
 
 ### Selected Icon
 
-Use the `selected-icon` prop to customize the icon when an item is selected. Defaults to `i-lucide-check`.
+Use the `selected-icon` prop to customize the icon [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html) when an item is selected. Defaults to `CheckIcon`.
 
 __component-code
 
@@ -225,7 +225,7 @@ You can control the open state by using the `default-open` prop or the `v-model:
 __component-code
 
 ::: info
-In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), you can toggle the InputMenu by pressing :kbd{value="O"}.
+In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), you can toggle the InputMenu by pressing `O`.
 :::
 
 ### Control open state on focus

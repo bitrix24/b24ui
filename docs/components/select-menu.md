@@ -239,7 +239,7 @@ __component-example
 You can control the open state by using the `default-open` prop or the `v-model:open` directive.
 
 ::: info
-In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), you can toggle the SelectMenu by pressing :kbd{value="O"}.
+In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), you can toggle the SelectMenu by pressing `O`.
 :::
 
 __component-example
