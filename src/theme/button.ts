@@ -30,7 +30,6 @@ export default {
   variants: {
     ...buttonGroupVariant,
     color: {
-      // DEFAULT ////
       default: [
         'text-white dark:text-base-100 bg-base-650 border border-base-650',
         'hover:bg-base-850 hover:border-base-850 hover:focus-visible:ring-0',
@@ -178,7 +177,6 @@ export default {
   compoundVariants: [
     // region default ////
     {
-      // BASE_LIGHT ////
       color: 'default',
       depth: 'light',
       class: [
@@ -408,11 +406,17 @@ export default {
       ].join(' ')
     },
     {
-      // LIGHT_BORDER ////
+      // LINK ////
       color: 'link',
       depth: 'light',
       useLabel: true,
       class: 'ps-1.5 pe-1.5'
+    },
+    {
+      color: 'link',
+      depth: 'normal',
+      useLabel: true,
+      class: 'ps-0 pe-0'
     },
     {
       // LIGHT_BORDER ////
