@@ -13,7 +13,8 @@ export default {
   slots: {
     base: [
       'select-none cursor-pointer inline-flex items-center',
-      'relative focus:outline-hidden',
+      'relative',
+      'outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2',
       'disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50',
       'transition duration-150 ease-linear' // transition-colors
     ],
@@ -46,7 +47,6 @@ export default {
         'focus-visible:outline-red-720',
         'ring-red-800 focus-visible:ring-red-800'
       ].join(' '),
-      // SUCCESS ////
       success: [
         'text-base-900 bg-green-450 border border-green-450',
         'hover:bg-green-370 hover:border-green-370 hover:focus-visible:ring-0',
@@ -55,7 +55,6 @@ export default {
         'focus-visible:outline-green-450',
         'ring-green-500 focus-visible:ring-green-500'
       ].join(' '),
-      // new WARNING ////
       warning: [
         'text-white dark:text-orange-100 bg-orange-500 border border-orange-500',
         'hover:bg-orange-500/75 hover:border-orange-500/75 hover:focus-visible:ring-0',
@@ -64,7 +63,6 @@ export default {
         'focus-visible:outline-orange-500',
         'ring-orange-800 focus-visible:ring-orange-800'
       ].join(' '),
-      // PRIMARY ////
       primary: [
         'text-white dark:text-blue-100 bg-blue-530 border border-blue-530',
         'hover:bg-blue-450 hover:border-blue-450 hover:focus-visible:ring-0',
@@ -73,7 +71,6 @@ export default {
         'focus-visible:outline-blue-530',
         'ring-blue-800 focus-visible:ring-blue-800'
       ].join(' '),
-      // SECONDARY ////
       secondary: [
         'text-base-900 bg-cyan-160 border border-cyan-230',
         'hover:bg-cyan-150 hover:border-cyan-230 hover:focus-visible:ring-0',
@@ -82,7 +79,6 @@ export default {
         'focus-visible:outline-cyan-160',
         'ring-cyan-500 focus-visible:ring-cyan-500'
       ].join(' '),
-      // COLLAB ////
       collab: [
         'text-white dark:text-collab-100 bg-collab-600 border border-collab-600',
         'hover:bg-collab-500 hover:border-collab-500 hover:focus-visible:ring-0',
@@ -91,7 +87,6 @@ export default {
         'focus-visible:outline-collab-600',
         'ring-collab-900 focus-visible:ring-collab-900'
       ].join(' '),
-      // AI ////
       ai: [
         'text-white dark:text-ai-100 bg-ai-450 border border-ai-450',
         'hover:bg-ai-370 hover:border-ai-370 hover:focus-visible:ring-0',
@@ -100,7 +95,6 @@ export default {
         'focus-visible:outline-ai-450',
         'ring-ai-900 focus-visible:ring-ai-900'
       ].join(' '),
-      // LINK ////
       link: [
         'no-underline decoration-solid decoration-auto',
         'text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300',
@@ -192,7 +186,8 @@ export default {
         'hover:bg-base-320 hover:border-base-320 hover:focus-visible:ring-0',
         'active:bg-base-250 active:border-base-250 active:focus-visible:ring-0',
         'disabled:bg-base-200 aria-disabled:bg-base-200 disabled:border-base-300 aria-disabled:border-base-300',
-        'focus-visible:outline-base-200'
+        'focus-visible:outline-base-200',
+        'ring-base-320 focus-visible:ring-base-320'
       ].join(' ')
     },
     {

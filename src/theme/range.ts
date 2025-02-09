@@ -12,7 +12,11 @@ export default {
     root: 'relative flex items-center select-none touch-none',
     track: 'relative bg-base-200 dark:bg-base-800 overflow-hidden rounded-full grow',
     range: 'absolute rounded-full',
-    thumb: 'rounded-full bg-white dark:bg-base-100 ring-2 focus-visible:outline-2 focus-visible:outline-offset-2'
+    thumb: [
+      'rounded-full bg-white dark:bg-base-100',
+      'ring-2',
+      'outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2'
+    ].join(' ')
   },
   variants: {
     color: {

@@ -6,7 +6,12 @@
 export default {
   slots: {
     root: 'relative flex items-start',
-    base: 'cursor-pointer shrink-0 flex items-center justify-center rounded-2xs text-white dark:text-base-150 ring ring-inset ring-base-300 dark:ring-base-700 focus-visible:outline-2 focus-visible:outline-offset-2',
+    base: [
+      'cursor-pointer shrink-0 flex items-center justify-center rounded-2xs text-white dark:text-base-150',
+      'ring ring-inset ring-base-300 dark:ring-base-700',
+      'outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2'
+    ].join(' '),
+
     container: 'flex items-center',
     wrapper: 'font-b24-primary ms-2',
     icon: 'shrink-0 size-full',

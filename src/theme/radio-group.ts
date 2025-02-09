@@ -10,7 +10,11 @@ export default {
     fieldset: 'flex',
     legend: 'mb-1.5 block font-medium text-base-master dark:text-base-400',
     item: 'flex items-start',
-    base: 'cursor-pointer rounded-full ring ring-inset ring-base-300 dark:ring-base-700 focus-visible:outline-2 focus-visible:outline-offset-2',
+    base: [
+      'cursor-pointer rounded-full',
+      'ring ring-inset ring-base-300 dark:ring-base-700',
+      'outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2'
+    ].join(' '),
     indicator: ' flex items-center justify-center size-full rounded-full after:bg-white dark:after:bg-base-dark after:rounded-full',
     container: 'flex items-center',
     wrapper: 'font-b24-primary font-regular ms-2',

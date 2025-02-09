@@ -12,7 +12,8 @@ export default {
   slots: {
     root: 'relative flex items-start',
     base: [
-      'cursor-pointer inline-flex items-center shrink-0 rounded-full border-2 border-transparent focus-visible:outline-2 focus-visible:outline-offset-2 data-[state=unchecked]:bg-base-200 dark:data-[state=unchecked]:bg-base-800',
+      'cursor-pointer inline-flex items-center shrink-0 rounded-full border-2 border-transparent data-[state=unchecked]:bg-base-200 dark:data-[state=unchecked]:bg-base-800',
+      'outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2',
       'transition-colors duration-200'
     ].join(' '),
     container: 'flex items-center',
