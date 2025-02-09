@@ -37,7 +37,7 @@ export interface ModalProps extends DialogRootProps {
   portal?: boolean
   /**
    * Display a close button to dismiss the modal.
-   * `{ size: 'md', color: 'neutral', variant: 'ghost' }`{lang="ts-type"}
+   * `{ size: 'xs', color: 'link' }`{lang="ts-type"}
    * @defaultValue true
    */
   close?: ButtonProps | boolean
