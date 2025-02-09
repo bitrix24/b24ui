@@ -1,0 +1,464 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Modal > renders with body slot correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed w-full h-dvh bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] sm:max-w-[512px] sm:h-auto sm:max-h-[calc(100vh-4rem)] sm:rounded-md sm:shadow-lg sm:ring ring-base-300 dark:ring-base-800">
+  <!--v-if-->
+  <div class="pe-5 pt-0">
+    <!--v-if-->
+    <!--v-if--><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase absolute top-2 end-1.5" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
+          <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button>
+  </div>
+  <div class="flex-1 overflow-y-auto my-2.5 text-md leading-normal">Body slot</div>
+  <!--v-if-->
+</div>
+
+
+<!--teleport end-->"
+`;
+
+exports[`Modal > renders with class correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed w-full h-dvh dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] sm:max-w-[512px] sm:h-auto sm:max-h-[calc(100vh-4rem)] sm:rounded-md sm:shadow-lg sm:ring ring-base-300 dark:ring-base-800 bg-base-100">
+  <!--v-if-->
+  <div class="pe-5 pt-0">
+    <!--v-if-->
+    <!--v-if--><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase absolute top-2 end-1.5" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
+          <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button>
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+</div>
+
+
+<!--teleport end-->"
+`;
+
+exports[`Modal > renders with close slot correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed w-full h-dvh bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] sm:max-w-[512px] sm:h-auto sm:max-h-[calc(100vh-4rem)] sm:rounded-md sm:shadow-lg sm:ring ring-base-300 dark:ring-base-800">
+  <!--v-if-->
+  <div class="pe-5 pt-0">
+    <!--v-if-->
+    <!--v-if-->Close slot
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+</div>
+
+
+<!--teleport end-->"
+`;
+
+exports[`Modal > renders with closeIcon correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed w-full h-dvh bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] sm:max-w-[512px] sm:h-auto sm:max-h-[calc(100vh-4rem)] sm:rounded-md sm:shadow-lg sm:ring ring-base-300 dark:ring-base-800">
+  <!--v-if-->
+  <div class="pe-5 pt-0">
+    <!--v-if-->
+    <!--v-if--><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase absolute top-2 end-1.5" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
+          <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button>
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+</div>
+
+
+<!--teleport end-->"
+`;
+
+exports[`Modal > renders with content slot correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed w-full h-dvh bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] sm:max-w-[512px] sm:h-auto sm:max-h-[calc(100vh-4rem)] sm:rounded-md sm:shadow-lg sm:ring ring-base-300 dark:ring-base-800">
+  <!--v-if-->Content slot
+</div>
+
+
+<!--teleport end-->"
+`;
+
+exports[`Modal > renders with default slot correctly 1`] = `
+"Default slot
+<!--teleport start-->
+
+
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="reka-dialog-content-v-0" role="dialog" aria-describedby="reka-dialog-description-v-2" aria-labelledby="reka-dialog-title-v-1" data-state="open" tabindex="-1" class="py-md2 px-5 fixed w-full h-dvh bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] sm:max-w-[512px] sm:h-auto sm:max-h-[calc(100vh-4rem)] sm:rounded-md sm:shadow-lg sm:ring ring-base-300 dark:ring-base-800">
+  <!--v-if-->
+  <div class="pe-5 pt-0">
+    <!--v-if-->
+    <!--v-if--><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase absolute top-2 end-1.5" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
+          <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button>
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+</div>
+
+
+<!--teleport end-->"
+`;
+
+exports[`Modal > renders with description correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed w-full h-dvh bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] sm:max-w-[512px] sm:h-auto sm:max-h-[calc(100vh-4rem)] sm:rounded-md sm:shadow-lg sm:ring ring-base-300 dark:ring-base-800">
+  <!--v-if-->
+  <div class="pe-5 pt-0">
+    <h2 id="reka-dialog-title-v-0" class="font-bold text-md leading-normal text-black dark:text-base-150">Title</h2>
+    <p id="reka-dialog-description-v-1" class="mt-0.5 mb-1 text-base-500 dark:text-base-400 text-sm">Description</p><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase absolute top-2 end-1.5" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
+          <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button>
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+</div>
+
+
+<!--teleport end-->"
+`;
+
+exports[`Modal > renders with description slot correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed w-full h-dvh bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] sm:max-w-[512px] sm:h-auto sm:max-h-[calc(100vh-4rem)] sm:rounded-md sm:shadow-lg sm:ring ring-base-300 dark:ring-base-800">
+  <!--v-if-->
+  <div class="pe-5 pt-0">
+    <!--v-if-->
+    <p id="reka-dialog-description-v-1" class="mt-0.5 mb-1 text-base-500 dark:text-base-400 text-sm">Description slot</p><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase absolute top-2 end-1.5" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
+          <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button>
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+</div>
+
+
+<!--teleport end-->"
+`;
+
+exports[`Modal > renders with footer slot correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed w-full h-dvh bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] sm:max-w-[512px] sm:h-auto sm:max-h-[calc(100vh-4rem)] sm:rounded-md sm:shadow-lg sm:ring ring-base-300 dark:ring-base-800">
+  <!--v-if-->
+  <div class="pe-5 pt-0">
+    <!--v-if-->
+    <!--v-if--><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase absolute top-2 end-1.5" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
+          <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button>
+  </div>
+  <!--v-if-->
+  <div class="flex items-center justify-center gap-3 mt-2.5 pt-4 border-t-1 border-t-base-900/10 dark:border-t-white/20">Footer slot</div>
+</div>
+
+
+<!--teleport end-->"
+`;
+
+exports[`Modal > renders with fullscreen correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed w-full h-dvh bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] inset-0">
+  <!--v-if-->
+  <div class="pe-5 pt-0">
+    <h2 id="reka-dialog-title-v-0" class="font-bold text-md leading-normal text-black dark:text-base-150">Title</h2>
+    <p id="reka-dialog-description-v-1" class="mt-0.5 mb-1 text-base-500 dark:text-base-400 text-sm">Description</p><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase absolute top-2 end-1.5" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
+          <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button>
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+</div>
+
+
+<!--teleport end-->"
+`;
+
+exports[`Modal > renders with header slot correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed w-full h-dvh bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] sm:max-w-[512px] sm:h-auto sm:max-h-[calc(100vh-4rem)] sm:rounded-md sm:shadow-lg sm:ring ring-base-300 dark:ring-base-800">
+  <!--v-if-->
+  <div class="pe-5 pt-0">Header slot</div>
+  <!--v-if-->
+  <!--v-if-->
+</div>
+
+
+<!--teleport end-->"
+`;
+
+exports[`Modal > renders with open correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed w-full h-dvh bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] sm:max-w-[512px] sm:h-auto sm:max-h-[calc(100vh-4rem)] sm:rounded-md sm:shadow-lg sm:ring ring-base-300 dark:ring-base-800" style="pointer-events: auto;">
+  <!--v-if-->
+  <div class="pe-5 pt-0">
+    <!--v-if-->
+    <!--v-if--><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase absolute top-2 end-1.5" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
+          <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button>
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+</div>
+
+
+<!--teleport end-->"
+`;
+
+exports[`Modal > renders with title correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed w-full h-dvh bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] sm:max-w-[512px] sm:h-auto sm:max-h-[calc(100vh-4rem)] sm:rounded-md sm:shadow-lg sm:ring ring-base-300 dark:ring-base-800">
+  <!--v-if-->
+  <div class="pe-5 pt-0">
+    <h2 id="reka-dialog-title-v-0" class="font-bold text-md leading-normal text-black dark:text-base-150">Title</h2>
+    <!--v-if--><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase absolute top-2 end-1.5" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
+          <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button>
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+</div>
+
+
+<!--teleport end-->"
+`;
+
+exports[`Modal > renders with title slot correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed w-full h-dvh bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] sm:max-w-[512px] sm:h-auto sm:max-h-[calc(100vh-4rem)] sm:rounded-md sm:shadow-lg sm:ring ring-base-300 dark:ring-base-800">
+  <!--v-if-->
+  <div class="pe-5 pt-0">
+    <h2 id="reka-dialog-title-v-0" class="font-bold text-md leading-normal text-black dark:text-base-150">Title slot</h2>
+    <!--v-if--><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase absolute top-2 end-1.5" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
+          <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button>
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+</div>
+
+
+<!--teleport end-->"
+`;
+
+exports[`Modal > renders with ui correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed w-full h-dvh bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] sm:max-w-[512px] sm:h-auto sm:max-h-[calc(100vh-4rem)] sm:rounded-md sm:shadow-lg sm:ring ring-base-300 dark:ring-base-800">
+  <!--v-if-->
+  <div class="pe-5 pt-0">
+    <!--v-if-->
+    <!--v-if--><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase absolute top-2 end-1.5" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
+          <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button>
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+</div>
+
+
+<!--teleport end-->"
+`;
+
+exports[`Modal > renders without close correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed w-full h-dvh bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] sm:max-w-[512px] sm:h-auto sm:max-h-[calc(100vh-4rem)] sm:rounded-md sm:shadow-lg sm:ring ring-base-300 dark:ring-base-800">
+  <!--v-if-->
+  <div class="pe-5 pt-0">
+    <h2 id="reka-dialog-title-v-0" class="font-bold text-md leading-normal text-black dark:text-base-150">Title</h2>
+    <p id="reka-dialog-description-v-1" class="mt-0.5 mb-1 text-base-500 dark:text-base-400 text-sm">Description</p>
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+</div>
+
+
+<!--teleport end-->"
+`;
+
+exports[`Modal > renders without overlay correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<!--v-if-->
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed w-full h-dvh bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] sm:max-w-[512px] sm:h-auto sm:max-h-[calc(100vh-4rem)] sm:rounded-md sm:shadow-lg sm:ring ring-base-300 dark:ring-base-800">
+  <!--v-if-->
+  <div class="pe-5 pt-0">
+    <h2 id="reka-dialog-title-v-0" class="font-bold text-md leading-normal text-black dark:text-base-150">Title</h2>
+    <p id="reka-dialog-description-v-1" class="mt-0.5 mb-1 text-base-500 dark:text-base-400 text-sm">Description</p><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase absolute top-2 end-1.5" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
+          <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button>
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+</div>
+
+
+<!--teleport end-->"
+`;
+
+exports[`Modal > renders without transition correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed w-full h-dvh bg-white dark:bg-base-950 flex flex-col focus:outline-none top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] sm:max-w-[512px] sm:h-auto sm:max-h-[calc(100vh-4rem)] sm:rounded-md sm:shadow-lg sm:ring ring-base-300 dark:ring-base-800">
+  <!--v-if-->
+  <div class="pe-5 pt-0">
+    <h2 id="reka-dialog-title-v-0" class="font-bold text-md leading-normal text-black dark:text-base-150">Title</h2>
+    <p id="reka-dialog-description-v-1" class="mt-0.5 mb-1 text-base-500 dark:text-base-400 text-sm">Description</p><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center focus:outline-hidden disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase absolute top-2 end-1.5" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
+          <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button>
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+</div>
+
+
+<!--teleport end-->"
+`;
