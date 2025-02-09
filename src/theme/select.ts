@@ -47,9 +47,9 @@ export default () => {
         placeholder: 'truncate text-base-400 dark:text-base-300',
         arrow: 'fill-base-master/10 dark:fill-base-100/20',
         content: [
-          'w-[var(--reka-popper-anchor-width)]',
+          'w-(--reka-popper-anchor-width)',
           // 'max-h-60',
-          // 'h-[var(--reka-popper-available-height)]',
+          // 'h-(--reka-popper-available-height)',
           'bg-white dark:bg-base-dark',
           'shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800',
           'overflow-hidden',

@@ -44,9 +44,9 @@ export default () => {
       trailing: 'group absolute inset-y-0 end-0 flex items-center disabled:cursor-not-allowed disabled:opacity-75',
       arrow: 'fill-base-master/10 dark:fill-base-100/20',
       content: [
-        'w-[var(--reka-popper-anchor-width)]',
+        'w-(--reka-popper-anchor-width)',
         // 'max-h-60',
-        // 'h-[var(--reka-popper-available-height)]',
+        // 'h-(--reka-popper-available-height)',
         'bg-white dark:bg-base-dark',
         'shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800',
         'overflow-hidden',

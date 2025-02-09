@@ -80,7 +80,7 @@ const metaProps: ComputedRef<ComponentMeta['props']> = computed(() => {
 // @todo add ProseCode
 // @todo add <HighlightInlineType v-if="prop.default" :type="prop.default" />
 // @todo add <HighlightInlineType v-if="prop.type" :type="prop.type" />
-// @todo add <MDC v-if="prop.description" :value="prop.description" class="text-[var(--ui-text-toned)] mt-1" />
+// @todo add <MDC v-if="prop.description" :value="prop.description" class="text-(--ui-text-toned) mt-1" />
 // @todo add <ComponentPropsLinks v-if="prop.tags?.length" :prop="prop" />
 // @todo add <ComponentPropsSchema v-if="prop.schema" :prop="prop" :ignore="ignore" />
 </script>

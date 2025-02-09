@@ -15,7 +15,7 @@ describe('Avatar', () => {
     ['with icon', { props: { icon: 'i-lucide-image' } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { src: 'https://github.com/IgorShevchik.png', size } }]),
     ['with as', { props: { as: 'section' } }],
-    ['with class', { props: { class: 'bg-[var(--ui-bg)]' } }],
+    ['with class', { props: { class: 'bg-white' } }],
     ['with b24ui', { props: { b24ui: { fallback: 'font-bold' } } }],
     // Slots
     ['with default slot', { slots: { default: '🚀' } }]
