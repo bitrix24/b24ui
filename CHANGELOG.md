@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.2.3 (2025-02-09)
+
+### Features
+
+* **Modal/ModalProvider/ModalDialogClose:** new component
+* **useModal:** new composables
+
+### Chore
+
+* **css:** use new syntax for css variables
+
+### Bug Fixes
+
+* **Button:** px-0 for link color
+* **Button/Checkbox/RadioGroup/Range/Switch:** focus-visible state
+
 ## 0.2.2 (2025-02-07)
 
 ### Features
