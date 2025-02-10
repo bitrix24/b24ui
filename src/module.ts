@@ -61,10 +61,10 @@ export default defineNuxtModule<ModuleOptions>({
     }
 
     addPlugin({ src: resolve('./runtime/plugins/colors') })
+    addPlugin({ src: resolve('./runtime/plugins/modal') })
     /**
-     * @todo on this
+     * @todo on slideover
      */
-    // addPlugin({ src: resolve('./runtime/plugins/modal') })
     // addPlugin({ src: resolve('./runtime/plugins/slideover') })
 
     addComponentsDir({
