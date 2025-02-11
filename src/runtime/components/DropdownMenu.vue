@@ -89,7 +89,7 @@ import { defu } from 'defu'
 import { DropdownMenuRoot, DropdownMenuTrigger, DropdownMenuArrow, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { omit } from '../utils'
-import UDropdownMenuContent from './DropdownMenuContent.vue'
+import B24DropdownMenuContent from './DropdownMenuContent.vue'
 
 const props = withDefaults(defineProps<DropdownMenuProps<T>>(), {
   portal: true,
@@ -115,7 +115,7 @@ const b24ui = computed(() => dropdownMenu({
       <slot :open="open" />
     </DropdownMenuTrigger>
 
-    <UDropdownMenuContent
+    <B24DropdownMenuContent
       :class="b24ui.content({ class: [!slots.default && props.class, props.b24ui?.content] })"
       :b24ui="b24ui"
       :b24ui-override="props.b24ui"
@@ -130,6 +130,6 @@ const b24ui = computed(() => dropdownMenu({
       </template>
 
       <DropdownMenuArrow v-if="!!arrow" v-bind="arrowProps" :class="b24ui.arrow({ class: props.b24ui?.arrow })" />
-    </UDropdownMenuContent>
+    </B24DropdownMenuContent>
   </DropdownMenuRoot>
 </template>

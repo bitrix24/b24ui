@@ -7,15 +7,15 @@ import ComponentRender from '../component-render'
 const TooltipWrapper = defineComponent({
   components: {
     TooltipProvider,
-    UTooltip: Tooltip
+    B24Tooltip: Tooltip
   },
   inheritAttrs: false,
   template: `<TooltipProvider>
-  <UTooltip v-bind="$attrs">
+  <B24Tooltip v-bind="$attrs">
     <template v-for="(_, name) in $slots" #[name]="slotData">
       <slot :name="name" v-bind="slotData" />
     </template>
-  </UTooltip>
+  </B24Tooltip>
 </TooltipProvider>`
 })
 

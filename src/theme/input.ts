@@ -5,6 +5,7 @@
  * @link /api_d7/bitrix/ui/forms/common.php
  * @link /api_d7/bitrix/ui/forms/icons.php
  * @link /api_d7/bitrix/ui/forms/fields_types.php
+ * @see src/theme/input-number.ts
  * @see bitrix/js/ui/..
  */
 

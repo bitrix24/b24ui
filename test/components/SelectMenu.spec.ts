@@ -80,9 +80,9 @@ describe('SelectMenu', () => {
     // @todo fix this
     // ...variants.map((variant: string) => [`with primary variant ${variant}`, { props: { ...props, variant } }]),
     // @todo fix this
-    // ...variants.map((variant: string) => [`with neutral variant ${variant}`, { props: { ...props, variant, color: 'neutral' } }]),
+    // ...variants.map((variant: string) => [`with success variant ${variant}`, { props: { ...props, variant, color: 'success' } }]),
     ['with class', { props: { ...props, class: 'rounded-full' } }],
-    ['with n24ui', { props: { ...props, b24ui: { group: 'p-2' } } }],
+    ['with b24ui', { props: { ...props, b24ui: { group: 'p-2' } } }],
     // Slots
     ['with leading slot', { props, slots: { leading: () => 'Leading slot' } }],
     ['with default slot', { props, slots: { default: () => 'Default slot' } }],

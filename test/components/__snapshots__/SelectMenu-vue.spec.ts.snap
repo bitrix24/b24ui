@@ -66,6 +66,62 @@ exports[`SelectMenu > renders with avatar correctly 1`] = `
 </div>"
 `;
 
+exports[`SelectMenu > renders with b24ui correctly 1`] = `
+"<div class="relative inline-flex items-center w-full">
+  <!----><button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="px-3 relative inline-flex items-center group py-0 border-0 focus:outline-none cursor-pointer disabled:cursor-not-allowed disabled:bg-base-30/37 disabled:text-base-500 dark:disabled:bg-base-900/37 dark:disabled:text-base-800 appearance-none transition duration-300 ease-linear ring ring-inset ring-base-300 dark:ring-base-800 text-base-master bg-white hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-sm leading-tight align-middle text-ellipsis whitespace-nowrap group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 h-10 gap-1.5 rounded-2xs focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600 pe-[39px]" dir="ltr" style="pointer-events: auto;">
+    <!--v-if-->
+    <!--v-if--><span class="truncate text-base-400 dark:text-base-300"> </span><span class="absolute inset-y-0 end-0 flex items-center px-2"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 text-base-400 size-lg2"><path fill="currentColor" fill-rule="evenodd" d="m17.668 8.15-4.527 4.527L12 13.8l-1.119-1.123L6.354 8.15 4.757 9.748l7.254 7.254 7.254-7.254z" clip-rule="evenodd"></path></svg></span>
+  </button>
+  <!--teleport start-->
+  <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
+    <div position="popper" id="reka-combobox-content-v-0" data-state="open" style="display: flex; flex-direction: column; outline-color: none; outline-style: none; outline-width: initial; box-sizing: border-box; --reka-combobox-content-transform-origin: var(--reka-popper-transform-origin); --reka-combobox-content-available-width: var(--reka-popper-available-width); --reka-combobox-content-available-height: var(--reka-popper-available-height); --reka-combobox-trigger-width: var(--reka-popper-anchor-width); --reka-combobox-trigger-height: var(--reka-popper-anchor-height); animation: none;" data-dismissable-layer="" role="listbox" aria-orientation="vertical" aria-multiselectable="false" data-orientation="vertical" class="w-(--reka-popper-anchor-width) bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] pointer-events-auto" data-side="bottom" data-align="center">
+      <div class="relative inline-flex items-center w-full border-b border-base-300 dark:dark:border-base-800">
+        <!--v-if--><input type="search" placeholder="Search..." class="px-3 w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:bg-base-30/37 disabled:resize-none disabled:text-base-500 dark:disabled:bg-base-900/37 dark:disabled:text-base-800 appearance-none transition duration-300 ease-linear ring-inset ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-none align-middle text-ellipsis whitespace-nowrap group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 h-10 gap-1.5 rounded-2xs ring-0 focus-visible:ring-0" autocomplete="off" aria-disabled="false" aria-expanded="true" aria-controls="reka-combobox-content-v-0" aria-autocomplete="list" role="combobox" value="">
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+      <!---->
+      <div class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" data-reka-combobox-viewport="" role="presentation" style="position: relative; flex-grow: 1; flex-shrink: 1; flex-basis: 0%; overflow: auto;">
+        <!--v-if-->
+        <div role="group" aria-labelledby="" id="reka-combobox-group-v-1" class="isolate p-2">
+          <div id="reka-combobox-item-v-3" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 text-base-master dark:text-base-150 data-highlighted:text-base-900 dark:data-highlighted:text-base-200 data-highlighted:before:bg-base-100/50 dark:data-highlighted:before:bg-base-900 data-[state=checked]:text-base-900 dark:data-[state=checked]:text-base-200 data-[state=checked]:before:bg-base-100/50 dark:data-[state=checked]:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2" data-reka-collection-item="">
+            <!--v-if--><span class="truncate">Backlog</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span>
+          </div>
+          <div id="reka-combobox-item-v-5" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 text-base-master dark:text-base-150 data-highlighted:text-base-900 dark:data-highlighted:text-base-200 data-highlighted:before:bg-base-100/50 dark:data-highlighted:before:bg-base-900 data-[state=checked]:text-base-900 dark:data-[state=checked]:text-base-200 data-[state=checked]:before:bg-base-100/50 dark:data-[state=checked]:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2" data-reka-collection-item="">
+            <!--v-if--><span class="truncate">Todo</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span>
+          </div>
+          <div id="reka-combobox-item-v-7" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 text-base-master dark:text-base-150 data-highlighted:text-base-900 dark:data-highlighted:text-base-200 data-highlighted:before:bg-base-100/50 dark:data-highlighted:before:bg-base-900 data-[state=checked]:text-base-900 dark:data-[state=checked]:text-base-200 data-[state=checked]:before:bg-base-100/50 dark:data-[state=checked]:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2" data-reka-collection-item="">
+            <!--v-if--><span class="truncate">In Progress</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span>
+          </div>
+          <div id="reka-combobox-item-v-9" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 text-base-master dark:text-base-150 data-highlighted:text-base-900 dark:data-highlighted:text-base-200 data-highlighted:before:bg-base-100/50 dark:data-highlighted:before:bg-base-900 data-[state=checked]:text-base-900 dark:data-[state=checked]:text-base-200 data-[state=checked]:before:bg-base-100/50 dark:data-[state=checked]:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2" data-reka-collection-item="">
+            <!--v-if--><span class="truncate">Done</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span>
+          </div>
+          <div id="reka-combobox-item-v-11" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 text-base-master dark:text-base-150 data-highlighted:text-base-900 dark:data-highlighted:text-base-200 data-highlighted:before:bg-base-100/50 dark:data-highlighted:before:bg-base-900 data-[state=checked]:text-base-900 dark:data-[state=checked]:text-base-200 data-[state=checked]:before:bg-base-100/50 dark:data-[state=checked]:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2" data-reka-collection-item="">
+            <!--v-if--><span class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span>
+          </div>
+        </div>
+        <!--v-if-->
+      </div>
+      <style>
+        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
+        [data-reka-combobox-viewport] {
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+          -webkit-overflow-scrolling: touch;
+        }
+
+        [data-reka-combobox-viewport]::-webkit-scrollbar {
+          display: none;
+        }
+      </style>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--teleport end-->
+  <!---->
+</div>"
+`;
+
 exports[`SelectMenu > renders with class correctly 1`] = `
 "<div class="relative inline-flex items-center w-full">
   <!----><button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="px-3 relative inline-flex items-center group py-0 border-0 focus:outline-none cursor-pointer disabled:cursor-not-allowed disabled:bg-base-30/37 disabled:text-base-500 dark:disabled:bg-base-900/37 dark:disabled:text-base-800 appearance-none transition duration-300 ease-linear ring ring-inset ring-base-300 dark:ring-base-800 text-base-master bg-white hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-sm leading-tight align-middle text-ellipsis whitespace-nowrap group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 h-10 gap-1.5 focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600 pe-[39px] rounded-full" dir="ltr" style="pointer-events: auto;">
@@ -892,62 +948,6 @@ exports[`SelectMenu > renders with multiple correctly 1`] = `
       <div class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" data-reka-combobox-viewport="" role="presentation" style="position: relative; flex-grow: 1; flex-shrink: 1; flex-basis: 0%; overflow: auto;">
         <!--v-if-->
         <div role="group" aria-labelledby="" id="reka-combobox-group-v-1" class="p-1 isolate">
-          <div id="reka-combobox-item-v-3" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 text-base-master dark:text-base-150 data-highlighted:text-base-900 dark:data-highlighted:text-base-200 data-highlighted:before:bg-base-100/50 dark:data-highlighted:before:bg-base-900 data-[state=checked]:text-base-900 dark:data-[state=checked]:text-base-200 data-[state=checked]:before:bg-base-100/50 dark:data-[state=checked]:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2" data-reka-collection-item="">
-            <!--v-if--><span class="truncate">Backlog</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span>
-          </div>
-          <div id="reka-combobox-item-v-5" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 text-base-master dark:text-base-150 data-highlighted:text-base-900 dark:data-highlighted:text-base-200 data-highlighted:before:bg-base-100/50 dark:data-highlighted:before:bg-base-900 data-[state=checked]:text-base-900 dark:data-[state=checked]:text-base-200 data-[state=checked]:before:bg-base-100/50 dark:data-[state=checked]:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2" data-reka-collection-item="">
-            <!--v-if--><span class="truncate">Todo</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span>
-          </div>
-          <div id="reka-combobox-item-v-7" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 text-base-master dark:text-base-150 data-highlighted:text-base-900 dark:data-highlighted:text-base-200 data-highlighted:before:bg-base-100/50 dark:data-highlighted:before:bg-base-900 data-[state=checked]:text-base-900 dark:data-[state=checked]:text-base-200 data-[state=checked]:before:bg-base-100/50 dark:data-[state=checked]:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2" data-reka-collection-item="">
-            <!--v-if--><span class="truncate">In Progress</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span>
-          </div>
-          <div id="reka-combobox-item-v-9" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 text-base-master dark:text-base-150 data-highlighted:text-base-900 dark:data-highlighted:text-base-200 data-highlighted:before:bg-base-100/50 dark:data-highlighted:before:bg-base-900 data-[state=checked]:text-base-900 dark:data-[state=checked]:text-base-200 data-[state=checked]:before:bg-base-100/50 dark:data-[state=checked]:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2" data-reka-collection-item="">
-            <!--v-if--><span class="truncate">Done</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span>
-          </div>
-          <div id="reka-combobox-item-v-11" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 text-base-master dark:text-base-150 data-highlighted:text-base-900 dark:data-highlighted:text-base-200 data-highlighted:before:bg-base-100/50 dark:data-highlighted:before:bg-base-900 data-[state=checked]:text-base-900 dark:data-[state=checked]:text-base-200 data-[state=checked]:before:bg-base-100/50 dark:data-[state=checked]:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2" data-reka-collection-item="">
-            <!--v-if--><span class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span>
-          </div>
-        </div>
-        <!--v-if-->
-      </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-combobox-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-combobox-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!--v-if-->
-    </div>
-  </div>
-  <!--teleport end-->
-  <!---->
-</div>"
-`;
-
-exports[`SelectMenu > renders with n24ui correctly 1`] = `
-"<div class="relative inline-flex items-center w-full">
-  <!----><button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="px-3 relative inline-flex items-center group py-0 border-0 focus:outline-none cursor-pointer disabled:cursor-not-allowed disabled:bg-base-30/37 disabled:text-base-500 dark:disabled:bg-base-900/37 dark:disabled:text-base-800 appearance-none transition duration-300 ease-linear ring ring-inset ring-base-300 dark:ring-base-800 text-base-master bg-white hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-sm leading-tight align-middle text-ellipsis whitespace-nowrap group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 h-10 gap-1.5 rounded-2xs focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600 pe-[39px]" dir="ltr" style="pointer-events: auto;">
-    <!--v-if-->
-    <!--v-if--><span class="truncate text-base-400 dark:text-base-300"> </span><span class="absolute inset-y-0 end-0 flex items-center px-2"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 text-base-400 size-lg2"><path fill="currentColor" fill-rule="evenodd" d="m17.668 8.15-4.527 4.527L12 13.8l-1.119-1.123L6.354 8.15 4.757 9.748l7.254 7.254 7.254-7.254z" clip-rule="evenodd"></path></svg></span>
-  </button>
-  <!--teleport start-->
-  <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div position="popper" id="reka-combobox-content-v-0" data-state="open" style="display: flex; flex-direction: column; outline-color: none; outline-style: none; outline-width: initial; box-sizing: border-box; --reka-combobox-content-transform-origin: var(--reka-popper-transform-origin); --reka-combobox-content-available-width: var(--reka-popper-available-width); --reka-combobox-content-available-height: var(--reka-popper-available-height); --reka-combobox-trigger-width: var(--reka-popper-anchor-width); --reka-combobox-trigger-height: var(--reka-popper-anchor-height); animation: none;" data-dismissable-layer="" role="listbox" aria-orientation="vertical" aria-multiselectable="false" data-orientation="vertical" class="w-(--reka-popper-anchor-width) bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] pointer-events-auto" data-side="bottom" data-align="center">
-      <div class="relative inline-flex items-center w-full border-b border-base-300 dark:dark:border-base-800">
-        <!--v-if--><input type="search" placeholder="Search..." class="px-3 w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:bg-base-30/37 disabled:resize-none disabled:text-base-500 dark:disabled:bg-base-900/37 dark:disabled:text-base-800 appearance-none transition duration-300 ease-linear ring-inset ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-none align-middle text-ellipsis whitespace-nowrap group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 h-10 gap-1.5 rounded-2xs ring-0 focus-visible:ring-0" autocomplete="off" aria-disabled="false" aria-expanded="true" aria-controls="reka-combobox-content-v-0" aria-autocomplete="list" role="combobox" value="">
-        <!--v-if-->
-        <!--v-if-->
-      </div>
-      <!---->
-      <div class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" data-reka-combobox-viewport="" role="presentation" style="position: relative; flex-grow: 1; flex-shrink: 1; flex-basis: 0%; overflow: auto;">
-        <!--v-if-->
-        <div role="group" aria-labelledby="" id="reka-combobox-group-v-1" class="isolate p-2">
           <div id="reka-combobox-item-v-3" role="option" tabindex="-1" aria-selected="false" data-state="unchecked" class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 text-base-master dark:text-base-150 data-highlighted:text-base-900 dark:data-highlighted:text-base-200 data-highlighted:before:bg-base-100/50 dark:data-highlighted:before:bg-base-900 data-[state=checked]:text-base-900 dark:data-[state=checked]:text-base-200 data-[state=checked]:before:bg-base-100/50 dark:data-[state=checked]:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2" data-reka-collection-item="">
             <!--v-if--><span class="truncate">Backlog</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span>
           </div>

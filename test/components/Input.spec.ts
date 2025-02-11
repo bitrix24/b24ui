@@ -3,14 +3,17 @@ import { mount } from '@vue/test-utils'
 import Input, { type InputProps, type InputSlots } from '../../src/runtime/components/Input.vue'
 import ComponentRender from '../component-render'
 import theme from '#build/b24ui/input'
-
 import { renderForm } from '../utils/form'
 import type { FormInputEvents } from '~/src/module'
+import ArrowToTheLeftIcon from '@bitrix24/b24icons-vue/actions/ArrowToTheLeftIcon'
+import ArrowToTheRightIcon from '@bitrix24/b24icons-vue/actions/ArrowToTheRightIcon'
+import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
+import Shining2Icon from '@bitrix24/b24icons-vue/main/Shining2Icon'
 
 describe('Input', () => {
   const sizes = Object.keys(theme.variants.size) as any
   // @todo fix this
-  const variants = []
+  // const variants = []
 
   it.each([
     // Props
@@ -21,33 +24,24 @@ describe('Input', () => {
     ['with disabled', { props: { disabled: true } }],
     ['with required', { props: { required: true } }],
     ['with file type', { props: { type: 'file' } }],
-    // @todo fix this ////
-    ['with icon', { props: { icon: 'i-lucide-search' } }],
-    // @todo fix this ////
-    ['with leading and icon', { props: { leading: true, icon: 'i-lucide-arrow-left' } }],
-    // @todo fix this ////
-    ['with leadingIcon', { props: { leadingIcon: 'i-lucide-arrow-left' } }],
-    // @todo fix this ////
-    ['with trailing and icon', { props: { trailing: true, icon: 'i-lucide-arrow-right' } }],
-    // @todo fix this ////
-    ['with trailingIcon', { props: { trailingIcon: 'i-lucide-arrow-right' } }],
-    // @todo fix this ////
-    ['with avatar', { props: { avatar: { src: 'https://github.com/IgorShevchik.png' } } }],
-    // @todo fix this ////
-    ['with avatar and leadingIcon', { props: { avatar: { src: 'https://github.com/IgorShevchik.png' }, leadingIcon: 'i-lucide-arrow-left' } }],
-    // @todo fix this ////
-    ['with avatar and trailingIcon', { props: { avatar: { src: 'https://github.com/IgorShevchik.png' }, trailingIcon: 'i-lucide-arrow-right' } }],
+    ['with icon', { props: { icon: Search2Icon } }],
+    ['with leading and icon', { props: { leading: true, icon: ArrowToTheLeftIcon } }],
+    ['with leadingIcon', { props: { leadingIcon: ArrowToTheLeftIcon } }],
+    ['with trailing and icon', { props: { trailing: true, icon: ArrowToTheRightIcon } }],
+    ['with trailingIcon', { props: { trailingIcon: ArrowToTheRightIcon } }],
+    ['with avatar', { props: { avatar: { src: 'https://github.com/bitrix24.png' } } }],
+    ['with avatar and leadingIcon', { props: { avatar: { src: 'https://github.com/bitrix24.png' }, leadingIcon: ArrowToTheLeftIcon } }],
+    ['with avatar and trailingIcon', { props: { avatar: { src: 'https://github.com/bitrix24.png' }, trailingIcon: ArrowToTheRightIcon } }],
     ['with loading', { props: { loading: true } }],
-    // @todo fix this ////
-    ['with loading and avatar', { props: { loading: true, avatar: { src: 'https://github.com/IgorShevchik.png' } } }],
+    ['with loading and avatar', { props: { loading: true, avatar: { src: 'https://github.com/bitrix24.png' } } }],
     ['with loading trailing', { props: { loading: true, trailing: true } }],
-    // @todo fix this ////
-    ['with loading trailing and avatar', { props: { loading: true, trailing: true, avatar: { src: 'https://github.com/IgorShevchik.png' } } }],
-    // @todo fix this ////
-    ['with loadingIcon', { props: { loading: true, loadingIcon: 'i-lucide-sparkles' } }],
+    ['with loading trailing and avatar', { props: { loading: true, trailing: true, avatar: { src: 'https://github.com/bitrix24.png' } } }],
+    ['with loadingIcon', { props: { loading: true, loadingIcon: Shining2Icon } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { size } }]),
-    ...variants.map((variant: string) => [`with primary variant ${variant}`, { props: { variant } }]),
-    ...variants.map((variant: string) => [`with neutral variant ${variant}`, { props: { variant, color: 'neutral' } }]),
+    // @todo fix this
+    // ...variants.map((variant: string) => [`with primary variant ${variant}`, { props: { variant } }]),
+    // @todo fix this
+    // ...variants.map((variant: string) => [`with success variant ${variant}`, { props: { variant, color: 'success' } }]),
     ['with as', { props: { as: 'section' } }],
     ['with class', { props: { class: 'absolute' } }],
     ['with b24ui', { props: { b24ui: { base: 'rounded-full' } } }],
