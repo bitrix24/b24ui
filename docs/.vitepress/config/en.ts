@@ -128,6 +128,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'FormField', link: 'form-field' },
         { text: 'Input', link: 'input' },
         { text: 'InputMenu💡', link: 'input-menu' },
+        { text: 'InputNumber💡', link: 'input-number' },
         { text: 'Textarea', link: 'textarea' },
         { text: 'Select', link: 'select' },
         { text: 'SelectMenu💡', link: 'select-menu' },

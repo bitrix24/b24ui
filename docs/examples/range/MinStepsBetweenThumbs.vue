@@ -9,8 +9,8 @@ const minStepsBetweenThumbs = ref(10)
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="minStepsBetweenThumbs">
-        <B24Input v-model.number="minStepsBetweenThumbs" type="number" :min="0" :max="20" />
+      <B24FormField label="minStepsBetweenThumbs" class="w-28">
+        <B24InputNumber v-model.number="minStepsBetweenThumbs" :min="0" :max="20" />
       </B24FormField>
     </template>
     <Demo :min-steps-between-thumbs="minStepsBetweenThumbs" />

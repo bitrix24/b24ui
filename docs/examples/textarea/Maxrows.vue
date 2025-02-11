@@ -10,8 +10,8 @@ const maxrows = ref(4)
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="maxrows">
-        <B24Input v-model.number="maxrows" type="number" :min="0" :max="1000" />
+      <B24FormField label="maxrows" class="w-28">
+        <B24InputNumber v-model.number="maxrows" :min="0" :max="100" />
       </B24FormField>
       <B24FormField label="isAutoresize">
         <B24Switch v-model="isAutoresize" />

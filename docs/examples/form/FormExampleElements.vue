@@ -10,9 +10,22 @@ defineOptions({ inheritAttrs: false })
 
 const schema = z.object({
   input: z.string().min(10),
+  inputNumber: z.number().min(10),
+  inputMenu: z.any().refine(option => option?.value === 'option-2', {
+    message: 'Select Option 2'
+  }),
+  inputMenuMultiple: z.any().refine(values => !!values?.find((option: any) => option.value === 'option-2'), {
+    message: 'Include Option 2'
+  }),
   textarea: z.string().min(10),
   select: z.string().refine(value => value === 'option-2', {
     message: 'Select Option 2'
+  }),
+  selectMenu: z.any().refine(option => option?.value === 'option-2', {
+    message: 'Select Option 2'
+  }),
+  selectMenuMultiple: z.any().refine(values => !!values?.find((option: any) => option.value === 'option-2'), {
+    message: 'Include Option 2'
   }),
   switch: z.boolean().refine(value => value === true, {
     message: 'Toggle me'
@@ -50,8 +63,13 @@ async function onSubmit(event: FormSubmitEvent<any>) {
 
 function resetState() {
   state.input = undefined
+  state.inputNumber = undefined
+  state.inputMenu = undefined
+  state.inputMenuMultiple = undefined
   state.textarea = undefined
   state.select = undefined
+  state.selectMenu = undefined
+  state.selectMenuMultiple = undefined
   state.switch = undefined
   state.checkbox = undefined
   state.radioGroup = undefined
@@ -62,8 +80,13 @@ function resetState() {
 
 function fillState() {
   state.input = 'john john john'
+  state.inputNumber = 11
+  state.inputMenu = { label: 'Option 2', value: 'option-2' }
+  state.inputMenuMultiple = [{ label: 'Option 2', value: 'option-2' }]
   state.textarea = 'john john john john john'
   state.select = 'option-2'
+  state.selectMenu = { label: 'Option 2', value: 'option-2' }
+  state.selectMenuMultiple = [{ label: 'Option 2', value: 'option-2' }]
   state.switch = true
   state.checkbox = true
   state.radioGroup = 'option-2'
@@ -127,6 +150,26 @@ function fillState() {
 
     <B24FormField name="select" label="Select">
       <B24Select v-model="state.select" :items="items" class="w-full" />
+    </B24FormField>
+
+    <B24FormField name="selectMenu" label="Select Menu">
+      <B24SelectMenu v-model="state.selectMenu" :items="items" class="w-full" />
+    </B24FormField>
+
+    <B24FormField name="selectMenuMultiple" label="Select Menu (Multiple)">
+      <B24SelectMenu v-model="state.selectMenuMultiple" multiple :items="items" class="w-full" />
+    </B24FormField>
+
+    <B24FormField name="inputMenu" label="Input Menu">
+      <B24InputMenu v-model="state.inputMenu" :items="items" class="w-full" />
+    </B24FormField>
+
+    <B24FormField name="inputMenuMultiple" label="Input Menu (Multiple)">
+      <B24InputMenu v-model="state.inputMenuMultiple" multiple placeholder="Select..." :items="items" class="w-full" />
+    </B24FormField>
+
+    <B24FormField name="inputNumber" label="Input Number">
+      <B24InputNumber v-model.number="state.inputNumber" class="w-full" />
     </B24FormField>
 
     <B24FormField label="Textarea" name="textarea">

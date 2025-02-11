@@ -12,7 +12,7 @@ import {
   B24Select,
   B24SelectMenu,
   B24InputMenu,
-  // B24InputNumber,
+  B24InputNumber,
   B24Switch,
   B24Range
   // B24PinInput
@@ -48,7 +48,7 @@ export async function renderForm(options: {
           B24Select,
           B24SelectMenu,
           B24InputMenu,
-          // B24InputNumber,
+          B24InputNumber,
           B24Switch,
           B24Range
           // B24PinInput

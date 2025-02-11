@@ -9,8 +9,8 @@ const step = ref(10)
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="step">
-        <B24Input v-model.number="step" type="number" :min="0" :max="99" />
+      <B24FormField label="step" class="w-28">
+        <B24InputNumber v-model.number="step" :min="0" :max="99" />
       </B24FormField>
     </template>
     <Demo :step="step" />

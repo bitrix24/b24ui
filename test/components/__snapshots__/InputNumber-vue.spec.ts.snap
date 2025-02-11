@@ -1,0 +1,385 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`InputNumber > renders with as correctly 1`] = `
+"<section class="relative inline-flex items-center" role="group">
+  <!--v-if--><input role="spinbutton" type="text" tabindex="0" inputmode="decimal" autocomplete="off" autocorrect="off" spellcheck="false" aria-roledescription="Number field" class="w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 appearance-none transition duration-300 ease-linear ring ring-inset ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-none align-middle text-ellipsis whitespace-nowrap h-10 gap-1.5 rounded-2xs text-center focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600 px-[2.45rem]" value="">
+  <div class="absolute flex items-center inset-y-0 end-0 py-0 pe-0 [&>button]:p-1.5 scale-80"><button type="button" aria-label="Increment" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="M13 6h-2v5H6v2h5v5h2v-5h5v-2h-5z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <div class="absolute flex items-center inset-y-0 start-0 py-0 ps-0 [&>button]:p-1.5 scale-80"><button type="button" aria-label="Decrement" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="M6 11v2h12v-2H6" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <!---->
+</section>"
+`;
+
+exports[`InputNumber > renders with b24ui correctly 1`] = `
+"<div class="relative inline-flex items-center" role="group">
+  <!--v-if--><input role="spinbutton" type="text" tabindex="0" inputmode="decimal" autocomplete="off" autocorrect="off" spellcheck="false" aria-roledescription="Number field" class="w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 appearance-none transition duration-300 ease-linear ring ring-inset ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-none align-middle text-ellipsis whitespace-nowrap h-10 gap-1.5 text-center focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600 px-[2.45rem] rounded-full" value="">
+  <div class="absolute flex items-center inset-y-0 end-0 py-0 pe-0 [&>button]:p-1.5 scale-80"><button type="button" aria-label="Increment" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="M13 6h-2v5H6v2h5v5h2v-5h5v-2h-5z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <div class="absolute flex items-center inset-y-0 start-0 py-0 ps-0 [&>button]:p-1.5 scale-80"><button type="button" aria-label="Decrement" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="M6 11v2h12v-2H6" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <!---->
+</div>"
+`;
+
+exports[`InputNumber > renders with class correctly 1`] = `
+"<div class="inline-flex items-center absolute" role="group">
+  <!--v-if--><input role="spinbutton" type="text" tabindex="0" inputmode="decimal" autocomplete="off" autocorrect="off" spellcheck="false" aria-roledescription="Number field" class="w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 appearance-none transition duration-300 ease-linear ring ring-inset ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-none align-middle text-ellipsis whitespace-nowrap h-10 gap-1.5 rounded-2xs text-center focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600 px-[2.45rem]" value="">
+  <div class="absolute flex items-center inset-y-0 end-0 py-0 pe-0 [&>button]:p-1.5 scale-80"><button type="button" aria-label="Increment" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="M13 6h-2v5H6v2h5v5h2v-5h5v-2h-5z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <div class="absolute flex items-center inset-y-0 start-0 py-0 ps-0 [&>button]:p-1.5 scale-80"><button type="button" aria-label="Decrement" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="M6 11v2h12v-2H6" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <!---->
+</div>"
+`;
+
+exports[`InputNumber > renders with decrement slot correctly 1`] = `
+"<div class="relative inline-flex items-center" role="group">
+  <!--v-if--><input role="spinbutton" type="text" tabindex="0" inputmode="decimal" autocomplete="off" autocorrect="off" spellcheck="false" aria-roledescription="Number field" class="w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 appearance-none transition duration-300 ease-linear ring ring-inset ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-none align-middle text-ellipsis whitespace-nowrap h-10 gap-1.5 rounded-2xs text-center focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600 px-[2.45rem]" value="">
+  <div class="absolute flex items-center inset-y-0 end-0 py-0 pe-0 [&>button]:p-1.5 scale-80"><button type="button" aria-label="Increment" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="M13 6h-2v5H6v2h5v5h2v-5h5v-2h-5z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <div class="absolute flex items-center inset-y-0 start-0 py-0 ps-0 [&>button]:p-1.5 scale-80">-</div>
+  <!---->
+</div>"
+`;
+
+exports[`InputNumber > renders with decrementIcon correctly 1`] = `
+"<div class="relative inline-flex items-center" role="group">
+  <!--v-if--><input role="spinbutton" type="text" tabindex="0" inputmode="decimal" autocomplete="off" autocorrect="off" spellcheck="false" aria-roledescription="Number field" class="w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 appearance-none transition duration-300 ease-linear ring ring-inset ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-none align-middle text-ellipsis whitespace-nowrap h-10 gap-1.5 rounded-2xs text-center focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600 px-[2.45rem]" value="">
+  <div class="absolute flex items-center inset-y-0 end-0 py-0 pe-0 [&>button]:p-1.5 scale-80"><button type="button" aria-label="Increment" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="M13 6h-2v5H6v2h5v5h2v-5h5v-2h-5z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <div class="absolute flex items-center inset-y-0 start-0 py-0 ps-0 [&>button]:p-1.5 scale-80"><button type="button" aria-label="Decrement" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="m10.16 6.343 4.528 4.528H5.009v2.259h9.679l-4.528 4.527 1.598 1.597L19.012 12l-7.254-7.254z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <!---->
+</div>"
+`;
+
+exports[`InputNumber > renders with disabled correctly 1`] = `
+"<div class="relative inline-flex items-center" role="group" data-disabled="">
+  <!--v-if--><input role="spinbutton" type="text" tabindex="0" inputmode="decimal" disabled="" data-disabled="" autocomplete="off" autocorrect="off" spellcheck="false" aria-roledescription="Number field" class="w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 appearance-none transition duration-300 ease-linear ring ring-inset ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-none align-middle text-ellipsis whitespace-nowrap h-10 gap-1.5 rounded-2xs text-center focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600 px-[2.45rem]" value="">
+  <div class="absolute flex items-center inset-y-0 end-0 py-0 pe-0 [&>button]:p-1.5 scale-80"><button type="button" disabled="" aria-label="Increment" tabindex="-1" data-disabled="" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="M13 6h-2v5H6v2h5v5h2v-5h5v-2h-5z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <div class="absolute flex items-center inset-y-0 start-0 py-0 ps-0 [&>button]:p-1.5 scale-80"><button type="button" disabled="" aria-label="Decrement" tabindex="-1" data-disabled="" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="M6 11v2h12v-2H6" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <!---->
+</div>"
+`;
+
+exports[`InputNumber > renders with increment slot correctly 1`] = `
+"<div class="relative inline-flex items-center" role="group">
+  <!--v-if--><input role="spinbutton" type="text" tabindex="0" inputmode="decimal" autocomplete="off" autocorrect="off" spellcheck="false" aria-roledescription="Number field" class="w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 appearance-none transition duration-300 ease-linear ring ring-inset ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-none align-middle text-ellipsis whitespace-nowrap h-10 gap-1.5 rounded-2xs text-center focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600 px-[2.45rem]" value="">
+  <div class="absolute flex items-center inset-y-0 end-0 py-0 pe-0 [&>button]:p-1.5 scale-80">+</div>
+  <div class="absolute flex items-center inset-y-0 start-0 py-0 ps-0 [&>button]:p-1.5 scale-80"><button type="button" aria-label="Decrement" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="M6 11v2h12v-2H6" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <!---->
+</div>"
+`;
+
+exports[`InputNumber > renders with incrementIcon correctly 1`] = `
+"<div class="relative inline-flex items-center" role="group">
+  <!--v-if--><input role="spinbutton" type="text" tabindex="0" inputmode="decimal" autocomplete="off" autocorrect="off" spellcheck="false" aria-roledescription="Number field" class="w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 appearance-none transition duration-300 ease-linear ring ring-inset ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-none align-middle text-ellipsis whitespace-nowrap h-10 gap-1.5 rounded-2xs text-center focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600 px-[2.45rem]" value="">
+  <div class="absolute flex items-center inset-y-0 end-0 py-0 pe-0 [&>button]:p-1.5 scale-80"><button type="button" aria-label="Increment" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="M13.861 17.658 9.334 13.13h9.678v-2.259H9.334l4.527-4.527-1.598-1.597L5.01 12l7.255 7.254z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <div class="absolute flex items-center inset-y-0 start-0 py-0 ps-0 [&>button]:p-1.5 scale-80"><button type="button" aria-label="Decrement" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="M6 11v2h12v-2H6" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <!---->
+</div>"
+`;
+
+exports[`InputNumber > renders with name correctly 1`] = `
+"<div class="relative inline-flex items-center" role="group">
+  <!--v-if--><input role="spinbutton" type="text" tabindex="0" inputmode="decimal" autocomplete="off" autocorrect="off" spellcheck="false" aria-roledescription="Number field" class="w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 appearance-none transition duration-300 ease-linear ring ring-inset ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-none align-middle text-ellipsis whitespace-nowrap h-10 gap-1.5 rounded-2xs text-center focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600 px-[2.45rem]" value="">
+  <div class="absolute flex items-center inset-y-0 end-0 py-0 pe-0 [&>button]:p-1.5 scale-80"><button type="button" aria-label="Increment" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="M13 6h-2v5H6v2h5v5h2v-5h5v-2h-5z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <div class="absolute flex items-center inset-y-0 start-0 py-0 ps-0 [&>button]:p-1.5 scale-80"><button type="button" aria-label="Decrement" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="M6 11v2h12v-2H6" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <!---->
+</div>"
+`;
+
+exports[`InputNumber > renders with orientation vertical correctly 1`] = `
+"<div class="relative inline-flex items-center" role="group">
+  <!--v-if--><input role="spinbutton" type="text" tabindex="0" inputmode="decimal" autocomplete="off" autocorrect="off" spellcheck="false" aria-roledescription="Number field" class="w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 appearance-none transition duration-300 ease-linear ring ring-inset ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-none align-middle text-ellipsis whitespace-nowrap px-2.5 h-10 gap-1.5 rounded-2xs focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600 pe-9" value="">
+  <div class="absolute flex items-center top-1 end-0 pe-1 [&>button]:p-0 [&>button]:h-[19px] scale-80"><button type="button" aria-label="Increment" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="m6.354 15.85 4.527-4.526L12 10.2l1.14 1.124 4.527 4.527 1.598-1.598L12.01 7l-7.254 7.254z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <div class="absolute flex items-center bottom-1 end-0 pe-1 [&>button]:p-0 [&>button]:h-[19px] scale-80"><button type="button" aria-label="Decrement" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="m17.668 8.15-4.527 4.527L12 13.8l-1.119-1.123L6.354 8.15 4.757 9.748l7.254 7.254 7.254-7.254z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <!---->
+</div>"
+`;
+
+exports[`InputNumber > renders with placeholder correctly 1`] = `
+"<div class="relative inline-flex items-center" role="group">
+  <!--v-if--><input role="spinbutton" type="text" tabindex="0" inputmode="decimal" autocomplete="off" autocorrect="off" spellcheck="false" aria-roledescription="Number field" placeholder="Number..." class="w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 appearance-none transition duration-300 ease-linear ring ring-inset ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-none align-middle text-ellipsis whitespace-nowrap h-10 gap-1.5 rounded-2xs text-center focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600 px-[2.45rem]" value="">
+  <div class="absolute flex items-center inset-y-0 end-0 py-0 pe-0 [&>button]:p-1.5 scale-80"><button type="button" aria-label="Increment" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="M13 6h-2v5H6v2h5v5h2v-5h5v-2h-5z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <div class="absolute flex items-center inset-y-0 start-0 py-0 ps-0 [&>button]:p-1.5 scale-80"><button type="button" aria-label="Decrement" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="M6 11v2h12v-2H6" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <!---->
+</div>"
+`;
+
+exports[`InputNumber > renders with required correctly 1`] = `
+"<div class="relative inline-flex items-center" role="group">
+  <!--v-if--><input role="spinbutton" type="text" tabindex="0" inputmode="decimal" autocomplete="off" autocorrect="off" spellcheck="false" aria-roledescription="Number field" required="" class="w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 appearance-none transition duration-300 ease-linear ring ring-inset ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-none align-middle text-ellipsis whitespace-nowrap h-10 gap-1.5 rounded-2xs text-center focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600 px-[2.45rem]" value="">
+  <div class="absolute flex items-center inset-y-0 end-0 py-0 pe-0 [&>button]:p-1.5 scale-80"><button type="button" aria-label="Increment" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="M13 6h-2v5H6v2h5v5h2v-5h5v-2h-5z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <div class="absolute flex items-center inset-y-0 start-0 py-0 ps-0 [&>button]:p-1.5 scale-80"><button type="button" aria-label="Decrement" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="M6 11v2h12v-2H6" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <!---->
+</div>"
+`;
+
+exports[`InputNumber > renders with size lg correctly 1`] = `
+"<div class="relative inline-flex items-center" role="group">
+  <!--v-if--><input role="spinbutton" type="text" tabindex="0" inputmode="decimal" autocomplete="off" autocorrect="off" spellcheck="false" aria-roledescription="Number field" class="w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 appearance-none transition duration-300 ease-linear ring ring-inset ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-none align-middle text-ellipsis whitespace-nowrap h-12 gap-2 rounded-2xs text-center focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600 px-[2.95rem]" value="">
+  <div class="absolute flex items-center inset-y-0 end-0 py-0 pe-1 [&>button]:p-1.5 [&>button]:h-[42px] scale-95"><button type="button" aria-label="Increment" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-6xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="M13 6h-2v5H6v2h5v5h2v-5h5v-2h-5z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <div class="absolute flex items-center inset-y-0 start-0 py-0 ps-1 [&>button]:p-1.5 [&>button]:h-[42px] scale-95"><button type="button" aria-label="Decrement" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-6xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="M6 11v2h12v-2H6" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <!---->
+</div>"
+`;
+
+exports[`InputNumber > renders with size md correctly 1`] = `
+"<div class="relative inline-flex items-center" role="group">
+  <!--v-if--><input role="spinbutton" type="text" tabindex="0" inputmode="decimal" autocomplete="off" autocorrect="off" spellcheck="false" aria-roledescription="Number field" class="w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 appearance-none transition duration-300 ease-linear ring ring-inset ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-none align-middle text-ellipsis whitespace-nowrap h-10 gap-1.5 rounded-2xs text-center focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600 px-[2.45rem]" value="">
+  <div class="absolute flex items-center inset-y-0 end-0 py-0 pe-0 [&>button]:p-1.5 scale-80"><button type="button" aria-label="Increment" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="M13 6h-2v5H6v2h5v5h2v-5h5v-2h-5z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <div class="absolute flex items-center inset-y-0 start-0 py-0 ps-0 [&>button]:p-1.5 scale-80"><button type="button" aria-label="Decrement" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2">
+          <path fill="currentColor" fill-rule="evenodd" d="M6 11v2h12v-2H6" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <!---->
+</div>"
+`;
+
+exports[`InputNumber > renders with size sm correctly 1`] = `
+"<div class="relative inline-flex items-center" role="group">
+  <!--v-if--><input role="spinbutton" type="text" tabindex="0" inputmode="decimal" autocomplete="off" autocorrect="off" spellcheck="false" aria-roledescription="Number field" class="w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 appearance-none transition duration-300 ease-linear ring ring-inset ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-none align-middle text-ellipsis whitespace-nowrap h-8 gap-1.5 rounded-2xs text-center focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600 px-[2.1rem]" value="">
+  <div class="absolute flex items-center inset-y-0 end-0 py-0 pe-0 [&>button]:p-1 scale-80"><button type="button" aria-label="Increment" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-3xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-6">
+          <path fill="currentColor" fill-rule="evenodd" d="M13 6h-2v5H6v2h5v5h2v-5h5v-2h-5z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <div class="absolute flex items-center inset-y-0 start-0 py-0 ps-0 [&>button]:p-1 scale-80"><button type="button" aria-label="Decrement" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-3xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-6">
+          <path fill="currentColor" fill-rule="evenodd" d="M6 11v2h12v-2H6" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <!---->
+</div>"
+`;
+
+exports[`InputNumber > renders with size xs correctly 1`] = `
+"<div class="relative inline-flex items-center" role="group">
+  <!--v-if--><input role="spinbutton" type="text" tabindex="0" inputmode="decimal" autocomplete="off" autocorrect="off" spellcheck="false" aria-roledescription="Number field" class="w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 appearance-none transition duration-300 ease-linear ring ring-inset ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-none align-middle text-ellipsis whitespace-nowrap h-xl2 gap-1 rounded-2xs text-center focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600 px-[1.3rem]" value="">
+  <div class="absolute flex items-center inset-y-0 end-0 py-0 pe-0 [&>button]:p-1 [&>button]:h-[24px] scale-80"><button type="button" aria-label="Increment" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
+          <path fill="currentColor" fill-rule="evenodd" d="M13 6h-2v5H6v2h5v5h2v-5h5v-2h-5z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <div class="absolute flex items-center inset-y-0 start-0 py-0 ps-0 [&>button]:p-1 [&>button]:h-[24px] scale-80"><button type="button" aria-label="Decrement" tabindex="-1" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto decoration-gray-900 aria-disabled:text-base-900 dark:aria-disabled:disabled:text-base-300 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase text-base-900 dark:text-base-300 bg-transparent border border-transparent hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0 active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0 disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850 focus-visible:outline-base-30 dark:focus-visible:outline-base-850" isaction="false">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
+          <path fill="currentColor" fill-rule="evenodd" d="M6 11v2h12v-2H6" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button></div>
+  <!---->
+</div>"
+`;

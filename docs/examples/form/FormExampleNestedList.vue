@@ -125,11 +125,11 @@ async function onSubmit(event: FormSubmitEvent<any>) {
         :schema="itemSchema"
         class="flex gap-1.5"
       >
-        <B24FormField :label="!count ? 'Description' : undefined" name="description" class="w-44">
+        <B24FormField :label="!count ? 'Description' : undefined" name="description" class="w-34">
           <B24Input v-model="item.description" />
         </B24FormField>
-        <B24FormField :label="!count ? 'Price' : undefined" name="price" class="w-24">
-          <B24Input v-model.number="item.price" type="number" min="0.01" max="999" step="0.01" />
+        <B24FormField :label="!count ? 'Price' : undefined" name="price" class="w-30">
+          <B24InputNumber v-model.number="item.price" :min="0.01" :max="999" :step="0.01" />
         </B24FormField>
       </B24Form>
     </div>

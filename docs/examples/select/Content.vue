@@ -18,8 +18,8 @@ const contentSideOffset = ref(8)
     <template #actions>
       <B24RadioGroup v-model="contentAlign" legend="content.align" :items="contentAlignVariants" orientation="horizontal" />
       <B24RadioGroup v-model="contentSide" legend="content.side" :items="contentSideVariants" orientation="horizontal" />
-      <B24FormField label="content.sideOffset" class="w-20">
-        <B24Input v-model.number="contentSideOffset" type="number" :min="0" size="md" />
+      <B24FormField label="content.sideOffset" class="w-28">
+        <B24InputNumber v-model.number="contentSideOffset" :min="0" size="md" />
       </B24FormField>
     </template>
     <div class="w-full sm:w-1/3">

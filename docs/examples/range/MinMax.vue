@@ -10,11 +10,11 @@ const max = ref(50)
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="min">
-        <B24Input v-model.number="min" type="number" :min="0" :max="99" />
+      <B24FormField label="min" class="w-28">
+        <B24InputNumber v-model.number="min" :min="0" :max="99" />
       </B24FormField>
-      <B24FormField label="max">
-        <B24Input v-model.number="max" type="number" :min="1" :max="100" />
+      <B24FormField label="max" class="w-28">
+        <B24InputNumber v-model.number="max" :min="1" :max="100" />
       </B24FormField>
     </template>
     <Demo :min="min" :max="max" />
