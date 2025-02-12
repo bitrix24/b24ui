@@ -287,7 +287,7 @@ function onUpdate(value: any) {
 }
 
 function onUpdateOpen(value: boolean) {
-  let timeoutId
+  let timeoutId: ReturnType<typeof setTimeout> | undefined
 
   if (!value) {
     const event = new FocusEvent('blur')
@@ -308,7 +308,9 @@ function onUpdateOpen(value: boolean) {
     const event = new FocusEvent('focus')
     emits('focus', event)
     emitFormFocus()
-    clearTimeout(timeoutId)
+    if (timeoutId) {
+      clearTimeout(timeoutId)
+    }
   }
 }
 </script>
