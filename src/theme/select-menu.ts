@@ -15,7 +15,8 @@ import select from './select'
 export default () => {
   return defu({
     slots: {
-      input: 'border-b border-base-300 dark:dark:border-base-800'
+      input: 'border-b border-base-300 dark:dark:border-base-800',
+      focusScope: 'flex flex-col min-h-0'
     },
     variants: {
       addNew: {

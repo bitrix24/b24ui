@@ -155,6 +155,7 @@ import {
   ComboboxSeparator,
   ComboboxItem,
   ComboboxItemIndicator,
+  FocusScope,
   useForwardPropsEmits,
   useFilter,
   Primitive
@@ -387,76 +388,77 @@ function onUpdateOpen(value: boolean) {
 
       <ComboboxPortal :disabled="!portal">
         <ComboboxContent :class="b24ui.content({ class: props.b24ui?.content })" v-bind="contentProps">
-          <ComboboxInput v-if="!!searchInput" v-model="searchTerm" :display-value="() => searchTerm" as-child>
-            <B24Input no-border autofocus autocomplete="off" v-bind="searchInputProps" :class="b24ui.input({ class: props.b24ui?.input })" />
-          </ComboboxInput>
+          <FocusScope trapped :class="b24ui.focusScope({ class: props.b24ui?.focusScope })">
+            <ComboboxInput v-if="!!searchInput" v-model="searchTerm" :display-value="() => searchTerm" as-child>
+              <B24Input no-border autofocus autocomplete="off" v-bind="searchInputProps" :class="b24ui.input({ class: props.b24ui?.input })" />
+            </ComboboxInput>
 
-          <ComboboxEmpty :class="b24ui.empty({ class: props.b24ui?.empty })">
-            <slot name="empty" :search-term="searchTerm">
-              {{ searchTerm ? t('selectMenu.noMatch', { searchTerm }) : t('selectMenu.noData') }}
-            </slot>
-          </ComboboxEmpty>
+            <ComboboxEmpty :class="b24ui.empty({ class: props.b24ui?.empty })">
+              <slot name="empty" :search-term="searchTerm">
+                {{ searchTerm ? t('selectMenu.noMatch', { searchTerm }) : t('selectMenu.noData') }}
+              </slot>
+            </ComboboxEmpty>
 
-          <ComboboxViewport :class="b24ui.viewport({ class: props.b24ui?.viewport })">
-            <ReuseCreateItemTemplate v-if="createItem && createItemPosition === 'top'" />
+            <ComboboxViewport :class="b24ui.viewport({ class: props.b24ui?.viewport })">
+              <ReuseCreateItemTemplate v-if="createItem && createItemPosition === 'top'" />
 
-            <ComboboxGroup v-for="(group, groupIndex) in filteredGroups" :key="`group-${groupIndex}`" :class="b24ui.group({ class: props.b24ui?.group })">
-              <template v-for="(item, index) in group" :key="`group-${groupIndex}-${index}`">
-                <ComboboxLabel v-if="item?.type === 'label'" :class="b24ui.label({ class: props.b24ui?.label })">
-                  {{ get(item, props.labelKey as string) }}
-                </ComboboxLabel>
+              <ComboboxGroup v-for="(group, groupIndex) in filteredGroups" :key="`group-${groupIndex}`" :class="b24ui.group({ class: props.b24ui?.group })">
+                <template v-for="(item, index) in group" :key="`group-${groupIndex}-${index}`">
+                  <ComboboxLabel v-if="item?.type === 'label'" :class="b24ui.label({ class: props.b24ui?.label })">
+                    {{ get(item, props.labelKey as string) }}
+                  </ComboboxLabel>
 
-                <ComboboxSeparator v-else-if="item?.type === 'separator'" :class="b24ui.separator({ class: props.b24ui?.separator })" />
+                  <ComboboxSeparator v-else-if="item?.type === 'separator'" :class="b24ui.separator({ class: props.b24ui?.separator })" />
 
-                <ComboboxItem
-                  v-else
-                  :class="b24ui.item({ class: props.b24ui?.item })"
-                  :disabled="item.disabled"
-                  :value="valueKey && typeof item === 'object' ? get(item, props.valueKey as string) : item"
-                  @select="item.onSelect"
-                >
-                  <slot name="item" :item="(item as T)" :index="index">
-                    <slot name="item-leading" :item="(item as T)" :index="index">
-                      <Component
-                        :is="item.icon"
-                        v-if="item.icon"
-                        :class="b24ui.itemLeadingIcon({ class: props.b24ui?.itemLeadingIcon })"
-                      />
-                      <B24Avatar v-else-if="item.avatar" :size="((props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])" v-bind="item.avatar" :class="b24ui.itemLeadingAvatar({ class: props.b24ui?.itemLeadingAvatar })" />
-                      <B24Chip
-                        v-else-if="item.chip"
-                        :size="((props.b24ui?.itemLeadingChipSize || b24ui.itemLeadingChipSize()) as ChipProps['size'])"
-                        inset
-                        standalone
-                        v-bind="item.chip"
-                        :class="b24ui.itemLeadingChip({ class: props.b24ui?.itemLeadingChip })"
-                      />
-                    </slot>
-
-                    <span :class="b24ui.itemLabel({ class: props.b24ui?.itemLabel })">
-                      <slot name="item-label" :item="(item as T)" :index="index">
-                        {{ typeof item === 'object' ? get(item, props.labelKey as string) : item }}
-                      </slot>
-                    </span>
-
-                    <span :class="b24ui.itemTrailing({ class: props.b24ui?.itemTrailing })">
-                      <slot name="item-trailing" :item="(item as T)" :index="index" />
-
-                      <ComboboxItemIndicator as-child>
+                  <ComboboxItem
+                    v-else
+                    :class="b24ui.item({ class: props.b24ui?.item })"
+                    :disabled="item.disabled"
+                    :value="valueKey && typeof item === 'object' ? get(item, props.valueKey as string) : item"
+                    @select="item.onSelect"
+                  >
+                    <slot name="item" :item="(item as T)" :index="index">
+                      <slot name="item-leading" :item="(item as T)" :index="index">
                         <Component
-                          :is="selectedIcon || icons.check"
-                          :class="b24ui.itemTrailingIcon({ class: props.b24ui?.itemTrailingIcon })"
+                          :is="item.icon"
+                          v-if="item.icon"
+                          :class="b24ui.itemLeadingIcon({ class: props.b24ui?.itemLeadingIcon })"
                         />
-                      </ComboboxItemIndicator>
-                    </span>
-                  </slot>
-                </ComboboxItem>
-              </template>
-            </ComboboxGroup>
+                        <B24Avatar v-else-if="item.avatar" :size="((props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])" v-bind="item.avatar" :class="b24ui.itemLeadingAvatar({ class: props.b24ui?.itemLeadingAvatar })" />
+                        <B24Chip
+                          v-else-if="item.chip"
+                          :size="((props.b24ui?.itemLeadingChipSize || b24ui.itemLeadingChipSize()) as ChipProps['size'])"
+                          inset
+                          standalone
+                          v-bind="item.chip"
+                          :class="b24ui.itemLeadingChip({ class: props.b24ui?.itemLeadingChip })"
+                        />
+                      </slot>
 
-            <ReuseCreateItemTemplate v-if="createItem && createItemPosition === 'bottom'" />
-          </ComboboxViewport>
+                      <span :class="b24ui.itemLabel({ class: props.b24ui?.itemLabel })">
+                        <slot name="item-label" :item="(item as T)" :index="index">
+                          {{ typeof item === 'object' ? get(item, props.labelKey as string) : item }}
+                        </slot>
+                      </span>
 
+                      <span :class="b24ui.itemTrailing({ class: props.b24ui?.itemTrailing })">
+                        <slot name="item-trailing" :item="(item as T)" :index="index" />
+
+                        <ComboboxItemIndicator as-child>
+                          <Component
+                            :is="selectedIcon || icons.check"
+                            :class="b24ui.itemTrailingIcon({ class: props.b24ui?.itemTrailingIcon })"
+                          />
+                        </ComboboxItemIndicator>
+                      </span>
+                    </slot>
+                  </ComboboxItem>
+                </template>
+              </ComboboxGroup>
+
+              <ReuseCreateItemTemplate v-if="createItem && createItemPosition === 'bottom'" />
+            </ComboboxViewport>
+          </FocusScope>
           <ComboboxArrow v-if="!!arrow" v-bind="arrowProps" :class="b24ui.arrow({ class: props.b24ui?.arrow })" />
         </ComboboxContent>
       </ComboboxPortal>
