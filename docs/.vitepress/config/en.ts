@@ -38,6 +38,10 @@ function nav(): DefaultTheme.NavItem[] {
           text: 'Changelog',
           link: `${configParams.github}/blob/main/CHANGELOG.md`
         },
+        {
+          text: 'Playground',
+          link: `${configParams.domain}${configParams.baseFolder}/playground/`
+        },
         ...configParams.relative
       ]
     }
