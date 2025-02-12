@@ -40,10 +40,15 @@ jobs:
       - name: 'Build with VitePress'
         run: pnpm run docs:full:build
 
+      - name: 'Generate Playground'
+        run: pnpm run dev:generate
+
       - name: 'Upload artifact'
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/.vitepress/dist
+          path: |
+            docs/.vitepress/dist
+            playground/playground/public
   deploy:
     environment:
       name: 'github-pages'
