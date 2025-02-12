@@ -19,8 +19,12 @@ export default {
     avatar: 'shrink-0',
     avatarSize: '',
     label: '',
-    descriptionWrapper: 'text-base-950 sm:border-t sm:border-base-950/5 dark:text-white dark:sm:border-white/5 sm:[&:nth-child(2)]:border-none',
-    description: 'text-base-900 dark:text-base-150',
+    descriptionWrapper: [
+      'sm:border-t sm:[&:nth-child(2)]:border-none',
+      'text-base-900 sm:border-base-950/5',
+      'dark:text-base-150 dark:sm:border-white/5'
+    ].join(' '),
+    description: '',
     actions: 'flex flex-wrap gap-1.5 shrink-0',
     footer: 'border-t border-base-950/5 dark:border-white/5'
   },
