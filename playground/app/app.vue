@@ -40,9 +40,9 @@ const isLtr = computed({
 
 const isCommandPaletteOpen = ref(false)
 
-function onSelect(item: any) {
-  router.push(item.to)
-}
+// function onSelect(item: any) {
+//   router.push(item.to)
+// }
 
 defineShortcuts({
   ctrl_k: () => {
@@ -146,13 +146,13 @@ defineShortcuts({
       </div>
       <B24Modal v-model:open="isCommandPaletteOpen" class="sm:h-96">
         <template #content>
-          <B24CommandPalette
+          <!-- B24CommandPalette
             placeholder="Search a component..."
             :groups="usePageMeta.groups"
             :fuse="{ resultLimit: 100 }"
             @update:model-value="onSelect"
             @update:open="(value: boolean) => isCommandPaletteOpen = value"
-          />
+          / -->
         </template>
       </B24Modal>
     </B24App>

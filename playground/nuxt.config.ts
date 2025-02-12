@@ -13,6 +13,10 @@ export default defineNuxtConfig({
   devtools: {
     enabled: false
   },
+  app: {
+    baseURL: '/b24ui/playground/',
+    buildAssetsDir: '/b24ui/playground/_nuxt/'
+  },
   devServer: {
     loadingTemplate: () => {
       return readFileSync('./playground/template/devServer-loading.html', 'utf-8')

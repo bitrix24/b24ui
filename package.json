@@ -73,6 +73,7 @@
     "dev-window": "set DEV=true && nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:generate": "nuxt generate playground",
+    "dev:preview": "nuxt preview playground",
     "dev:vue": "DEV=true vite playground-vue",
     "dev:vue-window": "set DEV=true && vite playground-vue",
     "docs:full:dev": "pnpm build && vitepress dev docs",

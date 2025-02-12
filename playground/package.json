@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nuxi dev",
     "build": "nuxi build",
-    "generate": "nuxi generate"
+    "generate": "nuxi generate",
+    "preview": "nuxt preview"
   },
   "dd_dependencies": {
     "@nuxthub/core": "^0.8.17"
