@@ -514,7 +514,7 @@ exports[`RadioGroup > renders with orientation correctly 1`] = `
 exports[`RadioGroup > renders with required correctly 1`] = `
 "<div role="radiogroup" aria-orientation="vertical" aria-required="true" dir="ltr" data-orientation="vertical" style="outline-color: none; outline-style: none; outline-width: initial;" id="v-0" class="relative" tabindex="0">
   <fieldset class="flex flex-col gap-1">
-    <legend class="mb-1.5 block font-medium text-base-master dark:text-base-400 text-sm">Legend</legend>
+    <legend class="mb-1.5 block text-base-900 dark:text-base-400 text-sm">Legend</legend>
     <div class="flex items-start text-md">
       <div class="flex items-center h-5"><button class="cursor-pointer rounded-full ring ring-inset ring-base-300 dark:ring-base-700 outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-600 size-4" tabindex="-1" data-orientation="vertical" data-active="false" data-reka-collection-item="" id="v-0:1" role="radio" type="button" aria-checked="false" data-state="unchecked" required="true" aria-label="1" value="1">
           <!---->

@@ -43,9 +43,29 @@ const feedbacks = [
           <B24Textarea name="department_description" aria-label="Department description" placeholder="Enter department description" :rows="5" />
         </B24FormField>
       </div>
+      <ExampleCardSubTitle title="radio-group" />
+      <div class="mb-4 flex flex-wrap flex-col items-center gap-4">
+        <B24RadioGroup
+          legend="Email"
+          class="w-full"
+          required
+          :items="[
+            {
+              label: 'CRM settings',
+              description: 'Configure your CRM system.\n',
+              value: 'settings'
+            },
+            {
+              label: 'My company details',
+              description: 'Access and update your company\'s information and profile.\n',
+              value: 'my_company_details'
+            }
+          ]"
+        />
+      </div>
     </ExampleCard>
 
-    <ExampleCard title="Size" class="md:col-span-3">
+    <ExampleCard title="size" class="md:col-span-3">
       <ExampleCardSubTitle title="simple" />
       <div class="mb-4 flex flex-wrap items-start justify-start gap-6">
         <B24FormField
@@ -79,19 +99,19 @@ const feedbacks = [
 
       <ExampleCardSubTitle title="with description" />
       <div class="mb-4 flex flex-wrap items-start justify-start gap-6">
-        <B24FormField
-          v-for="size in sizes"
-          :key="size"
-          :size="size"
-          label="Email"
-          hint="This is a hint"
-          description="This is a description"
-          help="Please enter a valid email address."
-          name="email"
-          required
-        >
-          <B24Input aria-label="Email" type="email" placeholder="john@lennon.com" />
-        </B24FormField>
+        <template v-for="size in sizes" :key="size">
+          <B24FormField
+            :size="size"
+            label="Email"
+            hint="This is a hint"
+            description="This is a description"
+            help="Please enter a valid email address."
+            name="email"
+            required
+          >
+            <B24Input aria-label="Email" type="email" placeholder="john@lennon.com" />
+          </B24FormField>
+        </template>
       </div>
     </ExampleCard>
   </ExampleGrid>

@@ -8,7 +8,7 @@ export default {
   slots: {
     root: 'relative',
     fieldset: 'flex',
-    legend: 'mb-1.5 block font-medium text-base-master dark:text-base-400',
+    legend: 'mb-1.5 block text-base-900 dark:text-base-400',
     item: 'flex items-start',
     base: [
       'cursor-pointer rounded-full',
