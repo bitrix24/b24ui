@@ -5,7 +5,17 @@ outline: deep
 ---
 <script setup>
 import ModalExample from '/examples/modal/Modal.vue';
+import TitleExample from '/examples/modal/Title.vue';
+import DescriptionExample from '/examples/modal/Description.vue';
 import CloseExample from '/examples/modal/Close.vue';
+import CloseIconExample from '/examples/modal/CloseIcon.vue';
+import OverlayExample from '/examples/modal/Overlay.vue';
+import TransitionExample from '/examples/modal/Transition.vue';
+import FullscreenExample from '/examples/modal/Fullscreen.vue';
+import ControlOpenStateExample from '/examples/modal/ControlOpenState.vue';
+import DismissibleExample from '/examples/modal/Dismissible.vue';
+import ProgrammaticUsageExample from '/examples/modal/ProgrammaticUsage.vue';
+import NestedModalsExample from '/examples/modal/NestedModals.vue';
 import WithBodySlotExample from '/examples/modal/WithBodySlot.vue';
 import WithFooterSlotExample from '/examples/modal/WithFooterSlot.vue';
 </script>
@@ -19,10 +29,6 @@ import WithFooterSlotExample from '/examples/modal/WithFooterSlot.vue';
 >
   A popup window for showing messages or gathering user input.
 </Description>
-
-::: warning We are still updating this page
-Some data may be missing here — we will complete it shortly.
-:::
 
 ## Usage
 
@@ -44,13 +50,29 @@ You can also use the `#header`{lang="ts-type"}, `#body`{lang="ts-type"} and `#fo
 
 Use the `title` prop to set the title of the Modal's header.
 
-__component-code
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <TitleExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/modal/demo/Title.vue{13 vue:line-numbers}
+:::
 
 ### Description
 
 Use the `description` prop to set the description of the Modal's header.
 
-__component-code
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <DescriptionExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/modal/demo/Description.vue{15-16 vue:line-numbers}
+:::
 
 ### Close
 
@@ -69,38 +91,70 @@ The close button is not displayed if the `#content` slot is used as it's a part 
 </div>
 
 ::: details
-<<< @/examples/modal/demo/Close.vue{2,5-7,8 vue:line-numbers}
+<<< @/examples/modal/demo/Close.vue{5-6 vue:line-numbers}
 :::
 
 ### Close Icon
 
 Use the `close-icon` prop to customize the close button [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html). Defaults to `Cross30Icon`.
 
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <CloseIconExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/modal/demo/CloseIcon.vue{2,9 vue:line-numbers}
+:::
+
 ### Overlay
 
 Use the `overlay` prop to control whether the Modal has an overlay or not. Defaults to `true`.
 
-__component-code
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <OverlayExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/modal/demo/Overlay.vue{13 vue:line-numbers}
+:::
 
 ### Transition
 
 Use the `transition` prop to control whether the Modal is animated or not. Defaults to `true`.
 
-__component-code
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <TransitionExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/modal/demo/Transition.vue{13 vue:line-numbers}
+:::
 
 ### Fullscreen
 
 Use the `fullscreen` prop to make the Modal fullscreen.
 
-__component-code
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <FullscreenExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/modal/demo/Fullscreen.vue{2,9 vue:line-numbers}
+:::
 
 ## Examples
 
 ### Control open state
 
 You can control the open state by using the `default-open` prop or the `v-model:open` directive.
-
-__component-code
 
 ::: info
 In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), you can toggle the Modal by pressing `O`.
@@ -110,11 +164,29 @@ In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), y
 This allows you to move the trigger outside of the Modal or remove it entirely.
 :::
 
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <ControlOpenStateExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/modal/demo/ControlOpenState.vue{7,13 vue:line-numbers}
+:::
+
 ### Prevent closing
 
 Set the `dismissible` prop to `false` to prevent the Modal from being closed when clicking outside of it or pressing escape.
 
-__component-code
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <DismissibleExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/modal/demo/Dismissible.vue{7,13 vue:line-numbers}
+:::
 
 ### Programmatic usage
 
@@ -126,7 +198,9 @@ Make sure to wrap your app with the [`App`](/components/app) component which use
 
 First, create a modal component that will be opened programatically:
 
-__component-code
+::: code-group
+<<< @/examples/modal/demo/LazyModal.vue{2,8,10-12,24,32 vue:line-numbers}
+:::
 
 Then, use it in your app:
 
@@ -134,13 +208,29 @@ Then, use it in your app:
 You can close the modal within the modal component by calling `modal.close()`.
 :::
 
-__component-code
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <ProgrammaticUsageExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/modal/demo/ProgrammaticUsage.vue{8,10-23,31 vue:line-numbers}
+:::
 
 ### Nested modals
 
 You can nest modals within each other.
 
-__component-code
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <NestedModalsExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/modal/demo/NestedModals.vue{4-5,10,22,25,42 vue:line-numbers}
+:::
 
 ### With footer slot
 
@@ -171,10 +261,8 @@ Use the `#body` slot to add content.
 </div>
 
 ::: details
-<<< @/examples/modal/demo/WithBodySlot.vue{14-35 vue:line-numbers}
+<<< @/examples/modal/demo/WithBodySlot.vue{15-36 vue:line-numbers}
 :::
-
-
 
 ## API
 

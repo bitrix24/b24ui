@@ -5,6 +5,7 @@ import FileUploadIcon from '@bitrix24/b24icons-vue/main/FileUploadIcon'
 <template>
   <B24Modal
     title="File upload"
+    description="Some demo from chat"
     :b24ui="{
       footer: 'border-t-0 mt-2.5 pt-0'
     }"
