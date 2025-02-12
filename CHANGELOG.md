@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.2.5 (2025-02-12)
+
+### Docs
+
+* **Modal:** improve
+
+### Chore
+
+* **deps:** update
+* **test-vue:** add content & prose folders
+* **test-vue:** add content & prose folders
+
+### Bug Fixes
+
+* **SelectMenu:** wrap content with `FocusScope`
+* **DescriptionList:** display description in the dark
+* **RadioGroup:** make `RadioGroup.legend` eq `FormField.label`
+
 ## 0.2.4 (2025-02-11)
 
 ### Features
