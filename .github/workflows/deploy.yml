@@ -42,13 +42,17 @@ jobs:
 
       - name: 'Generate Playground'
         run: pnpm run dev:generate
+      - name: 'Verify build outputs'
+        run: |
+          echo "Checking docs build output..."
+          ls -R docs/.vitepress/dist || echo "No docs build output found!"
+          echo "Checking playground build output..."
+          ls -R playground/.output/public || echo "No playground build output found!"
 
       - name: 'Upload artifact'
         uses: actions/upload-pages-artifact@v3
         with:
-          path: |
-            docs/.vitepress/dist
-            playground/.output/public
+          path: "docs/.vitepress/dist playground/.output/public"
   deploy:
     environment:
       name: 'github-pages'
