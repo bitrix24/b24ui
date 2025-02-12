@@ -42,6 +42,7 @@ jobs:
 
       - name: 'Generate Playground'
         run: pnpm run dev:generate
+
       - name: 'Verify build outputs'
         run: |
           echo "Checking docs build output..."
@@ -49,10 +50,17 @@ jobs:
           echo "Checking playground build output..."
           ls -R playground/.output/public || echo "No playground build output found!"
 
+      - name: 'Create combined artifact'
+        run: |
+          mkdir -p combined-artifact
+          cp -r docs/.vitepress/dist/* combined-artifact/
+          mkdir -p combined-artifact/playground
+          cp -r playground/.output/public/* combined-artifact/playground/
+
       - name: 'Upload artifact'
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "docs/.vitepress/dist playground/.output/public"
+          path: combined-artifact
   deploy:
     environment:
       name: 'github-pages'
