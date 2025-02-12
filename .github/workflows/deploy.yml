@@ -48,7 +48,7 @@ jobs:
         with:
           path: |
             docs/.vitepress/dist
-            playground/playground/public
+            playground/.output/public
   deploy:
     environment:
       name: 'github-pages'
