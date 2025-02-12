@@ -11,7 +11,11 @@ export default defineConfig({
   test: {
     environment: 'happy-dom',
     silent: true,
-    include: ['./test/components/**.spec.ts'],
+    include: [
+      './test/components/**.spec.ts',
+      './test/components/content/**.spec.ts',
+      './test/components/prose/**.spec.ts'
+    ],
     setupFiles: ['./test/utils/setup.ts'],
     resolveSnapshotPath(path, extension) {
       return path.replace(/\/([^/]+)\.spec\.ts$/, `/__snapshots__/$1-vue.spec.ts${extension}`)
