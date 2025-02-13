@@ -5,7 +5,15 @@ outline: deep
 ---
 <script setup>
 import InputNumberExample from '/examples/inputnumber/InputNumber.vue';
+import DefaultExample from '/examples/inputnumber/Default.vue';
+import MinMaxExample from '/examples/inputnumber/MinMax.vue';
+import StepExample from '/examples/inputnumber/Step.vue';
 import OrientationExample from '/examples/inputnumber/Orientation.vue';
+import PlaceholderExample from '/examples/inputnumber/Placeholder.vue';
+import ColorExample from '/examples/inputnumber/Color.vue';
+import TagExample from '/examples/inputnumber/Tag.vue';
+import SizeExample from '/examples/inputnumber/Size.vue';
+import DisabledExample from '/examples/inputnumber/Disabled.vue';
 import IncrementDecrementExample from '/examples/inputnumber/IncrementDecrement.vue';
 import IncrementDecrementIconsExample from '/examples/inputnumber/IncrementDecrementIcons.vue';
 import WithDecimalFormatExample from '/examples/inputnumber/WithDecimalFormat.vue';
@@ -48,19 +56,41 @@ Use the `v-model` directive to control the value of the InputNumber.
 
 Use the `default-value` prop to set the initial value when you do not need to control its state.
 
-__component-code
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <DefaultExample />
+  </ClientOnly>
+</div>
+
+<<< @/examples/inputnumber/demo/Default.vue{2 vue:line-numbers}
 
 ### Min / Max
 
 Use the `min` and `max` props to set the minimum and maximum values of the InputNumber.
 
-__component-code
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <MinMaxExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/inputnumber/demo/MinMax.vue{15,16 vue:line-numbers}
+:::
 
 ### Step
 
 Use the `step` prop to set the step value of the InputNumber.
 
-__component-code
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <StepExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/inputnumber/demo/Step.vue{13 vue:line-numbers}
+:::
 
 ### Orientation
 
@@ -73,32 +103,80 @@ Use the `orientation` prop to change the orientation of the InputNumber.
 </div>
 
 ::: details
-<<< @/examples/inputnumber/demo/Orientation.vue{8 vue:line-numbers}
+<<< @/examples/inputnumber/demo/Orientation.vue{18 vue:line-numbers}
 :::
 
 ### Placeholder
 
 Use the `placeholder` prop to set a placeholder text.
 
-__component-code
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <PlaceholderExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/inputnumber/demo/Placeholder.vue{13 vue:line-numbers}
+:::
 
 ### Color
 
 Use the `color` prop to change the ring color when the InputNumber is focused.
 
-__component-code
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <ColorExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/inputnumber/demo/Color.vue{17 vue:line-numbers}
+:::
+
+### Tag
+
+Use the `tag` property to display a small legend on top of the Input.
+
+Use the `tagColor` property to set the color for `tag`.
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <TagExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/inputnumber/demo/Tag.vue{17-18 vue:line-numbers}
+:::
 
 ### Size
 
 Use the `size` prop to change the size of the InputNumber.
 
-__component-code
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <SizeExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/inputnumber/demo/Size.vue{17 vue:line-numbers}
+:::
 
 ### Disabled
 
 Use the `disabled` prop to disable the InputNumber.
 
-__component-code
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <DisabledExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/inputnumber/demo/Disabled.vue{13 vue:line-numbers}
+:::
 
 ### Increment / Decrement
 
@@ -162,14 +240,14 @@ Use the `format-options` prop with `style: 'percent'` to customize the format of
 
 Use the `format-options` prop with `style: 'currency'` to customize the format of the value.
 
-<div class="lg:min-h-[160px]">
+<div class="lg:min-h-[275px]">
   <ClientOnly>
     <WithCurrencyFormatExample />
   </ClientOnly>
 </div>
 
 ::: details
-<<< @/examples/inputnumber/demo/WithCurrencyFormat.vue{4,10,11-16 vue:line-numbers}
+<<< @/examples/inputnumber/demo/WithCurrencyFormat.vue{30,31,32-37 vue:line-numbers}
 :::
 
 ### Within a FormField

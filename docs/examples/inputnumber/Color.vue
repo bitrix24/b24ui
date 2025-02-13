@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import type { InputProps } from '@bitrix24/b24ui-nuxt'
+import type { InputNumberProps } from '@bitrix24/b24ui-nuxt'
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
-import Demo from './demo/Tag.vue'
+import Demo from './demo/Color.vue'
 
-const tag = ref('note')
+const isHighlight = ref(true)
 
 const chipItems = ref([
   {
@@ -65,7 +65,7 @@ const chipItems = ref([
   }
 
 ])
-const chipValue = ref<InputProps['tagColor']>((chipItems.value[0]?.value) as InputProps['tagColor'])
+const chipValue = ref<InputNumberProps['color']>((chipItems.value[0]?.value) as InputNumberProps['color'])
 
 function getChip(value: string) {
   return chipItems.value.find(item => item.value === value)?.chip
@@ -75,10 +75,10 @@ function getChip(value: string) {
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="tag" class="w-full sm:w-1/4">
-        <B24Input v-model="tag" />
+      <B24FormField label="isHighlight">
+        <B24Switch v-model="isHighlight" />
       </B24FormField>
-      <B24FormField label="tagColor" class="w-full sm:w-1/4">
+      <B24FormField label="color" class="w-full sm:w-1/4">
         <B24Select
           v-model="chipValue"
           :items="chipItems"
@@ -98,6 +98,6 @@ function getChip(value: string) {
         </B24Select>
       </B24FormField>
     </template>
-    <Demo :tag-color="chipValue" :tag="tag" />
+    <Demo :color="chipValue" :is-highlight="isHighlight" />
   </ComponentShowExample>
 </template>

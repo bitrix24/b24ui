@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import type { InputNumberProps } from '@bitrix24/b24ui-nuxt'
 
 export interface ExampleProps {
+  size?: InputNumberProps['size']
   orientation?: InputNumberProps['orientation']
 }
 
 withDefaults(defineProps<ExampleProps>(), {
+  size: 'md' as const,
   orientation: 'horizontal' as const
 })
-
-const value = ref(24)
 </script>
 
 <template>
   <B24InputNumber
-    v-model="value"
+    :size="size"
     :orientation="orientation"
+    placeholder="Enter a number"
   />
 </template>

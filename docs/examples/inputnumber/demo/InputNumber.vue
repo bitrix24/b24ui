@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const value = ref(5)
+const value = ref(24)
 </script>
 
 <template>

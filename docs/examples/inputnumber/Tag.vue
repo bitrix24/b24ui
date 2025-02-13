@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import type { InputProps } from '@bitrix24/b24ui-nuxt'
+import type { InputNumberProps } from '@bitrix24/b24ui-nuxt'
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
 import Demo from './demo/Tag.vue'
 
@@ -65,7 +65,7 @@ const chipItems = ref([
   }
 
 ])
-const chipValue = ref<InputProps['tagColor']>((chipItems.value[0]?.value) as InputProps['tagColor'])
+const chipValue = ref<InputNumberProps['tagColor']>((chipItems.value[0]?.value) as InputNumberProps['tagColor'])
 
 function getChip(value: string) {
   return chipItems.value.find(item => item.value === value)?.chip

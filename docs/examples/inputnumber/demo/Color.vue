@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import type { InputNumberProps } from '@bitrix24/b24ui-nuxt'
 
 export interface ExampleProps {
-  orientation?: InputNumberProps['orientation']
+  color?: InputNumberProps['color']
+  isHighlight?: boolean
 }
 
 withDefaults(defineProps<ExampleProps>(), {
-  orientation: 'horizontal' as const
+  color: 'default',
+  isHighlight: true
 })
-
-const value = ref(24)
 </script>
 
 <template>
   <B24InputNumber
-    v-model="value"
-    :orientation="orientation"
+    :color="color"
+    :highlight="isHighlight"
+    placeholder="Enter a number"
   />
 </template>

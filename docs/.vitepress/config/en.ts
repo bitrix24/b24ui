@@ -40,7 +40,7 @@ function nav(): DefaultTheme.NavItem[] {
         },
         {
           text: 'Demo',
-          link: `${configParams.domain}${configParams.baseFolder}/demo/`
+          link: `${configParams.domain}${configParams.baseFolder}demo/`
         },
         ...configParams.relative
       ]

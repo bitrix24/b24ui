@@ -65,7 +65,7 @@ const chipItems = ref([
   }
 
 ])
-const chipValue = ref<TextareaProps['color']>((chipItems.value[0]?.value) as TextareaProps['color'])
+const chipValue = ref<TextareaProps['tagColor']>((chipItems.value[0]?.value) as TextareaProps['tagColor'])
 
 function getChip(value: string) {
   return chipItems.value.find(item => item.value === value)?.chip
