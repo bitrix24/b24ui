@@ -5,5 +5,5 @@
     // @memo need for src/runtime/components/Toast.vue ////
     "noImplicitAny": false
   },
-  "exclude": ["@tmp", "cli", "docs", "dist", "playground", "playground-vue", "node_modules"]
+  "exclude": ["@tmp", "cli", "docs", "dist", "playground", "playground-vue", "demo", "node_modules"]
 }

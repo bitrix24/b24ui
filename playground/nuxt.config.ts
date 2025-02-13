@@ -9,14 +9,7 @@ export default defineNuxtConfig({
     // @memo ERROR  NuxtHub is not compatible with nuxt generate as it needs a server to run.
     // '@nuxthub/core'
   ],
-
-  devtools: {
-    enabled: false
-  },
-  app: {
-    baseURL: '/b24ui/playground/',
-    buildAssetsDir: '/b24ui/playground/_nuxt/'
-  },
+  devtools: { enabled: false },
   devServer: {
     loadingTemplate: () => {
       return readFileSync('./playground/template/devServer-loading.html', 'utf-8')

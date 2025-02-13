@@ -40,22 +40,15 @@ jobs:
       - name: 'Build with VitePress'
         run: pnpm run docs:full:build
 
-      - name: 'Generate Playground'
-        run: pnpm run dev:generate
-
-      - name: 'Verify build outputs'
-        run: |
-          echo "Checking docs build output..."
-          ls -R docs/.vitepress/dist || echo "No docs build output found!"
-          echo "Checking playground build output..."
-          ls -R playground/.output/public || echo "No playground build output found!"
+      - name: 'Generate Demo'
+        run: pnpm run dev:demo
 
       - name: 'Create combined artifact'
         run: |
           mkdir -p combined-artifact
           cp -r docs/.vitepress/dist/* combined-artifact/
-          mkdir -p combined-artifact/playground
-          cp -r playground/.output/public/* combined-artifact/playground/
+          mkdir -p combined-artifact/demo
+          cp -r demo/dist/* combined-artifact/demo/
 
       - name: 'Upload artifact'
         uses: actions/upload-pages-artifact@v3

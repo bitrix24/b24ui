@@ -34,6 +34,11 @@ playground-vue/components.d.ts
 playground-vue/tsconfig.app.tsbuildinfo
 playground-vue/tsconfig.node.tsbuildinfo
 
+demo/auto-imports.d.ts
+demo/components.d.ts
+demo/tsconfig.app.tsbuildinfo
+demo/tsconfig.node.tsbuildinfo
+
 # Docs
 docs/.vitepress/dist
 docs/.vitepress/cache
