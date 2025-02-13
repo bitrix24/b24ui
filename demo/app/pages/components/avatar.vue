@@ -7,8 +7,6 @@ import theme from '#build/b24ui/avatar'
 import IncertImageIcon from '@bitrix24/b24icons-vue/editor/IncertImageIcon'
 import PersonIcon from '@bitrix24/b24icons-vue/main/PersonIcon'
 
-const runtimeConfig = useRuntimeConfig()
-const baseURL = runtimeConfig.public.baseURL
 usePageMeta.setPageTitle('Avatar')
 
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
