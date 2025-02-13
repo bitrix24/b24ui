@@ -6,6 +6,7 @@ import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/input-number'
 import { tv } from '../utils/tv'
 import type { ButtonProps, IconComponent } from '../types'
+import type { PartialString } from '../types/utils'
 
 const appConfigInputNumber = _appConfig as AppConfig & { b24ui: { inputNumber: Partial<typeof theme> } }
 
@@ -35,8 +36,6 @@ export interface InputNumberProps extends Pick<NumberFieldRootProps, 'modelValue
   tagColor?: InputNumberVariants['tagColor']
   /** Highlight the ring color like a focus state. */
   highlight?: boolean
-  class?: any
-  b24ui?: Partial<typeof inputNumber.slots>
   /**
    * The orientation of the input menu.
    * @defaultValue 'horizontal'
@@ -69,6 +68,8 @@ export interface InputNumberProps extends Pick<NumberFieldRootProps, 'modelValue
    * @defaultValue B24App.locale.code
    */
   locale?: string
+  class?: any
+  b24ui?: PartialString<typeof inputNumber.slots>
 }
 
 export interface InputNumberEmits {

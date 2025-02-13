@@ -4,6 +4,7 @@ import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/textarea'
 import { tv } from '../utils/tv'
+import type { PartialString } from '../types/utils'
 
 const appConfigTextarea = _appConfig as AppConfig & { b24ui: { textarea: Partial<typeof theme> } }
 
@@ -42,7 +43,7 @@ export interface TextareaProps {
   /** Highlight the ring color like a focus state. */
   highlight?: boolean
   class?: any
-  b24ui?: Partial<typeof textarea.slots>
+  b24ui?: PartialString<typeof textarea.slots>
 }
 
 export interface TextareaEmits {
