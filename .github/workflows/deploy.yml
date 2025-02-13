@@ -41,7 +41,7 @@ jobs:
         run: pnpm run docs:full:build
 
       - name: 'Generate Demo'
-        run: pnpm run dev:demo
+        run: pnpm run demo:dev
 
       - name: 'Create combined artifact'
         run: |
