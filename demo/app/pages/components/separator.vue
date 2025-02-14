@@ -31,7 +31,7 @@ const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.var
           </div>
 
           <B24Separator
-            :avatar="{ src: '/avatar/assistant.png' }"
+            :avatar="{ src: '/b24ui/demo/avatar/assistant.png' }"
             decorative
             orientation="vertical"
           />
@@ -41,7 +41,7 @@ const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.var
           </div>
 
           <B24Separator decorative orientation="vertical">
-            <B24Avatar size="md" src="/avatar/employee.png" />
+            <B24Avatar size="md" src="/b24ui/demo/avatar/employee.png" />
           </B24Separator>
 
           <div class="flex-1 text-center text-black dark:text-base-150">

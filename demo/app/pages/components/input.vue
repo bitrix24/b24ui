@@ -142,7 +142,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
         />
         <B24Input
           loading
-          :avatar="{ src: '/avatar/employee.png' }"
+          :avatar="{ src: '/b24ui/demo/avatar/employee.png' }"
           name="some_value"
           placeholder="Insert value&hellip;"
           aria-label="Insert value"
@@ -215,7 +215,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
             class="w-40"
           />
           <B24Input
-            :avatar="{ src: '/avatar/employee.png' }"
+            :avatar="{ src: '/b24ui/demo/avatar/employee.png' }"
             name="some_value"
             placeholder="Insert value&hellip;"
             aria-label="Insert value"
@@ -223,7 +223,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
             class="w-40"
           />
           <B24Input
-            :avatar="{ src: '/avatar/assistant.png' }"
+            :avatar="{ src: '/b24ui/demo/avatar/assistant.png' }"
             :trailing-icon="Cross20Icon"
             name="some_value"
             placeholder="Insert value&hellip;"

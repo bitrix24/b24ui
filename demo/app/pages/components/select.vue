@@ -270,7 +270,7 @@ function getUserAvatar(value: string) {
         <B24Select
           :items="items"
           loading
-          :avatar="{ src: '/avatar/employee.png' }"
+          :avatar="{ src: '/b24ui/demo/avatar/employee.png' }"
           name="some_value"
           placeholder="Choose a value&hellip;"
           aria-label="Choose a value"
@@ -361,7 +361,7 @@ function getUserAvatar(value: string) {
           <div class="w-40">
             <B24Select
               :items="items"
-              :avatar="{ src: '/avatar/employee.png' }"
+              :avatar="{ src: '/b24ui/demo/avatar/employee.png' }"
               class="w-full"
               name="some_value"
               placeholder="Choose a value&hellip;"

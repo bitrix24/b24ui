@@ -174,7 +174,7 @@ const onCountdownRoundStop = () => {
           <B24Countdown
             :size="size"
             seconds="60"
-            :avatar="{ src: '/avatar/employee.png', text: 'Employee Name' }"
+            :avatar="{ src: '/b24ui/demo/avatar/employee.png', text: 'Employee Name' }"
           />
           <B24Countdown
             as="div"

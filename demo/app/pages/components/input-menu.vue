@@ -181,7 +181,7 @@ function onCreate(item: string) {
           v-model="value"
           :items="items"
           loading
-          :avatar="{ src: '/avatar/employee.png' }"
+          :avatar="{ src: '/b24ui/demo/avatar/employee.png' }"
           name="some_value"
           placeholder="Insert value&hellip;"
           aria-label="Insert value"
@@ -282,7 +282,7 @@ function onCreate(item: string) {
           <B24InputMenu
             v-model="value"
             :items="items"
-            :avatar="{ src: '/avatar/employee.png' }"
+            :avatar="{ src: '/b24ui/demo/avatar/employee.png' }"
             name="some_value"
             placeholder="Insert value&hellip;"
             aria-label="Insert value"
@@ -292,7 +292,7 @@ function onCreate(item: string) {
           <B24InputMenu
             v-model="value"
             :items="items"
-            :avatar="{ src: '/avatar/assistant.png' }"
+            :avatar="{ src: '/b24ui/demo/avatar/assistant.png' }"
             :trailing-icon="Expand1Icon"
             name="some_value"
             placeholder="Insert value&hellip;"

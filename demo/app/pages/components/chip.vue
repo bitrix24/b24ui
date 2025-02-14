@@ -52,7 +52,7 @@ const items = [
             inset
           >
             <B24Avatar
-              src="/avatar/employee.png"
+              src="/b24ui/demo/avatar/employee.png"
               :size="(size === '3xs' ? '2xs' : size)"
               alt="Employee Name"
             />
@@ -87,7 +87,7 @@ const items = [
         <ExampleCardSubTitle :title="size as string" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
           <B24Chip v-for="{ name, count } in items" :key="name" :text="count" :size="size" inset>
-            <B24Avatar src="/avatar/assistant.png" alt="Assistant Name" :size="(size === '3xs' ? '2xs' : size)" />
+            <B24Avatar src="/b24ui/demo/avatar/assistant.png" alt="Assistant Name" :size="(size === '3xs' ? '2xs' : size)" />
           </B24Chip>
         </div>
       </template>

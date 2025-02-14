@@ -35,7 +35,7 @@ const items = computed(() => [
     {
       label: 'My account',
       avatar: {
-        src: '/avatar/employee.png'
+        src: '/b24ui/demo/avatar/employee.png'
       },
       type: 'label' as const
     }

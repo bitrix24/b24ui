@@ -272,7 +272,7 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
         <B24SelectMenu
           :items="items"
           loading
-          :avatar="{ src: '/avatar/employee.png' }"
+          :avatar="{ src: '/b24ui/demo/avatar/employee.png' }"
           name="some_value"
           placeholder="Choose a value&hellip;"
           aria-label="Choose a value"
@@ -376,7 +376,7 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
           <div class="w-40">
             <B24SelectMenu
               :items="items"
-              :avatar="{ src: '/avatar/employee.png' }"
+              :avatar="{ src: '/b24ui/demo/avatar/employee.png' }"
               class="w-full"
               name="some_value"
               placeholder="Choose a value&hellip;"

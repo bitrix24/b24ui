@@ -86,7 +86,7 @@ function onClick() {
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24Button :icon="TaskIcon" loading-auto use-clock @click="onClick" />
         <B24Button rounded :icon="TaskIcon" loading-auto use-clock @click="onClick" />
-        <B24Button :avatar="{ src: '/avatar/employee.png' }" loading-auto use-clock @click="onClick" />
+        <B24Button :avatar="{ src: '/b24ui/demo/avatar/employee.png' }" loading-auto use-clock @click="onClick" />
       </div>
 
       <ExampleCardSubTitle title="some more" />
@@ -108,7 +108,7 @@ function onClick() {
         <B24Button
           use-dropdown
           label="Button"
-          :avatar="{ src: '/avatar/assistant.png' }"
+          :avatar="{ src: '/b24ui/demo/avatar/assistant.png' }"
           loading-auto
           use-clock
           @click="onClick"

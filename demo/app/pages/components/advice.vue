@@ -29,21 +29,21 @@ const description = ref('Let\'s signal the manager that the deal is not moving, 
 
       <ExampleCardSubTitle title="avatar" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Advice :description="description" :avatar="{ src: '/avatar/assistant.png' }" />
-        <B24Advice angle="top" :description="description" :avatar="{ src: '/avatar/employee.png' }" />
+        <B24Advice :description="description" :avatar="{ src: '/b24ui/demo/avatar/assistant.png' }" />
+        <B24Advice angle="top" :description="description" :avatar="{ src: '/b24ui/demo/avatar/employee.png' }" />
       </div>
     </ExampleCard>
 
     <ExampleCard title="html">
       <ExampleCardSubTitle title="avatar" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Advice :avatar="{ src: '/avatar/assistant.png' }">
+        <B24Advice :avatar="{ src: '/b24ui/demo/avatar/assistant.png' }">
           <span>Typically, instructions on how to add a SAML application and add the ACS URL and SP Entity ID can be found in the Microsoft Azure technical documentation. </span>
           <B24Link to="/components/advice">
             Read more
           </B24Link>
         </B24Advice>
-        <B24Advice angle="top" :avatar="{ src: '/avatar/employee.png' }">
+        <B24Advice angle="top" :avatar="{ src: '/b24ui/demo/avatar/employee.png' }">
           <div class="flex flex-col items-start justify-between gap-1.5">
             <div class="font-bold">
               Reference information

@@ -61,7 +61,7 @@ const templates = (id: number) => [
     title: `Title for toast ${id}`,
     description: `${getRandomString(messageList)}Description for toast ${id}`,
     avatar: {
-      src: '/avatar/employee.png'
+      src: '/b24ui/demo/avatar/employee.png'
     },
     color: getRandomString(colors)
   },
@@ -70,7 +70,7 @@ const templates = (id: number) => [
     description: `${getRandomString(messageList)}Description for toast ${id}`,
     color: getRandomString(colors),
     avatar: {
-      src: '/avatar/assistant.png'
+      src: '/b24ui/demo/avatar/assistant.png'
     },
     actions: [{
       label: 'Action 4',

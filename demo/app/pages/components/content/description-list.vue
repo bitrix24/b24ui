@@ -121,7 +121,7 @@ const itemsIcons: DescriptionListItem[] = [
     label: 'Line 1.1',
     description: 'Description 1.1',
     avatar: {
-      src: '/avatar/employee.png'
+      src: '/b24ui/demo/avatar/employee.png'
     }
   },
   {

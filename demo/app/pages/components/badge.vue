@@ -40,7 +40,7 @@ function onCloseClick(event: MouseEvent) {
             size="xl"
             color="primary"
             label="Employee Name"
-            :avatar="{ src: '/avatar/employee.png', text: 'Employee Name' }"
+            :avatar="{ src: '/b24ui/demo/avatar/employee.png', text: 'Employee Name' }"
             use-fill
             use-link
             use-close
@@ -181,7 +181,7 @@ function onCloseClick(event: MouseEvent) {
               :size="size"
               :label="`${size} ${depth}`"
               :depth="depth"
-              :avatar="{ src: '/avatar/employee.png' }"
+              :avatar="{ src: '/b24ui/demo/avatar/employee.png' }"
               use-close
               use-link
             />
@@ -202,7 +202,7 @@ function onCloseClick(event: MouseEvent) {
               :size="size"
               :label="`fill / ${size} / ${depth}`"
               :depth="depth"
-              :avatar="{ src: '/avatar/assistant.png' }"
+              :avatar="{ src: '/b24ui/demo/avatar/assistant.png' }"
               use-close
               use-link
               use-fill

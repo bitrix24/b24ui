@@ -100,7 +100,7 @@ const data = {
           <B24Alert
             :title="data.title"
             :description="data.description"
-            :avatar="{ src: '/avatar/employee.png' }"
+            :avatar="{ src: '/b24ui/demo/avatar/employee.png' }"
             :close="data.close"
             :size="size"
           />
