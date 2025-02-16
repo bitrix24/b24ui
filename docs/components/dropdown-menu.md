@@ -5,6 +5,8 @@ outline: deep
 ---
 <script setup>
 import DropdownMenuExample from '/examples/dropdownmenu/DropdownMenu.vue';
+import ContentExample from '/examples/dropdownmenu/Content.vue';
+import ArrowExample from '/examples/dropdownmenu/Arrow.vue';
 import WithColorItemsExample from '/examples/dropdownmenu/WithColorItems.vue';
 </script>
 # DropdownMenu
@@ -68,7 +70,15 @@ Each item can take a `children` array of objects with the same properties as the
 
 Use the `content` prop to control how the DropdownMenu content is rendered, like its `align` or `side` for example.
 
-__component-code
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <ContentExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/dropdownmenu/demo/Content.vue{vue:line-numbers}
+:::
 
 ### Arrow
 

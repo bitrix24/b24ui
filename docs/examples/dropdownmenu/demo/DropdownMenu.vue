@@ -155,7 +155,7 @@ const items = ref([
     {
       label: 'Support',
       icon: PulseCircleIcon,
-      to: '/b24ui/components/button.html'
+      to: '/b24ui/components/dropdown-menu.html'
     },
     {
       label: 'API',
