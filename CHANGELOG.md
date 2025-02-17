@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.2.6 (2025-02-17)
+
+### Features
+
+* **DropdownMenu:** add `external-icon` prop
+* **Link:** allow usage without `vue-router` in vue
+
+### Docs
+
+* **InputNumber:** improve
+* **DropdownMenu:** improve
+
+### Chore
+
+* **demo:** make self workspace for demo
+
+### Bug Fixes
+
+* **InputMenu/Textarea:** add missing `PartialString` type on `b24ui` prop
+* **Modal:** always fullscreen on mobile
+
 ## 0.2.5 (2025-02-12)
 
 ### Docs
@@ -9,7 +30,6 @@
 ### Chore
 
 * **deps:** update
-* **test-vue:** add content & prose folders
 * **test-vue:** add content & prose folders
 
 ### Bug Fixes
