@@ -31,7 +31,7 @@ exports[`Alert > renders with as correctly 1`] = `
 `;
 
 exports[`Alert > renders with avatar correctly 1`] = `
-"<div data-orientation="vertical" class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-start"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-12 text-2xl shrink-0"><img role="img" src="https://github.com/bitrix24.png" width="48" height="48" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate"> </span></span>
+"<div data-orientation="vertical" class="relative overflow-hidden w-full rounded-3xs flex text-base-950 bg-base-200 dark:text-base-950 dark:bg-base-200 py-md ps-md pe-xs gap-2.5 items-start"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-12 text-2xl shrink-0"><img role="img" src="https://github.com/bitrix24.png" width="48" height="48" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate">&nbsp;</span></span>
   <div class="min-w-0 flex-1 flex flex-col font-b24-primary font-normal">
     <div class="font-bold text-md leading-none">Alert</div>
     <!--v-if-->

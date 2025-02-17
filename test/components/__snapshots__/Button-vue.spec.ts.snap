@@ -13,7 +13,7 @@ exports[`Button > renders with as correctly 1`] = `
 exports[`Button > renders with avatar and leadingIcon correctly 1`] = `
 "<button type="button" leadingicon="i-lucide-arrow-left" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear text-white dark:text-base-100 bg-base-650 border border-base-650 hover:bg-base-850 hover:border-base-850 hover:focus-visible:ring-0 active:bg-slate-850 active:border-slate-850 active:focus-visible:ring-0 disabled:bg-base-650 aria-disabled:bg-base-650 disabled:border-base-650 aria-disabled:border-base-650 focus-visible:outline-base-650 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase" isaction="false">
   <!--v-if-->
-  <div class="inline-flex items-center gap-1.5"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-7 text-xs shrink-0"><img role="img" src="https://github.com/IgorShevchik.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate"> </span></span>
+  <div class="inline-flex items-center gap-1.5"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-7 text-xs shrink-0"><img role="img" src="https://github.com/IgorShevchik.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate">&nbsp;</span></span>
     <!--v-if-->
     <!--v-if-->
   </div>
@@ -23,7 +23,7 @@ exports[`Button > renders with avatar and leadingIcon correctly 1`] = `
 exports[`Button > renders with avatar and trailingIcon correctly 1`] = `
 "<button type="button" trailingicon="i-lucide-arrow-right" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear text-white dark:text-base-100 bg-base-650 border border-base-650 hover:bg-base-850 hover:border-base-850 hover:focus-visible:ring-0 active:bg-slate-850 active:border-slate-850 active:focus-visible:ring-0 disabled:bg-base-650 aria-disabled:bg-base-650 disabled:border-base-650 aria-disabled:border-base-650 focus-visible:outline-base-650 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase" isaction="false">
   <!--v-if-->
-  <div class="inline-flex items-center gap-1.5"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-7 text-xs shrink-0"><img role="img" src="https://github.com/IgorShevchik.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate"> </span></span>
+  <div class="inline-flex items-center gap-1.5"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-7 text-xs shrink-0"><img role="img" src="https://github.com/IgorShevchik.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate">&nbsp;</span></span>
     <!--v-if-->
     <!--v-if-->
   </div>
@@ -33,7 +33,7 @@ exports[`Button > renders with avatar and trailingIcon correctly 1`] = `
 exports[`Button > renders with avatar correctly 1`] = `
 "<button type="button" class="select-none cursor-pointer inline-flex items-center relative outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear text-white dark:text-base-100 bg-base-650 border border-base-650 hover:bg-base-850 hover:border-base-850 hover:focus-visible:ring-0 active:bg-slate-850 active:border-slate-850 active:focus-visible:ring-0 disabled:bg-base-650 aria-disabled:bg-base-650 disabled:border-base-650 aria-disabled:border-base-650 focus-visible:outline-base-650 ring-base-850 focus-visible:ring-base-850 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase" isaction="false">
   <!--v-if-->
-  <div class="inline-flex items-center gap-1.5"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-7 text-xs shrink-0"><img role="img" src="https://github.com/IgorShevchik.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate"> </span></span>
+  <div class="inline-flex items-center gap-1.5"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-7 text-xs shrink-0"><img role="img" src="https://github.com/IgorShevchik.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate">&nbsp;</span></span>
     <!--v-if-->
     <!--v-if-->
   </div>
@@ -338,7 +338,7 @@ exports[`Button > renders with loading and avatar correctly 1`] = `
   <div class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center"><svg viewBox="0 0 64 64" width="1em" xmlns="http://www.w3.org/2000/svg" class="animate-spin stroke-2 size-lg">
       <path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"></path>
     </svg></div>
-  <div class="inline-flex items-center gap-1.5 invisible"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-7 text-xs shrink-0"><img role="img" src="https://github.com/IgorShevchik.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate"> </span></span>
+  <div class="inline-flex items-center gap-1.5 invisible"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-7 text-xs shrink-0"><img role="img" src="https://github.com/IgorShevchik.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate">&nbsp;</span></span>
     <!--v-if-->
     <!--v-if-->
   </div>
@@ -363,7 +363,7 @@ exports[`Button > renders with loading trailing and avatar correctly 1`] = `
   <div class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center"><svg viewBox="0 0 64 64" width="1em" xmlns="http://www.w3.org/2000/svg" class="animate-spin stroke-2 size-lg">
       <path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round"></path>
     </svg></div>
-  <div class="inline-flex items-center gap-1.5 invisible"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-7 text-xs shrink-0"><img role="img" src="https://github.com/IgorShevchik.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate"> </span></span>
+  <div class="inline-flex items-center gap-1.5 invisible"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-7 text-xs shrink-0"><img role="img" src="https://github.com/IgorShevchik.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium text-base-500 dark:text-base-600 truncate">&nbsp;</span></span>
     <!--v-if-->
     <!--v-if-->
   </div>
