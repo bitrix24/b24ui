@@ -17,7 +17,7 @@ export default {
     overlay: 'fixed inset-0 bg-base-950/20 dark:bg-base-950/30',
     content: [
       'py-md2 px-5',
-      'fixed w-full h-dvh bg-white dark:bg-base-950',
+      'fixed bg-white dark:bg-base-950',
       // 'divide-y divide-base-900/10 dark:divide-white/20',
       'flex flex-col focus:outline-none'
     ].join(' '),
@@ -41,11 +41,10 @@ export default {
       },
       false: {
         content: [
-          'top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]',
-          'sm:min-w-[400px]',
-          'sm:max-w-[420px] sm:h-auto sm:max-h-[calc(100vh-4rem)]',
-          'sm:rounded-md sm:shadow-lg',
-          'sm:ring ring-base-300 dark:ring-base-800'
+          'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
+          'w-[calc(100vw-2rem)] max-w-lg max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)]',
+          'rounded-md shadow-lg',
+          'ring ring-base-300 dark:ring-base-800'
         ].join(' ')
       }
     }
