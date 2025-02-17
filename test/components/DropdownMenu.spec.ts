@@ -95,6 +95,8 @@ describe('DropdownMenu', () => {
     ['with disabled', { props: { ...props, disabled: true } }],
     ['with arrow', { props: { ...props, arrow: true } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { ...props, size } }]),
+    ['with externalIcon', { props: { ...props, externalIcon: SignIcon } }],
+    ['without externalIcon', { props: { ...props, externalIcon: false } }],
     ['with class', { props: { ...props, class: 'min-w-96' } }],
     ['with b24ui', { props: { ...props, b24ui: { itemLeadingIcon: 'size-4' } } }],
     // Slots

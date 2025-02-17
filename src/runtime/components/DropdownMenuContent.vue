@@ -13,6 +13,7 @@ interface DropdownMenuContentProps<T> extends Omit<RekaDropdownMenuContentProps,
   sub?: boolean
   labelKey: string
   checkedIcon?: IconComponent
+  externalIcon?: boolean | IconComponent
   class?: any
   b24ui: typeof _dropdownMenu
   b24uiOverride?: any
@@ -44,7 +45,7 @@ const props = defineProps<DropdownMenuContentProps<T>>()
 const emits = defineEmits<DropdownMenuContentEmits>()
 const slots = defineSlots<DropdownMenuContentSlots<T>>()
 
-const contentProps = useForwardPropsEmits(reactiveOmit(props, 'sub', 'items', 'portal', 'labelKey', 'checkedIcon', 'class', 'b24ui', 'b24uiOverride'), emits)
+const contentProps = useForwardPropsEmits(reactiveOmit(props, 'sub', 'items', 'portal', 'labelKey', 'checkedIcon', 'externalIcon', 'class', 'b24ui', 'b24uiOverride'), emits)
 const proxySlots = omit(slots, ['default']) as Record<string, DropdownMenuContentSlots<T>[string]>
 
 const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: DropdownMenuItem, active?: boolean, index: number }>()
@@ -79,8 +80,8 @@ const groups = computed(() => props.items?.length ? (Array.isArray(props.items[0
           {{ get(item, props.labelKey as string) }}
         </slot>
         <Component
-          :is="icons.external"
-          v-if="item.target === '_blank'"
+          :is="typeof externalIcon !== 'boolean' ? externalIcon : icons.external"
+          v-if="item.target === '_blank' && externalIcon !== false"
           :class="b24ui.itemLabelExternalIcon({ class: b24uiOverride?.itemLabelExternalIcon, color: item?.color, active })"
         />
       </span>
@@ -139,6 +140,7 @@ const groups = computed(() => props.items?.length ? (Array.isArray(props.items[0
               :side-offset="3"
               :label-key="labelKey"
               :checked-icon="checkedIcon"
+              :external-icon="externalIcon"
               v-bind="item.content"
             >
               <template v-for="(_, name) in proxySlots" #[name]="slotData: any">

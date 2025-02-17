@@ -46,6 +46,12 @@ export interface DropdownMenuProps<T> extends Omit<DropdownMenuRootProps, 'dir'>
    */
   checkedIcon?: IconComponent
   /**
+   * The icon displayed when the item is an external link.
+   * Set to `false` to hide the external icon.
+   * @defaultValue icons.external = `OpenIn50Icon`
+   */
+  externalIcon?: boolean | IconComponent
+  /**
    * The content of the menu.
    * @defaultValue { side: 'bottom', sideOffset: 8, collisionPadding: 8 }
    */
@@ -94,6 +100,7 @@ import B24DropdownMenuContent from './DropdownMenuContent.vue'
 const props = withDefaults(defineProps<DropdownMenuProps<T>>(), {
   portal: true,
   modal: true,
+  externalIcon: true,
   labelKey: 'label'
 })
 const emits = defineEmits<DropdownMenuEmits>()
@@ -124,6 +131,7 @@ const b24ui = computed(() => dropdownMenu({
       :portal="portal"
       :label-key="labelKey"
       :checked-icon="checkedIcon"
+      :external-icon="externalIcon"
     >
       <template v-for="(_, name) in proxySlots" #[name]="slotData: any">
         <slot :name="name" v-bind="slotData" />
