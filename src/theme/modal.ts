@@ -42,7 +42,7 @@ export default {
       false: {
         content: [
           'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
-          'w-[calc(100vw-2rem)] max-w-lg max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)]',
+          'w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)]',
           'rounded-md shadow-lg',
           'ring ring-base-300 dark:ring-base-800'
         ].join(' ')

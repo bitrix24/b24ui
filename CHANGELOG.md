@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.7 (2025-02-17)
+
+### Bug Fixes
+
+* **Modal:** fix max-w
+
 ## 0.2.6 (2025-02-17)
 
 ### Features
