@@ -73,7 +73,7 @@ export interface LinkProps extends NuxtLinkProps {
   /** Will only be active if the current route is an exact match. */
   exact?: boolean
   /** Will only be active if the current route query is an exact match. */
-  exactQuery?: boolean
+  exactQuery?: boolean | 'partial'
   /** Will only be active if the current route hash is an exact match. */
   exactHash?: boolean
   /** The class to apply when the link is inactive. */
@@ -92,8 +92,8 @@ export interface LinkSlots {
 </script>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { isEqual } from 'ohash'
+import { computed, getCurrentInstance } from 'vue'
+import { isEqual, diff } from 'ohash'
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 import { hasProtocol } from 'ufo'
@@ -113,7 +113,22 @@ const props = withDefaults(defineProps<LinkProps>(), {
 })
 defineSlots<LinkSlots>()
 
-const route = useRoute()
+// Check if vue-router is available by checking for the injection key
+const hasRouter = computed(() => {
+  const app = getCurrentInstance()?.appContext.app
+  return !!(app?.config?.globalProperties?.$router)
+})
+
+// Only try to get route if router exists
+const route = computed(() => {
+  if (!hasRouter.value) return null
+  try {
+    return useRoute()
+  } catch {
+    return null
+  }
+})
+
 const routerLinkProps = useForwardProps(reactiveOmit(props, 'as', 'type', 'disabled', 'active', 'exact', 'exactQuery', 'exactHash', 'activeClass', 'inactiveClass', 'to', 'raw', 'class'))
 
 const ui = computed(() => tv({
@@ -126,21 +141,37 @@ const ui = computed(() => tv({
   }
 }))
 
-const isExternal = computed(() => typeof props.to === 'string' && hasProtocol(props.to, { acceptRelative: true }))
+function isPartiallyEqual(item1: any, item2: any) {
+  const diffedKeys = diff(item1, item2).reduce((filtered, q) => {
+    if (q.type === 'added') {
+      filtered.push(q.key)
+    }
+    return filtered
+  }, [] as string[])
+  return isEqual(item1, item2, { excludeKeys: key => diffedKeys.includes(key) })
+}
+
+const isExternal = computed(() => {
+  if (!props.to) return false
+  return typeof props.to === 'string' && hasProtocol(props.to, { acceptRelative: true })
+})
 
 function isLinkActive({ route: linkRoute, isActive, isExactActive }: any) {
   if (props.active !== undefined) {
     return props.active
   }
 
-  if (!props.to) {
+  if (!props.to || !route.value) {
     return false
   }
 
-  if (props.exactQuery && !isEqual(linkRoute.query, route.query)) {
-    return false
+  if (props.exactQuery === 'partial') {
+    if (!isPartiallyEqual(linkRoute.query, route.value.query)) return false
+  } else if (props.exactQuery === true) {
+    if (!isEqual(linkRoute.query, route.value.query)) return false
   }
-  if (props.exactHash && linkRoute.hash !== route.hash) {
+
+  if (props.exactHash && linkRoute.hash !== route.value.hash) {
     return false
   }
 
@@ -169,10 +200,52 @@ function resolveLinkClass({ route, isActive, isExactActive }: any) {
     isAction: Boolean(props.isAction)
   })
 }
+
+// Handle navigation without vue-router
+const handleNavigation = (href: string) => {
+  if (isExternal.value) {
+    window.location.href = href
+  } else {
+    window.location.pathname = href
+  }
+}
 </script>
 
 <template>
-  <RouterLink v-slot="{ href, navigate, route: linkRoute, isActive, isExactActive }" v-bind="routerLinkProps" :to="to || '#'" custom>
+  <template v-if="hasRouter">
+    <RouterLink v-slot="{ href, navigate, route: linkRoute, isActive, isExactActive }" v-bind="routerLinkProps" :to="to || '#'" custom>
+      <template v-if="custom">
+        <slot
+          v-bind="{
+            ...$attrs,
+            as,
+            type,
+            disabled,
+            target: props.target ? props.target : undefined,
+            href: to ? (isExternal ? to as string : href) : undefined,
+            navigate,
+            active: isLinkActive({ route: linkRoute, isActive, isExactActive })
+          }"
+        />
+      </template>
+      <B24LinkBase
+        v-else
+        v-bind="{
+          ...$attrs,
+          as,
+          type,
+          disabled,
+          href: to ? (isExternal ? to as string : href) : undefined,
+          navigate
+        }"
+        :class="resolveLinkClass({ route: linkRoute, isActive: isActive, isExactActive: isExactActive })"
+      >
+        <slot :active="isLinkActive({ route: linkRoute, isActive, isExactActive })" />
+      </B24LinkBase>
+    </RouterLink>
+  </template>
+
+  <template v-else>
     <template v-if="custom">
       <slot
         v-bind="{
@@ -180,10 +253,9 @@ function resolveLinkClass({ route, isActive, isExactActive }: any) {
           as,
           type,
           disabled,
-          target: props.target ? props.target : undefined,
           href: to ? (isExternal ? to as string : href) : undefined,
-          navigate,
-          active: isLinkActive({ route: linkRoute, isActive, isExactActive })
+          navigate: () => to && handleNavigation(to as string),
+          active: false
         }"
       />
     </template>
@@ -194,12 +266,12 @@ function resolveLinkClass({ route, isActive, isExactActive }: any) {
         as,
         type,
         disabled,
-        href: to ? (isExternal ? to as string : href) : undefined,
-        navigate
+        href: to ? (isExternal ? to as string : href) : undefined
       }"
-      :class="resolveLinkClass({ route: linkRoute, isActive: isActive, isExactActive: isExactActive })"
+      :class="ui({ class: props.class, disabled })"
+      @click="to && handleNavigation(to as string)"
     >
-      <slot :active="isLinkActive({ route: linkRoute, isActive, isExactActive })" />
+      <slot :active="false" />
     </B24LinkBase>
-  </RouterLink>
+  </template>
 </template>
