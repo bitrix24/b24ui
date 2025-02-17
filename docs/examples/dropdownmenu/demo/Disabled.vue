@@ -4,6 +4,14 @@ import PencilDrawIcon from '@bitrix24/b24icons-vue/actions/PencilDrawIcon'
 import CopyPlatesIcon from '@bitrix24/b24icons-vue/actions/CopyPlatesIcon'
 import OpenedEyeIcon from '@bitrix24/b24icons-vue/main/OpenedEyeIcon'
 
+export interface ExampleProps {
+  isDisabled?: boolean
+}
+
+withDefaults(defineProps<ExampleProps>(), {
+  isDisabled: true
+})
+
 const items = [
   {
     label: 'View',
@@ -22,7 +30,7 @@ const items = [
 
 <template>
   <B24DropdownMenu
-    arrow
+    :disabled="isDisabled"
     :items="items"
   >
     <B24Button label="Open" color="link" depth="dark" :icon="MenuIcon" />

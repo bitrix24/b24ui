@@ -7,7 +7,12 @@ outline: deep
 import DropdownMenuExample from '/examples/dropdownmenu/DropdownMenu.vue';
 import ContentExample from '/examples/dropdownmenu/Content.vue';
 import ArrowExample from '/examples/dropdownmenu/Arrow.vue';
+import SizeExample from '/examples/dropdownmenu/Size.vue';
+import DisabledExample from '/examples/dropdownmenu/Disabled.vue';
+import WithCheckboxItemsExample from '/examples/dropdownmenu/WithCheckboxItems.vue';
 import WithColorItemsExample from '/examples/dropdownmenu/WithColorItems.vue';
+import ControlOpenStateExample from '/examples/dropdownmenu/ControlOpenState.vue';
+import WithCustomSlotExample from '/examples/dropdownmenu/WithCustomSlot.vue';
 </script>
 # DropdownMenu
 
@@ -77,20 +82,26 @@ Use the `content` prop to control how the DropdownMenu content is rendered, like
 </div>
 
 ::: details
-<<< @/examples/dropdownmenu/demo/Content.vue{vue:line-numbers}
+<<< @/examples/dropdownmenu/demo/Content.vue{47 vue:line-numbers}
 :::
 
 ### Arrow
 
 Use the `arrow` prop to display an arrow on the DropdownMenu.
 
-__component-code
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <ArrowExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/dropdownmenu/demo/Arrow.vue{25 vue:line-numbers}
+:::
 
 ### Size
 
 Use the `size` prop to control the size of the DropdownMenu.
-
-__component-code
 
 ::: warning
 The `size` prop will not be proxied to the Button, you need to set it yourself.
@@ -100,11 +111,29 @@ The `size` prop will not be proxied to the Button, you need to set it yourself.
 When using the same size, the DropdownMenu items will be perfectly aligned with the Button.
 :::
 
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <SizeExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/dropdownmenu/demo/Size.vue{34 vue:line-numbers}
+:::
+
 ### Disabled
 
 Use the `disabled` prop to disable the DropdownMenu.
 
-__component-code
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <DisabledExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/dropdownmenu/demo/Disabled.vue{33 vue:line-numbers}
+:::
 
 ## Examples
 
@@ -112,11 +141,21 @@ __component-code
 
 You can use the `type` property with `checkbox` and use the `checked` / `onUpdateChecked` properties to control the checked state of the item.
 
-__component-code
-
 ::: info
 To ensure reactivity for the `checked` state of items, it's recommended to wrap your `items` array inside a `computed`.
 :::
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <WithCheckboxItemsExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/dropdownmenu/demo/WithCheckboxItems.vue{24,25-27,28-30,36,37-39 vue:line-numbers}
+:::
+
+
 
 ### With color items
 
@@ -136,10 +175,18 @@ You can use the `color` property to highlight certain items with a color.
 
 You can control the open state by using the `default-open` prop or the `v-model:open` directive.
 
-__component-code
-
 ::: info
 In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), you can toggle the DropdownMenu by pressing `O`.
+:::
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <ControlOpenStateExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/dropdownmenu/demo/ControlOpenState.vue{8,10-12,32 vue:line-numbers}
 :::
 
 ### With custom slot
@@ -155,10 +202,18 @@ You will have access to the following slots:
 #{{ item.slot }}-trailing
 ```
 
-__component-code
-
 ::: tip
 You can also use the `#item`, `#item-leading`, `#item-label` and `#item-trailing` [slots](#slots) to customize all items.
+:::
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <WithCustomSlotExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/dropdownmenu/demo/WithCustomSlot.vue{6,12,32-34 vue:line-numbers}
 :::
 
 ### Extract shortcuts
@@ -199,7 +254,9 @@ defineShortcuts(extractShortcuts(items))
 ```
 
 ::: info
-In this example, `⊞` `E`, `⊞` `I` and `⊞` `N` would trigger the `select` function of the corresponding item.
+On **macOS** in this example, `⌘` `E`, `⌘` `I` and `⌘` `N`  would trigger the `select` function of the corresponding item.
+
+On **Windows** in this example, `⊞` `E`, `⊞` `I` and `⊞` `N` would trigger the `select` function of the corresponding item.
 :::
 
 ## API

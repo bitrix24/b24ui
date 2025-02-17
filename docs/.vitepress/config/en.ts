@@ -79,7 +79,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       base: '/components/composables/',
       items: [
         { text: 'defineShortcuts', link: 'define-shortcuts' },
-        { text: 'useModal💡', link: 'use-modal' },
+        { text: 'useModal', link: 'use-modal' },
         { text: 'useFormField', link: 'use-form-field' },
         { text: 'useToast', link: 'use-toast' }
       ]
@@ -97,8 +97,8 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'Button', link: 'button' },
         { text: 'ButtonGroup', link: 'button-group' },
-        { text: 'DropdownMenu💡', link: 'dropdown-menu' },
-        { text: 'Modal💡', link: 'modal' }
+        { text: 'DropdownMenu', link: 'dropdown-menu' },
+        { text: 'Modal', link: 'modal' }
       ]
     },
     {
