@@ -266,7 +266,7 @@ const handleNavigation = (href: string) => {
         as,
         type,
         disabled,
-        href: to ? (isExternal ? to as string : href) : undefined
+        href: to ? (isExternal ? to as string : href as string) : undefined
       }"
       :class="ui({ class: props.class, disabled })"
       @click="to && handleNavigation(to as string)"
