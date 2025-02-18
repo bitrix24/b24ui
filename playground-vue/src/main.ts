@@ -1,3 +1,5 @@
+import './assets/css/main.css'
+
 import { createApp, defineAsyncComponent, ref } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import uiPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'

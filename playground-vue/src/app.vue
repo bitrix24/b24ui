@@ -30,11 +30,11 @@ const isCommandPaletteOpen = ref(false)
 //   router.push(item.to)
 // }
 
-function toogleDir() {
+function toggleDir() {
   dir.value = dir.value === 'ltr' ? 'rtl' : 'ltr'
 }
 
-function toogleMode() {
+function toggleMode() {
   mode.value = mode.value === 'dark' ? 'light' : 'dark'
 }
 
@@ -95,7 +95,7 @@ defineShortcuts({
                   color="link"
                   depth="normal"
                   size="xs"
-                  @click="toogleMode"
+                  @click="toggleMode"
                 />
               </B24Tooltip>
               <B24Tooltip :content="{ side: 'left' }" :text="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', 'L']">
@@ -105,7 +105,7 @@ defineShortcuts({
                   color="link"
                   depth="normal"
                   size="xs"
-                  @click="toogleDir"
+                  @click="toggleDir"
                 />
               </B24Tooltip>
               <div class="hidden mx-2 md:flex flex-row flex-nowrap items-center justify-center gap-0.5">
@@ -149,8 +149,3 @@ defineShortcuts({
     </B24Modal>
   </B24App>
 </template>
-
-<style>
-@import "tailwindcss";
-@import "@bitrix24/b24ui-nuxt";
-</style>
