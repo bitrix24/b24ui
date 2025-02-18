@@ -11,7 +11,7 @@ const value = ref('CRM Payment')
     :items="items"
     class="w-3/4"
   />
-  <B24Separator class="my-3" label="fix height" type="dotted" />
+  <B24Separator class="my-3 w-3/4" label="fix height" type="dotted" />
   <B24Select
     :items="items"
     default-value="My company details"

@@ -14,6 +14,8 @@ const size = ref('md' as const)
     <template #actions>
       <B24RadioGroup v-model="size" legend="size" :items="sizes" orientation="horizontal" />
     </template>
-    <Demo :size="size" />
+    <div class="w-full sm:w-1/3">
+      <Demo :size="size" />
+    </div>
   </ComponentShowExample>
 </template>

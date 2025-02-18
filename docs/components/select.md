@@ -205,7 +205,7 @@ Use the `tagColor` property to set the color for `tag`.
 </div>
 
 ::: details
-<<< @/examples/select/demo/Tag.vue{21,22 vue:line-numbers}
+<<< @/examples/select/demo/Tag.vue{37,38 vue:line-numbers}
 :::
 
 ### Size
