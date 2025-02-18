@@ -161,8 +161,3 @@ defineShortcuts({
     <NuxtPage />
   </template>
 </template>
-
-<style>
-@import "tailwindcss";
-@import "@bitrix24/b24ui-nuxt";
-</style>

@@ -6,10 +6,9 @@ const { resolve } = createResolver(import.meta.url)
 export default defineNuxtConfig({
   modules: [
     '../src/module'
-    // @memo ERROR  NuxtHub is not compatible with nuxt generate as it needs a server to run.
-    // '@nuxthub/core'
   ],
   devtools: { enabled: false },
+  css: ['~/assets/css/main.css'],
   devServer: {
     loadingTemplate: () => {
       return readFileSync('./playground/template/devServer-loading.html', 'utf-8')
