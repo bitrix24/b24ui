@@ -3,7 +3,7 @@
  * We change some css
  * @see node_modules/vitepress/dist/client/theme-default/index.js
  */
-import { ref } from 'vue'
+import { ref, watch, toValue } from 'vue'
 import { createRouter, createMemoryHistory } from 'vue-router'
 import bitrix24UIPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'
 import Layout from './components/ui/Layout.vue'
@@ -25,14 +25,22 @@ import './styles/components/vp-sponsor.css'
 // endregion ////
 import './theme.css'
 
-// @ts-expect-error unknown global property
-globalThis.useFetch = async (url: string, options: RequestInit & { transform?: (data) => any } = {}) => {
+globalThis.useFetch = async (url: string, options: RequestInit & { params?: any, transform?: (data) => any } = {}) => {
   const data = ref()
   const status = ref('idle')
   async function _fetch() {
     status.value = 'loading'
     try {
-      data.value = await fetch(url, options).then(r => r.json()).then(r => options.transform ? options.transform(r) : r)
+      const params = options.params
+        ? Object.fromEntries(
+            Object.entries(options.params).map(([key, value]) => [key, toValue(value)])
+          )
+        : {}
+
+      const queryString = new URLSearchParams(params as any).toString()
+      const fullUrl = queryString ? `${url}?${queryString}` : url
+
+      data.value = await fetch(fullUrl, options).then(r => r.json()).then(r => options.transform ? options.transform(r) : r)
       status.value = 'success'
     } catch (error) {
       console.error(error)
@@ -40,6 +48,17 @@ globalThis.useFetch = async (url: string, options: RequestInit & { transform?: (
     }
   }
   _fetch()
+
+  if (options?.params?.q) {
+    watch(
+      options.params.q,
+      () => {
+        _fetch()
+      },
+      { deep: true }
+    )
+  }
+
   return Promise.resolve({
     data,
     status
