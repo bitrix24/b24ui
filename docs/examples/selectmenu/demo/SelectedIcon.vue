@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import CheckInBoxIcon from '@bitrix24/b24icons-vue/crm/CheckInBoxIcon'
 
 const items = ref([
   {
@@ -25,6 +26,7 @@ const value = ref({
   <B24SelectMenu
     v-model="value"
     :items="items"
+    :selected-icon="CheckInBoxIcon"
     class="w-full"
   />
 </template>

@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+export interface ExampleProps {
+  isLoading?: boolean
+}
+
+withDefaults(defineProps<ExampleProps>(), {
+  isLoading: true
+})
+
 const items = ref([
   {
     label: 'CRM settings',
@@ -25,6 +33,7 @@ const value = ref({
   <B24SelectMenu
     v-model="value"
     :items="items"
+    :loading="isLoading"
     class="w-full"
   />
 </template>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import CrmSearchIcon from '@bitrix24/b24icons-vue/crm/CrmSearchIcon'
 
 const items = ref([
   {
@@ -25,6 +26,7 @@ const value = ref({
   <B24SelectMenu
     v-model="value"
     :items="items"
+    :icon="CrmSearchIcon"
     class="w-full"
   />
 </template>

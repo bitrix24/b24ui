@@ -1,6 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+export interface ExampleProps {
+  color: any
+  isHighlight?: boolean
+}
+
+withDefaults(defineProps<ExampleProps>(), {
+  color: 'default',
+  isHighlight: true
+})
+
 const items = ref([
   {
     label: 'CRM settings',
@@ -24,6 +34,8 @@ const value = ref({
 <template>
   <B24SelectMenu
     v-model="value"
+    :color="color"
+    :highlight="isHighlight"
     :items="items"
     class="w-full"
   />

@@ -1,6 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+export interface ExampleProps {
+  tagColor: any
+  tag?: string
+}
+
+withDefaults(defineProps<ExampleProps>(), {
+  tagColor: 'default',
+  tag: 'info'
+})
+
 const items = ref([
   {
     label: 'CRM settings',
@@ -24,6 +34,8 @@ const value = ref({
 <template>
   <B24SelectMenu
     v-model="value"
+    :tag-color="tagColor"
+    :tag="tag"
     :items="items"
     class="w-full"
   />

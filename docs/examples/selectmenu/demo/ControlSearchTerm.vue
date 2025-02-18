@@ -15,15 +15,15 @@ const items = ref([
     value: 'access_permissions'
   }
 ])
-const value = ref({
-  label: 'My company details',
-  value: 'my_company_details'
-})
+const value = ref(items.value[1])
+
+const searchTerm = ref('Ac')
 </script>
 
 <template>
   <B24SelectMenu
     v-model="value"
+    v-model:search-term="searchTerm"
     :items="items"
     class="w-full"
   />

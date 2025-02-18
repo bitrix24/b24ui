@@ -9,6 +9,6 @@ const value = ref('CRM Payment')
   <B24SelectMenu
     v-model="value"
     :items="items"
-    class="w-52"
+    class="w-full"
   />
 </template>

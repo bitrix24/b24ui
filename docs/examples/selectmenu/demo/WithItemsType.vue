@@ -3,12 +3,23 @@ import { ref } from 'vue'
 
 const items = ref([
   {
+    type: 'label',
+    label: 'Main'
+  },
+  {
     label: 'CRM settings',
     value: 'settings'
   },
   {
     label: 'My company details',
     value: 'my_company_details'
+  },
+  {
+    type: 'separator'
+  },
+  {
+    type: 'label',
+    label: 'Access'
   },
   {
     label: 'Access permissions',

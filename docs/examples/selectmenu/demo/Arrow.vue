@@ -25,6 +25,7 @@ const value = ref({
   <B24SelectMenu
     v-model="value"
     :items="items"
+    arrow
     class="w-full"
   />
 </template>

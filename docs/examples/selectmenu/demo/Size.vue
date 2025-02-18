@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+export interface ExampleProps {
+  size?: any
+}
+
+withDefaults(defineProps<ExampleProps>(), {
+  size: 'md'
+})
+
 const items = ref([
   {
     label: 'CRM settings',
@@ -24,6 +32,7 @@ const value = ref({
 <template>
   <B24SelectMenu
     v-model="value"
+    :size="size"
     :items="items"
     class="w-full"
   />
