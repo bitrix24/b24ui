@@ -100,11 +100,13 @@ const b24ui = computed(() => badge({
         />
       </slot>
 
-      <slot>
-        <span v-if="label" :class="b24ui.label({ class: props.b24ui?.label })">
-          {{ label }}
-        </span>
-      </slot>
+      <span :class="b24ui.label({ class: props.b24ui?.label })">
+        <slot>
+          <span v-if="label">
+            {{ label }}
+          </span>
+        </slot>
+      </span>
     </Primitive>
     <slot name="trailing">
       <Cross20Icon

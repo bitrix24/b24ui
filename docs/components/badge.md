@@ -33,9 +33,7 @@ Use the default slot to set the label of the Badge.
   </ClientOnly>
 </div>
 
-::: details
-<<< @/examples/badge/demo/Badge.vue{2,3 vue:line-numbers}
-:::
+<<< @/examples/badge/demo/Badge.vue{2,3,6 vue:line-numbers}
 
 You can achieve the same result by using the `label` prop.
 

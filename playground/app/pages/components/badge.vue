@@ -47,6 +47,18 @@ function onCloseClick(event: MouseEvent) {
             :on-close-click="onCloseClick"
             @click="onClick"
           />
+          <B24Badge
+            size="xl"
+            color="primary"
+            :avatar="{ src: '/avatar/employee.png', text: 'Employee Name' }"
+            use-fill
+            use-link
+            use-close
+            :on-close-click="onCloseClick"
+            @click="onClick"
+          >
+            Employee Name
+          </B24Badge>
         </div>
       </div>
 

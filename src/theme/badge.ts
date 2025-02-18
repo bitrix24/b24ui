@@ -16,7 +16,7 @@ export default {
       'px-2 leading-normal rounded-md'
     ].join(' '),
     wrapper: 'inline-flex items-center',
-    label: 'max-w-full whitespace-nowrap text-ellipsis', // truncate ////
+    label: 'max-w-full whitespace-nowrap text-ellipsis decoration-from-font',
     leadingIcon: 'shrink-0',
     leadingAvatar: 'shrink-0',
     leadingAvatarSize: '',
