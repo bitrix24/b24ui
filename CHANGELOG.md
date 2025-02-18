@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.2.8 (2025-02-18)
+
+### Docs
+
+* **SelectMenu:** improve
+
+### Bug Fixes
+
+* **module:** use key when merging modules options
+* **Badge:** improve show underline
+
+### Chore
+* **Avatar/Stepper:** fix types for `vue-tsc@2.2.0`
+* **playground/playground-vue/demo:** move styles into `main.css`
+
 ## 0.2.7 (2025-02-17)
 
 ### Bug Fixes
