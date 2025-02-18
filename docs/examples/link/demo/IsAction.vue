@@ -1,5 +1,5 @@
 <template>
-  <B24Link is-action to="b24ui/components/link.html#style">
+  <B24Link is-action to="b24ui/components/link.html">
     Link action
   </B24Link>
   <B24Link is-action>

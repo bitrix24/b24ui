@@ -78,17 +78,6 @@ export default {
       .component('Placeholder', Placeholder)
     // endregion ////
 
-    if (!import.meta.env.SSR) {
-      const router = createRouter({
-        routes: [
-          // { path: '', component: app }
-        ],
-        history: createMemoryHistory()
-        // history: createWebHistory()
-      })
-      app.use(router)
-
-      app.use(bitrix24UIPlugin)
-    }
+    app.use(bitrix24UIPlugin)
   }
 }

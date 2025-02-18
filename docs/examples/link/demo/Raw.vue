@@ -1,6 +1,6 @@
 <template>
   <B24Link
-    to="b24ui/components/link.html#style"
+    to="b24ui/components/link.html"
     raw
     active
     active-class="font-bold text-ai-500"
