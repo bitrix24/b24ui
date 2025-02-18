@@ -33,10 +33,6 @@ import WithSlotsExample from '/examples/inputnumber/WithSlots.vue';
   Provide numerical input with a flexible range setting.
 </Description>
 
-::: warning We are still updating this page
-Some data may be missing here — we will complete it shortly.
-:::
-
 ::: info
 This component relies on the [`@internationalized/number`](https://react-spectrum.adobe.com/internationalized/number/index.html) package which provides utilities for formatting and parsing numbers across locales and numbering systems.
 :::
