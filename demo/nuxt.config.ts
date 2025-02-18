@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   ],
   ssr: false,
   devtools: { enabled: false },
+  css: ['~/assets/css/main.css'],
   app: {
     baseURL: '/b24ui/demo/',
     buildAssetsDir: '/_nuxt/',
