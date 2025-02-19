@@ -16,8 +16,6 @@ import WithChipExample from '/examples/avatar/WithChip.vue';
 
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/avatar"
-  reka-ui="https://reka-ui.com/docs/components/avatar"
-  reka-ui-title="Avatar"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Avatar.vue"
 >
   An img element that includes fallback and supports Nuxt Image.
