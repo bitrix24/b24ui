@@ -6,7 +6,7 @@ exports[`Modal > renders with body slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
   <div class="pe-5 pt-0">
     <!--v-if-->
@@ -34,7 +34,7 @@ exports[`Modal > renders with class correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800 bg-base-100">
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800 bg-base-100">
   <!--v-if-->
   <div class="pe-5 pt-0">
     <!--v-if-->
@@ -62,7 +62,7 @@ exports[`Modal > renders with close slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
   <div class="pe-5 pt-0">
     <!--v-if-->
@@ -82,7 +82,7 @@ exports[`Modal > renders with closeIcon correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
   <div class="pe-5 pt-0">
     <!--v-if-->
@@ -110,7 +110,7 @@ exports[`Modal > renders with content slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->Content slot
 </div>
 
@@ -124,7 +124,7 @@ exports[`Modal > renders with default slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="reka-dialog-content-v-0-0-0" role="dialog" aria-describedby="reka-dialog-description-v-0-0-2" aria-labelledby="reka-dialog-title-v-0-0-1" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
+<div data-dismissable-layer="" style="pointer-events: auto;" id="reka-dialog-content-v-0-0-0" role="dialog" aria-describedby="reka-dialog-description-v-0-0-2" aria-labelledby="reka-dialog-title-v-0-0-1" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
   <div class="pe-5 pt-0">
     <!--v-if-->
@@ -152,7 +152,7 @@ exports[`Modal > renders with description correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
   <div class="pe-5 pt-0">
     <h2 id="reka-dialog-title-v-0-0-0" class="font-bold text-md leading-normal text-base-900 dark:text-base-150">Title</h2>
@@ -180,7 +180,7 @@ exports[`Modal > renders with description slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
   <div class="pe-5 pt-0">
     <!--v-if-->
@@ -208,7 +208,7 @@ exports[`Modal > renders with footer slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
   <div class="pe-5 pt-0">
     <!--v-if-->
@@ -264,7 +264,7 @@ exports[`Modal > renders with header slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
   <div class="pe-5 pt-0">Header slot</div>
   <!--v-if-->
@@ -281,7 +281,7 @@ exports[`Modal > renders with open correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800" style="pointer-events: auto;">
+<div data-dismissable-layer="" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800" style="pointer-events: auto;">
   <!--v-if-->
   <div class="pe-5 pt-0">
     <!--v-if-->
@@ -309,7 +309,7 @@ exports[`Modal > renders with title correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
   <div class="pe-5 pt-0">
     <h2 id="reka-dialog-title-v-0-0-0" class="font-bold text-md leading-normal text-base-900 dark:text-base-150">Title</h2>
@@ -337,7 +337,7 @@ exports[`Modal > renders with title slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
   <div class="pe-5 pt-0">
     <h2 id="reka-dialog-title-v-0-0-0" class="font-bold text-md leading-normal text-base-900 dark:text-base-150">Title slot</h2>
@@ -365,7 +365,7 @@ exports[`Modal > renders with ui correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
   <div class="pe-5 pt-0">
     <!--v-if-->
@@ -393,7 +393,7 @@ exports[`Modal > renders without close correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
   <div class="pe-5 pt-0">
     <h2 id="reka-dialog-title-v-0-0-0" class="font-bold text-md leading-normal text-base-900 dark:text-base-150">Title</h2>
@@ -413,7 +413,7 @@ exports[`Modal > renders without overlay correctly 1`] = `
 
 
 <!--v-if-->
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
   <div class="pe-5 pt-0">
     <h2 id="reka-dialog-title-v-0-0-0" class="font-bold text-md leading-normal text-base-900 dark:text-base-150">Title</h2>
@@ -441,7 +441,7 @@ exports[`Modal > renders without transition correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
   <div class="pe-5 pt-0">
     <h2 id="reka-dialog-title-v-0-0-0" class="font-bold text-md leading-normal text-base-900 dark:text-base-150">Title</h2>
