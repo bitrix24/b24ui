@@ -4,7 +4,6 @@
  * @see node_modules/vitepress/dist/client/theme-default/index.js
  */
 import { ref, watch, toValue } from 'vue'
-import { createRouter, createMemoryHistory } from 'vue-router'
 import bitrix24UIPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'
 import Layout from './components/ui/Layout.vue'
 import ComponentShowExample from './components/ui/ComponentShowExample.vue'
