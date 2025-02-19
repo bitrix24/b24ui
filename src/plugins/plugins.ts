@@ -51,6 +51,18 @@ ${plugins.map(p => `    app.use(${genSafeVariableName(p)})`).join('\n')}
   }
 }
         `
+    },
+    // Argument Vite specific configuration
+    vite: {
+      config() {
+        return {
+          // Opt-out Bitrix24 UI from Vite's pre-bundling,
+          // as we need Vite's pipeline to resolve imports like `#imports`
+          optimizeDeps: {
+            exclude: ['@bitrix24/b24ui-nuxt']
+          }
+        }
+      }
     }
   } satisfies UnpluginOptions
 }
