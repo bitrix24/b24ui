@@ -140,17 +140,19 @@ const b24ui = computed(() => modal({
         <slot name="content">
           <div v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description) || (close || !!slots.close)" :class="b24ui.header({ class: props.b24ui?.header })">
             <slot name="header">
-              <DialogTitle v-if="title || !!slots.title" :class="b24ui.title({ class: props.b24ui?.title })">
-                <slot name="title">
-                  {{ title }}
-                </slot>
-              </DialogTitle>
+              <div :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
+                <DialogTitle v-if="title || !!slots.title" :class="b24ui.title({ class: props.b24ui?.title })">
+                  <slot name="title">
+                    {{ title }}
+                  </slot>
+                </DialogTitle>
 
-              <DialogDescription v-if="description || !!slots.description" :class="b24ui.description({ class: props.b24ui?.description })">
-                <slot name="description">
-                  {{ description }}
-                </slot>
-              </DialogDescription>
+                <DialogDescription v-if="description || !!slots.description" :class="b24ui.description({ class: props.b24ui?.description })">
+                  <slot name="description">
+                    {{ description }}
+                  </slot>
+                </DialogDescription>
+              </div>
 
               <DialogClose as-child>
                 <slot name="close" :b24ui="b24ui">
