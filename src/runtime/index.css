@@ -13,4 +13,8 @@
   :root, .light {}
 
   .dark {}
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
 }
