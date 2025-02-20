@@ -67,7 +67,7 @@ const b24ui = computed(() => tooltip({
 
 <template>
   <TooltipRoot v-slot="{ open }" v-bind="rootProps">
-    <TooltipTrigger v-if="!!slots.default" as-child :class="props.class">
+    <TooltipTrigger v-if="!!slots.default" v-bind="$attrs" as-child :class="props.class">
       <slot :open="open" />
     </TooltipTrigger>
 
