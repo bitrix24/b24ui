@@ -176,7 +176,7 @@ Use the `disabled` prop to disable the InputNumber.
 
 ### Increment / Decrement
 
-Use the `increment` and `decrement` props to customize the increment and decrement buttons with any [Button](/components/button) props. Defaults to `{ color: 'link', depth: 'light' }`{lang="ts-type"}.
+Use the `increment` and `decrement` props to customize the increment and decrement buttons with any [Button](/components/button) props. Defaults to `{ color: 'link', depth: 'light' }`{lang="ts"}.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -294,4 +294,4 @@ When accessing the component via a template ref, you can use the following:
 
 | Name                       | Type                                            |
 |----------------------------|-------------------------------------------------|
-| `inputRef`{lang="ts-type"} | `Ref<HTMLInputElement \| null>`{lang="ts-type"} |
+| `inputRef`{lang="ts"} | `Ref<HTMLInputElement \| null>`{lang="ts"} |

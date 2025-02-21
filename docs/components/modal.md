@@ -44,7 +44,7 @@ Then, use the `#content` slot to add the content displayed when the Modal is ope
 
 <<< @/examples/modal/demo/Modal.vue{2,5-7,8 vue:line-numbers}
 
-You can also use the `#header`{lang="ts-type"}, `#body`{lang="ts-type"} and `#footer`{lang="ts-type"} slots to customize the Modal's content.
+You can also use the `#header`{lang="ts"}, `#body`{lang="ts"} and `#footer`{lang="ts"} slots to customize the Modal's content.
 
 ### Title
 

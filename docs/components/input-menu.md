@@ -50,13 +50,13 @@ Use the `items` prop as an array of strings, numbers or booleans:
 
 You can also pass an array of objects with the following properties:
 
-- `label?: string`{lang="ts-type"}
-- [`type?: "label" | "separator" | "item"`{lang="ts-type"}](#with-items-type)
-- [`icon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts-type"}](#with-icons-in-items)
-- [`avatar?: AvatarProps`{lang="ts-type"}](#with-avatar-in-items)
-- [`chip?: ChipProps`{lang="ts-type"}](#with-chip-in-items)
-- `disabled?: boolean`{lang="ts-type"}
-- `onSelect?(e: Event): void`{lang="ts-type"}
+- `label?: string`{lang="ts"}
+- [`type?: "label" | "separator" | "item"`{lang="ts"}](#with-items-type)
+- [`icon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts"}](#with-icons-in-items)
+- [`avatar?: AvatarProps`{lang="ts"}](#with-avatar-in-items)
+- [`chip?: ChipProps`{lang="ts"}](#with-chip-in-items)
+- `disabled?: boolean`{lang="ts"}
+- `onSelect?(e: Event): void`{lang="ts"}
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>

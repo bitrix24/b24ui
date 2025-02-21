@@ -156,6 +156,6 @@ Use the `maxrows` prop to set the maximum number of rows when autoresizing. If s
 
 When accessing the component via a template ref, you can use the following:
 
-| Name                          | Type                                               |
-|-------------------------------|----------------------------------------------------|
-| `textareaRef`{lang="ts-type"} | `Ref<HTMLTextAreaElement \| null>`{lang="ts-type"} |
+| Name                      | Type                                           |
+|---------------------------|------------------------------------------------|
+| `textareaRef`{lang="ts"}  | `Ref<HTMLTextAreaElement \| null>`{lang="ts"}  |

@@ -213,4 +213,4 @@ When accessing the component via a template ref, you can use the following:
 
 | Name                       | Type                                            |
 |----------------------------|-------------------------------------------------|
-| `inputRef`{lang="ts-type"} | `Ref<HTMLInputElement \| null>`{lang="ts-type"} |
+| `inputRef`{lang="ts"} | `Ref<HTMLInputElement \| null>`{lang="ts"} |

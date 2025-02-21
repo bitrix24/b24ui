@@ -66,13 +66,13 @@ This will help control the content display and improve the user experience.
 
 You can also pass an array of objects with the following properties:
 
-- `label?: string`{lang="ts-type"}
-- [`value?: string`{lang="ts-type"}](#value-key)
-- [`type?: "label" | "separator" | "item"`{lang="ts-type"}](#with-items-type)
-- [`icon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts-type"}](#with-icons-in-items)
-- [`avatar?: AvatarProps`{lang="ts-type"}](#with-avatar-in-items)
-- [`chip?: ChipProps`{lang="ts-type"}](#with-chip-in-items)
-- `disabled?: boolean`{lang="ts-type"}
+- `label?: string`{lang="ts"}
+- [`value?: string`{lang="ts"}](#value-key)
+- [`type?: "label" | "separator" | "item"`{lang="ts"}](#with-items-type)
+- [`icon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts"}](#with-icons-in-items)
+- [`avatar?: AvatarProps`{lang="ts"}](#with-avatar-in-items)
+- [`chip?: ChipProps`{lang="ts"}](#with-chip-in-items)
+- `disabled?: boolean`{lang="ts"}
 
 ::: danger
 When using objects, you need to reference the `value` property of the object in the `v-model` directive or the `default-value` prop.

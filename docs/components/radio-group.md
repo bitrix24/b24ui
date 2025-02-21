@@ -44,10 +44,10 @@ Use the `items` prop as an array of strings, numbers or booleans:
 
 You can also pass an array of objects with the following properties:
 
-- `label?: string`{lang="ts-type"}
-- `description?: string`{lang="ts-type"}
-- [`value?: string`{lang="ts-type"}](#value-key)
-- `disabled?: boolean`{lang="ts-type"}
+- `label?: string`{lang="ts"}
+- `description?: string`{lang="ts"}
+- [`value?: string`{lang="ts"}](#value-key)
+- `disabled?: boolean`{lang="ts"}
 
 ::: danger
 When using objects, you need to reference the `value` property of the object in the `v-model` directive or the `default-value` prop.

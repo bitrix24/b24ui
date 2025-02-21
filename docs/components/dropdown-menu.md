@@ -33,19 +33,19 @@ Use a [Button](/components/button) or any other component in the default slot of
 
 Use the `items` prop as an array of objects with the following properties:
 
-- `label?: string`{lang="ts-type"}
-- `icon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts-type"}
-- `color?: string`{lang="ts-type"}
-- `avatar?: AvatarProps`{lang="ts-type"}
-- `kbds?: string[] | KbdProps[]`{lang="ts-type"}
-- [`type?: "link" | "label" | "separator" | "checkbox"`{lang="ts-type"}](#with-checkbox-items)
-- [`color?: "error" | "primary" | "secondary" | "success" | "info" | "warning" | "neutral"`{lang="ts-type"}](#with-color-items)
-- [`checked?: boolean`{lang="ts-type"}](#with-checkbox-items)
-- `disabled?: boolean`{lang="ts-type"}
-- `class?: any`{lang="ts-type"}
-- [`slot?: string`{lang="ts-type"}](#with-custom-slot)
-- `onSelect?(e: Event): void`{lang="ts-type"}
-- [`onUpdateChecked?(checked: boolean): void`{lang="ts-type"}](#with-checkbox-items)
+- `label?: string`{lang="ts"}
+- `icon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts"}
+- `color?: string`{lang="ts"}
+- `avatar?: AvatarProps`{lang="ts"}
+- `kbds?: string[] | KbdProps[]`{lang="ts"}
+- [`type?: "link" | "label" | "separator" | "checkbox"`{lang="ts"}](#with-checkbox-items)
+- [`color?: "error" | "primary" | "secondary" | "success" | "info" | "warning" | "neutral"`{lang="ts"}](#with-color-items)
+- [`checked?: boolean`{lang="ts"}](#with-checkbox-items)
+- `disabled?: boolean`{lang="ts-"}
+- `class?: any`{lang="ts"}
+- [`slot?: string`{lang="ts"}](#with-custom-slot)
+- `onSelect?(e: Event): void`{lang="ts"}
+- [`onUpdateChecked?(checked: boolean): void`{lang="ts"}](#with-checkbox-items)
 
 You can pass any property from the [Link](/components/link#props) component such as `to`, `target`, etc.
 
@@ -191,7 +191,7 @@ Use the `slot` property to customize a specific item.
 
 You will have access to the following slots:
 
-```ts-type
+```ts
 #{{ item.slot }}
 #{{ item.slot }}-leading
 #{{ item.slot }}-label

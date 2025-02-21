@@ -53,15 +53,16 @@ export default defineNuxtPlugin(() => {
 
   // SPA mode
   if (import.meta.client && nuxtApp.isHydrating && !nuxtApp.payload.serverRendered) {
-    const style = document.createElement('style')
+    if (typeof document !== 'undefined') {
+      const style = document.createElement('style')
+      style.innerHTML = root.value
+      style.setAttribute('data-bitrix24-ui-colors', '')
+      document.head.appendChild(style)
 
-    style.innerHTML = root.value
-    style.setAttribute('data-bitrix24-ui-colors', '')
-    document.head.appendChild(style)
-
-    headData.script = [{
-      innerHTML: 'document.head.removeChild(document.querySelector(\'[data-bitrix24-ui-colors]\'))'
-    }]
+      headData.script = [{
+        innerHTML: 'document.head.removeChild(document.querySelector(\'[data-bitrix24-ui-colors]\'))'
+      }]
+    }
   }
 
   useHead(headData)
