@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.2.9 (2025-02-21)
+
+### Features
+* **Form:** add prop to disable state transformation
+* **TableWrapper:** new component
+
+
+### Docs
+* **Installation:** improve
+* **TableWrapper:** new component
+
+### Bug Fixes
+* **Tooltip:** bind `$attrs` on trigger
+* **Form:** ensure loading state resets to false after an error
+* **Modal:** disable close autofocus
+* **Modal:** use `dvh` unit
+* **Avatar:** render on SSR
+* **vite:** exclude `@nuxt/ui` from vite pre-optimization
+* **Modal:** fixed header height
+
+### Chore
+* **deps:** update `reka-ui` and `vaul-vue`
+* **Toaster:** fix ts error
+
 ## 0.2.8 (2025-02-18)
 
 ### Docs
