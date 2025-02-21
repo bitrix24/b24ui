@@ -13,6 +13,31 @@ outline: deep
 
 ## Setup
 
+### Use our Vue starter
+
+Start your project using the [bitrix24/starter-b24ui-vue](https://github.com/bitrix24/starter-b24ui-vue) template with Bitrix24 UI pre-configured.
+
+Create a new project locally by running the following command:
+
+::: code-group
+```bash [Terminal]
+npx nuxi init -t github:bitrix24/starter-b24ui-vue <my-app>
+```
+:::
+
+::: tip
+The `<my-app>` argument is the name of the directory where the project will be created, replace it with your project name.
+:::
+
+Once the installation is complete, navigate into your project and start the development server:
+
+::: code-group
+```bash [Terminal]
+cd <my-app>
+npm run dev
+```
+:::
+
 ### Add to a Vue project
 
 **1. Install @bitrix24/b24ui and @bitrix24/b24icons-vue packages**
@@ -170,31 +195,6 @@ It's recommended to install the [Tailwind CSS IntelliSense](https://marketplace.
 
 ::: tip
 The [`App`](/components/app) component provides global configurations and is required for **Toast** and **Tooltip** components to work.
-:::
-
-### Use our Vue starter
-
-Start your project using the [bitrix24/starter-b24ui-vue](https://github.com/bitrix24/starter-b24ui-vue) template with Bitrix24 UI pre-configured.
-
-Create a new project locally by running the following command:
-
-::: code-group
-```bash [Terminal]
-npx nuxi init -t github:bitrix24/starter-b24ui-vue <my-app>
-```
-:::
-
-::: tip
-The `<my-app>` argument is the name of the directory where the project will be created, replace it with your project name.
-:::
-
-Once the installation is complete, navigate into your project and start the development server:
-
-::: code-group
-```bash [Terminal]
-cd <my-app>
-npm run dev
-```
 :::
 
 ## Options
