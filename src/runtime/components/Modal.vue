@@ -40,7 +40,7 @@ export interface ModalProps extends DialogRootProps {
    * `{ size: 'xs', color: 'link' }`{lang="ts-type"}
    * @defaultValue true
    */
-  close?: ButtonProps | boolean
+  close?: boolean | Partial<ButtonProps>
   /**
    * The icon displayed in the close button.
    * @defaultValue icons.close
@@ -162,7 +162,7 @@ const b24ui = computed(() => modal({
                     size="xs"
                     color="link"
                     :aria-label="t('modal.close')"
-                    v-bind="typeof close === 'object' ? close : undefined"
+                    v-bind="(typeof close === 'object' ? close as Partial<ButtonProps> : {})"
                     :class="b24ui.close({ class: props.b24ui?.close })"
                   />
                 </slot>

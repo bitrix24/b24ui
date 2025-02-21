@@ -38,7 +38,7 @@ export interface AlertProps {
    * @emits 'update:open'
    * @defaultValue false
    */
-  close?: ButtonProps | boolean
+  close?: boolean | Partial<ButtonProps>
   /**
    * The icon displayed in the close button.
    * @defaultValue icons.close
@@ -129,7 +129,7 @@ const b24ui = computed(() => alert({
           size="xs"
           color="link"
           :aria-label="t('alert.close')"
-          v-bind="typeof close === 'object' ? close : undefined"
+          v-bind="(typeof close === 'object' ? close as Partial<ButtonProps> : {})"
           :class="b24ui.close({ class: props.b24ui?.close })"
           @click="emits('update:open', false)"
         />
