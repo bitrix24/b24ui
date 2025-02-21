@@ -31,16 +31,13 @@ function nav(): DefaultTheme.NavItem[] {
   return [
     { text: 'Docs', link: '/guide/getting-started' },
     { text: 'Components', link: '/components/app' },
+    { text: 'Demo', link: `${configParams.domain}${configParams.baseFolder}demo/` },
     {
       text: configParams.version,
       items: [
         {
           text: 'Changelog',
           link: `${configParams.github}/blob/main/CHANGELOG.md`
-        },
-        {
-          text: 'Demo',
-          link: `${configParams.domain}${configParams.baseFolder}demo/`
         },
         ...configParams.relative
       ]
