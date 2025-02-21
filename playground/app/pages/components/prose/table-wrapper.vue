@@ -19,56 +19,60 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
             class="overflow-x-auto w-full"
             :size="size"
           >
-            <table class="table">
+            <table>
               <!-- head -->
               <thead>
                 <tr>
-                  <th />
-                  <th>Name</th>
-                  <th>Job</th>
-                  <th>Favorite Color</th>
+                  <th>#</th>
+                  <th>Company</th>
+                  <th>Deal Stage</th>
+                  <th>Amount (USD)</th>
                 </tr>
               </thead>
               <tbody>
                 <!-- row 1 -->
                 <tr>
                   <th>1</th>
-                  <td>Cy Ganderton</td>
-                  <td>Quality Control Specialist</td>
-                  <td>Blue</td>
+                  <td>Tech Innovators Inc.</td>
+                  <td>Proposal Sent</td>
+                  <td>50,000</td>
                 </tr>
                 <!-- row 2 -->
                 <tr>
                   <th>2</th>
-                  <td>Hart Hagerty</td>
-                  <td>Desktop Support Technician</td>
-                  <td>Purple</td>
+                  <td>Global Solutions Ltd.</td>
+                  <td>Negotiation</td>
+                  <td>120,000</td>
                 </tr>
                 <!-- row 3 -->
                 <tr>
                   <th>3</th>
-                  <td>Brice Swyre</td>
-                  <td>Tax Accountant</td>
-                  <td>Red</td>
+                  <td>Future Enterprises</td>
+                  <td>Contract Signed</td>
+                  <td>200,000</td>
                 </tr>
                 <!-- row 4 -->
                 <tr>
                   <th>4</th>
-                  <td>Yancy Tear</td>
-                  <td>Wyman-Ledner</td>
-                  <td>Indigo</td>
+                  <td>Bright Ideas Co.</td>
+                  <td>Initial Contact</td>
+                  <td>15,000</td>
+                </tr>
+                <!-- row 5 -->
+                <tr>
+                  <th>5</th>
+                  <td>NextGen Technologies</td>
+                  <td>Closing</td>
+                  <td>300,000</td>
                 </tr>
               </tbody>
               <tfoot>
                 <tr>
-                  <th colspan="2" class="text-right">
+                  <th colspan="3" class="text-right">
                     Total:
                   </th>
                   <td>
-                    100
-                  </td>
-                  <td>
-                    100
+                    685,000
                   </td>
                 </tr>
               </tfoot>
@@ -84,54 +88,67 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
         class="overflow-x-auto w-full bg-linear-165 from-red-500/30 to-ai-500/50"
         rounded
         bordered
+        :b24ui="{
+          base: 'border-2 border-ai-500 [&>table>thead>tr]:border-ai-500 [&>table>tbody>tr]:border-ai-300 [&>table>tfoot]:border-ai-500'
+        }"
       >
-        <table class="table">
+        <table>
           <!-- head -->
           <thead>
             <tr>
-              <th />
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+              <th>#</th>
+              <th>Company</th>
+              <th>Deal Stage</th>
+              <th>Amount (USD)</th>
             </tr>
           </thead>
           <tbody>
             <!-- row 1 -->
             <tr>
               <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Blue</td>
+              <td>Tech Innovators Inc.</td>
+              <td>Proposal Sent</td>
+              <td>50,000</td>
             </tr>
             <!-- row 2 -->
             <tr>
               <th>2</th>
-              <td>Hart Hagerty</td>
-              <td>Desktop Support Technician</td>
-              <td>Purple</td>
+              <td>Global Solutions Ltd.</td>
+              <td>Negotiation</td>
+              <td>120,000</td>
             </tr>
             <!-- row 3 -->
             <tr>
               <th>3</th>
-              <td>Brice Swyre</td>
-              <td>Tax Accountant</td>
-              <td>Red</td>
+              <td>Future Enterprises</td>
+              <td>Contract Signed</td>
+              <td>200,000</td>
             </tr>
             <!-- row 4 -->
             <tr>
               <th>4</th>
-              <td>Yancy Tear</td>
-              <td>Wyman-Ledner</td>
-              <td>Indigo</td>
+              <td>Bright Ideas Co.</td>
+              <td>Initial Contact</td>
+              <td>15,000</td>
             </tr>
             <!-- row 5 -->
             <tr>
               <th>5</th>
-              <td>Marjy Ferencz</td>
-              <td>Rowe-Schoen</td>
-              <td>Crimson</td>
+              <td>NextGen Technologies</td>
+              <td>Closing</td>
+              <td>300,000</td>
             </tr>
           </tbody>
+          <tfoot>
+            <tr>
+              <th colspan="3" class="text-right">
+                Total:
+              </th>
+              <td>
+                685,000
+              </td>
+            </tr>
+          </tfoot>
         </table>
       </B24TableWrapper>
     </ExampleCard>
@@ -141,53 +158,63 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
       <B24TableWrapper
         class="overflow-x-auto w-full"
       >
-        <table class="table">
+        <table>
           <!-- head -->
           <thead>
             <tr>
-              <th />
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+              <th>#</th>
+              <th>Company</th>
+              <th>Deal Stage</th>
+              <th>Amount (USD)</th>
             </tr>
           </thead>
           <tbody>
             <!-- row 1 -->
             <tr>
               <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Blue</td>
+              <td>Tech Innovators Inc.</td>
+              <td>Proposal Sent</td>
+              <td>50,000</td>
             </tr>
             <!-- row 2 -->
             <tr class="bg-ai-300 dark:bg-ai-700">
               <th>2</th>
-              <td>Hart Hagerty</td>
-              <td>Desktop Support Technician</td>
-              <td>Purple</td>
+              <td>Global Solutions Ltd.</td>
+              <td>Negotiation</td>
+              <td>120,000</td>
             </tr>
             <!-- row 3 -->
             <tr>
               <th>3</th>
-              <td>Brice Swyre</td>
-              <td>Tax Accountant</td>
-              <td>Red</td>
+              <td>Future Enterprises</td>
+              <td>Contract Signed</td>
+              <td>200,000</td>
             </tr>
             <!-- row 4 -->
             <tr class="bg-collab-300 dark:bg-collab-700">
               <th>4</th>
-              <td>Yancy Tear</td>
-              <td>Wyman-Ledner</td>
-              <td>Indigo</td>
+              <td>Bright Ideas Co.</td>
+              <td>Initial Contact</td>
+              <td>15,000</td>
             </tr>
             <!-- row 5 -->
             <tr>
               <th>5</th>
-              <td>Marjy Ferencz</td>
-              <td>Rowe-Schoen</td>
-              <td>Crimson</td>
+              <td>NextGen Technologies</td>
+              <td>Closing</td>
+              <td>300,000</td>
             </tr>
           </tbody>
+          <tfoot>
+            <tr>
+              <th colspan="3" class="text-right">
+                Total:
+              </th>
+              <td>
+                685,000
+              </td>
+            </tr>
+          </tfoot>
         </table>
       </B24TableWrapper>
     </ExampleCard>
@@ -198,118 +225,138 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
         <B24TableWrapper
           class="overflow-x-auto w-full"
         >
-          <table class="table">
+          <table>
             <!-- head -->
             <thead>
               <tr>
-                <th />
-                <th>Name</th>
-                <th>Job</th>
-                <th>Favorite Color</th>
+                <th>#</th>
+                <th>Company</th>
+                <th>Deal Stage</th>
+                <th>Amount (USD)</th>
               </tr>
             </thead>
             <tbody>
               <!-- row 1 -->
-                <tr>
-                  <th>1</th>
-                  <td>Cy Ganderton</td>
-                  <td>Quality Control Specialist</td>
-                  <td>Blue</td>
-                </tr>
-                <!-- row 2 -->
-                <tr class="hover:bg-ai-300 dark:hover:bg-ai-700">
-                  <th>2</th>
-                  <td>Hart Hagerty</td>
-                  <td>Desktop Support Technician</td>
-                  <td>Purple</td>
-                </tr>
-                <!-- row 3 -->
-                <tr>
-                  <th>3</th>
-                  <td>Brice Swyre</td>
-                <td>Tax Accountant</td>
-                <td>Red</td>
+              <tr>
+                <th>1</th>
+                <td>Tech Innovators Inc.</td>
+                <td>Proposal Sent</td>
+                <td>50,000</td>
+              </tr>
+              <!-- row 2 -->
+              <tr class="hover:bg-ai-300 dark:hover:bg-ai-700">
+                <th>2</th>
+                <td>Global Solutions Ltd.</td>
+                <td>Negotiation</td>
+                <td>120,000</td>
+              </tr>
+              <!-- row 3 -->
+              <tr>
+                <th>3</th>
+                <td>Future Enterprises</td>
+                <td>Contract Signed</td>
+                <td>200,000</td>
               </tr>
               <!-- row 4 -->
               <tr class="hover:bg-collab-300 dark:hover:bg-collab-700">
                 <th>4</th>
-                <td>Yancy Tear</td>
-                <td>Wyman-Ledner</td>
-                <td>Indigo</td>
+                <td>Bright Ideas Co.</td>
+                <td>Initial Contact</td>
+                <td>15,000</td>
               </tr>
               <!-- row 5 -->
               <tr>
                 <th>5</th>
-                <td>Marjy Ferencz</td>
-                <td>Rowe-Schoen</td>
-                <td>Crimson</td>
+                <td>NextGen Technologies</td>
+                <td>Closing</td>
+                <td>300,000</td>
               </tr>
             </tbody>
+            <tfoot>
+              <tr>
+                <th colspan="3" class="text-right">
+                  Total:
+                </th>
+                <td>
+                  685,000
+                </td>
+              </tr>
+            </tfoot>
           </table>
         </B24TableWrapper>
       </div>
     </ExampleCard>
 
-    <ExampleCard title="zebra" class="col-span-2">
+    <ExampleCard title="zebra & row-hover" class="col-span-2">
       <B24TableWrapper
         class="overflow-x-auto w-[100%+16px] -mx-4"
         zebra
         row-hover
       >
         <B24Separator class="mt-3" type="dotted" />
-        <table class="table">
+        <table>
           <!-- head -->
           <thead>
             <tr>
-              <th />
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+              <th>#</th>
+              <th>Company</th>
+              <th>Deal Stage</th>
+              <th>Amount (USD)</th>
             </tr>
           </thead>
           <tbody>
             <!-- row 1 -->
             <tr>
               <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Blue</td>
+              <td>Tech Innovators Inc.</td>
+              <td>Proposal Sent</td>
+              <td>50,000</td>
             </tr>
             <!-- row 2 -->
-            <tr>
+            <tr class="hover:bg-ai-300 dark:hover:bg-ai-700">
               <th>2</th>
-              <td>Hart Hagerty</td>
-              <td>Desktop Support Technician</td>
-              <td>Purple</td>
+              <td>Global Solutions Ltd.</td>
+              <td>Negotiation</td>
+              <td>120,000</td>
             </tr>
             <!-- row 3 -->
             <tr>
               <th>3</th>
-              <td>Brice Swyre</td>
-              <td>Tax Accountant</td>
-              <td>Red</td>
+              <td>Future Enterprises</td>
+              <td>Contract Signed</td>
+              <td>200,000</td>
             </tr>
             <!-- row 4 -->
-            <tr>
+            <tr class="hover:bg-collab-300 dark:hover:bg-collab-700">
               <th>4</th>
-              <td>Yancy Tear</td>
-              <td>Wyman-Ledner</td>
-              <td>Indigo</td>
+              <td>Bright Ideas Co.</td>
+              <td>Initial Contact</td>
+              <td>15,000</td>
             </tr>
             <!-- row 5 -->
             <tr>
               <th>5</th>
-              <td>Marjy Ferencz</td>
-              <td>Rowe-Schoen</td>
-              <td>Crimson</td>
+              <td>NextGen Technologies</td>
+              <td>Closing</td>
+              <td>300,000</td>
             </tr>
           </tbody>
+          <tfoot>
+            <tr>
+              <th colspan="3" class="text-right">
+                Total:
+              </th>
+              <td>
+                685,000
+              </td>
+            </tr>
+          </tfoot>
         </table>
       </B24TableWrapper>
     </ExampleCard>
   </ExampleGrid>
 
-  <ExampleGrid class="mt-3" v-once>
+  <ExampleGrid v-once class="mt-3">
     <ExampleCard title="pinned-rows" class="">
       <B24Separator class="my-3" type="dotted" />
       <B24TableWrapper
@@ -325,11 +372,11 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
             </tr>
           </thead>
           <tbody>
-            <tr><td>Ant-Man</td></tr>
-            <tr><td>Aquaman</td></tr>
-            <tr><td>Asterix</td></tr>
-            <tr><td>The Atom</td></tr>
-            <tr><td>The Avengers</td></tr>
+            <tr><td>AlphaTech Solutions</td></tr>
+            <tr><td>Apex Innovations</td></tr>
+            <tr><td>AstroCore Systems</td></tr>
+            <tr><td>Atomix Enterprises</td></tr>
+            <tr><td>Aurora Dynamics</td></tr>
           </tbody>
           <thead>
             <tr>
@@ -337,11 +384,11 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
             </tr>
           </thead>
           <tbody>
-            <tr><td>Batgirl</td></tr>
-            <tr><td>Batman</td></tr>
-            <tr><td>Batwoman</td></tr>
-            <tr><td>Black Canary</td></tr>
-            <tr><td>Black Panther</td></tr>
+            <tr><td>BlueWave Technologies</td></tr>
+            <tr><td>BrightPath Solutions</td></tr>
+            <tr><td>BoldFuture Inc.</td></tr>
+            <tr><td>BioNova Industries</td></tr>
+            <tr><td>BeaconWorks</td></tr>
           </tbody>
           <thead>
             <tr>
@@ -349,10 +396,10 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
             </tr>
           </thead>
           <tbody>
-            <tr><td>Captain America</td></tr>
-            <tr><td>Captain Marvel</td></tr>
-            <tr><td>Catwoman</td></tr>
-            <tr><td>Conan the Barbarian</td></tr>
+            <tr><td>CyberForge Ltd.</td></tr>
+            <tr><td>CloudHaven Systems</td></tr>
+            <tr><td>CrimsonLogic</td></tr>
+            <tr><td>Catalyst Innovations</td></tr>
           </tbody>
           <thead>
             <tr>
@@ -360,10 +407,10 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
             </tr>
           </thead>
           <tbody>
-            <tr><td>Daredevil</td></tr>
-            <tr><td>The Defenders</td></tr>
-            <tr><td>Doc Savage</td></tr>
-            <tr><td>Doctor Strange</td></tr>
+            <tr><td>DeltaCore Technologies</td></tr>
+            <tr><td>Dynamo Solutions</td></tr>
+            <tr><td>DataSphere Inc.</td></tr>
+            <tr><td>DreamForge Industries</td></tr>
           </tbody>
           <thead>
             <tr>
@@ -371,7 +418,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
             </tr>
           </thead>
           <tbody>
-            <tr><td>Elektra</td></tr>
+            <tr><td>Eclipse Systems</td></tr>
           </tbody>
           <thead>
             <tr>
@@ -379,7 +426,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
             </tr>
           </thead>
           <tbody>
-            <tr><td>Fantastic Four</td></tr>
+            <tr><td>FusionWorks</td></tr>
           </tbody>
           <thead>
             <tr>
@@ -387,10 +434,10 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
             </tr>
           </thead>
           <tbody>
-            <tr><td>Ghost Rider</td></tr>
-            <tr><td>Green Arrow</td></tr>
-            <tr><td>Green Lantern</td></tr>
-            <tr><td>Guardians of the Galaxy</td></tr>
+            <tr><td>GreenPulse Technologies</td></tr>
+            <tr><td>GlobeForge Solutions</td></tr>
+            <tr><td>GoldenAxis Inc.</td></tr>
+            <tr><td>GalacticCore</td></tr>
           </tbody>
           <thead>
             <tr>
@@ -398,9 +445,9 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
             </tr>
           </thead>
           <tbody>
-            <tr><td>Hawkeye</td></tr>
-            <tr><td>Hellboy</td></tr>
-            <tr><td>Incredible Hulk</td></tr>
+            <tr><td>Hyperion Dynamics</td></tr>
+            <tr><td>HaloTech Industries</td></tr>
+            <tr><td>HorizonWorks</td></tr>
           </tbody>
           <thead>
             <tr>
@@ -408,8 +455,8 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
             </tr>
           </thead>
           <tbody>
-            <tr><td>Iron Fist</td></tr>
-            <tr><td>Iron Man</td></tr>
+            <tr><td>InfinityForge</td></tr>
+            <tr><td>Ironclad Solutions</td></tr>
           </tbody>
           <thead>
             <tr>
@@ -417,7 +464,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
             </tr>
           </thead>
           <tbody>
-            <tr><td>Marvelman</td></tr>
+            <tr><td>MetaCore Systems</td></tr>
           </tbody>
           <thead>
             <tr>
@@ -425,8 +472,8 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
             </tr>
           </thead>
           <tbody>
-            <tr><td>Robin</td></tr>
-            <tr><td>The Rocketeer</td></tr>
+            <tr><td>Radiant Innovations</td></tr>
+            <tr><td>RocketForge Ltd.</td></tr>
           </tbody>
           <thead>
             <tr>
@@ -434,11 +481,11 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
             </tr>
           </thead>
           <tbody>
-            <tr><td>The Shadow</td></tr>
-            <tr><td>Spider-Man</td></tr>
-            <tr><td>Sub-Mariner</td></tr>
-            <tr><td>Supergirl</td></tr>
-            <tr><td>Superman</td></tr>
+            <tr><td>Skyline Technologies</td></tr>
+            <tr><td>SolarFlare Systems</td></tr>
+            <tr><td>StellarCore Inc.</td></tr>
+            <tr><td>SynapseWorks</td></tr>
+            <tr><td>Summit Dynamics</td></tr>
           </tbody>
           <thead>
             <tr>
@@ -446,8 +493,8 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
             </tr>
           </thead>
           <tbody>
-            <tr><td>Teenage Mutant Ninja Turtles</td></tr>
-            <tr><td>Thor</td></tr>
+            <tr><td>TechNova Solutions</td></tr>
+            <tr><td>TitanForge Industries</td></tr>
           </tbody>
           <thead>
             <tr>
@@ -455,10 +502,10 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
             </tr>
           </thead>
           <tbody>
-            <tr><td>The Wasp</td></tr>
-            <tr><td>Watchmen</td></tr>
-            <tr><td>Wolverine</td></tr>
-            <tr><td>Wonder Woman</td></tr>
+            <tr><td>WaveFront Technologies</td></tr>
+            <tr><td>WhiteHaven Systems</td></tr>
+            <tr><td>WiseCore Inc.</td></tr>
+            <tr><td>WorldForge Solutions</td></tr>
           </tbody>
           <thead>
             <tr>
@@ -466,7 +513,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
             </tr>
           </thead>
           <tbody>
-            <tr><td>X-Men</td></tr>
+            <tr><td>Xenon Innovations</td></tr>
           </tbody>
           <thead>
             <tr>
@@ -474,8 +521,8 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
             </tr>
           </thead>
           <tbody>
-            <tr><td>Zatanna</td></tr>
-            <tr><td>Zatara</td></tr>
+            <tr><td>ZenithCore Systems</td></tr>
+            <tr><td>ZephyrWorks</td></tr>
           </tbody>
         </table>
       </B24TableWrapper>
@@ -493,226 +540,303 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
           <thead>
             <tr>
               <th />
-              <td>Name</td>
-              <td>Job</td>
-              <td>company</td>
-              <td>location</td>
-              <td>Last Login</td>
-              <td>Favorite Color</td>
+              <td>Deal Name</td>
+              <td>Company</td>
+              <td>Deal Stage</td>
+              <td>Amount (USD)</td>
+              <td>Assigned To</td>
+              <td>Start Date</td>
+              <td>Notes</td>
               <th />
             </tr>
           </thead>
           <tbody>
             <tr>
               <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Littel, Schaden and Vandervort</td>
-              <td>Canada</td>
-              <td>12/16/2020</td>
-              <td>Blue</td>
+              <td>Tech Upgrade Project</td>
+              <td>Tech Innovators Inc.</td>
+              <td>Proposal Sent</td>
+              <td>150,000</td>
+              <td>John Doe</td>
+              <td>01/15/2023</td>
+              <td>Waiting for feedback</td>
               <th>1</th>
             </tr>
             <tr>
               <th>2</th>
-              <td>Hart Hagerty</td>
-              <td>Desktop Support Technician</td>
-              <td>Zemlak, Daniel and Leannon</td>
-              <td>United States</td>
-              <td>12/5/2020</td>
-              <td>Purple</td>
+              <td>Global Expansion Plan</td>
+              <td>Global Solutions Ltd.</td>
+              <td>Negotiation</td>
+              <td>500,000</td>
+              <td>Jane Smith</td>
+              <td>02/10/2023</td>
+              <td>Key decision maker</td>
               <th>2</th>
             </tr>
             <tr>
               <th>3</th>
-              <td>Brice Swyre</td>
-              <td>Tax Accountant</td>
-              <td>Carroll Group</td>
-              <td>China</td>
-              <td>8/15/2020</td>
-              <td>Red</td>
+              <td>New Product Launch</td>
+              <td>Future Enterprises</td>
+              <td>Contract Signed</td>
+              <td>300,000</td>
+              <td>Michael Brown</td>
+              <td>03/05/2023</td>
+              <td>Delivery in progress</td>
               <th>3</th>
             </tr>
             <tr>
               <th>4</th>
-              <td>Marjy Ferencz</td>
-              <td>Office Assistant I</td>
-              <td>Rowe-Schoen</td>
-              <td>Russia</td>
-              <td>3/25/2021</td>
-              <td>Crimson</td>
+              <td>Marketing Campaign</td>
+              <td>Bright Ideas Co.</td>
+              <td>Initial Contact</td>
+              <td>75,000</td>
+              <td>Emily Davis</td>
+              <td>04/20/2023</td>
+              <td>Budget approved</td>
               <th>4</th>
             </tr>
             <tr>
               <th>5</th>
-              <td>Yancy Tear</td>
-              <td>Community Outreach Specialist</td>
-              <td>Wyman-Ledner</td>
-              <td>Brazil</td>
-              <td>5/22/2020</td>
-              <td>Indigo</td>
+              <td>IT Infrastructure Deal</td>
+              <td>NextGen Technologies</td>
+              <td>Closing</td>
+              <td>1,000,000</td>
+              <td>David Wilson</td>
+              <td>05/12/2023</td>
+              <td>Finalizing details</td>
               <th>5</th>
             </tr>
             <tr>
               <th>6</th>
-              <td>Irma Vasilik</td>
-              <td>Editor</td>
-              <td>Wiza, Bins and Emard</td>
-              <td>Venezuela</td>
-              <td>12/8/2020</td>
-              <td>Purple</td>
+              <td>HR Software Implementation</td>
+              <td>People First Inc.</td>
+              <td>Proposal Sent</td>
+              <td>200,000</td>
+              <td>Sophi Biles</td>
+              <td>06/01/2023</td>
+              <td>Awaiting approval</td>
               <th>6</th>
             </tr>
             <tr>
               <th>7</th>
-              <td>Meghann Durtnal</td>
-              <td>Staff Accountant IV</td>
-              <td>Schuster-Schimmel</td>
-              <td>Philippines</td>
-              <td>2/17/2021</td>
-              <td>Yellow</td>
+              <td>Logistics Optimization</td>
+              <td>Logistics Pro</td>
+              <td>Negotiation</td>
+              <td>450,000</td>
+              <td>Reid Semiras</td>
+              <td>07/18/2023</td>
+              <td>Discussing terms</td>
               <th>7</th>
             </tr>
             <tr>
               <th>8</th>
-              <td>Sammy Seston</td>
-              <td>Accountant I</td>
-              <td>O'Hara, Welch and Keebler</td>
-              <td>Indonesia</td>
-              <td>5/23/2020</td>
-              <td>Crimson</td>
+              <td>Sales Training Program</td>
+              <td>Global Sales Ltd.</td>
+              <td>Contract Signed</td>
+              <td>120,000</td>
+              <td>Alec Lethby</td>
+              <td>08/22/2023</td>
+              <td>Training scheduled</td>
               <th>8</th>
             </tr>
             <tr>
               <th>9</th>
-              <td>Lesya Tinham</td>
-              <td>Safety Technician IV</td>
-              <td>Turner-Kuhlman</td>
-              <td>Philippines</td>
-              <td>2/21/2021</td>
-              <td>Maroon</td>
+              <td>Product Redesign</td>
+              <td>Innovate Corp.</td>
+              <td>Initial Contact</td>
+              <td>90,000</td>
+              <td>Florida Garces</td>
+              <td>09/05/2023</td>
+              <td>Initial discussions</td>
               <th>9</th>
             </tr>
             <tr>
               <th>10</th>
-              <td>Zaneta Tewkesbury</td>
-              <td>VP Marketing</td>
-              <td>Sauer LLC</td>
-              <td>Chad</td>
-              <td>6/23/2020</td>
-              <td>Green</td>
+              <td>Cloud Migration</td>
+              <td>Tech Solutions Inc.</td>
+              <td>Closing</td>
+              <td>600,000</td>
+              <td>Maribeth Popping</td>
+              <td>10/10/2023</td>
+              <td>Final review</td>
               <th>10</th>
             </tr>
             <tr>
               <th>11</th>
-              <td>Andy Tipple</td>
-              <td>Librarian</td>
-              <td>Hilpert Group</td>
-              <td>Poland</td>
-              <td>7/9/2020</td>
-              <td>Indigo</td>
+              <td>Customer Support Upgrade</td>
+              <td>Zemlak, Daniel and Leannon</td>
+              <td>Proposal Sent</td>
+              <td>85,000</td>
+              <td>Hart Hagerty</td>
+              <td>11/15/2023</td>
+              <td>Pending approval</td>
               <th>11</th>
             </tr>
             <tr>
               <th>12</th>
-              <td>Sophi Biles</td>
-              <td>Recruiting Manager</td>
-              <td>Gutmann Inc</td>
-              <td>Indonesia</td>
-              <td>2/12/2021</td>
-              <td>Maroon</td>
+              <td>Financial Audit</td>
+              <td>Carroll Group</td>
+              <td>Negotiation</td>
+              <td>250,000</td>
+              <td>Brice Swyre</td>
+              <td>12/01/2023</td>
+              <td>Scope finalized</td>
               <th>12</th>
             </tr>
             <tr>
               <th>13</th>
-              <td>Florida Garces</td>
-              <td>Web Developer IV</td>
-              <td>Gaylord, Pacocha and Baumbach</td>
-              <td>Poland</td>
-              <td>5/31/2020</td>
-              <td>Purple</td>
+              <td>Office Renovation</td>
+              <td>Rowe-Schoen</td>
+              <td>Contract Signed</td>
+              <td>180,000</td>
+              <td>Marjy Ferencz</td>
+              <td>01/10/2024</td>
+              <td>Work in progress</td>
               <th>13</th>
             </tr>
             <tr>
               <th>14</th>
-              <td>Maribeth Popping</td>
-              <td>Analyst Programmer</td>
-              <td>Deckow-Pouros</td>
-              <td>Portugal</td>
-              <td>4/27/2021</td>
-              <td>Aquamarine</td>
+              <td>Cybersecurity Upgrade</td>
+              <td>Wyman-Ledner</td>
+              <td>Initial Contact</td>
+              <td>300,000</td>
+              <td>Yancy Tear</td>
+              <td>02/05/2024</td>
+              <td>Initial assessment</td>
               <th>14</th>
             </tr>
             <tr>
               <th>15</th>
-              <td>Moritz Dryburgh</td>
-              <td>Dental Hygienist</td>
-              <td>Schiller, Cole and Hackett</td>
-              <td>Sri Lanka</td>
-              <td>8/8/2020</td>
-              <td>Crimson</td>
+              <td>Employee Wellness Program</td>
+              <td>Schuster-Schimmel</td>
+              <td>Closing</td>
+              <td>95,000</td>
+              <td>Meghann Durtnal</td>
+              <td>03/12/2024</td>
+              <td>Finalizing details</td>
               <th>15</th>
             </tr>
             <tr>
               <th>16</th>
-              <td>Reid Semiras</td>
-              <td>Teacher</td>
-              <td>Sporer, Sipes and Rogahn</td>
-              <td>Poland</td>
-              <td>7/30/2020</td>
-              <td>Green</td>
+              <td>Data Analytics Project</td>
+              <td>Wiza, Bins and Emard</td>
+              <td>Proposal Sent</td>
+              <td>220,000</td>
+              <td>Irma Vasilik</td>
+              <td>04/18/2024</td>
+              <td>Awaiting feedback</td>
               <th>16</th>
             </tr>
             <tr>
               <th>17</th>
-              <td>Alec Lethby</td>
-              <td>Teacher</td>
-              <td>Reichel, Glover and Hamill</td>
-              <td>China</td>
-              <td>2/28/2021</td>
-              <td>Khaki</td>
+              <td>E-commerce Platform</td>
+              <td>O'Hara, Welch and Keebler</td>
+              <td>Negotiation</td>
+              <td>700,000</td>
+              <td>Sammy Seston</td>
+              <td>05/22/2024</td>
+              <td>Key terms discussed</td>
               <th>17</th>
             </tr>
             <tr>
               <th>18</th>
-              <td>Aland Wilber</td>
-              <td>Quality Control Specialist</td>
-              <td>Kshlerin, Rogahn and Swaniawski</td>
-              <td>Czech Republic</td>
-              <td>9/29/2020</td>
-              <td>Purple</td>
+              <td>AI Integration</td>
+              <td>Turner-Kuhlman</td>
+              <td>Contract Signed</td>
+              <td>1,200,000</td>
+              <td>Lesya Tinham</td>
+              <td>06/30/2024</td>
+              <td>Implementation started</td>
               <th>18</th>
             </tr>
             <tr>
               <th>19</th>
-              <td>Teddie Duerden</td>
-              <td>Staff Accountant III</td>
-              <td>Pouros, Ullrich and Windler</td>
-              <td>France</td>
-              <td>10/27/2020</td>
-              <td>Aquamarine</td>
+              <td>Supply Chain Optimization</td>
+              <td>Kshlerin, Rogahn and Swaniawski</td>
+              <td>Initial Contact</td>
+              <td>400,000</td>
+              <td>Aland Wilber</td>
+              <td>07/15/2024</td>
+              <td>Initial discussions</td>
               <th>19</th>
             </tr>
             <tr>
               <th>20</th>
-              <td>Lorelei Blackstone</td>
-              <td>Data Coordinator</td>
-              <td>Witting, Kutch and Greenfelder</td>
-              <td>Kazakhstan</td>
-              <td>6/3/2020</td>
-              <td>Red</td>
+              <td>Product Launch Event</td>
+              <td>Sauer LLC</td>
+              <td>Closing</td>
+              <td>150,000</td>
+              <td>Zaneta Tewkesbury</td>
+              <td>08/20/2024</td>
+              <td>Final preparations</td>
               <th>20</th>
+            </tr>
+            <tr>
+              <th>21</th>
+              <td>Mobile App Development</td>
+              <td>Hilpert Group</td>
+              <td>Proposal Sent</td>
+              <td>350,000</td>
+              <td>Andy Tipple</td>
+              <td>09/25/2024</td>
+              <td>Awaiting approval</td>
+              <th>21</th>
+            </tr>
+            <tr>
+              <th>22</th>
+              <td>Customer Loyalty Program</td>
+              <td>Gutmann Inc</td>
+              <td>Negotiation</td>
+              <td>120,000</td>
+              <td>Sophi Biles</td>
+              <td>10/10/2024</td>
+              <td>Terms under review</td>
+              <th>22</th>
+            </tr>
+            <tr>
+              <th>23</th>
+              <td>ERP System Implementation</td>
+              <td>Gaylord, Pacocha and Baumbach</td>
+              <td>Contract Signed</td>
+              <td>900,000</td>
+              <td>Florida Garces</td>
+              <td>11/15/2024</td>
+              <td>Project kickoff</td>
+              <th>23</th>
+            </tr>
+            <tr>
+              <th>24</th>
+              <td>Digital Marketing Campaign</td>
+              <td>Deckow-Pouros</td>
+              <td>Initial Contact</td>
+              <td>200,000</td>
+              <td>Maribeth Popping</td>
+              <td>12/20/2024</td>
+              <td>Initial discussions</td>
+              <th>24</th>
+            </tr>
+            <tr>
+              <th>25</th>
+              <td>Warehouse Automation</td>
+              <td>Schiller, Cole and Hackett</td>
+              <td>Closing</td>
+              <td>1,500,000</td>
+              <td>Moritz Dryburgh</td>
+              <td>01/05/2025</td>
+              <td>Finalizing details</td>
+              <th>25</th>
             </tr>
           </tbody>
           <tfoot>
             <tr>
               <th />
-              <td>Name</td>
-              <td>Job</td>
-              <td>company</td>
-              <td>location</td>
-              <td>Last Login</td>
-              <td>Favorite Color</td>
+              <td>Deal Name</td>
+              <td>Company</td>
+              <td>Deal Stage</td>
+              <td>Amount (USD)</td>
+              <td>Assigned To</td>
+              <td>Start Date</td>
+              <td>Notes</td>
               <th />
             </tr>
           </tfoot>
@@ -731,230 +855,329 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
         row-hover
       >
         <table>
+          <!-- head -->
           <thead>
             <tr>
-              <th />
-              <td>Name</td>
-              <td>Job</td>
-              <td>company</td>
-              <td>location</td>
-              <td>Last Login</td>
-              <td>Favorite Color</td>
-              <th />
+              <th>#</th>
+              <th>Deal Name</th>
+              <th>Company</th>
+              <th>Deal Stage</th>
+              <th>Amount (USD)</th>
+              <th>Assigned To</th>
+              <th>Start Date</th>
+              <th>Notes</th>
+              <th>#</th>
             </tr>
           </thead>
           <tbody>
+            <!-- row 1 -->
             <tr>
               <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Littel, Schaden and Vandervort</td>
-              <td>Canada</td>
-              <td>12/16/2020</td>
-              <td>Blue</td>
+              <td>Tech Upgrade Project</td>
+              <td>Tech Innovators Inc.</td>
+              <td>Proposal Sent</td>
+              <td>150,000</td>
+              <td>John Doe</td>
+              <td>01/15/2023</td>
+              <td>Waiting for feedback</td>
               <th>1</th>
             </tr>
+            <!-- row 2 -->
             <tr>
               <th>2</th>
-              <td>Hart Hagerty</td>
-              <td>Desktop Support Technician</td>
-              <td>Zemlak, Daniel and Leannon</td>
-              <td>United States</td>
-              <td>12/5/2020</td>
-              <td>Purple</td>
+              <td>Global Expansion Plan</td>
+              <td>Global Solutions Ltd.</td>
+              <td>Negotiation</td>
+              <td>500,000</td>
+              <td>Jane Smith</td>
+              <td>02/10/2023</td>
+              <td>Key decision maker</td>
               <th>2</th>
             </tr>
+            <!-- row 3 -->
             <tr>
               <th>3</th>
-              <td>Brice Swyre</td>
-              <td>Tax Accountant</td>
-              <td>Carroll Group</td>
-              <td>China</td>
-              <td>8/15/2020</td>
-              <td>Red</td>
+              <td>New Product Launch</td>
+              <td>Future Enterprises</td>
+              <td>Contract Signed</td>
+              <td>300,000</td>
+              <td>Michael Brown</td>
+              <td>03/05/2023</td>
+              <td>Delivery in progress</td>
               <th>3</th>
             </tr>
+            <!-- row 4 -->
             <tr>
               <th>4</th>
-              <td>Marjy Ferencz</td>
-              <td>Office Assistant I</td>
-              <td>Rowe-Schoen</td>
-              <td>Russia</td>
-              <td>3/25/2021</td>
-              <td>Crimson</td>
+              <td>Marketing Campaign</td>
+              <td>Bright Ideas Co.</td>
+              <td>Initial Contact</td>
+              <td>75,000</td>
+              <td>Emily Davis</td>
+              <td>04/20/2023</td>
+              <td>Budget approved</td>
               <th>4</th>
             </tr>
+            <!-- row 5 -->
             <tr>
               <th>5</th>
-              <td>Yancy Tear</td>
-              <td>Community Outreach Specialist</td>
-              <td>Wyman-Ledner</td>
-              <td>Brazil</td>
-              <td>5/22/2020</td>
-              <td>Indigo</td>
+              <td>IT Infrastructure Deal</td>
+              <td>NextGen Technologies</td>
+              <td>Closing</td>
+              <td>1,000,000</td>
+              <td>David Wilson</td>
+              <td>05/12/2023</td>
+              <td>Finalizing details</td>
               <th>5</th>
             </tr>
+            <!-- row 6 -->
             <tr>
               <th>6</th>
-              <td>Irma Vasilik</td>
-              <td>Editor</td>
-              <td>Wiza, Bins and Emard</td>
-              <td>Venezuela</td>
-              <td>12/8/2020</td>
-              <td>Purple</td>
-              <th>6</th>
-            </tr>
-            <tr>
-              <th>7</th>
-              <td>Meghann Durtnal</td>
-              <td>Staff Accountant IV</td>
-              <td>Schuster-Schimmel</td>
-              <td>Philippines</td>
-              <td>2/17/2021</td>
-              <td>Yellow</td>
-              <th>7</th>
-            </tr>
-            <tr>
-              <th>8</th>
-              <td>Sammy Seston</td>
-              <td>Accountant I</td>
-              <td>O'Hara, Welch and Keebler</td>
-              <td>Indonesia</td>
-              <td>5/23/2020</td>
-              <td>Crimson</td>
-              <th>8</th>
-            </tr>
-            <tr>
-              <th>9</th>
-              <td>Lesya Tinham</td>
-              <td>Safety Technician IV</td>
-              <td>Turner-Kuhlman</td>
-              <td>Philippines</td>
-              <td>2/21/2021</td>
-              <td>Maroon</td>
-              <th>9</th>
-            </tr>
-            <tr>
-              <th>10</th>
-              <td>Zaneta Tewkesbury</td>
-              <td>VP Marketing</td>
-              <td>Sauer LLC</td>
-              <td>Chad</td>
-              <td>6/23/2020</td>
-              <td>Green</td>
-              <th>10</th>
-            </tr>
-            <tr>
-              <th>11</th>
-              <td>Andy Tipple</td>
-              <td>Librarian</td>
-              <td>Hilpert Group</td>
-              <td>Poland</td>
-              <td>7/9/2020</td>
-              <td>Indigo</td>
-              <th>11</th>
-            </tr>
-            <tr>
-              <th>12</th>
+              <td>HR Software Implementation</td>
+              <td>People First Inc.</td>
+              <td>Proposal Sent</td>
+              <td>200,000</td>
               <td>Sophi Biles</td>
-              <td>Recruiting Manager</td>
-              <td>Gutmann Inc</td>
-              <td>Indonesia</td>
-              <td>2/12/2021</td>
-              <td>Maroon</td>
+              <td>06/01/2023</td>
+              <td>Awaiting approval</td>
+              <th>6</th>
+            </tr>
+            <!-- row 7 -->
+            <tr>
+              <th>7</th>
+              <td>Logistics Optimization</td>
+              <td>Logistics Pro</td>
+              <td>Negotiation</td>
+              <td>450,000</td>
+              <td>Reid Semiras</td>
+              <td>07/18/2023</td>
+              <td>Discussing terms</td>
+              <th>7</th>
+            </tr>
+            <!-- row 8 -->
+            <tr>
+              <th>8</th>
+              <td>Sales Training Program</td>
+              <td>Global Sales Ltd.</td>
+              <td>Contract Signed</td>
+              <td>120,000</td>
+              <td>Alec Lethby</td>
+              <td>08/22/2023</td>
+              <td>Training scheduled</td>
+              <th>8</th>
+            </tr>
+            <!-- row 9 -->
+            <tr>
+              <th>9</th>
+              <td>Product Redesign</td>
+              <td>Innovate Corp.</td>
+              <td>Initial Contact</td>
+              <td>90,000</td>
+              <td>Florida Garces</td>
+              <td>09/05/2023</td>
+              <td>Initial discussions</td>
+              <th>9</th>
+            </tr>
+            <!-- row 10 -->
+            <tr>
+              <th>10</th>
+              <td>Cloud Migration</td>
+              <td>Tech Solutions Inc.</td>
+              <td>Closing</td>
+              <td>600,000</td>
+              <td>Maribeth Popping</td>
+              <td>10/10/2023</td>
+              <td>Final review</td>
+              <th>10</th>
+            </tr>
+            <!-- row 11 -->
+            <tr>
+              <th>11</th>
+              <td>Customer Support Upgrade</td>
+              <td>Zemlak, Daniel and Leannon</td>
+              <td>Proposal Sent</td>
+              <td>85,000</td>
+              <td>Hart Hagerty</td>
+              <td>11/15/2023</td>
+              <td>Pending approval</td>
+              <th>11</th>
+            </tr>
+            <!-- row 12 -->
+            <tr>
+              <th>12</th>
+              <td>Financial Audit</td>
+              <td>Carroll Group</td>
+              <td>Negotiation</td>
+              <td>250,000</td>
+              <td>Brice Swyre</td>
+              <td>12/01/2023</td>
+              <td>Scope finalized</td>
               <th>12</th>
             </tr>
+            <!-- row 13 -->
             <tr>
               <th>13</th>
-              <td>Florida Garces</td>
-              <td>Web Developer IV</td>
-              <td>Gaylord, Pacocha and Baumbach</td>
-              <td>Poland</td>
-              <td>5/31/2020</td>
-              <td>Purple</td>
+              <td>Office Renovation</td>
+              <td>Rowe-Schoen</td>
+              <td>Contract Signed</td>
+              <td>180,000</td>
+              <td>Marjy Ferencz</td>
+              <td>01/10/2024</td>
+              <td>Work in progress</td>
               <th>13</th>
             </tr>
+            <!-- row 14 -->
             <tr>
               <th>14</th>
-              <td>Maribeth Popping</td>
-              <td>Analyst Programmer</td>
-              <td>Deckow-Pouros</td>
-              <td>Portugal</td>
-              <td>4/27/2021</td>
-              <td>Aquamarine</td>
+              <td>Cybersecurity Upgrade</td>
+              <td>Wyman-Ledner</td>
+              <td>Initial Contact</td>
+              <td>300,000</td>
+              <td>Yancy Tear</td>
+              <td>02/05/2024</td>
+              <td>Initial assessment</td>
               <th>14</th>
             </tr>
+            <!-- row 15 -->
             <tr>
               <th>15</th>
-              <td>Moritz Dryburgh</td>
-              <td>Dental Hygienist</td>
-              <td>Schiller, Cole and Hackett</td>
-              <td>Sri Lanka</td>
-              <td>8/8/2020</td>
-              <td>Crimson</td>
+              <td>Employee Wellness Program</td>
+              <td>Schuster-Schimmel</td>
+              <td>Closing</td>
+              <td>95,000</td>
+              <td>Meghann Durtnal</td>
+              <td>03/12/2024</td>
+              <td>Finalizing details</td>
               <th>15</th>
             </tr>
+            <!-- row 16 -->
             <tr>
               <th>16</th>
-              <td>Reid Semiras</td>
-              <td>Teacher</td>
-              <td>Sporer, Sipes and Rogahn</td>
-              <td>Poland</td>
-              <td>7/30/2020</td>
-              <td>Green</td>
+              <td>Data Analytics Project</td>
+              <td>Wiza, Bins and Emard</td>
+              <td>Proposal Sent</td>
+              <td>220,000</td>
+              <td>Irma Vasilik</td>
+              <td>04/18/2024</td>
+              <td>Awaiting feedback</td>
               <th>16</th>
             </tr>
+            <!-- row 17 -->
             <tr>
               <th>17</th>
-              <td>Alec Lethby</td>
-              <td>Teacher</td>
-              <td>Reichel, Glover and Hamill</td>
-              <td>China</td>
-              <td>2/28/2021</td>
-              <td>Khaki</td>
+              <td>E-commerce Platform</td>
+              <td>O'Hara, Welch and Keebler</td>
+              <td>Negotiation</td>
+              <td>700,000</td>
+              <td>Sammy Seston</td>
+              <td>05/22/2024</td>
+              <td>Key terms discussed</td>
               <th>17</th>
             </tr>
+            <!-- row 18 -->
             <tr>
               <th>18</th>
-              <td>Aland Wilber</td>
-              <td>Quality Control Specialist</td>
+              <td>AI Integration</td>
+              <td>Turner-Kuhlman</td>
+              <td>Contract Signed</td>
+              <td>1,200,000</td>
+              <td>Lesya Tinham</td>
+              <td>06/30/2024</td>
+              <td>Implementation started</td>
+              <th>18</th>
+            </tr>
+            <!-- row 19 -->
+            <tr>
+              <th>19</th>
+              <td>Supply Chain Optimization</td>
               <td>Kshlerin, Rogahn and Swaniawski</td>
-              <td>Czech Republic</td>
-              <td>9/29/2020</td>
-              <td>Purple</td>
-              <th>18</th>
-            </tr>
-            <tr>
-              <th>19</th>
-              <td>Teddie Duerden</td>
-              <td>Staff Accountant III</td>
-              <td>Pouros, Ullrich and Windler</td>
-              <td>France</td>
-              <td>10/27/2020</td>
-              <td>Aquamarine</td>
+              <td>Initial Contact</td>
+              <td>400,000</td>
+              <td>Aland Wilber</td>
+              <td>07/15/2024</td>
+              <td>Initial discussions</td>
               <th>19</th>
             </tr>
+            <!-- row 20 -->
             <tr>
               <th>20</th>
-              <td>Lorelei Blackstone</td>
-              <td>Data Coordinator</td>
-              <td>Witting, Kutch and Greenfelder</td>
-              <td>Kazakhstan</td>
-              <td>6/3/2020</td>
-              <td>Red</td>
+              <td>Product Launch Event</td>
+              <td>Sauer LLC</td>
+              <td>Closing</td>
+              <td>150,000</td>
+              <td>Zaneta Tewkesbury</td>
+              <td>08/20/2024</td>
+              <td>Final preparations</td>
               <th>20</th>
+            </tr>
+            <!-- row 21 -->
+            <tr>
+              <th>21</th>
+              <td>Mobile App Development</td>
+              <td>Hilpert Group</td>
+              <td>Proposal Sent</td>
+              <td>350,000</td>
+              <td>Andy Tipple</td>
+              <td>09/25/2024</td>
+              <td>Awaiting approval</td>
+              <th>21</th>
+            </tr>
+            <!-- row 22 -->
+            <tr>
+              <th>22</th>
+              <td>Customer Loyalty Program</td>
+              <td>Gutmann Inc</td>
+              <td>Negotiation</td>
+              <td>120,000</td>
+              <td>Sophi Biles</td>
+              <td>10/10/2024</td>
+              <td>Terms under review</td>
+              <th>22</th>
+            </tr>
+            <!-- row 23 -->
+            <tr>
+              <th>23</th>
+              <td>ERP System Implementation</td>
+              <td>Gaylord, Pacocha and Baumbach</td>
+              <td>Contract Signed</td>
+              <td>900,000</td>
+              <td>Florida Garces</td>
+              <td>11/15/2024</td>
+              <td>Project kickoff</td>
+              <th>23</th>
+            </tr>
+            <!-- row 24 -->
+            <tr>
+              <th>24</th>
+              <td>Digital Marketing Campaign</td>
+              <td>Deckow-Pouros</td>
+              <td>Initial Contact</td>
+              <td>200,000</td>
+              <td>Maribeth Popping</td>
+              <td>12/20/2024</td>
+              <td>Initial discussions</td>
+              <th>24</th>
+            </tr>
+            <!-- row 25 -->
+            <tr>
+              <th>25</th>
+              <td>Warehouse Automation</td>
+              <td>Schiller, Cole and Hackett</td>
+              <td>Closing</td>
+              <td>1,500,000</td>
+              <td>Moritz Dryburgh</td>
+              <td>01/05/2025</td>
+              <td>Finalizing details</td>
+              <th>25</th>
             </tr>
           </tbody>
           <tfoot>
             <tr>
-              <th />
-              <td>Name</td>
-              <td>Job</td>
-              <td>company</td>
-              <td>location</td>
-              <td>Last Login</td>
-              <td>Favorite Color</td>
-              <th />
+              <th colspan="4" class="text-right">
+                Total:
+              </th>
+              <td>9,825,000</td>
+              <td colspan="4" />
             </tr>
           </tfoot>
         </table>

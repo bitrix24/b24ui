@@ -1,14 +1,9 @@
 /**
  * Prose/TableWrapper
- * Wrapper for displaying a table
+ * Wrapper for displaying a html table
  * ---
  * @link https://v5.daisyui.com/components/table/
  * @see bitrix/js/ui/advice/src
- */
-
-/**
- * @todo test
- * @todo doc
  */
 
 const variantTable = '[&>table]'
@@ -38,9 +33,9 @@ const variantsTdTh = [
   '[&>table>tbody>tr>td]',
   '[&>table>tbody>tr>th]',
   '[&>table>tfoot>tr>td]',
-  '[&>table>tbody>tr>th]'
+  '[&>table>tfoot>tr>th]'
 ]
-// 40 f1f5f7
+
 export default {
   slots: {
     base: [
@@ -60,8 +55,7 @@ export default {
   variants: {
     size: {
       xs: [
-        ...(variantsTr.map(variant => `${variant}:text-xs`)),
-        ...(variantsTdTh.map(variant => `${variant}:px-2 ${variant}:py-1`))
+        ...(variantsTdTh.map(variant => `${variant}:text-xs ${variant}:px-2 ${variant}:py-1`))
       ].join(' '),
       sm: [
         ...(variantsTdTh.map(variant => `${variant}:text-sm ${variant}:px-3 ${variant}:py-2`))
@@ -88,7 +82,7 @@ export default {
       true: [
         ...(variantsTr
           .filter(variant => variant !== variantBodyTr)
-          .map(variant => `${variant}:sticky ${variant}:${variant === variantHeadTr ? 'top-0' : 'bottom-0'} ${variant}:z-1 ${variant}:bg-white dark:${variant}:bg-base-dark ${variant}:shadow-bottom-sm`))
+          .map(variant => `${variant}:sticky ${variant}:${variant === variantHeadTr ? 'top-0' : 'bottom-0'} ${variant}:z-1 ${variant}:bg-white dark:${variant}:bg-base-dark ${variant}:${variant === variantHeadTr ? 'shadow-bottom-sm' : 'shadow-top-sm'}`))
       ].join(' ')
     },
     pinCols: {

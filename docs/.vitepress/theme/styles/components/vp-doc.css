@@ -163,30 +163,30 @@
  * Table
  * -------------------------------------------------------------------------- */
 
-.vp-doc table {
+.vp-doc table:not(div[data-example] table) {
   display: block;
   border-collapse: collapse;
   margin: 20px 0;
   overflow-x: auto;
 }
 
-.vp-doc tr {
+.vp-doc tr:not(div[data-example] tr) {
   background-color: var(--vp-c-bg);
   border-top: 1px solid var(--vp-c-divider);
   transition: background-color 0.5s;
 }
 
-.vp-doc tr:nth-child(2n) {
+.vp-doc tr:not(div[data-example] tr):nth-child(2n) {
   background-color: var(--vp-c-bg-soft);
 }
 
-.vp-doc th,
-.vp-doc td {
+.vp-doc th:not(div[data-example] th),
+.vp-doc td:not(div[data-example] td) {
   border: 1px solid var(--vp-c-divider);
   padding: 8px 16px;
 }
 
-.vp-doc th {
+.vp-doc th:not(div[data-example] th) {
   text-align: left;
   font-size: 14px;
   font-weight: 600;
@@ -194,7 +194,7 @@
   background-color: var(--vp-c-bg-soft);
 }
 
-.vp-doc td {
+.vp-doc td:not(div[data-example] td) {
   font-size: 14px;
 }
 

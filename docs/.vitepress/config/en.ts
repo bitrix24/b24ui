@@ -118,7 +118,8 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'AvatarGroup', link: 'avatar-group' },
         { text: 'Badge', link: 'badge' },
         { text: 'Countdown', link: 'countdown' },
-        { text: 'Kbd', link: 'kbd' }
+        { text: 'Kbd', link: 'kbd' },
+        { text: 'TableWrapper💡', base: '/components/prose/', link: 'table-wrapper' }
       ]
     },
     {
@@ -132,7 +133,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'InputNumber', link: 'input-number' },
         { text: 'Textarea', link: 'textarea' },
         { text: 'Select', link: 'select' },
-        { text: 'SelectMenu💡', link: 'select-menu' },
+        { text: 'SelectMenu', link: 'select-menu' },
         { text: 'RadioGroup', link: 'radio-group' },
         { text: 'Checkbox', link: 'checkbox' },
         { text: 'Switch', link: 'switch' },

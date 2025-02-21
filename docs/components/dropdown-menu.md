@@ -25,10 +25,6 @@ import WithCustomSlotExample from '/examples/dropdownmenu/WithCustomSlot.vue';
   A contextual menu for actions triggered by clicking an element.
 </Description>
 
-::: warning We are still updating this page
-Some data may be missing here — we will complete it shortly.
-:::
-
 ## Usage
 
 Use a [Button](/components/button) or any other component in the default slot of the DropdownMenu.
