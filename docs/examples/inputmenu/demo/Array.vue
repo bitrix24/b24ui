@@ -12,13 +12,11 @@ const items = ref([
   },
   {
     label: 'Access permissions',
-    value: 'access_permissions'
+    value: 'access_permissions',
+    color: 'danger'
   }
 ])
-const value = ref({
-  label: 'My company details',
-  value: 'my_company_details'
-})
+const value = ref(items.value[1])
 </script>
 
 <template>

@@ -16,6 +16,7 @@ defineShortcuts({
       v-model="value"
       v-model:open="open"
       :items="items"
+      class="w-full"
     />
   </B24Tooltip>
 </template>

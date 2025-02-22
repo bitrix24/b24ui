@@ -31,6 +31,23 @@ function onCreate(item: string) {
   itemsSimple.value.unshift(item)
   valueForAdd.value = item
 }
+
+const itemsObj = ref([
+  {
+    label: 'CRM settings',
+    value: 'settings',
+    color: 'collab'
+  },
+  {
+    label: 'My company details',
+    value: 'my_company_details'
+  },
+  {
+    label: 'Access permissions',
+    value: 'access_permissions'
+  }
+])
+const valueObj = ref(itemsObj.value[0])
 </script>
 
 <template>
@@ -204,6 +221,14 @@ function onCreate(item: string) {
             highlight
             class="w-3/4"
           />
+
+          <B24InputMenu
+            v-model="valueObj"
+            :items="itemsObj"
+            :color="color"
+            highlight
+            class="w-3/4"
+          />
         </div>
       </template>
     </ExampleCard>
@@ -297,6 +322,12 @@ function onCreate(item: string) {
             name="some_value"
             placeholder="Insert value&hellip;"
             aria-label="Insert value"
+            :size="size"
+            class="w-40"
+          />
+          <B24InputMenu
+            v-model="valueObj"
+            :items="itemsObj"
             :size="size"
             class="w-40"
           />

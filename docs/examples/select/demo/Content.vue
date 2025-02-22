@@ -30,5 +30,6 @@ const content = computed(() => {
     v-model="value"
     :items="items"
     :content="content"
+    class="w-full"
   />
 </template>

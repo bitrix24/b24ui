@@ -23,5 +23,6 @@ const value = ref('my_company_details')
     v-model="value"
     value-key="id"
     :items="items"
+    class="w-full"
   />
 </template>

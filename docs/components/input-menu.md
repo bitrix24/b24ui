@@ -54,6 +54,7 @@ You can also pass an array of objects with the following properties:
 - [`type?: "label" | "separator" | "item"`{lang="ts"}](#with-items-type)
 - [`icon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts"}](#with-icons-in-items)
 - [`avatar?: AvatarProps`{lang="ts"}](#with-avatar-in-items)
+- `color?: string`{lang="ts"}
 - [`chip?: ChipProps`{lang="ts"}](#with-chip-in-items)
 - `disabled?: boolean`{lang="ts"}
 - `onSelect?(e: Event): void`{lang="ts"}
@@ -65,7 +66,7 @@ You can also pass an array of objects with the following properties:
 </div>
 
 ::: details
-<<< @/examples/inputmenu/demo/Array.vue{18-21,26-27 vue:line-numbers}
+<<< @/examples/inputmenu/demo/Array.vue{4-17,19,25 vue:line-numbers}
 :::
 
 You can also pass an array of arrays to the `items` prop to display separated groups of items.

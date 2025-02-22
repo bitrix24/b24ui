@@ -16,5 +16,6 @@ const value = ref('My company details')
     v-model="value"
     :items="items"
     :avatar="{ icon: Bitrix24Icon }"
+    class="w-full"
   />
 </template>

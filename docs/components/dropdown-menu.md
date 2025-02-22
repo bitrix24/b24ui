@@ -35,8 +35,8 @@ Use the `items` prop as an array of objects with the following properties:
 
 - `label?: string`{lang="ts"}
 - `icon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts"}
-- `color?: string`{lang="ts"}
 - `avatar?: AvatarProps`{lang="ts"}
+- `color?: string`{lang="ts"}
 - `kbds?: string[] | KbdProps[]`{lang="ts"}
 - [`type?: "link" | "label" | "separator" | "checkbox"`{lang="ts"}](#with-checkbox-items)
 - [`color?: "error" | "primary" | "secondary" | "success" | "info" | "warning" | "neutral"`{lang="ts"}](#with-color-items)

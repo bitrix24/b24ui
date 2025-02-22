@@ -12,5 +12,6 @@ const value = ref('CRM Payment')
   <B24Select
     v-model="value"
     :items="items"
+    class="w-full"
   />
 </template>

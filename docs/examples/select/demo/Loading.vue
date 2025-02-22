@@ -18,5 +18,6 @@ const value = ref('My company details')
     v-model="value"
     :items="items"
     :loading="isLoading"
+    class="w-full"
   />
 </template>

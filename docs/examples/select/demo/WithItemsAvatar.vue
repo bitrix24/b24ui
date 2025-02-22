@@ -29,5 +29,6 @@ const avatar = computed(() => items.value.find(item => item.value === value.valu
     v-model="value"
     :items="items"
     :avatar="avatar"
+    class="w-full"
   />
 </template>

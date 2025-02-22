@@ -13,10 +13,13 @@ const appConfigSelect = _appConfig as AppConfig & { b24ui: { select: Partial<typ
 
 const select = tv({ extend: tv(theme), ...(appConfigSelect.b24ui?.select || {}) })
 
+type SelectVariants = VariantProps<typeof select>
+
 export interface SelectItem {
   label?: string
   icon?: IconComponent
   avatar?: AvatarProps
+  color?: SelectVariants['color']
   chip?: ChipProps
   /**
    * The item type.
@@ -26,8 +29,6 @@ export interface SelectItem {
   value?: string
   disabled?: boolean
 }
-
-type SelectVariants = VariantProps<typeof select>
 
 export interface SelectProps<T extends MaybeArrayOfArrayItem<I>, I extends MaybeArrayOfArray<SelectItem | AcceptableValue | boolean> = MaybeArrayOfArray<SelectItem | AcceptableValue | boolean>, V extends SelectItemKey<T> | undefined = undefined, M extends boolean = false> extends Omit<SelectRootProps<T>, 'dir' | 'multiple' | 'modelValue' | 'defaultValue' | 'by'>, UseComponentIconsProps {
   id?: string
@@ -273,7 +274,7 @@ function onUpdateOpen(value: boolean) {
 
                 <SelectItem
                   v-else
-                  :class="b24ui.item({ class: props.b24ui?.item })"
+                  :class="b24ui.item({ class: props.b24ui?.item, colorItem: item?.color })"
                   :disabled="item.disabled"
                   :value="typeof item === 'object' ? get(item, props.valueKey as string) : item"
                 >
@@ -282,16 +283,16 @@ function onUpdateOpen(value: boolean) {
                       <Component
                         :is="item.icon"
                         v-if="item.icon"
-                        :class="b24ui.itemLeadingIcon({ class: props.b24ui?.itemLeadingIcon })"
+                        :class="b24ui.itemLeadingIcon({ class: props.b24ui?.itemLeadingIcon, colorItem: item?.color })"
                       />
-                      <B24Avatar v-else-if="item.avatar" :size="((props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])" v-bind="item.avatar" :class="b24ui.itemLeadingAvatar({ class: props.b24ui?.itemLeadingAvatar })" />
+                      <B24Avatar v-else-if="item.avatar" :size="((props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])" v-bind="item.avatar" :class="b24ui.itemLeadingAvatar({ class: props.b24ui?.itemLeadingAvatar, colorItem: item?.color })" />
                       <B24Chip
                         v-else-if="item.chip"
                         :size="((props.b24ui?.itemLeadingChipSize || b24ui.itemLeadingChipSize()) as ChipProps['size'])"
                         inset
                         standalone
                         v-bind="item.chip"
-                        :class="b24ui.itemLeadingChip({ class: props.b24ui?.itemLeadingChip })"
+                        :class="b24ui.itemLeadingChip({ class: props.b24ui?.itemLeadingChip, colorItem: item?.color })"
                       />
                     </slot>
 
@@ -301,13 +302,13 @@ function onUpdateOpen(value: boolean) {
                       </slot>
                     </SelectItemText>
 
-                    <span :class="b24ui.itemTrailing({ class: props.b24ui?.itemTrailing })">
+                    <span :class="b24ui.itemTrailing({ class: props.b24ui?.itemTrailing, colorItem: item?.color })">
                       <slot name="item-trailing" :item="(item as T)" :index="index" />
 
                       <SelectItemIndicator as-child>
                         <Component
                           :is="selectedIcon || icons.check"
-                          :class="b24ui.itemTrailingIcon({ class: props.b24ui?.itemTrailingIcon })"
+                          :class="b24ui.itemTrailingIcon({ class: props.b24ui?.itemTrailingIcon, colorItem: item?.color })"
                         />
                       </SelectItemIndicator>
                     </span>

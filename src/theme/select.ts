@@ -9,6 +9,7 @@
 import { defuFn } from 'defu'
 import input from './input'
 import { buttonGroupVariantWithRoot } from './button-group'
+import colorDropDownItem from './tools/color-drop-down-item'
 
 const defSize = {
   label: 'h-9 ps-2 pe-3 text-sm gap-2',
@@ -81,10 +82,10 @@ export default () => {
           'transition-colors before:transition-colors'
         ].join(' '),
         itemLeadingIcon: [
-          'shrink-0 text-base-500 dark:text-base-700',
+          'shrink-0 transition-colors',
+          'text-base-500 dark:text-base-700',
           'group-data-highlighted:text-base-master dark:group-data-highlighted:text-base-150',
-          'group-data-[state=checked]:text-base-master dark:group-data-[state=checked]:text-base-150',
-          'transition-colors'
+          'group-data-[state=checked]:text-base-master dark:group-data-[state=checked]:text-base-150'
         ].join(' '),
         itemLeadingAvatar: 'shrink-0',
         itemLeadingAvatarSize: '',
@@ -101,7 +102,8 @@ export default () => {
           sm: defSize,
           md: defSize,
           lg: defSize
-        }
+        },
+        ...colorDropDownItem
       }
     },
     input

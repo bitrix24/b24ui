@@ -16,7 +16,8 @@ describe('SelectMenu', () => {
   const items = [{
     label: 'Backlog',
     value: 'backlog',
-    icon: Search2Icon
+    icon: Search2Icon,
+    color: 'collab'
   }, {
     label: 'Todo',
     value: 'todo',

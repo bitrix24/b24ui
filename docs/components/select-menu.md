@@ -75,6 +75,7 @@ You can also pass an array of objects with the following properties:
 - [`type?: "label" | "separator" | "item"`{lang="ts"}](#with-items-type)
 - [`icon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts"}](#with-icons-in-items)
 - [`avatar?: AvatarProps`{lang="ts"}](#with-avatar-in-items)
+- `color?: string`{lang="ts"}
 - [`chip?: ChipProps`{lang="ts"}](#with-chip-in-items)
 - `disabled?: boolean`{lang="ts"}
 - `onSelect?(e: Event): void`{lang="ts"}
@@ -86,7 +87,7 @@ You can also pass an array of objects with the following properties:
 </div>
 
 ::: details
-<<< @/examples/selectmenu/demo/Array.vue{18-21,26-27 vue:line-numbers}
+<<< @/examples/selectmenu/demo/Array.vue{25-26 vue:line-numbers}
 :::
 
 ::: danger
@@ -362,7 +363,7 @@ You can also use the `#leading` slot to display the selected icon.
 </div>
 
 ::: details
-<<< @/examples/selectmenu/demo/WithIconsInItems.vue{11,16,21,27,32 vue:line-numbers}
+<<< @/examples/selectmenu/demo/WithIconsInItems.vue{11,16,21,22 vue:line-numbers}
 :::
 
 ### With avatar in items

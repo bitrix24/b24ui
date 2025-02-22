@@ -166,7 +166,7 @@ export default {
           'dark:text-red-150 dark:data-highlighted:text-red-200 dark:data-highlighted:before:bg-red-900 dark:data-[state=open]:text-red-200 dark:data-[state=open]:before:bg-red-900'
         ].join(' '),
         itemLeadingIcon: [
-          'text-red-500 group-data-highlighted:text-red-950 group-data-[state=open]:text-red-950',
+          'text-red-500 group-data-highlighted:text-red-900 group-data-[state=open]:text-red-900',
           'dark:text-red-700 dark:group-data-highlighted:text-red-150 dark:group-data-[state=open]:text-red-150'
         ].join(' ')
       }
@@ -180,7 +180,7 @@ export default {
           'dark:text-red-200 dark:before:bg-red-900'
         ].join(' '),
         itemLeadingIcon: [
-          'text-red-950 group-data-[state=open]:text-red-950',
+          'text-red-900 group-data-[state=open]:text-red-900',
           'dark:text-red-700'
         ].join(' ')
       }
@@ -194,7 +194,7 @@ export default {
           'dark:text-green-150 dark:data-highlighted:text-green-200 dark:data-highlighted:before:bg-green-900 dark:data-[state=open]:text-green-200 dark:data-[state=open]:before:bg-green-900'
         ].join(' '),
         itemLeadingIcon: [
-          'text-green-500 group-data-highlighted:text-green-950 group-data-[state=open]:text-green-950',
+          'text-green-500 group-data-highlighted:text-green-900 group-data-[state=open]:text-green-900',
           'dark:text-green-700 dark:group-data-highlighted:text-green-150 dark:group-data-[state=open]:text-green-150'
         ].join(' ')
       }
@@ -208,7 +208,7 @@ export default {
           'dark:text-green-200 dark:before:bg-green-900'
         ].join(' '),
         itemLeadingIcon: [
-          'text-green-950 group-data-[state=open]:text-green-950',
+          'text-green-900 group-data-[state=open]:text-green-900',
           'dark:text-green-700'
         ].join(' ')
       }
@@ -222,7 +222,7 @@ export default {
           'dark:text-orange-150 dark:data-highlighted:text-orange-200 dark:data-highlighted:before:bg-orange-900 dark:data-[state=open]:text-orange-200 dark:data-[state=open]:before:bg-orange-900'
         ].join(' '),
         itemLeadingIcon: [
-          'text-orange-500 group-data-highlighted:text-orange-950 group-data-[state=open]:text-orange-950',
+          'text-orange-500 group-data-highlighted:text-orange-900 group-data-[state=open]:text-orange-900',
           'dark:text-orange-700 dark:group-data-highlighted:text-orange-150 dark:group-data-[state=open]:text-orange-150'
         ].join(' ')
       }
@@ -236,7 +236,7 @@ export default {
           'dark:text-orange-200 dark:before:bg-orange-900'
         ].join(' '),
         itemLeadingIcon: [
-          'text-orange-950 group-data-[state=open]:text-orange-950',
+          'text-orange-900 group-data-[state=open]:text-orange-900',
           'dark:text-orange-700'
         ].join(' ')
       }
@@ -250,7 +250,7 @@ export default {
           'dark:text-blue-150 dark:data-highlighted:text-blue-200 dark:data-highlighted:before:bg-blue-900 dark:data-[state=open]:text-blue-200 dark:data-[state=open]:before:bg-blue-900'
         ].join(' '),
         itemLeadingIcon: [
-          'text-blue-500 group-data-highlighted:text-blue-950 group-data-[state=open]:text-blue-950',
+          'text-blue-500 group-data-highlighted:text-blue-900 group-data-[state=open]:text-blue-900',
           'dark:text-blue-700 dark:group-data-highlighted:text-blue-150 dark:group-data-[state=open]:text-blue-150'
         ].join(' ')
       }
@@ -264,7 +264,7 @@ export default {
           'dark:text-blue-200 dark:before:bg-blue-900'
         ].join(' '),
         itemLeadingIcon: [
-          'text-blue-950 group-data-[state=open]:text-blue-950',
+          'text-blue-900 group-data-[state=open]:text-blue-900',
           'dark:text-blue-700'
         ].join(' ')
       }
@@ -278,7 +278,7 @@ export default {
           'dark:text-cyan-150 dark:data-highlighted:text-cyan-200 dark:data-highlighted:before:bg-cyan-900 dark:data-[state=open]:text-cyan-200 dark:data-[state=open]:before:bg-cyan-900'
         ].join(' '),
         itemLeadingIcon: [
-          'text-cyan-500 group-data-highlighted:text-cyan-950 group-data-[state=open]:text-cyan-950',
+          'text-cyan-500 group-data-highlighted:text-cyan-900 group-data-[state=open]:text-cyan-900',
           'dark:text-cyan-700 dark:group-data-highlighted:text-cyan-150 dark:group-data-[state=open]:text-cyan-150'
         ].join(' ')
       }
@@ -292,7 +292,7 @@ export default {
           'dark:text-cyan-200 dark:before:bg-cyan-900'
         ].join(' '),
         itemLeadingIcon: [
-          'text-cyan-950 group-data-[state=open]:text-cyan-950',
+          'text-cyan-900 group-data-[state=open]:text-cyan-900',
           'dark:text-cyan-700'
         ].join(' ')
       }
@@ -302,11 +302,11 @@ export default {
       active: false,
       class: {
         item: [
-          'text-collab-950 data-highlighted:text-collab-900 data-highlighted:before:bg-collab-100 data-[state=open]:text-collab-900 data-[state=open]:before:bg-collab-100',
+          'text-collab-900 data-highlighted:text-collab-900 data-highlighted:before:bg-collab-100 data-[state=open]:text-collab-900 data-[state=open]:before:bg-collab-100',
           'dark:text-collab-150 dark:data-highlighted:text-collab-200 dark:data-highlighted:before:bg-collab-900 dark:data-[state=open]:text-collab-200 dark:data-[state=open]:before:bg-collab-900'
         ].join(' '),
         itemLeadingIcon: [
-          'text-collab-500 group-data-highlighted:text-collab-950 group-data-[state=open]:text-collab-950',
+          'text-collab-600 group-data-highlighted:text-collab-900 group-data-[state=open]:text-collab-900',
           'dark:text-collab-700 dark:group-data-highlighted:text-collab-150 dark:group-data-[state=open]:text-collab-150'
         ].join(' ')
       }
@@ -320,7 +320,7 @@ export default {
           'dark:text-collab-200 dark:before:bg-collab-900'
         ].join(' '),
         itemLeadingIcon: [
-          'text-collab-950 group-data-[state=open]:text-collab-950',
+          'text-collab-900 group-data-[state=open]:text-collab-900',
           'dark:text-collab-700'
         ].join(' ')
       }
@@ -334,7 +334,7 @@ export default {
           'dark:text-ai-150 dark:data-highlighted:text-ai-200 dark:data-highlighted:before:bg-ai-900 dark:data-[state=open]:text-ai-200 dark:data-[state=open]:before:bg-ai-900'
         ].join(' '),
         itemLeadingIcon: [
-          'text-ai-500 group-data-highlighted:text-ai-950 group-data-[state=open]:text-ai-950',
+          'text-ai-500 group-data-highlighted:text-ai-900 group-data-[state=open]:text-ai-900',
           'dark:text-ai-700 dark:group-data-highlighted:text-ai-150 dark:group-data-[state=open]:text-ai-150'
         ].join(' ')
       }
@@ -348,7 +348,7 @@ export default {
           'dark:text-ai-200 dark:before:bg-ai-900'
         ].join(' '),
         itemLeadingIcon: [
-          'text-ai-950 group-data-[state=open]:text-ai-950',
+          'text-ai-900 group-data-[state=open]:text-ai-900',
           'dark:text-ai-700'
         ].join(' ')
       }

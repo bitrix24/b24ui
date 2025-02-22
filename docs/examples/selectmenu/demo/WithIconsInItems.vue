@@ -18,7 +18,8 @@ const items = ref([
   {
     label: 'Access permissions',
     value: 'access_permissions',
-    icon: Shield2DefendedIcon
+    icon: Shield2DefendedIcon,
+    color: 'danger'
   }
 ])
 const value = ref(items.value[1])

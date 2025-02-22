@@ -13,7 +13,8 @@ const items = ref([
   {
     label: 'My company details',
     value: 'my_company_details',
-    icon: MyPlanIcon
+    icon: MyPlanIcon,
+    color: 'ai'
   },
   {
     label: 'Access permissions',
@@ -21,7 +22,7 @@ const items = ref([
     icon: Shield2DefendedIcon
   }
 ])
-const value = ref('my_company_details')
+const value = ref(items.value[0].value)
 
 const icon = computed(() => items.value.find(item => item.value === value.value)?.icon)
 </script>
@@ -31,5 +32,6 @@ const icon = computed(() => items.value.find(item => item.value === value.value)
     v-model="value"
     :items="items"
     :icon="icon"
+    class="w-full"
   />
 </template>

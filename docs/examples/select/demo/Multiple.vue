@@ -10,5 +10,6 @@ const value = ref(['CRM Payment', 'My company details'])
     v-model="value"
     multiple
     :items="items"
+    class="w-full"
   />
 </template>

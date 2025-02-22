@@ -12,6 +12,7 @@
  */
 import { defuFn } from 'defu'
 import input from './input'
+import colorDropDownItem from './tools/color-drop-down-item'
 
 const defSize = {
   label: 'h-9 ps-2 pe-3 text-sm gap-2',
@@ -187,7 +188,8 @@ export default () => {
             tagsItemDeleteIcon: 'size-3.5'
           }
         )
-      }
+      },
+      ...colorDropDownItem
     },
     compoundVariants: [
       // region Color ////

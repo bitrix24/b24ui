@@ -21,5 +21,6 @@ const value = ref('Access permissions')
     :tag-color="tagColor"
     :tag="tag"
     :items="items"
+    class="w-full"
   />
 </template>

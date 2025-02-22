@@ -206,7 +206,7 @@ defineShortcuts(extractShortcuts(items.value))
 
 <template>
   <ExampleGrid v-once class="mb-2">
-    <ExampleCard title="??" class="md:col-span-2">
+    <ExampleCard title="demo" class="md:col-span-2">
       <ExampleCardSubTitle title="size" />
       <div class="mb-4 ">
         <B24Select v-model="size" :items="sizes" placeholder="Size" class="w-20" />

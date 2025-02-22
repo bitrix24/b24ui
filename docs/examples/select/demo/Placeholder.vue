@@ -18,5 +18,6 @@ const value = ref('')
     v-model="value"
     :items="items"
     :placeholder="placeholder"
+    class="w-full"
   />
 </template>

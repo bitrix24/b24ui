@@ -71,6 +71,7 @@ You can also pass an array of objects with the following properties:
 - [`type?: "label" | "separator" | "item"`{lang="ts"}](#with-items-type)
 - [`icon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts"}](#with-icons-in-items)
 - [`avatar?: AvatarProps`{lang="ts"}](#with-avatar-in-items)
+- `color?: string`{lang="ts"}
 - [`chip?: ChipProps`{lang="ts"}](#with-chip-in-items)
 - `disabled?: boolean`{lang="ts"}
 
@@ -85,7 +86,7 @@ When using objects, you need to reference the `value` property of the object in 
 </div>
 
 ::: details
-<<< @/examples/select/demo/Array.vue{4-17,18,23,24 vue:line-numbers}
+<<< @/examples/select/demo/Array.vue{4-17,19,24-25 vue:line-numbers}
 :::
 
 You can also pass an array of arrays to the `items` prop to display separated groups of items.
@@ -341,7 +342,7 @@ You can also use the `#leading` slot to display the selected icon.
 </div>
 
 ::: details
-<<< @/examples/select/demo/WithItemsIcons.vue{11,16,21,26,33 vue:line-numbers}
+<<< @/examples/select/demo/WithItemsIcons.vue{11,16-17,21,25,33 vue:line-numbers}
 :::
 
 ### With avatar in items

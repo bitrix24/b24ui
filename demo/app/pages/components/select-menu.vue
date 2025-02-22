@@ -59,7 +59,8 @@ const chipItems = ref([
     value: 'message',
     chip: {
       color: 'collab' as const
-    }
+    },
+    color: 'collab'
   },
   {
     label: 'New information',
@@ -86,7 +87,7 @@ const chipItems = ref([
 const chipValue = ref(chipItems.value[0])
 // endregion ////
 
-// region Staus ////
+// region Status ////
 const statuses = [
   {
     label: 'Backlog',
@@ -96,22 +97,26 @@ const statuses = [
   {
     label: 'Todo',
     value: 'todo',
-    icon: PlusInCircleIcon
+    icon: PlusInCircleIcon,
+    color: 'ai'
   },
   {
     label: 'In Progress',
     value: 'in_progress',
-    icon: ArrowTopIcon
+    icon: ArrowTopIcon,
+    color: 'primary'
   },
   {
     label: 'Done',
     value: 'done',
-    icon: CircleCheckIcon
+    icon: CircleCheckIcon,
+    color: 'success'
   },
   {
     label: 'Canceled',
     value: 'canceled',
-    icon: CancelIcon
+    icon: CancelIcon,
+    color: 'danger'
   }
 ]
 // endregion ////

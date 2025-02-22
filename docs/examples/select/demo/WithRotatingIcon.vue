@@ -14,5 +14,6 @@ const value = ref('My company details')
     :b24ui="{
       trailingIcon: 'group-data-[state=open]:rotate-180 transition-transform duration-200'
     }"
+    class="w-full"
   />
 </template>

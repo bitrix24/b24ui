@@ -10,5 +10,6 @@ const value = ref('Access permissions')
     v-model="value"
     arrow
     :items="items"
+    class="w-full"
   />
 </template>

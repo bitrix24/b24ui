@@ -11,5 +11,6 @@ const value = ref('My company details')
     v-model="value"
     :items="items"
     :trailing-icon="Expand1Icon"
+    class="w-full"
   />
 </template>

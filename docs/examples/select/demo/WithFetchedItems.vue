@@ -25,6 +25,7 @@ function getUserAvatar(value: string) {
     :icon="UserIcon"
     :trailing-icon="Expand1Icon"
     placeholder="Search users&hellip;"
+    class="w-full"
   >
     <template #leading="{ modelValue, b24ui }">
       <B24Avatar

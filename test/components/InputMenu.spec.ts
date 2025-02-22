@@ -14,7 +14,8 @@ describe('InputMenu', () => {
   const items = [{
     label: 'Backlog',
     value: 'backlog',
-    icon: SignIcon
+    icon: SignIcon,
+    color: 'collab'
   }, {
     label: 'Todo',
     value: 'todo',

@@ -11,5 +11,6 @@ const value = ref('My company details')
     v-model="value"
     :items="items"
     :selected-icon="CheckInBoxIcon"
+    class="w-full"
   />
 </template>

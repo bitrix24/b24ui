@@ -21,5 +21,6 @@ const value = ref('Access permissions')
     :color="color"
     :highlight="isHighlight"
     :items="items"
+    class="w-full"
   />
 </template>

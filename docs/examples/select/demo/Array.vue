@@ -8,19 +8,21 @@ const items = ref([
   },
   {
     label: 'My company details',
-    value: 'my_company_details'
+    value: 'my_company_details',
+    color: 'ai'
   },
   {
     label: 'Access permissions',
     value: 'access_permissions'
   }
 ])
-const value = ref('my_company_details')
+const value = ref(items.value[0].value)
 </script>
 
 <template>
   <B24Select
     v-model="value"
     :items="items"
+    class="w-full"
   />
 </template>
