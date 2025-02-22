@@ -22,6 +22,7 @@ describe('Range', () => {
     ['with min steps between thumbs', { props: { defaultValue: [0, 30], minStepsBetweenThumbs: 30 } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { size } }]),
     ['with color success', { props: { color: 'success', defaultValue: 10 } }],
+    ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
     ['with as', { props: { as: 'section' } }],
     ['with class', { props: { class: 'w-48' } }],
     ['with b24ui', { props: { b24ui: { track: 'bg-red-200' } } }]

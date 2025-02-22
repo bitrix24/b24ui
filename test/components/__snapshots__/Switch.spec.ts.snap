@@ -1,5 +1,14 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Switch > renders with ariaLabel correctly 1`] = `
+"<div class="relative flex items-start">
+  <div class="flex items-center h-5"><button aria-label="Aria label" class="cursor-pointer inline-flex items-center shrink-0 rounded-full border-2 border-transparent data-[state=unchecked]:bg-base-200 dark:data-[state=unchecked]:bg-base-800 outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 transition-colors duration-200 data-[state=checked]:bg-blue-500 focus-visible:outline-blue-500 dark:data-[state=checked]:bg-blue-600 dark:focus-visible:outline-blue-600 w-9" id="v-0-0" role="switch" type="button" aria-checked="false" aria-required="false" data-state="unchecked" value="on"><span data-state="unchecked" class="group pointer-events-none rounded-full bg-white dark:bg-base-100 shadow-lg ring-0 transition-transform duration-200 data-[state=unchecked]:translate-x-0 data-[state=unchecked]:rtl:-translate-x-0 flex items-center justify-center size-4 data-[state=checked]:translate-x-4 data-[state=checked]:rtl:-translate-x-4"></span>
+      <!---->
+    </button></div>
+  <!--v-if-->
+</div>"
+`;
+
 exports[`Switch > renders with as correctly 1`] = `
 "<section class="relative flex items-start">
   <div class="flex items-center h-5"><button class="cursor-pointer inline-flex items-center shrink-0 rounded-full border-2 border-transparent data-[state=unchecked]:bg-base-200 dark:data-[state=unchecked]:bg-base-800 outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 transition-colors duration-200 data-[state=checked]:bg-blue-500 focus-visible:outline-blue-500 dark:data-[state=checked]:bg-blue-600 dark:focus-visible:outline-blue-600 w-9" id="v-0-0" role="switch" type="button" aria-checked="false" aria-required="false" data-state="unchecked" value="on"><span data-state="unchecked" class="group pointer-events-none rounded-full bg-white dark:bg-base-100 shadow-lg ring-0 transition-transform duration-200 data-[state=unchecked]:translate-x-0 data-[state=unchecked]:rtl:-translate-x-0 flex items-center justify-center size-4 data-[state=checked]:translate-x-4 data-[state=checked]:rtl:-translate-x-4"></span>

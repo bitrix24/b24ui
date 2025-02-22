@@ -30,6 +30,7 @@ describe('RadioGroup', () => {
     ...sizes.map((size: string) => [`with size ${size}`, { props: { ...props, size } }]),
     ['with color success', { props: { color: 'success', defaultValue: '1' } }],
     ['with orientation', { props: { ...props, orientation: 'horizontal' } }],
+    ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
     ['with as', { props: { ...props, as: 'section' } }],
     ['with class', { props: { ...props, class: 'absolute' } }],
     ['with b24ui', { props: { ...props, b24ui: { wrapper: 'ms-4' } } }],

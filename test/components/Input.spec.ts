@@ -42,6 +42,7 @@ describe('Input', () => {
     // ...variants.map((variant: string) => [`with primary variant ${variant}`, { props: { variant } }]),
     // @todo fix this
     // ...variants.map((variant: string) => [`with success variant ${variant}`, { props: { variant, color: 'success' } }]),
+    ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
     ['with as', { props: { as: 'section' } }],
     ['with class', { props: { class: 'absolute' } }],
     ['with b24ui', { props: { b24ui: { base: 'rounded-full' } } }],

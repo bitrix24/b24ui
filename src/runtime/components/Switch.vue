@@ -56,6 +56,8 @@ import { reactivePick } from '@vueuse/core'
 import { useFormField } from '../composables/useFormField'
 import icons from '../dictionary/icons'
 
+defineOptions({ inheritAttrs: false })
+
 const props = defineProps<SwitchProps>()
 const slots = defineSlots<SwitchSlots>()
 const emits = defineEmits<SwitchEmits>()
@@ -89,7 +91,7 @@ function onUpdate(value: any) {
     <div :class="b24ui.container({ class: props.b24ui?.container })">
       <SwitchRoot
         :id="id"
-        v-bind="{ ...rootProps, ...ariaAttrs }"
+        v-bind="{ ...rootProps, ...$attrs, ...ariaAttrs }"
         v-model="modelValue"
         :name="name"
         :disabled="disabled || loading"

@@ -44,6 +44,8 @@ import { useFormField } from '../composables/useFormField'
 import Minus20Icon from '@bitrix24/b24icons-vue/actions/Minus20Icon'
 import CheckIcon from '@bitrix24/b24icons-vue/main/CheckIcon'
 
+defineOptions({ inheritAttrs: false })
+
 const props = defineProps<CheckboxProps>()
 const slots = defineSlots<CheckboxSlots>()
 const emits = defineEmits<CheckboxEmits>()
@@ -78,7 +80,7 @@ function onUpdate(value: any) {
     <div :class="b24ui.container({ class: props.b24ui?.container })">
       <CheckboxRoot
         :id="id"
-        v-bind="{ ...rootProps, ...ariaAttrs }"
+        v-bind="{ ...rootProps, ...$attrs, ...ariaAttrs }"
         v-model="modelValue"
         :name="name"
         :disabled="disabled"

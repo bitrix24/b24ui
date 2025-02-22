@@ -125,6 +125,8 @@ import icons from '../dictionary/icons'
 import B24Avatar from './Avatar.vue'
 import B24Chip from './Chip.vue'
 
+defineOptions({ inheritAttrs: false })
+
 const props = withDefaults(defineProps<SelectProps<T, I, V, M>>(), {
   valueKey: 'value' as never,
   labelKey: 'label' as never,
@@ -214,7 +216,7 @@ function onUpdateOpen(value: boolean) {
       @update:model-value="onUpdate"
       @update:open="onUpdateOpen"
     >
-      <SelectTrigger :id="id" :class="b24ui.base({ class: [props.class, props.b24ui?.base] })" v-bind="ariaAttrs">
+      <SelectTrigger :id="id" :class="b24ui.base({ class: [props.class, props.b24ui?.base] })" v-bind="{ ...$attrs, ...ariaAttrs }">
         <div v-if="isTag" :class="b24ui.tag({ class: props.b24ui?.tag })">
           {{ props.tag }}
         </div>

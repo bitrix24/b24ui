@@ -6,6 +6,8 @@ import { renderForm } from '../utils/form'
 import { flushPromises, mount } from '@vue/test-utils'
 import type { FormInputEvents } from '~/src/module'
 import { expectEmitPayloadType } from '../utils/types'
+import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
+import Shining2Icon from '@bitrix24/b24icons-vue/main/Shining2Icon'
 
 describe('SelectMenu', () => {
   const sizes = Object.keys(theme.variants.size) as any
@@ -13,15 +15,16 @@ describe('SelectMenu', () => {
 
   const items = [{
     label: 'Backlog',
-    value: 'backlog'
-    // @todo fix this
-    // icon: 'i-lucide-circle-help'
+    value: 'backlog',
+    icon: Search2Icon
   }, {
     label: 'Todo',
-    value: 'todo'
+    value: 'todo',
+    icon: Search2Icon
   }, {
     label: 'In Progress',
-    value: 'in_progress'
+    value: 'in_progress',
+    icon: Search2Icon
   }, {
     label: 'Done',
     value: 'done'
@@ -46,41 +49,31 @@ describe('SelectMenu', () => {
     ['with placeholder', { props: { ...props, placeholder: 'Search...' } }],
     ['without searchInput', { props: { ...props, searchInput: false } }],
     ['with searchInput placeholder', { props: { ...props, searchInput: { placeholder: 'Filter items...' } } }],
-    // @todo fix this
-    // ['with searchInput icon', { props: { ...props, searchInput: { icon: 'i-lucide-search' } } }],
+    ['with searchInput icon', { props: { ...props, searchInput: { icon: Search2Icon } } }],
     ['with disabled', { props: { ...props, disabled: true } }],
     ['with required', { props: { ...props, required: true } }],
-    // @todo fix this
-    // ['with icon', { props: { icon: 'i-lucide-search' } }],
-    // @todo fix this
-    // ['with leading and icon', { props: { leading: true, icon: 'i-lucide-arrow-left' } }],
-    // @todo fix this
-    // ['with leadingIcon', { props: { leadingIcon: 'i-lucide-arrow-left' } }],
-    // @todo fix this
-    // ['with trailing and icon', { props: { trailing: true, icon: 'i-lucide-arrow-right' } }],
-    // @todo fix this
-    // ['with trailingIcon', { props: { trailingIcon: 'i-lucide-arrow-right' } }],
-    ['with avatar', { props: { avatar: { src: 'https://github.com/benjamincanac.png' } } }],
-    // @todo fix this
-    // ['with avatar and leadingIcon', { props: { avatar: { src: 'https://github.com/benjamincanac.png' }, leadingIcon: 'i-lucide-arrow-left' } }],
-    // @todo fix this
-    // ['with avatar and trailingIcon', { props: { avatar: { src: 'https://github.com/benjamincanac.png' }, trailingIcon: 'i-lucide-arrow-right' } }],
+    ['with icon', { props: { icon: Shining2Icon } }],
+    ['with leading and icon', { props: { leading: true, icon: Shining2Icon } }],
+    ['with leadingIcon', { props: { leadingIcon: Shining2Icon } }],
+    ['with trailing and icon', { props: { trailing: true, icon: Shining2Icon } }],
+    ['with trailingIcon', { props: { trailingIcon: Shining2Icon } }],
+    ['with avatar', { props: { avatar: { src: 'https://github.com/bitrix24.png' } } }],
+    ['with avatar and leadingIcon', { props: { avatar: { src: 'https://github.com/bitrix24.png' }, leadingIcon: Shining2Icon } }],
+    ['with avatar and trailingIcon', { props: { avatar: { src: 'https://github.com/bitrix24.png' }, trailingIcon: Shining2Icon } }],
     ['with loading', { props: { loading: true } }],
-    ['with loading and avatar', { props: { loading: true, avatar: { src: 'https://github.com/benjamincanac.png' } } }],
+    ['with loading and avatar', { props: { loading: true, avatar: { src: 'https://github.com/bitrix24.png' } } }],
     ['with loading trailing', { props: { loading: true, trailing: true } }],
-    ['with loading trailing and avatar', { props: { loading: true, trailing: true, avatar: { src: 'https://github.com/benjamincanac.png' } } }],
-    // @todo fix this
-    // ['with loadingIcon', { props: { loading: true, loadingIcon: 'i-lucide-sparkles' } }],
-    // @todo fix this
-    // ['with trailingIcon', { props: { ...props, trailingIcon: 'i-lucide-chevron-down' } }],
-    // @todo fix this
-    // ['with selectedIcon', { props: { ...props, selectedIcon: 'i-lucide-check' } }],
+    ['with loading trailing and avatar', { props: { loading: true, trailing: true, avatar: { src: 'https://github.com/bitrix24.png' } } }],
+    ['with loadingIcon', { props: { loading: true, loadingIcon: Shining2Icon } }],
+    ['with trailingIcon', { props: { ...props, trailingIcon: Shining2Icon } }],
+    ['with selectedIcon', { props: { ...props, selectedIcon: Shining2Icon } }],
     ['with arrow', { props: { ...props, arrow: true } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { ...props, size } }]),
     // @todo fix this
     // ...variants.map((variant: string) => [`with primary variant ${variant}`, { props: { ...props, variant } }]),
     // @todo fix this
     // ...variants.map((variant: string) => [`with success variant ${variant}`, { props: { ...props, variant, color: 'success' } }]),
+    ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
     ['with class', { props: { ...props, class: 'rounded-full' } }],
     ['with b24ui', { props: { ...props, b24ui: { group: 'p-2' } } }],
     // Slots

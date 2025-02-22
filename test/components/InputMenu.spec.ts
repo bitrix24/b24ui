@@ -65,6 +65,7 @@ describe('InputMenu', () => {
     ['with arrow', { props: { ...props, arrow: true } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { ...props, size } }]),
     [`with success`, { props: { ...props, color: 'success' } }],
+    ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
     ['with as', { props: { ...props, as: 'section' } }],
     ['with class', { props: { ...props, class: 'absolute' } }],
     ['with b24ui', { props: { ...props, b24ui: { group: 'p-2' } } }],

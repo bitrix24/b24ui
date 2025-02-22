@@ -17,6 +17,7 @@ describe('Textarea', () => {
     ['with rows', { props: { rows: 5 } }],
     ['with primary', { props: {} }],
     ['with success', { props: { color: 'success' as const } }],
+    ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
     ['with as', { props: { as: 'section' } }],
     ['with class', { props: { class: 'w-48' } }],
     // @memo wrapper not exist at theme ////

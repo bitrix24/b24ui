@@ -1,5 +1,14 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`RadioGroup > renders with ariaLabel correctly 1`] = `
+"<div role="radiogroup" aria-orientation="vertical" aria-required="false" dir="ltr" tabindex="-1" data-orientation="vertical" style="outline-color: none; outline-style: none; outline-width: initial;" id="v-0-0" class="relative" aria-label="Aria label">
+  <fieldset class="flex flex-col gap-1">
+    <!--v-if-->
+  </fieldset>
+  <!---->
+</div>"
+`;
+
 exports[`RadioGroup > renders with as correctly 1`] = `
 "<section role="radiogroup" aria-orientation="vertical" aria-required="false" dir="ltr" tabindex="0" data-orientation="vertical" style="outline-color: none; outline-style: none; outline-width: initial;" id="v-0-0" class="relative">
   <fieldset class="flex flex-col gap-1">

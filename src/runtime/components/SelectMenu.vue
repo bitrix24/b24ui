@@ -172,6 +172,8 @@ import B24Avatar from './Avatar.vue'
 import B24Chip from './Chip.vue'
 import B24Input from './Input.vue'
 
+defineOptions({ inheritAttrs: false })
+
 const props = withDefaults(defineProps<SelectMenuProps<T, I, V, M>>(), {
   portal: true,
   searchInput: true,
@@ -341,7 +343,7 @@ function onUpdateOpen(value: boolean) {
     <ComboboxRoot
       :id="id"
       v-slot="{ modelValue, open }"
-      v-bind="{ ...rootProps, ...ariaAttrs }"
+      v-bind="{ ...rootProps, ...$attrs, ...ariaAttrs }"
       ignore-filter
       as-child
       :name="name"
