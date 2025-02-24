@@ -1,11 +1,23 @@
 # Changelog
 
+## 0.3.0 (2025-02-24)
+
+### ⚠ BREAKING CHANGES
+
+* **tailwindcss/vite:** improve for tailwindcss/vite v4.0.8
+
+### Features
+* **DropdownMenu/InputMenu/Select:** add item attr `color`
+
+### Bug Fixes
+* **components:** missing `$attrs` bind
+* **Switch:** use with Tooltip
+
 ## 0.2.9 (2025-02-21)
 
 ### Features
 * **Form:** add prop to disable state transformation
 * **TableWrapper:** new component
-
 
 ### Docs
 * **Installation:** improve
