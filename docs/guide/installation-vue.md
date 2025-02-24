@@ -138,6 +138,10 @@ app.mount('#app')
 ```css [assets/main.css]
 @import "tailwindcss";
 @import "@bitrix24/b24ui-nuxt";
+/**
+ * @see https://github.com/tailwindlabs/tailwindcss/issues/16733#issuecomment-2676450404
+ */
+@source "../../node_modules/@bitrix24/b24ui-nuxt/dist";
 ```
 
 :::tip
