@@ -142,6 +142,7 @@ app.mount('#app')
  * @see https://github.com/tailwindlabs/tailwindcss/issues/16733#issuecomment-2676450404
  */
 @source "../../node_modules/@bitrix24/b24ui-nuxt/.nuxt";
+@source "../../node_modules/@bitrix24/b24ui-nuxt/dist";
 ```
 
 :::tip
