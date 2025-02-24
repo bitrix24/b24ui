@@ -44,7 +44,7 @@ export default defineNuxtConfig({
 /**
  * @see https://github.com/tailwindlabs/tailwindcss/issues/16733#issuecomment-2676450404
  */
-@source "../../../node_modules/@bitrix24/b24ui-nuxt/dist";
+@source "../../../node_modules/@bitrix24/b24ui-nuxt/.nuxt";
 ```
 
 Learn more in the [installation guide](https://bitrix24.github.io/b24ui/guide/installation-nuxt-app.html).
@@ -94,7 +94,7 @@ app.mount('#app')
 /**
  * @see https://github.com/tailwindlabs/tailwindcss/issues/16733#issuecomment-2676450404
  */
-@source "../../node_modules/@bitrix24/b24ui-nuxt/dist";
+@source "../../node_modules/@bitrix24/b24ui-nuxt/.nuxt";
 ```
 
 Learn more in the [installation guide](https://bitrix24.github.io/b24ui/guide/installation-vue.html).
