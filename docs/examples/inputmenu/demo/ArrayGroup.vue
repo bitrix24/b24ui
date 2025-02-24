@@ -5,7 +5,7 @@ const items = ref([
   ['CRM settings', 'My company details', 'Access permissions', 'CRM Payment', 'CRM.Delivery'],
   ['Scripts', 'Create script', 'Install from Bitrix24.Market']
 ])
-const value = ref('CRM Payment')
+const value = ref()
 </script>
 
 <template>
