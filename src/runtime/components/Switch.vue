@@ -54,6 +54,7 @@ import { computed, useId } from 'vue'
 import { Primitive, SwitchRoot, SwitchThumb, useForwardProps, Label } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useFormField } from '../composables/useFormField'
+import { omit } from '../utils'
 import icons from '../dictionary/icons'
 
 defineOptions({ inheritAttrs: false })
@@ -91,7 +92,7 @@ function onUpdate(value: any) {
     <div :class="b24ui.container({ class: props.b24ui?.container })">
       <SwitchRoot
         :id="id"
-        v-bind="{ ...rootProps, ...$attrs, ...ariaAttrs }"
+        v-bind="{ ...rootProps, ...omit({ ...$attrs }, ['data-state']), ...ariaAttrs }"
         v-model="modelValue"
         :name="name"
         :disabled="disabled || loading"
