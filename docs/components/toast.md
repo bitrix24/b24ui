@@ -21,6 +21,7 @@ import OrientationExample from '/examples/toast/Orientation.vue';
   reka-ui="https://reka-ui.com/docs/components/toast"
   reka-ui-title="Toast"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Toast.vue"
+  demo="/components/toast"
 >
   A short message to offer information or feedback to the user.
 </Description>
