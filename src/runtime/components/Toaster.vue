@@ -46,9 +46,10 @@ import { omit } from '../utils'
 import B24Toast from './Toast.vue'
 
 const props = withDefaults(defineProps<ToasterProps>(), {
+  position: 'top-right' as const,
   expand: true,
-  portal: true,
-  duration: 5000
+  duration: 5000,
+  portal: true
 })
 defineSlots<ToasterSlots>()
 
