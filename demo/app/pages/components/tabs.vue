@@ -73,10 +73,10 @@ const items = [
         <B24RadioGroup v-model="variant" legend="Variant" :items="variants" />
         <B24RadioGroup v-model="orientation" legend="Orientation" :items="orientations" />
         <B24FormField label="Color" name="color">
-          <B24Select v-model="color" :items="colors" />
+          <B24Select v-model="color" :items="colors" class="w-full" />
         </B24FormField>
         <B24FormField label="Size" name="size">
-          <B24Select v-model="size" :items="sizes" />
+          <B24Select v-model="size" :items="sizes" class="w-full" />
         </B24FormField>
       </div>
     </ExampleCard>
