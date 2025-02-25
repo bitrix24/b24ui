@@ -106,8 +106,8 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'Advice', link: 'advice' },
         { text: 'Chip', link: 'chip' },
         { text: 'Toast', link: 'toast' },
-        { text: 'Progress', link: 'progress' },
-        { text: 'Tooltip', link: 'tooltip' }
+        { text: 'Tooltip', link: 'tooltip' },
+        { text: 'Progress', link: 'progress' }
       ]
     },
     {
