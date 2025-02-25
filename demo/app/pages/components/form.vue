@@ -38,7 +38,7 @@ const disabled = ref(false)
       <ExampleCardSubTitle title="for elements" class="mt-4" />
       <div class="flex flex-col gap-4 items-start">
         <B24FormField label="Validate on" class="w-full">
-          <B24Select v-model="validateOn" :items="['input', 'change', 'blur']" multiple />
+          <B24Select v-model="validateOn" :items="['input', 'change', 'blur']" multiple class="w-full" />
         </B24FormField>
         <B24Checkbox v-model="disabled" label="Disabled" />
       </div>
