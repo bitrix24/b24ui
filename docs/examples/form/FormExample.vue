@@ -54,7 +54,7 @@ function fillState() {
 
 <template>
   <div class="flex flex-col gap-4">
-    <B24Advice v-if="isShowResult" :avatar="{ src: `${$attrs?.base}/avatar/employee.png` }">
+    <B24Advice v-if="isShowResult" :avatar="{ src: `${$attrs?.base || ''}/avatar/employee.png` }">
       <div class="flex flex-row items-start justify-between gap-2">
         <div>The form has been submitted.</div>
         <div class="shrink-0 relative size-6 group">
