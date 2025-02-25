@@ -218,7 +218,14 @@ const handleNavigation = (href: string) => {
   if (isExternal.value) {
     window.location.href = href
   } else {
-    window.location.pathname = href
+    const [path, hash] = href.split('#')
+
+    window.location.pathname = path || ''
+    if (hash) {
+      window.location.hash = hash
+    } else {
+      window.location.hash = ''
+    }
   }
 }
 </script>
@@ -278,7 +285,7 @@ const handleNavigation = (href: string) => {
         as,
         type,
         disabled,
-        href: to ? (isExternal ? to as string : href as string) : undefined
+        href: to ? (isExternal ? to as string : to as string) : href as string
       }"
       :class="resolveLinkClassNoRouter()"
       @click="to && handleNavigation(to as string)"
