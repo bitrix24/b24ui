@@ -47,6 +47,14 @@ export default {
           'ring ring-base-300 dark:ring-base-800'
         ].join(' ')
       }
+    },
+    scrollbarThin: {
+      true: {
+        body: 'scrollbar-thin'
+      }
     }
+  },
+  defaultVariants: {
+    scrollbarThin: true
   }
 }

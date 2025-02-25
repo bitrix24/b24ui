@@ -51,6 +51,7 @@ export interface ModalProps extends DialogRootProps {
    * @defaultValue true
    */
   dismissible?: boolean
+  scrollbarThin?: boolean
   class?: any
   b24ui?: Partial<typeof modal.slots>
 }
@@ -83,7 +84,8 @@ const props = withDefaults(defineProps<ModalProps>(), {
   overlay: true,
   transition: true,
   modal: true,
-  dismissible: true
+  dismissible: true,
+  scrollbarThin: true
 })
 const emits = defineEmits<ModalEmits>()
 const slots = defineSlots<ModalSlots>()
@@ -170,7 +172,7 @@ const b24ui = computed(() => modal({
             </slot>
           </div>
 
-          <div v-if="!!slots.body" :class="b24ui.body({ class: props.b24ui?.body })">
+          <div v-if="!!slots.body" :class="b24ui.body({ class: props.b24ui?.body, scrollbarThin: Boolean(props.scrollbarThin) })">
             <slot name="body" />
           </div>
 
