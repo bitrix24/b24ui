@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.3.1 (2025-02-25)
+
+### Features
+* **Modal:** add `scrollbarThin` prop
+
+### Bug Fixes
+* **FormFields:** required label dark class
+* **Toaster:** add def position
+* **Button:** loader size
+* **Modal:** header min-height
+
+### Docs
+* **InputMenu:** improve
+
+### Chore
+* **deps:** update
+* **docs:** improve app
+* **demo:** improve
+* **Form:** improve example
+
 ## 0.3.0 (2025-02-24)
 
 ### ⚠ BREAKING CHANGES
