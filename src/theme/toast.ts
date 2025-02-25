@@ -9,7 +9,7 @@
 export default {
   slots: {
     root: [
-      'relative group overflow-hidden rounded-[26px] py-3.5 ps-6 pe-4 flex gap-2.5 focus:outline-none',
+      'relative group overflow-hidden rounded-[26px] py-3.5 ps-6 pe-4 flex items-center gap-2.5 focus:outline-none',
       'font-b24-primary',
       'dark:ring-2 dark:ring-base-900',
       'bg-base-ebony/80 dark:bg-base-dark',
@@ -75,7 +75,7 @@ export default {
         actions: 'items-center'
       },
       vertical: {
-        root: 'items-start',
+        root: 'items-center',
         actions: 'items-start mt-1'
       }
     },
