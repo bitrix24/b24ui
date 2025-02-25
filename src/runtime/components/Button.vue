@@ -133,9 +133,9 @@ const b24ui = computed(() => button({
       v-if="isLoading"
       class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center"
     >
-      <LoaderWaitIcon v-if="useWait" class="size-2xl" aria-hidden="true" />
-      <LoaderClockIcon v-else-if="useClock" class="size-2xl" aria-hidden="true" />
-      <SpinnerIcon v-else class="animate-spin stroke-2 size-lg" />
+      <LoaderWaitIcon v-if="useWait" class="w-[28px] h-[28px]" aria-hidden="true" />
+      <LoaderClockIcon v-else-if="useClock" class="w-[28px] h-[28px]" aria-hidden="true" />
+      <SpinnerIcon v-else class="size-lg animate-spin stroke-2" aria-hidden="true" />
     </div>
     <div
       :class="[
