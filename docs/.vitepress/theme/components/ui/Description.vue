@@ -3,6 +3,7 @@ import TailwindCssLink from './TailwindCssLink.vue'
 import NuxtUiLink from './NuxtUiLink.vue'
 import RekaUiLink from './RekaUiLink.vue'
 import GitLink from './GitLink.vue'
+import DemoLink from './DemoLink.vue'
 
 const $props = defineProps<{
   tailwindcss?: string
@@ -10,6 +11,7 @@ const $props = defineProps<{
   rekaUiTitle?: string
   nuxtUi?: string
   git?: string
+  demo?: string
 }>()
 </script>
 
@@ -23,11 +25,12 @@ const $props = defineProps<{
     <div>
       <slot />
     </div>
-    <div class="flex flex-col sm:flex-row gap-2">
+    <div class="flex flex-row flex-wrap gap-2">
       <TailwindCssLink v-if="$props.tailwindcss" :to="$props.tailwindcss" />
       <RekaUiLink v-if="$props.rekaUi" :to="$props.rekaUi" :title="$props.rekaUiTitle" />
       <NuxtUiLink v-if="$props.nuxtUi" :to="$props.nuxtUi" />
       <GitLink v-if="$props.git" :to="$props.git" />
+      <DemoLink v-if="$props.demo" :to="$props.demo" />
     </div>
   </div>
 </template>
