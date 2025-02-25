@@ -8,8 +8,8 @@ exports[`Modal > renders with body slot correctly 1`] = `
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
 <div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
-  <div class="flex items-center gap-1.5 pe-5 pt-0 min-h-lg2">
-    <div class="">
+  <div class="flex items-center gap-1.5 pe-5 pt-0">
+    <div class="min-h-lg2">
       <!--v-if-->
       <!--v-if-->
     </div><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase absolute top-2 end-1.5 p-0.5" isaction="false">
@@ -22,7 +22,7 @@ exports[`Modal > renders with body slot correctly 1`] = `
       </div>
     </button>
   </div>
-  <div class="flex-1 overflow-y-auto my-2.5 text-md leading-normal">Body slot</div>
+  <div class="flex-1 overflow-y-auto my-2.5 text-md leading-normal scrollbar-thin">Body slot</div>
   <!--v-if-->
 </div>
 
@@ -38,8 +38,8 @@ exports[`Modal > renders with class correctly 1`] = `
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
 <div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800 bg-base-100">
   <!--v-if-->
-  <div class="flex items-center gap-1.5 pe-5 pt-0 min-h-lg2">
-    <div class="">
+  <div class="flex items-center gap-1.5 pe-5 pt-0">
+    <div class="min-h-lg2">
       <!--v-if-->
       <!--v-if-->
     </div><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase absolute top-2 end-1.5 p-0.5" isaction="false">
@@ -68,8 +68,8 @@ exports[`Modal > renders with close slot correctly 1`] = `
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
 <div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
-  <div class="flex items-center gap-1.5 pe-5 pt-0 min-h-lg2">
-    <div class="">
+  <div class="flex items-center gap-1.5 pe-5 pt-0">
+    <div class="min-h-lg2">
       <!--v-if-->
       <!--v-if-->
     </div>Close slot
@@ -90,8 +90,8 @@ exports[`Modal > renders with closeIcon correctly 1`] = `
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
 <div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
-  <div class="flex items-center gap-1.5 pe-5 pt-0 min-h-lg2">
-    <div class="">
+  <div class="flex items-center gap-1.5 pe-5 pt-0">
+    <div class="min-h-lg2">
       <!--v-if-->
       <!--v-if-->
     </div><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase absolute top-2 end-1.5 p-0.5" isaction="false">
@@ -134,8 +134,8 @@ exports[`Modal > renders with default slot correctly 1`] = `
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
 <div data-dismissable-layer="" style="pointer-events: auto;" id="reka-dialog-content-v-0" role="dialog" aria-describedby="reka-dialog-description-v-2" aria-labelledby="reka-dialog-title-v-1" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
-  <div class="flex items-center gap-1.5 pe-5 pt-0 min-h-lg2">
-    <div class="">
+  <div class="flex items-center gap-1.5 pe-5 pt-0">
+    <div class="min-h-lg2">
       <!--v-if-->
       <!--v-if-->
     </div><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase absolute top-2 end-1.5 p-0.5" isaction="false">
@@ -164,8 +164,8 @@ exports[`Modal > renders with description correctly 1`] = `
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
 <div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
-  <div class="flex items-center gap-1.5 pe-5 pt-0 min-h-lg2">
-    <div class="">
+  <div class="flex items-center gap-1.5 pe-5 pt-0">
+    <div class="min-h-lg2">
       <h2 id="reka-dialog-title-v-0" class="font-bold text-md leading-normal text-base-900 dark:text-base-150">Title</h2>
       <p id="reka-dialog-description-v-1" class="mt-0.5 mb-1 text-base-500 dark:text-base-400 text-sm">Description</p>
     </div><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase absolute top-2 end-1.5 p-0.5" isaction="false">
@@ -194,8 +194,8 @@ exports[`Modal > renders with description slot correctly 1`] = `
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
 <div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
-  <div class="flex items-center gap-1.5 pe-5 pt-0 min-h-lg2">
-    <div class="">
+  <div class="flex items-center gap-1.5 pe-5 pt-0">
+    <div class="min-h-lg2">
       <!--v-if-->
       <p id="reka-dialog-description-v-1" class="mt-0.5 mb-1 text-base-500 dark:text-base-400 text-sm">Description slot</p>
     </div><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase absolute top-2 end-1.5 p-0.5" isaction="false">
@@ -224,8 +224,8 @@ exports[`Modal > renders with footer slot correctly 1`] = `
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
 <div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
-  <div class="flex items-center gap-1.5 pe-5 pt-0 min-h-lg2">
-    <div class="">
+  <div class="flex items-center gap-1.5 pe-5 pt-0">
+    <div class="min-h-lg2">
       <!--v-if-->
       <!--v-if-->
     </div><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase absolute top-2 end-1.5 p-0.5" isaction="false">
@@ -254,8 +254,8 @@ exports[`Modal > renders with fullscreen correctly 1`] = `
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
 <div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] inset-0">
   <!--v-if-->
-  <div class="flex items-center gap-1.5 pe-5 pt-0 min-h-lg2">
-    <div class="">
+  <div class="flex items-center gap-1.5 pe-5 pt-0">
+    <div class="min-h-lg2">
       <h2 id="reka-dialog-title-v-0" class="font-bold text-md leading-normal text-base-900 dark:text-base-150">Title</h2>
       <p id="reka-dialog-description-v-1" class="mt-0.5 mb-1 text-base-500 dark:text-base-400 text-sm">Description</p>
     </div><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase absolute top-2 end-1.5 p-0.5" isaction="false">
@@ -284,7 +284,7 @@ exports[`Modal > renders with header slot correctly 1`] = `
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
 <div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
-  <div class="flex items-center gap-1.5 pe-5 pt-0 min-h-lg2">Header slot</div>
+  <div class="flex items-center gap-1.5 pe-5 pt-0">Header slot</div>
   <!--v-if-->
   <!--v-if-->
 </div>
@@ -301,8 +301,8 @@ exports[`Modal > renders with open correctly 1`] = `
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
 <div data-dismissable-layer="" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800" style="pointer-events: auto;">
   <!--v-if-->
-  <div class="flex items-center gap-1.5 pe-5 pt-0 min-h-lg2">
-    <div class="">
+  <div class="flex items-center gap-1.5 pe-5 pt-0">
+    <div class="min-h-lg2">
       <!--v-if-->
       <!--v-if-->
     </div><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase absolute top-2 end-1.5 p-0.5" isaction="false">
@@ -331,8 +331,8 @@ exports[`Modal > renders with title correctly 1`] = `
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
 <div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
-  <div class="flex items-center gap-1.5 pe-5 pt-0 min-h-lg2">
-    <div class="">
+  <div class="flex items-center gap-1.5 pe-5 pt-0">
+    <div class="min-h-lg2">
       <h2 id="reka-dialog-title-v-0" class="font-bold text-md leading-normal text-base-900 dark:text-base-150">Title</h2>
       <!--v-if-->
     </div><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase absolute top-2 end-1.5 p-0.5" isaction="false">
@@ -361,8 +361,8 @@ exports[`Modal > renders with title slot correctly 1`] = `
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
 <div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
-  <div class="flex items-center gap-1.5 pe-5 pt-0 min-h-lg2">
-    <div class="">
+  <div class="flex items-center gap-1.5 pe-5 pt-0">
+    <div class="min-h-lg2">
       <h2 id="reka-dialog-title-v-0" class="font-bold text-md leading-normal text-base-900 dark:text-base-150">Title slot</h2>
       <!--v-if-->
     </div><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase absolute top-2 end-1.5 p-0.5" isaction="false">
@@ -391,8 +391,8 @@ exports[`Modal > renders with ui correctly 1`] = `
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
 <div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
-  <div class="flex items-center gap-1.5 pe-5 pt-0 min-h-lg2">
-    <div class="">
+  <div class="flex items-center gap-1.5 pe-5 pt-0">
+    <div class="min-h-lg2">
       <!--v-if-->
       <!--v-if-->
     </div><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase absolute top-2 end-1.5 p-0.5" isaction="false">
@@ -421,8 +421,8 @@ exports[`Modal > renders without close correctly 1`] = `
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
 <div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
-  <div class="flex items-center gap-1.5 pe-5 pt-0 min-h-lg2">
-    <div class="">
+  <div class="flex items-center gap-1.5 pe-5 pt-0">
+    <div class="min-h-lg2">
       <h2 id="reka-dialog-title-v-0" class="font-bold text-md leading-normal text-base-900 dark:text-base-150">Title</h2>
       <p id="reka-dialog-description-v-1" class="mt-0.5 mb-1 text-base-500 dark:text-base-400 text-sm">Description</p>
     </div>
@@ -443,8 +443,8 @@ exports[`Modal > renders without overlay correctly 1`] = `
 <!--v-if-->
 <div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
-  <div class="flex items-center gap-1.5 pe-5 pt-0 min-h-lg2">
-    <div class="">
+  <div class="flex items-center gap-1.5 pe-5 pt-0">
+    <div class="min-h-lg2">
       <h2 id="reka-dialog-title-v-0" class="font-bold text-md leading-normal text-base-900 dark:text-base-150">Title</h2>
       <p id="reka-dialog-description-v-1" class="mt-0.5 mb-1 text-base-500 dark:text-base-400 text-sm">Description</p>
     </div><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase absolute top-2 end-1.5 p-0.5" isaction="false">
@@ -473,8 +473,8 @@ exports[`Modal > renders without transition correctly 1`] = `
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30"></div>
 <div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800">
   <!--v-if-->
-  <div class="flex items-center gap-1.5 pe-5 pt-0 min-h-lg2">
-    <div class="">
+  <div class="flex items-center gap-1.5 pe-5 pt-0">
+    <div class="min-h-lg2">
       <h2 id="reka-dialog-title-v-0" class="font-bold text-md leading-normal text-base-900 dark:text-base-150">Title</h2>
       <p id="reka-dialog-description-v-1" class="mt-0.5 mb-1 text-base-500 dark:text-base-400 text-sm">Description</p>
     </div><button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase absolute top-2 end-1.5 p-0.5" isaction="false">
