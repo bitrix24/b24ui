@@ -131,7 +131,7 @@ const route = computed(() => {
 
 const routerLinkProps = useForwardProps(reactiveOmit(props, 'as', 'type', 'disabled', 'active', 'exact', 'exactQuery', 'exactHash', 'activeClass', 'inactiveClass', 'to', 'raw', 'class'))
 
-const ui = computed(() => tv({
+const b24ui = computed(() => tv({
   extend: link,
   variants: {
     active: {
@@ -193,9 +193,21 @@ function resolveLinkClass({ route, isActive, isExactActive }: any) {
     return [props.class, active ? props.activeClass : props.inactiveClass]
   }
 
-  return ui.value({
+  return b24ui.value({
     class: props.class,
     active,
+    disabled: props.disabled,
+    isAction: Boolean(props.isAction)
+  })
+}
+
+function resolveLinkClassNoRouter() {
+  if (props.raw) {
+    return [props.class, props.inactiveClass]
+  }
+
+  return b24ui.value({
+    class: props.class,
     disabled: props.disabled,
     isAction: Boolean(props.isAction)
   })
@@ -268,7 +280,7 @@ const handleNavigation = (href: string) => {
         disabled,
         href: to ? (isExternal ? to as string : href as string) : undefined
       }"
-      :class="ui({ class: props.class, disabled })"
+      :class="resolveLinkClassNoRouter()"
       @click="to && handleNavigation(to as string)"
     >
       <slot :active="false" />
