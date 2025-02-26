@@ -183,19 +183,12 @@ export function getTemplates(options: ModuleOptions) {
   templates.push({
     filename: 'b24ui.css',
     write: true,
-    getContents: () => `@theme default {
+    getContents: () => `@source "./b24ui";
+
+@theme default static {
   --color-old-neutral-50: ${colors.neutral[50]};
-  --color-old-neutral-100: ${colors.neutral[100]};
-  --color-old-neutral-200: ${colors.neutral[200]};
-  --color-old-neutral-300: ${colors.neutral[300]};
-  --color-old-neutral-400: ${colors.neutral[400]};
-  --color-old-neutral-500: ${colors.neutral[500]};
-  --color-old-neutral-600: ${colors.neutral[600]};
-  --color-old-neutral-700: ${colors.neutral[700]};
-  --color-old-neutral-800: ${colors.neutral[800]};
-  --color-old-neutral-900: ${colors.neutral[900]};
   --color-old-neutral-950: ${colors.neutral[950]};
-  ${[...([]), 'default'].map(color => [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map(shade => `--color-${color}-${shade}: var(--ui-color-${color}-${shade});`).join('\n\t')).join('\n\t')}
+  ${[...([]), 'default'].map(color => [50, 950].map(shade => `--color-${color}-${shade}: var(--ui-color-${color}-${shade});`).join('\n\t')).join('\n\t')}
 }
 `
   })
@@ -203,8 +196,9 @@ export function getTemplates(options: ModuleOptions) {
   templates.push({
     filename: 'b24ui.css',
     write: true,
-    getContents: () => `@theme default {
-}
+    getContents: () => `@source "./b24ui";
+
+@theme default static {}
 `
   })
 

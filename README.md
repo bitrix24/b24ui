@@ -39,13 +39,8 @@ export default defineNuxtConfig({
 2. Import Tailwind CSS and Bitrix24 UI in your CSS:
 
 ```css [assets/css/main.css]
-@import "tailwindcss";
+@import "tailwindcss" theme(static);
 @import "@bitrix24/b24ui-nuxt";
-/**
- * @see https://github.com/tailwindlabs/tailwindcss/issues/16733#issuecomment-2676450404
- */
-@source "../../../node_modules/@bitrix24/b24ui-nuxt/.nuxt";
-@source "../../../node_modules/@bitrix24/b24ui-nuxt/dist";
 ```
 
 Learn more in the [installation guide](https://bitrix24.github.io/b24ui/guide/installation-nuxt-app.html).
@@ -90,13 +85,8 @@ app.mount('#app')
 3. Import Tailwind CSS and Bitrix24 UI in your CSS:
 
 ```css [assets/main.css]
-@import "tailwindcss";
+@import "tailwindcss" theme(static);
 @import "@bitrix24/b24ui-nuxt";
-/**
- * @see https://github.com/tailwindlabs/tailwindcss/issues/16733#issuecomment-2676450404
- */
-@source "../../node_modules/@bitrix24/b24ui-nuxt/.nuxt";
-@source "../../node_modules/@bitrix24/b24ui-nuxt/dist";
 ```
 
 Learn more in the [installation guide](https://bitrix24.github.io/b24ui/guide/installation-vue.html).
