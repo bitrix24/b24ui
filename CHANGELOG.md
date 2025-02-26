@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.3.2 (2025-02-26)
+
+### Features
+* **useConfetti:** add composable to programmatically control `canvas-confetti`
+
+### Docs
+* **install:** improve info
+
+### Chore
+* **tailwindcss/vite:** improve source
+
 ## 0.3.1 (2025-02-25)
 
 ### Features
