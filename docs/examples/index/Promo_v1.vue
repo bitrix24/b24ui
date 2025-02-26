@@ -6,13 +6,12 @@ import Demo from './demo/Promo_v1.vue'
 <template>
   <ComponentShowExample>
     <Demo />
-    <B24Link
-      is-action
-      to="https://github.com/bitrix24/b24ui/blob/main/docs/examples/index/demo/Promo_v1.vue"
+    <a
       target="_blank"
-      class="absolute bottom-5 left-5"
+      href="https://github.com/bitrix24/b24ui/blob/main/docs/examples/index/demo/Promo_v1.vue"
+      class="absolute bottom-5 left-5 text-sm"
     >
       source
-    </B24Link>
+    </a>
   </ComponentShowExample>
 </template>

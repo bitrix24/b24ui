@@ -76,6 +76,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       base: '/components/composables/',
       items: [
         { text: 'defineShortcuts', link: 'define-shortcuts' },
+        { text: 'useConfetti💡', link: 'use-confetti' },
         { text: 'useModal', link: 'use-modal' },
         { text: 'useFormField', link: 'use-form-field' },
         { text: 'useToast', link: 'use-toast' }

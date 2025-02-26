@@ -104,6 +104,7 @@
     "@unhead/vue": "^1.11.19",
     "@vueuse/core": "^12.7.0",
     "@vueuse/integrations": "^12.7.0",
+    "canvas-confetti": "^1.9.3",
     "colortranslator": "^4.1.0",
     "consola": "^3.4.0",
     "defu": "^6.1.4",
@@ -132,6 +133,7 @@
     "vaul-vue": "^0.3.0"
   },
   "devDependencies": {
+    "@types/canvas-confetti": "^1.9.0",
     "@nuxt/eslint-config": "^1.1.0",
     "@nuxt/module-builder": "^0.8.4",
     "@nuxt/test-utils": "^3.17.0",

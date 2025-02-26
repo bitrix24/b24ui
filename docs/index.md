@@ -20,8 +20,6 @@ hero:
 import PromoExample from '/examples/index/Promo_v1.vue';
 </script>
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <PromoExample />
-  </ClientOnly>
-</div>
+<ClientOnly>
+  <PromoExample />
+</ClientOnly>

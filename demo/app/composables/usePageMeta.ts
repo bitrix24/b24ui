@@ -10,6 +10,7 @@ import Clock1Icon from '@bitrix24/b24icons-vue/main/Clock1Icon'
 import ChatMessageIcon from '@bitrix24/b24icons-vue/main/ChatMessageIcon'
 import AlertIcon from '@bitrix24/b24icons-vue/button/AlertIcon'
 import FolderEmptyIcon from '@bitrix24/b24icons-vue/main/FolderEmptyIcon'
+import BoldSparkleIcon from '@bitrix24/b24icons-vue/main/BoldSparkleIcon'
 
 const title = ref('Playground')
 
@@ -45,6 +46,7 @@ const components: IComponentInfo[] = [
   { id: 'button-group', description: 'Group multiple button-like elements together.', icon: GroupIcon },
   { id: 'checkbox', description: 'An input element to toggle between checked and unchecked states.', icon: FormIcon },
   { id: 'chip', description: 'An indicator of a numeric value or a state.', icon: ItemIcon, iconUi: 'pr-px pb-[3px]' },
+  { id: 'confetti', description: 'Performant confetti animation in the browser.', icon: BoldSparkleIcon },
   { id: 'container', description: 'A container lets you center and constrain the width of your content.', icon: GroupIcon },
   { id: 'countdown', description: 'Countdown with options control.', icon: Clock1Icon },
   { id: 'content/description-list', description: 'For cases where you need to convert data from one row of a table into a separate table to make the page look more complete.', icon: GroupIcon },
