@@ -11,6 +11,8 @@ const $props = defineProps<{
   rekaUiTitle?: string
   nuxtUi?: string
   git?: string
+  gitCustom?: string
+  gitCustomTitle?: string
   demo?: string
 }>()
 </script>
@@ -29,6 +31,7 @@ const $props = defineProps<{
       <TailwindCssLink v-if="$props.tailwindcss" :to="$props.tailwindcss" />
       <RekaUiLink v-if="$props.rekaUi" :to="$props.rekaUi" :title="$props.rekaUiTitle" />
       <NuxtUiLink v-if="$props.nuxtUi" :to="$props.nuxtUi" />
+      <GitLink v-if="$props.gitCustom" :to="$props.gitCustom" :title="$props.gitCustomTitle" />
       <GitLink v-if="$props.git" :to="$props.git" />
       <DemoLink v-if="$props.demo" :to="$props.demo" />
     </div>
