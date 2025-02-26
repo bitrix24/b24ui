@@ -65,10 +65,10 @@ export const Bitrix24UIPlugin = createUnplugin<Bitrix24UIOptions | undefined>((_
           const plugins = config.plugins || []
 
           if (plugins.filter(i => i.name === 'unplugin-auto-import').length > 1) {
-            throw new Error('[Bitrix24 UI] Multiple instances of `unplugin-auto-import` detected. Nuxt UI includes `unplugin-auto-import` already, and you can configure it using `autoImport` option in Bitrix24 UI module options.')
+            throw new Error('[Bitrix24 UI] Multiple instances of `unplugin-auto-import` detected. Bitrix24 UI includes `unplugin-auto-import` already, and you can configure it using `autoImport` option in Bitrix24 UI module options.')
           }
           if (plugins.filter(i => i.name === 'unplugin-vue-components').length > 1) {
-            throw new Error('[Bitrix24 UI] Multiple instances of `unplugin-vue-components` detected. Nuxt UI includes `unplugin-vue-components` already, and you can configure it using `components` option in Bitrix24 UI module options.')
+            throw new Error('[Bitrix24 UI] Multiple instances of `unplugin-vue-components` detected. Bitrix24 UI includes `unplugin-vue-components` already, and you can configure it using `components` option in Bitrix24 UI module options.')
           }
         }
       }
