@@ -36,7 +36,7 @@ const isDark = computed({
 
 <template>
   <ClientOnly v-if="!colorMode?.forced">
-    <UButton
+    <B24Button
       :icon="isDark ? MoonIcon : SunIcon"
       color="link"
       depth="dark"
