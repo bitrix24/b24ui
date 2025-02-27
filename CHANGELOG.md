@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.3.3 (2025-02-27)
+
+### Docs
+
+* **ColorMode:** add info
+
+### Chore
+* **css:** source to root dir
+* **vue:** add `useCookie` stub
+* **vue:** export `defineShortcuts` & `useLocale` & `useConfetti` composables
+
+### Bug Fixes
+* **Link:** improve external links handling in vue
+
 ## 0.3.2 (2025-02-26)
 
 ### Features
