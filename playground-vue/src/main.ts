@@ -2,7 +2,7 @@ import './assets/css/main.css'
 
 import { createApp, defineAsyncComponent, ref } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
-import uiPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'
+import b24UiPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'
 
 import App from './app.vue'
 
@@ -32,7 +32,7 @@ Object.entries(components).forEach(([path, component]) => {
 })
 
 app.use(router)
-app.use(uiPlugin)
+app.use(b24UiPlugin)
 
 // @ts-expect-error unknown global property
 globalThis.useFetch = async (url: string, options: RequestInit & { transform?: (data) => any } = {}) => {

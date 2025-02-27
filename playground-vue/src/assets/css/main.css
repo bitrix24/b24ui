@@ -1,4 +1,2 @@
-@import "tailwindcss" theme(static);
+@import "tailwindcss" theme(static) source("../../../..");
 @import "@bitrix24/b24ui-nuxt";
-
-@source "../../../../playground";
