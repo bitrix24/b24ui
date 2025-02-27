@@ -71,7 +71,7 @@ export const shared = defineConfig({
     plugins: [
       tailwindcss(),
       bitrix24UIPluginVite({
-        dts: false,
+        dts: true,
         colorMode: false,
         b24ui: {
           toaster: {

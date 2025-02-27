@@ -9,7 +9,7 @@ import Demo from './demo/Promo_v1.vue'
     <a
       target="_blank"
       href="https://github.com/bitrix24/b24ui/blob/main/docs/examples/index/demo/Promo_v1.vue"
-      class="absolute bottom-5 left-5 text-sm"
+      class="absolute bottom-2 left-2 text-sm text-base-500"
     >
       source
     </a>

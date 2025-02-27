@@ -2,7 +2,9 @@
   "compilerOptions": {
     "target": "esnext",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "types": ["vite/client"],
+    "types": [
+      "vite/client",
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -11,16 +13,14 @@
     "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "nodenext",
     "downlevelIteration": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "baseUrl": "./",
     "paths": {
-      "~/.vitepress/*": [
-        "./.vitepress/*"
-      ]
+      "~/.vitepress/*": [ "./.vitepress/*" ],
     }
   },
   "include": [
