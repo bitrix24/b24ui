@@ -186,7 +186,7 @@ function isLinkActive({ route: linkRoute, isActive, isExactActive }: any) {
   return false
 }
 
-function resolveLinkClass({ route, isActive, isExactActive }: any) {
+function resolveLinkClass({ route, isActive, isExactActive }: any = {}) {
   const active = isLinkActive({ route, isActive, isExactActive })
 
   if (props.raw) {
@@ -200,38 +200,10 @@ function resolveLinkClass({ route, isActive, isExactActive }: any) {
     isAction: Boolean(props.isAction)
   })
 }
-
-function resolveLinkClassNoRouter() {
-  if (props.raw) {
-    return [props.class, props.inactiveClass]
-  }
-
-  return b24ui.value({
-    class: props.class,
-    disabled: props.disabled,
-    isAction: Boolean(props.isAction)
-  })
-}
-
-// Handle navigation without vue-router
-const handleNavigation = (href: string) => {
-  if (isExternal.value) {
-    window.location.href = href
-  } else {
-    const [path, hash] = href.split('#')
-
-    window.location.pathname = path || ''
-    if (hash) {
-      window.location.hash = hash
-    } else {
-      window.location.hash = ''
-    }
-  }
-}
 </script>
 
 <template>
-  <template v-if="hasRouter">
+  <template v-if="hasRouter && !isExternal">
     <RouterLink v-slot="{ href, navigate, route: linkRoute, isActive, isExactActive }" v-bind="routerLinkProps" :to="to || '#'" custom>
       <template v-if="custom">
         <slot
@@ -241,7 +213,7 @@ const handleNavigation = (href: string) => {
             type,
             disabled,
             target: props.target ? props.target : undefined,
-            href: to ? (isExternal ? to as string : href) : undefined,
+            href: to ? href : undefined,
             navigate,
             active: isLinkActive({ route: linkRoute, isActive, isExactActive })
           }"
@@ -254,7 +226,7 @@ const handleNavigation = (href: string) => {
           as,
           type,
           disabled,
-          href: to ? (isExternal ? to as string : href) : undefined,
+          href: to ? href : undefined,
           navigate
         }"
         :class="resolveLinkClass({ route: linkRoute, isActive: isActive, isExactActive: isExactActive })"
@@ -272,8 +244,8 @@ const handleNavigation = (href: string) => {
           as,
           type,
           disabled,
-          href: to ? (isExternal ? to as string : href) : undefined,
-          navigate: () => to && handleNavigation(to as string),
+          href: to,
+          target: isExternal ? '_blank' : undefined,
           active: false
         }"
       />
@@ -285,10 +257,11 @@ const handleNavigation = (href: string) => {
         as,
         type,
         disabled,
-        href: to ? (isExternal ? to as string : to as string) : href as string
+        href: (to as string),
+        target: isExternal ? '_blank' : undefined
       }"
-      :class="resolveLinkClassNoRouter()"
-      @click="to && handleNavigation(to as string)"
+      :is-external="isExternal"
+      :class="resolveLinkClass()"
     >
       <slot :active="false" />
     </B24LinkBase>
