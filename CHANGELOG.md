@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.4.0 (2025-02-xx)
+
+### ⚠ BREAKING CHANGES
+
+* **useOverlay:** handle programmatic modals and slideovers
+
+### Features
+* **Slideover:** new component
+
+### Chore
+
+* **vue:** stub `useColorMode`
+* **vue:** auto import `useAppConfig`
+
 ## 0.3.3 (2025-02-27)
 
 ### Docs
