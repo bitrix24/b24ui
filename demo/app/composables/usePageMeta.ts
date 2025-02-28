@@ -67,6 +67,7 @@ const components: IComponentInfo[] = [
   { id: 'separator', description: 'Separates content horizontally or vertically.', icon: GroupIcon },
   { id: 'shortcuts', description: 'A composable to define keyboard shortcuts in your app.', icon: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'skeleton', description: 'A placeholder to show while content is loading.', icon: ItemIcon, iconUi: 'pr-px pb-[3px]' },
+  { id: 'slideover', description: 'A dialog that slides in from any side of the screen.', icon: GroupIcon },
   { id: 'switch', description: 'A control that toggles between two states.', icon: FormIcon },
   { id: 'tabs', description: 'A set of tab panels that are displayed one at a time.', icon: FolderEmptyIcon },
   { id: 'prose/table-wrapper', description: 'Wrapper for displaying a table.', icon: GroupIcon },

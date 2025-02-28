@@ -9,5 +9,5 @@
  * @todo fix max-w
  */
 export default {
-  base: 'max-w-[80rem] mx-auto px-4 sm:px-6 lg:px-8' // max-w-7xl w-full
+  base: 'max-w-[80rem] mx-auto px-5' // max-w-7xl w-full
 }

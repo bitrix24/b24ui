@@ -1,0 +1,193 @@
+<script lang="ts">
+import type { VariantProps } from 'tailwind-variants'
+import type { DialogRootProps, DialogRootEmits, DialogContentProps } from 'reka-ui'
+import type { AppConfig } from '@nuxt/schema'
+import _appConfig from '#build/app.config'
+import theme from '#build/b24ui/slideover'
+import { tv } from '../utils/tv'
+import type { ButtonProps, IconComponent } from '../types'
+
+const appConfigSlideover = _appConfig as AppConfig & { b24ui: { slideover: Partial<typeof theme> } }
+
+const slideover = tv({ extend: tv(theme), ...(appConfigSlideover.b24ui?.slideover || {}) })
+
+type SlideoverVariants = VariantProps<typeof slideover>
+
+export interface SlideoverProps extends DialogRootProps {
+  title?: string
+  description?: string
+  /** The content of the slideover. */
+  content?: Omit<DialogContentProps, 'as' | 'asChild' | 'forceMount'>
+  /**
+   * Render an overlay behind the slideover.
+   * @defaultValue true
+   */
+  overlay?: boolean
+  /**
+   * Animate the slideover when opening or closing.
+   * @defaultValue true
+   */
+  transition?: boolean
+  side?: SlideoverVariants['side']
+  /**
+   * Render the slideover in a portal.
+   * @defaultValue true
+   */
+  portal?: boolean
+  /**
+   * Display a close button to dismiss the slideover.
+   * `{ color: 'primary' }`{lang="ts"} for `left`, `right`
+   * `{ color: 'link' }`{lang="ts"} for `top`, `bottom`
+   * @defaultValue true
+   */
+  close?: boolean | Partial<ButtonProps>
+  /**
+   * The icon displayed in the close button.
+   * @defaultValue icons.close
+   */
+  closeIcon?: IconComponent
+  /**
+   * When `false`, the slideover will not close when clicking outside or pressing escape.
+   * @defaultValue true
+   */
+  dismissible?: boolean
+  scrollbarThin?: boolean
+  class?: any
+  b24ui?: Partial<typeof slideover.slots>
+}
+
+export interface SlideoverEmits extends DialogRootEmits {
+  'after:leave': []
+}
+
+export interface SlideoverSlots {
+  default(props: { open: boolean }): any
+  content(props?: {}): any
+  header(props?: {}): any
+  title(props?: {}): any
+  description(props?: {}): any
+  close(props: { b24ui: any }): any
+  body(props?: {}): any
+  footer(props?: {}): any
+}
+</script>
+
+<script setup lang="ts">
+import { computed, toRef } from 'vue'
+import { DialogRoot, DialogTrigger, DialogPortal, DialogOverlay, DialogContent, DialogTitle, DialogDescription, DialogClose, VisuallyHidden, useForwardPropsEmits } from 'reka-ui'
+import { reactivePick } from '@vueuse/core'
+import { useLocale } from '../composables/useLocale'
+import icons from '../dictionary/icons'
+import B24Button from './Button.vue'
+
+const props = withDefaults(defineProps<SlideoverProps>(), {
+  close: true,
+  portal: true,
+  overlay: true,
+  transition: true,
+  modal: true,
+  dismissible: true,
+  side: 'right',
+  scrollbarThin: true
+})
+const emits = defineEmits<SlideoverEmits>()
+const slots = defineSlots<SlideoverSlots>()
+
+const { t } = useLocale()
+
+const rootProps = useForwardPropsEmits(reactivePick(props, 'open', 'defaultOpen', 'modal'), emits)
+const contentProps = toRef(() => props.content)
+const contentEvents = computed(() => {
+  if (!props.dismissible) {
+    return {
+      pointerDownOutside: (e: Event) => e.preventDefault(),
+      interactOutside: (e: Event) => e.preventDefault(),
+      escapeKeyDown: (e: Event) => e.preventDefault(),
+      closeAutoFocus: (e: Event) => e.preventDefault()
+    }
+  }
+
+  return {
+    closeAutoFocus: (e: Event) => e.preventDefault()
+  }
+})
+
+const b24ui = computed(() => slideover({
+  transition: props.transition,
+  side: props.side
+}))
+</script>
+
+<template>
+  <DialogRoot v-slot="{ open }" v-bind="rootProps">
+    <DialogTrigger v-if="!!slots.default" as-child :class="props.class">
+      <slot :open="open" />
+    </DialogTrigger>
+
+    <DialogPortal :disabled="!portal">
+      <DialogOverlay v-if="overlay" :class="b24ui.overlay({ class: props.b24ui?.overlay })" />
+
+      <DialogContent :data-side="side" :class="b24ui.content({ class: [!slots.default && props.class, props.b24ui?.content] })" v-bind="contentProps" @after-leave="emits('after:leave')" v-on="contentEvents">
+        <VisuallyHidden v-if="!!slots.content && ((title || !!slots.title) || (description || !!slots.description))">
+          <DialogTitle v-if="title || !!slots.title">
+            <slot name="title">
+              {{ title }}
+            </slot>
+          </DialogTitle>
+
+          <DialogDescription v-if="description || !!slots.description">
+            <slot name="description">
+              {{ description }}
+            </slot>
+          </DialogDescription>
+        </VisuallyHidden>
+
+        <slot name="content">
+          <div v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description) || (close || !!slots.close)" :class="b24ui.header({ class: props.b24ui?.header })">
+            <slot name="header">
+              <div :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
+                <DialogTitle v-if="title || !!slots.title" :class="b24ui.title({ class: props.b24ui?.title })">
+                  <slot name="title">
+                    {{ title }}
+                  </slot>
+                </DialogTitle>
+
+                <DialogDescription v-if="description || !!slots.description" :class="b24ui.description({ class: props.b24ui?.description })">
+                  <slot name="description">
+                    {{ description }}
+                  </slot>
+                </DialogDescription>
+              </div>
+
+              <DialogClose as-child>
+                <slot name="close" :b24ui="b24ui">
+                  <B24Button
+                    v-if="close"
+                    :icon="closeIcon || icons.close"
+                    size="md"
+                    class="group"
+                    :color="['left', 'right'].includes(props?.side) ? 'primary' : 'link'"
+                    :aria-label="t('slideover.close')"
+                    :b24ui="{
+                      leadingIcon: ['left', 'right'].includes(props?.side) ? 'group-hover:rounded-full group-hover:border-1 group-hover:border-current' : ''
+                    }"
+                    v-bind="(typeof close === 'object' ? close as Partial<ButtonProps> : {})"
+                    :class="b24ui.close({ class: props.b24ui?.close })"
+                  />
+                </slot>
+              </DialogClose>
+            </slot>
+          </div>
+
+          <div :class="b24ui.body({ class: props.b24ui?.body, scrollbarThin: Boolean(props.scrollbarThin) })">
+            <slot name="body" />
+          </div>
+
+          <div v-if="!!slots.footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
+            <slot name="footer" />
+          </div>
+        </slot>
+      </DialogContent>
+    </DialogPortal>
+  </DialogRoot>
+</template>
