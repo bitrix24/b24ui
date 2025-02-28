@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.4.0 (2025-02-xx)
+## 0.3.4 (2025-02-28)
 
 ### ⚠ BREAKING CHANGES
 
