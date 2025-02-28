@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.5 (2025-02-28)
+
+### Bug Fixes
+
+* **Toaster:** modal & toast
+* **Button:** loader state
+
 ## 0.3.4 (2025-02-28)
 
 ### ⚠ BREAKING CHANGES
