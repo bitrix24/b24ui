@@ -79,7 +79,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'defineShortcuts', link: 'define-shortcuts' },
         { text: 'useConfetti💡', link: 'use-confetti' },
-        { text: 'useModal', link: 'use-modal' },
+        { text: 'useOverlay💡', link: 'use-overlay' },
         { text: 'useFormField', link: 'use-form-field' },
         { text: 'useToast', link: 'use-toast' }
       ]
@@ -98,7 +98,8 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'Button', link: 'button' },
         { text: 'ButtonGroup', link: 'button-group' },
         { text: 'DropdownMenu', link: 'dropdown-menu' },
-        { text: 'Modal', link: 'modal' }
+        { text: 'Modal', link: 'modal' },
+        { text: 'Slideover💡', link: 'slideover' }
       ]
     },
     {

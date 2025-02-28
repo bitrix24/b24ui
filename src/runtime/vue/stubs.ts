@@ -11,6 +11,7 @@ export { useRoute, useRouter } from 'vue-router'
 export { defineShortcuts } from '../composables/defineShortcuts'
 export { useLocale } from '../composables/useLocale'
 export { useConfetti } from '../composables/useConfetti'
+export { useOverlay } from '../composables/useOverlay'
 
 export const useColorMode = () => {
   if (!appConfig.colorMode) {

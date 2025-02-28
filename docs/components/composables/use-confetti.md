@@ -1,5 +1,5 @@
 ---
-title: Confetti
+title: useConfetti
 description: Performant confetti animation in the browser
 ---
 <script setup>
@@ -7,7 +7,7 @@ import ConfettiExample from '/examples/confetti/Confetti.vue';
 import ConfettiWithOptionsExample from '/examples/confetti/ConfettiWithOptions.vue';
 import ConfettiAtPlaceExample from '/examples/confetti/ConfettiAtPlace.vue';
 </script>
-# Confetti
+# useConfetti
 
 <Description 
   git-custom="https://github.com/catdad/canvas-confetti"

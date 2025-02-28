@@ -26,6 +26,7 @@ import WithFooterSlotExample from '/examples/modal/WithFooterSlot.vue';
   reka-ui="https://reka-ui.com/docs/components/dialog"
   reka-ui-title="Dialog"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Modal.vue"
+  demo="/components/modal"
 >
   A popup window for showing messages or gathering user input.
 </Description>
@@ -107,6 +108,7 @@ Use the `close-icon` prop to customize the close button [@bitrix24/b24icons](htt
 ::: details
 <<< @/examples/modal/demo/CloseIcon.vue{2,9 vue:line-numbers}
 :::
+
 
 ### Overlay
 
@@ -190,16 +192,20 @@ Set the `dismissible` prop to `false` to prevent the Modal from being closed whe
 
 ### Programmatic usage
 
-You can use the [`useModal`](composables/use-modal) composable to open a Modal programatically.
+You can use the [`useOverlay`](composables/use-overlay) composable to open a Modal programatically.
 
 ::: warning
-Make sure to wrap your app with the [`App`](/components/app) component which uses the [`ModalProvider`](https://github.com/nuxt/ui/blob/v3/src/runtime/components/ModalProvider.vue) component.
+Make sure to wrap your app with the [`App`](/components/app) component which uses the [`OverlayProvider`](https://github.com/nuxt/ui/blob/v3/src/runtime/components/OverlayProvider.vue) component.
 :::
 
 First, create a modal component that will be opened programatically:
 
 ::: code-group
-<<< @/examples/modal/demo/LazyModal.vue{2,8,10-12,24,32 vue:line-numbers}
+<<< @/examples/modal/demo/LazyModal.vue{6,11,12,21,29 vue:line-numbers}
+:::
+
+::: note
+We are emitting a `close` event when the modal is closed or dismissed here. You can emit any data through the `close` event, however, the event must be emitted in order to capture the return value.
 :::
 
 Then, use it in your app:
@@ -215,7 +221,7 @@ You can close the modal within the modal component by calling `modal.close()`.
 </div>
 
 ::: details
-<<< @/examples/modal/demo/ProgrammaticUsage.vue{8,10-23,31 vue:line-numbers}
+<<< @/examples/modal/demo/ProgrammaticUsage.vue{8,10-14,16-40,48 vue:line-numbers}
 :::
 
 ### Nested modals
