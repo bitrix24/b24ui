@@ -48,7 +48,7 @@ export const runtimeDir = normalize(fileURLToPath(new URL('./runtime', import.me
 export const Bitrix24UIPlugin = createUnplugin<Bitrix24UIOptions | undefined>((_options = {}, meta) => {
   const options = defu(_options, { devtools: { enabled: false } }, defaultOptions)
 
-  const appConfig = defu({ b24ui: options.b24ui }, { b24ui: getDefaultUiConfig() })
+  const appConfig = defu({ b24ui: options.b24ui, colorMode: options.colorMode }, { b24ui: getDefaultUiConfig() })
 
   return [
     Bitrix24EnvironmentPlugin(),
