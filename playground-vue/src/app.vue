@@ -7,9 +7,6 @@ import MoonIcon from '@bitrix24/b24icons-vue/main/MoonIcon'
 import { useRouter, useRoute } from 'vue-router'
 import { reactive, ref } from 'vue'
 import { useColorMode, useTextDirection } from '@vueuse/core'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore included for compatibility with Nuxt playground
-import { useAppConfig } from '#imports'
 
 const appConfig = useAppConfig()
 const mode = useColorMode()
