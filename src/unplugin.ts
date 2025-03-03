@@ -46,7 +46,7 @@ export interface Bitrix24UIOptions extends Omit<ModuleOptions, 'colorMode'> {
 export const runtimeDir = normalize(fileURLToPath(new URL('./runtime', import.meta.url)))
 
 export const Bitrix24UIPlugin = createUnplugin<Bitrix24UIOptions | undefined>((_options = {}, meta) => {
-  const options = defu(_options, { devtools: { enabled: false } }, defaultOptions)
+  const options = defu(_options, { }, defaultOptions)
 
   const appConfig = defu({ b24ui: options.b24ui, colorMode: options.colorMode }, { b24ui: getDefaultUiConfig() })
 
