@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { kbdKeysMap } from '@bitrix24/b24ui-nuxt/runtime/composables/useKbd.js'
+import { kbdKeysMap } from '@bitrix24/b24ui-nuxt/composables/useKbd.js'
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
 import Demo from './demo/UseKbd.vue'
 

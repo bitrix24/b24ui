@@ -38,6 +38,7 @@
     "./runtime/*": "./dist/runtime/*",
     "./components/*": "./dist/runtime/components/*",
     "./composables/*": "./dist/runtime/composables/*",
+    "./types/*": "./dist/runtime/types/*",
     "./utils/*": {
       "types": "./dist/runtime/utils/*.d.ts",
       "import": "./dist/runtime/utils/*.js"
