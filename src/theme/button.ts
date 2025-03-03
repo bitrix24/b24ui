@@ -9,13 +9,12 @@
 
 import { buttonGroupVariant } from './button-group'
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const safeList = [
   'h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center',
   'w-[28px] h-[28px]',
   'size-lg animate-spin stroke-2',
   'invisible'
-]
+].join(' ')
 
 export default {
   slots: {
@@ -33,7 +32,8 @@ export default {
     leadingIcon: 'shrink-0',
     leadingAvatar: 'shrink-0',
     leadingAvatarSize: '',
-    trailingIcon: 'shrink-0'
+    trailingIcon: 'shrink-0',
+    safeList
   },
   variants: {
     ...buttonGroupVariant,
