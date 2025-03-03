@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.4.0 (2025-03-03)
+
+### Bug Fixes
+
+* **Button:** loader state
+* **OverlayProvider:** fix types
+
+### Features
+
+* **package:** export `components` and `composables`
+
 ## 0.3.5 (2025-02-28)
 
 ### Bug Fixes
