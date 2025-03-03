@@ -209,7 +209,7 @@ We are emitting a `close` event when the slideover is closed or dismissed here. 
 Then, use it in your app:
 
 ::: tip
-You can close the slideover within the slideover component by calling `slideover.close()`.
+You can close the slideover within the slideover component by emitting `emit('close')`.
 :::
 
 <div class="lg:min-h-[160px]">

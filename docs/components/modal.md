@@ -211,7 +211,7 @@ We are emitting a `close` event when the modal is closed or dismissed here. You 
 Then, use it in your app:
 
 ::: tip
-You can close the modal within the modal component by calling `modal.close()`.
+You can close the modal within the modal component by emitting `emit('close')`.
 :::
 
 <div class="lg:min-h-[160px]">
