@@ -8,6 +8,11 @@
  *
  * @todo: btn close like b24
  */
+
+const safeList = [
+  'group-hover:rounded-full group-hover:border-1 group-hover:border-current'
+].join(' ')
+
 export default {
   slots: {
     overlay: 'fixed inset-0 bg-base-950/20 dark:bg-base-950/30',
@@ -30,7 +35,8 @@ export default {
     footer: 'bg-white dark:bg-base-950 flex items-center justify-center gap-3 py-4 border-t border-t-1 border-t-base-900/10 dark:border-t-white/20 shadow-top-md p-2 pr-(--scrollbar-width)',
     title: 'font-b24-system font-light text-4.5xl leading-none text-base-900 dark:text-base-150',
     description: 'mt-2 mb-1 text-base-500 dark:text-base-400 text-sm',
-    close: 'absolute'
+    close: 'absolute',
+    safeList
   },
   variants: {
     side: {
