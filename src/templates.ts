@@ -188,7 +188,7 @@ export function getTemplates(options: ModuleOptions) {
 @theme default static {
   --color-old-neutral-50: ${colors.neutral[50]};
   --color-old-neutral-950: ${colors.neutral[950]};
-  ${[...([]), 'default'].map(color => [50, 950].map(shade => `--color-${color}-${shade}: var(--ui-color-${color}-${shade});`).join('\n\t')).join('\n\t')}
+  ${[...([]).filter(color => !colors[color as keyof typeof colors]), 'default'].map(color => [50, 950].map(shade => `--color-${color}-${shade}: var(--ui-color-${color}-${shade});`).join('\n\t')).join('\n\t')}
 }
 `
   })
