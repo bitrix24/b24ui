@@ -83,27 +83,20 @@ export default defineNuxtConfig({
 **3. Import Tailwind CSS and Bitrix24 UI in your CSS**
 
 ::: code-group
-```css [assets/css/main.css]
+```css [app/assets/css/main.css]
 @import "tailwindcss" theme(static);
 @import "@bitrix24/b24ui-nuxt";
 ```
-:::
-
-::: warning
-The `theme(static)` is required since [`tailwindcss@4.0.8`](https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.0.8) introduced a breaking change to only expose used CSS variables.
-:::
-
-::: tip
-Use the `css` property in your `nuxt.config.ts` to import your CSS file.
-
-::: code-group
-```ts [nuxt.config.ts]
+```ts [nuxt.config.ts] {3}
 export default defineNuxtConfig({
   modules: ['@bitrix24/b24ui-nuxt'],
   css: ['~/assets/css/main.css']
 })
 ```
+:::
 
+::: warning
+The `theme(static)` is required since [`tailwindcss@4.0.8`](https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.0.8) introduced a breaking change to only expose used CSS variables.
 :::
 
 ::: info
@@ -151,6 +144,7 @@ Use the `colorMode` option to enable or disable the [`@nuxt/color-mode`](https:/
 ```ts [nuxt.config.ts]
 export default defineNuxtConfig({
   modules: ['@bitrix24/b24ui-nuxt'],
+  css: ['~/assets/css/main.css'],
   b24ui: {
     colorMode: false
   }

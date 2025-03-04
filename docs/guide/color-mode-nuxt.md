@@ -54,6 +54,8 @@ You can disable the `@nuxtjs/color-mode` module with the `b24ui.colorMode` optio
 
 ```ts [nuxt.config.ts]
 export default defineNuxtConfig({
+  modules: ['@bitrix24/b24ui-nuxt'],
+  css: ['~/assets/css/main.css'],
   b24ui: {
     colorMode: false
   }
