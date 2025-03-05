@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
-import DescriptionList, { type DescriptionListProps, type DescriptionListSlots } from '../../../src/runtime/components/content/DescriptionList.vue'
-import ComponentRender from '../../component-render'
+import DescriptionList, { type DescriptionListProps, type DescriptionListSlots } from '../../src/runtime/components/DescriptionList.vue'
+import ComponentRender from '../component-render'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 
 describe('DescriptionList', () => {
