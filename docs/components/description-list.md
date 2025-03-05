@@ -4,15 +4,16 @@ description: 'For instances requiring the conversion of a table row into its own
 outline: deep
 ---
 <script setup>
-import DescriptionListExample from '/examples/content/descriptionlist/DescriptionList.vue';
-import IconsExample from '/examples/content/descriptionlist/Icons.vue';
-import ActionsExample from '/examples/content/descriptionlist/Actions.vue';
-import CustomExample from '/examples/content/descriptionlist/Custom.vue';
+import DescriptionListExample from '/examples/descriptionlist/DescriptionList.vue';
+import IconsExample from '/examples/descriptionlist/Icons.vue';
+import ActionsExample from '/examples/descriptionlist/Actions.vue';
+import CustomExample from '/examples/descriptionlist/Custom.vue';
 </script>
 # DescriptionList
 
 <Description 
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/content/DescriptionList.vue"
+  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/DescriptionList.vue"
+  demo="/components/description-list"
 >
   For instances requiring the conversion of a table row into its own table to enhance page completeness.
 </Description>

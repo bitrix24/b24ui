@@ -49,7 +49,7 @@ const components: IComponentInfo[] = [
   { id: 'confetti', description: 'Performant confetti animation in the browser.', icon: BoldSparkleIcon },
   { id: 'container', description: 'A container lets you center and constrain the width of your content.', icon: GroupIcon },
   { id: 'countdown', description: 'Countdown with options control.', icon: Clock1Icon },
-  { id: 'content/description-list', description: 'For cases where you need to convert data from one row of a table into a separate table to make the page look more complete.', icon: GroupIcon },
+  { id: 'description-list', description: 'For cases where you need to convert data from one row of a table into a separate table to make the page look more complete.', icon: GroupIcon },
   { id: 'dropdown-menu', description: 'A menu to display actions when clicking on an element.', icon: GroupIcon },
   { id: 'form', description: 'A form component with built-in validation and submission handling.', icon: FormSettingsIcon },
   { id: 'form-field', description: 'A wrapper for form elements that provides validation and error handling.', icon: FormIcon },

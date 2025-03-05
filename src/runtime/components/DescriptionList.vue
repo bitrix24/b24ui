@@ -3,9 +3,9 @@ import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/content/description-list'
-import { tv } from '../../utils/tv'
-import type { AvatarProps, ButtonProps, IconComponent } from '../../types'
-import type { DynamicSlots } from '../../types/utils'
+import { tv } from '../utils/tv'
+import type { AvatarProps, ButtonProps, IconComponent } from '../types'
+import type { DynamicSlots } from '../types/utils'
 
 const appConfigDescriptionList = _appConfig as AppConfig & { b24ui: { descriptionList: Partial<typeof theme> } }
 
@@ -76,9 +76,9 @@ export type DescriptionListSlots<T extends { slot?: string }> = {
 
 <script setup lang="ts" generic="T extends DescriptionListItem">
 import { computed } from 'vue'
-import { get } from '../../utils'
-import B24Avatar from '../Avatar.vue'
-import B24Button from '../Button.vue'
+import { get } from '../utils'
+import B24Avatar from './Avatar.vue'
+import B24Button from './Button.vue'
 
 const props = withDefaults(defineProps<DescriptionListProps<T>>(), {
   labelKey: 'label',
