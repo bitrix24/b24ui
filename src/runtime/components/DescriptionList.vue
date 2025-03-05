@@ -2,7 +2,7 @@
 import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
-import theme from '#build/b24ui/content/description-list'
+import theme from '#build/b24ui/description-list'
 import { tv } from '../utils/tv'
 import type { AvatarProps, ButtonProps, IconComponent } from '../types'
 import type { DynamicSlots } from '../types/utils'
