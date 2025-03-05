@@ -33,7 +33,7 @@ Some data may be missing here — we will complete it shortly.
 </div>
 
 ::: details
-<<< @/examples/content/descriptionlist/demo/DescriptionList.vue{vue:line-numbers}
+<<< @/examples/descriptionlist/demo/DescriptionList.vue{vue:line-numbers}
 :::
 
 ### Icons
@@ -45,7 +45,7 @@ Some data may be missing here — we will complete it shortly.
 </div>
 
 ::: details
-<<< @/examples/content/descriptionlist/demo/Icons.vue{vue:line-numbers}
+<<< @/examples/descriptionlist/demo/Icons.vue{vue:line-numbers}
 :::
 
 ### Actions 
@@ -57,7 +57,7 @@ Some data may be missing here — we will complete it shortly.
 </div>
 
 ::: details
-<<< @/examples/content/descriptionlist/demo/Actions.vue{vue:line-numbers}
+<<< @/examples/descriptionlist/demo/Actions.vue{vue:line-numbers}
 :::
 
 ### Custom 
@@ -69,7 +69,7 @@ Some data may be missing here — we will complete it shortly.
 </div>
 
 ::: details
-<<< @/examples/content/descriptionlist/demo/Custom.vue{vue:line-numbers}
+<<< @/examples/descriptionlist/demo/Custom.vue{vue:line-numbers}
 :::
 
 ## API
