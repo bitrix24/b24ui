@@ -2,12 +2,12 @@
 import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
-import theme from '#build/b24ui/prose/table-wrapper'
+import theme from '#build/b24ui/content/table-wrapper'
 import { tv } from '../../utils/tv'
 
-const appConfigTableWrapper = _appConfig as AppConfig & { b24ui: { prose: { tableWrapper: Partial<typeof theme> } } }
+const appConfigTableWrapper = _appConfig as AppConfig & { b24ui: { content: { tableWrapper: Partial<typeof theme> } } }
 
-const tableWrapper = tv({ extend: tv(theme), ...(appConfigTableWrapper.b24ui?.prose?.tableWrapper || {}) })
+const tableWrapper = tv({ extend: tv(theme), ...(appConfigTableWrapper.b24ui?.content?.tableWrapper || {}) })
 
 type TableWrapperVariants = VariantProps<typeof tableWrapper>
 

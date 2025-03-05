@@ -4,19 +4,20 @@ description: Wrapper for displaying a html table
 outline: deep
 ---
 <script setup>
-import TableWrapperExample from '/examples/prose/tablewrapper/TableWrapper.vue';
-import BorderBackgroundExample from '/examples/prose/tablewrapper/BorderBackground.vue';
-import HighlightsRowExample from '/examples/prose/tablewrapper/HighlightsRow.vue';
-import HighlightsRowHoverExample from '/examples/prose/tablewrapper/HighlightsRowHover.vue';
-import ZebraExample from '/examples/prose/tablewrapper/Zebra.vue';
-import PinnedRowsExample from '/examples/prose/tablewrapper/PinnedRows.vue';
-import PinnedRowsColsExample from '/examples/prose/tablewrapper/PinnedRowsCols.vue';
-import SizeExample from '/examples/prose/tablewrapper/Size.vue';
+import TableWrapperExample from '/examples/content/tablewrapper/TableWrapper.vue';
+import BorderBackgroundExample from '/examples/content/tablewrapper/BorderBackground.vue';
+import HighlightsRowExample from '/examples/content/tablewrapper/HighlightsRow.vue';
+import HighlightsRowHoverExample from '/examples/content/tablewrapper/HighlightsRowHover.vue';
+import ZebraExample from '/examples/content/tablewrapper/Zebra.vue';
+import PinnedRowsExample from '/examples/content/tablewrapper/PinnedRows.vue';
+import PinnedRowsColsExample from '/examples/content/tablewrapper/PinnedRowsCols.vue';
+import SizeExample from '/examples/content/tablewrapper/Size.vue';
 </script>
 # TableWrapper
 
 <Description
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/prose/TableWrapper.vue"
+  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/content/TableWrapper.vue"
+  demo="/components/content/table-wrapper"
 >
   Wrapper for displaying a html table
 </Description>
@@ -34,7 +35,7 @@ You are free to style the table as you wish.
 </div>
 
 ::: details
-<<< @/examples/prose/tablewrapper/demo/TableWrapper.vue{2-4,63 vue:line-numbers}
+<<< @/examples/content/tablewrapper/demo/TableWrapper.vue{2-4,63 vue:line-numbers}
 :::
 
 ### Size
@@ -48,7 +49,7 @@ By using the `size` property, you can adjust the size of the table.
 </div>
 
 ::: details
-<<< @/examples/prose/tablewrapper/demo/Size.vue{14 vue:line-numbers}
+<<< @/examples/content/tablewrapper/demo/Size.vue{14 vue:line-numbers}
 :::
 
 ### Border and background
@@ -66,7 +67,7 @@ To round the corners, use the `rounded` parameter.
 </div>
 
 ::: details
-<<< @/examples/prose/tablewrapper/demo/BorderBackground.vue{3-8 vue:line-numbers}
+<<< @/examples/content/tablewrapper/demo/BorderBackground.vue{3-8 vue:line-numbers}
 :::
 
 ### Highlights row
@@ -80,7 +81,7 @@ To highlight table rows, use the class of the `tr` tag.
 </div>
 
 ::: details
-<<< @/examples/prose/tablewrapper/demo/HighlightsRow.vue{24,38 vue:line-numbers}
+<<< @/examples/content/tablewrapper/demo/HighlightsRow.vue{24,38 vue:line-numbers}
 :::
 
 ### Highlights row on hover
@@ -94,7 +95,7 @@ To highlight a row when hovering the cursor, use something like `hover:bg-red-50
 </div>
 
 ::: details
-<<< @/examples/prose/tablewrapper/demo/HighlightsRowHover.vue{24,38 vue:line-numbers}
+<<< @/examples/content/tablewrapper/demo/HighlightsRowHover.vue{24,38 vue:line-numbers}
 :::
 
 ### Zebra
@@ -110,7 +111,7 @@ For automatic row highlighting on hover, use the `rowHover` property.
 </div>
 
 ::: details
-<<< @/examples/prose/tablewrapper/demo/Zebra.vue{4,5 vue:line-numbers}
+<<< @/examples/content/tablewrapper/demo/Zebra.vue{4,5 vue:line-numbers}
 :::
 
 ### Pinned rows
@@ -126,7 +127,7 @@ Define the pinned-row using `<thead> ... </thead>` or `<tfoot></tfoot>`.
 </div>
 
 ::: details
-<<< @/examples/prose/tablewrapper/demo/PinnedRows.vue{5 vue:line-numbers}
+<<< @/examples/content/tablewrapper/demo/PinnedRows.vue{5 vue:line-numbers}
 :::
 
 ### Pinned rows and cols
@@ -142,7 +143,7 @@ Define the columns using `<th>...</th>`.
 </div>
 
 ::: details
-<<< @/examples/prose/tablewrapper/demo/PinnedRowsCols.vue{5-6 vue:line-numbers}
+<<< @/examples/content/tablewrapper/demo/PinnedRowsCols.vue{5-6 vue:line-numbers}
 :::
 
 ## API

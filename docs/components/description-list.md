@@ -4,8 +4,8 @@ description: 'For instances requiring the conversion of a table row into its own
 outline: deep
 ---
 <script setup>
-import DescriptionListExample from '/examples/descriptionlist/DescriptionList.vue';
 import IconsExample from '/examples/descriptionlist/Icons.vue';
+import DescriptionListExample from '/examples/descriptionlist/DescriptionList.vue';
 import ActionsExample from '/examples/descriptionlist/Actions.vue';
 import CustomExample from '/examples/descriptionlist/Custom.vue';
 </script>

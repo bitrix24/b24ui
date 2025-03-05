@@ -70,7 +70,7 @@ const components: IComponentInfo[] = [
   { id: 'slideover', description: 'A dialog that slides in from any side of the screen.', icon: GroupIcon },
   { id: 'switch', description: 'A control that toggles between two states.', icon: FormIcon },
   { id: 'tabs', description: 'A set of tab panels that are displayed one at a time.', icon: FolderEmptyIcon },
-  { id: 'prose/table-wrapper', description: 'Wrapper for displaying a table.', icon: GroupIcon },
+  { id: 'content/table-wrapper', description: 'Wrapper for displaying a table.', icon: GroupIcon },
   { id: 'textarea', description: 'A textarea element to input multi-line text.', icon: FormIcon },
   { id: 'toast', description: 'A succinct message to provide information or feedback to the user.', icon: GroupIcon },
   { id: 'tooltip', description: 'A popup that reveals information when hovering over an element.', icon: GroupIcon }

@@ -4,7 +4,7 @@ export interface ExampleProps {
 }
 
 withDefaults(defineProps<ExampleProps>(), {
-  size: 'md'
+  size: 'md' as const
 })
 </script>
 

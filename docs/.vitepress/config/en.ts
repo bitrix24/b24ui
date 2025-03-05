@@ -123,7 +123,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'Badge', link: 'badge' },
         { text: 'Countdown', link: 'countdown' },
         { text: 'Kbd', link: 'kbd' },
-        { text: 'TableWrapper', base: '/components/prose/', link: 'table-wrapper' }
+        { text: 'TableWrapper', base: '/components/content/', link: 'table-wrapper' }
       ]
     },
     {

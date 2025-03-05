@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import theme from '#build/b24ui/prose/table-wrapper'
+import theme from '#build/b24ui/content/table-wrapper'
 import usePageMeta from './../../../composables/usePageMeta'
 import ExampleGrid from '../../../components/ExampleGrid.vue'
 import ExampleCard from '../../../components/ExampleCard.vue'

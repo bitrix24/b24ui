@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import theme from '#build/b24ui/prose/table-wrapper'
+import theme from '#build/b24ui/content/table-wrapper'
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
 import Demo from './demo/Size.vue'
 
