@@ -1,5 +1,30 @@
 # Changelog
 
+## 0.4.1 (2025-03-05)
+
+### Bug Fixes
+
+* **InputMenu:** wrong `required` in multiple mode
+* **InputMenu/SelectMenu:** proxy `required` in root props
+
+### Features
+
+* **prose:** new prose components
+
+### Chore
+
+* **Slideover:** add safeList
+* **components:** add `@IconComponent` tag on icon properties
+* **components:** improve tsdoc
+* **deps:** update dependency ohash to v2
+* **Modal/Slideover:** add backdrop blur
+* **DescriptionList:** move from `components/content` to `components`
+* **TableWrapper:** move from `components/prose` to `components/content`
+
+### Docs
+
+* **getting-started:** improve
+
 ## 0.4.0 (2025-03-03)
 
 ### Bug Fixes
