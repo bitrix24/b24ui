@@ -14,7 +14,15 @@
 
   .dark {}
 
+  --b24ui-header-height: calc(var(--spacing)*16);
+
   .scrollbar-thin {
     scrollbar-width: thin;
+  }
+}
+
+@layer theme {
+  :host,:root {
+    --spacing: .25rem;
   }
 }

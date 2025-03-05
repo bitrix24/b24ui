@@ -67,6 +67,12 @@ export default defineNuxtModule<ModuleOptions>({
       pathPrefix: false
     })
 
+    addComponentsDir({
+      path: resolve('./runtime/prose'),
+      prefix: '',
+      pathPrefix: false
+    })
+
     addImportsDir(resolve('./runtime/composables'))
 
     addTemplates(options, nuxt, resolve)

@@ -21,8 +21,8 @@ export default function ComponentImportPlugin(
   const componentsContent = globSync('**/*.vue', { cwd: join(runtimeDir, 'components/content') })
   const componentContentNames = new Set(componentsContent.map(c => `B24${c.replace(/\.vue$/, '')}`))
 
-  const componentsProse = globSync('**/*.vue', { cwd: join(runtimeDir, 'components/prose') })
-  const componentProseNames = new Set(componentsProse.map(c => `B24${c.replace(/\.vue$/, '')}`))
+  const componentsProse = globSync('**/*.vue', { cwd: join(runtimeDir, 'prose') })
+  const componentProseNames = new Set(componentsProse.map(c => `${c.replace(/\.vue$/, '')}`))
 
   const overrides = globSync('**/*.vue', { cwd: join(runtimeDir, 'vue/components') })
   const overrideNames = new Set(overrides.map(c => `B24${c.replace(/\.vue$/, '')}`))
@@ -35,7 +35,7 @@ export default function ComponentImportPlugin(
         if (overrideNames.has(componentName))
           return { name: 'default', from: join(runtimeDir, 'vue/components', `${componentName.slice('B24'.length)}.vue`) }
         if (componentProseNames.has(componentName))
-          return { name: 'default', from: join(runtimeDir, 'components/prose', `${componentName.slice('B24'.length)}.vue`) }
+          return { name: 'default', from: join(runtimeDir, 'prose', `${componentName.slice(0)}.vue`) }
         if (componentContentNames.has(componentName))
           return { name: 'default', from: join(runtimeDir, 'components/content', `${componentName.slice('B24'.length)}.vue`) }
         if (componentNames.has(componentName))

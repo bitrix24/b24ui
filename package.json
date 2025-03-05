@@ -36,6 +36,7 @@
       "types": "./vue-plugin.d.ts"
     },
     "./runtime/*": "./dist/runtime/*",
+    "./prose/*": "./dist/runtime/prose/*",
     "./components/*": "./dist/runtime/components/*",
     "./composables/*": "./dist/runtime/composables/*",
     "./types/*": "./dist/runtime/types/*",

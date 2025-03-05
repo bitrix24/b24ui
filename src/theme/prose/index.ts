@@ -1,1 +1,7 @@
-export {}
+export { default as proseH1 } from './prose-h1'
+export { default as proseH2 } from './prose-h2'
+export { default as proseH3 } from './prose-h3'
+export { default as proseLi } from './prose-li'
+export { default as proseOl } from './prose-ol'
+export { default as proseP } from './prose-p'
+export { default as proseUl } from './prose-ul'
