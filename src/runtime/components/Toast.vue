@@ -42,6 +42,7 @@ export interface ToastProps extends Pick<ToastRootProps, 'defaultOpen' | 'open' 
   /**
    * The icon displayed in the close button.
    * @defaultValue icons.close
+   * @IconComponent
    */
   closeIcon?: IconComponent
   class?: any

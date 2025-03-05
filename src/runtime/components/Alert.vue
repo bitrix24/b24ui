@@ -20,6 +20,10 @@ export interface AlertProps {
   as?: any
   title?: string
   description?: string
+  /**
+   * Display an icon on the left side.
+   * @IconComponent
+   */
   icon?: IconComponent
   avatar?: AvatarProps
   color?: AlertVariants['color']
@@ -42,6 +46,7 @@ export interface AlertProps {
   /**
    * The icon displayed in the close button.
    * @defaultValue icons.close
+   * @IconComponent
    */
   closeIcon?: IconComponent
   class?: any

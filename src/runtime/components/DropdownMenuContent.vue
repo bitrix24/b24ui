@@ -12,7 +12,13 @@ interface DropdownMenuContentProps<T> extends Omit<RekaDropdownMenuContentProps,
   portal?: boolean
   sub?: boolean
   labelKey: string
+  /**
+   * @IconComponent
+   */
   checkedIcon?: IconComponent
+  /**
+   * @IconComponent
+   */
   externalIcon?: boolean | IconComponent
   class?: any
   b24ui: typeof _dropdownMenu

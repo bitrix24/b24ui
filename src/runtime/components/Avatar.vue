@@ -20,6 +20,10 @@ export interface AvatarProps {
   as?: any
   src?: string
   alt?: string
+  /**
+   * Display an icon on the left side.
+   * @IconComponent
+   */
   icon?: IconComponent
   text?: string
   size?: AvatarVariants['size']

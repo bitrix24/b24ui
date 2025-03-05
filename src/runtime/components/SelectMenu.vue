@@ -17,6 +17,10 @@ type SelectMenuVariants = VariantProps<typeof selectMenu>
 
 export interface SelectMenuItem {
   label?: string
+  /**
+   * Display an icon on the left side.
+   * @IconComponent
+   */
   icon?: IconComponent
   avatar?: AvatarProps
   color?: SelectMenuVariants['color']
@@ -56,12 +60,14 @@ export interface SelectMenuProps<T extends MaybeArrayOfArrayItem<I>, I extends M
   required?: boolean
   /**
    * The icon displayed to open the menu.
-   * @defaultValue icons.chevronDown = `ChevronDownIcon`
+   * @defaultValue icons.chevronDown
+   * @IconComponent
    */
   trailingIcon?: IconComponent
   /**
    * The icon displayed when an item is selected.
-   * @defaultValue icons.check = `CheckIcon`
+   * @defaultValue icons.check
+   * @IconComponent
    */
   selectedIcon?: IconComponent
   /**

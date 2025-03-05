@@ -18,6 +18,10 @@ type InputMenuVariants = VariantProps<typeof inputMenu>
 
 export interface InputMenuItem {
   label?: string
+  /**
+   * Display an icon on the left side.
+   * @IconComponent
+   */
   icon?: IconComponent
   avatar?: AvatarProps
   color?: InputMenuVariants['color']
@@ -56,18 +60,21 @@ export interface InputMenuProps<T extends MaybeArrayOfArrayItem<I>, I extends Ma
   autofocusDelay?: number
   /**
    * The icon displayed to open the menu.
-   * @defaultValue icons.chevronDown = `ChevronDownIcon`
+   * @defaultValue icons.chevronDown
+   * @IconComponent
    */
   trailingIcon?: IconComponent
   /**
    * The icon displayed when an item is selected.
-   * @defaultValue icons.check = `CheckIcon`
+   * @defaultValue icons.check
+   * @IconComponent
    */
   selectedIcon?: IconComponent
   /**
    * The icon displayed to delete a tag.
    * Works only when `multiple` is `true`.
-   * @defaultValue icons.close = `Cross30Icon`
+   * @defaultValue icons.close
+   * @IconComponent
    */
   deleteIcon?: IconComponent
   /**

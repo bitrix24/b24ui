@@ -27,11 +27,18 @@ export interface SwitchProps extends Pick<SwitchRootProps, 'disabled' | 'id' | '
   /**
    * The icon when the `loading` prop is `true`.
    * @defaultValue icons.refresh
+   * @IconComponent
    */
   loadingIcon?: IconComponent
-  /** Display an icon when the switch is checked. */
+  /**
+   * Display an icon when the switch is checked.
+   * @IconComponent
+   */
   checkedIcon?: IconComponent
-  /** Display an icon when the switch is unchecked. */
+  /**
+   * Display an icon when the switch is unchecked.
+   * @IconComponent
+   */
   uncheckedIcon?: IconComponent
   label?: string
   description?: string

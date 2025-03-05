@@ -15,6 +15,10 @@ type DescriptionListVariants = VariantProps<typeof descriptionList>
 
 export interface DescriptionListItem {
   label?: string
+  /**
+   * Display an icon on the left side.
+   * @IconComponent
+   */
   icon?: IconComponent
   avatar?: AvatarProps
   slot?: string

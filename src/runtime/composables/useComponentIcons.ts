@@ -3,7 +3,11 @@ import type { AvatarProps, IconComponent } from '../types'
 import icons from '../dictionary/icons'
 
 export interface UseComponentIconsProps {
-  /** Display an icon on the left side. */
+  /**
+   * Display an icon on the left side.
+   * @defaultValue icons.loading
+   * @IconComponent
+   */
   icon?: IconComponent
   /** Display an avatar on the left side. */
   avatar?: AvatarProps
@@ -11,7 +15,10 @@ export interface UseComponentIconsProps {
   loading?: boolean
   /** When `true`, the icon will be displayed on the right side. */
   trailing?: boolean
-  /** Display an icon on the right side. */
+  /**
+   * Display an icon on the right side.
+   * @IconComponent
+   */
   trailingIcon?: IconComponent
 }
 

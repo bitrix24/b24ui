@@ -16,6 +16,10 @@ type DropdownMenuVariants = VariantProps<typeof dropdownMenu>
 
 export interface DropdownMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'custom'> {
   label?: string
+  /**
+   * Display an icon on the left side.
+   * @IconComponent
+   */
   icon?: IconComponent
   color?: DropdownMenuVariants['color']
   avatar?: AvatarProps
@@ -42,13 +46,15 @@ export interface DropdownMenuProps<T> extends Omit<DropdownMenuRootProps, 'dir'>
   items?: T[] | T[][]
   /**
    * The icon displayed when an item is checked.
-   * @defaultValue icons.check = `CheckIcon`
+   * @defaultValue icons.check
+   * @IconComponent
    */
   checkedIcon?: IconComponent
   /**
    * The icon displayed when the item is an external link.
    * Set to `false` to hide the external icon.
-   * @defaultValue icons.external = `OpenIn50Icon`
+   * @defaultValue icons.external
+   * @IconComponent
    */
   externalIcon?: boolean | IconComponent
   /**
