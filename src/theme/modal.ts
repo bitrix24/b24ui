@@ -14,7 +14,7 @@
  */
 export default {
   slots: {
-    overlay: 'fixed inset-0 bg-base-950/20 dark:bg-base-950/30',
+    overlay: 'fixed inset-0 bg-base-950/20 dark:bg-base-950/30 backdrop-blur-sm',
     content: [
       'py-md2 px-5',
       'fixed bg-white dark:bg-base-950',
