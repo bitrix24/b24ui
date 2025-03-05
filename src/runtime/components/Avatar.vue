@@ -26,6 +26,9 @@ export interface AvatarProps {
    */
   icon?: IconComponent
   text?: string
+  /**
+   * @defaultValue 'md'
+   */
   size?: AvatarVariants['size']
   class?: any
   b24ui?: Partial<typeof avatar.slots>

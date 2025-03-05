@@ -17,13 +17,19 @@ export interface ButtonGroupProps {
    * @defaultValue 'div'
    */
   as?: any
+  /**
+   * @defaultValue 'md'
+   */
   size?: ButtonGroupVariants['size']
   /**
    * The orientation the buttons are laid out.
    * @defaultValue 'horizontal'
    */
   orientation?: ButtonGroupVariants['orientation']
-  /** Disable split */
+  /**
+   * Disable show split
+   * @defaultValue false
+   */
   noSplit?: boolean
   class?: any
 }

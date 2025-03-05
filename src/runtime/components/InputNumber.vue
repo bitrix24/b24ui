@@ -20,21 +20,47 @@ export interface InputNumberProps extends Pick<NumberFieldRootProps, 'modelValue
    * @defaultValue 'div'
    */
   as?: any
-  /** The placeholder text when the input is empty. */
+  /**
+   * The placeholder text when the input is empty
+   */
   placeholder?: string
+  /**
+   * @defaultValue 'primary'
+   */
   color?: InputNumberVariants['color']
+  /**
+   * @defaultValue 'md'
+   */
   size?: InputNumberVariants['size']
-  /** Removes padding from input. */
+  /**
+   * Removes padding from input
+   * @defaultValue false
+   */
   noPadding?: boolean
-  /** removes all borders (rings). */
+  /**
+   * Removes all borders (rings)
+   * @defaultValue false
+   */
   noBorder?: boolean
-  /** removes all borders (rings) except the bottom one. */
+  /**
+   * Removes all borders (rings) except the bottom one
+   * @defaultValue false
+   */
   underline?: boolean
-  /** Rounds the corners of the button. */
+  /**
+   * Rounds the corners of the button
+   * @defaultValue false
+   */
   rounded?: boolean
   tag?: string
+  /**
+   * @defaultValue 'primary'
+   */
   tagColor?: InputNumberVariants['tagColor']
-  /** Highlight the ring color like a focus state. */
+  /**
+   * Highlight the ring color like a focus state
+   * @defaultValue false
+   */
   highlight?: boolean
   /**
    * The orientation of the input menu.
@@ -63,7 +89,13 @@ export interface InputNumberProps extends Pick<NumberFieldRootProps, 'modelValue
    * @IconComponent
    */
   decrementIcon?: IconComponent
+  /**
+   * @defaultValue false
+   */
   autofocus?: boolean
+  /**
+   * @defaultValue 0
+   */
   autofocusDelay?: number
   /**
    * The locale to use for formatting and parsing numbers.

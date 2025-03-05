@@ -16,7 +16,9 @@ type SlideoverVariants = VariantProps<typeof slideover>
 export interface SlideoverProps extends DialogRootProps {
   title?: string
   description?: string
-  /** The content of the slideover. */
+  /**
+   * The content of the slideover
+   */
   content?: Omit<DialogContentProps, 'as' | 'asChild' | 'forceMount'>
   /**
    * Render an overlay behind the slideover.
@@ -28,6 +30,10 @@ export interface SlideoverProps extends DialogRootProps {
    * @defaultValue true
    */
   transition?: boolean
+  /**
+   * The side of the slideover.
+   * @defaultValue 'right'
+   */
   side?: SlideoverVariants['side']
   /**
    * Render the slideover in a portal.
@@ -49,9 +55,12 @@ export interface SlideoverProps extends DialogRootProps {
   closeIcon?: IconComponent
   /**
    * When `false`, the slideover will not close when clicking outside or pressing escape.
-   * @defaultValue true
+   * @defaultValue false
    */
   dismissible?: boolean
+  /**
+   * @defaultValue true
+   */
   scrollbarThin?: boolean
   class?: any
   b24ui?: Partial<typeof slideover.slots>

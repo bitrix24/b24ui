@@ -23,12 +23,16 @@ export interface DescriptionListItem {
   avatar?: AvatarProps
   slot?: string
   description?: string
+  /**
+   * The orientation between the content and the actions.
+   * @defaultValue 'vertical'
+   */
   orientation?: DescriptionListVariants['orientation']
   /**
    * Display a list of actions:
    * - under the description when orientation is `vertical`
    * - next to the description when orientation is `horizontal`
-   * `{ size: 'xs' }`{lang="ts-type"}
+   * `{ size: 'xs' }`{lang="ts"}
    */
   actions?: ButtonProps[]
   class?: any
@@ -49,6 +53,9 @@ export interface DescriptionListProps<T> {
    */
   descriptionKey?: string
   items?: T[]
+  /**
+   * @defaultValue 'md'
+   */
   size?: DescriptionListVariants['size']
   class?: any
   b24ui?: Partial<typeof descriptionList.slots>

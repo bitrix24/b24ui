@@ -13,6 +13,10 @@ const toaster = tv({ extend: tv(theme), ...(appConfigToaster.b24ui?.toaster || {
 type ToasterVariants = VariantProps<typeof toaster>
 
 export interface ToasterProps extends Omit<ToastProviderProps, 'swipeDirection'> {
+  /**
+   * The position on the screen to display the toasts.
+   * @defaultValue 'top-right'
+   */
   position?: ToasterVariants['position']
   /**
    * Expand the toasts to show multiple toasts at once.
@@ -24,6 +28,10 @@ export interface ToasterProps extends Omit<ToastProviderProps, 'swipeDirection'>
    * @defaultValue true
    */
   portal?: boolean
+  /**
+   * @defaultValue 5000
+   */
+  duration?: number
   class?: any
   b24ui?: Partial<typeof toaster.slots>
 }

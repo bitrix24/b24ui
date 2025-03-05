@@ -26,7 +26,13 @@ export interface FormFieldProps {
   help?: string
   error?: string | boolean
   hint?: string
+  /**
+   * @defaultValue 'md'
+   */
   size?: FormFieldVariants['size']
+  /**
+   * @defaultValue false
+   */
   required?: boolean
   eagerValidation?: boolean
   validateOnInputDelay?: number

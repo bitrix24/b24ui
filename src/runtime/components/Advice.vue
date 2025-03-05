@@ -20,6 +20,9 @@ export interface AdviceProps extends Omit<UseComponentIconsProps, 'loading' | 't
    */
   as?: any
   description?: string
+  /**
+   * @defaultValue 'bottom'
+   */
   angle?: AdviceVariants['angle']
   class?: any
   b24ui?: Partial<typeof advice.slots>

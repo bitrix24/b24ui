@@ -14,6 +14,9 @@ const tabs = tv({ extend: tv(theme), ...(appConfigTabs.b24ui?.tabs || {}) })
 
 export interface TabsItem {
   label?: string
+  /**
+   * @IconComponent
+   */
   icon?: IconComponent
   avatar?: AvatarProps
   slot?: string
@@ -32,8 +35,17 @@ export interface TabsProps<T> extends Pick<TabsRootProps<string | number>, 'defa
    */
   as?: any
   items?: T[]
+  /**
+   * @defaultValue 'default'
+   */
   color?: TabsVariants['color']
+  /**
+   * @defaultValue 'link'
+   */
   variant?: TabsVariants['variant']
+  /**
+   * @defaultValue 'md'
+   */
   size?: TabsVariants['size']
   /**
    * The orientation of the tabs.

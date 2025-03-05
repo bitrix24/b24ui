@@ -20,15 +20,33 @@ export interface BadgeProps extends Omit<UseComponentIconsProps, 'loading' | 'lo
    */
   as?: any
   label?: string | number
+  /**
+   * @defaultValue 'default'
+   */
   color?: BadgeVariants['color']
+  /**
+   * @defaultValue 'normal'
+   */
   depth?: BadgeVariants['depth']
+  /**
+   * @defaultValue 'md'
+   */
   size?: BadgeVariants['size']
-  /** Shows 'underline' on hover */
+  /**
+   * Shows 'underline' on hover
+   * @defaultValue false
+   */
   useLink?: boolean
-  /** Shows `Cross20Icon` icon on the right side */
+  /**
+   * Shows icons.close on the right side
+   * @defaultValue false
+   */
   useClose?: boolean
   onCloseClick?: ((event: MouseEvent) => void | Promise<void>) | Array<((event: MouseEvent) => void | Promise<void>)>
-  /** Fills the background */
+  /**
+   * Fills the background
+   * @defaultValue false
+   */
   useFill?: boolean
   class?: any
   b24ui?: Partial<typeof badge.slots>

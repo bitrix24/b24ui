@@ -23,27 +23,71 @@ export interface InputProps extends UseComponentIconsProps {
   as?: any
   id?: string
   name?: string
+  /**
+   * @defaultValue 'text'
+   */
   type?: InputHTMLAttributes['type']
-  /** The placeholder text when the input is empty. */
+  /**
+   * The placeholder text when the input is empty.
+   */
   placeholder?: string
+  /**
+   * @defaultValue 'primary'
+   */
   color?: InputVariants['color']
+  /**
+   * @defaultValue 'md'
+   */
   size?: InputVariants['size']
-  /** Removes padding from input. */
+  /**
+   * Removes padding from input
+   * @defaultValue false
+   */
   noPadding?: boolean
-  /** removes all borders (rings). */
+  /**
+   * Removes all borders (rings)
+   * @defaultValue false
+   */
   noBorder?: boolean
-  /** removes all borders (rings) except the bottom one. */
+  /**
+   * Removes all borders (rings) except the bottom one
+   * @defaultValue false
+   */
   underline?: boolean
-  /** Rounds the corners of the button. */
+  /**
+   * Rounds the corners of the button
+   * @defaultValue false
+   */
   rounded?: boolean
+  /**
+   * @defaultValue false
+   */
   required?: boolean
+  /**
+   * @defaultValue 'off'
+   */
   autocomplete?: InputHTMLAttributes['autocomplete']
+  /**
+   * @defaultValue false
+   */
   autofocus?: boolean
+  /**
+   * @defaultValue 0
+   */
   autofocusDelay?: number
+  /**
+   * @defaultValue false
+   */
   disabled?: boolean
   tag?: string
+  /**
+   * @defaultValue 'primary'
+   */
   tagColor?: InputVariants['tagColor']
-  /** Highlight the ring color like a focus state. */
+  /**
+   * Highlight the ring color like a focus state
+   * @defaultValue false
+   */
   highlight?: boolean
   class?: any
   b24ui?: PartialString<typeof input.slots>

@@ -13,7 +13,9 @@ const modal = tv({ extend: tv(theme), ...(appConfigModal.b24ui?.modal || {}) })
 export interface ModalProps extends DialogRootProps {
   title?: string
   description?: string
-  /** The content of the modal. */
+  /**
+   * The content of the modal
+   */
   content?: Omit<DialogContentProps, 'as' | 'asChild' | 'forceMount'>
   /**
    * Render an overlay behind the modal.
@@ -37,7 +39,7 @@ export interface ModalProps extends DialogRootProps {
   portal?: boolean
   /**
    * Display a close button to dismiss the modal.
-   * `{ size: 'xs', color: 'link' }`{lang="ts-type"}
+   * `{ size: 'xs', color: 'link' }`{lang="ts"}
    * @defaultValue true
    */
   close?: boolean | Partial<ButtonProps>
@@ -49,9 +51,12 @@ export interface ModalProps extends DialogRootProps {
   closeIcon?: IconComponent
   /**
    * When `false`, the modal will not close when clicking outside or pressing escape.
-   * @defaultValue true
+   * @defaultValue false
    */
   dismissible?: boolean
+  /**
+   * @defaultValue true
+   */
   scrollbarThin?: boolean
   class?: any
   b24ui?: Partial<typeof modal.slots>

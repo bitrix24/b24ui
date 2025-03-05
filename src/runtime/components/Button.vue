@@ -17,22 +17,52 @@ type ButtonVariants = VariantProps<typeof button>
 
 export interface ButtonProps extends Omit<UseComponentIconsProps, 'trailing' | 'trailingIcon'>, Omit<LinkProps, 'raw' | 'custom'> {
   label?: string
+  /**
+   * @defaultValue 'default'
+   */
   color?: ButtonVariants['color']
+  /**
+   * @defaultValue 'normal'
+   */
   depth?: ButtonVariants['depth']
+  /**
+   * @defaultValue 'md'
+   */
   size?: ButtonVariants['size']
-  /** Rounds the corners of the button. */
+  /**
+   * Rounds the corners of the button
+   * @defaultValue false
+   */
   rounded?: boolean
-  /** Render the button full width. */
+  /**
+   * Render the button full width
+   * @defaultValue false
+   */
   block?: boolean
-  /** Set loading state automatically based on the `@click` promise state */
+  /**
+   * Set loading state automatically based on the `@click` promise state
+   * @defaultValue false
+   */
   loadingAuto?: boolean
-  /** Disable uppercase label */
+  /**
+   * Disable uppercase label
+   * @defaultValue false
+   */
   normalCase?: boolean
-  /** Shows `Wait` icon in loading mode */
+  /**
+   * Shows LoaderWaitIcon in loading mode
+   * @defaultValue false
+   */
   useWait?: boolean
-  /** Shows `Clock` icon in loading mode */
+  /**
+   * Shows LoaderClockIcon icon in loading mode
+   * @defaultValue false
+   */
   useClock?: boolean
-  /** Shows `ChevronDownIcon` icon on the right side */
+  /**
+   * Shows icons.chevronDown on the right side
+   * @defaultValue false
+   */
   useDropdown?: boolean
   onClick?: ((event: MouseEvent) => void | Promise<void>) | Array<((event: MouseEvent) => void | Promise<void>)>
   class?: any

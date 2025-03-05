@@ -26,19 +26,29 @@ export interface AlertProps {
    */
   icon?: IconComponent
   avatar?: AvatarProps
+  /**
+   * @defaultValue 'default'
+   */
   color?: AlertVariants['color']
+  /**
+   * The orientation between the content and the actions.
+   * @defaultValue 'vertical'
+   */
   orientation?: AlertVariants['orientation']
+  /**
+   * @defaultValue 'md'
+   */
   size?: AlertVariants['size']
   /**
    * Display a list of actions:
    * - under the title and description when orientation is `vertical`
    * - next to the close button when orientation is `horizontal`
-   * `{ size: 'xs' }`{lang="ts-type"}
+   * `{ size: 'xs' }`{lang="ts"}
    */
   actions?: ButtonProps[]
   /**
    * Display a close button to dismiss the alert.
-   * `{ size: 'md', color: 'neutral', variant: 'link' }`{lang="ts-type"}
+   * `{ size: 'md', color: 'neutral', variant: 'link' }`{lang="ts"}
    * @emits 'update:open'
    * @defaultValue false
    */

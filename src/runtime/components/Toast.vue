@@ -22,20 +22,30 @@ export interface ToastProps extends Pick<ToastRootProps, 'defaultOpen' | 'open' 
   as?: any
   title?: StringOrVNode
   description?: StringOrVNode
+  /**
+   * @IconComponent
+   */
   icon?: IconComponent
   avatar?: AvatarProps
+  /**
+   * @defaultValue 'default'
+   */
   color?: ToastVariants['color']
+  /**
+   * The orientation between the content and the actions
+   * @defaultValue 'vertical'
+   */
   orientation?: ToastVariants['orientation']
   /**
    * Display a list of actions:
    * - under the title and description when orientation is `vertical`
    * - next to the close button when orientation is `horizontal`
-   * `{ size: 'xs' }`{lang="ts-type"}
+   * `{ size: 'xs' }`{lang="ts"}
    */
   actions?: ButtonProps[]
   /**
    * Display a close button to dismiss the toast.
-   * `{ size: 'md', color: 'neutral', variant: 'link' }`{lang="ts-type"}
+   * `{ size: 'md', color: 'neutral', variant: 'link' }`{lang="ts"}
    * @defaultValue true
    */
   close?: boolean | Partial<ButtonProps>

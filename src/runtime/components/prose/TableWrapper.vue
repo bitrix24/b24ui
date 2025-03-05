@@ -17,13 +17,37 @@ export interface TableWrapperProps {
    * @defaultValue 'div'
    */
   as?: any
+  /**
+   * @defaultValue 'md'
+   */
   size?: TableWrapperVariants['size']
+  /**
+   * @defaultValue false
+   */
   rounded?: boolean
+  /**
+   * @defaultValue false
+   */
   zebra?: boolean
+  /**
+   * @defaultValue false
+   */
   pinRows?: boolean
+  /**
+   * @defaultValue false
+   */
   pinCols?: boolean
+  /**
+   * @defaultValue false
+   */
   rowHover?: boolean
+  /**
+   * @defaultValue false
+   */
   bordered?: boolean
+  /**
+   * @defaultValue true
+   */
   scrollbarThin?: boolean
   class?: any
   b24ui?: Partial<typeof tableWrapper.slots>

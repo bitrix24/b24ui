@@ -38,17 +38,38 @@ export interface SelectProps<T extends MaybeArrayOfArrayItem<I>, I extends Maybe
   id?: string
   /** The placeholder text when the select is empty. */
   placeholder?: string
+  /**
+   * @defaultValue 'primary'
+   */
   color?: SelectVariants['color']
+  /**
+   * @defaultValue 'md'
+   */
   size?: SelectVariants['size']
-  /** Removes padding from input. */
+  /**
+   * Removes padding from input
+   * @defaultValue false
+   */
   noPadding?: boolean
-  /** removes all borders (rings). */
+  /**
+   * Removes all borders (rings)
+   * @defaultValue false
+   */
   noBorder?: boolean
-  /** removes all borders (rings) except the bottom one. */
+  /**
+   * Removes all borders (rings) except the bottom one
+   * @defaultValue false
+   */
   underline?: boolean
-  /** Rounds the corners of the button. */
+  /**
+   * Rounds the corners of the button
+   * @defaultValue false
+   */
   rounded?: boolean
   tag?: string
+  /**
+   * @defaultValue 'primary'
+   */
   tagColor?: SelectVariants['tagColor']
   /**
    * The icon displayed to open the menu.
@@ -88,13 +109,23 @@ export interface SelectProps<T extends MaybeArrayOfArrayItem<I>, I extends Maybe
    */
   labelKey?: V
   items?: I
-  /** The value of the Select when initially rendered. Use when you do not need to control the state of the Select. */
+  /**
+   * The value of the Select when initially rendered. Use when you do not need to control the state of the Select
+   */
   defaultValue?: SelectModelValue<T, V, M, T extends { value: infer U } ? U : never>
-  /** The controlled value of the Select. Can be bind as `v-model`. */
+  /**
+   * The controlled value of the Select. Can be bind as `v-model`
+   */
   modelValue?: SelectModelValue<T, V, M, T extends { value: infer U } ? U : never>
-  /** Whether multiple options can be selected or not. */
+  /**
+   * Whether multiple options can be selected or not
+   * @defaultValue false
+   */
   multiple?: M & boolean
-  /** Highlight the ring color like a focus state. */
+  /**
+   * Highlight the ring color like a focus state
+   * @defaultValue false
+   */
   highlight?: boolean
   class?: any
   b24ui?: PartialString<typeof select.slots>

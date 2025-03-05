@@ -19,7 +19,13 @@ export interface KbdProps {
    */
   as?: any
   value?: KbdKey | string
+  /**
+   * @defaultValue 'light'
+   */
   depth?: KbdVariants['depth']
+  /**
+   * @defaultValue 'md'
+   */
   size?: KbdVariants['size']
   class?: any
 }

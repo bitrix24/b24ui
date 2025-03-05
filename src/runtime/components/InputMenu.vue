@@ -42,21 +42,53 @@ export interface InputMenuProps<T extends MaybeArrayOfArrayItem<I>, I extends Ma
    */
   as?: any
   id?: string
+  /**
+   * @defaultValue 'text'
+   */
   type?: InputHTMLAttributes['type']
-  /** The placeholder text when the input is empty. */
+  /**
+   * The placeholder text when the input is empty
+   */
   placeholder?: string
+  /**
+   * @defaultValue 'primary'
+   */
   color?: InputMenuVariants['color']
+  /**
+   * @defaultValue 'md'
+   */
   size?: InputMenuVariants['size']
-  /** Removes padding from input. */
+  /**
+   * Removes padding from input
+   * @defaultValue false
+   */
   noPadding?: boolean
-  /** removes all borders (rings). */
+  /**
+   * Removes all borders (rings)
+   * @defaultValue false
+   */
   noBorder?: boolean
-  /** removes all borders (rings) except the bottom one. */
+  /**
+   * Removes all borders (rings) except the bottom one
+   * @defaultValue false
+   */
   underline?: boolean
-  /** Rounds the corners of the button. */
+  /**
+   * Rounds the corners of the button
+   * @defaultValue false
+   */
   rounded?: boolean
+  /**
+   * @defaultValue false
+   */
   required?: boolean
+  /**
+   * @defaultValue false
+   */
   autofocus?: boolean
+  /**
+   * @defaultValue 0
+   */
   autofocusDelay?: number
   /**
    * The icon displayed to open the menu.
@@ -103,15 +135,28 @@ export interface InputMenuProps<T extends MaybeArrayOfArrayItem<I>, I extends Ma
    */
   labelKey?: V
   items?: I
-  /** The value of the InputMenu when initially rendered. Use when you do not need to control the state of the InputMenu. */
+  /**
+   * The value of the InputMenu when initially rendered. Use when you do not need to control the state of the InputMenu
+   */
   defaultValue?: SelectModelValue<T, V, M>
-  /** The controlled value of the InputMenu. Can be binded-with with `v-model`. */
+  /**
+   * The controlled value of the InputMenu. Can be binded-with with `v-model`
+   */
   modelValue?: SelectModelValue<T, V, M>
-  /** Whether multiple options can be selected or not. */
+  /**
+   * Whether multiple options can be selected or not
+   * @defaultValue false
+   */
   multiple?: M & boolean
   tag?: string
+  /**
+   * @defaultValue 'primary'
+   */
   tagColor?: InputMenuVariants['tagColor']
-  /** Highlight the ring color like a focus state. */
+  /**
+   * Highlight the ring color like a focus state
+   * @defaultValue false
+   */
   highlight?: boolean
   /**
    * Determines if custom user input that does not exist in options can be added.

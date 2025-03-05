@@ -42,6 +42,9 @@ export interface DropdownMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cust
 }
 
 export interface DropdownMenuProps<T> extends Omit<DropdownMenuRootProps, 'dir'> {
+  /**
+   * @defaultValue 'md'
+   */
   size?: DropdownMenuVariants['size']
   items?: T[] | T[][]
   /**
@@ -77,6 +80,9 @@ export interface DropdownMenuProps<T> extends Omit<DropdownMenuRootProps, 'dir'>
    * @defaultValue 'label'
    */
   labelKey?: string
+  /**
+   * @defaultValue false
+   */
   disabled?: boolean
   class?: any
   b24ui?: PartialString<typeof dropdownMenu.slots>

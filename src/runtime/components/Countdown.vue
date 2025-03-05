@@ -28,24 +28,48 @@ export interface CountdownData {
 
 export interface CountdownProps extends Omit<UseComponentIconsProps, 'loading' | 'trailing' | 'trailingIcon'> {
   /**
-   * The element or component this component should render as.
+   * The element or component this component should render as
    * @defaultValue 'span'
    */
   as?: any
+  /**
+   * @defaultValue 'md'
+   */
   size?: CountdownVariants['size']
-  /** Emits the countdown events. */
+  /**
+   * Emits the countdown events
+   * @defaultValue true
+   */
   emitEvents?: boolean
-  /** Number of seconds to countdown. */
+  /**
+   * Number of seconds to countdown
+   * @defaultValue 0
+   */
   seconds?: number | string
-  /** Should seconds be divided into minutes? */
+  /**
+   * Should seconds be divided into minutes?
+   * @defaultValue true
+   */
   showMinutes?: boolean
-  /** Shows a `Circle` around the countdown */
+  /**
+   * Shows a `Circle` around the countdown
+   * @defaultValue false
+   */
   useCircle?: boolean
-  /** The interval time (in milliseconds) of the countdown progress. */
+  /**
+   * The interval time (in milliseconds) of the countdown progress
+   * @defaultValue 1000
+   */
   interval?: number
-  /** Starts the countdown automatically when initialized. */
+  /**
+   * Starts the countdown automatically when initialized
+   * @defaultValue true
+   */
   needStartImmediately?: boolean
-  /** Generate the current time of a specific time zone. */
+  /**
+   * Generate the current time of a specific time zone
+   * @defaultValue Date.now()
+   */
   now?: () => number
   class?: any
   b24ui?: Partial<typeof countdown.slots>

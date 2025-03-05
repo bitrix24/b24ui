@@ -20,7 +20,13 @@ export interface CheckboxProps extends Pick<CheckboxRootProps, 'disabled' | 'req
   as?: any
   label?: string
   description?: string
+  /**
+   * @defaultValue 'primary'
+   */
   color?: CheckboxVariants['color']
+  /**
+   * @defaultValue 'md'
+   */
   size?: CheckboxVariants['size']
   class?: any
   b24ui?: Partial<typeof checkbox.slots>

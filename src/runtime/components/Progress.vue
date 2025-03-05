@@ -19,19 +19,35 @@ export interface ProgressProps extends Pick<ProgressRootProps, 'getValueLabel' |
    * @defaultValue 'div'
    */
   as?: any
-  /** The maximum progress value. */
+  /**
+   * The maximum progress value
+   */
   max?: number | Array<any>
-  /** Display the current progress value. */
+  /**
+   * Display the current progress value
+   */
   status?: boolean
-  /** Whether the progress is visually inverted. */
+  /**
+   * Whether the progress is visually inverted
+   * @defaultValue false
+   */
   inverted?: boolean
+  /**
+   * @defaultValue 'md'
+   */
   size?: ProgressVariants['size']
+  /**
+   * @defaultValue 'primary'
+   */
   color?: ProgressVariants['color']
   /**
    * The orientation of the progress bar.
    * @defaultValue 'horizontal'
    */
   orientation?: ProgressVariants['orientation']
+  /**
+   * @defaultValue 'loading'
+   */
   animation?: ProgressVariants['animation']
   class?: any
   b24ui?: Partial<typeof progress.slots>

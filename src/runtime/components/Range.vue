@@ -18,14 +18,22 @@ export interface RangeProps extends Pick<SliderRootProps, 'name' | 'disabled' | 
    * @defaultValue 'div'
    */
   as?: any
+  /**
+   * @defaultValue 'md'
+   */
   size?: RangeVariants['size']
+  /**
+   * @defaultValue 'primary'
+   */
   color?: RangeVariants['color']
   /**
    * The orientation of the Range.
    * @defaultValue 'horizontal'
    */
   orientation?: SliderRootProps['orientation']
-  /** The value of the Range when initially rendered. Use when you do not need to control the state of the Range. */
+  /**
+   * The value of the Range when initially rendered. Use when you do not need to control the state of the Range
+   */
   defaultValue?: number | number[]
   class?: any
   b24ui?: Partial<typeof range.slots>

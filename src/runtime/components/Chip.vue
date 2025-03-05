@@ -19,12 +19,28 @@ export interface ChipProps {
   as?: any
   /** Display some text inside the chip. */
   text?: string | number
+  /**
+   * @defaultValue 'danger'
+   */
   color?: ChipVariants['color']
+  /**
+   * @defaultValue 'sm'
+   */
   size?: ChipVariants['size']
+  /**
+   * The position of the chip.
+   * @defaultValue 'top-right'
+   */
   position?: ChipVariants['position']
-  /** When `true`, keep the chip inside the component for rounded elements */
+  /**
+   * When `true`, keep the chip inside the component for rounded elements
+   * @defaultValue false
+   */
   inset?: boolean
-  /** When `true`, render the chip relatively to the parent. */
+  /**
+   * When `true`, render the chip relatively to the parent.
+   * @defaultValue false
+   */
   standalone?: boolean
   class?: any
   b24ui?: Partial<typeof chip.slots>
