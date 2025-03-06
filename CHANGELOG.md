@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.2 (2025-03-06)
+
+### Features
+* **Button:** handle `active` state
+* **Modal/Slideover:** add props `overlayBlur`
+
+### Chore
+* **deps:** update tailwindcss to ^4.0.10
+
 ## 0.4.1 (2025-03-05)
 
 ### Bug Fixes
