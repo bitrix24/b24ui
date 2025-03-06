@@ -5,7 +5,6 @@ import { glob } from 'tinyglobby'
 import { resolve } from 'pathe'
 
 const components = await glob('./src/runtime/components/*.vue', { absolute: true })
-const prose = await glob('./src/runtime/prose/*.vue', { absolute: true })
 const vueComponents = await glob('./src/runtime/vue/components/*.vue', { absolute: true })
 
 export default defineConfig({
@@ -15,7 +14,7 @@ export default defineConfig({
     include: [
       './test/components/**.spec.ts',
       './test/components/content/**.spec.ts',
-      './test/prose/**.spec.ts'
+      './test/components/prose/**.spec.ts'
     ],
     setupFiles: ['./test/utils/setup.ts'],
     resolveSnapshotPath(path, extension) {
@@ -53,29 +52,6 @@ export default defineConfig({
             }
             renderedComponents.add(componentName)
             return `export { default as B24${componentName} } from '${file}'`
-          }).join('\n')
-        }
-      }
-    },
-    {
-      name: 'bitrix24-ui-test:components',
-      enforce: 'pre',
-      resolveId(id) {
-        if (id === '#prose') {
-          return '#prose'
-        }
-      },
-      load(id) {
-        if (id === '#prose' || id === '?#prose') {
-          const resolvedComponents = [...prose]
-          const renderedComponents = new Set<string>()
-          return resolvedComponents.map((file) => {
-            const componentName = file.split('/').pop()!.replace('.vue', '')
-            if (renderedComponents.has(componentName)) {
-              return ''
-            }
-            renderedComponents.add(componentName)
-            return `export { default as ${componentName} } from '${file}'`
           }).join('\n')
         }
       }
