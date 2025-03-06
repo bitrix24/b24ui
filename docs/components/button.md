@@ -7,6 +7,8 @@ outline: deep
 import ButtonExample from '/examples/button/Button.vue';
 import ButtonLabelExample from '/examples/button/ButtonLabel.vue';
 import LinkExample from '/examples/button/Link.vue';
+import LinkActiveColorExample from '/examples/button/LinkActiveColor.vue';
+import LinkActiveClassExample from '/examples/button/LinkActiveClass.vue';
 import ColorExample from '/examples/button/Color.vue';
 import DepthExample from '/examples/button/Depth.vue';
 import SizeExample from '/examples/button/Size.vue';
@@ -156,11 +158,27 @@ You can pass any property from the [Link](/components/link#props) component such
 
 When the Button is a link or when using the `active` prop, you can use the `active-color` and `active-variant` props to customize the active state.
 
-__component-code
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <LinkActiveColorExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/button/demo/LinkActiveColor.vue{5-6,14-15 vue:line-numbers}
+:::
 
 You can also use the `active-class` and `inactive-class` props to customize the active state.
 
-__component-code
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <LinkActiveClassExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/button/demo/LinkActiveClass.vue{5-6,14-15 vue:line-numbers}
+:::
 
 ### Loading
 

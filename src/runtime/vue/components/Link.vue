@@ -250,7 +250,7 @@ function resolveLinkClass({ route, isActive, isExactActive }: any = {}) {
           disabled,
           href: to,
           target: isExternal ? '_blank' : undefined,
-          active: false
+          active: props?.active || false
         }"
       />
     </template>
@@ -267,7 +267,7 @@ function resolveLinkClass({ route, isActive, isExactActive }: any = {}) {
       :is-external="isExternal"
       :class="resolveLinkClass()"
     >
-      <slot :active="false" />
+      <slot :active="props?.active || false" />
     </B24LinkBase>
   </template>
 </template>

@@ -26,7 +26,7 @@ export interface ButtonProps extends Omit<UseComponentIconsProps, 'trailing' | '
    * @defaultValue 'normal'
    */
   depth?: ButtonVariants['depth']
-  depthVariant?: ButtonVariants['depth']
+  activeDepth?: ButtonVariants['depth']
   /**
    * @defaultValue 'md'
    */
@@ -191,7 +191,7 @@ const b24ui = computed(() => tv({
       :class="b24ui.base({
         class: [props.class, props.b24ui?.base],
         active,
-        ...(active && depthVariant ? { depth: depthVariant } : {}),
+        ...(active && activeDepth ? { depth: activeDepth } : {}),
         ...(active && activeColor ? { color: activeColor } : {})
       })"
       @click="onClickWrapper"

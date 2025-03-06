@@ -128,7 +128,7 @@ function onClick() {
           :label="btnState_1 ? 'Active' : 'Inactive'"
           :icon="TaskIcon"
           active-color="danger"
-          active-variant="dark"
+          active-depth="dark"
           loading-auto
           use-clock
           @click="async () => { await onClick(); btnState_1 = !btnState_1 }"
