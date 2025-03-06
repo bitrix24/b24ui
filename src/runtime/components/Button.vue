@@ -21,10 +21,12 @@ export interface ButtonProps extends Omit<UseComponentIconsProps, 'trailing' | '
    * @defaultValue 'default'
    */
   color?: ButtonVariants['color']
+  activeColor?: ButtonVariants['color']
   /**
    * @defaultValue 'normal'
    */
   depth?: ButtonVariants['depth']
+  depthVariant?: ButtonVariants['depth']
   /**
    * @defaultValue 'md'
    */
@@ -66,6 +68,16 @@ export interface ButtonProps extends Omit<UseComponentIconsProps, 'trailing' | '
   useDropdown?: boolean
   onClick?: ((event: MouseEvent) => void | Promise<void>) | Array<((event: MouseEvent) => void | Promise<void>)>
   class?: any
+  /**
+   * The class to apply when the link is active
+   * @defaultValue ''
+   */
+  activeClass?: string
+  /**
+   * The class to apply when the link is inactive
+   * @defaultValue ''
+   */
+  inactiveClass?: string
   b24ui?: PartialString<typeof button.slots>
 }
 
@@ -92,7 +104,10 @@ import LoaderClockIcon from '@bitrix24/b24icons-vue/animated/LoaderClockIcon'
 import SpinnerIcon from '@bitrix24/b24icons-vue/specialized/SpinnerIcon'
 
 const props = withDefaults(defineProps<ButtonProps>(), {
-  type: 'button'
+  type: 'button',
+  active: undefined,
+  activeClass: '',
+  inactiveClass: ''
 })
 
 const slots = defineSlots<ButtonSlots>()
@@ -132,7 +147,19 @@ const isLabel = computed(() => {
   return (props?.label || '').length > 0 || isUseSlot
 })
 
-const b24ui = computed(() => button({
+const b24ui = computed(() => tv({
+  extend: button,
+  variants: {
+    active: {
+      true: {
+        base: props.activeClass
+      },
+      false: {
+        base: props.inactiveClass
+      }
+    }
+  }
+})({
   color: props.color,
   depth: props.depth,
   size: buttonSize.value,
@@ -152,54 +179,65 @@ const b24ui = computed(() => button({
 
 <template>
   <B24Link
+    v-slot="{ active, ...slotProps }"
     :type="type"
     :disabled="disabled || isLoading"
     :class="b24ui.base({ class: [props.class, props.b24ui?.base] })"
     v-bind="omit(linkProps, ['type', 'disabled'])"
-    raw
-    @click="onClickWrapper"
+    custom
   >
-    <div
-      v-if="isLoading"
-      class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center"
+    <B24LinkBase
+      v-bind="slotProps"
+      :class="b24ui.base({
+        class: [props.class, props.b24ui?.base],
+        active,
+        ...(active && depthVariant ? { depth: depthVariant } : {}),
+        ...(active && activeColor ? { color: activeColor } : {})
+      })"
+      @click="onClickWrapper"
     >
-      <LoaderWaitIcon v-if="useWait" class="w-[28px] h-[28px]" aria-hidden="true" />
-      <LoaderClockIcon v-else-if="useClock" class="w-[28px] h-[28px]" aria-hidden="true" />
-      <SpinnerIcon v-else class="size-lg animate-spin stroke-2" aria-hidden="true" />
-    </div>
-    <div
-      :class="[
-        b24ui.baseLine({ class: [props.b24ui?.baseLine] }),
-        isLoading ? 'invisible' : ''
-      ]"
-    >
-      <slot name="leading">
-        <Component
-          :is="leadingIconName"
-          v-if="isLeading && (typeof leadingIconName !== 'undefined')"
-          :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
-        />
-        <B24Avatar
-          v-else-if="!!avatar"
-          :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
-          v-bind="avatar"
-          :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
-        />
-      </slot>
+      <div
+        v-if="isLoading"
+        class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center"
+      >
+        <LoaderWaitIcon v-if="useWait" class="w-[28px] h-[28px]" aria-hidden="true" />
+        <LoaderClockIcon v-else-if="useClock" class="w-[28px] h-[28px]" aria-hidden="true" />
+        <SpinnerIcon v-else class="size-lg animate-spin stroke-2" aria-hidden="true" />
+      </div>
+      <div
+        :class="[
+          b24ui.baseLine({ class: [props.b24ui?.baseLine] }),
+          isLoading ? 'invisible' : ''
+        ]"
+      >
+        <slot name="leading">
+          <Component
+            :is="leadingIconName"
+            v-if="isLeading && (typeof leadingIconName !== 'undefined')"
+            :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
+          />
+          <B24Avatar
+            v-else-if="!!avatar"
+            :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+            v-bind="avatar"
+            :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
+          />
+        </slot>
 
-      <slot>
-        <span v-if="label" :class="b24ui.label({ class: props.b24ui?.label })">
-          {{ label }}
-        </span>
-      </slot>
+        <slot>
+          <span v-if="label" :class="b24ui.label({ class: props.b24ui?.label, active })">
+            {{ label }}
+          </span>
+        </slot>
 
-      <slot name="trailing">
-        <ChevronDownIcon
-          v-if="useDropdown"
-          :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
-          aria-hidden="true"
-        />
-      </slot>
-    </div>
+        <slot name="trailing">
+          <ChevronDownIcon
+            v-if="useDropdown"
+            :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
+            aria-hidden="true"
+          />
+        </slot>
+      </div>
+    </B24LinkBase>
   </B24Link>
 </template>

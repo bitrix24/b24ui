@@ -1,5 +1,5 @@
 ---
-title: InputMenu
+title: DropdownMenu
 description: A contextual menu for actions triggered by clicking an element.
 outline: deep
 ---

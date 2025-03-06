@@ -13,75 +13,16 @@ const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.var
 const depths = Object.keys(theme.variants.depth) as Array<keyof typeof theme.variants.depth>
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
+const btnState_1 = ref(false)
+
 function onClick() {
-  return new Promise<void>(res => setTimeout(res, 3000))
+  return new Promise<void>(res => setTimeout(res, 1000))
 }
 </script>
 
 <template>
   <ExampleGrid v-once class="mb-2">
-    <template v-for="color in colors" :key="color">
-      <template v-for="depth in depths" :key="depth">
-        <ExampleCard :title="[color as string, depth as string].join(' ')" class="md:col-span-2">
-          <ExampleCardSubTitle title="size" />
-          <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-            <B24Button
-              v-for="size in sizes"
-              :key="size"
-              label="Button 1"
-              :color="color"
-              :depth="depth"
-              :size="size"
-              loading-auto
-              use-clock
-              @click="onClick"
-            />
-          </div>
-
-          <ExampleCardSubTitle title="loading" />
-          <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-            <B24Button
-              :color="color"
-              :depth="depth"
-              loading
-              use-wait
-            >
-              Loading
-            </B24Button>
-
-            <B24Button
-              :color="color"
-              :depth="depth"
-              loading
-              use-clock
-            >
-              Loading
-            </B24Button>
-
-            <B24Button
-              :color="color"
-              :depth="depth"
-              loading
-            >
-              Loading
-            </B24Button>
-
-            <B24Button
-              :color="color"
-              :depth="depth"
-              loading-auto
-              use-clock
-              @click="onClick"
-            >
-              Loading auto
-            </B24Button>
-          </div>
-        </ExampleCard>
-      </template>
-    </template>
-  </ExampleGrid>
-  <ExampleGrid v-once class="mb-2">
-    <ExampleCard title="icon" class="md:col-span-2">
+    <ExampleCard title="Different cases" class="md:col-span-2">
       <ExampleCardSubTitle title="icon" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24Button :icon="TaskIcon" loading-auto use-clock @click="onClick" />
@@ -178,5 +119,93 @@ function onClick() {
         </B24Button>
       </div>
     </ExampleCard>
+    <ExampleCard title="Active cases" class="md:col-span-2">
+      <ExampleCardSubTitle title="click to change active state" />
+      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+        <B24Button
+          :b24ui="{ baseLine: 'justify-center w-[200px]' }"
+          :active="btnState_1"
+          :label="btnState_1 ? 'Active' : 'Inactive'"
+          :icon="TaskIcon"
+          active-color="danger"
+          active-variant="dark"
+          loading-auto
+          use-clock
+          @click="async () => { await onClick(); btnState_1 = !btnState_1 }"
+        />
+        <B24Button
+          :b24ui="{ baseLine: 'justify-center w-[200px]' }"
+          :active="btnState_1"
+          :label="btnState_1 ? 'Active' : 'Inactive'"
+          :icon="TaskIcon"
+          active-class="italic"
+          inactive-class="tracking-widest"
+          loading-auto
+          use-clock
+          @click="async () => { await onClick(); btnState_1 = !btnState_1 }"
+        />
+      </div>
+    </ExampleCard>
+  </ExampleGrid>
+  <ExampleGrid v-once class="mb-2">
+    <template v-for="color in colors" :key="color">
+      <template v-for="depth in depths" :key="depth">
+        <ExampleCard :title="[color as string, depth as string].join(' ')" class="md:col-span-2">
+          <ExampleCardSubTitle title="size" />
+          <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+            <B24Button
+              v-for="size in sizes"
+              :key="size"
+              label="Button 1"
+              :color="color"
+              :depth="depth"
+              :size="size"
+              loading-auto
+              use-clock
+              @click="onClick"
+            />
+          </div>
+
+          <ExampleCardSubTitle title="loading" />
+          <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+            <B24Button
+              :color="color"
+              :depth="depth"
+              loading
+              use-wait
+            >
+              Loading
+            </B24Button>
+
+            <B24Button
+              :color="color"
+              :depth="depth"
+              loading
+              use-clock
+            >
+              Loading
+            </B24Button>
+
+            <B24Button
+              :color="color"
+              :depth="depth"
+              loading
+            >
+              Loading
+            </B24Button>
+
+            <B24Button
+              :color="color"
+              :depth="depth"
+              loading-auto
+              use-clock
+              @click="onClick"
+            >
+              Loading auto
+            </B24Button>
+          </div>
+        </ExampleCard>
+      </template>
+    </template>
   </ExampleGrid>
 </template>

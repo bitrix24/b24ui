@@ -26,7 +26,7 @@ export default {
       'transition duration-150 ease-linear' // transition-colors
     ],
     baseLine: [
-      'inline-flex items-center'
+      'inline-flex items-center' // justify-center
     ].join(' '),
     label: 'truncate',
     leadingIcon: 'shrink-0',
@@ -180,6 +180,14 @@ export default {
     normalCase: {
       true: 'font-semibold normal-case',
       false: 'font-bold uppercase'
+    },
+    active: {
+      true: {
+        base: ''
+      },
+      false: {
+        base: ''
+      }
     }
   },
   compoundVariants: [

@@ -54,20 +54,6 @@ You can achieve the same result by using the `label` prop.
 <<< @/examples/button/demo/ButtonLabel.vue{13 vue:line-numbers}
 :::
 
-### Link
-
-You can pass any property from the [Link](/components/link#props) component such as `to`, `target`, etc.
-
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <LinkExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/button/demo/Link.vue{3,4 vue:line-numbers}
-:::
-
 ### Color
 
 Use the `color` prop to change the color of the Button.
@@ -153,6 +139,28 @@ The `label` as prop or slot is optional so you can use the Button as an avatar-o
 ::: details
 <<< @/examples/button/demo/Avatar.vue{25 vue:line-numbers}
 :::
+
+### Link
+
+You can pass any property from the [Link](/components/link#props) component such as `to`, `target`, etc.
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <LinkExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/button/demo/Link.vue{3,4 vue:line-numbers}
+:::
+
+When the Button is a link or when using the `active` prop, you can use the `active-color` and `active-variant` props to customize the active state.
+
+__component-code
+
+You can also use the `active-class` and `inactive-class` props to customize the active state.
+
+__component-code
 
 ### Loading
 
