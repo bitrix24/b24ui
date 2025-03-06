@@ -26,6 +26,12 @@ export interface SlideoverProps extends DialogRootProps {
    */
   overlay?: boolean
   /**
+   * Render an overlay blur behind the slideover.
+   * `auto` use `motion-safe`.
+   * @defaultValue 'auto'
+   */
+  overlayBlur?: 'auto' | boolean
+  /**
    * Animate the slideover when opening or closing.
    * @defaultValue true
    */
@@ -98,7 +104,8 @@ const props = withDefaults(defineProps<SlideoverProps>(), {
   modal: true,
   dismissible: true,
   side: 'right',
-  scrollbarThin: true
+  scrollbarThin: true,
+  overlayBlur: 'auto'
 })
 const emits = defineEmits<SlideoverEmits>()
 const slots = defineSlots<SlideoverSlots>()
@@ -124,7 +131,8 @@ const contentEvents = computed(() => {
 
 const b24ui = computed(() => slideover({
   transition: props.transition,
-  side: props.side
+  side: props.side,
+  overlayBlur: props.overlayBlur
 }))
 </script>
 

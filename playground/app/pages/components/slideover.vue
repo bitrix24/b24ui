@@ -119,16 +119,26 @@ function openSlideover() {
       <ExampleCardSubTitle title="overlay" />
       <div class="mb-4 flex flex-row flex-wrap gap-2">
         <B24Slideover
+          title="Slideover without overlay blur"
+          description="This slideover has `overlay-blur: false` prop."
+          :overlay-blur="false"
+        >
+          <B24Button label="Open without overlay blur" color="link" depth="dark" />
+
+          <template #body>
+            <Placeholder class="h-full w-full" />
+          </template>
+        </B24Slideover>
+
+        <B24Slideover
           title="Slideover without overlay"
           description="This slideover has `overlay: false` prop."
           :overlay="false"
         >
-          <B24Button label="Open without overlay" color="link" depth="dark" />
+          <B24Button label="Open without overlay" color="default" depth="light" />
 
           <template #body>
-            <B24Container>
-              <Placeholder class="h-full w-full" />
-            </B24Container>
+            <Placeholder class="h-full w-full" />
           </template>
         </B24Slideover>
 
@@ -138,7 +148,7 @@ function openSlideover() {
           :overlay="false"
           :modal="false"
         >
-          <B24Button label="Open without modal" color="default" depth="light" />
+          <B24Button label="Open without modal" color="link" depth="dark" />
 
           <template #body>
             <Placeholder class="h-full w-full" />

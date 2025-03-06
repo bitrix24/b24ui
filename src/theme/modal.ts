@@ -14,7 +14,7 @@
  */
 export default {
   slots: {
-    overlay: 'fixed inset-0 bg-base-950/20 dark:bg-base-950/30 backdrop-blur-sm',
+    overlay: 'fixed inset-0 bg-base-950/20 dark:bg-base-950/30',
     content: [
       'py-md2 px-5',
       'fixed bg-white dark:bg-base-950',
@@ -29,10 +29,21 @@ export default {
     close: 'absolute top-2 end-1.5 p-0.5'
   },
   variants: {
+    overlayBlur: {
+      auto: {
+        overlay: 'motion-safe:backdrop-blur-sm'
+      },
+      true: {
+        overlay: 'backdrop-blur-sm'
+      },
+      false: {
+        overlay: ''
+      }
+    },
     transition: {
       true: {
-        overlay: 'data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]',
-        content: 'data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in]'
+        overlay: 'motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]',
+        content: 'motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in]'
       }
     },
     fullscreen: {
@@ -55,6 +66,7 @@ export default {
     }
   },
   defaultVariants: {
-    scrollbarThin: true
+    scrollbarThin: true,
+    overlayBlur: 'auto'
   }
 }

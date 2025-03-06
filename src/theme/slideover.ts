@@ -15,7 +15,7 @@ const safeList = [
 
 export default {
   slots: {
-    overlay: 'fixed inset-0 bg-base-950/20 dark:bg-base-950/30 backdrop-blur-xs',
+    overlay: 'fixed inset-0 bg-base-950/20 dark:bg-base-950/30',
     content: [
       'fixed',
       'bg-base-50 dark:bg-base-950',
@@ -39,6 +39,17 @@ export default {
     safeList
   },
   variants: {
+    overlayBlur: {
+      auto: {
+        overlay: 'motion-safe:backdrop-blur-sm'
+      },
+      true: {
+        overlay: 'backdrop-blur-sm'
+      },
+      false: {
+        overlay: ''
+      }
+    },
     side: {
       top: {
         content: 'inset-x-0 top-0 max-h-full'
@@ -55,7 +66,7 @@ export default {
     },
     transition: {
       true: {
-        overlay: 'data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]'
+        overlay: 'motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]'
       }
     },
     scrollbarThin: {
@@ -101,33 +112,34 @@ export default {
       transition: true,
       side: 'top',
       class: {
-        content: 'data-[state=open]:animate-[slide-in-from-top_200ms_ease-in-out] data-[state=closed]:animate-[slide-out-to-top_200ms_ease-in-out]'
+        content: 'motion-safe:data-[state=open]:animate-[slide-in-from-top_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-top_200ms_ease-in-out]'
       }
     },
     {
       transition: true,
       side: 'right',
       class: {
-        content: 'data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]'
+        content: 'motion-safe:data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]'
       }
     },
     {
       transition: true,
       side: 'bottom',
       class: {
-        content: 'data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]'
+        content: 'motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]'
       }
     },
     {
       transition: true,
       side: 'left',
       class: {
-        content: 'data-[state=open]:animate-[slide-in-from-left_200ms_ease-in-out] data-[state=closed]:animate-[slide-out-to-left_200ms_ease-in-out]'
+        content: 'motion-safe:data-[state=open]:animate-[slide-in-from-left_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-left_200ms_ease-in-out]'
       }
     }
   ],
   defaultVariants: {
     side: 'right',
-    scrollbarThin: true
+    scrollbarThin: true,
+    overlayBlur: 'auto'
   }
 }

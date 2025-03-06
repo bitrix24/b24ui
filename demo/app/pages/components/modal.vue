@@ -66,14 +66,23 @@ function openModal() {
 
         <B24Button label="Open programmatically" color="default" depth="light" @click="openModal" />
       </div>
+
       <ExampleCardSubTitle title="overlay" />
       <div class="mb-4 flex flex-row flex-wrap gap-2">
+        <B24Modal
+          title="Modal without overlay blur"
+          description="This modal has `overlay-blur: false` prop."
+          :overlay-blur="false"
+        >
+          <B24Button label="Open without overlay blur" color="link" depth="dark" />
+        </B24Modal>
+
         <B24Modal
           title="Modal without overlay"
           description="This modal has `overlay: false` prop."
           :overlay="false"
         >
-          <B24Button label="Open without overlay" color="link" depth="dark" />
+          <B24Button label="Open without overlay" color="default" depth="light" />
         </B24Modal>
 
         <B24Modal
@@ -82,7 +91,7 @@ function openModal() {
           :overlay="false"
           :modal="false"
         >
-          <B24Button label="Open without modal" color="default" depth="light" />
+          <B24Button label="Open without modal" color="link" depth="dark" />
         </B24Modal>
       </div>
 

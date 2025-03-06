@@ -23,6 +23,12 @@ export interface ModalProps extends DialogRootProps {
    */
   overlay?: boolean
   /**
+   * Render an overlay blur behind the modal.
+   * `auto` use `motion-safe`.
+   * @defaultValue 'auto'
+   */
+  overlayBlur?: 'auto' | boolean
+  /**
    * Animate the modal when opening or closing.
    * @defaultValue true
    */
@@ -93,7 +99,8 @@ const props = withDefaults(defineProps<ModalProps>(), {
   transition: true,
   modal: true,
   dismissible: true,
-  scrollbarThin: true
+  scrollbarThin: true,
+  overlayBlur: 'auto'
 })
 const emits = defineEmits<ModalEmits>()
 const slots = defineSlots<ModalSlots>()
@@ -119,7 +126,8 @@ const contentEvents = computed(() => {
 
 const b24ui = computed(() => modal({
   transition: props.transition,
-  fullscreen: props.fullscreen
+  fullscreen: props.fullscreen,
+  overlayBlur: props.overlayBlur
 }))
 </script>
 
