@@ -26,5 +26,5 @@ const b24ui = proseHr({})
 <template>
   <hr
     :class="b24ui.base({ class: [props.class, props.b24ui?.base] })"
-  />
+  >
 </template>
