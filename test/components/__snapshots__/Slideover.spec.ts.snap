@@ -5,8 +5,8 @@ exports[`Slideover > renders with b24ui correctly 1`] = `
 <!--teleport start-->
 
 
-<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 backdrop-blur-xs data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] motion-safe:data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
   <!--v-if-->
   <div class="mt-4 px-5 flex items-center gap-1.5">
     <div class="min-h-2xl">
@@ -35,8 +35,8 @@ exports[`Slideover > renders with body slot correctly 1`] = `
 <!--teleport start-->
 
 
-<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 backdrop-blur-xs data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] motion-safe:data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
   <!--v-if-->
   <div class="mt-4 px-5 flex items-center gap-1.5">
     <div class="min-h-2xl">
@@ -65,8 +65,8 @@ exports[`Slideover > renders with bottom side correctly 1`] = `
 <!--teleport start-->
 
 
-<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 backdrop-blur-xs data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="bottom" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none inset-x-0 bottom-0 max-h-full data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]">
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="bottom" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none inset-x-0 bottom-0 max-h-full motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]">
   <!--v-if-->
   <div class="mt-4 px-5 flex items-center gap-1.5">
     <div class="min-h-2xl">
@@ -95,8 +95,8 @@ exports[`Slideover > renders with class correctly 1`] = `
 <!--teleport start-->
 
 
-<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 backdrop-blur-xs data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out] bg-red-500">
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] motion-safe:data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out] bg-red-500">
   <!--v-if-->
   <div class="mt-4 px-5 flex items-center gap-1.5">
     <div class="min-h-2xl">
@@ -125,8 +125,8 @@ exports[`Slideover > renders with close slot correctly 1`] = `
 <!--teleport start-->
 
 
-<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 backdrop-blur-xs data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] motion-safe:data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
   <!--v-if-->
   <div class="mt-4 px-5 flex items-center gap-1.5">
     <div class="min-h-2xl">
@@ -147,8 +147,8 @@ exports[`Slideover > renders with closeIcon correctly 1`] = `
 <!--teleport start-->
 
 
-<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 backdrop-blur-xs data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] motion-safe:data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
   <!--v-if-->
   <div class="mt-4 px-5 flex items-center gap-1.5">
     <div class="min-h-2xl">
@@ -177,8 +177,8 @@ exports[`Slideover > renders with content slot correctly 1`] = `
 <!--teleport start-->
 
 
-<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 backdrop-blur-xs data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] motion-safe:data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
   <!--v-if-->Content slot
 </div>
 
@@ -191,8 +191,8 @@ exports[`Slideover > renders with default slot correctly 1`] = `
 <!--teleport start-->
 
 
-<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 backdrop-blur-xs data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="reka-dialog-content-v-0-0-0" role="dialog" aria-describedby="reka-dialog-description-v-0-0-2" aria-labelledby="reka-dialog-title-v-0-0-1" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="reka-dialog-content-v-0-0-0" role="dialog" aria-describedby="reka-dialog-description-v-0-0-2" aria-labelledby="reka-dialog-title-v-0-0-1" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] motion-safe:data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
   <!--v-if-->
   <div class="mt-4 px-5 flex items-center gap-1.5">
     <div class="min-h-2xl">
@@ -221,8 +221,8 @@ exports[`Slideover > renders with description correctly 1`] = `
 <!--teleport start-->
 
 
-<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 backdrop-blur-xs data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] motion-safe:data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
   <!--v-if-->
   <div class="mt-4 px-5 flex items-center gap-1.5">
     <div class="min-h-2xl">
@@ -251,8 +251,8 @@ exports[`Slideover > renders with description slot correctly 1`] = `
 <!--teleport start-->
 
 
-<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 backdrop-blur-xs data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] motion-safe:data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
   <!--v-if-->
   <div class="mt-4 px-5 flex items-center gap-1.5">
     <div class="min-h-2xl">
@@ -281,8 +281,8 @@ exports[`Slideover > renders with footer slot correctly 1`] = `
 <!--teleport start-->
 
 
-<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 backdrop-blur-xs data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] motion-safe:data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
   <!--v-if-->
   <div class="mt-4 px-5 flex items-center gap-1.5">
     <div class="min-h-2xl">
@@ -311,8 +311,8 @@ exports[`Slideover > renders with header slot correctly 1`] = `
 <!--teleport start-->
 
 
-<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 backdrop-blur-xs data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] motion-safe:data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
   <!--v-if-->
   <div class="mt-4 px-5 flex items-center gap-1.5">Header slot</div>
   <div class="mx-0 mt-2 flex-1 overflow-y-auto scrollbar-thin"></div>
@@ -328,8 +328,8 @@ exports[`Slideover > renders with left side correctly 1`] = `
 <!--teleport start-->
 
 
-<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 backdrop-blur-xs data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="left" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none left-0 inset-y-0 w-full max-w-[28rem] data-[state=open]:animate-[slide-in-from-left_200ms_ease-in-out] data-[state=closed]:animate-[slide-out-to-left_200ms_ease-in-out]">
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="left" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none left-0 inset-y-0 w-full max-w-[28rem] motion-safe:data-[state=open]:animate-[slide-in-from-left_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-left_200ms_ease-in-out]">
   <!--v-if-->
   <div class="mt-4 px-5 flex items-center gap-1.5">
     <div class="min-h-2xl">
@@ -358,8 +358,8 @@ exports[`Slideover > renders with open correctly 1`] = `
 <!--teleport start-->
 
 
-<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 backdrop-blur-xs data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]" style="pointer-events: auto;">
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] motion-safe:data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]" style="pointer-events: auto;">
   <!--v-if-->
   <div class="mt-4 px-5 flex items-center gap-1.5">
     <div class="min-h-2xl">
@@ -388,8 +388,8 @@ exports[`Slideover > renders with title correctly 1`] = `
 <!--teleport start-->
 
 
-<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 backdrop-blur-xs data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] motion-safe:data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
   <!--v-if-->
   <div class="mt-4 px-5 flex items-center gap-1.5">
     <div class="min-h-2xl">
@@ -418,8 +418,8 @@ exports[`Slideover > renders with title slot correctly 1`] = `
 <!--teleport start-->
 
 
-<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 backdrop-blur-xs data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] motion-safe:data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
   <!--v-if-->
   <div class="mt-4 px-5 flex items-center gap-1.5">
     <div class="min-h-2xl">
@@ -448,8 +448,8 @@ exports[`Slideover > renders with top side correctly 1`] = `
 <!--teleport start-->
 
 
-<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 backdrop-blur-xs data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="top" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none inset-x-0 top-0 max-h-full data-[state=open]:animate-[slide-in-from-top_200ms_ease-in-out] data-[state=closed]:animate-[slide-out-to-top_200ms_ease-in-out]">
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="top" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none inset-x-0 top-0 max-h-full motion-safe:data-[state=open]:animate-[slide-in-from-top_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-top_200ms_ease-in-out]">
   <!--v-if-->
   <div class="mt-4 px-5 flex items-center gap-1.5">
     <div class="min-h-2xl">
@@ -478,8 +478,8 @@ exports[`Slideover > renders without close correctly 1`] = `
 <!--teleport start-->
 
 
-<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 backdrop-blur-xs data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] motion-safe:data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
   <!--v-if-->
   <div class="mt-4 px-5 flex items-center gap-1.5">
     <div class="min-h-2xl">
@@ -501,7 +501,7 @@ exports[`Slideover > renders without overlay correctly 1`] = `
 
 
 <!--v-if-->
-<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
+<div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] motion-safe:data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]">
   <!--v-if-->
   <div class="mt-4 px-5 flex items-center gap-1.5">
     <div class="min-h-2xl">
@@ -530,7 +530,7 @@ exports[`Slideover > renders without transition correctly 1`] = `
 <!--teleport start-->
 
 
-<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 backdrop-blur-xs"></div>
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm"></div>
 <div data-dismissable-layer="" style="pointer-events: auto;" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" data-side="right" tabindex="-1" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem]">
   <!--v-if-->
   <div class="mt-4 px-5 flex items-center gap-1.5">
