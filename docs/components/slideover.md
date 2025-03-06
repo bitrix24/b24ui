@@ -11,6 +11,7 @@ import CloseExample from '/examples/slideover/Close.vue';
 import CloseIconExample from '/examples/slideover/CloseIcon.vue';
 import SideExample from '/examples/slideover/Side.vue';
 import OverlayExample from '/examples/slideover/Overlay.vue';
+import OverlayBlurExample from '/examples/slideover/OverlayBlur.vue';
 import TransitionExample from '/examples/slideover/Transition.vue';
 import ControlOpenStateExample from '/examples/slideover/ControlOpenState.vue';
 import DismissibleExample from '/examples/slideover/Dismissible.vue';
@@ -136,9 +137,30 @@ Use the `overlay` prop to control whether the Modal has an overlay or not. Defau
 <<< @/examples/slideover/demo/Overlay.vue{13 vue:line-numbers}
 :::
 
+If you want to disable background blur, you should use the `overlayBlur` prop.
+The `overlayBlur` prop has 3 options:
+
+- `auto`: (default) when the user has **not requested** [reduced motion](https://tailwindcss.com/docs/hover-focus-and-other-states#prefers-reduced-motion)
+- `on`: always use blur
+- `off`: do not use blur
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <OverlayBlurExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/modal/demo/OverlayBlur.vue{13 vue:line-numbers}
+:::
+
 ### Transition
 
 Use the `transition` prop to control whether the Slideover is animated or not. Defaults to `true`.
+
+::: info
+[Reduced movement](https://tailwindcss.com/docs/hover-focus-and-other-states#prefers-reduced-motion) is taken into account
+:::
 
 <div class="lg:min-h-[275px]">
   <ClientOnly>
