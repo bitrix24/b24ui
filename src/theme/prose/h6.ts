@@ -1,22 +1,22 @@
 /**
- * Prose/H2
- * Show h2
+ * Prose/H6
+ * Show h6
  */
 
 export default {
   slots: {
     base: [
       'relative mb-2',
-      'text-4xl leading-2xs font-light',
-      '[&>a>code]:text-xl/7 [&>a>code]:font-bold',
+      '[&>a>code]:text-lg/7 [&>a>code]:font-bold',
       'text-base-master dark:text-base-150',
-      'scroll-mt-[calc(48px+45px+var(--b24ui-header-height))] lg:scroll-mt-[calc(48px+var(--b24ui-header-height))]',
+      'scroll-mt-[calc(32px+45px+var(--b24ui-header-height))] lg:scroll-mt-[calc(32px+var(--b24ui-header-height))]',
       '[&>a]:focus-visible:outline-info-text hover:[&>a>code]:border-info-text',
       'hover:[&>a>code]:text-info-text',
-      '[&>a>code]:border-dashed [&>a>code]:transition-colors'
+      '[&>a>code]:border-dashed [&>a>code]:transition-colors',
+      'text-h6'
     ].join(' '),
     leading: [
-      'absolute -ms-8 top-1 p-1',
+      'absolute -ms-8 top-0.5 p-1',
       'rounded-md hidden lg:flex',
       'opacity-0 group-hover:opacity-100 group-focus:opacity-100',
       'bg-base-100 dark:bg-base-900',

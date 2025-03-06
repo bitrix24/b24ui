@@ -1,19 +1,19 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
-import theme from '#build/b24ui/prose/prose-h1'
+import theme from '#build/b24ui/prose/li'
 import { tv } from '../utils/tv'
 
-const appConfigProseH1 = _appConfig as AppConfig & { b24ui: { prose: { h1: Partial<typeof theme> } } }
+const appConfigProseLi = _appConfig as AppConfig & { b24ui: { prose: { li: Partial<typeof theme> } } }
 
-const proseH1 = tv({ extend: tv(theme), ...(appConfigProseH1.b24ui?.prose?.h1 || {}) })
+const proseLi = tv({ extend: tv(theme), ...(appConfigProseLi.b24ui?.prose?.li || {}) })
 
-export interface proseH1Props {
+export interface proseLiProps {
   class?: any
-  b24ui?: Partial<typeof proseH1.slots>
+  b24ui?: Partial<typeof proseLi.slots>
 }
 
-export interface proseH1Slots {
+export interface proseLiSlots {
   default(props?: {}): any
 }
 </script>
@@ -21,16 +21,16 @@ export interface proseH1Slots {
 <script setup lang="ts">
 defineOptions({ inheritAttrs: false })
 
-const props = defineProps<proseH1Props>()
+const props = defineProps<proseLiProps>()
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = proseH1({})
+const b24ui = proseLi({})
 </script>
 
 <template>
-  <h1
+  <li
     :class="b24ui.base({ class: [props.class, props.b24ui?.base] })"
   >
     <slot />
-  </h1>
+  </li>
 </template>

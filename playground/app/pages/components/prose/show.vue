@@ -9,49 +9,113 @@ usePageMeta.setPageTitle('Prose')
 
 <template>
   <ExampleGrid v-once>
-    <ExampleCard title="simple" class="col-span-2">
+    <ExampleCard title="simple" class="col-span-4">
       <B24Separator class="my-3" type="dotted" />
       <div class="mb-4">
-        <ProseH1>
-          Some H1
-        </ProseH1>
-        <ProseH2>
-          Some H2
-        </ProseH2>
-        <ProseH3>
-          Some H2
-        </ProseH3>
-        <B24Separator class="my-3" type="dotted" />
-        <ProseP>
-          Some p
-        </ProseP>
-        <B24Separator class="my-3" type="dotted" />
+        <ProseH1>Welcome to "Sales Peak" Agency</ProseH1>
+        <ProseH2>Your Growth Is Our Profession</ProseH2>
+
+        <ProseP>We are the <ProseStrong>industry leaders</ProseStrong> in digital marketing since 2010. Our team helps businesses increase sales using <ProseEm>cutting-edge technologies</ProseEm> and proven methodologies.</ProseP>
+
+        <ProseBlockquote>
+          "Working with this agency boosted our revenue by 300% in six months!"<br>
+          - TechProduct LLC
+        </ProseBlockquote>
+
+        <ProseHr />
+
+        <ProseH3>Our Core Services</ProseH3>
         <ProseUl>
-          <ProseLi>Some ul/li</ProseLi>
+          <ProseLi>PPC Advertising</ProseLi>
+          <ProseLi>SEO Optimization</ProseLi>
+          <ProseLi>SMM Promotion</ProseLi>
+          <ProseLi>Conversion-focused Website Development</ProseLi>
+          <ProseLi>Email Marketing</ProseLi>
+          <ProseLi>Analytics & Big Data</ProseLi>
+        </ProseUl>
+
+        <ProseH4>Workflow Stages:</ProseH4>
+        <ProseOl>
+          <ProseLi>Business Audit</ProseLi>
+          <ProseLi>Strategy Development</ProseLi>
+          <ProseLi>Implementation</ProseLi>
+          <ProseLi>Testing</ProseLi>
+          <ProseLi>Launch</ProseLi>
+          <ProseLi>Ongoing Support</ProseLi>
+        </ProseOl>
+
+        <ProseH5>Comprehensive Solutions:</ProseH5>
+        <ProseUl>
           <ProseLi>
-            Some ul/li
+            Startup Package
             <ProseOl>
-              <ProseLi>Some ul/li/ol/li</ProseLi>
-              <ProseLi>Some ul/li/ol/li</ProseLi>
-              <ProseLi>Some ul/li/ol/li</ProseLi>
+              <ProseLi>Landing Page</ProseLi>
+              <ProseLi>Google Ads Setup</ProseLi>
+              <ProseLi>Basic SEO</ProseLi>
+              <ProseLi>Monthly Reporting</ProseLi>
             </ProseOl>
           </ProseLi>
-          <ProseLi>Some ul/li</ProseLi>
+          <ProseLi>...</ProseLi>
+        </ProseUl>
+
+        <ProsePre>
+          Analytics Data Sample:
+          Month    | Visitors | Conversion
+          January  | 15,234   | 2.3%
+          February | 28,901   | 3.1%
+        </ProsePre>
+
+        <ProseP>For API integration use <ProseCode>client.getSalesData(date_from, date_to)</ProseCode></ProseP>
+
+        <ProseHr />
+
+        <ProseH6>Our Advantages</ProseH6>
+        <ProseTable>
+          <ProseThead>
+            <ProseTr>
+              <ProseTh>Metric</ProseTh>
+              <ProseTh>Result</ProseTh>
+              <ProseTh>Guarantee</ProseTh>
+            </ProseTr>
+          </ProseThead>
+          <ProseTbody>
+            <ProseTr>
+              <ProseTd>Traffic Growth</ProseTd>
+              <ProseTd>+150%</ProseTd>
+              <ProseTd>6 months</ProseTd>
+            </ProseTr>
+            <ProseTr>
+              <ProseTd>Conversion Increase</ProseTd>
+              <ProseTd>+80%</ProseTd>
+              <ProseTd>1 year</ProseTd>
+            </ProseTr>
+            <ProseTr>
+              <ProseTd>ROI</ProseTd>
+              <ProseTd>3.5x</ProseTd>
+              <ProseTd>100%</ProseTd>
+            </ProseTr>
+          </ProseTbody>
+        </ProseTable>
+
+        <ProseImg src="https://example.com/sales-chart.jpg" alt="Sales growth chart" />
+
+        <ProseP>
+          Contact us via <a href="tel:+1234567890">phone</a> or through our <ProseA href="/contact">
+            contact form
+          </ProseA>. Follow our <ProseEm>Telegram channel</ProseEm> for expert tips!
+        </ProseP>
+
+        <ProseOl>
           <ProseLi>
-            Some ul/li
+            Additional Services
             <ProseUl>
-              <ProseLi>Some ul/li/ul/li</ProseLi>
-              <ProseLi>Some ul/li/ul/li</ProseLi>
-              <ProseLi>Some ul/li/ul/li</ProseLi>
+              <ProseLi>Copywriting</ProseLi>
+              <ProseLi>Design</ProseLi>
+              <ProseLi>Video Production</ProseLi>
+              <ProseLi>PR Management</ProseLi>
             </ProseUl>
           </ProseLi>
-          <ProseLi>Some ul/li</ProseLi>
-        </ProseUl>
-        <B24Separator class="my-3" type="dotted" />
-        <ProseOl>
-          <ProseLi>Some ol/li</ProseLi>
-          <ProseLi>Some ol/li</ProseLi>
-          <ProseLi>Some ol/li</ProseLi>
+          <ProseLi>...</ProseLi>
         </ProseOl>
       </div>
     </ExampleCard>

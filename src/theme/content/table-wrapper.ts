@@ -1,5 +1,5 @@
 /**
- * Prose/TableWrapper
+ * Content/TableWrapper
  * Wrapper for displaying a html table
  * ---
  * @link https://v5.daisyui.com/components/table/

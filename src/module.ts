@@ -69,7 +69,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     addComponentsDir({
       path: resolve('./runtime/prose'),
-      prefix: '',
+      prefix: 'Prose',
       pathPrefix: false
     })
 

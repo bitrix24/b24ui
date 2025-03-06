@@ -1,19 +1,19 @@
 /**
- * Prose/H3
- * Show h3
+ * Prose/H4
+ * Show h4
  */
 
 export default {
   slots: {
     base: [
       'relative mb-2',
-      'text-3xl leading-2xs font-light',
       '[&>a>code]:text-lg/7 [&>a>code]:font-bold',
       'text-base-master dark:text-base-150',
       'scroll-mt-[calc(32px+45px+var(--b24ui-header-height))] lg:scroll-mt-[calc(32px+var(--b24ui-header-height))]',
       '[&>a]:focus-visible:outline-info-text hover:[&>a>code]:border-info-text',
       'hover:[&>a>code]:text-info-text',
-      '[&>a>code]:border-dashed [&>a>code]:transition-colors'
+      '[&>a>code]:border-dashed [&>a>code]:transition-colors',
+      'text-h4'
     ].join(' '),
     leading: [
       'absolute -ms-8 top-0.5 p-1',
