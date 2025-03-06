@@ -120,8 +120,8 @@ function openSlideover() {
       <div class="mb-4 flex flex-row flex-wrap gap-2">
         <B24Slideover
           title="Slideover without overlay blur"
-          description="This slideover has `overlay-blur: false` prop."
-          :overlay-blur="false"
+          description="This slideover has `overlay-blur: off` prop."
+          overlay-blur="off"
         >
           <B24Button label="Open without overlay blur" color="link" depth="dark" />
 

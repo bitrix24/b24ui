@@ -33,10 +33,10 @@ export default {
       auto: {
         overlay: 'motion-safe:backdrop-blur-sm'
       },
-      true: {
+      on: {
         overlay: 'backdrop-blur-sm'
       },
-      false: {
+      off: {
         overlay: ''
       }
     },

@@ -30,7 +30,7 @@ export interface SlideoverProps extends DialogRootProps {
    * `auto` use `motion-safe`.
    * @defaultValue 'auto'
    */
-  overlayBlur?: 'auto' | boolean
+  overlayBlur?: SlideoverVariants['overlayBlur']
   /**
    * Animate the slideover when opening or closing.
    * @defaultValue true

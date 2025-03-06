@@ -1,5 +1,6 @@
 <script lang="ts">
 import type { DialogRootProps, DialogRootEmits, DialogContentProps } from 'reka-ui'
+import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/modal'
@@ -9,6 +10,8 @@ import type { ButtonProps, IconComponent } from '../types'
 const appConfigModal = _appConfig as AppConfig & { b24ui: { modal: Partial<typeof theme> } }
 
 const modal = tv({ extend: tv(theme), ...(appConfigModal.b24ui?.modal || {}) })
+
+type ModalVariants = VariantProps<typeof modal>
 
 export interface ModalProps extends DialogRootProps {
   title?: string
@@ -27,7 +30,7 @@ export interface ModalProps extends DialogRootProps {
    * `auto` use `motion-safe`.
    * @defaultValue 'auto'
    */
-  overlayBlur?: 'auto' | boolean
+  overlayBlur?: ModalVariants['overlayBlur']
   /**
    * Animate the modal when opening or closing.
    * @defaultValue true
