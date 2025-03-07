@@ -31,6 +31,7 @@ export interface AvatarProps {
    */
   size?: AvatarVariants['size']
   class?: any
+  style?: any
   b24ui?: Partial<typeof avatar.slots>
 }
 
@@ -90,7 +91,7 @@ function onError() {
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
+  <Primitive :as="as" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })" :style="props.style">
     <component
       :is="ImageComponent"
       v-if="src && !error"
