@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.3 (2025-03-07)
+
+### Chore
+* **Avatar:** add props `style`
+* **Prose:** improve
+* **deps:** update all non-major dependencies
+
 ## 0.4.2 (2025-03-06)
 
 ### Features
