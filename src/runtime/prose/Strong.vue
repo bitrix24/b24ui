@@ -19,8 +19,6 @@ export interface proseStrongSlots {
 </script>
 
 <script setup lang="ts">
-defineOptions({ inheritAttrs: false })
-
 const props = defineProps<proseStrongProps>()
 
 // eslint-disable-next-line vue/no-dupe-keys

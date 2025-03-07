@@ -19,8 +19,6 @@ export interface proseH2Slots {
 </script>
 
 <script setup lang="ts">
-defineOptions({ inheritAttrs: false })
-
 const props = defineProps<proseH2Props>()
 
 // eslint-disable-next-line vue/no-dupe-keys

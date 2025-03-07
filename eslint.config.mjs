@@ -15,7 +15,13 @@ export default createConfigForNuxt({
   'vue/max-attributes-per-line': ['error', { singleline: 5 }],
   '@typescript-eslint/ban-types': 'off',
   '@typescript-eslint/no-empty-object-type': 'off',
-  '@typescript-eslint/no-explicit-any': 'off'
+  '@typescript-eslint/no-explicit-any': 'off',
+  'vue/singleline-html-element-content-newline': [
+    'error',
+    {
+      ignores: ['ProseA', 'ProseCode']
+    }
+  ]
 }).prepend({
   ignores: []
 })

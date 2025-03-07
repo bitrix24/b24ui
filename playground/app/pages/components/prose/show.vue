@@ -5,6 +5,37 @@ import ExampleCard from '../../../components/ExampleCard.vue'
 // import ExampleCardSubTitle from '../../../components/ExampleCardSubTitle.vue'
 
 usePageMeta.setPageTitle('Prose')
+
+const demoPreText = `
+| Analytics:| Data:    | Sample:    |
+|-----------|----------|------------|
+| Month     | Visitors | Conversion |
+| January   | 15,234   | 2.3%       |
+| February  | 28,901   | 3.1%       |
+
+`
+const demoPreObj = [
+  [
+    'Analytics',
+    'Data',
+    'Sample'
+  ],
+  [
+    'Month',
+    'Visitors',
+    'Conversion %'
+  ],
+  [
+    'January',
+    15234,
+    2.3
+  ],
+  [
+    'February',
+    28901,
+    3.1
+  ]
+]
 </script>
 
 <template>
@@ -24,7 +55,9 @@ usePageMeta.setPageTitle('Prose')
 
         <ProseHr />
 
-        <ProseH3>Our Core Services</ProseH3>
+        <ProseH3 id="coreServices">
+          Our Core Services 123
+        </ProseH3>
         <ProseUl>
           <ProseLi>PPC Advertising</ProseLi>
           <ProseLi>SEO Optimization</ProseLi>
@@ -59,13 +92,13 @@ usePageMeta.setPageTitle('Prose')
         </ProseUl>
 
         <ProsePre>
-          Analytics Data Sample:
-          Month    | Visitors | Conversion
-          January  | 15,234   | 2.3%
-          February | 28,901   | 3.1%
+          {{ demoPreText }}
         </ProsePre>
 
-        <ProseP>For API integration use <ProseCode>client.getSalesData(date_from, date_to)</ProseCode></ProseP>
+        <ProseP>
+          For API integration use <ProseCode>client.getSalesData(date_from, date_to)</ProseCode> and see
+          <ProseCode color="collab">Docs</ProseCode>
+        </ProseP>
 
         <ProseHr />
 
@@ -100,9 +133,8 @@ usePageMeta.setPageTitle('Prose')
         <ProseImg src="https://example.com/sales-chart.jpg" alt="Sales growth chart" />
 
         <ProseP>
-          Contact us via <a href="tel:+1234567890">phone</a> or through our <ProseA href="/contact">
-            contact form
-          </ProseA>. Follow our <ProseEm>Telegram channel</ProseEm> for expert tips!
+          Contact us via <ProseA href="tel:+1234567890">phone</ProseA> or through our
+          <ProseA href="#coreServices">contact form</ProseA> or see our <ProseA href="#coreServices"><ProseCode color="ai">Core Services</ProseCode></ProseA>. Follow our <ProseEm>Telegram channel</ProseEm> for expert tips!
         </ProseP>
 
         <ProseOl>
@@ -117,6 +149,10 @@ usePageMeta.setPageTitle('Prose')
           </ProseLi>
           <ProseLi>...</ProseLi>
         </ProseOl>
+
+        <ProsePre>
+          {{ demoPreObj }}
+        </ProsePre>
       </div>
     </ExampleCard>
   </ExampleGrid>

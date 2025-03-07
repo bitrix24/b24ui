@@ -15,8 +15,6 @@ export interface proseHrProps {
 </script>
 
 <script setup lang="ts">
-defineOptions({ inheritAttrs: false })
-
 const props = defineProps<proseHrProps>()
 
 // eslint-disable-next-line vue/no-dupe-keys

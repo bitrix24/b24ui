@@ -19,8 +19,6 @@ export interface proseBlockquoteSlots {
 </script>
 
 <script setup lang="ts">
-defineOptions({ inheritAttrs: false })
-
 const props = defineProps<proseBlockquoteProps>()
 
 // eslint-disable-next-line vue/no-dupe-keys
