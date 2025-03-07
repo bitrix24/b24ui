@@ -170,7 +170,9 @@ function onUpdate(value: any) {
 
         <div :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
           <Label :class="b24ui.label({ class: props.b24ui?.label })" :for="item.id">
-            <slot name="label" :item="item" :model-value="modelValue">{{ item.label }}</slot>
+            <slot name="label" :item="item" :model-value="modelValue">
+              {{ item.label }}
+            </slot>
           </Label>
           <p v-if="item.description || !!slots.description" :class="b24ui.description({ class: props.b24ui?.description })">
             <slot name="description" :item="item" :model-value="modelValue">

@@ -55,8 +55,7 @@ export default {
         'ring ring-inset',
         'text-ai-500 bg-ai-150 ring-ai-150',
         'dark:text-ai-600 dark:bg-ai-200 dark:ring-ai-200'
-      ].join(' '),
-      primaryww: 'border border-(--ui-primary)/25 bg-(--ui-primary)/10 text-(--ui-primary)',
+      ].join(' ')
     }
   },
   defaultVariants: {

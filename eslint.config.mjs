@@ -19,7 +19,12 @@ export default createConfigForNuxt({
   'vue/singleline-html-element-content-newline': [
     'error',
     {
-      ignores: ['ProseA', 'ProseCode']
+      ignores: [
+        'ProseA', 'ProseCode',
+        'span', 'em', 'a', 'strong', 'b', 'i',
+        'div', 'svg', 'time',
+        'slot'
+      ]
     }
   ]
 }).prepend({
