@@ -2,12 +2,18 @@ import { defineLocale } from '../composables/defineLocale'
 
 export default defineLocale({
   name: 'Español',
-  code: 'es',
+  code: 'la',
   messages: {
     inputMenu: {
       noMatch: 'No hay datos coincidentes',
       noData: 'Sin datos',
       create: 'Crear "{label}"'
+    },
+    calendar: {
+      prevYear: 'Año anterior',
+      nextYear: 'Año siguiente',
+      prevMonth: 'Mes anterior',
+      nextMonth: 'Mes siguiente'
     },
     inputNumber: {
       increment: 'Incremento',
