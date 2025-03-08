@@ -53,8 +53,8 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: 'Installation', link: 'installation-nuxt-app' },
-        { text: 'Color Mode', link: 'color-mode-nuxt' }
-        // { text: 'I18n', link: 'i18n-nuxt' }
+        { text: 'Color Mode', link: 'color-mode-nuxt' },
+        { text: 'I18n💡', link: 'i18n-nuxt' }
       ]
     },
     {
@@ -62,8 +62,8 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: 'Installation', link: 'installation-vue' },
-        { text: 'Color Mode', link: 'color-mode-vue' }
-        // { text: 'I18n', link: 'i18n-vue' }
+        { text: 'Color Mode', link: 'color-mode-vue' },
+        { text: 'I18n💡', link: 'i18n-vue' }
       ]
     },
     { text: 'Contribution Guide', link: 'contribution' }
