@@ -1,8 +1,18 @@
 # Changelog
 
+## 0.4.4 (2025-03-08)
+
+### Features
+
+* **i18n:** the list of localizations matches Bitrix24
+
+### Docs
+* **i18n:** add info for vue & nuxt
+
 ## 0.4.3 (2025-03-07)
 
 ### Chore
+
 * **Avatar:** add props `style`
 * **Prose:** improve
 * **deps:** update all non-major dependencies
