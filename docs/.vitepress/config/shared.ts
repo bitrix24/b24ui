@@ -1,8 +1,8 @@
 import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vitepress'
 import { configParams } from './params'
-import path from 'node:path'
-import pc from 'picocolors'
+// import path from 'node:path'
+// import pc from 'picocolors'
 import tailwindcss from '@tailwindcss/vite'
 import bitrix24UIPluginVite from '@bitrix24/b24ui-nuxt/vite'
 
@@ -82,7 +82,8 @@ export const shared = defineConfig({
         }
       })
     ]
-  },
+  }
+  /*
   transformHtml: (html, id) => {
     const exceptionsByFile: Record<string, string[]> = {}
 
@@ -109,4 +110,5 @@ export const shared = defineConfig({
     }
     return html
   }
+  */
 })
