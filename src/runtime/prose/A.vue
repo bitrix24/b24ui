@@ -27,6 +27,6 @@ const b24ui = proseA({})
 
 <template>
   <a
-    :class="b24ui.base({ class: props.b24ui?.base })"
+    :class="b24ui.base({ class: [props.class, props.b24ui?.base] })"
   ><slot /></a>
 </template>
