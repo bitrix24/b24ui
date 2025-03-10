@@ -27,7 +27,7 @@
  */
 export { default as en } from './en'
 export { default as de } from './de'
-export { default as es } from './la'
+export { default as la } from './la'
 
 export { default as br } from './br'
 export { default as fr } from './fr'
