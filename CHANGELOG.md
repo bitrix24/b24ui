@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.4.5 (2025-03-10)
+
+### Features
+
+* **Input/Textarea:** allow `null` value in model
+* **ProseImg:** add new prose
+
+### Bug Fixes
+
+* **Button:** missing import
+* **Form:** input blur validation on submit
+
+### Chore
+
+* **deps:** update tailwindcss to ^4.0.12
+* **deps:** update all non-major dependencies
+* **deps:** update dependency tailwind-variants to v1
+* **deps:** update nuxt framework to ^3.16.0
+* **deps:** update @unhead/vue to ^2.0.0-rc.9
+* **LinkBase:** update types for `nuxt@3.16`
+
 ## 0.4.4 (2025-03-08)
 
 ### Features
