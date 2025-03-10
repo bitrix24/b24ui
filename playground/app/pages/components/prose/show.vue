@@ -130,7 +130,11 @@ const demoPreObj = [
           </ProseTbody>
         </ProseTable>
 
-        <ProseImg src="https://example.com/sales-chart.jpg" alt="Sales growth chart" />
+        <ProseImg
+          class="my-2 mx-auto rounded max-h-[220px] aspect-3/1 object-contain"
+          src="https://www.bitrix24.com/images/content_en/images/head/b24rich_new.png"
+          alt="Sales growth chart"
+        />
 
         <ProseP>
           Contact us via <ProseA href="tel:+1234567890">phone</ProseA> or through our
