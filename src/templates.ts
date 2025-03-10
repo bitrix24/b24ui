@@ -220,6 +220,9 @@ type AppConfigUI = {
 
 declare module '@nuxt/schema' {
   interface AppConfigInput {
+    /**
+     * Bitrix24 UI theme configuration
+     */
     b24ui?: AppConfigUI
   }
 }
