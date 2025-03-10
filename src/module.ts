@@ -19,7 +19,7 @@ export default defineNuxtModule<ModuleOptions>({
     name: 'b24ui',
     configKey: 'b24ui',
     compatibility: {
-      nuxt: '>=3.13.1'
+      nuxt: '>=3.16.0'
     },
     docs: 'https://bitrix24.github.io/b24ui/guide/installation-nuxt-app.html'
   },
