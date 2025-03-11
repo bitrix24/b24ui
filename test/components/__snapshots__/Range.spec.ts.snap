@@ -39,7 +39,7 @@ exports[`Range > renders with defaultValue correctly 1`] = `
 
 exports[`Range > renders with disabled correctly 1`] = `
 "<span data-slider-impl="" dir="ltr" data-orientation="horizontal" style="--reka-slider-thumb-transform: translateX(-50%);" class="relative flex items-center select-none touch-none w-full opacity-75 cursor-not-allowed" aria-disabled="true" data-disabled=""><span data-disabled="" data-orientation="horizontal" class="relative bg-base-200 dark:bg-base-800 overflow-hidden rounded-full grow h-[8px]"><span data-disabled="" data-orientation="horizontal" style="left: 0%; right: 100%;" class="absolute rounded-full bg-blue-500 dark:bg-blue-600 h-full"></span></span>
-<div class="rounded-full bg-white dark:bg-base-100 ring-2 outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 ring-blue-500 dark:ring-blue-600 focus-visible:outline-blue-500/50 dark:focus-visible:outline-blue-600/50 size-4" role="slider" data-disabled="" data-orientation="horizontal" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" style="transform: var(--reka-slider-thumb-transform); position: absolute; left: calc(0% + 0px);" data-reka-collection-item="" aria-valuenow="0"></div>
+<div class="rounded-full bg-white dark:bg-base-100 ring-2 outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 ring-blue-500 dark:ring-blue-600 focus-visible:outline-blue-500/50 dark:focus-visible:outline-blue-600/50 size-4" role="slider" data-disabled="" data-orientation="horizontal" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" style="transform: var(--reka-slider-thumb-transform); position: absolute; left: calc(0% + 0px);" data-reka-collection-item=""></div>
 <!----></span>"
 `;
 
