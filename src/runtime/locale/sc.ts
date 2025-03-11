@@ -1,6 +1,7 @@
+import type { Messages } from '../types'
 import { defineLocale } from '../composables/defineLocale'
 
-export default defineLocale({
+export default defineLocale<Messages>({
   name: '中文（简体）',
   code: 'sc',
   messages: {

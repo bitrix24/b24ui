@@ -42,7 +42,9 @@ You also have the option to add your own locale using `defineLocale`:
 ::: code-group
 ```vue:line-numbers {2-9,13} [app.vue]
 <script setup lang="ts">
-const locale = defineLocale({
+import type { Messages } from '@bitrix24/b24ui-nuxt'
+
+const locale = defineLocale<Messages>({
   name: 'My custom locale',
   code: 'en',
   dir: 'ltr',

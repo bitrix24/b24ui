@@ -5,10 +5,14 @@ import appConfig from '#build/app.config'
 import type { NuxtApp } from '#app'
 import { useColorMode as useColorModeVueUse } from '@vueuse/core'
 
+/**
+ * @todo not use @unhead/vue/legacy
+ */
 export { useHead } from '@unhead/vue/legacy'
 export { useRoute, useRouter } from 'vue-router'
 
 export { defineShortcuts } from '../composables/defineShortcuts'
+export { defineLocale } from '../composables/defineLocale'
 export { useLocale } from '../composables/useLocale'
 export { useConfetti } from '../composables/useConfetti'
 export { useOverlay } from '../composables/useOverlay'
