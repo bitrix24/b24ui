@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 
 export interface ExampleProps {
-  tagColor: any
+  tagColor?: any
   tag?: string
 }
 

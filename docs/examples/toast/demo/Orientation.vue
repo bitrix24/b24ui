@@ -3,7 +3,7 @@ import type { ToastProps } from '@bitrix24/b24ui-nuxt'
 import Refresh9Icon from '@bitrix24/b24icons-vue/crm/Refresh9Icon'
 
 export interface ExampleProps {
-  orientation: ToastProps['orientation']
+  orientation?: ToastProps['orientation']
   title?: string
   description?: string
 }

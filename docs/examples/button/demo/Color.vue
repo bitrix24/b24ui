@@ -2,7 +2,7 @@
 import type { ButtonProps } from '@bitrix24/b24ui-nuxt'
 
 export interface ExampleProps {
-  color: ButtonProps['color']
+  color?: ButtonProps['color']
 }
 
 withDefaults(defineProps<ExampleProps>(), {

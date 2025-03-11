@@ -2,7 +2,7 @@
 import type { CheckboxProps } from '@bitrix24/b24ui-nuxt'
 
 export interface ExampleProps {
-  color: CheckboxProps['color']
+  color?: CheckboxProps['color']
 }
 
 withDefaults(defineProps<ExampleProps>(), {

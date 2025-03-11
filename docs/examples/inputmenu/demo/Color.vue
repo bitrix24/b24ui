@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 
 export interface ExampleProps {
-  color: any
+  color?: any
   isHighlight?: boolean
 }
 

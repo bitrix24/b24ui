@@ -2,7 +2,7 @@
 import type { InputProps } from '@bitrix24/b24ui-nuxt'
 
 export interface ExampleProps {
-  tagColor: InputProps['tagColor']
+  tagColor?: InputProps['tagColor']
   tag?: string
 }
 

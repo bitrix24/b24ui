@@ -2,7 +2,7 @@
 import type { RangeProps } from '@bitrix24/b24ui-nuxt'
 
 export interface ExampleProps {
-  color: RangeProps['color']
+  color?: RangeProps['color']
 }
 
 withDefaults(defineProps<ExampleProps>(), {

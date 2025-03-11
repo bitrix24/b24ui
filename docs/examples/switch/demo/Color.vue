@@ -2,7 +2,7 @@
 import type { SwitchProps } from '@bitrix24/b24ui-nuxt'
 
 export interface ExampleProps {
-  color: SwitchProps['color']
+  color?: SwitchProps['color']
 }
 
 withDefaults(defineProps<ExampleProps>(), {

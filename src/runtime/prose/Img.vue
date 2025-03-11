@@ -28,5 +28,5 @@ const b24ui = proseImg({})
 <template>
   <img
     :class="b24ui.base({ class: [props.class, props.b24ui?.base] })"
-  />
+  >
 </template>

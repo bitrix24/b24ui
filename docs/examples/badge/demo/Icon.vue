@@ -5,7 +5,7 @@ import InfoIcon from '@bitrix24/b24icons-vue/button/InfoIcon'
 export interface ExampleProps {
   label?: string
   depth?: BadgeProps['depth']
-  color: BadgeProps['color']
+  color?: BadgeProps['color']
   size?: BadgeProps['size']
   isFill?: boolean
 }

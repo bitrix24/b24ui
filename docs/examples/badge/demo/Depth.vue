@@ -4,7 +4,7 @@ import type { BadgeProps } from '@bitrix24/b24ui-nuxt'
 export interface ExampleProps {
   label?: string
   depth?: BadgeProps['depth']
-  color: BadgeProps['color']
+  color?: BadgeProps['color']
   isFill?: boolean
 }
 

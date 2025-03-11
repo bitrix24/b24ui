@@ -2,7 +2,7 @@
 import type { TextareaProps } from '@bitrix24/b24ui-nuxt'
 
 export interface ExampleProps {
-  color: TextareaProps['color']
+  color?: TextareaProps['color']
   isHighlight?: boolean
 }
 
