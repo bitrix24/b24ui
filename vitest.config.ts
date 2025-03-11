@@ -6,7 +6,11 @@ export default defineVitestConfig({
     testTimeout: 1000,
     globals: true,
     silent: true,
-    include: ['./test/components/**.spec.ts'],
+    include: [
+      './test/components/**.spec.ts',
+      './test/components/content/**.spec.ts',
+      './test/components/prose/**.spec.ts'
+    ],
     environment: 'nuxt',
     environmentOptions: {
       nuxt: {
