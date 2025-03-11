@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.4.6 (2025-03-11)
+
+### Features
+* **useLocale:** handle generic messages
+* **ProseTable:** add new prose
+
+### Chore
+* **deps:** update vueuse monorepo to v13
+* **deps:** remove `happy-dom` resolution
+* **deps:** update all non-major dependencies
+* **deps:** add `vue` / `vue-router` as dependencies
+* **vitest:** improve config to ignore docs `.c12`
+
 ## 0.4.5 (2025-03-10)
 
 ### Features
