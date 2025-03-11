@@ -37,6 +37,6 @@ const b24ui = computed(() => proseCode({
 
 <template>
   <code
-    :class="b24ui.base({ class: props.b24ui?.base })"
+    :class="b24ui.base({ class: [props.class, props.b24ui?.base] })"
   ><slot /></code>
 </template>
