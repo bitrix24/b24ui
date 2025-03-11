@@ -69,7 +69,7 @@ export default {
     },
     rounded: {
       true: 'rounded-md',
-      false: 'rounded'
+      false: ''
     },
     zebra: {
       true: [

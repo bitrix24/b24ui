@@ -11,6 +11,8 @@ import ChatMessageIcon from '@bitrix24/b24icons-vue/main/ChatMessageIcon'
 import AlertIcon from '@bitrix24/b24icons-vue/button/AlertIcon'
 import FolderEmptyIcon from '@bitrix24/b24icons-vue/main/FolderEmptyIcon'
 import BoldSparkleIcon from '@bitrix24/b24icons-vue/main/BoldSparkleIcon'
+import TextCheckIcon from '@bitrix24/b24icons-vue/editor/TextCheckIcon'
+import TableIcon from '@bitrix24/b24icons-vue/main/TableIcon'
 
 const title = ref('Playground')
 
@@ -70,10 +72,11 @@ const components: IComponentInfo[] = [
   { id: 'slideover', description: 'A dialog that slides in from any side of the screen.', icon: GroupIcon },
   { id: 'switch', description: 'A control that toggles between two states.', icon: FormIcon },
   { id: 'tabs', description: 'A set of tab panels that are displayed one at a time.', icon: FolderEmptyIcon },
-  { id: 'content/table-wrapper', description: 'Wrapper for displaying a table.', icon: GroupIcon },
   { id: 'textarea', description: 'A textarea element to input multi-line text.', icon: FormIcon },
   { id: 'toast', description: 'A succinct message to provide information or feedback to the user.', icon: GroupIcon },
-  { id: 'tooltip', description: 'A popup that reveals information when hovering over an element.', icon: GroupIcon }
+  { id: 'tooltip', description: 'A popup that reveals information when hovering over an element.', icon: GroupIcon },
+  { id: 'content/table-wrapper', description: 'Wrapper for displaying a table.', icon: TableIcon },
+  { id: 'prose/show', description: 'Show same prose', icon: TextCheckIcon }
 ]
 
 const groups: IPageGroup[] = [
