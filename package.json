@@ -133,7 +133,9 @@
     "unplugin": "^2.2.0",
     "unplugin-auto-import": "^19.1.1",
     "unplugin-vue-components": "^28.4.1",
-    "vaul-vue": "^0.3.0"
+    "vaul-vue": "^0.3.0",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
     "@types/canvas-confetti": "^1.9.0",
