@@ -144,7 +144,7 @@
     "@vue/test-utils": "^2.4.6",
     "embla-carousel": "^8.5.2",
     "eslint": "^9.22.0",
-    "happy-dom": "^17.4.1",
+    "happy-dom": "^17.4.3",
     "joi": "^17.13.3",
     "nuxt": "^3.16.0",
     "nuxt-component-meta": "^0.10.0",
