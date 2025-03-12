@@ -61,6 +61,7 @@ const components: IComponentInfo[] = [
   { id: 'kbd', description: 'A kbd element to display a keyboard key.', icon: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'modal', description: 'A dialog window that can be used to display a message or request user input.', icon: GroupIcon },
   { id: 'link', description: 'A wrapper around NuxtLink with extra props.', icon: GroupIcon },
+  { id: 'popover', description: 'A non-modal popup window for showing messages or gathering user input.', icon: GroupIcon },
   { id: 'progress', description: 'An indicator showing the progress of a task.', icon: GroupIcon },
   { id: 'radio-group', description: 'A set of radio buttons to select a single option from a list.', icon: FormIcon },
   { id: 'range', description: 'An input to select a numeric value within a range.', icon: FormIcon },

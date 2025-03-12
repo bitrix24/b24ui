@@ -99,7 +99,8 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'ButtonGroup', link: 'button-group' },
         { text: 'DropdownMenu', link: 'dropdown-menu' },
         { text: 'Modal', link: 'modal' },
-        { text: 'Slideover', link: 'slideover' }
+        { text: 'Slideover', link: 'slideover' },
+        { text: 'Popover💡', link: 'popover' }
       ]
     },
     {
