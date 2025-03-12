@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.4.7 (2025-03-12)
+
+### Features
+
+* **Form:** global errors
+* **Popover:** new component
+* **Demo:** add prose page
+
+### Bug Fixes
+* **vue:** prevent calling `useHead` in colors
+
 ## 0.4.6 (2025-03-11)
 
 ### Features
