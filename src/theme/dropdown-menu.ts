@@ -13,7 +13,7 @@ export default {
       'bg-white dark:bg-base-dark',
       'shadow-lg rounded-2xs ring ring-base-300 dark:ring-base-800',
       'overflow-y-auto',
-      'data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in]',
+      'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]',
       'divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1',
       'pointer-events-auto'
     ].join(' '),
