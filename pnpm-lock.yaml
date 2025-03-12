@@ -49,8 +49,8 @@ importers:
         specifier: ^8.21.2
         version: 8.21.2(vue@3.5.13(typescript@5.6.3))
       '@unhead/vue':
-        specifier: ^2.0.0-rc.9
-        version: 2.0.0-rc.9(vue@3.5.13(typescript@5.6.3))
+        specifier: ^2.0.0-rc.10
+        version: 2.0.0-rc.10(vue@3.5.13(typescript@5.6.3))
       '@vueuse/core':
         specifier: ^13.0.0
         version: 13.0.0(vue@3.5.13(typescript@5.6.3))
@@ -2072,6 +2072,11 @@ packages:
 
   '@ungap/structured-clone@1.2.1':
     resolution: {integrity: sha512-fEzPV3hSkSMltkw152tJKNARhOupqbH96MZWyRjNaYZOMIzbrTeQDG+MTc6Mr2pgzFQzFxAfmhGDNP5QK++2ZA==}
+
+  '@unhead/vue@2.0.0-rc.10':
+    resolution: {integrity: sha512-GYsYZQsS72RvfSDmioyTQDMXD7uuTH1c8XDDVAAnAQEK7eJqRhMclSp3sBCnvwupJtqEbu77YWmXgRk+P6dMSw==}
+    peerDependencies:
+      vue: 3.5.13
 
   '@unhead/vue@2.0.0-rc.9':
     resolution: {integrity: sha512-bXQAMVqU6TFtThcvs4II1C/WOHXEcihSWNPahx1IlzAD2J/uZAb5QEIds4sM7yyLFwBPbQgqr175m67QfDRS4g==}
@@ -5072,6 +5077,9 @@ packages:
   unenv@2.0.0-rc.14:
     resolution: {integrity: sha512-od496pShMen7nOy5VmVJCnq8rptd45vh6Nx/r2iPbrba6pa6p+tS2ywuIHRZ/OBvSbQZB0kWvpO9XBNVFXHD3Q==}
 
+  unhead@2.0.0-rc.10:
+    resolution: {integrity: sha512-x3Qs8/S5wkYVpKfxRwz/vYHBKSmZWFQTA2adfKeOPqo77/QixQGP+Ic34BlaXFXz1wEtKtYXrC4mF/LAhxEQ1A==}
+
   unhead@2.0.0-rc.9:
     resolution: {integrity: sha512-N1p9as7Hg9Gs3l5kkxxsi9eTa8xTHUADZgN1U+hCKHWKegGhvJ4wApzBjk4Zng7O92wPlPDGk8oHSWgO6jg6tw==}
 
@@ -7407,6 +7415,12 @@ snapshots:
       eslint-visitor-keys: 4.2.0
 
   '@ungap/structured-clone@1.2.1': {}
+
+  '@unhead/vue@2.0.0-rc.10(vue@3.5.13(typescript@5.6.3))':
+    dependencies:
+      hookable: 5.5.3
+      unhead: 2.0.0-rc.10
+      vue: 3.5.13(typescript@5.6.3)
 
   '@unhead/vue@2.0.0-rc.9(vue@3.5.13(typescript@5.6.3))':
     dependencies:
@@ -10810,6 +10824,10 @@ snapshots:
       ohash: 2.0.11
       pathe: 2.0.3
       ufo: 1.5.4
+
+  unhead@2.0.0-rc.10:
+    dependencies:
+      hookable: 5.5.3
 
   unhead@2.0.0-rc.9:
     dependencies:
