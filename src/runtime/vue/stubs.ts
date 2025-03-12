@@ -5,10 +5,7 @@ import appConfig from '#build/app.config'
 import type { NuxtApp } from '#app'
 import { useColorMode as useColorModeVueUse } from '@vueuse/core'
 
-/**
- * @todo not use @unhead/vue/legacy
- */
-export { useHead } from '@unhead/vue/legacy'
+export { useHead } from '@unhead/vue'
 export { useRoute, useRouter } from 'vue-router'
 
 export { defineShortcuts } from '../composables/defineShortcuts'
@@ -66,6 +63,7 @@ export const useState = <T>(key: string, init: () => T): Ref<T> => {
 export function useNuxtApp() {
   return {
     isHydrating: true,
+    isVue: true,
     payload: { serverRendered: false }
   }
 }

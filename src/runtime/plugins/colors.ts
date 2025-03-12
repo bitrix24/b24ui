@@ -1,7 +1,6 @@
 import { computed } from 'vue'
 import {
   defineNuxtPlugin,
-  // useAppConfig,
   useNuxtApp,
   useHead
 } from '#imports'
@@ -9,7 +8,6 @@ import {
 import type {} from '#app'
 
 export default defineNuxtPlugin(() => {
-  // const appConfig = useAppConfig()
   const nuxtApp = useNuxtApp()
   /**
    * @see src/templates.ts -> getTemplates
@@ -65,5 +63,7 @@ export default defineNuxtPlugin(() => {
     }
   }
 
-  useHead(headData)
+  if (!nuxtApp.isVue) {
+    useHead(headData)
+  }
 })
