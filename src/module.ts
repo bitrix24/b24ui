@@ -9,7 +9,7 @@ export interface ModuleOptions {
   /**
    * Enable or disable `@nuxtjs/color-mode` module
    * @defaultValue `true`
-   * @link https://ui3.nuxt.dev/getting-started/installation#colormode
+   * @link https://bitrix24.github.io/b24ui/guide/color-mode-nuxt.html
    */
   colorMode?: boolean
 }
