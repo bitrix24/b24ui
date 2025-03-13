@@ -19,8 +19,8 @@ importers:
   .:
     dependencies:
       '@bitrix24/b24icons-vue':
-        specifier: ^1.0.3
-        version: 1.0.3(vue@3.5.13(typescript@5.6.3))
+        specifier: ^1.0.5
+        version: 1.0.5(vue@3.5.13(typescript@5.6.3))
       '@bitrix24/b24style':
         specifier: ^1.0.1
         version: 1.0.1
@@ -224,8 +224,8 @@ importers:
   demo:
     dependencies:
       '@bitrix24/b24icons-vue':
-        specifier: 1.0.3
-        version: 1.0.3(vue@3.5.13(typescript@5.6.3))
+        specifier: 1.0.5
+        version: 1.0.5(vue@3.5.13(typescript@5.6.3))
       '@bitrix24/b24ui-nuxt':
         specifier: workspace:*
         version: link:..
@@ -236,8 +236,8 @@ importers:
   docs:
     devDependencies:
       '@bitrix24/b24icons-vue':
-        specifier: 1.0.3
-        version: 1.0.3(vue@3.5.13(typescript@5.6.3))
+        specifier: 1.0.5
+        version: 1.0.5(vue@3.5.13(typescript@5.6.3))
       '@bitrix24/b24ui-nuxt':
         specifier: workspace:*
         version: link:..
@@ -254,8 +254,8 @@ importers:
   playground:
     dependencies:
       '@bitrix24/b24icons-vue':
-        specifier: 1.0.3
-        version: 1.0.3(vue@3.5.13(typescript@5.6.3))
+        specifier: 1.0.5
+        version: 1.0.5(vue@3.5.13(typescript@5.6.3))
       '@bitrix24/b24ui-nuxt':
         specifier: workspace:*
         version: link:..
@@ -490,8 +490,8 @@ packages:
     resolution: {integrity: sha512-Y3IR1cRnOxOCDvMmNiym7XpXQ93iGDDPHx+Zj+NM+rg0fBaShfQLkg+hKPaZCEvg5N/LeCo4+Rj/i3FuJsIQaw==}
     engines: {node: '>=6.9.0'}
 
-  '@bitrix24/b24icons-vue@1.0.3':
-    resolution: {integrity: sha512-rMk8VBPTpaTrXMRMnAJeIF7+PtS5ATp0CWmM79sGzF0SgoQkTK7GUpPT8PiB4YaezLN4D8H3I0BdnOLnW42/bw==}
+  '@bitrix24/b24icons-vue@1.0.5':
+    resolution: {integrity: sha512-M5Ux8CIteYcpc0DrLa4TAHzEYc+oxAsO1c+tBW+whLWTn/3PO/B3FCwWtnSDnlCSWSx3PBsmn7t+u9Z26qVETg==}
     peerDependencies:
       vue: 3.5.13
 
@@ -5925,7 +5925,7 @@ snapshots:
       '@babel/helper-string-parser': 7.25.9
       '@babel/helper-validator-identifier': 7.25.9
 
-  '@bitrix24/b24icons-vue@1.0.3(vue@3.5.13(typescript@5.6.3))':
+  '@bitrix24/b24icons-vue@1.0.5(vue@3.5.13(typescript@5.6.3))':
     dependencies:
       vue: 3.5.13(typescript@5.6.3)
 

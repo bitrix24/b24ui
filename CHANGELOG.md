@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.4.8 (2025-03-13)
+
+### Features
+
+* **Calendar:** new component
+
+### Chore
+
+* **deps:** update
+* **Locales:** add iso `locale`
+
 ## 0.4.7 (2025-03-12)
 
 ### Features
@@ -9,6 +20,7 @@
 * **Demo:** add prose page
 
 ### Bug Fixes
+
 * **vue:** prevent calling `useHead` in colors
 
 ## 0.4.6 (2025-03-11)
