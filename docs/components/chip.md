@@ -18,6 +18,7 @@ import WithShowExample from '/examples/chip/WithShow.vue';
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/chip"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Chip.vue"
+  demo="/components/chip"
 >
   An indicator that shows either a number or a state.
 </Description>
