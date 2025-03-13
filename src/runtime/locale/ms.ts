@@ -4,6 +4,7 @@ import { defineLocale } from '../composables/defineLocale'
 export default defineLocale<Messages>({
   name: 'Bahasa Melayu',
   code: 'ms',
+  locale: 'ms',
   messages: {
     inputMenu: {
       noMatch: 'Tiada data yang sepadan',

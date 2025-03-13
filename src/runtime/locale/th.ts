@@ -4,6 +4,7 @@ import { defineLocale } from '../composables/defineLocale'
 export default defineLocale<Messages>({
   name: 'ภาษาไทย',
   code: 'th',
+  locale: 'th',
   messages: {
     inputMenu: {
       noMatch: 'ไม่พบข้อมูลที่ตรงกัน',

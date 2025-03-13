@@ -4,6 +4,7 @@ import { defineLocale } from '../composables/defineLocale'
 export default defineLocale<Messages>({
   name: 'Português (Brasil)',
   code: 'br',
+  locale: 'pt-BR',
   messages: {
     inputMenu: {
       noMatch: 'Nenhum dado correspondente',

@@ -4,6 +4,7 @@ import { defineLocale } from '../composables/defineLocale'
 export default defineLocale<Messages>({
   name: 'Қазақша',
   code: 'kz',
+  locale: 'kk',
   messages: {
     inputMenu: {
       noMatch: 'Сәйкес деректер жоқ',

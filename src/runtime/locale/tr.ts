@@ -4,6 +4,7 @@ import { defineLocale } from '../composables/defineLocale'
 export default defineLocale<Messages>({
   name: 'Türkçe',
   code: 'tr',
+  locale: 'tr',
   messages: {
     inputMenu: {
       noMatch: 'Eşleşen veri yok',

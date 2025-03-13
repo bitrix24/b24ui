@@ -4,6 +4,7 @@ import { defineLocale } from '../composables/defineLocale'
 export default defineLocale<Messages>({
   name: 'Українська',
   code: 'ua',
+  locale: 'uk',
   messages: {
     inputMenu: {
       noMatch: 'Збігів не знайдено',

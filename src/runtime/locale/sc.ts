@@ -4,6 +4,7 @@ import { defineLocale } from '../composables/defineLocale'
 export default defineLocale<Messages>({
   name: '中文（简体）',
   code: 'sc',
+  locale: 'zh-CN',
   messages: {
     inputMenu: {
       noMatch: '没有匹配的数据',

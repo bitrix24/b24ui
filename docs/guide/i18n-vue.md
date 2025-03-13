@@ -48,6 +48,7 @@ import { defineLocale } from '@bitrix24/b24ui-nuxt/composables/defineLocale.js'
 const locale = defineLocale<Messages>({
   name: 'My custom locale',
   code: 'en',
+  locale: 'en',
   dir: 'ltr',
   messages: {
     // implement pairs
@@ -64,7 +65,7 @@ const locale = defineLocale<Messages>({
 :::
 
 ::: tip
-Look at the `code` parameter, there you need to pass the iso code of the language. Example:
+Look at the `locale` parameter, there you need to pass the iso code of the language. Example:
 
 * `hi` Hindi (language)
 * `de-AT`: German (language) as used in Austria (region)

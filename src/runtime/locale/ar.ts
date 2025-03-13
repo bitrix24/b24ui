@@ -4,6 +4,7 @@ import { defineLocale } from '../composables/defineLocale'
 export default defineLocale<Messages>({
   name: 'عربي,',
   code: 'ar',
+  locale: 'ar',
   dir: 'rtl',
   messages: {
     inputMenu: {

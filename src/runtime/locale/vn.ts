@@ -4,6 +4,7 @@ import { defineLocale } from '../composables/defineLocale'
 export default defineLocale<Messages>({
   name: 'Tiếng Việt',
   code: 'vn',
+  locale: 'vi',
   messages: {
     inputMenu: {
       noMatch: 'Không có kết quả phù hợp',

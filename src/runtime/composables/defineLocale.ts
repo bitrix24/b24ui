@@ -4,6 +4,7 @@ import type { Locale, Direction } from '../types/locale'
 interface DefineLocaleOptions<M> {
   name: string
   code: string
+  locale: string
   dir?: Direction
   messages: M
 }
