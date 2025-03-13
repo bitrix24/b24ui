@@ -3,10 +3,7 @@
  * ---
  * @link https://bitrix24.github.io/b24icons/
  */
-/**
- * @todo make normal component chevronDoubleLeft
- * @todo rename DoubleShevronsRightIcon
- */
+
 import ArrowToTheLeftIcon from '@bitrix24/b24icons-vue/actions/ArrowToTheLeftIcon'
 import ArrowToTheRightIcon from '@bitrix24/b24icons-vue/actions/ArrowToTheRightIcon'
 import CheckIcon from '@bitrix24/b24icons-vue/main/CheckIcon'
@@ -15,6 +12,7 @@ import ChevronDownIcon from '@bitrix24/b24icons-vue/actions/ChevronDownIcon'
 import ChevronToTheLeftIcon from '@bitrix24/b24icons-vue/actions/ChevronToTheLeftIcon'
 import ChevronToTheRightIcon from '@bitrix24/b24icons-vue/actions/ChevronToTheRightIcon'
 import DoubleShevronsRightIcon from '@bitrix24/b24icons-vue/actions/DoubleShevronsRightIcon'
+import DoubleShevronsLeftIcon from '@bitrix24/b24icons-vue/actions/DoubleShevronsLeftIcon'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
 import DotsIcon from '@bitrix24/b24icons-vue/button/DotsIcon'
 import OpenIn50Icon from '@bitrix24/b24icons-vue/actions/OpenIn50Icon'
@@ -28,7 +26,7 @@ export default {
   arrowLeft: ArrowToTheLeftIcon,
   arrowRight: ArrowToTheRightIcon,
   check: CheckIcon,
-  chevronDoubleLeft: ChevronToTheLeftIcon,
+  chevronDoubleLeft: DoubleShevronsLeftIcon,
   chevronDoubleRight: DoubleShevronsRightIcon,
   chevronDown: ChevronDownIcon,
   chevronLeft: ChevronToTheLeftIcon,

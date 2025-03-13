@@ -755,7 +755,7 @@
     outline: none;
   }
 
-  .Layout table {
+  .Layout table:not(div[data-example] table) {
     border-collapse: collapse;
   }
 

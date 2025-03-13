@@ -13,6 +13,7 @@ import FolderEmptyIcon from '@bitrix24/b24icons-vue/main/FolderEmptyIcon'
 import BoldSparkleIcon from '@bitrix24/b24icons-vue/main/BoldSparkleIcon'
 import TextCheckIcon from '@bitrix24/b24icons-vue/editor/TextCheckIcon'
 import TableIcon from '@bitrix24/b24icons-vue/main/TableIcon'
+import Calendar1Icon from '@bitrix24/b24icons-vue/main/Calendar1Icon'
 
 const title = ref('Playground')
 
@@ -46,6 +47,7 @@ const components: IComponentInfo[] = [
   { id: 'badge', description: 'A short text to represent a status or a category.', icon: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'button', description: 'A button element that can act as a link or trigger an action.', icon: GroupIcon },
   { id: 'button-group', description: 'Group multiple button-like elements together.', icon: GroupIcon },
+  { id: 'calendar', description: 'A calendar tool for choosing individual dates, multiple dates, or date spans.', icon: Calendar1Icon },
   { id: 'checkbox', description: 'An input element to toggle between checked and unchecked states.', icon: FormIcon },
   { id: 'chip', description: 'An indicator of a numeric value or a state.', icon: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'confetti', description: 'Performant confetti animation in the browser.', icon: BoldSparkleIcon },

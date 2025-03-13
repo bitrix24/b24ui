@@ -54,7 +54,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'Installation', link: 'installation-nuxt-app' },
         { text: 'Color Mode', link: 'color-mode-nuxt' },
-        { text: 'I18n💡', link: 'i18n-nuxt' }
+        { text: 'I18n', link: 'i18n-nuxt' }
       ]
     },
     {
@@ -63,7 +63,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'Installation', link: 'installation-vue' },
         { text: 'Color Mode', link: 'color-mode-vue' },
-        { text: 'I18n💡', link: 'i18n-vue' }
+        { text: 'I18n', link: 'i18n-vue' }
       ]
     },
     { text: 'Contribution Guide', link: 'contribution' }
@@ -122,6 +122,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'Avatar', link: 'avatar' },
         { text: 'AvatarGroup', link: 'avatar-group' },
         { text: 'Badge', link: 'badge' },
+        { text: 'Calendar💡', link: 'calendar' },
         { text: 'Countdown', link: 'countdown' },
         { text: 'Kbd', link: 'kbd' },
         { text: 'TableWrapper', base: '/components/content/', link: 'table-wrapper' }
