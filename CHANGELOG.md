@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.4.9 (2025-03-14)
+
+### Docs
+
+* **Prose:** add content and typography
+
+### Chore
+
+* **deps:** update
+
 ## 0.4.8 (2025-03-13)
 
 ### Features
