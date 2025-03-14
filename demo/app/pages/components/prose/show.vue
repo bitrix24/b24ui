@@ -56,7 +56,7 @@ const demoPreObj = [
         <ProseHr />
 
         <ProseH3 id="coreServices">
-          Our Core Services 123
+          Our Core Services
         </ProseH3>
         <ProseUl>
           <ProseLi>PPC Advertising</ProseLi>

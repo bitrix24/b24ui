@@ -54,7 +54,8 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'Installation', link: 'installation-nuxt-app' },
         { text: 'Color Mode', link: 'color-mode-nuxt' },
-        { text: 'I18n', link: 'i18n-nuxt' }
+        { text: 'I18n', link: 'i18n-nuxt' },
+        { text: 'Content💡', link: 'content-nuxt' }
       ]
     },
     {
@@ -125,7 +126,8 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'Calendar💡', link: 'calendar' },
         { text: 'Countdown', link: 'countdown' },
         { text: 'Kbd', link: 'kbd' },
-        { text: 'TableWrapper', base: '/components/content/', link: 'table-wrapper' }
+        { text: 'TableWrapper', base: '/components/content/', link: 'table-wrapper' },
+        { text: 'Typography💡', link: 'typography' }
       ]
     },
     {
