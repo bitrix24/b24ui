@@ -179,7 +179,11 @@ It's recommended to install the [Tailwind CSS IntelliSense](https://marketplace.
 },
 "editor.quickSuggestions": {
   "strings": "on"
-}
+},
+"tailwindCSS.classAttributes": ["class", "b24ui"],
+"tailwindCSS.experimental.classRegex": [
+  ["b24ui:\\s*{([^)]*)\\s*}", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+]
 ```
 
 :::
