@@ -29,7 +29,11 @@ export default function ComponentImportPlugin(
 
   const pluginOptions = defu(options.components, <ComponentsOptions>{
     dts: options.dts ?? true,
-    exclude: [/[\\/]node_modules[\\/](?!\.pnpm|@nuxt\/ui)/, /[\\/]\.git[\\/]/, /[\\/]\.nuxt[\\/]/],
+    exclude: [
+      /[\\/]node_modules[\\/](?!\.pnpm|@bitrix24\/b24ui-nuxt|@compodium\/examples)/,
+      /[\\/]\.git[\\/]/,
+      /[\\/]\.nuxt[\\/]/
+    ],
     resolvers: [
       (componentName) => {
         if (overrideNames.has(componentName))
