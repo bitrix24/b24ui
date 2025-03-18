@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.4.10 (2025-03-18)
+
+### Docs
+
+* **installation:** improve vscode recommendations
+
+### Features
+
+* **SidebarLayout:** new components (documentation is being prepared)
+
+### Bug Fixes
+* **vue:** missing unhead context
+* **unplugin:** include `@compodium/examples` in auto-imports paths
+
+### Chore
+
+* **deps:** update
+* **Demo/Playground/Playground-Vue:** use SidebarLayout
+
 ## 0.4.9 (2025-03-14)
 
 ### Docs
