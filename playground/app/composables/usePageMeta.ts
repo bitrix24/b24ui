@@ -77,9 +77,15 @@ const components: IComponentInfo[] = [
   { id: 'tabs', description: 'A set of tab panels that are displayed one at a time.', icon: FolderEmptyIcon },
   { id: 'textarea', description: 'A textarea element to input multi-line text.', icon: FormIcon },
   { id: 'toast', description: 'A succinct message to provide information or feedback to the user.', icon: GroupIcon },
-  { id: 'tooltip', description: 'A popup that reveals information when hovering over an element.', icon: GroupIcon },
-  { id: 'content/table-wrapper', description: 'Wrapper for displaying a table.', icon: TableIcon },
-  { id: 'prose/show', description: 'Show same prose', icon: TextCheckIcon }
+  { id: 'tooltip', description: 'A popup that reveals information when hovering over an element.', icon: GroupIcon }
+]
+
+const componentsContent: IComponentInfo[] = [
+  { id: 'table-wrapper', description: 'Wrapper for displaying a table.', icon: TableIcon }
+]
+
+const componentsProse: IComponentInfo[] = [
+  { id: 'show', description: 'Show same prose', icon: TextCheckIcon }
 ]
 
 const groups: IPageGroup[] = [
@@ -94,15 +100,34 @@ const groups: IPageGroup[] = [
       description: component.description,
       isActive: false
     } as IPageItem))
+  } as IPageGroup,
+  {
+    id: `components/content`,
+    label: 'Content',
+    items: componentsContent.map(component => ({
+      id: component.id,
+      icon: component.icon ?? ItemIcon,
+      iconClass: { icon: component.iconUi ?? (component.icon ? '' : 'pr-px') },
+      label: `${upperName(component.id)}`,
+      description: component.description,
+      isActive: false
+    } as IPageItem))
+  } as IPageGroup,
+  {
+    id: `components/prose`,
+    label: 'Prose',
+    items: componentsProse.map(component => ({
+      id: component.id,
+      icon: component.icon ?? ItemIcon,
+      iconClass: { icon: component.iconUi ?? (component.icon ? '' : 'pr-px') },
+      label: `${upperName(component.id)}`,
+      description: component.description,
+      isActive: false
+    } as IPageItem))
   } as IPageGroup
 ]
 
 function upperName(name: string) {
-  if (name.includes('content/')) {
-    return ['content / ', ...splitByCase(name.replace('content/', '')).map(p => upperFirst(p))].join('')
-  } else if (name.includes('prose/')) {
-    return ['prose / ', ...splitByCase(name.replace('prose/', '')).map(p => upperFirst(p))].join('')
-  }
   return splitByCase(name).map(p => upperFirst(p)).join('')
 }
 

@@ -7,7 +7,7 @@ const $props = withDefaults(defineProps<{
   customGridCols: false
 })
 
-const className = ref(`grid ${$props.customGridCols ? '' : 'grid-cols-[repeat(auto-fill,minmax(266px,1fr))]'} gap-y-sm gap-x-xs w-full`)
+const className = ref(`grid ${$props.customGridCols ? '' : 'grid-cols-1 max-lg:grid-cols-2 lg:grid-cols-4 '} gap-y-md gap-x-md w-full`)
 </script>
 
 <template>

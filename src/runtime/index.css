@@ -15,14 +15,30 @@
   .dark {}
 
   --b24ui-header-height: calc(var(--spacing)*16);
-
-  .scrollbar-thin {
-    scrollbar-width: thin;
-  }
 }
 
 @layer theme {
   :host,:root {
     --spacing: .25rem;
   }
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-transparent {
+  scrollbar-color: hsla(0,0%,100%,.21) transparent;
+}
+
+.scrollbar-transparent:hover {
+  scrollbar-color: hsl(213.91deg 12.3% 36.67% / 36%) transparent;
+}
+
+.dark .scrollbar-transparent {
+  scrollbar-color: hsla(0, 0%, 0%, 0.21) transparent;
+}
+
+.dark .scrollbar-transparent:hover {
+  scrollbar-color: hsl(213.91deg 12.3% 36%) transparent;
 }

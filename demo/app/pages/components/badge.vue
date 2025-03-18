@@ -6,7 +6,7 @@ import ExampleCard from '../../components/ExampleCard.vue'
 import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import InfoIcon from '@bitrix24/b24icons-vue/button/InfoIcon'
 
-usePageMeta.setPageTitle('Range')
+usePageMeta.setPageTitle('Badge')
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 const depths = Object.keys(theme.variants.depth) as Array<keyof typeof theme.variants.depth>
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
