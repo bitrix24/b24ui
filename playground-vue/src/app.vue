@@ -64,9 +64,6 @@ defineShortcuts({
     >
       <template #sidebar>
         <B24SidebarHeader>
-          <ProseH3 class="pl-2 mb-4">
-            Vue::Playground
-          </ProseH3>
           <B24SidebarSection class="flex-row">
             <B24Tooltip :content="{ side: 'left' }" :text="`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`" :kbds="['shift', 'D']">
               <B24Button
@@ -92,6 +89,9 @@ defineShortcuts({
               <B24Kbd value="ctrl" size="sm" /> <B24Kbd value="K" size="sm" />
             </div>
           </B24SidebarSection>
+          <ProseH3 class="pl-2 mt-3">
+            Vue::Playground
+          </ProseH3>
         </B24SidebarHeader>
         <B24SidebarBody>
           <B24SidebarSection

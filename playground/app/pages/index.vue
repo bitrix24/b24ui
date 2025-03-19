@@ -5,7 +5,7 @@ usePageMeta.setPageTitle('Playground')
 </script>
 
 <template>
-  <div class="w-full">
+  <div class="w-full lg:mt-12 max-lg:px-3">
     <div
       v-for="(group) in usePageMeta.groups"
       :key="group.id"

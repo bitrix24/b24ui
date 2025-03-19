@@ -74,21 +74,20 @@ defineShortcuts({
       >
         <template #sidebar>
           <B24SidebarHeader>
-            <ProseH3 class="pl-2 mb-4">
-              Playground
-            </ProseH3>
             <B24SidebarSection class="flex-row">
-              <ClientOnly v-if="!colorMode?.forced">
-                <B24Tooltip :content="{ side: 'right' }" :text="`Switch to ${isDark ? 'light' : 'dark'} mode`" :kbds="['shift', 'D']">
-                  <B24Button
-                    :icon="isDark ? MoonIcon : SunIcon"
-                    :aria-label="`Switch to ${isDark ? 'light' : 'dark'} mode`"
-                    color="link"
-                    depth="normal"
-                    size="xs"
-                    @click="isDark = !isDark"
-                  />
-                </B24Tooltip>
+              <ClientOnly>
+                <template v-if="!colorMode?.forced">
+                  <B24Tooltip :content="{ side: 'right' }" :text="`Switch to ${isDark ? 'light' : 'dark'} mode`" :kbds="['shift', 'D']">
+                    <B24Button
+                      :icon="isDark ? MoonIcon : SunIcon"
+                      :aria-label="`Switch to ${isDark ? 'light' : 'dark'} mode`"
+                      color="link"
+                      depth="normal"
+                      size="xs"
+                      @click="isDark = !isDark"
+                    />
+                  </B24Tooltip>
+                </template>
                 <B24Tooltip :content="{ side: 'right' }" :text="`Switch to ${isLtr ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', 'L']">
                   <B24Button
                     :icon="isLtr ? LeftAlignIcon : RightAlignIcon"
@@ -99,11 +98,18 @@ defineShortcuts({
                     @click="isLtr = !isLtr"
                   />
                 </B24Tooltip>
+
+                <div class="hidden mx-2 lg:flex flex-row flex-nowrap items-center justify-center gap-0.5">
+                  <B24Kbd value="ctrl" size="sm" /> <B24Kbd value="K" size="sm" />
+                </div>
+                <template #fallback>
+                  <div class="h-[26px]" />
+                </template>
               </ClientOnly>
-              <div class="hidden mx-2 lg:flex flex-row flex-nowrap items-center justify-center gap-0.5">
-                <B24Kbd value="ctrl" size="sm" /> <B24Kbd value="K" size="sm" />
-              </div>
             </B24SidebarSection>
+            <ProseH3 class="pl-2 mt-3">
+              Playground
+            </ProseH3>
           </B24SidebarHeader>
           <B24SidebarBody>
             <B24SidebarSection
