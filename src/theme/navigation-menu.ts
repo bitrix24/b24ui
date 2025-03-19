@@ -9,6 +9,13 @@
  * @todo: color
  */
 
+/**
+ * ext links whitespace-nowrap
+ * - mt-2 text-md font-light
+ * - flex flex-row flex-nowrap items-center justify-start gap-1 px-2
+ * - ExpandIcon class="size-3"
+ */
+
 export default {
   slots: {
     root: 'relative flex gap-1.5 [&>div]:min-w-0',
@@ -105,136 +112,153 @@ export default {
       true: ''
     }
   },
-  compoundVariants: [{
-    orientation: 'horizontal',
-    contentOrientation: 'horizontal',
-    class: {
-      childList: 'grid-cols-2 gap-2'
+  compoundVariants: [
+    {
+      orientation: 'horizontal',
+      contentOrientation: 'horizontal',
+      class: {
+        childList: 'grid-cols-2 gap-2'
+      }
+    },
+    {
+      orientation: 'horizontal',
+      contentOrientation: 'vertical',
+      class: {
+        childList: 'gap-1',
+        content: 'w-60'
+      }
+    },
+    {
+      orientation: 'horizontal',
+      highlight: true,
+      class: {
+        link: ['after:absolute after:-bottom-2 after:inset-x-2.5 after:block after:h-px after:rounded-full', 'after:transition-colors']
+      }
+    },
+    {
+      orientation: 'vertical',
+      highlight: true,
+      level: true,
+      class: {
+        link: ['after:absolute after:-start-1.5 after:inset-y-0.5 after:block after:w-px after:rounded-full', 'after:transition-colors']
+      }
+    },
+    {
+      disabled: false,
+      active: false,
+      variant: 'pill',
+      class: {
+        link: ['hover:text-(--ui-text-highlighted) hover:before:bg-(--ui-bg-elevated)/50', 'transition-colors before:transition-colors'],
+        linkLeadingIcon: ['group-hover:text-(--ui-text)', 'transition-colors']
+      }
+    },
+    {
+      disabled: false,
+      active: false,
+      variant: 'pill',
+      orientation: 'horizontal',
+      class: {
+        link: 'data-[state=open]:text-(--ui-text-highlighted)',
+        linkLeadingIcon: 'group-data-[state=open]:text-(--ui-text)'
+      }
+    },
+    {
+      disabled: false,
+      variant: 'pill',
+      highlight: true,
+      orientation: 'horizontal',
+      class: {
+        link: 'data-[state=open]:before:bg-(--ui-bg-elevated)/50'
+      }
+    },
+    {
+      disabled: false,
+      variant: 'pill',
+      highlight: false,
+      active: false,
+      orientation: 'horizontal',
+      class: {
+        link: 'data-[state=open]:before:bg-(--ui-bg-elevated)/50'
+      }
+    },
+    {
+      color: 'default',
+      variant: 'pill',
+      active: true,
+      class: {
+        link: 'text-(--ui-text-highlighted)',
+        linkLeadingIcon: 'text-(--ui-text-highlighted) group-data-[state=open]:text-(--ui-text-highlighted)'
+      }
+    },
+    {
+      variant: 'pill',
+      active: true,
+      highlight: false,
+      class: {
+        link: 'before:bg-(--ui-bg-elevated)'
+      }
+    },
+    {
+      variant: 'pill',
+      active: true,
+      highlight: true,
+      class: {
+        link: ['hover:before:bg-(--ui-bg-elevated)/50', 'before:transition-colors']
+      }
+    },
+    {
+      disabled: false,
+      active: false,
+      variant: 'link',
+      class: {
+        link: ['hover:text-(--ui-text-highlighted)', 'transition-colors'],
+        linkLeadingIcon: ['group-hover:text-(--ui-text)', 'transition-colors']
+      }
+    },
+    {
+      disabled: false,
+      active: false,
+      variant: 'link',
+      orientation: 'horizontal',
+      class: {
+        link: 'data-[state=open]:text-(--ui-text-highlighted)',
+        linkLeadingIcon: 'group-data-[state=open]:text-(--ui-text)'
+      }
+    },
+    {
+      color: 'default',
+      variant: 'link',
+      active: true,
+      class: {
+        link: 'text-(--ui-text-highlighted)',
+        linkLeadingIcon: 'text-(--ui-text-highlighted) group-data-[state=open]:text-(--ui-text-highlighted)'
+      }
+    },
+    {
+      highlightColor: 'default',
+      highlight: true,
+      level: true,
+      active: true,
+      class: {
+        link: 'after:bg-(--ui-bg-inverted)'
+      }
+    },
+    {
+      orientation: 'vertical',
+      collapsed: false,
+      class: {
+        childList: 'ms-5 border-s border-(--ui-border)',
+        childItem: 'ps-1.5 -ms-px'
+      }
+    },
+    {
+      orientation: 'vertical',
+      collapsed: true,
+      class: {
+        link: 'px-1.5'
+      }
     }
-  }, {
-    orientation: 'horizontal',
-    contentOrientation: 'vertical',
-    class: {
-      childList: 'gap-1',
-      content: 'w-60'
-    }
-  }, {
-    orientation: 'horizontal',
-    highlight: true,
-    class: {
-      link: ['after:absolute after:-bottom-2 after:inset-x-2.5 after:block after:h-px after:rounded-full', 'after:transition-colors']
-    }
-  }, {
-    orientation: 'vertical',
-    highlight: true,
-    level: true,
-    class: {
-      link: ['after:absolute after:-start-1.5 after:inset-y-0.5 after:block after:w-px after:rounded-full', 'after:transition-colors']
-    }
-  }, {
-    disabled: false,
-    active: false,
-    variant: 'pill',
-    class: {
-      link: ['hover:text-(--ui-text-highlighted) hover:before:bg-(--ui-bg-elevated)/50', 'transition-colors before:transition-colors'],
-      linkLeadingIcon: ['group-hover:text-(--ui-text)', 'transition-colors']
-    }
-  }, {
-    disabled: false,
-    active: false,
-    variant: 'pill',
-    orientation: 'horizontal',
-    class: {
-      link: 'data-[state=open]:text-(--ui-text-highlighted)',
-      linkLeadingIcon: 'group-data-[state=open]:text-(--ui-text)'
-    }
-  }, {
-    disabled: false,
-    variant: 'pill',
-    highlight: true,
-    orientation: 'horizontal',
-    class: {
-      link: 'data-[state=open]:before:bg-(--ui-bg-elevated)/50'
-    }
-  }, {
-    disabled: false,
-    variant: 'pill',
-    highlight: false,
-    active: false,
-    orientation: 'horizontal',
-    class: {
-      link: 'data-[state=open]:before:bg-(--ui-bg-elevated)/50'
-    }
-  },
-  {
-    color: 'default',
-    variant: 'pill',
-    active: true,
-    class: {
-      link: 'text-(--ui-text-highlighted)',
-      linkLeadingIcon: 'text-(--ui-text-highlighted) group-data-[state=open]:text-(--ui-text-highlighted)'
-    }
-  }, {
-    variant: 'pill',
-    active: true,
-    highlight: false,
-    class: {
-      link: 'before:bg-(--ui-bg-elevated)'
-    }
-  }, {
-    variant: 'pill',
-    active: true,
-    highlight: true,
-    class: {
-      link: ['hover:before:bg-(--ui-bg-elevated)/50', 'before:transition-colors']
-    }
-  }, {
-    disabled: false,
-    active: false,
-    variant: 'link',
-    class: {
-      link: ['hover:text-(--ui-text-highlighted)', 'transition-colors'],
-      linkLeadingIcon: ['group-hover:text-(--ui-text)', 'transition-colors']
-    }
-  }, {
-    disabled: false,
-    active: false,
-    variant: 'link',
-    orientation: 'horizontal',
-    class: {
-      link: 'data-[state=open]:text-(--ui-text-highlighted)',
-      linkLeadingIcon: 'group-data-[state=open]:text-(--ui-text)'
-    }
-  }, {
-    color: 'default',
-    variant: 'link',
-    active: true,
-    class: {
-      link: 'text-(--ui-text-highlighted)',
-      linkLeadingIcon: 'text-(--ui-text-highlighted) group-data-[state=open]:text-(--ui-text-highlighted)'
-    }
-  }, {
-    highlightColor: 'default',
-    highlight: true,
-    level: true,
-    active: true,
-    class: {
-      link: 'after:bg-(--ui-bg-inverted)'
-    }
-  }, {
-    orientation: 'vertical',
-    collapsed: false,
-    class: {
-      childList: 'ms-5 border-s border-(--ui-border)',
-      childItem: 'ps-1.5 -ms-px'
-    }
-  }, {
-    orientation: 'vertical',
-    collapsed: true,
-    class: {
-      link: 'px-1.5'
-    }
-  }],
+  ],
   defaultVariants: {
     /**
      * @todo change to primary

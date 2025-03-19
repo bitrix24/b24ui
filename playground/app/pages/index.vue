@@ -15,12 +15,12 @@ usePageMeta.setPageTitle('Playground')
         {{ group.label }}
       </div>
       <div class="grid grid-cols-[repeat(auto-fill,minmax(266px,1fr))] gap-y-sm gap-x-sm">
-        <template v-for="(item) in group.items" :key="item.id">
+        <template v-for="(item) in group.children" :key="item.id">
           <B24Tooltip :disabled="item.description.length < 43" :text="item.description" :content="{ side: 'top' }" arrow>
             <B24Link
               raw
               class="bg-white dark:bg-white/10 py-sm2 px-xs2 cursor-pointer rounded-md flex flex-row gap-sm border-2 transition-shadow shadow hover:shadow-lg relative border-base-master/10 dark:border-base-100/20 hover:border-primary"
-              :to="`/${group.id}/${item.id}`"
+              :to="item.to"
             >
               <B24Avatar
                 :icon="item.icon"

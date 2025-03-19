@@ -27,16 +27,19 @@ function getPageTitle(): Ref<string> {
 
 const menuList: IMenuItem[] = [
   {
-    title: 'b24style',
-    href: 'https://bitrix24.github.io/b24style/'
+    label: 'b24style',
+    to: 'https://bitrix24.github.io/b24style/',
+    target: '_blank'
   },
   {
-    title: 'b24icons',
-    href: 'https://bitrix24.github.io/b24icons/'
+    label: 'b24icons',
+    to: 'https://bitrix24.github.io/b24icons/',
+    target: '_blank'
   },
   {
-    title: 'b24jssdk',
-    href: 'https://bitrix24.github.io/b24jssdk/'
+    label: 'b24jssdk',
+    to: 'https://bitrix24.github.io/b24jssdk/',
+    target: '_blank'
   }
 ]
 
@@ -94,8 +97,10 @@ const groups: IPageGroup[] = [
   {
     id: `components`,
     label: 'Components',
-    items: components.map(component => ({
+    defaultOpen: true,
+    children: components.map(component => ({
       id: component.id,
+      to: `/components/${component.id}`,
       icon: component.icon ?? ItemIcon,
       iconClass: { icon: component.iconUi ?? (component.icon ? '' : 'pr-px') },
       label: `${upperName(component.id)}`,
@@ -106,8 +111,10 @@ const groups: IPageGroup[] = [
   {
     id: `components/content`,
     label: 'Content',
-    items: componentsContent.map(component => ({
+    defaultOpen: true,
+    children: componentsContent.map(component => ({
       id: component.id,
+      to: `/components/content/${component.id}`,
       icon: component.icon ?? ItemIcon,
       iconClass: { icon: component.iconUi ?? (component.icon ? '' : 'pr-px') },
       label: `${upperName(component.id)}`,
@@ -118,8 +125,10 @@ const groups: IPageGroup[] = [
   {
     id: `components/prose`,
     label: 'Prose',
-    items: componentsProse.map(component => ({
+    defaultOpen: true,
+    children: componentsProse.map(component => ({
       id: component.id,
+      to: `/components/prose/${component.id}`,
       icon: component.icon ?? ItemIcon,
       iconClass: { icon: component.iconUi ?? (component.icon ? '' : 'pr-px') },
       label: `${upperName(component.id)}`,

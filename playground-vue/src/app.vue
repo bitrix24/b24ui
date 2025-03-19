@@ -7,7 +7,6 @@ import MoonIcon from '@bitrix24/b24icons-vue/main/MoonIcon'
 import { useRouter, useRoute } from 'vue-router'
 import { reactive, ref } from 'vue'
 import { useColorMode, useTextDirection } from '@vueuse/core'
-import ExpandIcon from '@bitrix24/b24icons-vue/main/ExpandIcon'
 import HomeIcon from '@bitrix24/b24icons-vue/main/HomeIcon'
 
 const appConfig = useAppConfig()
@@ -94,40 +93,34 @@ defineShortcuts({
           </ProseH3>
         </B24SidebarHeader>
         <B24SidebarBody>
-          <B24SidebarSection
-            v-for="(group) in usePageMeta.groups"
-            :key="group.id"
-            class="mb-md"
-          >
-            <B24SidebarHeading>{{ group.label }}</B24SidebarHeading>
+          <B24SidebarSection>
+            <B24SidebarHeading>@todo</B24SidebarHeading>
+            <B24Link
+              to="/"
+              class="truncate mt-2 px-2"
+            >
+              HOME
+            </B24Link>
+          </B24SidebarSection>
 
-            <template v-for="(item) in group.items" :key="item.id">
-              <B24Link
-                :to="`/${group.id}/${item.id}`"
-                class="truncate mt-2 px-2"
-              >
-                {{ item.label }}
-              </B24Link>
-            </template>
+          <B24SidebarSection>
+            <B24NavigationMenu
+              :collapsed="false"
+              :items="usePageMeta.groups"
+              class="w-full"
+              variant="pill"
+              orientation="vertical"
+            />
           </B24SidebarSection>
         </B24SidebarBody>
         <B24SidebarFooter>
           <B24SidebarSection>
-            <div
-              v-for="(menuItem, menuIndex) in usePageMeta.menuList"
-              :key="menuIndex"
-              class="mt-2 text-md font-light"
-            >
-              <B24Link
-                :href="menuItem.href"
-                target="_blank"
-                class="whitespace-nowrap flex flex-row flex-nowrap items-center justify-start gap-1 px-2"
-              >
-                {{ menuItem.title }}
-
-                <ExpandIcon class="size-3" />
-              </B24Link>
-            </div>
+            <B24NavigationMenu
+              :items="usePageMeta.menuList"
+              class="w-full"
+              variant="link"
+              orientation="vertical"
+            />
           </B24SidebarSection>
         </B24SidebarFooter>
       </template>
