@@ -124,6 +124,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'AvatarGroup', link: 'avatar-group' },
         { text: 'Badge', link: 'badge' },
         { text: 'Calendar💡', link: 'calendar' },
+        { text: 'Collapsible🔨', link: 'collapsible' },
         { text: 'Countdown', link: 'countdown' },
         { text: 'Kbd', link: 'kbd' },
         { text: 'TableWrapper', base: '/components/content/', link: 'table-wrapper' },
@@ -153,9 +154,11 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: 'Container', link: 'container' },
+        { text: 'NavigationMenu🔨', link: 'navigation-menu' },
         { text: 'DescriptionList', link: 'description-list' },
         { text: 'Link', link: 'link' },
         { text: 'Separator', link: 'separator' },
+        { text: 'SidebarLayout🔨', link: 'sidebar-layout' },
         { text: 'Skeleton', link: 'skeleton' },
         { text: 'Tabs', link: 'tabs' }
       ]

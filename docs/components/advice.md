@@ -10,6 +10,7 @@ import AdviceExample from '/examples/advice/Advice.vue';
 
 <Description
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Advice.vue"
+  demo="/components/advice"
 >
   A couple of lines of text and an avatar
 </Description>

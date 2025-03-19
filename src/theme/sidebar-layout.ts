@@ -1,5 +1,6 @@
 /**
  * SidebarLayout
+ * You incorporate a sidebar in the slider and CRM entity tab embedding. Overall, it's stylish, trendy, and youthful
  * ---
  * @todo: docs
  * @todo: test

@@ -140,8 +140,7 @@ import B24LinkBase from './LinkBase.vue'
 import B24Link from './Link.vue'
 import B24Avatar from './Avatar.vue'
 import B24Badge from './Badge.vue'
-// @todo add component
-// import B24Collapsible from './Collapsible.vue'
+import B24Collapsible from './Collapsible.vue'
 
 const props = withDefaults(defineProps<NavigationMenuProps<I>>(), {
   orientation: 'horizontal',

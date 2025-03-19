@@ -856,8 +856,26 @@ exports[`NavigationMenu > renders with orientation vertical correctly 1`] = `
           <!--v-if-->
         </div>
       </li>
-      <!--[object Object]-->
-      <!--[object Object]-->
+      <li data-state="closed" class="min-w-0" value="1"><button type="button" aria-controls="" aria-expanded="false" data-state="closed" class="group relative w-full flex items-center gap-1.5 font-medium text-sm before:absolute before:z-[-1] before:rounded-[calc(var(--ui-radius)*1.5)] focus:outline-none focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2 focus-visible:before:ring-(--ui-border-inverted) flex-row px-2.5 py-1.5 before:inset-y-px before:inset-x-0 text-(--ui-text-muted) hover:text-(--ui-text-highlighted) hover:before:bg-(--ui-bg-elevated)/50 transition-colors before:transition-colors" data-reka-collection-item=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5 text-(--ui-text-dimmed) group-hover:text-(--ui-text) transition-colors">
+            <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+          </svg><span class="truncate">Documentation<!--v-if--></span><span class="ms-auto inline-flex gap-1.5 items-center"><span class="select-none font-b24-secondary inline-flex items-center transition-all duration-200 ease-linear px-2 rounded-md group-[.is-button-group]/items:not-only:not-first:after:content-[''] group-[.is-button-group]/items:not-only:not-first:after:absolute group-[.is-button-group]/items:not-only:not-first:after:top-[7px] group-[.is-button-group]/items:not-only:not-first:after:bottom-[6px] group-[.is-button-group]/items:not-only:not-first:after:left-0 group-[.is-button-group]/items:not-only:not-first:after:w-px group-[.is-button-group]/items:not-only:not-first:after:bg-current/30 font-bold text-4xs gap-1 ring ring-inset ring-base-300 dark:ring-base-800 text-base-800 dark:text-base-250 bg-transparent dark:bg-transparent shrink-0"><span class="inline-flex items-center h-[16px] gap-1"><!--v-if--><span class="max-w-full whitespace-nowrap text-ellipsis decoration-from-font underline-offset-1"><span>10</span></span></span>
+          <!--v-if--></span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 transform shrink-0 group-data-[state=open]:rotate-180 transition-transform duration-200">
+            <path fill="currentColor" fill-rule="evenodd" d="m17.668 8.15-4.527 4.527L12 13.8l-1.119-1.123L6.354 8.15 4.757 9.748l7.254 7.254 7.254-7.254z" clip-rule="evenodd"></path>
+          </svg></span>
+        </button>
+        <!--v-if-->
+        <div class="motion-safe:data-[state=open]:animate-[collapsible-down_200ms_ease-out] motion-safe:data-[state=closed]:animate-[collapsible-up_200ms_ease-out] overflow-hidden" id="reka-collapsible-content-v-1" hidden="" data-state="closed" style="--reka-collapsible-content-height: 0px; --reka-collapsible-content-width: 0px;">
+          <!---->
+        </div>
+      </li>
+      <li data-state="closed" class="min-w-0" value="2"><button type="button" aria-controls="" aria-expanded="false" data-state="closed" class="group relative w-full flex items-center gap-1.5 font-medium text-sm before:absolute before:z-[-1] before:rounded-[calc(var(--ui-radius)*1.5)] focus:outline-none focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2 focus-visible:before:ring-(--ui-border-inverted) flex-row px-2.5 py-1.5 before:inset-y-px before:inset-x-0 text-(--ui-text-highlighted) before:bg-(--ui-bg-elevated)" data-active="" aria-current="page" data-reka-collection-item=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5 text-(--ui-text-highlighted) group-data-[state=open]:text-(--ui-text-highlighted)">
+            <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
+          </svg><span class="truncate">Components<!--v-if--></span><span class="ms-auto inline-flex gap-1.5 items-center"><!--v-if--><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 transform shrink-0 group-data-[state=open]:rotate-180 transition-transform duration-200"><path fill="currentColor" fill-rule="evenodd" d="m17.668 8.15-4.527 4.527L12 13.8l-1.119-1.123L6.354 8.15 4.757 9.748l7.254 7.254 7.254-7.254z" clip-rule="evenodd"></path></svg></span></button>
+        <!--v-if-->
+        <div class="motion-safe:data-[state=open]:animate-[collapsible-down_200ms_ease-out] motion-safe:data-[state=closed]:animate-[collapsible-up_200ms_ease-out] overflow-hidden" id="reka-collapsible-content-v-2" hidden="" data-state="closed" style="--reka-collapsible-content-height: 0px; --reka-collapsible-content-width: 0px;">
+          <!---->
+        </div>
+      </li>
     </ul>
   </div>
   <div class="px-2 h-px bg-(--ui-border)"></div>

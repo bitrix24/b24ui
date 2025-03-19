@@ -13,6 +13,7 @@ import NavigationMenuExample from '/examples/navigationmenu/NavigationMenu.vue';
   reka-ui="https://reka-ui.com/docs/components/navigation-menu"
   reka-ui-title="NavigationMenu"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/NavigationMenu.vue"
+  demo="/components/navigation-menu"
 >
   A link list that can be arranged in horizontal or vertical orientation.
 </Description>
@@ -70,7 +71,7 @@ Each item can take a `children` array of objects with the following properties t
 Use the `orientation` prop to change the orientation of the NavigationMenu.
 
 ::: info
-When orientation is `vertical`, a Collapsible component is used to display children. You can control the open state of each item using the `open` and `defaultOpen` properties.
+When orientation is `vertical`, a [Collapsible](/components/collapsible) component is used to display children. You can control the open state of each item using the `open` and `defaultOpen` properties.
 :::
 
 __component-code

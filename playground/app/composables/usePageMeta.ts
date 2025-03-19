@@ -49,6 +49,7 @@ const components: IComponentInfo[] = [
   { id: 'button-group', description: 'Group multiple button-like elements together.', icon: GroupIcon },
   { id: 'calendar', description: 'A calendar tool for choosing individual dates, multiple dates, or date spans.', icon: Calendar1Icon },
   { id: 'checkbox', description: 'An input element to toggle between checked and unchecked states.', icon: FormIcon },
+  { id: 'collapsible', description: 'A collapsible component for showing or hiding its content.', icon: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'chip', description: 'An indicator of a numeric value or a state.', icon: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'confetti', description: 'Performant confetti animation in the browser.', icon: BoldSparkleIcon },
   { id: 'container', description: 'A container lets you center and constrain the width of your content.', icon: GroupIcon },
