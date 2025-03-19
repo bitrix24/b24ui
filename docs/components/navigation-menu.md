@@ -170,11 +170,13 @@ Use the `slot` property to customize a specific item.
 
 You will have access to the following slots:
 
-- `#{{ item.slot }}`{lang="ts"}
-- `#{{ item.slot }}-leading`{lang="ts"}
-- `#{{ item.slot }}-label`{lang="ts"}
-- `#{{ item.slot }}-trailing`{lang="ts"}
-- `#{{ item.slot }}-content`{lang="ts"}
+```
+#{{ item.slot }}
+#{{ item.slot }}-leading
+#{{ item.slot }}-label
+#{{ item.slot }}-trailing
+#{{ item.slot }}-content
+```
 
 __component-code
 
@@ -184,7 +186,11 @@ You can also use the `#item`, `#item-leading`, `#item-label`, `#item-trailing` a
 
 ### With content slot
 
-Use the `#item-content` slot or the `slot` property (`#{{ item.slot }}-content`) to customize the content of a specific item.
+Use the `#item-content` slot or the `slot` property to customize the content of a specific item.
+
+```vue
+#{{ item.slot }}-content
+```
 
 __component-code
 
