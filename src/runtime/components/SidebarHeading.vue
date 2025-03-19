@@ -24,7 +24,6 @@ export interface SidebarHeadingSlots {
 </script>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 
 const props = withDefaults(defineProps<SidebarHeadingProps>(), {
@@ -33,7 +32,7 @@ const props = withDefaults(defineProps<SidebarHeadingProps>(), {
 defineSlots<SidebarHeadingSlots>()
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => sidebarHeading({}))
+const b24ui = sidebarHeading()
 </script>
 
 <template>

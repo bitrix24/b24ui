@@ -24,7 +24,6 @@ export interface NavbarSlots {
 </script>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 
 const props = withDefaults(defineProps<NavbarProps>(), {
@@ -33,7 +32,7 @@ const props = withDefaults(defineProps<NavbarProps>(), {
 defineSlots<NavbarSlots>()
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => navbar({}))
+const b24ui = navbar()
 </script>
 
 <template>

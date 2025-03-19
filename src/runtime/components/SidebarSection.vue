@@ -24,7 +24,6 @@ export interface SidebarSectionSlots {
 </script>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 
 const props = withDefaults(defineProps<SidebarSectionProps>(), {
@@ -33,7 +32,7 @@ const props = withDefaults(defineProps<SidebarSectionProps>(), {
 defineSlots<SidebarSectionSlots>()
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => sidebarSection({}))
+const b24ui = sidebarSection()
 </script>
 
 <template>

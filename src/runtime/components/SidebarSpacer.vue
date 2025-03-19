@@ -24,7 +24,6 @@ export interface SidebarSpacerSlots {
 </script>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 
 const props = withDefaults(defineProps<SidebarSpacerProps>(), {
@@ -33,7 +32,7 @@ const props = withDefaults(defineProps<SidebarSpacerProps>(), {
 defineSlots<SidebarSpacerSlots>()
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => sidebarSpacer({}))
+const b24ui = sidebarSpacer()
 </script>
 
 <template>

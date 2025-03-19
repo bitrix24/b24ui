@@ -27,7 +27,6 @@ export interface StackedLayoutSlots {
 </script>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 
 const props = withDefaults(defineProps<StackedLayoutProps>(), {
@@ -36,8 +35,7 @@ const props = withDefaults(defineProps<StackedLayoutProps>(), {
 const slots = defineSlots<StackedLayoutSlots>()
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => stackedLayout({
-}))
+const b24ui = stackedLayout()
 </script>
 
 <template>

@@ -24,7 +24,6 @@ export interface SidebarFooterSlots {
 </script>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 
 const props = withDefaults(defineProps<SidebarFooterProps>(), {
@@ -33,7 +32,7 @@ const props = withDefaults(defineProps<SidebarFooterProps>(), {
 defineSlots<SidebarFooterSlots>()
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => sidebarFooter({}))
+const b24ui = sidebarFooter()
 </script>
 
 <template>

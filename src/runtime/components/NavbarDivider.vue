@@ -24,7 +24,6 @@ export interface NavbarDividerSlots {
 </script>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 
 const props = withDefaults(defineProps<NavbarDividerProps>(), {
@@ -33,7 +32,7 @@ const props = withDefaults(defineProps<NavbarDividerProps>(), {
 defineSlots<NavbarDividerSlots>()
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => navbarDivider({}))
+const b24ui = navbarDivider()
 </script>
 
 <template>
