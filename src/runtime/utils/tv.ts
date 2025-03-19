@@ -4,4 +4,4 @@ import _appConfig from '#build/app.config'
 
 const appConfigTv = _appConfig as AppConfig & { b24ui: { tv: typeof defaultConfig } }
 
-export const tv = createTV(appConfigTv.b24ui?.tv)
+export const tv = /* @__PURE__ */ createTV(appConfigTv.b24ui?.tv)
