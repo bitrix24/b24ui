@@ -1,15 +1,13 @@
 <script lang="ts">
-// import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/sidebar-layout'
 import { tv } from '../utils/tv'
+import { useRoute } from 'vue-router'
 
 const appConfigSidebarLayout = _appConfig as AppConfig & { b24ui: { sidebarLayout: Partial<typeof theme> } }
 
 const sidebarLayout = tv({ extend: tv(theme), ...(appConfigSidebarLayout.b24ui?.sidebarLayout || {}) })
-
-// type SidebarLayoutVariants = VariantProps<typeof sidebarLayout>
 
 export interface SidebarLayoutProps {
   /**
@@ -26,8 +24,10 @@ export interface SidebarLayoutProps {
 export interface SidebarLayoutSlots {
   /**
    * Menu for all screen sizes.
+   * @param props
+   * @param props.handleClick - Handler for navigation click events
    */
-  sidebar(props?: {}): any
+  sidebar(props: { handleClick: () => void }): any
   /**
    * Menu for mobile screen sizes.
    */
@@ -40,7 +40,7 @@ export interface SidebarLayoutSlots {
 </script>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { ref, computed, watch, onUnmounted } from 'vue'
 import { Primitive } from 'reka-ui'
 import B24Slideover from './Slideover.vue'
 import B24Sidebar from './Sidebar.vue'
@@ -55,12 +55,34 @@ const props = withDefaults(defineProps<SidebarLayoutProps>(), {
 })
 const slots = defineSlots<SidebarLayoutSlots>()
 
+const route = useRoute()
 const isUseSideBar = computed(() => !!slots.sidebar)
+const openSidebarSlideover = ref(false)
 
 const b24ui = computed(() => sidebarLayout({
   useSidebar: isUseSideBar.value,
   useLightContent: Boolean(props.useLightContent)
 }))
+
+const closeModal = () => {
+  if (openSidebarSlideover.value) {
+    openSidebarSlideover.value = false
+  }
+}
+
+const stopWatcher = watch(
+  () => route.path,
+  () => closeModal(),
+  { immediate: true }
+)
+
+onUnmounted(() => {
+  stopWatcher()
+})
+
+const handleNavigationClick = () => {
+  closeModal()
+}
 </script>
 
 <template>
@@ -68,14 +90,18 @@ const b24ui = computed(() => sidebarLayout({
     <template v-if="isUseSideBar">
       <div :class="b24ui.sidebar({ class: props.b24ui?.sidebar })">
         <B24Sidebar>
-          <slot name="sidebar" />
+          <slot name="sidebar" :handle-click="handleNavigationClick" />
         </B24Sidebar>
       </div>
     </template>
 
     <header :class="b24ui.header({ class: props.b24ui?.header })">
-      <div :class="b24ui.headerPaddings({ class: props.b24ui?.headerPaddings })">
+      <div
+        v-if="isUseSideBar"
+        :class="b24ui.headerPaddings({ class: props.b24ui?.headerPaddings })"
+      >
         <B24Slideover
+          v-model:open="openSidebarSlideover"
           title="Navigation"
           description="Content navigation"
           side="left"
@@ -104,7 +130,7 @@ const b24ui = computed(() => sidebarLayout({
                   </B24ModalDialogClose>
                 </div>
 
-                <slot name="sidebar" />
+                <slot name="sidebar" :handle-click="handleNavigationClick" />
               </B24Sidebar>
             </div>
           </template>
