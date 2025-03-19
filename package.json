@@ -110,7 +110,7 @@
     "@vueuse/integrations": "^13.0.0",
     "canvas-confetti": "^1.9.3",
     "colortranslator": "^4.1.0",
-    "consola": "^3.4.0",
+    "consola": "^3.4.2",
     "defu": "^6.1.4",
     "embla-carousel-auto-height": "^8.5.2",
     "embla-carousel-auto-scroll": "^8.5.2",
