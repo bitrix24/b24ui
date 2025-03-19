@@ -6,7 +6,6 @@ import RightAlignIcon from '@bitrix24/b24icons-vue/editor/RightAlignIcon'
 import LeftAlignIcon from '@bitrix24/b24icons-vue/editor/LeftAlignIcon'
 import SunIcon from '@bitrix24/b24icons-vue/main/SunIcon'
 import MoonIcon from '@bitrix24/b24icons-vue/main/MoonIcon'
-import ExpandIcon from '@bitrix24/b24icons-vue/main/ExpandIcon'
 import HomeIcon from '@bitrix24/b24icons-vue/main/HomeIcon'
 
 const route = useRoute()
