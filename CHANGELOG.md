@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.4.11 (2025-03-19)
+
+### Features
+
+* **Collapsible:** add new component
+* **NavigationMenu:** add new component
+
+### Bug Fixes
+
+* **useLocale**: unique symbol
+* **module:** mark functions used in exports as pure
+
+### Chore
+
+* **components:** add eol in script tag to fix syntax highlight
+* **SidebarLayout:** make auto close Slideover
+* **Navbar.../Sidebar...:** improve tv
+
 ## 0.4.10 (2025-03-18)
 
 ### Docs
