@@ -73,7 +73,7 @@ defineShortcuts({
       >
         <template #sidebar>
           <B24SidebarHeader>
-            <B24SidebarSection class="flex-row">
+            <B24SidebarSection class="flex-row ps-[18px]">
               <ClientOnly>
                 <template v-if="!colorMode?.forced">
                   <B24Tooltip :content="{ side: 'right' }" :text="`Switch to ${isDark ? 'light' : 'dark'} mode`" :kbds="['shift', 'D']">
@@ -106,40 +106,35 @@ defineShortcuts({
                 </template>
               </ClientOnly>
             </B24SidebarSection>
-            <ProseH3 class="pl-2 mt-3">
+            <ProseH3 class="mt-3 ps-2xl pe-xs">
               Playground
             </ProseH3>
           </B24SidebarHeader>
           <B24SidebarBody>
-            <B24SidebarSection>
-              <B24SidebarHeading>@todo</B24SidebarHeading>
-              <B24Link
-                to="/"
-                class="truncate mt-2 px-2"
-              >
-                HOME
-              </B24Link>
-            </B24SidebarSection>
-
-            <B24SidebarSection>
+            <template v-for="(group) in usePageMeta.groups" :key="group.id">
               <B24NavigationMenu
-                :collapsed="false"
-                :items="usePageMeta.groups"
-                class="w-full"
+                :items="[
+                  { label: group.label, type: 'label' },
+                  ...group.children
+                ]"
                 variant="pill"
                 orientation="vertical"
               />
-            </B24SidebarSection>
+            </template>
           </B24SidebarBody>
-          <B24SidebarFooter>
-            <B24SidebarSection>
-              <B24NavigationMenu
-                :items="usePageMeta.menuList"
-                class="w-full"
-                variant="link"
-                orientation="vertical"
-              />
-            </B24SidebarSection>
+          <B24SidebarFooter
+            class="border-t border-base-950/5 dark:border-white/5"
+          >
+            <B24NavigationMenu
+              :items="usePageMeta.menuList"
+              class="w-full"
+              variant="link"
+              orientation="vertical"
+              :b24ui="{
+                link: 'text-sm text-base-500',
+                linkLabelExternalIcon: 'h-3'
+              }"
+            />
           </B24SidebarFooter>
         </template>
 

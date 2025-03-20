@@ -28,7 +28,8 @@
 }
 
 .scrollbar-transparent {
-  scrollbar-color: hsla(0,0%,100%,.21) transparent;
+  scrollbar-color: hsla(0, 0%, 0%, 0) transparent;
+  scrollbar-gutter: stable;
 }
 
 .scrollbar-transparent:hover {

@@ -23,7 +23,7 @@ usePageMeta.setPageTitle('Playground')
               :to="item.to"
             >
               <B24Avatar
-                :icon="item.icon"
+                :icon="item.iconData"
                 size="xl"
                 :b24ui="item.iconClass"
               />

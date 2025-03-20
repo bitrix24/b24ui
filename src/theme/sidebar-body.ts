@@ -11,7 +11,7 @@
 export default {
   slots: {
     root: [
-      'p-4',
+      'py-4',
       'flex flex-1 flex-col',
       'overflow-y-auto',
       '[&>[data-slot=section]+[data-slot=section]]:mt-8'

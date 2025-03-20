@@ -11,7 +11,7 @@
 export default {
   slots: {
     root: [
-      'p-4',
+      'py-4',
       'flex flex-col',
       'max-lg:hidden',
       // 'border-t border-base-950/5 dark:border-white/5',

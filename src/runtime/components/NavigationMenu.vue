@@ -204,7 +204,7 @@ const lists = computed(() => props.items?.length ? (Array.isArray(props.items[0]
 
       <span
         v-if="(!collapsed || orientation !== 'vertical') && (get(item, props.labelKey as string) || !!slots[item.slot ? `${item.slot}-label` : 'item-label'])"
-        :class="b24ui.linkLabel({ class: props.b24ui?.linkLabel })"
+        :class="b24ui.linkLabel({ class: props.b24ui?.linkLabel, active })"
       >
         <slot :name="item.slot ? `${item.slot}-label` : 'item-label'" :item="(item as T)" :active="active" :index="index">
           {{ get(item, props.labelKey as string) }}
@@ -320,7 +320,12 @@ const lists = computed(() => props.items?.length ? (Array.isArray(props.items[0]
     </component>
   </DefineItemTemplate>
 
-  <NavigationMenuRoot v-bind="rootProps" :data-collapsed="collapsed" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
+  <NavigationMenuRoot
+    v-bind="rootProps"
+    :data-collapsed="collapsed"
+    :class="b24ui.root({ class: [props.class, props.b24ui?.root] })"
+    data-slot="section"
+  >
     <template v-for="(list, listIndex) in lists" :key="`list-${listIndex}`">
       <NavigationMenuList :class="b24ui.list({ class: props.b24ui?.list })">
         <ReuseItemTemplate v-for="(item, index) in list" :key="`list-${listIndex}-${index}`" :item="item" :index="index" :class="b24ui.item({ class: props.b24ui?.item })" />

@@ -12,16 +12,16 @@ export interface IMenuItem extends NavigationMenuItem {}
 export interface IComponentInfo extends NavigationMenuItem {
   id: string
   description: string
-  icon?: IconComponent
+  iconData?: IconComponent
   iconUi?: string
 }
 
 export interface IPageItem extends IComponentInfo {
-  icon: IconComponent
+  iconData: IconComponent
   label: string
   to?: string
   isActive: boolean
-  iconClass: Record<'icon', string>
+  iconClass: Record<'iconData', string>
 }
 
 export interface IPageGroup extends NavigationMenuItem {
