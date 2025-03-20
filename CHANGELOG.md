@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.5.0 (2025-03-XX)
+
+### ⚠ BREAKING CHANGES
+
+* **refactor(Form):** drop explicit support for `zod` and `valibot`
+
+### Bug Fixes
+
+* **DropdownMenu:** remove `any` from `proxySlots`
+
+### Chore
+
+* **Playground:** improve navigation
+* **Form:** improve TSDoc
+* **deps:** update nuxt framework to ^3.16.1
+* **NavigationMenu:** improve
+* **Navbar.../Sidebar...:** improve
+
 ## 0.4.11 (2025-03-19)
 
 ### Features
