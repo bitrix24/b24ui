@@ -21,7 +21,7 @@ export interface IPageItem extends IComponentInfo {
   label: string
   to?: string
   isActive: boolean
-  iconClass: Record<'iconData', string>
+  iconClass: Record<'icon', string>
 }
 
 export interface IPageGroup extends NavigationMenuItem {

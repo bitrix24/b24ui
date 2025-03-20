@@ -102,7 +102,7 @@ const groups: IPageGroup[] = [
       id: component.id,
       to: `/components/${component.id}`,
       iconData: component.iconData ?? ItemIcon,
-      iconClass: { iconData: component.iconUi ?? (component.iconData ? '' : 'pr-px') },
+      iconClass: { icon: component.iconUi ?? (component.iconData ? '' : 'pr-px') },
       label: `${upperName(component.id)}`,
       description: component.description,
       isActive: false
@@ -116,7 +116,7 @@ const groups: IPageGroup[] = [
       id: component.id,
       to: `/components/content/${component.id}`,
       iconData: component.iconData ?? ItemIcon,
-      iconClass: { iconData: component.iconUi ?? (component.iconData ? '' : 'pr-px') },
+      iconClass: { icon: component.iconUi ?? (component.iconData ? '' : 'pr-px') },
       label: `${upperName(component.id)}`,
       description: component.description,
       isActive: false
@@ -130,7 +130,7 @@ const groups: IPageGroup[] = [
       id: component.id,
       to: `/components/prose/${component.id}`,
       iconData: component.iconData ?? ItemIcon,
-      iconClass: { iconData: component.iconUi ?? (component.iconData ? '' : 'pr-px') },
+      iconClass: { icon: component.iconUi ?? (component.iconData ? '' : 'pr-px') },
       label: `${upperName(component.id)}`,
       description: component.description,
       isActive: false

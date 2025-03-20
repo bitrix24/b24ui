@@ -9,13 +9,7 @@
  * @todo: playground
  * @todo: demo
  * @todo: color
- */
-
-/**
- * ext links whitespace-nowrap
- * - mt-2 text-md font-light
- * - flex flex-row flex-nowrap items-center justify-start gap-1 px-2
- * - ExpandIcon class="size-3"
+ * @todo: rtl
  */
 
 export default {
@@ -24,10 +18,10 @@ export default {
     list: 'isolate min-w-0',
     label: [
       'w-full min-h-6',
-      'flex items-center gap-1.5',
+      'flex items-center rtl:flex-row-reverse gap-1.5',
       'font-medium text-xs/6',
       'text-base-500 dark:text-base-400',
-      'ps-2xl pe-xs'
+      'ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl'
     ].join(' '),
     item: 'min-w-0',
     link: [
@@ -107,12 +101,19 @@ export default {
       ai: ''
     },
     highlightColor: {
-      default: ''
+      default: '',
+      danger: '',
+      success: '',
+      warning: '',
+      primary: '',
+      secondary: '',
+      collab: '',
+      ai: ''
     },
     variant: {
       pill: {
         link: [
-          'hover:before:bg-base-250/80 dark:hover:before:bg-white/10',
+          'hover:before:bg-base-250/80 dark:hover:before:bg-white/10'
         ].join(' ')
       },
       link: ''
@@ -128,8 +129,8 @@ export default {
       vertical: {
         root: 'flex-col w-full',
         link: [
-          'ps-2xl pe-xs',
-          'flex-row',
+          'ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl',
+          'flex-row rtl:flex-row-reverse',
           'before:inset-y-px before:inset-x-0'
         ].join(' ')
       }
@@ -282,7 +283,7 @@ export default {
         ].join(' '),
         linkLabel: [
           'px-3',
-          '-ms-3 me-3',
+          '-ms-3 me-3 rtl:-me-3 rtl:ms-3',
           'font-semibold leading-[1.563rem]',
           'text-white dark:text-white',
           'bg-base-800 dark:bg-white/35', // (--ui-bg-elevated)
