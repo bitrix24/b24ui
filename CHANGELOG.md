@@ -1,6 +1,24 @@
 # Changelog
 
-## 0.5.0 (2025-03-XX)
+## 0.5.1 (2025-03-21)
+
+### Features
+
+* **components:** handle events in `content` prop
+
+### Bug Fixes
+
+* **Modal/Slideover/Toast:** prevent unnecessary close instantiation
+* **module:** handle tailwindcss import without `theme(static)`
+* **RadioGroup:** handle `disabled` on items
+
+### Chore
+* **deps:** update all non-major dependencies
+* **deps:** update `vaul-vue`
+* **deps:** update tailwindcss to ^4.0.15
+* **NavigationMenu:** improve
+
+## 0.5.0 (2025-03-20)
 
 ### ⚠ BREAKING CHANGES
 
