@@ -161,8 +161,8 @@ function onUpdate(value: any) {
           <RadioGroupItem
             :id="item.id"
             :value="item.value"
-            :disabled="disabled"
-            :class="b24ui.base({ class: props.b24ui?.base })"
+            :disabled="item.disabled"
+            :class="b24ui.base({ class: props.b24ui?.base, disabled: item.disabled })"
           >
             <RadioGroupIndicator :class="b24ui.indicator({ class: props.b24ui?.indicator })" />
           </RadioGroupItem>
