@@ -1,11 +1,12 @@
 <script lang="ts">
 import type { VariantProps } from 'tailwind-variants'
-import type { DialogRootProps, DialogRootEmits, DialogContentProps } from 'reka-ui'
+import type { DialogRootProps, DialogRootEmits, DialogContentProps, DialogContentEmits } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/slideover'
 import { tv } from '../utils/tv'
 import type { ButtonProps, IconComponent } from '../types'
+import type { EmitsToProps } from '../types/utils'
 
 const appConfigSlideover = _appConfig as AppConfig & { b24ui: { slideover: Partial<typeof theme> } }
 
@@ -19,7 +20,7 @@ export interface SlideoverProps extends DialogRootProps {
   /**
    * The content of the slideover
    */
-  content?: Omit<DialogContentProps, 'as' | 'asChild' | 'forceMount'>
+  content?: Omit<DialogContentProps, 'as' | 'asChild' | 'forceMount'> & Partial<EmitsToProps<DialogContentEmits>>
   /**
    * Render an overlay behind the slideover.
    * @defaultValue true
@@ -115,18 +116,20 @@ const { t } = useLocale()
 const rootProps = useForwardPropsEmits(reactivePick(props, 'open', 'defaultOpen', 'modal'), emits)
 const contentProps = toRef(() => props.content)
 const contentEvents = computed(() => {
+  const events = {
+    closeAutoFocus: (e: Event) => e.preventDefault()
+  }
+
   if (!props.dismissible) {
     return {
       pointerDownOutside: (e: Event) => e.preventDefault(),
       interactOutside: (e: Event) => e.preventDefault(),
       escapeKeyDown: (e: Event) => e.preventDefault(),
-      closeAutoFocus: (e: Event) => e.preventDefault()
+      ...events
     }
   }
 
-  return {
-    closeAutoFocus: (e: Event) => e.preventDefault()
-  }
+  return events
 })
 
 const b24ui = computed(() => slideover({
