@@ -84,7 +84,7 @@ export default defineNuxtConfig({
 
 ::: code-group
 ```css [app/assets/css/main.css]
-@import "tailwindcss" theme(static);
+@import "tailwindcss";
 @import "@bitrix24/b24ui-nuxt";
 ```
 ```ts [nuxt.config.ts] {3}
@@ -93,10 +93,6 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css']
 })
 ```
-:::
-
-::: warning
-The `theme(static)` is required since [`tailwindcss@4.0.8`](https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.0.8) introduced a breaking change to only expose used CSS variables.
 :::
 
 ::: info

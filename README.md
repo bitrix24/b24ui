@@ -39,7 +39,7 @@ export default defineNuxtConfig({
 2. Import Tailwind CSS and Bitrix24 UI in your CSS:
 
 ```css [assets/css/main.css]
-@import "tailwindcss" theme(static);
+@import "tailwindcss";
 @import "@bitrix24/b24ui-nuxt";
 ```
 
@@ -85,7 +85,7 @@ app.mount('#app')
 3. Import Tailwind CSS and Bitrix24 UI in your CSS:
 
 ```css [assets/main.css]
-@import "tailwindcss" theme(static);
+@import "tailwindcss";
 @import "@bitrix24/b24ui-nuxt";
 ```
 

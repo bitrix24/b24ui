@@ -1,4 +1,4 @@
-@import "tailwindcss" theme(static) source("../../..");
+@import "tailwindcss" source("../../..");
 @import "@bitrix24/b24ui-nuxt";
 
 @layer base {

@@ -136,12 +136,9 @@ app.mount('#app')
 **4. Import Tailwind CSS and Bitrix24 UI in your CSS**
 
 ```css [assets/main.css]
-@import "tailwindcss" theme(static);
+@import "tailwindcss";
 @import "@bitrix24/b24ui-nuxt";
 ```
-::: warning
-The `theme(static)` is required since [`tailwindcss@4.0.8`](https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.0.8) introduced a breaking change to only expose used CSS variables.
-:::
 
 ::: tip
 Import the CSS file in your `main.ts`.
