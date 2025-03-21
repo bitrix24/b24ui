@@ -17,8 +17,7 @@ const orientations = Object.keys(theme.variants.orientation)
 
 const color = ref(theme.defaultVariants.color)
 const variant = ref(theme.defaultVariants.variant)
-// const orientation = ref('vertical' as const)
-const orientation = ref('horizontal' as const)
+const orientation = ref('vertical' as const)
 const isCollapsed = ref(false)
 
 const items = ref([
@@ -137,7 +136,6 @@ const items = ref([
       <ExampleCardSubTitle title="demo" />
       <div class="mb-4 flex flex-row justify-center flex-wrap gap-2">
         <B24NavigationMenu
-          arrow
           :collapsed="isCollapsed"
           :items="items"
           :color="color"

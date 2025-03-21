@@ -573,7 +573,6 @@ export default {
     },
     // endregion ////
     // region highlight.Color ////
-    // @todo add all ////
     {
       highlightColor: 'default',
       highlight: true,
@@ -666,8 +665,8 @@ export default {
     // endregion ////
   ],
   defaultVariants: {
-    color: 'ai',
-    highlightColor: 'ai',
-    variant: 'link'
+    color: 'default',
+    highlightColor: 'default',
+    variant: 'pill'
   }
 }
