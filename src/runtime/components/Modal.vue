@@ -175,7 +175,7 @@ const b24ui = computed(() => modal({
                 </DialogDescription>
               </div>
 
-              <DialogClose as-child>
+              <DialogClose v-if="close || !!slots.close" as-child>
                 <slot name="close" :b24ui="b24ui">
                   <B24Button
                     v-if="close"
