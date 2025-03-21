@@ -30,7 +30,7 @@ const items = ref([
       label: 'label 2',
       type: 'label' as const,
       avatar: {
-        src: '/avatar/employee.png'
+        src: '/b24ui/demo/avatar/employee.png'
       }
     },
     {
@@ -40,12 +40,13 @@ const items = ref([
     },
     {
       label: 'Item 0',
+      type: 'label' as const,
       active: true
     },
     {
       label: 'Item 1',
       avatar: {
-        src: '/avatar/employee.png'
+        src: '/b24ui/demo/avatar/employee.png'
       },
       active: false,
       children: [
@@ -58,7 +59,7 @@ const items = ref([
           label: 'Item 1.2',
           description: 'Item 1.2 description',
           avatar: {
-            src: '/avatar/employee.png'
+            src: '/b24ui/demo/avatar/employee.png'
           },
           active: true
         },
@@ -106,8 +107,8 @@ const items = ref([
       label: 'Help',
       badge: {
         label: '14',
-        color: 'ai',
-        depth: 'dark',
+        color: 'ai' as const,
+        depth: 'dark' as const,
         useFill: true
       },
       icon: PulseCircleIcon,

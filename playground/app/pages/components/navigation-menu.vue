@@ -40,6 +40,7 @@ const items = ref([
     },
     {
       label: 'Item 0',
+      type: 'label' as const,
       active: true
     },
     {
@@ -106,8 +107,8 @@ const items = ref([
       label: 'Help',
       badge: {
         label: '14',
-        color: 'ai',
-        depth: 'dark',
+        color: 'ai' as const,
+        depth: 'dark' as const,
         useFill: true
       },
       icon: PulseCircleIcon,
