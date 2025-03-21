@@ -195,42 +195,33 @@ const lists = computed(() => props.items?.length ? (Array.isArray(props.items[0]
 <template>
   <DefineLinkTemplate v-slot="{ item, active, index }">
     <slot :name="item.slot || 'item'" :item="(item as T)" :index="index">
-      <slot :name="item.slot ? `${item.slot}-leading` : 'item-leading'" :item="(item as T)" :active="active" :index="index">
-        <Component
-          :is="item.icon"
-          v-if="item.icon"
-          :class="b24ui.linkLeadingIcon({ class: props.b24ui?.linkLeadingIcon, active, disabled: !!item.disabled })"
-        />
-        <B24Avatar v-else-if="item.avatar" :size="((props.b24ui?.linkLeadingAvatarSize || b24ui.linkLeadingAvatarSize()) as AvatarProps['size'])" v-bind="item.avatar" :class="b24ui.linkLeadingAvatar({ class: props.b24ui?.linkLeadingAvatar, active, disabled: !!item.disabled })" />
-      </slot>
-
-      <span
-        v-if="(!collapsed || orientation !== 'vertical') && (get(item, props.labelKey as string) || !!slots[item.slot ? `${item.slot}-label` : 'item-label'])"
-        :class="b24ui.linkLabel({ class: props.b24ui?.linkLabel, active })"
-      >
-        <slot :name="item.slot ? `${item.slot}-label` : 'item-label'" :item="(item as T)" :active="active" :index="index">
-          {{ get(item, props.labelKey as string) }}
+      <span :class="b24ui.linkLabelWrapper({ class: props.b24ui?.linkLabelWrapper, active })">
+        <slot :name="item.slot ? `${item.slot}-leading` : 'item-leading'" :item="(item as T)" :active="active" :index="index">
+          <Component
+            :is="item.icon"
+            v-if="item.icon"
+            :class="b24ui.linkLeadingIcon({ class: props.b24ui?.linkLeadingIcon, active, disabled: !!item.disabled })"
+          />
+          <B24Avatar v-else-if="item.avatar" :size="((props.b24ui?.linkLeadingAvatarSize || b24ui.linkLeadingAvatarSize()) as AvatarProps['size'])" v-bind="item.avatar" :class="b24ui.linkLeadingAvatar({ class: props.b24ui?.linkLeadingAvatar, active, disabled: !!item.disabled })" />
         </slot>
 
-        <Component
-          :is="typeof externalIcon !== 'boolean' ? externalIcon : icons.external"
-          v-if="item.target === '_blank' && externalIcon !== false"
-          :class="b24ui.linkLabelExternalIcon({ class: props.b24ui?.linkLabelExternalIcon, active })"
-        />
-      </span>
+        <span
+          v-if="(!collapsed || orientation !== 'vertical') && (get(item, props.labelKey as string) || !!slots[item.slot ? `${item.slot}-label` : 'item-label'])"
+          :class="b24ui.linkLabel({ class: props.b24ui?.linkLabel, active })"
+        >
+          <slot :name="item.slot ? `${item.slot}-label` : 'item-label'" :item="(item as T)" :active="active" :index="index">
+            {{ get(item, props.labelKey as string) }}
+          </slot>
 
+          <Component
+            :is="typeof externalIcon !== 'boolean' ? externalIcon : icons.external"
+            v-if="item.target === '_blank' && externalIcon !== false"
+            :class="b24ui.linkLabelExternalIcon({ class: props.b24ui?.linkLabelExternalIcon, active })"
+          />
+        </span>
+      </span>
       <span v-if="(!collapsed || orientation !== 'vertical') && (item.badge || (orientation === 'horizontal' && (item.children?.length || !!slots[item.slot ? `${item.slot}-content` : 'item-content'])) || (orientation === 'vertical' && item.children?.length) || item.trailingIcon || !!slots[item.slot ? `${item.slot}-trailing` : 'item-trailing'])" :class="b24ui.linkTrailing({ class: props.b24ui?.linkTrailing })">
         <slot :name="item.slot ? `${item.slot}-trailing` : 'item-trailing'" :item="(item as T)" :active="active" :index="index">
-          <B24Badge
-            v-if="item.badge"
-            color="default"
-            depth="normal"
-            :use-fill="false"
-            :size="((props.b24ui?.linkTrailingBadgeSize || b24ui.linkTrailingBadgeSize()) as BadgeProps['size'])"
-            v-bind="(typeof item.badge === 'string' || typeof item.badge === 'number') ? { label: item.badge } : item.badge"
-            :class="b24ui.linkTrailingBadge({ class: props.b24ui?.linkTrailingBadge })"
-          />
-
           <Component
             :is="item.trailingIcon || trailingIcon || icons.chevronDown"
             v-if="(orientation === 'horizontal' && (item.children?.length || !!slots[item.slot ? `${item.slot}-content` : 'item-content'])) || (orientation === 'vertical' && item.children?.length)"
@@ -240,6 +231,16 @@ const lists = computed(() => props.items?.length ? (Array.isArray(props.items[0]
             :is="item.trailingIcon"
             v-else-if="item.trailingIcon"
             :class="b24ui.linkTrailingIcon({ class: props.b24ui?.linkTrailingIcon, active })"
+          />
+
+          <B24Badge
+            v-if="item.badge"
+            color="danger"
+            depth="dark"
+            :use-fill="true"
+            :size="((props.b24ui?.linkTrailingBadgeSize || b24ui.linkTrailingBadgeSize()) as BadgeProps['size'])"
+            v-bind="(typeof item.badge === 'string' || typeof item.badge === 'number') ? { label: item.badge } : item.badge"
+            :class="b24ui.linkTrailingBadge({ class: props.b24ui?.linkTrailingBadge })"
           />
         </slot>
       </span>
