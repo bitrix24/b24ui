@@ -6,9 +6,6 @@
  *
  * @todo: docs
  * @todo: test
- * @todo: playground
- * @todo: demo
- * @todo: color
  */
 
 export default {
@@ -92,21 +89,40 @@ export default {
     ].join(' ')
   },
   variants: {
-    // @todo add all ////
     color: {
       default: {
         link: 'focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800',
         childLink: 'focus-visible:outline-base-300 dark:focus-visible:outline-base-800'
       },
-      danger: '',
-      success: '',
-      warning: '',
-      primary: '',
-      secondary: '',
-      collab: '',
-      ai: ''
+      danger: {
+        link: 'focus-visible:before:ring-red-300 dark:focus-visible:before:ring-red-800',
+        childLink: 'focus-visible:outline-red-300 dark:focus-visible:outline-red-800'
+      },
+      success: {
+        link: 'focus-visible:before:ring-green-300 dark:focus-visible:before:ring-green-800',
+        childLink: 'focus-visible:outline-green-300 dark:focus-visible:outline-green-800'
+      },
+      warning: {
+        link: 'focus-visible:before:ring-orange-300 dark:focus-visible:before:ring-orange-800',
+        childLink: 'focus-visible:outline-orange-300 dark:focus-visible:outline-orange-800'
+      },
+      primary: {
+        link: 'focus-visible:before:ring-blue-300 dark:focus-visible:before:ring-blue-800',
+        childLink: 'focus-visible:outline-blue-300 dark:focus-visible:outline-blue-800'
+      },
+      secondary: {
+        link: 'focus-visible:before:ring-cyan-300 dark:focus-visible:before:ring-cyan-800',
+        childLink: 'focus-visible:outline-cyan-300 dark:focus-visible:outline-cyan-800'
+      },
+      collab: {
+        link: 'focus-visible:before:ring-collab-300 dark:focus-visible:before:ring-collab-800',
+        childLink: 'focus-visible:outline-collab-300 dark:focus-visible:outline-collab-800'
+      },
+      ai: {
+        link: 'focus-visible:before:ring-ai-300 dark:focus-visible:before:ring-ai-800',
+        childLink: 'focus-visible:outline-ai-300 dark:focus-visible:outline-ai-800'
+      }
     },
-    // @todo add all ////
     highlightColor: {
       default: '',
       danger: '',
@@ -272,9 +288,6 @@ export default {
         link: 'data-[state=open]:before:bg-base-250/80 dark:data-[state=open]:before:bg-white/10'
       }
     },
-
-
-    // @todo add all ////
     {
       color: 'default',
       variant: 'pill',
@@ -290,6 +303,139 @@ export default {
           '-ms-3 rtl:-me-3 rtl:ms-0',
           'leading-[1.563rem]',
           'bg-base-800 dark:bg-white/35',
+          'rounded-2xl'
+        ].join(' ')
+      }
+    },
+    {
+      color: 'danger',
+      variant: 'pill',
+      active: true,
+      class: {
+        linkLeadingIcon: 'text-white dark:text-white group-data-[state=open]:text-white dark:group-data-[state=open]:text-white',
+        linkLabel: [
+          'font-semibold',
+          'text-white dark:text-white'
+        ].join(' '),
+        linkLabelWrapper: [
+          'px-3',
+          '-ms-3 rtl:-me-3 rtl:ms-0',
+          'leading-[1.563rem]',
+          'bg-red-800 dark:bg-red-800',
+          'rounded-2xl'
+        ].join(' ')
+      }
+    },
+    {
+      color: 'success',
+      variant: 'pill',
+      active: true,
+      class: {
+        linkLeadingIcon: 'text-white dark:text-white group-data-[state=open]:text-white dark:group-data-[state=open]:text-white',
+        linkLabel: [
+          'font-semibold',
+          'text-white dark:text-white'
+        ].join(' '),
+        linkLabelWrapper: [
+          'px-3',
+          '-ms-3 rtl:-me-3 rtl:ms-0',
+          'leading-[1.563rem]',
+          'bg-green-800 dark:bg-green-800',
+          'rounded-2xl'
+        ].join(' ')
+      }
+    },
+    {
+      color: 'warning',
+      variant: 'pill',
+      active: true,
+      class: {
+        linkLeadingIcon: 'text-white dark:text-white group-data-[state=open]:text-white dark:group-data-[state=open]:text-white',
+        linkLabel: [
+          'font-semibold',
+          'text-white dark:text-white'
+        ].join(' '),
+        linkLabelWrapper: [
+          'px-3',
+          '-ms-3 rtl:-me-3 rtl:ms-0',
+          'leading-[1.563rem]',
+          'bg-orange-800 dark:bg-orange-800',
+          'rounded-2xl'
+        ].join(' ')
+      }
+    },
+    {
+      color: 'primary',
+      variant: 'pill',
+      active: true,
+      class: {
+        linkLeadingIcon: 'text-white dark:text-white group-data-[state=open]:text-white dark:group-data-[state=open]:text-white',
+        linkLabel: [
+          'font-semibold',
+          'text-white dark:text-white'
+        ].join(' '),
+        linkLabelWrapper: [
+          'px-3',
+          '-ms-3 rtl:-me-3 rtl:ms-0',
+          'leading-[1.563rem]',
+          'bg-blue-800 dark:bg-blue-800',
+          'rounded-2xl'
+        ].join(' ')
+      }
+    },
+    {
+      color: 'secondary',
+      variant: 'pill',
+      active: true,
+      class: {
+        linkLeadingIcon: 'text-white dark:text-white group-data-[state=open]:text-white dark:group-data-[state=open]:text-white',
+        linkLabel: [
+          'font-semibold',
+          'text-white dark:text-white'
+        ].join(' '),
+        linkLabelWrapper: [
+          'px-3',
+          '-ms-3 rtl:-me-3 rtl:ms-0',
+          'leading-[1.563rem]',
+          'bg-cyan-800 dark:bg-cyan-800',
+          'rounded-2xl'
+        ].join(' ')
+      }
+    },
+    {
+      color: 'collab',
+      variant: 'pill',
+      active: true,
+      class: {
+        linkLeadingIcon: 'text-white dark:text-white group-data-[state=open]:text-white dark:group-data-[state=open]:text-white',
+        linkLabel: [
+          'font-semibold',
+          'text-white dark:text-white'
+        ].join(' '),
+        linkLabelWrapper: [
+          'px-3',
+          '-ms-3 rtl:-me-3 rtl:ms-0',
+          'leading-[1.563rem]',
+          'bg-collab-800 dark:bg-collab-800',
+          'rounded-2xl'
+        ].join(' ')
+      }
+    },
+    {
+      color: 'ai',
+      variant: 'pill',
+      active: true,
+      class: {
+        linkLeadingIcon: 'text-white dark:text-white group-data-[state=open]:text-white dark:group-data-[state=open]:text-white',
+        linkLabel: [
+          'font-semibold',
+          'text-white dark:text-white'
+        ].join(' '),
+        linkLabelWrapper: [
+          'px-3',
+          '-ms-3 rtl:-me-3 rtl:ms-0',
+          'leading-[1.563rem]',
+          'bg-ai-800 dark:bg-ai-800',
           'rounded-2xl'
         ].join(' ')
       }
@@ -353,14 +499,76 @@ export default {
         linkLeadingIcon: 'group-data-[state=open]:text-base-950 dark:group-data-[state=open]:text-base-50'
       }
     },
-    // @todo add all ////
     {
       color: 'default',
       variant: 'link',
       active: true,
       class: {
         link: 'font-semibold text-base-950 dark:text-base-50',
-        linkLeadingIcon: 'text-base-95 group-data-[state=open]:text-base-50'
+        linkLeadingIcon: 'text-base-950 group-data-[state=open]:text-base-950 dark:text-base-50 dark:group-data-[state=open]:text-base-50'
+      }
+    },
+    {
+      color: 'danger',
+      variant: 'link',
+      active: true,
+      class: {
+        link: 'font-semibold text-red-800 dark:text-red-600',
+        linkLeadingIcon: 'text-red-800 group-data-[state=open]:text-red-600 dark:text-red-600 dark:group-data-[state=open]:text-red-600'
+      }
+    },
+    {
+      color: 'success',
+      variant: 'link',
+      active: true,
+      class: {
+        link: 'font-semibold text-green-800 dark:text-green-600',
+        linkLeadingIcon: 'text-green-800 group-data-[state=open]:text-green-600 dark:text-green-600 dark:group-data-[state=open]:text-green-600'
+      }
+    },
+    {
+      color: 'warning',
+      variant: 'link',
+      active: true,
+      class: {
+        link: 'font-semibold text-orange-800 dark:text-orange-600',
+        linkLeadingIcon: 'text-orange-800 group-data-[state=open]:text-orange-600 dark:text-orange-600 dark:group-data-[state=open]:text-orange-600'
+      }
+    },
+    {
+      color: 'primary',
+      variant: 'link',
+      active: true,
+      class: {
+        link: 'font-semibold text-blue-800 dark:text-blue-600',
+        linkLeadingIcon: 'text-blue-800 group-data-[state=open]:text-blue-600 dark:text-blue-600 dark:group-data-[state=open]:text-blue-600'
+      }
+    },
+    {
+      color: 'secondary',
+      variant: 'link',
+      active: true,
+      class: {
+        link: 'font-semibold text-cyan-800 dark:text-cyan-600',
+        linkLeadingIcon: 'text-cyan-800 group-data-[state=open]:text-cyan-600 dark:text-cyan-600 dark:group-data-[state=open]:text-cyan-600'
+      }
+    },
+    {
+      color: 'collab',
+      variant: 'link',
+      active: true,
+      class: {
+        link: 'font-semibold text-collab-800 dark:text-collab-600',
+        linkLeadingIcon: 'text-collab-800 group-data-[state=open]:text-collab-600 dark:text-collab-600 dark:group-data-[state=open]:text-collab-600'
+      }
+    },
+    {
+      color: 'ai',
+      variant: 'link',
+      active: true,
+      class: {
+        link: 'font-semibold text-ai-800 dark:text-ai-600',
+        linkLeadingIcon: 'text-ai-800 group-data-[state=open]:text-ai-600 dark:text-ai-600 dark:group-data-[state=open]:text-ai-600'
       }
     },
     // endregion ////
@@ -373,6 +581,69 @@ export default {
       active: true,
       class: {
         link: 'after:bg-base-500'
+      }
+    },
+    {
+      highlightColor: 'danger',
+      highlight: true,
+      level: true,
+      active: true,
+      class: {
+        link: 'after:bg-red-500 dark:after:bg-red-600'
+      }
+    },
+    {
+      highlightColor: 'success',
+      highlight: true,
+      level: true,
+      active: true,
+      class: {
+        link: 'after:bg-green-500 dark:after:bg-green-600'
+      }
+    },
+    {
+      highlightColor: 'warning',
+      highlight: true,
+      level: true,
+      active: true,
+      class: {
+        link: 'after:bg-orange-500 dark:after:bg-orange-600'
+      }
+    },
+    {
+      highlightColor: 'primary',
+      highlight: true,
+      level: true,
+      active: true,
+      class: {
+        link: 'after:bg-blue-500 dark:after:bg-blue-600'
+      }
+    },
+    {
+      highlightColor: 'secondary',
+      highlight: true,
+      level: true,
+      active: true,
+      class: {
+        link: 'after:bg-cyan-500 dark:after:bg-cyan-600'
+      }
+    },
+    {
+      highlightColor: 'collab',
+      highlight: true,
+      level: true,
+      active: true,
+      class: {
+        link: 'after:bg-collab-500 dark:after:bg-collab-600'
+      }
+    },
+    {
+      highlightColor: 'ai',
+      highlight: true,
+      level: true,
+      active: true,
+      class: {
+        link: 'after:bg-ai-500 dark:after:bg-ai-600'
       }
     },
     // endregion ////
@@ -395,8 +666,8 @@ export default {
     // endregion ////
   ],
   defaultVariants: {
-    color: 'default',
-    highlightColor: 'default',
-    variant: 'pill'
+    color: 'ai',
+    highlightColor: 'ai',
+    variant: 'link'
   }
 }

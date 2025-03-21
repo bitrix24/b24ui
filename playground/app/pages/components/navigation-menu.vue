@@ -40,6 +40,10 @@ const items = ref([
       icon: ConnectionIcon
     },
     {
+      label: 'Item 0',
+      active: true
+    },
+    {
       label: 'Item 1',
       avatar: {
         src: '/avatar/employee.png'
@@ -69,7 +73,6 @@ const items = ref([
     },
     {
       label: 'Item 2',
-      active: false,
       defaultOpen: true,
       badge: 3,
       icon: SyncSettingsIcon,
@@ -141,7 +144,7 @@ const items = ref([
           :variant="variant"
           :orientation="orientation"
           highlight
-          highlight-color="default"
+          :highlight-color="color"
           class="border-base-master/10 dark:border-base-100/20 data-[orientation=vertical]:border data-[orientation=vertical]:py-2 data-[orientation=vertical]:rounded data-[orientation=horizontal]:border-b data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-[240px] data-[orientation=vertical]:data-[collapsed=true]:w-[69px]"
         />
       </div>
