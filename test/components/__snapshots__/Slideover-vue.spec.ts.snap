@@ -486,6 +486,7 @@ exports[`Slideover > renders without close correctly 1`] = `
       <h2 id="reka-dialog-title-v-0" class="font-b24-system font-light text-4.5xl leading-none text-base-900 dark:text-base-150">Title</h2>
       <p id="reka-dialog-description-v-1" class="mt-2 mb-1 text-base-500 dark:text-base-400 text-sm">Description</p>
     </div>
+    <!--v-if-->
   </div>
   <div class="mx-0 mt-2 flex-1 overflow-y-auto scrollbar-thin"></div>
   <!--v-if-->

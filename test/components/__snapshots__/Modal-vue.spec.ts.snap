@@ -426,6 +426,7 @@ exports[`Modal > renders without close correctly 1`] = `
       <h2 id="reka-dialog-title-v-0" class="font-bold text-md leading-normal text-base-900 dark:text-base-150">Title</h2>
       <p id="reka-dialog-description-v-1" class="mt-0.5 mb-1 text-base-500 dark:text-base-400 text-sm">Description</p>
     </div>
+    <!--v-if-->
   </div>
   <!--v-if-->
   <!--v-if-->

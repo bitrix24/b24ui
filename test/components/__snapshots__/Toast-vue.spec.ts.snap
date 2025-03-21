@@ -638,6 +638,7 @@ exports[`Toast > renders without close correctly 1`] = `
       </div>
       <div class="flex gap-1.5 shrink-0 items-center">
         <!--v-if-->
+        <!--v-if-->
       </div>
       <div class="absolute inset-x-0 bottom-0 h-1 z-[-1] bg-base-350 dark:bg-base-350" style="width: 100%;"></div>
     </li>
