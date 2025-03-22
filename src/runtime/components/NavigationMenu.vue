@@ -100,7 +100,7 @@ export interface NavigationMenuProps<T> extends Pick<NavigationMenuRootProps, 'm
   /**
    * The orientation of the content.
    * Only works when `orientation` is `horizontal`.
-   * @defaultValue 'horizontal'
+   * @defaultValue 'vertical'
    */
   contentOrientation?: NavigationMenuVariants['contentOrientation']
   /**
@@ -146,7 +146,7 @@ import B24Collapsible from './Collapsible.vue'
 
 const props = withDefaults(defineProps<NavigationMenuProps<I>>(), {
   orientation: 'horizontal',
-  contentOrientation: 'horizontal',
+  contentOrientation: 'vertical',
   externalIcon: true,
   delayDuration: 0,
   unmountOnHide: true,
@@ -342,7 +342,10 @@ const lists = computed(() => props.items?.length ? (Array.isArray(props.items[0]
         <div :class="b24ui.arrow({ class: props.b24ui?.arrow })" />
       </NavigationMenuIndicator>
 
-      <NavigationMenuViewport :class="b24ui.viewport({ class: props.b24ui?.viewport })" />
+      <NavigationMenuViewport
+        align="start"
+        :class="b24ui.viewport({ class: props.b24ui?.viewport })"
+      />
     </div>
   </NavigationMenuRoot>
 </template>

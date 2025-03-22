@@ -5,9 +5,12 @@ import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
 import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import ConnectionIcon from '@bitrix24/b24icons-vue/actions/ConnectionIcon'
-import SyncSettingsIcon from '@bitrix24/b24icons-vue/actions/SyncSettingsIcon'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 import PulseCircleIcon from '@bitrix24/b24icons-vue/main/PulseCircleIcon'
+import MicrophoneOnIcon from '@bitrix24/b24icons-vue/main/MicrophoneOnIcon'
+import CrmMapIcon from '@bitrix24/b24icons-vue/crm/CrmMapIcon'
+import Settings5Icon from '@bitrix24/b24icons-vue/editor/Settings5Icon'
+import Filter1Icon from '@bitrix24/b24icons-vue/main/Filter1Icon'
 
 usePageMeta.setPageTitle('NavigationMenu')
 
@@ -17,94 +20,98 @@ const orientations = Object.keys(theme.variants.orientation)
 
 const color = ref(theme.defaultVariants.color)
 const variant = ref(theme.defaultVariants.variant)
-const orientation = ref('vertical' as const)
+const contentOrientation = ref('vertical' as const)
 const isCollapsed = ref(false)
+const isHighlight = ref(true)
 
 const items = ref([
   [
     {
-      label: 'label 1',
+      label: 'Sales Manager',
       type: 'label' as const
     },
     {
-      label: 'label 2',
+      label: 'Active Clients',
       type: 'label' as const,
       avatar: {
         src: '/avatar/employee.png'
       }
     },
     {
-      label: 'label 3',
+      label: 'Conversion Rates',
       type: 'label' as const,
       icon: ConnectionIcon
     },
     {
-      label: 'Item 0',
+      label: 'Current Deals',
       type: 'label' as const,
-      active: true
+      active: true,
+      badge: 3
     },
     {
-      label: 'Item 1',
+      label: 'Sales Pipeline',
       avatar: {
         src: '/avatar/employee.png'
       },
-      active: false,
       children: [
         {
-          label: 'Item 1.1',
-          description: 'Item 1.1 description',
+          label: 'Lead Generation',
+          description: 'Initial contact with potential clients',
           active: false
         },
         {
-          label: 'Item 1.2',
-          description: 'Item 1.2 description',
+          label: 'Lead Qualification',
+          description: 'Client potential assessment',
           avatar: {
             src: '/avatar/employee.png'
           },
           active: true
         },
         {
-          label: 'Item 1.3',
-          description: 'Item 1.3 description',
-          icon: SyncSettingsIcon,
+          label: 'Negotiations',
+          description: 'Deal terms discussion',
+          icon: MicrophoneOnIcon,
           active: true
         }
       ]
     },
     {
-      label: 'Item 2',
+      label: 'Sales Analytics',
       defaultOpen: true,
       badge: 3,
-      icon: SyncSettingsIcon,
+      icon: Filter1Icon,
       to: '/components/navigation-menu#1',
       children: [
         {
-          label: 'Item 2.1',
+          label: 'Sales Reports',
           badge: 1,
-          icon: SyncSettingsIcon,
-          description: 'Item 2.1 description.',
+          icon: CrmMapIcon,
           to: '/components/navigation-menu#1'
         },
         {
-          label: 'Item 2.2',
+          label: 'Key Metrics',
           badge: 2,
-          icon: SyncSettingsIcon,
-          description: 'Item 2.2 description.',
+          icon: Settings5Icon,
           to: '/components/checkbox'
+        },
+        {
+          label: 'CRM Integration',
+          to: 'https://github.com/bitrix24/b24ui',
+          target: '_blank'
         }
       ]
     }
   ],
   [
     {
-      label: 'GitHub',
+      label: 'Resources',
       icon: GitHubIcon,
       badge: 14,
       to: 'https://github.com/bitrix24/b24ui',
       target: '_blank'
     },
     {
-      label: 'Help',
+      label: 'Team Support',
       badge: {
         label: '14',
         color: 'ai' as const,
@@ -112,7 +119,9 @@ const items = ref([
         useFill: true
       },
       icon: PulseCircleIcon,
-      disabled: true
+      disabled: true,
+      to: 'https://helpdesk.bitrix24.com/',
+      target: '_blank'
     }
   ]
 ])
@@ -121,31 +130,52 @@ const items = ref([
 <template>
   <ExampleGrid v-once class="mb-2">
     <ExampleCard title="settings">
-      <B24Separator class="my-3" type="dotted" />
+      <B24Separator class="my-5" type="dotted" />
       <div class="space-y-4">
         <B24RadioGroup v-model="variant" legend="Variant" :items="variants" />
-        <B24RadioGroup v-model="orientation" legend="Orientation" :items="orientations" />
+        <B24RadioGroup v-model="contentOrientation" legend="contentOrientation" :items="orientations" />
         <B24FormField label="Color" name="color">
-          <B24Select v-model="color" :items="colors" class="w-full" />
+          <B24Select v-model="color" :items="colors" class="w-full max-w-[300px]" />
         </B24FormField>
         <B24FormField label="isCollapsed" name="isCollapsed">
           <B24Switch v-model="isCollapsed" />
         </B24FormField>
+        <B24FormField label="isHighlight" name="isHighlight">
+          <B24Switch v-model="isHighlight" />
+        </B24FormField>
       </div>
     </ExampleCard>
-    <ExampleCard title="NavigationMenu" class="md:col-span-3">
-      <ExampleCardSubTitle title="demo" />
-      <div class="mb-4 flex flex-row justify-center flex-wrap gap-2">
+    <ExampleCard title="demo" class="col-span-3">
+      <B24Separator class="my-3" type="dotted" label="horizontal" />
+      <div class="mb-4 flex flex-col justify-center flex-wrap gap-4 overflow-x-hidden">
+        <div class="px-2 relative z-[1] border-base-master/10 dark:border-base-100/20 border-y">
+          <B24NavigationMenu
+            :items="items"
+            :color="color"
+            :variant="variant"
+            orientation="horizontal"
+            :content-orientation="contentOrientation"
+            :highlight="isHighlight"
+            :highlight-color="color"
+          />
+        </div>
+
+        <Placeholder class="h-44 w-full" />
+      </div>
+
+      <ExampleCardSubTitle title="vertical" />
+      <div class="mb-4 flex flex-row justify-start flex-wrap gap-2">
         <B24NavigationMenu
           :collapsed="isCollapsed"
           :items="items"
           :color="color"
           :variant="variant"
-          :orientation="orientation"
-          highlight
+          orientation="vertical"
+          :highlight="isHighlight"
           :highlight-color="color"
-          class="border-base-master/10 dark:border-base-100/20 data-[orientation=vertical]:border data-[orientation=vertical]:py-2 data-[orientation=vertical]:rounded data-[orientation=horizontal]:border-b data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-[240px] data-[orientation=vertical]:data-[collapsed=true]:w-[69px]"
+          class="border-base-master/10 dark:border-base-100/20 border py-2 rounded w-[240px] data-[collapsed=true]:w-[69px]"
         />
+        <Placeholder class="flex-1 w-full shrink" />
       </div>
     </ExampleCard>
   </ExampleGrid>

@@ -5,7 +5,7 @@
  * @see sidebar-section.ts for orientation vertical
  *
  * @todo: docs
- * @todo: test
+ * @todo: test`
  */
 
 export default {
@@ -60,12 +60,11 @@ export default {
       'relative overflow-hidden',
       'w-full',
       'bg-white dark:bg-base-dark',
-      'shadow-lg',
-      'rounded-2xs',
-      'ring ring-base-300 dark:ring-base-800',
+      'shadow-[0_15px_21px_rgba(83,92,105,.15)]',
+      //
       'h-(--reka-navigation-menu-viewport-height)',
-      'transition-[width,height,left] duration-200 origin-[top_center]',
-      'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]'
+      'transition-[width,height] duration-200 origin-[top_center]' // left
+      // 'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]'
     ].join(' '),
     content: 'absolute top-0 left-0 w-full',
     indicator: [
@@ -137,6 +136,10 @@ export default {
       pill: {
         link: [
           'hover:before:bg-base-250/80 dark:hover:before:bg-white/10'
+        ].join(' '),
+        viewport: [
+          'rounded-md',
+          'ring ring-base-300 dark:ring-base-800'
         ].join(' ')
       },
       link: ''
@@ -162,29 +165,39 @@ export default {
       horizontal: {
         viewport: '',
         viewportWrapper: 'justify-center',
-        content: 'motion-safe:data-[motion=from-start]:animate-[enter-from-left_200ms_ease] motion-safe:data-[motion=from-end]:animate-[enter-from-right_200ms_ease] motion-safe:data-[motion=to-start]:animate-[exit-to-left_200ms_ease] motion-safe:data-[motion=to-end]:animate-[exit-to-right_200ms_ease]'
+        content: 'motion-safe:data-[motion=from-start]:animate-[enter-from-left_200ms_ease] motion-safe:data-[motion=from-end]:animate-[enter-from-right_200ms_ease] motion-safe:data-[motion=to-start]:animate-[exit-to-left_200ms_ease] motion-safe:data-[motion=to-end]:animate-[exit-to-right_200ms_ease]',
+        childLinkLabelExternalIcon: [
+          'h-4'
+        ].join(' ')
       },
       vertical: {
         viewport: 'sm:w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left)',
-        content: ''
+        content: '',
+        childLinkLabel: [
+          'text-md',
+          'text-base-950 dark:text-base-50'
+        ].join(' '),
+        childLinkLabelExternalIcon: [
+          'h-4'
+        ].join(' ')
       }
     },
     active: {
       true: {
         childLink: [
-          'bg-base-250/80 dark:bg-white/10',
+          'bg-base-20 dark:bg-base-900',
           'text-base-950 dark:text-base-50',
           'font-semibold'
         ].join(' '),
-        childLinkIcon: 'text-base-950 dark:text-base-50'
+        childLinkIcon: 'text-base-950 dark:text-base-200'
       },
       false: {
         link: 'text-base-900 dark:text-base-200',
         linkLeadingIcon: 'text-base-500 dark:text-base-700',
         childLink: [
-          'hover:bg-base-250/80 dark:hover:bg-white/10',
+          'hover:bg-base-20 dark:hover:bg-base-900',
           'text-base-500 dark:text-base-700',
-          'hover:text-base-950 dark:hover:dark:text-base-50',
+          'hover:text-base-950 dark:hover:dark:text-base-200',
           'transition-colors'
         ].join(' '),
         childLinkIcon: [
@@ -475,6 +488,23 @@ export default {
     // endregion ////
     // region link ////
     {
+      orientation: 'horizontal',
+      variant: 'link',
+      class: {
+        viewportWrapper: [
+          'top-[calc(100%+0.4rem)]'
+        ].join(' '),
+        viewport: [
+          'rounded-b-md rounded-tr-md',
+          'clip-path-viewport-wrapper'
+        ].join(' '),
+        link: [
+          'before:-inset-x-px before:-inset-y-[6px] before:h-[70px]',
+          'before:rounded-t-md'
+        ].join(' ')
+      }
+    },
+    {
       disabled: false,
       active: false,
       variant: 'link',
@@ -491,11 +521,24 @@ export default {
     },
     {
       disabled: false,
+      variant: 'link',
+      orientation: 'horizontal',
+      class: {
+        link: [
+          'data-[state=open]:before:shadow-[0_6px_21px_rgba(83,92,105,.15)]',
+          'data-[state=open]:before:bg-white dark:data-[state=open]:before:bg-base-dark'
+        ].join(' ')
+      }
+    },
+    {
+      disabled: false,
       active: false,
       variant: 'link',
       orientation: 'horizontal',
       class: {
-        link: 'data-[state=open]:text-base-950 dark:data-[state=open]:text-base-50',
+        link: [
+          'data-[state=open]:text-base-950 dark:data-[state=open]:text-base-50'
+        ].join(' '),
         linkLeadingIcon: 'group-data-[state=open]:text-base-950 dark:group-data-[state=open]:text-base-50'
       }
     },
@@ -540,8 +583,8 @@ export default {
       variant: 'link',
       active: true,
       class: {
-        link: 'font-semibold text-blue-800 dark:text-blue-600',
-        linkLeadingIcon: 'text-blue-800 group-data-[state=open]:text-blue-600 dark:text-blue-600 dark:group-data-[state=open]:text-blue-600'
+        link: 'font-semibold text-blue-850 dark:text-blue-600',
+        linkLeadingIcon: 'text-blue-850 group-data-[state=open]:text-blue-600 dark:text-blue-600 dark:group-data-[state=open]:text-blue-600'
       }
     },
     {
@@ -574,6 +617,7 @@ export default {
     // endregion ////
     // region highlight.Color ////
     {
+      orientation: 'vertical',
       highlightColor: 'default',
       highlight: true,
       level: true,
@@ -583,6 +627,18 @@ export default {
       }
     },
     {
+      orientation: 'horizontal',
+      variant: 'link',
+      highlightColor: 'default',
+      highlight: true,
+      level: true,
+      active: true,
+      class: {
+        link: 'after:bg-base-500'
+      }
+    },
+    {
+      orientation: 'vertical',
       highlightColor: 'danger',
       highlight: true,
       level: true,
@@ -592,15 +648,35 @@ export default {
       }
     },
     {
-      highlightColor: 'success',
+      orientation: 'horizontal',
+      variant: 'link',
+      highlightColor: 'danger',
       highlight: true,
       level: true,
       active: true,
       class: {
-        link: 'after:bg-green-500 dark:after:bg-green-600'
+        link: 'after:bg-red-500 dark:after:bg-red-600'
       }
     },
     {
+      orientation: 'vertical',
+      highlightColor: 'success',
+      highlight: true,
+      level: true,
+      active: true,
+      class: { link: 'after:bg-green-500 dark:after:bg-green-600' }
+    },
+    {
+      orientation: 'horizontal',
+      variant: 'link',
+      highlightColor: 'success',
+      highlight: true,
+      level: true,
+      active: true,
+      class: { link: 'after:bg-green-500 dark:after:bg-green-600' }
+    },
+    {
+      orientation: 'vertical',
       highlightColor: 'warning',
       highlight: true,
       level: true,
@@ -610,6 +686,18 @@ export default {
       }
     },
     {
+      orientation: 'horizontal',
+      variant: 'link',
+      highlightColor: 'warning',
+      highlight: true,
+      level: true,
+      active: true,
+      class: {
+        link: 'after:bg-orange-500 dark:after:bg-orange-600'
+      }
+    },
+    {
+      orientation: 'vertical',
       highlightColor: 'primary',
       highlight: true,
       level: true,
@@ -619,6 +707,18 @@ export default {
       }
     },
     {
+      orientation: 'horizontal',
+      variant: 'link',
+      highlightColor: 'primary',
+      highlight: true,
+      level: true,
+      active: true,
+      class: {
+        link: 'after:bg-blue-850 dark:after:bg-blue-600'
+      }
+    },
+    {
+      orientation: 'vertical',
       highlightColor: 'secondary',
       highlight: true,
       level: true,
@@ -628,6 +728,18 @@ export default {
       }
     },
     {
+      orientation: 'horizontal',
+      variant: 'link',
+      highlightColor: 'secondary',
+      highlight: true,
+      level: true,
+      active: true,
+      class: {
+        link: 'after:bg-cyan-500 dark:after:bg-cyan-600'
+      }
+    },
+    {
+      orientation: 'vertical',
       highlightColor: 'collab',
       highlight: true,
       level: true,
@@ -637,6 +749,29 @@ export default {
       }
     },
     {
+      orientation: 'horizontal',
+      variant: 'link',
+      highlightColor: 'collab',
+      highlight: true,
+      level: true,
+      active: true,
+      class: {
+        link: 'after:bg-collab-500 dark:after:bg-collab-600'
+      }
+    },
+    {
+      orientation: 'vertical',
+      highlightColor: 'ai',
+      highlight: true,
+      level: true,
+      active: true,
+      class: {
+        link: 'after:bg-ai-500 dark:after:bg-ai-600'
+      }
+    },
+    {
+      orientation: 'horizontal',
+      variant: 'link',
       highlightColor: 'ai',
       highlight: true,
       level: true,
@@ -667,6 +802,7 @@ export default {
   defaultVariants: {
     color: 'default',
     highlightColor: 'default',
-    variant: 'pill'
+    contentOrientation: 'vertical',
+    variant: 'link'
   }
 }

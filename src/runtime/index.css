@@ -23,6 +23,7 @@
   }
 }
 
+/** region scrollbar */
 .scrollbar-thin {
   scrollbar-width: thin;
 }
@@ -43,3 +44,10 @@
 .dark .scrollbar-transparent:hover {
   scrollbar-color: hsl(213.91deg 12.3% 36%) transparent;
 }
+/** endregion */
+
+/** region NavigationMenu */
+.clip-path-viewport-wrapper {
+  clip-path: inset(0 -24px -28px -24px round 10px);
+}
+/** endregion */
