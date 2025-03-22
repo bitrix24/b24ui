@@ -3,7 +3,6 @@
  * A calendar component for selecting single dates, multiple dates or date ranges.
  * ---
  * @todo compare with b24.ui.calendar
- * @todo @todo make normal component chevronDoubleLeft
  */
 
 export default {
