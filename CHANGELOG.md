@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.2 (2025-03-22)
+
+* chore(NavigationMenu): improve
+
 ## 0.5.1 (2025-03-21)
 
 ### Features
