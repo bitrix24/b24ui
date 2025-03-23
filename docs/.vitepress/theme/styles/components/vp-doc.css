@@ -136,26 +136,26 @@
  * Lists
  * -------------------------------------------------------------------------- */
 
-.vp-doc ul,
-.vp-doc ol {
+.vp-doc ul:not(div[data-example] ul),
+.vp-doc ol:not(div[data-example] ol) {
   padding-left: 1.25rem;
   margin: 16px 0;
 }
 
-.vp-doc ul {
+.vp-doc ul:not(div[data-example] ul) {
   list-style: disc;
 }
 
-.vp-doc ol {
+.vp-doc ol:not(div[data-example] ol) {
   list-style: decimal;
 }
 
-.vp-doc li + li {
+.vp-doc li:not(div[data-example] li) + li {
   margin-top: 8px;
 }
 
-.vp-doc li > ol,
-.vp-doc li > ul {
+.vp-doc li:not(div[data-example] li) > ol,
+.vp-doc li:not(div[data-example] li) > ul {
   margin: 8px 0 0;
 }
 
@@ -555,7 +555,7 @@
  * -------------------------------------------------------------------------- */
 
 /* prettier-ignore */
-:is(.vp-external-link-icon, .vp-doc a[href*='://'], .vp-doc a[target='_blank']):not(.no-icon)::after {
+:is(.vp-external-link-icon, .vp-doc a[href*='://'], .vp-doc a[target='_blank']):not(.no-icon):not(div[data-example] a)::after {
   display: inline-block;
   margin-top: -1px;
   margin-left: 4px;

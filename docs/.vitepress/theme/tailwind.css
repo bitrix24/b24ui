@@ -801,14 +801,14 @@
     padding: 0;
   }
 
-  .Layout h1,
-  .Layout h2,
-  .Layout h3,
-  .Layout h4,
-  .Layout h5,
-  .Layout h6,
-  .Layout li,
-  .Layout p {
+  .Layout h1:not(div[data-example] h1),
+  .Layout h2:not(div[data-example] h2),
+  .Layout h3:not(div[data-example] h3),
+  .Layout h4:not(div[data-example] h4),
+  .Layout h5:not(div[data-example] h5),
+  .Layout h6:not(div[data-example] h6),
+  .Layout li:not(div[data-example] li),
+  .Layout p:not(div[data-example] p) {
     overflow-wrap: break-word;
   }
 

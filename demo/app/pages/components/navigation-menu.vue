@@ -148,7 +148,7 @@ const items = ref([
     <ExampleCard title="demo" class="col-span-3">
       <B24Separator class="my-3" type="dotted" label="horizontal" />
       <div class="mb-4 flex flex-col justify-center flex-wrap gap-4 overflow-x-hidden">
-        <div class="px-2 relative z-[1] border-base-master/10 dark:border-base-100/20 border-y">
+        <div class="relative z-[1] border-base-master/10 dark:border-base-100/20 border-y">
           <B24NavigationMenu
             :items="items"
             :color="color"

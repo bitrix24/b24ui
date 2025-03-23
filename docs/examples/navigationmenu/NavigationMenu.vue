@@ -5,6 +5,8 @@ import Demo from './demo/NavigationMenu.vue'
 
 <template>
   <ComponentShowExample>
-    <Demo />
+    <div class="relative px-2 py-3 bg-white dark:bg-base-900 rounded w-full overflow-auto">
+      <Demo />
+    </div>
   </ComponentShowExample>
 </template>

@@ -5,6 +5,8 @@ outline: deep
 ---
 <script setup>
 import NavigationMenuExample from '/examples/navigationmenu/NavigationMenu.vue';
+import OrientationExample from '/examples/navigationmenu/Orientation.vue';
+import HighlightExample from '/examples/navigationmenu/Highlight.vue';
 </script>
 # NavigationMenu
 
@@ -42,14 +44,15 @@ Use the `items` prop as an array of objects with the following properties:
 
 You can pass any property from the [Link](/components/link#props) component such as `to`, `target`, etc.
 
-<div class="lg:min-h-[160px]">
+<div class="lg:min-h-[340px]">
   <ClientOnly>
     <NavigationMenuExample />
   </ClientOnly>
 </div>
 
-<<< @/examples/navigationmenu/demo/NavigationMenu.vue{2 vue:line-numbers}
-
+::: details
+<<< @/examples/navigationmenu/demo/NavigationMenu.vue{69-72 vue:line-numbers}
+:::
 
 ::: info
 You can also pass an array of arrays to the `items` prop to display groups of items.
@@ -74,10 +77,18 @@ Use the `orientation` prop to change the orientation of the NavigationMenu.
 When orientation is `vertical`, a [Collapsible](/components/collapsible) component is used to display children. You can control the open state of each item using the `open` and `defaultOpen` properties.
 :::
 
-__component-code
-
 ::: info
 Groups will be spaced when orientation is `horizontal` and separated when orientation is `vertical`.
+:::
+
+<div class="lg:min-h-[340px]">
+  <ClientOnly>
+    <OrientationExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/navigationmenu/demo/Orientation.vue{19-22,46,59-64,95-99,103 vue:line-numbers}
 :::
 
 ### Highlight
@@ -86,14 +97,22 @@ Use the `highlight` prop to display a highlighted border for the active item.
 
 Use the `highlight-color` prop to change the color of the border. It defaults to the `color` prop.
 
-__component-code
-
 ::: info
 In this example, the `border-b` class is applied to display a border in `horizontal` orientation, this is not done by default to let you have a clean slate to work with.
 :::
 
 ::: danger
 In `vertical` orientation, the `highlight` prop only highlights the border of active children.
+:::
+
+<div class="lg:min-h-[340px]">
+  <ClientOnly>
+    <HighlightExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/navigationmenu/demo/Highlight.vue{106-107 vue:line-numbers}
 :::
 
 ### Color
