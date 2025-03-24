@@ -11,6 +11,7 @@
 * **NavigationMenu:** improve
 
 ### Bug Fixes
+
 * **defineLocale/defineShortcuts:** remove `@__NO_SIDE_EFFECTS__`
 
 ## 0.5.2 (2025-03-22)
