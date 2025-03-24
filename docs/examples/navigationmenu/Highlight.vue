@@ -69,7 +69,7 @@ function getChip(value: string) {
 }
 
 const orientations = Object.keys(theme.variants.orientation)
-const orientation = ref('vertical' as const)
+const orientation = ref('horizontal' as const)
 
 const isHighlight = ref(true)
 </script>

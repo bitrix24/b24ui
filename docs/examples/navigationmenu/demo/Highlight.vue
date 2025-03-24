@@ -20,25 +20,6 @@ withDefaults(defineProps<ExampleProps>(), {
 
 const items = ref([
   {
-    label: 'Sales Pipeline',
-    icon: ConnectionIcon,
-    children: [
-      {
-        label: 'Lead Generation',
-        description: 'Initial contact with potential clients'
-      },
-      {
-        label: 'Lead Qualification',
-        description: 'Client potential assessment'
-      },
-      {
-        label: 'Negotiations',
-        description: 'Deal terms discussion',
-        icon: MicrophoneOnIcon
-      }
-    ]
-  },
-  {
     label: 'Sales Analytics',
     badge: '+3',
     active: true,
