@@ -139,10 +139,11 @@
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "@types/canvas-confetti": "^1.9.0",
     "@nuxt/eslint-config": "^1.2.0",
     "@nuxt/module-builder": "^0.8.4",
     "@nuxt/test-utils": "^3.17.2",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/node": "^22.13.13",
     "@vue/test-utils": "^2.4.6",
     "embla-carousel": "^8.5.2",
     "eslint": "^9.23.0",
