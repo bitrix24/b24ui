@@ -147,24 +147,26 @@ const items = ref([
     </ExampleCard>
     <ExampleCard title="demo" class="col-span-3">
       <B24Separator class="my-3" type="dotted" label="horizontal" />
-      <div class="mb-4 flex flex-col justify-center flex-wrap gap-4 overflow-x-hidden">
-        <div class="relative z-[1] border-base-master/10 dark:border-base-100/20 border-y">
-          <B24NavigationMenu
-            :items="items"
-            :color="color"
-            :variant="variant"
-            orientation="horizontal"
-            :content-orientation="contentOrientation"
-            :highlight="isHighlight"
-            :highlight-color="color"
-          />
-        </div>
+      <div class="mb-4 flex flex-col justify-center flex-wrap overflow-auto">
+        <div class="px-2 py-3 w-full min-w-[720px]">
+          <div class="relative z-[1] border-base-master/10 dark:border-base-100/20 border-y">
+            <B24NavigationMenu
+              :items="items"
+              :color="color"
+              :variant="variant"
+              orientation="horizontal"
+              :content-orientation="contentOrientation"
+              :highlight="isHighlight"
+              :highlight-color="color"
+            />
+          </div>
 
-        <Placeholder class="h-44 w-full" />
+          <Placeholder class="h-44 w-full mt-2" />
+        </div>
       </div>
 
       <ExampleCardSubTitle title="vertical" />
-      <div class="mb-4 flex flex-row justify-start flex-wrap gap-2">
+      <div class="px-2 mb-4 flex flex-row justify-start flex-wrap gap-2">
         <B24NavigationMenu
           :collapsed="isCollapsed"
           :items="items"

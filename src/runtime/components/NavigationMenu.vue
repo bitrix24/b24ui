@@ -43,6 +43,10 @@ export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
   slot?: string
   value?: string
   children?: NavigationMenuChildItem[]
+  /**
+   * With orientation=`horizontal` if `true` it will position the dropdown menu correctly
+   */
+  viewportRtl?: boolean
   onSelect?(e: Event): void
 }
 
@@ -272,7 +276,12 @@ const lists = computed(() => props.items?.length ? (Array.isArray(props.items[0]
           </B24LinkBase>
         </component>
 
-        <NavigationMenuContent v-if="orientation === 'horizontal' && (item.children?.length || !!slots[item.slot ? `${item.slot}-content` : 'item-content'])" v-bind="contentProps" :class="b24ui.content({ class: props.b24ui?.content })">
+        <NavigationMenuContent
+          v-if="orientation === 'horizontal' && (item.children?.length || !!slots[item.slot ? `${item.slot}-content` : 'item-content'])"
+          v-bind="contentProps"
+          :data-viewport="item.viewportRtl ? 'rtl' : 'ltr'"
+          :class="b24ui.content({ class: props.b24ui?.content })"
+        >
           <slot :name="item.slot ? `${item.slot}-content` : 'item-content'" :item="(item as T)" :active="active" :index="index">
             <ul :class="b24ui.childList({ class: props.b24ui?.childList })">
               <li v-for="(childItem, childIndex) in item.children" :key="childIndex" :class="b24ui.childItem({ class: props.b24ui?.childItem })">
@@ -331,7 +340,13 @@ const lists = computed(() => props.items?.length ? (Array.isArray(props.items[0]
   >
     <template v-for="(list, listIndex) in lists" :key="`list-${listIndex}`">
       <NavigationMenuList :class="b24ui.list({ class: props.b24ui?.list })">
-        <ReuseItemTemplate v-for="(item, index) in list" :key="`list-${listIndex}-${index}`" :item="item" :index="index" :class="b24ui.item({ class: props.b24ui?.item })" />
+        <ReuseItemTemplate
+          v-for="(item, index) in list"
+          :key="`list-${listIndex}-${index}`"
+          :item="item"
+          :index="index"
+          :class="b24ui.item({ class: props.b24ui?.item })"
+        />
       </NavigationMenuList>
 
       <div v-if="orientation === 'vertical' && listIndex < lists.length - 1" :class="b24ui.separator({ class: props.b24ui?.separator })" />

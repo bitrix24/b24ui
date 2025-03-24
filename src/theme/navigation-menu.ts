@@ -3,9 +3,6 @@
  * A link list that can be arranged in horizontal or vertical orientation.
  * ---
  * @see sidebar-section.ts for orientation vertical
- *
- * @todo: docs
- * @todo: test`
  */
 
 export default {
@@ -61,7 +58,6 @@ export default {
       'w-full',
       'bg-white dark:bg-base-dark',
       'shadow-[0_15px_21px_rgba(83,92,105,.15)]',
-      //
       'h-(--reka-navigation-menu-viewport-height)',
       'transition-[width,height] duration-200 origin-[top_center]' // left
       // 'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]'
@@ -147,8 +143,8 @@ export default {
     orientation: {
       horizontal: {
         root: 'items-center justify-between',
-        list: 'flex items-center',
-        item: 'py-2',
+        list: 'flex items-center gap-x-1',
+        item: 'py-2 empty:hidden',
         link: 'px-2.5 py-1.5 before:inset-x-px before:inset-y-0',
         childList: 'grid p-2'
       },
@@ -171,7 +167,10 @@ export default {
         ].join(' ')
       },
       vertical: {
-        viewport: 'sm:w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left)',
+        viewport: [
+          'w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left)',
+          '[&:has(>[data-viewport=rtl])]:left-auto [&:has(>[data-viewport=rtl])]:-right-[calc(var(--reka-navigation-menu-viewport-left)-34px)]'
+        ].join(' '),
         content: '',
         childLinkLabel: [
           'text-md',
@@ -259,6 +258,16 @@ export default {
     // endregion ////
     // region pill ////
     {
+      disabled: true,
+      orientation: 'horizontal',
+      variant: 'pill',
+      class: {
+        link: [
+          'hover:before:rounded-md'
+        ].join(' ')
+      }
+    },
+    {
       disabled: false,
       active: false,
       variant: 'pill',
@@ -321,6 +330,26 @@ export default {
       }
     },
     {
+      color: 'default',
+      orientation: 'horizontal',
+      variant: 'pill',
+      active: true,
+      class: {
+        link: [
+          'min-h-9',
+          'before:rounded-md',
+          'before:bg-base-800 dark:before:bg-white/35',
+          'hover:before:bg-base-800 hover:dark:before:bg-white/35',
+          'data-[state=open]:before:bg-base-800 dark:data-[state=open]:before:bg-white/35'
+        ].join(' '),
+        linkLabelWrapper: [
+          'min-h-9',
+          'bg-inherit dark:bg-inherit',
+          'rounded-none'
+        ].join(' ')
+      }
+    },
+    {
       color: 'danger',
       variant: 'pill',
       active: true,
@@ -336,6 +365,26 @@ export default {
           'leading-[1.563rem]',
           'bg-red-800 dark:bg-red-800',
           'rounded-2xl'
+        ].join(' ')
+      }
+    },
+    {
+      color: 'danger',
+      orientation: 'horizontal',
+      variant: 'pill',
+      active: true,
+      class: {
+        link: [
+          'min-h-9',
+          'before:rounded-md',
+          'before:bg-red-800 dark:before:bg-red-800',
+          'hover:before:bg-red-800 hover:dark:before:bg-red-800',
+          'data-[state=open]:before:bg-red-800 dark:data-[state=open]:before:bg-red-800'
+        ].join(' '),
+        linkLabelWrapper: [
+          'min-h-9',
+          'bg-inherit dark:bg-inherit',
+          'rounded-none'
         ].join(' ')
       }
     },
@@ -359,6 +408,26 @@ export default {
       }
     },
     {
+      color: 'success',
+      orientation: 'horizontal',
+      variant: 'pill',
+      active: true,
+      class: {
+        link: [
+          'min-h-9',
+          'before:rounded-md',
+          'before:bg-green-800 dark:before:bg-green-800',
+          'hover:before:bg-green-800 hover:dark:before:bg-green-800',
+          'data-[state=open]:before:bg-green-800 dark:data-[state=open]:before:bg-green-800'
+        ].join(' '),
+        linkLabelWrapper: [
+          'min-h-9',
+          'bg-inherit dark:bg-inherit',
+          'rounded-none'
+        ].join(' ')
+      }
+    },
+    {
       color: 'warning',
       variant: 'pill',
       active: true,
@@ -374,6 +443,26 @@ export default {
           'leading-[1.563rem]',
           'bg-orange-800 dark:bg-orange-800',
           'rounded-2xl'
+        ].join(' ')
+      }
+    },
+    {
+      color: 'warning',
+      orientation: 'horizontal',
+      variant: 'pill',
+      active: true,
+      class: {
+        link: [
+          'min-h-9',
+          'before:rounded-md',
+          'before:bg-orange-800 dark:before:bg-orange-800',
+          'hover:before:bg-orange-800 hover:dark:before:bg-orange-800',
+          'data-[state=open]:before:bg-orange-800 dark:data-[state=open]:before:bg-orange-800'
+        ].join(' '),
+        linkLabelWrapper: [
+          'min-h-9',
+          'bg-inherit dark:bg-inherit',
+          'rounded-none'
         ].join(' ')
       }
     },
@@ -397,6 +486,26 @@ export default {
       }
     },
     {
+      color: 'primary',
+      orientation: 'horizontal',
+      variant: 'pill',
+      active: true,
+      class: {
+        link: [
+          'min-h-9',
+          'before:rounded-md',
+          'before:bg-blue-800 dark:before:bg-blue-800',
+          'hover:before:bg-blue-800 hover:dark:before:bg-blue-800',
+          'data-[state=open]:before:bg-blue-800 dark:data-[state=open]:before:bg-blue-800'
+        ].join(' '),
+        linkLabelWrapper: [
+          'min-h-9',
+          'bg-inherit dark:bg-inherit',
+          'rounded-none'
+        ].join(' ')
+      }
+    },
+    {
       color: 'secondary',
       variant: 'pill',
       active: true,
@@ -412,6 +521,26 @@ export default {
           'leading-[1.563rem]',
           'bg-cyan-800 dark:bg-cyan-800',
           'rounded-2xl'
+        ].join(' ')
+      }
+    },
+    {
+      color: 'secondary',
+      orientation: 'horizontal',
+      variant: 'pill',
+      active: true,
+      class: {
+        link: [
+          'min-h-9',
+          'before:rounded-md',
+          'before:bg-cyan-800 dark:before:bg-cyan-800',
+          'hover:before:bg-cyan-800 hover:dark:before:bg-cyan-800',
+          'data-[state=open]:before:bg-cyan-800 dark:data-[state=open]:before:bg-cyan-800'
+        ].join(' '),
+        linkLabelWrapper: [
+          'min-h-9',
+          'bg-inherit dark:bg-inherit',
+          'rounded-none'
         ].join(' ')
       }
     },
@@ -435,6 +564,26 @@ export default {
       }
     },
     {
+      color: 'collab',
+      orientation: 'horizontal',
+      variant: 'pill',
+      active: true,
+      class: {
+        link: [
+          'min-h-9',
+          'before:rounded-md',
+          'before:bg-collab-800 dark:before:bg-collab-800',
+          'hover:before:bg-collab-800 hover:dark:before:bg-collab-800',
+          'data-[state=open]:before:bg-collab-800 dark:data-[state=open]:before:bg-collab-800'
+        ].join(' '),
+        linkLabelWrapper: [
+          'min-h-9',
+          'bg-inherit dark:bg-inherit',
+          'rounded-none'
+        ].join(' ')
+      }
+    },
+    {
       color: 'ai',
       variant: 'pill',
       active: true,
@@ -450,6 +599,26 @@ export default {
           'leading-[1.563rem]',
           'bg-ai-800 dark:bg-ai-800',
           'rounded-2xl'
+        ].join(' ')
+      }
+    },
+    {
+      color: 'ai',
+      orientation: 'horizontal',
+      variant: 'pill',
+      active: true,
+      class: {
+        link: [
+          'min-h-9',
+          'before:rounded-md',
+          'before:bg-ai-800 dark:before:bg-ai-800',
+          'hover:before:bg-ai-800 hover:dark:before:bg-ai-800',
+          'data-[state=open]:before:bg-ai-800 dark:data-[state=open]:before:bg-ai-800'
+        ].join(' '),
+        linkLabelWrapper: [
+          'min-h-9',
+          'bg-inherit dark:bg-inherit',
+          'rounded-none'
         ].join(' ')
       }
     },
@@ -476,13 +645,128 @@ export default {
     },
     {
       variant: 'pill',
+      orientation: 'horizontal',
+      active: true,
+      highlight: false,
+      class: {
+        linkLabelWrapper: [
+          'bg-inherit dark:bg-inherit'
+        ].join(' ')
+      }
+    },
+    {
+      variant: 'pill',
       active: true,
       highlight: true,
       class: {
         link: [
           'hover:before:bg-base-250/80 dark:hover:before:bg-white/10',
           'before:transition-colors'
-        ]
+        ].join(' ')
+      }
+    },
+    {
+      color: 'default',
+      orientation: 'horizontal',
+      variant: 'pill',
+      active: true,
+      highlight: true,
+      class: {
+        link: [
+          'hover:before:bg-base-800 hover:dark:before:bg-white/35',
+          'before:transition-colors'
+        ].join(' ')
+      }
+    },
+    {
+      color: 'danger',
+      orientation: 'horizontal',
+      variant: 'pill',
+      active: true,
+      highlight: true,
+      class: {
+        link: [
+          'hover:before:bg-red-800 hover:dark:before:bg-red-800',
+          'before:transition-colors'
+        ].join(' ')
+      }
+    },
+    {
+      color: 'success',
+      orientation: 'horizontal',
+      variant: 'pill',
+      active: true,
+      highlight: true,
+      class: {
+        link: [
+          'hover:before:bg-green-800 hover:dark:before:bg-green-800',
+          'before:transition-colors'
+        ].join(' ')
+      }
+    },
+    {
+      color: 'warning',
+      orientation: 'horizontal',
+      variant: 'pill',
+      active: true,
+      highlight: true,
+      class: {
+        link: [
+          'hover:before:bg-orange-800 hover:dark:before:bg-orange-800',
+          'before:transition-colors'
+        ].join(' ')
+      }
+    },
+    {
+      color: 'primary',
+      orientation: 'horizontal',
+      variant: 'pill',
+      active: true,
+      highlight: true,
+      class: {
+        link: [
+          'hover:before:bg-blue-800 hover:dark:before:bg-blue-800',
+          'before:transition-colors'
+        ].join(' ')
+      }
+    },
+    {
+      color: 'secondary',
+      orientation: 'horizontal',
+      variant: 'pill',
+      active: true,
+      highlight: true,
+      class: {
+        link: [
+          'hover:before:bg-cyan-800 hover:dark:before:bg-cyan-800',
+          'before:transition-colors'
+        ].join(' ')
+      }
+    },
+    {
+      color: 'collab',
+      orientation: 'horizontal',
+      variant: 'pill',
+      active: true,
+      highlight: true,
+      class: {
+        link: [
+          'hover:before:bg-collab-800 hover:dark:before:bg-collab-800',
+          'before:transition-colors'
+        ].join(' ')
+      }
+    },
+    {
+      color: 'ai',
+      orientation: 'horizontal',
+      variant: 'pill',
+      active: true,
+      highlight: true,
+      class: {
+        link: [
+          'hover:before:bg-ai-800 hover:dark:before:bg-ai-800',
+          'before:transition-colors'
+        ].join(' ')
       }
     },
     // endregion ////
@@ -495,11 +779,12 @@ export default {
           'top-[calc(100%+0.4rem)]'
         ].join(' '),
         viewport: [
-          'rounded-b-md rounded-tr-md',
+          'rounded-b-md',
+          '[&:has(>[data-viewport=ltr])]:rounded-tr-md [&:has(>[data-viewport=rtl])]:rounded-tl-md',
           'clip-path-viewport-wrapper'
         ].join(' '),
         link: [
-          'before:-inset-x-px before:-inset-y-[6px] before:h-[70px]',
+          'before:inset-x-[0px] before:-inset-y-[6px] before:h-[70px]',
           'before:rounded-t-md'
         ].join(' ')
       }
