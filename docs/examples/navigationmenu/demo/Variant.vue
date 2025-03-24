@@ -21,72 +21,68 @@ withDefaults(defineProps<ExampleProps>(), {
 })
 
 const items = ref([
-  [
-    {
-      label: 'Sales Pipeline',
-      icon: ConnectionIcon,
-      children: [
-        {
-          label: 'Lead Generation',
-          description: 'Initial contact with potential clients'
-        },
-        {
-          label: 'Lead Qualification',
-          description: 'Client potential assessment'
-        },
-        {
-          label: 'Negotiations',
-          description: 'Deal terms discussion',
-          icon: MicrophoneOnIcon
+  {
+    label: 'Sales Pipeline',
+    icon: ConnectionIcon,
+    children: [
+      {
+        label: 'Lead Generation',
+        description: 'Initial contact with potential clients'
+      },
+      {
+        label: 'Lead Qualification',
+        description: 'Client potential assessment'
+      },
+      {
+        label: 'Negotiations',
+        description: 'Deal terms discussion',
+        icon: MicrophoneOnIcon
+      }
+    ]
+  },
+  {
+    label: 'Sales Analytics',
+    badge: '+3',
+    active: true,
+    defaultOpen: true,
+    children: [
+      {
+        label: 'Sales Reports',
+        icon: CrmMapIcon,
+        active: true,
+        to: '/b24ui/components/components/navigation-menu.html',
+        badge: 1
+      },
+      {
+        label: 'Key Metrics',
+        icon: Settings5Icon,
+        to: '/b24ui/components/navigation-menu.html',
+        badge: {
+          label: 2,
+          color: 'ai' as const,
+          depth: 'dark' as const,
+          useFill: true
         }
-      ]
-    },
-    {
-      label: 'Sales Analytics',
-      badge: '+3',
-      active: true,
-      defaultOpen: true,
-      children: [
-        {
-          label: 'Sales Reports',
-          icon: CrmMapIcon,
-          active: true,
-          to: '/b24ui/components/components/navigation-menu.html',
-          badge: 1
-        },
-        {
-          label: 'Key Metrics',
-          icon: Settings5Icon,
-          to: '/b24ui/components/navigation-menu.html',
-          badge: {
-            label: 2,
-            color: 'ai' as const,
-            depth: 'dark' as const,
-            useFill: true
-          }
-        },
-        {
-          label: 'CRM Integration',
-          to: 'https://github.com/bitrix24/b24ui',
-          target: '_blank'
-        }
-      ]
-    }
-  ],
-  [
-    {
-      label: 'Resources',
-      to: 'https://github.com/bitrix24/b24ui',
-      target: '_blank'
-    },
-    {
-      label: 'Support',
-      icon: Info1Icon,
-      disabled: true,
-      to: 'https://helpdesk.bitrix24.com/',
-      target: '_blank'
-    }
-  ]
+      },
+      {
+        label: 'CRM Integration',
+        to: 'https://github.com/bitrix24/b24ui',
+        target: '_blank'
+      }
+    ]
+  },
+  {
+    label: 'Resources',
+    to: 'https://github.com/bitrix24/b24ui',
+    target: '_blank'
+  },
+  {
+    label: 'Support',
+    icon: Info1Icon,
+    disabled: true,
+    to: 'https://helpdesk.bitrix24.com/',
+    target: '_blank'
+  }
 ])
 </script>
 
