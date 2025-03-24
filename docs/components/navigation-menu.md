@@ -7,6 +7,11 @@ outline: deep
 import NavigationMenuExample from '/examples/navigationmenu/NavigationMenu.vue';
 import OrientationExample from '/examples/navigationmenu/Orientation.vue';
 import HighlightExample from '/examples/navigationmenu/Highlight.vue';
+import ColorExample from '/examples/navigationmenu/Color.vue';
+import VariantExample from '/examples/navigationmenu/Variant.vue';
+import TrailingIconExample from '/examples/navigationmenu/TrailingIcon.vue';
+import UnmountExample from '/examples/navigationmenu/Unmount.vue';
+import WithCustomSlotExample from '/examples/navigationmenu/WithCustomSlot.vue';
 </script>
 # NavigationMenu
 
@@ -51,7 +56,7 @@ You can pass any property from the [Link](/components/link#props) component such
 </div>
 
 ::: details
-<<< @/examples/navigationmenu/demo/NavigationMenu.vue{69-72 vue:line-numbers}
+<<< @/examples/navigationmenu/demo/NavigationMenu.vue{vue:line-numbers}
 :::
 
 ::: info
@@ -81,6 +86,10 @@ When orientation is `vertical`, a [Collapsible](/components/collapsible) compone
 Groups will be spaced when orientation is `horizontal` and separated when orientation is `vertical`.
 :::
 
+::: info
+For the last menu item, you should use the `viewportRtl` port for proper positioning.
+:::
+
 <div class="lg:min-h-[340px]">
   <ClientOnly>
     <OrientationExample />
@@ -88,7 +97,7 @@ Groups will be spaced when orientation is `horizontal` and separated when orient
 </div>
 
 ::: details
-<<< @/examples/navigationmenu/demo/Orientation.vue{19-22,46,59-64,95-99,103 vue:line-numbers}
+<<< @/examples/navigationmenu/demo/Orientation.vue{vue:line-numbers}
 :::
 
 ### Highlight
@@ -112,20 +121,36 @@ In `vertical` orientation, the `highlight` prop only highlights the border of ac
 </div>
 
 ::: details
-<<< @/examples/navigationmenu/demo/Highlight.vue{106-107 vue:line-numbers}
+<<< @/examples/navigationmenu/demo/Highlight.vue{vue:line-numbers}
 :::
 
 ### Color
 
 Use the `color` prop to change the color of the NavigationMenu.
 
-__component-code
+<div class="lg:min-h-[340px]">
+  <ClientOnly>
+    <ColorExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/navigationmenu/demo/Color.vue{vue:line-numbers}
+:::
 
 ### Variant
 
 Use the `variant` parameter to change the variant of the NavigationMenu.
 
-__component-code
+<div class="lg:min-h-[340px]">
+  <ClientOnly>
+    <VariantExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/navigationmenu/demo/Variant.vue{vue:line-numbers}
+:::
 
 ### Trailing Icon
 
@@ -135,53 +160,35 @@ Use the `trailing-icon` prop to customize the trailing [@bitrix24/b24icons](http
 You can also set an icon for a specific item by using the `trailingIcon` property in the item object.
 :::
 
-__component-code
+<div class="lg:min-h-[340px]">
+  <ClientOnly>
+    <TrailingIconExample />
+  </ClientOnly>
+</div>
 
-### Arrow
-
-Use the `arrow` prop to display an arrow on the NavigationMenu content when items have children.
-
-__component-code
-
-::: info
-The arrow is animated to follow the active item.
+::: details
+<<< @/examples/navigationmenu/demo/TrailingIcon.vue{vue:line-numbers}
 :::
-
-### Content Orientation
-
-Use the `content-orientation` prop to change the orientation of the content.
-
-::: warning
-This prop only works when `orientation` is `horizontal`.
-:::
-
-__component-code
 
 ### Unmount
 
 Use the `unmount-on-hide` prop to control the content unmounting behavior. Defaults to `true`.
 
-__component-code
-
 ::: info
 You can inspect the DOM to see each item's content being rendered.
 :::
 
+<div class="lg:min-h-[340px]">
+  <ClientOnly>
+    <UnmountExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/navigationmenu/demo/Unmount.vue{vue:line-numbers}
+:::
+
 ## Examples
-
-### Control active item
-
-You can control the active item by using the `default-value` prop or the `v-model` directive with the index of the item.
-
-__component-code
-
-::: info
-In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), you can switch the active item by pressing `1`, `2`, or `3`.
-:::
-
-::: tip
-You can also pass the `value` of one of the items if provided.
-:::
 
 ### With custom slot
 
@@ -197,24 +204,18 @@ You will have access to the following slots:
 #{{ item.slot }}-content
 ```
 
-__component-code
+<div class="lg:min-h-[340px]">
+  <ClientOnly>
+    <WithCustomSlotExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/navigationmenu/demo/WithCustomSlot.vue{vue:line-numbers}
+:::
 
 ::: tip
 You can also use the `#item`, `#item-leading`, `#item-label`, `#item-trailing` and `#item-content` [slots](#slots) to customize all items.
-:::
-
-### With content slot
-
-Use the `#item-content` slot or the `slot` property to customize the content of a specific item.
-
-```vue
-#{{ item.slot }}-content
-```
-
-__component-code
-
-::: info
-In this example, we add the `sm:w-(--reka-navigation-menu-viewport-width)` class on the `viewport` to have a dynamic width. This requires to set a width on the content's first child.
 :::
 
 ## API

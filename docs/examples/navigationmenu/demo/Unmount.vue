@@ -4,18 +4,13 @@ import ConnectionIcon from '@bitrix24/b24icons-vue/actions/ConnectionIcon'
 import MicrophoneOnIcon from '@bitrix24/b24icons-vue/main/MicrophoneOnIcon'
 import CrmMapIcon from '@bitrix24/b24icons-vue/crm/CrmMapIcon'
 import Settings5Icon from '@bitrix24/b24icons-vue/editor/Settings5Icon'
-import Info1Icon from '@bitrix24/b24icons-vue/main/Info1Icon'
 
 export interface ExampleProps {
-  isHighlight?: boolean
-  highlightColor?: any
-  orientation?: any
+  isUnmountOnHide?: any
 }
 
 withDefaults(defineProps<ExampleProps>(), {
-  isHighlight: true,
-  highlightColor: 'success' as const,
-  orientation: 'horizontal' as const
+  isUnmountOnHide: true
 })
 
 const items = ref([
@@ -68,39 +63,20 @@ const items = ref([
         target: '_blank'
       }
     ]
-  },
-  {
-    label: 'Resources',
-    to: 'https://github.com/bitrix24/b24ui',
-    target: '_blank'
-  },
-  {
-    label: 'Support',
-    icon: Info1Icon,
-    disabled: true,
-    to: 'https://helpdesk.bitrix24.com/',
-    target: '_blank'
   }
 ])
 </script>
 
 <template>
   <div class="min-w-[600px] min-h-72">
-    <div
-      class="border-base-master/10 dark:border-base-100/20"
-      :class="[
-        orientation === 'horizontal'
-          ? 'border-y relative z-[1]'
-          : 'border py-2 rounded w-[240px] data-[collapsed=true]:w-[69px]'
-      ]"
-    >
+    <div class="border-base-master/10 dark:border-base-100/20 border-y relative z-[1]">
       <B24NavigationMenu
-        :highlight="isHighlight"
-        :highlight-color="highlightColor"
+        :unmount-on-hide="isUnmountOnHide"
         :items="items"
-        :orientation="orientation"
         class="w-full"
       />
     </div>
+
+    <Placeholder class="h-52 w-full mt-2" />
   </div>
 </template>

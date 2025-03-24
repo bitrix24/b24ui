@@ -5,18 +5,7 @@ import MicrophoneOnIcon from '@bitrix24/b24icons-vue/main/MicrophoneOnIcon'
 import CrmMapIcon from '@bitrix24/b24icons-vue/crm/CrmMapIcon'
 import Settings5Icon from '@bitrix24/b24icons-vue/editor/Settings5Icon'
 import Info1Icon from '@bitrix24/b24icons-vue/main/Info1Icon'
-
-export interface ExampleProps {
-  isHighlight?: boolean
-  highlightColor?: any
-  orientation?: any
-}
-
-withDefaults(defineProps<ExampleProps>(), {
-  isHighlight: true,
-  highlightColor: 'success' as const,
-  orientation: 'horizontal' as const
-})
+import ArrowDownIcon from '@bitrix24/b24icons-vue/actions/ArrowDownIcon'
 
 const items = ref([
   {
@@ -41,26 +30,17 @@ const items = ref([
   {
     label: 'Sales Analytics',
     badge: '+3',
-    active: true,
-    defaultOpen: true,
     children: [
       {
         label: 'Sales Reports',
         icon: CrmMapIcon,
         active: true,
-        to: '/b24ui/components/components/navigation-menu.html',
-        badge: 1
+        to: '/b24ui/components/components/navigation-menu.html'
       },
       {
         label: 'Key Metrics',
         icon: Settings5Icon,
-        to: '/b24ui/components/navigation-menu.html',
-        badge: {
-          label: 2,
-          color: 'ai' as const,
-          depth: 'dark' as const,
-          useFill: true
-        }
+        to: '/b24ui/components/navigation-menu.html'
       },
       {
         label: 'CRM Integration',
@@ -85,22 +65,15 @@ const items = ref([
 </script>
 
 <template>
-  <div class="min-w-[600px] min-h-72">
-    <div
-      class="border-base-master/10 dark:border-base-100/20"
-      :class="[
-        orientation === 'horizontal'
-          ? 'border-y relative z-[1]'
-          : 'border py-2 rounded w-[240px] data-[collapsed=true]:w-[69px]'
-      ]"
-    >
+  <div class="min-w-[600px]">
+    <div class="relative z-[1] border-base-master/10 dark:border-base-100/20 border-y">
       <B24NavigationMenu
-        :highlight="isHighlight"
-        :highlight-color="highlightColor"
+        :trailing-icon="ArrowDownIcon"
         :items="items"
-        :orientation="orientation"
-        class="w-full"
+        class="w-full justify-start"
       />
     </div>
+
+    <Placeholder class="h-52 w-full mt-2" />
   </div>
 </template>

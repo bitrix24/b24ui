@@ -7,19 +7,21 @@ import Settings5Icon from '@bitrix24/b24icons-vue/editor/Settings5Icon'
 import Info1Icon from '@bitrix24/b24icons-vue/main/Info1Icon'
 
 export interface ExampleProps {
+  isHighlight?: boolean
+  color?: any
   orientation?: any
+  variant?: any
 }
 
 withDefaults(defineProps<ExampleProps>(), {
-  orientation: 'horizontal' as const
+  isHighlight: true,
+  color: 'success' as const,
+  orientation: 'horizontal' as const,
+  variant: 'link' as const
 })
 
 const items = ref([
   [
-    {
-      label: 'Sales Manager',
-      type: 'label' as const
-    },
     {
       label: 'Sales Pipeline',
       icon: ConnectionIcon,
@@ -40,16 +42,6 @@ const items = ref([
       ]
     },
     {
-      label: 'Support',
-      icon: Info1Icon,
-      disabled: true,
-      to: 'https://helpdesk.bitrix24.com/',
-      target: '_blank'
-    }
-  ],
-  [
-    {
-      viewportRtl: true,
       label: 'Sales Analytics',
       badge: '+3',
       active: true,
@@ -80,6 +72,20 @@ const items = ref([
         }
       ]
     }
+  ],
+  [
+    {
+      label: 'Resources',
+      to: 'https://github.com/bitrix24/b24ui',
+      target: '_blank'
+    },
+    {
+      label: 'Support',
+      icon: Info1Icon,
+      disabled: true,
+      to: 'https://helpdesk.bitrix24.com/',
+      target: '_blank'
+    }
   ]
 ])
 </script>
@@ -95,6 +101,9 @@ const items = ref([
       ]"
     >
       <B24NavigationMenu
+        :variant="variant"
+        :highlight="isHighlight"
+        :color="color"
         :items="items"
         :orientation="orientation"
         class="w-full"

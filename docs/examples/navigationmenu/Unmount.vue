@@ -1,20 +1,22 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import theme from '#build/b24ui/navigation-menu'
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
-import Demo from './demo/Orientation.vue'
+import Demo from './demo/Unmount.vue'
 
-const orientations = Object.keys(theme.variants.orientation)
-const orientation = ref('horizontal' as const)
+const isUnmountOnHide = ref(false)
 </script>
 
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24RadioGroup v-model="orientation" legend="orientations" :items="orientations" orientation="horizontal" />
+      <B24FormField label="unmount-on-hide">
+        <B24Switch v-model="isUnmountOnHide" />
+      </B24FormField>
     </template>
     <div class="relative px-2 py-3 bg-white dark:bg-base-900 rounded w-full overflow-auto">
-      <Demo :orientation="orientation" />
+      <Demo
+        :is-unmount-on-hide="isUnmountOnHide"
+      />
     </div>
   </ComponentShowExample>
 </template>

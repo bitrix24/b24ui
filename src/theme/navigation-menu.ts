@@ -169,7 +169,7 @@ export default {
       vertical: {
         viewport: [
           'w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left)',
-          '[&:has(>[data-viewport=rtl])]:left-auto [&:has(>[data-viewport=rtl])]:-right-[calc(var(--reka-navigation-menu-viewport-left)-34px)]'
+          '[&:has(>[data-viewport=rtl])]:left-auto [&:has(>[data-viewport=rtl])]:-right-[calc(100%-var(--reka-navigation-menu-viewport-width))]'
         ].join(' '),
         content: '',
         childLinkLabel: [

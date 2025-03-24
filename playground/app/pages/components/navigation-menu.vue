@@ -76,6 +76,29 @@ const items = ref([
       ]
     },
     {
+      label: 'Resources',
+      icon: GitHubIcon,
+      badge: 14,
+      to: 'https://github.com/bitrix24/b24ui',
+      target: '_blank'
+    }
+  ],
+  [
+    {
+      label: 'Team Support',
+      badge: {
+        label: '14',
+        color: 'ai' as const,
+        depth: 'dark' as const,
+        useFill: true
+      },
+      icon: PulseCircleIcon,
+      disabled: true,
+      to: 'https://helpdesk.bitrix24.com/',
+      target: '_blank'
+    },
+    {
+      viewportRtl: true,
       label: 'Sales Analytics',
       defaultOpen: true,
       badge: 3,
@@ -100,28 +123,6 @@ const items = ref([
           target: '_blank'
         }
       ]
-    }
-  ],
-  [
-    {
-      label: 'Resources',
-      icon: GitHubIcon,
-      badge: 14,
-      to: 'https://github.com/bitrix24/b24ui',
-      target: '_blank'
-    },
-    {
-      label: 'Team Support',
-      badge: {
-        label: '14',
-        color: 'ai' as const,
-        depth: 'dark' as const,
-        useFill: true
-      },
-      icon: PulseCircleIcon,
-      disabled: true,
-      to: 'https://helpdesk.bitrix24.com/',
-      target: '_blank'
     }
   ]
 ])

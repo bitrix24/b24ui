@@ -7,19 +7,15 @@ import Settings5Icon from '@bitrix24/b24icons-vue/editor/Settings5Icon'
 import Info1Icon from '@bitrix24/b24icons-vue/main/Info1Icon'
 
 export interface ExampleProps {
-  orientation?: any
+  color?: any
 }
 
 withDefaults(defineProps<ExampleProps>(), {
-  orientation: 'horizontal' as const
+  color: 'success' as const
 })
 
 const items = ref([
   [
-    {
-      label: 'Sales Manager',
-      type: 'label' as const
-    },
     {
       label: 'Sales Pipeline',
       icon: ConnectionIcon,
@@ -40,16 +36,6 @@ const items = ref([
       ]
     },
     {
-      label: 'Support',
-      icon: Info1Icon,
-      disabled: true,
-      to: 'https://helpdesk.bitrix24.com/',
-      target: '_blank'
-    }
-  ],
-  [
-    {
-      viewportRtl: true,
       label: 'Sales Analytics',
       badge: '+3',
       active: true,
@@ -80,25 +66,34 @@ const items = ref([
         }
       ]
     }
+  ],
+  [
+    {
+      label: 'Resources',
+      to: 'https://github.com/bitrix24/b24ui',
+      target: '_blank'
+    },
+    {
+      label: 'Support',
+      icon: Info1Icon,
+      disabled: true,
+      to: 'https://helpdesk.bitrix24.com/',
+      target: '_blank'
+    }
   ]
 ])
 </script>
 
 <template>
   <div class="min-w-[600px] min-h-72">
-    <div
-      class="border-base-master/10 dark:border-base-100/20"
-      :class="[
-        orientation === 'horizontal'
-          ? 'border-y relative z-[1]'
-          : 'border py-2 rounded w-[240px] data-[collapsed=true]:w-[69px]'
-      ]"
-    >
+    <div class="border-base-master/10 dark:border-base-100/20 border-y relative z-[1]">
       <B24NavigationMenu
+        :color="color"
         :items="items"
-        :orientation="orientation"
         class="w-full"
       />
     </div>
+
+    <Placeholder class="h-52 w-full mt-2" />
   </div>
 </template>

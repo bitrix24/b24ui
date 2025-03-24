@@ -55,7 +55,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: 'Installation', link: 'installation-nuxt-app' },
         { text: 'Color Mode', link: 'color-mode-nuxt' },
         { text: 'I18n', link: 'i18n-nuxt' },
-        { text: 'Content💡', link: 'content-nuxt' }
+        { text: 'Content', link: 'content-nuxt' }
       ]
     },
     {
@@ -123,12 +123,12 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'Avatar', link: 'avatar' },
         { text: 'AvatarGroup', link: 'avatar-group' },
         { text: 'Badge', link: 'badge' },
-        { text: 'Calendar💡', link: 'calendar' },
+        { text: 'Calendar', link: 'calendar' },
         { text: 'Collapsible🔨', link: 'collapsible' },
         { text: 'Countdown', link: 'countdown' },
         { text: 'Kbd', link: 'kbd' },
         { text: 'TableWrapper', base: '/components/content/', link: 'table-wrapper' },
-        { text: 'Typography💡', link: 'typography' }
+        { text: 'Typography', link: 'typography' }
       ]
     },
     {
@@ -154,7 +154,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: 'Container', link: 'container' },
-        { text: 'NavigationMenu🔨', link: 'navigation-menu' },
+        { text: 'NavigationMenu💡', link: 'navigation-menu' },
         { text: 'DescriptionList', link: 'description-list' },
         { text: 'Link', link: 'link' },
         { text: 'Separator', link: 'separator' },
