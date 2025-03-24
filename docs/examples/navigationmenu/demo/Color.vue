@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import ConnectionIcon from '@bitrix24/b24icons-vue/actions/ConnectionIcon'
-import MicrophoneOnIcon from '@bitrix24/b24icons-vue/main/MicrophoneOnIcon'
 import CrmMapIcon from '@bitrix24/b24icons-vue/crm/CrmMapIcon'
 import Settings5Icon from '@bitrix24/b24icons-vue/editor/Settings5Icon'
 import Info1Icon from '@bitrix24/b24icons-vue/main/Info1Icon'
