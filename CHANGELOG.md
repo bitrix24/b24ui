@@ -1,8 +1,23 @@
 # Changelog
 
+## 0.5.3 (2025-03-24)
+
+### Chore
+
+* **deps:** move `@standard-schema/spec` to `dependencies`
+
+### Docs
+
+* **NavigationMenu:** improve
+
+### Bug Fixes
+* **defineLocale/defineShortcuts:** remove `@__NO_SIDE_EFFECTS__`
+
 ## 0.5.2 (2025-03-22)
 
-* chore(NavigationMenu): improve
+### Chore
+
+* **NavigationMenu:** improve
 
 ## 0.5.1 (2025-03-21)
 
