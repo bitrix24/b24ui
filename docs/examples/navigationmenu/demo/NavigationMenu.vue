@@ -29,17 +29,26 @@ const items = ref([
   {
     label: 'Sales Analytics',
     badge: '+3',
+    active: true,
+    defaultOpen: true,
     children: [
       {
         label: 'Sales Reports',
         icon: CrmMapIcon,
         active: true,
-        to: '/b24ui/components/components/navigation-menu.html'
+        to: '/b24ui/components/components/navigation-menu.html',
+        badge: 1
       },
       {
         label: 'Key Metrics',
         icon: Settings5Icon,
-        to: '/b24ui/components/navigation-menu.html'
+        to: '/b24ui/components/navigation-menu.html',
+        badge: {
+          label: 2,
+          color: 'ai' as const,
+          depth: 'dark' as const,
+          useFill: true
+        }
       },
       {
         label: 'CRM Integration',
