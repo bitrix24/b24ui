@@ -33,7 +33,7 @@ exports[`NavigationMenu > renders with arrow correctly 1`] = `
         <!--v-if-->
       </li>
     </ul>
-    <div aria-hidden="true" data-state="visible" data-orientation="horizontal" style="--reka-navigation-menu-indicator-size: 0px; --reka-navigation-menu-indicator-position: 0px;" class="absolute motion-safe:data-[state=visible]:animate-[fade-in_100ms_ease-out] motion-safe:data-[state=hidden]:animate-[fade-out_100ms_ease-in] data-[state=hidden]:opacity-0 bottom-0 z-[1] w-(--reka-navigation-menu-indicator-size) h-2.5 translate-x-(--reka-navigation-menu-indicator-position) flex items-end justify-center overflow-hidden transition-[translate,width] duration-200">
+    <div aria-hidden="true" data-state="visible" data-orientation="horizontal" style="--reka-navigation-menu-indicator-size: 0px; --reka-navigation-menu-indicator-position: 0px;" class="absolute motion-safe:data-[state=visible]:animate-[fade-in_100ms_ease-out] motion-safe:data-[state=hidden]:animate-[fade-out_100ms_ease-in] data-[state=hidden]:opacity-0 bottom-0 z-[2] w-(--reka-navigation-menu-indicator-size) h-2.5 translate-x-(--reka-navigation-menu-indicator-position) flex items-end justify-center overflow-hidden transition-[translate,width] duration-200">
       <div class="relative top-[50%] size-2.5 rotate-45 border border-base-300 dark:border-base-800 bg-white dark:bg-base-dark z-[1] rounded-3xs"></div>
     </div>
   </div>
@@ -41,7 +41,7 @@ exports[`NavigationMenu > renders with arrow correctly 1`] = `
   <div class="absolute left-0 flex w-full top-[calc(100%+0.4rem)]">
     <!--teleport start-->
     <!--teleport end-->
-    <div class="relative overflow-hidden bg-white dark:bg-base-dark shadow-[0_15px_21px_rgba(83,92,105,.15)] h-(--reka-navigation-menu-viewport-height) transition-[width,height] duration-200 origin-[top_center] w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left) [&amp;:has(>[data-viewport=rtl])]:left-auto [&amp;:has(>[data-viewport=rtl])]:-right-[calc(100%-var(--reka-navigation-menu-viewport-width))] rounded-b-md [&amp;:has(>[data-viewport=ltr])]:rounded-tr-md [&amp;:has(>[data-viewport=rtl])]:rounded-tl-md clip-path-viewport-wrapper" data-state="open" data-orientation="horizontal">
+    <div class="relative overflow-hidden bg-white dark:bg-base-dark shadow-[0_15px_21px_rgba(83,92,105,.15)] h-(--reka-navigation-menu-viewport-height) transition-[width,height] duration-200 origin-[top_center] z-[1] w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left) [&amp;:has(>[data-viewport=rtl])]:left-auto [&amp;:has(>[data-viewport=rtl])]:-right-[calc(100%-var(--reka-navigation-menu-viewport-width))] rounded-b-md [&amp;:has(>[data-viewport=ltr])]:rounded-tr-md [&amp;:has(>[data-viewport=rtl])]:rounded-tl-md clip-path-viewport-wrapper" data-state="open" data-orientation="horizontal">
       <!---->
       <!---->
     </div>
@@ -218,7 +218,7 @@ exports[`NavigationMenu > renders with content orientation vertical correctly 1`
   <!--v-if-->
   <div class="absolute left-0 flex w-full top-[calc(100%+0.4rem)]">
     <!--v-if-->
-    <div class="relative overflow-hidden bg-white dark:bg-base-dark shadow-[0_15px_21px_rgba(83,92,105,.15)] h-(--reka-navigation-menu-viewport-height) transition-[width,height] duration-200 origin-[top_center] w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left) [&amp;:has(>[data-viewport=rtl])]:left-auto [&amp;:has(>[data-viewport=rtl])]:-right-[calc(100%-var(--reka-navigation-menu-viewport-width))] rounded-b-md [&amp;:has(>[data-viewport=ltr])]:rounded-tr-md [&amp;:has(>[data-viewport=rtl])]:rounded-tl-md clip-path-viewport-wrapper" data-state="open" data-orientation="horizontal">
+    <div class="relative overflow-hidden bg-white dark:bg-base-dark shadow-[0_15px_21px_rgba(83,92,105,.15)] h-(--reka-navigation-menu-viewport-height) transition-[width,height] duration-200 origin-[top_center] z-[1] w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left) [&amp;:has(>[data-viewport=rtl])]:left-auto [&amp;:has(>[data-viewport=rtl])]:-right-[calc(100%-var(--reka-navigation-menu-viewport-width))] rounded-b-md [&amp;:has(>[data-viewport=ltr])]:rounded-tr-md [&amp;:has(>[data-viewport=rtl])]:rounded-tl-md clip-path-viewport-wrapper" data-state="open" data-orientation="horizontal">
       <!---->
       <!---->
     </div>
@@ -663,7 +663,7 @@ exports[`NavigationMenu > renders with modelValue correctly 1`] = `
   <!--v-if-->
   <div class="absolute left-0 flex w-full top-[calc(100%+0.4rem)]">
     <!--v-if-->
-    <div class="relative overflow-hidden bg-white dark:bg-base-dark shadow-[0_15px_21px_rgba(83,92,105,.15)] h-(--reka-navigation-menu-viewport-height) transition-[width,height] duration-200 origin-[top_center] w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left) [&amp;:has(>[data-viewport=rtl])]:left-auto [&amp;:has(>[data-viewport=rtl])]:-right-[calc(100%-var(--reka-navigation-menu-viewport-width))] rounded-b-md [&amp;:has(>[data-viewport=ltr])]:rounded-tr-md [&amp;:has(>[data-viewport=rtl])]:rounded-tl-md clip-path-viewport-wrapper" data-state="open" data-orientation="horizontal">
+    <div class="relative overflow-hidden bg-white dark:bg-base-dark shadow-[0_15px_21px_rgba(83,92,105,.15)] h-(--reka-navigation-menu-viewport-height) transition-[width,height] duration-200 origin-[top_center] z-[1] w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left) [&amp;:has(>[data-viewport=rtl])]:left-auto [&amp;:has(>[data-viewport=rtl])]:-right-[calc(100%-var(--reka-navigation-menu-viewport-width))] rounded-b-md [&amp;:has(>[data-viewport=ltr])]:rounded-tr-md [&amp;:has(>[data-viewport=rtl])]:rounded-tl-md clip-path-viewport-wrapper" data-state="open" data-orientation="horizontal">
       <!---->
       <!---->
     </div>
@@ -1278,7 +1278,7 @@ exports[`NavigationMenu > renders with unmountOnHide correctly 1`] = `
   <!--v-if-->
   <div class="absolute left-0 flex w-full top-[calc(100%+0.4rem)]">
     <!--v-if-->
-    <div class="relative overflow-hidden bg-white dark:bg-base-dark shadow-[0_15px_21px_rgba(83,92,105,.15)] h-(--reka-navigation-menu-viewport-height) transition-[width,height] duration-200 origin-[top_center] w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left) [&amp;:has(>[data-viewport=rtl])]:left-auto [&amp;:has(>[data-viewport=rtl])]:-right-[calc(100%-var(--reka-navigation-menu-viewport-width))] rounded-b-md [&amp;:has(>[data-viewport=ltr])]:rounded-tr-md [&amp;:has(>[data-viewport=rtl])]:rounded-tl-md clip-path-viewport-wrapper" data-state="closed" data-orientation="horizontal" style="pointer-events: none;" hidden="">
+    <div class="relative overflow-hidden bg-white dark:bg-base-dark shadow-[0_15px_21px_rgba(83,92,105,.15)] h-(--reka-navigation-menu-viewport-height) transition-[width,height] duration-200 origin-[top_center] z-[1] w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left) [&amp;:has(>[data-viewport=rtl])]:left-auto [&amp;:has(>[data-viewport=rtl])]:-right-[calc(100%-var(--reka-navigation-menu-viewport-width))] rounded-b-md [&amp;:has(>[data-viewport=ltr])]:rounded-tr-md [&amp;:has(>[data-viewport=rtl])]:rounded-tl-md clip-path-viewport-wrapper" data-state="closed" data-orientation="horizontal" style="pointer-events: none;" hidden="">
       <div data-dismissable-layer="" style="pointer-events: none;" id="reka-navigation-menu-v-0-0-0-content-1" aria-labelledby="reka-navigation-menu-v-0-0-0-trigger-1" data-state="closed" data-orientation="horizontal" data-viewport="ltr" class="absolute top-0 left-0 w-60" hidden="">
         <ul class="grid p-2 gap-1">
           <li class=""><button type="button" class="group size-full px-3 py-2 rounded-2xs flex items-start gap-2 text-start focus-visible:outline-base-300 dark:focus-visible:outline-base-800 hover:bg-base-20 dark:hover:bg-base-900 text-base-500 dark:text-base-700 hover:text-base-950 dark:hover:dark:text-base-200 transition-colors" data-reka-collection-item=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors">

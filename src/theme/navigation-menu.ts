@@ -59,8 +59,9 @@ export default {
       'bg-white dark:bg-base-dark',
       'shadow-[0_15px_21px_rgba(83,92,105,.15)]',
       'h-(--reka-navigation-menu-viewport-height)',
-      'transition-[width,height] duration-200 origin-[top_center]' // left
+      'transition-[width,height] duration-200 origin-[top_center]', // left
       // 'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]'
+      'z-[1]'
     ].join(' '),
     content: 'absolute top-0 left-0 w-full',
     indicator: [
@@ -68,7 +69,7 @@ export default {
       'motion-safe:data-[state=visible]:animate-[fade-in_100ms_ease-out] motion-safe:data-[state=hidden]:animate-[fade-out_100ms_ease-in]',
       'data-[state=hidden]:opacity-0',
       'bottom-0',
-      'z-[1]',
+      'z-[2]',
       'w-(--reka-navigation-menu-indicator-size)',
       'h-2.5',
       'translate-x-(--reka-navigation-menu-indicator-position)',
