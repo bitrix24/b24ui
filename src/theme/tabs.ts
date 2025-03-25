@@ -26,7 +26,7 @@ export default {
       'data-[state=inactive]:text-base-600 dark:data-[state=inactive]:text-base-600',
       'hover:data-[state=inactive]:not-disabled:text-base-master dark:hover:data-[state=inactive]:not-disabled:text-base-150',
       'font-medium rounded-xl',
-      'cursor-pointer disabled:cursor-not-allowed disabled:opacity-75 focus:outline-hidden',
+      'cursor-pointer disabled:cursor-not-allowed disabled:opacity-75',
       'transition-colors'
     ].join(' '),
     content: 'focus:outline-none w-full',
