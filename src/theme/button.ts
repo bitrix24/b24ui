@@ -21,7 +21,7 @@ export default {
     base: [
       'select-none cursor-pointer inline-flex items-center',
       'relative',
-      'outline-transparent focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2',
+      'outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2',
       'disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50',
       'transition duration-150 ease-linear' // transition-colors
     ],
@@ -44,7 +44,7 @@ export default {
         'active:bg-slate-850 active:border-slate-850 active:focus-visible:ring-0',
         'disabled:bg-base-650 aria-disabled:bg-base-650 disabled:border-base-650 aria-disabled:border-base-650',
         'focus-visible:outline-base-650',
-        'ring-base-850 focus-visible:ring-base-850'
+        'ring-base-850 focus:outline-none focus-visible:ring-base-850'
       ].join(' '),
       danger: [
         'text-white dark:text-red-100 bg-red-720 border border-red-720',
@@ -52,7 +52,7 @@ export default {
         'active:bg-red-730 active:border-red-730 active:focus-visible:ring-0',
         'disabled:bg-red-720 aria-disabled:bg-red-720 disabled:border-red-720 aria-disabled:border-red-720',
         'focus-visible:outline-red-720',
-        'ring-red-800 focus-visible:ring-red-800'
+        'ring-red-800 focus:outline-none focus-visible:ring-red-800'
       ].join(' '),
       success: [
         'text-base-900 bg-green-450 border border-green-450',
@@ -60,7 +60,7 @@ export default {
         'active:bg-green-430 active:border-green-430 active:focus-visible:ring-0',
         'disabled:bg-green-450 aria-disabled:bg-green-450 disabled:border-green-450 aria-disabled:border-green-450',
         'focus-visible:outline-green-450',
-        'ring-green-500 focus-visible:ring-green-500'
+        'ring-green-500 focus:outline-none focus-visible:ring-green-500'
       ].join(' '),
       warning: [
         'text-white dark:text-orange-100 bg-orange-500 border border-orange-500',
@@ -68,7 +68,7 @@ export default {
         'active:bg-orange-500/85 active:border-orange-500/85 active:focus-visible:ring-0',
         'disabled:bg-orange-500 aria-disabled:bg-orange-500 disabled:border-bg-orange-500 aria-disabled:border-bg-orange-500',
         'focus-visible:outline-orange-500',
-        'ring-orange-800 focus-visible:ring-orange-800'
+        'ring-orange-800 focus:outline-none focus-visible:ring-orange-800'
       ].join(' '),
       primary: [
         'text-white dark:text-blue-100 bg-blue-530 border border-blue-530',
@@ -76,7 +76,7 @@ export default {
         'active:bg-blue-550 active:border-blue-550 active:focus-visible:ring-0',
         'disabled:bg-blue-530 aria-disabled:bg-blue-530 disabled:border-blue-530 aria-disabled:border-blue-530',
         'focus-visible:outline-blue-530',
-        'ring-blue-800 focus-visible:ring-blue-800'
+        'ring-blue-800 focus:outline-none focus-visible:ring-blue-800'
       ].join(' '),
       secondary: [
         'text-base-900 bg-cyan-160 border border-cyan-230',
@@ -84,7 +84,7 @@ export default {
         'active:bg-cyan-230 active:border-cyan-230 active:focus-visible:ring-0',
         'disabled:bg-cyan-160 aria-disabled:bg-cyan-160 disabled:border-cyan-230 aria-disabled:border-cyan-230',
         'focus-visible:outline-cyan-160',
-        'ring-cyan-500 focus-visible:ring-cyan-500'
+        'ring-cyan-500 focus:outline-none focus-visible:ring-cyan-500'
       ].join(' '),
       collab: [
         'text-white dark:text-collab-100 bg-collab-600 border border-collab-600',
@@ -92,7 +92,7 @@ export default {
         'active:bg-collab-700 active:border-collab-700 active:focus-visible:ring-0',
         'disabled:bg-collab-600 aria-disabled:bg-collab-600 disabled:border-collab-600 aria-disabled:border-collab-600',
         'focus-visible:outline-collab-600',
-        'ring-collab-900 focus-visible:ring-collab-900'
+        'ring-collab-900 focus:outline-none focus-visible:ring-collab-900'
       ].join(' '),
       ai: [
         'text-white dark:text-ai-100 bg-ai-450 border border-ai-450',
@@ -100,7 +100,7 @@ export default {
         'active:bg-ai-550 active:border-ai-550 active:focus-visible:ring-0',
         'disabled:bg-ai-450 aria-disabled:bg-ai-450 disabled:border-ai-450 aria-disabled:border-ai-450',
         'focus-visible:outline-ai-450',
-        'ring-ai-900 focus-visible:ring-ai-900'
+        'ring-ai-900 focus:outline-none focus-visible:ring-ai-900'
       ].join(' '),
       link: [
         'no-underline decoration-solid decoration-auto',
@@ -109,7 +109,7 @@ export default {
         'active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0',
         'disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300',
         'focus-visible:outline-base-400',
-        'ring-base-850 focus-visible:ring-base-850'
+        'ring-base-850 focus:outline-none focus-visible:ring-base-850'
       ].join(' ')
     },
     depth: {
