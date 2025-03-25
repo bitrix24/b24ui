@@ -78,6 +78,7 @@
     "dev:generate": "nuxt generate playground",
     "dev:preview": "nuxt preview playground",
     "dev:vue": "DEV=true vite playground-vue",
+    "dev:vue:build": "vite build playground-vue",
     "demo:dev": "DEV=true nuxi dev demo",
     "demo:generate": "nuxt generate demo",
     "demo:preview": "nuxt preview demo",
@@ -91,8 +92,7 @@
     "typecheck": "vue-tsc --noEmit && nuxi typecheck playground && cd playground-vue && vue-tsc --noEmit",
     "typecheck-window": "vue-tsc --noEmit && nuxi typecheck playground && cd ../playground-vue && vue-tsc --noEmit",
     "test": "vitest",
-    "test:vue": "vitest -c vitest.vue.config.ts",
-    "test:vue:build": "vite build playground-vue"
+    "test:vue": "vitest -c vitest.vue.config.ts"
   },
   "dependencies": {
     "@bitrix24/b24icons-vue": "^1.0.5",
@@ -142,7 +142,6 @@
     "@nuxt/eslint-config": "^1.2.0",
     "@nuxt/module-builder": "^0.8.4",
     "@nuxt/test-utils": "^3.17.2",
-    "@standard-schema/spec": "^1.0.0",
     "@types/canvas-confetti": "^1.9.0",
     "@vue/test-utils": "^2.4.6",
     "embla-carousel": "^8.5.2",
