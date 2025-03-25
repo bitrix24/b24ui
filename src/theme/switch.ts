@@ -14,7 +14,7 @@ export default {
     base: [
       'cursor-pointer inline-flex items-center shrink-0 rounded-full border-2 border-transparent data-[state=unchecked]:bg-base-200 dark:data-[state=unchecked]:bg-base-800',
       'outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2',
-      'transition-colors duration-200'
+      'transition-[background] duration-200'
     ].join(' '),
     container: 'flex items-center',
     thumb: 'group pointer-events-none rounded-full bg-white dark:bg-base-100 shadow-lg ring-0 transition-transform duration-200 data-[state=unchecked]:translate-x-0 data-[state=unchecked]:rtl:-translate-x-0 flex items-center justify-center',
