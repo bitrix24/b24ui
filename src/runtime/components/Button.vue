@@ -184,7 +184,7 @@ const b24ui = computed(() => tv({
     :type="type"
     :disabled="disabled || isLoading"
     :class="b24ui.base({ class: [props.class, props.b24ui?.base] })"
-    v-bind="omit(linkProps, ['type', 'disabled'])"
+    v-bind="omit(linkProps, ['type', 'disabled', 'onClick'])"
     custom
   >
     <B24LinkBase
