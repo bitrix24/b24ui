@@ -21,12 +21,12 @@ const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof the
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
 // region Single List ////
-const items = ref(['Prospecting', 'Qualifying', 'Presenting', 'Negotiating', 'Closed'] satisfies InputMenuItem[])
-const itemsSimple = ref(['Prospecting', 'Qualifying', 'Presenting', 'Negotiating', 'Closed'] satisfies InputMenuItem[])
+const items = ref(['Prospecting', 'Qualifying', 'Presenting', 'Negotiating', 'Closed'])
+const itemsSimple = ref(['Prospecting', 'Qualifying', 'Presenting', 'Negotiating', 'Closed'])
 const value = ref('Qualifying')
 const valueForAdd = ref('Prospecting')
 
-const valueMultiple = ref(['Prospecting', 'Qualifying', 'Presenting'] satisfies InputMenuItem[])
+const valueMultiple = ref(['Prospecting', 'Qualifying', 'Presenting'])
 // endregion ////
 
 function onCreate(item: string) {
