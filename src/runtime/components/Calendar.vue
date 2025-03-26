@@ -1,6 +1,6 @@
 <script lang="ts">
 import type { VariantProps } from 'tailwind-variants'
-import type { CalendarRootProps, CalendarRootEmits, RangeCalendarRootEmits, DateRange, CalendarCellTriggerProps } from 'reka-ui'
+import type { CalendarRootProps, CalendarRootEmits, RangeCalendarRootProps, RangeCalendarRootEmits, DateRange, CalendarCellTriggerProps } from 'reka-ui'
 import type { DateValue } from '@internationalized/date'
 import type { AppConfig } from '@nuxt/schema'
 import type { IconComponent, ButtonProps } from '../types'
@@ -15,13 +15,21 @@ const calendar = tv({ extend: tv(theme), ...(appConfigCalendar.b24ui?.calendar |
 
 type CalendarVariants = VariantProps<typeof calendar>
 
-type CalendarModelValue<R extends boolean = false, M extends boolean = false> = R extends true
+type CalendarDefaultValue<R extends boolean = false, M extends boolean = false> = R extends true
   ? DateRange
   : M extends true
     ? DateValue[]
     : DateValue
+type CalendarModelValue<R extends boolean = false, M extends boolean = false> = R extends true
+  ? (DateRange | null)
+  : M extends true
+    ? (DateValue[] | undefined)
+    : (DateValue | undefined)
 
-export interface CalendarProps<R extends boolean, M extends boolean> extends Omit<CalendarRootProps, 'as' | 'asChild' | 'modelValue' | 'defaultValue' | 'dir' | 'locale' | 'calendarLabel' | 'multiple'> {
+type _CalendarRootProps = Omit<CalendarRootProps, 'as' | 'asChild' | 'modelValue' | 'defaultValue' | 'dir' | 'locale' | 'calendarLabel' | 'multiple'>
+type _RangeCalendarRootProps = Omit<RangeCalendarRootProps, 'as' | 'asChild' | 'modelValue' | 'defaultValue' | 'dir' | 'locale' | 'calendarLabel' | 'multiple'>
+
+export interface CalendarProps<R extends boolean = false, M extends boolean = false> extends _RangeCalendarRootProps, _CalendarRootProps {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
@@ -87,7 +95,7 @@ export interface CalendarProps<R extends boolean, M extends boolean> extends Omi
   monthControls?: boolean
   /** Show year controls */
   yearControls?: boolean
-  defaultValue?: CalendarModelValue<R, M>
+  defaultValue?: CalendarDefaultValue<R, M>
   modelValue?: CalendarModelValue<R, M>
   class?: any
   b24ui?: PartialString<typeof calendar.slots>
@@ -104,7 +112,7 @@ export interface CalendarSlots {
 }
 </script>
 
-<script setup lang="ts" generic="R extends boolean = false, M extends boolean = false">
+<script setup lang="ts" generic="R extends boolean, M extends boolean">
 import { computed } from 'vue'
 import { useForwardPropsEmits } from 'reka-ui'
 import { Calendar as SingleCalendar, RangeCalendar } from 'reka-ui/namespaced'
@@ -157,8 +165,8 @@ const btnSize = computed(() => {
   <Calendar.Root
     v-slot="{ weekDays, grid }"
     v-bind="rootProps"
-    :model-value="(modelValue as CalendarModelValue<true & false>)"
-    :default-value="(defaultValue as CalendarModelValue<true & false>)"
+    :model-value="modelValue"
+    :default-value="defaultValue"
     :locale="locale"
     :dir="dir"
     :class="b24ui.root({ class: [props.class, props.b24ui?.root] })"

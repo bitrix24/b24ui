@@ -2,6 +2,8 @@
 /**
  * @see playground/app/pages/components/select-menu.vue
  */
+import type { SelectItem, AvatarProps, ChipProps } from '@bitrix24/b24ui-nuxt'
+
 import theme from '#build/b24ui/select'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
@@ -24,18 +26,18 @@ const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.var
 const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof theme.variants.tagColor>
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
-const knowledgeBase = ['Select Knowledge base', 'Create knowledge base']
-const smartScripts = ['Scripts', 'Create script', 'Install from Bitrix24.Market']
-const smartProcess = ['Smart Process Automation']
-const settings = ['CRM settings', 'My company details', 'Access permissions']
+const knowledgeBase = ['Select Knowledge base', 'Create knowledge base'] satisfies SelectItem[]
+const smartScripts = ['Scripts', 'Create script', 'Install from Bitrix24.Market'] satisfies SelectItem[]
+const smartProcess = ['Smart Process Automation'] satisfies SelectItem[]
+const settings = ['CRM settings', 'My company details', 'Access permissions'] satisfies SelectItem[]
 
 const items = [
   [...knowledgeBase],
-  [{ label: 'Smart scripts', type: 'label' }, ...smartScripts],
+  [{ label: 'Smart scripts', type: 'label' as const }, ...smartScripts],
   ['Bitrix24.Market'],
-  [{ label: 'Smart Process Automation', type: 'label' }, ...smartProcess],
-  [{ label: 'Settings', type: 'label' }, ...settings]
-]
+  [{ label: 'Smart Process Automation', type: 'label' as const }, ...smartProcess],
+  [{ label: 'Settings', type: 'label' as const }, ...settings]
+] satisfies SelectItem[][]
 const selectedItems = ref([knowledgeBase[0]!, smartProcess[0]!])
 
 const chipItems = ref([
@@ -68,7 +70,7 @@ const chipItems = ref([
       color: 'default' as const
     }
   }
-])
+] satisfies SelectItem[])
 const chipValue = ref(chipItems.value[0]?.value)
 
 function getChip(value: string) {
@@ -85,27 +87,27 @@ const statuses = [
     label: 'Todo',
     value: 'todo',
     icon: PlusInCircleIcon,
-    color: 'ai'
+    color: 'ai' as const
   },
   {
     label: 'In Progress',
     value: 'in_progress',
     icon: ArrowTopIcon,
-    color: 'primary'
+    color: 'primary' as const
   },
   {
     label: 'Done',
     value: 'done',
     icon: CircleCheckIcon,
-    color: 'success'
+    color: 'success' as const
   },
   {
     label: 'Canceled',
     value: 'canceled',
     icon: CancelIcon,
-    color: 'danger'
+    color: 'danger' as const
   }
-]
+] satisfies SelectItem[]
 
 const { data: users, status } = await useFetch('https://jsonplaceholder.typicode.com/users', {
   transform: (data: IUser[]) => {
@@ -353,10 +355,11 @@ function getUserAvatar(value: string) {
               placeholder="Search status&hellip;"
               aria-label="Search status"
               :size="size"
+              value-key="value"
             >
               <template #leading="{ modelValue, b24ui }">
                 <Component
-                  :is="getStatusIcon(modelValue as string)"
+                  :is="getStatusIcon(modelValue)"
                   v-if="modelValue"
                   :class="b24ui.leadingIcon()"
                 />
@@ -389,8 +392,8 @@ function getUserAvatar(value: string) {
               <template #leading="{ modelValue, b24ui }">
                 <B24Avatar
                   v-if="modelValue"
-                  :size="b24ui.itemLeadingAvatarSize()"
-                  v-bind="getUserAvatar(modelValue as string)"
+                  :size="b24ui.itemLeadingAvatarSize() as AvatarProps['size']"
+                  v-bind="getUserAvatar(modelValue)"
                 />
               </template>
             </B24Select>
@@ -411,7 +414,7 @@ function getUserAvatar(value: string) {
                   v-bind="getChip(modelValue as string)"
                   inset
                   standalone
-                  :size="b24ui.itemLeadingChipSize()"
+                  :size="b24ui.itemLeadingChipSize() as ChipProps['size']"
                   :class="b24ui.itemLeadingChip()"
                 />
               </template>

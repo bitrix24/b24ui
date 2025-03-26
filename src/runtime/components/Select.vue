@@ -1,13 +1,23 @@
 <script lang="ts">
 import type { VariantProps } from 'tailwind-variants'
-import type { SelectRootProps, SelectRootEmits, SelectContentProps, SelectContentEmits, SelectArrowProps, AcceptableValue } from 'reka-ui'
+import type { SelectRootProps, SelectRootEmits, SelectContentProps, SelectContentEmits, SelectArrowProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/select'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
 import { tv } from '../utils/tv'
 import type { AvatarProps, ChipProps, InputProps, IconComponent } from '../types'
-import type { PartialString, MaybeArrayOfArray, MaybeArrayOfArrayItem, SelectModelValue, SelectModelValueEmits, SelectItemKey, EmitsToProps } from '../types/utils'
+import type {
+  AcceptableValue,
+  ArrayOrNested,
+  GetItemKeys,
+  GetItemValue,
+  GetModelValue,
+  GetModelValueEmits,
+  NestedItem,
+  PartialString,
+  EmitsToProps
+} from '../types/utils'
 
 const appConfigSelect = _appConfig as AppConfig & { b24ui: { select: Partial<typeof theme> } }
 
@@ -15,7 +25,7 @@ const select = tv({ extend: tv(theme), ...(appConfigSelect.b24ui?.select || {}) 
 
 type SelectVariants = VariantProps<typeof select>
 
-export interface SelectItem {
+interface SelectItemBase {
   label?: string
   /**
    * Display an icon on the left side.
@@ -30,11 +40,13 @@ export interface SelectItem {
    * @defaultValue 'item'
    */
   type?: 'label' | 'separator' | 'item'
-  value?: string
+  value?: string | number
   disabled?: boolean
+  [key: string]: any
 }
+export type SelectItem = SelectItemBase | AcceptableValue | boolean
 
-export interface SelectProps<T extends MaybeArrayOfArrayItem<I>, I extends MaybeArrayOfArray<SelectItem | AcceptableValue | boolean> = MaybeArrayOfArray<SelectItem | AcceptableValue | boolean>, V extends SelectItemKey<T> | undefined = undefined, M extends boolean = false> extends Omit<SelectRootProps<T>, 'dir' | 'multiple' | 'modelValue' | 'defaultValue' | 'by'>, UseComponentIconsProps {
+export interface SelectProps<T extends ArrayOrNested<SelectItem> = ArrayOrNested<SelectItem>, VK extends GetItemKeys<T> = 'value', M extends boolean = false> extends Omit<SelectRootProps<T>, 'dir' | 'multiple' | 'modelValue' | 'defaultValue' | 'by'>, UseComponentIconsProps {
   id?: string
   /** The placeholder text when the select is empty. */
   placeholder?: string
@@ -102,21 +114,21 @@ export interface SelectProps<T extends MaybeArrayOfArrayItem<I>, I extends Maybe
    * When `items` is an array of objects, select the field to use as the value.
    * @defaultValue 'value'
    */
-  valueKey?: V
+  valueKey?: VK
   /**
    * When `items` is an array of objects, select the field to use as the label.
    * @defaultValue 'label'
    */
-  labelKey?: V
-  items?: I
+  labelKey?: keyof NestedItem<T>
+  items?: T
   /**
    * The value of the Select when initially rendered. Use when you do not need to control the state of the Select
    */
-  defaultValue?: SelectModelValue<T, V, M, T extends { value: infer U } ? U : never>
+  defaultValue?: GetModelValue<T, VK, M>
   /**
    * The controlled value of the Select. Can be bind as `v-model`
    */
-  modelValue?: SelectModelValue<T, V, M, T extends { value: infer U } ? U : never>
+  modelValue?: GetModelValue<T, VK, M>
   /**
    * Whether multiple options can be selected or not
    * @defaultValue false
@@ -131,18 +143,23 @@ export interface SelectProps<T extends MaybeArrayOfArrayItem<I>, I extends Maybe
   b24ui?: PartialString<typeof select.slots>
 }
 
-export type SelectEmits<T, V, M extends boolean> = Omit<SelectRootEmits<T>, 'update:modelValue'> & {
+export type SelectEmits<A extends ArrayOrNested<SelectItem>, VK extends GetItemKeys<A> | undefined, M extends boolean> = Omit<SelectRootEmits, 'update:modelValue'> & {
   change: [payload: Event]
   blur: [payload: FocusEvent]
   focus: [payload: FocusEvent]
-} & SelectModelValueEmits<T, V, M, T extends { value: infer U } ? U : never>
+} & GetModelValueEmits<A, VK, M>
 
-type SlotProps<T> = (props: { item: T, index: number }) => any
+type SlotProps<T extends SelectItem> = (props: { item: T, index: number }) => any
 
-export interface SelectSlots<T, M extends boolean> {
-  'leading'(props: { modelValue?: M extends true ? AcceptableValue[] : AcceptableValue, open: boolean, b24ui: any }): any
-  'default'(props: { modelValue?: M extends true ? AcceptableValue[] : AcceptableValue, open: boolean }): any
-  'trailing'(props: { modelValue?: M extends true ? AcceptableValue[] : AcceptableValue, open: boolean, b24ui: any }): any
+export interface SelectSlots<
+  A extends ArrayOrNested<SelectItem> = ArrayOrNested<SelectItem>,
+  VK extends GetItemKeys<A> | undefined = undefined,
+  M extends boolean = false,
+  T extends NestedItem<A> = NestedItem<A>
+> {
+  'leading'(props: { modelValue?: GetModelValue<A, VK, M>, open: boolean, b24ui: ReturnType<typeof select> }): any
+  'default'(props: { modelValue?: GetModelValue<A, VK, M>, open: boolean }): any
+  'trailing'(props: { modelValue?: GetModelValue<A, VK, M>, open: boolean, b24ui: ReturnType<typeof select> }): any
   'item': SlotProps<T>
   'item-leading': SlotProps<T>
   'item-label': SlotProps<T>
@@ -150,7 +167,7 @@ export interface SelectSlots<T, M extends boolean> {
 }
 </script>
 
-<script setup lang="ts" generic="T extends MaybeArrayOfArrayItem<I>, I extends MaybeArrayOfArray<SelectItem | AcceptableValue | boolean> = MaybeArrayOfArray<SelectItem | AcceptableValue | boolean>, V extends SelectItemKey<T> | undefined = undefined, M extends boolean = false">
+<script setup lang="ts" generic="T extends ArrayOrNested<SelectItem>, VK extends GetItemKeys<T> = 'value', M extends boolean = false">
 import { computed, toRef } from 'vue'
 import { Primitive, SelectRoot, SelectArrow, SelectTrigger, SelectPortal, SelectContent, SelectViewport, SelectScrollUpButton, SelectScrollDownButton, SelectLabel, SelectGroup, SelectItem, SelectItemIndicator, SelectItemText, SelectSeparator, useForwardPropsEmits } from 'reka-ui'
 import { defu } from 'defu'
@@ -158,20 +175,20 @@ import { reactivePick } from '@vueuse/core'
 import { useButtonGroup } from '../composables/useButtonGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
-import { get, compare } from '../utils'
+import { compare, get, isArrayOfArray } from '../utils'
 import icons from '../dictionary/icons'
 import B24Avatar from './Avatar.vue'
 import B24Chip from './Chip.vue'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<SelectProps<T, I, V, M>>(), {
+const props = withDefaults(defineProps<SelectProps<T, VK, M>>(), {
   valueKey: 'value' as never,
   labelKey: 'label' as never,
   portal: true
 })
-const emits = defineEmits<SelectEmits<T, V, M>>()
-const slots = defineSlots<SelectSlots<T, M>>()
+const emits = defineEmits<SelectEmits<T, VK, M>>()
+const slots = defineSlots<SelectSlots<T, VK, M>>()
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'open', 'defaultOpen', 'disabled', 'autocomplete', 'required', 'multiple'), emits)
 const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffset: 8, collisionPadding: 8, position: 'popper' }) as SelectContentProps)
@@ -205,11 +222,17 @@ const b24ui = computed(() => select({
   buttonGroup: orientation.value
 }))
 
-const groups = computed(() => props.items?.length ? (Array.isArray(props.items[0]) ? props.items : [props.items]) as SelectItem[][] : [])
+const groups = computed<SelectItem[][]>(() =>
+  props.items?.length
+    ? isArrayOfArray(props.items)
+      ? props.items
+      : [props.items]
+    : []
+)
 // eslint-disable-next-line vue/no-dupe-keys
 const items = computed(() => groups.value.flatMap(group => group) as T[])
 
-function displayValue(value?: AcceptableValue | AcceptableValue[]): string | undefined {
+function displayValue(value?: GetItemValue<T, VK> | GetItemValue<T, VK>[]): string {
   if (props.multiple && Array.isArray(value)) {
     return value.map(v => displayValue(v)).filter(Boolean).join(', ')
   }
@@ -238,6 +261,10 @@ function onUpdateOpen(value: boolean) {
     emitFormFocus()
   }
 }
+
+function isSelectItem(item: SelectItem): item is SelectItemBase {
+  return typeof item === 'object' && item !== null
+}
 </script>
 
 <!-- eslint-disable vue/no-template-shadow -->
@@ -249,8 +276,8 @@ function onUpdateOpen(value: boolean) {
       v-bind="rootProps"
       :autocomplete="autocomplete"
       :disabled="disabled"
-      :default-value="(defaultValue as (AcceptableValue | AcceptableValue[] | undefined))"
-      :model-value="(modelValue as (AcceptableValue | AcceptableValue[] | undefined))"
+      :default-value="(defaultValue as (AcceptableValue | AcceptableValue[]))"
+      :model-value="(modelValue as (AcceptableValue | AcceptableValue[]))"
       @update:model-value="onUpdate"
       @update:open="onUpdateOpen"
     >
@@ -260,7 +287,7 @@ function onUpdateOpen(value: boolean) {
         </div>
 
         <span v-if="isLeading || !!avatar || !!slots.leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
-          <slot name="leading" :model-value="(modelValue as M extends true ? AcceptableValue[] : AcceptableValue)" :open="open" :b24ui="b24ui">
+          <slot name="leading" :model-value="(modelValue as GetModelValue<T, VK, M>)" :open="open" :b24ui="b24ui">
             <Component
               :is="leadingIconName"
               v-if="isLeading && leadingIconName"
@@ -270,8 +297,8 @@ function onUpdateOpen(value: boolean) {
           </slot>
         </span>
 
-        <slot :model-value="(modelValue as M extends true ? AcceptableValue[] : AcceptableValue)" :open="open">
-          <template v-for="displayedModelValue in [displayValue(modelValue)]" :key="displayedModelValue">
+        <slot :model-value="(modelValue as GetModelValue<T, VK, M>)" :open="open">
+          <template v-for="displayedModelValue in [displayValue(modelValue as GetModelValue<T, VK, M>)]" :key="displayedModelValue">
             <span v-if="displayedModelValue" :class="b24ui.value({ class: props.b24ui?.value })">
               {{ displayedModelValue }}
             </span>
@@ -282,7 +309,7 @@ function onUpdateOpen(value: boolean) {
         </slot>
 
         <span v-if="isTrailing || !!slots.trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
-          <slot name="trailing" :model-value="(modelValue as M extends true ? AcceptableValue[] : AcceptableValue)" :open="open" :b24ui="b24ui">
+          <slot name="trailing" :model-value="(modelValue as GetModelValue<T, VK, M>)" :open="open" :b24ui="b24ui">
             <Component
               :is="trailingIconName"
               v-if="trailingIconName"
@@ -303,28 +330,28 @@ function onUpdateOpen(value: boolean) {
           <SelectViewport :class="b24ui.viewport({ class: props.b24ui?.viewport })">
             <SelectGroup v-for="(group, groupIndex) in groups" :key="`group-${groupIndex}`" :class="b24ui.group({ class: props.b24ui?.group })">
               <template v-for="(item, index) in group" :key="`group-${groupIndex}-${index}`">
-                <SelectLabel v-if="item?.type === 'label'" :class="b24ui.label({ class: props.b24ui?.label })">
+                <SelectLabel v-if="isSelectItem(item) && item.type === 'label'" :class="b24ui.label({ class: props.b24ui?.label })">
                   {{ get(item, props.labelKey as string) }}
                 </SelectLabel>
 
-                <SelectSeparator v-else-if="item?.type === 'separator'" :class="b24ui.separator({ class: props.b24ui?.separator })" />
+                <SelectSeparator v-else-if="isSelectItem(item) && item.type === 'separator'" :class="b24ui.separator({ class: props.b24ui?.separator })" />
 
                 <SelectItem
                   v-else
-                  :class="b24ui.item({ class: props.b24ui?.item, colorItem: item?.color })"
-                  :disabled="item.disabled"
-                  :value="typeof item === 'object' ? get(item, props.valueKey as string) : item"
+                  :class="b24ui.item({ class: props.b24ui?.item, colorItem: isSelectItem(item) ? item?.color : undefined })"
+                  :disabled="isSelectItem(item) && item.disabled"
+                  :value="isSelectItem(item) ? get(item, props.valueKey as string) : item"
                 >
-                  <slot name="item" :item="(item as T)" :index="index">
-                    <slot name="item-leading" :item="(item as T)" :index="index">
+                  <slot name="item" :item="(item as NestedItem<T>)" :index="index">
+                    <slot name="item-leading" :item="(item as NestedItem<T>)" :index="index">
                       <Component
                         :is="item.icon"
-                        v-if="item.icon"
+                        v-if="isSelectItem(item) && item.icon"
                         :class="b24ui.itemLeadingIcon({ class: props.b24ui?.itemLeadingIcon, colorItem: item?.color })"
                       />
-                      <B24Avatar v-else-if="item.avatar" :size="((props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])" v-bind="item.avatar" :class="b24ui.itemLeadingAvatar({ class: props.b24ui?.itemLeadingAvatar, colorItem: item?.color })" />
+                      <B24Avatar v-else-if="isSelectItem(item) && item.avatar" :size="((props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])" v-bind="item.avatar" :class="b24ui.itemLeadingAvatar({ class: props.b24ui?.itemLeadingAvatar, colorItem: item?.color })" />
                       <B24Chip
-                        v-else-if="item.chip"
+                        v-else-if="isSelectItem(item) && item.chip"
                         :size="((props.b24ui?.itemLeadingChipSize || b24ui.itemLeadingChipSize()) as ChipProps['size'])"
                         inset
                         standalone
@@ -334,18 +361,18 @@ function onUpdateOpen(value: boolean) {
                     </slot>
 
                     <SelectItemText :class="b24ui.itemLabel({ class: props.b24ui?.itemLabel })">
-                      <slot name="item-label" :item="(item as T)" :index="index">
-                        {{ typeof item === 'object' ? get(item, props.labelKey as string) : item }}
+                      <slot name="item-label" :item="(item as NestedItem<T>)" :index="index">
+                        {{ isSelectItem(item) ? get(item, props.labelKey as string) : item }}
                       </slot>
                     </SelectItemText>
 
-                    <span :class="b24ui.itemTrailing({ class: props.b24ui?.itemTrailing, colorItem: item?.color })">
-                      <slot name="item-trailing" :item="(item as T)" :index="index" />
+                    <span :class="b24ui.itemTrailing({ class: props.b24ui?.itemTrailing, colorItem: isSelectItem(item) ? item?.color : undefined })">
+                      <slot name="item-trailing" :item="(item as NestedItem<T>)" :index="index" />
 
                       <SelectItemIndicator as-child>
                         <Component
                           :is="selectedIcon || icons.check"
-                          :class="b24ui.itemTrailingIcon({ class: props.b24ui?.itemTrailingIcon, colorItem: item?.color })"
+                          :class="b24ui.itemTrailingIcon({ class: props.b24ui?.itemTrailingIcon, colorItem: isSelectItem(item) ? item?.color : undefined })"
                         />
                       </SelectItemIndicator>
                     </span>

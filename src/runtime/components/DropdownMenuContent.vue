@@ -4,14 +4,15 @@ import type { DropdownMenuContentProps as RekaDropdownMenuContentProps, Dropdown
 import theme from '#build/b24ui/dropdown-menu'
 import { tv } from '../utils/tv'
 import type { KbdProps, AvatarProps, DropdownMenuItem, DropdownMenuSlots, IconComponent } from '../types'
+import type { ArrayOrNested, NestedItem } from '../types/utils'
 
 const _dropdownMenu = tv(theme)()
 
-interface DropdownMenuContentProps<T> extends Omit<RekaDropdownMenuContentProps, 'as' | 'asChild' | 'forceMount'> {
-  items?: T[] | T[][]
+interface DropdownMenuContentProps<T extends ArrayOrNested<DropdownMenuItem>> extends Omit<RekaDropdownMenuContentProps, 'as' | 'asChild' | 'forceMount'> {
+  items?: T
   portal?: boolean
   sub?: boolean
-  labelKey: string
+  labelKey: keyof NestedItem<T>
   /**
    * @IconComponent
    */
@@ -27,17 +28,17 @@ interface DropdownMenuContentProps<T> extends Omit<RekaDropdownMenuContentProps,
 
 interface DropdownMenuContentEmits extends RekaDropdownMenuContentEmits {}
 
-type DropdownMenuContentSlots<T extends { slot?: string }> = Omit<DropdownMenuSlots<T>, 'default'> & {
+type DropdownMenuContentSlots<T extends ArrayOrNested<DropdownMenuItem>> = Omit<DropdownMenuSlots<T>, 'default'> & {
   default(props?: {}): any
 }
 </script>
 
-<script setup lang="ts" generic="T extends DropdownMenuItem">
+<script setup lang="ts" generic="T extends ArrayOrNested<DropdownMenuItem>">
 import { computed } from 'vue'
 import { DropdownMenu } from 'reka-ui/namespaced'
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit, createReusableTemplate } from '@vueuse/core'
-import { omit, get } from '../utils'
+import { omit, get, isArrayOfArray } from '../utils'
 import { pickLinkProps } from '../utils/link'
 import icons from '../dictionary/icons'
 import B24LinkBase from './LinkBase.vue'
@@ -52,17 +53,23 @@ const emits = defineEmits<DropdownMenuContentEmits>()
 const slots = defineSlots<DropdownMenuContentSlots<T>>()
 
 const contentProps = useForwardPropsEmits(reactiveOmit(props, 'sub', 'items', 'portal', 'labelKey', 'checkedIcon', 'externalIcon', 'class', 'b24ui', 'b24uiOverride'), emits)
-const proxySlots = omit(slots, ['default']) as Record<string, DropdownMenuContentSlots<T>[string]>
+const proxySlots = omit(slots, ['default'])
 
 const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: DropdownMenuItem, active?: boolean, index: number }>()
 
-const groups = computed(() => props.items?.length ? (Array.isArray(props.items[0]) ? props.items : [props.items]) as T[][] : [])
+const groups = computed<DropdownMenuItem[][]>(() =>
+  props.items?.length
+    ? isArrayOfArray(props.items)
+      ? props.items
+      : [props.items]
+    : []
+)
 </script>
 
 <template>
   <DefineItemTemplate v-slot="{ item, active, index }">
-    <slot :name="item.slot || 'item'" :item="(item as T)" :index="index">
-      <slot :name="item.slot ? `${item.slot}-leading`: 'item-leading'" :item="(item as T)" :active="active" :index="index">
+    <slot :name="((item.slot || 'item') as keyof DropdownMenuContentSlots<T>)" :item="(item as Extract<NestedItem<T>, { slot: string; }>)" :index="index">
+      <slot :name="((item.slot ? `${item.slot}-leading`: 'item-leading') as keyof DropdownMenuContentSlots<T>)" :item="(item as Extract<NestedItem<T>, { slot: string; }>)" :active="active" :index="index">
         <Component
           :is="icons.loading"
           v-if="item.loading"
@@ -81,8 +88,8 @@ const groups = computed(() => props.items?.length ? (Array.isArray(props.items[0
         />
       </slot>
 
-      <span v-if="get(item, props.labelKey as string) || !!slots[item.slot ? `${item.slot}-label`: 'item-label']" :class="b24ui.itemLabel({ class: b24uiOverride?.itemLabel, active })">
-        <slot :name="item.slot ? `${item.slot}-label`: 'item-label'" :item="(item as T)" :active="active" :index="index">
+      <span v-if="get(item, props.labelKey as string) || !!slots[(item.slot ? `${item.slot}-label`: 'item-label') as keyof DropdownMenuContentSlots<T>]" :class="b24ui.itemLabel({ class: b24uiOverride?.itemLabel, active })">
+        <slot :name="((item.slot ? `${item.slot}-label`: 'item-label') as keyof DropdownMenuContentSlots<T>)" :item="(item as Extract<NestedItem<T>, { slot: string; }>)" :active="active" :index="index">
           {{ get(item, props.labelKey as string) }}
         </slot>
         <Component
@@ -93,7 +100,7 @@ const groups = computed(() => props.items?.length ? (Array.isArray(props.items[0
       </span>
 
       <span :class="b24ui.itemTrailing({ class: b24uiOverride?.itemTrailing })">
-        <slot :name="item.slot ? `${item.slot}-trailing`: 'item-trailing'" :item="(item as T)" :active="active" :index="index">
+        <slot :name="((item.slot ? `${item.slot}-trailing`: 'item-trailing') as keyof DropdownMenuContentSlots<T>)" :item="(item as Extract<NestedItem<T>, { slot: string; }>)" :active="active" :index="index">
           <Component
             :is="icons.chevronRight"
             v-if="item.children?.length"
@@ -139,7 +146,7 @@ const groups = computed(() => props.items?.length ? (Array.isArray(props.items[0
               :b24ui="b24ui"
               :b24ui-override="b24uiOverride"
               :portal="portal"
-              :items="item.children"
+              :items="(item.children as T)"
               side="right"
               align="start"
               :align-offset="-4"
@@ -150,7 +157,7 @@ const groups = computed(() => props.items?.length ? (Array.isArray(props.items[0
               v-bind="item.content"
             >
               <template v-for="(_, name) in proxySlots" #[name]="slotData: any">
-                <slot :name="name" v-bind="slotData" />
+                <slot :name="(name as keyof DropdownMenuContentSlots<T>)" v-bind="slotData" />
               </template>
             </B24DropdownMenuContent>
           </DropdownMenu.Sub>

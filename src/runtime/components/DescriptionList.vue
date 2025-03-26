@@ -37,9 +37,10 @@ export interface DescriptionListItem {
   actions?: ButtonProps[]
   class?: any
   b24ui?: Partial<typeof descriptionList.slots>
+  [key: string]: any
 }
 
-export interface DescriptionListProps<T> {
+export interface DescriptionListProps<T extends DescriptionListItem = DescriptionListItem> {
   legend?: string
   text?: string
   /**
@@ -61,17 +62,18 @@ export interface DescriptionListProps<T> {
   b24ui?: Partial<typeof descriptionList.slots>
 }
 
-type SlotProps<T> = (props: { item: T, index: number }) => any
+type SlotProps<T extends DescriptionListItem> = (props: { item: T, index: number }) => any
 
-export type DescriptionListSlots<T extends { slot?: string }> = {
+export type DescriptionListSlots<T extends DescriptionListItem = DescriptionListItem> = {
   legend(props?: {}): any
   text(props?: {}): any
   leading: SlotProps<T>
   label: SlotProps<T>
   description: SlotProps<T>
   actions: SlotProps<T>
+  content: SlotProps<T>
   footer(props?: { b24ui: any }): any
-} & DynamicSlots<T, SlotProps<T>>
+} & DynamicSlots<T, undefined, { index: number }>
 </script>
 
 <script setup lang="ts" generic="T extends DescriptionListItem">
@@ -91,6 +93,14 @@ const b24ui = computed(() => descriptionList({
 }))
 
 function normalizeItem(item: any) {
+  if (item === null) {
+    return {
+      label: undefined,
+      description: undefined,
+      orientation: undefined
+    }
+  }
+
   const label = get(item, props.labelKey as string)
   const description = get(item, props.descriptionKey as string)
   const orientation = item?.orientation || 'vertical'
@@ -113,9 +123,7 @@ const normalizedItems = computed(() => {
 </script>
 
 <template>
-  <div
-    :class="b24ui.root({ class: [props.class, props.b24ui?.root] })"
-  >
+  <div :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
     <h2 v-if="legend || !!slots.legend" :class="b24ui.legend({ class: props.b24ui?.legend })">
       <slot name="legend">
         {{ legend }}
@@ -132,95 +140,101 @@ const normalizedItems = computed(() => {
         v-for="(item, index) in normalizedItems"
         :key="index"
       >
-        <dt
-          :class="b24ui.labelWrapper({
-            class: [
-              props.b24ui?.labelWrapper,
-              item?.b24ui?.labelWrapper
-            ]
-          })"
+        <slot
+          :name="((item.slot || 'content') as keyof DescriptionListSlots<T>)"
+          :item="(item as Extract<T, { slot: string; }>)"
+          :index="index"
         >
-          <slot name="leading" :item="item" :index="index">
-            <Component
-              :is="item.icon"
-              v-if="item.icon"
-              :class="b24ui.icon({
-                class: [
-                  props.b24ui?.icon,
-                  item?.b24ui?.icon
-                ]
-              })"
-            />
-            <B24Avatar
-              v-else-if="item.avatar"
-              :size="((props.b24ui?.avatarSize || b24ui.avatarSize()) as AvatarProps['size'])"
-              v-bind="item.avatar"
-              :class="b24ui.avatar({
-                class: [
-                  props.b24ui?.avatar,
-                  item?.b24ui?.avatar
-                ]
-              })"
-            />
-          </slot>
-          <span
-            :class="b24ui.label({
+          <dt
+            :class="b24ui.labelWrapper({
               class: [
-                item?.class,
-                props.b24ui?.label,
-                item?.b24ui?.label
+                props.b24ui?.labelWrapper,
+                item?.b24ui?.labelWrapper
               ]
             })"
           >
-            <slot name="label" :item="item" :index="index">
-              {{ item.label }}
-            </slot>
-          </span>
-        </dt>
-        <dd
-          :data-orientation="item.orientation"
-          :class="b24ui.descriptionWrapper({
-            class: [
-              props.b24ui?.descriptionWrapper,
-              item?.b24ui?.descriptionWrapper
-            ],
-            orientation: item.orientation
-          })"
-        >
-          <span
-            :class="b24ui.description({
-              class: [
-                item?.class,
-                props.b24ui?.description,
-                item?.b24ui?.description
-              ],
-              orientation: item.orientation
-            })"
-          >
-            <slot name="description" :item="item" :index="index">
-              {{ item.description }}
-            </slot>
-          </span>
-          <span
-            v-if="item.actions?.length || !!slots.actions"
-            :class="b24ui.actions({
-              class: [
-                props.b24ui?.actions,
-                item?.b24ui?.actions
-              ],
-              orientation: item.orientation
-            })"
-          >
-            <slot name="actions" :item="item" :index="index">
-              <B24Button
-                v-for="(action, indexActions) in item.actions"
-                :key="indexActions"
-                size="xs"
-                v-bind="action"
+            <slot name="leading" :item="item" :index="index">
+              <Component
+                :is="item.icon"
+                v-if="item.icon"
+                :class="b24ui.icon({
+                  class: [
+                    props.b24ui?.icon,
+                    item?.b24ui?.icon
+                  ]
+                })"
+              />
+              <B24Avatar
+                v-else-if="item.avatar"
+                :size="((props.b24ui?.avatarSize || b24ui.avatarSize()) as AvatarProps['size'])"
+                v-bind="item.avatar"
+                :class="b24ui.avatar({
+                  class: [
+                    props.b24ui?.avatar,
+                    item?.b24ui?.avatar
+                  ]
+                })"
               />
             </slot>
-          </span>
-        </dd>
+            <span
+              :class="b24ui.label({
+                class: [
+                  item?.class,
+                  props.b24ui?.label,
+                  item?.b24ui?.label
+                ]
+              })"
+            >
+              <slot name="label" :item="item" :index="index">
+                {{ item.label }}
+              </slot>
+            </span>
+          </dt>
+          <dd
+            :data-orientation="item.orientation"
+            :class="b24ui.descriptionWrapper({
+              class: [
+                props.b24ui?.descriptionWrapper,
+                item?.b24ui?.descriptionWrapper
+              ],
+              orientation: item.orientation
+            })"
+          >
+            <span
+              :class="b24ui.description({
+                class: [
+                  item?.class,
+                  props.b24ui?.description,
+                  item?.b24ui?.description
+                ],
+                orientation: item.orientation
+              })"
+            >
+              <slot name="description" :item="item" :index="index">
+                {{ item.description }}
+              </slot>
+            </span>
+            <span
+              v-if="item.actions?.length || !!slots.actions"
+              :class="b24ui.actions({
+                class: [
+                  props.b24ui?.actions,
+                  item?.b24ui?.actions
+                ],
+                orientation: item.orientation
+              })"
+            >
+              <slot name="actions" :item="item" :index="index">
+                <B24Button
+                  v-for="(action, indexActions) in item.actions"
+                  :key="indexActions"
+                  size="xs"
+                  v-bind="action"
+                />
+              </slot>
+            </span>
+          </dd>
+        </slot>
       </template>
     </dl>
     <div

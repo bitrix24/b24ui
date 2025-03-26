@@ -2,6 +2,8 @@
 /**
  * @see playground/app/pages/components/select.vue
  */
+import type { SelectMenuItem, AvatarProps, ChipProps } from '@bitrix24/b24ui-nuxt'
+
 import theme from '#build/b24ui/select-menu'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
@@ -25,25 +27,25 @@ const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof the
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
 // region Single List ////
-const knowledgeBase = ['Select Knowledge base', 'Create knowledge base']
-const smartScripts = ['Scripts', 'Create script', 'Install from Bitrix24.Market']
-const smartProcess = ['Smart Process Automation']
-const settings = ['CRM settings', 'My company details', 'Access permissions', 'CRM Payment', 'CRM.Delivery']
+const knowledgeBase = ['Select Knowledge base', 'Create knowledge base'] satisfies SelectMenuItem[]
+const smartScripts = ['Scripts', 'Create script', 'Install from Bitrix24.Market'] satisfies SelectMenuItem[]
+const smartProcess = ['Smart Process Automation'] satisfies SelectMenuItem[]
+const settings = ['CRM settings', 'My company details', 'Access permissions', 'CRM Payment', 'CRM.Delivery'] satisfies SelectMenuItem[]
 
 const items = [
   [...knowledgeBase],
-  [{ label: 'Smart scripts', type: 'label' }, ...smartScripts],
+  [{ label: 'Smart scripts', type: 'label' as const }, ...smartScripts],
   ['Bitrix24.Market'],
-  [{ label: 'Smart Process Automation', type: 'label' }, ...smartProcess],
-  [{ label: 'Settings', type: 'label' }, ...settings]
-]
+  [{ label: 'Smart Process Automation', type: 'label' as const }, ...smartProcess],
+  [{ label: 'Settings', type: 'label' as const }, ...settings]
+] satisfies SelectMenuItem[][]
 const selectedItems = ref([knowledgeBase[0]!, smartProcess[0]!])
 // endregion ////
 
 // region Simple Items ////
-const itemsSimple = ref<string[]>([
+const itemsSimple = ref([
   ...settings
-])
+] satisfies SelectMenuItem[])
 const value = ref('Access permissions')
 
 function onCreate(item: string) {
@@ -83,7 +85,7 @@ const chipItems = ref([
       color: 'default' as const
     }
   }
-])
+] satisfies SelectMenuItem[])
 const chipValue = ref(chipItems.value[0])
 // endregion ////
 
@@ -98,27 +100,27 @@ const statuses = [
     label: 'Todo',
     value: 'todo',
     icon: PlusInCircleIcon,
-    color: 'ai'
+    color: 'ai' as const
   },
   {
     label: 'In Progress',
     value: 'in_progress',
     icon: ArrowTopIcon,
-    color: 'primary'
+    color: 'primary' as const
   },
   {
     label: 'Done',
     value: 'done',
     icon: CircleCheckIcon,
-    color: 'success'
+    color: 'success' as const
   },
   {
     label: 'Canceled',
     value: 'canceled',
     icon: CancelIcon,
-    color: 'danger'
+    color: 'danger' as const
   }
-]
+] satisfies SelectMenuItem[]
 // endregion ////
 
 // region useFetch ////
@@ -128,7 +130,7 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
       label: user.name,
       value: String(user.id),
       avatar: { src: `https://i.pravatar.cc/120?img=${user.id}` }
-    })) || []
+    }))
   },
   lazy: true
 })
@@ -392,7 +394,7 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
 
           <div class="w-60">
             <B24SelectMenu
-              :items="users || []"
+              :items="users"
               :loading="status === 'pending'"
               :icon="UserIcon"
               :trailing-icon="Expand1Icon"
@@ -405,7 +407,7 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
               <template #leading="{ modelValue, b24ui }">
                 <B24Avatar
                   v-if="modelValue"
-                  :size="b24ui.itemLeadingAvatarSize()"
+                  :size="(b24ui.itemLeadingAvatarSize() as AvatarProps['size'])"
                   :class="b24ui.leadingAvatar()"
                   v-bind="modelValue.avatar"
                 />
@@ -428,7 +430,7 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
                   v-bind="modelValue.chip"
                   inset
                   standalone
-                  :size="b24ui.itemLeadingChipSize()"
+                  :size="b24ui.itemLeadingChipSize() as ChipProps['size']"
                   :class="b24ui.itemLeadingChip()"
                 />
               </template>

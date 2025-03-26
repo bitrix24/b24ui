@@ -2,6 +2,8 @@
 /**
  * @see playground/app/pages/components/select-menu.vue
  */
+import type { InputMenuItem } from '@bitrix24/b24ui-nuxt'
+
 import theme from '#build/b24ui/input-menu'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
@@ -19,12 +21,12 @@ const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof the
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
 // region Single List ////
-const items = ref(['Prospecting', 'Qualifying', 'Presenting', 'Negotiating', 'Closed'])
-const itemsSimple = ref(['Prospecting', 'Qualifying', 'Presenting', 'Negotiating', 'Closed'])
+const items = ref(['Prospecting', 'Qualifying', 'Presenting', 'Negotiating', 'Closed'] satisfies InputMenuItem[])
+const itemsSimple = ref(['Prospecting', 'Qualifying', 'Presenting', 'Negotiating', 'Closed'] satisfies InputMenuItem[])
 const value = ref('Qualifying')
 const valueForAdd = ref('Prospecting')
 
-const valueMultiple = ref(['Prospecting', 'Qualifying', 'Presenting'])
+const valueMultiple = ref(['Prospecting', 'Qualifying', 'Presenting'] satisfies InputMenuItem[])
 // endregion ////
 
 function onCreate(item: string) {
@@ -36,7 +38,7 @@ const itemsObj = ref([
   {
     label: 'CRM settings',
     value: 'settings',
-    color: 'collab'
+    color: 'collab' as const
   },
   {
     label: 'My company details',
@@ -46,7 +48,7 @@ const itemsObj = ref([
     label: 'Access permissions',
     value: 'access_permissions'
   }
-])
+] satisfies InputMenuItem[])
 const valueObj = ref(itemsObj.value[0])
 </script>
 

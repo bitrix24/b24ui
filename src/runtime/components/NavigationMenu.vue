@@ -7,15 +7,23 @@ import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/navigation-menu'
 import { tv } from '../utils/tv'
 import type { AvatarProps, BadgeProps, LinkProps, IconComponent } from '../types'
-import type { DynamicSlots, MaybeArrayOfArray, MaybeArrayOfArrayItem, PartialString, EmitsToProps } from '../types/utils'
+import type {
+  ArrayOrNested,
+  DynamicSlots,
+  MergeTypes,
+  NestedItem,
+  PartialString,
+  EmitsToProps
+} from '../types/utils'
 
 const appConfigNavigationMenu = _appConfig as AppConfig & { b24ui: { navigationMenu: Partial<typeof theme> } }
 
 const navigationMenu = tv({ extend: tv(theme), ...(appConfigNavigationMenu.b24ui?.navigationMenu || {}) })
 
-export interface NavigationMenuChildItem extends Omit<NavigationMenuItem, 'children' | 'type'> {
+export interface NavigationMenuChildItem extends Omit<NavigationMenuItem, 'type'> {
   /** Description is only used when `orientation` is `horizontal`. */
   description?: string
+  [key: string]: any
 }
 
 export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'custom'>, Pick<CollapsibleRootProps, 'defaultOpen' | 'open'> {
@@ -48,11 +56,12 @@ export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
    */
   viewportRtl?: boolean
   onSelect?(e: Event): void
+  [key: string]: any
 }
 
 type NavigationMenuVariants = VariantProps<typeof navigationMenu>
 
-export interface NavigationMenuProps<T> extends Pick<NavigationMenuRootProps, 'modelValue' | 'defaultValue' | 'delayDuration' | 'disableClickTrigger' | 'disableHoverTrigger' | 'skipDelayDuration' | 'disablePointerLeaveClose' | 'unmountOnHide'> {
+export interface NavigationMenuProps<T extends ArrayOrNested<NavigationMenuItem> = ArrayOrNested<NavigationMenuItem>> extends Pick<NavigationMenuRootProps, 'modelValue' | 'defaultValue' | 'delayDuration' | 'disableClickTrigger' | 'disableHoverTrigger' | 'skipDelayDuration' | 'disablePointerLeaveClose' | 'unmountOnHide'> {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
@@ -116,30 +125,33 @@ export interface NavigationMenuProps<T> extends Pick<NavigationMenuRootProps, 'm
    * The key used to get the label from the item.
    * @defaultValue 'label'
    */
-  labelKey?: string
+  labelKey?: keyof NestedItem<T>
   class?: any
   b24ui?: PartialString<typeof navigationMenu.slots>
 }
 
 export interface NavigationMenuEmits extends NavigationMenuRootEmits {}
 
-type SlotProps<T> = (props: { item: T, index: number, active?: boolean }) => any
+type SlotProps<T extends NavigationMenuItem> = (props: { item: T, index: number, active?: boolean }) => any
 
-export type NavigationMenuSlots<T extends { slot?: string }> = {
+export type NavigationMenuSlots<
+  A extends ArrayOrNested<NavigationMenuItem> = ArrayOrNested<NavigationMenuItem>,
+  T extends NestedItem<A> = NestedItem<A>
+> = {
   'item': SlotProps<T>
   'item-leading': SlotProps<T>
   'item-label': SlotProps<T>
   'item-trailing': SlotProps<T>
   'item-content': SlotProps<T>
-} & DynamicSlots<T, SlotProps<T>>
+} & DynamicSlots<MergeTypes<T>, 'leading' | 'label' | 'trailing' | 'content', { index: number, active?: boolean }>
 
 </script>
 
-<script setup lang="ts" generic="T extends MaybeArrayOfArrayItem<I>, I extends MaybeArrayOfArray<NavigationMenuItem>">
+<script setup lang="ts" generic="T extends ArrayOrNested<NavigationMenuItem>">
 import { computed, toRef } from 'vue'
 import { NavigationMenuRoot, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink, NavigationMenuIndicator, NavigationMenuViewport, useForwardPropsEmits } from 'reka-ui'
 import { createReusableTemplate } from '@vueuse/core'
-import { get } from '../utils'
+import { get, isArrayOfArray } from '../utils'
 import { pickLinkProps } from '../utils/link'
 import icons from '../dictionary/icons'
 import B24LinkBase from './LinkBase.vue'
@@ -148,7 +160,7 @@ import B24Avatar from './Avatar.vue'
 import B24Badge from './Badge.vue'
 import B24Collapsible from './Collapsible.vue'
 
-const props = withDefaults(defineProps<NavigationMenuProps<I>>(), {
+const props = withDefaults(defineProps<NavigationMenuProps<T>>(), {
   orientation: 'horizontal',
   contentOrientation: 'vertical',
   externalIcon: true,
@@ -174,8 +186,14 @@ const rootProps = useForwardPropsEmits(computed(() => ({
 
 const contentProps = toRef(() => props.content)
 
-const [DefineLinkTemplate, ReuseLinkTemplate] = createReusableTemplate<{ item: NavigationMenuItem, index: number, active?: boolean }>()
-const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: NavigationMenuItem, index: number, level?: number }>({
+const [DefineLinkTemplate, ReuseLinkTemplate] = createReusableTemplate<
+  { item: NavigationMenuItem, index: number, active?: boolean },
+  NavigationMenuSlots<T>
+>()
+const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<
+  { item: NavigationMenuItem, index: number, level?: number },
+  NavigationMenuSlots<T>
+>({
   props: {
     item: Object,
     index: Number,
@@ -193,14 +211,20 @@ const b24ui = computed(() => navigationMenu({
   highlightColor: props.highlightColor || props.color
 }))
 
-const lists = computed(() => props.items?.length ? (Array.isArray(props.items[0]) ? props.items : [props.items]) as T[][] : [])
+const lists = computed<NavigationMenuItem[][]>(() =>
+  props.items?.length
+    ? isArrayOfArray(props.items)
+      ? props.items
+      : [props.items]
+    : []
+)
 </script>
 
 <template>
   <DefineLinkTemplate v-slot="{ item, active, index }">
-    <slot :name="item.slot || 'item'" :item="(item as T)" :index="index">
+    <slot :name="((item.slot || 'item') as keyof NavigationMenuSlots<T>)" :item="item" :index="index">
       <span :class="b24ui.linkLabelWrapper({ class: props.b24ui?.linkLabelWrapper, active })">
-        <slot :name="item.slot ? `${item.slot}-leading` : 'item-leading'" :item="(item as T)" :active="active" :index="index">
+        <slot :name="((item.slot ? `${item.slot}-leading` : 'item-leading') as keyof NavigationMenuSlots<T>)" :item="item" :active="active" :index="index">
           <Component
             :is="item.icon"
             v-if="item.icon"
@@ -210,10 +234,10 @@ const lists = computed(() => props.items?.length ? (Array.isArray(props.items[0]
         </slot>
 
         <span
-          v-if="(!collapsed || orientation !== 'vertical') && (get(item, props.labelKey as string) || !!slots[item.slot ? `${item.slot}-label` : 'item-label'])"
+          v-if="(!collapsed || orientation !== 'vertical') && (get(item, props.labelKey as string) || !!slots[(item.slot ? `${item.slot}-label` : 'item-label') as keyof NavigationMenuSlots<T>])"
           :class="b24ui.linkLabel({ class: props.b24ui?.linkLabel, active })"
         >
-          <slot :name="item.slot ? `${item.slot}-label` : 'item-label'" :item="(item as T)" :active="active" :index="index">
+          <slot :name="((item.slot ? `${item.slot}-label` : 'item-label') as keyof NavigationMenuSlots<T>)" :item="item" :active="active" :index="index">
             {{ get(item, props.labelKey as string) }}
           </slot>
 
@@ -224,11 +248,11 @@ const lists = computed(() => props.items?.length ? (Array.isArray(props.items[0]
           />
         </span>
       </span>
-      <span v-if="(!collapsed || orientation !== 'vertical') && (item.badge || (orientation === 'horizontal' && (item.children?.length || !!slots[item.slot ? `${item.slot}-content` : 'item-content'])) || (orientation === 'vertical' && item.children?.length) || item.trailingIcon || !!slots[item.slot ? `${item.slot}-trailing` : 'item-trailing'])" :class="b24ui.linkTrailing({ class: props.b24ui?.linkTrailing })">
-        <slot :name="item.slot ? `${item.slot}-trailing` : 'item-trailing'" :item="(item as T)" :active="active" :index="index">
+      <span v-if="(!collapsed || orientation !== 'vertical') && (item.badge || (orientation === 'horizontal' && (item.children?.length || !!slots[(item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>])) || (orientation === 'vertical' && item.children?.length) || item.trailingIcon || !!slots[(item.slot ? `${item.slot}-trailing` : 'item-trailing') as keyof NavigationMenuSlots<T>])" :class="b24ui.linkTrailing({ class: props.b24ui?.linkTrailing })">
+        <slot :name="((item.slot ? `${item.slot}-trailing` : 'item-trailing') as keyof NavigationMenuSlots<T>)" :item="item" :active="active" :index="index">
           <Component
             :is="item.trailingIcon || trailingIcon || icons.chevronDown"
-            v-if="(orientation === 'horizontal' && (item.children?.length || !!slots[item.slot ? `${item.slot}-content` : 'item-content'])) || (orientation === 'vertical' && item.children?.length)"
+            v-if="(orientation === 'horizontal' && (item.children?.length || !!slots[(item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>])) || (orientation === 'vertical' && item.children?.length)"
             :class="b24ui.linkTrailingIcon({ class: props.b24ui?.linkTrailingIcon, active })"
           />
           <Component
@@ -261,28 +285,28 @@ const lists = computed(() => props.items?.length ? (Array.isArray(props.items[0]
       :open="item.open"
     >
       <div v-if="orientation === 'vertical' && item.type === 'label'" :class="b24ui.label({ class: props.b24ui?.label })">
-        <ReuseLinkTemplate :item="(item as T)" :index="index" />
+        <ReuseLinkTemplate :item="item" :index="index" />
       </div>
       <B24Link v-else-if="item.type !== 'label'" v-slot="{ active, ...slotProps }" v-bind="(orientation === 'vertical' && item.children?.length && !collapsed) ? {} : pickLinkProps(item as Omit<NavigationMenuItem, 'type'>)" custom>
         <component
-          :is="(orientation === 'horizontal' && (item.children?.length || !!slots[item.slot ? `${item.slot}-content` : 'item-content'])) ? NavigationMenuTrigger : NavigationMenuLink"
+          :is="(orientation === 'horizontal' && (item.children?.length || !!slots[(item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>])) ? NavigationMenuTrigger : NavigationMenuLink"
           as-child
           :active="active || item.active"
           :disabled="item.disabled"
           @select="item.onSelect"
         >
           <B24LinkBase v-bind="slotProps" :class="b24ui.link({ class: [props.b24ui?.link, item.class], active: active || item.active, disabled: !!item.disabled, level: orientation === 'horizontal' || level > 0 })">
-            <ReuseLinkTemplate :item="(item as T)" :active="active || item.active" :index="index" />
+            <ReuseLinkTemplate :item="item" :active="active || item.active" :index="index" />
           </B24LinkBase>
         </component>
 
         <NavigationMenuContent
-          v-if="orientation === 'horizontal' && (item.children?.length || !!slots[item.slot ? `${item.slot}-content` : 'item-content'])"
+          v-if="orientation === 'horizontal' && (item.children?.length || !!slots[(item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>])"
           v-bind="contentProps"
           :data-viewport="item.viewportRtl ? 'rtl' : 'ltr'"
           :class="b24ui.content({ class: props.b24ui?.content })"
         >
-          <slot :name="item.slot ? `${item.slot}-content` : 'item-content'" :item="(item as T)" :active="active" :index="index">
+          <slot :name="((item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>)" :item="item" :active="active" :index="index">
             <ul :class="b24ui.childList({ class: props.b24ui?.childList })">
               <li v-for="(childItem, childIndex) in item.children" :key="childIndex" :class="b24ui.childItem({ class: props.b24ui?.childItem })">
                 <B24Link v-slot="{ active: childActive, ...childSlotProps }" v-bind="pickLinkProps(childItem)" custom>

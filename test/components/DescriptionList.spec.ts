@@ -19,14 +19,14 @@ describe('DescriptionList', () => {
       label: 'Action vertical',
       icon: SignIcon,
       description: 'And, this is the content for Action vertical',
-      orientation: 'vertical',
+      orientation: 'vertical' as const,
       actions: [{ label: 'Action' }]
     },
     {
       label: 'Action horizontal',
       icon: SignIcon,
       description: 'And, this is the content for Action horizontal',
-      orientation: 'horizontal',
+      orientation: 'horizontal' as const,
       actions: [{ label: 'Action' }]
     },
     {
@@ -46,8 +46,9 @@ describe('DescriptionList', () => {
     ['with class', { props: { ...props, class: '' } }],
     ['with b24ui', { props: { ...props, b24ui: { text: 'font-bold' } } }],
     // Slots
-    ['with default slot', { slots: { default: () => 'Default slot' } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: DescriptionListProps<typeof items[number]>, slots?: Partial<DescriptionListSlots<typeof items[number]>> }) => {
+    ['with default slot', { slots: { default: () => 'Default slot' } }],
+    ['with custom slot', { props, slots: { custom: () => 'Custom slot' } }]
+  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: DescriptionListProps, slots?: Partial<DescriptionListSlots> }) => {
     const html = await ComponentRender(nameOrHtml, options, DescriptionList)
     expect(html).toMatchSnapshot()
   })

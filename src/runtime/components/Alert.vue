@@ -72,7 +72,7 @@ export interface AlertSlots {
   title(props?: {}): any
   description(props?: {}): any
   actions(props?: {}): any
-  close(props: { b24ui: any }): any
+  close(props: { b24ui: ReturnType<typeof alert> }): any
 }
 </script>
 

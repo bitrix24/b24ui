@@ -82,7 +82,7 @@ export interface ModalSlots {
   header(props?: {}): any
   title(props?: {}): any
   description(props?: {}): any
-  close(props: { b24ui: any }): any
+  close(props: { b24ui: ReturnType<typeof modal> }): any
   body(props?: {}): any
   footer(props?: {}): any
 }

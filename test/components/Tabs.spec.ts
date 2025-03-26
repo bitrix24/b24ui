@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest'
 import Tabs, { type TabsProps, type TabsSlots } from '../../src/runtime/components/Tabs.vue'
 import ComponentRender from '../component-render'
 import theme from '#build/b24ui/tabs'
+import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 
 describe('Tabs', () => {
   const variants = Object.keys(theme.variants.variant) as any
@@ -10,19 +11,16 @@ describe('Tabs', () => {
   const items = [{
     label: 'Tab1',
     avatar: {
-      // @todo fix this ////
-      src: 'https://github.com/benjamincanac.png'
+      src: 'https://github.com/bitrix24.png'
     },
     content: 'This is the content shown for Tab1'
   }, {
     label: 'Tab2',
-    // @todo fix this ////
-    icon: 'i-lucide-user',
+    icon: SignIcon,
     content: 'And, this is the content for Tab2'
   }, {
     label: 'Tab3',
-    // @todo fix this ////
-    icon: 'i-lucide-bell',
+    icon: SignIcon,
     content: 'Finally, this is the content for Tab3',
     slot: 'custom'
   }]
@@ -50,7 +48,7 @@ describe('Tabs', () => {
     ['with trailing slot', { props, slots: { trailing: () => 'Trailing slot' } }],
     ['with content slot', { props, slots: { content: () => 'Content slot' } }],
     ['with custom slot', { props, slots: { custom: () => 'Custom slot' } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: TabsProps<typeof items[number]>, slots?: Partial<TabsSlots<typeof items[number]>> }) => {
+  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: TabsProps, slots?: Partial<TabsSlots> }) => {
     const html = await ComponentRender(nameOrHtml, options, Tabs)
     expect(html).toMatchSnapshot()
   })
