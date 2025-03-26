@@ -1,5 +1,37 @@
 # Changelog
 
+## 0.5.4 (2025-03-26)
+
+### Features
+
+* **Calendar:** allow year and month buttons styling
+
+### Bug Fixes
+
+* **Switch:** prevent transition on focus
+* **Tabs:** remove `focus:outline-hidden` class
+* **Button:** use `focus:outline-none` instead of `focus:outline-hidden`
+* **NavigationMenu:** add `z-index` on viewport
+* **Link:** properly pick all `aria-*` & `data-*` attrs
+* **Link:** proxy `onClick`
+* **Link:** prevent `active="true"` binding on html
+* **Link:** handle `aria-current` like `NuxtLink` / `RouterLink`
+* **components:** improve generic types
+* **Container:** add `w-full` class
+
+### Chore
+
+* **defineLocale:** put back `@__NO_SIDE_EFFECTS__`
+* **docs/playground:** add `vite.optimizeDeps
+* **github:** improve module workflow
+* **deps:** declare form validation libraries as `peerDependencies`
+* **choredeps:** remove `typescript` resolution
+* **deps:** add `zod`
+
+### Docs
+
+* **i18n:** remove `next` tag from `@nuxtjs/i18n` installation
+
 ## 0.5.3 (2025-03-24)
 
 ### Chore
