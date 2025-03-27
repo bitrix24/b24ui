@@ -91,6 +91,7 @@ provide(formFieldInjectionKey, computed(() => ({
   errorPattern: props.errorPattern,
   hint: props.hint,
   description: props.description,
+  help: props.help,
   ariaId
 }) as FormFieldInjectedOptions<FormFieldProps>))
 </script>
