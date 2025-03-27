@@ -1,9 +1,20 @@
 <script setup lang="ts">
 import ChevronDownIcon from '@bitrix24/b24icons-vue/actions/ChevronDownIcon'
+
+export interface ExampleProps {
+  isUnmountOnHide?: any
+}
+
+withDefaults(defineProps<ExampleProps>(), {
+  isUnmountOnHide: true
+})
 </script>
 
 <template>
-  <B24Collapsible class="w-full h-40">
+  <B24Collapsible
+    :unmount-on-hide="isUnmountOnHide"
+    class="w-full h-40"
+  >
     <B24Button
       class="group"
       label="More"

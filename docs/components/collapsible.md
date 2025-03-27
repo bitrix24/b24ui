@@ -5,6 +5,9 @@ outline: deep
 ---
 <script setup>
 import CollapsibleExample from '/examples/collapsible/Collapsible.vue';
+import UnmountExample from '/examples/collapsible/Unmount.vue';
+import DisabledExample from '/examples/collapsible/Disabled.vue';
+import ControlOpenStateExample from '/examples/collapsible/ControlOpenState.vue';
 </script>
 # Collapsible
 
@@ -32,31 +35,53 @@ Use a [Button](/components/button) or any other component in the default slot of
 
 Then, use the `#content` slot to add the content displayed when the Collapsible is open.
 
-__component-code
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <CollapsibleExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/collapsible/demo/Collapsible.vue{vue:line-numbers}
+:::
 
 ### Unmount
 
 Use the `unmount-on-hide` prop to prevent the content from being unmounted when the Collapsible is collapsed. Defaults to `true`.
 
-__component-code
-
 ::: info
 You can inspect the DOM to see the content being rendered.
+:::
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <UnmountExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/collapsible/demo/Unmount.vue{15 vue:line-numbers}
 :::
 
 ### Disabled
 
 Use the `disabled` prop to disable the Collapsible.
 
-__component-code
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <DisabledExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/collapsible/demo/Disabled.vue{15 vue:line-numbers}
+:::
 
 ## Examples
 
 ### Control open state
 
 You can control the open state by using the `default-open` prop or the `v-model:open` directive.
-
-__component-code
 
 ::: info
 In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), you can toggle the Collapsible by pressing `O`.
@@ -66,11 +91,15 @@ In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), y
 This allows you to move the trigger outside of the Collapsible or remove it entirely.
 :::
 
-### With rotating icon
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <ControlOpenStateExample />
+  </ClientOnly>
+</div>
 
-Here is an example with a rotating icon in the Button that indicates the open state of the Collapsible.
-
-__component-code
+::: details
+<<< @/examples/collapsible/demo/ControlOpenState.vue{8,14 vue:line-numbers}
+:::
 
 ## API
 

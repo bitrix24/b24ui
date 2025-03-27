@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import type { ChipProps } from '@bitrix24/b24ui-nuxt'
 import theme from '#build/b24ui/navigation-menu'
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
 import Demo from './demo/Variant.vue'
@@ -93,7 +94,7 @@ const variant = ref('pill' as const)
               v-bind="getChip(modelValue as string)"
               inset
               standalone
-              :size="b24ui.itemLeadingChipSize()"
+              :size="b24ui.itemLeadingChipSize() as ChipProps['size']"
               :class="b24ui.itemLeadingChip()"
             />
           </template>

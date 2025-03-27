@@ -101,7 +101,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'DropdownMenu', link: 'dropdown-menu' },
         { text: 'Modal', link: 'modal' },
         { text: 'Slideover', link: 'slideover' },
-        { text: 'Popover💡', link: 'popover' }
+        { text: 'Popover', link: 'popover' }
       ]
     },
     {
@@ -124,7 +124,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'AvatarGroup', link: 'avatar-group' },
         { text: 'Badge', link: 'badge' },
         { text: 'Calendar', link: 'calendar' },
-        { text: 'Collapsible🔨', link: 'collapsible' },
+        { text: 'Collapsible💡', link: 'collapsible' },
         { text: 'Countdown', link: 'countdown' },
         { text: 'Kbd', link: 'kbd' },
         { text: 'TableWrapper', base: '/components/content/', link: 'table-wrapper' },

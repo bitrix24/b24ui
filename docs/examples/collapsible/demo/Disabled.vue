@@ -1,9 +1,20 @@
 <script setup lang="ts">
 import ChevronDownIcon from '@bitrix24/b24icons-vue/actions/ChevronDownIcon'
+
+export interface ExampleProps {
+  isDisabled?: any
+}
+
+withDefaults(defineProps<ExampleProps>(), {
+  isDisabled: true
+})
 </script>
 
 <template>
-  <B24Collapsible class="w-full h-40">
+  <B24Collapsible
+    :disabled="isDisabled"
+    class="w-full h-40"
+  >
     <B24Button
       class="group"
       label="More"

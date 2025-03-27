@@ -25,10 +25,6 @@ import WithCustomSlotExample from '/examples/navigationmenu/WithCustomSlot.vue';
   A link list that can be arranged in horizontal or vertical orientation.
 </Description>
 
-::: warning We are still updating this page
-Some data may be missing here — we will complete it shortly.
-:::
-
 ## Usage
 
 ### Items
