@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.5.5 (2025-03-27)
+
+### Bug Fixes
+
+* **FormField:** add `help` to `aria-describedby` attribute
+* **Form:** clear dirty state after submit
+
+### Chore
+
+* **deps:** update all non-major dependencies
+* **NavigationMenu:** improve
+
+### Docs
+
+* **Collapsible:** improve
+
 ## 0.5.4 (2025-03-26)
 
 ### Features
