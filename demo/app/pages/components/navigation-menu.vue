@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { onMounted, ref } from 'vue'
 import theme from '#build/b24ui/navigation-menu'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
@@ -27,8 +28,7 @@ const isHighlight = ref(true)
 const items = ref([
   [
     {
-      label: 'Sales Manager',
-      type: 'label' as const
+      label: 'Sales Manager'
     },
     {
       label: 'Active Clients',
@@ -74,13 +74,6 @@ const items = ref([
           active: true
         }
       ]
-    },
-    {
-      label: 'Resources',
-      icon: GitHubIcon,
-      badge: 14,
-      to: 'https://github.com/bitrix24/b24ui',
-      target: '_blank'
     }
   ],
   [
@@ -95,6 +88,13 @@ const items = ref([
       icon: PulseCircleIcon,
       disabled: true,
       to: 'https://helpdesk.bitrix24.com/',
+      target: '_blank'
+    },
+    {
+      label: 'Resources',
+      icon: GitHubIcon,
+      badge: 14,
+      to: 'https://github.com/bitrix24/b24ui',
       target: '_blank'
     },
     {
@@ -126,6 +126,14 @@ const items = ref([
     }
   ]
 ])
+
+const isInit = ref(false)
+
+onMounted(() => {
+  setTimeout(() => {
+    isInit.value = true
+  }, 300)
+})
 </script>
 
 <template>
@@ -149,7 +157,10 @@ const items = ref([
     <ExampleCard title="demo" class="col-span-3">
       <B24Separator class="my-3" type="dotted" label="horizontal" />
       <div class="mb-4 flex flex-col justify-center flex-wrap overflow-auto">
-        <div class="px-2 py-3 w-full min-w-[720px]">
+        <div
+          v-if="isInit"
+          class="px-4 py-3 w-full min-w-[720px]"
+        >
           <div class="relative z-[1] border-base-master/10 dark:border-base-100/20 border-y">
             <B24NavigationMenu
               :items="items"
@@ -162,12 +173,15 @@ const items = ref([
             />
           </div>
 
-          <Placeholder class="h-44 w-full mt-2" />
+          <Placeholder class="h-52 w-full mt-2" />
         </div>
       </div>
 
       <ExampleCardSubTitle title="vertical" />
-      <div class="px-2 mb-4 flex flex-row justify-start flex-wrap gap-2">
+      <div
+        v-if="isInit"
+        class="px-4 mb-4 flex flex-row justify-start flex-wrap gap-2"
+      >
         <B24NavigationMenu
           :collapsed="isCollapsed"
           :items="items"

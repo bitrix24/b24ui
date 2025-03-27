@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
+import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
 import CrmMapIcon from '@bitrix24/b24icons-vue/crm/CrmMapIcon'
 import Settings5Icon from '@bitrix24/b24icons-vue/editor/Settings5Icon'
 import Info1Icon from '@bitrix24/b24icons-vue/main/Info1Icon'
@@ -16,7 +17,7 @@ withDefaults(defineProps<ExampleProps>(), {
   orientation: 'horizontal' as const
 })
 
-const items = ref([
+const items = [
   {
     label: 'Sales Analytics',
     badge: '+3',
@@ -60,11 +61,22 @@ const items = ref([
     to: 'https://helpdesk.bitrix24.com/',
     target: '_blank'
   }
-])
+] satisfies NavigationMenuItem[]
+
+/**
+ * @memo The setTimeout construction is needed for normal initialization of the B24NavigationMenu component in demo mode
+ * In a real project, you will not dynamically load it
+ */
+const isInit = ref(false)
+onMounted(() => {
+  setTimeout(() => {
+    isInit.value = true
+  }, 300)
+})
 </script>
 
 <template>
-  <div class="min-w-[600px] min-h-72">
+  <div v-if="isInit" class="min-w-[600px] min-h-72">
     <div
       class="border-base-master/10 dark:border-base-100/20"
       :class="[

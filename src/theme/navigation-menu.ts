@@ -777,7 +777,7 @@ export default {
       variant: 'link',
       class: {
         viewportWrapper: [
-          'top-[calc(100%+0.4rem)]'
+          'top-[calc(100%+0.4rem)]' // perspective-[2000px]
         ].join(' '),
         viewport: [
           'rounded-b-md',
