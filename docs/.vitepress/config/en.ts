@@ -153,13 +153,14 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       text: 'Layout & Navigation',
       collapsed: false,
       items: [
-        { text: 'Container', link: 'container' },
-        { text: 'NavigationMenu💡', link: 'navigation-menu' },
-        { text: 'DescriptionList', link: 'description-list' },
-        { text: 'Link', link: 'link' },
-        { text: 'Separator', link: 'separator' },
         { text: 'SidebarLayout🔨', link: 'sidebar-layout' },
+        { text: 'StackedLayout🔨', link: 'stacked-layout' },
+        { text: 'NavigationMenu💡', link: 'navigation-menu' },
+        { text: 'Container', link: 'container' },
         { text: 'Skeleton', link: 'skeleton' },
+        { text: 'Separator', link: 'separator' },
+        { text: 'Link', link: 'link' },
+        { text: 'DescriptionList', link: 'description-list' },
         { text: 'Tabs', link: 'tabs' }
       ]
     }
