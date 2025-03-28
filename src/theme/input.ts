@@ -13,7 +13,7 @@ import { buttonGroupVariantWithRoot } from './button-group'
 
 export default {
   slots: {
-    root: 'relative inline-flex items-center w-full',
+    root: 'isolate relative inline-flex items-center w-full',
     base: [
       'px-3',
       'w-full py-0 border-0 focus:outline-none',

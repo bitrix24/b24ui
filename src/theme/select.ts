@@ -27,7 +27,7 @@ export default () => {
   return defuFn(
     {
       slots: {
-        root: () => 'relative inline-flex items-center w-full',
+        root: () => 'isolate relative inline-flex items-center w-full',
         base: () => [
           'px-3',
           'relative inline-flex items-center group',

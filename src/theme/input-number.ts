@@ -18,7 +18,7 @@ export default () => {
 
   return {
     slots: {
-      root: 'relative inline-flex items-center',
+      root: 'isolate relative inline-flex items-center',
       base: [
         'w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75',
         'placeholder:text-base-400',
