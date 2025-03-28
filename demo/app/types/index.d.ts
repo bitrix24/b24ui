@@ -20,7 +20,6 @@ export interface IPageItem extends IComponentInfo {
   iconData: IconComponent
   label: string
   to?: string
-  isActive: boolean
   iconClass: Record<'icon', string>
 }
 

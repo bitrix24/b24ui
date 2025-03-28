@@ -159,7 +159,7 @@ onMounted(() => {
       <div class="mb-4 flex flex-col justify-center flex-wrap overflow-auto">
         <div
           v-if="isInit"
-          class="px-4 py-3 w-full min-w-[720px]"
+          class="isolate px-4 py-3 w-full min-w-[720px]"
         >
           <div class="relative z-[1] border-base-master/10 dark:border-base-100/20 border-y">
             <B24NavigationMenu
@@ -180,7 +180,7 @@ onMounted(() => {
       <ExampleCardSubTitle title="vertical" />
       <div
         v-if="isInit"
-        class="px-4 mb-4 flex flex-row justify-start flex-wrap gap-2"
+        class="isolate px-4 mb-4 flex flex-row justify-start flex-wrap gap-2"
       >
         <B24NavigationMenu
           :collapsed="isCollapsed"

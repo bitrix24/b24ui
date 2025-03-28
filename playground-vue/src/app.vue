@@ -38,7 +38,6 @@ function toggleMode() {
 
 defineShortcuts({
   ctrl_k: () => {
-    alert('@todo open CommandPaletteOpen')
     isCommandPaletteOpen.value = true
   },
   ctrl_arrowleft: () => {
@@ -118,6 +117,35 @@ defineShortcuts({
             }"
           />
         </B24SidebarFooter>
+      </template>
+
+      <template #navbar>
+        <B24NavbarSpacer />
+        <B24NavbarSection>
+          <B24Tooltip :content="{ side: 'left' }" :text="`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`" :kbds="['shift', 'D']">
+            <B24Button
+              :icon="mode === 'dark' ? MoonIcon : SunIcon"
+              :aria-label="`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`"
+              color="link"
+              depth="normal"
+              size="xs"
+              @click="toggleMode"
+            />
+          </B24Tooltip>
+          <B24Tooltip :content="{ side: 'left' }" :text="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', 'L']">
+            <B24Button
+              :icon="dir === 'ltr' ? LeftAlignIcon : RightAlignIcon"
+              :aria-label="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`"
+              color="link"
+              depth="normal"
+              size="xs"
+              @click="toggleDir"
+            />
+          </B24Tooltip>
+          <div class="hidden mx-2 lg:flex flex-row flex-nowrap items-center justify-center gap-0.5">
+            <B24Kbd value="ctrl" size="sm" /> <B24Kbd value="K" size="sm" />
+          </div>
+        </B24NavbarSection>
       </template>
 
       <template v-if="route.path !== '/'">

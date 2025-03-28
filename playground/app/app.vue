@@ -53,7 +53,6 @@ defineShortcuts({
     if (route.path === '/') {
       return
     }
-
     router.push('/')
   },
   shift_L: () => {
@@ -138,6 +137,42 @@ defineShortcuts({
           </B24SidebarFooter>
         </template>
 
+        <template #navbar>
+          <B24NavbarSpacer />
+          <B24NavbarSection>
+            <ClientOnly>
+              <template v-if="!colorMode?.forced">
+                <B24Tooltip :content="{ side: 'right' }" :text="`Switch to ${isDark ? 'light' : 'dark'} mode`" :kbds="['shift', 'D']">
+                  <B24Button
+                    :icon="isDark ? MoonIcon : SunIcon"
+                    :aria-label="`Switch to ${isDark ? 'light' : 'dark'} mode`"
+                    color="link"
+                    depth="normal"
+                    size="xs"
+                    @click="isDark = !isDark"
+                  />
+                </B24Tooltip>
+              </template>
+              <B24Tooltip :content="{ side: 'right' }" :text="`Switch to ${isLtr ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', 'L']">
+                <B24Button
+                  :icon="isLtr ? LeftAlignIcon : RightAlignIcon"
+                  :aria-label="`Switch to ${isLtr ? 'Right-to-left' : 'Left-to-right'} mode`"
+                  color="link"
+                  depth="normal"
+                  size="xs"
+                  @click="isLtr = !isLtr"
+                />
+              </B24Tooltip>
+
+              <div class="hidden mx-2 lg:flex flex-row flex-nowrap items-center justify-center gap-0.5">
+                <B24Kbd value="ctrl" size="sm" /> <B24Kbd value="K" size="sm" />
+              </div>
+              <template #fallback>
+                <div class="h-[26px]" />
+              </template>
+            </ClientOnly>
+          </B24NavbarSection>
+        </template>
         <template v-if="route.path !== '/'">
           <div class="flex flex-row items-center justify-start gap-1">
             <B24Tooltip :content="{ side: 'bottom', align: 'start' }" text="Go home" :kbds="['ctrl', 'arrowleft']">

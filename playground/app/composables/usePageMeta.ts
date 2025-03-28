@@ -97,43 +97,40 @@ const groups: IPageGroup[] = [
   {
     id: `components`,
     label: 'Components',
-    defaultOpen: true,
     children: components.map(component => ({
       id: component.id,
       to: `/components/${component.id}`,
+      icon: component.iconData ?? ItemIcon,
       iconData: component.iconData ?? ItemIcon,
       iconClass: { icon: component.iconUi ?? (component.iconData ? '' : 'pr-px') },
       label: `${upperName(component.id)}`,
-      description: component.description,
-      isActive: false
+      description: component.description
     } as IPageItem))
   } as IPageGroup,
   {
     id: `components/content`,
     label: 'Content',
-    defaultOpen: true,
     children: componentsContent.map(component => ({
       id: component.id,
       to: `/components/content/${component.id}`,
+      icon: component.iconData ?? ItemIcon,
       iconData: component.iconData ?? ItemIcon,
       iconClass: { icon: component.iconUi ?? (component.iconData ? '' : 'pr-px') },
       label: `${upperName(component.id)}`,
-      description: component.description,
-      isActive: false
+      description: component.description
     } as IPageItem))
   } as IPageGroup,
   {
     id: `components/prose`,
     label: 'Prose',
-    defaultOpen: true,
     children: componentsProse.map(component => ({
       id: component.id,
       to: `/components/prose/${component.id}`,
+      icon: component.iconData ?? ItemIcon,
       iconData: component.iconData ?? ItemIcon,
       iconClass: { icon: component.iconUi ?? (component.iconData ? '' : 'pr-px') },
       label: `${upperName(component.id)}`,
-      description: component.description,
-      isActive: false
+      description: component.description
     } as IPageItem))
   } as IPageGroup
 ]
