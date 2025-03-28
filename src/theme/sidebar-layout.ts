@@ -43,6 +43,7 @@ export default {
       'flex items-center',
       'lg:hidden'
     ].join(' '),
+    headerMenuIcon: '',
     headerPaddings: [
       'py-2.5'
     ].join(' '),

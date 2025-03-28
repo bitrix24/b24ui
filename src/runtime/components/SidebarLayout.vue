@@ -98,8 +98,9 @@ const handleNavigationClick = () => {
     <header :class="b24ui.header({ class: props.b24ui?.header })">
       <div
         v-if="isUseSideBar"
-        :class="b24ui.headerPaddings({ class: props.b24ui?.headerPaddings })"
+        :class="b24ui.headerMenuIcon({ class: props.b24ui?.headerMenuIcon })"
       >
+        <!-- @todo: lang -->
         <B24Slideover
           v-model:open="openSidebarSlideover"
           title="Navigation"
@@ -112,6 +113,7 @@ const handleNavigationClick = () => {
             aria-label="Open navigation"
             color="link"
             size="sm"
+            :class="b24ui.headerPaddings({ class: props.b24ui?.headerPaddings })"
             :icon="MenuIcon"
           />
 
