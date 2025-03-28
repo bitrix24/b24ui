@@ -322,11 +322,7 @@ const filteredGroups = computed(() => {
 
     return fields.some(field => contains(get(item, field), searchTerm.value))
   })).filter(group => group.filter(item =>
-    /**
-     * @memo fix not obj
-     * @see selectMenu
-     */
-    typeof item !== 'object' || (isInputItem(item) && (!item.type || !['label', 'separator'].includes(item.type)))
+    !isInputItem(item) || (isInputItem(item) && (!item.type || !['label', 'separator'].includes(item.type)))
   ).length > 0)
 })
 const filteredItems = computed(() => filteredGroups.value.flatMap(group => group))
