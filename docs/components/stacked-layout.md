@@ -1,6 +1,5 @@
 ---
 title: StackedLayout
-description: You incorporate a sidebar in the slider and CRM entity tab embedding. Overall, it's stylish, trendy, and youthful
 description: Classic version of application construction. Top menu and sidebar.
 outline: deep
 ---
@@ -12,7 +11,7 @@ import StackedLayoutExample from '/examples/stackedlayout/StackedLayout.vue';
 <Description
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/StackedLayout.vue"
 >
-Classic version of application construction. Top menu and sidebar.
+  Classic version of application construction. Top menu and sidebar.
 </Description>
 
 ::: warning We are still updating this page
@@ -27,7 +26,7 @@ Some data may be missing here — we will complete it shortly.
   </ClientOnly>
 </div>
 
-<<< @/examples/sidebarlayout/demo/StackedLayout.vue{2 vue:line-numbers}
+<<< @/examples/stackedlayout/demo/StackedLayout.vue{2 vue:line-numbers}
 
 
 ## API
