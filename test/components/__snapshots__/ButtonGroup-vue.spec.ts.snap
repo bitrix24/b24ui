@@ -2,7 +2,7 @@
 
 exports[`ButtonGroup > renders orientation vertical with default slot correctly 1`] = `
 "<div class="group/items is-button-group relative flex flex-col -space-y-px">
-  <div class="relative inline-flex items-center w-full group">
+  <div class="isolate relative inline-flex items-center w-full group">
     <!--v-if--><input type="text" class="px-3 w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:bg-base-30/37 disabled:resize-none disabled:text-base-500 dark:disabled:bg-base-900/37 dark:disabled:text-base-800 appearance-none transition duration-300 ease-linear ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-none align-middle text-ellipsis whitespace-nowrap focus-visible:outline-none ring-inset ring-1 group-not-only:group-first:rounded-b-none group-not-only:group-last:rounded-t-none group-not-last:group-not-first:rounded-none group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 h-10 gap-1.5 rounded-2xs focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600" autocomplete="off">
     <!--v-if-->
     <!--v-if-->
@@ -22,7 +22,7 @@ exports[`ButtonGroup > renders with class correctly 1`] = `"<div class="group/it
 
 exports[`ButtonGroup > renders with default slot correctly 1`] = `
 "<div class="group/items is-button-group relative flex flex-row -space-x-px">
-  <div class="relative inline-flex items-center w-full group leading-none">
+  <div class="isolate relative inline-flex items-center w-full group leading-none">
     <!--v-if--><input type="text" class="px-3 w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:bg-base-30/37 disabled:resize-none disabled:text-base-500 dark:disabled:bg-base-900/37 dark:disabled:text-base-800 appearance-none transition duration-300 ease-linear ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-none align-middle text-ellipsis whitespace-nowrap focus-visible:outline-none ring-inset ring-1 group-not-only:group-first:rounded-e-none group-not-only:group-last:rounded-s-none group-not-last:group-not-first:rounded-none group-not-only:group-first:border-e-0 group-not-only:group-not-first:border-s-0 group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 h-10 gap-1.5 rounded-2xs focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600" autocomplete="off">
     <!--v-if-->
     <!--v-if-->
@@ -38,7 +38,7 @@ exports[`ButtonGroup > renders with default slot correctly 1`] = `
 
 exports[`ButtonGroup > renders with size lg correctly 1`] = `
 "<div class="group/items is-button-group relative flex flex-row -space-x-px">
-  <div class="relative inline-flex items-center w-full group leading-none">
+  <div class="isolate relative inline-flex items-center w-full group leading-none">
     <!--v-if--><input type="text" class="px-3 w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:bg-base-30/37 disabled:resize-none disabled:text-base-500 dark:disabled:bg-base-900/37 dark:disabled:text-base-800 appearance-none transition duration-300 ease-linear ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-none align-middle text-ellipsis whitespace-nowrap focus-visible:outline-none ring-inset ring-1 group-not-only:group-first:rounded-e-none group-not-only:group-last:rounded-s-none group-not-last:group-not-first:rounded-none group-not-only:group-first:border-e-0 group-not-only:group-not-first:border-s-0 group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 h-12 gap-2 rounded-2xs focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600" autocomplete="off">
     <!--v-if-->
     <!--v-if-->
@@ -54,7 +54,7 @@ exports[`ButtonGroup > renders with size lg correctly 1`] = `
 
 exports[`ButtonGroup > renders with size md correctly 1`] = `
 "<div class="group/items is-button-group relative flex flex-row -space-x-px">
-  <div class="relative inline-flex items-center w-full group leading-none">
+  <div class="isolate relative inline-flex items-center w-full group leading-none">
     <!--v-if--><input type="text" class="px-3 w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:bg-base-30/37 disabled:resize-none disabled:text-base-500 dark:disabled:bg-base-900/37 dark:disabled:text-base-800 appearance-none transition duration-300 ease-linear ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-none align-middle text-ellipsis whitespace-nowrap focus-visible:outline-none ring-inset ring-1 group-not-only:group-first:rounded-e-none group-not-only:group-last:rounded-s-none group-not-last:group-not-first:rounded-none group-not-only:group-first:border-e-0 group-not-only:group-not-first:border-s-0 group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 h-10 gap-1.5 rounded-2xs focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600" autocomplete="off">
     <!--v-if-->
     <!--v-if-->
@@ -70,7 +70,7 @@ exports[`ButtonGroup > renders with size md correctly 1`] = `
 
 exports[`ButtonGroup > renders with size sm correctly 1`] = `
 "<div class="group/items is-button-group relative flex flex-row -space-x-px">
-  <div class="relative inline-flex items-center w-full group leading-none">
+  <div class="isolate relative inline-flex items-center w-full group leading-none">
     <!--v-if--><input type="text" class="px-3 w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:bg-base-30/37 disabled:resize-none disabled:text-base-500 dark:disabled:bg-base-900/37 dark:disabled:text-base-800 appearance-none transition duration-300 ease-linear ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-none align-middle text-ellipsis whitespace-nowrap focus-visible:outline-none ring-inset ring-1 group-not-only:group-first:rounded-e-none group-not-only:group-last:rounded-s-none group-not-last:group-not-first:rounded-none group-not-only:group-first:border-e-0 group-not-only:group-not-first:border-s-0 group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 h-8 gap-1.5 rounded-2xs focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600" autocomplete="off">
     <!--v-if-->
     <!--v-if-->
@@ -86,7 +86,7 @@ exports[`ButtonGroup > renders with size sm correctly 1`] = `
 
 exports[`ButtonGroup > renders with size xs correctly 1`] = `
 "<div class="group/items is-button-group relative flex flex-row -space-x-px">
-  <div class="relative inline-flex items-center w-full group leading-none">
+  <div class="isolate relative inline-flex items-center w-full group leading-none">
     <!--v-if--><input type="text" class="px-3 w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:bg-base-30/37 disabled:resize-none disabled:text-base-500 dark:disabled:bg-base-900/37 dark:disabled:text-base-800 appearance-none transition duration-300 ease-linear ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-none align-middle text-ellipsis whitespace-nowrap focus-visible:outline-none ring-inset ring-1 group-not-only:group-first:rounded-e-none group-not-only:group-last:rounded-s-none group-not-last:group-not-first:rounded-none group-not-only:group-first:border-e-0 group-not-only:group-not-first:border-s-0 group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 h-xl2 gap-1 rounded-2xs focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600" autocomplete="off">
     <!--v-if-->
     <!--v-if-->
