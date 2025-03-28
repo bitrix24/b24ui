@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.5.6 (2025-03-xx)
+
+### Features
+
+* **StackedLayout:** improve
+
+### Bug Fixes
+
+* InputMenu: reset `searchTerm` on `update:open`
+* input:tag: improve
+
+### Chore
+
+* **SidebarLayout:** improve
+* **playground:** improve
+* **playground:** use StackedLayout
+
 ## 0.5.5 (2025-03-27)
 
 ### Bug Fixes
