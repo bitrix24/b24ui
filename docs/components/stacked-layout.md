@@ -6,7 +6,7 @@ outline: deep
 <script setup>
 import StackedLayoutExample from '/examples/stackedlayout/StackedLayout.vue';
 </script>
-# SidebarLayout
+# StackedLayout
 
 <Description
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/StackedLayout.vue"
