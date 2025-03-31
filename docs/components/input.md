@@ -1,5 +1,5 @@
 ---
-title: ComponentName
+title: Input
 description: An input box designed for text entry.
 outline: deep
 ---

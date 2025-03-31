@@ -1,5 +1,5 @@
 ---
-title: ComponentName
+title: Container
 description: A box for centering and setting a maximum width for your content.
 outline: deep
 ---
