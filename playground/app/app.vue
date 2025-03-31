@@ -15,7 +15,7 @@ const colorMode = useColorMode()
 const dir = useTextDirection()
 
 useHead({
-  title: 'Playground',
+  title: 'Bitrix24 UI - Playground',
   bodyAttrs: {
     class: 'text-base-master dark:text-base-150 bg-base-50 dark:bg-base-dark font-b24-system antialiased'
   }
@@ -61,10 +61,6 @@ defineShortcuts({
   shift_D: () => {
     colorMode.preference = colorMode.preference === 'light' ? 'dark' : 'light'
   }
-})
-
-useHead({
-  title: 'Bitrix24 UI - Playground'
 })
 </script>
 
