@@ -89,20 +89,6 @@ defineShortcuts({
           />
         </template>
       </B24SidebarBody>
-      <B24SidebarFooter
-        class="border-t border-base-950/5 dark:border-white/5"
-      >
-        <B24NavigationMenu
-          :items="usePageMeta.menuList"
-          class="w-full"
-          variant="link"
-          orientation="vertical"
-          :b24ui="{
-            link: 'text-sm text-base-500',
-            linkLabelExternalIcon: 'h-3'
-          }"
-        />
-      </B24SidebarFooter>
     </template>
 
     <template #navbar>
