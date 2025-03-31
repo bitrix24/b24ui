@@ -1,6 +1,23 @@
 # Changelog
 
-## 0.5.6 (2025-03-28)
+## [0.5.7](https://github.com/bitrix24/b24ui/compare/v0.5.6...v0.5.7) (2025-03-31)
+
+### Bug Fixes
+
+* **Avatar:** proxy `$attrs` to default slot
+* **vue:** mock `nuxtApp.hooks` & `useRuntimeHook`
+* **useOverlay:** refine `open` method type to infer close emit return type
+* **DropdownMenuContent:** remove unwanted `any`
+
+### Chore
+
+* **layout:** add StackedLayout & SidebarLayout
+
+### Docs
+
+* **SidebarLayout/B24StackedLayout:** add demo link
+
+## [0.5.6](https://github.com/bitrix24/b24ui/compare/v0.5.5...v0.5.6) (2025-03-28)
 
 ### Features
 
