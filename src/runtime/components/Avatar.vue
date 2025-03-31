@@ -42,7 +42,7 @@ export interface AvatarSlots {
 
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue'
-import { Primitive } from 'reka-ui'
+import { Primitive, Slot } from 'reka-ui'
 import ImageComponent from '#build/b24ui-image-component'
 import { useAvatarGroup } from '../composables/useAvatarGroup'
 
@@ -105,9 +105,11 @@ function onError() {
       @error="onError"
     />
 
-    <slot v-else>
-      <Component :is="icon" v-if="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
-      <span v-else :class="b24ui.fallback({ class: props.b24ui?.fallback })">{{ fallback || '&nbsp;' }}</span>
-    </slot>
+    <Slot v-else v-bind="$attrs">
+      <slot>
+        <Component :is="icon" v-if="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
+        <span v-else :class="b24ui.fallback({ class: props.b24ui?.fallback })">{{ fallback || '&nbsp;' }}</span>
+      </slot>
+    </Slot>
   </Primitive>
 </template>
