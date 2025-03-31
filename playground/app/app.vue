@@ -62,6 +62,10 @@ defineShortcuts({
     colorMode.preference = colorMode.preference === 'light' ? 'dark' : 'light'
   }
 })
+
+useHead({
+  title: 'Bitrix24 UI - Playground'
+})
 </script>
 
 <template>
