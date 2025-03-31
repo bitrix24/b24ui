@@ -52,7 +52,8 @@ import MenuIcon from '@bitrix24/b24icons-vue/main/MenuIcon'
 import Cross50Icon from '@bitrix24/b24icons-vue/actions/Cross50Icon'
 
 const props = withDefaults(defineProps<StackedLayoutProps>(), {
-  as: 'div'
+  as: 'div',
+  useLightContent: true
 })
 const slots = defineSlots<StackedLayoutSlots>()
 
