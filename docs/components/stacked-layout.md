@@ -10,6 +10,7 @@ import StackedLayoutExample from '/examples/stackedlayout/StackedLayout.vue';
 
 <Description
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/StackedLayout.vue"
+  demo="/stacked-layout"
 >
   Classic version of application construction. Top menu and sidebar.
 </Description>

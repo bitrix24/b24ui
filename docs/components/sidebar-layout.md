@@ -10,6 +10,7 @@ import SidebarLayoutExample from '/examples/sidebarlayout/SidebarLayout.vue';
 
 <Description
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/SidebarLayout.vue"
+  demo="/sidebar-layout"
 >
   You incorporate a sidebar in the slider and CRM entity tab embedding. Overall, it's stylish, trendy, and youthful
 </Description>
