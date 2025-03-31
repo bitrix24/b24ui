@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import usePageMeta from './../composables/usePageMeta'
+import usePageMeta from '~/composables/usePageMeta'
 
-usePageMeta.setPageTitle('Playground')
+useHead({
+  title: 'Bitrix24 UI - Demo'
+})
 </script>
 
 <template>
-  <div class="w-full lg:mt-12 max-lg:px-3">
+  <div class="w-full max-lg:px-3">
     <div
       v-for="(group) in usePageMeta.groups"
       :key="group.id"
