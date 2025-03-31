@@ -53,9 +53,7 @@ export default {
     ].join(' '),
     container: [
       'flex-1 flex flex-col',
-      'lg:min-w-0',
-      'pb-2',
-      'lg:pt-2 lg:pr-2'
+      'lg:min-w-0'
     ].join(' '),
     containerWrapper: [
       'grow'
@@ -68,7 +66,7 @@ export default {
         container: 'lg:pl-[240px]'
       },
       false: {
-        container: ''
+        container: 'pb-2 lg:pt-2 lg:px-2'
       }
     },
     useLightContent: {
@@ -76,6 +74,9 @@ export default {
         root: [
           'bg-white dark:bg-white/10',
           'lg:bg-base-50 dark:lg:bg-base-dark'
+        ].join(' '),
+        container: [
+          'pb-2 lg:pt-2 lg:pr-2'
         ].join(' '),
         containerWrapper: [
           'p-6 lg:p-10',

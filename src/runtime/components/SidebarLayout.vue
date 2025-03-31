@@ -15,7 +15,6 @@ export interface SidebarLayoutProps {
    * @defaultValue 'div'
    */
   as?: any
-  useSidebar?: boolean
   useLightContent?: boolean
   class?: any
   b24ui?: Partial<typeof sidebarLayout.slots>
