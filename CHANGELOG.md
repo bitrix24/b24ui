@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.8](https://github.com/bitrix24/b24ui/compare/v0.5.7...v0.5.8) (2025-04-xx)
+
+* fix(InputMenu/SelectMenu): correctly call `onSelect` events
+* fix(InputMenu): emit `change` on multiple item removal
+* fix(DropdownMenu): handle RTL mode
+* feat(InputNumber): add support for `stepSnapping` & `disableWheelChange` props
+* feat(RadioGroup): add `card` and `table` variants
+
 ## [0.5.7](https://github.com/bitrix24/b24ui/compare/v0.5.6...v0.5.7) (2025-03-31)
 
 ### Bug Fixes
