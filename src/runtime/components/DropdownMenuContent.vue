@@ -38,6 +38,7 @@ import { computed } from 'vue'
 import { DropdownMenu } from 'reka-ui/namespaced'
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit, createReusableTemplate } from '@vueuse/core'
+import { useLocale } from '../composables/useLocale'
 import { omit, get, isArrayOfArray } from '../utils'
 import { pickLinkProps } from '../utils/link'
 import icons from '../dictionary/icons'
@@ -52,11 +53,13 @@ const props = defineProps<DropdownMenuContentProps<T>>()
 const emits = defineEmits<DropdownMenuContentEmits>()
 const slots = defineSlots<DropdownMenuContentSlots<T>>()
 
+const { dir } = useLocale()
 const contentProps = useForwardPropsEmits(reactiveOmit(props, 'sub', 'items', 'portal', 'labelKey', 'checkedIcon', 'externalIcon', 'class', 'b24ui', 'b24uiOverride'), emits)
 const proxySlots = omit(slots, ['default'])
 
 const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: DropdownMenuItem, active?: boolean, index: number }>()
 
+const childrenIcon = computed(() => dir.value === 'rtl' ? icons.chevronLeft : icons.chevronRight)
 const groups = computed<DropdownMenuItem[][]>(() =>
   props.items?.length
     ? isArrayOfArray(props.items)
@@ -102,7 +105,7 @@ const groups = computed<DropdownMenuItem[][]>(() =>
       <span :class="b24ui.itemTrailing({ class: b24uiOverride?.itemTrailing })">
         <slot :name="((item.slot ? `${item.slot}-trailing`: 'item-trailing') as keyof DropdownMenuContentSlots<T>)" :item="(item as Extract<NestedItem<T>, { slot: string; }>)" :active="active" :index="index">
           <Component
-            :is="icons.chevronRight"
+            :is="childrenIcon"
             v-if="item.children?.length"
             :class="b24ui.itemTrailingIcon({ class: b24uiOverride?.itemTrailingIcon, color: item?.color, active })"
           />
@@ -147,7 +150,6 @@ const groups = computed<DropdownMenuItem[][]>(() =>
               :b24ui-override="b24uiOverride"
               :portal="portal"
               :items="(item.children as T)"
-              side="right"
               align="start"
               :align-offset="-4"
               :side-offset="3"
