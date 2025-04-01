@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import theme from '#build/b24ui/radio-group'
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
-import Demo from './demo/Color.vue'
+import Demo from './demo/Variant.vue'
 
 const chipItems = ref([
   {
@@ -67,11 +68,15 @@ const chipValue = ref((chipItems.value[0]?.value))
 function getChip(value: string) {
   return chipItems.value.find(item => item.value === value)?.chip
 }
+
+const variants = Object.keys(theme.variants.variant)
+const variant = ref('table' as const)
 </script>
 
 <template>
   <ComponentShowExample>
     <template #actions>
+      <B24RadioGroup v-model="variant" legend="variant" :items="variants" orientation="horizontal" />
       <B24FormField label="color" class="w-full sm:w-1/4">
         <B24Select
           v-model="chipValue"
@@ -92,6 +97,6 @@ function getChip(value: string) {
         </B24Select>
       </B24FormField>
     </template>
-    <Demo :color="chipValue" />
+    <Demo :color="chipValue" :variant="variant" />
   </ComponentShowExample>
 </template>

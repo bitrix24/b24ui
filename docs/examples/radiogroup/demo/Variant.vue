@@ -2,12 +2,12 @@
 import { ref } from 'vue'
 
 export interface ExampleProps {
-  size?: any
+  color?: any
   variant?: any
 }
 
 withDefaults(defineProps<ExampleProps>(), {
-  size: 'md',
+  color: 'default',
   variant: 'list'
 })
 
@@ -19,7 +19,7 @@ const value = ref('Delivery')
   <B24RadioGroup
     v-model="value"
     :items="items"
-    :size="size"
+    :color="color"
     :variant="variant"
   />
 </template>

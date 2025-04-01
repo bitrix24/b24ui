@@ -10,7 +10,9 @@ import ArrayValueKeyExample from '/examples/radiogroup/ArrayValueKey.vue';
 import LegendExample from '/examples/radiogroup/Legend.vue';
 import OrientationExample from '/examples/radiogroup/Orientation.vue';
 import ColorExample from '/examples/radiogroup/Color.vue';
+import VariantExample from '/examples/radiogroup/Variant.vue';
 import SizeExample from '/examples/radiogroup/Size.vue';
+import IndicatorExample from '/examples/radiogroup/Indicator.vue';
 import DisabledExample from '/examples/radiogroup/Disabled.vue';
 </script>
 # RadioGroup
@@ -20,6 +22,7 @@ import DisabledExample from '/examples/radiogroup/Disabled.vue';
   reka-ui="https://reka-ui.com/docs/components/radio-group"
   reka-ui-title="RadioGroup"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/RadioGroup.vue"
+  demo="/components/radio-group"
 >
   A collection of radio buttons to pick a single choice from several options.
 </Description>
@@ -91,20 +94,6 @@ Use the `legend` prop to set the legend of the RadioGroup.
 <<< @/examples/radiogroup/demo/Legend.vue{20 vue:line-numbers}
 :::
 
-### Orientation
-
-Use the `orientation` prop to change the orientation of the RadioGroup. Defaults to `vertical`.
-
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <OrientationExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/radiogroup/demo/Orientation.vue{20 vue:line-numbers}
-:::
-
 ### Color
 
 Use the `color` prop to change the color of the RadioGroup.
@@ -119,6 +108,21 @@ Use the `color` prop to change the color of the RadioGroup.
 <<< @/examples/radiogroup/demo/Color.vue{20 vue:line-numbers}
 :::
 
+
+### Variant
+
+Use the `variant` prop to change the variant of the RadioGroup.
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <VariantExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/radiogroup/demo/Variant.vue{23 vue:line-numbers}
+:::
+
 ### Size
 
 Use the `size` prop to change the size of the RadioGroup.
@@ -130,7 +134,37 @@ Use the `size` prop to change the size of the RadioGroup.
 </div>
 
 ::: details
-<<< @/examples/radiogroup/demo/Size.vue{20 vue:line-numbers}
+<<< @/examples/radiogroup/demo/Size.vue{22 vue:line-numbers}
+:::
+
+### Orientation
+
+Use the `orientation` prop to change the orientation of the RadioGroup. Defaults to `vertical`.
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <OrientationExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/radiogroup/demo/Orientation.vue{22 vue:line-numbers}
+:::
+
+
+
+### Indicator
+
+Use the `indicator` prop to change the position or hide the indicator. Defaults to `start`.
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <IndicatorExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/radiogroup/demo/Indicator.vue{22 vue:line-numbers}
 :::
 
 ### Disabled

@@ -7,13 +7,17 @@ import Demo from './demo/Size.vue'
 const sizes = Object.keys(theme.variants.size)
 
 const size = ref('lg' as const)
+
+const variants = Object.keys(theme.variants.variant)
+const variant = ref('list' as const)
 </script>
 
 <template>
   <ComponentShowExample>
     <template #actions>
       <B24RadioGroup v-model="size" legend="size" :items="sizes" orientation="horizontal" />
+      <B24RadioGroup v-model="variant" legend="variant" :items="variants" orientation="horizontal" />
     </template>
-    <Demo :size="size" />
+    <Demo :size="size" :variant="variant" />
   </ComponentShowExample>
 </template>

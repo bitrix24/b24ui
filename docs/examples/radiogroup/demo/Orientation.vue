@@ -3,10 +3,12 @@ import { ref } from 'vue'
 
 export interface ExampleProps {
   orientation?: any
+  variant?: any
 }
 
 withDefaults(defineProps<ExampleProps>(), {
-  orientation: 'horizontal'
+  orientation: 'horizontal',
+  variant: 'list'
 })
 
 const items = ref(['Payment', 'Delivery', 'Scripts'])
@@ -18,5 +20,6 @@ const value = ref('Delivery')
     v-model="value"
     :items="items"
     :orientation="orientation"
+    :variant="variant"
   />
 </template>

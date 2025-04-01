@@ -3,46 +3,53 @@ import theme from '#build/b24ui/radio-group'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
-import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 
 usePageMeta.setPageTitle('RadioGroup')
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
+const variants = Object.keys(theme.variants.variant)
+const variant = ref('list' as const)
 
 const literalOptions = [
-  'Option 1',
-  'Option 2',
-  'Option 3'
+  'Basic',
+  'Standard',
+  'Professional',
+  'Enterprise'
 ]
 const items = [
-  { value: '1', label: 'Option 1' },
-  { value: '2', label: 'Option 2' },
-  { value: '3', label: 'Option 3' }
+  { value: '1', label: 'Basic' },
+  { value: '2', label: 'Standard' },
+  { value: '3', label: 'Professional' },
+  { value: '4', label: 'Enterprise' }
 ]
 
 const itemsWithDescription = [
-  { value: '1', label: 'Option 1', description: 'Description 1' },
-  { value: '2', label: 'Option 2', description: 'Description 2' },
-  { value: '3', label: 'Option 3', description: 'Description 3' }
+  { value: '1', label: 'Basic', description: 'includes 5 users' },
+  { value: '2', label: 'Standard', description: 'includes 50 users' },
+  { value: '3', label: 'Professional', description: 'includes 100 users' },
+  { value: '4', label: 'Enterprise', description: 'includes 250 users' }
 ]
 </script>
 
 <template>
   <ExampleGrid v-once>
-    <ExampleCard title="color">
-      <ExampleCardSubTitle title="default" />
-      <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
-        <div class="flex flex-col gap-4">
-          <B24RadioGroup :items="items" legend="primary" aria-label="Primary" default-value="1" />
-        </div>
+    <ExampleCard title="settings">
+      <B24Separator class="my-3" type="dotted" />
+      <div class="mb-4 space-y-4">
+        <B24Select
+          v-model="variant"
+          :items="variants"
+          class="w-[100px]"
+        />
       </div>
+    </ExampleCard>
 
-      <ExampleCardSubTitle title="different color" />
-      <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
-        <div class="flex flex-col gap-4">
+    <template v-for="color in colors" :key="color">
+      <ExampleCard :title="color as string">
+        <B24Separator class="my-3" type="dotted" />
+        <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
           <B24RadioGroup
-            v-for="color in colors"
-            :key="color"
+            :variant="variant"
             :items="items"
             :color="color"
             :legend="color"
@@ -50,61 +57,116 @@ const itemsWithDescription = [
             default-value="1"
           />
         </div>
-      </div>
-    </ExampleCard>
-    <ExampleCard title="statuses">
-      <ExampleCardSubTitle title="variants" />
+      </ExampleCard>
+    </template>
+
+    <ExampleCard title="Default">
+      <B24Separator class="my-3" type="dotted" />
       <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
-        <div class="flex flex-col gap-4">
-          <B24RadioGroup :items="items" legend="Default" aria-label="Default" default-value="1" />
-          <B24RadioGroup :items="literalOptions" legend="Literal options" aria-label="Literal options" />
-          <B24RadioGroup :items="items" legend="Required" required aria-label="Required" />
-          <B24RadioGroup :items="items" legend="Disabled" disabled aria-label="Disabled" />
-          <B24RadioGroup
-            :items="items"
-            legend="Horizontal"
-            aria-label="Horizontal"
-            orientation="horizontal"
-            :b24ui="{ label: 'whitespace-nowrap' }"
-          />
-          <B24RadioGroup :items="items">
-            <template #legend>
-              <span class="italic font-bold">
-                With slots
-              </span>
-            </template>
-            <template #label="{ item }">
-              <span class="italic">
-                {{ item.label }}
-              </span>
-            </template>
-          </B24RadioGroup>
-        </div>
+        <B24RadioGroup :variant="variant" :items="items" aria-label="Default" default-value="1" />
       </div>
     </ExampleCard>
-    <ExampleCard title="size" class="sm:col-span-2 md:col-span-4">
-      <ExampleCardSubTitle title="simple" />
-      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
+
+    <ExampleCard title="Literal options">
+      <B24Separator class="my-3" type="dotted" />
+      <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
+        <B24RadioGroup :variant="variant" :items="literalOptions" aria-label="Literal options" />
+      </div>
+    </ExampleCard>
+
+    <ExampleCard title="Required">
+      <B24Separator class="my-3" type="dotted" />
+      <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
+        <B24RadioGroup :variant="variant" :items="items" required aria-label="Required" />
+      </div>
+    </ExampleCard>
+
+    <ExampleCard title="Disabled">
+      <B24Separator class="my-3" type="dotted" />
+      <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
+        <B24RadioGroup :variant="variant" :items="items" disabled aria-label="Disabled" />
+      </div>
+    </ExampleCard>
+
+    <ExampleCard title="With slots">
+      <B24Separator class="my-3" type="dotted" />
+      <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
+        <B24RadioGroup :items="items" :variant="variant">
+          <template #legend>
+            <span class="italic font-bold">
+              Legend slot
+            </span>
+          </template>
+          <template #label="{ item }">
+            <span class="italic">
+              {{ item.label }}
+            </span>
+          </template>
+        </B24RadioGroup>
+      </div>
+    </ExampleCard>
+
+    <ExampleCard title="Indicator start">
+      <B24Separator class="my-3" type="dotted" />
+      <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
+        <B24RadioGroup :variant="variant" :items="items" default-value="3" indicator="start" />
+      </div>
+    </ExampleCard>
+
+    <ExampleCard title="Indicator end">
+      <B24Separator class="my-3" type="dotted" />
+      <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
+        <B24RadioGroup :variant="variant" :items="items" default-value="3" indicator="end" />
+      </div>
+    </ExampleCard>
+
+    <ExampleCard title="Indicator hidden">
+      <B24Separator class="my-3" type="dotted" />
+      <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
+        <B24RadioGroup :variant="variant" :items="items" default-value="3" indicator="hidden" />
+      </div>
+    </ExampleCard>
+
+    <ExampleCard title="Horizontal" class="md:col-span-2 overflow-x-auto">
+      <B24Separator class="my-3" type="dotted" />
+      <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
         <B24RadioGroup
-          v-for="size in sizes"
-          :key="size"
-          :size="size"
           :items="items"
-          :legend="`legend for ${size}`"
-          :aria-label="`legend for ${size}`"
-        />
-      </div>
-      <ExampleCardSubTitle title="with description" />
-      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
-        <B24RadioGroup
-          v-for="size in sizes"
-          :key="size"
-          :size="size"
-          :items="itemsWithDescription"
-          :legend="`legend with description for ${size}`"
-          :aria-label="`legend with description for ${size}`"
+          aria-label="Horizontal"
+          orientation="horizontal"
+          :variant="variant"
+          :b24ui="{ label: 'whitespace-nowrap' }"
         />
       </div>
     </ExampleCard>
+  </ExampleGrid>
+
+  <ExampleGrid v-once class="mt-4">
+    <template v-for="size in sizes" :key="size">
+      <ExampleCard :title="size as string">
+        <B24Separator class="my-3" type="dotted" />
+        <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
+          <B24RadioGroup
+            :size="size"
+            :items="items"
+            :variant="variant"
+            :legend="`legend for ${size}`"
+            :aria-label="`legend for ${size}`"
+          />
+        </div>
+      </ExampleCard>
+      <ExampleCard :title="size as string">
+        <B24Separator class="my-3" type="dotted" />
+        <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
+          <B24RadioGroup
+            :size="size"
+            :items="itemsWithDescription"
+            :variant="variant"
+            :legend="`legend with description for ${size}`"
+            :aria-label="`legend with description for ${size}`"
+          />
+        </div>
+      </ExampleCard>
+    </template>
   </ExampleGrid>
 </template>

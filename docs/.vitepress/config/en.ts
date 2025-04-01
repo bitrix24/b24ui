@@ -124,7 +124,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'AvatarGroup', link: 'avatar-group' },
         { text: 'Badge', link: 'badge' },
         { text: 'Calendar', link: 'calendar' },
-        { text: 'Collapsible💡', link: 'collapsible' },
+        { text: 'Collapsible', link: 'collapsible' },
         { text: 'Countdown', link: 'countdown' },
         { text: 'Kbd', link: 'kbd' },
         { text: 'TableWrapper', base: '/components/content/', link: 'table-wrapper' },
@@ -143,7 +143,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'Textarea', link: 'textarea' },
         { text: 'Select', link: 'select' },
         { text: 'SelectMenu', link: 'select-menu' },
-        { text: 'RadioGroup', link: 'radio-group' },
+        { text: 'RadioGroup💡', link: 'radio-group' },
         { text: 'Checkbox', link: 'checkbox' },
         { text: 'Switch', link: 'switch' },
         { text: 'Range', link: 'range' }
