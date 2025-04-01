@@ -14,7 +14,7 @@ const inputNumber = tv({ extend: tv(theme), ...(appConfigInputNumber.b24ui?.inpu
 
 type InputNumberVariants = VariantProps<typeof inputNumber>
 
-export interface InputNumberProps extends Pick<NumberFieldRootProps, 'modelValue' | 'defaultValue' | 'min' | 'max' | 'stepSnapping' | 'step' | 'disabled' | 'required' | 'id' | 'name' | 'formatOptions'> {
+export interface InputNumberProps extends Pick<NumberFieldRootProps, 'modelValue' | 'defaultValue' | 'min' | 'max' | 'stepSnapping' | 'step' | 'disabled' | 'required' | 'id' | 'name' | 'formatOptions' | 'disableWheelChange'> {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
