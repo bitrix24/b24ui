@@ -547,7 +547,7 @@ defineExpose({
                 :class="b24ui.item({ class: props.b24ui?.item, colorItem: isInputItem(item) ? item?.color : undefined })"
                 :disabled="isInputItem(item) && item.disabled"
                 :value="props.valueKey && isInputItem(item) ? get(item, String(props.valueKey)) : item"
-                @select="isInputItem(item) && item.onSelect"
+                @select="isInputItem(item) && item.onSelect?.($event)"
               >
                 <slot name="item" :item="(item as NestedItem<T>)" :index="index">
                   <slot name="item-leading" :item="(item as NestedItem<T>)" :index="index">
