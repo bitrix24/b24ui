@@ -3,7 +3,9 @@ import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/textarea'
+import type { UseComponentIconsProps } from '../composables/useComponentIcons'
 import { tv } from '../utils/tv'
+import type { AvatarProps } from '../types'
 import type { PartialString } from '../types/utils'
 
 const appConfigTextarea = _appConfig as AppConfig & { b24ui: { textarea: Partial<typeof theme> } }
@@ -12,7 +14,7 @@ const textarea = tv({ extend: tv(theme), ...(appConfigTextarea.b24ui?.textarea |
 
 type TextareaVariants = VariantProps<typeof textarea>
 
-export interface TextareaProps {
+export interface TextareaProps extends UseComponentIconsProps {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
@@ -101,15 +103,19 @@ export interface TextareaEmits {
 }
 
 export interface TextareaSlots {
+  leading(props?: {}): any
   default(props?: {}): any
+  trailing(props?: {}): any
 }
 </script>
 
 <script setup lang="ts">
 import { ref, computed, onMounted, nextTick, watch } from 'vue'
 import { Primitive } from 'reka-ui'
+import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
 import { looseToNumber } from '../utils'
+import B24Avatar from './Avatar.vue'
 
 defineOptions({ inheritAttrs: false })
 
@@ -119,12 +125,13 @@ const props = withDefaults(defineProps<TextareaProps>(), {
   autofocusDelay: 0,
   autoresizeDelay: 0
 })
-defineSlots<TextareaSlots>()
+const slots = defineSlots<TextareaSlots>()
 const emits = defineEmits<TextareaEmits>()
 
 const [modelValue, modelModifiers] = defineModel<string | number | null>()
 
 const { emitFormFocus, emitFormBlur, emitFormInput, emitFormChange, color, id, name, highlight, disabled, ariaAttrs } = useFormField<TextareaProps>(props, { deferInputValidation: true })
+const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props)
 
 const isTag = computed(() => {
   return props.tag
@@ -132,13 +139,16 @@ const isTag = computed(() => {
 
 const b24ui = computed(() => textarea({
   color: color.value,
+  loading: props.loading,
   highlight: highlight.value,
   autoresize: Boolean(props.autoresize),
   tagColor: props.tagColor,
   rounded: Boolean(props.rounded),
   noPadding: Boolean(props.noPadding),
   noBorder: Boolean(props.noBorder),
-  underline: Boolean(props.underline)
+  underline: Boolean(props.underline),
+  leading: Boolean(isLeading.value || !!props.avatar || !!slots.leading),
+  trailing: Boolean(isTrailing.value || !!slots.trailing)
 }))
 
 const textareaRef = ref<HTMLTextAreaElement | null>(null)
@@ -261,5 +271,31 @@ defineExpose({
     />
 
     <slot />
+
+    <span v-if="isLeading || !!avatar || !!slots.leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
+      <slot name="leading">
+        <Component
+          :is="leadingIconName"
+          v-if="isLeading && leadingIconName"
+          :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
+        />
+        <B24Avatar
+          v-else-if="!!avatar"
+          :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+          v-bind="avatar"
+          :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
+        />
+      </slot>
+    </span>
+
+    <span v-if="isTrailing || !!slots.trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
+      <slot name="trailing">
+        <Component
+          :is="trailingIconName"
+          v-if="trailingIconName"
+          :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
+        />
+      </slot>
+    </span>
   </Primitive>
 </template>

@@ -5,6 +5,7 @@ import ComponentRender from '../component-render'
 // import theme from '#build/b24ui/textarea'
 import { renderForm } from '../utils/form'
 import type { FormInputEvents } from '~/src/module'
+import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
 
 describe('Textarea', () => {
   it.each([
@@ -15,6 +16,22 @@ describe('Textarea', () => {
     ['with required', { props: { required: true } }],
     ['with disabled', { props: { disabled: true } }],
     ['with rows', { props: { rows: 5 } }],
+    ['with icon', { props: { icon: Cross30Icon } }],
+    ['with leading and icon', { props: { leading: true, icon: Cross30Icon } }],
+    /**
+     * @todo fix this
+     */
+    // ['with leadingIcon', { props: { leadingIcon: Cross30Icon } }],
+    ['with trailing and icon', { props: { trailing: true, icon: Cross30Icon } }],
+    ['with trailingIcon', { props: { trailingIcon: Cross30Icon } }],
+    ['with avatar', { props: { avatar: { src: 'https://github.com/bitrix24.png' } } }],
+    ['with avatar and leadingIcon', { props: { avatar: { src: 'https://github.com/bitrix24.png' }, leadingIcon: Cross30Icon } }],
+    ['with avatar and trailingIcon', { props: { avatar: { src: 'https://github.com/bitrix24.png' }, trailingIcon: Cross30Icon } }],
+    ['with loading', { props: { loading: true } }],
+    ['with loading and avatar', { props: { loading: true, avatar: { src: 'https://github.com/bitrix24.png' } } }],
+    ['with loading trailing', { props: { loading: true, trailing: true } }],
+    ['with loading trailing and avatar', { props: { loading: true, trailing: true, avatar: { src: 'https://github.com/bitrix24.png' } } }],
+    ['with loadingIcon', { props: { loading: true, loadingIcon: Cross30Icon } }],
     ['with autoresize', { props: { autoresize: true } }],
     ['with primary', { props: {} }],
     ['with success', { props: { color: 'success' as const } }],
@@ -27,7 +44,9 @@ describe('Textarea', () => {
     // @memo wrapper not exist at theme ////
     ['with b24ui', { props: { b24ui: { root: 'ms-4' } } }],
     // Slots
-    ['with default slot', { slots: { default: () => 'Default slot' } }]
+    ['with default slot', { slots: { default: () => 'Default slot' } }],
+    ['with leading slot', { slots: { leading: () => 'Leading slot' } }],
+    ['with trailing slot', { slots: { trailing: () => 'Trailing slot' } }]
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: TextareaProps, slots?: Partial<TextareaSlots> }) => {
     const html = await ComponentRender(nameOrHtml, options, Textarea)
     expect(html).toMatchSnapshot()

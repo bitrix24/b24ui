@@ -12,12 +12,17 @@ import DisabledExample from '/examples/textarea/Disabled.vue';
 import RowsExample from '/examples/textarea/Rows.vue';
 import AutoresizeExample from '/examples/textarea/Autoresize.vue';
 import MaxrowsExample from '/examples/textarea/Maxrows.vue';
+import IconExample from '/examples/textarea/Icon.vue';
+import IconLeadingTrailingExample from '/examples/textarea/IconLeadingTrailing.vue';
+import AvatarExample from '/examples/textarea/Avatar.vue';
+import LoadingExample from '/examples/textarea/Loading.vue';
 </script>
 # Textarea
 
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/textarea"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Textarea.vue"
+  demo="/components/textarea"
 >
   A textarea for entering multi-line text.
 </Description>
@@ -36,6 +41,20 @@ Use the `v-model` directive to control the value of the Textarea.
 <<< @/examples/textarea/demo/Textarea.vue{4,8 vue:line-numbers}
 :::
 
+### Rows
+
+Use the `rows` prop to set the number of rows. Defaults to `3`.
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <RowsExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/textarea/demo/Rows.vue{13 vue:line-numbers}
+:::
+
 ### Placeholder
 
 Use the `placeholder` prop to set a placeholder text.
@@ -48,6 +67,33 @@ Use the `placeholder` prop to set a placeholder text.
 
 ::: details
 <<< @/examples/textarea/demo/Placeholder.vue{12 vue:line-numbers}
+:::
+
+
+### Autoresize
+
+Use the `autoresize` prop to enable autoresizing the height of the Textarea.
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <AutoresizeExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/textarea/demo/Autoresize.vue{18 vue:line-numbers}
+:::
+
+Use the `maxrows` prop to set the maximum number of rows when autoresizing. If set to `0`, the Textarea will grow indefinitely.
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <MaxrowsExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/textarea/demo/Maxrows.vue{18 vue:line-numbers}
 :::
 
 ### Color
@@ -84,6 +130,61 @@ Use the `tagColor` property to set the color for `tag`.
 <<< @/examples/textarea/demo/Tag.vue{17-18 vue:line-numbers}
 :::
 
+### Icon
+
+Use the `icon` prop to show an [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html) inside the Textarea.
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <IconExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/textarea/demo/Icon.vue{7 vue:line-numbers}
+:::
+
+Use the `leading-icon` and `trailing-icon` props to set a different icon for each position.
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <IconLeadingTrailingExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/textarea/demo/IconLeadingTrailing.vue{8,9 vue:line-numbers}
+:::
+
+### Avatar
+
+Use the `avatar` prop to show an [Avatar](/components/avatar) inside the Textarea.
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <AvatarExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/textarea/demo/Avatar.vue{7,13 vue:line-numbers}
+:::
+
+### Loading
+
+Use the `loading` prop to show a loading icon on the Textarea.
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <LoadingExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/textarea/demo/Loading.vue{14 vue:line-numbers}
+:::
+
+
 ### Disabled
 
 Use the `disabled` prop to disable the Textarea.
@@ -96,46 +197,6 @@ Use the `disabled` prop to disable the Textarea.
 
 ::: details
 <<< @/examples/textarea/demo/Disabled.vue{15 vue:line-numbers}
-:::
-
-### Rows
-
-Use the `rows` prop to set the number of rows. Defaults to `3`.
-
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <RowsExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/textarea/demo/Rows.vue{13 vue:line-numbers}
-:::
-
-### Autoresize
-
-Use the `autoresize` prop to enable autoresizing the height of the Textarea.
-
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <AutoresizeExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/textarea/demo/Autoresize.vue{18 vue:line-numbers}
-:::
-
-Use the `maxrows` prop to set the maximum number of rows when autoresizing. If set to `0`, the Textarea will grow indefinitely.
-
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <MaxrowsExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/textarea/demo/Maxrows.vue{18 vue:line-numbers}
 :::
 
 ## API

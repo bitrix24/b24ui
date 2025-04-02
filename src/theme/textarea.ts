@@ -3,6 +3,7 @@
  * A textarea element to input multi-line text.
  *
  * @memo this symlink to `src/theme/input.ts`
+ * @memo not use size - this input::size=xs
  * ---
  * @link /api_d7/bitrix/ui/forms/fields_types.php
  */
@@ -24,6 +25,12 @@ export default {
       'font-b24-primary font-regular text-md leading-normal',
       'align-middle'
     ].join(' '),
+    leading: 'absolute start-0 flex items-start inset-y-1.5 px-1.5',
+    leadingIcon: 'shrink-0 text-base-400 inset-y-1.5 size-lg2',
+    leadingAvatar: 'shrink-0',
+    leadingAvatarSize: 'xs',
+    trailing: 'absolute end-0 flex items-start inset-y-1.5 px-1.5',
+    trailingIcon: 'shrink-0 text-base-400 size-lg2',
     tag: [
       'pointer-events-none select-none',
       'absolute z-10 -top-1.5 right-3 h-sm px-1.5 flex flex-col justify-center items-center',
@@ -87,6 +94,15 @@ export default {
     },
     underline: {
       true: 'ring-0 focus-visible:ring-0 border-b border-b-base-300 rounded-none'
+    },
+    leading: {
+      true: ''
+    },
+    trailing: {
+      true: ''
+    },
+    loading: {
+      true: ''
     },
     highlight: {
       true: ''
@@ -316,8 +332,37 @@ export default {
       noBorder: false,
       underline: true,
       class: 'border-b-ai-500 dark:border-b-ai-600'
-    }
+    },
     // endregion ////
+    // endregion ////
+    // region leading ////
+    {
+      leading: true,
+      class: 'ps-8'
+    },
+    // endregion ////
+    // region trailing ////
+    {
+      trailing: true,
+      class: 'pe-8'
+    },
+    // endregion ////
+    // region loading ////
+    {
+      loading: true,
+      leading: true,
+      class: {
+        leadingIcon: 'size-[21px]'
+      }
+    },
+    {
+      loading: true,
+      leading: false,
+      trailing: true,
+      class: {
+        trailingIcon: 'size-[21px]'
+      }
+    }
     // endregion ////
   ],
   defaultVariants: {
