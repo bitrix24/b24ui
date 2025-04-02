@@ -155,12 +155,6 @@ const b24ui = computed(() => input({
 
 const inputRef = ref<HTMLInputElement | null>(null)
 
-function autoFocus() {
-  if (props.autofocus) {
-    inputRef.value?.focus()
-  }
-}
-
 // Custom function to handle the v-model properties
 function updateInput(value: string | null) {
   if (modelModifiers.trim) {
@@ -206,14 +200,20 @@ function onBlur(event: FocusEvent) {
   emits('blur', event)
 }
 
-defineExpose({
-  inputRef
-})
+function autoFocus() {
+  if (props.autofocus) {
+    inputRef.value?.focus()
+  }
+}
 
 onMounted(() => {
   setTimeout(() => {
     autoFocus()
   }, props.autofocusDelay)
+})
+
+defineExpose({
+  inputRef
 })
 </script>
 
