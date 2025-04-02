@@ -32,6 +32,11 @@ export default {
   },
   variants: {
     ...buttonGroupVariantWithRoot,
+    autoresize: {
+      true: {
+        base: 'resize-none'
+      }
+    },
     color: {
       default: '',
       danger: '',

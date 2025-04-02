@@ -133,6 +133,7 @@ const isTag = computed(() => {
 const b24ui = computed(() => textarea({
   color: color.value,
   highlight: highlight.value,
+  autoresize: Boolean(props.autoresize),
   tagColor: props.tagColor,
   rounded: Boolean(props.rounded),
   noPadding: Boolean(props.noPadding),

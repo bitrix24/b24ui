@@ -6,6 +6,12 @@ exports[`Textarea > renders with as correctly 1`] = `
 </section>"
 `;
 
+exports[`Textarea > renders with autoresize correctly 1`] = `
+"<div class="isolate relative inline-flex items-center w-full">
+  <!--v-if--><textarea rows="3" class="w-full px-3 py-1.5 border-0 focus:outline-none disabled:cursor-not-allowed disabled:bg-base-30/37 disabled:resize-none disabled:text-base-500 dark:disabled:bg-base-900/37 dark:disabled:text-base-800 appearance-none transition duration-300 ease-linear ring ring-inset ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-normal align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none rounded-2xs focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600"></textarea>
+</div>"
+`;
+
 exports[`Textarea > renders with b24ui correctly 1`] = `
 "<div class="isolate relative inline-flex items-center w-full ms-4">
   <!--v-if--><textarea rows="3" class="w-full px-3 py-1.5 border-0 focus:outline-none disabled:cursor-not-allowed disabled:bg-base-30/37 disabled:resize-none disabled:text-base-500 dark:disabled:bg-base-900/37 dark:disabled:text-base-800 appearance-none transition duration-300 ease-linear ring ring-inset ring-base-300 dark:ring-base-800 text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900 dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350 font-regular text-md leading-normal align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 rounded-2xs focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600"></textarea>

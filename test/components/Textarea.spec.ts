@@ -15,6 +15,7 @@ describe('Textarea', () => {
     ['with required', { props: { required: true } }],
     ['with disabled', { props: { disabled: true } }],
     ['with rows', { props: { rows: 5 } }],
+    ['with autoresize', { props: { autoresize: true } }],
     ['with primary', { props: {} }],
     ['with success', { props: { color: 'success' as const } }],
     /**
