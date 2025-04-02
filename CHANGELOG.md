@@ -1,6 +1,18 @@
 # Changelog
 
-## [0.5.8](https://github.com/bitrix24/b24ui/compare/v0.5.7...v0.5.8) (2025-04-xx)
+## [0.5.9](https://github.com/bitrix24/b24ui/compare/v0.5.8...v0.5.9) (2025-04-xx)
+
+### Features
+* **Textarea:** add `autoresize-delay` prop
+* **Textarea:** add `resize-none` class with `autoresize` prop
+* **Textarea:** add `icon`, `loading`, etc. props to match Input
+
+### Chore
+
+* **Input/InputNumber/PinInput/Textarea:** clean functions order
+* **deps:** update nuxt framework to ^3.16.2
+
+## [0.5.8](https://github.com/bitrix24/b24ui/compare/v0.5.7...v0.5.8) (2025-04-01)
 
 ### Features
 
@@ -8,6 +20,7 @@
 * **RadioGroup:** add `card` and `table` variants
 
 ### Bug Fixes
+
 * **InputMenu/SelectMenu:** correctly call `onSelect` events
 * **InputMenu:** emit `change` on multiple item removal
 * **DropdownMenu:** handle RTL mode
