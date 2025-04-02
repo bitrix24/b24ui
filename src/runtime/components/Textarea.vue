@@ -63,6 +63,14 @@ export interface TextareaProps {
   /**
    * @defaultValue false
    */
+  autoresize?: boolean
+  /**
+   * @defaultValue 0
+   */
+  autoresizeDelay?: number
+  /**
+   * @defaultValue false
+   */
   disabled?: boolean
   /**
    * @defaultValue 3
@@ -72,10 +80,6 @@ export interface TextareaProps {
    * @defaultValue 5
    */
   maxrows?: number
-  /**
-   * @defaultValue false
-   */
-  autoresize?: boolean
   tag?: string
   /**
    * @defaultValue 'primary'
@@ -112,7 +116,8 @@ defineOptions({ inheritAttrs: false })
 const props = withDefaults(defineProps<TextareaProps>(), {
   rows: 3,
   maxrows: 5,
-  autofocusDelay: 0
+  autofocusDelay: 0,
+  autoresizeDelay: 0
 })
 defineSlots<TextareaSlots>()
 const emits = defineEmits<TextareaEmits>()
@@ -223,7 +228,7 @@ onMounted(() => {
 
   setTimeout(() => {
     autoResize()
-  }, 100)
+  }, props.autoresizeDelay)
 })
 
 defineExpose({
