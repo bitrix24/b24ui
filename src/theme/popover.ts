@@ -12,6 +12,6 @@ export default {
       'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]',
       'focus:outline-none pointer-events-auto'
     ].join(' '),
-    arrow: 'fill-white dark:fill-base-dark stroke-base-300 dark:stroke-base-300'
+    arrow: 'fill-white dark:fill-base-dark stroke-base-300 dark:stroke-base-800'
   }
 }
