@@ -3,6 +3,7 @@
 ## [0.5.9](https://github.com/bitrix24/b24ui/compare/v0.5.8...v0.5.9) (2025-04-xx)
 
 ### Features
+
 * **Textarea:** add `autoresize-delay` prop
 * **Textarea:** add `resize-none` class with `autoresize` prop
 * **Textarea:** add `icon`, `loading`, etc. props to match Input
