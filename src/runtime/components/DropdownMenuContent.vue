@@ -56,6 +56,9 @@ const slots = defineSlots<DropdownMenuContentSlots<T>>()
 const { dir } = useLocale()
 const contentProps = useForwardPropsEmits(reactiveOmit(props, 'sub', 'items', 'portal', 'labelKey', 'checkedIcon', 'externalIcon', 'class', 'b24ui', 'b24uiOverride'), emits)
 const proxySlots = omit(slots, ['default'])
+const getLabel = (item: DropdownMenuItem) => {
+  return get(item, props.labelKey as string)
+}
 
 const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: DropdownMenuItem, active?: boolean, index: number }>()
 
@@ -91,9 +94,9 @@ const groups = computed<DropdownMenuItem[][]>(() =>
         />
       </slot>
 
-      <span v-if="get(item, props.labelKey as string) || !!slots[(item.slot ? `${item.slot}-label`: 'item-label') as keyof DropdownMenuContentSlots<T>]" :class="b24ui.itemLabel({ class: b24uiOverride?.itemLabel, active })">
+      <span v-if="getLabel(item) || !!slots[(item.slot ? `${item.slot}-label`: 'item-label') as keyof DropdownMenuContentSlots<T>]" :class="b24ui.itemLabel({ class: b24uiOverride?.itemLabel, active })">
         <slot :name="((item.slot ? `${item.slot}-label`: 'item-label') as keyof DropdownMenuContentSlots<T>)" :item="(item as Extract<NestedItem<T>, { slot: string; }>)" :active="active" :index="index">
-          {{ get(item, props.labelKey as string) }}
+          {{ getLabel(item) }}
         </slot>
         <Component
           :is="typeof externalIcon !== 'boolean' ? externalIcon : icons.external"
@@ -137,7 +140,7 @@ const groups = computed<DropdownMenuItem[][]>(() =>
               as="button"
               type="button"
               :disabled="item.disabled"
-              :text-value="get(item, props.labelKey as string)"
+              :text-value="getLabel(item)"
               :class="b24ui.item({ class: b24uiOverride?.item, color: item?.color })"
             >
               <ReuseItemTemplate :item="item" :index="index" />
@@ -167,7 +170,7 @@ const groups = computed<DropdownMenuItem[][]>(() =>
             v-else-if="item.type === 'checkbox'"
             :model-value="item.checked"
             :disabled="item.disabled"
-            :text-value="get(item, props.labelKey as string)"
+            :text-value="getLabel(item)"
             :class="b24ui.item({ class: [b24uiOverride?.item, item.class], color: item?.color })"
             @update:model-value="item.onUpdateChecked"
             @select="item.onSelect"
@@ -178,7 +181,7 @@ const groups = computed<DropdownMenuItem[][]>(() =>
             v-else
             as-child
             :disabled="item.disabled"
-            :text-value="get(item, props.labelKey as string)"
+            :text-value="getLabel(item)"
             @select="item.onSelect"
           >
             <B24Link v-slot="{ active, ...slotProps }" v-bind="pickLinkProps(item as Omit<DropdownMenuItem, 'type'>)" custom>

@@ -98,6 +98,10 @@ const slots = defineSlots<TabsSlots<T>>()
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'modelValue', 'defaultValue', 'orientation', 'activationMode', 'unmountOnHide'), emits)
 
+const getLabel = (item: DropdownMenuItem) => {
+  return get(item, props.labelKey as string)
+}
+
 const b24ui = computed(() => tabs({
   color: props.color,
   variant: props.variant,
@@ -121,8 +125,8 @@ const b24ui = computed(() => tabs({
           <B24Avatar v-else-if="item.avatar" :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])" v-bind="item.avatar" :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })" />
         </slot>
 
-        <span v-if="get(item, props.labelKey as string) || !!slots.default" :class="b24ui.label({ class: props.b24ui?.label })">
-          <slot :item="item" :index="index">{{ get(item, props.labelKey as string) }}</slot>
+        <span v-if="getLabel(item) || !!slots.default" :class="b24ui.label({ class: props.b24ui?.label })">
+          <slot :item="item" :index="index">{{ getLabel(item) }}</slot>
         </span>
 
         <slot name="trailing" :item="item" :index="index" />

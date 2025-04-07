@@ -50,6 +50,7 @@ import { ref, computed } from 'vue'
 import { ToastProvider, ToastViewport, ToastPortal, useForwardProps } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useToast } from '../composables/useToast'
+import type { Toast } from '../composables/useToast'
 import { omit } from '../utils'
 import B24Toast from './Toast.vue'
 
@@ -62,6 +63,10 @@ const props = withDefaults(defineProps<ToasterProps>(), {
 defineSlots<ToasterSlots>()
 
 const providerProps = useForwardProps(reactivePick(props, 'duration', 'label', 'swipeThreshold'))
+
+const proxyToastProps = (toast: Toast) => {
+  return omit(toast, ['id', 'close'])
+}
 
 const { toasts, remove } = useToast()
 
@@ -115,7 +120,7 @@ function getOffset(index: number) {
       v-for="(toast, index) in toasts"
       :key="toast.id"
       ref="refs"
-      v-bind="omit(toast, ['id', 'close'])"
+      v-bind="proxyToastProps(toast)"
       :close="(toast.close as boolean)"
       :data-expanded="expanded"
       :data-front="!expanded && index === toasts.length - 1"

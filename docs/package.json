@@ -4,11 +4,12 @@
   "version": "0.0.0",
   "description": "",
   "type": "module",
-  "dependencies": {},
+  "dependencies": {
+    "@bitrix24/b24icons-vue": "^1.0.5",
+    "@bitrix24/b24ui-nuxt": "latest"
+  },
   "devDependencies": {
-    "@bitrix24/b24icons-vue": "1.0.5",
-    "@bitrix24/b24ui-nuxt": "latest",
-    "vitepress": "^1.5.0",
+    "vitepress": "^1.6.3",
     "@vueuse/core": "^13.0.0",
     "vue": "^3.5.13"
   }

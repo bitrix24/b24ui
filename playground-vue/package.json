@@ -10,6 +10,7 @@
     "typecheck": "vue-tsc -p ./tsconfig.app.json"
   },
   "dependencies": {
+    "@bitrix24/b24icons-vue": "^1.0.5",
     "@bitrix24/b24ui-nuxt": "latest",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0",

@@ -199,6 +199,10 @@ const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: N
   }
 })
 
+const getLabel = (item: NavigationMenuItem) => {
+  return get(item, props.labelKey as string)
+}
+
 const b24ui = computed(() => navigationMenu({
   orientation: props.orientation,
   contentOrientation: props.contentOrientation,
@@ -232,11 +236,11 @@ const lists = computed<NavigationMenuItem[][]>(() =>
         </slot>
 
         <span
-          v-if="(!collapsed || orientation !== 'vertical') && (get(item, props.labelKey as string) || !!slots[(item.slot ? `${item.slot}-label` : 'item-label') as keyof NavigationMenuSlots<T>])"
+          v-if="(!collapsed || orientation !== 'vertical') && (getLabel(item) || !!slots[(item.slot ? `${item.slot}-label` : 'item-label') as keyof NavigationMenuSlots<T>])"
           :class="b24ui.linkLabel({ class: props.b24ui?.linkLabel, active })"
         >
           <slot :name="((item.slot ? `${item.slot}-label` : 'item-label') as keyof NavigationMenuSlots<T>)" :item="item" :active="active" :index="index">
-            {{ get(item, props.labelKey as string) }}
+            {{ getLabel(item) }}
           </slot>
 
           <Component
@@ -318,7 +322,7 @@ const lists = computed<NavigationMenuItem[][]>(() =>
 
                       <div :class="b24ui.childLinkWrapper({ class: props.b24ui?.childLinkWrapper })">
                         <p :class="b24ui.childLinkLabel({ class: props.b24ui?.childLinkLabel, active: childActive })">
-                          {{ get(childItem, props.labelKey as string) }}
+                          {{ getLabel(childItem) }}
 
                           <Component
                             :is="typeof externalIcon === 'string' ? externalIcon : icons.external"

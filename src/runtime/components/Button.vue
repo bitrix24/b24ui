@@ -115,6 +115,13 @@ const slots = defineSlots<ButtonSlots>()
 
 const linkProps = useForwardProps(pickLinkProps(props))
 
+/**
+ * @memo Problem use at Docs (vue): omit not exports
+ */
+const proxyLinkProps = computed(() => {
+  return omit(linkProps.value, ['type', 'disabled', 'onClick'])
+})
+
 const { orientation, size: buttonSize, noSplit } = useButtonGroup<ButtonProps>(props)
 
 const loadingAutoState = ref(false)
@@ -184,7 +191,7 @@ const b24ui = computed(() => tv({
     :type="type"
     :disabled="disabled || isLoading"
     :class="b24ui.base({ class: [props.class, props.b24ui?.base] })"
-    v-bind="omit(linkProps, ['type', 'disabled', 'onClick'])"
+    v-bind="proxyLinkProps"
     custom
   >
     <B24LinkBase
