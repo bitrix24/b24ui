@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SlideoverProps } from '@bitrix24/b24ui-nuxt'
+import type { SlideoverProps } from '@bitrix24/b24ui-nuxt/types/index.ts'
 
 export interface ExampleProps {
   side?: SlideoverProps['side']
