@@ -63,7 +63,7 @@ export default {
       // 'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]'
       'z-[1]'
     ].join(' '),
-    content: 'absolute top-0 left-0 w-full',
+    content: 'absolute top-0 left-0 w-full', //  sm:w-auto
     indicator: [
       'absolute',
       'motion-safe:data-[state=visible]:animate-[fade-in_100ms_ease-out] motion-safe:data-[state=hidden]:animate-[fade-out_100ms_ease-in]',
@@ -160,7 +160,7 @@ export default {
     },
     contentOrientation: {
       horizontal: {
-        viewport: '',
+        // viewport: '',
         viewportWrapper: 'justify-center',
         content: 'motion-safe:data-[motion=from-start]:animate-[enter-from-left_200ms_ease] motion-safe:data-[motion=from-end]:animate-[enter-from-right_200ms_ease] motion-safe:data-[motion=to-start]:animate-[exit-to-left_200ms_ease] motion-safe:data-[motion=to-end]:animate-[exit-to-right_200ms_ease]',
         childLinkLabelExternalIcon: [
@@ -172,7 +172,7 @@ export default {
           'w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left)',
           '[&:has(>[data-viewport=rtl])]:left-auto [&:has(>[data-viewport=rtl])]:-right-[calc(100%-var(--reka-navigation-menu-viewport-width))]'
         ].join(' '),
-        content: '',
+        // content: '',
         childLinkLabel: [
           'text-md',
           'text-base-950 dark:text-base-50'
