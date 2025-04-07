@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.5.11](https://github.com/bitrix24/b24ui/compare/v0.5.10...v0.5.11) (2025-04-07)
+
+### Bug Fixes
+
+* **deps:** back `@nuxt/module-builder` v0.8.4
+
 ## [0.5.10](https://github.com/bitrix24/b24ui/compare/v0.5.9...v0.5.10) (2025-04-07)
 
 ### Bug Fixes
