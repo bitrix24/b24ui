@@ -5,7 +5,7 @@ export interface ExampleProps {
   side?: SlideoverProps['side']
 }
 
-withDefaults(defineProps<SlideoverProps>(), {
+withDefaults(defineProps<ExampleProps>(), {
   side: 'right' as const
 })
 </script>
