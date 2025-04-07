@@ -1,6 +1,25 @@
 # Changelog
 
-## [0.5.9](https://github.com/bitrix24/b24ui/compare/v0.5.8...v0.5.9) (2025-04-xx)
+## [0.5.10](https://github.com/bitrix24/b24ui/compare/v0.5.9...v0.5.10) (2025-04-07)
+
+### Bug Fixes
+
+* **Popover:** arrow stroke at dark
+* **InputMenu/SelectMenu:** support arbitrary `value`
+* **NavigationMenu:** improve content slot
+
+### Chore
+
+* **NavigationMenu:** remove slots types in `createReusableTemplate`
+* **module:** update metas
+* **deps:** update `@nuxt/module-builder`
+* **deps:** update all non-major dependencies
+
+### Docs
+
+* **radio-group:** items only accept strings or numbers
+
+## [0.5.9](https://github.com/bitrix24/b24ui/compare/v0.5.8...v0.5.9) (2025-04-02)
 
 ### Features
 
@@ -10,7 +29,7 @@
 
 ### Chore
 
-* **Input/InputNumber/PinInput/Textarea:** clean functions order
+* **Input/InputNumber/Textarea:** clean functions order
 * **deps:** update nuxt framework to ^3.16.2
 
 ## [0.5.8](https://github.com/bitrix24/b24ui/compare/v0.5.7...v0.5.8) (2025-04-01)
