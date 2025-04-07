@@ -191,7 +191,11 @@ const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: N
   props: {
     item: Object,
     index: Number,
-    level: Number
+    // @memo problem compile
+    level: {
+      type: Number,
+      default: 0
+    }
   }
 })
 
@@ -269,7 +273,7 @@ const lists = computed<NavigationMenuItem[][]>(() =>
     </slot>
   </DefineLinkTemplate>
 
-  <DefineItemTemplate v-slot="{ item, index, level = 0 }">
+  <DefineItemTemplate v-slot="{ item, index, level }">
     <component
       :is="(orientation === 'vertical' && item.children?.length && !collapsed) ? B24Collapsible : NavigationMenuItem"
       as="li"
@@ -289,7 +293,7 @@ const lists = computed<NavigationMenuItem[][]>(() =>
           :disabled="item.disabled"
           @select="item.onSelect"
         >
-          <B24LinkBase v-bind="slotProps" :class="b24ui.link({ class: [props.b24ui?.link, item.class], active: active || item.active, disabled: !!item.disabled, level: orientation === 'horizontal' || level > 0 })">
+          <B24LinkBase v-bind="slotProps" :class="b24ui.link({ class: [props.b24ui?.link, item.class], active: active || item.active, disabled: !!item.disabled, level: orientation === 'horizontal' || (level || 0) > 0 })">
             <ReuseLinkTemplate :item="item" :active="active || item.active" :index="index" />
           </B24LinkBase>
         </component>
@@ -342,7 +346,7 @@ const lists = computed<NavigationMenuItem[][]>(() =>
             :key="childIndex"
             :item="childItem"
             :index="childIndex"
-            :level="level + 1"
+            :level="(level || 0) + 1"
             :class="b24ui.childItem({ class: props.b24ui?.childItem })"
           />
         </ul>

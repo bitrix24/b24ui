@@ -112,7 +112,7 @@ function getOffset(index: number) {
     <slot />
 
     <B24Toast
-      v-for="(toast, index) of toasts"
+      v-for="(toast, index) in toasts"
       :key="toast.id"
       ref="refs"
       v-bind="omit(toast, ['id', 'close'])"

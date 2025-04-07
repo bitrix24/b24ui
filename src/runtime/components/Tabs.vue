@@ -111,7 +111,7 @@ const b24ui = computed(() => tabs({
     <TabsList :class="b24ui.list({ class: props.b24ui?.list })">
       <TabsIndicator :class="b24ui.indicator({ class: props.b24ui?.indicator })" />
 
-      <TabsTrigger v-for="(item, index) of items" :key="index" :value="item.value || String(index)" :disabled="item.disabled" :class="b24ui.trigger({ class: props.b24ui?.trigger })">
+      <TabsTrigger v-for="(item, index) in items" :key="index" :value="item.value || String(index)" :disabled="item.disabled" :class="b24ui.trigger({ class: props.b24ui?.trigger })">
         <slot name="leading" :item="item" :index="index">
           <Component
             :is="item.icon"
@@ -130,7 +130,7 @@ const b24ui = computed(() => tabs({
     </TabsList>
 
     <template v-if="!!content">
-      <TabsContent v-for="(item, index) of items" :key="index" :value="item.value || String(index)" :class="b24ui.content({ class: props.b24ui?.content })">
+      <TabsContent v-for="(item, index) in items" :key="index" :value="item.value || String(index)" :class="b24ui.content({ class: props.b24ui?.content })">
         <slot :name="((item.slot || 'content') as keyof TabsSlots<T>)" :item="(item as Extract<T, { slot: string; }>)" :index="index">
           {{ item.content }}
         </slot>
