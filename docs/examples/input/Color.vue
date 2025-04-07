@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import type { InputProps } from '@bitrix24/b24ui-nuxt'
+import type { InputProps } from '@bitrix24/b24ui-nuxt/types/index.ts'
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
 import Demo from './demo/Color.vue'
 

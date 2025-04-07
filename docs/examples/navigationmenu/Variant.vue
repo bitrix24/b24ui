@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import type { ChipProps } from '@bitrix24/b24ui-nuxt'
+import type { ChipProps } from '@bitrix24/b24ui-nuxt/types/index.ts'
 import theme from '#build/b24ui/navigation-menu'
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
 import Demo from './demo/Variant.vue'

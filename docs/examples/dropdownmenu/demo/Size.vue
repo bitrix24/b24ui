@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { DropdownMenuProps } from '@bitrix24/b24ui-nuxt'
+import type { DropdownMenuProps } from '@bitrix24/b24ui-nuxt/types/index.ts'
 import MenuIcon from '@bitrix24/b24icons-vue/main/MenuIcon'
 import PencilDrawIcon from '@bitrix24/b24icons-vue/actions/PencilDrawIcon'
 import CopyPlatesIcon from '@bitrix24/b24icons-vue/actions/CopyPlatesIcon'

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { TextareaProps } from '@bitrix24/b24ui-nuxt'
+import type { TextareaProps } from '@bitrix24/b24ui-nuxt/types/index.ts'
 
 export interface ExampleProps {
   color?: TextareaProps['color']

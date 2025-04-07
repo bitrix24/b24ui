@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { PopoverProps } from '@bitrix24/b24ui-nuxt'
+import type { PopoverProps } from '@bitrix24/b24ui-nuxt/types/index.ts'
 
 export interface ExampleProps {
   mode?: PopoverProps['mode']

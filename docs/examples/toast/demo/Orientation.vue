@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ToastProps } from '@bitrix24/b24ui-nuxt'
+import type { ToastProps } from '@bitrix24/b24ui-nuxt/types/index.ts'
 import Refresh9Icon from '@bitrix24/b24icons-vue/crm/Refresh9Icon'
 
 export interface ExampleProps {

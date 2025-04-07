@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AlarmIcon from '@bitrix24/b24icons-vue/main/AlarmIcon'
-import type { ToastProps } from '@bitrix24/b24ui-nuxt'
+import type { ToastProps } from '@bitrix24/b24ui-nuxt/types/index.ts'
 
 const props = defineProps<{
   color: ToastProps['color']

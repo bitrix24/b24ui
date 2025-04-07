@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ButtonProps } from '@bitrix24/b24ui-nuxt'
+import type { ButtonProps } from '@bitrix24/b24ui-nuxt/types/index.ts'
 import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
 
 export interface ExampleProps {

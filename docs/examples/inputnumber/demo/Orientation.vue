@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import type { InputNumberProps } from '@bitrix24/b24ui-nuxt'
+import type { InputNumberProps } from '@bitrix24/b24ui-nuxt/types/index.ts'
 
 export interface ExampleProps {
   orientation?: InputNumberProps['orientation']

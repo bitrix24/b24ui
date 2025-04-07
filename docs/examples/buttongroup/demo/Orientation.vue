@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ButtonGroupProps } from '@bitrix24/b24ui-nuxt'
+import type { ButtonGroupProps } from '@bitrix24/b24ui-nuxt/types/index.ts'
 import PromptIcon from '@bitrix24/b24icons-vue/main/PromptIcon'
 
 export interface ExampleProps {
