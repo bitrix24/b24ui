@@ -2,7 +2,7 @@ import { defu } from 'defu'
 import { createResolver, defineNuxtModule, addComponentsDir, addImportsDir, addVitePlugin, addPlugin, installModule, hasNuxtModule } from '@nuxt/kit'
 import { addTemplates } from './templates'
 import { defaultOptions, getDefaultUiConfig } from './defaults'
-import { version } from '../package.json'
+import { name, version } from '../package.json'
 
 export type * from './runtime/types'
 
@@ -17,10 +17,10 @@ export interface ModuleOptions {
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: '@bitrix24/b24ui-nuxt',
-    configKey: 'b24ui',
+    name,
     version,
     docs: 'https://bitrix24.github.io/b24ui/guide/installation-nuxt-app.html',
+    configKey: 'b24ui',
     compatibility: {
       nuxt: '>=3.16.0'
     }
