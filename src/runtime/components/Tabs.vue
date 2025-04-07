@@ -98,7 +98,7 @@ const slots = defineSlots<TabsSlots<T>>()
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'modelValue', 'defaultValue', 'orientation', 'activationMode', 'unmountOnHide'), emits)
 
-const getLabel = (item: DropdownMenuItem) => {
+const getLabel = (item: TabsItem) => {
   return get(item, props.labelKey as string)
 }
 
