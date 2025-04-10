@@ -42,6 +42,7 @@ interface SelectItemBase {
   type?: 'label' | 'separator' | 'item'
   value?: string | number
   disabled?: boolean
+  onSelect?(e?: Event): void
   [key: string]: any
 }
 export type SelectItem = SelectItemBase | AcceptableValue | boolean
@@ -341,6 +342,7 @@ function isSelectItem(item: SelectItem): item is SelectItemBase {
                   :class="b24ui.item({ class: props.b24ui?.item, colorItem: isSelectItem(item) ? item?.color : undefined })"
                   :disabled="isSelectItem(item) && item.disabled"
                   :value="isSelectItem(item) ? get(item, props.valueKey as string) : item"
+                  @select="isSelectItem(item) && item.onSelect?.($event)"
                 >
                   <slot name="item" :item="(item as NestedItem<T>)" :index="index">
                     <slot name="item-leading" :item="(item as NestedItem<T>)" :index="index">

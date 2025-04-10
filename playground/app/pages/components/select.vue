@@ -22,6 +22,8 @@ import CircleCheckIcon from '@bitrix24/b24icons-vue/main/CircleCheckIcon'
 import CancelIcon from '@bitrix24/b24icons-vue/button/CancelIcon'
 
 usePageMeta.setPageTitle('Select')
+
+const toast = useToast()
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
 const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof theme.variants.tagColor>
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
@@ -54,6 +56,10 @@ const chipItems = ref([
     value: 'information',
     chip: {
       color: 'primary' as const
+    },
+    onSelect(e: Event) {
+      e.preventDefault()
+      toast.add({ title: 'Action', description: 'New information', color: 'primary' as const })
     }
   },
   {
@@ -61,6 +67,9 @@ const chipItems = ref([
     value: 'online',
     chip: {
       color: 'success' as const
+    },
+    onSelect() {
+      toast.add({ title: 'Action', description: 'Online', color: 'success' as const })
     }
   },
   {
