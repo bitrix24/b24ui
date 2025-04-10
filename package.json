@@ -35,9 +35,17 @@
     "./prose/*": "./dist/runtime/prose/*",
     "./components/*": "./dist/runtime/components/*",
     "./composables/*": "./dist/runtime/composables/*",
+    "./types/": {
+      "types": "./dist/runtime/types/index.d.ts",
+      "import": "./dist/runtime/types/index.js"
+    },
     "./types/*": {
       "types": "./dist/runtime/types/*.d.ts",
       "import": "./dist/runtime/types/*.js"
+    },
+    "./utils": {
+      "types": "./dist/runtime/utils/index.d.ts",
+      "import": "./dist/runtime/utils/index.js"
     },
     "./utils/*": {
       "types": "./dist/runtime/utils/*.d.ts",
@@ -70,6 +78,12 @@
       ],
       "composables/*": [
         "./dist/runtime/composables/*"
+      ],
+      "types": [
+        "./dist/runtime/types/index.d.ts"
+      ],
+      "types/*": [
+        "./dist/runtime/types/*.d.ts"
       ],
       "utils": [
         "./dist/runtime/utils/index.d.ts"
