@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.6.0](https://github.com/bitrix24/b24ui/compare/v0.5.11...v0.6.0) (2025-04-xx)
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** update `@nuxt/module-builder`
+* **OverlayProvider:** return an overlay instance from `.open()`
+
+### Features
+
+* **InputMenu/SelectMenu:** handle `resetSearchTermOnSelect`
+* **Select:** handle `onSelect` field in items
+
+### Bug Fixes
+* **InputMenu/SelectMenu:** prevent `disabled` items to be selected
+
+### Chore
+
+* **deps:** update all non-major dependencies
+* **package:** export utils, types
+
+### Docs
+
+* **form:** improve types
+
 ## [0.5.11](https://github.com/bitrix24/b24ui/compare/v0.5.10...v0.5.11) (2025-04-07)
 
 ### Bug Fixes
