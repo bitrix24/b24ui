@@ -42,7 +42,8 @@ const itemsObj = ref([
   },
   {
     label: 'My company details',
-    value: 'my_company_details'
+    value: 'my_company_details',
+    disabled: true
   },
   {
     label: 'Access permissions',

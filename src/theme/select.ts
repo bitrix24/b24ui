@@ -77,14 +77,14 @@ export default () => {
           'cursor-pointer',
           'data-disabled:cursor-not-allowed data-disabled:opacity-75',
           'text-base-master dark:text-base-150',
-          'data-highlighted:text-base-900 dark:data-highlighted:text-base-200 data-highlighted:before:bg-base-100/50 dark:data-highlighted:before:bg-base-900',
+          'data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900',
           'data-[state=checked]:text-base-900 dark:data-[state=checked]:text-base-200 data-[state=checked]:before:bg-base-100/50 dark:data-[state=checked]:before:bg-base-900',
           'transition-colors before:transition-colors'
         ].join(' '),
         itemLeadingIcon: [
           'shrink-0 transition-colors',
           'text-base-500 dark:text-base-700',
-          'group-data-highlighted:text-base-master dark:group-data-highlighted:text-base-150',
+          'group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150',
           'group-data-[state=checked]:text-base-master dark:group-data-[state=checked]:text-base-150'
         ].join(' '),
         itemLeadingAvatar: 'shrink-0',

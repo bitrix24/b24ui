@@ -76,7 +76,8 @@ const chipItems = ref([
     value: 'online',
     chip: {
       color: 'success' as const
-    }
+    },
+    disabled: true
   },
   {
     label: 'Offline',
@@ -100,7 +101,8 @@ const statuses = [
     label: 'Todo',
     value: 'todo',
     icon: PlusInCircleIcon,
-    color: 'ai' as const
+    color: 'ai' as const,
+    disabled: true
   },
   {
     label: 'In Progress',
@@ -147,7 +149,7 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
           name="some_value"
           placeholder="Choose a value&hellip;"
           aria-label="Choose a value"
-          default-value="Apple"
+          default-value="Scripts"
           class="w-3/4"
         />
       </div>
@@ -159,7 +161,7 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
           name="some_value"
           placeholder="Choose a value&hellip;"
           aria-label="Choose a value"
-          default-value="Apple"
+          default-value="Scripts"
           class="w-3/4"
           color="success"
           underline
@@ -173,7 +175,7 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
           name="some_value"
           placeholder="Choose a value&hellip;"
           aria-label="Choose a value"
-          default-value="Apple"
+          default-value="Scripts"
           class="w-3/4"
           no-border
         />
@@ -186,7 +188,7 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
           name="some_value"
           placeholder="Choose a value&hellip;"
           aria-label="Choose a value"
-          default-value="Apple"
+          default-value="Scripts"
           class="w-3/4"
           no-padding
         />
@@ -199,7 +201,7 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
           name="some_value"
           placeholder="Choose a value&hellip;"
           aria-label="Choose a value"
-          default-value="Apple"
+          default-value="Scripts"
           class="w-3/4"
           highlight
           color="danger"

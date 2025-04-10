@@ -417,10 +417,22 @@ function onRemoveTag(event: any) {
   }
 }
 
+function onSelect(e: Event, item: InputMenuItem) {
+  if (!isInputItem(item)) {
+    return
+  }
+
+  if (item.disabled) {
+    e.preventDefault()
+    return
+  }
+
+  item.onSelect?.(e)
+}
+
 function isInputItem(item: InputMenuItem): item is _InputMenuItem {
   return typeof item === 'object' && item !== null
 }
-
 defineExpose({
   inputRef
 })
@@ -564,7 +576,7 @@ defineExpose({
                 :class="b24ui.item({ class: props.b24ui?.item, colorItem: isInputItem(item) ? item?.color : undefined })"
                 :disabled="isInputItem(item) && item.disabled"
                 :value="props.valueKey && isInputItem(item) ? get(item, String(props.valueKey)) : item"
-                @select="isInputItem(item) && item.onSelect?.($event)"
+                @select="onSelect($event, item)"
               >
                 <slot name="item" :item="(item as NestedItem<T>)" :index="index">
                   <slot name="item-leading" :item="(item as NestedItem<T>)" :index="index">
