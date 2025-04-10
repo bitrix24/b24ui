@@ -71,7 +71,7 @@ function fillState() {
   })
 }
 const toast = useToast()
-async function onSubmit(event: FormSubmitEvent<any>) {
+async function onSubmit(event: FormSubmitEvent<Schema>) {
   toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'success' })
   console.log(event.data, state)
   isShowResult.value = true
