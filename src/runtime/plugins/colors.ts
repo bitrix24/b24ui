@@ -7,9 +7,6 @@ import {
   useHead
 } from '#imports'
 
-// FIXME: https://github.com/nuxt/module-builder/issues/141#issuecomment-2078248248
-import type {} from '#app'
-
 /**
  * @see src/templates.ts -> getTemplates
  */

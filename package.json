@@ -1,7 +1,7 @@
 {
   "name": "@bitrix24/b24ui-nuxt",
   "description": "Bitrix24 UI-Kit for developing web applications REST API for NUXT & VUE",
-  "version": "0.5.11",
+  "version": "0.6.0",
   "packageManager": "pnpm@10.7.1",
   "repository": {
     "type": "git",
@@ -12,25 +12,21 @@
   "license": "MIT",
   "exports": {
     ".": {
-      "types": "./dist/module.d.ts",
+      "types": "./dist/module.d.mts",
       "style": "./dist/runtime/index.css",
-      "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs"
+      "import": "./dist/module.mjs"
     },
     "./unplugin": {
-      "types": "./dist/unplugin.d.ts",
-      "import": "./dist/unplugin.mjs",
-      "require": "./dist/unplugin.cjs"
+      "types": "./dist/unplugin.d.mts",
+      "import": "./dist/unplugin.mjs"
     },
     "./meta": {
-      "types": "./dist/meta.d.ts",
-      "import": "./dist/meta.mjs",
-      "require": "./dist/meta.cjs"
+      "types": "./dist/meta.d.mts",
+      "import": "./dist/meta.mjs"
     },
     "./vite": {
-      "types": "./dist/vite.d.ts",
-      "import": "./dist/vite.mjs",
-      "require": "./dist/vite.cjs"
+      "types": "./dist/vite.d.mts",
+      "import": "./dist/vite.mjs"
     },
     "./vue-plugin": {
       "types": "./vue-plugin.d.ts"
@@ -52,7 +48,7 @@
       "import": "./dist/runtime/locale/index.js"
     }
   },
-  "dd_typesVersions": {
+  "typesVersions": {
     "*": {
       ".": [
         "./dist/module.d.mts"
@@ -94,9 +90,7 @@
     "bitrix24-ui": "./cli/index.mjs"
   },
   "style": "./dist/runtime/index.css",
-  "dd_main": "./dist/module.mjs",
-  "main": "./dist/module.cjs",
-  "types": "./dist/types.d.ts",
+  "main": "./dist/module.mjs",
   "files": [
     "README.md",
     "LICENSE",
@@ -179,7 +173,7 @@
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^1.3.0",
-    "@nuxt/module-builder": "^0.8.4",
+    "@nuxt/module-builder": "^1.0.1",
     "@nuxt/test-utils": "^3.17.2",
     "@types/canvas-confetti": "^1.9.0",
     "@vue/test-utils": "^2.4.6",
@@ -191,9 +185,7 @@
     "vitepress": "^1.5.0",
     "vitest": "^3.1.1",
     "vitest-environment-nuxt": "^1.0.1",
-    "vue-tsc": "^2.2.0",
-    "@nuxt/cli": "^3.24.1",
-    "typescript": "^5.8.3"
+    "vue-tsc": "^2.2.0"
   },
   "peerDependencies": {
     "joi": "^17.13.0",
