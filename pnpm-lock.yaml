@@ -50,13 +50,13 @@ importers:
         specifier: ^8.21.2
         version: 8.21.2(vue@3.5.13(typescript@5.8.3))
       '@unhead/vue':
-        specifier: ^2.0.5
+        specifier: ^2.0.3
         version: 2.0.5(vue@3.5.13(typescript@5.8.3))
       '@vueuse/core':
-        specifier: ^13.1.0
+        specifier: ^13.0.0
         version: 13.1.0(vue@3.5.13(typescript@5.8.3))
       '@vueuse/integrations':
-        specifier: ^13.1.0
+        specifier: ^13.0.0
         version: 13.1.0(change-case@5.4.4)(focus-trap@7.6.4)(fuse.js@7.1.0)(vue@3.5.13(typescript@5.8.3))
       canvas-confetti:
         specifier: ^1.9.3
@@ -192,8 +192,8 @@ importers:
         specifier: ^3.16.2
         version: 3.16.2(@parcel/watcher@2.5.1)(@types/node@22.13.13)(db0@0.3.1)(eslint@9.24.0(jiti@2.4.2))(ioredis@5.6.0)(lightningcss@1.29.2)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.34.9)(terser@5.39.0)(typescript@5.8.3)(vite@6.2.5(@types/node@22.13.13)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0))(vue-tsc@2.2.0(typescript@5.8.3))(yaml@2.7.0)
       nuxt-component-meta:
-        specifier: ^0.10.0
-        version: 0.10.0(magicast@0.3.5)
+        specifier: ^0.10.1
+        version: 0.10.1(magicast@0.3.5)
       vitepress:
         specifier: ^1.5.0
         version: 1.6.3(@algolia/client-search@5.21.0)(@types/node@22.13.13)(change-case@5.4.4)(fuse.js@7.1.0)(lightningcss@1.29.2)(postcss@8.5.3)(search-insights@2.17.3)(terser@5.39.0)(typescript@5.8.3)
@@ -3742,8 +3742,8 @@ packages:
   nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
 
-  nuxt-component-meta@0.10.0:
-    resolution: {integrity: sha512-iq7hbSnfp4Ff/PTMYBF8pYabTQuF3u7HVN66Kb3hOnrnaPEdXEn/q6HkAn5V8UjOVSgXYpvycM0wSnwyADYNVA==}
+  nuxt-component-meta@0.10.1:
+    resolution: {integrity: sha512-+e01YjZ9hojroO88dvqiOs/Yh4ff/kbXYcfj70l8KhMpmXITz2GBffT9HqwzFdcTm7iE2C422alG42p7yir2nA==}
     hasBin: true
 
   nuxt@3.16.2:
@@ -8979,7 +8979,7 @@ snapshots:
     dependencies:
       boolbase: 1.0.0
 
-  nuxt-component-meta@0.10.0(magicast@0.3.5):
+  nuxt-component-meta@0.10.1(magicast@0.3.5):
     dependencies:
       '@nuxt/kit': 3.16.2(magicast@0.3.5)
       citty: 0.1.6
