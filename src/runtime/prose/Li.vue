@@ -3,7 +3,7 @@ import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/prose/li'
 import type { ComponentConfig } from '../types/utils'
 
-const ProseLi = ComponentConfig<typeof theme, AppConfig, 'li', 'b24ui.prose'>
+type ProseLi = ComponentConfig<typeof theme, AppConfig, 'li', 'b24ui.prose'>
 
 export interface ProseLiProps {
   class?: any

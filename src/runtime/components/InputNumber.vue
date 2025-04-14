@@ -2,7 +2,6 @@
 import type { NumberFieldRootProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/input-number'
-import { tv } from '../utils/tv'
 import type { ButtonProps, IconComponent } from '../types'
 import type { ComponentConfig } from '../types/utils'
 

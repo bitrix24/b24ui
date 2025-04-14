@@ -3,7 +3,6 @@
 import type { DropdownMenuContentProps as RekaDropdownMenuContentProps, DropdownMenuContentEmits as RekaDropdownMenuContentEmits } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import type theme from '#build/b24ui/dropdown-menu'
-import { tv } from '../utils/tv'
 import type { KbdProps, AvatarProps, DropdownMenuItem, DropdownMenuSlots, IconComponent } from '../types'
 import type { ArrayOrNested, NestedItem, ComponentConfig } from '../types/utils'
 
@@ -57,6 +56,7 @@ const slots = defineSlots<DropdownMenuContentSlots<T>>()
 
 const { dir } = useLocale()
 // const appConfig = useAppConfig()
+
 const contentProps = useForwardPropsEmits(reactiveOmit(props, 'sub', 'items', 'portal', 'labelKey', 'checkedIcon', 'externalIcon', 'class', 'b24ui', 'b24uiOverride'), emits)
 const proxySlots = omit(slots, ['default'])
 const getLabel = (item: DropdownMenuItem) => {

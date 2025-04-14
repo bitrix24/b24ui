@@ -61,7 +61,7 @@ const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffse
 const arrowProps = toRef(() => props.arrow as TooltipArrowProps)
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(b24ui?.tooltip || {}) })({
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.tooltip || {}) })({
   side: contentProps.value.side
 }))
 </script>

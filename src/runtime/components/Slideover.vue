@@ -76,7 +76,7 @@ export interface SlideoverSlots {
   header(props?: {}): any
   title(props?: {}): any
   description(props?: {}): any
-  close(props: { ui: { [K in keyof Required<Slideover['slots']>]: (props?: Record<string, any>) => string } }): any
+  close(props: { b24ui: { [K in keyof Required<Slideover['slots']>]: (props?: Record<string, any>) => string } }): any
   body(props?: {}): any
   footer(props?: {}): any
 }

@@ -29,7 +29,7 @@ export interface DescriptionListItem {
    */
   actions?: ButtonProps[]
   class?: any
-  b24ui?: Partial<typeof descriptionList.slots>
+  b24ui?: DescriptionList['slots']
   [key: string]: any
 }
 

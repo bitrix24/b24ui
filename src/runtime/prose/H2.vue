@@ -7,7 +7,7 @@ type ProseH2 = ComponentConfig<typeof theme, AppConfig, 'h2', 'b24ui.prose'>
 
 export interface ProseH2Props {
   class?: any
-  b24ui?: ProseH2['ProseH2']
+  b24ui?: ProseH2['slots']
 }
 
 export interface ProseH2Slots {

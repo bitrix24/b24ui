@@ -1,9 +1,7 @@
 <script lang="ts">
 import type { DialogRootProps, DialogRootEmits, DialogContentProps, DialogContentEmits } from 'reka-ui'
-import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/modal'
-import { tv } from '../utils/tv'
 import type { ButtonProps, IconComponent } from '../types'
 import type { EmitsToProps, ComponentConfig } from '../types/utils'
 

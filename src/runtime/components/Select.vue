@@ -16,7 +16,7 @@ interface SelectItemBase {
    */
   icon?: IconComponent
   avatar?: AvatarProps
-  color?: SelectVariants['color']
+  color?: Select['variants']['color']
   chip?: ChipProps
   /**
    * The item type.
