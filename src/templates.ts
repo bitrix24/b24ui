@@ -58,12 +58,13 @@ export function getTemplates(options: ModuleOptions) {
         // function generateVariantDeclarations(variants: string[]) { ////
 
         // For local development, import directly from theme
-        if (process.argv.at(-1) === '--uiDev') {
+        const isUiDev = true
+        if (isUiDev) {
           const templatePath = fileURLToPath(new URL(`./theme/${kebabCase(component)}`, import.meta.url))
           return [
             `import template from ${JSON.stringify(templatePath)}`,
             ...generateVariantDeclarations(variants, result),
-            `const result = typeof template === 'function' ? template(${JSON.stringify(options, null, 2)}) : template`,
+            `const result = typeof template === 'function' ? (template as Function)(${JSON.stringify(options, null, 2)}) : template`,
             `const theme = ${json}`,
             `export default result as typeof theme`
           ].join('\n\n')
