@@ -554,7 +554,12 @@ export default {
     },
     {
       normalCase: true,
-      size: ['md', 'lg'],
+      size: 'md',
+      class: 'text-md'
+    },
+    {
+      normalCase: true,
+      size: 'lg',
       class: 'text-md'
     }
     // endregion ////
