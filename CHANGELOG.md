@@ -1,6 +1,20 @@
 # Changelog
 
-## [0.6.0](https://github.com/bitrix24/b24ui/compare/v0.5.11...v0.6.0) (2025-04-xx)
+## [0.6.1](https://github.com/bitrix24/b24ui/compare/v0.6.0...v0.6.1) (2025-04-14)
+
+### Features
+
+* **Form:** export loading state
+* **Tabs:** add `list-leading` and `list-trailing` slots
+* **components:** refactor types after `@nuxt/module-builder` upgrade
+* **types:** handle `ClassValue` in `b24ui` prop
+
+### Chore
+
+* run test suite on **windows**
+* **deps:** update all non-major dependencies
+
+## [0.6.0](https://github.com/bitrix24/b24ui/compare/v0.5.11...v0.6.0) (2025-04-10)
 
 ### ⚠ BREAKING CHANGES
 
