@@ -6,6 +6,7 @@ import ExampleCard from '../../components/ExampleCard.vue'
 // import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import Shining2Icon from '@bitrix24/b24icons-vue/main/Shining2Icon'
 import ChevronDownIcon from '@bitrix24/b24icons-vue/actions/ChevronDownIcon'
+import Refresh5Icon from '@bitrix24/b24icons-vue/actions/Refresh5Icon'
 
 usePageMeta.setPageTitle('Tabs')
 const colors = Object.keys(theme.variants.color)
@@ -110,6 +111,16 @@ const items = [
         </template>
         <template #custom="{ item }">
           <span class="text-red-500">Custom: {{ item.content }}</span>
+        </template>
+
+        <template #list-trailing>
+          <B24Button
+            :size="size"
+            :icon="Refresh5Icon"
+            color="link"
+            depth="light"
+            class="ml-2"
+          />
         </template>
       </B24Tabs>
     </ExampleCard>

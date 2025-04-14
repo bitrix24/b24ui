@@ -72,10 +72,12 @@ export interface TabsEmits extends TabsRootEmits<string | number> {}
 type SlotProps<T extends TabsItem> = (props: { item: T, index: number }) => any
 
 export type TabsSlots<T extends TabsItem = TabsItem> = {
-  leading: SlotProps<T>
-  default: SlotProps<T>
-  trailing: SlotProps<T>
-  content: SlotProps<T>
+  'leading': SlotProps<T>
+  'default': SlotProps<T>
+  'trailing': SlotProps<T>
+  'content': SlotProps<T>
+  'list-leading': (props?: {}) => any
+  'list-trailing': (props?: {}) => any
 } & DynamicSlots<T, undefined, { index: number }>
 </script>
 
@@ -115,6 +117,8 @@ const b24ui = computed(() => tabs({
     <TabsList :class="b24ui.list({ class: props.b24ui?.list })">
       <TabsIndicator :class="b24ui.indicator({ class: props.b24ui?.indicator })" />
 
+      <slot name="list-leading" />
+
       <TabsTrigger v-for="(item, index) in items" :key="index" :value="item.value || String(index)" :disabled="item.disabled" :class="b24ui.trigger({ class: props.b24ui?.trigger })">
         <slot name="leading" :item="item" :index="index">
           <Component
@@ -131,6 +135,8 @@ const b24ui = computed(() => tabs({
 
         <slot name="trailing" :item="item" :index="index" />
       </TabsTrigger>
+
+      <slot name="list-trailing" />
     </TabsList>
 
     <template v-if="!!content">
