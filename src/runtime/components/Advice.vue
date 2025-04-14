@@ -1,17 +1,11 @@
 <script lang="ts">
-import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/advice'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
-import { tv } from '../utils/tv'
 import type { AvatarProps } from '../types'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigAdvice = _appConfig as AppConfig & { b24ui: { advice: Partial<typeof theme> } }
-
-const advice = tv({ extend: tv(theme), ...(appConfigAdvice.b24ui?.advice || {}) })
-
-type AdviceVariants = VariantProps<typeof advice>
+type Advice = ComponentConfig<typeof theme, AppConfig, 'advice'>
 
 export interface AdviceProps extends Omit<UseComponentIconsProps, 'loading' | 'trailing' | 'trailingIcon'> {
   /**
@@ -23,9 +17,9 @@ export interface AdviceProps extends Omit<UseComponentIconsProps, 'loading' | 't
   /**
    * @defaultValue 'bottom'
    */
-  angle?: AdviceVariants['angle']
+  angle?: Advice['variants']['angle']
   class?: any
-  b24ui?: Partial<typeof advice.slots>
+  b24ui?: Advice['slots']
 }
 
 export interface AdviceSlots {
@@ -37,7 +31,9 @@ export interface AdviceSlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
+import { useAppConfig } from '#imports'
 import { useComponentIcons } from '../composables/useComponentIcons'
+import { tv } from '../utils/tv'
 import B24Avatar from './Avatar.vue'
 import PersonIcon from '@bitrix24/b24icons-vue/main/PersonIcon'
 
@@ -49,11 +45,13 @@ const props = withDefaults(defineProps<AdviceProps>(), {
 })
 const slots = defineSlots<AdviceSlots>()
 
+const appConfig = useAppConfig() as Advice['AppConfig']
+
 const { isLeading, leadingIconName } = useComponentIcons(
   computed(() => ({ ...props, loading: false }))
 )
 
-const b24ui = computed(() => advice({
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.advice || {}) })({
   angle: props.angle
 }))
 </script>

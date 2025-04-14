@@ -1,34 +1,36 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/prose/strong'
-import { tv } from '../utils/tv'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigProseStrong = _appConfig as AppConfig & { b24ui: { prose: { strong: Partial<typeof theme> } } }
+type ProseStrong = ComponentConfig<typeof theme, AppConfig, 'strong', 'b24ui.prose'>
 
-const proseStrong = tv({ extend: tv(theme), ...(appConfigProseStrong.b24ui?.prose?.strong || {}) })
-
-export interface proseStrongProps {
+export interface ProseStrongProps {
   class?: any
-  b24ui?: Partial<typeof proseStrong.slots>
+  b24ui?: ProseStrong['slots']
 }
 
-export interface proseStrongSlots {
+export interface ProseStrongSlots {
   default(props?: {}): any
 }
 </script>
 
 <script setup lang="ts">
-const props = defineProps<proseStrongProps>()
+import { computed } from 'vue'
+import { useAppConfig } from '#imports'
+import { tv } from '../utils/tv'
+
+const props = defineProps<ProseStrongProps>()
+defineSlots<ProseStrongSlots>()
+
+const appConfig = useAppConfig() as ProseStrong['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = proseStrong({})
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.strong || {}) })())
 </script>
 
 <template>
-  <strong
-    :class="b24ui.base({ class: [props.class, props.b24ui?.base] })"
-  >
+  <strong :class="b24ui.base({ class: [props.class, props.b24ui?.base] })">
     <slot />
   </strong>
 </template>

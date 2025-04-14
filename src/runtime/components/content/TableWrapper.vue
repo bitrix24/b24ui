@@ -1,15 +1,9 @@
 <script lang="ts">
-import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/content/table-wrapper'
-import { tv } from '../../utils/tv'
+import type { ComponentConfig } from '../../types/utils'
 
-const appConfigTableWrapper = _appConfig as AppConfig & { b24ui: { content: { tableWrapper: Partial<typeof theme> } } }
-
-const tableWrapper = tv({ extend: tv(theme), ...(appConfigTableWrapper.b24ui?.content?.tableWrapper || {}) })
-
-type TableWrapperVariants = VariantProps<typeof tableWrapper>
+type TableWrapper = ComponentConfig<typeof theme, AppConfig, 'tableWrapper', 'b24ui.content'>
 
 export interface TableWrapperProps {
   /**
@@ -20,7 +14,7 @@ export interface TableWrapperProps {
   /**
    * @defaultValue 'md'
    */
-  size?: TableWrapperVariants['size']
+  size?: TableWrapper['variants']['size']
   /**
    * @defaultValue false
    */
@@ -50,7 +44,7 @@ export interface TableWrapperProps {
    */
   scrollbarThin?: boolean
   class?: any
-  b24ui?: Partial<typeof tableWrapper.slots>
+  b24ui?: TableWrapper['slots']
 }
 
 export interface TableWrapperSlots {
@@ -61,6 +55,8 @@ export interface TableWrapperSlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
+import { useAppConfig } from '#imports'
+import { tv } from '../../utils/tv'
 
 defineOptions({ inheritAttrs: false })
 
@@ -69,7 +65,9 @@ const props = withDefaults(defineProps<TableWrapperProps>(), {
   scrollbarThin: true
 })
 
-const b24ui = computed(() => tableWrapper({
+const appConfig = useAppConfig() as TableWrapper['AppConfig']
+
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.content?.tableWrapper || {}) })({
   size: props.size,
   rounded: Boolean(props.rounded),
   zebra: Boolean(props.zebra),

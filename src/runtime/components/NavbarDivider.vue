@@ -1,12 +1,9 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/navbar-divider'
-import { tv } from '../utils/tv'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigNavbarDivider = _appConfig as AppConfig & { b24ui: { navbarDivider: Partial<typeof theme> } }
-
-const navbarDivider = tv({ extend: tv(theme), ...(appConfigNavbarDivider.b24ui?.navbarDivider || {}) })
+type NavbarDivider = ComponentConfig<typeof theme, AppConfig, 'navbarDivider'>
 
 export interface NavbarDividerProps {
   /**
@@ -15,7 +12,7 @@ export interface NavbarDividerProps {
    */
   as?: any
   class?: any
-  b24ui?: Partial<typeof navbarDivider.slots>
+  b24ui?: NavbarDivider['slots']
 }
 
 export interface NavbarDividerSlots {
@@ -24,15 +21,20 @@ export interface NavbarDividerSlots {
 </script>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
+import { useAppConfig } from '#imports'
+import { tv } from '../utils/tv'
 
 const props = withDefaults(defineProps<NavbarDividerProps>(), {
   as: 'div'
 })
 defineSlots<NavbarDividerSlots>()
 
+const appConfig = useAppConfig() as NavbarDivider['AppConfig']
+
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = navbarDivider()
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.navbarDivider || {}) })())
 </script>
 
 <template>

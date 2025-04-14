@@ -1,12 +1,13 @@
 <!-- eslint-disable vue/block-tag-newline -->
 <script lang="ts">
 import type { DropdownMenuContentProps as RekaDropdownMenuContentProps, DropdownMenuContentEmits as RekaDropdownMenuContentEmits } from 'reka-ui'
-import theme from '#build/b24ui/dropdown-menu'
+import type { AppConfig } from '@nuxt/schema'
+import type theme from '#build/b24ui/dropdown-menu'
 import { tv } from '../utils/tv'
 import type { KbdProps, AvatarProps, DropdownMenuItem, DropdownMenuSlots, IconComponent } from '../types'
-import type { ArrayOrNested, NestedItem } from '../types/utils'
+import type { ArrayOrNested, NestedItem, ComponentConfig } from '../types/utils'
 
-const _dropdownMenu = tv(theme)()
+type DropdownMenu = ComponentConfig<typeof theme, AppConfig, 'dropdownMenu'>
 
 interface DropdownMenuContentProps<T extends ArrayOrNested<DropdownMenuItem>> extends Omit<RekaDropdownMenuContentProps, 'as' | 'asChild' | 'forceMount'> {
   items?: T
@@ -22,8 +23,8 @@ interface DropdownMenuContentProps<T extends ArrayOrNested<DropdownMenuItem>> ex
    */
   externalIcon?: boolean | IconComponent
   class?: any
-  b24ui: typeof _dropdownMenu
-  b24uiOverride?: any
+  b24ui: { [K in keyof Required<DropdownMenu['slots']>]: (props?: Record<string, any>) => string }
+  b24uiOverride?: DropdownMenu['slots']
 }
 
 interface DropdownMenuContentEmits extends RekaDropdownMenuContentEmits {}
@@ -38,6 +39,7 @@ import { computed } from 'vue'
 import { DropdownMenu } from 'reka-ui/namespaced'
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit, createReusableTemplate } from '@vueuse/core'
+// import { useAppConfig } from '#imports'
 import { useLocale } from '../composables/useLocale'
 import { omit, get, isArrayOfArray } from '../utils'
 import { pickLinkProps } from '../utils/link'
@@ -54,6 +56,7 @@ const emits = defineEmits<DropdownMenuContentEmits>()
 const slots = defineSlots<DropdownMenuContentSlots<T>>()
 
 const { dir } = useLocale()
+// const appConfig = useAppConfig()
 const contentProps = useForwardPropsEmits(reactiveOmit(props, 'sub', 'items', 'portal', 'labelKey', 'checkedIcon', 'externalIcon', 'class', 'b24ui', 'b24uiOverride'), emits)
 const proxySlots = omit(slots, ['default'])
 const getLabel = (item: DropdownMenuItem) => {

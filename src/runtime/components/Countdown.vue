@@ -1,17 +1,11 @@
 <script lang="ts">
-import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/countdown'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
-import { tv } from '../utils/tv'
 import type { AvatarProps } from '../types'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigCountdown = _appConfig as AppConfig & { b24ui: { countdown: Partial<typeof theme> } }
-
-const countdown = tv({ extend: tv(theme), ...(appConfigCountdown.b24ui?.countdown || {}) })
-
-type CountdownVariants = VariantProps<typeof countdown>
+type Countdown = ComponentConfig<typeof theme, AppConfig, 'countdown'>
 
 export interface CountdownData {
   days: number
@@ -35,7 +29,7 @@ export interface CountdownProps extends Omit<UseComponentIconsProps, 'loading' |
   /**
    * @defaultValue 'md'
    */
-  size?: CountdownVariants['size']
+  size?: Countdown['variants']['size']
   /**
    * Emits the countdown events
    * @defaultValue true
@@ -72,7 +66,7 @@ export interface CountdownProps extends Omit<UseComponentIconsProps, 'loading' |
    */
   now?: () => number
   class?: any
-  b24ui?: Partial<typeof countdown.slots>
+  b24ui?: Countdown['slots']
 }
 
 export interface CountdownEmits {
@@ -88,8 +82,10 @@ export interface CountdownSlots {
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue'
-import { useComponentIcons } from '../composables/useComponentIcons'
 import { Primitive } from 'reka-ui'
+import { useAppConfig } from '#imports'
+import { useComponentIcons } from '../composables/useComponentIcons'
+import { tv } from '../utils/tv'
 import B24Avatar from './Avatar.vue'
 
 const MILLISECONDS_SECOND = 1000
@@ -118,8 +114,9 @@ defineSlots<CountdownSlots>()
 const { isLeading, leadingIconName } = useComponentIcons(
   computed(() => ({ ...props, loading: false }))
 )
+const appConfig = useAppConfig() as Countdown['AppConfig']
 
-const b24ui = computed(() => countdown({
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.countdown || {}) })({
   size: props.size,
   leading: Boolean(isLeading.value),
   useCircle: Boolean(props.useCircle)

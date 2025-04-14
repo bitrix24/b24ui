@@ -1,17 +1,11 @@
 <script lang="ts">
-import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/badge'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
-import { tv } from '../utils/tv'
 import type { AvatarProps } from '../types'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigBadge = _appConfig as AppConfig & { b24ui: { badge: Partial<typeof theme> } }
-
-const badge = tv({ extend: tv(theme), ...(appConfigBadge.b24ui?.badge || {}) })
-
-type BadgeVariants = VariantProps<typeof badge>
+type Badge = ComponentConfig<typeof theme, AppConfig, 'badge'>
 
 export interface BadgeProps extends Omit<UseComponentIconsProps, 'loading' | 'loadingIcon'> {
   /**
@@ -23,15 +17,15 @@ export interface BadgeProps extends Omit<UseComponentIconsProps, 'loading' | 'lo
   /**
    * @defaultValue 'default'
    */
-  color?: BadgeVariants['color']
+  color?: Badge['variants']['color']
   /**
    * @defaultValue 'normal'
    */
-  depth?: BadgeVariants['depth']
+  depth?: Badge['variants']['depth']
   /**
    * @defaultValue 'md'
    */
-  size?: BadgeVariants['size']
+  size?: Badge['variants']['size']
   /**
    * Shows 'underline' on hover
    * @defaultValue false
@@ -49,7 +43,7 @@ export interface BadgeProps extends Omit<UseComponentIconsProps, 'loading' | 'lo
    */
   useFill?: boolean
   class?: any
-  b24ui?: Partial<typeof badge.slots>
+  b24ui?: Badge['slots']
 }
 
 export interface BadgeSlots {
@@ -62,8 +56,10 @@ export interface BadgeSlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
+import { useAppConfig } from '#imports'
 import { useButtonGroup } from '../composables/useButtonGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
+import { tv } from '../utils/tv'
 import Cross20Icon from '@bitrix24/b24icons-vue/actions/Cross20Icon'
 import B24Avatar from './Avatar.vue'
 
@@ -72,6 +68,8 @@ const props = withDefaults(defineProps<BadgeProps>(), {
 })
 
 defineSlots<BadgeSlots>()
+
+const appConfig = useAppConfig() as Badge['AppConfig']
 
 async function onCloseClickWrapper(event: MouseEvent) {
   const callbacks = Array.isArray(props.onCloseClick) ? props.onCloseClick : [props.onCloseClick]
@@ -83,7 +81,7 @@ async function onCloseClickWrapper(event: MouseEvent) {
 const { orientation, size: buttonGroupSize } = useButtonGroup<BadgeProps>(props)
 const { isLeading, leadingIconName } = useComponentIcons(props)
 
-const b24ui = computed(() => badge({
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.badge || {}) })({
   color: props.color,
   depth: props.depth,
   size: buttonGroupSize.value || props.size,

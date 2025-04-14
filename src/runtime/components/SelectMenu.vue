@@ -1,27 +1,13 @@
 <script lang="ts">
-import type { VariantProps } from 'tailwind-variants'
 import type { ComboboxRootProps, ComboboxRootEmits, ComboboxContentProps, ComboboxContentEmits, ComboboxArrowProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/select-menu'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
 import { tv } from '../utils/tv'
 import type { AvatarProps, ChipProps, InputProps, IconComponent } from '../types'
-import type {
-  AcceptableValue,
-  ArrayOrNested,
-  GetItemKeys,
-  GetItemValue,
-  GetModelValue,
-  GetModelValueEmits,
-  NestedItem,
-  PartialString,
-  EmitsToProps
-} from '../types/utils'
+import type { AcceptableValue, ArrayOrNested, GetItemKeys, GetItemValue, GetModelValue, GetModelValueEmits, NestedItem, EmitsToProps, ComponentConfig } from '../types/utils'
 
-const appConfigSelectMenu = _appConfig as AppConfig & { b24ui: { selectMenu: Partial<typeof theme> } }
-
-const selectMenu = tv({ extend: tv(theme), ...(appConfigSelectMenu.b24ui?.selectMenu || {}) })
+type SelectMenu = ComponentConfig<typeof theme, AppConfig, 'selectMenu'>
 
 interface _SelectMenuItem {
   label?: string
@@ -31,7 +17,7 @@ interface _SelectMenuItem {
    */
   icon?: IconComponent
   avatar?: AvatarProps
-  color?: SelectMenuVariants['color']
+  color?: SelectMenu['variants']['color']
   chip?: ChipProps
   /**
    * The item type.
@@ -43,8 +29,6 @@ interface _SelectMenuItem {
   [key: string]: any
 }
 export type SelectMenuItem = _SelectMenuItem | AcceptableValue | boolean
-
-type SelectMenuVariants = VariantProps<typeof selectMenu>
 
 export interface SelectMenuProps<T extends ArrayOrNested<SelectMenuItem> = ArrayOrNested<SelectMenuItem>, VK extends GetItemKeys<T> | undefined = undefined, M extends boolean = false> extends Pick<ComboboxRootProps<T>, 'open' | 'defaultOpen' | 'disabled' | 'name' | 'resetSearchTermOnBlur' | 'resetSearchTermOnSelect' | 'highlightOnHover'>, UseComponentIconsProps {
   id?: string
@@ -60,11 +44,11 @@ export interface SelectMenuProps<T extends ArrayOrNested<SelectMenuItem> = Array
   /**
    * @defaultValue 'primary'
    */
-  color?: SelectMenuVariants['color']
+  color?: SelectMenu['variants']['color']
   /**
    * @defaultValue 'md'
    */
-  size?: SelectMenuVariants['size']
+  size?: SelectMenu['variants']['size']
   /**
    * Removes padding from input
    * @defaultValue false
@@ -89,7 +73,7 @@ export interface SelectMenuProps<T extends ArrayOrNested<SelectMenuItem> = Array
   /**
    * @defaultValue 'primary'
    */
-  tagColor?: SelectMenuVariants['tagColor']
+  tagColor?: SelectMenu['variants']['tagColor']
   /**
    * @defaultValue false
    */
@@ -166,7 +150,7 @@ export interface SelectMenuProps<T extends ArrayOrNested<SelectMenuItem> = Array
    */
   ignoreFilter?: boolean
   class?: any
-  b24ui?: PartialString<typeof selectMenu.slots>
+  b24ui?: SelectMenu['slots']
 }
 
 export type SelectMenuEmits<A extends ArrayOrNested<SelectMenuItem>, VK extends GetItemKeys<A> | undefined, M extends boolean> = Pick<ComboboxRootEmits, 'update:open'> & {
@@ -189,9 +173,20 @@ export interface SelectMenuSlots<
   M extends boolean = false,
   T extends NestedItem<A> = NestedItem<A>
 > {
-  'leading'(props: { modelValue?: GetModelValue<A, VK, M>, open: boolean, b24ui: ReturnType<typeof selectMenu> }): any
-  'default'(props: { modelValue?: GetModelValue<A, VK, M>, open: boolean }): any
-  'trailing'(props: { modelValue?: GetModelValue<A, VK, M>, open: boolean, b24ui: ReturnType<typeof selectMenu> }): any
+  'leading'(props: {
+    modelValue?: GetModelValue<A, VK, M>
+    open: boolean
+    b24ui: { [K in keyof Required<SelectMenu['slots']>]: (props?: Record<string, any>) => string }
+  }): any
+  'default'(props: {
+    modelValue?: GetModelValue<A, VK, M>
+    open: boolean
+  }): any
+  'trailing'(props: {
+    modelValue?: GetModelValue<A, VK, M>
+    open: boolean
+    b24ui: { [K in keyof Required<SelectMenu['slots']>]: (props?: Record<string, any>) => string }
+  }): any
   'empty'(props: { searchTerm?: string }): any
   'item': SlotProps<T>
   'item-leading': SlotProps<T>
@@ -225,11 +220,13 @@ import {
 } from 'reka-ui'
 import { defu } from 'defu'
 import { reactivePick, createReusableTemplate } from '@vueuse/core'
+import { useAppConfig } from '#imports'
 import { useButtonGroup } from '../composables/useButtonGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
 import { useLocale } from '../composables/useLocale'
 import { compare, get, isArrayOfArray } from '../utils'
+import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Avatar from './Avatar.vue'
 import B24Chip from './Chip.vue'
@@ -250,6 +247,7 @@ const slots = defineSlots<SelectMenuSlots<T, VK, M>>()
 const searchTerm = defineModel<string>('searchTerm', { default: '' })
 
 const { t } = useLocale()
+const appConfig = useAppConfig() as SelectMenu['AppConfig']
 const { contains } = useFilter({ sensitivity: 'base' })
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'modelValue', 'defaultValue', 'open', 'defaultOpen', 'required', 'multiple', 'resetSearchTermOnBlur', 'resetSearchTermOnSelect', 'highlightOnHover'), emits)
@@ -272,7 +270,7 @@ const isTag = computed(() => {
   return props.tag
 })
 
-const b24ui = computed(() => selectMenu({
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.selectMenu || {}) })({
   color: color.value,
   size: selectSize?.value,
   loading: props.loading,

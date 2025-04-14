@@ -1,32 +1,36 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/prose/em'
-import { tv } from '../utils/tv'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigProseEm = _appConfig as AppConfig & { b24ui: { prose: { em: Partial<typeof theme> } } }
+type ProseEm = ComponentConfig<typeof theme, AppConfig, 'em', 'b24ui.prose'>
 
-const proseEm = tv({ extend: tv(theme), ...(appConfigProseEm.b24ui?.prose?.em || {}) })
-
-export interface proseEmProps {
+export interface ProseEmProps {
   class?: any
-  b24ui?: Partial<typeof proseEm.slots>
+  b24ui?: ProseEm['slots']
 }
 
-export interface proseEmSlots {
+export interface ProseEmSlots {
   default(props?: {}): any
 }
 </script>
 
 <script setup lang="ts">
-const props = defineProps<proseEmProps>()
+import { computed } from 'vue'
+import { useAppConfig } from '#imports'
+import { tv } from '../utils/tv'
+
+const props = defineProps<ProseEmProps>()
+defineSlots<ProseEmSlots>()
+
+const appConfig = useAppConfig() as ProseEm['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = proseEm({})
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.em || {}) })())
 </script>
 
 <template>
-  <em
-    :class="b24ui.base({ class: [props.class, props.b24ui?.base] })"
-  ><slot /></em>
+  <em :class="b24ui.base({ class: [props.class, props.b24ui?.base] })">
+    <slot />
+  </em>
 </template>

@@ -1,12 +1,9 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/sidebar-section'
-import { tv } from '../utils/tv'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigSidebarSection = _appConfig as AppConfig & { b24ui: { sidebarSection: Partial<typeof theme> } }
-
-const sidebarSection = tv({ extend: tv(theme), ...(appConfigSidebarSection.b24ui?.sidebarSection || {}) })
+type SidebarSection = ComponentConfig<typeof theme, AppConfig, 'sidebarSection'>
 
 export interface SidebarSectionProps {
   /**
@@ -15,7 +12,7 @@ export interface SidebarSectionProps {
    */
   as?: any
   class?: any
-  b24ui?: Partial<typeof sidebarSection.slots>
+  b24ui?: SidebarSection['slots']
 }
 
 export interface SidebarSectionSlots {
@@ -24,15 +21,20 @@ export interface SidebarSectionSlots {
 </script>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
+import { useAppConfig } from '#imports'
+import { tv } from '../utils/tv'
 
 const props = withDefaults(defineProps<SidebarSectionProps>(), {
   as: 'div'
 })
 defineSlots<SidebarSectionSlots>()
 
+const appConfig = useAppConfig() as SidebarSection['AppConfig']
+
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = sidebarSection()
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sidebarSection || {}) })())
 </script>
 
 <template>

@@ -1,14 +1,11 @@
 <script lang="ts">
-import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
-import theme from '#build/b24ui/form'
-import { tv } from '../utils/tv'
-import type { FormSchema, FormError, FormInputEvents, FormErrorEvent, FormSubmitEvent, FormEvent, Form, FormErrorWithId } from '../types/form'
 import type { DeepReadonly } from 'vue'
+import type { AppConfig } from '@nuxt/schema'
+import theme from '#build/b24ui/form'
+import type { FormSchema, FormError, FormInputEvents, FormErrorEvent, FormSubmitEvent, FormEvent, Form, FormErrorWithId } from '../types/form'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigForm = _appConfig as AppConfig & { b24ui: { form: Partial<typeof theme> } }
-
-const form = tv({ extend: tv(theme), ...(appConfigForm.b24ui?.form || {}) })
+type FormConfig = ComponentConfig<typeof theme, AppConfig, 'form'>
 
 export interface FormProps<T extends object> {
   id?: string | number
@@ -56,7 +53,9 @@ export interface FormSlots {
 <script lang="ts" setup generic="T extends object">
 import { provide, inject, nextTick, ref, onUnmounted, onMounted, computed, useId, readonly } from 'vue'
 import { useEventBus } from '@vueuse/core'
+import { useAppConfig } from '#imports'
 import { formOptionsInjectionKey, formInputsInjectionKey, formBusInjectionKey, formLoadingInjectionKey } from '../composables/useFormField'
+import { tv } from '../utils/tv'
 import { validateSchema } from '../utils/form'
 import { FormValidationException } from '../types/form'
 
@@ -69,6 +68,10 @@ const props = withDefaults(defineProps<FormProps<T>>(), {
 })
 const emits = defineEmits<FormEmits<T>>()
 defineSlots<FormSlots>()
+
+const appConfig = useAppConfig() as FormConfig['AppConfig']
+
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.form || {}) }))
 
 const formId = props.id ?? useId() as string
 
@@ -286,7 +289,7 @@ defineExpose<Form<T>>({
   <component
     :is="parentBus ? 'div' : 'form'"
     :id="formId"
-    :class="form({ class: props.class })"
+    :class="b24ui({ class: props.class })"
     @submit.prevent="onSubmitWrapper"
   >
     <slot :errors="errors" />

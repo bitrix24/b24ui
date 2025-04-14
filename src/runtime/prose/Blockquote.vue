@@ -1,34 +1,36 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/prose/blockquote'
-import { tv } from '../utils/tv'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigProseBlockquote = _appConfig as AppConfig & { b24ui: { prose: { blockquote: Partial<typeof theme> } } }
+type ProseBlockquote = ComponentConfig<typeof theme, AppConfig, 'blockquote', 'b24ui.prose'>
 
-const proseBlockquote = tv({ extend: tv(theme), ...(appConfigProseBlockquote.b24ui?.prose?.blockquote || {}) })
-
-export interface proseBlockquoteProps {
+export interface ProseBlockquoteProps {
   class?: any
-  b24ui?: Partial<typeof proseBlockquote.slots>
+  b24ui?: ProseBlockquote['slots']
 }
 
-export interface proseBlockquoteSlots {
+export interface ProseBlockquoteSlots {
   default(props?: {}): any
 }
 </script>
 
 <script setup lang="ts">
-const props = defineProps<proseBlockquoteProps>()
+import { computed } from 'vue'
+import { useAppConfig } from '#imports'
+import { tv } from '../utils/tv'
+
+const props = defineProps<ProseBlockquoteProps>()
+defineSlots<ProseBlockquoteSlots>()
+
+const appConfig = useAppConfig() as ProseBlockquote['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = proseBlockquote({})
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.blockquote || {}) })())
 </script>
 
 <template>
-  <blockquote
-    :class="b24ui.base({ class: [props.class, props.b24ui?.base] })"
-  >
+  <blockquote :class="b24ui.base({ class: [props.class, props.b24ui?.base] })">
     <slot />
   </blockquote>
 </template>

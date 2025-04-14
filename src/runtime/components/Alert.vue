@@ -1,16 +1,10 @@
 <script lang="ts">
-import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/alert'
-import { tv } from '../utils/tv'
 import type { AvatarProps, ButtonProps, IconComponent } from '../types'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigAlert = _appConfig as AppConfig & { b24ui: { alert: Partial<typeof theme> } }
-
-const alert = tv({ extend: tv(theme), ...(appConfigAlert.b24ui?.alert || {}) })
-
-type AlertVariants = VariantProps<typeof alert>
+type Alert = ComponentConfig<typeof theme, AppConfig, 'alert'>
 
 export interface AlertProps {
   /**
@@ -29,16 +23,16 @@ export interface AlertProps {
   /**
    * @defaultValue 'default'
    */
-  color?: AlertVariants['color']
+  color?: Alert['variants']['color']
   /**
    * The orientation between the content and the actions.
    * @defaultValue 'vertical'
    */
-  orientation?: AlertVariants['orientation']
+  orientation?: Alert['variants']['orientation']
   /**
    * @defaultValue 'md'
    */
-  size?: AlertVariants['size']
+  size?: Alert['variants']['size']
   /**
    * Display a list of actions:
    * - under the title and description when orientation is `vertical`
@@ -60,7 +54,7 @@ export interface AlertProps {
    */
   closeIcon?: IconComponent
   class?: any
-  b24ui?: Partial<typeof alert.slots>
+  b24ui?: Alert['slots']
 }
 
 export interface AlertEmits {
@@ -72,14 +66,16 @@ export interface AlertSlots {
   title(props?: {}): any
   description(props?: {}): any
   actions(props?: {}): any
-  close(props: { b24ui: ReturnType<typeof alert> }): any
+  close(props: { b24ui: { [K in keyof Required<Alert['slots']>]: (props?: Record<string, any>) => string } }): any
 }
 </script>
 
 <script setup lang="ts">
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
+import { useAppConfig } from '#imports'
 import { useLocale } from '../composables/useLocale'
+import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Avatar from './Avatar.vue'
 import B24Button from './Button.vue'
@@ -91,8 +87,9 @@ const emits = defineEmits<AlertEmits>()
 const slots = defineSlots<AlertSlots>()
 
 const { t } = useLocale()
+const appConfig = useAppConfig() as Alert['AppConfig']
 
-const b24ui = computed(() => alert({
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.alert || {}) })({
   color: props.color,
   size: props.size,
   orientation: props.orientation,

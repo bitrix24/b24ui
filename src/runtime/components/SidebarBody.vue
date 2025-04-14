@@ -1,12 +1,9 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/sidebar-body'
-import { tv } from '../utils/tv'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigSidebarBody = _appConfig as AppConfig & { b24ui: { sidebarBody: Partial<typeof theme> } }
-
-const sidebarBody = tv({ extend: tv(theme), ...(appConfigSidebarBody.b24ui?.sidebarBody || {}) })
+type SidebarBody = ComponentConfig<typeof theme, AppConfig, 'sidebarBody'>
 
 export interface SidebarBodyProps {
   /**
@@ -19,7 +16,7 @@ export interface SidebarBodyProps {
    */
   scrollbarThin?: boolean
   class?: any
-  b24ui?: Partial<typeof sidebarBody.slots>
+  b24ui?: SidebarBody['slots']
 }
 
 export interface SidebarBodySlots {
@@ -30,6 +27,8 @@ export interface SidebarBodySlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
+import { useAppConfig } from '#imports'
+import { tv } from '../utils/tv'
 
 const props = withDefaults(defineProps<SidebarBodyProps>(), {
   as: 'div',
@@ -37,7 +36,9 @@ const props = withDefaults(defineProps<SidebarBodyProps>(), {
 })
 defineSlots<SidebarBodySlots>()
 
-const b24ui = computed(() => sidebarBody({
+const appConfig = useAppConfig() as SidebarBody['AppConfig']
+
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sidebarBody || {}) })({
   scrollbarThin: Boolean(props.scrollbarThin)
 }))
 </script>

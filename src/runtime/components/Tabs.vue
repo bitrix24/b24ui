@@ -1,16 +1,11 @@
 <script lang="ts">
-import type { VariantProps } from 'tailwind-variants'
 import type { TabsRootProps, TabsRootEmits } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/tabs'
-import { tv } from '../utils/tv'
 import type { AvatarProps, IconComponent } from '../types'
-import type { DynamicSlots, PartialString } from '../types/utils'
+import type { DynamicSlots, ComponentConfig } from '../types/utils'
 
-const appConfigTabs = _appConfig as AppConfig & { b24ui: { tabs: Partial<typeof theme> } }
-
-const tabs = tv({ extend: tv(theme), ...(appConfigTabs.b24ui?.tabs || {}) })
+type Tabs = ComponentConfig<typeof theme, AppConfig, 'tabs'>
 
 export interface TabsItem {
   label?: string
@@ -27,8 +22,6 @@ export interface TabsItem {
   [key: string]: any
 }
 
-type TabsVariants = VariantProps<typeof tabs>
-
 export interface TabsProps<T extends TabsItem = TabsItem> extends Pick<TabsRootProps<string | number>, 'defaultValue' | 'modelValue' | 'activationMode' | 'unmountOnHide'> {
   /**
    * The element or component this component should render as.
@@ -39,15 +32,15 @@ export interface TabsProps<T extends TabsItem = TabsItem> extends Pick<TabsRootP
   /**
    * @defaultValue 'default'
    */
-  color?: TabsVariants['color']
+  color?: Tabs['variants']['color']
   /**
    * @defaultValue 'link'
    */
-  variant?: TabsVariants['variant']
+  variant?: Tabs['variants']['variant']
   /**
    * @defaultValue 'md'
    */
-  size?: TabsVariants['size']
+  size?: Tabs['variants']['size']
   /**
    * The orientation of the tabs.
    * @defaultValue 'horizontal'
@@ -64,7 +57,7 @@ export interface TabsProps<T extends TabsItem = TabsItem> extends Pick<TabsRootP
    */
   labelKey?: string
   class?: any
-  b24ui?: PartialString<typeof tabs.slots>
+  b24ui?: Tabs['slots']
 }
 
 export interface TabsEmits extends TabsRootEmits<string | number> {}
@@ -85,7 +78,9 @@ export type TabsSlots<T extends TabsItem = TabsItem> = {
 import { computed } from 'vue'
 import { TabsRoot, TabsList, TabsIndicator, TabsTrigger, TabsContent, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
+import { useAppConfig } from '#imports'
 import { get } from '../utils'
+import { tv } from '../utils/tv'
 import B24Avatar from './Avatar.vue'
 
 const props = withDefaults(defineProps<TabsProps<T>>(), {
@@ -98,13 +93,15 @@ const props = withDefaults(defineProps<TabsProps<T>>(), {
 const emits = defineEmits<TabsEmits>()
 const slots = defineSlots<TabsSlots<T>>()
 
+const appConfig = useAppConfig() as Tabs['AppConfig']
+
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'modelValue', 'defaultValue', 'orientation', 'activationMode', 'unmountOnHide'), emits)
 
 const getLabel = (item: TabsItem) => {
   return get(item, props.labelKey as string)
 }
 
-const b24ui = computed(() => tabs({
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.tabs || {}) })({
   color: props.color,
   variant: props.variant,
   size: props.size,

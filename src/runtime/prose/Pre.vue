@@ -1,14 +1,11 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/prose/pre'
-import { tv } from '../utils/tv'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigProsePre = _appConfig as AppConfig & { b24ui: { prose: { pre: Partial<typeof theme> } } }
+type ProsePre = ComponentConfig<typeof theme, AppConfig, 'pre', 'b24ui.prose'>
 
-const prosePre = tv({ extend: tv(theme), ...(appConfigProsePre.b24ui?.prose?.pre || {}) })
-
-export interface prosePreProps {
+export interface ProsePreProps {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
@@ -16,23 +13,31 @@ export interface prosePreProps {
   as?: any
   class?: any
   style?: any
-  b24ui?: Partial<typeof prosePre.slots>
+  b24ui?: ProsePre['slots']
 }
 
-export interface prosePreSlots {
+export interface ProsePreSlots {
   default(props?: {}): any
 }
 </script>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
+import { useAppConfig } from '#imports'
+import { tv } from '../utils/tv'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<prosePreProps>(), { as: 'div' })
+const props = withDefaults(defineProps<ProsePreProps>(), {
+  as: 'div'
+})
+defineSlots<ProsePreSlots>()
+
+const appConfig = useAppConfig() as ProsePre['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = prosePre({})
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.pre || {}) })())
 </script>
 
 <template>

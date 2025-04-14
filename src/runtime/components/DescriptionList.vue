@@ -1,17 +1,10 @@
 <script lang="ts">
-import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/description-list'
-import { tv } from '../utils/tv'
 import type { AvatarProps, ButtonProps, IconComponent } from '../types'
-import type { DynamicSlots } from '../types/utils'
+import type { DynamicSlots, ComponentConfig } from '../types/utils'
 
-const appConfigDescriptionList = _appConfig as AppConfig & { b24ui: { descriptionList: Partial<typeof theme> } }
-
-const descriptionList = tv({ extend: tv(theme), ...(appConfigDescriptionList.b24ui?.descriptionList || {}) })
-
-type DescriptionListVariants = VariantProps<typeof descriptionList>
+type DescriptionList = ComponentConfig<typeof theme, AppConfig, 'descriptionList'>
 
 export interface DescriptionListItem {
   label?: string
@@ -27,7 +20,7 @@ export interface DescriptionListItem {
    * The orientation between the content and the actions.
    * @defaultValue 'vertical'
    */
-  orientation?: DescriptionListVariants['orientation']
+  orientation?: DescriptionList['variants']['orientation']
   /**
    * Display a list of actions:
    * - under the description when orientation is `vertical`
@@ -57,9 +50,9 @@ export interface DescriptionListProps<T extends DescriptionListItem = Descriptio
   /**
    * @defaultValue 'md'
    */
-  size?: DescriptionListVariants['size']
+  size?: DescriptionList['variants']['size']
   class?: any
-  b24ui?: Partial<typeof descriptionList.slots>
+  b24ui?: DescriptionList['slots']
 }
 
 type SlotProps<T extends DescriptionListItem> = (props: { item: T, index: number }) => any
@@ -78,7 +71,9 @@ export type DescriptionListSlots<T extends DescriptionListItem = DescriptionList
 
 <script setup lang="ts" generic="T extends DescriptionListItem">
 import { computed } from 'vue'
+import { useAppConfig } from '#imports'
 import { get } from '../utils'
+import { tv } from '../utils/tv'
 import B24Avatar from './Avatar.vue'
 import B24Button from './Button.vue'
 
@@ -88,7 +83,9 @@ const props = withDefaults(defineProps<DescriptionListProps<T>>(), {
 })
 const slots = defineSlots<DescriptionListSlots<T>>()
 
-const b24ui = computed(() => descriptionList({
+const appConfig = useAppConfig() as DescriptionList['AppConfig']
+
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.descriptionList || {}) })({
   size: props.size
 }))
 

@@ -1,15 +1,9 @@
 <script lang="ts">
-import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/button-group'
-import { tv } from '../utils/tv'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigButtonGroup = _appConfig as AppConfig & { b24ui: { buttonGroup: Partial<typeof theme> } }
-
-const buttonGroup = tv({ extend: tv(theme), ...(appConfigButtonGroup.b24ui?.buttonGroup) })
-
-type ButtonGroupVariants = VariantProps<typeof buttonGroup>
+type ButtonGroup = ComponentConfig<typeof theme, AppConfig, 'buttonGroup'>
 
 export interface ButtonGroupProps {
   /**
@@ -20,18 +14,19 @@ export interface ButtonGroupProps {
   /**
    * @defaultValue 'md'
    */
-  size?: ButtonGroupVariants['size']
+  size?: ButtonGroup['variants']['size']
   /**
    * The orientation the buttons are laid out.
    * @defaultValue 'horizontal'
    */
-  orientation?: ButtonGroupVariants['orientation']
+  orientation?: ButtonGroup['variants']['orientation']
   /**
    * Disable show split
    * @defaultValue false
    */
   noSplit?: boolean
   class?: any
+  b24ui?: ButtonGroup['slots']
 }
 
 export interface ButtonGroupSlots {
@@ -42,13 +37,20 @@ export interface ButtonGroupSlots {
 <script setup lang="ts">
 import { provide, computed } from 'vue'
 import { Primitive } from 'reka-ui'
+import { useAppConfig } from '#imports'
 import { buttonGroupInjectionKey } from '../composables/useButtonGroup'
+import { tv } from '../utils/tv'
 
 const props = withDefaults(defineProps<ButtonGroupProps>(), {
   orientation: 'horizontal',
   noSplit: false
 })
 defineSlots<ButtonGroupSlots>()
+
+const appConfig = useAppConfig() as ButtonGroup['AppConfig']
+
+// eslint-disable-next-line vue/no-dupe-keys
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.buttonGroup || {}) }))
 
 provide(buttonGroupInjectionKey, computed(() => ({
   orientation: props.orientation,
@@ -58,7 +60,11 @@ provide(buttonGroupInjectionKey, computed(() => ({
 </script>
 
 <template>
-  <Primitive :as="as" class="group/items is-button-group" :class="buttonGroup({ orientation, class: props.class })">
+  <Primitive
+    :as="as"
+    class="group/items is-button-group"
+    :class="b24ui({ orientation, class: props.class })"
+  >
     <slot />
   </Primitive>
 </template>

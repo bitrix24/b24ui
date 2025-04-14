@@ -1,13 +1,9 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/sidebar-layout'
-import { tv } from '../utils/tv'
-import { useRoute } from 'vue-router'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigSidebarLayout = _appConfig as AppConfig & { b24ui: { sidebarLayout: Partial<typeof theme> } }
-
-const sidebarLayout = tv({ extend: tv(theme), ...(appConfigSidebarLayout.b24ui?.sidebarLayout || {}) })
+type SidebarLayout = ComponentConfig<typeof theme, AppConfig, 'sidebarLayout'>
 
 export interface SidebarLayoutProps {
   /**
@@ -17,7 +13,7 @@ export interface SidebarLayoutProps {
   as?: any
   useLightContent?: boolean
   class?: any
-  b24ui?: Partial<typeof sidebarLayout.slots>
+  b24ui?: SidebarLayout['slots']
 }
 
 export interface SidebarLayoutSlots {
@@ -40,7 +36,10 @@ export interface SidebarLayoutSlots {
 
 <script setup lang="ts">
 import { ref, computed, watch, onUnmounted } from 'vue'
+import { useRoute } from 'vue-router'
 import { Primitive } from 'reka-ui'
+import { useAppConfig } from '#imports'
+import { tv } from '../utils/tv'
 import B24Slideover from './Slideover.vue'
 import B24Sidebar from './Sidebar.vue'
 import B24ModalDialogClose from './ModalDialogClose.vue'
@@ -54,11 +53,13 @@ const props = withDefaults(defineProps<SidebarLayoutProps>(), {
 })
 const slots = defineSlots<SidebarLayoutSlots>()
 
+const appConfig = useAppConfig() as SidebarLayout['AppConfig']
+
 const route = useRoute()
 const isUseSideBar = computed(() => !!slots.sidebar)
 const openSidebarSlideover = ref(false)
 
-const b24ui = computed(() => sidebarLayout({
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sidebarLayout || {}) })({
   useSidebar: isUseSideBar.value,
   useLightContent: Boolean(props.useLightContent)
 }))

@@ -1,12 +1,9 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/sidebar-footer'
-import { tv } from '../utils/tv'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigSidebarFooter = _appConfig as AppConfig & { b24ui: { sidebarFooter: Partial<typeof theme> } }
-
-const sidebarFooter = tv({ extend: tv(theme), ...(appConfigSidebarFooter.b24ui?.sidebarFooter || {}) })
+type SidebarFooter = ComponentConfig<typeof theme, AppConfig, 'sidebarFooter'>
 
 export interface SidebarFooterProps {
   /**
@@ -15,7 +12,7 @@ export interface SidebarFooterProps {
    */
   as?: any
   class?: any
-  b24ui?: Partial<typeof sidebarFooter.slots>
+  b24ui?: SidebarFooter['slots']
 }
 
 export interface SidebarFooterSlots {
@@ -24,15 +21,20 @@ export interface SidebarFooterSlots {
 </script>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
+import { useAppConfig } from '#imports'
+import { tv } from '../utils/tv'
 
 const props = withDefaults(defineProps<SidebarFooterProps>(), {
   as: 'div'
 })
 defineSlots<SidebarFooterSlots>()
 
+const appConfig = useAppConfig() as SidebarFooter['AppConfig']
+
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = sidebarFooter()
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sidebarFooter || {}) })())
 </script>
 
 <template>

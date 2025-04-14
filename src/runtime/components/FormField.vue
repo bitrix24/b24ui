@@ -1,15 +1,9 @@
 <script lang="ts">
-import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/form-field'
-import { tv } from '../utils/tv'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigFormField = _appConfig as AppConfig & { b24ui: { formField: Partial<typeof theme> } }
-
-const formField = tv({ extend: tv(theme), ...(appConfigFormField.b24ui?.formField || {}) })
-
-type FormFieldVariants = VariantProps<typeof formField>
+type FormField = ComponentConfig<typeof theme, AppConfig, 'formField'>
 
 export interface FormFieldProps {
   /**
@@ -29,7 +23,7 @@ export interface FormFieldProps {
   /**
    * @defaultValue 'md'
    */
-  size?: FormFieldVariants['size']
+  size?: FormField['variants']['size']
   /**
    * @defaultValue false
    */
@@ -42,7 +36,7 @@ export interface FormFieldProps {
    */
   validateOnInputDelay?: number
   class?: any
-  b24ui?: Partial<typeof formField.slots>
+  b24ui?: FormField['slots']
 }
 
 export interface FormFieldSlots {
@@ -58,14 +52,18 @@ export interface FormFieldSlots {
 <script setup lang="ts">
 import { computed, ref, inject, provide, type Ref, useId } from 'vue'
 import { Primitive, Label } from 'reka-ui'
+import { useAppConfig } from '#imports'
 import { formFieldInjectionKey, inputIdInjectionKey } from '../composables/useFormField'
+import { tv } from '../utils/tv'
 import type { FormError, FormFieldInjectedOptions } from '../types/form'
 import WarningIcon from '@bitrix24/b24icons-vue/main/WarningIcon'
 
 const props = defineProps<FormFieldProps>()
 const slots = defineSlots<FormFieldSlots>()
 
-const b24ui = computed(() => formField({
+const appConfig = useAppConfig() as FormField['AppConfig']
+
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.formField || {}) })({
   size: props.size,
   required: props.required,
   useDescription: Boolean(props.description) || !!slots.description

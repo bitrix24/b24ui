@@ -1,34 +1,36 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/prose/td'
-import { tv } from '../utils/tv'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigProseTd = _appConfig as AppConfig & { b24ui: { prose: { td: Partial<typeof theme> } } }
+type ProseTd = ComponentConfig<typeof theme, AppConfig, 'td', 'b24ui.prose'>
 
-const proseTd = tv({ extend: tv(theme), ...(appConfigProseTd.b24ui?.prose?.td || {}) })
-
-export interface proseTdProps {
+export interface ProseTdProps {
   class?: any
-  b24ui?: Partial<typeof proseTd.slots>
+  b24ui?: ProseTd['slots']
 }
 
-export interface proseTdSlots {
+export interface ProseTdSlots {
   default(props?: {}): any
 }
 </script>
 
 <script setup lang="ts">
-const props = defineProps<proseTdProps>()
+import { computed } from 'vue'
+import { useAppConfig } from '#imports'
+import { tv } from '../utils/tv'
+
+const props = defineProps<ProseTdProps>()
+defineSlots<ProseTdSlots>()
+
+const appConfig = useAppConfig() as ProseTd['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = proseTd({})
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.td || {}) })())
 </script>
 
 <template>
-  <td
-    :class="b24ui.base({ class: [props.class, props.b24ui?.base] })"
-  >
+  <td :class="b24ui.base({ class: [props.class, props.b24ui?.base] })">
     <slot />
   </td>
 </template>

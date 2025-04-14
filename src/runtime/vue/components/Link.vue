@@ -1,10 +1,11 @@
 <script lang="ts">
 import type { ButtonHTMLAttributes } from 'vue'
-import { tv } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import type { RouterLinkProps, RouteLocationRaw } from 'vue-router'
 import theme from '#build/b24ui/link'
+import type { ComponentConfig } from '../../types/utils'
+
+type Link = ComponentConfig<typeof theme, AppConfig, 'link'>
 
 interface NuxtLinkProps extends Omit<RouterLinkProps, 'to'> {
   /**
@@ -52,10 +53,6 @@ interface NuxtLinkProps extends Omit<RouterLinkProps, 'to'> {
   noPrefetch?: boolean
 }
 
-const appConfigLink = _appConfig as AppConfig & { b24ui: { link: Partial<typeof theme> } }
-
-const link = tv({ extend: tv(theme), ...(appConfigLink.b24ui?.link || {}) })
-
 export interface LinkProps extends NuxtLinkProps {
   /**
    * The element or component this component should render as when not a link.
@@ -93,12 +90,14 @@ export interface LinkSlots {
 
 <script setup lang="ts">
 import { computed, getCurrentInstance } from 'vue'
+import { defu } from 'defu'
 import { isEqual, diff } from 'ohash/utils'
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 import { hasProtocol } from 'ufo'
-import { useRoute } from '#imports'
+import { useRoute, useAppConfig } from '#imports'
 import { RouterLink } from 'vue-router'
+import { tv } from '../../utils/tv'
 import B24LinkBase from './../../components/LinkBase.vue'
 
 defineOptions({ inheritAttrs: false })
@@ -130,16 +129,20 @@ const route = computed(() => {
   }
 })
 
+const appConfig = useAppConfig() as Link['AppConfig']
+
 const routerLinkProps = useForwardProps(reactiveOmit(props, 'as', 'type', 'disabled', 'active', 'exact', 'exactQuery', 'exactHash', 'activeClass', 'inactiveClass', 'to', 'raw', 'class'))
 
 const b24ui = computed(() => tv({
-  extend: link,
-  variants: {
-    active: {
-      true: props.activeClass,
-      false: props.inactiveClass
+  extend: tv(theme),
+  ...defu({
+    variants: {
+      active: {
+        true: props.activeClass,
+        false: props.inactiveClass
+      }
     }
-  }
+  }, appConfig.b24ui?.link || {})
 }))
 
 function isPartiallyEqual(item1: any, item2: any) {

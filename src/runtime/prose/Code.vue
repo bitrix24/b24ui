@@ -1,36 +1,35 @@
 <script lang="ts">
-import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/prose/code'
-import { tv } from '../utils/tv'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigProseCode = _appConfig as AppConfig & { b24ui: { prose: { code: Partial<typeof theme> } } }
+type ProseCode = ComponentConfig<typeof theme, AppConfig, 'code', 'b24ui.prose'>
 
-const proseCode = tv({ extend: tv(theme), ...(appConfigProseCode.b24ui?.prose?.code || {}) })
-
-type ProseCodeVariants = VariantProps<typeof proseCode>
-
-export interface proseCodeProps {
+export interface ProseCodeProps {
   /**
    * @defaultValue 'default'
    */
-  color?: ProseCodeVariants['color']
+  color?: ProseCode['variants']['color']
   class?: any
-  b24ui?: Partial<typeof proseCode.slots>
+  b24ui?: ProseCode['slots']
 }
 
-export interface proseCodeSlots {
+export interface ProseCodeSlots {
   default(props?: {}): any
 }
 </script>
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useAppConfig } from '#imports'
+import { tv } from '../utils/tv'
 
-const props = defineProps<proseCodeProps>()
+const props = defineProps<ProseCodeProps>()
+defineSlots<ProseCodeSlots>()
 
-const b24ui = computed(() => proseCode({
+const appConfig = useAppConfig() as ProseCode['AppConfig']
+
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.code || {}) })({
   color: props.color
 }))
 </script>

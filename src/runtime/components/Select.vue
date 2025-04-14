@@ -1,29 +1,12 @@
 <script lang="ts">
-import type { VariantProps } from 'tailwind-variants'
 import type { SelectRootProps, SelectRootEmits, SelectContentProps, SelectContentEmits, SelectArrowProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/select'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
-import { tv } from '../utils/tv'
 import type { AvatarProps, ChipProps, InputProps, IconComponent } from '../types'
-import type {
-  AcceptableValue,
-  ArrayOrNested,
-  GetItemKeys,
-  GetItemValue,
-  GetModelValue,
-  GetModelValueEmits,
-  NestedItem,
-  PartialString,
-  EmitsToProps
-} from '../types/utils'
+import type { AcceptableValue, ArrayOrNested, GetItemKeys, GetItemValue, GetModelValue, GetModelValueEmits, NestedItem, EmitsToProps, ComponentConfig } from '../types/utils'
 
-const appConfigSelect = _appConfig as AppConfig & { b24ui: { select: Partial<typeof theme> } }
-
-const select = tv({ extend: tv(theme), ...(appConfigSelect.b24ui?.select || {}) })
-
-type SelectVariants = VariantProps<typeof select>
+type Select = ComponentConfig<typeof theme, AppConfig, 'select'>
 
 interface SelectItemBase {
   label?: string
@@ -54,11 +37,11 @@ export interface SelectProps<T extends ArrayOrNested<SelectItem> = ArrayOrNested
   /**
    * @defaultValue 'primary'
    */
-  color?: SelectVariants['color']
+  color?: Select['variants']['color']
   /**
    * @defaultValue 'md'
    */
-  size?: SelectVariants['size']
+  size?: Select['variants']['size']
   /**
    * Removes padding from input
    * @defaultValue false
@@ -83,7 +66,7 @@ export interface SelectProps<T extends ArrayOrNested<SelectItem> = ArrayOrNested
   /**
    * @defaultValue 'primary'
    */
-  tagColor?: SelectVariants['tagColor']
+  tagColor?: Select['variants']['tagColor']
   /**
    * The icon displayed to open the menu.
    * @defaultValue icons.chevronDown
@@ -141,7 +124,7 @@ export interface SelectProps<T extends ArrayOrNested<SelectItem> = ArrayOrNested
    */
   highlight?: boolean
   class?: any
-  b24ui?: PartialString<typeof select.slots>
+  b24ui?: Select['slots']
 }
 
 export type SelectEmits<A extends ArrayOrNested<SelectItem>, VK extends GetItemKeys<A> | undefined, M extends boolean> = Omit<SelectRootEmits, 'update:modelValue'> & {
@@ -158,9 +141,20 @@ export interface SelectSlots<
   M extends boolean = false,
   T extends NestedItem<A> = NestedItem<A>
 > {
-  'leading'(props: { modelValue?: GetModelValue<A, VK, M>, open: boolean, b24ui: ReturnType<typeof select> }): any
-  'default'(props: { modelValue?: GetModelValue<A, VK, M>, open: boolean }): any
-  'trailing'(props: { modelValue?: GetModelValue<A, VK, M>, open: boolean, b24ui: ReturnType<typeof select> }): any
+  'leading'(props: {
+    modelValue?: GetModelValue<A, VK, M>
+    open: boolean
+    b24ui: { [K in keyof Required<Select['slots']>]: (props?: Record<string, any>) => string }
+  }): any
+  'default'(props: {
+    modelValue?: GetModelValue<A, VK, M>
+    open: boolean
+  }): any
+  'trailing'(props: {
+    modelValue?: GetModelValue<A, VK, M>
+    open: boolean
+    b24ui: { [K in keyof Required<Select['slots']>]: (props?: Record<string, any>) => string }
+  }): any
   'item': SlotProps<T>
   'item-leading': SlotProps<T>
   'item-label': SlotProps<T>
@@ -173,10 +167,12 @@ import { computed, toRef } from 'vue'
 import { Primitive, SelectRoot, SelectArrow, SelectTrigger, SelectPortal, SelectContent, SelectViewport, SelectScrollUpButton, SelectScrollDownButton, SelectLabel, SelectGroup, SelectItem, SelectItemIndicator, SelectItemText, SelectSeparator, useForwardPropsEmits } from 'reka-ui'
 import { defu } from 'defu'
 import { reactivePick } from '@vueuse/core'
+import { useAppConfig } from '#imports'
 import { useButtonGroup } from '../composables/useButtonGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
 import { compare, get, isArrayOfArray } from '../utils'
+import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Avatar from './Avatar.vue'
 import B24Chip from './Chip.vue'
@@ -190,6 +186,8 @@ const props = withDefaults(defineProps<SelectProps<T, VK, M>>(), {
 })
 const emits = defineEmits<SelectEmits<T, VK, M>>()
 const slots = defineSlots<SelectSlots<T, VK, M>>()
+
+const appConfig = useAppConfig() as Select['AppConfig']
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'open', 'defaultOpen', 'disabled', 'autocomplete', 'required', 'multiple'), emits)
 const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffset: 8, collisionPadding: 8, position: 'popper' }) as SelectContentProps)
@@ -208,7 +206,7 @@ const isTag = computed(() => {
   return props.tag
 })
 
-const b24ui = computed(() => select({
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.select || {}) })({
   color: color.value,
   size: selectSize?.value,
   loading: props.loading,

@@ -1,18 +1,12 @@
 <script lang="ts">
-import type { VariantProps } from 'tailwind-variants'
 import type { NumberFieldRootProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/input-number'
 import { tv } from '../utils/tv'
 import type { ButtonProps, IconComponent } from '../types'
-import type { PartialString } from '../types/utils'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigInputNumber = _appConfig as AppConfig & { b24ui: { inputNumber: Partial<typeof theme> } }
-
-const inputNumber = tv({ extend: tv(theme), ...(appConfigInputNumber.b24ui?.inputNumber || {}) })
-
-type InputNumberVariants = VariantProps<typeof inputNumber>
+type InputNumber = ComponentConfig<typeof theme, AppConfig, 'inputNumber'>
 
 export interface InputNumberProps extends Pick<NumberFieldRootProps, 'modelValue' | 'defaultValue' | 'min' | 'max' | 'stepSnapping' | 'step' | 'disabled' | 'required' | 'id' | 'name' | 'formatOptions' | 'disableWheelChange'> {
   /**
@@ -27,11 +21,11 @@ export interface InputNumberProps extends Pick<NumberFieldRootProps, 'modelValue
   /**
    * @defaultValue 'primary'
    */
-  color?: InputNumberVariants['color']
+  color?: InputNumber['variants']['color']
   /**
    * @defaultValue 'md'
    */
-  size?: InputNumberVariants['size']
+  size?: InputNumber['variants']['size']
   /**
    * Removes padding from input
    * @defaultValue false
@@ -56,7 +50,7 @@ export interface InputNumberProps extends Pick<NumberFieldRootProps, 'modelValue
   /**
    * @defaultValue 'primary'
    */
-  tagColor?: InputNumberVariants['tagColor']
+  tagColor?: InputNumber['variants']['tagColor']
   /**
    * Highlight the ring color like a focus state
    * @defaultValue false
@@ -103,7 +97,7 @@ export interface InputNumberProps extends Pick<NumberFieldRootProps, 'modelValue
    */
   locale?: string
   class?: any
-  b24ui?: PartialString<typeof inputNumber.slots>
+  b24ui?: InputNumber['slots']
 }
 
 export interface InputNumberEmits {
@@ -122,8 +116,10 @@ export interface InputNumberSlots {
 import { onMounted, ref, computed } from 'vue'
 import { NumberFieldRoot, NumberFieldInput, NumberFieldDecrement, NumberFieldIncrement, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
+import { useAppConfig } from '#imports'
 import { useFormField } from '../composables/useFormField'
 import { useLocale } from '../composables/useLocale'
+import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Button from './Button.vue'
 
@@ -137,6 +133,8 @@ const props = withDefaults(defineProps<InputNumberProps>(), {
 const emits = defineEmits<InputNumberEmits>()
 defineSlots<InputNumberSlots>()
 
+const appConfig = useAppConfig() as InputNumber['AppConfig']
+
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'modelValue', 'defaultValue', 'min', 'max', 'step', 'stepSnapping', 'formatOptions', 'disableWheelChange'), emits)
 
 const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, id, color, size, name, highlight, disabled, ariaAttrs } = useFormField<InputNumberProps>(props)
@@ -148,7 +146,7 @@ const isTag = computed(() => {
   return props.tag
 })
 
-const b24ui = computed(() => inputNumber({
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.inputNumber || {}) })({
   color: color.value,
   size: size.value,
   tagColor: props.tagColor,

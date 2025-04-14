@@ -1,19 +1,12 @@
 <script lang="ts">
 import type { InputHTMLAttributes } from 'vue'
-import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/input'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
-import { tv } from '../utils/tv'
 import type { AvatarProps } from '../types'
-import type { PartialString } from '../types/utils'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigInput = _appConfig as AppConfig & { b24ui: { input: Partial<typeof theme> } }
-
-const input = tv({ extend: tv(theme), ...(appConfigInput.b24ui?.input || {}) })
-
-type InputVariants = VariantProps<typeof input>
+type Input = ComponentConfig<typeof theme, AppConfig, 'input'>
 
 export interface InputProps extends UseComponentIconsProps {
   /**
@@ -34,11 +27,11 @@ export interface InputProps extends UseComponentIconsProps {
   /**
    * @defaultValue 'primary'
    */
-  color?: InputVariants['color']
+  color?: Input['variants']['color']
   /**
    * @defaultValue 'md'
    */
-  size?: InputVariants['size']
+  size?: Input['variants']['size']
   /**
    * Removes padding from input
    * @defaultValue false
@@ -83,14 +76,14 @@ export interface InputProps extends UseComponentIconsProps {
   /**
    * @defaultValue 'primary'
    */
-  tagColor?: InputVariants['tagColor']
+  tagColor?: Input['variants']['tagColor']
   /**
    * Highlight the ring color like a focus state
    * @defaultValue false
    */
   highlight?: boolean
   class?: any
-  b24ui?: PartialString<typeof input.slots>
+  b24ui?: Input['slots']
 }
 
 export interface InputEmits {
@@ -109,10 +102,12 @@ export interface InputSlots {
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { Primitive } from 'reka-ui'
+import { useAppConfig } from '#imports'
 import { useButtonGroup } from '../composables/useButtonGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
 import { looseToNumber } from '../utils'
+import { tv } from '../utils/tv'
 import B24Avatar from './Avatar.vue'
 
 defineOptions({ inheritAttrs: false })
@@ -127,6 +122,8 @@ const slots = defineSlots<InputSlots>()
 
 const [modelValue, modelModifiers] = defineModel<string | number | null>()
 
+const appConfig = useAppConfig() as Input['AppConfig']
+
 const { emitFormBlur, emitFormInput, emitFormChange, size: formGroupSize, color, id, name, highlight, disabled, emitFormFocus, ariaAttrs } = useFormField<InputProps>(props, { deferInputValidation: true })
 const { orientation, size: buttonGroupSize } = useButtonGroup<InputProps>(props)
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props)
@@ -137,8 +134,8 @@ const isTag = computed(() => {
   return props.tag
 })
 
-const b24ui = computed(() => input({
-  type: props.type as InputVariants['type'],
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.input || {}) })({
+  type: props.type as Input['variants']['type'],
   color: color.value,
   size: inputSize?.value,
   loading: props.loading,

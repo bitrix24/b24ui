@@ -1,12 +1,9 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/sidebar-header'
-import { tv } from '../utils/tv'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigSidebarHeader = _appConfig as AppConfig & { b24ui: { sidebarHeader: Partial<typeof theme> } }
-
-const sidebarHeader = tv({ extend: tv(theme), ...(appConfigSidebarHeader.b24ui?.sidebarHeader || {}) })
+type SidebarHeader = ComponentConfig<typeof theme, AppConfig, 'sidebarHeader'>
 
 export interface SidebarHeaderProps {
   /**
@@ -15,7 +12,7 @@ export interface SidebarHeaderProps {
    */
   as?: any
   class?: any
-  b24ui?: Partial<typeof sidebarHeader.slots>
+  b24ui?: SidebarHeader['slots']
 }
 
 export interface SidebarHeaderSlots {
@@ -24,15 +21,20 @@ export interface SidebarHeaderSlots {
 </script>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
+import { useAppConfig } from '#imports'
+import { tv } from '../utils/tv'
 
 const props = withDefaults(defineProps<SidebarHeaderProps>(), {
   as: 'div'
 })
 defineSlots<SidebarHeaderSlots>()
 
+const appConfig = useAppConfig() as SidebarHeader['AppConfig']
+
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = sidebarHeader()
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sidebarHeader || {}) })())
 </script>
 
 <template>

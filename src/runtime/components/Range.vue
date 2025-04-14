@@ -1,16 +1,10 @@
 <script lang="ts">
-import type { VariantProps } from 'tailwind-variants'
 import type { SliderRootProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/range'
-import { tv } from '../utils/tv'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigRange = _appConfig as AppConfig & { b24ui: { range: Partial<typeof theme> } }
-
-const range = tv({ extend: tv(theme), ...(appConfigRange.b24ui?.range || {}) })
-
-type RangeVariants = VariantProps<typeof range>
+type Range = ComponentConfig<typeof theme, AppConfig, 'range'>
 
 export interface RangeProps extends Pick<SliderRootProps, 'name' | 'disabled' | 'inverted' | 'min' | 'max' | 'step' | 'minStepsBetweenThumbs'> {
   /**
@@ -21,11 +15,11 @@ export interface RangeProps extends Pick<SliderRootProps, 'name' | 'disabled' | 
   /**
    * @defaultValue 'md'
    */
-  size?: RangeVariants['size']
+  size?: Range['variants']['size']
   /**
    * @defaultValue 'primary'
    */
-  color?: RangeVariants['color']
+  color?: Range['variants']['color']
   /**
    * The orientation of the Range.
    * @defaultValue 'horizontal'
@@ -36,7 +30,7 @@ export interface RangeProps extends Pick<SliderRootProps, 'name' | 'disabled' | 
    */
   defaultValue?: number | number[]
   class?: any
-  b24ui?: Partial<typeof range.slots>
+  b24ui?: Range['slots']
 }
 
 export interface RangeEmits {
@@ -49,7 +43,9 @@ export interface RangeEmits {
 import { computed } from 'vue'
 import { SliderRoot, SliderRange, SliderTrack, SliderThumb, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
+import { useAppConfig } from '#imports'
 import { useFormField } from '../composables/useFormField'
+import { tv } from '../utils/tv'
 
 const props = withDefaults(defineProps<RangeProps>(), {
   min: 0,
@@ -60,6 +56,8 @@ const props = withDefaults(defineProps<RangeProps>(), {
 const emits = defineEmits<RangeEmits>()
 
 const modelValue = defineModel<number | number[]>()
+
+const appConfig = useAppConfig() as Range['AppConfig']
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'orientation', 'min', 'max', 'step', 'minStepsBetweenThumbs', 'inverted'), emits)
 
@@ -86,7 +84,7 @@ const rangeValue = computed({
 
 const thumbsCount = computed(() => rangeValue.value?.length ?? 1)
 
-const b24ui = computed(() => range({
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.range || {}) })({
   disabled: disabled.value,
   size: size.value,
   color: color.value,

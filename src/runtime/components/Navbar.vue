@@ -1,12 +1,9 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/navbar'
-import { tv } from '../utils/tv'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigNavbar = _appConfig as AppConfig & { b24ui: { navbar: Partial<typeof theme> } }
-
-const navbar = tv({ extend: tv(theme), ...(appConfigNavbar.b24ui?.navbar || {}) })
+type Navbar = ComponentConfig<typeof theme, AppConfig, 'navbar'>
 
 export interface NavbarProps {
   /**
@@ -15,7 +12,7 @@ export interface NavbarProps {
    */
   as?: any
   class?: any
-  b24ui?: Partial<typeof navbar.slots>
+  b24ui?: Navbar['slots']
 }
 
 export interface NavbarSlots {
@@ -24,15 +21,20 @@ export interface NavbarSlots {
 </script>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
+import { useAppConfig } from '#imports'
+import { tv } from '../utils/tv'
 
 const props = withDefaults(defineProps<NavbarProps>(), {
   as: 'nav'
 })
 defineSlots<NavbarSlots>()
 
+const appConfig = useAppConfig() as Navbar['AppConfig']
+
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = navbar()
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.navbar || {}) })())
 </script>
 
 <template>

@@ -1,14 +1,11 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/prose/table'
-import { tv } from '../utils/tv'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigProseTable = _appConfig as AppConfig & { b24ui: { prose: { table: Partial<typeof theme> } } }
+type ProseTable = ComponentConfig<typeof theme, AppConfig, 'table', 'b24ui.prose'>
 
-const proseTable = tv({ extend: tv(theme), ...(appConfigProseTable.b24ui?.prose?.table || {}) })
-
-export interface proseTableProps {
+export interface ProseTableProps {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
@@ -31,29 +28,35 @@ export interface proseTableProps {
    */
   bordered?: boolean
   class?: any
-  b24ui?: Partial<typeof proseTable.slots>
+  b24ui?: ProseTable['slots']
 }
 
-export interface proseTableSlots {
+export interface ProseTableSlots {
   default(props?: {}): any
 }
 </script>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useAppConfig } from '#imports'
+import { tv } from '../utils/tv'
 import B24TableWrapper from './../components/content/TableWrapper.vue'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<proseTableProps>(), {
+const props = withDefaults(defineProps<ProseTableProps>(), {
   as: 'div',
   rounded: true,
   zebra: true,
   rowHover: true,
   bordered: true
 })
+defineSlots<ProseTableSlots>()
+
+const appConfig = useAppConfig() as ProseTable['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = proseTable({})
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.table || {}) })())
 </script>
 
 <template>
@@ -65,9 +68,7 @@ const b24ui = proseTable({})
     :rounded="props.rounded"
     :bordered="props.bordered"
   >
-    <table
-      :class="b24ui.base({ class: props.b24ui?.base })"
-    >
+    <table :class="b24ui.base({ class: props.b24ui?.base })">
       <slot />
     </table>
   </B24TableWrapper>

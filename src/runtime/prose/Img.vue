@@ -1,32 +1,29 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/prose/img'
-import { tv } from '../utils/tv'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigProseImg = _appConfig as AppConfig & { b24ui: { prose: { img: Partial<typeof theme> } } }
+type ProseImg = ComponentConfig<typeof theme, AppConfig, 'img', 'b24ui.prose'>
 
-const proseImg = tv({ extend: tv(theme), ...(appConfigProseImg.b24ui?.prose?.img || {}) })
-
-export interface proseImgProps {
+export interface ProseImgProps {
   class?: any
-  b24ui?: Partial<typeof proseImg.slots>
-}
-
-export interface proseImgSlots {
-  default(props?: {}): any
+  b24ui?: ProseImg['slots']
 }
 </script>
 
 <script setup lang="ts">
-const props = defineProps<proseImgProps>()
+import { computed } from 'vue'
+import { useAppConfig } from '#imports'
+import { tv } from '../utils/tv'
+
+const props = defineProps<ProseImgProps>()
+
+const appConfig = useAppConfig() as ProseImg['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = proseImg({})
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.img || {}) })())
 </script>
 
 <template>
-  <img
-    :class="b24ui.base({ class: [props.class, props.b24ui?.base] })"
-  >
+  <img :class="b24ui.base({ class: [props.class, props.b24ui?.base] })">
 </template>

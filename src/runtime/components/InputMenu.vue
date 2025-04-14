@@ -1,29 +1,13 @@
 <script lang="ts">
 import type { InputHTMLAttributes } from 'vue'
-import type { VariantProps } from 'tailwind-variants'
 import type { ComboboxRootProps, ComboboxRootEmits, ComboboxContentProps, ComboboxContentEmits, ComboboxArrowProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/input-menu'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
-import { tv } from '../utils/tv'
 import type { AvatarProps, ChipProps, InputProps, IconComponent } from '../types'
-import type {
-  AcceptableValue,
-  ArrayOrNested,
-  GetItemKeys,
-  GetModelValue,
-  GetModelValueEmits,
-  NestedItem,
-  PartialString,
-  EmitsToProps
-} from '../types/utils'
+import type { AcceptableValue, ArrayOrNested, GetItemKeys, GetModelValue, GetModelValueEmits, NestedItem, EmitsToProps, ComponentConfig } from '../types/utils'
 
-const appConfigInputMenu = _appConfig as AppConfig & { b24ui: { inputMenu: Partial<typeof theme> } }
-
-const inputMenu = tv({ extend: tv(theme), ...(appConfigInputMenu.b24ui?.inputMenu || {}) })
-
-type InputMenuVariants = VariantProps<typeof inputMenu>
+type InputMenu = ComponentConfig<typeof theme, AppConfig, 'inputMenu'>
 
 interface _InputMenuItem {
   label?: string
@@ -33,7 +17,7 @@ interface _InputMenuItem {
    */
   icon?: IconComponent
   avatar?: AvatarProps
-  color?: InputMenuVariants['color']
+  color?: InputMenu['variants']['color']
   chip?: ChipProps
   /**
    * The item type.
@@ -64,11 +48,11 @@ export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOr
   /**
    * @defaultValue 'primary'
    */
-  color?: InputMenuVariants['color']
+  color?: InputMenu['variants']['color']
   /**
    * @defaultValue 'md'
    */
-  size?: InputMenuVariants['size']
+  size?: InputMenu['variants']['size']
   /**
    * Removes padding from input
    * @defaultValue false
@@ -163,7 +147,7 @@ export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOr
   /**
    * @defaultValue 'primary'
    */
-  tagColor?: InputMenuVariants['tagColor']
+  tagColor?: InputMenu['variants']['tagColor']
   /**
    * Highlight the ring color like a focus state
    * @defaultValue false
@@ -185,7 +169,7 @@ export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOr
    */
   ignoreFilter?: boolean
   class?: any
-  b24ui?: PartialString<typeof inputMenu.slots>
+  b24ui?: InputMenu['slots']
 }
 
 export type InputMenuEmits<A extends ArrayOrNested<InputMenuItem>, VK extends GetItemKeys<A> | undefined, M extends boolean> = Pick<ComboboxRootEmits, 'update:open'> & {
@@ -208,8 +192,16 @@ export interface InputMenuSlots<
   M extends boolean = false,
   T extends NestedItem<A> = NestedItem<A>
 > {
-  'leading'(props: { modelValue?: GetModelValue<A, VK, M>, open: boolean, b24ui: ReturnType<typeof inputMenu> }): any
-  'trailing'(props: { modelValue?: GetModelValue<A, VK, M>, open: boolean, b24ui: ReturnType<typeof inputMenu> }): any
+  'leading'(props: {
+    modelValue?: GetModelValue<A, VK, M>
+    open: boolean
+    b24ui: { [K in keyof Required<InputMenu['slots']>]: (props?: Record<string, any>) => string }
+  }): any
+  'trailing'(props: {
+    modelValue?: GetModelValue<A, VK, M>
+    open: boolean
+    b24ui: { [K in keyof Required<InputMenu['slots']>]: (props?: Record<string, any>) => string }
+  }): any
   'empty'(props: { searchTerm?: string }): any
   'item': SlotProps<T>
   'item-leading': SlotProps<T>
@@ -227,11 +219,13 @@ import { ComboboxRoot, ComboboxArrow, ComboboxAnchor, ComboboxInput, ComboboxTri
 import { defu } from 'defu'
 import { isEqual } from 'ohash/utils'
 import { reactivePick, createReusableTemplate } from '@vueuse/core'
+import { useAppConfig } from '#imports'
 import { useButtonGroup } from '../composables/useButtonGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
 import { useLocale } from '../composables/useLocale'
 import { compare, get, isArrayOfArray } from '../utils'
+import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Avatar from './Avatar.vue'
 import B24Chip from './Chip.vue'
@@ -252,6 +246,7 @@ const slots = defineSlots<InputMenuSlots<T, VK, M>>()
 const searchTerm = defineModel<string>('searchTerm', { default: '' })
 
 const { t } = useLocale()
+const appConfig = useAppConfig() as InputMenu['AppConfig']
 const { contains } = useFilter({ sensitivity: 'base' })
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'modelValue', 'defaultValue', 'open', 'defaultOpen', 'required', 'multiple', 'resetSearchTermOnBlur', 'resetSearchTermOnSelect', 'highlightOnHover', 'ignoreFilter'), emits)
@@ -270,7 +265,7 @@ const isTag = computed(() => {
 
 const [DefineCreateItemTemplate, ReuseCreateItemTemplate] = createReusableTemplate()
 
-const b24ui = computed(() => inputMenu({
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.inputMenu || {}) })({
   color: color.value,
   size: inputSize?.value,
   loading: props.loading,

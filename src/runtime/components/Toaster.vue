@@ -1,23 +1,17 @@
 <script lang="ts">
-import type { VariantProps } from 'tailwind-variants'
 import type { ToastProviderProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/toaster'
-import { tv } from '../utils/tv'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigToaster = _appConfig as AppConfig & { b24ui: { toaster: Partial<typeof theme> } }
-
-const toaster = tv({ extend: tv(theme), ...(appConfigToaster.b24ui?.toaster || {}) })
-
-type ToasterVariants = VariantProps<typeof toaster>
+type Toaster = ComponentConfig<typeof theme, AppConfig, 'toaster'>
 
 export interface ToasterProps extends Omit<ToastProviderProps, 'swipeDirection'> {
   /**
    * The position on the screen to display the toasts.
    * @defaultValue 'top-right'
    */
-  position?: ToasterVariants['position']
+  position?: Toaster['variants']['position']
   /**
    * Expand the toasts to show multiple toasts at once.
    * @defaultValue true
@@ -33,7 +27,7 @@ export interface ToasterProps extends Omit<ToastProviderProps, 'swipeDirection'>
    */
   duration?: number
   class?: any
-  b24ui?: Partial<typeof toaster.slots>
+  b24ui?: Toaster['slots']
 }
 
 export interface ToasterSlots {
@@ -49,9 +43,11 @@ export default {
 import { ref, computed } from 'vue'
 import { ToastProvider, ToastViewport, ToastPortal, useForwardProps } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
+import { useAppConfig } from '#imports'
 import { useToast } from '../composables/useToast'
 import type { Toast } from '../composables/useToast'
 import { omit } from '../utils'
+import { tv } from '../utils/tv'
 import B24Toast from './Toast.vue'
 
 const props = withDefaults(defineProps<ToasterProps>(), {
@@ -62,13 +58,14 @@ const props = withDefaults(defineProps<ToasterProps>(), {
 })
 defineSlots<ToasterSlots>()
 
+const { toasts, remove } = useToast()
+const appConfig = useAppConfig() as Toaster['AppConfig']
+
 const providerProps = useForwardProps(reactivePick(props, 'duration', 'label', 'swipeThreshold'))
 
 const proxyToastProps = (toast: Toast) => {
   return omit(toast, ['id', 'close'])
 }
-
-const { toasts, remove } = useToast()
 
 const swipeDirection = computed(() => {
   switch (props.position) {
@@ -86,7 +83,7 @@ const swipeDirection = computed(() => {
   return 'right'
 })
 
-const b24ui = computed(() => toaster({
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.toaster || {}) })({
   position: props.position,
   swipeDirection: swipeDirection.value
 }))

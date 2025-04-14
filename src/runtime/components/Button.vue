@@ -1,36 +1,29 @@
 <script lang="ts">
-import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/button'
 import type { LinkProps } from './Link.vue'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
-import { tv } from '../utils/tv'
 import type { AvatarProps } from '../types'
-import type { PartialString } from '../types/utils'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigButton = _appConfig as AppConfig & { b24ui: { button: Partial<typeof theme> } }
-
-const button = tv({ extend: tv(theme), ...(appConfigButton.b24ui?.button || {}) })
-
-type ButtonVariants = VariantProps<typeof button>
+type Button = ComponentConfig<typeof theme, AppConfig, 'button'>
 
 export interface ButtonProps extends Omit<UseComponentIconsProps, 'trailing' | 'trailingIcon'>, Omit<LinkProps, 'raw' | 'custom'> {
   label?: string
   /**
    * @defaultValue 'default'
    */
-  color?: ButtonVariants['color']
-  activeColor?: ButtonVariants['color']
+  color?: Button['variants']['color']
+  activeColor?: Button['variants']['color']
   /**
    * @defaultValue 'normal'
    */
-  depth?: ButtonVariants['depth']
-  activeDepth?: ButtonVariants['depth']
+  depth?: Button['variants']['depth']
+  activeDepth?: Button['variants']['depth']
   /**
    * @defaultValue 'md'
    */
-  size?: ButtonVariants['size']
+  size?: Button['variants']['size']
   /**
    * Rounds the corners of the button
    * @defaultValue false
@@ -78,7 +71,7 @@ export interface ButtonProps extends Omit<UseComponentIconsProps, 'trailing' | '
    * @defaultValue ''
    */
   inactiveClass?: string
-  b24ui?: PartialString<typeof button.slots>
+  b24ui?: Button['slots']
 }
 
 export interface ButtonSlots {
@@ -90,11 +83,14 @@ export interface ButtonSlots {
 
 <script setup lang="ts">
 import { type Ref, computed, ref, inject } from 'vue'
+import { defu } from 'defu'
 import { useForwardProps } from 'reka-ui'
+import { useAppConfig } from '#imports'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useButtonGroup } from '../composables/useButtonGroup'
 import { formLoadingInjectionKey } from '../composables/useFormField'
 import { omit } from '../utils'
+import { tv } from '../utils/tv'
 import { pickLinkProps } from '../utils/link'
 import B24Avatar from './Avatar.vue'
 import B24Link from './Link.vue'
@@ -113,6 +109,10 @@ const props = withDefaults(defineProps<ButtonProps>(), {
 
 const slots = defineSlots<ButtonSlots>()
 
+const appConfig = useAppConfig() as Button['AppConfig']
+
+const { orientation, size: buttonSize, noSplit } = useButtonGroup<ButtonProps>(props)
+
 const linkProps = useForwardProps(pickLinkProps(props))
 
 /**
@@ -121,9 +121,6 @@ const linkProps = useForwardProps(pickLinkProps(props))
 const proxyLinkProps = computed(() => {
   return omit(linkProps.value, ['type', 'disabled', 'onClick'])
 })
-
-const { orientation, size: buttonSize, noSplit } = useButtonGroup<ButtonProps>(props)
-
 const loadingAutoState = ref(false)
 const formLoading = inject<Ref<boolean> | undefined>(formLoadingInjectionKey, undefined)
 
@@ -156,17 +153,19 @@ const isLabel = computed(() => {
 })
 
 const b24ui = computed(() => tv({
-  extend: button,
-  variants: {
-    active: {
-      true: {
-        base: props.activeClass
-      },
-      false: {
-        base: props.inactiveClass
+  extend: tv(theme),
+  ...defu({
+    variants: {
+      active: {
+        true: {
+          base: props.activeClass
+        },
+        false: {
+          base: props.inactiveClass
+        }
       }
     }
-  }
+  }, appConfig.b24ui?.button || {})
 })({
   color: props.color,
   depth: props.depth,

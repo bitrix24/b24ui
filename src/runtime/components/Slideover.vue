@@ -1,18 +1,11 @@
 <script lang="ts">
-import type { VariantProps } from 'tailwind-variants'
 import type { DialogRootProps, DialogRootEmits, DialogContentProps, DialogContentEmits } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/slideover'
-import { tv } from '../utils/tv'
 import type { ButtonProps, IconComponent } from '../types'
-import type { EmitsToProps } from '../types/utils'
+import type { EmitsToProps, ComponentConfig } from '../types/utils'
 
-const appConfigSlideover = _appConfig as AppConfig & { b24ui: { slideover: Partial<typeof theme> } }
-
-const slideover = tv({ extend: tv(theme), ...(appConfigSlideover.b24ui?.slideover || {}) })
-
-type SlideoverVariants = VariantProps<typeof slideover>
+type Slideover = ComponentConfig<typeof theme, AppConfig, 'slideover'>
 
 export interface SlideoverProps extends DialogRootProps {
   title?: string
@@ -31,7 +24,7 @@ export interface SlideoverProps extends DialogRootProps {
    * `auto` use `motion-safe`.
    * @defaultValue 'auto'
    */
-  overlayBlur?: SlideoverVariants['overlayBlur']
+  overlayBlur?: Slideover['variants']['overlayBlur']
   /**
    * Animate the slideover when opening or closing.
    * @defaultValue true
@@ -41,7 +34,7 @@ export interface SlideoverProps extends DialogRootProps {
    * The side of the slideover.
    * @defaultValue 'right'
    */
-  side?: SlideoverVariants['side']
+  side?: Slideover['variants']['side']
   /**
    * Render the slideover in a portal.
    * @defaultValue true
@@ -70,7 +63,7 @@ export interface SlideoverProps extends DialogRootProps {
    */
   scrollbarThin?: boolean
   class?: any
-  b24ui?: Partial<typeof slideover.slots>
+  b24ui?: Slideover['slots']
 }
 
 export interface SlideoverEmits extends DialogRootEmits {
@@ -83,7 +76,7 @@ export interface SlideoverSlots {
   header(props?: {}): any
   title(props?: {}): any
   description(props?: {}): any
-  close(props: { b24ui: ReturnType<typeof slideover> }): any
+  close(props: { ui: { [K in keyof Required<Slideover['slots']>]: (props?: Record<string, any>) => string } }): any
   body(props?: {}): any
   footer(props?: {}): any
 }
@@ -93,7 +86,9 @@ export interface SlideoverSlots {
 import { computed, toRef } from 'vue'
 import { DialogRoot, DialogTrigger, DialogPortal, DialogOverlay, DialogContent, DialogTitle, DialogDescription, DialogClose, VisuallyHidden, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
+import { useAppConfig } from '#imports'
 import { useLocale } from '../composables/useLocale'
+import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Button from './Button.vue'
 
@@ -112,6 +107,7 @@ const emits = defineEmits<SlideoverEmits>()
 const slots = defineSlots<SlideoverSlots>()
 
 const { t } = useLocale()
+const appConfig = useAppConfig() as Slideover['AppConfig']
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'open', 'defaultOpen', 'modal'), emits)
 const contentProps = toRef(() => props.content)
@@ -132,7 +128,7 @@ const contentEvents = computed(() => {
   return events
 })
 
-const b24ui = computed(() => slideover({
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.slideover || {}) })({
   transition: props.transition,
   side: props.side,
   overlayBlur: props.overlayBlur

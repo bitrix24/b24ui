@@ -2,17 +2,12 @@
 import type { DialogRootProps, DialogRootEmits, DialogContentProps, DialogContentEmits } from 'reka-ui'
 import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/modal'
 import { tv } from '../utils/tv'
 import type { ButtonProps, IconComponent } from '../types'
-import type { EmitsToProps } from '../types/utils'
+import type { EmitsToProps, ComponentConfig } from '../types/utils'
 
-const appConfigModal = _appConfig as AppConfig & { b24ui: { modal: Partial<typeof theme> } }
-
-const modal = tv({ extend: tv(theme), ...(appConfigModal.b24ui?.modal || {}) })
-
-type ModalVariants = VariantProps<typeof modal>
+type Modal = ComponentConfig<typeof theme, AppConfig, 'modal'>
 
 export interface ModalProps extends DialogRootProps {
   title?: string
@@ -31,7 +26,7 @@ export interface ModalProps extends DialogRootProps {
    * `auto` use `motion-safe`.
    * @defaultValue 'auto'
    */
-  overlayBlur?: ModalVariants['overlayBlur']
+  overlayBlur?: Modal['variants']['overlayBlur']
   /**
    * Animate the modal when opening or closing.
    * @defaultValue true
@@ -69,7 +64,7 @@ export interface ModalProps extends DialogRootProps {
    */
   scrollbarThin?: boolean
   class?: any
-  b24ui?: Partial<typeof modal.slots>
+  b24ui?: Modal['slots']
 }
 
 export interface ModalEmits extends DialogRootEmits {
@@ -82,7 +77,7 @@ export interface ModalSlots {
   header(props?: {}): any
   title(props?: {}): any
   description(props?: {}): any
-  close(props: { b24ui: ReturnType<typeof modal> }): any
+  close(props: { b24ui: { [K in keyof Required<Modal['slots']>]: (props?: Record<string, any>) => string } }): any
   body(props?: {}): any
   footer(props?: {}): any
 }
@@ -92,7 +87,9 @@ export interface ModalSlots {
 import { computed, toRef } from 'vue'
 import { DialogRoot, DialogTrigger, DialogPortal, DialogOverlay, DialogContent, DialogTitle, DialogDescription, DialogClose, VisuallyHidden, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
+import { useAppConfig } from '#imports'
 import { useLocale } from '../composables/useLocale'
+import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Button from './Button.vue'
 
@@ -110,6 +107,7 @@ const emits = defineEmits<ModalEmits>()
 const slots = defineSlots<ModalSlots>()
 
 const { t } = useLocale()
+const appConfig = useAppConfig() as Modal['AppConfig']
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'open', 'defaultOpen', 'modal'), emits)
 const contentProps = toRef(() => props.content)
@@ -130,7 +128,7 @@ const contentEvents = computed(() => {
   return events
 })
 
-const b24ui = computed(() => modal({
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.modal || {}) })({
   transition: props.transition,
   fullscreen: props.fullscreen,
   overlayBlur: props.overlayBlur

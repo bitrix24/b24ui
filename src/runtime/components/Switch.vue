@@ -1,18 +1,11 @@
 <script lang="ts">
-import type { VariantProps } from 'tailwind-variants'
 import type { SwitchRootProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/switch'
-import { tv } from '../utils/tv'
 import type { IconComponent } from '../types'
-import type { PartialString } from '../types/utils'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigSwitch = _appConfig as AppConfig & { b24ui: { switch: Partial<typeof theme> } }
-
-const switchTv = tv({ extend: tv(theme), ...(appConfigSwitch.b24ui?.switch || {}) })
-
-type SwitchVariants = VariantProps<typeof switchTv>
+type Switch = ComponentConfig<typeof theme, AppConfig, 'switch'>
 
 export interface SwitchProps extends Pick<SwitchRootProps, 'disabled' | 'id' | 'name' | 'required' | 'value' | 'defaultValue'> {
   /**
@@ -23,11 +16,11 @@ export interface SwitchProps extends Pick<SwitchRootProps, 'disabled' | 'id' | '
   /**
    * @defaultValue 'primary'
    */
-  color?: SwitchVariants['color']
+  color?: Switch['variants']['color']
   /**
    * @defaultValue 'md'
    */
-  size?: SwitchVariants['size']
+  size?: Switch['variants']['size']
   /**
    * When `true`, the loading icon will be displayed
    * @defaultValue false
@@ -52,7 +45,7 @@ export interface SwitchProps extends Pick<SwitchRootProps, 'disabled' | 'id' | '
   label?: string
   description?: string
   class?: any
-  b24ui?: PartialString<typeof switchTv.slots>
+  b24ui?: Switch['slots']
 }
 
 export type SwitchEmits = {
@@ -69,7 +62,9 @@ export interface SwitchSlots {
 import { computed, useId } from 'vue'
 import { Primitive, SwitchRoot, SwitchThumb, useForwardProps, Label } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
+import { useAppConfig } from '#imports'
 import { useFormField } from '../composables/useFormField'
+import { tv } from '../utils/tv'
 import { omit } from '../utils'
 import icons from '../dictionary/icons'
 
@@ -81,12 +76,14 @@ const emits = defineEmits<SwitchEmits>()
 
 const modelValue = defineModel<boolean>({ default: undefined })
 
+const appConfig = useAppConfig() as Switch['AppConfig']
+
 const rootProps = useForwardProps(reactivePick(props, 'required', 'value', 'defaultValue'))
 
 const { id: _id, emitFormChange, emitFormInput, size, color, name, disabled, ariaAttrs } = useFormField<SwitchProps>(props)
 const id = _id.value ?? useId()
 
-const b24ui = computed(() => switchTv({
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.switch || {}) })({
   size: size.value,
   color: color.value,
   required: props.required,

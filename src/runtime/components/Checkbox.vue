@@ -1,16 +1,10 @@
 <script lang="ts">
-import type { VariantProps } from 'tailwind-variants'
 import type { CheckboxRootProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/checkbox'
-import { tv } from '../utils/tv'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigCheckbox = _appConfig as AppConfig & { b24ui: { checkbox: Partial<typeof theme> } }
-
-const checkbox = tv({ extend: tv(theme), ...(appConfigCheckbox.b24ui?.checkbox || {}) })
-
-type CheckboxVariants = VariantProps<typeof checkbox>
+type Checkbox = ComponentConfig<typeof theme, AppConfig, 'checkbox'>
 
 export interface CheckboxProps extends Pick<CheckboxRootProps, 'disabled' | 'required' | 'name' | 'value' | 'id' | 'defaultValue'> {
   /**
@@ -23,13 +17,13 @@ export interface CheckboxProps extends Pick<CheckboxRootProps, 'disabled' | 'req
   /**
    * @defaultValue 'primary'
    */
-  color?: CheckboxVariants['color']
+  color?: Checkbox['variants']['color']
   /**
    * @defaultValue 'md'
    */
-  size?: CheckboxVariants['size']
+  size?: Checkbox['variants']['size']
   class?: any
-  b24ui?: Partial<typeof checkbox.slots>
+  b24ui?: Checkbox['slots']
 }
 
 export type CheckboxEmits = {
@@ -46,7 +40,9 @@ export interface CheckboxSlots {
 import { computed, useId } from 'vue'
 import { Primitive, CheckboxRoot, CheckboxIndicator, Label, useForwardProps } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
+import { useAppConfig } from '#imports'
 import { useFormField } from '../composables/useFormField'
+import { tv } from '../utils/tv'
 import Minus20Icon from '@bitrix24/b24icons-vue/actions/Minus20Icon'
 import CheckIcon from '@bitrix24/b24icons-vue/main/CheckIcon'
 
@@ -58,12 +54,14 @@ const emits = defineEmits<CheckboxEmits>()
 
 const modelValue = defineModel<boolean | 'indeterminate'>({ default: undefined })
 
+const appConfig = useAppConfig() as Checkbox['AppConfig']
+
 const rootProps = useForwardProps(reactivePick(props, 'required', 'value', 'defaultValue'))
 
 const { id: _id, emitFormChange, emitFormInput, size, color, name, disabled, ariaAttrs } = useFormField<CheckboxProps>(props)
 const id = _id.value ?? useId()
 
-const b24ui = computed(() => checkbox({
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.checkbox || {}) })({
   size: size.value,
   color: color.value,
   required: props.required,

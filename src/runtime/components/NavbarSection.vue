@@ -1,12 +1,9 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/navbar-section'
-import { tv } from '../utils/tv'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigNavSection = _appConfig as AppConfig & { b24ui: { navbarSection: Partial<typeof theme> } }
-
-const navbarSection = tv({ extend: tv(theme), ...(appConfigNavSection.b24ui?.navbarSection || {}) })
+type NavSection = ComponentConfig<typeof theme, AppConfig, 'navbarSection'>
 
 export interface NavbarSectionProps {
   /**
@@ -15,7 +12,7 @@ export interface NavbarSectionProps {
    */
   as?: any
   class?: any
-  b24ui?: Partial<typeof navbarSection.slots>
+  b24ui?: NavSection['slots']
 }
 
 export interface NavbarSectionSlots {
@@ -24,15 +21,20 @@ export interface NavbarSectionSlots {
 </script>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
+import { useAppConfig } from '#imports'
+import { tv } from '../utils/tv'
 
 const props = withDefaults(defineProps<NavbarSectionProps>(), {
   as: 'div'
 })
 defineSlots<NavbarSectionSlots>()
 
+const appConfig = useAppConfig() as NavSection['AppConfig']
+
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = navbarSection()
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.navbarSection || {}) })())
 </script>
 
 <template>

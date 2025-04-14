@@ -1,12 +1,9 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/sidebar-spacer'
-import { tv } from '../utils/tv'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigSidebarSpacer = _appConfig as AppConfig & { b24ui: { sidebarSpacer: Partial<typeof theme> } }
-
-const sidebarSpacer = tv({ extend: tv(theme), ...(appConfigSidebarSpacer.b24ui?.sidebarSpacer || {}) })
+type SidebarSpacer = ComponentConfig<typeof theme, AppConfig, 'sidebarSpacer'>
 
 export interface SidebarSpacerProps {
   /**
@@ -15,7 +12,7 @@ export interface SidebarSpacerProps {
    */
   as?: any
   class?: any
-  b24ui?: Partial<typeof sidebarSpacer.slots>
+  b24ui?: SidebarSpacer['slots']
 }
 
 export interface SidebarSpacerSlots {
@@ -24,15 +21,20 @@ export interface SidebarSpacerSlots {
 </script>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
+import { useAppConfig } from '#imports'
+import { tv } from '../utils/tv'
 
 const props = withDefaults(defineProps<SidebarSpacerProps>(), {
   as: 'div'
 })
 defineSlots<SidebarSpacerSlots>()
 
+const appConfig = useAppConfig() as SidebarSpacer['AppConfig']
+
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = sidebarSpacer()
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sidebarSpacer || {}) })())
 </script>
 
 <template>

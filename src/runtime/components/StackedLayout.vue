@@ -1,16 +1,9 @@
 <script lang="ts">
-// import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/stacked-layout'
-import { tv } from '../utils/tv'
-import { useRoute } from 'vue-router'
+import type { ComponentConfig } from '../types/utils'
 
-const appConfigStackedLayout = _appConfig as AppConfig & { b24ui: { stackedLayout: Partial<typeof theme> } }
-
-const stackedLayout = tv({ extend: tv(theme), ...(appConfigStackedLayout.b24ui?.stackedLayout || {}) })
-
-// type StackedLayoutVariants = VariantProps<typeof stackedLayout>
+type StackedLayout = ComponentConfig<typeof theme, AppConfig, 'stackedLayout'>
 
 export interface StackedLayoutProps {
   /**
@@ -20,7 +13,7 @@ export interface StackedLayoutProps {
   as?: any
   useLightContent?: boolean
   class?: any
-  b24ui?: Partial<typeof stackedLayout.slots>
+  b24ui?: StackedLayout['slots']
 }
 
 export interface StackedLayoutSlots {
@@ -43,7 +36,10 @@ export interface StackedLayoutSlots {
 
 <script setup lang="ts">
 import { ref, computed, watch, onUnmounted } from 'vue'
+import { useRoute } from 'vue-router'
 import { Primitive } from 'reka-ui'
+import { useAppConfig } from '#imports'
+import { tv } from '../utils/tv'
 import B24Slideover from './Slideover.vue'
 import B24Sidebar from './Sidebar.vue'
 import B24ModalDialogClose from './ModalDialogClose.vue'
@@ -57,11 +53,13 @@ const props = withDefaults(defineProps<StackedLayoutProps>(), {
 })
 const slots = defineSlots<StackedLayoutSlots>()
 
+const appConfig = useAppConfig() as StackedLayout['AppConfig']
+
 const route = useRoute()
 const isUseSideBar = computed(() => !!slots.sidebar)
 const openSidebarSlideover = ref(false)
 
-const b24ui = computed(() => stackedLayout({
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.stackedLayout || {}) })({
   useSidebar: isUseSideBar.value,
   useLightContent: Boolean(props.useLightContent)
 }))

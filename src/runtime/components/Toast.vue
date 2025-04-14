@@ -1,18 +1,11 @@
 <script lang="ts">
-import type { VariantProps } from 'tailwind-variants'
 import type { ToastRootProps, ToastRootEmits } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/toast'
-import { tv } from '../utils/tv'
 import type { AvatarProps, ButtonProps, IconComponent } from '../types'
-import type { StringOrVNode } from '../types/utils'
+import type { StringOrVNode, ComponentConfig } from '../types/utils'
 
-const appConfigToast = _appConfig as AppConfig & { b24ui: { toast: Partial<typeof theme> } }
-
-const toast = tv({ extend: tv(theme), ...(appConfigToast.b24ui?.toast || {}) })
-
-type ToastVariants = VariantProps<typeof toast>
+type Toast = ComponentConfig<typeof theme, AppConfig, 'toast'>
 
 export interface ToastProps extends Pick<ToastRootProps, 'defaultOpen' | 'open' | 'type' | 'duration'> {
   /**
@@ -30,12 +23,12 @@ export interface ToastProps extends Pick<ToastRootProps, 'defaultOpen' | 'open' 
   /**
    * @defaultValue 'default'
    */
-  color?: ToastVariants['color']
+  color?: Toast['variants']['color']
   /**
    * The orientation between the content and the actions
    * @defaultValue 'vertical'
    */
-  orientation?: ToastVariants['orientation']
+  orientation?: Toast['variants']['orientation']
   /**
    * Display a list of actions:
    * - under the title and description when orientation is `vertical`
@@ -56,7 +49,7 @@ export interface ToastProps extends Pick<ToastRootProps, 'defaultOpen' | 'open' 
    */
   closeIcon?: IconComponent
   class?: any
-  b24ui?: Partial<typeof toast.slots>
+  b24ui?: Toast['slots']
 }
 
 export interface ToastEmits extends ToastRootEmits {}
@@ -66,7 +59,7 @@ export interface ToastSlots {
   title(props?: {}): any
   description(props?: {}): any
   actions(props?: {}): any
-  close(props: { b24ui: ReturnType<typeof toast> }): any
+  close(props: { b24ui: { [K in keyof Required<Toast['slots']>]: (props?: Record<string, any>) => string } }): any
 }
 </script>
 
@@ -74,7 +67,9 @@ export interface ToastSlots {
 import { ref, computed, onMounted } from 'vue'
 import { ToastRoot, ToastTitle, ToastDescription, ToastAction, ToastClose, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
+import { useAppConfig } from '#imports'
 import { useLocale } from '../composables/useLocale'
+import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Avatar from './Avatar.vue'
 import B24Button from './Button.vue'
@@ -87,10 +82,11 @@ const emits = defineEmits<ToastEmits>()
 const slots = defineSlots<ToastSlots>()
 
 const { t } = useLocale()
+const appConfig = useAppConfig() as Toast['AppConfig']
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'defaultOpen', 'open', 'duration', 'type'), emits)
 
-const b24ui = computed(() => toast({
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.toast || {}) })({
   color: props.color,
   orientation: props.orientation,
   title: !!props.title || !!slots.title

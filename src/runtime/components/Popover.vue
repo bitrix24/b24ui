@@ -1,14 +1,10 @@
 <script lang="ts">
 import type { PopoverRootProps, HoverCardRootProps, PopoverRootEmits, PopoverContentProps, PopoverContentEmits, PopoverArrowProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
 import theme from '#build/b24ui/popover'
-import { tv } from '../utils/tv'
-import type { EmitsToProps } from '../types/utils'
+import type { EmitsToProps, ComponentConfig } from '../types/utils'
 
-const appConfigPopover = _appConfig as AppConfig & { b24ui: { popover: Partial<typeof theme> } }
-
-const popover = tv({ extend: tv(theme), ...(appConfigPopover.b24ui?.popover || {}) })
+type Popover = ComponentConfig<typeof theme, AppConfig, 'popover'>
 
 export interface PopoverProps extends PopoverRootProps, Pick<HoverCardRootProps, 'openDelay' | 'closeDelay'> {
   /**
@@ -37,7 +33,7 @@ export interface PopoverProps extends PopoverRootProps, Pick<HoverCardRootProps,
    */
   dismissible?: boolean
   class?: any
-  b24ui?: Partial<typeof popover.slots>
+  b24ui?: Popover['slots']
 }
 
 export interface PopoverEmits extends PopoverRootEmits {}
@@ -54,6 +50,8 @@ import { defu } from 'defu'
 import { useForwardPropsEmits } from 'reka-ui'
 import { Popover, HoverCard } from 'reka-ui/namespaced'
 import { reactivePick } from '@vueuse/core'
+import { useAppConfig } from '#imports'
+import { tv } from '../utils/tv'
 
 const props = withDefaults(defineProps<PopoverProps>(), {
   portal: true,
@@ -64,6 +62,8 @@ const props = withDefaults(defineProps<PopoverProps>(), {
 })
 const emits = defineEmits<PopoverEmits>()
 const slots = defineSlots<PopoverSlots>()
+
+const appConfig = useAppConfig() as Popover['AppConfig']
 
 const pick = props.mode === 'hover' ? reactivePick(props, 'defaultOpen', 'open', 'openDelay', 'closeDelay') : reactivePick(props, 'defaultOpen', 'open', 'modal')
 const rootProps = useForwardPropsEmits(pick, emits)
@@ -82,7 +82,7 @@ const contentEvents = computed(() => {
 const arrowProps = toRef(() => props.arrow as PopoverArrowProps)
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => popover({
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.popover || {}) })({
   side: contentProps.value.side
 }))
 
