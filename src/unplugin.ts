@@ -41,6 +41,10 @@ export interface Bitrix24UIOptions extends Omit<ModuleOptions, 'colorMode'> {
    * Override options for `unplugin-vue-components`
    */
   components?: Partial<ComponentsOptions>
+  /**
+   * Enables compatibility layer for InertiaJS
+   */
+  inertia?: boolean
 }
 
 export const runtimeDir = normalize(fileURLToPath(new URL('./runtime', import.meta.url)))
@@ -51,7 +55,7 @@ export const Bitrix24UIPlugin = createUnplugin<Bitrix24UIOptions | undefined>((_
   const appConfig = defu({ b24ui: options.b24ui, colorMode: options.colorMode }, { b24ui: getDefaultUiConfig() })
 
   return [
-    Bitrix24EnvironmentPlugin(),
+    Bitrix24EnvironmentPlugin(options),
     ComponentImportPlugin(options, meta),
     AutoImportPlugin(options, meta),
     tailwind(),

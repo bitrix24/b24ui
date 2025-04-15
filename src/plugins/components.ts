@@ -21,6 +21,9 @@ export default function ComponentImportPlugin(
   const componentsContent = globSync('**/*.vue', { cwd: join(runtimeDir, 'components/content') })
   const componentContentNames = new Set(componentsContent.map(c => `B24${c.replace(/\.vue$/, '')}`))
 
+  const inertiaOverrides = globSync('**/*.vue', { cwd: join(runtimeDir, 'inertia/components') })
+  const inertiaOverrideNames = new Set(inertiaOverrides.map(c => `B24${c.replace(/\.vue$/, '')}`))
+
   const componentsProse = globSync('**/*.vue', { cwd: join(runtimeDir, 'prose') })
   const componentProseNames = new Set(componentsProse.map(c => `Prose${c.replace(/\.vue$/, '')}`))
 
@@ -36,6 +39,9 @@ export default function ComponentImportPlugin(
     ],
     resolvers: [
       (componentName) => {
+        if (options.inertia && inertiaOverrideNames.has(componentName)) {
+          return { name: 'default', from: join(runtimeDir, 'inertia/components', `${componentName.slice('B24'.length)}.vue`) }
+        }
         if (overrideNames.has(componentName))
           return { name: 'default', from: join(runtimeDir, 'vue/components', `${componentName.slice('B24'.length)}.vue`) }
         if (componentProseNames.has(componentName))
@@ -68,6 +74,9 @@ export default function ComponentImportPlugin(
         }
 
         const filename = id.match(/([^/]+)\.vue$/)?.[1]
+        if (filename && options.inertia && inertiaOverrideNames.has(`B24${filename}`)) {
+          return join(runtimeDir, 'inertia/components', `${filename}.vue`)
+        }
         if (filename && overrideNames.has(`B24${filename}`)) {
           return join(runtimeDir, 'vue/components', `${filename}.vue`)
         }
