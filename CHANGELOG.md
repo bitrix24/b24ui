@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.6.2](https://github.com/bitrix24/b24ui/compare/v0.6.1...v0.6.2) (2025-04-16)
+
+* feat(unplugin): routing support for inertia
+* fix(Form): loses focus on submit
+* fix(types): improve dynamic slots
+* chore(deps): update all non-major dependencies
+* chore(deps): update tailwindcss to ^4.1.4
+* docs(form): fix typo in expose section
+* docs(installation): improve `.vscode/settings.json` json
+
 ## [0.6.1](https://github.com/bitrix24/b24ui/compare/v0.6.0...v0.6.1) (2025-04-14)
 
 ### Features
