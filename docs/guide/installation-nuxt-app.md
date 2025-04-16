@@ -100,16 +100,24 @@ It's recommended to install the [Tailwind CSS IntelliSense](https://marketplace.
 
 ::: code-group
 ```json [.vscode/settings.json]
-"files.associations": {
-  "*.css": "tailwindcss"
-},
-"editor.quickSuggestions": {
-  "strings": "on"
-},
-"tailwindCSS.classAttributes": ["class", "b24ui"],
-"tailwindCSS.experimental.classRegex": [
-  ["b24ui:\\s*{([^)]*)\\s*}", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
-]
+{
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "tailwindCSS.classAttributes": [
+    "class",
+    "b24ui"
+  ],
+  "tailwindCSS.experimental.classRegex": [
+    [
+      "b24ui:\\s*{([^)]*)\\s*}",
+      "(?:'|\"|`)([^']*)(?:'|\"|`)"
+    ]
+  ]
+}
 ```
 :::
 
