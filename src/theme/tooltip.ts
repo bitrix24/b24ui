@@ -16,6 +16,7 @@ export default {
       'min-h-6 px-2 py-1 text-xs',
       'bg-base-dark text-white',
       'dark:bg-base-dark dark:text-base-150 dark:ring dark:ring-base-100/20',
+      'origin-(--reka-tooltip-content-transform-origin)',
       'pointer-events-auto'
     ].join(' '),
     arrow: 'fill-base-dark dark:fill-base-100/20',

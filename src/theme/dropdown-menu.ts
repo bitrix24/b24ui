@@ -14,6 +14,7 @@ export default {
       'shadow-lg rounded-2xs ring ring-base-300 dark:ring-base-800',
       'overflow-y-auto',
       'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]',
+      'origin-(--reka-dropdown-menu-content-transform-origin)',
       'divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1',
       'pointer-events-auto'
     ].join(' '),

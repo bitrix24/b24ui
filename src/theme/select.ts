@@ -48,13 +48,14 @@ export default () => {
         placeholder: 'truncate text-base-400 dark:text-base-300',
         arrow: 'fill-base-master/10 dark:fill-base-100/20',
         content: [
-          'w-(--reka-popper-anchor-width)',
+          'w-(--reka-select-trigger-width)',
           // 'max-h-60',
           // 'h-(--reka-popper-available-height)',
           'bg-white dark:bg-base-dark',
           'shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800',
           'overflow-hidden',
           'data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in]',
+          'origin-(--reka-select-content-transform-origin)',
           'pointer-events-auto'
         ].join(' '),
         scrollUpDownButton: [

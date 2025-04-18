@@ -9,14 +9,15 @@
  * @todo add scroll/ Wait `ComboboxScrollUpButton` like `SelectScrollUpButton`
  * @todo change empty template
  */
-import { defu } from 'defu'
+import { defuFn } from 'defu'
 import select from './select'
 
 export default () => {
-  return defu({
+  return defuFn({
     slots: {
       input: 'border-b border-base-300 dark:dark:border-base-800',
-      focusScope: 'flex flex-col min-h-0'
+      focusScope: 'flex flex-col min-h-0',
+      content: (content: string) => [content, 'origin-(--reka-combobox-content-transform-origin) w-(--reka-combobox-trigger-width)']
     },
     variants: {
       addNew: {

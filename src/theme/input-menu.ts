@@ -45,13 +45,14 @@ export default () => {
       trailing: 'group absolute inset-y-0 end-0 flex items-center disabled:cursor-not-allowed disabled:opacity-75',
       arrow: 'fill-base-master/10 dark:fill-base-100/20',
       content: [
-        'w-(--reka-popper-anchor-width)',
+        'w-(--reka-combobox-trigger-width)',
         // 'max-h-60',
         // 'h-(--reka-popper-available-height)',
         'bg-white dark:bg-base-dark',
         'shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800',
         'overflow-hidden',
         'data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in]',
+        'origin-(--reka-combobox-content-transform-origin)',
         'pointer-events-auto'
       ].join(' '),
       viewport: 'divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1',
