@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.6.3](https://github.com/bitrix24/b24ui/compare/v0.6.2...v0.6.3) (2025-04-18)
+
+### Bug Fixes
+
+* **Link:** proxy `download` property
+* **components:** respect `transform-origin` in popper content
+* **InputMenu/Select/SelectMenu:** add `min-w-fit` to `content` slot
+* **vite:** vitest skipping nuxt imports transformations
+
+### Docs
+
+* **color-mode:** fix computed setter logic in `ColorModeButton.vue` example
+
 ## [0.6.2](https://github.com/bitrix24/b24ui/compare/v0.6.1...v0.6.2) (2025-04-16)
 
 ### Features
