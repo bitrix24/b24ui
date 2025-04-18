@@ -50,6 +50,7 @@ export default () => {
         content: [
           'w-(--reka-select-trigger-width)',
           // 'max-h-60',
+          'min-w-fit',
           // 'h-(--reka-popper-available-height)',
           'bg-white dark:bg-base-dark',
           'shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800',
