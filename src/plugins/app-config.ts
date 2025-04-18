@@ -19,6 +19,19 @@ export default function AppConfigPlugin(options: Bitrix24UIOptions, appConfig: R
       return `
           export default ${JSON.stringify(appConfig!)}
         `
+    },
+    vite: {
+      config() {
+        return {
+          test: {
+            server: {
+              deps: {
+                inline: ['@bitrix24/b24ui']
+              }
+            }
+          }
+        }
+      }
     }
   } satisfies UnpluginOptions
 }
