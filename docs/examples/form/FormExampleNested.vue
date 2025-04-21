@@ -94,7 +94,7 @@ function fillState() {
         <B24Checkbox v-model="state.news" name="news" label="Register to our newsletter" @update:model-value="state.email = undefined" />
       </div>
 
-      <B24Form v-if="state.news" :state="state" :schema="nestedSchema">
+      <B24Form v-if="state.news" :state="state" :schema="nestedSchema" attach>
         <B24FormField label="Email" name="email">
           <B24Input v-model="state.email" />
         </B24FormField>

@@ -123,6 +123,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
         :key="count"
         :state="item"
         :schema="itemSchema"
+        attach
         class="flex gap-1.5"
       >
         <B24FormField :label="!count ? 'Description' : undefined" name="description" class="w-34">
