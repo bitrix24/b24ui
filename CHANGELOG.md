@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.6.5](https://github.com/bitrix24/b24ui/compare/v0.6.4...v0.6.5) (2025-04-22)
+
+### Bug Fixes
+
+* **App:** fix server side for `portal` prop
+
 ## [0.6.4](https://github.com/bitrix24/b24ui/compare/v0.6.3...v0.6.4) (2025-04-22)
 
 ### Features

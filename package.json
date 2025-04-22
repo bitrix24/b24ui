@@ -1,7 +1,7 @@
 {
   "name": "@bitrix24/b24ui-nuxt",
   "description": "Bitrix24 UI-Kit for developing web applications REST API for NUXT & VUE",
-  "version": "0.6.4",
+  "version": "0.6.5",
   "packageManager": "pnpm@10.9.0",
   "repository": {
     "type": "git",
@@ -192,7 +192,7 @@
     "valibot": "^1.0.0",
     "vue-router": "^4.5.0",
     "yup": "^1.6.0",
-    "zod": "^3.24.0"
+    "zod": "^3.24.3"
   },
   "peerDependenciesMeta": {
     "@inertiajs/vue3": {
