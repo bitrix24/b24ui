@@ -148,7 +148,7 @@ defineExpose({
         </slot>
       </ToastDescription>
 
-      <div v-if="orientation === 'vertical' && actions?.length" :class="b24ui.actions({ class: props.b24ui?.actions })">
+      <div v-if="orientation === 'vertical' && (actions?.length || !!slots.actions)" :class="b24ui.actions({ class: props.b24ui?.actions })">
         <slot name="actions">
           <ToastAction v-for="(action, index) in actions" :key="index" :alt-text="action.label || 'Action'" as-child @click.stop>
             <B24Button size="xs" :color="color" v-bind="action" />
@@ -157,8 +157,8 @@ defineExpose({
       </div>
     </div>
 
-    <div v-if="(orientation === 'horizontal' && actions?.length) || close !== null" :class="b24ui.actions({ class: props.b24ui?.actions, orientation: 'horizontal' })">
-      <template v-if="orientation === 'horizontal' && actions?.length">
+    <div v-if="(orientation === 'horizontal' && (actions?.length || !!slots.actions)) || close !== null" :class="b24ui.actions({ class: props.b24ui?.actions, orientation: 'horizontal' })">
+      <template v-if="orientation === 'horizontal' && (actions?.length || !!slots.actions)">
         <slot name="actions">
           <ToastAction v-for="(action, index) in actions" :key="index" :alt-text="action.label || 'Action'" as-child @click.stop>
             <B24Button size="xs" :color="color" v-bind="action" />

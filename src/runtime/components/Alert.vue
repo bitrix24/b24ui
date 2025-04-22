@@ -120,15 +120,15 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.alert 
         </slot>
       </div>
 
-      <div v-if="orientation === 'vertical' && actions?.length" :class="b24ui.actions({ class: props.b24ui?.actions })">
+      <div v-if="orientation === 'vertical' && (actions?.length || !!slots.actions)" :class="b24ui.actions({ class: props.b24ui?.actions })">
         <slot name="actions">
           <B24Button v-for="(action, index) in actions" :key="index" size="xs" v-bind="action" />
         </slot>
       </div>
     </div>
 
-    <div v-if="(orientation === 'horizontal' && actions?.length) || close" :class="b24ui.actions({ class: props.b24ui?.actions, orientation: 'horizontal' })">
-      <template v-if="orientation === 'horizontal' && actions?.length">
+    <div v-if="(orientation === 'horizontal' && (actions?.length || !!slots.actions)) || close" :class="b24ui.actions({ class: props.b24ui?.actions, orientation: 'horizontal' })">
+      <template v-if="orientation === 'horizontal' && (actions?.length || !!slots.actions)">
         <slot name="actions">
           <B24Button v-for="(action, index) in actions" :key="index" size="xs" v-bind="action" />
         </slot>
