@@ -39,7 +39,7 @@ export interface SlideoverProps extends DialogRootProps {
    * Render the slideover in a portal.
    * @defaultValue true
    */
-  portal?: boolean
+  portal?: boolean | string | HTMLElement
   /**
    * Display a close button to dismiss the slideover.
    * `{ color: 'primary' }`{lang="ts"} for `left`, `right`
@@ -88,6 +88,7 @@ import { DialogRoot, DialogTrigger, DialogPortal, DialogOverlay, DialogContent, 
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useLocale } from '../composables/useLocale'
+import { usePortal } from '../composables/usePortal'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Button from './Button.vue'
@@ -110,6 +111,7 @@ const { t } = useLocale()
 const appConfig = useAppConfig() as Slideover['AppConfig']
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'open', 'defaultOpen', 'modal'), emits)
+const portalProps = usePortal(toRef(() => props.portal))
 const contentProps = toRef(() => props.content)
 const contentEvents = computed(() => {
   const events = {
@@ -141,7 +143,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.slideo
       <slot :open="open" />
     </DialogTrigger>
 
-    <DialogPortal :disabled="!portal">
+    <DialogPortal v-bind="portalProps">
       <DialogOverlay v-if="overlay" :class="b24ui.overlay({ class: props.b24ui?.overlay })" />
 
       <DialogContent :data-side="side" :class="b24ui.content({ class: [!slots.default && props.class, props.b24ui?.content] })" v-bind="contentProps" @after-leave="emits('after:leave')" v-on="contentEvents">

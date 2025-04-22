@@ -10,7 +10,7 @@ type DropdownMenu = ComponentConfig<typeof theme, AppConfig, 'dropdownMenu'>
 
 interface DropdownMenuContentProps<T extends ArrayOrNested<DropdownMenuItem>> extends Omit<RekaDropdownMenuContentProps, 'as' | 'asChild' | 'forceMount'> {
   items?: T
-  portal?: boolean
+  portal?: boolean | string | HTMLElement
   sub?: boolean
   labelKey: keyof NestedItem<T>
   /**
@@ -34,12 +34,13 @@ type DropdownMenuContentSlots<T extends ArrayOrNested<DropdownMenuItem>> = Omit<
 </script>
 
 <script setup lang="ts" generic="T extends ArrayOrNested<DropdownMenuItem>">
-import { computed } from 'vue'
+import { computed, toRef } from 'vue'
 import { DropdownMenu } from 'reka-ui/namespaced'
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit, createReusableTemplate } from '@vueuse/core'
 // import { useAppConfig } from '#imports'
 import { useLocale } from '../composables/useLocale'
+import { usePortal } from '../composables/usePortal'
 import { omit, get, isArrayOfArray } from '../utils'
 import { pickLinkProps } from '../utils/link'
 import icons from '../dictionary/icons'
@@ -57,6 +58,7 @@ const slots = defineSlots<DropdownMenuContentSlots<T>>()
 const { dir } = useLocale()
 // const appConfig = useAppConfig()
 
+const portalProps = usePortal(toRef(() => props.portal))
 const contentProps = useForwardPropsEmits(reactiveOmit(props, 'sub', 'items', 'portal', 'labelKey', 'checkedIcon', 'externalIcon', 'class', 'b24ui', 'b24uiOverride'), emits)
 const proxySlots = omit(slots, ['default'])
 const getLabel = (item: DropdownMenuItem) => {
@@ -130,7 +132,7 @@ const groups = computed<DropdownMenuItem[][]>(() =>
     </slot>
   </DefineItemTemplate>
 
-  <DropdownMenu.Portal :disabled="!portal">
+  <DropdownMenu.Portal v-bind="portalProps">
     <component :is="sub ? DropdownMenu.SubContent : DropdownMenu.Content" :class="props.class" v-bind="contentProps">
       <DropdownMenu.Group v-for="(group, groupIndex) in groups" :key="`group-${groupIndex}`" :class="b24ui.group({ class: b24uiOverride?.group })">
         <template v-for="(item, index) in group" :key="`group-${groupIndex}-${index}`">

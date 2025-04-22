@@ -26,7 +26,7 @@ export interface TooltipProps extends TooltipRootProps {
    * Render the tooltip in a portal.
    * @defaultValue true
    */
-  portal?: boolean
+  portal?: boolean | string | HTMLElement
   class?: any
   b24ui?: Tooltip['slots']
 }
@@ -45,6 +45,7 @@ import { defu } from 'defu'
 import { TooltipRoot, TooltipTrigger, TooltipPortal, TooltipContent, TooltipArrow, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
+import { usePortal } from '../composables/usePortal'
 import { tv } from '../utils/tv'
 import B24Kbd from './Kbd.vue'
 
@@ -57,6 +58,7 @@ const slots = defineSlots<TooltipSlots>()
 const appConfig = useAppConfig() as Tooltip['AppConfig']
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'defaultOpen', 'open', 'delayDuration', 'disableHoverableContent', 'disableClosingTrigger', 'disabled', 'ignoreNonKeyboardFocus'), emits)
+const portalProps = usePortal(toRef(() => props.portal))
 const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffset: 8, collisionPadding: 8 }) as TooltipContentProps)
 const arrowProps = toRef(() => props.arrow as TooltipArrowProps)
 
@@ -72,7 +74,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.toolti
       <slot :open="open" />
     </TooltipTrigger>
 
-    <TooltipPortal :disabled="!portal">
+    <TooltipPortal v-bind="portalProps">
       <TooltipContent v-bind="contentProps" :class="b24ui.content({ class: [!slots.default && props.class, props.b24ui?.content] })">
         <slot name="content">
           <span v-if="text" :class="b24ui.text({ class: props.b24ui?.text })">{{ text }}</span>
