@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.6.4](https://github.com/bitrix24/b24ui/compare/v0.6.3...v0.6.4) (2025-04-22)
+
+### Features
+
+* **Form:** add `attach` prop to opt-out of nested form attachement
+* **App:** add global `portal` prop
+
+### Bug Fixes
+
+* **Form:** input and output type inference
+* **Alert/Toast:** display actions when using slots
+
+### Chore
+
+* **deps:** update all non-major dependencies
+
 ## [0.6.3](https://github.com/bitrix24/b24ui/compare/v0.6.2...v0.6.3) (2025-04-18)
 
 ### Bug Fixes
