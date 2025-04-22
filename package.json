@@ -138,8 +138,8 @@
     "@tailwindcss/vite": "^4.1.4",
     "@tanstack/vue-table": "^8.21.3",
     "@unhead/vue": "^2.0.8",
-    "@vueuse/core": "^13.0.0",
-    "@vueuse/integrations": "^13.0.0",
+    "@vueuse/core": "^13.1.0",
+    "@vueuse/integrations": "^13.1.0",
     "canvas-confetti": "^1.9.3",
     "colortranslator": "^4.1.0",
     "consola": "^3.4.2",
@@ -227,13 +227,14 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "@parcel/watcher",
       "better-sqlite3",
-      "esbuild"
+      "sharp"
     ],
     "ignoredBuiltDependencies": [
+      "@parcel/watcher",
       "esbuild",
-      "vue-demi"
+      "vue-demi",
+      "workerd"
     ]
   },
   "keywords": [
