@@ -1,4 +1,4 @@
-name: Deploy B24 UI-Kit site to Pages
+name: Deploy to Pages 📰
 on:
   push:
     branches: [ main ]
