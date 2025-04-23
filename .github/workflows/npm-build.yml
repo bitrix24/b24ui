@@ -1,0 +1,50 @@
+name: NPM build 👷‍♂️
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v4
+
+      - name: 'Install pnpm'
+        uses: pnpm/action-setup@v4
+
+      - name: 'Install node'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          registry-url: 'https://registry.npmjs.org'
+          cache: pnpm
+
+      - name: 'Install dependencies'
+        run: pnpm install
+
+      - name: Prepare
+        run: pnpm run dev:prepare
+
+      - name: Lint
+        run: pnpm run lint
+
+      - name: Typecheck
+        run: pnpm run typecheck
+
+      - name: Test
+        run: pnpm run test run
+
+      - name: Test (vue)
+        run: pnpm run test:vue run
+
+      - name: Build
+        run: pnpm build
+
+      - name: Build playground
+        run: pnpm run dev:build
+
+      - name: Build playground (vue)
+        run: pnpm run dev:vue:build
