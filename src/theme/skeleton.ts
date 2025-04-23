@@ -6,5 +6,5 @@
  */
 
 export default {
-  base: 'animate-pulse rounded-md bg-gray-200 dark:bg-gray-800'
+  base: 'animate-pulse rounded-md bg-gray-200 dark:bg-gray-800 aria-busy:cursor-progress'
 }

@@ -29,7 +29,14 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.skelet
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui({ class: props.class })">
+  <Primitive
+    :as="as"
+    aria-busy="true"
+    aria-label="loading"
+    aria-live="polite"
+    role="alert"
+    :class="b24ui({ class: props.class })"
+  >
     <slot />
   </Primitive>
 </template>
