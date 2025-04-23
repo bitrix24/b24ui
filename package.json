@@ -1,7 +1,7 @@
 {
   "name": "@bitrix24/b24ui-nuxt",
   "description": "Bitrix24 UI-Kit for developing web applications REST API for NUXT & VUE",
-  "version": "0.6.5",
+  "version": "0.6.6",
   "packageManager": "pnpm@10.9.0",
   "repository": {
     "type": "git",
@@ -179,7 +179,6 @@
     "happy-dom": "^17.4.4",
     "nuxt": "^3.16.2",
     "nuxt-component-meta": "^0.10.1",
-    "vitepress": "^1.5.0",
     "vitest": "^3.1.1",
     "vitest-environment-nuxt": "^1.0.1",
     "vue-tsc": "^2.2.0"
@@ -228,6 +227,7 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "better-sqlite3",
+      "puppeteer",
       "sharp"
     ],
     "ignoredBuiltDependencies": [
