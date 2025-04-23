@@ -21,6 +21,7 @@ import WithDisabledDatesExample from '/examples/calendar/WithDisabledDates.vue';
 import WithUnavailableDatesExample from '/examples/calendar/WithUnavailableDates.vue';
 import WithMinMaxDatesExample from '/examples/calendar/WithMinMaxDates.vue';
 import WithOtherCalendarSystemsExample from '/examples/calendar/WithOtherCalendarSystems.vue';
+import WithExternalControlsExample from '/examples/calendar/WithExternalControls.vue';
 import AsDatePickerExample from '/examples/calendar/AsDatePicker.vue';
 import AsDateRangePickerExample from '/examples/calendar/AsDateRangePicker.vue';
 </script>
@@ -278,6 +279,20 @@ You can check all the available calendars on [`@internationalized/date`](https:/
 
 ::: details
 <<< @/examples/calendar/demo/WithOtherCalendarSystems.vue{30 vue:line-numbers}
+:::
+
+### With external controls
+
+You can control the calendar with external controls by manipulating the date passed in the `v-model`.
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <WithExternalControlsExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/calendar/demo/WithExternalControls.vue{5,10,13,17 vue:line-numbers}
 :::
 
 ### As a DatePicker
