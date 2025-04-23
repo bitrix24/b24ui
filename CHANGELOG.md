@@ -2,9 +2,14 @@
 
 ## [0.6.6](https://github.com/bitrix24/b24ui/compare/v0.6.5...v0.6.6) (2025-04-23)
 
-* fix(usePortal): adjust portal target resolution logic
-* fix(Skeleton): improve accessibility
-* docs(calendar): add external controls example
+### Bug Fixes
+
+* **usePortal:** adjust portal target resolution logic
+* **Skeleton:** improve accessibility
+
+### Docs
+
+* **calendar:** add external controls example
 
 ## [0.6.5](https://github.com/bitrix24/b24ui/compare/v0.6.4...v0.6.5) (2025-04-22)
 
