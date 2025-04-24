@@ -333,7 +333,7 @@ const createItem = computed(() => {
   const newItem = props.valueKey ? { [props.valueKey]: searchTerm.value } as NestedItem<T> : searchTerm.value
 
   if ((typeof props.createItem === 'object' && props.createItem.when === 'always') || props.createItem === 'always') {
-    return !filteredItems.value.find(item => compare(item, newItem, String(props.valueKey)))
+    return !filteredItems.value.find(item => compare(item, newItem, props.valueKey as string))
   }
 
   return !filteredItems.value.length
@@ -572,7 +572,7 @@ defineExpose({
                 v-else
                 :class="b24ui.item({ class: props.b24ui?.item, colorItem: isInputItem(item) ? item?.color : undefined })"
                 :disabled="isInputItem(item) && item.disabled"
-                :value="props.valueKey && isInputItem(item) ? get(item, String(props.valueKey)) : item"
+                :value="props.valueKey && isInputItem(item) ? get(item, props.valueKey as string) : item"
                 @select="onSelect($event, item)"
               >
                 <slot name="item" :item="(item as NestedItem<T>)" :index="index">
