@@ -133,6 +133,10 @@ app.mount('#app')
 ```
 :::
 
+::: tip
+If you're using [Inertia.js](https://inertiajs.com/), you can skip the `vue-router` setup as Inertia provides its own routing system.
+:::
+
 **4. Import Tailwind CSS and Bitrix24 UI in your CSS**
 
 ```css [assets/main.css]
@@ -234,4 +238,30 @@ export default defineConfig({
   ]
 })
 ```
+:::
+
+
+### `inertia`
+
+Use the `inertia` option to enable compatibility with [Inertia.js](https://inertiajs.com/).
+
+::: code-group
+```ts [vite.config.ts]
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import bitrix24UIPluginVite from '@bitrix24/b24ui-nuxt/vite'
+
+export default defineConfig({
+  plugins: [
+    vue(),
+    bitrix24UIPluginVite({
+      inertia: true
+    })
+  ]
+})
+```
+:::
+
+::: tip
+When using this option, `vue-router` is not required as Inertia.js provides its own routing system. The components that would normally use `RouterLink` will automatically use Inertia's `InertiaLink` component instead.
 :::
