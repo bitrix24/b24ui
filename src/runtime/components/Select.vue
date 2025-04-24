@@ -159,6 +159,8 @@ export interface SelectSlots<
   'item-leading': SlotProps<T>
   'item-label': SlotProps<T>
   'item-trailing': SlotProps<T>
+  'content-top': (props?: {}) => any
+  'content-bottom': (props?: {}) => any
 }
 </script>
 
@@ -322,6 +324,8 @@ function isSelectItem(item: SelectItem): item is SelectItemBase {
 
       <SelectPortal v-bind="portalProps">
         <SelectContent :class="b24ui.content({ class: props.b24ui?.content })" v-bind="contentProps">
+          <slot name="content-top" />
+
           <SelectScrollUpButton :class="b24ui.scrollUpDownButton({ class: props.b24ui?.scrollUpDownButton })">
             <Component
               :is="icons.chevronUp"
@@ -389,6 +393,9 @@ function isSelectItem(item: SelectItem): item is SelectItemBase {
               :class="b24ui.scrollUpDownButtonIcon({ class: props.b24ui?.scrollUpDownButtonIcon })"
             />
           </SelectScrollDownButton>
+
+          <slot name="content-bottom" />
+
           <SelectArrow v-if="!!arrow" v-bind="arrowProps" :class="b24ui.arrow({ class: props.b24ui?.arrow })" />
         </SelectContent>
       </SelectPortal>

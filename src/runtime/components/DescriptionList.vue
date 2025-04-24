@@ -58,14 +58,16 @@ export interface DescriptionListProps<T extends DescriptionListItem = Descriptio
 type SlotProps<T extends DescriptionListItem> = (props: { item: T, index: number }) => any
 
 export type DescriptionListSlots<T extends DescriptionListItem = DescriptionListItem> = {
-  legend(props?: {}): any
-  text(props?: {}): any
-  leading: SlotProps<T>
-  label: SlotProps<T>
-  description: SlotProps<T>
-  actions: SlotProps<T>
-  content: SlotProps<T>
-  footer(props?: { b24ui: any }): any
+  'legend'(props?: {}): any
+  'text'(props?: {}): any
+  'leading': SlotProps<T>
+  'label': SlotProps<T>
+  'description': SlotProps<T>
+  'actions': SlotProps<T>
+  'content-top': SlotProps<T>
+  'content': SlotProps<T>
+  'content-bottom': SlotProps<T>
+  'footer'(props?: { b24ui: any }): any
 } & DynamicSlots<T, undefined, { index: number }>
 </script>
 
@@ -137,6 +139,12 @@ const normalizedItems = computed(() => {
         v-for="(item, index) in normalizedItems"
         :key="index"
       >
+        <slot
+          name="content-top"
+          :item="(item as Extract<T, { slot: string; }>)"
+          :index="index"
+        />
+
         <slot
           :name="((item.slot || 'content') as keyof DescriptionListSlots<T>)"
           :item="(item as Extract<T, { slot: string; }>)"
@@ -232,6 +240,12 @@ const normalizedItems = computed(() => {
             </span>
           </dd>
         </slot>
+
+        <slot
+          name="content-bottom"
+          :item="(item as Extract<T, { slot: string; }>)"
+          :index="index"
+        />
       </template>
     </dl>
     <div

@@ -129,6 +129,8 @@ export type NavigationMenuSlots<
   'item-label': SlotProps<T>
   'item-trailing': SlotProps<T>
   'item-content': SlotProps<T>
+  'list-leading': (props?: {}) => any
+  'list-trailing': (props?: {}) => any
 } & DynamicSlots<MergeTypes<T>, 'leading' | 'label' | 'trailing' | 'content', { index: number, active?: boolean }>
 
 </script>
@@ -354,6 +356,8 @@ const lists = computed<NavigationMenuItem[][]>(() =>
     :class="b24ui.root({ class: [props.class, props.b24ui?.root] })"
     data-slot="section"
   >
+    <slot name="list-leading" />
+
     <template v-for="(list, listIndex) in lists" :key="`list-${listIndex}`">
       <NavigationMenuList :class="b24ui.list({ class: props.b24ui?.list })">
         <ReuseItemTemplate
@@ -367,6 +371,8 @@ const lists = computed<NavigationMenuItem[][]>(() =>
 
       <div v-if="orientation === 'vertical' && listIndex < lists.length - 1" :class="b24ui.separator({ class: props.b24ui?.separator })" />
     </template>
+
+    <slot name="list-trailing" />
 
     <div v-if="orientation === 'horizontal'" :class="b24ui.viewportWrapper({ class: props.b24ui?.viewportWrapper })">
       <NavigationMenuIndicator v-if="arrow" :class="b24ui.indicator({ class: props.b24ui?.indicator })">

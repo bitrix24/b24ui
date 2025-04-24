@@ -22,15 +22,17 @@ export interface SidebarLayoutSlots {
    * @param props
    * @param props.handleClick - Handler for navigation click events
    */
-  sidebar(props: { handleClick: () => void }): any
+  'sidebar'(props: { handleClick: () => void }): any
   /**
    * Menu for mobile screen sizes.
    */
-  navbar(props?: {}): any
+  'navbar'(props?: {}): any
   /**
    * The page content.
    */
-  default(props?: {}): any
+  'default'(props?: {}): any
+  'content-top': (props?: {}) => any
+  'content-bottom': (props?: {}) => any
 }
 </script>
 
@@ -146,6 +148,8 @@ const handleNavigationClick = () => {
     </header>
 
     <!-- Page Content -->
+    <slot name="content-top" />
+
     <template v-if="!!slots.default">
       <main :class="b24ui.container({ class: props.b24ui?.container })">
         <div :class="b24ui.containerWrapper({ class: props.b24ui?.containerWrapper })">
@@ -155,5 +159,7 @@ const handleNavigationClick = () => {
         </div>
       </main>
     </template>
+
+    <slot name="content-bottom" />
   </Primitive>
 </template>

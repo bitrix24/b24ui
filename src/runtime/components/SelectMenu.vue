@@ -191,6 +191,8 @@ export interface SelectMenuSlots<
   'item-leading': SlotProps<T>
   'item-label': SlotProps<T>
   'item-trailing': SlotProps<T>
+  'content-top': (props?: {}) => any
+  'content-bottom': (props?: {}) => any
   'create-item-label'(props: { item: string }): any
 }
 </script>
@@ -485,6 +487,8 @@ function isSelectItem(item: SelectMenuItem): item is _SelectMenuItem {
       <ComboboxPortal v-bind="portalProps">
         <ComboboxContent :class="b24ui.content({ class: props.b24ui?.content })" v-bind="contentProps">
           <FocusScope trapped :class="b24ui.focusScope({ class: props.b24ui?.focusScope })">
+            <slot name="content-top" />
+
             <ComboboxInput v-if="!!searchInput" v-model="searchTerm" :display-value="() => searchTerm" as-child>
               <B24Input no-border autofocus autocomplete="off" v-bind="searchInputProps" :class="b24ui.input({ class: props.b24ui?.input })" />
             </ComboboxInput>
@@ -554,6 +558,8 @@ function isSelectItem(item: SelectMenuItem): item is _SelectMenuItem {
 
               <ReuseCreateItemTemplate v-if="createItem && createItemPosition === 'bottom'" />
             </ComboboxViewport>
+
+            <slot name="content-bottom" />
           </FocusScope>
           <ComboboxArrow v-if="!!arrow" v-bind="arrowProps" :class="b24ui.arrow({ class: props.b24ui?.arrow })" />
         </ComboboxContent>
