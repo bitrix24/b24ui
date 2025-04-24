@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.6.7](https://github.com/bitrix24/b24ui/compare/v0.6.6...v0.6.7) (2025-04-24)
+
+### Features
+
+* **components:** add new `content-top` and `content-bottom` slots
+* **Modal/Popover/Slideover:** add `close:prevent` event
+
+### Bug Fixes
+
+* **InputMenu/SelectMenu:** remove `valueKey` string case
+
+### Docs
+
+* **installation:** update instructions for inertia
+
+### Chore
+
+* **Skeleton:** remove `aria-busy:cursor-progress` class
+
 ## [0.6.6](https://github.com/bitrix24/b24ui/compare/v0.6.5...v0.6.6) (2025-04-23)
 
 ### Bug Fixes
