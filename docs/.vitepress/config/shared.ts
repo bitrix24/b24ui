@@ -29,10 +29,6 @@ export const shared = defineConfig({
     ['meta', { property: 'og:locale', content: 'en' }],
     ['meta', { property: 'og:title', content: '@bitrix24/b24ui | Bitrix24 UI-Kit for REST API web-application development' }],
     ['meta', { property: 'og:site_name', content: '@bitrix24/b24ui' }],
-    /**
-     * @todo add og:image
-     */
-    // ['meta', { property: 'og:image', content: `${configParams.domain}${configParams.baseFolder}bitrix24_b24uijpg` }],
     ['meta', { property: 'og:url', content: `${configParams.domain}${configParams.baseFolder}` }]
   ],
   themeConfig: {
