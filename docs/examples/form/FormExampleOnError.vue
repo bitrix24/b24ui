@@ -45,12 +45,10 @@ async function makeValidate() {
   } catch (error) {
     console.log(
       `Some error ${error}`,
-      error?.formId
-        ? {
-            formId: error.formId,
-            errors: error?.errors
-          }
-        : '?'
+      {
+        formId: (error as any)?.formId,
+        errors: (error as any)?.errors
+      }
     )
   }
 }
