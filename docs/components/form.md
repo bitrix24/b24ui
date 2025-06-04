@@ -163,6 +163,8 @@ You can access the typed component instance using [`useTemplateRef`](https://vue
 
 ```vue
 <script setup lang="ts">
+import { useTemplateRef } from 'vue'
+
 const form = useTemplateRef('form')
 
 async function makeValidate() {

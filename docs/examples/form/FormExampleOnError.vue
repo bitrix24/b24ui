@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { reactive, useTemplateRef } from 'vue'
 import type { FormError, FormErrorEvent, FormSubmitEvent } from '@bitrix24/b24ui-nuxt'
 import NotificationOffIcon from '@bitrix24/b24icons-vue/outline/NotificationOffIcon'
 
