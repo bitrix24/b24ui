@@ -5,12 +5,12 @@
   "description": "",
   "type": "module",
   "dependencies": {
-    "@bitrix24/b24icons-vue": "^1.0.5",
+    "@bitrix24/b24icons-vue": "^2.0.1",
     "@bitrix24/b24ui-nuxt": "latest"
   },
   "devDependencies": {
-    "vitepress": "^1.6.3",
-    "@vueuse/core": "^13.1.0",
-    "vue": "^3.5.13"
+    "vitepress": "^2.0.0-alpha.5",
+    "@vueuse/core": "^13.3.0",
+    "vue": "^3.5.16"
   }
 }
