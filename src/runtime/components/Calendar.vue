@@ -161,8 +161,8 @@ const btnSize = computed(() => {
   <Calendar.Root
     v-slot="{ weekDays, grid }"
     v-bind="rootProps"
-    :model-value="modelValue"
-    :default-value="defaultValue"
+    :model-value="(modelValue as DateValue | DateValue[])"
+    :default-value="(defaultValue as DateValue)"
     :locale="locale"
     :dir="dir"
     :class="b24ui.root({ class: [props.class, props.b24ui?.root] })"
