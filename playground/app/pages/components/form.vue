@@ -3,6 +3,7 @@
  * @todo add B24SelectMenu
  */
 import FormExample from '../../../../docs/examples/form/FormExample.vue'
+import FormExampleOnError from '../../../../docs/examples/form/FormExampleOnError.vue'
 import FormExampleNested from '../../../../docs/examples/form/FormExampleNested.vue'
 import FormExampleNestedList from '../../../../docs/examples/form/FormExampleNestedList.vue'
 import FormExampleElements from '../../../../docs/examples/form/FormExampleElements.vue'
@@ -31,6 +32,11 @@ const disabled = ref(false)
     <ExampleCard title="nested">
       <ExampleCardSubTitle title="list" />
       <FormExampleNestedList />
+    </ExampleCard>
+
+    <ExampleCard title="validate">
+      <ExampleCardSubTitle title="external validate" />
+      <FormExampleOnError />
     </ExampleCard>
   </ExampleGrid>
   <ExampleGrid v-once class="mt-2">

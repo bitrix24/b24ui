@@ -163,11 +163,54 @@ You can access the typed component instance using [`useTemplateRef`](https://vue
 
 ```vue
 <script setup lang="ts">
-  const form = useTemplateRef('form')
+const form = useTemplateRef('form')
+
+async function makeValidate() {
+  if (!form.value) {
+    return
+  }
+
+  try {
+    const state = await form.value.validate({
+      silent: false
+    })
+
+    console.log(state)
+  } catch (error) {
+    console.log(
+      `Some error ${error}`,
+      error?.formId
+        ? {
+          formId: error.formId,
+          errors: error?.errors
+        }
+        : '?'
+    )
+  }
+}
+
+function makeClear() {
+  if (!form.value) {
+    return
+  }
+
+  form.value.clear()
+}
 </script>
 
 <template>
   <B24Form ref="form" />
+
+  <div class="flex flex-row gap-4 items-center justify-between">
+    <B24Button
+      label="Validate"
+      @click="makeValidate"
+    />
+    <B24Button
+      label="Clear"
+      @click="makeClear"
+    />
+  </div>
 </template>
 ```
 
