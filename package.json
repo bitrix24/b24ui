@@ -126,7 +126,7 @@
     "test:vue": "vitest -c vitest.vue.config.ts"
   },
   "dependencies": {
-    "@bitrix24/b24icons-vue": "^2.0.1",
+    "@bitrix24/b24icons-vue": "^2.0.2",
     "@bitrix24/b24style": "^1.0.1",
     "@internationalized/date": "^3.8.1",
     "@internationalized/number": "^3.6.2",
