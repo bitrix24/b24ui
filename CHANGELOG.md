@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.6.8](https://github.com/bitrix24/b24ui/compare/v0.6.7...v0.6.8) (2025-06-04)
+
+### Chore
+
+* **deps:** update all non-major dependencies
+* **tests:** improve
+* **Calendar:** improve types
+
+### Docs
+
+* **form:** add example for external validate
+
 ## [0.6.7](https://github.com/bitrix24/b24ui/compare/v0.6.6...v0.6.7) (2025-04-24)
 
 ### Features
