@@ -60,3 +60,49 @@
   background-color: transparent;
 }
 /** endregion */
+
+/** region VPHomeHero */
+.VPHomeHero>.container {
+  gap: 24px
+}
+
+.VPHomeHero .image-container {
+  transform: none;
+  width: 100%
+}
+
+.VPHomeHero .container .main {
+  flex-shirk: 0
+}
+
+.VPHomeHero .container .image-bg {
+  display: none;
+}
+
+.VPHomeHero .container .image {
+  margin: 32px 0 0;
+  order: 2
+}
+
+.VPHomeHero .container .image-container {
+  height: auto;
+  justify-content: flex-end
+}
+
+@media (min-width: 960px) {
+  .VPHomeHero .container .image {
+    order:1;
+    margin-bottom: auto;
+    margin-top: 0;
+    position: relative
+  }
+
+  .VPHomeHero .container .main,.VPHomeHero .container .image {
+    width: 50%
+  }
+
+  .VPHomeHero .container .image-container {
+    display: block
+  }
+}
+/** endregion */

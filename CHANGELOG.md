@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.6.9](https://github.com/bitrix24/b24ui/compare/v0.6.8...v0.6.9) (2025-06-xx)
+
+### Docs
+
+- **hero:** improve demo
+
 ## [0.6.8](https://github.com/bitrix24/b24ui/compare/v0.6.7...v0.6.8) (2025-06-04)
 
 ### Chore

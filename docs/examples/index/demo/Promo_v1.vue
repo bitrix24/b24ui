@@ -4,7 +4,9 @@ import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
 import Refresh9Icon from '@bitrix24/b24icons-vue/crm/Refresh9Icon'
 import Bitrix24Icon from '@bitrix24/b24icons-vue/common-service/Bitrix24Icon'
 
+const myCanvas = ref<HTMLCanvasElement | undefined>()
 const confetti = useConfetti()
+
 const toast = useToast()
 
 const colorList = [
@@ -21,8 +23,13 @@ const colorMain = ref(colorList[0])
 
 const isShowAdvice = ref(false)
 
+function fireAtPlace(): void {
+  const confettiInstance = confetti.create(myCanvas.value, { resize: true })
+  confettiInstance({ spread: 70 })
+}
+
 const actionColor = () => {
-  confetti.fire()
+  fireAtPlace()
   colorMain.value = colorList[(colorList.indexOf(colorMain.value) + 1) % colorList.length]
 }
 
@@ -54,6 +61,10 @@ defineShortcuts({
 </script>
 
 <template>
+  <canvas
+    ref="myCanvas"
+    class="absolute top-0 left-0 right-0 bottom-0 z-0 w-full h-full"
+  />
   <div class="h-[200px] flex flex-col items-center justify-center">
     <B24Advice
       v-if="isShowAdvice"

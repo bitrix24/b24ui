@@ -16,10 +16,3 @@ hero:
       text: GitHub
       link: https://github.com/bitrix24/b24ui
 ---
-<script setup>
-import PromoExample from '/examples/index/Promo_v1.vue';
-</script>
-
-<ClientOnly>
-  <PromoExample />
-</ClientOnly>
