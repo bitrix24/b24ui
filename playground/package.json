@@ -10,7 +10,7 @@
     "preview": "nuxi preview"
   },
   "dd_dependencies": {
-    "@nuxthub/core": "^0.8.23"
+    "@nuxthub/core": "^0.8.25"
   },
   "dependencies": {
     "@bitrix24/b24icons-vue": "^2.0.2",
