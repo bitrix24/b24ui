@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   modules: [
-    '../src/module'
+    '@bitrix24/b24ui-nuxt'
   ],
   ssr: false,
   devtools: { enabled: false },
