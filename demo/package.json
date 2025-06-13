@@ -7,15 +7,23 @@
     "dev": "nuxi dev",
     "build": "nuxi build",
     "generate": "nuxi generate",
-    "preview": "nuxi preview"
+    "preview": "nuxi preview",
+    "typecheck": "nuxt typecheck"
   },
   "dd_dependencies": {
-    "@nuxthub/core": "^0.8.23"
+    "@nuxthub/core": "^0.8.25"
   },
   "dependencies": {
     "@bitrix24/b24icons-vue": "^2.0.2",
     "@bitrix24/b24ui-nuxt": "latest",
     "nuxt": "^3.17.4",
     "zod": "^3.25.49"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "vue-tsc": "^2.2.10"
+  },
+  "resolutions": {
+    "unimport": "4.1.1"
   }
 }

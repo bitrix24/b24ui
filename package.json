@@ -2,7 +2,7 @@
   "name": "@bitrix24/b24ui-nuxt",
   "description": "Bitrix24 UI-Kit for developing web applications REST API for NUXT & VUE",
   "version": "0.6.8",
-  "packageManager": "pnpm@10.11.1",
+  "packageManager": "pnpm@10.12.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bitrix24/b24ui.git"
@@ -221,6 +221,7 @@
     "chokidar": "3.6.0",
     "debug": "4.3.7",
     "rollup": "4.34.9",
+    "unimport": "4.1.1",
     "unplugin": "^2.3.2",
     "vue-tsc": "^2.2.10"
   },
