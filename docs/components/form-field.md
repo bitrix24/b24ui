@@ -43,7 +43,7 @@ The label `for` attribute and the form control are associated with a unique `id`
 <<< @/examples/formfield/demo/FormField.vue{12 vue:line-numbers}
 :::
 
-When using the `required` prop, an asterisk is be added next to the label.
+When using the `required` prop, an asterisk is added next to the label.
 
 <div class="lg:min-h-[275px]">
   <ClientOnly>
