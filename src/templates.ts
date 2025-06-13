@@ -8,6 +8,7 @@ import * as theme from './theme'
 import * as themeProse from './theme/prose'
 import * as themeContent from './theme/content'
 // import colors from 'tailwindcss/colors'
+import { genExport } from 'knitwork'
 
 function replaceBrackets(value: string): string {
   return value.replace(/\[\[/g, '<').replace(/\]\]/g, '>')
@@ -236,9 +237,9 @@ export {}
     filename: 'b24ui-image-component.ts',
     write: true,
     getContents: ({ app }) => {
-      const image = app?.components?.find(c => c.pascalName === 'NuxtImg' && !c.filePath.includes('nuxt/dist/app'))
+      const image = app?.components?.find(c => c.pascalName === 'NuxtImg' && !/nuxt(?:-nightly)?\/dist\/app/.test(c.filePath))
 
-      return image ? `export { default } from "${image.filePath}"` : 'export default "img"'
+      return image ? genExport(image.filePath, [{ name: image.export, as: 'default' }]) : 'export default "img"'
     }
   })
 
