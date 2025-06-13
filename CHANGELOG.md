@@ -1,6 +1,30 @@
+# @todo 
+- add CheckboxGroup
+- fix RadioGroupItem[] (docs / demo) 
+- fix modal/slideover (docs)
+- fix .github/workflows/module.yml
+
 # Changelog
 
-## [0.6.9](https://github.com/bitrix24/b24ui/compare/v0.6.8...v0.6.9) (2025-06-xx)
+## [0.7.0](https://github.com/bitrix24/b24ui/compare/v0.6.9...v0.7.0) (2025-07-xx)
+
+>> 3.1.0
+>> 29.04.2025 at 19:02
+> f4864233812eac0ed37e0a2d076a95c285a22c01..59c26ec1230375a24fbaf8a630a696ae854700c7
+
+* feat(useOverlay): add `closeAll` method
+* fix(module): support `nuxt-nightly`
+* fix(defineShortcuts): bring back `meta` to `ctrl` convert on non macros platforms
+* docs(form-field/switch): fix typo
+* chore: use module workspace
+* chore(github): add `playground` job in module workflow
+
+
+### Docs
+
+- **hero:** improve demo
+
+## [0.6.9](https://github.com/bitrix24/b24ui/compare/v0.6.8...v0.6.9) (2025-06-05)
 
 ### Docs
 
