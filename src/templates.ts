@@ -187,7 +187,7 @@ export function getTemplates(options: ModuleOptions) {
     write: true,
     getContents: () => `@source "./b24ui";
 
-@theme default {
+@theme default inline {
   --color-old-neutral-50: ${colors.neutral[50]};
   --color-old-neutral-950: ${colors.neutral[950]};
   ${[...([]).filter(color => !colors[color as keyof typeof colors]), 'default'].map(color => [50, 950].map(shade => `--color-${color}-${shade}: var(--ui-color-${color}-${shade});`).join('\n\t')).join('\n\t')}
@@ -200,7 +200,7 @@ export function getTemplates(options: ModuleOptions) {
     write: true,
     getContents: () => `@source "./b24ui";
 
-@theme default {}
+@theme default inline {}
 `
   })
 
