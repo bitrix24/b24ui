@@ -88,6 +88,10 @@ function _useOverlay() {
     }
   }
 
+  const closeAll = (): void => {
+    overlays.forEach(overlay => close(overlay.id))
+  }
+
   const unMount = (id: symbol): void => {
     const overlay = getOverlay(id)
 
@@ -121,6 +125,7 @@ function _useOverlay() {
     overlays,
     open,
     close,
+    closeAll,
     create,
     patch,
     unMount
