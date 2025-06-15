@@ -38,7 +38,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sideba
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
+  <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <slot />
   </Primitive>
 </template>

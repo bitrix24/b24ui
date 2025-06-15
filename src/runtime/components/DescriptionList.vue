@@ -122,7 +122,7 @@ const normalizedItems = computed(() => {
 </script>
 
 <template>
-  <div :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
+  <div :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <h2 v-if="legend || !!slots.legend" :class="b24ui.legend({ class: props.b24ui?.legend })">
       <slot name="legend">
         {{ legend }}

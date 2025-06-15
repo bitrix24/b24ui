@@ -140,7 +140,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dropdo
     </DropdownMenuTrigger>
 
     <B24DropdownMenuContent
-      :class="b24ui.content({ class: [!slots.default && props.class, props.b24ui?.content] })"
+      :class="b24ui.content({ class: [!slots.default && props.b24ui?.content, props.class] })"
       :b24ui="b24ui"
       :b24ui-override="props.b24ui"
       v-bind="contentProps"

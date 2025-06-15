@@ -88,7 +88,7 @@ const handleNavigationClick = () => {
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
+  <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <template v-if="isUseSideBar">
       <div :class="b24ui.sidebar({ class: props.b24ui?.sidebar })">
         <B24Sidebar>

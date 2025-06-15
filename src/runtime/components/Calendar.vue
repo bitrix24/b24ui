@@ -165,7 +165,7 @@ const btnSize = computed(() => {
     :default-value="(defaultValue as DateValue)"
     :locale="locale"
     :dir="dir"
-    :class="b24ui.root({ class: [props.class, props.b24ui?.root] })"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
   >
     <Calendar.Header :class="b24ui.header({ class: props.b24ui?.header })">
       <Calendar.Prev v-if="props.yearControls" :prev-page="(date: DateValue) => paginateYear(date, -1)" :aria-label="t('calendar.prevYear')" as-child>

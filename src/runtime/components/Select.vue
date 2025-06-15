@@ -284,7 +284,7 @@ function isSelectItem(item: SelectItem): item is SelectItemBase {
       @update:model-value="onUpdate"
       @update:open="onUpdateOpen"
     >
-      <SelectTrigger :id="id" :class="b24ui.base({ class: [props.class, props.b24ui?.base] })" v-bind="{ ...$attrs, ...ariaAttrs }">
+      <SelectTrigger :id="id" :class="b24ui.base({ class: [props.b24ui?.base, props.class] })" v-bind="{ ...$attrs, ...ariaAttrs }">
         <div v-if="isTag" :class="b24ui.tag({ class: props.b24ui?.tag })">
           {{ props.tag }}
         </div>

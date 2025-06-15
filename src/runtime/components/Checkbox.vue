@@ -80,7 +80,7 @@ function onUpdate(value: any) {
 
 <!-- eslint-disable vue/no-template-shadow -->
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
+  <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <div :class="b24ui.container({ class: props.b24ui?.container })">
       <CheckboxRoot
         :id="id"

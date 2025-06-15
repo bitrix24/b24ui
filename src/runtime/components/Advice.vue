@@ -57,7 +57,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.advice
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
+  <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <div v-if="isLeading || !!avatar || !!slots.leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
       <slot name="leading">
         <Component

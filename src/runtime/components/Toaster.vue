@@ -141,7 +141,7 @@ function getOffset(index: number) {
     <ToastPortal v-bind="portalProps">
       <ToastViewport
         :data-expanded="expanded"
-        :class="b24ui.viewport({ class: [props.class, props.b24ui?.viewport] })"
+        :class="b24ui.viewport({ class: [props.b24ui?.viewport, props.class] })"
         :style="{
           '--scale-factor': '0.05',
           '--translate-factor': position?.startsWith('top') ? '1px' : '-1px',

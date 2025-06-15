@@ -149,7 +149,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.slideo
     <DialogPortal v-bind="portalProps">
       <DialogOverlay v-if="overlay" :class="b24ui.overlay({ class: props.b24ui?.overlay })" />
 
-      <DialogContent :data-side="side" :class="b24ui.content({ class: [!slots.default && props.class, props.b24ui?.content] })" v-bind="contentProps" @after-leave="emits('after:leave')" v-on="contentEvents">
+      <DialogContent :data-side="side" :class="b24ui.content({ class: [!slots.default && props.b24ui?.content, props.class] })" v-bind="contentProps" @after-leave="emits('after:leave')" v-on="contentEvents">
         <VisuallyHidden v-if="!!slots.content && ((title || !!slots.title) || (description || !!slots.description))">
           <DialogTitle v-if="title || !!slots.title">
             <slot name="title">

@@ -446,7 +446,7 @@ function isSelectItem(item: SelectMenuItem): item is _SelectMenuItem {
       @update:open="onUpdateOpen"
     >
       <ComboboxAnchor as-child>
-        <ComboboxTrigger :class="b24ui.base({ class: [props.class, props.b24ui?.base] })" tabindex="0">
+        <ComboboxTrigger :class="b24ui.base({ class: [props.b24ui?.base, props.class] })" tabindex="0">
           <div v-if="isTag" :class="b24ui.tag({ class: props.b24ui?.tag })">
             {{ props.tag }}
           </div>

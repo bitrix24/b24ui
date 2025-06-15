@@ -93,7 +93,7 @@ provide(avatarGroupInjectionKey, computed(() => ({
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
+  <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <component :is="avatar" v-for="(avatar, count) in visibleAvatars" :key="count" :class="b24ui.base({ class: props.b24ui?.base })" />
     <B24Avatar v-if="hiddenCount > 0" :text="`+${hiddenCount}`" :class="b24ui.base({ class: props.b24ui?.base })" />
   </Primitive>

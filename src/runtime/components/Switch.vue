@@ -101,7 +101,7 @@ function onUpdate(value: any) {
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
+  <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <div :class="b24ui.container({ class: props.b24ui?.container })">
       <SwitchRoot
         :id="id"

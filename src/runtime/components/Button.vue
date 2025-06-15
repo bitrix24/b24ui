@@ -189,14 +189,14 @@ const b24ui = computed(() => tv({
     v-slot="{ active, ...slotProps }"
     :type="type"
     :disabled="disabled || isLoading"
-    :class="b24ui.base({ class: [props.class, props.b24ui?.base] })"
+    :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
     v-bind="proxyLinkProps"
     custom
   >
     <B24LinkBase
       v-bind="slotProps"
       :class="b24ui.base({
-        class: [props.class, props.b24ui?.base],
+        class: [props.b24ui?.base, props.class],
         active,
         ...(active && activeDepth ? { depth: activeDepth } : {}),
         ...(active && activeColor ? { color: activeColor } : {})

@@ -75,7 +75,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.toolti
     </TooltipTrigger>
 
     <TooltipPortal v-bind="portalProps">
-      <TooltipContent v-bind="contentProps" :class="b24ui.content({ class: [!slots.default && props.class, props.b24ui?.content] })">
+      <TooltipContent v-bind="contentProps" :class="b24ui.content({ class: [!slots.default && props.b24ui?.content, props.class] })">
         <slot name="content">
           <span v-if="text" :class="b24ui.text({ class: props.b24ui?.text })">{{ text }}</span>
 

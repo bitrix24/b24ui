@@ -244,7 +244,7 @@ defineExpose({
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
+  <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <div v-if="isTag" :class="b24ui.tag({ class: props.b24ui?.tag })">
       {{ props.tag }}
     </div>

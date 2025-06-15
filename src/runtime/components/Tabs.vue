@@ -110,7 +110,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.tabs |
 </script>
 
 <template>
-  <TabsRoot v-bind="rootProps" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
+  <TabsRoot v-bind="rootProps" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <TabsList :class="b24ui.list({ class: props.b24ui?.list })">
       <TabsIndicator :class="b24ui.indicator({ class: props.b24ui?.indicator })" />
 

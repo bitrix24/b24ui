@@ -106,7 +106,7 @@ function onChange(value: any) {
     v-model="rangeValue"
     :name="name"
     :disabled="disabled"
-    :class="b24ui.root({ class: [props.class, props.b24ui?.root] })"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     :default-value="defaultRangeValue"
     @update:model-value="emitFormInput()"
     @value-commit="onChange"

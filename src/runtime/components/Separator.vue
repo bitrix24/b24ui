@@ -76,7 +76,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.separa
 </script>
 
 <template>
-  <Separator v-bind="rootProps" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
+  <Separator v-bind="rootProps" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <div :class="b24ui.border({ class: props.b24ui?.border })" />
 
     <template v-if="label || icon || avatar || !!slots.default">

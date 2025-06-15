@@ -465,7 +465,7 @@ defineExpose({
     v-bind="rootProps"
     :name="name"
     :disabled="disabled"
-    :class="b24ui.root({ class: [props.class, props.b24ui?.root] })"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     :as-child="!!multiple"
     ignore-filter
     @update:model-value="onUpdate"

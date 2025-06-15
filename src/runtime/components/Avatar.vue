@@ -88,7 +88,7 @@ function onError() {
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })" :style="props.style">
+  <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })" :style="props.style">
     <component
       :is="ImageComponent"
       v-if="src && !error"

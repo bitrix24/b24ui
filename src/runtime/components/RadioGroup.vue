@@ -166,7 +166,7 @@ function onUpdate(value: any) {
     v-bind="rootProps"
     :name="name"
     :disabled="disabled"
-    :class="b24ui.root({ class: [props.class, props.b24ui?.root] })"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     @update:model-value="onUpdate"
   >
     <fieldset :class="b24ui.fieldset({ class: props.b24ui?.fieldset })" v-bind="ariaAttrs">

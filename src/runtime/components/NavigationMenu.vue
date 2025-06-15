@@ -353,7 +353,7 @@ const lists = computed<NavigationMenuItem[][]>(() =>
   <NavigationMenuRoot
     v-bind="rootProps"
     :data-collapsed="collapsed"
-    :class="b24ui.root({ class: [props.class, props.b24ui?.root] })"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     data-slot="section"
   >
     <slot name="list-leading" />
