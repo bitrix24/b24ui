@@ -63,7 +63,7 @@ export default {
       // 'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]'
       'z-[1]'
     ].join(' '),
-    content: 'absolute top-0 left-0 w-full', //  sm:w-auto
+    content: 'absolute top-0 left-0 w-full',
     indicator: [
       'absolute',
       'motion-safe:data-[state=visible]:animate-[fade-in_100ms_ease-out] motion-safe:data-[state=hidden]:animate-[fade-out_100ms_ease-in]',
