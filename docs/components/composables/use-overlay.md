@@ -31,14 +31,14 @@ async function openModal() {
 - The `useOverlay` composable is created using `createSharedComposable`, ensuring that the same overlay state is shared across your entire application.
 
 ::: tip
-In order to return a value from the overlay, the `overlay.open()` can be awaited. In order for this to work, however, the **overlay component must emit a `close` event**. See example below for details.
+In order to return a value from the overlay, the `overlay.open().instance.result` can be awaited. In order for this to work, however, the **overlay component must emit a `close` event**. See example below for details.
 :::
 
 ## API
 
 ### `create(component: T, options: OverlayOptions): OverlayInstance`
 
-Creates an overlay, and returns its instance
+Creates an overlay, and returns a factory instance
 
 - Parameters:
   - `component`: The overlay component
@@ -47,7 +47,7 @@ Creates an overlay, and returns its instance
     - `props?: ComponentProps`: An optional object of props to pass to the rendered component.
     - `destroyOnClose?: boolean` Removes the overlay from memory when closed `default: false`
 
-### `open(id: symbol, props?: ComponentProps<T>): Promise<any>`
+### `open(id: symbol, props?: ComponentProps<T>): OpenedOverlay<T>`
 
 Opens the overlay using its `id`
 
@@ -84,7 +84,7 @@ In-memory list of overlays that were created
 
 ## Overlay Instance API
 
-### `open(props?: ComponentProps<T>): Promise<any>`
+### `open(props?: ComponentProps<T>): Promise<OpenedOverlay<T>>`
 
 Opens the overlay
 
@@ -147,7 +147,7 @@ const overlay = useOverlay()
 
 // Create with default props
 const modalA = overlay.create(ModalA, { title: 'Welcome' })
-const modalB = overlay.create(modalB)
+const modalB = overlay.create(ModalB)
 
 const slideoverA = overlay.create(SlideoverA)
 
@@ -158,7 +158,9 @@ const openModalA = () => {
 
 const openModalB = async () => {
   // Open modalB, and wait for its result
-  const input = await modalB.open()
+  const modalBInstance = modalB.open()
+
+  const input = await modalBInstance.result
 
   // Pass the result from modalB to the slideover, and open it.
   slideoverA.open({ input })
