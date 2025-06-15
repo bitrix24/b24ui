@@ -99,6 +99,7 @@ const b24ui = computed(() => tv({
 }))
 
 const isExternal = computed(() => {
+  if (props.external) return true
   if (!props.to) return false
   return typeof props.to === 'string' && hasProtocol(props.to, { acceptRelative: true })
 })

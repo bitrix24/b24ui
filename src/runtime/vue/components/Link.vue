@@ -160,6 +160,7 @@ function isPartiallyEqual(item1: any, item2: any) {
 }
 
 const isExternal = computed(() => {
+  if (props.external) return true
   if (!props.to) return false
   return typeof props.to === 'string' && hasProtocol(props.to, { acceptRelative: true })
 })
