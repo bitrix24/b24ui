@@ -54,7 +54,8 @@ export default {
       },
       link: {
         list: 'border-base-300 dark:border-base-800',
-        indicator: 'rounded-full'
+        indicator: 'rounded-full',
+        trigger: 'focus:outline-none'
       }
     },
     orientation: {
