@@ -24,8 +24,8 @@ export function buildTemplates(options: ModuleOptions) {
 export function getTemplates(options: ModuleOptions) {
   const templates: NuxtTemplate[] = []
 
-  function generateVariantDeclarations(variants: string[], result: any) {
-    return variants.map((variant) => {
+  function generateVariantDeclarations(variants: string[], result: any, json: string) {
+    return variants.filter(variant => json.includes(`as typeof ${variant}`)).map((variant) => {
       const keys = Object.keys(result.variants[variant])
       return `const ${variant} = ${JSON.stringify(keys, null, 2)} as const`
     })
@@ -63,7 +63,7 @@ export function getTemplates(options: ModuleOptions) {
           const templatePath = fileURLToPath(new URL(`./theme/${kebabCase(component)}`, import.meta.url))
           return [
             `import template from ${JSON.stringify(templatePath)}`,
-            ...generateVariantDeclarations(variants, result),
+            ...generateVariantDeclarations(variants, result, json),
             `const result = typeof template === 'function' ? (template as Function)(${JSON.stringify(options, null, 2)}) : template`,
             `const theme = ${json}`,
             `export default result as typeof theme`
@@ -72,7 +72,7 @@ export function getTemplates(options: ModuleOptions) {
 
         // For production build
         return [
-          ...generateVariantDeclarations(variants, result),
+          ...generateVariantDeclarations(variants, result, json),
           `export default ${json}`
         ].join('\n\n')
       }
@@ -107,11 +107,11 @@ export function getTemplates(options: ModuleOptions) {
         // function generateVariantDeclarations(variants: string[]) { ////
 
         // For local development, import directly from theme/prose
-        if (process.env.DEV) {
+        if (process.argv.includes('--uiDev')) {
           const templatePath = fileURLToPath(new URL(`./theme/prose/${kebabCase(component)}`, import.meta.url))
           return [
             `import template from ${JSON.stringify(templatePath)}`,
-            ...generateVariantDeclarations(variants, result),
+            ...generateVariantDeclarations(variants, result, json),
             `const result = typeof template === 'function' ? template(${JSON.stringify(options, null, 2)}) : template`,
             `const theme = ${json}`,
             `export default result as typeof theme`
@@ -120,7 +120,7 @@ export function getTemplates(options: ModuleOptions) {
 
         // For production build
         return [
-          ...generateVariantDeclarations(variants, result),
+          ...generateVariantDeclarations(variants, result, json),
           `export default ${json}`
         ].join('\n\n')
       }
@@ -155,11 +155,11 @@ export function getTemplates(options: ModuleOptions) {
         // function generateVariantDeclarations(variants: string[]) { ////
 
         // For local development, import directly from theme/content
-        if (process.env.DEV) {
+        if (process.argv.includes('--uiDev')) {
           const templatePath = fileURLToPath(new URL(`./theme/content/${kebabCase(component)}`, import.meta.url))
           return [
             `import template from ${JSON.stringify(templatePath)}`,
-            ...generateVariantDeclarations(variants, result),
+            ...generateVariantDeclarations(variants, result, json),
             `const result = typeof template === 'function' ? template(${JSON.stringify(options, null, 2)}) : template`,
             `const theme = ${json}`,
             `export default result as typeof theme`
@@ -168,7 +168,7 @@ export function getTemplates(options: ModuleOptions) {
 
         // For production build
         return [
-          ...generateVariantDeclarations(variants, result),
+          ...generateVariantDeclarations(variants, result, json),
           `export default ${json}`
         ].join('\n\n')
       }
