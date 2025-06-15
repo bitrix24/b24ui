@@ -212,12 +212,12 @@ export function getTemplates(options: ModuleOptions) {
   templates.push({
     filename: 'types/b24ui.d.ts',
     getContents: () => replaceBrackets(`import * as b24ui from '#build/b24ui'
-import type { DeepPartial } from '@bitrix24/b24ui-nuxt'
+import type { TVConfig } from '@bitrix24/b24ui-nuxt'
 import type { defaultConfig } from 'tailwind-variants'
 
 type AppConfigUI = {
   tv?: typeof defaultConfig
-} & DeepPartial[[typeof b24ui]]
+} & TVConfig<typeof b24ui>
 
 declare module '@nuxt/schema' {
   interface AppConfigInput {

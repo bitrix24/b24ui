@@ -18,11 +18,11 @@ import PluginsPlugin from './plugins/plugins'
 import AppConfigPlugin from './plugins/app-config'
 import ComponentImportPlugin from './plugins/components'
 import Bitrix24EnvironmentPlugin from './plugins/bitrix24-environment'
-
-import type { DeepPartial } from './runtime/types/utils'
 import AutoImportPlugin from './plugins/auto-import'
 
-type AppConfigB24UI = {} & DeepPartial<typeof b24ui>
+import type { TVConfig } from './runtime/types/tv'
+
+type AppConfigB24UI = {} & TVConfig<typeof b24ui>
 
 export interface Bitrix24UIOptions extends Omit<ModuleOptions, 'colorMode'> {
   /** Whether to generate declaration files for auto-imported components. */
