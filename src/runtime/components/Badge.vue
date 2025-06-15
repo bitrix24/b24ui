@@ -118,7 +118,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.badge 
 
       <span :class="b24ui.label({ class: props.b24ui?.label })">
         <slot>
-          <span v-if="label">
+          <span v-if="label !== undefined && label !== null">
             {{ label }}
           </span>
         </slot>

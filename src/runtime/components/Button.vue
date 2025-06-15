@@ -232,7 +232,7 @@ const b24ui = computed(() => tv({
         </slot>
 
         <slot>
-          <span v-if="label" :class="b24ui.label({ class: props.b24ui?.label, active })">
+          <span v-if="label !== undefined && label !== null" :class="b24ui.label({ class: props.b24ui?.label, active })">
             {{ label }}
           </span>
         </slot>
