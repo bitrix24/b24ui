@@ -3,7 +3,7 @@
 import type { NavigationMenuRootProps, NavigationMenuRootEmits, NavigationMenuContentProps, NavigationMenuContentEmits, CollapsibleRootProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/navigation-menu'
-import type { AvatarProps, BadgeProps, LinkProps, IconComponent } from '../types'
+import type { AvatarProps, BadgeProps, LinkProps, TooltipProps, IconComponent } from '../types'
 import type { ArrayOrNested, DynamicSlots, MergeTypes, NestedItem, EmitsToProps, ComponentConfig } from '../types/utils'
 
 type NavigationMenu = ComponentConfig<typeof theme, AppConfig, 'navigationMenu'>
@@ -26,6 +26,12 @@ export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
    * `{ size: 'sm', color: 'neutral', variant: 'outline' }`{lang="ts-type"}
    */
   badge?: string | number | BadgeProps
+  /**
+   * Display a tooltip on the item.
+   * Only works when `type` is `link`.
+   * `{ content: { side: 'right' } }`{lang="ts-type"}
+   */
+  tooltip?: TooltipProps
   /**
    * @IconComponent
    */
@@ -149,6 +155,7 @@ import B24Link from './Link.vue'
 import B24Avatar from './Avatar.vue'
 import B24Badge from './Badge.vue'
 import B24Collapsible from './Collapsible.vue'
+import B24Tooltip from './Tooltip.vue'
 
 const props = withDefaults(defineProps<NavigationMenuProps<T>>(), {
   orientation: 'horizontal',
@@ -289,7 +296,12 @@ const lists = computed<NavigationMenuItem[][]>(() =>
           :disabled="item.disabled"
           @select="item.onSelect"
         >
-          <B24LinkBase v-bind="slotProps" :class="b24ui.link({ class: [props.b24ui?.link, item.class], active: active || item.active, disabled: !!item.disabled, level: orientation === 'horizontal' || (level || 0) > 0 })">
+          <B24Tooltip v-if="!!item.tooltip" :content="{ side: 'right' }" v-bind="item.tooltip">
+            <B24LinkBase v-bind="slotProps" :class="b24ui.link({ class: [props.b24ui?.link, item.class], active: active || item.active, disabled: !!item.disabled, level: orientation === 'horizontal' || (level || 0) > 0 })">
+              <ReuseLinkTemplate :item="item" :active="active || item.active" :index="index" />
+            </B24LinkBase>
+          </B24Tooltip>
+          <B24LinkBase v-else v-bind="slotProps" :class="b24ui.link({ class: [props.b24ui?.link, item.class], active: active || item.active, disabled: !!item.disabled, level: orientation === 'horizontal' || (level || 0) > 0 })">
             <ReuseLinkTemplate :item="item" :active="active || item.active" :index="index" />
           </B24LinkBase>
         </component>
