@@ -1,5 +1,5 @@
 ---
-title: Keyboard Key
+title: Kbd
 description: A kbd element for indicating a keyboard input.
 outline: deep
 ---
