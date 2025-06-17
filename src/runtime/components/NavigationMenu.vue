@@ -23,7 +23,7 @@ export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
   avatar?: AvatarProps
   /**
    * Display a badge on the item.
-   * `{ size: 'sm', color: 'neutral', variant: 'outline' }`{lang="ts-type"}
+   * `{ size: 'sm', color: 'danger', depth: 'dark' }`{lang="ts-type"}
    */
   badge?: string | number | BadgeProps
   /**
