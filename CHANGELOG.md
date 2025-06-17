@@ -3,13 +3,20 @@
 - fix RadioGroupItem[] (docs / demo) 
 - fix modal/slideover (docs)
 - fix .github/workflows/module.yml
+- chore(deps): update dependency reka-ui to ^2.2.1 >> fix tests (select)
+- chore(github): add reproduire workflow (docs page && workflow)
+- add theme -> some info aboute components
+- see llms-full.txt >> docs/server/plugins/llms.ts
+  - workers-ai-provider
+  - @ai-sdk/vue
+- **!! TEST THIS !!** docs/examples/tabs/demo/ModelValue.vue
 
 # Changelog
 
 ## [0.7.0](https://github.com/bitrix24/b24ui/compare/v0.6.9...v0.7.0) (2025-07-xx)
 
 >> 3.1.0
->> 29.04.2025 at 19:02
+>> 13.05.2025
 > f4864233812eac0ed37e0a2d076a95c285a22c01..59c26ec1230375a24fbaf8a630a696ae854700c7
 
 * feat(useOverlay): add `closeAll` method
@@ -18,6 +25,28 @@
 * docs(form-field/switch): fix typo
 * chore: use module workspace
 * chore(github): add `playground` job in module workflow
+* fix(RadioGroup): improve items `value` field type
+* fix(useOverlay): improve types and docs
+* fix(templates): put back args to watch in dev
+* feat(useOverlay): add `isOpen` method to check overlay state
+* fix(Calendar): add `place-items-center` to grid row
+* chore(deps): add missing `vue-component-type-helpers` dependency
+* fix(theme): improve app config types for `b24ui` object
+* docs(use-overlay): typo on `unMount` method
+* fix(inertia|vue): link always render as anchor tag
+* fix(Tabs): prevent trigger truncate without parent width
+* chore(deps): update dependency reka-ui to ^2.2.1
+* fix(templates): dont write unused variants in theme files
+* fix(Tabs): set `focus:outline-none` with `link` variant
+* fix(components)!: `class` should have priority over `ui` prop
+* fix(Badge/Button): handle zero value in label correctly
+* feat(NavigationMenu): handle `tooltip` in items
+* fix(Select): support more primitive types in `value` field
+* feat(NavigationMenu): add `collapsible` field in items
+* feat(Toast): add `progress` prop to hide progress bar
+* fix(Toaster): allow `base` slot override
+* fix(vue): make `useAppConfig` reactive
+* fix(inertia): make `useAppConfig` reactive
 
 
 ### Docs
