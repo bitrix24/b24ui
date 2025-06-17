@@ -144,10 +144,6 @@ Use the `orientation` prop to change the orientation of the Tabs. Defaults to `h
 
 You can control the active item by using the `default-value` prop or the `v-model` directive with the index of the item.
 
-::: tip
-You can also pass the `value` of one of the items if provided.
-:::
-
 <div class="lg:min-h-[160px]">
   <ClientOnly>
     <ModelValueExample />

@@ -1,22 +1,32 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { computed } from 'vue'
+
+const route = useRoute()
+const router = useRouter()
 
 const items = [
   {
-    label: 'My Bitrix24'
+    label: 'My Bitrix24',
+    value: 'b24'
   },
   {
-    label: 'Start page'
+    label: 'Start page',
+    value: 'page'
   }
 ]
 
-const active = ref('0')
-
-// Note: This is for demonstration purposes only. Don't do this at home.
-onMounted(() => {
-  setInterval(() => {
-    active.value = String((Number(active.value) + 1) % items.length)
-  }, 2000)
+const active = computed({
+  get() {
+    return (route.query.tab as string) || 'b24'
+  },
+  set(tab) {
+    // Hash is specified here to prevent the page from scrolling to the top
+    router.push({
+      path: '/components/tabs',
+      query: { tab },
+      hash: '#control-active-item'
+    })
+  }
 })
 </script>
 
