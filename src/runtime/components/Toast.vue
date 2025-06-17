@@ -30,6 +30,11 @@ export interface ToastProps extends Pick<ToastRootProps, 'defaultOpen' | 'open' 
    */
   orientation?: Toast['variants']['orientation']
   /**
+   * Whether to show the progress bar.
+   * @defaultValue true
+   */
+  progress?: boolean
+  /**
    * Display a list of actions:
    * - under the title and description when orientation is `vertical`
    * - next to the close button when orientation is `horizontal`
@@ -76,7 +81,8 @@ import B24Button from './Button.vue'
 
 const props = withDefaults(defineProps<ToastProps>(), {
   close: true,
-  orientation: 'vertical'
+  orientation: 'vertical',
+  progress: true
 })
 const emits = defineEmits<ToastEmits>()
 const slots = defineSlots<ToastSlots>()
@@ -182,6 +188,6 @@ defineExpose({
       </ToastClose>
     </div>
 
-    <div v-if="remaining > 0 && duration" :class="b24ui.progress({ class: props.b24ui?.progress })" :style="{ width: `${remaining / duration * 100}%` }" />
+    <div v-if="progress && remaining > 0 && duration" :class="b24ui.progress({ class: props.b24ui?.progress })" :style="{ width: `${remaining / duration * 100}%` }" />
   </ToastRoot>
 </template>
