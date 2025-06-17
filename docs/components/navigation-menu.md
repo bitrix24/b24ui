@@ -35,8 +35,12 @@ Use the `items` prop as an array of objects with the following properties:
 - `icon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts"}
 - `avatar?: AvatarProps`{lang="ts"}
 - `badge?: string | number | BadgeProps`{lang="ts"}
+- `tooltip?: TooltipProps`{lang="ts-type"}
 - `trailingIcon?: string`{lang="ts"}
 - `type?: 'label' | 'link'`{lang="ts"}
+- `collapsible?: boolean`{lang="ts-type"}
+- `defaultOpen?: boolean`{lang="ts-type"}
+- `open?: boolean`{lang="ts-type"}
 - `value?: string`{lang="ts"}
 - `disabled?: boolean`{lang="ts"}
 - `class?: any`{lang="ts"}
@@ -75,7 +79,7 @@ Each item can take a `children` array of objects with the following properties t
 Use the `orientation` prop to change the orientation of the NavigationMenu.
 
 ::: info
-When orientation is `vertical`, a [Collapsible](/components/collapsible) component is used to display children. You can control the open state of each item using the `open` and `defaultOpen` properties.
+When orientation is `vertical`, a [Collapsible](/components/collapsible) component is used to display children. You can control the open state of each item using the `open` and `defaultOpen` properties. You can also use the `collapsible` property to control if the item is collapsible.
 :::
 
 ::: info
