@@ -26,6 +26,8 @@ export interface BadgeProps extends Omit<UseComponentIconsProps, 'loading' | 'lo
    * @defaultValue 'md'
    */
   size?: Badge['variants']['size']
+  /** Render the badge with equal padding on all sides. */
+  square?: boolean
   /**
    * Shows 'underline' on hover
    * @defaultValue false
@@ -67,7 +69,7 @@ const props = withDefaults(defineProps<BadgeProps>(), {
   as: 'span'
 })
 
-defineSlots<BadgeSlots>()
+const slots = defineSlots<BadgeSlots>()
 
 const appConfig = useAppConfig() as Badge['AppConfig']
 
@@ -85,6 +87,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.badge 
   color: props.color,
   depth: props.depth,
   size: buttonGroupSize.value || props.size,
+  square: props.square || (!slots.default && !props.label),
   buttonGroup: orientation.value,
   useLink: Boolean(props.useLink),
   useClose: Boolean(props.useClose),

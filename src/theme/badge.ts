@@ -95,6 +95,9 @@ export default {
         leadingAvatarSize: 'xs',
         trailingIcon: 'size-[26px]'
       }
+    },
+    square: {
+      true: ''
     }
   },
   compoundVariants: [
@@ -352,6 +355,33 @@ export default {
         'text-white bg-ai-330 ring-ai-330',
         'dark:text-ai-100 dark:bg-ai-400 dark:ring-ai-400'
       ].join(' ')
+    },
+    // endregion ////
+    // region square ////
+    {
+      size: 'xs',
+      square: true,
+      class: 'p-0.5'
+    },
+    {
+      size: 'sm',
+      square: true,
+      class: 'p-1'
+    },
+    {
+      size: 'md',
+      square: true,
+      class: 'p-1'
+    },
+    {
+      size: 'lg',
+      square: true,
+      class: 'p-1'
+    },
+    {
+      size: 'xl',
+      square: true,
+      class: 'p-1'
     },
     // endregion ////
     // region useLink & useFill ////
