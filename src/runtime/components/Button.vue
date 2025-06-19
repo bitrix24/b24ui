@@ -1,9 +1,8 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/button'
-import type { LinkProps } from './Link.vue'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
-import type { AvatarProps } from '../types'
+import type { LinkProps, AvatarProps } from '../types'
 import type { ComponentConfig } from '../types/utils'
 
 type Button = ComponentConfig<typeof theme, AppConfig, 'button'>
@@ -189,7 +188,6 @@ const b24ui = computed(() => tv({
     v-slot="{ active, ...slotProps }"
     :type="type"
     :disabled="disabled || isLoading"
-    :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
     v-bind="proxyLinkProps"
     custom
   >

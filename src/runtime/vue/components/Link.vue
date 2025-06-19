@@ -89,15 +89,16 @@ export interface LinkSlots {
 </script>
 
 <script setup lang="ts">
-import { computed, getCurrentInstance } from 'vue'
+import { computed } from 'vue'
 import { defu } from 'defu'
-import { isEqual, diff } from 'ohash/utils'
+import { isEqual } from 'ohash/utils'
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 import { hasProtocol } from 'ufo'
 import { useRoute, RouterLink } from 'vue-router'
 import { useAppConfig } from '#imports'
 import { tv } from '../../utils/tv'
+import { isPartiallyEqual } from '../../utils/link'
 import B24LinkBase from './../../components/LinkBase.vue'
 
 defineOptions({ inheritAttrs: false })
@@ -113,25 +114,11 @@ const props = withDefaults(defineProps<LinkProps>(), {
 })
 defineSlots<LinkSlots>()
 
-// Check if vue-router is available by checking for the injection key
-const hasRouter = computed(() => {
-  const app = getCurrentInstance()?.appContext.app
-  return !!(app?.config?.globalProperties?.$router)
-})
-
-// Only try to get route if router exists
-const route = computed(() => {
-  if (!hasRouter.value) return null
-  try {
-    return useRoute()
-  } catch {
-    return null
-  }
-})
+const route = useRoute()
 
 const appConfig = useAppConfig() as Link['AppConfig']
 
-const routerLinkProps = useForwardProps(reactiveOmit(props, 'as', 'type', 'disabled', 'active', 'exact', 'exactQuery', 'exactHash', 'activeClass', 'inactiveClass', 'to', 'raw', 'class'))
+const routerLinkProps = useForwardProps(reactiveOmit(props, 'as', 'type', 'disabled', 'active', 'exact', 'exactQuery', 'exactHash', 'activeClass', 'inactiveClass', 'to', 'href', 'raw', 'custom', 'class'))
 
 const b24ui = computed(() => tv({
   extend: tv(theme),
@@ -145,24 +132,18 @@ const b24ui = computed(() => tv({
   }, appConfig.b24ui?.link || {})
 }))
 
-function isPartiallyEqual(item1: any, item2: any) {
-  const diffedKeys = diff(item1, item2).reduce((filtered, q) => {
-    if (q.type === 'added') {
-      filtered.add(q.key)
-    }
-    return filtered
-  }, new Set<string>())
-
-  const item1Filtered = Object.fromEntries(Object.entries(item1).filter(([key]) => !diffedKeys.has(key)))
-  const item2Filtered = Object.fromEntries(Object.entries(item2).filter(([key]) => !diffedKeys.has(key)))
-
-  return isEqual(item1Filtered, item2Filtered)
-}
+const to = computed(() => props.to ?? props.href)
 
 const isExternal = computed(() => {
-  if (props.external) return true
-  if (!props.to) return false
-  return typeof props.to === 'string' && hasProtocol(props.to, { acceptRelative: true })
+  if (props.external) {
+    return true
+  }
+
+  if (!to.value) {
+    return false
+  }
+
+  return typeof to.value === 'string' && hasProtocol(to.value, { acceptRelative: true })
 })
 
 function isLinkActive({ route: linkRoute, isActive, isExactActive }: any) {
@@ -170,17 +151,17 @@ function isLinkActive({ route: linkRoute, isActive, isExactActive }: any) {
     return props.active
   }
 
-  if (!props.to || !route.value) {
+  if (!to.value) {
     return false
   }
 
   if (props.exactQuery === 'partial') {
-    if (!isPartiallyEqual(linkRoute.query, route.value.query)) return false
+    if (!isPartiallyEqual(linkRoute.query, route.query)) return false
   } else if (props.exactQuery === true) {
-    if (!isEqual(linkRoute.query, route.value.query)) return false
+    if (!isEqual(linkRoute.query, route.query)) return false
   }
 
-  if (props.exactHash && linkRoute.hash !== route.value.hash) {
+  if (props.exactHash && linkRoute.hash !== route.hash) {
     return false
   }
 
@@ -212,8 +193,8 @@ function resolveLinkClass({ route, isActive, isExactActive }: any = {}) {
 </script>
 
 <template>
-  <template v-if="hasRouter && !isExternal">
-    <RouterLink v-slot="{ href, navigate, route: linkRoute, isActive, isExactActive }" v-bind="routerLinkProps" :to="to || '#'" custom>
+  <template v-if="!isExternal && !!to">
+    <RouterLink v-slot="{ href, navigate, route: linkRoute, isActive, isExactActive }" v-bind="routerLinkProps" :to="to" custom>
       <template v-if="custom">
         <slot
           v-bind="{
@@ -223,7 +204,7 @@ function resolveLinkClass({ route, isActive, isExactActive }: any = {}) {
             type,
             disabled,
             target: props.target ? props.target : undefined,
-            href: to ? href : undefined,
+            href,
             navigate,
             active: isLinkActive({ route: linkRoute, isActive, isExactActive })
           }"
@@ -237,7 +218,7 @@ function resolveLinkClass({ route, isActive, isExactActive }: any = {}) {
           as,
           type,
           disabled,
-          href: to ? href : undefined,
+          href,
           navigate
         }"
         :class="resolveLinkClass({ route: linkRoute, isActive: isActive, isExactActive: isExactActive })"
@@ -257,7 +238,8 @@ function resolveLinkClass({ route, isActive, isExactActive }: any = {}) {
           disabled,
           href: to,
           target: isExternal ? '_blank' : undefined,
-          active: props?.active || false
+          active,
+          isExternal
         }"
       />
     </template>
@@ -269,12 +251,12 @@ function resolveLinkClass({ route, isActive, isExactActive }: any = {}) {
         type,
         disabled,
         href: (to as string),
-        target: isExternal ? '_blank' : undefined
+        target: isExternal ? '_blank' : undefined,
+        isExternal
       }"
-      :is-external="isExternal"
       :class="resolveLinkClass()"
     >
-      <slot :active="props?.active || false" />
+      <slot :active="active" />
     </B24LinkBase>
   </template>
 </template>

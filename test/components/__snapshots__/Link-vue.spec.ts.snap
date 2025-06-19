@@ -1,19 +1,23 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Link > renders with activeClass correctly 1`] = `"<button type="button" class="cursor-pointer focus-visible:outline-info-text dark:text-blue-300 hover:not-disabled:not-aria-disabled:underline underline-offset-2 text-base-900" isaction="false"></button>"`;
+exports[`Link > renders with activeClass correctly 1`] = `"<button type="button" class="cursor-pointer focus-visible:outline-info-text dark:text-blue-300 hover:not-disabled:not-aria-disabled:underline underline-offset-2 text-base-900"></button>"`;
 
-exports[`Link > renders with as correctly 1`] = `"<div class="cursor-pointer focus-visible:outline-info-text text-base-900 hover:not-disabled:not-aria-disabled:text-blue-700 dark:text-base-300 dark:hover:not-disabled:not-aria-disabled:text-blue-300 hover:not-disabled:not-aria-disabled:underline underline-offset-2 transition-colors" isaction="false"></div>"`;
+exports[`Link > renders with as correctly 1`] = `"<div class="cursor-pointer focus-visible:outline-info-text text-base-900 dark:text-base-300 underline-offset-2 hover:text-blue-700 dark:hover:text-blue-300 hover:underline transition-colors"></div>"`;
 
-exports[`Link > renders with class correctly 1`] = `"<button type="button" class="cursor-pointer focus-visible:outline-info-text text-base-900 hover:not-disabled:not-aria-disabled:text-blue-700 dark:text-base-300 dark:hover:not-disabled:not-aria-disabled:text-blue-300 hover:not-disabled:not-aria-disabled:underline underline-offset-2 transition-colors font-medium" isaction="false"></button>"`;
+exports[`Link > renders with class correctly 1`] = `"<button type="button" class="cursor-pointer focus-visible:outline-info-text text-base-900 dark:text-base-300 underline-offset-2 hover:text-blue-700 dark:hover:text-blue-300 hover:underline transition-colors font-medium"></button>"`;
 
-exports[`Link > renders with default slot correctly 1`] = `"<button type="button" class="cursor-pointer focus-visible:outline-info-text text-base-900 hover:not-disabled:not-aria-disabled:text-blue-700 dark:text-base-300 dark:hover:not-disabled:not-aria-disabled:text-blue-300 hover:not-disabled:not-aria-disabled:underline underline-offset-2 transition-colors" isaction="false">Default slot</button>"`;
+exports[`Link > renders with default slot correctly 1`] = `"<button type="button" class="cursor-pointer focus-visible:outline-info-text text-base-900 dark:text-base-300 underline-offset-2 hover:text-blue-700 dark:hover:text-blue-300 hover:underline transition-colors">Default slot</button>"`;
 
-exports[`Link > renders with disabled correctly 1`] = `"<button type="button" disabled="" class="focus-visible:outline-info-text text-base-900 hover:not-disabled:not-aria-disabled:text-blue-700 dark:text-base-300 dark:hover:not-disabled:not-aria-disabled:text-blue-300 hover:not-disabled:not-aria-disabled:underline underline-offset-2 transition-colors cursor-not-allowed opacity-75" isaction="false"></button>"`;
+exports[`Link > renders with disabled correctly 1`] = `"<button type="button" disabled="" class="focus-visible:outline-info-text text-base-900 dark:text-base-300 underline-offset-2 cursor-not-allowed opacity-75"></button>"`;
 
-exports[`Link > renders with inactiveClass correctly 1`] = `"<button type="button" class="cursor-pointer focus-visible:outline-info-text text-base-900 hover:not-disabled:not-aria-disabled:text-blue-700 dark:text-base-300 dark:hover:not-disabled:not-aria-disabled:text-blue-300 hover:not-disabled:not-aria-disabled:underline underline-offset-2 transition-colors hover:text-red-500" isaction="false"></button>"`;
+exports[`Link > renders with inactiveClass correctly 1`] = `"<button type="button" class="cursor-pointer focus-visible:outline-info-text text-base-900 dark:text-base-300 underline-offset-2 hover:text-blue-700 dark:hover:text-blue-300 hover:underline transition-colors"></button>"`;
 
-exports[`Link > renders with raw correctly 1`] = `"<button type="button" class="" isaction="false"></button>"`;
+exports[`Link > renders with raw activeClass correctly 1`] = `"<button type="button" class="text-red-500"></button>"`;
 
-exports[`Link > renders with to correctly 1`] = `"<a href="/" class="cursor-pointer focus-visible:outline-info-text text-base-900 hover:not-disabled:not-aria-disabled:text-blue-700 dark:text-base-300 dark:hover:not-disabled:not-aria-disabled:text-blue-300 hover:not-disabled:not-aria-disabled:underline underline-offset-2 transition-colors" isaction="false"></a>"`;
+exports[`Link > renders with raw correctly 1`] = `"<button type="button" class=""></button>"`;
 
-exports[`Link > renders with type correctly 1`] = `"<button type="submit" class="cursor-pointer focus-visible:outline-info-text text-base-900 hover:not-disabled:not-aria-disabled:text-blue-700 dark:text-base-300 dark:hover:not-disabled:not-aria-disabled:text-blue-300 hover:not-disabled:not-aria-disabled:underline underline-offset-2 transition-colors" isaction="false"></button>"`;
+exports[`Link > renders with raw inactiveClass correctly 1`] = `"<button type="button" class="hover:text-base-500"></button>"`;
+
+exports[`Link > renders with to correctly 1`] = `"<a href="/" class="cursor-pointer focus-visible:outline-info-text text-base-900 dark:text-base-300 underline-offset-2 hover:text-blue-700 dark:hover:text-blue-300 hover:underline transition-colors" isaction="false"></a>"`;
+
+exports[`Link > renders with type correctly 1`] = `"<button type="submit" class="cursor-pointer focus-visible:outline-info-text text-base-900 dark:text-base-300 underline-offset-2 hover:text-blue-700 dark:hover:text-blue-300 hover:underline transition-colors"></button>"`;

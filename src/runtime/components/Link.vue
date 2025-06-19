@@ -91,11 +91,12 @@ export interface LinkSlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { defu } from 'defu'
-import { isEqual, diff } from 'ohash/utils'
+import { isEqual } from 'ohash/utils'
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 import { useRoute, useAppConfig } from '#imports'
 import { tv } from '../utils/tv'
+import { isPartiallyEqual } from '../utils/link'
 import B24LinkBase from './LinkBase.vue'
 
 defineOptions({ inheritAttrs: false })
@@ -114,7 +115,7 @@ defineSlots<LinkSlots>()
 const route = useRoute()
 const appConfig = useAppConfig() as Link['AppConfig']
 
-const nuxtLinkProps = useForwardProps(reactiveOmit(props, 'as', 'type', 'disabled', 'active', 'exact', 'exactQuery', 'exactHash', 'activeClass', 'inactiveClass', 'raw', 'class'))
+const nuxtLinkProps = useForwardProps(reactiveOmit(props, 'as', 'type', 'disabled', 'active', 'exact', 'exactQuery', 'exactHash', 'activeClass', 'inactiveClass', 'to', 'href', 'raw', 'custom', 'class'))
 
 const b24ui = computed(() => tv({
   extend: tv(theme),
@@ -128,19 +129,7 @@ const b24ui = computed(() => tv({
   }, appConfig.b24ui?.link || {})
 }))
 
-function isPartiallyEqual(item1: any, item2: any) {
-  const diffedKeys = diff(item1, item2).reduce((filtered, q) => {
-    if (q.type === 'added') {
-      filtered.add(q.key)
-    }
-    return filtered
-  }, new Set<string>())
-
-  const item1Filtered = Object.fromEntries(Object.entries(item1).filter(([key]) => !diffedKeys.has(key)))
-  const item2Filtered = Object.fromEntries(Object.entries(item2).filter(([key]) => !diffedKeys.has(key)))
-
-  return isEqual(item1Filtered, item2Filtered)
-}
+const to = computed(() => props.to ?? props.href)
 
 function isLinkActive({ route: linkRoute, isActive, isExactActive }: any) {
   if (props.active !== undefined) {
@@ -188,6 +177,7 @@ function resolveLinkClass({ route, isActive, isExactActive }: any) {
   <NuxtLink
     v-slot="{ href, navigate, route: linkRoute, rel, target, isExternal, isActive, isExactActive }"
     v-bind="nuxtLinkProps"
+    :to="to"
     custom
   >
     <template v-if="custom">
