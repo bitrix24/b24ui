@@ -71,6 +71,8 @@ export interface InputNumberProps extends Pick<NumberFieldRootProps, 'modelValue
    * @IconComponent
    */
   incrementIcon?: IconComponent
+  /** Disable the increment button. */
+  incrementDisabled?: boolean
   /**
    * Configure the decrement button. The `size` is inherited.
    * @defaultValue { color: 'link', depth: 'light' }
@@ -82,6 +84,8 @@ export interface InputNumberProps extends Pick<NumberFieldRootProps, 'modelValue
    * @IconComponent
    */
   decrementIcon?: IconComponent
+  /** Disable the decrement button. */
+  decrementDisabled?: boolean
   /**
    * @defaultValue false
    */
@@ -126,6 +130,8 @@ defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(defineProps<InputNumberProps>(), {
   orientation: 'horizontal',
+  disabledIncrement: false,
+  disabledDecrement: false,
   color: 'primary',
   size: 'md'
 })
@@ -218,7 +224,7 @@ defineExpose({
     />
 
     <div :class="b24ui.increment({ class: props.b24ui?.increment })">
-      <NumberFieldIncrement as-child :disabled="disabled">
+      <NumberFieldIncrement as-child :disabled="disabled || incrementDisabled">
         <slot name="increment">
           <B24Button
             :icon="incrementIcon"
@@ -233,7 +239,7 @@ defineExpose({
     </div>
 
     <div :class="b24ui.decrement({ class: props.b24ui?.decrement })">
-      <NumberFieldDecrement as-child :disabled="disabled">
+      <NumberFieldDecrement as-child :disabled="disabled || decrementDisabled">
         <slot name="decrement">
           <B24Button
             :icon="decrementIcon"
