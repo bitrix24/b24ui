@@ -18,7 +18,7 @@ exports[`RadioGroup > renders with as correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:1">Option 1</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 1</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -27,7 +27,7 @@ exports[`RadioGroup > renders with as correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:2">Option 2</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 2</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -36,7 +36,7 @@ exports[`RadioGroup > renders with as correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:3">Option 3</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 3</p>
         <!--v-if-->
       </div>
     </label>
@@ -54,7 +54,7 @@ exports[`RadioGroup > renders with b24ui correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full ms-4">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:1">Option 1</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 1</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -63,7 +63,7 @@ exports[`RadioGroup > renders with b24ui correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full ms-4">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:2">Option 2</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 2</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -72,7 +72,7 @@ exports[`RadioGroup > renders with b24ui correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full ms-4">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:3">Option 3</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 3</p>
         <!--v-if-->
       </div>
     </label>
@@ -90,7 +90,7 @@ exports[`RadioGroup > renders with class correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:1">Option 1</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 1</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -99,7 +99,7 @@ exports[`RadioGroup > renders with class correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:2">Option 2</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 2</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -108,7 +108,7 @@ exports[`RadioGroup > renders with class correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:3">Option 3</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 3</p>
         <!--v-if-->
       </div>
     </label>
@@ -125,7 +125,7 @@ exports[`RadioGroup > renders with defaultValue correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:1">Option 1</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 1</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -134,7 +134,7 @@ exports[`RadioGroup > renders with defaultValue correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:2">Option 2</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 2</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -143,7 +143,7 @@ exports[`RadioGroup > renders with defaultValue correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:3">Option 3</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 3</p>
         <!--v-if-->
       </div>
     </label>
@@ -161,7 +161,7 @@ exports[`RadioGroup > renders with description correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:1">Option 1</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 1</p>
         <p class="text-base-500 dark:text-base-600">Description 0</p>
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -170,7 +170,7 @@ exports[`RadioGroup > renders with description correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:2">Option 2</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 2</p>
         <p class="text-base-500 dark:text-base-600">Description 1</p>
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -179,7 +179,7 @@ exports[`RadioGroup > renders with description correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:3">Option 3</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 3</p>
         <p class="text-base-500 dark:text-base-600">Description 2</p>
       </div>
     </label>
@@ -197,7 +197,7 @@ exports[`RadioGroup > renders with description slot correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:1">Description slot</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Description slot</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -206,7 +206,7 @@ exports[`RadioGroup > renders with description slot correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:2">Description slot</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Description slot</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -215,7 +215,7 @@ exports[`RadioGroup > renders with description slot correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:3">Description slot</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Description slot</p>
         <!--v-if-->
       </div>
     </label>
@@ -233,7 +233,7 @@ exports[`RadioGroup > renders with descriptionKey correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:1">Option 1</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 1</p>
         <p class="text-base-500 dark:text-base-600">1</p>
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -242,7 +242,7 @@ exports[`RadioGroup > renders with descriptionKey correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:2">Option 2</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 2</p>
         <p class="text-base-500 dark:text-base-600">2</p>
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -251,7 +251,7 @@ exports[`RadioGroup > renders with descriptionKey correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:3">Option 3</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 3</p>
         <p class="text-base-500 dark:text-base-600">3</p>
       </div>
     </label>
@@ -269,7 +269,7 @@ exports[`RadioGroup > renders with disabled correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="block text-base-master dark:text-base-400 leading-5 cursor-not-allowed opacity-75" for="v-0:1">Option 1</p>
+        <p for="v-0:1" class="block text-base-master dark:text-base-400 leading-5 cursor-not-allowed opacity-75">Option 1</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -278,7 +278,7 @@ exports[`RadioGroup > renders with disabled correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="block text-base-master dark:text-base-400 leading-5 cursor-not-allowed opacity-75" for="v-0:2">Option 2</p>
+        <p for="v-0:2" class="block text-base-master dark:text-base-400 leading-5 cursor-not-allowed opacity-75">Option 2</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -287,7 +287,7 @@ exports[`RadioGroup > renders with disabled correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="block text-base-master dark:text-base-400 leading-5 cursor-not-allowed opacity-75" for="v-0:3">Option 3</p>
+        <p for="v-0:3" class="block text-base-master dark:text-base-400 leading-5 cursor-not-allowed opacity-75">Option 3</p>
         <!--v-if-->
       </div>
     </label>
@@ -304,7 +304,7 @@ exports[`RadioGroup > renders with horizontal variant card correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full me-2">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:1">Option 1</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 1</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-center border border-base-200 dark:border-base-700 rounded-lg flex-row text-md p-3.5 has-data-[state=checked]:border-blue-500 dark:has-data-[state=checked]:border-blue-600">
@@ -313,7 +313,7 @@ exports[`RadioGroup > renders with horizontal variant card correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full me-2">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:2">Option 2</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 2</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-center border border-base-200 dark:border-base-700 rounded-lg flex-row text-md p-3.5 has-data-[state=checked]:border-blue-500 dark:has-data-[state=checked]:border-blue-600">
@@ -322,7 +322,7 @@ exports[`RadioGroup > renders with horizontal variant card correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full me-2">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:3">Option 3</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 3</p>
         <!--v-if-->
       </div>
     </label>
@@ -374,7 +374,7 @@ exports[`RadioGroup > renders with horizontal variant table correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full me-2">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:1">Option 1</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 1</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start border border-base-200 dark:border-base-900 flex-row text-md p-3.5 first-of-type:rounded-l-lg last-of-type:rounded-r-lg has-data-[state=checked]:bg-blue-500/24 dark:has-data-[state=checked]:bg-blue-600/24 has-data-[state=checked]:border-blue-500 dark:has-data-[state=checked]:border-blue-600 has-data-[state=checked]:z-[1]">
@@ -383,7 +383,7 @@ exports[`RadioGroup > renders with horizontal variant table correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full me-2">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:2">Option 2</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 2</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start border border-base-200 dark:border-base-900 flex-row text-md p-3.5 first-of-type:rounded-l-lg last-of-type:rounded-r-lg has-data-[state=checked]:bg-blue-500/24 dark:has-data-[state=checked]:bg-blue-600/24 has-data-[state=checked]:border-blue-500 dark:has-data-[state=checked]:border-blue-600 has-data-[state=checked]:z-[1]">
@@ -392,7 +392,7 @@ exports[`RadioGroup > renders with horizontal variant table correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full me-2">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:3">Option 3</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 3</p>
         <!--v-if-->
       </div>
     </label>
@@ -410,7 +410,7 @@ exports[`RadioGroup > renders with indicator end correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:1">Option 1</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 1</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row-reverse text-md">
@@ -419,7 +419,7 @@ exports[`RadioGroup > renders with indicator end correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:2">Option 2</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 2</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row-reverse text-md">
@@ -428,7 +428,7 @@ exports[`RadioGroup > renders with indicator end correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:3">Option 3</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 3</p>
         <!--v-if-->
       </div>
     </label>
@@ -446,7 +446,7 @@ exports[`RadioGroup > renders with indicator hidden correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full text-center">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:1">Option 1</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 1</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start text-md">
@@ -455,7 +455,7 @@ exports[`RadioGroup > renders with indicator hidden correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full text-center">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:2">Option 2</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 2</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start text-md">
@@ -464,7 +464,7 @@ exports[`RadioGroup > renders with indicator hidden correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full text-center">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:3">Option 3</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 3</p>
         <!--v-if-->
       </div>
     </label>
@@ -482,7 +482,7 @@ exports[`RadioGroup > renders with indicator start correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:1">Option 1</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 1</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -491,7 +491,7 @@ exports[`RadioGroup > renders with indicator start correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:2">Option 2</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 2</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -500,7 +500,7 @@ exports[`RadioGroup > renders with indicator start correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:3">Option 3</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 3</p>
         <!--v-if-->
       </div>
     </label>
@@ -518,7 +518,7 @@ exports[`RadioGroup > renders with items correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:1">Option 1</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 1</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -527,7 +527,7 @@ exports[`RadioGroup > renders with items correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:2">Option 2</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 2</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -536,7 +536,7 @@ exports[`RadioGroup > renders with items correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:3">Option 3</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 3</p>
         <!--v-if-->
       </div>
     </label>
@@ -554,7 +554,7 @@ exports[`RadioGroup > renders with label slot correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:1">Label slot</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Label slot</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -563,7 +563,7 @@ exports[`RadioGroup > renders with label slot correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:2">Label slot</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Label slot</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -572,7 +572,7 @@ exports[`RadioGroup > renders with label slot correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:3">Label slot</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Label slot</p>
         <!--v-if-->
       </div>
     </label>
@@ -590,7 +590,7 @@ exports[`RadioGroup > renders with labelKey correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:1">1</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">1</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -599,7 +599,7 @@ exports[`RadioGroup > renders with labelKey correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:2">2</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">2</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -608,7 +608,7 @@ exports[`RadioGroup > renders with labelKey correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:3">3</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">3</p>
         <!--v-if-->
       </div>
     </label>
@@ -626,7 +626,7 @@ exports[`RadioGroup > renders with legend slot correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:1">Legend slot</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Legend slot</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -635,7 +635,7 @@ exports[`RadioGroup > renders with legend slot correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:2">Legend slot</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Legend slot</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -644,7 +644,7 @@ exports[`RadioGroup > renders with legend slot correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:3">Legend slot</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Legend slot</p>
         <!--v-if-->
       </div>
     </label>
@@ -661,7 +661,7 @@ exports[`RadioGroup > renders with modelValue correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:1">Option 1</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 1</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -670,7 +670,7 @@ exports[`RadioGroup > renders with modelValue correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:2">Option 2</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 2</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -679,7 +679,7 @@ exports[`RadioGroup > renders with modelValue correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:3">Option 3</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 3</p>
         <!--v-if-->
       </div>
     </label>
@@ -696,7 +696,7 @@ exports[`RadioGroup > renders with primary variant card correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:1">Option 1</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 1</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-center border border-base-200 dark:border-base-700 rounded-lg flex-row text-md p-3.5 has-data-[state=checked]:border-blue-500 dark:has-data-[state=checked]:border-blue-600">
@@ -705,7 +705,7 @@ exports[`RadioGroup > renders with primary variant card correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:2">Option 2</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 2</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-center border border-base-200 dark:border-base-700 rounded-lg flex-row text-md p-3.5 has-data-[state=checked]:border-blue-500 dark:has-data-[state=checked]:border-blue-600">
@@ -714,7 +714,7 @@ exports[`RadioGroup > renders with primary variant card correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:3">Option 3</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 3</p>
         <!--v-if-->
       </div>
     </label>
@@ -766,7 +766,7 @@ exports[`RadioGroup > renders with primary variant table correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:1">Option 1</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 1</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start border border-base-200 dark:border-base-900 flex-row text-md p-3.5 first-of-type:rounded-t-lg last-of-type:rounded-b-lg has-data-[state=checked]:bg-blue-500/24 dark:has-data-[state=checked]:bg-blue-600/24 has-data-[state=checked]:border-blue-500 dark:has-data-[state=checked]:border-blue-600 has-data-[state=checked]:z-[1]">
@@ -775,7 +775,7 @@ exports[`RadioGroup > renders with primary variant table correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:2">Option 2</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 2</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start border border-base-200 dark:border-base-900 flex-row text-md p-3.5 first-of-type:rounded-t-lg last-of-type:rounded-b-lg has-data-[state=checked]:bg-blue-500/24 dark:has-data-[state=checked]:bg-blue-600/24 has-data-[state=checked]:border-blue-500 dark:has-data-[state=checked]:border-blue-600 has-data-[state=checked]:z-[1]">
@@ -784,7 +784,7 @@ exports[`RadioGroup > renders with primary variant table correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:3">Option 3</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 3</p>
         <!--v-if-->
       </div>
     </label>
@@ -802,7 +802,7 @@ exports[`RadioGroup > renders with required correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5 after:content-['*'] after:ms-0.5 after:text-red-500 dark:after:text-red-600" for="v-0:1">Option 1</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5 after:content-['*'] after:ms-0.5 after:text-red-500 dark:after:text-red-600">Option 1</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -811,7 +811,7 @@ exports[`RadioGroup > renders with required correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5 after:content-['*'] after:ms-0.5 after:text-red-500 dark:after:text-red-600" for="v-0:2">Option 2</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5 after:content-['*'] after:ms-0.5 after:text-red-500 dark:after:text-red-600">Option 2</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -820,7 +820,7 @@ exports[`RadioGroup > renders with required correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5 after:content-['*'] after:ms-0.5 after:text-red-500 dark:after:text-red-600" for="v-0:3">Option 3</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-5 after:content-['*'] after:ms-0.5 after:text-red-500 dark:after:text-red-600">Option 3</p>
         <!--v-if-->
       </div>
     </label>
@@ -838,7 +838,7 @@ exports[`RadioGroup > renders with size lg correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:1">Option 1</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 1</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-xl">
@@ -847,7 +847,7 @@ exports[`RadioGroup > renders with size lg correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:2">Option 2</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 2</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-xl">
@@ -856,7 +856,7 @@ exports[`RadioGroup > renders with size lg correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:3">Option 3</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 3</p>
         <!--v-if-->
       </div>
     </label>
@@ -874,7 +874,7 @@ exports[`RadioGroup > renders with size md correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:1">Option 1</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 1</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -883,7 +883,7 @@ exports[`RadioGroup > renders with size md correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:2">Option 2</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 2</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -892,7 +892,7 @@ exports[`RadioGroup > renders with size md correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:3">Option 3</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 3</p>
         <!--v-if-->
       </div>
     </label>
@@ -910,7 +910,7 @@ exports[`RadioGroup > renders with size sm correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-4" for="v-0:1">Option 1</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-4">Option 1</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-sm">
@@ -919,7 +919,7 @@ exports[`RadioGroup > renders with size sm correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-4" for="v-0:2">Option 2</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-4">Option 2</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-sm">
@@ -928,7 +928,7 @@ exports[`RadioGroup > renders with size sm correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-4" for="v-0:3">Option 3</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-4">Option 3</p>
         <!--v-if-->
       </div>
     </label>
@@ -946,7 +946,7 @@ exports[`RadioGroup > renders with size xs correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-4" for="v-0:1">Option 1</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-4">Option 1</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-xs">
@@ -955,7 +955,7 @@ exports[`RadioGroup > renders with size xs correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-4" for="v-0:2">Option 2</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-4">Option 2</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-xs">
@@ -964,7 +964,7 @@ exports[`RadioGroup > renders with size xs correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-4" for="v-0:3">Option 3</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-4">Option 3</p>
         <!--v-if-->
       </div>
     </label>
@@ -981,7 +981,7 @@ exports[`RadioGroup > renders with success variant card correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:1">Option 1</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 1</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-center border border-base-200 dark:border-base-700 rounded-lg flex-row text-md p-3.5 has-data-[state=checked]:border-green-500 dark:has-data-[state=checked]:border-green-600">
@@ -990,7 +990,7 @@ exports[`RadioGroup > renders with success variant card correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:2">Option 2</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 2</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-center border border-base-200 dark:border-base-700 rounded-lg flex-row text-md p-3.5 has-data-[state=checked]:border-green-500 dark:has-data-[state=checked]:border-green-600">
@@ -999,7 +999,7 @@ exports[`RadioGroup > renders with success variant card correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:3">Option 3</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 3</p>
         <!--v-if-->
       </div>
     </label>
@@ -1051,7 +1051,7 @@ exports[`RadioGroup > renders with success variant table correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:1">Option 1</p>
+        <p for="v-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 1</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start border border-base-200 dark:border-base-900 flex-row text-md p-3.5 first-of-type:rounded-t-lg last-of-type:rounded-b-lg has-data-[state=checked]:bg-green-500/24 dark:has-data-[state=checked]:bg-green-600/24 has-data-[state=checked]:border-green-500 dark:has-data-[state=checked]:border-green-600 has-data-[state=checked]:z-[1]">
@@ -1060,7 +1060,7 @@ exports[`RadioGroup > renders with success variant table correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:2">Option 2</p>
+        <p for="v-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 2</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start border border-base-200 dark:border-base-900 flex-row text-md p-3.5 first-of-type:rounded-t-lg last-of-type:rounded-b-lg has-data-[state=checked]:bg-green-500/24 dark:has-data-[state=checked]:bg-green-600/24 has-data-[state=checked]:border-green-500 dark:has-data-[state=checked]:border-green-600 has-data-[state=checked]:z-[1]">
@@ -1069,7 +1069,7 @@ exports[`RadioGroup > renders with success variant table correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:3">Option 3</p>
+        <p for="v-0:3" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 3</p>
         <!--v-if-->
       </div>
     </label>
@@ -1087,7 +1087,7 @@ exports[`RadioGroup > renders with valueKey correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:Option 1">Option 1</p>
+        <p for="v-0:Option 1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 1</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -1096,7 +1096,7 @@ exports[`RadioGroup > renders with valueKey correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:Option 2">Option 2</p>
+        <p for="v-0:Option 2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 2</p>
         <!--v-if-->
       </div>
     </label><label class="flex items-start flex-row text-md">
@@ -1105,7 +1105,7 @@ exports[`RadioGroup > renders with valueKey correctly 1`] = `
           <!---->
         </button></div>
       <div class="font-regular w-full">
-        <p class="cursor-pointer block text-base-master dark:text-base-400 leading-5" for="v-0:Option 3">Option 3</p>
+        <p for="v-0:Option 3" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 3</p>
         <!--v-if-->
       </div>
     </label>
