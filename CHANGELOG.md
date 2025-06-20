@@ -10,6 +10,9 @@
   - workers-ai-provider
   - @ai-sdk/vue
 - **!! TEST THIS !!** docs/examples/tabs/demo/ModelValue.vue
+- **!! TEST THIS !!** src/runtime/components/Textarea.vue
+- Badge test square 
+- Link test active|disabled === false >> hover 
 
 # Changelog
 
@@ -47,11 +50,18 @@
 * fix(Toaster): allow `base` slot override
 * fix(vue): make `useAppConfig` reactive
 * fix(inertia): make `useAppConfig` reactive
-
-
-### Docs
-
-- **hero:** improve demo
+* fix(NavigationMenu): arrow position conflict
+* feat(Badge): add `square` prop
+* fix(Link): consistent behavior between nuxt, vue and inertia
+* fix(Input/Textarea): handle generic types
+* fix(Range): handle generic types
+* feat(components): add `ui` field in items
+* fix(FormField): use `div` for `error` and `help` slots
+* fix(module): configure fix
+* feat(InputNumber): add `increment-disabled` / `decrement-disabled` props
+* chore(components): move back `item.class` on link
+* fix(FormField): block form field injection after use
+* fix(Checkbox/RadioGroup): render correct element without `variant`
 
 ## [0.6.9](https://github.com/bitrix24/b24ui/compare/v0.6.8...v0.6.9) (2025-06-05)
 
