@@ -298,10 +298,18 @@ const lists = computed<NavigationMenuItem[][]>(() =>
       :unmount-on-hide="(orientation === 'vertical' && item.children?.length && !collapsed) ? unmountOnHide : undefined"
       :open="item.open"
     >
-      <div v-if="orientation === 'vertical' && item.type === 'label'" :class="b24ui.label({ class: [props.b24ui?.label, item.b24ui?.label] })">
+      <div
+        v-if="orientation === 'vertical' && item.type === 'label'"
+        :class="b24ui.label({ class: [props.b24ui?.label, item.b24ui?.label, item.class] })"
+      >
         <ReuseLinkTemplate :item="item" :index="index" />
       </div>
-      <B24Link v-else-if="item.type !== 'label'" v-slot="{ active, ...slotProps }" v-bind="(orientation === 'vertical' && item.children?.length && item.collapsible !== false) ? {} : pickLinkProps(item as Omit<NavigationMenuItem, 'type'>)" custom>
+      <B24Link
+        v-else-if="item.type !== 'label'"
+        v-slot="{ active, ...slotProps }"
+        v-bind="(orientation === 'vertical' && item.children?.length && item.collapsible !== false) ? {} : pickLinkProps(item as Omit<NavigationMenuItem, 'type'>)"
+        custom
+      >
         <component
           :is="(orientation === 'horizontal' && (item.children?.length || !!slots[(item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>])) ? NavigationMenuTrigger : NavigationMenuLink"
           as-child
@@ -309,12 +317,23 @@ const lists = computed<NavigationMenuItem[][]>(() =>
           :disabled="item.disabled"
           @select="item.onSelect"
         >
-          <B24Tooltip v-if="!!item.tooltip" :content="{ side: 'right' }" v-bind="item.tooltip">
-            <B24LinkBase v-bind="slotProps" :class="b24ui.link({ class: [props.b24ui?.link, item.b24ui?.link], active: active || item.active, disabled: !!item.disabled, level: orientation === 'horizontal' || (level || 0) > 0 })">
+          <B24Tooltip
+            v-if="!!item.tooltip"
+            :content="{ side: 'right' }"
+            v-bind="item.tooltip"
+          >
+            <B24LinkBase
+              v-bind="slotProps"
+              :class="b24ui.link({ class: [props.b24ui?.link, item.b24ui?.link, item.class], active: active || item.active, disabled: !!item.disabled, level: orientation === 'horizontal' || (level || 0) > 0 })"
+            >
               <ReuseLinkTemplate :item="item" :active="active || item.active" :index="index" />
             </B24LinkBase>
           </B24Tooltip>
-          <B24LinkBase v-else v-bind="slotProps" :class="b24ui.link({ class: [props.b24ui?.link, item.b24ui?.link], active: active || item.active, disabled: !!item.disabled, level: orientation === 'horizontal' || (level || 0) > 0 })">
+          <B24LinkBase
+            v-else
+            v-bind="slotProps"
+            :class="b24ui.link({ class: [props.b24ui?.link, item.b24ui?.link, item.class], active: active || item.active, disabled: !!item.disabled, level: orientation === 'horizontal' || (level || 0) > 0 })"
+          >
             <ReuseLinkTemplate :item="item" :active="active || item.active" :index="index" />
           </B24LinkBase>
         </component>
@@ -327,10 +346,21 @@ const lists = computed<NavigationMenuItem[][]>(() =>
         >
           <slot :name="((item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>)" :item="item" :active="active" :index="index">
             <ul :class="b24ui.childList({ class: [props.b24ui?.childList, item.b24ui?.childList] })">
-              <li v-for="(childItem, childIndex) in item.children" :key="childIndex" :class="b24ui.childItem({ class: [props.b24ui?.childItem, item.b24ui?.childItem, childItem.class] })">
-                <B24Link v-slot="{ active: childActive, ...childSlotProps }" v-bind="pickLinkProps(childItem)" custom>
+              <li
+                v-for="(childItem, childIndex) in item.children"
+                :key="childIndex"
+                :class="b24ui.childItem({ class: [props.b24ui?.childItem, item.b24ui?.childItem] })"
+              >
+                <B24Link
+                  v-slot="{ active: childActive, ...childSlotProps }"
+                  v-bind="pickLinkProps(childItem)"
+                  custom
+                >
                   <NavigationMenuLink as-child :active="childActive" @select="childItem.onSelect">
-                    <B24LinkBase v-bind="childSlotProps" :class="b24ui.childLink({ class: [props.b24ui?.childLink, childItem.childLink], active: childActive })">
+                    <B24LinkBase
+                      v-bind="childSlotProps"
+                      :class="b24ui.childLink({ class: [props.b24ui?.childLink, childItem.childLink, childItem.class], active: childActive })"
+                    >
                       <Component
                         :is="childItem.icon"
                         v-if="childItem.icon"
@@ -368,7 +398,7 @@ const lists = computed<NavigationMenuItem[][]>(() =>
             :item="childItem"
             :index="childIndex"
             :level="(level || 0) + 1"
-            :class="b24ui.childItem({ class: [props.b24ui?.childItem, childItem.b24ui?.childItem, childItem.class] })"
+            :class="b24ui.childItem({ class: [props.b24ui?.childItem, childItem.b24ui?.childItem] })"
           />
         </ul>
       </template>
@@ -390,7 +420,7 @@ const lists = computed<NavigationMenuItem[][]>(() =>
           :key="`list-${listIndex}-${index}`"
           :item="item"
           :index="index"
-          :class="b24ui.item({ class: [props.b24ui?.item, item.b24ui?.item, item.class] })"
+          :class="b24ui.item({ class: [props.b24ui?.item, item.b24ui?.item] })"
         />
       </NavigationMenuList>
 
