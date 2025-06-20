@@ -177,7 +177,12 @@ function onUpdate(value: any) {
           {{ legend }}
         </slot>
       </legend>
-      <component :is="variant === 'list' ? 'div' : Label" v-for="item in normalizedItems" :key="item.value" :class="b24ui.item({ class: [props.b24ui?.item, item.b24ui?.item, item.class] })">
+      <component
+        :is="(!variant || variant === 'list') ? 'div' : Label"
+        v-for="item in normalizedItems"
+        :key="item.value"
+        :class="b24ui.item({ class: [props.b24ui?.item, item.b24ui?.item, item.class] })"
+      >
         <div :class="b24ui.container({ class: [props.b24ui?.container, item.b24ui?.container] })">
           <RadioGroupItem
             :id="item.id"
@@ -194,7 +199,7 @@ function onUpdate(value: any) {
           :class="b24ui.wrapper({ class: [props.b24ui?.wrapper, item.b24ui?.wrapper] })"
         >
           <component
-            :is="variant === 'list' ? Label : 'p'"
+            :is="(!variant || variant === 'list') ? Label : 'p'"
             v-if="item.label || !!slots.label"
             :for="item.id"
             :class="b24ui.label({ class: [props.b24ui?.label, item.b24ui?.label] })"
