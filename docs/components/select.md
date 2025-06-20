@@ -71,9 +71,11 @@ You can also pass an array of objects with the following properties:
 - [`type?: "label" | "separator" | "item"`{lang="ts"}](#with-items-type)
 - [`icon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts"}](#with-icons-in-items)
 - [`avatar?: AvatarProps`{lang="ts"}](#with-avatar-in-items)
-- `color?: string`{lang="ts"}
+- `color?: "default" | "danger" | "success" | "warning" | "primary" | "secondary" | "collab" | "ai"`{lang="ts"}
 - [`chip?: ChipProps`{lang="ts"}](#with-chip-in-items)
 - `disabled?: boolean`{lang="ts"}
+- `class?: any`{lang="ts"}
+- `b24ui?: { label?: ClassNameValue, separator?: ClassNameValue, item?: ClassNameValue, itemLeadingIcon?: ClassNameValue, itemLeadingAvatarSize?: ClassNameValue, itemLeadingAvatar?: ClassNameValue, itemLeadingChipSize?: ClassNameValue, itemLeadingChip?: ClassNameValue, itemLabel?: ClassNameValue, itemTrailing?: ClassNameValue, itemTrailingIcon?: ClassNameValue }`{lang="ts"}
 
 ::: danger
 When using objects, you need to reference the `value` property of the object in the `v-model` directive or the `default-value` prop.

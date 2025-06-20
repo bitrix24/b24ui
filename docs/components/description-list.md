@@ -22,6 +22,20 @@ import CustomExample from '/examples/descriptionlist/Custom.vue';
 Some data may be missing here — we will complete it shortly.
 :::
 
+### Items
+
+Use the `items` prop as an array of objects with the following properties:
+
+- `label?: string`{lang="ts"}
+- `icon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts"}
+- `avatar?: AvatarProps`{lang="ts"}
+- `slot?: string`{lang="ts"}
+- `description?: string`{lang="ts"}
+- `orientation?: "horizontal" | "vertical"`{lang="ts"}
+- `actions?: ButtonProps[]`{lang="ts"}
+- `class?: any`{lang="ts"}
+- `b24ui?: { labelWrapper?: ClassNameValue, icon?: ClassNameValue, avatar?: ClassNameValue, label?: ClassNameValue, descriptionWrapper?: ClassNameValue, description?: ClassNameValue, actions?: ClassNameValue }`{lang="ts"}
+
 ## Usage
 
 ### Simple

@@ -19,6 +19,8 @@ export interface TabsItem {
   /** A unique value for the tab item. Defaults to the index. */
   value?: string | number
   disabled?: boolean
+  class?: any
+  b24ui?: Pick<Tabs['slots'], 'trigger' | 'leadingIcon' | 'leadingAvatarSize' | 'leadingAvatar' | 'label' | 'content'>
   [key: string]: any
 }
 
@@ -116,17 +118,28 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.tabs |
 
       <slot name="list-leading" />
 
-      <TabsTrigger v-for="(item, index) in items" :key="index" :value="item.value || String(index)" :disabled="item.disabled" :class="b24ui.trigger({ class: props.b24ui?.trigger })">
+      <TabsTrigger
+        v-for="(item, index) in items"
+        :key="index"
+        :value="item.value || String(index)"
+        :disabled="item.disabled"
+        :class="b24ui.trigger({ class: [props.b24ui?.trigger, item.b24ui?.trigger] })"
+      >
         <slot name="leading" :item="item" :index="index">
           <Component
             :is="item.icon"
             v-if="item.icon"
-            :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
+            :class="b24ui.leadingIcon({ class: [props.b24ui?.leadingIcon, item.b24ui?.leadingIcon] })"
           />
-          <B24Avatar v-else-if="item.avatar" :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])" v-bind="item.avatar" :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })" />
+          <B24Avatar
+            v-else-if="item.avatar"
+            :size="((item.b24ui?.leadingAvatarSize || props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+            v-bind="item.avatar"
+            :class="b24ui.leadingAvatar({ class: [props.b24ui?.leadingAvatar, item.b24ui?.leadingAvatar] })"
+          />
         </slot>
 
-        <span v-if="getLabel(item) || !!slots.default" :class="b24ui.label({ class: props.b24ui?.label })">
+        <span v-if="getLabel(item) || !!slots.default" :class="b24ui.label({ class: [props.b24ui?.label, item.b24ui?.label] })">
           <slot :item="item" :index="index">{{ getLabel(item) }}</slot>
         </span>
 
@@ -137,7 +150,12 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.tabs |
     </TabsList>
 
     <template v-if="!!content">
-      <TabsContent v-for="(item, index) in items" :key="index" :value="item.value || String(index)" :class="b24ui.content({ class: props.b24ui?.content })">
+      <TabsContent
+        v-for="(item, index) in items"
+        :key="index"
+        :value="item.value || String(index)"
+        :class="b24ui.content({ class: [props.b24ui?.content, item.b24ui?.content, item.class] })"
+      >
         <slot :name="((item.slot || 'content') as keyof TabsSlots<T>)" :item="(item as Extract<T, { slot: string; }>)" :index="index">
           {{ item.content }}
         </slot>

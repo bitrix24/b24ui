@@ -29,7 +29,7 @@ export interface DescriptionListItem {
    */
   actions?: ButtonProps[]
   class?: any
-  b24ui?: DescriptionList['slots']
+  b24ui?: Pick<DescriptionList['slots'], 'labelWrapper' | 'icon' | 'avatar' | 'label' | 'descriptionWrapper' | 'description' | 'actions'>
   [key: string]: any
 }
 
@@ -200,7 +200,8 @@ const normalizedItems = computed(() => {
             :class="b24ui.descriptionWrapper({
               class: [
                 props.b24ui?.descriptionWrapper,
-                item?.b24ui?.descriptionWrapper
+                item?.b24ui?.descriptionWrapper,
+                item?.b24ui?.class
               ],
               orientation: item.orientation
             })"

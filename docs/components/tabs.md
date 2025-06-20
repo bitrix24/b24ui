@@ -39,6 +39,8 @@ Use the `items` prop as an array of objects with the following properties:
 - `value?: string | number`{lang="ts"}
 - `disabled?: boolean`{lang="ts"}
 - [`slot?: string`{lang="ts"}](#with-custom-slot)
+- `class?: any`{lang="ts"}
+- `b24ui?: { trigger?: ClassNameValue, leadingIcon?: ClassNameValue, leadingAvatar?: ClassNameValue, label?: ClassNameValue, content?: ClassNameValue }`{lang="ts"}
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>

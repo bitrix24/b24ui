@@ -26,6 +26,8 @@ interface _InputMenuItem {
   type?: 'label' | 'separator' | 'item'
   disabled?: boolean
   onSelect?(e?: Event): void
+  class?: any
+  b24ui?: Pick<InputMenu['slots'], 'tagsItem' | 'tagsItemText' | 'tagsItemDelete' | 'tagsItemDeleteIcon' | 'label' | 'separator' | 'item' | 'itemLeadingIcon' | 'itemLeadingAvatarSize' | 'itemLeadingAvatar' | 'itemLeadingChip' | 'itemLeadingChipSize' | 'itemLabel' | 'itemTrailing' | 'itemTrailingIcon'>
   [key: string]: any
 }
 export type InputMenuItem = _InputMenuItem | AcceptableValue | boolean
@@ -488,18 +490,18 @@ defineExpose({
         @focus="onFocus"
         @remove-tag="onRemoveTag"
       >
-        <TagsInputItem v-for="(item, index) in tags" :key="index" :value="(item as string)" :class="b24ui.tagsItem({ class: props.b24ui?.tagsItem })">
-          <TagsInputItemText :class="b24ui.tagsItemText({ class: props.b24ui?.tagsItemText })">
+        <TagsInputItem v-for="(item, index) in tags" :key="index" :value="(item as string)" :class="b24ui.tagsItem({ class: [props.b24ui?.tagsItem, isInputItem(item) && item.b24ui?.tagsItem] })">
+          <TagsInputItemText :class="b24ui.tagsItemText({ class: [props.b24ui?.tagsItemText, isInputItem(item) && item.b24ui?.tagsItemText] })">
             <slot name="tags-item-text" :item="(item as NestedItem<T>)" :index="index">
               {{ displayValue(item as T) }}
             </slot>
           </TagsInputItemText>
 
-          <TagsInputItemDelete :class="b24ui.tagsItemDelete({ class: props.b24ui?.tagsItemDelete })" :disabled="disabled">
+          <TagsInputItemDelete :class="b24ui.tagsItemDelete({ class: [props.b24ui?.tagsItemDelete, isInputItem(item) && item.b24ui?.tagsItemDelete] })" :disabled="disabled">
             <slot name="tags-item-delete" :item="(item as NestedItem<T>)" :index="index">
               <Component
                 :is="deleteIcon || icons.close"
-                :class="b24ui.tagsItemDeleteIcon({ class: props.b24ui?.tagsItemDeleteIcon })"
+                :class="b24ui.tagsItemDeleteIcon({ class: [props.b24ui?.tagsItemDeleteIcon, isInputItem(item) && item.b24ui?.tagsItemDeleteIcon] })"
               />
             </slot>
           </TagsInputItemDelete>
@@ -566,15 +568,15 @@ defineExpose({
 
           <ComboboxGroup v-for="(group, groupIndex) in filteredGroups" :key="`group-${groupIndex}`" :class="b24ui.group({ class: props.b24ui?.group })">
             <template v-for="(item, index) in group" :key="`group-${groupIndex}-${index}`">
-              <ComboboxLabel v-if="isInputItem(item) && item.type === 'label'" :class="b24ui.label({ class: props.b24ui?.label })">
+              <ComboboxLabel v-if="isInputItem(item) && item.type === 'label'" :class="b24ui.label({ class: [props.b24ui?.label, item.b24ui?.label, item.class] })">
                 {{ get(item, props.labelKey as string) }}
               </ComboboxLabel>
 
-              <ComboboxSeparator v-else-if="isInputItem(item) && item.type === 'separator'" :class="b24ui.separator({ class: props.b24ui?.separator })" />
+              <ComboboxSeparator v-else-if="isInputItem(item) && item.type === 'separator'" :class="b24ui.separator({ class: [props.b24ui?.separator, item.b24ui?.separator, item.class] })" />
 
               <ComboboxItem
                 v-else
-                :class="b24ui.item({ class: props.b24ui?.item, colorItem: isInputItem(item) ? item?.color : undefined })"
+                :class="b24ui.item({ class: [props.b24ui?.item, isInputItem(item) && item.b24ui?.item, isInputItem(item) && item.class], colorItem: isInputItem(item) ? item?.color : undefined })"
                 :disabled="isInputItem(item) && item.disabled"
                 :value="props.valueKey && isInputItem(item) ? get(item, props.valueKey as string) : item"
                 @select="onSelect($event, item)"
@@ -584,32 +586,32 @@ defineExpose({
                     <Component
                       :is="item.icon"
                       v-if="isInputItem(item) && item.icon"
-                      :class="b24ui.itemLeadingIcon({ class: props.b24ui?.itemLeadingIcon, colorItem: item?.color })"
+                      :class="b24ui.itemLeadingIcon({ class: [props.b24ui?.itemLeadingIcon, item.b24ui?.itemLeadingIcon], colorItem: item?.color })"
                     />
-                    <B24Avatar v-else-if="isInputItem(item) && item.avatar" :size="((props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])" v-bind="item.avatar" :class="b24ui.itemLeadingAvatar({ class: props.b24ui?.itemLeadingAvatar, colorItem: item?.color })" />
+                    <B24Avatar v-else-if="isInputItem(item) && item.avatar" :size="((item.b24ui?.itemLeadingAvatarSize || props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])" v-bind="item.avatar" :class="b24ui.itemLeadingAvatar({ class: [props.b24ui?.itemLeadingAvatar, item.b24ui?.itemLeadingAvatar], colorItem: item?.color })" />
                     <B24Chip
                       v-else-if="isInputItem(item) && item.chip"
-                      :size="((props.b24ui?.itemLeadingChipSize || b24ui.itemLeadingChipSize()) as ChipProps['size'])"
+                      :size="((item.b24ui?.itemLeadingChipSize || props.b24ui?.itemLeadingChipSize || b24ui.itemLeadingChipSize()) as ChipProps['size'])"
                       inset
                       standalone
                       v-bind="item.chip"
-                      :class="b24ui.itemLeadingChip({ class: props.b24ui?.itemLeadingChip, colorItem: item?.color })"
+                      :class="b24ui.itemLeadingChip({ class: [props.b24ui?.itemLeadingChip, item.b24ui?.itemLeadingChip], colorItem: item?.color })"
                     />
                   </slot>
 
-                  <span :class="b24ui.itemLabel({ class: props.b24ui?.itemLabel })">
+                  <span :class="b24ui.itemLabel({ class: [props.b24ui?.itemLabel, isInputItem(item) && item.b24ui?.itemLabel] })">
                     <slot name="item-label" :item="(item as NestedItem<T>)" :index="index">
                       {{ isInputItem(item) ? get(item, props.labelKey as string) : item }}
                     </slot>
                   </span>
 
-                  <span :class="b24ui.itemTrailing({ class: props.b24ui?.itemTrailing, colorItem: isInputItem(item) ? item?.color : undefined })">
+                  <span :class="b24ui.itemTrailing({ class: [props.b24ui?.itemTrailing, isInputItem(item) && item.b24ui?.itemTrailing], colorItem: isInputItem(item) ? item?.color : undefined })">
                     <slot name="item-trailing" :item="(item as NestedItem<T>)" :index="index" />
 
                     <ComboboxItemIndicator as-child>
                       <Component
                         :is="selectedIcon || icons.check"
-                        :class="b24ui.itemTrailingIcon({ class: props.b24ui?.itemTrailingIcon, colorItem: isInputItem(item) ? item?.color : undefined })"
+                        :class="b24ui.itemTrailingIcon({ class: [props.b24ui?.itemTrailingIcon, isInputItem(item) && item.b24ui?.itemTrailingIcon], colorItem: isInputItem(item) ? item?.color : undefined })"
                       />
                     </ComboboxItemIndicator>
                   </span>

@@ -12,6 +12,8 @@ export type RadioGroupItem = {
   description?: string
   disabled?: boolean
   value?: RadioGroupValue
+  class?: any
+  b24ui?: Pick<RadioGroup['slots'], 'item' | 'container' | 'base' | 'indicator' | 'wrapper' | 'label' | 'description'>
   [key: string]: any
 } | RadioGroupValue
 
@@ -175,25 +177,36 @@ function onUpdate(value: any) {
           {{ legend }}
         </slot>
       </legend>
-      <component :is="variant === 'list' ? 'div' : Label" v-for="item in normalizedItems" :key="item.value" :class="b24ui.item({ class: props.b24ui?.item })">
-        <div :class="b24ui.container({ class: props.b24ui?.container })">
+      <component :is="variant === 'list' ? 'div' : Label" v-for="item in normalizedItems" :key="item.value" :class="b24ui.item({ class: [props.b24ui?.item, item.b24ui?.item, item.class] })">
+        <div :class="b24ui.container({ class: [props.b24ui?.container, item.b24ui?.container] })">
           <RadioGroupItem
             :id="item.id"
             :value="item.value"
             :disabled="item.disabled"
-            :class="b24ui.base({ class: props.b24ui?.base, disabled: item.disabled })"
+            :class="b24ui.base({ class: [props.b24ui?.base, item.b24ui?.base], disabled: item.disabled })"
           >
-            <RadioGroupIndicator :class="b24ui.indicator({ class: props.b24ui?.indicator })" />
+            <RadioGroupIndicator :class="b24ui.indicator({ class: [props.b24ui?.indicator, item.b24ui?.indicator] })" />
           </RadioGroupItem>
         </div>
 
-        <div :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
-          <component :is="variant === 'list' ? Label : 'p'" :class="b24ui.label({ class: props.b24ui?.label })" :for="item.id">
+        <div
+          v-if="(item.label || !!slots.label) || (item.description || !!slots.description)"
+          :class="b24ui.wrapper({ class: [props.b24ui?.wrapper, item.b24ui?.wrapper] })"
+        >
+          <component
+            :is="variant === 'list' ? Label : 'p'"
+            v-if="item.label || !!slots.label"
+            :for="item.id"
+            :class="b24ui.label({ class: [props.b24ui?.label, item.b24ui?.label] })"
+          >
             <slot name="label" :item="item" :model-value="(modelValue as RadioGroupValue)">
               {{ item.label }}
             </slot>
           </component>
-          <p v-if="item.description || !!slots.description" :class="b24ui.description({ class: props.b24ui?.description })">
+          <p
+            v-if="item.description || !!slots.description"
+            :class="b24ui.description({ class: [props.b24ui?.description, item.b24ui?.description] })"
+          >
             <slot name="description" :item="item" :model-value="(modelValue as RadioGroupValue)">
               {{ item.description }}
             </slot>

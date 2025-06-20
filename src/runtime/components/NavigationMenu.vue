@@ -8,7 +8,7 @@ import type { ArrayOrNested, DynamicSlots, MergeTypes, NestedItem, EmitsToProps,
 
 type NavigationMenu = ComponentConfig<typeof theme, AppConfig, 'navigationMenu'>
 
-export interface NavigationMenuChildItem extends Omit<NavigationMenuItem, 'type'> {
+export interface NavigationMenuChildItem extends Omit<NavigationMenuItem, 'type' | 'b24ui'> {
   /** Description is only used when `orientation` is `horizontal`. */
   description?: string
   [key: string]: any
@@ -60,6 +60,8 @@ export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
    */
   viewportRtl?: boolean
   onSelect?(e: Event): void
+  class?: any
+  b24ui?: Pick<NavigationMenu['slots'], 'item' | 'linkLeadingAvatarSize' | 'linkLeadingAvatar' | 'linkLeadingIcon' | 'linkLabel' | 'linkLabelExternalIcon' | 'linkTrailing' | 'linkTrailingBadgeSize' | 'linkTrailingBadge' | 'linkTrailingIcon' | 'label' | 'link' | 'content' | 'childList' | 'childItem' | 'childLink' | 'childLinkIcon' | 'childLinkWrapper' | 'childLinkLabel' | 'childLinkLabelExternalIcon' | 'childLinkDescription'>
   [key: string]: any
 }
 
@@ -239,14 +241,14 @@ const lists = computed<NavigationMenuItem[][]>(() =>
           <Component
             :is="item.icon"
             v-if="item.icon"
-            :class="b24ui.linkLeadingIcon({ class: props.b24ui?.linkLeadingIcon, active, disabled: !!item.disabled })"
+            :class="b24ui.linkLeadingIcon({ class: [props.b24ui?.linkLeadingIcon, item.b24ui?.linkLeadingIcon], active, disabled: !!item.disabled })"
           />
-          <B24Avatar v-else-if="item.avatar" :size="((props.b24ui?.linkLeadingAvatarSize || b24ui.linkLeadingAvatarSize()) as AvatarProps['size'])" v-bind="item.avatar" :class="b24ui.linkLeadingAvatar({ class: props.b24ui?.linkLeadingAvatar, active, disabled: !!item.disabled })" />
+          <B24Avatar v-else-if="item.avatar" :size="((item.b24ui?.linkLeadingAvatarSize || props.b24ui?.linkLeadingAvatarSize || b24ui.linkLeadingAvatarSize()) as AvatarProps['size'])" v-bind="item.avatar" :class="b24ui.linkLeadingAvatar({ class: [props.b24ui?.linkLeadingAvatar, item.b24ui?.linkLeadingAvatar], active, disabled: !!item.disabled })" />
         </slot>
 
         <span
           v-if="(!collapsed || orientation !== 'vertical') && (getLabel(item) || !!slots[(item.slot ? `${item.slot}-label` : 'item-label') as keyof NavigationMenuSlots<T>])"
-          :class="b24ui.linkLabel({ class: props.b24ui?.linkLabel, active })"
+          :class="b24ui.linkLabel({ class: [props.b24ui?.linkLabel, item.b24ui?.linkLabel], active })"
         >
           <slot :name="((item.slot ? `${item.slot}-label` : 'item-label') as keyof NavigationMenuSlots<T>)" :item="item" :active="active" :index="index">
             {{ getLabel(item) }}
@@ -255,21 +257,21 @@ const lists = computed<NavigationMenuItem[][]>(() =>
           <Component
             :is="typeof externalIcon !== 'boolean' ? externalIcon : icons.external"
             v-if="item.target === '_blank' && externalIcon !== false"
-            :class="b24ui.linkLabelExternalIcon({ class: props.b24ui?.linkLabelExternalIcon, active })"
+            :class="b24ui.linkLabelExternalIcon({ class: [props.b24ui?.linkLabelExternalIcon, item.b24ui?.linkLabelExternalIcon], active })"
           />
         </span>
       </span>
-      <span v-if="(!collapsed || orientation !== 'vertical') && (item.badge || (orientation === 'horizontal' && (item.children?.length || !!slots[(item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>])) || (orientation === 'vertical' && item.children?.length) || item.trailingIcon || !!slots[(item.slot ? `${item.slot}-trailing` : 'item-trailing') as keyof NavigationMenuSlots<T>])" :class="b24ui.linkTrailing({ class: props.b24ui?.linkTrailing })">
+      <span v-if="(!collapsed || orientation !== 'vertical') && (item.badge || (orientation === 'horizontal' && (item.children?.length || !!slots[(item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>])) || (orientation === 'vertical' && item.children?.length) || item.trailingIcon || !!slots[(item.slot ? `${item.slot}-trailing` : 'item-trailing') as keyof NavigationMenuSlots<T>])" :class="b24ui.linkTrailing({ class: [props.b24ui?.linkTrailing, item.b24ui?.linkTrailing] })">
         <slot :name="((item.slot ? `${item.slot}-trailing` : 'item-trailing') as keyof NavigationMenuSlots<T>)" :item="item" :active="active" :index="index">
           <Component
             :is="item.trailingIcon || trailingIcon || icons.chevronDown"
             v-if="(orientation === 'horizontal' && (item.children?.length || !!slots[(item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>])) || (orientation === 'vertical' && item.children?.length && item.collapsible !== false)"
-            :class="b24ui.linkTrailingIcon({ class: props.b24ui?.linkTrailingIcon, active })"
+            :class="b24ui.linkTrailingIcon({ class: [props.b24ui?.linkTrailingIcon, item.b24ui?.linkTrailingIcon], active })"
           />
           <Component
             :is="item.trailingIcon"
             v-else-if="item.trailingIcon"
-            :class="b24ui.linkTrailingIcon({ class: props.b24ui?.linkTrailingIcon, active })"
+            :class="b24ui.linkTrailingIcon({ class: [props.b24ui?.linkTrailingIcon, item.b24ui?.linkTrailingIcon], active })"
           />
 
           <B24Badge
@@ -277,9 +279,9 @@ const lists = computed<NavigationMenuItem[][]>(() =>
             color="danger"
             depth="dark"
             :use-fill="true"
-            :size="((props.b24ui?.linkTrailingBadgeSize || b24ui.linkTrailingBadgeSize()) as BadgeProps['size'])"
+            :size="((item.b24ui?.linkTrailingBadgeSize || props.b24ui?.linkTrailingBadgeSize || b24ui.linkTrailingBadgeSize()) as BadgeProps['size'])"
             v-bind="(typeof item.badge === 'string' || typeof item.badge === 'number') ? { label: item.badge } : item.badge"
-            :class="b24ui.linkTrailingBadge({ class: props.b24ui?.linkTrailingBadge })"
+            :class="b24ui.linkTrailingBadge({ class: [props.b24ui?.linkTrailingBadge, item.b24ui?.linkTrailingBadge] })"
           />
         </slot>
       </span>
@@ -296,7 +298,7 @@ const lists = computed<NavigationMenuItem[][]>(() =>
       :unmount-on-hide="(orientation === 'vertical' && item.children?.length && !collapsed) ? unmountOnHide : undefined"
       :open="item.open"
     >
-      <div v-if="orientation === 'vertical' && item.type === 'label'" :class="b24ui.label({ class: props.b24ui?.label })">
+      <div v-if="orientation === 'vertical' && item.type === 'label'" :class="b24ui.label({ class: [props.b24ui?.label, item.b24ui?.label] })">
         <ReuseLinkTemplate :item="item" :index="index" />
       </div>
       <B24Link v-else-if="item.type !== 'label'" v-slot="{ active, ...slotProps }" v-bind="(orientation === 'vertical' && item.children?.length && item.collapsible !== false) ? {} : pickLinkProps(item as Omit<NavigationMenuItem, 'type'>)" custom>
@@ -308,11 +310,11 @@ const lists = computed<NavigationMenuItem[][]>(() =>
           @select="item.onSelect"
         >
           <B24Tooltip v-if="!!item.tooltip" :content="{ side: 'right' }" v-bind="item.tooltip">
-            <B24LinkBase v-bind="slotProps" :class="b24ui.link({ class: [props.b24ui?.link, item.class], active: active || item.active, disabled: !!item.disabled, level: orientation === 'horizontal' || (level || 0) > 0 })">
+            <B24LinkBase v-bind="slotProps" :class="b24ui.link({ class: [props.b24ui?.link, item.b24ui?.link], active: active || item.active, disabled: !!item.disabled, level: orientation === 'horizontal' || (level || 0) > 0 })">
               <ReuseLinkTemplate :item="item" :active="active || item.active" :index="index" />
             </B24LinkBase>
           </B24Tooltip>
-          <B24LinkBase v-else v-bind="slotProps" :class="b24ui.link({ class: [props.b24ui?.link, item.class], active: active || item.active, disabled: !!item.disabled, level: orientation === 'horizontal' || (level || 0) > 0 })">
+          <B24LinkBase v-else v-bind="slotProps" :class="b24ui.link({ class: [props.b24ui?.link, item.b24ui?.link], active: active || item.active, disabled: !!item.disabled, level: orientation === 'horizontal' || (level || 0) > 0 })">
             <ReuseLinkTemplate :item="item" :active="active || item.active" :index="index" />
           </B24LinkBase>
         </component>
@@ -321,31 +323,31 @@ const lists = computed<NavigationMenuItem[][]>(() =>
           v-if="orientation === 'horizontal' && (item.children?.length || !!slots[(item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>])"
           v-bind="contentProps"
           :data-viewport="item.viewportRtl ? 'rtl' : 'ltr'"
-          :class="b24ui.content({ class: props.b24ui?.content })"
+          :class="b24ui.content({ class: [props.b24ui?.content, item.b24ui?.content] })"
         >
           <slot :name="((item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>)" :item="item" :active="active" :index="index">
-            <ul :class="b24ui.childList({ class: props.b24ui?.childList })">
-              <li v-for="(childItem, childIndex) in item.children" :key="childIndex" :class="b24ui.childItem({ class: props.b24ui?.childItem })">
+            <ul :class="b24ui.childList({ class: [props.b24ui?.childList, item.b24ui?.childList] })">
+              <li v-for="(childItem, childIndex) in item.children" :key="childIndex" :class="b24ui.childItem({ class: [props.b24ui?.childItem, item.b24ui?.childItem, childItem.class] })">
                 <B24Link v-slot="{ active: childActive, ...childSlotProps }" v-bind="pickLinkProps(childItem)" custom>
                   <NavigationMenuLink as-child :active="childActive" @select="childItem.onSelect">
-                    <B24LinkBase v-bind="childSlotProps" :class="b24ui.childLink({ class: [props.b24ui?.childLink, childItem.class], active: childActive })">
+                    <B24LinkBase v-bind="childSlotProps" :class="b24ui.childLink({ class: [props.b24ui?.childLink, childItem.childLink], active: childActive })">
                       <Component
                         :is="childItem.icon"
                         v-if="childItem.icon"
-                        :class="b24ui.childLinkIcon({ class: props.b24ui?.childLinkIcon, active: childActive })"
+                        :class="b24ui.childLinkIcon({ class: [props.b24ui?.childLinkIcon, item.b24ui?.childLinkIcon], active: childActive })"
                       />
 
-                      <div :class="b24ui.childLinkWrapper({ class: props.b24ui?.childLinkWrapper })">
-                        <p :class="b24ui.childLinkLabel({ class: props.b24ui?.childLinkLabel, active: childActive })">
+                      <div :class="b24ui.childLinkWrapper({ class: [props.b24ui?.childLinkWrapper, item.b24ui?.childLinkWrapper] })">
+                        <p :class="b24ui.childLinkLabel({ class: [props.b24ui?.childLinkLabel, item.b24ui?.childLinkLabel], active: childActive })">
                           {{ getLabel(childItem) }}
 
                           <Component
                             :is="typeof externalIcon === 'string' ? externalIcon : icons.external"
                             v-if="childItem.target === '_blank' && externalIcon !== false"
-                            :class="b24ui.childLinkLabelExternalIcon({ class: props.b24ui?.childLinkLabelExternalIcon, active: childActive })"
+                            :class="b24ui.childLinkLabelExternalIcon({ class: [props.b24ui?.childLinkLabelExternalIcon, item.b24ui?.childLinkLabelExternalIcon], active: childActive })"
                           />
                         </p>
-                        <p v-if="childItem.description" :class="b24ui.childLinkDescription({ class: props.b24ui?.childLinkDescription, active: childActive })">
+                        <p v-if="childItem.description" :class="b24ui.childLinkDescription({ class: [props.b24ui?.childLinkDescription, item.b24ui?.childLinkDescription], active: childActive })">
                           {{ childItem.description }}
                         </p>
                       </div>
@@ -366,7 +368,7 @@ const lists = computed<NavigationMenuItem[][]>(() =>
             :item="childItem"
             :index="childIndex"
             :level="(level || 0) + 1"
-            :class="b24ui.childItem({ class: props.b24ui?.childItem })"
+            :class="b24ui.childItem({ class: [props.b24ui?.childItem, childItem.b24ui?.childItem, childItem.class] })"
           />
         </ul>
       </template>
@@ -388,7 +390,7 @@ const lists = computed<NavigationMenuItem[][]>(() =>
           :key="`list-${listIndex}-${index}`"
           :item="item"
           :index="index"
-          :class="b24ui.item({ class: props.b24ui?.item })"
+          :class="b24ui.item({ class: [props.b24ui?.item, item.b24ui?.item, item.class] })"
         />
       </NavigationMenuList>
 

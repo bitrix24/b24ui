@@ -26,6 +26,8 @@ interface SelectItemBase {
   value?: AcceptableValue | boolean
   disabled?: boolean
   onSelect?(e?: Event): void
+  class?: any
+  b24ui?: Pick<Select['slots'], 'label' | 'separator' | 'item' | 'itemLeadingIcon' | 'itemLeadingAvatarSize' | 'itemLeadingAvatar' | 'itemLeadingChipSize' | 'itemLeadingChip' | 'itemLabel' | 'itemTrailing' | 'itemTrailingIcon'>
   [key: string]: any
 }
 export type SelectItem = SelectItemBase | AcceptableValue | boolean
@@ -335,15 +337,15 @@ function isSelectItem(item: SelectItem): item is SelectItemBase {
           <SelectViewport :class="b24ui.viewport({ class: props.b24ui?.viewport })">
             <SelectGroup v-for="(group, groupIndex) in groups" :key="`group-${groupIndex}`" :class="b24ui.group({ class: props.b24ui?.group })">
               <template v-for="(item, index) in group" :key="`group-${groupIndex}-${index}`">
-                <SelectLabel v-if="isSelectItem(item) && item.type === 'label'" :class="b24ui.label({ class: props.b24ui?.label })">
+                <SelectLabel v-if="isSelectItem(item) && item.type === 'label'" :class="b24ui.label({ class: [props.b24ui?.label, item.b24ui?.label, item.class] })">
                   {{ get(item, props.labelKey as string) }}
                 </SelectLabel>
 
-                <SelectSeparator v-else-if="isSelectItem(item) && item.type === 'separator'" :class="b24ui.separator({ class: props.b24ui?.separator })" />
+                <SelectSeparator v-else-if="isSelectItem(item) && item.type === 'separator'" :class="b24ui.separator({ class: [props.b24ui?.separator, item.b24ui?.separator, item.class] })" />
 
                 <SelectItem
                   v-else
-                  :class="b24ui.item({ class: props.b24ui?.item, colorItem: isSelectItem(item) ? item?.color : undefined })"
+                  :class="b24ui.item({ class: [props.b24ui?.item, isSelectItem(item) && item.b24ui?.item, isSelectItem(item) && item.class], colorItem: isSelectItem(item) && item?.color })"
                   :disabled="isSelectItem(item) && item.disabled"
                   :value="isSelectItem(item) ? get(item, props.valueKey as string) : item"
                   @select="isSelectItem(item) && item.onSelect?.($event)"
@@ -353,32 +355,37 @@ function isSelectItem(item: SelectItem): item is SelectItemBase {
                       <Component
                         :is="item.icon"
                         v-if="isSelectItem(item) && item.icon"
-                        :class="b24ui.itemLeadingIcon({ class: props.b24ui?.itemLeadingIcon, colorItem: item?.color })"
+                        :class="b24ui.itemLeadingIcon({ class: [props.b24ui?.itemLeadingIcon, item.b24ui?.itemLeadingIcon], colorItem: item?.color })"
                       />
-                      <B24Avatar v-else-if="isSelectItem(item) && item.avatar" :size="((props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])" v-bind="item.avatar" :class="b24ui.itemLeadingAvatar({ class: props.b24ui?.itemLeadingAvatar, colorItem: item?.color })" />
+                      <B24Avatar
+                        v-else-if="isSelectItem(item) && item.avatar"
+                        :size="((item.b24ui?.itemLeadingAvatarSize || props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])"
+                        v-bind="item.avatar"
+                        :class="b24ui.itemLeadingAvatar({ class: [props.b24ui?.itemLeadingAvatar, item.b24ui?.itemLeadingAvatar], colorItem: item?.color })"
+                      />
                       <B24Chip
                         v-else-if="isSelectItem(item) && item.chip"
-                        :size="((props.b24ui?.itemLeadingChipSize || b24ui.itemLeadingChipSize()) as ChipProps['size'])"
+                        :size="((item.b24ui?.itemLeadingChipSize || props.b24ui?.itemLeadingChipSize || b24ui.itemLeadingChipSize()) as ChipProps['size'])"
                         inset
                         standalone
                         v-bind="item.chip"
-                        :class="b24ui.itemLeadingChip({ class: props.b24ui?.itemLeadingChip, colorItem: item?.color })"
+                        :class="b24ui.itemLeadingChip({ class: [props.b24ui?.itemLeadingChip, item.b24ui?.itemLeadingChip], colorItem: item?.color })"
                       />
                     </slot>
 
-                    <SelectItemText :class="b24ui.itemLabel({ class: props.b24ui?.itemLabel })">
+                    <SelectItemText :class="b24ui.itemLabel({ class: [props.b24ui?.itemLabel, isSelectItem(item) && item.b24ui?.itemLabel] })">
                       <slot name="item-label" :item="(item as NestedItem<T>)" :index="index">
                         {{ isSelectItem(item) ? get(item, props.labelKey as string) : item }}
                       </slot>
                     </SelectItemText>
 
-                    <span :class="b24ui.itemTrailing({ class: props.b24ui?.itemTrailing, colorItem: isSelectItem(item) ? item?.color : undefined })">
+                    <span :class="b24ui.itemTrailing({ class: [props.b24ui?.itemTrailing, isSelectItem(item) && item.b24ui?.itemTrailing], colorItem: isSelectItem(item) && item?.color })">
                       <slot name="item-trailing" :item="(item as NestedItem<T>)" :index="index" />
 
                       <SelectItemIndicator as-child>
                         <Component
                           :is="selectedIcon || icons.check"
-                          :class="b24ui.itemTrailingIcon({ class: props.b24ui?.itemTrailingIcon, colorItem: isSelectItem(item) ? item?.color : undefined })"
+                          :class="b24ui.itemTrailingIcon({ class: [props.b24ui?.itemTrailingIcon, isSelectItem(item) && item.b24ui?.itemTrailingIcon], colorItem: isSelectItem(item) && item?.color })"
                         />
                       </SelectItemIndicator>
                     </span>
