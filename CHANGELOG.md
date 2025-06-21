@@ -11,15 +11,18 @@
   - @ai-sdk/vue
 - **!! TEST THIS !!** docs/examples/tabs/demo/ModelValue.vue
 - **!! TEST THIS !!** src/runtime/components/Textarea.vue
+- **!! TEST THIS !!** fix(InputNumber): handle inside button group
+- **!! TEST THIS !!** feat(NavigationMenu): handle `vertical` orientation with Accordion instead of Collapsible
+- **!! TEST THIS !!** fix(NavigationMenu): incorrect hover when disabled and active
 - Badge test square 
 - Link test active|disabled === false >> hover 
+- use in demo expale from playground/app/pages/components/navigation-menu.vue
 
 # Changelog
 
 ## [0.7.0](https://github.com/bitrix24/b24ui/compare/v0.6.9...v0.7.0) (2025-07-xx)
 
->> 3.1.0
->> 13.05.2025
+>> 21.05.25
 > f4864233812eac0ed37e0a2d076a95c285a22c01..59c26ec1230375a24fbaf8a630a696ae854700c7
 
 * feat(useOverlay): add `closeAll` method
@@ -62,6 +65,12 @@
 * chore(components): move back `item.class` on link
 * fix(FormField): block form field injection after use
 * fix(Checkbox/RadioGroup): render correct element without `variant`
+* fix(InputNumber): handle inside button group
+* fix(ButtonGroup): add `z-index` on focused element
+* fix(NavigationMenu)!: revert new `collapsible` field
+* feat(NavigationMenu): handle `vertical` orientation with Accordion instead of Collapsible
+* fix(NavigationMenu): incorrect hover when disabled and active
+* fix(Tooltip): increase padding for consistency
 
 ## [0.6.9](https://github.com/bitrix24/b24ui/compare/v0.6.8...v0.6.9) (2025-06-05)
 
