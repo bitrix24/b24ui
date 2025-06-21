@@ -53,6 +53,9 @@ const items = ref([
       avatar: {
         src: '/avatar/employee.png'
       },
+      tooltip: {
+        text: 'Documentation'
+      },
       children: [
         {
           label: 'Lead Generation',
@@ -101,6 +104,9 @@ const items = ref([
       viewportRtl: true,
       label: 'Sales Analytics',
       defaultOpen: true,
+      tooltip: {
+        text: 'Analytics'
+      },
       badge: 3,
       icon: Filter1Icon,
       to: '/components/navigation-menu#1',
@@ -120,7 +126,10 @@ const items = ref([
         {
           label: 'CRM Integration',
           to: 'https://github.com/bitrix24/b24ui',
-          target: '_blank'
+          target: '_blank',
+          tooltip: {
+            text: 'Help'
+          }
         }
       ]
     }

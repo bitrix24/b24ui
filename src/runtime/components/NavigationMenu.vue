@@ -335,7 +335,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[]) {
           @select="item.onSelect"
         >
           <B24Tooltip
-            v-if="!!item.tooltip"
+            v-if="!!item.tooltip && orientation === 'vertical' && collapsed"
             :content="{ side: 'right' }"
             v-bind="item.tooltip"
           >
