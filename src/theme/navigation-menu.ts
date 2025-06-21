@@ -29,7 +29,7 @@ export default {
     linkLeadingIcon: 'shrink-0 size-4 -ms-1 rtl:-ms-0 rtl:-me-1',
     linkLeadingAvatar: 'shrink-0 -ms-1 rtl:-ms-0 rtl:-me-1',
     linkLeadingAvatarSize: '2xs',
-    linkTrailing: 'inline-flex gap-1.5 items-center',
+    linkTrailing: 'group inline-flex gap-1.5 items-center',
     linkTrailingBadge: 'shrink-0',
     linkTrailingBadgeSize: 'sm',
     linkTrailingIcon: 'text-base-600 size-4 transform shrink-0 group-data-[state=open]:rotate-180 transition-transform duration-200',
@@ -63,7 +63,7 @@ export default {
       // 'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]'
       'z-[1]'
     ].join(' '),
-    content: 'absolute top-0 left-0 w-full',
+    content: '',
     indicator: [
       'absolute',
       'motion-safe:data-[state=visible]:animate-[fade-in_100ms_ease-out] motion-safe:data-[state=hidden]:animate-[fade-out_100ms_ease-in]',
@@ -147,7 +147,8 @@ export default {
         list: 'flex items-center gap-x-1',
         item: 'py-2 empty:hidden',
         link: 'px-2.5 py-1.5 before:inset-x-px before:inset-y-0',
-        childList: 'grid p-2'
+        childList: 'grid p-2',
+        content: 'absolute top-0 left-0 w-full'
       },
       vertical: {
         root: 'flex-col w-full',
@@ -155,7 +156,8 @@ export default {
           'ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl',
           'flex-row rtl:flex-row-reverse',
           'before:inset-y-px before:inset-x-0'
-        ].join(' ')
+        ].join(' '),
+        content: 'motion-safe:data-[state=open]:animate-[collapsible-down_200ms_ease-out] motion-safe:data-[state=closed]:animate-[collapsible-up_200ms_ease-out] overflow-hidden'
       }
     },
     contentOrientation: {
