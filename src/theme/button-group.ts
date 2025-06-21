@@ -4,12 +4,14 @@ export const buttonGroupVariant = {
       'focus-visible:outline-none',
       'ring ring-inset ring-0 focus-visible:ring-2',
       'group-[.is-button-group]/items:not-only:first:rounded-e-none group-[.is-button-group]/items:not-only:last:rounded-s-none group-[.is-button-group]/items:not-last:not-first:rounded-none',
-      'group-[.is-button-group]/items:not-only:first:border-e-0 group-[.is-button-group]/items:not-only:not-first:border-s-0'
+      'group-[.is-button-group]/items:not-only:first:border-e-0 group-[.is-button-group]/items:not-only:not-first:border-s-0',
+      'focus-visible:z-[1]'
     ].join(' '),
     vertical: [
       'focus-visible:outline-none',
       'ring ring-inset ring-0 focus-visible:ring-2',
-      'not-only:first:rounded-b-none not-only:last:rounded-t-none not-last:not-first:rounded-none'
+      'not-only:first:rounded-b-none not-only:last:rounded-t-none not-last:not-first:rounded-none',
+      'focus-visible:z-[1]'
     ].join(' ')
   },
   noSplit: {
@@ -24,7 +26,7 @@ export const buttonGroupVariant = {
 export const buttonGroupVariantWithRoot = {
   buttonGroup: {
     horizontal: {
-      root: 'group leading-none',
+      root: 'group leading-none has-focus-visible:z-[1]',
       base: [
         'focus-visible:outline-none',
         'ring ring-inset ring-1 focus-visible:ring-2',
@@ -34,7 +36,7 @@ export const buttonGroupVariantWithRoot = {
       ].join(' ')
     },
     vertical: {
-      root: 'group',
+      root: 'group has-focus-visible:z-[1]',
       base: [
         'focus-visible:outline-none',
         'ring ring-inset ring-1 focus-visible:ring-2',
