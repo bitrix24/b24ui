@@ -6,12 +6,9 @@
  * @link /api_d7/bitrix/ui/forms/fields_types.php
  * @see bitrix/js/ui/..
  * @see src/theme/input.ts
- *
- * @todo: add buttonGroupVariantWithRoot
- * @todo: ?? required
  */
-
 import inputTheme from './input'
+import { buttonGroupVariantWithRoot } from './button-group'
 
 export default () => {
   const input = inputTheme
@@ -37,6 +34,7 @@ export default () => {
       tag: input.slots.tag
     },
     variants: {
+      ...buttonGroupVariantWithRoot,
       size: {
         xs: 'px-2 h-xl2 gap-1',
         sm: 'px-2.5 h-8 gap-1.5',
