@@ -48,12 +48,6 @@ export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
    * @defaultValue `item-${index}`
    */
   value?: string
-  /**
-   * Make the item collapsible.
-   * Only works when `orientation` is `vertical`.
-   * @defaultValue true
-   */
-  collapsible?: boolean
   children?: NavigationMenuChildItem[]
   /**
    * With orientation=`horizontal` if `true` it will position the dropdown menu correctly
@@ -265,7 +259,7 @@ const lists = computed<NavigationMenuItem[][]>(() =>
         <slot :name="((item.slot ? `${item.slot}-trailing` : 'item-trailing') as keyof NavigationMenuSlots<T>)" :item="item" :active="active" :index="index">
           <Component
             :is="item.trailingIcon || trailingIcon || icons.chevronDown"
-            v-if="(orientation === 'horizontal' && (item.children?.length || !!slots[(item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>])) || (orientation === 'vertical' && item.children?.length && item.collapsible !== false)"
+            v-if="(orientation === 'horizontal' && (item.children?.length || !!slots[(item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>])) || (orientation === 'vertical' && item.children?.length)"
             :class="b24ui.linkTrailingIcon({ class: [props.b24ui?.linkTrailingIcon, item.b24ui?.linkTrailingIcon], active })"
           />
           <Component
@@ -290,11 +284,10 @@ const lists = computed<NavigationMenuItem[][]>(() =>
 
   <DefineItemTemplate v-slot="{ item, index, level }">
     <component
-      :is="(orientation === 'vertical' && item.children?.length) ? B24Collapsible : NavigationMenuItem"
+      :is="(orientation === 'vertical' && item.children?.length && !collapsed) ? B24Collapsible : NavigationMenuItem"
       as="li"
       :value="item.value || `item-${index}`"
       :default-open="item.defaultOpen"
-      :disabled="(orientation === 'vertical' && item.children?.length) ? item.collapsible === false : undefined"
       :unmount-on-hide="(orientation === 'vertical' && item.children?.length && !collapsed) ? unmountOnHide : undefined"
       :open="item.open"
     >
@@ -307,7 +300,7 @@ const lists = computed<NavigationMenuItem[][]>(() =>
       <B24Link
         v-else-if="item.type !== 'label'"
         v-slot="{ active, ...slotProps }"
-        v-bind="(orientation === 'vertical' && item.children?.length && item.collapsible !== false) ? {} : pickLinkProps(item as Omit<NavigationMenuItem, 'type'>)"
+        v-bind="(orientation === 'vertical' && item.children?.length && !collapsed) ? {} : pickLinkProps(item as Omit<NavigationMenuItem, 'type'>)"
         custom
       >
         <component
@@ -390,7 +383,7 @@ const lists = computed<NavigationMenuItem[][]>(() =>
         </NavigationMenuContent>
       </B24Link>
 
-      <template v-if="orientation === 'vertical' && item.children?.length" #content>
+      <template v-if="orientation === 'vertical' && item.children?.length && !collapsed" #content>
         <ul :class="b24ui.childList({ class: props.b24ui?.childList })">
           <ReuseItemTemplate
             v-for="(childItem, childIndex) in item.children"
