@@ -661,6 +661,7 @@ export default {
       variant: 'pill',
       active: true,
       highlight: true,
+      disabled: false,
       class: {
         link: [
           'hover:before:bg-base-250/80 dark:hover:before:bg-white/10',
@@ -674,6 +675,7 @@ export default {
       variant: 'pill',
       active: true,
       highlight: true,
+      disabled: false,
       class: {
         link: [
           'hover:before:bg-base-800 hover:dark:before:bg-white/35',
@@ -687,6 +689,7 @@ export default {
       variant: 'pill',
       active: true,
       highlight: true,
+      disabled: false,
       class: {
         link: [
           'hover:before:bg-red-800 hover:dark:before:bg-red-800',
@@ -700,6 +703,7 @@ export default {
       variant: 'pill',
       active: true,
       highlight: true,
+      disabled: false,
       class: {
         link: [
           'hover:before:bg-green-800 hover:dark:before:bg-green-800',
@@ -713,6 +717,7 @@ export default {
       variant: 'pill',
       active: true,
       highlight: true,
+      disabled: false,
       class: {
         link: [
           'hover:before:bg-orange-800 hover:dark:before:bg-orange-800',
@@ -726,6 +731,7 @@ export default {
       variant: 'pill',
       active: true,
       highlight: true,
+      disabled: false,
       class: {
         link: [
           'hover:before:bg-blue-800 hover:dark:before:bg-blue-800',
@@ -739,6 +745,7 @@ export default {
       variant: 'pill',
       active: true,
       highlight: true,
+      disabled: false,
       class: {
         link: [
           'hover:before:bg-cyan-800 hover:dark:before:bg-cyan-800',
@@ -752,6 +759,7 @@ export default {
       variant: 'pill',
       active: true,
       highlight: true,
+      disabled: false,
       class: {
         link: [
           'hover:before:bg-collab-800 hover:dark:before:bg-collab-800',
@@ -765,6 +773,7 @@ export default {
       variant: 'pill',
       active: true,
       highlight: true,
+      disabled: false,
       class: {
         link: [
           'hover:before:bg-ai-800 hover:dark:before:bg-ai-800',
