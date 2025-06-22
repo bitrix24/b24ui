@@ -342,7 +342,7 @@ You can use the `type` property with `separator` to display a separator between 
 <<< @/examples/inputmenu/demo/WithItemsType.vue{6,18,21 vue:line-numbers}
 :::
 
-### With icons in items
+### With icon in items
 
 You can use the `icon` property to display an [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html) inside the items.
 

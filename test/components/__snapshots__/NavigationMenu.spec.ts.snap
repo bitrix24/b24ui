@@ -729,41 +729,40 @@ exports[`NavigationMenu > renders with modelValue correctly 1`] = `
 
 exports[`NavigationMenu > renders with orientation vertical and collapsed correctly 1`] = `
 "<nav data-collapsed="true" class="relative flex [&amp;>div]:min-w-0 font-b24-secondary flex-col w-full" data-slot="section" aria-label="Main" data-orientation="vertical" dir="ltr" data-reka-navigation-menu="">
-  <ul class="isolate min-w-0">
-    <li data-menu-item="" class="min-w-0">
-      <div class="w-full min-h-6 flex items-center rtl:flex-row-reverse gap-1.5 font-medium text-xs/6 text-base-500 dark:text-base-400 ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl"><span class="flex items-center justify-between rtl:flex-row-reverse gap-1.5"><!--v-if--><!--v-if--></span>
+  <div style="position: relative;">
+    <ul class="isolate min-w-0" data-orientation="vertical">
+      <li data-menu-item="" class="min-w-0"></li>
+      <li data-menu-item="" class="min-w-0"><button type="button" data-reka-collection-item="" class="group relative cursor-pointer w-full flex items-center gap-1.5 font-normal text-lg leading-9 min-h-9 before:absolute before:z-[-1] focus:outline-none focus-visible:before:rounded-md focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2 focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800 ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl flex-row rtl:flex-row-reverse before:inset-y-px before:inset-x-0 text-base-900 dark:text-base-200 px-1.5 hover:text-base-950 dark:hover:text-base-50 transition-colors"><span class="flex items-center justify-between rtl:flex-row-reverse gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4 -ms-1 rtl:-ms-0 rtl:-me-1 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors"><path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path></svg><!--v-if--></span>
+          <!--v-if-->
+        </button>
         <!--v-if-->
-      </div>
-      <!--v-if-->
-    </li>
-    <li data-state="closed" data-orientation="vertical" class="min-w-0"><button type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-0-0-1" data-reka-collection-item="" data-orientation="vertical" class="group relative cursor-pointer w-full flex items-center gap-1.5 font-normal text-lg leading-9 min-h-9 before:absolute before:z-[-1] focus:outline-none focus-visible:before:rounded-md focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2 focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800 ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl flex-row rtl:flex-row-reverse before:inset-y-px before:inset-x-0 text-base-900 dark:text-base-200 hover:text-base-950 dark:hover:text-base-50 transition-colors px-1.5"><span class="flex items-center justify-between rtl:flex-row-reverse gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4 -ms-1 rtl:-ms-0 rtl:-me-1 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors"><path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path></svg><!--v-if--></span>
         <!--v-if-->
-      </button>
-      <!--v-if-->
-      <!--v-if-->
-    </li>
-    <li data-state="closed" data-orientation="vertical" class="min-w-0"><button type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-0-0-2" data-reka-collection-item="" data-orientation="vertical" class="group relative cursor-pointer w-full flex items-center gap-1.5 text-lg leading-9 min-h-9 before:absolute before:z-[-1] focus:outline-none focus-visible:before:rounded-md focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2 focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800 ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl flex-row rtl:flex-row-reverse before:inset-y-px before:inset-x-0 font-semibold text-base-950 dark:text-base-50 px-1.5"><span class="flex items-center justify-between rtl:flex-row-reverse gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4 -ms-1 rtl:-ms-0 rtl:-me-1 text-base-950 group-data-[state=open]:text-base-950 dark:text-base-50 dark:group-data-[state=open]:text-base-50"><path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path></svg><!--v-if--></span>
+      </li>
+      <li data-menu-item="" class="min-w-0"><button type="button" data-reka-collection-item="" data-active="" aria-current="page" class="group relative cursor-pointer w-full flex items-center gap-1.5 text-lg leading-9 min-h-9 before:absolute before:z-[-1] focus:outline-none focus-visible:before:rounded-md focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2 focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800 ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl flex-row rtl:flex-row-reverse before:inset-y-px before:inset-x-0 px-1.5 font-semibold text-base-950 dark:text-base-50"><span class="flex items-center justify-between rtl:flex-row-reverse gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4 -ms-1 rtl:-ms-0 rtl:-me-1 text-base-950 group-data-[state=open]:text-base-950 dark:text-base-50 dark:group-data-[state=open]:text-base-50"><path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path></svg><!--v-if--></span>
+          <!--v-if-->
+        </button>
         <!--v-if-->
-      </button>
-      <!--v-if-->
-      <!--v-if-->
-    </li>
-  </ul>
+        <!--v-if-->
+      </li>
+    </ul>
+  </div>
   <div class="px-2 h-px bg-base-950/10 dark:bg-base-100/20"></div>
-  <ul class="isolate min-w-0">
-    <li data-menu-item="" class="min-w-0"><a href="https://github.com/bitrix24/b24ui" rel="noopener noreferrer" target="_blank" data-reka-collection-item="" class="group relative cursor-pointer w-full flex items-center gap-1.5 font-normal text-lg leading-9 min-h-9 before:absolute before:z-[-1] focus:outline-none focus-visible:before:rounded-md focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2 focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800 ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl flex-row rtl:flex-row-reverse before:inset-y-px before:inset-x-0 text-base-900 dark:text-base-200 hover:text-base-950 dark:hover:text-base-50 transition-colors px-1.5"><span class="flex items-center justify-between rtl:flex-row-reverse gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4 -ms-1 rtl:-ms-0 rtl:-me-1 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors"><path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path></svg><!--v-if--></span>
+  <div style="position: relative;">
+    <ul class="isolate min-w-0" data-orientation="vertical">
+      <li data-menu-item="" class="min-w-0"><a href="https://github.com/bitrix24/b24ui" rel="noopener noreferrer" target="_blank" data-reka-collection-item="" class="group relative cursor-pointer w-full flex items-center gap-1.5 font-normal text-lg leading-9 min-h-9 before:absolute before:z-[-1] focus:outline-none focus-visible:before:rounded-md focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2 focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800 ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl flex-row rtl:flex-row-reverse before:inset-y-px before:inset-x-0 text-base-900 dark:text-base-200 px-1.5 hover:text-base-950 dark:hover:text-base-50 transition-colors"><span class="flex items-center justify-between rtl:flex-row-reverse gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4 -ms-1 rtl:-ms-0 rtl:-me-1 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors"><path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path></svg><!--v-if--></span>
+          <!--v-if-->
+        </a>
         <!--v-if-->
-      </a>
-      <!--v-if-->
-      <!--v-if-->
-    </li>
-    <li data-menu-item="" class="min-w-0"><button type="button" disabled="" data-reka-collection-item="" class="group relative w-full flex items-center gap-1.5 font-normal text-lg leading-9 min-h-9 before:absolute before:z-[-1] focus:outline-none focus-visible:before:rounded-md focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2 focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800 ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl flex-row rtl:flex-row-reverse before:inset-y-px before:inset-x-0 text-base-900 dark:text-base-200 cursor-not-allowed opacity-75 px-1.5"><span class="flex items-center justify-between rtl:flex-row-reverse gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4 -ms-1 rtl:-ms-0 rtl:-me-1 text-base-500 dark:text-base-700"><path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path></svg><!--v-if--></span>
         <!--v-if-->
-      </button>
-      <!--v-if-->
-      <!--v-if-->
-    </li>
-  </ul>
+      </li>
+      <li data-menu-item="" class="min-w-0"><button type="button" disabled="" data-reka-collection-item="" class="group relative w-full flex items-center gap-1.5 font-normal text-lg leading-9 min-h-9 before:absolute before:z-[-1] focus:outline-none focus-visible:before:rounded-md focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2 focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800 ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl flex-row rtl:flex-row-reverse before:inset-y-px before:inset-x-0 text-base-900 dark:text-base-200 cursor-not-allowed opacity-75 px-1.5"><span class="flex items-center justify-between rtl:flex-row-reverse gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4 -ms-1 rtl:-ms-0 rtl:-me-1 text-base-500 dark:text-base-700"><path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path></svg><!--v-if--></span>
+          <!--v-if-->
+        </button>
+        <!--v-if-->
+        <!--v-if-->
+      </li>
+    </ul>
+  </div>
   <!--v-if-->
   <!--v-if-->
 </nav>"
@@ -772,7 +771,7 @@ exports[`NavigationMenu > renders with orientation vertical and collapsed correc
 exports[`NavigationMenu > renders with orientation vertical correctly 1`] = `
 "<nav data-collapsed="false" class="relative flex [&amp;>div]:min-w-0 font-b24-secondary flex-col w-full" data-slot="section" aria-label="Main" data-orientation="vertical" dir="ltr" data-reka-navigation-menu="">
   <ul class="isolate min-w-0">
-    <li data-menu-item="" class="min-w-0">
+    <li data-state="closed" data-orientation="vertical" class="min-w-0">
       <div class="w-full min-h-6 flex items-center rtl:flex-row-reverse gap-1.5 font-medium text-xs/6 text-base-500 dark:text-base-400 ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl"><span class="flex items-center justify-between rtl:flex-row-reverse gap-1.5"><!--v-if--><span class="truncate">Links<!--v-if--></span></span>
         <!--v-if-->
       </div>
@@ -801,13 +800,13 @@ exports[`NavigationMenu > renders with orientation vertical correctly 1`] = `
   </ul>
   <div class="px-2 h-px bg-base-950/10 dark:bg-base-100/20"></div>
   <ul class="isolate min-w-0">
-    <li data-menu-item="" class="min-w-0"><a href="https://github.com/bitrix24/b24ui" rel="noopener noreferrer" target="_blank" data-reka-collection-item="" class="group relative cursor-pointer w-full flex items-center gap-1.5 font-normal text-lg leading-9 min-h-9 before:absolute before:z-[-1] focus:outline-none focus-visible:before:rounded-md focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2 focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800 ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl flex-row rtl:flex-row-reverse before:inset-y-px before:inset-x-0 text-base-900 dark:text-base-200 hover:text-base-950 dark:hover:text-base-50 transition-colors"><span class="flex items-center justify-between rtl:flex-row-reverse gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4 -ms-1 rtl:-ms-0 rtl:-me-1 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors"><path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path></svg><span class="truncate">GitHub<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="inline-block h-6 w-3 align-top text-base-500 dark:text-base-700"><path fill="currentColor" fill-rule="evenodd" d="M9.94 5v2.47H8.638c-.598 0-1.091.451-1.159 1.031l-.007.136v6.726c0 .598.45 1.091 1.03 1.159l.136.007h6.726c.598 0 1.091-.45 1.159-1.03l.007-.136v-1.305H19v2.609A2.333 2.333 0 0 1 16.667 19H7.333A2.333 2.333 0 0 1 5 16.667V7.333A2.333 2.333 0 0 1 7.333 5zm8.66 0c.22 0 .4.18.4.4v6.288a.3.3 0 0 1-.512.212l-2.292-2.292-3.231 3.232a.3.3 0 0 1-.424 0l-1.323-1.322a.3.3 0 0 1 0-.425l3.232-3.232-2.35-2.349A.3.3 0 0 1 12.314 5z" clip-rule="evenodd"></path></svg></span></span>
+    <li data-state="closed" data-orientation="vertical" class="min-w-0"><a href="https://github.com/bitrix24/b24ui" rel="noopener noreferrer" target="_blank" data-reka-collection-item="" class="group relative cursor-pointer w-full flex items-center gap-1.5 font-normal text-lg leading-9 min-h-9 before:absolute before:z-[-1] focus:outline-none focus-visible:before:rounded-md focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2 focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800 ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl flex-row rtl:flex-row-reverse before:inset-y-px before:inset-x-0 text-base-900 dark:text-base-200 hover:text-base-950 dark:hover:text-base-50 transition-colors"><span class="flex items-center justify-between rtl:flex-row-reverse gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4 -ms-1 rtl:-ms-0 rtl:-me-1 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors"><path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path></svg><span class="truncate">GitHub<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="inline-block h-6 w-3 align-top text-base-500 dark:text-base-700"><path fill="currentColor" fill-rule="evenodd" d="M9.94 5v2.47H8.638c-.598 0-1.091.451-1.159 1.031l-.007.136v6.726c0 .598.45 1.091 1.03 1.159l.136.007h6.726c.598 0 1.091-.45 1.159-1.03l.007-.136v-1.305H19v2.609A2.333 2.333 0 0 1 16.667 19H7.333A2.333 2.333 0 0 1 5 16.667V7.333A2.333 2.333 0 0 1 7.333 5zm8.66 0c.22 0 .4.18.4.4v6.288a.3.3 0 0 1-.512.212l-2.292-2.292-3.231 3.232a.3.3 0 0 1-.424 0l-1.323-1.322a.3.3 0 0 1 0-.425l3.232-3.232-2.35-2.349A.3.3 0 0 1 12.314 5z" clip-rule="evenodd"></path></svg></span></span>
         <!--v-if-->
       </a>
       <!--v-if-->
       <!--v-if-->
     </li>
-    <li data-menu-item="" class="min-w-0"><button type="button" disabled="" data-reka-collection-item="" class="group relative w-full flex items-center gap-1.5 font-normal text-lg leading-9 min-h-9 before:absolute before:z-[-1] focus:outline-none focus-visible:before:rounded-md focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2 focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800 ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl flex-row rtl:flex-row-reverse before:inset-y-px before:inset-x-0 text-base-900 dark:text-base-200 cursor-not-allowed opacity-75"><span class="flex items-center justify-between rtl:flex-row-reverse gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4 -ms-1 rtl:-ms-0 rtl:-me-1 text-base-500 dark:text-base-700"><path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path></svg><span class="truncate">Help<!--v-if--></span></span>
+    <li data-state="closed" data-orientation="vertical" class="min-w-0"><button type="button" disabled="" data-reka-collection-item="" class="group relative w-full flex items-center gap-1.5 font-normal text-lg leading-9 min-h-9 before:absolute before:z-[-1] focus:outline-none focus-visible:before:rounded-md focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2 focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800 ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl flex-row rtl:flex-row-reverse before:inset-y-px before:inset-x-0 text-base-900 dark:text-base-200 cursor-not-allowed opacity-75"><span class="flex items-center justify-between rtl:flex-row-reverse gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-4 -ms-1 rtl:-ms-0 rtl:-me-1 text-base-500 dark:text-base-700"><path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path></svg><span class="truncate">Help<!--v-if--></span></span>
         <!--v-if-->
       </button>
       <!--v-if-->
@@ -1390,109 +1389,109 @@ exports[`NavigationMenu > renders with unmountOnHide correctly 1`] = `
     <!--v-if-->
     <div class="relative overflow-hidden bg-white dark:bg-base-dark shadow-[0_15px_21px_rgba(83,92,105,.15)] h-(--reka-navigation-menu-viewport-height) transition-[width,height] duration-200 origin-[top_center] z-[1] w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left) [&amp;:has(>[data-viewport=rtl])]:left-auto [&amp;:has(>[data-viewport=rtl])]:-right-[calc(100%-var(--reka-navigation-menu-viewport-width))] rounded-b-md [&amp;:has(>[data-viewport=ltr])]:rounded-tr-md [&amp;:has(>[data-viewport=rtl])]:rounded-tl-md clip-path-viewport-wrapper" data-state="closed" data-orientation="horizontal" style="pointer-events: none;" hidden="">
       <div data-dismissable-layer="" style="pointer-events: none;" id="reka-navigation-menu-v-0-0-0-content-item-1" aria-labelledby="reka-navigation-menu-v-0-0-0-trigger-item-1" data-state="closed" data-orientation="horizontal" data-viewport="ltr" class="absolute top-0 left-0 w-60" hidden="">
-        <ul class="grid p-2 gap-1">
-          <li class=""><button type="button" data-reka-collection-item="" class="group size-full px-3 py-2 rounded-2xs flex items-start gap-2 text-start focus-visible:outline-base-300 dark:focus-visible:outline-base-800 hover:bg-base-20 dark:hover:bg-base-900 text-base-500 dark:text-base-700 hover:text-base-950 dark:hover:dark:text-base-200 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors">
+        <ul class="isolate grid p-2 gap-1">
+          <li class=""><button type="button" data-reka-collection-item="" class="group relative size-full flex items-start text-start text-sm before:absolute before:z-[-1] before:rounded-2xs focus:outline-none focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2 focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800 px-3 py-2 gap-2 before:inset-x-px before:inset-y-0 hover:before:bg-base-20 dark:before:hover:bg-base-900 text-base-500 dark:text-base-700 hover:text-base-950 dark:hover:dark:text-base-200 transition-colors before:transition-colors"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors">
                 <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
               </svg>
-              <div class="flex flex-col items-start">
-                <p class="font-semibold relative inline-flex text-md text-base-950 dark:text-base-50">Introduction
+              <div class="min-w-0">
+                <p class="truncate font-medium text-md text-base-950 dark:text-base-50">Introduction
                   <!--v-if-->
                 </p>
-                <p class="text-sm text-base-500 dark:text-base-700">Fully styled and customizable components for Nuxt.</p>
+                <p class="text-base-500 dark:text-base-700">Fully styled and customizable components for Nuxt.</p>
               </div>
             </button></li>
-          <li class=""><button type="button" data-reka-collection-item="" class="group size-full px-3 py-2 rounded-2xs flex items-start gap-2 text-start focus-visible:outline-base-300 dark:focus-visible:outline-base-800 hover:bg-base-20 dark:hover:bg-base-900 text-base-500 dark:text-base-700 hover:text-base-950 dark:hover:dark:text-base-200 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors">
+          <li class=""><button type="button" data-reka-collection-item="" class="group relative size-full flex items-start text-start text-sm before:absolute before:z-[-1] before:rounded-2xs focus:outline-none focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2 focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800 px-3 py-2 gap-2 before:inset-x-px before:inset-y-0 hover:before:bg-base-20 dark:before:hover:bg-base-900 text-base-500 dark:text-base-700 hover:text-base-950 dark:hover:dark:text-base-200 transition-colors before:transition-colors"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors">
                 <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
               </svg>
-              <div class="flex flex-col items-start">
-                <p class="font-semibold relative inline-flex text-md text-base-950 dark:text-base-50">Installation
+              <div class="min-w-0">
+                <p class="truncate font-medium text-md text-base-950 dark:text-base-50">Installation
                   <!--v-if-->
                 </p>
-                <p class="text-sm text-base-500 dark:text-base-700">Learn how to install and configure Nuxt UI in your application.</p>
+                <p class="text-base-500 dark:text-base-700">Learn how to install and configure Nuxt UI in your application.</p>
               </div>
             </button></li>
-          <li class=""><button type="button" data-reka-collection-item="" class="group size-full px-3 py-2 rounded-2xs flex items-start gap-2 text-start focus-visible:outline-base-300 dark:focus-visible:outline-base-800 hover:bg-base-20 dark:hover:bg-base-900 text-base-500 dark:text-base-700 hover:text-base-950 dark:hover:dark:text-base-200 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors">
+          <li class=""><button type="button" data-reka-collection-item="" class="group relative size-full flex items-start text-start text-sm before:absolute before:z-[-1] before:rounded-2xs focus:outline-none focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2 focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800 px-3 py-2 gap-2 before:inset-x-px before:inset-y-0 hover:before:bg-base-20 dark:before:hover:bg-base-900 text-base-500 dark:text-base-700 hover:text-base-950 dark:hover:dark:text-base-200 transition-colors before:transition-colors"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors">
                 <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
               </svg>
-              <div class="flex flex-col items-start">
-                <p class="font-semibold relative inline-flex text-md text-base-950 dark:text-base-50">Theming
+              <div class="min-w-0">
+                <p class="truncate font-medium text-md text-base-950 dark:text-base-50">Theming
                   <!--v-if-->
                 </p>
-                <p class="text-sm text-base-500 dark:text-base-700">Learn how to customize the look and feel of the components.</p>
+                <p class="text-base-500 dark:text-base-700">Learn how to customize the look and feel of the components.</p>
               </div>
             </button></li>
-          <li class=""><button type="button" data-reka-collection-item="" class="group size-full px-3 py-2 rounded-2xs flex items-start gap-2 text-start focus-visible:outline-base-300 dark:focus-visible:outline-base-800 hover:bg-base-20 dark:hover:bg-base-900 text-base-500 dark:text-base-700 hover:text-base-950 dark:hover:dark:text-base-200 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors">
+          <li class=""><button type="button" data-reka-collection-item="" class="group relative size-full flex items-start text-start text-sm before:absolute before:z-[-1] before:rounded-2xs focus:outline-none focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2 focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800 px-3 py-2 gap-2 before:inset-x-px before:inset-y-0 hover:before:bg-base-20 dark:before:hover:bg-base-900 text-base-500 dark:text-base-700 hover:text-base-950 dark:hover:dark:text-base-200 transition-colors before:transition-colors"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors">
                 <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
               </svg>
-              <div class="flex flex-col items-start">
-                <p class="font-semibold relative inline-flex text-md text-base-950 dark:text-base-50">Shortcuts
+              <div class="min-w-0">
+                <p class="truncate font-medium text-md text-base-950 dark:text-base-50">Shortcuts
                   <!--v-if-->
                 </p>
-                <p class="text-sm text-base-500 dark:text-base-700">Learn how to display and define keyboard shortcuts in your app.</p>
+                <p class="text-base-500 dark:text-base-700">Learn how to display and define keyboard shortcuts in your app.</p>
               </div>
             </button></li>
         </ul>
       </div>
       <div data-dismissable-layer="" style="pointer-events: none;" id="reka-navigation-menu-v-0-0-0-content-item-2" aria-labelledby="reka-navigation-menu-v-0-0-0-trigger-item-2" data-state="closed" data-orientation="horizontal" data-viewport="ltr" class="absolute top-0 left-0 w-60" hidden="">
-        <ul class="grid p-2 gap-1">
-          <li class=""><a href="/components/link" data-reka-collection-item="" class="group size-full px-3 py-2 rounded-2xs flex items-start gap-2 text-start focus-visible:outline-base-300 dark:focus-visible:outline-base-800 hover:bg-base-20 dark:hover:bg-base-900 text-base-500 dark:text-base-700 hover:text-base-950 dark:hover:dark:text-base-200 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors">
+        <ul class="isolate grid p-2 gap-1">
+          <li class=""><a href="/components/link" data-reka-collection-item="" class="group relative size-full flex items-start text-start text-sm before:absolute before:z-[-1] before:rounded-2xs focus:outline-none focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2 focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800 px-3 py-2 gap-2 before:inset-x-px before:inset-y-0 hover:before:bg-base-20 dark:before:hover:bg-base-900 text-base-500 dark:text-base-700 hover:text-base-950 dark:hover:dark:text-base-200 transition-colors before:transition-colors"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors">
                 <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
               </svg>
-              <div class="flex flex-col items-start">
-                <p class="font-semibold relative inline-flex text-md text-base-950 dark:text-base-50">Link
+              <div class="min-w-0">
+                <p class="truncate font-medium text-md text-base-950 dark:text-base-50">Link
                   <!--v-if-->
                 </p>
-                <p class="text-sm text-base-500 dark:text-base-700">Use NuxtLink with superpowers.</p>
+                <p class="text-base-500 dark:text-base-700">Use NuxtLink with superpowers.</p>
               </div>
             </a></li>
-          <li class=""><a href="/components/modal" data-reka-collection-item="" class="group size-full px-3 py-2 rounded-2xs flex items-start gap-2 text-start focus-visible:outline-base-300 dark:focus-visible:outline-base-800 hover:bg-base-20 dark:hover:bg-base-900 text-base-500 dark:text-base-700 hover:text-base-950 dark:hover:dark:text-base-200 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors">
+          <li class=""><a href="/components/modal" data-reka-collection-item="" class="group relative size-full flex items-start text-start text-sm before:absolute before:z-[-1] before:rounded-2xs focus:outline-none focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2 focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800 px-3 py-2 gap-2 before:inset-x-px before:inset-y-0 hover:before:bg-base-20 dark:before:hover:bg-base-900 text-base-500 dark:text-base-700 hover:text-base-950 dark:hover:dark:text-base-200 transition-colors before:transition-colors"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors">
                 <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
               </svg>
-              <div class="flex flex-col items-start">
-                <p class="font-semibold relative inline-flex text-md text-base-950 dark:text-base-50">Modal
+              <div class="min-w-0">
+                <p class="truncate font-medium text-md text-base-950 dark:text-base-50">Modal
                   <!--v-if-->
                 </p>
-                <p class="text-sm text-base-500 dark:text-base-700">Display a modal within your application.</p>
+                <p class="text-base-500 dark:text-base-700">Display a modal within your application.</p>
               </div>
             </a></li>
-          <li class=""><a href="/components/navigation-menu" data-reka-collection-item="" class="group size-full px-3 py-2 rounded-2xs flex items-start gap-2 text-start focus-visible:outline-base-300 dark:focus-visible:outline-base-800 hover:bg-base-20 dark:hover:bg-base-900 text-base-500 dark:text-base-700 hover:text-base-950 dark:hover:dark:text-base-200 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors">
+          <li class=""><a href="/components/navigation-menu" data-reka-collection-item="" class="group relative size-full flex items-start text-start text-sm before:absolute before:z-[-1] before:rounded-2xs focus:outline-none focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2 focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800 px-3 py-2 gap-2 before:inset-x-px before:inset-y-0 hover:before:bg-base-20 dark:before:hover:bg-base-900 text-base-500 dark:text-base-700 hover:text-base-950 dark:hover:dark:text-base-200 transition-colors before:transition-colors"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors">
                 <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
               </svg>
-              <div class="flex flex-col items-start">
-                <p class="font-semibold relative inline-flex text-md text-base-950 dark:text-base-50">NavigationMenu
+              <div class="min-w-0">
+                <p class="truncate font-medium text-md text-base-950 dark:text-base-50">NavigationMenu
                   <!--v-if-->
                 </p>
-                <p class="text-sm text-base-500 dark:text-base-700">Display a list of links.</p>
+                <p class="text-base-500 dark:text-base-700">Display a list of links.</p>
               </div>
             </a></li>
-          <li class=""><a href="/components/pagination" data-reka-collection-item="" class="group size-full px-3 py-2 rounded-2xs flex items-start gap-2 text-start focus-visible:outline-base-300 dark:focus-visible:outline-base-800 hover:bg-base-20 dark:hover:bg-base-900 text-base-500 dark:text-base-700 hover:text-base-950 dark:hover:dark:text-base-200 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors">
+          <li class=""><a href="/components/pagination" data-reka-collection-item="" class="group relative size-full flex items-start text-start text-sm before:absolute before:z-[-1] before:rounded-2xs focus:outline-none focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2 focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800 px-3 py-2 gap-2 before:inset-x-px before:inset-y-0 hover:before:bg-base-20 dark:before:hover:bg-base-900 text-base-500 dark:text-base-700 hover:text-base-950 dark:hover:dark:text-base-200 transition-colors before:transition-colors"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors">
                 <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
               </svg>
-              <div class="flex flex-col items-start">
-                <p class="font-semibold relative inline-flex text-md text-base-950 dark:text-base-50">Pagination
+              <div class="min-w-0">
+                <p class="truncate font-medium text-md text-base-950 dark:text-base-50">Pagination
                   <!--v-if-->
                 </p>
-                <p class="text-sm text-base-500 dark:text-base-700">Display a list of pages.</p>
+                <p class="text-base-500 dark:text-base-700">Display a list of pages.</p>
               </div>
             </a></li>
-          <li class=""><a href="/components/popover" data-reka-collection-item="" class="group size-full px-3 py-2 rounded-2xs flex items-start gap-2 text-start focus-visible:outline-base-300 dark:focus-visible:outline-base-800 hover:bg-base-20 dark:hover:bg-base-900 text-base-500 dark:text-base-700 hover:text-base-950 dark:hover:dark:text-base-200 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors">
+          <li class=""><a href="/components/popover" data-reka-collection-item="" class="group relative size-full flex items-start text-start text-sm before:absolute before:z-[-1] before:rounded-2xs focus:outline-none focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2 focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800 px-3 py-2 gap-2 before:inset-x-px before:inset-y-0 hover:before:bg-base-20 dark:before:hover:bg-base-900 text-base-500 dark:text-base-700 hover:text-base-950 dark:hover:dark:text-base-200 transition-colors before:transition-colors"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors">
                 <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
               </svg>
-              <div class="flex flex-col items-start">
-                <p class="font-semibold relative inline-flex text-md text-base-950 dark:text-base-50">Popover
+              <div class="min-w-0">
+                <p class="truncate font-medium text-md text-base-950 dark:text-base-50">Popover
                   <!--v-if-->
                 </p>
-                <p class="text-sm text-base-500 dark:text-base-700">Display a non-modal dialog that floats around a trigger element.</p>
+                <p class="text-base-500 dark:text-base-700">Display a non-modal dialog that floats around a trigger element.</p>
               </div>
             </a></li>
-          <li class=""><a href="/components/progress" data-reka-collection-item="" class="group size-full px-3 py-2 rounded-2xs flex items-start gap-2 text-start focus-visible:outline-base-300 dark:focus-visible:outline-base-800 hover:bg-base-20 dark:hover:bg-base-900 text-base-500 dark:text-base-700 hover:text-base-950 dark:hover:dark:text-base-200 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors">
+          <li class=""><a href="/components/progress" data-reka-collection-item="" class="group relative size-full flex items-start text-start text-sm before:absolute before:z-[-1] before:rounded-2xs focus:outline-none focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2 focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800 px-3 py-2 gap-2 before:inset-x-px before:inset-y-0 hover:before:bg-base-20 dark:before:hover:bg-base-900 text-base-500 dark:text-base-700 hover:text-base-950 dark:hover:dark:text-base-200 transition-colors before:transition-colors"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-base-500 dark:text-base-700 group-hover:text-base-950 dark:group-hover:text-base-50 transition-colors">
                 <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
               </svg>
-              <div class="flex flex-col items-start">
-                <p class="font-semibold relative inline-flex text-md text-base-950 dark:text-base-50">Progress
+              <div class="min-w-0">
+                <p class="truncate font-medium text-md text-base-950 dark:text-base-50">Progress
                   <!--v-if-->
                 </p>
-                <p class="text-sm text-base-500 dark:text-base-700">Show a horizontal bar to indicate task progression.</p>
+                <p class="text-base-500 dark:text-base-700">Show a horizontal bar to indicate task progression.</p>
               </div>
             </a></li>
         </ul>

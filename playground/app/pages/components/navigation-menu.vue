@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
+import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
 import theme from '#build/b24ui/navigation-menu'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
@@ -24,8 +25,11 @@ const variant = ref(theme.defaultVariants.variant)
 const contentOrientation = ref('vertical' as const)
 const isCollapsed = ref(false)
 const isHighlight = ref(true)
+const isTooltip = ref(false)
+const isPopover = ref(false)
+const isArrow = ref(false)
 
-const items = ref([
+const items = [
   [
     {
       label: 'Sales Manager'
@@ -52,9 +56,6 @@ const items = ref([
       label: 'Sales Pipeline',
       avatar: {
         src: '/avatar/employee.png'
-      },
-      tooltip: {
-        text: 'Documentation'
       },
       children: [
         {
@@ -104,9 +105,6 @@ const items = ref([
       viewportRtl: true,
       label: 'Sales Analytics',
       defaultOpen: true,
-      tooltip: {
-        text: 'Analytics'
-      },
       badge: 3,
       icon: Filter1Icon,
       to: '/components/navigation-menu#1',
@@ -126,15 +124,12 @@ const items = ref([
         {
           label: 'CRM Integration',
           to: 'https://github.com/bitrix24/b24ui',
-          target: '_blank',
-          tooltip: {
-            text: 'Help'
-          }
+          target: '_blank'
         }
       ]
     }
   ]
-])
+] satisfies NavigationMenuItem[][]
 
 const isInit = ref(false)
 
@@ -161,6 +156,15 @@ onMounted(() => {
         <B24FormField label="isHighlight" name="isHighlight">
           <B24Switch v-model="isHighlight" />
         </B24FormField>
+        <B24FormField label="isTooltip" name="isTooltip">
+          <B24Switch v-model="isTooltip" />
+        </B24FormField>
+        <B24FormField label="isPopover" name="isPopover">
+          <B24Switch v-model="isPopover" />
+        </B24FormField>
+        <B24FormField label="isArrow" name="isArrow">
+          <B24Switch v-model="isArrow" />
+        </B24FormField>
       </div>
     </ExampleCard>
     <ExampleCard title="demo" class="col-span-3">
@@ -179,6 +183,9 @@ onMounted(() => {
               :content-orientation="contentOrientation"
               :highlight="isHighlight"
               :highlight-color="color"
+              :arrow="isArrow"
+              :tooltip="isTooltip"
+              :popover="isPopover"
             />
           </div>
 
@@ -199,6 +206,9 @@ onMounted(() => {
           orientation="vertical"
           :highlight="isHighlight"
           :highlight-color="color"
+          :arrow="isArrow"
+          :tooltip="isTooltip"
+          :popover="isPopover"
           class="border-base-master/10 dark:border-base-100/20 border py-2 rounded w-[240px] data-[collapsed=true]:w-[69px]"
         />
         <Placeholder class="flex-1 w-full shrink" />
