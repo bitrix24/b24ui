@@ -42,10 +42,11 @@ export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
   trailingIcon?: IconComponent
   /**
    * The type of the item.
-   * The `label` type only works on `vertical` orientation.
+   * The `label` type is only displayed in `vertical` orientation.
+   * The `trigger` type is used to force the item to be collapsible when its a link in `vertical` orientation.
    * @defaultValue 'link'
    */
-  type?: 'label' | 'link'
+  type?: 'label' | 'trigger' | 'link'
   slot?: string
   /**
    * The value of the item. Avoid using `index` as the value to prevent conflicts in horizontal orientation with Reka UI.
@@ -333,7 +334,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[]) {
     <component
       :is="(orientation === 'vertical' && !collapsed) ? AccordionItem : NavigationMenuItem"
       as="li"
-      :value="item.value || (level > 0 ? `item-${level}-${index}` : `item-${index}`)"
+      :value="item.value || ((level || 0) > 0 ? `item-${level}-${index}` : `item-${index}`)"
     >
       <div
         v-if="orientation === 'vertical' && item.type === 'label' && !collapsed"
@@ -344,20 +345,20 @@ function getAccordionDefaultValue(list: NavigationMenuItem[]) {
       <B24Link
         v-else-if="item.type !== 'label'"
         v-slot="{ active, ...slotProps }"
-        v-bind="pickLinkProps(item as Omit<NavigationMenuItem, 'type'>)"
+        v-bind="(orientation === 'vertical' && item.children?.length && !collapsed && item.type === 'trigger') ? {} : pickLinkProps(item as Omit<NavigationMenuItem, 'type'>)"
         custom
       >
         <component
           :is="(
             orientation === 'horizontal'
             && (item.children?.length || !!slots[(item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>]))
-              ? NavigationMenuTrigger
-              : ((orientation === 'vertical' && item.children?.length && !collapsed && !(slotProps as any).href)
-                ? AccordionTrigger
-                : NavigationMenuLink
-              )"
+            ? NavigationMenuTrigger
+            : ((orientation === 'vertical' && item.children?.length && !collapsed && !(slotProps as any).href)
+              ? AccordionTrigger
+              : NavigationMenuLink
+            )"
           as-child
-          :active="active"
+          :active="active || item.active"
           :disabled="item.disabled"
           @select="item.onSelect"
         >
@@ -368,13 +369,18 @@ function getAccordionDefaultValue(list: NavigationMenuItem[]) {
           >
             <B24LinkBase
               v-bind="slotProps"
-              :class="b24ui.link({ class: [props.b24ui?.link, item.b24ui?.link, item.class], active, disabled: !!item.disabled, level: level > 0 })"
+              :class="b24ui.link({
+                class: [props.b24ui?.link, item.b24ui?.link, item.class],
+                active: active || item.active,
+                disabled: !!item.disabled,
+                level: (level || 0) > 0
+              })"
             >
-              <ReuseLinkTemplate :item="item" :active="active" :index="index" />
+              <ReuseLinkTemplate :item="item" :active="active || item.active" :index="index" />
             </B24LinkBase>
 
             <template #content>
-              <slot :name="((item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>)" :item="item" :active="active" :index="index">
+              <slot :name="((item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>)" :item="item" :active="active || item.active" :index="index">
                 <ul :class="b24ui.childList({ class: [props.b24ui?.childList, item.b24ui?.childList] })">
                   <li :class="b24ui.childLabel({ class: [props.b24ui?.childLabel, item.b24ui?.childLabel] })">
                     {{ getLabel(item) }}
@@ -420,17 +426,27 @@ function getAccordionDefaultValue(list: NavigationMenuItem[]) {
           >
             <B24LinkBase
               v-bind="slotProps"
-              :class="b24ui.link({ class: [props.b24ui?.link, item.b24ui?.link, item.class], active, disabled: !!item.disabled, level: (level || 0) > 0 })"
+              :class="b24ui.link({
+                class: [props.b24ui?.link, item.b24ui?.link, item.class],
+                active: active || item.active,
+                disabled: !!item.disabled,
+                level: (level || 0) > 0
+              })"
             >
-              <ReuseLinkTemplate :item="item" :active="active" :index="index" />
+              <ReuseLinkTemplate :item="item" :active="active || item.active" :index="index" />
             </B24LinkBase>
           </B24Tooltip>
           <B24LinkBase
             v-else
             v-bind="slotProps"
-            :class="b24ui.link({ class: [props.b24ui?.link, item.b24ui?.link, item.class], active, disabled: !!item.disabled, level: orientation === 'horizontal' || (level || 0) > 0 })"
+            :class="b24ui.link({
+              class: [props.b24ui?.link, item.b24ui?.link, item.class],
+              active: active || item.active,
+              disabled: !!item.disabled,
+              level: orientation === 'horizontal' || (level || 0) > 0
+            })"
           >
-            <ReuseLinkTemplate :item="item" :active="active" :index="index" />
+            <ReuseLinkTemplate :item="item" :active="active || item.active" :index="index" />
           </B24LinkBase>
         </component>
 
@@ -440,7 +456,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[]) {
           :data-viewport="item.viewportRtl ? 'rtl' : 'ltr'"
           :class="b24ui.content({ class: [props.b24ui?.content, item.b24ui?.content] })"
         >
-          <slot :name="((item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>)" :item="item" :active="active" :index="index">
+          <slot :name="((item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>)" :item="item" :active="active || item.active" :index="index">
             <ul :class="b24ui.childList({ class: [props.b24ui?.childList, item.b24ui?.childList] })">
               <li
                 v-for="(childItem, childIndex) in item.children"

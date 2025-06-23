@@ -104,6 +104,8 @@ const items = [
     {
       viewportRtl: true,
       label: 'Sales Analytics',
+      type: 'trigger',
+      active: true,
       defaultOpen: true,
       badge: 3,
       icon: Filter1Icon,

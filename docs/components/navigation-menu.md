@@ -37,7 +37,7 @@ Use the `items` prop as an array of objects with the following properties:
 - `badge?: string | number | BadgeProps`{lang="ts"}
 - `tooltip?: TooltipProps`{lang="ts-type"}
 - `trailingIcon?: string`{lang="ts"}
-- `type?: 'label' | 'link'`{lang="ts"}
+- `type?: 'label' | 'trigger' | 'link'`{lang="ts"}
 - `defaultOpen?: boolean`{lang="ts-type"}
 - `open?: boolean`{lang="ts-type"}
 - `value?: string`{lang="ts"}
