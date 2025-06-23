@@ -168,7 +168,7 @@ export interface SelectSlots<
 
 <script setup lang="ts" generic="T extends ArrayOrNested<SelectItem>, VK extends GetItemKeys<T> = 'value', M extends boolean = false">
 import { computed, toRef } from 'vue'
-import { Primitive, SelectRoot, SelectArrow, SelectTrigger, SelectPortal, SelectContent, SelectViewport, SelectScrollUpButton, SelectScrollDownButton, SelectLabel, SelectGroup, SelectItem, SelectItemIndicator, SelectItemText, SelectSeparator, useForwardPropsEmits } from 'reka-ui'
+import { Primitive, SelectRoot, SelectArrow, SelectTrigger, SelectPortal, SelectContent, SelectLabel, SelectGroup, SelectItem, SelectItemIndicator, SelectItemText, SelectSeparator, useForwardPropsEmits } from 'reka-ui'
 import { defu } from 'defu'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
@@ -328,13 +328,10 @@ function isSelectItem(item: SelectItem): item is SelectItemBase {
         <SelectContent :class="b24ui.content({ class: props.b24ui?.content })" v-bind="contentProps">
           <slot name="content-top" />
 
-          <SelectScrollUpButton :class="b24ui.scrollUpDownButton({ class: props.b24ui?.scrollUpDownButton })">
-            <Component
-              :is="icons.chevronUp"
-              :class="b24ui.scrollUpDownButtonIcon({ class: props.b24ui?.scrollUpDownButtonIcon })"
-            />
-          </SelectScrollUpButton>
-          <SelectViewport :class="b24ui.viewport({ class: props.b24ui?.viewport })">
+          <div
+            role="presentation"
+            :class="b24ui.viewport({ class: props.b24ui?.viewport })"
+          >
             <SelectGroup v-for="(group, groupIndex) in groups" :key="`group-${groupIndex}`" :class="b24ui.group({ class: props.b24ui?.group })">
               <template v-for="(item, index) in group" :key="`group-${groupIndex}-${index}`">
                 <SelectLabel v-if="isSelectItem(item) && item.type === 'label'" :class="b24ui.label({ class: [props.b24ui?.label, item.b24ui?.label, item.class] })">
@@ -393,13 +390,7 @@ function isSelectItem(item: SelectItem): item is SelectItemBase {
                 </SelectItem>
               </template>
             </SelectGroup>
-          </SelectViewport>
-          <SelectScrollDownButton :class="b24ui.scrollUpDownButton({ class: props.b24ui?.scrollUpDownButton })">
-            <Component
-              :is="icons.chevronDown"
-              :class="b24ui.scrollUpDownButtonIcon({ class: props.b24ui?.scrollUpDownButtonIcon })"
-            />
-          </SelectScrollDownButton>
+          </div>
 
           <slot name="content-bottom" />
 

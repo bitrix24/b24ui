@@ -18,9 +18,8 @@ exports[`Select > renders with arrow correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 transition-colors group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150 size-5 text-collab-600 dark:text-collab-700 group-data-highlighted:text-collab-900 dark:group-data-highlighted:text-collab-150 group-data-[state=checked]:text-collab-900 dark:group-data-[state=checked]:text-collab-700">
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -38,20 +37,7 @@ exports[`Select > renders with arrow correctly 1`] = `
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
             </svg><span id="reka-select-item-text-v-6" class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
         </div>
-      </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!----><span style="position: absolute; top: 0px; transform-origin: center 0; transform: rotate(180deg); visibility: hidden;"><svg width="10" height="5" rounded="false" viewBox="0 0 12 6" preserveAspectRatio="none" class="fill-base-master/10 dark:fill-base-100/20" style="display: block;"><path d="M0 0L6 6L12 0"></path></svg></span>
+      </div><span style="position: absolute; top: 0px; transform-origin: center 0; transform: rotate(180deg); visibility: hidden;"><svg width="10" height="5" rounded="false" viewBox="0 0 12 6" preserveAspectRatio="none" class="fill-base-master/10 dark:fill-base-100/20" style="display: block;"><path d="M0 0L6 6L12 0"></path></svg></span>
     </div>
   </div>
   <!--teleport end-->
@@ -111,9 +97,8 @@ exports[`Select > renders with b24ui correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="isolate p-2">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 transition-colors group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150 size-5 text-collab-600 dark:text-collab-700 group-data-highlighted:text-collab-900 dark:group-data-highlighted:text-collab-150 group-data-[state=checked]:text-collab-900 dark:group-data-[state=checked]:text-collab-700">
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -132,19 +117,6 @@ exports[`Select > renders with b24ui correctly 1`] = `
             </svg><span id="reka-select-item-text-v-6" class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -160,9 +132,8 @@ exports[`Select > renders with class correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 transition-colors group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150 size-5 text-collab-600 dark:text-collab-700 group-data-highlighted:text-collab-900 dark:group-data-highlighted:text-collab-150 group-data-[state=checked]:text-collab-900 dark:group-data-[state=checked]:text-collab-700">
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -181,19 +152,6 @@ exports[`Select > renders with class correctly 1`] = `
             </svg><span id="reka-select-item-text-v-6" class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -209,9 +167,8 @@ exports[`Select > renders with defaultValue correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 transition-colors group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150 size-5 text-collab-600 dark:text-collab-700 group-data-highlighted:text-collab-900 dark:group-data-highlighted:text-collab-150 group-data-[state=checked]:text-collab-900 dark:group-data-[state=checked]:text-collab-700">
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -230,19 +187,6 @@ exports[`Select > renders with defaultValue correctly 1`] = `
             </svg><span id="reka-select-item-text-v-6" class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -258,9 +202,8 @@ exports[`Select > renders with disabled correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 transition-colors group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150 size-5 text-collab-600 dark:text-collab-700 group-data-highlighted:text-collab-900 dark:group-data-highlighted:text-collab-150 group-data-[state=checked]:text-collab-900 dark:group-data-[state=checked]:text-collab-700">
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -279,19 +222,6 @@ exports[`Select > renders with disabled correctly 1`] = `
             </svg><span id="reka-select-item-text-v-6" class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -317,9 +247,8 @@ exports[`Select > renders with id correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 transition-colors group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150 size-5 text-collab-600 dark:text-collab-700 group-data-highlighted:text-collab-900 dark:group-data-highlighted:text-collab-150 group-data-[state=checked]:text-collab-900 dark:group-data-[state=checked]:text-collab-700">
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -338,19 +267,6 @@ exports[`Select > renders with id correctly 1`] = `
             </svg><span id="reka-select-item-text-v-6" class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -366,9 +282,8 @@ exports[`Select > renders with item slot correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1">Item slot</div>
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 text-base-master dark:text-base-150 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 data-[state=checked]:text-base-900 dark:data-[state=checked]:text-base-200 data-[state=checked]:before:bg-base-100/50 dark:data-[state=checked]:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-3" aria-selected="false" data-state="unchecked" tabindex="-1">Item slot</div>
@@ -377,19 +292,6 @@ exports[`Select > renders with item slot correctly 1`] = `
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 text-base-master dark:text-base-150 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 data-[state=checked]:text-base-900 dark:data-[state=checked]:text-base-200 data-[state=checked]:before:bg-base-100/50 dark:data-[state=checked]:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-6" aria-selected="false" data-state="unchecked" tabindex="-1">Item slot</div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -405,9 +307,8 @@ exports[`Select > renders with item-label slot correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 transition-colors group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150 size-5 text-collab-600 dark:text-collab-700 group-data-highlighted:text-collab-900 dark:group-data-highlighted:text-collab-150 group-data-[state=checked]:text-collab-900 dark:group-data-[state=checked]:text-collab-700">
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -426,19 +327,6 @@ exports[`Select > renders with item-label slot correctly 1`] = `
             </svg><span id="reka-select-item-text-v-6" class="truncate">Item label slot</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -454,9 +342,8 @@ exports[`Select > renders with item-leading slot correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1">Item leading slot<span id="reka-select-item-text-v-2" class="truncate">Backlog</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 text-base-master dark:text-base-150 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 data-[state=checked]:text-base-900 dark:data-[state=checked]:text-base-200 data-[state=checked]:before:bg-base-100/50 dark:data-[state=checked]:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-3" aria-selected="false" data-state="unchecked" tabindex="-1">Item leading slot<span id="reka-select-item-text-v-3" class="truncate">Todo</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
@@ -465,19 +352,6 @@ exports[`Select > renders with item-leading slot correctly 1`] = `
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 text-base-master dark:text-base-150 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 data-[state=checked]:text-base-900 dark:data-[state=checked]:text-base-200 data-[state=checked]:before:bg-base-100/50 dark:data-[state=checked]:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-6" aria-selected="false" data-state="unchecked" tabindex="-1">Item leading slot<span id="reka-select-item-text-v-6" class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -493,9 +367,8 @@ exports[`Select > renders with item-trailing slot correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 transition-colors group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150 size-5 text-collab-600 dark:text-collab-700 group-data-highlighted:text-collab-900 dark:group-data-highlighted:text-collab-150 group-data-[state=checked]:text-collab-900 dark:group-data-[state=checked]:text-collab-700">
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -514,19 +387,6 @@ exports[`Select > renders with item-trailing slot correctly 1`] = `
             </svg><span id="reka-select-item-text-v-6" class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center">Item trailing slot<!----></span></div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -542,9 +402,8 @@ exports[`Select > renders with items correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); display: flex; flex-direction: column; animation: none; pointer-events: auto; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); display: flex; flex-direction: column; animation: none; pointer-events: auto; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 transition-colors group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150 size-5 text-collab-600 dark:text-collab-700 group-data-highlighted:text-collab-900 dark:group-data-highlighted:text-collab-150 group-data-[state=checked]:text-collab-900 dark:group-data-[state=checked]:text-collab-700">
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -563,19 +422,6 @@ exports[`Select > renders with items correctly 1`] = `
             </svg><span id="reka-select-item-text-v-6" class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -591,9 +437,8 @@ exports[`Select > renders with labelKey correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 transition-colors group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150 size-5 text-collab-600 dark:text-collab-700 group-data-highlighted:text-collab-900 dark:group-data-highlighted:text-collab-150 group-data-[state=checked]:text-collab-900 dark:group-data-[state=checked]:text-collab-700">
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -612,19 +457,6 @@ exports[`Select > renders with labelKey correctly 1`] = `
             </svg><span id="reka-select-item-text-v-6" class="truncate">canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -649,9 +481,8 @@ exports[`Select > renders with leading slot correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 transition-colors group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150 size-5 text-collab-600 dark:text-collab-700 group-data-highlighted:text-collab-900 dark:group-data-highlighted:text-collab-150 group-data-[state=checked]:text-collab-900 dark:group-data-[state=checked]:text-collab-700">
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -670,19 +501,6 @@ exports[`Select > renders with leading slot correctly 1`] = `
             </svg><span id="reka-select-item-text-v-6" class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -790,9 +608,8 @@ exports[`Select > renders with modelValue correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 transition-colors group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150 size-5 text-collab-600 dark:text-collab-700 group-data-highlighted:text-collab-900 dark:group-data-highlighted:text-collab-150 group-data-[state=checked]:text-collab-900 dark:group-data-[state=checked]:text-collab-700">
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -811,19 +628,6 @@ exports[`Select > renders with modelValue correctly 1`] = `
             </svg><span id="reka-select-item-text-v-6" class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -839,9 +643,8 @@ exports[`Select > renders with multiple and modelValue correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 transition-colors group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150 size-5 text-collab-600 dark:text-collab-700 group-data-highlighted:text-collab-900 dark:group-data-highlighted:text-collab-150 group-data-[state=checked]:text-collab-900 dark:group-data-[state=checked]:text-collab-700">
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -860,19 +663,6 @@ exports[`Select > renders with multiple and modelValue correctly 1`] = `
             </svg><span id="reka-select-item-text-v-6" class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -888,9 +678,8 @@ exports[`Select > renders with multiple correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 transition-colors group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150 size-5 text-collab-600 dark:text-collab-700 group-data-highlighted:text-collab-900 dark:group-data-highlighted:text-collab-150 group-data-[state=checked]:text-collab-900 dark:group-data-[state=checked]:text-collab-700">
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -909,19 +698,6 @@ exports[`Select > renders with multiple correctly 1`] = `
             </svg><span id="reka-select-item-text-v-6" class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -937,9 +713,8 @@ exports[`Select > renders with name correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 transition-colors group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150 size-5 text-collab-600 dark:text-collab-700 group-data-highlighted:text-collab-900 dark:group-data-highlighted:text-collab-150 group-data-[state=checked]:text-collab-900 dark:group-data-[state=checked]:text-collab-700">
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -958,19 +733,6 @@ exports[`Select > renders with name correctly 1`] = `
             </svg><span id="reka-select-item-text-v-6" class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -986,9 +748,8 @@ exports[`Select > renders with placeholder correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 transition-colors group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150 size-5 text-collab-600 dark:text-collab-700 group-data-highlighted:text-collab-900 dark:group-data-highlighted:text-collab-150 group-data-[state=checked]:text-collab-900 dark:group-data-[state=checked]:text-collab-700">
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -1007,19 +768,6 @@ exports[`Select > renders with placeholder correctly 1`] = `
             </svg><span id="reka-select-item-text-v-6" class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -1035,9 +783,8 @@ exports[`Select > renders with required correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 transition-colors group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150 size-5 text-collab-600 dark:text-collab-700 group-data-highlighted:text-collab-900 dark:group-data-highlighted:text-collab-150 group-data-[state=checked]:text-collab-900 dark:group-data-[state=checked]:text-collab-700">
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -1056,19 +803,6 @@ exports[`Select > renders with required correctly 1`] = `
             </svg><span id="reka-select-item-text-v-6" class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -1084,9 +818,8 @@ exports[`Select > renders with selectedIcon correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 transition-colors group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150 size-5 text-collab-600 dark:text-collab-700 group-data-highlighted:text-collab-900 dark:group-data-highlighted:text-collab-150 group-data-[state=checked]:text-collab-900 dark:group-data-[state=checked]:text-collab-700">
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -1105,19 +838,6 @@ exports[`Select > renders with selectedIcon correctly 1`] = `
             </svg><span id="reka-select-item-text-v-6" class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -1133,9 +853,8 @@ exports[`Select > renders with size lg correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 transition-colors group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150 size-5 text-collab-600 dark:text-collab-700 group-data-highlighted:text-collab-900 dark:group-data-highlighted:text-collab-150 group-data-[state=checked]:text-collab-900 dark:group-data-[state=checked]:text-collab-700">
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -1154,19 +873,6 @@ exports[`Select > renders with size lg correctly 1`] = `
             </svg><span id="reka-select-item-text-v-6" class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -1182,9 +888,8 @@ exports[`Select > renders with size md correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 transition-colors group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150 size-5 text-collab-600 dark:text-collab-700 group-data-highlighted:text-collab-900 dark:group-data-highlighted:text-collab-150 group-data-[state=checked]:text-collab-900 dark:group-data-[state=checked]:text-collab-700">
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -1203,19 +908,6 @@ exports[`Select > renders with size md correctly 1`] = `
             </svg><span id="reka-select-item-text-v-6" class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -1231,9 +923,8 @@ exports[`Select > renders with size sm correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 transition-colors group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150 size-5 text-collab-600 dark:text-collab-700 group-data-highlighted:text-collab-900 dark:group-data-highlighted:text-collab-150 group-data-[state=checked]:text-collab-900 dark:group-data-[state=checked]:text-collab-700">
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -1252,19 +943,6 @@ exports[`Select > renders with size sm correctly 1`] = `
             </svg><span id="reka-select-item-text-v-6" class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -1280,9 +958,8 @@ exports[`Select > renders with size xs correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 transition-colors group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150 size-5 text-collab-600 dark:text-collab-700 group-data-highlighted:text-collab-900 dark:group-data-highlighted:text-collab-150 group-data-[state=checked]:text-collab-900 dark:group-data-[state=checked]:text-collab-700">
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -1301,19 +978,6 @@ exports[`Select > renders with size xs correctly 1`] = `
             </svg><span id="reka-select-item-text-v-6" class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -1340,9 +1004,8 @@ exports[`Select > renders with trailing slot correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 transition-colors group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150 size-5 text-collab-600 dark:text-collab-700 group-data-highlighted:text-collab-900 dark:group-data-highlighted:text-collab-150 group-data-[state=checked]:text-collab-900 dark:group-data-[state=checked]:text-collab-700">
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -1361,19 +1024,6 @@ exports[`Select > renders with trailing slot correctly 1`] = `
             </svg><span id="reka-select-item-text-v-6" class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -1400,9 +1050,8 @@ exports[`Select > renders with trailingIcon correctly 2`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 transition-colors group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150 size-5 text-collab-600 dark:text-collab-700 group-data-highlighted:text-collab-900 dark:group-data-highlighted:text-collab-150 group-data-[state=checked]:text-collab-900 dark:group-data-[state=checked]:text-collab-700">
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -1421,19 +1070,6 @@ exports[`Select > renders with trailingIcon correctly 2`] = `
             </svg><span id="reka-select-item-text-v-6" class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -1449,9 +1085,8 @@ exports[`Select > renders with valueKey correctly 1`] = `
   </button>
   <!--teleport start-->
   <div data-reka-popper-content-wrapper="" style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;">
-    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
-      <!---->
-      <div data-reka-select-viewport="" role="presentation" class="divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1" style="position: relative; overflow: hidden auto; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;">
+    <div style="box-sizing: border-box; --reka-select-content-transform-origin: var(--reka-popper-transform-origin); --reka-select-content-available-width: var(--reka-popper-available-width); --reka-select-content-available-height: var(--reka-popper-available-height); --reka-select-trigger-width: var(--reka-popper-anchor-width); --reka-select-trigger-height: var(--reka-popper-anchor-height); pointer-events: auto; display: flex; flex-direction: column; animation: none; outline-color: none; outline-style: none; outline-width: initial;" data-dismissable-layer="" tabindex="-1" class="w-(--reka-select-trigger-width) min-w-fit bg-white dark:bg-base-dark shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800 overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-select-content-transform-origin) flex flex-col pointer-events-auto" position="popper" bodylock="true" id="reka-select-content-v-0" role="listbox" data-state="open" dir="ltr" data-side="bottom" data-align="start">
+      <div role="presentation" class="relative divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1 overflow-y-auto flex-1">
         <div role="group" aria-labelledby="reka-select-group-v-1" class="p-1 isolate">
           <div class="group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-2xs cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900 transition-colors before:transition-colors h-9 ps-3 pe-3 text-sm gap-2 text-collab-900 dark:text-collab-150 data-highlighted:text-collab-900 dark:data-highlighted:text-collab-200 data-highlighted:before:bg-collab-100 dark:data-highlighted:before:bg-collab-900 data-[state=checked]:text-collab-900 dark:data-[state=checked]:text-collab-200 data-[state=checked]:before:bg-collab-100 dark:data-[state=checked]:before:bg-collab-900" data-reka-collection-item="" role="option" aria-labelledby="reka-select-item-text-v-2" aria-selected="false" data-state="unchecked" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 transition-colors group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150 size-5 text-collab-600 dark:text-collab-700 group-data-highlighted:text-collab-900 dark:group-data-highlighted:text-collab-150 group-data-[state=checked]:text-collab-900 dark:group-data-[state=checked]:text-collab-700">
               <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -1470,19 +1105,6 @@ exports[`Select > renders with valueKey correctly 1`] = `
             </svg><span id="reka-select-item-text-v-6" class="truncate">Canceled</span><span class="ms-auto inline-flex gap-1.5 items-center"><!----></span></div>
         </div>
       </div>
-      <style>
-        /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */
-        [data-reka-select-viewport] {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        [data-reka-select-viewport]::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-      <!---->
       <!--v-if-->
     </div>
   </div>

@@ -209,7 +209,6 @@ import {
   ComboboxTrigger,
   ComboboxPortal,
   ComboboxContent,
-  ComboboxViewport,
   ComboboxEmpty,
   ComboboxGroup,
   ComboboxLabel,
@@ -501,7 +500,10 @@ function isSelectItem(item: SelectMenuItem): item is _SelectMenuItem {
               </slot>
             </ComboboxEmpty>
 
-            <ComboboxViewport :class="b24ui.viewport({ class: props.b24ui?.viewport })">
+            <div
+              role="presentation"
+              :class="b24ui.viewport({ class: props.b24ui?.viewport })"
+            >
               <ReuseCreateItemTemplate v-if="createItem && createItemPosition === 'top'" />
 
               <ComboboxGroup v-for="(group, groupIndex) in filteredGroups" :key="`group-${groupIndex}`" :class="b24ui.group({ class: props.b24ui?.group })">
@@ -570,7 +572,7 @@ function isSelectItem(item: SelectMenuItem): item is _SelectMenuItem {
               </ComboboxGroup>
 
               <ReuseCreateItemTemplate v-if="createItem && createItemPosition === 'bottom'" />
-            </ComboboxViewport>
+            </div>
 
             <slot name="content-bottom" />
           </FocusScope>
