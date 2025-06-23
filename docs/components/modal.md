@@ -198,7 +198,7 @@ This allows you to move the trigger outside of the Modal or remove it entirely.
 <<< @/examples/modal/demo/ControlOpenState.vue{7,13 vue:line-numbers}
 :::
 
-### Prevent closing
+### Disable dismissal
 
 Set the `dismissible` prop to `false` to prevent the Modal from being closed when clicking outside of it or pressing escape. A `close:prevent` event will be emitted when the user tries to close it.
 
