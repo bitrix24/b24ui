@@ -1,5 +1,6 @@
 # @todo 
 - add CheckboxGroup
+- add Accordion
 - fix RadioGroupItem[] (docs / demo) 
 - fix modal/slideover (docs)
 - fix .github/workflows/module.yml
@@ -14,15 +15,18 @@
 - **!! TEST THIS !!** fix(InputNumber): handle inside button group
 - **!! TEST THIS !!** feat(NavigationMenu): handle `vertical` orientation with Accordion instead of Collapsible
 - **!! TEST THIS !!** fix(NavigationMenu): incorrect hover when disabled and active
+- **!! TEST THIS !!** feat(NavigationMenu): add `tooltip` and `popover` props
 - Badge test square 
 - Link test active|disabled === false >> hover 
-- use in demo expale from playground/app/pages/components/navigation-menu.vue
+- use in demo example from playground/app/pages/components/navigation-menu.vue
+- use in demo example from playground/app/pages/components/popover.vue
+- add NavigationMenu docs all demo
 
 # Changelog
 
 ## [0.7.0](https://github.com/bitrix24/b24ui/compare/v0.6.9...v0.7.0) (2025-07-xx)
 
->> 21.05.25
+>> 27.05.25
 > f4864233812eac0ed37e0a2d076a95c285a22c01..59c26ec1230375a24fbaf8a630a696ae854700c7
 
 * feat(useOverlay): add `closeAll` method
@@ -71,6 +75,16 @@
 * feat(NavigationMenu): handle `vertical` orientation with Accordion instead of Collapsible
 * fix(NavigationMenu): incorrect hover when disabled and active
 * fix(Tooltip): increase padding for consistency
+* feat(NavigationMenu): add `tooltip` and `popover` props
+* feat(NavigationMenu): add `trigger` type in items
+* fix(CheckboxGroup/RadioGroup): variant `table` borders in RTL mode
+* fix(Input/Textarea): define model modifiers types
+* feat(Popover): add `anchor` slot
+* feat(Modal/Slideover): add `after:enter` event
+* fix(DropdownMenu): wrap groups in a viewport
+* fix(InputMenu/Select/SelectMenu)!: manual viewport to display scrollbars
+* playground: add `default-value` for combobox components
+* fix(NavigationMenu): set content `max-height` in `horizontal` orientation
 
 ## [0.6.9](https://github.com/bitrix24/b24ui/compare/v0.6.8...v0.6.9) (2025-06-05)
 
