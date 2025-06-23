@@ -151,7 +151,7 @@ export default {
       orientation: 'horizontal',
       variant: 'table',
       class: {
-        item: 'first-of-type:rounded-l-lg last-of-type:rounded-r-lg',
+        item: 'first-of-type:rounded-s-lg last-of-type:rounded-e-lg',
         fieldset: 'gap-0 -space-x-px'
       }
     },

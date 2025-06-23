@@ -369,7 +369,7 @@ exports[`RadioGroup > renders with horizontal variant list correctly 1`] = `
 exports[`RadioGroup > renders with horizontal variant table correctly 1`] = `
 "<div id="v-0-0" class="relative" tabindex="0" data-orientation="horizontal" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" role="radiogroup" aria-orientation="horizontal" aria-required="false">
   <fieldset class="flex flex-row gap-0 -space-x-px">
-    <!--v-if--><label class="flex items-start border border-base-200 dark:border-base-900 flex-row text-md p-3.5 first-of-type:rounded-l-lg last-of-type:rounded-r-lg has-data-[state=checked]:bg-blue-500/24 dark:has-data-[state=checked]:bg-blue-600/24 has-data-[state=checked]:border-blue-500 dark:has-data-[state=checked]:border-blue-600 has-data-[state=checked]:z-[1]">
+    <!--v-if--><label class="flex items-start border border-base-200 dark:border-base-900 flex-row text-md p-3.5 first-of-type:rounded-s-lg last-of-type:rounded-e-lg has-data-[state=checked]:bg-blue-500/24 dark:has-data-[state=checked]:bg-blue-600/24 has-data-[state=checked]:border-blue-500 dark:has-data-[state=checked]:border-blue-600 has-data-[state=checked]:z-[1]">
       <div class="flex items-center h-5"><button data-reka-collection-item="" tabindex="-1" data-orientation="horizontal" data-active="" class="cursor-pointer rounded-full ring ring-inset ring-base-300 dark:ring-base-700 outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-600 me-2 size-4" id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" value="1" aria-label="1"><span data-state="checked" class="flex items-center justify-center size-full rounded-full after:bg-white dark:after:bg-base-dark after:rounded-full bg-blue-500 dark:bg-blue-600 after:size-1.5"></span>
           <!---->
         </button></div>
@@ -377,7 +377,7 @@ exports[`RadioGroup > renders with horizontal variant table correctly 1`] = `
         <p for="v-0-0:1" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 1</p>
         <!--v-if-->
       </div>
-    </label><label class="flex items-start border border-base-200 dark:border-base-900 flex-row text-md p-3.5 first-of-type:rounded-l-lg last-of-type:rounded-r-lg has-data-[state=checked]:bg-blue-500/24 dark:has-data-[state=checked]:bg-blue-600/24 has-data-[state=checked]:border-blue-500 dark:has-data-[state=checked]:border-blue-600 has-data-[state=checked]:z-[1]">
+    </label><label class="flex items-start border border-base-200 dark:border-base-900 flex-row text-md p-3.5 first-of-type:rounded-s-lg last-of-type:rounded-e-lg has-data-[state=checked]:bg-blue-500/24 dark:has-data-[state=checked]:bg-blue-600/24 has-data-[state=checked]:border-blue-500 dark:has-data-[state=checked]:border-blue-600 has-data-[state=checked]:z-[1]">
       <div class="flex items-center h-5"><button data-reka-collection-item="" tabindex="-1" data-orientation="horizontal" class="cursor-pointer rounded-full ring ring-inset ring-base-300 dark:ring-base-700 outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-600 me-2 size-4" id="v-0-0:2" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="2" aria-label="2">
           <!---->
           <!---->
@@ -386,7 +386,7 @@ exports[`RadioGroup > renders with horizontal variant table correctly 1`] = `
         <p for="v-0-0:2" class="cursor-pointer block text-base-master dark:text-base-400 leading-5">Option 2</p>
         <!--v-if-->
       </div>
-    </label><label class="flex items-start border border-base-200 dark:border-base-900 flex-row text-md p-3.5 first-of-type:rounded-l-lg last-of-type:rounded-r-lg has-data-[state=checked]:bg-blue-500/24 dark:has-data-[state=checked]:bg-blue-600/24 has-data-[state=checked]:border-blue-500 dark:has-data-[state=checked]:border-blue-600 has-data-[state=checked]:z-[1]">
+    </label><label class="flex items-start border border-base-200 dark:border-base-900 flex-row text-md p-3.5 first-of-type:rounded-s-lg last-of-type:rounded-e-lg has-data-[state=checked]:bg-blue-500/24 dark:has-data-[state=checked]:bg-blue-600/24 has-data-[state=checked]:border-blue-500 dark:has-data-[state=checked]:border-blue-600 has-data-[state=checked]:z-[1]">
       <div class="flex items-center h-5"><button data-reka-collection-item="" tabindex="-1" data-orientation="horizontal" class="cursor-pointer rounded-full ring ring-inset ring-base-300 dark:ring-base-700 outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-600 me-2 size-4" id="v-0-0:3" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="3" aria-label="3">
           <!---->
           <!---->
