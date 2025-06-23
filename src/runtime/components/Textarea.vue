@@ -85,6 +85,13 @@ export interface TextareaProps extends UseComponentIconsProps {
    * @defaultValue false
    */
   highlight?: boolean
+  modelModifiers?: {
+    string?: boolean
+    number?: boolean
+    trim?: boolean
+    lazy?: boolean
+    nullify?: boolean
+  }
   class?: any
   b24ui?: Textarea['slots']
 }
@@ -123,6 +130,7 @@ const props = withDefaults(defineProps<TextareaProps>(), {
 const emits = defineEmits<TextareaEmits<T>>()
 const slots = defineSlots<TextareaSlots>()
 
+// eslint-disable-next-line vue/no-dupe-keys
 const [modelValue, modelModifiers] = defineModel<T>()
 
 const appConfig = useAppConfig() as Textarea['AppConfig']
