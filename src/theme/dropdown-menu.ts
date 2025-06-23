@@ -12,11 +12,18 @@ export default {
       'min-w-32',
       'bg-white dark:bg-base-dark',
       'shadow-lg rounded-2xs ring ring-base-300 dark:ring-base-800',
-      'overflow-y-auto',
+      'overflow-hidden',
       'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]',
       'origin-(--reka-dropdown-menu-content-transform-origin)',
-      'divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1',
+      'flex flex-col',
       'pointer-events-auto'
+    ].join(' '),
+    viewport: [
+      'relative',
+      'divide-y divide-base-master/10 dark:divide-base-100/20',
+      'scroll-py-1',
+      'overflow-y-auto',
+      'flex-1'
     ].join(' '),
     arrow: 'fill-base-master/10 dark:fill-base-100/20',
     group: 'p-1 isolate',
