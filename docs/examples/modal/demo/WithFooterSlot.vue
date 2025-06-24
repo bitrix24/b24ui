@@ -9,13 +9,18 @@
     <template #body>
       <Placeholder class="h-48" />
     </template>
-    <template #footer>
+    <template #footer="{ close }">
       <B24ModalDialogClose>
         <B24Button rounded label="Send" color="primary" size="sm" />
       </B24ModalDialogClose>
-      <B24ModalDialogClose>
-        <B24Button rounded label="Cancel" color="link" depth="dark" size="sm" />
-      </B24ModalDialogClose>
+      <B24Button
+        rounded
+        label="Cancel"
+        color="link"
+        depth="dark"
+        size="sm"
+        @click="close"
+      />
     </template>
   </B24Modal>
 </template>

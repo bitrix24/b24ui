@@ -212,13 +212,13 @@ Set the `dismissible` prop to `false` to prevent the Slideover from being closed
 
 ### Programmatic usage
 
-You can use the [`useOverlay`](composables/use-overlay) composable to open a Slideover programatically.
+You can use the [`useOverlay`](composables/use-overlay) composable to open a Slideover programmatically.
 
 ::: warning
 Make sure to wrap your app with the [`App`](/components/app) component which uses the [`OverlayProvider`](https://github.com/nuxt/ui/blob/v3/src/runtime/components/OverlayProvider.vue) component.
 :::
 
-First, create a slideover component that will be opened programatically:
+First, create a slideover component that will be opened programmatically:
 
 ::: code-group
 <<< @/examples/slideover/demo/LazySlideover.vue{6,11,12,25,33 vue:line-numbers}

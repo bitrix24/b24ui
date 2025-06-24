@@ -73,13 +73,13 @@ export interface ModalEmits extends DialogRootEmits {
 
 export interface ModalSlots {
   default(props: { open: boolean }): any
-  content(props?: {}): any
-  header(props?: {}): any
+  content(props: { close: () => void }): any
+  header(props: { close: () => void }): any
   title(props?: {}): any
   description(props?: {}): any
-  close(props: { b24ui: { [K in keyof Required<Modal['slots']>]: (props?: Record<string, any>) => string } }): any
-  body(props?: {}): any
-  footer(props?: {}): any
+  close(props: { close: () => void, b24ui: { [K in keyof Required<Modal['slots']>]: (props?: Record<string, any>) => string } }): any
+  body(props: { close: () => void }): any
+  footer(props: { close: () => void }): any
 }
 </script>
 
@@ -140,8 +140,9 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.modal 
 }))
 </script>
 
+<!-- eslint-disable vue/no-template-shadow -->
 <template>
-  <DialogRoot v-slot="{ open }" v-bind="rootProps">
+  <DialogRoot v-slot="{ open, close }" v-bind="rootProps">
     <DialogTrigger v-if="!!slots.default" as-child :class="props.class">
       <slot :open="open" />
     </DialogTrigger>
@@ -170,9 +171,9 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.modal 
           </DialogDescription>
         </VisuallyHidden>
 
-        <slot name="content">
-          <div v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description) || (close || !!slots.close)" :class="b24ui.header({ class: props.b24ui?.header })">
-            <slot name="header">
+        <slot name="content" :close="close">
+          <div v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description) || (props.close || !!slots.close)" :class="b24ui.header({ class: props.b24ui?.header })">
+            <slot name="header" :close="close">
               <div :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
                 <DialogTitle v-if="title || !!slots.title" :class="b24ui.title({ class: props.b24ui?.title })">
                   <slot name="title">
@@ -187,15 +188,15 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.modal 
                 </DialogDescription>
               </div>
 
-              <DialogClose v-if="close || !!slots.close" as-child>
-                <slot name="close" :b24ui="b24ui">
+              <DialogClose v-if="props.close || !!slots.close" as-child>
+                <slot name="close" :close="close" :b24ui="b24ui">
                   <B24Button
-                    v-if="close"
+                    v-if="props.close"
                     :icon="closeIcon || icons.close"
                     size="xs"
                     color="link"
                     :aria-label="t('modal.close')"
-                    v-bind="(typeof close === 'object' ? close as Partial<ButtonProps> : {})"
+                    v-bind="(typeof props.close === 'object' ? props.close as Partial<ButtonProps> : {})"
                     :class="b24ui.close({ class: props.b24ui?.close })"
                   />
                 </slot>
@@ -204,11 +205,11 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.modal 
           </div>
 
           <div v-if="!!slots.body" :class="b24ui.body({ class: props.b24ui?.body, scrollbarThin: Boolean(props.scrollbarThin) })">
-            <slot name="body" />
+            <slot name="body" :close="close" />
           </div>
 
           <div v-if="!!slots.footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
-            <slot name="footer" />
+            <slot name="footer" :close="close" />
           </div>
         </slot>
       </DialogContent>

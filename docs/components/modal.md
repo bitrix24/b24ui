@@ -214,13 +214,13 @@ Set the `dismissible` prop to `false` to prevent the Modal from being closed whe
 
 ### Programmatic usage
 
-You can use the [`useOverlay`](composables/use-overlay) composable to open a Modal programatically.
+You can use the [`useOverlay`](composables/use-overlay) composable to open a Modal programmatically.
 
 ::: warning
 Make sure to wrap your app with the [`App`](/components/app) component which uses the [`OverlayProvider`](https://github.com/nuxt/ui/blob/v3/src/runtime/components/OverlayProvider.vue) component.
 :::
 
-First, create a modal component that will be opened programatically:
+First, create a modal component that will be opened programmatically:
 
 ::: code-group
 <<< @/examples/modal/demo/LazyModal.vue{6,11,12,21,29 vue:line-numbers}
