@@ -10,8 +10,7 @@ overrides:
   debug: 4.3.7
   rollup: 4.34.9
   unimport: 4.1.1
-  unplugin: ^2.3.4
-  vue-tsc: ^2.2.10
+  unplugin: ^2.3.5
 
 importers:
 
@@ -141,7 +140,7 @@ importers:
         specifier: ^5.8.3
         version: 5.8.3
       unplugin:
-        specifier: ^2.3.4
+        specifier: ^2.3.5
         version: 2.3.5
       unplugin-auto-import:
         specifier: ^19.3.0
@@ -4261,7 +4260,7 @@ packages:
       typescript: '>=5.7.3'
       vue: ^3.5.13
       vue-sfc-transformer: ^0.1.1
-      vue-tsc: ^2.2.10
+      vue-tsc: ^1.8.27 || ^2.0.21
     peerDependenciesMeta:
       sass:
         optional: true
@@ -5899,7 +5898,7 @@ packages:
       vite: '>=2.0.0'
       vls: '*'
       vti: '*'
-      vue-tsc: ^2.2.10
+      vue-tsc: ~2.2.10
     peerDependenciesMeta:
       '@biomejs/biome':
         optional: true
