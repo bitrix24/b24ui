@@ -1,6 +1,7 @@
 # @todo 
 - add CheckboxGroup
 - add Accordion
+- add Timeline
 - fix RadioGroupItem[] (docs / demo) 
 - fix modal/slideover (docs)
 - fix .github/workflows/module.yml
@@ -20,7 +21,10 @@
 - Link test active|disabled === false >> hover 
 - use in demo example from playground/app/pages/components/navigation-menu.vue
 - use in demo example from playground/app/pages/components/popover.vue
+- use in demo example from playground/app/pages/components/avatar.vue
+- use in demo example from playground/app/pages/components/modal.vue && playground/app/pages/components/slideover.vue
 - add NavigationMenu docs all demo
+- fix nuxi at starter
 
 # Changelog
 
@@ -85,6 +89,17 @@
 * fix(InputMenu/Select/SelectMenu)!: manual viewport to display scrollbars
 * playground: add `default-value` for combobox components
 * fix(NavigationMenu): set content `max-height` in `horizontal` orientation
+* fix(Select/SelectMenu): display falsy values
+* chore(deps): update dependency reka-ui to ^2.3.0
+* feat(Avatar): add `chip` prop
+* feat(Modal/Slideover): add `close` method in slots
+* fix(Select/SelectMenu): prevent empty string display when multiple
+* fix(Form): conditionally type form data via `transform` prop
+* fix(useOverlay)!: correct spelling of `unmount` function
+* feat(Form): expose loading state to default slot
+* chore: prefer `nuxt` over `nuxi`
+* chore(deps): update nuxt framework to ^3.17.5
+* docs(use-overlay): add caveats section regarding provide/inject limit
 
 ## [0.6.9](https://github.com/bitrix24/b24ui/compare/v0.6.8...v0.6.9) (2025-06-05)
 
