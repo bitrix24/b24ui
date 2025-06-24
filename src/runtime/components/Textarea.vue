@@ -3,9 +3,11 @@ import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/textarea'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
 import type { AvatarProps } from '../types'
-import type { AcceptableValue, ComponentConfig } from '../types/utils'
+import type { ComponentConfig } from '../types/utils'
 
 type Textarea = ComponentConfig<typeof theme, AppConfig, 'textarea'>
+
+type TextareaValue = string | number | null
 
 export interface TextareaProps extends UseComponentIconsProps {
   /**
@@ -96,7 +98,7 @@ export interface TextareaProps extends UseComponentIconsProps {
   b24ui?: Textarea['slots']
 }
 
-export interface TextareaEmits<T extends AcceptableValue = AcceptableValue> {
+export interface TextareaEmits<T extends TextareaValue = TextareaValue> {
   (e: 'update:modelValue', payload: T): void
   (e: 'blur', event: FocusEvent): void
   (e: 'change', event: Event): void
@@ -109,7 +111,7 @@ export interface TextareaSlots {
 }
 </script>
 
-<script setup lang="ts" generic="T extends AcceptableValue">
+<script setup lang="ts" generic="T extends TextareaValue">
 import { ref, computed, onMounted, nextTick, watch } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
