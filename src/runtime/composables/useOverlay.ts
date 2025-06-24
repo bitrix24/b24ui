@@ -92,7 +92,7 @@ function _useOverlay() {
     overlays.forEach(overlay => close(overlay.id))
   }
 
-  const unMount = (id: symbol): void => {
+  const unmount = (id: symbol): void => {
     const overlay = getOverlay(id)
 
     overlay.isMounted = false
@@ -134,7 +134,7 @@ function _useOverlay() {
     closeAll,
     create,
     patch,
-    unMount,
+    unmount,
     isOpen
   }
 }
