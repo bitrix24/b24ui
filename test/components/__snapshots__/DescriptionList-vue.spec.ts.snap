@@ -5,7 +5,7 @@ exports[`DescriptionList > renders with as correctly 1`] = `
   <!--v-if-->
   <!--v-if-->
   <dl class="grid grid-cols-1 sm:grid-cols-[min(50%,theme(spacing.80))_auto] mt-3 text-lg">
-    <dt class="col-start-1 border-t first:border-none sm:border-t flex flex-nowrap flex-row items-center justify-start gap-1.5 border-base-950/5 text-base-500 sm:border-base-950/5 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5 pt-3 sm:py-3"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-6 text-3xs font-regular shrink-0"><img role="img" src="https://github.com/bitrix24.png" width="18" height="18" class="h-full w-full rounded-[inherit] object-cover"></span><span class="">Item 1</span></dt>
+    <dt class="col-start-1 border-t first:border-none sm:border-t flex flex-nowrap flex-row items-center justify-start gap-1.5 border-base-950/5 text-base-500 sm:border-base-950/5 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5 pt-3 sm:py-3"><span class="inline-flex items-center justify-center select-none rounded-full align-middle bg-base-100 dark:bg-base-900 size-6 text-3xs font-regular shrink-0"><img role="img" src="https://github.com/bitrix24.png" width="18" height="18" class="h-full w-full rounded-[inherit] object-cover"></span><span class="">Item 1</span></dt>
     <dd data-orientation="vertical" class="sm:border-t sm:[&amp;:nth-child(2)]:border-none text-base-900 sm:border-base-950/5 dark:text-base-150 dark:sm:border-white/5 pb-3 pt-1 sm:py-3"><span class="">This is the content shown for Item 1</span>
       <!--v-if-->
     </dd>
@@ -44,7 +44,7 @@ exports[`DescriptionList > renders with b24ui correctly 1`] = `
   <!--v-if-->
   <!--v-if-->
   <dl class="grid grid-cols-1 sm:grid-cols-[min(50%,theme(spacing.80))_auto] mt-3 text-lg">
-    <dt class="col-start-1 border-t first:border-none sm:border-t flex flex-nowrap flex-row items-center justify-start gap-1.5 border-base-950/5 text-base-500 sm:border-base-950/5 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5 pt-3 sm:py-3"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-6 text-3xs font-regular shrink-0"><img role="img" src="https://github.com/bitrix24.png" width="18" height="18" class="h-full w-full rounded-[inherit] object-cover"></span><span class="">Item 1</span></dt>
+    <dt class="col-start-1 border-t first:border-none sm:border-t flex flex-nowrap flex-row items-center justify-start gap-1.5 border-base-950/5 text-base-500 sm:border-base-950/5 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5 pt-3 sm:py-3"><span class="inline-flex items-center justify-center select-none rounded-full align-middle bg-base-100 dark:bg-base-900 size-6 text-3xs font-regular shrink-0"><img role="img" src="https://github.com/bitrix24.png" width="18" height="18" class="h-full w-full rounded-[inherit] object-cover"></span><span class="">Item 1</span></dt>
     <dd data-orientation="vertical" class="sm:border-t sm:[&amp;:nth-child(2)]:border-none text-base-900 sm:border-base-950/5 dark:text-base-150 dark:sm:border-white/5 pb-3 pt-1 sm:py-3"><span class="">This is the content shown for Item 1</span>
       <!--v-if-->
     </dd>
@@ -83,7 +83,7 @@ exports[`DescriptionList > renders with class correctly 1`] = `
   <!--v-if-->
   <!--v-if-->
   <dl class="grid grid-cols-1 sm:grid-cols-[min(50%,theme(spacing.80))_auto] mt-3 text-lg">
-    <dt class="col-start-1 border-t first:border-none sm:border-t flex flex-nowrap flex-row items-center justify-start gap-1.5 border-base-950/5 text-base-500 sm:border-base-950/5 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5 pt-3 sm:py-3"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-6 text-3xs font-regular shrink-0"><img role="img" src="https://github.com/bitrix24.png" width="18" height="18" class="h-full w-full rounded-[inherit] object-cover"></span><span class="">Item 1</span></dt>
+    <dt class="col-start-1 border-t first:border-none sm:border-t flex flex-nowrap flex-row items-center justify-start gap-1.5 border-base-950/5 text-base-500 sm:border-base-950/5 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5 pt-3 sm:py-3"><span class="inline-flex items-center justify-center select-none rounded-full align-middle bg-base-100 dark:bg-base-900 size-6 text-3xs font-regular shrink-0"><img role="img" src="https://github.com/bitrix24.png" width="18" height="18" class="h-full w-full rounded-[inherit] object-cover"></span><span class="">Item 1</span></dt>
     <dd data-orientation="vertical" class="sm:border-t sm:[&amp;:nth-child(2)]:border-none text-base-900 sm:border-base-950/5 dark:text-base-150 dark:sm:border-white/5 pb-3 pt-1 sm:py-3"><span class="">This is the content shown for Item 1</span>
       <!--v-if-->
     </dd>
@@ -122,7 +122,7 @@ exports[`DescriptionList > renders with custom slot correctly 1`] = `
   <!--v-if-->
   <!--v-if-->
   <dl class="grid grid-cols-1 sm:grid-cols-[min(50%,theme(spacing.80))_auto] mt-3 text-lg">
-    <dt class="col-start-1 border-t first:border-none sm:border-t flex flex-nowrap flex-row items-center justify-start gap-1.5 border-base-950/5 text-base-500 sm:border-base-950/5 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5 pt-3 sm:py-3"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-6 text-3xs font-regular shrink-0"><img role="img" src="https://github.com/bitrix24.png" width="18" height="18" class="h-full w-full rounded-[inherit] object-cover"></span><span class="">Item 1</span></dt>
+    <dt class="col-start-1 border-t first:border-none sm:border-t flex flex-nowrap flex-row items-center justify-start gap-1.5 border-base-950/5 text-base-500 sm:border-base-950/5 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5 pt-3 sm:py-3"><span class="inline-flex items-center justify-center select-none rounded-full align-middle bg-base-100 dark:bg-base-900 size-6 text-3xs font-regular shrink-0"><img role="img" src="https://github.com/bitrix24.png" width="18" height="18" class="h-full w-full rounded-[inherit] object-cover"></span><span class="">Item 1</span></dt>
     <dd data-orientation="vertical" class="sm:border-t sm:[&amp;:nth-child(2)]:border-none text-base-900 sm:border-base-950/5 dark:text-base-150 dark:sm:border-white/5 pb-3 pt-1 sm:py-3"><span class="">This is the content shown for Item 1</span>
       <!--v-if-->
     </dd>
@@ -163,7 +163,7 @@ exports[`DescriptionList > renders with items correctly 1`] = `
   <!--v-if-->
   <!--v-if-->
   <dl class="grid grid-cols-1 sm:grid-cols-[min(50%,theme(spacing.80))_auto] mt-3 text-lg">
-    <dt class="col-start-1 border-t first:border-none sm:border-t flex flex-nowrap flex-row items-center justify-start gap-1.5 border-base-950/5 text-base-500 sm:border-base-950/5 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5 pt-3 sm:py-3"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-base-100 dark:bg-base-900 size-6 text-3xs font-regular shrink-0"><img role="img" src="https://github.com/bitrix24.png" width="18" height="18" class="h-full w-full rounded-[inherit] object-cover"></span><span class="">Item 1</span></dt>
+    <dt class="col-start-1 border-t first:border-none sm:border-t flex flex-nowrap flex-row items-center justify-start gap-1.5 border-base-950/5 text-base-500 sm:border-base-950/5 dark:border-white/5 dark:text-base-400 sm:dark:border-white/5 pt-3 sm:py-3"><span class="inline-flex items-center justify-center select-none rounded-full align-middle bg-base-100 dark:bg-base-900 size-6 text-3xs font-regular shrink-0"><img role="img" src="https://github.com/bitrix24.png" width="18" height="18" class="h-full w-full rounded-[inherit] object-cover"></span><span class="">Item 1</span></dt>
     <dd data-orientation="vertical" class="sm:border-t sm:[&amp;:nth-child(2)]:border-none text-base-900 sm:border-base-950/5 dark:text-base-150 dark:sm:border-white/5 pb-3 pt-1 sm:py-3"><span class="">This is the content shown for Item 1</span>
       <!--v-if-->
     </dd>
