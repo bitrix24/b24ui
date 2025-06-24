@@ -464,10 +464,16 @@ function isSelectItem(item: SelectMenuItem): item is _SelectMenuItem {
 
           <slot :model-value="(modelValue as GetModelValue<T, VK, M>)" :open="open">
             <template v-for="displayedModelValue in [displayValue(modelValue as GetModelValue<T, VK, M>)]" :key="displayedModelValue">
-              <span v-if="displayedModelValue" :class="b24ui.value({ class: props.b24ui?.value })">
+              <span
+                v-if="displayedModelValue !== undefined && displayedModelValue !== null"
+                :class="b24ui.value({ class: props.b24ui?.value })"
+              >
                 {{ displayedModelValue }}
               </span>
-              <span v-else :class="b24ui.placeholder({ class: props.b24ui?.placeholder })">
+              <span
+                v-else
+                :class="b24ui.placeholder({ class: props.b24ui?.placeholder })"
+              >
                 {{ placeholder ?? '&nbsp;' }}
               </span>
             </template>
