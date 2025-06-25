@@ -16,10 +16,10 @@
   "dependencies": {
     "@bitrix24/b24icons-vue": "^2.0.2",
     "@bitrix24/b24ui-nuxt": "workspace:*",
+    "@internationalized/date": "^3.8.2",
     "nuxt": "^3.17.5",
-    "zod": "^3.25.49",
-    "maska": "^3.1.1",
-    "@internationalized/date": "^3.8.1"
+    "zod": "^3.25.57",
+    "maska": "^3.1.1"
   },
   "devDependencies": {
     "typescript": "^5.8.3",

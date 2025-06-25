@@ -128,8 +128,8 @@
   "dependencies": {
     "@bitrix24/b24icons-vue": "^2.0.2",
     "@bitrix24/b24style": "^1.0.1",
-    "@internationalized/date": "^3.8.1",
-    "@internationalized/number": "^3.6.2",
+    "@internationalized/date": "^3.8.2",
+    "@internationalized/number": "^3.6.3",
     "@nuxt/kit": "^3.17.5",
     "@nuxt/schema": "^3.17.5",
     "@nuxtjs/color-mode": "^3.5.2",
@@ -177,10 +177,10 @@
     "@vue/test-utils": "^2.4.6",
     "embla-carousel": "^8.6.0",
     "eslint": "^9.28.0",
-    "happy-dom": "^17.6.1",
+    "happy-dom": "^17.6.3",
     "nuxt": "^3.17.5",
     "nuxt-component-meta": "^0.11.0",
-    "vitest": "^3.2.0",
+    "vitest": "^3.2.3",
     "vitest-environment-nuxt": "^1.0.1",
     "vue-tsc": "^2.2.10"
   },
