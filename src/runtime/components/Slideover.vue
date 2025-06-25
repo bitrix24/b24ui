@@ -119,9 +119,10 @@ const contentEvents = computed(() => {
   const defaultEvents = {
     closeAutoFocus: (e: Event) => e.preventDefault()
   }
+
   if (!props.dismissible) {
-    const events = ['pointerDownOutside', 'interactOutside', 'escapeKeyDown', 'closeAutoFocus'] as const
-    type EventType = typeof events[number]
+    const events = ['pointerDownOutside', 'interactOutside', 'escapeKeyDown']
+
     return events.reduce((acc, curr) => {
       acc[curr] = (e: Event) => {
         e.preventDefault()
