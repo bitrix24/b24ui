@@ -17,8 +17,11 @@
 - **!! TEST THIS !!** feat(NavigationMenu): handle `vertical` orientation with Accordion instead of Collapsible
 - **!! TEST THIS !!** fix(NavigationMenu): incorrect hover when disabled and active
 - **!! TEST THIS !!** feat(NavigationMenu): add `tooltip` and `popover` props
+- **!! TEST THIS !!** docs/guide/installation-vue.md
+- **!! TEST THIS !!** docs/guide/i18n-nuxt.md && docs/guide/i18n-vue.md
 - Badge test square 
 - Link test active|disabled === false >> hover 
+- use in demo example from playground/app/pages/components/input.vue && "maska": "^3.1.1"
 - use in demo example from playground/app/pages/components/navigation-menu.vue
 - use in demo example from playground/app/pages/components/popover.vue
 - use in demo example from playground/app/pages/components/avatar.vue
@@ -30,7 +33,7 @@
 
 ## [0.7.0](https://github.com/bitrix24/b24ui/compare/v0.6.9...v0.7.0) (2025-07-xx)
 
->> 27.05.25
+>> 11.06.25
 > f4864233812eac0ed37e0a2d076a95c285a22c01..59c26ec1230375a24fbaf8a630a696ae854700c7
 
 * feat(useOverlay): add `closeAll` method
@@ -100,6 +103,18 @@
 * chore: prefer `nuxt` over `nuxi`
 * chore(deps): update nuxt framework to ^3.17.5
 * docs(use-overlay): add caveats section regarding provide/inject limit
+* fix(Toast): calc height on next tick
+* chore(deps): pin `reka-ui` & `vaul-vue` dependencies
+* fix(useOverlay): use original props when not provided to `open`
+* fix(Modal/Slideover): don't emit `close:prevent` on `closeAutoFocus`
+* docs(input): add mask example
+* chore(deps): add `@internationalized/date` in playground
+* docs(installation): add tip to improve types in vue
+* chore(deps): update dependency reka-ui to v2.3.1
+* chore(deps): use `workspace:*` syntax
+* chore(deps): update all non-major dependencies
+* fix(defineShortcuts): allow `meta_-` shortcut
+* feat(extendLocale): new composable
 
 ## [0.6.9](https://github.com/bitrix24/b24ui/compare/v0.6.8...v0.6.9) (2025-06-05)
 
