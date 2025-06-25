@@ -110,6 +110,22 @@ components.d.ts
 
 :::
 
+::: info
+Internally, Bitrix24 UI relies on custom alias to resolve the theme types. If you're using TypeScript, you should add an alias to your `tsconfig` to enable auto-completion in your `vite.config.ts`.
+
+```json [tsconfig.node.json]
+{
+  "compilerOptions": {
+    "paths": {
+      "#build/b24ui": [
+        "./node_modules/@bitrix24/b24ui-nuxt/.nuxt/b24ui"
+      ]
+    }
+  }
+}
+```
+:::
+
 **3. Use the Bitrix24 UI Vue plugin in your `main.ts`**
 
 ::: code-group
