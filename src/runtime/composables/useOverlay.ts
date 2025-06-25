@@ -17,6 +17,7 @@ interface ManagedOverlayOptionsPrivate<T extends Component> {
   id: symbol
   isMounted: boolean
   isOpen: boolean
+  originalProps?: ComponentProps<T>
   resolvePromise?: (value: any) => void
 }
 export type Overlay = OverlayOptions<Component> & ManagedOverlayOptionsPrivate<Component>
@@ -44,7 +45,8 @@ function _useOverlay() {
       component: markRaw(component!),
       isMounted: !!defaultOpen,
       destroyOnClose: !!destroyOnClose,
-      props: props || {}
+      originalProps: props || {},
+      props: {}
     })
 
     overlays.push(options)
@@ -63,6 +65,8 @@ function _useOverlay() {
     // If props are provided, update the overlay's props
     if (props) {
       patch(overlay.id, props)
+    } else {
+      patch(overlay.id, overlay.originalProps)
     }
 
     overlay.isOpen = true
