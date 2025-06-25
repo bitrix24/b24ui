@@ -18,7 +18,8 @@
     "@bitrix24/b24ui-nuxt": "latest",
     "nuxt": "^3.17.5",
     "zod": "^3.25.49",
-    "maska": "^3.1.1"
+    "maska": "^3.1.1",
+    "@internationalized/date": "^3.8.1"
   },
   "devDependencies": {
     "typescript": "^5.8.3",
