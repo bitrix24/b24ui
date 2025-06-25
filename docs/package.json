@@ -6,7 +6,7 @@
   "type": "module",
   "dependencies": {
     "@bitrix24/b24icons-vue": "^2.0.2",
-    "@bitrix24/b24ui-nuxt": "latest",
+    "@bitrix24/b24ui-nuxt": "workspace:*",
     "maska": "^3.1.1"
   },
   "devDependencies": {
