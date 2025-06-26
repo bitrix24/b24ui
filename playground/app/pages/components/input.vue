@@ -189,7 +189,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
     <ExampleCard title="mask" class="sm:col-span-2">
       <B24Alert title="Memo" color="warning" class="mb-2">
         <template #description>
-          There's no built-in support for masks, but you can use librairies like <ProseA href="https://github.com/beholdr/maska" target="_blank">maska</ProseA> to mask the Input.
+          There's no built-in support for masks, but you can use libraries like <ProseA href="https://github.com/beholdr/maska" target="_blank">maska</ProseA> to mask the Input.
         </template>
       </B24Alert>
       <ExampleCardSubTitle title="card" />
