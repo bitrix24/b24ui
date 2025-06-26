@@ -18,7 +18,7 @@
     "@bitrix24/b24ui-nuxt": "workspace:*",
     "@internationalized/date": "^3.8.2",
     "nuxt": "^3.17.5",
-    "zod": "^3.25.64",
+    "zod": "^3.25.67",
     "maska": "^3.1.1"
   },
   "devDependencies": {
