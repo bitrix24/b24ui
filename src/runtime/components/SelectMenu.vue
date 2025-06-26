@@ -524,8 +524,20 @@ defineExpose({
           <FocusScope trapped :class="b24ui.focusScope({ class: props.b24ui?.focusScope })">
             <slot name="content-top" />
 
-            <ComboboxInput v-if="!!searchInput" v-model="searchTerm" :display-value="() => searchTerm" as-child>
-              <B24Input no-border autofocus autocomplete="off" v-bind="searchInputProps" :class="b24ui.input({ class: props.b24ui?.input })" />
+            <ComboboxInput
+              v-if="!!searchInput"
+              v-model="searchTerm"
+              :display-value="() => searchTerm"
+              as-child
+            >
+              <B24Input
+                no-border
+                autofocus
+                autocomplete="off"
+                :size="size"
+                v-bind="searchInputProps"
+                :class="b24ui.input({ class: props.b24ui?.input })"
+              />
             </ComboboxInput>
 
             <ComboboxEmpty :class="b24ui.empty({ class: props.b24ui?.empty })">
