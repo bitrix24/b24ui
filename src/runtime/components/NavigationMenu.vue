@@ -250,20 +250,13 @@ const lists = computed<NavigationMenuItem[][]>(() =>
     : []
 )
 
-function getAccordionDefaultValue(list: NavigationMenuItem[]) {
-  function findItemsWithDefaultOpen(items: NavigationMenuItem[], level = 0): string[] {
-    return items.reduce((acc: string[], item, index) => {
-      if (item.defaultOpen || item.open) {
-        acc.push(item.value || (level > 0 ? `item-${level}-${index}` : `item-${index}`))
-      }
-      if (item.children?.length) {
-        acc.push(...findItemsWithDefaultOpen(item.children, level + 1))
-      }
-      return acc
-    }, [])
-  }
-
-  const indexes = findItemsWithDefaultOpen(list)
+function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
+  const indexes = list.reduce((acc: string[], item, index) => {
+    if (item.defaultOpen || item.open) {
+      acc.push(item.value || (level > 0 ? `item-${level}-${index}` : `item-${index}`))
+    }
+    return acc
+  }, [])
 
   return props.type === 'single' ? indexes[0] : indexes
 }
@@ -506,7 +499,14 @@ function getAccordionDefaultValue(list: NavigationMenuItem[]) {
         v-if="orientation === 'vertical' && item.children?.length && !collapsed"
         :class="b24ui.content({ class: [props.b24ui?.content, item.b24ui?.content] })"
       >
-        <ul :class="b24ui.childList({ class: props.b24ui?.childList })">
+        <AccordionRoot
+          v-bind="({
+            ...accordionProps,
+            defaultValue: getAccordionDefaultValue(item.children, level + 1)
+          } as AccordionRootProps)"
+          as="ul"
+          :class="b24ui.childList({ class: props.b24ui?.childList })"
+        >
           <ReuseItemTemplate
             v-for="(childItem, childIndex) in item.children"
             :key="childIndex"
@@ -515,7 +515,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[]) {
             :level="(level || 0) + 1"
             :class="b24ui.childItem({ class: [props.b24ui?.childItem, childItem.b24ui?.childItem] })"
           />
-        </ul>
+        </AccordionRoot>
       </AccordionContent>
     </component>
   </DefineItemTemplate>
