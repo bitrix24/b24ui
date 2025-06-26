@@ -1,12 +1,42 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Modal > renders with actions slot correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800 overflow-hidden" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+  <!--v-if-->
+  <div class="flex items-center gap-1.5 pe-5 pt-0">
+    <div class="min-h-lg2">
+      <!--v-if-->
+      <!--v-if-->
+    </div>Actions slot<button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear no-underline decoration-solid decoration-auto text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300 hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0 active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0 disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300 focus-visible:outline-base-400 ring-base-850 focus:outline-none focus-visible:ring-base-850 h-xl2 text-3xs leading-none rounded-2xs justify-center font-bold uppercase absolute top-2 end-1.5 p-0.5">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-5">
+          <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button>
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+</div>
+
+
+<!--teleport end-->"
+`;
+
 exports[`Modal > renders with body slot correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800 overflow-hidden" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <div class="flex items-center gap-1.5 pe-5 pt-0">
     <div class="min-h-lg2">
@@ -36,7 +66,7 @@ exports[`Modal > renders with class correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800 bg-base-100" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800 overflow-hidden bg-base-100" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <div class="flex items-center gap-1.5 pe-5 pt-0">
     <div class="min-h-lg2">
@@ -66,7 +96,7 @@ exports[`Modal > renders with close slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800 overflow-hidden" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <div class="flex items-center gap-1.5 pe-5 pt-0">
     <div class="min-h-lg2">
@@ -88,7 +118,7 @@ exports[`Modal > renders with closeIcon correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800 overflow-hidden" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <div class="flex items-center gap-1.5 pe-5 pt-0">
     <div class="min-h-lg2">
@@ -118,7 +148,7 @@ exports[`Modal > renders with content slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800 overflow-hidden" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->Content slot
 </div>
 
@@ -132,7 +162,7 @@ exports[`Modal > renders with default slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800" id="reka-dialog-content-v-0-0-0" role="dialog" aria-describedby="reka-dialog-description-v-0-0-2" aria-labelledby="reka-dialog-title-v-0-0-1" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800 overflow-hidden" id="reka-dialog-content-v-0-0-0" role="dialog" aria-describedby="reka-dialog-description-v-0-0-2" aria-labelledby="reka-dialog-title-v-0-0-1" data-state="open">
   <!--v-if-->
   <div class="flex items-center gap-1.5 pe-5 pt-0">
     <div class="min-h-lg2">
@@ -162,7 +192,7 @@ exports[`Modal > renders with description correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800 overflow-hidden" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <div class="flex items-center gap-1.5 pe-5 pt-0">
     <div class="min-h-lg2">
@@ -192,7 +222,7 @@ exports[`Modal > renders with description slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800 overflow-hidden" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <div class="flex items-center gap-1.5 pe-5 pt-0">
     <div class="min-h-lg2">
@@ -222,7 +252,7 @@ exports[`Modal > renders with footer slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800 overflow-hidden" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <div class="flex items-center gap-1.5 pe-5 pt-0">
     <div class="min-h-lg2">
@@ -282,7 +312,7 @@ exports[`Modal > renders with header slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800 overflow-hidden" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <div class="flex items-center gap-1.5 pe-5 pt-0">Header slot</div>
   <!--v-if-->
@@ -299,7 +329,7 @@ exports[`Modal > renders with open correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" style="pointer-events: auto;">
+<div data-dismissable-layer="" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800 overflow-hidden" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" style="pointer-events: auto;">
   <!--v-if-->
   <div class="flex items-center gap-1.5 pe-5 pt-0">
     <div class="min-h-lg2">
@@ -329,7 +359,7 @@ exports[`Modal > renders with title correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800 overflow-hidden" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <div class="flex items-center gap-1.5 pe-5 pt-0">
     <div class="min-h-lg2">
@@ -359,7 +389,7 @@ exports[`Modal > renders with title slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800 overflow-hidden" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <div class="flex items-center gap-1.5 pe-5 pt-0">
     <div class="min-h-lg2">
@@ -389,7 +419,7 @@ exports[`Modal > renders with ui correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800 overflow-hidden" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <div class="flex items-center gap-1.5 pe-5 pt-0">
     <div class="min-h-lg2">
@@ -419,7 +449,7 @@ exports[`Modal > renders without close correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800 overflow-hidden" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <div class="flex items-center gap-1.5 pe-5 pt-0">
     <div class="min-h-lg2">
@@ -442,7 +472,7 @@ exports[`Modal > renders without overlay correctly 1`] = `
 
 
 <!--v-if-->
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800 overflow-hidden" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <div class="flex items-center gap-1.5 pe-5 pt-0">
     <div class="min-h-lg2">
@@ -472,7 +502,7 @@ exports[`Modal > renders without transition correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="py-md2 px-5 fixed bg-white dark:bg-base-950 flex flex-col focus:outline-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-md shadow-lg ring ring-base-300 dark:ring-base-800 overflow-hidden" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <div class="flex items-center gap-1.5 pe-5 pt-0">
     <div class="min-h-lg2">
