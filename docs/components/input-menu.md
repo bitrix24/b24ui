@@ -537,3 +537,11 @@ Use the `filter-fields` prop with an array of fields to filter on. Defaults to `
 ### Emits
 
 <ComponentEmits component="InputMenu" />
+
+### Expose
+
+When accessing the component via a template ref, you can use the following:
+
+| Name                  | Type                                                           |
+|-----------------------|----------------------------------------------------------------|
+| `inputRef`{lang="ts"} | `Ref<InstanceType<typeof ComboboxTrigger> \| null>`{lang="ts"} |

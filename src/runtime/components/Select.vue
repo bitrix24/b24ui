@@ -290,6 +290,10 @@ function onUpdateOpen(value: boolean) {
 function isSelectItem(item: SelectItem): item is SelectItemBase {
   return typeof item === 'object' && item !== null
 }
+
+defineExpose({
+  triggerRef
+})
 </script>
 
 <!-- eslint-disable vue/no-template-shadow -->

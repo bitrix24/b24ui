@@ -447,3 +447,11 @@ You can fetch items from an API and use them in the Select.
 ### Emits
 
 <ComponentEmits component="Select" />
+
+### Expose
+
+When accessing the component via a template ref, you can use the following:
+
+| Name                    | Type                                                         |
+|-------------------------|--------------------------------------------------------------|
+| `triggerRef`{lang="ts"} | `Ref<InstanceType<typeof SelectTrigger> \| null>`{lang="ts"} |

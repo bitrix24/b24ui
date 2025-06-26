@@ -197,3 +197,11 @@ Use the `slot` property to customize a specific item.
 ### Emits
 
 <ComponentEmits component="Tabs" />
+
+### Expose
+
+When accessing the component via a template ref, you can use the following:
+
+| Name                     | Type                                        |
+|--------------------------|---------------------------------------------|
+| `triggersRef`{lang="ts"} | `Ref<ComponentPublicInstance[]>`{lang="ts"} |

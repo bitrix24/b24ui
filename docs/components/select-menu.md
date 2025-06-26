@@ -532,3 +532,11 @@ Use the `filter-fields` prop with an array of fields to filter on. Defaults to `
 
 <ComponentEmits component="SelectMenu" />
 
+### Expose
+
+When accessing the component via a template ref, you can use the following:
+
+| Name                    | Type                                                           |
+|-------------------------|----------------------------------------------------------------|
+| `triggerRef`{lang="ts"} | `Ref<InstanceType<typeof ComboboxTrigger> \| null>`{lang="ts"} |
+

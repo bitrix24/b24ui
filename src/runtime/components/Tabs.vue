@@ -77,7 +77,8 @@ export type TabsSlots<T extends TabsItem = TabsItem> = {
 </script>
 
 <script setup lang="ts" generic="T extends TabsItem">
-import { computed } from 'vue'
+import type { ComponentPublicInstance } from 'vue'
+import { ref, computed } from 'vue'
 import { TabsRoot, TabsList, TabsIndicator, TabsTrigger, TabsContent, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
@@ -109,6 +110,12 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.tabs |
   size: props.size,
   orientation: props.orientation
 }))
+
+const triggersRef = ref<ComponentPublicInstance[]>([])
+
+defineExpose({
+  triggersRef
+})
 </script>
 
 <template>
@@ -121,6 +128,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.tabs |
       <TabsTrigger
         v-for="(item, index) in items"
         :key="index"
+        :ref="el => (triggersRef[index] = el as ComponentPublicInstance)"
         :value="item.value || String(index)"
         :disabled="item.disabled"
         :class="b24ui.trigger({ class: [props.b24ui?.trigger, item.b24ui?.trigger] })"
