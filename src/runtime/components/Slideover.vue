@@ -196,7 +196,6 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.slideo
                   <B24Button
                     v-if="props.close"
                     :icon="closeIcon || icons.close"
-                    size="md"
                     class="group"
                     :color="['left', 'right'].includes(props?.side) ? 'primary' : 'link'"
                     :aria-label="t('slideover.close')"
@@ -212,11 +211,11 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.slideo
           </div>
 
           <div :class="b24ui.body({ class: props.b24ui?.body, scrollbarThin: Boolean(props.scrollbarThin) })">
-            <slot name="body" :close="close"  />
+            <slot name="body" :close="close" />
           </div>
 
           <div v-if="!!slots.footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
-            <slot name="footer" :close="close"  />
+            <slot name="footer" :close="close" />
           </div>
         </slot>
       </DialogContent>
