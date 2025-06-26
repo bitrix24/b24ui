@@ -176,7 +176,7 @@
     "@types/canvas-confetti": "^1.9.0",
     "@vue/test-utils": "^2.4.6",
     "embla-carousel": "^8.6.0",
-    "eslint": "^9.28.0",
+    "eslint": "^9.29.0",
     "happy-dom": "^17.6.3",
     "nuxt": "^3.17.5",
     "nuxt-component-meta": "^0.11.0",
