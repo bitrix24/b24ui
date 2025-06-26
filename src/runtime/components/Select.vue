@@ -125,6 +125,8 @@ export interface SelectProps<T extends ArrayOrNested<SelectItem> = ArrayOrNested
    * @defaultValue false
    */
   highlight?: boolean
+  autofocus?: boolean
+  autofocusDelay?: number
   class?: any
   b24ui?: Select['slots']
 }
@@ -167,7 +169,7 @@ export interface SelectSlots<
 </script>
 
 <script setup lang="ts" generic="T extends ArrayOrNested<SelectItem>, VK extends GetItemKeys<T> = 'value', M extends boolean = false">
-import { computed, toRef } from 'vue'
+import { ref, computed, onMounted, toRef } from 'vue'
 import { Primitive, SelectRoot, SelectArrow, SelectTrigger, SelectPortal, SelectContent, SelectLabel, SelectGroup, SelectItem, SelectItemIndicator, SelectItemText, SelectSeparator, useForwardPropsEmits } from 'reka-ui'
 import { defu } from 'defu'
 import { reactivePick } from '@vueuse/core'
@@ -187,7 +189,8 @@ defineOptions({ inheritAttrs: false })
 const props = withDefaults(defineProps<SelectProps<T, VK, M>>(), {
   valueKey: 'value' as never,
   labelKey: 'label' as never,
-  portal: true
+  portal: true,
+  autofocusDelay: 0
 })
 const emits = defineEmits<SelectEmits<T, VK, M>>()
 const slots = defineSlots<SelectSlots<T, VK, M>>()
@@ -247,6 +250,22 @@ function displayValue(value: GetItemValue<T, VK> | GetItemValue<T, VK>[]): strin
   return item && (typeof item === 'object' ? get(item, props.labelKey as string) : item)
 }
 
+const triggerRef = ref<InstanceType<typeof SelectTrigger> | null>(null)
+
+function autoFocus() {
+  if (props.autofocus) {
+    triggerRef.value?.$el?.focus({
+      focusVisible: true
+    })
+  }
+}
+
+onMounted(() => {
+  setTimeout(() => {
+    autoFocus()
+  }, props.autofocusDelay)
+})
+
 function onUpdate(value: any) {
   // @ts-expect-error - 'target' does not exist in type 'EventInit'
   const event = new Event('change', { target: { value } })
@@ -287,7 +306,12 @@ function isSelectItem(item: SelectItem): item is SelectItemBase {
       @update:model-value="onUpdate"
       @update:open="onUpdateOpen"
     >
-      <SelectTrigger :id="id" :class="b24ui.base({ class: [props.b24ui?.base, props.class] })" v-bind="{ ...$attrs, ...ariaAttrs }">
+      <SelectTrigger
+        :id="id"
+        ref="triggerRef"
+        :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
+        v-bind="{ ...$attrs, ...ariaAttrs }"
+      >
         <div v-if="isTag" :class="b24ui.tag({ class: props.b24ui?.tag })">
           {{ props.tag }}
         </div>

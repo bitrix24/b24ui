@@ -150,6 +150,8 @@ export interface SelectMenuProps<T extends ArrayOrNested<SelectMenuItem> = Array
    * @defaultValue false
    */
   ignoreFilter?: boolean
+  autofocus?: boolean
+  autofocusDelay?: number
   class?: any
   b24ui?: SelectMenu['slots']
 }
@@ -200,7 +202,7 @@ export interface SelectMenuSlots<
 </script>
 
 <script setup lang="ts" generic="T extends ArrayOrNested<SelectMenuItem>, VK extends GetItemKeys<T> | undefined = undefined, M extends boolean = false">
-import { computed, toRef, toRaw } from 'vue'
+import { ref, computed, onMounted, toRef, toRaw } from 'vue'
 import {
   ComboboxRoot,
   ComboboxArrow,
@@ -242,7 +244,8 @@ const props = withDefaults(defineProps<SelectMenuProps<T, VK, M>>(), {
   searchInput: true,
   labelKey: 'label' as never,
   resetSearchTermOnBlur: true,
-  resetSearchTermOnSelect: true
+  resetSearchTermOnSelect: true,
+  autofocusDelay: 0
 })
 const emits = defineEmits<SelectMenuEmits<T, VK, M>>()
 const slots = defineSlots<SelectMenuSlots<T, VK, M>>()
@@ -351,6 +354,22 @@ const createItem = computed(() => {
 })
 const createItemPosition = computed(() => typeof props.createItem === 'object' ? props.createItem.position : 'bottom')
 
+const triggerRef = ref<InstanceType<typeof ComboboxTrigger> | null>(null)
+
+function autoFocus() {
+  if (props.autofocus) {
+    triggerRef.value?.$el?.focus({
+      focusVisible: true
+    })
+  }
+}
+
+onMounted(() => {
+  setTimeout(() => {
+    autoFocus()
+  }, props.autofocusDelay)
+})
+
 function onUpdate(value: any) {
   if (toRaw(props.modelValue) === value) {
     return
@@ -448,7 +467,11 @@ function isSelectItem(item: SelectMenuItem): item is _SelectMenuItem {
       @update:open="onUpdateOpen"
     >
       <ComboboxAnchor as-child>
-        <ComboboxTrigger :class="b24ui.base({ class: [props.b24ui?.base, props.class] })" tabindex="0">
+        <ComboboxTrigger
+          ref="triggerRef"
+          :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
+          tabindex="0"
+        >
           <div v-if="isTag" :class="b24ui.tag({ class: props.b24ui?.tag })">
             {{ props.tag }}
           </div>
