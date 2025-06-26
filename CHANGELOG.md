@@ -2,6 +2,7 @@
 - add CheckboxGroup
 - add Accordion
 - add Timeline
+- add InputTags
 - fix RadioGroupItem[] (docs / demo) 
 - fix modal/slideover (docs)
 - fix .github/workflows/module.yml
@@ -115,6 +116,22 @@
 * chore(deps): update all non-major dependencies
 * fix(defineShortcuts): allow `meta_-` shortcut
 * feat(extendLocale): new composable
+* feat(Select/SelectMenu): handle dynamic `autofocus`
+* chore(deps): update dependency colortranslator to v5
+* fix(useOverlay): set props to original props when `defaultOpen` is set
+* chore(deps): update tailwindcss to ^4.1.10
+* feat(Select/SelectMenu/Tabs): expose trigger refs
+* docs(input): fix typo in mask example
+* chore(deps): update all non-major dependencies
+* chore(deps): update devdependency happy-dom to v18
+* fix(NavigationMenu): nested accordion context at every level
+* fix(Toaster): smoother visibility transition for stacked toasts
+* docs(examples): use `useClipboard` instead of `navigator.clipboard`
+* fix(components): remove default `md` size on buttons
+* fix(Modal): prevent scrollbars overflow
+* fix(Form): expose reactive fields
+* feat(Modal/Slideover): add `actions` slot
+* fix(SelectMenu): dynamic input size
 
 ## [0.6.9](https://github.com/bitrix24/b24ui/compare/v0.6.8...v0.6.9) (2025-06-05)
 
