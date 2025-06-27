@@ -3,7 +3,6 @@ import type { CheckboxRootProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/checkbox'
 import type { ComponentConfig } from '../types/utils'
-import type { IconComponent } from '../types'
 
 type Checkbox = ComponentConfig<typeof theme, AppConfig, 'checkbox'>
 
@@ -32,12 +31,6 @@ export interface CheckboxProps extends Pick<CheckboxRootProps, 'disabled' | 'req
    * @defaultValue 'start'
    */
   indicator?: Checkbox['variants']['indicator']
-  /**
-   * The icon displayed when the checkbox is indeterminate.
-   * @defaultValue appConfig.ui.icons.minus
-   * @IconifyIcon
-   */
-  indeterminateIcon?: string
   class?: any
   b24ui?: Checkbox['slots']
 }
