@@ -167,7 +167,7 @@ function removeToast() {
           name="duration"
         >
           <B24Range
-            v-model.number="appConfig.toaster.duration"
+            v-model="appConfig.toaster.duration"
             aria-label="Duration"
             :min="1000"
             :max="50000"

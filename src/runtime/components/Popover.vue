@@ -83,7 +83,7 @@ const contentEvents = computed(() => {
         emits('close:prevent')
       }
       return acc
-    }, defaultEvents as Record<typeof events[number] | keyof typeof defaultEvents, (e: Event) => void>)
+    }, {} as Record<typeof events[number], (e: Event) => void>)
   }
 
   return {}

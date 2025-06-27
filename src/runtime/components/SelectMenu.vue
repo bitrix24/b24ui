@@ -568,7 +568,7 @@ defineExpose({
 
                   <ComboboxItem
                     v-else
-                    :class="b24ui.item({ class: [props.b24ui?.item, isSelectItem(item) && item.b24ui?.item, isSelectItem(item) && item.class], colorItem: isSelectItem(item) && item?.color })"
+                    :class="b24ui.item({ class: [props.b24ui?.item, isSelectItem(item) && item.b24ui?.item, isSelectItem(item) && item.class], colorItem: (isSelectItem(item) && item?.color) || undefined })"
                     :disabled="isSelectItem(item) && item.disabled"
                     :value="props.valueKey && isSelectItem(item) ? get(item, props.valueKey as string) : item"
                     @select="onSelect($event, item)"
@@ -602,13 +602,13 @@ defineExpose({
                         </slot>
                       </span>
 
-                      <span :class="b24ui.itemTrailing({ class: [props.b24ui?.itemTrailing, isSelectItem(item) && item.b24ui?.itemTrailing], colorItem: isSelectItem(item) && item?.color })">
+                      <span :class="b24ui.itemTrailing({ class: [props.b24ui?.itemTrailing, isSelectItem(item) && item.b24ui?.itemTrailing], colorItem: (isSelectItem(item) && item?.color) || undefined })">
                         <slot name="item-trailing" :item="(item as NestedItem<T>)" :index="index" />
 
                         <ComboboxItemIndicator as-child>
                           <Component
                             :is="selectedIcon || icons.check"
-                            :class="b24ui.itemTrailingIcon({ class: [props.b24ui?.itemTrailingIcon, isSelectItem(item) && item.b24ui?.itemTrailingIcon], colorItem: isSelectItem(item) && item?.color })"
+                            :class="b24ui.itemTrailingIcon({ class: [props.b24ui?.itemTrailingIcon, isSelectItem(item) && item.b24ui?.itemTrailingIcon], colorItem: (isSelectItem(item) && item?.color) || undefined })"
                           />
                         </ComboboxItemIndicator>
                       </span>

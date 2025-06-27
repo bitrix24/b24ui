@@ -71,7 +71,6 @@ export default function ComponentImportPlugin(
         }
 
         // only apply to relative imports or bitrix24 ui runtime components
-        console.log(id)
         if (!RELATIVE_IMPORT_RE.test(id) && !id.startsWith('@bitrix24/b24ui-nuxt/components/')) {
           return
         }

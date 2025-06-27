@@ -502,7 +502,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
         <AccordionRoot
           v-bind="({
             ...accordionProps,
-            defaultValue: getAccordionDefaultValue(item.children, level + 1)
+            defaultValue: getAccordionDefaultValue(item.children, (level || 0) + 1)
           } as AccordionRootProps)"
           as="ul"
           :class="b24ui.childList({ class: props.b24ui?.childList })"
