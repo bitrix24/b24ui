@@ -12,7 +12,7 @@ import { defu } from 'defu'
  * This plugin adds all the Bitrix24 UI components as auto-imports.
  */
 export default function ComponentImportPlugin(
-  options: Bitrix24UIOptions,
+  options: Bitrix24UIOptions & { extraRuntimeDir?: string },
   meta: UnpluginContextMeta
 ) {
   const components = globSync('**/*.vue', { cwd: join(runtimeDir, 'components') })
@@ -63,13 +63,16 @@ export default function ComponentImportPlugin(
       name: 'bitrix24:b24ui:components',
       enforce: 'pre',
       resolveId(id, importer) {
-        // only apply to runtime bitrix24 ui components
-        if (!importer || !normalize(importer).includes(runtimeDir)) {
+        if (!importer) {
+          return
+        }
+        if (!normalize(importer).includes(runtimeDir) && (!options.extraRuntimeDir || !normalize(importer).includes(options.extraRuntimeDir))) {
           return
         }
 
-        // only apply to relative imports
-        if (!RELATIVE_IMPORT_RE.test(id)) {
+        // only apply to relative imports or bitrix24 ui runtime components
+        console.log(id)
+        if (!RELATIVE_IMPORT_RE.test(id) && !id.startsWith('@bitrix24/b24ui-nuxt/components/')) {
           return
         }
 
