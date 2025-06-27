@@ -5,14 +5,21 @@ import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
 import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import InfoIcon from '@bitrix24/b24icons-vue/button/InfoIcon'
+import type { ToastProps } from '@bitrix24/b24ui-nuxt'
 
 usePageMeta.setPageTitle('Badge')
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 const depths = Object.keys(theme.variants.depth) as Array<keyof typeof theme.variants.depth>
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
 
+const toast = useToast()
+
 function onClick() {
-  alert('Some action alert')
+  toast.add({
+    title: 'Action',
+    description: 'Some action',
+    color: 'primary' as ToastProps['color']
+  })
 }
 
 function onCloseClick(event: MouseEvent) {
@@ -96,6 +103,27 @@ function onCloseClick(event: MouseEvent) {
             :label="`fill / ${depth}`"
             :depth="depth"
             use-fill
+          />
+        </div>
+        <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
+          <B24Badge
+            v-for="depth in depths"
+            :key="depth"
+            :size="size"
+            label="square"
+            :depth="depth"
+            use-fill
+            square
+          />
+        </div>
+        <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
+          <B24Badge
+            v-for="depth in depths"
+            :key="depth"
+            :size="size"
+            :depth="depth"
+            use-fill
+            :icon="InfoIcon"
           />
         </div>
       </template>

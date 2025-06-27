@@ -39,7 +39,7 @@ export default {
       false: 'bg-transparent'
     },
     leading: {
-      true: 'ps-2xs'
+      true: 'ps-1'
     },
     color: {
       default: '',
@@ -361,27 +361,42 @@ export default {
     {
       size: 'xs',
       square: true,
-      class: 'p-0.5'
+      class: {
+        base: 'p-0 ps-0 pe-0',
+        wrapper: 'p-0.5 gap-0',
+      }
     },
     {
       size: 'sm',
       square: true,
-      class: 'p-1'
+      class: {
+        base: 'p-0 ps-0 pe-0',
+        wrapper: 'p-1 gap-0',
+      }
     },
     {
       size: 'md',
       square: true,
-      class: 'p-1'
+      class: {
+        base: 'p-0 ps-0 pe-0',
+        wrapper: 'p-1 gap-0',
+      }
     },
     {
       size: 'lg',
       square: true,
-      class: 'p-1'
+      class: {
+        base: 'p-0 ps-0 pe-0',
+        wrapper: 'p-1 gap-0',
+      }
     },
     {
       size: 'xl',
       square: true,
-      class: 'p-1'
+      class: {
+        base: 'p-0 ps-0 pe-0',
+        wrapper: 'p-1 gap-0',
+      }
     },
     // endregion ////
     // region useLink & useFill ////
