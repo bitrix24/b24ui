@@ -67,9 +67,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
         <B24AvatarGroup v-for="size in sizes" :key="size" :size="size" :max="4" :b24ui="{ base: 'ring-green-550 dark:ring-green-700' }">
           <B24Avatar src="/b24ui/demo/avatar/employee.png" alt="Employee Name" :size="size" />
           <B24Avatar src="/b24ui/demo/avatar/assistant.png" alt="Assistant Name" :size="size" />
-          <B24Chip inset :size="size">
-            <B24Avatar src="/b24ui/demo/avatar/employee.png" alt="Employee Name" class="rotate-y-180" :size="size" />
-          </B24Chip>
+          <B24Avatar src="/b24ui/demo/avatar/employee.png" alt="Employee Name" :size="size" :chip="{ color: 'ai', size }" />
         </B24AvatarGroup>
       </div>
       <ExampleCardSubTitle title="bg & ring" />
