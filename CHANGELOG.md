@@ -1,34 +1,19 @@
-# @todo 
-- add CheckboxGroup
+# @todo
 - add Accordion
-- add Timeline
 - add InputTags
-- fix RadioGroupItem[] (docs / demo) 
+- add CheckboxGroup
+- add Timeline
+- fix RadioGroupItem[] (docs / demo)
 - fix modal/slideover (docs)
-- fix .github/workflows/module.yml
-- chore(deps): update dependency reka-ui to ^2.2.1 >> fix tests (select)
-- chore(github): add reproduire workflow (docs page && workflow)
-- add theme -> some info aboute components
-- see llms-full.txt >> docs/server/plugins/llms.ts
-  - workers-ai-provider
-  - @ai-sdk/vue
+- add NavigationMenu docs all demo
 - **!! TEST THIS !!** docs/examples/tabs/demo/ModelValue.vue
-- **!! TEST THIS !!** src/runtime/components/Textarea.vue
-- **!! TEST THIS !!** fix(InputNumber): handle inside button group
-- **!! TEST THIS !!** feat(NavigationMenu): handle `vertical` orientation with Accordion instead of Collapsible
-- **!! TEST THIS !!** fix(NavigationMenu): incorrect hover when disabled and active
-- **!! TEST THIS !!** feat(NavigationMenu): add `tooltip` and `popover` props
+- fix `nuxi` at starter
 - **!! TEST THIS !!** docs/guide/installation-vue.md
 - **!! TEST THIS !!** docs/guide/i18n-nuxt.md && docs/guide/i18n-vue.md
-- Badge test square 
-- Link test active|disabled === false >> hover 
-- use in demo example from playground/app/pages/components/input.vue && "maska": "^3.1.1"
-- use in demo example from playground/app/pages/components/navigation-menu.vue
-- use in demo example from playground/app/pages/components/popover.vue
-- use in demo example from playground/app/pages/components/avatar.vue
-- use in demo example from playground/app/pages/components/modal.vue && playground/app/pages/components/slideover.vue
-- add NavigationMenu docs all demo
-- fix `nuxi` at starter
+- see llms-full.txt >> docs/server/plugins/llms.ts - workers-ai-provider - @ai-sdk/vue
+- add theme -> some info aboute components
+- fix .github/workflows/module.yml
+- chore(github): add reproduire workflow (docs page && workflow)
 
 # Changelog
 
@@ -112,6 +97,9 @@
 * **Form:** expose reactive fields
 * **SelectMenu:** dynamic input size
 * **use-overlay:** add caveats section regarding provide/inject limit
+* **vue:** handle override when importing from `@nuxt/ui`
+* **playground:** set ButtonGroup ps|pe for Button = color.link
+* **NavigationMenu:** dark color for hover
 
 ### Docs 
 * **input:** add mask example
