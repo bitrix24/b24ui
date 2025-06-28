@@ -63,6 +63,7 @@ function onClick() {
               <B24Button
                 :color="color"
                 :depth="depth"
+                :class="color === 'link' && depth !== 'dark' ? 'ps-4 pe-4' : ''"
                 loading-auto
                 use-clock
                 @click="onClick"
@@ -76,6 +77,7 @@ function onClick() {
             <B24Button
               rounded
               :color="color"
+              :class="color === 'link' ? 'ps-4 pe-4' : ''"
               loading-auto
               use-clock
               @click="onClick"
