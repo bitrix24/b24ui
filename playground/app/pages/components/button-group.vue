@@ -193,6 +193,19 @@ function onClick() {
           <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
         </B24ButtonGroup>
 
+        <B24ButtonGroup orientation="vertical" size="sm" no-split>
+          <B24InputNumber class="w-40" placeholder="some number" />
+          <B24Button
+            color="link"
+            depth="dark"
+            loading-auto
+            use-clock
+            @click="onClick"
+          >
+            Button
+          </B24Button>
+        </B24ButtonGroup>
+
         <B24ButtonGroup no-split>
           <B24Badge color="default" use-fill label="https://" />
           <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
@@ -271,6 +284,19 @@ function onClick() {
             />
             <B24Button
               color="ai"
+              loading-auto
+              use-clock
+              @click="onClick"
+            >
+              Button
+            </B24Button>
+          </B24ButtonGroup>
+
+          <B24ButtonGroup :size="size" no-split>
+            <B24InputNumber class="w-40" placeholder="some number" />
+            <B24Button
+              color="link"
+              depth="dark"
               loading-auto
               use-clock
               @click="onClick"

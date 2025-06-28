@@ -133,8 +133,7 @@ const props = withDefaults(defineProps<InputNumberProps>(), {
   orientation: 'horizontal',
   disabledIncrement: false,
   disabledDecrement: false,
-  color: 'primary',
-  size: 'md'
+  color: 'primary'
 })
 const emits = defineEmits<InputNumberEmits>()
 defineSlots<InputNumberSlots>()
@@ -156,7 +155,7 @@ const isTag = computed(() => {
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.inputNumber || {}) })({
   color: color.value,
-  size: inputSize.value,
+  size: inputSize?.value,
   tagColor: props.tagColor,
   highlight: highlight.value,
   rounded: Boolean(props.rounded),
