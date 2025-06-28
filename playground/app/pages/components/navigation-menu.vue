@@ -36,24 +36,25 @@ const items = [
     },
     {
       label: 'Active Clients',
-      type: 'label' as const,
+      type: 'label' as NavigationMenuItem['type'],
       avatar: {
         src: '/avatar/employee.png'
       }
     },
     {
       label: 'Conversion Rates',
-      type: 'label' as const,
+      type: 'label' as NavigationMenuItem['type'],
       icon: ConnectionIcon
     },
     {
       label: 'Current Deals',
-      type: 'label' as const,
+      type: 'label' as NavigationMenuItem['type'],
       active: true,
       badge: 3
     },
     {
       label: 'Sales Pipeline',
+      type: 'trigger' as NavigationMenuItem['type'],
       avatar: {
         src: '/avatar/employee.png'
       },
@@ -99,12 +100,18 @@ const items = [
       icon: GitHubIcon,
       badge: 14,
       to: 'https://github.com/bitrix24/b24ui',
-      target: '_blank'
+      target: '_blank',
+      tooltip: {
+        text: 'Open on GitHub',
+        kbds: [
+          '3.8k'
+        ]
+      }
     },
     {
       viewportRtl: true,
       label: 'Sales Analytics',
-      type: 'trigger',
+      type: 'trigger' as NavigationMenuItem['type'],
       active: true,
       defaultOpen: true,
       badge: 3,
