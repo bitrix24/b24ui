@@ -206,9 +206,9 @@ export default {
         link: 'text-base-900 dark:text-base-200',
         linkLeadingIcon: 'text-base-500 dark:text-base-700',
         childLink: [
-          'hover:before:bg-base-20 dark:before:hover:bg-base-900',
+          'hover:before:bg-base-20 dark:hover:before:bg-base-900',
           'text-base-500 dark:text-base-700',
-          'hover:text-base-950 dark:hover:dark:text-base-200',
+          'hover:text-base-950 dark:hover:text-base-200',
           'transition-colors before:transition-colors'
         ].join(' '),
         childLinkIcon: [
@@ -368,7 +368,7 @@ export default {
           'min-h-9',
           'before:rounded-md',
           'before:bg-base-800 dark:before:bg-white/35',
-          'hover:before:bg-base-800 hover:dark:before:bg-white/35',
+          'hover:before:bg-base-800 dark:hover:before:bg-white/35',
           'data-[state=open]:before:bg-base-800 dark:data-[state=open]:before:bg-white/35'
         ].join(' '),
         linkLabelWrapper: [
@@ -407,7 +407,7 @@ export default {
           'min-h-9',
           'before:rounded-md',
           'before:bg-red-800 dark:before:bg-red-800',
-          'hover:before:bg-red-800 hover:dark:before:bg-red-800',
+          'hover:before:bg-red-800 dark:hover:before:bg-red-800',
           'data-[state=open]:before:bg-red-800 dark:data-[state=open]:before:bg-red-800'
         ].join(' '),
         linkLabelWrapper: [
@@ -446,7 +446,7 @@ export default {
           'min-h-9',
           'before:rounded-md',
           'before:bg-green-800 dark:before:bg-green-800',
-          'hover:before:bg-green-800 hover:dark:before:bg-green-800',
+          'hover:before:bg-green-800 dark:hover:before:bg-green-800',
           'data-[state=open]:before:bg-green-800 dark:data-[state=open]:before:bg-green-800'
         ].join(' '),
         linkLabelWrapper: [
@@ -485,7 +485,7 @@ export default {
           'min-h-9',
           'before:rounded-md',
           'before:bg-orange-800 dark:before:bg-orange-800',
-          'hover:before:bg-orange-800 hover:dark:before:bg-orange-800',
+          'hover:before:bg-orange-800 dark:hover:before:bg-orange-800',
           'data-[state=open]:before:bg-orange-800 dark:data-[state=open]:before:bg-orange-800'
         ].join(' '),
         linkLabelWrapper: [
@@ -524,7 +524,7 @@ export default {
           'min-h-9',
           'before:rounded-md',
           'before:bg-blue-800 dark:before:bg-blue-800',
-          'hover:before:bg-blue-800 hover:dark:before:bg-blue-800',
+          'hover:before:bg-blue-800 dark:hover:before:bg-blue-800',
           'data-[state=open]:before:bg-blue-800 dark:data-[state=open]:before:bg-blue-800'
         ].join(' '),
         linkLabelWrapper: [
@@ -563,7 +563,7 @@ export default {
           'min-h-9',
           'before:rounded-md',
           'before:bg-cyan-800 dark:before:bg-cyan-800',
-          'hover:before:bg-cyan-800 hover:dark:before:bg-cyan-800',
+          'hover:before:bg-cyan-800 dark:hover:before:bg-cyan-800',
           'data-[state=open]:before:bg-cyan-800 dark:data-[state=open]:before:bg-cyan-800'
         ].join(' '),
         linkLabelWrapper: [
@@ -602,7 +602,7 @@ export default {
           'min-h-9',
           'before:rounded-md',
           'before:bg-collab-800 dark:before:bg-collab-800',
-          'hover:before:bg-collab-800 hover:dark:before:bg-collab-800',
+          'hover:before:bg-collab-800 dark:hover:before:bg-collab-800',
           'data-[state=open]:before:bg-collab-800 dark:data-[state=open]:before:bg-collab-800'
         ].join(' '),
         linkLabelWrapper: [
@@ -641,7 +641,7 @@ export default {
           'min-h-9',
           'before:rounded-md',
           'before:bg-ai-800 dark:before:bg-ai-800',
-          'hover:before:bg-ai-800 hover:dark:before:bg-ai-800',
+          'hover:before:bg-ai-800 dark:hover:before:bg-ai-800',
           'data-[state=open]:before:bg-ai-800 dark:data-[state=open]:before:bg-ai-800'
         ].join(' '),
         linkLabelWrapper: [
@@ -704,7 +704,7 @@ export default {
       disabled: false,
       class: {
         link: [
-          'hover:before:bg-base-800 hover:dark:before:bg-white/35',
+          'hover:before:bg-base-800 dark:hover:before:bg-white/35',
           'before:transition-colors'
         ].join(' ')
       }
@@ -718,7 +718,7 @@ export default {
       disabled: false,
       class: {
         link: [
-          'hover:before:bg-red-800 hover:dark:before:bg-red-800',
+          'hover:before:bg-red-800 dark:hover:before:bg-red-800',
           'before:transition-colors'
         ].join(' ')
       }
@@ -732,7 +732,7 @@ export default {
       disabled: false,
       class: {
         link: [
-          'hover:before:bg-green-800 hover:dark:before:bg-green-800',
+          'hover:before:bg-green-800 dark:hover:before:bg-green-800',
           'before:transition-colors'
         ].join(' ')
       }
@@ -746,7 +746,7 @@ export default {
       disabled: false,
       class: {
         link: [
-          'hover:before:bg-orange-800 hover:dark:before:bg-orange-800',
+          'hover:before:bg-orange-800 dark:hover:before:bg-orange-800',
           'before:transition-colors'
         ].join(' ')
       }
@@ -760,7 +760,7 @@ export default {
       disabled: false,
       class: {
         link: [
-          'hover:before:bg-blue-800 hover:dark:before:bg-blue-800',
+          'hover:before:bg-blue-800 dark:hover:before:bg-blue-800',
           'before:transition-colors'
         ].join(' ')
       }
@@ -774,7 +774,7 @@ export default {
       disabled: false,
       class: {
         link: [
-          'hover:before:bg-cyan-800 hover:dark:before:bg-cyan-800',
+          'hover:before:bg-cyan-800 dark:hover:before:bg-cyan-800',
           'before:transition-colors'
         ].join(' ')
       }
@@ -788,7 +788,7 @@ export default {
       disabled: false,
       class: {
         link: [
-          'hover:before:bg-collab-800 hover:dark:before:bg-collab-800',
+          'hover:before:bg-collab-800 dark:hover:before:bg-collab-800',
           'before:transition-colors'
         ].join(' ')
       }
@@ -802,7 +802,7 @@ export default {
       disabled: false,
       class: {
         link: [
-          'hover:before:bg-ai-800 hover:dark:before:bg-ai-800',
+          'hover:before:bg-ai-800 dark:hover:before:bg-ai-800',
           'before:transition-colors'
         ].join(' ')
       }
