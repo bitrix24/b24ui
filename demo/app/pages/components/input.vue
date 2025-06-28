@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { vMaska } from 'maska/vue'
 import theme from '#build/b24ui/input'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
@@ -12,6 +13,8 @@ import ALetterIcon from '@bitrix24/b24icons-vue/main/ALetterIcon'
 import CrossedEye2Icon from '@bitrix24/b24icons-vue/main/CrossedEye2Icon'
 import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
 import Cross20Icon from '@bitrix24/b24icons-vue/actions/Cross20Icon'
+import CreditDebitCardIcon from '@bitrix24/b24icons-vue/main/CreditDebitCardIcon'
+import CalendarIcon from '@bitrix24/b24icons-vue/outline/CalendarIcon'
 
 usePageMeta.setPageTitle('Input')
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
@@ -181,6 +184,34 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
           />
         </div>
       </template>
+    </ExampleCard>
+
+    <ExampleCard title="mask" class="sm:col-span-2">
+      <B24Alert title="Memo" color="warning" class="mb-2">
+        <template #description>
+          There's no built-in support for masks, but you can use libraries like <ProseA href="https://github.com/beholdr/maska" target="_blank"><ProseCode color="warning">maska</ProseCode></ProseA> to mask the Input.
+        </template>
+      </B24Alert>
+      <ExampleCardSubTitle title="card" />
+      <div class="mb-4 flex flex-col gap-2 w-3/4">
+        <B24Input
+          v-maska="'#### #### #### ####'"
+          placeholder="4242 4242 4242 4242"
+          :icon="CreditDebitCardIcon"
+        />
+
+        <div class="flex items-center gap-2">
+          <B24Input
+            v-maska="'##/##'"
+            placeholder="MM/YY"
+            :icon="CalendarIcon"
+          />
+          <B24Input
+            v-maska="'###'"
+            placeholder="CVC"
+          />
+        </div>
+      </div>
     </ExampleCard>
 
     <ExampleCard title="size" class="sm:col-span-2">
