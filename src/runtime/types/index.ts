@@ -1,3 +1,4 @@
+export * from '../components/Accordion.vue'
 export * from '../components/Advice.vue'
 export * from '../components/Alert.vue'
 export * from '../components/App.vue'

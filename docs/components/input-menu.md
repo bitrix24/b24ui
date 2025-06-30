@@ -258,7 +258,7 @@ Use the `icon` prop to show an [@bitrix24/b24icons](https://bitrix24.github.io/b
 
 ### Trailing Icon
 
-Use the `trailing-icon` prop to customize the trailing icon [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html). Defaults to `ChevronDownIcon`.
+Use the `trailing-icon` prop to customize the trailing [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html). Defaults to `ChevronDownIcon`.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>

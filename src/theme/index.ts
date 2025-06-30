@@ -1,3 +1,4 @@
+export { default as accordion } from './accordion'
 export { default as advice } from './advice'
 export { default as alert } from './alert'
 export { default as avatar } from './avatar'
