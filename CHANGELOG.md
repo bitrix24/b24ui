@@ -1,5 +1,5 @@
 # @todo
-- add Accordion
+- add Accordion - docs (description + demo line hihline)
 - add InputTags
 - add CheckboxGroup
 - add Timeline
@@ -48,6 +48,7 @@
 * **Form:** expose loading state to default slot
 * **InputNumber:** add `increment-disabled` / `decrement-disabled` props
 * **extendLocale:** new composable
+* **Accordion:** new component
 
 ### Bug Fixes
 
