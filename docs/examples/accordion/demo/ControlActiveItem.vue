@@ -1,25 +1,25 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import type { AccordionItem } from '@bitrix24/b24ui-nuxt'
-import IncertImageIcon from '@bitrix24/b24icons-vue/editor/IncertImageIcon'
-import CalculatorIcon from '@bitrix24/b24icons-vue/main/CalculatorIcon'
-import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
+import SmartActivityIcon from '@bitrix24/b24icons-vue/outline/SmartActivityIcon'
+import FeedbackIcon from '@bitrix24/b24icons-vue/outline/FeedbackIcon'
+import RocketIcon from '@bitrix24/b24icons-vue/outline/RocketIcon'
 
 const items = ref<AccordionItem[]>([
   {
-    label: 'Icons',
-    icon: IncertImageIcon,
-    content: 'You have nothing to do.'
+    label: 'Getting started with Bitrix24',
+    icon: SmartActivityIcon,
+    content: 'Bitrix24 is an online service that offers useful tools for your company. This includes chats and calls, tasks and projects, CRM, and AI-powered assistant.'
   },
   {
-    label: 'Colors',
-    icon: CalculatorIcon,
-    content: 'Choose a primary color from your Tailwind CSS theme.'
+    label: 'Main features of Bitrix24',
+    icon: FeedbackIcon,
+    content: 'Bitrix24 is an online service that has all the tools for company operation and business management.'
   },
   {
-    label: 'Components',
+    label: 'Bitrix24 Cloud plans',
     icon: RocketIcon,
-    content: 'You can customize components by using the `class` / `b24ui` props.'
+    content: 'Bitrix24 is an online service for business management and work automation. It contains tools for companies of all sizes and industries. Bitrix24 has several plans with different sets of tools that are suitable for different types of business.'
   }
 ])
 

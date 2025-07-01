@@ -1,20 +1,20 @@
 <script setup lang="ts">
 import type { AccordionItem } from '@bitrix24/b24ui-nuxt'
-import IncertImageIcon from '@bitrix24/b24icons-vue/editor/IncertImageIcon'
-import CalculatorIcon from '@bitrix24/b24icons-vue/main/CalculatorIcon'
-import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
+import SmartActivityIcon from '@bitrix24/b24icons-vue/outline/SmartActivityIcon'
+import FeedbackIcon from '@bitrix24/b24icons-vue/outline/FeedbackIcon'
+import RocketIcon from '@bitrix24/b24icons-vue/outline/RocketIcon'
 
 const items: AccordionItem[] = [
   {
-    label: 'Icons',
-    icon: IncertImageIcon
+    label: 'Getting started with Bitrix24',
+    icon: SmartActivityIcon
   },
   {
-    label: 'Colors',
-    icon: CalculatorIcon
+    label: 'Main features of Bitrix24',
+    icon: FeedbackIcon
   },
   {
-    label: 'Components',
+    label: 'Bitrix24 Cloud plans',
     icon: RocketIcon
   }
 ]
@@ -24,7 +24,7 @@ const items: AccordionItem[] = [
   <B24Accordion :items="items">
     <template #content="{ item }">
       <p class="pb-4 text-base-700 dark:text-base-300">
-        This is the {{ item.label }} panel.
+        This is the <ProseCode>{{ item.label }}</ProseCode> panel.
       </p>
     </template>
   </B24Accordion>

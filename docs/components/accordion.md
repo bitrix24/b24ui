@@ -129,7 +129,7 @@ You can also set an icon for a specific item by using the `trailingIcon` propert
 </div>
 
 ::: details
-<<< @/examples/accordion/demo/TrailingIcon.vue{18 vue:line-numbers}
+<<< @/examples/accordion/demo/TrailingIcon.vue{19 vue:line-numbers}
 :::
 
 ## Examples
@@ -146,7 +146,7 @@ You can also pass the `value` of one of the items if provided.
 When `type="multiple"`, ensure to pass an array to the `default-value` prop or the `v-model` directive.
 :::
 
-<div class="lg:min-h-[160px]">
+<div class="lg:min-h-[260px]">
   <ClientOnly>
     <ControlActiveItemExample />
   </ClientOnly>
