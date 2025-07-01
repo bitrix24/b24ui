@@ -1,23 +1,6 @@
-# @todo
-- add Accordion - docs (description + demo line hihline)
-- add InputTags
-- add CheckboxGroup
-- add Timeline
-- fix RadioGroupItem[] (docs / demo)
-- fix modal/slideover (docs)
-- add NavigationMenu docs all demo
-- **!! TEST THIS !!** docs/examples/tabs/demo/ModelValue.vue
-- fix `nuxi` at starter
-- **!! TEST THIS !!** docs/guide/installation-vue.md
-- **!! TEST THIS !!** docs/guide/i18n-nuxt.md && docs/guide/i18n-vue.md
-- see llms-full.txt >> docs/server/plugins/llms.ts - workers-ai-provider - @ai-sdk/vue
-- add theme -> some info aboute components
-- fix .github/workflows/module.yml
-- chore(github): add reproduire workflow (docs page && workflow)
-
 # Changelog
 
-## [0.7.0](https://github.com/bitrix24/b24ui/compare/v0.6.9...v0.7.0) (2025-07-xx)
+## [0.7.0](https://github.com/bitrix24/b24ui/compare/v0.6.9...v0.7.0) (2025-07-01)
 
 ### ⚠ BREAKING CHANGES
 
@@ -49,6 +32,8 @@
 * **InputNumber:** add `increment-disabled` / `decrement-disabled` props
 * **extendLocale:** new composable
 * **Accordion:** new component
+* **Tooltip:** add `reference` prop
+* **Input/Textarea:** add `default-value` prop
 
 ### Bug Fixes
 
