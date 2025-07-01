@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { shallowRef } from 'vue'
+import { shallowRef, useTemplateRef } from 'vue'
 import { useSortable } from '@vueuse/integrations/useSortable'
 import type { AccordionItem } from '@bitrix24/b24ui-nuxt'
 import IncertImageIcon from '@bitrix24/b24icons-vue/editor/IncertImageIcon'

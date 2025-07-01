@@ -4,29 +4,29 @@ description: This is a stacked set of collapsible panels
 outline: deep
 ---
 <script setup>
-import AccordionExample from '/examples/advice/Accordion.vue';
-import MultipleExample from '/examples/advice/Multiple.vue';
-import CollapsibleExample from '/examples/advice/Collapsible.vue';
-import UnmountExample from '/examples/advice/Unmount.vue';
-import DisabledExample from '/examples/advice/Disabled.vue';
-import ControlActiveItemExample from '/examples/advice/ControlActiveItem.vue';
-import WithDragAndDropExample from '/examples/advice/WithDragAndDrop.vue';
-import WithBodySlotExample from '/examples/advice/WithBodySlot.vue';
-import WithContentSlotExample from '/examples/advice/WithContentSlot.vue';
-import WithCustomSlotExample from '/examples/advice/WithCustomSlot.vue';
+import AccordionExample from '/examples/accordion/Accordion.vue';
+import MultipleExample from '/examples/accordion/Multiple.vue';
+import CollapsibleExample from '/examples/accordion/Collapsible.vue';
+import UnmountExample from '/examples/accordion/Unmount.vue';
+import DisabledExample from '/examples/accordion/Disabled.vue';
+import TrailingIconExample from '/examples/accordion/TrailingIcon.vue';
+import ControlActiveItemExample from '/examples/accordion/ControlActiveItem.vue';
+import WithDragAndDropExample from '/examples/accordion/WithDragAndDrop.vue';
+import WithBodySlotExample from '/examples/accordion/WithBodySlot.vue';
+import WithContentSlotExample from '/examples/accordion/WithContentSlot.vue';
+import WithCustomSlotExample from '/examples/accordion/WithCustomSlot.vue';
 </script>
 # Accordion
 
 <Description
+  nuxt-ui="https://ui3.nuxt.dev/components/accordion"
+  reka-ui="https://reka-ui.com/docs/components/accordion"
+  reka-ui-title="Accordion"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Accordion.vue"
   demo="/components/accordion"
 >
 This is a stacked set of collapsible panels.
 </Description>
-
-::: warning We are still updating this page
-Some data may be missing here — we will complete it shortly.
-:::
 
 ## Usage
 
@@ -50,7 +50,7 @@ Use the `items` prop as an array of objects with the following properties:
   </ClientOnly>
 </div>
 
-<<< @/examples/accordion/demo/Accordion.vue{vue:line-numbers}
+<<< @/examples/accordion/demo/Accordion.vue{28 vue:line-numbers}
 
 ### Multiple
 
@@ -63,7 +63,7 @@ Set the `type` prop to `multiple` to allow multiple items to be active at the sa
 </div>
 
 ::: details
-<<< @/examples/accordion/demo/Multiple.vue{vue:line-numbers}
+<<< @/examples/accordion/demo/Multiple.vue{30 vue:line-numbers}
 :::
 
 ### Collapsible
@@ -77,7 +77,7 @@ When `type` is `single`, you can set the `collapsible` prop to `false` to preven
 </div>
 
 ::: details
-<<< @/examples/accordion/demo/Collapsible.vue{vue:line-numbers}
+<<< @/examples/accordion/demo/Collapsible.vue{30 vue:line-numbers}
 :::
 
 ### Unmount
@@ -95,7 +95,7 @@ You can inspect the DOM to see each item's content being rendered.
 </div>
 
 ::: details
-<<< @/examples/accordion/demo/Unmount.vue{vue:line-numbers}
+<<< @/examples/accordion/demo/Unmount.vue{38 vue:line-numbers}
 :::
 
 ### Disabled
@@ -111,7 +111,7 @@ You can also disable a specific item by using the `disabled` property in the ite
 </div>
 
 ::: details
-<<< @/examples/accordion/demo/Disabled.vue{vue:line-numbers}
+<<< @/examples/accordion/demo/Disabled.vue{26,39 vue:line-numbers}
 :::
 
 ### Trailing Icon
@@ -129,7 +129,7 @@ You can also set an icon for a specific item by using the `trailingIcon` propert
 </div>
 
 ::: details
-<<< @/examples/accordion/demo/TrailingIcon.vue{vue:line-numbers}
+<<< @/examples/accordion/demo/TrailingIcon.vue{18 vue:line-numbers}
 :::
 
 ## Examples
@@ -208,8 +208,10 @@ Use the `slot` property to customize a specific item.
 
 You will have access to the following slots:
 
-- `#{{ item.slot }}`{lang="ts"}
-- `#{{ item.slot }}-body`{lang="ts"}
+```ts
+#{{ item.slot }}
+#{{ item.slot }}-body
+```
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -220,6 +222,7 @@ You will have access to the following slots:
 ::: details
 <<< @/examples/accordion/demo/WithCustomSlot.vue{vue:line-numbers}
 :::
+
 ## API
 
 ### Props

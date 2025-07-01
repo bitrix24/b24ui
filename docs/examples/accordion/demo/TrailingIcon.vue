@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import type { AccordionItem } from '@bitrix24/b24ui-nuxt'
 import IncertImageIcon from '@bitrix24/b24icons-vue/editor/IncertImageIcon'
 import CalculatorIcon from '@bitrix24/b24icons-vue/main/CalculatorIcon'
