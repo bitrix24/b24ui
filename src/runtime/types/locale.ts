@@ -53,6 +53,7 @@ export type Direction = 'ltr' | 'rtl'
 export type Locale<M> = {
   name: string
   code: string
+  locale: string
   dir: Direction
   messages: M
 }

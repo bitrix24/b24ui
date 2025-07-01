@@ -4,18 +4,25 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "nuxi dev",
-    "build": "nuxi build",
-    "generate": "nuxi generate",
-    "preview": "nuxi preview"
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "typecheck": "nuxt typecheck"
   },
   "dd_dependencies": {
-    "@nuxthub/core": "^0.8.23"
+    "@nuxthub/core": "^0.8.25"
   },
   "dependencies": {
     "@bitrix24/b24icons-vue": "^2.0.2",
-    "@bitrix24/b24ui-nuxt": "latest",
-    "nuxt": "^3.17.4",
-    "zod": "^3.25.49"
+    "@bitrix24/b24ui-nuxt": "workspace:*",
+    "@internationalized/date": "^3.8.2",
+    "nuxt": "^3.17.5",
+    "zod": "^3.25.67",
+    "maska": "^3.1.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "vue-tsc": "^2.2.10"
   }
 }

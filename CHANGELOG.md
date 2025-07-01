@@ -1,6 +1,98 @@
 # Changelog
 
-## [0.6.9](https://github.com/bitrix24/b24ui/compare/v0.6.8...v0.6.9) (2025-06-xx)
+## [0.7.0](https://github.com/bitrix24/b24ui/compare/v0.6.9...v0.7.0) (2025-07-01)
+
+### ⚠ BREAKING CHANGES
+
+* **components:** `class` should have priority over `ui` prop
+* **NavigationMenu:** revert new `collapsible` field
+* **InputMenu/Select/SelectMenu:** manual viewport to display scrollbars
+* **useOverlay:** correct spelling of `unmount` function
+
+### Features
+
+* **components:** add `b24ui` field in items
+* **useOverlay:** add `closeAll` method
+* **useOverlay:** add `isOpen` method to check overlay state
+* **NavigationMenu:** handle `tooltip` in items
+* **NavigationMenu:** add `collapsible` field in items
+* **NavigationMenu:** handle `vertical` orientation with Accordion instead of Collapsible
+* **NavigationMenu:** add `tooltip` and `popover` props
+* **NavigationMenu:** add `trigger` type in items
+* **Modal/Slideover:** add `after:enter` event
+* **Modal/Slideover:** add `close` method in slots
+* **Modal/Slideover:** add `actions` slot
+* **Popover:** add `anchor` slot
+* **Toast:** add `progress` prop to hide progress bar
+* **Select/SelectMenu:** handle dynamic `autofocus`
+* **Select/SelectMenu/Tabs:** expose trigger refs
+* **Badge:** add `square` prop
+* **Avatar:** add `chip` prop
+* **Form:** expose loading state to default slot
+* **InputNumber:** add `increment-disabled` / `decrement-disabled` props
+* **extendLocale:** new composable
+* **Accordion:** new component
+* **Tooltip:** add `reference` prop
+* **Input/Textarea:** add `default-value` prop
+
+### Bug Fixes
+
+* **defineShortcuts:** bring back `meta` to `ctrl` convert on non macros platforms
+* **RadioGroup:** improve items `value` field type
+* **useOverlay:** improve types and docs
+* **templates:** put back args to watch in dev
+* **templates:** dont write unused variants in theme files
+* **Calendar:** add `place-items-center` to grid row
+* **theme:** improve app config types for `b24ui` object
+* **inertia|vue:** link always render as anchor tag
+* **Tabs:** prevent trigger truncate without parent width
+* **Tabs:** set `focus:outline-none` with `link` variant
+* **Badge/Button:** handle zero value in label correctly
+* **Select:** support more primitive types in `value` field
+* **Toaster:** allow `base` slot override
+* **vue:** make `useAppConfig` reactive
+* **inertia:** make `useAppConfig` reactive
+* **NavigationMenu:** arrow position conflict
+* **Link:** consistent behavior between nuxt, vue and inertia
+* **Input/Textarea:** handle generic types
+* **Range:** handle generic types
+* **FormField:** use `div` for `error` and `help` slots
+* **module:** configure fix
+* **FormField:** block form field injection after use
+* **Checkbox/RadioGroup:** render correct element without `variant`
+* **InputNumber:** handle inside button group
+* **ButtonGroup:** add `z-index` on focused element
+* **NavigationMenu:** incorrect hover when disabled and active
+* **Tooltip:** increase padding for consistency
+* **CheckboxGroup/RadioGroup:** variant `table` borders in RTL mode
+* **Input/Textarea:** define model modifiers types
+* **DropdownMenu:** wrap groups in a viewport
+* **NavigationMenu:** set content `max-height` in `horizontal` orientation
+* **Select/SelectMenu:** display falsy values
+* **Select/SelectMenu:** prevent empty string display when multiple
+* **Form:** conditionally type form data via `transform` prop
+* **Toast:** calc height on next tick
+* **useOverlay:** use original props when not provided to `open`
+* **Modal/Slideover:** don't emit `close:prevent` on `closeAutoFocus`
+* **defineShortcuts:** allow `meta_-` shortcut
+* **useOverlay:** set props to original props when `defaultOpen` is set
+* **NavigationMenu:** nested accordion context at every level
+* **Toaster:** smoother visibility transition for stacked toasts
+* **components:** remove default `md` size on buttons
+* **Modal:** prevent scrollbars overflow
+* **Form:** expose reactive fields
+* **SelectMenu:** dynamic input size
+* **use-overlay:** add caveats section regarding provide/inject limit
+* **vue:** handle override when importing from `@nuxt/ui`
+* **playground:** set ButtonGroup ps|pe for Button = color.link
+* **NavigationMenu:** dark color for hover
+
+### Docs 
+* **input:** add mask example
+* **installation:** add tip to improve types in vue
+* **examples:** use `useClipboard` instead of `navigator.clipboard`
+
+## [0.6.9](https://github.com/bitrix24/b24ui/compare/v0.6.8...v0.6.9) (2025-06-05)
 
 ### Docs
 
@@ -317,7 +409,7 @@
 
 ### ⚠ BREAKING CHANGES
 
-* **refactor(Form):** drop explicit support for `zod` and `valibot`
+* **Form:**** drop explicit support for `zod` and `valibot`
 
 ### Bug Fixes
 

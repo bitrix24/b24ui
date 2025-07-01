@@ -18,6 +18,11 @@ export interface ToasterProps extends Omit<ToastProviderProps, 'swipeDirection'>
    */
   expand?: boolean
   /**
+   * Whether to show the progress bar on all toasts.
+   * @defaultValue true
+   */
+  progress?: boolean
+  /**
    * Render the toaster in a portal.
    * @defaultValue true
    */
@@ -55,6 +60,7 @@ const props = withDefaults(defineProps<ToasterProps>(), {
   position: 'top-right' as const,
   expand: true,
   duration: 5000,
+  progress: true,
   portal: true
 })
 defineSlots<ToasterSlots>()
@@ -119,6 +125,7 @@ function getOffset(index: number) {
       v-for="(toast, index) in toasts"
       :key="toast.id"
       ref="refs"
+      :progress="progress"
       v-bind="proxyToastProps(toast)"
       :close="(toast.close as boolean)"
       :data-expanded="expanded"
@@ -131,9 +138,7 @@ function getOffset(index: number) {
         '--translate': expanded ? 'calc(var(--offset) * var(--translate-factor))' : 'calc(var(--before) * var(--gap))',
         '--transform': 'translateY(var(--translate)) scale(var(--scale))'
       }"
-      :class="[b24ui.base(), {
-        'cursor-pointer': !!toast.onClick
-      }]"
+      :class="b24ui.base({ class: [props.b24ui?.base, toast.onClick ? 'cursor-pointer' : undefined] })"
       @update:open="onUpdateOpen($event, toast.id)"
       @click="toast.onClick && toast.onClick(toast)"
     />
@@ -141,7 +146,7 @@ function getOffset(index: number) {
     <ToastPortal v-bind="portalProps">
       <ToastViewport
         :data-expanded="expanded"
-        :class="b24ui.viewport({ class: [props.class, props.b24ui?.viewport] })"
+        :class="b24ui.viewport({ class: [props.b24ui?.viewport, props.class] })"
         :style="{
           '--scale-factor': '0.05',
           '--translate-factor': position?.startsWith('top') ? '1px' : '-1px',

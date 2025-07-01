@@ -461,7 +461,7 @@ defineExpose({
   <Primitive
     :as="as"
     v-bind="$attrs"
-    :class="b24ui.base({ class: [props.class, props.b24ui?.base] })"
+    :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
   >
     <svg
       v-if="props.useCircle"

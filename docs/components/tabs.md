@@ -39,6 +39,8 @@ Use the `items` prop as an array of objects with the following properties:
 - `value?: string | number`{lang="ts"}
 - `disabled?: boolean`{lang="ts"}
 - [`slot?: string`{lang="ts"}](#with-custom-slot)
+- `class?: any`{lang="ts"}
+- `b24ui?: { trigger?: ClassNameValue, leadingIcon?: ClassNameValue, leadingAvatar?: ClassNameValue, label?: ClassNameValue, content?: ClassNameValue }`{lang="ts"}
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -144,10 +146,6 @@ Use the `orientation` prop to change the orientation of the Tabs. Defaults to `h
 
 You can control the active item by using the `default-value` prop or the `v-model` directive with the index of the item.
 
-::: tip
-You can also pass the `value` of one of the items if provided.
-:::
-
 <div class="lg:min-h-[160px]">
   <ClientOnly>
     <ModelValueExample />
@@ -199,3 +197,11 @@ Use the `slot` property to customize a specific item.
 ### Emits
 
 <ComponentEmits component="Tabs" />
+
+### Expose
+
+When accessing the component via a template ref, you can use the following:
+
+| Name                     | Type                                        |
+|--------------------------|---------------------------------------------|
+| `triggersRef`{lang="ts"} | `Ref<ComponentPublicInstance[]>`{lang="ts"} |

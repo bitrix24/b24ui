@@ -21,6 +21,9 @@ const schema = z.object({
   select: z.string().refine(value => value === 'option-2', {
     message: 'Select Option 2'
   }),
+  selectMultiple: z.array(z.string()).refine(values => values.includes('option-2'), {
+    message: 'Include Option 2'
+  }),
   selectMenu: z.any().refine(option => option?.value === 'option-2', {
     message: 'Select Option 2'
   }),
@@ -69,6 +72,7 @@ function resetState() {
   state.textarea = undefined
   state.select = undefined
   state.selectMenu = undefined
+  state.selectMultiple = undefined
   state.selectMenuMultiple = undefined
   state.switch = undefined
   state.checkbox = undefined
@@ -85,6 +89,7 @@ function fillState() {
   state.inputMenuMultiple = [{ label: 'Option 2', value: 'option-2' }]
   state.textarea = 'john john john john john'
   state.select = 'option-2'
+  state.selectMultiple = ['option-2']
   state.selectMenu = { label: 'Option 2', value: 'option-2' }
   state.selectMenuMultiple = [{ label: 'Option 2', value: 'option-2' }]
   state.switch = true
@@ -150,6 +155,10 @@ function fillState() {
 
     <B24FormField name="select" label="Select">
       <B24Select v-model="state.select" :items="items" class="w-full" />
+    </B24FormField>
+
+    <B24FormField name="selectMultiple" label="Select (Multiple)">
+      <B24Select v-model="state.selectMultiple" multiple :items="items" class="w-full" />
     </B24FormField>
 
     <B24FormField name="selectMenu" label="Select Menu">

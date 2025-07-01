@@ -6,7 +6,6 @@
  * @link /api_d7/bitrix/ui/forms/fields_types.php
  * @see bitrix/js/ui/select..
  *
- * @todo add scroll/ Wait `ComboboxScrollUpButton` like `SelectScrollUpButton`
  * @todo change empty template
  */
 import { defuFn } from 'defu'

@@ -14,7 +14,9 @@ const modal = overlay.create(LazyModal, {
 })
 
 async function open() {
-  const shouldIncrement = await modal.open()
+  const instance = modal.open()
+
+  const shouldIncrement = await instance.result
 
   if (shouldIncrement) {
     count.value++

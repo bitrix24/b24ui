@@ -44,6 +44,7 @@ const menuList: IMenuItem[] = [
 ]
 
 const components: IComponentInfo[] = [
+  { id: 'accordion', description: 'A stacked set of collapsible panels.', iconData: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'advice', description: 'A couple of lines of text and an avatar.', iconData: ChatMessageIcon, iconUi: 'pr-3xs' },
   { id: 'alert', description: 'A callout to draw user\'s attention.', iconData: AlertIcon },
   { id: 'avatar', description: 'An img element with fallback and Nuxt Image support.', iconData: PersonIcon },

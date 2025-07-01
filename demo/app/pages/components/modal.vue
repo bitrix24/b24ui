@@ -148,6 +148,14 @@ function openModal() {
         >
           <B24Button label="Open with custom close button" color="link" depth="dark" />
         </B24Modal>
+
+        <B24Modal title="First modal">
+          <B24Button label="Close with scoped slot close" color="default" depth="light" />
+
+          <template #footer="{ close }">
+            <B24Button label="Close with scoped slot close" @click="close" />
+          </template>
+        </B24Modal>
       </div>
     </ExampleCard>
 

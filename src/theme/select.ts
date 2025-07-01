@@ -19,7 +19,7 @@ const defSize = {
   itemLeadingChip: 'size-3 not-group-data-reka-collection-item:ps-2.5',
   itemLeadingChipSize: 'sm',
   itemTrailingIcon: 'size-3',
-  scrollUpDownButtonIcon: 'size-4',
+  // scrollUpDownButtonIcon: 'size-4',
   trailingIcon: 'size-lg2'
 }
 
@@ -57,15 +57,22 @@ export default () => {
           'overflow-hidden',
           'data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in]',
           'origin-(--reka-select-content-transform-origin)',
+          'flex flex-col',
           'pointer-events-auto'
         ].join(' '),
-        scrollUpDownButton: [
-          'flex items-center justify-center h-[25px] cursor-default backdrop-blur',
-          'text-base-800 bg-white',
-          'dark:text-base-100 dark:bg-base-dark'
+        // scrollUpDownButton: [
+        //  'flex items-center justify-center h-[25px] cursor-default backdrop-blur',
+        //  'text-base-800 bg-white',
+        //  'dark:text-base-100 dark:bg-base-dark'
+        // ].join(' '),
+        // scrollUpDownButtonIcon: '',
+        viewport: [
+          'relative',
+          'divide-y divide-base-master/10 dark:divide-base-100/20',
+          'scroll-py-1',
+          'overflow-y-auto',
+          'flex-1'
         ].join(' '),
-        scrollUpDownButtonIcon: '',
-        viewport: 'divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1',
         group: 'p-1 isolate',
         empty: 'py-2 text-center text-sm text-base-500 dark:text-base-600',
         label: [

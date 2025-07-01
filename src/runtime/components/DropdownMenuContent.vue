@@ -84,48 +84,48 @@ const groups = computed<DropdownMenuItem[][]>(() =>
         <Component
           :is="icons.loading"
           v-if="item.loading"
-          :class="b24ui.itemLeadingIcon({ class: b24uiOverride?.itemLeadingIcon, color: item?.color, loading: true })"
+          :class="b24ui.itemLeadingIcon({ class: [b24uiOverride?.itemLeadingIcon, item.b24ui?.itemLeadingIcon], color: item?.color, loading: true })"
         />
         <Component
           :is="item.icon"
           v-else-if="item.icon"
-          :class="b24ui.itemLeadingIcon({ class: b24uiOverride?.itemLeadingIcon, color: item?.color, active })"
+          :class="b24ui.itemLeadingIcon({ class: [b24uiOverride?.itemLeadingIcon, item.b24ui?.itemLeadingIcon], color: item?.color, active })"
         />
         <B24Avatar
           v-else-if="item.avatar"
-          :size="((props.b24uiOverride?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])"
+          :size="((item.b24ui?.itemLeadingAvatarSize || props.b24uiOverride?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])"
           v-bind="item.avatar"
-          :class="b24ui.itemLeadingAvatar({ class: b24uiOverride?.itemLeadingAvatar, active })"
+          :class="b24ui.itemLeadingAvatar({ class: [b24uiOverride?.itemLeadingAvatar, item.b24ui?.itemLeadingAvatar], active })"
         />
       </slot>
 
-      <span v-if="getLabel(item) || !!slots[(item.slot ? `${item.slot}-label`: 'item-label') as keyof DropdownMenuContentSlots<T>]" :class="b24ui.itemLabel({ class: b24uiOverride?.itemLabel, active })">
+      <span v-if="getLabel(item) || !!slots[(item.slot ? `${item.slot}-label`: 'item-label') as keyof DropdownMenuContentSlots<T>]" :class="b24ui.itemLabel({ class: [b24uiOverride?.itemLabel, item.b24ui?.itemLabel], active })">
         <slot :name="((item.slot ? `${item.slot}-label`: 'item-label') as keyof DropdownMenuContentSlots<T>)" :item="(item as Extract<NestedItem<T>, { slot: string; }>)" :active="active" :index="index">
           {{ getLabel(item) }}
         </slot>
         <Component
           :is="typeof externalIcon !== 'boolean' ? externalIcon : icons.external"
           v-if="item.target === '_blank' && externalIcon !== false"
-          :class="b24ui.itemLabelExternalIcon({ class: b24uiOverride?.itemLabelExternalIcon, color: item?.color, active })"
+          :class="b24ui.itemLabelExternalIcon({ class: [b24uiOverride?.itemLabelExternalIcon, item.b24ui?.itemLabelExternalIcon], color: item?.color, active })"
         />
       </span>
 
-      <span :class="b24ui.itemTrailing({ class: b24uiOverride?.itemTrailing })">
+      <span :class="b24ui.itemTrailing({ class: [b24uiOverride?.itemTrailing, item.b24ui?.itemTrailing] })">
         <slot :name="((item.slot ? `${item.slot}-trailing`: 'item-trailing') as keyof DropdownMenuContentSlots<T>)" :item="(item as Extract<NestedItem<T>, { slot: string; }>)" :active="active" :index="index">
           <Component
             :is="childrenIcon"
             v-if="item.children?.length"
-            :class="b24ui.itemTrailingIcon({ class: b24uiOverride?.itemTrailingIcon, color: item?.color, active })"
+            :class="b24ui.itemTrailingIcon({ class: [b24uiOverride?.itemTrailingIcon, item.b24ui?.itemTrailingIcon], color: item?.color, active })"
           />
-          <span v-else-if="item.kbds?.length" :class="b24ui.itemTrailingKbds({ class: b24uiOverride?.itemTrailingKbds })">
-            <B24Kbd v-for="(kbd, kbdIndex) in item.kbds" :key="kbdIndex" :size="((props.b24uiOverride?.itemTrailingKbdsSize || b24ui.itemTrailingKbdsSize()) as KbdProps['size'])" v-bind="typeof kbd === 'string' ? { value: kbd } : kbd" />
+          <span v-else-if="item.kbds?.length" :class="b24ui.itemTrailingKbds({ class: [b24uiOverride?.itemTrailingKbds, item.b24ui?.itemTrailingKbds] })">
+            <B24Kbd v-for="(kbd, kbdIndex) in item.kbds" :key="kbdIndex" :size="((item.b24ui?.itemTrailingKbdsSize || props.b24uiOverride?.itemTrailingKbdsSize || b24ui.itemTrailingKbdsSize()) as KbdProps['size'])" v-bind="typeof kbd === 'string' ? { value: kbd } : kbd" />
           </span>
         </slot>
 
         <DropdownMenu.ItemIndicator as-child>
           <Component
             :is="checkedIcon || icons.check"
-            :class="b24ui.itemTrailingIcon({ class: b24uiOverride?.itemTrailingIcon, color: item?.color })"
+            :class="b24ui.itemTrailingIcon({ class: [b24uiOverride?.itemTrailingIcon, item.b24ui?.itemTrailingIcon], color: item?.color })"
           />
         </DropdownMenu.ItemIndicator>
       </span>
@@ -136,72 +136,74 @@ const groups = computed<DropdownMenuItem[][]>(() =>
     <component :is="sub ? DropdownMenu.SubContent : DropdownMenu.Content" :class="props.class" v-bind="contentProps">
       <slot name="content-top" />
 
-      <DropdownMenu.Group v-for="(group, groupIndex) in groups" :key="`group-${groupIndex}`" :class="b24ui.group({ class: b24uiOverride?.group })">
-        <template v-for="(item, index) in group" :key="`group-${groupIndex}-${index}`">
-          <DropdownMenu.Label v-if="item.type === 'label'" :class="b24ui.label({ class: b24uiOverride?.label })">
-            <ReuseItemTemplate :item="item" :index="index" />
-          </DropdownMenu.Label>
-          <DropdownMenu.Separator v-else-if="item.type === 'separator'" :class="b24ui.separator({ class: b24uiOverride?.separator })" />
-          <DropdownMenu.Sub v-else-if="item?.children?.length" :open="item.open" :default-open="item.defaultOpen">
-            <DropdownMenu.SubTrigger
-              as="button"
-              type="button"
+      <div role="presentation" :class="b24ui.viewport({ class: props.b24ui?.viewport })">
+        <DropdownMenu.Group v-for="(group, groupIndex) in groups" :key="`group-${groupIndex}`" :class="b24ui.group({ class: b24uiOverride?.group })">
+          <template v-for="(item, index) in group" :key="`group-${groupIndex}-${index}`">
+            <DropdownMenu.Label v-if="item.type === 'label'" :class="b24ui.label({ class: [b24uiOverride?.label, item.b24ui?.label, item.class] })">
+              <ReuseItemTemplate :item="item" :index="index" />
+            </DropdownMenu.Label>
+            <DropdownMenu.Separator v-else-if="item.type === 'separator'" :class="b24ui.separator({ class: [b24uiOverride?.separator, item.b24ui?.separator, item.class] })" />
+            <DropdownMenu.Sub v-else-if="item?.children?.length" :open="item.open" :default-open="item.defaultOpen">
+              <DropdownMenu.SubTrigger
+                as="button"
+                type="button"
+                :disabled="item.disabled"
+                :text-value="getLabel(item)"
+                :class="b24ui.item({ class: [b24uiOverride?.item, item.b24ui?.item, item.class], color: item?.color })"
+              >
+                <ReuseItemTemplate :item="item" :index="index" />
+              </DropdownMenu.SubTrigger>
+
+              <B24DropdownMenuContent
+                sub
+                :class="props.class"
+                :b24ui="b24ui"
+                :b24ui-override="b24uiOverride"
+                :portal="portal"
+                :items="(item.children as T)"
+                align="start"
+                :align-offset="-4"
+                :side-offset="3"
+                :label-key="labelKey"
+                :checked-icon="checkedIcon"
+                :external-icon="externalIcon"
+                v-bind="item.content"
+              >
+                <template v-for="(_, name) in proxySlots" #[name]="slotData">
+                  <slot :name="(name as keyof DropdownMenuContentSlots<T>)" v-bind="slotData" />
+                </template>
+              </B24DropdownMenuContent>
+            </DropdownMenu.Sub>
+            <DropdownMenu.CheckboxItem
+              v-else-if="item.type === 'checkbox'"
+              :model-value="item.checked"
               :disabled="item.disabled"
               :text-value="getLabel(item)"
-              :class="b24ui.item({ class: b24uiOverride?.item, color: item?.color })"
+              :class="b24ui.item({ class: [b24uiOverride?.item, item.b24ui?.item, item.class], color: item?.color })"
+              @update:model-value="item.onUpdateChecked"
+              @select="item.onSelect"
             >
               <ReuseItemTemplate :item="item" :index="index" />
-            </DropdownMenu.SubTrigger>
-
-            <B24DropdownMenuContent
-              sub
-              :class="props.class"
-              :b24ui="b24ui"
-              :b24ui-override="b24uiOverride"
-              :portal="portal"
-              :items="(item.children as T)"
-              align="start"
-              :align-offset="-4"
-              :side-offset="3"
-              :label-key="labelKey"
-              :checked-icon="checkedIcon"
-              :external-icon="externalIcon"
-              v-bind="item.content"
+            </DropdownMenu.CheckboxItem>
+            <DropdownMenu.Item
+              v-else
+              as-child
+              :disabled="item.disabled"
+              :text-value="getLabel(item)"
+              @select="item.onSelect"
             >
-              <template v-for="(_, name) in proxySlots" #[name]="slotData">
-                <slot :name="(name as keyof DropdownMenuContentSlots<T>)" v-bind="slotData" />
-              </template>
-            </B24DropdownMenuContent>
-          </DropdownMenu.Sub>
-          <DropdownMenu.CheckboxItem
-            v-else-if="item.type === 'checkbox'"
-            :model-value="item.checked"
-            :disabled="item.disabled"
-            :text-value="getLabel(item)"
-            :class="b24ui.item({ class: [b24uiOverride?.item, item.class], color: item?.color })"
-            @update:model-value="item.onUpdateChecked"
-            @select="item.onSelect"
-          >
-            <ReuseItemTemplate :item="item" :index="index" />
-          </DropdownMenu.CheckboxItem>
-          <DropdownMenu.Item
-            v-else
-            as-child
-            :disabled="item.disabled"
-            :text-value="getLabel(item)"
-            @select="item.onSelect"
-          >
-            <B24Link v-slot="{ active, ...slotProps }" v-bind="pickLinkProps(item as Omit<DropdownMenuItem, 'type'>)" custom>
-              <B24LinkBase
-                v-bind="slotProps"
-                :class="b24ui.item({ class: [b24uiOverride?.item, item.class], color: item?.color, active })"
-              >
-                <ReuseItemTemplate :item="item" :active="active" :index="index" />
-              </B24LinkBase>
-            </B24Link>
-          </DropdownMenu.Item>
-        </template>
-      </DropdownMenu.Group>
+              <B24Link v-slot="{ active, ...slotProps }" v-bind="pickLinkProps(item as Omit<DropdownMenuItem, 'type'>)" custom>
+                <B24LinkBase
+                  v-bind="slotProps"
+                  :class="b24ui.item({ class: [b24uiOverride?.item, item.b24ui?.item, item.class], color: item?.color, active })"
+                >
+                  <ReuseItemTemplate :item="item" :active="active" :index="index" />
+                </B24LinkBase>
+              </B24Link>
+            </DropdownMenu.Item>
+          </template>
+        </DropdownMenu.Group>
+      </div>
 
       <slot />
 

@@ -1,5 +1,5 @@
 ---
-title: Keyboard Key
+title: Kbd
 description: A kbd element for indicating a keyboard input.
 outline: deep
 ---
@@ -48,7 +48,7 @@ You can achieve the same result by using the `value` prop.
 <<< @/examples/kbd/demo/Value.vue{12 vue:line-numbers}
 :::
 
-You can pass special keys to the `value` prop that goes through the [`useKbd`](https://github.com/bitrix24/b24ui/blob/main/src/runtime/composables/useKbd.ts) composable. For example, the `meta` key displays as `⌘` on macOS and `⊞` on other platforms.
+You can pass special keys to the `value` prop that goes through the [`useKbd`](https://github.com/bitrix24/b24ui/blob/main/src/runtime/composables/useKbd.ts) composable. For example, the `meta` key displays as `⌘` on macOS and `Ctrl` on other platforms.
 
 <div class="lg:min-h-[275px]">
   <ClientOnly>

@@ -120,6 +120,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       text: 'Data display',
       collapsed: false,
       items: [
+        { text: 'Accordion💡', link: 'accordion' },
         { text: 'Avatar', link: 'avatar' },
         { text: 'AvatarGroup', link: 'avatar-group' },
         { text: 'Badge', link: 'badge' },
@@ -140,10 +141,10 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'Input', link: 'input' },
         { text: 'InputMenu', link: 'input-menu' },
         { text: 'InputNumber', link: 'input-number' },
-        { text: 'Textarea💡', link: 'textarea' },
+        { text: 'Textarea', link: 'textarea' },
         { text: 'Select', link: 'select' },
         { text: 'SelectMenu', link: 'select-menu' },
-        { text: 'RadioGroup💡', link: 'radio-group' },
+        { text: 'RadioGroup', link: 'radio-group' },
         { text: 'Checkbox', link: 'checkbox' },
         { text: 'Switch', link: 'switch' },
         { text: 'Range', link: 'range' }
@@ -155,7 +156,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'SidebarLayout🔨', link: 'sidebar-layout' },
         { text: 'StackedLayout🔨', link: 'stacked-layout' },
-        { text: 'NavigationMenu💡', link: 'navigation-menu' },
+        { text: 'NavigationMenu', link: 'navigation-menu' },
         { text: 'Container', link: 'container' },
         { text: 'Skeleton', link: 'skeleton' },
         { text: 'Separator', link: 'separator' },

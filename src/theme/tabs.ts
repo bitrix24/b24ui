@@ -22,7 +22,7 @@ export default {
     list: 'relative flex p-1 group',
     indicator: 'absolute transition-[translate,width] duration-200',
     trigger: [
-      'group relative inline-flex items-center shrink-0 min-w-0',
+      'group relative inline-flex items-center min-w-0',
       'data-[state=inactive]:text-base-600 dark:data-[state=inactive]:text-base-600',
       'hover:data-[state=inactive]:not-disabled:text-base-master dark:hover:data-[state=inactive]:not-disabled:text-base-150',
       'font-medium rounded-xl',
@@ -49,12 +49,13 @@ export default {
     variant: {
       pill: {
         list: 'bg-base-100 dark:bg-transparent rounded-md',
-        trigger: 'flex-1 w-full',
+        trigger: 'grow',
         indicator: 'rounded-xl shadow-xs'
       },
       link: {
         list: 'border-base-300 dark:border-base-800',
-        indicator: 'rounded-full'
+        indicator: 'rounded-full',
+        trigger: 'focus:outline-none'
       }
     },
     orientation: {

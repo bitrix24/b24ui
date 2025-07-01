@@ -5,7 +5,7 @@ const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
   modules: [
-    '../src/module'
+    '@bitrix24/b24ui-nuxt'
   ],
   devtools: { enabled: false },
   css: ['~/assets/css/main.css'],

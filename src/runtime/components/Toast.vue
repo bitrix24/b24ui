@@ -30,6 +30,11 @@ export interface ToastProps extends Pick<ToastRootProps, 'defaultOpen' | 'open' 
    */
   orientation?: Toast['variants']['orientation']
   /**
+   * Whether to show the progress bar.
+   * @defaultValue true
+   */
+  progress?: boolean
+  /**
    * Display a list of actions:
    * - under the title and description when orientation is `vertical`
    * - next to the close button when orientation is `horizontal`
@@ -64,7 +69,7 @@ export interface ToastSlots {
 </script>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, nextTick } from 'vue'
 import { ToastRoot, ToastTitle, ToastDescription, ToastAction, ToastClose, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
@@ -76,7 +81,8 @@ import B24Button from './Button.vue'
 
 const props = withDefaults(defineProps<ToastProps>(), {
   close: true,
-  orientation: 'vertical'
+  orientation: 'vertical',
+  progress: true
 })
 const emits = defineEmits<ToastEmits>()
 const slots = defineSlots<ToastSlots>()
@@ -100,9 +106,9 @@ onMounted(() => {
     return
   }
 
-  setTimeout(() => {
-    height.value = el.value.$el.getBoundingClientRect()?.height
-  }, 0)
+  nextTick(() => {
+    height.value = el.value?.$el?.getBoundingClientRect()?.height
+  })
 })
 
 defineExpose({
@@ -116,7 +122,7 @@ defineExpose({
     v-slot="{ remaining, duration }"
     v-bind="rootProps"
     :data-orientation="orientation"
-    :class="b24ui.root({ class: [props.class, props.b24ui?.root] })"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     :style="{ '--height': height }"
   >
     <slot name="leading">
@@ -182,6 +188,6 @@ defineExpose({
       </ToastClose>
     </div>
 
-    <div v-if="remaining > 0 && duration" :class="b24ui.progress({ class: props.b24ui?.progress })" :style="{ width: `${remaining / duration * 100}%` }" />
+    <div v-if="progress && remaining > 0 && duration" :class="b24ui.progress({ class: props.b24ui?.progress })" :style="{ width: `${remaining / duration * 100}%` }" />
   </ToastRoot>
 </template>

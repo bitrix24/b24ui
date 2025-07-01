@@ -14,6 +14,7 @@ export default {
     container: 'relative',
     description: 'mt-0.5 leading-tight text-base-500 dark:text-base-600',
     error: 'mt-1 text-red-500 dark:text-red-600',
+    errorWrapper: 'flex flex-row flex-nowrap gap-0.5',
     errorIcon: 'size-lg',
     help: 'mt-1.5 leading-tight italic text-base-500 dark:text-base-600'
   },

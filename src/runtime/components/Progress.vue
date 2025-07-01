@@ -7,7 +7,7 @@ import type { ComponentConfig } from '../types/utils'
 
 type Progress = ComponentConfig<typeof theme, AppConfig, 'progress'>
 
-export interface ProgressProps extends Pick<ProgressRootProps, 'getValueLabel' | 'modelValue'> {
+export interface ProgressProps extends Pick<ProgressRootProps, 'getValueLabel' | 'getValueText' | 'modelValue'> {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
@@ -76,7 +76,7 @@ const slots = defineSlots<ProgressSlots>()
 const { dir } = useLocale()
 const appConfig = useAppConfig() as Progress['AppConfig']
 
-const rootProps = useForwardPropsEmits(reactivePick(props, 'getValueLabel', 'modelValue'), emits)
+const rootProps = useForwardPropsEmits(reactivePick(props, 'getValueLabel', 'getValueText', 'modelValue'), emits)
 
 const isIndeterminate = computed(() => rootProps.value.modelValue === null)
 const hasSteps = computed(() => Array.isArray(props.max))
@@ -173,7 +173,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.progre
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
+  <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <div v-if="!isIndeterminate && (status || !!slots.status)" :class="b24ui.status({ class: props.b24ui?.status })" :style="statusStyle">
       <slot name="status" :percent="percent">
         {{ percent }}%

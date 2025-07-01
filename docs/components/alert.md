@@ -19,7 +19,7 @@ import OrientationExample from '/examples/alert/Orientation.vue';
 
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/alert"
-git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Alert.vue"
+  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Alert.vue"
 >
   An alert designed to capture the user's attention.
 </Description>

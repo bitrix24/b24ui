@@ -19,9 +19,18 @@ export interface CheckboxProps extends Pick<CheckboxRootProps, 'disabled' | 'req
    */
   color?: Checkbox['variants']['color']
   /**
+   * @defaultValue 'list'
+   */
+  variant?: Checkbox['variants']['variant']
+  /**
    * @defaultValue 'md'
    */
   size?: Checkbox['variants']['size']
+  /**
+   * Position of the indicator.
+   * @defaultValue 'start'
+   */
+  indicator?: Checkbox['variants']['indicator']
   class?: any
   b24ui?: Checkbox['slots']
 }
@@ -64,6 +73,8 @@ const id = _id.value ?? useId()
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.checkbox || {}) })({
   size: size.value,
   color: color.value,
+  variant: props.variant,
+  indicator: props.indicator,
   required: props.required,
   disabled: disabled.value,
   checked: Boolean(modelValue.value ?? props.defaultValue)
@@ -80,7 +91,7 @@ function onUpdate(value: any) {
 
 <!-- eslint-disable vue/no-template-shadow -->
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
+  <Primitive :as="(!variant || variant === 'list') ? as : Label" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <div :class="b24ui.container({ class: props.b24ui?.container })">
       <CheckboxRoot
         :id="id"
@@ -92,7 +103,7 @@ function onUpdate(value: any) {
         @update:model-value="onUpdate"
       >
         <template #default="{ modelValue }">
-          <CheckboxIndicator as-child>
+          <CheckboxIndicator :class="b24ui.indicator({ class: props.b24ui?.indicator })">
             <Minus20Icon v-if="modelValue === 'indeterminate'" :class="b24ui.icon({ class: props.b24ui?.icon })" />
             <CheckIcon v-else :class="b24ui.icon({ class: props.b24ui?.icon })" />
           </CheckboxIndicator>
@@ -101,11 +112,16 @@ function onUpdate(value: any) {
     </div>
 
     <div v-if="(label || !!slots.label) || (description || !!slots.description)" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
-      <Label v-if="label || !!slots.label" :for="id" :class="b24ui.label({ class: props.b24ui?.label })">
+      <component
+        :is="(!variant || variant === 'list') ? Label : 'p'"
+        v-if="label || !!slots.label"
+        :for="id"
+        :class="b24ui.label({ class: props.b24ui?.label })"
+      >
         <slot name="label" :label="label">
           {{ label }}
         </slot>
-      </Label>
+      </component>
       <p v-if="description || !!slots.description" :class="b24ui.description({ class: props.b24ui?.description })">
         <slot name="description" :description="description">
           {{ description }}

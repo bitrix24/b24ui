@@ -98,7 +98,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.alert 
 </script>
 
 <template>
-  <Primitive :as="as" :data-orientation="orientation" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
+  <Primitive :as="as" :data-orientation="orientation" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <slot name="leading">
       <Component
         :is="icon"

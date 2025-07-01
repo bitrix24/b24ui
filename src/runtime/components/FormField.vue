@@ -95,7 +95,7 @@ provide(formFieldInjectionKey, computed(() => ({
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
+  <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <div :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
       <div v-if="label || !!slots.label" :class="b24ui.labelWrapper({ class: props.b24ui?.labelWrapper })">
         <Label :for="id" :class="b24ui.label({ class: props.b24ui?.label })">
@@ -122,17 +122,17 @@ provide(formFieldInjectionKey, computed(() => ({
 
       <div v-if="(typeof error === 'string' && error) || !!slots.error" :id="`${ariaId}-error`" :class="b24ui.error({ class: props.b24ui?.error })">
         <slot name="error" :error="error">
-          <div class="flex flex-row flex-nowrap gap-0.5">
+          <div :class="b24ui.errorWrapper({ class: props.b24ui?.errorWrapper })">
             <WarningIcon :class="b24ui.errorIcon()" />
             <div>{{ error }}</div>
           </div>
         </slot>
       </div>
-      <p v-else-if="help || !!slots.help" :class="b24ui.help({ class: props.b24ui?.help })">
+      <div v-else-if="help || !!slots.help" :class="b24ui.help({ class: props.b24ui?.help })">
         <slot name="help" :help="help">
           {{ help }}
         </slot>
-      </p>
+      </div>
     </div>
   </Primitive>
 </template>

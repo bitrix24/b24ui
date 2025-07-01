@@ -35,13 +35,17 @@ Use the `items` prop as an array of objects with the following properties:
 - `icon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts"}
 - `avatar?: AvatarProps`{lang="ts"}
 - `badge?: string | number | BadgeProps`{lang="ts"}
+- `tooltip?: TooltipProps`{lang="ts-type"}
 - `trailingIcon?: string`{lang="ts"}
-- `type?: 'label' | 'link'`{lang="ts"}
+- `type?: 'label' | 'trigger' | 'link'`{lang="ts"}
+- `defaultOpen?: boolean`{lang="ts-type"}
+- `open?: boolean`{lang="ts-type"}
 - `value?: string`{lang="ts"}
 - `disabled?: boolean`{lang="ts"}
-- `class?: any`{lang="ts"}
 - [`slot?: string`{lang="ts"}](#with-custom-slot)
 - `onSelect?(e: Event): void`{lang="ts"}
+- `class?: any`{lang="ts"}
+- `b24ui?: { linkLeadingAvatarSize?: ClassNameValue, linkLeadingAvatar?: ClassNameValue, linkLeadingIcon?: ClassNameValue, linkLabel?: ClassNameValue, linkLabelExternalIcon?: ClassNameValue, linkTrailing?: ClassNameValue, linkTrailingBadgeSize?: ClassNameValue, linkTrailingBadge?: ClassNameValue, linkTrailingIcon?: ClassNameValue, label?: ClassNameValue, link?: ClassNameValue, content?: ClassNameValue, childList?: ClassNameValue, childLabel?: ClassNameValue, childItem?: ClassNameValue, childLink?: ClassNameValue, childLinkIcon?: ClassNameValue, childLinkWrapper?: ClassNameValue, childLinkLabel?: ClassNameValue, childLinkLabelExternalIcon?: ClassNameValue, childLinkDescription?: ClassNameValue }`{lang="ts"}
 
 You can pass any property from the [Link](/components/link#props) component such as `to`, `target`, etc.
 
@@ -65,8 +69,8 @@ Each item can take a `children` array of objects with the following properties t
 - `label: string`
 - `description?: string`
 - `icon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts"}
-- `class?: any`
 - `onSelect?(e: Event): void`
+- `class?: any`
 
 :::
 
@@ -75,7 +79,7 @@ Each item can take a `children` array of objects with the following properties t
 Use the `orientation` prop to change the orientation of the NavigationMenu.
 
 ::: info
-When orientation is `vertical`, a [Collapsible](/components/collapsible) component is used to display children. You can control the open state of each item using the `open` and `defaultOpen` properties.
+When orientation is `vertical`, a [Accordion](/components/accordion) component is used to display each group. You can control the open state of each item using the `open` and `defaultOpen` properties and change the behavior using the [`collapsible`](/components/accordion#collapsible) and [`type`](/components/accordion#multiple) props.
 :::
 
 ::: info

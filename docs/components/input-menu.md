@@ -73,13 +73,15 @@ Use the `items` prop as an array of strings, numbers or booleans:
 You can also pass an array of objects with the following properties:
 
 - `label?: string`{lang="ts"}
+- `color?: "default" | "danger" | "success" | "warning" | "primary" | "secondary" | "collab" | "ai"`{lang="ts"}
 - [`type?: "label" | "separator" | "item"`{lang="ts"}](#with-items-type)
 - [`icon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts"}](#with-icons-in-items)
 - [`avatar?: AvatarProps`{lang="ts"}](#with-avatar-in-items)
-- `color?: string`{lang="ts"}
 - [`chip?: ChipProps`{lang="ts"}](#with-chip-in-items)
 - `disabled?: boolean`{lang="ts"}
 - `onSelect?(e: Event): void`{lang="ts"}
+- `class?: any`{lang="ts-type"}
+- `b24ui?: { tagsItem?: ClassNameValue, tagsItemText?: ClassNameValue, tagsItemDelete?: ClassNameValue, tagsItemDeleteIcon?: ClassNameValue, label?: ClassNameValue, separator?: ClassNameValue, item?: ClassNameValue, itemLeadingIcon?: ClassNameValue, itemLeadingAvatarSize?: ClassNameValue, itemLeadingAvatar?: ClassNameValue, itemLeadingChip?: ClassNameValue, itemLeadingChipSize?: ClassNameValue, itemLabel?: ClassNameValue, itemTrailing?: ClassNameValue, itemTrailingIcon?: ClassNameValue }`{lang="ts-type"}
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -256,7 +258,7 @@ Use the `icon` prop to show an [@bitrix24/b24icons](https://bitrix24.github.io/b
 
 ### Trailing Icon
 
-Use the `trailing-icon` prop to customize the trailing icon [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html). Defaults to `ChevronDownIcon`.
+Use the `trailing-icon` prop to customize the trailing [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html). Defaults to `ChevronDownIcon`.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -340,7 +342,7 @@ You can use the `type` property with `separator` to display a separator between 
 <<< @/examples/inputmenu/demo/WithItemsType.vue{6,18,21 vue:line-numbers}
 :::
 
-### With icons in items
+### With icon in items
 
 You can use the `icon` property to display an [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html) inside the items.
 
@@ -535,3 +537,11 @@ Use the `filter-fields` prop with an array of fields to filter on. Defaults to `
 ### Emits
 
 <ComponentEmits component="InputMenu" />
+
+### Expose
+
+When accessing the component via a template ref, you can use the following:
+
+| Name                  | Type                                                           |
+|-----------------------|----------------------------------------------------------------|
+| `inputRef`{lang="ts"} | `Ref<InstanceType<typeof ComboboxTrigger> \| null>`{lang="ts"} |

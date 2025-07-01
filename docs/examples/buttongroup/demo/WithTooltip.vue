@@ -1,19 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useClipboard } from '@vueuse/core'
 import CopyPlatesIcon from '@bitrix24/b24icons-vue/actions/CopyPlatesIcon'
 import CheckInBoxIcon from '@bitrix24/b24icons-vue/crm/CheckInBoxIcon'
 
 const value = ref('pnpm add @bitrix24/b24ui-nuxt@next')
-const copied = ref(false)
 
-function copy() {
-  navigator.clipboard.writeText(value.value)
-  copied.value = true
-
-  setTimeout(() => {
-    copied.value = false
-  }, 2000)
-}
+const { copy, copied } = useClipboard()
 </script>
 
 <template>
@@ -30,7 +23,7 @@ function copy() {
         :color="copied ? 'success' : 'link'"
         :icon="copied ? CheckInBoxIcon : CopyPlatesIcon"
         depth="dark"
-        @click="copy"
+        @click="copy(value)"
       />
     </B24Tooltip>
   </B24ButtonGroup>

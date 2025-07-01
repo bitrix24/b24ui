@@ -12,11 +12,10 @@ export default (options: Required<ModuleOptions>) => ({
     active: {
       true: 'text-blue-700 dark:text-blue-300 hover:not-disabled:not-aria-disabled:underline underline-offset-2',
       false: [
-        'text-base-900 hover:not-disabled:not-aria-disabled:text-blue-700',
-        'dark:text-base-300 dark:hover:not-disabled:not-aria-disabled:text-blue-300',
-        'hover:not-disabled:not-aria-disabled:underline underline-offset-2',
-        'transition-colors'
-      ]
+        'text-base-900',
+        'dark:text-base-300',
+        'underline-offset-2'
+      ].join(' ')
     },
     disabled: {
       true: 'cursor-not-allowed opacity-75'
@@ -34,5 +33,17 @@ export default (options: Required<ModuleOptions>) => ({
         'focus-visible:outline-base-700'
       ].join(' ')
     }
-  }
+  },
+  compoundVariants: [
+    {
+      active: false,
+      disabled: false,
+      class: [
+        'hover:text-blue-700',
+        'dark:hover:text-blue-300',
+        'hover:underline',
+        'transition-colors'
+      ].join(' ')
+    }
+  ]
 })

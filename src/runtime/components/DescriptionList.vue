@@ -29,7 +29,7 @@ export interface DescriptionListItem {
    */
   actions?: ButtonProps[]
   class?: any
-  b24ui?: DescriptionList['slots']
+  b24ui?: Pick<DescriptionList['slots'], 'labelWrapper' | 'icon' | 'avatar' | 'label' | 'descriptionWrapper' | 'description' | 'actions'>
   [key: string]: any
 }
 
@@ -122,7 +122,7 @@ const normalizedItems = computed(() => {
 </script>
 
 <template>
-  <div :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
+  <div :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <h2 v-if="legend || !!slots.legend" :class="b24ui.legend({ class: props.b24ui?.legend })">
       <slot name="legend">
         {{ legend }}
@@ -200,7 +200,8 @@ const normalizedItems = computed(() => {
             :class="b24ui.descriptionWrapper({
               class: [
                 props.b24ui?.descriptionWrapper,
-                item?.b24ui?.descriptionWrapper
+                item?.b24ui?.descriptionWrapper,
+                item?.b24ui?.class
               ],
               orientation: item.orientation
             })"

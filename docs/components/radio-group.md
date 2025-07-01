@@ -51,6 +51,8 @@ You can also pass an array of objects with the following properties:
 - `description?: string`{lang="ts"}
 - [`value?: string`{lang="ts"}](#value-key)
 - `disabled?: boolean`{lang="ts"}
+- `class?: any`{lang="ts"}
+- `b24ui?: { item?: ClassNameValue, container?: ClassNameValue, base?: ClassNameValue, 'indicator'?: ClassNameValue, wrapper?: ClassNameValue, label?: ClassNameValue, description?: ClassNameValue }`{lang="ts"}
 
 ::: danger
 When using objects, you need to reference the `value` property of the object in the `v-model` directive or the `default-value` prop.

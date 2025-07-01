@@ -36,16 +36,17 @@ Use the `items` prop as an array of objects with the following properties:
 - `label?: string`{lang="ts"}
 - `icon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts"}
 - `avatar?: AvatarProps`{lang="ts"}
-- `color?: string`{lang="ts"}
 - `kbds?: string[] | KbdProps[]`{lang="ts"}
 - [`type?: "link" | "label" | "separator" | "checkbox"`{lang="ts"}](#with-checkbox-items)
-- [`color?: "error" | "primary" | "secondary" | "success" | "info" | "warning" | "neutral"`{lang="ts"}](#with-color-items)
+- [`color?: "default" | "danger" | "success" | "warning" | "primary" | "secondary" | "collab" | "ai"`{lang="ts"}](#with-color-items)
 - [`checked?: boolean`{lang="ts"}](#with-checkbox-items)
 - `disabled?: boolean`{lang="ts-"}
-- `class?: any`{lang="ts"}
 - [`slot?: string`{lang="ts"}](#with-custom-slot)
 - `onSelect?(e: Event): void`{lang="ts"}
 - [`onUpdateChecked?(checked: boolean): void`{lang="ts"}](#with-checkbox-items)
+- `children?: DropdownMenuItem[] | DropdownMenuItem[][]`{lang="ts-type"}
+- `class?: any`{lang="ts-type"}
+- `b24ui?: { item?: ClassNameValue, label?: ClassNameValue, separator?: ClassNameValue, itemLeadingIcon?: ClassNameValue, itemLeadingAvatarSize?: ClassNameValue, itemLeadingAvatar?: ClassNameValue, itemLabel?: ClassNameValue, itemLabelExternalIcon?: ClassNameValue, itemTrailing?: ClassNameValue, itemTrailingIcon?: ClassNameValue, itemTrailingKbds?: ClassNameValue, itemTrailingKbdsSize?: ClassNameValue }`{lang="ts-type"}
 
 You can pass any property from the [Link](/components/link#props) component such as `to`, `target`, etc.
 

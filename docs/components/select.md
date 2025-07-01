@@ -71,9 +71,11 @@ You can also pass an array of objects with the following properties:
 - [`type?: "label" | "separator" | "item"`{lang="ts"}](#with-items-type)
 - [`icon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts"}](#with-icons-in-items)
 - [`avatar?: AvatarProps`{lang="ts"}](#with-avatar-in-items)
-- `color?: string`{lang="ts"}
+- `color?: "default" | "danger" | "success" | "warning" | "primary" | "secondary" | "collab" | "ai"`{lang="ts"}
 - [`chip?: ChipProps`{lang="ts"}](#with-chip-in-items)
 - `disabled?: boolean`{lang="ts"}
+- `class?: any`{lang="ts"}
+- `b24ui?: { label?: ClassNameValue, separator?: ClassNameValue, item?: ClassNameValue, itemLeadingIcon?: ClassNameValue, itemLeadingAvatarSize?: ClassNameValue, itemLeadingAvatar?: ClassNameValue, itemLeadingChipSize?: ClassNameValue, itemLeadingChip?: ClassNameValue, itemLabel?: ClassNameValue, itemTrailing?: ClassNameValue, itemTrailingIcon?: ClassNameValue }`{lang="ts"}
 
 ::: danger
 When using objects, you need to reference the `value` property of the object in the `v-model` directive or the `default-value` prop.
@@ -323,7 +325,7 @@ You can use the `type` property with `separator` to display a separator between 
 <<< @/examples/select/demo/WithItemsType.vue{5-8,12-14,15-18 vue:line-numbers}
 :::
 
-### With icons in items
+### With icon in items
 
 You can use the `icon` property to display an [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html) inside the items.
 
@@ -445,3 +447,11 @@ You can fetch items from an API and use them in the Select.
 ### Emits
 
 <ComponentEmits component="Select" />
+
+### Expose
+
+When accessing the component via a template ref, you can use the following:
+
+| Name                    | Type                                                         |
+|-------------------------|--------------------------------------------------------------|
+| `triggerRef`{lang="ts"} | `Ref<InstanceType<typeof SelectTrigger> \| null>`{lang="ts"} |

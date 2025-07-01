@@ -46,7 +46,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.collap
 </script>
 
 <template>
-  <CollapsibleRoot v-slot="{ open }" v-bind="rootProps" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
+  <CollapsibleRoot v-slot="{ open }" v-bind="rootProps" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <CollapsibleTrigger v-if="!!slots.default" as-child>
       <slot :open="open" />
     </CollapsibleTrigger>

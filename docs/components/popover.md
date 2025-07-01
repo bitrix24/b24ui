@@ -12,6 +12,7 @@ import ArrowExample from '/examples/popover/Arrow.vue';
 import ControlOpenStateExample from '/examples/popover/ControlOpenState.vue';
 import PreventClosingExample from '/examples/popover/PreventClosing.vue';
 import WithBodySlotExample from '/examples/popover/WithBodySlot.vue';
+import WithAnchorSlotExample from '/examples/popover/WithAnchorSlot.vue';
 </script>
 # Popover
 
@@ -119,7 +120,7 @@ In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), y
 <<< @/examples/popover/demo/ControlOpenState.vue{4,6-8,13 vue:line-numbers}
 :::
 
-### Prevent closing
+### Disable dismissal
 
 Set the `dismissible` prop to `false` to prevent the Popover from being closed when clicking outside of it or pressing escape. A `close:prevent` event will be emitted when the user tries to close it.
 
@@ -145,6 +146,24 @@ Can be used for various purposes
 
 ::: details
 <<< @/examples/popover/demo/WithBodySlot.vue{vue:line-numbers}
+:::
+
+### With anchor slot
+
+You can use the `#anchor` slot to position the Popover against a custom element.
+
+::: warning
+This slot only works when `mode` is `click`.
+:::
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <WithAnchorSlotExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/popover/demo/WithAnchorSlot.vue{vue:line-numbers}
 :::
 
 ## API

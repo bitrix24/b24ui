@@ -14,7 +14,9 @@ const slideover = overlay.create(LazySlideover, {
 })
 
 async function open() {
-  const shouldIncrement = await slideover.open()
+  const instance = slideover.open()
+
+  const shouldIncrement = await instance.result
 
   if (shouldIncrement) {
     count.value++

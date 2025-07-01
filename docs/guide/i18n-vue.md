@@ -37,7 +37,7 @@ import { it } from '@bitrix24/b24ui-nuxt/locale'
 
 ### Custom locale
 
-You also have the option to add your locale using `defineLocale`:
+You can create your own locale using the `defineLocale` composable:
 
 ::: code-group
 ```vue:line-numbers {2,4-11,15} [App.vue]
@@ -71,6 +71,33 @@ Look at the `locale` parameter, there you need to pass the iso code of the langu
 * `de-AT`: German (language) as used in Austria (region)
 
 :::
+
+### Extend locale
+
+You can customize an existing locale by overriding its `messages`, `locale` or `code` using the `extendLocale` composable:
+
+```vue [App.vue]
+<script setup lang="ts">
+import { en } from '@bitrix24/b24ui-nuxt/locale'
+import { extendLocale } from '@bitrix24/b24ui-nuxt/composables/defineLocale.js'
+
+const locale = extendLocale(en, {
+  code: 'en',
+  locale: 'en',
+  messages: {
+    commandPalette: {
+      placeholder: 'Search a component...'
+    }
+  }
+})
+</script>
+
+<template>
+  <B24App :locale="locale">
+    <RouterView />
+  </B24App>
+</template>
+```
 
 ### Dynamic locale
 

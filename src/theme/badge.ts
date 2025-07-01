@@ -39,7 +39,7 @@ export default {
       false: 'bg-transparent'
     },
     leading: {
-      true: 'ps-2xs'
+      true: 'ps-1'
     },
     color: {
       default: '',
@@ -95,6 +95,9 @@ export default {
         leadingAvatarSize: 'xs',
         trailingIcon: 'size-[26px]'
       }
+    },
+    square: {
+      true: ''
     }
   },
   compoundVariants: [
@@ -352,6 +355,48 @@ export default {
         'text-white bg-ai-330 ring-ai-330',
         'dark:text-ai-100 dark:bg-ai-400 dark:ring-ai-400'
       ].join(' ')
+    },
+    // endregion ////
+    // region square ////
+    {
+      size: 'xs',
+      square: true,
+      class: {
+        base: 'p-0 ps-0 pe-0',
+        wrapper: 'p-0.5 gap-0'
+      }
+    },
+    {
+      size: 'sm',
+      square: true,
+      class: {
+        base: 'p-0 ps-0 pe-0',
+        wrapper: 'p-1 gap-0'
+      }
+    },
+    {
+      size: 'md',
+      square: true,
+      class: {
+        base: 'p-0 ps-0 pe-0',
+        wrapper: 'p-1 gap-0'
+      }
+    },
+    {
+      size: 'lg',
+      square: true,
+      class: {
+        base: 'p-0 ps-0 pe-0',
+        wrapper: 'p-1 gap-0'
+      }
+    },
+    {
+      size: 'xl',
+      square: true,
+      class: {
+        base: 'p-0 ps-0 pe-0',
+        wrapper: 'p-1 gap-0'
+      }
     },
     // endregion ////
     // region useLink & useFill ////

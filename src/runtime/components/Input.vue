@@ -4,11 +4,11 @@ import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/input'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
 import type { AvatarProps } from '../types'
-import type { ComponentConfig } from '../types/utils'
+import type { AcceptableValue, ComponentConfig } from '../types/utils'
 
 type Input = ComponentConfig<typeof theme, AppConfig, 'input'>
 
-export interface InputProps extends UseComponentIconsProps {
+export interface InputProps<T extends AcceptableValue = AcceptableValue> extends UseComponentIconsProps {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
@@ -82,12 +82,21 @@ export interface InputProps extends UseComponentIconsProps {
    * @defaultValue false
    */
   highlight?: boolean
+  modelValue?: T
+  defaultValue?: T
+  modelModifiers?: {
+    string?: boolean
+    number?: boolean
+    trim?: boolean
+    lazy?: boolean
+    nullify?: boolean
+  }
   class?: any
   b24ui?: Input['slots']
 }
 
-export interface InputEmits {
-  (e: 'update:modelValue', payload: string | number): void
+export interface InputEmits<T extends AcceptableValue = AcceptableValue> {
+  (e: 'update:modelValue', payload: T): void
   (e: 'blur', event: FocusEvent): void
   (e: 'change', event: Event): void
 }
@@ -99,9 +108,10 @@ export interface InputSlots {
 }
 </script>
 
-<script setup lang="ts">
+<script setup lang="ts" generic="T extends AcceptableValue">
 import { ref, computed, onMounted } from 'vue'
 import { Primitive } from 'reka-ui'
+import { useVModel } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useButtonGroup } from '../composables/useButtonGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
@@ -112,20 +122,20 @@ import B24Avatar from './Avatar.vue'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<InputProps>(), {
+const props = withDefaults(defineProps<InputProps<T>>(), {
   type: 'text',
   autocomplete: 'off',
   autofocusDelay: 0
 })
-const emits = defineEmits<InputEmits>()
+const emits = defineEmits<InputEmits<T>>()
 const slots = defineSlots<InputSlots>()
 
-const [modelValue, modelModifiers] = defineModel<string | number | null>()
+const modelValue = useVModel<InputProps<T>, 'modelValue', 'update:modelValue'>(props, 'modelValue', emits, { defaultValue: props.defaultValue })
 
 const appConfig = useAppConfig() as Input['AppConfig']
 
-const { emitFormBlur, emitFormInput, emitFormChange, size: formGroupSize, color, id, name, highlight, disabled, emitFormFocus, ariaAttrs } = useFormField<InputProps>(props, { deferInputValidation: true })
-const { orientation, size: buttonGroupSize } = useButtonGroup<InputProps>(props)
+const { emitFormBlur, emitFormInput, emitFormChange, size: formGroupSize, color, id, name, highlight, disabled, emitFormFocus, ariaAttrs } = useFormField<InputProps<T>>(props, { deferInputValidation: true })
+const { orientation, size: buttonGroupSize } = useButtonGroup<InputProps<T>>(props)
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props)
 
 const inputSize = computed(() => buttonGroupSize.value || formGroupSize.value)
@@ -154,24 +164,24 @@ const inputRef = ref<HTMLInputElement | null>(null)
 
 // Custom function to handle the v-model properties
 function updateInput(value: string | null) {
-  if (modelModifiers.trim) {
+  if (props.modelModifiers?.trim) {
     value = value?.trim() ?? null
   }
 
-  if (modelModifiers.number || props.type === 'number') {
+  if (props.modelModifiers?.number || props.type === 'number') {
     value = looseToNumber(value)
   }
 
-  if (modelModifiers.nullify) {
+  if (props.modelModifiers?.nullify) {
     value ||= null
   }
 
-  modelValue.value = value
+  modelValue.value = value as T
   emitFormInput()
 }
 
 function onInput(event: Event) {
-  if (!modelModifiers.lazy) {
+  if (!props.modelModifiers?.lazy) {
     updateInput((event.target as HTMLInputElement).value)
   }
 }
@@ -179,12 +189,12 @@ function onInput(event: Event) {
 function onChange(event: Event) {
   const value = (event.target as HTMLInputElement).value
 
-  if (modelModifiers.lazy) {
+  if (props.modelModifiers?.lazy) {
     updateInput(value)
   }
 
   // Update trimmed input so that it has same behavior as native input https://github.com/vuejs/core/blob/5ea8a8a4fab4e19a71e123e4d27d051f5e927172/packages/runtime-dom/src/directives/vModel.ts#L63
-  if (modelModifiers.trim) {
+  if (props.modelModifiers?.trim) {
     (event.target as HTMLInputElement).value = value.trim()
   }
 
@@ -215,7 +225,7 @@ defineExpose({
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
+  <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <div v-if="isTag" :class="b24ui.tag({ class: props.b24ui?.tag })">
       {{ props.tag }}
     </div>

@@ -7,7 +7,6 @@
  * @link /api_d7/bitrix/ui/forms/fields_types.php
  * @see bitrix/js/ui/select..
  *
- * @todo add scroll/ Wait `ComboboxScrollUpButton` like `SelectScrollUpButton`
  * @todo change empty template
  */
 import { defuFn } from 'defu'
@@ -54,9 +53,16 @@ export default () => {
         'overflow-hidden',
         'data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in]',
         'origin-(--reka-combobox-content-transform-origin)',
+        'flex flex-col',
         'pointer-events-auto'
       ].join(' '),
-      viewport: 'divide-y divide-base-master/10 dark:divide-base-100/20 scroll-py-1',
+      viewport: [
+        'relative',
+        'divide-y divide-base-master/10 dark:divide-base-100/20',
+        'scroll-py-1',
+        'overflow-y-auto',
+        'flex-1'
+      ].join(' '),
       group: 'p-1 isolate',
       empty: 'py-2 text-center text-sm text-base-500 dark:text-base-600',
       label: [

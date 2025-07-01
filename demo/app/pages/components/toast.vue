@@ -15,6 +15,7 @@ const { toasts, add, update, remove } = useToast()
 const appConfig = useAppConfig()
 
 const count = ref(1)
+const isShowProgress = ref(true)
 const last = computed(() => toasts.value[toasts.value.length - 1])
 
 const messageList: string[] = [
@@ -128,6 +129,7 @@ function addToast() {
   add({
     id,
     ...template,
+    progress: isShowProgress.value,
     onClick: (toast) => {
       console.log(`Toast ${toast.id} clicked`)
     }
@@ -141,7 +143,8 @@ function updateToast() {
 
   update(last.value.id, {
     title: 'Toast updated',
-    description: `This is the updated toast ${count.value++}`
+    description: `This is the updated toast ${count.value++}`,
+    progress: isShowProgress.value
   })
 }
 
@@ -161,13 +164,14 @@ function removeToast() {
       <div class="space-y-6 mb-3">
         <B24RadioGroup v-model="appConfig.toaster.position" legend="Position" :items="positions" />
         <B24Switch v-model="appConfig.toaster.expand" label="Expand" class="mt-1" />
+        <B24Switch v-model="isShowProgress" label="isShowProgress" class="mt-1" />
         <B24FormField
           label="Duration"
           :hint="`${appConfig.toaster.duration} ms.`"
           name="duration"
         >
           <B24Range
-            v-model.number="appConfig.toaster.duration"
+            v-model="appConfig.toaster.duration"
             aria-label="Duration"
             :min="1000"
             :max="50000"

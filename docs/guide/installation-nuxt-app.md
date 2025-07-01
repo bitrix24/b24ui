@@ -21,7 +21,7 @@ Create a new project locally by running the following command:
 
 ::: code-group
 ```bash [Terminal]
-npx nuxi init -t github:bitrix24/starter-b24ui <my-app>
+npm create nuxt@latest -- -t github:bitrix24/starter-b24ui
 ```
 :::
 

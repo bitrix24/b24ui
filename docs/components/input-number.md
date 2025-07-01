@@ -292,6 +292,6 @@ Use the `#increment` and `#decrement` slots to customize the buttons.
 
 When accessing the component via a template ref, you can use the following:
 
-| Name                       | Type                                            |
-|----------------------------|-------------------------------------------------|
-| `inputRef`{lang="ts"} | `Ref<HTMLInputElement \| null>`{lang="ts"} |
+| Name                  | Type                                                            |
+|-----------------------|-----------------------------------------------------------------|
+| `inputRef`{lang="ts"} | `Ref<InstanceType<typeof NumberFieldInput> \| null>`{lang="ts"} |

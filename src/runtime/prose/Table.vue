@@ -62,7 +62,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
 <template>
   <B24TableWrapper
     :as="as"
-    :class="b24ui.root({ class: [props.class, props.b24ui?.root] })"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     :zebra="props.zebra"
     :row-hover="props.rowHover"
     :rounded="props.rounded"

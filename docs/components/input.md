@@ -15,6 +15,7 @@ import IconLeadingTrailingExample from '/examples/input/IconLeadingTrailing.vue'
 import AvatarExample from '/examples/input/Avatar.vue';
 import LoadingExample from '/examples/input/Loading.vue';
 import DisabledExample from '/examples/input/Disabled.vue';
+import WithMaskExample from '/examples/input/WithMask.vue';
 </script>
 # Input
 
@@ -191,6 +192,22 @@ Use the `disabled` prop to disable the Input.
 
 ::: details
 <<< @/examples/input/demo/Disabled.vue{14 vue:line-numbers}
+:::
+
+## Examples
+
+### With mask
+
+There's no built-in support for masks, but you can use libraries like [maska](https://github.com/beholdr/maska) to mask the Input.
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <WithMaskExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/input/demo/WithMask.vue{vue:line-numbers}
 :::
 
 ## API

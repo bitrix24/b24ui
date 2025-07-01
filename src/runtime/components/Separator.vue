@@ -76,13 +76,13 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.separa
 </script>
 
 <template>
-  <Separator v-bind="rootProps" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })">
+  <Separator v-bind="rootProps" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <div :class="b24ui.border({ class: props.b24ui?.border })" />
 
-    <template v-if="label || icon || avatar || !!slots.default">
+    <template v-if="(label !== undefined && label !== null) || icon || avatar || !!slots.default">
       <div :class="b24ui.container({ class: props.b24ui?.container })">
         <slot>
-          <span v-if="label" :class="b24ui.label({ class: props.b24ui?.label })">{{ label }}</span>
+          <span v-if="label !== undefined && label !== null" :class="b24ui.label({ class: props.b24ui?.label })">{{ label }}</span>
           <Component :is="icon" v-else-if="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
           <B24Avatar v-else-if="avatar" :size="((props.b24ui?.avatarSize || b24ui.avatarSize()) as AvatarProps['size'])" v-bind="avatar" :class="b24ui.avatar({ class: props.b24ui?.avatar })" />
         </slot>

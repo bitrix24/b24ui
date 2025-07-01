@@ -1,8 +1,8 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/avatar'
+import type { IconComponent, ChipProps } from '../types'
 import type { ComponentConfig } from '../types/utils'
-import type { IconComponent } from '../types'
 
 type Avatar = ComponentConfig<typeof theme, AppConfig, 'avatar'>
 
@@ -24,6 +24,7 @@ export interface AvatarProps {
    * @defaultValue 'md'
    */
   size?: Avatar['variants']['size']
+  chip?: boolean | ChipProps
   class?: any
   style?: any
   b24ui?: Avatar['slots']
@@ -41,6 +42,7 @@ import { useAppConfig } from '#imports'
 import ImageComponent from '#build/b24ui-image-component'
 import { useAvatarGroup } from '../composables/useAvatarGroup'
 import { tv } from '../utils/tv'
+import B24Chip from './Chip.vue'
 
 defineOptions({ inheritAttrs: false })
 
@@ -88,7 +90,13 @@ function onError() {
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.class, props.b24ui?.root] })" :style="props.style">
+  <component
+    :is="props.chip ? B24Chip : Primitive"
+    :as="as"
+    v-bind="props.chip ? (typeof props.chip === 'object' ? { inset: true, ...props.chip } : { inset: true }) : {}"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
+    :style="props.style"
+  >
     <component
       :is="ImageComponent"
       v-if="src && !error"
@@ -108,5 +116,5 @@ function onError() {
         <span v-else :class="b24ui.fallback({ class: props.b24ui?.fallback })">{{ fallback || '&nbsp;' }}</span>
       </slot>
     </Slot>
-  </Primitive>
+  </component>
 </template>

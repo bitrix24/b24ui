@@ -59,8 +59,8 @@ const valueObj = ref(itemsObj.value[0])
       <ExampleCardSubTitle title="autofocus" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24InputMenu
-          v-model="value"
           :items="items"
+          default-value="Negotiating"
           aria-label="Insert value"
           autofocus
           name="some_value"
@@ -72,7 +72,6 @@ const valueObj = ref(itemsObj.value[0])
           :items="items"
           multiple
           aria-label="Insert value"
-          autofocus
           name="some_value"
           placeholder="Insert value&hellip;"
           class="w-full"

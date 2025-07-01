@@ -29,28 +29,34 @@ export default {
     linkLeadingIcon: 'shrink-0 size-4 -ms-1 rtl:-ms-0 rtl:-me-1',
     linkLeadingAvatar: 'shrink-0 -ms-1 rtl:-ms-0 rtl:-me-1',
     linkLeadingAvatarSize: '2xs',
-    linkTrailing: 'inline-flex gap-1.5 items-center',
+    linkTrailing: 'group inline-flex gap-1.5 items-center',
     linkTrailingBadge: 'shrink-0',
     linkTrailingBadgeSize: 'sm',
     linkTrailingIcon: 'text-base-600 size-4 transform shrink-0 group-data-[state=open]:rotate-180 transition-transform duration-200',
     linkLabel: 'truncate',
     linkLabelWrapper: 'flex items-center items-center justify-between rtl:flex-row-reverse gap-1.5',
     linkLabelExternalIcon: 'inline-block h-6 w-3 align-top text-base-500 dark:text-base-700',
-    childList: '',
+    childList: 'isolate',
+    childLabel: [
+      'text-xs text-highlighted',
+      'text-base-500 dark:text-base-400'
+    ].join(' '),
     childItem: '',
     childLink: [
-      'group',
+      'group relative',
       'size-full',
-      'px-3 py-2',
-      'rounded-2xs',
-      'flex items-start gap-2',
-      'text-start'
+      // 'rounded-2xs',
+      'flex items-start',
+      'text-start',
+      'text-sm',
+      'before:absolute before:z-[-1] before:rounded-2xs',
+      'focus:outline-none focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2'
     ].join(' '),
-    childLinkWrapper: 'flex flex-col items-start',
+    childLinkWrapper: 'min-w-0',
     childLinkIcon: 'size-5 shrink-0',
-    childLinkLabel: 'font-semibold text-sm relative inline-flex',
+    childLinkLabel: 'truncate',
     childLinkLabelExternalIcon: 'inline-block h-6 w-3 align-top text-base-500 dark:text-base-700',
-    childLinkDescription: 'text-sm text-base-500 dark:text-base-700',
+    childLinkDescription: 'text-base-500 dark:text-base-700',
     separator: 'px-2 h-px bg-base-950/10 dark:bg-base-100/20',
     viewportWrapper: 'absolute top-full left-0 flex w-full',
     viewport: [
@@ -63,7 +69,7 @@ export default {
       // 'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]'
       'z-[1]'
     ].join(' '),
-    content: 'absolute top-0 left-0 w-full', //  sm:w-auto
+    content: '',
     indicator: [
       'absolute',
       'motion-safe:data-[state=visible]:animate-[fade-in_100ms_ease-out] motion-safe:data-[state=hidden]:animate-[fade-out_100ms_ease-in]',
@@ -88,35 +94,35 @@ export default {
     color: {
       default: {
         link: 'focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800',
-        childLink: 'focus-visible:outline-base-300 dark:focus-visible:outline-base-800'
+        childLink: 'focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800'
       },
       danger: {
         link: 'focus-visible:before:ring-red-300 dark:focus-visible:before:ring-red-800',
-        childLink: 'focus-visible:outline-red-300 dark:focus-visible:outline-red-800'
+        childLink: 'focus-visible:before:ring-red-300 dark:focus-visible:before:ring-red-800'
       },
       success: {
         link: 'focus-visible:before:ring-green-300 dark:focus-visible:before:ring-green-800',
-        childLink: 'focus-visible:outline-green-300 dark:focus-visible:outline-green-800'
+        childLink: 'focus-visible:before:ring-green-300 dark:focus-visible:before:ring-green-800'
       },
       warning: {
         link: 'focus-visible:before:ring-orange-300 dark:focus-visible:before:ring-orange-800',
-        childLink: 'focus-visible:outline-orange-300 dark:focus-visible:outline-orange-800'
+        childLink: 'focus-visible:before:ring-orange-300 dark:focus-visible:before:ring-orange-800'
       },
       primary: {
         link: 'focus-visible:before:ring-blue-300 dark:focus-visible:before:ring-blue-800',
-        childLink: 'focus-visible:outline-blue-300 dark:focus-visible:outline-blue-800'
+        childLink: 'focus-visible:before:ring-blue-300 dark:focus-visible:before:ring-blue-800'
       },
       secondary: {
         link: 'focus-visible:before:ring-cyan-300 dark:focus-visible:before:ring-cyan-800',
-        childLink: 'focus-visible:outline-cyan-300 dark:focus-visible:outline-cyan-800'
+        childLink: 'focus-visible:before:ring-cyan-300 dark:focus-visible:before:ring-cyan-800'
       },
       collab: {
         link: 'focus-visible:before:ring-collab-300 dark:focus-visible:before:ring-collab-800',
-        childLink: 'focus-visible:outline-collab-300 dark:focus-visible:outline-collab-800'
+        childLink: 'focus-visible:before:ring-collab-300 dark:focus-visible:before:ring-collab-800'
       },
       ai: {
         link: 'focus-visible:before:ring-ai-300 dark:focus-visible:before:ring-ai-800',
-        childLink: 'focus-visible:outline-ai-300 dark:focus-visible:outline-ai-800'
+        childLink: 'focus-visible:before:ring-ai-300 dark:focus-visible:before:ring-ai-800'
       }
     },
     highlightColor: {
@@ -147,7 +153,10 @@ export default {
         list: 'flex items-center gap-x-1',
         item: 'py-2 empty:hidden',
         link: 'px-2.5 py-1.5 before:inset-x-px before:inset-y-0',
-        childList: 'grid p-2'
+        childList: 'grid p-2',
+        childLink: 'px-3 py-2 gap-2 before:inset-x-px before:inset-y-0',
+        childLinkLabel: 'font-medium',
+        content: 'absolute top-0 left-0 w-full max-h-[70vh] overflow-y-auto'
       },
       vertical: {
         root: 'flex-col w-full',
@@ -155,7 +164,9 @@ export default {
           'ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl',
           'flex-row rtl:flex-row-reverse',
           'before:inset-y-px before:inset-x-0'
-        ].join(' ')
+        ].join(' '),
+        childLabel: 'px-1.5 py-0.5',
+        childLink: 'p-1.5 gap-1.5 before:inset-y-px before:inset-x-0'
       }
     },
     contentOrientation: {
@@ -185,7 +196,7 @@ export default {
     active: {
       true: {
         childLink: [
-          'bg-base-20 dark:bg-base-900',
+          'before:bg-base-20 dark:before:bg-base-900',
           'text-base-950 dark:text-base-50',
           'font-semibold'
         ].join(' '),
@@ -195,10 +206,10 @@ export default {
         link: 'text-base-900 dark:text-base-200',
         linkLeadingIcon: 'text-base-500 dark:text-base-700',
         childLink: [
-          'hover:bg-base-20 dark:hover:bg-base-900',
+          'hover:before:bg-base-20 dark:hover:before:bg-base-900',
           'text-base-500 dark:text-base-700',
-          'hover:text-base-950 dark:hover:dark:text-base-200',
-          'transition-colors'
+          'hover:text-base-950 dark:hover:text-base-200',
+          'transition-colors before:transition-colors'
         ].join(' '),
         childLinkIcon: [
           'text-base-500 dark:text-base-700',
@@ -237,6 +248,23 @@ export default {
       class: {
         childList: 'gap-1',
         content: 'w-60'
+      }
+    },
+    {
+      orientation: 'vertical',
+      collapsed: false,
+      class: {
+        childList: '',
+        childItem: '[&>*]:ps-[44px] rtl:[&>*]:pe-[44px]',
+        content: 'motion-safe:data-[state=open]:animate-[collapsible-down_200ms_ease-out] motion-safe:data-[state=closed]:animate-[collapsible-up_200ms_ease-out] overflow-hidden'
+      }
+    },
+    {
+      orientation: 'vertical',
+      collapsed: true,
+      class: {
+        link: 'px-1.5',
+        content: 'rounded-sm min-h-6 p-1'
       }
     },
     {
@@ -340,7 +368,7 @@ export default {
           'min-h-9',
           'before:rounded-md',
           'before:bg-base-800 dark:before:bg-white/35',
-          'hover:before:bg-base-800 hover:dark:before:bg-white/35',
+          'hover:before:bg-base-800 dark:hover:before:bg-white/35',
           'data-[state=open]:before:bg-base-800 dark:data-[state=open]:before:bg-white/35'
         ].join(' '),
         linkLabelWrapper: [
@@ -379,7 +407,7 @@ export default {
           'min-h-9',
           'before:rounded-md',
           'before:bg-red-800 dark:before:bg-red-800',
-          'hover:before:bg-red-800 hover:dark:before:bg-red-800',
+          'hover:before:bg-red-800 dark:hover:before:bg-red-800',
           'data-[state=open]:before:bg-red-800 dark:data-[state=open]:before:bg-red-800'
         ].join(' '),
         linkLabelWrapper: [
@@ -418,7 +446,7 @@ export default {
           'min-h-9',
           'before:rounded-md',
           'before:bg-green-800 dark:before:bg-green-800',
-          'hover:before:bg-green-800 hover:dark:before:bg-green-800',
+          'hover:before:bg-green-800 dark:hover:before:bg-green-800',
           'data-[state=open]:before:bg-green-800 dark:data-[state=open]:before:bg-green-800'
         ].join(' '),
         linkLabelWrapper: [
@@ -457,7 +485,7 @@ export default {
           'min-h-9',
           'before:rounded-md',
           'before:bg-orange-800 dark:before:bg-orange-800',
-          'hover:before:bg-orange-800 hover:dark:before:bg-orange-800',
+          'hover:before:bg-orange-800 dark:hover:before:bg-orange-800',
           'data-[state=open]:before:bg-orange-800 dark:data-[state=open]:before:bg-orange-800'
         ].join(' '),
         linkLabelWrapper: [
@@ -496,7 +524,7 @@ export default {
           'min-h-9',
           'before:rounded-md',
           'before:bg-blue-800 dark:before:bg-blue-800',
-          'hover:before:bg-blue-800 hover:dark:before:bg-blue-800',
+          'hover:before:bg-blue-800 dark:hover:before:bg-blue-800',
           'data-[state=open]:before:bg-blue-800 dark:data-[state=open]:before:bg-blue-800'
         ].join(' '),
         linkLabelWrapper: [
@@ -535,7 +563,7 @@ export default {
           'min-h-9',
           'before:rounded-md',
           'before:bg-cyan-800 dark:before:bg-cyan-800',
-          'hover:before:bg-cyan-800 hover:dark:before:bg-cyan-800',
+          'hover:before:bg-cyan-800 dark:hover:before:bg-cyan-800',
           'data-[state=open]:before:bg-cyan-800 dark:data-[state=open]:before:bg-cyan-800'
         ].join(' '),
         linkLabelWrapper: [
@@ -574,7 +602,7 @@ export default {
           'min-h-9',
           'before:rounded-md',
           'before:bg-collab-800 dark:before:bg-collab-800',
-          'hover:before:bg-collab-800 hover:dark:before:bg-collab-800',
+          'hover:before:bg-collab-800 dark:hover:before:bg-collab-800',
           'data-[state=open]:before:bg-collab-800 dark:data-[state=open]:before:bg-collab-800'
         ].join(' '),
         linkLabelWrapper: [
@@ -613,7 +641,7 @@ export default {
           'min-h-9',
           'before:rounded-md',
           'before:bg-ai-800 dark:before:bg-ai-800',
-          'hover:before:bg-ai-800 hover:dark:before:bg-ai-800',
+          'hover:before:bg-ai-800 dark:hover:before:bg-ai-800',
           'data-[state=open]:before:bg-ai-800 dark:data-[state=open]:before:bg-ai-800'
         ].join(' '),
         linkLabelWrapper: [
@@ -659,6 +687,7 @@ export default {
       variant: 'pill',
       active: true,
       highlight: true,
+      disabled: false,
       class: {
         link: [
           'hover:before:bg-base-250/80 dark:hover:before:bg-white/10',
@@ -672,9 +701,10 @@ export default {
       variant: 'pill',
       active: true,
       highlight: true,
+      disabled: false,
       class: {
         link: [
-          'hover:before:bg-base-800 hover:dark:before:bg-white/35',
+          'hover:before:bg-base-800 dark:hover:before:bg-white/35',
           'before:transition-colors'
         ].join(' ')
       }
@@ -685,9 +715,10 @@ export default {
       variant: 'pill',
       active: true,
       highlight: true,
+      disabled: false,
       class: {
         link: [
-          'hover:before:bg-red-800 hover:dark:before:bg-red-800',
+          'hover:before:bg-red-800 dark:hover:before:bg-red-800',
           'before:transition-colors'
         ].join(' ')
       }
@@ -698,9 +729,10 @@ export default {
       variant: 'pill',
       active: true,
       highlight: true,
+      disabled: false,
       class: {
         link: [
-          'hover:before:bg-green-800 hover:dark:before:bg-green-800',
+          'hover:before:bg-green-800 dark:hover:before:bg-green-800',
           'before:transition-colors'
         ].join(' ')
       }
@@ -711,9 +743,10 @@ export default {
       variant: 'pill',
       active: true,
       highlight: true,
+      disabled: false,
       class: {
         link: [
-          'hover:before:bg-orange-800 hover:dark:before:bg-orange-800',
+          'hover:before:bg-orange-800 dark:hover:before:bg-orange-800',
           'before:transition-colors'
         ].join(' ')
       }
@@ -724,9 +757,10 @@ export default {
       variant: 'pill',
       active: true,
       highlight: true,
+      disabled: false,
       class: {
         link: [
-          'hover:before:bg-blue-800 hover:dark:before:bg-blue-800',
+          'hover:before:bg-blue-800 dark:hover:before:bg-blue-800',
           'before:transition-colors'
         ].join(' ')
       }
@@ -737,9 +771,10 @@ export default {
       variant: 'pill',
       active: true,
       highlight: true,
+      disabled: false,
       class: {
         link: [
-          'hover:before:bg-cyan-800 hover:dark:before:bg-cyan-800',
+          'hover:before:bg-cyan-800 dark:hover:before:bg-cyan-800',
           'before:transition-colors'
         ].join(' ')
       }
@@ -750,9 +785,10 @@ export default {
       variant: 'pill',
       active: true,
       highlight: true,
+      disabled: false,
       class: {
         link: [
-          'hover:before:bg-collab-800 hover:dark:before:bg-collab-800',
+          'hover:before:bg-collab-800 dark:hover:before:bg-collab-800',
           'before:transition-colors'
         ].join(' ')
       }
@@ -763,9 +799,10 @@ export default {
       variant: 'pill',
       active: true,
       highlight: true,
+      disabled: false,
       class: {
         link: [
-          'hover:before:bg-ai-800 hover:dark:before:bg-ai-800',
+          'hover:before:bg-ai-800 dark:hover:before:bg-ai-800',
           'before:transition-colors'
         ].join(' ')
       }
@@ -1064,23 +1101,6 @@ export default {
       active: true,
       class: {
         link: 'after:bg-ai-500 dark:after:bg-ai-600'
-      }
-    },
-    // endregion ////
-    // region collapsed ////
-    {
-      orientation: 'vertical',
-      collapsed: false,
-      class: {
-        childList: '',
-        childItem: '[&>*]:ps-[44px] rtl:[&>*]:pe-[44px]'
-      }
-    },
-    {
-      orientation: 'vertical',
-      collapsed: true,
-      class: {
-        link: 'px-1.5'
       }
     }
     // endregion ////

@@ -55,7 +55,7 @@ Use the `default-value` prop to set the initial value when you do not need to co
 
 Use the `label` prop to set the label of the Switch.
 
-When using the `required` prop, an asterisk is be added next to the label.
+When using the `required` prop, an asterisk is added next to the label.
 
 <div class="lg:min-h-[275px]">
   <ClientOnly>

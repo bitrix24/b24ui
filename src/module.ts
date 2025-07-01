@@ -58,7 +58,14 @@ export default defineNuxtModule<ModuleOptions>({
     }
 
     if (options.colorMode) {
-      await registerModule('@nuxtjs/color-mode', 'colorMode', { classSuffix: '', disableTransition: true })
+      await registerModule(
+        '@nuxtjs/color-mode',
+        'colorMode',
+        {
+          classSuffix: '',
+          disableTransition: true
+        }
+      )
     }
 
     addPlugin({ src: resolve('./runtime/plugins/colors') })

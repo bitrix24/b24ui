@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { TooltipRootProps, TooltipRootEmits, TooltipContentProps, TooltipContentEmits, TooltipArrowProps } from 'reka-ui'
+import type { TooltipRootProps, TooltipRootEmits, TooltipContentProps, TooltipContentEmits, TooltipArrowProps, TooltipTriggerProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/tooltip'
 import type { KbdProps } from '../types'
@@ -27,6 +27,7 @@ export interface TooltipProps extends TooltipRootProps {
    * @defaultValue true
    */
   portal?: boolean | string | HTMLElement
+  reference?: TooltipTriggerProps['reference']
   class?: any
   b24ui?: Tooltip['slots']
 }
@@ -70,12 +71,18 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.toolti
 
 <template>
   <TooltipRoot v-slot="{ open }" v-bind="rootProps">
-    <TooltipTrigger v-if="!!slots.default" v-bind="$attrs" as-child :class="props.class">
+    <TooltipTrigger
+      v-if="!!slots.default || !!reference"
+      v-bind="$attrs"
+      as-child
+      :reference="reference"
+      :class="props.class"
+    >
       <slot :open="open" />
     </TooltipTrigger>
 
     <TooltipPortal v-bind="portalProps">
-      <TooltipContent v-bind="contentProps" :class="b24ui.content({ class: [!slots.default && props.class, props.b24ui?.content] })">
+      <TooltipContent v-bind="contentProps" :class="b24ui.content({ class: [!slots.default && props.b24ui?.content, props.class] })">
         <slot name="content">
           <span v-if="text" :class="b24ui.text({ class: props.b24ui?.text })">{{ text }}</span>
 

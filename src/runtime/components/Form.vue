@@ -1,13 +1,12 @@
 <script lang="ts">
-import type { DeepReadonly } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/form'
-import type { FormSchema, FormError, FormInputEvents, FormErrorEvent, FormSubmitEvent, FormEvent, Form, FormErrorWithId, InferInput, InferOutput } from '../types/form'
+import type { FormSchema, FormError, FormInputEvents, FormErrorEvent, FormSubmitEvent, FormEvent, Form, FormErrorWithId, InferInput, InferOutput, FormData } from '../types/form'
 import type { ComponentConfig } from '../types/utils'
 
 type FormConfig = ComponentConfig<typeof theme, AppConfig, 'form'>
 
-export interface FormProps<S extends FormSchema> {
+export interface FormProps<S extends FormSchema, T extends boolean = true> {
   id?: string | number
   /** Schema to validate the form state. Supports Standard Schema objects, Yup, Joi, and Superstructs. */
   schema?: S
@@ -35,7 +34,7 @@ export interface FormProps<S extends FormSchema> {
    * If true, schema transformations will be applied to the state on submit.
    * @defaultValue `true`
    */
-  transform?: boolean
+  transform?: T
   /**
    * If true, this form will attach to its parent Form (if any) and validate at the same time.
    * @defaultValue `true`
@@ -48,21 +47,21 @@ export interface FormProps<S extends FormSchema> {
    */
   loadingAuto?: boolean
   class?: any
-  onSubmit?: ((event: FormSubmitEvent<InferOutput<S>>) => void | Promise<void>) | (() => void | Promise<void>)
+  onSubmit?: ((event: FormSubmitEvent<FormData<S, T>>) => void | Promise<void>) | (() => void | Promise<void>)
 }
 
-export interface FormEmits<S extends FormSchema> {
-  (e: 'submit', payload: FormSubmitEvent<InferOutput<S>>): void
+export interface FormEmits<S extends FormSchema, T extends boolean = true> {
+  (e: 'submit', payload: FormSubmitEvent<FormData<S, T>>): void
   (e: 'error', payload: FormErrorEvent): void
 }
 
 export interface FormSlots {
-  default(props?: { errors: FormError[] }): any
+  default(props?: { errors: FormError[], loading: boolean }): any
 }
 </script>
 
-<script lang="ts" setup generic="S extends FormSchema">
-import { provide, inject, nextTick, ref, onUnmounted, onMounted, computed, useId, readonly } from 'vue'
+<script lang="ts" setup generic="S extends FormSchema, T extends boolean = true">
+import { provide, inject, nextTick, ref, onUnmounted, onMounted, computed, useId, readonly, reactive } from 'vue'
 import { useEventBus } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { formOptionsInjectionKey, formInputsInjectionKey, formBusInjectionKey, formLoadingInjectionKey } from '../composables/useFormField'
@@ -73,17 +72,17 @@ import { FormValidationException } from '../types/form'
 type I = InferInput<S>
 type O = InferOutput<S>
 
-const props = withDefaults(defineProps<FormProps<S>>(), {
+const props = withDefaults(defineProps<FormProps<S, T>>(), {
   validateOn() {
     return ['input', 'blur', 'change'] as FormInputEvents[]
   },
   validateOnInputDelay: 300,
   attach: true,
-  transform: true,
+  transform: () => true as T,
   loadingAuto: true
 })
 
-const emits = defineEmits<FormEmits<S>>()
+const emits = defineEmits<FormEmits<S, T>>()
 defineSlots<FormSlots>()
 
 const appConfig = useAppConfig() as FormConfig['AppConfig']
@@ -153,9 +152,9 @@ provide('form-errors', errors)
 const inputs = ref<{ [P in keyof I]?: { id?: string, pattern?: RegExp } }>({})
 provide(formInputsInjectionKey, inputs as any)
 
-const dirtyFields = new Set<keyof I>()
-const touchedFields = new Set<keyof I>()
-const blurredFields = new Set<keyof I>()
+const dirtyFields: Set<keyof I> = reactive(new Set<keyof I>())
+const touchedFields: Set<keyof I> = reactive(new Set<keyof I>())
+const blurredFields: Set<keyof I> = reactive(new Set<keyof I>())
 
 function resolveErrorIds(errs: FormError[]): FormErrorWithId[] {
   return errs.map(err => ({
@@ -181,10 +180,10 @@ async function getErrors(): Promise<FormErrorWithId[]> {
   return resolveErrorIds(errs)
 }
 
-type ValidateOpts<Silent extends boolean> = { name?: keyof I | (keyof I)[], silent?: Silent, nested?: boolean, transform?: boolean }
-async function _validate(opts: ValidateOpts<false>): Promise<O>
-async function _validate(opts: ValidateOpts<true>): Promise<O | false>
-async function _validate(opts: ValidateOpts<boolean> = { silent: false, nested: true, transform: false }): Promise<O | false> {
+type ValidateOpts<Silent extends boolean, Transform extends boolean> = { name?: keyof I | (keyof I)[], silent?: Silent, nested?: boolean, transform?: Transform }
+async function _validate<T extends boolean>(opts: ValidateOpts<false, T>): Promise<FormData<S, T>>
+async function _validate<T extends boolean>(opts: ValidateOpts<true, T>): Promise<FormData<S, T> | false>
+async function _validate<T extends boolean>(opts: ValidateOpts<boolean, boolean> = { silent: false, nested: true, transform: false }): Promise<FormData<S, T> | false> {
   const names = opts.name && !Array.isArray(opts.name) ? [opts.name] : opts.name as (keyof O)[]
 
   const nestedValidatePromises = !names && opts.nested
@@ -225,7 +224,7 @@ async function _validate(opts: ValidateOpts<boolean> = { silent: false, nested: 
     Object.assign(props.state, transformedState.value)
   }
 
-  return props.state as O
+  return props.state as FormData<S, T>
 }
 
 const loading = ref(false)
@@ -234,7 +233,7 @@ provide(formLoadingInjectionKey, readonly(loading))
 async function onSubmitWrapper(payload: Event) {
   loading.value = props.loadingAuto && true
 
-  const event = payload as FormSubmitEvent<O>
+  const event = payload as FormSubmitEvent<FormData<S, T>>
 
   try {
     event.data = await _validate({ nested: true, transform: props.transform })
@@ -263,7 +262,7 @@ provide(formOptionsInjectionKey, computed(() => ({
   validateOnInputDelay: props.validateOnInputDelay
 })))
 
-defineExpose<Form<I>>({
+defineExpose<Form<S>>({
   validate: _validate,
   errors,
 
@@ -300,9 +299,9 @@ defineExpose<Form<I>>({
   loading,
   dirty: computed(() => !!dirtyFields.size),
 
-  dirtyFields: readonly(dirtyFields) as DeepReadonly<Set<keyof I>>,
-  blurredFields: readonly(blurredFields) as DeepReadonly<Set<keyof I>>,
-  touchedFields: readonly(touchedFields) as DeepReadonly<Set<keyof I>>
+  dirtyFields: readonly(dirtyFields),
+  blurredFields: readonly(blurredFields),
+  touchedFields: readonly(touchedFields)
 })
 </script>
 
@@ -313,6 +312,6 @@ defineExpose<Form<I>>({
     :class="b24ui({ class: props.class })"
     @submit.prevent="onSubmitWrapper"
   >
-    <slot :errors="errors" />
+    <slot :errors="errors" :loading="loading" />
   </component>
 </template>

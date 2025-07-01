@@ -1,5 +1,35 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Slideover > renders with actions slot correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-base-950/20 dark:bg-base-950/30 motion-safe:backdrop-blur-sm motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="right" class="fixed bg-base-50 dark:bg-base-950 sm:shadow-lg flex flex-col focus:outline-none right-0 inset-y-0 w-full max-w-[28rem] motion-safe:data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+  <!--v-if-->
+  <div class="mt-4 px-5 flex items-center gap-1.5">
+    <div class="min-h-2xl">
+      <!--v-if-->
+      <!--v-if-->
+    </div>Actions slot<button type="button" aria-label="Close" class="select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50 transition duration-150 ease-linear text-white dark:text-blue-100 bg-blue-530 border border-blue-530 hover:bg-blue-450 hover:border-blue-450 hover:focus-visible:ring-0 active:bg-blue-550 active:border-blue-550 active:focus-visible:ring-0 disabled:bg-blue-530 aria-disabled:bg-blue-530 disabled:border-blue-530 aria-disabled:border-blue-530 focus-visible:outline-blue-530 ring-blue-800 focus:outline-none focus-visible:ring-blue-800 h-5xl text-xs leading-none rounded-2xs ps-1.5 pe-1.5 justify-center font-bold uppercase group absolute pl-1.5 pr-2.5 top-3 -translate-x-full left-0 rounded-l-full">
+      <!--v-if-->
+      <div class="inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-xl2 group-hover:rounded-full group-hover:border-1 group-hover:border-current">
+          <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </button>
+  </div>
+  <div class="mx-0 mt-2 flex-1 overflow-y-auto scrollbar-thin"></div>
+  <!--v-if-->
+</div>
+
+
+<!--teleport end-->"
+`;
+
 exports[`Slideover > renders with b24ui correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->

@@ -13,7 +13,7 @@ export default defineBuildConfig({
       delimiters: ['', ''],
       values: {
         // Used in development to import directly from theme
-        'const isUiDev = true': 'const isUiDev = false'
+        'process.argv.includes(\'--uiDev\')': 'false'
       }
     }
   },

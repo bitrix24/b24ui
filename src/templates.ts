@@ -8,6 +8,7 @@ import * as theme from './theme'
 import * as themeProse from './theme/prose'
 import * as themeContent from './theme/content'
 // import colors from 'tailwindcss/colors'
+import { genExport } from 'knitwork'
 
 function replaceBrackets(value: string): string {
   return value.replace(/\[\[/g, '<').replace(/\]\]/g, '>')
@@ -23,8 +24,8 @@ export function buildTemplates(options: ModuleOptions) {
 export function getTemplates(options: ModuleOptions) {
   const templates: NuxtTemplate[] = []
 
-  function generateVariantDeclarations(variants: string[], result: any) {
-    return variants.map((variant) => {
+  function generateVariantDeclarations(variants: string[], result: any, json: string) {
+    return variants.filter(variant => json.includes(`as typeof ${variant}`)).map((variant) => {
       const keys = Object.keys(result.variants[variant])
       return `const ${variant} = ${JSON.stringify(keys, null, 2)} as const`
     })
@@ -58,12 +59,11 @@ export function getTemplates(options: ModuleOptions) {
         // function generateVariantDeclarations(variants: string[]) { ////
 
         // For local development, import directly from theme
-        const isUiDev = true
-        if (isUiDev) {
+        if (process.argv.includes('--uiDev')) {
           const templatePath = fileURLToPath(new URL(`./theme/${kebabCase(component)}`, import.meta.url))
           return [
             `import template from ${JSON.stringify(templatePath)}`,
-            ...generateVariantDeclarations(variants, result),
+            ...generateVariantDeclarations(variants, result, json),
             `const result = typeof template === 'function' ? (template as Function)(${JSON.stringify(options, null, 2)}) : template`,
             `const theme = ${json}`,
             `export default result as typeof theme`
@@ -72,7 +72,7 @@ export function getTemplates(options: ModuleOptions) {
 
         // For production build
         return [
-          ...generateVariantDeclarations(variants, result),
+          ...generateVariantDeclarations(variants, result, json),
           `export default ${json}`
         ].join('\n\n')
       }
@@ -107,11 +107,11 @@ export function getTemplates(options: ModuleOptions) {
         // function generateVariantDeclarations(variants: string[]) { ////
 
         // For local development, import directly from theme/prose
-        if (process.env.DEV) {
+        if (process.argv.includes('--uiDev')) {
           const templatePath = fileURLToPath(new URL(`./theme/prose/${kebabCase(component)}`, import.meta.url))
           return [
             `import template from ${JSON.stringify(templatePath)}`,
-            ...generateVariantDeclarations(variants, result),
+            ...generateVariantDeclarations(variants, result, json),
             `const result = typeof template === 'function' ? template(${JSON.stringify(options, null, 2)}) : template`,
             `const theme = ${json}`,
             `export default result as typeof theme`
@@ -120,7 +120,7 @@ export function getTemplates(options: ModuleOptions) {
 
         // For production build
         return [
-          ...generateVariantDeclarations(variants, result),
+          ...generateVariantDeclarations(variants, result, json),
           `export default ${json}`
         ].join('\n\n')
       }
@@ -155,11 +155,11 @@ export function getTemplates(options: ModuleOptions) {
         // function generateVariantDeclarations(variants: string[]) { ////
 
         // For local development, import directly from theme/content
-        if (process.env.DEV) {
+        if (process.argv.includes('--uiDev')) {
           const templatePath = fileURLToPath(new URL(`./theme/content/${kebabCase(component)}`, import.meta.url))
           return [
             `import template from ${JSON.stringify(templatePath)}`,
-            ...generateVariantDeclarations(variants, result),
+            ...generateVariantDeclarations(variants, result, json),
             `const result = typeof template === 'function' ? template(${JSON.stringify(options, null, 2)}) : template`,
             `const theme = ${json}`,
             `export default result as typeof theme`
@@ -168,7 +168,7 @@ export function getTemplates(options: ModuleOptions) {
 
         // For production build
         return [
-          ...generateVariantDeclarations(variants, result),
+          ...generateVariantDeclarations(variants, result, json),
           `export default ${json}`
         ].join('\n\n')
       }
@@ -186,7 +186,7 @@ export function getTemplates(options: ModuleOptions) {
     write: true,
     getContents: () => `@source "./b24ui";
 
-@theme default {
+@theme default inline {
   --color-old-neutral-50: ${colors.neutral[50]};
   --color-old-neutral-950: ${colors.neutral[950]};
   ${[...([]).filter(color => !colors[color as keyof typeof colors]), 'default'].map(color => [50, 950].map(shade => `--color-${color}-${shade}: var(--ui-color-${color}-${shade});`).join('\n\t')).join('\n\t')}
@@ -199,7 +199,7 @@ export function getTemplates(options: ModuleOptions) {
     write: true,
     getContents: () => `@source "./b24ui";
 
-@theme default {}
+@theme default inline {}
 `
   })
 
@@ -212,12 +212,12 @@ export function getTemplates(options: ModuleOptions) {
   templates.push({
     filename: 'types/b24ui.d.ts',
     getContents: () => replaceBrackets(`import * as b24ui from '#build/b24ui'
-import type { DeepPartial } from '@bitrix24/b24ui-nuxt'
+import type { TVConfig } from '@bitrix24/b24ui-nuxt'
 import type { defaultConfig } from 'tailwind-variants'
 
 type AppConfigUI = {
   tv?: typeof defaultConfig
-} & DeepPartial[[typeof b24ui]]
+} & TVConfig<typeof b24ui>
 
 declare module '@nuxt/schema' {
   interface AppConfigInput {
@@ -236,9 +236,9 @@ export {}
     filename: 'b24ui-image-component.ts',
     write: true,
     getContents: ({ app }) => {
-      const image = app?.components?.find(c => c.pascalName === 'NuxtImg' && !c.filePath.includes('nuxt/dist/app'))
+      const image = app?.components?.find(c => c.pascalName === 'NuxtImg' && !/nuxt(?:-nightly)?\/dist\/app/.test(c.filePath))
 
-      return image ? `export { default } from "${image.filePath}"` : 'export default "img"'
+      return image ? genExport(image.filePath, [{ name: image.export, as: 'default' }]) : 'export default "img"'
     }
   })
 

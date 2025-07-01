@@ -10,6 +10,7 @@ usePageMeta.setPageTitle('Popover')
 
 const openVer1 = ref(false)
 const openVer2 = ref(false)
+const openCustomAnchor = ref(false)
 </script>
 
 <template>
@@ -80,7 +81,7 @@ const openVer2 = ref(false)
           v-model:open="openVer1"
           arrow
           :dismissible="false"
-          :b24ui="{ content: 'p-5' }"
+          :b24ui="{ content: 'p-4' }"
         >
           <B24Button label="Non-dismissible" color="link" depth="dark" />
 
@@ -100,14 +101,40 @@ const openVer2 = ref(false)
             <Placeholder class="size-full min-h-48" />
           </template>
         </B24Popover>
-
         <B24Popover
-          arrow
+          v-model:open="openCustomAnchor"
+          :dismissible="false"
+          :b24ui="{ content: 'w-(--reka-popper-anchor-width) p-4' }"
         >
+          <template #anchor>
+            <B24Input
+              placeholder="Search"
+              class="w-full"
+              @focus="openCustomAnchor = true"
+            />
+          </template>
+
+          <template #content>
+            <div class="flex items-center justify-between gap-4 mb-2">
+              <ProseH2>
+                Popover non-dismissible
+              </ProseH2>
+
+              <B24Button
+                color="link"
+                :icon="CrossCircle70Icon"
+                @click="openCustomAnchor = false"
+              />
+            </div>
+            <Placeholder class="size-full min-h-48" />
+          </template>
+        </B24Popover>
+
+        <B24Popover arrow>
           <B24Button label="Long text" color="default" depth="light" />
 
           <template #content>
-            <B24Container class="p-5 max-w-64 max-h-60 overflow-y-auto">
+            <B24Container class="p-4 max-w-64 max-h-60 overflow-y-auto">
               <ProseP>Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an. Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Nec labore cetero theophrastus no, ei vero facer veritus nec. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui.</ProseP>
               <ProseP>Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Ius dicat feugiat no, vix cu modo dicat principes. Ceteros assentior omittantur cum ad. Magna copiosae apeirian ius at. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Nisl omittam complectitur pro an, quem omnes munere id vix.</ProseP>
               <ProseP>Per in illud petentium iudicabit, integre sententiae pro no. Sale liber et vel. . Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Solum vituperata definitiones te vis, vis alia falli doming ea. Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an.</ProseP>
@@ -155,9 +182,7 @@ const openVer2 = ref(false)
         <B24Popover
           v-model:open="openVer2"
           arrow
-          :b24ui="{
-            content: 'p-5 max-w-60 max-h-72 overflow-y-auto'
-          }"
+          :b24ui="{ content: 'p-4 max-w-60 max-h-72 overflow-y-auto' }"
         >
           <B24Button label="Upload file" color="link" depth="dark" />
 

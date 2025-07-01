@@ -221,6 +221,25 @@ function openSlideover() {
             <Placeholder class="h-full w-full" />
           </template>
         </B24Slideover>
+
+        <B24Slideover
+          title="Slideover with scoped slot close"
+          description="This slideover has a scoped slot close that can be used to close the slideover from within the content."
+        >
+          <B24Button label="Open with scoped slot close" color="default" depth="light" />
+
+          <template #header="{ close }">
+            <B24Button label="Close with scoped slot close" @click="close" />
+          </template>
+
+          <template #body="{ close }">
+            <B24Button label="Close with scoped slot close" @click="close" />
+          </template>
+
+          <template #footer="{ close }">
+            <B24Button label="Close with scoped slot close" @click="close" />
+          </template>
+        </B24Slideover>
       </div>
     </ExampleCard>
 
