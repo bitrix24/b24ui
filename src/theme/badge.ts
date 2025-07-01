@@ -363,7 +363,7 @@ export default {
       square: true,
       class: {
         base: 'p-0 ps-0 pe-0',
-        wrapper: 'p-0.5 gap-0',
+        wrapper: 'p-0.5 gap-0'
       }
     },
     {
@@ -371,7 +371,7 @@ export default {
       square: true,
       class: {
         base: 'p-0 ps-0 pe-0',
-        wrapper: 'p-1 gap-0',
+        wrapper: 'p-1 gap-0'
       }
     },
     {
@@ -379,7 +379,7 @@ export default {
       square: true,
       class: {
         base: 'p-0 ps-0 pe-0',
-        wrapper: 'p-1 gap-0',
+        wrapper: 'p-1 gap-0'
       }
     },
     {
@@ -387,7 +387,7 @@ export default {
       square: true,
       class: {
         base: 'p-0 ps-0 pe-0',
-        wrapper: 'p-1 gap-0',
+        wrapper: 'p-1 gap-0'
       }
     },
     {
@@ -395,7 +395,7 @@ export default {
       square: true,
       class: {
         base: 'p-0 ps-0 pe-0',
-        wrapper: 'p-1 gap-0',
+        wrapper: 'p-1 gap-0'
       }
     },
     // endregion ////

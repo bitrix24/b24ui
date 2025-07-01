@@ -258,6 +258,9 @@ importers:
       '@bitrix24/b24ui-nuxt':
         specifier: workspace:*
         version: link:..
+      '@vueuse/integrations':
+        specifier: ^13.4.0
+        version: 13.4.0(axios@1.10.0)(focus-trap@7.6.5)(fuse.js@7.1.0)(jwt-decode@4.0.0)(vue@3.5.17(typescript@5.8.3))
       maska:
         specifier: ^3.1.1
         version: 3.1.1

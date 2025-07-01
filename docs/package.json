@@ -8,7 +8,8 @@
     "@bitrix24/b24icons-vue": "^2.0.2",
     "@bitrix24/b24ui-nuxt": "workspace:*",
     "zod": "^3.25.67",
-    "maska": "^3.1.1"
+    "maska": "^3.1.1",
+    "@vueuse/integrations": "^13.4.0"
   },
   "devDependencies": {
     "vitepress": "^2.0.0-alpha.5",

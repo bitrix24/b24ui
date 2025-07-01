@@ -120,6 +120,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       text: 'Data display',
       collapsed: false,
       items: [
+        { text: 'Accordion💡', link: 'accordion' },
         { text: 'Avatar', link: 'avatar' },
         { text: 'AvatarGroup', link: 'avatar-group' },
         { text: 'Badge', link: 'badge' },
