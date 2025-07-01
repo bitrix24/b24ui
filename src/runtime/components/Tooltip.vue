@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { TooltipRootProps, TooltipRootEmits, TooltipContentProps, TooltipContentEmits, TooltipArrowProps } from 'reka-ui'
+import type { TooltipRootProps, TooltipRootEmits, TooltipContentProps, TooltipContentEmits, TooltipArrowProps, TooltipTriggerProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/tooltip'
 import type { KbdProps } from '../types'
@@ -27,6 +27,7 @@ export interface TooltipProps extends TooltipRootProps {
    * @defaultValue true
    */
   portal?: boolean | string | HTMLElement
+  reference?: TooltipTriggerProps['reference']
   class?: any
   b24ui?: Tooltip['slots']
 }
@@ -70,7 +71,13 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.toolti
 
 <template>
   <TooltipRoot v-slot="{ open }" v-bind="rootProps">
-    <TooltipTrigger v-if="!!slots.default" v-bind="$attrs" as-child :class="props.class">
+    <TooltipTrigger
+      v-if="!!slots.default || !!reference"
+      v-bind="$attrs"
+      as-child
+      :reference="reference"
+      :class="props.class"
+    >
       <slot :open="open" />
     </TooltipTrigger>
 

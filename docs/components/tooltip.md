@@ -13,6 +13,7 @@ import DisabledExample from '/examples/tooltip/Disabled.vue';
 import OpenExample from '/examples/tooltip/Open.vue';
 import HardcodedExample from '/examples/tooltip/Hardcoded.vue';
 import HelpIconExample from '/examples/tooltip/HelpIcon.vue';
+import WithFollowingCursorExample from '/examples/tooltip/WithFollowingCursor.vue';
 </script>
 # Tooltip
 
@@ -173,6 +174,24 @@ You can use the [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/i
 
 ::: details
 <<< @/examples/tooltip/demo/HelpIcon.vue{8-12,14,16 vue:line-numbers}
+:::
+
+### With following cursor
+
+You can make the Tooltip follow the cursor when hovering over an element using the [`reference`](https://reka-ui.com/docs/components/tooltip#trigger) prop:
+
+::: info
+This example is based on Reka UI's [Tooltip Cursor](https://reka-ui.com/examples/tooltip-cursor) example.
+:::
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <WithFollowingCursorExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/tooltip/demo/WithFollowingCursor.vue{vue:line-numbers}
 :::
 
 ## API
