@@ -1,6 +1,6 @@
 ---
 title: Accordion
-description: A stacked set of collapsible panels
+description: This is a stacked set of collapsible panels
 outline: deep
 ---
 <script setup>
@@ -21,7 +21,7 @@ import WithCustomSlotExample from '/examples/advice/WithCustomSlot.vue';
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Accordion.vue"
   demo="/components/accordion"
 >
-A stacked set of collapsible panels
+This is a stacked set of collapsible panels.
 </Description>
 
 ::: warning We are still updating this page
