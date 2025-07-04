@@ -1,6 +1,7 @@
 @plugin '@bitrix24/b24style';
 @import '#build/b24ui.css';
 @import './keyframes.css';
+@import './air-design-tokens.css';
 
 @variant light (&:where(.light, .light *));
 @variant dark (&:where(.dark, .dark *));

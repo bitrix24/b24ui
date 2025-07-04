@@ -3,14 +3,23 @@ import usePageMeta from '../../playground/app/composables/usePageMeta'
 import RightAlignIcon from '@bitrix24/b24icons-vue/editor/RightAlignIcon'
 import LeftAlignIcon from '@bitrix24/b24icons-vue/editor/LeftAlignIcon'
 import SunIcon from '@bitrix24/b24icons-vue/main/SunIcon'
+import SunIconAir from '@bitrix24/b24icons-vue/outline/SunIcon'
 import MoonIcon from '@bitrix24/b24icons-vue/main/MoonIcon'
+import MoonIconAir from '@bitrix24/b24icons-vue/outline/MoonIcon'
 import { useRouter, useRoute } from 'vue-router'
-import { reactive, ref } from 'vue'
+import { reactive, ref, computed } from 'vue'
 import { useColorMode, useTextDirection } from '@vueuse/core'
 import HomeIcon from '@bitrix24/b24icons-vue/main/HomeIcon'
 
 const appConfig = useAppConfig()
-const mode = useColorMode()
+const mode = useColorMode({
+  modes: {
+    dark: 'dark --ui-context-content-dark',
+    light: 'light --ui-context-content-light',
+    lightEdge: 'light --ui-context-edge-light',
+    darkEdge: 'dark --ui-context-edge-dark'
+  }
+})
 const dir = useTextDirection()
 
 appConfig.toaster = reactive({
@@ -33,8 +42,34 @@ function toggleDir() {
 }
 
 function toggleMode() {
-  mode.value = mode.value === 'dark' ? 'light' : 'dark'
+  switch (mode.value) {
+    case 'dark':
+      mode.value = 'light'
+      break
+    case 'light':
+      mode.value = 'darkEdge'
+      break
+    case 'darkEdge':
+      mode.value = 'lightEdge'
+      break
+    case 'lightEdge':
+      mode.value = 'dark'
+      break
+    default:
+      mode.value = 'dark'
+      break
+  }
 }
+
+const colorModeIcon = computed(() => {
+  switch (mode.value) {
+    case 'dark': return MoonIcon
+    case 'light': return SunIcon
+    case 'darkEdge': return MoonIconAir
+    case 'lightEdge': return SunIconAir
+    default: return MoonIcon
+  }
+})
 
 defineShortcuts({
   ctrl_k: () => {
@@ -50,7 +85,7 @@ defineShortcuts({
     dir.value = dir.value === 'rtl' ? 'ltr' : 'rtl'
   },
   shift_D: () => {
-    mode.value = mode.value === 'light' ? 'dark' : 'light'
+    toggleMode()
   }
 })
 </script>
@@ -63,10 +98,10 @@ defineShortcuts({
       <template #sidebar>
         <B24SidebarHeader>
           <B24SidebarSection class="flex-row ps-[18px]">
-            <B24Tooltip :content="{ side: 'left' }" :text="`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`" :kbds="['shift', 'D']">
+            <B24Tooltip :content="{ side: 'left' }" :text="`Switch to next mode`" :kbds="['shift', 'D']">
               <B24Button
-                :icon="mode === 'dark' ? MoonIcon : SunIcon"
-                :aria-label="`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`"
+                :icon="colorModeIcon"
+                :aria-label="`Switch to next mode`"
                 color="link"
                 depth="normal"
                 size="xs"
@@ -122,10 +157,10 @@ defineShortcuts({
       <template #navbar>
         <B24NavbarSpacer />
         <B24NavbarSection>
-          <B24Tooltip :content="{ side: 'left' }" :text="`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`" :kbds="['shift', 'D']">
+          <B24Tooltip :content="{ side: 'left' }" :text="`Switch to next mode`" :kbds="['shift', 'D']">
             <B24Button
-              :icon="mode === 'dark' ? MoonIcon : SunIcon"
-              :aria-label="`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`"
+              :icon="colorModeIcon"
+              :aria-label="`Switch to next mode`"
               color="link"
               depth="normal"
               size="xs"

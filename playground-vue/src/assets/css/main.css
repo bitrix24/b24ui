@@ -1,2 +1,18 @@
 @import "tailwindcss" source("../../../..");
 @import "@bitrix24/b24ui-nuxt";
+
+html body {
+  @apply text-base-master dark:text-base-150;
+}
+
+html.--ui-context-content-light body {
+  @apply bg-base-50;
+}
+
+html.--ui-context-content-dark body {
+  @apply bg-base-dark;
+}
+
+html.--ui-context-edge-dark body {
+  @apply bg-cover bg-[url(/bg/lightness.jpg)] bg-center bg-fixed bg-no-repeat;
+}
