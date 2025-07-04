@@ -16,8 +16,8 @@ const mode = useColorMode({
   modes: {
     dark: 'dark --ui-context-content-dark',
     light: 'light --ui-context-content-light',
-    lightEdge: 'light --ui-context-edge-light',
-    darkEdge: 'dark --ui-context-edge-dark'
+    lightEdge: 'light edge',
+    darkEdge: 'dark edge-dark'
   }
 })
 const dir = useTextDirection()

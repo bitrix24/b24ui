@@ -73,7 +73,7 @@ export default {
       true: {
         root: [
           'bg-white dark:bg-white/10',
-          'lg:bg-base-50 dark:lg:bg-base-dark'
+          'lg:bg-base-50 dark:lg:bg-base-dark edge-dark:lg:bg-transparent'
         ].join(' '),
         container: [
           'pb-2 lg:pt-2 lg:pr-2'
