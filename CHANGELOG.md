@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.8.0](https://github.com/bitrix24/b24ui/compare/v0.7.0...v0.8.0) (2025-07-xx)
+
+* chore(AirWeb): add
+
 ## [0.7.0](https://github.com/bitrix24/b24ui/compare/v0.6.9...v0.7.0) (2025-07-01)
 
 ### ⚠ BREAKING CHANGES
