@@ -72,15 +72,17 @@ export default {
     useLightContent: {
       true: {
         root: [
-          'bg-white dark:bg-white/10',
-          'lg:bg-base-50 dark:lg:bg-base-dark edge-dark:lg:bg-transparent'
+          'bg-transparent'
         ].join(' '),
         container: [
           'pb-2 lg:pt-2 lg:pr-2'
         ].join(' '),
         containerWrapper: [
           'p-6 lg:p-10',
-          'lg:bg-white dark:lg:bg-white/10',
+          'light:bg-(--ui-color-base-white-fixed)',
+          'dark:bg-(--ui-color-base-white-fixed)/10',
+          'edge-light:bg-(--ui-color-base-black-fixed)/5 edge-light:backdrop-blur-(--ui-bg-blur-less)',
+          'edge-dark:bg-(--ui-color-base-white-fixed)/10 edge-dark:backdrop-blur-(--ui-bg-blur-less)',
           'lg:ring-1 lg:ring-base-950/5 dark:lg:ring-white/10',
           'lg:shadow-xs',
           'lg:rounded-lg'

@@ -3,21 +3,25 @@
 
 @custom-variant light (&:where(.--ui-context-content-light, .--ui-context-content-light *));
 @custom-variant dark (&:where(.--ui-context-content-dark, .--ui-context-content-dark *));
-@custom-variant edge (&:where(.--ui-context-edge-light, .--ui-context-edge-light *));
+@custom-variant edge-light (&:where(.--ui-context-edge-light, .--ui-context-edge-light *));
 @custom-variant edge-dark (&:where(.--ui-context-edge-dark, .--ui-context-edge-dark *));
 
 html body {
-  @apply text-base-master dark:text-base-150;
+  @apply text-(--ui-color-base-1);
 }
 
 html.light body {
-  @apply bg-base-50;
+  @apply bg-(--ui-color-gray-05);
 }
 
 html.dark body {
-  @apply bg-base-dark;
+  @apply bg-(--ui-color-base-black-fixed)
+}
+
+html.edge-light body {
+  @apply bg-(--ui-color-gray-05) bg-[url(/bg/edge-light.svg)] bg-top-left bg-repeat;
 }
 
 html.edge-dark body {
-  @apply bg-cover bg-[url(/bg/lightness.jpg)] bg-center bg-fixed bg-no-repeat;
+  @apply bg-[#5964B3] bg-[url(/bg/edge-dark.jpg)] bg-cover bg-center bg-fixed bg-no-repeat;
 }

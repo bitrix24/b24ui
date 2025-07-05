@@ -12,12 +12,13 @@ import { useColorMode, useTextDirection } from '@vueuse/core'
 import HomeIcon from '@bitrix24/b24icons-vue/main/HomeIcon'
 
 const appConfig = useAppConfig()
-const mode = useColorMode({
+const mode = useColorMode<'light' | 'dark' | 'edgeLight' | 'edgeDark'>({
+  attribute: 'class',
   modes: {
-    dark: 'dark --ui-context-content-dark',
     light: 'light --ui-context-content-light',
-    lightEdge: 'light edge',
-    darkEdge: 'dark edge-dark'
+    dark: 'dark --ui-context-content-dark',
+    edgeLight: 'edge-light --ui-context-edge-light',
+    edgeDark: 'edge-dark --ui-context-edge-dark'
   }
 })
 const dir = useTextDirection()
@@ -47,14 +48,12 @@ function toggleMode() {
       mode.value = 'light'
       break
     case 'light':
-      mode.value = 'darkEdge'
+      mode.value = 'edgeDark'
       break
-    case 'darkEdge':
-      mode.value = 'lightEdge'
+    case 'edgeDark':
+      mode.value = 'edgeLight'
       break
-    case 'lightEdge':
-      mode.value = 'dark'
-      break
+    case 'edgeLight':
     default:
       mode.value = 'dark'
       break
@@ -65,8 +64,8 @@ const colorModeIcon = computed(() => {
   switch (mode.value) {
     case 'dark': return MoonIcon
     case 'light': return SunIcon
-    case 'darkEdge': return MoonIconAir
-    case 'lightEdge': return SunIconAir
+    case 'edgeDark': return MoonIconAir
+    case 'edgeLight': return SunIconAir
     default: return MoonIcon
   }
 })
