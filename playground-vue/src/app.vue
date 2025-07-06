@@ -69,6 +69,15 @@ const colorModeIcon = computed(() => {
     default: return MoonIcon
   }
 })
+const isColorModeDark = computed(() => {
+  switch (mode.value) {
+    case 'dark': return true
+    case 'light': return false
+    case 'edgeDark': return false
+    case 'edgeLight': return false
+    default: return MoonIcon
+  }
+})
 
 defineShortcuts({
   ctrl_k: () => {
@@ -92,21 +101,22 @@ defineShortcuts({
 <template>
   <B24App :toaster="(appConfig.toaster as any)">
     <B24SidebarLayout
+      :b24ui="{
+        root: 'edge-light:bg-transparent edge-dark:bg-transparent',
+        container: isColorModeDark ? 'dark --ui-context-content-dark' : 'light --ui-context-content-light',
+        sidebarSlideoverContainer: isColorModeDark ? 'dark --ui-context-content-dark' : 'light --ui-context-content-light'
+      }"
       :use-light-content="route.path !== '/'"
     >
       <template #sidebar>
         <B24SidebarHeader>
+          <ProseH3 class="relative mt-3 ps-2xl pe-xs">
+            Vue::Playground
+          </ProseH3>
           <B24SidebarSection class="flex-row ps-[18px]">
-            <B24Tooltip :content="{ side: 'left' }" :text="`Switch to next mode`" :kbds="['shift', 'D']">
-              <B24Button
-                :icon="colorModeIcon"
-                :aria-label="`Switch to next mode`"
-                color="link"
-                depth="normal"
-                size="xs"
-                @click="toggleMode"
-              />
-            </B24Tooltip>
+            <div class="hidden mx-2 lg:flex flex-row flex-nowrap items-center justify-center gap-0.5">
+              <B24Kbd value="ctrl" size="sm" /> <B24Kbd value="K" size="sm" />
+            </div>
             <B24Tooltip :content="{ side: 'left' }" :text="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', 'L']">
               <B24Button
                 :icon="dir === 'ltr' ? LeftAlignIcon : RightAlignIcon"
@@ -117,13 +127,19 @@ defineShortcuts({
                 @click="toggleDir"
               />
             </B24Tooltip>
-            <div class="hidden mx-2 lg:flex flex-row flex-nowrap items-center justify-center gap-0.5">
-              <B24Kbd value="ctrl" size="sm" /> <B24Kbd value="K" size="sm" />
-            </div>
+            <B24Tooltip :content="{ side: 'left' }" :text="`Switch to next mode`" :kbds="['shift', 'D']">
+              <B24Button
+                :icon="colorModeIcon"
+                :aria-label="`Switch to next mode`"
+                color="link"
+                depth="normal"
+                size="xs"
+                normal-case
+                :label="mode"
+                @click="toggleMode"
+              />
+            </B24Tooltip>
           </B24SidebarSection>
-          <ProseH3 class="mt-3 ps-2xl pe-xs">
-            Vue::Playground
-          </ProseH3>
         </B24SidebarHeader>
         <B24SidebarBody>
           <template v-for="(group) in usePageMeta.groups" :key="group.id">

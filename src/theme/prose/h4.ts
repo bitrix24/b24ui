@@ -8,7 +8,7 @@ export default {
     base: [
       'relative mb-2',
       '[&>a>code]:text-lg/7 [&>a>code]:font-bold',
-      'text-base-master dark:text-base-150',
+      'text-(--ui-color-base-1)',
       'scroll-mt-[calc(32px+45px+var(--b24ui-header-height))] lg:scroll-mt-[calc(32px+var(--b24ui-header-height))]',
       '[&>a]:focus-visible:outline-info-text hover:[&>a>code]:border-info-text',
       'hover:[&>a>code]:text-info-text',

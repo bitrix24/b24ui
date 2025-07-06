@@ -1,23 +1,7 @@
 @import "tailwindcss" source("../../../..");
 @import "@bitrix24/b24ui-nuxt";
 
-@custom-variant light (&:where(.--ui-context-content-light, .--ui-context-content-light *));
-@custom-variant dark (&:where(.--ui-context-content-dark, .--ui-context-content-dark *));
-@custom-variant edge-light (&:where(.--ui-context-edge-light, .--ui-context-edge-light *));
-@custom-variant edge-dark (&:where(.--ui-context-edge-dark, .--ui-context-edge-dark *));
-
-html body {
-  @apply text-(--ui-color-base-1);
-}
-
-html.light body {
-  @apply bg-(--ui-color-gray-05);
-}
-
-html.dark body {
-  @apply bg-(--ui-color-base-black-fixed)
-}
-
+/* region add some bg image */
 html.edge-light body {
   @apply bg-(--ui-color-gray-05) bg-[url(/bg/edge-light.svg)] bg-top-left bg-repeat;
 }
@@ -25,3 +9,4 @@ html.edge-light body {
 html.edge-dark body {
   @apply bg-[#5964B3] bg-[url(/bg/edge-dark.jpg)] bg-cover bg-center bg-fixed bg-no-repeat;
 }
+/* endregion */

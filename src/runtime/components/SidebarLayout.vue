@@ -108,7 +108,7 @@ const handleNavigationClick = () => {
           title="Navigation"
           description="Content navigation"
           side="left"
-          :b24ui="{ content: b24ui.sidebarSlideoverContainer({ class: props.b24ui?.sidebarSlideoverContainer }) }"
+          :class="b24ui.sidebarSlideoverContainer({ class: props.b24ui?.sidebarSlideoverContainer })"
         >
           <!-- @todo: lang -->
           <B24Button

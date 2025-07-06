@@ -1,0 +1,9 @@
+/** region NavigationMenu */
+@layer base {
+  --b24ui-header-height: calc(var(--spacing)*16);
+}
+
+.clip-path-viewport-wrapper {
+  clip-path: inset(0 -24px -28px -24px round 10px);
+}
+/** endregion */

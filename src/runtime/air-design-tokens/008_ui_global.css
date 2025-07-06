@@ -1,0 +1,12 @@
+@layer base {
+  body {
+    @apply antialiased font-b24-system;
+  }
+}
+
+@layer theme {
+  :host,:root {
+    --spacing: .25rem;
+    --content-area-shift: 22px;
+  }
+}

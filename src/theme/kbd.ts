@@ -11,9 +11,11 @@ export default {
   variants: {
     depth: {
       light: [
-        'ring ring-inset',
-        'text-base-900 bg-base-800/5 ring-base-800/20',
-        'dark:text-base-150 dark:bg-base-200/5 dark:ring-base-200/20'
+        // 'ring ring-inset',
+        'border border-(length:--ui-border-width-thin) border-(--ui-color-design-outline-na-stroke)',
+        // 'text-base-900 bg-base-800/5 ring-base-800/20',
+        'text-(--ui-color-base-2) bg-(--ui-color-design-outline-na-bg)'
+        // 'dark:text-base-150 dark:bg-base-200/5 dark:ring-base-200/20',
       ].join(' '),
       normal: [
         'ring ring-inset',

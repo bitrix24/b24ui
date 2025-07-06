@@ -1,0 +1,32 @@
+:root {
+  --ui-bg-blur-accent-more: blur(48px);
+  --ui-bg-blur-accent: blur(24px);
+  --ui-bg-blur-default: blur(12px);
+  --ui-bg-blur-less: blur(6px);
+  --ui-bg-blur-less-more: blur(2px);
+  --ui-bg-blur-none: none;
+  --ui-box-shadow-contrast-default-x: 0px;
+  --ui-box-shadow-contrast-default-y: 1px;
+  --ui-box-shadow-contrast-default-blur: blur(2px);
+  --ui-box-shadow-contrast-default-spread: 0px;
+  --ui-color-box-shadow-contrast-default-color: #0000001a;
+  --ui-box-shadow-contrast-accent-x: 0px;
+  --ui-box-shadow-contrast-accent-y: 1px;
+  --ui-box-shadow-contrast-accent-blur: blur(2px);
+  --ui-box-shadow-contrast-accent-spread: 0px;
+  --ui-color-box-shadow-contrast-accent-color: #00000026;
+  --ui-box-shadow-graphic-glass-content-default-x: 0px;
+  --ui-box-shadow-graphic-glass-content-default-y: 4px;
+  --ui-box-shadow-graphic-glass-content-default-blur: blur(10px);
+  --ui-box-shadow-graphic-glass-content-default-spread: 0px;
+  --ui-color-box-shadow-graphic-glass-content-default-color: #0000000d;
+  --ui-letter-spacing-2xl: 0.75px;
+  --ui-letter-spacing-xl: 0.6499999761581421px;
+  --ui-letter-spacing-l: -0.05000000074505806px;
+  --ui-letter-spacing-m: -0.10000000149011612px;
+  --ui-letter-spacing-s: -0.20000000298023224px;
+  --ui-letter-spacing-xs: -0.3499999940395355px;
+  --ui-border-width-thin: 1px;
+  --ui-border-width-medium: 1.5px;
+  --ui-border-width-thick: 2px
+}

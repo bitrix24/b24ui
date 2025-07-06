@@ -5,15 +5,15 @@ usePageMeta.setPageTitle('Bitrix24 UI - Playground')
 </script>
 
 <template>
-  <div class="w-full lg:mt-12 max-lg:px-3">
+  <div class="w-full lg:mt-(--content-area-shift)">
     <div
       v-for="(group) in usePageMeta.groups"
       :key="group.id"
       class="mb-md"
     >
-      <div class="mb-sm font-b24-secondary text-h4 font-light leading-8 text-base-900 dark:text-base-200">
+      <ProseH4 class="mb-sm">
         {{ group.label }}
-      </div>
+      </ProseH4>
       <div class="grid grid-cols-[repeat(auto-fill,minmax(266px,1fr))] gap-y-sm gap-x-sm">
         <template v-for="(item) in group.children" :key="item.id">
           <B24Tooltip :disabled="item.description.length < 43" :text="item.description" :content="{ side: 'top' }" arrow>

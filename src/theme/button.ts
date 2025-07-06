@@ -104,10 +104,14 @@ export default {
       ].join(' '),
       link: [
         'no-underline decoration-solid decoration-auto',
-        'text-base-900 decoration-gray-900 bg-transparent border border-transparent dark:text-base-300',
-        'hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0',
-        'active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0',
-        'disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300',
+        // 'text-base-900 decoration-base-900 bg-transparent border border-transparent dark:text-base-300',
+        'text-(--ui-color-design-plain-content-icon-secondary) decoration-base-900 bg-transparent border border-transparent',
+        // 'hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0',
+        'hover:text-(--ui-color-design-selection-content-icon) hover:focus-visible:ring-0',
+        // 'active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0',
+        'active:text-(--ui-color-design-plain-content-icon-secondary) active:focus-visible:ring-0',
+        // 'disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300',
+        'disabled:text-(--ui-color-design-plain-content-icon-secondary) aria-disabled:text-(--ui-color-design-plain-content-icon-secondary)',
         'focus-visible:outline-base-400',
         'ring-base-850 focus:outline-none focus-visible:ring-base-850'
       ].join(' ')
