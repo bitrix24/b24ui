@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "B24: Theme Switcher",
+  "version": "1.0",
+  "description": "Adds theme switcher to all pages and iframes",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "permissions": ["activeTab"],
+  "icons": {}
+}
