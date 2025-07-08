@@ -7,7 +7,8 @@
 
 export default {
   slots: {
-    root: 'relative flex [&>div]:min-w-0 font-b24-secondary',
+    // root: 'relative flex [&>div]:min-w-0 font-b24-secondary', // fix
+    root: 'relative flex [&>div]:min-w-0 font-b24-secondary ps-(--menu-items-block-padding-x)', // fix
     list: 'isolate min-w-0',
     label: [
       'w-full min-h-6',
@@ -16,17 +17,23 @@ export default {
       'text-base-500 dark:text-base-400',
       'ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl'
     ].join(' '),
-    item: 'min-w-0',
+    // item: 'min-w-0', // fix
+    item: [
+      'min-w-0 h-[38px]',
+      'hover:bg-(--menu-item-background-hover) hover:duration-[.2s,.15s,0s] hover:rounded-(--menu-item-border-radius)'
+    ].join(' '),
     link: [
       'group relative',
       'cursor-pointer',
       'w-full',
       'flex items-center gap-1.5',
-      'font-normal text-lg leading-9 min-h-9',
+      // 'font-normal text-lg leading-9 min-h-9', // fix
+      'font-normal text-lg min-h-[38px] min-w-[38px] max-w-full',
       'before:absolute before:z-[-1]',
       'focus:outline-none focus-visible:before:rounded-md focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2'
     ].join(' '),
-    linkLeadingIcon: 'shrink-0 size-4 -ms-1 rtl:-ms-0 rtl:-me-1',
+    // linkLeadingIcon: 'shrink-0 size-4 -ms-1 rtl:-ms-0 rtl:-me-1', // fix
+    linkLeadingIcon: 'shrink-0 size-[26px] -ms-1 rtl:-ms-0 rtl:-me-1', // fix
     linkLeadingAvatar: 'shrink-0 -ms-1 rtl:-ms-0 rtl:-me-1',
     linkLeadingAvatarSize: '2xs',
     linkTrailing: 'group inline-flex gap-1.5 items-center',
@@ -34,7 +41,8 @@ export default {
     linkTrailingBadgeSize: 'sm',
     linkTrailingIcon: 'text-base-600 size-4 transform shrink-0 group-data-[state=open]:rotate-180 transition-transform duration-200',
     linkLabel: 'truncate',
-    linkLabelWrapper: 'flex items-center items-center justify-between rtl:flex-row-reverse gap-1.5',
+    // linkLabelWrapper: 'flex items-center items-center justify-between rtl:flex-row-reverse gap-1.5', // fix
+    linkLabelWrapper: 'flex items-center items-center justify-between rtl:flex-row-reverse gap-[9px]',
     linkLabelExternalIcon: 'inline-block h-6 w-3 align-top text-base-500 dark:text-base-700',
     childList: 'isolate',
     childLabel: [
@@ -138,7 +146,8 @@ export default {
     variant: {
       pill: {
         link: [
-          'hover:before:bg-base-250/80 dark:hover:before:bg-white/10'
+          // 'hover:before:bg-base-250/80 dark:hover:before:bg-white/10', // fix
+          ''
         ].join(' '),
         viewport: [
           'rounded-md',
@@ -160,8 +169,10 @@ export default {
       },
       vertical: {
         root: 'flex-col w-full',
+        list: 'flex flex-col', // fix
         link: [
-          'ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl',
+          // 'ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl', // fix
+          'p-[6px]',
           'flex-row rtl:flex-row-reverse',
           'before:inset-y-px before:inset-x-0'
         ].join(' '),

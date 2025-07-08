@@ -109,8 +109,8 @@ defineShortcuts({
       :use-light-content="route.path !== '/'"
     >
       <template #sidebar>
-        <B24SidebarHeader>
-          <ProseH3 class="relative mt-3 ps-2xl pe-xs">
+        <B24SidebarHeader class="gap-2">
+          <ProseH3 class="relative mt-0 ps-2xl pe-xs mb-0">
             Vue::Playground
           </ProseH3>
           <B24SidebarSection class="flex-row ps-[18px]">
@@ -141,7 +141,7 @@ defineShortcuts({
             </B24Tooltip>
           </B24SidebarSection>
         </B24SidebarHeader>
-        <B24SidebarBody>
+        <B24SidebarBody class="border-t border-base-950/5 dark:border-white/5">
           <template v-for="(group) in usePageMeta.groups" :key="group.id">
             <B24NavigationMenu
               :items="[
