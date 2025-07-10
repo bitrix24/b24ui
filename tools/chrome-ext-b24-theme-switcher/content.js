@@ -67,7 +67,7 @@ function shInitSwitcher() {
   select.className = 'ui-ctl-element'
 
   const themes = [
-    { value: 'edgeDark', label: 'Edge Dark (Shift+1)'},
+    { value: 'edgeDark', label: 'Edge Dark (Shift+1)' },
     { value: 'edgeLight', label: 'Edge Light (Shift+2)' },
     { value: 'dark', label: 'Dark (Shift+3)' },
     { value: 'light', label: 'Light (Shift+4)' }
