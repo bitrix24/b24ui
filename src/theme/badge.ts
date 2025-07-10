@@ -4,16 +4,18 @@
  * ---
  * @link /api_d7/bitrix/ui/labels/index.php
  * @see bitrix/js/ui/label/
+ * @see bitrix/js/ui/cnt/
  */
 import { buttonGroupVariant } from './button-group'
 
 export default {
   slots: {
     base: [
+      'ui-counter__scope',
       'select-none font-b24-secondary font-normal',
       'inline-flex items-center',
       'transition-all duration-200 ease-linear',
-      'px-2 leading-normal rounded-md'
+      'px-(--ui-counter-inline-space) leading-normal rounded-md'
     ].join(' '),
     wrapper: 'inline-flex items-center',
     label: 'max-w-full whitespace-nowrap text-ellipsis decoration-from-font',

@@ -1,15 +1,16 @@
 <script setup lang="ts">
 import usePageMeta from '../../playground/app/composables/usePageMeta'
+import { useRouter, useRoute } from 'vue-router'
+import { reactive, ref, computed } from 'vue'
+import { useColorMode, useTextDirection } from '@vueuse/core'
+import HomeIcon from '@bitrix24/b24icons-vue/main/HomeIcon'
 import RightAlignIcon from '@bitrix24/b24icons-vue/editor/RightAlignIcon'
 import LeftAlignIcon from '@bitrix24/b24icons-vue/editor/LeftAlignIcon'
 import SunIcon from '@bitrix24/b24icons-vue/main/SunIcon'
 import SunIconAir from '@bitrix24/b24icons-vue/outline/SunIcon'
 import MoonIcon from '@bitrix24/b24icons-vue/main/MoonIcon'
 import MoonIconAir from '@bitrix24/b24icons-vue/outline/MoonIcon'
-import { useRouter, useRoute } from 'vue-router'
-import { reactive, ref, computed } from 'vue'
-import { useColorMode, useTextDirection } from '@vueuse/core'
-import HomeIcon from '@bitrix24/b24icons-vue/main/HomeIcon'
+import type { DropdownMenuItem } from '@bitrix24/b24ui-nuxt'
 
 const appConfig = useAppConfig()
 const mode = useColorMode<'light' | 'dark' | 'edgeLight' | 'edgeDark'>({
@@ -42,6 +43,45 @@ function toggleDir() {
   dir.value = dir.value === 'ltr' ? 'rtl' : 'ltr'
 }
 
+const itemsForColorMode: DropdownMenuItem[] = [
+  {
+    label: 'dark',
+    code: 'code',
+    isDark: true,
+    icon: MoonIcon,
+    onSelect() {
+      mode.value = 'dark'
+    }
+  },
+  {
+    label: 'light',
+    code: 'light',
+    isDark: false,
+    icon: SunIcon,
+    onSelect() {
+      mode.value = 'light'
+    }
+  },
+  {
+    label: 'edge-dark',
+    code: 'edgeDark',
+    isDark: false,
+    icon: MoonIconAir,
+    onSelect() {
+      mode.value = 'edgeDark'
+    }
+  },
+  {
+    label: 'edge-lark',
+    code: 'edgeLight',
+    isDark: false,
+    icon: SunIconAir,
+    onSelect() {
+      mode.value = 'edgeLight'
+    }
+  }
+]
+
 function toggleMode() {
   switch (mode.value) {
     case 'dark':
@@ -61,22 +101,28 @@ function toggleMode() {
 }
 
 const colorModeIcon = computed(() => {
-  switch (mode.value) {
-    case 'dark': return MoonIcon
-    case 'light': return SunIcon
-    case 'edgeDark': return MoonIconAir
-    case 'edgeLight': return SunIconAir
-    default: return MoonIcon
+  const theme = itemsForColorMode.find((row) => {
+    return row.code === mode.value
+  })
+
+  if (theme) {
+    return theme.icon
   }
+
+  console.warn(false)
+  return MoonIcon
 })
+
 const isColorModeDark = computed(() => {
-  switch (mode.value) {
-    case 'dark': return true
-    case 'light': return false
-    case 'edgeDark': return false
-    case 'edgeLight': return false
-    default: return MoonIcon
+  const theme = itemsForColorMode.find((row) => {
+    return row.code === mode.value
+  })
+  if (theme) {
+    return theme.isDark
   }
+
+  console.warn(false)
+  return false
 })
 
 defineShortcuts({
@@ -111,7 +157,7 @@ defineShortcuts({
       <template #sidebar>
         <B24SidebarHeader class="gap-2">
           <ProseH3 class="relative mt-0 ps-2xl pe-xs mb-0">
-            Vue::Playground
+            Vue::Playground *
           </ProseH3>
           <B24SidebarSection class="flex-row ps-[18px]">
             <div class="hidden mx-2 lg:flex flex-row flex-nowrap items-center justify-center gap-0.5">
@@ -127,18 +173,23 @@ defineShortcuts({
                 @click="toggleDir"
               />
             </B24Tooltip>
-            <B24Tooltip :content="{ side: 'left' }" :text="`Switch to next mode`" :kbds="['shift', 'D']">
-              <B24Button
-                :icon="colorModeIcon"
-                :aria-label="`Switch to next mode`"
-                color="link"
-                depth="normal"
-                size="xs"
-                normal-case
-                :label="mode"
-                @click="toggleMode"
-              />
-            </B24Tooltip>
+            <B24DropdownMenu
+              use-dropdown
+              :items="itemsForColorMode"
+            >
+              <B24Tooltip :content="{ side: 'left' }" :text="`Switch to next mode`" :kbds="['shift', 'D']">
+                <B24Button
+                  class="w-[200px]"
+                  :icon="colorModeIcon"
+                  :aria-label="`Switch to next mode`"
+                  color="link"
+                  depth="light"
+                  size="xs"
+                  normal-case
+                  :label="mode"
+                />
+              </B24Tooltip>
+            </B24DropdownMenu>
           </B24SidebarSection>
         </B24SidebarHeader>
         <B24SidebarBody class="border-t border-base-950/5 dark:border-white/5">

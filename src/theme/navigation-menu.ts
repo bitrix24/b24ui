@@ -11,38 +11,49 @@ export default {
     root: 'relative flex [&>div]:min-w-0 font-b24-secondary ps-(--menu-items-block-padding-x)', // fix
     list: 'isolate min-w-0',
     label: [
-      'w-full min-h-6',
-      'flex items-center rtl:flex-row-reverse gap-1.5',
-      'font-medium text-xs/6',
-      'text-base-500 dark:text-base-400',
-      'ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl'
+      // 'w-full min-h-6', // fix
+      'w-full h-[22px] overflow-hidden',
+      // 'flex items-center rtl:flex-row-reverse gap-1.5', // fix
+      // 'flex items-center rtl:flex-row-reverse',
+      // 'font-medium text-xs/6',  // fix
+      // 'text-base-500 dark:text-base-400', // fix
+      // 'ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl' // fix
+      ''
     ].join(' '),
-    // item: 'min-w-0', // fix
-    item: [
-      'min-w-0 h-[38px]',
-      'hover:bg-(--menu-item-background-hover) hover:duration-[.2s,.15s,0s] hover:rounded-(--menu-item-border-radius)'
-    ].join(' '),
+    item: 'min-w-0',
     link: [
+      'h-[38px] min-h-[38px] min-w-[38px] max-w-full',
+      'p-0',
+      'm-0 mt-(--menu-item-block-stack-space)',
+      'menu-item',
       'group relative',
       'cursor-pointer',
       'w-full',
-      'flex items-center gap-1.5',
       // 'font-normal text-lg leading-9 min-h-9', // fix
-      'font-normal text-lg min-h-[38px] min-w-[38px] max-w-full',
-      'before:absolute before:z-[-1]',
-      'focus:outline-none focus-visible:before:rounded-md focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2'
+      'flex items-center gap-1.5',
+      // 'before:absolute before:z-[-1]', // fix
+      // 'focus:outline-none focus-visible:before:rounded-md focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2' // fix
+      'font-normal text-lg',
+      'focus:outline-none focus-visible:rounded-(--menu-item-border-radius) focus-visible:outline-none focus-visible:ring-inset focus-visible:ring-1',
+      'rounded-(--menu-item-border-radius)',
+      'text-(--menu-item-color)',
+      'bg-(--menu-item-background)',
+      'hover:bg-(--menu-item-background-hover)',
+      'border-0'
     ].join(' '),
     // linkLeadingIcon: 'shrink-0 size-4 -ms-1 rtl:-ms-0 rtl:-me-1', // fix
-    linkLeadingIcon: 'shrink-0 size-[26px] -ms-1 rtl:-ms-0 rtl:-me-1', // fix
+    linkLeadingIcon: 'shrink-0 size-[26px]',
     linkLeadingAvatar: 'shrink-0 -ms-1 rtl:-ms-0 rtl:-me-1',
     linkLeadingAvatarSize: '2xs',
+    linkLeadingBadge: 'inline-flex m-0 absolute top-[3px] left-[27px] -translate-x-1/2 ',
+    linkLeadingBadgeSize: 'sm',
     linkTrailing: 'group inline-flex gap-1.5 items-center',
-    linkTrailingBadge: 'shrink-0',
-    linkTrailingBadgeSize: 'sm',
+    // linkTrailingBadge: 'shrink-0',  // fix
+    // linkTrailingBadgeSize: 'sm', // fix
     linkTrailingIcon: 'text-base-600 size-4 transform shrink-0 group-data-[state=open]:rotate-180 transition-transform duration-200',
     linkLabel: 'truncate',
-    // linkLabelWrapper: 'flex items-center items-center justify-between rtl:flex-row-reverse gap-1.5', // fix
-    linkLabelWrapper: 'flex items-center items-center justify-between rtl:flex-row-reverse gap-[9px]',
+    // linkLabelWrapper: 'flex items-center justify-between rtl:flex-row-reverse gap-1.5', // fix
+    linkLabelWrapper: 'flex items-center justify-between rtl:flex-row-reverse gap-[9px]',
     linkLabelExternalIcon: 'inline-block h-6 w-3 align-top text-base-500 dark:text-base-700',
     childList: 'isolate',
     childLabel: [
@@ -56,9 +67,9 @@ export default {
       // 'rounded-2xs',
       'flex items-start',
       'text-start',
-      'text-sm',
-      'before:absolute before:z-[-1] before:rounded-2xs',
-      'focus:outline-none focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2'
+      'text-sm'
+      // 'before:absolute before:z-[-1] before:rounded-2xs', // fix
+      // 'focus:outline-none focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2' fix
     ].join(' '),
     childLinkWrapper: 'min-w-0',
     childLinkIcon: 'size-5 shrink-0',
@@ -101,7 +112,8 @@ export default {
   variants: {
     color: {
       default: {
-        link: 'focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800',
+        // link: 'focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800', // fix
+        link: '',
         childLink: 'focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800'
       },
       danger: {
@@ -173,8 +185,8 @@ export default {
         link: [
           // 'ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl', // fix
           'p-[6px]',
-          'flex-row rtl:flex-row-reverse',
-          'before:inset-y-px before:inset-x-0'
+          'flex-row rtl:flex-row-reverse'
+          // 'before:inset-y-px before:inset-x-0' // fix
         ].join(' '),
         childLabel: 'px-1.5 py-0.5',
         childLink: 'p-1.5 gap-1.5 before:inset-y-px before:inset-x-0'
@@ -207,15 +219,17 @@ export default {
     active: {
       true: {
         childLink: [
-          'before:bg-base-20 dark:before:bg-base-900',
-          'text-base-950 dark:text-base-50',
-          'font-semibold'
+          // 'before:bg-base-20 dark:before:bg-base-900',  // fix
+          // 'text-base-950 dark:text-base-50',  // fix
+          // 'font-semibold'  // fix
         ].join(' '),
-        childLinkIcon: 'text-base-950 dark:text-base-200'
+        // childLinkIcon: 'text-base-950 dark:text-base-200' // fix
+        childLinkIcon: 'text-(--ui-color-design-selection-content-icon)'
       },
       false: {
-        link: 'text-base-900 dark:text-base-200',
-        linkLeadingIcon: 'text-base-500 dark:text-base-700',
+        // link: 'text-base-900 dark:text-base-200', // fix
+        // linkLeadingIcon: 'text-base-500 dark:text-base-700', // fix
+        linkLeadingIcon: 'text-(--ui-color-design-plain-content-icon-secondary)',
         childLink: [
           'hover:before:bg-base-20 dark:hover:before:bg-base-900',
           'text-base-500 dark:text-base-700',
@@ -224,8 +238,9 @@ export default {
         ].join(' '),
         childLinkIcon: [
           'text-base-500 dark:text-base-700',
-          'group-hover:text-base-950 dark:group-hover:text-base-50',
-          'transition-colors'
+          // 'group-hover:text-base-950 dark:group-hover:text-base-50', // fix
+          'group-hover:text-(--ui-color-design-selection-content-icon)'
+          // 'transition-colors' // fix
         ].join(' ')
       }
     },
@@ -303,7 +318,7 @@ export default {
       variant: 'pill',
       class: {
         link: [
-          'hover:before:rounded-md'
+          // 'hover:before:rounded-md' // fix
         ].join(' ')
       }
     },
@@ -313,11 +328,15 @@ export default {
       variant: 'pill',
       class: {
         link: [
-          'transition-colors before:transition-colors'
-        ].join(' '),
-        linkLeadingIcon: [
-          'group-hover:text-base-900 dark:group-hover:text-base-200',
+          // 'transition-colors before:transition-colors' fix
           'transition-colors'
+        ].join(' '),
+        // linkLeadingIcon: [
+        //   'group-hover:text-base-900 dark:group-hover:text-base-200',
+        //   'transition-colors'
+        // ].join(' ') // fix
+        linkLeadingIcon: [
+          'group-hover:text-(--ui-color-design-selection-content-icon)'
         ].join(' ')
       }
     },
@@ -355,17 +374,17 @@ export default {
       variant: 'pill',
       active: true,
       class: {
-        linkLeadingIcon: 'text-white dark:text-white group-data-[state=open]:text-white dark:group-data-[state=open]:text-white',
+        // linkLeadingIcon: 'text-white dark:text-white group-data-[state=open]:text-white dark:group-data-[state=open]:text-white', // fix
         linkLabel: [
-          'font-semibold',
-          'text-white dark:text-white'
+          // 'font-semibold', // fix
+          // 'text-white dark:text-white' // fix
         ].join(' '),
         linkLabelWrapper: [
-          'px-3',
-          '-ms-3 rtl:-me-3 rtl:ms-0',
-          'leading-[1.563rem]',
-          'bg-base-800 dark:bg-white/35',
-          'rounded-2xl'
+          // 'px-3', // fix
+          // '-ms-3 rtl:-me-3 rtl:ms-0', // fix
+          // 'leading-[1.563rem]' // fix
+          // 'bg-base-800 dark:bg-white/35', // fix
+          // 'rounded-2xl' // fix
         ].join(' ')
       }
     },
@@ -668,18 +687,21 @@ export default {
       highlight: false,
       class: {
         link: [
-          'leading-9'
+          'menu-item-active',
+          'leading-9',
+          'text-(--menu-item-color-active)',
+          'bg-(--menu-item-background-active)'
         ].join(' '),
         linkLabel: [
-          'font-semibold',
-          'text-white dark:text-white'
+          // 'font-semibold', // fix
+          // 'text-white dark:text-white' // fix
         ].join(' '),
         linkLabelWrapper: [
-          'px-3',
-          '-ms-3 rtl:-me-3 rtl:ms-0',
-          'leading-[1.563rem]',
-          'bg-base-800 dark:bg-white/35',
-          'rounded-2xl'
+          // 'px-3', // fix
+          // '-ms-3 rtl:-me-3 rtl:ms-0', // fix
+          // 'leading-[1.563rem]', // fix
+          // 'bg-base-800 dark:bg-white/35', // fix
+          // 'rounded-2xl' // fix
         ].join(' ')
       }
     },
@@ -701,8 +723,8 @@ export default {
       disabled: false,
       class: {
         link: [
-          'hover:before:bg-base-250/80 dark:hover:before:bg-white/10',
-          'before:transition-colors'
+          // 'hover:before:bg-base-250/80 dark:hover:before:bg-white/10',  // fix
+          // 'before:transition-colors' // fix
         ].join(' ')
       }
     },
@@ -715,8 +737,8 @@ export default {
       disabled: false,
       class: {
         link: [
-          'hover:before:bg-base-800 dark:hover:before:bg-white/35',
-          'before:transition-colors'
+          // 'hover:before:bg-base-800 dark:hover:before:bg-white/35',  // fix
+          // 'before:transition-colors'  // fix
         ].join(' ')
       }
     },
@@ -813,8 +835,8 @@ export default {
       disabled: false,
       class: {
         link: [
-          'hover:before:bg-ai-800 dark:hover:before:bg-ai-800',
-          'before:transition-colors'
+          // 'hover:before:bg-ai-800 dark:hover:before:bg-ai-800', // fix
+          // 'before:transition-colors' // fix
         ].join(' ')
       }
     },

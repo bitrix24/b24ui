@@ -266,13 +266,27 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
   <DefineLinkTemplate v-slot="{ item, active, index }">
     <slot :name="((item.slot || 'item') as keyof NavigationMenuSlots<T>)" :item="item" :index="index">
       <span :class="b24ui.linkLabelWrapper({ class: props.b24ui?.linkLabelWrapper, active })">
-        <slot :name="((item.slot ? `${item.slot}-leading` : 'item-leading') as keyof NavigationMenuSlots<T>)" :item="item" :active="active" :index="index">
+        <slot
+          :name="((item.slot ? `${item.slot}-leading` : 'item-leading') as keyof NavigationMenuSlots<T>)"
+          :item="item"
+          :active="active"
+          :index="index"
+        >
           <Component
             :is="item.icon"
             v-if="item.icon"
             :class="b24ui.linkLeadingIcon({ class: [props.b24ui?.linkLeadingIcon, item.b24ui?.linkLeadingIcon], active, disabled: !!item.disabled })"
           />
           <B24Avatar v-else-if="item.avatar" :size="((item.b24ui?.linkLeadingAvatarSize || props.b24ui?.linkLeadingAvatarSize || b24ui.linkLeadingAvatarSize()) as AvatarProps['size'])" v-bind="item.avatar" :class="b24ui.linkLeadingAvatar({ class: [props.b24ui?.linkLeadingAvatar, item.b24ui?.linkLeadingAvatar], active, disabled: !!item.disabled })" />
+          <B24Badge
+            v-if="item.badge"
+            color="danger"
+            depth="dark"
+            :use-fill="true"
+            :size="((item.b24ui?.linkLeadingBadgeSize || props.b24ui?.linkLeadingBadgeSize || b24ui.linkLeadingBadgeSize()) as BadgeProps['size'])"
+            v-bind="(typeof item.badge === 'string' || typeof item.badge === 'number') ? { label: item.badge } : item.badge"
+            :class="b24ui.linkLeadingBadge({ class: [props.b24ui?.linkLeadingBadge, item.b24ui?.linkLeadingBadge] })"
+          />
         </slot>
 
         <span
@@ -292,7 +306,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
       </span>
       <component
         :is="orientation === 'vertical' && item.children?.length && !collapsed ? AccordionTrigger : 'span'"
-        v-if="(!collapsed || orientation !== 'vertical') && (item.badge || (orientation === 'horizontal' && (item.children?.length || !!slots[(item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>])) || (orientation === 'vertical' && item.children?.length) || item.trailingIcon || !!slots[(item.slot ? `${item.slot}-trailing` : 'item-trailing') as keyof NavigationMenuSlots<T>])"
+        v-if="(!collapsed || orientation !== 'vertical') && ((orientation === 'horizontal' && (item.children?.length || !!slots[(item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>])) || (orientation === 'vertical' && item.children?.length) || item.trailingIcon || !!slots[(item.slot ? `${item.slot}-trailing` : 'item-trailing') as keyof NavigationMenuSlots<T>])"
         :class="b24ui.linkTrailing({ class: [props.b24ui?.linkTrailing, item.b24ui?.linkTrailing] })"
       >
         <slot :name="((item.slot ? `${item.slot}-trailing` : 'item-trailing') as keyof NavigationMenuSlots<T>)" :item="item" :active="active" :index="index">
@@ -307,16 +321,6 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
             :is="item.trailingIcon"
             v-else-if="item.trailingIcon"
             :class="b24ui.linkTrailingIcon({ class: [props.b24ui?.linkTrailingIcon, item.b24ui?.linkTrailingIcon], active })"
-          />
-
-          <B24Badge
-            v-if="item.badge"
-            color="danger"
-            depth="dark"
-            :use-fill="true"
-            :size="((item.b24ui?.linkTrailingBadgeSize || props.b24ui?.linkTrailingBadgeSize || b24ui.linkTrailingBadgeSize()) as BadgeProps['size'])"
-            v-bind="(typeof item.badge === 'string' || typeof item.badge === 'number') ? { label: item.badge } : item.badge"
-            :class="b24ui.linkTrailingBadge({ class: [props.b24ui?.linkTrailingBadge, item.b24ui?.linkTrailingBadge] })"
           />
         </slot>
       </component>
