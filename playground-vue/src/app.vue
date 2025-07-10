@@ -10,6 +10,7 @@ import SunIcon from '@bitrix24/b24icons-vue/main/SunIcon'
 import SunIconAir from '@bitrix24/b24icons-vue/outline/SunIcon'
 import MoonIcon from '@bitrix24/b24icons-vue/main/MoonIcon'
 import MoonIconAir from '@bitrix24/b24icons-vue/outline/MoonIcon'
+import OpenIn50Icon from '@bitrix24/b24icons-vue/actions/OpenIn50Icon'
 import type { DropdownMenuItem } from '@bitrix24/b24ui-nuxt'
 
 const appConfig = useAppConfig()
@@ -46,7 +47,7 @@ function toggleDir() {
 const itemsForColorMode: DropdownMenuItem[] = [
   {
     label: 'dark',
-    code: 'code',
+    code: 'dark',
     isDark: true,
     icon: MoonIcon,
     onSelect() {
@@ -109,6 +110,7 @@ const colorModeIcon = computed(() => {
     return theme.icon
   }
 
+  console.warn('colorModeIcon', false)
   console.warn(false)
   return MoonIcon
 })
@@ -121,7 +123,10 @@ const isColorModeDark = computed(() => {
     return theme.isDark
   }
 
-  console.warn(false)
+  console.warn('isColorModeDark', false, [
+    mode.value,
+    itemsForColorMode
+  ])
   return false
 })
 
@@ -155,44 +160,12 @@ defineShortcuts({
       :use-light-content="route.path !== '/'"
     >
       <template #sidebar>
-        <B24SidebarHeader class="gap-2">
-          <ProseH3 class="relative mt-0 ps-2xl pe-xs mb-0">
-            Vue::Playground *
-          </ProseH3>
-          <B24SidebarSection class="flex-row ps-[18px]">
-            <div class="hidden mx-2 lg:flex flex-row flex-nowrap items-center justify-center gap-0.5">
-              <B24Kbd value="ctrl" size="sm" /> <B24Kbd value="K" size="sm" />
-            </div>
-            <B24Tooltip :content="{ side: 'left' }" :text="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', 'L']">
-              <B24Button
-                :icon="dir === 'ltr' ? LeftAlignIcon : RightAlignIcon"
-                :aria-label="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`"
-                color="link"
-                depth="normal"
-                size="xs"
-                @click="toggleDir"
-              />
-            </B24Tooltip>
-            <B24DropdownMenu
-              use-dropdown
-              :items="itemsForColorMode"
-            >
-              <B24Tooltip :content="{ side: 'left' }" :text="`Switch to next mode`" :kbds="['shift', 'D']">
-                <B24Button
-                  class="w-[200px]"
-                  :icon="colorModeIcon"
-                  :aria-label="`Switch to next mode`"
-                  color="link"
-                  depth="light"
-                  size="xs"
-                  normal-case
-                  :label="mode"
-                />
-              </B24Tooltip>
-            </B24DropdownMenu>
-          </B24SidebarSection>
+        <B24SidebarHeader>
+          <ProseH4 class="h-[32px] font-medium flex flex-row items-center relative my-0 ps-2xl pe-xs">
+            Vue::Playground
+          </ProseH4>
         </B24SidebarHeader>
-        <B24SidebarBody class="border-t border-base-950/5 dark:border-white/5">
+        <B24SidebarBody>
           <template v-for="(group) in usePageMeta.groups" :key="group.id">
             <B24NavigationMenu
               :items="[
@@ -204,45 +177,56 @@ defineShortcuts({
             />
           </template>
         </B24SidebarBody>
-        <B24SidebarFooter
-          class="border-t border-base-950/5 dark:border-white/5"
-        >
-          <B24NavigationMenu
-            :items="usePageMeta.menuList"
-            class="w-full"
-            variant="link"
-            orientation="vertical"
-            :b24ui="{
-              link: 'text-sm text-base-500',
-              linkLabelExternalIcon: 'h-3'
-            }"
-          />
+        <B24SidebarFooter>
+          <B24SidebarSection>
+            <template
+              v-for="(item, itemIndex) in usePageMeta.menuList"
+              :key="itemIndex"
+            >
+              <B24Link
+                class="text-sm mb-2 flex flex-row items-center justify-between"
+                :to="item.to"
+                :target="item.target"
+              >
+                <div>
+                  {{ item.label }}
+                </div>
+                <OpenIn50Icon class="size-4"/>
+              </B24Link>
+            </template>
+          </B24SidebarSection>
         </B24SidebarFooter>
       </template>
-
       <template #navbar>
         <B24NavbarSpacer />
-        <B24NavbarSection>
-          <B24Tooltip :content="{ side: 'left' }" :text="`Switch to next mode`" :kbds="['shift', 'D']">
-            <B24Button
-              :icon="colorModeIcon"
-              :aria-label="`Switch to next mode`"
-              color="link"
-              depth="normal"
-              size="xs"
-              @click="toggleMode"
-            />
-          </B24Tooltip>
+        <B24NavbarSection class="flex-row items-center justify-start ps-[18px] gap-0.5">
           <B24Tooltip :content="{ side: 'left' }" :text="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', 'L']">
             <B24Button
               :icon="dir === 'ltr' ? LeftAlignIcon : RightAlignIcon"
               :aria-label="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`"
               color="link"
-              depth="normal"
+              depth="light"
               size="xs"
               @click="toggleDir"
             />
           </B24Tooltip>
+          <B24DropdownMenu
+            use-dropdown
+            :items="itemsForColorMode"
+          >
+            <B24Tooltip :content="{ side: 'left' }" :text="`Switch to next mode`" :kbds="['shift', 'D']">
+              <B24Button
+                class="w-[100px]"
+                :icon="colorModeIcon"
+                :aria-label="`Switch to next mode`"
+                color="link"
+                depth="light"
+                size="xs"
+                normal-case
+                :label="mode"
+              />
+            </B24Tooltip>
+          </B24DropdownMenu>
           <div class="hidden mx-2 lg:flex flex-row flex-nowrap items-center justify-center gap-0.5">
             <B24Kbd value="ctrl" size="sm" /> <B24Kbd value="K" size="sm" />
           </div>

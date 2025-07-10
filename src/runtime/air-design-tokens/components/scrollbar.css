@@ -2,16 +2,6 @@
   scrollbar-width: thin;
 }
 
-.scrollbar-transparent {
-  scrollbar-color: hsla(0, 0%, 0%, 0) transparent;
-  scrollbar-gutter: stable;
-}
-
-.scrollbar-transparent:hover
-{
-  scrollbar-color: hsl(213.91deg 12.3% 36.67% / 36%) transparent;
-}
-
 .edge-dark .scrollbar-transparent:hover,
 .--ui-context-edge-dark .scrollbar-transparent:hover
 {
@@ -26,4 +16,18 @@
 .dark .scrollbar-transparent:hover
 {
   scrollbar-color: hsl(213.91deg 12.3% 36%) transparent;
+}
+
+.light .scrollbar-transparent,
+.--ui-context-content-light .scrollbar-transparent,
+.scrollbar-transparent {
+  scrollbar-color: hsla(0, 0%, 0%, 0) transparent;
+  scrollbar-gutter: stable;
+}
+
+.light .scrollbar-transparent:hover,
+.--ui-context-content-light .scrollbar-transparent:hover,
+.scrollbar-transparent:hover
+{
+  scrollbar-color: hsl(213.91deg 12.3% 36.67% / 36%) transparent;
 }

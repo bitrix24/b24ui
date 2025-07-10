@@ -18,7 +18,7 @@ export default {
       // 'font-medium text-xs/6',  // fix
       // 'text-base-500 dark:text-base-400', // fix
       // 'ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl' // fix
-      ''
+      'opacity-70 text-(length:--ui-font-size-sm)'
     ].join(' '),
     item: 'min-w-0',
     link: [
@@ -866,12 +866,15 @@ export default {
       variant: 'link',
       class: {
         link: [
-          'hover:text-base-950 dark:hover:text-base-50',
-          'transition-colors'
+          // 'hover:text-base-950 dark:hover:text-base-50', // fix
+          '',
+          // 'transition-colors'
+          ''
         ].join(' '),
         linkLeadingIcon: [
-          'group-hover:text-base-950 dark:group-hover:text-base-50',
-          'transition-colors'
+          // 'group-hover:text-base-950 dark:group-hover:text-base-50', // fix
+          // 'transition-colors' // fix
+          ''
         ].join(' ')
       }
     },

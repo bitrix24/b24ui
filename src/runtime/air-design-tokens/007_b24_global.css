@@ -32,11 +32,9 @@
 }
 
 /**
- * NavigationMenu
  * @see /bitrix/js/intranet/design-tokens/bitrix24/air-design-tokens.css
  * @todo get all variables
  */
-
 :root, body {
   --mib-radius: var(--ui-border-radius-md);
   --ui-btn-radius: var(--ui-border-radius-2xs);

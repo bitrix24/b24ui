@@ -97,69 +97,71 @@ const handleNavigationClick = () => {
       </div>
     </template>
 
-    <header :class="b24ui.header({ class: props.b24ui?.header })">
-      <div
-        v-if="isUseSideBar"
-        :class="b24ui.headerMenuIcon({ class: props.b24ui?.headerMenuIcon })"
-      >
-        <!-- @todo: lang -->
-        <B24Slideover
-          v-model:open="openSidebarSlideover"
-          title="Navigation"
-          description="Content navigation"
-          side="left"
-          :class="b24ui.sidebarSlideoverContainer({ class: props.b24ui?.sidebarSlideoverContainer })"
+    <div :class="b24ui.contentWrapper({ class: props.b24ui?.contentWrapper })">
+      <header :class="b24ui.header({ class: props.b24ui?.header })">
+        <div
+          v-if="isUseSideBar"
+          :class="b24ui.headerMenuIcon({ class: props.b24ui?.headerMenuIcon })"
         >
           <!-- @todo: lang -->
-          <B24Button
-            aria-label="Open navigation"
-            color="link"
-            size="sm"
-            :class="b24ui.headerPaddings({ class: props.b24ui?.headerPaddings })"
-            :icon="MenuIcon"
-          />
+          <B24Slideover
+            v-model:open="openSidebarSlideover"
+            title="Navigation"
+            description="Content navigation"
+            side="left"
+            :class="b24ui.sidebarSlideoverContainer({ class: props.b24ui?.sidebarSlideoverContainer })"
+          >
+            <!-- @todo: lang -->
+            <B24Button
+              aria-label="Open navigation"
+              color="link"
+              size="sm"
+              :class="b24ui.headerPaddings({ class: props.b24ui?.headerPaddings })"
+              :icon="MenuIcon"
+            />
 
-          <template #content>
-            <div :class="b24ui.sidebarSlideover({ class: props.b24ui?.sidebarSlideover })">
-              <B24Sidebar>
-                <div :class="b24ui.sidebarSlideoverBtnClose({ class: props.b24ui?.sidebarSlideoverBtnClose })">
-                  <!-- @todo: lang -->
-                  <B24ModalDialogClose>
-                    <B24Button
-                      color="link"
-                      size="lg"
-                      :icon="Cross50Icon"
-                      aria-label="Close navigation"
-                    />
-                  </B24ModalDialogClose>
-                </div>
+            <template #content>
+              <div :class="b24ui.sidebarSlideover({ class: props.b24ui?.sidebarSlideover })">
+                <B24Sidebar>
+                  <div :class="b24ui.sidebarSlideoverBtnClose({ class: props.b24ui?.sidebarSlideoverBtnClose })">
+                    <!-- @todo: lang -->
+                    <B24ModalDialogClose>
+                      <B24Button
+                        color="link"
+                        size="lg"
+                        :icon="Cross50Icon"
+                        aria-label="Close navigation"
+                      />
+                    </B24ModalDialogClose>
+                  </div>
 
-                <slot name="sidebar" :handle-click="handleNavigationClick" />
-              </B24Sidebar>
-            </div>
-          </template>
-        </B24Slideover>
-      </div>
-      <div :class="b24ui.headerWrapper({ class: props.b24ui?.headerWrapper })">
-        <B24Navbar :class="b24ui.headerPaddings({ class: props.b24ui?.headerPaddings })">
-          <slot name="navbar" />
-        </B24Navbar>
-      </div>
-    </header>
-
-    <!-- Page Content -->
-    <slot name="content-top" />
-
-    <template v-if="!!slots.default">
-      <main :class="b24ui.container({ class: props.b24ui?.container })">
-        <div :class="b24ui.containerWrapper({ class: props.b24ui?.containerWrapper })">
-          <div :class="b24ui.containerWrapperInner({ class: props.b24ui?.containerWrapperInner })">
-            <slot />
-          </div>
+                  <slot name="sidebar" :handle-click="handleNavigationClick" />
+                </B24Sidebar>
+              </div>
+            </template>
+          </B24Slideover>
         </div>
-      </main>
-    </template>
+        <div :class="b24ui.headerWrapper({ class: props.b24ui?.headerWrapper })">
+          <B24Navbar :class="b24ui.headerPaddings({ class: props.b24ui?.headerPaddings })">
+            <slot name="navbar" />
+          </B24Navbar>
+        </div>
+      </header>
 
-    <slot name="content-bottom" />
+      <!-- Page Content -->
+      <slot name="content-top" />
+
+      <template v-if="!!slots.default">
+        <main :class="b24ui.container({ class: props.b24ui?.container })">
+          <div :class="b24ui.containerWrapper({ class: props.b24ui?.containerWrapper })">
+            <div :class="b24ui.containerWrapperInner({ class: props.b24ui?.containerWrapperInner })">
+              <slot />
+            </div>
+          </div>
+        </main>
+      </template>
+
+      <slot name="content-bottom" />
+    </div>
   </Primitive>
 </template>

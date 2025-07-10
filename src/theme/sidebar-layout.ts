@@ -11,7 +11,7 @@ export default {
   slots: {
     root: [
       'text-(--ui-color-design-plain-na-content)',
-      // 'dark:text-(--ui-color-base-1)',
+      // 'dark:text-(--ui-color-base-1)', // fix
       'bg-(--ui-color-gray-05) edge-light:bg-(--ui-color-gray-05)',
       'dark:bg-(--ui-color-bg-content-primary) edge-dark:bg-(--ui-color-g-content-grey-4)',
       'min-h-svh w-full',
@@ -38,8 +38,8 @@ export default {
     sidebarSlideover: [
       'h-full',
       'overflow-hidden',
-      'flex flex-col',
-      // 'bg-white dark:bg-base-dark',
+      'flex flex-col text-(--ui-color-design-plain-na-content)',
+      // 'bg-white dark:bg-base-dark', // fix
       'bg-(--ui-color-base-white-fixed)/94',
       'dark:bg-(--ui-color-base-black-fixed)/94',
       'ring-1 ring-base-950/5 dark:ring-white/10',
@@ -50,10 +50,14 @@ export default {
       '-mb-3',
       'px-4 pt-3'
     ].join(' '),
+    contentWrapper: [
+      'flex-1 flex flex-col',
+      'lg:pl-[calc(240px)]'
+    ].join(' '),
     header: [
-      'px-4',
+      'px-4 h-(--topbar-height)',
       'flex items-center',
-      'lg:hidden',
+      // 'lg:hidden', fix
       'bg-(--ui-color-bg-content-primary)',
       'dark:bg-[#2d2d2d]',
       'edge-light:bg-(--ui-color-base-black-fixed)/5',
@@ -61,7 +65,9 @@ export default {
       'edge-dark:bg-(--ui-color-base-white-fixed)/10',
       'edge-dark:backdrop-blur-(--ui-bg-blur-less)'
     ].join(' '),
-    headerMenuIcon: '',
+    headerMenuIcon: [
+      'lg:hidden'
+    ].join(' '),
     headerPaddings: [
       'py-2.5'
     ].join(' '),
@@ -81,10 +87,10 @@ export default {
   variants: {
     useSidebar: {
       true: {
-        container: 'lg:px-(--content-area-shift) lg:pl-[calc(240px+var(--content-area-shift))]'
+        container: 'lg:px-(--content-area-shift)'
       },
       false: {
-        container: 'pb-2 lg:pt-2 lg:px-2'
+        container: 'px-(--content-area-shift) pb-2 lg:pt-2 lg:px-2'
       }
     },
     useLightContent: {

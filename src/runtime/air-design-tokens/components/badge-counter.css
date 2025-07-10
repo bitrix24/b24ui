@@ -1,28 +1,26 @@
 /**
  * Badge
  * @see /bitrix/js/ui/cnt/dist/cnt.bundle.css
- * @todo fix use @layer base
- * @todo fix use ui-counter__scope
+ * @todo fix use @layer components
  */
 
-@layer base {
-  .ui-counter__scope {
-    --ui-counter-size: var(--ui-counter-size-md);
-    --ui-counter-bg-color: red;
-    --ui-counter-color: red;
-    --ui-counter-size-lg: 18px;
-    --ui-counter-size-md: 16px;
-    --ui-counter-size-sm: 14px;
-    --ui-counter-font-size: 11px;
-    --ui-counter-symbol-font-size: 11px;
-    --ui-counter-inline-space: 6px;
-    --ui-counter-symbol-compenstation: 0px;
-    --ui-counter-border-color: transparent;
-    --ui-counter-border-width: 0;
-  }
+@theme inline {
+  --ui-counter-size: var(--ui-counter-size-md);
+  --ui-counter-bg-color: red;
+  --ui-counter-color: red;
+  --ui-counter-size-lg: 18px;
+  --ui-counter-size-md: 16px;
+  --ui-counter-size-sm: 14px;
+  --ui-counter-font-size: 11px;
+  --ui-counter-symbol-font-size: 11px;
+  --ui-counter-inline-space: 6px;
+  --ui-counter-symbol-compenstation: 0px;
+  --ui-counter-border-color: transparent;
+  --ui-counter-border-width: 0;
 }
 
 /*region Base style*/
+/*
 .ui-counter.--air {
   display: inline-flex;
   align-items: center;
@@ -75,11 +73,11 @@
 .ui-counter.--air .ui-counter__symbol:empty {
   margin-right: 0;
 }
-
+*/
 /*endregion*/
 
 /* region Counter styles */
-
+/*
 .ui-counter.--air.--style-filled-extra {
   --ui-counter-bg-color: var(--gradient-brand, linear-gradient(349deg, #0B83FF 32.07%, #32B2F4 64.58%, #75E4BD 95.91%));
   --ui-counter-color: var(--ui-color-base-white-fixed);
@@ -159,10 +157,11 @@
   --ui-counter-border-width: var(--ui-design-outline-na-stroke-weight-alt);
   --ui-counter-border-color: var(--ui-color-design-outline-na-stroke);
 }
-
+*/
 /*endregion*/
 
 /*region Counter size*/
+/*
 .ui-counter-sm.--air {
   --ui-counter-size: var(--ui-counter-size-sm);
   --ui-counter-font-size: var(--ui-font-size-4xs);
@@ -186,5 +185,5 @@
   --ui-counter-inline-space: 6px;
   --ui-counter-symbol-compenstation: -4px;
 }
-
+*/
 /*endregion*/

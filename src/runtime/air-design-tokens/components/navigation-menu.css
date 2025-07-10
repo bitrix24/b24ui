@@ -1,10 +1,21 @@
 /**
  * NavigationMenu
  * @see /bitrix/templates/bitrix24/components/bitrix/menu/left_vertical/style.css
+ * @see /bitrix/templates/bitrix24/dist/bitrix24.bundle.css
+ * @todo get all variables
  */
+
 @layer base {
+  /*--b24ui-header-height: calc(var(--spacing)*16);*/
+}
+
+@theme inline {
   --b24ui-header-height: calc(var(--spacing)*16);
 
+  --content-area-left-shift: 22px;
+  --air-header-min-height: 58px;
+  --air-footer-min-height: 76px;
+  --topbar-height: 58px;
 }
 
 .clip-path-viewport-wrapper {
