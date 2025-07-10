@@ -7,11 +7,11 @@ function shInitSwitcher() {
     style.id = 'shThemeStyles'
     style.textContent = `
       body.sh-theme-edge-dark {
-        background: #5964B3 url(/bitrix/templates/air/themes/light/lightness/lightness.jpg) fixed 0 0 no-repeat !important;
+        background: #5964B3 url(/bitrix/templates/bitrix24/themes/light/lightness/lightness.jpg) fixed 0 0 no-repeat !important;
         background-size: cover !important;
       }
       body.sh-theme-edge-light {
-        background: #eef2f4 url(/bitrix/templates/air/themes/dark/pattern-light-grey/pattern-light-grey.svg) 0 0 repeat !important;
+        background: #eef2f4 url(/bitrix/templates/bitrix24/themes/dark/pattern-light-grey/pattern-light-grey.svg) 0 0 repeat !important;
         background-size: initial !important;
       }
       body.sh-theme-dark {
