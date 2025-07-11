@@ -11,7 +11,7 @@
 export default {
   slots: {
     root: [
-      'py-[13px]',
+      'min-h-(--topbar-height)',
       'flex flex-col',
       'text-(--ui-color-base-1)',
       'border-b border-(--leftmenu-bg-divider)',

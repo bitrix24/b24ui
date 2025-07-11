@@ -2,7 +2,7 @@
 
 @layer base {
   body {
-    @apply edge-dark:scheme-dark;
+    @apply edge-dark:scheme-light;
   }
 
   .edge-dark,

@@ -2,16 +2,3 @@
 @import '#build/b24ui.css';
 @import './keyframes.css';
 @import './air-design-tokens/index.css';
-
-
-/*
-@layer base {
-  body {
-    @apply scheme-light dark:scheme-dark;
-  }
-
-  :root, .light {}
-
-  .dark {}
-}
-*/

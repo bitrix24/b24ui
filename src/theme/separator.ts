@@ -16,7 +16,7 @@ export default {
   },
   variants: {
     color: {
-      default: { border: 'border-base-master/10 dark:border-base-100/20' },
+      default: { border: 'border-(--ui-color-divider-default)' },
       danger: { border: 'border-red-500 dark:border-red-600' },
       success: { border: 'border-green-500 dark:border-green-600' },
       warning: { border: 'border-orange-500 dark:border-orange-600' },

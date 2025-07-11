@@ -37,7 +37,7 @@ export interface SidebarLayoutSlots {
    */
   'content-actions': (props?: { isLoading: boolean }) => any
   /**
-   * The page content.
+   * Loading state. You need to use `useSidebarLayout` to control it.
    */
   'default'(props?: { isLoading: boolean }): any
   /**
@@ -52,6 +52,7 @@ import { ref, computed, watch, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
+import { useSidebarLayout } from '../composables/useSidebarLayout'
 import { tv } from '../utils/tv'
 import B24Slideover from './Slideover.vue'
 import B24Sidebar from './Sidebar.vue'
@@ -59,7 +60,7 @@ import B24ModalDialogClose from './ModalDialogClose.vue'
 import B24Navbar from './Navbar.vue'
 import MenuIcon from '@bitrix24/b24icons-vue/main/MenuIcon'
 import Cross50Icon from '@bitrix24/b24icons-vue/actions/Cross50Icon'
-import SpinnerIcon from '@bitrix24/b24icons-vue/specialized/SpinnerIcon'
+import BtnSpinnerIcon from '@bitrix24/b24icons-vue/button-specialized/BtnSpinnerIcon'
 
 const props = withDefaults(defineProps<SidebarLayoutProps>(), {
   as: 'div',
@@ -71,12 +72,17 @@ const appConfig = useAppConfig() as SidebarLayout['AppConfig']
 
 const route = useRoute()
 const isUseSideBar = computed(() => !!slots.sidebar)
+const isUseNavbar = computed(() => !!slots.navbar)
 const openSidebarSlideover = ref(false)
+const { loading } = useSidebarLayout()
 
-const isLoading = ref(false)
+const isLoading = computed(() => {
+  return loading.value
+})
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sidebarLayout || {}) })({
   useSidebar: isUseSideBar.value,
+  useNavbar: isUseNavbar.value,
   useLightContent: Boolean(props.useLightContent),
   loading: Boolean(isLoading.value)
 }))
@@ -113,7 +119,10 @@ const handleNavigationClick = () => {
     </template>
 
     <div :class="b24ui.contentWrapper({ class: props.b24ui?.contentWrapper })">
-      <header :class="b24ui.header({ class: props.b24ui?.header })">
+      <header
+        v-if="isUseNavbar"
+        :class="b24ui.header({ class: props.b24ui?.header })"
+      >
         <div
           v-if="isUseSideBar"
           :class="b24ui.headerMenuIcon({ class: props.b24ui?.headerMenuIcon })"
@@ -164,17 +173,6 @@ const handleNavigationClick = () => {
       </header>
 
       <main :class="b24ui.container({ class: props.b24ui?.container })">
-        <!-- isLoading -->
-        <div
-          v-if="isLoading"
-          :class="b24ui.loadingWrapper({ class: props.b24ui?.loadingWrapper })"
-        >
-          <SpinnerIcon
-            :class="b24ui.loadingIcon({ class: props.b24ui?.loadingIcon })"
-            aria-hidden="true"
-          />
-        </div>
-
         <!-- Page Top -->
         <template v-if="!!slots['content-top']">
           <div :class="b24ui.pageTopWrapper({ class: props.b24ui?.pageTopWrapper })">
@@ -189,8 +187,19 @@ const handleNavigationClick = () => {
           </div>
         </template>
 
+        <!-- isLoading -->
+        <template v-if="isLoading">
+          <slot name="loading" :is-loading="isLoading">
+            <div :class="b24ui.loadingWrapper({ class: props.b24ui?.loadingWrapper })">
+              <BtnSpinnerIcon
+                :class="b24ui.loadingIcon({ class: props.b24ui?.loadingIcon })"
+                aria-hidden="true"
+              />
+            </div>
+          </slot>
+        </template>
         <!-- Page Content -->
-        <template v-if="!!slots.default">
+        <template v-else-if="!!slots.default">
           <div :class="b24ui.containerWrapper({ class: props.b24ui?.containerWrapper })">
             <div :class="b24ui.containerWrapperInner({ class: props.b24ui?.containerWrapperInner })">
               <slot :is-loading="isLoading" />
@@ -206,5 +215,5 @@ const handleNavigationClick = () => {
         </div>
       </template>
     </div>
-  </Primitive>
+  </primitive>
 </template>

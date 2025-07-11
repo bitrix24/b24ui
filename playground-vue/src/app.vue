@@ -3,7 +3,6 @@ import usePageMeta from '../../playground/app/composables/usePageMeta'
 import { useRouter, useRoute } from 'vue-router'
 import { reactive, ref, computed } from 'vue'
 import { useColorMode, useTextDirection } from '@vueuse/core'
-import HomeIcon from '@bitrix24/b24icons-vue/main/HomeIcon'
 import RightAlignIcon from '@bitrix24/b24icons-vue/editor/RightAlignIcon'
 import LeftAlignIcon from '@bitrix24/b24icons-vue/editor/LeftAlignIcon'
 import SunIcon from '@bitrix24/b24icons-vue/main/SunIcon'
@@ -11,6 +10,7 @@ import SunIconAir from '@bitrix24/b24icons-vue/outline/SunIcon'
 import MoonIcon from '@bitrix24/b24icons-vue/main/MoonIcon'
 import MoonIconAir from '@bitrix24/b24icons-vue/outline/MoonIcon'
 import OpenIn50Icon from '@bitrix24/b24icons-vue/actions/OpenIn50Icon'
+// import { useSidebarLayout } from '@bitrix24/b24ui-nuxt'
 import type { DropdownMenuItem } from '@bitrix24/b24ui-nuxt'
 
 const appConfig = useAppConfig()
@@ -48,7 +48,6 @@ const itemsForColorMode: DropdownMenuItem[] = [
   {
     label: 'dark',
     code: 'dark',
-    isDark: true,
     icon: MoonIcon,
     onSelect() {
       mode.value = 'dark'
@@ -57,7 +56,6 @@ const itemsForColorMode: DropdownMenuItem[] = [
   {
     label: 'light',
     code: 'light',
-    isDark: false,
     icon: SunIcon,
     onSelect() {
       mode.value = 'light'
@@ -66,7 +64,6 @@ const itemsForColorMode: DropdownMenuItem[] = [
   {
     label: 'edge-dark',
     code: 'edgeDark',
-    isDark: false,
     icon: MoonIconAir,
     onSelect() {
       mode.value = 'edgeDark'
@@ -75,7 +72,6 @@ const itemsForColorMode: DropdownMenuItem[] = [
   {
     label: 'edge-lark',
     code: 'edgeLight',
-    isDark: false,
     icon: SunIconAir,
     onSelect() {
       mode.value = 'edgeLight'
@@ -115,21 +111,6 @@ const colorModeIcon = computed(() => {
   return MoonIcon
 })
 
-const isColorModeDark = computed(() => {
-  const theme = itemsForColorMode.find((row) => {
-    return row.code === mode.value
-  })
-  if (theme) {
-    return theme.isDark
-  }
-
-  console.warn('isColorModeDark', false, [
-    mode.value,
-    itemsForColorMode
-  ])
-  return false
-})
-
 defineShortcuts({
   ctrl_k: () => {
     isCommandPaletteOpen.value = true
@@ -147,23 +128,40 @@ defineShortcuts({
     toggleMode()
   }
 })
+
+const { setLoading } = useSidebarLayout()
+const makeLoading = async () => {
+  return new Promise<void>((res) => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+      res()
+    }, 2_000)
+  })
+}
 </script>
 
 <template>
   <B24App :toaster="(appConfig.toaster as any)">
     <B24SidebarLayout
-      :b24ui="{
-        root: 'edge-light:bg-transparent edge-dark:bg-transparent',
-        container: isColorModeDark ? 'dark --ui-context-content-dark' : 'light --ui-context-content-light',
-        sidebarSlideoverContainer: isColorModeDark ? 'dark --ui-context-content-dark' : 'light --ui-context-content-light'
-      }"
       :use-light-content="route.path !== '/'"
     >
       <template #sidebar>
         <B24SidebarHeader>
-          <ProseH4 class="h-[32px] font-medium flex flex-row items-center relative my-0 ps-2xl pe-xs">
-            Vue::Playground
-          </ProseH4>
+          <div class="h-full flex items-center relative my-0 ps-[25px] pe-xs rtl:pe-[25px]">
+            <B24Tooltip
+              class="flex-0 mt-1"
+              :content="{ side: 'bottom', align: 'start' }"
+              text="Go home"
+              :kbds="['ctrl', 'arrowleft']"
+            >
+              <B24Link to="/" class="mt-0">
+                <ProseH4 class="font-medium mb-0">
+                  Vue::Playground
+                </ProseH4>
+              </B24Link>
+            </B24Tooltip>
+          </div>
         </B24SidebarHeader>
         <B24SidebarBody>
           <template v-for="(group) in usePageMeta.groups" :key="group.id">
@@ -180,26 +178,31 @@ defineShortcuts({
         <B24SidebarFooter>
           <B24SidebarSection>
             <template
-              v-for="(item, itemIndex) in usePageMeta.menuList"
-              :key="itemIndex"
+              v-for="(item, indexItem) in usePageMeta.menuList"
+              :key="indexItem"
             >
               <B24Link
                 class="text-sm mb-2 flex flex-row items-center justify-between"
                 :to="item.to"
                 :target="item.target"
               >
-                <div>
-                  {{ item.label }}
-                </div>
-                <OpenIn50Icon class="size-4"/>
+                <div>{{ item.label }}</div>
+                <OpenIn50Icon class="size-4" />
               </B24Link>
             </template>
           </B24SidebarSection>
         </B24SidebarFooter>
       </template>
+
       <template #navbar>
         <B24NavbarSpacer />
         <B24NavbarSection class="flex-row items-center justify-start ps-[18px] gap-0.5">
+          <B24Button
+            label="reLoad"
+            size="sm"
+            loading-auto
+            @click="makeLoading"
+          />
           <B24Tooltip :content="{ side: 'left' }" :text="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', 'L']">
             <B24Button
               :icon="dir === 'ltr' ? LeftAlignIcon : RightAlignIcon"
@@ -233,19 +236,10 @@ defineShortcuts({
         </B24NavbarSection>
       </template>
 
-      <template v-if="route.path !== '/'">
-        <div class="flex flex-row items-center justify-start gap-1">
-          <B24Tooltip :content="{ side: 'bottom', align: 'start' }" text="Go home" :kbds="['ctrl', 'arrowleft']">
-            <B24Link to="/" class="whitespace-nowrap flex flex-row flex-nowrap items-center justify-start gap-1 truncate text-base-500">
-              <HomeIcon class="size-5" /> Home
-            </B24Link>
-          </B24Tooltip>
-          <span class="text-base-500"> / </span>
-          <ProseH1 class="font-bold">
-            {{ usePageMeta.getPageTitle() }}
-          </ProseH1>
-        </div>
-        <B24Separator class="mt-2 mb-4" />
+      <template v-if="route.path !== '/'" #content-top>
+        <ProseH2 class="font-semibold mb-0">
+          {{ usePageMeta.getPageTitle() }}
+        </ProseH2>
       </template>
 
       <Suspense>

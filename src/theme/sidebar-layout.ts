@@ -12,8 +12,8 @@ export default {
     root: [
       'text-(--ui-color-design-plain-na-content)',
       // 'dark:text-(--ui-color-base-1)', // fix
-      'bg-(--ui-color-gray-05) edge-light:bg-(--ui-color-gray-05)',
-      'dark:bg-(--ui-color-bg-content-primary) edge-dark:bg-(--ui-color-g-content-grey-4)',
+      'bg-(--ui-color-gray-05) edge-light:bg-transparent', // edge-light:bg-(--ui-color-gray-05)
+      'dark:bg-(--ui-color-bg-content-primary) edge-dark:bg-transparent', // edge-dark:bg-(--ui-color-g-content-grey-4)
       'min-h-svh w-full',
       'flex max-lg:flex-col',
       'relative isolate'
@@ -31,6 +31,7 @@ export default {
       'edge-dark:backdrop-blur-(--ui-bg-blur-less)'
     ].join(' '),
     sidebarSlideoverContainer: [
+      'light --ui-context-content-light',
       'max-w-80',
       'p-2',
       'bg-transparent dark:bg-transparent sm:shadow-none'
@@ -41,7 +42,6 @@ export default {
       'flex flex-col text-(--ui-color-design-plain-na-content)',
       // 'bg-white dark:bg-base-dark', // fix
       'bg-(--ui-color-base-white-fixed)/94',
-      'dark:bg-(--ui-color-base-black-fixed)/94',
       'ring-1 ring-base-950/5 dark:ring-white/10',
       'shadow-xs',
       'rounded-none'
@@ -76,13 +76,25 @@ export default {
       'flex-1'
     ].join(' '),
     container: [
+      'relative',
       'flex-1 flex flex-col',
       'lg:min-w-0'
     ].join(' '),
     containerWrapper: [
       'grow'
     ].join(' '),
-    containerWrapperInner: ''
+    pageTopWrapper: [
+      'text-(--ui-color-base-1)',
+      'py-[22px]',
+      'min-h-[78px]',
+      'flex items-center'
+    ].join(' '),
+    pageActionsWrapper: '',
+    containerWrapperInner: '',
+    pageBottomWrapper: '',
+    // loadingWrapper: 'w-full flex flex-row flex-nowrap items-center justify-center',
+    loadingWrapper: 'isolate absolute inline-block top-[50%] left-[50%] transform-[translate3d(-50%,-50%,0)] size-[110px]',
+    loadingIcon: 'size-full animate-spin-slow'
   },
   variants: {
     useSidebar: {
@@ -90,27 +102,46 @@ export default {
         container: 'lg:px-(--content-area-shift)'
       },
       false: {
-        container: 'px-(--content-area-shift) pb-2 lg:pt-2 lg:px-2'
+        container: 'px-(--content-area-shift) pb-2 lg:pt-2 lg:px-2',
+        contentWrapper: 'lg:pl-0'
       }
     },
     useLightContent: {
       true: {
         container: [
-          'pb-2 lg:pt-2 lg:pr-2'
+          'lg:pb-2'
+        ].join(' '),
+        pageTopWrapper: [
+          'px-6 lg:px-0'
+        ].join(' '),
+        pageActionsWrapper: [
+          'p-6 lg:p-[15px]'
         ].join(' '),
         containerWrapper: [
-          'p-6 lg:p-10',
-          'bg-(--ui-color-base-white-fixed)',
-          'dark:bg-(--ui-color-base-white-fixed)/10',
-          'lg:ring-1 lg:ring-base-950/5 dark:lg:ring-white/10',
-          'lg:shadow-xs',
-          'lg:rounded-lg'
+          'light --ui-context-content-light',
+          'p-6 lg:p-[15px]',
+          'bg-(--ui-color-base-white-fixed)/87',
+          'dark:bg-(--ui-color-base-white-fixed)/97',
+          // 'lg:ring-1 lg:ring-base-950/5 dark:lg:ring-white/10', // fix
+          // 'lg:shadow-xs', // fix
+          'lg:rounded-(--ui-border-radius-md)'
         ].join(' ')
       },
       false: {
-        container: [
-          ''
+        containerWrapper: [
+          'bg-(--ui-color-background-transparent)'
         ].join(' ')
+      }
+    },
+    loading: {
+      true: ''
+    },
+    useNavbar: {
+      true: {
+        // loadingWrapper: 'h-[calc(100dvh-var(--topbar-height))]'
+      },
+      false: {
+        // loadingWrapper: 'h-dvh'
       }
     }
   },

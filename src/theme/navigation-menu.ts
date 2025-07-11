@@ -8,7 +8,7 @@
 export default {
   slots: {
     // root: 'relative flex [&>div]:min-w-0 font-b24-secondary', // fix
-    root: 'relative flex [&>div]:min-w-0 font-b24-secondary ps-(--menu-items-block-padding-x)', // fix
+    root: 'relative flex [&>div]:min-w-0 font-b24-secondary ps-(--menu-items-block-padding-x) rtl:pe-(--menu-items-block-padding-x)',
     list: 'isolate min-w-0',
     label: [
       // 'w-full min-h-6', // fix
