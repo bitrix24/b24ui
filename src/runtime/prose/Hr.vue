@@ -9,6 +9,12 @@ export interface ProseHrProps {
   class?: any
   b24ui?: ProseHr['slots']
 }
+/**
+ * @todo add Pick<Xxxx
+ */
+/**
+ * @todo add Pick<Xxxx
+ */
 </script>
 
 <script setup lang="ts">

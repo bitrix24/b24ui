@@ -30,6 +30,9 @@ export interface ProseTableProps {
   class?: any
   b24ui?: ProseTable['slots']
 }
+/**
+ * @todo add Pick<Xxxx
+ */
 
 export interface ProseTableSlots {
   default(props?: {}): any

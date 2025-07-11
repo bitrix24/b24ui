@@ -14,6 +14,9 @@ export interface SidebarFooterProps {
   class?: any
   b24ui?: SidebarFooter['slots']
 }
+/**
+ * @todo add Pick<Xxxx
+ */
 
 export interface SidebarFooterSlots {
   default(props?: {}): any

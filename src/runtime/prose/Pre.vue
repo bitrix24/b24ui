@@ -15,6 +15,9 @@ export interface ProsePreProps {
   style?: any
   b24ui?: ProsePre['slots']
 }
+/**
+ * @todo add Pick<Xxxx
+ */
 
 export interface ProsePreSlots {
   default(props?: {}): any

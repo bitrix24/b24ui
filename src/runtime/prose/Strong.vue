@@ -9,6 +9,9 @@ export interface ProseStrongProps {
   class?: any
   b24ui?: ProseStrong['slots']
 }
+/**
+ * @todo add Pick<Xxxx
+ */
 
 export interface ProseStrongSlots {
   default(props?: {}): any

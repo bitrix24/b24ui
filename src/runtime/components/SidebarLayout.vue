@@ -13,26 +13,37 @@ export interface SidebarLayoutProps {
   as?: any
   useLightContent?: boolean
   class?: any
-  b24ui?: SidebarLayout['slots']
+  b24ui?: Pick<SidebarLayout['slots'], 'root' | 'sidebar' | 'sidebarSlideoverContainer' | 'sidebarSlideover' | 'sidebarSlideoverBtnClose' | 'contentWrapper' | 'header' | 'headerMenuIcon' | 'headerPaddings' | 'headerWrapper' | 'container' | 'containerWrapper' | 'pageTopWrapper' | 'pageActionsWrapper' | 'containerWrapperInner' | 'pageBottomWrapper' | 'loadingWrapper' | 'loadingIcon'>
 }
 
 export interface SidebarLayoutSlots {
   /**
-   * Menu for all screen sizes.
+   * Left menu.
    * @param props
    * @param props.handleClick - Handler for navigation click events
+   * @param props.isLoading - loading state
    */
-  'sidebar'(props: { handleClick: () => void }): any
+  'sidebar'(props: { handleClick: () => void, isLoading: boolean }): any
   /**
-   * Menu for mobile screen sizes.
+   * Top menu.
    */
-  'navbar'(props?: {}): any
+  'navbar'(props?: { isLoading: boolean }): any
+  /**
+   * Content above the page. Used for title, filter, etc.
+   */
+  'content-top': (props?: { isLoading: boolean }) => any
+  /**
+   * Content above the page. Use for show actions.
+   */
+  'content-actions': (props?: { isLoading: boolean }) => any
   /**
    * The page content.
    */
-  'default'(props?: {}): any
-  'content-top': (props?: {}) => any
-  'content-bottom': (props?: {}) => any
+  'default'(props?: { isLoading: boolean }): any
+  /**
+   * Content below the page.
+   */
+  'content-bottom': (props?: { isLoading: boolean }) => any
 }
 </script>
 
@@ -48,6 +59,7 @@ import B24ModalDialogClose from './ModalDialogClose.vue'
 import B24Navbar from './Navbar.vue'
 import MenuIcon from '@bitrix24/b24icons-vue/main/MenuIcon'
 import Cross50Icon from '@bitrix24/b24icons-vue/actions/Cross50Icon'
+import SpinnerIcon from '@bitrix24/b24icons-vue/specialized/SpinnerIcon'
 
 const props = withDefaults(defineProps<SidebarLayoutProps>(), {
   as: 'div',
@@ -61,9 +73,12 @@ const route = useRoute()
 const isUseSideBar = computed(() => !!slots.sidebar)
 const openSidebarSlideover = ref(false)
 
+const isLoading = ref(false)
+
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sidebarLayout || {}) })({
   useSidebar: isUseSideBar.value,
-  useLightContent: Boolean(props.useLightContent)
+  useLightContent: Boolean(props.useLightContent),
+  loading: Boolean(isLoading.value)
 }))
 
 const closeModal = () => {
@@ -92,7 +107,7 @@ const handleNavigationClick = () => {
     <template v-if="isUseSideBar">
       <div :class="b24ui.sidebar({ class: props.b24ui?.sidebar })">
         <B24Sidebar>
-          <slot name="sidebar" :handle-click="handleNavigationClick" />
+          <slot name="sidebar" :handle-click="handleNavigationClick" :is-loading="isLoading" />
         </B24Sidebar>
       </div>
     </template>
@@ -135,7 +150,7 @@ const handleNavigationClick = () => {
                     </B24ModalDialogClose>
                   </div>
 
-                  <slot name="sidebar" :handle-click="handleNavigationClick" />
+                  <slot name="sidebar" :handle-click="handleNavigationClick" :is-loading="isLoading" />
                 </B24Sidebar>
               </div>
             </template>
@@ -143,25 +158,53 @@ const handleNavigationClick = () => {
         </div>
         <div :class="b24ui.headerWrapper({ class: props.b24ui?.headerWrapper })">
           <B24Navbar :class="b24ui.headerPaddings({ class: props.b24ui?.headerPaddings })">
-            <slot name="navbar" />
+            <slot name="navbar" :is-loading="isLoading" />
           </B24Navbar>
         </div>
       </header>
 
-      <!-- Page Content -->
-      <slot name="content-top" />
+      <main :class="b24ui.container({ class: props.b24ui?.container })">
+        <!-- isLoading -->
+        <div
+          v-if="isLoading"
+          :class="b24ui.loadingWrapper({ class: props.b24ui?.loadingWrapper })"
+        >
+          <SpinnerIcon
+            :class="b24ui.loadingIcon({ class: props.b24ui?.loadingIcon })"
+            aria-hidden="true"
+          />
+        </div>
 
-      <template v-if="!!slots.default">
-        <main :class="b24ui.container({ class: props.b24ui?.container })">
+        <!-- Page Top -->
+        <template v-if="!!slots['content-top']">
+          <div :class="b24ui.pageTopWrapper({ class: props.b24ui?.pageTopWrapper })">
+            <slot name="content-top" :is-loading="isLoading" />
+          </div>
+        </template>
+
+        <!-- Page Actions -->
+        <template v-if="!!slots['content-actions']">
+          <div :class="b24ui.pageActionsWrapper({ class: props.b24ui?.pageActionsWrapper })">
+            <slot name="content-actions" :is-loading="isLoading" />
+          </div>
+        </template>
+
+        <!-- Page Content -->
+        <template v-if="!!slots.default">
           <div :class="b24ui.containerWrapper({ class: props.b24ui?.containerWrapper })">
             <div :class="b24ui.containerWrapperInner({ class: props.b24ui?.containerWrapperInner })">
-              <slot />
+              <slot :is-loading="isLoading" />
             </div>
           </div>
-        </main>
-      </template>
+        </template>
+      </main>
 
-      <slot name="content-bottom" />
+      <!-- Page Bottom -->
+      <template v-if="!!slots['content-bottom']">
+        <div :class="b24ui.pageBottomWrapper({ class: props.b24ui?.pageBottomWrapper })">
+          <slot name="content-bottom" :is-loading="isLoading" />
+        </div>
+      </template>
     </div>
   </Primitive>
 </template>

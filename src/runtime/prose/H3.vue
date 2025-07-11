@@ -9,6 +9,9 @@ export interface ProseH3Props {
   class?: any
   b24ui?: ProseH3['slots']
 }
+/**
+ * @todo add Pick<Xxxx
+ */
 
 export interface ProseH3Slots {
   default(props?: {}): any

@@ -9,6 +9,9 @@ export interface ProseUlProps {
   class?: any
   b24ui?: ProseUl['slots']
 }
+/**
+ * @todo add Pick<Xxxx
+ */
 
 export interface ProseUlSlots {
   default(props?: {}): any

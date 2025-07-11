@@ -9,6 +9,9 @@ export interface ProseBlockquoteProps {
   class?: any
   b24ui?: ProseBlockquote['slots']
 }
+/**
+ * @todo add Pick<Xxxx
+ */
 
 export interface ProseBlockquoteSlots {
   default(props?: {}): any

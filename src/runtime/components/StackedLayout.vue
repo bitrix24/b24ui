@@ -15,6 +15,9 @@ export interface StackedLayoutProps {
   class?: any
   b24ui?: StackedLayout['slots']
 }
+/**
+ * @todo add Pick<Xxxx
+ */
 
 export interface StackedLayoutSlots {
   /**
