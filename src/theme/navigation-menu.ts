@@ -34,7 +34,7 @@ export default {
       // 'before:absolute before:z-[-1]', // fix
       // 'focus:outline-none focus-visible:before:rounded-md focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2' // fix
       'font-normal text-lg',
-      'focus:outline-none focus-visible:rounded-(--menu-item-border-radius) focus-visible:outline-none focus-visible:ring-inset focus-visible:ring-1',
+      'focus:outline-none focus-visible:rounded-(--menu-item-border-radius) focus-visible:outline-none focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-(--ui-color-base-4)',
       'rounded-(--menu-item-border-radius)',
       'text-(--menu-item-color)',
       'bg-(--menu-item-background)',
