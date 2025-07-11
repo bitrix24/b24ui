@@ -2,6 +2,7 @@
  * NavigationMenu
  * @see /bitrix/templates/bitrix24/components/bitrix/menu/left_vertical/style.css
  * @see /bitrix/templates/bitrix24/dist/bitrix24.bundle.css
+ * @see /bitrix/components/bitrix/main.interface.buttons/templates/.default/style.css
  * @todo get all variables
  */
 
@@ -22,7 +23,31 @@
   clip-path: inset(0 -24px -28px -24px round 10px);
 }
 
-.menu-item {
+.menu-item-horizontal {
+  --menu-item-border-radius: var(--ui-border-radius-sm);
+  --menu-item-border: var(--ui-color-design-selection-stroke);
+
+  --menu-item-color: var(--menu-item-color-default);
+  --menu-item-color-default: var(--ui-color-design-plain-content);
+  --menu-item-color-active: var(--ui-color-design-selection-content);
+  --menu-item-background: var(--menu-item-background-default);
+  --menu-item-background-default: transparent;
+  --menu-item-background-hover: var(--ui-color-design-plain-na-focused-bg);
+  --menu-item-background-active: var(--ui-color-design-selection-bg);
+
+  transition: background-color .2s, opacity .2s;
+}
+
+.menu-item-horizontal:hover {
+  --menu-item-color-active: var(--ui-color-design-plain-na-focused-content);
+}
+
+.menu-item-horizontal-active {
+  --menu-item-color: var(--menu-item-color-active);
+  --menu-item-background: var(--menu-item-background-active);
+}
+
+.menu-item-vertical {
   --menu-item-color: var(--menu-item-color-default);
   --menu-item-color-default: var(--ui-color-design-plain-content);
   --menu-item-color-active: var(--ui-color-design-selection-content);
@@ -34,11 +59,11 @@
   transition: border-radius .2s ease-in-out, color .15s ease-in-out, background .15s ease-in-out;
 }
 
-.menu-item:hover {
+.menu-item-vertical:hover {
   transition-duration: .2s, .15s, 0s;
 }
 
-.menu-item-active {
+.menu-item-vertical-active {
   --menu-item-color: var(--menu-item-color-active);
   --menu-item-background: var(--menu-item-background-active);
 }

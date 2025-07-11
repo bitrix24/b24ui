@@ -10,8 +10,7 @@ import SunIconAir from '@bitrix24/b24icons-vue/outline/SunIcon'
 import MoonIcon from '@bitrix24/b24icons-vue/main/MoonIcon'
 import MoonIconAir from '@bitrix24/b24icons-vue/outline/MoonIcon'
 import OpenIn50Icon from '@bitrix24/b24icons-vue/actions/OpenIn50Icon'
-// import { useSidebarLayout } from '@bitrix24/b24ui-nuxt'
-import type { DropdownMenuItem } from '@bitrix24/b24ui-nuxt'
+import type { DropdownMenuItem, NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
 
 const appConfig = useAppConfig()
 const mode = useColorMode<'light' | 'dark' | 'edgeLight' | 'edgeDark'>({
@@ -139,6 +138,90 @@ const makeLoading = async () => {
     }, 2_000)
   })
 }
+
+/**
+ * @todo remove this
+ */
+const demoTop: NavigationMenuItem[] = [
+  {
+    label: 'Sales',
+    type: 'trigger' as NavigationMenuItem['type'],
+    active: true
+  },
+  {
+    label: 'Active',
+    type: 'trigger' as NavigationMenuItem['type'],
+    avatar: {
+      src: '/avatar/employee.png'
+    }
+  },
+  {
+    label: 'Conversion',
+    type: 'label' as NavigationMenuItem['type'],
+    icon: MoonIconAir
+  },
+  {
+    label: 'Current',
+    type: 'trigger' as NavigationMenuItem['type'],
+    active: true,
+    badge: 3
+  },
+  {
+    label: 'Negotiations',
+    type: 'trigger' as NavigationMenuItem['type'],
+    active: true,
+    badge: 3
+  },
+  {
+    label: 'Sales Pipeline',
+    type: 'trigger' as NavigationMenuItem['type'],
+    avatar: {
+      src: '/avatar/employee.png'
+    },
+    children: [
+      {
+        label: 'level 1.1',
+        description: 'Initial contact with potential clients',
+        active: false
+      },
+      {
+        label: 'level 1.2',
+        description: 'Client potential assessment',
+        avatar: {
+          src: '/avatar/employee.png'
+        },
+        active: true
+      },
+      {
+        label: 'level 1.3',
+        description: 'Deal terms discussion',
+        icon: SunIconAir,
+        active: true,
+        children: [
+          {
+            label: 'level 1.3.1',
+            description: 'Initial contact with potential clients',
+            active: false
+          },
+          {
+            label: 'level 1.3.2',
+            description: 'Client potential assessment',
+            avatar: {
+              src: '/avatar/employee.png'
+            },
+            active: true
+          },
+          {
+            label: 'level 1.3.3',
+            description: 'Deal terms discussion',
+            icon: SunIconAir,
+            active: true
+          }
+        ]
+      }
+    ]
+  }
+]
 </script>
 
 <template>
@@ -155,7 +238,7 @@ const makeLoading = async () => {
               text="Go home"
               :kbds="['ctrl', 'arrowleft']"
             >
-              <B24Link to="/" class="mt-0">
+              <B24Link to="/" class="mt-0 text-(--ui-color-design-selection-content)">
                 <ProseH4 class="font-medium mb-0">
                   Vue::Playground
                 </ProseH4>
@@ -195,8 +278,15 @@ const makeLoading = async () => {
       </template>
 
       <template #navbar>
+        <B24NavbarSection>
+          <B24NavigationMenu
+            :items="demoTop"
+            variant="pill"
+            orientation="horizontal"
+          />
+        </B24NavbarSection>
         <B24NavbarSpacer />
-        <B24NavbarSection class="flex-row items-center justify-start ps-[18px] gap-0.5">
+        <B24NavbarSection class="flex-row items-center justify-start gap-0.5">
           <B24Button
             label="reLoad"
             size="sm"

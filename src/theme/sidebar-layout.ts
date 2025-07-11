@@ -55,7 +55,7 @@ export default {
       'lg:pl-[calc(240px)]'
     ].join(' '),
     header: [
-      'px-4 h-(--topbar-height)',
+      'lg:px-(--content-area-shift) h-(--topbar-height)',
       'flex items-center',
       // 'lg:hidden', fix
       'bg-(--ui-color-bg-content-primary)',
@@ -69,11 +69,11 @@ export default {
       'lg:hidden'
     ].join(' '),
     headerPaddings: [
-      'py-2.5'
+      // 'py-2.5' // fix
     ].join(' '),
     headerWrapper: [
-      'min-w-0',
-      'flex-1'
+      'min-w-0 flex-1',
+      'h-full'
     ].join(' '),
     container: [
       'relative',

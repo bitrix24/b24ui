@@ -45,11 +45,10 @@ export default {
       'lg:hidden'
     ].join(' '),
     headerPaddings: [
-      'py-2.5'
+      // 'py-2.5' // fix
     ].join(' '),
     headerWrapper: [
-      'min-w-0',
-      'flex-1'
+      'min-w-0 flex-1'
     ].join(' '),
     container: [
       'flex-1 flex flex-col',

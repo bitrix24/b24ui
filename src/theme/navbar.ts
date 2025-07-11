@@ -11,8 +11,8 @@
 export default {
   slots: {
     root: [
-      'py-2.5',
-      'flex-1',
+      // 'py-2.5', // fix
+      'h-full flex-1',
       'flex items-center gap-4'
     ].join(' ')
   }

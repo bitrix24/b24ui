@@ -8,7 +8,7 @@
 export default {
   slots: {
     // root: 'relative flex [&>div]:min-w-0 font-b24-secondary', // fix
-    root: 'relative flex [&>div]:min-w-0 font-b24-secondary ps-(--menu-items-block-padding-x) rtl:pe-(--menu-items-block-padding-x)',
+    root: 'relative flex [&>div]:min-w-0 font-b24-secondary',
     list: 'isolate min-w-0',
     label: [
       // 'w-full min-h-6', // fix
@@ -22,10 +22,10 @@ export default {
     ].join(' '),
     item: 'min-w-0',
     link: [
-      'h-[38px] min-h-[38px] min-w-[38px] max-w-full',
+      'min-w-[38px] max-w-full',
       'p-0',
-      'm-0 mt-(--menu-item-block-stack-space)',
-      'menu-item',
+      'm-0',
+
       'group relative',
       'cursor-pointer',
       'w-full',
@@ -115,7 +115,9 @@ export default {
         // link: 'focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800', // fix
         link: '',
         childLink: 'focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800'
-      },
+      }
+      // @todo uncoment
+      /*
       danger: {
         link: 'focus-visible:before:ring-red-300 dark:focus-visible:before:ring-red-800',
         childLink: 'focus-visible:before:ring-red-300 dark:focus-visible:before:ring-red-800'
@@ -143,7 +145,8 @@ export default {
       ai: {
         link: 'focus-visible:before:ring-ai-300 dark:focus-visible:before:ring-ai-800',
         childLink: 'focus-visible:before:ring-ai-300 dark:focus-visible:before:ring-ai-800'
-      }
+      }.
+      */
     },
     highlightColor: {
       default: '',
@@ -170,21 +173,30 @@ export default {
     },
     orientation: {
       horizontal: {
-        root: 'items-center justify-between',
-        list: 'flex items-center gap-x-1',
-        item: 'py-2 empty:hidden',
-        link: 'px-2.5 py-1.5 before:inset-x-px before:inset-y-0',
+        root: 'relative h-full items-center justify-between',
+        list: 'flex items-center gap-x-1 h-full',
+        item: 'empty:hidden',
+        // link: 'px-2.5 py-1.5 before:inset-x-px before:inset-y-0', // fix
+        link: [
+          'menu-item-horizontal',
+          'h-[32px] min-h-[32px]',
+          'px-[10px]',
+          'border border-(--menu-item-background)  hover:border-(--ui-color-design-plain-na-focused-stroke)' // ()'
+        ].join(' '),
         childList: 'grid p-2',
         childLink: 'px-3 py-2 gap-2 before:inset-x-px before:inset-y-0',
         childLinkLabel: 'font-medium',
         content: 'absolute top-0 left-0 w-full max-h-[70vh] overflow-y-auto'
       },
       vertical: {
-        root: 'flex-col w-full',
+        root: 'flex-col w-full ps-(--menu-items-block-padding-x) rtl:pe-(--menu-items-block-padding-x)',
         list: 'flex flex-col', // fix
         link: [
+          'menu-item-vertical',
+          'h-[38px] min-h-[38px]',
           // 'ps-2xl pe-xs rtl:ps-xs rtl:pe-2xl', // fix
           'p-[6px]',
+          'mt-(--menu-item-block-stack-space)',
           'flex-row rtl:flex-row-reverse'
           // 'before:inset-y-px before:inset-x-0' // fix
         ].join(' '),
@@ -346,8 +358,10 @@ export default {
       variant: 'pill',
       orientation: 'horizontal',
       class: {
-        link: 'before:rounded-md data-[state=open]:text-base-950 dark:data-[state=open]:text-base-50',
-        linkLeadingIcon: 'group-data-[state=open]:text-base-950 dark:group-data-[state=open]:text-base-50'
+        // link: 'before:rounded-md data-[state=open]:text-base-950 dark:data-[state=open]:text-base-50', // fix
+        link: 'test-0101', // @todo remove
+        // linkLeadingIcon: 'group-data-[state=open]:text-base-950 dark:group-data-[state=open]:text-base-50' // fix
+        linkLeadingIcon: 'test-0101' // @todo remove
       }
     },
     {
@@ -356,7 +370,8 @@ export default {
       highlight: true,
       orientation: 'horizontal',
       class: {
-        link: 'data-[state=open]:before:rounded-md data-[state=open]:before:bg-base-250/80 dark:data-[state=open]:before:bg-white/10'
+        // link: 'data-[state=open]:before:rounded-md data-[state=open]:before:bg-base-250/80 dark:data-[state=open]:before:bg-white/10' // fix
+        link: 'test-0102' // @todo remove
       }
     },
     {
@@ -366,7 +381,8 @@ export default {
       active: false,
       orientation: 'horizontal',
       class: {
-        link: 'data-[state=open]:before:bg-base-250/80 dark:data-[state=open]:before:bg-white/10'
+        // link: 'data-[state=open]:before:bg-base-250/80 dark:data-[state=open]:before:bg-white/10' // fix
+        link: 'test-0103' // @todo remove
       }
     },
     {
@@ -395,16 +411,17 @@ export default {
       active: true,
       class: {
         link: [
-          'min-h-9',
-          'before:rounded-md',
-          'before:bg-base-800 dark:before:bg-white/35',
-          'hover:before:bg-base-800 dark:hover:before:bg-white/35',
-          'data-[state=open]:before:bg-base-800 dark:data-[state=open]:before:bg-white/35'
+          // 'min-h-9', // fix
+          // 'before:rounded-md', // fix
+          // 'before:bg-base-800 dark:before:bg-white/35', // fix
+          // 'hover:before:bg-base-800 dark:hover:before:bg-white/35', // fix
+          // 'hover:bg-base-800 dark:before:bg-white/35', // fix
+          // 'data-[state=open]:before:bg-base-800 dark:data-[state=open]:before:bg-white/35' // fix
         ].join(' '),
         linkLabelWrapper: [
-          'min-h-9',
-          'bg-inherit dark:bg-inherit',
-          'rounded-none'
+          // 'min-h-9', // fix
+          // 'bg-inherit dark:bg-inherit', // fix
+          // 'rounded-none' fix
         ].join(' ')
       }
     },
@@ -442,7 +459,7 @@ export default {
         ].join(' '),
         linkLabelWrapper: [
           'min-h-9',
-          'bg-inherit dark:bg-inherit',
+          // 'bg-inherit dark:bg-inherit', // fix
           'rounded-none'
         ].join(' ')
       }
@@ -687,7 +704,6 @@ export default {
       highlight: false,
       class: {
         link: [
-          'menu-item-active',
           'leading-9',
           'text-(--menu-item-color-active)',
           'bg-(--menu-item-background-active)'
@@ -707,12 +723,34 @@ export default {
     },
     {
       variant: 'pill',
+      active: true,
+      highlight: false,
+      orientation: 'horizontal',
+      class: {
+        link: [
+          'menu-item-horizontal-active border-(--menu-item-border)'
+        ].join(' ')
+      }
+    },
+    {
+      variant: 'pill',
+      active: true,
+      highlight: false,
+      orientation: 'vertical',
+      class: {
+        link: [
+          'menu-item-vertical-active'
+        ].join(' ')
+      }
+    },
+    {
+      variant: 'pill',
       orientation: 'horizontal',
       active: true,
       highlight: false,
       class: {
         linkLabelWrapper: [
-          'bg-inherit dark:bg-inherit'
+          // 'bg-inherit dark:bg-inherit' // fix
         ].join(' ')
       }
     },
