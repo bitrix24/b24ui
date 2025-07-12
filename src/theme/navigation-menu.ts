@@ -68,7 +68,15 @@ export default {
     margin-left: 1px;
 }
      */
-    linkLeadingHint: 'inline-flex m-0 absolute top-[18px] left-[0px]',
+    linkLeadingHint: [
+      'inline-flex m-0 absolute top-[18px] left-[0px]',
+      'text-(length:--ui-font-size-4xs)',
+      'leading-[8px]',
+      'font-semibold',
+      'text-(--ui-color-design-plain-na-content)',
+      'uppercase',
+      'ml-px'
+    ].join(' '),
     linkLeadingBadge: 'inline-flex m-0 absolute',
     linkLeadingBadgeSize: 'sm',
     // linkTrailing: 'group inline-flex gap-1.5 items-center', //fix
