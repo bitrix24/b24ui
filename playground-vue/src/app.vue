@@ -158,7 +158,7 @@ const demoTop: NavigationMenuItem[] = [
     label: 'Эффективность',
     type: 'trigger' as NavigationMenuItem['type'],
     badge: 21,
-    active: true,
+    active: false,
     children: [
       {
         label: 'level 1.1',
