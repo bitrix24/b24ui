@@ -3,6 +3,9 @@
  * A link list that can be arranged in horizontal or vertical orientation.
  * ---
  * @see sidebar-section.ts for orientation vertical
+ *
+ * @todo add docs props.hint
+ * @todo remove props.variant.link
  */
 
 export default {
@@ -45,6 +48,27 @@ export default {
     linkLeadingIcon: 'shrink-0 size-[26px]',
     linkLeadingAvatar: 'shrink-0 -ms-1 rtl:-ms-0 rtl:-me-1',
     linkLeadingAvatarSize: '2xs',
+    /*
+    .main-buttons.--air .main-buttons-item-super-title {
+    top: 30px;
+}
+.main-buttons-item-super-title.tasks-counter-wrapper {
+    font-size: var(--ui-font-size-4xs);
+}
+.main-buttons-item-super-title {
+    position: absolute;
+    top: 50%;
+    margin-top: calc(var(--mib-item-font-size) * -1.35);
+    font-family: var(--mib-item-super-title-font-family);
+    font-size: var(--mib-item-super-title-font-size);
+    line-height: var(--mib-item-super-title-font-size);
+    font-weight: var(--mib-item-super-title-font-weight);
+    color: var(--mib-item-super-title-color);
+    text-transform: uppercase;
+    margin-left: 1px;
+}
+     */
+    linkLeadingHint: 'inline-flex m-0 absolute top-[18px] left-[0px]',
     linkLeadingBadge: 'inline-flex m-0 absolute',
     linkLeadingBadgeSize: 'sm',
     // linkTrailing: 'group inline-flex gap-1.5 items-center', //fix
