@@ -30,7 +30,7 @@ export default {
       'cursor-pointer',
       'w-full',
       // 'font-normal text-lg leading-9 min-h-9', // fix
-      'flex items-center gap-1.5',
+      'flex items-center gap-[2px]',
       // 'before:absolute before:z-[-1]', // fix
       // 'focus:outline-none focus-visible:before:rounded-md focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2' // fix
       'font-normal text-lg',
@@ -45,15 +45,21 @@ export default {
     linkLeadingIcon: 'shrink-0 size-[26px]',
     linkLeadingAvatar: 'shrink-0 -ms-1 rtl:-ms-0 rtl:-me-1',
     linkLeadingAvatarSize: '2xs',
-    linkLeadingBadge: 'inline-flex m-0 absolute top-[3px] left-[27px] -translate-x-1/2 ',
+    linkLeadingBadge: 'inline-flex m-0 absolute',
     linkLeadingBadgeSize: 'sm',
-    linkTrailing: 'group inline-flex gap-1.5 items-center',
+    // linkTrailing: 'group inline-flex gap-1.5 items-center', //fix
+    linkTrailing: 'group inline-flex mt-[4px] items-center',
     // linkTrailingBadge: 'shrink-0',  // fix
     // linkTrailingBadgeSize: 'sm', // fix
-    linkTrailingIcon: 'text-base-600 size-4 transform shrink-0 group-data-[state=open]:rotate-180 transition-transform duration-200',
+    // linkTrailingIcon: 'text-base-600 size-4 transform shrink-0 group-data-[state=open]:rotate-180 transition-transform duration-200', // fix
+    linkTrailingIcon: [
+      'text-(--ui-color-design-plain-na-content-icon)',
+      'size-[14px]',
+      'shrink-0'
+    ].join(' '),
     linkLabel: 'truncate',
     // linkLabelWrapper: 'flex items-center justify-between rtl:flex-row-reverse gap-1.5', // fix
-    linkLabelWrapper: 'flex items-center justify-between rtl:flex-row-reverse gap-[9px]',
+    linkLabelWrapper: 'flex items-center justify-between rtl:flex-row-reverse',
     linkLabelExternalIcon: 'inline-block h-6 w-3 align-top text-base-500 dark:text-base-700',
     childList: 'isolate',
     childLabel: [
@@ -183,6 +189,8 @@ export default {
           'px-[10px]',
           'border border-(--menu-item-background)  hover:border-(--ui-color-design-plain-na-focused-stroke)' // ()'
         ].join(' '),
+        linkLeadingBadge: '-top-[6px] -right-[14px] -translate-x-1/2',
+        linkLabelWrapper: 'gap-[4px]',
         childList: 'grid p-2',
         childLink: 'px-3 py-2 gap-2 before:inset-x-px before:inset-y-0',
         childLinkLabel: 'font-medium',
@@ -200,6 +208,8 @@ export default {
           'flex-row rtl:flex-row-reverse'
           // 'before:inset-y-px before:inset-x-0' // fix
         ].join(' '),
+        linkLeadingBadge: 'top-[3px] left-[27px] -translate-x-1/2',
+        linkLabelWrapper: 'gap-[9px]',
         childLabel: 'px-1.5 py-0.5',
         childLink: 'p-1.5 gap-1.5 before:inset-y-px before:inset-x-0'
       }

@@ -145,39 +145,20 @@ const makeLoading = async () => {
 const demoTop: NavigationMenuItem[] = [
   {
     label: 'Sales',
+    type: 'trigger' as NavigationMenuItem['type']
+  },
+  {
+    label: 'Employee',
     type: 'trigger' as NavigationMenuItem['type'],
+    badge: 3,
     active: true
   },
   {
-    label: 'Active',
+    hint: '150%',
+    label: 'Эффективность',
     type: 'trigger' as NavigationMenuItem['type'],
-    avatar: {
-      src: '/avatar/employee.png'
-    }
-  },
-  {
-    label: 'Conversion',
-    type: 'label' as NavigationMenuItem['type'],
-    icon: MoonIconAir
-  },
-  {
-    label: 'Current',
-    type: 'trigger' as NavigationMenuItem['type'],
+    badge: 21,
     active: true,
-    badge: 3
-  },
-  {
-    label: 'Negotiations',
-    type: 'trigger' as NavigationMenuItem['type'],
-    active: true,
-    badge: 3
-  },
-  {
-    label: 'Sales Pipeline',
-    type: 'trigger' as NavigationMenuItem['type'],
-    avatar: {
-      src: '/avatar/employee.png'
-    },
     children: [
       {
         label: 'level 1.1',
