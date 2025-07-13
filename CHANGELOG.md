@@ -4,6 +4,16 @@
 
 * chore(AirWeb): add
 
+## [0.7.1](https://github.com/bitrix24/b24ui/compare/v0.7.0...v0.7.1) (2025-07-13)
+
+### Bug Fixes
+
+* **Slideover/Modal:** dialogContent class
+
+### Features
+
+* **AirWeb:** start work with new theme
+
 ## [0.7.0](https://github.com/bitrix24/b24ui/compare/v0.6.9...v0.7.0) (2025-07-01)
 
 ### ⚠ BREAKING CHANGES
