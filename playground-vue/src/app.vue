@@ -155,7 +155,7 @@ const demoTop: NavigationMenuItem[] = [
   },
   {
     hint: '150%',
-    label: 'Эффективность',
+    label: 'Some text',
     type: 'trigger' as NavigationMenuItem['type'],
     badge: 21,
     active: false,
