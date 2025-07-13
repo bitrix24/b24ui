@@ -152,7 +152,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.modal 
       <DialogOverlay v-if="overlay" :class="b24ui.overlay({ class: props.b24ui?.overlay })" />
 
       <DialogContent
-        :class="b24ui.content({ class: [!slots.default && props.b24ui?.content, props.class] })"
+        :class="b24ui.content({ class: [!slots.default && props.class, props.b24ui?.content] })"
         v-bind="contentProps"
         @after-enter="emits('after:enter')"
         @after-leave="emits('after:leave')"
