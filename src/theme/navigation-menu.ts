@@ -6,7 +6,30 @@
  *
  * @todo add docs props.hint
  * @todo remove props.variant.link
+ * @todo remove props.arrow
  */
+
+// @todo remove this
+// arrow: [
+//   'relative top-[50%] size-2.5 rotate-45',
+//   'border border-base-300 dark:border-base-800',
+//   'bg-white dark:bg-base-dark',
+//   'z-[1] rounded-3xs'
+// ].join(' ')
+
+// background-color: var(--popup-window-background-color, #fff);
+// --- box-shadow: var(--popup-window-box-shadow, 0 7px 21px rgba(83, 92, 105, .12), 0 -1px 6px 0 rgba(83, 92, 105, .06));
+// padding: 10px;
+// font: 13px var(--ui-font-family-primary, var(--ui-font-family-helvetica));
+// -webkit-box-sizing: border-box;
+// box-sizing: border-box;
+// display: flex ;
+// flex-direction: column;
+// justify-content: stretch;
+
+// --- border-radius: var(--popup-window-border-radius);
+// --- border: var(--popup-window-border, none);
+// --- will-change: opacity;
 
 export default {
   slots: {
@@ -41,7 +64,7 @@ export default {
       'rounded-(--menu-item-border-radius)',
       'text-(--menu-item-color)',
       'bg-(--menu-item-background)',
-      'hover:bg-(--menu-item-background-hover)',
+      'hover:bg-(--menu-item-background-hover) data-[state=open]:bg-(--menu-item-background-hover)',
       'border-0'
     ].join(' '),
     // linkLeadingIcon: 'shrink-0 size-4 -ms-1 rtl:-ms-0 rtl:-me-1', // fix
@@ -115,12 +138,15 @@ export default {
     childLinkLabelExternalIcon: 'inline-block h-6 w-3 align-top text-base-500 dark:text-base-700',
     childLinkDescription: 'text-base-500 dark:text-base-700',
     separator: 'px-2 h-px bg-base-950/10 dark:bg-base-100/20',
-    viewportWrapper: 'absolute top-full left-0 flex w-full',
+    // viewportWrapper: 'absolute top-full left-0 flex w-full', // fix
+    viewportWrapper: 'absolute top-[53px] left-0 flex w-full',
     viewport: [
       'relative overflow-hidden',
       'w-full',
-      'bg-white dark:bg-base-dark',
-      'shadow-[0_15px_21px_rgba(83,92,105,.15)]',
+      'light --ui-context-content-light',
+      // 11
+      'bg-(--popup-window-background-color)', // 'bg-(--ui-color-base-white-fixed)/94',
+      'shadow-(--popup-window-box-shadow)',
       'h-(--reka-navigation-menu-viewport-height)',
       'transition-[width,height] duration-200 origin-[top_center]', // left
       // 'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]'
@@ -202,9 +228,10 @@ export default {
           // 'hover:before:bg-base-250/80 dark:hover:before:bg-white/10', // fix
           ''
         ].join(' '),
+        // 11
         viewport: [
-          'rounded-md',
-          'ring ring-base-300 dark:ring-base-800'
+          'rounded-(--popup-window-border-radius) will-change-[opacity]',
+          // 'border border-(--popup-window-border)' // @memo see components/popup.css
         ].join(' ')
       },
       link: ''
@@ -219,11 +246,11 @@ export default {
           'menu-item-horizontal',
           'h-[32px] min-h-[32px]',
           'px-[10px]',
-          'border border-(--menu-item-background)  hover:border-(--ui-color-design-plain-na-focused-stroke)' // ()'
+          'border border-(--menu-item-background) hover:border-(--ui-color-design-plain-na-focused-stroke) data-[state=open]:bg-(--ui-color-design-plain-na-focused-stroke)'
         ].join(' '),
         linkLeadingBadge: '-top-[6px] -right-[14px] -translate-x-1/2',
         linkLabelWrapper: 'gap-[4px]',
-        childList: 'grid p-2',
+        childList: 'grid px-0 py-(--menu-popup-padding)',
         childLink: 'px-3 py-2 gap-2 before:inset-x-px before:inset-y-0',
         childLinkLabel: 'font-medium',
         content: 'absolute top-0 left-0 w-full max-h-[70vh] overflow-y-auto'
@@ -247,14 +274,14 @@ export default {
       }
     },
     contentOrientation: {
-      horizontal: {
-        // viewport: '',
-        viewportWrapper: 'justify-center',
-        content: 'motion-safe:data-[motion=from-start]:animate-[enter-from-left_200ms_ease] motion-safe:data-[motion=from-end]:animate-[enter-from-right_200ms_ease] motion-safe:data-[motion=to-start]:animate-[exit-to-left_200ms_ease] motion-safe:data-[motion=to-end]:animate-[exit-to-right_200ms_ease]',
-        childLinkLabelExternalIcon: [
-          'h-4'
-        ].join(' ')
-      },
+      // horizontal: {
+      //   // viewport: '',
+      //   viewportWrapper: 'justify-center',
+      //   content: 'motion-safe:data-[motion=from-start]:animate-[enter-from-left_200ms_ease] motion-safe:data-[motion=from-end]:animate-[enter-from-right_200ms_ease] motion-safe:data-[motion=to-start]:animate-[exit-to-left_200ms_ease] motion-safe:data-[motion=to-end]:animate-[exit-to-right_200ms_ease]',
+      //   childLinkLabelExternalIcon: [
+      //     'h-4'
+      //   ].join(' ')
+      // },
       vertical: {
         viewport: [
           'w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left)',
@@ -921,139 +948,7 @@ export default {
       }
     },
     // endregion ////
-    // region link ////
-    {
-      orientation: 'horizontal',
-      variant: 'link',
-      class: {
-        viewportWrapper: [
-          'top-[calc(100%+0.4rem)]' // perspective-[2000px]
-        ].join(' '),
-        viewport: [
-          'rounded-b-md',
-          '[&:has(>[data-viewport=ltr])]:rounded-tr-md [&:has(>[data-viewport=rtl])]:rounded-tl-md',
-          'clip-path-viewport-wrapper'
-        ].join(' '),
-        link: [
-          'before:inset-x-[0px] before:-inset-y-[6px] before:h-[70px]',
-          'before:rounded-t-md'
-        ].join(' ')
-      }
-    },
-    {
-      disabled: false,
-      active: false,
-      variant: 'link',
-      class: {
-        link: [
-          // 'hover:text-base-950 dark:hover:text-base-50', // fix
-          '',
-          // 'transition-colors'
-          ''
-        ].join(' '),
-        linkLeadingIcon: [
-          // 'group-hover:text-base-950 dark:group-hover:text-base-50', // fix
-          // 'transition-colors' // fix
-          ''
-        ].join(' ')
-      }
-    },
-    {
-      disabled: false,
-      variant: 'link',
-      orientation: 'horizontal',
-      class: {
-        link: [
-          'data-[state=open]:before:shadow-[0_6px_21px_rgba(83,92,105,.15)]',
-          'data-[state=open]:before:bg-white dark:data-[state=open]:before:bg-base-dark'
-        ].join(' ')
-      }
-    },
-    {
-      disabled: false,
-      active: false,
-      variant: 'link',
-      orientation: 'horizontal',
-      class: {
-        link: [
-          'data-[state=open]:text-base-950 dark:data-[state=open]:text-base-50'
-        ].join(' '),
-        linkLeadingIcon: 'group-data-[state=open]:text-base-950 dark:group-data-[state=open]:text-base-50'
-      }
-    },
-    {
-      color: 'default',
-      variant: 'link',
-      active: true,
-      class: {
-        link: 'font-semibold text-base-950 dark:text-base-50',
-        linkLeadingIcon: 'text-base-950 group-data-[state=open]:text-base-950 dark:text-base-50 dark:group-data-[state=open]:text-base-50'
-      }
-    },
-    {
-      color: 'danger',
-      variant: 'link',
-      active: true,
-      class: {
-        link: 'font-semibold text-red-800 dark:text-red-600',
-        linkLeadingIcon: 'text-red-800 group-data-[state=open]:text-red-600 dark:text-red-600 dark:group-data-[state=open]:text-red-600'
-      }
-    },
-    {
-      color: 'success',
-      variant: 'link',
-      active: true,
-      class: {
-        link: 'font-semibold text-green-800 dark:text-green-600',
-        linkLeadingIcon: 'text-green-800 group-data-[state=open]:text-green-600 dark:text-green-600 dark:group-data-[state=open]:text-green-600'
-      }
-    },
-    {
-      color: 'warning',
-      variant: 'link',
-      active: true,
-      class: {
-        link: 'font-semibold text-orange-800 dark:text-orange-600',
-        linkLeadingIcon: 'text-orange-800 group-data-[state=open]:text-orange-600 dark:text-orange-600 dark:group-data-[state=open]:text-orange-600'
-      }
-    },
-    {
-      color: 'primary',
-      variant: 'link',
-      active: true,
-      class: {
-        link: 'font-semibold text-blue-850 dark:text-blue-600',
-        linkLeadingIcon: 'text-blue-850 group-data-[state=open]:text-blue-600 dark:text-blue-600 dark:group-data-[state=open]:text-blue-600'
-      }
-    },
-    {
-      color: 'secondary',
-      variant: 'link',
-      active: true,
-      class: {
-        link: 'font-semibold text-cyan-800 dark:text-cyan-600',
-        linkLeadingIcon: 'text-cyan-800 group-data-[state=open]:text-cyan-600 dark:text-cyan-600 dark:group-data-[state=open]:text-cyan-600'
-      }
-    },
-    {
-      color: 'collab',
-      variant: 'link',
-      active: true,
-      class: {
-        link: 'font-semibold text-collab-800 dark:text-collab-600',
-        linkLeadingIcon: 'text-collab-800 group-data-[state=open]:text-collab-600 dark:text-collab-600 dark:group-data-[state=open]:text-collab-600'
-      }
-    },
-    {
-      color: 'ai',
-      variant: 'link',
-      active: true,
-      class: {
-        link: 'font-semibold text-ai-800 dark:text-ai-600',
-        linkLeadingIcon: 'text-ai-800 group-data-[state=open]:text-ai-600 dark:text-ai-600 dark:group-data-[state=open]:text-ai-600'
-      }
-    },
-    // endregion ////
+
     // region highlight.Color ////
     {
       orientation: 'vertical',

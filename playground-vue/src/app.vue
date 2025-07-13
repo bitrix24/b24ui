@@ -69,7 +69,7 @@ const itemsForColorMode: DropdownMenuItem[] = [
     }
   },
   {
-    label: 'edge-lark',
+    label: 'edge-light',
     code: 'edgeLight',
     icon: SunIconAir,
     onSelect() {

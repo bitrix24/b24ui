@@ -6,6 +6,7 @@
 @import './007_b24_global.css';
 @import './008_ui_global.css';
 @import './009_b24_tools.css';
+@import './components/popup.css';
 @import './components/scrollbar.css';
 @import './components/navigation-menu.css';
 @import './components/badge-counter.css';
