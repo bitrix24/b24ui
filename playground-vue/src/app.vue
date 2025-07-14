@@ -139,13 +139,77 @@ const makeLoading = async () => {
     }, 2_000)
   })
 }
+
+/**
+ * @todo remove this
+ */
+const demoTop: NavigationMenuItem[] = [
+  {
+    label: 'Sales',
+    type: 'trigger' as NavigationMenuItem['type']
+  },
+  {
+    label: 'Employee',
+    type: 'trigger' as NavigationMenuItem['type'],
+    badge: 3,
+    active: true
+  },
+  {
+    hint: '150%',
+    label: 'Some text',
+    type: 'trigger' as NavigationMenuItem['type'],
+    badge: 21,
+    active: false,
+    children: [
+      {
+        label: 'level 1.1',
+        description: 'Initial contact with potential clients',
+        active: false
+      },
+      {
+        label: 'level 1.2',
+        description: 'Client potential assessment',
+        avatar: {
+          src: '/avatar/employee.png'
+        },
+        active: true
+      },
+      {
+        label: 'level 1.3',
+        description: 'Deal terms discussion',
+        icon: SunIconAir,
+        active: true,
+        children: [
+          {
+            label: 'level 1.3.1',
+            description: 'Initial contact with potential clients',
+            active: false
+          },
+          {
+            label: 'level 1.3.2',
+            description: 'Client potential assessment',
+            avatar: {
+              src: '/avatar/employee.png'
+            },
+            active: true
+          },
+          {
+            label: 'level 1.3.3',
+            description: 'Deal terms discussion',
+            icon: SunIconAir,
+            active: true
+          }
+        ]
+      }
+    ]
+  }
+]
 </script>
 
 <template>
   <B24App :toaster="(appConfig.toaster as any)">
     <B24SidebarLayout
       :use-light-content="route.path !== '/'"
-      dd_:b24ui="{ header: 'lg:hidden' }"
     >
       <template #sidebar>
         <B24SidebarHeader>
@@ -195,9 +259,8 @@ const makeLoading = async () => {
             <!-- @todo remove this -->
             <B24Button
               label="Upgrade your plan"
-              color="success"
+              color="air-primary-success"
               size="sm"
-              :is-air="false"
               loading-auto
               :icon="RocketIcon"
               @click="makeLoading"
@@ -207,6 +270,13 @@ const makeLoading = async () => {
       </template>
 
       <template #navbar>
+        <B24NavbarSection>
+          <B24NavigationMenu
+            :items="demoTop"
+            variant="pill"
+            orientation="horizontal"
+          />
+        </B24NavbarSection>
         <B24NavbarSpacer />
         <B24NavbarSection class="flex-row items-center justify-start gap-2">
           <B24Chip
@@ -215,8 +285,7 @@ const makeLoading = async () => {
           >
             <B24Button
               label="Reload"
-              color="link"
-              depth="dark"
+              color="air-secondary-accent"
               rounded
               size="xs"
               loading-auto
@@ -227,8 +296,7 @@ const makeLoading = async () => {
             <B24Button
               :icon="dir === 'ltr' ? LeftAlignIcon : RightAlignIcon"
               :aria-label="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`"
-              color="link"
-              depth="dark"
+              color="air-secondary-accent"
               rounded
               size="xs"
               @click="toggleDir"
@@ -243,8 +311,7 @@ const makeLoading = async () => {
                 class="w-[100px]"
                 :icon="colorModeIcon"
                 :aria-label="`Switch to next mode`"
-                color="link"
-                depth="dark"
+                color="air-secondary-accent"
                 size="xs"
                 rounded
                 :label="mode"
