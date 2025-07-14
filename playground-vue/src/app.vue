@@ -145,6 +145,7 @@ const makeLoading = async () => {
   <B24App :toaster="(appConfig.toaster as any)">
     <B24SidebarLayout
       :use-light-content="route.path !== '/'"
+      dd_:b24ui="{ header: 'lg:hidden' }"
     >
       <template #sidebar>
         <B24SidebarHeader>
@@ -195,9 +196,8 @@ const makeLoading = async () => {
             <B24Button
               label="Upgrade your plan"
               color="success"
-              depth="dark"
-              normal-case
               size="sm"
+              :is-air="false"
               loading-auto
               :icon="RocketIcon"
               @click="makeLoading"
@@ -218,7 +218,6 @@ const makeLoading = async () => {
               color="link"
               depth="dark"
               rounded
-              normal-case
               size="xs"
               loading-auto
               @click="makeLoading"
@@ -231,7 +230,6 @@ const makeLoading = async () => {
               color="link"
               depth="dark"
               rounded
-              normal-case
               size="xs"
               @click="toggleDir"
             />
@@ -249,7 +247,6 @@ const makeLoading = async () => {
                 depth="dark"
                 size="xs"
                 rounded
-                normal-case
                 :label="mode"
               />
             </B24Tooltip>

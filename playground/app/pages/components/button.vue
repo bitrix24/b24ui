@@ -58,11 +58,11 @@ function onClick() {
 
       <ExampleCardSubTitle title="case" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Button normal-case loading-auto use-clock @click="onClick">
+        <B24Button :normal-case="false" loading-auto use-clock @click="onClick">
           Button
         </B24Button>
 
-        <B24Button class="font-thin" loading-auto use-clock @click="onClick">
+        <B24Button :normal-case="false" class="font-thin" loading-auto use-clock @click="onClick">
           Button
         </B24Button>
       </div>

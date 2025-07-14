@@ -59,7 +59,7 @@ export default {
       'lg:px-(--content-area-shift) min-h-(--topbar-height)',
       'flex items-center',
       // 'lg:hidden', fix
-      'bg-(--ui-color-bg-content-primary)',
+      'bg-(--ui-color-bg-content-primary)', // 'bg-(--ui-color-base-black-fixed)/5', // ',
       'dark:bg-[#2d2d2d]',
       'edge-light:bg-(--ui-color-base-black-fixed)/5',
       'edge-light:backdrop-blur-(--ui-bg-blur-less)',

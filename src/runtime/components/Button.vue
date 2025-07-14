@@ -39,8 +39,13 @@ export interface ButtonProps extends Omit<UseComponentIconsProps, 'trailing' | '
    */
   loadingAuto?: boolean
   /**
+   * use Air theme
+   * @defaultValue true
+   */
+  isAir?: boolean
+  /**
    * Disable uppercase label
-   * @defaultValue false
+   * @defaultValue true
    */
   normalCase?: boolean
   /**
@@ -103,7 +108,9 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   type: 'button',
   active: undefined,
   activeClass: '',
-  inactiveClass: ''
+  inactiveClass: '',
+  normalCase: true,
+  isAir: true
 })
 
 const slots = defineSlots<ButtonSlots>()
@@ -179,7 +186,8 @@ const b24ui = computed(() => tv({
   useWait: Boolean(props.useWait),
   useClock: Boolean(props.useClock),
   leading: Boolean(isLeading.value),
-  buttonGroup: orientation.value
+  buttonGroup: orientation.value,
+  isAir: Boolean(props.isAir)
 }))
 </script>
 
