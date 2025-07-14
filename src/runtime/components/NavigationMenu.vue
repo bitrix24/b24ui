@@ -8,9 +8,15 @@ import type { ArrayOrNested, DynamicSlots, MergeTypes, NestedItem, EmitsToProps,
 
 type NavigationMenu = ComponentConfig<typeof theme, AppConfig, 'navigationMenu'>
 
-export interface NavigationMenuChildItem extends Omit<NavigationMenuItem, 'type' | 'b24ui'> {
-  /** Description is only used when `orientation` is `horizontal`. */
-  description?: string
+/**
+ * @memo not use
+ * - description
+ * - type
+ * - b24ui
+ * - avatar
+ * - children - only 1 level
+ */
+export interface NavigationMenuChildItem extends Omit<NavigationMenuItem, 'type' | 'b24ui' | 'avatar' | 'children'> {
   [key: string]: any
 }
 
@@ -26,6 +32,10 @@ export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
    * `{ size: 'sm', color: 'danger', depth: 'dark' }`{lang="ts"}
    */
   badge?: string | number | BadgeProps
+  /**
+   * Display a hint on the item.
+   */
+  hint?: string
   /**
    * Display a tooltip on the item when the menu is collapsed with the label of the item.
    * This has priority over the global `tooltip` prop.
@@ -62,7 +72,7 @@ export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
   open?: boolean
   onSelect?(e: Event): void
   class?: any
-  b24ui?: Pick<NavigationMenu['slots'], 'item' | 'linkLeadingAvatarSize' | 'linkLeadingAvatar' | 'linkLeadingIcon' | 'linkLabel' | 'linkLabelExternalIcon' | 'linkTrailing' | 'linkLeadingHint' | 'linkLeadingBadgeSize' | 'linkLeadingBadge' | 'linkTrailingIcon' | 'label' | 'link' | 'content' | 'childList' | 'childLabel' | 'childItem' | 'childLink' | 'childLinkIcon' | 'childLinkWrapper' | 'childLinkLabel' | 'childLinkLabelExternalIcon' | 'childLinkDescription'>
+  b24ui?: Pick<NavigationMenu['slots'], 'item' | 'linkLeadingAvatarSize' | 'linkLeadingAvatar' | 'linkLeadingIcon' | 'linkLabel' | 'linkLabelExternalIcon' | 'linkTrailing' | 'linkLeadingHint' | 'linkLeadingBadgeSize' | 'linkLeadingBadge' | 'linkTrailingIcon' | 'label' | 'link' | 'content' | 'childList' | 'childLabel' | 'childItem' | 'childLink' | 'childLinkIcon' | 'childLinkHint' | 'childLinkBadgeSize' | 'childLinkBadge' | 'childLinkWrapper' | 'childLinkLabel' | 'childLinkLabelExternalIcon'>
   [key: string]: any
 }
 
@@ -404,16 +414,21 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
                             v-if="childItem.icon"
                             :class="b24ui.childLinkIcon({ class: [props.b24ui?.childLinkIcon, item.b24ui?.childLinkIcon], active: childActive })"
                           />
+                          <div
+                            v-if="childItem.hint"
+                            :class="b24ui.childLinkHint({ class: [props.b24ui?.childLinkHint, item.b24ui?.childLinkHint] })"
+                          >
+                            {{ childItem.hint }}
+                          </div>
 
                           <span :class="b24ui.childLinkLabel({ class: [props.b24ui?.childLinkLabel, item.b24ui?.childLinkLabel], active: childActive })">
                             {{ getLabel(childItem) }}
-
-                            <Component
-                              :is="typeof externalIcon === 'string' ? externalIcon : icons.external"
-                              v-if="childItem.target === '_blank' && externalIcon !== false"
-                              :class="b24ui.childLinkLabelExternalIcon({ class: [props.b24ui?.childLinkLabelExternalIcon, item.b24ui?.childLinkLabelExternalIcon], active: childActive })"
-                            />
                           </span>
+                          <Component
+                            :is="typeof externalIcon === 'boolean' ? icons.external : externalIcon"
+                            v-if="childItem.target === '_blank' && externalIcon !== false"
+                            :class="b24ui.childLinkLabelExternalIcon({ class: [props.b24ui?.childLinkLabelExternalIcon, item.b24ui?.childLinkLabelExternalIcon], active: childActive })"
+                          />
                         </B24LinkBase>
                       </NavigationMenuLink>
                     </B24Link>
@@ -482,20 +497,31 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
                         :class="b24ui.childLinkIcon({ class: [props.b24ui?.childLinkIcon, item.b24ui?.childLinkIcon], active: childActive })"
                       />
 
+                      <div
+                        v-if="childItem.hint"
+                        :class="b24ui.childLinkHint({ class: [props.b24ui?.childLinkHint, item.b24ui?.childLinkHint] })"
+                      >
+                        {{ childItem.hint }}
+                      </div>
                       <div :class="b24ui.childLinkWrapper({ class: [props.b24ui?.childLinkWrapper, item.b24ui?.childLinkWrapper] })">
                         <p :class="b24ui.childLinkLabel({ class: [props.b24ui?.childLinkLabel, item.b24ui?.childLinkLabel], active: childActive })">
                           {{ getLabel(childItem) }}
-
-                          <Component
-                            :is="typeof externalIcon === 'string' ? externalIcon : icons.external"
-                            v-if="childItem.target === '_blank' && externalIcon !== false"
-                            :class="b24ui.childLinkLabelExternalIcon({ class: [props.b24ui?.childLinkLabelExternalIcon, item.b24ui?.childLinkLabelExternalIcon], active: childActive })"
-                          />
                         </p>
-                        <p v-if="childItem.description" :class="b24ui.childLinkDescription({ class: [props.b24ui?.childLinkDescription, item.b24ui?.childLinkDescription], active: childActive })">
-                          {{ childItem.description }}
-                        </p>
+                        <B24Badge
+                          v-if="childItem.badge"
+                          color="danger"
+                          depth="dark"
+                          :use-fill="true"
+                          :size="((item.b24ui?.childLinkBadgeSize || props.b24ui?.childLinkBadgeSize || b24ui.childLinkBadgeSize()) as BadgeProps['size'])"
+                          v-bind="(typeof childItem.badge === 'string' || typeof childItem.badge === 'number') ? { label: childItem.badge } : childItem.badge"
+                          :class="b24ui.childLinkBadge({ class: [props.b24ui?.childLinkBadge, item.b24ui?.childLinkBadge] })"
+                        />
                       </div>
+                      <Component
+                        :is="typeof externalIcon === 'boolean' ? icons.external : externalIcon"
+                        v-if="childItem.target === '_blank' && externalIcon !== false"
+                        :class="b24ui.childLinkLabelExternalIcon({ class: [props.b24ui?.childLinkLabelExternalIcon, item.b24ui?.childLinkLabelExternalIcon], active: childActive })"
+                      />
                     </B24LinkBase>
                   </NavigationMenuLink>
                 </B24Link>

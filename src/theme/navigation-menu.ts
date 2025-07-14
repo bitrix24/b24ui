@@ -71,26 +71,6 @@ export default {
     linkLeadingIcon: 'shrink-0 size-[26px]',
     linkLeadingAvatar: 'shrink-0 -ms-1 rtl:-ms-0 rtl:-me-1',
     linkLeadingAvatarSize: '2xs',
-    /*
-    .main-buttons.--air .main-buttons-item-super-title {
-    top: 30px;
-}
-.main-buttons-item-super-title.tasks-counter-wrapper {
-    font-size: var(--ui-font-size-4xs);
-}
-.main-buttons-item-super-title {
-    position: absolute;
-    top: 50%;
-    margin-top: calc(var(--mib-item-font-size) * -1.35);
-    font-family: var(--mib-item-super-title-font-family);
-    font-size: var(--mib-item-super-title-font-size);
-    line-height: var(--mib-item-super-title-font-size);
-    font-weight: var(--mib-item-super-title-font-weight);
-    color: var(--mib-item-super-title-color);
-    text-transform: uppercase;
-    margin-left: 1px;
-}
-     */
     linkLeadingHint: [
       'inline-flex m-0 absolute -top-[5px] left-[8px]',
       'text-(length:--ui-font-size-4xs)',
@@ -118,25 +98,36 @@ export default {
     linkLabelExternalIcon: 'inline-block h-6 w-3 align-top text-base-500 dark:text-base-700',
     childList: 'isolate',
     childLabel: [
-      'text-xs text-highlighted',
-      'text-base-500 dark:text-base-400'
+      'text-xs text-highlighted'
+      // 'text-base-500 dark:text-base-400' // fix
     ].join(' '),
-    childItem: '',
+    childItem: 'h-[36px]',
     childLink: [
       'group relative',
       'size-full',
       // 'rounded-2xs',
-      'flex items-start',
-      'text-start',
-      'text-sm'
+      // 'flex items-start text-start text-sm', // fix
+      'flex flex-row rtl:flex-row-reverse items-center gap-[2px] transition-colors',
+      'text-start'
       // 'before:absolute before:z-[-1] before:rounded-2xs', // fix
       // 'focus:outline-none focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2' fix
     ].join(' '),
-    childLinkWrapper: 'min-w-0',
-    childLinkIcon: 'size-5 shrink-0',
+    childLinkWrapper: 'min-w-0 flex-1 flex flex-row items-center justify-start gap-0.5',
+    childLinkIcon: 'size-[18px] shrink-0',
+    childLinkHint: [
+      'inline-flex m-0 absolute -top-[2px] left-[24px]',
+      'text-(length:--ui-font-size-4xs)',
+      'leading-[8px]',
+      'font-semibold',
+      'text-(--ui-color-design-plain-na-content)',
+      'uppercase',
+      'ml-px'
+    ].join(' '),
+    childLinkBadge: 'inline-flex m-0',
+    childLinkBadgeSize: 'sm',
     childLinkLabel: 'truncate',
     childLinkLabelExternalIcon: 'inline-block h-6 w-3 align-top text-base-500 dark:text-base-700',
-    childLinkDescription: 'text-base-500 dark:text-base-700',
+    // childLinkDescription: 'text-base-500 dark:text-base-700', // fix -> remove
     separator: 'px-2 h-px bg-base-950/10 dark:bg-base-100/20',
     // viewportWrapper: 'absolute top-full left-0 flex w-full', // fix
     viewportWrapper: 'absolute top-[53px] left-0 flex w-full',
@@ -178,7 +169,8 @@ export default {
       default: {
         // link: 'focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800', // fix
         link: '',
-        childLink: 'focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800'
+        // childLink: 'focus-visible:before:ring-base-300 dark:focus-visible:before:ring-base-800' // fix
+        childLink: ''
       }
       // @todo uncoment
       /*
@@ -251,8 +243,18 @@ export default {
         linkLeadingBadge: '-top-[6px] -right-[14px] -translate-x-1/2',
         linkLabelWrapper: 'gap-[4px]',
         childList: 'grid px-0 py-(--menu-popup-padding)',
-        childLink: 'px-3 py-2 gap-2 before:inset-x-px before:inset-y-0',
-        childLinkLabel: 'font-medium',
+        // childLink: 'px-3 py-2 gap-2 before:inset-x-px before:inset-y-0', // fix
+        childLink: [
+          'px-[25px]', // @memo 10 + 15
+          'min-w-[195px]',
+          'whitespace-nowrap',
+          'font-(family-name:--ui-font-family-primary)',
+          'text-(length:--menu-popup-item-font-size)',
+          'text-(--menu-popup-item-color) hover:text-(--menu-popup-item-color-hover)',
+          'hover:bg-(--menu-popup-item-bg-color-hover)'
+        ].join(' '),
+        // childLinkLabel: 'font-medium', // fix
+        childLinkLabel: '',
         content: 'absolute top-0 left-0 w-full max-h-[70vh] overflow-y-auto'
       },
       vertical: {
@@ -270,7 +272,8 @@ export default {
         linkLeadingBadge: 'top-[3px] left-[27px] -translate-x-1/2',
         linkLabelWrapper: 'gap-[9px]',
         childLabel: 'px-1.5 py-0.5',
-        childLink: 'p-1.5 gap-1.5 before:inset-y-px before:inset-x-0'
+        // childLink: 'p-1.5 gap-1.5 before:inset-y-px before:inset-x-0' // fix
+        childLink: 'p-1.5 gap-1.5'
       }
     },
     contentOrientation: {
@@ -289,11 +292,11 @@ export default {
         ].join(' '),
         // content: '',
         childLinkLabel: [
-          'text-md',
-          'text-base-950 dark:text-base-50'
+          // 'text-md', // fix
+          // 'text-base-950 dark:text-base-50' // fix
         ].join(' '),
         childLinkLabelExternalIcon: [
-          'h-4'
+          'size-4'
         ].join(' ')
       }
     },
@@ -302,25 +305,28 @@ export default {
         childLink: [
           // 'before:bg-base-20 dark:before:bg-base-900',  // fix
           // 'text-base-950 dark:text-base-50',  // fix
+          'text-(--ui-color-accent-main-primary) hover:text-(--ui-color-accent-main-primary)' // [#0075ff]
           // 'font-semibold'  // fix
         ].join(' '),
         // childLinkIcon: 'text-base-950 dark:text-base-200' // fix
-        childLinkIcon: 'text-(--ui-color-design-selection-content-icon)'
+        childLinkIcon: 'text-(--ui-color-accent-main-primary)'
       },
       false: {
         // link: 'text-base-900 dark:text-base-200', // fix
         // linkLeadingIcon: 'text-base-500 dark:text-base-700', // fix
         linkLeadingIcon: 'text-(--ui-color-design-plain-content-icon-secondary)',
         childLink: [
-          'hover:before:bg-base-20 dark:hover:before:bg-base-900',
-          'text-base-500 dark:text-base-700',
-          'hover:text-base-950 dark:hover:text-base-200',
-          'transition-colors before:transition-colors'
+          // 'hover:before:bg-base-20 dark:hover:before:bg-base-900', // fix
+          // 'text-base-500', // fix
+          // 'hover:text-base-950 dark:hover:text-base-200', // fix
+          // 'hover:text-base-950', // fover
+          // 'transition-colors before:transition-colors' // fix
+          ''
         ].join(' '),
         childLinkIcon: [
           'text-base-500 dark:text-base-700',
           // 'group-hover:text-base-950 dark:group-hover:text-base-50', // fix
-          'group-hover:text-(--ui-color-design-selection-content-icon)'
+          'group-hover:text-(--ui-color-accent-main-primary)'
           // 'transition-colors' // fix
         ].join(' ')
       }
@@ -353,7 +359,8 @@ export default {
       orientation: 'horizontal',
       contentOrientation: 'vertical',
       class: {
-        childList: 'gap-1',
+        // childList: 'gap-1', // fix
+        childList: '',
         content: 'w-60'
       }
     },
