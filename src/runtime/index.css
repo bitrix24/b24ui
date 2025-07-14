@@ -2,3 +2,11 @@
 @import '#build/b24ui.css';
 @import './keyframes.css';
 @import './air-design-tokens/index.css';
+
+@layer base {
+  .--app {
+    height: 100dvh;
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+  }
+}

@@ -10,6 +10,7 @@
 export default {
   slots: {
     root: [
+      '--app',
       'text-(--ui-color-design-plain-na-content)',
       // 'dark:text-(--ui-color-base-1)', // fix
       'bg-(--ui-color-gray-05) edge-light:bg-transparent', // edge-light:bg-(--ui-color-gray-05)
@@ -55,7 +56,7 @@ export default {
       'lg:pl-[calc(240px)]'
     ].join(' '),
     header: [
-      'lg:px-(--content-area-shift) h-(--topbar-height)',
+      'lg:px-(--content-area-shift) min-h-(--topbar-height)',
       'flex items-center',
       // 'lg:hidden', fix
       'bg-(--ui-color-bg-content-primary)',

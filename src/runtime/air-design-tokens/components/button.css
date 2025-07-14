@@ -4,6 +4,9 @@
  */
 
 @theme inline {
-  --button-link-light-background-hover: color-mix(in srgb,transparent 100%,var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
-  --button-link-light-background-active: color-mix(in srgb,transparent 100%,var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  --button-link-light-bg-hover: color-mix(in srgb,transparent 100%,var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+  --button-link-light-bg-active: color-mix(in srgb,transparent 100%,var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+
+  --button-link-dark-bg-hover: color-mix(in srgb, transparent 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+  --button-link-dark-bg-active: color-mix(in srgb, transparent 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
 }

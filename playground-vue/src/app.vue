@@ -208,19 +208,30 @@ const makeLoading = async () => {
 
       <template #navbar>
         <B24NavbarSpacer />
-        <B24NavbarSection class="flex-row items-center justify-start gap-0.5">
-          <B24Button
-            label="reLoad"
-            size="sm"
-            loading-auto
-            @click="makeLoading"
-          />
-          <B24Tooltip :content="{ side: 'left' }" :text="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', 'L']">
+        <B24NavbarSection class="flex-row items-center justify-start gap-2">
+          <B24Chip
+            color="danger"
+            text="9"
+          >
+            <B24Button
+              label="Reload"
+              color="link"
+              depth="dark"
+              rounded
+              normal-case
+              size="xs"
+              loading-auto
+              @click="makeLoading"
+            />
+          </B24Chip>
+          <B24Tooltip :content="{ side: 'bottom' }" :text="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', 'L']">
             <B24Button
               :icon="dir === 'ltr' ? LeftAlignIcon : RightAlignIcon"
               :aria-label="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`"
               color="link"
-              depth="light"
+              depth="dark"
+              rounded
+              normal-case
               size="xs"
               @click="toggleDir"
             />
@@ -229,14 +240,15 @@ const makeLoading = async () => {
             use-dropdown
             :items="itemsForColorMode"
           >
-            <B24Tooltip :content="{ side: 'left' }" :text="`Switch to next mode`" :kbds="['shift', 'D']">
+            <B24Tooltip :content="{ side: 'bottom' }" :text="`Switch to next mode`" :kbds="['shift', 'D']">
               <B24Button
                 class="w-[100px]"
                 :icon="colorModeIcon"
                 :aria-label="`Switch to next mode`"
                 color="link"
-                depth="light"
+                depth="dark"
                 size="xs"
+                rounded
                 normal-case
                 :label="mode"
               />

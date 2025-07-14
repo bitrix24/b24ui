@@ -102,19 +102,24 @@ export default {
         'focus-visible:outline-ai-450',
         'ring-ai-900 focus:outline-none focus-visible:ring-ai-900'
       ].join(' '),
-      link: [
-        'no-underline decoration-solid decoration-auto',
-        // 'text-base-900 decoration-base-900 bg-transparent border border-transparent dark:text-base-300', // fix
-        'text-(--ui-color-design-plain-content-icon-secondary) decoration-base-900 bg-transparent border border-transparent',
-        // 'hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0', // fix
-        'hover:text-(--ui-color-design-selection-content-icon) hover:focus-visible:ring-0',
-        // 'active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0', // fix
-        'active:text-(--ui-color-design-plain-content-icon-secondary) active:focus-visible:ring-0',
-        // 'disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300', // fix
-        'disabled:text-(--ui-color-design-plain-content-icon-secondary) aria-disabled:text-(--ui-color-design-plain-content-icon-secondary)',
-        'focus-visible:outline-base-400',
-        'ring-base-850 focus:outline-none focus-visible:ring-base-850'
-      ].join(' ')
+      link: {
+        base: [
+          'no-underline decoration-solid decoration-auto',
+          // 'text-base-900 decoration-base-900 bg-transparent border border-transparent dark:text-base-300', // fix
+          'text-(--ui-color-design-plain-content-icon-secondary) decoration-base-900 bg-transparent border border-transparent',
+          // 'hover:text-base-750 dark:hover:text-base-400 hover:focus-visible:ring-0', // fix
+          'hover:text-(--ui-color-design-selection-content-icon) hover:focus-visible:ring-0',
+          // 'active:text-base-900 dark:active:text-base-700 active:focus-visible:ring-0', // fix
+          'active:text-(--ui-color-design-plain-content-icon-secondary) active:focus-visible:ring-0',
+          // 'disabled:text-base-900 aria-disabled:text-base-900 dark:disabled:text-base-300 dark:aria-disabled:disabled:text-base-300', // fix
+          'disabled:text-(--ui-color-design-plain-content-icon-secondary) aria-disabled:text-(--ui-color-design-plain-content-icon-secondary)',
+          'focus-visible:outline-base-400',
+          'ring-base-850 focus:outline-none focus-visible:ring-base-850'
+        ].join(' '),
+        leadingIcon: [
+          ''
+        ].join(' ')
+      }
     },
     depth: {
       light: '',
@@ -123,7 +128,8 @@ export default {
     },
     size: {
       xs: {
-        base: 'h-xl2 ps-4 pe-4 text-3xs leading-none', // 26px
+        // fixbase: 'h-xl2 ps-4 pe-4 text-3xs leading-none', // 26px
+        base: 'h-xl2 ps-[9px] pe-[9px] text-3xs leading-none', // 26px
         baseLine: 'gap-1',
         leadingIcon: 'size-5',
         leadingAvatarSize: '2xs',
@@ -420,9 +426,9 @@ export default {
       class: [
         // 'text-base-900 dark:text-base-300 bg-transparent border border-transparent', // fix
         // 'hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0', // fix
-        'hover:bg-(--button-link-light-background-hover) hover:focus-visible:ring-0',
+        'hover:bg-(--button-link-light-bg-hover) hover:focus-visible:ring-0',
         // 'active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0', // fix
-        'active:bg-(--button-link-light-background-active) active:focus-visible:ring-0',
+        'active:bg-(--button-link-light-bg-active) active:focus-visible:ring-0',
         // 'disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850', // fix
         // 'focus-visible:outline-base-30 dark:focus-visible:outline-base-850' // fix
         ''
@@ -448,13 +454,17 @@ export default {
       class: [
         '',
         'border',
-        'text-base-900 bg-transparent border-base-330 dark:text-base-300 dark:border-base-800',
-        'hover:text-base-900 dark:hover:text-base-900 hover:bg-base-320 hover:border-base-330 hover:focus-visible:ring-0',
-        'active:text-base-900 dark:active:text-base-900 active:bg-base-250 active:border-base-550 active:focus-visible:ring-0',
-        'disabled:bg-transparent disabled:border-base-330 aria-disabled:bg-transparent aria-disabled:border-base-330',
-        'dark:disabled:text-base-900 dark:aria-disabled:text-base-900',
-        'dark:disabled:border-base-900 dark:aria-disabled:border-base-900',
-        'focus-visible:outline-base-330'
+        // 'text-base-900 bg-transparent border-base-330 dark:text-base-300 dark:border-base-800', // fix
+        'text-(--ui-color-design-outline-content) bg-transparent border-(--ui-color-design-outline-stroke)',
+        // 'hover:text-base-900 dark:hover:text-base-900 hover:bg-base-320 hover:border-base-330 hover:focus-visible:ring-0', // fix
+        'hover:bg-(--button-link-light-bg-hover) hover:focus-visible:ring-0',
+        // 'active:text-base-900 dark:active:text-base-900 active:bg-base-250 active:border-base-550 active:focus-visible:ring-0', // fix
+        'active:bg-(--button-link-light-bg-active) active:focus-visible:ring-0',
+        // 'disabled:bg-transparent disabled:border-base-330 aria-disabled:bg-transparent aria-disabled:border-base-330', // fix
+        // 'dark:disabled:text-base-900 dark:aria-disabled:text-base-900', // fix
+        // 'dark:disabled:border-base-900 dark:aria-disabled:border-base-900', // fix
+        // 'focus-visible:outline-base-330' // fix
+        ''
       ].join(' ')
     },
     // endregion ////
