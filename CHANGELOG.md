@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.7.2](https://github.com/bitrix24/b24ui/compare/v0.7.1...v0.7.2) (2025-07-14)
+
+### Bug Fixes
+
+* **Prose/Em:** improve types
+
 ## [0.7.1](https://github.com/bitrix24/b24ui/compare/v0.7.0...v0.7.1) (2025-07-13)
 
 ### Bug Fixes
