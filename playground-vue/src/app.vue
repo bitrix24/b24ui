@@ -191,7 +191,7 @@ const makeLoading = async () => {
               </B24Link>
             </template>
 
-<!-- @todo remove this -->
+            <!-- @todo remove this -->
             <B24Button
               label="Upgrade your plan"
               color="success"

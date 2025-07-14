@@ -222,7 +222,7 @@ export default {
         ].join(' '),
         // 11
         viewport: [
-          'rounded-(--popup-window-border-radius) will-change-[opacity]',
+          'rounded-(--popup-window-border-radius) will-change-[opacity]'
           // 'border border-(--popup-window-border)' // @memo see components/popup.css
         ].join(' ')
       },
