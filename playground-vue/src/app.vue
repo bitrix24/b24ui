@@ -11,7 +11,7 @@ import MoonIcon from '@bitrix24/b24icons-vue/main/MoonIcon'
 import MoonIconAir from '@bitrix24/b24icons-vue/outline/MoonIcon'
 import OpenIn50Icon from '@bitrix24/b24icons-vue/actions/OpenIn50Icon'
 import RocketIcon from '@bitrix24/b24icons-vue/outline/RocketIcon'
-import type { DropdownMenuItem } from '@bitrix24/b24ui-nuxt'
+import type { DropdownMenuItem, NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
 
 const appConfig = useAppConfig()
 const mode = useColorMode<'light' | 'dark' | 'edgeLight' | 'edgeDark'>({
@@ -139,6 +139,52 @@ const makeLoading = async () => {
     }, 2_000)
   })
 }
+
+/**
+ * @todo remove this
+ */
+const demoTop: NavigationMenuItem[] = [
+  {
+    label: 'Sales',
+    type: 'trigger' as NavigationMenuItem['type']
+  },
+  {
+    label: 'Employee',
+    type: 'trigger' as NavigationMenuItem['type'],
+    badge: 3,
+    active: true
+  },
+  {
+    hint: '150%',
+    label: 'Some text',
+    type: 'trigger' as NavigationMenuItem['type'],
+    badge: 21,
+    active: false,
+    children: [
+      {
+        label: 'level 1.1',
+        description: 'Initial contact with potential clients',
+        active: false,
+        to: 'https:google.com',
+        target: '_blank'
+      },
+      {
+        label: 'level 1.2',
+        description: 'Client potential assessment',
+        avatar: {
+          src: '/avatar/employee.png'
+        },
+        active: true
+      },
+      {
+        label: 'level 1.3',
+        description: 'Deal terms discussion',
+        icon: SunIconAir,
+        active: false
+      }
+    ]
+  }
+]
 </script>
 
 <template>
@@ -206,6 +252,13 @@ const makeLoading = async () => {
       </template>
 
       <template #navbar>
+        <B24NavbarSection>
+          <B24NavigationMenu
+            :items="demoTop"
+            variant="pill"
+            orientation="horizontal"
+          />
+        </B24NavbarSection>
         <B24NavbarSpacer />
         <B24NavbarSection class="flex-row items-center justify-start gap-2">
           <B24Button

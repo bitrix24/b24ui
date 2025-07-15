@@ -70,7 +70,7 @@ const items = [
   <ExampleGrid v-once>
     <ExampleCard title="settings">
       <B24Separator class="my-3" type="dotted" />
-      <div class="space-y-4">
+      <div class="flex flex-col gap-4">
         <B24RadioGroup v-model="variant" legend="Variant" :items="variants" />
         <B24RadioGroup v-model="orientation" legend="Orientation" :items="orientations" />
         <B24FormField label="Color" name="color">
@@ -83,7 +83,7 @@ const items = [
     </ExampleCard>
     <ExampleCard title="no content">
       <B24Separator class="my-3" type="dotted" />
-      <div class="space-y-4">
+      <div class="flex flex-col gap-4">
         <B24Tabs
           :color="color"
           :variant="variant"

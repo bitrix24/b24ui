@@ -35,7 +35,7 @@ const itemsWithDescription = [
   <ExampleGrid v-once>
     <ExampleCard title="settings">
       <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4 space-y-4">
+      <div class="mb-4 flex flex-col gap-4">
         <B24Select
           v-model="variant"
           :items="variants"

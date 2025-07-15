@@ -71,14 +71,14 @@ onMounted(() => {
 
     <ExampleCard title="disabled">
       <B24Separator class="my-3" type="dotted" />
-      <div class="space-y-4 min-h-[250px]">
+      <div class="flex flex-col gap-4 min-h-[250px]">
         <B24Accordion :items="items" disabled />
       </div>
     </ExampleCard>
 
     <ExampleCard title="control open state">
       <B24Separator class="my-3" type="dotted" />
-      <div class="space-y-4 min-h-[250px]">
+      <div class="flex flex-col gap-4 min-h-[250px]">
         <B24Accordion v-model="active" :items="items" />
       </div>
     </ExampleCard>

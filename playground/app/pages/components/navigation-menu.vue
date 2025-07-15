@@ -16,18 +16,9 @@ import Filter1Icon from '@bitrix24/b24icons-vue/main/Filter1Icon'
 
 usePageMeta.setPageTitle('NavigationMenu')
 
-const colors = Object.keys(theme.variants.color)
-const variants = Object.keys(theme.variants.variant)
-const orientations = Object.keys(theme.variants.orientation)
-
-const color = ref(theme.defaultVariants.color)
-const variant = ref(theme.defaultVariants.variant)
-const contentOrientation = ref('vertical' as const)
 const isCollapsed = ref(false)
-const isHighlight = ref(true)
 const isTooltip = ref(false)
 const isPopover = ref(false)
-const isArrow = ref(false)
 
 const items = [
   [
@@ -153,26 +144,15 @@ onMounted(() => {
   <ExampleGrid v-once class="mb-2">
     <ExampleCard title="settings">
       <B24Separator class="my-5" type="dotted" />
-      <div class="space-y-4">
-        <B24RadioGroup v-model="variant" legend="Variant" :items="variants" />
-        <B24RadioGroup v-model="contentOrientation" legend="contentOrientation" :items="orientations" />
-        <B24FormField label="Color" name="color">
-          <B24Select v-model="color" :items="colors" class="w-full max-w-[300px]" />
-        </B24FormField>
+      <div class="flex flex-col gap-4">
         <B24FormField label="isCollapsed" name="isCollapsed">
           <B24Switch v-model="isCollapsed" />
-        </B24FormField>
-        <B24FormField label="isHighlight" name="isHighlight">
-          <B24Switch v-model="isHighlight" />
         </B24FormField>
         <B24FormField label="isTooltip" name="isTooltip">
           <B24Switch v-model="isTooltip" />
         </B24FormField>
         <B24FormField label="isPopover" name="isPopover">
           <B24Switch v-model="isPopover" />
-        </B24FormField>
-        <B24FormField label="isArrow" name="isArrow">
-          <B24Switch v-model="isArrow" />
         </B24FormField>
       </div>
     </ExampleCard>
@@ -186,13 +166,7 @@ onMounted(() => {
           <div class="relative z-[1] border-base-master/10 dark:border-base-100/20 border-y">
             <B24NavigationMenu
               :items="items"
-              :color="color"
-              :variant="variant"
               orientation="horizontal"
-              :content-orientation="contentOrientation"
-              :highlight="isHighlight"
-              :highlight-color="color"
-              :arrow="isArrow"
               :tooltip="isTooltip"
               :popover="isPopover"
             />
@@ -210,12 +184,7 @@ onMounted(() => {
         <B24NavigationMenu
           :collapsed="isCollapsed"
           :items="items"
-          :color="color"
-          :variant="variant"
           orientation="vertical"
-          :highlight="isHighlight"
-          :highlight-color="color"
-          :arrow="isArrow"
           :tooltip="isTooltip"
           :popover="isPopover"
           class="border-base-master/10 dark:border-base-100/20 border py-2 rounded w-[240px] data-[collapsed=true]:w-[69px]"

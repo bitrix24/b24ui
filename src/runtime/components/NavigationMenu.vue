@@ -76,6 +76,14 @@ export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
   [key: string]: any
 }
 
+/**
+ * @memo remove contentOrientation
+ * @memo remove highlight
+ * @memo remove highlightColor
+ * @memo remove arrow
+ * @memo remove color
+ * @memo remove variant (link) -> use variant.pill
+ */
 export interface NavigationMenuProps<T extends ArrayOrNested<NavigationMenuItem> = ArrayOrNested<NavigationMenuItem>> extends Pick<NavigationMenuRootProps, 'modelValue' | 'defaultValue' | 'delayDuration' | 'disableClickTrigger' | 'disableHoverTrigger' | 'skipDelayDuration' | 'disablePointerLeaveClose' | 'unmountOnHide'>, Pick<AccordionRootProps, 'disabled' | 'type' | 'collapsible'> {
   /**
    * The element or component this component should render as.
@@ -96,14 +104,6 @@ export interface NavigationMenuProps<T extends ArrayOrNested<NavigationMenuItem>
    */
   externalIcon?: boolean | IconComponent
   items?: T
-  /**
-   * @defaultValue 'primary'
-   */
-  color?: NavigationMenu['variants']['color']
-  /**
-   * @defaultValue 'pill'
-   */
-  variant?: NavigationMenu['variants']['variant']
   /**
    * The orientation of the menu.
    * @defaultValue 'horizontal'
@@ -127,27 +127,10 @@ export interface NavigationMenuProps<T extends ArrayOrNested<NavigationMenuItem>
    * @defaultValue false
    */
   popover?: boolean | PopoverProps
-  /** Display a line next to the active item. */
-  highlight?: boolean
-  /**
-   * @defaultValue 'primary'
-   */
-  highlightColor?: NavigationMenu['variants']['highlightColor']
   /**
    * The content of the menu.
    */
   content?: Omit<NavigationMenuContentProps, 'as' | 'asChild' | 'forceMount'> & Partial<EmitsToProps<NavigationMenuContentEmits>>
-  /**
-   * The orientation of the content.
-   * Only works when `orientation` is `horizontal`.
-   * @defaultValue 'vertical'
-   */
-  contentOrientation?: NavigationMenu['variants']['contentOrientation']
-  /**
-   * Display an arrow alongside the menu.
-   * @defaultValue false
-   */
-  arrow?: boolean
   /**
    * The key used to get the label from the item.
    * @defaultValue 'label'
@@ -178,7 +161,7 @@ export type NavigationMenuSlots<
 
 <script setup lang="ts" generic="T extends ArrayOrNested<NavigationMenuItem>">
 import { computed, toRef } from 'vue'
-import { NavigationMenuRoot, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink, NavigationMenuIndicator, NavigationMenuViewport, AccordionRoot, AccordionItem, AccordionTrigger, AccordionContent, useForwardPropsEmits } from 'reka-ui'
+import { NavigationMenuRoot, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink, NavigationMenuViewport, AccordionRoot, AccordionItem, AccordionTrigger, AccordionContent, useForwardPropsEmits } from 'reka-ui'
 import { defu } from 'defu'
 import { reactivePick, createReusableTemplate } from '@vueuse/core'
 import { useAppConfig } from '#imports'
@@ -195,7 +178,6 @@ import B24Tooltip from './Tooltip.vue'
 
 const props = withDefaults(defineProps<NavigationMenuProps<T>>(), {
   orientation: 'horizontal',
-  contentOrientation: 'vertical',
   externalIcon: true,
   delayDuration: 0,
   type: 'multiple',
@@ -244,12 +226,7 @@ const getLabel = (item: NavigationMenuItem) => {
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.navigationMenu || {}) })({
   orientation: props.orientation,
-  contentOrientation: props.orientation === 'vertical' ? undefined : props.contentOrientation,
-  collapsed: props.collapsed,
-  color: props.color,
-  variant: props.variant,
-  highlight: props.highlight,
-  highlightColor: props.highlightColor || props.color
+  collapsed: props.collapsed
 }))
 
 const lists = computed<NavigationMenuItem[][]>(() =>
@@ -589,10 +566,6 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
     <slot name="list-trailing" />
 
     <div v-if="orientation === 'horizontal'" :class="b24ui.viewportWrapper({ class: props.b24ui?.viewportWrapper })">
-      <NavigationMenuIndicator v-if="arrow" :class="b24ui.indicator({ class: props.b24ui?.indicator })">
-        <div :class="b24ui.arrow({ class: props.b24ui?.arrow })" />
-      </NavigationMenuIndicator>
-
       <NavigationMenuViewport
         align="start"
         :class="b24ui.viewport({ class: props.b24ui?.viewport })"
