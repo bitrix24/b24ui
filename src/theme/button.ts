@@ -41,11 +41,9 @@ export default {
     baseLoadingClockIcon: 'text-(--ui-btn-color) size-[calc(var(--ui-btn-wait-icon-size)_+_7px)]',
     baseLoadingSpinnerIcon: 'text-(--ui-btn-color) size-(--ui-btn-wait-icon-size) animate-spin stroke-2',
     baseLine: [
-      // fix 'inline-flex items-center' // justify-center
       'w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space)',
       'ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right)'
     ].join(' '),
-    // fix label: 'truncate',
     label: [
       'h-(--ui-btn-height) max-w-full',
       'inline-flex items-center',
@@ -60,7 +58,6 @@ export default {
       'max-w-full',
       'mt-(--ui-btn-title-compensation)'
     ].join(' '),
-    // fix leadingIcon: 'shrink-0',
     leadingIcon: 'shrink-0 size-(--ui-btn-icon-size)',
     leadingAvatar: 'shrink-0 me-[4px]',
     leadingAvatarSize: '',
@@ -104,48 +101,22 @@ export default {
         leadingAvatarSize: '2xs'
       },
       xs: {
-        // fix base: 'h-xl2 ps-4 pe-4 text-3xs leading-none', // 26px
-        // base: 'h-xl2 ps-[9px] pe-[9px] text-3xs leading-none', // 26px
-        // baseLine: 'gap-1',
-        // leadingIcon: 'size-5',
-        // leadingAvatarSize: '2xs',
-        // trailingIcon: 'size-md2'
         base: 'ui-btn-xs',
         leadingAvatarSize: '2xs'
       },
       sm: {
-        // fix base: 'h-3xl ps-[18px] pe-[18px] text-xs leading-none', // 32px
-        // fix baseLine: 'gap-1.5',
-        // fix leadingIcon: 'size-6',
-        // fix leadingAvatarSize: 'xs',
-        // fix trailingIcon: 'size-lg'
         base: 'ui-btn-sm',
         leadingAvatarSize: 'xs'
       },
       md: {
-        // base: 'h-5xl ps-5 pe-5 text-xs leading-none', // 40px
-        // baseLine: 'gap-1.5',
-        // leadingIcon: 'size-xl2',
-        // leadingAvatarSize: 'sm',
-        // trailingIcon: 'size-lg'
         base: 'ui-btn-md',
         leadingAvatarSize: 'xs'
       },
       lg: {
-        // base: 'h-6xl ps-[28px] pe-[28px] text-xs leading-none', // ? 48px
-        // baseLine: 'gap-2',
-        // leadingIcon: 'size-xl2',
-        // leadingAvatarSize: 'md',
-        // trailingIcon: 'size-lg'
         base: 'ui-btn-lg',
         leadingAvatarSize: 'md'
       },
       xl: {
-        // base: 'h-6xl ps-[28px] pe-[28px] text-xs leading-none', // ? 48px
-        // baseLine: 'gap-2',
-        // leadingIcon: 'size-xl2',
-        // leadingAvatarSize: 'md',
-        // trailingIcon: 'size-lg'
         base: 'ui-btn-xl',
         leadingAvatarSize: 'md'
       }
@@ -153,8 +124,6 @@ export default {
     block: {
       true: {
         base: 'w-full'
-        // baseLine: 'w-full justify-center',
-        // trailingIcon: 'ms-auto'
       }
     },
     rounded: {
@@ -166,14 +135,12 @@ export default {
     },
     useLabel: {
       true: '',
-      // fix false: 'ps-1.5 pe-1.5 justify-center'
       false: {
         baseLine: 'ps-[4px] pe-[4px]',
         leadingAvatar: 'me-0'
       }
     },
     useDropdown: {
-      // fix true: 'ps-2 pe-2'
       true: ''
     },
     useWait: {
@@ -186,19 +153,11 @@ export default {
       true: ''
     },
     normalCase: {
-      // fix true: 'font-semibold normal-case',
       true: 'normal-case',
-      // fix false: 'font-bold uppercase'
       false: 'uppercase'
     },
-    // active: {
-    //   true: '',
-    //   false: ''
-    // },
     isAir: {
-      true: [
-        '--air'
-      ].join(' '),
+      true: '--air',
       // old theme
       false: ''
     }
@@ -208,227 +167,159 @@ export default {
     {
       color: 'default',
       depth: 'light',
-      class: [
-        '--style-default-light'
-        // '--style-outline'
-      ].join(' ')
+      class: '--style-default-light'
     },
     {
       color: 'default',
       depth: 'normal',
-      class: [
-        '--style-default'
-      ].join(' ')
+      class: '--style-default'
     },
     {
       color: 'default',
       depth: 'dark',
-      class: [
-        '--style-default-dark'
-      ].join(' ')
+      class: '--style-default-dark'
     },
     // endregion ////
     // region danger ////
     {
       color: 'danger',
       depth: 'light',
-      class: [
-        '--style-danger-light'
-      ].join(' ')
+      class: '--style-danger-light'
     },
     {
       color: 'danger',
       depth: 'normal',
-      class: [
-        '--style-danger'
-      ].join(' ')
+      class: '--style-danger'
     },
     {
       color: 'danger',
       depth: 'dark',
-      class: [
-        '--style-danger-dark'
-      ].join(' ')
+      class: '--style-danger-dark'
     },
     // endregion ////
     // region success ////
     {
       color: 'success',
       depth: 'light',
-      class: [
-        '--style-success-light'
-      ].join(' ')
+      class: '--style-success-light'
     },
     {
       color: 'success',
       depth: 'normal',
-      class: [
-        '--style-success'
-      ].join(' ')
+      class: '--style-success'
     },
     {
       color: 'success',
       depth: 'dark',
-      class: [
-        '--style-success-dark'
-      ].join(' ')
+      class: '--style-success-dark'
     },
     // endregion ////
     // region warning ////
     {
       color: 'warning',
       depth: 'light',
-      class: [
-        '--style-warning-light'
-      ].join(' ')
+      class: '--style-warning-light'
     },
     {
       color: 'warning',
       depth: 'normal',
-      class: [
-        '--style-warning'
-      ].join(' ')
+      class: '--style-warning'
     },
     {
       color: 'warning',
       depth: 'dark',
-      class: [
-        '--style-warning-dark'
-      ].join(' ')
+      class: '--style-warning-dark'
     },
     // endregion ////
     // region primary ////
     {
       color: 'primary',
       depth: 'light',
-      class: [
-        '--style-primary-light'
-      ].join(' ')
+      class: '--style-primary-light'
     },
     {
       color: 'primary',
       depth: 'normal',
-      class: [
-        '--style-primary'
-      ].join(' ')
+      class: '--style-primary'
     },
     {
       color: 'primary',
       depth: 'dark',
-      class: [
-        '--style-primary-dark'
-      ].join(' ')
+      class: '--style-primary-dark'
     },
     // endregion ////
     // region secondary ////
     {
       color: 'secondary',
       depth: 'light',
-      class: [
-        '--style-secondary-light'
-      ].join(' ')
+      class: '--style-secondary-light'
     },
     {
       color: 'secondary',
       depth: 'normal',
-      class: [
-        '--style-secondary'
-      ].join(' ')
+      class: '--style-secondary'
     },
     {
       color: 'secondary',
       depth: 'dark',
-      class: [
-        '--style-secondary-dark'
-      ].join(' ')
+      class: '--style-secondary-dark'
     },
     // endregion ////
     // region collab ////
     {
       color: 'collab',
       depth: 'light',
-      class: [
-        '--style-collab-light'
-      ].join(' ')
+      class: '--style-collab-light'
     },
     {
       color: 'collab',
       depth: 'normal',
-      class: [
-        '--style-collab'
-      ].join(' ')
+      class: '--style-collab'
     },
     {
       color: 'collab',
       depth: 'dark',
-      class: [
-        '--style-collab-dark'
-      ].join(' ')
+      class: '--style-collab-dark'
     },
     // endregion ////
     // region ai ////
     {
       color: 'ai',
       depth: 'light',
-      class: [
-        '--style-ai-light'
-      ].join(' ')
+      class: '--style-ai-light'
     },
     {
       color: 'ai',
       depth: 'normal',
-      class: [
-        '--style-ai'
-      ].join(' ')
+      class: '--style-ai'
     },
     {
       color: 'ai',
       depth: 'dark',
-      class: [
-        '--style-ai-dark'
-      ].join(' ')
+      class: '--style-ai-dark'
     },
     // endregion ////
     // region link ////
     {
       color: 'link',
       depth: 'light',
-      class: [
-        '--style-link-light'
-      ].join(' ')
+      class: '--style-link-light'
     },
     {
       color: 'link',
       depth: 'normal',
-      class: [
-        '--style-link'
-      ].join(' ')
+      class: '--style-link'
     },
     {
       color: 'link',
       depth: 'dark',
-      class: [
-        '--style-link-dark'
-        // '',
-        // 'border',
-        // // 'text-base-900 bg-transparent border-base-330 dark:text-base-300 dark:border-base-800', // fix
-        // 'text-(--ui-color-design-outline-content) bg-transparent border-(--ui-color-design-outline-stroke)',
-        // // 'hover:text-base-900 dark:hover:text-base-900 hover:bg-base-320 hover:border-base-330 hover:focus-visible:ring-0', // fix
-        // 'hover:bg-(--button-link-light-bg-hover) hover:focus-visible:ring-0',
-        // // 'active:text-base-900 dark:active:text-base-900 active:bg-base-250 active:border-base-550 active:focus-visible:ring-0', // fix
-        // 'active:bg-(--button-link-light-bg-active) active:focus-visible:ring-0',
-        // // 'disabled:bg-transparent disabled:border-base-330 aria-disabled:bg-transparent aria-disabled:border-base-330', // fix
-        // // 'dark:disabled:text-base-900 dark:aria-disabled:text-base-900', // fix
-        // // 'dark:disabled:border-base-900 dark:aria-disabled:border-base-900', // fix
-        // // 'focus-visible:outline-base-330' // fix
-      ].join(' ')
+      class: '--style-link-dark'
     },
     // endregion ////
     {
       leading: true,
       useLabel: true,
       useDropdown: false,
-      // fix class: 'ps-2.5 pe-[18px]'
       class: {
         baseLine: 'ps-[calc(var(--ui-btn-padding-left)_-_var(--ui-btn-icon-compensation))]'
       }
@@ -446,7 +337,6 @@ export default {
     },
     // endregion ////
     // region size && leading && useDropdown ////
-    // @todo ////
     {
       leading: true,
       useLabel: true,
@@ -462,7 +352,6 @@ export default {
   ],
   defaultVariants: {
     size: 'md',
-    // @todo fix docs ////
     color: 'air-tertiary-no-accent',
     depth: 'normal',
     normalCase: true,
