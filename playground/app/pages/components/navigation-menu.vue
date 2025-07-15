@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
-import theme from '#build/b24ui/navigation-menu'
 import usePageMeta from './../../composables/usePageMeta'
+import Placeholder from '../../components/Placeholder.vue'
 import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
-import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import ConnectionIcon from '@bitrix24/b24icons-vue/actions/ConnectionIcon'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 import PulseCircleIcon from '@bitrix24/b24icons-vue/main/PulseCircleIcon'
@@ -141,10 +140,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <ExampleGrid v-once class="mb-2">
+  <ExampleGrid v-once class="mb-4">
     <ExampleCard title="settings">
       <B24Separator class="my-5" type="dotted" />
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-row gap-4">
         <B24FormField label="isCollapsed" name="isCollapsed">
           <B24Switch v-model="isCollapsed" />
         </B24FormField>
@@ -156,15 +155,18 @@ onMounted(() => {
         </B24FormField>
       </div>
     </ExampleCard>
-    <ExampleCard title="demo" class="col-span-3">
-      <B24Separator class="my-3" type="dotted" label="horizontal" />
-      <div class="mb-4 flex flex-col justify-center flex-wrap overflow-auto">
+  </ExampleGrid>
+  <ExampleGrid v-once class="mb-4">
+    <ExampleCard title="demo" class="col-span-4">
+      <B24Separator class="mt-3" type="dotted" label="horizontal" />
+      <div class="-mt-[8px] mb-4 flex flex-col justify-center flex-wrap overflow-auto">
         <div
           v-if="isInit"
-          class="isolate px-4 py-3 w-full min-w-[720px]"
+          class="isolate px-4 w-full min-w-[720px]"
         >
-          <div class="relative z-[1] border-base-master/10 dark:border-base-100/20 border-y">
+          <div class="relative z-[1] border-base-master/10 flex flex-row items-center justify-between min-h-(--topbar-height) ">
             <B24NavigationMenu
+              class="min-h-full shrink-1 w-full"
               :items="items"
               orientation="horizontal"
               :tooltip="isTooltip"
@@ -172,14 +174,17 @@ onMounted(() => {
             />
           </div>
 
-          <Placeholder class="h-52 w-full mt-2" />
+          <Placeholder class="h-52 w-full mt-0" />
         </div>
       </div>
-
-      <ExampleCardSubTitle title="vertical" />
+    </ExampleCard>
+  </ExampleGrid>
+  <ExampleGrid v-once class="mb-4">
+    <ExampleCard title="demo" class="col-span-4">
+      <B24Separator class="mt-3" type="dotted" label="vertical" />
       <div
         v-if="isInit"
-        class="isolate px-4 mb-4 flex flex-row justify-start flex-wrap gap-2"
+        class="-mt-[8px] isolate px-4 mb-4 flex flex-row justify-start flex-wrap gap-2"
       >
         <B24NavigationMenu
           :collapsed="isCollapsed"
@@ -187,9 +192,9 @@ onMounted(() => {
           orientation="vertical"
           :tooltip="isTooltip"
           :popover="isPopover"
-          class="border-base-master/10 dark:border-base-100/20 border py-2 rounded w-[240px] data-[collapsed=true]:w-[69px]"
+          class="w-[240px] data-[collapsed=true]:w-[69px]"
         />
-        <Placeholder class="flex-1 w-full shrink" />
+        <Placeholder class="flex-1 rounded-l-none rounded-tr-none ms-2 w-full shrink" />
       </div>
     </ExampleCard>
   </ExampleGrid>

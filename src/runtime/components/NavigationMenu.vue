@@ -23,9 +23,14 @@ export interface NavigationMenuChildItem extends Omit<NavigationMenuItem, 'type'
 export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'custom'> {
   label?: string
   /**
+   * Icon is only used when `orientation` is `vertical`
    * @IconComponent
    */
   icon?: IconComponent
+  /**
+   * Avatar is only used when `orientation` is `vertical`
+   * @AvatarProps
+   */
   avatar?: AvatarProps
   /**
    * Display a badge on the item.
@@ -259,12 +264,14 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
           :active="active"
           :index="index"
         >
-          <Component
-            :is="item.icon"
-            v-if="item.icon"
-            :class="b24ui.linkLeadingIcon({ class: [props.b24ui?.linkLeadingIcon, item.b24ui?.linkLeadingIcon], active, disabled: !!item.disabled })"
-          />
-          <B24Avatar v-else-if="item.avatar" :size="((item.b24ui?.linkLeadingAvatarSize || props.b24ui?.linkLeadingAvatarSize || b24ui.linkLeadingAvatarSize()) as AvatarProps['size'])" v-bind="item.avatar" :class="b24ui.linkLeadingAvatar({ class: [props.b24ui?.linkLeadingAvatar, item.b24ui?.linkLeadingAvatar], active, disabled: !!item.disabled })" />
+          <template v-if="orientation === 'vertical'">
+            <Component
+              :is="item.icon"
+              v-if="item.icon"
+              :class="b24ui.linkLeadingIcon({ class: [props.b24ui?.linkLeadingIcon, item.b24ui?.linkLeadingIcon], active, disabled: !!item.disabled })"
+            />
+            <B24Avatar v-else-if="item.avatar" :size="((item.b24ui?.linkLeadingAvatarSize || props.b24ui?.linkLeadingAvatarSize || b24ui.linkLeadingAvatarSize()) as AvatarProps['size'])" v-bind="item.avatar" :class="b24ui.linkLeadingAvatar({ class: [props.b24ui?.linkLeadingAvatar, item.b24ui?.linkLeadingAvatar], active, disabled: !!item.disabled })" />
+          </template>
           <div
             v-if="item.hint"
             :class="b24ui.linkLeadingHint({ class: [props.b24ui?.linkLeadingHint, item.b24ui?.linkLeadingHint] })"
