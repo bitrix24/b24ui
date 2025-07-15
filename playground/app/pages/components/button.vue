@@ -97,7 +97,6 @@ const airColors = computed(() => {
           label="Block Long Text"
           block
           use-dropdown
-          class="max-w-[160px]"
           loading-auto
           use-clock
           @click="onClick"
@@ -110,7 +109,7 @@ const airColors = computed(() => {
           :icon="DownloadDoubleIcon"
           label="Button"
           class="group"
-          :b24ui="{ leadingIcon: 'group-hover:animate-pulse' }"
+          :b24ui="{ leadingIcon: 'group-hover:text-ai-500' }"
           loading-auto
           use-clock
           @click="onClick"
@@ -141,8 +140,7 @@ const airColors = computed(() => {
           :active="btnState_1"
           :label="btnState_1 ? 'Active' : 'Inactive'"
           :icon="TaskIcon"
-          active-color="danger"
-          active-depth="dark"
+          active-color="air-primary-alert"
           loading-auto
           use-clock
           @click="async () => { await onClick(); btnState_1 = !btnState_1 }"
@@ -152,7 +150,7 @@ const airColors = computed(() => {
           :active="btnState_1"
           :label="btnState_1 ? 'Active' : 'Inactive'"
           :icon="TaskIcon"
-          active-class="italic"
+          active-class="italic dd-some"
           inactive-class="tracking-widest"
           loading-auto
           use-clock
@@ -216,6 +214,11 @@ const airColors = computed(() => {
       </ExampleCard>
     </template>
   </ExampleGrid>
+
+  <ProseH3 class="mt-16">
+    Old colors
+  </ProseH3>
+  <B24Separator class="mb-4" />
   <ExampleGrid v-once class="mb-2">
     <template v-for="color in oldColors" :key="color">
       <template v-for="depth in depths" :key="depth">

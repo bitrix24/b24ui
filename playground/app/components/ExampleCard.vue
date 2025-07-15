@@ -8,7 +8,7 @@ const $props = withDefaults(defineProps<{
 
 <template>
   <div class="">
-    <div class="mb-2xs2 font-b24-secondary text-black dark:text-base-150 text-h5 font-semibold">
+    <div class="mb-2xs2 font-b24-secondary text-h5 font-semibold">
       <slot name="title">
         [{{ $props.title }}]
       </slot>

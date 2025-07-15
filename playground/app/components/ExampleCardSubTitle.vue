@@ -7,7 +7,7 @@ const $props = withDefaults(defineProps<{
 </script>
 
 <template>
-  <div class="mb-sm2 font-b24-primary text-sm text-base-500 dark:text-base-600">
+  <div class="mb-sm2 font-b24-primary text-sm">
     <B24Separator decorative type="dashed" class="mb-2">
       <slot>{{ $props.title }}</slot>
     </B24Separator>

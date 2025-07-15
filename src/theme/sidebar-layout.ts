@@ -21,7 +21,7 @@ export default {
     ].join(' '),
     sidebar: [
       'w-[240px]',
-      'pr-[3px]',
+      'pe-[3px] rtl:me-[14px]',
       'fixed inset-y-0 left-0',
       'max-lg:hidden',
       'bg-(--ui-color-bg-content-secondary)',
@@ -53,7 +53,7 @@ export default {
     ].join(' '),
     contentWrapper: [
       'flex-1 flex flex-col',
-      'lg:pl-[calc(240px)]'
+      'lg:pl-[240px]'
     ].join(' '),
     header: [
       'lg:px-(--content-area-shift) min-h-(--topbar-height)',
@@ -121,6 +121,7 @@ export default {
         containerWrapper: [
           'light --ui-context-content-light',
           'p-6 lg:p-[15px]',
+          'text-(--ui-color-design-plain-na-content)',
           'bg-(--ui-color-base-white-fixed)/87',
           'dark:bg-(--ui-color-base-white-fixed)/97',
           // 'lg:ring-1 lg:ring-base-950/5 dark:lg:ring-white/10', // fix
