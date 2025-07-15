@@ -208,19 +208,14 @@ const makeLoading = async () => {
       <template #navbar>
         <B24NavbarSpacer />
         <B24NavbarSection class="flex-row items-center justify-start gap-2">
-          <B24Chip
-            color="danger"
-            text="9"
-          >
-            <B24Button
-              label="Reload"
-              color="air-secondary-accent"
-              rounded
-              size="xs"
-              loading-auto
-              @click="makeLoading"
-            />
-          </B24Chip>
+          <B24Button
+            label="Reload"
+            color="air-secondary-accent"
+            rounded
+            size="xs"
+            loading-auto
+            @click="makeLoading"
+          />
           <B24Tooltip :content="{ side: 'bottom' }" :text="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', 'L']">
             <B24Button
               :icon="dir === 'ltr' ? LeftAlignIcon : RightAlignIcon"
@@ -237,7 +232,6 @@ const makeLoading = async () => {
           >
             <B24Tooltip :content="{ side: 'bottom' }" :text="`Switch to next mode`" :kbds="['shift', 'D']">
               <B24Button
-                class="w-[100px]"
                 :icon="colorModeIcon"
                 :aria-label="`Switch to next mode`"
                 color="air-secondary-accent"
@@ -247,7 +241,7 @@ const makeLoading = async () => {
               />
             </B24Tooltip>
           </B24DropdownMenu>
-          <div class="hidden mx-2 lg:flex flex-row flex-nowrap items-center justify-center gap-0.5">
+          <div class="hidden lg:flex flex-row flex-nowrap items-center justify-center gap-0.5">
             <B24Kbd value="ctrl" size="sm" /> <B24Kbd value="K" size="sm" />
           </div>
         </B24NavbarSection>
