@@ -264,7 +264,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
           :active="active"
           :index="index"
         >
-          <template v-if="orientation === 'vertical'">
+          <template v-if="orientation === 'vertical' && item.type !== 'label'">
             <Component
               :is="item.icon"
               v-if="item.icon"
@@ -273,13 +273,13 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
             <B24Avatar v-else-if="item.avatar" :size="((item.b24ui?.linkLeadingAvatarSize || props.b24ui?.linkLeadingAvatarSize || b24ui.linkLeadingAvatarSize()) as AvatarProps['size'])" v-bind="item.avatar" :class="b24ui.linkLeadingAvatar({ class: [props.b24ui?.linkLeadingAvatar, item.b24ui?.linkLeadingAvatar], active, disabled: !!item.disabled })" />
           </template>
           <div
-            v-if="item.hint"
+            v-if="item.hint && item.type !== 'label' && orientation === 'horizontal'"
             :class="b24ui.linkLeadingHint({ class: [props.b24ui?.linkLeadingHint, item.b24ui?.linkLeadingHint] })"
           >
             {{ item.hint }}
           </div>
           <B24Badge
-            v-if="item.badge"
+            v-if="item.badge && item.type !== 'label'"
             color="danger"
             depth="dark"
             :use-fill="true"
@@ -296,13 +296,12 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
           <slot :name="((item.slot ? `${item.slot}-label` : 'item-label') as keyof NavigationMenuSlots<T>)" :item="item" :active="active" :index="index">
             {{ getLabel(item) }}
           </slot>
-
-          <Component
-            :is="typeof externalIcon !== 'boolean' ? externalIcon : icons.external"
-            v-if="item.target === '_blank' && externalIcon !== false"
-            :class="b24ui.linkLabelExternalIcon({ class: [props.b24ui?.linkLabelExternalIcon, item.b24ui?.linkLabelExternalIcon], active })"
-          />
         </span>
+        <Component
+          :is="typeof externalIcon !== 'boolean' ? externalIcon : icons.external"
+          v-if="item.target === '_blank' && externalIcon !== false"
+          :class="b24ui.linkLabelExternalIcon({ class: [props.b24ui?.linkLabelExternalIcon, item.b24ui?.linkLabelExternalIcon], active })"
+        />
       </span>
       <component
         :is="orientation === 'vertical' && item.children?.length && !collapsed ? AccordionTrigger : 'span'"

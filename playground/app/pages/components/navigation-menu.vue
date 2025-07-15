@@ -22,32 +22,16 @@ const isPopover = ref(false)
 const items = [
   [
     {
-      label: 'Sales Manager'
-    },
-    {
-      label: 'Active Clients',
-      type: 'label' as NavigationMenuItem['type'],
-      avatar: {
-        src: '/avatar/employee.png'
-      }
-    },
-    {
-      label: 'Conversion Rates',
-      type: 'label' as NavigationMenuItem['type'],
-      icon: ConnectionIcon
-    },
-    {
       label: 'Current Deals',
       type: 'label' as NavigationMenuItem['type'],
       active: true,
-      badge: 3
+      badge: 13,
+      icon: ConnectionIcon
     },
     {
       label: 'Sales Pipeline',
       type: 'trigger' as NavigationMenuItem['type'],
-      avatar: {
-        src: '/avatar/employee.png'
-      },
+      avatar: { src: '/avatar/employee.png' },
       children: [
         {
           label: 'Lead Generation',
@@ -57,16 +41,12 @@ const items = [
         {
           label: 'Lead Qualification',
           description: 'Client potential assessment',
-          avatar: {
-            src: '/avatar/employee.png'
-          },
           active: true
         },
         {
           label: 'Negotiations',
           description: 'Deal terms discussion',
-          icon: MicrophoneOnIcon,
-          active: true
+          icon: MicrophoneOnIcon
         }
       ]
     }
@@ -74,12 +54,7 @@ const items = [
   [
     {
       label: 'Team Support',
-      badge: {
-        label: '14',
-        color: 'ai' as const,
-        depth: 'dark' as const,
-        useFill: true
-      },
+      hint: '500%',
       icon: PulseCircleIcon,
       disabled: true,
       to: 'https://helpdesk.bitrix24.com/',
@@ -88,7 +63,6 @@ const items = [
     {
       label: 'Resources',
       icon: GitHubIcon,
-      badge: 14,
       to: 'https://github.com/bitrix24/b24ui',
       target: '_blank',
       tooltip: {
@@ -101,21 +75,29 @@ const items = [
     {
       viewportRtl: true,
       label: 'Sales Analytics',
+      hint: '500%',
       type: 'trigger' as NavigationMenuItem['type'],
       active: true,
       defaultOpen: true,
-      badge: 3,
+      badge: {
+        label: '14',
+        color: 'ai' as const,
+        depth: 'dark' as const,
+        useFill: true
+      },
       icon: Filter1Icon,
       to: '/components/navigation-menu#1',
       children: [
         {
           label: 'Sales Reports',
+          hint: '250%',
           badge: 1,
           icon: CrmMapIcon,
           to: '/components/navigation-menu#1'
         },
         {
           label: 'Key Metrics',
+          hint: '250%',
           badge: 2,
           icon: Settings5Icon,
           to: '/components/checkbox'
@@ -192,7 +174,7 @@ onMounted(() => {
           orientation="vertical"
           :tooltip="isTooltip"
           :popover="isPopover"
-          class="w-[240px] data-[collapsed=true]:w-[69px]"
+          class="mt-[4px] w-[240px] data-[collapsed=true]:w-[69px]"
         />
         <Placeholder class="flex-1 rounded-l-none rounded-tr-none ms-2 w-full shrink" />
       </div>

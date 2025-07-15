@@ -42,8 +42,8 @@ export default {
       'border-0'
     ].join(' '),
     linkLeadingIcon: 'shrink-0 size-[26px]',
-    linkLeadingAvatar: 'shrink-0 -ms-1 rtl:-ms-0 rtl:-me-1',
-    linkLeadingAvatarSize: '2xs',
+    linkLeadingAvatar: 'shrink-0',
+    linkLeadingAvatarSize: 'xs',
     linkLeadingHint: [
       'inline-flex m-0 absolute -top-[5px] left-[8px]',
       'text-(length:--ui-font-size-4xs)',
@@ -55,15 +55,15 @@ export default {
     ].join(' '),
     linkLeadingBadge: 'inline-flex m-0 absolute',
     linkLeadingBadgeSize: 'sm',
-    linkTrailing: 'group inline-flex mt-[4px] items-center',
+    linkTrailing: 'group inline-flex mt-[2px] items-center   ',
     linkTrailingIcon: [
       'text-(--ui-color-design-plain-na-content-icon)',
       'size-[14px]',
       'shrink-0'
     ].join(' '),
-    linkLabel: 'truncate',
+    linkLabel: 'truncate -mt-px',
     linkLabelWrapper: 'flex items-center justify-between rtl:flex-row-reverse',
-    linkLabelExternalIcon: 'inline-block h-6 w-3 align-top text-base-500 dark:text-base-700',
+    linkLabelExternalIcon: 'inline-block size-4 text-(--ui-color-design-plain-content-icon-secondary)',
     childList: 'isolate',
     childLabel: [
       'text-xs text-highlighted'
@@ -72,7 +72,7 @@ export default {
     childLink: [
       'group relative',
       'size-full',
-      'flex flex-row rtl:flex-row-reverse items-center gap-[2px] transition-colors',
+      'flex flex-row rtl:flex-row-reverse items-center transition-colors',
       'text-start'
     ].join(' '),
     childLinkWrapper: 'min-w-0 flex-1 flex flex-row items-center justify-start gap-0.5',
@@ -88,9 +88,9 @@ export default {
     ].join(' '),
     childLinkBadge: 'inline-flex m-0',
     childLinkBadgeSize: 'sm',
-    childLinkLabel: 'truncate',
-    childLinkLabelExternalIcon: 'inline-block size-4 align-top text-base-500 dark:text-base-700',
-    separator: 'px-2 h-px bg-base-950/10 dark:bg-base-100/20',
+    childLinkLabel: 'truncate ms-[2px] -mt-px',
+    childLinkLabelExternalIcon: 'inline-block size-4 text-(--ui-color-design-plain-content-icon-secondary)',
+    separator: 'h-px bg-(--leftmenu-bg-divider) my-[16px]',
     viewportWrapper: 'absolute top-[53px] left-0 flex w-full',
     viewport: [
       'relative overflow-hidden',
@@ -152,8 +152,8 @@ export default {
           'mt-(--menu-item-block-stack-space)',
           'flex-row rtl:flex-row-reverse'
         ].join(' '),
-        linkLeadingBadge: 'top-[3px] left-[27px] -translate-x-1/2',
-        linkLabelWrapper: 'gap-[9px]',
+        linkLeadingBadge: '-top-[4px] left-[24px] -translate-x-1/2',
+        linkLabelWrapper: 'relative',
         childLabel: 'px-1.5 py-0.5',
         childLink: 'p-1.5 gap-1.5'
       }
@@ -168,7 +168,7 @@ export default {
       false: {
         linkLeadingIcon: 'text-(--ui-color-design-plain-content-icon-secondary)',
         childLinkIcon: [
-          'text-base-500 dark:text-base-700',
+          'text-(--ui-color-design-plain-content-icon-secondary)',
           'group-hover:text-(--ui-color-accent-main-primary)'
         ].join(' ')
       }
@@ -199,8 +199,9 @@ export default {
       collapsed: false,
       class: {
         childList: '',
-        childItem: '[&>*]:ps-[44px] rtl:[&>*]:pe-[44px]',
-        content: 'motion-safe:data-[state=open]:animate-[collapsible-down_200ms_ease-out] motion-safe:data-[state=closed]:animate-[collapsible-up_200ms_ease-out] overflow-hidden'
+        childItem: '',
+        content: 'motion-safe:data-[state=open]:animate-[collapsible-down_200ms_ease-out] motion-safe:data-[state=closed]:animate-[collapsible-up_200ms_ease-out] overflow-hidden',
+        linkLabel: 'ms-[9px]'
       }
     },
     {
