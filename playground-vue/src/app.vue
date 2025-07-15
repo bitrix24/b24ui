@@ -139,71 +139,6 @@ const makeLoading = async () => {
     }, 2_000)
   })
 }
-
-/**
- * @todo remove this
- */
-const demoTop: NavigationMenuItem[] = [
-  {
-    label: 'Sales',
-    type: 'trigger' as NavigationMenuItem['type']
-  },
-  {
-    label: 'Employee',
-    type: 'trigger' as NavigationMenuItem['type'],
-    badge: 3,
-    active: true
-  },
-  {
-    hint: '150%',
-    label: 'Some text',
-    type: 'trigger' as NavigationMenuItem['type'],
-    badge: 21,
-    active: false,
-    children: [
-      {
-        label: 'level 1.1',
-        description: 'Initial contact with potential clients',
-        active: false
-      },
-      {
-        label: 'level 1.2',
-        description: 'Client potential assessment',
-        avatar: {
-          src: '/avatar/employee.png'
-        },
-        active: true
-      },
-      {
-        label: 'level 1.3',
-        description: 'Deal terms discussion',
-        icon: SunIconAir,
-        active: true,
-        children: [
-          {
-            label: 'level 1.3.1',
-            description: 'Initial contact with potential clients',
-            active: false
-          },
-          {
-            label: 'level 1.3.2',
-            description: 'Client potential assessment',
-            avatar: {
-              src: '/avatar/employee.png'
-            },
-            active: true
-          },
-          {
-            label: 'level 1.3.3',
-            description: 'Deal terms discussion',
-            icon: SunIconAir,
-            active: true
-          }
-        ]
-      }
-    ]
-  }
-]
 </script>
 
 <template>
@@ -256,27 +191,21 @@ const demoTop: NavigationMenuItem[] = [
               </B24Link>
             </template>
 
-            <!-- @todo remove this -->
             <B24Button
-              label="Upgrade your plan"
+              block
+              label="Use our Vue starter"
               color="air-primary-success"
               size="sm"
               loading-auto
               :icon="RocketIcon"
-              @click="makeLoading"
+              to="https://bitrix24.github.io/b24ui/guide/installation-vue.html#use-our-vue-starter"
+              target="_blank"
             />
           </B24SidebarSection>
         </B24SidebarFooter>
       </template>
 
       <template #navbar>
-        <B24NavbarSection>
-          <B24NavigationMenu
-            :items="demoTop"
-            variant="pill"
-            orientation="horizontal"
-          />
-        </B24NavbarSection>
         <B24NavbarSpacer />
         <B24NavbarSection class="flex-row items-center justify-start gap-2">
           <B24Chip

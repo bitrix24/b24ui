@@ -39,11 +39,6 @@ export interface ButtonProps extends Omit<UseComponentIconsProps, 'trailing' | '
    */
   loadingAuto?: boolean
   /**
-   * use Air theme
-   * @defaultValue true
-   */
-  isAir?: boolean
-  /**
    * Disable uppercase label
    * @defaultValue true
    */
@@ -59,7 +54,7 @@ export interface ButtonProps extends Omit<UseComponentIconsProps, 'trailing' | '
    */
   useClock?: boolean
   /**
-   * Shows icons.chevronDown on the right side
+   * Shows icons.ChevronDownSIcon on the right side
    * @defaultValue false
    */
   useDropdown?: boolean
@@ -99,7 +94,7 @@ import { pickLinkProps } from '../utils/link'
 import B24Avatar from './Avatar.vue'
 import B24Link from './Link.vue'
 import B24LinkBase from './LinkBase.vue'
-import ChevronDownIcon from '@bitrix24/b24icons-vue/actions/ChevronDownIcon'
+import ChevronDownSIcon from '@bitrix24/b24icons-vue/outline/ChevronDownSIcon'
 import LoaderWaitIcon from '@bitrix24/b24icons-vue/animated/LoaderWaitIcon'
 import LoaderClockIcon from '@bitrix24/b24icons-vue/animated/LoaderClockIcon'
 import SpinnerIcon from '@bitrix24/b24icons-vue/specialized/SpinnerIcon'
@@ -109,8 +104,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   active: undefined,
   activeClass: '',
   inactiveClass: '',
-  normalCase: true,
-  isAir: true
+  normalCase: true
 })
 
 const slots = defineSlots<ButtonSlots>()
@@ -187,7 +181,7 @@ const b24ui = computed(() => tv({
   useClock: Boolean(props.useClock),
   leading: Boolean(isLeading.value),
   buttonGroup: orientation.value,
-  isAir: Boolean(props.isAir)
+  isAir: true
 }))
 </script>
 
@@ -211,11 +205,11 @@ const b24ui = computed(() => tv({
     >
       <div
         v-if="isLoading"
-        class="h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center"
+        :class="b24ui.baseLoading({ class: props.b24ui?.baseLoading, active })"
       >
-        <LoaderWaitIcon v-if="useWait" class="w-[28px] h-[28px]" aria-hidden="true" />
-        <LoaderClockIcon v-else-if="useClock" class="w-[28px] h-[28px]" aria-hidden="true" />
-        <SpinnerIcon v-else class="size-lg animate-spin stroke-2" aria-hidden="true" />
+        <LoaderWaitIcon v-if="useWait" :class="b24ui.baseLoadingWaitIcon({ class: props.b24ui?.baseLoadingWaitIcon })" aria-hidden="true" />
+        <LoaderClockIcon v-else-if="useClock" :class="b24ui.baseLoadingClockIcon({ class: props.b24ui?.baseLoadingClockIcon })" aria-hidden="true" />
+        <SpinnerIcon v-else :class="b24ui.baseLoadingSpinnerIcon({ class: props.b24ui?.baseLoadingSpinnerIcon })" aria-hidden="true" />
       </div>
       <div
         :class="[
@@ -239,12 +233,14 @@ const b24ui = computed(() => tv({
 
         <slot>
           <span v-if="label !== undefined && label !== null" :class="b24ui.label({ class: props.b24ui?.label, active })">
-            {{ label }}
+            <span :class="b24ui.labelInner({ class: props.b24ui?.labelInner, active })">
+              {{ label }}
+            </span>
           </span>
         </slot>
 
         <slot name="trailing">
-          <ChevronDownIcon
+          <ChevronDownSIcon
             v-if="useDropdown"
             :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
             aria-hidden="true"

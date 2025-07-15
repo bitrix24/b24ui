@@ -1,6 +1,7 @@
 /**
  * Button
  * @see /bitrix/js/ui/buttons/dist/ui.buttons.bundle.css
+ * @memo fix --ui-btn-title-comensation > --ui-btn-title-compensation
  */
 
 @theme inline {
@@ -27,7 +28,7 @@
     /* default param */
     --ui-btn-icon-size: 20px;
 
-    --ui-btn-title-comensation: -1px;
+    --ui-btn-title-compensation: -1px;
     --ui-btn-padding: 0 var(--ui-btn-padding-right) 0 var(--ui-btn-padding-left);
     --ui-btn-min-width: 80px;
     --ui-btn-background: #868d95;
@@ -407,7 +408,7 @@
     /* default param */
     --ui-btn-icon-size: 20px;
 
-    --ui-btn-title-comensation: -1px;
+    --ui-btn-title-compensation: -1px;
     --ui-btn-padding: 0 var(--ui-btn-padding-right) 0 var(--ui-btn-padding-left);
     --ui-btn-min-width: 80px;
     --ui-btn-background: #868d95;

@@ -10,9 +10,6 @@
 import { buttonGroupVariant } from './button-group'
 
 const safeList = [
-  'h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center',
-  'w-[28px] h-[28px]',
-  'size-lg animate-spin stroke-2',
   'invisible'
 ].join(' ')
 
@@ -20,11 +17,12 @@ export default {
   slots: {
     base: [
       'ui-btn',
+      'font-(family-name:--ui-font-family-primary)',
       'select-none cursor-pointer inline-flex items-center',
       'relative',
       'outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2',
       'disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50',
-      'transition duration-150 ease-linear', // transition-colors
+      'transition duration-0 ease-linear', // transition-colors
       'border',
       'text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color)',
       'hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover)',
@@ -33,16 +31,40 @@ export default {
       'disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color)',
       'aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color)',
       'focus-visible:outline-(--ui-btn-background)',
-      'ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover)'
+      'ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover)',
+      'h-(--ui-btn-height)',
+      'text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight)',
+      ''
     ],
+    baseLoading: 'h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center',
+    baseLoadingWaitIcon: 'text-(--ui-btn-color) size-[calc(var(--ui-btn-wait-icon-size)_+_7px)]',
+    baseLoadingClockIcon: 'text-(--ui-btn-color) size-[calc(var(--ui-btn-wait-icon-size)_+_7px)]',
+    baseLoadingSpinnerIcon: 'text-(--ui-btn-color) size-(--ui-btn-wait-icon-size) animate-spin stroke-2',
     baseLine: [
-      'inline-flex items-center' // justify-center
+      // fix 'inline-flex items-center' // justify-center
+      'w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space)',
+      'ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right)'
     ].join(' '),
-    label: 'truncate',
-    leadingIcon: 'shrink-0',
-    leadingAvatar: 'shrink-0',
+    // fix label: 'truncate',
+    label: [
+      'h-(--ui-btn-height) max-w-full',
+      'inline-flex items-center',
+      'tracking-(--ui-btn-letter-spacing)',
+      'overflow-visible',
+      'text-clip',
+      'mt-(--ui-btn-title-compensation)'
+    ].join(' '),
+    labelInner: [
+      'truncate',
+      'inline-block',
+      'max-w-full',
+      'mt-(--ui-btn-title-compensation)'
+    ].join(' '),
+    // fix leadingIcon: 'shrink-0',
+    leadingIcon: 'shrink-0 size-(--ui-btn-icon-size)',
+    leadingAvatar: 'shrink-0 me-[4px]',
     leadingAvatarSize: '',
-    trailingIcon: 'shrink-0',
+    trailingIcon: 'shrink-0 size-(--ui-btn-icon-size) mt-(--ui-btn-title-compensation)',
     safeList
   },
   variants: {
@@ -78,70 +100,81 @@ export default {
     },
     size: {
       xss: {
-        // fixbase: 'h-xl2 ps-4 pe-4 text-3xs leading-none', // 26px
-        base: 'h-xl2 ps-[9px] pe-[9px] text-3xs leading-none', // 26px
-        baseLine: 'gap-1',
-        leadingIcon: 'size-5',
-        leadingAvatarSize: '2xs',
-        trailingIcon: 'size-md2'
+        base: 'ui-btn-xss',
+        leadingAvatarSize: '2xs'
       },
       xs: {
-        // fixbase: 'h-xl2 ps-4 pe-4 text-3xs leading-none', // 26px
-        base: 'h-xl2 ps-[9px] pe-[9px] text-3xs leading-none', // 26px
-        baseLine: 'gap-1',
-        leadingIcon: 'size-5',
-        leadingAvatarSize: '2xs',
-        trailingIcon: 'size-md2'
+        // fix base: 'h-xl2 ps-4 pe-4 text-3xs leading-none', // 26px
+        // base: 'h-xl2 ps-[9px] pe-[9px] text-3xs leading-none', // 26px
+        // baseLine: 'gap-1',
+        // leadingIcon: 'size-5',
+        // leadingAvatarSize: '2xs',
+        // trailingIcon: 'size-md2'
+        base: 'ui-btn-xs',
+        leadingAvatarSize: '2xs'
       },
       sm: {
-        base: 'h-3xl ps-[18px] pe-[18px] text-xs leading-none', // 32px
-        baseLine: 'gap-1.5',
-        leadingIcon: 'size-6',
-        leadingAvatarSize: 'xs',
-        trailingIcon: 'size-lg'
+        // fix base: 'h-3xl ps-[18px] pe-[18px] text-xs leading-none', // 32px
+        // fix baseLine: 'gap-1.5',
+        // fix leadingIcon: 'size-6',
+        // fix leadingAvatarSize: 'xs',
+        // fix trailingIcon: 'size-lg'
+        base: 'ui-btn-sm',
+        leadingAvatarSize: 'xs'
       },
       md: {
-        base: 'h-5xl ps-5 pe-5 text-xs leading-none', // 40px
-        baseLine: 'gap-1.5',
-        leadingIcon: 'size-xl2',
-        leadingAvatarSize: 'sm',
-        trailingIcon: 'size-lg'
+        // base: 'h-5xl ps-5 pe-5 text-xs leading-none', // 40px
+        // baseLine: 'gap-1.5',
+        // leadingIcon: 'size-xl2',
+        // leadingAvatarSize: 'sm',
+        // trailingIcon: 'size-lg'
+        base: 'ui-btn-md',
+        leadingAvatarSize: 'xs'
       },
       lg: {
-        base: 'h-6xl ps-[28px] pe-[28px] text-xs leading-none', // ? 48px
-        baseLine: 'gap-2',
-        leadingIcon: 'size-xl2',
-        leadingAvatarSize: 'md',
-        trailingIcon: 'size-lg'
+        // base: 'h-6xl ps-[28px] pe-[28px] text-xs leading-none', // ? 48px
+        // baseLine: 'gap-2',
+        // leadingIcon: 'size-xl2',
+        // leadingAvatarSize: 'md',
+        // trailingIcon: 'size-lg'
+        base: 'ui-btn-lg',
+        leadingAvatarSize: 'md'
       },
       xl: {
-        base: 'h-6xl ps-[28px] pe-[28px] text-xs leading-none', // ? 48px
-        baseLine: 'gap-2',
-        leadingIcon: 'size-xl2',
-        leadingAvatarSize: 'md',
-        trailingIcon: 'size-lg'
+        // base: 'h-6xl ps-[28px] pe-[28px] text-xs leading-none', // ? 48px
+        // baseLine: 'gap-2',
+        // leadingIcon: 'size-xl2',
+        // leadingAvatarSize: 'md',
+        // trailingIcon: 'size-lg'
+        base: 'ui-btn-xl',
+        leadingAvatarSize: 'md'
       }
     },
     block: {
       true: {
-        base: 'w-full',
-        baseLine: 'w-full justify-center',
-        trailingIcon: 'ms-auto'
+        base: 'w-full'
+        // baseLine: 'w-full justify-center',
+        // trailingIcon: 'ms-auto'
       }
     },
     rounded: {
-      true: 'rounded-full',
-      false: 'rounded-2xs'
+      true: 'rounded-(--ui-border-radius-lg)',
+      false: 'rounded-(--ui-btn-radius)'
     },
     leading: {
       true: ''
     },
     useLabel: {
       true: '',
-      false: 'ps-1.5 pe-1.5 justify-center'
+      // fix false: 'ps-1.5 pe-1.5 justify-center'
+      false: {
+        baseLine: 'ps-[4px] pe-[4px]',
+        leadingAvatar: 'me-0'
+      }
     },
     useDropdown: {
-      true: 'ps-2 pe-2'
+      // fix true: 'ps-2 pe-2'
+      true: ''
     },
     useWait: {
       true: ''
@@ -153,25 +186,21 @@ export default {
       true: ''
     },
     normalCase: {
-      true: 'font-semibold normal-case',
-      false: 'font-bold uppercase'
+      // fix true: 'font-semibold normal-case',
+      true: 'normal-case',
+      // fix false: 'font-bold uppercase'
+      false: 'uppercase'
     },
-    active: {
-      true: {
-        base: ''
-      },
-      false: {
-        base: ''
-      }
-    },
+    // active: {
+    //   true: '',
+    //   false: ''
+    // },
     isAir: {
       true: [
         '--air'
       ].join(' '),
       // old theme
-      false: [
-        ''
-      ].join(' ')
+      false: ''
     }
   },
   compoundVariants: [
@@ -181,6 +210,7 @@ export default {
       depth: 'light',
       class: [
         '--style-default-light'
+        // '--style-outline'
       ].join(' ')
     },
     {
@@ -365,20 +395,7 @@ export default {
       depth: 'light',
       class: [
         '--style-link-light'
-        // // 'text-base-900 dark:text-base-300 bg-transparent border border-transparent', // fix
-        // // 'hover:text-base-master dark:hover:text-base-100 hover:bg-base-30 dark:hover:bg-base-850 hover:focus-visible:ring-0', // fix
-        // 'hover:bg-(--button-link-light-bg-hover) hover:focus-visible:ring-0',
-        // // 'active:text-base-ebony active:bg-blue-270 dark:active:text-base-100 dark:active:bg-slate-850 active:focus-visible:ring-0', // fix
-        // 'active:bg-(--button-link-light-bg-active) active:focus-visible:ring-0',
-        // // 'disabled:text-base-master disabled:bg-base-30 aria-disabled:bg-base-30 dark:disabled:text-base-100 dark:aria-disabled:text-base-100 dark:disabled:bg-base-850 dark:aria-disabled:bg-base-850', // fix
-        // // 'focus-visible:outline-base-30 dark:focus-visible:outline-base-850' // fix
       ].join(' ')
-    },
-    {
-      color: 'link',
-      depth: 'light',
-      useLabel: true,
-      class: 'ps-1.5 pe-1.5'
     },
     {
       color: 'link',
@@ -386,12 +403,6 @@ export default {
       class: [
         '--style-link'
       ].join(' ')
-    },
-    {
-      color: 'link',
-      depth: 'normal',
-      useLabel: true,
-      class: 'ps-0 pe-0'
     },
     {
       color: 'link',
@@ -413,116 +424,39 @@ export default {
       ].join(' ')
     },
     // endregion ////
-    // region size && leading ////
     {
-      size: 'xs',
       leading: true,
       useLabel: true,
       useDropdown: false,
-      class: 'ps-1.5 pe-4'
-    },
-    {
-      size: 'sm',
-      leading: true,
-      useLabel: true,
-      useDropdown: false,
-      class: 'ps-2.5 pe-[18px]'
-    },
-    {
-      size: 'md',
-      leading: true,
-      useLabel: true,
-      useDropdown: false,
-      class: 'ps-3.5 pe-5'
-    },
-    {
-      size: 'lg',
-      leading: true,
-      useLabel: true,
-      useDropdown: false,
-      class: 'ps-4 pe-[28px]'
+      // fix class: 'ps-2.5 pe-[18px]'
+      class: {
+        baseLine: 'ps-[calc(var(--ui-btn-padding-left)_-_var(--ui-btn-icon-compensation))]'
+      }
     },
     // endregion ////
     // region size && useDropdown ////
+    // @todo ////
     {
-      size: 'xs',
       leading: false,
       useLabel: true,
       useDropdown: true,
-      class: 'ps-4 pe-1.5'
-    },
-    {
-      size: 'sm',
-      leading: false,
-      useLabel: true,
-      useDropdown: true,
-      class: 'ps-[18px] pe-1.5'
-    },
-    {
-      size: 'md',
-      leading: false,
-      useLabel: true,
-      useDropdown: true,
-      class: 'ps-5 pe-2.5'
-    },
-    {
-      size: 'lg',
-      leading: false,
-      useLabel: true,
-      useDropdown: true,
-      class: 'ps-[28px] pe-3.5'
+      class: {
+        baseLine: 'pe-[calc(var(--ui-btn-padding-right)_-_var(--ui-btn-icon-compensation))]'
+      }
     },
     // endregion ////
     // region size && leading && useDropdown ////
+    // @todo ////
     {
-      size: 'xs',
       leading: true,
       useLabel: true,
       useDropdown: true,
-      class: 'ps-1.5 pe-1.5'
-    },
-    {
-      size: 'sm',
-      leading: true,
-      useLabel: true,
-      useDropdown: true,
-      class: 'ps-2.5 pe-1.5'
-    },
-    {
-      size: 'md',
-      leading: true,
-      useLabel: true,
-      useDropdown: true,
-      class: 'ps-3.5 pe-2.5'
-    },
-    {
-      size: 'lg',
-      leading: true,
-      useLabel: true,
-      useDropdown: true,
-      class: 'ps-4 pe-3.5'
-    },
-    // endregion ////
-    // region noCaps ////
-    {
-      normalCase: true,
-      size: 'xs',
-      class: 'text-xs'
-    },
-    {
-      normalCase: true,
-      size: 'sm',
-      class: 'text-sm'
-    },
-    {
-      normalCase: true,
-      size: 'md',
-      class: 'text-md'
-    },
-    {
-      normalCase: true,
-      size: 'lg',
-      class: 'text-md'
+      class: {
+        baseLine: [
+          'ps-[calc(var(--ui-btn-padding-left)_-_var(--ui-btn-icon-compensation))]',
+          'pe-[calc(var(--ui-btn-padding-right)_-_var(--ui-btn-icon-compensation))]'
+        ].join(' ')
+      }
     }
     // endregion ////
   ],
