@@ -88,7 +88,8 @@ const contentEvents = computed(() => {
 
   return {}
 })
-const arrowProps = toRef(() => props.arrow as PopoverArrowProps)
+
+const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10 }) as PopoverArrowProps)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.popover || {}) })({
