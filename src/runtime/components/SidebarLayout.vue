@@ -13,7 +13,7 @@ export interface SidebarLayoutProps {
   as?: any
   useLightContent?: boolean
   class?: any
-  b24ui?: Pick<SidebarLayout['slots'], 'root' | 'sidebar' | 'sidebarSlideoverContainer' | 'sidebarSlideover' | 'sidebarSlideoverBtnClose' | 'contentWrapper' | 'header' | 'headerMenuIcon' | 'headerPaddings' | 'headerWrapper' | 'container' | 'containerWrapper' | 'pageTopWrapper' | 'pageActionsWrapper' | 'containerWrapperInner' | 'pageBottomWrapper' | 'loadingWrapper' | 'loadingIcon'>
+  b24ui?: Pick<SidebarLayout['slots'], 'root' | 'sidebar' | 'sidebarSlideoverContainer' | 'sidebarSlideover' | 'sidebarSlideoverBtnClose' | 'contentWrapper' | 'header' | 'headerMenuIcon' | 'headerWrapper' | 'container' | 'containerWrapper' | 'pageTopWrapper' | 'pageActionsWrapper' | 'containerWrapperInner' | 'pageBottomWrapper' | 'loadingWrapper' | 'loadingIcon'>
 }
 
 export interface SidebarLayoutSlots {
@@ -37,13 +37,17 @@ export interface SidebarLayoutSlots {
    */
   'content-actions': (props?: { isLoading: boolean }) => any
   /**
-   * Loading state. You need to use `useSidebarLayout` to control it.
+   * The page content.
    */
   'default'(props?: { isLoading: boolean }): any
   /**
    * Content below the page.
    */
   'content-bottom': (props?: { isLoading: boolean }) => any
+  /**
+   * Loading state. You need to use `useSidebarLayout` to control it.
+   */
+  'loading': (props?: { isLoading: boolean }) => any
 }
 </script>
 
@@ -58,7 +62,7 @@ import B24Slideover from './Slideover.vue'
 import B24Sidebar from './Sidebar.vue'
 import B24ModalDialogClose from './ModalDialogClose.vue'
 import B24Navbar from './Navbar.vue'
-import MenuIcon from '@bitrix24/b24icons-vue/main/MenuIcon'
+import HamburgerMenuIcon from '@bitrix24/b24icons-vue/outline/HamburgerMenuIcon'
 import Cross50Icon from '@bitrix24/b24icons-vue/actions/Cross50Icon'
 import BtnSpinnerIcon from '@bitrix24/b24icons-vue/button-specialized/BtnSpinnerIcon'
 
@@ -138,10 +142,9 @@ const handleNavigationClick = () => {
             <!-- @todo: lang -->
             <B24Button
               aria-label="Open navigation"
-              color="link"
+              color="air-secondary-accent"
               size="sm"
-              :class="b24ui.headerPaddings({ class: props.b24ui?.headerPaddings })"
-              :icon="MenuIcon"
+              :icon="HamburgerMenuIcon"
             />
 
             <template #content>
@@ -151,7 +154,7 @@ const handleNavigationClick = () => {
                     <!-- @todo: lang -->
                     <B24ModalDialogClose>
                       <B24Button
-                        color="link"
+                        color="air-tertiary"
                         size="lg"
                         :icon="Cross50Icon"
                         aria-label="Close navigation"
@@ -166,7 +169,7 @@ const handleNavigationClick = () => {
           </B24Slideover>
         </div>
         <div :class="b24ui.headerWrapper({ class: props.b24ui?.headerWrapper })">
-          <B24Navbar :class="b24ui.headerPaddings({ class: props.b24ui?.headerPaddings })">
+          <B24Navbar>
             <slot name="navbar" :is-loading="isLoading" />
           </B24Navbar>
         </div>

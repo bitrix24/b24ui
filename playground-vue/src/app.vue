@@ -3,8 +3,8 @@ import usePageMeta from '../../playground/app/composables/usePageMeta'
 import { useRouter, useRoute } from 'vue-router'
 import { reactive, ref, computed } from 'vue'
 import { useColorMode, useTextDirection } from '@vueuse/core'
-import RightAlignIcon from '@bitrix24/b24icons-vue/editor/RightAlignIcon'
-import LeftAlignIcon from '@bitrix24/b24icons-vue/editor/LeftAlignIcon'
+import AlignRightIcon from '@bitrix24/b24icons-vue/outline/AlignRightIcon'
+import AlignLeftIcon from '@bitrix24/b24icons-vue/outline/AlignLeftIcon'
 import SunIcon from '@bitrix24/b24icons-vue/main/SunIcon'
 import SunIconAir from '@bitrix24/b24icons-vue/outline/SunIcon'
 import MoonIcon from '@bitrix24/b24icons-vue/main/MoonIcon'
@@ -252,7 +252,9 @@ const demoTop: NavigationMenuItem[] = [
       </template>
 
       <template #navbar>
-        <B24NavbarSection>
+        <B24NavbarSection
+          class="hidden sm:inline-flex"
+        >
           <B24NavigationMenu
             :items="demoTop"
             variant="pill"
@@ -271,7 +273,7 @@ const demoTop: NavigationMenuItem[] = [
           />
           <B24Tooltip :content="{ side: 'bottom' }" :text="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', 'L']">
             <B24Button
-              :icon="dir === 'ltr' ? LeftAlignIcon : RightAlignIcon"
+              :icon="dir === 'ltr' ? AlignLeftIcon : AlignRightIcon"
               :aria-label="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`"
               color="air-secondary-accent"
               rounded

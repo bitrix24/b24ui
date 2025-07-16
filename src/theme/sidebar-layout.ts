@@ -11,8 +11,7 @@ export default {
   slots: {
     root: [
       '--app',
-      'text-(--ui-color-design-plain-na-content)',
-      // 'dark:text-(--ui-color-base-1)', // fix
+      'text-(--ui-color-design-plain-content)',
       'bg-(--ui-color-gray-05) edge-light:bg-transparent', // edge-light:bg-(--ui-color-gray-05)
       'dark:bg-(--ui-color-bg-content-primary) edge-dark:bg-transparent', // edge-dark:bg-(--ui-color-g-content-grey-4)
       'min-h-svh w-full',
@@ -32,17 +31,13 @@ export default {
       'edge-dark:backdrop-blur-(--ui-bg-blur-less)'
     ].join(' '),
     sidebarSlideoverContainer: [
-      'light --ui-context-content-light',
-      'max-w-80',
-      'p-2',
-      'bg-transparent dark:bg-transparent sm:shadow-none'
+      'max-w-80'
     ].join(' '),
     sidebarSlideover: [
       'h-full',
       'overflow-hidden',
-      'flex flex-col text-(--ui-color-design-plain-na-content)',
-      // 'bg-white dark:bg-base-dark', // fix
-      'bg-(--ui-color-base-white-fixed)/94',
+      'flex flex-col text-(--ui-color-design-plain-content)',
+      'bg-(--ui-color-base-white-fixed) dark:bg-(--ui-color-bg-content-primary) edge-dark:bg-[#21334cf0]',
       'ring-1 ring-base-950/5 dark:ring-white/10',
       'shadow-xs',
       'rounded-none'
@@ -56,21 +51,15 @@ export default {
       'lg:pl-[240px]'
     ].join(' '),
     header: [
-      'lg:px-(--content-area-shift) min-h-(--topbar-height)',
+      'px-(--content-area-shift) min-h-(--topbar-height)',
       'flex items-center',
-      // 'lg:hidden', fix
       'bg-(--ui-color-bg-content-primary)', // 'bg-(--ui-color-base-black-fixed)/5', // ',
       'dark:bg-[#2d2d2d]',
-      'edge-light:bg-(--ui-color-base-black-fixed)/5',
-      'edge-light:backdrop-blur-(--ui-bg-blur-less)',
-      'edge-dark:bg-(--ui-color-base-white-fixed)/10',
-      'edge-dark:backdrop-blur-(--ui-bg-blur-less)'
+      'edge-light:bg-(--ui-color-base-black-fixed)/5 edge-light:backdrop-blur-(--ui-bg-blur-less)',
+      'edge-dark:bg-(--ui-color-base-white-fixed)/10 edge-dark:backdrop-blur-(--ui-bg-blur-less)'
     ].join(' '),
     headerMenuIcon: [
       'lg:hidden'
-    ].join(' '),
-    headerPaddings: [
-      // 'py-2.5' // fix
     ].join(' '),
     headerWrapper: [
       'min-w-0 flex-1',
@@ -119,14 +108,11 @@ export default {
           'p-6 lg:p-[15px]'
         ].join(' '),
         containerWrapper: [
-          'light --ui-context-content-light',
           'p-6 lg:p-[15px]',
-          'text-(--ui-color-design-plain-na-content)',
-          'bg-(--ui-color-base-white-fixed)/87',
-          'dark:bg-(--ui-color-base-white-fixed)/97',
-          // 'lg:ring-1 lg:ring-base-950/5 dark:lg:ring-white/10', // fix
-          // 'lg:shadow-xs', // fix
-          'lg:rounded-(--ui-border-radius-md)'
+          'lg:rounded-(--ui-border-radius-md)',
+          'light --ui-context-content-light',
+          'text-(--ui-color-design-plain-content) bg-(--ui-color-base-white-fixed)', // /87
+          ''
         ].join(' ')
       },
       false: {

@@ -13,7 +13,7 @@ const description = ref('Let\'s signal the manager that the deal is not moving, 
 </script>
 
 <template>
-  <ExampleGrid v-once custom-grid-cols class="mt-xs grid-cols-[repeat(auto-fill,minmax(532px,1fr))]">
+  <ExampleGrid v-once custom-grid-cols class="mt-xs grid-cols-1">
     <ExampleCard title="base">
       <ExampleCardSubTitle title="simple" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
