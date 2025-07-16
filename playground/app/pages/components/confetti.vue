@@ -35,9 +35,9 @@ function fireAtPlace(): void {
     <ExampleCard title="Actions">
       <B24Separator class="my-3" type="dotted" />
       <div class="mt-sm2 mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Button label="simple" color="link" depth="dark" @click.stop="fireConfetti" />
-        <B24Button label="with options" color="default" depth="light" @click.stop="fireConfettiWithOptions" />
-        <B24Button label="custom canvas" color="link" depth="dark" @click.stop="fireAtPlace" />
+        <B24Button label="simple" color="air-secondary-accent" @click.stop="fireConfetti" />
+        <B24Button label="with options" color="air-secondary-accent-1" @click.stop="fireConfettiWithOptions" />
+        <B24Button label="custom canvas" color="air-secondary-accent-2" @click.stop="fireAtPlace" />
       </div>
     </ExampleCard>
 
