@@ -140,57 +140,32 @@ const makeLoading = async () => {
   })
 }
 
-/**
- * @todo remove this
- */
-const demoTop: NavigationMenuItem[] = [
-  {
-    label: 'Sales',
-    type: 'trigger' as NavigationMenuItem['type']
-  },
-  {
-    label: 'Employee',
-    type: 'trigger' as NavigationMenuItem['type'],
-    badge: 3,
-    active: true
-  },
-  {
-    hint: '150%',
-    label: 'Some text',
-    type: 'trigger' as NavigationMenuItem['type'],
-    badge: 21,
-    active: false,
-    children: [
-      {
-        label: 'level 1.1',
-        description: 'Initial contact with potential clients',
-        active: false,
-        to: 'https:google.com',
-        target: '_blank'
-      },
-      {
-        label: 'level 1.2',
-        description: 'Client potential assessment',
-        avatar: {
-          src: '/avatar/employee.png'
-        },
-        active: true
-      },
-      {
-        label: 'level 1.3',
-        description: 'Deal terms discussion',
-        icon: SunIconAir,
-        active: false
+const demoTop = computed<NavigationMenuItem[]>(() => {
+  return [
+    {
+      label: 'Home',
+      to: '/'
+    },
+    ...(usePageMeta.groups.map((group) => {
+      return {
+        label: group.label,
+        type: 'trigger' as NavigationMenuItem['type'],
+        active: (group.id === 'components' && (route.path.includes(`content/`) || route.path.includes(`prose/`)))
+          ? false
+          : route.path.includes(`${group.id}`),
+        children: group.children
       }
-    ]
-  }
-]
+    }))
+  ]
+})
+
+const checkedUseLightContent = ref(true)
 </script>
 
 <template>
   <B24App :toaster="(appConfig.toaster as any)">
     <B24SidebarLayout
-      :use-light-content="route.path !== '/'"
+      :use-light-content="checkedUseLightContent"
     >
       <template #sidebar>
         <B24SidebarHeader>
@@ -252,9 +227,8 @@ const demoTop: NavigationMenuItem[] = [
       </template>
 
       <template #navbar>
-        <B24NavbarSection
-          class="hidden sm:inline-flex"
-        >
+        <!-- @todo remove this -->
+        <B24NavbarSection class="hidden sm:inline-flex">
           <B24NavigationMenu
             :items="demoTop"
             variant="pill"
@@ -262,7 +236,8 @@ const demoTop: NavigationMenuItem[] = [
           />
         </B24NavbarSection>
         <B24NavbarSpacer />
-        <B24NavbarSection class="flex-row items-center justify-start gap-2">
+        <B24NavbarSection class="flex-row items-center justify-start gap-4">
+          <B24Switch size="xs" v-model="checkedUseLightContent" />
           <B24Button
             label="Reload"
             color="air-secondary-accent"

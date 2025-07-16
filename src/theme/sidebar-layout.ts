@@ -67,19 +67,19 @@ export default {
     ].join(' '),
     container: [
       'relative',
-      'flex-1 flex flex-col',
-      'lg:min-w-0'
+      'flex-1 flex flex-col gap-[22px]',
+      'lg:min-w-0',
+      'mt-[22px]'
     ].join(' '),
     containerWrapper: [
       'grow'
     ].join(' '),
     pageTopWrapper: [
       'text-(--ui-color-base-1)',
-      'py-[22px]',
-      'min-h-[78px]',
+      'min-h-[30px]',
       'flex items-center'
     ].join(' '),
-    pageActionsWrapper: '',
+    pageActionsWrapper: ']',
     containerWrapperInner: '',
     pageBottomWrapper: '',
     // loadingWrapper: 'w-full flex flex-row flex-nowrap items-center justify-center',
@@ -116,8 +116,11 @@ export default {
         ].join(' ')
       },
       false: {
+        container: [
+          'px-(--content-area-shift)'
+        ].join(' '),
         containerWrapper: [
-          'bg-(--ui-color-background-transparent)'
+          // fix 'bg-(--ui-color-background-transparent)'
         ].join(' ')
       }
     },

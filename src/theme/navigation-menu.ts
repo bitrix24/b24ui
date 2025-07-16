@@ -140,7 +140,7 @@ export default {
           'hover:bg-(--menu-popup-item-bg-color-hover)'
         ].join(' '),
         childLinkLabel: '',
-        content: 'absolute top-0 left-0 w-full max-h-[70vh] overflow-y-auto'
+        content: 'absolute top-0 left-0 w-full max-h-[70vh] overflow-y-auto scrollbar-thin scrollbar-transparent'
       },
       vertical: {
         root: 'flex-col w-full ps-(--menu-items-block-padding-x) rtl:pe-(--menu-items-block-padding-x)',

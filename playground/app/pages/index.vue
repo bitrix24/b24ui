@@ -5,7 +5,7 @@ usePageMeta.setPageTitle('Bitrix24 UI - Playground')
 </script>
 
 <template>
-  <div class="w-full px-(--content-area-shift) lg:px-0 mt-(--content-area-shift)">
+  <div class="w-full">
     <div
       v-for="(group) in usePageMeta.groups"
       :key="group.id"
