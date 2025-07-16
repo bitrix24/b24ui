@@ -174,7 +174,7 @@ onMounted(() => {
           orientation="vertical"
           :tooltip="isTooltip"
           :popover="isPopover"
-          class="mt-[4px] w-[240px] data-[collapsed=true]:w-[69px]"
+          class="mt-[4px] w-[240px] data-[collapsed=true]:w-[50px]"
         />
         <Placeholder class="flex-1 rounded-l-none rounded-tr-none ms-2 w-full shrink" />
       </div>

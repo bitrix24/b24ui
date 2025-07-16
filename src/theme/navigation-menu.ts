@@ -57,17 +57,14 @@ export default {
     linkTrailing: 'group inline-flex mt-[2px] items-center   ',
     linkTrailingIcon: [
       'text-(--ui-color-design-plain-na-content-icon)',
-      'size-[14px]',
       'shrink-0'
     ].join(' '),
     linkLabel: 'truncate -mt-px',
     linkLabelWrapper: 'flex items-center justify-between rtl:flex-row-reverse',
     linkLabelExternalIcon: 'inline-block size-4 text-(--ui-color-design-plain-content-icon-secondary)',
     childList: 'isolate',
-    childLabel: [
-      'text-xs text-highlighted'
-    ].join(' '),
-    childItem: 'h-[36px]',
+    childLabel: '',
+    childItem: 'h-[36px] mt-(--menu-item-block-stack-space)',
     childLink: [
       'group relative',
       'size-full',
@@ -90,6 +87,7 @@ export default {
     childLinkLabel: 'truncate ms-[2px] -mt-px',
     childLinkLabelExternalIcon: 'inline-block size-4 text-(--ui-color-design-plain-content-icon-secondary)',
     separator: 'h-px bg-(--leftmenu-bg-divider) my-[16px]',
+    popoverWrapper: 'px-0 py-(--menu-popup-padding)',
     viewportWrapper: 'absolute top-[53px] left-0 flex w-full',
     viewport: [
       'relative overflow-hidden',
@@ -120,6 +118,7 @@ export default {
           'px-[10px]',
           'border border-(--menu-item-background) hover:border-(--ui-color-design-plain-na-focused-stroke) data-[state=open]:bg-(--ui-color-design-plain-na-focused-stroke)'
         ].join(' '),
+        linkTrailingIcon: 'size-[16px]',
         linkLeadingBadge: '-top-[6px] -right-[14px] -translate-x-1/2',
         linkLabelWrapper: 'gap-[4px]',
         childList: 'grid px-0 py-(--menu-popup-padding)',
@@ -138,17 +137,33 @@ export default {
       vertical: {
         root: 'flex-col w-full ps-(--menu-items-block-padding-x) rtl:pe-(--menu-items-block-padding-x)',
         list: 'flex flex-col',
+        item: [
+          'mt-(--menu-item-block-stack-space)',
+          'data-[state=open]:rounded-(--menu-item-border-radius) data-[state=open]:border-(length:--leftmenu-group-stroke-weight) data-[state=open]:border-(--leftmenu-group-stroke)'
+        ].join(' '),
         link: [
           'menu-item-vertical',
           'h-[38px] min-h-[38px]',
           'p-[6px]',
-          'mt-(--menu-item-block-stack-space)',
-          'flex-row rtl:flex-row-reverse'
+          'flex-row rtl:flex-row-reverse justify-between',
+          '',
+          'data-[state=open]:text-(length:--ui-font-size-sm) data-[state=open]:opacity-70'
         ].join(' '),
+        linkLeadingIcon: '', // group-data-[state=open]:size-[22px]
+        linkTrailingIcon: 'size-[20px] group-data-[state=open]:rotate-180 transition-transform duration-200',
         linkLeadingBadge: '-top-[4px] left-[24px] -translate-x-1/2',
         linkLabelWrapper: 'relative',
-        childLabel: 'px-1.5 py-0.5',
-        childLink: 'p-1.5 gap-1.5'
+        childList: '',
+        childLink: [
+          'px-[25px]', // @memo 10 + 15
+          'min-w-[195px]',
+          'whitespace-nowrap',
+          'font-(family-name:--ui-font-family-primary)',
+          'text-(length:--menu-popup-item-font-size)',
+          'text-(--menu-popup-item-color) hover:text-(--menu-popup-item-color-hover)',
+          'hover:bg-(--menu-popup-item-bg-color-hover)'
+        ].join(' '),
+        childLabel: 'px-[25px] opacity-70 text-(length:--ui-font-size-sm)'
       }
     },
     active: {
@@ -191,6 +206,7 @@ export default {
       orientation: 'vertical',
       collapsed: false,
       class: {
+        item: 'data-[state=open]:bg-(--leftmenu-group-bg)',
         childList: '',
         childItem: '',
         content: 'motion-safe:data-[state=open]:animate-[collapsible-down_200ms_ease-out] motion-safe:data-[state=closed]:animate-[collapsible-up_200ms_ease-out] overflow-hidden',
@@ -201,8 +217,14 @@ export default {
       orientation: 'vertical',
       collapsed: true,
       class: {
-        link: 'px-1.5',
-        content: 'rounded-sm min-h-6 p-1'
+        childList: 'grid px-0 py-(--menu-popup-padding)'
+      }
+    },
+    {
+      orientation: 'vertical',
+      collapsed: false,
+      class: {
+        link: 'collapsed data-[state=open]:-mt-(--leftmenu-group-stroke-weight) data-[state=open]:-mx-(--leftmenu-group-stroke-weight)'
       }
     },
     // {

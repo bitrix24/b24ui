@@ -77,7 +77,7 @@ export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
   open?: boolean
   onSelect?(e: Event): void
   class?: any
-  b24ui?: Pick<NavigationMenu['slots'], 'item' | 'linkLeadingAvatarSize' | 'linkLeadingAvatar' | 'linkLeadingIcon' | 'linkLabel' | 'linkLabelExternalIcon' | 'linkTrailing' | 'linkLeadingHint' | 'linkLeadingBadgeSize' | 'linkLeadingBadge' | 'linkTrailingIcon' | 'label' | 'link' | 'content' | 'childList' | 'childLabel' | 'childItem' | 'childLink' | 'childLinkIcon' | 'childLinkHint' | 'childLinkBadgeSize' | 'childLinkBadge' | 'childLinkWrapper' | 'childLinkLabel' | 'childLinkLabelExternalIcon'>
+  b24ui?: Pick<NavigationMenu['slots'], 'item' | 'linkLeadingAvatarSize' | 'linkLeadingAvatar' | 'linkLeadingIcon' | 'linkLabel' | 'linkLabelExternalIcon' | 'linkTrailing' | 'linkLeadingHint' | 'linkLeadingBadgeSize' | 'linkLeadingBadge' | 'linkTrailingIcon' | 'label' | 'link' | 'content' | 'childList' | 'childLabel' | 'childItem' | 'childLink' | 'childLinkIcon' | 'childLinkHint' | 'childLinkBadgeSize' | 'childLinkBadge' | 'childLinkWrapper' | 'childLinkLabel' | 'childLinkLabelExternalIcon' | 'popoverWrapper'>
   [key: string]: any
 }
 
@@ -210,7 +210,7 @@ const rootProps = useForwardPropsEmits(computed(() => ({
 const accordionProps = useForwardPropsEmits(reactivePick(props, 'collapsible', 'disabled', 'type', 'unmountOnHide'), emits)
 const contentProps = toRef(() => props.content)
 const tooltipProps = toRef(() => defu(typeof props.tooltip === 'boolean' ? {} : props.tooltip, { delayDuration: 0, content: { side: 'right' } }) as TooltipProps)
-const popoverProps = toRef(() => defu(typeof props.popover === 'boolean' ? {} : props.popover, { mode: 'hover', content: { side: 'right', align: 'start', alignOffset: 2 } }) as PopoverProps)
+const popoverProps = toRef(() => defu(typeof props.popover === 'boolean' ? {} : props.popover, { arrow: true, mode: 'hover', content: { side: 'right', align: 'start', alignOffset: 2 } }) as PopoverProps)
 
 const [DefineLinkTemplate, ReuseLinkTemplate] = createReusableTemplate<{ item: NavigationMenuItem, index: number, active?: boolean }>()
 const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: NavigationMenuItem, index: number, level?: number }>({
@@ -376,48 +376,51 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
             </B24LinkBase>
 
             <template #content>
-              <slot :name="((item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>)" :item="item" :active="active || item.active" :index="index">
-                <ul :class="b24ui.childList({ class: [props.b24ui?.childList, item.b24ui?.childList] })">
-                  <li :class="b24ui.childLabel({ class: [props.b24ui?.childLabel, item.b24ui?.childLabel] })">
-                    {{ getLabel(item) }}
-                  </li>
-                  <li
-                    v-for="(childItem, childIndex) in item.children"
-                    :key="childIndex"
-                    :class="b24ui.childItem({ class: [props.b24ui?.childItem, item.b24ui?.childItem] })"
-                  >
-                    <B24Link v-slot="{ active: childActive, ...childSlotProps }" v-bind="pickLinkProps(childItem)" custom>
-                      <NavigationMenuLink as-child :active="childActive" @select="childItem.onSelect">
-                        <B24LinkBase
-                          v-bind="childSlotProps"
-                          :class="b24ui.childLink({ class: [props.b24ui?.childLink, item.b24ui?.childLink, childItem.class], active: childActive })"
-                        >
-                          <Component
-                            :is="childItem.icon"
-                            v-if="childItem.icon"
-                            :class="b24ui.childLinkIcon({ class: [props.b24ui?.childLinkIcon, item.b24ui?.childLinkIcon], active: childActive })"
-                          />
-                          <div
-                            v-if="childItem.hint"
-                            :class="b24ui.childLinkHint({ class: [props.b24ui?.childLinkHint, item.b24ui?.childLinkHint] })"
+              <div :class="b24ui.popoverWrapper({ class: props.b24ui?.popoverWrapper })">
+                <slot :name="((item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>)" :item="item" :active="active || item.active" :index="index">
+                  <ul :class="b24ui.childList({ class: [props.b24ui?.childList, item.b24ui?.childList] })">
+                    <li :class="b24ui.childLabel({ class: [props.b24ui?.childLabel, item.b24ui?.childLabel] })">
+                      {{ getLabel(item) }}
+                    </li>
+                    <li
+                      v-for="(childItem, childIndex) in item.children"
+                      :key="childIndex"
+                      :class="b24ui.childItem({ class: [props.b24ui?.childItem, item.b24ui?.childItem] })"
+                    >
+                      <B24Link v-slot="{ active: childActive, ...childSlotProps }" v-bind="pickLinkProps(childItem)" custom>
+                        <NavigationMenuLink as-child :active="childActive" @select="childItem.onSelect">
+                          <B24LinkBase
+                            v-bind="childSlotProps"
+                            :class="b24ui.childLink({ class: [props.b24ui?.childLink, item.b24ui?.childLink, childItem.class], active: childActive })"
                           >
-                            {{ childItem.hint }}
-                          </div>
+                            <Component
+                              :is="childItem.icon"
+                              v-if="childItem.icon"
+                              :class="b24ui.childLinkIcon({ class: [props.b24ui?.childLinkIcon, item.b24ui?.childLinkIcon], active: childActive })"
+                            />
+                            <div
+                              v-if="childItem.hint"
+                              :class="b24ui.childLinkHint({ class: [props.b24ui?.childLinkHint, item.b24ui?.childLinkHint] })"
+                            >
+                              {{ childItem.hint }}
+                            </div>
 
-                          <span :class="b24ui.childLinkLabel({ class: [props.b24ui?.childLinkLabel, item.b24ui?.childLinkLabel], active: childActive })">
-                            {{ getLabel(childItem) }}
-                          </span>
-                          <Component
-                            :is="typeof externalIcon === 'boolean' ? icons.external : externalIcon"
-                            v-if="childItem.target === '_blank' && externalIcon !== false"
-                            :class="b24ui.childLinkLabelExternalIcon({ class: [props.b24ui?.childLinkLabelExternalIcon, item.b24ui?.childLinkLabelExternalIcon], active: childActive })"
-                          />
-                        </B24LinkBase>
-                      </NavigationMenuLink>
-                    </B24Link>
-                  </li>
-                </ul>
-              </slot>
+                            <span :class="b24ui.childLinkLabel({ class: [props.b24ui?.childLinkLabel, item.b24ui?.childLinkLabel], active: childActive })">
+                          {{ getLabel(childItem) }}
+                        </span>
+                            <Component
+                              :is="typeof externalIcon === 'boolean' ? icons.external : externalIcon"
+                              v-if="childItem.target === '_blank' && externalIcon !== false"
+                              :class="b24ui.childLinkLabelExternalIcon({ class: [props.b24ui?.childLinkLabelExternalIcon, item.b24ui?.childLinkLabelExternalIcon], active: childActive })"
+                            />
+                          </B24LinkBase>
+                        </NavigationMenuLink>
+                      </B24Link>
+                    </li>
+                  </ul>
+                </slot>
+              </div>
+
             </template>
           </B24Popover>
           <B24Tooltip
