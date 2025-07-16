@@ -30,9 +30,7 @@ export default {
       'edge-dark:bg-(--ui-color-base-white-fixed)/3',
       'edge-dark:backdrop-blur-(--ui-bg-blur-less)'
     ].join(' '),
-    sidebarSlideoverContainer: [
-      'max-w-80'
-    ].join(' '),
+    sidebarSlideoverContainer: 'max-w-80',
     sidebarSlideover: [
       'h-full',
       'overflow-hidden',
@@ -58,9 +56,7 @@ export default {
       'edge-light:bg-(--ui-color-base-black-fixed)/5 edge-light:backdrop-blur-(--ui-bg-blur-less)',
       'edge-dark:bg-(--ui-color-base-white-fixed)/10 edge-dark:backdrop-blur-(--ui-bg-blur-less)'
     ].join(' '),
-    headerMenuIcon: [
-      'lg:hidden'
-    ].join(' '),
+    headerMenuIcon: 'lg:hidden',
     headerWrapper: [
       'min-w-0 flex-1',
       'h-full'
@@ -79,9 +75,10 @@ export default {
       'min-h-[30px]',
       'flex items-center'
     ].join(' '),
-    pageActionsWrapper: ']',
+    pageActionsWrapper: '',
     containerWrapperInner: '',
     pageBottomWrapper: '',
+    // @memo save
     // loadingWrapper: 'w-full flex flex-row flex-nowrap items-center justify-center',
     loadingWrapper: 'isolate absolute inline-block top-[50%] left-[50%] transform-[translate3d(-50%,-50%,0)] size-[110px]',
     loadingIcon: 'size-full animate-spin-slow'
@@ -98,15 +95,9 @@ export default {
     },
     useLightContent: {
       true: {
-        container: [
-          'lg:pb-2'
-        ].join(' '),
-        pageTopWrapper: [
-          'px-6 lg:px-0'
-        ].join(' '),
-        pageActionsWrapper: [
-          'p-6 lg:p-[15px]'
-        ].join(' '),
+        container: 'lg:pb-2',
+        pageTopWrapper: 'px-6 lg:px-0',
+        pageActionsWrapper: 'p-6 lg:p-[15px]',
         containerWrapper: [
           'p-6 lg:p-[15px]',
           'lg:rounded-(--ui-border-radius-md)',
@@ -116,12 +107,7 @@ export default {
         ].join(' ')
       },
       false: {
-        container: [
-          'px-(--content-area-shift)'
-        ].join(' '),
-        containerWrapper: [
-          // fix 'bg-(--ui-color-background-transparent)'
-        ].join(' ')
+        container: 'px-(--content-area-shift)'
       }
     },
     loading: {
@@ -129,9 +115,11 @@ export default {
     },
     useNavbar: {
       true: {
+        // @memo save
         // loadingWrapper: 'h-[calc(100dvh-var(--topbar-height))]'
       },
       false: {
+        // @memo save
         // loadingWrapper: 'h-dvh'
       }
     }

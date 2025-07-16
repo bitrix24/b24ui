@@ -28,7 +28,6 @@ export default {
       'min-w-[38px] max-w-full',
       'p-0',
       'm-0',
-
       'group relative',
       'cursor-pointer',
       'w-full',
@@ -110,12 +109,6 @@ export default {
     content: ''
   },
   variants: {
-    color: {
-      default: {
-        link: '',
-        childLink: ''
-      }
-    },
     orientation: {
       horizontal: {
         root: 'relative h-full items-center justify-between',
@@ -233,12 +226,8 @@ export default {
       disabled: false,
       active: false,
       class: {
-        link: [
-          'transition-colors'
-        ].join(' '),
-        linkLeadingIcon: [
-          'group-hover:text-(--ui-color-design-selection-content-icon)'
-        ].join(' ')
+        link: 'transition-colors',
+        linkLeadingIcon: 'group-hover:text-(--ui-color-design-selection-content-icon)'
       }
     },
     {
@@ -255,28 +244,14 @@ export default {
       active: true,
       orientation: 'horizontal',
       class: {
-        link: [
-          'menu-item-horizontal-active border-(--menu-item-border)'
-        ].join(' ')
+        link: 'menu-item-horizontal-active border-(--menu-item-border)'
       }
     },
     {
       active: true,
       orientation: 'vertical',
       class: {
-        link: [
-          'menu-item-vertical-active'
-        ].join(' ')
-      }
-    },
-    // endregion ////
-    // region highlight.Color ////
-    {
-      orientation: 'vertical',
-      level: true,
-      active: true,
-      class: {
-        link: 'after:bg-base-500'
+        link: 'menu-item-vertical-active'
       }
     }
     // endregion ////
