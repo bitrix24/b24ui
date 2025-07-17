@@ -46,6 +46,12 @@ export type Messages = {
   table: {
     noData: string
   }
+  sidebarLayout: {
+    open: string
+    close: string
+    slideoverTitle: string
+    slideoverDescription: string
+  }
 }
 
 export type Direction = 'ltr' | 'rtl'

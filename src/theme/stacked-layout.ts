@@ -1,10 +1,8 @@
 /**
+ * @deprecated
  * StackedLayout
  * ---
- * @todo: docs
- * @todo: test
- * @todo: playground
- * @todo: demo
+ * @todo: remove this docs / playground / demo / test
  */
 
 export default {

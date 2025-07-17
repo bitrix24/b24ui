@@ -56,6 +56,7 @@ import { ref, computed, watch, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
+import { useLocale } from '../composables/useLocale'
 import { useSidebarLayout } from '../composables/useSidebarLayout'
 import { tv } from '../utils/tv'
 import B24Slideover from './Slideover.vue'
@@ -72,6 +73,7 @@ const props = withDefaults(defineProps<SidebarLayoutProps>(), {
 })
 const slots = defineSlots<SidebarLayoutSlots>()
 
+const { t } = useLocale()
 const appConfig = useAppConfig() as SidebarLayout['AppConfig']
 
 const route = useRoute()
@@ -131,19 +133,17 @@ const handleNavigationClick = () => {
           v-if="isUseSideBar"
           :class="b24ui.headerMenuIcon({ class: props.b24ui?.headerMenuIcon })"
         >
-          <!-- @todo: lang -->
           <B24Slideover
             v-model:open="openSidebarSlideover"
-            title="Navigation"
-            description="Content navigation"
+            :title="t('sidebarLayout.slideoverTitle')"
+            :description="t('sidebarLayout.slideoverDescription')"
             side="left"
             :class="b24ui.sidebarSlideoverContainer({ class: props.b24ui?.sidebarSlideoverContainer })"
           >
-            <!-- @todo: lang -->
             <B24Button
-              aria-label="Open navigation"
-              color="air-secondary-accent"
-              size="sm"
+              :aria-label="t('sidebarLayout.open')"
+              color="air-tertiary"
+              size="md"
               :icon="HamburgerMenuIcon"
             />
 
@@ -151,13 +151,12 @@ const handleNavigationClick = () => {
               <div :class="b24ui.sidebarSlideover({ class: props.b24ui?.sidebarSlideover })">
                 <B24Sidebar>
                   <div :class="b24ui.sidebarSlideoverBtnClose({ class: props.b24ui?.sidebarSlideoverBtnClose })">
-                    <!-- @todo: lang -->
                     <B24ModalDialogClose>
                       <B24Button
                         color="air-tertiary"
                         size="lg"
                         :icon="Cross50Icon"
-                        aria-label="Close navigation"
+                        :aria-label="t('sidebarLayout.close')"
                       />
                     </B24ModalDialogClose>
                   </div>

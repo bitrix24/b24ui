@@ -52,6 +52,12 @@ export default defineLocale<Messages>({
     },
     table: {
       noData: 'ไม่มีข้อมูล'
+    },
+    sidebarLayout: {
+      open: 'เปิดการนำทาง',
+      close: 'ปิดการนำทาง',
+      slideoverTitle: 'การนำทาง',
+      slideoverDescription: 'การนำทางเนื้อหา'
     }
   }
 })

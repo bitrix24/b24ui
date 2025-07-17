@@ -52,6 +52,12 @@ export default defineLocale<Messages>({
     },
     table: {
       noData: 'Nenhum dado'
+    },
+    sidebarLayout: {
+      open: 'Abrir navegação',
+      close: 'Fechar navegação',
+      slideoverTitle: 'Navegação',
+      slideoverDescription: 'Navegação de conteúdo'
     }
   }
 })
