@@ -18,8 +18,12 @@ export default {
   variants: {
     color: {
       default: {
-        container: 'text-(--ui-color-design-plain-na-content)',
+        container: 'text-(--ui-color-design-plain-na-content-secondary)',
         border: 'border-(--ui-color-divider-default)'
+      },
+      accent: {
+        container: 'text-(--ui-color-design-plain-na-content)',
+        border: 'border-(--ui-color-divider-accent)'
       },
       less: {
         container: 'text-(--ui-color-base-6)',
