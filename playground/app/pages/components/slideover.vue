@@ -36,10 +36,11 @@ function openSlideover() {
       <ExampleCardSubTitle title="opening options" />
       <div class="mb-4 flex flex-row flex-wrap gap-2">
         <B24Slideover
+          side="right"
           title="First slideover"
           :b24ui="{ content: 'sm:max-w-1/2' }"
         >
-          <B24Button color="link" depth="dark" label="Open with nested" />
+          <B24Button label="Open with nested" />
 
           <template #body>
             <B24Container class="h-full w-full pb-4">
@@ -48,7 +49,7 @@ function openSlideover() {
           </template>
 
           <template #footer>
-            <B24Slideover title="Second slideover">
+            <B24Slideover side="right" title="Second slideover">
               <B24Button label="Open second" color="primary" />
 
               <template #body>
@@ -58,7 +59,7 @@ function openSlideover() {
               </template>
               <template #footer>
                 <B24ModalDialogClose>
-                  <B24Button label="Cancel" color="link" depth="dark" />
+                  <B24Button label="Cancel" />
                 </B24ModalDialogClose>
               </template>
             </B24Slideover>
@@ -69,8 +70,9 @@ function openSlideover() {
           title="Slideover on left side"
           description="This slideover has `side: 'left'` prop."
           side="left"
+          :b24ui="{ content: 'sm:max-w-1/2' }"
         >
-          <B24Button label="Open on left" color="default" depth="light" />
+          <B24Button label="Open on left" />
 
           <template #body>
             <Placeholder class="h-full w-full" />
@@ -82,7 +84,7 @@ function openSlideover() {
           description="This slideover has `side: 'top'` prop."
           side="top"
         >
-          <B24Button label="Open on top" color="link" depth="dark" />
+          <B24Button label="Open on top" />
 
           <template #body>
             <Placeholder class="h-48 w-full" />
@@ -92,9 +94,9 @@ function openSlideover() {
         <B24Slideover
           title="Slideover on bottom side"
           description="This slideover has `side: 'bottom'` prop."
-          side="bottom"
+          :b24ui="{ content: 'sm:max-w-1/2' }"
         >
-          <B24Button label="Open on bottom" color="default" depth="light" />
+          <B24Button label="Open on bottom" color="air-secondary-accent-2" />
 
           <template #body>
             <Placeholder class="h-48 w-full" />
@@ -107,13 +109,13 @@ function openSlideover() {
           description="This is useful to control the state yourself."
         >
           <template #body>
-            <Placeholder class="h-full w-full" />
+            <Placeholder class="h-48 w-full" />
           </template>
         </B24Slideover>
 
-        <B24Button label="Open with v-model" color="link" depth="dark" @click="open = true" />
+        <B24Button label="Open with v-model" @click="open = true" />
 
-        <B24Button label="Open programmatically" color="default" depth="light" @click="openSlideover" />
+        <B24Button label="Open programmatically" color="air-secondary-accent-1" @click="openSlideover" />
       </div>
 
       <ExampleCardSubTitle title="overlay" />
@@ -123,10 +125,10 @@ function openSlideover() {
           description="This slideover has `overlay-blur: off` prop."
           overlay-blur="off"
         >
-          <B24Button label="Open without overlay blur" color="link" depth="dark" />
+          <B24Button label="Open without overlay blur" />
 
           <template #body>
-            <Placeholder class="h-full w-full" />
+            <Placeholder class="h-48 w-full" />
           </template>
         </B24Slideover>
 
@@ -135,10 +137,10 @@ function openSlideover() {
           description="This slideover has `overlay: false` prop."
           :overlay="false"
         >
-          <B24Button label="Open without overlay" color="default" depth="light" />
+          <B24Button label="Open without overlay"  />
 
           <template #body>
-            <Placeholder class="h-full w-full" />
+            <Placeholder class="h-48 w-full" />
           </template>
         </B24Slideover>
 
@@ -148,10 +150,10 @@ function openSlideover() {
           :overlay="false"
           :modal="false"
         >
-          <B24Button label="Open without modal" color="link" depth="dark" />
+          <B24Button label="Open without modal" />
 
           <template #body>
-            <Placeholder class="h-full w-full" />
+            <Placeholder class="h-48 w-full" />
           </template>
         </B24Slideover>
       </div>
@@ -163,10 +165,10 @@ function openSlideover() {
           description="This slideover has `transition: false` prop."
           :transition="false"
         >
-          <B24Button label="Open without transition" color="link" depth="dark" />
+          <B24Button label="Open without transition" />
 
           <template #body>
-            <Placeholder class="h-full w-full" />
+            <Placeholder class="h-48 w-full" />
           </template>
         </B24Slideover>
 
@@ -175,10 +177,10 @@ function openSlideover() {
           description="This slideover has `portal: false` prop."
           :portal="false"
         >
-          <B24Button label="Open without portal" color="default" depth="light" />
+          <B24Button label="Open without portal"  />
 
           <template #body>
-            <Placeholder class="h-full w-full" />
+            <Placeholder class="h-48 w-full" />
           </template>
         </B24Slideover>
       </div>
@@ -190,10 +192,10 @@ function openSlideover() {
           description="This slideover has `dismissible: false` prop so it won't close when clicking outside."
           :dismissible="false"
         >
-          <B24Button label="Open unclosable" color="link" depth="dark" />
+          <B24Button label="Open unclosable" />
 
           <template #body>
-            <Placeholder class="h-full w-full" />
+            <Placeholder class="h-48 w-full" />
           </template>
         </B24Slideover>
 
@@ -202,10 +204,10 @@ function openSlideover() {
           description="This slideover has `close: false` prop."
           :close="false"
         >
-          <B24Button label="Open without close button" color="default" depth="light" />
+          <B24Button label="Open without close button" />
 
           <template #body>
-            <Placeholder class="h-full w-full" />
+            <Placeholder class="h-48 w-full" />
           </template>
         </B24Slideover>
 
@@ -214,8 +216,9 @@ function openSlideover() {
           description="The `close` prop inherits from the Button props."
           :close="{ color: 'danger', depth: 'dark', size: 'xs', rounded: true }"
           :b24ui="{ close: 'rounded-full py-4 px-2 -left-2' }"
+          side="right"
         >
-          <B24Button label="Open with custom close button" color="link" depth="dark" />
+          <B24Button label="Open with custom close button" />
 
           <template #body>
             <Placeholder class="h-full w-full" />
@@ -225,8 +228,9 @@ function openSlideover() {
         <B24Slideover
           title="Slideover with scoped slot close"
           description="This slideover has a scoped slot close that can be used to close the slideover from within the content."
+          side="right"
         >
-          <B24Button label="Open with scoped slot close" color="default" depth="light" />
+          <B24Button label="Open with scoped slot close" />
 
           <template #header="{ close }">
             <B24Button label="Close with scoped slot close" @click="close" />
@@ -250,8 +254,9 @@ function openSlideover() {
           title="Vivendum dignissim conceptam."
           description="Magna copiosae apeirian ius at."
           :close="{ label: 'Test' }"
+          :b24ui="{ content: 'sm:max-w-1/2' }"
         >
-          <B24Button label="Simple" color="link" depth="dark" />
+          <B24Button label="Simple" />
 
           <template #body>
             <B24Container>
@@ -260,10 +265,10 @@ function openSlideover() {
           </template>
           <template #footer>
             <B24ModalDialogClose>
-              <B24Button rounded label="Send" color="primary" size="sm" />
+              <B24Button label="Send" color="air-primary-success" />
             </B24ModalDialogClose>
             <B24ModalDialogClose>
-              <B24Button rounded label="Cancel" color="link" depth="dark" size="sm" />
+              <B24Button label="Cancel" color="air-tertiary" />
             </B24ModalDialogClose>
           </template>
         </B24Slideover>
@@ -273,99 +278,104 @@ function openSlideover() {
           description="Ius dicat feugiat no, vix cu modo dicat principes. Eu cum iuvaret debitis voluptatibus, esse perfecto reformidans id has."
           :b24ui="{ content: 'sm:max-w-[calc(100vw-4rem)]' }"
         >
-          <B24Button label="Long text" color="default" depth="light" />
+          <B24Button label="Long text" />
 
           <template #body>
             <B24Container>
-              <p>Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an. Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Nec labore cetero theophrastus no, ei vero facer veritus nec. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui.</p>
-              <p>Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Ius dicat feugiat no, vix cu modo dicat principes. Ceteros assentior omittantur cum ad. Magna copiosae apeirian ius at. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Nisl omittam complectitur pro an, quem omnes munere id vix.</p>
-              <p>Per in illud petentium iudicabit, integre sententiae pro no. Sale liber et vel. . Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Solum vituperata definitiones te vis, vis alia falli doming ea. Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an.</p>
-              <p>Nisl omittam complectitur pro an, quem omnes munere id vix. Odio contentiones sed cu, usu commodo prompta prodesset id. An eos iusto solet, id mel dico habemus. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula.</p>
-              <p>Tation delenit percipitur at vix. An nam debet instructior, commodo mediocrem id cum. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Solum vituperata definitiones te vis, vis alia falli doming ea.</p>
-              <p>Solum vituperata definitiones te vis, vis alia falli doming ea. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Solum vituperata definitiones te vis, vis alia falli doming ea. Tation delenit percipitur at vix. Sale liber et vel. Ius dicat feugiat no, vix cu modo dicat principes.</p>
-              <p>Postulant assueverit ea his. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Per cu iracundia splendide. Magna copiosae apeirian ius at. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui. Lorem ipsum dolor sit amet, an eos lorem ancillae expetenda, vim et utamur quaestio.</p>
-              <p>Postulant assueverit ea his. Sale liber et vel. Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an. Sale liber et vel. Eu cum iuvaret debitis voluptatibus, esse perfecto reformidans id has.</p>
-              <p>Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. An eos iusto solet, id mel dico habemus. Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Per in illud petentium iudicabit, integre sententiae pro no.</p>
-              <p>Per cu iracundia splendide. Per in illud petentium iudicabit, integre sententiae pro no. Ceteros assentior omittantur cum ad. Nisl omittam complectitur pro an, quem omnes munere id vix. Per in illud petentium iudicabit, integre sententiae pro no.</p>
-              <p>Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an. Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Nec labore cetero theophrastus no, ei vero facer veritus nec. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui.</p>
-              <p>Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Ius dicat feugiat no, vix cu modo dicat principes. Ceteros assentior omittantur cum ad. Magna copiosae apeirian ius at. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Nisl omittam complectitur pro an, quem omnes munere id vix.</p>
-              <p>Per in illud petentium iudicabit, integre sententiae pro no. Sale liber et vel. . Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Solum vituperata definitiones te vis, vis alia falli doming ea. Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an.</p>
-              <p>Nisl omittam complectitur pro an, quem omnes munere id vix. Odio contentiones sed cu, usu commodo prompta prodesset id. An eos iusto solet, id mel dico habemus. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula.</p>
-              <p>Tation delenit percipitur at vix. An nam debet instructior, commodo mediocrem id cum. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Solum vituperata definitiones te vis, vis alia falli doming ea.</p>
-              <p>Solum vituperata definitiones te vis, vis alia falli doming ea. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Solum vituperata definitiones te vis, vis alia falli doming ea. Tation delenit percipitur at vix. Sale liber et vel. Ius dicat feugiat no, vix cu modo dicat principes.</p>
-              <p>Postulant assueverit ea his. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Per cu iracundia splendide. Magna copiosae apeirian ius at. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui. Lorem ipsum dolor sit amet, an eos lorem ancillae expetenda, vim et utamur quaestio.</p>
-              <p>Postulant assueverit ea his. Sale liber et vel. Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an. Sale liber et vel. Eu cum iuvaret debitis voluptatibus, esse perfecto reformidans id has.</p>
-              <p>Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. An eos iusto solet, id mel dico habemus. Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Per in illud petentium iudicabit, integre sententiae pro no.</p>
-              <p>Per cu iracundia splendide. Per in illud petentium iudicabit, integre sententiae pro no. Ceteros assentior omittantur cum ad. Nisl omittam complectitur pro an, quem omnes munere id vix. Per in illud petentium iudicabit, integre sententiae pro no.</p>
-              <p>Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an. Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Nec labore cetero theophrastus no, ei vero facer veritus nec. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui.</p>
-              <p>Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Ius dicat feugiat no, vix cu modo dicat principes. Ceteros assentior omittantur cum ad. Magna copiosae apeirian ius at. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Nisl omittam complectitur pro an, quem omnes munere id vix.</p>
-              <p>Per in illud petentium iudicabit, integre sententiae pro no. Sale liber et vel. . Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Solum vituperata definitiones te vis, vis alia falli doming ea. Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an.</p>
-              <p>Nisl omittam complectitur pro an, quem omnes munere id vix. Odio contentiones sed cu, usu commodo prompta prodesset id. An eos iusto solet, id mel dico habemus. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula.</p>
-              <p>Tation delenit percipitur at vix. An nam debet instructior, commodo mediocrem id cum. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Solum vituperata definitiones te vis, vis alia falli doming ea.</p>
-              <p>Solum vituperata definitiones te vis, vis alia falli doming ea. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Solum vituperata definitiones te vis, vis alia falli doming ea. Tation delenit percipitur at vix. Sale liber et vel. Ius dicat feugiat no, vix cu modo dicat principes.</p>
-              <p>Postulant assueverit ea his. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Per cu iracundia splendide. Magna copiosae apeirian ius at. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui. Lorem ipsum dolor sit amet, an eos lorem ancillae expetenda, vim et utamur quaestio.</p>
-              <p>Postulant assueverit ea his. Sale liber et vel. Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an. Sale liber et vel. Eu cum iuvaret debitis voluptatibus, esse perfecto reformidans id has.</p>
-              <p>Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. An eos iusto solet, id mel dico habemus. Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Per in illud petentium iudicabit, integre sententiae pro no.</p>
-              <p>Per cu iracundia splendide. Per in illud petentium iudicabit, integre sententiae pro no. Ceteros assentior omittantur cum ad. Nisl omittam complectitur pro an, quem omnes munere id vix. Per in illud petentium iudicabit, integre sententiae pro no.</p>
-              <p>Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an. Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Nec labore cetero theophrastus no, ei vero facer veritus nec. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui.</p>
-              <p>Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Ius dicat feugiat no, vix cu modo dicat principes. Ceteros assentior omittantur cum ad. Magna copiosae apeirian ius at. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Nisl omittam complectitur pro an, quem omnes munere id vix.</p>
-              <p>Per in illud petentium iudicabit, integre sententiae pro no. Sale liber et vel. . Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Solum vituperata definitiones te vis, vis alia falli doming ea. Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an.</p>
-              <p>Nisl omittam complectitur pro an, quem omnes munere id vix. Odio contentiones sed cu, usu commodo prompta prodesset id. An eos iusto solet, id mel dico habemus. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula.</p>
-              <p>Tation delenit percipitur at vix. An nam debet instructior, commodo mediocrem id cum. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Solum vituperata definitiones te vis, vis alia falli doming ea.</p>
-              <p>Solum vituperata definitiones te vis, vis alia falli doming ea. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Solum vituperata definitiones te vis, vis alia falli doming ea. Tation delenit percipitur at vix. Sale liber et vel. Ius dicat feugiat no, vix cu modo dicat principes.</p>
-              <p>Postulant assueverit ea his. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Per cu iracundia splendide. Magna copiosae apeirian ius at. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui. Lorem ipsum dolor sit amet, an eos lorem ancillae expetenda, vim et utamur quaestio.</p>
-              <p>Postulant assueverit ea his. Sale liber et vel. Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an. Sale liber et vel. Eu cum iuvaret debitis voluptatibus, esse perfecto reformidans id has.</p>
-              <p>Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. An eos iusto solet, id mel dico habemus. Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Per in illud petentium iudicabit, integre sententiae pro no.</p>
-              <p>Per cu iracundia splendide. Per in illud petentium iudicabit, integre sententiae pro no. Ceteros assentior omittantur cum ad. Nisl omittam complectitur pro an, quem omnes munere id vix. Per in illud petentium iudicabit, integre sententiae pro no.</p>
+              <ProseP>Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an. Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Nec labore cetero theophrastus no, ei vero facer veritus nec. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui.</ProseP>
+              <ProseP>Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Ius dicat feugiat no, vix cu modo dicat principes. Ceteros assentior omittantur cum ad. Magna copiosae apeirian ius at. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Nisl omittam complectitur pro an, quem omnes munere id vix.</ProseP>
+              <ProseP>Per in illud petentium iudicabit, integre sententiae pro no. Sale liber et vel. . Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Solum vituperata definitiones te vis, vis alia falli doming ea. Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an.</ProseP>
+              <ProseP>Nisl omittam complectitur pro an, quem omnes munere id vix. Odio contentiones sed cu, usu commodo prompta prodesset id. An eos iusto solet, id mel dico habemus. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula.</ProseP>
+              <ProseP>Tation delenit percipitur at vix. An nam debet instructior, commodo mediocrem id cum. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Solum vituperata definitiones te vis, vis alia falli doming ea.</ProseP>
+              <ProseP>Solum vituperata definitiones te vis, vis alia falli doming ea. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Solum vituperata definitiones te vis, vis alia falli doming ea. Tation delenit percipitur at vix. Sale liber et vel. Ius dicat feugiat no, vix cu modo dicat principes.</ProseP>
+              <ProseP>Postulant assueverit ea his. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Per cu iracundia splendide. Magna copiosae apeirian ius at. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui. Lorem ipsum dolor sit amet, an eos lorem ancillae expetenda, vim et utamur quaestio.</ProseP>
+              <ProseP>Postulant assueverit ea his. Sale liber et vel. Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an. Sale liber et vel. Eu cum iuvaret debitis voluptatibus, esse perfecto reformidans id has.</ProseP>
+              <ProseP>Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. An eos iusto solet, id mel dico habemus. Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Per in illud petentium iudicabit, integre sententiae pro no.</ProseP>
+              <ProseP>Per cu iracundia splendide. Per in illud petentium iudicabit, integre sententiae pro no. Ceteros assentior omittantur cum ad. Nisl omittam complectitur pro an, quem omnes munere id vix. Per in illud petentium iudicabit, integre sententiae pro no.</ProseP>
+              <ProseP>Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an. Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Nec labore cetero theophrastus no, ei vero facer veritus nec. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui.</ProseP>
+              <ProseP>Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Ius dicat feugiat no, vix cu modo dicat principes. Ceteros assentior omittantur cum ad. Magna copiosae apeirian ius at. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Nisl omittam complectitur pro an, quem omnes munere id vix.</ProseP>
+              <ProseP>Per in illud petentium iudicabit, integre sententiae pro no. Sale liber et vel. . Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Solum vituperata definitiones te vis, vis alia falli doming ea. Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an.</ProseP>
+              <ProseP>Nisl omittam complectitur pro an, quem omnes munere id vix. Odio contentiones sed cu, usu commodo prompta prodesset id. An eos iusto solet, id mel dico habemus. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula.</ProseP>
+              <ProseP>Tation delenit percipitur at vix. An nam debet instructior, commodo mediocrem id cum. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Solum vituperata definitiones te vis, vis alia falli doming ea.</ProseP>
+              <ProseP>Solum vituperata definitiones te vis, vis alia falli doming ea. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Solum vituperata definitiones te vis, vis alia falli doming ea. Tation delenit percipitur at vix. Sale liber et vel. Ius dicat feugiat no, vix cu modo dicat principes.</ProseP>
+              <ProseP>Postulant assueverit ea his. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Per cu iracundia splendide. Magna copiosae apeirian ius at. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui. Lorem ipsum dolor sit amet, an eos lorem ancillae expetenda, vim et utamur quaestio.</ProseP>
+              <ProseP>Postulant assueverit ea his. Sale liber et vel. Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an. Sale liber et vel. Eu cum iuvaret debitis voluptatibus, esse perfecto reformidans id has.</ProseP>
+              <ProseP>Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. An eos iusto solet, id mel dico habemus. Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Per in illud petentium iudicabit, integre sententiae pro no.</ProseP>
+              <ProseP>Per cu iracundia splendide. Per in illud petentium iudicabit, integre sententiae pro no. Ceteros assentior omittantur cum ad. Nisl omittam complectitur pro an, quem omnes munere id vix. Per in illud petentium iudicabit, integre sententiae pro no.</ProseP>
+              <ProseP>Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an. Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Nec labore cetero theophrastus no, ei vero facer veritus nec. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui.</ProseP>
+              <ProseP>Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Ius dicat feugiat no, vix cu modo dicat principes. Ceteros assentior omittantur cum ad. Magna copiosae apeirian ius at. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Nisl omittam complectitur pro an, quem omnes munere id vix.</ProseP>
+              <ProseP>Per in illud petentium iudicabit, integre sententiae pro no. Sale liber et vel. . Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Solum vituperata definitiones te vis, vis alia falli doming ea. Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an.</ProseP>
+              <ProseP>Nisl omittam complectitur pro an, quem omnes munere id vix. Odio contentiones sed cu, usu commodo prompta prodesset id. An eos iusto solet, id mel dico habemus. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula.</ProseP>
+              <ProseP>Tation delenit percipitur at vix. An nam debet instructior, commodo mediocrem id cum. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Solum vituperata definitiones te vis, vis alia falli doming ea.</ProseP>
+              <ProseP>Solum vituperata definitiones te vis, vis alia falli doming ea. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Solum vituperata definitiones te vis, vis alia falli doming ea. Tation delenit percipitur at vix. Sale liber et vel. Ius dicat feugiat no, vix cu modo dicat principes.</ProseP>
+              <ProseP>Postulant assueverit ea his. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Per cu iracundia splendide. Magna copiosae apeirian ius at. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui. Lorem ipsum dolor sit amet, an eos lorem ancillae expetenda, vim et utamur quaestio.</ProseP>
+              <ProseP>Postulant assueverit ea his. Sale liber et vel. Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an. Sale liber et vel. Eu cum iuvaret debitis voluptatibus, esse perfecto reformidans id has.</ProseP>
+              <ProseP>Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. An eos iusto solet, id mel dico habemus. Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Per in illud petentium iudicabit, integre sententiae pro no.</ProseP>
+              <ProseP>Per cu iracundia splendide. Per in illud petentium iudicabit, integre sententiae pro no. Ceteros assentior omittantur cum ad. Nisl omittam complectitur pro an, quem omnes munere id vix. Per in illud petentium iudicabit, integre sententiae pro no.</ProseP>
+              <ProseP>Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an. Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Nec labore cetero theophrastus no, ei vero facer veritus nec. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui.</ProseP>
+              <ProseP>Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Ius dicat feugiat no, vix cu modo dicat principes. Ceteros assentior omittantur cum ad. Magna copiosae apeirian ius at. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Nisl omittam complectitur pro an, quem omnes munere id vix.</ProseP>
+              <ProseP>Per in illud petentium iudicabit, integre sententiae pro no. Sale liber et vel. . Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Solum vituperata definitiones te vis, vis alia falli doming ea. Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an.</ProseP>
+              <ProseP>Nisl omittam complectitur pro an, quem omnes munere id vix. Odio contentiones sed cu, usu commodo prompta prodesset id. An eos iusto solet, id mel dico habemus. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula.</ProseP>
+              <ProseP>Tation delenit percipitur at vix. An nam debet instructior, commodo mediocrem id cum. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Solum vituperata definitiones te vis, vis alia falli doming ea.</ProseP>
+              <ProseP>Solum vituperata definitiones te vis, vis alia falli doming ea. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Solum vituperata definitiones te vis, vis alia falli doming ea. Tation delenit percipitur at vix. Sale liber et vel. Ius dicat feugiat no, vix cu modo dicat principes.</ProseP>
+              <ProseP>Postulant assueverit ea his. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Per cu iracundia splendide. Magna copiosae apeirian ius at. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui. Lorem ipsum dolor sit amet, an eos lorem ancillae expetenda, vim et utamur quaestio.</ProseP>
+              <ProseP>Postulant assueverit ea his. Sale liber et vel. Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an. Sale liber et vel. Eu cum iuvaret debitis voluptatibus, esse perfecto reformidans id has.</ProseP>
+              <ProseP>Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. An eos iusto solet, id mel dico habemus. Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Per in illud petentium iudicabit, integre sententiae pro no.</ProseP>
+              <ProseP>Per cu iracundia splendide. Per in illud petentium iudicabit, integre sententiae pro no. Ceteros assentior omittantur cum ad. Nisl omittam complectitur pro an, quem omnes munere id vix. Per in illud petentium iudicabit, integre sententiae pro no.</ProseP>
             </B24Container>
           </template>
 
           <template #footer>
             <B24ModalDialogClose>
-              <B24Button rounded label="Send" color="primary" size="sm" />
+              <B24Button label="Send" color="air-primary-success" />
             </B24ModalDialogClose>
             <B24ModalDialogClose>
-              <B24Button rounded label="Cancel" color="link" depth="dark" size="sm" />
+              <B24Button label="Cancel" color="air-tertiary" />
             </B24ModalDialogClose>
           </template>
         </B24Slideover>
-
+<!--@todo use B24SidebarLayout-->
         <B24Slideover
           title="File upload"
           :b24ui="{
-            body: 'm-5 p-5 bg-white dark:bg-white/10 rounded'
+            content: 'sm:max-w-[calc(100vw-4rem)]',
+            dd_body: 'm-5 p-5 bg-white dark:bg-white/10 rounded'
           }"
         >
-          <B24Button label="Upload file" color="link" depth="dark" />
+          <B24Button label="Upload file" />
 
           <template #body>
-            <div class="flex flex-col gap-4">
-              <div class="w-full flex flex-row flex-nowrap items-center justify-start gap-3">
-                <div class="size-8xl rounded-xs border border-base-100 dark:border-white/20 flex flex-col items-center justify-center">
-                  <FileUploadIcon class="size-10 text-base-600" />
+            <B24SidebarLayout
+              :use-light-content="false"
+              class="h-48 min-h-48"
+            >
+              <div class="flex flex-col gap-4">
+                <div class="w-full flex flex-row flex-nowrap items-center justify-start gap-3">
+                  <div class="size-8xl rounded-xs border border-base-100 dark:border-white/20 flex flex-col items-center justify-center">
+                    <FileUploadIcon class="size-10 text-base-600" />
+                  </div>
+                  <div class="flex flex-col flex-nowrap gap-1">
+                    <ProseH5 class="mb-0">
+                      start-ui.md
+                    </ProseH5>
+                    <ProseP small accent="less-more">
+                      650 bytes
+                    </ProseP>
+                  </div>
                 </div>
-                <div class="flex flex-col flex-nowrap gap-1">
-                  <div class="font-bold text-h5">
-                    start-ui.md
-                  </div>
-                  <div class="text-sm text-base-500 dark:text-base-600">
-                    650 bytes
-                  </div>
+                <B24Separator />
+                <div class="w-full">
+                  <B24Textarea autofocus placeholder="Add a comment" autoresize :rows="1" :maxrows="4" />
                 </div>
               </div>
-              <B24Separator />
-              <div class="w-full">
-                <B24Textarea autofocus placeholder="Add a comment" autoresize :rows="1" :maxrows="4" />
-              </div>
-            </div>
+            </B24SidebarLayout>
           </template>
-
           <template #footer>
             <B24ModalDialogClose>
-              <B24Button rounded label="Send" color="primary" size="sm" />
+              <B24Button label="Send" color="air-primary-success" />
             </B24ModalDialogClose>
             <B24ModalDialogClose>
-              <B24Button rounded label="Cancel" color="link" depth="dark" size="sm" />
+              <B24Button label="Cancel" color="air-tertiary" />
             </B24ModalDialogClose>
           </template>
         </B24Slideover>

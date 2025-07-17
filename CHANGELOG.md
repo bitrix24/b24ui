@@ -9,7 +9,7 @@
   - add prop small
   - add prop accent {default, accent, accent-more, less, less-more}
 * ProseHr
-  - add prop accent {default, accent, accent-more, less, less-more}
+  - fix color
 * ProseH*
   - fix color
   - add prop accent {default, accent, accent-more, less, less-more}

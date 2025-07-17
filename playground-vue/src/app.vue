@@ -140,7 +140,7 @@ const makeLoading = async () => {
   })
 }
 
-const demoTop = computed<NavigationMenuItem[]>(() => {
+const menuTop = computed<NavigationMenuItem[]>(() => {
   return [
     {
       label: 'Home',
@@ -227,10 +227,9 @@ const checkedUseLightContent = ref(true)
       </template>
 
       <template #navbar>
-        <!-- @todo remove this -->
         <B24NavbarSection class="hidden sm:inline-flex">
           <B24NavigationMenu
-            :items="demoTop"
+            :items="menuTop"
             variant="pill"
             orientation="horizontal"
           />

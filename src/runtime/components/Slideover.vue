@@ -65,9 +65,6 @@ export interface SlideoverProps extends DialogRootProps {
   class?: any
   b24ui?: Slideover['slots']
 }
-/**
- * @todo add Pick<Xxxx
- */
 
 export interface SlideoverEmits extends DialogRootEmits {
   'after:leave': []
@@ -106,7 +103,7 @@ const props = withDefaults(defineProps<SlideoverProps>(), {
   transition: true,
   modal: true,
   dismissible: true,
-  side: 'right',
+  side: 'bottom',
   scrollbarThin: true,
   overlayBlur: 'auto'
 })

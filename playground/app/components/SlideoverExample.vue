@@ -15,10 +15,10 @@ const emit = defineEmits(['close'])
     :description="description"
   >
     <template #body>
-      <Placeholder class="h-full" />
+      <Placeholder class="h-48" />
     </template>
     <template #footer>
-      <B24Button color="success" rounded label="Close" size="sm" @click="emit('close')" />
+      <B24Button color="air-primary-success" label="Close" @click="emit('close')" />
     </template>
   </B24Slideover>
 </template>
