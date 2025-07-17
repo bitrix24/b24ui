@@ -91,7 +91,7 @@ const componentsContent: IComponentInfo[] = [
 ]
 
 const componentsProse: IComponentInfo[] = [
-  { id: 'show', description: '(~) Show same prose', iconData: TextCheckIcon }
+  { id: 'show', description: '(+) Show same prose', iconData: TextCheckIcon }
 ]
 
 const groups: IPageGroup[] = [

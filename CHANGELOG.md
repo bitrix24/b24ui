@@ -3,10 +3,41 @@
 ## [0.8.0](https://github.com/bitrix24/b24ui/compare/v0.7.2...v0.8.0) (2025-07-xx)
 
 * chore(AirWeb): add
-* button:
+* NavigationMenu:
+  - props.hint
+  - remove contentOrientation, highlight, highlightColor, arrow, color, variant.link
+* SidebarLayout:
+  - slots.content-top
+  - slots.content-actions
+  - slots.loading
+  - loading
+* StackedLayout - remove (@todo)
+* Button:
   - normal-case = true
-  - is-air = true
-  - size = xl/lg/md/sm/xs/xxs
+  - size = xl, lg, md, sm, xs, xxs
+  - color 
+    - air-primary, air-primary-success, air-primary-alert, air-primary-copilot
+    - air-secondary, air-secondary-alert, air-secondary-accent, air-secondary-accent-1, air-secondary-accent-2
+    - air-tertiary, air-tertiary-accent, air-tertiary-no-accent
+    - air-selection
+    - @deprecate
+      - default, danger, success, warning, primary, secondary, collab, ai, link
+  - depth - @deprecate
+* Separator
+  - type - add: double
+  - colors
+    - add: less
+    - remove: danger, success, warning, primary, secondary, collab, ai
+  - size
+    - add: thin, thick
+    - remove: xs, sm, md, lg, xl
+* ProseP
+  - fix color
+  - add prop small
+  - add prop accent {default, thick, thin}
+* ProseH*
+  - fix color
+  - add prop accent {default, thick, thin}
 
 ## [0.7.2](https://github.com/bitrix24/b24ui/compare/v0.7.1...v0.7.2) (2025-07-14)
 
