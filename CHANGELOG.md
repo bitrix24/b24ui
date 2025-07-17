@@ -42,6 +42,7 @@
 * Skeleton
   - add prop accent {default, accent, less}
 
+@todo test Separator - double
 
 ## [0.7.2](https://github.com/bitrix24/b24ui/compare/v0.7.1...v0.7.2) (2025-07-14)
 
