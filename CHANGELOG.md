@@ -2,7 +2,17 @@
 
 ## [0.8.0](https://github.com/bitrix24/b24ui/compare/v0.7.2...v0.8.0) (2025-07-xx)
 
+* **StackedLayout - remove (@todo)**
 * chore(AirWeb): add
+* ProseP
+  - fix color
+  - add prop small
+  - add prop accent {default, accent, accent-more, less, less-more}
+* ProseHr
+  - add prop accent {default, accent, accent-more, less, less-more}
+* ProseH*
+  - fix color
+  - add prop accent {default, accent, accent-more, less, less-more}
 * NavigationMenu:
   - props.hint
   - remove contentOrientation, highlight, highlightColor, arrow, color, variant.link
@@ -11,7 +21,6 @@
   - slots.content-actions
   - slots.loading
   - loading
-* StackedLayout - remove (@todo)
 * Button:
   - normal-case = true
   - size = xl, lg, md, sm, xs, xxs
@@ -25,19 +34,14 @@
   - depth - @deprecate
 * Separator
   - type - add: double
-  - colors
-    - add: less, accent
-    - remove: danger, success, warning, primary, secondary, collab, ai
+  - remove prop colors
+  - add prop accent {default, accent, less}
   - size
     - add: thin, thick
     - remove: xs, sm, md, lg, xl
-* ProseP
-  - fix color
-  - add prop small
-  - add prop accent {default, thick, thin}
-* ProseH*
-  - fix color
-  - add prop accent {default, thick, thin}
+* Skeleton
+  - add prop accent {default, accent, less}
+
 
 ## [0.7.2](https://github.com/bitrix24/b24ui/compare/v0.7.1...v0.7.2) (2025-07-14)
 

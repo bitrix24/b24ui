@@ -7,7 +7,7 @@ import Bitrix24Icon from '@bitrix24/b24icons-vue/common-service/Bitrix24Icon'
 
 usePageMeta.setPageTitle('Separator')
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
-const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
+const accents = Object.keys(theme.variants.accent) as Array<keyof typeof theme.variants.accent>
 </script>
 
 <template>
@@ -15,7 +15,7 @@ const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.var
     <ExampleCard title="Bitrix24 UI">
       <div class="mt-4 flex flex-col gap-4">
         <div>
-          <ProseP small accent="thick">
+          <ProseP small accent="less-more">
             An open source UI components corresponding to the Bitrix24 interface.
           </ProseP>
         </div>
@@ -62,14 +62,14 @@ const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.var
       </div>
     </ExampleCard>
 
-    <ExampleCard title="color">
+    <ExampleCard title="accent">
       <div class="mt-4 flex flex-col gap-4">
         <B24Separator
-          v-for="color in colors"
-          :key="color"
-          :label="color as string"
+          v-for="accent in accents"
+          :key="accent"
+          :label="accent as string"
           size="thick"
-          :color="color"
+          :accent="accent"
         />
       </div>
     </ExampleCard>

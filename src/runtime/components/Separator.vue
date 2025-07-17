@@ -27,7 +27,7 @@ export interface SeparatorProps extends Pick<_SeparatorProps, 'decorative'> {
   /**
    * @defaultValue 'default'
    */
-  color?: Separator['variants']['color']
+  accent?: Separator['variants']['accent']
   /**
    * @defaultValue 'thin'
    */
@@ -59,7 +59,7 @@ import { tv } from '../utils/tv'
 import B24Avatar from './Avatar.vue'
 
 const props = withDefaults(defineProps<SeparatorProps>(), {
-  color: 'default',
+  accent: 'default',
   orientation: 'horizontal',
   size: 'thin',
   type: 'solid'
@@ -71,7 +71,7 @@ const appConfig = useAppConfig() as Separator['AppConfig']
 const rootProps = useForwardProps(reactivePick(props, 'as', 'decorative', 'orientation'))
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.separator || {}) })({
-  color: props.color,
+  accent: props.accent,
   orientation: props.orientation,
   size: props.size,
   type: props.type

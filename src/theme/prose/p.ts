@@ -20,9 +20,11 @@ export default {
       false: 'text-base'
     },
     accent: {
-      default: 'text-(--ui-color-design-plain-content)',
-      thick: 'text-(--ui-color-design-plain-na-content)',
-      thin: 'text-(--ui-color-design-plain-na-content-secondary)'
+      'default': 'text-(--ui-color-design-plain-content)',
+      'accent': 'text-(--ui-color-accent-brand-blue)',
+      'accent-more': 'text-(--ui-color-accent-soft-element-blue)',
+      'less': 'text-(--ui-color-design-plain-na-content)',
+      'less-more': 'text-(--ui-color-design-plain-na-content-secondary)'
     }
   },
   defaultVariants: {

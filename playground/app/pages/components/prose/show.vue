@@ -47,6 +47,11 @@ const demoPreObj = [
         <ProseH2>Your Growth Is Our Profession</ProseH2>
 
         <ProseP>We are the <ProseStrong>industry leaders</ProseStrong> in digital marketing since 2010. Our team helps businesses increase sales using <ProseEm>cutting-edge technologies</ProseEm> and proven methodologies.</ProseP>
+        <ProseP small>We are the <ProseStrong>industry leaders</ProseStrong> in digital marketing since 2010. Our team helps businesses increase sales using <ProseEm>cutting-edge technologies</ProseEm> and proven methodologies.</ProseP>
+        <ProseP accent="accent">We are the <ProseStrong>industry leaders</ProseStrong> in digital marketing since 2010. Our team helps businesses increase sales using <ProseEm>cutting-edge technologies</ProseEm> and proven methodologies.</ProseP>
+        <ProseP accent="accent-more">We are the <ProseStrong>industry leaders</ProseStrong> in digital marketing since 2010. Our team helps businesses increase sales using <ProseEm>cutting-edge technologies</ProseEm> and proven methodologies.</ProseP>
+        <ProseP accent="less">We are the <ProseStrong>industry leaders</ProseStrong> in digital marketing since 2010. Our team helps businesses increase sales using <ProseEm>cutting-edge technologies</ProseEm> and proven methodologies.</ProseP>
+        <ProseP accent="less-more">We are the <ProseStrong>industry leaders</ProseStrong> in digital marketing since 2010. Our team helps businesses increase sales using <ProseEm>cutting-edge technologies</ProseEm> and proven methodologies.</ProseP>
 
         <ProseBlockquote>
           "Working with this agency boosted our revenue by 300% in six months!"<br>

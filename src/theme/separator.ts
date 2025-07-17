@@ -16,7 +16,7 @@ export default {
     label: 'text-(length:--ui-font-size-sm)'
   },
   variants: {
-    color: {
+    accent: {
       default: {
         container: 'text-(--ui-color-design-plain-na-content-secondary)',
         border: 'border-(--ui-color-divider-default)'
@@ -88,7 +88,7 @@ export default {
     // endregion ////
   ],
   defaultVariants: {
-    color: 'default',
+    accent: 'default',
     size: 'thin',
     type: 'solid'
   }
