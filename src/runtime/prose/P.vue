@@ -6,12 +6,17 @@ import type { ComponentConfig } from '../types/utils'
 type ProseP = ComponentConfig<typeof theme, AppConfig, 'p', 'b24ui.prose'>
 
 export interface ProsePProps {
+  /**
+   * @defaultValue false
+   */
+  small?: boolean
+  /**
+   * @defaultValue 'default'
+   */
+  accent?: ProseP['variants']['accent']
   class?: any
   b24ui?: ProseP['slots']
 }
-/**
- * @todo add Pick<Xxxx
- */
 
 export interface ProsePSlots {
   default(props?: {}): any
@@ -23,13 +28,19 @@ import { computed } from 'vue'
 import { useAppConfig } from '#imports'
 import { tv } from '../utils/tv'
 
-const props = defineProps<ProsePProps>()
+const props = withDefaults(defineProps<ProsePProps>(), {
+  small: false,
+  accent: 'default'
+})
+
 defineSlots<ProsePSlots>()
 
 const appConfig = useAppConfig() as ProseP['AppConfig']
 
-// eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.p || {}) })())
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.p || {}) })({
+  small: Boolean(props.small),
+  accent: props.accent
+}))
 </script>
 
 <template>
