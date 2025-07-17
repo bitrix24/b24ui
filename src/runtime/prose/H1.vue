@@ -9,11 +9,12 @@ export interface ProseH1Props {
   class?: any
   b24ui?: ProseH1['slots']
 }
-/**
- * @todo add Pick<Xxxx
- */
 
 export interface ProseH1Slots {
+  /**
+   * @defaultValue 'default'
+   */
+  accent?: ProseH1['variants']['accent']
   default(props?: {}): any
 }
 </script>
@@ -23,13 +24,16 @@ import { computed } from 'vue'
 import { useAppConfig } from '#imports'
 import { tv } from '../utils/tv'
 
-const props = defineProps<ProseH1Props>()
+const props = withDefaults(defineProps<ProseH1Props>(), {
+  accent: 'default'
+})
 defineSlots<ProseH1Slots>()
 
 const appConfig = useAppConfig() as ProseH1['AppConfig']
 
-// eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.h1 || {}) })())
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.h1 || {}) })({
+  accent: props.accent
+}))
 </script>
 
 <template>

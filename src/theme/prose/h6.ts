@@ -11,7 +11,7 @@ export default {
     base: [
       'relative mb-2',
       'scroll-mt-[calc(32px+45px+var(--b24ui-header-height))] lg:scroll-mt-[calc(32px+var(--b24ui-header-height))]',
-      'text-h6'
+      'text-(length:--ui-font-size-md)'
     ].join(' ')
   },
   variants: {
