@@ -216,7 +216,7 @@ const airColors = computed(() => {
   </ExampleGrid>
 
   <ProseH3 class="mt-16">
-    Old colors
+    Depricate
   </ProseH3>
   <B24Separator class="mb-4" />
   <ExampleGrid v-once class="mb-2">

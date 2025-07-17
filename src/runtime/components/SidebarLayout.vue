@@ -202,7 +202,10 @@ const handleNavigationClick = () => {
         </template>
         <!-- Page Content -->
         <template v-else-if="!!slots.default">
-          <div :class="b24ui.containerWrapper({ class: props.b24ui?.containerWrapper })">
+          <div
+            :data-content="props.useLightContent ? 'light' : 'empty'"
+            :class="b24ui.containerWrapper({ class: props.b24ui?.containerWrapper })"
+          >
             <div :class="b24ui.containerWrapperInner({ class: props.b24ui?.containerWrapperInner })">
               <slot :is-loading="isLoading" />
             </div>

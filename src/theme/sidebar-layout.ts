@@ -5,6 +5,7 @@
  * @todo: docs
  * @todo: test
  * @todo: playground
+ * @todo: docs add in-data-[content=dd-light]:bg-red-500 group-data-[content=light]/layout-content:bg-red-500
  */
 
 export default {
@@ -68,7 +69,7 @@ export default {
       'mt-[22px]'
     ].join(' '),
     containerWrapper: [
-      'grow'
+      'grow group/layout-content'
     ].join(' '),
     pageTopWrapper: [
       'text-(--ui-color-base-1)',
