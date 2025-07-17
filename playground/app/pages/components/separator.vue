@@ -12,44 +12,42 @@ const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.var
 
 <template>
   <ExampleGrid v-once>
-    <ExampleCard title="default">
+    <ExampleCard title="Bitrix24 UI">
       <div class="mt-4 flex flex-col gap-4">
         <div>
-          <p class="font-b24-secondary text-black dark:text-base-150 text-h6 font-semibold">
-            Bitrix24 UI
-          </p>
-          <p class="font-b24-primary text-sm text-base-500">
+          <ProseP small accent="thick">
             An open source UI components corresponding to the Bitrix24 interface.
-          </p>
+          </ProseP>
         </div>
 
-        <B24Separator :icon="Bitrix24Icon" type="dashed" />
+        <B24Separator :icon="Bitrix24Icon" type="dashed" size="thick" />
 
         <div class="h-24 flex gap-4 items-center">
-          <div class="flex-1 text-center text-black dark:text-base-150">
-            Blog
+          <div class="flex-1 text-center">
+            <ProseP>Blog</ProseP>
           </div>
 
           <B24Separator
             :avatar="{ src: '/avatar/assistant.png' }"
             decorative
             orientation="vertical"
+            size="thick"
           />
 
-          <div class="flex-1 text-center text-black dark:text-base-150">
-            Docs
+          <div class="flex-1 text-center">
+            <ProseP>Docs</ProseP>
           </div>
 
-          <B24Separator decorative orientation="vertical">
-            <B24Avatar size="md" src="/avatar/employee.png" />
+          <B24Separator decorative orientation="vertical" size="thick">
+            <B24Avatar size="sm" src="/avatar/employee.png" />
           </B24Separator>
 
-          <div class="flex-1 text-center text-black dark:text-base-150">
-            Source
+          <div class="flex-1 text-center">
+            <ProseP>Source</ProseP>
           </div>
         </div>
 
-        <B24Separator label="As simple as it gets" type="dotted" />
+        <B24Separator label="As simple as it gets" type="dotted" size="thick" />
       </div>
     </ExampleCard>
 
@@ -70,7 +68,7 @@ const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.var
           v-for="color in colors"
           :key="color"
           :label="color as string"
-          size="xl"
+          size="thick"
           :color="color"
         />
       </div>
@@ -78,9 +76,10 @@ const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.var
 
     <ExampleCard title="type">
       <div class="mt-4 flex flex-col gap-4">
-        <B24Separator label="solid" type="solid" size="md" />
-        <B24Separator label="dashed" type="dashed" size="md" />
-        <B24Separator label="dotted" type="dotted" size="md" />
+        <B24Separator label="solid" type="solid" size="thick" />
+        <B24Separator label="dashed" type="dashed" size="thick" />
+        <B24Separator label="dotted" type="dotted" size="thick" />
+        <B24Separator label="double" type="double" size="thick" />
       </div>
     </ExampleCard>
   </ExampleGrid>

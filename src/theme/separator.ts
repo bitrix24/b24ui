@@ -2,28 +2,29 @@
  * Separator
  * Separates content horizontally or vertically.
  * ---
+ * @memo use --ui-border-width-thin | --ui-color-divider-default
  */
 
 export default {
   slots: {
     root: 'flex items-center align-center text-center',
     border: '',
-    container: 'font-b24-primary font-normal text-base-500 flex',
+    container: 'font-(family-name:--ui-font-family-primary) font-normal flex',
     icon: 'shrink-0 size-7',
     avatar: 'shrink-0',
     avatarSize: 'sm',
-    label: 'text-sm'
+    label: 'text-(length:--ui-font-size-sm)'
   },
   variants: {
     color: {
-      default: { border: 'border-(--ui-color-divider-default)' },
-      danger: { border: 'border-red-500 dark:border-red-600' },
-      success: { border: 'border-green-500 dark:border-green-600' },
-      warning: { border: 'border-orange-500 dark:border-orange-600' },
-      primary: { border: 'border-blue-500 dark:border-blue-600' },
-      secondary: { border: 'border-cyan-350 dark:border-cyan-500' },
-      collab: { border: 'border-collab-500 dark:border-collab-600' },
-      ai: { border: 'border-ai-500 dark:border-ai-600' }
+      default: {
+        container: 'text-(--ui-color-design-plain-na-content)',
+        border: 'border-(--ui-color-divider-default)'
+      },
+      less: {
+        container: 'text-(--ui-color-base-6)',
+        border: 'border-(--ui-color-divider-less)'
+      }
     },
     orientation: {
       horizontal: {
@@ -38,11 +39,8 @@ export default {
       }
     },
     size: {
-      xs: '',
-      sm: '',
-      md: '',
-      lg: '',
-      xl: ''
+      thin: '',
+      thick: ''
     },
     type: {
       solid: {
@@ -53,6 +51,9 @@ export default {
       },
       dotted: {
         border: 'border-dotted'
+      },
+      double: {
+        border: 'border-double'
       }
     }
   },
@@ -60,61 +61,31 @@ export default {
     // region horizontal ////
     {
       orientation: 'horizontal',
-      size: 'xs',
-      class: { border: 'border-t' }
+      size: 'thin',
+      class: { border: 'border-t-(length:--ui-border-width-thin)' }
     },
     {
       orientation: 'horizontal',
-      size: 'sm',
-      class: { border: 'border-t-[2px]' }
-    },
-    {
-      orientation: 'horizontal',
-      size: 'md',
-      class: { border: 'border-t-[3px]' }
-    },
-    {
-      orientation: 'horizontal',
-      size: 'lg',
-      class: { border: 'border-t-[4px]' }
-    },
-    {
-      orientation: 'horizontal',
-      size: 'xl',
-      class: { border: 'border-t-[5px]' }
+      size: 'thick',
+      class: { border: 'border-t-(length:--ui-border-width-thick)' }
     },
     // endregion ////
     // region vertical ////
     {
       orientation: 'vertical',
-      size: 'xs',
-      class: { border: 'border-s' }
+      size: 'thin',
+      class: { border: 'border-s-(length:--ui-border-width-thin)' }
     },
     {
       orientation: 'vertical',
-      size: 'sm',
-      class: { border: 'border-s-[2px]' }
-    },
-    {
-      orientation: 'vertical',
-      size: 'md',
-      class: { border: 'border-s-[3px]' }
-    },
-    {
-      orientation: 'vertical',
-      size: 'lg',
-      class: { border: 'border-s-[4px]' }
-    },
-    {
-      orientation: 'vertical',
-      size: 'xl',
-      class: { border: 'border-s-[5px]' }
+      size: 'thick',
+      class: { border: 'border-s-(length:--ui-border-width-thick)' }
     }
     // endregion ////
   ],
   defaultVariants: {
     color: 'default',
-    size: 'xs',
+    size: 'thin',
     type: 'solid'
   }
 }

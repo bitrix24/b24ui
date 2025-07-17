@@ -29,7 +29,7 @@ export interface SeparatorProps extends Pick<_SeparatorProps, 'decorative'> {
    */
   color?: Separator['variants']['color']
   /**
-   * @defaultValue 'xs'
+   * @defaultValue 'thin'
    */
   size?: Separator['variants']['size']
   /**
@@ -59,7 +59,10 @@ import { tv } from '../utils/tv'
 import B24Avatar from './Avatar.vue'
 
 const props = withDefaults(defineProps<SeparatorProps>(), {
-  orientation: 'horizontal'
+  color: 'default',
+  orientation: 'horizontal',
+  size: 'thin',
+  type: 'solid'
 })
 const slots = defineSlots<SeparatorSlots>()
 

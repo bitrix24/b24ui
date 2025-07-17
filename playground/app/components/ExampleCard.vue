@@ -7,12 +7,12 @@ const $props = withDefaults(defineProps<{
 </script>
 
 <template>
-  <div class="">
-    <div class="mb-2xs2 font-b24-secondary text-h5 font-semibold">
-      <slot name="title">
+  <div class="overflow-hidden p-5 rounded bg-(--ui-color-bg-content-secondary)">
+    <slot name="title">
+      <ProseH5>
         [{{ $props.title }}]
-      </slot>
-    </div>
+      </ProseH5>
+    </slot>
     <slot />
   </div>
 </template>
