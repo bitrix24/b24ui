@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import usePageMeta from './../composables/usePageMeta'
 
+/**
+ * @todo fix this (+/-/~)
+ */
 usePageMeta.setPageTitle('Bitrix24 UI - Playground')
 </script>
 
@@ -19,8 +22,15 @@ usePageMeta.setPageTitle('Bitrix24 UI - Playground')
           <B24Tooltip :disabled="item.description.length < 43" :text="item.description" :content="{ side: 'top' }" arrow>
             <B24Link
               raw
-              class="bg-white dark:bg-white/10 py-sm2 px-xs2 cursor-pointer rounded-md flex flex-row gap-sm border-2 transition-shadow shadow hover:shadow-lg relative border-base-master/10 dark:border-base-100/20 hover:border-primary"
+              class="bg-white dark:bg-white/10 py-sm2 px-xs2 cursor-pointer rounded-md flex flex-row gap-sm border-2 transition-shadow shadow hover:shadow-lg relative  dark:border-base-100/20 hover:border-primary"
               :to="item.to"
+              :class="[
+                item.description.includes('(-)') ? 'border-red-500/70' : (
+                  item.description.includes('(+)') ? 'border-green-500/70' : (
+                    item.description.includes('(~)') ? 'border-ai-500/70' : 'border-base-master/10'
+                  )
+                )
+              ]"
             >
               <B24Avatar
                 :icon="item.iconData"
