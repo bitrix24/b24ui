@@ -67,15 +67,6 @@ export default {
   variants: {
     ...buttonGroupVariant,
     color: {
-      'default': '',
-      'danger': '',
-      'success': '',
-      'warning': '',
-      'primary': '',
-      'secondary': '',
-      'collab': '',
-      'ai': '',
-      'link': '',
       'air-primary': '--style-filled',
       'air-primary-success': '--style-filled-success',
       'air-primary-alert': '--style-filled-alert',
@@ -88,8 +79,19 @@ export default {
       'air-tertiary': '--style-plain',
       'air-tertiary-accent': '--style-plain-accent',
       'air-tertiary-no-accent': '--style-outline-no-accent',
-      'air-selection': '--style-selection'
+      'air-selection': '--style-selection',
+      // @deprecate ////
+      'default': '',
+      'danger': '',
+      'success': '',
+      'warning': '',
+      'primary': '',
+      'secondary': '',
+      'collab': '',
+      'ai': '',
+      'link': ''
     },
+    // @deprecate ////
     depth: {
       light: '',
       normal: '',
