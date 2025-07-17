@@ -26,7 +26,7 @@
 * Separator
   - type - add: double
   - colors
-    - add: less
+    - add: less, accent
     - remove: danger, success, warning, primary, secondary, collab, ai
   - size
     - add: thin, thick
