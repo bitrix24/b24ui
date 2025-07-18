@@ -155,7 +155,6 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: 'SidebarLayout🔨', link: 'sidebar-layout' },
-        { text: 'StackedLayout🔨', link: 'stacked-layout' },
         { text: 'NavigationMenu', link: 'navigation-menu' },
         { text: 'Container', link: 'container' },
         { text: 'Skeleton', link: 'skeleton' },
