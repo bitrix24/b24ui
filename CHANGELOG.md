@@ -21,7 +21,8 @@
   - slots.content-top
   - slots.content-actions
   - slots.loading
-  - loading
+  - loading, useSidebarLayout
+  - prop.inner
 * Button:
   - normal-case = true
   - size = xl, lg, md, sm, xs, xxs

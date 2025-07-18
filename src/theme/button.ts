@@ -17,7 +17,7 @@ export default {
   slots: {
     base: [
       'ui-btn',
-      'font-(family-name:--ui-font-family-primary)',
+      'font-[family-name:var(--ui-font-family-primary)]',
       'select-none cursor-pointer inline-flex items-center',
       'relative',
       'outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2',

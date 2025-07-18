@@ -6,18 +6,17 @@
  * @todo: test
  * @todo: playground
  * @todo: docs add in-data-[content=dd-light]:bg-red-500 group-data-[content=light]/layout-content:bg-red-500
+ * @todo: docs add inner{true|false}
  */
 
 export default {
   slots: {
     root: [
-      '--app',
       'text-(--ui-color-design-plain-content)',
       'bg-(--ui-color-gray-05) edge-light:bg-transparent', // edge-light:bg-(--ui-color-gray-05)
       'dark:bg-(--ui-color-bg-content-primary) edge-dark:bg-transparent', // edge-dark:bg-(--ui-color-g-content-grey-4)
       'min-h-svh w-full',
-      'flex max-lg:flex-col',
-      'relative isolate'
+      'flex max-lg:flex-col'
     ].join(' '),
     sidebar: [
       'w-[240px]',
@@ -80,11 +79,34 @@ export default {
     containerWrapperInner: '',
     pageBottomWrapper: '',
     // @memo save
-    // loadingWrapper: 'w-full flex flex-row flex-nowrap items-center justify-center',
-    loadingWrapper: 'isolate absolute inline-block top-[50%] left-[50%] transform-[translate3d(-50%,-50%,0)] size-[110px]',
-    loadingIcon: 'size-full animate-spin-slow'
+    loadingWrapper: [
+      'isolate absolute z-1000 inset-0',
+      'w-full h-dvh',
+      'flex flex-row flex-nowrap items-center justify-center',
+      // 'bg-[#00204e]/52', //  //#000000/66 // [#00204e]/52
+      // 'motion-safe:backdrop-blur-sm'
+      ''
+    ].join(' '),
+    loadingIcon: 'text-(--ui-color-g-glass-grey-bg-2) size-[110px] animate-spin-slow'
   },
   variants: {
+    inner: {
+      true: {
+        root: [
+          '--inner light --ui-context-content-light ',
+          'h-full' // relative isolate
+        ].join(' '),
+        container: [
+          'overflow-y-scroll'
+        ].join(' ')
+      },
+      false: {
+        root: [
+          '--app',
+          'h-dvh' // relative isolate
+        ].join(' ')
+      }
+    },
     useSidebar: {
       true: {
         container: 'lg:px-(--content-area-shift)'
@@ -112,21 +134,25 @@ export default {
       }
     },
     loading: {
-      true: ''
+      true: {}
     },
     useNavbar: {
       true: {
         // @memo save
         // loadingWrapper: 'h-[calc(100dvh-var(--topbar-height))]'
+        container: 'h-[calc(100dvh-var(--topbar-height))]'
       },
       false: {
         // @memo save
         // loadingWrapper: 'h-dvh'
+        loadingWrapper: 'h-full',
+        container: 'h-full'
       }
     }
   },
   compoundVariants: [],
   defaultVariants: {
+    inner: false,
     useLightContent: true
   }
 }

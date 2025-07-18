@@ -129,15 +129,19 @@ defineShortcuts({
   }
 })
 
-const { setLoading } = useSidebarLayout()
-const makeLoading = async () => {
-  return new Promise<void>((res) => {
-    setLoading(true)
-    setTimeout(() => {
-      setLoading(false)
-      res()
-    }, 2_000)
-  })
+const currentSidebarRef = ref<{
+  api: SidebarLayoutApi
+  setLoading: (value: boolean) => void
+  setRootLoading: (value: boolean) => void
+} | null>(null)
+
+const handleSidebarLayoutLoadingAction = async () => {
+  try {
+    currentSidebarRef.value?.setLoading(true)
+    await new Promise(resolve => setTimeout(resolve, 2_000))
+  } finally {
+    currentSidebarRef.value?.setLoading(false)
+  }
 }
 
 const menuTop = computed<NavigationMenuItem[]>(() => {
@@ -165,6 +169,8 @@ const checkedUseLightContent = ref(true)
 <template>
   <B24App :toaster="(appConfig.toaster as any)">
     <B24SidebarLayout
+      ref="currentSidebarRef"
+      title="root"
       :use-light-content="checkedUseLightContent"
     >
       <template #sidebar>
@@ -191,7 +197,6 @@ const checkedUseLightContent = ref(true)
                 { label: group.label, type: 'label' },
                 ...group.children
               ]"
-              variant="pill"
               orientation="vertical"
             />
           </template>
@@ -230,20 +235,19 @@ const checkedUseLightContent = ref(true)
         <B24NavbarSection class="hidden sm:inline-flex">
           <B24NavigationMenu
             :items="menuTop"
-            variant="pill"
             orientation="horizontal"
           />
         </B24NavbarSection>
         <B24NavbarSpacer />
         <B24NavbarSection class="flex-row items-center justify-start gap-4">
-          <B24Switch size="xs" v-model="checkedUseLightContent" />
+          <B24Switch v-model="checkedUseLightContent" size="xs" />
           <B24Button
             label="Reload"
             color="air-secondary-accent"
             rounded
             size="xs"
             loading-auto
-            @click="makeLoading"
+            @click="handleSidebarLayoutLoadingAction"
           />
           <B24Tooltip :content="{ side: 'bottom' }" :text="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', 'L']">
             <B24Button

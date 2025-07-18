@@ -17,7 +17,7 @@
 
 export default {
   slots: {
-    root: 'relative flex [&>div]:min-w-0 font-b24-secondary',
+    root: 'relative flex [&>div]:min-w-0 font-[family-name:var(--ui-font-family-secondary)]',
     list: 'isolate min-w-0',
     label: [
       'w-full h-[22px] overflow-hidden',
@@ -126,7 +126,7 @@ export default {
           'px-[25px]', // @memo 10 + 15
           'min-w-[195px]',
           'whitespace-nowrap',
-          'font-(family-name:--ui-font-family-primary)',
+          'font-[family-name:var(--ui-font-family-primary)]',
           'text-(length:--menu-popup-item-font-size)',
           'text-(--menu-popup-item-color) hover:text-(--menu-popup-item-color-hover)',
           'hover:bg-(--menu-popup-item-bg-color-hover)'
@@ -158,7 +158,7 @@ export default {
           'px-[25px]', // @memo 10 + 15
           'min-w-[195px]',
           'whitespace-nowrap',
-          'font-(family-name:--ui-font-family-primary)',
+          'font-[family-name:var(--ui-font-family-primary)]',
           'text-(length:--menu-popup-item-font-size)',
           'text-(--menu-popup-item-color) hover:text-(--menu-popup-item-color-hover)',
           'hover:bg-(--menu-popup-item-bg-color-hover)'

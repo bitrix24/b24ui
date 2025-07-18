@@ -3,8 +3,8 @@ import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/sidebar-layout'
 import type { ComponentConfig } from '../types/utils'
 
+export * from '../composables/useSidebarLayout'
 type SidebarLayout = ComponentConfig<typeof theme, AppConfig, 'sidebarLayout'>
-
 export interface SidebarLayoutProps {
   /**
    * The element or component this component should render as.
@@ -12,6 +12,12 @@ export interface SidebarLayoutProps {
    */
   as?: any
   useLightContent?: boolean
+
+  /**
+   * Set inner mode. Use in slideover, modal and etc
+   * @defaultValue 'false'
+   */
+  isInner?: boolean
   class?: any
   b24ui?: Pick<SidebarLayout['slots'], 'root' | 'sidebar' | 'sidebarSlideoverContainer' | 'sidebarSlideover' | 'sidebarSlideoverBtnClose' | 'contentWrapper' | 'header' | 'headerMenuIcon' | 'headerWrapper' | 'container' | 'containerWrapper' | 'pageTopWrapper' | 'pageActionsWrapper' | 'containerWrapperInner' | 'pageBottomWrapper' | 'loadingWrapper' | 'loadingIcon'>
 }
@@ -52,12 +58,12 @@ export interface SidebarLayoutSlots {
 </script>
 
 <script setup lang="ts">
-import { ref, computed, watch, onUnmounted } from 'vue'
+import { ref, computed, watch, onUnmounted, readonly, provide, inject, getCurrentInstance, type Ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
 import { useLocale } from '../composables/useLocale'
-import { useSidebarLayout } from '../composables/useSidebarLayout'
+import { sidebarLayoutInjectionKey } from '../composables/useSidebarLayout'
 import { tv } from '../utils/tv'
 import B24Slideover from './Slideover.vue'
 import B24Sidebar from './Sidebar.vue'
@@ -66,10 +72,12 @@ import B24Navbar from './Navbar.vue'
 import HamburgerMenuIcon from '@bitrix24/b24icons-vue/outline/HamburgerMenuIcon'
 import Cross50Icon from '@bitrix24/b24icons-vue/actions/Cross50Icon'
 import BtnSpinnerIcon from '@bitrix24/b24icons-vue/button-specialized/BtnSpinnerIcon'
+import type { SidebarLayoutApi, SidebarLayoutExpose } from '../composables/useSidebarLayout'
 
 const props = withDefaults(defineProps<SidebarLayoutProps>(), {
   as: 'div',
-  useLightContent: true
+  useLightContent: true,
+  isInner: false
 })
 const slots = defineSlots<SidebarLayoutSlots>()
 
@@ -80,17 +88,13 @@ const route = useRoute()
 const isUseSideBar = computed(() => !!slots.sidebar)
 const isUseNavbar = computed(() => !!slots.navbar)
 const openSidebarSlideover = ref(false)
-const { loading } = useSidebarLayout()
-
-const isLoading = computed(() => {
-  return loading.value
-})
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sidebarLayout || {}) })({
   useSidebar: isUseSideBar.value,
   useNavbar: isUseNavbar.value,
   useLightContent: Boolean(props.useLightContent),
-  loading: Boolean(isLoading.value)
+  loading: Boolean(isLoading.value),
+  inner: Boolean(props.isInner)
 }))
 
 const closeModal = () => {
@@ -112,10 +116,84 @@ onUnmounted(() => {
 const handleNavigationClick = () => {
   closeModal()
 }
+
+// Get the parent API (if it exists)
+const instance = getCurrentInstance()
+if (!instance) {
+  // @todo fix this
+  throw new Error('@todo instance...')
+}
+const parentApi = inject(sidebarLayoutInjectionKey, null)
+
+// 1. Determine the root boot state
+// For the root component we use our own state
+// For nested - use the root state of the parent
+const rootRef: Ref<boolean> = parentApi
+  ? (parentApi as any).rootRef
+  : ref(false)
+
+// 2. Current component loading state
+const isLoading = ref(false)
+
+// 3. Computed states
+const isParentLoading = computed(() =>
+  parentApi?.isLoading.value ?? false
+)
+
+const isRootLoading = computed(() =>
+  rootRef.value
+)
+
+// 4. Create an API for the current component
+const api: SidebarLayoutApi = {
+  isLoading: readonly(isLoading) as Readonly<Ref<boolean>>,
+  isParentLoading: readonly(isParentLoading) as Readonly<Ref<boolean>>,
+  isRootLoading: readonly(isRootLoading) as Readonly<Ref<boolean>>,
+
+  setLoading: (value: boolean) => { isLoading.value = value },
+
+  setParentLoading: (value: boolean) => {
+    if (parentApi) {
+      parentApi.setLoading(value)
+    }
+  },
+
+  setRootLoading: (value: boolean) => {
+    rootRef.value = value
+  },
+
+  rootRef
+}
+
+// 5. Exposing API to Child Components
+provide(sidebarLayoutInjectionKey, api)
+
+defineExpose<SidebarLayoutExpose>({
+  api,
+  isLoading,
+  setLoading: api.setLoading,
+  setRootLoading: api.setRootLoading
+})
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <Primitive
+    :data-state="isLoading ? 'loading' : 'show'"
+    :as="as"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
+  >
+    <!-- isLoading -->
+    <slot name="loading" :is-loading="isLoading">
+      <div
+        v-show="isLoading"
+        :class="b24ui.loadingWrapper({ class: props.b24ui?.loadingWrapper })"
+      >
+        <BtnSpinnerIcon
+          :class="b24ui.loadingIcon({ class: props.b24ui?.loadingIcon })"
+          aria-hidden="true"
+        />
+      </div>
+    </slot>
     <template v-if="isUseSideBar">
       <div :class="b24ui.sidebar({ class: props.b24ui?.sidebar })">
         <B24Sidebar>
@@ -188,20 +266,8 @@ const handleNavigationClick = () => {
             <slot name="content-actions" :is-loading="isLoading" />
           </div>
         </template>
-
-        <!-- isLoading -->
-        <template v-if="isLoading">
-          <slot name="loading" :is-loading="isLoading">
-            <div :class="b24ui.loadingWrapper({ class: props.b24ui?.loadingWrapper })">
-              <BtnSpinnerIcon
-                :class="b24ui.loadingIcon({ class: props.b24ui?.loadingIcon })"
-                aria-hidden="true"
-              />
-            </div>
-          </slot>
-        </template>
         <!-- Page Content -->
-        <template v-else-if="!!slots.default">
+        <template v-if="!!slots.default">
           <div
             :data-content="props.useLightContent ? 'light' : 'empty'"
             :class="b24ui.containerWrapper({ class: props.b24ui?.containerWrapper })"

@@ -6,6 +6,7 @@ html.light .--app {
   @apply bg-(--ui-color-gray-05);
 }
 
+/*:not(.--ui-context-content-light):not(.--ui-context-content-dark)*/
 html.edge-light .--app {
   @apply bg-(--ui-color-gray-05) bg-[url(/bg/edge-light.svg)] bg-top-left bg-repeat;
 }

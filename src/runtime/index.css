@@ -5,8 +5,12 @@
 
 @layer base {
   .--app {
-    height: 100dvh;
     overflow-y: scroll;
     scrollbar-gutter: stable;
+  }
+  .--app[data-state="loading"] {
+    /*overflow: hidden;*/
+    /*scrollbar-gutter: auto;*/
+    overflow: hidden;
   }
 }

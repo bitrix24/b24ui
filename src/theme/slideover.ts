@@ -15,7 +15,7 @@ const safeList = [
 
 export default {
   slots: {
-    overlay: 'fixed inset-0 bg-base-950/20 dark:bg-base-950/30',
+    overlay: 'fixed inset-0 bg-[#00204e]/52', //  bg-base-950/20 dark:bg-base-950/30 // [#00204e]/52
     content: [
       'fixed',
       'bg-base-50 dark:bg-base-950',
@@ -24,7 +24,8 @@ export default {
       'flex flex-col focus:outline-none'
     ].join(' '),
     header: [
-      'mt-4 px-5',
+      // fix 'mt-4 px-5',
+      'pt-[20px]',
       'flex items-center gap-1.5'
     ].join(' '),
     wrapper: 'min-h-2xl',
@@ -33,7 +34,7 @@ export default {
       'flex-1 overflow-y-auto'
     ].join(' '),
     footer: 'bg-white dark:bg-base-950 flex items-center justify-center gap-3 py-4 border-t border-t-1 border-t-base-900/10 dark:border-t-white/20 shadow-top-md p-2 pr-(--scrollbar-width)',
-    title: 'font-b24-system font-light text-4.5xl leading-none text-base-900 dark:text-base-150',
+    title: 'font-[family-name:var(--ui-font-family-primary)] text-(--ui-color-design-plain-content) font-semibold mb-0 text-(length:--ui-font-size-4xl)',
     description: 'mt-2 mb-1 text-base-500 dark:text-base-400 text-sm',
     close: 'absolute',
     safeList
@@ -58,7 +59,12 @@ export default {
         content: 'right-0 inset-y-0 w-full max-w-[28rem]'
       },
       bottom: {
-        content: 'inset-x-0 bottom-0 max-h-full'
+        // fix content: 'inset-x-0 bottom-0 max-h-full'
+        content: [
+          'right-0 top-[18px] bottom-0',
+          'max-h-[calc(100%-18px)] w-full max-w-[calc(100%-150px)]',
+          'rounded-t-[18px]'
+        ].join(' ')
       },
       left: {
         content: 'left-0 inset-y-0 w-full max-w-[28rem]'
@@ -99,10 +105,20 @@ export default {
       }
     },
     {
-      side: ['top', 'bottom'],
+      side: 'top',
       class: {
         close: [
           'top-4 end-4'
+        ].join(' ')
+      }
+    },
+    {
+      side: 'bottom',
+      class: {
+        close: [
+          'pl-1.5 pr-[4px]',
+          'top-[17px] -translate-x-full left-0',
+          'rounded-l-full'
         ].join(' ')
       }
     },
@@ -136,6 +152,7 @@ export default {
         content: 'motion-safe:data-[state=open]:animate-[slide-in-from-left_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-left_200ms_ease-in-out]'
       }
     }
+    // endregion ////
   ],
   defaultVariants: {
     side: 'right',
