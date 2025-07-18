@@ -2,7 +2,6 @@
 
 ## [0.8.0](https://github.com/bitrix24/b24ui/compare/v0.7.2...v0.8.0) (2025-07-xx)
 
-* **StackedLayout - remove (@todo)**
 * chore(AirWeb): add
 * ProseP
   - fix color
@@ -16,6 +15,8 @@
 * NavigationMenu:
   - props.hint
   - remove contentOrientation, highlight, highlightColor, arrow, color, variant.link
+* StackedLayout:
+  - remove 
 * SidebarLayout:
   - slots.content-top
   - slots.content-actions
