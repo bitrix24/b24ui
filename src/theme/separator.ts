@@ -84,6 +84,20 @@ export default {
       orientation: 'vertical',
       size: 'thick',
       class: { border: 'border-s-(length:--ui-border-width-thick)' }
+    },
+    // endregion ////
+    // region custom for double.thick ////
+    {
+      type: 'double',
+      size: 'thick',
+      orientation: 'horizontal',
+      class: { border: 'border-t-[length:calc(var(--ui-border-width-thick)_+_1px)]' }
+    },
+    {
+      type: 'double',
+      size: 'thick',
+      orientation: 'vertical',
+      class: { border: 'border-s-[length:calc(var(--ui-border-width-thick)_+_1px)]' }
     }
     // endregion ////
   ],
