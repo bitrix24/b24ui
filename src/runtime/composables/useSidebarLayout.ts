@@ -11,7 +11,7 @@ import {
  */
 export interface SidebarLayoutApi {
   // Current loading state
-  isLoading: Readonly<Ref<boolean>>
+  readonly isLoading: Readonly<Ref<boolean>>
 
   // Load state of immediate parent SidebarLayout (false if no parent)
   readonly isParentLoading: Readonly<Ref<boolean>>
@@ -30,13 +30,6 @@ export interface SidebarLayoutApi {
 
   // Internal property for hierarchy
   rootRef: Ref<boolean>
-}
-
-export interface SidebarLayoutExpose {
-  api: SidebarLayoutApi
-  isLoading: Readonly<Ref<boolean>>
-  setLoading: (value: boolean) => void
-  setRootLoading: (value: boolean) => void
 }
 
 export const sidebarLayoutInjectionKey: InjectionKey<SidebarLayoutApi> = Symbol('bitrix24-ui.sidebar-layout') as InjectionKey<SidebarLayoutApi>

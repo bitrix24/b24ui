@@ -4,6 +4,7 @@ import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/slideover'
 import type { ButtonProps, IconComponent } from '../types'
 import type { EmitsToProps, ComponentConfig } from '../types/utils'
+import type { SidebarLayoutApi } from '../composables/useSidebarLayout'
 
 type Slideover = ComponentConfig<typeof theme, AppConfig, 'slideover'>
 
@@ -83,10 +84,16 @@ export interface SlideoverSlots {
   body(props: { close: () => void }): any
   footer(props: { close: () => void }): any
 }
+
+export type SlideoverInstance = {
+  getSidebarApi: () => SidebarLayoutApi
+  setSidebarLoading: (value: boolean) => void
+  setSidebarRootLoading: (value: boolean) => void
+}
 </script>
 
 <script setup lang="ts">
-import { computed, toRef, ref, type Ref } from 'vue'
+import { computed, toRef, ref, defineExpose } from 'vue'
 import { DialogRoot, DialogTrigger, DialogPortal, DialogOverlay, DialogContent, DialogTitle, DialogDescription, DialogClose, VisuallyHidden, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
@@ -94,9 +101,9 @@ import { useLocale } from '../composables/useLocale'
 import { usePortal } from '../composables/usePortal'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
-import B24SidebarLayout from './SidebarLayout.vue'
 import B24Button from './Button.vue'
-import type { SidebarLayoutExpose } from '../composables/useSidebarLayout'
+import B24SidebarLayout from './SidebarLayout.vue'
+import type { SidebarLayoutInstance } from './SidebarLayout.vue'
 
 const props = withDefaults(defineProps<SlideoverProps>(), {
   close: true,
@@ -144,11 +151,34 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.slideo
   overlayBlur: props.overlayBlur
 }))
 
-const currentSidebarRef = ref<SidebarLayoutExpose | null>(null)
-defineExpose<{
-  currentSidebarRef: Ref<SidebarLayoutExpose | null>
-}>({
-  currentSidebarRef: currentSidebarRef
+// Create a ref to access SidebarLayout
+const sidebarRef = ref<SidebarLayoutInstance | null>(null)
+
+// Export the SidebarLayout API for external use
+defineExpose<SlideoverInstance>({
+  /**
+   * Get SidebarLayout API
+   * @throws {Error} If SidebarLayout is not initialized
+   */
+  getSidebarApi: () => {
+    if (!sidebarRef.value) {
+      throw new Error('SidebarLayout ref is not available')
+    }
+    return sidebarRef.value.api as unknown as SidebarLayoutApi
+  },
+
+  // Direct access to SidebarLayout methods
+  setSidebarLoading: (value: boolean) => {
+    if (sidebarRef.value) {
+      sidebarRef.value.api.setLoading(value)
+    }
+  },
+
+  setSidebarRootLoading: (value: boolean) => {
+    if (sidebarRef.value) {
+      sidebarRef.value.api.setRootLoading(value)
+    }
+  }
 })
 </script>
 
@@ -187,7 +217,7 @@ defineExpose<{
         <slot name="content" :close="close">
           <!-- @todo fix this css -->
           <B24SidebarLayout
-            ref="currentSidebarRef"
+            ref="sidebarRef"
             :use-light-content="true"
             is-inner
             title="child"

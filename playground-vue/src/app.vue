@@ -11,7 +11,7 @@ import MoonIcon from '@bitrix24/b24icons-vue/main/MoonIcon'
 import MoonIconAir from '@bitrix24/b24icons-vue/outline/MoonIcon'
 import OpenIn50Icon from '@bitrix24/b24icons-vue/actions/OpenIn50Icon'
 import RocketIcon from '@bitrix24/b24icons-vue/outline/RocketIcon'
-import type { DropdownMenuItem, NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
+import type { DropdownMenuItem, NavigationMenuItem, SidebarLayoutInstance } from '@bitrix24/b24ui-nuxt'
 
 const appConfig = useAppConfig()
 const mode = useColorMode<'light' | 'dark' | 'edgeLight' | 'edgeDark'>({
@@ -129,18 +129,17 @@ defineShortcuts({
   }
 })
 
-const currentSidebarRef = ref<{
-  api: SidebarLayoutApi
-  setLoading: (value: boolean) => void
-  setRootLoading: (value: boolean) => void
-} | null>(null)
-
+const currentSidebarRef = ref<SidebarLayoutInstance | null>(null)
 const handleSidebarLayoutLoadingAction = async () => {
+  if (!currentSidebarRef.value) {
+    return
+  }
+
   try {
-    currentSidebarRef.value?.setLoading(true)
+    currentSidebarRef.value.setLoading(true)
     await new Promise(resolve => setTimeout(resolve, 2_000))
   } finally {
-    currentSidebarRef.value?.setLoading(false)
+    currentSidebarRef.value.setLoading(false)
   }
 }
 

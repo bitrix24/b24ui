@@ -2,8 +2,12 @@
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/sidebar-layout'
 import type { ComponentConfig } from '../types/utils'
+import type { Ref } from 'vue'
+import type { SidebarLayoutApi } from '../composables/useSidebarLayout'
 
-export * from '../composables/useSidebarLayout'
+/**
+ * @todo add docs
+ */
 type SidebarLayout = ComponentConfig<typeof theme, AppConfig, 'sidebarLayout'>
 export interface SidebarLayoutProps {
   /**
@@ -55,10 +59,17 @@ export interface SidebarLayoutSlots {
    */
   'loading': (props?: { isLoading: boolean }) => any
 }
+
+export interface SidebarLayoutInstance {
+  api: SidebarLayoutApi
+  isLoading: Readonly<Ref<boolean>>
+  setLoading: (value: boolean) => void
+  setRootLoading: (value: boolean) => void
+}
 </script>
 
 <script setup lang="ts">
-import { ref, computed, watch, onUnmounted, readonly, provide, inject, getCurrentInstance, type Ref } from 'vue'
+import { ref, computed, watch, onUnmounted, readonly, provide, inject, defineExpose } from 'vue'
 import { useRoute } from 'vue-router'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
@@ -72,7 +83,6 @@ import B24Navbar from './Navbar.vue'
 import HamburgerMenuIcon from '@bitrix24/b24icons-vue/outline/HamburgerMenuIcon'
 import Cross50Icon from '@bitrix24/b24icons-vue/actions/Cross50Icon'
 import BtnSpinnerIcon from '@bitrix24/b24icons-vue/button-specialized/BtnSpinnerIcon'
-import type { SidebarLayoutApi, SidebarLayoutExpose } from '../composables/useSidebarLayout'
 
 const props = withDefaults(defineProps<SidebarLayoutProps>(), {
   as: 'div',
@@ -118,11 +128,6 @@ const handleNavigationClick = () => {
 }
 
 // Get the parent API (if it exists)
-const instance = getCurrentInstance()
-if (!instance) {
-  // @todo fix this
-  throw new Error('@todo instance...')
-}
 const parentApi = inject(sidebarLayoutInjectionKey, null)
 
 // 1. Determine the root boot state
@@ -168,7 +173,7 @@ const api: SidebarLayoutApi = {
 // 5. Exposing API to Child Components
 provide(sidebarLayoutInjectionKey, api)
 
-defineExpose<SidebarLayoutExpose>({
+defineExpose<SidebarLayoutInstance>({
   api,
   isLoading,
   setLoading: api.setLoading,
@@ -219,10 +224,10 @@ defineExpose<SidebarLayoutExpose>({
             :class="b24ui.sidebarSlideoverContainer({ class: props.b24ui?.sidebarSlideoverContainer })"
           >
             <B24Button
-              :aria-label="t('sidebarLayout.open')"
               color="air-tertiary"
               size="md"
               :icon="HamburgerMenuIcon"
+              :aria-label="t('sidebarLayout.open')"
             />
 
             <template #content>

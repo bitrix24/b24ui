@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import {defineAsyncComponent, type Ref} from 'vue'
+import { defineAsyncComponent } from 'vue'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
 import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import FileUploadIcon from '@bitrix24/b24icons-vue/main/FileUploadIcon'
-import type { SidebarLayoutExpose } from '@bitrix24/b24ui-nuxt'
+import type { SlideoverInstance } from '@bitrix24/b24ui-nuxt'
 
 usePageMeta.setPageTitle('Slideover')
 
@@ -30,20 +30,27 @@ function openSlideover() {
   })
 }
 
-const currentSlideoverRef = ref<{
-  currentSidebarRef: Ref<SidebarLayoutExpose | null>
-} | null>(null)
+const currentSlideoverRef = ref<SlideoverInstance | null>(null)
 
 const isSidebarLayoutLoading = computed<boolean>(() => {
-  return currentSlideoverRef.value?.currentSidebarRef?.api.isLoading === true
+  try {
+    return currentSlideoverRef.value?.getSidebarApi().isLoading.value === true
+  } catch (error) {
+    console.error(error)
+    return false
+  }
 })
 
 const handleSidebarLayoutLoadingAction = async () => {
+  if (!currentSlideoverRef.value) {
+    return
+  }
+
   try {
-    currentSlideoverRef.value?.currentSidebarRef?.setLoading(true)
+    currentSlideoverRef.value.setSidebarLoading(true)
     await new Promise(resolve => setTimeout(resolve, 2_000))
   } finally {
-    currentSlideoverRef.value?.currentSidebarRef?.setLoading(false)
+    currentSlideoverRef.value.setSidebarLoading(false)
   }
 }
 </script>
