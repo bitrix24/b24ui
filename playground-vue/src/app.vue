@@ -169,7 +169,6 @@ const checkedUseLightContent = ref(true)
   <B24App :toaster="(appConfig.toaster as any)">
     <B24SidebarLayout
       ref="currentSidebarRef"
-      title="root"
       :use-light-content="checkedUseLightContent"
     >
       <template #sidebar>

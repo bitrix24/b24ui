@@ -31,7 +31,8 @@ export default {
     wrapper: 'min-h-2xl',
     body: [
       'mx-0 mt-2',
-      'flex-1 overflow-y-auto'
+      // fix 'flex-1 overflow-y-auto'
+      'flex-1'
     ].join(' '),
     footer: 'bg-white dark:bg-base-950 flex items-center justify-center gap-3 py-4 border-t border-t-1 border-t-base-900/10 dark:border-t-white/20 shadow-top-md p-2 pr-(--scrollbar-width)',
     title: 'font-[family-name:var(--ui-font-family-primary)] text-(--ui-color-design-plain-content) font-semibold mb-0 text-(length:--ui-font-size-4xl)',
@@ -75,9 +76,10 @@ export default {
         overlay: 'motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]'
       }
     },
+    // @todo remove this
     scrollbarThin: {
       true: {
-        body: 'scrollbar-thin'
+        // fix body: 'scrollbar-thin'
       }
     }
   },

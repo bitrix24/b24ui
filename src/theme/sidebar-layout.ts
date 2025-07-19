@@ -62,7 +62,6 @@ export default {
       'h-full'
     ].join(' '),
     container: [
-      'relative',
       'flex-1 flex flex-col gap-[22px]',
       'lg:min-w-0',
       'mt-[22px]'
@@ -80,6 +79,7 @@ export default {
     pageBottomWrapper: '',
     // @memo save
     loadingWrapper: [
+      'cursor-wait',
       'isolate absolute z-1000 inset-0',
       'w-full h-dvh',
       'flex flex-row flex-nowrap items-center justify-center',
@@ -104,7 +104,8 @@ export default {
         root: [
           '--app',
           'h-dvh' // relative isolate
-        ].join(' ')
+        ].join(' '),
+        container: 'relative'
       }
     },
     useSidebar: {
@@ -120,6 +121,7 @@ export default {
       true: {
         container: 'lg:pb-2',
         pageTopWrapper: 'px-6 lg:px-0',
+        // @todo fix this
         pageActionsWrapper: 'p-6 lg:p-[15px]',
         containerWrapper: [
           'p-6 lg:p-[15px]',
@@ -134,7 +136,7 @@ export default {
       }
     },
     loading: {
-      true: {}
+      true: ''
     },
     useNavbar: {
       true: {
@@ -150,7 +152,17 @@ export default {
       }
     }
   },
-  compoundVariants: [],
+  compoundVariants: [
+    {
+      inner: true,
+      useLightContent: true,
+      class: {
+        pageTopWrapper: [
+          'px-0 lg:px-0'
+        ].join(' ')
+      }
+    }
+  ],
   defaultVariants: {
     inner: false,
     useLightContent: true

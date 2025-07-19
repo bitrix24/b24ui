@@ -190,7 +190,7 @@ defineExpose<SidebarLayoutInstance>({
     <!-- isLoading -->
     <slot name="loading" :is-loading="isLoading">
       <div
-        v-show="isLoading"
+        v-if="isLoading"
         :class="b24ui.loadingWrapper({ class: props.b24ui?.loadingWrapper })"
       >
         <BtnSpinnerIcon

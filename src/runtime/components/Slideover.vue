@@ -86,7 +86,7 @@ export interface SlideoverSlots {
 }
 
 export type SlideoverInstance = {
-  getSidebarApi: () => SidebarLayoutApi
+  getSidebarApi: () => SidebarLayoutApi | null
   setSidebarLoading: (value: boolean) => void
   setSidebarRootLoading: (value: boolean) => void
 }
@@ -162,7 +162,7 @@ defineExpose<SlideoverInstance>({
    */
   getSidebarApi: () => {
     if (!sidebarRef.value) {
-      throw new Error('SidebarLayout ref is not available')
+      return null
     }
     return sidebarRef.value.api as unknown as SidebarLayoutApi
   },
@@ -220,7 +220,6 @@ defineExpose<SlideoverInstance>({
             ref="sidebarRef"
             :use-light-content="true"
             is-inner
-            title="child"
             :b24ui="{
               root: 'light --ui-context-content-light rounded-t-[18px]',
               container: 'mt-0 px-[20px] pb-[20px] lg:pt-0 lg:px-[20px]'

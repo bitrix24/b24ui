@@ -33,12 +33,7 @@ function openSlideover() {
 const currentSlideoverRef = ref<SlideoverInstance | null>(null)
 
 const isSidebarLayoutLoading = computed<boolean>(() => {
-  try {
-    return currentSlideoverRef.value?.getSidebarApi().isLoading.value === true
-  } catch (error) {
-    console.error(error)
-    return false
-  }
+  return currentSlideoverRef.value?.getSidebarApi()?.isLoading.value === true
 })
 
 const handleSidebarLayoutLoadingAction = async () => {
