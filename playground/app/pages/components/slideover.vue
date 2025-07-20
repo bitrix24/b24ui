@@ -56,26 +56,26 @@ const handleSidebarLayoutLoadingAction = async () => {
       <ExampleCardSubTitle title="opening options" />
       <div class="mb-4 flex flex-row flex-wrap gap-2">
         <B24Slideover
-          side="right"
           title="First slideover"
-          :b24ui="{ content: 'sm:max-w-1/2' }"
+          description="This slideover has `side: 'right'` prop."
+          side="right"
+          :close="{ label: 'Right' }"
         >
-          <B24Button label="Open with nested" />
+          <B24Button label="Open on right" />
 
           <template #body>
-            <B24Container class="h-full w-full pb-4">
-              <Placeholder class="h-full w-full" />
-            </B24Container>
+            <Placeholder class="size-full" />
           </template>
 
           <template #footer>
-            <B24Slideover side="right" title="Second slideover">
-              <B24Button label="Open second" color="primary" />
+            <B24Slideover
+              title="Second slideover"
+              :b24ui="{ content: 'max-w-[600px]' }"
+            >
+              <B24Button label="Open second" color="air-primary" />
 
               <template #body>
-                <B24Container class="h-full w-full pb-4">
-                  <Placeholder class="h-full w-full" />
-                </B24Container>
+                <Placeholder class="size-full" />
               </template>
               <template #footer>
                 <B24ModalDialogClose>
@@ -90,12 +90,12 @@ const handleSidebarLayoutLoadingAction = async () => {
           title="Slideover on left side"
           description="This slideover has `side: 'left'` prop."
           side="left"
-          :b24ui="{ content: 'sm:max-w-1/2' }"
+          :close="{ label: 'Left' }"
         >
           <B24Button label="Open on left" />
 
           <template #body>
-            <Placeholder class="h-full w-full" />
+            <Placeholder class="size-full" />
           </template>
         </B24Slideover>
 
@@ -103,22 +103,24 @@ const handleSidebarLayoutLoadingAction = async () => {
           title="Slideover on top side"
           description="This slideover has `side: 'top'` prop."
           side="top"
+          :close="{ label: 'Top' }"
         >
           <B24Button label="Open on top" />
 
           <template #body>
-            <Placeholder class="h-48 w-full" />
+            <Placeholder class="size-full" />
           </template>
         </B24Slideover>
 
         <B24Slideover
           title="Slideover on bottom side"
           description="This slideover has `side: 'bottom'` prop."
+          :close="{ label: 'Bottom' }"
         >
           <B24Button label="Open on bottom" color="air-secondary-accent-2" />
 
           <template #body>
-            <Placeholder class="h-full w-full" />
+            <Placeholder class="size-full" />
           </template>
         </B24Slideover>
 
@@ -128,7 +130,7 @@ const handleSidebarLayoutLoadingAction = async () => {
           description="This is useful to control the state yourself."
         >
           <template #body>
-            <Placeholder class="h-48 w-full" />
+            <Placeholder class="size-full" />
           </template>
         </B24Slideover>
 
@@ -147,7 +149,7 @@ const handleSidebarLayoutLoadingAction = async () => {
           <B24Button label="Open without overlay blur" />
 
           <template #body>
-            <Placeholder class="h-48 w-full" />
+            <Placeholder class="size-full" />
           </template>
         </B24Slideover>
 
@@ -159,7 +161,7 @@ const handleSidebarLayoutLoadingAction = async () => {
           <B24Button label="Open without overlay"  />
 
           <template #body>
-            <Placeholder class="h-48 w-full" />
+            <Placeholder class="size-full" />
           </template>
         </B24Slideover>
 
@@ -172,7 +174,7 @@ const handleSidebarLayoutLoadingAction = async () => {
           <B24Button label="Open without modal" />
 
           <template #body>
-            <Placeholder class="h-48 w-full" />
+            <Placeholder class="size-full" />
           </template>
         </B24Slideover>
       </div>
@@ -187,7 +189,7 @@ const handleSidebarLayoutLoadingAction = async () => {
           <B24Button label="Open without transition" />
 
           <template #body>
-            <Placeholder class="h-full w-full" />
+            <Placeholder class="size-full" />
           </template>
         </B24Slideover>
 
@@ -199,7 +201,7 @@ const handleSidebarLayoutLoadingAction = async () => {
           <B24Button label="Open without portal" />
 
           <template #body>
-            <Placeholder class="h-full w-full" />
+            <Placeholder class="size-full" />
           </template>
         </B24Slideover>
       </div>
@@ -214,7 +216,7 @@ const handleSidebarLayoutLoadingAction = async () => {
           <B24Button label="Open unclosable" />
 
           <template #body>
-            <Placeholder class="h-full w-full" />
+            <Placeholder class="size-full" />
           </template>
         </B24Slideover>
 
@@ -226,7 +228,7 @@ const handleSidebarLayoutLoadingAction = async () => {
           <B24Button label="Open without close button" />
 
           <template #body>
-            <Placeholder class="h-48 w-full" />
+            <Placeholder class="size-full" />
           </template>
         </B24Slideover>
 

@@ -33,7 +33,7 @@ export interface SlideoverProps extends DialogRootProps {
   transition?: boolean
   /**
    * The side of the slideover.
-   * @defaultValue 'right'
+   * @defaultValue 'bottom'
    */
   side?: Slideover['variants']['side']
   /**
@@ -43,8 +43,7 @@ export interface SlideoverProps extends DialogRootProps {
   portal?: boolean | string | HTMLElement
   /**
    * Display a close button to dismiss the slideover.
-   * `{ color: 'air-primary' }`{lang="ts"} for `left`, `right`, 'bottom'
-   * `{ color: 'air-tertiary' }`{lang="ts"} for `top`
+   * `{ color: 'air-primary' }`{lang="ts"}
    * @defaultValue true
    */
   close?: boolean | Partial<ButtonProps>
@@ -215,15 +214,12 @@ defineExpose<SlideoverInstance>({
         </VisuallyHidden>
 
         <slot name="content" :close="close">
-          <!-- @todo fix this css -->
+          <!-- @todo add sidebar -->
+          <!-- @todo add navbar -->
           <B24SidebarLayout
             ref="sidebarRef"
-            :use-light-content="true"
+            use-light-content
             is-inner
-            :b24ui="{
-              root: 'light --ui-context-content-light rounded-t-[18px]',
-              container: 'mt-0 px-[20px] pb-[20px] lg:pt-0 lg:px-[20px]'
-            }"
           >
             <template v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description) || (props.close || !!slots.close)" #content-top>
               <div :class="b24ui.header({ class: props.b24ui?.header })">
@@ -243,17 +239,18 @@ defineExpose<SlideoverInstance>({
                   </div>
                   <DialogClose v-if="props.close || !!slots.close" as-child>
                     <slot name="close" :close="close" :b24ui="b24ui">
+                      <!-- @todo fix this css -->
                       <B24Button
                         v-if="props.close"
                         :icon="closeIcon || icons.close"
                         class="group"
-                        :color="['left', 'right', 'bottom'].includes(props?.side) ? 'air-primary' : 'air-tertiary'"
+                        color="air-primary"
                         :aria-label="t('slideover.close')"
                         size="lg"
                         :b24ui="{
-                          leadingIcon: ['left', 'right', 'bottom'].includes(props?.side)
-                            ? 'group-hover:rounded-full group-hover:border-1 group-hover:border-current'
-                            : ''
+                          leadingIcon: 'group-hover:rounded-full group-hover:border-1 group-hover:border-current',
+                          baseLine: 'ps-[4px] pe-[4px]',
+                          label: 'hidden sm:flex'
                         }"
                         v-bind="(typeof props.close === 'object' ? props.close as Partial<ButtonProps> : {})"
                         :class="b24ui.close({ class: props.b24ui?.close })"

@@ -46,7 +46,7 @@ export default {
     ].join(' '),
     contentWrapper: [
       'flex-1 flex flex-col',
-      'lg:pl-[240px]'
+      ''
     ].join(' '),
     header: [
       'px-(--content-area-shift) min-h-(--topbar-height)',
@@ -63,8 +63,7 @@ export default {
     ].join(' '),
     container: [
       'flex-1 flex flex-col gap-[22px]',
-      'lg:min-w-0',
-      'mt-[22px]'
+      'lg:min-w-0'
     ].join(' '),
     containerWrapper: [
       'grow group/layout-content'
@@ -77,12 +76,12 @@ export default {
     pageActionsWrapper: '',
     containerWrapperInner: '',
     pageBottomWrapper: '',
-    // @memo save
     loadingWrapper: [
       'cursor-wait',
       'isolate absolute z-1000 inset-0',
       'w-full h-dvh',
       'flex flex-row flex-nowrap items-center justify-center',
+      // @memo save
       // 'bg-[#00204e]/52', //  //#000000/66 // [#00204e]/52
       // 'motion-safe:backdrop-blur-sm'
       ''
@@ -97,7 +96,11 @@ export default {
           'h-full' // relative isolate
         ].join(' '),
         container: [
-          'overflow-y-scroll'
+          'overflow-y-scroll',
+          'mt-0'
+        ].join(' '),
+        containerWrapperInner: [
+          'size-full'
         ].join(' ')
       },
       false: {
@@ -105,30 +108,21 @@ export default {
           '--app',
           'h-dvh' // relative isolate
         ].join(' '),
-        container: 'relative'
+        container: [
+          'relative',
+          'mt-[22px]'
+        ].join(' ')
       }
     },
     useSidebar: {
-      true: {
-        container: 'lg:px-(--content-area-shift)'
-      },
-      false: {
-        container: 'px-(--content-area-shift) pb-2 lg:pt-2 lg:px-2',
-        contentWrapper: 'lg:pl-0'
-      }
+      true: '',
+      false: ''
     },
     useLightContent: {
       true: {
-        container: 'lg:pb-2',
-        pageTopWrapper: 'px-6 lg:px-0',
-        // @todo fix this
-        pageActionsWrapper: 'p-6 lg:p-[15px]',
         containerWrapper: [
-          'p-6 lg:p-[15px]',
-          'lg:rounded-(--ui-border-radius-md)',
           'light --ui-context-content-light',
           'text-(--ui-color-design-plain-content) bg-(--ui-color-base-white-fixed)', // /87
-          ''
         ].join(' ')
       },
       false: {
@@ -153,15 +147,61 @@ export default {
     }
   },
   compoundVariants: [
+    // region inner||main.useLightContent ////
     {
       inner: true,
       useLightContent: true,
       class: {
-        pageTopWrapper: [
-          'px-0 lg:px-0'
+        container: '',
+        pageTopWrapper: 'px-0 lg:px-0',
+        // @todo fix this
+        pageActionsWrapper: 'p-6 lg:p-[15px]',
+        containerWrapper: [
+          'p-[20px]',
+          'rounded-(--ui-border-radius-md)'
         ].join(' ')
       }
+    },
+    {
+      inner: false,
+      useLightContent: true,
+      class: {
+        container: 'lg:pb-2',
+        pageTopWrapper: 'px-6 lg:px-0',
+        // @todo fix this
+        pageActionsWrapper: 'p-6 lg:p-[15px]',
+        containerWrapper: [
+          'p-6 lg:p-[15px]',
+          'lg:rounded-(--ui-border-radius-md)'
+        ].join(' ')
+      }
+    },
+    // endregion ////
+    // region main.useSidebar ////
+    {
+      inner: true,
+      useSidebar: [true, false],
+      class: {
+        container: 'px-[20px] pb-[20px] lg:pt-0 lg:px-[20px]'
+      }
+    },
+    {
+      inner: false,
+      useSidebar: true,
+      class: {
+        container: 'lg:px-(--content-area-shift)',
+        contentWrapper: 'lg:pl-[240px] '
+      }
+    },
+    {
+      inner: false,
+      useSidebar: false,
+      class: {
+        container: 'px-(--content-area-shift) pb-2 lg:pt-2 lg:px-2',
+        contentWrapper: 'lg:pl-0'
+      }
     }
+    // endregion ////
   ],
   defaultVariants: {
     inner: false,

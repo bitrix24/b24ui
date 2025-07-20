@@ -15,7 +15,7 @@ const emit = defineEmits(['close'])
     :description="description"
   >
     <template #body>
-      <Placeholder class="h-48" />
+      <Placeholder class="size-full" />
     </template>
     <template #footer>
       <B24Button color="air-primary-success" label="Close" @click="emit('close')" />

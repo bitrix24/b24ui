@@ -43,6 +43,10 @@
     - remove: xs, sm, md, lg, xl
 * Skeleton
   - add prop accent {default, accent, less}
+* Slideover
+  - side.bottom default
+  - calc size from max-w-*
+  - use SidebarLayout for render content
 
 @todo test Separator - double
 

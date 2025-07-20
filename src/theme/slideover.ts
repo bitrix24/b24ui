@@ -5,10 +5,13 @@
  * @link: /api_help/js_lib/sidepanel/index.php
  * @see `sidepanel` -> BX.SidePanel.Instance.open
  * @see src/theme/modal.ts
- *
- * @todo: btn close like b24
  */
 
+// :b24ui="{
+// leadingIcon: ['left', 'right', 'bottom'].includes(props?.side)
+//   ? 'group-hover:rounded-full group-hover:border-1 group-hover:border-current'
+//   : ''
+// }"
 const safeList = [
   'group-hover:rounded-full group-hover:border-1 group-hover:border-current'
 ].join(' ')
@@ -21,21 +24,23 @@ export default {
       'bg-base-50 dark:bg-base-950',
       // 'divide-y divide-(--ui-border)',
       'sm:shadow-lg',
-      'flex flex-col focus:outline-none'
+      'flex flex-col focus:outline-none',
+      'h-full'
     ].join(' '),
     header: [
       // fix 'mt-4 px-5',
-      'pt-[20px]',
+      'pt-[24px]',
       'flex items-center gap-1.5'
     ].join(' '),
     wrapper: 'min-h-2xl',
     body: [
-      'mx-0 mt-2',
+      'size-full',
+      // fix 'mx-0 mt-2',
       // fix 'flex-1 overflow-y-auto'
       'flex-1'
     ].join(' '),
     footer: 'bg-white dark:bg-base-950 flex items-center justify-center gap-3 py-4 border-t border-t-1 border-t-base-900/10 dark:border-t-white/20 shadow-top-md p-2 pr-(--scrollbar-width)',
-    title: 'font-[family-name:var(--ui-font-family-primary)] text-(--ui-color-design-plain-content) font-semibold mb-0 text-(length:--ui-font-size-4xl)',
+    title: 'font-[family-name:var(--ui-font-family-primary)] text-(--ui-color-design-plain-content) font-semibold mb-0 text-(length:--ui-font-size-4xl) leading-5',
     description: 'mt-2 mb-1 text-base-500 dark:text-base-400 text-sm',
     close: 'absolute',
     safeList
@@ -53,22 +58,26 @@ export default {
       }
     },
     side: {
+      // @todo fix if parent SidebarLayout.isUseSideBar > w-[calc(100%-135x)] > w-[calc(100%-150px)]
+      right: { content: 'right-0 inset-y-0 w-[calc(100%-60px)] sm:w-[calc(100%-150px)]' },
+      left: { content: 'left-0 inset-y-0 w-[calc(100%-60px)] sm:w-[calc(100%-150px)]' },
       top: {
-        content: 'inset-x-0 top-0 max-h-full'
-      },
-      right: {
-        content: 'right-0 inset-y-0 w-full max-w-[28rem]'
+        // fix content: 'inset-x-0 top-0 max-h-full max-h-[calc(100%-18px)]'
+        content: [
+          'right-[5px] sm:right-[70px] bottom-0 sm:bottom-[18px] top-0',
+          'w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)]',
+          'sm:max-h-[calc(100%-18px)]',
+          'sm:rounded-b-[18px]'
+        ].join(' ')
       },
       bottom: {
         // fix content: 'inset-x-0 bottom-0 max-h-full'
         content: [
-          'right-0 top-[18px] bottom-0',
-          'max-h-[calc(100%-18px)] w-full max-w-[calc(100%-150px)]',
-          'rounded-t-[18px]'
+          'right-[5px] sm:right-[70px] top-0 sm:top-[18px] bottom-0',
+          'w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)]',
+          'sm:max-h-[calc(100%-18px)]',
+          'sm:rounded-t-[18px]'
         ].join(' ')
-      },
-      left: {
-        content: 'left-0 inset-y-0 w-full max-w-[28rem]'
       }
     },
     transition: {
@@ -84,14 +93,13 @@ export default {
     }
   },
   compoundVariants: [
-    // region close ////
-    // close: 'absolute ' ////
+    // region btn.close ////
     {
-      side: 'right',
+      side: ['right', 'top', 'bottom'],
       class: {
         close: [
-          'pl-1.5 pr-2.5',
-          'top-3 -translate-x-full left-0',
+          'pl-1.5 pr-[4px]',
+          'top-[17px] -translate-x-full left-0',
           'rounded-l-full'
         ].join(' ')
       }
@@ -100,27 +108,9 @@ export default {
       side: 'left',
       class: {
         close: [
-          'pr-1.5 pl-2.5',
-          'top-3 translate-x-full right-0',
+          'pr-1.5 pl-[4px]',
+          'translate-x-full right-0',
           'rounded-r-full'
-        ].join(' ')
-      }
-    },
-    {
-      side: 'top',
-      class: {
-        close: [
-          'top-4 end-4'
-        ].join(' ')
-      }
-    },
-    {
-      side: 'bottom',
-      class: {
-        close: [
-          'pl-1.5 pr-[4px]',
-          'top-[17px] -translate-x-full left-0',
-          'rounded-l-full'
         ].join(' ')
       }
     },
@@ -157,7 +147,7 @@ export default {
     // endregion ////
   ],
   defaultVariants: {
-    side: 'right',
+    side: 'bottom',
     scrollbarThin: true,
     overlayBlur: 'auto'
   }
