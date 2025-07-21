@@ -1,5 +1,19 @@
+/**
+ * Scrollbar
+ * @see /bitrix/templates/bitrix24/src/css/standalone/iframe-scrollbar.css
+ */
 .scrollbar-thin {
   scrollbar-width: thin;
+}
+
+.scrollbar-transparent {
+  scrollbar-color: hsla(0, 0%, 0%, 0) transparent;
+  scrollbar-gutter: stable;
+}
+
+.scrollbar-transparent:hover
+{
+  scrollbar-color: hsl(213.91deg 12.3% 36.67% / 36%) transparent;
 }
 
 .edge-dark .scrollbar-transparent:hover,

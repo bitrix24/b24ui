@@ -69,7 +69,7 @@ export interface SidebarLayoutInstance {
 </script>
 
 <script setup lang="ts">
-import { ref, computed, watch, onUnmounted, readonly, provide, inject, defineExpose } from 'vue'
+import { ref, computed, watch, onUnmounted, readonly, provide, inject } from 'vue'
 import { useRoute } from 'vue-router'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'

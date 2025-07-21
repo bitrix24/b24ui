@@ -32,10 +32,6 @@ function openSlideover() {
 
 const currentSlideoverRef = ref<SlideoverInstance | null>(null)
 
-const isSidebarLayoutLoading = computed<boolean>(() => {
-  return currentSlideoverRef.value?.getSidebarApi()?.isLoading.value === true
-})
-
 const handleSidebarLayoutLoadingAction = async () => {
   if (!currentSlideoverRef.value) {
     return
@@ -61,7 +57,7 @@ const handleSidebarLayoutLoadingAction = async () => {
           side="right"
           :close="{ label: 'Right' }"
         >
-          <B24Button label="Open on right" />
+          <B24Button label="Right" />
 
           <template #body>
             <Placeholder class="size-full" />
@@ -92,10 +88,16 @@ const handleSidebarLayoutLoadingAction = async () => {
           side="left"
           :close="{ label: 'Left' }"
         >
-          <B24Button label="Open on left" />
+          <B24Button label="Left" />
 
           <template #body>
             <Placeholder class="size-full" />
+          </template>
+
+          <template #footer>
+            <B24ModalDialogClose>
+              <B24Button label="Cancel" />
+            </B24ModalDialogClose>
           </template>
         </B24Slideover>
 
@@ -103,12 +105,17 @@ const handleSidebarLayoutLoadingAction = async () => {
           title="Slideover on top side"
           description="This slideover has `side: 'top'` prop."
           side="top"
-          :close="{ label: 'Top' }"
         >
-          <B24Button label="Open on top" />
+          <B24Button label="Top" />
 
           <template #body>
             <Placeholder class="size-full" />
+          </template>
+
+          <template #footer>
+            <B24ModalDialogClose>
+              <B24Button label="Cancel" />
+            </B24ModalDialogClose>
           </template>
         </B24Slideover>
 
@@ -117,13 +124,21 @@ const handleSidebarLayoutLoadingAction = async () => {
           description="This slideover has `side: 'bottom'` prop."
           :close="{ label: 'Bottom' }"
         >
-          <B24Button label="Open on bottom" color="air-secondary-accent-2" />
+          <B24Button label="Bottom" color="air-secondary-accent-2" />
 
           <template #body>
             <Placeholder class="size-full" />
           </template>
-        </B24Slideover>
 
+          <template #footer>
+            <B24ModalDialogClose>
+              <B24Button label="Cancel" />
+            </B24ModalDialogClose>
+          </template>
+        </B24Slideover>
+      </div>
+
+      <div class="mb-4 flex flex-row flex-wrap gap-2">
         <B24Slideover
           v-model:open="open"
           title="Slideover with v-model"
@@ -217,6 +232,12 @@ const handleSidebarLayoutLoadingAction = async () => {
 
           <template #body>
             <Placeholder class="size-full" />
+          </template>
+
+          <template #footer>
+            <B24ModalDialogClose>
+              <B24Button label="Close" color="air-tertiary" />
+            </B24ModalDialogClose>
           </template>
         </B24Slideover>
 
@@ -342,15 +363,16 @@ const handleSidebarLayoutLoadingAction = async () => {
         <B24Slideover
           ref="currentSlideoverRef"
           title="File upload"
-          :b24ui="{ content: 'w-1/2 sm:max-w-[calc(100vw-4rem)] light --ui-context-content-light' }"
+          description="Some description"
+          :b24ui="{ content: 'sm:max-w-1/2' }"
         >
           <B24Button label="Upload file" />
 
           <template #body>
             <div class="flex flex-col gap-4">
               <div class="w-full flex flex-row flex-nowrap items-center justify-start gap-3">
-                <div class="size-8xl rounded-xs border border-base-100 dark:border-white/20 flex flex-col items-center justify-center">
-                  <FileUploadIcon class="size-10 text-base-600" />
+                <div class="size-8xl rounded-xs border border-(--ui-color-divider-default) flex flex-col items-center justify-center">
+                  <FileUploadIcon class="size-10 text-(--ui-color-design-plain-na-content)" />
                 </div>
                 <div class="flex flex-col flex-nowrap gap-1">
                   <ProseH5 class="mb-0">
@@ -370,8 +392,9 @@ const handleSidebarLayoutLoadingAction = async () => {
 
           <template #footer>
             <B24Button
-              :label="isSidebarLayoutLoading ? 'Loading...' : 'Submit'"
+              label="Reload"
               color="air-primary"
+              loading-auto
               @click="handleSidebarLayoutLoadingAction"
             />
             <B24ModalDialogClose>

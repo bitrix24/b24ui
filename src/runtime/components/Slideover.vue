@@ -43,7 +43,8 @@ export interface SlideoverProps extends DialogRootProps {
   portal?: boolean | string | HTMLElement
   /**
    * Display a close button to dismiss the slideover.
-   * `{ color: 'air-primary' }`{lang="ts"}
+   * `{ color: 'air-primary' }`{lang="ts"} for `left`, `right`, `bottom`
+   * `{ color: 'air-tertiary' }`{lang="ts"} for `top`
    * @defaultValue true
    */
   close?: boolean | Partial<ButtonProps>
@@ -58,10 +59,6 @@ export interface SlideoverProps extends DialogRootProps {
    * @defaultValue false
    */
   dismissible?: boolean
-  /**
-   * @defaultValue true
-   */
-  scrollbarThin?: boolean
   class?: any
   b24ui?: Slideover['slots']
 }
@@ -92,7 +89,7 @@ export type SlideoverInstance = {
 </script>
 
 <script setup lang="ts">
-import { computed, toRef, ref, defineExpose } from 'vue'
+import { computed, toRef, ref } from 'vue'
 import { DialogRoot, DialogTrigger, DialogPortal, DialogOverlay, DialogContent, DialogTitle, DialogDescription, DialogClose, VisuallyHidden, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
@@ -112,7 +109,6 @@ const props = withDefaults(defineProps<SlideoverProps>(), {
   modal: true,
   dismissible: true,
   side: 'bottom',
-  scrollbarThin: true,
   overlayBlur: 'auto'
 })
 const emits = defineEmits<SlideoverEmits>()
@@ -220,6 +216,10 @@ defineExpose<SlideoverInstance>({
             ref="sidebarRef"
             use-light-content
             is-inner
+            :b24ui="{
+              root: b24ui.sidebarLayoutRoot({ class: props.b24ui?.sidebarLayoutRoot }),
+              pageBottomWrapper: b24ui.sidebarLayoutPageBottomWrapper({ class: props.b24ui?.sidebarLayoutPageBottomWrapper })
+            }"
           >
             <template v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description) || (props.close || !!slots.close)" #content-top>
               <div :class="b24ui.header({ class: props.b24ui?.header })">
@@ -244,14 +244,17 @@ defineExpose<SlideoverInstance>({
                         v-if="props.close"
                         :icon="closeIcon || icons.close"
                         class="group"
-                        color="air-primary"
+                        :color="['left', 'right', 'bottom'].includes(props?.side) ? 'air-primary' : 'air-tertiary'"
                         :aria-label="t('slideover.close')"
                         size="lg"
-                        :b24ui="{
-                          leadingIcon: 'group-hover:rounded-full group-hover:border-1 group-hover:border-current',
-                          baseLine: 'ps-[4px] pe-[4px]',
-                          label: 'hidden sm:flex'
-                        }"
+                        :b24ui="
+                          ['left', 'right', 'bottom'].includes(props?.side)
+                            ? {
+                              leadingIcon: 'group-hover:rounded-full group-hover:border-1 group-hover:border-current',
+                              baseLine: 'ps-[4px] pe-[4px]',
+                              label: 'hidden sm:flex'
+                            }
+                            : {}"
                         v-bind="(typeof props.close === 'object' ? props.close as Partial<ButtonProps> : {})"
                         :class="b24ui.close({ class: props.b24ui?.close })"
                       />
@@ -265,7 +268,7 @@ defineExpose<SlideoverInstance>({
               <slot name="actions" />
             </template>
 
-            <div :class="b24ui.body({ class: props.b24ui?.body, scrollbarThin: Boolean(props.scrollbarThin) })">
+            <div :class="b24ui.body({ class: props.b24ui?.body })">
               <slot name="body" :close="close" />
             </div>
 

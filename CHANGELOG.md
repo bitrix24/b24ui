@@ -44,6 +44,7 @@
 * Skeleton
   - add prop accent {default, accent, less}
 * Slideover
+  - remove props.scrollbarThin
   - side.bottom default
   - calc size from max-w-*
   - use SidebarLayout for render content

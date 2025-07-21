@@ -13,10 +13,8 @@ export default {
   slots: {
     root: [
       'text-(--ui-color-design-plain-content)',
-      'bg-(--ui-color-gray-05) edge-light:bg-transparent', // edge-light:bg-(--ui-color-gray-05)
-      'dark:bg-(--ui-color-bg-content-primary) edge-dark:bg-transparent', // edge-dark:bg-(--ui-color-g-content-grey-4)
-      'min-h-svh w-full',
-      'flex max-lg:flex-col'
+      'w-full',
+      'flex'
     ].join(' '),
     sidebar: [
       'w-[240px]',
@@ -70,7 +68,6 @@ export default {
     ].join(' '),
     pageTopWrapper: [
       'text-(--ui-color-base-1)',
-      'min-h-[30px]',
       'flex items-center'
     ].join(' '),
     pageActionsWrapper: '',
@@ -80,11 +77,10 @@ export default {
       'cursor-wait',
       'isolate absolute z-1000 inset-0',
       'w-full h-dvh',
-      'flex flex-row flex-nowrap items-center justify-center',
+      'flex flex-row flex-nowrap items-center justify-center'
       // @memo save
       // 'bg-[#00204e]/52', //  //#000000/66 // [#00204e]/52
       // 'motion-safe:backdrop-blur-sm'
-      ''
     ].join(' '),
     loadingIcon: 'text-(--ui-color-g-glass-grey-bg-2) size-[110px] animate-spin-slow'
   },
@@ -92,21 +88,30 @@ export default {
     inner: {
       true: {
         root: [
-          '--inner light --ui-context-content-light ',
-          'h-full' // relative isolate
+          '--inner',
+          'relative isolate',
+          'h-full',
+          'bg-(--ui-color-gray-05)',
+          'dark:bg-(--ui-color-gray-05)'
         ].join(' '),
         container: [
+          'scrollbar-thin scrollbar-transparent',
           'overflow-y-scroll',
           'mt-0'
         ].join(' '),
+        containerWrapper: '',
         containerWrapperInner: [
           'size-full'
-        ].join(' ')
+        ].join(' '),
+        pageBottomWrapper: 'flex-0'
       },
       false: {
         root: [
           '--app',
-          'h-dvh' // relative isolate
+          'h-dvh min-h-dvh',
+          'bg-(--ui-color-gray-05) edge-light:bg-transparent',
+          'dark:bg-(--ui-color-bg-content-primary) edge-dark:bg-transparent',
+          'max-lg:flex-col'
         ].join(' '),
         container: [
           'relative',
@@ -122,7 +127,7 @@ export default {
       true: {
         containerWrapper: [
           'light --ui-context-content-light',
-          'text-(--ui-color-design-plain-content) bg-(--ui-color-base-white-fixed)', // /87
+          'text-(--ui-color-design-plain-content) bg-(--ui-color-base-white-fixed)' // /87
         ].join(' ')
       },
       false: {
@@ -134,15 +139,11 @@ export default {
     },
     useNavbar: {
       true: {
-        // @memo save
-        // loadingWrapper: 'h-[calc(100dvh-var(--topbar-height))]'
-        container: 'h-[calc(100dvh-var(--topbar-height))]'
+        container: ''
       },
       false: {
-        // @memo save
-        // loadingWrapper: 'h-dvh'
         loadingWrapper: 'h-full',
-        container: 'h-full'
+        container: ''
       }
     }
   },
@@ -182,7 +183,7 @@ export default {
       inner: true,
       useSidebar: [true, false],
       class: {
-        container: 'px-[20px] pb-[20px] lg:pt-0 lg:px-[20px]'
+        container: 'px-[20px] ps-[20px] pe-[10px] pb-[20px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[10px]'
       }
     },
     {
@@ -199,6 +200,29 @@ export default {
       class: {
         container: 'px-(--content-area-shift) pb-2 lg:pt-2 lg:px-2',
         contentWrapper: 'lg:pl-0'
+      }
+    },
+    // endregion ////
+    // region main.useNavbar ////
+    {
+      inner: true,
+      useNavbar: [true, false],
+      class: {
+        container: 'h-full'
+      }
+    },
+    {
+      inner: false,
+      useNavbar: true,
+      class: {
+        container: 'h-[calc(100dvh-var(--topbar-height))]'
+      }
+    },
+    {
+      inner: false,
+      useNavbar: false,
+      class: {
+        container: 'h-full'
       }
     }
     // endregion ////
