@@ -221,6 +221,10 @@ defineExpose<SlideoverInstance>({
               pageBottomWrapper: b24ui.sidebarLayoutPageBottomWrapper({ class: props.b24ui?.sidebarLayoutPageBottomWrapper })
             }"
           >
+            <template v-if="!!slots['navbar']" #navbar>
+              <slot name="navbar" />
+            </template>
+
             <template v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description) || (props.close || !!slots.close)" #content-top>
               <div :class="b24ui.header({ class: props.b24ui?.header })">
                 <slot name="header" :close="close">
@@ -268,9 +272,11 @@ defineExpose<SlideoverInstance>({
               <slot name="actions" />
             </template>
 
-            <div :class="b24ui.body({ class: props.b24ui?.body })">
-              <slot name="body" :close="close" />
-            </div>
+            <template v-if="!!slots['actions']" #default>
+              <div :class="b24ui.body({ class: props.b24ui?.body })">
+                <slot name="body" :close="close" />
+              </div>
+            </template>
 
             <template v-if="!!slots.footer" #content-bottom>
               <div :class="b24ui.footer({ class: props.b24ui?.footer })">

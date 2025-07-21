@@ -1,17 +1,18 @@
 <script setup lang="ts">
-import { defineAsyncComponent } from 'vue'
+import { computed, defineAsyncComponent } from 'vue'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
 import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import FileUploadIcon from '@bitrix24/b24icons-vue/main/FileUploadIcon'
-import type { SlideoverInstance } from '@bitrix24/b24ui-nuxt'
+import type { SlideoverInstance, NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
 
 usePageMeta.setPageTitle('Slideover')
 
 const SlideoverExample = defineAsyncComponent(() => import('../../components/SlideoverExample.vue'))
 
 const open = ref(false)
+const openTopAndBottom = ref(false)
 const count = ref(0)
 const overlay = useOverlay()
 
@@ -44,6 +45,19 @@ const handleSidebarLayoutLoadingAction = async () => {
     currentSlideoverRef.value.setSidebarLoading(false)
   }
 }
+
+const menuTop = computed<NavigationMenuItem[]>(() => {
+  return [
+    {
+      label: 'Page 1',
+      to: '/'
+    },
+    {
+      label: 'Page 2',
+      to: '/'
+    }
+  ]
+})
 </script>
 
 <template>
@@ -405,6 +419,41 @@ const handleSidebarLayoutLoadingAction = async () => {
             </B24ModalDialogClose>
           </template>
         </B24Slideover>
+        <B24Slideover
+          v-model:open="openTopAndBottom"
+          title="Bottom"
+          description="Some description"
+          side="bottom"
+          :b24ui="{
+            content: 'top-[58px] sm:top-[58px] right-[22px] sm:right-[22px] max-h-[calc(100%-58px)] sm:max-h-[calc(100%-58px)] w-[calc(100%-60px-22px)] sm:w-[calc(100%-60px-22px)]'
+          }"
+        >
+          <template #body>
+            <Placeholder class="size-full" />
+          </template>
+        </B24Slideover>
+
+
+        <B24Slideover
+          v-model:open="openTopAndBottom"
+          side="top"
+          :dismissible="false"
+          :close="false"
+          :overlay="false"
+          :modal="false"
+          :b24ui="{
+            content: 'max-h-[56px]',
+            sidebarLayoutRoot: 'edge-dark --ui-context-edge-dark bg-transparent pl-[calc(60px+0px)]'
+          }"
+        >
+          <template #navbar>
+            <B24NavigationMenu
+              :items="menuTop"
+              orientation="horizontal"
+            />
+          </template>
+        </B24Slideover>
+        <B24Button label="Top & Bottom" @click="openTopAndBottom = true" />
       </div>
     </ExampleCard>
   </ExampleGrid>
