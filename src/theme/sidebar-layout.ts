@@ -61,8 +61,8 @@ export default {
       'flex items-center gap-[12px]'
     ].join(' '),
     pageActionsWrapper: [
-      'min-h-[28px]',
-      'flex flex-col sm:flex-row items-center justify-start gap-[12px]'
+      // 'min-h-[28px]', // @memo not work
+      'flex flex-col md:flex-row items-start md:items-center justify-start gap-[12px]'
     ].join(' '),
     containerWrapperInner: '',
     pageBottomWrapper: '',

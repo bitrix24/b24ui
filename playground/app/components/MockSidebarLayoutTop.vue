@@ -12,12 +12,12 @@ import TaskIcon from '@bitrix24/b24icons-vue/button/TaskIcon'
     <B24Button label="Create" color="air-primary-success" />
     <B24Button color="air-primary-success" use-dropdown />
   </B24ButtonGroup>
-  <div>
+  <div class="hidden sm:flex">
     <B24Input
       size="sm"
     />
   </div>
-  <div class="flex-1 flex flex-row items-center justify-end gap-[12px]">
+  <div class="flex-1 hidden sm:flex flex-row items-center justify-end gap-[12px]">
     <B24Button size="sm" :icon="SettingsLIcon" color="air-secondary-accent" />
     <B24Button size="sm" :icon="TaskIcon" color="air-secondary-accent" />
   </div>

@@ -9,7 +9,7 @@ import ChatsWithCheckIcon from '@bitrix24/b24icons-vue/outline/ChatsWithCheckIco
     <B24Button label="SubAction 1.2" color="air-secondary-accent" active-color="air-selection" />
     <B24Button label="SubAction 1.3" color="air-secondary-accent" active-color="air-selection" />
   </B24ButtonGroup>
-  <B24ButtonGroup size="sm" no-split>
+  <B24ButtonGroup class="hidden sm:flex" size="sm" no-split>
     <B24Button label="SubAction 2.1" color="air-secondary-accent" active active-color="air-selection">
       <template #leading>
         <B24Chip standalone text="4" size="md" />
@@ -22,7 +22,7 @@ import ChatsWithCheckIcon from '@bitrix24/b24icons-vue/outline/ChatsWithCheckIco
     </B24Button>
     <B24Button :icon="ChatsWithCheckIcon" color="air-secondary-accent" active-color="air-selection" />
   </B24ButtonGroup>
-  <div class="flex-1 flex flex-row items-center justify-end gap-[12px]">
+  <div class="flex-1 hidden sm:flex flex-row items-center justify-end gap-[12px]">
     <B24Button size="sm" :icon="RobotIcon" label="SubAction 3.1" color="air-secondary-accent" />
     <B24ButtonGroup size="sm">
       <B24Button label="SubAction 3.2" color="air-secondary-accent" />
