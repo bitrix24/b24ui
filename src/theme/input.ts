@@ -7,6 +7,8 @@
  * @link /api_d7/bitrix/ui/forms/fields_types.php
  * @see src/theme/input-number.ts
  * @see bitrix/js/ui/..
+ * @todo fix docs
+ * @memo add size.xss && size.xl
  */
 
 import { buttonGroupVariantWithRoot } from './button-group'
@@ -43,6 +45,14 @@ export default {
   variants: {
     ...buttonGroupVariantWithRoot,
     size: {
+      xss: {
+        base: 'h-xl2 gap-1', // 26px
+        leading: 'px-1',
+        trailing: 'px-1',
+        leadingIcon: 'size-lg2',
+        leadingAvatarSize: '2xs',
+        trailingIcon: 'size-lg2'
+      },
       xs: {
         base: 'h-xl2 gap-1', // 26px
         leading: 'px-1',
@@ -68,6 +78,14 @@ export default {
         trailingIcon: 'size-[24px]'
       },
       lg: {
+        base: 'h-12 gap-2', // 48px
+        leading: 'px-2',
+        trailing: 'px-2',
+        leadingIcon: 'size-[24px]',
+        leadingAvatarSize: 'md',
+        trailingIcon: 'size-[24px]'
+      },
+      xl: {
         base: 'h-12 gap-2', // 48px
         leading: 'px-2',
         trailing: 'px-2',

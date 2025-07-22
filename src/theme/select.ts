@@ -4,6 +4,8 @@
  * ---
  * @link /api_d7/bitrix/ui/forms/fields_types.php
  * @see bitrix/js/ui/..
+ * @todo fix docs
+ * @memo add size.xss && size.xl
  */
 
 import { defuFn } from 'defu'
@@ -107,10 +109,12 @@ export default () => {
       variants: {
         ...buttonGroupVariantWithRoot,
         size: {
+          xss: defSize,
           xs: defSize,
           sm: defSize,
           md: defSize,
-          lg: defSize
+          lg: defSize,
+          xl: defSize
         },
         ...colorDropDownItem
       }

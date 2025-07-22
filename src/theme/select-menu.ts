@@ -7,6 +7,8 @@
  * @see bitrix/js/ui/select..
  *
  * @todo change empty template
+ * @todo fix docs
+ * @memo add size.xss && size.xl
  */
 import { defuFn } from 'defu'
 import select from './select'

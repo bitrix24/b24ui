@@ -93,21 +93,18 @@ function onClick() {
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24ButtonGroup>
           <B24Button
-            color="default"
             label="Button"
             loading-auto
             use-clock
             @click="onClick"
           />
           <B24Button
-            color="default"
             label="Button"
             loading-auto
             use-clock
             @click="onClick"
           />
           <B24Button
-            color="default"
             label="Button"
             loading-auto
             use-clock
@@ -121,8 +118,6 @@ function onClick() {
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24ButtonGroup size="sm" no-split>
           <B24Button
-            color="default"
-            depth="light"
             loading-auto
             use-clock
             @click="onClick"
@@ -130,8 +125,6 @@ function onClick() {
             Button
           </B24Button>
           <B24Button
-            color="default"
-            depth="normal"
             loading-auto
             use-clock
             @click="onClick"
@@ -139,8 +132,6 @@ function onClick() {
             Button
           </B24Button>
           <B24Button
-            color="default"
-            depth="dark"
             loading-auto
             use-clock
             @click="onClick"
@@ -154,23 +145,20 @@ function onClick() {
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24ButtonGroup orientation="vertical">
           <B24Button
-            color="success"
-            depth="light"
+            color="air-primary-success"
             label="Button"
             loading-auto
             use-clock
             @click="onClick"
           />
           <B24Button
-            color="success"
-            depth="normal"
+            color="air-primary-success"
             label="Button"
             loading
             use-wait
           />
           <B24Button
-            color="success"
-            depth="dark"
+            color="air-primary-success"
             label="Button"
             loading-auto
             use-clock
@@ -184,8 +172,6 @@ function onClick() {
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24ButtonGroup orientation="vertical">
           <B24Button
-            color="link"
-            depth="dark"
             loading-auto
             use-clock
             @click="onClick"
@@ -198,8 +184,6 @@ function onClick() {
         <B24ButtonGroup orientation="vertical" size="sm" no-split>
           <B24InputNumber class="w-40" placeholder="some number" />
           <B24Button
-            color="link"
-            depth="dark"
             loading-auto
             use-clock
             @click="onClick"
@@ -212,8 +196,6 @@ function onClick() {
           <B24Badge color="default" use-fill label="https://" />
           <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
           <B24Button
-            color="link"
-            depth="dark"
             loading-auto
             use-clock
             @click="onClick"
@@ -224,8 +206,6 @@ function onClick() {
 
         <B24ButtonGroup no-split>
           <B24Button
-            color="link"
-            depth="dark"
             loading-auto
             use-clock
             @click="onClick"
@@ -242,8 +222,6 @@ function onClick() {
           <B24ButtonGroup :size="size" no-split>
             <B24Input class="w-40" name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
             <B24Button
-              color="link"
-              depth="dark"
               loading-auto
               use-clock
               @click="onClick"
@@ -261,8 +239,7 @@ function onClick() {
               aria-label="Choose a value"
             />
             <B24Button
-              color="primary"
-              depth="dark"
+              color="air-primary"
               loading-auto
               use-clock
               @click="onClick"
@@ -285,7 +262,7 @@ function onClick() {
               aria-label="Choose a value"
             />
             <B24Button
-              color="ai"
+              color="air-primary-copilot"
               loading-auto
               use-clock
               @click="onClick"
@@ -297,8 +274,6 @@ function onClick() {
           <B24ButtonGroup :size="size" no-split>
             <B24InputNumber class="w-40" placeholder="some number" />
             <B24Button
-              color="link"
-              depth="dark"
               loading-auto
               use-clock
               @click="onClick"
@@ -324,8 +299,7 @@ function onClick() {
 
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24Button
-          color="primary"
-          depth="dark"
+          color="air-primary"
           loading-auto
           use-clock
           @click="onClick"
@@ -333,8 +307,7 @@ function onClick() {
           Button
         </B24Button>
         <B24Button
-          color="primary"
-          depth="dark"
+          color="air-primary"
           loading-auto
           use-clock
           @click="onClick"
@@ -342,8 +315,7 @@ function onClick() {
           Button
         </B24Button>
         <B24Button
-          color="primary"
-          depth="dark"
+          color="air-primary"
           loading-auto
           use-clock
           @click="onClick"

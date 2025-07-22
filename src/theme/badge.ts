@@ -5,6 +5,8 @@
  * @link /api_d7/bitrix/ui/labels/index.php
  * @see bitrix/js/ui/label/
  * @see bitrix/js/ui/cnt/
+ * @todo fix docs
+ * @memo add size.xss && size.xl
  */
 import { buttonGroupVariant } from './button-group'
 
@@ -59,6 +61,14 @@ export default {
       dark: 'font-bold'
     },
     size: {
+      xss: {
+        base: 'text-5xs gap-0.5',
+        wrapper: 'h-[14px] gap-0.5',
+        label: 'underline-offset-1',
+        leadingIcon: 'size-sm',
+        leadingAvatarSize: '3xs',
+        trailingIcon: 'size-sm '
+      },
       xs: {
         base: 'text-5xs gap-0.5',
         wrapper: 'h-[14px] gap-0.5',

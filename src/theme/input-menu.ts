@@ -8,6 +8,8 @@
  * @see bitrix/js/ui/select..
  *
  * @todo change empty template
+ * @todo fix docs
+ * @memo add size.xss && size.xl
  */
 import { defuFn } from 'defu'
 import input from './input'
@@ -156,6 +158,16 @@ export default () => {
         }
       },
       size: {
+        xss: defuFn(
+          defSize,
+          {
+            tagsItem: [
+              'text-5xs',
+              'h-[14px] gap-0.5'
+            ].join(' '),
+            tagsItemDeleteIcon: 'size-sm'
+          }
+        ),
         xs: defuFn(
           defSize,
           {
@@ -187,6 +199,16 @@ export default () => {
           }
         ),
         lg: defuFn(
+          defSize,
+          {
+            tagsItem: [
+              'text-md',
+              'h-[31px] gap-1'
+            ].join(' '),
+            tagsItemDeleteIcon: 'size-3.5'
+          }
+        ),
+        xl: defuFn(
           defSize,
           {
             tagsItem: [
