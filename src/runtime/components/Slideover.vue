@@ -72,6 +72,8 @@ export interface SlideoverEmits extends DialogRootEmits {
 export interface SlideoverSlots {
   default(props: { open: boolean }): any
   content(props: { close: () => void }): any
+  sidebar(props: { close: () => void }): any
+  navbar(props: { close: () => void }): any
   header(props: { close: () => void }): any
   title(props?: {}): any
   description(props?: {}): any
@@ -210,22 +212,47 @@ defineExpose<SlideoverInstance>({
         </VisuallyHidden>
 
         <slot name="content" :close="close">
-          <!-- @todo add sidebar -->
-          <!-- @todo add navbar -->
+          <template v-if="(['left', 'right', 'bottom'].includes(props?.side) && (props.close || !!slots.close))">
+            <DialogClose v-if="props.close || !!slots.close" as-child>
+              <slot name="close" :close="close" :b24ui="b24ui">
+                <!-- @todo fix this css -->
+                <B24Button
+                  v-if="props.close"
+                  :icon="closeIcon || icons.close"
+                  class="group"
+                  color="air-primary"
+                  :aria-label="t('slideover.close')"
+                  size="lg"
+                  :b24ui="{
+                    leadingIcon: 'group-hover:rounded-full group-hover:border-1 group-hover:border-current',
+                    baseLine: 'ps-[4px] pe-[4px]',
+                    label: 'hidden sm:flex'
+                  }"
+                  v-bind="(typeof props.close === 'object' ? props.close as Partial<ButtonProps> : {})"
+                  :class="b24ui.close({ class: props.b24ui?.close })"
+                />
+              </slot>
+            </DialogClose>
+          </template>
           <B24SidebarLayout
             ref="sidebarRef"
             use-light-content
             is-inner
             :b24ui="{
               root: b24ui.sidebarLayoutRoot({ class: props.b24ui?.sidebarLayoutRoot }),
+              header: b24ui.sidebarLayoutHeaderWrapper({ class: props.b24ui?.sidebarLayoutHeaderWrapper }),
               pageBottomWrapper: b24ui.sidebarLayoutPageBottomWrapper({ class: props.b24ui?.sidebarLayoutPageBottomWrapper })
             }"
           >
-            <template v-if="!!slots['navbar']" #navbar>
-              <slot name="navbar" />
+            <template v-if="!!slots['sidebar']" #sidebar>
+              <slot name="sidebar" :close="close" />
             </template>
 
-            <template v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description) || (props.close || !!slots.close)" #content-top>
+            <template v-if="!!slots['navbar']" #navbar>
+              <slot name="navbar" :close="close" />
+            </template>
+
+            <template v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description) || (['top'].includes(props?.side) && (props.close || !!slots.close))" #content-top>
               <div :class="b24ui.header({ class: props.b24ui?.header })">
                 <slot name="header" :close="close">
                   <div :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
@@ -241,29 +268,22 @@ defineExpose<SlideoverInstance>({
                       </slot>
                     </DialogDescription>
                   </div>
-                  <DialogClose v-if="props.close || !!slots.close" as-child>
-                    <slot name="close" :close="close" :b24ui="b24ui">
-                      <!-- @todo fix this css -->
-                      <B24Button
-                        v-if="props.close"
-                        :icon="closeIcon || icons.close"
-                        class="group"
-                        :color="['left', 'right', 'bottom'].includes(props?.side) ? 'air-primary' : 'air-tertiary'"
-                        :aria-label="t('slideover.close')"
-                        size="lg"
-                        :b24ui="
-                          ['left', 'right', 'bottom'].includes(props?.side)
-                            ? {
-                              leadingIcon: 'group-hover:rounded-full group-hover:border-1 group-hover:border-current',
-                              baseLine: 'ps-[4px] pe-[4px]',
-                              label: 'hidden sm:flex'
-                            }
-                            : {}"
-                        v-bind="(typeof props.close === 'object' ? props.close as Partial<ButtonProps> : {})"
-                        :class="b24ui.close({ class: props.b24ui?.close })"
-                      />
-                    </slot>
-                  </DialogClose>
+                  <template v-if="props.close || !!slots.close">
+                    <DialogClose v-if="props.close || !!slots.close" as-child>
+                      <slot name="close" :close="close" :b24ui="b24ui">
+                        <B24Button
+                          v-if="props.close"
+                          :icon="closeIcon || icons.close"
+                          class="group"
+                          color="air-tertiary"
+                          :aria-label="t('slideover.close')"
+                          size="lg"
+                          v-bind="(typeof props.close === 'object' ? props.close as Partial<ButtonProps> : {})"
+                          :class="b24ui.close({ class: props.b24ui?.close })"
+                        />
+                      </slot>
+                    </DialogClose>
+                  </template>
                 </slot>
               </div>
             </template>
@@ -272,7 +292,7 @@ defineExpose<SlideoverInstance>({
               <slot name="actions" />
             </template>
 
-            <template v-if="!!slots['actions']" #default>
+            <template v-if="!!slots['body']" #default>
               <div :class="b24ui.body({ class: props.b24ui?.body })">
                 <slot name="body" :close="close" />
               </div>

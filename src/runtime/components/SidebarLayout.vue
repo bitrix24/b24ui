@@ -257,35 +257,38 @@ defineExpose<SidebarLayoutInstance>({
         </div>
       </header>
 
-      <main :class="b24ui.container({ class: props.b24ui?.container })">
-        <!-- Page Top -->
-        <template v-if="!!slots['content-top']">
-          <div :class="b24ui.pageTopWrapper({ class: props.b24ui?.pageTopWrapper })">
-            <slot name="content-top" :is-loading="isLoading" />
-          </div>
-        </template>
-
-        <!-- Page Actions -->
-        <template v-if="!!slots['content-actions']">
-          <div :class="b24ui.pageActionsWrapper({ class: props.b24ui?.pageActionsWrapper })">
-            <slot name="content-actions" :is-loading="isLoading" />
-          </div>
-        </template>
-        <!-- Page Content -->
-        <template v-if="!!slots.default">
-          <div
-            :data-content="props.useLightContent ? 'light' : 'empty'"
-            :class="b24ui.containerWrapper({ class: props.b24ui?.containerWrapper })"
-          >
-            <div :class="b24ui.containerWrapperInner({ class: props.b24ui?.containerWrapperInner })">
-              <slot :is-loading="isLoading" />
+      <template v-if="!!slots['content-top'] || !!slots['content-actions'] || !!slots['default']">
+        <main :class="b24ui.container({ class: props.b24ui?.container })">
+          <template v-if="!!slots['content-top']">
+            <!-- Page Top -->
+            <div :class="b24ui.pageTopWrapper({ class: props.b24ui?.pageTopWrapper })">
+              <slot name="content-top" :is-loading="isLoading" />
             </div>
-          </div>
-        </template>
-      </main>
+          </template>
 
-      <!-- Page Bottom -->
+          <template v-if="!!slots['content-actions']">
+            <!-- Page Actions -->
+            <div :class="b24ui.pageActionsWrapper({ class: props.b24ui?.pageActionsWrapper })">
+              <slot name="content-actions" :is-loading="isLoading" />
+            </div>
+          </template>
+
+          <template v-if="!!slots['default']">
+            <!-- Page Content -->
+            <div
+              :data-content="props.useLightContent ? 'light' : 'empty'"
+              :class="b24ui.containerWrapper({ class: props.b24ui?.containerWrapper })"
+            >
+              <div :class="b24ui.containerWrapperInner({ class: props.b24ui?.containerWrapperInner })">
+                <slot :is-loading="isLoading" />
+              </div>
+            </div>
+          </template>
+        </main>
+      </template>
+
       <template v-if="!!slots['content-bottom']">
+        <!-- Page Bottom -->
         <div :class="b24ui.pageBottomWrapper({ class: props.b24ui?.pageBottomWrapper })">
           <slot name="content-bottom" :is-loading="isLoading" />
         </div>

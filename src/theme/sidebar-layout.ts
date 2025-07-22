@@ -19,14 +19,8 @@ export default {
     sidebar: [
       'w-[240px]',
       'pe-[3px] rtl:me-[14px]',
-      'fixed inset-y-0 left-0',
-      'max-lg:hidden',
-      'bg-(--ui-color-bg-content-secondary)',
-      'dark:bg-[#262626]',
-      'edge-light:bg-(--ui-color-base-black-fixed)/2',
-      'edge-light:backdrop-blur-(--ui-bg-blur-less)',
-      'edge-dark:bg-(--ui-color-base-white-fixed)/3',
-      'edge-dark:backdrop-blur-(--ui-bg-blur-less)'
+      'inset-y-0 left-0',
+      'max-lg:hidden'
     ].join(' '),
     sidebarSlideoverContainer: 'max-w-80',
     sidebarSlideover: [
@@ -48,11 +42,7 @@ export default {
     ].join(' '),
     header: [
       'px-(--content-area-shift) min-h-(--topbar-height)',
-      'flex items-center gap-x-1',
-      'bg-(--ui-color-bg-content-primary)', // 'bg-(--ui-color-base-black-fixed)/5', // ',
-      'dark:bg-[#2d2d2d]',
-      'edge-light:bg-(--ui-color-base-black-fixed)/5 edge-light:backdrop-blur-(--ui-bg-blur-less)',
-      'edge-dark:bg-(--ui-color-base-white-fixed)/10 edge-dark:backdrop-blur-(--ui-bg-blur-less)'
+      'flex items-center gap-x-1'
     ].join(' '),
     headerMenuIcon: 'lg:hidden',
     headerWrapper: [
@@ -68,9 +58,12 @@ export default {
     ].join(' '),
     pageTopWrapper: [
       'text-(--ui-color-base-1)',
-      'flex items-center'
+      'flex items-center gap-[12px]'
     ].join(' '),
-    pageActionsWrapper: '',
+    pageActionsWrapper: [
+      'min-h-[28px]',
+      'flex flex-col sm:flex-row items-center justify-start gap-[12px]'
+    ].join(' '),
     containerWrapperInner: '',
     pageBottomWrapper: '',
     loadingWrapper: [
@@ -94,6 +87,12 @@ export default {
           'bg-(--ui-color-gray-05)',
           'dark:bg-(--ui-color-gray-05)'
         ].join(' '),
+        sidebar: [
+          'bg-(--ui-color-bg-content-secondary)'
+        ].join(' '),
+        header: [
+          'bg-(--ui-color-bg-content-primary)'
+        ].join(' '),
         container: [
           'scrollbar-thin scrollbar-transparent',
           'overflow-y-scroll',
@@ -112,6 +111,21 @@ export default {
           'bg-(--ui-color-gray-05) edge-light:bg-transparent',
           'dark:bg-(--ui-color-bg-content-primary) edge-dark:bg-transparent',
           'max-lg:flex-col'
+        ].join(' '),
+        sidebar: [
+          'fixed',
+          'bg-(--ui-color-bg-content-secondary)',
+          'dark:bg-[#262626]',
+          'edge-light:bg-(--ui-color-base-black-fixed)/2',
+          'edge-light:backdrop-blur-(--ui-bg-blur-less)',
+          'edge-dark:bg-(--ui-color-base-white-fixed)/3',
+          'edge-dark:backdrop-blur-(--ui-bg-blur-less)'
+        ].join(' '),
+        header: [
+          'bg-(--ui-color-bg-content-primary)', // 'bg-(--ui-color-base-black-fixed)/5', // ',
+          'dark:bg-[#2d2d2d]',
+          'edge-light:bg-(--ui-color-base-black-fixed)/5 edge-light:backdrop-blur-(--ui-bg-blur-less)',
+          'edge-dark:bg-(--ui-color-base-white-fixed)/10 edge-dark:backdrop-blur-(--ui-bg-blur-less)'
         ].join(' '),
         container: [
           'relative',
@@ -155,8 +169,7 @@ export default {
       class: {
         container: '',
         pageTopWrapper: 'px-0 lg:px-0',
-        // @todo fix this
-        pageActionsWrapper: 'p-6 lg:p-[15px]',
+        pageActionsWrapper: 'px-0 lg:px-0',
         containerWrapper: [
           'p-[20px]',
           'rounded-(--ui-border-radius-md)'
@@ -169,8 +182,7 @@ export default {
       class: {
         container: 'lg:pb-2',
         pageTopWrapper: 'px-6 lg:px-0',
-        // @todo fix this
-        pageActionsWrapper: 'p-6 lg:p-[15px]',
+        pageActionsWrapper: 'px-6 lg:px-0',
         containerWrapper: [
           'p-6 lg:p-[15px]',
           'lg:rounded-(--ui-border-radius-md)'

@@ -21,16 +21,16 @@ export default {
     overlay: 'fixed inset-0 bg-[#00204e]/52',
     content: [
       'fixed',
-      'light --ui-context-content-light',
       'sm:shadow-lg',
       'flex flex-col focus:outline-none',
       'h-full'
     ].join(' '),
-    sidebarLayoutRoot: '',
+    sidebarLayoutRoot: 'overflow-hidden light --ui-context-content-light',
+    sidebarLayoutHeaderWrapper: '',
     sidebarLayoutPageBottomWrapper: '',
     header: [
       'pt-[24px]',
-      'flex items-center gap-1.5'
+      'flex-1 flex items-center gap-1.5'
     ].join(' '),
     wrapper: 'min-h-[30px]',
     body: [
@@ -84,7 +84,8 @@ export default {
           'w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)]',
           'sm:max-h-[calc(100%-18px)]'
         ].join(' '),
-        sidebarLayoutRoot: 'sm:rounded-t-[18px]'
+        sidebarLayoutRoot: 'sm:rounded-t-[18px]',
+        sidebarLayoutHeaderWrapper: '' // sm:rounded-t-[18px]
       }
     },
     transition: {
@@ -110,7 +111,7 @@ export default {
       class: {
         close: [
           'pr-1.5 pl-[4px]',
-          'translate-x-full right-0',
+          'top-[17px] translate-x-full right-0',
           'rounded-r-full',
           '[&>div]:flex-row-reverse'
         ].join(' ')
