@@ -64,11 +64,11 @@ const metaProps: ComputedRef<ComponentMeta['props']> = computed(() => {
       return 1
     }
 
-    if (a.name === 'ui') {
+    if (a.name === 'b24ui') {
       return 1
     }
 
-    if (b.name === 'ui') {
+    if (b.name === 'b24ui') {
       return -1
     }
 
