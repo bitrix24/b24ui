@@ -83,7 +83,7 @@ export interface SlideoverSlots {
   footer(props: { close: () => void }): any
 }
 
-export type SlideoverInstance = {
+export interface SlideoverInstance {
   getSidebarApi: () => SidebarLayoutApi | null
   setSidebarLoading: (value: boolean) => void
   setSidebarRootLoading: (value: boolean) => void

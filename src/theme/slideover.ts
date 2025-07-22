@@ -30,7 +30,7 @@ export default {
     sidebarLayoutPageBottomWrapper: '',
     header: [
       'pt-[24px]',
-      'flex-1 flex items-center gap-1.5'
+      'flex-1 flex items-center gap-x-[12px] gap-y-1.5'
     ].join(' '),
     wrapper: 'min-h-[30px]',
     body: [

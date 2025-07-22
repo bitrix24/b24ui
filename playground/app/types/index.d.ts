@@ -1,4 +1,5 @@
-import type { NavigationMenuItem, IconComponent } from '@bitrix24/b24ui-nuxt/types'
+import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
+import type { IconComponent } from '@bitrix24/b24ui-nuxt/icons'
 
 export interface IUser {
   id: number

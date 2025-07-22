@@ -1,16 +1,17 @@
 <script setup lang="ts">
-import { computed, defineAsyncComponent } from 'vue'
+import { defineAsyncComponent, useTemplateRef } from 'vue'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
+import Placeholder from '../../components/Placeholder.vue'
 import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
+import MockSidebarLayoutMenu from '../../components/MockSidebarLayoutMenu.vue'
+import MockSidebarLayoutActions from '../../components/MockSidebarLayoutActions.vue'
+import MockSidebarLayoutSideFooter from '../../components/MockSidebarLayoutSideFooter.vue'
+import { action } from '../../composables/useMockMenu'
+import B24Slideover from '@bitrix24/b24ui-nuxt/components/Slideover.vue'
 import FileUploadIcon from '@bitrix24/b24icons-vue/main/FileUploadIcon'
-import RocketIcon from '@bitrix24/b24icons-vue/outline/RocketIcon'
-import ChatsWithCheckIcon from '@bitrix24/b24icons-vue/outline/ChatsWithCheckIcon'
-import RobotIcon from '@bitrix24/b24icons-vue/outline/RobotIcon'
-import SettingsLIcon from '@bitrix24/b24icons-vue/outline/SettingsLIcon'
-import TaskIcon from '@bitrix24/b24icons-vue/button/TaskIcon'
-import type { SlideoverInstance, NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
+import type { SlideoverInstance } from '@bitrix24/b24ui-nuxt'
 
 usePageMeta.setPageTitle('Slideover')
 
@@ -26,7 +27,6 @@ const slideover = overlay.create(SlideoverExample, {
     count: count.value
   }
 })
-
 function openSlideover() {
   count.value++
 
@@ -36,8 +36,7 @@ function openSlideover() {
   })
 }
 
-const currentSlideoverRef = ref<SlideoverInstance | null>(null)
-
+const currentSlideoverRef = useTemplateRef<SlideoverInstance>('currentSlideoverRef')
 const handleSidebarLayoutLoadingAction = async () => {
   if (!currentSlideoverRef.value) {
     return
@@ -50,36 +49,6 @@ const handleSidebarLayoutLoadingAction = async () => {
     currentSlideoverRef.value.setSidebarLoading(false)
   }
 }
-
-const action = ref('Action 1')
-const menuTop = computed<NavigationMenuItem[]>(() => {
-  return [
-    {
-      label: 'Action 1',
-      type: 'trigger' as NavigationMenuItem['type'],
-      active: action.value === 'Action 1',
-      onSelect() {
-        action.value = 'Action 1'
-      }
-    },
-    {
-      label: 'Action 2',
-      type: 'trigger' as NavigationMenuItem['type'],
-      active: action.value === 'Action 2',
-      onSelect() {
-        action.value = 'Action 2'
-      }
-    },
-    {
-      label: 'Action 3',
-      type: 'trigger' as NavigationMenuItem['type'],
-      active: action.value === 'Action 3',
-      onSelect() {
-        action.value = 'Action 3'
-      }
-    }
-  ]
-})
 </script>
 
 <template>
@@ -209,7 +178,7 @@ const menuTop = computed<NavigationMenuItem[]>(() => {
           description="This slideover has `overlay: false` prop."
           :overlay="false"
         >
-          <B24Button label="Open without overlay"  />
+          <B24Button label="Open without overlay" />
 
           <template #body>
             <Placeholder class="size-full" />
@@ -286,6 +255,12 @@ const menuTop = computed<NavigationMenuItem[]>(() => {
 
           <template #body>
             <Placeholder class="size-full" />
+          </template>
+
+          <template #footer>
+            <B24ModalDialogClose>
+              <B24Button label="Close" color="air-tertiary" />
+            </B24ModalDialogClose>
           </template>
         </B24Slideover>
 
@@ -461,79 +436,27 @@ const menuTop = computed<NavigationMenuItem[]>(() => {
               </div>
             </B24SidebarHeader>
             <B24SidebarBody>
-              <B24NavigationMenu
-                :items="menuTop"
-                orientation="vertical"
-              />
+              <MockSidebarLayoutMenu orientation="vertical" />
             </B24SidebarBody>
             <B24SidebarFooter>
               <B24SidebarSection>
-                <B24Button
-                  block
-                  label="Use our Vue starter"
-                  color="air-primary-success"
-                  size="sm"
-                  loading-auto
-                  :icon="RocketIcon"
-                  to="https://bitrix24.github.io/b24ui/guide/installation-vue.html#use-our-vue-starter"
-                  target="_blank"
-                />
+                <MockSidebarLayoutSideFooter />
               </B24SidebarSection>
             </B24SidebarFooter>
           </template>
           <template #navbar>
-            <B24NavigationMenu
-              :items="menuTop"
-              orientation="horizontal"
-            />
+            <MockSidebarLayoutMenu orientation="horizontal" />
           </template>
           <template #header>
-            <div class="flex-1 flex items-center gap-[12px]">
-              <ProseH2 class="font-semibold mb-0">
-                Bottom
-              </ProseH2>
-              <B24ButtonGroup size="md">
-                <B24Button label="Create" color="air-primary-success" />
-                <B24Button color="air-primary-success" use-dropdown />
-              </B24ButtonGroup>
-              <div>
-                <B24Input size="sm" />
-              </div>
-              <div class="flex-1 flex flex-row items-center justify-end gap-[12px]">
-                <B24Button size="sm" :icon="SettingsLIcon" color="air-secondary-accent" />
-                <B24Button size="sm" :icon="TaskIcon" color="air-secondary-accent" />
-              </div>
-            </div>
+            <MockSidebarLayoutTop>
+              Bottom
+            </MockSidebarLayoutTop>
           </template>
           <template #actions>
-            <B24ButtonGroup size="sm" no-split>
-              <B24Button label="SubAction 1.1" color="air-secondary-accent" active active-color="air-selection" />
-              <B24Button label="SubAction 1.2" color="air-secondary-accent" active-color="air-selection" />
-              <B24Button label="SubAction 1.3" color="air-secondary-accent" active-color="air-selection" />
-            </B24ButtonGroup>
-            <B24ButtonGroup size="sm" no-split>
-              <B24Button label="SubAction 2.1" color="air-secondary-accent" active active-color="air-selection">
-                <template #leading>
-                  <B24Chip standalone text="4" size="md" />
-                </template>
-              </B24Button>
-              <B24Button label="SubAction 2.2" color="air-secondary-accent" active-color="air-selection">
-                <template #leading>
-                  <B24Chip standalone text="22" size="md" color="success" />
-                </template>
-              </B24Button>
-              <B24Button :icon="ChatsWithCheckIcon" color="air-secondary-accent" active-color="air-selection" />
-            </B24ButtonGroup>
-            <div class="flex-1 flex flex-row items-center justify-end gap-[12px]">
-              <B24Button size="sm" :icon="RobotIcon" label="SubAction 3.1" color="air-secondary-accent" />
-              <B24ButtonGroup size="sm">
-                <B24Button label="SubAction 3.2" color="air-secondary-accent" />
-                <B24Button color="air-secondary-accent" use-dropdown />
-              </B24ButtonGroup>
-            </div>
+            <MockSidebarLayoutActions />
           </template>
           <template #body>
-            <ProseP class="mb-4">{{ action }}</ProseP>
+            <ProseP class="mb-4">Selected action: <ProseStrong>{{ action }}</ProseStrong></ProseP>
             <Placeholder class="size-full h-[1400px]" />
           </template>
         </B24Slideover>
@@ -546,15 +469,12 @@ const menuTop = computed<NavigationMenuItem[]>(() => {
           :modal="false"
           :b24ui="{
             content: 'max-h-[56px] sm:shadow-none',
-            sidebarLayoutRoot: 'edge-dark --ui-context-edge-dark bg-transparent pl-[calc(60px+0px)]',
+            sidebarLayoutRoot: 'edge-dark --ui-context-edge-dark bg-transparent  dark:bg-transparent pl-[calc(60px+0px)]',
             sidebarLayoutHeaderWrapper: 'bg-transparent'
           }"
         >
           <template #navbar>
-            <B24NavigationMenu
-              :items="menuTop"
-              orientation="horizontal"
-            />
+            <MockSidebarLayoutMenu orientation="horizontal" />
           </template>
         </B24Slideover>
         <B24Button label="Top & Bottom" @click="openTopAndBottom = true" />

@@ -9,12 +9,6 @@ import SunIcon from '@bitrix24/b24icons-vue/main/SunIcon'
 import SunIconAir from '@bitrix24/b24icons-vue/outline/SunIcon'
 import MoonIcon from '@bitrix24/b24icons-vue/main/MoonIcon'
 import MoonIconAir from '@bitrix24/b24icons-vue/outline/MoonIcon'
-import OpenIn50Icon from '@bitrix24/b24icons-vue/actions/OpenIn50Icon'
-import RocketIcon from '@bitrix24/b24icons-vue/outline/RocketIcon'
-import ChatsWithCheckIcon from '@bitrix24/b24icons-vue/outline/ChatsWithCheckIcon'
-import RobotIcon from '@bitrix24/b24icons-vue/outline/RobotIcon'
-import SettingsLIcon from '@bitrix24/b24icons-vue/outline/SettingsLIcon'
-import TaskIcon from '@bitrix24/b24icons-vue/button/TaskIcon'
 import type { DropdownMenuItem, NavigationMenuItem, SidebarLayoutInstance } from '@bitrix24/b24ui-nuxt'
 
 const appConfig = useAppConfig()
@@ -205,30 +199,7 @@ const checkedUseLightContent = ref(true)
         </B24SidebarBody>
         <B24SidebarFooter>
           <B24SidebarSection>
-            <template
-              v-for="(item, indexItem) in usePageMeta.menuList"
-              :key="indexItem"
-            >
-              <B24Link
-                class="text-sm mb-2 flex flex-row items-center justify-between"
-                :to="item.to"
-                :target="item.target"
-              >
-                <div>{{ item.label }}</div>
-                <OpenIn50Icon class="size-4" />
-              </B24Link>
-            </template>
-
-            <B24Button
-              block
-              label="Use our Vue starter"
-              color="air-primary-success"
-              size="sm"
-              loading-auto
-              :icon="RocketIcon"
-              to="https://bitrix24.github.io/b24ui/guide/installation-vue.html#use-our-vue-starter"
-              target="_blank"
-            />
+            <MockSidebarLayoutSideFooter />
           </B24SidebarSection>
         </B24SidebarFooter>
       </template>
@@ -283,48 +254,13 @@ const checkedUseLightContent = ref(true)
       </template>
 
       <template v-if="route.path !== '/'" #content-top>
-        <ProseH2 class="font-semibold mb-0">
+        <MockSidebarLayoutTop>
           {{ usePageMeta.getPageTitle() }}
-        </ProseH2>
-        <B24ButtonGroup size="md">
-          <B24Button label="Create" color="air-primary-success" />
-          <B24Button color="air-primary-success" use-dropdown />
-        </B24ButtonGroup>
-        <div>
-          <B24Input size="sm" />
-        </div>
-        <div class="flex-1 flex flex-row items-center justify-end gap-[12px]">
-          <B24Button size="sm" :icon="SettingsLIcon" color="air-secondary-accent" />
-          <B24Button size="sm" :icon="TaskIcon" color="air-secondary-accent" />
-        </div>
+        </MockSidebarLayoutTop>
       </template>
 
       <template v-if="route.path !== '/'" #content-actions>
-        <B24ButtonGroup size="sm" no-split>
-          <B24Button label="SubAction 1.1" color="air-secondary-accent" active active-color="air-selection" />
-          <B24Button label="SubAction 1.2" color="air-secondary-accent" active-color="air-selection" />
-          <B24Button label="SubAction 1.3" color="air-secondary-accent" active-color="air-selection" />
-        </B24ButtonGroup>
-        <B24ButtonGroup size="sm" no-split>
-          <B24Button label="SubAction 2.1" color="air-secondary-accent" active active-color="air-selection">
-            <template #leading>
-              <B24Chip standalone text="4" size="md" />
-            </template>
-          </B24Button>
-          <B24Button label="SubAction 2.2" color="air-secondary-accent" active-color="air-selection">
-            <template #leading>
-              <B24Chip standalone text="22" size="md" color="success" />
-            </template>
-          </B24Button>
-          <B24Button :icon="ChatsWithCheckIcon" color="air-secondary-accent" active-color="air-selection" />
-        </B24ButtonGroup>
-        <div class="flex-1 flex flex-row items-center justify-end gap-[12px]">
-          <B24Button size="sm" :icon="RobotIcon" label="SubAction 3.1" color="air-secondary-accent" />
-          <B24ButtonGroup size="sm">
-            <B24Button label="SubAction 3.2" color="air-secondary-accent" />
-            <B24Button color="air-secondary-accent" use-dropdown />
-          </B24ButtonGroup>
-        </div>
+        <MockSidebarLayoutActions />
       </template>
 
       <Suspense>

@@ -221,7 +221,9 @@ defineExpose<SidebarLayoutInstance>({
             :title="t('sidebarLayout.slideoverTitle')"
             :description="t('sidebarLayout.slideoverDescription')"
             side="left"
-            :class="b24ui.sidebarSlideoverContainer({ class: props.b24ui?.sidebarSlideoverContainer })"
+            :b24ui="{
+              content: b24ui.sidebarSlideoverContainer({ class: props.b24ui?.sidebarSlideoverContainer })
+            }"
           >
             <B24Button
               color="air-tertiary"

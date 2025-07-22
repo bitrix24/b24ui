@@ -22,7 +22,7 @@ export default {
       'inset-y-0 left-0',
       'max-lg:hidden'
     ].join(' '),
-    sidebarSlideoverContainer: 'max-w-80',
+    sidebarSlideoverContainer: 'w-full sm:max-w-80',
     sidebarSlideover: [
       'h-full',
       'overflow-hidden',
