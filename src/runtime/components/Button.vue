@@ -10,7 +10,7 @@ type Button = ComponentConfig<typeof theme, AppConfig, 'button'>
 export interface ButtonProps extends Omit<UseComponentIconsProps, 'trailing' | 'trailingIcon'>, Omit<LinkProps, 'raw' | 'custom'> {
   label?: string
   /**
-   * @defaultValue 'air-tertiary-no-accent'
+   * @defaultValue 'air-secondary-no-accent'
    */
   color?: Button['variants']['color']
   activeColor?: Button['variants']['color']

@@ -76,9 +76,10 @@ export default {
       'air-secondary-accent': '--style-outline',
       'air-secondary-accent-1': '--style-outline-accent-1',
       'air-secondary-accent-2': '--style-outline-accent-2',
+      'air-secondary-no-accent': '--style-outline-no-accent',
       'air-tertiary': '--style-plain',
       'air-tertiary-accent': '--style-plain-accent',
-      'air-tertiary-no-accent': '--style-outline-no-accent',
+      'air-tertiary-no-accent': '--style-plain-no-accent',
       'air-selection': '--style-selection',
       // @deprecate ////
       'default': '',
@@ -354,7 +355,7 @@ export default {
   ],
   defaultVariants: {
     size: 'md',
-    color: 'air-tertiary-no-accent',
+    color: 'air-secondary-no-accent',
     depth: 'normal',
     normalCase: true,
     isAir: true
