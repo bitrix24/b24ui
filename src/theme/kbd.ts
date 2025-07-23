@@ -3,30 +3,22 @@
  * A kbd element to display a keyboard key.
  */
 
-/**
- * @todo make bg -> use badge
- */
 export default {
-  base: 'inline-flex items-center justify-center px-1 rounded-2xs font-normal font-b24-system-mono',
+  slots: {
+    base: [
+      'ui-btn --air',
+      'inline-flex items-center justify-center',
+      'px-1 rounded-(--ui-border-radius-2xs)',
+      'font-normal font-(family-name:--ui-font-family-system-mono)',
+      'border border-(length:--ui-border-width-thin) border-(--ui-btn-border-color)',
+      'text-(--ui-btn-color) bg-(--ui-btn-background)'
+    ].join(' ')
+  },
   variants: {
-    depth: {
-      light: [
-        // 'ring ring-inset',
-        'border border-(length:--ui-border-width-thin) border-(--ui-color-design-outline-na-stroke)',
-        // 'text-base-900 bg-base-800/5 ring-base-800/20',
-        'text-(--ui-color-base-2) bg-(--ui-color-design-outline-na-bg)'
-        // 'dark:text-base-150 dark:bg-base-200/5 dark:ring-base-200/20',
-      ].join(' '),
-      normal: [
-        'ring ring-inset',
-        'text-base-800 bg-base-150 ring-base-150',
-        'dark:text-base-950 dark:bg-base-200 dark:ring-base-200'
-      ].join(' '),
-      dark: [
-        'ring ring-inset',
-        'text-white bg-base-500 ring-base-500',
-        'dark:text-base-50 dark:bg-base-600 dark:ring-base-600'
-      ].join(' ')
+    accent: {
+      default: '--style-outline',
+      accent: '--style-outline-accent-1',
+      less: '--style-outline-no-accent'
     },
     size: {
       sm: 'h-[20px] min-w-[20px] text-[10px] leading-none',
@@ -35,7 +27,7 @@ export default {
     }
   },
   defaultVariants: {
-    depth: 'light',
+    accent: 'less',
     size: 'md'
   }
 }

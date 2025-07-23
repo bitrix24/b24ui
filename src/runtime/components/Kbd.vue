@@ -6,6 +6,9 @@ import type { ComponentConfig } from '../types/utils'
 
 type Kbd = ComponentConfig<typeof theme, AppConfig, 'kbd'>
 
+/**
+ * @remove depth
+ */
 export interface KbdProps {
   /**
    * The element or component this component should render as.
@@ -14,9 +17,9 @@ export interface KbdProps {
   as?: any
   value?: KbdKey | string
   /**
-   * @defaultValue 'light'
+   * @defaultValue 'default'
    */
-  depth?: Kbd['variants']['depth']
+  accent?: Kbd['variants']['accent']
   /**
    * @defaultValue 'md'
    */
@@ -37,7 +40,8 @@ import { useKbd } from '../composables/useKbd'
 import { tv } from '../utils/tv'
 
 const props = withDefaults(defineProps<KbdProps>(), {
-  as: 'kbd'
+  as: 'kbd',
+  accent: 'default'
 })
 defineSlots<KbdSlots>()
 
@@ -45,11 +49,14 @@ const { getKbdKey } = useKbd()
 
 const appConfig = useAppConfig() as Kbd['AppConfig']
 
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.kbd || {}) }))
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.kbd || {}) })({
+  accent: props.accent,
+  size: props.size
+}))
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui({ depth, size, class: props.class })">
+  <Primitive :as="as" :class="b24ui.base({ class: props.class })">
     <slot>
       {{ getKbdKey(value) }}
     </slot>

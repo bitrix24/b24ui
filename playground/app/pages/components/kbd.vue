@@ -15,18 +15,18 @@ const kbdKeys = Object.keys(kbdKeysMap)
 <template>
   <ExampleGrid v-once>
     <ExampleCard title="variants">
-      <ExampleCardSubTitle title="different depth" />
+      <ExampleCardSubTitle title="accent" />
       <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
-        <B24Kbd value="meta" depth="light" />
-        <B24Kbd value="meta" depth="normal" />
-        <B24Kbd value="meta" depth="dark" />
+        <B24Kbd value="meta" accent="less" />
+        <B24Kbd value="meta" accent="default" />
+        <B24Kbd value="meta" accent="accent" />
       </div>
       <ExampleCardSubTitle title="size" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24Kbd v-for="size in sizes" :key="size" value="meta" :size="size" />
       </div>
     </ExampleCard>
-    <ExampleCard title="Values" class="sm:col-span-2 md:col-span-4">
+    <ExampleCard title="values" class="sm:col-span-2 md:col-span-3">
       <ExampleCardSubTitle title="sm" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24Kbd v-for="(kdbKey, index) in kbdKeys" :key="index" :value="kdbKey" size="sm" />

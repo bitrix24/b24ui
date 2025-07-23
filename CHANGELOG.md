@@ -12,6 +12,9 @@
 * ProseH*
   - fix color
   - add prop accent {default, accent, accent-more, less, less-more}
+* Popover:
+  - fix arrow
+  - fix color
 * NavigationMenu:
   - props.hint
   - delayDuration = 200
@@ -53,6 +56,31 @@
   - overlayBlur - off
   - fix color
   - add contentWrapper
+* Kbd
+  - fix arrow && default = on
+  - fix color
+  - remove depth
+  - add prop accent {default, accent, less}
+* Tooltip
+  - fix arrow && default = on
+  - fix color
+  - remove kbdsDepth
+  - add prop kbdsAccent {accent}
+
+We change btn colors:
+
+- color="default" depth="light"
+
+- color="link"
++ color="air-tertiary"
+
+- color="primary"
++ color="air-primary"
+
+- color="success"
++ color="air-primary-success"
+
+
 
 ## [0.7.2](https://github.com/bitrix24/b24ui/compare/v0.7.1...v0.7.2) (2025-07-14)
 
