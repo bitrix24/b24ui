@@ -76,7 +76,7 @@ const components: IComponentInfo[] = [
   { id: 'select', description: '(-) A select element to choose from a list of options.', iconData: FormIcon },
   { id: 'select-menu', description: '(-) n advanced searchable select element.', iconData: FormIcon },
   { id: 'separator', description: '(+) Separates content horizontally or vertically.', iconData: GroupIcon },
-  { id: 'shortcuts', description: '(-) A composable to define keyboard shortcuts in your app.', iconData: ItemIcon, iconUi: 'pr-px pb-[3px]' },
+  { id: 'shortcuts', description: '(~) A composable to define keyboard shortcuts in your app.', iconData: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'skeleton', description: '(+) A placeholder to show while content is loading.', iconData: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'slideover', description: '(+) A dialog that slides in from any side of the screen.', iconData: GroupIcon },
   { id: 'switch', description: '(-) A control that toggles between two states.', iconData: FormIcon },
