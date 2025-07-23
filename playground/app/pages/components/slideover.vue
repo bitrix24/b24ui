@@ -380,7 +380,7 @@ const handleSidebarLayoutLoadingAction = async () => {
           <B24Button label="Upload file" />
 
           <template #body>
-            <div class="flex flex-col gap-4">
+            <div class="flex flex-col gap-[14px]">
               <div class="w-full flex flex-row flex-nowrap items-center justify-start gap-3">
                 <div class="size-8xl rounded-xs border border-(--ui-color-divider-default) flex flex-col items-center justify-center">
                   <FileUploadIcon class="size-10 text-(--ui-color-design-plain-na-content)" />

@@ -275,7 +275,7 @@ defineExpose<SlideoverInstance>({
                           v-if="props.close"
                           :icon="closeIcon || icons.close"
                           class="group"
-                          color="air-tertiary"
+                          color="air-tertiary-no-accent"
                           :aria-label="t('slideover.close')"
                           size="lg"
                           v-bind="(typeof props.close === 'object' ? props.close as Partial<ButtonProps> : {})"

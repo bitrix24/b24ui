@@ -141,7 +141,7 @@ export default {
       true: {
         containerWrapper: [
           'light --ui-context-content-light',
-          'text-(--ui-color-design-plain-content) bg-(--ui-color-base-white-fixed)' // /87
+          'text-(--ui-color-design-plain-content) bg-(--popup-window-background-color)' // /87
         ].join(' ')
       },
       false: {

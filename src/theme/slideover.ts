@@ -33,30 +33,30 @@ export default {
       'flex-1 flex items-center gap-x-[12px] gap-y-1.5'
     ].join(' '),
     wrapper: 'min-h-[30px]',
-    body: [
-      'size-full',
-      'flex-1'
-    ].join(' '),
-    footer: [
-      'bg-(--ui-color-bg-content-primary)',
-      'flex items-center justify-center gap-3',
-      'border-t border-t-1 border-t-(--ui-color-divider-less)',
-      'shadow-top-md',
-      'py-[9px] px-2 pr-(--scrollbar-width)'
-    ].join(' '),
     title: [
       'font-[family-name:var(--ui-font-family-primary)]',
       'text-(--ui-color-design-plain-content)',
-      'font-semibold',
+      'font-(--ui-font-weight-semi-bold)',
       'mb-0',
       'text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]'
     ].join(' '),
     description: [
       'mt-1',
       'text-(--ui-color-design-plain-na-content)',
-      'text-sm'
+      'text-(length:--ui-font-size-sm)'
     ].join(' '),
     close: 'absolute',
+    body: [
+      'size-full',
+      'flex-1'
+    ].join(' '),
+    footer: [
+      'bg-(--popup-window-background-color)', // --ui-color-bg-content-primary
+      'flex items-center justify-center gap-3',
+      'border-t border-t-1 border-t-(--ui-color-divider-less)',
+      'shadow-top-md',
+      'py-[9px] px-2 pr-(--scrollbar-width)'
+    ].join(' '),
     safeList
   },
   variants: {
