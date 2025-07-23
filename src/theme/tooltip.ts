@@ -12,17 +12,25 @@
 export default {
   slots: {
     content: [
-      'flex items-center gap-1 shadow-sm rounded-2xs select-none data-[state=delayed-open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in]',
-      'min-h-6 px-2.5 py-1 text-xs',
-      'bg-base-dark text-white',
-      'dark:bg-base-dark dark:text-base-150 dark:ring dark:ring-base-100/20',
+      'dark --ui-context-content-dark',
+      'flex flex-row items-center justify-between gap-[5px] will-change-[opacity]',
+      'min-h-[37px]',
+      'shadow-xl/20',
+      'select-none',
+      'motion-safe:data-[state=delayed-open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]',
+      'p-[10px]',
+      'text-(length:--ui-font-size-sm) leading-none font-(family-name:--ui-font-family-primary)',
+      'bg-[#000000]/80 text-(--ui-color-design-plain-na-focused-content)',
+      'rounded-[calc(var(--popup-window-border-radius)-2px)]',
+      // @memo see components/popup.css
+      // 'border border-(--popup-window-border)'
       'origin-(--reka-tooltip-content-transform-origin)',
       'pointer-events-auto'
     ].join(' '),
-    arrow: 'fill-base-dark dark:fill-base-100/20',
-    text: 'text-pretty max-w-[200px]', // truncate
+    arrow: 'fill-[#000000]/80',
+    text: 'text-pretty max-w-[200px] min-w-[100px]', // truncate
     kbds: `hidden lg:inline-flex items-center shrink-0 gap-0.5 before:content-[''] before:me-0.5`,
     kbdsSize: 'sm',
-    kbdsDepth: 'normal'
+    kbdsAccent: 'default'
   }
 }
