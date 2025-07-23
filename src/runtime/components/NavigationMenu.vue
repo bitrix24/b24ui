@@ -406,8 +406,8 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
                             </div>
 
                             <span :class="b24ui.childLinkLabel({ class: [props.b24ui?.childLinkLabel, item.b24ui?.childLinkLabel], active: childActive })">
-                          {{ getLabel(childItem) }}
-                        </span>
+                              {{ getLabel(childItem) }}
+                            </span>
                             <Component
                               :is="typeof externalIcon === 'boolean' ? icons.external : externalIcon"
                               v-if="childItem.target === '_blank' && externalIcon !== false"
@@ -420,7 +420,6 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
                   </ul>
                 </slot>
               </div>
-
             </template>
           </B24Popover>
           <B24Tooltip
