@@ -59,6 +59,11 @@ export interface SlideoverProps extends DialogRootProps {
    * @defaultValue false
    */
   dismissible?: boolean
+  /**
+   * The content is placed on a light background.
+   * @defaultValue 'true'
+   */
+  useLightContent?: boolean
   class?: any
   b24ui?: Slideover['slots']
 }
@@ -111,7 +116,8 @@ const props = withDefaults(defineProps<SlideoverProps>(), {
   modal: true,
   dismissible: true,
   side: 'bottom',
-  overlayBlur: 'auto'
+  overlayBlur: 'auto',
+  useLightContent: true
 })
 const emits = defineEmits<SlideoverEmits>()
 const slots = defineSlots<SlideoverSlots>()
@@ -236,7 +242,7 @@ defineExpose<SlideoverInstance>({
           </template>
           <B24SidebarLayout
             ref="sidebarRef"
-            use-light-content
+            :use-light-content="props.useLightContent"
             is-inner
             :b24ui="{
               root: b24ui.sidebarLayoutRoot({ class: props.b24ui?.sidebarLayoutRoot }),

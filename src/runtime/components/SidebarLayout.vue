@@ -15,8 +15,11 @@ export interface SidebarLayoutProps {
    * @defaultValue 'div'
    */
   as?: any
+  /**
+   * The content is placed on a light background.
+   * @defaultValue 'true'
+   */
   useLightContent?: boolean
-
   /**
    * Set inner mode. Use in slideover, modal and etc
    * @defaultValue 'false'
