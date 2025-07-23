@@ -8,9 +8,7 @@
 
 /* .popup-window { */
 @theme inline {
-  /* @todo fix this for dark mode */
-  /*--popup-window-background-color: @var(--ui-color-base-white-fixed);*/
-  --popup-window-background-color: #fff;
+  --popup-window-background-color: var(--ui-color-base-white-fixed);
 
   --popup-window-border-radius: 18px;
   --popup-window-content-border-radius: 4px;

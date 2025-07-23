@@ -9,36 +9,49 @@
  * @todo: add command palette to docs example
  * @todo: add wizard component
  */
-/*
-  BX.UI.Dialogs.MessageBox.alert("Message", "Title", (messageBox, button, event) => {}, "OK");
- */
+
 export default {
   slots: {
-    overlay: 'fixed inset-0 bg-base-950/20 dark:bg-base-950/30',
+    overlay: 'fixed inset-0 bg-[#333]/50',
     content: [
-      'py-md2 px-5',
-      'fixed bg-white dark:bg-base-950',
-      'flex flex-col focus:outline-none'
+      'fixed',
+      'flex flex-col gap-[20px]',
+      'focus:outline-none',
+      'light --ui-context-content-light',
+      'bg-(--popup-window-background-color)',
+      'p-[24px] pt-[20px]'
     ].join(' '),
-    header: 'flex items-center gap-1.5 pe-5 pt-0',
-    wrapper: 'min-h-lg2',
-    body: 'flex-1 overflow-y-auto my-2.5 text-md leading-normal',
-    footer: 'flex items-center justify-center gap-3 mt-2.5 pt-4 border-t border-t-1 border-t-base-900/10 dark:border-t-white/20',
-    title: 'font-bold text-md leading-normal text-base-900 dark:text-base-150',
-    description: 'mt-0.5 mb-1 text-base-500 dark:text-base-400 text-sm',
-    close: 'absolute top-2 end-1.5 p-0.5'
+    contentWrapper: [
+      'flex flex-col gap-[15px] pt-[4px]'
+    ].join(' '),
+    header: 'flex items-start justify-between gap-[6px]',
+    wrapper: '',
+    title: [
+      'font-(family-name:--ui-font-family-primary)',
+      'text-(--ui-color-design-plain-content)',
+      'font-(--ui-font-weight-medium)',
+      'mb-0',
+      'text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)'
+    ].join(' '),
+    description: [
+      'mt-1',
+      'text-(--ui-color-design-plain-na-content)',
+      'text-(length:--ui-font-size-sm)'
+    ].join(' '),
+    close: '-mt-[4px]',
+    body: 'flex-1 overflow-y-auto text-(length:--ui-font-size-md) leading-normal',
+    // fix footer: 'flex items-center justify-center gap-3 mt-2.5 pt-4 border-t border-t-1 border-t-base-900/10 dark:border-t-white/20'
+    footer: [
+      'flex items-center justify-between gap-[10px]',
+      'border-t border-t-1 border-t-(--ui-color-divider-default)',
+      'pt-[18px]'
+    ].join(' ')
   },
   variants: {
     overlayBlur: {
-      auto: {
-        overlay: 'motion-safe:backdrop-blur-sm'
-      },
-      on: {
-        overlay: 'backdrop-blur-sm'
-      },
-      off: {
-        overlay: ''
-      }
+      auto: { overlay: 'motion-safe:backdrop-blur-sm' },
+      on: { overlay: 'backdrop-blur-sm' },
+      off: { overlay: '' }
     },
     transition: {
       true: {
@@ -54,10 +67,11 @@ export default {
         content: [
           'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
           'w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)]',
-          'rounded-md shadow-lg',
-          'ring ring-base-300 dark:ring-base-800',
-          'overflow-hidden'
-        ].join(' ')
+          'rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg'
+          // @memo see components/popup.css
+          // 'ring ring-(--popup-window-border)'
+        ].join(' '),
+        contentWrapper: 'overflow-hidden'
       }
     },
     scrollbarThin: {
@@ -68,6 +82,6 @@ export default {
   },
   defaultVariants: {
     scrollbarThin: true,
-    overlayBlur: 'auto'
+    overlayBlur: 'off'
   }
 }

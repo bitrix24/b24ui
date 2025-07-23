@@ -22,7 +22,7 @@ export interface ModalProps extends DialogRootProps {
   /**
    * Render an overlay blur behind the modal.
    * `auto` use `motion-safe`.
-   * @defaultValue 'auto'
+   * @defaultValue 'off'
    */
   overlayBlur?: Modal['variants']['overlayBlur']
   /**
@@ -103,7 +103,7 @@ const props = withDefaults(defineProps<ModalProps>(), {
   modal: true,
   dismissible: true,
   scrollbarThin: true,
-  overlayBlur: 'auto'
+  overlayBlur: 'off'
 })
 const emits = defineEmits<ModalEmits>()
 const slots = defineSlots<ModalSlots>()
@@ -173,44 +173,48 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.modal 
         </VisuallyHidden>
 
         <slot name="content" :close="close">
-          <div v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description) || (props.close || !!slots.close)" :class="b24ui.header({ class: props.b24ui?.header })">
-            <slot name="header" :close="close">
-              <div :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
-                <DialogTitle v-if="title || !!slots.title" :class="b24ui.title({ class: props.b24ui?.title })">
-                  <slot name="title">
-                    {{ title }}
+          <div
+            v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description) || (props.close || !!slots.close) || !!slots.body"
+            :class="b24ui.contentWrapper({ class: props.b24ui?.contentWrapper })"
+          >
+            <div v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description) || (props.close || !!slots.close)" :class="b24ui.header({ class: props.b24ui?.header })">
+              <slot name="header" :close="close">
+                <div :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
+                  <DialogTitle v-if="title || !!slots.title" :class="b24ui.title({ class: props.b24ui?.title })">
+                    <slot name="title">
+                      {{ title }}
+                    </slot>
+                  </DialogTitle>
+
+                  <DialogDescription v-if="description || !!slots.description" :class="b24ui.description({ class: props.b24ui?.description })">
+                    <slot name="description">
+                      {{ description }}
+                    </slot>
+                  </DialogDescription>
+                </div>
+
+                <slot name="actions" />
+
+                <DialogClose v-if="props.close || !!slots.close" as-child>
+                  <slot name="close" :close="close" :b24ui="b24ui">
+                    <B24Button
+                      v-if="props.close"
+                      :icon="closeIcon || icons.close"
+                      size="md"
+                      color="air-tertiary-no-accent"
+                      :aria-label="t('modal.close')"
+                      v-bind="(typeof props.close === 'object' ? props.close as Partial<ButtonProps> : {})"
+                      :class="b24ui.close({ class: props.b24ui?.close })"
+                    />
                   </slot>
-                </DialogTitle>
+                </DialogClose>
+              </slot>
+            </div>
 
-                <DialogDescription v-if="description || !!slots.description" :class="b24ui.description({ class: props.b24ui?.description })">
-                  <slot name="description">
-                    {{ description }}
-                  </slot>
-                </DialogDescription>
-              </div>
-
-              <slot name="actions" />
-
-              <DialogClose v-if="props.close || !!slots.close" as-child>
-                <slot name="close" :close="close" :b24ui="b24ui">
-                  <B24Button
-                    v-if="props.close"
-                    :icon="closeIcon || icons.close"
-                    size="xs"
-                    color="link"
-                    :aria-label="t('modal.close')"
-                    v-bind="(typeof props.close === 'object' ? props.close as Partial<ButtonProps> : {})"
-                    :class="b24ui.close({ class: props.b24ui?.close })"
-                  />
-                </slot>
-              </DialogClose>
-            </slot>
+            <div v-if="!!slots.body" :class="b24ui.body({ class: props.b24ui?.body, scrollbarThin: Boolean(props.scrollbarThin) })">
+              <slot name="body" :close="close" />
+            </div>
           </div>
-
-          <div v-if="!!slots.body" :class="b24ui.body({ class: props.b24ui?.body, scrollbarThin: Boolean(props.scrollbarThin) })">
-            <slot name="body" :close="close" />
-          </div>
-
           <div v-if="!!slots.footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
             <slot name="footer" :close="close" />
           </div>
