@@ -184,7 +184,7 @@ import B24Tooltip from './Tooltip.vue'
 const props = withDefaults(defineProps<NavigationMenuProps<T>>(), {
   orientation: 'horizontal',
   externalIcon: true,
-  delayDuration: 0,
+  delayDuration: 200,
   type: 'multiple',
   collapsible: true,
   unmountOnHide: true,
