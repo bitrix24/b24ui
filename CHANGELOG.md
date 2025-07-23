@@ -14,6 +14,7 @@
   - add prop accent {default, accent, accent-more, less, less-more}
 * NavigationMenu:
   - props.hint
+  - delayDuration = 200
   - remove contentOrientation, highlight, highlightColor, arrow, color, variant.link
 * StackedLayout:
   - remove 
@@ -28,7 +29,7 @@
   - size = xl, lg, md, sm, xs, xxs
   - color 
     - air-primary, air-primary-success, air-primary-alert, air-primary-copilot
-    - air-secondary, air-secondary-alert, air-secondary-accent, air-secondary-accent-1, air-secondary-accent-2
+    - air-secondary, air-secondary-alert, air-secondary-accent, air-secondary-accent-1, air-secondary-accent-2, air-secondary-no-accent
     - air-tertiary, air-tertiary-accent, air-tertiary-no-accent
     - air-selection
     - @deprecate
@@ -48,8 +49,10 @@
   - side.bottom default
   - calc size from max-w-*
   - use SidebarLayout for render content
-
-@todo test Separator - double
+* Modal
+  - overlayBlur - off
+  - fix color
+  - add contentWrapper
 
 ## [0.7.2](https://github.com/bitrix24/b24ui/compare/v0.7.1...v0.7.2) (2025-07-14)
 
