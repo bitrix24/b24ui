@@ -61,7 +61,7 @@ defineShortcuts({
     :b24ui="{
       contentWrapper: 'bg-[url(/bg/edge-light.svg)] bg-top-left bg-repeat bg-[#76c68b] dark:bg-[#689775] ',
       container: 'bg-gradient-to-br from-0% via-50% to-80% from-[#72c887]/80 via-[#7ad5a5]/80 to-[#72c887]/80 _dark:from-[#509160]/90 _dark:via-[#246f3e]/85 _dark:to-[#509160]/90',
-      containerWrapper: ''
+      containerWrapper: 'h-full'
     }"
   >
     <template #sidebar>
@@ -136,13 +136,15 @@ defineShortcuts({
       </B24NavbarSection>
     </template>
     <template #default>
-      <div class="h-full w-full p-[10px] flex-1 flex flex-col items-start justify-start overflow-y-auto">
-        <p v-if="logs.length < 1" class="select-none text-(--ui-color-design-filled-boost-bg-gradient-1)">
-          It's worth playing with the settings and pressing a couple of Shortcuts
-        </p>
-        <p v-for="(log, index) of logs" :key="index">
-          {{ log }}
-        </p>
+      <div class=" w-full p-[10px] h-[calc(100%-20px)] overflow-y-auto  flex-1 flex flex-col items-start justify-start ">
+        <div class="w-full mt-2 p-4   rounded-md">
+          <p v-if="logs.length < 1" class="select-none text-(--ui-color-design-filled-boost-bg-gradient-1)">
+            It's worth playing with the settings and pressing a couple of Shortcuts
+          </p>
+          <p v-for="(log, index) of logs" :key="index">
+            {{ log }}
+          </p>
+        </div>
       </div>
     </template>
   </B24SidebarLayout>
