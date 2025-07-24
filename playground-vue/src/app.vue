@@ -168,6 +168,12 @@ const checkedUseLightContent = ref(true)
     <B24SidebarLayout
       ref="currentSidebarRef"
       :use-light-content="checkedUseLightContent"
+      :b24ui="{
+        root: [
+          'edge-dark:bg-[#5964B3] edge-dark:bg-[url(/bg/edge-dark.jpg)] edge-dark:bg-cover edge-dark:bg-center edge-dark:bg-fixed bg-no-repeat',
+          'edge-light:bg-[var(--ui-color-gray-05)] edge-light:bg-[url(/bg/edge-light.svg)] edge-light:bg-top-left edge-light:bg-repeat'
+        ].join(' ')
+      }"
     >
       <template #sidebar>
         <B24SidebarHeader>

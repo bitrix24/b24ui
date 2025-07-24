@@ -25,7 +25,7 @@ export default {
       'flex flex-col focus:outline-none',
       'h-full'
     ].join(' '),
-    sidebarLayoutRoot: 'overflow-hidden light --ui-context-content-light',
+    sidebarLayoutRoot: '',
     sidebarLayoutHeaderWrapper: '',
     sidebarLayoutPageBottomWrapper: '',
     header: [
@@ -73,19 +73,26 @@ export default {
     },
     side: {
       // @todo fix if parent SidebarLayout.isUseSideBar > w-[calc(100%-135x)] > w-[calc(100%-150px)]
-      right: { content: 'right-0 inset-y-0 w-[calc(100%-60px)] sm:w-[calc(100%-150px)]' },
-      left: { content: 'left-0 inset-y-0 w-[calc(100%-60px)] sm:w-[calc(100%-150px)]' },
+      right: {
+        content: 'right-0 inset-y-0 w-[calc(100%-60px)] sm:w-[calc(100%-150px)]',
+        sidebarLayoutRoot: 'sm:rounded-t-none'
+      },
+      left: {
+        content: 'left-0 inset-y-0 w-[calc(100%-60px)] sm:w-[calc(100%-150px)]',
+        sidebarLayoutRoot: 'sm:rounded-t-none'
+      },
       top: {
-        content: 'inset-x-0 top-0 max-h-full'
+        content: 'inset-x-0 top-0 max-h-full',
+        sidebarLayoutRoot: 'sm:rounded-t-none'
       },
       bottom: {
         content: [
           'right-[5px] sm:right-[70px] top-0 sm:top-[18px] bottom-0',
           'w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)]',
           'sm:max-h-[calc(100%-18px)]'
-        ].join(' '),
-        sidebarLayoutRoot: 'sm:rounded-t-[18px]',
-        sidebarLayoutHeaderWrapper: '' // sm:rounded-t-[18px]
+        ].join(' ')
+        // fix sidebarLayoutRoot: 'sm:rounded-t-[18px]',
+        // fix sidebarLayoutHeaderWrapper: '' // sm:rounded-t-[18px]
       }
     },
     transition: {
@@ -101,7 +108,7 @@ export default {
       class: {
         close: [
           'pl-1.5 pr-[4px]',
-          'top-[17px] -translate-x-full -left-px',
+          'top-[17px] -translate-x-full left-[1px]',
           'rounded-l-full'
         ].join(' ')
       }
@@ -111,7 +118,7 @@ export default {
       class: {
         close: [
           'pr-1.5 pl-[4px]',
-          'top-[17px] translate-x-full right-0',
+          'top-[17px] translate-x-full right-[1px]',
           'rounded-r-full',
           '[&>div]:flex-row-reverse'
         ].join(' ')

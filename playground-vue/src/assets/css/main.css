@@ -1,17 +1,2 @@
 @import "tailwindcss" source("../../../..");
 @import "@bitrix24/b24ui-nuxt";
-
-/* region add some bg image */
-html.light .--app {
-  @apply bg-(--ui-color-gray-05);
-}
-
-/*:not(.--ui-context-content-light):not(.--ui-context-content-dark)*/
-html.edge-light .--app {
-  @apply bg-(--ui-color-gray-05) bg-[url(/bg/edge-light.svg)] bg-top-left bg-repeat;
-}
-
-html.edge-dark .--app {
-  @apply bg-[#5964B3] bg-[url(/bg/edge-dark.jpg)] bg-cover bg-center bg-fixed bg-no-repeat;
-}
-/* endregion */

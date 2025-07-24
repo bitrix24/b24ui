@@ -64,7 +64,7 @@ export default {
       // 'min-h-[28px]', // @memo not work
       'flex flex-col md:flex-row items-start md:items-center justify-start gap-[12px]'
     ].join(' '),
-    containerWrapperInner: '',
+    containerWrapperInner: 'size-full',
     pageBottomWrapper: '',
     loadingWrapper: [
       'cursor-wait',
@@ -84,8 +84,10 @@ export default {
           '--inner',
           'relative isolate',
           'h-full',
-          'bg-(--ui-color-gray-05)',
-          'dark:bg-(--ui-color-gray-05)'
+          'bg-[var(--ui-color-gray-05)]',
+          'dark:bg-[var(--ui-color-gray-05)]',
+          'overflow-hidden light --ui-context-content-light',
+          'sm:rounded-t-[18px]'
         ].join(' '),
         sidebar: [
           'bg-(--ui-color-bg-content-secondary)'
@@ -99,9 +101,7 @@ export default {
           'mt-0'
         ].join(' '),
         containerWrapper: '',
-        containerWrapperInner: [
-          'size-full'
-        ].join(' '),
+        // fix containerWrapperInner: 'size-full',
         pageBottomWrapper: 'flex-0'
       },
       false: {
@@ -131,6 +131,7 @@ export default {
           'relative',
           'mt-[22px]'
         ].join(' ')
+        // fix containerWrapperInner: 'size-full'
       }
     },
     useSidebar: {
@@ -202,6 +203,8 @@ export default {
       inner: false,
       useSidebar: true,
       class: {
+        // @memo --content-area-left-shift
+        // container: 'lg:px-[calc(var(--content-area-shift)-6px)]',
         container: 'lg:px-(--content-area-shift)',
         contentWrapper: 'lg:pl-[240px] '
       }
