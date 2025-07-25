@@ -170,6 +170,13 @@ const checkedUseLightContent = ref(true)
       :use-light-content="route.path === '/components/shortcuts' ? false : checkedUseLightContent"
       :b24ui="{
         root: [
+          '[--air-theme-bg-color:#5964B3]',
+          '[--air-theme-bg-size:cover]',
+          '[--air-theme-bg-repeat:no-repeat]',
+          '[--air-theme-bg-position:0_0]',
+          '[--air-theme-bg-attachment:fixed]',
+          '[--air-theme-bg-image:url(/bg/edge-dark.jpg)]',
+          '[--air-theme-bg-image-blurred:url(/bg/edge-dark-blurred.webp)]',
           'edge-dark:bg-[#5964B3] edge-dark:bg-[url(/bg/edge-dark.jpg)] edge-dark:bg-cover edge-dark:bg-center edge-dark:bg-fixed bg-no-repeat',
           'edge-light:bg-[var(--ui-color-gray-05)] edge-light:bg-[url(/bg/edge-light.svg)] edge-light:bg-top-left edge-light:bg-repeat'
         ].join(' ')

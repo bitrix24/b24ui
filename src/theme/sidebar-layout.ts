@@ -108,8 +108,9 @@ export default {
         root: [
           '--app',
           'h-dvh min-h-dvh',
-          'bg-(--ui-color-gray-05) edge-light:bg-transparent',
-          'dark:bg-(--ui-color-bg-content-primary) edge-dark:bg-transparent',
+          // 'bg-(--air-theme-background)',
+          // fix 'bg-(--ui-color-gray-05) edge-light:bg-transparent',
+          // fix 'dark:bg-(--ui-color-bg-content-primary) edge-dark:bg-transparent',
           'max-lg:flex-col'
         ].join(' '),
         sidebar: [
