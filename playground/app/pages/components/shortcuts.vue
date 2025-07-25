@@ -60,6 +60,7 @@ defineShortcuts({
       <B24SidebarLayout
         :use-light-content="false"
         is-inner
+        off-content-scrollbar
         class="light --ui-context-content-light"
         :b24ui="{
           contentWrapper: 'bg-[url(/bg/chat-v2-background/pattern-white.svg)] bg-top-left bg-repeat bg-[#76c68b] dark:bg-[#689775] ',

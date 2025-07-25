@@ -27,6 +27,7 @@
   - slots.loading
   - loading, useSidebarLayout
   - prop.inner
+  - prop.offContentScrollbar
 * Button:
   - normal-case = true
   - size = xl, lg, md, sm, xs, xxs

@@ -97,8 +97,7 @@ export default {
         ].join(' '),
         container: [
           // @todo make property
-          // fix 'scrollbar-thin scrollbar-transparent',
-          // fix 'overflow-y-scroll',
+          // fix 'l',
           'mt-0'
         ].join(' '),
         containerWrapper: '',
@@ -134,6 +133,10 @@ export default {
         ].join(' ')
         // fix containerWrapperInner: 'size-full'
       }
+    },
+    offContentScrollbar: {
+      false: '',
+      true: ''
     },
     useSidebar: {
       true: '',
@@ -192,6 +195,15 @@ export default {
       }
     },
     // endregion ////
+    // region inner.noContentScrollbar ////
+    {
+      inner: true,
+      offContentScrollbar: false,
+      class: {
+        container: 'scrollbar-thin scrollbar-transparent overflow-y-scroll'
+      }
+    },
+    // endregion ////
     // region main.useSidebar ////
     {
       inner: true,
@@ -245,6 +257,7 @@ export default {
   ],
   defaultVariants: {
     inner: false,
+    noContentScrollbar: false,
     useLightContent: true
   }
 }

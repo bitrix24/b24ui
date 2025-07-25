@@ -21,10 +21,15 @@ export interface SidebarLayoutProps {
    */
   useLightContent?: boolean
   /**
-   * Set inner mode. Use in slideover, modal and etc
+   * Set inner mode. Use in slider, modal and etc
    * @defaultValue 'false'
    */
   isInner?: boolean
+  /**
+   * Off scrollbar control of the content area in inner mode.
+   * @defaultValue 'false'
+   */
+  offContentScrollbar?: boolean
   class?: any
   b24ui?: Pick<SidebarLayout['slots'], 'root' | 'sidebar' | 'sidebarSlideoverContainer' | 'sidebarSlideover' | 'sidebarSlideoverBtnClose' | 'contentWrapper' | 'header' | 'headerMenuIcon' | 'headerWrapper' | 'container' | 'containerWrapper' | 'pageTopWrapper' | 'pageActionsWrapper' | 'containerWrapperInner' | 'pageBottomWrapper' | 'loadingWrapper' | 'loadingIcon'>
 }
@@ -90,7 +95,8 @@ import BtnSpinnerIcon from '@bitrix24/b24icons-vue/button-specialized/BtnSpinner
 const props = withDefaults(defineProps<SidebarLayoutProps>(), {
   as: 'div',
   useLightContent: true,
-  isInner: false
+  isInner: false,
+  offContentScrollbar: false
 })
 const slots = defineSlots<SidebarLayoutSlots>()
 
@@ -107,7 +113,8 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sideba
   useNavbar: isUseNavbar.value,
   useLightContent: Boolean(props.useLightContent),
   loading: Boolean(isLoading.value),
-  inner: Boolean(props.isInner)
+  inner: Boolean(props.isInner),
+  offContentScrollbar: Boolean(props.offContentScrollbar)
 }))
 
 const closeModal = () => {
