@@ -167,7 +167,7 @@ const checkedUseLightContent = ref(true)
   <B24App :toaster="(appConfig.toaster as any)">
     <B24SidebarLayout
       ref="currentSidebarRef"
-      :use-light-content="checkedUseLightContent"
+      :use-light-content="route.path === '/components/shortcuts' ? false : checkedUseLightContent"
       :b24ui="{
         root: [
           'edge-dark:bg-[#5964B3] edge-dark:bg-[url(/bg/edge-dark.jpg)] edge-dark:bg-cover edge-dark:bg-center edge-dark:bg-fixed bg-no-repeat',
@@ -219,7 +219,11 @@ const checkedUseLightContent = ref(true)
         </B24NavbarSection>
         <B24NavbarSpacer />
         <B24NavbarSection class="flex-row items-center justify-start gap-4">
-          <B24Switch v-model="checkedUseLightContent" size="xs" />
+          <B24Switch
+            :disabled="route.path === '/components/shortcuts'"
+            v-model="checkedUseLightContent"
+            size="xs"
+          />
           <B24Button
             label="Reload"
             color="air-secondary-accent"
@@ -259,13 +263,19 @@ const checkedUseLightContent = ref(true)
         </B24NavbarSection>
       </template>
 
-      <template v-if="route.path !== '/'" #content-top>
+      <template
+        v-if="route.path !== '/' && route.path !== '/components/shortcuts'"
+        #content-top
+      >
         <MockSidebarLayoutTop>
           {{ usePageMeta.getPageTitle() }}
         </MockSidebarLayoutTop>
       </template>
 
-      <template v-if="route.path !== '/'" #content-actions>
+      <template
+        v-if="route.path !== '/' && route.path !== '/components/shortcuts'"
+        #content-actions
+      >
         <MockSidebarLayoutActions />
       </template>
 

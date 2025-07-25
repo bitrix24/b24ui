@@ -86,8 +86,8 @@ export default {
           'h-full',
           'bg-[var(--ui-color-gray-05)]',
           'dark:bg-[var(--ui-color-gray-05)]',
-          'overflow-hidden light --ui-context-content-light',
-          'sm:rounded-t-[18px]'
+          'overflow-hidden light --ui-context-content-light'
+          // fix 'sm:rounded-t-[18px]'
         ].join(' '),
         sidebar: [
           'bg-(--ui-color-bg-content-secondary)'
@@ -96,8 +96,9 @@ export default {
           'bg-(--ui-color-bg-content-primary)'
         ].join(' '),
         container: [
-          'scrollbar-thin scrollbar-transparent',
-          'overflow-y-scroll',
+          // @todo make property
+          // fix 'scrollbar-thin scrollbar-transparent',
+          // fix 'overflow-y-scroll',
           'mt-0'
         ].join(' '),
         containerWrapper: '',

@@ -6,10 +6,10 @@
  */
 export default {
   slots: {
-    root: 'inline-flex items-center justify-center shrink-0 select-none rounded-full align-middle bg-base-100 dark:bg-base-900',
+    root: 'inline-flex items-center justify-center shrink-0 select-none rounded-full align-middle bg-base-100',
     image: 'h-full w-full rounded-[inherit] object-cover',
-    fallback: 'font-medium text-base-500 dark:text-base-600 truncate',
-    icon: 'text-base-500 shrink-0 dark:text-base-600'
+    fallback: 'font-medium text-base-500 truncate',
+    icon: 'text-base-500 shrink-0'
   },
   variants: {
     size: {

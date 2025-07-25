@@ -90,8 +90,9 @@ export default {
           'right-[5px] sm:right-[70px] top-0 sm:top-[18px] bottom-0',
           'w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)]',
           'sm:max-h-[calc(100%-18px)]'
-        ].join(' ')
-        // fix sidebarLayoutRoot: 'sm:rounded-t-[18px]',
+        ].join(' '),
+        // sidebarLayoutRoot: 'sm:rounded-t-none'
+        sidebarLayoutRoot: 'sm:rounded-t-[18px]'
         // fix sidebarLayoutHeaderWrapper: '' // sm:rounded-t-[18px]
       }
     },
