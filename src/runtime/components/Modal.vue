@@ -22,7 +22,7 @@ export interface ModalProps extends DialogRootProps {
   /**
    * Render an overlay blur behind the modal.
    * `auto` use `motion-safe`.
-   * @defaultValue 'off'
+   * @defaultValue 'auto'
    */
   overlayBlur?: Modal['variants']['overlayBlur']
   /**
@@ -103,7 +103,7 @@ const props = withDefaults(defineProps<ModalProps>(), {
   modal: true,
   dismissible: true,
   scrollbarThin: true,
-  overlayBlur: 'off'
+  overlayBlur: 'auto'
 })
 const emits = defineEmits<ModalEmits>()
 const slots = defineSlots<ModalSlots>()

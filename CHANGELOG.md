@@ -54,7 +54,6 @@
   - calc size from max-w-*
   - use SidebarLayout for render content
 * Modal
-  - overlayBlur - off
   - fix color
   - add contentWrapper
 * Kbd

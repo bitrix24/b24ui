@@ -42,7 +42,7 @@ function openModal() {
           <B24Button label="Custom" />
 
           <template #content>
-            <Placeholder class="h-40 -m-[24px]" />
+            <Placeholder class="h-40 -m-[10px]" />
           </template>
         </B24Modal>
 

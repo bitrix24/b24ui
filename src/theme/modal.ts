@@ -12,7 +12,7 @@
 
 export default {
   slots: {
-    overlay: 'fixed inset-0 bg-[#333]/50',
+    overlay: 'fixed inset-0 bg-[#003366]/20',
     content: [
       'fixed',
       'flex flex-col gap-[20px]',
@@ -49,8 +49,8 @@ export default {
   },
   variants: {
     overlayBlur: {
-      auto: { overlay: 'motion-safe:backdrop-blur-sm' },
-      on: { overlay: 'backdrop-blur-sm' },
+      auto: { overlay: 'motion-safe:backdrop-blur-[2px]' },
+      on: { overlay: 'backdrop-blur-[2px]' },
       off: { overlay: '' }
     },
     transition: {
@@ -82,6 +82,6 @@ export default {
   },
   defaultVariants: {
     scrollbarThin: true,
-    overlayBlur: 'off'
+    overlayBlur: 'auto'
   }
 }
