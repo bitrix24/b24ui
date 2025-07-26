@@ -318,8 +318,12 @@ const handleSidebarLayoutLoadingAction = async () => {
         <B24Slideover
           title="Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Magna copiosae apeirian ius at."
           description="Ius dicat feugiat no, vix cu modo dicat principes. Eu cum iuvaret debitis voluptatibus, esse perfecto reformidans id has."
+          :b24ui="{
+            content: 'sm:max-w-1/2',
+            sidebarLayoutRoot: '[--air-theme-bg-color:#ffd2d2b5]'
+          }"
         >
-          <B24Button label="Long text" />
+          <B24Button label="Long text" color="air-secondary-alert" />
 
           <template #body>
             <MockContentLongText />

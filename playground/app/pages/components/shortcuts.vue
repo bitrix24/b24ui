@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, nextTick, useTemplateRef } from 'vue'
 import usePageMeta from './../../composables/usePageMeta'
 import B24SidebarLayout from '@bitrix24/b24ui-nuxt/components/SidebarLayout.vue'
 import TrashBinIcon from '@bitrix24/b24icons-vue/main/TrashBinIcon'
@@ -10,6 +11,7 @@ usePageMeta.setPageTitle('Shortcuts')
 
 const logs = ref<string[]>([])
 const inputValue = ref<string>('')
+const messagesContainer = useTemplateRef<HTMLElement>('messagesContainer')
 
 const shortcutsState = ref({
   'a': {
@@ -35,7 +37,12 @@ const shortcuts = computed(() => {
       return acc
     }
     acc[key] = {
-      handler: () => { logs.value.push(`"${label}" triggered`) },
+      handler: () => {
+        logs.value.push(`"${label}" triggered`)
+        nextTick(() => {
+          scrollToBottom()
+        })
+      },
       usingInput
     }
     return acc
@@ -52,6 +59,15 @@ defineShortcuts({
     }
   }
 })
+function scrollToBottom() {
+  const container = messagesContainer.value
+  if (!container) return
+
+  container.scrollTo({
+    top: container.scrollHeight,
+    behavior: 'smooth'
+  })
+}
 </script>
 
 <template>
@@ -61,7 +77,6 @@ defineShortcuts({
         :use-light-content="false"
         is-inner
         off-content-scrollbar
-        class="light --ui-context-content-light"
         :b24ui="{
           contentWrapper: 'bg-[url(/bg/chat-v2-background/pattern-white.svg)] bg-top-left bg-repeat bg-[#76c68b] dark:bg-[#689775] ',
           container: [
@@ -72,7 +87,7 @@ defineShortcuts({
           containerWrapperInner: (
             logs.length < 1
               ? 'flex flex-col items-center justify-center'
-              : 'absolute inset-0 py-[6px] px-[15px] scrollbar-thin scrollbar-transparent overflow-y-scroll'
+              : ''
           )
         }"
       >
@@ -167,16 +182,19 @@ defineShortcuts({
           </div>
           <div
             v-else
-            class="w-full min-h-full flex flex-col items-start justify-end gap-[6px]"
+            ref="messagesContainer"
+            class="absolute inset-0 py-[6px] px-[15px] scrollbar-thin scrollbar-transparent overflow-y-scroll"
           >
-            <B24Advice
-              v-for="(log, index) of logs"
-              :key="index"
-              class="w-full"
-              :description="log"
-              :b24ui="{ descriptionWrapper: 'w-full' }"
-              :avatar="{ src: '/avatar/assistant.png' }"
-            />
+            <div class="w-full min-h-full flex flex-col items-start justify-end gap-[6px]">
+              <B24Advice
+                v-for="(log, index) of logs"
+                :key="index"
+                class="w-full"
+                :description="log"
+                :b24ui="{ descriptionWrapper: 'w-full' }"
+                :avatar="{ src: '/avatar/assistant.png' }"
+              />
+            </div>
           </div>
         </template>
       </B24SidebarLayout>
