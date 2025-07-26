@@ -16,6 +16,12 @@
     --air-theme-bg-color: #000000;
   }
 
+  .dark.--inner,
+  .--ui-context-content-dark.--inner
+  {
+    --air-theme-bg-color: var(--ui-color-bg-content-light);
+  }
+
   .dark,
   .--ui-context-content-dark {
     --ui-color-base-0: #fff;

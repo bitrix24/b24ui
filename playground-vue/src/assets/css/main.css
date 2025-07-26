@@ -30,7 +30,7 @@
 @layer base {
   .light,
   .--ui-context-content-light, :root {
-    --air-theme-bg-color: #eee9ff;
+    --air-theme-bg-color: #ffff;
   }
 
   .dark,

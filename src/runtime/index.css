@@ -21,9 +21,7 @@
       var(--air-theme-bg-attachment, scroll)
     ;
   }
-  /*
-   * @see src/theme/sidebar-layout.ts
-   */
+  /* @see src/theme/sidebar-layout.ts */
   .sidebar-layout::before {
     content: '';
     position: absolute;

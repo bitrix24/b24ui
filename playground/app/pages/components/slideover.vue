@@ -164,11 +164,11 @@ const handleSidebarLayoutLoadingAction = async () => {
       <ExampleCardSubTitle title="overlay" />
       <div class="mb-4 flex flex-row flex-wrap gap-2">
         <B24Slideover
-          title="Slideover without overlay blur"
-          description="This slideover has `overlay-blur: off` prop."
-          overlay-blur="off"
+          title="Slideover with overlay blur"
+          description="This slideover has `overlay-blur: auto` prop."
+          overlay-blur="auto"
         >
-          <B24Button label="Open without overlay blur" />
+          <B24Button label="Open with overlay blur" />
 
           <template #body>
             <Placeholder class="size-full" />
@@ -295,7 +295,10 @@ const handleSidebarLayoutLoadingAction = async () => {
           title="Vivendum dignissim conceptam."
           description="Magna copiosae apeirian ius at."
           :close="{ label: 'Test' }"
-          :b24ui="{ content: 'sm:max-w-1/2' }"
+          :b24ui="{
+            content: 'sm:max-w-1/2',
+            sidebarLayoutRoot: 'edge-dark'
+          }"
         >
           <B24Button label="Simple" />
 
@@ -337,7 +340,9 @@ const handleSidebarLayoutLoadingAction = async () => {
           title="File upload"
           description="Some description"
           :use-light-content="false"
-          :b24ui="{ content: 'sm:max-w-1/2' }"
+          :b24ui="{
+            content: 'sm:max-w-1/2'
+          }"
         >
           <B24Button label="Upload file" />
 
@@ -371,7 +376,8 @@ const handleSidebarLayoutLoadingAction = async () => {
           :use-light-content="false"
           :b24ui="{
             overlay: 'bg-[#00204e]/85',
-            content: 'top-[58px] sm:top-[58px] right-[22px] sm:right-[22px] max-h-[calc(100%-58px)] sm:max-h-[calc(100%-58px)] w-[calc(100%-60px-22px)] sm:w-[calc(100%-60px-22px)]'
+            content: 'top-[58px] sm:top-[58px] right-[22px] sm:right-[22px] max-h-[calc(100%-58px)] sm:max-h-[calc(100%-58px)] w-[calc(100%-60px-22px)] sm:w-[calc(100%-60px-22px)]',
+            sidebarLayoutRoot: 'edge-dark'
           }"
         >
           <template #sidebar>
@@ -416,8 +422,8 @@ const handleSidebarLayoutLoadingAction = async () => {
           :modal="false"
           :b24ui="{
             content: 'max-h-[56px] sm:shadow-none',
-            sidebarLayoutRoot: 'edge-dark --ui-context-edge-dark bg-transparent  dark:bg-transparent pl-[calc(60px+0px)]',
-            sidebarLayoutHeaderWrapper: 'bg-transparent'
+            sidebarLayoutRoot: 'edge-dark bg-transparent dark:bg-transparent before:hidden pl-[calc(60px+0px)]',
+            sidebarLayoutHeaderWrapper: 'before:hidden'
           }"
         >
           <template #navbar>

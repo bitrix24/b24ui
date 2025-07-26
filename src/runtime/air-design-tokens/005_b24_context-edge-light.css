@@ -16,6 +16,12 @@
     --air-theme-bg-color: #eef2f4;
   }
 
+  .edge-light.--inner,
+  .--ui-context-content-edge-light .--inner
+  {
+    --air-theme-bg-color: var(--ui-color-bg-content-light);
+  }
+
   .edge-light,
   .--ui-context-edge-light {
     --ui-color-base-0: #000;

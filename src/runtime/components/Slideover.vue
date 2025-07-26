@@ -23,7 +23,7 @@ export interface SlideoverProps extends DialogRootProps {
   /**
    * Render an overlay blur behind the slideover.
    * `auto` use `motion-safe`.
-   * @defaultValue 'auto'
+   * @defaultValue 'off'
    */
   overlayBlur?: Slideover['variants']['overlayBlur']
   /**
@@ -116,7 +116,7 @@ const props = withDefaults(defineProps<SlideoverProps>(), {
   modal: true,
   dismissible: true,
   side: 'bottom',
-  overlayBlur: 'auto',
+  overlayBlur: 'off',
   useLightContent: true
 })
 const emits = defineEmits<SlideoverEmits>()

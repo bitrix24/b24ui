@@ -19,6 +19,10 @@ export default {
       'flex'
     ].join(' '),
     sidebar: [
+      // @memo use src/runtime/air-design-tokens/components/navigation-menu.css
+      'air-sidebar',
+      'before:absolute before:inset-0 before:z-[-1]',
+      'before:bg-(--leftmenu-bg-expanded)',
       'w-[240px]',
       'pe-[3px] rtl:me-[14px]',
       'inset-y-0 left-0',
@@ -43,6 +47,8 @@ export default {
       ''
     ].join(' '),
     header: [
+      // @memo use src/runtime/air-design-tokens/components/navigation-menu.css
+      'air-header',
       'px-(--content-area-shift) min-h-(--topbar-height)',
       'flex items-center gap-x-1'
     ].join(' '),
@@ -86,16 +92,19 @@ export default {
           '--inner',
           'relative isolate',
           'h-full',
-          'bg-[var(--ui-color-gray-05)]',
-          'dark:bg-[var(--ui-color-gray-05)]',
+          // fix 'bg-[var(--ui-color-gray-05)]',
+          // fix 'dark:bg-[var(--ui-color-gray-05)]',
           'overflow-hidden light --ui-context-content-light'
           // fix 'sm:rounded-t-[18px]'
         ].join(' '),
         sidebar: [
-          'bg-(--ui-color-bg-content-secondary)'
+          'relative',
+          'z-[0]'
+          // fix  'bg-(--ui-color-bg-content-secondary)'
         ].join(' '),
         header: [
-          'bg-(--ui-color-bg-content-primary)'
+          'relative'
+          // fix  'bg-(--ui-color-bg-content-primary)'
         ].join(' '),
         container: [
           // @todo make property
@@ -113,15 +122,9 @@ export default {
           'max-lg:flex-col'
         ].join(' '),
         sidebar: [
-          // @memo use src/runtime/air-design-tokens/components/navigation-menu.css
-          'air-sidebar',
-          'fixed',
-          'before:absolute before:inset-0 before:z-[-1]',
-          'before:bg-(--leftmenu-bg-expanded)'
+          'fixed'
         ].join(' '),
         header: [
-          // @memo use src/runtime/air-design-tokens/components/navigation-menu.css
-          'air-header',
           'relative'
         ].join(' '),
         container: [

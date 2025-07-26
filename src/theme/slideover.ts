@@ -18,7 +18,7 @@ const safeList = [
 
 export default {
   slots: {
-    overlay: 'fixed inset-0 bg-[#00204e]/52',
+    overlay: 'fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e]', //
     content: [
       'fixed',
       'sm:shadow-lg',
@@ -168,6 +168,6 @@ export default {
   defaultVariants: {
     side: 'bottom',
     scrollbarThin: true,
-    overlayBlur: 'auto'
+    overlayBlur: 'off'
   }
 }

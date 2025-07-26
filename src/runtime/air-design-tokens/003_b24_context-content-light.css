@@ -16,6 +16,12 @@
     --air-theme-bg-color: #ffffff;
   }
 
+  .light.--inner,
+  .--ui-context-content-light.--inner
+  {
+    --air-theme-bg-color: var(--ui-color-gray-05);
+  }
+
   .light,
   .--ui-context-content-light, :root {
     --ui-color-base-0: #000;
