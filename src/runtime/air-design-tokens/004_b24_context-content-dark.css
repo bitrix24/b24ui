@@ -7,6 +7,17 @@
 
   .dark,
   .--ui-context-content-dark {
+    --air-theme-bg-image: none;
+    --air-theme-bg-image-blurred: none;
+    --air-theme-bg-position: 0 0;
+    --air-theme-bg-size: auto;
+    --air-theme-bg-repeat: repeat;
+    --air-theme-bg-attachment: scroll;
+    --air-theme-bg-color: #000000;
+  }
+
+  .dark,
+  .--ui-context-content-dark {
     --ui-color-base-0: #fff;
     --ui-color-base-1: #f8f8f8;
     --ui-color-base-2: #cacbcc;

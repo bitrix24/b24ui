@@ -169,17 +169,34 @@ const checkedUseLightContent = ref(true)
       ref="currentSidebarRef"
       :use-light-content="route.path === '/components/shortcuts' ? false : checkedUseLightContent"
       :b24ui="{
-        root: [
-          '[--air-theme-bg-color:#5964B3]',
-          '[--air-theme-bg-size:cover]',
-          '[--air-theme-bg-repeat:no-repeat]',
-          '[--air-theme-bg-position:0_0]',
-          '[--air-theme-bg-attachment:fixed]',
-          '[--air-theme-bg-image:url(/bg/edge-dark.jpg)]',
-          '[--air-theme-bg-image-blurred:url(/bg/edge-dark-blurred.webp)]',
-          'edge-dark:bg-[#5964B3] edge-dark:bg-[url(/bg/edge-dark.jpg)] edge-dark:bg-cover edge-dark:bg-center edge-dark:bg-fixed bg-no-repeat',
-          'edge-light:bg-[var(--ui-color-gray-05)] edge-light:bg-[url(/bg/edge-light.svg)] edge-light:bg-top-left edge-light:bg-repeat'
-        ].join(' ')
+        // @see playground-vue/src/assets/css/main.css
+        // root: [
+        //   '[--air-theme-bg-color:#ffffff]',
+        //   'dark:[--air-theme-bg-color:#000000]',
+        //   // ------------
+        //   // 'edge-dark:[--air-theme-bg-color:#545d6b]',
+        //   // 'edge-dark:[--air-theme-bg-size:auto]',
+        //   // 'edge-dark:[--air-theme-bg-repeat:repeat]',
+        //   // 'edge-dark:[--air-theme-bg-position:0_0]',
+        //   // 'edge-dark:[--air-theme-bg-attachment:fixed]',
+        //   // 'edge-dark:[--air-theme-bg-image:url(/bg/dark.svg)]',
+        //   // 'edge-dark:[--air-theme-bg-image-blurred:url(/bg/dark-blurred.webp)]',
+        //   // ----
+        //   'edge-light:[--air-theme-bg-color:#eef2f4]',
+        //   'edge-light:[--air-theme-bg-size:auto]',
+        //   'edge-light:[--air-theme-bg-repeat:repeat]',
+        //   'edge-light:[--air-theme-bg-position:0_0]',
+        //   'edge-light:[--air-theme-bg-attachment:fixed]',
+        //   'edge-light:[--air-theme-bg-image:url(/bg/edge-light.svg)]',
+        //   'edge-light:[--air-theme-bg-image-blurred:url(/bg/edge-light-blurred.webp)]',
+        //   // -----------------
+        //   'edge-dark:[--air-theme-bg-size:cover]',
+        //   'edge-dark:[--air-theme-bg-repeat:no-repeat]',
+        //   'edge-dark:[--air-theme-bg-position:0_0]',
+        //   'edge-dark:[--air-theme-bg-attachment:fixed]',
+        //   'edge-dark:[--air-theme-bg-image:url(/bg/edge-dark.jpg)]',
+        //   'edge-dark:[--air-theme-bg-image-blurred:url(/bg/edge-dark-blurred.webp)]'
+        // ].join(' ')
       }"
     >
       <template #sidebar>

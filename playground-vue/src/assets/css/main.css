@@ -1,2 +1,62 @@
 @import "tailwindcss" source("../../../..");
 @import "@bitrix24/b24ui-nuxt";
+
+/*
+ * Custom bg
+ * Can be specified in B24SidebarLayout via b24ui
+ * @see playground-vue/src/app.vue
+ <B24SidebarLayout
+  :b24ui="{
+    root: [
+      '[--air-theme-bg-color:#ffffff]',
+      'dark:[--air-theme-bg-color:#000000]',
+      'edge-light:[--air-theme-bg-color:#eef2f4]',
+      'edge-light:[--air-theme-bg-size:auto]',
+      'edge-light:[--air-theme-bg-repeat:repeat]',
+      'edge-light:[--air-theme-bg-position:0_0]',
+      'edge-light:[--air-theme-bg-attachment:fixed]',
+      'edge-light:[--air-theme-bg-image:url(/bg/edge-light.svg)]',
+      'edge-light:[--air-theme-bg-image-blurred:url(/bg/edge-light-blurred.webp)]',
+      'edge-dark:[--air-theme-bg-size:cover]',
+      'edge-dark:[--air-theme-bg-repeat:no-repeat]',
+      'edge-dark:[--air-theme-bg-position:0_0]',
+      'edge-dark:[--air-theme-bg-attachment:fixed]',
+      'edge-dark:[--air-theme-bg-image:url(/bg/edge-dark.jpg)]',
+      'edge-dark:[--air-theme-bg-image-blurred:url(/bg/edge-dark-blurred.webp)]'
+    ].join(' ')
+  }"
+></B24SidebarLayout>
+ */
+@layer base {
+  .light,
+  .--ui-context-content-light, :root {
+    --air-theme-bg-color: #eee9ff;
+  }
+
+  .dark,
+  .--ui-context-content-dark {
+    --air-theme-bg-color: #000000;
+  }
+
+  .edge-light,
+  .--ui-context-edge-light {
+    --air-theme-bg-image: url(/bg/edge-light.svg);
+    --air-theme-bg-image-blurred: url(/bg/edge-light-blurred.webp);
+    --air-theme-bg-position: 0 0;
+    --air-theme-bg-size: auto;
+    --air-theme-bg-repeat: repeat;
+    --air-theme-bg-attachment: fixed;
+    --air-theme-bg-color: #eef2f4;
+  }
+
+  .edge-dark,
+  .--ui-context-edge-dark {
+    --air-theme-bg-image: url(/bg/edge-dark.jpg);
+    --air-theme-bg-image-blurred: url(/bg/edge-dark-blurred.webp);
+    --air-theme-bg-position: 0 0;
+    --air-theme-bg-size: cover;
+    --air-theme-bg-repeat: no-repeat;
+    --air-theme-bg-attachment: fixed;
+    --air-theme-bg-color: #5964b3;
+  }
+}

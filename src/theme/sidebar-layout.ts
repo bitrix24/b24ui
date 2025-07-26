@@ -12,6 +12,8 @@
 export default {
   slots: {
     root: [
+      // @memo use src/runtime/index.css
+      'sidebar-layout',
       'text-(--ui-color-design-plain-content)',
       'w-full',
       'flex'
@@ -108,31 +110,24 @@ export default {
         root: [
           '--app',
           'h-dvh min-h-dvh',
-          // 'bg-(--air-theme-background)',
-          // fix 'bg-(--ui-color-gray-05) edge-light:bg-transparent',
-          // fix 'dark:bg-(--ui-color-bg-content-primary) edge-dark:bg-transparent',
           'max-lg:flex-col'
         ].join(' '),
         sidebar: [
+          // @memo use src/runtime/air-design-tokens/components/navigation-menu.css
+          'air-sidebar',
           'fixed',
-          'bg-(--ui-color-bg-content-secondary)',
-          'dark:bg-[#262626]',
-          'edge-light:bg-(--ui-color-base-black-fixed)/2',
-          'edge-light:backdrop-blur-(--ui-bg-blur-less)',
-          'edge-dark:bg-(--ui-color-base-white-fixed)/3',
-          'edge-dark:backdrop-blur-(--ui-bg-blur-less)'
+          'before:absolute before:inset-0 before:z-[-1]',
+          'before:bg-(--leftmenu-bg-expanded)'
         ].join(' '),
         header: [
-          'bg-(--ui-color-bg-content-primary)', // 'bg-(--ui-color-base-black-fixed)/5', // ',
-          'dark:bg-[#2d2d2d]',
-          'edge-light:bg-(--ui-color-base-black-fixed)/5 edge-light:backdrop-blur-(--ui-bg-blur-less)',
-          'edge-dark:bg-(--ui-color-base-white-fixed)/10 edge-dark:backdrop-blur-(--ui-bg-blur-less)'
+          // @memo use src/runtime/air-design-tokens/components/navigation-menu.css
+          'air-header',
+          'relative'
         ].join(' '),
         container: [
           'relative',
           'mt-[22px]'
         ].join(' ')
-        // fix containerWrapperInner: 'size-full'
       }
     },
     offContentScrollbar: {

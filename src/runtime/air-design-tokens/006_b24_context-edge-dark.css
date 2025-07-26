@@ -7,6 +7,17 @@
 
   .edge-dark,
   .--ui-context-edge-dark {
+    --air-theme-bg-image: none;
+    --air-theme-bg-image-blurred: none;
+    --air-theme-bg-position: 0 0;
+    --air-theme-bg-size: auto;
+    --air-theme-bg-repeat: repeat;
+    --air-theme-bg-attachment: scroll;
+    --air-theme-bg-color: #545d6b;
+  }
+
+  .edge-dark,
+  .--ui-context-edge-dark {
     --ui-color-base-0: #fff;
     --ui-color-base-1: #fff;
     --ui-color-base-2: #ffffffcc;

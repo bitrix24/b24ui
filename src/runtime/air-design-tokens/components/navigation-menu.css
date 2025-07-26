@@ -4,6 +4,7 @@
  * @see /bitrix/templates/bitrix24/dist/bitrix24.bundle.css
  * @see /bitrix/components/bitrix/main.interface.buttons/templates/.default/style.css
  * @todo get all variables
+ * @memo fix --ui-context-content-light .air-header
  */
 
 @layer base {
@@ -19,6 +20,12 @@
   --topbar-height: 58px;
 }
 
+/**
+ * Sidebar
+ */
+.air-sidebar {
+  background: var(--air-theme-background-blurred, none);
+}
 .clip-path-viewport-wrapper {
   clip-path: inset(0 -24px -28px -24px round 10px);
 }
@@ -138,4 +145,56 @@
   --leftmenu-group-bg: var(--ui-color-bg-content-tertiary,hsla(0,0%,100%,.08));
   --leftmenu-group-stroke: var(--ui-color-divider-less);
   --leftmenu-group-stroke-weight: var(--ui-border-width-thin)
+}
+
+/**
+ * Header
+ * @see /bitrix/templates/bitrix24/dist/bitrix24.bundle.css
+ */
+.air-header,
+.light .air-header,
+.--ui-context-content-light .air-header {
+  /*--topbar-bg: var(--ui-color-bg-content-primary);*/
+  --topbar-bg: var(--ui-color-bg-content-secondary);
+  --topbar-bg-stroke: var(--ui-color-bg-content-primary);
+  --topbar-bg-stroke-weight: 0;
+  --topbar-bg-blur: 0px;
+}
+
+.dark .air-header,
+.--ui-context-content-dark .air-header {
+  --topbar-bg: #2d2d2d;
+  --topbar-bg-stroke: #3d3d3d;
+  --topbar-bg-stroke-weight: 0;
+  --topbar-bg-blur: 0px;
+}
+
+.edge-dark .air-header,
+.--ui-context-edge-dark .air-header {
+  --topbar-bg: rgba(255, 255, 255, 0.1);
+  --topbar-bg-stroke: transparent;
+  --topbar-bg-stroke-weight: 0px;
+  --topbar-bg-blur: var(--ui-bg-blur-less);
+}
+
+.edge-light .air-header,
+.--ui-context-edge-light .air-header {
+  --topbar-bg: rgba(0, 0, 0, 0.05);
+  --topbar-bg-stroke: transparent;
+  --topbar-bg-stroke-weight: 0px;
+  --topbar-bg-blur: var(--ui-bg-blur-less);
+}
+
+.air-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background:
+    linear-gradient(to right, var(--topbar-bg), var(--topbar-bg)),
+    var(--air-theme-background-blurred, none)
+  ;
+  z-index: -1;
 }

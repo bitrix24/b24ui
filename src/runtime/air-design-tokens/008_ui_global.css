@@ -1,6 +1,6 @@
 @layer base {
   body {
-    @apply antialiased font-b24-system;
+    @apply antialiased font-(family-name:--ui-font-family-system);
   }
 }
 
