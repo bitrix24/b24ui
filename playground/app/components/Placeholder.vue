@@ -1,6 +1,6 @@
 <template>
-  <div class="relative overflow-hidden rounded-md border border-dashed border-base-300 dark:border-base-700 opacity-75 px-4 flex items-center justify-center">
-    <svg class="absolute inset-0 h-full w-full stroke-base-900/10 dark:stroke-base-100/10" fill="none">
+  <div class="relative overflow-hidden rounded-md border border-dashed border-(--ui-color-divider-vibrant-accent-more) px-4 flex items-center justify-center">
+    <svg class="absolute inset-0 h-full w-full stroke-(--ui-color-divider-vibrant-accent-more)">
       <defs>
         <pattern
           id="pattern-5c1e4f0e-62d5-498b-8ff0-cf77bb448c8e"
