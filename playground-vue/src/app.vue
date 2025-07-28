@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import usePageMeta from '../../playground/app/composables/usePageMeta'
+import { useRouteCheck } from '@bitrix24/b24ui-nuxt-playground/app/composables/useRouteCheck'
 import { useRouter, useRoute } from 'vue-router'
 import { reactive, ref, computed } from 'vue'
 import { useColorMode, useTextDirection } from '@vueuse/core'
@@ -160,14 +161,14 @@ const menuTop = computed<NavigationMenuItem[]>(() => {
   ]
 })
 
-const checkedUseLightContent = ref(true)
+const { isSidebarLayoutUseLightContent, isSidebarLayoutClearContent, checkedUseLightContent } = useRouteCheck()
 </script>
 
 <template>
   <B24App :toaster="(appConfig.toaster as any)">
     <B24SidebarLayout
       ref="currentSidebarRef"
-      :use-light-content="route.path === '/components/shortcuts' ? false : checkedUseLightContent"
+      :use-light-content="isSidebarLayoutUseLightContent"
       :b24ui="{
         // @see playground-vue/src/assets/css/main.css
         // root: [
@@ -244,8 +245,8 @@ const checkedUseLightContent = ref(true)
         <B24NavbarSpacer />
         <B24NavbarSection class="flex-row items-center justify-start gap-4">
           <B24Switch
-            :disabled="route.path === '/components/shortcuts'"
             v-model="checkedUseLightContent"
+            :disabled="isSidebarLayoutClearContent"
             size="xs"
           />
           <B24Button
@@ -288,7 +289,7 @@ const checkedUseLightContent = ref(true)
       </template>
 
       <template
-        v-if="route.path !== '/' && route.path !== '/components/shortcuts'"
+        v-if="route.path !== '/' && !isSidebarLayoutClearContent"
         #content-top
       >
         <MockSidebarLayoutTop>
@@ -297,7 +298,7 @@ const checkedUseLightContent = ref(true)
       </template>
 
       <template
-        v-if="route.path !== '/' && route.path !== '/components/shortcuts'"
+        v-if="route.path !== '/' && !isSidebarLayoutClearContent"
         #content-actions
       >
         <MockSidebarLayoutActions />
