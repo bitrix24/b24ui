@@ -28,6 +28,7 @@
   - loading, useSidebarLayout
   - prop.inner
   - prop.offContentScrollbar
+  - use tools/blurImage.ts for gen blur bg
 * Button:
   - normal-case = true
   - size = xl, lg, md, sm, xs, xxs
