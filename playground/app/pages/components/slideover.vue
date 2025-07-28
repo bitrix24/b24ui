@@ -381,7 +381,16 @@ const handleSidebarLayoutLoadingAction = async () => {
           :b24ui="{
             overlay: 'bg-[#00204e]/85',
             content: 'top-[58px] sm:top-[58px] right-[22px] sm:right-[22px] max-h-[calc(100%-58px)] sm:max-h-[calc(100%-58px)] w-[calc(100%-60px-22px)] sm:w-[calc(100%-60px-22px)]',
-            sidebarLayoutRoot: 'edge-dark'
+            sidebarLayoutRoot: [
+              'edge-dark',
+              'edge-dark:[--air-theme-bg-color:#1B4D25]',
+              'edge-dark:[--air-theme-bg-size:cover]',
+              'edge-dark:[--air-theme-bg-repeat:no-repeat]',
+              'edge-dark:[--air-theme-bg-position:0_0]',
+              'edge-dark:[--air-theme-bg-attachment:fixed]',
+              'edge-dark:[--air-theme-bg-image:url(/bg/gravity.jpg)]',
+              'edge-dark:[--air-theme-bg-image-blurred:url(/bg/gravity-blurred.webp)]'
+            ].join(' ')
           }"
         >
           <template #sidebar>

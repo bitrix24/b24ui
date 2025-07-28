@@ -23,7 +23,7 @@ import type { IMenuItem } from '~/types'
   <B24Button
     block
     label="Use our Vue starter"
-    color="air-primary-success"
+    color="air-boost"
     size="sm"
     loading-auto
     :icon="RocketIcon"

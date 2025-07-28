@@ -5,6 +5,9 @@
  * @link /api_d7/bitrix/ui/buttons/button.php
  * @see bitrix/js/ui/buttons/src/button/button-color.js
  * @see bitrix/js/ui/buttons/src/button/button-size.js
+ *
+ * @todo fix src/runtime/air-design-tokens/components/button.css
+ * @todo fix hover:air-boost & etc
  */
 
 import { buttonGroupVariant } from './button-group'
@@ -23,7 +26,7 @@ export default {
       'outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2',
       'disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50',
       'transition duration-0 ease-linear', // transition-colors
-      'border',
+      'border-(length:--ui-btn-border-width)',
       'text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color)',
       'hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover)',
       'focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover)',
@@ -81,6 +84,25 @@ export default {
       'air-tertiary-accent': '--style-plain-accent',
       'air-tertiary-no-accent': '--style-plain-no-accent',
       'air-selection': '--style-selection',
+      // 'air-boost': '--style-filled-boost',
+      'air-boost': {
+        base: [
+          '--style-filled-boost',
+          'bg-transparent hover:bg-transparent focus:bg-transparent active:bg-transparent disabled:bg-transparent aria-disabled:bg-transparent',
+          'bg-radial-[110.42%_110.42%_at_-10.42%_31.25%] from-(--ui-color-design-filled-boost-bg-gradient-1) from-0% via-(--ui-color-design-filled-boost-bg-gradient-2) via-58.65% to-(--ui-color-design-filled-boost-bg-gradient-3) to-100%',
+          'hover:bg-radial-[110.42%_110.42%_at_-10.42%_31.25%] from-(--hover-color-1) from-0% via-(--hover-color-2) via-58.65% to-(--hover-color-3) to-100%',
+          'focus:bg-radial-[110.42%_110.42%_at_-10.42%_31.25%] from-(--hover-color-1) from-0% via-(--hover-color-2) via-58.65% to-(--hover-color-3) to-100%',
+          'active:bg-radial-[110.42%_110.42%_at_-10.42%_31.25%] from-(--active-color-1) from-0% via-(--active-color-2) via-58.65% to-(--active-color-3) to-100%',
+          'disabled:bg-radial-[110.42%_110.42%_at_-10.42%_31.25%] from-(--ui-color-design-filled-boost-bg-gradient-1) from-0% via-(--ui-color-design-filled-boost-bg-gradient-2) via-58.65% to-(--ui-color-design-filled-boost-bg-gradient-3) to-100%',
+          'aria-disabled::bg-radial-[110.42%_110.42%_at_-10.42%_31.25%] from-(--ui-color-design-filled-boost-bg-gradient-1) from-0% via-(--ui-color-design-filled-boost-bg-gradient-2) via-58.65% to-(--ui-color-design-filled-boost-bg-gradient-3) to-100%'
+          //     'bg-(--ui-btn-background-gradient)',
+          //     'hover:bg-(--ui-btn-background-gradient-hover)',
+          //     'focus:bg-(--ui-btn-background-gradient-hover)',
+          //     'active:bg-(--ui-btn-background-gradient-active)',
+          //     'disabled:bg-(--ui-btn-background-gradient)',
+          //     'aria-disabled:bg-(--ui-btn-background-gradient)'
+        ].join(' ')
+      },
       // @deprecate ////
       'default': '',
       'danger': '',

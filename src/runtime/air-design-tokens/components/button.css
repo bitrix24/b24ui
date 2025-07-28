@@ -411,9 +411,14 @@
     --ui-btn-title-compensation: -1px;
     --ui-btn-padding: 0 var(--ui-btn-padding-right) 0 var(--ui-btn-padding-left);
     --ui-btn-min-width: 80px;
+
     --ui-btn-background: #868d95;
     --ui-btn-background-hover: color-mix(in srgb, var(--ui-btn-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
     --ui-btn-background-active: color-mix(in srgb, var(--ui-btn-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --ui-btn-background-gradient: linear-gradient(180deg, var(--ui-btn-background) 0%, var(--ui-btn-background) 100%);
+    --ui-btn-background-gradient-hover: linear-gradient(180deg, var(--ui-btn-background-hover) 0%, var(--ui-btn-background-hover) 100%);
+    --ui-btn-background-gradient-active: linear-gradient(180deg, var(--ui-btn-background-active) 0%, var(--ui-btn-background-active) 100%);
+
     --ui-btn-border-color: var(--ui-btn-background);
     --ui-btn-border-color-hover: color-mix(in srgb, var(--ui-btn-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
     --ui-btn-border-color-active: color-mix(in srgb, var(--ui-btn-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
@@ -566,7 +571,7 @@
     --ui-btn-border-width: var(--ui-design-filled-stroke-weight);
     --ui-btn-color: var(--ui-color-design-filled-content);
     --ui-btn-split-divider-color: var(--ui-color-design-filled-content-divider);
-  } /* + */
+  }
 
   .ui-btn.--air.--style-tinted {
     --ui-btn-background: var(--ui-color-design-tinted-bg);
@@ -574,7 +579,7 @@
     --ui-btn-border-width: var(--ui-design-tinted-stroke-weight);
     --ui-btn-color: var(--ui-color-design-tinted-content);
     --ui-btn-split-divider-color: var(--ui-color-design-tinted-content-divider);
-  } /* + */
+  }
 
   .ui-btn.--air.--style-tinted-alert {
     --ui-btn-background: var(--ui-color-design-tinted-alert-bg);
@@ -582,7 +587,7 @@
     --ui-btn-border-width: var(--ui-design-tinted-alert-stroke-weight);
     --ui-btn-color: var(--ui-color-design-tinted-alert-content);
     --ui-btn-split-divider-color: var(--ui-color-design-tinted-alert-content-divider);
-  } /* + */
+  }
 
   .ui-btn.--air.--style-outline-accent-1 {
     --ui-btn-background: var(--ui-color-design-outline-a1-bg);
@@ -590,7 +595,7 @@
     --ui-btn-border-width: var(--ui-design-outline-a1-stroke-weight);
     --ui-btn-color: var(--ui-color-design-outline-a1-content);
     --ui-btn-split-divider-color: var(--ui-color-design-outline-a1-content-divider);
-  } /* + */
+  }
 
   .ui-btn.--air.--style-outline-accent-2 {
     --ui-btn-background: var(--ui-color-design-outline-a2-bg);
@@ -598,7 +603,7 @@
     --ui-btn-border-width: var(--ui-design-outline-a2-stroke-weight);
     --ui-btn-color: var(--ui-color-design-outline-a2-content);
     --ui-btn-split-divider-color: var(--ui-color-design-outline-a2-content-divider);
-  } /* + */
+  }
 
   .ui-btn.--air.--style-outline {
     --ui-btn-background: var(--ui-color-design-outline-bg);
@@ -606,7 +611,7 @@
     --ui-btn-border-width: var(--ui-design-outline-stroke-weight);
     --ui-btn-color: var(--ui-color-design-outline-content);
     --ui-btn-split-divider-color: var(--ui-color-design-outline-content-divider);
-  } /* + */
+  }
 
   /* default */
   .ui-btn.--air,
@@ -616,7 +621,7 @@
     --ui-btn-border-width: var(--ui-design-outline-na-stroke-weight);
     --ui-btn-color: var(--ui-color-design-outline-na-content);
     --ui-btn-split-divider-color: var(--ui-color-design-outline-na-content-divider);
-  } /* + */
+  }
 
   .ui-btn.--air.--style-plain-accent {
     --ui-btn-background: var(--ui-color-design-plain-a-bg);
@@ -624,7 +629,7 @@
     --ui-btn-border-width: var(--ui-design-plain-a-stroke-weight);
     --ui-btn-color: var(--ui-color-design-plain-a-content);
     --ui-btn-split-divider-color: var(--ui-color-design-plain-a-content-divider);
-  } /* + */
+  }
 
   .ui-btn.--air.--style-plain {
     --ui-btn-background: var(--ui-color-design-plain-bg);
@@ -632,7 +637,7 @@
     --ui-btn-border-width: var(--ui-design-plain-stroke-weight);
     --ui-btn-color: var(--ui-color-design-plain-content);
     --ui-btn-split-divider-color: var(--ui-color-design-plain-content-divider);
-  } /* + */
+  }
 
   .ui-btn.--air.--style-plain-no-accent {
     --ui-btn-background: var(--ui-color-design-plain-na-bg);
@@ -648,7 +653,7 @@
     --ui-btn-border-width: var(--ui-design-selection-stroke-weight);
     --ui-btn-color: var(--ui-color-design-selection-content);
     --ui-btn-split-divider-color: var(--ui-color-design-selection-content-divider);
-  } /* + */
+  }
 
   .ui-btn.--air.--style-filled-copilot {
     --ui-btn-background: var(--ui-color-design-filled-copilot-bg);
@@ -656,7 +661,7 @@
     --ui-btn-border-width: var(--ui-design-filled-copilot-stroke-weight);
     --ui-btn-color: var(--ui-color-design-filled-copilot-content);
     --ui-btn-split-divider-color: var(--ui-color-design-filled-copilot-content-divider);
-  } /* + */
+  }
 
   .ui-btn.--air.--style-filled-success {
     --ui-btn-background: var(--ui-color-design-filled-success-bg);
@@ -664,7 +669,7 @@
     --ui-btn-border-width: var(--ui-design-filled-success-stroke-weight);
     --ui-btn-color: var(--ui-color-design-filled-success-content);
     --ui-btn-split-divider-color: var(--ui-color-design-filled-success-content-divider);
-  } /* + */
+  }
 
   .ui-btn.--air.--style-filled-alert {
     --ui-btn-background: var(--ui-color-design-filled-alert-bg);
@@ -672,7 +677,27 @@
     --ui-btn-border-width: var(--ui-design-filled-success-stroke-weight);
     --ui-btn-color: var(--ui-color-design-filled-alert-content);
     --ui-btn-split-divider-color: var(--ui-color-design-filled-alert-content-divider);
-  } /* + */
+  }
+
+  .ui-btn.--air.--style-filled-boost {
+    --ui-btn-border-color: var(--ui-color-design-filled-boost-stroke);
+    --ui-btn-border-width: var(--ui-design-filled-boost-stroke-weight);
+    --ui-btn-color: var(--ui-color-design-filled-boost-content);
+    --ui-btn-split-divider-color: var(--ui-color-design-filled-boost-content-divider);
+
+    --hover-color-1: color-mix(in srgb, var(--ui-color-design-filled-boost-bg-gradient-1) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --hover-color-2: color-mix(in srgb, var(--ui-color-design-filled-boost-bg-gradient-2) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --hover-color-3: color-mix(in srgb, var(--ui-color-design-filled-boost-bg-gradient-3) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+
+    --active-color-1: color-mix(in srgb, var(--ui-color-design-filled-boost-bg-gradient-1) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --active-color-2: color-mix(in srgb, var(--ui-color-design-filled-boost-bg-gradient-2) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --active-color-3: color-mix(in srgb, var(--ui-color-design-filled-boost-bg-gradient-3) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+
+    /* @see src/theme/button.ts */
+    /*--ui-btn-background-gradient: radial-gradient(110.42% 110.42% at -10.42% 31.25%, var(--ui-color-design-filled-boost-bg-gradient-1) 0%, var(--ui-color-design-filled-boost-bg-gradient-2) 58.65%, var(--ui-color-design-filled-boost-bg-gradient-3) 100%);*/
+    /*--ui-btn-background-gradient-hover:  radial-gradient(110.42% 110.42% at -10.42% 31.25%, var(--hover-color-1) 0%, var(--hover-color-2) 58.65%, var(--hover-color-3) 100%);*/
+    /*--ui-btn-background-gradient-active: radial-gradient(110.42% 110.42% at -10.42% 31.25%, var(--active-color-1) 0%, var(--active-color-2) 58.65%, var(--active-color-3) 100%);*/
+  }
   /* endregion */
   /* endregion */
 }
