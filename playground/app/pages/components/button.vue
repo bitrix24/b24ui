@@ -215,69 +215,75 @@ const airColors = computed(() => {
     </template>
   </ExampleGrid>
 
-  <ProseH3 class="mt-16">
-    Depricate
-  </ProseH3>
-  <B24Separator class="mb-4" />
-  <ExampleGrid v-once class="mb-2">
-    <template v-for="color in oldColors" :key="color">
-      <template v-for="depth in depths" :key="depth">
-        <ExampleCard :title="[color as string, depth as string].join(' ')" class="md:col-span-2">
-          <ExampleCardSubTitle title="size" />
-          <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-            <B24Button
-              v-for="size in sizes"
-              :key="size"
-              label="Button 1"
-              :color="color"
-              :depth="depth"
-              :size="size"
-              loading-auto
-              use-clock
-              @click="onClick"
-            />
-          </div>
+  <B24Collapsible class="mb-2">
+    <B24Button
+      color="air-secondary-no-accent"
+      label="Deprecate"
+      use-dropdown
+    />
 
-          <ExampleCardSubTitle title="loading" />
-          <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-            <B24Button
-              :color="color"
-              :depth="depth"
-              loading
-              use-wait
-            >
-              Loading
-            </B24Button>
+    <template #content>
+      <ExampleGrid v-once class="my-2">
+        <template v-for="color in oldColors" :key="color">
+          <template v-for="depth in depths" :key="depth">
+            <ExampleCard :title="[color as string, depth as string].join(' ')" class="md:col-span-2">
+              <ExampleCardSubTitle title="size" />
+              <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+                <B24Button
+                  v-for="size in sizes"
+                  :key="size"
+                  label="Button 1"
+                  :color="color"
+                  :depth="depth"
+                  :size="size"
+                  loading-auto
+                  use-clock
+                  @click="onClick"
+                />
+              </div>
 
-            <B24Button
-              :color="color"
-              :depth="depth"
-              loading
-              use-clock
-            >
-              Loading
-            </B24Button>
+              <ExampleCardSubTitle title="loading" />
+              <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+                <B24Button
+                  :color="color"
+                  :depth="depth"
+                  loading
+                  use-wait
+                >
+                  Loading
+                </B24Button>
 
-            <B24Button
-              :color="color"
-              :depth="depth"
-              loading
-            >
-              Loading
-            </B24Button>
+                <B24Button
+                  :color="color"
+                  :depth="depth"
+                  loading
+                  use-clock
+                >
+                  Loading
+                </B24Button>
 
-            <B24Button
-              :color="color"
-              :depth="depth"
-              loading-auto
-              use-clock
-              @click="onClick"
-            >
-              Loading auto
-            </B24Button>
-          </div>
-        </ExampleCard>
-      </template>
+                <B24Button
+                  :color="color"
+                  :depth="depth"
+                  loading
+                >
+                  Loading
+                </B24Button>
+
+                <B24Button
+                  :color="color"
+                  :depth="depth"
+                  loading-auto
+                  use-clock
+                  @click="onClick"
+                >
+                  Loading auto
+                </B24Button>
+              </div>
+            </ExampleCard>
+          </template>
+        </template>
+      </ExampleGrid>
     </template>
-  </ExampleGrid>
+  </B24Collapsible>
 </template>
