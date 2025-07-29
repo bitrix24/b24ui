@@ -165,6 +165,7 @@ function removeToast() {
         is-inner
         off-content-scrollbar
         :b24ui="{
+          root: 'light',
           contentWrapper: 'bg-[url(/bg/chat-v2-background/pattern-white.svg)] bg-top-left bg-repeat bg-[#799fe1] dark:bg-[#799fe1] ',
           container: [
             'bg-[url(/bg/chat-v2-background/im-6.png)] bg-cover bg-center bg-fixed bg-no-repeat',
@@ -204,7 +205,7 @@ function removeToast() {
           </B24SidebarBody>
         </template>
         <template #navbar>
-          <ProseH4 class="font-medium mb-0">
+          <ProseH4 class="font-medium mb-0 text-(--ui-color-on-primary)">
             Toast
           </ProseH4>
           <B24NavbarSpacer />

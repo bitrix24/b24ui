@@ -145,7 +145,7 @@ function scrollToBottom() {
           </B24SidebarBody>
         </template>
         <template #navbar>
-          <ProseH4 class="font-medium mb-0">
+          <ProseH4 class="font-medium mb-0 text-(--ui-color-on-primary)">
             Shortcuts
           </ProseH4>
           <B24NavbarSpacer />
