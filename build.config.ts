@@ -1,4 +1,7 @@
 import { defineBuildConfig } from 'unbuild'
+import packageInfo from './package.json'
+
+const B24UI_VERSION = packageInfo.version
 
 export default defineBuildConfig({
   entries: [
@@ -13,7 +16,8 @@ export default defineBuildConfig({
       delimiters: ['', ''],
       values: {
         // Used in development to import directly from theme
-        'process.argv.includes(\'--uiDev\')': 'false'
+        'process.argv.includes(\'--uiDev\')': 'false',
+        '__B24UI_VERSION__': B24UI_VERSION
       }
     }
   },

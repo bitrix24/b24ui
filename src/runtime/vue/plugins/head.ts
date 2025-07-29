@@ -11,12 +11,5 @@ export default {
 
     const head = createHead()
     app.use(head)
-
-    /**
-     * @memo Add b24ui version
-     */
-    head.push({
-      meta: [{ name: 'b24ui', content: '0.8.0' }]
-    })
   }
 } satisfies Plugin
