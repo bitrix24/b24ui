@@ -33,14 +33,6 @@
     --air-theme-bg-color: #ffff;
   }
 
-  /*
-  .light.--inner,
-  .--ui-context-content-light.--inner
-  {
-    --air-theme-bg-color: var(--ui-color-gray-05);
-  }
-  */
-
   .dark,
   .--ui-context-content-dark {
     --air-theme-bg-color: #000000;

@@ -118,7 +118,7 @@ export default {
       false: {
         root: [
           '--app',
-          'h-dvh min-h-dvh',
+          'h-screen min-h-screen',
           'max-lg:flex-col'
         ].join(' '),
         sidebar: [

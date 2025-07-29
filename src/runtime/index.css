@@ -4,7 +4,8 @@
 @import './air-design-tokens/index.css';
 
 @layer base {
-  .sidebar-layout {
+  body,
+  .sidebar-layout.--inner {
     /* @see air-design-tokens/???_b24_context-*.css */
     --air-theme-background:
       var(--air-theme-bg-image, none)
@@ -21,8 +22,13 @@
       var(--air-theme-bg-attachment, scroll)
     ;
   }
+
   /* @see src/theme/sidebar-layout.ts */
-  .sidebar-layout::before {
+  body {
+    background: var(--air-theme-background);
+  }
+
+  .sidebar-layout.--inner::before {
     content: '';
     position: absolute;
     top: 0;

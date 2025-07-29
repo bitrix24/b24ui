@@ -5,7 +5,7 @@ import usePageMeta from './../../composables/usePageMeta'
 import { useAppConfig } from '#imports'
 import B24SidebarLayout from '@bitrix24/b24ui-nuxt/components/SidebarLayout.vue'
 import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
-import KeyboardIcon from '@bitrix24/b24icons-vue/actions/KeyboardIcon'
+import NotificationIcon from '@bitrix24/b24icons-vue/outline/NotificationIcon'
 
 usePageMeta.setPageTitle('Toast')
 const colors = Object.keys(themeToast.variants.color) as Array<keyof typeof themeToast.variants.color>
@@ -165,9 +165,9 @@ function removeToast() {
         is-inner
         off-content-scrollbar
         :b24ui="{
-          contentWrapper: 'bg-[url(/bg/chat-v2-background/pattern-white.svg)] bg-top-left bg-repeat bg-[#76c68b] dark:bg-[#689775] ',
+          contentWrapper: 'bg-[url(/bg/chat-v2-background/pattern-white.svg)] bg-top-left bg-repeat bg-[#799fe1] dark:bg-[#799fe1] ',
           container: [
-            'bg-[url(/bg/chat-v2-background/collab-v2.png)] bg-cover bg-center bg-fixed bg-no-repeat',
+            'bg-[url(/bg/chat-v2-background/im-6.png)] bg-cover bg-center bg-fixed bg-no-repeat',
             'p-0 px-0 ps-0 pe-0 lg:p-0 lg:px-0 lg:ps-0 lg:pe-0 '
           ].join(' '),
           containerWrapper: 'h-full relative',
@@ -208,8 +208,8 @@ function removeToast() {
             class="text-(--ui-color-design-filled-market-content) max-w-[550px] px-[60px] py-[40px] rounded-[24px] bg-[#525c69]/20 flex flex-col items-center justify-center gap-[20px]"
           >
             <B24Avatar
-              :icon="KeyboardIcon"
-              alt="defineShortcuts"
+              :icon="NotificationIcon"
+              alt="Toast"
               size="3xl"
               :b24ui="{
                 root: 'bg-transparent ring-2 ring-(--ui-color-design-filled-market-content)/50',
@@ -217,12 +217,13 @@ function removeToast() {
               }"
             />
             <ProseH2 class="text-center text-(--ui-color-design-filled-market-content) leading-[29px] mb-0">
-              A composable to assign keyboard shortcuts in your app
+              A short message to offer information or feedback to the user
             </ProseH2>
-
-            <B24Button label="Add" color="air-primary" @click="addToast" />
-            <B24Button label="Update" color="secondary" :disabled="!last" @click="updateToast" />
-            <B24Button label="Remove" :disabled="!last" @click="removeToast" />
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-[15px]">
+              <B24Button label="Add" color="air-primary" @click="addToast" />
+              <B24Button label="Update" color="air-secondary" :disabled="!last" @click="updateToast" />
+              <B24Button label="Remove" color="air-secondary-alert" :disabled="!last" @click="removeToast" />
+            </div>
           </div>
         </template>
       </B24SidebarLayout>
