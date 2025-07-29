@@ -94,9 +94,9 @@ function scrollToBottom() {
         <template #sidebar>
           <B24SidebarHeader>
             <div class="h-full flex items-center relative my-0 ps-[25px] pe-xs rtl:pe-[25px]">
-              <ProseH4 class="font-medium mb-0">
-                Shortcuts
-              </ProseH4>
+              <ProseH6 class="font-medium mb-0">
+                Settings
+              </ProseH6>
             </div>
           </B24SidebarHeader>
           <B24SidebarBody>
@@ -145,9 +145,9 @@ function scrollToBottom() {
           </B24SidebarBody>
         </template>
         <template #navbar>
-          <ProseH6 class="font-medium mb-0">
-            Logs
-          </ProseH6>
+          <ProseH4 class="font-medium mb-0">
+            Shortcuts
+          </ProseH4>
           <B24NavbarSpacer />
           <B24NavbarSection>
             <div class="flex flex-row flex-nowrap items-center justify-between gap-[5px]">
@@ -165,7 +165,7 @@ function scrollToBottom() {
         <template #default>
           <div
             v-if="logs.length < 1"
-            class="text-(--ui-color-design-filled-market-content) max-w-[550px] px-[60px] py-[40px] rounded-[24px] bg-[#525c69]/20 flex flex-col items-center justify-center gap-[20px]"
+            class="text-(--ui-color-design-filled-market-content) max-w-[550px] mx-(--content-area-shift) px-[60px] py-[40px] rounded-[24px] bg-[#525c69]/20 flex flex-col items-center justify-center gap-[20px]"
           >
             <B24Avatar
               :icon="KeyboardIcon"

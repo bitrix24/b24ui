@@ -177,9 +177,9 @@ function removeToast() {
         <template #sidebar>
           <B24SidebarHeader>
             <div class="h-full flex items-center relative my-0 ps-[25px] pe-xs rtl:pe-[25px]">
-              <ProseH4 class="font-medium mb-0">
-                Toast
-              </ProseH4>
+              <ProseH6 class="font-medium mb-0">
+                Settings
+              </ProseH6>
             </div>
           </B24SidebarHeader>
           <B24SidebarBody>
@@ -203,9 +203,15 @@ function removeToast() {
             </div>
           </B24SidebarBody>
         </template>
+        <template #navbar>
+          <ProseH4 class="font-medium mb-0">
+            Toast
+          </ProseH4>
+          <B24NavbarSpacer />
+        </template>
         <template #default>
           <div
-            class="text-(--ui-color-design-filled-market-content) max-w-[550px] px-[60px] py-[40px] rounded-[24px] bg-[#525c69]/20 flex flex-col items-center justify-center gap-[20px]"
+            class="text-(--ui-color-design-filled-market-content) max-w-[550px] mx-(--content-area-shift) px-[60px] py-[40px] rounded-[24px] bg-[#525c69]/20 flex flex-col items-center justify-center gap-[20px]"
           >
             <B24Avatar
               :icon="NotificationIcon"
