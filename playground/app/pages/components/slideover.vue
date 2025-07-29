@@ -14,6 +14,7 @@ import MockContentUploadFile from '../../components/MockContentUploadFile.vue'
 import { action } from '../../composables/useMockMenu'
 import B24Slideover from '@bitrix24/b24ui-nuxt/components/Slideover.vue'
 import type { SlideoverInstance } from '@bitrix24/b24ui-nuxt'
+import BusinesProcessStagesIcon from '@bitrix24/b24icons-vue/outline/BusinesProcessStagesIcon'
 
 usePageMeta.setPageTitle('Slideover')
 
@@ -21,6 +22,7 @@ const SlideoverExample = defineAsyncComponent(() => import('../../components/Sli
 
 const open = ref(false)
 const openTopAndBottom = ref(false)
+const openListItem = ref(false)
 const count = ref(0)
 const overlay = useOverlay()
 
@@ -351,7 +353,7 @@ const handleSidebarLayoutLoadingAction = async () => {
           <B24Button label="Upload file" />
 
           <template #body>
-            <div class="p-5 rounded bg-(--ui-color-bg-content-primary)">
+            <div class="p-5 light rounded-(--ui-border-radius-md) bg-(--ui-color-background-primary)">
               <MockContentUploadFile />
             </div>
           </template>
@@ -444,6 +446,148 @@ const handleSidebarLayoutLoadingAction = async () => {
           </template>
         </B24Slideover>
         <B24Button label="Top & Bottom" @click="openTopAndBottom = true" />
+
+        <B24Slideover
+          :close="{ label: 'List' }"
+          title="List"
+          description="Some description"
+          :use-light-content="false"
+          :b24ui="{
+            content: 'sm:max-w-[970px]',
+            sidebarLayoutRoot: [
+              'edge-dark',
+              'edge-dark:[--air-theme-bg-color:#1B4D25]',
+              'edge-dark:[--air-theme-bg-size:cover]',
+              'edge-dark:[--air-theme-bg-repeat:no-repeat]',
+              'edge-dark:[--air-theme-bg-position:0_0]',
+              'edge-dark:[--air-theme-bg-attachment:fixed]',
+              'edge-dark:[--air-theme-bg-image:url(/bg/gravity.jpg)]',
+              'edge-dark:[--air-theme-bg-image-blurred:url(/bg/gravity-blurred.webp)]'
+            ].join(' ')
+          }"
+        >
+          <B24Button label="List" />
+          <template #header>
+            <MockSidebarLayoutTop>
+              List
+            </MockSidebarLayoutTop>
+          </template>
+          <template #body>
+            <div class="light px-0.5 rounded-(--ui-border-radius-md) bg-(--ui-color-background-primary)">
+              <B24TableWrapper
+                row-hover
+                class="overflow-x-auto w-full"
+              >
+                <table>
+                  <!-- head -->
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Company</th>
+                      <th>Deal Stage</th>
+                      <th>Amount (USD)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- row 1 -->
+                    <tr>
+                      <th>1</th>
+                      <td><B24Link @click="openListItem = true">Tech Innovators Inc.</B24Link></td>
+                      <td>Proposal Sent</td>
+                      <td>50,000</td>
+                    </tr>
+                    <!-- row 2 -->
+                    <tr>
+                      <th>2</th>
+                      <td><B24Link @click="openListItem = true">Global Solutions Ltd.</B24Link></td>
+                      <td>Negotiation</td>
+                      <td>120,000</td>
+                    </tr>
+                    <!-- row 3 -->
+                    <tr>
+                      <th>3</th>
+                      <td><B24Link @click="openListItem = true">Future Enterprises</B24Link></td>
+                      <td>Contract Signed</td>
+                      <td>200,000</td>
+                    </tr>
+                    <!-- row 4 -->
+                    <tr>
+                      <th>4</th>
+                      <td><B24Link @click="openListItem = true">Bright Ideas Co.</B24Link></td>
+                      <td>Initial Contact</td>
+                      <td>15,000</td>
+                    </tr>
+                    <!-- row 5 -->
+                    <tr>
+                      <th>5</th>
+                      <td><B24Link @click="openListItem = true">NextGen Technologies</B24Link></td>
+                      <td>Closing</td>
+                      <td>300,000</td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <th colspan="3" class="text-right">
+                        Total:
+                      </th>
+                      <td>
+                        685,000
+                      </td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </B24TableWrapper>
+            </div>
+          </template>
+        </B24Slideover>
+        <B24Slideover
+          v-model:open="openListItem"
+          :close="{ label: 'Item' }"
+          title="Item"
+          description="Some description"
+          :use-light-content="false"
+          :b24ui="{
+            content: 'sm:max-w-[900px]',
+            body: 'relative',
+            sidebarLayoutRoot: 'light'
+          }"
+        >
+          <template #header>
+            <div
+              class="w-full pt-(--ui-space-inset-md2) pb-[calc(var(--ui-space-inset-md2)+10px)] px-(--ui-space-inset-lg) rounded-(--ui-border-radius-3xl) bg-(--ui-color-background-primary)/80 flex flex-row items-center justify-between gap-[20px]"
+            >
+              <B24Avatar
+                :icon="BusinesProcessStagesIcon"
+                alt="Toast"
+                size="2xl"
+                :b24ui="{
+                  root: 'bg-(--ui-color-primary)',
+                  icon: 'size-[48px] text-(--ui-color-palette-white-base)'
+                }"
+              />
+              <div class="flex-1">
+                <ProseH1 class="text-(--ui-color-text-primary) leading-[29px] font-(--ui-font-weight-light)">
+                  Workflows
+                </ProseH1>
+                <ProseP small accent="less">
+                  Automate your workflows, control every stage and manage workflows from your mobile.
+                </ProseP>
+              </div>
+            </div>
+          </template>
+          <template #body>
+            <Placeholder class="w-full h-[300px]" />
+            <div class="fixed bottom-0 w-[889px] h-[calc(100vh-400px)] bg-size-[100%] z-[-1] bg-[url(/bg/bizproc/bizproc__ws_single-start-slider-bg.png)] bg-no-repeat bg-top-left" />
+          </template>
+          <template #footer>
+            <B24ModalDialogClose>
+              <B24Button label="Back" color="air-tertiary" />
+            </B24ModalDialogClose>
+            <B24ModalDialogClose>
+              <B24Button label="Continue" color="air-primary" />
+            </B24ModalDialogClose>
+          </template>
+        </B24Slideover>
       </div>
     </ExampleCard>
   </ExampleGrid>
