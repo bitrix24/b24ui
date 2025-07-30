@@ -164,10 +164,18 @@ function removeToast() {
         is-inner
         off-content-scrollbar
         :b24ui="{
-          root: 'light',
-          contentWrapper: 'bg-[url(/bg/chat-v2-background/pattern-white.svg)] bg-top-left bg-repeat bg-[#799fe1] dark:bg-[#799fe1] ',
-          container: [
-            'bg-[url(/bg/chat-v2-background/im-6.png)] bg-cover bg-center bg-fixed bg-no-repeat',
+          root: [
+            'edge-light',
+            'edge-light:[--air-theme-bg-color:#eef2f4]',
+            'edge-light:[--air-theme-bg-size:240px_240px]',
+            'edge-light:[--air-theme-bg-repeat:repeat]',
+            'edge-light:[--air-theme-bg-position:0_0]',
+            'edge-light:[--air-theme-bg-attachment:fixed]',
+            'edge-light:[--air-theme-bg-image:url(/bg/edge-light-v1.svg)]',
+            'edge-light:[--air-theme-bg-image-blurred:url(/bg/edge-light-v1-blurred.webp)]'
+          ].join(' '),
+          contentWrapper: [
+            'bg-[url(/bg/pattern-1.png)] bg-cover bg-center bg-fixed bg-no-repeat bg-[#799fe1]/10 dark:bg-[#799fe1]',
             'p-0 px-0 ps-0 pe-0 lg:p-0 lg:px-0 lg:ps-0 lg:pe-0 '
           ].join(' '),
           containerWrapper: 'h-full relative',
@@ -176,7 +184,7 @@ function removeToast() {
       >
         <template #sidebar>
           <B24SidebarHeader>
-            <div class="h-full flex items-center relative my-0 ps-[25px] pe-xs rtl:pe-[25px]">
+            <div style="color:#f8f7f7" class="h-full flex items-center relative my-0 ps-[25px] pe-xs rtl:pe-[25px]">
               <ProseH6 class="font-medium mb-0">
                 Settings
               </ProseH6>
@@ -204,7 +212,7 @@ function removeToast() {
           </B24SidebarBody>
         </template>
         <template #navbar>
-          <ProseH4 class="font-medium mb-0 text-(--ui-color-on-primary)">
+          <ProseH4 class="font-medium mb-0">
             Toast
           </ProseH4>
           <B24NavbarSpacer />

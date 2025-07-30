@@ -78,17 +78,22 @@ function scrollToBottom() {
         is-inner
         off-content-scrollbar
         :b24ui="{
-          contentWrapper: 'bg-[url(/bg/chat-v2-background/pattern-white.svg)] bg-top-left bg-repeat bg-[#76c68b] dark:bg-[#689775] ',
-          container: [
-            'bg-[url(/bg/chat-v2-background/collab-v2.png)] bg-cover bg-center bg-fixed bg-no-repeat',
+          root: [
+            'edge-light',
+            'edge-light:[--air-theme-bg-color:#eef2f4]',
+            'edge-light:[--air-theme-bg-size:240px_240px]',
+            'edge-light:[--air-theme-bg-repeat:repeat]',
+            'edge-light:[--air-theme-bg-position:0_0]',
+            'edge-light:[--air-theme-bg-attachment:fixed]',
+            'edge-light:[--air-theme-bg-image:url(/bg/edge-light-v1.svg)]',
+            'edge-light:[--air-theme-bg-image-blurred:url(/bg/edge-light-v1-blurred.webp)]'
+          ].join(' '),
+          contentWrapper: [
+            'bg-[url(/bg/pattern-2.png)] bg-cover bg-center bg-fixed bg-no-repeat bg-[#76c68b]/10 dark:bg-[#689775]',
             'p-0 px-0 ps-0 pe-0 lg:p-0 lg:px-0 lg:ps-0 lg:pe-0 '
           ].join(' '),
           containerWrapper: 'h-full relative',
-          containerWrapperInner: (
-            logs.length < 1
-              ? 'flex flex-col items-center justify-center'
-              : ''
-          )
+          containerWrapperInner: 'flex flex-col items-center justify-center'
         }"
       >
         <template #sidebar>
@@ -145,7 +150,7 @@ function scrollToBottom() {
           </B24SidebarBody>
         </template>
         <template #navbar>
-          <ProseH4 class="font-medium mb-0 text-(--ui-color-on-primary)">
+          <ProseH4 class="font-medium mb-0">
             Shortcuts
           </ProseH4>
           <B24NavbarSpacer />

@@ -390,8 +390,8 @@ const handleSidebarLayoutLoadingAction = async () => {
               'edge-dark:[--air-theme-bg-repeat:no-repeat]',
               'edge-dark:[--air-theme-bg-position:0_0]',
               'edge-dark:[--air-theme-bg-attachment:fixed]',
-              'edge-dark:[--air-theme-bg-image:url(/bg/gravity.jpg)]',
-              'edge-dark:[--air-theme-bg-image-blurred:url(/bg/gravity-blurred.webp)]'
+              'edge-dark:[--air-theme-bg-image:url(/bg/edge-dark-v2.jpg)]',
+              'edge-dark:[--air-theme-bg-image-blurred:url(/bg/edge-dark-v2-blurred.webp)]'
             ].join(' ')
           }"
         >
@@ -461,8 +461,8 @@ const handleSidebarLayoutLoadingAction = async () => {
               'edge-dark:[--air-theme-bg-repeat:no-repeat]',
               'edge-dark:[--air-theme-bg-position:0_0]',
               'edge-dark:[--air-theme-bg-attachment:fixed]',
-              'edge-dark:[--air-theme-bg-image:url(/bg/gravity.jpg)]',
-              'edge-dark:[--air-theme-bg-image-blurred:url(/bg/gravity-blurred.webp)]'
+              'edge-dark:[--air-theme-bg-image:url(/bg/edge-dark-v2.jpg)]',
+              'edge-dark:[--air-theme-bg-image-blurred:url(/bg/edge-dark-v2-blurred.webp)]'
             ].join(' ')
           }"
         >
@@ -549,7 +549,16 @@ const handleSidebarLayoutLoadingAction = async () => {
           :b24ui="{
             content: 'sm:max-w-[900px]',
             body: 'relative',
-            sidebarLayoutRoot: 'light'
+            sidebarLayoutRoot: [
+              'edge-light',
+              'edge-light:[--air-theme-bg-color:#eef2f4]',
+              'edge-light:[--air-theme-bg-size:auto]',
+              'edge-light:[--air-theme-bg-repeat:no-repeat]',
+              'edge-light:[--air-theme-bg-position:0_0]',
+              'edge-light:[--air-theme-bg-attachment:fixed]',
+              'edge-light:[--air-theme-bg-image:url(/bg/slider-ring-blurred.webp)]',
+              'edge-light:[--air-theme-bg-image-blurred:url(/bg/slider-ring-blurred.webp)]'
+            ].join(' ')
           }"
         >
           <template #header>
@@ -577,7 +586,6 @@ const handleSidebarLayoutLoadingAction = async () => {
           </template>
           <template #body>
             <Placeholder class="w-full h-[300px]" />
-            <div class="fixed bottom-0 w-[889px] h-[calc(100vh-400px)] bg-size-[100%] z-[-1] bg-[url(/bg/bizproc/bizproc__ws_single-start-slider-bg.png)] bg-no-repeat bg-top-left" />
           </template>
           <template #footer>
             <B24ModalDialogClose>
