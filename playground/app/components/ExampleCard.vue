@@ -11,7 +11,7 @@ const $props = withDefaults(defineProps<{
 <template>
   <div
     :class="[
-      $props.useBg ? 'overflow-hidden p-5 rounded bg-(--ui-color-bg-content-secondary)' : ''
+      $props.useBg ? 'overflow-hidden p-5 rounded bg-(--ui-color-bg-content-primary)' : ''
     ]"
   >
     <slot name="title">
