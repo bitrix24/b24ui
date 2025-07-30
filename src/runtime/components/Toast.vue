@@ -178,7 +178,7 @@ defineExpose({
             v-if="close"
             :icon="closeIcon || icons.close"
             size="xs"
-            color="link"
+            color="air-tertiary-no-accent"
             :aria-label="t('toast.close')"
             v-bind="(typeof close === 'object' ? close as Partial<ButtonProps> : {})"
             :class="b24ui.close({ class: props.b24ui?.close })"

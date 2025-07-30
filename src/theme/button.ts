@@ -84,7 +84,6 @@ export default {
       'air-tertiary-accent': '--style-plain-accent',
       'air-tertiary-no-accent': '--style-plain-no-accent',
       'air-selection': '--style-selection',
-      // 'air-boost': '--style-filled-boost',
       'air-boost': {
         base: [
           '--style-filled-boost',
