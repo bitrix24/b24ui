@@ -13,6 +13,7 @@ export interface ModuleOptions {
    * @link https://bitrix24.github.io/b24ui/guide/color-mode-nuxt.html
    */
   colorMode?: boolean
+  version?: string
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -69,6 +70,7 @@ export default defineNuxtModule<ModuleOptions>({
     }
 
     addPlugin({ src: resolve('./runtime/plugins/colors') })
+    addPlugin({ src: resolve('./runtime/plugins/ui-version') })
 
     addComponentsDir({
       path: resolve('./runtime/components'),

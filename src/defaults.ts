@@ -1,5 +1,10 @@
-export const getDefaultUiConfig = () => ({})
+import { version } from '../package.json'
+
+export const getDefaultUiConfig = () => ({
+  version
+})
 
 export const defaultOptions = {
-  colorMode: true
+  colorMode: true,
+  version
 }
