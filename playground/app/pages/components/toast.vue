@@ -30,42 +30,42 @@ function getRandomString<T>(array: T[]): T {
 }
 
 const templates = (id: number) => [
-  // {
-  //   title: `Title for toast ${id}`,
-  //   description: `${getRandomString(messageList)}Description for toast ${id}`,
-  //   color: getRandomString(colors)
-  // },
-  // {
-  //   title: `Title for toast ${id}`
-  // },
-  // {
-  //   description: `${getRandomString(messageList)}Description for toast ${id}`,
-  //   color: getRandomString(colors)
-  // },
-  // {
-  //   title: `Title for toast ${id}`,
-  //   description: `${getRandomString(messageList)}Description for toast ${id}`,
-  //   icon: RocketIcon,
-  //   color: getRandomString(colors)
-  // },
-  // {
-  //   title: `Title for toast ${id}`,
-  //   icon: RocketIcon,
-  //   color: getRandomString(colors)
-  // },
-  // {
-  //   description: `${getRandomString(messageList)}Description for toast ${id}`,
-  //   icon: RocketIcon,
-  //   color: getRandomString(colors)
-  // },
-  // {
-  //   title: `Title for toast ${id}`,
-  //   description: `${getRandomString(messageList)}Description for toast ${id}`,
-  //   avatar: {
-  //     src: '/avatar/employee.png'
-  //   },
-  //   color: getRandomString(colors)
-  // },
+  {
+    title: `Title for toast ${id}`,
+    description: `${getRandomString(messageList)}Description for toast ${id}`,
+    color: getRandomString(colors)
+  },
+  {
+    title: `Title for toast ${id}`
+  },
+  {
+    description: `${getRandomString(messageList)}Description for toast ${id}`,
+    color: getRandomString(colors)
+  },
+  {
+    title: `Title for toast ${id}`,
+    description: `${getRandomString(messageList)}Description for toast ${id}`,
+    icon: RocketIcon,
+    color: getRandomString(colors)
+  },
+  {
+    title: `Title for toast ${id}`,
+    icon: RocketIcon,
+    color: getRandomString(colors)
+  },
+  {
+    description: `${getRandomString(messageList)}Description for toast ${id}`,
+    icon: RocketIcon,
+    color: getRandomString(colors)
+  },
+  {
+    title: `Title for toast ${id}`,
+    description: `${getRandomString(messageList)}Description for toast ${id}`,
+    avatar: {
+      src: '/avatar/employee.png'
+    },
+    color: getRandomString(colors)
+  },
   {
     title: `Title for toast ${id}`,
     description: `${getRandomString(messageList)}Description for toast ${id}`,
@@ -81,43 +81,40 @@ const templates = (id: number) => [
     }],
     orientation: 'horizontal' as const
   },
-  // {
-  //   title: `Title for toast ${id}`,
-  //   icon: RocketIcon,
-  //   color: getRandomString(colors),
-  //   actions: [
-  //     {
-  //       label: 'Trash',
-  //       color: 'air-primary' as const,
-  //       onClick: () => {
-  //         console.log(`Toast ${id} action _Trash_ clicked`)
-  //       }
-  //     },
-  //     {
-  //       label: 'Cancel',
-  //       color: 'air-secondary-accent-2' as const,
-  //       onClick: () => {
-  //         console.log(`Toast ${id} action _Cancel_ clicked`)
-  //       }
-  //     }
-  //   ]
-  // },
-  // {
-  //   description: `File successfully deleted`,
-  //   color: getRandomString(colors),
-  //   icon: RocketIcon,
-  //   actions: [{
-  //     label: 'Cancel',
-  //     color: 'air-tertiary-no-accent' as const,
-  //     // @todo this this
-  //     class: 'text-blue-500 hover:text-blue-400 active:text-blue-500 dark:text-blue-500 dark:hover:text-blue-400 dark:active:text-blue-500 ' as const,
-  //     normalCase: true,
-  //     onClick: () => {
-  //       console.log(`Toast ${id} action Cancel clicked`)
-  //     }
-  //   }],
-  //   orientation: 'horizontal' as const
-  // }
+  {
+    title: `Title for toast ${id}`,
+    icon: RocketIcon,
+    color: getRandomString(colors),
+    actions: [
+      {
+        label: 'Trash',
+        color: 'air-primary' as const,
+        onClick: () => {
+          console.log(`Toast ${id} action _Trash_ clicked`)
+        }
+      },
+      {
+        label: 'Cancel',
+        color: 'air-tertiary-accent' as const,
+        onClick: () => {
+          console.log(`Toast ${id} action _Cancel_ clicked`)
+        }
+      }
+    ]
+  },
+  {
+    description: `File successfully deleted`,
+    color: getRandomString(colors),
+    icon: RocketIcon,
+    actions: [{
+      label: 'Cancel',
+      color: 'air-tertiary-accent' as const,
+      onClick: () => {
+        console.log(`Toast ${id} action Cancel clicked`)
+      }
+    }],
+    orientation: 'horizontal' as const
+  }
 ]
 
 function addToast() {

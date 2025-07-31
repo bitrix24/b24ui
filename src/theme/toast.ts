@@ -28,7 +28,7 @@ export default {
       'relative group overflow-hidden',
       'rounded-[26px] py-3.5 ps-6 pe-4',
       'flex items-center gap-2.5',
-      'focus:outline-none',
+      'focus-visible:outline-(length:--ui-design-outline-stroke-weight) focus-visible:outline-offset-2 focus-visible:outline-(--ui-color-design-outline-content-divider)',
       'font-[family-name:var(--ui-font-family-primary)]',
       'bg-(--ui-color-bg-content-primary)/80',
       'text-(--ui-color-base-white-fixed)',
@@ -46,112 +46,90 @@ export default {
   },
   variants: {
     color: {
-      // @todo this this
       'air-primary': {
-        root: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-base-400',
-        icon: 'text-white',
-        progress: 'bg-base-350'
+        icon: 'text-(--ui-color-design-filled-bg)',
+        progress: 'bg-(--ui-color-design-filled-bg)'
       },
       'air-primary-success': {
-        root: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-base-400',
-        icon: 'text-white',
-        progress: 'bg-base-350'
+        icon: 'text-(--ui-color-design-filled-success-bg)',
+        progress: 'bg-(--ui-color-design-filled-success-bg)'
       },
       'air-primary-alert': {
-        root: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-base-400',
-        icon: 'text-white',
-        progress: 'bg-base-350'
+        icon: 'text-(--ui-color-design-filled-alert-bg)',
+        progress: 'bg-(--ui-color-design-filled-alert-bg)'
       },
       'air-primary-copilot': {
-        root: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-base-400',
-        icon: 'text-white',
-        progress: 'bg-base-350'
+        icon: 'text-(--ui-color-design-filled-copilot-bg)',
+        progress: 'bg-(--ui-color-design-filled-copilot-bg)'
       },
       'air-secondary': {
-        root: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-base-400',
-        icon: 'text-white',
-        progress: 'bg-base-350'
+        icon: 'text-(--ui-color-design-tinted-content)',
+        progress: 'bg-(--ui-color-design-tinted-bg)'
       },
       'air-secondary-alert': {
-        root: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-base-400',
-        icon: 'text-white',
-        progress: 'bg-base-350'
+        icon: 'text-(--ui-color-design-tinted-alert-content)',
+        progress: 'bg-(--ui-color-design-tinted-alert-bg)'
       },
       'air-secondary-accent': {
-        root: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-base-400',
-        icon: 'text-white',
-        progress: 'bg-base-350'
+        icon: 'text-(--ui-color-design-outline-content)',
+        progress: 'bg-(--ui-color-design-outline-bg)'
       },
       'air-secondary-accent-1': {
-        root: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-base-400',
-        icon: 'text-white',
-        progress: 'bg-base-350'
+        icon: 'text-(--ui-color-design-outline-a1-content)',
+        progress: 'bg-(--ui-color-design-outline-a1-stroke)'
       },
       'air-secondary-accent-2': {
-        root: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-base-400',
-        icon: 'text-white',
-        progress: 'bg-base-350'
+        icon: 'text-(--ui-color-design-outline-a2-content)',
+        progress: 'bg-(--ui-color-design-outline-a2-stroke)'
       },
       'air-secondary-no-accent': {
-        root: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-base-400',
-        icon: 'text-white',
-        progress: 'bg-base-350'
+        icon: 'text-(--ui-color-design-outline-na-content)',
+        progress: 'bg-(--ui-color-design-outline-na-bg)'
       },
       'air-tertiary': {
-        root: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-base-400',
-        icon: 'text-white',
-        progress: 'bg-base-350'
+        icon: 'text-(--ui-color-design-plain-content)',
+        progress: 'bg-(--ui-color-design-plain-content-divider)'
       },
       'air-tertiary-accent': {
-        root: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-base-400',
-        icon: 'text-white',
-        progress: 'bg-base-350'
+        icon: 'text-(--ui-color-design-plain-a-content)',
+        progress: 'bg-(--ui-color-design-plain-a-content-divider)'
       },
       'air-tertiary-no-accent': {
-        root: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-base-400',
-        icon: 'text-white',
-        progress: 'bg-base-350'
+        icon: 'text-(--ui-color-design-plain-na-content)',
+        progress: 'bg-(--ui-color-design-plain-na-content-divider)'
       },
       // @deprecate ////
       'default': {
-        root: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-base-400',
-        icon: 'text-white',
-        progress: 'bg-base-350'
+        icon: 'text-(--ui-color-base-20)',
+        progress: 'bg-(--ui-color-base-20)'
       },
       'danger': {
-        root: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-red-400 dark:focus-visible:ring-red-400',
-        icon: 'text-red-500',
-        progress: 'bg-red-500 dark:bg-red-500'
+        icon: 'text-[#f1361a]',
+        progress: 'bg-[#f1361a]'
       },
       'success': {
-        root: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-green-400 dark:focus-visible:ring-green-400',
-        icon: 'text-green-500',
-        progress: 'bg-green-500 dark:bg-green-500'
+        icon: 'text-[#bbed21]',
+        progress: 'bg-[#bbed21]'
       },
-     'warning': {
-        root: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-orange-400 dark:focus-visible:ring-orange-400',
-        icon: 'text-orange-500',
-        progress: 'bg-orange-500 dark:bg-orange-500'
+      'warning': {
+        icon: 'text-[#EDDA7B]/80',
+        progress: 'bg-[#EDDA7B]/80'
       },
       'primary': {
-        root: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-400 dark:focus-visible:ring-blue-400',
-        icon: 'text-blue-500',
-        progress: 'bg-blue-500 dark:bg-blue-500'
+        icon: 'text-[#3bc8f5]',
+        progress: 'bg-[#3bc8f5]'
       },
       'secondary': {
-        root: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan-400 dark:focus-visible:ring-cyan-400',
-        icon: 'text-cyan-500',
-        progress: 'bg-cyan-500 dark:bg-cyan-500'
+        icon: 'text-[#c5e7f4]',
+        progress: 'bg-[#c5e7f4]'
       },
       'collab': {
-        root: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-collab-400 dark:focus-visible:ring-collab-400',
-        icon: 'text-collab-500',
-        progress: 'bg-collab-500 dark:bg-collab-500'
+        icon: 'text-[#19CC45]',
+        progress: 'bg-[#19CC45]'
       },
       'ai': {
-        root: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ai-400 dark:focus-visible:ring-ai-400',
-        icon: 'text-ai-500',
-        progress: 'bg-ai-500 dark:bg-ai-500'
+        icon: 'text-[#935BEC]',
+        progress: 'bg-[#935BEC]'
       }
     },
     orientation: {
