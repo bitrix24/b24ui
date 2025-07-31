@@ -168,7 +168,6 @@ export default {
   ],
   defaultVariants: {
     side: 'bottom',
-    scrollbarThin: true,
     overlayBlur: 'off'
   }
 }

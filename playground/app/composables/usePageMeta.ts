@@ -69,7 +69,7 @@ const components: IComponentInfo[] = [
   { id: 'modal', description: '(+) A dialog window that can be used to display a message or request user input.', iconData: GroupIcon },
   { id: 'navigation-menu', description: '(+) A link list that can be arranged in horizontal or vertical orientation.', iconData: GroupIcon },
   { id: 'link', description: '(-) A wrapper around NuxtLink with extra props.', iconData: GroupIcon },
-  { id: 'popover', description: '(~) A non-modal popup window for showing messages or gathering user input.', iconData: GroupIcon },
+  { id: 'popover', description: '(+) A non-modal popup window for showing messages or gathering user input.', iconData: GroupIcon },
   { id: 'progress', description: '(-) An indicator showing the progress of a task.', iconData: GroupIcon },
   { id: 'radio-group', description: '(-) A set of radio buttons to select a single option from a list.', iconData: FormIcon },
   { id: 'range', description: '(-) An input to select a numeric value within a range.', iconData: FormIcon },
@@ -82,7 +82,7 @@ const components: IComponentInfo[] = [
   { id: 'switch', description: '(-) A control that toggles between two states.', iconData: FormIcon },
   { id: 'tabs', description: '(-) A set of tab panels that are displayed one at a time.', iconData: FolderEmptyIcon },
   { id: 'textarea', description: '(-) A textarea element to input multi-line text.', iconData: FormIcon },
-  { id: 'toast', description: '(~) A succinct message to provide information or feedback to the user.', iconData: GroupIcon },
+  { id: 'toast', description: '(+) A succinct message to provide information or feedback to the user.', iconData: GroupIcon },
   { id: 'tooltip', description: '(+) A popup that reveals information when hovering over an element.', iconData: GroupIcon }
 ]
 
