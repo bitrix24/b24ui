@@ -91,6 +91,7 @@ We change btn colors:
 
 
 @todo change ring -> outline
+@todo change relode light color
 
 
 ## [0.7.2](https://github.com/bitrix24/b24ui/compare/v0.7.1...v0.7.2) (2025-07-14)
