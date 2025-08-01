@@ -2,6 +2,7 @@
  * Button
  * @see /bitrix/js/ui/buttons/dist/ui.buttons.bundle.css
  * @memo fix --ui-btn-title-comensation > --ui-btn-title-compensation
+ * @memo use in src/runtime/air-design-tokens/008_ui_global.css
  */
 
 @theme inline {
