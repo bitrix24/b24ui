@@ -53,6 +53,15 @@ const handleSidebarLayoutLoadingAction = async () => {
     currentSlideoverRef.value.setSidebarLoading(false)
   }
 }
+
+const openSliderTopAndBottom = async () => {
+  openTopAndBottom.value = true
+  Promise.resolve().then(() => {
+    requestAnimationFrame(() => {
+      console.log(123)
+    })
+  })
+}
 </script>
 
 <template>
@@ -430,6 +439,8 @@ const handleSidebarLayoutLoadingAction = async () => {
         </B24Slideover>
         <B24Slideover
           v-model:open="openTopAndBottom"
+          title="Top"
+          description="Some description"
           side="top"
           :dismissible="false"
           :close="false"
@@ -445,7 +456,7 @@ const handleSidebarLayoutLoadingAction = async () => {
             <MockSidebarLayoutMenu orientation="horizontal" />
           </template>
         </B24Slideover>
-        <B24Button label="Top & Bottom" @click="openTopAndBottom = true" />
+        <B24Button label="Top & Bottom" @click="openSliderTopAndBottom" />
 
         <B24Slideover
           :close="{ label: 'List' }"

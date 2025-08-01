@@ -37,99 +37,78 @@ export default {
     wrapper: 'w-0 flex-1 flex flex-col',
     title: 'font-(--ui-font-weight-medium)',
     description: '',
-    icon: 'shrink-0 size-6',
+    icon: 'shrink-0 size-6 text-(--b24ui-icon)',
     avatar: 'shrink-0',
     avatarSize: 'xl',
     actions: 'flex gap-1.5 shrink-0',
-    progress: 'absolute inset-x-0 bottom-0 h-1 z-[-1]',
+    progress: 'absolute inset-x-0 bottom-0 h-1 z-[-1] bg-(--b24ui-border-color)',
     close: 'p-0 text-base-350 hover:text-base-400'
   },
   variants: {
     color: {
       'air-primary': {
-        icon: 'text-(--ui-color-design-filled-bg)',
-        progress: 'bg-(--ui-color-design-filled-bg)'
+        root: '--air-primary'
       },
       'air-primary-success': {
-        icon: 'text-(--ui-color-design-filled-success-bg)',
-        progress: 'bg-(--ui-color-design-filled-success-bg)'
+        root: '--air-primary-success'
       },
       'air-primary-alert': {
-        icon: 'text-(--ui-color-design-filled-alert-bg)',
-        progress: 'bg-(--ui-color-design-filled-alert-bg)'
+        root: '--air-primary-alert'
       },
       'air-primary-copilot': {
-        icon: 'text-(--ui-color-design-filled-copilot-bg)',
-        progress: 'bg-(--ui-color-design-filled-copilot-bg)'
+        root: '--air-primary-copilot'
       },
       'air-secondary': {
-        icon: 'text-(--ui-color-design-tinted-content)',
-        progress: 'bg-(--ui-color-design-tinted-bg)'
+        root: '--air-secondary'
       },
       'air-secondary-alert': {
-        icon: 'text-(--ui-color-design-tinted-alert-content)',
-        progress: 'bg-(--ui-color-design-tinted-alert-bg)'
+        root: '--air-secondary-alert'
       },
       'air-secondary-accent': {
-        icon: 'text-(--ui-color-design-outline-content)',
-        progress: 'bg-(--ui-color-design-outline-bg)'
+        root: '--air-secondary-accent'
       },
       'air-secondary-accent-1': {
-        icon: 'text-(--ui-color-design-outline-a1-content)',
-        progress: 'bg-(--ui-color-design-outline-a1-stroke)'
+        root: '--air-secondary-accent-1'
       },
       'air-secondary-accent-2': {
-        icon: 'text-(--ui-color-design-outline-a2-content)',
-        progress: 'bg-(--ui-color-design-outline-a2-stroke)'
+        root: '--air-secondary-accent-2'
       },
       'air-secondary-no-accent': {
-        icon: 'text-(--ui-color-design-outline-na-content)',
-        progress: 'bg-(--ui-color-design-outline-na-bg)'
+        root: '--air-secondary-no-accent'
       },
       'air-tertiary': {
-        icon: 'text-(--ui-color-design-plain-content)',
-        progress: 'bg-(--ui-color-design-plain-content-divider)'
+        root: '--air-tertiary'
       },
       'air-tertiary-accent': {
-        icon: 'text-(--ui-color-design-plain-a-content)',
-        progress: 'bg-(--ui-color-design-plain-a-content-divider)'
+        root: '--air-tertiary-accent'
       },
       'air-tertiary-no-accent': {
-        icon: 'text-(--ui-color-design-plain-na-content)',
-        progress: 'bg-(--ui-color-design-plain-na-content-divider)'
+        root: '--air-tertiary-no-accent'
       },
       // @deprecate ////
       'default': {
-        icon: 'text-(--ui-color-base-20)',
-        progress: 'bg-(--ui-color-base-20)'
+        root: '--old-style-default'
       },
       'danger': {
-        icon: 'text-[#f1361a]',
-        progress: 'bg-[#f1361a]'
+        root: '--old-style-danger'
       },
       'success': {
-        icon: 'text-[#bbed21]',
-        progress: 'bg-[#bbed21]'
+        root: '--old-style-success'
       },
       'warning': {
-        icon: 'text-[#EDDA7B]/80',
-        progress: 'bg-[#EDDA7B]/80'
+        root: '--old-style-warning'
       },
       'primary': {
-        icon: 'text-[#3bc8f5]',
-        progress: 'bg-[#3bc8f5]'
+        root: '--old-style-primary'
       },
       'secondary': {
-        icon: 'text-[#c5e7f4]',
-        progress: 'bg-[#c5e7f4]'
+        root: '--old-style-secondary'
       },
       'collab': {
-        icon: 'text-[#19CC45]',
-        progress: 'bg-[#19CC45]'
+        root: '--old-style-collab'
       },
       'ai': {
-        icon: 'text-[#935BEC]',
-        progress: 'bg-[#935BEC]'
+        root: '--old-style-ai'
       }
     },
     orientation: {
