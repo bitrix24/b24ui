@@ -31,7 +31,7 @@ export default {
       'focus-visible:outline-(length:--ui-design-outline-stroke-weight) focus-visible:outline-offset-2 focus-visible:outline-(--ui-color-design-outline-content-divider)',
       'font-[family-name:var(--ui-font-family-primary)]',
       'bg-(--ui-color-bg-content-primary)/80',
-      'text-(--ui-color-base-white-fixed)',
+      'text-(--ui-color-design-plain-na-focused-content)',
       'text-(length:--ui-font-size-sm) font-(--ui-font-weight-normal)'
     ].join(' '),
     wrapper: 'w-0 flex-1 flex flex-col',
