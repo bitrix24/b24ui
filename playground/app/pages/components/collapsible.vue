@@ -46,24 +46,6 @@ defineShortcuts({
       </B24Collapsible>
     </ExampleCard>
 
-    <ExampleCard title="disabled">
-      <B24Collapsible
-        disabled
-        class="flex flex-col gap-2"
-      >
-        <B24Button
-          color="air-boost"
-          label="Open"
-          use-dropdown
-          block
-        />
-
-        <template #content>
-          <Placeholder class="h-48" />
-        </template>
-      </B24Collapsible>
-    </ExampleCard>
-
     <ExampleCard title="control open state">
       <B24Collapsible
         v-model:open="open"
@@ -95,6 +77,24 @@ defineShortcuts({
           :b24ui="{
             trailingIcon: 'group-data-[state=open]:rotate-180 transition-transform duration-200'
           }"
+        />
+
+        <template #content>
+          <Placeholder class="h-48" />
+        </template>
+      </B24Collapsible>
+    </ExampleCard>
+
+    <ExampleCard title="disabled">
+      <B24Collapsible
+        disabled
+        class="flex flex-col gap-2"
+      >
+        <B24Button
+          color="air-boost"
+          label="Open"
+          use-dropdown
+          block
         />
 
         <template #content>
