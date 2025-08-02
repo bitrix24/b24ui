@@ -6,24 +6,23 @@
 export default {
   slots: {
     base: [
-      'ui-btn --air',
       'inline-flex items-center justify-center',
       'px-1 rounded-(--ui-border-radius-2xs)',
-      'font-normal font-(family-name:--ui-font-family-system-mono)',
-      'border border-(length:--ui-border-width-thin) border-(--ui-btn-border-color)',
-      'text-(--ui-btn-color) bg-(--ui-btn-background)'
+      'font-normal font-[family-name:var(--ui-font-family-system-mono)]',
+      'border border-(length:--b24ui-border-width) border-(--b24ui-border-color)',
+      'text-(--b24ui-color) bg-(--b24ui-background)'
     ].join(' ')
   },
   variants: {
     accent: {
-      default: '--style-outline',
-      accent: '--style-outline-accent-1',
-      less: '--style-outline-no-accent'
+      default: '--air-secondary-accent',
+      accent: '--air-secondary-accent-1',
+      less: '--air-secondary-no-accent'
     },
     size: {
-      sm: 'h-[20px] min-w-[20px] text-[10px] leading-none',
-      md: 'h-[24px] min-w-[24px] text-[14px] leading-none',
-      lg: 'h-[28px] min-w-[28px] text-[18px] leading-none'
+      sm: 'h-[20px] min-w-[20px] text-(length:--ui-font-size-4xs)/(--ui-font-line-height-reset)',
+      md: 'h-[24px] min-w-[24px] text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)',
+      lg: 'h-[28px] min-w-[28px] text-(length:--ui-font-size-2xl)/(--ui-font-line-height-reset)'
     }
   },
   defaultVariants: {
