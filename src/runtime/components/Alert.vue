@@ -37,12 +37,12 @@ export interface AlertProps {
    * Display a list of actions:
    * - under the title and description when orientation is `vertical`
    * - next to the close button when orientation is `horizontal`
-   * `{ size: 'xs' }`{lang="ts"}
+   * `{ size: 'sm' }`{lang="ts"}
    */
   actions?: ButtonProps[]
   /**
    * Display a close button to dismiss the alert.
-   * `{ size: 'md', color: 'neutral', variant: 'link' }`{lang="ts"}
+   * `{ size: 'sm', color: 'air-tertiary-no-accent' }`{lang="ts"}
    * @emits 'update:open'
    * @defaultValue false
    */
@@ -122,7 +122,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.alert 
 
       <div v-if="orientation === 'vertical' && (actions?.length || !!slots.actions)" :class="b24ui.actions({ class: props.b24ui?.actions })">
         <slot name="actions">
-          <B24Button v-for="(action, index) in actions" :key="index" size="xs" v-bind="action" />
+          <B24Button v-for="(action, index) in actions" :key="index" size="sm" v-bind="action" />
         </slot>
       </div>
     </div>
@@ -130,7 +130,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.alert 
     <div v-if="(orientation === 'horizontal' && (actions?.length || !!slots.actions)) || close" :class="b24ui.actions({ class: props.b24ui?.actions, orientation: 'horizontal' })">
       <template v-if="orientation === 'horizontal' && (actions?.length || !!slots.actions)">
         <slot name="actions">
-          <B24Button v-for="(action, index) in actions" :key="index" size="xs" v-bind="action" />
+          <B24Button v-for="(action, index) in actions" :key="index" size="sm" v-bind="action" />
         </slot>
       </template>
 
@@ -138,8 +138,8 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.alert 
         <B24Button
           v-if="close"
           :icon="closeIcon || icons.close"
-          size="xs"
-          color="link"
+          size="sm"
+          color="air-tertiary"
           :aria-label="t('alert.close')"
           v-bind="(typeof close === 'object' ? close as Partial<ButtonProps> : {})"
           :class="b24ui.close({ class: props.b24ui?.close })"

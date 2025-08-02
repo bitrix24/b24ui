@@ -26,6 +26,15 @@
     --b24ui-icon: var(--ui-color-design-filled-content-icon-secondary);
     --b24ui-color: var(--ui-color-design-filled-content);
     --b24ui-split-divider-color: var(--ui-color-design-filled-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
 
   /*--style-filled-success*/
@@ -34,8 +43,18 @@
     --b24ui-border-color: var(--ui-color-design-filled-success-stroke);
     --b24ui-border-width: var(--ui-design-filled-success-stroke-weight);
     --b24ui-icon: var(--ui-color-design-filled-success-content-icon);
-    --b24ui-color: var(--ui-color-design-filled-success-stroke);
+    --b24ui-color: var(--ui-color-design-filled-success-content);
     --b24ui-split-divider-color: var(--ui-color-design-filled-success-content-divider);
+
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
 
   /*--style-filled-alert*/
@@ -46,6 +65,15 @@
     --b24ui-icon: var(--ui-color-design-filled-alert-content-icon-secondary);
     --b24ui-color: var(--ui-color-design-filled-alert-content);
     --b24ui-split-divider-color: var(--ui-color-design-filled-alert-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
 
   /*--style-filled-copilot*/
@@ -56,6 +84,15 @@
     --b24ui-icon: var(--ui-color-design-filled-copilot-stroke);
     --b24ui-color: var(--ui-color-design-filled-copilot-content);
     --b24ui-split-divider-color: var(--ui-color-design-filled-copilot-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
   /*endregion*/
 
@@ -68,6 +105,15 @@
     --b24ui-icon: var(--ui-color-design-tinted-content-icon-secondary);
     --b24ui-color: var(--ui-color-design-tinted-content);
     --b24ui-split-divider-color: var(--ui-color-design-tinted-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
 
   /*--style-tinted-alert*/
@@ -78,6 +124,15 @@
     --b24ui-icon: var(--ui-color-design-tinted-alert-content-icon);
     --b24ui-color: var(--ui-color-design-tinted-alert-content);
     --b24ui-split-divider-color: var(--ui-color-design-tinted-alert-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
 
   /*--style-outline*/
@@ -88,6 +143,15 @@
     --b24ui-icon: var(--ui-color-design-outline-content-icon-alt);
     --b24ui-color: var(--ui-color-design-outline-content);
     --b24ui-split-divider-color: var(--ui-color-design-outline-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
 
   /*--style-outline-accent-1*/
@@ -98,6 +162,15 @@
     --b24ui-icon: var(--ui-color-design-outline-a1-content-icon);
     --b24ui-color: var(--ui-color-design-outline-a1-content);
     --b24ui-split-divider-color: var(--ui-color-design-outline-a1-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
 
   /*--style-outline-accent-2*/
@@ -108,6 +181,15 @@
     --b24ui-icon: var(--ui-color-design-outline-a2-content-icon);
     --b24ui-color: var(--ui-color-design-outline-a2-content);
     --b24ui-split-divider-color: var(--ui-color-design-outline-a2-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
 
   /* default */
@@ -119,6 +201,15 @@
     --b24ui-icon: var(--ui-color-design-outline-na-content-icon);
     --b24ui-color: var(--ui-color-design-outline-na-content);
     --b24ui-split-divider-color: var(--ui-color-design-outline-na-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
   /*endregion*/
 
@@ -131,6 +222,15 @@
     --b24ui-icon: var(--ui-color-design-plain-content-icon-secondary);
     --b24ui-color: var(--ui-color-design-plain-content);
     --b24ui-split-divider-color: var(--ui-color-design-plain-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
 
   /*--style-plain-accent*/
@@ -141,6 +241,15 @@
     --b24ui-icon: var(--ui-color-design-plain-a-content-icon);
     --b24ui-color: var(--ui-color-design-plain-a-content);
     --b24ui-split-divider-color: var(--ui-color-design-plain-a-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
 
   /*--style-plain-no-accent*/
@@ -151,6 +260,15 @@
     --b24ui-icon: var(--ui-color-design-plain-na-content-icon);
     --b24ui-color: var(--ui-color-design-plain-na-content);
     --b24ui-split-divider-color: var(--ui-color-design-plain-na-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
   /*endregion*/
 
@@ -162,6 +280,15 @@
     --b24ui-border-width: var(--ui-design-selection-stroke-weight);
     --b24ui-color: var(--ui-color-design-selection-content);
     --b24ui-split-divider-color: var(--ui-color-design-selection-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
 
   /* @todo */
@@ -184,6 +311,14 @@
     --b24ui-background-gradient: radial-gradient(110.42% 110.42% at -10.42% 31.25%, var(--ui-color-design-filled-boost-bg-gradient-1) 0%, var(--ui-color-design-filled-boost-bg-gradient-2) 58.65%, var(--ui-color-design-filled-boost-bg-gradient-3) 100%);
     --b24ui-background-gradient-hover:  radial-gradient(110.42% 110.42% at -10.42% 31.25%, var(--hover-color-1) 0%, var(--hover-color-2) 58.65%, var(--hover-color-3) 100%);
     --b24ui-background-gradient-active: radial-gradient(110.42% 110.42% at -10.42% 31.25%, var(--active-color-1) 0%, var(--active-color-2) 58.65%, var(--active-color-3) 100%);
+
+
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
   /*endregion*/
 
@@ -194,7 +329,16 @@
     --b24ui-icon: var(--ui-color-base-20);
     --b24ui-color: var(--ui-color-base-80);
     --b24ui-border-width: 0px;
-    --b24ui-split-divider-color: var(--ui-color-background-transparent)
+    --b24ui-split-divider-color: var(--ui-color-background-transparent);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
 
   .--old-style-danger {
@@ -203,7 +347,16 @@
     --b24ui-icon: #f1361a;
     --b24ui-color: var(--ui-color-on-primary);
     --b24ui-border-width: 0px;
-    --b24ui-split-divider-color: var(--ui-color-background-transparent)
+    --b24ui-split-divider-color: var(--ui-color-background-transparent);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
 
   .--old-style-success {
@@ -212,7 +365,16 @@
     --b24ui-icon: #bbed21;
     --b24ui-color: var(--ui-color-base-90);
     --b24ui-border-width: 0px;
-    --b24ui-split-divider-color: var(--ui-color-background-transparent)
+    --b24ui-split-divider-color: var(--ui-color-background-transparent);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
 
   .--old-style-warning {
@@ -221,7 +383,16 @@
     --b24ui-icon: rgba(237, 218, 123, var(--ui-opacity-80));
     --b24ui-color: #a07f27;
     --b24ui-border-width: 0px;
-    --b24ui-split-divider-color: var(--ui-color-background-transparent)
+    --b24ui-split-divider-color: var(--ui-color-background-transparent);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
 
   .--old-style-primary {
@@ -230,7 +401,16 @@
     --b24ui-icon: #3bc8f5;
     --b24ui-color: var(--ui-color-on-primary);
     --b24ui-border-width: 0px;
-    --b24ui-split-divider-color: var(--ui-color-background-transparent)
+    --b24ui-split-divider-color: var(--ui-color-background-transparent);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
 
   .--old-style-secondary {
@@ -239,7 +419,16 @@
     --b24ui-icon: #aee0f2;
     --b24ui-color: var(--ui-color-base-90);
     --b24ui-border-width: 0px;
-    --b24ui-split-divider-color: var(--ui-color-background-transparent)
+    --b24ui-split-divider-color: var(--ui-color-background-transparent);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
 
   .--old-style-collab {
@@ -248,7 +437,16 @@
     --b24ui-icon: #19cc45;
     --b24ui-color: var(--ui-color-palette-white-base);
     --b24ui-border-width: 0px;
-    --b24ui-split-divider-color: var(--ui-color-background-transparent)
+    --b24ui-split-divider-color: var(--ui-color-background-transparent);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
 
   .--old-style-ai {
@@ -257,7 +455,16 @@
     --b24ui-icon: #935bec;
     --b24ui-color: var(--ui-color-on-primary);
     --b24ui-border-width: 0px;
-    --b24ui-split-divider-color: var(--ui-color-background-transparent)
+    --b24ui-split-divider-color: var(--ui-color-background-transparent);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
   /*endregion*/
 }

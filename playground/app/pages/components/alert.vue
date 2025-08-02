@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { ButtonProps } from '@bitrix24/b24ui-nuxt'
 import theme from '#build/b24ui/alert'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
@@ -11,10 +12,10 @@ usePageMeta.setPageTitle('Alert')
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
-const action = (color: string) => [
+const action = () => [
   {
     icon: DotsIcon,
-    color: color as any,
+    color: 'air-secondary-no-accent' as ButtonProps['color'],
     depth: 'light' as const,
     onClick() {
       console.log('Action 3 clicked')
@@ -22,31 +23,31 @@ const action = (color: string) => [
   }
 ]
 
-const multipleActions = (color: string) => [
+const multipleActions = () => [
   {
     label: 'Action',
-    color: color as any,
+    color: 'air-primary' as ButtonProps['color'],
     onClick() {
       console.log('Action clicked')
     }
   },
   {
     label: 'Another action',
-    color: color as any,
+    color: 'air-primary-success' as ButtonProps['color'],
     onClick() {
       console.log('Another action clicked')
     }
   },
   {
     label: 'One more action',
-    color: color as any,
+    color: 'air-secondary-accent-1' as ButtonProps['color'],
     onClick() {
       console.log('One more action clicked')
     }
   },
   {
     label: 'And one more',
-    color: color as any,
+    color: 'air-secondary' as ButtonProps['color'],
     icon: SignIcon,
     onClick() {
       console.log('And one more clicked')
@@ -54,7 +55,7 @@ const multipleActions = (color: string) => [
   },
   {
     label: 'Last one',
-    color: color as any,
+    color: 'air-secondary-no-accent' as ButtonProps['color'],
     icon: DotsIcon,
     onClick() {
       console.log('Last one clicked')
@@ -68,11 +69,23 @@ const data = {
   icon: SignIcon,
   close: true
 }
+
+const oldColors = computed(() => {
+  return colors.filter((color) => {
+    return !color.includes('air')
+  })
+})
+
+const airColors = computed(() => {
+  return colors.filter((color) => {
+    return color.includes('air')
+  })
+})
 </script>
 
 <template>
-  <ExampleGrid v-once>
-    <ExampleCard title="base" class="sm:col-span-3">
+  <ExampleGrid v-once class="mb-2">
+    <ExampleCard title="base" class="col-span-4">
       <ExampleCardSubTitle title="simple" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24Alert :title="data.title" />
@@ -107,8 +120,11 @@ const data = {
         </div>
       </template>
     </ExampleCard>
-    <template v-for="color in colors" :key="color">
-      <ExampleCard :title="color as string" class="sm:col-span-3">
+  </ExampleGrid>
+
+  <ExampleGrid v-once class="mb-2">
+    <template v-for="color in airColors" :key="color">
+      <ExampleCard :title="color as string" class="col-span-4">
         <ExampleCardSubTitle title="sm" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-6">
           <B24Alert
@@ -131,7 +147,7 @@ const data = {
           <B24Alert
             :title="data.title"
             :description="data.description"
-            :icon="data.icon"
+            :avatar="{ src: '/avatar/employee.png' }"
             :close="data.close"
             :color="color"
             :actions="multipleActions(color)"
@@ -167,4 +183,76 @@ const data = {
       </ExampleCard>
     </template>
   </ExampleGrid>
+
+  <B24Collapsible class="mb-2">
+    <B24Button
+      color="air-secondary-no-accent"
+      label="Deprecate"
+      use-dropdown
+    />
+
+    <template #content>
+      <ExampleGrid v-once class="mb-2">
+        <template v-for="color in oldColors" :key="color">
+          <ExampleCard :title="color as string" class="col-span-4">
+            <ExampleCardSubTitle title="sm" />
+            <div class="mb-4 flex flex-wrap items-center justify-start gap-6">
+              <B24Alert
+                :title="data.title"
+                :description="data.description"
+                :icon="data.icon"
+                :close="data.close"
+                :color="color"
+                size="sm"
+              />
+              <B24Alert
+                :title="data.title"
+                :icon="data.icon"
+                :close="data.close"
+                :color="color"
+                :actions="action(color)"
+                orientation="horizontal"
+                size="sm"
+              />
+              <B24Alert
+                :title="data.title"
+                :description="data.description"
+                :avatar="{ src: '/avatar/employee.png' }"
+                :close="data.close"
+                :color="color"
+                :actions="multipleActions(color)"
+                size="sm"
+              />
+            </div>
+            <ExampleCardSubTitle title="md" />
+            <div class="mb-4 flex flex-wrap items-center justify-start gap-6">
+              <B24Alert
+                :title="data.title"
+                :description="data.description"
+                :icon="data.icon"
+                :close="data.close"
+                :color="color"
+              />
+              <B24Alert
+                :title="data.title"
+                :icon="data.icon"
+                :close="data.close"
+                :color="color"
+                :actions="action(color)"
+                orientation="horizontal"
+              />
+              <B24Alert
+                :title="data.title"
+                :description="data.description"
+                :icon="data.icon"
+                :close="data.close"
+                :color="color"
+                :actions="multipleActions(color)"
+              />
+            </div>
+          </ExampleCard>
+        </template>
+      </ExampleGrid>
+    </template>
+  </B24Collapsible>
 </template>

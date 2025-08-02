@@ -61,10 +61,10 @@ export default {
       'max-w-full',
       'mt-(--ui-btn-title-compensation)'
     ].join(' '),
-    leadingIcon: 'shrink-0 size-(--ui-btn-icon-size)',
+    leadingIcon: 'text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)',
     leadingAvatar: 'shrink-0 me-[4px]',
     leadingAvatarSize: '',
-    trailingIcon: 'shrink-0 size-(--ui-btn-icon-size) mt-(--ui-btn-title-compensation)',
+    trailingIcon: 'text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size) mt-(--ui-btn-title-compensation)',
     safeList
   },
   variants: {

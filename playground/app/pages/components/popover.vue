@@ -91,7 +91,7 @@ const openCustomAnchor = ref(false)
 
           <template #content>
             <div class="flex items-center justify-between gap-4 mb-[4px]">
-              <ProseH2>
+              <ProseH2 class="mb-0.5">
                 Popover non-dismissible
               </ProseH2>
 
@@ -139,7 +139,7 @@ const openCustomAnchor = ref(false)
               <B24Button
                 rounded
                 label="Cancel"
-                color="air-tertiary"
+                color="air-tertiary-no-accent"
                 size="sm"
                 @click="openVer2 = false"
               />
@@ -167,7 +167,7 @@ const openCustomAnchor = ref(false)
 
           <template #content>
             <div class="flex items-center justify-between gap-4 mb-[4px]">
-              <ProseH2>
+              <ProseH2 class="mb-0.5">
                 Popover non-dismissible
               </ProseH2>
 
