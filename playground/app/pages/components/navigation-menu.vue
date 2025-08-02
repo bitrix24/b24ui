@@ -123,30 +123,14 @@ onMounted(() => {
 
 <template>
   <ExampleGrid v-once class="mb-4">
-    <ExampleCard title="settings">
-      <B24Separator class="my-5" type="dotted" />
-      <div class="flex flex-row gap-4">
-        <B24FormField label="isCollapsed" name="isCollapsed">
-          <B24Switch v-model="isCollapsed" />
-        </B24FormField>
-        <B24FormField label="isTooltip" name="isTooltip">
-          <B24Switch v-model="isTooltip" />
-        </B24FormField>
-        <B24FormField label="isPopover" name="isPopover">
-          <B24Switch v-model="isPopover" />
-        </B24FormField>
-      </div>
-    </ExampleCard>
-  </ExampleGrid>
-  <ExampleGrid v-once class="mb-4">
     <ExampleCard title="demo" class="col-span-4">
       <B24Separator class="mt-3" type="dotted" label="horizontal" />
       <div class="-mt-[8px] mb-4 flex flex-col justify-center flex-wrap overflow-auto">
         <div
           v-if="isInit"
-          class="isolate px-4 w-full min-w-[720px]"
+          class="isolate px-2 w-full min-w-[720px]"
         >
-          <div class="relative z-[1] border-base-master/10 flex flex-row items-center justify-between min-h-(--topbar-height) ">
+          <div class="relative z-[1] flex flex-row items-center justify-between min-h-(--topbar-height) ">
             <B24NavigationMenu
               class="min-h-full shrink-1 w-full"
               :items="items"
@@ -166,7 +150,7 @@ onMounted(() => {
       <B24Separator class="mt-3" type="dotted" label="vertical" />
       <div
         v-if="isInit"
-        class="-mt-[8px] isolate px-4 mb-4 flex flex-row justify-start flex-wrap gap-2"
+        class="-mt-[8px] px-2 isolate mb-4 flex flex-row justify-start flex-wrap gap-2"
       >
         <B24NavigationMenu
           :collapsed="isCollapsed"
@@ -176,7 +160,22 @@ onMounted(() => {
           :popover="isPopover"
           class="mt-[4px] w-[240px] data-[collapsed=true]:w-[50px]"
         />
-        <Placeholder class="flex-1 rounded-l-none rounded-tr-none ms-2 w-full shrink" />
+        <Placeholder class="flex-1 rounded-l-none rounded-tr-none ms-2 w-full shrink">
+          <ExampleCard title="settings" class="backdrop-blur-md bg-(--ui-color-g-content-grey-1)/20">
+            <B24Separator class="my-5" type="dotted" />
+            <div class="flex flex-row gap-4">
+              <B24FormField label="isCollapsed" name="isCollapsed">
+                <B24Switch v-model="isCollapsed" />
+              </B24FormField>
+              <B24FormField label="isTooltip" name="isTooltip">
+                <B24Switch v-model="isTooltip" />
+              </B24FormField>
+              <B24FormField label="isPopover" name="isPopover">
+                <B24Switch v-model="isPopover" />
+              </B24FormField>
+            </div>
+          </ExampleCard>
+        </Placeholder>
       </div>
     </ExampleCard>
   </ExampleGrid>
