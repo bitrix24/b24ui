@@ -7,7 +7,7 @@
  */
 
 /*
-// @memo: use at b24
+// @memo: run in b24
 BX.UI.Notification.Center.notify({
   content: "Content message",
   autoHideDelay: 500000,
@@ -42,74 +42,32 @@ export default {
     avatarSize: 'xl',
     actions: 'flex gap-1.5 shrink-0',
     progress: 'absolute inset-x-0 bottom-0 h-1 z-[-1] bg-(--b24ui-border-color)',
-    close: 'p-0 text-base-350 hover:text-base-400'
+    close: 'p-0'
   },
   variants: {
     color: {
-      'air-primary': {
-        root: '--air-primary'
-      },
-      'air-primary-success': {
-        root: '--air-primary-success'
-      },
-      'air-primary-alert': {
-        root: '--air-primary-alert'
-      },
-      'air-primary-copilot': {
-        root: '--air-primary-copilot'
-      },
-      'air-secondary': {
-        root: '--air-secondary'
-      },
-      'air-secondary-alert': {
-        root: '--air-secondary-alert'
-      },
-      'air-secondary-accent': {
-        root: '--air-secondary-accent'
-      },
-      'air-secondary-accent-1': {
-        root: '--air-secondary-accent-1'
-      },
-      'air-secondary-accent-2': {
-        root: '--air-secondary-accent-2'
-      },
-      'air-secondary-no-accent': {
-        root: '--air-secondary-no-accent'
-      },
-      'air-tertiary': {
-        root: '--air-tertiary'
-      },
-      'air-tertiary-accent': {
-        root: '--air-tertiary-accent'
-      },
-      'air-tertiary-no-accent': {
-        root: '--air-tertiary-no-accent'
-      },
+      'air-primary': { root: '--air-primary' },
+      'air-primary-success': { root: '--air-primary-success' },
+      'air-primary-alert': { root: '--air-primary-alert' },
+      'air-primary-copilot': { root: '--air-primary-copilot' },
+      'air-secondary': { root: '--air-secondary' },
+      'air-secondary-alert': { root: '--air-secondary-alert' },
+      'air-secondary-accent': { root: '--air-secondary-accent' },
+      'air-secondary-accent-1': { root: '--air-secondary-accent-1' },
+      'air-secondary-accent-2': { root: '--air-secondary-accent-2' },
+      'air-secondary-no-accent': { root: '--air-secondary-no-accent' },
+      'air-tertiary': { root: '--air-tertiary' },
+      'air-tertiary-accent': { root: '--air-tertiary-accent' },
+      'air-tertiary-no-accent': { root: '--air-tertiary-no-accent' },
       // @deprecate ////
-      'default': {
-        root: '--old-style-default'
-      },
-      'danger': {
-        root: '--old-style-danger'
-      },
-      'success': {
-        root: '--old-style-success'
-      },
-      'warning': {
-        root: '--old-style-warning'
-      },
-      'primary': {
-        root: '--old-style-primary'
-      },
-      'secondary': {
-        root: '--old-style-secondary'
-      },
-      'collab': {
-        root: '--old-style-collab'
-      },
-      'ai': {
-        root: '--old-style-ai'
-      }
+      'default': { root: '--old-style-default' },
+      'danger': { root: '--old-style-danger' },
+      'success': { root: '--old-style-success' },
+      'warning': { root: '--old-style-warning' },
+      'primary': { root: '--old-style-primary' },
+      'secondary': { root: '--old-style-secondary' },
+      'collab': { root: '--old-style-collab' },
+      'ai': { root: '--old-style-ai' }
     },
     orientation: {
       horizontal: {

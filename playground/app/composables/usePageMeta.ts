@@ -46,7 +46,7 @@ const menuList: IMenuItem[] = [
 const components: IComponentInfo[] = [
   { id: 'accordion', description: '(~) A stacked set of collapsible panels.', iconData: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'advice', description: '(~) A couple of lines of text and an avatar.', iconData: ChatMessageIcon, iconUi: 'pr-3xs' },
-  { id: 'alert', description: '(~) A callout to draw user\'s attention.', iconData: AlertIcon },
+  { id: 'alert', description: '(+) A callout to draw user\'s attention.', iconData: AlertIcon },
   { id: 'avatar', description: '(~) An img element with fallback and Nuxt Image support.', iconData: PersonIcon },
   { id: 'badge', description: '(-) A short text to represent a status or a category.', iconData: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'button', description: '(+) A button element that can act as a link or trigger an action.', iconData: GroupIcon },
@@ -82,7 +82,7 @@ const components: IComponentInfo[] = [
   { id: 'switch', description: '(-) A control that toggles between two states.', iconData: FormIcon },
   { id: 'tabs', description: '(-) A set of tab panels that are displayed one at a time.', iconData: FolderEmptyIcon },
   { id: 'textarea', description: '(-) A textarea element to input multi-line text.', iconData: FormIcon },
-  { id: 'toast', description: '(+) A succinct message to provide information or feedback to the user.', iconData: GroupIcon },
+  { id: 'toast', description: '(~) A succinct message to provide information or feedback to the user.', iconData: GroupIcon },
   { id: 'tooltip', description: '(+) A popup that reveals information when hovering over an element.', iconData: GroupIcon }
 ]
 

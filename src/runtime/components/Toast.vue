@@ -21,7 +21,7 @@ export interface ToastProps extends Pick<ToastRootProps, 'defaultOpen' | 'open' 
   icon?: IconComponent
   avatar?: AvatarProps
   /**
-   * @defaultValue 'default'
+   * @defaultValue 'air-secondary-no-accent'
    */
   color?: Toast['variants']['color']
   /**
@@ -38,12 +38,12 @@ export interface ToastProps extends Pick<ToastRootProps, 'defaultOpen' | 'open' 
    * Display a list of actions:
    * - under the title and description when orientation is `vertical`
    * - next to the close button when orientation is `horizontal`
-   * `{ size: 'xs' }`{lang="ts"}
+   * `{ size: 'sm' }`{lang="ts"}
    */
   actions?: ButtonProps[]
   /**
    * Display a close button to dismiss the toast.
-   * `{ size: 'md', color: 'neutral', variant: 'link' }`{lang="ts"}
+   * `{ size: 'sm', color: 'air-tertiary' }`{lang="ts"}
    * @defaultValue true
    */
   close?: boolean | Partial<ButtonProps>
@@ -157,7 +157,7 @@ defineExpose({
       <div v-if="orientation === 'vertical' && (actions?.length || !!slots.actions)" :class="b24ui.actions({ class: props.b24ui?.actions })">
         <slot name="actions">
           <ToastAction v-for="(action, index) in actions" :key="index" :alt-text="action.label || 'Action'" as-child @click.stop>
-            <B24Button size="xs" :color="color" v-bind="action" />
+            <B24Button size="sm" :color="color" v-bind="action" />
           </ToastAction>
         </slot>
       </div>
@@ -167,7 +167,7 @@ defineExpose({
       <template v-if="orientation === 'horizontal' && (actions?.length || !!slots.actions)">
         <slot name="actions">
           <ToastAction v-for="(action, index) in actions" :key="index" :alt-text="action.label || 'Action'" as-child @click.stop>
-            <B24Button size="xs" :color="color" v-bind="action" />
+            <B24Button size="sm" :color="color" v-bind="action" />
           </ToastAction>
         </slot>
       </template>
@@ -177,8 +177,8 @@ defineExpose({
           <B24Button
             v-if="close"
             :icon="closeIcon || icons.close"
-            size="xs"
-            color="air-tertiary-no-accent"
+            size="sm"
+            color="air-tertiary"
             :aria-label="t('toast.close')"
             v-bind="(typeof close === 'object' ? close as Partial<ButtonProps> : {})"
             :class="b24ui.close({ class: props.b24ui?.close })"
