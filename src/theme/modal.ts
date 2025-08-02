@@ -14,11 +14,11 @@ export default {
   slots: {
     overlay: 'fixed inset-0 bg-[#003366]/20',
     content: [
+      'light --ui-context-content-light',
+      'bg-(--popup-window-background-color)',
       'fixed',
       'flex flex-col gap-[20px]',
       'focus:outline-none',
-      'light --ui-context-content-light',
-      'bg-(--popup-window-background-color)',
       'p-[24px] pt-[20px]'
     ].join(' '),
     contentWrapper: [
