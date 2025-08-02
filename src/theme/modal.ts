@@ -27,7 +27,7 @@ export default {
     header: 'flex items-start justify-between gap-[6px]',
     wrapper: '',
     title: [
-      'font-(family-name:--ui-font-family-primary)',
+      'font-[family-name:var(--ui-font-family-primary)]',
       'text-(--ui-color-design-plain-content)',
       'font-(--ui-font-weight-medium)',
       'mb-0',
