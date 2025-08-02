@@ -393,14 +393,14 @@ const openSliderTopAndBottom = async () => {
             overlay: 'bg-[#00204e]/85',
             content: 'top-[58px] sm:top-[58px] right-[22px] sm:right-[22px] max-h-[calc(100%-58px)] sm:max-h-[calc(100%-58px)] w-[calc(100%-60px-22px)] sm:w-[calc(100%-60px-22px)]',
             sidebarLayoutRoot: [
-              'edge-dark',
-              'edge-dark:[--air-theme-bg-color:#1B4D25]',
-              'edge-dark:[--air-theme-bg-size:cover]',
-              'edge-dark:[--air-theme-bg-repeat:no-repeat]',
-              'edge-dark:[--air-theme-bg-position:0_0]',
-              'edge-dark:[--air-theme-bg-attachment:fixed]',
-              'edge-dark:[--air-theme-bg-image:url(/bg/edge-dark-v2.jpg)]',
-              'edge-dark:[--air-theme-bg-image-blurred:url(/bg/edge-dark-v2-blurred.webp)]'
+              'edge-light',
+              'edge-light:[--air-theme-bg-color:#eef2f4]',
+              'edge-light:[--air-theme-bg-size:auto]',
+              'edge-light:[--air-theme-bg-repeat:repeat]',
+              'edge-light:[--air-theme-bg-position:0_0]',
+              'edge-light:[--air-theme-bg-attachment:scroll]',
+              'edge-light:[--air-theme-bg-image:none]',
+              'edge-light:[--air-theme-bg-image-blurred:none]'
             ].join(' ')
           }"
         >
@@ -433,8 +433,11 @@ const openSliderTopAndBottom = async () => {
             <MockSidebarLayoutActions />
           </template>
           <template #body>
-            <ProseP class="mb-4">Selected action: <ProseStrong>{{ action }}</ProseStrong></ProseP>
-            <Placeholder class="size-full h-[800px]" />
+            <Placeholder class="size-full">
+              <div class="p-4 rounded-md bg-(--ui-color-g-content-glass-1)">
+                <ProseP>Selected action: <ProseStrong>{{ action }}</ProseStrong></ProseP>
+              </div>
+            </Placeholder>
           </template>
         </B24Slideover>
         <B24Slideover
@@ -448,7 +451,17 @@ const openSliderTopAndBottom = async () => {
           :modal="false"
           :b24ui="{
             content: 'max-h-[56px] sm:shadow-none',
-            sidebarLayoutRoot: 'edge-dark bg-transparent dark:bg-transparent before:hidden pl-[calc(60px+0px)]',
+            sidebarLayoutRoot: [
+              'edge-dark',
+              'edge-dark:[--air-theme-bg-color:#00204e85]',
+              'edge-dark:[--air-theme-bg-size:cover]',
+              'edge-dark:[--air-theme-bg-repeat:no-repeat]',
+              'edge-dark:[--air-theme-bg-position:0_0]',
+              'edge-dark:[--air-theme-bg-attachment:fixed]',
+              'edge-dark:[--air-theme-bg-image:none]',
+              'edge-dark:[--air-theme-bg-image-blurred:none]',
+              'pl-[calc(60px+0px)]'
+            ].join(' '),
             sidebarLayoutHeaderWrapper: 'before:hidden'
           }"
         >
@@ -467,11 +480,11 @@ const openSliderTopAndBottom = async () => {
             content: 'sm:max-w-[970px]',
             sidebarLayoutRoot: [
               'edge-dark',
-              'edge-dark:[--air-theme-bg-color:#1B4D25]',
+              'edge-dark:[--air-theme-bg-color:#8188b5]',
               'edge-dark:[--air-theme-bg-size:cover]',
               'edge-dark:[--air-theme-bg-repeat:no-repeat]',
               'edge-dark:[--air-theme-bg-position:0_0]',
-              'edge-dark:[--air-theme-bg-attachment:fixed]',
+              'edge-dark:[--air-theme-bg-attachment:local]',
               'edge-dark:[--air-theme-bg-image:url(/bg/edge-dark-v2.jpg)]',
               'edge-dark:[--air-theme-bg-image-blurred:url(/bg/edge-dark-v2-blurred.webp)]'
             ].join(' ')
@@ -566,7 +579,7 @@ const openSliderTopAndBottom = async () => {
               'edge-light:[--air-theme-bg-size:auto]',
               'edge-light:[--air-theme-bg-repeat:no-repeat]',
               'edge-light:[--air-theme-bg-position:0_0]',
-              'edge-light:[--air-theme-bg-attachment:fixed]',
+              'edge-light:[--air-theme-bg-attachment:local]',
               'edge-light:[--air-theme-bg-image:url(/bg/slider-ring-blurred.webp)]',
               'edge-light:[--air-theme-bg-image-blurred:url(/bg/slider-ring-blurred.webp)]'
             ].join(' ')

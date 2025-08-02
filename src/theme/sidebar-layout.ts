@@ -108,7 +108,6 @@ export default {
         ].join(' '),
         container: [
           // @todo make property
-          // fix 'l',
           'mt-0'
         ].join(' '),
         containerWrapper: '',

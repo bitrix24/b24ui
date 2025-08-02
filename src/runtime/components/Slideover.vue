@@ -203,7 +203,12 @@ defineExpose<SlideoverInstance>({
         @after-leave="emits('after:leave')"
         v-on="contentEvents"
       >
-        <VisuallyHidden v-if="!!slots.content && ((title || !!slots.title) || (description || !!slots.description))">
+        <VisuallyHidden
+          v-if="
+            !!slots.content && ((title || !!slots.title) || (description || !!slots.description))
+              || (!slots.content && !!slots.header && (!slots.title || !slots.description))
+          "
+        >
           <DialogTitle v-if="title || !!slots.title">
             <slot name="title">
               {{ title }}
