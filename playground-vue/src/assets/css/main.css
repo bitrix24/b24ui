@@ -29,17 +29,15 @@
  */
 @layer base {
   .light,
-  .--ui-context-content-light, :root {
+  :root {
     --air-theme-bg-color: #ffff;
   }
 
-  .dark,
-  .--ui-context-content-dark {
+  .dark {
     --air-theme-bg-color: #000000;
   }
 
-  .edge-light,
-  .--ui-context-edge-light {
+  .edge-light {
     --air-theme-bg-image: url(/bg/edge-light-v1.svg);
     --air-theme-bg-image-blurred: url(/bg/edge-light-v1-blurred.webp);
     --air-theme-bg-position: 0 0;
@@ -50,14 +48,13 @@
     --air-theme-bg-color: #eef2f4;
   }
 
-  .edge-dark,
-  .--ui-context-edge-dark {
+  .edge-dark {
     --air-theme-bg-image: url(/bg/edge-dark-v1.jpg);
     --air-theme-bg-image-blurred: url(/bg/edge-dark-v1-blurred.webp);
     --air-theme-bg-position: 0 0;
     --air-theme-bg-size: cover;
     --air-theme-bg-repeat: no-repeat;
     --air-theme-bg-attachment: fixed;
-    --air-theme-bg-color: #5964b3;
+    --air-theme-bg-color: #b08fa4;
   }
 }
