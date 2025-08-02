@@ -9,7 +9,7 @@
 export default {
   slots: {
     root: [
-      'relative overflow-hidden w-full rounded-3xs flex',
+      'relative overflow-hidden w-full flex',
       'text-(--b24ui-color)',
       'bg-(--b24ui-background-hover)',
       'border-(--b24ui-border-color-hover) border-(length:--b24ui-border-width)',

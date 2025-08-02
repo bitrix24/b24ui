@@ -75,6 +75,14 @@
     - air-tertiary, air-tertiary-accent, air-tertiary-no-accent
   - @deprecate
     - default, danger, success, warning, primary, secondary, collab, ai
+* Alert
+  - fix color
+  - add color
+    - air-primary, air-primary-success, air-primary-alert, air-primary-copilot
+    - air-secondary, air-secondary-alert, air-secondary-accent, air-secondary-accent-1, air-secondary-accent-2, air-secondary-no-accent
+    - air-tertiary, air-tertiary-accent, air-tertiary-no-accent
+  - @deprecate
+    - default, danger, success, warning, primary, secondary, collab, ai
 
 We change btn colors:
 
@@ -88,11 +96,6 @@ We change btn colors:
 
 - color="success"
 + color="air-primary-success"
-
-
-@todo change ring -> outline
-@todo change relode light color
-
 
 ## [0.7.2](https://github.com/bitrix24/b24ui/compare/v0.7.1...v0.7.2) (2025-07-14)
 
