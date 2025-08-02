@@ -9,11 +9,11 @@ export default {
   slots: {
     root: 'flex items-center align-center text-center',
     border: '',
-    container: 'font-[family-name:var(--ui-font-family-primary)] font-normal flex',
+    container: 'font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-normal) flex',
     icon: 'shrink-0 size-7',
     avatar: 'shrink-0',
     avatarSize: 'sm',
-    label: 'text-(length:--ui-font-size-sm)'
+    label: 'text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset)'
   },
   variants: {
     accent: {
