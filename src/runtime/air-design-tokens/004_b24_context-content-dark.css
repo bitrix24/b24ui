@@ -1,12 +1,11 @@
-@variant dark (&:where(.dark, .dark *, .--ui-context-content-dark, .--ui-context-content-dark *));
+@variant context-dark (&:where(.context-dark, .context-dark *));
 
 @layer base {
   body {
-    @apply dark:scheme-dark;
+    @apply context-dark:scheme-dark;
   }
 
-  .dark,
-  .--ui-context-content-dark {
+  .context-dark {
     --air-theme-bg-image: none;
     --air-theme-bg-image-blurred: none;
     --air-theme-bg-position: 0 0;
@@ -16,14 +15,11 @@
     --air-theme-bg-color: #000000;
   }
 
-  .dark.--inner,
-  .--ui-context-content-dark.--inner
-  {
+  .context-dark.--inner {
     --air-theme-bg-color: var(--ui-color-bg-content-light);
   }
 
-  .dark,
-  .--ui-context-content-dark {
+  .context-dark {
     --ui-color-base-0: #fff;
     --ui-color-base-1: #f8f8f8;
     --ui-color-base-2: #cacbcc;

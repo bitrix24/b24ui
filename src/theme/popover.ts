@@ -7,7 +7,7 @@
 export default {
   slots: {
     content: [
-      'light --ui-context-content-light',
+      'context-light',
       'bg-(--popup-window-background-color)',
       'shadow-(--popup-window-box-shadow)',
       'rounded-(--popup-window-border-radius) will-change-[opacity]',

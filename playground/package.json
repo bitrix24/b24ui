@@ -17,12 +17,15 @@
     "@bitrix24/b24icons-vue": "^2.0.2",
     "@bitrix24/b24ui-nuxt": "workspace:*",
     "@internationalized/date": "^3.8.2",
-    "nuxt": "^3.17.5",
-    "zod": "^3.25.67",
+    "nuxt": "^4.0.2",
+    "zod": "^4.0.13",
     "maska": "^3.1.1"
   },
   "devDependencies": {
     "typescript": "^5.8.3",
-    "vue-tsc": "^2.2.10"
+    "vue-tsc": "^3.0.4"
+  },
+  "resolutions": {
+    "unimport": "4.1.1"
   }
 }

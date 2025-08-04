@@ -28,16 +28,16 @@
 ></B24SidebarLayout>
  */
 @layer base {
-  .light,
+  .context-light,
   :root {
     --air-theme-bg-color: #ffff;
   }
 
-  .dark {
+  .context-dark {
     --air-theme-bg-color: #000000;
   }
 
-  .edge-light {
+  .context-edge-light {
     --air-theme-bg-image: url(/bg/edge-light-v1.svg);
     --air-theme-bg-image-blurred: url(/bg/edge-light-v1-blurred.webp);
     --air-theme-bg-position: 0 0;
@@ -48,7 +48,7 @@
     --air-theme-bg-color: #eef2f4;
   }
 
-  .edge-dark {
+  .context-edge-dark {
     --air-theme-bg-image: url(/bg/edge-dark-v1.jpg);
     --air-theme-bg-image-blurred: url(/bg/edge-dark-v1-blurred.webp);
     --air-theme-bg-position: 0 0;

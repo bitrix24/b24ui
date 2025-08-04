@@ -16,10 +16,10 @@ const appConfig = useAppConfig()
 const mode = useColorMode<'light' | 'dark' | 'edgeLight' | 'edgeDark'>({
   attribute: 'class',
   modes: {
-    light: 'light --ui-context-content-light',
-    dark: 'dark --ui-context-content-dark',
-    edgeLight: 'edge-light --ui-context-edge-light',
-    edgeDark: 'edge-dark --ui-context-edge-dark'
+    light: 'context-light',
+    dark: 'context-dark',
+    edgeLight: 'context-edge-light',
+    edgeDark: 'context-edge-dark'
   }
 })
 const dir = useTextDirection()
@@ -244,6 +244,21 @@ const { isSidebarLayoutUseLightContent, isSidebarLayoutClearContent, checkedUseL
         </B24NavbarSection>
         <B24NavbarSpacer />
         <B24NavbarSection class="flex-row items-center justify-start gap-4">
+          <B24DropdownMenu
+            use-dropdown
+            :items="itemsForColorMode"
+          >
+            <B24Tooltip :content="{ side: 'bottom' }" :text="`Switch to next mode`" :kbds="['shift', 'D']">
+              <B24Button
+                :icon="colorModeIcon"
+                :aria-label="`Switch to next mode`"
+                color="air-secondary-accent"
+                size="xs"
+                rounded
+                :label="mode"
+              />
+            </B24Tooltip>
+          </B24DropdownMenu>
           <B24Switch
             v-model="checkedUseLightContent"
             :disabled="isSidebarLayoutClearContent"
@@ -267,21 +282,6 @@ const { isSidebarLayoutUseLightContent, isSidebarLayoutClearContent, checkedUseL
               @click="toggleDir"
             />
           </B24Tooltip>
-          <B24DropdownMenu
-            use-dropdown
-            :items="itemsForColorMode"
-          >
-            <B24Tooltip :content="{ side: 'bottom' }" :text="`Switch to next mode`" :kbds="['shift', 'D']">
-              <B24Button
-                :icon="colorModeIcon"
-                :aria-label="`Switch to next mode`"
-                color="air-secondary-accent"
-                size="xs"
-                rounded
-                :label="mode"
-              />
-            </B24Tooltip>
-          </B24DropdownMenu>
           <div class="hidden lg:flex flex-row flex-nowrap items-center justify-center gap-0.5">
             <B24Kbd value="ctrl" size="sm" /> <B24Kbd value="K" size="sm" />
           </div>

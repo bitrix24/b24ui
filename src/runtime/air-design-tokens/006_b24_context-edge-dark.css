@@ -1,12 +1,11 @@
-@variant edge-dark (&:where(.edge-dark, .edge-dark *, .--ui-context-edge-dark, .--ui-context-edge-dark *));
+@variant context-edge-dark (&:where(.context-edge-dark, .context-edge-dark *));
 
 @layer base {
   body {
-    @apply edge-dark:scheme-light;
+    @apply context-edge-dark:scheme-light;
   }
 
-  .edge-dark,
-  .--ui-context-edge-dark {
+  .context-edge-dark {
     --air-theme-bg-image: none;
     --air-theme-bg-image-blurred: none;
     --air-theme-bg-position: 0 0;
@@ -16,14 +15,12 @@
     --air-theme-bg-color: #545d6b;
   }
 
-  .edge-dark.--inner,
-  .--ui-context-edge-dark.--inner
+  .context-edge-dark.--inner
   {
     --air-theme-bg-color: var(--ui-color-bg-content-light);
   }
 
-  .edge-dark,
-  .--ui-context-edge-dark {
+  .context-edge-dark {
     --ui-color-base-0: #fff;
     --ui-color-base-1: #fff;
     --ui-color-base-2: #ffffffcc;

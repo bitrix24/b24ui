@@ -24,7 +24,7 @@ BX.UI.Notification.Center.notify({
 export default {
   slots: {
     root: [
-      'dark --ui-context-content-dark',
+      'context-dark',
       'relative group overflow-hidden',
       'rounded-[26px] py-3.5 ps-6 pe-4',
       'flex items-center gap-2.5',

@@ -53,7 +53,6 @@ export default (options: Required<ModuleOptions>) => ({
       active: false,
       disabled: false,
       class: [
-        // 'hover:text-blue-700 dark:hover:text-blue-300', // fix
         'hover:text-(--ui-color-design-selection-content)',
         'hover:underline'
       ].join(' ')

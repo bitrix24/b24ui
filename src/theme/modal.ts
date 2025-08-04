@@ -14,7 +14,7 @@ export default {
   slots: {
     overlay: 'fixed inset-0 bg-[#003366]/20',
     content: [
-      'light --ui-context-content-light',
+      'context-light',
       'bg-(--popup-window-background-color)',
       'fixed',
       'flex flex-col gap-[20px]',

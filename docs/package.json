@@ -7,14 +7,14 @@
   "dependencies": {
     "@bitrix24/b24icons-vue": "^2.0.2",
     "@bitrix24/b24ui-nuxt": "workspace:*",
-    "zod": "^3.25.67",
+    "zod": "^4.0.13",
     "maska": "^3.1.1",
-    "@vueuse/integrations": "^13.4.0",
+    "@vueuse/integrations": "^13.6.0",
     "sortablejs": "^1.15.6"
   },
   "devDependencies": {
-    "vitepress": "^2.0.0-alpha.5",
-    "@vueuse/core": "^13.3.0",
-    "vue": "^3.5.16"
+    "vitepress": "^2.0.0-alpha.9",
+    "@vueuse/core": "^13.6.0",
+    "vue": "^3.5.18"
   }
 }

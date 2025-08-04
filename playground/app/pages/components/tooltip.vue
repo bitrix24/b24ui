@@ -25,17 +25,6 @@ defineShortcuts({
   alt_B: () => openState.value.B = !openState.value.B,
   alt_L: () => openState.value.L = !openState.value.L
 })
-/*
-@memo this demo from b24
-<div class="popup-window popup-window-dark --ui-context-content-dark --open" style="display: block; position: absolute; left: 260px; top: 657px; z-index: 1600 !important;">
-  <div class="popup-window-content">
-    <span style="display: block;">This option is available on Enterprise plan only. <a onclick="alert('test')" href="#">Upgrade</a></span>
-  </div>
-  <div class="popup-window-angly popup-window-angly-top" style="left: 23px; margin-left: 0px;">
-    <div class="popup-window-angly--arrow"></div>
-  </div>
-</div>
- */
 </script>
 
 <template>
@@ -90,12 +79,12 @@ defineShortcuts({
     <ExampleCard title="base">
       <ExampleCardSubTitle title="with arrow" />
       <div class="mb-4 lex flex-col gap-4">
-        <B24Tooltip v-model:open="openState.T" :text="text.long" :kbds="['alt', 'T']" :content="{ side: 'top' }">
+        <B24Tooltip class="context-light" v-model:open="openState.T" :text="text.long" :kbds="['alt', 'T']" :content="{ side: 'top' }">
           <B24Button label="Top" block />
         </B24Tooltip>
 
         <div class="mt-4 mb-4 grid grid-cols-2 gap-4">
-          <B24Tooltip v-model:open="openState.L" :text="text.long" :kbds="['alt', 'L']" :content="{ side: 'left' }">
+          <B24Tooltip :b24ui="{ content: 'context-light' }" v-model:open="openState.L" :text="text.long" :kbds="['alt', 'L']" :content="{ side: 'left' }">
             <B24Button label="Left" block />
           </B24Tooltip>
 

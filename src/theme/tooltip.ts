@@ -12,7 +12,7 @@
 export default {
   slots: {
     content: [
-      'dark --ui-context-content-dark',
+      'context-dark',
       'flex flex-row items-center justify-between gap-[5px] will-change-[opacity]',
       'min-h-[37px]',
       'shadow-xl/20',

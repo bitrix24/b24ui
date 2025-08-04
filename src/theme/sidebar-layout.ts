@@ -90,11 +90,12 @@ export default {
       true: {
         root: [
           '--inner',
+          'context-light',
           'relative isolate',
-          'h-full',
           // fix 'bg-[var(--ui-color-gray-05)]',
           // fix 'dark:bg-[var(--ui-color-gray-05)]',
-          'overflow-hidden light --ui-context-content-light'
+          'h-full',
+          'overflow-hidden'
           // fix 'sm:rounded-t-[18px]'
         ].join(' '),
         sidebar: [
@@ -143,7 +144,7 @@ export default {
     useLightContent: {
       true: {
         containerWrapper: [
-          'light --ui-context-content-light',
+          'context-light',
           'text-(--ui-color-text-primary) bg-(--ui-color-background-primary)' // /87
         ].join(' ')
       },

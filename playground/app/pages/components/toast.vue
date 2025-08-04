@@ -162,14 +162,14 @@ function removeToast() {
         off-content-scrollbar
         :b24ui="{
           root: [
-            'edge-light',
-            'edge-light:[--air-theme-bg-color:#eef2f4]',
-            'edge-light:[--air-theme-bg-size:240px_240px]',
-            'edge-light:[--air-theme-bg-repeat:repeat]',
-            'edge-light:[--air-theme-bg-position:0_0]',
-            'edge-light:[--air-theme-bg-attachment:fixed]',
-            'edge-light:[--air-theme-bg-image:url(/bg/edge-light-v1.svg)]',
-            'edge-light:[--air-theme-bg-image-blurred:url(/bg/edge-light-v1-blurred.webp)]'
+            'context-edge-light',
+            'context-edge-light:[--air-theme-bg-color:#eef2f4]',
+            'context-edge-light:[--air-theme-bg-size:240px_240px]',
+            'context-edge-light:[--air-theme-bg-repeat:repeat]',
+            'context-edge-light:[--air-theme-bg-position:0_0]',
+            'context-edge-light:[--air-theme-bg-attachment:fixed]',
+            'context-edge-light:[--air-theme-bg-image:url(/bg/edge-light-v1.svg)]',
+            'context-edge-light:[--air-theme-bg-image-blurred:url(/bg/edge-light-v1-blurred.webp)]'
           ].join(' '),
           contentWrapper: [
             'bg-[url(/bg/pattern-1.png)] bg-cover bg-center bg-fixed bg-no-repeat bg-[#799fe1]/10 dark:bg-[#799fe1]',

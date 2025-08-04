@@ -90,9 +90,9 @@ export default {
     popoverWrapper: 'px-0 py-(--menu-popup-padding)',
     viewportWrapper: 'absolute top-[53px] left-0 flex w-full',
     viewport: [
+      'context-light',
       'relative overflow-hidden',
       'w-full',
-      'light --ui-context-content-light',
       'bg-(--popup-window-background-color)', // 'bg-(--ui-color-base-white-fixed)/94',
       'shadow-(--popup-window-box-shadow)',
       'h-(--reka-navigation-menu-viewport-height)',
