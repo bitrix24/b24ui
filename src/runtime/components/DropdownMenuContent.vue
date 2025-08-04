@@ -3,7 +3,7 @@
 import type { DropdownMenuContentProps as RekaDropdownMenuContentProps, DropdownMenuContentEmits as RekaDropdownMenuContentEmits } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import type theme from '#build/b24ui/dropdown-menu'
-import type { KbdProps, AvatarProps, DropdownMenuItem, DropdownMenuSlots, IconComponent } from '../types'
+import type { KbdProps, AvatarProps, DropdownMenuItem, DropdownMenuSlots, DynamicSlots, MergeTypes, IconComponent } from '../types'
 import type { ArrayOrNested, NestedItem, ComponentConfig } from '../types/utils'
 
 type DropdownMenu = ComponentConfig<typeof theme, AppConfig, 'dropdownMenu'>
@@ -28,9 +28,13 @@ interface DropdownMenuContentProps<T extends ArrayOrNested<DropdownMenuItem>> ex
 
 interface DropdownMenuContentEmits extends RekaDropdownMenuContentEmits {}
 
-type DropdownMenuContentSlots<T extends ArrayOrNested<DropdownMenuItem>> = Omit<DropdownMenuSlots<T>, 'default'> & {
+type DropdownMenuContentSlots<
+  A extends ArrayOrNested<DropdownMenuItem> = ArrayOrNested<DropdownMenuItem>,
+  T extends NestedItem<A> = NestedItem<A>
+> = Pick<DropdownMenuSlots<A>, 'item' | 'item-leading' | 'item-label' | 'item-trailing' | 'content-top' | 'content-bottom'> & {
   default(props?: {}): any
-}
+} & DynamicSlots<MergeTypes<T>, 'leading' | 'label' | 'trailing', { active?: boolean, index: number }>
+
 </script>
 
 <script setup lang="ts" generic="T extends ArrayOrNested<DropdownMenuItem>">
@@ -136,7 +140,7 @@ const groups = computed<DropdownMenuItem[][]>(() =>
     <component :is="sub ? DropdownMenu.SubContent : DropdownMenu.Content" :class="props.class" v-bind="contentProps">
       <slot name="content-top" />
 
-      <div role="presentation" :class="b24ui.viewport({ class: props.b24ui?.viewport })">
+      <div role="presentation" :class="b24ui.viewport({ class: b24uiOverride?.viewport })">
         <DropdownMenu.Group v-for="(group, groupIndex) in groups" :key="`group-${groupIndex}`" :class="b24ui.group({ class: b24uiOverride?.group })">
           <template v-for="(item, index) in group" :key="`group-${groupIndex}-${index}`">
             <DropdownMenu.Label v-if="item.type === 'label'" :class="b24ui.label({ class: [b24uiOverride?.label, item.b24ui?.label, item.class] })">

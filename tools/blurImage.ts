@@ -77,4 +77,4 @@ const inputPath = args[0]
 const blurAmount = args[1] ? Number(args[1]) : 8
 
 // Start processing
-blurImage(inputPath, blurAmount)
+blurImage(inputPath || '', blurAmount)

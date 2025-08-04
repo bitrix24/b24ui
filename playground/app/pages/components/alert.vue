@@ -89,7 +89,7 @@ const airColors = computed(() => {
       <ExampleCardSubTitle title="simple" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24Alert :title="data.title" />
-        <B24Alert :title="data.title" :icon="data.icon" description="example with multiple actions." :actions="multipleActions('default')" />
+        <B24Alert :title="data.title" :icon="data.icon" description="example with multiple actions." :actions="multipleActions()" />
       </div>
       <template v-for="size in sizes" :key="size">
         <ExampleCardSubTitle :title="size as string" />
@@ -140,7 +140,7 @@ const airColors = computed(() => {
             :icon="data.icon"
             :close="data.close"
             :color="color"
-            :actions="action(color)"
+            :actions="action()"
             orientation="horizontal"
             size="sm"
           />
@@ -150,7 +150,7 @@ const airColors = computed(() => {
             :avatar="{ src: '/avatar/employee.png' }"
             :close="data.close"
             :color="color"
-            :actions="multipleActions(color)"
+            :actions="multipleActions()"
             size="sm"
           />
         </div>
@@ -168,7 +168,7 @@ const airColors = computed(() => {
             :icon="data.icon"
             :close="data.close"
             :color="color"
-            :actions="action(color)"
+            :actions="action()"
             orientation="horizontal"
           />
           <B24Alert
@@ -177,7 +177,7 @@ const airColors = computed(() => {
             :icon="data.icon"
             :close="data.close"
             :color="color"
-            :actions="multipleActions(color)"
+            :actions="multipleActions()"
           />
         </div>
       </ExampleCard>
@@ -210,7 +210,7 @@ const airColors = computed(() => {
                 :icon="data.icon"
                 :close="data.close"
                 :color="color"
-                :actions="action(color)"
+                :actions="action()"
                 orientation="horizontal"
                 size="sm"
               />
@@ -220,7 +220,7 @@ const airColors = computed(() => {
                 :avatar="{ src: '/avatar/employee.png' }"
                 :close="data.close"
                 :color="color"
-                :actions="multipleActions(color)"
+                :actions="multipleActions()"
                 size="sm"
               />
             </div>
@@ -238,7 +238,7 @@ const airColors = computed(() => {
                 :icon="data.icon"
                 :close="data.close"
                 :color="color"
-                :actions="action(color)"
+                :actions="action()"
                 orientation="horizontal"
               />
               <B24Alert
@@ -247,7 +247,7 @@ const airColors = computed(() => {
                 :icon="data.icon"
                 :close="data.close"
                 :color="color"
-                :actions="multipleActions(color)"
+                :actions="multipleActions()"
               />
             </div>
           </ExampleCard>
