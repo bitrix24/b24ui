@@ -88,7 +88,7 @@ import { useAppConfig } from '#imports'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useButtonGroup } from '../composables/useButtonGroup'
 import { formLoadingInjectionKey } from '../composables/useFormField'
-import { omit } from '../utils'
+import { omit, mergeClasses } from '../utils'
 import { tv } from '../utils/tv'
 import { pickLinkProps } from '../utils/link'
 import B24Avatar from './Avatar.vue'
@@ -102,8 +102,8 @@ import SpinnerIcon from '@bitrix24/b24icons-vue/specialized/SpinnerIcon'
 const props = withDefaults(defineProps<ButtonProps>(), {
   type: 'button',
   active: undefined,
-  activeClass: '',
-  inactiveClass: '',
+  // activeClass: '',
+  // inactiveClass: '',
   normalCase: true
 })
 
@@ -158,10 +158,10 @@ const b24ui = computed(() => tv({
     variants: {
       active: {
         true: {
-          base: props.activeClass
+          base: mergeClasses(appConfig.b24ui?.button?.variants?.active?.true?.base, props.activeClass)
         },
         false: {
-          base: props.inactiveClass
+          base: mergeClasses(appConfig.b24ui?.button?.variants?.active?.false?.base, props.inactiveClass)
         }
       }
     }

@@ -158,6 +158,14 @@ export default {
     leading: {
       true: ''
     },
+    active: {
+      true: {
+        base: ''
+      },
+      false: {
+        base: ''
+      }
+    },
     useLabel: {
       true: '',
       false: {
