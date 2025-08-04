@@ -12,8 +12,8 @@ export default (options: Required<ModuleOptions>) => ({
   base: [
     'cursor-pointer',
     // 'focus-visible:outline-info-text' // fix
-    'focus-visible:outline-(--ui-color-base-4)',
-    'focus:outline-none focus-visible:rounded-(--menu-item-border-radius) focus-visible:outline-none focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-(--ui-color-base-4)'
+    'focus-visible:outline-(--ui-color-design-selection-content)',
+    'focus-visible:outline-1 focus-visible:rounded-[4px]'
   ].join(' '),
   variants: {
     active: {
@@ -23,9 +23,7 @@ export default (options: Required<ModuleOptions>) => ({
         'hover:not-disabled:not-aria-disabled:underline underline-offset-2'
       ].join(' '),
       false: [
-        // 'text-base-900 dark:text-base-300', // fix
         'text-(--ui-color-accent-main-link)',
-        '',
         'underline-offset-2'
       ].join(' ')
     },
@@ -36,15 +34,11 @@ export default (options: Required<ModuleOptions>) => ({
       true: [
         'text-nowrap',
         'text-sm h-auto py-0 font-normal rounded-none',
-        'border border-x-0 border-t-0 border-dashed border-b-base-900',
-        // 'text-base-900 dark:text-base-300', // fix
-        'text-[#80868e]',
+        'border border-x-0 border-t-0 border-dashed',
+        'text-(--ui-color-design-outline-a1-content) border-b-(--ui-color-design-outline-a1-content)',
         'hover:not-disabled:not-aria-disabled:no-underline',
-        // 'hover:text-blue-700 hover:not-disabled:not-aria-disabled:text-blue-700 hover:border-b-blue-700', // fix
-        // 'dark:hover:text-blue-300 dark:hover:not-disabled:not-aria-disabled:text-blue-300 dark:hover:border-b-blue-300', // fix
-        'hover:text-(--ui-color-base-1) hover:not-disabled:not-aria-disabled:text-(--ui-color-base-1) hover:border-b-(--ui-color-base-1)',
-        // 'focus-visible:outline-base-700' // fix
-        'focus-visible:outline-(--ui-color-base-4)'
+        'hover:text(--ui-color-accent-soft-element-red) hover:not-disabled:not-aria-disabled:text-(--ui-color-accent-soft-element-red) hover:border-b-(--ui-color-accent-soft-element-red)',
+        'focus-visible:outline-(--ui-color-accent-soft-element-red)'
       ].join(' ')
     }
   },

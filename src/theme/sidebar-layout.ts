@@ -145,7 +145,8 @@ export default {
       true: {
         containerWrapper: [
           'context-light',
-          'text-(--ui-color-text-primary) bg-(--ui-color-background-primary)' // /87
+          'text-(--ui-color-text-primary)',
+          'backdrop-blur-md bg-(--ui-color-bg-content-primary)/30'
         ].join(' ')
       },
       false: {
