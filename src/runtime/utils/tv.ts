@@ -17,13 +17,13 @@ const customTwMerge = {
       'context-edge-light', 'context-edge-dark'
     ],
     'b24-colors': [
-      '--air-primary', '--air-primary-success', '--air-primary-alert', '--air-primary-copilot',
-      '--air-secondary', '--air-secondary-alert', '--air-secondary-accent', '--air-secondary-accent-1', '--air-secondary-accent-2', '--air-secondary-no-accent',
-      '--air-tertiary', '--air-tertiary-accent', '--air-tertiary-no-accent',
-      '--air-selection', '--air-boost',
-      '--old-style-default', '--old-style-danger', '--old-style-success',
-      '--old-style-warning', '--old-style-primary', '--old-style-secondary',
-      '--old-style-collab', '--old-style-ai'
+      'air-primary', 'air-primary-success', 'air-primary-alert', 'air-primary-copilot',
+      'air-secondary', 'air-secondary-alert', 'air-secondary-accent', 'air-secondary-accent-1', 'air-secondary-accent-2', 'air-secondary-no-accent',
+      'air-tertiary', 'air-tertiary-accent', 'air-tertiary-no-accent',
+      'air-selection', 'air-boost',
+      'old-style-default', 'old-style-danger', 'old-style-success',
+      'old-style-warning', 'old-style-primary', 'old-style-secondary',
+      'old-style-collab', 'old-style-ai'
     ]
   },
   conflictingClassGroups: {

@@ -166,39 +166,11 @@ const { isSidebarLayoutUseLightContent, isSidebarLayoutClearContent, checkedUseL
 
 <template>
   <B24App :toaster="(appConfig.toaster as any)">
+    <!-- // @see playground-vue/src/assets/css/main.css -->
+    <!-- // @see playground/app/assets/css/main.css -->
     <B24SidebarLayout
       ref="currentSidebarRef"
       :use-light-content="isSidebarLayoutUseLightContent"
-      :b24ui="{
-        // @see playground-vue/src/assets/css/main.css
-        // root: [
-        //   '[--air-theme-bg-color:#ffffff]',
-        //   'dark:[--air-theme-bg-color:#000000]',
-        //   // ------------
-        //  'edge-dark:[--air-theme-bg-color:#545d6b]',
-        //  'edge-dark:[--air-theme-bg-size:auto]',
-        //  'edge-dark:[--air-theme-bg-repeat:repeat]',
-        //  'edge-dark:[--air-theme-bg-position:0_0]',
-        //  'edge-dark:[--air-theme-bg-attachment:fixed]',
-        //  'edge-dark:[--air-theme-bg-image:url(/bg/dark.svg)]',
-        //  'edge-dark:[--air-theme-bg-image-blurred:url(/bg/dark-blurred.webp)]',
-        //   // ----
-        //   'edge-light:[--air-theme-bg-color:#eef2f4]',
-        //   'edge-light:[--air-theme-bg-size:auto]',
-        //   'edge-light:[--air-theme-bg-repeat:repeat]',
-        //   'edge-light:[--air-theme-bg-position:0_0]',
-        //   'edge-light:[--air-theme-bg-attachment:fixed]',
-        //   'edge-light:[--air-theme-bg-image:url(/bg/edge-light.svg)]',
-        //   'edge-light:[--air-theme-bg-image-blurred:url(/bg/edge-light-blurred.webp)]',
-        //   // -----------------
-        //   'edge-dark:[--air-theme-bg-size:cover]',
-        //   'edge-dark:[--air-theme-bg-repeat:no-repeat]',
-        //   'edge-dark:[--air-theme-bg-position:0_0]',
-        //   'edge-dark:[--air-theme-bg-attachment:fixed]',
-        //   'edge-dark:[--air-theme-bg-image:url(/bg/edge-dark.jpg)]',
-        //   'edge-dark:[--air-theme-bg-image-blurred:url(/bg/edge-dark-blurred.webp)]'
-        // ].join(' ')
-      }"
     >
       <template #sidebar>
         <B24SidebarHeader>

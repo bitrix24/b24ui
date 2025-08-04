@@ -20,6 +20,7 @@ const kbdKeys = Object.keys(kbdKeysMap)
         <B24Kbd value="meta" accent="less" />
         <B24Kbd value="meta" accent="default" />
         <B24Kbd value="meta" accent="accent" />
+        <B24Kbd value="meta" accent="default" class="air-primary" />
       </div>
       <ExampleCardSubTitle title="size" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">

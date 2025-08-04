@@ -15,9 +15,9 @@ export default {
   },
   variants: {
     accent: {
-      default: '--air-secondary-accent',
-      accent: '--air-secondary-accent-1',
-      less: '--air-secondary-no-accent'
+      default: 'air-secondary-accent',
+      accent: 'air-secondary-accent-1',
+      less: 'air-secondary-no-accent'
     },
     size: {
       sm: 'h-[20px] min-w-[20px] text-(length:--ui-font-size-4xs)/(--ui-font-line-height-reset)',
