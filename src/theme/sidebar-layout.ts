@@ -83,7 +83,7 @@ export default {
       // 'bg-[#00204e]/52', //  //#000000/66 // [#00204e]/52
       // 'motion-safe:backdrop-blur-sm'
     ].join(' '),
-    loadingIcon: 'text-(--ui-color-g-glass-grey-bg-2) size-[110px] animate-spin-slow'
+    loadingIcon: 'text-(--ui-color-design-plain-content-icon-secondary) size-[110px] animate-spin-slow'
   },
   variants: {
     inner: {
