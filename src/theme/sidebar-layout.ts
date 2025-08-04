@@ -33,8 +33,8 @@ export default {
       'h-full',
       'overflow-hidden',
       'flex flex-col text-(--ui-color-design-plain-content)',
-      'bg-(--ui-color-base-white-fixed) dark:bg-(--ui-color-bg-content-primary) edge-dark:bg-[#21334cf0]',
-      'ring-1 ring-base-950/5 dark:ring-white/10',
+      'bg-(--ui-color-base-white-fixed) context-dark:bg-(--ui-color-bg-content-primary) context-edge-dark:bg-[#21334cf0]',
+      'ring-1 ring-base-950/5 context-dark:ring-white/10',
       'shadow-xs',
       'rounded-none'
     ].join(' '),

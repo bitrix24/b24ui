@@ -1,4 +1,0 @@
-@custom-variant context-light (&:where([class="context-light"] *))
-@custom-variant context-dark (&:where([class="context-dark"] *))
-@custom-variant context-edge-light (&:where([class="context-edge-light"] *))
-@custom-variant context-edge-dark (&:where([class="context-edge-dark"] *))

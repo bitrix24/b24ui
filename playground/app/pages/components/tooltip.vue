@@ -36,14 +36,13 @@ defineShortcuts({
           <B24Tooltip
             :delay-duration="100"
             :content="{ side: 'right' }"
-            :b24ui="{ content: 'bg-blue-400/70 dark:bg-red-400/70' }"
           >
             <template #content>
               <div class="text-pretty max-w-[200px]">
-                <ProseP class="text-red-500">
+                <ProseP small class="text-red-500">
                   Magna copiosae apeirian ius at. <a href="/" class="font-bold text-ai-500 underline hover:text-ai-500/90">An eos iusto solet</a>, id mel dico habemus. Sale liber et vel. Per in illud petentium iudicabit, integre sententiae pro no. Tation delenit percipitur at vix. Per in illud petentium iudicabit, integre sententiae pro no. An nam debet instructior, commodo mediocrem id cum.
                 </ProseP>
-                <ProseP class="text-orange-500">
+                <ProseP small class="text-orange-500">
                   Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Ceteros assentior omittantur cum ad. Ceteros assentior omittantur cum ad. Odio contentiones sed cu, usu commodo prompta prodesset id. Sea esse deserunt ei, no diam ubique euripidis has.
                 </ProseP>
               </div>
@@ -79,12 +78,12 @@ defineShortcuts({
     <ExampleCard title="base">
       <ExampleCardSubTitle title="with arrow" />
       <div class="mb-4 lex flex-col gap-4">
-        <B24Tooltip class="context-light" v-model:open="openState.T" :text="text.long" :kbds="['alt', 'T']" :content="{ side: 'top' }">
+        <B24Tooltip class="flex-col context-light" v-model:open="openState.T" :text="text.long" :kbds="['alt', 'T']" :content="{ side: 'top' }">
           <B24Button label="Top" block />
         </B24Tooltip>
 
         <div class="mt-4 mb-4 grid grid-cols-2 gap-4">
-          <B24Tooltip :b24ui="{ content: 'context-light' }" v-model:open="openState.L" :text="text.long" :kbds="['alt', 'L']" :content="{ side: 'left' }">
+          <B24Tooltip v-model:open="openState.L" :text="text.long" :kbds="['alt', 'L']" :content="{ side: 'left' }">
             <B24Button label="Left" block />
           </B24Tooltip>
 
