@@ -52,7 +52,7 @@ import B24LinkBase from './LinkBase.vue'
 import B24Link from './Link.vue'
 import B24Avatar from './Avatar.vue'
 import B24Kbd from './Kbd.vue'
-// eslint-disable-next-line import/no-self-import
+
 import B24DropdownMenuContent from './DropdownMenuContent.vue'
 
 const props = defineProps<DropdownMenuContentProps<T>>()

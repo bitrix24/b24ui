@@ -22,7 +22,7 @@
     --air-theme-bg-size: 240px 240px;
     --air-theme-bg-repeat: repeat;
     --air-theme-bg-attachment: fixed;
-    --air-theme-bg-color: #eef2f4;
+    --air-theme-bg-color: #f1dbdb87;
   }
 
   .context-edge-dark {
@@ -32,6 +32,6 @@
     --air-theme-bg-size: cover;
     --air-theme-bg-repeat: no-repeat;
     --air-theme-bg-attachment: fixed;
-    --air-theme-bg-color: #b08fa4;
+    --air-theme-bg-color: #162345;
   }
 }

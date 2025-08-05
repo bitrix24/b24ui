@@ -319,9 +319,9 @@ describe('Form', () => {
       emailInput.trigger('focus')
       await flushPromises()
       expect(mockWatchCallback).toHaveBeenCalledTimes(1)
-      // @ts-ignore
+      // @ts-expect-error TS2532: Object is possibly undefined
       expect(mockWatchCallback.mock.calls[0][0].has('email')).toBe(true)
-      // @ts-ignore
+      // @ts-expect-error TS2532: Object is possibly undefined
       expect(mockWatchCallback.mock.calls[0][0].has('password')).toBe(false)
     })
 
@@ -334,9 +334,9 @@ describe('Form', () => {
       emailInput.trigger('change')
       await flushPromises()
       expect(mockWatchCallback).toHaveBeenCalledTimes(1)
-      // @ts-ignore
+      // @ts-expect-error TS2532: Object is possibly undefined
       expect(mockWatchCallback.mock.calls[0][0].has('email')).toBe(true)
-      // @ts-ignore
+      // @ts-expect-error TS2532: Object is possibly undefined
       expect(mockWatchCallback.mock.calls[0][0].has('password')).toBe(false)
     })
 
@@ -349,9 +349,9 @@ describe('Form', () => {
       emailInput.trigger('blur')
       await flushPromises()
       expect(mockWatchCallback).toHaveBeenCalledTimes(1)
-      // @ts-ignore
+      // @ts-expect-error TS2532: Object is possibly undefined
       expect(mockWatchCallback.mock.calls[0][0].has('email')).toBe(true)
-      // @ts-ignore
+      // @ts-expect-error TS2532: Object is possibly undefined
       expect(mockWatchCallback.mock.calls[0][0].has('password')).toBe(false)
     })
 
@@ -363,9 +363,9 @@ describe('Form', () => {
       emailInput.trigger('change')
       await flushPromises()
       expect(mockWatchCallback).toHaveBeenCalledTimes(1)
-      // @ts-ignore
+      // @ts-expect-error TS2532: Object is possibly undefined
       expect(mockWatchCallback.mock.calls[0][0].has('email')).toBe(true)
-      // @ts-ignore
+      // @ts-expect-error TS2532: Object is possibly undefined
       expect(mockWatchCallback.mock.calls[0][0].has('password')).toBe(false)
     })
 

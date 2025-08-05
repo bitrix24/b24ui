@@ -37,7 +37,7 @@ const templates = (id: number) => [
   },
   {
     class: 'context-light',
-    title: `Title for toast ${id}`,
+    title: `Title for albino toast ${id}`,
     description: `${getRandomString(messageList)}Description for toast ${id}`,
     color: getRandomString(colors)
   },

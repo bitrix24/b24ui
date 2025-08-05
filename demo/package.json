@@ -25,7 +25,7 @@
     "typescript": "^5.8.3",
     "vue-tsc": "^3.0.4"
   },
-  "resolutions": {
+  "dd_resolutions": {
     "unimport": "4.1.1"
   }
 }

@@ -78,7 +78,7 @@ defineShortcuts({
     <ExampleCard title="base">
       <ExampleCardSubTitle title="with arrow" />
       <div class="mb-4 lex flex-col gap-4">
-        <B24Tooltip class="flex-col context-light" v-model:open="openState.T" :text="text.long" :kbds="['alt', 'T']" :content="{ side: 'top' }">
+        <B24Tooltip v-model:open="openState.T" class="flex-col context-light" :text="text.long" :kbds="['alt', 'T']" :content="{ side: 'top' }">
           <B24Button label="Top" block />
         </B24Tooltip>
 

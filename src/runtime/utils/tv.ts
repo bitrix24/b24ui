@@ -1,16 +1,12 @@
 import { createTV } from 'tailwind-variants'
-// import { createTailwindMerge } from 'tailwind-merge'
 import type { defaultConfig } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
 import appConfig from '#build/app.config'
 
 const appConfigTv = appConfig as AppConfig & { b24ui: { tv: typeof defaultConfig } }
 
-const customTwMerge = {
-  cacheSize: 500,
+const twMergeConfig = {
   theme: {},
-  orderSensitiveModifiers: [],
-  conflictingClassGroupModifiers: {},
   classGroups: {
     'b24-context': [
       'context-light', 'context-dark',
@@ -35,5 +31,5 @@ const customTwMerge = {
 export const tv = /* @__PURE__ */ createTV({
   ...(appConfigTv.b24ui?.tv || {}),
   twMerge: true,
-  twMergeConfig: customTwMerge
+  twMergeConfig
 })

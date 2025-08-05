@@ -13,20 +13,20 @@ export default {
     icon: 'shrink-0 size-7',
     avatar: 'shrink-0',
     avatarSize: 'sm',
-    label: 'text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset)'
+    label: ''
   },
   variants: {
     accent: {
       default: {
-        container: 'text-(--ui-color-design-plain-na-content-secondary)',
+        container: 'text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset)',
         border: 'border-(--ui-color-divider-default)'
       },
       accent: {
-        container: 'text-(--ui-color-design-plain-na-content)',
+        container: 'text-(--ui-color-design-plain-na-content) text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset)',
         border: 'border-(--ui-color-divider-accent)'
       },
       less: {
-        container: 'text-(--ui-color-base-6)',
+        container: 'text-(--ui-color-base-6) text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset)',
         border: 'border-(--ui-color-divider-less)'
       }
     },

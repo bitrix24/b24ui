@@ -480,7 +480,7 @@ const openSliderTopAndBottom = async () => {
             content: 'sm:max-w-[970px]',
             sidebarLayoutRoot: [
               'context-edge-dark',
-              'context-edge-dark:[--air-theme-bg-color:#8188b5]',
+              'context-edge-dark:[--air-theme-bg-color:#7c235b]',
               'context-edge-dark:[--air-theme-bg-size:cover]',
               'context-edge-dark:[--air-theme-bg-repeat:no-repeat]',
               'context-edge-dark:[--air-theme-bg-position:0_0]',
