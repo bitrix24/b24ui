@@ -6,47 +6,55 @@
  */
 export default {
   slots: {
-    root: 'inline-flex items-center justify-center shrink-0 select-none rounded-full align-middle bg-base-100',
+    root: [
+      'air-secondary-accent',
+      'inline-flex items-center justify-center shrink-0',
+      'select-none',
+      'rounded-full',
+      'align-middle',
+      'bg-(--ui-color-base-8)',
+      'ring ring-(--ui-color-base-7)'
+    ].join(' '),
     image: 'h-full w-full rounded-[inherit] object-cover',
-    fallback: 'font-medium text-base-500 truncate',
-    icon: 'text-base-500 shrink-0'
+    fallback: 'font-(--ui-font-weight-medium) text-(--ui-color-design-plain-content-icon-secondary) truncate',
+    icon: 'text-(--ui-color-design-plain-content-icon-secondary) shrink-0'
   },
   variants: {
     size: {
       '3xs': {
-        root: 'size-xs2 text-4xs font-regular',
-        icon: 'size-xs2'
+        root: 'size-[10px] text-4xs font-(--ui-font-weight-regular)',
+        icon: 'size-[10px]'
       },
       '2xs': {
-        root: 'size-5 text-4xs font-regular',
-        icon: 'size-5'
+        root: 'size-[20px] text-(length:--ui-font-size-4xs)/(--ui-font-line-height-reset) font-(--ui-font-weight-regular)',
+        icon: 'size-[20px]'
       },
       'xs': {
-        root: 'size-6 text-3xs font-regular',
-        icon: 'size-6'
+        root: 'size-[24px] text-(length:--ui-font-size-3xs)/(--ui-font-line-height-reset) font-(--ui-font-weight-regular)',
+        icon: 'size-[24px]'
       },
       'sm': {
-        root: 'size-7 text-xs',
-        icon: 'size-7'
+        root: 'size-[28px] text-(length:--ui-font-size-xs)/(--ui-font-line-height-reset)',
+        icon: 'size-[28px]'
       },
       'md': {
-        root: 'size-8 text-sm',
-        icon: 'size-8'
+        root: 'size-[32px] text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset)',
+        icon: 'size-[32px]'
       },
       'lg': {
-        root: 'size-[42px] text-2xl',
+        root: 'size-[42px] text-(length:--ui-font-size-2xl)/(--ui-font-line-height-reset)',
         icon: 'size-[42px]'
       },
       'xl': {
-        root: 'size-12 text-2xl',
-        icon: 'size-12'
+        root: 'ring-2 size-[48px] text-(length:--ui-font-size-2xl)/(--ui-font-line-height-reset)',
+        icon: 'size-[48px]'
       },
       '2xl': {
-        root: 'size-[60px] text-5xl',
+        root: 'ring-2 size-[60px] text-(length:--ui-font-size-5xl)/(--ui-font-line-height-reset)',
         icon: 'size-[60px]'
       },
       '3xl': {
-        root: 'size-[94px] text-[34px]',
+        root: 'ring-2 size-[94px] text-[34px]/(--ui-font-line-height-reset)',
         icon: 'size-[94px]'
       }
     }

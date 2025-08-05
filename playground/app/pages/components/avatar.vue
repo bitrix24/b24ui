@@ -64,18 +64,18 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
       </div>
       <ExampleCardSubTitle title="max:4" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24AvatarGroup v-for="size in sizes" :key="size" :size="size" :max="4" :b24ui="{ base: 'ring-green-550 dark:ring-green-700' }">
+        <B24AvatarGroup v-for="size in sizes" :key="size" :size="size" :max="4" :b24ui="{ base: 'ring-(--ui-color-blue-40)' }">
           <B24Avatar src="/avatar/employee.png" alt="Employee Name" :size="size" />
           <B24Avatar src="/avatar/assistant.png" alt="Assistant Name" :size="size" />
-          <B24Avatar src="/avatar/employee.png" alt="Employee Name" :size="size" :chip="{ color: 'ai', size }" />
+          <B24Avatar src="/avatar/employee.png" alt="Employee Name" :size="size" :chip="{ color: 'air-primary-copilot', size }" />
         </B24AvatarGroup>
       </div>
       <ExampleCardSubTitle title="bg & ring" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24AvatarGroup v-for="size in sizes" :key="size" :size="size" :max="4" :b24ui="{ base: 'bg-white ring-base-150' }">
-          <B24Avatar :icon="PersonIcon" alt="Person" :b24ui="{ icon: 'text-base-150' }" />
-          <B24Avatar :icon="PersonIcon" alt="Person" :b24ui="{ icon: 'text-base-150' }" />
-          <B24Avatar :icon="PersonIcon" alt="Person" :b24ui="{ icon: 'text-base-150' }" />
+        <B24AvatarGroup v-for="size in sizes" :key="size" :size="size" :max="4" :b24ui="{ base: 'bg-(--ui-color-green-35) ring-(--ui-color-green-55)' }">
+          <B24Avatar :icon="PersonIcon" alt="Person" :b24ui="{ icon: 'text-(--ui-color-green-95)' }" />
+          <B24Avatar :icon="PersonIcon" alt="Person" :b24ui="{ icon: 'text-(--ui-color-green-95)' }" />
+          <B24Avatar :icon="PersonIcon" alt="Person" :b24ui="{ icon: 'text-(--ui-color-green-95)' }" />
         </B24AvatarGroup>
       </div>
     </ExampleCard>
