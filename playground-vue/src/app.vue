@@ -101,7 +101,7 @@ const getLightContent = computed(() => {
     containerWrapper: ''
   }
 
-  if(!isSidebarLayoutUseLightContent.value) {
+  if (!isSidebarLayoutUseLightContent.value) {
     return result
   }
 

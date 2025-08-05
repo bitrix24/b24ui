@@ -73,7 +73,7 @@ onMounted(() => {
     <ExampleCard title="disabled">
       <B24Separator class="my-3" type="dotted" />
       <div class="flex flex-col gap-4 min-h-[250px]">
-        <B24Accordion :items="items" :disabled="true"/>
+        <B24Accordion :items="items" :disabled="true" />
       </div>
     </ExampleCard>
 

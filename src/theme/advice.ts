@@ -14,9 +14,7 @@ export default {
       'flex items-end'
     ].join(' '),
     descriptionWrapper: 'relative',
-    descriptionBorder: [
-      'fill-(--b24ui-border-color)',
-    ].join(' '),
+    descriptionBorder: 'fill-(--b24ui-border-color)',
     descriptionBg: [
       'fill-(--b24ui-background)',
       'context-dark:fill-(--ui-color-base-6)'
