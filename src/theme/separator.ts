@@ -19,15 +19,15 @@ export default {
     accent: {
       default: {
         container: 'text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset)',
-        border: 'border-(--ui-color-divider-default)'
+        border: 'border-(--ui-color-divider-vibrant-default)'
       },
       accent: {
         container: 'text-(--ui-color-design-plain-na-content) text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset)',
-        border: 'border-(--ui-color-divider-accent)'
+        border: 'border-(--ui-color-divider-vibrant-accent-more)'
       },
       less: {
         container: 'text-(--ui-color-base-6) text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset)',
-        border: 'border-(--ui-color-divider-less)'
+        border: 'border-(--ui-color-divider-vibrant-less)'
       }
     },
     orientation: {
