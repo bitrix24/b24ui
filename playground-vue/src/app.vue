@@ -96,6 +96,33 @@ function toggleMode() {
   }
 }
 
+const getLightContent = computed(() => {
+  const result = {
+    containerWrapper: ''
+  }
+
+  if(!isSidebarLayoutUseLightContent.value) {
+    return result
+  }
+
+  switch (mode.value) {
+    case 'dark':
+      result.containerWrapper = 'context-dark'
+      break
+    case 'light':
+      result.containerWrapper = 'context-light'
+      break
+    case 'edgeDark':
+      result.containerWrapper = 'context-light'
+      break
+    case 'edgeLight':
+      result.containerWrapper = 'context-light'
+      break
+  }
+
+  return result
+})
+
 const colorModeIcon = computed(() => {
   const theme = itemsForColorMode.find((row) => {
     return row.code === mode.value
@@ -105,8 +132,6 @@ const colorModeIcon = computed(() => {
     return theme.icon
   }
 
-  console.warn('colorModeIcon', false)
-  console.warn(false)
   return MoonIcon
 })
 
@@ -171,6 +196,7 @@ const { isSidebarLayoutUseLightContent, isSidebarLayoutClearContent, checkedUseL
     <B24SidebarLayout
       ref="currentSidebarRef"
       :use-light-content="isSidebarLayoutUseLightContent"
+      :b24ui="getLightContent"
     >
       <template #sidebar>
         <B24SidebarHeader>

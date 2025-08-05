@@ -144,9 +144,9 @@ export default {
     useLightContent: {
       true: {
         containerWrapper: [
-          'context-light',
+          // @memo set context-* from component
           'text-(--ui-color-text-primary)',
-          'bg-(--ui-color-bg-content-primary) context-dark:bg-(--ui-color-base-7)/80 context-edge-dark:bg-(--ui-color-base-7)/95' // backdrop-blur-md
+          'bg-(--ui-color-bg-content-primary) ' // backdrop-blur-md context-dark:bg-(--ui-color-base-7)/80 context-edge-dark:bg-(--ui-color-base-7)/95
         ].join(' ')
       },
       false: {

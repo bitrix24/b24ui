@@ -288,7 +288,7 @@ defineExpose<SidebarLayoutInstance>({
           <template v-if="!!slots['default']">
             <!-- Page Content -->
             <div
-              :data-content="props.useLightContent ? 'light' : 'not-set'"
+              :data-content="props.useLightContent ? 'use-light' : 'not-set'"
               :class="b24ui.containerWrapper({ class: props.b24ui?.containerWrapper })"
             >
               <div :class="b24ui.containerWrapperInner({ class: props.b24ui?.containerWrapperInner })">
