@@ -35,11 +35,23 @@ const items = [
     count: 1000
   }
 ]
+
+const oldColors = computed(() => {
+  return colors.filter((color) => {
+    return !color.includes('air')
+  })
+})
+
+const airColors = computed(() => {
+  return colors.filter((color) => {
+    return color.includes('air')
+  })
+})
 </script>
 
 <template>
-  <ExampleGrid v-once>
-    <ExampleCard title="inset">
+  <ExampleGrid v-once class="mb-2">
+    <ExampleCard title="inset" class="sm:col-span-2">
       <template v-for="size in sizes" :key="size">
         <ExampleCardSubTitle :title="size as string" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
@@ -48,7 +60,7 @@ const items = [
             :key="position"
             :position="position"
             :size="size"
-            color="success"
+            color="air-primary-success"
             inset
           >
             <B24Avatar
@@ -57,40 +69,57 @@ const items = [
               alt="Employee Name"
             />
           </B24Chip>
-        </div>
-      </template>
-    </ExampleCard>
-    <template v-for="color in colors" :key="color">
-      <ExampleCard :title="color as string">
-        <template v-for="size in sizes" :key="size">
-          <ExampleCardSubTitle :title="size as string" />
-          <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-            <B24Chip v-for="position in positions" :key="position" :position="position" :size="size" :color="color">
-              <B24Button :icon="MailIcon" color="link" depth="dark" />
-            </B24Chip>
-          </div>
-        </template>
-      </ExampleCard>
-    </template>
-    <ExampleCard title="B24Button">
-      <template v-for="size in sizes" :key="size">
-        <ExampleCardSubTitle :title="size as string" />
-        <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-          <B24Chip v-for="{ name, icon, count } in items" :key="name" :text="count" :size="size">
-            <B24Button :icon="icon" color="link" depth="dark" />
-          </B24Chip>
-        </div>
-      </template>
-    </ExampleCard>
-    <ExampleCard title="B24Avatar">
-      <template v-for="size in sizes" :key="size">
-        <ExampleCardSubTitle :title="size as string" />
-        <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
           <B24Chip v-for="{ name, count } in items" :key="name" :text="count" :size="size" inset>
             <B24Avatar src="/avatar/assistant.png" alt="Assistant Name" :size="(size === '3xs' ? '2xs' : size)" />
           </B24Chip>
         </div>
       </template>
     </ExampleCard>
+    <ExampleCard title="B24Button" class="sm:col-span-2">
+      <template v-for="size in sizes" :key="size">
+        <ExampleCardSubTitle :title="size as string" />
+        <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+          <B24Chip v-for="{ name, icon, count } in items" :key="name" :text="count" :size="size">
+            <B24Button :icon="icon" color="air-secondary-no-accent" />
+          </B24Chip>
+        </div>
+      </template>
+    </ExampleCard>
+    <template v-for="color in airColors" :key="color">
+      <ExampleCard :title="color as string" class="sm:col-span-2">
+        <template v-for="size in sizes" :key="size">
+          <ExampleCardSubTitle :title="size as string" />
+          <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+            <B24Chip v-for="position in positions" :key="position" :position="position" :size="size" :color="color">
+              <B24Button :icon="MailIcon" color="air-secondary-no-accent" />
+            </B24Chip>
+          </div>
+        </template>
+      </ExampleCard>
+    </template>
   </ExampleGrid>
+
+  <B24Collapsible class="mb-2">
+    <B24Button
+      color="air-secondary-no-accent"
+      label="Deprecate"
+      use-dropdown
+    />
+    <template #content>
+      <ExampleGrid v-once class="mb-2">
+        <template v-for="color in oldColors" :key="color">
+          <ExampleCard :title="color as string" class="sm:col-span-2">
+            <template v-for="size in sizes" :key="size">
+              <ExampleCardSubTitle :title="size as string" />
+              <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+                <B24Chip v-for="position in positions" :key="position" :position="position" :size="size" :color="color">
+                  <B24Button :icon="MailIcon" color="air-secondary-no-accent" />
+                </B24Chip>
+              </div>
+            </template>
+          </ExampleCard>
+        </template>
+      </ExampleGrid>
+    </template>
+  </B24Collapsible>
 </template>

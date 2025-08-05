@@ -12,20 +12,48 @@
 
 export default {
   slots: {
-    root: 'relative inline-flex items-center justify-center shrink-0',
-    base: 'select-none rounded-sm flex items-center justify-center p-1 text-white leading-none font-semibold font-b24-secondary whitespace-nowrap'
+    root: [
+      '',
+      'relative inline-flex items-center justify-center shrink-0'
+    ].join(' '),
+    base: [
+      'context-light',
+      'select-none',
+      'rounded-sm',
+      'flex items-center justify-center',
+      'p-1',
+      'bg-(--b24ui-background-hover)',
+      'text-(--b24ui-color)',
+      'leading-none font-semibold font-b24-secondary',
+      'whitespace-nowrap'
+    ].join(' ')
   },
   variants: {
     color: {
-      default: 'bg-base-500 dark:bg-base-900 dark:text-base-150',
-      danger: 'bg-red-500 dark:bg-red-600 dark:text-red-250',
-      success: 'bg-green-500 dark:bg-green-600 dark:text-green-250',
-      warning: 'bg-orange-500 dark:bg-orange-600 dark:text-orange-250',
-      primary: 'bg-blue-500 dark:bg-blue-600 dark:text-blue-250',
-      secondary: 'bg-cyan-350 dark:bg-cyan-500',
-      collab: 'bg-collab-500 dark:bg-collab-800 dark:text-collab-250',
-      ai: 'bg-ai-500 dark:bg-ai-800 dark:text-ai-250',
-      link: 'bg-base-900/85 text-white dark:bg-white/85 dark:text-base-900'
+      'air-primary': { base: 'air-primary' },
+      'air-primary-success': { base: 'air-primary-success' },
+      'air-primary-alert': { base: 'air-primary-alert' },
+      'air-primary-copilot': { base: 'air-primary-copilot' },
+      'air-secondary': { base: 'air-secondary' },
+      'air-secondary-alert': { base: 'air-secondary-alert' },
+      // @deprecate ////
+      'default': { base: 'old-style-default' },
+      'danger': { base: 'old-style-danger' },
+      'success': { base: 'old-style-success' },
+      'warning': { base: 'old-style-warning' },
+      'primary': { base: 'old-style-primary' },
+      'secondary': { base: 'old-style-secondary' },
+      'collab': { base: 'old-style-collab' },
+      'ai': { base: 'old-style-ai' }
+      // default: 'bg-base-500 dark:bg-base-900 dark:text-base-150',
+      // danger: 'bg-red-500 dark:bg-red-600 dark:text-red-250',
+      // success: 'bg-green-500 dark:bg-green-600 dark:text-green-250',
+      // warning: 'bg-orange-500 dark:bg-orange-600 dark:text-orange-250',
+      // primary: 'bg-blue-500 dark:bg-blue-600 dark:text-blue-250',
+      // secondary: 'bg-cyan-350 dark:bg-cyan-500',
+      // collab: 'bg-collab-500 dark:bg-collab-800 dark:text-collab-250',
+      // ai: 'bg-ai-500 dark:bg-ai-800 dark:text-ai-250',
+      // link: 'bg-base-900/85 text-white dark:bg-white/85 dark:text-base-900'
     },
     size: {
       '3xs': 'h-1 min-w-1 text-[0px] text-transparent p-0',
@@ -49,7 +77,7 @@ export default {
     },
     standalone: {
       true: '',
-      false: 'ring ring-white dark:ring-base-700 absolute'
+      false: 'ring ring-(--b24ui-border-color) absolute'
     }
   },
   compoundVariants: [
@@ -138,7 +166,7 @@ export default {
   ],
   defaultVariants: {
     size: 'sm',
-    color: 'danger',
+    color: 'air-primary-alert',
     position: 'top-right'
   }
 }
