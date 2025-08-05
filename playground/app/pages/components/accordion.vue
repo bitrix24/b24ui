@@ -6,6 +6,7 @@ import ExampleCard from '../../components/ExampleCard.vue'
 import IncertImageIcon from '@bitrix24/b24icons-vue/editor/IncertImageIcon'
 import CalculatorIcon from '@bitrix24/b24icons-vue/main/CalculatorIcon'
 import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
+import CollapseIcon from '@bitrix24/b24icons-vue/actions/CollapseIcon'
 
 usePageMeta.setPageTitle('Accordion')
 
@@ -19,7 +20,7 @@ const items = ref<AccordionItem[]>([
     label: 'Colors',
     icon: CalculatorIcon,
     content: 'Choose a primary color from your Tailwind CSS theme.',
-    trailingIcon: RocketIcon
+    trailingIcon: CollapseIcon
   },
   {
     label: 'Components',
@@ -72,7 +73,7 @@ onMounted(() => {
     <ExampleCard title="disabled">
       <B24Separator class="my-3" type="dotted" />
       <div class="flex flex-col gap-4 min-h-[250px]">
-        <B24Accordion :items="items" disabled />
+        <B24Accordion :items="items" :disabled="true"/>
       </div>
     </ExampleCard>
 

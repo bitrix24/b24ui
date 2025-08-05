@@ -83,6 +83,8 @@
     - air-tertiary, air-tertiary-accent, air-tertiary-no-accent
   - @deprecate
     - default, danger, success, warning, primary, secondary, collab, ai
+* Accordion
+  - fix color
 
 We change btn colors:
 
