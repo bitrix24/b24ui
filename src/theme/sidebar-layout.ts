@@ -146,7 +146,7 @@ export default {
         containerWrapper: [
           'context-light',
           'text-(--ui-color-text-primary)',
-          'bg-(--ui-color-bg-content-primary)' // backdrop-blur-md
+          'bg-(--ui-color-bg-content-primary) context-dark:bg-(--ui-color-base-7)/80 context-edge-dark:bg-(--ui-color-base-7)/95' // backdrop-blur-md
         ].join(' ')
       },
       false: {
