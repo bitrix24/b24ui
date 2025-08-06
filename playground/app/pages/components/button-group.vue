@@ -110,7 +110,7 @@ function onClick() {
             use-clock
             @click="onClick"
           />
-          <B24Button color="default" use-dropdown />
+          <B24Button use-dropdown />
         </B24ButtonGroup>
       </div>
 
