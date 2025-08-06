@@ -75,11 +75,11 @@ function openModal() {
       <ExampleCardSubTitle title="overlay" />
       <div class="mb-4 flex flex-row flex-wrap gap-2">
         <B24Modal
-          title="Modal with overlay blur"
-          description="This modal has `overlay-blur: auto` prop."
-          overlay-blur="auto"
+          title="Modal without overlay blur"
+          description="This modal has `overlay-blur: off` prop."
+          overlay-blur="off"
         >
-          <B24Button label="Open with overlay blur" />
+          <B24Button label="Open without overlay blur" />
         </B24Modal>
 
         <B24Modal
