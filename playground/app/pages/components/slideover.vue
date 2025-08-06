@@ -425,9 +425,12 @@ const openSliderTopAndBottom = async () => {
             <MockSidebarLayoutMenu orientation="horizontal" />
           </template>
           <template #header>
-            <MockSidebarLayoutTop>
-              Bottom
-            </MockSidebarLayoutTop>
+            <div class="w-full flex flex-col gap-[20px]">
+              <MockSidebarLayoutTopProfile class="flex" />
+              <MockSidebarLayoutTop class="flex-row">
+                Bottom
+              </MockSidebarLayoutTop>
+            </div>
           </template>
           <template #actions>
             <MockSidebarLayoutActions />
@@ -492,9 +495,12 @@ const openSliderTopAndBottom = async () => {
         >
           <B24Button label="List" />
           <template #header>
-            <MockSidebarLayoutTop>
-              List
-            </MockSidebarLayoutTop>
+            <div class="w-full flex flex-col gap-[20px]">
+              <MockSidebarLayoutTopProfile class="flex" />
+              <MockSidebarLayoutTop class="flex-row">
+                List
+              </MockSidebarLayoutTop>
+            </div>
           </template>
           <template #body>
             <div class="context-light px-0.5 rounded-(--ui-border-radius-md) bg-(--ui-color-background-primary)">

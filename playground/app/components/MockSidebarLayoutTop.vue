@@ -4,21 +4,26 @@ import TaskIcon from '@bitrix24/b24icons-vue/button/TaskIcon'
 </script>
 
 <template>
-  <ProseH2 class="font-semibold mb-0">
-    <slot />
-  </ProseH2>
+  <div class="flex items-center">
+    <div class="w-full flex items-center gap-[20px]">
+      <ProseH2 class="font-semibold mb-0">
+        <slot />
+      </ProseH2>
 
-  <B24ButtonGroup size="md">
-    <B24Button label="Create" color="air-primary-success" />
-    <B24Button color="air-primary-success" use-dropdown />
-  </B24ButtonGroup>
-  <div class="hidden sm:flex">
-    <B24Input
-      size="sm"
-    />
-  </div>
-  <div class="flex-1 hidden sm:flex flex-row items-center justify-end gap-[12px]">
-    <B24Button size="sm" :icon="SettingsLIcon" color="air-secondary-accent" />
-    <B24Button size="sm" :icon="TaskIcon" color="air-secondary-accent" />
+      <B24ButtonGroup size="md">
+        <B24Button label="Create" color="air-primary-success" />
+        <B24Button color="air-primary-success" use-dropdown />
+      </B24ButtonGroup>
+
+      <div class="hidden sm:flex">
+        <B24Input
+          size="sm"
+        />
+      </div>
+    </div>
+    <div class="flex-1 hidden sm:flex flex-row items-center justify-end gap-[12px]">
+      <B24Button size="sm" :icon="SettingsLIcon" color="air-secondary-accent" />
+      <B24Button size="sm" :icon="TaskIcon" color="air-secondary-accent" />
+    </div>
   </div>
 </template>

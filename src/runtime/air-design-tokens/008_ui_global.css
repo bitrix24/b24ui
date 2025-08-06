@@ -491,6 +491,15 @@
 
     background: var(--b24ui-background-gradient);
   }
+
+  /**
+   * @memo you can use backdrop-blur-sm backdrop-brightness-120
+   */
+  .style-blurred-bg {
+    background:
+      linear-gradient(to right, var(--ui-color-design-outline-na-bg), var(--ui-color-design-outline-na-bg)),
+      var(--air-theme-background-blurred, none);
+  }
   /*endregion*/
 
   /*region old*/

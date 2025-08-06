@@ -290,9 +290,12 @@ const { isSidebarLayoutUseLightContent, isSidebarLayoutClearContent, checkedUseL
         v-if="route.path !== '/' && !isSidebarLayoutClearContent"
         #content-top
       >
-        <MockSidebarLayoutTop>
-          {{ usePageMeta.getPageTitle() }}
-        </MockSidebarLayoutTop>
+        <div class="w-full flex flex-col gap-[20px]">
+          <MockSidebarLayoutTopProfile class="flex" />
+          <MockSidebarLayoutTop class="flex-row">
+            {{ usePageMeta.getPageTitle() }}
+          </MockSidebarLayoutTop>
+        </div>
       </template>
 
       <template
