@@ -54,7 +54,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
       </div>
     </ExampleCard>
     <ExampleCard title="Avatar Group" class="col-span-2">
-      <ExampleCardSubTitle title="max:2" />
+      <ExampleCardSubTitle title="max: 2" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24AvatarGroup v-for="size in sizes" :key="size" :size="size" :max="2">
           <B24Avatar src="/avatar/employee.png" alt="Employee Name" />
@@ -62,12 +62,12 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
           <B24Avatar src="/avatar/employee.png" alt="Employee Name" class="grayscale" />
         </B24AvatarGroup>
       </div>
-      <ExampleCardSubTitle title="max:4" />
+      <ExampleCardSubTitle title="max: 4" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24AvatarGroup v-for="size in sizes" :key="size" :size="size" :max="4" :b24ui="{ base: 'ring-(--ui-color-blue-40)' }">
+        <B24AvatarGroup v-for="size in ['sm', 'md', 'lg']" :key="size" :size="size" :max="4" :b24ui="{ base: 'ring-(--ui-color-blue-40)' }">
           <B24Avatar src="/avatar/employee.png" alt="Employee Name" :size="size" />
           <B24Avatar src="/avatar/assistant.png" alt="Assistant Name" :size="size" />
-          <B24Avatar src="/avatar/employee.png" alt="Employee Name" :size="size" :chip="{ color: 'air-primary-copilot', size }" />
+          <B24Avatar src="/avatar/employee.png" alt="Employee Name" :size="size" :chip="{ color: 'air-primary-copilot', size: 'sm', inset: true }" />
         </B24AvatarGroup>
       </div>
       <ExampleCardSubTitle title="bg & ring" />
