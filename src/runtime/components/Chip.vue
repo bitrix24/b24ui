@@ -24,6 +24,12 @@ export interface ChipProps {
    */
   color?: Chip['variants']['color']
   /**
+   * If set to `true` the color is inverted.
+   * Used for 'air-primary', 'air-primary-success', 'air-primary-alert', 'air-primary-copilot' and 'air-primary-warning' colors.
+   * @defaultValue false
+   */
+  inverted?: boolean
+  /**
    * @defaultValue 'sm'
    */
   size?: Chip['variants']['size']
@@ -32,12 +38,6 @@ export interface ChipProps {
    * @defaultValue 'top-right'
    */
   position?: Chip['variants']['position']
-  /**
-   * If set to `true` the color is inverted.
-   * Used for 'air-primary', 'air-primary-success', 'air-primary-alert', 'air-primary-copilot' and 'air-primary-warning' colors.
-   * @defaultValue false
-   */
-  inverted?: boolean
   /**
    * When `true`, keep the chip inside the component for rounded elements
    * @defaultValue false
@@ -91,9 +91,9 @@ const appConfig = useAppConfig() as Chip['AppConfig']
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chip || {}) })({
   color: props.color,
+  inverted: Boolean(props.inverted),
   size: props.size, // size.value
   position: props.position,
-  inverted: Boolean(props.inverted),
   inset: Boolean(props.inset),
   standalone: Boolean(props.standalone),
   hideZero: Boolean(props.hideZero),

@@ -10,7 +10,7 @@ export default {
   slots: {
     root: [
       'context-light',
-      'air-secondary-accent-1',
+      'style-outline-accent-1',
       'flex items-end'
     ].join(' '),
     descriptionWrapper: 'relative',

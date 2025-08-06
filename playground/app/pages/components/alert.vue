@@ -90,8 +90,8 @@ const airColors = computed(() => {
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24Alert :title="data.title" />
         <B24Alert :title="data.title" :icon="data.icon" description="example with multiple actions." :actions="multipleActions()" />
-        <B24Alert class="air-primary" :title="data.title" />
-        <B24Alert class="context-edge-dark air-primary" :title="data.title" :icon="data.icon" description="example with multiple actions." :actions="multipleActions()" />
+        <B24Alert class="style-filled" :title="data.title" />
+        <B24Alert class="context-edge-dark style-filled-success" :title="data.title" :icon="data.icon" description="example with multiple actions." :actions="multipleActions()" />
       </div>
       <template v-for="size in sizes" :key="size">
         <ExampleCardSubTitle :title="size as string" />
@@ -145,6 +145,7 @@ const airColors = computed(() => {
             :actions="action()"
             orientation="horizontal"
             size="sm"
+            inverted
           />
           <B24Alert
             :title="data.title"
@@ -180,6 +181,7 @@ const airColors = computed(() => {
             :close="data.close"
             :color="color"
             :actions="multipleActions()"
+            inverted
           />
         </div>
       </ExampleCard>

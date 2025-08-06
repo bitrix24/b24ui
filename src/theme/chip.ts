@@ -195,27 +195,37 @@ export default {
     {
       inverted: true,
       color: 'air-primary',
-      class: 'style-filled-inverted'
+      class: {
+        base: 'style-filled-inverted'
+      }
     },
     {
       inverted: true,
       color: 'air-primary-success',
-      class: 'style-filled-success-inverted'
+      class: {
+        base: 'style-filled-success-inverted'
+      }
     },
     {
       inverted: true,
       color: 'air-primary-alert',
-      class: 'style-filled-alert-inverted'
+      class: {
+        base: 'style-filled-alert-inverted'
+      }
     },
     {
       inverted: true,
       color: 'air-primary-copilot',
-      class: 'style-filled-copilot-inverted'
+      class: {
+        base: 'style-filled-copilot-inverted'
+      }
     },
     {
       inverted: true,
       color: 'air-primary-warning',
-      class: 'style-filled-warning-inverted'
+      class: {
+        base: 'style-filled-warning-inverted'
+      }
     }
     // endregion ////
   ],

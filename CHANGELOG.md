@@ -78,10 +78,12 @@
 * Alert
   - fix color
   - add color
-    - air-primary, air-primary-success, air-primary-alert, air-primary-copilot
-    - air-secondary, air-secondary-alert
+    - air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning,
+    - air-secondary, air-secondary-alert, air-secondary-accent, air-secondary-accent-1, air-secondary-accent-2, air-secondary-no-accent
+    - air-tertiary, air-tertiary-accent, air-tertiary-no-accent
   - @deprecate
     - default, danger, success, warning, primary, secondary, collab, ai
+  - add prop inverted
 * Accordion
   - fix color
 * Advice
@@ -95,7 +97,7 @@
   - add prop trailingIcon
   - add prop inverted
   - add color
-    - air-primary, air-primary-success, air-primary-alert, air-primary-warning, air-primary-copilot,
+    - air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning,
     - air-secondary, air-secondary-accent, air-secondary-accent-1, air-secondary-no-accent
   - @deprecate color
     - default, danger, success, warning, primary, secondary, collab, ai

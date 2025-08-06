@@ -25,6 +25,12 @@ export interface AlertProps {
    */
   color?: Alert['variants']['color']
   /**
+   * If set to `true` the color is inverted.
+   * Used for 'air-primary', 'air-primary-success', 'air-primary-alert', 'air-primary-copilot' and 'air-primary-warning' colors.
+   * @defaultValue false
+   */
+  inverted?: boolean
+  /**
    * The orientation between the content and the actions.
    * @defaultValue 'vertical'
    */
@@ -81,6 +87,7 @@ import B24Avatar from './Avatar.vue'
 import B24Button from './Button.vue'
 
 const props = withDefaults(defineProps<AlertProps>(), {
+  inverted: false,
   orientation: 'vertical'
 })
 const emits = defineEmits<AlertEmits>()
@@ -91,6 +98,7 @@ const appConfig = useAppConfig() as Alert['AppConfig']
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.alert || {}) })({
   color: props.color,
+  inverted: Boolean(props.inverted),
   size: props.size,
   orientation: props.orientation,
   title: !!props.title || !!slots.title
