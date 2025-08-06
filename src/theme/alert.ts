@@ -17,8 +17,7 @@ export default {
     ].join(' '),
     wrapper: [
       'min-w-0 flex-1 flex flex-col',
-      'font-[family-name:var(--ui-font-family-primary)]',
-      'font-normal font-(--ui-font-weight-normal)'
+      'font-[family-name:var(--ui-font-family-primary)]'
     ].join(' '),
     title: 'font-bold',
     description: '',
