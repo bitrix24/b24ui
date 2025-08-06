@@ -7,6 +7,7 @@ import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
 import DownloadDoubleIcon from '@bitrix24/b24icons-vue/actions/DownloadDoubleIcon'
 import TaskIcon from '@bitrix24/b24icons-vue/button/TaskIcon'
+import TrendDownIcon from '@bitrix24/b24icons-vue/outline/TrendDownIcon'
 
 usePageMeta.setPageTitle('Button')
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
@@ -118,7 +119,7 @@ const airColors = computed(() => {
 
       <ExampleCardSubTitle title="chip" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Chip text="+1">
+        <B24Chip text="1" :trailing-icon="TrendDownIcon">
           <B24Button label="Button" loading-auto use-clock @click="onClick" />
         </B24Chip>
         <B24Chip>
@@ -126,7 +127,7 @@ const airColors = computed(() => {
         </B24Chip>
         <B24Button label="Button" loading-auto use-clock @click="onClick">
           <template #trailing>
-            <B24Chip standalone text="+1" />
+            <B24Chip standalone text="1" />
           </template>
         </B24Button>
       </div>

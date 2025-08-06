@@ -7,7 +7,11 @@ import TrendUpIcon from '@bitrix24/b24icons-vue/outline/TrendUpIcon'
 <template>
   <B24ButtonGroup size="sm" no-split>
     <B24Button label="List" color="air-secondary-accent" active active-color="air-selection" />
-    <B24Button label="Deadline" color="air-secondary-accent" active-color="air-selection" />
+    <B24Button label="Deadline" color="air-secondary-accent" active-color="air-selection">
+      <template #leading>
+        <B24Chip standalone text="0" size="md" color="air-secondary" />
+      </template>
+    </B24Button>
     <B24Button label="Planner" color="air-secondary-accent" active-color="air-selection" />
   </B24ButtonGroup>
   <B24ButtonGroup class="hidden sm:flex" size="sm" no-split>

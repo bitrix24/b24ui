@@ -14,7 +14,7 @@
 export default {
   slots: {
     root: [
-      'relative shrink-0',
+      'relative shrink-0 isolate',
       'inline-flex items-center justify-center'
     ].join(' '),
     base: [
@@ -31,7 +31,7 @@ export default {
       'ring-(length:--b24ui-border-width) ring-(--b24ui-border-color)',
       'text-center align-middle',
       'text-(length:--ui-counter-font-size) text-(--b24ui-color)',
-      'leading-[inherit]',
+      'leading-(--ui-counter-current-size)',
       'overflow-hidden',
       'z-1'
       // fix

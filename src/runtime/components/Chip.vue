@@ -97,7 +97,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chip |
   inset: Boolean(props.inset),
   standalone: Boolean(props.standalone),
   hideZero: Boolean(props.hideZero),
-  oneDigit: props.text?.toString().length === 1
+  oneDigit: !props.trailingIcon && props.text?.toString().length === 1
 }))
 
 const value = computed(() => {

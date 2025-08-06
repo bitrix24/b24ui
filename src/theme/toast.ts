@@ -37,7 +37,7 @@ export default {
     wrapper: 'w-0 flex-1 flex flex-col',
     title: 'font-(--ui-font-weight-medium)',
     description: '',
-    icon: 'shrink-0 size-6 text-(--b24ui-icon)',
+    icon: 'shrink-0 size-6 text-(--b24ui-border-color)',
     avatar: 'shrink-0',
     avatarSize: 'xl',
     actions: 'flex gap-1.5 shrink-0',
@@ -46,19 +46,12 @@ export default {
   },
   variants: {
     color: {
-      'air-primary': { root: 'air-primary' },
-      'air-primary-success': { root: 'air-primary-success' },
-      'air-primary-alert': { root: 'air-primary-alert' },
-      'air-primary-copilot': { root: 'air-primary-copilot' },
-      'air-secondary': { root: 'air-secondary' },
-      'air-secondary-alert': { root: 'air-secondary-alert' },
-      'air-secondary-accent': { root: 'air-secondary-accent' },
-      'air-secondary-accent-1': { root: 'air-secondary-accent-1' },
-      'air-secondary-accent-2': { root: 'air-secondary-accent-2' },
-      'air-secondary-no-accent': { root: 'air-secondary-no-accent' },
-      'air-tertiary': { root: 'air-tertiary' },
-      'air-tertiary-accent': { root: 'air-tertiary-accent' },
-      'air-tertiary-no-accent': { root: 'air-tertiary-no-accent' },
+      'air-primary': { root: 'style-filled' },
+      'air-primary-success': { root: 'style-filled-success' },
+      'air-primary-alert': { root: 'style-filled-alert' },
+      'air-primary-copilot': { root: 'style-filled-copilot' },
+      'air-primary-warning': { root: 'style-filled-warning' },
+      'air-secondary': { root: 'air-tertiary' },
       // @deprecate ////
       'default': { root: 'old-style-default' },
       'danger': { root: 'old-style-danger' },
@@ -86,6 +79,6 @@ export default {
     }
   },
   defaultVariants: {
-    color: 'air-secondary-no-accent'
+    color: 'air-secondary'
   }
 }
