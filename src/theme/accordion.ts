@@ -8,9 +8,15 @@
 export default {
   slots: {
     root: 'w-full',
-    item: 'border-b border-(--ui-color-divider-vibrant-accent-more) last:border-b-0',
+    item: 'text-(--ui-color-design-plain-content) border-b border-(--ui-color-divider-vibrant-accent-more) last:border-b-0',
     header: 'flex',
-    trigger: 'group flex-1 flex items-center gap-1.5 font-(--ui-font-weight-medium) text-(length:--ui-font-size-sm) py-3 focus-visible:outline-(--ui-color-accent-soft-element-blue) min-w-0 cursor-pointer',
+    trigger: [
+      'min-w-0 group flex-1 flex items-center gap-1.5',
+      'py-3',
+      'font-(--ui-font-weight-medium) text-(length:--ui-font-size-sm)',
+      'focus-visible:outline-(--ui-color-accent-soft-element-blue)',
+      'cursor-pointer'
+    ].join(' '),
     content: 'motion-safe:data-[state=open]:animate-[accordion-down_200ms_ease-out] motion-safe:data-[state=closed]:animate-[accordion-up_200ms_ease-out] overflow-hidden focus:outline-none',
     body: 'text-(length:--ui-font-size-sm) pb-3',
     leadingIcon: 'shrink-0 size-5',
