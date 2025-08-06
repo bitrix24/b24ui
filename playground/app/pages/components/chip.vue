@@ -67,6 +67,7 @@ const airColors = computed(() => {
             :position="position"
             :size="size"
             color="air-primary-success"
+            :b24ui="{ base: 'style-filled-boost' }"
             inset
           >
             <B24Avatar
@@ -117,15 +118,16 @@ const airColors = computed(() => {
             >
               <B24Button :icon="MailIcon" color="air-secondary-no-accent" />
             </B24Chip>
-            <template v-for="position in positions" :key="position">
+            <template v-for="{ name, count } in items" :key="name">
               <B24Chip
-                v-for="{ name, count } in items"
-                :key="name"
+                v-for="position in positions"
+                :key="position"
                 :text="count"
                 hide-zero
                 :size="size"
                 :position="position"
                 :color="color"
+                :inverted="position === 'bottom-right'"
               >
                 <B24Button :icon="MailIcon" color="air-secondary-no-accent" />
               </B24Chip>

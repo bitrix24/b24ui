@@ -54,27 +54,24 @@ export default {
   },
   variants: {
     color: {
-      'air-primary': { base: 'air-primary' },
-      'air-primary-inverted': { base: 'air-primary-inverted' },
-      'air-primary-success': { base: 'air-primary-success' },
-      'air-primary-success-inverted': { base: 'air-primary-success-inverted' },
-      'air-primary-alert': { base: 'air-primary-alert' },
-      'air-primary-alert-inverted': { base: 'air-primary-alert-inverted' },
-      'air-primary-warning': { base: 'air-primary-warning' },
-      'air-primary-copilot': { base: 'air-primary-copilot' },
-      'air-secondary': { base: 'air-secondary-no-accent-1' },
-      'air-secondary-accent': { base: 'air-primary-no-accent' },
-      'air-secondary-accent-1': { base: 'air-primary-no-accent-inverted' },
-      'air-secondary-no-accent': { base: 'air-secondary-no-accent' },
+      'air-primary': { base: 'style-filled' },
+      'air-primary-success': { base: 'style-filled-success' },
+      'air-primary-alert': { base: 'style-filled-alert' },
+      'air-primary-copilot': { base: 'style-filled-copilot' },
+      'air-primary-warning': { base: 'style-filled-warning' },
+      'air-secondary': { base: 'style-tinted-no-accent-1' },
+      'air-secondary-accent': { base: 'style-filled-no-accent' },
+      'air-secondary-accent-1': { base: 'style-filled-no-accent-inverted context-edge-dark:text-(--ui-color-g-content-grey-2)' },
+      'air-secondary-no-accent': { base: 'style-outline-no-accent' },
       // @deprecate ////
-      'default': { base: 'old-style-default' },
-      'danger': { base: 'old-style-danger' },
-      'success': { base: 'old-style-success' },
-      'warning': { base: 'old-style-warning' },
-      'primary': { base: 'old-style-primary' },
-      'secondary': { base: 'old-style-secondary' },
-      'collab': { base: 'old-style-collab' },
-      'ai': { base: 'old-style-ai' }
+      'default': { base: 'style-old-default' },
+      'danger': { base: 'style-old-danger' },
+      'success': { base: 'style-old-success' },
+      'warning': { base: 'style-old-warning' },
+      'primary': { base: 'style-old-primary' },
+      'secondary': { base: 'style-old-secondary' },
+      'collab': { base: 'style-old-collab' },
+      'ai': { base: 'style-old-ai' }
     },
     size: {
       'sm': 'ui-counter-sm font-(--ui-font-weight-regular)',
@@ -86,6 +83,10 @@ export default {
       'bottom-right': 'bottom-0 right-0',
       'top-left': 'top-0 left-0',
       'bottom-left': 'bottom-0 left-0'
+    },
+    inverted: {
+      true: '',
+      false: ''
     },
     inset: {
       false: ''
@@ -106,6 +107,7 @@ export default {
     }
   },
   compoundVariants: [
+    // region position ////
     // not inset ////
     {
       position: 'top-right',
@@ -187,7 +189,35 @@ export default {
       inset: true,
       standalone: false,
       class: 'translate-y-0 -translate-x-0 transform'
+    },
+    // endregion ////
+    // region color ////
+    {
+      inverted: true,
+      color: 'air-primary',
+      class: 'style-filled-inverted'
+    },
+    {
+      inverted: true,
+      color: 'air-primary-success',
+      class: 'style-filled-success-inverted'
+    },
+    {
+      inverted: true,
+      color: 'air-primary-alert',
+      class: 'style-filled-alert-inverted'
+    },
+    {
+      inverted: true,
+      color: 'air-primary-copilot',
+      class: 'style-filled-copilot-inverted'
+    },
+    {
+      inverted: true,
+      color: 'air-primary-warning',
+      class: 'style-filled-warning-inverted'
     }
+    // endregion ////
   ],
   defaultVariants: {
     size: 'sm',

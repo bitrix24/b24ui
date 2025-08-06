@@ -5,6 +5,9 @@ import appConfig from '#build/app.config'
 
 const appConfigTv = appConfig as AppConfig & { b24ui: { tv: typeof defaultConfig } }
 
+/**
+ * @see src/runtime/air-design-tokens/008_ui_global.css
+ */
 const twMergeConfig = {
   theme: {},
   classGroups: {
@@ -14,26 +17,26 @@ const twMergeConfig = {
     ],
     'b24-colors': [
       // primary ////
-      'air-primary', 'air-primary-inverted', // ---- ////
-      'air-primary-success', 'air-primary-success-inverted',
-      'air-primary-alert', 'air-primary-alert-inverted',
-      'air-primary-copilot',
-      'air-primary-warning',
-      'air-primary-no-accent', 'air-primary-no-accent-inverted',
+      'style-filled', 'style-filled-inverted',
+      'style-filled-success', 'style-filled-success-inverted',
+      'style-filled-alert', 'style-filled-alert-inverted',
+      'style-filled-copilot', 'style-filled-alert-inverted',
+      'style-filled-warning', 'style-filled-warning-inverted',
+      'style-filled-no-accent', 'style-filled-no-accent-inverted',
       // secondary ////
-      'air-secondary',
-      'air-secondary-alert',
-      'air-secondary-accent', 'air-secondary-accent-1', 'air-secondary-accent-2',
-      'air-secondary-no-accent', 'air-secondary-no-accent-1',
+      'style-tinted',
+      'style-tinted-alert',
+      'style-outline', 'style-outline-accent-1', 'style-outline-accent-2',
+      'style-outline-no-accent', 'style-tinted-no-accent-1',
       // tertiary ////
-      'air-tertiary',
-      'air-tertiary-accent', 'air-tertiary-no-accent',
+      'style-plain',
+      'style-plain-accent', 'style-plain-no-accent',
       // custom ////
-      'air-selection', 'air-boost',
+      'style-selection', 'style-filled-boost',
       // old ////
-      'old-style-default', 'old-style-danger', 'old-style-success',
-      'old-style-warning', 'old-style-primary', 'old-style-secondary',
-      'old-style-collab', 'old-style-ai'
+      'style-old-default', 'style-old-danger', 'style-old-success',
+      'style-old-warning', 'style-old-primary', 'style-old-secondary',
+      'style-old-collab', 'style-old-ai'
     ]
   },
   conflictingClassGroups: {
