@@ -35,7 +35,6 @@ import { useAppConfig } from '#imports'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { tv } from '../utils/tv'
 import B24Avatar from './Avatar.vue'
-import PersonIcon from '@bitrix24/b24icons-vue/main/PersonIcon'
 
 defineOptions({ inheritAttrs: false })
 
@@ -70,20 +69,9 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.advice
           :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
           v-bind="avatar"
           :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
+          :b24ui="{ icon: (props.b24ui?.leadingAvatarIcon || b24ui.leadingAvatarIcon()) }"
         />
       </slot>
-    </div>
-    <div
-      v-else
-      :class="b24ui.leading({ class: props.b24ui?.leading })"
-    >
-      <B24Avatar
-        :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
-        :icon="PersonIcon"
-        alt="Person"
-        :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
-        :b24ui="{ icon: 'text-white bg-base-800 dark:text-200' }"
-      />
     </div>
     <div :class="b24ui.descriptionWrapper({ class: props.b24ui?.descriptionWrapper })">
       <div :class="b24ui.descriptionAngle({ class: props.b24ui?.descriptionAngle })">

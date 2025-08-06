@@ -84,16 +84,23 @@
     - default, danger, success, warning, primary, secondary, collab, ai
 * Accordion
   - fix color
+* Advice
+  - fix color
+  - remove empty avatar
 * Avatar,AvatarGroup
   - fix color
 * Chip
   - fix color
+  - add prop hideZero
+  - add prop trailingIcon
   - add color
     - air-primary, air-primary-success, air-primary-alert, air-primary-copilot
     - air-secondary, air-secondary-alert, air-secondary-accent, air-secondary-accent-1, air-secondary-accent-2, air-secondary-no-accent
     - air-tertiary, air-tertiary-accent, air-tertiary-no-accent
-  - @deprecate
+  - @deprecate color
     - default, danger, success, warning, primary, secondary, collab, ai
+  - @deprecate size
+    - 3xs, 2xs, xs, xl, 2xl, 3xl
 
 We change btn colors:
 
