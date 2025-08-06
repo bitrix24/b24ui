@@ -291,7 +291,7 @@ const { isSidebarLayoutUseLightContent, isSidebarLayoutClearContent, checkedUseL
         #content-top
       >
         <div class="w-full flex flex-col gap-[20px]">
-          <MockSidebarLayoutTopProfile class="flex" />
+          <MockSidebarLayoutTopProfile class="rounded-(--ui-border-radius-md)" />
           <MockSidebarLayoutTop class="flex-row">
             {{ usePageMeta.getPageTitle() }}
           </MockSidebarLayoutTop>

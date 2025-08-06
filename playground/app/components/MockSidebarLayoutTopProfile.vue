@@ -6,7 +6,7 @@ import DotsIcon from '@bitrix24/b24icons-vue/button/DotsIcon'
 </script>
 
 <template>
-  <div class="backdrop-blur-sm backdrop-brightness-110 rounded-(--ui-border-radius-md) px-[15px] py-[10px] flex flex-col items-start items-center justify-between gap-[20px]">
+  <div class="backdrop-blur-sm backdrop-brightness-110 px-[15px] py-[10px] flex flex-col items-start items-center justify-between gap-[20px]">
     <div class="w-full flex flex-row items-center justify-between gap-[20px]">
       <div class="flex-1 flex flex-row items-center justify-end gap-[12px]">
         <B24Avatar

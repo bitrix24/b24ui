@@ -426,7 +426,7 @@ const openSliderTopAndBottom = async () => {
           </template>
           <template #header>
             <div class="w-full flex flex-col gap-[20px]">
-              <MockSidebarLayoutTopProfile class="flex" />
+              <MockSidebarLayoutTopProfile class="rounded-(--ui-border-radius-md)" />
               <MockSidebarLayoutTop class="flex-row">
                 Bottom
               </MockSidebarLayoutTop>
@@ -496,7 +496,7 @@ const openSliderTopAndBottom = async () => {
           <B24Button label="List" />
           <template #header>
             <div class="w-full flex flex-col gap-[20px]">
-              <MockSidebarLayoutTopProfile class="flex" />
+              <MockSidebarLayoutTopProfile class="-mt-[24px] rounded-b-(--ui-border-radius-md)" />
               <MockSidebarLayoutTop class="flex-row">
                 List
               </MockSidebarLayoutTop>
