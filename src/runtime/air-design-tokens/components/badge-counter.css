@@ -12,8 +12,8 @@
     --ui-counter-current-size: 16px;
 
     --ui-counter-size: var(--ui-counter-size-md);
-    --ui-counter-bg-color: red;
-    --ui-counter-color: red;
+    --ui-counter-bg-color: var(--ui-color-design-filled-alert-bg);
+    --ui-counter-color: var(--ui-color-design-filled-alert-bg);
     --ui-counter-size-lg: 18px;
     --ui-counter-size-md: 16px;
     --ui-counter-size-sm: 14px;
