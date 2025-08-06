@@ -123,10 +123,10 @@ const value = computed(() => {
         <span>{{ text }}</span>
       </slot>
       <slot name="trailing">
-         <Component
-           :is="trailingIcon"
-           :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
-         />
+        <Component
+          :is="trailingIcon"
+          :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
+        />
       </slot>
     </span>
   </Primitive>

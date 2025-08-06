@@ -64,7 +64,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
       </div>
       <ExampleCardSubTitle title="max: 4" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24AvatarGroup v-for="size in ['sm', 'md', 'lg']" :key="size" :size="size" :max="4" :b24ui="{ base: 'ring-(--ui-color-blue-40)' }">
+        <B24AvatarGroup v-for="size in ['sm' as const, 'md' as const, 'lg' as const]" :key="size" :size="size" :max="4" :b24ui="{ base: 'ring-(--ui-color-blue-40)' }">
           <B24Avatar src="/avatar/employee.png" alt="Employee Name" :size="size" />
           <B24Avatar src="/avatar/assistant.png" alt="Assistant Name" :size="size" />
           <B24Avatar src="/avatar/employee.png" alt="Employee Name" :size="size" :chip="{ color: 'air-primary-copilot', size: 'sm', inset: true }" />

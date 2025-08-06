@@ -90,7 +90,14 @@ const airColors = computed(() => {
               alt="Employee Name"
             />
           </B24Chip>
-          <B24Chip v-for="{ name, count } in items" :key="name" :text="count" :size="size" inset hide-zero>
+          <B24Chip
+            v-for="{ name, count } in items"
+            :key="name"
+            :text="count"
+            :size="size"
+            inset
+            hide-zero
+          >
             <B24Avatar src="/avatar/assistant.png" alt="Assistant Name" :size="size" />
           </B24Chip>
         </div>

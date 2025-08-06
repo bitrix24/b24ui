@@ -157,7 +157,7 @@ defineExpose({
       <div v-if="orientation === 'vertical' && (actions?.length || !!slots.actions)" :class="b24ui.actions({ class: props.b24ui?.actions })">
         <slot name="actions">
           <ToastAction v-for="(action, index) in actions" :key="index" :alt-text="action.label || 'Action'" as-child @click.stop>
-            <B24Button size="sm" :color="color" v-bind="action" />
+            <B24Button size="sm" :color="color as ButtonProps['color']" v-bind="action" />
           </ToastAction>
         </slot>
       </div>
@@ -167,7 +167,7 @@ defineExpose({
       <template v-if="orientation === 'horizontal' && (actions?.length || !!slots.actions)">
         <slot name="actions">
           <ToastAction v-for="(action, index) in actions" :key="index" :alt-text="action.label || 'Action'" as-child @click.stop>
-            <B24Button size="sm" :color="color" v-bind="action" />
+            <B24Button size="sm" :color="color as ButtonProps['color']" v-bind="action" />
           </ToastAction>
         </slot>
       </template>

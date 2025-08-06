@@ -13,7 +13,7 @@ export default {
       'rounded-full',
       'align-middle',
       'bg-(--ui-color-base-8)',
-      'ring ring-(--ui-color-base-7)',
+      'ring ring-(--ui-color-base-7)'
       // 'overflow-hidden'
     ].join(' '),
     image: 'h-full w-full rounded-[inherit] object-cover',

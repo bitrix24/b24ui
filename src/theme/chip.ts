@@ -34,14 +34,6 @@ export default {
       'leading-(--ui-counter-current-size)',
       'overflow-hidden',
       'z-1'
-      // fix
-      // 'rounded-sm',
-      // 'flex items-center justify-center',
-      // 'p-1',
-      // 'bg-(--b24ui-background-hover)',
-      // 'text-(--b24ui-color)',
-      // 'text-(length:--ui-counter-font-size)',
-      // 'whitespace-nowrap'
     ].join(' '),
     trailingIcon: [
       'size-(--ui-counter-size)',
@@ -74,9 +66,9 @@ export default {
       'ai': { base: 'style-old-ai' }
     },
     size: {
-      'sm': 'ui-counter-sm font-(--ui-font-weight-regular)',
-      'md': 'ui-counter-md',
-      'lg': 'ui-counter-lg'
+      sm: 'ui-counter-sm font-(--ui-font-weight-regular)',
+      md: 'ui-counter-md',
+      lg: 'ui-counter-lg'
     },
     position: {
       'top-right': 'top-0 right-0',

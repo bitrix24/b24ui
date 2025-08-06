@@ -175,7 +175,7 @@ const datePickerRangeValue = shallowRef({
             <B24Chip
               :show="!!getColorByDate(day.toDate('UTC'))"
               :color="getColorByDate(day.toDate('UTC'))"
-              size="3xs"
+              size="md"
             >
               {{ day.day }}
             </B24Chip>
