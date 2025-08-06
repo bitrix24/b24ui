@@ -14,7 +14,7 @@ export default {
       'align-middle',
       'bg-(--ui-color-base-8)',
       'ring ring-(--ui-color-base-7)',
-      'overflow-hidden'
+      // 'overflow-hidden'
     ].join(' '),
     image: 'h-full w-full rounded-[inherit] object-cover',
     fallback: 'font-(--ui-font-weight-medium) text-(--ui-color-design-plain-content-icon-secondary) truncate',
