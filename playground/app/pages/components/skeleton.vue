@@ -9,7 +9,7 @@ usePageMeta.setPageTitle('Skeleton')
 
 <template>
   <ExampleGrid v-once>
-    <ExampleCard title="simple">
+    <ExampleCard title="simple" class="sm:col-span-2">
       <ExampleCardSubTitle title="ltr" />
       <div class="mb-8 w-full flex items-center gap-4">
         <B24Skeleton class="h-12 w-12 rounded-full" />
