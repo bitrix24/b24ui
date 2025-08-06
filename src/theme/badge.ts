@@ -3,6 +3,7 @@
  * A short text to represent a status or a category.
  * ---
  * @link /api_d7/bitrix/ui/labels/index.php
+ * @see src/runtime/air-design-tokens/components/badge-counter.css
  * @see bitrix/js/ui/label/
  * @see bitrix/js/ui/cnt/
  * @todo fix docs

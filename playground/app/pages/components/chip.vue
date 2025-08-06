@@ -7,6 +7,7 @@ import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import BellIcon from '@bitrix24/b24icons-vue/main/BellIcon'
 import MessageChatWithPointIcon from '@bitrix24/b24icons-vue/main/MessageChatWithPointIcon'
 import MailIcon from '@bitrix24/b24icons-vue/main/MailIcon'
+import TrendUpIcon from '@bitrix24/b24icons-vue/outline/TrendUpIcon'
 
 usePageMeta.setPageTitle('Chip')
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
@@ -14,6 +15,11 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
 const positions = Object.keys(theme.variants.position) as Array<keyof typeof theme.variants.position>
 
 const items = [
+  {
+    name: 'messages-0',
+    icon: MailIcon,
+    count: 0
+  },
   {
     name: 'messages-1',
     icon: BellIcon,
@@ -65,12 +71,26 @@ const airColors = computed(() => {
           >
             <B24Avatar
               src="/avatar/employee.png"
-              :size="(size === '3xs' ? '2xs' : size)"
+              :size="size"
               alt="Employee Name"
             />
           </B24Chip>
-          <B24Chip v-for="{ name, count } in items" :key="name" :text="count" :size="size" inset>
-            <B24Avatar src="/avatar/assistant.png" alt="Assistant Name" :size="(size === '3xs' ? '2xs' : size)" />
+          <B24Chip
+            :size="size"
+            hide-zero
+            inset
+            color="air-primary"
+            :text="'50'"
+            :trailing-icon="TrendUpIcon"
+          >
+            <B24Avatar
+              src="/avatar/employee.png"
+              :size="size"
+              alt="Employee Name"
+            />
+          </B24Chip>
+          <B24Chip v-for="{ name, count } in items" :key="name" :text="count" :size="size" inset hide-zero>
+            <B24Avatar src="/avatar/assistant.png" alt="Assistant Name" :size="size" />
           </B24Chip>
         </div>
       </template>
@@ -90,9 +110,26 @@ const airColors = computed(() => {
         <template v-for="size in sizes" :key="size">
           <ExampleCardSubTitle :title="size as string" />
           <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-            <B24Chip v-for="position in positions" :key="position" :position="position" :size="size" :color="color">
+            <B24Chip
+              :size="size"
+              hide-zero
+              :color="color"
+            >
               <B24Button :icon="MailIcon" color="air-secondary-no-accent" />
             </B24Chip>
+            <template v-for="position in positions" :key="position">
+              <B24Chip
+                v-for="{ name, count } in items"
+                :key="name"
+                :text="count"
+                hide-zero
+                :size="size"
+                :position="position"
+                :color="color"
+              >
+                <B24Button :icon="MailIcon" color="air-secondary-no-accent" />
+              </B24Chip>
+            </template>
           </div>
         </template>
       </ExampleCard>

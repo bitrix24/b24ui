@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import RobotIcon from '@bitrix24/b24icons-vue/outline/RobotIcon'
 import ChatsWithCheckIcon from '@bitrix24/b24icons-vue/outline/ChatsWithCheckIcon'
+import TrendUpIcon from '@bitrix24/b24icons-vue/outline/TrendUpIcon'
 </script>
 
 <template>
@@ -17,7 +18,7 @@ import ChatsWithCheckIcon from '@bitrix24/b24icons-vue/outline/ChatsWithCheckIco
     </B24Button>
     <B24Button label="Comments" color="air-secondary-accent" active active-color="air-selection">
       <template #leading>
-        <B24Chip standalone text="22" size="md" color="success" />
+        <B24Chip standalone text="22" size="md" color="air-primary-success" :trailing-icon="TrendUpIcon" />
       </template>
     </B24Button>
     <B24Button :icon="ChatsWithCheckIcon" color="air-secondary-accent" active-color="air-selection" />
