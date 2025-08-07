@@ -55,7 +55,7 @@ const components: IComponentInfo[] = [
   { id: 'checkbox', description: '(-) An input element to toggle between checked and unchecked states.', iconData: FormIcon },
   { id: 'collapsible', description: '(+) A collapsible component for showing or hiding its content.', iconData: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'chip', description: '(+) An indicator of a numeric value or a state.', iconData: ItemIcon, iconUi: 'pr-px pb-[3px]' },
-  { id: 'confetti', description: '(~) Performant confetti animation in the browser.', iconData: BoldSparkleIcon },
+  { id: 'confetti', description: '(+) Performant confetti animation in the browser.', iconData: BoldSparkleIcon },
   { id: 'container', description: '(~) A container lets you center and constrain the width of your content.', iconData: GroupIcon },
   { id: 'countdown', description: '(~) Countdown with options control.', iconData: Clock1Icon },
   { id: 'description-list', description: '(-) For cases where you need to convert data from one row of a table into a separate table to make the page look more complete.', iconData: GroupIcon },

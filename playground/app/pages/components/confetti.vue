@@ -37,7 +37,7 @@ function fireAtPlace(): void {
     >
       <B24Avatar
         :icon="MagicWandIcon"
-        alt="Toast"
+        alt="useConfetti"
         size="3xl"
         :b24ui="{
           root: 'bg-transparent ring-2 ring-(--ui-color-design-outline-na-content-icon)',
