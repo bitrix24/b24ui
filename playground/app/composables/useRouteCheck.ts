@@ -3,7 +3,8 @@ import { useRoute } from 'vue-router'
 
 const listPathClear = [
   '/components/shortcuts',
-  '/components/toast'
+  '/components/toast',
+  '/components/confetti'
 ]
 
 export function useRouteCheck() {

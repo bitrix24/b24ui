@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import usePageMeta from './../../composables/usePageMeta'
-import ExampleGrid from '../../components/ExampleGrid.vue'
-import ExampleCard from '../../components/ExampleCard.vue'
+import MagicWandIcon from '@bitrix24/b24icons-vue/outline/MagicWandIcon'
 
-usePageMeta.setPageTitle('Container')
+usePageMeta.setPageTitle('Confetti')
 
 const myCanvas = ref<HTMLCanvasElement | undefined>()
 const confetti = useConfetti()
@@ -31,21 +30,31 @@ function fireAtPlace(): void {
 </script>
 
 <template>
-  <ExampleGrid v-once>
-    <ExampleCard title="Actions">
-      <B24Separator class="my-3" type="dotted" />
-      <div class="mt-sm2 mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Button label="simple" color="air-secondary-accent" @click.stop="fireConfetti" />
-        <B24Button label="with options" color="air-secondary-accent-1" @click.stop="fireConfettiWithOptions" />
-        <B24Button label="custom canvas" color="air-secondary-accent-2" @click.stop="fireAtPlace" />
+  <div class="relative size-full flex flex-col items-center justify-center ">
+    <canvas ref="myCanvas" class="z-0 absolute size-full" />
+    <div
+      class="text-center backdrop-blur-sm bg-(--ui-color-design-outline-na-bg) border-1 border-(--ui-color-design-outline-na-stroke) text-(--ui-color-design-outline-na-content) max-w-[550px] my-[20px] mx-(--content-area-shift) px-[60px] py-[40px] rounded-[24px] flex flex-col items-center justify-center gap-[10px]"
+    >
+      <B24Avatar
+        :icon="MagicWandIcon"
+        alt="Toast"
+        size="3xl"
+        :b24ui="{
+          root: 'bg-transparent ring-2 ring-(--ui-color-design-outline-na-content-icon)',
+          icon: 'size-[74px] text-(--ui-color-design-outline-na-content-icon)'
+        }"
+      />
+      <ProseH2 class="leading-[29px] mb-0">
+        useConfetti
+      </ProseH2>
+      <ProseP accent="less">
+        Performant confetti animation in the browser
+      </ProseP>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-[15px]">
+        <B24Button label="Simple" color="air-primary" @click.stop="fireConfetti" />
+        <B24Button label="With options" color="air-secondary-accent-2" @click.stop="fireConfettiWithOptions" />
+        <B24Button label="Custom canvas" color="air-secondary-accent-2" @click.stop="fireAtPlace" />
       </div>
-    </ExampleCard>
-
-    <ExampleCard title="Custom canvas" class="md:col-span-3">
-      <B24Separator class="my-3" type="dotted" />
-      <B24Container class="relative mt-sm2 mb-4">
-        <canvas ref="myCanvas" class="m-auto h-64 w-1/2 rounded border border-base-300 bg-base-100 dark:border-base-600 dark:bg-base-900" />
-      </B24Container>
-    </ExampleCard>
-  </ExampleGrid>
+    </div>
+  </div>
 </template>
