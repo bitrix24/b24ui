@@ -24,7 +24,7 @@ import DotsIcon from '@bitrix24/b24icons-vue/button/DotsIcon'
           </ProseH1>
         </div>
       </div>
-      <div class="flex-1 flex flex-row items-center justify-end gap-[12px]">
+      <div class="flex-1 hidden sm:flex flex-row items-center justify-end gap-[12px]">
         <B24Button size="sm" :icon="CameraIcon" label="Chats and meetings" color="air-primary" />
         <B24Button size="sm" label="SCRUM items" color="air-selection" />
         <B24Button size="sm" :icon="DotsIcon" color="air-secondary-accent" />
