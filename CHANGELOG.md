@@ -15,6 +15,9 @@
 * Popover:
   - fix arrow
   - fix color
+* DropdownMenu:
+  - fix arrow
+  - fix color
 * NavigationMenu:
   - props.hint
   - delayDuration = 200

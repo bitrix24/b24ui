@@ -2,7 +2,7 @@
 import MockSidebarLayoutMenu from './MockSidebarLayoutMenu.vue'
 import BusinesProcessStagesIcon from '@bitrix24/b24icons-vue/outline/BusinesProcessStagesIcon'
 import CameraIcon from '@bitrix24/b24icons-vue/button/CameraIcon'
-import DotsIcon from '@bitrix24/b24icons-vue/button/DotsIcon'
+import MoreMIcon from '@bitrix24/b24icons-vue/outline/MoreMIcon'
 </script>
 
 <template>
@@ -27,7 +27,7 @@ import DotsIcon from '@bitrix24/b24icons-vue/button/DotsIcon'
       <div class="flex-1 hidden sm:flex flex-row items-center justify-end gap-[12px]">
         <B24Button size="sm" :icon="CameraIcon" label="Chats and meetings" color="air-primary" />
         <B24Button size="sm" label="SCRUM items" color="air-selection" />
-        <B24Button size="sm" :icon="DotsIcon" color="air-secondary-accent" />
+        <B24Button size="sm" :icon="MoreMIcon" color="air-secondary-accent" />
       </div>
     </div>
     <div>

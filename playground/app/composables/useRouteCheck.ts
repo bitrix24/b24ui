@@ -5,7 +5,8 @@ const listPathClear = [
   '/components/shortcuts',
   '/components/toast',
   '/components/confetti',
-  '/components/tooltip'
+  '/components/tooltip',
+  '/components/dropdown-menu'
 ]
 
 export function useRouteCheck() {
