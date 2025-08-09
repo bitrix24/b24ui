@@ -51,7 +51,7 @@ export default {
       'air-primary-alert': { root: 'style-filled-alert' },
       'air-primary-copilot': { root: 'style-filled-copilot' },
       'air-primary-warning': { root: 'style-filled-warning' },
-      'air-secondary': { root: 'air-tertiary' },
+      'air-secondary': { root: 'style-filled-inverted' },
       // @deprecate ////
       'default': { root: 'old-style-default' },
       'danger': { root: 'old-style-danger' },
