@@ -47,8 +47,7 @@ const size = ref('md' as const)
           :items="itemsWithColor"
           :size="size"
           arrow
-          :content="{ side: 'bottom', align: 'start' }"
-          :b24ui="{ content: 'w-48' }"
+          :content="{ side: 'bottom', align: 'center' }"
         >
           <B24Button label="Color" color="air-primary" :icon="HamburgerMenuIcon" />
         </B24DropdownMenu>
@@ -57,8 +56,7 @@ const size = ref('md' as const)
           :items="dropdownMenuItems"
           :size="size"
           arrow
-          :content="{ side: 'right', align: 'start' }"
-          :b24ui="{ content: 'w-52' }"
+          :content="{ side: 'bottom', align: 'center' }"
         >
           <B24Button color="air-secondary-accent" :icon="MoreMIcon" />
 

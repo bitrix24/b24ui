@@ -54,6 +54,7 @@ import B24Avatar from './Avatar.vue'
 import B24Kbd from './Kbd.vue'
 
 import B24DropdownMenuContent from './DropdownMenuContent.vue'
+import {defu} from "defu";
 
 const props = defineProps<DropdownMenuContentProps<T>>()
 const emits = defineEmits<DropdownMenuContentEmits>()
@@ -65,6 +66,7 @@ const { dir } = useLocale()
 const portalProps = usePortal(toRef(() => props.portal))
 const contentProps = useForwardPropsEmits(reactiveOmit(props, 'sub', 'items', 'portal', 'labelKey', 'checkedIcon', 'externalIcon', 'class', 'b24ui', 'b24uiOverride'), emits)
 const proxySlots = omit(slots, ['default'])
+// const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10 }) as DropdownMenuArrowProps)
 const getLabel = (item: DropdownMenuItem) => {
   return get(item, props.labelKey as string)
 }
@@ -137,17 +139,29 @@ const groups = computed<DropdownMenuItem[][]>(() =>
   </DefineItemTemplate>
 
   <DropdownMenu.Portal v-bind="portalProps">
-    <component :is="sub ? DropdownMenu.SubContent : DropdownMenu.Content" :class="props.class" v-bind="contentProps">
+    <component
+      :is="sub ? DropdownMenu.SubContent : DropdownMenu.Content"
+      :class="props.class"
+      v-bind="contentProps"
+    >
       <slot name="content-top" />
 
       <div role="presentation" :class="b24ui.viewport({ class: b24uiOverride?.viewport })">
-        <DropdownMenu.Group v-for="(group, groupIndex) in groups" :key="`group-${groupIndex}`" :class="b24ui.group({ class: b24uiOverride?.group })">
+        <DropdownMenu.Group
+          v-for="(group, groupIndex) in groups"
+          :key="`group-${groupIndex}`"
+          :class="b24ui.group({ class: b24uiOverride?.group })"
+        >
           <template v-for="(item, index) in group" :key="`group-${groupIndex}-${index}`">
             <DropdownMenu.Label v-if="item.type === 'label'" :class="b24ui.label({ class: [b24uiOverride?.label, item.b24ui?.label, item.class] })">
               <ReuseItemTemplate :item="item" :index="index" />
             </DropdownMenu.Label>
             <DropdownMenu.Separator v-else-if="item.type === 'separator'" :class="b24ui.separator({ class: [b24uiOverride?.separator, item.b24ui?.separator, item.class] })" />
-            <DropdownMenu.Sub v-else-if="item?.children?.length" :open="item.open" :default-open="item.defaultOpen">
+            <DropdownMenu.Sub
+              v-else-if="item?.children?.length"
+              :open="item.open"
+              :default-open="item.defaultOpen"
+            >
               <DropdownMenu.SubTrigger
                 as="button"
                 type="button"
@@ -176,6 +190,8 @@ const groups = computed<DropdownMenuItem[][]>(() =>
                 <template v-for="(_, name) in proxySlots" #[name]="slotData">
                   <slot :name="(name as keyof DropdownMenuContentSlots<T>)" v-bind="slotData" />
                 </template>
+              <!-- @ todo: add arrow-->
+              <!-- <DropdownMenuArrow v-if="!!arrow" v-bind="arrowProps" :class="b24ui.arrow({ class: props.b24ui?.arrow })" /> -->
               </B24DropdownMenuContent>
             </DropdownMenu.Sub>
             <DropdownMenu.CheckboxItem

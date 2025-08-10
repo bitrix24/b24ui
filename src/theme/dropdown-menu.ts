@@ -18,37 +18,53 @@ export default {
       'origin-(--reka-dropdown-menu-content-transform-origin)',
       'font-[family-name:var(--ui-font-family-primary)]',
       //
-      'overflow-hidden',
-      'min-w-32',
-      'pointer-events-auto',
-      'flex flex-col'
+      'relative overflow-hidden',
+      // 'w-[240px] max-h-[60vh]',
+      // 'overflow-x-hidden overflow-y-auto scrollbar-thin scrollbar-transparent',
+      // 'scroll-py-1',
+      'isolate',
+      'px-0 py-(--menu-popup-padding)',
+      'pointer-events-auto'
+      // fix  'flex flex-col'
     ].join(' '),
     viewport: [
       'relative',
       // fix  'divide-y divide-base-master/10',
       // fix 'scroll-py-1',
-      'px-0 py-(--menu-popup-padding)',
-      'overflow-y-auto',
-      'flex-1'
+      // 'size-full',
+      'w-[240px] max-h-[60vh]',
+      'overflow-x-hidden overflow-y-auto scrollbar-thin scrollbar-transparent'
+      // fix 'flex-1'
     ].join(' '),
-    arrow: 'fill-(--popup-window-background-color)',
-    group: 'isolate', // p-1
+    arrow: 'fill-(--popup-window-background-color)', // for content bottom|top::start -> ml-[12px]
+    group: 'grid', // p-1 isolate
     label: [
-      'w-full flex items-center',
+      'w-full min-w-[195px] h-[36px]',
+      'px-[25px] mt-(--menu-item-block-stack-space)',
+      'flex flex-row rtl:flex-row-reverse items-center',
+      'select-none outline-none whitespace-nowrap',
       // fix 'font-semibold text-base-900'
-      'px-[25px] opacity-70 text-(length:--ui-font-size-sm)'
+      'text-start',
+      'text-(length:--menu-popup-item-font-size)',
+      'text-(--menu-popup-item-color)',
+      'opacity-70'
     ].join(' '),
     separator: '-mx-1 my-1 h-px bg-base-master/10',
     item: [
-      'group relative w-full flex items-center select-none outline-none',
-      // fix 'before:absolute before:z-[-1] before:inset-px before:rounded-2xs',
+      'group',
+      'w-full min-w-[195px] h-[36px]',
+      'px-[25px] mt-(--menu-item-block-stack-space)',
+      'relative',
+      'flex flex-row rtl:flex-row-reverse items-center',
+      'select-none outline-none whitespace-nowrap',
       'cursor-pointer',
       'data-disabled:cursor-not-allowed data-disabled:opacity-75',
+      'text-start',
       'text-(length:--menu-popup-item-font-size)',
-      'text-(--menu-popup-item-color) hover:text-(--menu-popup-item-color-hover) data-highlighted:text-(--menu-popup-item-color-hover)',
-      'hover:bg-(--menu-popup-item-bg-color-hover) data-highlighted:bg-(--menu-popup-item-bg-color-hover)',
-      // fix 'data-highlighted:text-base-900 data-highlighted:before:bg-base-100/50',
-      // 'data-[state=checked]:text-base-900 dark:data-[state=checked]:text-base-200 data-[state=checked]:before:bg-base-100/50 dark:data-[state=checked]:before:bg-base-900',
+      'text-(--menu-popup-item-color) hover:text-(--menu-popup-item-color-hover) data-highlighted:text-(--menu-popup-item-color-hover) data-[state=open]:text-(--menu-popup-item-color-hover)',
+      'hover:bg-(--menu-popup-item-bg-color-hover) data-highlighted:bg-(--menu-popup-item-bg-color-hover) data-[state=open]:bg-(--menu-popup-item-bg-color-hover)',
+      // fix 'data-highlighted:text-base-900',
+      // 'data-[state=checked]:text-base-900 dark:data-[state=checked]:text-base-200',
       'transition-colors'
     ].join(' '),
     itemLeadingIcon: [
@@ -58,33 +74,41 @@ export default {
       'transition-colors'
     ].join(' '),
     itemLeadingAvatar: 'shrink-0',
-    itemLeadingAvatarSize: '',
+    itemLeadingAvatarSize: 'xs',
     itemTrailing: 'ms-auto inline-flex gap-1.5 items-center',
     itemTrailingIcon: 'shrink-0',
     itemTrailingKbds: 'hidden lg:inline-flex items-center shrink-0',
     itemTrailingKbdsSize: '',
-    itemLabel: 'truncate',
+    itemLabel: 'truncate ms-[2px] -mt-px',
     itemLabelExternalIcon: 'inline-block size-3 align-top text-base-500'
   },
   variants: {
     color: {
-      default: '',
-      danger: '',
-      success: '',
-      warning: '',
-      primary: '',
-      secondary: '',
-      collab: '',
-      ai: ''
+      'air-primary': { base: 'style-filled' },
+      'air-primary-success': { base: 'style-filled-success' },
+      'air-primary-alert': { base: 'style-filled-alert' },
+      'air-primary-copilot': { base: 'style-filled-copilot' },
+      'air-primary-warning': { base: 'style-filled-warning' },
+      'air-secondary': { base: 'style-tinted-no-accent-1' },
+      'air-secondary-accent': { base: 'style-filled-no-accent' },
+      'air-secondary-accent-1': { base: 'style-filled-no-accent-inverted' },
+      'air-secondary-no-accent': { base: 'style-outline-no-accent' },
+      // @deprecate ////
+      'default': '',
+      'danger': '',
+      'success': '',
+      'warning': '',
+      'primary': '',
+      'secondary': '',
+      'collab': '',
+      'ai': ''
     },
     active: {
       false: {
         item: [
           // fix 'text-base-master',
           // 'data-highlighted:text-base-900',
-          // 'data-highlighted:before:bg-base-100/50',
           // 'data-[state=open]:text-base-900',
-          // 'data-[state=open]:before:bg-base-100/50',
           'transition-colors'
         ].join(' '),
         itemLeadingIcon: [
@@ -97,7 +121,6 @@ export default {
       true: {
         item: [
           'text-(--ui-color-accent-main-primary) hover:text-(--ui-color-accent-main-primary)'
-          // fix 'text-base-900 before:bg-base-100/50'
         ].join(' '),
         itemLeadingIcon: [
           'text-(--ui-color-accent-main-primary) group-data-[state=open]:text-(--ui-color-accent-main-primary)'
@@ -130,10 +153,10 @@ export default {
         itemTrailingKbdsSize: 'sm'
       },
       md: {
-        label: 'h-9 ps-2 pe-3 text-sm gap-2',
-        item: 'h-9 ps-3 pe-3 text-sm gap-2',
-        itemLeadingIcon: 'size-5',
-        itemLeadingAvatarSize: '2xs',
+        // label: 'h-9 ps-2 pe-3 text-sm gap-2',
+        // item: 'h-9 ps-3 pe-3 text-sm gap-2',
+        itemLeadingIcon: 'size-[18px]',
+        // itemLeadingAvatarSize: 'xs',
         itemTrailingIcon: 'size-3',
         itemTrailingKbds: 'gap-0.5',
         itemTrailingKbdsSize: 'md'
@@ -155,7 +178,7 @@ export default {
       active: false,
       class: {
         item: [
-          'text-base-master data-highlighted:text-base-900 data-highlighted:before:bg-base-100/50 data-[state=open]:text-base-900 data-[state=open]:before:bg-base-100/50'
+          'text-base-master data-highlighted:text-base-900 data-[state=open]:text-base-900'
         ].join(' '),
         itemLeadingIcon: [
           'text-base-500 group-data-highlighted:text-base-master group-data-[state=open]:text-base-master'
@@ -167,7 +190,7 @@ export default {
       active: true,
       class: {
         item: [
-          'text-base-900 before:bg-base-100/50'
+          'text-base-900'
         ].join(' '),
         itemLeadingIcon: [
           'text-base-master group-data-[state=open]:text-base-master'
@@ -179,7 +202,7 @@ export default {
       active: false,
       class: {
         item: [
-          'text-red-950 data-highlighted:text-red-900 data-highlighted:before:bg-red-100 data-[state=open]:text-red-900 data-[state=open]:before:bg-red-100'
+          'text-red-950 data-highlighted:text-red-900 data-[state=open]:text-red-900'
         ].join(' '),
         itemLeadingIcon: [
           'text-red-500 group-data-highlighted:text-red-900 group-data-[state=open]:text-red-900'
@@ -191,157 +214,157 @@ export default {
       active: true,
       class: {
         item: [
-          'text-red-900 before:bg-red-100'
+          'text-red-900'
         ].join(' '),
         itemLeadingIcon: [
           'text-red-900 group-data-[state=open]:text-red-900'
         ].join(' ')
       }
-    },
-    {
-      color: 'success',
-      active: false,
-      class: {
-        item: [
-          'text-green-950 data-highlighted:text-green-900 data-highlighted:before:bg-green-100 data-[state=open]:text-green-900 data-[state=open]:before:bg-green-100'
-        ].join(' '),
-        itemLeadingIcon: [
-          'text-green-500 group-data-highlighted:text-green-900 group-data-[state=open]:text-green-900'
-        ].join(' ')
-      }
-    },
-    {
-      color: 'success',
-      active: true,
-      class: {
-        item: [
-          'text-green-900 before:bg-green-100'
-        ].join(' '),
-        itemLeadingIcon: [
-          'text-green-900 group-data-[state=open]:text-green-900'
-        ].join(' ')
-      }
-    },
-    {
-      color: 'warning',
-      active: false,
-      class: {
-        item: [
-          'text-orange-950 data-highlighted:text-orange-900 data-highlighted:before:bg-orange-100 data-[state=open]:text-orange-900 data-[state=open]:before:bg-orange-100'
-        ].join(' '),
-        itemLeadingIcon: [
-          'text-orange-500 group-data-highlighted:text-orange-900 group-data-[state=open]:text-orange-900'
-        ].join(' ')
-      }
-    },
-    {
-      color: 'warning',
-      active: true,
-      class: {
-        item: [
-          'text-orange-900 before:bg-orange-100'
-        ].join(' '),
-        itemLeadingIcon: [
-          'text-orange-900 group-data-[state=open]:text-orange-900'
-        ].join(' ')
-      }
-    },
-    {
-      color: 'primary',
-      active: false,
-      class: {
-        item: [
-          'text-blue-950 data-highlighted:text-blue-900 data-highlighted:before:bg-blue-100 data-[state=open]:text-blue-900 data-[state=open]:before:bg-blue-100'
-        ].join(' '),
-        itemLeadingIcon: [
-          'text-blue-500 group-data-highlighted:text-blue-900 group-data-[state=open]:text-blue-900'
-        ].join(' ')
-      }
-    },
-    {
-      color: 'primary',
-      active: true,
-      class: {
-        item: [
-          'text-blue-900 before:bg-blue-100'
-        ].join(' '),
-        itemLeadingIcon: [
-          'text-blue-900 group-data-[state=open]:text-blue-900'
-        ].join(' ')
-      }
-    },
-    {
-      color: 'secondary',
-      active: false,
-      class: {
-        item: [
-          'text-cyan-950 data-highlighted:text-cyan-900 data-highlighted:before:bg-cyan-100/50 data-[state=open]:text-cyan-900 data-[state=open]:before:bg-cyan-100/50'
-        ].join(' '),
-        itemLeadingIcon: [
-          'text-cyan-500 group-data-highlighted:text-cyan-900 group-data-[state=open]:text-cyan-900'
-        ].join(' ')
-      }
-    },
-    {
-      color: 'secondary',
-      active: true,
-      class: {
-        item: [
-          'text-cyan-900 before:bg-cyan-100/50'
-        ].join(' '),
-        itemLeadingIcon: [
-          'text-cyan-900 group-data-[state=open]:text-cyan-900'
-        ].join(' ')
-      }
-    },
-    {
-      color: 'collab',
-      active: false,
-      class: {
-        item: [
-          'text-collab-900 data-highlighted:text-collab-900 data-highlighted:before:bg-collab-100 data-[state=open]:text-collab-900 data-[state=open]:before:bg-collab-100'
-        ].join(' '),
-        itemLeadingIcon: [
-          'text-collab-600 group-data-highlighted:text-collab-900 group-data-[state=open]:text-collab-900'
-        ].join(' ')
-      }
-    },
-    {
-      color: 'collab',
-      active: true,
-      class: {
-        item: [
-          'text-collab-900 before:bg-collab-100'
-        ].join(' '),
-        itemLeadingIcon: [
-          'text-collab-900 group-data-[state=open]:text-collab-900'
-        ].join(' ')
-      }
-    },
-    {
-      color: 'ai',
-      active: false,
-      class: {
-        item: [
-          'text-ai-950 data-highlighted:text-ai-900 data-highlighted:before:bg-ai-100/50 data-[state=open]:text-ai-900 data-[state=open]:before:bg-ai-100/50'
-        ].join(' '),
-        itemLeadingIcon: [
-          'text-ai-500 group-data-highlighted:text-ai-900 group-data-[state=open]:text-ai-900'
-        ].join(' ')
-      }
-    },
-    {
-      color: 'ai',
-      active: true,
-      class: {
-        item: [
-          'text-ai-900 before:bg-ai-100/50'
-        ].join(' '),
-        itemLeadingIcon: [
-          'text-ai-900 group-data-[state=open]:text-ai-900'
-        ].join(' ')
-      }
     }
+    // {
+    //   color: 'success',
+    //   active: false,
+    //   class: {
+    //     item: [
+    //       'text-green-950 data-highlighted:text-green-900 data-highlighted:before:bg-green-100 data-[state=open]:text-green-900 data-[state=open]:before:bg-green-100'
+    //     ].join(' '),
+    //     itemLeadingIcon: [
+    //       'text-green-500 group-data-highlighted:text-green-900 group-data-[state=open]:text-green-900'
+    //     ].join(' ')
+    //   }
+    // },
+    // {
+    //   color: 'success',
+    //   active: true,
+    //   class: {
+    //     item: [
+    //       'text-green-900 before:bg-green-100'
+    //     ].join(' '),
+    //     itemLeadingIcon: [
+    //       'text-green-900 group-data-[state=open]:text-green-900'
+    //     ].join(' ')
+    //   }
+    // },
+    // {
+    //   color: 'warning',
+    //   active: false,
+    //   class: {
+    //     item: [
+    //       'text-orange-950 data-highlighted:text-orange-900 data-highlighted:before:bg-orange-100 data-[state=open]:text-orange-900 data-[state=open]:before:bg-orange-100'
+    //     ].join(' '),
+    //     itemLeadingIcon: [
+    //       'text-orange-500 group-data-highlighted:text-orange-900 group-data-[state=open]:text-orange-900'
+    //     ].join(' ')
+    //   }
+    // },
+    // {
+    //   color: 'warning',
+    //   active: true,
+    //   class: {
+    //     item: [
+    //       'text-orange-900 before:bg-orange-100'
+    //     ].join(' '),
+    //     itemLeadingIcon: [
+    //       'text-orange-900 group-data-[state=open]:text-orange-900'
+    //     ].join(' ')
+    //   }
+    // },
+    // {
+    //   color: 'primary',
+    //   active: false,
+    //   class: {
+    //     item: [
+    //       'text-blue-950 data-highlighted:text-blue-900 data-highlighted:before:bg-blue-100 data-[state=open]:text-blue-900 data-[state=open]:before:bg-blue-100'
+    //     ].join(' '),
+    //     itemLeadingIcon: [
+    //       'text-blue-500 group-data-highlighted:text-blue-900 group-data-[state=open]:text-blue-900'
+    //     ].join(' ')
+    //   }
+    // },
+    // {
+    //   color: 'primary',
+    //   active: true,
+    //   class: {
+    //     item: [
+    //       'text-blue-900 before:bg-blue-100'
+    //     ].join(' '),
+    //     itemLeadingIcon: [
+    //       'text-blue-900 group-data-[state=open]:text-blue-900'
+    //     ].join(' ')
+    //   }
+    // },
+    // {
+    //   color: 'secondary',
+    //   active: false,
+    //   class: {
+    //     item: [
+    //       'text-cyan-950 data-highlighted:text-cyan-900 data-highlighted:before:bg-cyan-100/50 data-[state=open]:text-cyan-900 data-[state=open]:before:bg-cyan-100/50'
+    //     ].join(' '),
+    //     itemLeadingIcon: [
+    //       'text-cyan-500 group-data-highlighted:text-cyan-900 group-data-[state=open]:text-cyan-900'
+    //     ].join(' ')
+    //   }
+    // },
+    // {
+    //   color: 'secondary',
+    //   active: true,
+    //   class: {
+    //     item: [
+    //       'text-cyan-900 before:bg-cyan-100/50'
+    //     ].join(' '),
+    //     itemLeadingIcon: [
+    //       'text-cyan-900 group-data-[state=open]:text-cyan-900'
+    //     ].join(' ')
+    //   }
+    // },
+    // {
+    //   color: 'collab',
+    //   active: false,
+    //   class: {
+    //     item: [
+    //       'text-collab-900 data-highlighted:text-collab-900 data-highlighted:before:bg-collab-100 data-[state=open]:text-collab-900 data-[state=open]:before:bg-collab-100'
+    //     ].join(' '),
+    //     itemLeadingIcon: [
+    //       'text-collab-600 group-data-highlighted:text-collab-900 group-data-[state=open]:text-collab-900'
+    //     ].join(' ')
+    //   }
+    // },
+    // {
+    //   color: 'collab',
+    //   active: true,
+    //   class: {
+    //     item: [
+    //       'text-collab-900 before:bg-collab-100'
+    //     ].join(' '),
+    //     itemLeadingIcon: [
+    //       'text-collab-900 group-data-[state=open]:text-collab-900'
+    //     ].join(' ')
+    //   }
+    // },
+    // {
+    //   color: 'ai',
+    //   active: false,
+    //   class: {
+    //     item: [
+    //       'text-ai-950 data-highlighted:text-ai-900 data-highlighted:before:bg-ai-100/50 data-[state=open]:text-ai-900 data-[state=open]:before:bg-ai-100/50'
+    //     ].join(' '),
+    //     itemLeadingIcon: [
+    //       'text-ai-500 group-data-highlighted:text-ai-900 group-data-[state=open]:text-ai-900'
+    //     ].join(' ')
+    //   }
+    // },
+    // {
+    //   color: 'ai',
+    //   active: true,
+    //   class: {
+    //     item: [
+    //       'text-ai-900 before:bg-ai-100/50'
+    //     ].join(' '),
+    //     itemLeadingIcon: [
+    //       'text-ai-900 group-data-[state=open]:text-ai-900'
+    //     ].join(' ')
+    //   }
+    // }
   ],
   defaultVariants: {
     size: 'md'

@@ -199,7 +199,7 @@ export default {
       orientation: 'horizontal',
       class: {
         childList: '',
-        content: 'w-60'
+        content: 'w-[240px]'
       }
     },
     {

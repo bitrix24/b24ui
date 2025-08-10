@@ -107,7 +107,13 @@ export type DropdownMenuSlots<
 <script setup lang="ts" generic="T extends ArrayOrNested<DropdownMenuItem>">
 import { computed, toRef } from 'vue'
 import { defu } from 'defu'
-import { DropdownMenuRoot, DropdownMenuTrigger, DropdownMenuArrow, useForwardPropsEmits } from 'reka-ui'
+import {
+  DropdownMenuRoot,
+  DropdownMenuTrigger,
+  DropdownMenuArrow,
+  useForwardPropsEmits,
+  type DropdownMenuArrowProps
+} from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { omit } from '../utils'
@@ -126,8 +132,8 @@ const slots = defineSlots<DropdownMenuSlots<T>>()
 const appConfig = useAppConfig() as DropdownMenu['AppConfig']
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'defaultOpen', 'open', 'modal'), emits)
-const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffset: 8, collisionPadding: 8 }) as DropdownMenuContentProps)
-const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10 }) as PopoverArrowProps)
+const contentProps = toRef(() => defu(props.content, { side: 'bottom', align: 'center', sideOffset: 8, collisionPadding: 8 }) as DropdownMenuContentProps)
+const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10 }) as DropdownMenuArrowProps)
 const proxySlots = omit(slots, ['default'])
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dropdownMenu || {}) })({
@@ -136,8 +142,16 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dropdo
 </script>
 
 <template>
-  <DropdownMenuRoot v-slot="{ open }" v-bind="rootProps">
-    <DropdownMenuTrigger v-if="!!slots.default" as-child :class="props.class" :disabled="disabled">
+  <DropdownMenuRoot
+    v-slot="{ open }"
+    v-bind="rootProps"
+  >
+    <DropdownMenuTrigger
+      v-if="!!slots.default"
+      as-child
+      :class="props.class"
+      :disabled="disabled"
+    >
       <slot :open="open" />
     </DropdownMenuTrigger>
 
