@@ -111,8 +111,7 @@ import {
   DropdownMenuRoot,
   DropdownMenuTrigger,
   DropdownMenuArrow,
-  useForwardPropsEmits,
-  type DropdownMenuArrowProps
+  useForwardPropsEmits
 } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
