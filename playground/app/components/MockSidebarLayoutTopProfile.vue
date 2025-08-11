@@ -3,6 +3,7 @@ import MockSidebarLayoutMenu from './MockSidebarLayoutMenu.vue'
 import BusinesProcessStagesIcon from '@bitrix24/b24icons-vue/outline/BusinesProcessStagesIcon'
 import CameraIcon from '@bitrix24/b24icons-vue/button/CameraIcon'
 import MoreMIcon from '@bitrix24/b24icons-vue/outline/MoreMIcon'
+import { dropdownMenuItems } from './../composables/useMockMenu'
 </script>
 
 <template>
@@ -27,7 +28,13 @@ import MoreMIcon from '@bitrix24/b24icons-vue/outline/MoreMIcon'
       <div class="flex-1 hidden sm:flex flex-row items-center justify-end gap-[12px]">
         <B24Button size="sm" :icon="CameraIcon" label="Chats and meetings" color="air-primary" />
         <B24Button size="sm" label="SCRUM items" color="air-selection" />
-        <B24Button size="sm" :icon="MoreMIcon" color="air-secondary-accent" />
+        <B24DropdownMenu
+          :items="dropdownMenuItems"
+          arrow
+          :content="{ side: 'bottom', align: 'center' }"
+        >
+          <B24Button size="sm" :icon="MoreMIcon" color="air-secondary-accent" />
+        </B24DropdownMenu>
       </div>
     </div>
     <div>

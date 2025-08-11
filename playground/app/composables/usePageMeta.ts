@@ -59,7 +59,7 @@ const components: IComponentInfo[] = [
   { id: 'container', description: '(~) A container lets you center and constrain the width of your content.', iconData: GroupIcon },
   { id: 'countdown', description: '(~) Countdown with options control.', iconData: Clock1Icon },
   { id: 'description-list', description: '(~) For cases where you need to convert data from one row of a table into a separate table to make the page look more complete.', iconData: GroupIcon },
-  { id: 'dropdown-menu', description: '(~) A menu to display actions when clicking on an element.', iconData: GroupIcon },
+  { id: 'dropdown-menu', description: '(+) A menu to display actions when clicking on an element.', iconData: GroupIcon },
   { id: 'form', description: '(-) A form component with built-in validation and submission handling.', iconData: FormSettingsIcon },
   { id: 'form-field', description: '(-) A wrapper for form elements that provides validation and error handling.', iconData: FormIcon },
   { id: 'input', description: '(-) An input element to enter text.', iconData: FormIcon },
