@@ -16,32 +16,27 @@
   scrollbar-color: hsl(213.91deg 12.3% 36.67% / 36%) transparent;
 }
 
-.edge-dark .scrollbar-transparent:hover,
-.--ui-context-edge-dark .scrollbar-transparent:hover
-{
+.context-edge-dark .scrollbar-transparent:hover
+DD{
   scrollbar-color: hsla(0, 0%, 100%, 0.36) transparent;
 }
 
-.dark .scrollbar-transparent
+.context-dark .scrollbar-transparent
 {
   scrollbar-color: hsla(0, 0%, 0%, 0.21) transparent;
 }
 
-.dark .scrollbar-transparent:hover
+.context-dark .scrollbar-transparent:hover
 {
   scrollbar-color: hsl(213.91deg 12.3% 36%) transparent;
 }
 
-.light .scrollbar-transparent,
-.--ui-context-content-light .scrollbar-transparent,
-.scrollbar-transparent {
+.context-light .scrollbar-transparent
+{
   scrollbar-color: hsla(0, 0%, 0%, 0) transparent;
-  scrollbar-gutter: stable;
 }
 
-.light .scrollbar-transparent:hover,
-.--ui-context-content-light .scrollbar-transparent:hover,
-.scrollbar-transparent:hover
+.context-light .scrollbar-transparent:hover
 {
   scrollbar-color: hsl(213.91deg 12.3% 36.67% / 36%) transparent;
 }

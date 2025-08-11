@@ -9,7 +9,7 @@ import ArrowToTheRightIcon from '@bitrix24/b24icons-vue/actions/ArrowToTheRightI
 import CheckIcon from '@bitrix24/b24icons-vue/main/CheckIcon'
 import ChevronUpIcon from '@bitrix24/b24icons-vue/actions/ChevronUpIcon'
 import ChevronToTheLeftIcon from '@bitrix24/b24icons-vue/actions/ChevronToTheLeftIcon'
-import ChevronToTheRightIcon from '@bitrix24/b24icons-vue/actions/ChevronToTheRightIcon'
+import ChevronToTheRightIcon from '@bitrix24/b24icons-vue/outline/ChevronRightLIcon'
 import DoubleShevronsRightIcon from '@bitrix24/b24icons-vue/actions/DoubleShevronsRightIcon'
 import DoubleShevronsLeftIcon from '@bitrix24/b24icons-vue/actions/DoubleShevronsLeftIcon'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'

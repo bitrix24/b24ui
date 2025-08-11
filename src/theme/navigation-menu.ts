@@ -123,7 +123,7 @@ export default {
         linkLabelWrapper: 'gap-[4px]',
         childList: 'grid px-0 py-(--menu-popup-padding)',
         childLink: [
-          'px-[25px]', // @memo 10 + 15
+          'px-[18px]', // @memo 10 + 15 = 25 != 18px
           'min-w-[195px]',
           'whitespace-nowrap',
           'font-[family-name:var(--ui-font-family-primary)]',
@@ -155,7 +155,7 @@ export default {
         linkLabelWrapper: 'relative',
         childList: '',
         childLink: [
-          'px-[25px]', // @memo 10 + 15
+          'px-[18px]', // @memo 10 + 15 = 25 != 18
           'min-w-[195px]',
           'whitespace-nowrap',
           'font-[family-name:var(--ui-font-family-primary)]',
@@ -163,7 +163,8 @@ export default {
           'text-(--menu-popup-item-color) hover:text-(--menu-popup-item-color-hover)',
           'hover:bg-(--menu-popup-item-bg-color-hover)'
         ].join(' '),
-        childLabel: 'px-[25px] opacity-70 text-(length:--ui-font-size-sm)'
+        // @memo 10 + 15 = 25 != 18
+        childLabel: 'px-[18px] opacity-70 text-(length:--ui-font-size-sm)'
       }
     },
     active: {

@@ -26,13 +26,13 @@ export default {
     viewport: [
       'relative',
       'w-[240px] max-h-[60vh]',
-      'overflow-x-hidden overflow-y-auto scrollbar-thin scrollbar-transparent'
+      'overflow-x-hidden overflow-y-auto scrollbar-thin' // scrollbar-transparent
     ].join(' '),
     arrow: 'fill-(--popup-window-background-color)', // for content bottom|top::start -> ml-[12px]
     group: 'grid', // p-1 isolate
     label: [
       'w-full min-w-[195px] h-[36px]',
-      'px-[25px] mt-(--menu-item-block-stack-space)',
+      'px-[18px] mt-(--menu-item-block-stack-space)',
       'flex flex-row rtl:flex-row-reverse items-center',
       'select-none outline-none whitespace-nowrap',
       'text-start',
@@ -40,11 +40,11 @@ export default {
       'text-(--menu-popup-item-color)',
       'opacity-70'
     ].join(' '),
-    separator: 'mx-0 my-0 h-px bg-(--ui-color-divider-vibrant-default)',
+    separator: 'my-[8px] mx-[18px] h-[1px] bg-(--popup-window-delimiter-bg-color)',
     item: [
       'group',
       'w-full min-w-[195px] h-[36px]',
-      'px-[25px] mt-(--menu-item-block-stack-space)',
+      'px-[18px] mt-(--menu-item-block-stack-space)',
       'relative',
       'flex flex-row rtl:flex-row-reverse items-center',
       'select-none outline-none whitespace-nowrap',
@@ -67,7 +67,7 @@ export default {
     itemLeadingAvatar: 'shrink-0 size-[16px] mx-px', // @memo 18-2px
     itemLeadingAvatarSize: '2xs', // @memo this wrong
     itemTrailing: 'ml-auto rtl:ml-0 rtl:mr-auto inline-flex gap-1.5 items-center',
-    itemTrailingIcon: 'shrink-0 size-[20px] text-(--ui-color-design-plain-content-icon-secondary)',
+    itemTrailingIcon: 'shrink-0 size-[24px] text-(--ui-color-design-plain-content-icon-secondary)',
     itemTrailingKbds: 'shrink-0 hidden lg:inline-flex items-center gap-0.5',
     itemTrailingKbdsSize: 'md',
     itemLabel: 'truncate ms-[2px] -mt-px',

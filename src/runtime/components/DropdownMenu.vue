@@ -155,6 +155,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dropdo
       :b24ui-override="props.b24ui"
       v-bind="contentProps"
       :items="items"
+      :arrow="arrow"
       :portal="portal"
       :label-key="(labelKey as keyof NestedItem<T>)"
       :checked-icon="checkedIcon"

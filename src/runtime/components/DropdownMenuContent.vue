@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/block-tag-newline -->
 <script lang="ts">
-import type { DropdownMenuContentProps as RekaDropdownMenuContentProps, DropdownMenuContentEmits as RekaDropdownMenuContentEmits } from 'reka-ui'
+import type { DropdownMenuContentProps as RekaDropdownMenuContentProps, DropdownMenuContentEmits as RekaDropdownMenuContentEmits, DropdownMenuArrowProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import type theme from '#build/b24ui/dropdown-menu'
 import type { KbdProps, AvatarProps, DropdownMenuItem, DropdownMenuSlots, DynamicSlots, MergeTypes, IconComponent } from '../types'
@@ -10,6 +10,11 @@ type DropdownMenu = ComponentConfig<typeof theme, AppConfig, 'dropdownMenu'>
 
 interface DropdownMenuContentProps<T extends ArrayOrNested<DropdownMenuItem>> extends Omit<RekaDropdownMenuContentProps, 'as' | 'asChild' | 'forceMount'> {
   items?: T
+  /**
+   * Display an arrow alongside the menu.
+   * @defaultValue false
+   */
+  arrow?: boolean | Omit<DropdownMenuArrowProps, 'as' | 'asChild'>
   portal?: boolean | string | HTMLElement
   sub?: boolean
   labelKey: keyof NestedItem<T>
@@ -39,8 +44,12 @@ type DropdownMenuContentSlots<
 
 <script setup lang="ts" generic="T extends ArrayOrNested<DropdownMenuItem>">
 import { computed, toRef } from 'vue'
+import { defu } from 'defu'
 import { DropdownMenu } from 'reka-ui/namespaced'
-import { useForwardPropsEmits } from 'reka-ui'
+import {
+  DropdownMenuArrow,
+  useForwardPropsEmits
+} from 'reka-ui'
 import { reactiveOmit, createReusableTemplate } from '@vueuse/core'
 // import { useAppConfig } from '#imports'
 import { useLocale } from '../composables/useLocale'
@@ -65,7 +74,7 @@ const { dir } = useLocale()
 const portalProps = usePortal(toRef(() => props.portal))
 const contentProps = useForwardPropsEmits(reactiveOmit(props, 'sub', 'items', 'portal', 'labelKey', 'checkedIcon', 'externalIcon', 'class', 'b24ui', 'b24uiOverride'), emits)
 const proxySlots = omit(slots, ['default'])
-// const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10 }) as DropdownMenuArrowProps)
+const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10 }) as DropdownMenuArrowProps)
 const getLabel = (item: DropdownMenuItem) => {
   return get(item, props.labelKey as string)
 }
@@ -178,6 +187,7 @@ const groups = computed<DropdownMenuItem[][]>(() =>
                 :b24ui-override="b24uiOverride"
                 :portal="portal"
                 :items="(item.children as T)"
+                :arrow="arrow"
                 align="start"
                 :align-offset="-4"
                 :side-offset="3"
@@ -189,8 +199,7 @@ const groups = computed<DropdownMenuItem[][]>(() =>
                 <template v-for="(_, name) in proxySlots" #[name]="slotData">
                   <slot :name="(name as keyof DropdownMenuContentSlots<T>)" v-bind="slotData" />
                 </template>
-              <!-- @ todo: add arrow -->
-              <!-- <DropdownMenuArrow v-if="!!arrow" v-bind="arrowProps" :class="b24ui.arrow({ class: props.b24ui?.arrow })" /> -->
+                <DropdownMenuArrow v-if="!!arrow" v-bind="arrowProps" :class="b24ui.arrow({ class: props.b24ui?.arrow })" />
               </B24DropdownMenuContent>
             </DropdownMenu.Sub>
             <DropdownMenu.CheckboxItem

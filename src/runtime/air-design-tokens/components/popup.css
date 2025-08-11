@@ -10,7 +10,7 @@
 @theme inline {
   --popup-window-background-color: var(--ui-color-base-white-fixed);
 
-  --popup-window-border-radius: 18px;
+  --popup-window-border-radius: 14px; /* 18px */
   --popup-window-content-border-radius: 4px;
   /*--popup-window-border: 1px solid #f0f0f0;*/
   --popup-window-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.21);
