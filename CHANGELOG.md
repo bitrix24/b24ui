@@ -18,6 +18,11 @@
 * DropdownMenu:
   - fix arrow
   - fix color
+  - remove size
+  - color
+    - air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning
+    - @deprecate
+      - default, danger, success, warning, primary, secondary, collab, ai, link
 * NavigationMenu:
   - props.hint
   - delayDuration = 200

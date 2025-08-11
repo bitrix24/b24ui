@@ -39,10 +39,6 @@ export interface DropdownMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cust
 }
 
 export interface DropdownMenuProps<T extends ArrayOrNested<DropdownMenuItem> = ArrayOrNested<DropdownMenuItem>> extends Omit<DropdownMenuRootProps, 'dir'> {
-  /**
-   * @defaultValue 'md'
-   */
-  size?: DropdownMenu['variants']['size']
   items?: T
   /**
    * The icon displayed when an item is checked.
@@ -135,9 +131,8 @@ const contentProps = toRef(() => defu(props.content, { side: 'bottom', align: 'c
 const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10 }) as DropdownMenuArrowProps)
 const proxySlots = omit(slots, ['default'])
 
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dropdownMenu || {}) })({
-  size: props.size
-}))
+// eslint-disable-next-line vue/no-dupe-keys
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dropdownMenu || {}) })({}))
 </script>
 
 <template>

@@ -61,7 +61,7 @@ export default {
     ].join(' '),
     linkLabel: 'truncate -mt-px',
     linkLabelWrapper: 'flex items-center justify-between rtl:flex-row-reverse',
-    linkLabelExternalIcon: 'inline-block size-4 text-(--ui-color-design-plain-content-icon-secondary)',
+    linkLabelExternalIcon: 'inline-block size-[16px] text-(--ui-color-design-plain-content-icon-secondary)',
     childList: 'isolate',
     childLabel: '',
     childItem: 'h-[36px] mt-(--menu-item-block-stack-space)',
@@ -71,7 +71,7 @@ export default {
       'flex flex-row rtl:flex-row-reverse items-center transition-colors',
       'text-start'
     ].join(' '),
-    childLinkWrapper: 'min-w-0 flex-1 flex flex-row items-center justify-start gap-0.5',
+    childLinkWrapper: 'min-w-0 flex-1 flex flex-row items-center justify-start rtl:justify-end gap-0.5',
     childLinkIcon: 'size-[18px] shrink-0',
     childLinkHint: [
       'inline-flex m-0 absolute -top-[2px] left-[24px]',

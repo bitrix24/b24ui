@@ -54,7 +54,6 @@ import B24Avatar from './Avatar.vue'
 import B24Kbd from './Kbd.vue'
 
 import B24DropdownMenuContent from './DropdownMenuContent.vue'
-import {defu} from "defu";
 
 const props = defineProps<DropdownMenuContentProps<T>>()
 const emits = defineEmits<DropdownMenuContentEmits>()
@@ -190,7 +189,7 @@ const groups = computed<DropdownMenuItem[][]>(() =>
                 <template v-for="(_, name) in proxySlots" #[name]="slotData">
                   <slot :name="(name as keyof DropdownMenuContentSlots<T>)" v-bind="slotData" />
                 </template>
-              <!-- @ todo: add arrow-->
+              <!-- @ todo: add arrow -->
               <!-- <DropdownMenuArrow v-if="!!arrow" v-bind="arrowProps" :class="b24ui.arrow({ class: props.b24ui?.arrow })" /> -->
               </B24DropdownMenuContent>
             </DropdownMenu.Sub>

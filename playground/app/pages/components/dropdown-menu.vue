@@ -14,9 +14,6 @@ const itemsWithColor = computed(() => Object.keys(theme.variants.color).map(colo
   icon: More9Cubes1Icon,
   label: color
 })))
-
-const sizes = Object.keys(theme.variants.size)
-const size = ref('md' as const)
 </script>
 
 <template>
@@ -41,11 +38,8 @@ const size = ref('md' as const)
         A contextual menu for actions triggered by clicking an element
       </ProseP>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-[15px]">
-        <B24Select v-model="size" :items="sizes" placeholder="Size" class="w-20" />
-
         <B24DropdownMenu
           :items="itemsWithColor"
-          :size="size"
           arrow
           :content="{ side: 'bottom', align: 'center' }"
         >
@@ -54,14 +48,13 @@ const size = ref('md' as const)
 
         <B24DropdownMenu
           :items="dropdownMenuItems"
-          :size="size"
           arrow
           :content="{ side: 'bottom', align: 'center' }"
         >
           <B24Button color="air-secondary-accent" :icon="MoreMIcon" />
 
           <template #custom-trailing>
-            <CircleCheckThinIcon class="shrink-0 size-5 text-ai-500" />
+            <CircleCheckThinIcon class="shrink-0 size-[20px] text-(--ui-color-copilot-accent-primary)" />
           </template>
         </B24DropdownMenu>
       </div>
