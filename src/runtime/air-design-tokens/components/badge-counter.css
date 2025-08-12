@@ -72,24 +72,19 @@
 }
 
 /*region Label size*/
-.ui-label-xl {
-  --ui-label-height: 25px;
-  --ui-label-inline-space: 6px;
-}
-
 .ui-label-lg {
   --ui-label-height: 25px;
-  --ui-label-inline-space: 6px;
+  --ui-label-inline-space: 10px;
 }
 
 .ui-label-md {
   --ui-label-height: var(--ui-size-lg);
-  --ui-label-inline-space: 4px;
+  --ui-label-inline-space: 8px;
 }
 
 .ui-label-sm {
   --ui-label-height: 18px;
-  --ui-label-inline-space: 4px;
+  --ui-label-inline-space: 6px;
 }
 
 .ui-label-xs {

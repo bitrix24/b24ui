@@ -11,10 +11,12 @@ import MockSidebarLayoutSideFooter from '../../components/MockSidebarLayoutSideF
 import MockContentLongString from '../../components/MockContentLongString.vue'
 import MockContentLongText from '../../components/MockContentLongText.vue'
 import MockContentUploadFile from '../../components/MockContentUploadFile.vue'
+import BusinesProcessStagesIcon from '@bitrix24/b24icons-vue/outline/BusinesProcessStagesIcon'
+import TrendUpIcon from '@bitrix24/b24icons-vue/outline/TrendUpIcon'
+import TrendDownIcon from '@bitrix24/b24icons-vue/outline/TrendDownIcon'
 import { action } from '../../composables/useMockMenu'
 import B24Slideover from '@bitrix24/b24ui-nuxt/components/Slideover.vue'
 import type { SlideoverInstance } from '@bitrix24/b24ui-nuxt'
-import BusinesProcessStagesIcon from '@bitrix24/b24icons-vue/outline/BusinesProcessStagesIcon'
 
 usePageMeta.setPageTitle('Slideover')
 
@@ -514,7 +516,7 @@ const openSliderTopAndBottom = async () => {
                     <tr>
                       <th>#</th>
                       <th>Company</th>
-                      <th>Deal Stage</th>
+                      <th>Status</th>
                       <th>Amount (USD)</th>
                     </tr>
                   </thead>
@@ -523,35 +525,35 @@ const openSliderTopAndBottom = async () => {
                     <tr>
                       <th>1</th>
                       <td><B24Link @click="openListItem = true">Tech Innovators Inc.</B24Link></td>
-                      <td>Proposal Sent</td>
+                      <td><B24Badge label="Proposal Sent" use-link use-close /></td>
                       <td>50,000</td>
                     </tr>
                     <!-- row 2 -->
                     <tr>
                       <th>2</th>
                       <td><B24Link @click="openListItem = true">Global Solutions Ltd.</B24Link></td>
-                      <td>Negotiation</td>
+                      <td><B24Badge label="Negotiation" use-link inverted use-close /></td>
                       <td>120,000</td>
                     </tr>
                     <!-- row 3 -->
                     <tr>
                       <th>3</th>
                       <td><B24Link @click="openListItem = true">Future Enterprises</B24Link></td>
-                      <td>Contract Signed</td>
+                      <td><B24Chip standalone color="air-primary-warning" text="Contract Signed" size="lg" :trailing-icon="TrendUpIcon" /></td>
                       <td>200,000</td>
                     </tr>
                     <!-- row 4 -->
                     <tr>
                       <th>4</th>
                       <td><B24Link @click="openListItem = true">Bright Ideas Co.</B24Link></td>
-                      <td>Initial Contact</td>
+                      <td><B24Chip standalone color="air-primary-alert" text="Initial Contact" size="lg" inverted :trailing-icon="TrendDownIcon" /></td>
                       <td>15,000</td>
                     </tr>
                     <!-- row 5 -->
                     <tr>
                       <th>5</th>
                       <td><B24Link @click="openListItem = true">NextGen Technologies</B24Link></td>
-                      <td>Closing</td>
+                      <td><B24Chip :b24ui="{ base: 'style-filled-boost' }" standalone color="air-primary-alert" text="Important" size="lg" /></td>
                       <td>300,000</td>
                     </tr>
                   </tbody>
