@@ -2,6 +2,7 @@
  * Badge
  * @see /bitrix/js/ui/cnt/dist/cnt.bundle.css
  * @see /bitrix/js/ui/cnt/ui.cnt.css
+ * @see /bitrix/js/ui/label/dist/label.bundle.css
  * @todo fix use @layer components
  * @memo fix compensation >> compensation
  */
@@ -23,6 +24,19 @@
     --ui-counter-symbol-compensation: 0px;
     --ui-counter-border-color: transparent;
     --ui-counter-border-width: 0;
+  }
+
+  .ui-label__scope {
+    --ui-label-height: var(--ui-size-lg);
+    --ui-label-background-color: #c2c5ca;
+    --ui-label-background-color-hover: var(--ui-label-background-color);
+    --ui-label-color: var(--ui-color-palette-white-base-rgb);
+    --ui-label-link-dashed-color: rgba(255, 255, 255, 0.51);
+    --ui-label-font-weight: var(--ui-font-weight-bold);
+    --ui-label-font: var(--ui-font-family-secondary);
+    --ui-label-font-size: var(--ui-font-size-xs);
+
+    --ui-label-inline-space: 6px;
   }
 }
 
@@ -50,10 +64,47 @@
   --ui-counter-inline-space: 6px;
   --ui-counter-symbol-compensation: -4px;
 }
-
 /*endregion*/
 
 .ui-counter.--air.ui-counter-border {
   --ui-counter-border-width: var(--ui-border-width-thin);
   --ui-counter-border-color: var(--ui-color-base-white-fixed);
 }
+
+/*region Label size*/
+.ui-label-xl {
+  --ui-label-height: 25px;
+  --ui-label-inline-space: 6px;
+}
+
+.ui-label-lg {
+  --ui-label-height: 25px;
+  --ui-label-inline-space: 6px;
+}
+
+.ui-label-md {
+  --ui-label-height: var(--ui-size-lg);
+  --ui-label-inline-space: 4px;
+}
+
+.ui-label-sm {
+  --ui-label-height: 18px;
+  --ui-label-inline-space: 4px;
+}
+
+.ui-label-xs {
+  --ui-label-height: 14px;
+  --ui-label-inline-space: 4px;
+  --ui-label-font-size: var(--ui-font-size-6xs);
+  --ui-label-font-weight: var(--ui-font-weight-regular);
+}
+
+.ui-label-xxs {
+  --ui-label-height: 10px;
+  --ui-label-inline-space: 2px;
+  --ui-label-font-size: var(--ui-font-size-4xs);
+  --ui-label-font-weight: var(--ui-font-weight-regular);
+}
+
+
+/*endregion*/

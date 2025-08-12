@@ -224,6 +224,7 @@ export default {
   defaultVariants: {
     size: 'sm',
     color: 'air-primary-alert',
-    position: 'top-right'
+    position: 'top-right',
+    inverted: false
   }
 }

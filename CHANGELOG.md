@@ -110,7 +110,23 @@
     - default, danger, success, warning, primary, secondary, collab, ai
   - @deprecate size
     - 3xs, 2xs, xs, xl, 2xl, 3xl
+* Badge
+  - fix color
+  - add color
+    - air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning,
+    - air-secondary, air-secondary-alert, air-secondary-accent, air-secondary-accent-1, air-secondary-accent-2,
+    - air-tertiary,
+    - air-selection
+  - @deprecate color
+    - default, danger, success, warning, primary, secondary, collab, ai
+  - - @deprecate size
+  - set size
+    - xs, sm, md, lg
+  - remove depth
+  - ?? remove useFill -> now use inverted
+  - ?? add prop inverted
 
+---
 We change btn colors:
 
 - color="default" depth="light"

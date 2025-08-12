@@ -128,6 +128,7 @@ export default {
   ],
   defaultVariants: {
     color: 'air-secondary-no-accent',
-    size: 'md'
+    size: 'md',
+    inverted: false
   }
 }
