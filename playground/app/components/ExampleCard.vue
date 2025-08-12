@@ -10,8 +10,9 @@ const $props = withDefaults(defineProps<{
 
 <template>
   <div
+    class="overflow-hidden p-5"
     :class="[
-      $props.useBg ? 'overflow-hidden p-5 rounded ' : '' // bg-(--ui-color-base-7) context-edge-light  backdrop-blur-md bg-(--ui-color-bg-content-primary)/80
+      $props.useBg ? 'rounded-[10px] backdrop-blur-md bg-(--ui-color-design-outline-na-bg) border-1 border-(--ui-color-design-outline-na-stroke)' : ''
     ]"
   >
     <slot name="title">
