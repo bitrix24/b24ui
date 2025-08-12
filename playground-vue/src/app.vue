@@ -13,6 +13,7 @@ import MoonIconAir from '@bitrix24/b24icons-vue/outline/MoonIcon'
 import type { DropdownMenuItem, NavigationMenuItem, SidebarLayoutInstance } from '@bitrix24/b24ui-nuxt'
 
 const appConfig = useAppConfig()
+
 const mode = useColorMode<'light' | 'dark' | 'edgeLight' | 'edgeDark'>({
   attribute: 'class',
   modes: {

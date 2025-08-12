@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed, onMounted } from 'vue'
 import theme from '#build/b24ui/dropdown-menu'
 import usePageMeta from './../../composables/usePageMeta'
 import { dropdownMenuItems } from './../../composables/useMockMenu'
@@ -14,6 +15,10 @@ const itemsWithColor = computed(() => Object.keys(theme.variants.color).map(colo
   icon: More9Cubes1Icon,
   label: color
 })))
+
+onMounted(() => {
+  defineShortcuts(extractShortcuts(dropdownMenuItems.value))
+})
 </script>
 
 <template>

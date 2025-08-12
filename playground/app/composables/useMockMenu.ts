@@ -208,4 +208,3 @@ export const dropdownMenuItems = computed<DropdownMenuItem[][]>(() => [
     }
   ]
 ])
-defineShortcuts(extractShortcuts(dropdownMenuItems.value))

@@ -1,9 +1,14 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import MockSidebarLayoutMenu from './MockSidebarLayoutMenu.vue'
 import BusinesProcessStagesIcon from '@bitrix24/b24icons-vue/outline/BusinesProcessStagesIcon'
 import CameraIcon from '@bitrix24/b24icons-vue/button/CameraIcon'
 import MoreMIcon from '@bitrix24/b24icons-vue/outline/MoreMIcon'
 import { dropdownMenuItems } from './../composables/useMockMenu'
+
+onMounted(() => {
+  defineShortcuts(extractShortcuts(dropdownMenuItems.value))
+})
 </script>
 
 <template>
