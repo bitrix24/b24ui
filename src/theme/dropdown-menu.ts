@@ -61,6 +61,7 @@ export default {
       'size-[18px]',
       'text-(--ui-color-design-plain-content-icon-secondary)',
       'group-data-highlighted:text-(--ui-color-accent-main-primary)',
+      'group-data-[state=open]:text-(--ui-color-accent-main-primary)',
       'group-data-[state=checked]:text-(--ui-color-accent-main-primary)',
       'transition-colors'
     ].join(' '),
@@ -70,7 +71,10 @@ export default {
     itemTrailingIcon: 'shrink-0 size-[24px] text-(--ui-color-design-plain-content-icon-secondary)',
     itemTrailingKbds: 'shrink-0 hidden lg:inline-flex items-center gap-0.5',
     itemTrailingKbdsSize: 'md',
-    itemLabel: 'truncate ms-[2px] -mt-px',
+    itemLabel: [
+      'truncate ms-[2px] -mt-px',
+      'group-data-[state=checked]:text-(--ui-color-accent-main-primary)'
+    ].join(' '),
     itemLabelExternalIcon: 'inline-block size-[16px] text-(--ui-color-design-plain-content-icon-secondary)'
   },
   variants: {
