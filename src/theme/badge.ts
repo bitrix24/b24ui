@@ -18,13 +18,13 @@ export default {
       'select-none',
       'font-[family-name:var(--ui-font-family-secondary)]',
       'font-(--ui-label-font-weight)',
-      'text-(length:--ui-label-font-size)/(--ui-font-line-height-2xs)',
+      'text-(length:--ui-label-font-size)/[1]',
       'inline-flex items-center',
       'transition-all duration-200 ease-linear',
       'px-(--ui-label-inline-space)',
       'text-(--b24ui-color)',
       'bg-(--b24ui-background)',
-      'border-(--b24ui-border-color) border-(length:--b24ui-border-width)',
+      'border-(--b24ui-border-color) border-(length:--b24ui-border-width)'
     ].join(' '),
     wrapper: 'h-(--ui-label-height) inline-flex items-center',
     label: 'max-w-full whitespace-nowrap text-ellipsis decoration-from-font',
@@ -43,10 +43,12 @@ export default {
       }
     },
     useClose: {
-      true: 'pe-2xs'
+      true: 'pe-2xs',
+      false: ''
     },
     leading: {
-      true: 'ps-1'
+      true: 'ps-1',
+      false: ''
     },
     color: {
       'air-primary': { base: 'style-filled' },
@@ -72,6 +74,14 @@ export default {
       'ai': { base: 'style-old-ai' }
     },
     size: {
+      xss: {
+        base: 'ui-label-xss gap-0.5',
+        wrapper: 'gap-0.5',
+        label: 'underline-offset-1',
+        leadingIcon: 'size-[12px]',
+        leadingAvatarSize: '3xs',
+        trailingIcon: 'size-[12px]'
+      },
       xs: {
         base: 'ui-label-xs gap-0.5',
         wrapper: 'gap-0.5',
@@ -97,8 +107,15 @@ export default {
         trailingIcon: 'size-[15px]'
       },
       lg: {
-        // fix base: 'ui-label-lg text-xs gap-1',
         base: 'ui-label-lg gap-1',
+        wrapper: 'gap-1',
+        label: '',
+        leadingIcon: 'size-[22px]',
+        leadingAvatarSize: '2xs',
+        trailingIcon: 'size-[22px]'
+      },
+      xl: {
+        base: 'ui-label-xl gap-1',
         wrapper: 'gap-1',
         label: '',
         leadingIcon: 'size-[22px]',
@@ -118,9 +135,7 @@ export default {
     },
     inverted: {
       true: {
-        class: {
-          base: 'border-(--b24ui-color)'
-        }
+        base: 'border-(--b24ui-color)'
       },
       false: ''
     }
@@ -165,6 +180,15 @@ export default {
     // endregion ////
     // region square ////
     {
+      size: 'xss',
+      square: true,
+      class: {
+        base: 'p-0 ps-0 pe-0',
+        wrapper: 'px-[2px] gap-0',
+        leadingIcon: 'size-[6px]'
+      }
+    },
+    {
       size: 'xs',
       square: true,
       class: {
@@ -197,7 +221,16 @@ export default {
       class: {
         base: 'p-0 ps-0 pe-0',
         wrapper: 'p-[1px] gap-0',
-        leadingIcon: 'size-[23px]',
+        leadingIcon: 'size-[23px]'
+      }
+    },
+    {
+      size: 'xl',
+      square: true,
+      class: {
+        base: 'p-0 ps-0 pe-0',
+        wrapper: 'p-[1px] gap-0',
+        leadingIcon: 'size-[28px]'
       }
     },
     // endregion ////

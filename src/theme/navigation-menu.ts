@@ -53,7 +53,7 @@ export default {
       'ml-px'
     ].join(' '),
     linkLeadingBadge: 'inline-flex m-0 absolute',
-    linkLeadingBadgeSize: 'sm',
+    linkLeadingBadgeSize: 'xs',
     linkTrailing: 'group inline-flex mt-[2px] items-center   ',
     linkTrailingIcon: [
       'text-(--ui-color-design-plain-na-content-icon)',
@@ -83,7 +83,7 @@ export default {
       'ml-px'
     ].join(' '),
     childLinkBadge: 'inline-flex m-0',
-    childLinkBadgeSize: 'sm',
+    childLinkBadgeSize: 'xs',
     childLinkLabel: 'truncate ms-[2px] -mt-px',
     childLinkLabelExternalIcon: 'inline-block size-4 text-(--ui-color-design-plain-content-icon-secondary)',
     separator: 'h-px bg-(--leftmenu-bg-divider) my-[16px]',

@@ -81,9 +81,8 @@ const items = [
       defaultOpen: true,
       badge: {
         label: '14',
-        color: 'ai' as const,
-        depth: 'dark' as const,
-        useFill: true
+        color: 'air-primary' as const,
+        inverted: false
       },
       icon: Filter1Icon,
       to: '/components/navigation-menu#1',

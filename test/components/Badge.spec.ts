@@ -6,14 +6,11 @@ import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 
 describe('Badge', () => {
   const sizes = Object.keys(theme.variants.size) as any
-  const depths = Object.keys(theme.variants.depth) as any
 
   it.each([
     // Props
     ['with label', { props: { label: 'Badge' } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { label: 'Badge', size } }]),
-    ...depths.map((depth: string) => [`with primary depth ${depth}`, { props: { label: 'Badge', depth } }]),
-    ...depths.map((depth: string) => [`with success depth ${depth}`, { props: { label: 'Badge', depth, color: 'success' } }]),
     ['with icon', { props: { icon: SignIcon } }],
     ['with leading and icon', { props: { leading: true, icon: SignIcon } }],
     ['with leadingIcon', { props: { leadingIcon: SignIcon } }],

@@ -34,7 +34,7 @@ export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
   avatar?: AvatarProps
   /**
    * Display a badge on the item.
-   * `{ size: 'sm', color: 'danger', depth: 'dark' }`{lang="ts"}
+   * `{ size: 'xs', color: 'air-primary-alert' }`{lang="ts"}
    */
   badge?: string | number | BadgeProps
   /**
@@ -280,9 +280,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
           </div>
           <B24Badge
             v-if="item.badge && item.type !== 'label'"
-            color="danger"
-            depth="dark"
-            :use-fill="true"
+            color="air-primary-alert"
             :size="((item.b24ui?.linkLeadingBadgeSize || props.b24ui?.linkLeadingBadgeSize || b24ui.linkLeadingBadgeSize()) as BadgeProps['size'])"
             v-bind="(typeof item.badge === 'string' || typeof item.badge === 'number') ? { label: item.badge } : item.badge"
             :class="b24ui.linkLeadingBadge({ class: [props.b24ui?.linkLeadingBadge, item.b24ui?.linkLeadingBadge] })"
@@ -494,9 +492,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
                         </p>
                         <B24Badge
                           v-if="childItem.badge"
-                          color="danger"
-                          depth="dark"
-                          :use-fill="true"
+                          color="air-primary-alert"
                           :size="((item.b24ui?.childLinkBadgeSize || props.b24ui?.childLinkBadgeSize || b24ui.childLinkBadgeSize()) as BadgeProps['size'])"
                           v-bind="(typeof childItem.badge === 'string' || typeof childItem.badge === 'number') ? { label: childItem.badge } : childItem.badge"
                           :class="b24ui.childLinkBadge({ class: [props.b24ui?.childLinkBadge, item.b24ui?.childLinkBadge] })"

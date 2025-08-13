@@ -76,8 +76,8 @@ const isPrimary = (color: string) => {
             use-link
             use-close
             :on-close-click="onCloseClick"
-            @click="onClick"
             inverted
+            @click="onClick"
           >
             <span>Use slot</span>
           </B24Badge>
@@ -110,13 +110,13 @@ const isPrimary = (color: string) => {
         />
         <template #content>
           <div class="my-4 flex flex-wrap items-start justify-start gap-4">
-          <template v-for="color in oldColors" :key="color">
+            <template v-for="color in oldColors" :key="color">
               <B24Badge
                 :color="color"
                 :label="`This is ${color}`"
                 size="lg"
               />
-          </template>
+            </template>
           </div>
         </template>
       </B24Collapsible>
@@ -137,6 +137,18 @@ const isPrimary = (color: string) => {
           />
           <B24Badge
             :size="size"
+            label="1"
+          />
+          <B24Badge
+            :size="size"
+            label="2"
+          />
+          <B24Badge
+            :size="size"
+            label="14"
+          />
+          <B24Badge
+            :size="size"
             label="square"
             square
           />
@@ -148,6 +160,7 @@ const isPrimary = (color: string) => {
           />
           <B24Badge
             :size="size"
+            square
             :icon="InfoIcon"
           />
           <B24Badge
