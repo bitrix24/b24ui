@@ -15,7 +15,7 @@ export interface CheckboxProps extends Pick<CheckboxRootProps, 'disabled' | 'req
   label?: string
   description?: string
   /**
-   * @defaultValue 'primary'
+   * @defaultValue 'air-primary'
    */
   color?: Checkbox['variants']['color']
   /**

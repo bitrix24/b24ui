@@ -3,19 +3,19 @@
 ## [0.8.0](https://github.com/bitrix24/b24ui/compare/v0.7.2...v0.8.0) (2025-07-xx)
 
 * chore(AirWeb): add
-* ProseP
+* **ProseP**
   - fix color
   - add prop small
   - add prop accent {default, accent, accent-more, less, less-more}
-* ProseHr
+* **ProseHr**
   - fix color
-* ProseH*
+* **ProseH***
   - fix color
   - add prop accent {default, accent, accent-more, less, less-more}
-* Popover:
+* **Popover**:
   - fix arrow
   - fix color
-* DropdownMenu:
+* **DropdownMenu**:
   - fix arrow
   - fix color
   - remove size
@@ -23,13 +23,13 @@
     - air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning
     - @deprecate
       - default, danger, success, warning, primary, secondary, collab, ai, link
-* NavigationMenu:
+* **NavigationMenu**:
   - props.hint
   - delayDuration = 200
   - remove contentOrientation, highlight, highlightColor, arrow, color, variant.link
-* StackedLayout:
+* **StackedLayout**:
   - remove 
-* SidebarLayout:
+* **SidebarLayout**:
   - slots.content-top
   - slots.content-actions
   - slots.loading
@@ -37,7 +37,7 @@
   - prop.inner
   - prop.offContentScrollbar
   - use tools/blurImage.ts for gen blur bg
-* Button:
+* **Button**:
   - normal-case = true
   - size = xl, lg, md, sm, xs, xxs
   - color 
@@ -48,14 +48,14 @@
     - @deprecate
       - default, danger, success, warning, primary, secondary, collab, ai, link
   - depth - @deprecate
-* Separator
+* **Separator**
   - type - add: double
   - remove prop colors
   - add prop accent {default, accent, less}
   - size
     - add: thin, thick
     - remove: xs, sm, md, lg, xl
-* Skeleton
+* **Skeleton**
   - add prop accent {default, accent, less}
 * **Slideover**
   - remove props.scrollbarThin
@@ -91,14 +91,14 @@
   - @deprecate
     - default, danger, success, warning, primary, secondary, collab, ai
   - add prop inverted
-* Accordion
+* **Accordion**
   - fix color
-* Advice
+* **Advice**
   - fix color
   - remove empty avatar
-* Avatar,AvatarGroup
+* **Avatar**,**AvatarGroup**
   - fix color
-* Chip
+* **Chip**
   - fix color
   - add prop hideZero
   - add prop trailingIcon
@@ -111,7 +111,7 @@
     - default, danger, success, warning, primary, secondary, collab, ai
   - @deprecate size
     - 3xs, 2xs, xs, xl, 2xl, 3xl
-* Badge
+* **Badge**
   - fix color
   - add color
     - air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning,
@@ -125,7 +125,13 @@
   - remove depth
   - remove useFill -> now use inverted
   - add prop inverted
-* Switch
+* **Switch**
+  - fix color 
+  - add color
+    - air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning
+  - @deprecate color
+    - default, danger, success, warning, primary, secondary, collab, ai
+* Checkbox
   - fix color 
   - add color
     - air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning

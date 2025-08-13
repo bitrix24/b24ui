@@ -7,34 +7,56 @@ export default {
   slots: {
     root: 'relative flex items-start',
     base: [
-      'cursor-pointer shrink-0 flex items-center justify-center rounded-2xs text-white dark:text-base-150',
-      'ring ring-inset ring-base-300 dark:ring-base-700',
+      'cursor-pointer',
+      'flex items-center justify-center',
+      'shrink-0',
+      'rounded-(--ui-border-radius-2xs)',
+      'text-(--ui-color-design-plain-content)',
+      'ring ring-inset ring-(--ui-color-base-5)',
+      'focus-visible:outline-(--b24ui-border-color)',
       'outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2'
     ].join(' '),
-    indicator: 'flex items-center justify-center size-full text-base-master dark:text-base-400',
+    indicator: [
+      'flex items-center justify-center',
+      'size-full',
+      'text-(--ui-color-design-plain-content)'
+    ].join(' '),
     container: 'flex items-center',
-    wrapper: 'font-b24-primary ms-2',
     icon: 'shrink-0 size-full',
-    label: 'cursor-pointer block font-regular text-base-master dark:text-base-400',
-    description: 'text-base-500 dark:text-base-600'
+    wrapper: [
+      'font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular)',
+      'ms-2'
+    ].join(' '),
+    label: [
+      'cursor-pointer',
+      'block',
+      'text-(--ui-color-design-plain-content)'
+    ].join(' '),
+    description: 'text-(--ui-color-design-plain-na-content)'
   },
   variants: {
     color: {
-      default: 'focus-visible:outline-base-900 dark:focus-visible:outline-base-350',
-      danger: 'focus-visible:outline-red-500 dark:focus-visible:outline-red-600',
-      success: 'focus-visible:outline-green-500 dark:focus-visible:outline-green-600',
-      warning: 'focus-visible:outline-orange-500 dark:focus-visible:outline-orange-600',
-      primary: 'focus-visible:outline-blue-500 dark:focus-visible:outline-blue-600',
-      secondary: 'focus-visible:outline-cyan-350 dark:focus-visible:outline-cyan-500',
-      collab: 'focus-visible:outline-collab-500 dark:focus-visible:outline-collab-600',
-      ai: 'focus-visible:outline-ai-500 dark:focus-visible:outline-ai-600'
+      'air-primary': { root: 'style-filled' },
+      'air-primary-success': { root: 'style-filled-success' },
+      'air-primary-alert': { root: 'style-filled-alert' },
+      'air-primary-copilot': { root: 'style-filled-copilot' },
+      'air-primary-warning': { root: 'style-filled-warning' },
+      // @deprecate ////
+      'default': { root: 'style-old-default' },
+      'danger': { root: 'style-old-danger' },
+      'success': { root: 'style-old-success' },
+      'warning': { root: 'style-old-warning' },
+      'primary': { root: 'style-old-primary' },
+      'secondary': { root: 'style-old-secondary' },
+      'collab': { root: 'style-old-collab' },
+      'ai': { root: 'style-old-ai' }
     },
     variant: {
       list: {
         root: ''
       },
       card: {
-        root: 'border border-muted rounded-lg'
+        root: 'border border-(--ui-color-base-5) rounded-(--ui-border-radius-lg)'
       }
     },
     indicator: {
@@ -53,33 +75,33 @@ export default {
     },
     size: {
       xs: {
-        base: 'size-3',
-        container: 'h-4',
-        wrapper: 'text-xs',
-        label: 'leading-4'
+        base: 'size-[12px]',
+        container: 'h-[16px]',
+        wrapper: 'text-(length:--ui-font-size-xs)',
+        label: 'leading-[16px]'
       },
       sm: {
-        base: 'size-3.5',
-        container: 'h-4',
-        wrapper: 'text-sm',
-        label: 'leading-4'
+        base: 'size-[14px]',
+        container: 'h-[16px]',
+        wrapper: 'text-(length:--ui-font-size-sm)',
+        label: 'leading-[16px]'
       },
       md: {
-        base: 'size-4',
-        container: 'h-5',
-        wrapper: 'text-md',
-        label: 'leading-5'
+        base: 'size-[16px]',
+        container: 'h-[20px]',
+        wrapper: 'text-(length:--ui-font-size-md)',
+        label: 'leading-[20px]'
       },
       lg: {
-        base: 'size-5',
-        container: 'h-5',
-        wrapper: 'text-xl',
-        label: 'leading-5'
+        base: 'size-[20px]',
+        container: 'h-[20px]',
+        wrapper: 'text-(length:--ui-font-size-xl)',
+        label: 'leading-[20px]'
       }
     },
     required: {
       true: {
-        label: 'after:content-[\'*\'] after:ms-0.5 after:text-red-500 dark:after:text-red-600'
+        label: 'after:content-[\'*\'] after:ms-0.5 after:text-(--ui-color-accent-main-alert)'
       }
     },
     disabled: {
@@ -94,66 +116,33 @@ export default {
     }
   },
   compoundVariants: [
-    // region card ////
+    // region card.size ////
     { size: 'xs', variant: 'card', class: { root: 'p-2.5' } },
     { size: 'sm', variant: 'card', class: { root: 'p-3' } },
     { size: 'md', variant: 'card', class: { root: 'p-3.5' } },
     { size: 'lg', variant: 'card', class: { root: 'p-4' } },
     // endregion ////
-    // region list ////
+    // region card || list ////
     {
-      color: 'default',
-      variant: 'list',
+      variant: 'card',
       checked: true,
-      class: 'ring-2 ring-base-900 bg-base-900 dark:ring-base-350 dark:bg-base-350 dark:text-base-800'
+      class: {
+        root: 'border-(--b24ui-border-color)',
+        base: 'ring-2 ring-(--b24ui-border-color) bg-(--b24ui-background)'
+      }
     },
     {
-      color: 'danger',
       variant: 'list',
       checked: true,
-      class: 'ring-2 ring-red-500 bg-red-500 dark:ring-red-600 dark:bg-red-600 dark:text-red-250'
-    },
-    {
-      color: 'success',
-      variant: 'list',
-      checked: true,
-      class: 'ring-2 ring-green-500 bg-green-500 dark:ring-green-600 dark:bg-green-600 dark:text-green-250'
-    },
-    {
-      color: 'warning',
-      variant: 'list',
-      checked: true,
-      class: 'ring-2 ring-orange-500 bg-orange-500 dark:ring-orange-600 dark:bg-orange-600 dark:text-orange-250'
-    },
-    {
-      color: 'primary',
-      variant: 'list',
-      checked: true,
-      class: 'ring-2 ring-blue-500 bg-blue-500 dark:ring-blue-600 dark:bg-blue-600 dark:text-blue-250'
-    },
-    {
-      color: 'secondary',
-      variant: 'list',
-      checked: true,
-      class: 'ring-2 ring-cyan-350 bg-cyan-350 dark:ring-cyan-500 dark:bg-cyan-500'
-    },
-    {
-      color: 'collab',
-      variant: 'list',
-      checked: true,
-      class: 'ring-2 ring-collab-500 bg-collab-500 dark:ring-collab-600 dark:bg-collab-600 dark:text-collab-250'
-    },
-    {
-      color: 'ai',
-      variant: 'list',
-      checked: true,
-      class: 'ring-2 ring-ai-500 bg-ai-500 dark:ring-ai-600 dark:bg-ai-600 dark:text-ai-250'
+      class: {
+        base: 'ring-2 ring-(--b24ui-border-color) bg-(--b24ui-background)'
+      }
     }
     // endregion ////
   ],
   defaultVariants: {
+    color: 'air-primary',
     size: 'md',
-    color: 'primary',
     variant: 'list',
     indicator: 'start'
   }

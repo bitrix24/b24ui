@@ -21,7 +21,7 @@ export default {
       'transition-[background] duration-200',
       'border-2 border-(--ui-color-background-transparent)',
       'data-[state=unchecked]:bg-(--ui-color-base-5)',
-      'data-[state=checked]:bg-(--b24ui-background) focus-visible:outline-(--b24ui-background)'
+      'data-[state=checked]:bg-(--b24ui-background) focus-visible:outline-(--b24ui-border-color)'
     ].join(' '),
     container: 'flex items-center',
     thumb: [
@@ -39,7 +39,7 @@ export default {
       'group-data-[state=unchecked]:text-(--ui-color-base-5) context-edge-dark:group-data-[state=unchecked]:text-(--ui-color-gray-60)',
       'opacity-0',
       'p-0.5',
-      'size-10/10',
+      'size-full',
       'transition-[color,opacity] duration-200',
       'group-data-[state=checked]:text-(--b24ui-background)'
     ].join(' '),
