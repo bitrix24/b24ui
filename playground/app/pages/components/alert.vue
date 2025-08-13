@@ -16,7 +16,6 @@ const action = () => [
   {
     icon: MoreMIcon,
     color: 'air-secondary-no-accent' as ButtonProps['color'],
-    depth: 'light' as const,
     onClick() {
       console.log('Action 3 clicked')
     }
@@ -56,7 +55,7 @@ const multipleActions = () => [
   {
     label: 'Last one',
     color: 'air-secondary-no-accent' as ButtonProps['color'],
-    icon: DotsIcon,
+    icon: MoreMIcon,
     onClick() {
       console.log('Last one clicked')
     }

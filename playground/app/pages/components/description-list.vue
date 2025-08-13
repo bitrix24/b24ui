@@ -7,7 +7,7 @@ import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import type { ButtonProps } from '@bitrix24/b24ui-nuxt/components/Button.vue'
 import type { DescriptionListItem } from '@bitrix24/b24ui-nuxt/components/DescriptionList.vue'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
-import DotsIcon from '@bitrix24/b24icons-vue/button/DotsIcon'
+import MoreMIcon from '@bitrix24/b24icons-vue/outline/MoreMIcon'
 import DownloadDoubleIcon from '@bitrix24/b24icons-vue/actions/DownloadDoubleIcon'
 import PersonIcon from '@bitrix24/b24icons-vue/main/PersonIcon'
 import Calendar1Icon from '@bitrix24/b24icons-vue/main/Calendar1Icon'
@@ -18,7 +18,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
 
 const action = (color: string): ButtonProps[] => [
   {
-    icon: DotsIcon,
+    icon: MoreMIcon,
     color: color as any,
     depth: 'light',
     onClick() {
@@ -60,7 +60,7 @@ const multipleActions = (color: string): ButtonProps[] => [
   {
     label: 'Last one',
     color: color as any,
-    icon: DotsIcon,
+    icon: MoreMIcon,
     onClick() {
       console.log('Last one clicked')
     }
