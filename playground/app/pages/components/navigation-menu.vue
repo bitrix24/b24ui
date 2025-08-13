@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
 import usePageMeta from './../../composables/usePageMeta'
 import Placeholder from '../../components/Placeholder.vue'
@@ -110,14 +110,6 @@ const items = [
     }
   ]
 ] satisfies NavigationMenuItem[][]
-
-const isInit = ref(false)
-
-onMounted(() => {
-  setTimeout(() => {
-    isInit.value = true
-  }, 300)
-})
 </script>
 
 <template>
@@ -126,7 +118,6 @@ onMounted(() => {
       <B24Separator class="mt-3" type="dotted" label="horizontal" />
       <div class="-mt-[8px] mb-4 flex flex-col justify-center flex-wrap overflow-auto">
         <div
-          v-if="isInit"
           class="isolate px-2 w-full min-w-[720px]"
         >
           <div class="relative z-[1] flex flex-row items-center justify-between min-h-(--topbar-height) ">
@@ -148,7 +139,6 @@ onMounted(() => {
     <ExampleCard title="demo" class="col-span-4">
       <B24Separator class="mt-3" type="dotted" label="vertical" />
       <div
-        v-if="isInit"
         class="-mt-[8px] px-2 isolate mb-4 flex flex-row justify-start flex-wrap gap-2"
       >
         <B24NavigationMenu
