@@ -6,7 +6,7 @@ import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
 import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
-import DotsIcon from '@bitrix24/b24icons-vue/button/DotsIcon'
+import MoreMIcon from '@bitrix24/b24icons-vue/outline/MoreMIcon'
 
 usePageMeta.setPageTitle('Alert')
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
@@ -14,7 +14,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
 
 const action = () => [
   {
-    icon: DotsIcon,
+    icon: MoreMIcon,
     color: 'air-secondary-no-accent' as ButtonProps['color'],
     depth: 'light' as const,
     onClick() {

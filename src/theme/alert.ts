@@ -11,8 +11,8 @@ export default {
     root: [
       'relative overflow-hidden w-full flex',
       'text-(--b24ui-color)',
-      'bg-(--b24ui-background-hover)',
-      'border-(--b24ui-border-color-hover) border-(length:--b24ui-border-width)',
+      'bg-(--b24ui-background)',
+      'border-(--b24ui-border-color) border-(length:--b24ui-border-width)',
       'rounded-(--ui-border-radius-md)'
     ].join(' '),
     wrapper: [
@@ -39,10 +39,7 @@ export default {
       'air-secondary-accent': { root: 'style-outline' },
       'air-secondary-accent-1': { root: 'style-outline-accent-1' },
       'air-secondary-accent-2': { root: 'style-outline-accent-2' },
-      'air-secondary-no-accent': { root: 'style-outline-no-accent' },
-      'air-tertiary': { root: 'style-plain' },
-      'air-tertiary-accent': { root: 'style-plain-accent' },
-      'air-tertiary-no-accent': { root: 'style-plain-no-accent' },
+      'air-tertiary': { root: 'style-outline-no-accent' },
       // @deprecate ////
       'default': { root: 'style-old-default' },
       'danger': { root: 'style-old-danger' },
@@ -127,7 +124,7 @@ export default {
     // endregion ////
   ],
   defaultVariants: {
-    color: 'air-secondary-no-accent',
+    color: 'air-secondary-accent',
     size: 'md',
     inverted: false
   }

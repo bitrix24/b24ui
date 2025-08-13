@@ -117,7 +117,7 @@ const airColors = computed(() => {
       <ExampleCard :title="color as string" class="sm:col-span-2">
         <template v-for="size in sizes" :key="size">
           <ExampleCardSubTitle :title="size as string" />
-          <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+          <div class="mb-4 flex flex-wrap items-center justify-start gap-6">
             <B24Chip
               :size="size"
               hide-zero
@@ -152,7 +152,7 @@ const airColors = computed(() => {
       use-dropdown
     />
     <template #content>
-      <ExampleGrid v-once class="mb-2">
+      <ExampleGrid v-once class="my-2">
         <template v-for="color in oldColors" :key="color">
           <ExampleCard :title="color as string" class="sm:col-span-2">
             <template v-for="size in sizes" :key="size">
