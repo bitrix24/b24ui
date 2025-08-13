@@ -54,7 +54,7 @@ export default {
       'air-secondary': { base: 'style-tinted-no-accent-1' },
       'air-secondary-accent': { base: 'style-filled-no-accent' },
       'air-secondary-accent-1': { base: 'style-filled-no-accent-inverted context-edge-dark:text-(--ui-color-g-content-grey-2)' },
-      'air-secondary-no-accent': { base: 'style-outline-no-accent' },
+      'air-tertiary': { base: 'style-outline-no-accent' },
       // @deprecate ////
       'default': { base: 'style-old-default' },
       'danger': { base: 'style-old-danger' },

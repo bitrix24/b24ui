@@ -62,27 +62,27 @@
   - side.bottom default
   - calc size from max-w-*
   - use SidebarLayout for render content
-* Modal
+* **Modal**
   - fix color
   - add contentWrapper
-* Kbd
+* **Kbd**
   - fix arrow && default = on
   - fix color
   - remove depth
   - add prop accent {default, accent, less}
-* Tooltip
+* **Tooltip**
   - fix arrow && default = on
   - fix color
   - remove kbdsDepth
   - add prop kbdsAccent {accent}
-* Toast
+* **Toast**
   - fix color
   - add color
     - air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning,
     - air-secondary
   - @deprecate
     - default, danger, success, warning, primary, secondary, collab, ai
-* Alert
+* **Alert**
   - fix color
   - add color
     - air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning,
@@ -105,7 +105,8 @@
   - add prop inverted
   - add color
     - air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning,
-    - air-secondary, air-secondary-accent, air-secondary-accent-1, air-secondary-no-accent
+    - air-secondary, air-secondary-accent, air-secondary-accent-1,
+    - air-tertiary
   - @deprecate color
     - default, danger, success, warning, primary, secondary, collab, ai
   - @deprecate size
