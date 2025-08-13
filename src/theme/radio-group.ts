@@ -8,62 +8,95 @@ export default {
   slots: {
     root: 'relative',
     fieldset: 'flex',
-    legend: 'mb-1.5 block text-base-900 dark:text-base-400',
+    legend: [
+      'mb-1.5',
+      'block',
+      'text-(--ui-color-design-plain-na-content)'
+    ].join(' '),
     item: 'flex items-start',
     base: [
-      'cursor-pointer rounded-full',
-      'ring ring-inset ring-base-300 dark:ring-base-700',
-      'outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2'
+      'cursor-pointer',
+      'rounded-(--ui-border-radius-pill)',
+      'ring ring-inset ring-(--ui-color-base-5)',
+      'outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2',
+      'focus-visible:outline-(--b24ui-background)'
     ].join(' '),
-    indicator: ' flex items-center justify-center size-full rounded-full after:bg-white dark:after:bg-base-dark after:rounded-full',
+    indicator: [
+      'flex items-center justify-center',
+      'size-full',
+      'rounded-(--ui-border-radius-pill)',
+      'after:bg-(--b24ui-color)',
+      'after:rounded-(--ui-border-radius-pill)',
+      'bg-(--b24ui-background)'
+    ].join(' '),
     container: 'flex items-center',
-    wrapper: 'font-b24-primary font-regular w-full',
-    label: 'cursor-pointer block text-base-master dark:text-base-400',
-    description: 'text-base-500 dark:text-base-600'
+    wrapper: [
+      'font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular)',
+      'w-full'
+    ].join(' '),
+    label: [
+      'cursor-pointer',
+      'block',
+      'text-(--ui-color-design-plain-content)'
+    ].join(' '),
+    description: 'text-(--ui-color-design-plain-na-content)'
   },
   variants: {
     color: {
-      default: {
-        base: 'focus-visible:outline-base-900 dark:focus-visible:outline-base-900',
-        indicator: 'bg-base-900 dark:bg-base-350'
-      },
-      danger: {
-        base: 'focus-visible:outline-red-500 dark:focus-visible:outline-red-600',
-        indicator: 'bg-red-500 dark:bg-red-600'
-      },
-      success: {
-        base: 'focus-visible:outline-green-500 dark:focus-visible:outline-green-600',
-        indicator: 'bg-green-500 dark:bg-green-600'
-      },
-      warning: {
-        base: 'focus-visible:outline-orange-500 dark:focus-visible:outline-orange-600',
-        indicator: 'bg-orange-500 dark:bg-orange-600'
-      },
-      primary: {
-        base: 'focus-visible:outline-blue-500 dark:focus-visible:outline-blue-600',
-        indicator: 'bg-blue-500 dark:bg-blue-600'
-      },
-      secondary: {
-        base: 'focus-visible:outline-cyan-350 dark:focus-visible:outline-cyan-500',
-        indicator: 'bg-cyan-350 dark:bg-cyan-500'
-      },
-      collab: {
-        base: 'focus-visible:outline-collab-500 dark:focus-visible:outline-collab-600',
-        indicator: 'bg-collab-500 dark:bg-collab-600'
-      },
-      ai: {
-        base: 'focus-visible:outline-ai-500 dark:focus-visible:outline-ai-600',
-        indicator: 'bg-ai-500 dark:bg-ai-600'
-      }
+      'air-primary': { root: 'style-filled' },
+      'air-primary-success': { root: 'style-filled-success' },
+      'air-primary-alert': { root: 'style-filled-alert' },
+      'air-primary-copilot': { root: 'style-filled-copilot' },
+      'air-primary-warning': { root: 'style-filled-warning' },
+      // @deprecate ////
+      'default': { root: 'style-old-default' },
+      'danger': { root: 'style-old-danger' },
+      'success': { root: 'style-old-success' },
+      'warning': { root: 'style-old-warning' },
+      'primary': { root: 'style-old-primary' },
+      'secondary': { root: 'style-old-secondary' },
+      'collab': { root: 'style-old-collab' },
+      'ai': { root: 'style-old-ai' }
+      //
+      // danger: {
+      //   base: 'focus-visible:outline-red-500',
+      //   indicator: 'bg-red-500'
+      // },
+      // success: {
+      //   base: 'focus-visible:outline-green-500 dark:focus-visible:outline-green-600',
+      //   indicator: 'bg-green-500 dark:bg-green-600'
+      // },
+      // warning: {
+      //   base: 'focus-visible:outline-orange-500 dark:focus-visible:outline-orange-600',
+      //   indicator: 'bg-orange-500 dark:bg-orange-600'
+      // },
+      // primary: {
+      //   base: 'focus-visible:outline-blue-500 dark:focus-visible:outline-blue-600',
+      //   indicator: 'bg-blue-500 dark:bg-blue-600'
+      // },
+      // secondary: {
+      //   base: 'focus-visible:outline-cyan-350 dark:focus-visible:outline-cyan-500',
+      //   indicator: 'bg-cyan-350 dark:bg-cyan-500'
+      // },
+      // collab: {
+      //   base: 'focus-visible:outline-collab-500 dark:focus-visible:outline-collab-600',
+      //   indicator: 'bg-collab-500 dark:bg-collab-600'
+      // },
+      // ai: {
+      //   base: 'focus-visible:outline-ai-500 dark:focus-visible:outline-ai-600',
+      //   indicator: 'bg-ai-500 dark:bg-ai-600'
+      // }
     },
     variant: {
-      list: {
-      },
+      list: { },
       card: {
-        item: 'items-center border border-base-200 dark:border-base-700 rounded-lg'
+        item: [
+          'items-center',
+          'border border-(--ui-color-base-5) rounded-(--ui-border-radius-lg)'
+        ].join(' ')
       },
       table: {
-        item: 'border border-base-200 dark:border-base-900'
+        item: 'border border-(--ui-color-base-5)'
       }
     },
     orientation: {
