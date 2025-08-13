@@ -19,13 +19,13 @@ export default {
     indicator: [
       'flex items-center justify-center',
       'size-full',
-      'text-(--ui-color-design-plain-content)'
+      // 'text-(--ui-color-design-plain-content)'
+      'text-(--b24ui-color)'
     ].join(' '),
     container: 'flex items-center',
     icon: 'shrink-0 size-full',
     wrapper: [
-      'font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular)',
-      'ms-2'
+      'font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular)'
     ].join(' '),
     label: [
       'cursor-pointer',
@@ -112,7 +112,9 @@ export default {
       }
     },
     checked: {
-      true: ''
+      true: {
+        base: 'ring-1 ring-(--b24ui-background) bg-(--b24ui-background)'
+      }
     }
   },
   compoundVariants: [
@@ -122,20 +124,12 @@ export default {
     { size: 'md', variant: 'card', class: { root: 'p-3.5' } },
     { size: 'lg', variant: 'card', class: { root: 'p-4' } },
     // endregion ////
-    // region card || list ////
+    // region card.border ////
     {
       variant: 'card',
       checked: true,
       class: {
-        root: 'border-(--b24ui-border-color)',
-        base: 'ring-2 ring-(--b24ui-border-color) bg-(--b24ui-background)'
-      }
-    },
-    {
-      variant: 'list',
-      checked: true,
-      class: {
-        base: 'ring-2 ring-(--b24ui-border-color) bg-(--b24ui-background)'
+        root: 'border-(--b24ui-border-color)'
       }
     }
     // endregion ////
