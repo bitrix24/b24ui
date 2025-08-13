@@ -46,7 +46,7 @@ export default {
     ...buttonGroupVariantWithRoot,
     size: {
       xss: {
-        base: 'h-xl2 gap-1', // 26px
+        base: 'h-[20px] gap-1', // 26px
         leading: 'px-1',
         trailing: 'px-1',
         leadingIcon: 'size-lg2',
@@ -54,7 +54,7 @@ export default {
         trailingIcon: 'size-lg2'
       },
       xs: {
-        base: 'h-xl2 gap-1', // 26px
+        base: 'h-[24px] gap-1', // 26px
         leading: 'px-1',
         trailing: 'px-1',
         leadingIcon: 'size-lg2',
@@ -62,7 +62,7 @@ export default {
         trailingIcon: 'size-lg2'
       },
       sm: {
-        base: 'h-8 gap-1.5', // 32px
+        base: 'h-[28px] gap-1.5', // 32px
         leading: 'px-1.5',
         trailing: 'px-1.5',
         leadingIcon: 'size-lg2',
@@ -70,7 +70,7 @@ export default {
         trailingIcon: 'size-lg2'
       },
       md: {
-        base: 'h-10 gap-1.5', // 40px
+        base: 'h-[34px] gap-1.5', // 40px
         leading: 'px-2',
         trailing: 'px-2',
         leadingIcon: 'size-[24px]',
@@ -78,7 +78,7 @@ export default {
         trailingIcon: 'size-[24px]'
       },
       lg: {
-        base: 'h-12 gap-2', // 48px
+        base: 'h-[38px] gap-2', // 48px
         leading: 'px-2',
         trailing: 'px-2',
         leadingIcon: 'size-[24px]',
@@ -86,7 +86,7 @@ export default {
         trailingIcon: 'size-[24px]'
       },
       xl: {
-        base: 'h-12 gap-2', // 48px
+        base: 'h-[46px] gap-2', // 48px
         leading: 'px-2',
         trailing: 'px-2',
         leadingIcon: 'size-[24px]',

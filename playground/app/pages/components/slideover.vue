@@ -546,14 +546,31 @@ const openSliderTopAndBottom = async () => {
                     <tr>
                       <th>4</th>
                       <td><B24Link @click="openListItem = true">Bright Ideas Co.</B24Link></td>
-                      <td><B24Chip standalone color="air-primary-alert" text="Initial Contact" size="lg" inverted :trailing-icon="TrendDownIcon" /></td>
+                      <td>
+                        <B24Chip
+                          standalone
+                          text="Initial Contact"
+                          color="air-primary-alert"
+                          size="lg"
+                          inverted
+                          :trailing-icon="TrendDownIcon"
+                        />
+                      </td>
                       <td>15,000</td>
                     </tr>
                     <!-- row 5 -->
                     <tr>
                       <th>5</th>
                       <td><B24Link @click="openListItem = true">NextGen Technologies</B24Link></td>
-                      <td><B24Chip :b24ui="{ base: 'style-filled-boost' }" standalone color="air-primary-alert" text="Important" size="lg" /></td>
+                      <td>
+                        <B24Chip
+                          standalone
+                          text="Important"
+                          size="lg"
+                          color="air-primary-alert"
+                          :b24ui="{ base: 'style-filled-boost' }"
+                        />
+                      </td>
                       <td>300,000</td>
                     </tr>
                   </tbody>

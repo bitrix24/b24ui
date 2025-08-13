@@ -167,7 +167,7 @@ function onClick() {
         </B24ButtonGroup>
       </div>
     </ExampleCard>
-    <ExampleCard title="input" class="md:col-span-4">
+    <ExampleCard title="input" class="mb-4 md:col-span-4">
       <ExampleCardSubTitle title="orientation" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24ButtonGroup orientation="vertical">
@@ -251,6 +251,18 @@ function onClick() {
           <B24ButtonGroup :size="size" no-split>
             <B24Badge color="default" use-fill label="https://" />
             <B24Input class="w-40" type="url" placeholder="www.example.com" />
+          </B24ButtonGroup>
+
+          <B24ButtonGroup :size="size" no-split>
+            <B24Badge color="default" use-fill label="https://" />
+            <B24Input class="w-40" type="url" placeholder="www.example.com" />
+            <B24Button
+              color="air-primary-copilot"
+              loading-auto
+              use-clock
+              label="Button"
+              @click="onClick"
+            />
           </B24ButtonGroup>
 
           <B24ButtonGroup :size="size" no-split>

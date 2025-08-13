@@ -38,12 +38,12 @@ export default () => {
     variants: {
       ...buttonGroupVariantWithRoot,
       size: {
-        xss: 'px-2 h-xl2 gap-1',
-        xs: 'px-2 h-xl2 gap-1',
-        sm: 'px-2.5 h-8 gap-1.5',
-        md: 'px-2.5 h-10 gap-1.5',
-        lg: 'px-3 h-12 gap-2',
-        xl: 'px-3 h-12 gap-2'
+        xss: 'px-2 h-[20px] gap-1',
+        xs: 'px-2 h-[24px] gap-1',
+        sm: 'px-2.5 h-[28px] gap-1.5',
+        md: 'px-2.5 h-[34px] gap-1.5',
+        lg: 'px-3 h-[38px] gap-2',
+        xl: 'px-3 h-[46px] gap-2'
       },
       color: {
         default: '',
