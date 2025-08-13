@@ -120,13 +120,17 @@
     - air-selection
   - @deprecate color
     - default, danger, success, warning, primary, secondary, collab, ai
-  - - @deprecate size
   - set size
     - xs, sm, md, lg
   - remove depth
-  - ?? remove useFill -> now use inverted
-  - ?? add prop inverted
-
+  - remove useFill -> now use inverted
+  - add prop inverted
+* Switch
+  - fix color 
+  - add color
+    - air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning
+  - @deprecate color
+    - default, danger, success, warning, primary, secondary, collab, ai
 ---
 We change btn colors:
 
