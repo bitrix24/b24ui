@@ -137,7 +137,13 @@
     - air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning
   - @deprecate color
     - default, danger, success, warning, primary, secondary, collab, ai
-* RadioGroup
+* **RadioGroup**
+  - fix color 
+  - add color
+    - air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning
+  - @deprecate color
+    - default, danger, success, warning, primary, secondary, collab, ai
+* **Progress**
   - fix color 
   - add color
     - air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning
