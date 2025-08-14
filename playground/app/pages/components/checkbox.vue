@@ -102,9 +102,9 @@ const airColors = computed(() => {
       <ExampleCardSubTitle title="card" />
       <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
         <B24Checkbox
-          v-model="checked"
           v-for="size in sizes"
           :key="size"
+          v-model="checked"
           label="Check me"
           description="This is a description"
           :size="size"
@@ -115,9 +115,9 @@ const airColors = computed(() => {
       <ExampleCardSubTitle title="list" />
       <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
         <B24Checkbox
-          v-model="checked"
           v-for="size in sizes"
           :key="size"
+          v-model="checked"
           label="Check me"
           description="This is a description"
           :size="size"

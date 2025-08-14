@@ -1,7 +1,7 @@
 import { describe, it, expect, test } from 'vitest'
 import DropdownMenu, { type DropdownMenuProps, type DropdownMenuSlots } from '../../src/runtime/components/DropdownMenu.vue'
 import ComponentRender from '../component-render'
-import theme from '#build/b24ui/dropdown-menu'
+// import theme from '#build/b24ui/dropdown-menu'
 import { expectSlotProps } from '../utils/types'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 

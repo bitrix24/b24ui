@@ -88,7 +88,7 @@ export default {
         root: 'me-2'
       },
       vertical: {
-        fieldset: 'flex-col',
+        fieldset: 'flex-col'
       }
     },
     indicator: {
@@ -222,7 +222,7 @@ export default {
         item: 'first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)',
         fieldset: 'gap-0 -space-y-px'
       }
-    },
+    }
     // endregion ////
   ],
   defaultVariants: {

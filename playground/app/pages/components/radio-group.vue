@@ -7,9 +7,9 @@ import ExampleCard from '../../components/ExampleCard.vue'
 usePageMeta.setPageTitle('RadioGroup')
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
-const color = ref('air-primary' as const)
+const colorValue = ref('air-primary' as const)
 const variants = Object.keys(theme.variants.variant) as Array<keyof typeof theme.variants.variant>
-const variant = ref('table' as const) // list | card | table
+const variant = ref('list' as const) // list | card | table
 const indicators = Object.keys(theme.variants.indicator) as Array<keyof typeof theme.variants.indicator>
 const indicator = ref('start' as const)
 
@@ -129,7 +129,7 @@ const airColors = computed(() => {
       <div class="mb-4 flex flex-col sm:flex-row items-center justify-start gap-4">
         <div class="w-[200px]">
           <B24Select
-            v-model="color"
+            v-model="colorValue"
             :items="colors"
             class="w-[200px]"
           />
@@ -148,7 +148,7 @@ const airColors = computed(() => {
           :items="items"
           aria-label="Horizontal"
           orientation="horizontal"
-          :color="color"
+          :color="colorValue"
           :variant="variant"
           :indicator="indicator"
           :b24ui="{ label: 'whitespace-nowrap' }"
@@ -167,7 +167,7 @@ const airColors = computed(() => {
             v-model="value"
             :size="size"
             :items="items"
-            :color="color"
+            :color="colorValue"
             :variant="variant"
             :indicator="indicator"
             :legend="`legend for ${size}`"
@@ -184,7 +184,7 @@ const airColors = computed(() => {
             v-model="value"
             :size="size"
             :items="itemsWithDescription"
-            :color="color"
+            :color="colorValue"
             :variant="variant"
             :indicator="indicator"
             :legend="`legend with description for ${size}`"
@@ -203,7 +203,7 @@ const airColors = computed(() => {
         <B24RadioGroup
           v-model="value"
           :items="items"
-          :color="color"
+          :color="colorValue"
           :variant="variant"
           :indicator="indicator"
           aria-label="Default"
@@ -217,7 +217,7 @@ const airColors = computed(() => {
       <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
         <B24RadioGroup
           :items="literalOptions"
-          :color="color"
+          :color="colorValue"
           :variant="variant"
           :indicator="indicator"
           aria-label="Literal options"
@@ -231,7 +231,7 @@ const airColors = computed(() => {
         <B24RadioGroup
           v-model="value"
           :items="items"
-          :color="color"
+          :color="colorValue"
           :variant="variant"
           :indicator="indicator"
           required
@@ -246,7 +246,7 @@ const airColors = computed(() => {
         <B24RadioGroup
           v-model="value"
           :items="items"
-          :color="color"
+          :color="colorValue"
           :variant="variant"
           :indicator="indicator"
           disabled
@@ -261,7 +261,7 @@ const airColors = computed(() => {
         <B24RadioGroup
           v-model="value"
           :items="items"
-          :color="color"
+          :color="colorValue"
           :variant="variant"
           :indicator="indicator"
         >
