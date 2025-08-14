@@ -17,6 +17,20 @@ const value3 = ref([15, 40, 80])
 
 const isDisabled = ref(false)
 
+const isUseBg = ref(true)
+
+const oldColors = computed(() => {
+  return colors.filter((color) => {
+    return !color.includes('air')
+  })
+})
+
+const airColors = computed(() => {
+  return colors.filter((color) => {
+    return color.includes('air')
+  })
+})
+
 onMounted(() => {
   isDisabled.value = true
 })
@@ -24,16 +38,31 @@ onMounted(() => {
 
 <template>
   <ExampleGrid v-once>
-    <ExampleCard title="color">
-      <template v-for="color in colors" :key="color">
+    <ExampleCard title="color" :use-bg="isUseBg">
+      <template v-for="color in airColors" :key="color">
         <ExampleCardSubTitle :title="color as string" />
         <div class="mb-6 flex flex-col items-center gap-4">
           <B24Range v-model="value" :color="color" :aria-label="color" />
         </div>
       </template>
+      <B24Collapsible class="my-4">
+        <B24Button
+          color="air-secondary-no-accent"
+          label="Deprecate"
+          use-dropdown
+        />
+        <template #content>
+          <template v-for="color in oldColors" :key="color">
+            <ExampleCardSubTitle :title="color as string" />
+            <div class="mb-6 flex flex-col items-center gap-4">
+              <B24Range v-model="value" :color="color" :aria-label="color" />
+            </div>
+          </template>
+        </template>
+      </B24Collapsible>
     </ExampleCard>
 
-    <ExampleCard title="statuses">
+    <ExampleCard title="statuses" :use-bg="isUseBg">
       <ExampleCardSubTitle title="variants" />
       <div class="mb-6 flex flex-col items-center gap-8">
         <B24Range v-model="value" aria-label="Some range" />
@@ -57,7 +86,7 @@ onMounted(() => {
       </div>
     </ExampleCard>
 
-    <ExampleCard title="size">
+    <ExampleCard title="size" :use-bg="isUseBg">
       <template v-for="size in sizes" :key="size">
         <ExampleCardSubTitle :title="size as string" />
         <div class="mb-6 flex flex-col items-center gap-4">
@@ -66,7 +95,7 @@ onMounted(() => {
       </template>
     </ExampleCard>
 
-    <ExampleCard title="vertical">
+    <ExampleCard title="vertical" :use-bg="isUseBg">
       <div class="mb-6 h-48 flex flex-row items-center justify-center gap-16">
         <B24Range v-model="value" orientation="vertical" aria-label="Some vertical range" />
         <B24Range v-model="value2" :min-steps-between-thumbs="20" orientation="vertical" aria-label="Some vertical range" />

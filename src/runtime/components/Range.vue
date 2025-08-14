@@ -17,7 +17,7 @@ export interface RangeProps extends Pick<SliderRootProps, 'name' | 'disabled' | 
    */
   size?: Range['variants']['size']
   /**
-   * @defaultValue 'primary'
+   * @defaultValue 'air-primary'
    */
   color?: Range['variants']['color']
   /**
