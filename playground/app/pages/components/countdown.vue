@@ -17,6 +17,8 @@ usePageMeta.setPageTitle('Countdown')
 
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
+const isUseBg = ref(true)
+
 const now = new Date()
 const newYear = new Date(now.getFullYear() + 1, 0, 1)
 
@@ -117,11 +119,11 @@ const onCountdownRoundStop = () => {
 
 <template>
   <ExampleGrid v-once>
-    <ExampleCard title="base">
+    <ExampleCard title="base" :use-bg="isUseBg" class="sm:col-span-2 md:col-span-4">
       <ExampleCardSubTitle title="simple" />
-      <div class="h-5 mb-4 flex flex-wrap items-center justify-start gap-4">
+      <div class="h-5 mb-4 flex flex-wrap items-center justify-center gap-4">
         <B24Countdown :seconds="secondsSimple" />
-        <B24Separator decorative orientation="vertical" type="dashed" />
+        <B24Separator decorative orientation="vertical" type="dashed" accent="accent" />
         <B24Countdown :seconds="secondsSimple" :show-minutes="false" />
       </div>
 
@@ -158,7 +160,7 @@ const onCountdownRoundStop = () => {
       </div>
     </ExampleCard>
 
-    <ExampleCard title="size">
+    <ExampleCard title="size" :use-bg="isUseBg">
       <template v-for="size in sizes" :key="size">
         <ExampleCardSubTitle :title="`${size}`" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
@@ -186,11 +188,11 @@ const onCountdownRoundStop = () => {
       </template>
     </ExampleCard>
 
-    <ExampleCard title="actions">
-      <ExampleCardSubTitle title="ver 1" />
+    <ExampleCard title="actions" :use-bg="isUseBg">
+      <B24Separator class="my-3" type="dotted" />
       <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
         <B24Button
-          color="primary"
+          color="air-primary"
           size="xs"
           :disabled="counting"
           @click="startCountdown"
@@ -199,30 +201,29 @@ const onCountdownRoundStop = () => {
             v-if="counting"
             v-slot="{ totalSeconds }"
             :seconds="secondsShort"
-            class="text-white dark:text-white text-3xs leading-none"
+            class="text-(--ui-font-size-3xs)/(--ui-font-line-height-reset)"
             @end="onCountdownEnd"
           >
             Fetch again {{ totalSeconds }} sec. later
           </B24Countdown>
-          <span
-            v-else
-          >
+          <span v-else>
             Fetch Verification Code
           </span>
         </B24Button>
       </div>
 
-      <ExampleCardSubTitle title="ver 2" />
+      <B24Separator class="my-3" type="dotted" />
       <div class="mb-4 flex flex-wrap flex-row items-center justify-start gap-4">
         <B24Countdown
           ref="countdownV2Ref"
+          class="text-(--b24ui-typography-label-color)"
           :seconds="secondsShortV2"
           :need-start-immediately="false"
           :icon="Clock2Icon"
           @end="onCountdownV2End"
         />
         <B24Button
-          color="primary"
+          color="air-secondary"
           label="Some action"
           size="xs"
           :disabled="countingV2"
@@ -234,6 +235,7 @@ const onCountdownRoundStop = () => {
       <div class="mb-2 flex flex-wrap flex-col items-center justify-start gap-4">
         <B24Countdown
           ref="countdownControlRef"
+          class="text-(--b24ui-typography-label-color)"
           :seconds="secondsControl"
           :emit-events="isControlEmitEvents"
           :need-start-immediately="false"
@@ -244,23 +246,35 @@ const onCountdownRoundStop = () => {
           @progress="onControlCountdownProgress"
         />
       </div>
+
       <B24Separator decorative type="dashed" class="mb-4" />
       <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
         <div class="h-5 mb-4 flex flex-wrap flex-row items-center justify-start gap-2">
           <B24Tooltip text="Start counting">
-            <B24Button :disabled="countingControl" size="sm" :icon="PlayIcon" color="success" @click="onControlStart" />
+            <B24Button
+              :disabled="countingControl"
+              size="sm"
+              :icon="PlayIcon"
+              color="air-primary-success"
+              @click="onControlStart"
+            />
           </B24Tooltip>
           <B24Separator decorative orientation="vertical" type="dashed" />
           <B24Tooltip text="Stop counting">
-            <B24Button :disabled="!countingControl" size="sm" :icon="StopIcon" color="primary" @click="onControlStop" />
+            <B24Button
+              :disabled="!countingControl"
+              size="sm"
+              :icon="StopIcon"
+              color="air-primary"
+              @click="onControlStop"
+            />
           </B24Tooltip>
           <B24Tooltip text="Abort counting">
             <B24Button
               :disabled="!countingControl"
               size="sm"
               :icon="StopHandIcon"
-              color="link"
-              depth="dark"
+              color="air-tertiary"
               @click="onControlAbort"
             />
           </B24Tooltip>
@@ -269,8 +283,7 @@ const onCountdownRoundStop = () => {
               :disabled="!countingControl"
               size="sm"
               :icon="Refresh5Icon"
-              color="link"
-              depth="dark"
+              color="air-tertiary"
               @click="onControlRestart"
             />
           </B24Tooltip>
@@ -280,15 +293,15 @@ const onCountdownRoundStop = () => {
       </div>
     </ExampleCard>
 
-    <ExampleCard title="round & button">
-      <ExampleCardSubTitle title="ver 1" />
+    <ExampleCard title="round & button" :use-bg="isUseBg">
+      <B24Separator class="my-3" type="dotted" />
       <div class="mb-4 flex flex-wrap flex-row items-center justify-center gap-4">
         <B24Button
           v-if="countingRound"
-          color="link"
-          depth="normal"
+          color="air-tertiary-no-accent"
           size="sm"
-          class="p-0"
+          class="p-0 rounded-full"
+          :b24ui="{ baseLine: 'ps-0 pe-0' }"
           @click="onCountdownRoundStop"
         >
           <div class="shrink-0 relative size-8 group">
@@ -302,14 +315,14 @@ const onCountdownRoundStop = () => {
               @click="onCountdownRoundEnd"
             />
             <Cross30Icon
-              class="size-full opacity-0 group-hover:opacity-100 text-base-500 dark:text-base-600 group-hover:text-base-900 dark:group-hover:text-base-100 absolute inset-x-0 inset-y-0 z-20"
+              class="size-full opacity-0 group-hover:opacity-100 text-(--b24ui-typography-legend-color) group-hover:text-(--b24ui-typography-legend-color) absolute inset-x-0 inset-y-0 z-20"
               @click="onCountdownRoundEnd"
             />
           </div>
         </B24Button>
         <B24Button
           v-if="!countingRound"
-          color="primary"
+          color="air-primary"
           size="sm"
           label="Some action"
           @click="startCountdownRound"
