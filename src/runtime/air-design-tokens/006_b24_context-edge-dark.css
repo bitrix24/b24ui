@@ -21,6 +21,10 @@
   }
 
   .context-edge-dark {
+    --b24ui-typography-legend-color: var(--ui-color-design-plain-na-content);
+    --b24ui-typography-label-color: var(--ui-color-design-plain-content);
+    --b24ui-typography-description-color: var(--ui-color-design-plain-na-content);
+
     --ui-color-base-0: #fff;
     --ui-color-base-1: #fff;
     --ui-color-base-2: #ffffffcc;

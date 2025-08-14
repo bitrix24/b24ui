@@ -22,6 +22,10 @@
 
   .context-light,
   :root {
+    --b24ui-typography-legend-color: var(--ui-color-design-plain-na-content);
+    --b24ui-typography-label-color: var(--ui-color-design-plain-content);
+    --b24ui-typography-description-color: var(--ui-color-design-plain-na-content);
+
     --ui-color-base-0: #000;
     --ui-color-base-1: #333;
     --ui-color-base-2: #525c69;
