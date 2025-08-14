@@ -129,7 +129,7 @@ export default {
       variant: 'card',
       checked: true,
       class: {
-        root: 'border-(--b24ui-border-color)'
+        root: 'border-(--b24ui-border-color) cursor-pointer'
       }
     }
     // endregion ////

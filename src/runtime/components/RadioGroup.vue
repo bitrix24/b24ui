@@ -49,7 +49,7 @@ export interface RadioGroupProps<T extends RadioGroupItem = RadioGroupItem> exte
    */
   variant?: RadioGroup['variants']['variant']
   /**
-   * @defaultValue 'primary'
+   * @defaultValue 'air-primary'
    */
   color?: RadioGroup['variants']['color']
   /**
