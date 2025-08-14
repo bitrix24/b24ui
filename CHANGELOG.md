@@ -159,6 +159,12 @@
   - fix size
 * **Content/TableWrapper**
   - fix color
+* **Calendar**
+  - fix color
+  - add color
+    - air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning
+  - @deprecate color
+    - default, danger, success, warning, primary, secondary, collab, ai
 ---
 We change btn colors:
 

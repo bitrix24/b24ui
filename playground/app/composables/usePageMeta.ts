@@ -51,7 +51,7 @@ const components: IComponentInfo[] = [
   { id: 'badge', description: '(+) A short text to represent a status or a category.', iconData: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'button', description: '(+) A button element that can act as a link or trigger an action.', iconData: GroupIcon },
   { id: 'button-group', description: '(-) Group multiple button-like elements together.', iconData: GroupIcon },
-  { id: 'calendar', description: '(-) A calendar tool for choosing individual dates, multiple dates, or date spans.', iconData: Calendar1Icon },
+  { id: 'calendar', description: '(~) A calendar tool for choosing individual dates, multiple dates, or date spans.', iconData: Calendar1Icon },
   { id: 'checkbox', description: '(+) An input element to toggle between checked and unchecked states.', iconData: FormIcon },
   { id: 'collapsible', description: '(+) A collapsible component for showing or hiding its content.', iconData: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'chip', description: '(+) An indicator of a numeric value or a state.', iconData: ItemIcon, iconUi: 'pr-px pb-[3px]' },

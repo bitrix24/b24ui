@@ -11,6 +11,8 @@ usePageMeta.setPageTitle('Calendar')
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
+const isUseBg = ref(true)
+
 const value = shallowRef(new CalendarDate(2012, 4, 12))
 const defaultValue = shallowRef(new CalendarDate(2012, 4, 12))
 const valueMultiple = shallowRef([
@@ -34,10 +36,10 @@ function getColorByDate(date: Date) {
   }
 
   if (isDayMeeting) {
-    return 'danger'
+    return 'air-primary-alert'
   }
 
-  return 'success'
+  return 'air-primary-success'
 }
 // endregion ////
 
@@ -77,33 +79,44 @@ const datePickerRangeValue = shallowRef({
   end: new CalendarDate(2012, 5, 12)
 })
 // endregion ////
+
+const oldColors = computed(() => {
+  return colors.filter((color) => {
+    return !color.includes('air')
+  })
+})
+
+const airColors = computed(() => {
+  return colors.filter((color) => {
+    return color.includes('air')
+  })
+})
 </script>
 
 <template>
-  <div class="w-full">
-    <ProseH2 class="mb-0">Usage</ProseH2>
-  </div>
-  <ExampleGrid v-once class="mt-4">
-    <ExampleCard title="v-model">
+  <ExampleGrid v-once>
+    <ExampleCard title="v-model" :use-bg="isUseBg">
       <B24Separator class="my-3" type="dotted" />
       <div class="mb-4">
         <B24Calendar v-model="value" />
       </div>
     </ExampleCard>
 
-    <ExampleCard title="default-value">
+    <ExampleCard title="default-value" :use-bg="isUseBg">
       <B24Separator class="my-3" type="dotted" />
       <div class="mb-4">
         <B24Calendar :default-value="defaultValue" />
       </div>
     </ExampleCard>
 
-    <ExampleCard title="As a DatePicker">
+    <ExampleCard title="As a DatePicker" :use-bg="isUseBg">
       <B24Separator class="my-3" type="dotted" />
       <div class="mb-4 flex flex-row flex-wrap items-start justify-start gap-4">
         <B24Popover>
           <B24Button :icon="Calendar1Icon">
-            {{ datePickerValue ? df.format(datePickerValue.toDate(getLocalTimeZone())) : 'Select a date' }}
+            <div class="truncate">
+              {{ datePickerValue ? df.format(datePickerValue.toDate(getLocalTimeZone())) : 'Select a date' }}
+            </div>
           </B24Button>
 
           <template #content>
@@ -114,13 +127,13 @@ const datePickerRangeValue = shallowRef({
         <B24Popover>
           <B24Button :icon="Calendar1Icon">
             <template v-if="datePickerRangeValue.start">
-              <template v-if="datePickerRangeValue.end">
+              <div class="truncate" v-if="datePickerRangeValue.end">
                 {{ df.format(datePickerRangeValue.start.toDate(getLocalTimeZone())) }} - {{ df.format(datePickerRangeValue.end.toDate(getLocalTimeZone())) }}
-              </template>
+              </div>
 
-              <template v-else>
+              <div class="truncate" v-else>
                 {{ df.format(datePickerRangeValue.start.toDate(getLocalTimeZone())) }}
-              </template>
+              </div>
             </template>
             <template v-else>
               Pick a date
@@ -139,35 +152,28 @@ const datePickerRangeValue = shallowRef({
       </div>
     </ExampleCard>
 
-    <ExampleCard title="multiple">
+    <ExampleCard title="multiple" :use-bg="isUseBg">
       <B24Separator class="my-3" type="dotted" />
       <div class="mb-4">
         <B24Calendar v-model="valueMultiple" multiple />
       </div>
     </ExampleCard>
 
-    <ExampleCard title="range">
+    <ExampleCard title="range" :use-bg="isUseBg">
       <B24Separator class="my-3" type="dotted" />
       <div class="mb-4">
         <B24Calendar v-model="valueRange" range />
       </div>
     </ExampleCard>
 
-    <ExampleCard title="disabled">
+    <ExampleCard title="disabled" :use-bg="isUseBg">
       <B24Separator class="my-3" type="dotted" />
       <div class="mb-4">
         <B24Calendar disabled />
       </div>
     </ExampleCard>
 
-    <ExampleCard title="numberOfMonths" class="col-span-2">
-      <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4">
-        <B24Calendar :number-of-months="2" />
-      </div>
-    </ExampleCard>
-
-    <ExampleCard title="With chip events">
+    <ExampleCard title="With chip events" :use-bg="isUseBg">
       <B24Separator class="my-3" type="dotted" />
       <div class="mb-4">
         <B24Calendar v-model="withChipEventsValue">
@@ -175,7 +181,8 @@ const datePickerRangeValue = shallowRef({
             <B24Chip
               :show="!!getColorByDate(day.toDate('UTC'))"
               :color="getColorByDate(day.toDate('UTC'))"
-              size="md"
+              size="sm"
+              :b24ui="{ base: '[--ui-counter-size-sm:6px] px-[2px]' }"
             >
               {{ day.day }}
             </B24Chip>
@@ -184,7 +191,7 @@ const datePickerRangeValue = shallowRef({
       </div>
     </ExampleCard>
 
-    <ExampleCard title="With disabled dates">
+    <ExampleCard title="With disabled dates" :use-bg="isUseBg">
       <B24Separator class="my-3" type="dotted" />
       <div class="mb-4">
         <B24Calendar
@@ -195,7 +202,7 @@ const datePickerRangeValue = shallowRef({
       </div>
     </ExampleCard>
 
-    <ExampleCard title="With unavailable dates">
+    <ExampleCard title="With unavailable dates" :use-bg="isUseBg">
       <B24Separator class="my-3" type="dotted" />
       <div class="mb-4">
         <B24Calendar
@@ -206,7 +213,7 @@ const datePickerRangeValue = shallowRef({
       </div>
     </ExampleCard>
 
-    <ExampleCard title="With min/max dates">
+    <ExampleCard title="With min/max dates" :use-bg="isUseBg">
       <B24Separator class="my-3" type="dotted" />
       <div class="mb-4">
         <B24Calendar
@@ -218,12 +225,20 @@ const datePickerRangeValue = shallowRef({
     </ExampleCard>
   </ExampleGrid>
 
-  <div class="mt-6 w-full">
-    <ProseH2 class="mb-0">Color</ProseH2>
-  </div>
-  <ExampleGrid v-once class="mt-4">
-    <template v-for="color in colors" :key="color">
-      <ExampleCard :title="color as string">
+  <B24Separator accent="accent" class="my-4" label="Some months" type="dotted" />
+  <ExampleGrid>
+    <ExampleCard title="numberOfMonths" :use-bg="isUseBg" class="sm:col-span-2">
+      <B24Separator class="my-3" type="dotted" />
+      <div class="mb-4">
+        <B24Calendar :number-of-months="2" />
+      </div>
+    </ExampleCard>
+  </ExampleGrid>
+
+  <B24Separator accent="accent" class="my-4" label="Color" type="dotted" />
+  <ExampleGrid v-once>
+    <template v-for="color in airColors" :key="color">
+      <ExampleCard :title="color as string" :use-bg="isUseBg">
         <B24Separator class="my-3" type="dotted" />
         <div class="mb-4">
           <B24Calendar :color="color" />
@@ -231,13 +246,30 @@ const datePickerRangeValue = shallowRef({
       </ExampleCard>
     </template>
   </ExampleGrid>
+  <B24Collapsible class="my-4">
+    <B24Button
+      color="air-secondary-no-accent"
+      label="Deprecate"
+      use-dropdown
+    />
+    <template #content>
+      <ExampleGrid v-once class="mt-4">
+        <template v-for="color in oldColors" :key="color">
+          <ExampleCard :title="color as string" :use-bg="isUseBg">
+            <B24Separator class="my-3" type="dotted" />
+            <div class="mb-4">
+              <B24Calendar :color="color" />
+            </div>
+          </ExampleCard>
+        </template>
+      </ExampleGrid>
+    </template>
+  </B24Collapsible>
 
-  <div class="mt-6 w-full">
-    <ProseH2 class="mb-0">Size</ProseH2>
-  </div>
-  <ExampleGrid v-once class="mt-4">
+  <B24Separator accent="accent" class="my-4" label="Size" type="dotted" />
+  <ExampleGrid v-once class="mb-4">
     <template v-for="size in sizes" :key="size">
-      <ExampleCard :title="size as string">
+      <ExampleCard :title="size as string" :use-bg="isUseBg">
         <B24Separator class="my-3" type="dotted" />
         <div class="mb-4">
           <B24Calendar :size="size" />

@@ -36,7 +36,7 @@ export interface CalendarProps<R extends boolean = false, M extends boolean = fa
   nextYearIcon?: IconComponent
   /**
    * Configure the next year button.
-   * `{ color: 'link' }`{lang="ts"}
+   * `{ color: 'air-tertiary' }`{lang="ts"}
    */
   nextYear?: ButtonProps
   /**
@@ -47,7 +47,7 @@ export interface CalendarProps<R extends boolean = false, M extends boolean = fa
   nextMonthIcon?: IconComponent
   /**
    * Configure the next month button.
-   * `{ color: 'link' }`{lang="ts"}
+   * `{ color: 'air-tertiary' }`{lang="ts"}
    */
   nextMonth?: ButtonProps
   /**
@@ -58,7 +58,7 @@ export interface CalendarProps<R extends boolean = false, M extends boolean = fa
   prevYearIcon?: IconComponent
   /**
    * Configure the prev year button.
-   * `{ color: 'link' }`{lang="ts"}
+   * `{ color: 'air-tertiary' }`{lang="ts"}
    */
   prevYear?: ButtonProps
   /**
@@ -69,11 +69,11 @@ export interface CalendarProps<R extends boolean = false, M extends boolean = fa
   prevMonthIcon?: IconComponent
   /**
    * Configure the prev month button.
-   * `{ color: 'link' }`{lang="ts"}
+   * `{ color: 'air-tertiary' }`{lang="ts"}
    */
   prevMonth?: ButtonProps
   /**
-   * @defaultValue 'primary'
+   * @defaultValue 'air-primary'
    */
   color?: Calendar['variants']['color']
   /**
@@ -169,10 +169,10 @@ const btnSize = computed(() => {
   >
     <Calendar.Header :class="b24ui.header({ class: props.b24ui?.header })">
       <Calendar.Prev v-if="props.yearControls" :prev-page="(date: DateValue) => paginateYear(date, -1)" :aria-label="t('calendar.prevYear')" as-child>
-        <B24Button :icon="prevYearIcon" :size="btnSize" color="link" v-bind="props.prevYear" />
+        <B24Button :icon="prevYearIcon" :size="btnSize" color="air-tertiary" v-bind="props.prevYear" />
       </Calendar.Prev>
       <Calendar.Prev v-if="props.monthControls" :aria-label="t('calendar.prevMonth')" as-child>
-        <B24Button :icon="prevMonthIcon" :size="btnSize" color="link" v-bind="props.prevMonth" />
+        <B24Button :icon="prevMonthIcon" :size="btnSize" color="air-tertiary" v-bind="props.prevMonth" />
       </Calendar.Prev>
       <Calendar.Heading v-slot="{ headingValue }" :class="b24ui.heading({ class: props.b24ui?.heading })">
         <slot name="heading" :value="headingValue">
@@ -180,10 +180,10 @@ const btnSize = computed(() => {
         </slot>
       </Calendar.Heading>
       <Calendar.Next v-if="props.monthControls" :aria-label="t('calendar.nextMonth')" as-child>
-        <B24Button :icon="nextMonthIcon" :size="btnSize" color="link" v-bind="props.nextMonth" />
+        <B24Button :icon="nextMonthIcon" :size="btnSize" color="air-tertiary" v-bind="props.nextMonth" />
       </Calendar.Next>
       <Calendar.Next v-if="props.yearControls" :next-page="(date: DateValue) => paginateYear(date, 1)" :aria-label="t('calendar.nextYear')" as-child>
-        <B24Button :icon="nextYearIcon" :size="btnSize" color="link" v-bind="props.nextYear" />
+        <B24Button :icon="nextYearIcon" :size="btnSize" color="air-tertiary" v-bind="props.nextYear" />
       </Calendar.Next>
     </Calendar.Header>
     <div :class="b24ui.body({ class: props.b24ui?.body })">
