@@ -56,7 +56,8 @@ export default {
         root: ''
       },
       card: {
-        root: 'border border-(--ui-color-base-5) rounded-(--ui-border-radius-lg)'
+        // @memo style-outline-no-accent
+        root: 'border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg)'
       }
     },
     indicator: {
@@ -76,27 +77,27 @@ export default {
     size: {
       xs: {
         base: 'size-[12px]',
-        container: 'h-[16px]',
+        container: 'h-[12px]',
         wrapper: 'text-(length:--ui-font-size-xs)',
-        label: 'leading-[16px]'
+        label: 'leading-[11px]'
       },
       sm: {
         base: 'size-[14px]',
-        container: 'h-[16px]',
+        container: 'h-[14px]',
         wrapper: 'text-(length:--ui-font-size-sm)',
-        label: 'leading-[16px]'
+        label: 'leading-[14px]'
       },
       md: {
         base: 'size-[16px]',
-        container: 'h-[20px]',
-        wrapper: 'text-(length:--ui-font-size-md)',
-        label: 'leading-[20px]'
+        container: 'h-[16px]',
+        wrapper: 'text-(length:--ui-font-size-lg)',
+        label: 'leading-[15px]'
       },
       lg: {
         base: 'size-[20px]',
         container: 'h-[20px]',
         wrapper: 'text-(length:--ui-font-size-xl)',
-        label: 'leading-[20px]'
+        label: 'leading-[18px]'
       }
     },
     required: {
@@ -119,10 +120,10 @@ export default {
   },
   compoundVariants: [
     // region card.size ////
-    { size: 'xs', variant: 'card', class: { root: 'p-2.5' } },
-    { size: 'sm', variant: 'card', class: { root: 'p-3' } },
-    { size: 'md', variant: 'card', class: { root: 'p-3.5' } },
-    { size: 'lg', variant: 'card', class: { root: 'p-4' } },
+    { size: 'xs', variant: 'card', class: { root: 'px-[13px] py-[7px] rounded-(--ui-border-radius-xs)' } }, // (28 - (1 + 1) - 12) / 2 = 7
+    { size: 'sm', variant: 'card', class: { root: 'px-[13px] py-[9px] rounded-(--ui-border-radius-sm)' } }, // (34 - (1 + 1) - 14) / 2 = 9
+    { size: 'md', variant: 'card', class: { root: 'px-[17px] py-[10px] rounded-(--ui-border-radius-md)' } }, // (38 - (1 + 1) - 16) / 2 = 10
+    { size: 'lg', variant: 'card', class: { root: 'px-[23px] py-[12px] rounded-(--ui-border-radius-md)' } }, // (46 - (1 + 1) - 20) / 2 = 12
     // endregion ////
     // region card.border ////
     {
