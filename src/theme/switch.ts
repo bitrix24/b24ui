@@ -28,7 +28,7 @@ export default {
       'group', 'pointer-events-none',
       'flex items-center justify-center',
       'rounded-(--ui-border-radius-pill)',
-      'bg-white',
+      'bg-(--ui-color-base-white-fixed)',
       'shadow-lg',
       'ring-0',
       'transition-transform duration-200',
