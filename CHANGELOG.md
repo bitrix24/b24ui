@@ -149,6 +149,14 @@
     - air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning
   - @deprecate color
     - default, danger, success, warning, primary, secondary, collab, ai
+* **Range**
+  - fix color 
+  - add color
+    - air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning
+  - @deprecate color
+    - default, danger, success, warning, primary, secondary, collab, ai
+* **Container**
+  - fix size
 ---
 We change btn colors:
 
