@@ -35,7 +35,7 @@ export default {
     leading: 'me-1.5 ms-2 font-(--ui-font-weight-medium) text-(--ui-color-design-plain-content-icon-secondary)',
     leadingIcon: 'shrink-0 size-[42px]',
     leadingAvatar: 'shrink-0',
-    leadingAvatarIcon: 'text-(--ui-color-design-plain-content) bg-(--ui-color-base-8)',
+    leadingAvatarIcon: 'text-(--b24ui-typography-label-color) bg-(--ui-color-base-8)',
     leadingAvatarSize: 'lg'
   },
   variants: {

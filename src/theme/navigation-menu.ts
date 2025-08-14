@@ -48,7 +48,7 @@ export default {
       'text-(length:--ui-font-size-4xs)',
       'leading-[8px]',
       'font-semibold',
-      'text-(--ui-color-design-plain-na-content)',
+      'text-(--b24ui-typography-description-color)',
       'uppercase',
       'ml-px'
     ].join(' '),
@@ -78,7 +78,7 @@ export default {
       'text-(length:--ui-font-size-4xs)',
       'leading-[8px]',
       'font-semibold',
-      'text-(--ui-color-design-plain-na-content)',
+      'text-(--b24ui-typography-description-color)',
       'uppercase',
       'ml-px'
     ].join(' '),

@@ -11,7 +11,7 @@ export default {
     legend: [
       'mb-1.5',
       'block',
-      'text-(--ui-color-design-plain-na-content)'
+      'text-(--b24ui-typography-legend-color)'
     ].join(' '),
     item: 'flex items-start',
     base: [
@@ -37,9 +37,9 @@ export default {
     label: [
       'cursor-pointer',
       'block',
-      'text-(--ui-color-design-plain-content)'
+      'text-(--b24ui-typography-label-color)'
     ].join(' '),
-    description: 'text-(--ui-color-design-plain-na-content)'
+    description: 'text-(--b24ui-typography-description-color)'
   },
   variants: {
     color: {

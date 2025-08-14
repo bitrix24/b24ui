@@ -37,7 +37,7 @@ usePageMeta.setPageTitle('Bitrix24 UI - Playground')
               :b24ui="item.iconClass"
             />
             <div class="max-w-11/12">
-              <ProseH6 class="text-(--ui-color-design-plain-content) font-bold mb-1 line-clamp-2">
+              <ProseH6 class="text-(--b24ui-typography-label-color) font-(--ui-font-weight-bold) mb-1 line-clamp-2">
                 {{ item.label }}
               </ProseH6>
               <ProseP small accent="less" class="line-clamp-2">

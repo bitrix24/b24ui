@@ -28,14 +28,14 @@ export default {
     wrapper: '',
     title: [
       'font-[family-name:var(--ui-font-family-primary)]',
-      'text-(--ui-color-design-plain-content)',
+      'text-(--b24ui-typography-label-color)',
       'font-(--ui-font-weight-medium)',
       'mb-0',
       'text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)'
     ].join(' '),
     description: [
       'mt-1',
-      'text-(--ui-color-design-plain-na-content)',
+      'text-(--b24ui-typography-description-color)',
       'text-(length:--ui-font-size-sm)'
     ].join(' '),
     close: '-mt-[4px]',

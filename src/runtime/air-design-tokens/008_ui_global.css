@@ -8,6 +8,10 @@
   :host,:root {
     --spacing: .25rem;
     --content-area-shift: 22px;
+
+    --b24ui-typography-legend-color: var(--ui-color-design-plain-na-content);
+    --b24ui-typography-label-color: var(--ui-color-design-plain-content);
+    --b24ui-typography-description-color: var(--ui-color-design-plain-na-content);
   }
 }
 

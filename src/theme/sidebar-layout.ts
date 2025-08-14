@@ -14,7 +14,7 @@ export default {
     root: [
       // @memo use src/runtime/index.css
       'sidebar-layout',
-      'text-(--ui-color-design-plain-content)',
+      'text-(--b24ui-typography-label-color)',
       'w-full',
       'flex'
     ].join(' '),
@@ -32,7 +32,7 @@ export default {
     sidebarSlideover: [
       'h-full',
       'overflow-hidden',
-      'flex flex-col text-(--ui-color-design-plain-content)',
+      'flex flex-col text-(--b24ui-typography-label-color)',
       'bg-(--ui-color-base-white-fixed) context-dark:bg-(--ui-color-bg-content-primary) context-edge-dark:bg-[#21334cf0]',
       'ring-1 ring-base-950/5 context-dark:ring-white/10',
       'shadow-xs',

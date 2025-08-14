@@ -11,7 +11,7 @@ export default {
       'flex items-center justify-center',
       'shrink-0',
       'rounded-(--ui-border-radius-2xs)',
-      'text-(--ui-color-design-plain-content)',
+      'text-(--b24ui-typography-label-color)',
       'ring ring-inset ring-(--ui-color-base-5)',
       'focus-visible:outline-(--b24ui-border-color)',
       'outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2'
@@ -19,7 +19,6 @@ export default {
     indicator: [
       'flex items-center justify-center',
       'size-full',
-      // 'text-(--ui-color-design-plain-content)'
       'text-(--b24ui-color)'
     ].join(' '),
     container: 'flex items-center',
@@ -30,9 +29,9 @@ export default {
     label: [
       'cursor-pointer',
       'block',
-      'text-(--ui-color-design-plain-content)'
+      'text-(--b24ui-typography-label-color)'
     ].join(' '),
-    description: 'text-(--ui-color-design-plain-na-content)'
+    description: 'text-(--b24ui-typography-description-color)'
   },
   variants: {
     color: {

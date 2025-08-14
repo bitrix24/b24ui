@@ -35,14 +35,14 @@ export default {
     wrapper: 'min-h-[30px]',
     title: [
       'font-[family-name:var(--ui-font-family-primary)]',
-      'text-(--ui-color-design-plain-content)',
+      'text-(--b24ui-typography-label-color)',
       'font-(--ui-font-weight-semi-bold)',
       'mb-0',
       'text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]'
     ].join(' '),
     description: [
       'mt-1',
-      'text-(--ui-color-design-plain-na-content)',
+      'text-(--b24ui-typography-description-color)',
       'text-(length:--ui-font-size-sm)'
     ].join(' '),
     close: 'absolute',

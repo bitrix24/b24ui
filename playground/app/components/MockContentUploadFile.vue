@@ -7,7 +7,7 @@ import FileUploadIcon from '@bitrix24/b24icons-vue/main/FileUploadIcon'
     <B24Separator />
     <div class="w-full flex flex-row flex-nowrap items-center justify-start gap-3">
       <div class="size-8xl rounded-xs border border-(--ui-color-divider-default) flex flex-col items-center justify-center">
-        <FileUploadIcon class="size-10 text-(--ui-color-design-plain-na-content)" />
+        <FileUploadIcon class="size-10 text-(--b24ui-typography-description-color)" />
       </div>
       <div class="flex flex-col flex-nowrap gap-1">
         <ProseH5 class="mb-0">

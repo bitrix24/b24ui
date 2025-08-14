@@ -25,7 +25,7 @@ onMounted(() => {
           }"
         />
         <div class="flex-1">
-          <ProseH1 class="text-(--ui-color-design-plain-content) leading-[29px] font-(--ui-font-weight-light)">
+          <ProseH1 class="text-(--b24ui-typography-label-color) leading-[29px] font-(--ui-font-weight-light)">
             Workflows
           </ProseH1>
         </div>

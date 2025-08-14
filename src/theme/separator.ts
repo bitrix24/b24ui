@@ -22,7 +22,7 @@ export default {
         border: 'border-(--ui-color-divider-vibrant-default)'
       },
       accent: {
-        container: 'text-(--ui-color-design-plain-na-content) text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset)',
+        container: 'text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset)',
         border: 'border-(--ui-color-divider-vibrant-accent-more)'
       },
       less: {

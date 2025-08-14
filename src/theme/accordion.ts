@@ -8,7 +8,7 @@
 export default {
   slots: {
     root: 'w-full',
-    item: 'text-(--ui-color-design-plain-content) border-b border-(--ui-color-divider-vibrant-accent-more) last:border-b-0',
+    item: 'text-(--b24ui-typography-label-color) border-b border-(--ui-color-divider-vibrant-accent-more) last:border-b-0',
     header: 'flex',
     trigger: [
       'min-w-0 group flex-1 flex items-center gap-1.5',
