@@ -127,11 +127,11 @@ const airColors = computed(() => {
         <B24Popover>
           <B24Button :icon="Calendar1Icon">
             <template v-if="datePickerRangeValue.start">
-              <div class="truncate" v-if="datePickerRangeValue.end">
+              <div v-if="datePickerRangeValue.end" class="truncate">
                 {{ df.format(datePickerRangeValue.start.toDate(getLocalTimeZone())) }} - {{ df.format(datePickerRangeValue.end.toDate(getLocalTimeZone())) }}
               </div>
 
-              <div class="truncate" v-else>
+              <div v-else class="truncate">
                 {{ df.format(datePickerRangeValue.start.toDate(getLocalTimeZone())) }}
               </div>
             </template>

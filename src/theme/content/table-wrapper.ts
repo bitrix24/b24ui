@@ -41,7 +41,7 @@ export default {
         '[&>table>tbody>tr>td]:text-(length:--ui-font-size-xs)/(--ui-font-line-height-2xs) [&>table>tbody>tr>td]:px-2 [&>table>tbody>tr>td]:py-1',
         '[&>table>tbody>tr>th]:text-(length:--ui-font-size-xs)/(--ui-font-line-height-2xs) [&>table>tbody>tr>th]:px-2 [&>table>tbody>tr>th]:py-1',
         '[&>table>tfoot>tr>td]:text-(length:--ui-font-size-xs)/(--ui-font-line-height-2xs) [&>table>tfoot>tr>th]:px-2 [&>table>tfoot>tr>th]:py-1',
-        '[&>table>tfoot>tr>th]:text-(length:--ui-font-size-xs)/(--ui-font-line-height-2xs) [&>table>tfoot>tr>th]:px-2 [&>table>tfoot>tr>th]:py-1',
+        '[&>table>tfoot>tr>th]:text-(length:--ui-font-size-xs)/(--ui-font-line-height-2xs) [&>table>tfoot>tr>th]:px-2 [&>table>tfoot>tr>th]:py-1'
       ].join(' '),
       sm: [
         '[&>table>thead>tr>td]:text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) [&>table>thead>tr>td]:px-3 [&>table>thead>tr>td]:py-2',
@@ -49,7 +49,7 @@ export default {
         '[&>table>tbody>tr>td]:text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) [&>table>tbody>tr>td]:px-3 [&>table>tbody>tr>td]:py-2',
         '[&>table>tbody>tr>th]:text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) [&>table>tbody>tr>th]:px-3 [&>table>tbody>tr>th]:py-2',
         '[&>table>tfoot>tr>td]:text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) [&>table>tfoot>tr>th]:px-3 [&>table>tfoot>tr>th]:py-2',
-        '[&>table>tfoot>tr>th]:text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) [&>table>tfoot>tr>th]:px-3 [&>table>tfoot>tr>th]:py-2',
+        '[&>table>tfoot>tr>th]:text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) [&>table>tfoot>tr>th]:px-3 [&>table>tfoot>tr>th]:py-2'
       ].join(' '),
       md: [
         '[&>table>thead>tr>td]:text-(length:--ui-font-size-md)/(--ui-font-line-height-md) [&>table>thead>tr>td]:px-4 [&>table>thead>tr>td]:py-3.5',
@@ -57,7 +57,7 @@ export default {
         '[&>table>tbody>tr>td]:text-(length:--ui-font-size-md)/(--ui-font-line-height-md) [&>table>tbody>tr>td]:px-4 [&>table>tbody>tr>td]:py-3.5',
         '[&>table>tbody>tr>th]:text-(length:--ui-font-size-md)/(--ui-font-line-height-md) [&>table>tbody>tr>th]:px-4 [&>table>tbody>tr>th]:py-3.5',
         '[&>table>tfoot>tr>td]:text-(length:--ui-font-size-md)/(--ui-font-line-height-md) [&>table>tfoot>tr>th]:px-4 [&>table>tfoot>tr>th]:py-3.5',
-        '[&>table>tfoot>tr>th]:text-(length:--ui-font-size-md)/(--ui-font-line-height-md) [&>table>tfoot>tr>th]:px-4 [&>table>tfoot>tr>th]:py-3.5',
+        '[&>table>tfoot>tr>th]:text-(length:--ui-font-size-md)/(--ui-font-line-height-md) [&>table>tfoot>tr>th]:px-4 [&>table>tfoot>tr>th]:py-3.5'
       ].join(' '),
       lg: [
         '[&>table>thead>tr>td]:text-(length:--ui-font-size-lg)/(--ui-font-line-height-lg) [&>table>thead>tr>td]:px-5 [&>table>thead>tr>td]:py-4',
@@ -65,7 +65,7 @@ export default {
         '[&>table>tbody>tr>td]:text-(length:--ui-font-size-lg)/(--ui-font-line-height-lg) [&>table>tbody>tr>td]:px-5 [&>table>tbody>tr>td]:py-4',
         '[&>table>tbody>tr>th]:text-(length:--ui-font-size-lg)/(--ui-font-line-height-lg) [&>table>tbody>tr>th]:px-5 [&>table>tbody>tr>th]:py-4',
         '[&>table>tfoot>tr>td]:text-(length:--ui-font-size-lg)/(--ui-font-line-height-lg) [&>table>tfoot>tr>th]:px-5 [&>table>tfoot>tr>th]:py-4',
-        '[&>table>tfoot>tr>th]:text-(length:--ui-font-size-lg)/(--ui-font-line-height-lg) [&>table>tfoot>tr>th]:px-5 [&>table>tfoot>tr>th]:py-4',
+        '[&>table>tfoot>tr>th]:text-(length:--ui-font-size-lg)/(--ui-font-line-height-lg) [&>table>tfoot>tr>th]:px-5 [&>table>tfoot>tr>th]:py-4'
       ].join(' ')
     },
     rounded: {
@@ -81,7 +81,7 @@ export default {
     pinRows: {
       true: [
         '[&>table>thead>tr]:sticky [&>table>thead>tr]:top-0      [&>table>thead>tr]:z-1 context-dark:[&>table>thead>tr]:bg-(--ui-color-base-5) [&>table>thead>tr]:bg-(--ui-color-base-white-fixed) [&>table>thead>tr]:text-(--ui-color-g-content-grey-1) [&>table>thead>tr]:shadow-bottom-sm',
-        //'[&>table>tbody>tr]:sticky [&>table>tbody>tr]:bottom-0 [&>table>tbody>tr]:z-1 context-dark:[&>table>tbody>tr]:bg-(--ui-color-base-5) [&>table>tbody>tr]:bg-(--ui-color-base-white-fixed) [&>table>tbody>tr]:text-(--ui-color-g-content-grey-1) [&>table>tbody>tr]:shadow-top-sm',
+        // '[&>table>tbody>tr]:sticky [&>table>tbody>tr]:bottom-0 [&>table>tbody>tr]:z-1 context-dark:[&>table>tbody>tr]:bg-(--ui-color-base-5) [&>table>tbody>tr]:bg-(--ui-color-base-white-fixed) [&>table>tbody>tr]:text-(--ui-color-g-content-grey-1) [&>table>tbody>tr]:shadow-top-sm',
         '[&>table>tfoot>tr]:sticky [&>table>tfoot>tr]:bottom-0   [&>table>tfoot>tr]:z-1 context-dark:[&>table>tfoot>tr]:bg-(--ui-color-base-5) [&>table>tfoot>tr]:bg-(--ui-color-base-white-fixed) [&>table>tfoot>tr]:text-(--ui-color-g-content-grey-1) [&>table>tfoot>tr]:shadow-top-sm'
       ].join(' ')
     },
@@ -89,7 +89,7 @@ export default {
       true: [
         '[&>table>thead>tr>th]:sticky [&>table>thead>tr>th]:right-0 [&>table>thead>tr>th]:left-0 context-dark:[&>table>thead>tr>th]:bg-(--ui-color-base-5) [&>table>thead>tr>th]:bg-(--ui-color-base-white-fixed) [&>table>thead>tr>th]:text-(--ui-color-g-content-grey-1)',
         '[&>table>tbody>tr>th]:sticky [&>table>tbody>tr>th]:right-0 [&>table>tbody>tr>th]:left-0 context-dark:[&>table>tbody>tr>th]:bg-(--ui-color-base-5) [&>table>tbody>tr>th]:bg-(--ui-color-base-white-fixed) [&>table>tbody>tr>th]:text-(--ui-color-g-content-grey-1)',
-        '[&>table>tfoot>tr>th]:sticky [&>table>tfoot>tr>th]:right-0 [&>table>tfoot>tr>th]:left-0 context-dark:[&>table>tfoot>tr>th]:bg-(--ui-color-base-5) [&>table>tfoot>tr>th]:bg-(--ui-color-base-white-fixed) [&>table>tfoot>tr>th]:text-(--ui-color-g-content-grey-1)',
+        '[&>table>tfoot>tr>th]:sticky [&>table>tfoot>tr>th]:right-0 [&>table>tfoot>tr>th]:left-0 context-dark:[&>table>tfoot>tr>th]:bg-(--ui-color-base-5) [&>table>tfoot>tr>th]:bg-(--ui-color-base-white-fixed) [&>table>tfoot>tr>th]:text-(--ui-color-g-content-grey-1)'
       ].join(' ')
     },
     rowHover: {
