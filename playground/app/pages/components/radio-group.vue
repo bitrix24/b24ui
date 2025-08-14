@@ -13,7 +13,7 @@ const variant = ref('table' as const) // list | card | table
 const indicators = Object.keys(theme.variants.indicator) as Array<keyof typeof theme.variants.indicator>
 const indicator = ref('start' as const)
 
-const isUseBg = ref(false)
+const isUseBg = ref(true)
 
 const literalOptions = [
   'Basic',
@@ -157,10 +157,8 @@ const airColors = computed(() => {
     </ExampleCard>
   </ExampleGrid>
 
-
-
   <B24Separator accent="accent" class="my-4" label="Size" type="dotted" />
-  <ExampleGrid v-once class="mb-4">
+  <ExampleGrid v-once>
     <template v-for="size in sizes" :key="size">
       <ExampleCard :title="size as string" :use-bg="isUseBg">
         <B24Separator class="my-3" type="dotted" />
@@ -198,7 +196,7 @@ const airColors = computed(() => {
   </ExampleGrid>
 
   <B24Separator accent="accent" class="my-4" label="Cases" type="dotted" />
-  <ExampleGrid v-once>
+  <ExampleGrid v-once class="mb-4">
     <ExampleCard title="default" :use-bg="isUseBg">
       <B24Separator class="my-3" type="dotted" />
       <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">

@@ -10,6 +10,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
 
 const checked = ref(true)
+const isUseBg = ref(true)
 
 const oldColors = computed(() => {
   return colors.filter((color) => {
@@ -26,7 +27,7 @@ const airColors = computed(() => {
 
 <template>
   <ExampleGrid v-once>
-    <ExampleCard title="color">
+    <ExampleCard title="color" :use-bg="isUseBg">
       <ExampleCardSubTitle title="default" />
       <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
         <div class="flex flex-col gap-4">
@@ -72,7 +73,7 @@ const airColors = computed(() => {
       </B24Collapsible>
     </ExampleCard>
 
-    <ExampleCard title="statuses" class="mb-4">
+    <ExampleCard title="statuses" :use-bg="isUseBg" class="mb-4">
       <ExampleCardSubTitle title="variants" />
       <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
         <div class="flex flex-col gap-4">
@@ -84,7 +85,7 @@ const airColors = computed(() => {
       </div>
     </ExampleCard>
 
-    <ExampleCard title="simple" class="mb-4">
+    <ExampleCard title="simple" :use-bg="isUseBg" class="mb-4">
       <ExampleCardSubTitle title="size" />
       <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
         <B24Checkbox
@@ -97,7 +98,7 @@ const airColors = computed(() => {
       </div>
     </ExampleCard>
 
-    <ExampleCard title="with description" class="mb-4 sm:col-span-2">
+    <ExampleCard title="with description" :use-bg="isUseBg" class="mb-4 sm:col-span-2">
       <ExampleCardSubTitle title="card" />
       <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
         <B24Checkbox
@@ -126,7 +127,7 @@ const airColors = computed(() => {
       </div>
     </ExampleCard>
 
-    <ExampleCard title="indicator" class="mb-4 sm:col-span-2">
+    <ExampleCard title="indicator" :use-bg="isUseBg" class="mb-4 sm:col-span-2">
       <ExampleCardSubTitle title="card" />
 
       <template v-for="size in sizes" :key="size">
@@ -160,7 +161,7 @@ const airColors = computed(() => {
       </template>
     </ExampleCard>
 
-    <ExampleCard title="indicator" class="mb-4 sm:col-span-2">
+    <ExampleCard title="indicator" :use-bg="isUseBg" class="mb-4 sm:col-span-2">
       <ExampleCardSubTitle title="list" />
 
       <template v-for="size in sizes" :key="size">
