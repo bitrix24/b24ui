@@ -26,9 +26,9 @@ export default {
       '[&>table>tfoot>tr>td]:whitespace-nowrap [&>table>tfoot>tr>td]:text-(length:--ui-font-size-md) [&>table>tfoot>tr>td]:font-(--ui-font-weight-normal)',
       '[&>table>tfoot>tr>th]:whitespace-nowrap [&>table>tfoot>tr>th]:text-(length:--ui-font-size-md) [&>table>tfoot>tr>th]:font-(--ui-font-weight-normal)',
       //
-      '[&>table>thead>tr]:border-(--ui-color-base-6)',
-      '[&>table>tbody>tr]:border-(--ui-color-base-7)',
-      '[&>table>tfoot]:border-(--ui-color-base-7)',
+      '[&>table>thead>tr]:border-(--ui-color-divider-vibrant-accent-more)',
+      '[&>table>tbody>tr]:border-(--ui-color-divider-vibrant-default)',
+      '[&>table>tfoot]:border-(--ui-color-divider-vibrant-default)',
       `[&>table>thead>tr]:border-b [&>table>tbody>tr:not(:last-child)]:border-b`,
       '[&>table>tfoot]:border-t'
     ].join(' ')
@@ -99,7 +99,7 @@ export default {
       ].join(' ')
     },
     bordered: {
-      true: 'border border-(--ui-color-base-6)'
+      true: 'border border-(--ui-color-divider-vibrant-default)'
     },
     scrollbarThin: {
       true: 'scrollbar-thin'
