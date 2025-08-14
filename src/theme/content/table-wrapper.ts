@@ -6,99 +6,100 @@
  * @see bitrix/js/ui/advice/src
  */
 
-const variantTable = '[&>table]'
-// const variantHead = '[&>table>thead]'
-const variantHeadTr = '[&>table>thead>tr]'
-// const variantBody = '[&>table>tbody]'
-const variantBodyTr = '[&>table>tbody>tr]'
-const variantFoot = '[&>table>tfoot]'
-const variantFootTr = '[&>table>tfoot>tr]'
-
-/*
-const variantsHeadBodyFoot = [
-  variantHead,
-  variantBody,
-  variantFoot
-]
-*/
-const variantsTr = [
-  variantHeadTr,
-  variantBodyTr,
-  variantFootTr
-]
-
-const variantsTdTh = [
-  '[&>table>thead>tr>td]',
-  '[&>table>thead>tr>th]',
-  '[&>table>tbody>tr>td]',
-  '[&>table>tbody>tr>th]',
-  '[&>table>tfoot>tr>td]',
-  '[&>table>tfoot>tr>th]'
-]
-
 export default {
   slots: {
     base: [
-      `font-b24-primary ${variantTable}:text-md ${variantTable}:relative ${variantTable}:w-full ${variantTable}:text-left ${variantTable}:rtl:text-right`,
-      `${variantTable}:text-base-900 dark:${variantTable}:text-base-200`,
-      ...(variantsTdTh.map(variant => `${variant}:align-middle`)),
-      ...(variantsTdTh
-        .filter(variant => !variant.includes('tbody>tr>td'))
-        .map(variant => `${variant}:whitespace-nowrap  ${variant}:text-md ${variant}:font-normal`)),
-      `${variantHeadTr}:border-base-300 dark:${variantHeadTr}:border-base-800`,
-      `${variantBodyTr}:border-base-master/10 dark:${variantBodyTr}:border-base-100/20`,
-      `${variantFoot}:border-base-300 dark:${variantFoot}:border-base-800`,
-      `${variantHeadTr}:border-b ${variantBodyTr.replace('>tr]', '>tr:not(:last-child)]')}:border-b`,
-      `${variantFoot}:border-t`
+      'font-[family-name:var(--ui-font-family-primary)] [&>table]:text-(length:--ui-font-size-md)/(--ui-font-line-height-md) [&>table]:relative [&>table]:w-full [&>table]:text-left [&>table]:rtl:text-right',
+      '[&>table]:text-(--b24ui-typography-label-color)',
+      //
+      '[&>table>thead>tr>td]:align-middle',
+      '[&>table>thead>tr>th]:align-middle',
+      '[&>table>tbody>tr>td]:align-middle',
+      '[&>table>tbody>tr>th]:align-middle',
+      '[&>table>tfoot>tr>td]:align-middle',
+      '[&>table>tfoot>tr>th]:align-middle',
+      //
+      '[&>table>thead>tr>td]:whitespace-nowrap [&>table>thead>tr>td]:text-(length:--ui-font-size-md) [&>table>thead>tr>td]:font-(--ui-font-weight-normal)',
+      '[&>table>thead>tr>th]:whitespace-nowrap [&>table>thead>tr>th]:text-(length:--ui-font-size-md) [&>table>thead>tr>th]:font-(--ui-font-weight-normal)',
+      // '[&>table>tbody>tr>td]:whitespace-nowrap [&>table>tbody>tr>td]:text-(length:--ui-font-size-md) [&>table>tbody>tr>td]:font-(--ui-font-weight-normal)',
+      '[&>table>tbody>tr>th]:whitespace-nowrap [&>table>tbody>tr>th]:text-(length:--ui-font-size-md) [&>table>tbody>tr>th]:font-(--ui-font-weight-normal)',
+      '[&>table>tfoot>tr>td]:whitespace-nowrap [&>table>tfoot>tr>td]:text-(length:--ui-font-size-md) [&>table>tfoot>tr>td]:font-(--ui-font-weight-normal)',
+      '[&>table>tfoot>tr>th]:whitespace-nowrap [&>table>tfoot>tr>th]:text-(length:--ui-font-size-md) [&>table>tfoot>tr>th]:font-(--ui-font-weight-normal)',
+      //
+      '[&>table>thead>tr]:border-(--ui-color-base-6)',
+      '[&>table>tbody>tr]:border-(--ui-color-base-7)',
+      '[&>table>tfoot]:border-(--ui-color-base-7)',
+      `[&>table>thead>tr]:border-b [&>table>tbody>tr:not(:last-child)]:border-b`,
+      '[&>table>tfoot]:border-t'
     ].join(' ')
   },
   variants: {
     size: {
       xs: [
-        ...(variantsTdTh.map(variant => `${variant}:text-xs ${variant}:px-2 ${variant}:py-1`))
+        '[&>table>thead>tr>td]:text-(length:--ui-font-size-xs)/(--ui-font-line-height-2xs) [&>table>thead>tr>td]:px-2 [&>table>thead>tr>td]:py-1',
+        '[&>table>thead>tr>th]:text-(length:--ui-font-size-xs)/(--ui-font-line-height-2xs) [&>table>thead>tr>th]:px-2 [&>table>thead>tr>th]:py-1',
+        '[&>table>tbody>tr>td]:text-(length:--ui-font-size-xs)/(--ui-font-line-height-2xs) [&>table>tbody>tr>td]:px-2 [&>table>tbody>tr>td]:py-1',
+        '[&>table>tbody>tr>th]:text-(length:--ui-font-size-xs)/(--ui-font-line-height-2xs) [&>table>tbody>tr>th]:px-2 [&>table>tbody>tr>th]:py-1',
+        '[&>table>tfoot>tr>td]:text-(length:--ui-font-size-xs)/(--ui-font-line-height-2xs) [&>table>tfoot>tr>th]:px-2 [&>table>tfoot>tr>th]:py-1',
+        '[&>table>tfoot>tr>th]:text-(length:--ui-font-size-xs)/(--ui-font-line-height-2xs) [&>table>tfoot>tr>th]:px-2 [&>table>tfoot>tr>th]:py-1',
       ].join(' '),
       sm: [
-        ...(variantsTdTh.map(variant => `${variant}:text-sm ${variant}:px-3 ${variant}:py-2`))
+        '[&>table>thead>tr>td]:text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) [&>table>thead>tr>td]:px-3 [&>table>thead>tr>td]:py-2',
+        '[&>table>thead>tr>th]:text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) [&>table>thead>tr>th]:px-3 [&>table>thead>tr>th]:py-2',
+        '[&>table>tbody>tr>td]:text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) [&>table>tbody>tr>td]:px-3 [&>table>tbody>tr>td]:py-2',
+        '[&>table>tbody>tr>th]:text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) [&>table>tbody>tr>th]:px-3 [&>table>tbody>tr>th]:py-2',
+        '[&>table>tfoot>tr>td]:text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) [&>table>tfoot>tr>th]:px-3 [&>table>tfoot>tr>th]:py-2',
+        '[&>table>tfoot>tr>th]:text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) [&>table>tfoot>tr>th]:px-3 [&>table>tfoot>tr>th]:py-2',
       ].join(' '),
       md: [
-        ...(variantsTdTh.map(variant => `${variant}:text-md ${variant}:px-4 ${variant}:py-3.5`))
+        '[&>table>thead>tr>td]:text-(length:--ui-font-size-md)/(--ui-font-line-height-md) [&>table>thead>tr>td]:px-4 [&>table>thead>tr>td]:py-3.5',
+        '[&>table>thead>tr>th]:text-(length:--ui-font-size-md)/(--ui-font-line-height-md) [&>table>thead>tr>th]:px-4 [&>table>thead>tr>th]:py-3.5',
+        '[&>table>tbody>tr>td]:text-(length:--ui-font-size-md)/(--ui-font-line-height-md) [&>table>tbody>tr>td]:px-4 [&>table>tbody>tr>td]:py-3.5',
+        '[&>table>tbody>tr>th]:text-(length:--ui-font-size-md)/(--ui-font-line-height-md) [&>table>tbody>tr>th]:px-4 [&>table>tbody>tr>th]:py-3.5',
+        '[&>table>tfoot>tr>td]:text-(length:--ui-font-size-md)/(--ui-font-line-height-md) [&>table>tfoot>tr>th]:px-4 [&>table>tfoot>tr>th]:py-3.5',
+        '[&>table>tfoot>tr>th]:text-(length:--ui-font-size-md)/(--ui-font-line-height-md) [&>table>tfoot>tr>th]:px-4 [&>table>tfoot>tr>th]:py-3.5',
       ].join(' '),
       lg: [
-        ...(variantsTdTh.map(variant => `${variant}:text-lg ${variant}:px-5 ${variant}:py-4`))
+        '[&>table>thead>tr>td]:text-(length:--ui-font-size-lg)/(--ui-font-line-height-lg) [&>table>thead>tr>td]:px-5 [&>table>thead>tr>td]:py-4',
+        '[&>table>thead>tr>th]:text-(length:--ui-font-size-lg)/(--ui-font-line-height-lg) [&>table>thead>tr>th]:px-5 [&>table>thead>tr>th]:py-4',
+        '[&>table>tbody>tr>td]:text-(length:--ui-font-size-lg)/(--ui-font-line-height-lg) [&>table>tbody>tr>td]:px-5 [&>table>tbody>tr>td]:py-4',
+        '[&>table>tbody>tr>th]:text-(length:--ui-font-size-lg)/(--ui-font-line-height-lg) [&>table>tbody>tr>th]:px-5 [&>table>tbody>tr>th]:py-4',
+        '[&>table>tfoot>tr>td]:text-(length:--ui-font-size-lg)/(--ui-font-line-height-lg) [&>table>tfoot>tr>th]:px-5 [&>table>tfoot>tr>th]:py-4',
+        '[&>table>tfoot>tr>th]:text-(length:--ui-font-size-lg)/(--ui-font-line-height-lg) [&>table>tfoot>tr>th]:px-5 [&>table>tfoot>tr>th]:py-4',
       ].join(' ')
     },
     rounded: {
-      true: 'rounded-md',
+      true: 'rounded-(--ui-border-radius-md)',
       false: ''
     },
     zebra: {
       true: [
-        ...(variantsTr
-          .filter(variant => variant === variantBodyTr)
-          .map(variant => `${variant}:even:bg-base-30 ${variant}:even:[&>td]:bg-base-30 ${variant}:even:[&>th]:bg-base-30 dark:${variant}:even:bg-base-dark dark:${variant}:even:[&>td]:bg-base-dark dark:${variant}:even:[&>th]:bg-base-dark`))
+        '[&>table>tbody>tr]:even:bg-(--ui-color-base-8) [&>table>tbody>tr]:even:[&>td]:bg-(--ui-color-base-8) [&>table>tbody>tr]:even:[&>th]:bg-(--ui-color-base-8)',
+        'context-light:[&>table>tbody>tr]:even:bg-(--ui-color-base-6) context-light:[&>table>tbody>tr]:even:[&>td]:bg-(--ui-color-base-6) context-light:[&>table>tbody>tr]:even:[&>th]:bg-(--ui-color-base-6)'
       ].join(' ')
     },
     pinRows: {
       true: [
-        ...(variantsTr
-          .filter(variant => variant !== variantBodyTr)
-          .map(variant => `${variant}:sticky ${variant}:${variant === variantHeadTr ? 'top-0' : 'bottom-0'} ${variant}:z-1 ${variant}:bg-white dark:${variant}:bg-base-dark ${variant}:${variant === variantHeadTr ? 'shadow-bottom-sm' : 'shadow-top-sm'}`))
+        '[&>table>thead>tr]:sticky [&>table>thead>tr]:top-0      [&>table>thead>tr]:z-1 context-dark:[&>table>thead>tr]:bg-(--ui-color-base-5) [&>table>thead>tr]:bg-(--ui-color-base-white-fixed) [&>table>thead>tr]:text-(--ui-color-g-content-grey-1) [&>table>thead>tr]:shadow-bottom-sm',
+        //'[&>table>tbody>tr]:sticky [&>table>tbody>tr]:bottom-0 [&>table>tbody>tr]:z-1 context-dark:[&>table>tbody>tr]:bg-(--ui-color-base-5) [&>table>tbody>tr]:bg-(--ui-color-base-white-fixed) [&>table>tbody>tr]:text-(--ui-color-g-content-grey-1) [&>table>tbody>tr]:shadow-top-sm',
+        '[&>table>tfoot>tr]:sticky [&>table>tfoot>tr]:bottom-0   [&>table>tfoot>tr]:z-1 context-dark:[&>table>tfoot>tr]:bg-(--ui-color-base-5) [&>table>tfoot>tr]:bg-(--ui-color-base-white-fixed) [&>table>tfoot>tr]:text-(--ui-color-g-content-grey-1) [&>table>tfoot>tr]:shadow-top-sm'
       ].join(' ')
     },
     pinCols: {
       true: [
-        ...(variantsTr
-          .map((row) => {
-            const variant = row.replace('>tr]', '>tr>th]')
-            return `${variant}:sticky ${variant}:right-0 ${variant}:left-0 ${variant}:bg-base-20 dark:${variant}:bg-base-dark`
-          }))
+        '[&>table>thead>tr>th]:sticky [&>table>thead>tr>th]:right-0 [&>table>thead>tr>th]:left-0 context-dark:[&>table>thead>tr>th]:bg-(--ui-color-base-5) [&>table>thead>tr>th]:bg-(--ui-color-base-white-fixed) [&>table>thead>tr>th]:text-(--ui-color-g-content-grey-1)',
+        '[&>table>tbody>tr>th]:sticky [&>table>tbody>tr>th]:right-0 [&>table>tbody>tr>th]:left-0 context-dark:[&>table>tbody>tr>th]:bg-(--ui-color-base-5) [&>table>tbody>tr>th]:bg-(--ui-color-base-white-fixed) [&>table>tbody>tr>th]:text-(--ui-color-g-content-grey-1)',
+        '[&>table>tfoot>tr>th]:sticky [&>table>tfoot>tr>th]:right-0 [&>table>tfoot>tr>th]:left-0 context-dark:[&>table>tfoot>tr>th]:bg-(--ui-color-base-5) [&>table>tfoot>tr>th]:bg-(--ui-color-base-white-fixed) [&>table>tfoot>tr>th]:text-(--ui-color-g-content-grey-1)',
       ].join(' ')
     },
     rowHover: {
-      true: `${variantBodyTr}:hover:bg-base-40 ${variantBodyTr}:hover:[&>td]:bg-base-40 ${variantBodyTr}:hover:[&>th]:bg-base-40 dark:${variantBodyTr}:hover:bg-base-900 dark:${variantBodyTr}:hover:[&>td]:bg-base-900 dark:${variantBodyTr}:hover:[&>th]:bg-base-900`
+      true: [
+        '[&>table>tbody>tr]:hover:bg-(--ui-color-base-8) [&>table>tbody>tr]:hover:[&>td]:bg-(--ui-color-base-8) [&>table>tbody>tr]:hover:[&>th]:bg-(--ui-color-base-8)',
+        'context-light:[&>table>tbody>tr]:hover:bg-(--ui-color-base-6) context-light:[&>table>tbody>tr]:hover:[&>td]:bg-(--ui-color-base-6) context-light:[&>table>tbody>tr]:hover:[&>th]:bg-(--ui-color-base-6)'
+      ].join(' ')
     },
     bordered: {
-      true: 'border border-base-master/10 dark:border-base-800'
+      true: 'border border-(--ui-color-base-6)'
     },
     scrollbarThin: {
       true: 'scrollbar-thin'

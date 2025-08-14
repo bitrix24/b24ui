@@ -157,6 +157,8 @@
     - default, danger, success, warning, primary, secondary, collab, ai
 * **Container**
   - fix size
+* **Content/TableWrapper**
+  - fix color
 ---
 We change btn colors:
 

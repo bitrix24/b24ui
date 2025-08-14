@@ -87,7 +87,7 @@ const components: IComponentInfo[] = [
 ]
 
 const componentsContent: IComponentInfo[] = [
-  { id: 'table-wrapper', description: '(-) Wrapper for displaying a table.', iconData: TableIcon }
+  { id: 'table-wrapper', description: '(+) Wrapper for displaying a table.', iconData: TableIcon }
 ]
 
 const componentsProse: IComponentInfo[] = [
