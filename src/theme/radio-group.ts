@@ -151,7 +151,7 @@ export default {
     },
     required: {
       true: {
-        label: 'after:content-[\'*\'] after:ms-0.5 after:text-red-500 dark:after:text-red-600'
+        label: 'after:content-[\'*\'] after:ms-0.5 after:text-(--ui-color-accent-main-alert)'
       }
     }
   },
