@@ -55,9 +55,9 @@ export default () => {
         collab: '',
         ai: ''
       },
-      tagColor: {
-        ...input.variants.tagColor
-      },
+      // tagColor: {
+      //   ...input.variants.tagColor
+      // },
       rounded: {
         ...input.variants.rounded
       },

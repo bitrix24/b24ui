@@ -25,11 +25,11 @@ function onClick() {
   return new Promise<void>(res => setTimeout(res, 3000))
 }
 
-const oldColors = computed(() => {
-  return colors.filter((color) => {
-    return !color.includes('air')
-  })
-})
+// const oldColors = computed(() => {
+//   return colors.filter((color) => {
+//     return !color.includes('air')
+//   })
+// })
 
 const airColors = computed(() => {
   return colors.filter((color) => {

@@ -273,7 +273,9 @@ const airColors = computed(() => {
         <B24Separator class="my-3" type="dotted" />
         <div
           class="mb-4 mx-auto"
-          :class="[ size === 'lg' ? 'max-w-[260px]' : 'max-w-[250px]' ]"
+          :class="[
+            size === 'lg' ? 'max-w-[260px]' : 'max-w-[250px]'
+          ]"
         >
           <B24Calendar :size="size" />
         </div>

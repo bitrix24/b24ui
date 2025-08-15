@@ -55,7 +55,7 @@ export default {
       'absolute',
       'z-10',
       '-top-[6px] right-[12px]',
-      'flex flex-col justify-center items-center',
+      'flex flex-col justify-center items-center'
     ].join(' ')
   },
   variants: {
