@@ -82,7 +82,7 @@
 .ui-label-xs {
   --ui-label-height: 14px;
   --ui-label-inline-space: 5px;
-  --ui-label-font-size: var(--ui-font-size-6xs);
+  --ui-label-font-size: var(--ui-font-size-5xs);
   --ui-label-font-weight: var(--ui-font-weight-regular);
 }
 

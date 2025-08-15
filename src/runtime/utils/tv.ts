@@ -37,11 +37,15 @@ const twMergeConfig = {
       'style-old-default', 'style-old-danger', 'style-old-success',
       'style-old-warning', 'style-old-primary', 'style-old-secondary',
       'style-old-collab', 'style-old-ai'
+    ],
+    'b24-bg': [
+      'style-blurred-bg', 'style-blurred-bg-input', 'style-transparent-bg'
     ]
   },
   conflictingClassGroups: {
     'b24-context': ['b24-context'],
-    'b24-colors': ['b24-colors']
+    'b24-colors': ['b24-colors'],
+    'b24-bg': ['b24-bg']
   }
 }
 

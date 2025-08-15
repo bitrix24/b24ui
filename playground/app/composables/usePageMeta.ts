@@ -62,7 +62,7 @@ const components: IComponentInfo[] = [
   { id: 'dropdown-menu', description: '(+) A menu to display actions when clicking on an element.', iconData: GroupIcon },
   { id: 'form', description: '(-) A form component with built-in validation and submission handling.', iconData: FormSettingsIcon },
   { id: 'form-field', description: '(-) A wrapper for form elements that provides validation and error handling.', iconData: FormIcon },
-  { id: 'input', description: '(-) An input element to enter text.', iconData: FormIcon },
+  { id: 'input', description: '(+) An input element to enter text.', iconData: FormIcon },
   { id: 'input-menu', description: '(-) An autocomplete input with real-time suggestions.', iconData: FormIcon },
   { id: 'input-number', description: '(-) Input numerical values with a customizable range.', iconData: FormIcon },
   { id: 'kbd', description: '(+) A kbd element to display a keyboard key.', iconData: ItemIcon, iconUi: 'pr-px pb-[3px]' },

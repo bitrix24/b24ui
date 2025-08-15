@@ -12,6 +12,16 @@
 * **ProseH***
   - fix color
   - add prop accent {default, accent, accent-more, less, less-more}
+* **ProseUl\ProseOl\ProseA\ProseBlockquote***
+  - fix color
+* **ProseCode***
+  - fix color
+  - color
+    - air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning
+    - @deprecate
+      - default, danger, success, warning, primary, secondary, collab, ai
+* **NavbarDivider\SidebarHeading***
+  - fix color
 * **Popover**:
   - fix arrow
   - fix color
@@ -22,7 +32,7 @@
   - color
     - air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning
     - @deprecate
-      - default, danger, success, warning, primary, secondary, collab, ai, link
+      - default, danger, success, warning, primary, secondary, collab, ai
 * **NavigationMenu**:
   - props.hint
   - delayDuration = 200
@@ -160,6 +170,7 @@
 * **Content/TableWrapper**
   - fix color
 * **Calendar**
+  - off yearControls
   - fix color
   - add color
     - air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning
@@ -167,6 +178,13 @@
     - default, danger, success, warning, primary, secondary, collab, ai
 * **DescriptionList**
   - fix color
+* **Input**
+  - fix color, size
+  - add color
+    - air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning
+  - @deprecate color
+    - default, danger, success, warning, primary, secondary, collab, ai
+  - use `Badge` as tag
 ---
 We change btn colors:
 

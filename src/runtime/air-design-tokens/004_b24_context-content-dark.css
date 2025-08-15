@@ -23,6 +23,8 @@
     --b24ui-typography-legend-color: var(--ui-color-design-plain-na-content);
     --b24ui-typography-label-color: var(--ui-color-design-plain-content);
     --b24ui-typography-description-color: var(--ui-color-design-plain-na-content);
+    --b24ui-icon-color: var(--ui-color-base-5);
+    --b24ui-icon-color-hover: color-mix(in srgb,var(--ui-color-base-5) 100%,var(--ui-color-bg-state-hover-default-overlay-hex) var(--ui-color-bg-state-hover-default-overlay-opacity));
 
     --ui-color-base-0: #fff;
     --ui-color-base-1: #f8f8f8;

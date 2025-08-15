@@ -18,7 +18,7 @@ export default {
       'select-none',
       'font-[family-name:var(--ui-font-family-secondary)]',
       'font-(--ui-label-font-weight)',
-      'text-(length:--ui-label-font-size)/[1]',
+      'text-(length:--ui-label-font-size)/normal',
       'inline-flex items-center',
       'transition-all duration-200 ease-linear',
       'px-(--ui-label-inline-space)',

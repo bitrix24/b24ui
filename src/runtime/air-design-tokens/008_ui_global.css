@@ -491,18 +491,9 @@
 
     background: var(--b24ui-background-gradient);
   }
+  /* endregion */
 
-  /**
-   * @memo you can use backdrop-blur-sm backdrop-brightness-120
-   */
-  .style-blurred-bg {
-    background:
-      linear-gradient(to right, var(--ui-color-design-outline-na-bg), var(--ui-color-design-outline-na-bg)),
-      var(--air-theme-background-blurred, none);
-  }
-  /*endregion*/
-
-  /*region old*/
+  /* region old */
   .style-old-default {
     --b24ui-background: var(--ui-color-base-20);
     --b24ui-border-color: var(--ui-color-base-20);
@@ -646,5 +637,22 @@
     --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
     --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
-  /*endregion*/
+  /* endregion */
+
+  /* region bg */
+  /**
+   * @memo you can use backdrop-blur-sm backdrop-brightness-120
+   */
+  .style-blurred-bg {
+    background: linear-gradient(to right, var(--ui-color-design-outline-na-bg), var(--ui-color-design-outline-na-bg)), var(--air-theme-background-blurred, none);
+  }
+
+  .style-blurred-bg-input {
+    background: linear-gradient(to right,var(--ui-color-design-outline-bg-alt),var(--ui-color-design-outline-bg-alt)),var(--main-ui-filter-custom-background,none);
+  }
+
+  .style-transparent-bg {
+    background: transparent;
+  }
+  /* endregion */
 }

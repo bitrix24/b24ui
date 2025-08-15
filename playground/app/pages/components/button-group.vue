@@ -11,7 +11,6 @@ import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 usePageMeta.setPageTitle('ButtonGroup')
 
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
-const depths = Object.keys(theme.variants.depth) as Array<keyof typeof theme.variants.depth>
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
 const knowledgeBase = ['Select', 'Create']
@@ -25,6 +24,18 @@ const items = [
 function onClick() {
   return new Promise<void>(res => setTimeout(res, 3000))
 }
+
+const oldColors = computed(() => {
+  return colors.filter((color) => {
+    return !color.includes('air')
+  })
+})
+
+const airColors = computed(() => {
+  return colors.filter((color) => {
+    return color.includes('air')
+  })
+})
 </script>
 
 <template>
@@ -55,24 +66,9 @@ function onClick() {
         </B24ButtonGroup>
       </div>
 
-      <template v-for="color in colors" :key="color">
+      <template v-for="color in airColors" :key="color">
         <ExampleCardSubTitle :title="color" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-          <template v-for="depth in depths" :key="depth">
-            <B24ButtonGroup>
-              <B24Button
-                :color="color"
-                :depth="depth"
-                :class="color === 'link' && depth !== 'dark' ? 'ps-4 pe-4' : ''"
-                loading-auto
-                use-clock
-                @click="onClick"
-              >
-                Button
-              </B24Button>
-              <B24Button :color="color" :depth="depth" use-dropdown />
-            </B24ButtonGroup>
-          </template>
           <B24ButtonGroup>
             <B24Button
               rounded
