@@ -8,7 +8,7 @@ import ExampleCard from '../../../components/ExampleCard.vue'
 usePageMeta.setPageTitle('TableWrapper')
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
-const isUseBg = ref(false)
+const isUseBg = ref(true)
 </script>
 
 <template>
