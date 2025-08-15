@@ -12,14 +12,13 @@ export default (options: Required<ModuleOptions>) => ({
   base: [
     'cursor-pointer',
     // 'focus-visible:outline-info-text' // fix
-    'focus-visible:outline-(--ui-color-design-selection-content)',
+    'focus-visible:outline-(--ui-color-accent-main-primary)',
     'focus-visible:outline-1 focus-visible:rounded-[4px]'
   ].join(' '),
   variants: {
     active: {
       true: [
-        // 'text-blue-700 dark:text-blue-300 hover:not-disabled:not-aria-disabled:underline underline-offset-2' // fix
-        'text-(--ui-color-design-selection-content) outline-(--ui-color-design-selection-content)',
+        'text-(--ui-color-accent-main-primary) outline-(--ui-color-accent-main-primary)',
         'hover:not-disabled:not-aria-disabled:underline underline-offset-2'
       ].join(' '),
       false: [
@@ -47,7 +46,7 @@ export default (options: Required<ModuleOptions>) => ({
       active: false,
       disabled: false,
       class: [
-        'hover:text-(--ui-color-design-selection-content)',
+        'hover:text-(--ui-color-accent-main-primary-alt-2)',
         'hover:underline'
       ].join(' ')
     }
