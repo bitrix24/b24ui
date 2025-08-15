@@ -14,7 +14,7 @@ export default {
       'focus-visible:outline-info-text',
       'transition-colors [&>code]:transition-colors',
       '[&>code]:ring-dashed',
-      'hover:[&>code]:text-(--ui-color-accent-main-primary-alt-2) hover:[&>code]:bg--(--ui-color-accent-main-primary-alt-2)/80 hover:[&>code]:ring--(--ui-color-design-selection-content)'
+      'hover:[&>code]:text-(--ui-color-accent-main-primary-alt) hover:[&>code]:bg-(--ui-color-design-selection-bg) hover:[&>code]:ring-(--ui-color-design-selection-stroke)'
     ].join(' ')
   }
 }
