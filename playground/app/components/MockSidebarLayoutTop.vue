@@ -32,7 +32,7 @@ const search = ref('')
           no-padding
           class="w-full max-w-[400px]"
           :b24ui="{
-            base: 'ps-[16px] pe-[58px] text-(--ui-color-design-plain-content)',
+            base: 'ps-[16px] pe-[58px]',
             trailing: 'px-0'
           }"
         >
@@ -40,7 +40,7 @@ const search = ref('')
             <div class="flex flex-row items-center justify-between gap-[2px] pe-[5px]">
               <Search2Icon
                 v-show="search.length < 1"
-                class="size-[24px] text-(--b24ui-icon-color) hover:text-(--b24ui-icon-color-hover) cursor-pointer"
+                class="size-[24px] text-(--b24ui-icon-color) hover:text-(--b24ui-icon-color-hover)"
               />
               <CrossMIcon
                 v-show="search.length > 0"

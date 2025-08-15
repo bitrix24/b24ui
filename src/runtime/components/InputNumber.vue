@@ -2,7 +2,7 @@
 import type { NumberFieldRootProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/input-number'
-import type { ButtonProps, IconComponent } from '../types'
+import type { ButtonProps, BadgeProps, IconComponent } from '../types'
 import type { ComponentConfig } from '../types/utils'
 
 type InputNumber = ComponentConfig<typeof theme, AppConfig, 'inputNumber'>
@@ -18,7 +18,7 @@ export interface InputNumberProps extends Pick<NumberFieldRootProps, 'modelValue
    */
   placeholder?: string
   /**
-   * @defaultValue 'primary'
+   * @defaultValue 'air-primary'
    */
   color?: InputNumber['variants']['color']
   /**
@@ -47,9 +47,9 @@ export interface InputNumberProps extends Pick<NumberFieldRootProps, 'modelValue
   rounded?: boolean
   tag?: string
   /**
-   * @defaultValue 'primary'
+   * @defaultValue 'air-primary'
    */
-  tagColor?: InputNumber['variants']['tagColor']
+  tagColor?: BadgeProps['color']
   /**
    * Highlight the ring color like a focus state
    * @defaultValue false
@@ -62,7 +62,7 @@ export interface InputNumberProps extends Pick<NumberFieldRootProps, 'modelValue
   orientation?: 'vertical' | 'horizontal'
   /**
    * Configure the increment button. The `size` is inherited.
-   * @defaultValue { color: 'link', depth: 'light' }
+   * @defaultValue { color: 'air-tertiary-no-accent' }
    */
   increment?: ButtonProps
   /**
@@ -75,7 +75,7 @@ export interface InputNumberProps extends Pick<NumberFieldRootProps, 'modelValue
   incrementDisabled?: boolean
   /**
    * Configure the decrement button. The `size` is inherited.
-   * @defaultValue { color: 'link', depth: 'light' }
+   * @defaultValue { color: 'air-tertiary-no-accent' }
    */
   decrement?: ButtonProps
   /**
@@ -125,6 +125,7 @@ import { useFormField } from '../composables/useFormField'
 import { useLocale } from '../composables/useLocale'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
+import B24Badge from './Badge.vue'
 import B24Button from './Button.vue'
 
 defineOptions({ inheritAttrs: false })
@@ -133,7 +134,7 @@ const props = withDefaults(defineProps<InputNumberProps>(), {
   orientation: 'horizontal',
   disabledIncrement: false,
   disabledDecrement: false,
-  color: 'primary'
+  color: 'air-primary'
 })
 const emits = defineEmits<InputNumberEmits>()
 defineSlots<InputNumberSlots>()
@@ -156,7 +157,6 @@ const isTag = computed(() => {
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.inputNumber || {}) })({
   color: color.value,
   size: inputSize?.value,
-  tagColor: props.tagColor,
   highlight: highlight.value,
   rounded: Boolean(props.rounded),
   noPadding: Boolean(props.noPadding),
@@ -212,9 +212,13 @@ defineExpose({
     :locale="locale"
     @update:model-value="onUpdate"
   >
-    <div v-if="isTag" :class="b24ui.tag({ class: props.b24ui?.tag })">
-      {{ props.tag }}
-    </div>
+    <B24Badge
+      v-if="isTag"
+      :class="b24ui.tag({ class: props.b24ui?.tag })"
+      :color="props.tagColor"
+      :label="props.tag"
+      size="xs"
+    />
 
     <NumberFieldInput
       v-bind="{ ...$attrs, ...ariaAttrs }"
@@ -232,8 +236,7 @@ defineExpose({
           <B24Button
             :icon="incrementIcon"
             :size="size"
-            color="link"
-            depth="light"
+            color="air-tertiary-no-accent"
             :aria-label="t('inputNumber.increment')"
             v-bind="typeof increment === 'object' ? increment : undefined"
           />
@@ -247,8 +250,7 @@ defineExpose({
           <B24Button
             :icon="decrementIcon"
             :size="size"
-            color="link"
-            depth="light"
+            color="air-tertiary-no-accent"
             :aria-label="t('inputNumber.decrement')"
             v-bind="typeof decrement === 'object' ? decrement : undefined"
           />

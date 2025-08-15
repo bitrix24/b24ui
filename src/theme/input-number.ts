@@ -7,7 +7,6 @@
  * @see bitrix/js/ui/..
  * @see src/theme/input.ts
  * @todo fix docs
- * @memo add size.xss && size.xl
  */
 import inputTheme from './input'
 import { buttonGroupVariantWithRoot } from './button-group'
@@ -19,17 +18,24 @@ export default () => {
     slots: {
       root: 'isolate relative inline-flex items-center',
       base: [
-        'w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75',
-        'placeholder:text-base-400',
-        'dark:placeholder:text-base-300',
+        'w-full py-0 border-0 focus:outline-none',
+        'disabled:cursor-not-allowed',
+        'disabled:opacity-30',
         'appearance-none transition duration-300 ease-linear', // transition-colors
-        'ring ring-inset ring-base-300',
-        'dark:ring-base-800',
-        'text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900',
-        'dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350',
-        'font-b24-primary font-regular text-md leading-none',
+        'ring ring-inset',
+        'ring-(--ui-color-design-outline-stroke)',
+        'text-(--ui-color-base-1)',
+        'style-blurred-bg-input',
+        'placeholder:text-(--ui-color-design-plain-na-content-secondary)',
+        'hover:text-(--ui-color-base-1)',
+        'focus:text-(--ui-color-base-1)',
+        'active:text-(--ui-color-base-1)',
+        'font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular)',
         'align-middle',
-        'text-ellipsis whitespace-nowrap'
+        'text-ellipsis whitespace-nowrap',
+        'focus-visible:ring-1',
+        'focus-visible:ring-inset',
+        'focus-visible:ring-(--b24ui-border-color)'
       ].join(' '),
       increment: 'absolute flex items-center',
       decrement: 'absolute flex items-center',
@@ -38,26 +44,33 @@ export default () => {
     variants: {
       ...buttonGroupVariantWithRoot,
       size: {
-        xss: 'px-2 h-[20px] gap-1',
-        xs: 'px-2 h-[24px] gap-1',
-        sm: 'px-2.5 h-[28px] gap-1.5',
-        md: 'px-2.5 h-[34px] gap-1.5',
-        lg: 'px-3 h-[38px] gap-2',
-        xl: 'px-3 h-[46px] gap-2'
+        xss: 'px-2 h-[20px] gap-1 text-(length:--ui-font-size-4xs)/[normal]',
+        xs: 'px-2 h-[24px] gap-1 text-(length:--ui-font-size-xs)/[normal]',
+        sm: 'px-2.5 h-[28px] gap-1.5 text-(length:--ui-font-size-sm)/[normal]',
+        md: 'px-2.5 h-[34px] gap-1.5 text-(length:--ui-font-size-lg)/[normal]',
+        lg: 'px-3 h-[38px] gap-2 text-(length:--ui-font-size-lg)/[normal]',
+        xl: 'px-3 h-[46px] gap-2 text-(length:--ui-font-size-2xl)/[normal]'
       },
       color: {
-        default: '',
-        danger: '',
-        success: '',
-        warning: '',
-        primary: '',
-        secondary: '',
-        collab: '',
-        ai: ''
+        'air-primary': { base: 'style-filled' },
+        'air-primary-success': { base: 'style-filled-success' },
+        'air-primary-alert': { base: 'style-filled-alert' },
+        'air-primary-copilot': { base: 'style-filled-copilot' },
+        'air-primary-warning': { base: 'style-filled-warning' },
+        // @deprecate ////
+        'default': { base: 'style-old-default' },
+        'danger': { base: 'style-old-danger' },
+        'success': { base: 'style-old-success' },
+        'warning': { base: 'style-old-warning' },
+        'primary': { base: 'style-old-primary' },
+        'secondary': { base: 'style-old-secondary' },
+        'collab': { base: 'style-old-collab' },
+        'ai': { base: 'style-old-ai' }
       },
-      // tagColor: {
-      //   ...input.variants.tagColor
-      // },
+      /**
+       * @memo now get from Badge
+       */
+      // tagColor: {},
       rounded: {
         ...input.variants.rounded
       },
@@ -72,8 +85,8 @@ export default () => {
       },
       disabled: {
         true: {
-          increment: 'opacity-75 cursor-not-allowed',
-          decrement: 'opacity-75 cursor-not-allowed'
+          increment: 'cursor-not-allowed',
+          decrement: 'cursor-not-allowed'
         }
       },
       orientation: {
@@ -93,233 +106,33 @@ export default () => {
     },
     compoundVariants: [
       // region ring for focus and highlight ////
-      // region default ////
+      // region color ////
       {
-        color: 'default',
         noBorder: false,
         underline: false,
-        class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-base-900 dark:focus-visible:ring-base-350'
+        class: ''
       },
       {
-        color: 'default',
         highlight: true,
         noBorder: false,
         underline: false,
-        class: 'ring ring-inset ring-base-900 dark:ring-base-350'
+        class: 'ring ring-inset ring-(--b24ui-border-color)'
       },
       {
-        color: 'default',
         noBorder: false,
         underline: true,
-        class: 'focus-visible:border-base-900 dark:focus-visible:border-b-base-350'
+        class: 'focus-visible:border-(--b24ui-border-color)'
       },
       {
-        color: 'default',
         highlight: true,
         noBorder: false,
         underline: true,
-        class: 'border-b-base-900 dark:border-b-base-350'
-      },
-      // endregion ////
-      // region danger ////
-      {
-        color: 'danger',
-        noBorder: false,
-        underline: false,
-        class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-red-500 dark:focus-visible:ring-red-600'
-      },
-      {
-        color: 'danger',
-        highlight: true,
-        noBorder: false,
-        underline: false,
-        class: 'ring ring-inset  ring-red-500 dark:ring-red-600'
-      },
-      {
-        color: 'danger',
-        noBorder: false,
-        underline: true,
-        class: 'focus-visible:border-b-red-500 dark:focus-visible:border-b-red-600'
-      },
-      {
-        color: 'danger',
-        highlight: true,
-        noBorder: false,
-        underline: true,
-        class: 'border-b-red-500 dark:border-b-red-600'
-      },
-      // endregion ////
-      // region success ////
-      {
-        color: 'success',
-        noBorder: false,
-        underline: false,
-        class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-green-500 dark:focus-visible:ring-green-600'
-      },
-      {
-        color: 'success',
-        highlight: true,
-        noBorder: false,
-        underline: false,
-        class: 'ring ring-inset  ring-green-500 dark:ring-green-600'
-      },
-      {
-        color: 'success',
-        noBorder: false,
-        underline: true,
-        class: 'focus-visible:border-b-green-500 dark:focus-visible:border-b-green-600'
-      },
-      {
-        color: 'success',
-        highlight: true,
-        noBorder: false,
-        underline: true,
-        class: 'border-b-green-500 dark:border-b-green-600'
-      },
-      // endregion ////
-      // region warning ////
-      {
-        color: 'warning',
-        noBorder: false,
-        underline: false,
-        class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-orange-500 dark:focus-visible:ring-orange-600'
-      },
-      {
-        color: 'warning',
-        highlight: true,
-        noBorder: false,
-        underline: false,
-        class: 'ring ring-inset  ring-orange-500 dark:ring-orange-600'
-      },
-      {
-        color: 'warning',
-        noBorder: false,
-        underline: true,
-        class: 'focus-visible:border-b-orange-500 dark:focus-visible:border-b-orange-600'
-      },
-      {
-        color: 'warning',
-        highlight: true,
-        noBorder: false,
-        underline: true,
-        class: 'border-b-orange-500 dark:border-b-orange-600'
-      },
-      // endregion ////
-      // region primary ////
-      {
-        color: 'primary',
-        noBorder: false,
-        underline: false,
-        class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600'
-      },
-      {
-        color: 'primary',
-        highlight: true,
-        noBorder: false,
-        underline: false,
-        class: 'ring ring-inset  ring-blue-500 dark:ring-blue-600'
-      },
-      {
-        color: 'primary',
-        noBorder: false,
-        underline: true,
-        class: 'focus-visible:border-b-blue-500 dark:focus-visible:border-b-blue-600'
-      },
-      {
-        color: 'primary',
-        highlight: true,
-        noBorder: false,
-        underline: true,
-        class: 'border-b-blue-500 dark:border-b-blue-600'
-      },
-      // endregion ////
-      // region secondary ////
-      {
-        color: 'secondary',
-        noBorder: false,
-        underline: false,
-        class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-cyan-500 dark:focus-visible:ring-cyan-600'
-      },
-      {
-        color: 'secondary',
-        highlight: true,
-        noBorder: false,
-        underline: false,
-        class: 'ring ring-inset  ring-cyan-500 dark:ring-cyan-600'
-      },
-      {
-        color: 'secondary',
-        noBorder: false,
-        underline: true,
-        class: 'focus-visible:border-b-cyan-500 dark:focus-visible:border-b-cyan-600'
-      },
-      {
-        color: 'secondary',
-        highlight: true,
-        noBorder: false,
-        underline: true,
-        class: 'border-b-cyan-500 dark:border-b-cyan-600'
-      },
-      // endregion ////
-      // region collab ////
-      {
-        color: 'collab',
-        noBorder: false,
-        underline: false,
-        class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-collab-500 dark:focus-visible:ring-collab-600'
-      },
-      {
-        color: 'collab',
-        highlight: true,
-        noBorder: false,
-        underline: false,
-        class: 'ring ring-inset  ring-collab-500 dark:ring-collab-600'
-      },
-      {
-        color: 'collab',
-        noBorder: false,
-        underline: true,
-        class: 'focus-visible:border-b-collab-500 dark:focus-visible:border-b-collab-600'
-      },
-      {
-        color: 'collab',
-        highlight: true,
-        noBorder: false,
-        underline: true,
-        class: 'border-b-collab-500 dark:border-b-collab-600'
-      },
-      // endregion ////
-      // region ai ////
-      {
-        color: 'ai',
-        noBorder: false,
-        underline: false,
-        class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-ai-500 dark:focus-visible:ring-ai-600'
-      },
-      {
-        color: 'ai',
-        highlight: true,
-        noBorder: false,
-        underline: false,
-        class: 'ring ring-inset  ring-ai-500 dark:ring-ai-600'
-      },
-      {
-        color: 'ai',
-        noBorder: false,
-        underline: true,
-        class: 'focus-visible:border-b-ai-500 dark:focus-visible:border-b-ai-600'
-      },
-      {
-        color: 'ai',
-        highlight: true,
-        noBorder: false,
-        underline: true,
-        class: 'border-b-ai-500 dark:border-b-ai-600'
+        class: 'border-b-(--b24ui-border-color)'
       },
       // endregion ////
       // endregion ////
       // region orientation && size ////
-      // region horizontal ////
+      // region horizontal.rounded ////
       {
         orientation: 'horizontal',
         rounded: true,
@@ -328,87 +141,124 @@ export default () => {
           decrement: '[&>button]:rounded-3xl'
         }
       },
+      // endregion ////
+      // region horizontal ////
+      {
+        orientation: 'horizontal',
+        size: 'xss',
+        class: {
+          base: 'px-[24px]',
+          increment: '[&>button]:p-[2px] [&>button]:h-[24px] scale-70',
+          decrement: '[&>button]:p-[2px] [&>button]:h-[24px] scale-70'
+        }
+      },
       {
         orientation: 'horizontal',
         size: 'xs',
         class: {
-          base: 'px-[1.3rem]',
-          increment: '[&>button]:h-[24px] scale-80',
-          decrement: '[&>button]:h-[24px] scale-80'
+          base: 'px-[24px]',
+          increment: '[&>button]:p-[2px] [&>button]:h-[24px] scale-70',
+          decrement: '[&>button]:p-[2px] [&>button]:h-[24px] scale-70'
         }
       },
       {
         orientation: 'horizontal',
         size: 'sm',
         class: {
-          base: 'px-[2.1rem]',
-          increment: 'scale-80',
-          decrement: 'scale-80'
+          base: 'px-[28px]',
+          increment: '[&>button]:p-[2px] scale-70',
+          decrement: '[&>button]:p-[2px] scale-70'
         }
       },
       {
         orientation: 'horizontal',
         size: 'md',
         class: {
-          base: 'px-[2.45rem]',
-          increment: '[&>button]:p-1.5 scale-80',
-          decrement: '[&>button]:p-1.5 scale-80'
+          base: 'px-[30px]',
+          increment: '[&>button]:p-[2px] scale-60',
+          decrement: '[&>button]:p-[2px] scale-60'
         }
       },
       {
         orientation: 'horizontal',
         size: 'lg',
         class: {
-          base: 'px-[2.95rem]',
-          increment: 'pe-1 [&>button]:p-1.5 [&>button]:h-[42px] scale-95',
-          decrement: 'ps-1 [&>button]:p-1.5 [&>button]:h-[42px] scale-95'
+          base: 'px-[30px]',
+          increment: '[&>button]:p-[2px] scale-60',
+          decrement: '[&>button]:p-[2px] scale-60'
+        }
+      },
+      {
+        orientation: 'horizontal',
+        size: 'xl',
+        class: {
+          base: 'px-[40px]',
+          increment: '[&>button]:p-[4px] scale-60',
+          decrement: '[&>button]:p-[4px] scale-60'
         }
       },
       // endregion ////
       // region vertical ////
       {
         orientation: 'vertical',
+        size: 'xss',
+        class: {
+          base: 'pe-[24px]',
+          increment: 'top-0 pe-0 [&>button]:h-[13px] scale-56',
+          decrement: 'bottom-0 pe-0 [&>button]:h-[13px] scale-56'
+        }
+      },
+      {
+        orientation: 'vertical',
         size: 'xs',
         class: {
-          base: 'pe-7',
-          increment: 'top-0 pe-0 [&>button]:h-[13px]',
-          decrement: 'bottom-0 pe-0 [&>button]:h-[13px]'
+          base: 'pe-[24px]',
+          increment: 'top-0 pe-0 [&>button]:h-[13px] scale-80',
+          decrement: 'bottom-0 pe-0 [&>button]:h-[13px] scale-80'
         }
       },
       {
         orientation: 'vertical',
         size: 'sm',
         class: {
-          base: 'pe-8',
-          increment: '[&>button]:h-[13px] scale-80',
-          decrement: '[&>button]:h-[13px] scale-80'
+          base: 'pe-[30px]',
+          increment: 'top-0 pe-0 [&>button]:h-[15px] scale-80',
+          decrement: 'bottom-0 pe-0 [&>button]:h-[15px] scale-80'
         }
       },
       {
         orientation: 'vertical',
         size: 'md',
         class: {
-          base: 'pe-9',
-          increment: '[&>button]:h-[19px] scale-80',
-          decrement: '[&>button]:h-[19px] scale-80'
+          base: 'pe-[34px]',
+          increment: 'top-0 pe-0 [&>button]:h-[18px] scale-80',
+          decrement: 'bottom-0 pe-0 [&>button]:h-[18px] scale-80'
         }
       },
       {
         orientation: 'vertical',
         size: 'lg',
         class: {
-          base: 'pe-9',
-          increment: '[&>button]:h-[22px] scale-80',
-          decrement: '[&>button]:h-[22px] scale-80'
+          base: 'pe-[38px]',
+          increment: '[&>button]:h-[16px] scale-80',
+          decrement: '[&>button]:h-[16px] scale-80'
+        }
+      },
+      {
+        orientation: 'vertical',
+        size: 'xl',
+        class: {
+          base: 'pe-[38px]',
+          increment: '[&>button]:h-[20px] scale-80',
+          decrement: '[&>button]:h-[20px] scale-80'
         }
       }
       // endregion ////
       // endregion ////
     ],
     defaultVariants: {
-      size: 'md',
-      color: 'primary',
-      tagColor: 'primary'
+      color: 'air-primary',
+      size: 'md'
     }
   }
 }

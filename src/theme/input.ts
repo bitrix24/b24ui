@@ -127,16 +127,6 @@ export default {
       'collab': { base: 'style-old-collab' },
       'ai': { base: 'style-old-ai' }
     },
-    // color: {
-    //   default: '',
-    //   danger: '',
-    //   success: '',
-    //   warning: '',
-    //   primary: '',
-    //   secondary: '',
-    //   collab: '',
-    //   ai: ''
-    // },
     /**
      * @memo now get from Badge
      */
@@ -169,7 +159,7 @@ export default {
   },
   compoundVariants: [
     // region ring for focus and highlight ////
-    // region default ////
+    // region color ////
     {
       noBorder: false,
       underline: false,
