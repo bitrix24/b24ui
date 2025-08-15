@@ -12,8 +12,9 @@ export default {
   slots: {
     root: [
       'mb-1',
-      'text-xs/6 font-medium ',
-      'text-base-500 dark:text-base-400'
+      'text-(length:--ui-font-size-xs)/[normal]', // text-xs/6
+      'font-(--ui-font-weight-medium)',
+      'text-(--b24ui-typography-legend-color)'
     ].join(' ')
   }
 }
