@@ -15,8 +15,6 @@ export default {
       'origin-(--reka-popover-content-transform-origin)',
       'focus:outline-none pointer-events-auto'
     ].join(' '),
-    // fix arrow: 'fill-white dark:fill-base-dark stroke-base-300 dark:stroke-base-800'
-    // box-shadow: 0 0 21px #535c6921;
     arrow: 'fill-(--popup-window-background-color)'
   }
 }

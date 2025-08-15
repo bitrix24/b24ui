@@ -40,7 +40,6 @@ export default {
     ].join(' '),
     close: '-mt-[4px]',
     body: 'flex-1 overflow-y-auto text-(length:--ui-font-size-md) leading-normal',
-    // fix footer: 'flex items-center justify-center gap-3 mt-2.5 pt-4 border-t border-t-1 border-t-base-900/10 dark:border-t-white/20'
     footer: [
       'flex items-center justify-between gap-[10px]',
       'border-t border-t-1 border-t-(--ui-color-divider-default)',
