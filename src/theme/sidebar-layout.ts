@@ -34,7 +34,7 @@ export default {
       'overflow-hidden',
       'flex flex-col text-(--b24ui-typography-label-color)',
       'bg-(--ui-color-base-white-fixed) context-dark:bg-(--ui-color-bg-content-primary) context-edge-dark:bg-[#21334cf0]',
-      'ring-1 ring-base-950/5 context-dark:ring-white/10',
+      'ring-1 ring-(--ui-color-divider-vibrant-less)',
       'shadow-xs',
       'rounded-none'
     ].join(' '),
@@ -92,27 +92,21 @@ export default {
           '--inner',
           'context-light',
           'relative isolate',
-          // fix 'bg-[var(--ui-color-gray-05)]',
-          // fix 'dark:bg-[var(--ui-color-gray-05)]',
           'h-full',
           'overflow-hidden'
-          // fix 'sm:rounded-t-[18px]'
         ].join(' '),
         sidebar: [
           'relative',
           'z-[0]'
-          // fix  'bg-(--ui-color-bg-content-secondary)'
         ].join(' '),
         header: [
           'relative'
-          // fix  'bg-(--ui-color-bg-content-primary)'
         ].join(' '),
         container: [
           // @todo make property
           'mt-0'
         ].join(' '),
         containerWrapper: '',
-        // fix containerWrapperInner: 'size-full',
         pageBottomWrapper: 'flex-0'
       },
       false: {
