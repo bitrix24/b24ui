@@ -9,13 +9,12 @@ export default {
   slots: {
     base: [
       'cursor-pointer',
-      'text-blue-700 dark:text-blue-300',
+      'text-(--ui-color-accent-main-primary)',
       'hover:underline underline-offset-2',
       'focus-visible:outline-info-text',
       'transition-colors [&>code]:transition-colors',
       '[&>code]:ring-dashed',
-      'hover:[&>code]:text-blue-700 hover:[&>code]:bg-blue-250 hover:[&>code]:ring-blue-250',
-      'dark:hover:[&>code]:text-blue-700 dark:hover:[&>code]:bg-blue-250 dark:hover:[&>code]:ring-blue-250'
+      'hover:[&>code]:text-(--ui-color-accent-main-primary-alt-2) hover:[&>code]:bg--(--ui-color-accent-main-primary-alt-2)/80 hover:[&>code]:ring--(--ui-color-design-selection-content)'
     ].join(' ')
   }
 }
