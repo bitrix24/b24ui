@@ -84,9 +84,15 @@ export interface CalendarProps<R extends boolean = false, M extends boolean = fa
   range?: R & boolean
   /** Whether multiple dates can be selected */
   multiple?: M & boolean
-  /** Show month controls */
+  /**
+   * Show month controls
+   * @defaultValue 'true'
+   */
   monthControls?: boolean
-  /** Show year controls */
+  /**
+   * Show year controls
+   * @defaultValue 'false'
+   */
   yearControls?: boolean
   defaultValue?: CalendarDefaultValue<R, M>
   modelValue?: CalendarModelValue<R, M>
@@ -119,7 +125,7 @@ import B24Button from './Button.vue'
 const props = withDefaults(defineProps<CalendarProps<R, M>>(), {
   fixedWeeks: true,
   monthControls: true,
-  yearControls: true
+  yearControls: false
 })
 const emits = defineEmits<CalendarEmits<R, M>>()
 defineSlots<CalendarSlots>()
@@ -151,8 +157,8 @@ const Calendar = computed(() => props.range ? RangeCalendar : SingleCalendar)
 
 const btnSize = computed(() => {
   switch (props.size) {
-    case 'lg': return 'sm'
-    default: return 'xs'
+    case 'xs': return 'xs'
+    default: return 'sm'
   }
 })
 </script>

@@ -35,9 +35,15 @@ export default {
       'focus-visible:ring-2 focus:outline-none',
       'data-disabled:text-(--b24ui-typography-label-color)',
       'data-unavailable:text-(--b24ui-typography-label-color)',
-      'data-outside-view:text-(--b24ui-typography-label-color)',
+      'data-outside-view:text-(--ui-color-design-plain-na-content-secondary)',
       'data-[selected]:text-(--b24ui-color)', // data-[selected]:text-white
-      'focus-visible:ring-(--b24ui-background-hover) data-[selected]:bg-(--b24ui-background) data-today:not-data-[selected]:text-(--b24ui-background) data-[highlighted]:bg-(--b24ui-background) hover:not-data-[disabled]:not-data-[selected]:bg-(--b24ui-background) hover:not-data-[disabled]:not-data-[selected]:text-(--b24ui-color)',
+      'focus-visible:ring-(--b24ui-background-hover)',
+      'data-[selected]:bg-(--b24ui-background)',
+      'data-today:not-data-[selected]:text-(--b24ui-background)',
+      'data-[highlighted]:bg-(--b24ui-background)',
+      'data-[highlighted]:text-(--b24ui-color)',
+      'hover:not-data-[disabled]:not-data-[selected]:bg-(--b24ui-background)',
+      'hover:not-data-[disabled]:not-data-[selected]:text-(--b24ui-color)',
       'data-unavailable:line-through',
       'data-unavailable:pointer-events-none',
       'data-today:font-(--ui-font-weight-semibold)',
@@ -61,39 +67,31 @@ export default {
       'collab': { root: 'style-old-collab' },
       'ai': { root: 'style-old-ai' }
     },
-    // color: {
-    //   default: {
-    //     cellTrigger: [
-    //       'focus-visible:ring-base-300 data-[selected]:bg-base-500 data-today:not-data-[selected]:text-blue-500 data-[highlighted]:bg-base-500/20 hover:not-data-[disabled]:not-data-[selected]:bg-base-500/20',
-    //       'dark:focus-visible:ring-base-800 dark:data-[selected]:bg-base-800 dark:data-today:not-data-[selected]:text-blue-600 dark:data-[highlighted]:bg-base-800/20 dark:hover:not-data-[disabled]:not-data-[selected]:bg-base-800/20'
-    //     ].join(' ')
-    //   },
-    // },
     size: {
       xs: {
-        heading: 'text-md',
-        cell: 'text-sm',
+        heading: 'text-(length:--ui-font-size-md)',
+        cell: 'text-(length:--ui-font-size-sm)',
         headCell: 'text-[10px]',
-        cellTrigger: 'size-7',
+        cellTrigger: 'size-[28px]',
         body: 'space-y-2 pt-2'
       },
       sm: {
-        heading: 'text-md',
-        headCell: 'text-sm',
-        cell: 'text-sm',
-        cellTrigger: 'size-7'
+        heading: 'text-(length:--ui-font-size-md)',
+        headCell: 'text-(length:--ui-font-size-sm)',
+        cell: 'text-(length:--ui-font-size-sm)',
+        cellTrigger: 'size-[28px]'
       },
       md: {
-        heading: 'text-lg',
-        headCell: 'text-md',
-        cell: 'text-md',
-        cellTrigger: 'size-8'
+        heading: 'text-(length:--ui-font-size-lg)',
+        headCell: 'text-(length:--ui-font-size-md)',
+        cell: 'text-(length:--ui-font-size-md)',
+        cellTrigger: 'size-[32px]'
       },
       lg: {
-        heading: 'text-2xl',
-        headCell: 'text-lg',
-        cell: 'text-lg',
-        cellTrigger: 'size-9 text-lg'
+        heading: 'text-(length:--ui-font-size-2xl)',
+        headCell: 'text-(length:--ui-font-size-lg)',
+        cell: 'text-(length:--ui-font-size-lg)',
+        cellTrigger: 'size-[36px] text-(length:--ui-font-size-lg)'
       }
     }
   },

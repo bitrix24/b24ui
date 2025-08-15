@@ -97,22 +97,22 @@ const airColors = computed(() => {
   <ExampleGrid v-once>
     <ExampleCard title="v-model" :use-bg="isUseBg">
       <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4">
+      <div class="mb-4 max-w-[250px] mx-auto">
         <B24Calendar v-model="value" />
       </div>
     </ExampleCard>
 
     <ExampleCard title="default-value" :use-bg="isUseBg">
       <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4">
+      <div class="mb-4 max-w-[250px] mx-auto">
         <B24Calendar :default-value="defaultValue" />
       </div>
     </ExampleCard>
 
-    <ExampleCard title="As a DatePicker" :use-bg="isUseBg">
+    <ExampleCard title="as a date picker" :use-bg="isUseBg">
       <B24Separator class="my-3" type="dotted" />
       <div class="mb-4 flex flex-row flex-wrap items-start justify-start gap-4">
-        <B24Popover>
+        <B24Popover :content="{ align: 'start', side: 'bottom' }">
           <B24Button :icon="Calendar1Icon">
             <div class="truncate">
               {{ datePickerValue ? df.format(datePickerValue.toDate(getLocalTimeZone())) : 'Select a date' }}
@@ -124,7 +124,7 @@ const airColors = computed(() => {
           </template>
         </B24Popover>
 
-        <B24Popover>
+        <B24Popover :content="{ align: 'start', side: 'bottom' }">
           <B24Button :icon="Calendar1Icon">
             <template v-if="datePickerRangeValue.start">
               <div v-if="datePickerRangeValue.end" class="truncate">
@@ -154,28 +154,28 @@ const airColors = computed(() => {
 
     <ExampleCard title="multiple" :use-bg="isUseBg">
       <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4">
+      <div class="mb-4 max-w-[250px] mx-auto">
         <B24Calendar v-model="valueMultiple" multiple />
       </div>
     </ExampleCard>
 
     <ExampleCard title="range" :use-bg="isUseBg">
       <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4">
+      <div class="mb-4 max-w-[250px] mx-auto">
         <B24Calendar v-model="valueRange" range />
       </div>
     </ExampleCard>
 
     <ExampleCard title="disabled" :use-bg="isUseBg">
       <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4">
+      <div class="mb-4 max-w-[250px] mx-auto">
         <B24Calendar disabled />
       </div>
     </ExampleCard>
 
-    <ExampleCard title="With chip events" :use-bg="isUseBg">
+    <ExampleCard title="with chip events" :use-bg="isUseBg">
       <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4">
+      <div class="mb-4 max-w-[250px] mx-auto">
         <B24Calendar v-model="withChipEventsValue">
           <template #day="{ day }">
             <B24Chip
@@ -191,9 +191,9 @@ const airColors = computed(() => {
       </div>
     </ExampleCard>
 
-    <ExampleCard title="With disabled dates" :use-bg="isUseBg">
+    <ExampleCard title="with disabled dates" :use-bg="isUseBg">
       <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4">
+      <div class="mb-4 max-w-[250px] mx-auto">
         <B24Calendar
           v-model="withDisabledDatesValue"
           :is-date-disabled="isDateDisabled"
@@ -202,9 +202,9 @@ const airColors = computed(() => {
       </div>
     </ExampleCard>
 
-    <ExampleCard title="With unavailable dates" :use-bg="isUseBg">
+    <ExampleCard title="with unavailable dates" :use-bg="isUseBg">
       <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4">
+      <div class="mb-4 max-w-[250px] mx-auto">
         <B24Calendar
           v-model="withUnavailableDatesValue"
           :is-date-unavailable="isDateUnavailable"
@@ -213,9 +213,9 @@ const airColors = computed(() => {
       </div>
     </ExampleCard>
 
-    <ExampleCard title="With min/max dates" :use-bg="isUseBg">
+    <ExampleCard title="with min/max dates" :use-bg="isUseBg">
       <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4">
+      <div class="mb-4 max-w-[250px] mx-auto">
         <B24Calendar
           v-model="withMinMaxValue"
           :min-value="minDate"
@@ -229,7 +229,7 @@ const airColors = computed(() => {
   <ExampleGrid>
     <ExampleCard title="numberOfMonths" :use-bg="isUseBg" class="sm:col-span-2">
       <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4">
+      <div class="mb-4 max-w-[500px] mx-auto">
         <B24Calendar :number-of-months="2" />
       </div>
     </ExampleCard>
@@ -240,7 +240,7 @@ const airColors = computed(() => {
     <template v-for="color in airColors" :key="color">
       <ExampleCard :title="color as string" :use-bg="isUseBg">
         <B24Separator class="my-3" type="dotted" />
-        <div class="mb-4">
+        <div class="mb-4 max-w-[250px] mx-auto">
           <B24Calendar :color="color" />
         </div>
       </ExampleCard>
@@ -257,7 +257,7 @@ const airColors = computed(() => {
         <template v-for="color in oldColors" :key="color">
           <ExampleCard :title="color as string" :use-bg="isUseBg">
             <B24Separator class="my-3" type="dotted" />
-            <div class="mb-4">
+            <div class="mb-4 max-w-[250px] mx-auto">
               <B24Calendar :color="color" />
             </div>
           </ExampleCard>
@@ -271,7 +271,10 @@ const airColors = computed(() => {
     <template v-for="size in sizes" :key="size">
       <ExampleCard :title="size as string" :use-bg="isUseBg">
         <B24Separator class="my-3" type="dotted" />
-        <div class="mb-4">
+        <div
+          class="mb-4 mx-auto"
+          :class="[ size === 'lg' ? 'max-w-[260px]' : 'max-w-[250px]' ]"
+        >
           <B24Calendar :size="size" />
         </div>
       </ExampleCard>
