@@ -178,14 +178,7 @@
     - default, danger, success, warning, primary, secondary, collab, ai
 * **DescriptionList**
   - fix color
-* **Input**
-  - fix color, size
-  - add color
-    - air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning
-  - @deprecate color
-    - default, danger, success, warning, primary, secondary, collab, ai
-  - use `Badge` as tag
-* **InputNumber**
+* **Input\InputNumber\Textarea**
   - fix color, size
   - add color
     - air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning

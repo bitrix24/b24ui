@@ -81,8 +81,8 @@ const components: IComponentInfo[] = [
   { id: 'slideover', description: '(+) A dialog that slides in from any side of the screen.', iconData: GroupIcon },
   { id: 'switch', description: '(+) A control that toggles between two states.', iconData: FormIcon },
   { id: 'tabs', description: '(-) A set of tab panels that are displayed one at a time.', iconData: FolderEmptyIcon },
-  { id: 'textarea', description: '(-) A textarea element to input multi-line text.', iconData: FormIcon },
-  { id: 'toast', description: '(+) A succinct message to provide information or feedback to the user.', iconData: GroupIcon },
+  { id: 'textarea', description: '(+) A textarea element to input multi-line text.', iconData: FormIcon },
+  { id: 'toast', description: '(-) A succinct message to provide information or feedback to the user.', iconData: GroupIcon },
   { id: 'tooltip', description: '(+) A popup that reveals information when hovering over an element.', iconData: GroupIcon }
 ]
 
