@@ -46,7 +46,7 @@ export default (options: Required<ModuleOptions>) => ({
       active: false,
       disabled: false,
       class: [
-        'hover:text-(--ui-color-accent-main-primary-alt-2)',
+        'hover:text-(--ui-color-accent-main-primary-alt)',
         'hover:underline'
       ].join(' ')
     }
