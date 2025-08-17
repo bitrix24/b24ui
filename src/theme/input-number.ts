@@ -20,7 +20,9 @@ export default () => {
       base: [
         'w-full py-0 border-0 focus:outline-none',
         'disabled:cursor-not-allowed',
+        'disabled:pointer-events-none',
         'disabled:opacity-30',
+        'disabled:resize-none',
         'appearance-none transition duration-300 ease-linear', // transition-colors
         'ring ring-inset',
         'ring-(--ui-color-design-outline-stroke)',

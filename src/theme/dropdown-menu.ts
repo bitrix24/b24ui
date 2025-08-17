@@ -52,8 +52,12 @@ export default {
       'data-disabled:cursor-not-allowed data-disabled:opacity-75',
       'text-start',
       'text-(length:--menu-popup-item-font-size)',
-      'text-(--menu-popup-item-color) hover:text-(--menu-popup-item-color-hover) data-highlighted:text-(--menu-popup-item-color-hover) data-[state=open]:text-(--menu-popup-item-color-hover)',
-      'hover:bg-(--menu-popup-item-bg-color-hover) data-highlighted:bg-(--menu-popup-item-bg-color-hover) data-[state=open]:bg-(--menu-popup-item-bg-color-hover)',
+      'text-(--menu-popup-item-color) hover:text-(--menu-popup-item-color-hover)',
+      'data-highlighted:text-(--menu-popup-item-color-hover)',
+      'data-[state=open]:text-(--menu-popup-item-color-hover)',
+      'hover:bg-(--menu-popup-item-bg-color-hover)',
+      'data-highlighted:bg-(--menu-popup-item-bg-color-hover)',
+      'data-[state=open]:bg-(--menu-popup-item-bg-color-hover)',
       'transition-colors'
     ].join(' '),
     itemLeadingIcon: [
