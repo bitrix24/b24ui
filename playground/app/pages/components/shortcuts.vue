@@ -89,7 +89,7 @@ function scrollToBottom() {
             'edge-light:[--air-theme-bg-image-blurred:url(/bg/edge-light-v1-blurred.webp)]'
           ].join(' '),
           contentWrapper: [
-            'bg-[url(/bg/pattern-2.png)] bg-cover bg-center bg-fixed bg-no-repeat bg-[#76c68b]/10 dark:bg-[#689775]',
+            'bg-[url(/bg/pattern-2.png)] bg-cover bg-center bg-fixed bg-no-repeat bg-[#76c68b]/10 context-dark:bg-[#689775]',
             'p-0 px-0 ps-0 pe-0 lg:p-0 lg:px-0 lg:ps-0 lg:pe-0 '
           ].join(' '),
           containerWrapper: 'h-full relative',
@@ -98,7 +98,7 @@ function scrollToBottom() {
       >
         <template #sidebar>
           <B24SidebarHeader>
-            <div class="h-full flex items-center relative my-0 ps-[25px] pe-xs rtl:pe-[25px]">
+            <div class="text-[#f8f7f7] h-full flex items-center relative my-0 ps-[25px] pe-xs rtl:pe-[25px]">
               <ProseH6 class="font-medium mb-0">
                 Settings
               </ProseH6>
