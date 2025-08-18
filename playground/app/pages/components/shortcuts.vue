@@ -79,17 +79,18 @@ function scrollToBottom() {
         off-content-scrollbar
         :b24ui="{
           root: [
-            'edge-light',
-            'edge-light:[--air-theme-bg-color:#eef2f4]',
-            'edge-light:[--air-theme-bg-size:240px_240px]',
-            'edge-light:[--air-theme-bg-repeat:repeat]',
-            'edge-light:[--air-theme-bg-position:0_0]',
-            'edge-light:[--air-theme-bg-attachment:fixed]',
-            'edge-light:[--air-theme-bg-image:url(/bg/edge-light-v1.svg)]',
-            'edge-light:[--air-theme-bg-image-blurred:url(/bg/edge-light-v1-blurred.webp)]'
+            'context-edge-light',
+            '[--leftmenu-bg-expanded:#eef2f4!important]',
+            '[--air-theme-bg-color:#eef2f4]',
+            '[--air-theme-bg-size:240px_240px]',
+            '[--air-theme-bg-repeat:repeat]',
+            '[--air-theme-bg-position:0_0]',
+            '[--air-theme-bg-attachment:fixed]',
+            '[--air-theme-bg-image:url(/bg/edge-light-v1.svg)]',
+            '[--air-theme-bg-image-blurred:url(/bg/edge-light-v1-blurred.webp)]'
           ].join(' '),
           contentWrapper: [
-            'bg-[url(/bg/pattern-2.png)] bg-cover bg-center bg-fixed bg-no-repeat bg-[#76c68b]/10 context-dark:bg-[#689775]',
+            'bg-[url(/bg/pattern-2.png)] bg-cover bg-center bg-fixed bg-no-repeat bg-[#76c68b]/10',
             'p-0 px-0 ps-0 pe-0 lg:p-0 lg:px-0 lg:ps-0 lg:pe-0 '
           ].join(' '),
           containerWrapper: 'h-full relative',

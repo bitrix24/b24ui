@@ -169,16 +169,17 @@ function removeToast() {
         :b24ui="{
           root: [
             'context-edge-light',
-            'context-edge-light:[--air-theme-bg-color:#eef2f4]',
-            'context-edge-light:[--air-theme-bg-size:240px_240px]',
-            'context-edge-light:[--air-theme-bg-repeat:repeat]',
-            'context-edge-light:[--air-theme-bg-position:0_0]',
-            'context-edge-light:[--air-theme-bg-attachment:fixed]',
-            'context-edge-light:[--air-theme-bg-image:url(/bg/edge-light-v1.svg)]',
-            'context-edge-light:[--air-theme-bg-image-blurred:url(/bg/edge-light-v1-blurred.webp)]'
+            '[--leftmenu-bg-expanded:#eef2f4!important]',
+            '[--air-theme-bg-color:#eef2f4]',
+            '[--air-theme-bg-size:240px_240px]',
+            '[--air-theme-bg-repeat:repeat]',
+            '[--air-theme-bg-position:0_0]',
+            '[--air-theme-bg-attachment:fixed]',
+            '[--air-theme-bg-image:url(/bg/edge-light-v1.svg)]',
+            '[--air-theme-bg-image-blurred:url(/bg/edge-light-v1-blurred.webp)]'
           ].join(' '),
           contentWrapper: [
-            'bg-[url(/bg/pattern-1.png)] bg-cover bg-center bg-fixed bg-no-repeat bg-[#799fe1]/10 context-dark:bg-[#799fe1]',
+            'bg-[url(/bg/pattern-1.png)] bg-cover bg-center bg-fixed bg-no-repeat bg-[#799fe1]/10',
             'p-0 px-0 ps-0 pe-0 lg:p-0 lg:px-0 lg:ps-0 lg:pe-0 '
           ].join(' '),
           containerWrapper: 'h-full relative',
