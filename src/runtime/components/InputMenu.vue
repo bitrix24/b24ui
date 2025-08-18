@@ -4,7 +4,7 @@ import type { ComboboxRootProps, ComboboxRootEmits, ComboboxContentProps, Combob
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/input-menu'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
-import type { AvatarProps, ChipProps, InputProps, IconComponent } from '../types'
+import type { AvatarProps, ChipProps, InputProps, BadgeProps, IconComponent } from '../types'
 import type { AcceptableValue, ArrayOrNested, GetItemKeys, GetModelValue, GetModelValueEmits, NestedItem, EmitsToProps, ComponentConfig } from '../types/utils'
 
 type InputMenu = ComponentConfig<typeof theme, AppConfig, 'inputMenu'>
@@ -48,7 +48,7 @@ export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOr
    */
   placeholder?: string
   /**
-   * @defaultValue 'primary'
+   * @defaultValue 'air-primary'
    */
   color?: InputMenu['variants']['color']
   /**
@@ -147,9 +147,9 @@ export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOr
   multiple?: M & boolean
   tag?: string
   /**
-   * @defaultValue 'primary'
+   * @defaultValue 'air-primary'
    */
-  tagColor?: InputMenu['variants']['tagColor']
+  tagColor?: BadgeProps['color']
   /**
    * Highlight the ring color like a focus state
    * @defaultValue false
@@ -232,6 +232,7 @@ import { usePortal } from '../composables/usePortal'
 import { compare, get, isArrayOfArray } from '../utils'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
+import B24Badge from './Badge.vue'
 import B24Avatar from './Avatar.vue'
 import B24Chip from './Chip.vue'
 
@@ -275,7 +276,6 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.inputM
   color: color.value,
   size: inputSize?.value,
   loading: props.loading,
-  tagColor: props.tagColor,
   highlight: highlight.value,
   rounded: Boolean(props.rounded),
   noPadding: Boolean(props.noPadding),
@@ -475,9 +475,13 @@ defineExpose({
     @update:open="onUpdateOpen"
     @keydown.enter="$event.preventDefault()"
   >
-    <div v-if="isTag" :class="b24ui.tag({ class: props.b24ui?.tag })">
-      {{ props.tag }}
-    </div>
+    <B24Badge
+      v-if="isTag"
+      :class="b24ui.tag({ class: props.b24ui?.tag })"
+      :color="props.tagColor"
+      :label="props.tag"
+      size="xs"
+    />
     <ComboboxAnchor :as-child="!multiple" :class="b24ui.base({ class: props.b24ui?.base })">
       <TagsInputRoot
         v-if="multiple"
@@ -539,7 +543,12 @@ defineExpose({
             v-if="isLeading && leadingIconName"
             :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
           />
-          <B24Avatar v-else-if="!!avatar" :size="((props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])" v-bind="avatar" :class="b24ui.itemLeadingAvatar({ class: props.b24ui?.itemLeadingAvatar })" />
+          <B24Avatar
+            v-else-if="!!avatar"
+            :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+            v-bind="avatar"
+            :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
+          />
         </slot>
       </span>
 

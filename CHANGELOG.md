@@ -185,7 +185,7 @@
   - @deprecate color
     - default, danger, success, warning, primary, secondary, collab, ai
   - use `Badge` as tag
-* **Select\SelectMenu**
+* **Select\SelectMenu\InputMenu**
   - fix color, size, dropdown height
   - add color
     - air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning

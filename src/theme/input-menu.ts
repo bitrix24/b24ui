@@ -9,7 +9,6 @@
  *
  * @todo change empty template
  * @todo fix docs
- * @memo add size.xss && size.xl
  */
 import { defuFn } from 'defu'
 import input from './input'
