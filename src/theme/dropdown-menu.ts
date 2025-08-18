@@ -50,7 +50,7 @@ export default {
       'flex flex-row rtl:flex-row-reverse items-center',
       'select-none outline-none whitespace-nowrap',
       'cursor-pointer',
-      'data-disabled:cursor-not-allowed data-disabled:opacity-75',
+      'data-disabled:cursor-not-allowed data-disabled:opacity-30',
       'text-start',
       'text-(length:--menu-popup-item-font-size)',
       'text-(--menu-popup-item-color) hover:text-(--menu-popup-item-color-hover)',

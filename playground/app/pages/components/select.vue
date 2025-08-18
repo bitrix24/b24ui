@@ -110,9 +110,7 @@ const statuses = [
     icon: CircleCheckIcon,
     color: 'air-primary-success' as SelectProps['color']
   },
-  {
-    type: 'separator' as const
-  },
+  { type: 'separator' as const },
   {
     label: 'Canceled',
     value: 'canceled',
@@ -157,13 +155,13 @@ const airColors = computed(() => {
   <ExampleGrid v-once>
     <ExampleCard title="base" :use-bg="isUseBg">
       <ExampleCardSubTitle title="simple" />
-      <div class="mb-4 flex flex-col gap-4">
+      <div class="mb-4 flex flex-col">
         <B24Select
           :items="items"
           name="some_value"
           placeholder="Choose a value&hellip;"
           aria-label="Choose a value"
-          default-value="Apple"
+          default-value="Scripts"
         />
       </div>
 
@@ -174,7 +172,7 @@ const airColors = computed(() => {
           name="some_value"
           placeholder="Choose a value&hellip;"
           aria-label="Choose a value"
-          default-value="Apple"
+          default-value="Scripts"
           color="air-primary-success"
           underline
         />
@@ -187,7 +185,7 @@ const airColors = computed(() => {
           name="some_value"
           placeholder="Choose a value&hellip;"
           aria-label="Choose a value"
-          default-value="Apple"
+          default-value="Scripts"
           no-border
         />
       </div>
@@ -199,7 +197,7 @@ const airColors = computed(() => {
           name="some_value"
           placeholder="Choose a value&hellip;"
           aria-label="Choose a value"
-          default-value="Apple"
+          default-value="Scripts"
           no-padding
         />
       </div>
@@ -211,7 +209,7 @@ const airColors = computed(() => {
           name="some_value"
           placeholder="Choose a value&hellip;"
           aria-label="Choose a value"
-          default-value="Apple"
+          default-value="Scripts"
           highlight
           color="air-primary-alert"
         />

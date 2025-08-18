@@ -44,7 +44,7 @@ export default () => {
         placeholder: 'truncate text-(--ui-color-design-plain-na-content-secondary)',
         content: [
           'context-light',
-          '',
+          // w-(--reka-combobox-trigger-width)
           'bg-(--popup-window-background-color)',
           'shadow-(--popup-window-box-shadow)',
           'rounded-(--popup-window-border-radius) will-change-[opacity]',
@@ -63,8 +63,16 @@ export default () => {
         ].join(' '),
         arrow: 'fill-(--popup-window-background-color)', // for content bottom|top::start -> ml-[12px]
         group: 'grid',
-        // @todo remove this
-        // empty: 'py-2 text-center text-sm text-base-500',
+        empty: [
+          'h-(--popup-window-delimiter-section-height)',
+          'mt-(--menu-item-block-stack-space)',
+          'py-[8px]',
+          'select-none outline-none whitespace-nowrap',
+          'text-center',
+          'text-(length:--popup-window-delimiter-font-size)',
+          'text-(--popup-window-delimiter-text-color)',
+          'font-(--popup-window-delimiter-font-weight)'
+        ].join(' '),
         label: [
           'w-full min-w-[195px] h-(--popup-window-delimiter-section-height)',
           'px-[18px] mt-(--menu-item-block-stack-space)',
@@ -85,7 +93,7 @@ export default () => {
           'flex flex-row rtl:flex-row-reverse items-center',
           'select-none outline-none whitespace-nowrap',
           'cursor-pointer',
-          'data-disabled:cursor-not-allowed data-disabled:opacity-75',
+          'data-disabled:cursor-not-allowed data-disabled:opacity-30',
           'text-start',
           'text-(length:--menu-popup-item-font-size)',
           'text-(--menu-popup-item-color) hover:text-(--menu-popup-item-color-hover)',
@@ -94,10 +102,7 @@ export default () => {
           'hover:bg-(--menu-popup-item-bg-color-hover)',
           'data-highlighted:bg-(--menu-popup-item-bg-color-hover)',
           'data-[state=open]:bg-(--menu-popup-item-bg-color-hover)',
-          'transition-colors',
-          // @todo fix this
-          // from list colors for dropdown
-          ''
+          'transition-colors'
         ].join(' '),
         itemLeadingIcon: [
           'shrink-0',

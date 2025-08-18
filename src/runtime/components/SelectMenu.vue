@@ -3,7 +3,7 @@ import type { ComboboxRootProps, ComboboxRootEmits, ComboboxContentProps, Combob
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/select-menu'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
-import type { AvatarProps, ChipProps, InputProps, IconComponent } from '../types'
+import type { AvatarProps, ChipProps, InputProps, BadgeProps, IconComponent } from '../types'
 import type { AcceptableValue, ArrayOrNested, GetItemKeys, GetItemValue, GetModelValue, GetModelValueEmits, NestedItem, EmitsToProps, ComponentConfig } from '../types/utils'
 
 type SelectMenu = ComponentConfig<typeof theme, AppConfig, 'selectMenu'>
@@ -38,12 +38,12 @@ export interface SelectMenuProps<T extends ArrayOrNested<SelectMenuItem> = Array
   /**
    * Whether to display the search input or not.
    * Can be an object to pass additional props to the input.
-   * `{ placeholder: 'Search...', type: 'search' }`{lang="ts"}
+   * `{ placeholder: 'Search...', type: 'text', size: 'md' }`{lang="ts"}
    * @defaultValue true
    */
   searchInput?: boolean | InputProps
   /**
-   * @defaultValue 'primary'
+   * @defaultValue 'air-primary'
    */
   color?: SelectMenu['variants']['color']
   /**
@@ -72,9 +72,9 @@ export interface SelectMenuProps<T extends ArrayOrNested<SelectMenuItem> = Array
   rounded?: boolean
   tag?: string
   /**
-   * @defaultValue 'primary'
+   * @defaultValue 'air-primary'
    */
-  tagColor?: SelectMenu['variants']['tagColor']
+  tagColor?: BadgeProps['color']
   /**
    * @defaultValue false
    */
@@ -233,6 +233,7 @@ import { usePortal } from '../composables/usePortal'
 import { compare, get, isArrayOfArray } from '../utils'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
+import B24Badge from './Badge.vue'
 import B24Avatar from './Avatar.vue'
 import B24Chip from './Chip.vue'
 import B24Input from './Input.vue'
@@ -259,8 +260,8 @@ const { contains } = useFilter({ sensitivity: 'base' })
 const rootProps = useForwardPropsEmits(reactivePick(props, 'modelValue', 'defaultValue', 'open', 'defaultOpen', 'required', 'multiple', 'resetSearchTermOnBlur', 'resetSearchTermOnSelect', 'highlightOnHover'), emits)
 const portalProps = usePortal(toRef(() => props.portal))
 const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffset: 8, collisionPadding: 8, position: 'popper' }) as ComboboxContentProps)
-const arrowProps = toRef(() => props.arrow as ComboboxArrowProps)
-const searchInputProps = toRef(() => defu(props.searchInput, { placeholder: t('selectMenu.search'), type: 'search' }) as InputProps)
+const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10 }) as ComboboxArrowProps)
+const searchInputProps = toRef(() => defu(props.searchInput, { placeholder: t('selectMenu.search'), type: 'text', size: 'md' }) as InputProps)
 
 const { emitFormBlur, emitFormFocus, emitFormInput, emitFormChange, size: formGroupSize, color, id, name, highlight, disabled, ariaAttrs } = useFormField<InputProps>(props)
 const { orientation, size: buttonGroupSize } = useButtonGroup<InputProps>(props)
@@ -286,7 +287,6 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.select
   noBorder: Boolean(props.noBorder),
   underline: Boolean(props.underline),
   highlight: highlight.value,
-  tagColor: props.tagColor,
   leading: Boolean(isLeading.value || !!props.avatar || !!slots.leading),
   trailing: Boolean(isTrailing.value || !!slots.trailing),
   buttonGroup: orientation.value
@@ -476,9 +476,13 @@ defineExpose({
           :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
           tabindex="0"
         >
-          <div v-if="isTag" :class="b24ui.tag({ class: props.b24ui?.tag })">
-            {{ props.tag }}
-          </div>
+          <B24Badge
+            v-if="isTag"
+            :class="b24ui.tag({ class: props.b24ui?.tag })"
+            :color="props.tagColor"
+            :label="props.tag"
+            size="xs"
+          />
           <span v-if="isLeading || !!avatar || !!slots.leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
             <slot name="leading" :model-value="(modelValue as GetModelValue<T, VK, M>)" :open="open" :b24ui="b24ui">
               <Component
@@ -486,7 +490,12 @@ defineExpose({
                 v-if="isLeading && leadingIconName"
                 :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
               />
-              <B24Avatar v-else-if="!!avatar" :size="((props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])" v-bind="avatar" :class="b24ui.itemLeadingAvatar({ class: props.b24ui?.itemLeadingAvatar })" />
+              <B24Avatar
+                v-else-if="!!avatar"
+                :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+                v-bind="avatar"
+                :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
+              />
             </slot>
           </span>
 
@@ -616,7 +625,6 @@ defineExpose({
                   </ComboboxItem>
                 </template>
               </ComboboxGroup>
-
               <ReuseCreateItemTemplate v-if="createItem && createItemPosition === 'bottom'" />
             </div>
 

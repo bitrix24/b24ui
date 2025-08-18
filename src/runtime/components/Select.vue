@@ -68,7 +68,7 @@ export interface SelectProps<T extends ArrayOrNested<SelectItem> = ArrayOrNested
   /**
    * @defaultValue 'air-primary'
    */
-  tagColor?: BadgeProps['tagColor']
+  tagColor?: BadgeProps['color']
   /**
    * The icon displayed to open the menu.
    * @defaultValue icons.chevronDown
@@ -333,7 +333,7 @@ defineExpose({
             />
             <B24Avatar
               v-else-if="!!avatar"
-              :size="((props.b24ui?.leadingIcon || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+              :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
               v-bind="avatar"
               :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
             />
