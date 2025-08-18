@@ -2,8 +2,7 @@
 /**
  * @see playground/app/pages/components/select-menu.vue
  */
-import type { SelectItem, AvatarProps, ChipProps } from '@bitrix24/b24ui-nuxt'
-
+import type { SelectItem, SelectProps, AvatarProps, ChipProps, ToastProps } from '@bitrix24/b24ui-nuxt'
 import theme from '#build/b24ui/select'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
@@ -27,7 +26,7 @@ const toast = useToast()
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
-const isUseBg = ref(false)
+const isUseBg = ref(true)
 
 const knowledgeBase = ['Select Knowledge base', 'Create knowledge base'] satisfies SelectItem[]
 const smartScripts = ['Scripts', 'Create script', 'Install from Bitrix24.Market'] satisfies SelectItem[]
@@ -48,36 +47,36 @@ const chipItems = ref([
     label: 'New message',
     value: 'message',
     chip: {
-      color: 'collab' as const
+      color: 'air-primary-alert' as ChipProps['color']
     },
-    color: 'collab'
+    color: 'air-primary-success' as SelectProps['color']
   },
   {
     label: 'New information',
     value: 'information',
     chip: {
-      color: 'primary' as const
+      color: 'air-primary' as ChipProps['color']
     },
     onSelect(e: Event) {
       e.preventDefault()
-      toast.add({ title: 'Action', description: 'New information', color: 'primary' as const })
+      toast.add({ title: 'Action', description: 'New information', color: 'air-primary' as ToastProps['color'] })
     }
   },
   {
     label: 'Online',
     value: 'online',
     chip: {
-      color: 'success' as const
+      color: 'air-primary-success' as ChipProps['color']
     },
     onSelect() {
-      toast.add({ title: 'Action', description: 'Online', color: 'success' as const })
+      toast.add({ title: 'Action', description: 'Online', color: 'air-primary-success' as ToastProps['color'] })
     }
   },
   {
     label: 'Offline',
     value: 'offline',
     chip: {
-      color: 'default' as const
+      color: 'air-secondary' as ChipProps['color']
     }
   }
 ] satisfies SelectItem[])
@@ -97,31 +96,38 @@ const statuses = [
     label: 'Todo',
     value: 'todo',
     icon: PlusInCircleIcon,
-    color: 'ai' as const
+    color: 'air-primary-copilot' as SelectProps['color']
   },
   {
     label: 'In Progress',
     value: 'in_progress',
     icon: ArrowTopIcon,
-    color: 'primary' as const
+    color: 'air-primary' as SelectProps['color']
   },
   {
     label: 'Done',
     value: 'done',
     icon: CircleCheckIcon,
-    color: 'success' as const
+    color: 'air-primary-success' as SelectProps['color']
+  },
+  {
+    type: 'separator' as const
   },
   {
     label: 'Canceled',
     value: 'canceled',
     icon: CancelIcon,
-    color: 'danger' as const
+    color: 'air-primary-alert' as SelectProps['color']
   }
 ] satisfies SelectItem[]
 
 const { data: users, status } = await useFetch('https://jsonplaceholder.typicode.com/users', {
   transform: (data: IUser[]) => {
-    return data?.map(user => ({ label: user.name, value: String(user.id), avatar: { src: `https://i.pravatar.cc/120?img=${user.id}` } })) || []
+    return data?.map(user => ({
+      label: user.name,
+      value: String(user.id),
+      avatar: { src: `https://i.pravatar.cc/120?img=${user.id}` }
+    })) || []
   },
   lazy: true
 })
@@ -158,16 +164,6 @@ const airColors = computed(() => {
           placeholder="Choose a value&hellip;"
           aria-label="Choose a value"
           default-value="Apple"
-        />
-        <B24Separator label="fix height" type="dotted" />
-        <!-- / @todo test this / -->
-        <B24Select
-          :items="items"
-          name="some_value"
-          placeholder="Choose a value&hellip;"
-          aria-label="Choose a value"
-          default-value="Apple"
-          :b24ui="{ content: 'max-h-60' }"
         />
       </div>
 
@@ -279,7 +275,6 @@ const airColors = computed(() => {
           :items="items"
           loading
           :icon="RocketIcon"
-          :trailing-icon="Expand1Icon"
           name="some_value"
           placeholder="Choose a value&hellip;"
           aria-label="Choose a value"
@@ -370,7 +365,8 @@ const airColors = computed(() => {
             placeholder="Choose a value&hellip;"
             aria-label="Choose a value"
             :size="size"
-            class="w-40"
+            class="w-[240px]"
+            arrow
           />
           <B24Select
             :items="items"
@@ -379,18 +375,19 @@ const airColors = computed(() => {
             placeholder="Choose a value&hellip;"
             aria-label="Choose a value"
             :size="size"
-            class="w-40"
+            class="w-[240px]"
+            arrow
           />
           <B24Select
             :items="statuses"
             :icon="Search2Icon"
-            :trailing-icon="Expand1Icon"
             name="some_value"
             placeholder="Search status&hellip;"
             aria-label="Search status"
             :size="size"
             value-key="value"
-            class="w-40"
+            class="w-[240px]"
+            arrow
           >
             <template #leading="{ modelValue, b24ui }">
               <Component
@@ -400,15 +397,29 @@ const airColors = computed(() => {
               />
             </template>
           </B24Select>
-          <B24Select
-            :items="items"
-            :avatar="{ src: '/avatar/employee.png' }"
-            name="some_value"
-            placeholder="Choose a value&hellip;"
-            aria-label="Choose a value"
-            :size="size"
-            class="w-40"
-          />
+          <div class="flex flex-row items-center justify-between gap-4">
+            <B24Select
+              :items="items"
+              :avatar="{ src: '/avatar/employee.png' }"
+              :trailing-icon="Expand1Icon"
+              name="some_value"
+              placeholder="Choose a value&hellip;"
+              aria-label="Choose a value"
+              :size="size"
+              class="w-[240px]"
+              arrow
+            />
+            <B24Input
+              :avatar="{ src: '/avatar/assistant.png' }"
+              :trailing-icon="Search2Icon"
+              name="some_value"
+              placeholder="Input"
+              aria-label="Insert value"
+              :size="size"
+              class="w-[140px]"
+            />
+          </div>
+
           <B24Select
             :items="users || []"
             :loading="status === 'pending'"
@@ -418,13 +429,15 @@ const airColors = computed(() => {
             placeholder="Search users&hellip;"
             aria-label="Search users"
             :size="size"
-            class="w-60"
+            class="w-[240px]"
+            arrow
           >
             <template #leading="{ modelValue, b24ui }">
               <B24Avatar
                 v-if="modelValue"
-                :size="b24ui.itemLeadingAvatarSize() as AvatarProps['size']"
                 v-bind="getUserAvatar(modelValue)"
+                :size="b24ui.leadingAvatarSize() as AvatarProps['size']"
+                :class="b24ui.leadingAvatar()"
               />
             </template>
           </B24Select>
@@ -435,15 +448,18 @@ const airColors = computed(() => {
             name="some_chips"
             aria-label="Search chips"
             :size="size"
-            class="w-40"
+            class="w-[240px]"
+            arrow
+            :b24ui="{
+              base: ['xss'].includes(size) ? 'ps-[25px]' : ''
+            }"
           >
             <template #leading="{ modelValue, b24ui }">
               <B24Chip
                 v-if="modelValue"
                 v-bind="getChip(modelValue as string)"
-                inset
                 standalone
-                :size="b24ui.itemLeadingChipSize() as ChipProps['size']"
+                :size="['xl', 'lg'].includes(size) ? 'lg' : (['md'].includes(size) ? 'md' : 'sm')"
                 :class="b24ui.itemLeadingChip()"
               />
             </template>

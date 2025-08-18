@@ -164,7 +164,17 @@ export default {
           'hover:bg-(--menu-popup-item-bg-color-hover)'
         ].join(' '),
         // @memo 10 + 15 = 25 != 18
-        childLabel: 'px-[18px] opacity-70 text-(length:--ui-font-size-sm)'
+        childLabel: [
+          'w-full min-w-[195px] h-(--popup-window-delimiter-section-height)',
+          'px-[18px] mt-(--menu-item-block-stack-space)',
+          'flex flex-row rtl:flex-row-reverse items-center',
+          'select-none outline-none whitespace-nowrap',
+          'text-start',
+          'text-(length:--popup-window-delimiter-font-size)',
+          'text-(--popup-window-delimiter-text-color)',
+          'font-(--popup-window-delimiter-font-weight)',
+          'after:ms-[10px] after:block after:flex-1 after:min-w-[15px] after:h-px after:bg-(--popup-window-delimiter-bg-color)'
+        ].join(' ')
       }
     },
     active: {

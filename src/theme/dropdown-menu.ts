@@ -25,20 +25,21 @@ export default {
     ].join(' '),
     viewport: [
       'relative',
-      'w-[240px] max-h-[60vh]',
+      'w-[240px] max-h-[40vh]',
       'overflow-x-hidden overflow-y-auto scrollbar-thin' // scrollbar-transparent
     ].join(' '),
     arrow: 'fill-(--popup-window-background-color)', // for content bottom|top::start -> ml-[12px]
     group: 'grid', // p-1 isolate
     label: [
-      'w-full min-w-[195px] h-[36px]',
+      'w-full min-w-[195px] h-(--popup-window-delimiter-section-height)',
       'px-[18px] mt-(--menu-item-block-stack-space)',
       'flex flex-row rtl:flex-row-reverse items-center',
       'select-none outline-none whitespace-nowrap',
       'text-start',
-      'text-(length:--menu-popup-item-font-size)',
-      'text-(--menu-popup-item-color)',
-      'opacity-70'
+      'text-(length:--popup-window-delimiter-font-size)',
+      'text-(--popup-window-delimiter-text-color)',
+      'font-(--popup-window-delimiter-font-weight)',
+      'after:ms-[10px] after:block after:flex-1 after:min-w-[15px] after:h-px after:bg-(--popup-window-delimiter-bg-color)'
     ].join(' '),
     separator: 'my-[8px] mx-[18px] h-[1px] bg-(--popup-window-delimiter-bg-color)',
     item: [

@@ -201,7 +201,7 @@ const appConfig = useAppConfig() as Select['AppConfig']
 const rootProps = useForwardPropsEmits(reactivePick(props, 'open', 'defaultOpen', 'disabled', 'autocomplete', 'required', 'multiple'), emits)
 const portalProps = usePortal(toRef(() => props.portal))
 const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffset: 8, collisionPadding: 8, position: 'popper' }) as SelectContentProps)
-const arrowProps = toRef(() => props.arrow as SelectArrowProps)
+const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10 }) as SelectArrowProps)
 
 const { emitFormChange, emitFormInput, emitFormBlur, emitFormFocus, size: formGroupSize, color, id, name, highlight, disabled, ariaAttrs } = useFormField<InputProps>(props)
 const { orientation, size: buttonGroupSize } = useButtonGroup<InputProps>(props)
@@ -331,7 +331,12 @@ defineExpose({
               v-if="isLeading && leadingIconName"
               :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
             />
-            <B24Avatar v-else-if="!!avatar" :size="((props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])" v-bind="avatar" :class="b24ui.itemLeadingAvatar({ class: props.b24ui?.itemLeadingAvatar })" />
+            <B24Avatar
+              v-else-if="!!avatar"
+              :size="((props.b24ui?.leadingIcon || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+              v-bind="avatar"
+              :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
+            />
           </slot>
         </span>
 
