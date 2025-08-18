@@ -30,7 +30,8 @@ export default {
       'focus:text-(--ui-color-base-1)',
       'active:text-(--ui-color-base-1)',
       'font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular)',
-      'text-(length:--ui-font-size-lg)/[normal]',
+      // @memo need set lineHeight
+      'text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)',
       'align-middle',
       'focus-visible:ring-1',
       'focus-visible:ring-inset',
