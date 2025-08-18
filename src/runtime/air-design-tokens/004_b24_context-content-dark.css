@@ -12,11 +12,11 @@
     --air-theme-bg-size: auto;
     --air-theme-bg-repeat: repeat;
     --air-theme-bg-attachment: scroll;
-    --air-theme-bg-color: #000000;
+    --air-theme-bg-color: var(--ui-color-base-black-fixed);
   }
 
   .context-dark.--inner {
-    --air-theme-bg-color: var(--ui-color-bg-content-light);
+    --air-theme-bg-color: var(--ui-color-base-black-fixed);
   }
 
   .context-dark {
