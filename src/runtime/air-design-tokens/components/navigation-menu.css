@@ -75,8 +75,7 @@
   --menu-item-background: var(--menu-item-background-active);
 }
 
-.light,
-.--ui-context-content-light,
+.context-light,
 :root {
   --menu-item-block-stack-space: 4px;
   --menu-width-expanded: 240px;
@@ -98,8 +97,7 @@
   --leftmenu-group-stroke-weight: var(--ui-border-width-thin)
 }
 
-.dark,
-.--ui-context-content-dark {
+.context-dark {
   --leftmenu-bg: #262626;
   --leftmenu-bg-expanded: #262626;
   --leftmenu-bg-stroke: #3b3b3b;
@@ -113,8 +111,7 @@
   --leftmenu-group-stroke-weight: var(--ui-border-width-thin)
 }
 
-.edge-light,
-.--ui-context-edge-light {
+.context-edge-light {
   --leftmenu-bg: rgb(0 0 0/3%);
   --leftmenu-bg-expanded: rgb(0 0 0/2%);
   --leftmenu-bg-stroke: transparent;
@@ -130,8 +127,7 @@
   --leftmenu-group-stroke-weight: var(--ui-border-width-thin)
 }
 
-.edge-dark,
-.--ui-context-edge-dark {
+.context-edge-dark {
   --leftmenu-bg: hsla(0,0%,100%,.06);
   --leftmenu-bg-expanded: hsla(0,0%,100%,.03);
   --leftmenu-bg-stroke: transparent;
@@ -152,8 +148,8 @@
  * @see /bitrix/templates/bitrix24/dist/bitrix24.bundle.css
  */
 .air-header,
-.light .air-header,
-.--ui-context-content-light .air-header {
+.context-light .air-header
+{
   /*--topbar-bg: var(--ui-color-bg-content-primary);*/
   --topbar-bg: var(--ui-color-bg-content-secondary);
   --topbar-bg-stroke: var(--ui-color-bg-content-primary);
@@ -161,24 +157,24 @@
   --topbar-bg-blur: 0px;
 }
 
-.dark .air-header,
-.--ui-context-content-dark .air-header {
+.context-dark .air-header
+{
   --topbar-bg: #2d2d2d;
   --topbar-bg-stroke: #3d3d3d;
   --topbar-bg-stroke-weight: 0;
   --topbar-bg-blur: 0px;
 }
 
-.edge-dark .air-header,
-.--ui-context-edge-dark .air-header {
+.context-edge-dark .air-header
+{
   --topbar-bg: rgba(255, 255, 255, 0.1);
   --topbar-bg-stroke: transparent;
   --topbar-bg-stroke-weight: 0px;
   --topbar-bg-blur: var(--ui-bg-blur-less);
 }
 
-.edge-light .air-header,
-.--ui-context-edge-light .air-header {
+.context-edge-light .air-header
+{
   --topbar-bg: rgba(0, 0, 0, 0.05);
   --topbar-bg-stroke: transparent;
   --topbar-bg-stroke-weight: 0px;
