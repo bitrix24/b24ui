@@ -1,6 +1,6 @@
 {
-  "name": "@bitrix24/b24ui-nuxt-playground",
   "private": true,
+  "name": "@bitrix24/b24ui-nuxt-playground",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -11,19 +11,19 @@
     "typecheck": "nuxt typecheck"
   },
   "dd_dependencies": {
-    "@nuxthub/core": "^0.8.25"
+    "@nuxthub/core": "^0.9.0"
   },
   "dependencies": {
     "@bitrix24/b24icons-vue": "^2.0.2",
-    "@bitrix24/b24ui-nuxt": "workspace:*",
     "@internationalized/date": "^3.8.2",
-    "nuxt": "^4.0.2",
-    "zod": "^4.0.13",
-    "maska": "^3.1.1"
+    "@bitrix24/b24ui-nuxt": "workspace:*",
+    "nuxt": "^4.0.3",
+    "zod": "^4.0.17",
+    "maska": "^3.2.0"
   },
   "devDependencies": {
     "typescript": "^5.8.3",
-    "vue-tsc": "^3.0.4"
+    "vue-tsc": "^3.0.5"
   },
   "dd_resolutions": {
     "unimport": "4.1.1"

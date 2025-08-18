@@ -1,19 +1,18 @@
 {
-  "name": "@bitrix24/b24ui-docs",
   "private": true,
+  "name": "@bitrix24/b24ui-docs",
   "version": "0.0.0",
-  "description": "",
   "type": "module",
   "dependencies": {
     "@bitrix24/b24icons-vue": "^2.0.2",
     "@bitrix24/b24ui-nuxt": "workspace:*",
-    "zod": "^4.0.13",
-    "maska": "^3.1.1",
+    "zod": "^4.0.17",
+    "maska": "^3.2.0",
     "@vueuse/integrations": "^13.6.0",
     "sortablejs": "^1.15.6"
   },
   "devDependencies": {
-    "vitepress": "^2.0.0-alpha.9",
+    "vitepress": "^2.0.0-alpha.11",
     "@vueuse/core": "^13.6.0",
     "vue": "^3.5.18"
   }
