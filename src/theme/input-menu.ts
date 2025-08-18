@@ -76,7 +76,7 @@ export default () => {
         'group relative w-full flex items-center select-none outline-none',
         'before:absolute before:z-[-1] before:inset-px before:rounded-2xs',
         'cursor-pointer',
-        'data-disabled:cursor-not-allowed data-disabled:opacity-75',
+        'data-disabled:cursor-not-allowed data-disabled:opacity-30',
         'text-base-master dark:text-base-150',
         'data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900',
         'data-[state=checked]:text-base-900 dark:data-[state=checked]:text-base-200 data-[state=checked]:before:bg-base-100/50 dark:data-[state=checked]:before:bg-base-900',
@@ -98,7 +98,7 @@ export default () => {
       tagsItem: [
         'px-2 rounded-2xs font-b24-secondary font-normal leading-normal',
         'inline-flex items-center gap-1',
-        'ring ring-inset data-disabled:cursor-not-allowed data-disabled:opacity-75',
+        'ring ring-inset data-disabled:cursor-not-allowed data-disabled:opacity-30',
 
         'text-blue-700 bg-blue-250 ring-blue-250',
         'dark:text-blue-700 dark:bg-blue-300 dark:ring-blue-300'
