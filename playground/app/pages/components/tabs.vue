@@ -100,32 +100,32 @@ const items = [
     <ExampleCard title="Some content" :use-bg="isUseBg" class="sm:col-span-2 md:col-span-4">
       <B24Separator class="my-3" type="dotted" />
       <div class="overflow-auto">
-      <B24Tabs
-        :variant="variant"
-        :orientation="orientation"
-        :size="size"
-        :items="items"
-        class="w-full min-w-[720px]"
-      >
-        <template #trailing="{ item }">
-          <template v-if="item.label === 'More'">
-            <ChevronDownIcon class="shrink-0 size-4" />
+        <B24Tabs
+          :variant="variant"
+          :orientation="orientation"
+          :size="size"
+          :items="items"
+          class="w-full min-w-[720px]"
+        >
+          <template #trailing="{ item }">
+            <template v-if="item.label === 'More'">
+              <ChevronDownIcon class="shrink-0 size-4" />
+            </template>
           </template>
-        </template>
-        <template #custom="{ item }">
-          <span class="text-(--ui-color-accent-main-alert)">Custom: {{ item.content }}</span>
-        </template>
+          <template #custom="{ item }">
+            <span class="text-(--ui-color-accent-main-alert)">Custom: {{ item.content }}</span>
+          </template>
 
-        <template #list-trailing>
-          <B24Button
-            :size="size"
-            :icon="Refresh5Icon"
-            color="air-secondary-accent-2"
-            label="Some text"
-            class="ml-2"
-          />
-        </template>
-      </B24Tabs>
+          <template #list-trailing>
+            <B24Button
+              :size="size"
+              :icon="Refresh5Icon"
+              color="air-secondary-accent-2"
+              label="Some text"
+              class="ml-2"
+            />
+          </template>
+        </B24Tabs>
       </div>
     </ExampleCard>
   </ExampleGrid>
