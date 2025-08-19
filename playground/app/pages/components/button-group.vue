@@ -62,7 +62,7 @@ const airColors = computed(() => {
         </B24ButtonGroup>
 
         <B24ButtonGroup>
-          <B24Badge color="default" use-fill label="https://" />
+          <B24Badge color="default" label="https://" />
         </B24ButtonGroup>
       </div>
 
@@ -73,7 +73,6 @@ const airColors = computed(() => {
             <B24Button
               rounded
               :color="color"
-              :class="color === 'link' ? 'ps-4 pe-4' : ''"
               loading-auto
               use-clock
               @click="onClick"
@@ -163,7 +162,10 @@ const airColors = computed(() => {
         </B24ButtonGroup>
       </div>
     </ExampleCard>
-    <ExampleCard title="input" class="mb-4 md:col-span-4">
+  </ExampleGrid>
+  <B24Separator accent="accent" class="my-4" label="Input" type="dotted" />
+  <ExampleGrid v-once class="mb-4">
+    <ExampleCard title="Some cases" class="mb-4 md:col-span-4">
       <ExampleCardSubTitle title="orientation" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24ButtonGroup orientation="vertical">
@@ -189,9 +191,10 @@ const airColors = computed(() => {
         </B24ButtonGroup>
 
         <B24ButtonGroup no-split>
-          <B24Badge color="default" use-fill label="https://" />
+          <B24Badge color="air-primary" inverted label="https://" />
           <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
           <B24Button
+            color="air-primary"
             loading-auto
             use-clock
             @click="onClick"
@@ -202,6 +205,7 @@ const airColors = computed(() => {
 
         <B24ButtonGroup no-split>
           <B24Button
+            color="air-primary-alert"
             loading-auto
             use-clock
             @click="onClick"
@@ -245,12 +249,12 @@ const airColors = computed(() => {
           </B24ButtonGroup>
 
           <B24ButtonGroup :size="size" no-split>
-            <B24Badge color="default" use-fill label="https://" />
+            <B24Badge color="air-tertiary" label="https://" />
             <B24Input class="w-40" type="url" placeholder="www.example.com" />
           </B24ButtonGroup>
 
           <B24ButtonGroup :size="size" no-split>
-            <B24Badge color="default" use-fill label="https://" />
+            <B24Badge color="air-tertiary" label="https://" />
             <B24Input class="w-40" type="url" placeholder="www.example.com" />
             <B24Button
               color="air-primary-copilot"
@@ -280,7 +284,7 @@ const airColors = computed(() => {
           </B24ButtonGroup>
 
           <B24ButtonGroup :size="size" no-split>
-            <B24InputNumber class="w-40" placeholder="some number" />
+            <B24InputNumber class="w-40" placeholder="Some number" />
             <B24Button
               loading-auto
               use-clock
@@ -300,9 +304,9 @@ const airColors = computed(() => {
       </div>
 
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Input class="w-40" name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
-        <B24Input class="w-40" name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
-        <B24Input class="w-40" name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
+        <B24Input class="w-40" name="search" placeholder="Insert value&hellip;" aria-label="Search" />
+        <B24Input class="w-40" name="search" placeholder="Insert value&hellip;" aria-label="Search" />
+        <B24Input class="w-40" name="search" placeholder="Insert value&hellip;" aria-label="Search" />
       </div>
 
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">

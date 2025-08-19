@@ -2,7 +2,6 @@
  * ButtonGroup
  * ---
  * @todo fix docs
- * @memo add size.xss && size.xl
  */
 export const buttonGroupVariant = {
   buttonGroup: {
