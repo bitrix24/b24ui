@@ -370,9 +370,9 @@ const airColors = computed(() => {
             placeholder="Choose a value&hellip;"
             aria-label="Choose a value"
             :size="size"
-            tag-color="air-primary-copilot"
             highlight
             tag="+ item"
+            tag-color="air-primary-copilot"
             color="air-primary-copilot"
             value-key="value"
             class="w-[240px]"

@@ -99,6 +99,7 @@ export default () => {
           'text-(--menu-popup-item-color) hover:text-(--menu-popup-item-color-hover)',
           'data-highlighted:not-data-disabled:text-(--menu-popup-item-color-hover)',
           'data-[state=open]:text-(--menu-popup-item-color-hover)',
+          'data-[state=checked]:text-(--menu-popup-item-color-hover)',
           'hover:bg-(--menu-popup-item-bg-color-hover)',
           'data-highlighted:bg-(--menu-popup-item-bg-color-hover)',
           'data-[state=open]:bg-(--menu-popup-item-bg-color-hover)',

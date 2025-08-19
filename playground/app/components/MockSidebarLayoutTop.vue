@@ -4,10 +4,16 @@ import TaskIcon from '@bitrix24/b24icons-vue/button/TaskIcon'
 import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
 import CrossMIcon from '@bitrix24/b24icons-vue/outline/CrossMIcon'
 
-const search = ref('')
 /**
  * @todo make filter
  */
+const items = ref(['Prospecting', 'Qualifying', 'Presenting', 'Negotiating', 'Closed'])
+const valueMultiple = ref(['Prospecting', 'Presenting'])
+
+function onCreateMultiple(item: string) {
+  items.value.unshift(item)
+  valueMultiple.value.unshift(item)
+}
 </script>
 
 <template>
@@ -22,34 +28,34 @@ const search = ref('')
         <B24Button color="air-primary-success" use-dropdown />
       </B24ButtonGroup>
 
-      <div class="w-full hidden sm:flex">
-        <B24Input
-          v-model="search"
-          type="text"
-          name="search"
-          aria-label="Search"
+      <div class="w-full max-w-[600px] hidden sm:flex">
+        <B24InputMenu
+          v-model="valueMultiple"
+          :items="items"
+          multiple
+          aria-label="Insert value"
+          name="some_value"
           placeholder="Search"
-          no-padding
-          class="w-full max-w-[400px]"
-          :b24ui="{
-            base: 'ps-[16px] pe-[58px]',
-            trailing: 'px-0'
-          }"
+          tag="+ multiple"
+          tag-color="air-primary-copilot"
+          arrow
+          :create-item="{ position: 'bottom', when: 'always' }"
+          @create="onCreateMultiple"
         >
           <template #trailing>
             <div class="flex flex-row items-center justify-between gap-[2px] pe-[5px]">
               <Search2Icon
-                v-show="search.length < 1"
+                v-show="valueMultiple.length < 1"
                 class="size-[24px] text-(--b24ui-icon-color) hover:text-(--b24ui-icon-color-hover)"
               />
               <CrossMIcon
-                v-show="search.length > 0"
+                v-show="valueMultiple.length > 0"
                 class="size-[24px] text-(--b24ui-icon-color) hover:text-(--b24ui-icon-color-hover) cursor-pointer"
-                @click="search = ''"
+                @click="valueMultiple = []"
               />
             </div>
           </template>
-        </B24Input>
+        </B24InputMenu>
       </div>
     </div>
     <div class="flex-1 hidden sm:flex flex-row items-center justify-end gap-[12px]">

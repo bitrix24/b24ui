@@ -27,6 +27,8 @@
     --b24ui-typography-description-color: var(--ui-color-design-plain-na-content);
     --b24ui-icon-color: var(--ui-color-base-5);
     --b24ui-icon-color-hover: color-mix(in srgb,var(--ui-color-base-5) 100%,var(--ui-color-bg-state-hover-default-overlay-hex) var(--ui-color-bg-state-hover-default-overlay-opacity));
+    --b24ui-icon-color-secondary: var(--ui-color-design-tinted-content-icon-secondary);
+    --b24ui-icon-color-secondary-hover: color-mix(in srgb,var(--ui-color-design-tinted-content-icon-secondary) 100%,var(--ui-color-bg-state-hover-default-overlay-hex) var(--ui-color-bg-state-hover-default-overlay-opacity));
 
     --ui-color-base-0: #000;
     --ui-color-base-1: #333;

@@ -12,106 +12,138 @@
  */
 import { defuFn } from 'defu'
 import input from './input'
-import colorDropDownItem from './tools/color-drop-down-item'
-
-const defSize = {
-  label: 'h-9 ps-2 pe-3 text-sm gap-2',
-  item: 'h-9 ps-3 pe-3 text-sm gap-2',
-  itemLeadingIcon: 'size-5',
-  itemLeadingAvatarSize: '2xs',
-  itemLeadingChip: 'size-3 not-group-data-reka-collection-item:ps-2.5',
-  itemLeadingChipSize: 'sm',
-  itemTrailingIcon: 'size-3',
-  trailingIcon: 'size-lg2'
-}
 
 export default () => {
   return defuFn({
     slots: {
       base: [
-        'py-0 w-full border-0 focus:outline-none',
-        'disabled:cursor-not-allowed disabled:bg-base-30/37 disabled:resize-none disabled:text-base-500',
-        'dark:disabled:bg-base-900/37 dark:disabled:text-base-800',
-        'appearance-none transition duration-300 ease-linear',
-        'ring ring-inset ring-base-300',
-        'dark:ring-base-800',
-        'text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900',
-        'dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350',
-        'font-b24-primary font-regular text-md leading-none',
+        'w-full py-0 border-0 focus:outline-none',
+        'disabled:cursor-not-allowed',
+        'disabled:pointer-events-none',
+        'disabled:opacity-30',
+        'disabled:resize-none',
+        'appearance-none transition duration-300 ease-linear transition-colors', // transition-colors
+        'ring ring-inset',
+        'ring-(--ui-color-design-outline-stroke)',
+        'text-(--ui-color-base-1)',
+        'style-blurred-bg-input',
+        'hover:text-(--ui-color-base-1)',
+        'focus:text-(--ui-color-base-1)',
+        'active:text-(--ui-color-base-1)',
+        'placeholder:text-(--ui-color-design-plain-na-content-secondary)',
+        'font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular)',
         'align-middle',
-        // 'text-ellipsis whitespace-nowrap',
-        'transition-colors'
+        'focus-visible:ring-1',
+        'focus-visible:ring-inset',
+        'focus-visible:ring-(--b24ui-border-color)'
       ].join(' '),
-      trailing: 'group absolute inset-y-0 end-0 flex items-center disabled:cursor-not-allowed disabled:opacity-75',
-      arrow: 'fill-base-master/10 dark:fill-base-100/20',
+      trailing: [
+        'group',
+        'absolute inset-y-0 end-0 flex items-center',
+        'disabled:cursor-not-allowed',
+        'disabled:opacity-30'
+      ].join(' '),
       content: [
-        'w-(--reka-combobox-trigger-width)',
-        // 'max-h-60',
-        'min-w-fit',
-        // 'h-(--reka-popper-available-height)',
-        'bg-white dark:bg-base-dark',
-        'shadow-md rounded-2xs ring ring-base-300 dark:ring-base-800',
-        'overflow-hidden',
-        'data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in]',
-        'origin-(--reka-combobox-content-transform-origin)',
-        'flex flex-col',
+        'context-light',
+        // w-(--reka-combobox-trigger-width)
+        'bg-(--popup-window-background-color)',
+        'shadow-(--popup-window-box-shadow)',
+        'rounded-(--popup-window-border-radius) will-change-[opacity]',
+        'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]',
+        'origin-(--reka-dropdown-menu-content-transform-origin)',
+        'font-[family-name:var(--ui-font-family-primary)]',
+        'relative',
+        'isolate',
+        'px-0 py-(--menu-popup-padding)',
         'pointer-events-auto'
       ].join(' '),
       viewport: [
         'relative',
-        'divide-y divide-base-master/10 dark:divide-base-100/20',
-        'scroll-py-1',
-        'overflow-y-auto',
-        'flex-1'
+        'w-[240px] max-h-[40vh]',
+        'overflow-x-hidden overflow-y-auto scrollbar-thin' // scrollbar-transparent
       ].join(' '),
-      group: 'p-1 isolate',
-      empty: 'py-2 text-center text-sm text-base-500 dark:text-base-600',
+      arrow: 'fill-(--popup-window-background-color)', // for content bottom|top::start -> ml-[12px]
+      group: 'grid',
+      empty: [
+        'h-(--popup-window-delimiter-section-height)',
+        // 'mt-(--menu-item-block-stack-space)',
+        'py-[8px]',
+        'select-none outline-none whitespace-nowrap',
+        'text-center',
+        'text-(length:--popup-window-delimiter-font-size)',
+        'text-(--popup-window-delimiter-text-color)',
+        'font-(--popup-window-delimiter-font-weight)'
+      ].join(' '),
       label: [
-        'flex items-center',
-        'font-semibold text-base-900 dark:text-base-200'
+        'w-full min-w-[195px] h-(--popup-window-delimiter-section-height)',
+        'px-[18px] mt-(--menu-item-block-stack-space)',
+        'flex flex-row rtl:flex-row-reverse items-center',
+        'select-none outline-none whitespace-nowrap',
+        'text-start',
+        'text-(length:--popup-window-delimiter-font-size)',
+        'text-(--popup-window-delimiter-text-color)',
+        'font-(--popup-window-delimiter-font-weight)',
+        'after:ms-[10px] after:block after:flex-1 after:min-w-[15px] after:h-px after:bg-(--popup-window-delimiter-bg-color)'
       ].join(' '),
-      separator: '-mx-1 my-1 h-px bg-base-master/10 dark:bg-base-100/20',
+      separator: 'my-[8px] mx-[18px] h-[1px] bg-(--popup-window-delimiter-bg-color)',
       item: [
-        'group relative w-full flex items-center select-none outline-none',
-        'before:absolute before:z-[-1] before:inset-px before:rounded-2xs',
+        'group',
+        'w-full min-w-[195px] h-[36px]',
+        'px-[18px] mt-(--menu-item-block-stack-space)',
+        'relative',
+        'flex flex-row rtl:flex-row-reverse items-center',
+        'select-none outline-none whitespace-nowrap',
         'cursor-pointer',
         'data-disabled:cursor-not-allowed data-disabled:opacity-30',
-        'text-base-master dark:text-base-150',
-        'data-highlighted:not-data-disabled:text-base-900 dark:data-highlighted:not-data-disabled:text-base-200 data-highlighted:not-data-disabled:before:bg-base-100/50 dark:data-highlighted:not-data-disabled:before:bg-base-900',
-        'data-[state=checked]:text-base-900 dark:data-[state=checked]:text-base-200 data-[state=checked]:before:bg-base-100/50 dark:data-[state=checked]:before:bg-base-900',
-        'transition-colors before:transition-colors'
+        'text-start',
+        'text-(length:--menu-popup-item-font-size)',
+        'text-(--menu-popup-item-color) hover:text-(--menu-popup-item-color-hover)',
+        'data-highlighted:not-data-disabled:text-(--menu-popup-item-color-hover)',
+        'data-[state=open]:text-(--menu-popup-item-color-hover)',
+        'data-[state=checked]:text-(--menu-popup-item-color-hover)',
+        'hover:bg-(--menu-popup-item-bg-color-hover)',
+        'data-highlighted:bg-(--menu-popup-item-bg-color-hover)',
+        'data-[state=open]:bg-(--menu-popup-item-bg-color-hover)',
+        'transition-colors'
       ].join(' '),
       itemLeadingIcon: [
-        'shrink-0 text-base-500 dark:text-base-700',
-        'group-data-highlighted:not-data-disabled:text-base-master dark:group-data-highlighted:not-data-disabled:text-base-150',
-        'group-data-[state=checked]:text-base-master dark:group-data-[state=checked]:text-base-150',
+        'shrink-0',
+        'size-[18px]',
+        'text-(--ui-color-design-plain-content-icon-secondary)',
+        'group-data-highlighted:not-data-disabled:text-(--ui-color-accent-main-primary)',
+        'group-data-[state=open]:text-(--ui-color-accent-main-primary)',
+        'group-data-[state=checked]:text-(--ui-color-accent-main-primary)',
         'transition-colors'
       ].join(' '),
-      itemLeadingAvatar: 'shrink-0',
-      itemLeadingAvatarSize: '',
-      itemLeadingChip: 'shrink-0',
-      itemLeadingChipSize: '',
-      itemTrailing: 'ms-auto inline-flex gap-1.5 items-center',
-      itemTrailingIcon: 'shrink-0',
-      itemLabel: 'truncate',
+      itemLeadingAvatar: 'shrink-0 size-[16px] mx-px', // @memo 18-2px
+      itemLeadingAvatarSize: '2xs', // @memo this wrong
+      itemLeadingChip: 'shrink-0 size-[16px] mx-px',
+      itemLeadingChipSize: 'sm',
+      itemTrailing: 'ml-auto rtl:ml-0 rtl:mr-auto inline-flex gap-1.5 items-center',
+      itemTrailingIcon: 'shrink-0 size-[24px] text-(--ui-color-design-plain-content-icon-secondary)',
+      itemLabel: [
+        'truncate ms-[2px] -mt-px',
+        'group-data-[state=checked]:text-(--ui-color-accent-main-primary)'
+      ].join(' '),
       tagsItem: [
-        'px-2 rounded-2xs font-b24-secondary font-normal leading-normal',
+        'ps-[13px] pe-[6px]',
+        'rounded-(--ui-border-radius-xs)',
+        'h-(--main-ui-square-item-height)',
+        'leading-(--main-ui-square-item-height)',
+        'font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular)',
         'inline-flex items-center gap-1',
-        'ring ring-inset data-disabled:cursor-not-allowed data-disabled:opacity-30',
-
-        'text-blue-700 bg-blue-250 ring-blue-250',
-        'dark:text-blue-700 dark:bg-blue-300 dark:ring-blue-300'
-
-        // 'ring-base-200 bg-red-100 text-base-master',
-        // 'dark:ring-base-800 dark:bg-base-900 dark:text-base-150'
+        'data-disabled:cursor-not-allowed data-disabled:opacity-30',
+        'text-(--ui-color-design-tinted-content)',
+        'bg-(--ui-color-design-tinted-bg-alt)'
       ].join(' '),
-      tagsItemText: 'truncate',
+      tagsItemText: 'truncate max-w-[180px]',
       tagsItemDelete: [
-        'cursor-pointer hover:rounded-full',
-        'inline-flex items-center rounded-md disabled:pointer-events-none',
-        'text-base-500 hover:text-base-master hover:bg-blue-300',
-        'dark:text-base-500 dark:text-base-700 dark:hover:text-base-master dark:hover:bg-blue-400',
-        'transition-colors'
+        'cursor-pointer',
+        'inline-flex items-center',
+        'disabled:pointer-events-none',
+        'text-(--b24ui-icon-color-secondary)',
+        'hover:text-(--b24ui-icon-color-secondary-hover)',
+        'transition-none'
       ].join(' '),
       tagsItemDeleteIcon: '',
       tagsInput: ''
@@ -119,19 +151,21 @@ export default () => {
     variants: {
       addNew: {
         true: {
-          group: 'p-0 isolate -m-px',
+          group: '', // p-0 isolate -m-px
           item: [
-            'before:rounded-none',
-            'text-base-master dark:text-base-150 before:bg-blue-200 dark:before:bg-blue-800',
-            'data-highlighted:text-base-900 dark:data-highlighted:text-base-200 data-highlighted:before:bg-blue-200 dark:data-highlighted:before:bg-blue-800',
-            'data-[state=checked]:text-base-900 dark:data-[state=checked]:text-base-200 data-[state=checked]:before:bg-blue-200 dark:data-[state=checked]:before:bg-blue-800'
+            'text-(--menu-popup-item-color)',
+            'data-highlighted:not-data-disabled:text-(--menu-popup-item-color-hover)',
+            'data-[state=checked]:text-(--menu-popup-item-color-hover)'
           ].join(' '),
           itemLabel: 'flex flex-row flex-nowrap items-center justify-start gap-2',
           itemLeadingIcon: [
-            'size-5 rounded-full',
-            'text-white dark:text-base-150 bg-blue-500 dark:bg-blue-600',
-            'group-data-highlighted:text-white dark:group-data-highlighted:text-base-150 group-data-highlighted:bg-blue-500 dark:group-data-highlighted:bg-blue-600',
-            'group-data-[state=checked]:text-white dark:group-data-[state=checked]:text-base-150 group-data-[state=checked]:bg-blue-500 dark:group-data-[state=checked]:bg-blue-600'
+            'size-[20px] rounded-full',
+            'text-(--ui-color-base-white-fixed)',
+            'bg-(--ui-color-design-selection-content-icon-secondary)',
+            'group-data-highlighted:not-data-disabled:text-(--ui-color-base-white-fixed)',
+            'group-data-highlighted:not-data-disabled:bg-(--ui-color-design-selection-content-icon)',
+            'group-data-[state=checked]:text-(--ui-color-base-white-fixed)',
+            'group-data-[state=checked]:bg-(--ui-color-design-selection-content-icon)'
           ].join(' ')
         }
       },
@@ -139,150 +173,224 @@ export default () => {
         true: {
           root: 'flex-wrap',
           base: [
-            'py-1.5 ps-1.5 pe-[39px]'
+            'py-[6px] ps-[6px] pe-[39px]'
           ].join(' '),
           tagsInput: [
-            'w-2/5 border-0 bg-transparent ps-1.5 pe-3 py-0',
-            'placeholder:text-base-400 dark:placeholder:text-base-300',
-            'focus:outline-none disabled:cursor-not-allowed disabled:opacity-75',
+            'flex-1',
+            'border-0',
+            'bg-transparent',
+            'ps-[6px] pe-[0px] py-0',
+            'placeholder:text-(--ui-color-design-plain-na-content-secondary)',
+            'focus:outline-none',
+            'disabled:cursor-not-allowed',
+            'disabled:opacity-30',
             'focus:ring-0 focus-visible:ring-0'
           ].join(' ')
         },
         false: {
           base: [
             'px-3',
-            'placeholder:text-base-400 dark:placeholder:text-base-300',
-            'focus:outline-none disabled:cursor-not-allowed disabled:opacity-75'
+            'placeholder:text-(--ui-color-design-plain-na-content-secondary)',
+            'focus:outline-none',
+            'disabled:cursor-not-allowed',
+            'disabled:opacity-30'
           ].join(' ')
         }
       },
       size: {
-        xss: defuFn(
-          defSize,
-          {
-            tagsItem: [
-              'text-5xs',
-              'h-[14px] gap-0.5'
-            ].join(' '),
-            tagsItemDeleteIcon: 'size-sm'
-          }
-        ),
-        xs: defuFn(
-          defSize,
-          {
-            tagsItem: [
-              'text-5xs',
-              'h-[14px] gap-0.5'
-            ].join(' '),
-            tagsItemDeleteIcon: 'size-sm'
-          }
-        ),
-        sm: defuFn(
-          defSize,
-          {
-            tagsItem: [
-              'text-5xs',
-              'h-[14px] gap-0.5'
-            ].join(' '),
-            tagsItemDeleteIcon: 'size-3'
-          }
-        ),
-        md: defuFn(
-          defSize,
-          {
-            tagsItem: [
-              'text-md',
-              'h-[31px] gap-1'
-            ].join(' '),
-            tagsItemDeleteIcon: 'size-3.5'
-          }
-        ),
-        lg: defuFn(
-          defSize,
-          {
-            tagsItem: [
-              'text-md',
-              'h-[31px] gap-1'
-            ].join(' '),
-            tagsItemDeleteIcon: 'size-3.5'
-          }
-        ),
-        xl: defuFn(
-          defSize,
-          {
-            tagsItem: [
-              'text-md',
-              'h-[31px] gap-1'
-            ].join(' '),
-            tagsItemDeleteIcon: 'size-3.5'
-          }
-        )
+        xss: {
+          base: '[--main-ui-square-item-height:12px] h-[20px] gap-1 text-(length:--ui-font-size-4xs)/[normal]',
+          leading: 'px-1',
+          trailing: 'px-1',
+          leadingIcon: 'size-[12px]',
+          leadingAvatarSize: '3xs',
+          trailingIcon: 'size-[12px]',
+          tagsInput: 'text-(length:--ui-font-size-4xs)/[normal]',
+          tagsItem: [
+            'text-(length:--ui-font-size-5xs)/(--main-ui-square-item-height)',
+            'gap-0.5'
+          ].join(' '),
+          tagsItemDeleteIcon: 'size-[10px]'
+        },
+        xs: {
+          base: '[--main-ui-square-item-height:16px] h-[24px] gap-1 text-(length:--ui-font-size-xs)/[normal]',
+          leading: 'px-1',
+          trailing: 'px-1',
+          leadingIcon: 'size-[14px]',
+          leadingAvatarSize: '3xs',
+          trailingIcon: 'size-[14px]',
+          tagsInput: 'text-(length:--ui-font-size-xs)/[normal]',
+          tagsItem: [
+            'text-(length:--ui-font-size-5xs)/(--main-ui-square-item-height)',
+            'gap-0.5'
+          ].join(' '),
+          tagsItemDeleteIcon: 'size-[10px]'
+        },
+        sm: {
+          base: '[--main-ui-square-item-height:20px] h-[28px] gap-1.5 text-(length:--ui-font-size-sm)/[normal]',
+          leading: 'px-1.5',
+          trailing: 'px-1.5',
+          leadingIcon: 'size-[16px]',
+          leadingAvatar: 'size-[16px]',
+          leadingAvatarSize: '2xs',
+          trailingIcon: 'size-[16px]',
+          tagsInput: 'text-(length:--ui-font-size-sm)/[normal]',
+          tagsItem: [
+            'text-(length:--ui-font-size-5xs)/(--main-ui-square-item-height)',
+            'gap-0.5'
+          ].join(' '),
+          tagsItemDeleteIcon: 'size-[12px]'
+        },
+        md: {
+          base: '[--main-ui-square-item-height:24px] h-[34px] gap-1.5 text-(length:--ui-font-size-lg)/[normal]',
+          leading: 'px-2',
+          trailing: 'px-2',
+          leadingIcon: 'size-[18px]',
+          leadingAvatarSize: '2xs',
+          trailingIcon: 'size-[18px]',
+          tagsInput: 'text-(length:--ui-font-size-lg)/[normal]',
+          tagsItem: [
+            'text-(length:--ui-font-size-sm)/(--main-ui-square-item-height)',
+            'gap-[4px]'
+          ].join(' '),
+          tagsItemDeleteIcon: 'size-[18px]'
+        },
+        lg: {
+          base: '[--main-ui-square-item-height:28px] h-[38px] gap-2 text-(length:--ui-font-size-lg)/[normal]',
+          leading: 'px-2',
+          trailing: 'px-2',
+          leadingIcon: 'size-[22px]',
+          leadingAvatarSize: '2xs',
+          trailingIcon: 'size-[22px]',
+          tagsInput: 'text-(length:--ui-font-size-lg)/[normal]',
+          tagsItem: [
+            'text-(length:--ui-font-size-md)/(--main-ui-square-item-height)',
+            'gap-1'
+          ].join(' '),
+          tagsItemDeleteIcon: 'size-[22px]'
+        },
+        xl: {
+          base: '[--main-ui-square-item-height:32px] h-[46px] gap-2 text-(length:--ui-font-size-2xl)/[normal]',
+          leading: 'px-2',
+          trailing: 'px-2',
+          leadingIcon: 'size-[22px]',
+          leadingAvatarSize: '2xs',
+          trailingIcon: 'size-[22px]',
+          tagsInput: 'text-(length:--ui-font-size-2xl)/[normal]',
+          tagsItem: [
+            'text-(length:--ui-font-size-xl)/(--main-ui-square-item-height)',
+            'gap-1'
+          ].join(' '),
+          tagsItemDeleteIcon: 'size-[22px]'
+        }
       },
-      ...colorDropDownItem
+      colorItem: {
+        'air-primary': { item: 'style-filled' },
+        'air-primary-success': { item: 'style-filled-success' },
+        'air-primary-alert': { item: 'style-filled-alert' },
+        'air-primary-copilot': { item: 'style-filled-copilot' },
+        'air-primary-warning': { item: 'style-filled-warning' },
+        'default': { item: 'style-old-default' },
+        'danger': { item: 'style-old-danger' },
+        'success': { item: 'style-old-success' },
+        'warning': { item: 'style-old-warning' },
+        'primary': { item: 'style-old-primary' },
+        'secondary': { item: 'style-old-secondary' },
+        'collab': { item: 'style-old-collab' },
+        'ai': { item: 'style-old-ai' }
+      }
     },
     compoundVariants: [
-      // region Color ////
+      // 'has-focus-visible:ring-1 has-focus-visible:ring-red-500'
+      // from dropdown-menu
       {
-        color: 'default',
-        multiple: true,
-        class: 'has-focus-visible:ring-1 has-focus-visible:ring-base-900 dark:has-focus-visible:ring-base-700'
+        colorItem: ['air-primary', 'air-primary-success', 'air-primary-alert', 'air-primary-copilot', 'air-primary-warning'],
+        active: false,
+        class: {
+          item: [
+            'text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)'
+          ].join(' '),
+          itemLeadingIcon: [
+            'text-(--b24ui-background) group-data-highlighted:text-(--b24ui-background-hover) group-data-[state=open]:text-(--b24ui-background-hover)'
+          ].join(' ')
+        }
       },
       {
-        color: 'danger',
-        multiple: true,
-        class: 'has-focus-visible:ring-1 has-focus-visible:ring-red-500 dark:has-focus-visible:ring-red-600'
+        colorItem: ['air-primary', 'air-primary-success', 'air-primary-alert', 'air-primary-copilot', 'air-primary-warning'],
+        active: true,
+        class: {
+          item: [
+            'text-(--b24ui-background-active)'
+          ].join(' '),
+          itemLeadingIcon: [
+            'text-(--b24ui-background-active) group-data-[state=open]:text-(--b24ui-background-active)'
+          ].join(' ')
+        }
       },
       {
-        color: 'success',
-        multiple: true,
-        class: 'has-focus-visible:ring-1 has-focus-visible:ring-green-500 dark:has-focus-visible:ring-green-600'
+        colorItem: 'default',
+        active: false,
+        class: ''
       },
       {
-        color: 'warning',
-        multiple: true,
-        class: 'has-focus-visible:ring-1 has-focus-visible:ring-orange-500 dark:has-focus-visible:ring-orange-600'
+        colorItem: 'default',
+        active: true,
+        class: ''
       },
       {
-        color: 'primary',
-        multiple: true,
-        class: 'has-focus-visible:ring-1 has-focus-visible:ring-blue-500 dark:has-focus-visible:ring-blue-600'
+        colorItem: ['danger', 'success', 'warning', 'primary', 'secondary', 'collab', 'ai'],
+        active: false,
+        class: {
+          item: [
+            'text-(--b24ui-background-active) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)'
+          ].join(' '),
+          itemLeadingIcon: [
+            'text-(--b24ui-icon) group-data-highlighted:text-(--b24ui-icon) group-data-[state=open]:text-(--b24ui-icon)'
+          ].join(' ')
+        }
       },
       {
-        color: 'secondary',
-        multiple: true,
-        class: 'has-focus-visible:ring-1 has-focus-visible:ring-cyan-500 dark:has-focus-visible:ring-cyan-600'
+        colorItem: ['danger', 'success', 'warning', 'primary', 'secondary', 'collab', 'ai'],
+        active: true,
+        class: {
+          item: [
+            'text-(--b24ui-background-active)'
+          ].join(' '),
+          itemLeadingIcon: [
+            'text-(--b24ui-background-active) group-data-[state=open]:text-(--b24ui-background-active)'
+          ].join(' ')
+        }
       },
+      // region multiple.size -> h-auto ////
       {
-        color: 'collab',
+        size: 'xss',
         multiple: true,
-        class: 'has-focus-visible:ring-1 has-focus-visible:ring-collab-500 dark:has-focus-visible:ring-collab-600'
+        class: { base: 'min-h-[20px] h-auto py-[2px] ps-[4px]' }
       },
-      {
-        color: 'ai',
-        multiple: true,
-        class: 'has-focus-visible:ring-1 has-focus-visible:ring-ai-500 dark:has-focus-visible:ring-ai-600'
-      },
-      // endregion ////
-      // region Size ////
       {
         size: 'xs',
         multiple: true,
-        class: 'min-h-xl2 h-auto'
+        class: { base: 'min-h-[24px] h-auto py-[2px] ps-[4px]' }
       },
       {
         size: 'sm',
         multiple: true,
-        class: 'min-h-8 h-auto'
+        class: { base: 'min-h-[28px] h-auto py-[4px] ps-[4px]' }
       },
       {
         size: 'md',
         multiple: true,
-        class: 'min-h-10 h-auto'
+        class: { base: 'min-h-[34px] h-auto py-[4px] ps-[4px]' }
       },
       {
         size: 'lg',
         multiple: true,
-        class: 'min-h-12 h-auto'
+        class: { base: 'min-h-[38px] h-auto py-[4px] ps-[4px]' }
+      },
+      {
+        size: 'xl',
+        multiple: true,
+        class: { base: 'min-h-[46px] h-auto' }
       }
       // endregion ////
     ]

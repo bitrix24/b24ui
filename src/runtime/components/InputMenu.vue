@@ -258,7 +258,7 @@ const { contains } = useFilter({ sensitivity: 'base' })
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'modelValue', 'defaultValue', 'open', 'defaultOpen', 'required', 'multiple', 'resetSearchTermOnBlur', 'resetSearchTermOnSelect', 'highlightOnHover', 'ignoreFilter'), emits)
 const portalProps = usePortal(toRef(() => props.portal))
 const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffset: 8, collisionPadding: 8, position: 'popper' }) as ComboboxContentProps)
-const arrowProps = toRef(() => props.arrow as ComboboxArrowProps)
+const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10 }) as ComboboxArrowProps)
 
 const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, size: formGroupSize, color, id, name, highlight, disabled, ariaAttrs } = useFormField<InputProps>(props)
 const { orientation, size: buttonGroupSize } = useButtonGroup<InputProps>(props)
@@ -476,7 +476,7 @@ defineExpose({
     @keydown.enter="$event.preventDefault()"
   >
     <B24Badge
-      v-if="isTag"
+      v-if="!multiple && isTag"
       :class="b24ui.tag({ class: props.b24ui?.tag })"
       :color="props.tagColor"
       :label="props.tag"
@@ -495,6 +495,14 @@ defineExpose({
         @focus="onFocus"
         @remove-tag="onRemoveTag"
       >
+        <B24Badge
+          v-if="!!multiple && isTag"
+          :class="b24ui.tag({ class: props.b24ui?.tag })"
+          :color="props.tagColor"
+          :label="props.tag"
+          size="xs"
+        />
+
         <TagsInputItem v-for="(item, index) in tags" :key="index" :value="(item as string)" :class="b24ui.tagsItem({ class: [props.b24ui?.tagsItem, isInputItem(item) && item.b24ui?.tagsItem] })">
           <TagsInputItemText :class="b24ui.tagsItemText({ class: [props.b24ui?.tagsItemText, isInputItem(item) && item.b24ui?.tagsItemText] })">
             <slot name="tags-item-text" :item="(item as NestedItem<T>)" :index="index">

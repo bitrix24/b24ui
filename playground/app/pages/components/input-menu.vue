@@ -25,11 +25,16 @@ const itemsSimple = ref(['Prospecting', 'Qualifying', 'Presenting', 'Negotiating
 const value = ref('Qualifying')
 const valueForAdd = ref('Prospecting')
 
-const valueMultiple = ref(['Prospecting', 'Qualifying', 'Presenting'])
+const valueMultiple = ref(['Prospecting', 'Presenting'])
 
 function onCreate(item: string) {
   itemsSimple.value.unshift(item)
   valueForAdd.value = item
+}
+
+function onCreateMultiple(item: string) {
+  items.value.unshift(item)
+  valueMultiple.value.unshift(item)
 }
 
 const itemsObj = ref([
@@ -83,6 +88,10 @@ const airColors = computed(() => {
           aria-label="Insert value"
           name="some_value"
           placeholder="Insert value&hellip;"
+          tag="+ multiple"
+          tag-color="air-primary-copilot"
+          :create-item="{ position: 'bottom', when: 'always' }"
+          @create="onCreateMultiple"
         />
       </div>
 
@@ -271,7 +280,6 @@ const airColors = computed(() => {
       </B24Collapsible>
     </ExampleCard>
   </ExampleGrid>
-
   <B24Separator accent="accent" class="my-4" label="Size" type="dotted" />
   <ExampleGrid v-once class="mb-4">
     <ExampleCard title="Some cases" :use-bg="isUseBg" class="sm:col-span-2 md:col-span-4">
@@ -290,10 +298,7 @@ const airColors = computed(() => {
           />
           <B24InputMenu
             v-model="valueForAdd"
-            :create-item="{
-              position: 'bottom',
-              when: 'always'
-            }"
+            :create-item="{ position: 'bottom', when: 'always' }"
             :items="itemsSimple"
             :icon="Search2Icon"
             name="some_value"
@@ -302,6 +307,7 @@ const airColors = computed(() => {
             :size="size"
             highlight
             tag="+ item"
+            tag-color="air-primary-copilot"
             color="air-primary-copilot"
             class="w-[240px]"
             arrow
@@ -361,6 +367,22 @@ const airColors = computed(() => {
             class="w-[240px]"
             arrow
           />
+          <div class="w-[640px]">
+            <B24InputMenu
+              v-model="valueMultiple"
+              :items="items"
+              :size="size"
+              multiple
+              aria-label="Insert value"
+              name="some_value"
+              placeholder="Insert value&hellip;"
+              tag="+ multiple"
+              tag-color="air-primary-copilot"
+              arrow
+              :create-item="{ position: 'bottom', when: 'always' }"
+              @create="onCreateMultiple"
+            />
+          </div>
         </div>
       </template>
     </ExampleCard>

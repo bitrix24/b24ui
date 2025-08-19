@@ -63,7 +63,7 @@ const components: IComponentInfo[] = [
   { id: 'form', description: '(-) A form component with built-in validation and submission handling.', iconData: FormSettingsIcon },
   { id: 'form-field', description: '(-) A wrapper for form elements that provides validation and error handling.', iconData: FormIcon },
   { id: 'input', description: '(+) An input element to enter text.', iconData: FormIcon },
-  { id: 'input-menu', description: '(~) An autocomplete input with real-time suggestions.', iconData: FormIcon },
+  { id: 'input-menu', description: '(+) An autocomplete input with real-time suggestions.', iconData: FormIcon },
   { id: 'input-number', description: '(+) Input numerical values with a customizable range.', iconData: FormIcon },
   { id: 'kbd', description: '(+) A kbd element to display a keyboard key.', iconData: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'modal', description: '(+) A dialog window that can be used to display a message or request user input.', iconData: GroupIcon },
@@ -80,9 +80,9 @@ const components: IComponentInfo[] = [
   { id: 'skeleton', description: '(+) A placeholder to show while content is loading.', iconData: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'slideover', description: '(+) A dialog that slides in from any side of the screen.', iconData: GroupIcon },
   { id: 'switch', description: '(+) A control that toggles between two states.', iconData: FormIcon },
-  { id: 'tabs', description: '(~) A set of tab panels that are displayed one at a time.', iconData: FolderEmptyIcon },
+  { id: 'tabs', description: '(-) A set of tab panels that are displayed one at a time.', iconData: FolderEmptyIcon },
   { id: 'textarea', description: '(+) A textarea element to input multi-line text.', iconData: FormIcon },
-  { id: 'toast', description: '(-) A succinct message to provide information or feedback to the user.', iconData: GroupIcon },
+  { id: 'toast', description: '(+) A succinct message to provide information or feedback to the user.', iconData: GroupIcon },
   { id: 'tooltip', description: '(+) A popup that reveals information when hovering over an element.', iconData: GroupIcon }
 ]
 

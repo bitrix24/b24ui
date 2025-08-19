@@ -54,7 +54,7 @@ export default {
       'pointer-events-none select-none',
       'absolute',
       'z-10',
-      '-top-[6px] right-[12px]',
+      '-top-[7px] right-[14px]',
       'flex flex-col justify-center items-center'
     ].join(' ')
   },

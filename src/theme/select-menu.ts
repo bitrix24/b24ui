@@ -24,7 +24,7 @@ export default () => {
     variants: {
       addNew: {
         true: {
-          // group: 'p-0 isolate -m-px',
+          group: '', // p-0 isolate -m-px
           item: [
             'text-(--menu-popup-item-color)',
             'data-highlighted:not-data-disabled:text-(--menu-popup-item-color-hover)',
