@@ -135,11 +135,11 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
       </B24Form>
     </div>
     <div class="flex gap-2">
-      <B24Button color="default" size="xs" @click="addItem()">
+      <B24Button color="air-secondary" size="xs" @click="addItem()">
         Add Item
       </B24Button>
 
-      <B24Button color="default" size="xs" @click="removeItem()">
+      <B24Button color="air-secondary-alert" size="xs" @click="removeItem()">
         Remove Item
       </B24Button>
     </div>
