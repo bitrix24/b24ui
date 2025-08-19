@@ -1,10 +1,11 @@
 import { describe, it, expect, test } from 'vitest'
-import RadioGroup, { type RadioGroupProps, type RadioGroupSlots } from '../../src/runtime/components/RadioGroup.vue'
+import RadioGroup from '../../src/runtime/components/RadioGroup.vue'
+import type { RadioGroupProps, RadioGroupSlots } from '../../src/runtime/components/RadioGroup.vue'
 import ComponentRender from '../component-render'
 import theme from '#build/b24ui/radio-group'
 import { flushPromises, mount } from '@vue/test-utils'
 import { renderForm } from '../utils/form'
-import type { FormInputEvents } from '~/src/module'
+import type { FormInputEvents } from '../../src/module'
 
 describe('RadioGroup', () => {
   const sizes = Object.keys(theme.variants.size) as any
@@ -30,11 +31,11 @@ describe('RadioGroup', () => {
     ['with description', { props: { items: items.map((opt, count) => ({ ...opt, description: `Description ${count}` })) } }],
     ['with required', { props: { ...props, legend: 'Legend', required: true } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { ...props, size } }]),
-    ...variants.map((variant: string) => [`with primary variant ${variant}`, { props: { ...props, variant, defaultValue: '1' } }]),
-    ...variants.map((variant: string) => [`with success variant ${variant}`, { props: { ...props, variant, color: 'success', defaultValue: '1' } }]),
+    ...variants.map((variant: string) => [`with air-primary-primary variant ${variant}`, { props: { ...props, variant, defaultValue: '1' } }]),
+    ...variants.map((variant: string) => [`with air-primary-success variant ${variant}`, { props: { ...props, variant, color: 'air-primary-success', defaultValue: '1' } }]),
     ...variants.map((variant: string) => [`with horizontal variant ${variant}`, { props: { ...props, variant, orientation: 'horizontal', defaultValue: '1' } }]),
-    ...indicators.map((indicator: string) => [`with indicator ${indicator}`, { props: { ...props, indicator } }]),
-    ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
+    ...indicators.map((indicator: string) => [`with indicator ${indicator}`, { props: { ...props, indicator, defaultValue: '1' } }]),
+    ['with ariaLabel', { props, attrs: { 'aria-label': 'Aria label' } }],
     ['with as', { props: { ...props, as: 'section' } }],
     ['with class', { props: { ...props, class: 'absolute' } }],
     ['with b24ui', { props: { ...props, b24ui: { wrapper: 'ms-4' } } }],
@@ -121,8 +122,7 @@ describe('RadioGroup', () => {
     test('no label for=... on FormField', async () => {
       const { wrapper } = await createForm()
       const formFieldLabel = wrapper.findAll('label').map(label => label.attributes()).filter(label => !label.for?.includes('Option'))[0]
-      // @ts-expect-error fix formFieldLabel is possibly undefined
-      expect(formFieldLabel.for).toBeUndefined()
+      expect(formFieldLabel?.for).toBeUndefined()
     })
   })
 })

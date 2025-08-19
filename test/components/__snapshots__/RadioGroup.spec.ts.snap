@@ -1,9 +1,246 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`RadioGroup > renders with ariaLabel correctly 1`] = `
-"<div id="v-0-0" class="relative style-filled" aria-label="Aria label" tabindex="-1" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" role="radiogroup" aria-orientation="vertical" aria-required="false">
+exports[`RadioGroup > renders with air-primary-primary variant card correctly 1`] = `
+"<div id="v-0-0" class="relative style-filled" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" role="radiogroup" aria-orientation="vertical" aria-required="false">
+  <fieldset class="flex flex-col gap-x-[16px] gap-y-[8px]">
+    <!--v-if--><label class="flex cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
+      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" value="1" aria-label="1"><span data-state="checked" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span>
+          <!--v-if-->
+        </button></div>
+      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <p for="v-0-0:1" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 1</p>
+        <!--v-if-->
+      </div>
+    </label><label class="flex cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
+      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:2" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="2" aria-label="2">
+          <!---->
+          <!--v-if-->
+        </button></div>
+      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <p for="v-0-0:2" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 2</p>
+        <!--v-if-->
+      </div>
+    </label><label class="flex cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
+      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:3" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="3" aria-label="3">
+          <!---->
+          <!--v-if-->
+        </button></div>
+      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <p for="v-0-0:3" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 3</p>
+        <!--v-if-->
+      </div>
+    </label>
+  </fieldset>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`RadioGroup > renders with air-primary-primary variant list correctly 1`] = `
+"<div id="v-0-0" class="relative style-filled" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" role="radiogroup" aria-orientation="vertical" aria-required="false">
   <fieldset class="flex flex-col gap-x-[16px] gap-y-[8px]">
     <!--v-if-->
+    <div class="flex items-start flex-row text-(length:--ui-font-size-lg)">
+      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" value="1" aria-label="1"><span data-state="checked" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span>
+          <!--v-if-->
+        </button></div>
+      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:1" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 1</label>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="flex items-start flex-row text-(length:--ui-font-size-lg)">
+      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:2" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="2" aria-label="2">
+          <!---->
+          <!--v-if-->
+        </button></div>
+      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:2" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 2</label>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="flex items-start flex-row text-(length:--ui-font-size-lg)">
+      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:3" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="3" aria-label="3">
+          <!---->
+          <!--v-if-->
+        </button></div>
+      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:3" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 3</label>
+        <!--v-if-->
+      </div>
+    </div>
+  </fieldset>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`RadioGroup > renders with air-primary-primary variant table correctly 1`] = `
+"<div id="v-0-0" class="relative style-filled" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" role="radiogroup" aria-orientation="vertical" aria-required="false">
+  <fieldset class="flex flex-col gap-0 -space-y-px">
+    <!--v-if--><label class="flex items-start cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
+      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" value="1" aria-label="1"><span data-state="checked" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span>
+          <!--v-if-->
+        </button></div>
+      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <p for="v-0-0:1" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 1</p>
+        <!--v-if-->
+      </div>
+    </label><label class="flex items-start cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
+      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:2" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="2" aria-label="2">
+          <!---->
+          <!--v-if-->
+        </button></div>
+      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <p for="v-0-0:2" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 2</p>
+        <!--v-if-->
+      </div>
+    </label><label class="flex items-start cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
+      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:3" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="3" aria-label="3">
+          <!---->
+          <!--v-if-->
+        </button></div>
+      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <p for="v-0-0:3" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 3</p>
+        <!--v-if-->
+      </div>
+    </label>
+  </fieldset>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`RadioGroup > renders with air-primary-success variant card correctly 1`] = `
+"<div id="v-0-0" class="relative style-filled-success" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" role="radiogroup" aria-orientation="vertical" aria-required="false">
+  <fieldset class="flex flex-col gap-x-[16px] gap-y-[8px]">
+    <!--v-if--><label class="flex cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
+      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" value="1" aria-label="1"><span data-state="checked" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span>
+          <!--v-if-->
+        </button></div>
+      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <p for="v-0-0:1" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 1</p>
+        <!--v-if-->
+      </div>
+    </label><label class="flex cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
+      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:2" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="2" aria-label="2">
+          <!---->
+          <!--v-if-->
+        </button></div>
+      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <p for="v-0-0:2" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 2</p>
+        <!--v-if-->
+      </div>
+    </label><label class="flex cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
+      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:3" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="3" aria-label="3">
+          <!---->
+          <!--v-if-->
+        </button></div>
+      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <p for="v-0-0:3" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 3</p>
+        <!--v-if-->
+      </div>
+    </label>
+  </fieldset>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`RadioGroup > renders with air-primary-success variant list correctly 1`] = `
+"<div id="v-0-0" class="relative style-filled-success" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" role="radiogroup" aria-orientation="vertical" aria-required="false">
+  <fieldset class="flex flex-col gap-x-[16px] gap-y-[8px]">
+    <!--v-if-->
+    <div class="flex items-start flex-row text-(length:--ui-font-size-lg)">
+      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" value="1" aria-label="1"><span data-state="checked" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span>
+          <!--v-if-->
+        </button></div>
+      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:1" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 1</label>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="flex items-start flex-row text-(length:--ui-font-size-lg)">
+      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:2" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="2" aria-label="2">
+          <!---->
+          <!--v-if-->
+        </button></div>
+      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:2" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 2</label>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="flex items-start flex-row text-(length:--ui-font-size-lg)">
+      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:3" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="3" aria-label="3">
+          <!---->
+          <!--v-if-->
+        </button></div>
+      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:3" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 3</label>
+        <!--v-if-->
+      </div>
+    </div>
+  </fieldset>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`RadioGroup > renders with air-primary-success variant table correctly 1`] = `
+"<div id="v-0-0" class="relative style-filled-success" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" role="radiogroup" aria-orientation="vertical" aria-required="false">
+  <fieldset class="flex flex-col gap-0 -space-y-px">
+    <!--v-if--><label class="flex items-start cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
+      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" value="1" aria-label="1"><span data-state="checked" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span>
+          <!--v-if-->
+        </button></div>
+      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <p for="v-0-0:1" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 1</p>
+        <!--v-if-->
+      </div>
+    </label><label class="flex items-start cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
+      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:2" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="2" aria-label="2">
+          <!---->
+          <!--v-if-->
+        </button></div>
+      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <p for="v-0-0:2" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 2</p>
+        <!--v-if-->
+      </div>
+    </label><label class="flex items-start cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
+      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:3" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="3" aria-label="3">
+          <!---->
+          <!--v-if-->
+        </button></div>
+      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
+        <p for="v-0-0:3" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 3</p>
+        <!--v-if-->
+      </div>
+    </label>
+  </fieldset>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`RadioGroup > renders with ariaLabel correctly 1`] = `
+"<div id="v-0-0" class="relative style-filled" aria-label="Aria label" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" role="radiogroup" aria-orientation="vertical" aria-required="false">
+  <fieldset class="flex flex-col gap-x-[16px] gap-y-[8px]">
+    <!--v-if-->
+    <div class="flex items-start flex-row text-(length:--ui-font-size-lg)">
+      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:1" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="1" aria-label="1">
+          <!---->
+          <!--v-if-->
+        </button></div>
+      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:1" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 1</label>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="flex items-start flex-row text-(length:--ui-font-size-lg)">
+      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:2" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="2" aria-label="2">
+          <!---->
+          <!--v-if-->
+        </button></div>
+      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:2" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 2</label>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="flex items-start flex-row text-(length:--ui-font-size-lg)">
+      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:3" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="3" aria-label="3">
+          <!---->
+          <!--v-if-->
+        </button></div>
+      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:3" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 3</label>
+        <!--v-if-->
+      </div>
+    </div>
   </fieldset>
   <!--v-if-->
 </div>"
@@ -406,8 +643,7 @@ exports[`RadioGroup > renders with indicator end correctly 1`] = `
   <fieldset class="flex flex-col gap-x-[16px] gap-y-[8px]">
     <!--v-if-->
     <div class="flex items-start flex-row-reverse text-(length:--ui-font-size-lg)">
-      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) ms-2 size-[16px]" id="v-0-0:1" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="1" aria-label="1">
-          <!---->
+      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) ms-2 size-[16px]" id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" value="1" aria-label="1"><span data-state="checked" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span>
           <!--v-if-->
         </button></div>
       <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:1" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 1</label>
@@ -442,8 +678,7 @@ exports[`RadioGroup > renders with indicator hidden correctly 1`] = `
   <fieldset class="flex flex-col gap-x-[16px] gap-y-[8px]">
     <!--v-if-->
     <div class="flex items-start text-(length:--ui-font-size-lg)">
-      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) sr-only size-[16px]" id="v-0-0:1" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="1" aria-label="1">
-          <!---->
+      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) sr-only size-[16px]" id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" value="1" aria-label="1"><span data-state="checked" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span>
           <!--v-if-->
         </button></div>
       <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full text-center"><label for="v-0-0:1" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 1</label>
@@ -478,8 +713,7 @@ exports[`RadioGroup > renders with indicator start correctly 1`] = `
   <fieldset class="flex flex-col gap-x-[16px] gap-y-[8px]">
     <!--v-if-->
     <div class="flex items-start flex-row text-(length:--ui-font-size-lg)">
-      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:1" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="1" aria-label="1">
-          <!---->
+      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" value="1" aria-label="1"><span data-state="checked" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span>
           <!--v-if-->
         </button></div>
       <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:1" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 1</label>
@@ -688,111 +922,6 @@ exports[`RadioGroup > renders with modelValue correctly 1`] = `
 </div>"
 `;
 
-exports[`RadioGroup > renders with primary variant card correctly 1`] = `
-"<div id="v-0-0" class="relative style-filled" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" role="radiogroup" aria-orientation="vertical" aria-required="false">
-  <fieldset class="flex flex-col gap-x-[16px] gap-y-[8px]">
-    <!--v-if--><label class="flex cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
-      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" value="1" aria-label="1"><span data-state="checked" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span>
-          <!--v-if-->
-        </button></div>
-      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
-        <p for="v-0-0:1" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 1</p>
-        <!--v-if-->
-      </div>
-    </label><label class="flex cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
-      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:2" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="2" aria-label="2">
-          <!---->
-          <!--v-if-->
-        </button></div>
-      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
-        <p for="v-0-0:2" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 2</p>
-        <!--v-if-->
-      </div>
-    </label><label class="flex cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
-      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:3" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="3" aria-label="3">
-          <!---->
-          <!--v-if-->
-        </button></div>
-      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
-        <p for="v-0-0:3" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 3</p>
-        <!--v-if-->
-      </div>
-    </label>
-  </fieldset>
-  <!--v-if-->
-</div>"
-`;
-
-exports[`RadioGroup > renders with primary variant list correctly 1`] = `
-"<div id="v-0-0" class="relative style-filled" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" role="radiogroup" aria-orientation="vertical" aria-required="false">
-  <fieldset class="flex flex-col gap-x-[16px] gap-y-[8px]">
-    <!--v-if-->
-    <div class="flex items-start flex-row text-(length:--ui-font-size-lg)">
-      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" value="1" aria-label="1"><span data-state="checked" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span>
-          <!--v-if-->
-        </button></div>
-      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:1" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 1</label>
-        <!--v-if-->
-      </div>
-    </div>
-    <div class="flex items-start flex-row text-(length:--ui-font-size-lg)">
-      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:2" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="2" aria-label="2">
-          <!---->
-          <!--v-if-->
-        </button></div>
-      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:2" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 2</label>
-        <!--v-if-->
-      </div>
-    </div>
-    <div class="flex items-start flex-row text-(length:--ui-font-size-lg)">
-      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:3" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="3" aria-label="3">
-          <!---->
-          <!--v-if-->
-        </button></div>
-      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:3" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 3</label>
-        <!--v-if-->
-      </div>
-    </div>
-  </fieldset>
-  <!--v-if-->
-</div>"
-`;
-
-exports[`RadioGroup > renders with primary variant table correctly 1`] = `
-"<div id="v-0-0" class="relative style-filled" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" role="radiogroup" aria-orientation="vertical" aria-required="false">
-  <fieldset class="flex flex-col gap-0 -space-y-px">
-    <!--v-if--><label class="flex items-start cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
-      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" value="1" aria-label="1"><span data-state="checked" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span>
-          <!--v-if-->
-        </button></div>
-      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
-        <p for="v-0-0:1" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 1</p>
-        <!--v-if-->
-      </div>
-    </label><label class="flex items-start cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
-      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:2" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="2" aria-label="2">
-          <!---->
-          <!--v-if-->
-        </button></div>
-      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
-        <p for="v-0-0:2" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 2</p>
-        <!--v-if-->
-      </div>
-    </label><label class="flex items-start cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
-      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:3" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="3" aria-label="3">
-          <!---->
-          <!--v-if-->
-        </button></div>
-      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
-        <p for="v-0-0:3" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 3</p>
-        <!--v-if-->
-      </div>
-    </label>
-  </fieldset>
-  <!--v-if-->
-</div>"
-`;
-
 exports[`RadioGroup > renders with required correctly 1`] = `
 "<div id="v-0-0" class="relative style-filled" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" role="radiogroup" aria-orientation="vertical" aria-required="true">
   <fieldset class="flex flex-col gap-x-[16px] gap-y-[8px]">
@@ -968,111 +1097,6 @@ exports[`RadioGroup > renders with size xs correctly 1`] = `
         <!--v-if-->
       </div>
     </div>
-  </fieldset>
-  <!--v-if-->
-</div>"
-`;
-
-exports[`RadioGroup > renders with success variant card correctly 1`] = `
-"<div id="v-0-0" class="relative style-old-success" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" role="radiogroup" aria-orientation="vertical" aria-required="false">
-  <fieldset class="flex flex-col gap-x-[16px] gap-y-[8px]">
-    <!--v-if--><label class="flex cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
-      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" value="1" aria-label="1"><span data-state="checked" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span>
-          <!--v-if-->
-        </button></div>
-      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
-        <p for="v-0-0:1" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 1</p>
-        <!--v-if-->
-      </div>
-    </label><label class="flex cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
-      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:2" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="2" aria-label="2">
-          <!---->
-          <!--v-if-->
-        </button></div>
-      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
-        <p for="v-0-0:2" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 2</p>
-        <!--v-if-->
-      </div>
-    </label><label class="flex cursor-pointer items-start border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:border-(--b24ui-border-color) flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] rounded-(--ui-border-radius-md)">
-      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:3" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="3" aria-label="3">
-          <!---->
-          <!--v-if-->
-        </button></div>
-      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
-        <p for="v-0-0:3" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 3</p>
-        <!--v-if-->
-      </div>
-    </label>
-  </fieldset>
-  <!--v-if-->
-</div>"
-`;
-
-exports[`RadioGroup > renders with success variant list correctly 1`] = `
-"<div id="v-0-0" class="relative style-old-success" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" role="radiogroup" aria-orientation="vertical" aria-required="false">
-  <fieldset class="flex flex-col gap-x-[16px] gap-y-[8px]">
-    <!--v-if-->
-    <div class="flex items-start flex-row text-(length:--ui-font-size-lg)">
-      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" value="1" aria-label="1"><span data-state="checked" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span>
-          <!--v-if-->
-        </button></div>
-      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:1" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 1</label>
-        <!--v-if-->
-      </div>
-    </div>
-    <div class="flex items-start flex-row text-(length:--ui-font-size-lg)">
-      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:2" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="2" aria-label="2">
-          <!---->
-          <!--v-if-->
-        </button></div>
-      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:2" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 2</label>
-        <!--v-if-->
-      </div>
-    </div>
-    <div class="flex items-start flex-row text-(length:--ui-font-size-lg)">
-      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:3" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="3" aria-label="3">
-          <!---->
-          <!--v-if-->
-        </button></div>
-      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:3" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 3</label>
-        <!--v-if-->
-      </div>
-    </div>
-  </fieldset>
-  <!--v-if-->
-</div>"
-`;
-
-exports[`RadioGroup > renders with success variant table correctly 1`] = `
-"<div id="v-0-0" class="relative style-old-success" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" role="radiogroup" aria-orientation="vertical" aria-required="false">
-  <fieldset class="flex flex-col gap-0 -space-y-px">
-    <!--v-if--><label class="flex items-start cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
-      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" value="1" aria-label="1"><span data-state="checked" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span>
-          <!--v-if-->
-        </button></div>
-      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
-        <p for="v-0-0:1" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 1</p>
-        <!--v-if-->
-      </div>
-    </label><label class="flex items-start cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
-      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:2" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="2" aria-label="2">
-          <!---->
-          <!--v-if-->
-        </button></div>
-      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
-        <p for="v-0-0:2" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 2</p>
-        <!--v-if-->
-      </div>
-    </label><label class="flex items-start cursor-pointer border border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-design-outline-na-bg) has-data-[state=checked]:bg-(--b24ui-background)/24 has-data-[state=checked]:border-(--b24ui-border-color) has-data-[state=checked]:text-(--b24ui-color) has-data-[state=checked]:z-[1] flex-row text-(length:--ui-font-size-lg) px-[17px] py-[10px] first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)">
-      <div class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:3" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="3" aria-label="3">
-          <!---->
-          <!--v-if-->
-        </button></div>
-      <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full">
-        <p for="v-0-0:3" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 3</p>
-        <!--v-if-->
-      </div>
-    </label>
   </fieldset>
   <!--v-if-->
 </div>"

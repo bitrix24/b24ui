@@ -222,36 +222,8 @@ exports[`FormField > renders with size sm correctly 1`] = `
 </div>"
 `;
 
-exports[`FormField > renders with size xl correctly 1`] = `
-"<div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-md)">
-  <div class="leading-(--ui-font-line-height-reset) mb-[6px]">
-    <div class="flex content-center items-center justify-between"><label for="v-0-0" class="block text-(--b24ui-typography-label-color)">Username</label>
-      <!--v-if-->
-    </div>
-    <p id="v-0-0-description" class="mt-[2px] leading-(--ui-font-line-height-2xs) text-(--b24ui-typography-description-color)">Enter your username</p>
-  </div>
-  <div class="relative">
-    <!--v-if-->
-  </div>
-</div>"
-`;
-
 exports[`FormField > renders with size xs correctly 1`] = `
 "<div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-xs)">
-  <div class="leading-(--ui-font-line-height-reset) mb-[6px]">
-    <div class="flex content-center items-center justify-between"><label for="v-0-0" class="block text-(--b24ui-typography-label-color)">Username</label>
-      <!--v-if-->
-    </div>
-    <p id="v-0-0-description" class="mt-[2px] leading-(--ui-font-line-height-2xs) text-(--b24ui-typography-description-color)">Enter your username</p>
-  </div>
-  <div class="relative">
-    <!--v-if-->
-  </div>
-</div>"
-`;
-
-exports[`FormField > renders with size xss correctly 1`] = `
-"<div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-3xs)">
   <div class="leading-(--ui-font-line-height-reset) mb-[6px]">
     <div class="flex content-center items-center justify-between"><label for="v-0-0" class="block text-(--b24ui-typography-label-color)">Username</label>
       <!--v-if-->
