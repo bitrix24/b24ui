@@ -19,7 +19,7 @@ const validate = (state: any): FormError[] => {
 
 const toast = useToast()
 async function onSubmit(event: FormSubmitEvent<typeof state>) {
-  toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'success' })
+  toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'air-primary-success' })
   console.log(event.data)
 }
 
@@ -83,23 +83,22 @@ function makeClear() {
       <B24Separator class="mt-6 mb-3" />
 
       <div class="flex flex-row gap-4 items-center justify-between">
-        <B24Button type="submit" color="success">
+        <B24Button type="submit" color="air-primary-success">
           Submit
         </B24Button>
       </div>
     </B24Form>
+    <B24Separator class="my-1" />
     <div class="flex flex-row gap-4 items-center justify-between">
       <B24Button
         type="button"
-        color="link"
-        depth="dark"
+        color="air-secondary-accent-2"
         label="Validate"
         @click="makeValidate"
       />
       <B24Button
         type="button"
-        color="link"
-        depth="normal"
+        color="air-tertiary-no-accent"
         :icon="NotificationOffIcon"
         @click="makeClear"
       />

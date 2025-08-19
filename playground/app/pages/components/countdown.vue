@@ -315,7 +315,7 @@ const onCountdownRoundStop = () => {
               @click="onCountdownRoundEnd"
             />
             <Cross30Icon
-              class="size-full opacity-0 group-hover:opacity-100 text-(--b24ui-typography-legend-color) group-hover:text-(--b24ui-typography-legend-color) absolute inset-x-0 inset-y-0 z-20"
+              class="cursor-pointer size-full opacity-0 group-hover:opacity-100 text-(--b24ui-typography-legend-color) group-hover:text-(--b24ui-typography-legend-color) absolute inset-x-0 inset-y-0 z-20"
               @click="onCountdownRoundEnd"
             />
           </div>

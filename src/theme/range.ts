@@ -65,7 +65,7 @@ export default {
       }
     },
     disabled: {
-      true: { root: 'opacity-75 cursor-not-allowed' }
+      true: { root: 'opacity-30 cursor-not-allowed' }
     }
   },
   compoundVariants: [

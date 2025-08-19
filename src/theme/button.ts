@@ -24,7 +24,7 @@ export default {
       'select-none cursor-pointer inline-flex items-center',
       'relative',
       'outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2',
-      'disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:opacity-50',
+      'disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30',
       'transition duration-0 ease-linear', // transition-colors
       'border-(length:--ui-btn-border-width)',
       'text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color)',

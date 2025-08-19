@@ -15,43 +15,46 @@ import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 usePageMeta.setPageTitle('Form')
 const validateOn = ref(['input', 'change', 'blur'])
 const disabled = ref(false)
+const isUseBg = ref(true)
 </script>
 
 <template>
   <ExampleGrid v-once>
-    <ExampleCard title="base">
+    <ExampleCard title="base" :use-bg="isUseBg">
       <ExampleCardSubTitle title="simple" />
       <FormExample />
     </ExampleCard>
 
-    <ExampleCard title="nested">
+    <ExampleCard title="nested" :use-bg="isUseBg">
       <ExampleCardSubTitle title="simple" />
       <FormExampleNested />
     </ExampleCard>
 
-    <ExampleCard title="nested">
+    <ExampleCard title="nested" :use-bg="isUseBg">
       <ExampleCardSubTitle title="list" />
       <FormExampleNestedList />
     </ExampleCard>
 
-    <ExampleCard title="validate">
+    <ExampleCard title="validate" :use-bg="isUseBg">
       <ExampleCardSubTitle title="external validate" />
       <FormExampleOnError />
     </ExampleCard>
   </ExampleGrid>
-  <ExampleGrid v-once class="mt-2">
-    <ExampleCard title="config">
-      <ExampleCardSubTitle title="for elements" class="mt-4" />
+  <B24Separator accent="accent" class="my-4" label="Config" type="dotted" />
+  <ExampleGrid v-once class="mb-4">
+    <ExampleCard title="for elements" :use-bg="isUseBg" class="sm:col-span-2 md:col-span-4">
+      <B24Separator class="my-3" type="dotted" />
       <div class="flex flex-col gap-4 items-start">
         <B24FormField label="Validate on" class="w-full">
-          <B24Select v-model="validateOn" :items="['input', 'change', 'blur']" multiple class="w-full" />
+          <B24Select v-model="validateOn" :items="['input', 'change', 'blur']" multiple class="w-full max-w-[240px]" />
         </B24FormField>
         <B24Checkbox v-model="disabled" label="Disabled" />
       </div>
     </ExampleCard>
-    <ExampleCard title="elements">
+    <ExampleCard title="elements" :use-bg="isUseBg" class="sm:col-span-2 md:col-span-4">
       <ExampleCardSubTitle title="form" />
       <FormExampleElements
+        class="mx-auto w-full max-w-[400px]"
         :validate-on="validateOn"
         :disabled="disabled"
       />

@@ -106,9 +106,9 @@ export default {
     },
     disabled: {
       true: {
-        base: 'cursor-not-allowed opacity-75',
-        label: 'cursor-not-allowed opacity-75',
-        description: 'cursor-not-allowed opacity-75'
+        base: 'cursor-not-allowed opacity-30',
+        label: 'cursor-not-allowed opacity-30',
+        description: 'cursor-not-allowed opacity-30'
       }
     },
     checked: {

@@ -192,7 +192,7 @@
   - @deprecate color
     - default, danger, success, warning, primary, secondary, collab, ai
   - use `Badge` as tag
-* **FormField**
+* **From\FormField**
   - fix color, size
 ---
 We change btn colors:
