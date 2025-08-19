@@ -8,6 +8,8 @@ import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 usePageMeta.setPageTitle('FormField')
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
+const isUseBg = ref(true)
+
 const feedbacks = [
   { description: 'This is a description' },
   { error: 'This is an error' },
@@ -15,25 +17,39 @@ const feedbacks = [
   { help: 'This is a help' },
   { required: true }
 ]
+
+const items = ref(['CRM settings', 'My company details', 'Access permissions', 'CRM Payment', 'CRM.Delivery', 'Scripts', 'Create script', 'Install from Bitrix24.Market'])
+const itemsRadioGroup = ref([
+  {
+    label: 'CRM settings',
+    description: 'Configure your CRM system.\n',
+    value: 'settings'
+  },
+  {
+    label: 'My company details',
+    description: 'Access and update your company\'s information and profile.\n',
+    value: 'my_company_details'
+  }
+])
 </script>
 
 <template>
   <ExampleGrid v-once>
-    <ExampleCard title="feedback">
+    <ExampleCard title="feedback" :use-bg="isUseBg">
       <ExampleCardSubTitle title="different" />
-      <div class="mb-4 flex flex-wrap flex-col items-center gap-4">
-        <div v-for="(feedback, count) in feedbacks" :key="count" class="flex items-center">
+      <div class="mb-4 flex flex-wrap flex-col items-stretch gap-4">
+        <template v-for="(feedback, index) in feedbacks" :key="index">
           <B24FormField v-bind="feedback" label="Email" name="email">
             <B24Input name="email" aria-label="Email" type="email" placeholder="john@lennon.com" />
           </B24FormField>
-        </div>
+        </template>
       </div>
     </ExampleCard>
 
-    <ExampleCard title="stream">
+    <ExampleCard title="stream" :use-bg="isUseBg">
       <ExampleCardSubTitle title="Department name and description" />
-      <div class="mb-4 flex flex-nowrap flex-col items-stretch justify gap-4">
-        <B24FormField label="Parent department" name="department">
+      <div class="mb-4 flex flex-nowrap flex-col items-stretch gap-4">
+        <B24FormField label="Parent department" name="department" description="This is a description">
           <B24Input name="parent_department" aria-label="Parent department" type="text" placeholder="Select parent department" />
         </B24FormField>
         <B24FormField label="Name" name="name" required error="Enter department name">
@@ -49,52 +65,72 @@ const feedbacks = [
           legend="Email"
           class="w-full"
           required
-          :items="[
-            {
-              label: 'CRM settings',
-              description: 'Configure your CRM system.\n',
-              value: 'settings'
-            },
-            {
-              label: 'My company details',
-              description: 'Access and update your company\'s information and profile.\n',
-              value: 'my_company_details'
-            }
-          ]"
+          :items="itemsRadioGroup"
         />
       </div>
     </ExampleCard>
-
-    <ExampleCard title="size" class="md:col-span-3">
+  </ExampleGrid>
+  <B24Separator accent="accent" class="my-4" label="Size" type="dotted" />
+  <ExampleGrid v-once class="mb-4">
+    <ExampleCard title="Some cases" :use-bg="isUseBg" class="sm:col-span-2 md:col-span-4">
       <ExampleCardSubTitle title="simple" />
       <div class="mb-4 flex flex-wrap items-start justify-start gap-6">
-        <B24FormField
-          v-for="size in sizes"
-          :key="size"
-          :size="size"
-          label="Email"
-          name="email"
-        >
-          <B24Input aria-label="Email" type="email" placeholder="john@lennon.com" />
-        </B24FormField>
+        <template v-for="size in sizes" :key="size">
+          <B24FormField
+            :size="size"
+            label="Email"
+            name="email"
+          >
+            <B24Input aria-label="Email" type="email" placeholder="john@lennon.com" />
+          </B24FormField>
+          <B24FormField
+            :size="size"
+            label="Select"
+            name="email"
+            required
+          >
+            <B24Select
+              aria-label="Select"
+              placeholder="Select value"
+              class="w-[140px]"
+              :items="items"
+            />
+          </B24FormField>
+        </template>
       </div>
 
       <ExampleCardSubTitle title="with error" />
       <div class="mb-4 flex flex-wrap items-start justify-start gap-6">
-        <B24FormField
-          v-for="size in sizes"
-          :key="size"
-          :size="size"
-          label="Email"
-          hint="This is a hint"
-          description="This is a description"
-          help="This is a help"
-          error="This is an error"
-          name="email"
-          required
-        >
-          <B24Input aria-label="Email" type="email" placeholder="john@lennon.com" />
-        </B24FormField>
+        <template v-for="size in sizes" :key="size">
+          <B24FormField
+            :size="size"
+            label="Email"
+            hint="This is a hint"
+            description="This is a description"
+            help="This is a help"
+            error="This is an error"
+            name="email"
+            required
+          >
+            <B24Input aria-label="Email" type="email" placeholder="john@lennon.com" />
+          </B24FormField>
+          <B24FormField
+            :size="size"
+            label="Select"
+            hint="This is a hint"
+            description="This is a description"
+            error="This is an error"
+            name="email"
+            required
+          >
+            <B24Select
+              aria-label="Select"
+              placeholder="Select value"
+              class="w-[140px]"
+              :items="items"
+            />
+          </B24FormField>
+        </template>
       </div>
 
       <ExampleCardSubTitle title="with description" />
@@ -110,6 +146,22 @@ const feedbacks = [
             required
           >
             <B24Input aria-label="Email" type="email" placeholder="john@lennon.com" />
+          </B24FormField>
+          <B24FormField
+            :size="size"
+            label="Select"
+            hint="This is a hint"
+            description="This is a description"
+            help="Please enter a valid email address."
+            name="email"
+            required
+          >
+            <B24Select
+              aria-label="Select"
+              placeholder="Select value"
+              class="w-[140px]"
+              :items="items"
+            />
           </B24FormField>
         </template>
       </div>
