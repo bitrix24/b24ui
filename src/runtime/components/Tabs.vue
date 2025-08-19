@@ -32,10 +32,6 @@ export interface TabsProps<T extends TabsItem = TabsItem> extends Pick<TabsRootP
   as?: any
   items?: T[]
   /**
-   * @defaultValue 'default'
-   */
-  color?: Tabs['variants']['color']
-  /**
    * @defaultValue 'link'
    */
   variant?: Tabs['variants']['variant']
@@ -105,7 +101,6 @@ const getLabel = (item: TabsItem) => {
 }
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.tabs || {}) })({
-  color: props.color,
   variant: props.variant,
   size: props.size,
   orientation: props.orientation

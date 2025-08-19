@@ -357,44 +357,50 @@ const airColors = computed(() => {
       <template v-for="size in sizes" :key="size">
         <ExampleCardSubTitle :title="size as string" />
         <div class="mb-4 flex flex-wrap flex-row items-center gap-4">
-          <B24Select
-            :items="items"
-            name="some_value"
-            placeholder="Choose a value&hellip;"
-            aria-label="Choose a value"
-            :size="size"
-            class="w-[240px]"
-            arrow
-          />
-          <B24Select
-            :items="items"
-            :icon="Search2Icon"
-            name="some_value"
-            placeholder="Choose a value&hellip;"
-            aria-label="Choose a value"
-            :size="size"
-            class="w-[240px]"
-            arrow
-          />
-          <B24Select
-            :items="statuses"
-            :icon="Search2Icon"
-            name="some_value"
-            placeholder="Search status&hellip;"
-            aria-label="Search status"
-            :size="size"
-            value-key="value"
-            class="w-[240px]"
-            arrow
-          >
-            <template #leading="{ modelValue, b24ui }">
-              <Component
-                :is="getStatusIcon(modelValue)"
-                v-if="modelValue"
-                :class="b24ui.leadingIcon()"
-              />
-            </template>
-          </B24Select>
+          <div>
+            <B24Select
+              :items="items"
+              name="some_value"
+              placeholder="Choose a value&hellip;"
+              aria-label="Choose a value"
+              :size="size"
+              class="w-[240px]"
+              arrow
+            />
+          </div>
+          <div>
+            <B24Select
+              :items="items"
+              :icon="Search2Icon"
+              name="some_value"
+              placeholder="Choose a value&hellip;"
+              aria-label="Choose a value"
+              :size="size"
+              class="w-[240px]"
+              arrow
+            />
+          </div>
+          <div>
+            <B24Select
+              :items="statuses"
+              :icon="Search2Icon"
+              name="some_value"
+              placeholder="Search status&hellip;"
+              aria-label="Search status"
+              :size="size"
+              value-key="value"
+              class="w-[240px]"
+              arrow
+            >
+              <template #leading="{ modelValue, b24ui }">
+                <Component
+                  :is="getStatusIcon(modelValue)"
+                  v-if="modelValue"
+                  :class="b24ui.leadingIcon()"
+                />
+              </template>
+            </B24Select>
+          </div>
           <div class="flex flex-row items-center justify-between gap-4">
             <B24Select
               :items="items"
@@ -417,51 +423,53 @@ const airColors = computed(() => {
               class="w-[140px]"
             />
           </div>
-
-          <B24Select
-            :items="users || []"
-            :loading="status === 'pending'"
-            :icon="UserIcon"
-            :trailing-icon="Expand1Icon"
-            name="some_users"
-            placeholder="Search users&hellip;"
-            aria-label="Search users"
-            :size="size"
-            class="w-[240px]"
-            arrow
-          >
-            <template #leading="{ modelValue, b24ui }">
-              <B24Avatar
-                v-if="modelValue"
-                v-bind="getUserAvatar(modelValue)"
-                :size="b24ui.leadingAvatarSize() as AvatarProps['size']"
-                :class="b24ui.leadingAvatar()"
-              />
-            </template>
-          </B24Select>
-
-          <B24Select
-            v-model="chipValue"
-            :items="chipItems"
-            name="some_chips"
-            aria-label="Search chips"
-            :size="size"
-            class="w-[240px]"
-            arrow
-            :b24ui="{
-              base: ['xss'].includes(size) ? 'ps-[25px]' : ''
-            }"
-          >
-            <template #leading="{ modelValue, b24ui }">
-              <B24Chip
-                v-if="modelValue"
-                v-bind="getChip(modelValue as string)"
-                standalone
-                :size="['xl', 'lg'].includes(size) ? 'lg' : (['md'].includes(size) ? 'md' : 'sm')"
-                :class="b24ui.itemLeadingChip()"
-              />
-            </template>
-          </B24Select>
+          <div>
+            <B24Select
+              :items="users || []"
+              :loading="status === 'pending'"
+              :icon="UserIcon"
+              :trailing-icon="Expand1Icon"
+              name="some_users"
+              placeholder="Search users&hellip;"
+              aria-label="Search users"
+              :size="size"
+              class="w-[240px]"
+              arrow
+            >
+              <template #leading="{ modelValue, b24ui }">
+                <B24Avatar
+                  v-if="modelValue"
+                  v-bind="getUserAvatar(modelValue)"
+                  :size="b24ui.leadingAvatarSize() as AvatarProps['size']"
+                  :class="b24ui.leadingAvatar()"
+                />
+              </template>
+            </B24Select>
+          </div>
+          <div>
+            <B24Select
+              v-model="chipValue"
+              :items="chipItems"
+              name="some_chips"
+              aria-label="Search chips"
+              :size="size"
+              class="w-[240px]"
+              arrow
+              :b24ui="{
+                base: ['xss'].includes(size) ? 'ps-[25px]' : ''
+              }"
+            >
+              <template #leading="{ modelValue, b24ui }">
+                <B24Chip
+                  v-if="modelValue"
+                  v-bind="getChip(modelValue as string)"
+                  standalone
+                  :size="['xl', 'lg'].includes(size) ? 'lg' : (['md'].includes(size) ? 'md' : 'sm')"
+                  :class="b24ui.itemLeadingChip()"
+                />
+              </template>
+            </B24Select>
+          </div>
         </div>
       </template>
     </ExampleCard>

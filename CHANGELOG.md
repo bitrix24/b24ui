@@ -194,6 +194,10 @@
   - use `Badge` as tag
 * **From\FormField**
   - fix color, size
+* **Tabs**
+  - fix color, size
+  - remove all color
+  - remove variant pill
 ---
 We change btn colors:
 

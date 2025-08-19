@@ -120,7 +120,7 @@ const airColors = computed(() => {
           :rows="2"
         />
 
-        <div class="flex flex-row items-start justify-between gap-4">
+        <div class="flex flex-col sm:flex-row items-start justify-between gap-4">
           <B24Textarea
             :icon="RocketIcon"
             :trailing-icon="TaskIcon"
@@ -139,7 +139,7 @@ const airColors = computed(() => {
             class="w-40"
           />
         </div>
-        <div class="flex flex-row items-start justify-between gap-4">
+        <div class="flex flex-col sm:flex-row items-start justify-between gap-4">
           <B24Textarea
             :avatar="{ src: '/avatar/employee.png' }"
             :trailing-icon="TaskIcon"
