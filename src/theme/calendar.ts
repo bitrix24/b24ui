@@ -25,7 +25,7 @@ export default {
     gridBody: 'grid',
     headCell: [
       'font-(--ui-font-weight-normal)',
-      'text-(--b24ui-typography-label-color)' // text-base-500
+      'text-(--ui-color-design-plain-na-content)' // text-base-500
     ].join(' '),
     cell: 'relative text-center cursor-pointer aria-disabled:cursor-not-allowed',
     cellTrigger: [
@@ -33,8 +33,9 @@ export default {
       'flex items-center justify-center',
       'rounded-full whitespace-nowrap',
       'focus-visible:ring-2 focus:outline-none',
-      'data-disabled:text-(--b24ui-typography-label-color)',
-      'data-unavailable:text-(--b24ui-typography-label-color)',
+      'text-(--b24ui-typography-label-color)',
+      'data-disabled:text-(--b24ui-typography-legend-color)',
+      'data-unavailable:text-(--b24ui-typography-legend-color)',
       'data-outside-view:text-(--ui-color-design-plain-na-content-secondary)',
       'data-[selected]:text-(--b24ui-color)', // data-[selected]:text-white
       'focus-visible:ring-(--b24ui-background-hover)',
