@@ -27,12 +27,12 @@ export default {
       false: { wrapper: 'mb-[10px]' }
     },
     size: {
-      xss: { root: 'text-(length:--ui-font-size-3xs)', errorIcon: 'size-[16px]' },
+      // xss: { root: 'text-(length:--ui-font-size-3xs)', errorIcon: 'size-[16px]' },
       xs: { root: 'text-(length:--ui-font-size-xs)', errorIcon: 'size-[16px]' },
       sm: { root: 'text-(length:--ui-font-size-xs)', errorIcon: 'size-[16px]' },
       md: { root: 'text-(length:--ui-font-size-sm)', errorIcon: 'size-[18px]' },
-      lg: { root: 'text-(length:--ui-font-size-md)' },
-      xl: { root: 'text-(length:--ui-font-size-md)' }
+      lg: { root: 'text-(length:--ui-font-size-md)' }
+      // xl: { root: 'text-(length:--ui-font-size-md)' }
     },
     required: {
       true: {
