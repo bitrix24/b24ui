@@ -202,7 +202,7 @@ export interface SelectMenuSlots<
 </script>
 
 <script setup lang="ts" generic="T extends ArrayOrNested<SelectMenuItem>, VK extends GetItemKeys<T> | undefined = undefined, M extends boolean = false">
-import { ref, computed, onMounted, toRef, toRaw } from 'vue'
+import { ref, computed, onMounted, toRef, toRaw, nextTick } from 'vue'
 import {
   ComboboxRoot,
   ComboboxArrow,
@@ -368,6 +368,10 @@ function autoFocus() {
 }
 
 onMounted(() => {
+  nextTick(() => {
+    searchTerm.value = ''
+  })
+
   setTimeout(() => {
     autoFocus()
   }, props.autofocusDelay)
