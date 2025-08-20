@@ -17,10 +17,10 @@ import {
 } from '#components'
 import { flushPromises } from '@vue/test-utils'
 
-interface CustomValidationError {
-  name: string
-  message: string
-}
+// interface CustomValidationError {
+//   name: string
+//   message: string
+// }
 
 describe('Form', () => {
   it.each([
@@ -75,11 +75,8 @@ describe('Form', () => {
     }],
     ['custom', {
       async validate(state: any) {
-        /**
-         * @todo test this
-         */
-        const errs: CustomValidationError[] = []
-        // const errs = []
+        // const errs: CustomValidationError[] = []
+        const errs = []
         if (!state.email)
           errs.push({ name: 'email', message: 'Email is required' })
         if (state.password?.length < 8)
@@ -199,24 +196,23 @@ describe('Form', () => {
       expect(passwordField.text()).toBe('')
     })
 
-    // @todo test this
-    // test('setErrors with regex works', async () => {
-    //   form.value.setErrors([{ id: 'emailInput', name: 'email', message: 'this is an error' }])
-    //
-    //   expect(form.value.errors).toMatchObject([{ id: 'emailInput', name: 'email', message: 'this is an error' }])
-    //
-    //   form.value.setErrors([{ id: 'passwordInput', name: 'password', message: 'this is another error' }], /email/)
-    //
-    //   expect(form.value.errors).toMatchObject([{ id: 'passwordInput', name: 'password', message: 'this is another error' }])
-    //
-    //   await nextTick()
-    //
-    //   const emailField = wrapper.find('#emailField')
-    //   expect(emailField.text()).toBe('')
-    //
-    //   const passwordField = wrapper.find('#passwordField')
-    //   expect(passwordField.text()).toBe('this is another error')
-    // })
+    test('setErrors with regex works', async () => {
+      form.value.setErrors([{ id: 'emailInput', name: 'email', message: 'this is an error' }])
+
+      expect(form.value.errors).toMatchObject([{ id: 'emailInput', name: 'email', message: 'this is an error' }])
+
+      form.value.setErrors([{ id: 'passwordInput', name: 'password', message: 'this is another error' }], /email/)
+
+      expect(form.value.errors).toMatchObject([{ id: 'passwordInput', name: 'password', message: 'this is another error' }])
+
+      await nextTick()
+
+      const emailField = wrapper.find('#emailField')
+      expect(emailField.text()).toBe('')
+
+      const passwordField = wrapper.find('#passwordField')
+      expect(passwordField.text()).toBe('this is another error')
+    })
 
     test('clear works', async () => {
       form.value.setErrors([{
@@ -259,27 +255,26 @@ describe('Form', () => {
       expect(passwordField.text()).toBe('this is another error')
     })
 
-    // @todo test this
-    // test('clear with regex works', async () => {
-    //   form.value.setErrors([
-    //     { id: 'emailInput', name: 'email', message: 'this is an error' },
-    //     { id: 'passwordInput', name: 'password', message: 'this is another error' }
-    //   ])
-    //
-    //   form.value.clear(/email/)
-    //
-    //   expect(form.value.errors).toMatchObject([
-    //     { id: 'passwordInput', name: 'password', message: 'this is another error' }
-    //   ])
-    //
-    //   await nextTick()
-    //
-    //   const emailField = wrapper.find('#emailField')
-    //   expect(emailField.text()).toBe('')
-    //
-    //   const passwordField = wrapper.find('#passwordField')
-    //   expect(passwordField.text()).toBe('this is another error')
-    // })
+    test('clear with regex works', async () => {
+      form.value.setErrors([
+        { id: 'emailInput', name: 'email', message: 'this is an error' },
+        { id: 'passwordInput', name: 'password', message: 'this is another error' }
+      ])
+
+      form.value.clear(/email/)
+
+      expect(form.value.errors).toMatchObject([
+        { id: 'passwordInput', name: 'password', message: 'this is another error' }
+      ])
+
+      await nextTick()
+
+      const emailField = wrapper.find('#emailField')
+      expect(emailField.text()).toBe('')
+
+      const passwordField = wrapper.find('#passwordField')
+      expect(passwordField.text()).toBe('this is another error')
+    })
 
     test('submit error works', async () => {
       await form.value.submit()
