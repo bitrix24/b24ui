@@ -340,6 +340,15 @@ describe('Form', () => {
       ])
     })
 
+    test('getErrors with regex works', async () => {
+      await form.value.submit()
+      const errors = form.value.getErrors(/email/)
+
+      expect(errors).toMatchObject([
+        { id: 'emailInput', name: 'email', message: 'Invalid input: expected string, received undefined' }
+      ])
+    })
+
     test('touchedFields works', async () => {
       const emailInput = wrapper.find('#emailInput')
 
