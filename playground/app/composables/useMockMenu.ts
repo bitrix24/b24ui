@@ -18,8 +18,6 @@ import CircleCheckThinIcon from '@bitrix24/b24icons-vue/main/CircleCheckThinIcon
 import Bitrix24Icon from '@bitrix24/b24icons-vue/common-service/Bitrix24Icon'
 import LoaderWaitIcon from '@bitrix24/b24icons-vue/animated/LoaderWaitIcon'
 
-console.error(new Error('this useMockMenu'))
-
 export function useMockMenu() {
   const toast = useToast()
 
