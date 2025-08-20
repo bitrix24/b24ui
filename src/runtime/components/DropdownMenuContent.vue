@@ -39,7 +39,6 @@ type DropdownMenuContentSlots<
 > = Pick<DropdownMenuSlots<A>, 'item' | 'item-leading' | 'item-label' | 'item-trailing' | 'content-top' | 'content-bottom'> & {
   default(props?: {}): any
 } & DynamicSlots<MergeTypes<T>, 'leading' | 'label' | 'trailing', { active?: boolean, index: number }>
-
 </script>
 
 <script setup lang="ts" generic="T extends ArrayOrNested<DropdownMenuItem>">
