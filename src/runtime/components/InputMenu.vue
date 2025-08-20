@@ -313,8 +313,12 @@ const filteredGroups = computed(() => {
 
   const fields = Array.isArray(props.filterFields) ? props.filterFields : [props.labelKey] as string[]
 
-  return groups.value.map(group => group.filter((item) => {
-    if (typeof item !== 'object' || item === null) {
+  return groups.value.map(items => items.filter((item) => {
+    if (item === undefined || item === null) {
+      return false
+    }
+
+    if (typeof item !== 'object') {
       return contains(String(item), searchTerm.value)
     }
 
