@@ -36,7 +36,8 @@ const items = [
   {
     label: 'Estimates',
     content: 'Use slot, this is the content for Estimates',
-    slot: 'custom' as const
+    slot: 'custom' as const,
+    badge: 'badge'
   },
   /*
   {

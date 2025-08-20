@@ -2,7 +2,7 @@
 import type { TabsRootProps, TabsRootEmits } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/tabs'
-import type { AvatarProps, IconComponent } from '../types'
+import type { AvatarProps, BadgeProps, IconComponent } from '../types'
 import type { DynamicSlots, ComponentConfig } from '../types/utils'
 
 type Tabs = ComponentConfig<typeof theme, AppConfig, 'tabs'>
@@ -14,13 +14,18 @@ export interface TabsItem {
    */
   icon?: IconComponent
   avatar?: AvatarProps
+  /**
+   * Display a badge on the item.
+   * `{ size: 'sm', color: 'air-primary' }`{lang="ts"}
+   */
+  badge?: string | number | BadgeProps
   slot?: string
   content?: string
   /** A unique value for the tab item. Defaults to the index. */
   value?: string | number
   disabled?: boolean
   class?: any
-  b24ui?: Pick<Tabs['slots'], 'trigger' | 'leadingIcon' | 'leadingAvatarSize' | 'leadingAvatar' | 'label' | 'content'>
+  b24ui?: Pick<Tabs['slots'], 'trigger' | 'leadingIcon' | 'leadingAvatar' | 'leadingAvatarSize' | 'label' | 'trailingBadge' | 'trailingBadgeSize' | 'content'>
   [key: string]: any
 }
 
@@ -81,6 +86,7 @@ import { useAppConfig } from '#imports'
 import { get } from '../utils'
 import { tv } from '../utils/tv'
 import B24Avatar from './Avatar.vue'
+import B24Badge from './Badge.vue'
 
 const props = withDefaults(defineProps<TabsProps<T>>(), {
   content: true,
@@ -146,7 +152,16 @@ defineExpose({
           <slot :item="item" :index="index">{{ getLabel(item) }}</slot>
         </span>
 
-        <slot name="trailing" :item="item" :index="index" />
+        <slot name="trailing" :item="item" :index="index">
+          <B24Badge
+            v-if="item.badge"
+            color="air-primary"
+            variant="outline"
+            :size="((item.ui?.trailingBadgeSize || props.b24ui?.trailingBadgeSize || b24ui.trailingBadgeSize()) as BadgeProps['size'])"
+            v-bind="(typeof item.badge === 'string' || typeof item.badge === 'number') ? { label: item.badge } : item.badge"
+            :class="b24ui.trailingBadge({ class: [props.b24ui?.trailingBadge, item.b24ui?.trailingBadge] })"
+          />
+        </slot>
       </TabsTrigger>
 
       <slot name="list-trailing" />

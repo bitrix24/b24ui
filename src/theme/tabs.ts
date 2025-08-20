@@ -36,11 +36,13 @@ export default {
       'transition-colors',
       'rounded-(--ui-border-radius-md)' // @memo for ring
     ].join(' '),
-    content: 'focus:outline-none w-full',
     leadingIcon: 'shrink-0',
     leadingAvatar: 'shrink-0',
     leadingAvatarSize: '',
-    label: ''
+    label: '',
+    trailingBadge: 'shrink-0',
+    trailingBadgeSize: 'sm',
+    content: 'focus:outline-none w-full'
   },
   variants: {
     variant: {

@@ -35,12 +35,13 @@ Use the `items` prop as an array of objects with the following properties:
 - `label?: string`{lang="ts"}
 - `icon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts"}
 - `avatar?: AvatarProps`{lang="ts"}
+- `badge?: string | number | BadgeProps`{lang="ts"}
 - `content?: string`{lang="ts"}
 - `value?: string | number`{lang="ts"}
 - `disabled?: boolean`{lang="ts"}
 - [`slot?: string`{lang="ts"}](#with-custom-slot)
 - `class?: any`{lang="ts"}
-- `b24ui?: { trigger?: ClassNameValue, leadingIcon?: ClassNameValue, leadingAvatar?: ClassNameValue, label?: ClassNameValue, content?: ClassNameValue }`{lang="ts"}
+- `b24ui?: { trigger?: ClassNameValue, leadingIcon?: ClassNameValue, leadingAvatar?: ClassNameValue, leadingAvatarSize?: ClassNameValue, label?: ClassNameValue, trailingBadge?: ClassNameValue, trailingBadgeSize?: ClassNameValue, content?: ClassNameValue }`{lang="ts"}
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
