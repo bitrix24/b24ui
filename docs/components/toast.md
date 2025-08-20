@@ -182,6 +182,64 @@ Pass an `orientation` field to the `toast.add` method to change the orientation 
 <<< @/examples/toast/demo/Orientation.vue{vue:line-numbers}
 :::
 
+## Examples
+
+::: tip
+Bitrix24 UI provides an [**App**](/components/app) component that wraps your app to provide global configurations.
+:::
+
+### Change global position
+
+Change the `toaster.position` prop on the [App](/components/app#props) component to change the position of the toasts.
+
+```vue [app.vue]
+<script setup lang="ts">
+const toaster = { position: 'bottom-right' }
+</script>
+
+<template>
+  <B24App :toaster="toaster">
+    <NuxtPage />
+  </B24App>
+</template>
+```
+
+### Change global duration
+
+Change the `toaster.duration` prop on the [App](/components/app#props) component to change the duration of the toasts.
+
+```vue [app.vue]
+<script setup lang="ts">
+const toaster = { duration: 5000 }
+</script>
+
+<template>
+  <B24App :toaster="toaster">
+    <NuxtPage />
+  </UApp>
+</template>
+```
+
+### Stacked toasts
+
+Set the `toaster.expand` prop to `false` on the [App](/components/app#props) component to display stacked toasts.
+
+::: tip
+You can hover over the toasts to expand them. This will also pause the timer of the toasts.
+:::
+
+```vue [app.vue]
+<script setup lang="ts">
+const toaster = { expand: true }
+</script>
+
+<template>
+  <B24App :toaster="toaster">
+    <NuxtPage />
+  </UApp>
+</template>
+```
+
 ## API
 
 ### Props
