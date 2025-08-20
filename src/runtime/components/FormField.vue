@@ -129,7 +129,7 @@ provide(formFieldInjectionKey, computed(() => ({
           </div>
         </slot>
       </div>
-      <div v-else-if="help || !!slots.help" :class="b24ui.help({ class: props.b24ui?.help })">
+      <div v-else-if="help || !!slots.help" :id="`${ariaId}-help`" :class="b24ui.help({ class: props.b24ui?.help })">
         <slot name="help" :help="help">
           {{ help }}
         </slot>
