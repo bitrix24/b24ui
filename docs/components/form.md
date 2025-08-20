@@ -76,6 +76,10 @@ The Form component automatically triggers validation when an input emits an `inp
 You can control when validation happens this using the `validate-on` prop.
 
 ::: tip
+The form always validates on submit.
+:::
+
+::: tip
 You can use the [`useFormField`](/components/composables/use-form-field) composable to implement this inside your own components.
 :::
 
