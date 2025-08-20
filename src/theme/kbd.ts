@@ -1,6 +1,9 @@
 /**
  * Kbd
  * A kbd element to display a keyboard key.
+ * ---
+ * @memo not use color
+ * @memo not use variant
  */
 
 export default {
