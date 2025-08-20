@@ -119,7 +119,7 @@ defineExpose({
 <template>
   <ToastRoot
     ref="el"
-    v-slot="{ remaining, duration }"
+    v-slot="{ remaining, duration, open }"
     v-bind="rootProps"
     :data-orientation="orientation"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
@@ -188,6 +188,6 @@ defineExpose({
       </ToastClose>
     </div>
 
-    <div v-if="progress && remaining > 0 && duration" :class="b24ui.progress({ class: props.b24ui?.progress })" :style="{ width: `${remaining / duration * 100}%` }" />
+    <div v-if="progress && open && remaining > 0 && duration" :class="b24ui.progress({ class: props.b24ui?.progress })" :style="{ width: `${remaining / duration * 100}%` }" />
   </ToastRoot>
 </template>
