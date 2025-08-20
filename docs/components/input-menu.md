@@ -416,7 +416,7 @@ In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), y
 
 ### Control open state on focus
 
-You can also use the `@focus` directive to control the open state.
+You can use the `open-on-focus` or `open-on-click` props to open the menu when the input is focused or clicked.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
