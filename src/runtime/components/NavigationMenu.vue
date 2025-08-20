@@ -181,6 +181,8 @@ import B24Badge from './Badge.vue'
 import B24Popover from './Popover.vue'
 import B24Tooltip from './Tooltip.vue'
 
+defineOptions({ inheritAttrs: false })
+
 const props = withDefaults(defineProps<NavigationMenuProps<T>>(), {
   orientation: 'horizontal',
   externalIcon: true,
@@ -538,7 +540,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
   </DefineItemTemplate>
 
   <NavigationMenuRoot
-    v-bind="rootProps"
+    v-bind="{ ...rootProps, ...$attrs }"
     :data-collapsed="collapsed"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     data-slot="section"
