@@ -1,5 +1,6 @@
 import { describe, it, expect, test } from 'vitest'
-import NavigationMenu, { type NavigationMenuProps, type NavigationMenuSlots } from '../../src/runtime/components/NavigationMenu.vue'
+import NavigationMenu from '../../src/runtime/components/NavigationMenu.vue'
+import type { NavigationMenuProps, NavigationMenuSlots } from '../../src/runtime/components/NavigationMenu.vue'
 import ComponentRender from '../component-render'
 import { expectSlotProps } from '../utils/types'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
