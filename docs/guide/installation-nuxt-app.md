@@ -179,7 +179,7 @@ export default defineNuxtConfig({
 ```
 
 ::: tip
-Learn [more](/getting-started-theme#colors) about color customization and theming in the Theme section.
+Learn [more](/guide/getting-started-theme#colors) about color customization and theming in the Theme section.
 :::
 
 ### `theme.defaultVariants`

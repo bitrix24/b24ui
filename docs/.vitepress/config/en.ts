@@ -48,6 +48,7 @@ function nav(): DefaultTheme.NavItem[] {
 function sidebarGuide(): DefaultTheme.SidebarItem[] {
   return [
     { text: 'Introduction', link: 'getting-started' },
+    { text: 'Theme', link: 'getting-started-theme' },
     {
       text: 'Nuxt',
       collapsed: false,

@@ -3,6 +3,8 @@ title: Theme
 description: 'Learn how to customize Bitrix24 UI components using Tailwind CSS v4, CSS variables and the Tailwind Variants API for powerful and flexible theming.'
 ---
 
+# Theme
+
 ::: warning We are still updating this page
 Some data may be missing here — we will complete it shortly.
 :::
@@ -77,7 +79,7 @@ Bitrix24 UI components are styled using the [Tailwind Variants](https://www.tail
 
 ### Slots
 
-Components in Bitrix24 UI can have multiple `slots`, each representing a distinct HTML element or section within the component. These slots allow for flexible content insertion and styling. Let's take the [Card](/components/card) component as an example:
+Components in Bitrix24 UI can have multiple `slots`, each representing a distinct HTML element or section within the component. These slots allow for flexible content insertion and styling. Let's take the [Alert](/components/alert) component as an example:
 
 @todo
 
