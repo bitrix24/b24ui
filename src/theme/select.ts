@@ -194,68 +194,79 @@ export default () => {
           'ai': { item: 'style-old-ai' }
         }
       },
-      compoundVariants: [
-        // from dropdown-menu
-        {
-          colorItem: ['air-primary', 'air-primary-success', 'air-primary-alert', 'air-primary-copilot', 'air-primary-warning'],
-          active: false,
-          class: {
-            item: [
-              'text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)'
-            ].join(' '),
-            itemLeadingIcon: [
-              'text-(--b24ui-background) group-data-highlighted:text-(--b24ui-background-hover) group-data-[state=open]:text-(--b24ui-background-hover)'
-            ].join(' ')
-          }
-        },
-        {
-          colorItem: ['air-primary', 'air-primary-success', 'air-primary-alert', 'air-primary-copilot', 'air-primary-warning'],
-          active: true,
-          class: {
-            item: [
-              'text-(--b24ui-background-active)'
-            ].join(' '),
-            itemLeadingIcon: [
-              'text-(--b24ui-background-active) group-data-[state=open]:text-(--b24ui-background-active)'
-            ].join(' ')
-          }
-        },
-        {
-          colorItem: 'default',
-          active: false,
-          class: ''
-        },
-        {
-          colorItem: 'default',
-          active: true,
-          class: ''
-        },
-        {
-          colorItem: ['danger', 'success', 'warning', 'primary', 'secondary', 'collab', 'ai'],
-          active: false,
-          class: {
-            item: [
-              'text-(--b24ui-background-active) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)'
-            ].join(' '),
-            itemLeadingIcon: [
-              'text-(--b24ui-icon) group-data-highlighted:text-(--b24ui-icon) group-data-[state=open]:text-(--b24ui-icon)'
-            ].join(' ')
-          }
-        },
-        {
-          colorItem: ['danger', 'success', 'warning', 'primary', 'secondary', 'collab', 'ai'],
-          active: true,
-          class: {
-            item: [
-              'text-(--b24ui-background-active)'
-            ].join(' '),
-            itemLeadingIcon: [
-              'text-(--b24ui-background-active) group-data-[state=open]:text-(--b24ui-background-active)'
-            ].join(' ')
-          }
-        }
-      ]
+      compoundVariants: (prev: Record<string, any>[]) => {
+        return [
+          // from dropdown-menu
+          {
+            colorItem: ['air-primary', 'air-primary-success', 'air-primary-alert', 'air-primary-copilot', 'air-primary-warning'],
+            active: false,
+            class: {
+              item: [
+                'text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)'
+              ].join(' '),
+              itemLeadingIcon: [
+                'text-(--b24ui-background) group-data-highlighted:text-(--b24ui-background-hover) group-data-[state=open]:text-(--b24ui-background-hover)'
+              ].join(' ')
+            }
+          },
+          {
+            colorItem: ['air-primary', 'air-primary-success', 'air-primary-alert', 'air-primary-copilot', 'air-primary-warning'],
+            active: true,
+            class: {
+              item: [
+                'text-(--b24ui-background-active)'
+              ].join(' '),
+              itemLeadingIcon: [
+                'text-(--b24ui-background-active) group-data-[state=open]:text-(--b24ui-background-active)'
+              ].join(' ')
+            }
+          },
+          {
+            colorItem: 'default',
+            active: false,
+            class: ''
+          },
+          {
+            colorItem: 'default',
+            active: true,
+            class: ''
+          },
+          {
+            colorItem: ['danger', 'success', 'warning', 'primary', 'secondary', 'collab', 'ai'],
+            active: false,
+            class: {
+              item: [
+                'text-(--b24ui-background-active) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)'
+              ].join(' '),
+              itemLeadingIcon: [
+                'text-(--b24ui-icon) group-data-highlighted:text-(--b24ui-icon) group-data-[state=open]:text-(--b24ui-icon)'
+              ].join(' ')
+            }
+          },
+          {
+            colorItem: ['danger', 'success', 'warning', 'primary', 'secondary', 'collab', 'ai'],
+            active: true,
+            class: {
+              item: [
+                'text-(--b24ui-background-active)'
+              ].join(' '),
+              itemLeadingIcon: [
+                'text-(--b24ui-background-active) group-data-[state=open]:text-(--b24ui-background-active)'
+              ].join(' ')
+            }
+          },
+          ...prev.map(item => ({
+            ...item,
+            class: typeof item.class === 'string' ? replaceFocus(item.class) : item.class
+          }))
+        ]
+      }
     },
     input
   )
+}
+
+function replaceFocus(str: string): string {
+  return str
+    .replace(/focus-visible:/g, 'focus:')
 }

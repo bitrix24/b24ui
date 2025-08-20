@@ -42,6 +42,15 @@ export default () => {
           ].join(' ')
         }
       }
-    }
+    },
+    compoundVariants: (prev: Record<string, any>[]) => prev.map(item => ({
+      ...item,
+      class: typeof item.class === 'string' ? replaceFocus(item.class) : item.class
+    }))
   }, select())
+}
+
+function replaceFocus(str: string): string {
+  return str
+    .replace(/focus:/g, 'focus-visible:')
 }
