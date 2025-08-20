@@ -97,7 +97,7 @@ exports[`FormField > renders with help correctly 1`] = `
     <!--v-if-->
   </div>
   <div class="">
-    <div class="mt-[6px] leading-(--ui-font-line-height-2xs) italic text-(--b24ui-typography-description-color)">Username must be unique</div>
+    <div id="v-0-0-help" class="mt-[6px] leading-(--ui-font-line-height-2xs) italic text-(--b24ui-typography-description-color)">Username must be unique</div>
   </div>
 </div>"
 `;
@@ -109,7 +109,7 @@ exports[`FormField > renders with help slot correctly 1`] = `
     <!--v-if-->
   </div>
   <div class="">
-    <div class="mt-[6px] leading-(--ui-font-line-height-2xs) italic text-(--b24ui-typography-description-color)">Help slot</div>
+    <div id="v-0-0-help" class="mt-[6px] leading-(--ui-font-line-height-2xs) italic text-(--b24ui-typography-description-color)">Help slot</div>
   </div>
 </div>"
 `;

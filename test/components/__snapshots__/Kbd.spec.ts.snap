@@ -1,5 +1,11 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Kbd > renders with accent accent correctly 1`] = `"<kbd class="inline-flex items-center justify-center px-1 rounded-(--ui-border-radius-2xs) font-normal font-[family-name:var(--ui-font-family-system-mono)] border-(length:--b24ui-border-width) border-(--b24ui-border-color) text-(--b24ui-color) bg-(--b24ui-background) style-outline-accent-1 h-[24px] min-w-[24px] text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">K</kbd>"`;
+
+exports[`Kbd > renders with accent default correctly 1`] = `"<kbd class="inline-flex items-center justify-center px-1 rounded-(--ui-border-radius-2xs) font-normal font-[family-name:var(--ui-font-family-system-mono)] border-(length:--b24ui-border-width) border-(--b24ui-border-color) text-(--b24ui-color) bg-(--b24ui-background) style-outline h-[24px] min-w-[24px] text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">K</kbd>"`;
+
+exports[`Kbd > renders with accent less correctly 1`] = `"<kbd class="inline-flex items-center justify-center px-1 rounded-(--ui-border-radius-2xs) font-normal font-[family-name:var(--ui-font-family-system-mono)] border-(length:--b24ui-border-width) border-(--b24ui-border-color) text-(--b24ui-color) bg-(--b24ui-background) style-outline-no-accent h-[24px] min-w-[24px] text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">K</kbd>"`;
+
 exports[`Kbd > renders with as correctly 1`] = `"<span class="inline-flex items-center justify-center px-1 rounded-(--ui-border-radius-2xs) font-normal font-[family-name:var(--ui-font-family-system-mono)] border-(length:--b24ui-border-width) border-(--b24ui-border-color) text-(--b24ui-color) bg-(--b24ui-background) style-outline h-[24px] min-w-[24px] text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">K</span>"`;
 
 exports[`Kbd > renders with class correctly 1`] = `"<kbd class="inline-flex items-center justify-center px-1 rounded-(--ui-border-radius-2xs) font-[family-name:var(--ui-font-family-system-mono)] border-(length:--b24ui-border-width) border-(--b24ui-border-color) text-(--b24ui-color) bg-(--b24ui-background) style-outline h-[24px] min-w-[24px] text-(length:--ui-font-size-md)/(--ui-font-line-height-reset) font-bold">K</kbd>"`;

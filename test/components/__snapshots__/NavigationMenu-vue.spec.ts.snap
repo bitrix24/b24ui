@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`NavigationMenu > renders with arrow correctly 1`] = `
-"<nav data-collapsed="false" class="flex [&amp;>div]:min-w-0 font-[family-name:var(--ui-font-family-secondary)] relative h-full items-center justify-between" data-slot="section" aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="">
+"<nav arrow="true" data-collapsed="false" class="flex [&amp;>div]:min-w-0 font-[family-name:var(--ui-font-family-secondary)] relative h-full items-center justify-between" data-slot="section" aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="">
   <div style="position: relative;">
     <ul class="isolate min-w-0 flex items-center gap-x-1 h-full" data-orientation="horizontal">
       <li data-menu-item="" class="min-w-0 empty:hidden"></li>
@@ -214,7 +214,7 @@ exports[`NavigationMenu > renders with class correctly 1`] = `
 `;
 
 exports[`NavigationMenu > renders with content orientation vertical correctly 1`] = `
-"<nav data-collapsed="false" class="flex [&amp;>div]:min-w-0 font-[family-name:var(--ui-font-family-secondary)] relative h-full items-center justify-between" data-slot="section" aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="">
+"<nav contentorientation="vertical" data-collapsed="false" class="flex [&amp;>div]:min-w-0 font-[family-name:var(--ui-font-family-secondary)] relative h-full items-center justify-between" data-slot="section" aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="">
   <div style="position: relative;">
     <ul class="isolate min-w-0 flex items-center gap-x-1 h-full" data-orientation="horizontal">
       <li data-menu-item="" class="min-w-0 empty:hidden"></li>
