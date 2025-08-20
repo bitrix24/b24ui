@@ -102,9 +102,6 @@ import SpinnerIcon from '@bitrix24/b24icons-vue/specialized/SpinnerIcon'
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   type: 'button',
-  active: undefined,
-  // activeClass: '',
-  // inactiveClass: '',
   normalCase: true
 })
 
