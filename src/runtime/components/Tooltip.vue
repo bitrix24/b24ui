@@ -64,7 +64,7 @@ const slots = defineSlots<TooltipSlots>()
 
 const appConfig = useAppConfig() as Tooltip['AppConfig']
 
-const rootProps = useForwardPropsEmits(reactivePick(props, 'defaultOpen', 'open', 'delayDuration', 'disableHoverableContent', 'disableClosingTrigger', 'disabled', 'ignoreNonKeyboardFocus'), emits)
+const rootProps = useForwardPropsEmits(reactivePick(props, 'defaultOpen', 'open', 'delayDuration', 'disableHoverableContent', 'disableClosingTrigger', 'ignoreNonKeyboardFocus'), emits)
 const portalProps = usePortal(toRef(() => props.portal))
 const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffset: 8, collisionPadding: 8 }) as TooltipContentProps)
 const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 12, height: 7 }) as PopoverArrowProps)
@@ -76,7 +76,11 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.toolti
 </script>
 
 <template>
-  <TooltipRoot v-slot="{ open }" v-bind="rootProps">
+  <TooltipRoot
+    v-slot="{ open }"
+    v-bind="rootProps"
+    :disabled="!(text || kbds?.length || !!slots.content) || props.disabled"
+  >
     <TooltipTrigger
       v-if="!!slots.default || !!reference"
       v-bind="$attrs"
