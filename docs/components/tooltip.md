@@ -180,10 +180,6 @@ You can use the [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/i
 
 You can make the Tooltip follow the cursor when hovering over an element using the [`reference`](https://reka-ui.com/docs/components/tooltip#trigger) prop:
 
-::: info
-This example is based on Reka UI's [Tooltip Cursor](https://reka-ui.com/examples/tooltip-cursor) example.
-:::
-
 <div class="lg:min-h-[160px]">
   <ClientOnly>
     <WithFollowingCursorExample />

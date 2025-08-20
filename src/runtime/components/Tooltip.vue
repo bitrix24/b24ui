@@ -27,6 +27,11 @@ export interface TooltipProps extends TooltipRootProps {
    * @defaultValue true
    */
   portal?: boolean | string | HTMLElement
+  /**
+   * The reference (or anchor) element that is being referred to for positioning.
+   *
+   * If not provided will use the current component as anchor.
+   */
   reference?: TooltipTriggerProps['reference']
   class?: any
   b24ui?: Tooltip['slots']

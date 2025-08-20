@@ -19,7 +19,7 @@ const reference = computed(() => ({
 </script>
 
 <template>
-  <B24Tooltip
+  <B24Popover
     :open="open"
     :reference="reference"
     :content="{ side: 'top', sideOffset: 16, updatePositionStrategy: 'always' }"
@@ -37,7 +37,9 @@ const reference = computed(() => ({
     </div>
 
     <template #content>
-      {{ anchor.x.toFixed(0) }} - {{ anchor.y.toFixed(0) }}
+      <ProseP small accent="less" class="p-4">
+        {{ anchor.x.toFixed(0) }} - {{ anchor.y.toFixed(0) }}
+      </ProseP>
     </template>
-  </B24Tooltip>
+  </B24Popover>
 </template>

@@ -13,6 +13,7 @@ import ControlOpenStateExample from '/examples/popover/ControlOpenState.vue';
 import PreventClosingExample from '/examples/popover/PreventClosing.vue';
 import WithBodySlotExample from '/examples/popover/WithBodySlot.vue';
 import WithAnchorSlotExample from '/examples/popover/WithAnchorSlot.vue';
+import WithFollowingCursorExample from '/examples/popover/WithFollowingCursor.vue';
 </script>
 # Popover
 
@@ -164,6 +165,20 @@ This slot only works when `mode` is `click`.
 
 ::: details
 <<< @/examples/popover/demo/WithAnchorSlot.vue{vue:line-numbers}
+:::
+
+### With following cursor
+
+You can make the Popover follow the cursor when hovering over an element using the [`reference`](https://reka-ui.com/docs/components/tooltip#trigger) prop:
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <WithFollowingCursorExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/tooltip/demo/WithFollowingCursor.vue{vue:line-numbers}
 :::
 
 ## API
