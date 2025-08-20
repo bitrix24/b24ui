@@ -89,7 +89,7 @@ Wrap each avatar with a [Chip](/components/chip) to display a chip around the av
 </div>
 
 ::: details
-<<< @/examples/avatargroup/demo/WithChip.vue{3,6,9 vue:line-numbers}
+<<< @/examples/avatargroup/demo/WithChip.vue{7,13,20 vue:line-numbers}
 :::
 
 ### With link

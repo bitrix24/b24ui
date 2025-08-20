@@ -105,6 +105,20 @@ The `alt` prop is passed to the `img` element as the `alt` attribute.
 <<< @/examples/avatar/demo/Alt.vue{17 vue:line-numbers}
 :::
 
+### Chip
+
+Use the `chip` prop to display a chip around the Avatar.
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <WithChipExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/avatar/demo/WithChip.vue{7 vue:line-numbers}
+:::
+
 ## Examples
 
 ### With tooltip
@@ -119,20 +133,6 @@ You can use a [Tooltip](/components/tooltip) component to display a tooltip when
 
 ::: details
 <<< @/examples/avatar/demo/WithTooltip.vue{2,4 vue:line-numbers}
-:::
-
-### With chip
-
-You can use a [Chip](/components/chip) component to display a chip around the Avatar.
-
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithChipExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/avatar/demo/WithChip.vue{2,4 vue:line-numbers}
 :::
 
 ## API
