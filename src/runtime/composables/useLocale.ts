@@ -8,7 +8,7 @@ import en from '../locale/en'
 export const localeContextInjectionKey: InjectionKey<Ref<Locale<unknown> | undefined>> = Symbol.for('bitrix24-ui.locale-context')
 
 const _useLocale = (localeOverrides?: Ref<Locale<Messages> | undefined>) => {
-  const locale = localeOverrides || toRef(inject<Locale<Messages>>(localeContextInjectionKey))
+  const locale = localeOverrides || toRef(inject<Locale<Messages>>(localeContextInjectionKey, en))
 
   return buildLocaleContext<Messages>(computed(() => locale.value || en))
 }
