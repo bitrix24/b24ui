@@ -45,6 +45,7 @@ export default {
       'air-primary-alert': { root: 'style-filled-alert' },
       'air-primary-copilot': { root: 'style-filled-copilot' },
       'air-primary-warning': { root: 'style-filled-warning' },
+      'air-secondary': { root: 'style-tinted' },
       // @deprecate ////
       'default': { root: 'style-old-default' },
       'danger': { root: 'style-old-danger' },

@@ -41,7 +41,7 @@ export default {
     avatar: 'shrink-0',
     avatarSize: 'xl',
     actions: 'flex gap-1.5 shrink-0',
-    progress: 'absolute inset-x-0 bottom-0 h-1 z-[-1] bg-(--b24ui-border-color)',
+    progress: 'absolute inset-x-0 bottom-0', //  h-1 z-[-1] bg-(--b24ui-border-color)
     close: 'p-0'
   },
   variants: {

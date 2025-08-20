@@ -12,6 +12,7 @@ import ColorExample from '/examples/toast/Color.vue';
 import CloseExample from '/examples/toast/Close.vue';
 import CloseIconExample from '/examples/toast/CloseIcon.vue';
 import ActionsExample from '/examples/toast/Actions.vue';
+import ProgressExample from '/examples/toast/Progress.vue';
 import OrientationExample from '/examples/toast/Orientation.vue';
 </script>
 # Toast
@@ -108,7 +109,7 @@ Pass a `color` field to the `toast.add` method to change the color of the Toast.
 
 ### Close
 
-Pass a `close` field to customize or hide the close button (with `false` value).
+Pass a `close` field to customize or hide the close [Button](/components/button) (with `false` value).
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -148,9 +149,28 @@ Pass an `actions` field to add some [Button](/components/button) actions to the 
 <<< @/examples/toast/demo/Actions.vue{22-29 vue:line-numbers}
 :::
 
+### Progress
+
+Pass a `progress` field to customize or hide the [Progress](/components/progress) bar (with `false` value).
+
+::: tip
+The Progress bar inherits the Toast color by default, but you can override it using the `progress.color` field.
+:::
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <ProgressExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/toast/demo/Progress.vue{11 vue:line-numbers}
+:::
+
+
 ### Orientation
 
-Use the `orientation` prop to change the orientation of the Toast.
+Pass an `orientation` field to the `toast.add` method to change the orientation of the Toast.
 
 <div class="lg:min-h-[316px]">
   <ClientOnly>

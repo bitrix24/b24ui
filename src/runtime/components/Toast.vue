@@ -2,7 +2,7 @@
 import type { ToastRootProps, ToastRootEmits } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/toast'
-import type { AvatarProps, ButtonProps, IconComponent } from '../types'
+import type { AvatarProps, ButtonProps, ProgressProps, IconComponent } from '../types'
 import type { StringOrVNode, ComponentConfig } from '../types/utils'
 
 type Toast = ComponentConfig<typeof theme, AppConfig, 'toast'>
@@ -30,18 +30,6 @@ export interface ToastProps extends Pick<ToastRootProps, 'defaultOpen' | 'open' 
    */
   orientation?: Toast['variants']['orientation']
   /**
-   * Whether to show the progress bar.
-   * @defaultValue true
-   */
-  progress?: boolean
-  /**
-   * Display a list of actions:
-   * - under the title and description when orientation is `vertical`
-   * - next to the close button when orientation is `horizontal`
-   * `{ size: 'sm' }`{lang="ts"}
-   */
-  actions?: ButtonProps[]
-  /**
    * Display a close button to dismiss the toast.
    * `{ size: 'sm', color: 'air-tertiary' }`{lang="ts"}
    * @defaultValue true
@@ -53,6 +41,19 @@ export interface ToastProps extends Pick<ToastRootProps, 'defaultOpen' | 'open' 
    * @IconComponent
    */
   closeIcon?: IconComponent
+  /**
+   * Display a list of actions:
+   * - under the title and description when orientation is `vertical`
+   * - next to the close button when orientation is `horizontal`
+   * `{ size: 'sm' }`{lang="ts"}
+   */
+  actions?: ButtonProps[]
+  /**
+   * Display a progress bar showing the toast's remaining duration.
+   * `{ size: 'sm' }`{lang="ts"}
+   * @defaultValue true
+   */
+  progress?: boolean | Pick<ProgressProps, 'color'>
   class?: any
   b24ui?: Toast['slots']
 }
@@ -78,10 +79,11 @@ import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Avatar from './Avatar.vue'
 import B24Button from './Button.vue'
+import B24Progress from './Progress.vue'
 
 const props = withDefaults(defineProps<ToastProps>(), {
-  close: true,
   orientation: 'vertical',
+  close: true,
   progress: true
 })
 const emits = defineEmits<ToastEmits>()
@@ -188,6 +190,13 @@ defineExpose({
       </ToastClose>
     </div>
 
-    <div v-if="progress && open && remaining > 0 && duration" :class="b24ui.progress({ class: props.b24ui?.progress })" :style="{ width: `${remaining / duration * 100}%` }" />
+    <B24Progress
+      v-if="progress && open && remaining > 0 && duration"
+      :model-value="remaining / duration * 100"
+      :color="color"
+      v-bind="(typeof progress === 'object' ? progress as Partial<ProgressProps> : {})"
+      size="sm"
+      :class="b24ui.progress({ class: props.b24ui?.progress })"
+    />
   </ToastRoot>
 </template>
