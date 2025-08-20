@@ -1,2 +1,38 @@
 @import "tailwindcss" source("../../../..");
 @import "@bitrix24/b24ui-nuxt";
+
+/*
+ * Custom bg
+ */
+@layer base {
+  /*
+    .context-light,
+    :root {
+      --air-theme-bg-color: #ffffff;
+    }
+
+    .context-dark {
+      --air-theme-bg-color: #000000;
+    }
+  */
+  .context-edge-light {
+    --air-theme-bg-image: url(/bg/edge-light-v1.svg);
+    --air-theme-bg-image-blurred: url(/bg/edge-light-v1-blurred.webp);
+    --air-theme-bg-position: 0 0;
+    /*--air-theme-bg-size: auto;*/
+    --air-theme-bg-size: 240px 240px;
+    --air-theme-bg-repeat: repeat;
+    --air-theme-bg-attachment: fixed;
+    --air-theme-bg-color: #f1dbdb87;
+  }
+
+  .context-edge-dark {
+    --air-theme-bg-image: url(/bg/edge-dark-v1.jpg);
+    --air-theme-bg-image-blurred: url(/bg/edge-dark-v1-blurred.webp);
+    --air-theme-bg-position: 0 0;
+    --air-theme-bg-size: cover;
+    --air-theme-bg-repeat: no-repeat;
+    --air-theme-bg-attachment: fixed;
+    --air-theme-bg-color: #162345;
+  }
+}

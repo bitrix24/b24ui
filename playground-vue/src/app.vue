@@ -24,6 +24,7 @@ const mode = useColorMode<'light' | 'dark' | 'edgeLight' | 'edgeDark'>({
   }
 })
 const dir = useTextDirection()
+const { isSidebarLayoutUseLightContent, isSidebarLayoutClearContent, checkedUseLightContent } = useRouteCheck()
 
 appConfig.toaster = reactive({
   position: 'top-right' as const,
@@ -165,7 +166,7 @@ defineShortcuts({
     router.push('/')
   },
   shift_L: () => {
-    dir.value = dir.value === 'rtl' ? 'ltr' : 'rtl'
+    toggleDir()
   },
   shift_D: () => {
     toggleMode()
@@ -204,14 +205,11 @@ const menuTop = computed<NavigationMenuItem[]>(() => {
     }))
   ]
 })
-
-const { isSidebarLayoutUseLightContent, isSidebarLayoutClearContent, checkedUseLightContent } = useRouteCheck()
 </script>
 
 <template>
   <B24App :toaster="(appConfig.toaster as any)">
     <!-- // @see playground-vue/src/assets/css/main.css -->
-    <!-- // @see playground/app/assets/css/main.css -->
     <B24SidebarLayout
       ref="currentSidebarRef"
       :use-light-content="isSidebarLayoutUseLightContent"
