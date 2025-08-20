@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { menuTop } from './../composables/useMockMenu'
+import { useMockMenu } from './../composables/useMockMenu'
+
+const { menuTop } = useMockMenu()
 
 export interface MockSidebarLayoutMenuProps {
   orientation?: 'vertical' | 'horizontal'

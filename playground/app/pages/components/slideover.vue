@@ -14,11 +14,13 @@ import MockContentUploadFile from '../../components/MockContentUploadFile.vue'
 import BusinesProcessStagesIcon from '@bitrix24/b24icons-vue/outline/BusinesProcessStagesIcon'
 import TrendUpIcon from '@bitrix24/b24icons-vue/outline/TrendUpIcon'
 import TrendDownIcon from '@bitrix24/b24icons-vue/outline/TrendDownIcon'
-import { action } from '../../composables/useMockMenu'
+import { useMockMenu } from './../../composables/useMockMenu'
 import B24Slideover from '@bitrix24/b24ui-nuxt/components/Slideover.vue'
 import type { SlideoverInstance } from '@bitrix24/b24ui-nuxt'
 
 usePageMeta.setPageTitle('Slideover')
+
+const { action } = useMockMenu()
 
 const SlideoverExample = defineAsyncComponent(() => import('../../components/SlideoverExample.vue'))
 
