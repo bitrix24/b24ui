@@ -159,3 +159,46 @@ export default defineNuxtConfig({
 })
 ```
 :::
+
+### `theme.colors`
+
+Use the `theme.colors` option to define the dynamic color aliases used to generate components theme.
+
+- Default: `['air-primary', 'air-secondary', 'air-tertiary', 'air-primary-success', 'air-primary-warning', 'air-primary-alert', 'air-primary-copilot', 'air-secondary-accent', 'air-secondary-accent-1']`{lang="ts"}
+
+```ts [nuxt.config.ts]
+export default defineNuxtConfig({
+  modules: ['@bitrix24/b24ui-nuxt'],
+  css: ['~/assets/css/main.css'],
+  b24ui: {
+    theme: {
+      colors: ['air-primary', 'air-primary-alert']
+    }
+  }
+})
+```
+
+::: tip
+Learn [more](/getting-started-theme#colors) about color customization and theming in the Theme section.
+:::
+
+### `theme.defaultVariants`
+
+Use the `theme.defaultVariants` option to override the default `color` and `size` variants for components.
+
+- Default: `{ color: 'air-primary', size: 'md' }`{lang="ts"}
+
+```ts [nuxt.config.ts]
+export default defineNuxtConfig({
+  modules: ['@bitrix24/b24ui-nuxt'],
+  css: ['~/assets/css/main.css'],
+  b24ui: {
+    theme: {
+      defaultVariants: {
+        color: 'air-secondary',
+        size: 'sm'
+      }
+    }
+  }
+})
+```
