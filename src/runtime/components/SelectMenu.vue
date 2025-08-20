@@ -230,7 +230,7 @@ import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
 import { useLocale } from '../composables/useLocale'
 import { usePortal } from '../composables/usePortal'
-import { compare, get, isArrayOfArray } from '../utils'
+import { compare, get, getDisplayValue, isArrayOfArray } from '../utils'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Badge from './Badge.vue'
@@ -294,12 +294,20 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.select
 
 function displayValue(value: GetItemValue<T, VK> | GetItemValue<T, VK>[]): string | undefined {
   if (props.multiple && Array.isArray(value)) {
-    const values = value.map(v => displayValue(v)).filter(Boolean)
-    return values?.length ? values.join(', ') : undefined
+    const displayedValues = value
+      .map(item => getDisplayValue(items.value, item, {
+        labelKey: props.labelKey,
+        valueKey: props.valueKey
+      }))
+      .filter((v): v is string => v != null && v !== '')
+
+    return displayedValues.length > 0 ? displayedValues.join(', ') : undefined
   }
 
-  const item = items.value.find(item => compare(typeof item === 'object' && props.valueKey ? get(item as Record<string, any>, props.valueKey as string) : item, value))
-  return item && (typeof item === 'object' ? get(item, props.labelKey as string) : item)
+  return getDisplayValue(items.value, value, {
+    labelKey: props.labelKey,
+    valueKey: props.valueKey
+  })
 }
 
 const groups = computed<SelectMenuItem[][]>(() =>

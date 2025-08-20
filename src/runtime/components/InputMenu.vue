@@ -5,7 +5,7 @@ import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/input-menu'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
 import type { AvatarProps, ChipProps, InputProps, BadgeProps, IconComponent } from '../types'
-import type { AcceptableValue, ArrayOrNested, GetItemKeys, GetModelValue, GetModelValueEmits, NestedItem, EmitsToProps, ComponentConfig } from '../types/utils'
+import type { AcceptableValue, ArrayOrNested, GetItemKeys, GetItemValue, GetModelValue, GetModelValueEmits, NestedItem, EmitsToProps, ComponentConfig } from '../types/utils'
 
 type InputMenu = ComponentConfig<typeof theme, AppConfig, 'inputMenu'>
 
@@ -230,7 +230,7 @@ import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
 import { useLocale } from '../composables/useLocale'
 import { usePortal } from '../composables/usePortal'
-import { compare, get, isArrayOfArray } from '../utils'
+import { compare, get, getDisplayValue, isArrayOfArray } from '../utils'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Badge from './Badge.vue'
@@ -288,9 +288,11 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.inputM
   buttonGroup: orientation.value
 }))
 
-function displayValue(value: T): string {
-  const item = items.value.find(item => compare(typeof item === 'object' && props.valueKey ? get(item as Record<string, any>, props.valueKey as string) : item, value))
-  return item && (typeof item === 'object' ? get(item, props.labelKey as string) : item)
+function displayValue(value: GetItemValue<T, VK>): string {
+  return getDisplayValue(items.value, value, {
+    labelKey: props.labelKey,
+    valueKey: props.valueKey
+  }) ?? ''
 }
 
 const groups = computed<InputMenuItem[][]>(() =>
@@ -301,7 +303,7 @@ const groups = computed<InputMenuItem[][]>(() =>
     : []
 )
 // eslint-disable-next-line vue/no-dupe-keys
-const items = computed(() => groups.value.flatMap(group => group))
+const items = computed(() => groups.value.flatMap(group => group) as T[])
 
 const filteredGroups = computed(() => {
   if (props.ignoreFilter || !searchTerm.value) {
@@ -511,7 +513,7 @@ defineExpose({
         <TagsInputItem v-for="(item, index) in tags" :key="index" :value="(item as string)" :class="b24ui.tagsItem({ class: [props.b24ui?.tagsItem, isInputItem(item) && item.b24ui?.tagsItem] })">
           <TagsInputItemText :class="b24ui.tagsItemText({ class: [props.b24ui?.tagsItemText, isInputItem(item) && item.b24ui?.tagsItemText] })">
             <slot name="tags-item-text" :item="(item as NestedItem<T>)" :index="index">
-              {{ displayValue(item as T) }}
+              {{ displayValue(item as GetItemValue<T, VK>) }}
             </slot>
           </TagsInputItemText>
 
