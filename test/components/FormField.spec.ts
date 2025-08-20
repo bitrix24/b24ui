@@ -114,7 +114,6 @@ describe('FormField', () => {
           props: { label: 'Label' },
           inputComponent
         })
-
         const label = wrapper.find('label[for=v-0-0]')
         expect(label.exists()).toBe(false)
       })

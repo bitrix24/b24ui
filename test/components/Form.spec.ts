@@ -17,10 +17,10 @@ import {
 } from '#components'
 import { flushPromises } from '@vue/test-utils'
 
-// interface CustomValidationError {
-//   name: string
-//   message: string
-// }
+interface CustomValidationError {
+  name: string
+  message: string
+}
 
 describe('Form', () => {
   it.each([
@@ -75,8 +75,8 @@ describe('Form', () => {
     }],
     ['custom', {
       async validate(state: any) {
-        // const errs: CustomValidationError[] = []
-        const errs = []
+        const errs: CustomValidationError[] = []
+        // const errs = []
         if (!state.email)
           errs.push({ name: 'email', message: 'Email is required' })
         if (state.password?.length < 8)
