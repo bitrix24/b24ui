@@ -19,9 +19,6 @@ export default defineNuxtConfig({
       baseURL: '/b24ui/demo/'
     }
   },
-  future: {
-    compatibilityVersion: 4
-  },
   compatibilityDate: '2024-04-12',
   nitro: {
     output: {
