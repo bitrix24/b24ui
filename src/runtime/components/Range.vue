@@ -34,8 +34,8 @@ export interface RangeProps extends Pick<SliderRootProps, 'name' | 'disabled' | 
 }
 
 export interface RangeEmits<T extends number | number[] = number | number[]> {
-  (e: 'update:modelValue', payload: T): void
-  (e: 'change', payload: Event): void
+  'update:modelValue': [payload: T]
+  'change': [payload: Event]
 }
 </script>
 
