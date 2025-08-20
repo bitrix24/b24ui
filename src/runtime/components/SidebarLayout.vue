@@ -124,7 +124,7 @@ const closeModal = () => {
 }
 
 const stopWatcher = watch(
-  () => route.path,
+  () => route?.path,
   () => closeModal(),
   { immediate: true }
 )
