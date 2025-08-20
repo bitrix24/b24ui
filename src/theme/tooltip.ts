@@ -30,7 +30,7 @@ export default {
     ].join(' '),
     arrow: 'fill-(--ui-color-bg-content-primary)/80',
     text: 'text-pretty max-w-[200px] min-w-[100px]', // truncate
-    kbds: `hidden lg:inline-flex items-center shrink-0 gap-0.5 before:content-[''] before:me-0.5`,
+    kbds: `hidden lg:inline-flex items-center shrink-0 gap-0.5 not-first-of-type:before:content-[''] not-first-of-type:before:me-0.5`,
     kbdsSize: 'sm',
     kbdsAccent: 'default'
   }
