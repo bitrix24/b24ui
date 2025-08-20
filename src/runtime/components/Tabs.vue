@@ -154,7 +154,7 @@ defineExpose({
 
         <slot name="trailing" :item="item" :index="index">
           <B24Badge
-            v-if="item.badge"
+            v-if="item.badge !== undefined"
             color="air-primary"
             variant="outline"
             :size="((item.ui?.trailingBadgeSize || props.b24ui?.trailingBadgeSize || b24ui.trailingBadgeSize()) as BadgeProps['size'])"

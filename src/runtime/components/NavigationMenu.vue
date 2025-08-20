@@ -281,7 +281,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
             {{ item.hint }}
           </div>
           <B24Badge
-            v-if="item.badge && item.type !== 'label'"
+            v-if="item.badge !== undefined && item.type !== 'label'"
             color="air-primary-alert"
             :size="((item.b24ui?.linkLeadingBadgeSize || props.b24ui?.linkLeadingBadgeSize || b24ui.linkLeadingBadgeSize()) as BadgeProps['size'])"
             v-bind="(typeof item.badge === 'string' || typeof item.badge === 'number') ? { label: item.badge } : item.badge"
