@@ -276,57 +276,6 @@ export default defineConfig({
 ```
 :::
 
-### `theme.colors`
-
-Use the `theme.colors` option to define the dynamic color aliases used to generate components theme.
-
-- Default: `['air-primary', 'air-secondary', 'air-tertiary', 'air-primary-success', 'air-primary-warning', 'air-primary-alert', 'air-primary-copilot', 'air-secondary-accent', 'air-secondary-accent-1']`{lang="ts"}
-
-```ts [vite.config.ts]
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import bitrix24UIPluginVite from '@bitrix24/b24ui-nuxt/vite'
-
-export default defineConfig({
-  plugins: [
-    vue(),
-    bitrix24UIPluginVite({
-      theme: {
-        colors: ['air-primary', 'air-primary-alert']
-      }
-    })
-  ]
-})
-```
-
-::: tip
-Learn [more](/guide/getting-started-theme#colors) about color customization and theming in the Theme section.
-:::
-
-### `theme.defaultVariants`
-
-Use the `theme.defaultVariants` option to override the default `color` and `size` variants for components.
-
-- Default: `{ color: 'air-primary', size: 'md' }`{lang="ts"}
-
-```ts [vite.config.ts]
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import bitrix24UIPluginVite from '@bitrix24/b24ui-nuxt/vite'
-
-export default defineConfig({
-  plugins: [
-    vue(),
-    bitrix24UIPluginVite({
-      defaultVariants: {
-        color: 'air-secondary',
-        size: 'sm'
-      }
-    })
-  ]
-})
-```
-
 ### `inertia`
 
 Use the `inertia` option to enable compatibility with [Inertia.js](https://inertiajs.com/).
