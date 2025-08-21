@@ -347,7 +347,7 @@ You can use the `type` property with `separator` to display a separator between 
 </div>
 
 ::: details
-<<< @/examples/selectmenu/demo/WithItemsType.vue{6,18,21 vue:line-numbers}
+<<< @/examples/selectmenu/demo/WithItemsType.vue{7,15,22 vue:line-numbers}
 :::
 
 ### With icon in items
