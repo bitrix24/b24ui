@@ -5,9 +5,6 @@ import type { ComponentConfig } from '../types/utils'
 import type { Ref } from 'vue'
 import type { SidebarLayoutApi } from '../composables/useSidebarLayout'
 
-/**
- * @todo add docs
- */
 type SidebarLayout = ComponentConfig<typeof theme, AppConfig, 'sidebarLayout'>
 export interface SidebarLayoutProps {
   /**
@@ -45,7 +42,7 @@ export interface SidebarLayoutSlots {
   /**
    * Top menu.
    */
-  'navbar'(props?: { isLoading: boolean }): any
+  'navbar'(props?: { handleClick: () => void, isLoading: boolean }): any
   /**
    * Content above the page. Used for title, filter, etc.
    */

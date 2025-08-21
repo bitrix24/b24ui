@@ -7,7 +7,6 @@ import {
 
 /**
  * Loading state for SidebarLayout
- * @todo add docs
  */
 export interface SidebarLayoutApi {
   // Current loading state
