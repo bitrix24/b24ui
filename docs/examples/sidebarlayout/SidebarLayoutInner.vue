@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
-import Demo from './demo/SidebarLayout.vue'
+import Demo from './demo/SidebarLayoutInner.vue'
 </script>
 
 <template>
   <ComponentShowExample>
-    <div class="demo w-full border-1 border-base-500 border-dashed"><Demo /></div>
+    <div class="demo w-full border-1 border-base-500 border-dashed"><div><Demo /></div></div>
   </ComponentShowExample>
 </template>
 

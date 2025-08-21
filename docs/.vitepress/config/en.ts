@@ -81,6 +81,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'defineShortcuts', link: 'define-shortcuts' },
         { text: 'useConfetti', link: 'use-confetti' },
+        { text: 'useSidebarLayout💡', link: 'use-sidebar-layout' },
         { text: 'useOverlay', link: 'use-overlay' },
         { text: 'useFormField', link: 'use-form-field' },
         { text: 'useToast', link: 'use-toast' }
@@ -121,7 +122,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       text: 'Data display',
       collapsed: false,
       items: [
-        { text: 'Accordion💡', link: 'accordion' },
+        { text: 'Accordion', link: 'accordion' },
         { text: 'Avatar', link: 'avatar' },
         { text: 'AvatarGroup', link: 'avatar-group' },
         { text: 'Badge', link: 'badge' },
@@ -155,7 +156,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       text: 'Layout & Navigation',
       collapsed: false,
       items: [
-        { text: 'SidebarLayout🔨', link: 'sidebar-layout' },
+        { text: 'SidebarLayout💡', link: 'sidebar-layout' },
         { text: 'NavigationMenu', link: 'navigation-menu' },
         { text: 'Container', link: 'container' },
         { text: 'Skeleton', link: 'skeleton' },
