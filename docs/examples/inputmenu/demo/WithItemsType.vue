@@ -28,6 +28,7 @@ const items = ref([
     color: 'danger'
   }
 ] satisfies InputMenuItem[])
+
 const value = ref()
 </script>
 
