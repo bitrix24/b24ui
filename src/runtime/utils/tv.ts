@@ -12,9 +12,9 @@ const twMergeConfig = {
   theme: {},
   classGroups: {
     'b24-context': [
-      'context-light', 'context-dark',
-      'context-edge-light', 'context-edge-dark',
-      'context-inherit'
+      'light', 'dark',
+      'edge-light', 'edge-dark',
+      'inherit'
     ],
     'b24-colors': [
       // primary ////

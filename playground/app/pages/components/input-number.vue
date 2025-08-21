@@ -69,6 +69,7 @@ const airColors = computed(() => {
           placeholder="Insert value&hellip;"
           highlight
           color="air-primary-alert"
+          aria-invalid="true"
           class="w-40"
         />
       </div>

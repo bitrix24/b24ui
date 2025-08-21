@@ -17,10 +17,10 @@ const appConfig = useAppConfig()
 const mode = useColorMode<'light' | 'dark' | 'edgeLight' | 'edgeDark'>({
   attribute: 'class',
   modes: {
-    light: 'context-light',
-    dark: 'context-dark',
-    edgeLight: 'context-edge-light',
-    edgeDark: 'context-edge-dark'
+    light: 'light',
+    dark: 'dark',
+    edgeLight: 'edge-light',
+    edgeDark: 'edge-dark'
   }
 })
 const dir = useTextDirection()
@@ -127,16 +127,16 @@ const getLightContent = computed(() => {
 
   switch (mode.value) {
     case 'dark':
-      result.containerWrapper = 'context-dark'
+      result.containerWrapper = 'dark'
       break
     case 'light':
-      result.containerWrapper = 'context-light'
+      result.containerWrapper = 'light'
       break
     case 'edgeDark':
-      result.containerWrapper = 'context-light'
+      result.containerWrapper = 'light'
       break
     case 'edgeLight':
-      result.containerWrapper = 'context-light'
+      result.containerWrapper = 'light'
       break
   }
 

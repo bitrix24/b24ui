@@ -6,7 +6,7 @@ exports[`Modal > renders with actions slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="context-light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
   <!--v-if-->
   <div class="flex flex-col gap-[15px] pt-[4px] overflow-hidden">
     <div class="flex items-start justify-between gap-[6px]">
@@ -38,7 +38,7 @@ exports[`Modal > renders with body slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="context-light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
   <!--v-if-->
   <div class="flex flex-col gap-[15px] pt-[4px] overflow-hidden">
     <div class="flex items-start justify-between gap-[6px]">
@@ -70,7 +70,7 @@ exports[`Modal > renders with class correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="context-light fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg bg-base-100" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="light fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg bg-base-100" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
   <!--v-if-->
   <div class="flex flex-col gap-[15px] pt-[4px] overflow-hidden">
     <div class="flex items-start justify-between gap-[6px]">
@@ -102,7 +102,7 @@ exports[`Modal > renders with close slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="context-light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
   <!--v-if-->
   <div class="flex flex-col gap-[15px] pt-[4px] overflow-hidden">
     <div class="flex items-start justify-between gap-[6px]">
@@ -126,7 +126,7 @@ exports[`Modal > renders with closeIcon correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="context-light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
   <!--v-if-->
   <div class="flex flex-col gap-[15px] pt-[4px] overflow-hidden">
     <div class="flex items-start justify-between gap-[6px]">
@@ -158,7 +158,7 @@ exports[`Modal > renders with content slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="context-light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
   <!--v-if-->Content slot
 </div>
 
@@ -172,7 +172,7 @@ exports[`Modal > renders with default slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="context-light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="reka-dialog-content-v-0" role="dialog" aria-describedby="reka-dialog-description-v-2" aria-labelledby="reka-dialog-title-v-1" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="reka-dialog-content-v-0" role="dialog" aria-describedby="reka-dialog-description-v-2" aria-labelledby="reka-dialog-title-v-1" data-state="open">
   <!--v-if-->
   <div class="flex flex-col gap-[15px] pt-[4px] overflow-hidden">
     <div class="flex items-start justify-between gap-[6px]">
@@ -204,7 +204,7 @@ exports[`Modal > renders with description correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="context-light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
   <!--v-if-->
   <div class="flex flex-col gap-[15px] pt-[4px] overflow-hidden">
     <div class="flex items-start justify-between gap-[6px]">
@@ -236,7 +236,7 @@ exports[`Modal > renders with description slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="context-light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
   <!--v-if-->
   <div class="flex flex-col gap-[15px] pt-[4px] overflow-hidden">
     <div class="flex items-start justify-between gap-[6px]">
@@ -268,7 +268,7 @@ exports[`Modal > renders with footer slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="context-light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
   <!--v-if-->
   <div class="flex flex-col gap-[15px] pt-[4px] overflow-hidden">
     <div class="flex items-start justify-between gap-[6px]">
@@ -300,7 +300,7 @@ exports[`Modal > renders with fullscreen correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="context-light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] inset-0" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] inset-0" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
   <!--v-if-->
   <div class="flex flex-col gap-[15px] pt-[4px]">
     <div class="flex items-start justify-between gap-[6px]">
@@ -332,7 +332,7 @@ exports[`Modal > renders with header slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="context-light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
   <!--v-if-->
   <div class="flex flex-col gap-[15px] pt-[4px] overflow-hidden">
     <div class="flex items-start justify-between gap-[6px]">Header slot</div>
@@ -351,7 +351,7 @@ exports[`Modal > renders with open correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" tabindex="-1" class="context-light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" style="pointer-events: auto;">
+<div data-dismissable-layer="" tabindex="-1" class="light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open" style="pointer-events: auto;">
   <!--v-if-->
   <div class="flex flex-col gap-[15px] pt-[4px] overflow-hidden">
     <div class="flex items-start justify-between gap-[6px]">
@@ -383,7 +383,7 @@ exports[`Modal > renders with title correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="context-light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
   <!--v-if-->
   <div class="flex flex-col gap-[15px] pt-[4px] overflow-hidden">
     <div class="flex items-start justify-between gap-[6px]">
@@ -415,7 +415,7 @@ exports[`Modal > renders with title slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="context-light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
   <!--v-if-->
   <div class="flex flex-col gap-[15px] pt-[4px] overflow-hidden">
     <div class="flex items-start justify-between gap-[6px]">
@@ -447,7 +447,7 @@ exports[`Modal > renders with ui correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="context-light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
   <!--v-if-->
   <div class="flex flex-col gap-[15px] pt-[4px] overflow-hidden">
     <div class="flex items-start justify-between gap-[6px]">
@@ -479,7 +479,7 @@ exports[`Modal > renders without close correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="context-light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
   <!--v-if-->
   <div class="flex flex-col gap-[15px] pt-[4px] overflow-hidden">
     <div class="flex items-start justify-between gap-[6px]">
@@ -504,7 +504,7 @@ exports[`Modal > renders without overlay correctly 1`] = `
 
 
 <!--v-if-->
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="context-light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
   <!--v-if-->
   <div class="flex flex-col gap-[15px] pt-[4px] overflow-hidden">
     <div class="flex items-start justify-between gap-[6px]">
@@ -536,7 +536,7 @@ exports[`Modal > renders without transition correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="context-light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
   <!--v-if-->
   <div class="flex flex-col gap-[15px] pt-[4px] overflow-hidden">
     <div class="flex items-start justify-between gap-[6px]">

@@ -207,6 +207,7 @@ const airColors = computed(() => {
           default-value="Scripts"
           highlight
           color="air-primary-alert"
+          aria-invalid="true"
         />
       </div>
 

@@ -1,11 +1,11 @@
-@variant context-edge-light (&:where(.context-edge-light, .context-edge-light *));
+@variant edge-light (&:where(.edge-light, .edge-light *));
 
 @layer base {
   body {
-    @apply context-edge-light:scheme-light;
+    @apply edge-light:scheme-light;
   }
 
-  .context-edge-light {
+  .edge-light {
     --air-theme-bg-image: none;
     --air-theme-bg-image-blurred: none;
     --air-theme-bg-position: 0 0;
@@ -15,12 +15,12 @@
     --air-theme-bg-color: #eef2f4;
   }
 
-  .context-edge-light.--inner
+  .edge-light.--inner
   {
     --air-theme-bg-color: var(--ui-color-bg-content-light);
   }
 
-  .context-edge-light{
+  .edge-light{
     --b24ui-typography-legend-color: var(--ui-color-design-plain-na-content);
     --b24ui-typography-label-color: var(--ui-color-design-plain-content);
     --b24ui-typography-description-color: var(--ui-color-design-plain-na-content);

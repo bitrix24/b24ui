@@ -312,7 +312,7 @@ const openSliderTopAndBottom = async () => {
           :close="{ label: 'Test' }"
           :b24ui="{
             content: 'sm:max-w-1/2',
-            sidebarLayoutRoot: 'context-edge-dark'
+            sidebarLayoutRoot: 'edge-dark'
           }"
         >
           <B24Button label="Simple" />
@@ -397,14 +397,14 @@ const openSliderTopAndBottom = async () => {
             overlay: 'bg-[#00204e]/85',
             content: 'top-[58px] sm:top-[58px] right-[22px] sm:right-[22px] max-h-[calc(100%-58px)] sm:max-h-[calc(100%-58px)] w-[calc(100%-60px-22px)] sm:w-[calc(100%-60px-22px)]',
             sidebarLayoutRoot: [
-              'context-edge-light',
-              'context-edge-light:[--air-theme-bg-color:#eef2f4]',
-              'context-edge-light:[--air-theme-bg-size:auto]',
-              'context-edge-light:[--air-theme-bg-repeat:repeat]',
-              'context-edge-light:[--air-theme-bg-position:0_0]',
-              'context-edge-light:[--air-theme-bg-attachment:scroll]',
-              'context-edge-light:[--air-theme-bg-image:none]',
-              'context-edge-light:[--air-theme-bg-image-blurred:none]'
+              'edge-light',
+              'edge-light:[--air-theme-bg-color:#eef2f4]',
+              'edge-light:[--air-theme-bg-size:auto]',
+              'edge-light:[--air-theme-bg-repeat:repeat]',
+              'edge-light:[--air-theme-bg-position:0_0]',
+              'edge-light:[--air-theme-bg-attachment:scroll]',
+              'edge-light:[--air-theme-bg-image:none]',
+              'edge-light:[--air-theme-bg-image-blurred:none]'
             ].join(' ')
           }"
         >
@@ -459,14 +459,14 @@ const openSliderTopAndBottom = async () => {
           :b24ui="{
             content: 'max-h-[56px] sm:shadow-none',
             sidebarLayoutRoot: [
-              'context-edge-dark',
-              'context-edge-dark:[--air-theme-bg-color:#00204e85]',
-              'context-edge-dark:[--air-theme-bg-size:cover]',
-              'context-edge-dark:[--air-theme-bg-repeat:no-repeat]',
-              'context-edge-dark:[--air-theme-bg-position:0_0]',
-              'context-edge-dark:[--air-theme-bg-attachment:fixed]',
-              'context-edge-dark:[--air-theme-bg-image:none]',
-              'context-edge-dark:[--air-theme-bg-image-blurred:none]',
+              'edge-dark',
+              'edge-dark:[--air-theme-bg-color:#00204e85]',
+              'edge-dark:[--air-theme-bg-size:cover]',
+              'edge-dark:[--air-theme-bg-repeat:no-repeat]',
+              'edge-dark:[--air-theme-bg-position:0_0]',
+              'edge-dark:[--air-theme-bg-attachment:fixed]',
+              'edge-dark:[--air-theme-bg-image:none]',
+              'edge-dark:[--air-theme-bg-image-blurred:none]',
               'pl-[calc(60px+0px)]'
             ].join(' '),
             sidebarLayoutHeaderWrapper: 'before:hidden'
@@ -486,14 +486,14 @@ const openSliderTopAndBottom = async () => {
           :b24ui="{
             content: 'sm:max-w-[970px]',
             sidebarLayoutRoot: [
-              'context-edge-dark',
-              'context-edge-dark:[--air-theme-bg-color:#7c235b]',
-              'context-edge-dark:[--air-theme-bg-size:cover]',
-              'context-edge-dark:[--air-theme-bg-repeat:no-repeat]',
-              'context-edge-dark:[--air-theme-bg-position:0_0]',
-              'context-edge-dark:[--air-theme-bg-attachment:local]',
-              'context-edge-dark:[--air-theme-bg-image:url(/bg/edge-dark-v2.jpg)]',
-              'context-edge-dark:[--air-theme-bg-image-blurred:url(/bg/edge-dark-v2-blurred.webp)]'
+              'edge-dark',
+              'edge-dark:[--air-theme-bg-color:#7c235b]',
+              'edge-dark:[--air-theme-bg-size:cover]',
+              'edge-dark:[--air-theme-bg-repeat:no-repeat]',
+              'edge-dark:[--air-theme-bg-position:0_0]',
+              'edge-dark:[--air-theme-bg-attachment:local]',
+              'edge-dark:[--air-theme-bg-image:url(/bg/edge-dark-v2.jpg)]',
+              'edge-dark:[--air-theme-bg-image-blurred:url(/bg/edge-dark-v2-blurred.webp)]'
             ].join(' ')
           }"
         >
@@ -507,7 +507,7 @@ const openSliderTopAndBottom = async () => {
             </div>
           </template>
           <template #body>
-            <div class="context-light px-0.5 rounded-(--ui-border-radius-md) bg-(--ui-color-background-primary)">
+            <div class="light px-0.5 rounded-(--ui-border-radius-md) bg-(--ui-color-background-primary)">
               <B24TableWrapper
                 row-hover
                 class="overflow-x-auto w-full"
@@ -601,14 +601,14 @@ const openSliderTopAndBottom = async () => {
             content: 'sm:max-w-[900px]',
             body: 'relative',
             sidebarLayoutRoot: [
-              'context-edge-light',
-              'context-edge-light:[--air-theme-bg-color:#eef2f4]',
-              'context-edge-light:[--air-theme-bg-size:auto]',
-              'context-edge-light:[--air-theme-bg-repeat:no-repeat]',
-              'context-edge-light:[--air-theme-bg-position:0_0]',
-              'context-edge-light:[--air-theme-bg-attachment:local]',
-              'context-edge-light:[--air-theme-bg-image:url(/bg/slider-ring-blurred.webp)]',
-              'context-edge-light:[--air-theme-bg-image-blurred:url(/bg/slider-ring-blurred.webp)]'
+              'edge-light',
+              'edge-light:[--air-theme-bg-color:#eef2f4]',
+              'edge-light:[--air-theme-bg-size:auto]',
+              'edge-light:[--air-theme-bg-repeat:no-repeat]',
+              'edge-light:[--air-theme-bg-position:0_0]',
+              'edge-light:[--air-theme-bg-attachment:local]',
+              'edge-light:[--air-theme-bg-image:url(/bg/slider-ring-blurred.webp)]',
+              'edge-light:[--air-theme-bg-image-blurred:url(/bg/slider-ring-blurred.webp)]'
             ].join(' ')
           }"
         >

@@ -65,7 +65,7 @@ defineShortcuts({
       </ProseH2>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-[15px]">
         <div class="mb-4 lex flex-col gap-4">
-          <B24Tooltip v-model:open="openState.T" class="flex-col context-light" :text="text.long" :kbds="['alt', 'T']" :content="{ side: 'top' }">
+          <B24Tooltip v-model:open="openState.T" class="flex-col light" :text="text.long" :kbds="['alt', 'T']" :content="{ side: 'top' }">
             <B24Button label="Top" block />
           </B24Tooltip>
 

@@ -90,7 +90,7 @@ const airColors = computed(() => {
         <B24Alert :title="data.title" />
         <B24Alert :title="data.title" :icon="data.icon" description="example with multiple actions." :actions="multipleActions()" />
         <B24Alert class="style-filled" :title="data.title" />
-        <B24Alert class="context-edge-dark style-filled-success" :title="data.title" :icon="data.icon" description="example with multiple actions." :actions="multipleActions()" />
+        <B24Alert class="edge-dark style-filled-success" :title="data.title" :icon="data.icon" description="example with multiple actions." :actions="multipleActions()" />
       </div>
       <template v-for="size in sizes" :key="size">
         <ExampleCardSubTitle :title="size as string" />

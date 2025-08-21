@@ -9,7 +9,7 @@
 export default {
   slots: {
     root: [
-      'context-light',
+      'light',
       'style-outline-accent-1',
       'flex items-end'
     ].join(' '),
@@ -17,7 +17,7 @@ export default {
     descriptionBorder: 'fill-(--b24ui-border-color)',
     descriptionBg: [
       'fill-(--b24ui-background)',
-      'context-dark:fill-(--ui-color-base-6)'
+      'dark:fill-(--ui-color-base-6)'
     ].join(' '),
     descriptionAngle: [
       'absolute',
@@ -30,7 +30,7 @@ export default {
       'font-[family-name:var(--ui-font-family-secondary)] text-(length:--ui-font-size-md)/(--ui-font-line-height-md) font-(--ui-font-weight-normal)',
       'border-1',
       'border-(--b24ui-border-color) bg-(--b24ui-background) text-(--b24ui-color)',
-      'context-dark:bg-(--ui-color-base-6)'
+      'dark:bg-(--ui-color-base-6)'
     ].join(' '),
     leading: 'me-1.5 ms-2 font-(--ui-font-weight-medium) text-(--ui-color-design-plain-content-icon-secondary)',
     leadingIcon: 'shrink-0 size-[42px]',

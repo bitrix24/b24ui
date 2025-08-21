@@ -98,7 +98,7 @@ const items = [
   </ExampleGrid>
   <B24Separator accent="accent" class="my-4" label="Demo" type="dotted" />
   <ExampleGrid v-once class="mb-4">
-    <ExampleCard title="Some content" :use-bg="isUseBg" class="sm:col-span-2 md:col-span-4">
+    <ExampleCard title="Some content" :use-bg="isUseBg" class="ps-[1px] sm:col-span-2 md:col-span-4">
       <B24Separator class="my-3" type="dotted" />
       <div class="overflow-auto">
         <B24Tabs

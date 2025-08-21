@@ -33,7 +33,7 @@ export default {
       'h-full',
       'overflow-hidden',
       'flex flex-col text-(--b24ui-typography-label-color)',
-      'bg-(--ui-color-base-white-fixed) context-dark:bg-(--ui-color-bg-content-primary) context-edge-dark:bg-[#21334cf0]',
+      'bg-(--ui-color-base-white-fixed) dark:bg-(--ui-color-bg-content-primary) edge-dark:bg-[#21334cf0]',
       'ring-1 ring-(--ui-color-divider-vibrant-less)',
       'shadow-xs',
       'rounded-none'
@@ -90,7 +90,7 @@ export default {
       true: {
         root: [
           '--inner',
-          'context-light',
+          'light',
           'relative isolate',
           'h-full',
           'overflow-hidden'
@@ -138,9 +138,9 @@ export default {
     useLightContent: {
       true: {
         containerWrapper: [
-          // @memo set context-* from component
+          // @memo set context* from component
           'text-(--ui-color-text-primary)',
-          'bg-(--ui-color-bg-content-primary) ' // backdrop-blur-md context-dark:bg-(--ui-color-base-7)/80 context-edge-dark:bg-(--ui-color-base-7)/95
+          'bg-(--ui-color-bg-content-primary) ' // backdrop-blur-md dark:bg-(--ui-color-base-7)/80 edge-dark:bg-(--ui-color-base-7)/95
         ].join(' ')
       },
       false: {

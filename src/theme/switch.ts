@@ -36,7 +36,7 @@ export default {
     ].join(' '),
     icon: [
       'absolute shrink-0',
-      'group-data-[state=unchecked]:text-(--ui-color-base-5) context-edge-dark:group-data-[state=unchecked]:text-(--ui-color-gray-60)',
+      'group-data-[state=unchecked]:text-(--ui-color-base-5) edge-dark:group-data-[state=unchecked]:text-(--ui-color-gray-60)',
       'opacity-0',
       'p-0.5',
       'size-full',

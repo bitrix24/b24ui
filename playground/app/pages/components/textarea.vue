@@ -73,11 +73,12 @@ const airColors = computed(() => {
       <ExampleCardSubTitle title="some error" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24Textarea
-          color="air-primary-alert"
           highlight
           name="something"
           placeholder="Type something&hellip;"
           aria-label="Type something"
+          color="air-primary-alert"
+          aria-invalid="true"
         />
       </div>
     </ExampleCard>

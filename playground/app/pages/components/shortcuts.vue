@@ -79,7 +79,7 @@ function scrollToBottom() {
         off-content-scrollbar
         :b24ui="{
           root: [
-            'context-edge-light',
+            'edge-light',
             '[--leftmenu-bg-expanded:#eef2f4!important]',
             '[--air-theme-bg-color:#eef2f4]',
             '[--air-theme-bg-size:240px_240px]',

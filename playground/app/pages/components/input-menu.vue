@@ -142,6 +142,7 @@ const airColors = computed(() => {
           aria-label="Insert value"
           highlight
           color="air-primary-alert"
+          aria-invalid="true"
         />
       </div>
 

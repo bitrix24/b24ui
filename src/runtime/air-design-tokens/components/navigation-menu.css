@@ -4,7 +4,7 @@
  * @see /bitrix/templates/bitrix24/dist/bitrix24.bundle.css
  * @see /bitrix/components/bitrix/main.interface.buttons/templates/.default/style.css
  * @todo get all variables
- * @memo fix --ui-context-content-light .air-header
+ * @memo fix *-content-light .air-header
  */
 
 @layer base {
@@ -75,7 +75,7 @@
   --menu-item-background: var(--menu-item-background-active);
 }
 
-.context-light,
+.light,
 :root {
   --menu-item-block-stack-space: 4px;
   --menu-width-expanded: 240px;
@@ -97,7 +97,7 @@
   --leftmenu-group-stroke-weight: var(--ui-border-width-thin)
 }
 
-.context-dark {
+.dark {
   --leftmenu-bg: #262626;
   --leftmenu-bg-expanded: #262626;
   --leftmenu-bg-stroke: #3b3b3b;
@@ -111,7 +111,7 @@
   --leftmenu-group-stroke-weight: var(--ui-border-width-thin)
 }
 
-.context-edge-light {
+.edge-light {
   --leftmenu-bg: rgb(0 0 0/3%);
   --leftmenu-bg-expanded: rgb(0 0 0/2%);
   --leftmenu-bg-stroke: transparent;
@@ -127,7 +127,7 @@
   --leftmenu-group-stroke-weight: var(--ui-border-width-thin)
 }
 
-.context-edge-dark {
+.edge-dark {
   --leftmenu-bg: hsla(0,0%,100%,.06);
   --leftmenu-bg-expanded: hsla(0,0%,100%,.03);
   --leftmenu-bg-stroke: transparent;
@@ -148,7 +148,7 @@
  * @see /bitrix/templates/bitrix24/dist/bitrix24.bundle.css
  */
 .air-header,
-.context-light .air-header
+.light .air-header
 {
   /*--topbar-bg: var(--ui-color-bg-content-primary);*/
   --topbar-bg: var(--ui-color-bg-content-secondary);
@@ -157,7 +157,7 @@
   --topbar-bg-blur: 0px;
 }
 
-.context-dark .air-header
+.dark .air-header
 {
   --topbar-bg: #2d2d2d;
   --topbar-bg-stroke: #3d3d3d;
@@ -165,7 +165,7 @@
   --topbar-bg-blur: 0px;
 }
 
-.context-edge-dark .air-header
+.edge-dark .air-header
 {
   --topbar-bg: rgba(255, 255, 255, 0.1);
   --topbar-bg-stroke: transparent;
@@ -173,7 +173,7 @@
   --topbar-bg-blur: var(--ui-bg-blur-less);
 }
 
-.context-edge-light .air-header
+.edge-light .air-header
 {
   --topbar-bg: rgba(0, 0, 0, 0.05);
   --topbar-bg-stroke: transparent;

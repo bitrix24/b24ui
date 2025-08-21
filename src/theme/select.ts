@@ -43,7 +43,7 @@ export default () => {
         value: 'truncate pointer-events-none',
         placeholder: 'truncate text-(--ui-color-design-plain-na-content-secondary)',
         content: [
-          'context-light',
+          'light',
           // w-(--reka-combobox-trigger-width)
           'bg-(--popup-window-background-color)',
           'shadow-(--popup-window-box-shadow)',

@@ -19,10 +19,10 @@ const colorMode = useColorMode()
 // const mode = useColorMode<'light' | 'dark' | 'edgeLight' | 'edgeDark'>({
 //   attribute: 'class',
 //   modes: {
-//     light: 'context-light',
-//     dark: 'context-dark',
-//     edgeLight: 'context-edge-light',
-//     edgeDark: 'context-edge-dark'
+//     light: 'light',
+//     dark: 'dark',
+//     edgeLight: 'edge-light',
+//     edgeDark: 'edge-dark'
 //   }
 // })
 const dir = useTextDirection()
@@ -64,7 +64,7 @@ const itemsForColorMode = computed<DropdownMenuItem[]>(() => {
       type: 'checkbox' as DropdownMenuItem['type'],
       onSelect(e: Event) {
         mode.value = 'dark'
-        colorMode.preference = 'context-dark'
+        colorMode.preference = 'dark'
         e.preventDefault()
       }
     },
@@ -77,7 +77,7 @@ const itemsForColorMode = computed<DropdownMenuItem[]>(() => {
       type: 'checkbox' as DropdownMenuItem['type'],
       onSelect(e: Event) {
         mode.value = 'light'
-        colorMode.preference = 'context-light'
+        colorMode.preference = 'light'
         e.preventDefault()
       }
     },
@@ -90,7 +90,7 @@ const itemsForColorMode = computed<DropdownMenuItem[]>(() => {
       type: 'checkbox' as DropdownMenuItem['type'],
       onSelect(e: Event) {
         mode.value = 'edgeDark'
-        colorMode.preference = 'context-edge-dark'
+        colorMode.preference = 'edge-dark'
         e.preventDefault()
       }
     },
@@ -103,7 +103,7 @@ const itemsForColorMode = computed<DropdownMenuItem[]>(() => {
       type: 'checkbox' as DropdownMenuItem['type'],
       onSelect(e: Event) {
         mode.value = 'edgeLight'
-        colorMode.preference = 'context-edge-light'
+        colorMode.preference = 'edge-light'
         e.preventDefault()
       }
     }
@@ -114,20 +114,20 @@ function toggleMode() {
   switch (mode.value) {
     case 'dark':
       mode.value = 'light'
-      colorMode.preference = 'context-light'
+      colorMode.preference = 'light'
       break
     case 'light':
       mode.value = 'edgeDark'
-      colorMode.preference = 'context-edge-dark'
+      colorMode.preference = 'edge-dark'
       break
     case 'edgeDark':
       mode.value = 'edgeLight'
-      colorMode.preference = 'context-edge-light'
+      colorMode.preference = 'edge-light'
       break
     case 'edgeLight':
     default:
       mode.value = 'dark'
-      colorMode.preference = 'context-dark'
+      colorMode.preference = 'dark'
       break
   }
 }
@@ -143,16 +143,16 @@ const getLightContent = computed(() => {
 
   switch (mode.value) {
     case 'dark':
-      result.containerWrapper = 'context-dark'
+      result.containerWrapper = 'dark'
       break
     case 'light':
-      result.containerWrapper = 'context-light'
+      result.containerWrapper = 'light'
       break
     case 'edgeDark':
-      result.containerWrapper = 'context-light'
+      result.containerWrapper = 'light'
       break
     case 'edgeLight':
-      result.containerWrapper = 'context-light'
+      result.containerWrapper = 'light'
       break
   }
 

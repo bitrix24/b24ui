@@ -90,7 +90,7 @@ export default {
     popoverWrapper: 'px-0 py-(--menu-popup-padding)',
     viewportWrapper: 'absolute top-[53px] left-0 flex w-full',
     viewport: [
-      'context-light',
+      'light',
       'relative overflow-hidden',
       'w-full',
       'bg-(--popup-window-background-color)', // 'bg-(--ui-color-base-white-fixed)/94',

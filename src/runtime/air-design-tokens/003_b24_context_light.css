@@ -1,11 +1,11 @@
-@variant context-light (&:where(.context-light, .context-light *));
+@variant light (&:where(.light, .light *));
 
 @layer base {
   body {
     @apply scheme-light;
   }
 
-  .context-light,
+  .light,
   :root {
     --air-theme-bg-image: none;
     --air-theme-bg-image-blurred: none;
@@ -16,11 +16,11 @@
     --air-theme-bg-color: var(--ui-color-gray-05);
   }
 
-  .context-light.--inner {
+  .light.--inner {
     --air-theme-bg-color: var(--ui-color-gray-05);
   }
 
-  .context-light,
+  .light,
   :root {
     --b24ui-typography-legend-color: var(--ui-color-design-plain-na-content);
     --b24ui-typography-label-color: var(--ui-color-design-plain-content);

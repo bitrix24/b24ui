@@ -36,7 +36,7 @@ const templates = (id: number) => [
     color: getRandomString(colors)
   },
   {
-    class: 'context-light',
+    class: 'light',
     title: `Title for albino toast ${id}`,
     description: `${getRandomString(messageList)}Description for toast ${id}`,
     color: getRandomString(colors)
@@ -168,7 +168,7 @@ function removeToast() {
         off-content-scrollbar
         :b24ui="{
           root: [
-            'context-edge-light',
+            'edge-light',
             '[--leftmenu-bg-expanded:#eef2f4!important]',
             '[--air-theme-bg-color:#eef2f4]',
             '[--air-theme-bg-size:240px_240px]',

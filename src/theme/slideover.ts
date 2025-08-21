@@ -51,7 +51,7 @@ export default {
       'flex-1'
     ].join(' '),
     footer: [
-      'context-light',
+      'light',
       'bg-(--popup-window-background-color)', // --ui-color-bg-content-primary
       'flex items-center justify-center gap-3',
       'border-t border-t-1 border-t-(--ui-color-divider-less)',

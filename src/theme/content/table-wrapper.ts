@@ -75,27 +75,27 @@ export default {
     zebra: {
       true: [
         '[&>table>tbody>tr]:even:bg-(--ui-color-base-8) [&>table>tbody>tr]:even:[&>td]:bg-(--ui-color-base-8) [&>table>tbody>tr]:even:[&>th]:bg-(--ui-color-base-8)',
-        'context-light:[&>table>tbody>tr]:even:bg-(--ui-color-base-6) context-light:[&>table>tbody>tr]:even:[&>td]:bg-(--ui-color-base-6) context-light:[&>table>tbody>tr]:even:[&>th]:bg-(--ui-color-base-6)'
+        'light:[&>table>tbody>tr]:even:bg-(--ui-color-base-6) light:[&>table>tbody>tr]:even:[&>td]:bg-(--ui-color-base-6) light:[&>table>tbody>tr]:even:[&>th]:bg-(--ui-color-base-6)'
       ].join(' ')
     },
     pinRows: {
       true: [
-        '[&>table>thead>tr]:sticky [&>table>thead>tr]:top-0      [&>table>thead>tr]:z-1 context-dark:[&>table>thead>tr]:bg-(--ui-color-base-5) [&>table>thead>tr]:bg-(--ui-color-base-white-fixed) [&>table>thead>tr]:text-(--ui-color-g-content-grey-1) [&>table>thead>tr]:shadow-bottom-sm',
-        // '[&>table>tbody>tr]:sticky [&>table>tbody>tr]:bottom-0 [&>table>tbody>tr]:z-1 context-dark:[&>table>tbody>tr]:bg-(--ui-color-base-5) [&>table>tbody>tr]:bg-(--ui-color-base-white-fixed) [&>table>tbody>tr]:text-(--ui-color-g-content-grey-1) [&>table>tbody>tr]:shadow-top-sm',
-        '[&>table>tfoot>tr]:sticky [&>table>tfoot>tr]:bottom-0   [&>table>tfoot>tr]:z-1 context-dark:[&>table>tfoot>tr]:bg-(--ui-color-base-5) [&>table>tfoot>tr]:bg-(--ui-color-base-white-fixed) [&>table>tfoot>tr]:text-(--ui-color-g-content-grey-1) [&>table>tfoot>tr]:shadow-top-sm'
+        '[&>table>thead>tr]:sticky [&>table>thead>tr]:top-0      [&>table>thead>tr]:z-1 dark:[&>table>thead>tr]:bg-(--ui-color-base-5) [&>table>thead>tr]:bg-(--ui-color-base-white-fixed) [&>table>thead>tr]:text-(--ui-color-g-content-grey-1) [&>table>thead>tr]:shadow-bottom-sm',
+        // '[&>table>tbody>tr]:sticky [&>table>tbody>tr]:bottom-0 [&>table>tbody>tr]:z-1 dark:[&>table>tbody>tr]:bg-(--ui-color-base-5) [&>table>tbody>tr]:bg-(--ui-color-base-white-fixed) [&>table>tbody>tr]:text-(--ui-color-g-content-grey-1) [&>table>tbody>tr]:shadow-top-sm',
+        '[&>table>tfoot>tr]:sticky [&>table>tfoot>tr]:bottom-0   [&>table>tfoot>tr]:z-1 dark:[&>table>tfoot>tr]:bg-(--ui-color-base-5) [&>table>tfoot>tr]:bg-(--ui-color-base-white-fixed) [&>table>tfoot>tr]:text-(--ui-color-g-content-grey-1) [&>table>tfoot>tr]:shadow-top-sm'
       ].join(' ')
     },
     pinCols: {
       true: [
-        '[&>table>thead>tr>th]:sticky [&>table>thead>tr>th]:right-0 [&>table>thead>tr>th]:left-0 context-dark:[&>table>thead>tr>th]:bg-(--ui-color-base-5) [&>table>thead>tr>th]:bg-(--ui-color-base-white-fixed) [&>table>thead>tr>th]:text-(--ui-color-g-content-grey-1)',
-        '[&>table>tbody>tr>th]:sticky [&>table>tbody>tr>th]:right-0 [&>table>tbody>tr>th]:left-0 context-dark:[&>table>tbody>tr>th]:bg-(--ui-color-base-5) [&>table>tbody>tr>th]:bg-(--ui-color-base-white-fixed) [&>table>tbody>tr>th]:text-(--ui-color-g-content-grey-1)',
-        '[&>table>tfoot>tr>th]:sticky [&>table>tfoot>tr>th]:right-0 [&>table>tfoot>tr>th]:left-0 context-dark:[&>table>tfoot>tr>th]:bg-(--ui-color-base-5) [&>table>tfoot>tr>th]:bg-(--ui-color-base-white-fixed) [&>table>tfoot>tr>th]:text-(--ui-color-g-content-grey-1)'
+        '[&>table>thead>tr>th]:sticky [&>table>thead>tr>th]:right-0 [&>table>thead>tr>th]:left-0 dark:[&>table>thead>tr>th]:bg-(--ui-color-base-5) [&>table>thead>tr>th]:bg-(--ui-color-base-white-fixed) [&>table>thead>tr>th]:text-(--ui-color-g-content-grey-1)',
+        '[&>table>tbody>tr>th]:sticky [&>table>tbody>tr>th]:right-0 [&>table>tbody>tr>th]:left-0 dark:[&>table>tbody>tr>th]:bg-(--ui-color-base-5) [&>table>tbody>tr>th]:bg-(--ui-color-base-white-fixed) [&>table>tbody>tr>th]:text-(--ui-color-g-content-grey-1)',
+        '[&>table>tfoot>tr>th]:sticky [&>table>tfoot>tr>th]:right-0 [&>table>tfoot>tr>th]:left-0 dark:[&>table>tfoot>tr>th]:bg-(--ui-color-base-5) [&>table>tfoot>tr>th]:bg-(--ui-color-base-white-fixed) [&>table>tfoot>tr>th]:text-(--ui-color-g-content-grey-1)'
       ].join(' ')
     },
     rowHover: {
       true: [
         '[&>table>tbody>tr]:hover:bg-(--ui-color-base-8) [&>table>tbody>tr]:hover:[&>td]:bg-(--ui-color-base-8) [&>table>tbody>tr]:hover:[&>th]:bg-(--ui-color-base-8)',
-        'context-light:[&>table>tbody>tr]:hover:bg-(--ui-color-base-6) context-light:[&>table>tbody>tr]:hover:[&>td]:bg-(--ui-color-base-6) context-light:[&>table>tbody>tr]:hover:[&>th]:bg-(--ui-color-base-6)'
+        'light:[&>table>tbody>tr]:hover:bg-(--ui-color-base-6) light:[&>table>tbody>tr]:hover:[&>td]:bg-(--ui-color-base-6) light:[&>table>tbody>tr]:hover:[&>th]:bg-(--ui-color-base-6)'
       ].join(' ')
     },
     bordered: {

@@ -11,7 +11,7 @@
 export default {
   slots: {
     content: [
-      'context-light',
+      'light',
       'bg-(--popup-window-background-color)',
       'shadow-(--popup-window-box-shadow)',
       'rounded-(--popup-window-border-radius) will-change-[opacity]',

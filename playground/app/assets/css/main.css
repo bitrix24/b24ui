@@ -6,16 +6,16 @@
  */
 @layer base {
   /*
-    .context-light,
+    .light,
     :root {
       --air-theme-bg-color: #ffffff;
     }
 
-    .context-dark {
+    .dark {
       --air-theme-bg-color: #000000;
     }
   */
-  .context-edge-light {
+  .edge-light {
     --air-theme-bg-image: url(/bg/edge-light-v1.svg);
     --air-theme-bg-image-blurred: url(/bg/edge-light-v1-blurred.webp);
     --air-theme-bg-position: 0 0;
@@ -26,7 +26,7 @@
     --air-theme-bg-color: #f1dbdb87;
   }
 
-  .context-edge-dark {
+  .edge-dark {
     --air-theme-bg-image: url(/bg/edge-dark-v1.jpg);
     --air-theme-bg-image-blurred: url(/bg/edge-dark-v1-blurred.webp);
     --air-theme-bg-position: 0 0;
