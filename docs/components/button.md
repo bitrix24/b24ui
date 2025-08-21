@@ -10,7 +10,6 @@ import LinkExample from '/examples/button/Link.vue';
 import LinkActiveColorExample from '/examples/button/LinkActiveColor.vue';
 import LinkActiveClassExample from '/examples/button/LinkActiveClass.vue';
 import ColorExample from '/examples/button/Color.vue';
-import DepthExample from '/examples/button/Depth.vue';
 import SizeExample from '/examples/button/Size.vue';
 import IconExample from '/examples/button/Icon.vue';
 import UseDropdownExample from '/examples/button/UseDropdown.vue';
@@ -73,17 +72,7 @@ Use the `color` prop to change the color of the Button.
 
 ### Depth
 
-Use the `depth` parameter to change the intensity of the Button.
-
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <DepthExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/button/demo/Depth.vue{18 vue:line-numbers}
-:::
+_@deprecate_
 
 ### Size
 
@@ -112,7 +101,7 @@ The `label` as prop or slot is optional so you can use the Button as an icon-onl
 </div>
 
 ::: details
-<<< @/examples/button/demo/Icon.vue{3,26 vue:line-numbers}
+<<< @/examples/button/demo/Icon.vue{3,23 vue:line-numbers}
 :::
 
 Use the `use-dropdown` prop to show trailing-icon.
