@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import type { InputMenuItem } from '@bitrix24/b24ui-nuxt'
 
 const items = ref([
   {
@@ -11,11 +12,11 @@ const items = ref([
     value: 'settings'
   },
   {
-    label: 'My company details',
-    value: 'my_company_details'
+    type: 'separator'
   },
   {
-    type: 'separator'
+    label: 'My company details',
+    value: 'my_company_details'
   },
   {
     type: 'label',
@@ -26,7 +27,7 @@ const items = ref([
     value: 'access_permissions',
     color: 'danger'
   }
-])
+] satisfies InputMenuItem[])
 const value = ref()
 </script>
 

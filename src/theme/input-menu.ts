@@ -70,7 +70,7 @@ export default () => {
         'py-[8px]',
         'select-none outline-none whitespace-nowrap',
         'text-center',
-        'text-(length:--popup-window-delimiter-font-size)',
+        'text-(length:--popup-window-delimiter-font-size)/(--ui-font-line-height-lg)',
         'text-(--popup-window-delimiter-text-color)',
         'font-(--popup-window-delimiter-font-weight)'
       ].join(' '),

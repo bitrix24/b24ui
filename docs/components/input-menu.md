@@ -339,7 +339,7 @@ You can use the `type` property with `separator` to display a separator between 
 </div>
 
 ::: details
-<<< @/examples/inputmenu/demo/WithItemsType.vue{6,18,21 vue:line-numbers}
+<<< @/examples/inputmenu/demo/WithItemsType.vue{7,15,22 vue:line-numbers}
 :::
 
 ### With icon in items
@@ -425,7 +425,7 @@ You can use the `open-on-focus` or `open-on-click` props to open the menu when t
 </div>
 
 ::: details
-<<< @/examples/inputmenu/demo/ControlOpenStateOnFocus.vue{20,29 vue:line-numbers}
+<<< @/examples/inputmenu/demo/ControlOpenStateOnFocus.vue{26 vue:line-numbers}
 :::
 
 ### Control search term
