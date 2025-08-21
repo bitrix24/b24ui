@@ -20,6 +20,7 @@ import DisabledExample from '/examples/checkbox/Disabled.vue';
   reka-ui="https://reka-ui.com/docs/components/checkbox"
   reka-ui-title="Checkbox"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Checkbox.vue"
+  demo="/components/checkbox"
 >
   A toggle input for marking as checked or unchecked.
 </Description>

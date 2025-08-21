@@ -22,6 +22,7 @@ import InvertedExample from '/examples/range/Inverted.vue';
   reka-ui="https://reka-ui.com/docs/components/slider"
   reka-ui-title="Slider"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Range.vue"
+  demo="/components/range"
 >
   A control for selecting a numeric value within a specified range.
 </Description>

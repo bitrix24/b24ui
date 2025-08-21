@@ -42,6 +42,7 @@ import WithFilterFieldsExample from '/examples/inputmenu/WithFilterFields.vue';
   reka-ui="https://reka-ui.com/docs/components/combobox"
   reka-ui-title="Combobox"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/InputMenu.vue"
+  demo="/components/input-menu"
 >
   An input field with live autocomplete suggestions.
 </Description>

@@ -22,6 +22,7 @@ import WithFollowingCursorExample from '/examples/tooltip/WithFollowingCursor.vu
   reka-ui="https://reka-ui.com/docs/components/tooltip"
   reka-ui-title="Tooltip"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Tooltip.vue"
+  demo="/components/tooltip"
 >
   A small window that shows details when you move your mouse over an item.
 </Description>

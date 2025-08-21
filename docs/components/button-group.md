@@ -16,6 +16,7 @@ import WithBadgeExample from '/examples/buttongroup/WithBadge.vue';
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/button-group"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/ButtonGroup.vue"
+  demo="/components/button-group"
 >
   Organize several button-type elements into a group.
 </Description>

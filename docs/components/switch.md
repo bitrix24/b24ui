@@ -21,6 +21,7 @@ import DisabledExample from '/examples/switch/Disabled.vue';
   reka-ui="https://reka-ui.com/docs/components/switch"
   reka-ui-title="Switch"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Switch.vue"
+  demo="/components/switch"
 >
   A toggle control for switching between two states.
 </Description>

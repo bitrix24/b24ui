@@ -22,6 +22,7 @@ import InvertedExample from '/examples/progress/Inverted.vue';
   reka-ui="https://reka-ui.com/docs/components/progress"
   reka-ui-title="Progress"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Progress.vue"
+  demo="/components/progress"
 >
   A progress bar displaying task completion status.
 </Description>

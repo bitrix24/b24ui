@@ -16,6 +16,7 @@ import WithClassExample from '/examples/kbd/WithClass.vue';
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/kbd"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Kbd.vue"
+  demo="/components/kbd"
 >
   A kbd element for indicating a keyboard input.
 </Description>

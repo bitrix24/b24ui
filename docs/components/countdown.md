@@ -10,6 +10,7 @@ import CountdownExample from '/examples/countdown/Countdown.vue';
 
 <Description 
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Countdown.vue"
+  demo="/components/countdown"
 >
   Countdown with options control.
 </Description>

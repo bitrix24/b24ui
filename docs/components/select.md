@@ -36,6 +36,7 @@ import WithFetchedItemsExample from '/examples/select/WithFetchedItems.vue';
   reka-ui="https://reka-ui.com/docs/components/select"
   reka-ui-title="Select"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Select.vue"
+  demo="/components/select"
 >
   A selection field to pick from various options.
 </Description>

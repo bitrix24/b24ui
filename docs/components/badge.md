@@ -17,6 +17,7 @@ import AvatarExample from '/examples/badge/Avatar.vue';
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/badge"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Badge.vue"
+  demo="/components/badge"
 >
   A short descriptor for a status or category.
 </Description>

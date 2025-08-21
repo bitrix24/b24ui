@@ -41,6 +41,7 @@ import WithFilterFieldsExample from '/examples/selectmenu/WithFilterFields.vue';
   reka-ui="https://reka-ui.com/docs/components/combobox"
   reka-ui-title="Combobox"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/SelectMenu.vue"
+  demo="/components/select-menu"
 >
   A refined and searchable selection component.
 </Description>

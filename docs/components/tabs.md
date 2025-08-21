@@ -22,6 +22,7 @@ import CustomSlotExample from '/examples/tabs/CustomSlot.vue';
   reka-ui="https://reka-ui.com/docs/components/tabs"
   reka-ui-title="Tabs"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Tabs.vue"
+  demo="/components/tabs"
 >
   A collection of tab panels shown individually.
 </Description>

@@ -29,6 +29,7 @@ import WithSlotsExample from '/examples/inputnumber/WithSlots.vue';
   reka-ui="https://reka-ui.com/docs/components/number-field"
   reka-ui-title="Number Field"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/InputNumber.vue"
+  demo="/components/input-number"
 >
   Provide numerical input with a flexible range setting.
 </Description>

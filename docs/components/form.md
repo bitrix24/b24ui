@@ -15,6 +15,7 @@ import NestedListExample from '/examples/form/FormExampleNestedList.vue';
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/form"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Form.vue"
+  demo="/components/form"
 >
   A form component designed for validation and handling submissions.
 </Description>

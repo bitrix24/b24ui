@@ -20,6 +20,7 @@ import SizeExample from '/examples/separator/Size.vue';
   reka-ui="https://reka-ui.com/docs/components/separator"
   reka-ui-title="Separator"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Separator.vue"
+  demo="/components/separator"
 >
   Divides content in a horizontal or vertical manner.
 </Description>

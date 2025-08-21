@@ -17,6 +17,7 @@ import SizeExample from '/examples/formfield/Size.vue';
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/form-field"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/FormField.vue"
+  demo="/components/form-field"
 >
   A container for form elements with built-in validation and error management.
 </Description>

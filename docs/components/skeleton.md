@@ -11,6 +11,7 @@ import TaskAddExample from '/examples/skeleton/TaskAdd.vue';
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/skeleton"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Skeleton.vue"
+  demo="/components/skeleton"
 >
   A loading indicator shown while content is being fetched.
 </Description>

@@ -26,6 +26,7 @@ import RoundedExample from '/examples/button/Rounded.vue';
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/button"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Button.vue"
+  demo="/components/button"
 >
   A button capable of linking or performing an action.
 </Description>

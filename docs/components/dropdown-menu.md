@@ -21,6 +21,7 @@ import WithCustomSlotExample from '/examples/dropdownmenu/WithCustomSlot.vue';
   reka-ui="https://reka-ui.com/docs/components/dropdown-menu"
   reka-ui-title="DropdownMenu"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/DropdownMenu.vue"
+  demo="/components/dropdown-menu"
 >
   A contextual menu for actions triggered by clicking an element.
 </Description>

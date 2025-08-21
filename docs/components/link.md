@@ -14,6 +14,7 @@ import IsActionExample from '/examples/link/IsAction.vue';
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/link"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Link.vue"
+  demo="/components/link"
 >
   A wrapper around <code>NuxtLink</code> with extra props.
 </Description>

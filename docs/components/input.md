@@ -22,6 +22,7 @@ import WithMaskExample from '/examples/input/WithMask.vue';
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/input"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Input.vue"
+  demo="/components/input"
 >
   An input box designed for text entry.
 </Description>
