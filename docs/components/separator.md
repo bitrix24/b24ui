@@ -9,7 +9,6 @@ import OrientationExample from '/examples/separator/Orientation.vue';
 import LabelExample from '/examples/separator/Label.vue';
 import IconExample from '/examples/separator/Icon.vue';
 import AvatarExample from '/examples/separator/Avatar.vue';
-import ColorExample from '/examples/separator/Color.vue';
 import TypeExample from '/examples/separator/Type.vue';
 import SizeExample from '/examples/separator/Size.vue';
 </script>
@@ -115,17 +114,7 @@ Use the `type` prop to change the type of the Separator. Defaults to `solid`.
 
 ### Color
 
-Use the `color` prop to change the color of the Separator. Defaults to `default`.
-
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <ColorExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/separator/demo/Color.vue{15 vue:line-numbers}
-:::
+`@remove`
 
 ### Size
 
