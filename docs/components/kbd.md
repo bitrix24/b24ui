@@ -7,7 +7,6 @@ outline: deep
 import KbdExample from '/examples/kbd/Kbd.vue';
 import ValueExample from '/examples/kbd/Value.vue';
 import UseKbdExample from '/examples/kbd/UseKbd.vue';
-import DepthExample from '/examples/kbd/Depth.vue';
 import SizeExample from '/examples/kbd/Size.vue';
 import WithClassExample from '/examples/kbd/WithClass.vue';
 </script>
@@ -67,17 +66,7 @@ You can pass special keys to the `value` prop that goes through the [`useKbd`](h
 
 ### Depth
 
-Use the `depth` parameter to change the intensity of the Kbd.
-
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <DepthExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/kbd/demo/Depth.vue{12 vue:line-numbers}
-:::
+`@remove`
 
 ### Size
 
