@@ -1,6 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+export interface ExampleProps {
+  title?: string
+  description?: string
+}
+
+withDefaults(defineProps<ExampleProps>(), {
+  title: 'Heads up!',
+  description: 'Let\'s signal the manager that the deal is not moving.'
+})
+
 const open = ref(false)
 
 defineShortcuts({
@@ -11,11 +21,13 @@ defineShortcuts({
 <template>
   <B24Modal
     v-model:open="open"
+    :title="title"
+    :description="description"
   >
-    <B24Button label="Open" color="link" depth="dark" />
+    <B24Button label="Open" />
 
-    <template #content>
-      <Placeholder class="h-48" />
+    <template #body>
+      <Placeholder class="h-40" />
     </template>
   </B24Modal>
 </template>

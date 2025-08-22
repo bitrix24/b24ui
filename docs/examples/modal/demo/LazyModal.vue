@@ -12,20 +12,15 @@ const emit = defineEmits<{ close: [boolean] }>()
     :title="`This modal was opened programmatically ${count} times`"
   >
     <template #footer>
-      <div class="flex gap-2">
+      <div class="flex flex-row gap-[10px]">
         <B24Button
-          color="success"
+          color="air-primary-success"
           label="Success"
-          rounded
-          size="sm"
           @click="emit('close', true)"
         />
         <B24Button
-          rounded
+          color="air-tertiary"
           label="Close"
-          color="link"
-          depth="dark"
-          size="sm"
           @click="emit('close', false)"
         />
       </div>

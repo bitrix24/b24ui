@@ -21,7 +21,7 @@ async function open() {
 
     toast.add({
       title: `Success: ${shouldIncrement}`,
-      color: 'success',
+      color: 'air-primary-success',
       id: 'modal-success'
     })
 
@@ -34,17 +34,12 @@ async function open() {
 
   toast.add({
     title: `Dismissed: ${shouldIncrement}`,
-    color: 'danger',
+    color: 'air-primary-alert',
     id: 'modal-dismiss'
   })
 }
 </script>
 
 <template>
-  <B24Button
-    label="Open"
-    color="link"
-    depth="dark"
-    @click="open"
-  />
+  <B24Button label="Open" @click="open" />
 </template>

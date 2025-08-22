@@ -271,4 +271,11 @@ On **Windows** in this example, `Ctrl` `E`, `Ctrl` `I` and `Ctrl` `N` would trig
 
 ### Emits
 
-<ComponentEmits component="DropdownMenu" />
+```ts
+/**
+ * Emitted events for the DropdownMenu component
+ */
+interface DropdownMenuEmits {
+  update:open: (payload: [payload: boolean]) => void;
+}
+```

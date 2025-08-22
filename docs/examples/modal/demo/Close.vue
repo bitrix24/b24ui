@@ -1,14 +1,25 @@
+<script setup lang="ts">
+export interface ExampleProps {
+  title?: string
+  description?: string
+}
+
+withDefaults(defineProps<ExampleProps>(), {
+  title: 'Heads up!',
+  description: 'Let\'s signal the manager that the deal is not moving.'
+})
+</script>
+
 <template>
   <B24Modal
-    title="Modal with custom close button"
-    description="The `close` prop inherits from the Button props."
-    :close="{ color: 'danger', depth: 'dark', size: 'xs', rounded: true }"
-    :b24ui="{ close: '-top-3 -end-3' }"
+    :title="title"
+    :description="description"
+    :close="{ color: 'air-primary-alert', size: 'lg', rounded: false }"
   >
-    <B24Button label="Open" color="link" depth="dark" />
+    <B24Button label="Open" />
 
     <template #body>
-      <Placeholder class="h-48" />
+      <Placeholder class="h-40" />
     </template>
   </B24Modal>
 </template>
