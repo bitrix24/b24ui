@@ -8,6 +8,11 @@ import AdviceExample from '/examples/advice/Advice.vue';
 </script>
 # Advice
 
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
+
 <Description
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Advice.vue"
   demo="/components/advice"

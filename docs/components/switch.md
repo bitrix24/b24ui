@@ -16,6 +16,11 @@ import SizeExample from '/examples/switch/Size.vue';
 import DisabledExample from '/examples/switch/Disabled.vue';
 </script>
 # Switch
+
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/switch"
   reka-ui="https://reka-ui.com/docs/components/switch"

@@ -14,6 +14,10 @@ import SizeExample from '/examples/formfield/Size.vue';
 </script>
 # FormField
 
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/form-field"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/FormField.vue"

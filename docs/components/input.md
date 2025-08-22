@@ -19,6 +19,10 @@ import WithMaskExample from '/examples/input/WithMask.vue';
 </script>
 # Input
 
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/input"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Input.vue"

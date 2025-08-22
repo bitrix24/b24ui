@@ -15,8 +15,12 @@ import SizeExample from '/examples/range/Size.vue';
 import DisabledExample from '/examples/range/Disabled.vue';
 import InvertedExample from '/examples/range/Inverted.vue';
 </script>
-
 # Range
+
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/slider"
   reka-ui="https://reka-ui.com/docs/components/slider"
