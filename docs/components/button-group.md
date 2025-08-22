@@ -9,6 +9,7 @@ import SizeExample from '/examples/buttongroup/Size.vue';
 import OrientationExample from '/examples/buttongroup/Orientation.vue';
 import WithInputExample from '/examples/buttongroup/WithInput.vue';
 import WithTooltipExample from '/examples/buttongroup/WithTooltip.vue';
+import WithDropdownMenuExample from '/examples/buttongroup/WithDropdownMenu.vue';
 import WithBadgeExample from '/examples/buttongroup/WithBadge.vue';
 </script>
 # ButtonGroup
@@ -62,14 +63,14 @@ Use the `orientation` prop to change the orientation of the buttons. Defaults to
 </div>
 
 ::: details
-<<< @/examples/buttongroup/demo/Orientation.vue{16,22 vue:line-numbers}
+<<< @/examples/buttongroup/demo/Orientation.vue{18,25 vue:line-numbers}
 :::
 
 ## Examples
 
 ### With input
 
-You can use components like [Input](/components/input), [Select](/components/select) etc. within a button group.
+You can use components like [Input](/components/input), [InputMenu](/components/input-menu), [Select](/components/select) [SelectMenu](/components/select-menu), etc. within a button group.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -93,6 +94,20 @@ You can use a [Tooltip](/components/tooltip.html#usage) within a button group.
 
 ::: details
 <<< @/examples/buttongroup/demo/WithTooltip.vue{vue:line-numbers}
+:::
+
+### With dropdown
+
+You can use a [DropdownMenu](/components/dropdown-menu) within a button group.
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <WithDropdownMenuExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/buttongroup/demo/WithDropdownMenu.vue{vue:line-numbers}
 :::
 
 

@@ -1,7 +1,4 @@
 <script setup lang="ts">
-/**
- * @todo add Popover
- */
 import theme from '#build/b24ui/button'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'

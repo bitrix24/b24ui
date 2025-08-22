@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
-const items = ref(['CRM settings', 'My company details', 'Access permissions'])
-const value = ref('Access permissions')
+import { selectItems, selectItem } from './../../select/dictionary'
 
 function onClick() {
   return new Promise<void>(res => setTimeout(res, 3000))
@@ -10,35 +7,23 @@ function onClick() {
 </script>
 
 <template>
-  <div class="w-full">
-    <B24ButtonGroup
-      no-split
-    >
-      <B24Input class="w-40" name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
-      <B24Button
-        label="Button"
-        color="link"
-        depth="dark"
-        loading-auto
-        use-clock
-        @click="onClick"
-      />
-    </B24ButtonGroup>
-  </div>
-  <div class="w-full">
-    <B24ButtonGroup
-      class="w-2/3"
-      no-split
-    >
-      <B24Select v-model="value" :items="items" class="w-40" />
-      <B24Button
-        label="Button"
-        color="link"
-        depth="dark"
-        loading-auto
-        use-clock
-        @click="onClick"
-      />
-    </B24ButtonGroup>
-  </div>
+  <B24ButtonGroup>
+    <B24Input class="w-40" name="search" placeholder="Search..." aria-label="Search" />
+    <B24Button
+      label="Button"
+      loading-auto
+      use-clock
+      @click="onClick"
+    />
+  </B24ButtonGroup>
+  <B24ButtonGroup no-split>
+    <B24Select v-model="selectItem" :items="selectItems" class="w-40" />
+    <B24Button
+      label="Button"
+      color="air-primary"
+      loading-auto
+      use-clock
+      @click="onClick"
+    />
+  </B24ButtonGroup>
 </template>

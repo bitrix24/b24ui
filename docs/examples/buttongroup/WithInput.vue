@@ -5,7 +5,7 @@ import Demo from './demo/WithInput.vue'
 
 <template>
   <ComponentShowExample>
-    <div class="flex flex-col justify-start gap-4">
+    <div class="flex flex-col sm:flex-row flex-wrap items-center justify-between gap-2">
       <Demo />
     </div>
   </ComponentShowExample>
