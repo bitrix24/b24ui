@@ -33,7 +33,8 @@ export default {
       'text-(length:--ui-counter-font-size) text-(--b24ui-color)',
       'leading-(--ui-counter-current-size)',
       'overflow-hidden',
-      'z-1'
+      'z-1',
+      'text-nowrap' // truncate
     ].join(' '),
     trailingIcon: [
       'size-(--ui-counter-size)',
