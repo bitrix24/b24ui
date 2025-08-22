@@ -45,12 +45,14 @@ const items = [
         icon: CrmMapIcon,
         active: true,
         to: '/b24ui/components/components/navigation-menu.html',
+        target: '_blank',
         badge: 1
       },
       {
         label: 'Key Metrics',
         icon: Settings5Icon,
         to: '/b24ui/components/navigation-menu.html',
+        target: '_blank',
         badge: {
           label: 2,
           color: 'ai' as const,

@@ -6,9 +6,6 @@ outline: deep
 <script setup>
 import NavigationMenuExample from '/examples/navigationmenu/NavigationMenu.vue';
 import OrientationExample from '/examples/navigationmenu/Orientation.vue';
-import HighlightExample from '/examples/navigationmenu/Highlight.vue';
-import ColorExample from '/examples/navigationmenu/Color.vue';
-import VariantExample from '/examples/navigationmenu/Variant.vue';
 import TrailingIconExample from '/examples/navigationmenu/TrailingIcon.vue';
 import UnmountExample from '/examples/navigationmenu/Unmount.vue';
 import WithCustomSlotExample from '/examples/navigationmenu/WithCustomSlot.vue';
@@ -106,55 +103,15 @@ For the last menu item, you should use the `viewportRtl` port for proper positio
 
 ### Highlight
 
-Use the `highlight` prop to display a highlighted border for the active item.
-
-Use the `highlight-color` prop to change the color of the border. It defaults to the `color` prop.
-
-::: info
-In this example, the `border-b` class is applied to display a border in `horizontal` orientation, this is not done by default to let you have a clean slate to work with.
-:::
-
-::: danger
-In `vertical` orientation, the `highlight` prop only highlights the border of active children.
-:::
-
-<div class="lg:min-h-[340px]">
-  <ClientOnly>
-    <HighlightExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/navigationmenu/demo/Highlight.vue{vue:line-numbers}
-:::
+`@remove`
 
 ### Color
 
-Use the `color` prop to change the color of the NavigationMenu.
-
-<div class="lg:min-h-[340px]">
-  <ClientOnly>
-    <ColorExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/navigationmenu/demo/Color.vue{vue:line-numbers}
-:::
+`@remove`
 
 ### Variant
 
-Use the `variant` parameter to change the variant of the NavigationMenu.
-
-<div class="lg:min-h-[340px]">
-  <ClientOnly>
-    <VariantExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/navigationmenu/demo/Variant.vue{vue:line-numbers}
-:::
+`@remove`
 
 ### Trailing Icon
 
