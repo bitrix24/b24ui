@@ -20,10 +20,6 @@ Some data may be missing here — we will complete it shortly.
   A couple of lines of text and an avatar
 </Description>
 
-::: warning We are still updating this page
-Some data may be missing here — we will complete it shortly.
-:::
-
 ## Usage
 
 <div class="lg:min-h-[160px]">
