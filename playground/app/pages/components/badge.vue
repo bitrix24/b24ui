@@ -58,7 +58,7 @@ const isPrimary = (color: string) => {
     <ExampleCard title="color" :use-bg="isUseBg" class="sm:col-span-2">
       <ExampleCardSubTitle title="default" />
       <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
-        <div class="flex flex-row gap-4">
+        <div class="flex flex-col sm:flex-row gap-4">
           <B24Badge
             size="lg"
             color="air-primary"
@@ -69,18 +69,20 @@ const isPrimary = (color: string) => {
             :on-close-click="onCloseClick"
             @click="onClick"
           />
-          <B24Badge
-            size="lg"
-            color="air-primary"
-            :avatar="{ src: '/avatar/employee.png', text: 'Employee Name' }"
-            use-link
-            use-close
-            :on-close-click="onCloseClick"
-            inverted
-            @click="onClick"
-          >
-            <span>Use slot</span>
-          </B24Badge>
+          <div>
+            <B24Badge
+              size="lg"
+              color="air-primary"
+              :avatar="{ src: '/avatar/employee.png', text: 'Employee Name' }"
+              use-link
+              use-close
+              :on-close-click="onCloseClick"
+              inverted
+              @click="onClick"
+            >
+              <span class="text-nowrap">Use slot</span>
+            </B24Badge>
+          </div>
         </div>
       </div>
       <ExampleCardSubTitle title="colors" />
