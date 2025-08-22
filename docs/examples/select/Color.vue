@@ -14,14 +14,12 @@ const isHighlight = ref(true)
         <B24Switch v-model="isHighlight" />
       </B24FormField>
       <B24FormField label="color" class="w-full sm:w-1/4">
-        <B24FormField label="color" class="w-full sm:w-1/4">
-          <B24Select
-            v-model="colorValue"
-            :items="colorList"
-            name="color"
-            class="w-full"
-          />
-        </B24FormField>
+        <B24Select
+          v-model="colorValue"
+          :items="colorList"
+          name="color"
+          class="w-full"
+        />
       </B24FormField>
     </template>
     <div class="w-full sm:w-1/3">

@@ -1,19 +1,20 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import type { ChipProps } from '@bitrix24/b24ui-nuxt'
 
 const items = ref([
   {
-    label: 'default',
-    value: 'default',
+    label: 'air-primary',
+    value: 'air-primary',
     chip: {
-      color: 'default' as const
+      color: 'air-primary' as ChipProps['color']
     }
   },
   {
-    label: 'danger',
-    value: 'danger',
+    label: 'air-primary-copilot',
+    value: 'air-primary-copilot',
     chip: {
-      color: 'danger' as const
+      color: 'air-primary-copilot' as ChipProps['color']
     }
   }
 ])
