@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
 import Demo from './demo/Orientation.vue'
-import { sizes, size, orientations, orientation } from './dictionary.js'
+import { sizes, size, orientations, orientation } from './dictionary'
 </script>
 
 <template>

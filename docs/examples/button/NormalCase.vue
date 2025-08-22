@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
 import Demo from './demo/NormalCase.vue'
-import { colorValue, size } from './dictionary.js'
+import { colorValue, size } from './dictionary'
 
 const isNormalCase = ref(false)
 </script>

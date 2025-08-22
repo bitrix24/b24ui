@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
 import Demo from './demo/Avatar.vue'
-import { colorList, colorValue, sizes, size } from './dictionary.js'
+import { colorList, colorValue, sizes, size } from './dictionary'
 
 const label = ref('Button')
 </script>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
 import Demo from './demo/Form.vue'
-import { colorValue, size } from './dictionary.js'
+import { colorValue, size } from './dictionary'
 </script>
 
 <template>

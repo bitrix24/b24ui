@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
 import Demo from './demo/Block.vue'
-import { colorValue, size } from './dictionary.js'
+import { colorValue, size } from './dictionary'
 
 const isBlock = ref(true)
 </script>

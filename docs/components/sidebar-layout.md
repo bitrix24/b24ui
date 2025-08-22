@@ -22,7 +22,7 @@ import SidebarLayoutSlideoverExample from '/examples/sidebarlayout/SidebarLayout
 The component must be used as a [`layout`](https://github.com/bitrix24/b24ui/blob/main/playground/app/layouts/default.vue).
 
 ::: info styling
-The styling process is described on the page [Theme](i/guide/getting-started-theme.html#customize-theme) 
+The styling process is described on the page [Theme](/guide/getting-started-theme.html#customize-theme) 
 ::: 
 <div class="lg:min-h-[400px]">
   <ClientOnly>
@@ -75,7 +75,7 @@ It should be understood that the [`Slideover`](/components/slideover) component 
 :::
 
 ::: tip
-Many examples can be found on the [playground](https://github.com/bitrix24/b24ui/blob/main/playground/app/pages/components/slideover.vue) and also seen in the [demo](/b24ui/demo/components/slideover/) version.
+Many examples can be found on the [playground](https://github.com/bitrix24/b24ui/blob/main/playground/app/pages/components/slideover.vue) and also seen in the [demo]((https://github.com/bitrix24/b24ui/demo/components/slideover/) version.
 :::
 
 ## API

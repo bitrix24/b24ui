@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
 import Demo from './demo/LinkActiveColor.vue'
-import { colorList, colorValue } from './dictionary.js'
+import { colorList, colorValue } from './dictionary'
 </script>
 
 <template>
