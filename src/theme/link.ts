@@ -13,7 +13,8 @@ export default (options: Required<ModuleOptions>) => ({
     'cursor-pointer',
     // 'focus-visible:outline-info-text' // fix
     'focus-visible:outline-(--ui-color-accent-main-primary)',
-    'focus-visible:outline-1 focus-visible:rounded-[4px]'
+    'focus-visible:outline-1 focus-visible:rounded-[4px]',
+    'text-start'
   ].join(' '),
   variants: {
     active: {
