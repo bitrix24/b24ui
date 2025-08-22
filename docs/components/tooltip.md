@@ -207,4 +207,11 @@ You can make the Tooltip follow the cursor when hovering over an element using t
 
 ### Emits
 
-<ComponentEmits component="Tooltip" />
+```ts
+/**
+ * Emitted events for the Tooltip component
+ */
+interface TooltipEmits {
+  update:open: (payload: [value: boolean]) => void;
+}
+```

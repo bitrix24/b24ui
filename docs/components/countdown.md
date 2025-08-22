@@ -43,4 +43,14 @@ Some data may be missing here — we will complete it shortly.
 
 ### Emits
 
-<ComponentEmits component="Countdown" />
+```ts
+/**
+ * Emitted events for the CountdownEmits component
+ */
+interface CountdownEmits {
+  start: () => void;
+  end: () => void;
+  abort: () => void;
+  progress: (payload: CountdownData) => void;
+}
+```

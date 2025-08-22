@@ -41,7 +41,3 @@ Some data may be missing here — we will complete it shortly.
 ### Slots
 
 <ComponentSlots component="Advice" />
-
-### Emits
-
-<ComponentEmits component="Advice" />

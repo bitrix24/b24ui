@@ -451,7 +451,18 @@ You can fetch items from an API and use them in the Select.
 
 ### Emits
 
-<ComponentEmits component="Select" />
+```ts
+/**
+ * Emitted events for the Select component
+ */
+interface SelectEmits {
+  blur: (payload: [payload: FocusEvent]) => void;
+  change: (payload: [payload: Event]) => void;
+  focus: (payload: [payload: FocusEvent]) => void;
+  update:modelValue: (payload: [payload: any]) => void;
+  update:open: (payload: [value: boolean]) => void;
+}
+```
 
 ### Expose
 

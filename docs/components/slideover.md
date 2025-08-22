@@ -293,5 +293,14 @@ You can also close the dialog box using the `B24ModalDialogClose` component.
 
 ### Emits
 
-<ComponentEmits component="Slideover" />
-
+```ts
+/**
+ * Emitted events for the Slideover component
+ */
+interface SlideoverEmits {
+  update:open: (payload: [value: boolean]) => void;
+  after:leave: (payload: []) => void;
+  after:enter: (payload: []) => void;
+  close:prevent: (payload: []) => void;
+}
+```

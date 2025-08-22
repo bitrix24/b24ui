@@ -164,7 +164,15 @@ Or to validate list inputs:
 
 ### Emits
 
-<ComponentEmits component="Form" />
+```ts
+/**
+ * Emitted events for the Form component
+ */
+interface FormEmits {
+  error: (payload: [payload: FormErrorEvent]) => void;
+  submit: (payload: [payload: FormSubmitEvent<any>]) => void;
+}
+```
 
 ### Expose
 

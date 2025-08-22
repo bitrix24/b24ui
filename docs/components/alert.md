@@ -183,4 +183,11 @@ Use the `orientation` prop to change the orientation of the Alert.
 
 ### Emits
 
-<ComponentEmits component="Alert" />
+```ts
+/**
+ * Emitted events for the Alert component
+ */
+interface AlertEmits {
+  update:open: (payload: [value: boolean]) => void;
+}
+```

@@ -113,5 +113,12 @@ This allows you to move the trigger outside of the Collapsible or remove it enti
 
 ### Emits
 
-<ComponentEmits component="Collapsible" />
+```ts
+/**
+ * Emitted events for the Collapsible component
+ */
+interface CollapsibleEmits {
+  update:open: (payload: [value: boolean]) => void;
+}
+```
 

@@ -141,7 +141,3 @@ Use the `size` prop to change the size of the FormField, the `size` is proxied t
 ### Slots
 
 <ComponentSlots component="FormField" />
-
-### Emits
-
-<ComponentEmits component="FormField" />

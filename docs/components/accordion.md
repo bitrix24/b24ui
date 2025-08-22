@@ -239,4 +239,11 @@ You will have access to the following slots:
 
 ### Emits
 
-<ComponentEmits component="Accordion" />
+```ts
+/**
+ * Emitted events for the Accordion component
+ */
+interface AccordionEmits {
+  update:modelValue: (payload: [value: string | string[] | undefined]) => void;
+}
+```

@@ -153,4 +153,12 @@ Use the `disabled` prop to disable the Checkbox.
 
 ### Emits
 
-<ComponentEmits component="Checkbox" />
+```ts
+/**
+ * Emitted events for the Checkbox component
+ */
+interface CheckboxEmits {
+  change: (payload: [payload: Event]) => void;
+  update:modelValue: (payload: [value: boolean | "indeterminate"]) => void;
+}
+```

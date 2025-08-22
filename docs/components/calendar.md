@@ -339,4 +339,13 @@ Use a [Button](/components/button) and a [Popover](/components/popover) componen
 
 ### Emits
 
-<ComponentEmits component="Calendar" />
+```ts
+/**
+ * Emitted events for the Calendar component
+ */
+interface CalendarEmits {
+  update:modelValue: (payload: [date: DateValue | DateRange | DateValue[] | null | undefined]) => void;
+  update:placeholder: (payload: [date: DateValue] & [date: DateValue]) => void;
+  update:startValue: (payload: [date: DateValue | undefined]) => void;
+}
+```

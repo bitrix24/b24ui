@@ -197,4 +197,12 @@ You can make the Popover follow the cursor when hovering over an element using t
 
 ### Emits
 
-<ComponentEmits component="Popover" />
+```ts
+/**
+ * Emitted events for the Popover component
+ */
+interface PopoverEmits {
+  close:prevent: (payload: []) => void;
+  update:open: (payload: [value: boolean]) => void;
+}
+```

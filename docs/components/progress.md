@@ -179,5 +179,13 @@ Use the `inverted` prop to visually invert the Progress.
 
 ### Emits
 
-<ComponentEmits component="Progress" />
+```ts
+/**
+ * Emitted events for the Progress component
+ */
+interface ProgressEmits {
+  update:modelValue: (payload: [value: string[] | undefined]) => void;
+  update:max: (payload: [value: number]) => void;
+}
+```
 

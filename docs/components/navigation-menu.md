@@ -191,4 +191,11 @@ You can also use the `#item`, `#item-leading`, `#item-label`, `#item-trailing` a
 
 ### Emits
 
-<ComponentEmits component="NavigationMenu" />
+```ts
+/**
+ * Emitted events for the NavigationMenu component
+ */
+interface NavigationMenuEmits {
+  update:modelValue: (payload: [value: string]) => void;
+}
+```

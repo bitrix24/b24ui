@@ -256,5 +256,19 @@ const toaster = { expand: true }
 
 ### Emits
 
-<ComponentEmits component="Toast" />
+```ts
+/**
+ * Emitted events for the Toast component
+ */
+interface ToastEmits {
+  pause: (payload: []) => void;
+  escapeKeyDown: (payload: [event: KeyboardEvent]) => void;
+  resume: (payload: []) => void;
+  swipeStart: (payload: [event: SwipeEvent]) => void;
+  swipeMove: (payload: [event: SwipeEvent]) => void;
+  swipeCancel: (payload: [event: SwipeEvent]) => void;
+  swipeEnd: (payload: [event: SwipeEvent]) => void;
+  update:open: (payload: [value: boolean]) => void;
+}
+```
 

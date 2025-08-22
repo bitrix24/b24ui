@@ -70,8 +70,10 @@ export interface CountdownProps extends Omit<UseComponentIconsProps, 'loading' |
 }
 
 export interface CountdownEmits {
-  (e: 'start' | 'end' | 'abort'): void
-  (e: 'progress', payload: CountdownData): void
+  start: []
+  end: []
+  abort: []
+  progress: [payload: CountdownData]
 }
 
 export interface CountdownSlots {

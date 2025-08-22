@@ -291,7 +291,16 @@ Use the `#increment` and `#decrement` slots to customize the buttons.
 
 ### Emits
 
-<ComponentEmits component="InputNumber" />
+```ts
+/**
+ * Emitted events for the InputNumber component
+ */
+interface InputNumberEmits {
+  blur: (payload: [event: FocusEvent]) => void;
+  change: (payload: [payload: Event]) => void;
+  update:modelValue: (payload: [payload: number]) => void;
+}
+```
 
 ### Expose
 

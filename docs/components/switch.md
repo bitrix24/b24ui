@@ -183,4 +183,12 @@ Use the `disabled` prop to disable the Switch.
 
 ### Emits
 
-<ComponentEmits component="Switch" />
+```ts
+/**
+ * Emitted events for the Switch component
+ */
+interface SwitchEmits {
+  change: (payload: [payload: Event]) => void;
+  update:modelValue: (payload: [value: boolean]) => void;
+}
+```

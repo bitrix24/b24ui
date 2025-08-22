@@ -535,7 +535,21 @@ Use the `filter-fields` prop with an array of fields to filter on. Defaults to `
 
 ### Emits
 
-<ComponentEmits component="SelectMenu" />
+```ts
+/**
+ * Emitted events for the SelectMenu component
+ */
+interface SelectMenuEmits {
+  blur: (payload: [payload: FocusEvent]) => void;
+  change: (payload: [payload: Event]) => void;
+  focus: (payload: [payload: FocusEvent]) => void;
+  update:open: (payload: [value: boolean]) => void;
+  create: (payload: [item: string]) => void;
+  highlight: (payload: [payload: { ref: HTMLElement; value: any; } | undefined]) => void;
+  update:modelValue: (payload: [payload: any]) => void;
+  update:searchTerm: (payload: [value: string]) => void;
+}
+```
 
 ### Expose
 

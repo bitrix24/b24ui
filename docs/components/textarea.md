@@ -215,7 +215,16 @@ Use the `disabled` prop to disable the Textarea.
 
 ### Emits
 
-<ComponentEmits component="Textarea" />
+```ts
+/**
+ * Emitted events for the Textarea component
+ */
+interface TextareaEmits {
+  blur: (payload: [event: FocusEvent]) => void;
+  change: (payload: [event: Event]) => void;
+  update:modelValue: (payload: [payload: TextareaValue]) => void;
+}
+```
 
 ### Expose
 
