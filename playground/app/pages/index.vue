@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import usePageMeta from './../composables/usePageMeta'
 
-/**
- * @todo fix this (+/-/~)
- */
 usePageMeta.setPageTitle('Bitrix24 UI - Playground')
 </script>
 

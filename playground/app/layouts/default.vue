@@ -14,8 +14,11 @@ import type { DropdownMenuItem, NavigationMenuItem, SidebarLayoutInstance } from
 
 const route = useRoute()
 const router = useRouter()
-const mode = ref<'dark' | 'light' | 'edgeDark' | 'edgeLight'>('light')
+
+type colorMode = 'dark' | 'light' | 'edgeDark' | 'edgeLight'
+
 const colorMode = useColorMode()
+const mode = ref<colorMode>(colorMode.value as colorMode)
 // const mode = useColorMode<'light' | 'dark' | 'edgeLight' | 'edgeDark'>({
 //   attribute: 'class',
 //   modes: {

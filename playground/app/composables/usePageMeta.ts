@@ -74,7 +74,7 @@ const components: IComponentInfo[] = [
   { id: 'radio-group', description: 'A set of radio buttons to select a single option from a list.', iconData: FormIcon },
   { id: 'range', description: 'An input to select a numeric value within a range.', iconData: FormIcon },
   { id: 'select', description: 'A select element to choose from a list of options.', iconData: FormIcon },
-  { id: 'select-menu', description: 'n advanced searchable select element.', iconData: FormIcon },
+  { id: 'select-menu', description: 'An advanced searchable select element.', iconData: FormIcon },
   { id: 'separator', description: 'Separates content horizontally or vertically.', iconData: GroupIcon },
   { id: 'shortcuts', description: 'A composable to define keyboard shortcuts in your app.', iconData: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'skeleton', description: 'A placeholder to show while content is loading.', iconData: ItemIcon, iconUi: 'pr-px pb-[3px]' },
