@@ -2,8 +2,7 @@
 /**
  * @see playground/app/pages/components/select.vue
  */
-import type { SelectMenuItem, AvatarProps, ChipProps } from '@bitrix24/b24ui-nuxt'
-
+import type { SelectMenuItem, SelectMenuProps, AvatarProps, ChipProps } from '@bitrix24/b24ui-nuxt'
 import theme from '#build/b24ui/select-menu'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
@@ -23,10 +22,10 @@ import CancelIcon from '@bitrix24/b24icons-vue/button/CancelIcon'
 
 usePageMeta.setPageTitle('SelectMenu')
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
-const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof theme.variants.tagColor>
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
-// region Single List ////
+const isUseBg = ref(true)
+
 const knowledgeBase = ['Select Knowledge base', 'Create knowledge base'] satisfies SelectMenuItem[]
 const smartScripts = ['Scripts', 'Create script', 'Install from Bitrix24.Market'] satisfies SelectMenuItem[]
 const smartProcess = ['Smart Process Automation'] satisfies SelectMenuItem[]
@@ -40,9 +39,7 @@ const items = [
   [{ label: 'Settings', type: 'label' as const }, ...settings]
 ] satisfies SelectMenuItem[][]
 const selectedItems = ref([knowledgeBase[0]!, smartProcess[0]!])
-// endregion ////
 
-// region Simple Items ////
 const itemsSimple = ref([
   ...settings
 ] satisfies SelectMenuItem[])
@@ -52,30 +49,28 @@ function onCreate(item: string) {
   itemsSimple.value.unshift(item)
   value.value = item
 }
-// endregion ////
 
-// region Chip ////
 const chipItems = ref([
   {
     label: 'New message',
     value: 'message',
     chip: {
-      color: 'collab' as const
+      color: 'air-primary-alert' as ChipProps['color']
     },
-    color: 'collab'
+    color: 'air-primary-success' as SelectMenuProps['color']
   },
   {
     label: 'New information',
     value: 'information',
     chip: {
-      color: 'primary' as const
+      color: 'air-primary' as ChipProps['color']
     }
   },
   {
     label: 'Online',
     value: 'online',
     chip: {
-      color: 'success' as const
+      color: 'air-primary-success' as ChipProps['color']
     },
     disabled: true
   },
@@ -83,14 +78,12 @@ const chipItems = ref([
     label: 'Offline',
     value: 'offline',
     chip: {
-      color: 'default' as const
+      color: 'air-secondary' as ChipProps['color']
     }
   }
 ] satisfies SelectMenuItem[])
 const chipValue = ref(chipItems.value[0])
-// endregion ////
 
-// region Status ////
 const statuses = [
   {
     label: 'Backlog',
@@ -101,31 +94,30 @@ const statuses = [
     label: 'Todo',
     value: 'todo',
     icon: PlusInCircleIcon,
-    color: 'ai' as const,
+    color: 'air-primary-copilot' as SelectMenuProps['color'],
     disabled: true
   },
   {
     label: 'In Progress',
     value: 'in_progress',
     icon: ArrowTopIcon,
-    color: 'primary' as const
+    color: 'air-primary' as SelectMenuProps['color']
   },
   {
     label: 'Done',
     value: 'done',
     icon: CircleCheckIcon,
-    color: 'success' as const
+    color: 'air-primary-success' as SelectMenuProps['color']
   },
+  { type: 'separator' as const },
   {
     label: 'Canceled',
     value: 'canceled',
     icon: CancelIcon,
-    color: 'danger' as const
+    color: 'air-primary-alert' as SelectMenuProps['color']
   }
 ] satisfies SelectMenuItem[]
-// endregion ////
 
-// region useFetch ////
 const { data: users, status } = await useFetch('https://jsonplaceholder.typicode.com/users', {
   transform: (data: IUser[]) => {
     return data?.map(user => ({
@@ -136,82 +128,92 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
   },
   lazy: true
 })
-// endregion ////
+
+function getStatusIcon(value: string) {
+  return statuses.find(status => status.value === value)?.icon || UserIcon
+}
+
+const oldColors = computed(() => {
+  return colors.filter((color) => {
+    return !color.includes('air')
+  })
+})
+
+const airColors = computed(() => {
+  return colors.filter((color) => {
+    return color.includes('air')
+  })
+})
 </script>
 
 <template>
   <ExampleGrid v-once>
-    <ExampleCard title="base">
+    <ExampleCard title="base" :use-bg="isUseBg">
       <ExampleCardSubTitle title="simple" />
-      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+      <div class="mb-4 flex flex-col">
         <B24SelectMenu
           :items="items"
           name="some_value"
           placeholder="Choose a value&hellip;"
           aria-label="Choose a value"
           default-value="Scripts"
-          class="w-3/4"
         />
       </div>
 
       <ExampleCardSubTitle title="underline" />
-      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+      <div class="mb-4 flex flex-col">
         <B24SelectMenu
           :items="items"
           name="some_value"
           placeholder="Choose a value&hellip;"
           aria-label="Choose a value"
           default-value="Scripts"
-          class="w-3/4"
-          color="success"
+          color="air-primary-success"
           underline
         />
       </div>
 
       <ExampleCardSubTitle title="no border" />
-      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+      <div class="mb-4 flex flex-col">
         <B24SelectMenu
           :items="items"
           name="some_value"
           placeholder="Choose a value&hellip;"
           aria-label="Choose a value"
           default-value="Scripts"
-          class="w-3/4"
           no-border
         />
       </div>
 
       <ExampleCardSubTitle title="no padding" />
-      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+      <div class="mb-4 flex flex-col">
         <B24SelectMenu
           :items="items"
           name="some_value"
           placeholder="Choose a value&hellip;"
           aria-label="Choose a value"
           default-value="Scripts"
-          class="w-3/4"
           no-padding
         />
       </div>
 
       <ExampleCardSubTitle title="some error" />
-      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+      <div class="mb-4 flex flex-col">
         <B24SelectMenu
           :items="items"
           name="some_value"
           placeholder="Choose a value&hellip;"
           aria-label="Choose a value"
           default-value="Scripts"
-          class="w-3/4"
           highlight
-          color="danger"
+          color="air-primary-alert"
+          aria-invalid="true"
         />
       </div>
 
       <ExampleCardSubTitle title="some more" />
-      <div class="mb-4 flex flex-col gap-4 w-3/4">
+      <div class="mb-4 flex flex-col gap-4">
         <B24SelectMenu
-          class="w-full"
           :items="items"
           name="disabled"
           placeholder="Disabled"
@@ -219,7 +221,6 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
           disabled
         />
         <B24SelectMenu
-          class="w-full"
           :items="items"
           name="required"
           placeholder="Required"
@@ -229,7 +230,6 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
         <B24SelectMenu
           v-model="selectedItems"
           :items="items"
-          class="w-full"
           name="multiple"
           placeholder="Multiple"
           aria-label="Multiple"
@@ -237,7 +237,6 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
         />
         <B24SelectMenu
           :items="items"
-          class="w-full"
           name="rounded"
           placeholder="Rounded"
           aria-label="Rounded"
@@ -248,16 +247,15 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
       </div>
     </ExampleCard>
 
-    <ExampleCard title="loading">
+    <ExampleCard title="loading" :use-bg="isUseBg">
       <ExampleCardSubTitle title="loading" />
-      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+      <div class="mb-4 flex flex-col gap-4">
         <B24SelectMenu
           :items="items"
           loading
           name="some_value"
           placeholder="Choose a value&hellip;"
           aria-label="Choose a value"
-          class="w-3/4"
         />
         <B24SelectMenu
           :items="items"
@@ -266,17 +264,14 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
           name="some_value"
           placeholder="Choose a value&hellip;"
           aria-label="Choose a value"
-          class="w-3/4"
         />
         <B24SelectMenu
           :items="items"
           loading
           :icon="RocketIcon"
-          :trailing-icon="Expand1Icon"
           name="some_value"
           placeholder="Choose a value&hellip;"
           aria-label="Choose a value"
-          class="w-3/4"
         />
         <B24SelectMenu
           :items="items"
@@ -285,15 +280,14 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
           name="some_value"
           placeholder="Choose a value&hellip;"
           aria-label="Choose a value"
-          class="w-3/4"
         />
       </div>
     </ExampleCard>
 
-    <ExampleCard title="color">
-      <template v-for="color in colors" :key="color">
+    <ExampleCard title="color" :use-bg="isUseBg" class="sm:col-span-2">
+      <template v-for="color in airColors" :key="color">
         <ExampleCardSubTitle :title="color as string" />
-        <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+        <div class="mb-4 flex flex-wrap flex-row items-center gap-4">
           <B24SelectMenu
             :items="items"
             name="some_value"
@@ -301,138 +295,180 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
             aria-label="Choose a value"
             :color="color"
             highlight
-            class="w-3/4"
+            class="w-40"
           />
-        </div>
-      </template>
-    </ExampleCard>
-
-    <ExampleCard title="tag">
-      <template v-for="tagColor in tagColors" :key="tagColor">
-        <ExampleCardSubTitle :title="tagColor as string" />
-        <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
           <B24SelectMenu
             :items="items"
-            :tag-color="tagColor"
+            :tag-color="color"
             tag="some text"
             name="some_value"
             placeholder="Choose a value&hellip;"
             aria-label="Choose a value"
-            class="w-3/4"
+            :color="color"
+            highlight
+            class="w-40"
           />
         </div>
       </template>
+      <B24Collapsible class="mb-2">
+        <B24Button
+          color="air-secondary-no-accent"
+          label="Deprecate"
+          use-dropdown
+        />
+        <template #content>
+          <template v-for="color in oldColors" :key="color">
+            <ExampleCardSubTitle :title="color as string" />
+            <div class="mb-4 flex flex-wrap flex-row items-center gap-4">
+              <B24SelectMenu
+                :items="items"
+                name="some_value"
+                placeholder="Choose a value&hellip;"
+                aria-label="Choose a value"
+                :color="color"
+                highlight
+                class="w-40"
+              />
+              <B24SelectMenu
+                :items="items"
+                :tag-color="color"
+                tag="some text"
+                name="some_value"
+                placeholder="Choose a value&hellip;"
+                aria-label="Choose a value"
+                :color="color"
+                highlight
+                class="w-40"
+              />
+            </div>
+          </template>
+        </template>
+      </B24Collapsible>
     </ExampleCard>
+  </ExampleGrid>
 
-    <ExampleCard title="size" class="sm:col-span-2 md:col-span-4 lg:col-span-6">
+  <B24Separator accent="accent" class="my-4" label="Size" type="dotted" />
+  <ExampleGrid v-once class="mb-4">
+    <ExampleCard title="Some cases" :use-bg="isUseBg" class="sm:col-span-2 md:col-span-4">
       <template v-for="size in sizes" :key="size">
         <ExampleCardSubTitle :title="size as string" />
-        <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-          <div class="w-40">
+        <div class="mb-4 flex flex-wrap flex-row items-center gap-4">
+          <div>
             <B24SelectMenu
               :items="items"
-              class="w-full"
               name="some_value"
               placeholder="Choose a value&hellip;"
               aria-label="Choose a value"
               :size="size"
+              class="w-[240px]"
+              arrow
             />
           </div>
-
-          <div class="w-40">
+          <div>
             <B24SelectMenu
               v-model="value"
-              :create-item="{
-                position: 'bottom',
-                when: 'always'
-              }"
+              :create-item="{ position: 'bottom', when: 'always' }"
               :items="itemsSimple"
               :icon="Search2Icon"
-              class="w-full"
               name="some_value"
               placeholder="Choose a value&hellip;"
               aria-label="Choose a value"
               :size="size"
-              tag-color="ai"
               highlight
               tag="+ item"
-              color="ai"
+              tag-color="air-primary-copilot"
+              color="air-primary-copilot"
+              value-key="value"
+              class="w-[240px]"
+              arrow
               @create="onCreate"
             />
           </div>
-
-          <div class="w-40">
+          <div>
             <B24SelectMenu
               :items="statuses"
               :icon="Search2Icon"
-              :trailing-icon="Expand1Icon"
-              class="w-full"
               name="some_value"
               placeholder="Search status&hellip;"
               aria-label="Search status"
               :size="size"
+              value-key="value"
+              class="w-[240px]"
+              arrow
             >
               <template #leading="{ modelValue, b24ui }">
                 <Component
-                  :is="modelValue.icon"
+                  :is="getStatusIcon(modelValue)"
                   v-if="modelValue"
                   :class="b24ui.leadingIcon()"
                 />
               </template>
             </B24SelectMenu>
           </div>
-
-          <div class="w-40">
+          <div class="flex flex-row items-center justify-between gap-4">
             <B24SelectMenu
               :items="items"
               :avatar="{ src: '/b24ui/demo/avatar/employee.png' }"
-              class="w-full"
+              :trailing-icon="Expand1Icon"
               name="some_value"
               placeholder="Choose a value&hellip;"
               aria-label="Choose a value"
               :size="size"
+              class="w-[240px]"
+              arrow
+            />
+            <B24Input
+              :avatar="{ src: '/b24ui/demo/avatar/assistant.png' }"
+              :trailing-icon="Search2Icon"
+              name="some_value"
+              placeholder="Input"
+              aria-label="Insert value"
+              :size="size"
+              class="w-[140px]"
             />
           </div>
-
-          <div class="w-60">
+          <div>
             <B24SelectMenu
               :items="users"
               :loading="status === 'pending'"
               :icon="UserIcon"
               :trailing-icon="Expand1Icon"
-              class="w-full"
               name="some_users"
               placeholder="Search users&hellip;"
               aria-label="Search users"
               :size="size"
+              class="w-[240px]"
+              arrow
             >
               <template #leading="{ modelValue, b24ui }">
                 <B24Avatar
                   v-if="modelValue"
-                  :size="(b24ui.itemLeadingAvatarSize() as AvatarProps['size'])"
-                  :class="b24ui.leadingAvatar()"
                   v-bind="modelValue.avatar"
+                  :size="b24ui.leadingAvatarSize() as AvatarProps['size']"
+                  :class="b24ui.leadingAvatar()"
                 />
               </template>
             </B24SelectMenu>
           </div>
-
-          <div class="w-40">
+          <div>
             <B24SelectMenu
               v-model="chipValue"
               :items="chipItems"
-              class="w-full"
               name="some_chips"
               aria-label="Search chips"
               :size="size"
+              class="w-[240px]"
+              arrow
+              :b24ui="{
+                base: ['xss'].includes(size) ? 'ps-[25px]' : ''
+              }"
             >
               <template #leading="{ modelValue, b24ui }">
                 <B24Chip
                   v-if="modelValue"
                   v-bind="modelValue.chip"
-                  inset
                   standalone
-                  :size="b24ui.itemLeadingChipSize() as ChipProps['size']"
+                  :size="['xl', 'lg'].includes(size) ? 'lg' : (['md'].includes(size) ? 'md' : 'sm')"
                   :class="b24ui.itemLeadingChip()"
                 />
               </template>
