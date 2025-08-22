@@ -1,5 +1,6 @@
 import { ref } from 'vue'
 import type { ButtonProps } from '@bitrix24/b24ui-nuxt'
+// import theme from '#build/b24ui/button'
 
 export const colorList: ButtonProps['color'][] = [
   'air-primary',

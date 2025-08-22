@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
 import Demo from './demo/Disabled.vue'
+import { colorValue, size } from './dictionary.js'
 
 const isDisabled = ref(true)
 </script>
@@ -13,6 +14,6 @@ const isDisabled = ref(true)
         <B24Switch v-model="isDisabled" />
       </B24FormField>
     </template>
-    <Demo :is-disabled="isDisabled" />
+    <Demo :is-disabled="isDisabled" :color="colorValue" :size="size" />
   </ComponentShowExample>
 </template>

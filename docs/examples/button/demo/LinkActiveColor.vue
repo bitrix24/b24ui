@@ -1,22 +1,28 @@
+<script setup lang="ts">
+import type { ButtonProps } from '@bitrix24/b24ui-nuxt'
+
+export interface ExampleProps {
+  activeColor?: ButtonProps['color']
+}
+
+withDefaults(defineProps<ExampleProps>(), {
+  activeColor: 'air-primary' as ButtonProps['activeColor']
+})
+</script>
+
 <template>
   <B24Button
     :active="true"
-    :b24ui="{ baseLine: 'justify-center w-[200px]' }"
-    color="success"
-    depth="normal"
-    active-color="danger"
-    active-depth="dark"
+    :active-color="activeColor"
+    color="air-primary"
   >
     Active
   </B24Button>
 
   <B24Button
     :active="false"
-    color="success"
-    depth="normal"
-    :b24ui="{ baseLine: 'justify-center w-[200px]' }"
-    active-color="danger"
-    active-depth="dark"
+    :active-color="activeColor"
+    color="air-primary"
   >
     Inactive
   </B24Button>

@@ -6,7 +6,7 @@ export interface ExampleProps {
 }
 
 withDefaults(defineProps<ExampleProps>(), {
-  color: 'default'
+  color: 'air-primary' as ButtonProps['color']
 })
 </script>
 

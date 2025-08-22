@@ -19,6 +19,8 @@ import LoadingAutoExample from '/examples/button/LoadingAuto.vue';
 import FormExample from '/examples/button/Form.vue';
 import DisabledExample from '/examples/button/Disabled.vue';
 import RoundedExample from '/examples/button/Rounded.vue';
+import BlockExample from '/examples/button/Block.vue';
+import NormalCaseExample from '/examples/button/NormalCase.vue';
 </script>
 # Button
 
@@ -129,7 +131,7 @@ The `label` as prop or slot is optional so you can use the Button as an avatar-o
 </div>
 
 ::: details
-<<< @/examples/button/demo/Avatar.vue{25 vue:line-numbers}
+<<< @/examples/button/demo/Avatar.vue{22 vue:line-numbers}
 :::
 
 ### Link
@@ -155,7 +157,7 @@ When the Button is a link or when using the `active` prop, you can use the `acti
 </div>
 
 ::: details
-<<< @/examples/button/demo/LinkActiveColor.vue{5-6,14-15 vue:line-numbers}
+<<< @/examples/button/demo/LinkActiveColor.vue{15-16,23-24 vue:line-numbers}
 :::
 
 You can also use the `active-class` and `inactive-class` props to customize the active state.
@@ -167,7 +169,7 @@ You can also use the `active-class` and `inactive-class` props to customize the 
 </div>
 
 ::: details
-<<< @/examples/button/demo/LinkActiveClass.vue{5-6,14-15 vue:line-numbers}
+<<< @/examples/button/demo/LinkActiveClass.vue{3-5,11-13 vue:line-numbers}
 :::
 
 ### Loading
@@ -185,7 +187,7 @@ Use `use-clock`, `use-wait` props to show different loading icons.
 </div>
 
 ::: details
-<<< @/examples/button/demo/Loading.vue{24,31-32,40-41 vue:line-numbers}
+<<< @/examples/button/demo/Loading.vue{22,28-29,36-37 vue:line-numbers}
 :::
 
 Use the `loading-auto` prop to show the loading icon automatically while the `@click` promise is pending.
@@ -197,7 +199,7 @@ Use the `loading-auto` prop to show the loading icon automatically while the `@c
 </div>
 
 ::: details
-<<< @/examples/button/demo/LoadingAuto.vue{4-6,12-13,18-20,25-27 vue:line-numbers}
+<<< @/examples/button/demo/LoadingAuto.vue{23,31-32,40-41 vue:line-numbers}
 :::
 
 This also works with the [Form](/components/form) component.
@@ -209,7 +211,7 @@ This also works with the [Form](/components/form) component.
 </div>
 
 ::: details
-<<< @/examples/button/demo/Form.vue{17,21-23 vue:line-numbers}
+<<< @/examples/button/demo/Form.vue{28,32-40 vue:line-numbers}
 :::
 
 ### Disabled
@@ -223,7 +225,7 @@ Use the `disabled` prop to disable the Button.
 </div>
 
 ::: details
-<<< @/examples/button/demo/Disabled.vue{14 vue:line-numbers}
+<<< @/examples/button/demo/Disabled.vue{20 vue:line-numbers}
 :::
 
 ### Rounded
@@ -237,7 +239,35 @@ Use the `rounded` prop to round the Button.
 </div>
 
 ::: details
-<<< @/examples/button/demo/Rounded.vue{14 vue:line-numbers}
+<<< @/examples/button/demo/Rounded.vue{21,26 vue:line-numbers}
+:::
+
+### Block
+
+Use the `block` property to set `w-full` for the Button.
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <BlockExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/button/demo/Block.vue{21,26 vue:line-numbers}
+:::
+
+### NormalCase
+
+Use the `NormalCase` property to set `uppercase` for the Button.
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <NormalCaseExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/button/demo/NormalCase.vue{21,28 vue:line-numbers}
 :::
 
 ## API

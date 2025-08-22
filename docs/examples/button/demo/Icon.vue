@@ -10,7 +10,7 @@ export interface ExampleProps {
 
 withDefaults(defineProps<ExampleProps>(), {
   label: 'Button',
-  color: 'default' as ButtonProps['color'],
+  color: 'air-primary' as ButtonProps['color'],
   size: 'md' as ButtonProps['color']
 })
 </script>
@@ -18,6 +18,11 @@ withDefaults(defineProps<ExampleProps>(), {
 <template>
   <B24Button
     :label="label"
+    :color="color"
+    :size="size"
+    :icon="RocketIcon"
+  />
+  <B24Button
     :color="color"
     :size="size"
     :icon="RocketIcon"

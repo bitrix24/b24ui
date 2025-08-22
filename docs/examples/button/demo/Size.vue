@@ -6,7 +6,7 @@ export interface ExampleProps {
 }
 
 withDefaults(defineProps<ExampleProps>(), {
-  size: 'md' as const
+  size: 'md' as ButtonProps['size']
 })
 </script>
 

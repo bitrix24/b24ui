@@ -1,23 +1,21 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
-import Demo from './demo/LinkActiveColor.vue'
-import { colorList, colorValue } from './dictionary.js'
+import Demo from './demo/NormalCase.vue'
+import { colorValue, size } from './dictionary.js'
+
+const isNormalCase = ref(false)
 </script>
 
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="activeColor" class="w-full sm:w-1/4">
-        <B24Select
-          v-model="colorValue"
-          :items="colorList"
-          name="color"
-          class="w-full"
-        />
+      <B24FormField label="isNormalCase">
+        <B24Switch v-model="isNormalCase" />
       </B24FormField>
     </template>
     <div class="flex flex-col sm:flex-row flex-wrap items-center justify-between gap-2">
-      <Demo :active-color="colorValue" />
+      <Demo :is-normal-case="isNormalCase" :color="colorValue" :size="size" />
     </div>
   </ComponentShowExample>
 </template>

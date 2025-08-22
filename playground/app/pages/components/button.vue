@@ -49,7 +49,7 @@ const airColors = computed(() => {
           Link
         </B24Button>
         <B24Button label="Button" :icon="RocketIcon" loading-auto use-clock @click="onClick" />
-        <B24Button rounded label="Button" loading-auto use-clock @click="onClick" />
+        <B24Button rounded label="Button rounded" loading-auto use-clock @click="onClick" />
         <B24Button use-dropdown label="Button" loading-auto use-clock @click="onClick" />
         <B24Button
           use-dropdown

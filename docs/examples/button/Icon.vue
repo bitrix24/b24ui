@@ -28,10 +28,12 @@ const label = ref('Button')
         />
       </B24FormField>
     </template>
-    <Demo
-      :label="label"
-      :color="colorValue"
-      :size="size"
-    />
+    <div class="flex flex-col sm:flex-row flex-wrap items-center justify-between gap-2">
+      <Demo
+        :label="label"
+        :color="colorValue"
+        :size="size"
+      />
+    </div>
   </ComponentShowExample>
 </template>
