@@ -1,25 +1,24 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
 import Demo from './demo/Content.vue'
-import type { ExampleProps } from './demo/Content.vue'
-
-const contentAlignVariants = ref(['start', 'center', 'end'])
-const contentAlign = ref<ExampleProps['contentAlign']>('start')
-
-const contentSideVariants = ref(['top', 'right', 'bottom', 'left'])
-const contentSide = ref<ExampleProps['contentSide']>('right')
-
-const contentSideOffset = ref(8)
+import { contentAlignVariants, contentAlign, contentSideVariants, contentSide, contentSideOffset } from './../dictionary'
 </script>
 
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24RadioGroup v-model="contentAlign" legend="content.align" :items="contentAlignVariants" orientation="horizontal" />
-      <B24RadioGroup v-model="contentSide" legend="content.side" :items="contentSideVariants" orientation="horizontal" />
+      <div class="w-full sm:w-1/4">
+        <B24FormField label="content.align">
+          <B24Select v-model="contentAlign" :items="contentAlignVariants" class="w-full" />
+        </B24FormField>
+      </div>
+      <div class="w-full sm:w-1/4">
+        <B24FormField label="content.side">
+          <B24Select v-model="contentSide" :items="contentSideVariants" class="w-full" />
+        </B24FormField>
+      </div>
       <B24FormField label="content.sideOffset" class="w-28">
-        <B24InputNumber v-model.number="contentSideOffset" :min="0" size="md" />
+        <B24InputNumber v-model.number="contentSideOffset" :min="-100" size="md" />
       </B24FormField>
     </template>
     <Demo

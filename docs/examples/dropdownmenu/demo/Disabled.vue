@@ -1,38 +1,38 @@
 <script setup lang="ts">
-import MenuIcon from '@bitrix24/b24icons-vue/main/MenuIcon'
-import PencilDrawIcon from '@bitrix24/b24icons-vue/actions/PencilDrawIcon'
-import CopyPlatesIcon from '@bitrix24/b24icons-vue/actions/CopyPlatesIcon'
-import OpenedEyeIcon from '@bitrix24/b24icons-vue/main/OpenedEyeIcon'
+import { computed } from 'vue'
+import { dropdownMenuSimpleItems } from './../dictionary'
+import type { ContentAlignVariants, ContentSideVariants } from './../../dictionary'
+import HamburgerMenuIcon from '@bitrix24/b24icons-vue/outline/HamburgerMenuIcon'
 
 export interface ExampleProps {
   isDisabled?: boolean
+  contentAlign?: ContentAlignVariants
+  contentSide?: ContentSideVariants
+  contentSideOffset?: number
 }
 
-withDefaults(defineProps<ExampleProps>(), {
-  isDisabled: true
+const props = withDefaults(defineProps<ExampleProps>(), {
+  isDisabled: true,
+  contentAlign: 'start' as ContentAlignVariants,
+  contentSide: 'top' as ContentSideVariants,
+  contentSideOffset: 8
 })
 
-const items = [
-  {
-    label: 'View',
-    icon: OpenedEyeIcon
-  },
-  {
-    label: 'Copy',
-    icon: CopyPlatesIcon
-  },
-  {
-    label: 'Edit',
-    icon: PencilDrawIcon
+const content = computed(() => {
+  return {
+    align: props.contentAlign,
+    side: props.contentSide,
+    sideOffset: props.contentSideOffset
   }
-]
+})
 </script>
 
 <template>
   <B24DropdownMenu
     :disabled="isDisabled"
-    :items="items"
+    :items="dropdownMenuSimpleItems"
+    :content="content"
   >
-    <B24Button label="Open" color="link" depth="dark" :icon="MenuIcon" />
+    <B24Button label="Open" color="air-secondary-accent" :icon="HamburgerMenuIcon" />
   </B24DropdownMenu>
 </template>

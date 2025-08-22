@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import type { DropdownMenuItem } from '@bitrix24/b24ui-nuxt'
 import PersonIcon from '@bitrix24/b24icons-vue/main/PersonIcon'
 import CreditDebitCardIcon from '@bitrix24/b24icons-vue/main/CreditDebitCardIcon'
@@ -16,10 +16,15 @@ import CrossCircle50Icon from '@bitrix24/b24icons-vue/actions/CrossCircle50Icon'
 import CircleCheckThinIcon from '@bitrix24/b24icons-vue/main/CircleCheckThinIcon'
 import Bitrix24Icon from '@bitrix24/b24icons-vue/common-service/Bitrix24Icon'
 import LoaderWaitIcon from '@bitrix24/b24icons-vue/animated/LoaderWaitIcon'
+import PencilDrawIcon from '@bitrix24/b24icons-vue/actions/PencilDrawIcon'
+import CopyPlatesIcon from '@bitrix24/b24icons-vue/actions/CopyPlatesIcon'
+import OpenedEyeIcon from '@bitrix24/b24icons-vue/main/OpenedEyeIcon'
+import TrashBinIcon from '@bitrix24/b24icons-vue/main/TrashBinIcon'
 // import theme from '#build/b24ui/button'
 
 export const toast = useToast()
 
+// #region snippetItems
 export const dropdownMenuLoading = ref(false)
 export const dropdownMenuItems = ref([
   [
@@ -175,3 +180,66 @@ export const dropdownMenuItems = ref([
     }
   ]
 ] satisfies DropdownMenuItem[])
+// #endregion snippetItems
+
+// #region snippetSimpleItems
+export const dropdownMenuSimpleItems = [
+  {
+    label: 'View',
+    icon: OpenedEyeIcon,
+    slot: 'view'
+  },
+  {
+    label: 'Copy',
+    icon: CopyPlatesIcon
+  },
+  {
+    label: 'Edit',
+    icon: PencilDrawIcon
+  },
+  {
+    type: 'separator' as const
+  },
+  {
+    label: 'Delete',
+    color: 'air-primary-alert' as DropdownMenuItem['color'],
+    icon: TrashBinIcon
+  }
+] satisfies DropdownMenuItem[]
+// #endregion snippetSimpleItems
+
+// #region snippetCheckbox
+export const showCopy = ref(true)
+export const showEdit = ref(false)
+export const dropdownMenuSimpleItemsCheckbox = computed(() => [
+  {
+    label: 'View',
+    icon: OpenedEyeIcon,
+    type: 'label' as const
+  },
+  {
+    label: 'Copy',
+    icon: CopyPlatesIcon,
+    type: 'checkbox' as const,
+    checked: showCopy.value,
+    onUpdateChecked(checked: boolean) {
+      showCopy.value = checked
+    },
+    onSelect(e: Event) {
+      e.preventDefault()
+    }
+  },
+  {
+    type: 'separator' as const
+  },
+  {
+    label: 'Edit',
+    icon: PencilDrawIcon,
+    type: 'checkbox' as const,
+    checked: showEdit.value,
+    onUpdateChecked(checked: boolean) {
+      showEdit.value = checked
+    }
+  }
+] satisfies DropdownMenuItem[])
+// #endregion snippetCheckbox

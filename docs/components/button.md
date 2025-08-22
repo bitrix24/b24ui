@@ -74,7 +74,7 @@ Use the `color` prop to change the color of the Button.
 
 ### Depth
 
-_@deprecate_
+`@deprecate`
 
 ### Size
 

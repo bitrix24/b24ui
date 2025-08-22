@@ -7,7 +7,6 @@ outline: deep
 import DropdownMenuExample from '/examples/dropdownmenu/DropdownMenu.vue';
 import ContentExample from '/examples/dropdownmenu/Content.vue';
 import ArrowExample from '/examples/dropdownmenu/Arrow.vue';
-import SizeExample from '/examples/dropdownmenu/Size.vue';
 import DisabledExample from '/examples/dropdownmenu/Disabled.vue';
 import WithCheckboxItemsExample from '/examples/dropdownmenu/WithCheckboxItems.vue';
 import WithColorItemsExample from '/examples/dropdownmenu/WithColorItems.vue';
@@ -39,7 +38,7 @@ Use the `items` prop as an array of objects with the following properties:
 - `avatar?: AvatarProps`{lang="ts"}
 - `kbds?: string[] | KbdProps[]`{lang="ts"}
 - [`type?: "link" | "label" | "separator" | "checkbox"`{lang="ts"}](#with-checkbox-items)
-- [`color?: "default" | "danger" | "success" | "warning" | "primary" | "secondary" | "collab" | "ai"`{lang="ts"}](#with-color-items)
+- [`color?: "air-primary" | "air-primary-success" | "air-primary-alert" | "air-primary-copilot" | "air-primary-warning" `{lang="ts"}](#with-color-items)
 - [`checked?: boolean`{lang="ts"}](#with-checkbox-items)
 - `disabled?: boolean`{lang="ts-"}
 - [`slot?: string`{lang="ts"}](#with-custom-slot)
@@ -61,9 +60,21 @@ You can pass any property from the [Link](/components/link#props) component such
 <<< @/examples/dropdownmenu/demo/DropdownMenu.vue{vue:line-numbers}
 :::
 
+::: details dropdownMenuItems
+<<< @/examples/dropdownmenu/dictionary.ts#snippetItems{ts:line-numbers}
+:::
+
 ::: info
 You can also pass an array of arrays to the `items` prop to create separated groups of items.
+
+::: details
+<<< @/examples/dropdownmenu/dictionary.ts{ts:line-numbers}
 :::
+
+::: details dropdownMenuSimpleItems
+<<< @/examples/dropdownmenu/dictionary.ts#snippetSimpleItems{ts:line-numbers}
+:::
+
 
 ::: tip
 Each item can take a `children` array of objects with the same properties as the `items` prop to create a nested menu which can be controlled using the `open`, `defaultOpen` and `content` properties.
@@ -80,7 +91,7 @@ Use the `content` prop to control how the DropdownMenu content is rendered, like
 </div>
 
 ::: details
-<<< @/examples/dropdownmenu/demo/Content.vue{47 vue:line-numbers}
+<<< @/examples/dropdownmenu/demo/Content.vue{31 vue:line-numbers}
 :::
 
 ### Arrow
@@ -94,30 +105,12 @@ Use the `arrow` prop to display an arrow on the DropdownMenu.
 </div>
 
 ::: details
-<<< @/examples/dropdownmenu/demo/Arrow.vue{25 vue:line-numbers}
+<<< @/examples/dropdownmenu/demo/Arrow.vue{30 vue:line-numbers}
 :::
 
 ### Size
 
-Use the `size` prop to control the size of the DropdownMenu.
-
-::: warning
-The `size` prop will not be proxied to the Button, you need to set it yourself.
-:::
-
-::: info
-When using the same size, the DropdownMenu items will be perfectly aligned with the Button.
-:::
-
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <SizeExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/dropdownmenu/demo/Size.vue{34 vue:line-numbers}
-:::
+`@remove`
 
 ### Disabled
 
@@ -130,7 +123,7 @@ Use the `disabled` prop to disable the DropdownMenu.
 </div>
 
 ::: details
-<<< @/examples/dropdownmenu/demo/Disabled.vue{33 vue:line-numbers}
+<<< @/examples/dropdownmenu/demo/Disabled.vue{vue:line-numbers}
 :::
 
 ## Examples
@@ -153,7 +146,9 @@ To ensure reactivity for the `checked` state of items, it's recommended to wrap 
 <<< @/examples/dropdownmenu/demo/WithCheckboxItems.vue{24,25-27,28-30,36,37-39 vue:line-numbers}
 :::
 
-
+::: details showCopy, showEdit, dropdownMenuSimpleItemsCheckbox
+<<< @/examples/dropdownmenu/dictionary.ts#snippetCheckbox{ts:line-numbers}
+:::
 
 ### With color items
 
@@ -167,6 +162,10 @@ You can use the `color` property to highlight certain items with a color.
 
 ::: details
 <<< @/examples/dropdownmenu/demo/WithColorItems.vue{25 vue:line-numbers}
+:::
+
+::: details dropdownMenuSimpleItems
+<<< @/examples/dropdownmenu/dictionary.ts#snippetSimpleItems{20 ts:line-numbers}
 :::
 
 ### Control open state
@@ -184,7 +183,7 @@ In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), y
 </div>
 
 ::: details
-<<< @/examples/dropdownmenu/demo/ControlOpenState.vue{8,10-12,32 vue:line-numbers}
+<<< @/examples/dropdownmenu/demo/ControlOpenState.vue{27,29-31,36 vue:line-numbers}
 :::
 
 ### With custom slot
@@ -211,9 +210,12 @@ You can also use the `#item`, `#item-leading`, `#item-label` and `#item-trailing
 </div>
 
 ::: details
-<<< @/examples/dropdownmenu/demo/WithCustomSlot.vue{6,12,32-34 vue:line-numbers}
+<<< @/examples/dropdownmenu/demo/WithCustomSlot.vue{36-38 vue:line-numbers}
 :::
 
+::: details dropdownMenuSimpleItems
+<<< @/examples/dropdownmenu/dictionary.ts#snippetSimpleItems{5 ts:line-numbers}
+:::
 ### Extract shortcuts
 
 When you have some items with `kbds` property (displaying some [Kbd](/components/kbd)), you can easily make them work with the [defineShortcuts](composables/define-shortcuts) composable.
@@ -254,7 +256,7 @@ defineShortcuts(extractShortcuts(items))
 ::: info
 On **macOS** in this example, `⌘` `E`, `⌘` `I` and `⌘` `N`  would trigger the `select` function of the corresponding item.
 
-On **Windows** in this example, `⊞` `E`, `⊞` `I` and `⊞` `N` would trigger the `select` function of the corresponding item.
+On **Windows** in this example, `Ctrl` `E`, `Ctrl` `I` and `Ctrl` `N` would trigger the `select` function of the corresponding item.
 :::
 
 ## API
