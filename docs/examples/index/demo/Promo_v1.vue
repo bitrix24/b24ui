@@ -10,14 +10,10 @@ const confetti = useConfetti()
 const toast = useToast()
 
 const colorList = [
-  'default' as const,
-  'danger' as const,
-  'success' as const,
-  'warning' as const,
-  'primary' as const,
-  'secondary' as const,
-  'collab' as const,
-  'ai' as const
+  'air-primary' as const,
+  'air-primary-success' as const,
+  'air-primary-alert' as const,
+  'air-primary-copilot' as const
 ]
 const colorMain = ref(colorList[0])
 
