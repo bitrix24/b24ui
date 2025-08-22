@@ -12,10 +12,10 @@ defineShortcuts({
   <B24Slideover
     v-model:open="open"
   >
-    <B24Button label="Open" color="link" depth="dark" />
+    <B24Button label="Open" />
 
     <template #content>
-      <Placeholder class="h-full w-full" />
+      <Placeholder class="size-full bg-(--ui-color-base-7)" />
     </template>
   </B24Slideover>
 </template>
