@@ -30,9 +30,9 @@ const state = reactive({
 <template>
   <B24Tabs :items="items" variant="link" class="gap-4 w-full" :ui="{ trigger: 'grow' }">
     <template #account="{ item }">
-      <p class="text-base-500 dark:text-base-400 mb-4 text-md">
+      <ProseP accent="less" class="mb-4 text-md">
         {{ item.description }}
-      </p>
+      </ProseP>
 
       <B24Form :state="state" class="flex flex-col gap-4">
         <B24FormField label="Name" name="name">
@@ -42,14 +42,14 @@ const state = reactive({
           <B24Input v-model="state.username" class="w-full" />
         </B24FormField>
 
-        <B24Button label="Save changes" type="submit" color="success" class="self-end" />
+        <B24Button label="Save changes" type="submit" color="air-primary-success" class="self-end" />
       </B24Form>
     </template>
 
     <template #password="{ item }">
-      <p class="text-base-500 dark:text-base-400 mb-4 text-md">
+      <ProseP accent="less" class="mb-4 text-md">
         {{ item.description }}
-      </p>
+      </ProseP>
 
       <B24Form :state="state" class="flex flex-col gap-4">
         <B24FormField label="Current Password" name="current" required>
@@ -62,7 +62,7 @@ const state = reactive({
           <B24Input v-model="state.confirmPassword" type="password" required class="w-full" />
         </B24FormField>
 
-        <B24Button label="Change password" type="submit" color="success" class="self-end" />
+        <B24Button label="Change password" type="submit" color="air-primary-success" class="self-end" />
       </B24Form>
     </template>
   </B24Tabs>

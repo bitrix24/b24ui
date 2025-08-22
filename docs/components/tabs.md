@@ -7,7 +7,6 @@ outline: deep
 import TabsExample from '/examples/tabs/Tabs.vue';
 import ContentExample from '/examples/tabs/Content.vue';
 import UnmountExample from '/examples/tabs/Unmount.vue';
-import ColorExample from '/examples/tabs/Color.vue';
 import VariantExample from '/examples/tabs/Variant.vue';
 import SizeExample from '/examples/tabs/Size.vue';
 import OrientationExample from '/examples/tabs/Orientation.vue';
@@ -92,17 +91,7 @@ You can inspect the DOM to see each item's content being rendered.
 
 ### Color
 
-Use the `color` prop to change the color of the Tabs.
-
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <ColorExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/tabs/demo/Color.vue{28 vue:line-numbers}
-:::
+`@remove`
 
 ### Variant
 
@@ -159,7 +148,7 @@ You can control the active item by using the `default-value` prop or the `v-mode
 </div>
 
 ::: details
-<<< @/examples/tabs/demo/ModelValue.vue{25 vue:line-numbers}
+<<< @/examples/tabs/demo/ModelValue.vue{28 vue:line-numbers}
 :::
 
 ### With content slot
@@ -202,7 +191,14 @@ Use the `slot` property to customize a specific item.
 
 ### Emits
 
-<ComponentEmits component="Tabs" />
+```ts
+/**
+ * Emitted events for the Tabs component
+ */
+interface TabsEmits {
+  update:modelValue: (payload: [payload: string | number]) => void;
+}
+```
 
 ### Expose
 

@@ -1,11 +1,9 @@
 <script setup lang="ts">
 export interface ExampleProps {
-  color?: any
   variant?: any
 }
 
 withDefaults(defineProps<ExampleProps>(), {
-  color: 'default',
   variant: 'link'
 })
 
@@ -21,7 +19,6 @@ const items = [
 
 <template>
   <B24Tabs
-    :color="color"
     :variant="variant"
     :items="items"
     :content="false"
