@@ -1,16 +1,16 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Link > renders with activeClass correctly 1`] = `"<button type="button" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 text-base-900"></button>"`;
+exports[`Link > renders with activeClass correctly 1`] = `"<button type="button" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start outline-(--ui-color-accent-main-primary) hover:not-disabled:not-aria-disabled:underline underline-offset-2 text-base-900"></button>"`;
 
-exports[`Link > renders with as correctly 1`] = `"<div class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-(--ui-color-accent-main-link) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt) hover:underline"></div>"`;
+exports[`Link > renders with as correctly 1`] = `"<div class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start text-(--ui-color-accent-main-link) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt) hover:underline"></div>"`;
 
-exports[`Link > renders with class correctly 1`] = `"<button type="button" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-(--ui-color-accent-main-link) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt) hover:underline font-medium"></button>"`;
+exports[`Link > renders with class correctly 1`] = `"<button type="button" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start text-(--ui-color-accent-main-link) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt) hover:underline font-medium"></button>"`;
 
-exports[`Link > renders with default slot correctly 1`] = `"<button type="button" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-(--ui-color-accent-main-link) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt) hover:underline">Default slot</button>"`;
+exports[`Link > renders with default slot correctly 1`] = `"<button type="button" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start text-(--ui-color-accent-main-link) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt) hover:underline">Default slot</button>"`;
 
-exports[`Link > renders with disabled correctly 1`] = `"<button type="button" disabled="" class="focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-(--ui-color-accent-main-link) underline-offset-2 cursor-not-allowed opacity-75"></button>"`;
+exports[`Link > renders with disabled correctly 1`] = `"<button type="button" disabled="" class="focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start text-(--ui-color-accent-main-link) underline-offset-2 cursor-not-allowed opacity-75"></button>"`;
 
-exports[`Link > renders with inactiveClass correctly 1`] = `"<button type="button" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-(--ui-color-accent-main-link) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt) hover:underline"></button>"`;
+exports[`Link > renders with inactiveClass correctly 1`] = `"<button type="button" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start text-(--ui-color-accent-main-link) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt) hover:underline"></button>"`;
 
 exports[`Link > renders with raw activeClass correctly 1`] = `"<button type="button" class="text-red-500"></button>"`;
 
@@ -18,6 +18,6 @@ exports[`Link > renders with raw correctly 1`] = `"<button type="button" class="
 
 exports[`Link > renders with raw inactiveClass correctly 1`] = `"<button type="button" class="hover:text-base-500"></button>"`;
 
-exports[`Link > renders with to correctly 1`] = `"<a href="/" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-(--ui-color-accent-main-link) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt) hover:underline"></a>"`;
+exports[`Link > renders with to correctly 1`] = `"<a href="/" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start text-(--ui-color-accent-main-link) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt) hover:underline"></a>"`;
 
-exports[`Link > renders with type correctly 1`] = `"<button type="submit" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-(--ui-color-accent-main-link) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt) hover:underline"></button>"`;
+exports[`Link > renders with type correctly 1`] = `"<button type="submit" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start text-(--ui-color-accent-main-link) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt) hover:underline"></button>"`;
