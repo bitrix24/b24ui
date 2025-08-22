@@ -69,14 +69,14 @@ function getChip(value: string) {
 }
 
 const label = ref('Badge')
-const isFill = ref(true)
+const inverted = ref(true)
 </script>
 
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24FormField label="use-fill">
-        <B24Switch v-model="isFill" />
+      <B24FormField label="inverted">
+        <B24Switch v-model="inverted" />
       </B24FormField>
       <B24FormField label="color" class="w-full sm:w-1/4">
         <B24Select
@@ -101,6 +101,6 @@ const isFill = ref(true)
         <B24Input v-model="label" />
       </B24FormField>
     </template>
-    <Demo :label="label" :color="chipValue" :is-fill="isFill" />
+    <Demo :label="label" :color="chipValue" :inverted="inverted" />
   </ComponentShowExample>
 </template>

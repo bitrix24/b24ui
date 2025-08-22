@@ -70,10 +70,6 @@ function getChip(value: string) {
 }
 
 const label = ref('Badge')
-const isFill = ref(true)
-
-const depths = Object.keys(theme.variants.depth)
-const depth = ref('normal' as const)
 
 const sizes = Object.keys(theme.variants.size)
 const size = ref('xl' as const)
@@ -85,10 +81,6 @@ const size = ref('xl' as const)
       <B24FormField label="size" class="w-full sm:w-1/4">
         <B24Select v-model="size" :items="sizes" class="w-full" />
       </B24FormField>
-      <B24FormField label="use-fill">
-        <B24Switch v-model="isFill" />
-      </B24FormField>
-      <B24RadioGroup v-model="depth" legend="depth" :items="depths" orientation="horizontal" />
       <B24FormField label="color" class="w-full sm:w-1/4">
         <B24Select
           v-model="chipValue"
@@ -112,6 +104,6 @@ const size = ref('xl' as const)
         <B24Input v-model="label" />
       </B24FormField>
     </template>
-    <Demo :label="label" :depth="depth" :color="chipValue" :size="size" :is-fill="isFill" />
+    <Demo :label="label" :color="chipValue" :size="size" />
   </ComponentShowExample>
 </template>

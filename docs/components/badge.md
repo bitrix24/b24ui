@@ -7,7 +7,6 @@ outline: deep
 import BadgeExample from '/examples/badge/Badge.vue';
 import LabelExample from '/examples/badge/Label.vue';
 import ColorExample from '/examples/badge/Color.vue';
-import DepthExample from '/examples/badge/Depth.vue';
 import SizeExample from '/examples/badge/Size.vue';
 import IconExample from '/examples/badge/Icon.vue';
 import AvatarExample from '/examples/badge/Avatar.vue';
@@ -58,7 +57,7 @@ Use the `use-link` prop to show underline.
 
 Use the `color` prop to change the color of the Badge.
 
-Use the `use-fill` prop to change the filling of the Badge.
+Use the `inverted` prop to change the filling of the Badge.
 
 <div class="lg:min-h-[275px]">
   <ClientOnly>
@@ -72,17 +71,7 @@ Use the `use-fill` prop to change the filling of the Badge.
 
 ### Depth
 
-Use the `depth` parameter to change the intensity of the Badge.
-
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <DepthExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/badge/demo/Depth.vue{23 vue:line-numbers}
-:::
+`@remove`
 
 ### Size
 

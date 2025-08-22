@@ -4,13 +4,13 @@ import type { BadgeProps } from '@bitrix24/b24ui-nuxt/types/index.ts'
 export interface ExampleProps {
   label?: string
   color?: BadgeProps['color']
-  isFill?: boolean
+  inverted?: boolean
 }
 
 withDefaults(defineProps<ExampleProps>(), {
   color: 'default' as const,
   label: 'Badge',
-  isFill: true
+  inverted: true
 })
 </script>
 
@@ -18,6 +18,6 @@ withDefaults(defineProps<ExampleProps>(), {
   <B24Badge
     :label="label"
     :color="color"
-    :use-fill="isFill"
+    :inverted="inverted"
   />
 </template>
