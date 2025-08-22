@@ -117,10 +117,6 @@ Use the `tagColor` property to set the color for `tag`.
 
 Use the `size` prop to change the size of the Input.
 
-### Size
-
-Use the `size` prop to change the size of the Switch.
-
 <div class="lg:min-h-[275px]">
   <ClientOnly>
     <SizeExample />
