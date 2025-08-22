@@ -4,22 +4,20 @@
  * ---
  * @link /api_d7/bitrix/ui/ui_advice.php
  * @see bitrix/js/ui/advice/src
- */
-
-/**
  * @todo add actions from alerts
  */
 export default {
   slots: {
-    root: 'flex items-end',
-    descriptionWrapper: [
-      'relative'
+    root: [
+      'light',
+      'style-outline-accent-1',
+      'flex items-end'
     ].join(' '),
-    descriptionBorder: [
-      'fill-blue-500 dark:fill-blue-300'
-    ].join(' '),
+    descriptionWrapper: 'relative',
+    descriptionBorder: 'fill-(--b24ui-border-color)',
     descriptionBg: [
-      'fill-white dark:fill-base-900'
+      'fill-(--b24ui-background)',
+      'dark:fill-(--ui-color-base-6)'
     ].join(' '),
     descriptionAngle: [
       'absolute',
@@ -27,16 +25,17 @@ export default {
     ].join(' '),
     description: [
       'grow',
-      'w-11/12 py-3 px-md2 ms-2', // -9/12
+      'w-11/12 py-3 px-md2 ms-2',
       'rounded-[23px]',
-      'font-b24-secondary text-md leading-md font-normal',
+      'font-[family-name:var(--ui-font-family-secondary)] text-(length:--ui-font-size-md)/(--ui-font-line-height-md) font-(--ui-font-weight-normal)',
       'border-1',
-      'border-blue-500 bg-white text-base-950',
-      'dark:border-blue-300 dark:bg-base-900 dark:text-base-200'
+      'border-(--b24ui-border-color) bg-(--b24ui-background) text-(--b24ui-color)',
+      'dark:bg-(--ui-color-base-6)'
     ].join(' '),
-    leading: 'me-1.5 ms-2',
+    leading: 'me-1.5 ms-2 font-(--ui-font-weight-medium) text-(--ui-color-design-plain-content-icon-secondary)',
     leadingIcon: 'shrink-0 size-[42px]',
     leadingAvatar: 'shrink-0',
+    leadingAvatarIcon: 'text-(--b24ui-typography-label-color) bg-(--ui-color-base-8)',
     leadingAvatarSize: 'lg'
   },
   variants: {

@@ -7,12 +7,14 @@ import ExampleCard from '../../../components/ExampleCard.vue'
 
 usePageMeta.setPageTitle('TableWrapper')
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
+
+const isUseBg = ref(true)
 </script>
 
 <template>
   <ExampleGrid v-once>
     <template v-for="size in sizes" :key="size">
-      <ExampleCard :title="size as string" class="col-span-2">
+      <ExampleCard :title="size as string" :use-bg="isUseBg" class="col-span-2">
         <B24Separator class="my-3" type="dotted" />
         <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
           <B24TableWrapper
@@ -82,7 +84,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
       </ExampleCard>
     </template>
 
-    <ExampleCard title="border & background" class="col-span-2">
+    <ExampleCard title="border & background" :use-bg="isUseBg" class="col-span-2">
       <B24Separator class="my-3" type="dotted" />
       <B24TableWrapper
         class="overflow-x-auto w-full bg-linear-165 from-red-500/30 to-ai-500/50"
@@ -153,7 +155,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
       </B24TableWrapper>
     </ExampleCard>
 
-    <ExampleCard title="highlights row" class="col-span-2">
+    <ExampleCard title="highlights row" :use-bg="isUseBg" class="col-span-2">
       <B24Separator class="my-3" type="dotted" />
       <B24TableWrapper
         class="overflow-x-auto w-full"
@@ -177,7 +179,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
               <td>50,000</td>
             </tr>
             <!-- row 2 -->
-            <tr class="bg-ai-300 dark:bg-ai-700">
+            <tr class="bg-(--ui-color-copilot-accent-less-2)">
               <th>2</th>
               <td>Global Solutions Ltd.</td>
               <td>Negotiation</td>
@@ -191,7 +193,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
               <td>200,000</td>
             </tr>
             <!-- row 4 -->
-            <tr class="bg-collab-300 dark:bg-collab-700">
+            <tr class="bg-(--ui-color-collab-element-1)">
               <th>4</th>
               <td>Bright Ideas Co.</td>
               <td>Initial Contact</td>
@@ -219,7 +221,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
       </B24TableWrapper>
     </ExampleCard>
 
-    <ExampleCard title="highlights on hover" class="col-span-2">
+    <ExampleCard title="highlights on hover" :use-bg="isUseBg" class="col-span-2">
       <B24Separator class="my-3" type="dotted" />
       <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
         <B24TableWrapper
@@ -244,7 +246,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
                 <td>50,000</td>
               </tr>
               <!-- row 2 -->
-              <tr class="hover:bg-ai-300 dark:hover:bg-ai-700">
+              <tr class="hover:bg-(--ui-color-copilot-accent-less-2)">
                 <th>2</th>
                 <td>Global Solutions Ltd.</td>
                 <td>Negotiation</td>
@@ -258,7 +260,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
                 <td>200,000</td>
               </tr>
               <!-- row 4 -->
-              <tr class="hover:bg-collab-300 dark:hover:bg-collab-700">
+              <tr class="hover:bg-(--ui-color-collab-element-1)">
                 <th>4</th>
                 <td>Bright Ideas Co.</td>
                 <td>Initial Contact</td>
@@ -287,7 +289,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
       </div>
     </ExampleCard>
 
-    <ExampleCard title="zebra & row-hover" class="col-span-2">
+    <ExampleCard title="zebra & row-hover" :use-bg="isUseBg" class="col-span-2">
       <B24TableWrapper
         class="overflow-x-auto w-[100%+16px] -mx-4"
         zebra
@@ -313,7 +315,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
               <td>50,000</td>
             </tr>
             <!-- row 2 -->
-            <tr class="hover:bg-ai-300 dark:hover:bg-ai-700">
+            <tr class="hover:bg-(--ui-color-copilot-accent-less-2)">
               <th>2</th>
               <td>Global Solutions Ltd.</td>
               <td>Negotiation</td>
@@ -327,7 +329,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
               <td>200,000</td>
             </tr>
             <!-- row 4 -->
-            <tr class="hover:bg-collab-300 dark:hover:bg-collab-700">
+            <tr class="hover:bg-(--ui-color-collab-element-1)">
               <th>4</th>
               <td>Bright Ideas Co.</td>
               <td>Initial Contact</td>
@@ -357,7 +359,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
   </ExampleGrid>
 
   <ExampleGrid v-once class="mt-3">
-    <ExampleCard title="pinned-rows" class="">
+    <ExampleCard title="pinned-rows" :use-bg="isUseBg" class="">
       <B24Separator class="my-3" type="dotted" />
       <B24TableWrapper
         class="overflow-x-auto w-full h-[400px]"
@@ -528,7 +530,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
       </B24TableWrapper>
     </ExampleCard>
 
-    <ExampleCard title="pinned-rows pinned-cols" class="">
+    <ExampleCard title="pinned-rows pinned-cols" :use-bg="isUseBg" class="">
       <B24Separator class="my-3" type="dotted" />
       <B24TableWrapper
         class="overflow-x-auto w-full h-[400px]"
@@ -844,7 +846,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
       </B24TableWrapper>
     </ExampleCard>
 
-    <ExampleCard title="xs" class="col-span-4">
+    <ExampleCard title="xs" class="col-span-4" :use-bg="isUseBg">
       <B24Separator class="my-3" type="dotted" />
       <B24TableWrapper
         class="overflow-x-auto w-full h-[400px]"

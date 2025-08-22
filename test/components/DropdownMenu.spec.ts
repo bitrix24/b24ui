@@ -1,13 +1,11 @@
 import { describe, it, expect, test } from 'vitest'
 import DropdownMenu, { type DropdownMenuProps, type DropdownMenuSlots } from '../../src/runtime/components/DropdownMenu.vue'
 import ComponentRender from '../component-render'
-import theme from '#build/b24ui/dropdown-menu'
+// import theme from '#build/b24ui/dropdown-menu'
 import { expectSlotProps } from '../utils/types'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 
 describe('DropdownMenu', () => {
-  const sizes = Object.keys(theme.variants.size) as any
-
   const items = [
     [{
       label: 'My account',
@@ -95,7 +93,6 @@ describe('DropdownMenu', () => {
     ['with labelKey', { props: { ...props, labelKey: 'icon' } }],
     ['with disabled', { props: { ...props, disabled: true } }],
     ['with arrow', { props: { ...props, arrow: true } }],
-    ...sizes.map((size: string) => [`with size ${size}`, { props: { ...props, size } }]),
     ['with externalIcon', { props: { ...props, externalIcon: SignIcon } }],
     ['without externalIcon', { props: { ...props, externalIcon: false } }],
     ['with class', { props: { ...props, class: 'min-w-96' } }],

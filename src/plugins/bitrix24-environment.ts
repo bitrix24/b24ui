@@ -3,7 +3,8 @@ import { normalize } from 'pathe'
 import { resolvePathSync } from 'mlly'
 import MagicString from 'magic-string'
 
-import { runtimeDir, type Bitrix24UIOptions } from '../unplugin'
+import { runtimeDir } from '../unplugin'
+import type { Bitrix24UIOptions } from '../unplugin'
 
 /**
  * This plugin normalises Nuxt environment (#imports) and `import.meta.client` within the Bitrix24 UI components.

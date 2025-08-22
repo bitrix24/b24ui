@@ -52,6 +52,12 @@ export default defineLocale<Messages>({
     },
     table: {
       noData: 'Không có dữ liệu'
+    },
+    sidebarLayout: {
+      open: 'Mở điều hướng',
+      close: 'Đóng điều hướng',
+      slideoverTitle: 'Điều hướng',
+      slideoverDescription: 'Điều hướng nội dung'
     }
   }
 })

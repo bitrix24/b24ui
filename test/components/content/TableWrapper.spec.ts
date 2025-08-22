@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
-import TableWrapper, { type TableWrapperProps, type TableWrapperSlots } from '../../../src/runtime/components/content/TableWrapper.vue'
+import TableWrapper from '../../../src/runtime/components/content/TableWrapper.vue'
+import type { TableWrapperProps, TableWrapperSlots } from '../../../src/runtime/components/content/TableWrapper.vue'
 import ComponentRender from '../../component-render'
 
 describe('DescriptionList', () => {

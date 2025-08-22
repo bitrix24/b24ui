@@ -1,5 +1,64 @@
 # Changelog
 
+## [1.0.1](https://github.com/bitrix24/b24ui/compare/v0.7.2...v1.0.1) (2025-08-20)
+
+### AirWeb
+* **TableWrapper** fix `color`
+* **ProseHr\ProseUl\ProseOl\ProseA\ProseBlockquote** fix color
+* **ProseP** fix `color`, add prop `small`, add prop accent `{default, accent, accent-more, less, less-more}`
+* **ProseH*** fix `color`, add prop `accent` `{default, accent, accent-more, less, less-more}`
+* **ProseH1\ProseH2\ProseH3\ProseH4\ProseH5\ProseH6** fix color, add prop accent `{default, accent, accent-more, less, less-more}`
+* **ProseCode** fix `color`, new `color` `{air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning}`, deprecate `color` `{default, danger, success, warning, primary, secondary, collab, ai}`
+* **ProseCode** fix `color`, new `color` `{air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning}`, deprecate `color` `{default, danger, success, warning, primary, secondary, collab, ai}`
+* **NavbarDivider\SidebarHeading** fix `color`
+* **Popover** fix `color`, `arrow`
+* **DropdownMenu** fix color, `arrow`, remove `size`, new `color` `{air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning}`, deprecate `color` `{default, danger, success, warning, primary, secondary, collab, ai}`
+* **NavigationMenu** fix `hint`, `delayDuration`, remove `contentOrientation`, `highlight`, `highlightColor`, `arrow`, `color`, `variant.link`
+* **StackedLayout** remove, use SidebarLayout
+* **SidebarLayout** add slots `content-top`, `content-actions`, `loading`, add prop `inner`, `offContentScrollbar` 
+* **useSidebarLayout** add composable 
+* **Button** prop `normal-case` now `true`, new size `{xl, lg, md, sm, xs, xss}`, deprecate prop `depth`, new `color` `{air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-secondary, air-secondary-alert, air-secondary-accent, air-secondary-accent-1, air-secondary-accent-2, air-secondary-no-accent, air-tertiary, air-tertiary-accent, air-tertiary-no-accent, air-selection, air-boost}`, deprecate `color` `{default, danger, success, warning, primary, secondary, collab, ai, link}`
+* **Separator** add type `double`, remove prop `color`, add prop `accent` `{default, accent, less}`, prop `size` `{thin, thick}`
+* **Skeleton** add prop `accent` `{default, accent, less}`
+* **Slideover** remove prop `scrollbarThin`, prop `side` now `bottom`, calc size from `max-w-*`, use `SidebarLayout` for render content
+* **Modal** fix `color`, add slot `contentWrapper`
+* **Kbd** fix `arrow`, fix `color`, remove `depth`, add prop `accent` `{default, accent, less}`
+* **Tooltip** fix `arrow`, fix `color`, remove `kbdsDepth`, add prop `kbdsAccent` from `Kbd`
+* **Toast** fix `color`, new `color` `{air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning, air-secondary}`, deprecate `color` `{default, danger, success, warning, primary, secondary, collab, ai}`
+* **Alert** fix `color`, add prop `inverted`, new `color` `{air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning, air-secondary, air-secondary-alert, air-secondary-accent, air-secondary-accent-1, air-secondary-accent-2, air-tertiary}`, deprecate `color` `{default, danger, success, warning, primary, secondary, collab, ai}`
+* **Container** fix `size`
+* **Accordion** fix `color`
+* **Advice** fix `color`, remove empty `Avatar`
+* **Chip** fix `color`, add prop `hideZero`, add prop `trailingIcon`, add prop `inverted`, new `color` `{air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning, air-secondary, air-secondary-accent, air-secondary-accent-1, air-tertiary}`, deprecate `color` `{default, danger, success, warning, primary, secondary, collab, ai}`, deprecate `size` `{3xs, 2xs, xs, xl, 2xl, 3xl}`
+* **Badge** fix `color`, add prop `inverted`, remove `depth`, remove `useFill` now use `inverted`, new `size` `{xss, xs, sm, md, lg, xl}`, new `color` `{air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning, air-secondary, air-secondary-alert, air-secondary-accent, air-secondary-accent-1, air-secondary-accent-2, air-tertiary, air-selection}`, deprecate `color` `{default, danger, success, warning, primary, secondary, collab, ai}`
+* **Switch** fix `color`, new `color` `{air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning}`, deprecate `color` `{default, danger, success, warning, primary, secondary, collab, ai}`
+* **Checkbox** fix `color`, new `color` `{air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning}`, deprecate `color` `{default, danger, success, warning, primary, secondary, collab, ai}`
+* **RadioGroup** fix `color`, new `color` `{air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning}`, deprecate `color` `{default, danger, success, warning, primary, secondary, collab, ai}`
+* **Progress** fix `color`, new `color` `{air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning, air-secondary}`, deprecate `color` `{default, danger, success, warning, primary, secondary, collab, ai}`
+* **Range** fix `color`, new `color` `{air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning}`, deprecate `color` `{default, danger, success, warning, primary, secondary, collab, ai}`
+* **Calendar** fix `color`, off `yearControls`, new `color` `{air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning}`, deprecate `color` `{default, danger, success, warning, primary, secondary, collab, ai}`
+* **DescriptionList** fix `color`
+* **Input\InputNumber\Textarea** fix `color`, fix `size`, use `Badge` as tag, new `color` `{air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning}`, deprecate `color` `{default, danger, success, warning, primary, secondary, collab, ai}`
+* **Select\SelectMenu\InputMenu** fix `color`, fix `size`, fix dropdown height, use `Badge` as tag, new `color` `{air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning}`, deprecate `color` `{default, danger, success, warning, primary, secondary, collab, ai}`
+* **From\FormField** fix `color`, fix `size`
+* **Tabs** fix `color`, fix `size`, remove prop `color`, remove variant `pill`
+
+### Features
+
+* **Form:** support error RegExp in exposed methods
+* **useOverlay:** return promise on `open` method
+
+### Bug Fixes
+
+* **Input:** incorrect rendering of type `date` / `time` on iOS
+* **InputMenu/Select/SelectMenu:** add display value fallback when no items found
+* **Select/InputMenu:** handle focus via label inside a FormField
+* **Tabs:** add missing Badge import
+* **Toast:** add type for progress `ui` prop
+* **Tooltip:** render only if `text` or `kbds` are present
+* **Link** ensure target `_blank` is flagged as external for Inertia and Vue
+* **Form** default slot types
+
 ## [0.7.2](https://github.com/bitrix24/b24ui/compare/v0.7.1...v0.7.2) (2025-07-14)
 
 ### Bug Fixes

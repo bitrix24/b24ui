@@ -1,25 +1,29 @@
 <script setup lang="ts">
-import type { ModalProps } from '@bitrix24/b24ui-nuxt/types/index.ts'
+import type { ModalProps } from '@bitrix24/b24ui-nuxt'
 
 export interface ExampleProps {
   overlayBlur?: ModalProps['overlayBlur']
+  title?: string
+  description?: string
 }
 
 withDefaults(defineProps<ExampleProps>(), {
-  overlayBlur: 'auto' as const
+  overlayBlur: 'auto' as ModalProps['overlayBlur'],
+  title: 'Heads up!',
+  description: 'Let\'s signal the manager that the deal is not moving.'
 })
 </script>
 
 <template>
   <B24Modal
     :overlay-blur="overlayBlur"
-    :title="`Modal overlay blur ${overlayBlur}`"
-    description="The `overlay-blur` prop use"
+    :title="title"
+    :description="description"
   >
-    <B24Button label="Open" color="link" depth="dark" />
+    <B24Button label="Open" />
 
     <template #body>
-      <Placeholder class="h-48" />
+      <Placeholder class="h-40" />
     </template>
   </B24Modal>
 </template>

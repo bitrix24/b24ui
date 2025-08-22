@@ -5,96 +5,253 @@
  * @todo: docs
  * @todo: test
  * @todo: playground
+ * @todo: docs add in-data-[content=dd-light]:bg-red-500 group-data-[content=light]/layout-content:bg-red-500
+ * @todo: docs add inner {true|false}
  */
 
 export default {
   slots: {
     root: [
-      'min-h-svh w-full',
-      'flex max-lg:flex-col',
-      'relative isolate'
+      // @memo use src/runtime/index.css
+      'sidebar-layout',
+      'text-(--b24ui-typography-label-color)',
+      'w-full',
+      'flex'
     ].join(' '),
     sidebar: [
+      // @memo use src/runtime/air-design-tokens/components/navigation-menu.css
+      'air-sidebar',
+      'before:absolute before:inset-0 before:z-[-1]',
+      'before:bg-(--leftmenu-bg-expanded)',
       'w-[240px]',
-      'pr-[3px]',
-      'fixed inset-y-0 left-0',
+      'pe-[3px] rtl:me-[14px]',
+      'inset-y-0 left-0',
       'max-lg:hidden'
     ].join(' '),
-    sidebarSlideoverContainer: [
-      'max-w-80',
-      'p-2',
-      'bg-transparent dark:bg-transparent sm:shadow-none'
-    ].join(' '),
+    sidebarSlideoverContainer: 'w-full sm:max-w-80',
     sidebarSlideover: [
       'h-full',
       'overflow-hidden',
-      'flex flex-col',
-      'bg-white dark:bg-base-dark',
-      'ring-1 ring-base-950/5 dark:ring-white/10',
+      'flex flex-col text-(--b24ui-typography-label-color)',
+      'bg-(--ui-color-base-white-fixed) dark:bg-(--ui-color-bg-content-primary) edge-dark:bg-[#21334cf0]',
+      'ring-1 ring-(--ui-color-divider-vibrant-less)',
       'shadow-xs',
-      'rounded-lg'
+      'rounded-none'
     ].join(' '),
     sidebarSlideoverBtnClose: [
       '-mb-3',
       'px-4 pt-3'
     ].join(' '),
+    contentWrapper: [
+      'flex-1 flex flex-col',
+      ''
+    ].join(' '),
     header: [
-      'px-4',
-      'flex items-center',
-      'lg:hidden'
+      // @memo use src/runtime/air-design-tokens/components/navigation-menu.css
+      'air-header',
+      'px-(--content-area-shift) min-h-(--topbar-height)',
+      'flex items-center gap-x-1'
     ].join(' '),
-    headerMenuIcon: '',
-    headerPaddings: [
-      'py-2.5'
-    ].join(' '),
+    headerMenuIcon: 'lg:hidden',
     headerWrapper: [
-      'min-w-0',
-      'flex-1'
+      'min-w-0 flex-1',
+      'h-full'
     ].join(' '),
     container: [
-      'flex-1 flex flex-col',
+      'flex-1 flex flex-col gap-[22px]',
       'lg:min-w-0'
     ].join(' '),
     containerWrapper: [
-      'grow'
+      'grow group/layout-content'
     ].join(' '),
-    containerWrapperInner: ''
+    pageTopWrapper: [
+      'text-(--ui-color-base-1)',
+      'flex items-center gap-[12px]'
+    ].join(' '),
+    pageActionsWrapper: [
+      // 'min-h-[28px]', // @memo not work
+      'flex flex-col md:flex-row items-start md:items-center justify-start gap-[12px]'
+    ].join(' '),
+    containerWrapperInner: 'size-full',
+    pageBottomWrapper: '',
+    loadingWrapper: [
+      'cursor-wait',
+      'isolate absolute z-1000 inset-0',
+      'w-full h-dvh',
+      'flex flex-row flex-nowrap items-center justify-center'
+      // @memo save
+      // 'bg-[#00204e]/52', //  //#000000/66 // [#00204e]/52
+      // 'motion-safe:backdrop-blur-sm'
+    ].join(' '),
+    loadingIcon: 'text-(--ui-color-design-plain-content-icon-secondary) size-[110px] animate-spin-slow'
   },
   variants: {
-    useSidebar: {
+    inner: {
       true: {
-        container: 'lg:pl-[240px]'
+        root: [
+          '--inner',
+          'light',
+          'relative isolate',
+          'h-full',
+          'overflow-hidden'
+        ].join(' '),
+        sidebar: [
+          'relative',
+          'z-[0]'
+        ].join(' '),
+        header: [
+          'relative'
+        ].join(' '),
+        container: [
+          // @todo make property
+          'mt-0'
+        ].join(' '),
+        containerWrapper: '',
+        pageBottomWrapper: 'flex-0'
       },
       false: {
-        container: 'pb-2 lg:pt-2 lg:px-2'
+        root: [
+          '--app',
+          'h-screen min-h-screen',
+          'max-lg:flex-col'
+        ].join(' '),
+        sidebar: [
+          'fixed'
+        ].join(' '),
+        header: [
+          'relative'
+        ].join(' '),
+        container: [
+          'relative',
+          'mt-[22px]'
+        ].join(' ')
       }
+    },
+    offContentScrollbar: {
+      false: '',
+      true: ''
+    },
+    useSidebar: {
+      true: '',
+      false: ''
     },
     useLightContent: {
       true: {
-        root: [
-          'bg-white dark:bg-white/10',
-          'lg:bg-base-50 dark:lg:bg-base-dark edge-dark:lg:bg-transparent'
-        ].join(' '),
-        container: [
-          'pb-2 lg:pt-2 lg:pr-2'
-        ].join(' '),
         containerWrapper: [
-          'p-6 lg:p-10',
-          'lg:bg-white dark:lg:bg-white/10',
-          'lg:ring-1 lg:ring-base-950/5 dark:lg:ring-white/10',
-          'lg:shadow-xs',
-          'lg:rounded-lg'
+          // @memo set context* from component
+          'text-(--ui-color-text-primary)',
+          'bg-(--ui-color-bg-content-primary) ' // backdrop-blur-md dark:bg-(--ui-color-base-7)/80 edge-dark:bg-(--ui-color-base-7)/95
         ].join(' ')
       },
       false: {
-        container: [
-          'px-4'
-        ].join(' ')
+        container: 'px-(--content-area-shift)'
+      }
+    },
+    loading: {
+      true: ''
+    },
+    useNavbar: {
+      true: {
+        container: ''
+      },
+      false: {
+        loadingWrapper: 'h-full',
+        container: ''
       }
     }
   },
-  compoundVariants: [],
+  compoundVariants: [
+    // region inner||main.useLightContent ////
+    {
+      inner: true,
+      useLightContent: true,
+      class: {
+        container: '',
+        pageTopWrapper: 'px-0 lg:px-0',
+        pageActionsWrapper: 'px-0 lg:px-0',
+        containerWrapper: [
+          'p-[20px]',
+          'rounded-(--ui-border-radius-md)'
+        ].join(' ')
+      }
+    },
+    {
+      inner: false,
+      useLightContent: true,
+      class: {
+        container: 'lg:pb-2',
+        pageTopWrapper: 'px-6 lg:px-0',
+        pageActionsWrapper: 'px-6 lg:px-0',
+        containerWrapper: [
+          'p-6 lg:p-[15px]',
+          'lg:rounded-(--ui-border-radius-md)'
+        ].join(' ')
+      }
+    },
+    // endregion ////
+    // region inner.noContentScrollbar ////
+    {
+      inner: true,
+      offContentScrollbar: false,
+      class: {
+        container: 'scrollbar-thin scrollbar-transparent overflow-y-scroll'
+      }
+    },
+    // endregion ////
+    // region main.useSidebar ////
+    {
+      inner: true,
+      useSidebar: [true, false],
+      class: {
+        container: 'px-[20px] ps-[20px] pe-[10px] pb-[20px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[10px]'
+      }
+    },
+    {
+      inner: false,
+      useSidebar: true,
+      class: {
+        // @memo --content-area-left-shift
+        // container: 'lg:px-[calc(var(--content-area-shift)-6px)]',
+        container: 'lg:px-(--content-area-shift)',
+        contentWrapper: 'lg:pl-[240px] '
+      }
+    },
+    {
+      inner: false,
+      useSidebar: false,
+      class: {
+        container: 'px-(--content-area-shift) pb-2 lg:pt-2 lg:px-2',
+        contentWrapper: 'lg:pl-0'
+      }
+    },
+    // endregion ////
+    // region main.useNavbar ////
+    {
+      inner: true,
+      useNavbar: [true, false],
+      class: {
+        container: 'h-full'
+      }
+    },
+    {
+      inner: false,
+      useNavbar: true,
+      class: {
+        container: 'h-[calc(100dvh-var(--topbar-height))]'
+      }
+    },
+    {
+      inner: false,
+      useNavbar: false,
+      class: {
+        container: 'h-full'
+      }
+    }
+    // endregion ////
+  ],
   defaultVariants: {
+    inner: false,
+    noContentScrollbar: false,
     useLightContent: true
   }
 }

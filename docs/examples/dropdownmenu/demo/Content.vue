@@ -1,36 +1,20 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import MenuIcon from '@bitrix24/b24icons-vue/main/MenuIcon'
-import PencilDrawIcon from '@bitrix24/b24icons-vue/actions/PencilDrawIcon'
-import CopyPlatesIcon from '@bitrix24/b24icons-vue/actions/CopyPlatesIcon'
-import OpenedEyeIcon from '@bitrix24/b24icons-vue/main/OpenedEyeIcon'
+import { dropdownMenuSimpleItems } from './../dictionary'
+import type { ContentAlignVariants, ContentSideVariants } from './../../dictionary'
+import HamburgerMenuIcon from '@bitrix24/b24icons-vue/outline/HamburgerMenuIcon'
 
 export interface ExampleProps {
-  contentAlign?: 'start' | 'center' | 'end'
-  contentSide?: 'top' | 'right' | 'bottom' | 'left'
+  contentAlign?: ContentAlignVariants
+  contentSide?: ContentSideVariants
   contentSideOffset?: number
 }
 
 const props = withDefaults(defineProps<ExampleProps>(), {
-  contentAlign: 'start',
-  contentSide: 'left',
+  contentAlign: 'start' as ContentAlignVariants,
+  contentSide: 'top' as ContentSideVariants,
   contentSideOffset: 8
 })
-
-const items = [
-  {
-    label: 'View',
-    icon: OpenedEyeIcon
-  },
-  {
-    label: 'Copy',
-    icon: CopyPlatesIcon
-  },
-  {
-    label: 'Edit',
-    icon: PencilDrawIcon
-  }
-]
 
 const content = computed(() => {
   return {
@@ -43,9 +27,9 @@ const content = computed(() => {
 
 <template>
   <B24DropdownMenu
-    :items="items"
+    :items="dropdownMenuSimpleItems"
     :content="content"
   >
-    <B24Button label="Open" color="link" depth="dark" :icon="MenuIcon" />
+    <B24Button label="Open" color="air-secondary-accent" :icon="HamburgerMenuIcon" />
   </B24DropdownMenu>
 </template>

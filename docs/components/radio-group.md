@@ -17,6 +17,10 @@ import DisabledExample from '/examples/radiogroup/Disabled.vue';
 </script>
 # RadioGroup
 
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/radio-group"
   reka-ui="https://reka-ui.com/docs/components/radio-group"
@@ -195,4 +199,13 @@ Use the `disabled` prop to disable the RadioGroup.
 
 ### Emits
 
-<ComponentEmits component="RadioGroup" />
+```ts
+/**
+ * Emitted events for the RadioGroup component
+ */
+interface RadioGroupEmits {
+  change: (payload: [payload: Event]) => void;
+  update:modelValue: (payload: [payload: string]) => void;
+}
+```
+

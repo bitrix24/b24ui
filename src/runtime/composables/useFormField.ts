@@ -1,5 +1,7 @@
-import { inject, computed, type InjectionKey, type Ref, type ComputedRef, provide } from 'vue'
-import { type UseEventBusReturn, useDebounceFn } from '@vueuse/core'
+import { inject, computed, provide } from 'vue'
+import type { InjectionKey, Ref, ComputedRef } from 'vue'
+import { useDebounceFn } from '@vueuse/core'
+import type { UseEventBusReturn } from '@vueuse/core'
 import type { FormFieldProps } from '../types'
 import type { FormEvent, FormInputEvents, FormFieldInjectedOptions, FormInjectedOptions } from '../types/form'
 import type { GetObjectField } from '../types/utils'
@@ -73,7 +75,7 @@ export function useFormField<T>(props?: Props<T>, opts?: { bind?: boolean, defer
     id: computed(() => props?.id ?? inputId?.value),
     name: computed(() => props?.name ?? formField?.value.name),
     size: computed(() => props?.size ?? formField?.value.size),
-    color: computed(() => formField?.value.error ? 'danger' : props?.color),
+    color: computed(() => formField?.value.error ? 'air-primary-alert' : props?.color),
     highlight: computed(() => formField?.value.error ? true : props?.highlight),
     disabled: computed(() => formOptions?.value.disabled || props?.disabled),
     emitFormBlur,
@@ -87,10 +89,15 @@ export function useFormField<T>(props?: Props<T>, opts?: { bind?: boolean, defer
         .filter(type => formField?.value?.[type])
         .map(type => `${formField?.value.ariaId}-${type}`) || []
 
-      return {
-        'aria-describedby': descriptiveAttrs.join(' '),
+      const attrs: Record<string, any> = {
         'aria-invalid': !!formField?.value.error
       }
+
+      if (descriptiveAttrs.length > 0) {
+        attrs['aria-describedby'] = descriptiveAttrs.join(' ')
+      }
+
+      return attrs
     })
   }
 }

@@ -1,18 +1,25 @@
 <script setup lang="ts">
 const $props = withDefaults(defineProps<{
   title?: string
+  useBg?: boolean
 }>(), {
-  title: 'Some example'
+  title: 'Some example',
+  useBg: true
 })
 </script>
 
 <template>
-  <div class="py-sm2 px-sm">
-    <div class="mb-2xs2 font-b24-secondary text-black dark:text-base-150 text-h5 font-semibold">
-      <slot name="title">
+  <div
+    class="overflow-hidden p-5"
+    :class="[
+      $props.useBg ? 'rounded-[10px] backdrop-blur-md bg-(--ui-color-design-outline-na-bg) border-1 border-(--ui-color-design-outline-na-stroke)' : ''
+    ]"
+  >
+    <slot name="title">
+      <ProseH5>
         [{{ $props.title }}]
-      </slot>
-    </div>
+      </ProseH5>
+    </slot>
     <slot />
   </div>
 </template>

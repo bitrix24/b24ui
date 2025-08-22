@@ -2,28 +2,33 @@
  * Separator
  * Separates content horizontally or vertically.
  * ---
+ * @memo use --ui-border-width-thin | --ui-color-divider-default
  */
 
 export default {
   slots: {
     root: 'flex items-center align-center text-center',
     border: '',
-    container: 'font-b24-primary font-normal text-base-500 flex',
+    container: 'font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-normal) flex',
     icon: 'shrink-0 size-7',
     avatar: 'shrink-0',
     avatarSize: 'sm',
-    label: 'text-sm'
+    label: ''
   },
   variants: {
-    color: {
-      default: { border: 'border-base-master/10 dark:border-base-100/20' },
-      danger: { border: 'border-red-500 dark:border-red-600' },
-      success: { border: 'border-green-500 dark:border-green-600' },
-      warning: { border: 'border-orange-500 dark:border-orange-600' },
-      primary: { border: 'border-blue-500 dark:border-blue-600' },
-      secondary: { border: 'border-cyan-350 dark:border-cyan-500' },
-      collab: { border: 'border-collab-500 dark:border-collab-600' },
-      ai: { border: 'border-ai-500 dark:border-ai-600' }
+    accent: {
+      default: {
+        container: 'text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset)',
+        border: 'border-(--ui-color-divider-vibrant-default)'
+      },
+      accent: {
+        container: 'text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset)',
+        border: 'border-(--ui-color-divider-vibrant-accent-more)'
+      },
+      less: {
+        container: 'text-(--ui-color-base-6) text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset)',
+        border: 'border-(--ui-color-divider-vibrant-less)'
+      }
     },
     orientation: {
       horizontal: {
@@ -38,11 +43,8 @@ export default {
       }
     },
     size: {
-      xs: '',
-      sm: '',
-      md: '',
-      lg: '',
-      xl: ''
+      thin: '',
+      thick: ''
     },
     type: {
       solid: {
@@ -53,6 +55,9 @@ export default {
       },
       dotted: {
         border: 'border-dotted'
+      },
+      double: {
+        border: 'border-double'
       }
     }
   },
@@ -60,61 +65,45 @@ export default {
     // region horizontal ////
     {
       orientation: 'horizontal',
-      size: 'xs',
-      class: { border: 'border-t' }
+      size: 'thin',
+      class: { border: 'border-t-(length:--ui-border-width-thin)' }
     },
     {
       orientation: 'horizontal',
-      size: 'sm',
-      class: { border: 'border-t-[2px]' }
-    },
-    {
-      orientation: 'horizontal',
-      size: 'md',
-      class: { border: 'border-t-[3px]' }
-    },
-    {
-      orientation: 'horizontal',
-      size: 'lg',
-      class: { border: 'border-t-[4px]' }
-    },
-    {
-      orientation: 'horizontal',
-      size: 'xl',
-      class: { border: 'border-t-[5px]' }
+      size: 'thick',
+      class: { border: 'border-t-(length:--ui-border-width-thick)' }
     },
     // endregion ////
     // region vertical ////
     {
       orientation: 'vertical',
-      size: 'xs',
-      class: { border: 'border-s' }
+      size: 'thin',
+      class: { border: 'border-s-(length:--ui-border-width-thin)' }
     },
     {
       orientation: 'vertical',
-      size: 'sm',
-      class: { border: 'border-s-[2px]' }
+      size: 'thick',
+      class: { border: 'border-s-(length:--ui-border-width-thick)' }
+    },
+    // endregion ////
+    // region custom for double.thick ////
+    {
+      type: 'double',
+      size: 'thick',
+      orientation: 'horizontal',
+      class: { border: 'border-t-[length:calc(var(--ui-border-width-thick)_+_1px)]' }
     },
     {
+      type: 'double',
+      size: 'thick',
       orientation: 'vertical',
-      size: 'md',
-      class: { border: 'border-s-[3px]' }
-    },
-    {
-      orientation: 'vertical',
-      size: 'lg',
-      class: { border: 'border-s-[4px]' }
-    },
-    {
-      orientation: 'vertical',
-      size: 'xl',
-      class: { border: 'border-s-[5px]' }
+      class: { border: 'border-s-[length:calc(var(--ui-border-width-thick)_+_1px)]' }
     }
     // endregion ////
   ],
   defaultVariants: {
-    color: 'default',
-    size: 'xs',
+    accent: 'default',
+    size: 'thin',
     type: 'solid'
   }
 }

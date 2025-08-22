@@ -7,14 +7,12 @@ const count = ref(0)
 const toast = useToast()
 const overlay = useOverlay()
 
-const slideover = overlay.create(LazySlideover, {
-  props: {
-    count: count.value
-  }
-})
+const slideover = overlay.create(LazySlideover)
 
 async function open() {
-  const instance = slideover.open()
+  const instance = slideover.open({
+    count: count.value
+  })
 
   const shouldIncrement = await instance.result
 

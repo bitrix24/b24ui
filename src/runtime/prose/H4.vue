@@ -6,6 +6,10 @@ import type { ComponentConfig } from '../types/utils'
 type ProseH4 = ComponentConfig<typeof theme, AppConfig, 'h4', 'b24ui.prose'>
 
 export interface ProseH4Props {
+  /**
+   * @defaultValue 'default'
+   */
+  accent?: ProseH4['variants']['accent']
   class?: any
   b24ui?: ProseH4['slots']
 }
@@ -20,13 +24,16 @@ import { computed } from 'vue'
 import { useAppConfig } from '#imports'
 import { tv } from '../utils/tv'
 
-const props = defineProps<ProseH4Props>()
+const props = withDefaults(defineProps<ProseH4Props>(), {
+  accent: 'default'
+})
 defineSlots<ProseH4Slots>()
 
 const appConfig = useAppConfig() as ProseH4['AppConfig']
 
-// eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.h4 || {}) })())
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.h4 || {}) })({
+  accent: props.accent
+}))
 </script>
 
 <template>

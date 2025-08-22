@@ -9,16 +9,16 @@ import type { ToastProps } from '@bitrix24/b24ui-nuxt'
 
 usePageMeta.setPageTitle('Badge')
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
-const depths = Object.keys(theme.variants.depth) as Array<keyof typeof theme.variants.depth>
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
 
 const toast = useToast()
+const isUseBg = ref(true)
 
 function onClick() {
   toast.add({
     title: 'Action',
     description: 'Some action',
-    color: 'primary' as ToastProps['color']
+    color: 'air-primary' as ToastProps['color']
   })
 }
 
@@ -31,224 +31,215 @@ function onCloseClick(event: MouseEvent) {
 
       setTimeout(() => {
         parentNode.classList.remove('invisible')
-      }, 3000)
+      }, 1000)
     }
   }
+}
+
+const oldColors = computed(() => {
+  return colors.filter((color) => {
+    return !color.includes('air')
+  })
+})
+
+const airColors = computed(() => {
+  return colors.filter((color) => {
+    return color.includes('air')
+  })
+})
+
+const isPrimary = (color: string) => {
+  return color.includes('air-primary')
 }
 </script>
 
 <template>
-  <ExampleGrid v-once custom-grid-cols class="grid-cols-[repeat(auto-fill,minmax(412px,1fr))]">
-    <ExampleCard title="color">
+  <ExampleGrid v-once class="mb-4">
+    <ExampleCard title="color" :use-bg="isUseBg" class="sm:col-span-2">
       <ExampleCardSubTitle title="default" />
       <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
-        <div class="flex flex-col gap-4">
+        <div class="flex flex-col sm:flex-row gap-4">
           <B24Badge
-            size="xl"
-            color="primary"
+            size="lg"
+            color="air-primary"
             label="Employee Name"
             :avatar="{ src: '/avatar/employee.png', text: 'Employee Name' }"
-            use-fill
             use-link
             use-close
             :on-close-click="onCloseClick"
             @click="onClick"
           />
-          <B24Badge
-            size="xl"
-            color="primary"
-            :avatar="{ src: '/avatar/employee.png', text: 'Employee Name' }"
-            use-fill
-            use-link
-            use-close
-            :on-close-click="onCloseClick"
-            @click="onClick"
-          >
-            Employee Name
-          </B24Badge>
+          <div>
+            <B24Badge
+              size="lg"
+              color="air-primary"
+              :avatar="{ src: '/avatar/employee.png', text: 'Employee Name' }"
+              use-link
+              use-close
+              :on-close-click="onCloseClick"
+              inverted
+              @click="onClick"
+            >
+              <span class="text-nowrap">Use slot</span>
+            </B24Badge>
+          </div>
         </div>
       </div>
+      <ExampleCardSubTitle title="colors" />
 
-      <template v-for="color in colors" :key="color">
-        <ExampleCardSubTitle :title="`${color}`" />
-        <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
+      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
+        <template v-for="color in airColors" :key="color">
           <B24Badge
-            v-for="depth in depths"
-            :key="depth"
             :color="color"
-            :label="`${depth}`"
-            :depth="depth"
+            :label="`This is ${color}`"
             size="lg"
           />
-        </div>
-        <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
           <B24Badge
-            v-for="depth in depths"
-            :key="depth"
+            v-if="isPrimary(color)"
             :color="color"
-            :label="`fill / ${depth}`"
-            :depth="depth"
-            use-fill
+            :label="`This is inverted ${color}`"
+            inverted
             size="lg"
           />
-        </div>
-      </template>
+        </template>
+      </div>
+
+      <B24Collapsible class="mb-2">
+        <B24Button
+          color="air-secondary-no-accent"
+          label="Deprecate"
+          use-dropdown
+        />
+        <template #content>
+          <div class="my-4 flex flex-wrap items-start justify-start gap-4">
+            <template v-for="color in oldColors" :key="color">
+              <B24Badge
+                :color="color"
+                :label="`This is ${color}`"
+                size="lg"
+              />
+            </template>
+          </div>
+        </template>
+      </B24Collapsible>
     </ExampleCard>
 
-    <ExampleCard title="size">
+    <ExampleCard title="size" :use-bg="isUseBg" class="sm:col-span-2">
       <template v-for="size in sizes" :key="size">
         <ExampleCardSubTitle :title="`${size}`" />
-        <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
+        <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
           <B24Badge
-            v-for="depth in depths"
-            :key="depth"
             :size="size"
-            :label="`${depth}`"
-            :depth="depth"
+            :label="`this is ${size}`"
           />
-        </div>
-        <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
           <B24Badge
-            v-for="depth in depths"
-            :key="depth"
             :size="size"
-            :label="`fill / ${depth}`"
-            :depth="depth"
-            use-fill
+            :label="`this is inverted ${size}`"
+            inverted
           />
-        </div>
-        <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
           <B24Badge
-            v-for="depth in depths"
-            :key="depth"
+            :size="size"
+            label="1"
+          />
+          <B24Badge
+            :size="size"
+            label="2"
+          />
+          <B24Badge
+            :size="size"
+            label="14"
+          />
+          <B24Badge
             :size="size"
             label="square"
-            :depth="depth"
-            use-fill
             square
           />
-        </div>
-        <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
           <B24Badge
-            v-for="depth in depths"
-            :key="depth"
             :size="size"
-            :depth="depth"
-            use-fill
+            label="square"
+            inverted
+            square
+          />
+          <B24Badge
+            :size="size"
+            square
+            :icon="InfoIcon"
+          />
+          <B24Badge
+            :size="size"
+            inverted
             :icon="InfoIcon"
           />
         </div>
       </template>
     </ExampleCard>
 
-    <ExampleCard title="variants">
+    <ExampleCard title="variants" :use-bg="isUseBg">
       <ExampleCardSubTitle title="link" />
       <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
         <B24Badge
-          v-for="depth in depths"
-          :key="depth"
-          :label="`${depth}`"
-          :depth="depth"
+          label="Use link"
           use-link
         />
-      </div>
-      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
         <B24Badge
-          v-for="depth in depths"
-          :key="depth"
-          :label="`fill / ${depth}`"
-          :depth="depth"
+          label="Use link inverted"
           use-link
-          use-fill
+          inverted
         />
       </div>
 
       <ExampleCardSubTitle title="close icon" />
       <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
         <B24Badge
-          v-for="depth in depths"
-          :key="depth"
-          :label="`${depth}`"
-          :depth="depth"
+          label="Use close icon"
           use-close
         />
-      </div>
-      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
         <B24Badge
-          v-for="depth in depths"
-          :key="depth"
-          :label="`fill / ${depth}`"
-          :depth="depth"
+          label="Use close icon inverted"
           use-close
-          use-fill
+          inverted
         />
       </div>
 
       <ExampleCardSubTitle title="icon" />
       <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
         <B24Badge
-          v-for="depth in depths"
-          :key="depth"
-          :label="`${depth}`"
-          :depth="depth"
+          label="Use icon"
           :icon="InfoIcon"
         />
-      </div>
-      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
         <B24Badge
-          v-for="depth in depths"
-          :key="depth"
-          :label="`fill / ${depth}`"
-          :depth="depth"
+          label="Use inverted icon"
           :icon="InfoIcon"
-          use-fill
-          size="lg"
+          inverted
         />
       </div>
     </ExampleCard>
-  </ExampleGrid>
 
-  <ExampleGrid v-once custom-grid-cols class="mt-xs grid-cols-[repeat(auto-fill,minmax(532px,1fr))]">
-    <ExampleCard title="avatar">
-      <template v-for="color in colors" :key="color">
+    <ExampleCard title="Avatar" :use-bg="isUseBg" class="sm:col-span-2 md:col-span-3">
+      <template v-for="color in airColors" :key="color">
         <ExampleCardSubTitle :title="color as string" />
-        <template v-for="size in sizes" :key="size">
-          <div class="mb-4 flex flex-wrap items-start justify-start gap-2">
+        <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+          <template v-for="size in sizes" :key="size">
             <B24Badge
-              v-for="depth in depths"
-              :key="depth"
               :color="color"
               :size="size"
-              :label="`${size} ${depth}`"
-              :depth="depth"
-              :avatar="{ src: '/avatar/employee.png' }"
-              use-close
-              use-link
-            />
-          </div>
-        </template>
-      </template>
-    </ExampleCard>
-
-    <ExampleCard title="filled avatar">
-      <template v-for="color in colors" :key="color">
-        <ExampleCardSubTitle :title="color as string" />
-        <template v-for="size in sizes" :key="size">
-          <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
-            <B24Badge
-              v-for="depth in depths"
-              :key="depth"
-              :color="color"
-              :size="size"
-              :label="`fill / ${size} / ${depth}`"
-              :depth="depth"
+              :label="`This is ${size}`"
               :avatar="{ src: '/avatar/assistant.png' }"
               use-close
               use-link
-              use-fill
             />
-          </div>
-        </template>
+            <B24Badge
+              v-if="isPrimary(color)"
+              :color="color"
+              :size="size"
+              :label="`This is inverted ${size}`"
+              :avatar="{ src: '/avatar/assistant.png' }"
+              use-close
+              use-link
+              inverted
+            />
+          </template>
+        </div>
       </template>
     </ExampleCard>
   </ExampleGrid>

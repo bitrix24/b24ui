@@ -14,7 +14,7 @@ export interface SwitchProps extends Pick<SwitchRootProps, 'disabled' | 'id' | '
    */
   as?: any
   /**
-   * @defaultValue 'primary'
+   * @defaultValue 'air-primary'
    */
   color?: Switch['variants']['color']
   /**

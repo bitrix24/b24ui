@@ -11,7 +11,7 @@
 export default {
   slots: {
     root: [
-      'flex items-center gap-3'
+      'h-full flex flex-row items-center gap-3'
     ].join(' ')
   }
 }

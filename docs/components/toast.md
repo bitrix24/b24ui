@@ -12,9 +12,14 @@ import ColorExample from '/examples/toast/Color.vue';
 import CloseExample from '/examples/toast/Close.vue';
 import CloseIconExample from '/examples/toast/CloseIcon.vue';
 import ActionsExample from '/examples/toast/Actions.vue';
+import ProgressExample from '/examples/toast/Progress.vue';
 import OrientationExample from '/examples/toast/Orientation.vue';
 </script>
 # Toast
+
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
 
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/toast"
@@ -108,7 +113,7 @@ Pass a `color` field to the `toast.add` method to change the color of the Toast.
 
 ### Close
 
-Pass a `close` field to customize or hide the close button (with `false` value).
+Pass a `close` field to customize or hide the close [Button](/components/button) (with `false` value).
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -148,9 +153,28 @@ Pass an `actions` field to add some [Button](/components/button) actions to the 
 <<< @/examples/toast/demo/Actions.vue{22-29 vue:line-numbers}
 :::
 
+### Progress
+
+Pass a `progress` field to customize or hide the [Progress](/components/progress) bar (with `false` value).
+
+::: tip
+The Progress bar inherits the Toast color by default, but you can override it using the `progress.color` field.
+:::
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <ProgressExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/toast/demo/Progress.vue{11 vue:line-numbers}
+:::
+
+
 ### Orientation
 
-Use the `orientation` prop to change the orientation of the Toast.
+Pass an `orientation` field to the `toast.add` method to change the orientation of the Toast.
 
 <div class="lg:min-h-[316px]">
   <ClientOnly>
@@ -161,6 +185,64 @@ Use the `orientation` prop to change the orientation of the Toast.
 ::: details
 <<< @/examples/toast/demo/Orientation.vue{vue:line-numbers}
 :::
+
+## Examples
+
+::: tip
+Bitrix24 UI provides an [**App**](/components/app) component that wraps your app to provide global configurations.
+:::
+
+### Change global position
+
+Change the `toaster.position` prop on the [App](/components/app#props) component to change the position of the toasts.
+
+```vue [app.vue]
+<script setup lang="ts">
+const toaster = { position: 'bottom-right' }
+</script>
+
+<template>
+  <B24App :toaster="toaster">
+    <NuxtPage />
+  </B24App>
+</template>
+```
+
+### Change global duration
+
+Change the `toaster.duration` prop on the [App](/components/app#props) component to change the duration of the toasts.
+
+```vue [app.vue]
+<script setup lang="ts">
+const toaster = { duration: 5000 }
+</script>
+
+<template>
+  <B24App :toaster="toaster">
+    <NuxtPage />
+  </UApp>
+</template>
+```
+
+### Stacked toasts
+
+Set the `toaster.expand` prop to `false` on the [App](/components/app#props) component to display stacked toasts.
+
+::: tip
+You can hover over the toasts to expand them. This will also pause the timer of the toasts.
+:::
+
+```vue [app.vue]
+<script setup lang="ts">
+const toaster = { expand: true }
+</script>
+
+<template>
+  <B24App :toaster="toaster">
+    <NuxtPage />
+  </UApp>
+</template>
+```
 
 ## API
 
@@ -174,5 +256,19 @@ Use the `orientation` prop to change the orientation of the Toast.
 
 ### Emits
 
-<ComponentEmits component="Toast" />
+```ts
+/**
+ * Emitted events for the Toast component
+ */
+interface ToastEmits {
+  pause: (payload: []) => void;
+  escapeKeyDown: (payload: [event: KeyboardEvent]) => void;
+  resume: (payload: []) => void;
+  swipeStart: (payload: [event: SwipeEvent]) => void;
+  swipeMove: (payload: [event: SwipeEvent]) => void;
+  swipeCancel: (payload: [event: SwipeEvent]) => void;
+  swipeEnd: (payload: [event: SwipeEvent]) => void;
+  update:open: (payload: [value: boolean]) => void;
+}
+```
 

@@ -1,5 +1,6 @@
 import { describe, it, expect, test } from 'vitest'
-import InputMenu, { type InputMenuProps, type InputMenuSlots } from '../../src/runtime/components/InputMenu.vue'
+import InputMenu from '../../src/runtime/components/InputMenu.vue'
+import type { InputMenuProps, InputMenuSlots } from '../../src/runtime/components/InputMenu.vue'
 import ComponentRender from '../component-render'
 import theme from '#build/b24ui/input'
 import { renderForm } from '../utils/form'
@@ -104,6 +105,13 @@ describe('InputMenu', () => {
       const input = wrapper.findComponent({ name: 'ComboboxRoot' })
       await input.vm.$emit('update:open', false)
       expect(wrapper.emitted()).toMatchObject({ blur: [[{ type: 'blur' }]] })
+    })
+
+    test('remove-tag event', async () => {
+      const wrapper = mount(InputMenu, { props: { modelValue: ['Option 1'], items: ['Option 1', 'Option 2'], multiple: true } })
+      const input = wrapper.findComponent({ name: 'TagsInputRoot' })
+      await input.vm.$emit('remove-tag', 'Option 1')
+      expect(wrapper.emitted()).toMatchObject({ 'remove-tag': [['Option 1']] })
     })
   })
 

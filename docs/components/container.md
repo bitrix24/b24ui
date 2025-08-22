@@ -8,9 +8,14 @@ import ContainerExample from '/examples/container/Container.vue';
 </script>
 # Container
 
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/container"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Container.vue"
+  demo="/components/container"
 >
   A box for centering and setting a maximum width for your content.
 </Description>

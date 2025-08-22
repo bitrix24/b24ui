@@ -2,7 +2,7 @@
 import type { ToastRootProps, ToastRootEmits } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/toast'
-import type { AvatarProps, ButtonProps, IconComponent } from '../types'
+import type { AvatarProps, ButtonProps, ProgressProps, IconComponent } from '../types'
 import type { StringOrVNode, ComponentConfig } from '../types/utils'
 
 type Toast = ComponentConfig<typeof theme, AppConfig, 'toast'>
@@ -21,7 +21,7 @@ export interface ToastProps extends Pick<ToastRootProps, 'defaultOpen' | 'open' 
   icon?: IconComponent
   avatar?: AvatarProps
   /**
-   * @defaultValue 'default'
+   * @defaultValue 'air-secondary-no-accent'
    */
   color?: Toast['variants']['color']
   /**
@@ -30,20 +30,8 @@ export interface ToastProps extends Pick<ToastRootProps, 'defaultOpen' | 'open' 
    */
   orientation?: Toast['variants']['orientation']
   /**
-   * Whether to show the progress bar.
-   * @defaultValue true
-   */
-  progress?: boolean
-  /**
-   * Display a list of actions:
-   * - under the title and description when orientation is `vertical`
-   * - next to the close button when orientation is `horizontal`
-   * `{ size: 'xs' }`{lang="ts"}
-   */
-  actions?: ButtonProps[]
-  /**
    * Display a close button to dismiss the toast.
-   * `{ size: 'md', color: 'neutral', variant: 'link' }`{lang="ts"}
+   * `{ size: 'sm', color: 'air-tertiary' }`{lang="ts"}
    * @defaultValue true
    */
   close?: boolean | Partial<ButtonProps>
@@ -53,6 +41,19 @@ export interface ToastProps extends Pick<ToastRootProps, 'defaultOpen' | 'open' 
    * @IconComponent
    */
   closeIcon?: IconComponent
+  /**
+   * Display a list of actions:
+   * - under the title and description when orientation is `vertical`
+   * - next to the close button when orientation is `horizontal`
+   * `{ size: 'sm' }`{lang="ts"}
+   */
+  actions?: ButtonProps[]
+  /**
+   * Display a progress bar showing the toast's remaining duration.
+   * `{ size: 'sm' }`{lang="ts"}
+   * @defaultValue true
+   */
+  progress?: boolean | Pick<ProgressProps, 'color' | 'b24ui'>
   class?: any
   b24ui?: Toast['slots']
 }
@@ -78,10 +79,11 @@ import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Avatar from './Avatar.vue'
 import B24Button from './Button.vue'
+import B24Progress from './Progress.vue'
 
 const props = withDefaults(defineProps<ToastProps>(), {
-  close: true,
   orientation: 'vertical',
+  close: true,
   progress: true
 })
 const emits = defineEmits<ToastEmits>()
@@ -119,7 +121,7 @@ defineExpose({
 <template>
   <ToastRoot
     ref="el"
-    v-slot="{ remaining, duration }"
+    v-slot="{ remaining, duration, open }"
     v-bind="rootProps"
     :data-orientation="orientation"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
@@ -157,7 +159,7 @@ defineExpose({
       <div v-if="orientation === 'vertical' && (actions?.length || !!slots.actions)" :class="b24ui.actions({ class: props.b24ui?.actions })">
         <slot name="actions">
           <ToastAction v-for="(action, index) in actions" :key="index" :alt-text="action.label || 'Action'" as-child @click.stop>
-            <B24Button size="xs" :color="color" v-bind="action" />
+            <B24Button size="sm" :color="color as ButtonProps['color']" v-bind="action" />
           </ToastAction>
         </slot>
       </div>
@@ -167,7 +169,7 @@ defineExpose({
       <template v-if="orientation === 'horizontal' && (actions?.length || !!slots.actions)">
         <slot name="actions">
           <ToastAction v-for="(action, index) in actions" :key="index" :alt-text="action.label || 'Action'" as-child @click.stop>
-            <B24Button size="xs" :color="color" v-bind="action" />
+            <B24Button size="sm" :color="color as ButtonProps['color']" v-bind="action" />
           </ToastAction>
         </slot>
       </template>
@@ -177,8 +179,8 @@ defineExpose({
           <B24Button
             v-if="close"
             :icon="closeIcon || icons.close"
-            size="xs"
-            color="link"
+            size="sm"
+            color="air-tertiary"
             :aria-label="t('toast.close')"
             v-bind="(typeof close === 'object' ? close as Partial<ButtonProps> : {})"
             :class="b24ui.close({ class: props.b24ui?.close })"
@@ -188,6 +190,13 @@ defineExpose({
       </ToastClose>
     </div>
 
-    <div v-if="progress && remaining > 0 && duration" :class="b24ui.progress({ class: props.b24ui?.progress })" :style="{ width: `${remaining / duration * 100}%` }" />
+    <B24Progress
+      v-if="progress && open && remaining > 0 && duration"
+      :model-value="remaining / duration * 100"
+      :color="color"
+      v-bind="(typeof progress === 'object' ? progress as Partial<ProgressProps> : {})"
+      size="sm"
+      :class="b24ui.progress({ class: props.b24ui?.progress })"
+    />
   </ToastRoot>
 </template>

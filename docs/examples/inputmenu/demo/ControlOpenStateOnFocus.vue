@@ -16,16 +16,13 @@ const items = ref([
   }
 ])
 const value = ref()
-
-const open = ref(false)
 </script>
 
 <template>
   <B24InputMenu
     v-model="value"
-    v-model:open="open"
     :items="items"
     class="w-full"
-    @focus="open = true"
+    open-on-focus
   />
 </template>

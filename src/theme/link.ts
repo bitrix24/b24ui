@@ -2,18 +2,28 @@
  * Link
  * A wrapper with extra props.
  * ---
+ * @see /bitrix/templates/bitrix24/src/css/typography.css
+ * @see /bitrix/js/ui/entity-editor/entity-editor.css
  */
 import type { ModuleOptions } from '../module'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default (options: Required<ModuleOptions>) => ({
-  base: 'cursor-pointer focus-visible:outline-info-text',
+  base: [
+    'cursor-pointer',
+    // 'focus-visible:outline-info-text' // fix
+    'focus-visible:outline-(--ui-color-accent-main-primary)',
+    'focus-visible:outline-1 focus-visible:rounded-[4px]',
+    'text-start'
+  ].join(' '),
   variants: {
     active: {
-      true: 'text-blue-700 dark:text-blue-300 hover:not-disabled:not-aria-disabled:underline underline-offset-2',
+      true: [
+        'text-(--ui-color-accent-main-primary) outline-(--ui-color-accent-main-primary)',
+        'hover:not-disabled:not-aria-disabled:underline underline-offset-2'
+      ].join(' '),
       false: [
-        'text-base-900',
-        'dark:text-base-300',
+        'text-(--ui-color-accent-main-link)',
         'underline-offset-2'
       ].join(' ')
     },
@@ -24,13 +34,11 @@ export default (options: Required<ModuleOptions>) => ({
       true: [
         'text-nowrap',
         'text-sm h-auto py-0 font-normal rounded-none',
-        'border border-x-0 border-t-0 border-dashed border-b-base-900',
-        'text-base-900 dark:text-base-300 ',
-        'dark:border-b-base-300',
+        'border border-x-0 border-t-0 border-dashed',
+        'text-(--ui-color-design-outline-a1-content) border-b-(--ui-color-design-outline-a1-content)',
         'hover:not-disabled:not-aria-disabled:no-underline',
-        'hover:text-blue-700 hover:not-disabled:not-aria-disabled:text-blue-700 hover:border-b-blue-700',
-        'dark:hover:text-blue-300 dark:hover:not-disabled:not-aria-disabled:text-blue-300 dark:hover:border-b-blue-300',
-        'focus-visible:outline-base-700'
+        'hover:text(--ui-color-accent-soft-element-red) hover:not-disabled:not-aria-disabled:text-(--ui-color-accent-soft-element-red) hover:border-b-(--ui-color-accent-soft-element-red)',
+        'focus-visible:outline-(--ui-color-accent-soft-element-red)'
       ].join(' ')
     }
   },
@@ -39,10 +47,8 @@ export default (options: Required<ModuleOptions>) => ({
       active: false,
       disabled: false,
       class: [
-        'hover:text-blue-700',
-        'dark:hover:text-blue-300',
-        'hover:underline',
-        'transition-colors'
+        'hover:text-(--ui-color-accent-main-primary-alt)',
+        'hover:underline'
       ].join(' ')
     }
   ]

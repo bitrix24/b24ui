@@ -39,10 +39,6 @@ export interface DropdownMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cust
 }
 
 export interface DropdownMenuProps<T extends ArrayOrNested<DropdownMenuItem> = ArrayOrNested<DropdownMenuItem>> extends Omit<DropdownMenuRootProps, 'dir'> {
-  /**
-   * @defaultValue 'md'
-   */
-  size?: DropdownMenu['variants']['size']
   items?: T
   /**
    * The icon displayed when an item is checked.
@@ -107,7 +103,12 @@ export type DropdownMenuSlots<
 <script setup lang="ts" generic="T extends ArrayOrNested<DropdownMenuItem>">
 import { computed, toRef } from 'vue'
 import { defu } from 'defu'
-import { DropdownMenuRoot, DropdownMenuTrigger, DropdownMenuArrow, useForwardPropsEmits } from 'reka-ui'
+import {
+  DropdownMenuRoot,
+  DropdownMenuTrigger,
+  DropdownMenuArrow,
+  useForwardPropsEmits
+} from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { omit } from '../utils'
@@ -126,18 +127,25 @@ const slots = defineSlots<DropdownMenuSlots<T>>()
 const appConfig = useAppConfig() as DropdownMenu['AppConfig']
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'defaultOpen', 'open', 'modal'), emits)
-const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffset: 8, collisionPadding: 8 }) as DropdownMenuContentProps)
-const arrowProps = toRef(() => props.arrow as DropdownMenuArrowProps)
+const contentProps = toRef(() => defu(props.content, { side: 'bottom', align: 'center', sideOffset: 8, collisionPadding: 8 }) as DropdownMenuContentProps)
+const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10 }) as DropdownMenuArrowProps)
 const proxySlots = omit(slots, ['default'])
 
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dropdownMenu || {}) })({
-  size: props.size
-}))
+// eslint-disable-next-line vue/no-dupe-keys
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dropdownMenu || {}) })({}))
 </script>
 
 <template>
-  <DropdownMenuRoot v-slot="{ open }" v-bind="rootProps">
-    <DropdownMenuTrigger v-if="!!slots.default" as-child :class="props.class" :disabled="disabled">
+  <DropdownMenuRoot
+    v-slot="{ open }"
+    v-bind="rootProps"
+  >
+    <DropdownMenuTrigger
+      v-if="!!slots.default"
+      as-child
+      :class="props.class"
+      :disabled="disabled"
+    >
       <slot :open="open" />
     </DropdownMenuTrigger>
 
@@ -147,6 +155,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dropdo
       :b24ui-override="props.b24ui"
       v-bind="contentProps"
       :items="items"
+      :arrow="arrow"
       :portal="portal"
       :label-key="(labelKey as keyof NestedItem<T>)"
       :checked-icon="checkedIcon"

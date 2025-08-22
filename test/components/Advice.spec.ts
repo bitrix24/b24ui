@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
-import Advice, { type AdviceProps, type AdviceSlots } from '../../src/runtime/components/Advice.vue'
+import Advice from '../../src/runtime/components/Advice.vue'
+import type { AdviceProps, AdviceSlots } from '../../src/runtime/components/Advice.vue'
 import ComponentRender from '../component-render'
 
 describe('Advice', () => {

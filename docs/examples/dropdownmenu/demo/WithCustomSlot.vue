@@ -1,36 +1,40 @@
 <script setup lang="ts">
-import MenuIcon from '@bitrix24/b24icons-vue/main/MenuIcon'
-import PencilDrawIcon from '@bitrix24/b24icons-vue/actions/PencilDrawIcon'
-import CopyPlatesIcon from '@bitrix24/b24icons-vue/actions/CopyPlatesIcon'
-import OpenedEyeIcon from '@bitrix24/b24icons-vue/main/OpenedEyeIcon'
+import { computed } from 'vue'
+import { dropdownMenuSimpleItems } from './../dictionary'
+import type { ContentAlignVariants, ContentSideVariants } from './../../dictionary'
+import HamburgerMenuIcon from '@bitrix24/b24icons-vue/outline/HamburgerMenuIcon'
 import BatteryIcon from '@bitrix24/b24icons-vue/button/BatteryIcon'
 
-const items = [
-  {
-    label: 'View',
-    icon: OpenedEyeIcon,
-    slot: 'view'
-  },
-  {
-    label: 'Copy',
-    icon: CopyPlatesIcon
-  },
-  {
-    label: 'Edit',
-    icon: PencilDrawIcon
+export interface ExampleProps {
+  contentAlign?: ContentAlignVariants
+  contentSide?: ContentSideVariants
+  contentSideOffset?: number
+}
+
+const props = withDefaults(defineProps<ExampleProps>(), {
+  contentAlign: 'start' as ContentAlignVariants,
+  contentSide: 'top' as ContentSideVariants,
+  contentSideOffset: 8
+})
+
+const content = computed(() => {
+  return {
+    align: props.contentAlign,
+    side: props.contentSide,
+    sideOffset: props.contentSideOffset
   }
-]
+})
 </script>
 
 <template>
   <B24DropdownMenu
-    :items="items"
-    :b24ui="{ content: 'w-52' }"
+    :items="dropdownMenuSimpleItems"
+    :content="content"
   >
-    <B24Button label="Open" color="link" depth="dark" :icon="MenuIcon" />
+    <B24Button label="Open" color="air-secondary-accent" :icon="HamburgerMenuIcon" />
 
     <template #view-trailing>
-      <BatteryIcon class="shrink-0 size-5 text-ai-500" />
+      <BatteryIcon class="shrink-0 size-[20px] text-(--ui-color-copilot-accent-primary)" />
     </template>
   </B24DropdownMenu>
 </template>

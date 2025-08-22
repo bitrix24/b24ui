@@ -12,5 +12,5 @@ function fireConfettiWithOptions(): void {
 </script>
 
 <template>
-  <B24Button label="with options" color="secondary" @click.stop="fireConfettiWithOptions" />
+  <B24Button label="with options" color="air-secondary" @click.stop="fireConfettiWithOptions" />
 </template>

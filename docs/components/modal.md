@@ -44,7 +44,7 @@ Then, use the `#content` slot to add the content displayed when the Modal is ope
   </ClientOnly>
 </div>
 
-<<< @/examples/modal/demo/Modal.vue{2,5-7,8 vue:line-numbers}
+<<< @/examples/modal/demo/Modal.vue{vue:line-numbers}
 
 You can also use the `#header`{lang="ts"}, `#body`{lang="ts"} and `#footer`{lang="ts"} slots to customize the Modal's content.
 
@@ -93,7 +93,7 @@ The close button is not displayed if the `#content` slot is used as it's a part 
 </div>
 
 ::: details
-<<< @/examples/modal/demo/Close.vue{5-6 vue:line-numbers}
+<<< @/examples/modal/demo/Close.vue{17 vue:line-numbers}
 :::
 
 ### Close Icon
@@ -107,7 +107,7 @@ Use the `close-icon` prop to customize the close button [@bitrix24/b24icons](htt
 </div>
 
 ::: details
-<<< @/examples/modal/demo/CloseIcon.vue{2,9 vue:line-numbers}
+<<< @/examples/modal/demo/CloseIcon.vue{2,19 vue:line-numbers}
 :::
 
 
@@ -122,7 +122,7 @@ Use the `overlay` prop to control whether the Modal has an overlay or not. Defau
 </div>
 
 ::: details
-<<< @/examples/modal/demo/Overlay.vue{13 vue:line-numbers}
+<<< @/examples/modal/demo/Overlay.vue{17 vue:line-numbers}
 :::
 
 If you want to disable background blur, you should use the `overlayBlur` prop.
@@ -139,7 +139,7 @@ The `overlayBlur` prop has 3 options:
 </div>
 
 ::: details
-<<< @/examples/modal/demo/OverlayBlur.vue{13 vue:line-numbers}
+<<< @/examples/modal/demo/OverlayBlur.vue{19 vue:line-numbers}
 :::
 
 ### Transition
@@ -157,7 +157,7 @@ Use the `transition` prop to control whether the Modal is animated or not. Defau
 </div>
 
 ::: details
-<<< @/examples/modal/demo/Transition.vue{13 vue:line-numbers}
+<<< @/examples/modal/demo/Transition.vue{17 vue:line-numbers}
 :::
 
 ### Fullscreen
@@ -171,7 +171,7 @@ Use the `fullscreen` prop to make the Modal fullscreen.
 </div>
 
 ::: details
-<<< @/examples/modal/demo/Fullscreen.vue{2,9 vue:line-numbers}
+<<< @/examples/modal/demo/Fullscreen.vue{15,18 vue:line-numbers}
 :::
 
 ## Examples
@@ -195,7 +195,7 @@ This allows you to move the trigger outside of the Modal or remove it entirely.
 </div>
 
 ::: details
-<<< @/examples/modal/demo/ControlOpenState.vue{7,13 vue:line-numbers}
+<<< @/examples/modal/demo/ControlOpenState.vue{14,23 vue:line-numbers}
 :::
 
 ### Disable dismissal
@@ -209,7 +209,7 @@ Set the `dismissible` prop to `false` to prevent the Modal from being closed whe
 </div>
 
 ::: details
-<<< @/examples/modal/demo/Dismissible.vue{7,13 vue:line-numbers}
+<<< @/examples/modal/demo/Dismissible.vue{15 vue:line-numbers}
 :::
 
 ### Programmatic usage
@@ -223,10 +223,10 @@ Make sure to wrap your app with the [`App`](/components/app) component which use
 First, create a modal component that will be opened programmatically:
 
 ::: code-group
-<<< @/examples/modal/demo/LazyModal.vue{6,11,12,21,29 vue:line-numbers}
+<<< @/examples/modal/demo/LazyModal.vue{6,11,12,19,24 vue:line-numbers}
 :::
 
-::: note
+::: info
 We are emitting a `close` event when the modal is closed or dismissed here. You can emit any data through the `close` event, however, the event must be emitted in order to capture the return value.
 :::
 
@@ -243,7 +243,7 @@ You can close the modal within the modal component by emitting `emit('close')`.
 </div>
 
 ::: details
-<<< @/examples/modal/demo/ProgrammaticUsage.vue{8,10-14,16-40,48 vue:line-numbers}
+<<< @/examples/modal/demo/ProgrammaticUsage.vue{10,12-40,44 vue:line-numbers}
 :::
 
 ### Nested modals
@@ -257,7 +257,7 @@ You can nest modals within each other.
 </div>
 
 ::: details
-<<< @/examples/modal/demo/NestedModals.vue{4-5,10,22,25,42 vue:line-numbers}
+<<< @/examples/modal/demo/NestedModals.vue{20,29 vue:line-numbers}
 :::
 
 ### With footer slot
@@ -275,7 +275,7 @@ You can also close the dialog box using the `B24ModalDialogClose` component.
 </div>
 
 ::: details
-<<< @/examples/modal/demo/WithFooterSlot.vue{5,12-19 vue:line-numbers}
+<<< @/examples/modal/demo/WithFooterSlot.vue{17,24-33 vue:line-numbers}
 :::
 
 ### With body slot
@@ -289,7 +289,7 @@ Use the `#body` slot to add content.
 </div>
 
 ::: details
-<<< @/examples/modal/demo/WithBodySlot.vue{15-36 vue:line-numbers}
+<<< @/examples/modal/demo/WithBodySlot.vue{23 vue:line-numbers}
 :::
 
 ## API
@@ -304,5 +304,15 @@ Use the `#body` slot to add content.
 
 ### Emits
 
-<ComponentEmits component="Modal" />
+```ts
+/**
+ * Emitted events for the Modal component
+ */
+interface ModalEmits {
+  after:leave: (payload: []) => void;
+  after:enter: (payload: []) => void;
+  close:prevent: (payload: []) => void;
+  update:open: (payload: [value: boolean]) => void;
+}
+```
 

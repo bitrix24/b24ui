@@ -12,10 +12,10 @@ withDefaults(defineProps<ExampleProps>(), {
   <B24Modal
     :title="title"
   >
-    <B24Button label="Open" color="link" depth="dark" />
+    <B24Button label="Open" />
 
     <template #body>
-      <Placeholder class="h-48" />
+      <Placeholder class="h-40" />
     </template>
   </B24Modal>
 </template>

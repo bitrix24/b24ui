@@ -32,7 +32,7 @@ const validate = (state: any): FormError[] => {
 
 const toast = useToast()
 async function onSubmit(event: FormSubmitEvent<typeof state>) {
-  toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'success' })
+  toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'air-primary-success' })
   console.log(event.data, state)
   isShowResult.value = true
 }
@@ -47,7 +47,7 @@ function resetState() {
 
 function fillState() {
   state.email = 'john@lennon.com'
-  state.password = '12345678'
+  state.password = 'E>]{78C(f+|9'
   state.tos = true
 }
 </script>
@@ -68,7 +68,7 @@ function fillState() {
             @click="resetState"
           />
           <Cross30Icon
-            class="cursor-pointer size-full opacity-0 group-hover:opacity-100 text-base-500 dark:text-base-600 group-hover:text-base-900 dark:group-hover:text-base-100 absolute inset-x-0 inset-y-0 z-20"
+            class="cursor-pointer size-full opacity-0 group-hover:opacity-100 text-(--b24ui-typography-legend-color) group-hover:text-(--b24ui-typography-legend-color) absolute inset-x-0 inset-y-0 z-20"
             @click="resetState"
           />
         </div>
@@ -104,11 +104,10 @@ function fillState() {
       <B24Separator class="mt-6 mb-3" />
 
       <div class="flex flex-row gap-4 items-center justify-between">
-        <B24Button type="submit" label="Submit" color="success" />
+        <B24Button type="submit" label="Submit" color="air-primary-success" />
         <B24Button
           type="button"
-          class="text-base-master/10 dark:text-base-100/20"
-          color="link"
+          color="air-tertiary-no-accent"
           :icon="Shining2Icon"
           @click="fillState"
         />

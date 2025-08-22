@@ -19,9 +19,11 @@ export interface BadgeProps extends Omit<UseComponentIconsProps, 'loading' | 'lo
    */
   color?: Badge['variants']['color']
   /**
-   * @defaultValue 'normal'
+   * If set to `true` the color is inverted.
+   * Used for 'air-primary', 'air-primary-success', 'air-primary-alert', 'air-primary-copilot' and 'air-primary-warning' colors.
+   * @defaultValue false
    */
-  depth?: Badge['variants']['depth']
+  inverted?: boolean
   /**
    * @defaultValue 'md'
    */
@@ -39,11 +41,6 @@ export interface BadgeProps extends Omit<UseComponentIconsProps, 'loading' | 'lo
    */
   useClose?: boolean
   onCloseClick?: ((event: MouseEvent) => void | Promise<void>) | Array<((event: MouseEvent) => void | Promise<void>)>
-  /**
-   * Fills the background
-   * @defaultValue false
-   */
-  useFill?: boolean
   class?: any
   b24ui?: Badge['slots']
 }
@@ -66,7 +63,8 @@ import Cross20Icon from '@bitrix24/b24icons-vue/actions/Cross20Icon'
 import B24Avatar from './Avatar.vue'
 
 const props = withDefaults(defineProps<BadgeProps>(), {
-  as: 'span'
+  as: 'span',
+  inverted: false
 })
 
 const slots = defineSlots<BadgeSlots>()
@@ -85,13 +83,12 @@ const { isLeading, leadingIconName } = useComponentIcons(props)
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.badge || {}) })({
   color: props.color,
-  depth: props.depth,
+  inverted: Boolean(props.inverted),
   size: buttonGroupSize.value || props.size,
   square: props.square || (!slots.default && !props.label),
   buttonGroup: orientation.value,
   useLink: Boolean(props.useLink),
   useClose: Boolean(props.useClose),
-  useFill: Boolean(props.useFill),
   leading: Boolean(isLeading.value)
 }))
 </script>
@@ -119,13 +116,11 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.badge 
         />
       </slot>
 
-      <span :class="b24ui.label({ class: props.b24ui?.label })">
-        <slot>
-          <span v-if="label !== undefined && label !== null">
-            {{ label }}
-          </span>
-        </slot>
-      </span>
+      <slot>
+        <span v-if="label !== undefined && label !== null" :class="b24ui.label({ class: props.b24ui?.label })">
+          {{ label }}
+        </span>
+      </slot>
     </Primitive>
     <slot name="trailing">
       <Cross20Icon

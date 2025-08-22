@@ -7,5 +7,5 @@ function fireConfetti(): void {
 </script>
 
 <template>
-  <B24Button label="simple" color="primary" @click.stop="fireConfetti" />
+  <B24Button label="simple" color="air-primary" @click.stop="fireConfetti" />
 </template>

@@ -14,6 +14,9 @@ export interface SidebarHeadingProps {
   class?: any
   b24ui?: SidebarHeading['slots']
 }
+/**
+ * @todo add Pick<Xxxx
+ */
 
 export interface SidebarHeadingSlots {
   default(props?: {}): any

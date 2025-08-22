@@ -13,8 +13,13 @@ import ControlOpenStateExample from '/examples/popover/ControlOpenState.vue';
 import PreventClosingExample from '/examples/popover/PreventClosing.vue';
 import WithBodySlotExample from '/examples/popover/WithBodySlot.vue';
 import WithAnchorSlotExample from '/examples/popover/WithAnchorSlot.vue';
+import WithFollowingCursorExample from '/examples/popover/WithFollowingCursor.vue';
 </script>
 # Popover
+
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
 
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/popover"
@@ -166,6 +171,20 @@ This slot only works when `mode` is `click`.
 <<< @/examples/popover/demo/WithAnchorSlot.vue{vue:line-numbers}
 :::
 
+### With following cursor
+
+You can make the Popover follow the cursor when hovering over an element using the [`reference`](https://reka-ui.com/docs/components/tooltip#trigger) prop:
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <WithFollowingCursorExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/tooltip/demo/WithFollowingCursor.vue{vue:line-numbers}
+:::
+
 ## API
 
 ### Props
@@ -178,4 +197,12 @@ This slot only works when `mode` is `click`.
 
 ### Emits
 
-<ComponentEmits component="Popover" />
+```ts
+/**
+ * Emitted events for the Popover component
+ */
+interface PopoverEmits {
+  close:prevent: (payload: []) => void;
+  update:open: (payload: [value: boolean]) => void;
+}
+```

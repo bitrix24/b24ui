@@ -1,11 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import theme from '#build/b24ui/button'
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
 import Demo from './demo/Size.vue'
-
-const sizes = Object.keys(theme.variants.size)
-const size = ref('md' as const)
+import { sizes, size } from './dictionary'
 </script>
 
 <template>

@@ -6,27 +6,37 @@
 export default {
   slots: {
     root: 'w-full shrink-0',
-    legend: 'font-semibold text-black dark:text-base-150',
-    text: 'text-base-500 dark:text-base-400',
+    legend: [
+      'font-(--ui-font-weight-semibold)',
+      'text-(--b24ui-typography-label-color)'
+    ].join(' '),
+    text: 'text-(--b24ui-typography-description-color)',
     container: 'grid grid-cols-1 sm:grid-cols-[min(50%,theme(spacing.80))_auto]',
     labelWrapper: [
       'col-start-1 border-t first:border-none sm:border-t',
       'flex flex-nowrap flex-row items-center justify-start gap-1.5',
-      'border-base-950/5 text-base-500 sm:border-base-950/5',
-      'dark:border-white/5 dark:text-base-400 sm:dark:border-white/5'
+      'border-(--ui-color-divider-vibrant-default) sm:border-(--ui-color-divider-vibrant-default)',
+      'text-(--b24ui-typography-description-color)'
     ].join(' '),
-    icon: 'shrink-0 size-6 text-base-500 dark:text-base-400',
+    icon: [
+      'shrink-0',
+      'size-6',
+      'text-(--b24ui-typography-description-color)'
+    ].join(' '),
     avatar: 'shrink-0',
     avatarSize: '',
     label: '',
     descriptionWrapper: [
       'sm:border-t sm:[&:nth-child(2)]:border-none',
-      'text-base-900 sm:border-base-950/5',
-      'dark:text-base-150 dark:sm:border-white/5'
+      'sm:border-(--ui-color-divider-vibrant-default)',
+      'text-(--b24ui-typography-label-color)'
     ].join(' '),
     description: '',
     actions: 'flex flex-wrap gap-1.5 shrink-0',
-    footer: 'border-t border-base-950/5 dark:border-white/5'
+    footer: [
+      'border-t',
+      'border-(--ui-color-divider-vibrant-default)'
+    ].join(' ')
   },
   variants: {
     size: {

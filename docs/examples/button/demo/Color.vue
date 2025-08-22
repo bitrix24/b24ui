@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import type { ButtonProps } from '@bitrix24/b24ui-nuxt/types/index.ts'
+import type { ButtonProps } from '@bitrix24/b24ui-nuxt'
 
 export interface ExampleProps {
   color?: ButtonProps['color']
 }
 
 withDefaults(defineProps<ExampleProps>(), {
-  color: 'default'
+  color: 'air-primary' as ButtonProps['color']
 })
 </script>
 

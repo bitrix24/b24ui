@@ -226,9 +226,29 @@ It's recommended to install the [Tailwind CSS IntelliSense](https://marketplace.
 :::
 
 ::: tip
-The [`App`](/components/app) component provides global configurations and is required for **Toast**, **Tooltip** components to work as well as **Programmatic Overlays**.
+The [`App`](/components/app) component sets up global config and is required for **Toast**, **Tooltip** and **programmatic overlays**.
 :::
 
+#### Add the `isolate` class to your root container
+
+```html [index.html]{9}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bitrix24 UI</title>
+  </head>
+  <body>
+    <div id="app" class="isolate"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
+```
+
+::: tip
+This ensures styles are scoped to your app and prevents issues with overlays and stacking contexts.
+:::
 ## Options
 
 You can customize Bitrix24 UI by providing options in your `vite.config.ts`.
@@ -255,7 +275,6 @@ export default defineConfig({
 })
 ```
 :::
-
 
 ### `inertia`
 

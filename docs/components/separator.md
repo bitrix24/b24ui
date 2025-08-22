@@ -9,17 +9,21 @@ import OrientationExample from '/examples/separator/Orientation.vue';
 import LabelExample from '/examples/separator/Label.vue';
 import IconExample from '/examples/separator/Icon.vue';
 import AvatarExample from '/examples/separator/Avatar.vue';
-import ColorExample from '/examples/separator/Color.vue';
 import TypeExample from '/examples/separator/Type.vue';
 import SizeExample from '/examples/separator/Size.vue';
 </script>
 # Separator
+
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
 
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/separator"
   reka-ui="https://reka-ui.com/docs/components/separator"
   reka-ui-title="Separator"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Separator.vue"
+  demo="/components/separator"
 >
   Divides content in a horizontal or vertical manner.
 </Description>
@@ -110,17 +114,7 @@ Use the `type` prop to change the type of the Separator. Defaults to `solid`.
 
 ### Color
 
-Use the `color` prop to change the color of the Separator. Defaults to `default`.
-
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <ColorExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/separator/demo/Color.vue{15 vue:line-numbers}
-:::
+`@remove`
 
 ### Size
 

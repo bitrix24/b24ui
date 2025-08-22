@@ -1,16 +1,32 @@
 <script setup lang="ts">
-import { defineAsyncComponent } from 'vue'
+import { defineAsyncComponent, useTemplateRef } from 'vue'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
+import Placeholder from '../../components/Placeholder.vue'
 import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
-import FileUploadIcon from '@bitrix24/b24icons-vue/main/FileUploadIcon'
+import MockSidebarLayoutMenu from '../../components/MockSidebarLayoutMenu.vue'
+import MockSidebarLayoutActions from '../../components/MockSidebarLayoutActions.vue'
+import MockSidebarLayoutSideFooter from '../../components/MockSidebarLayoutSideFooter.vue'
+import MockContentLongString from '../../components/MockContentLongString.vue'
+import MockContentLongText from '../../components/MockContentLongText.vue'
+import MockContentUploadFile from '../../components/MockContentUploadFile.vue'
+import BusinesProcessStagesIcon from '@bitrix24/b24icons-vue/outline/BusinesProcessStagesIcon'
+import TrendUpIcon from '@bitrix24/b24icons-vue/outline/TrendUpIcon'
+import TrendDownIcon from '@bitrix24/b24icons-vue/outline/TrendDownIcon'
+import { useMockMenu } from './../../composables/useMockMenu'
+import B24Slideover from '@bitrix24/b24ui-nuxt/components/Slideover.vue'
+import type { SlideoverInstance } from '@bitrix24/b24ui-nuxt'
 
 usePageMeta.setPageTitle('Slideover')
+
+const { action } = useMockMenu()
 
 const SlideoverExample = defineAsyncComponent(() => import('../../components/SlideoverExample.vue'))
 
 const open = ref(false)
+const openTopAndBottom = ref(false)
+const openListItem = ref(false)
 const count = ref(0)
 const overlay = useOverlay()
 
@@ -19,13 +35,35 @@ const slideover = overlay.create(SlideoverExample, {
     count: count.value
   }
 })
-
 function openSlideover() {
   count.value++
 
   slideover.open({
     description: 'And you can even provide a description!',
     count: count.value
+  })
+}
+
+const currentSlideoverRef = useTemplateRef<SlideoverInstance>('currentSlideoverRef')
+const handleSidebarLayoutLoadingAction = async () => {
+  if (!currentSlideoverRef.value) {
+    return
+  }
+
+  try {
+    currentSlideoverRef.value.setSidebarLoading(true)
+    await new Promise(resolve => setTimeout(resolve, 2_000))
+  } finally {
+    currentSlideoverRef.value.setSidebarLoading(false)
+  }
+}
+
+const openSliderTopAndBottom = async () => {
+  openTopAndBottom.value = true
+  Promise.resolve().then(() => {
+    requestAnimationFrame(() => {
+      console.log(123)
+    })
   })
 }
 </script>
@@ -37,28 +75,29 @@ function openSlideover() {
       <div class="mb-4 flex flex-row flex-wrap gap-2">
         <B24Slideover
           title="First slideover"
-          :b24ui="{ content: 'sm:max-w-1/2' }"
+          description="This slideover has `side: 'right'` prop."
+          side="right"
+          :close="{ label: 'Right' }"
         >
-          <B24Button color="link" depth="dark" label="Open with nested" />
+          <B24Button label="Right" />
 
           <template #body>
-            <B24Container class="h-full w-full pb-4">
-              <Placeholder class="h-full w-full" />
-            </B24Container>
+            <Placeholder class="size-full" />
           </template>
 
           <template #footer>
-            <B24Slideover title="Second slideover">
-              <B24Button label="Open second" color="primary" />
+            <B24Slideover
+              title="Second slideover"
+              :b24ui="{ content: 'max-w-[600px]' }"
+            >
+              <B24Button label="Open second" color="air-primary" />
 
               <template #body>
-                <B24Container class="h-full w-full pb-4">
-                  <Placeholder class="h-full w-full" />
-                </B24Container>
+                <Placeholder class="size-full" />
               </template>
               <template #footer>
                 <B24ModalDialogClose>
-                  <B24Button label="Cancel" color="link" depth="dark" />
+                  <B24Button label="Cancel" />
                 </B24ModalDialogClose>
               </template>
             </B24Slideover>
@@ -69,11 +108,18 @@ function openSlideover() {
           title="Slideover on left side"
           description="This slideover has `side: 'left'` prop."
           side="left"
+          :close="{ label: 'Left' }"
         >
-          <B24Button label="Open on left" color="default" depth="light" />
+          <B24Button label="Left" />
 
           <template #body>
-            <Placeholder class="h-full w-full" />
+            <Placeholder class="size-full" />
+          </template>
+
+          <template #footer>
+            <B24ModalDialogClose>
+              <B24Button label="Cancel" />
+            </B24ModalDialogClose>
           </template>
         </B24Slideover>
 
@@ -82,51 +128,65 @@ function openSlideover() {
           description="This slideover has `side: 'top'` prop."
           side="top"
         >
-          <B24Button label="Open on top" color="link" depth="dark" />
+          <B24Button label="Top" />
 
           <template #body>
-            <Placeholder class="h-48 w-full" />
+            <Placeholder class="size-full" />
+          </template>
+
+          <template #footer>
+            <B24ModalDialogClose>
+              <B24Button label="Cancel" />
+            </B24ModalDialogClose>
           </template>
         </B24Slideover>
 
         <B24Slideover
           title="Slideover on bottom side"
           description="This slideover has `side: 'bottom'` prop."
-          side="bottom"
+          :close="{ label: 'Bottom' }"
         >
-          <B24Button label="Open on bottom" color="default" depth="light" />
+          <B24Button label="Bottom" color="air-secondary-accent-2" />
 
           <template #body>
-            <Placeholder class="h-48 w-full" />
+            <Placeholder class="size-full" />
+          </template>
+
+          <template #footer>
+            <B24ModalDialogClose>
+              <B24Button label="Cancel" />
+            </B24ModalDialogClose>
           </template>
         </B24Slideover>
+      </div>
 
+      <div class="mb-4 flex flex-row flex-wrap gap-2">
         <B24Slideover
           v-model:open="open"
           title="Slideover with v-model"
           description="This is useful to control the state yourself."
         >
           <template #body>
-            <Placeholder class="h-full w-full" />
+            <Placeholder class="size-full" />
           </template>
         </B24Slideover>
 
-        <B24Button label="Open with v-model" color="link" depth="dark" @click="open = true" />
+        <B24Button label="Open with v-model" @click="open = true" />
 
-        <B24Button label="Open programmatically" color="default" depth="light" @click="openSlideover" />
+        <B24Button label="Open programmatically" color="air-secondary-accent-1" @click="openSlideover" />
       </div>
 
       <ExampleCardSubTitle title="overlay" />
       <div class="mb-4 flex flex-row flex-wrap gap-2">
         <B24Slideover
-          title="Slideover without overlay blur"
-          description="This slideover has `overlay-blur: off` prop."
-          overlay-blur="off"
+          title="Slideover with overlay blur"
+          description="This slideover has `overlay-blur: auto` prop."
+          overlay-blur="auto"
         >
-          <B24Button label="Open without overlay blur" color="link" depth="dark" />
+          <B24Button label="Open with overlay blur" />
 
           <template #body>
-            <Placeholder class="h-full w-full" />
+            <Placeholder class="size-full" />
           </template>
         </B24Slideover>
 
@@ -135,10 +195,10 @@ function openSlideover() {
           description="This slideover has `overlay: false` prop."
           :overlay="false"
         >
-          <B24Button label="Open without overlay" color="default" depth="light" />
+          <B24Button label="Open without overlay" />
 
           <template #body>
-            <Placeholder class="h-full w-full" />
+            <Placeholder class="size-full" />
           </template>
         </B24Slideover>
 
@@ -148,10 +208,10 @@ function openSlideover() {
           :overlay="false"
           :modal="false"
         >
-          <B24Button label="Open without modal" color="link" depth="dark" />
+          <B24Button label="Open without modal" />
 
           <template #body>
-            <Placeholder class="h-full w-full" />
+            <Placeholder class="size-full" />
           </template>
         </B24Slideover>
       </div>
@@ -163,10 +223,10 @@ function openSlideover() {
           description="This slideover has `transition: false` prop."
           :transition="false"
         >
-          <B24Button label="Open without transition" color="link" depth="dark" />
+          <B24Button label="Open without transition" />
 
           <template #body>
-            <Placeholder class="h-full w-full" />
+            <Placeholder class="size-full" />
           </template>
         </B24Slideover>
 
@@ -175,10 +235,10 @@ function openSlideover() {
           description="This slideover has `portal: false` prop."
           :portal="false"
         >
-          <B24Button label="Open without portal" color="default" depth="light" />
+          <B24Button label="Open without portal" />
 
           <template #body>
-            <Placeholder class="h-full w-full" />
+            <Placeholder class="size-full" />
           </template>
         </B24Slideover>
       </div>
@@ -190,10 +250,16 @@ function openSlideover() {
           description="This slideover has `dismissible: false` prop so it won't close when clicking outside."
           :dismissible="false"
         >
-          <B24Button label="Open unclosable" color="link" depth="dark" />
+          <B24Button label="Open unclosable" />
 
           <template #body>
-            <Placeholder class="h-full w-full" />
+            <Placeholder class="size-full" />
+          </template>
+
+          <template #footer>
+            <B24ModalDialogClose>
+              <B24Button label="Close" color="air-tertiary" />
+            </B24ModalDialogClose>
           </template>
         </B24Slideover>
 
@@ -202,31 +268,25 @@ function openSlideover() {
           description="This slideover has `close: false` prop."
           :close="false"
         >
-          <B24Button label="Open without close button" color="default" depth="light" />
+          <B24Button label="Open without close button" />
 
           <template #body>
-            <Placeholder class="h-full w-full" />
+            <Placeholder class="size-full" />
           </template>
-        </B24Slideover>
 
-        <B24Slideover
-          title="Slideover with custom close button"
-          description="The `close` prop inherits from the Button props."
-          :close="{ color: 'danger', depth: 'dark', size: 'xs', rounded: true }"
-          :b24ui="{ close: 'rounded-full py-4 px-2 -left-2' }"
-        >
-          <B24Button label="Open with custom close button" color="link" depth="dark" />
-
-          <template #body>
-            <Placeholder class="h-full w-full" />
+          <template #footer>
+            <B24ModalDialogClose>
+              <B24Button label="Close" color="air-tertiary" />
+            </B24ModalDialogClose>
           </template>
         </B24Slideover>
 
         <B24Slideover
           title="Slideover with scoped slot close"
           description="This slideover has a scoped slot close that can be used to close the slideover from within the content."
+          side="right"
         >
-          <B24Button label="Open with scoped slot close" color="default" depth="light" />
+          <B24Button label="Open with scoped slot close" />
 
           <template #header="{ close }">
             <B24Button label="Close with scoped slot close" @click="close" />
@@ -250,20 +310,22 @@ function openSlideover() {
           title="Vivendum dignissim conceptam."
           description="Magna copiosae apeirian ius at."
           :close="{ label: 'Test' }"
+          :b24ui="{
+            content: 'sm:max-w-1/2',
+            sidebarLayoutRoot: 'edge-dark'
+          }"
         >
-          <B24Button label="Simple" color="link" depth="dark" />
+          <B24Button label="Simple" />
 
           <template #body>
-            <B24Container>
-              Dividend dignissim conceptam pri ut, ei vel partem audiam sapientem. Solum vituperata definitiones te vis, vis alia falli doming ea. Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Lorem ipsum dolor sit amet, an eos lorem ancillae expetenda, vim et utamur quaestio.
-            </B24Container>
+            <MockContentLongString />
           </template>
           <template #footer>
             <B24ModalDialogClose>
-              <B24Button rounded label="Send" color="primary" size="sm" />
+              <B24Button label="Send" color="air-primary-success" />
             </B24ModalDialogClose>
             <B24ModalDialogClose>
-              <B24Button rounded label="Cancel" color="link" depth="dark" size="sm" />
+              <B24Button label="Cancel" color="air-tertiary" />
             </B24ModalDialogClose>
           </template>
         </B24Slideover>
@@ -271,101 +333,317 @@ function openSlideover() {
         <B24Slideover
           title="Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Magna copiosae apeirian ius at."
           description="Ius dicat feugiat no, vix cu modo dicat principes. Eu cum iuvaret debitis voluptatibus, esse perfecto reformidans id has."
-          :b24ui="{ content: 'sm:max-w-[calc(100vw-4rem)]' }"
+          :b24ui="{
+            content: 'sm:max-w-1/2',
+            sidebarLayoutRoot: '[--air-theme-bg-color:#ffd2d2b5]'
+          }"
         >
-          <B24Button label="Long text" color="default" depth="light" />
+          <B24Button label="Long text" color="air-secondary-alert" />
 
           <template #body>
-            <B24Container>
-              <p>Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an. Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Nec labore cetero theophrastus no, ei vero facer veritus nec. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui.</p>
-              <p>Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Ius dicat feugiat no, vix cu modo dicat principes. Ceteros assentior omittantur cum ad. Magna copiosae apeirian ius at. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Nisl omittam complectitur pro an, quem omnes munere id vix.</p>
-              <p>Per in illud petentium iudicabit, integre sententiae pro no. Sale liber et vel. . Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Solum vituperata definitiones te vis, vis alia falli doming ea. Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an.</p>
-              <p>Nisl omittam complectitur pro an, quem omnes munere id vix. Odio contentiones sed cu, usu commodo prompta prodesset id. An eos iusto solet, id mel dico habemus. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula.</p>
-              <p>Tation delenit percipitur at vix. An nam debet instructior, commodo mediocrem id cum. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Solum vituperata definitiones te vis, vis alia falli doming ea.</p>
-              <p>Solum vituperata definitiones te vis, vis alia falli doming ea. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Solum vituperata definitiones te vis, vis alia falli doming ea. Tation delenit percipitur at vix. Sale liber et vel. Ius dicat feugiat no, vix cu modo dicat principes.</p>
-              <p>Postulant assueverit ea his. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Per cu iracundia splendide. Magna copiosae apeirian ius at. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui. Lorem ipsum dolor sit amet, an eos lorem ancillae expetenda, vim et utamur quaestio.</p>
-              <p>Postulant assueverit ea his. Sale liber et vel. Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an. Sale liber et vel. Eu cum iuvaret debitis voluptatibus, esse perfecto reformidans id has.</p>
-              <p>Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. An eos iusto solet, id mel dico habemus. Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Per in illud petentium iudicabit, integre sententiae pro no.</p>
-              <p>Per cu iracundia splendide. Per in illud petentium iudicabit, integre sententiae pro no. Ceteros assentior omittantur cum ad. Nisl omittam complectitur pro an, quem omnes munere id vix. Per in illud petentium iudicabit, integre sententiae pro no.</p>
-              <p>Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an. Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Nec labore cetero theophrastus no, ei vero facer veritus nec. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui.</p>
-              <p>Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Ius dicat feugiat no, vix cu modo dicat principes. Ceteros assentior omittantur cum ad. Magna copiosae apeirian ius at. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Nisl omittam complectitur pro an, quem omnes munere id vix.</p>
-              <p>Per in illud petentium iudicabit, integre sententiae pro no. Sale liber et vel. . Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Solum vituperata definitiones te vis, vis alia falli doming ea. Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an.</p>
-              <p>Nisl omittam complectitur pro an, quem omnes munere id vix. Odio contentiones sed cu, usu commodo prompta prodesset id. An eos iusto solet, id mel dico habemus. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula.</p>
-              <p>Tation delenit percipitur at vix. An nam debet instructior, commodo mediocrem id cum. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Solum vituperata definitiones te vis, vis alia falli doming ea.</p>
-              <p>Solum vituperata definitiones te vis, vis alia falli doming ea. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Solum vituperata definitiones te vis, vis alia falli doming ea. Tation delenit percipitur at vix. Sale liber et vel. Ius dicat feugiat no, vix cu modo dicat principes.</p>
-              <p>Postulant assueverit ea his. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Per cu iracundia splendide. Magna copiosae apeirian ius at. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui. Lorem ipsum dolor sit amet, an eos lorem ancillae expetenda, vim et utamur quaestio.</p>
-              <p>Postulant assueverit ea his. Sale liber et vel. Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an. Sale liber et vel. Eu cum iuvaret debitis voluptatibus, esse perfecto reformidans id has.</p>
-              <p>Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. An eos iusto solet, id mel dico habemus. Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Per in illud petentium iudicabit, integre sententiae pro no.</p>
-              <p>Per cu iracundia splendide. Per in illud petentium iudicabit, integre sententiae pro no. Ceteros assentior omittantur cum ad. Nisl omittam complectitur pro an, quem omnes munere id vix. Per in illud petentium iudicabit, integre sententiae pro no.</p>
-              <p>Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an. Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Nec labore cetero theophrastus no, ei vero facer veritus nec. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui.</p>
-              <p>Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Ius dicat feugiat no, vix cu modo dicat principes. Ceteros assentior omittantur cum ad. Magna copiosae apeirian ius at. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Nisl omittam complectitur pro an, quem omnes munere id vix.</p>
-              <p>Per in illud petentium iudicabit, integre sententiae pro no. Sale liber et vel. . Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Solum vituperata definitiones te vis, vis alia falli doming ea. Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an.</p>
-              <p>Nisl omittam complectitur pro an, quem omnes munere id vix. Odio contentiones sed cu, usu commodo prompta prodesset id. An eos iusto solet, id mel dico habemus. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula.</p>
-              <p>Tation delenit percipitur at vix. An nam debet instructior, commodo mediocrem id cum. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Solum vituperata definitiones te vis, vis alia falli doming ea.</p>
-              <p>Solum vituperata definitiones te vis, vis alia falli doming ea. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Solum vituperata definitiones te vis, vis alia falli doming ea. Tation delenit percipitur at vix. Sale liber et vel. Ius dicat feugiat no, vix cu modo dicat principes.</p>
-              <p>Postulant assueverit ea his. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Per cu iracundia splendide. Magna copiosae apeirian ius at. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui. Lorem ipsum dolor sit amet, an eos lorem ancillae expetenda, vim et utamur quaestio.</p>
-              <p>Postulant assueverit ea his. Sale liber et vel. Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an. Sale liber et vel. Eu cum iuvaret debitis voluptatibus, esse perfecto reformidans id has.</p>
-              <p>Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. An eos iusto solet, id mel dico habemus. Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Per in illud petentium iudicabit, integre sententiae pro no.</p>
-              <p>Per cu iracundia splendide. Per in illud petentium iudicabit, integre sententiae pro no. Ceteros assentior omittantur cum ad. Nisl omittam complectitur pro an, quem omnes munere id vix. Per in illud petentium iudicabit, integre sententiae pro no.</p>
-              <p>Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an. Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Nec labore cetero theophrastus no, ei vero facer veritus nec. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui.</p>
-              <p>Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Ius dicat feugiat no, vix cu modo dicat principes. Ceteros assentior omittantur cum ad. Magna copiosae apeirian ius at. Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Nisl omittam complectitur pro an, quem omnes munere id vix.</p>
-              <p>Per in illud petentium iudicabit, integre sententiae pro no. Sale liber et vel. . Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. Solum vituperata definitiones te vis, vis alia falli doming ea. Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an.</p>
-              <p>Nisl omittam complectitur pro an, quem omnes munere id vix. Odio contentiones sed cu, usu commodo prompta prodesset id. An eos iusto solet, id mel dico habemus. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula.</p>
-              <p>Tation delenit percipitur at vix. An nam debet instructior, commodo mediocrem id cum. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Solum vituperata definitiones te vis, vis alia falli doming ea.</p>
-              <p>Solum vituperata definitiones te vis, vis alia falli doming ea. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Solum vituperata definitiones te vis, vis alia falli doming ea. Tation delenit percipitur at vix. Sale liber et vel. Ius dicat feugiat no, vix cu modo dicat principes.</p>
-              <p>Postulant assueverit ea his. Vel in dicant cetero phaedrum, usu populo interesset cu, eum ea facer nostrum pericula. Per cu iracundia splendide. Magna copiosae apeirian ius at. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui. Lorem ipsum dolor sit amet, an eos lorem ancillae expetenda, vim et utamur quaestio.</p>
-              <p>Postulant assueverit ea his. Sale liber et vel. Eam id posse dictas voluptua, veniam laoreet oportere no mea, quis regione suscipiantur mea an. Sale liber et vel. Eu cum iuvaret debitis voluptatibus, esse perfecto reformidans id has.</p>
-              <p>Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui. An eos iusto solet, id mel dico habemus. Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Per in illud petentium iudicabit, integre sententiae pro no.</p>
-              <p>Per cu iracundia splendide. Per in illud petentium iudicabit, integre sententiae pro no. Ceteros assentior omittantur cum ad. Nisl omittam complectitur pro an, quem omnes munere id vix. Per in illud petentium iudicabit, integre sententiae pro no.</p>
-            </B24Container>
+            <MockContentLongText />
           </template>
 
           <template #footer>
             <B24ModalDialogClose>
-              <B24Button rounded label="Send" color="primary" size="sm" />
+              <B24Button label="Send" color="air-primary-success" />
             </B24ModalDialogClose>
             <B24ModalDialogClose>
-              <B24Button rounded label="Cancel" color="link" depth="dark" size="sm" />
+              <B24Button label="Cancel" color="air-tertiary" />
             </B24ModalDialogClose>
           </template>
         </B24Slideover>
 
         <B24Slideover
+          ref="currentSlideoverRef"
           title="File upload"
+          description="Some description"
+          :use-light-content="false"
           :b24ui="{
-            body: 'm-5 p-5 bg-white dark:bg-white/10 rounded'
+            content: 'sm:max-w-1/2'
           }"
         >
-          <B24Button label="Upload file" color="link" depth="dark" />
+          <B24Button label="Upload file" />
 
           <template #body>
-            <div class="flex flex-col gap-4">
-              <div class="w-full flex flex-row flex-nowrap items-center justify-start gap-3">
-                <div class="size-8xl rounded-xs border border-base-100 dark:border-white/20 flex flex-col items-center justify-center">
-                  <FileUploadIcon class="size-10 text-base-600" />
-                </div>
-                <div class="flex flex-col flex-nowrap gap-1">
-                  <div class="font-bold text-h5">
-                    start-ui.md
-                  </div>
-                  <div class="text-sm text-base-500 dark:text-base-600">
-                    650 bytes
-                  </div>
-                </div>
-              </div>
-              <B24Separator />
-              <div class="w-full">
-                <B24Textarea autofocus placeholder="Add a comment" autoresize :rows="1" :maxrows="4" />
-              </div>
+            <div class="p-5 light rounded-(--ui-border-radius-md) bg-(--ui-color-background-primary)">
+              <MockContentUploadFile />
             </div>
           </template>
 
           <template #footer>
+            <B24Button
+              label="Reload"
+              color="air-primary"
+              loading-auto
+              @click="handleSidebarLayoutLoadingAction"
+            />
             <B24ModalDialogClose>
-              <B24Button rounded label="Send" color="primary" size="sm" />
+              <B24Button label="Send" color="air-primary-success" />
             </B24ModalDialogClose>
             <B24ModalDialogClose>
-              <B24Button rounded label="Cancel" color="link" depth="dark" size="sm" />
+              <B24Button label="Cancel" color="air-tertiary" />
+            </B24ModalDialogClose>
+          </template>
+        </B24Slideover>
+
+        <B24Slideover
+          v-model:open="openTopAndBottom"
+          title="Bottom"
+          description="Some description"
+          side="bottom"
+          :use-light-content="false"
+          :b24ui="{
+            overlay: 'bg-[#00204e]/85',
+            content: 'top-[58px] sm:top-[58px] right-[22px] sm:right-[22px] max-h-[calc(100%-58px)] sm:max-h-[calc(100%-58px)] w-[calc(100%-60px-22px)] sm:w-[calc(100%-60px-22px)]',
+            sidebarLayoutRoot: [
+              'edge-light',
+              'edge-light:[--air-theme-bg-color:#eef2f4]',
+              'edge-light:[--air-theme-bg-size:auto]',
+              'edge-light:[--air-theme-bg-repeat:repeat]',
+              'edge-light:[--air-theme-bg-position:0_0]',
+              'edge-light:[--air-theme-bg-attachment:scroll]',
+              'edge-light:[--air-theme-bg-image:none]',
+              'edge-light:[--air-theme-bg-image-blurred:none]'
+            ].join(' ')
+          }"
+        >
+          <template #sidebar>
+            <B24SidebarHeader>
+              <div class="h-full flex items-center relative my-0 ps-[25px] pe-xs rtl:pe-[25px]">
+                <ProseH4 class="font-medium mb-0">
+                  Inner
+                </ProseH4>
+              </div>
+            </B24SidebarHeader>
+            <B24SidebarBody>
+              <MockSidebarLayoutMenu orientation="vertical" />
+            </B24SidebarBody>
+            <B24SidebarFooter>
+              <B24SidebarSection>
+                <MockSidebarLayoutSideFooter />
+              </B24SidebarSection>
+            </B24SidebarFooter>
+          </template>
+          <template #navbar>
+            <MockSidebarLayoutMenu orientation="horizontal" />
+          </template>
+          <template #header>
+            <div class="w-full flex flex-col gap-[20px]">
+              <MockSidebarLayoutTopProfile class="rounded-(--ui-border-radius-md)" />
+              <MockSidebarLayoutTop class="flex-row">
+                Bottom
+              </MockSidebarLayoutTop>
+            </div>
+          </template>
+          <template #actions>
+            <MockSidebarLayoutActions />
+          </template>
+          <template #body>
+            <Placeholder class="size-full">
+              <div class="p-4 rounded-md bg-(--ui-color-g-content-glass-1)">
+                <ProseP>Selected action: <ProseStrong>{{ action }}</ProseStrong></ProseP>
+              </div>
+            </Placeholder>
+          </template>
+        </B24Slideover>
+        <B24Slideover
+          v-model:open="openTopAndBottom"
+          title="Top"
+          description="Some description"
+          side="top"
+          :dismissible="false"
+          :close="false"
+          :overlay="false"
+          :modal="false"
+          :b24ui="{
+            content: 'max-h-[56px] sm:shadow-none',
+            sidebarLayoutRoot: [
+              'edge-dark',
+              'edge-dark:[--air-theme-bg-color:#00204e85]',
+              'edge-dark:[--air-theme-bg-size:cover]',
+              'edge-dark:[--air-theme-bg-repeat:no-repeat]',
+              'edge-dark:[--air-theme-bg-position:0_0]',
+              'edge-dark:[--air-theme-bg-attachment:fixed]',
+              'edge-dark:[--air-theme-bg-image:none]',
+              'edge-dark:[--air-theme-bg-image-blurred:none]',
+              'pl-[calc(60px+0px)]'
+            ].join(' '),
+            sidebarLayoutHeaderWrapper: 'before:hidden'
+          }"
+        >
+          <template #navbar>
+            <MockSidebarLayoutMenu orientation="horizontal" />
+          </template>
+        </B24Slideover>
+        <B24Button label="Top & Bottom" @click="openSliderTopAndBottom" />
+
+        <B24Slideover
+          :close="{ label: 'List' }"
+          title="List"
+          description="Some description"
+          :use-light-content="false"
+          :b24ui="{
+            content: 'sm:max-w-[970px]',
+            sidebarLayoutRoot: [
+              'edge-dark',
+              'edge-dark:[--air-theme-bg-color:#7c235b]',
+              'edge-dark:[--air-theme-bg-size:cover]',
+              'edge-dark:[--air-theme-bg-repeat:no-repeat]',
+              'edge-dark:[--air-theme-bg-position:0_0]',
+              'edge-dark:[--air-theme-bg-attachment:local]',
+              'edge-dark:[--air-theme-bg-image:url(/bg/edge-dark-v2.jpg)]',
+              'edge-dark:[--air-theme-bg-image-blurred:url(/bg/edge-dark-v2-blurred.webp)]'
+            ].join(' ')
+          }"
+        >
+          <B24Button label="List" />
+          <template #header>
+            <div class="w-full flex flex-col gap-[20px]">
+              <MockSidebarLayoutTopProfile class="-mt-[24px] rounded-b-(--ui-border-radius-md)" />
+              <MockSidebarLayoutTop class="flex-row">
+                List
+              </MockSidebarLayoutTop>
+            </div>
+          </template>
+          <template #body>
+            <div class="light px-0.5 rounded-(--ui-border-radius-md) bg-(--ui-color-background-primary)">
+              <B24TableWrapper
+                row-hover
+                class="overflow-x-auto w-full"
+              >
+                <table>
+                  <!-- head -->
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Company</th>
+                      <th>Status</th>
+                      <th>Amount (USD)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- row 1 -->
+                    <tr>
+                      <th>1</th>
+                      <td><B24Link @click="openListItem = true">Tech Innovators Inc.</B24Link></td>
+                      <td><B24Badge label="Proposal Sent" use-link use-close /></td>
+                      <td>50,000</td>
+                    </tr>
+                    <!-- row 2 -->
+                    <tr>
+                      <th>2</th>
+                      <td><B24Link @click="openListItem = true">Global Solutions Ltd.</B24Link></td>
+                      <td><B24Badge label="Negotiation" use-link inverted use-close /></td>
+                      <td>120,000</td>
+                    </tr>
+                    <!-- row 3 -->
+                    <tr>
+                      <th>3</th>
+                      <td><B24Link @click="openListItem = true">Future Enterprises</B24Link></td>
+                      <td><B24Chip standalone color="air-primary-warning" text="Contract Signed" size="lg" :trailing-icon="TrendUpIcon" /></td>
+                      <td>200,000</td>
+                    </tr>
+                    <!-- row 4 -->
+                    <tr>
+                      <th>4</th>
+                      <td><B24Link @click="openListItem = true">Bright Ideas Co.</B24Link></td>
+                      <td>
+                        <B24Chip
+                          standalone
+                          text="Initial Contact"
+                          color="air-primary-alert"
+                          size="lg"
+                          inverted
+                          :trailing-icon="TrendDownIcon"
+                        />
+                      </td>
+                      <td>15,000</td>
+                    </tr>
+                    <!-- row 5 -->
+                    <tr>
+                      <th>5</th>
+                      <td><B24Link @click="openListItem = true">NextGen Technologies</B24Link></td>
+                      <td>
+                        <B24Chip
+                          standalone
+                          text="Important"
+                          size="lg"
+                          color="air-primary-alert"
+                          :b24ui="{ base: 'style-filled-boost' }"
+                        />
+                      </td>
+                      <td>300,000</td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <th colspan="3" class="text-right">
+                        Total:
+                      </th>
+                      <td>
+                        685,000
+                      </td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </B24TableWrapper>
+            </div>
+          </template>
+        </B24Slideover>
+        <B24Slideover
+          v-model:open="openListItem"
+          :close="{ label: 'Item' }"
+          title="Item"
+          description="Some description"
+          :use-light-content="false"
+          :b24ui="{
+            content: 'sm:max-w-[900px]',
+            body: 'relative',
+            sidebarLayoutRoot: [
+              'edge-light',
+              'edge-light:[--air-theme-bg-color:#eef2f4]',
+              'edge-light:[--air-theme-bg-size:auto]',
+              'edge-light:[--air-theme-bg-repeat:no-repeat]',
+              'edge-light:[--air-theme-bg-position:0_0]',
+              'edge-light:[--air-theme-bg-attachment:local]',
+              'edge-light:[--air-theme-bg-image:url(/bg/slider-ring-blurred.webp)]',
+              'edge-light:[--air-theme-bg-image-blurred:url(/bg/slider-ring-blurred.webp)]'
+            ].join(' ')
+          }"
+        >
+          <template #header>
+            <div
+              class="w-full pt-(--ui-space-inset-md2) pb-[calc(var(--ui-space-inset-md2)+10px)] px-(--ui-space-inset-lg) rounded-(--ui-border-radius-3xl) bg-(--ui-color-background-primary)/80 flex flex-row items-center justify-between gap-[20px]"
+            >
+              <B24Avatar
+                :icon="BusinesProcessStagesIcon"
+                alt="Workflows"
+                size="2xl"
+                :b24ui="{
+                  root: 'bg-(--ui-color-primary)',
+                  icon: 'size-[48px] text-(--ui-color-palette-white-base)'
+                }"
+              />
+              <div class="flex-1">
+                <ProseH1 class="text-(--ui-color-text-primary) leading-[29px] font-(--ui-font-weight-light)">
+                  Workflows
+                </ProseH1>
+                <ProseP small accent="less">
+                  Automate your workflows, control every stage and manage workflows from your mobile.
+                </ProseP>
+              </div>
+            </div>
+          </template>
+          <template #body>
+            <Placeholder class="w-full h-[300px]" />
+          </template>
+          <template #footer>
+            <B24ModalDialogClose>
+              <B24Button label="Back" color="air-tertiary" />
+            </B24ModalDialogClose>
+            <B24ModalDialogClose>
+              <B24Button label="Continue" color="air-primary" />
             </B24ModalDialogClose>
           </template>
         </B24Slideover>

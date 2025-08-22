@@ -52,6 +52,12 @@ export default defineLocale<Messages>({
     },
     table: {
       noData: 'Veri yok'
+    },
+    sidebarLayout: {
+      open: 'Gezinmeyi Aç',
+      close: 'Gezinmeyi Kapat',
+      slideoverTitle: 'Gezinme',
+      slideoverDescription: 'İçerik Gezintisi'
     }
   }
 })

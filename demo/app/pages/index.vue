@@ -1,44 +1,47 @@
 <script setup lang="ts">
 import usePageMeta from '~/composables/usePageMeta'
 
-useHead({
-  title: 'Bitrix24 UI - Demo'
-})
+usePageMeta.setPageTitle('Bitrix24 UI - Demo')
 </script>
 
 <template>
-  <div class="w-full max-lg:px-3">
+  <div class="w-full">
     <div
       v-for="(group) in usePageMeta.groups"
       :key="group.id"
       class="mb-md"
     >
-      <div class="mb-sm font-b24-secondary text-h4 font-light leading-8 text-base-900 dark:text-base-200">
+      <ProseH4 class="mb-sm">
         {{ group.label }}
-      </div>
+      </ProseH4>
       <div class="grid grid-cols-[repeat(auto-fill,minmax(266px,1fr))] gap-y-sm gap-x-sm">
         <template v-for="(item) in group.children" :key="item.id">
-          <B24Tooltip :disabled="item.description.length < 43" :text="item.description" :content="{ side: 'top' }" arrow>
-            <B24Link
-              raw
-              class="bg-white dark:bg-white/10 py-sm2 px-xs2 cursor-pointer rounded-md flex flex-row gap-sm border-2 transition-shadow shadow hover:shadow-lg relative border-base-master/10 dark:border-base-100/20 hover:border-primary"
-              :to="item.to"
-            >
-              <B24Avatar
-                :icon="item.iconData"
-                size="xl"
-                :b24ui="item.iconClass"
-              />
-              <div class="max-w-11/12">
-                <div class="font-b24-secondary text-black dark:text-base-150 text-h6 leading-4 mb-xs font-semibold line-clamp-2">
-                  {{ item.label }}
-                </div>
-                <div class="font-b24-primary text-sm text-base-500 line-clamp-2">
-                  <div>{{ item.description }}</div>
-                </div>
-              </div>
-            </B24Link>
-          </B24Tooltip>
+          <B24Link
+            raw
+            class="style-blurred-bg py-sm2 px-xs2 cursor-pointer rounded-(--ui-border-radius-md) flex flex-row gap-sm border-2 transition-shadow shadow hover:shadow-lg relative hover:border-primary"
+            :to="item.to"
+            :class="[
+              item.description.includes('(-)') ? 'border-red-500/70' : (
+                item.description.includes('(+)') ? 'border-green-500/70' : (
+                  item.description.includes('(~)') ? 'border-ai-500/70' : 'border-base-master/10'
+                )
+              )
+            ]"
+          >
+            <B24Avatar
+              :icon="item.iconData"
+              size="xl"
+              :b24ui="item.iconClass"
+            />
+            <div class="max-w-11/12">
+              <ProseH6 class="text-(--b24ui-typography-label-color) font-(--ui-font-weight-bold) mb-1 line-clamp-2">
+                {{ item.label }}
+              </ProseH6>
+              <ProseP small accent="less" class="line-clamp-2">
+                {{ item.description }}
+              </ProseP>
+            </div>
+          </B24Link>
         </template>
       </div>
     </div>

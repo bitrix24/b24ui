@@ -9,6 +9,9 @@ export interface ProseEmProps {
   class?: any
   b24ui?: ProseEm['slots']
 }
+/**
+ * @todo add Pick<Xxxx
+ */
 
 export interface ProseEmSlots {
   default(props?: {}): any

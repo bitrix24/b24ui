@@ -7,12 +7,14 @@
 export default {
   slots: {
     content: [
-      'bg-white dark:bg-base-dark',
-      'shadow-lg rounded-2xs ring ring-base-300 dark:ring-base-800',
+      'light',
+      'bg-(--popup-window-background-color)',
+      'shadow-(--popup-window-box-shadow)',
+      'rounded-(--popup-window-border-radius) will-change-[opacity]',
       'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]',
       'origin-(--reka-popover-content-transform-origin)',
       'focus:outline-none pointer-events-auto'
     ].join(' '),
-    arrow: 'fill-white dark:fill-base-dark stroke-base-300 dark:stroke-base-800'
+    arrow: 'fill-(--popup-window-background-color)'
   }
 }

@@ -12,9 +12,14 @@ import NestedListExample from '/examples/form/FormExampleNestedList.vue';
 </script>
 # Form
 
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/form"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Form.vue"
+  demo="/components/form"
 >
   A form component designed for validation and handling submissions.
 </Description>
@@ -74,6 +79,10 @@ The Form component automatically triggers validation when an input emits an `inp
 - Validation on `blur` happens when an input **loses focus**.
 
 You can control when validation happens this using the `validate-on` prop.
+
+::: tip
+The form always validates on submit.
+:::
 
 ::: tip
 You can use the [`useFormField`](/components/composables/use-form-field) composable to implement this inside your own components.
@@ -155,7 +164,15 @@ Or to validate list inputs:
 
 ### Emits
 
-<ComponentEmits component="Form" />
+```ts
+/**
+ * Emitted events for the Form component
+ */
+interface FormEmits {
+  error: (payload: [payload: FormErrorEvent]) => void;
+  submit: (payload: [payload: FormSubmitEvent<any>]) => void;
+}
+```
 
 ### Expose
 
@@ -218,13 +235,13 @@ function makeClear() {
 
 This will give you access to the following:
 
-| Name                                                                                                                         | Type                                                                                                                                                          |
-|------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name                                                                                                                    | Type                                                                                                                                                     |
+|-------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `submit()`{lang="ts"}                                                                                                   | `Promise<void>`{lang="ts"} <br> <p>Triggers form submission.</p>                                                                                         |
 | `validate(opts: { name?: keyof T \| (keyof T)[], silent?: boolean, nested?: boolean, transform?: boolean })`{lang="ts"} | `Promise<T>`{lang="ts"} <br> <p>Triggers form validation. Will raise any errors unless `opts.silent` is set to true.</p>                                 |
-| `clear(path?: keyof T)`{lang="ts"}                                                                                      | `void` <br> <p>Clears form errors associated with a specific path. If no path is provided, clears all form errors.</p>                                        |
-| `getErrors(path?: keyof T)`{lang="ts"}                                                                                  | `FormError[]`{lang="ts"} <br> <p>Retrieves form errors associated with a specific path. If no path is provided, returns all form errors.</p>             |
-| `setErrors(errors: FormError[], name?: keyof T)`{lang="ts"}                                                             | `void` <br> <p>Sets form errors for a given path. If no path is provided, overrides all errors.</p>                                                           |
+| `clear(path?: keyof T \| RegExp)`{lang="ts"}                                                                            | `void` <br> <p>Clears form errors associated with a specific path. If no path is provided, clears all form errors.</p>                                   |
+| `getErrors(path?: keyof T \| RegExp)`{lang="ts"}                                                                        | `FormError[]`{lang="ts"} <br> <p>Retrieves form errors associated with a specific path. If no path is provided, returns all form errors.</p>             |
+| `setErrors(errors: FormError[], name?: keyof T \| RegExp)`{lang="ts"}                                                   | `void` <br> <p>Sets form errors for a given path. If no path is provided, overrides all errors.</p>                                                      |
 | `errors`{lang="ts"}                                                                                                     | `Ref<FormError[]>`{lang="ts"} <br> <p>A reference to the array containing validation errors. Use this to access or manipulate the error information.</p> |
 | `disabled`{lang="ts"}                                                                                                   | `Ref<boolean>`{lang="ts"}                                                                                                                                |
 | `dirty`{lang="ts"}                                                                                                      | `Ref<boolean>`{lang="ts"} `true` if at least one form field has been updated by the user.                                                                |

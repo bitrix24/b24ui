@@ -33,7 +33,7 @@ async function openModal() {
 - The `useOverlay` composable is created using `createSharedComposable`, ensuring that the same overlay state is shared across your entire application.
 
 ::: tip
-In order to return a value from the overlay, the `overlay.open().instance.result` can be awaited. In order for this to work, however, the **overlay component must emit a `close` event**. See example below for details.
+In order to return a value from the overlay, the `overlay.open().instance` can be awaited. In order for this to work, however, the **overlay component must emit a `close` event**. See example below for details.
 :::
 
 ## API

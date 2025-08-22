@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
-import Alert, { type AlertProps, type AlertSlots } from '../../src/runtime/components/Alert.vue'
+import Alert from '../../src/runtime/components/Alert.vue'
+import type { AlertProps, AlertSlots } from '../../src/runtime/components/Alert.vue'
 import ComponentRender from '../component-render'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'

@@ -17,9 +17,14 @@ import OrientationExample from '/examples/alert/Orientation.vue';
 </script>
 # Alert
 
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/alert"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Alert.vue"
+  demo="/components/alert"
 >
   An alert designed to capture the user's attention.
 </Description>
@@ -178,4 +183,11 @@ Use the `orientation` prop to change the orientation of the Alert.
 
 ### Emits
 
-<ComponentEmits component="Alert" />
+```ts
+/**
+ * Emitted events for the Alert component
+ */
+interface AlertEmits {
+  update:open: (payload: [value: boolean]) => void;
+}
+```

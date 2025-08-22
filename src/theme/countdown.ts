@@ -15,7 +15,7 @@ export default {
   slots: {
     base: [
       'relative flex flex-row flex-nowrap items-center justify-between',
-      'text-base-500 dark:text-base-600'
+      'text-(--b24ui-typography-legend-color)'
     ].join(' '),
     label: '',
     leadingIcon: 'shrink-0',
@@ -31,27 +31,27 @@ export default {
   variants: {
     size: {
       xs: {
-        base: 'gap-0.5 text-5xs leading-none',
+        base: 'gap-0.5 text-(length:--ui-font-size-5xs)/(--ui-font-line-height-reset)',
         leadingIcon: 'size-sm',
         leadingAvatarSize: '3xs'
       },
       sm: {
-        base: 'gap-1 text-4xs leading-none',
+        base: 'gap-1 text-(length:--ui-font-size-4xs)/(--ui-font-line-height-reset)',
         leadingIcon: 'size-sm2',
         leadingAvatarSize: '3xs'
       },
       md: {
-        base: 'gap-1 text-md leading-none',
+        base: 'gap-1 text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)',
         leadingIcon: 'size-[16px]',
         leadingAvatarSize: '3xs'
       },
       lg: {
-        base: 'gap-1 text-lg leading-none',
+        base: 'gap-1 text-(length:--ui-font-size-lg)/(--ui-font-line-height-reset)',
         leadingIcon: 'size-[22px]',
         leadingAvatarSize: '2xs'
       },
       xl: {
-        base: 'gap-1 text-xl leading-none',
+        base: 'gap-1 text-(length:--ui-font-size-xl)/(--ui-font-line-height-reset)',
         leadingIcon: 'size-[26px]',
         leadingAvatarSize: 'xs'
       }
@@ -70,27 +70,27 @@ export default {
     {
       size: 'xs',
       useCircle: true,
-      class: 'text-7xs leading-normal p-0.5'
+      class: 'text-(length:--ui-font-size-7xs)/[normal] p-0.5'
     },
     {
       size: 'sm',
       useCircle: true,
-      class: 'text-6xs leading-normal p-1.5'
+      class: 'text-(length:--ui-font-size-6xs)/[normal] p-1.5'
     },
     {
       size: 'md',
       useCircle: true,
-      class: 'text-3xs leading-normal p-1.5'
+      class: 'text-(length:--ui-font-size-3xs)/[normal] p-1.5'
     },
     {
       size: 'lg',
       useCircle: true,
-      class: 'text-xs leading-normal p-1.5 pb-2'
+      class: 'text-(length:--ui-font-size-xs)/[normal] p-1.5 pb-2'
     },
     {
       size: 'xl',
       useCircle: true,
-      class: 'text-sm leading-normal p-2 pb-2.5'
+      class: 'text-(length:--ui-font-size-sm)/[normal] p-2 pb-2.5'
     }
   ],
   defaultVariants: {

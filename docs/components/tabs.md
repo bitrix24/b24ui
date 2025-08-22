@@ -7,7 +7,6 @@ outline: deep
 import TabsExample from '/examples/tabs/Tabs.vue';
 import ContentExample from '/examples/tabs/Content.vue';
 import UnmountExample from '/examples/tabs/Unmount.vue';
-import ColorExample from '/examples/tabs/Color.vue';
 import VariantExample from '/examples/tabs/Variant.vue';
 import SizeExample from '/examples/tabs/Size.vue';
 import OrientationExample from '/examples/tabs/Orientation.vue';
@@ -17,11 +16,16 @@ import CustomSlotExample from '/examples/tabs/CustomSlot.vue';
 </script>
 # Tabs
 
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/tabs"
   reka-ui="https://reka-ui.com/docs/components/tabs"
   reka-ui-title="Tabs"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Tabs.vue"
+  demo="/components/tabs"
 >
   A collection of tab panels shown individually.
 </Description>
@@ -35,12 +39,13 @@ Use the `items` prop as an array of objects with the following properties:
 - `label?: string`{lang="ts"}
 - `icon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts"}
 - `avatar?: AvatarProps`{lang="ts"}
+- `badge?: string | number | BadgeProps`{lang="ts"}
 - `content?: string`{lang="ts"}
 - `value?: string | number`{lang="ts"}
 - `disabled?: boolean`{lang="ts"}
 - [`slot?: string`{lang="ts"}](#with-custom-slot)
 - `class?: any`{lang="ts"}
-- `b24ui?: { trigger?: ClassNameValue, leadingIcon?: ClassNameValue, leadingAvatar?: ClassNameValue, label?: ClassNameValue, content?: ClassNameValue }`{lang="ts"}
+- `b24ui?: { trigger?: ClassNameValue, leadingIcon?: ClassNameValue, leadingAvatar?: ClassNameValue, leadingAvatarSize?: ClassNameValue, label?: ClassNameValue, trailingBadge?: ClassNameValue, trailingBadgeSize?: ClassNameValue, content?: ClassNameValue }`{lang="ts"}
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -86,17 +91,7 @@ You can inspect the DOM to see each item's content being rendered.
 
 ### Color
 
-Use the `color` prop to change the color of the Tabs.
-
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <ColorExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/tabs/demo/Color.vue{28 vue:line-numbers}
-:::
+`@remove`
 
 ### Variant
 
@@ -153,7 +148,7 @@ You can control the active item by using the `default-value` prop or the `v-mode
 </div>
 
 ::: details
-<<< @/examples/tabs/demo/ModelValue.vue{25 vue:line-numbers}
+<<< @/examples/tabs/demo/ModelValue.vue{28 vue:line-numbers}
 :::
 
 ### With content slot
@@ -196,7 +191,14 @@ Use the `slot` property to customize a specific item.
 
 ### Emits
 
-<ComponentEmits component="Tabs" />
+```ts
+/**
+ * Emitted events for the Tabs component
+ */
+interface TabsEmits {
+  update:modelValue: (payload: [payload: string | number]) => void;
+}
+```
 
 ### Expose
 

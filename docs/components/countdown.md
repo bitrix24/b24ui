@@ -8,15 +8,16 @@ import CountdownExample from '/examples/countdown/Countdown.vue';
 </script>
 # Countdown
 
-<Description 
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Countdown.vue"
->
-  Countdown with options control.
-</Description>
-
 ::: warning We are still updating this page
 Some data may be missing here — we will complete it shortly.
 :::
+
+<Description 
+  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Countdown.vue"
+  demo="/components/countdown"
+>
+  Countdown with options control.
+</Description>
 
 ## Usage
 
@@ -42,4 +43,14 @@ Some data may be missing here — we will complete it shortly.
 
 ### Emits
 
-<ComponentEmits component="Countdown" />
+```ts
+/**
+ * Emitted events for the CountdownEmits component
+ */
+interface CountdownEmits {
+  start: () => void;
+  end: () => void;
+  abort: () => void;
+  progress: (payload: CountdownData) => void;
+}
+```

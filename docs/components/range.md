@@ -15,13 +15,18 @@ import SizeExample from '/examples/range/Size.vue';
 import DisabledExample from '/examples/range/Disabled.vue';
 import InvertedExample from '/examples/range/Inverted.vue';
 </script>
-
 # Range
+
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/slider"
   reka-ui="https://reka-ui.com/docs/components/slider"
   reka-ui-title="Slider"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Range.vue"
+  demo="/components/range"
 >
   A control for selecting a numeric value within a specified range.
 </Description>
@@ -174,4 +179,13 @@ Use the `inverted` prop to visually invert the Range.
 
 ### Emits
 
-<ComponentEmits component="Range" />
+```ts
+/**
+ * Emitted events for the Range component
+ */
+interface RangeEmits {
+  change: (payload: [payload: Event]) => void;
+  update:modelValue: (payload: [payload: number | number[]]) => void;
+  update:modelValue: (payload: [value: number | number[] | undefined]) => void;
+}
+```

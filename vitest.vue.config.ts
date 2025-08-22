@@ -15,7 +15,8 @@ export default defineConfig({
     include: [
       './test/components/**.spec.ts',
       './test/components/content/**.spec.ts',
-      './test/components/prose/**.spec.ts'
+      './test/components/prose/**.spec.ts',
+      './test/composables/**.spec.ts'
     ],
     setupFiles: ['./test/utils/setup.ts'],
     resolveSnapshotPath(path, extension) {

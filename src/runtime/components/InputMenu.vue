@@ -4,8 +4,8 @@ import type { ComboboxRootProps, ComboboxRootEmits, ComboboxContentProps, Combob
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/input-menu'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
-import type { AvatarProps, ChipProps, InputProps, IconComponent } from '../types'
-import type { AcceptableValue, ArrayOrNested, GetItemKeys, GetModelValue, GetModelValueEmits, NestedItem, EmitsToProps, ComponentConfig } from '../types/utils'
+import type { AvatarProps, ChipProps, InputProps, BadgeProps, IconComponent } from '../types'
+import type { AcceptableValue, ArrayOrNested, GetItemKeys, GetItemValue, GetModelValue, GetModelValueEmits, NestedItem, EmitsToProps, ComponentConfig } from '../types/utils'
 
 type InputMenu = ComponentConfig<typeof theme, AppConfig, 'inputMenu'>
 
@@ -32,7 +32,7 @@ interface _InputMenuItem {
 }
 export type InputMenuItem = _InputMenuItem | AcceptableValue | boolean
 
-export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOrNested<InputMenuItem>, VK extends GetItemKeys<T> | undefined = undefined, M extends boolean = false> extends Pick<ComboboxRootProps<T>, 'open' | 'defaultOpen' | 'disabled' | 'name' | 'resetSearchTermOnBlur' | 'resetSearchTermOnSelect' | 'highlightOnHover'>, UseComponentIconsProps {
+export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOrNested<InputMenuItem>, VK extends GetItemKeys<T> | undefined = undefined, M extends boolean = false> extends Pick<ComboboxRootProps<T>, 'open' | 'defaultOpen' | 'disabled' | 'name' | 'resetSearchTermOnBlur' | 'resetSearchTermOnSelect' | 'highlightOnHover' | 'openOnClick' | 'openOnFocus'>, UseComponentIconsProps {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
@@ -48,7 +48,7 @@ export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOr
    */
   placeholder?: string
   /**
-   * @defaultValue 'primary'
+   * @defaultValue 'air-primary'
    */
   color?: InputMenu['variants']['color']
   /**
@@ -147,9 +147,9 @@ export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOr
   multiple?: M & boolean
   tag?: string
   /**
-   * @defaultValue 'primary'
+   * @defaultValue 'air-primary'
    */
-  tagColor?: InputMenu['variants']['tagColor']
+  tagColor?: BadgeProps['color']
   /**
    * Highlight the ring color like a focus state
    * @defaultValue false
@@ -175,15 +175,16 @@ export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOr
 }
 
 export type InputMenuEmits<A extends ArrayOrNested<InputMenuItem>, VK extends GetItemKeys<A> | undefined, M extends boolean> = Pick<ComboboxRootEmits, 'update:open'> & {
-  change: [payload: Event]
-  blur: [payload: FocusEvent]
-  focus: [payload: FocusEvent]
-  create: [item: string]
+  'change': [payload: Event]
+  'blur': [payload: FocusEvent]
+  'focus': [payload: FocusEvent]
+  'create': [item: string]
   /** Event handler when highlighted element changes. */
-  highlight: [payload: {
+  'highlight': [payload: {
     ref: HTMLElement
     value: GetModelValue<A, VK, M>
   } | undefined]
+  'remove-tag': [item: GetModelValue<A, VK, M>]
 } & GetModelValueEmits<A, VK, M>
 
 type SlotProps<T extends InputMenuItem> = (props: { item: T, index: number }) => any
@@ -229,9 +230,10 @@ import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
 import { useLocale } from '../composables/useLocale'
 import { usePortal } from '../composables/usePortal'
-import { compare, get, isArrayOfArray } from '../utils'
+import { compare, get, getDisplayValue, isArrayOfArray } from '../utils'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
+import B24Badge from './Badge.vue'
 import B24Avatar from './Avatar.vue'
 import B24Chip from './Chip.vue'
 
@@ -254,10 +256,10 @@ const { t } = useLocale()
 const appConfig = useAppConfig() as InputMenu['AppConfig']
 const { contains } = useFilter({ sensitivity: 'base' })
 
-const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'modelValue', 'defaultValue', 'open', 'defaultOpen', 'required', 'multiple', 'resetSearchTermOnBlur', 'resetSearchTermOnSelect', 'highlightOnHover', 'ignoreFilter'), emits)
+const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'modelValue', 'defaultValue', 'open', 'defaultOpen', 'required', 'multiple', 'resetSearchTermOnBlur', 'resetSearchTermOnSelect', 'highlightOnHover', 'openOnClick', 'openOnFocus'), emits)
 const portalProps = usePortal(toRef(() => props.portal))
 const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffset: 8, collisionPadding: 8, position: 'popper' }) as ComboboxContentProps)
-const arrowProps = toRef(() => props.arrow as ComboboxArrowProps)
+const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10 }) as ComboboxArrowProps)
 
 const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, size: formGroupSize, color, id, name, highlight, disabled, ariaAttrs } = useFormField<InputProps>(props)
 const { orientation, size: buttonGroupSize } = useButtonGroup<InputProps>(props)
@@ -275,7 +277,6 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.inputM
   color: color.value,
   size: inputSize?.value,
   loading: props.loading,
-  tagColor: props.tagColor,
   highlight: highlight.value,
   rounded: Boolean(props.rounded),
   noPadding: Boolean(props.noPadding),
@@ -287,13 +288,11 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.inputM
   buttonGroup: orientation.value
 }))
 
-function displayValue(value: T): string {
-  if (!props.valueKey) {
-    return value && (typeof value === 'object' ? get(value, props.labelKey as string) : value)
-  }
-
-  const item = items.value.find(item => compare(typeof item === 'object' ? get(item as Record<string, any>, props.valueKey as string) : item, value))
-  return item && (typeof item === 'object' ? get(item, props.labelKey as string) : item)
+function displayValue(value: GetItemValue<T, VK>): string {
+  return getDisplayValue(items.value, value, {
+    labelKey: props.labelKey,
+    valueKey: props.valueKey
+  }) ?? ''
 }
 
 const groups = computed<InputMenuItem[][]>(() =>
@@ -304,7 +303,7 @@ const groups = computed<InputMenuItem[][]>(() =>
     : []
 )
 // eslint-disable-next-line vue/no-dupe-keys
-const items = computed(() => groups.value.flatMap(group => group))
+const items = computed(() => groups.value.flatMap(group => group) as T[])
 
 const filteredGroups = computed(() => {
   if (props.ignoreFilter || !searchTerm.value) {
@@ -313,8 +312,12 @@ const filteredGroups = computed(() => {
 
   const fields = Array.isArray(props.filterFields) ? props.filterFields : [props.labelKey] as string[]
 
-  return groups.value.map(group => group.filter((item) => {
-    if (typeof item !== 'object' || item === null) {
+  return groups.value.map(items => items.filter((item) => {
+    if (item === undefined || item === null) {
+      return false
+    }
+
+    if (typeof item !== 'object') {
       return contains(String(item), searchTerm.value)
     }
 
@@ -322,7 +325,10 @@ const filteredGroups = computed(() => {
       return true
     }
 
-    return fields.some(field => contains(get(item, field), searchTerm.value))
+    return fields.some((field) => {
+      const value = get(item, field)
+      return value !== undefined && value !== null && contains(String(value), searchTerm.value)
+    })
   })).filter(group => group.filter(item =>
     !isInputItem(item) || (isInputItem(item) && (!item.type || !['label', 'separator'].includes(item.type)))
   ).length > 0)
@@ -414,6 +420,7 @@ function onRemoveTag(event: any) {
     const modelValue = props.modelValue as GetModelValue<T, VK, true>
     const filteredValue = modelValue.filter(value => !isEqual(value, event))
     emits('update:modelValue', filteredValue as GetModelValue<T, VK, M>)
+    emits('remove-tag', event)
     onUpdate(filteredValue)
   }
 }
@@ -463,7 +470,6 @@ defineExpose({
   </DefineCreateItemTemplate>
 
   <ComboboxRoot
-    :id="id"
     v-slot="{ modelValue, open }"
     v-bind="rootProps"
     :name="name"
@@ -475,9 +481,13 @@ defineExpose({
     @update:open="onUpdateOpen"
     @keydown.enter="$event.preventDefault()"
   >
-    <div v-if="isTag" :class="b24ui.tag({ class: props.b24ui?.tag })">
-      {{ props.tag }}
-    </div>
+    <B24Badge
+      v-if="!multiple && isTag"
+      :class="b24ui.tag({ class: props.b24ui?.tag })"
+      :color="props.tagColor"
+      :label="props.tag"
+      size="xs"
+    />
     <ComboboxAnchor :as-child="!multiple" :class="b24ui.base({ class: props.b24ui?.base })">
       <TagsInputRoot
         v-if="multiple"
@@ -491,10 +501,18 @@ defineExpose({
         @focus="onFocus"
         @remove-tag="onRemoveTag"
       >
+        <B24Badge
+          v-if="!!multiple && isTag"
+          :class="b24ui.tag({ class: props.b24ui?.tag })"
+          :color="props.tagColor"
+          :label="props.tag"
+          size="xs"
+        />
+
         <TagsInputItem v-for="(item, index) in tags" :key="index" :value="(item as string)" :class="b24ui.tagsItem({ class: [props.b24ui?.tagsItem, isInputItem(item) && item.b24ui?.tagsItem] })">
           <TagsInputItemText :class="b24ui.tagsItemText({ class: [props.b24ui?.tagsItemText, isInputItem(item) && item.b24ui?.tagsItemText] })">
             <slot name="tags-item-text" :item="(item as NestedItem<T>)" :index="index">
-              {{ displayValue(item as T) }}
+              {{ displayValue(item as GetItemValue<T, VK>) }}
             </slot>
           </TagsInputItemText>
 
@@ -510,6 +528,7 @@ defineExpose({
 
         <ComboboxInput v-model="searchTerm" as-child>
           <TagsInputInput
+            :id="id"
             ref="inputRef"
             v-bind="{ ...$attrs, ...ariaAttrs }"
             :placeholder="placeholder"
@@ -521,6 +540,7 @@ defineExpose({
 
       <ComboboxInput
         v-else
+        :id="id"
         ref="inputRef"
         :display-value="displayValue"
         v-bind="{ ...$attrs, ...ariaAttrs }"
@@ -539,7 +559,12 @@ defineExpose({
             v-if="isLeading && leadingIconName"
             :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
           />
-          <B24Avatar v-else-if="!!avatar" :size="((props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])" v-bind="avatar" :class="b24ui.itemLeadingAvatar({ class: props.b24ui?.itemLeadingAvatar })" />
+          <B24Avatar
+            v-else-if="!!avatar"
+            :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+            v-bind="avatar"
+            :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
+          />
         </slot>
       </span>
 

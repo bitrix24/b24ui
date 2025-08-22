@@ -31,7 +31,7 @@ export interface ProgressProps extends Pick<ProgressRootProps, 'getValueLabel' |
    */
   size?: Progress['variants']['size']
   /**
-   * @defaultValue 'primary'
+   * @defaultValue 'air-primary'
    */
   color?: Progress['variants']['color']
   /**

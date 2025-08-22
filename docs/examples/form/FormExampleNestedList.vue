@@ -72,7 +72,7 @@ function fillState() {
 }
 const toast = useToast()
 async function onSubmit(event: FormSubmitEvent<Schema>) {
-  toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'success' })
+  toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'air-primary-success' })
   console.log(event.data, state)
   isShowResult.value = true
 }
@@ -84,7 +84,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
     :icon="SuccessIcon"
     description="The form has been submitted."
     size="sm"
-    color="success"
+    color="air-primary-success"
   >
     <template #description>
       <div class="flex flex-row items-center justify-between gap-2">
@@ -100,7 +100,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
             @click="resetState"
           />
           <Cross30Icon
-            class="cursor-pointer size-full opacity-0 group-hover:opacity-100 text-base-500 dark:text-base-600 group-hover:text-base-900 dark:group-hover:text-base-900 absolute inset-x-0 inset-y-0 z-20"
+            class="cursor-pointer size-full opacity-0 group-hover:opacity-100 text-(--b24ui-typography-legend-color) group-hover:text-(--b24ui-typography-legend-color) absolute inset-x-0 inset-y-0 z-20"
             @click="resetState"
           />
         </div>
@@ -134,24 +134,18 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
         </B24FormField>
       </B24Form>
     </div>
-    <div class="flex gap-2">
-      <B24Button color="default" size="xs" @click="addItem()">
-        Add Item
-      </B24Button>
-
-      <B24Button color="default" size="xs" @click="removeItem()">
-        Remove Item
-      </B24Button>
+    <div class="flex flex-col sm:flex-row items-center justify-start gap-2">
+      <B24Button label="Add Item" color="air-secondary" size="xs" @click="addItem()" />
+      <B24Button label="Remove Item" color="air-secondary-alert" size="xs" @click="removeItem()" />
     </div>
 
     <B24Separator class="mt-6 mb-3" />
 
     <div class="flex flex-row gap-4 items-center justify-between">
-      <B24Button type="submit" label="Submit" color="success" />
+      <B24Button type="submit" label="Submit" color="air-primary-success" />
       <B24Button
         type="button"
-        class="text-base-master/10 dark:text-base-100/20"
-        color="link"
+        color="air-tertiary-no-accent"
         :icon="Shining2Icon"
         @click="fillState"
       />

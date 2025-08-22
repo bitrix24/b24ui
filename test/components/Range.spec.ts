@@ -1,5 +1,6 @@
 import { describe, it, expect, test } from 'vitest'
-import Range, { type RangeProps } from '../../src/runtime/components/Range.vue'
+import Range from '../../src/runtime/components/Range.vue'
+import type { RangeProps } from '../../src/runtime/components/Range.vue'
 import ComponentRender from '../component-render'
 import theme from '#build/b24ui/range'
 import { flushPromises, mount } from '@vue/test-utils'

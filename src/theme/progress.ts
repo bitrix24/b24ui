@@ -9,10 +9,26 @@
 export default {
   slots: {
     root: 'gap-2',
-    base: 'relative overflow-hidden rounded-full bg-base-200 dark:bg-base-800',
-    indicator: 'rounded-full size-full transition-transform duration-200 ease-out',
-    status: 'flex justify-end text-base-500 dark:text-base-600 transition-[width] duration-200',
-    steps: 'grid items-end',
+    base: [
+      'relative overflow-hidden',
+      'rounded-(--ui-border-radius-pill)',
+      'bg-(--ui-color-base-5)'
+    ],
+    indicator: [
+      'rounded-(--ui-border-radius-pill)',
+      'size-full',
+      'transition-transform duration-200 ease-out',
+      'bg-(--b24ui-background)'
+    ].join(' '),
+    status: [
+      'flex justify-end',
+      'text-(--b24ui-typography-legend-color)', // text-base-500
+      'transition-[width] duration-200'
+    ].join(' '),
+    steps: [
+      'grid items-end',
+      'text-(--b24ui-typography-legend-color)'
+    ].join(' '),
     step: 'truncate text-end row-start-1 col-start-1 transition-opacity'
   },
   variants: {
@@ -24,55 +40,38 @@ export default {
       'elastic': ''
     },
     color: {
-      default: {
-        indicator: 'bg-base-900 dark:bg-base-100',
-        steps: 'text-base-500'
-      },
-      danger: {
-        indicator: 'bg-red-500 dark:bg-red-600',
-        steps: 'text-base-500'
-      },
-      success: {
-        indicator: 'bg-green-500 dark:bg-green-600',
-        steps: 'text-base-500'
-      },
-      warning: {
-        indicator: 'bg-orange-500 dark:bg-orange-600',
-        steps: 'text-base-500'
-      },
-      primary: {
-        indicator: 'bg-blue-500 dark:bg-blue-600',
-        steps: 'text-base-500'
-      },
-      secondary: {
-        indicator: 'bg-cyan-350 dark:bg-cyan-500',
-        steps: 'text-base-500'
-      },
-      collab: {
-        indicator: 'bg-collab-500 dark:bg-collab-600',
-        steps: 'text-base-500'
-      },
-      ai: {
-        indicator: 'bg-ai-500 dark:bg-ai-900/85',
-        steps: 'text-base-500'
-      }
+      'air-primary': { root: 'style-filled' },
+      'air-primary-success': { root: 'style-filled-success' },
+      'air-primary-alert': { root: 'style-filled-alert' },
+      'air-primary-copilot': { root: 'style-filled-copilot' },
+      'air-primary-warning': { root: 'style-filled-warning' },
+      'air-secondary': { root: 'style-tinted' },
+      // @deprecate ////
+      'default': { root: 'style-old-default' },
+      'danger': { root: 'style-old-danger' },
+      'success': { root: 'style-old-success' },
+      'warning': { root: 'style-old-warning' },
+      'primary': { root: 'style-old-primary' },
+      'secondary': { root: 'style-old-secondary' },
+      'collab': { root: 'style-old-collab' },
+      'ai': { root: 'style-old-ai' }
     },
     size: {
       xs: {
-        status: 'text-xs',
-        steps: 'text-xs'
+        status: 'text-(length:--ui-font-size-xs)/(--ui-font-line-height-sm)',
+        steps: 'text-(length:--ui-font-size-xs)/(--ui-font-line-height-sm)'
       },
       sm: {
-        status: 'text-sm',
-        steps: 'text-sm'
+        status: 'text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm)',
+        steps: 'text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm)'
       },
       md: {
-        status: 'text-sm',
-        steps: 'text-sm'
+        status: 'text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm)',
+        steps: 'text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm)'
       },
       lg: {
-        status: 'text-sm',
-        steps: 'text-sm'
+        status: 'text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm)',
+        steps: 'text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm)'
       }
     },
     step: {
@@ -80,7 +79,7 @@ export default {
         step: 'opacity-100'
       },
       first: {
-        step: 'opacity-100 text-base-500 dark:text-base-600'
+        step: 'opacity-100 text-(--b24ui-typography-legend-color)'
       },
       other: {
         step: 'opacity-0'
@@ -129,75 +128,45 @@ export default {
     // region horizontal ////
     {
       orientation: 'horizontal',
-      size: '2xs',
-      class: 'h-px'
-    },
-    {
-      orientation: 'horizontal',
       size: 'xs',
-      class: 'h-0.5'
+      class: 'h-[2px]'
     },
     {
       orientation: 'horizontal',
       size: 'sm',
-      class: 'h-1'
+      class: 'h-[4px]'
     },
     {
       orientation: 'horizontal',
       size: 'md',
-      class: 'h-2'
+      class: 'h-[8px]'
     },
     {
       orientation: 'horizontal',
       size: 'lg',
-      class: 'h-3'
-    },
-    {
-      orientation: 'horizontal',
-      size: 'xl',
-      class: 'h-4'
-    },
-    {
-      orientation: 'horizontal',
-      size: '2xl',
-      class: 'h-5'
+      class: 'h-[12px]'
     },
     // endregion ////
     // region vertical ////
     {
       orientation: 'vertical',
-      size: '2xs',
-      class: 'w-px'
-    },
-    {
-      orientation: 'vertical',
       size: 'xs',
-      class: 'w-0.5'
+      class: 'w-[2px]'
     },
     {
       orientation: 'vertical',
       size: 'sm',
-      class: 'w-1'
+      class: 'w-[4px]'
     },
     {
       orientation: 'vertical',
       size: 'md',
-      class: 'w-2'
+      class: 'w-[8px]'
     },
     {
       orientation: 'vertical',
       size: 'lg',
-      class: 'w-3'
-    },
-    {
-      orientation: 'vertical',
-      size: 'xl',
-      class: 'w-4'
-    },
-    {
-      orientation: 'vertical',
-      size: '2xl',
-      class: 'w-5'
+      class: 'w-[12px]'
     },
     // endregion ////
     // region animation ////
@@ -274,8 +243,8 @@ export default {
     // endregion ////
   ],
   defaultVariants: {
+    color: 'air-primary',
     animation: 'loading',
-    color: 'primary',
     size: 'md'
   }
 }

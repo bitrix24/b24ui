@@ -14,6 +14,9 @@ export interface SidebarSpacerProps {
   class?: any
   b24ui?: SidebarSpacer['slots']
 }
+/**
+ * @todo add Pick<Xxxx
+ */
 
 export interface SidebarSpacerSlots {
   default(props?: {}): any

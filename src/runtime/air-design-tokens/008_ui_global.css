@@ -1,0 +1,662 @@
+@layer base {
+  body {
+    @apply antialiased font-(family-name:--ui-font-family-system);
+  }
+}
+
+@layer theme {
+  :host,:root {
+    --spacing: .25rem;
+    --content-area-shift: 22px;
+  }
+}
+
+/*
+ * Colors
+ * @todo fix layer
+ */
+@layer components {
+  /* region air-primary */
+  /* air-primary */
+  .style-filled {
+    --b24ui-background: var(--ui-color-design-filled-bg);
+    --b24ui-border-color: var(--ui-color-design-filled-stroke);
+    --b24ui-border-width: var(--ui-design-filled-stroke-weight);
+    --b24ui-icon: var(--ui-color-design-filled-content-icon-secondary);
+    --b24ui-color: var(--ui-color-design-filled-content);
+    --b24ui-split-divider-color: var(--ui-color-design-filled-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  /* air-primary-inverted */
+  .style-filled-inverted {
+    --b24ui-background: var(--ui-color-design-filled-content);
+    --b24ui-border-color: var(--ui-color-design-filled-stroke);
+    --b24ui-border-width: 1px;
+    --b24ui-icon: var(--ui-color-design-filled-content-icon-secondary);
+    --b24ui-color: var(--ui-color-design-filled-bg);
+    --b24ui-split-divider-color: var(--ui-color-design-filled-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  /* air-primary-success */
+  .style-filled-success {
+    --b24ui-background: var(--ui-color-design-filled-success-bg);
+    --b24ui-border-color: var(--ui-color-design-filled-success-stroke);
+    --b24ui-border-width: var(--ui-design-filled-success-stroke-weight);
+    --b24ui-icon: var(--ui-color-design-filled-success-content-icon);
+    --b24ui-color: var(--ui-color-design-filled-success-content);
+    --b24ui-split-divider-color: var(--ui-color-design-filled-success-content-divider);
+
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  /* air-primary-success-inverted */
+  .style-filled-success-inverted {
+    --b24ui-background: var(--ui-color-design-filled-success-content);
+    --b24ui-border-color: var(--ui-color-design-filled-success-stroke);
+    --b24ui-border-width: 1px;
+    --b24ui-icon: var(--ui-color-design-filled-success-content-icon);
+    --b24ui-color: var(--ui-color-design-filled-success-bg);
+    --b24ui-split-divider-color: var(--ui-color-design-filled-success-content-divider);
+
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  /* air-primary-alert */
+  .style-filled-alert {
+    --b24ui-background: var(--ui-color-design-filled-alert-bg);
+    --b24ui-border-color: var(--ui-color-design-filled-alert-stroke);
+    --b24ui-border-width: var(--ui-design-filled-success-stroke-weight);
+    --b24ui-icon: var(--ui-color-design-filled-alert-content-icon-secondary);
+    --b24ui-color: var(--ui-color-design-filled-alert-content);
+    --b24ui-split-divider-color: var(--ui-color-design-filled-alert-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  .style-filled-alert[aria-invalid="true"] {
+    --b24ui-border-color: var(--ui-color-accent-main-alert)
+  }
+
+  /* air-primary-alert-inverted */
+  .style-filled-alert-inverted {
+    --b24ui-background: var(--ui-color-design-filled-alert-content);
+    --b24ui-border-color: var(--ui-color-design-filled-alert-stroke);
+    --b24ui-border-width: 1px;
+    --b24ui-icon: var(--ui-color-design-filled-alert-content-icon-secondary);
+    --b24ui-color: var(--ui-color-design-filled-alert-bg);
+    --b24ui-split-divider-color: var(--ui-color-design-filled-alert-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  /* air-primary-copilot */
+  .style-filled-copilot {
+    --b24ui-background: var(--ui-color-design-filled-copilot-bg);
+    --b24ui-border-color: var(--ui-color-design-filled-copilot-stroke);
+    --b24ui-border-width: var(--ui-design-filled-copilot-stroke-weight);
+    --b24ui-icon: var(--ui-color-design-filled-copilot-stroke);
+    --b24ui-color: var(--ui-color-design-filled-copilot-content);
+    --b24ui-split-divider-color: var(--ui-color-design-filled-copilot-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  /* air-primary-copilot-inverted */
+  .style-filled-copilot-inverted {
+    --b24ui-background: var(--ui-color-design-filled-copilot-content);
+    --b24ui-border-color: var(--ui-color-design-filled-copilot-stroke);
+    --b24ui-border-width: 1px;
+    --b24ui-icon: var(--ui-color-design-filled-copilot-stroke);
+    --b24ui-color: var(--ui-color-design-filled-copilot-bg);
+    --b24ui-split-divider-color: var(--ui-color-design-filled-copilot-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  /* air-primary-warning */
+  .style-filled-warning {
+    --b24ui-background: var(--ui-color-design-filled-warning-bg);
+    --b24ui-border-color: var(--ui-color-design-filled-warning-stroke);
+    --b24ui-border-width: var(--ui-design-filled-warning-stroke-weight);
+    --b24ui-icon: var(--ui-color-design-filled-warning-content-icon);
+    --b24ui-color: var(--ui-color-design-filled-warning-content);
+    --b24ui-split-divider-color: var(--ui-color-design-filled-warning-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  /* air-primary-warning-inverted */
+  .style-filled-warning-inverted {
+    --b24ui-background: var(--ui-color-design-filled-warning-content);
+    --b24ui-border-color: var(--ui-color-design-filled-warning-stroke);
+    --b24ui-border-width: 1px;
+    --b24ui-icon: var(--ui-color-design-filled-warning-content-icon);
+    --b24ui-color: var(--ui-color-design-filled-warning-bg);
+    --b24ui-split-divider-color: var(--ui-color-design-filled-warning-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  /* air-primary-no-accent */
+  .style-filled-no-accent {
+    --b24ui-background: var(--ui-color-design-filled-na-bg-secondary);
+    --b24ui-border-color: transparent;
+    --b24ui-border-width: var(--ui-design-filled-na-stroke-weight);
+    --b24ui-icon: var(--ui-color-design-filled-na-content-icon);
+    --b24ui-color: var(--ui-color-design-filled-na-content);
+    --b24ui-split-divider-color: var(--ui-color-design-filled-na-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  /* air-primary-no-accent-inverted */
+  .style-filled-no-accent-inverted {
+    --b24ui-background: var(--ui-color-design-filled-na-content);
+    --b24ui-border-color: var(--ui-color-design-filled-na-stroke);
+    --b24ui-border-width: 1px;
+    --b24ui-icon: var(--ui-color-design-filled-na-content-icon);
+    --b24ui-color: var(--ui-color-design-filled-na-bg-secondary);
+    --b24ui-split-divider-color: var(--ui-color-design-filled-na-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+  /* endregion */
+
+  /* region air-secondary */
+  /* air-secondary */
+  .style-tinted {
+    --b24ui-background: var(--ui-color-design-tinted-bg);
+    --b24ui-border-color: var(--ui-color-design-tinted-stroke);
+    --b24ui-border-width: var(--ui-design-tinted-stroke-weight);
+    --b24ui-icon: var(--ui-color-design-tinted-content-icon-secondary);
+    --b24ui-color: var(--ui-color-design-tinted-content);
+    --b24ui-split-divider-color: var(--ui-color-design-tinted-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  /* air-secondary-alert */
+  .style-tinted-alert {
+    --b24ui-background: var(--ui-color-design-tinted-alert-bg);
+    --b24ui-border-color: var(--ui-color-design-tinted-alert-stroke);
+    --b24ui-border-width: var(--ui-design-tinted-alert-stroke-weight);
+    --b24ui-icon: var(--ui-color-design-tinted-alert-content-icon);
+    --b24ui-color: var(--ui-color-design-tinted-alert-content);
+    --b24ui-split-divider-color: var(--ui-color-design-tinted-alert-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  /* air-secondary-accent */
+  .style-outline {
+    --b24ui-background: var(--ui-color-design-outline-bg);
+    --b24ui-border-color: var(--ui-color-design-outline-stroke);
+    --b24ui-border-width: var(--ui-design-outline-stroke-weight);
+    --b24ui-icon: var(--ui-color-design-outline-content-icon-alt);
+    --b24ui-color: var(--ui-color-design-outline-content);
+    --b24ui-split-divider-color: var(--ui-color-design-outline-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  /* air-secondary-accent-1 */
+  .style-outline-accent-1  {
+    --b24ui-background: var(--ui-color-design-outline-a1-bg);
+    --b24ui-border-color: var(--ui-color-design-outline-a1-stroke);
+    --b24ui-border-width: var(--ui-design-outline-a1-stroke-weight);
+    --b24ui-icon: var(--ui-color-design-outline-a1-content-icon);
+    --b24ui-color: var(--ui-color-design-outline-a1-content);
+    --b24ui-split-divider-color: var(--ui-color-design-outline-a1-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  /* air-secondary-accent-2 */
+  .style-outline-accent-2 {
+    --b24ui-background: var(--ui-color-design-outline-a2-bg);
+    --b24ui-border-color: var(--ui-color-design-outline-a2-stroke);
+    --b24ui-border-width: var(--ui-design-outline-a2-stroke-weight);
+    --b24ui-icon: var(--ui-color-design-outline-a2-content-icon);
+    --b24ui-color: var(--ui-color-design-outline-a2-content);
+    --b24ui-split-divider-color: var(--ui-color-design-outline-a2-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  /* default */
+  /* air-secondary-no-accent */
+  .style-outline-no-accent {
+    --b24ui-background: var(--ui-color-design-outline-na-bg);
+    --b24ui-border-color: var(--ui-color-design-outline-na-stroke);
+    --b24ui-border-width: var(--ui-design-outline-na-stroke-weight);
+    --b24ui-icon: var(--ui-color-design-outline-na-content-icon);
+    --b24ui-color: var(--ui-color-design-outline-na-content);
+    --b24ui-split-divider-color: var(--ui-color-design-outline-na-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  /* air-secondary-no-accent-1 */
+  .style-tinted-no-accent-1 {
+    --b24ui-background: var(--ui-color-design-tinted-na-bg);
+    --b24ui-border-color: var(--ui-color-design-outline-na-stroke);
+    --b24ui-border-width: var(--ui-design-outline-na-stroke-weight);
+    --b24ui-icon: var(--ui-color-design-outline-na-content-icon);
+    --b24ui-color: var(--ui-color-design-tinted-na-content);
+    --b24ui-split-divider-color: var(--ui-color-design-outline-na-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+  /* endregion */
+
+  /* region air-tertiary */
+  /* air-tertiary */
+  .style-plain  {
+    --b24ui-background: var(--ui-color-design-plain-bg);
+    --b24ui-border-color: var(--ui-color-design-plain-stroke);
+    --b24ui-border-width: var(--ui-design-plain-stroke-weight);
+    --b24ui-icon: var(--ui-color-design-plain-content-icon-secondary);
+    --b24ui-color: var(--ui-color-design-plain-content);
+    --b24ui-split-divider-color: var(--ui-color-design-plain-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  /* air-tertiary-accent */
+  .style-plain-accent  {
+    --b24ui-background: var(--ui-color-design-plain-a-bg);
+    --b24ui-border-color: var(--ui-color-design-plain-a-stroke);
+    --b24ui-border-width: var(--ui-design-plain-a-stroke-weight);
+    --b24ui-icon: var(--ui-color-design-plain-a-content-icon);
+    --b24ui-color: var(--ui-color-design-plain-a-content);
+    --b24ui-split-divider-color: var(--ui-color-design-plain-a-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  /* air-tertiary-no-accent */
+  .style-plain-no-accent {
+    --b24ui-background: var(--ui-color-design-plain-na-bg);
+    --b24ui-border-color: var(--ui-color-design-plain-na-stroke);
+    --b24ui-border-width: var(--ui-design-plain-na-stroke-weight);
+    --b24ui-icon: var(--ui-color-design-plain-na-content-icon);
+    --b24ui-color: var(--ui-color-design-plain-na-content);
+    --b24ui-split-divider-color: var(--ui-color-design-plain-na-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+  /* endregion */
+
+  /* region custom */
+  /* air-selection */
+  .style-selection {
+    --b24ui-background: var(--ui-color-design-selection-bg);
+    --b24ui-border-color: var(--ui-color-design-selection-stroke);
+    --b24ui-border-width: var(--ui-design-selection-stroke-weight);
+    --b24ui-color: var(--ui-color-design-selection-content);
+    --b24ui-split-divider-color: var(--ui-color-design-selection-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  /* @todo */
+  /* air-boost */
+  .style-filled-boost {
+    --b24ui-background: var(--ui-color-background-transparent);
+    --b24ui-border-color: var(--ui-color-design-filled-boost-stroke);
+    --b24ui-border-width: var(--ui-design-filled-boost-stroke-weight);
+    --b24ui-color: var(--ui-color-design-filled-boost-content);
+    --b24ui-split-divider-color: var(--ui-color-design-filled-boost-content-divider);
+
+    --hover-color-1: color-mix(in srgb, var(--ui-color-design-filled-boost-bg-gradient-1) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --hover-color-2: color-mix(in srgb, var(--ui-color-design-filled-boost-bg-gradient-2) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --hover-color-3: color-mix(in srgb, var(--ui-color-design-filled-boost-bg-gradient-3) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+
+    --active-color-1: color-mix(in srgb, var(--ui-color-design-filled-boost-bg-gradient-1) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --active-color-2: color-mix(in srgb, var(--ui-color-design-filled-boost-bg-gradient-2) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --active-color-3: color-mix(in srgb, var(--ui-color-design-filled-boost-bg-gradient-3) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+
+    --b24ui-background-gradient: radial-gradient(110.42% 110.42% at -10.42% 31.25%, var(--ui-color-design-filled-boost-bg-gradient-1) 0%, var(--ui-color-design-filled-boost-bg-gradient-2) 58.65%, var(--ui-color-design-filled-boost-bg-gradient-3) 100%);
+    --b24ui-background-gradient-hover:  radial-gradient(110.42% 110.42% at -10.42% 31.25%, var(--hover-color-1) 0%, var(--hover-color-2) 58.65%, var(--hover-color-3) 100%);
+    --b24ui-background-gradient-active: radial-gradient(110.42% 110.42% at -10.42% 31.25%, var(--active-color-1) 0%, var(--active-color-2) 58.65%, var(--active-color-3) 100%);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+
+    background: var(--b24ui-background-gradient);
+  }
+  /* endregion */
+
+  /* region old */
+  .style-old-default {
+    --b24ui-background: var(--ui-color-base-20);
+    --b24ui-border-color: var(--ui-color-base-20);
+    --b24ui-icon: var(--ui-color-base-20);
+    --b24ui-color: var(--ui-color-base-80);
+    --b24ui-border-width: 0px;
+    --b24ui-split-divider-color: var(--ui-color-background-transparent);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  .style-old-danger {
+    --b24ui-background: #f1361a;
+    --b24ui-border-color: #f1361a;
+    --b24ui-icon: #f1361a;
+    --b24ui-color: var(--ui-color-on-primary);
+    --b24ui-border-width: 0px;
+    --b24ui-split-divider-color: var(--ui-color-background-transparent);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  .style-old-success {
+    --b24ui-background: #bbed21;
+    --b24ui-border-color: #bbed21;
+    --b24ui-icon: #bbed21;
+    --b24ui-color: var(--ui-color-base-90);
+    --b24ui-border-width: 0px;
+    --b24ui-split-divider-color: var(--ui-color-background-transparent);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  .style-old-warning {
+    --b24ui-background: rgba(237, 218, 123, var(--ui-opacity-80));
+    --b24ui-border-color: rgba(237, 218, 123, var(--ui-opacity-80));
+    --b24ui-icon: rgba(237, 218, 123, var(--ui-opacity-80));
+    --b24ui-color: #a07f27;
+    --b24ui-border-width: 0px;
+    --b24ui-split-divider-color: var(--ui-color-background-transparent);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  .style-old-primary {
+    --b24ui-background: #3bc8f5;
+    --b24ui-border-color: #3bc8f5;
+    --b24ui-icon: #3bc8f5;
+    --b24ui-color: var(--ui-color-on-primary);
+    --b24ui-border-width: 0px;
+    --b24ui-split-divider-color: var(--ui-color-background-transparent);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  .style-old-secondary {
+    --b24ui-background: #c5e7f4;
+    --b24ui-border-color: #aee0f2;
+    --b24ui-icon: #aee0f2;
+    --b24ui-color: var(--ui-color-base-90);
+    --b24ui-border-width: 0px;
+    --b24ui-split-divider-color: var(--ui-color-background-transparent);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  .style-old-collab {
+    --b24ui-background: #19cc45;
+    --b24ui-border-color: #19cc45;
+    --b24ui-icon: #19cc45;
+    --b24ui-color: var(--ui-color-palette-white-base);
+    --b24ui-border-width: 0px;
+    --b24ui-split-divider-color: var(--ui-color-background-transparent);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  .style-old-ai {
+    --b24ui-background: #935bec;
+    --b24ui-border-color: #935bec;
+    --b24ui-icon: #935bec;
+    --b24ui-color: var(--ui-color-on-primary);
+    --b24ui-border-width: 0px;
+    --b24ui-split-divider-color: var(--ui-color-background-transparent);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+  /* endregion */
+
+  /* region bg */
+  /**
+   * @memo you can use backdrop-blur-sm backdrop-brightness-120
+   */
+  .style-blurred-bg {
+    background: linear-gradient(to right, var(--ui-color-design-outline-na-bg), var(--ui-color-design-outline-na-bg)), var(--air-theme-background-blurred, none);
+  }
+
+  .style-blurred-bg-input {
+    background: linear-gradient(to right,var(--ui-color-design-outline-bg-alt),var(--ui-color-design-outline-bg-alt)),var(--main-ui-filter-custom-background,none);
+  }
+
+  .style-transparent-bg {
+    background: transparent;
+  }
+  /* endregion */
+}

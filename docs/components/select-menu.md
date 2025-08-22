@@ -36,11 +36,16 @@ import WithFilterFieldsExample from '/examples/selectmenu/WithFilterFields.vue';
 </script>
 # SelectMenu
 
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/select-menu"
   reka-ui="https://reka-ui.com/docs/components/combobox"
   reka-ui-title="Combobox"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/SelectMenu.vue"
+  demo="/components/select-menu"
 >
   A refined and searchable selection component.
 </Description>
@@ -347,7 +352,7 @@ You can use the `type` property with `separator` to display a separator between 
 </div>
 
 ::: details
-<<< @/examples/selectmenu/demo/WithItemsType.vue{6,18,21 vue:line-numbers}
+<<< @/examples/selectmenu/demo/WithItemsType.vue{7,15,22 vue:line-numbers}
 :::
 
 ### With icon in items
@@ -530,7 +535,21 @@ Use the `filter-fields` prop with an array of fields to filter on. Defaults to `
 
 ### Emits
 
-<ComponentEmits component="SelectMenu" />
+```ts
+/**
+ * Emitted events for the SelectMenu component
+ */
+interface SelectMenuEmits {
+  blur: (payload: [payload: FocusEvent]) => void;
+  change: (payload: [payload: Event]) => void;
+  focus: (payload: [payload: FocusEvent]) => void;
+  update:open: (payload: [value: boolean]) => void;
+  create: (payload: [item: string]) => void;
+  highlight: (payload: [payload: { ref: HTMLElement; value: any; } | undefined]) => void;
+  update:modelValue: (payload: [payload: any]) => void;
+  update:searchTerm: (payload: [value: string]) => void;
+}
+```
 
 ### Expose
 

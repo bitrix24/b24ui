@@ -7,28 +7,41 @@ import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 
 usePageMeta.setPageTitle('InputNumber')
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
-const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof theme.variants.tagColor>
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
+
+const isUseBg = ref(true)
+
+const oldColors = computed(() => {
+  return colors.filter((color) => {
+    return !color.includes('air')
+  })
+})
+
+const airColors = computed(() => {
+  return colors.filter((color) => {
+    return color.includes('air')
+  })
+})
 </script>
 
 <template>
   <ExampleGrid v-once>
-    <ExampleCard title="base">
+    <ExampleCard title="base" :use-bg="isUseBg">
       <ExampleCardSubTitle title="simple" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24InputNumber
           placeholder="Insert value&hellip;"
-          class="w-3/4"
+          class="w-40"
         />
       </div>
 
       <ExampleCardSubTitle title="underline" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24InputNumber
-          color="success"
+          color="air-primary-success"
           underline
           placeholder="Insert value&hellip;"
-          class="w-3/4"
+          class="w-40"
         />
       </div>
 
@@ -37,7 +50,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
         <B24InputNumber
           no-border
           placeholder="Insert value&hellip;"
-          class="w-3/4"
+          class="w-40"
         />
       </div>
 
@@ -46,7 +59,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
         <B24InputNumber
           no-padding
           placeholder="Insert value&hellip;"
-          class="w-3/4"
+          class="w-40"
         />
       </div>
 
@@ -55,56 +68,95 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
         <B24InputNumber
           placeholder="Insert value&hellip;"
           highlight
-          color="danger"
-          class="w-3/4"
+          color="air-primary-alert"
+          aria-invalid="true"
+          class="w-40"
         />
       </div>
 
       <ExampleCardSubTitle title="some more" />
-      <div class="mb-4 flex flex-col gap-4 w-3/4">
-        <B24InputNumber placeholder="Disabled" disabled />
-        <B24InputNumber placeholder="Required" required />
+      <div class="mb-4 flex flex-col gap-4">
+        <B24InputNumber
+          placeholder="Disabled"
+          disabled
+          class="w-40"
+        />
+        <B24InputNumber
+          placeholder="Required"
+          required
+          class="w-40"
+        />
         <B24InputNumber
           placeholder="Rounded"
           rounded
+          class="w-40"
         />
         <B24InputNumber
           placeholder="Rounded"
           rounded
           orientation="vertical"
+          class="w-40"
         />
       </div>
     </ExampleCard>
 
-    <ExampleCard title="color">
-      <template v-for="color in colors" :key="color">
+    <ExampleCard title="color" :use-bg="isUseBg" class="sm:col-span-2">
+      <template v-for="color in airColors" :key="color">
         <ExampleCardSubTitle :title="color as string" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
           <B24InputNumber
             placeholder="Insert value&hellip;"
             :color="color"
             highlight
-            class="w-3/4"
+            class="w-40"
           />
-        </div>
-      </template>
-    </ExampleCard>
 
-    <ExampleCard title="tag">
-      <template v-for="tagColor in tagColors" :key="tagColor">
-        <ExampleCardSubTitle :title="tagColor as string" />
-        <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
           <B24InputNumber
-            :tag-color="tagColor"
+            :tag-color="color"
             tag="some text"
             placeholder="Insert value&hellip;"
-            class="w-3/4"
+            :color="color"
+            highlight
+            class="w-40"
           />
         </div>
       </template>
-    </ExampleCard>
 
-    <ExampleCard title="size" class="sm:col-span-3">
+      <B24Collapsible class="mb-2">
+        <B24Button
+          color="air-secondary-no-accent"
+          label="Deprecate"
+          use-dropdown
+        />
+        <template #content>
+          <template v-for="color in oldColors" :key="color">
+            <ExampleCardSubTitle :title="color as string" />
+            <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+              <B24InputNumber
+                placeholder="Insert value&hellip;"
+                :color="color"
+                highlight
+                class="w-40"
+              />
+
+              <B24InputNumber
+                :tag-color="color"
+                tag="some text"
+                placeholder="Insert value&hellip;"
+                :color="color"
+                highlight
+                class="w-40"
+              />
+            </div>
+          </template>
+        </template>
+      </B24Collapsible>
+    </ExampleCard>
+  </ExampleGrid>
+
+  <B24Separator accent="accent" class="my-4" label="Size" type="dotted" />
+  <ExampleGrid v-once class="mb-4">
+    <ExampleCard title="Some cases" :use-bg="isUseBg" class="sm:col-span-2 md:col-span-4">
       <template v-for="size in sizes" :key="size">
         <ExampleCardSubTitle :title="size as string" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
@@ -113,6 +165,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
             :size="size"
             class="w-40"
           />
+
           <B24InputNumber
             orientation="vertical"
             placeholder="Insert value&hellip;"
@@ -124,14 +177,8 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
             placeholder="Insert value&hellip;"
             :size="size"
             class="w-40"
-            :increment="{
-              color: 'collab',
-              depth: 'light'
-            }"
-            :decrement="{
-              color: 'collab',
-              depth: 'light'
-            }"
+            :increment="{ color: 'air-primary-success' }"
+            :decrement="{ color: 'air-primary-success' }"
           />
 
           <B24InputNumber
@@ -139,14 +186,8 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
             placeholder="Insert value&hellip;"
             :size="size"
             class="w-40"
-            :increment="{
-              color: 'secondary',
-              depth: 'dark'
-            }"
-            :decrement="{
-              color: 'secondary',
-              depth: 'dark'
-            }"
+            :increment="{ color: 'air-secondary' }"
+            :decrement="{ color: 'air-secondary' }"
           />
         </div>
       </template>

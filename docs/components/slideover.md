@@ -21,6 +21,10 @@ import WithFooterSlotExample from '/examples/slideover/WithFooterSlot.vue';
 </script>
 # Slideover
 
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/slideover"
   reka-ui="https://reka-ui.com/docs/components/dialog"
@@ -289,5 +293,14 @@ You can also close the dialog box using the `B24ModalDialogClose` component.
 
 ### Emits
 
-<ComponentEmits component="Slideover" />
-
+```ts
+/**
+ * Emitted events for the Slideover component
+ */
+interface SlideoverEmits {
+  update:open: (payload: [value: boolean]) => void;
+  after:leave: (payload: []) => void;
+  after:enter: (payload: []) => void;
+  close:prevent: (payload: []) => void;
+}
+```

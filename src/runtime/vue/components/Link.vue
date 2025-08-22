@@ -135,6 +135,10 @@ const b24ui = computed(() => tv({
 const to = computed(() => props.to ?? props.href)
 
 const isExternal = computed(() => {
+  if (props.target === '_blank') {
+    return true
+  }
+
   if (props.external) {
     return true
   }

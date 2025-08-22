@@ -1,5 +1,5 @@
 /**
- * Slider
+ * Slider / Range
  * An input to select a numeric value within a range.
  * --
  */
@@ -10,62 +10,49 @@
 export default {
   slots: {
     root: 'relative flex items-center select-none touch-none',
-    track: 'relative bg-base-200 dark:bg-base-800 overflow-hidden rounded-full grow',
-    range: 'absolute rounded-full',
+    track: [
+      'relative',
+      'rounded-(--ui-border-radius-pill)',
+      'bg-(--ui-color-base-5)',
+      'grow',
+      'overflow-hidden'
+    ].join(' '),
+    range: [
+      'absolute',
+      'rounded-(--ui-border-radius-pill)',
+      'bg-(--b24ui-background)'
+    ].join(' '),
     thumb: [
-      'rounded-full bg-white dark:bg-base-100',
+      'rounded-(--ui-border-radius-pill)',
+      'bg-(--ui-color-base-white-fixed)',
       'ring-2',
-      'outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2'
+      'outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2',
+      'ring-(--b24ui-background)',
+      'focus-visible:outline-(--b24ui-background-hover)'
     ].join(' ')
   },
   variants: {
     color: {
-      default: {
-        range: 'bg-base-900 dark:bg-base-350',
-        thumb: 'ring-base-900 dark:ring-base-400 focus-visible:outline-base-900/50 dark:focus-visible:outline-base-700/50'
-      },
-      danger: {
-        range: 'bg-red-500 dark:bg-red-600',
-        thumb: 'ring-red-500 dark:ring-red-600 focus-visible:outline-red-500/50 dark:focus-visible:outline-red-600/50'
-      },
-      success: {
-        range: 'bg-green-500 dark:bg-green-600',
-        thumb: 'ring-green-500 dark:ring-green-600 focus-visible:outline-green-500/50 dark:focus-visible:outline-green-600/50'
-      },
-      warning: {
-        range: 'bg-orange-500 dark:bg-orange-600',
-        thumb: 'ring-orange-500 dark:ring-orange-600 focus-visible:outline-orange-500/50 dark:focus-visible:outline-orange-600/50'
-      },
-      primary: {
-        range: 'bg-blue-500 dark:bg-blue-600',
-        thumb: 'ring-blue-500 dark:ring-blue-600 focus-visible:outline-blue-500/50 dark:focus-visible:outline-blue-600/50'
-      },
-      secondary: {
-        range: 'bg-cyan-350 dark:bg-cyan-500',
-        thumb: 'ring-cyan-350 dark:ring-cyan-500 focus-visible:outline-cyan-350/50 dark:focus-visible:outline-cyan-500/50'
-      },
-      collab: {
-        range: 'bg-collab-500 dark:bg-collab-600',
-        thumb: 'ring-collab-500 dark:ring-collab-600 focus-visible:outline-collab-500/50 dark:focus-visible:outline-collab-600/50'
-      },
-      ai: {
-        range: 'bg-ai-500 dark:bg-ai-600',
-        thumb: 'ring-ai-500 dark:ring-ai-600 focus-visible:outline-ai-500/50 dark:focus-visible:outline-ai-600/50'
-      }
+      'air-primary': { root: 'style-filled' },
+      'air-primary-success': { root: 'style-filled-success' },
+      'air-primary-alert': { root: 'style-filled-alert' },
+      'air-primary-copilot': { root: 'style-filled-copilot' },
+      'air-primary-warning': { root: 'style-filled-warning' },
+      // @deprecate ////
+      'default': { root: 'style-old-default' },
+      'danger': { root: 'style-old-danger' },
+      'success': { root: 'style-old-success' },
+      'warning': { root: 'style-old-warning' },
+      'primary': { root: 'style-old-primary' },
+      'secondary': { root: 'style-old-secondary' },
+      'collab': { root: 'style-old-collab' },
+      'ai': { root: 'style-old-ai' }
     },
     size: {
-      xs: {
-        thumb: 'size-3'
-      },
-      sm: {
-        thumb: 'size-3.5'
-      },
-      md: {
-        thumb: 'size-4'
-      },
-      lg: {
-        thumb: 'size-5'
-      }
+      xs: { thumb: 'size-[12px]' },
+      sm: { thumb: 'size-[14px]' },
+      md: { thumb: 'size-[16px]' },
+      lg: { thumb: 'size-[20px]' }
     },
     orientation: {
       horizontal: {
@@ -78,9 +65,7 @@ export default {
       }
     },
     disabled: {
-      true: {
-        root: 'opacity-75 cursor-not-allowed'
-      }
+      true: { root: 'opacity-30 cursor-not-allowed' }
     }
   },
   compoundVariants: [
@@ -160,7 +145,7 @@ export default {
     // endregion ////
   ],
   defaultVariants: {
-    size: 'md',
-    color: 'primary'
+    color: 'air-primary',
+    size: 'md'
   }
 }

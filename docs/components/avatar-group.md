@@ -13,9 +13,14 @@ import WithLinkExample from '/examples/avatargroup/WithLink.vue';
 </script>
 # AvatarGroup
 
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/avatar-group"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/AvatarGroup.vue"
+  demo="/components/avatar"
 >
   Pile multiple avatars into a single group.
 </Description>
@@ -89,7 +94,7 @@ Wrap each avatar with a [Chip](/components/chip) to display a chip around the av
 </div>
 
 ::: details
-<<< @/examples/avatargroup/demo/WithChip.vue{3,6,9 vue:line-numbers}
+<<< @/examples/avatargroup/demo/WithChip.vue{7,13,20 vue:line-numbers}
 :::
 
 ### With link

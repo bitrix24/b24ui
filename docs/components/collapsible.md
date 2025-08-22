@@ -11,6 +11,10 @@ import ControlOpenStateExample from '/examples/collapsible/ControlOpenState.vue'
 </script>
 # Collapsible
 
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/collapsible"
   reka-ui="https://reka-ui.com/docs/components/collapsible"
@@ -109,5 +113,12 @@ This allows you to move the trigger outside of the Collapsible or remove it enti
 
 ### Emits
 
-<ComponentEmits component="Collapsible" />
+```ts
+/**
+ * Emitted events for the Collapsible component
+ */
+interface CollapsibleEmits {
+  update:open: (payload: [value: boolean]) => void;
+}
+```
 

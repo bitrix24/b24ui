@@ -6,11 +6,10 @@
 
 import ArrowToTheLeftIcon from '@bitrix24/b24icons-vue/actions/ArrowToTheLeftIcon'
 import ArrowToTheRightIcon from '@bitrix24/b24icons-vue/actions/ArrowToTheRightIcon'
-import CheckIcon from '@bitrix24/b24icons-vue/main/CheckIcon'
-import ChevronUpIcon from '@bitrix24/b24icons-vue/actions/ChevronUpIcon'
-import ChevronDownIcon from '@bitrix24/b24icons-vue/actions/ChevronDownIcon'
-import ChevronToTheLeftIcon from '@bitrix24/b24icons-vue/actions/ChevronToTheLeftIcon'
-import ChevronToTheRightIcon from '@bitrix24/b24icons-vue/actions/ChevronToTheRightIcon'
+import CheckIcon from '@bitrix24/b24icons-vue/outline/CheckLIcon'
+import ChevronTopLIcon from '@bitrix24/b24icons-vue/outline/ChevronTopLIcon'
+import ChevronToTheLeftIcon from '@bitrix24/b24icons-vue/outline/ChevronLeftLIcon'
+import ChevronToTheRightIcon from '@bitrix24/b24icons-vue/outline/ChevronRightLIcon'
 import DoubleShevronsRightIcon from '@bitrix24/b24icons-vue/actions/DoubleShevronsRightIcon'
 import DoubleShevronsLeftIcon from '@bitrix24/b24icons-vue/actions/DoubleShevronsLeftIcon'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
@@ -21,6 +20,7 @@ import Minus30Icon from '@bitrix24/b24icons-vue/actions/Minus30Icon'
 import Plus30Icon from '@bitrix24/b24icons-vue/actions/Plus30Icon'
 import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
 import LoaderWaitIcon from '@bitrix24/b24icons-vue/animated/LoaderWaitIcon'
+import ChevronDownLIcon from '@bitrix24/b24icons-vue/outline/ChevronDownLIcon'
 
 export default {
   arrowLeft: ArrowToTheLeftIcon,
@@ -28,10 +28,10 @@ export default {
   check: CheckIcon,
   chevronDoubleLeft: DoubleShevronsLeftIcon,
   chevronDoubleRight: DoubleShevronsRightIcon,
-  chevronDown: ChevronDownIcon,
+  chevronDown: ChevronDownLIcon,
   chevronLeft: ChevronToTheLeftIcon,
   chevronRight: ChevronToTheRightIcon,
-  chevronUp: ChevronUpIcon,
+  chevronUp: ChevronTopLIcon,
   close: Cross30Icon,
   ellipsis: DotsIcon,
   external: OpenIn50Icon,

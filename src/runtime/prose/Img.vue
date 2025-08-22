@@ -9,6 +9,9 @@ export interface ProseImgProps {
   class?: any
   b24ui?: ProseImg['slots']
 }
+/**
+ * @todo add Pick<Xxxx
+ */
 </script>
 
 <script setup lang="ts">

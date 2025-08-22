@@ -7,15 +7,19 @@ outline: deep
 import KbdExample from '/examples/kbd/Kbd.vue';
 import ValueExample from '/examples/kbd/Value.vue';
 import UseKbdExample from '/examples/kbd/UseKbd.vue';
-import DepthExample from '/examples/kbd/Depth.vue';
 import SizeExample from '/examples/kbd/Size.vue';
 import WithClassExample from '/examples/kbd/WithClass.vue';
 </script>
 # Keyboard Key
 
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/kbd"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Kbd.vue"
+  demo="/components/kbd"
 >
   A kbd element for indicating a keyboard input.
 </Description>
@@ -62,17 +66,7 @@ You can pass special keys to the `value` prop that goes through the [`useKbd`](h
 
 ### Depth
 
-Use the `depth` parameter to change the intensity of the Kbd.
-
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <DepthExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/kbd/demo/Depth.vue{12 vue:line-numbers}
-:::
+`@remove`
 
 ### Size
 

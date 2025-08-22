@@ -37,11 +37,16 @@ import WithFilterFieldsExample from '/examples/inputmenu/WithFilterFields.vue';
 </script>
 # InputMenu
 
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/input-menu"
   reka-ui="https://reka-ui.com/docs/components/combobox"
   reka-ui-title="Combobox"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/InputMenu.vue"
+  demo="/components/input-menu"
 >
   An input field with live autocomplete suggestions.
 </Description>
@@ -339,7 +344,7 @@ You can use the `type` property with `separator` to display a separator between 
 </div>
 
 ::: details
-<<< @/examples/inputmenu/demo/WithItemsType.vue{6,18,21 vue:line-numbers}
+<<< @/examples/inputmenu/demo/WithItemsType.vue{7,15,22 vue:line-numbers}
 :::
 
 ### With icon in items
@@ -416,7 +421,7 @@ In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), y
 
 ### Control open state on focus
 
-You can also use the `@focus` directive to control the open state.
+You can use the `open-on-focus` or `open-on-click` props to open the menu when the input is focused or clicked.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -425,7 +430,7 @@ You can also use the `@focus` directive to control the open state.
 </div>
 
 ::: details
-<<< @/examples/inputmenu/demo/ControlOpenStateOnFocus.vue{20,29 vue:line-numbers}
+<<< @/examples/inputmenu/demo/ControlOpenStateOnFocus.vue{26 vue:line-numbers}
 :::
 
 ### Control search term
@@ -536,7 +541,22 @@ Use the `filter-fields` prop with an array of fields to filter on. Defaults to `
 
 ### Emits
 
-<ComponentEmits component="InputMenu" />
+```ts
+/**
+ * Emitted events for the InputMenu component
+ */
+interface InputMenuEmits {
+  blur: (payload: [payload: FocusEvent]) => void;
+  change: (payload: [payload: Event]) => void;
+  focus: (payload: [payload: FocusEvent]) => void;
+  update:open: (payload: [value: boolean]) => void;
+  create: (payload: [item: string]) => void;
+  highlight: (payload: [payload: { ref: HTMLElement; value: any; } | undefined]) => void;
+  remove-tag: (payload: [item: any]) => void;
+  update:modelValue: (payload: [payload: any]) => void;
+  update:searchTerm: (payload: [value: string]) => void;
+}
+```
 
 ### Expose
 

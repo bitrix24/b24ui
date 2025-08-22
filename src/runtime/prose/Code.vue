@@ -13,6 +13,9 @@ export interface ProseCodeProps {
   class?: any
   b24ui?: ProseCode['slots']
 }
+/**
+ * @todo add Pick<Xxxx
+ */
 
 export interface ProseCodeSlots {
   default(props?: {}): any

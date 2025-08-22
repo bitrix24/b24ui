@@ -1,50 +1,37 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import MenuIcon from '@bitrix24/b24icons-vue/main/MenuIcon'
-import PencilDrawIcon from '@bitrix24/b24icons-vue/actions/PencilDrawIcon'
-import CopyPlatesIcon from '@bitrix24/b24icons-vue/actions/CopyPlatesIcon'
-import OpenedEyeIcon from '@bitrix24/b24icons-vue/main/OpenedEyeIcon'
+import { computed } from 'vue'
+import { showCopy, showEdit, dropdownMenuSimpleItemsCheckbox } from './../dictionary'
+import type { ContentAlignVariants, ContentSideVariants } from './../../dictionary'
+import HamburgerMenuIcon from '@bitrix24/b24icons-vue/outline/HamburgerMenuIcon'
 
-const showCopy = ref(true)
-const showEdit = ref(false)
+export interface ExampleProps {
+  contentAlign?: ContentAlignVariants
+  contentSide?: ContentSideVariants
+  contentSideOffset?: number
+}
 
-const items = computed(() => [
-  {
-    label: 'View',
-    icon: OpenedEyeIcon,
-    type: 'label' as const
-  },
-  {
-    type: 'separator' as const
-  },
-  {
-    label: 'Copy',
-    icon: CopyPlatesIcon,
-    type: 'checkbox' as const,
-    checked: showCopy.value,
-    onUpdateChecked(checked: boolean) {
-      showCopy.value = checked
-    },
-    onSelect(e: Event) {
-      e.preventDefault()
-    }
-  },
-  {
-    label: 'Edit',
-    icon: PencilDrawIcon,
-    type: 'checkbox' as const,
-    checked: showEdit.value,
-    onUpdateChecked(checked: boolean) {
-      showEdit.value = checked
-    }
+const props = withDefaults(defineProps<ExampleProps>(), {
+  contentAlign: 'start' as ContentAlignVariants,
+  contentSide: 'top' as ContentSideVariants,
+  contentSideOffset: 8
+})
+
+const content = computed(() => {
+  return {
+    align: props.contentAlign,
+    side: props.contentSide,
+    sideOffset: props.contentSideOffset
   }
-])
+})
 </script>
 
 <template>
   <B24DropdownMenu
-    :items="items"
+    :items="dropdownMenuSimpleItemsCheckbox"
+    :content="content"
   >
-    <B24Button label="Open" color="link" depth="dark" :icon="MenuIcon" />
+    <B24Button label="Open" color="air-secondary-accent" :icon="HamburgerMenuIcon" />
   </B24DropdownMenu>
+
+  <ProsePre>{{ { showCopy, showEdit } }}</ProsePre>
 </template>

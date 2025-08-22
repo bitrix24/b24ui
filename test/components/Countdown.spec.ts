@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
-import Countdown, { type CountdownProps, type CountdownSlots } from '../../src/runtime/components/Countdown.vue'
+import Countdown from '../../src/runtime/components/Countdown.vue'
+import type { CountdownProps, CountdownSlots } from '../../src/runtime/components/Countdown.vue'
 import ComponentRender from '../component-render'
 
 describe('Countdown', () => {

@@ -17,11 +17,16 @@ import WithFollowingCursorExample from '/examples/tooltip/WithFollowingCursor.vu
 </script>
 # Tooltip
 
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/tooltip"
   reka-ui="https://reka-ui.com/docs/components/tooltip"
   reka-ui-title="Tooltip"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Tooltip.vue"
+  demo="/components/tooltip"
 >
   A small window that shows details when you move your mouse over an item.
 </Description>
@@ -180,10 +185,6 @@ You can use the [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/i
 
 You can make the Tooltip follow the cursor when hovering over an element using the [`reference`](https://reka-ui.com/docs/components/tooltip#trigger) prop:
 
-::: info
-This example is based on Reka UI's [Tooltip Cursor](https://reka-ui.com/examples/tooltip-cursor) example.
-:::
-
 <div class="lg:min-h-[160px]">
   <ClientOnly>
     <WithFollowingCursorExample />
@@ -206,4 +207,11 @@ This example is based on Reka UI's [Tooltip Cursor](https://reka-ui.com/examples
 
 ### Emits
 
-<ComponentEmits component="Tooltip" />
+```ts
+/**
+ * Emitted events for the Tooltip component
+ */
+interface TooltipEmits {
+  update:open: (payload: [value: boolean]) => void;
+}
+```

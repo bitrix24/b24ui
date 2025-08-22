@@ -24,11 +24,16 @@ import WithSlotsExample from '/examples/inputnumber/WithSlots.vue';
 </script>
 # InputNumber
 
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/input-number"
   reka-ui="https://reka-ui.com/docs/components/number-field"
   reka-ui-title="Number Field"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/InputNumber.vue"
+  demo="/components/input-number"
 >
   Provide numerical input with a flexible range setting.
 </Description>
@@ -286,7 +291,16 @@ Use the `#increment` and `#decrement` slots to customize the buttons.
 
 ### Emits
 
-<ComponentEmits component="InputNumber" />
+```ts
+/**
+ * Emitted events for the InputNumber component
+ */
+interface InputNumberEmits {
+  blur: (payload: [event: FocusEvent]) => void;
+  change: (payload: [payload: Event]) => void;
+  update:modelValue: (payload: [payload: number]) => void;
+}
+```
 
 ### Expose
 

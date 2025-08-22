@@ -6,8 +6,8 @@
 export default {
   slots: {
     base: [
-      'bg-base-50',
-      'dark:bg-base-600'
+      'bg-(--ui-color-gray-10)',
+      'text-(--ui-color-gray-70)'
     ].join(' ')
   }
 }

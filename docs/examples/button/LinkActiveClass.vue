@@ -5,6 +5,8 @@ import Demo from './demo/LinkActiveClass.vue'
 
 <template>
   <ComponentShowExample>
-    <Demo />
+    <div class="flex flex-col sm:flex-row flex-wrap items-center justify-between gap-2">
+      <Demo />
+    </div>
   </ComponentShowExample>
 </template>

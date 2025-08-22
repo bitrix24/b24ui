@@ -25,6 +25,10 @@ import pPreExample from '/examples/prose/pPre.vue';
 </script>
 # Typography
 
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description
   nuxt-ui="https://ui.nuxt.com/getting-started/typography"
   demo="/components/prose/show"

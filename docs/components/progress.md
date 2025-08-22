@@ -17,11 +17,16 @@ import InvertedExample from '/examples/progress/Inverted.vue';
 </script>
 # Progress
 
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/progress"
   reka-ui="https://reka-ui.com/docs/components/progress"
   reka-ui-title="Progress"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Progress.vue"
+  demo="/components/progress"
 >
   A progress bar displaying task completion status.
 </Description>
@@ -174,5 +179,13 @@ Use the `inverted` prop to visually invert the Progress.
 
 ### Emits
 
-<ComponentEmits component="Progress" />
+```ts
+/**
+ * Emitted events for the Progress component
+ */
+interface ProgressEmits {
+  update:modelValue: (payload: [value: string[] | undefined]) => void;
+  update:max: (payload: [value: number]) => void;
+}
+```
 

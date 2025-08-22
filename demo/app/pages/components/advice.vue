@@ -5,7 +5,7 @@ import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
 import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import InfoIcon from '@bitrix24/b24icons-vue/button/InfoIcon'
-import DotsIcon from '@bitrix24/b24icons-vue/button/DotsIcon'
+import MoreMIcon from '@bitrix24/b24icons-vue/outline/MoreMIcon'
 
 usePageMeta.setPageTitle('Advice')
 
@@ -13,7 +13,7 @@ const description = ref('Let\'s signal the manager that the deal is not moving, 
 </script>
 
 <template>
-  <ExampleGrid v-once custom-grid-cols class="mt-xs grid-cols-[repeat(auto-fill,minmax(532px,1fr))]">
+  <ExampleGrid v-once custom-grid-cols class="mt-xs grid-cols-1">
     <ExampleCard title="base">
       <ExampleCardSubTitle title="simple" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
@@ -52,7 +52,7 @@ const description = ref('Let\'s signal the manager that the deal is not moving, 
             <div class="mt-2 flex flex-row flex-wrap items-start justify-between gap-2">
               <B24Button size="xs" color="primary" label="some action 1" />
               <B24Button size="xs" color="link" depth="dark" label="some action 2" />
-              <B24Button size="xs" color="link" depth="light" :icon="DotsIcon" />
+              <B24Button size="xs" color="link" depth="light" :icon="MoreMIcon" />
             </div>
           </div>
         </B24Advice>

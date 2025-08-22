@@ -15,11 +15,16 @@ import DisabledExample from '/examples/checkbox/Disabled.vue';
 </script>
 # Checkbox
 
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/checkbox"
   reka-ui="https://reka-ui.com/docs/components/checkbox"
   reka-ui-title="Checkbox"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Checkbox.vue"
+  demo="/components/checkbox"
 >
   A toggle input for marking as checked or unchecked.
 </Description>
@@ -148,4 +153,12 @@ Use the `disabled` prop to disable the Checkbox.
 
 ### Emits
 
-<ComponentEmits component="Checkbox" />
+```ts
+/**
+ * Emitted events for the Checkbox component
+ */
+interface CheckboxEmits {
+  change: (payload: [payload: Event]) => void;
+  update:modelValue: (payload: [value: boolean | "indeterminate"]) => void;
+}
+```

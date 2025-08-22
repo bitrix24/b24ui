@@ -1,14 +1,12 @@
 import { describe, it, expect, test } from 'vitest'
-import NavigationMenu, { type NavigationMenuProps, type NavigationMenuSlots } from '../../src/runtime/components/NavigationMenu.vue'
+import NavigationMenu from '../../src/runtime/components/NavigationMenu.vue'
+import type { NavigationMenuProps, NavigationMenuSlots } from '../../src/runtime/components/NavigationMenu.vue'
 import ComponentRender from '../component-render'
-import theme from '#build/b24ui/navigation-menu'
 import { expectSlotProps } from '../utils/types'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
 
 describe('NavigationMenu', () => {
-  const variants = Object.keys(theme.variants.variant) as any
-
   const items = [
     [{
       label: 'Links',
@@ -92,19 +90,15 @@ describe('NavigationMenu', () => {
     ['with orientation vertical', { props: { ...props, orientation: 'vertical' as const, modelValue: 'item-0' } }],
     ['with orientation vertical and collapsed', { props: { ...props, orientation: 'vertical' as const, modelValue: 'item-0', collapsed: true } }],
     ['with content orientation vertical', { props: { ...props, contentOrientation: 'vertical' as const, modelValue: 'item-0' } }],
-    ...variants.map((variant: string) => [`with primary variant ${variant}`, { props: { ...props, variant } }]),
-    ...variants.map((variant: string) => [`with success variant ${variant}`, { props: { ...props, variant, color: 'success' } }]),
-    ...variants.map((variant: string) => [`with primary variant ${variant} highlight`, { props: { ...props, variant, highlight: true } }]),
-    ...variants.map((variant: string) => [`with success variant ${variant} highlight`, { props: { ...props, variant, color: 'success', highlight: true } }]),
-    ...variants.map((variant: string) => [`with success variant ${variant} highlight success`, { props: { ...props, variant, color: 'success', highlight: true, highlightColor: 'success' } }]),
+    [`with def`, { props: { ...props } }],
     ['with trailingIcon', { props: { ...props, trailingIcon: SignIcon } }],
     ['with externalIcon', { props: { ...props, externalIcon: Cross30Icon } }],
     ['without externalIcon', { props: { ...props, externalIcon: false } }],
     ['with unmountOnHide', { props: { ...props, unmountOnHide: false } }],
     ['with as', { props: { ...props, as: 'section' } }],
     ['with class', { props: { ...props, class: 'w-48' } }],
-    ['with b24ui', { props: { ...props, b24ui: { itemLeadingIcon: 'size-4' } } }],
-    // Slots
+    ['with b24ui', { props: { ...props, b24ui: { linkTrailingIcon: 'size-4' } } }],
+    // // Slots
     ['with item slot', { props, slots: { item: () => 'Item slot' } }],
     ['with item-leading slot', { props, slots: { 'item-leading': () => 'Item leading slot' } }],
     ['with item-label slot', { props, slots: { 'item-label': () => 'Item label slot' } }],

@@ -8,68 +8,84 @@ export default {
   slots: {
     root: 'relative',
     fieldset: 'flex',
-    legend: 'mb-1.5 block text-base-900 dark:text-base-400',
+    legend: [
+      'mb-1.5',
+      'block',
+      'text-(--b24ui-typography-label-color)'
+    ].join(' '),
     item: 'flex items-start',
     base: [
-      'cursor-pointer rounded-full',
-      'ring ring-inset ring-base-300 dark:ring-base-700',
-      'outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2'
+      'cursor-pointer',
+      'rounded-(--ui-border-radius-pill)',
+      'ring ring-inset ring-(--ui-color-base-5)',
+      'outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2',
+      'focus-visible:outline-(--b24ui-background)'
     ].join(' '),
-    indicator: ' flex items-center justify-center size-full rounded-full after:bg-white dark:after:bg-base-dark after:rounded-full',
+    indicator: [
+      'flex items-center justify-center',
+      'size-full',
+      'rounded-(--ui-border-radius-pill)',
+      'after:bg-(--b24ui-color)',
+      'after:rounded-(--ui-border-radius-pill)',
+      'bg-(--b24ui-background)'
+    ].join(' '),
     container: 'flex items-center',
-    wrapper: 'font-b24-primary font-regular w-full',
-    label: 'cursor-pointer block text-base-master dark:text-base-400',
-    description: 'text-base-500 dark:text-base-600'
+    wrapper: [
+      'font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular)',
+      'w-full'
+    ].join(' '),
+    label: [
+      'cursor-pointer',
+      'block',
+      'text-(--b24ui-typography-label-color)'
+    ].join(' '),
+    description: 'text-(--b24ui-typography-description-color)'
   },
   variants: {
     color: {
-      default: {
-        base: 'focus-visible:outline-base-900 dark:focus-visible:outline-base-900',
-        indicator: 'bg-base-900 dark:bg-base-350'
-      },
-      danger: {
-        base: 'focus-visible:outline-red-500 dark:focus-visible:outline-red-600',
-        indicator: 'bg-red-500 dark:bg-red-600'
-      },
-      success: {
-        base: 'focus-visible:outline-green-500 dark:focus-visible:outline-green-600',
-        indicator: 'bg-green-500 dark:bg-green-600'
-      },
-      warning: {
-        base: 'focus-visible:outline-orange-500 dark:focus-visible:outline-orange-600',
-        indicator: 'bg-orange-500 dark:bg-orange-600'
-      },
-      primary: {
-        base: 'focus-visible:outline-blue-500 dark:focus-visible:outline-blue-600',
-        indicator: 'bg-blue-500 dark:bg-blue-600'
-      },
-      secondary: {
-        base: 'focus-visible:outline-cyan-350 dark:focus-visible:outline-cyan-500',
-        indicator: 'bg-cyan-350 dark:bg-cyan-500'
-      },
-      collab: {
-        base: 'focus-visible:outline-collab-500 dark:focus-visible:outline-collab-600',
-        indicator: 'bg-collab-500 dark:bg-collab-600'
-      },
-      ai: {
-        base: 'focus-visible:outline-ai-500 dark:focus-visible:outline-ai-600',
-        indicator: 'bg-ai-500 dark:bg-ai-600'
-      }
+      'air-primary': { root: 'style-filled' },
+      'air-primary-success': { root: 'style-filled-success' },
+      'air-primary-alert': { root: 'style-filled-alert' },
+      'air-primary-copilot': { root: 'style-filled-copilot' },
+      'air-primary-warning': { root: 'style-filled-warning' },
+      // @deprecate ////
+      'default': { root: 'style-old-default' },
+      'danger': { root: 'style-old-danger' },
+      'success': { root: 'style-old-success' },
+      'warning': { root: 'style-old-warning' },
+      'primary': { root: 'style-old-primary' },
+      'secondary': { root: 'style-old-secondary' },
+      'collab': { root: 'style-old-collab' },
+      'ai': { root: 'style-old-ai' }
     },
     variant: {
-      list: {
-      },
+      list: { },
       card: {
-        item: 'items-center border border-base-200 dark:border-base-700 rounded-lg'
+        // @memo style-outline-no-accent
+        item: [
+          'cursor-pointer',
+          'items-start',
+          'border border-(--ui-color-design-outline-na-stroke)',
+          'bg-(--ui-color-design-outline-na-bg)',
+          'has-data-[state=checked]:border-(--b24ui-border-color)'
+        ].join(' ')
       },
       table: {
-        item: 'border border-base-200 dark:border-base-900'
+        item: [
+          'cursor-pointer',
+          'border border-(--ui-color-design-outline-na-stroke)',
+          'bg-(--ui-color-design-outline-na-bg)',
+          'has-data-[state=checked]:bg-(--b24ui-background)/24',
+          'has-data-[state=checked]:border-(--b24ui-border-color)',
+          'has-data-[state=checked]:text-(--b24ui-color)',
+          'has-data-[state=checked]:z-[1]'
+        ].join(' ')
       }
     },
     orientation: {
       horizontal: {
         fieldset: 'flex-row',
-        wrapper: 'me-2'
+        root: 'me-2'
       },
       vertical: {
         fieldset: 'flex-col'
@@ -91,231 +107,127 @@ export default {
     },
     size: {
       xs: {
-        fieldset: 'gap-1',
-        legend: 'text-xs',
-        base: 'size-3',
-        item: 'text-xs',
-        label: 'leading-4',
-        container: 'h-4',
-        indicator: 'after:size-1'
+        fieldset: 'gap-x-[12px] gap-y-[4px]',
+        legend: 'text-(length:--ui-font-size-xs)',
+        base: 'size-[12px]',
+        item: 'text-(length:--ui-font-size-xs)',
+        label: 'leading-[11px]',
+        container: 'h-[12px]',
+        indicator: 'after:size-[4px]'
       },
       sm: {
-        fieldset: 'gap-1.5',
-        legend: 'text-xs',
-        base: 'size-3.5',
-        item: 'text-sm',
-        label: 'leading-4',
-        container: 'h-4',
-        indicator: 'after:size-1'
+        fieldset: 'gap-x-[14px] gap-y-[6px]',
+        legend: 'text-(length:--ui-font-size-xs)',
+        base: 'size-[14px]',
+        item: 'text-(length:--ui-font-size-sm)',
+        label: 'leading-[14px]',
+        container: 'h-[14px]',
+        indicator: 'after:size-[6px]'
       },
       md: {
-        fieldset: 'gap-1',
-        legend: 'text-sm',
-        base: 'size-4',
-        item: 'text-md',
-        label: 'leading-5',
-        container: 'h-5',
-        indicator: 'after:size-1.5'
+        fieldset: 'gap-x-[16px] gap-y-[8px]',
+        legend: 'text-(length:--ui-font-size-sm)',
+        base: 'size-[16px]',
+        item: 'text-(length:--ui-font-size-lg)',
+        label: 'leading-[15px]',
+        container: 'h-[16px]',
+        indicator: 'after:size-[6px]'
       },
       lg: {
-        fieldset: 'gap-1.5',
-        legend: 'text-sm',
-        base: 'size-5',
-        item: 'text-xl',
-        label: 'leading-5',
-        container: 'h-5',
-        indicator: 'after:size-2'
+        fieldset: 'gap-x-[16px] gap-y-[8px]',
+        legend: 'text-(length:--ui-font-size-sm)',
+        base: 'size-[20px]',
+        item: 'text-(length:--ui-font-size-xl)',
+        label: 'leading-[18px]',
+        container: 'h-[20px]',
+        indicator: 'after:size-[8px]'
       }
     },
     disabled: {
       true: {
-        base: 'cursor-not-allowed opacity-75',
-        label: 'cursor-not-allowed opacity-75'
+        base: 'cursor-not-allowed opacity-30',
+        label: 'cursor-not-allowed opacity-30'
       }
     },
     required: {
       true: {
-        label: 'after:content-[\'*\'] after:ms-0.5 after:text-red-500 dark:after:text-red-600'
+        label: 'after:content-[\'*\'] after:ms-0.5 after:text-(--ui-color-accent-main-alert)'
       }
     }
   },
   compoundVariants: [
-    // region size ////
-    { size: 'xs', variant: ['card', 'table'], class: { item: 'p-2.5' } },
-    { size: 'sm', variant: ['card', 'table'], class: { item: 'p-3' } },
-    { size: 'md', variant: ['card', 'table'], class: { item: 'p-3.5' } },
-    { size: 'lg', variant: ['card', 'table'], class: { item: 'p-4' } },
+    // region card.size ////
+    { size: 'xs', variant: 'card', class: { item: 'px-[13px] py-[7px] rounded-(--ui-border-radius-xs)' } }, // (28 - (1 + 1) - 12) / 2 = 7
+    { size: 'sm', variant: 'card', class: { item: 'px-[13px] py-[9px] rounded-(--ui-border-radius-sm)' } }, // (34 - (1 + 1) - 14) / 2 = 9
+    { size: 'md', variant: 'card', class: { item: 'px-[17px] py-[10px] rounded-(--ui-border-radius-md)' } }, // (38 - (1 + 1) - 16) / 2 = 10
+    { size: 'lg', variant: 'card', class: { item: 'px-[23px] py-[12px] rounded-(--ui-border-radius-md)' } }, // (46 - (1 + 1) - 20) / 2 = 12
+    // endregion ////
+    // region table.size ////
+    { size: 'xs', variant: 'table', class: { item: 'px-[13px] py-[7px]' } },
+    { size: 'sm', variant: 'table', class: { item: 'px-[13px] py-[9px]' } },
+    { size: 'md', variant: 'table', class: { item: 'px-[17px] py-[10px]' } },
+    { size: 'lg', variant: 'table', class: { item: 'px-[23px] py-[12px]' } },
     // endregion ////
     // region orientation/table ////
     {
-      orientation: 'horizontal',
+      size: 'xs',
       variant: 'table',
+      orientation: 'horizontal',
       class: {
-        item: 'first-of-type:rounded-s-lg last-of-type:rounded-e-lg',
+        item: 'first-of-type:rounded-s-(--ui-border-radius-xs) last-of-type:rounded-e-(--ui-border-radius-xs)',
         fieldset: 'gap-0 -space-x-px'
       }
     },
     {
-      orientation: 'vertical',
+      size: 'xs',
       variant: 'table',
+      orientation: 'vertical',
       class: {
-        item: 'first-of-type:rounded-t-lg last-of-type:rounded-b-lg',
+        item: 'first-of-type:rounded-t-(--ui-border-radius-xs) last-of-type:rounded-b-(--ui-border-radius-xs)',
         fieldset: 'gap-0 -space-y-px'
       }
     },
-    // endregion ////
-    // region card ////
     {
-      color: 'default',
-      variant: 'card',
-      class: {
-        item: 'has-data-[state=checked]:border-base-900 dark:has-data-[state=checked]:border-base-350'
-      }
-    },
-    {
-      color: 'danger',
-      variant: 'card',
-      class: {
-        item: 'has-data-[state=checked]:border-red-500 dark:has-data-[state=checked]:border-red-600'
-      }
-    },
-    {
-      color: 'success',
-      variant: 'card',
-      class: {
-        item: 'has-data-[state=checked]:border-green-500 dark:has-data-[state=checked]:border-green-600'
-      }
-    },
-    {
-      color: 'warning',
-      variant: 'card',
-      class: {
-        item: 'has-data-[state=checked]:border-orange-500 dark:has-data-[state=checked]:border-orange-600'
-      }
-    },
-    {
-      color: 'primary',
-      variant: 'card',
-      class: {
-        item: 'has-data-[state=checked]:border-blue-500 dark:has-data-[state=checked]:border-blue-600'
-      }
-    },
-    {
-      color: 'secondary',
-      variant: 'card',
-      class: {
-        item: 'has-data-[state=checked]:border-cyan-500 dark:has-data-[state=checked]:border-cyan-600'
-      }
-    },
-    {
-      color: 'collab',
-      variant: 'card',
-      class: {
-        item: 'has-data-[state=checked]:border-collab-500 dark:has-data-[state=checked]:border-collab-600'
-      }
-    },
-    {
-      color: 'ai',
-      variant: 'card',
-      class: {
-        item: 'has-data-[state=checked]:border-ai-500 dark:has-data-[state=checked]:border-ai-600'
-      }
-    },
-    // endregion ////
-    // region table ////
-    {
-      color: 'default',
+      size: 'sm',
       variant: 'table',
+      orientation: 'horizontal',
       class: {
-        item: [
-          'has-data-[state=checked]:bg-base-100 dark:has-data-[state=checked]:bg-base-900',
-          'has-data-[state=checked]:border-base-900/25 dark:has-data-[state=checked]:border-base-700/25',
-          'has-data-[state=checked]:z-[1]'
-        ].join(' ')
+        item: 'first-of-type:rounded-s-(--ui-border-radius-sm) last-of-type:rounded-e-(--ui-border-radius-sm)',
+        fieldset: 'gap-0 -space-x-px'
       }
     },
     {
-      color: 'danger',
+      size: 'sm',
       variant: 'table',
+      orientation: 'vertical',
       class: {
-        item: [
-          'has-data-[state=checked]:bg-red-500/24 dark:has-data-[state=checked]:bg-red-600/24',
-          'has-data-[state=checked]:border-red-500 dark:has-data-[state=checked]:border-red-600',
-          'has-data-[state=checked]:z-[1]'
-        ].join(' ')
+        item: 'first-of-type:rounded-t-(--ui-border-radius-sm) last-of-type:rounded-b-(--ui-border-radius-sm)',
+        fieldset: 'gap-0 -space-y-px'
       }
     },
     {
-      color: 'success',
+      size: ['lg', 'md'],
       variant: 'table',
+      orientation: 'horizontal',
       class: {
-        item: [
-          'has-data-[state=checked]:bg-green-500/24 dark:has-data-[state=checked]:bg-green-600/24',
-          'has-data-[state=checked]:border-green-500 dark:has-data-[state=checked]:border-green-600',
-          'has-data-[state=checked]:z-[1]'
-        ].join(' ')
+        item: 'first-of-type:rounded-s-(--ui-border-radius-md) last-of-type:rounded-e-(--ui-border-radius-md)',
+        fieldset: 'gap-0 -space-x-px'
       }
     },
     {
-      color: 'warning',
+      size: ['lg', 'md'],
       variant: 'table',
+      orientation: 'vertical',
       class: {
-        item: [
-          'has-data-[state=checked]:bg-orange-500/24 dark:has-data-[state=checked]:bg-orange-600/24',
-          'has-data-[state=checked]:border-orange-500 dark:has-data-[state=checked]:border-orange-600',
-          'has-data-[state=checked]:z-[1]'
-        ].join(' ')
-      }
-    },
-    {
-      color: 'primary',
-      variant: 'table',
-      class: {
-        item: [
-          'has-data-[state=checked]:bg-blue-500/24 dark:has-data-[state=checked]:bg-blue-600/24',
-          'has-data-[state=checked]:border-blue-500 dark:has-data-[state=checked]:border-blue-600',
-          'has-data-[state=checked]:z-[1]'
-        ].join(' ')
-      }
-    },
-    {
-      color: 'secondary',
-      variant: 'table',
-      class: {
-        item: [
-          'has-data-[state=checked]:bg-cyan-500/24 dark:has-data-[state=checked]:bg-cyan-600/24',
-          'has-data-[state=checked]:border-cyan-500 dark:has-data-[state=checked]:border-cyan-600',
-          'has-data-[state=checked]:z-[1]'
-        ].join(' ')
-      }
-    },
-    {
-      color: 'collab',
-      variant: 'table',
-      class: {
-        item: [
-          'has-data-[state=checked]:bg-collab-500/24 dark:has-data-[state=checked]:bg-collab-600/24',
-          'has-data-[state=checked]:border-collab-500 dark:has-data-[state=checked]:border-collab-600',
-          'has-data-[state=checked]:z-[1]'
-        ].join(' ')
-      }
-    },
-    {
-      color: 'ai',
-      variant: 'table',
-      class: {
-        item: [
-          'has-data-[state=checked]:bg-ai-500/24 dark:has-data-[state=checked]:bg-ai-600/24',
-          'has-data-[state=checked]:border-ai-500 dark:has-data-[state=checked]:border-ai-600',
-          'has-data-[state=checked]:z-[1]'
-        ].join(' ')
+        item: 'first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)',
+        fieldset: 'gap-0 -space-y-px'
       }
     }
     // endregion ////
   ],
   defaultVariants: {
+    color: 'air-primary',
     size: 'md',
-    color: 'primary',
     variant: 'list',
     orientation: 'vertical',
     indicator: 'start'

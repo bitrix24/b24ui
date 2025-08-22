@@ -11,16 +11,16 @@ import CustomExample from '/examples/descriptionlist/Custom.vue';
 </script>
 # DescriptionList
 
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description 
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/DescriptionList.vue"
   demo="/components/description-list"
 >
   For instances requiring the conversion of a table row into its own table to enhance page completeness.
 </Description>
-
-::: warning We are still updating this page
-Some data may be missing here — we will complete it shortly.
-:::
 
 ### Items
 

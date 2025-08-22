@@ -31,11 +31,16 @@ import WithFetchedItemsExample from '/examples/select/WithFetchedItems.vue';
 </script>
 # Select
 
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/select"
   reka-ui="https://reka-ui.com/docs/components/select"
   reka-ui-title="Select"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Select.vue"
+  demo="/components/select"
 >
   A selection field to pick from various options.
 </Description>
@@ -322,7 +327,7 @@ You can use the `type` property with `separator` to display a separator between 
 </div>
 
 ::: details
-<<< @/examples/select/demo/WithItemsType.vue{5-8,12-14,15-18 vue:line-numbers}
+<<< @/examples/select/demo/WithItemsType.vue{7,13,17 vue:line-numbers}
 :::
 
 ### With icon in items
@@ -446,7 +451,18 @@ You can fetch items from an API and use them in the Select.
 
 ### Emits
 
-<ComponentEmits component="Select" />
+```ts
+/**
+ * Emitted events for the Select component
+ */
+interface SelectEmits {
+  blur: (payload: [payload: FocusEvent]) => void;
+  change: (payload: [payload: Event]) => void;
+  focus: (payload: [payload: FocusEvent]) => void;
+  update:modelValue: (payload: [payload: any]) => void;
+  update:open: (payload: [value: boolean]) => void;
+}
+```
 
 ### Expose
 

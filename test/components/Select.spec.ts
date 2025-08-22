@@ -1,6 +1,7 @@
 import { describe, it, expect, test } from 'vitest'
 import { flushPromises, mount } from '@vue/test-utils'
-import Select, { type SelectProps, type SelectSlots } from '../../src/runtime/components/Select.vue'
+import Select from '../../src/runtime/components/Select.vue'
+import type { SelectProps, SelectSlots } from '../../src/runtime/components/Select.vue'
 import ComponentRender from '../component-render'
 import theme from '#build/b24ui/input'
 import { renderForm } from '../utils/form'
@@ -41,8 +42,8 @@ describe('Select', () => {
   it.each([
     // Props
     ['with items', { props }],
-    ['with modelValue', { props: { ...props, modelValue: items[0] } }],
-    ['with defaultValue', { props: { ...props, defaultValue: items[0] } }],
+    ['with modelValue', { props: { ...props, modelValue: items[0]?.value } }],
+    ['with defaultValue', { props: { ...props, defaultValue: items[0]?.value } }],
     ['with valueKey', { props: { ...props, valueKey: 'label' } }],
     ['with labelKey', { props: { ...props, labelKey: 'value' } }],
     ['with multiple', { props: { ...props, multiple: true } }],

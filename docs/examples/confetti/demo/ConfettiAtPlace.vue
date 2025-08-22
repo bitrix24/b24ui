@@ -13,12 +13,12 @@ function fireAtPlace(): void {
 </script>
 
 <template>
-  <B24Button label="custom canvas" color="collab" @click.stop="fireAtPlace" />
+  <B24Button label="custom canvas" color="air-primary-success" @click.stop="fireAtPlace" />
 
   <div class="relative mt-sm2 mb-4 w-full">
     <canvas
       ref="myCanvas"
-      class="m-auto h-64 w-1/2 rounded border border-base-300 bg-base-100 dark:border-base-600 dark:bg-base-900"
+      class="m-auto h-64 w-1/2 rounded backdrop-blur-md bg-(--ui-color-design-outline-na-bg) border-1 border-(--ui-color-design-outline-na-stroke)"
     />
   </div>
 </template>

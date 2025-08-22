@@ -7,11 +7,16 @@ type Skeleton = ComponentConfig<typeof theme, AppConfig, 'skeleton'>
 
 export interface SkeletonProps {
   /**
+   * @defaultValue 'default'
+   */
+  accent?: Skeleton['variants']['accent']
+  /**
    * The element or component this component should render as.
    * @defaultValue 'div'
    */
   as?: any
   class?: any
+  b24ui?: Skeleton['slots']
 }
 </script>
 
@@ -21,11 +26,15 @@ import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
 import { tv } from '../utils/tv'
 
-const props = defineProps<SkeletonProps>()
+const props = withDefaults(defineProps<SkeletonProps>(), {
+  accent: 'default'
+})
 
 const appConfig = useAppConfig() as Skeleton['AppConfig']
 
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.skeleton || {}) }))
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.skeleton || {}) })({
+  accent: props.accent
+}))
 </script>
 
 <template>
@@ -35,7 +44,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.skelet
     aria-label="loading"
     aria-live="polite"
     role="alert"
-    :class="b24ui({ class: props.class })"
+    :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
   >
     <slot />
   </Primitive>

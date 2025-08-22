@@ -52,6 +52,12 @@ export default defineLocale<Messages>({
     },
     table: {
       noData: 'Деректер жоқ'
+    },
+    sidebarLayout: {
+      open: 'Навигацияны ашу',
+      close: 'Навигацияны жабу',
+      slideoverTitle: 'Навигация',
+      slideoverDescription: 'Мазмұн навигациясы'
     }
   }
 })

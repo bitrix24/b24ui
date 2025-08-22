@@ -25,6 +25,12 @@ export interface AlertProps {
    */
   color?: Alert['variants']['color']
   /**
+   * If set to `true` the color is inverted.
+   * Used for 'air-primary', 'air-primary-success', 'air-primary-alert', 'air-primary-copilot' and 'air-primary-warning' colors.
+   * @defaultValue false
+   */
+  inverted?: boolean
+  /**
    * The orientation between the content and the actions.
    * @defaultValue 'vertical'
    */
@@ -37,12 +43,12 @@ export interface AlertProps {
    * Display a list of actions:
    * - under the title and description when orientation is `vertical`
    * - next to the close button when orientation is `horizontal`
-   * `{ size: 'xs' }`{lang="ts"}
+   * `{ size: 'sm' }`{lang="ts"}
    */
   actions?: ButtonProps[]
   /**
    * Display a close button to dismiss the alert.
-   * `{ size: 'md', color: 'neutral', variant: 'link' }`{lang="ts"}
+   * `{ size: 'sm', color: 'air-tertiary-no-accent' }`{lang="ts"}
    * @emits 'update:open'
    * @defaultValue false
    */
@@ -58,7 +64,7 @@ export interface AlertProps {
 }
 
 export interface AlertEmits {
-  (e: 'update:open', value: boolean): void
+  'update:open': [value: boolean]
 }
 
 export interface AlertSlots {
@@ -81,6 +87,7 @@ import B24Avatar from './Avatar.vue'
 import B24Button from './Button.vue'
 
 const props = withDefaults(defineProps<AlertProps>(), {
+  inverted: false,
   orientation: 'vertical'
 })
 const emits = defineEmits<AlertEmits>()
@@ -91,6 +98,7 @@ const appConfig = useAppConfig() as Alert['AppConfig']
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.alert || {}) })({
   color: props.color,
+  inverted: Boolean(props.inverted),
   size: props.size,
   orientation: props.orientation,
   title: !!props.title || !!slots.title
@@ -122,7 +130,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.alert 
 
       <div v-if="orientation === 'vertical' && (actions?.length || !!slots.actions)" :class="b24ui.actions({ class: props.b24ui?.actions })">
         <slot name="actions">
-          <B24Button v-for="(action, index) in actions" :key="index" size="xs" v-bind="action" />
+          <B24Button v-for="(action, index) in actions" :key="index" size="sm" v-bind="action" />
         </slot>
       </div>
     </div>
@@ -130,7 +138,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.alert 
     <div v-if="(orientation === 'horizontal' && (actions?.length || !!slots.actions)) || close" :class="b24ui.actions({ class: props.b24ui?.actions, orientation: 'horizontal' })">
       <template v-if="orientation === 'horizontal' && (actions?.length || !!slots.actions)">
         <slot name="actions">
-          <B24Button v-for="(action, index) in actions" :key="index" size="xs" v-bind="action" />
+          <B24Button v-for="(action, index) in actions" :key="index" size="sm" v-bind="action" />
         </slot>
       </template>
 
@@ -138,8 +146,8 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.alert 
         <B24Button
           v-if="close"
           :icon="closeIcon || icons.close"
-          size="xs"
-          color="link"
+          size="sm"
+          color="air-tertiary"
           :aria-label="t('alert.close')"
           v-bind="(typeof close === 'object' ? close as Partial<ButtonProps> : {})"
           :class="b24ui.close({ class: props.b24ui?.close })"

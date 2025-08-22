@@ -18,6 +18,10 @@ import WithCustomSlotExample from '/examples/accordion/WithCustomSlot.vue';
 </script>
 # Accordion
 
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/accordion"
   reka-ui="https://reka-ui.com/docs/components/accordion"
@@ -235,4 +239,11 @@ You will have access to the following slots:
 
 ### Emits
 
-<ComponentEmits component="Accordion" />
+```ts
+/**
+ * Emitted events for the Accordion component
+ */
+interface AccordionEmits {
+  update:modelValue: (payload: [value: string | string[] | undefined]) => void;
+}
+```

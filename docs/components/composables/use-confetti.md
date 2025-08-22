@@ -12,7 +12,7 @@ import ConfettiAtPlaceExample from '/examples/confetti/ConfettiAtPlace.vue';
 <Description 
   git-custom="https://github.com/catdad/canvas-confetti"
   git-custom-title="canvas-confetti"
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/composables/useConfetti.vue"
+  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/composables/useConfetti.ts"
   demo="/components/confetti"
 >
   Performant confetti animation in the browser

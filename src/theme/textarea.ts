@@ -12,339 +12,134 @@ import { buttonGroupVariantWithRoot } from './button-group'
 
 export default {
   slots: {
-    root: 'isolate relative inline-flex items-center w-full',
+    root: 'isolate relative inline-flex items-center w-full', // @todo remove ? w-full -> see select
     base: [
-      'w-full px-3 py-1.5 border-0 focus:outline-none',
-      'disabled:cursor-not-allowed disabled:bg-base-30/37 disabled:resize-none disabled:text-base-500',
-      'dark:disabled:bg-base-900/37 dark:disabled:text-base-800',
+      'px-3',
+      'w-full pt-[7px] pb-[8px] border-0 focus:outline-none',
+      'disabled:cursor-not-allowed',
+      'disabled:pointer-events-none',
+      'disabled:opacity-30',
+      'disabled:resize-none',
       'appearance-none transition duration-300 ease-linear', // transition-colors
-      'ring ring-inset ring-base-300',
-      'dark:ring-base-800',
-      'text-base-master bg-white placeholder:text-base-400 hover:text-base-900 focus:text-base-900 active:text-base-900',
-      'dark:text-base-150 dark:bg-transparent dark:placeholder:text-base-300 dark:hover:text-base-350 dark:focus:text-base-350 dark:active:text-base-350',
-      'font-b24-primary font-regular text-md leading-normal',
-      'align-middle'
+      'ring ring-inset',
+      'ring-(--ui-color-design-outline-stroke)',
+      'text-(--ui-color-base-1)',
+      'style-blurred-bg-input',
+      'placeholder:text-(--ui-color-design-plain-na-content-secondary)',
+      'hover:text-(--ui-color-base-1)',
+      'focus:text-(--ui-color-base-1)',
+      'active:text-(--ui-color-base-1)',
+      'font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular)',
+      // @memo need set lineHeight
+      'text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)',
+      'align-middle',
+      'focus-visible:ring-1',
+      'focus-visible:ring-inset',
+      'focus-visible:ring-(--b24ui-border-color)'
     ].join(' '),
-    leading: 'absolute start-0 flex items-start inset-y-1.5 px-1.5',
-    leadingIcon: 'shrink-0 text-base-400 inset-y-1.5 size-lg2',
-    leadingAvatar: 'shrink-0',
-    leadingAvatarSize: 'xs',
-    trailing: 'absolute end-0 flex items-start inset-y-1.5 px-1.5',
-    trailingIcon: 'shrink-0 text-base-400 size-lg2',
+    leading: 'absolute inset-y-[7px] start-0 flex items-start px-[8px]',
+    leadingIcon: [
+      'shrink-0',
+      'size-[18px]',
+      'text-(--b24ui-icon-color)'
+    ].join(' '),
+    leadingAvatar: 'shrink-0 size-[20px]',
+    leadingAvatarSize: '2xs',
+    trailing: 'absolute inset-y-[8px] end-0 flex items-start px-[6px]',
+    trailingIcon: [
+      'shrink-0',
+      'size-[18px]',
+      'text-(--b24ui-icon-color)'
+    ].join(' '),
     tag: [
       'pointer-events-none select-none',
-      'absolute z-10 -top-1.5 right-3 h-sm px-1.5 flex flex-col justify-center items-center',
-      'font-b24-primary font-bold text-6xs leading-none uppercase rounded-full'
+      'absolute',
+      'z-10',
+      '-top-[6px]',
+      'right-[12px]'
     ].join(' ')
   },
   variants: {
     ...buttonGroupVariantWithRoot,
-    autoresize: {
-      true: {
-        base: 'resize-none'
-      }
-    },
+    autoresize: { true: { base: 'resize-none' } },
     color: {
-      default: '',
-      danger: '',
-      success: '',
-      warning: '',
-      primary: '',
-      secondary: '',
-      collab: '',
-      ai: ''
+      'air-primary': { base: 'style-filled' },
+      'air-primary-success': { base: 'style-filled-success' },
+      'air-primary-alert': { base: 'style-filled-alert' },
+      'air-primary-copilot': { base: 'style-filled-copilot' },
+      'air-primary-warning': { base: 'style-filled-warning' },
+      // @deprecate ////
+      'default': { base: 'style-old-default' },
+      'danger': { base: 'style-old-danger' },
+      'success': { base: 'style-old-success' },
+      'warning': { base: 'style-old-warning' },
+      'primary': { base: 'style-old-primary' },
+      'secondary': { base: 'style-old-secondary' },
+      'collab': { base: 'style-old-collab' },
+      'ai': { base: 'style-old-ai' }
     },
-    tagColor: {
-      default: {
-        tag: 'text-white bg-base-900 dark:text-base-150 dark:bg-base-900'
-      },
-      danger: {
-        tag: 'text-white bg-red-500 dark:text-red-250 dark:bg-red-600'
-      },
-      success: {
-        tag: 'text-white bg-green-500 dark:text-green-250 dark:bg-green-600'
-      },
-      warning: {
-        tag: 'text-white bg-orange-500 dark:text-orange-250 dark:bg-orange-600'
-      },
-      primary: {
-        tag: 'text-white bg-blue-500 dark:text-blue-250 dark:bg-blue-600'
-      },
-      secondary: {
-        tag: 'text-white bg-cyan-350 dark:text-base-150 dark:bg-cyan-500'
-      },
-      collab: {
-        tag: 'text-white bg-collab-500 dark:text-collab-200 dark:bg-collab-800'
-      },
-      ai: {
-        tag: 'text-white bg-ai-500 dark:text-ai-200 dark:bg-ai-800'
-      }
-    },
+    /**
+     * @memo now get from Badge
+     */
+    // tagColor: {},
     rounded: {
-      true: 'rounded-3xl',
-      false: 'rounded-2xs'
+      true: 'rounded-(--ui-border-radius-3xl)',
+      false: 'rounded-(--ui-border-radius-sm)'
     },
-    noPadding: {
-      true: {
-        base: 'px-0'
-      }
-    },
-    noBorder: {
-      true: 'ring-0 focus-visible:ring-0'
-    },
+    noPadding: { true: { base: 'px-0' } },
+    noBorder: { true: 'ring-0 focus-visible:ring-0 style-transparent-bg' },
     underline: {
-      true: 'ring-0 focus-visible:ring-0 border-b border-b-base-300 rounded-none'
+      true: [
+        'ring-0 focus-visible:ring-0 style-transparent-bg',
+        'border-b-1',
+        'border-b-(--ui-color-design-outline-stroke)',
+        'rounded-none'
+      ].join(' ')
     },
-    leading: {
-      true: ''
-    },
-    trailing: {
-      true: ''
-    },
-    loading: {
-      true: ''
-    },
-    highlight: {
-      true: ''
-    }
+    leading: { true: '' },
+    trailing: { true: '' },
+    loading: { true: '' },
+    highlight: { true: 'ring ring-inset ring-(--b24ui-border-color)' }
   },
   compoundVariants: [
     // region ring for focus and highlight ////
-    // region default ////
+    // region color ////
     {
-      color: 'default',
       noBorder: false,
       underline: false,
-      class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-base-900 dark:focus-visible:ring-base-350'
+      class: ''
     },
     {
-      color: 'default',
       highlight: true,
       noBorder: false,
       underline: false,
-      class: 'ring ring-inset ring-base-900 dark:ring-base-350'
+      class: 'ring ring-inset ring-(--b24ui-border-color)'
     },
     {
-      color: 'default',
       noBorder: false,
       underline: true,
-      class: 'focus-visible:border-base-900 dark:focus-visible:border-b-base-350'
+      class: 'focus-visible:border-(--b24ui-border-color)'
     },
     {
-      color: 'default',
       highlight: true,
       noBorder: false,
       underline: true,
-      class: 'border-b-base-900 dark:border-b-base-350'
-    },
-    // endregion ////
-    // region danger ////
-    {
-      color: 'danger',
-      noBorder: false,
-      underline: false,
-      class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-red-500 dark:focus-visible:ring-red-600'
-    },
-    {
-      color: 'danger',
-      highlight: true,
-      noBorder: false,
-      underline: false,
-      class: 'ring ring-inset ring-red-500 dark:ring-red-600'
-    },
-    {
-      color: 'danger',
-      noBorder: false,
-      underline: true,
-      class: 'focus-visible:border-b-red-500 dark:focus-visible:border-b-red-600'
-    },
-    {
-      color: 'danger',
-      highlight: true,
-      noBorder: false,
-      underline: true,
-      class: 'border-b-red-500 dark:border-b-red-600'
-    },
-    // endregion ////
-    // region success ////
-    {
-      color: 'success',
-      noBorder: false,
-      underline: false,
-      class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-green-500 dark:focus-visible:ring-green-600'
-    },
-    {
-      color: 'success',
-      highlight: true,
-      noBorder: false,
-      underline: false,
-      class: 'ring ring-inset ring-green-500 dark:ring-green-600'
-    },
-    {
-      color: 'success',
-      noBorder: false,
-      underline: true,
-      class: 'focus-visible:border-b-green-500 dark:focus-visible:border-b-green-600'
-    },
-    {
-      color: 'success',
-      highlight: true,
-      noBorder: false,
-      underline: true,
-      class: 'border-b-green-500 dark:border-b-green-600'
-    },
-    // endregion ////
-    // region warning ////
-    {
-      color: 'warning',
-      noBorder: false,
-      underline: false,
-      class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-orange-500 dark:focus-visible:ring-orange-600'
-    },
-    {
-      color: 'warning',
-      highlight: true,
-      noBorder: false,
-      underline: false,
-      class: 'ring ring-inset ring-orange-500 dark:ring-orange-600'
-    },
-    {
-      color: 'warning',
-      noBorder: false,
-      underline: true,
-      class: 'focus-visible:border-b-orange-500 dark:focus-visible:border-b-orange-600'
-    },
-    {
-      color: 'warning',
-      highlight: true,
-      noBorder: false,
-      underline: true,
-      class: 'border-b-orange-500 dark:border-b-orange-600'
-    },
-    // endregion ////
-    // region primary ////
-    {
-      color: 'primary',
-      noBorder: false,
-      underline: false,
-      class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600'
-    },
-    {
-      color: 'primary',
-      highlight: true,
-      noBorder: false,
-      underline: false,
-      class: 'ring ring-inset ring-blue-500 dark:ring-blue-600'
-    },
-    {
-      color: 'primary',
-      noBorder: false,
-      underline: true,
-      class: 'focus-visible:border-b-blue-500 dark:focus-visible:border-b-blue-600'
-    },
-    {
-      color: 'primary',
-      highlight: true,
-      noBorder: false,
-      underline: true,
-      class: 'border-b-blue-500 dark:border-b-blue-600'
-    },
-    // endregion ////
-    // region secondary ////
-    {
-      color: 'secondary',
-      noBorder: false,
-      underline: false,
-      class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-cyan-350 dark:focus-visible:ring-cyan-500'
-    },
-    {
-      color: 'secondary',
-      highlight: true,
-      noBorder: false,
-      underline: false,
-      class: 'ring ring-inset ring-cyan-350 dark:ring-cyan-500'
-    },
-    {
-      color: 'secondary',
-      noBorder: false,
-      underline: true,
-      class: 'focus-visible:border-b-cyan-350 dark:focus-visible:border-b-cyan-500'
-    },
-    {
-      color: 'secondary',
-      highlight: true,
-      noBorder: false,
-      underline: true,
-      class: 'border-b-cyan-350 dark:border-b-cyan-500'
-    },
-    // endregion ////
-    // region collab ////
-    {
-      color: 'collab',
-      noBorder: false,
-      underline: false,
-      class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-collab-500 dark:focus-visible:ring-collab-600'
-    },
-    {
-      color: 'collab',
-      highlight: true,
-      noBorder: false,
-      underline: false,
-      class: 'ring ring-inset ring-collab-500 dark:ring-collab-600'
-    },
-    {
-      color: 'collab',
-      noBorder: false,
-      underline: true,
-      class: 'focus-visible:border-b-collab-500 dark:focus-visible:border-b-collab-600'
-    },
-    {
-      color: 'collab',
-      highlight: true,
-      noBorder: false,
-      underline: true,
-      class: 'border-b-collab-500 dark:border-b-collab-600'
-    },
-    // endregion ////
-    // region ai ////
-    {
-      color: 'ai',
-      noBorder: false,
-      underline: false,
-      class: 'focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-ai-500 dark:focus-visible:ring-ai-600'
-    },
-    {
-      color: 'ai',
-      highlight: true,
-      noBorder: false,
-      underline: false,
-      class: 'ring ring-inset ring-ai-500 dark:ring-ai-600'
-    },
-    {
-      color: 'ai',
-      noBorder: false,
-      underline: true,
-      class: 'focus-visible:border-b-ai-500 dark:focus-visible:border-b-ai-600'
-    },
-    {
-      color: 'ai',
-      highlight: true,
-      noBorder: false,
-      underline: true,
-      class: 'border-b-ai-500 dark:border-b-ai-600'
+      class: 'border-b-(--b24ui-border-color)'
     },
     // endregion ////
     // endregion ////
     // region leading ////
     {
       leading: true,
-      class: 'ps-8'
+      noPadding: false,
+      class: 'ps-[34px]'
     },
     // endregion ////
     // region trailing ////
     {
       trailing: true,
-      class: 'pe-8'
+      noPadding: false,
+      class: 'pe-[34px]'
     },
     // endregion ////
     // region loading ////
@@ -366,7 +161,6 @@ export default {
     // endregion ////
   ],
   defaultVariants: {
-    color: 'primary',
-    tagColor: 'primary'
+    color: 'air-primary'
   }
 }

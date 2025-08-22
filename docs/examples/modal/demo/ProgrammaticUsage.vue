@@ -7,14 +7,12 @@ const count = ref(0)
 const toast = useToast()
 const overlay = useOverlay()
 
-const modal = overlay.create(LazyModal, {
-  props: {
-    count: count.value
-  }
-})
+const modal = overlay.create(LazyModal)
 
 async function open() {
-  const instance = modal.open()
+  const instance = modal.open({
+    count: count.value
+  })
 
   const shouldIncrement = await instance.result
 
@@ -23,7 +21,7 @@ async function open() {
 
     toast.add({
       title: `Success: ${shouldIncrement}`,
-      color: 'success',
+      color: 'air-primary-success',
       id: 'modal-success'
     })
 
@@ -36,17 +34,12 @@ async function open() {
 
   toast.add({
     title: `Dismissed: ${shouldIncrement}`,
-    color: 'danger',
+    color: 'air-primary-alert',
     id: 'modal-dismiss'
   })
 }
 </script>
 
 <template>
-  <B24Button
-    label="Open"
-    color="link"
-    depth="dark"
-    @click="open"
-  />
+  <B24Button label="Open" @click="open" />
 </template>

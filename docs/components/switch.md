@@ -16,11 +16,17 @@ import SizeExample from '/examples/switch/Size.vue';
 import DisabledExample from '/examples/switch/Disabled.vue';
 </script>
 # Switch
+
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/switch"
   reka-ui="https://reka-ui.com/docs/components/switch"
   reka-ui-title="Switch"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Switch.vue"
+  demo="/components/switch"
 >
   A toggle control for switching between two states.
 </Description>
@@ -177,4 +183,12 @@ Use the `disabled` prop to disable the Switch.
 
 ### Emits
 
-<ComponentEmits component="Switch" />
+```ts
+/**
+ * Emitted events for the Switch component
+ */
+interface SwitchEmits {
+  change: (payload: [payload: Event]) => void;
+  update:modelValue: (payload: [value: boolean]) => void;
+}
+```

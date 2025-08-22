@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
-import Modal, { type ModalProps, type ModalSlots } from '../../src/runtime/components/Modal.vue'
+import Modal from '../../src/runtime/components/Modal.vue'
+import type { ModalProps, ModalSlots } from '../../src/runtime/components/Modal.vue'
 import ComponentRender from '../component-render'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
 

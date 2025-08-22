@@ -10,19 +10,16 @@ const { copy, copied } = useClipboard()
 </script>
 
 <template>
-  <B24ButtonGroup
-    no-split
-  >
-    <B24Input v-model="value" />
+  <B24ButtonGroup no-split>
+    <B24Input v-model="value" class="w-40" />
     <B24Tooltip
       text="Copy to clipboard"
-      :content="{ side: 'left' }"
+      :content="{ side: 'top' }"
       :delay-duration="0"
     >
       <B24Button
-        :color="copied ? 'success' : 'link'"
+        :color="copied ? 'air-primary-success' : 'air-primary-copilot'"
         :icon="copied ? CheckInBoxIcon : CopyPlatesIcon"
-        depth="dark"
         @click="copy(value)"
       />
     </B24Tooltip>

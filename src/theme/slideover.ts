@@ -5,37 +5,59 @@
  * @link: /api_help/js_lib/sidepanel/index.php
  * @see `sidepanel` -> BX.SidePanel.Instance.open
  * @see src/theme/modal.ts
- *
- * @todo: btn close like b24
  */
 
+// :b24ui="{
+// leadingIcon: ['left', 'right', 'bottom'].includes(props?.side)
+//   ? 'group-hover:rounded-full group-hover:border-1 group-hover:border-current'
+//   : ''
+// }"
 const safeList = [
   'group-hover:rounded-full group-hover:border-1 group-hover:border-current'
 ].join(' ')
 
 export default {
   slots: {
-    overlay: 'fixed inset-0 bg-base-950/20 dark:bg-base-950/30',
+    overlay: 'fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e]', //
     content: [
       'fixed',
-      'bg-base-50 dark:bg-base-950',
-      // 'divide-y divide-(--ui-border)',
       'sm:shadow-lg',
-      'flex flex-col focus:outline-none'
+      'flex flex-col focus:outline-none',
+      'h-full'
     ].join(' '),
+    sidebarLayoutRoot: '',
+    sidebarLayoutHeaderWrapper: '',
+    sidebarLayoutPageBottomWrapper: '',
     header: [
-      'mt-4 px-5',
-      'flex items-center gap-1.5'
+      'pt-[24px]',
+      'flex-1 flex items-center gap-x-[12px] gap-y-1.5'
     ].join(' '),
-    wrapper: 'min-h-2xl',
-    body: [
-      'mx-0 mt-2',
-      'flex-1 overflow-y-auto'
+    wrapper: 'min-h-[30px]',
+    title: [
+      'font-[family-name:var(--ui-font-family-primary)]',
+      'text-(--b24ui-typography-label-color)',
+      'font-(--ui-font-weight-semi-bold)',
+      'mb-0',
+      'text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]'
     ].join(' '),
-    footer: 'bg-white dark:bg-base-950 flex items-center justify-center gap-3 py-4 border-t border-t-1 border-t-base-900/10 dark:border-t-white/20 shadow-top-md p-2 pr-(--scrollbar-width)',
-    title: 'font-b24-system font-light text-4.5xl leading-none text-base-900 dark:text-base-150',
-    description: 'mt-2 mb-1 text-base-500 dark:text-base-400 text-sm',
+    description: [
+      'mt-1',
+      'text-(--b24ui-typography-description-color)',
+      'text-(length:--ui-font-size-sm)'
+    ].join(' '),
     close: 'absolute',
+    body: [
+      'size-full',
+      'flex-1'
+    ].join(' '),
+    footer: [
+      'light',
+      'bg-(--popup-window-background-color)', // --ui-color-bg-content-primary
+      'flex items-center justify-center gap-3',
+      'border-t border-t-1 border-t-(--ui-color-divider-less)',
+      'shadow-top-md',
+      'py-[9px] px-2 pr-(--scrollbar-width)'
+    ].join(' '),
     safeList
   },
   variants: {
@@ -51,39 +73,44 @@ export default {
       }
     },
     side: {
-      top: {
-        content: 'inset-x-0 top-0 max-h-full'
-      },
+      // @todo fix if parent SidebarLayout.isUseSideBar > w-[calc(100%-135x)] > w-[calc(100%-150px)]
       right: {
-        content: 'right-0 inset-y-0 w-full max-w-[28rem]'
-      },
-      bottom: {
-        content: 'inset-x-0 bottom-0 max-h-full'
+        content: 'right-0 inset-y-0 w-[calc(100%-60px)] sm:w-[calc(100%-150px)]',
+        sidebarLayoutRoot: 'sm:rounded-t-none'
       },
       left: {
-        content: 'left-0 inset-y-0 w-full max-w-[28rem]'
+        content: 'left-0 inset-y-0 w-[calc(100%-60px)] sm:w-[calc(100%-150px)]',
+        sidebarLayoutRoot: 'sm:rounded-t-none'
+      },
+      top: {
+        content: 'inset-x-0 top-0 max-h-full',
+        sidebarLayoutRoot: 'sm:rounded-t-none'
+      },
+      bottom: {
+        content: [
+          'right-[5px] sm:right-[70px] top-0 sm:top-[18px] bottom-0',
+          'w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)]',
+          'sm:max-h-[calc(100%-18px)]'
+        ].join(' '),
+        // sidebarLayoutRoot: 'sm:rounded-t-none'
+        sidebarLayoutRoot: 'sm:rounded-t-[18px]'
+        // fix sidebarLayoutHeaderWrapper: '' // sm:rounded-t-[18px]
       }
     },
     transition: {
       true: {
         overlay: 'motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]'
       }
-    },
-    scrollbarThin: {
-      true: {
-        body: 'scrollbar-thin'
-      }
     }
   },
   compoundVariants: [
-    // region close ////
-    // close: 'absolute ' ////
+    // region btn.close ////
     {
-      side: 'right',
+      side: ['right', 'bottom'],
       class: {
         close: [
-          'pl-1.5 pr-2.5',
-          'top-3 -translate-x-full left-0',
+          'pl-1.5 pr-[4px]',
+          'top-[17px] -translate-x-full left-[1px]',
           'rounded-l-full'
         ].join(' ')
       }
@@ -92,14 +119,15 @@ export default {
       side: 'left',
       class: {
         close: [
-          'pr-1.5 pl-2.5',
-          'top-3 translate-x-full right-0',
-          'rounded-r-full'
+          'pr-1.5 pl-[4px]',
+          'top-[17px] translate-x-full right-[1px]',
+          'rounded-r-full',
+          '[&>div]:flex-row-reverse'
         ].join(' ')
       }
     },
     {
-      side: ['top', 'bottom'],
+      side: 'top',
       class: {
         close: [
           'top-4 end-4'
@@ -136,10 +164,10 @@ export default {
         content: 'motion-safe:data-[state=open]:animate-[slide-in-from-left_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-left_200ms_ease-in-out]'
       }
     }
+    // endregion ////
   ],
   defaultVariants: {
-    side: 'right',
-    scrollbarThin: true,
-    overlayBlur: 'auto'
+    side: 'bottom',
+    overlayBlur: 'off'
   }
 }

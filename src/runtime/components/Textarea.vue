@@ -2,7 +2,7 @@
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/textarea'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
-import type { AvatarProps } from '../types'
+import type { AvatarProps, BadgeProps } from '../types'
 import type { ComponentConfig } from '../types/utils'
 
 type Textarea = ComponentConfig<typeof theme, AppConfig, 'textarea'>
@@ -22,7 +22,7 @@ export interface TextareaProps<T extends TextareaValue = TextareaValue> extends 
    */
   placeholder?: string
   /**
-   * @defaultValue 'primary'
+   * @defaultValue 'air-primary'
    */
   color?: Textarea['variants']['color']
   /**
@@ -81,7 +81,7 @@ export interface TextareaProps<T extends TextareaValue = TextareaValue> extends 
   /**
    * @defaultValue 'primary'
    */
-  tagColor?: Textarea['variants']['tagColor']
+  tagColor?: BadgeProps['color']
   /**
    * Highlight the ring color like a focus state
    * @defaultValue false
@@ -101,9 +101,9 @@ export interface TextareaProps<T extends TextareaValue = TextareaValue> extends 
 }
 
 export interface TextareaEmits<T extends TextareaValue = TextareaValue> {
-  (e: 'update:modelValue', payload: T): void
-  (e: 'blur', event: FocusEvent): void
-  (e: 'change', event: Event): void
+  'update:modelValue': [payload: T]
+  'blur': [event: FocusEvent]
+  'change': [event: Event]
 }
 
 export interface TextareaSlots {
@@ -122,6 +122,7 @@ import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
 import { looseToNumber } from '../utils'
 import { tv } from '../utils/tv'
+import B24Badge from './Badge.vue'
 import B24Avatar from './Avatar.vue'
 
 defineOptions({ inheritAttrs: false })
@@ -151,7 +152,6 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.textar
   loading: props.loading,
   highlight: highlight.value,
   autoresize: Boolean(props.autoresize),
-  tagColor: props.tagColor,
   rounded: Boolean(props.rounded),
   noPadding: Boolean(props.noPadding),
   noBorder: Boolean(props.noBorder),
@@ -258,9 +258,13 @@ defineExpose({
 
 <template>
   <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <div v-if="isTag" :class="b24ui.tag({ class: props.b24ui?.tag })">
-      {{ props.tag }}
-    </div>
+    <B24Badge
+      v-if="isTag"
+      :class="b24ui.tag({ class: props.b24ui?.tag })"
+      :color="props.tagColor"
+      :label="props.tag"
+      size="xs"
+    />
 
     <textarea
       :id="id"

@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { PopoverRootProps, HoverCardRootProps, PopoverRootEmits, PopoverContentProps, PopoverContentEmits, PopoverArrowProps } from 'reka-ui'
+import type { PopoverRootProps, HoverCardRootProps, PopoverRootEmits, PopoverContentProps, PopoverContentEmits, PopoverArrowProps, HoverCardTriggerProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/popover'
 import type { EmitsToProps, ComponentConfig } from '../types/utils'
@@ -27,6 +27,12 @@ export interface PopoverProps extends PopoverRootProps, Pick<HoverCardRootProps,
    * @defaultValue true
    */
   portal?: boolean | string | HTMLElement
+  /**
+   * The reference (or anchor) element that is being referred to for positioning.
+   *
+   * If not provided will use the current component as anchor.
+   */
+  reference?: HoverCardTriggerProps['reference']
   /**
    * When `false`, the popover will not close when clicking outside or pressing escape.
    * @defaultValue true
@@ -88,7 +94,8 @@ const contentEvents = computed(() => {
 
   return {}
 })
-const arrowProps = toRef(() => props.arrow as PopoverArrowProps)
+
+const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10 }) as PopoverArrowProps)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.popover || {}) })({
@@ -100,7 +107,12 @@ const Component = computed(() => props.mode === 'hover' ? HoverCard : Popover)
 
 <template>
   <Component.Root v-slot="{ open }" v-bind="rootProps">
-    <Component.Trigger v-if="!!slots.default" as-child :class="props.class">
+    <Component.Trigger
+      v-if="!!slots.default || !!reference"
+      as-child
+      :reference="reference"
+      :class="props.class"
+    >
       <slot :open="open" />
     </Component.Trigger>
 

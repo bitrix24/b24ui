@@ -1,3 +1,8 @@
+/**
+ * ButtonGroup
+ * ---
+ * @todo fix docs
+ */
 export const buttonGroupVariant = {
   buttonGroup: {
     horizontal: [
@@ -57,10 +62,12 @@ export default {
   base: 'relative',
   variants: {
     size: {
+      xss: '',
       xs: '',
       sm: '',
       md: '',
-      lg: ''
+      lg: '',
+      xl: ''
     },
     orientation: {
       horizontal: 'flex flex-row -space-x-px',

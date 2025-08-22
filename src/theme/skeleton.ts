@@ -6,5 +6,17 @@
  */
 
 export default {
-  base: 'animate-pulse rounded-md bg-gray-200 dark:bg-gray-800'
+  slots: {
+    base: 'animate-pulse rounded-(--ui-border-radius-md) '
+  },
+  variants: {
+    accent: {
+      default: 'bg-(--ui-color-g-glass-grey-bg-1)',
+      accent: 'bg-(--ui-color-g-glass-grey-bg-2)',
+      less: 'bg-(--ui-color-g-glass-grey-bg-3)'
+    }
+  },
+  defaultVariants: {
+    accent: 'default'
+  }
 }

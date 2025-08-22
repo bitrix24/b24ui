@@ -53,6 +53,12 @@ export default defineLocale<Messages>({
     },
     table: {
       noData: 'لا توجد بيانات'
+    },
+    sidebarLayout: {
+      open: 'فتح التنقل',
+      close: 'إغلاق التنقل',
+      slideoverTitle: 'التنقل',
+      slideoverDescription: 'تنقل المحتوى'
     }
   }
 })

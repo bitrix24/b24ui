@@ -1,54 +1,43 @@
 @plugin '@bitrix24/b24style';
 @import '#build/b24ui.css';
 @import './keyframes.css';
-@import './air-design-tokens.css';
-
-@variant light (&:where(.light, .light *));
-@variant dark (&:where(.dark, .dark *));
+@import './air-design-tokens/index.css';
 
 @layer base {
+  body,
+  .sidebar-layout.--inner {
+    /* @see air-design-tokens/???_b24_context*.css */
+    --air-theme-background:
+      var(--air-theme-bg-image, none)
+      var(--air-theme-bg-position, 0 0) / var(--air-theme-bg-size, auto)
+      var(--air-theme-bg-repeat, repeat)
+      var(--air-theme-bg-attachment, scroll)
+      var(--air-theme-bg-color, transparent)
+    ;
+
+    --air-theme-background-blurred:
+      var(--air-theme-bg-image-blurred, none)
+      var(--air-theme-bg-position, 0 0) / var(--air-theme-bg-size, auto)
+      var(--air-theme-bg-repeat, repeat)
+      var(--air-theme-bg-attachment, scroll)
+    ;
+  }
+
+  /* @see src/theme/sidebar-layout.ts */
   body {
-    @apply antialiased scheme-light dark:scheme-dark;
+    background: var(--air-theme-background);
   }
 
-  :root, .light {}
+  .sidebar-layout.--inner {
+    background: var(--air-theme-background);
+  }
 
-  .dark {}
+  .--app {
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+  }
 
-  --b24ui-header-height: calc(var(--spacing)*16);
-}
-
-@layer theme {
-  :host,:root {
-    --spacing: .25rem;
+  .--app[data-state="loading"] {
+    overflow: hidden;
   }
 }
-
-/** region scrollbar */
-.scrollbar-thin {
-  scrollbar-width: thin;
-}
-
-.scrollbar-transparent {
-  scrollbar-color: hsla(0, 0%, 0%, 0) transparent;
-  scrollbar-gutter: stable;
-}
-
-.scrollbar-transparent:hover {
-  scrollbar-color: hsl(213.91deg 12.3% 36.67% / 36%) transparent;
-}
-
-.dark .scrollbar-transparent {
-  scrollbar-color: hsla(0, 0%, 0%, 0.21) transparent;
-}
-
-.dark .scrollbar-transparent:hover {
-  scrollbar-color: hsl(213.91deg 12.3% 36%) transparent;
-}
-/** endregion */
-
-/** region NavigationMenu */
-.clip-path-viewport-wrapper {
-  clip-path: inset(0 -24px -28px -24px round 10px);
-}
-/** endregion */

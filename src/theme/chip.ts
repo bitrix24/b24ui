@@ -3,6 +3,7 @@
  * As a source we will choose `counter` and `labels`
  * ---
  * @link /api_d7/bitrix/ui/labels/index.php
+ * @see src/runtime/air-design-tokens/components/badge-counter.css
  * @see bitrix/js/ui/cnt/src/cnt-color.js
  * @see bitrix/js/ui/cnt/ui.cnt.css
  * @see bitrix/js/ui/label/src/label-color.js
@@ -12,31 +13,63 @@
 
 export default {
   slots: {
-    root: 'relative inline-flex items-center justify-center shrink-0',
-    base: 'select-none rounded-sm flex items-center justify-center p-1 text-white leading-none font-semibold font-b24-secondary whitespace-nowrap'
+    root: [
+      'relative shrink-0 isolate',
+      'inline-flex items-center justify-center'
+    ].join(' '),
+    base: [
+      'ui-counter__scope --air',
+      'font-[family-name:var(--ui-font-family-primary)]',
+      'font-(--ui-font-weight-medium)',
+      'select-none',
+      'relative',
+      'min-w-(--ui-counter-size) h-(--ui-counter-size)',
+      'py-0 px-(--ui-counter-inline-space)',
+      'inline-flex items-center justify-center',
+      'bg-(--b24ui-background)',
+      'rounded-(--ui-counter-current-size)',
+      'ring-(length:--b24ui-border-width) ring-(--b24ui-border-color)',
+      'text-center align-middle',
+      'text-(length:--ui-counter-font-size) text-(--b24ui-color)',
+      'leading-(--ui-counter-current-size)',
+      'overflow-hidden',
+      'z-1',
+      'text-nowrap' // truncate
+    ].join(' '),
+    trailingIcon: [
+      'size-(--ui-counter-size)',
+      'text-inherit',
+      'text-(length:--ui-counter-symbol-font-size)',
+      'opacity-96',
+      'tracking-(--ui-letter-spacing-xl)',
+      'me-(--ui-counter-symbol-compensation) empty:me-[0]'
+    ].join(' ')
   },
   variants: {
     color: {
-      default: 'bg-base-500 dark:bg-base-900 dark:text-base-150',
-      danger: 'bg-red-500 dark:bg-red-600 dark:text-red-250',
-      success: 'bg-green-500 dark:bg-green-600 dark:text-green-250',
-      warning: 'bg-orange-500 dark:bg-orange-600 dark:text-orange-250',
-      primary: 'bg-blue-500 dark:bg-blue-600 dark:text-blue-250',
-      secondary: 'bg-cyan-350 dark:bg-cyan-500',
-      collab: 'bg-collab-500 dark:bg-collab-800 dark:text-collab-250',
-      ai: 'bg-ai-500 dark:bg-ai-800 dark:text-ai-250',
-      link: 'bg-base-900/85 text-white dark:bg-white/85 dark:text-base-900'
+      'air-primary': { base: 'style-filled' },
+      'air-primary-success': { base: 'style-filled-success' },
+      'air-primary-alert': { base: 'style-filled-alert' },
+      'air-primary-copilot': { base: 'style-filled-copilot' },
+      'air-primary-warning': { base: 'style-filled-warning' },
+      'air-secondary': { base: 'style-tinted-no-accent-1' },
+      'air-secondary-accent': { base: 'style-filled-no-accent' },
+      'air-secondary-accent-1': { base: 'style-filled-no-accent-inverted edge-dark:text-(--ui-color-g-content-grey-2)' },
+      'air-tertiary': { base: 'style-outline-no-accent' },
+      // @deprecate ////
+      'default': { base: 'style-old-default' },
+      'danger': { base: 'style-old-danger' },
+      'success': { base: 'style-old-success' },
+      'warning': { base: 'style-old-warning' },
+      'primary': { base: 'style-old-primary' },
+      'secondary': { base: 'style-old-secondary' },
+      'collab': { base: 'style-old-collab' },
+      'ai': { base: 'style-old-ai' }
     },
     size: {
-      '3xs': 'h-1 min-w-1 text-[0px] text-transparent p-0',
-      '2xs': 'h-1.5 min-w-1.5 text-[0px] text-transparent p-0',
-      'xs': 'h-xs2 min-w-xs2 text-[0px] text-transparent  p-0',
-      'sm': 'h-sm min-w-sm text-4xs font-regular',
-      'md': 'h-md min-w-md text-3xs',
-      'lg': 'h-lg min-w-lg rounded-md text-xs',
-      'xl': 'h-lg min-w-lg rounded-md text-xs',
-      '2xl': 'h-lg min-w-lg rounded-md text-xs',
-      '3xl': 'h-lg min-w-lg rounded-md text-xs'
+      sm: 'ui-counter-sm font-(--ui-font-weight-regular)',
+      md: 'ui-counter-md',
+      lg: 'ui-counter-lg'
     },
     position: {
       'top-right': 'top-0 right-0',
@@ -44,15 +77,30 @@ export default {
       'top-left': 'top-0 left-0',
       'bottom-left': 'bottom-0 left-0'
     },
+    inverted: {
+      true: '',
+      false: ''
+    },
     inset: {
       false: ''
     },
     standalone: {
       true: '',
-      false: 'ring ring-white dark:ring-base-700 absolute'
+      false: 'absolute'
+    },
+    hideZero: {
+      true: {
+        base: 'data-[value=0]:hidden'
+      }
+    },
+    oneDigit: {
+      true: {
+        base: 'px-0'
+      }
     }
   },
   compoundVariants: [
+    // region position ////
     // not inset ////
     {
       position: 'top-right',
@@ -134,11 +182,50 @@ export default {
       inset: true,
       standalone: false,
       class: 'translate-y-0 -translate-x-0 transform'
+    },
+    // endregion ////
+    // region color ////
+    {
+      inverted: true,
+      color: 'air-primary',
+      class: {
+        base: 'style-filled-inverted'
+      }
+    },
+    {
+      inverted: true,
+      color: 'air-primary-success',
+      class: {
+        base: 'style-filled-success-inverted'
+      }
+    },
+    {
+      inverted: true,
+      color: 'air-primary-alert',
+      class: {
+        base: 'style-filled-alert-inverted'
+      }
+    },
+    {
+      inverted: true,
+      color: 'air-primary-copilot',
+      class: {
+        base: 'style-filled-copilot-inverted'
+      }
+    },
+    {
+      inverted: true,
+      color: 'air-primary-warning',
+      class: {
+        base: 'style-filled-warning-inverted'
+      }
     }
+    // endregion ////
   ],
   defaultVariants: {
     size: 'sm',
-    color: 'danger',
-    position: 'top-right'
+    color: 'air-primary-alert',
+    position: 'top-right',
+    inverted: false
   }
 }

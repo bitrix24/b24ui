@@ -11,14 +11,14 @@ import {
   B24Textarea,
   B24Checkbox,
   B24Select,
-  // B24SelectMenu,
-  // B24InputMenu,
-  // B24InputNumber,
+  B24SelectMenu,
+  B24InputMenu,
+  B24InputNumber,
   B24Switch,
   B24Range,
   // B24PinInput,
   B24FormField
-
+  // B24FileUpload
 } from '#components'
 
 const inputComponents = [
@@ -27,12 +27,13 @@ const inputComponents = [
   B24Textarea,
   B24Checkbox,
   B24Select,
-  // B24SelectMenB24,
-  // B24InputMenu,
-  // B24InputNumber,
+  B24SelectMenu,
+  B24InputMenu,
+  B24InputNumber,
   B24Switch,
   B24Range
-  // B2PinInput
+  // B24PinInput
+  // B24FileUpload
 ]
 
 async function renderFormField(options: {
@@ -113,7 +114,6 @@ describe('FormField', () => {
           props: { label: 'Label' },
           inputComponent
         })
-
         const label = wrapper.find('label[for=v-0-0]')
         expect(label.exists()).toBe(false)
       })
@@ -123,7 +123,6 @@ describe('FormField', () => {
           props: { label: 'Label' },
           inputComponent
         })
-
         const label = wrapper.find('label[for=v-0-0]')
         expect(label.exists()).toBe(true)
 
@@ -170,6 +169,26 @@ describe('FormField', () => {
 
       const attr = wrapper.find('[aria-invalid=true]')
       expect(attr.exists()).toBe(true)
+    })
+
+    test('renders id for aria describedby when help prop is provided', async () => {
+      const wrapper = await renderFormField({
+        props: { help: 'somehelp' },
+        inputComponent
+      })
+
+      const attr = wrapper.find('[id=v-0-0-help]')
+      expect(attr.exists()).toBe(true)
+    })
+
+    test('renders no id for aria describedby when no help prop is provided', async () => {
+      const wrapper = await renderFormField({
+        props: { label: 'Username', description: 'Enter your username' },
+        inputComponent
+      })
+
+      const attr = wrapper.find('[id=v-0-0-help]')
+      expect(attr.exists()).toBe(false)
     })
   })
 })

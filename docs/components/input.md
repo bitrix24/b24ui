@@ -19,9 +19,14 @@ import WithMaskExample from '/examples/input/WithMask.vue';
 </script>
 # Input
 
+::: warning We are still updating this page
+Some data may be missing here — we will complete it shortly.
+:::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/input"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Input.vue"
+  demo="/components/input"
 >
   An input box designed for text entry.
 </Description>
@@ -111,10 +116,6 @@ Use the `tagColor` property to set the color for `tag`.
 ### Size
 
 Use the `size` prop to change the size of the Input.
-
-### Size
-
-Use the `size` prop to change the size of the Switch.
 
 <div class="lg:min-h-[275px]">
   <ClientOnly>
@@ -222,7 +223,16 @@ There's no built-in support for masks, but you can use libraries like [maska](ht
 
 ### Emits
 
-<ComponentEmits component="Input" />
+```ts
+/**
+ * Emitted events for the Input component
+ */
+interface InputEmits {
+  blur: (payload: [event: FocusEvent]) => void;
+  change: (payload: [event: Event]) => void;
+  update:modelValue: (payload: [payload: AcceptableValue]) => void;
+}
+```
 
 ### Expose
 

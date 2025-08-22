@@ -108,19 +108,19 @@ To dynamically switch between languages, you can use the [Vue I18n](https://vue-
 ::: code-group
 
 ```bash [pnpm]
-pnpm add vue-i18n@10
+pnpm add vue-i18n@11
 ```
 
 ```bash [yarn]
-yarn add vue-i18n@10
+yarn add vue-i18n@11
 ```
 
 ```bash [npm]
-npm install vue-i18n@10
+npm install vue-i18n@11
 ```
 
 ```bash [bun]
-bun add vue-i18n@10
+bun add vue-i18n@11
 ```
 
 :::

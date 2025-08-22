@@ -1,6 +1,7 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/chip'
+import type { IconComponent } from '../types'
 import type { ComponentConfig } from '../types/utils'
 
 type Chip = ComponentConfig<typeof theme, AppConfig, 'chip'>
@@ -14,9 +15,20 @@ export interface ChipProps {
   /** Display some text inside the chip. */
   text?: string | number
   /**
+   * The icon displayed on the right side of the chip.
+   * @IconComponent
+   */
+  trailingIcon?: IconComponent
+  /**
    * @defaultValue 'danger'
    */
   color?: Chip['variants']['color']
+  /**
+   * If set to `true` the color is inverted.
+   * Used for 'air-primary', 'air-primary-success', 'air-primary-alert', 'air-primary-copilot' and 'air-primary-warning' colors.
+   * @defaultValue false
+   */
+  inverted?: boolean
   /**
    * @defaultValue 'sm'
    */
@@ -36,17 +48,23 @@ export interface ChipProps {
    * @defaultValue false
    */
   standalone?: boolean
+  /**
+   * When `true`, hide chip if value='0'
+   * @defaultValue false
+   */
+  hideZero?: boolean
   class?: any
   b24ui?: Chip['slots']
 }
 
 export interface ChipEmits {
-  (e: 'update:show', payload: boolean): void
+  'update:show': [payload: boolean]
 }
 
 export interface ChipSlots {
   default(props?: {}): any
   content(props?: {}): any
+  trailing(props?: {}): any
 }
 </script>
 
@@ -54,40 +72,61 @@ export interface ChipSlots {
 import { computed } from 'vue'
 import { Primitive, Slot } from 'reka-ui'
 import { useAppConfig } from '#imports'
-import { useAvatarGroup } from '../composables/useAvatarGroup'
 import { tv } from '../utils/tv'
 
 defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(defineProps<ChipProps>(), {
+  inverted: false,
   inset: false,
-  standalone: false
+  standalone: false,
+  hideZero: false
 })
 defineSlots<ChipSlots>()
 
 const show = defineModel<boolean>('show', { default: true })
 
-const { size } = useAvatarGroup(props)
+// const { size } = useAvatarGroup(props)
 const appConfig = useAppConfig() as Chip['AppConfig']
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chip || {}) })({
   color: props.color,
-  size: size.value,
+  inverted: Boolean(props.inverted),
+  size: props.size, // size.value
   position: props.position,
   inset: Boolean(props.inset),
-  standalone: Boolean(props.standalone)
+  standalone: Boolean(props.standalone),
+  hideZero: Boolean(props.hideZero),
+  oneDigit: !props.trailingIcon && props.text?.toString().length === 1
 }))
+
+const value = computed(() => {
+  return props.text
+})
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <Primitive
+    :as="as"
+    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
+  >
     <Slot v-bind="$attrs">
       <slot />
     </Slot>
 
-    <span v-if="show" :class="b24ui.base({ class: props.b24ui?.base })">
+    <span
+      v-if="show"
+      :class="b24ui.base({ class: props.b24ui?.base })"
+      :data-value="value"
+    >
       <slot name="content">
-        {{ text }}
+        <span>{{ text }}</span>
+      </slot>
+      <slot name="trailing">
+        <Component
+          :is="trailingIcon"
+          :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
+        />
       </slot>
     </span>
   </Primitive>

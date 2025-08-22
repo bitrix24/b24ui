@@ -52,6 +52,12 @@ export default defineLocale<Messages>({
     },
     table: {
       noData: '没有数据'
+    },
+    sidebarLayout: {
+      open: '打开导航',
+      close: '关闭导航',
+      slideoverTitle: '导航',
+      slideoverDescription: '内容导航'
     }
   }
 })

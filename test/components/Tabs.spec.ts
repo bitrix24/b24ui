@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
-import Tabs, { type TabsProps, type TabsSlots } from '../../src/runtime/components/Tabs.vue'
+import Tabs from '../../src/runtime/components/Tabs.vue'
+import type { TabsProps, TabsSlots } from '../../src/runtime/components/Tabs.vue'
 import ComponentRender from '../component-render'
 import theme from '#build/b24ui/tabs'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
@@ -22,7 +23,8 @@ describe('Tabs', () => {
     label: 'Tab3',
     icon: SignIcon,
     content: 'Finally, this is the content for Tab3',
-    slot: 'custom'
+    slot: 'custom',
+    badge: 'badge'
   }]
 
   const props = { items }
@@ -36,7 +38,6 @@ describe('Tabs', () => {
     ['with orientation vertical', { props: { ...props, orientation: 'vertical' as const } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { ...props, size } }]),
     ...variants.map((variant: string) => [`with default variant ${variant}`, { props: { ...props, variant } }]),
-    ...variants.map((variant: string) => [`with success variant ${variant}`, { props: { ...props, variant, color: 'success' } }]),
     ['without content', { props: { ...props, content: false } }],
     ['with unmountOnHide', { props: { ...props, unmountOnHide: false } }],
     ['with as', { props: { ...props, as: 'section' } }],

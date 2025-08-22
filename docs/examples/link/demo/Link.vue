@@ -9,7 +9,7 @@ withDefaults(defineProps<ExampleProps>(), {
 </script>
 
 <template>
-  <B24Link :as="asTag" to="/b24ui/components/link.html">
+  <B24Link :as="asTag" to="/b24ui/components/link.html" target="_blank">
     Link
   </B24Link>
   <B24Link :as="asTag">

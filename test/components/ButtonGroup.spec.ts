@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
-import ButtonGroup, { type ButtonGroupProps, type ButtonGroupSlots } from '../../src/runtime/components/ButtonGroup.vue'
+import ButtonGroup from '../../src/runtime/components/ButtonGroup.vue'
+import type { ButtonGroupProps, ButtonGroupSlots } from '../../src/runtime/components/ButtonGroup.vue'
 import ComponentRender from '../component-render'
 import { B24Input, B24Button } from '#components'
 import buttonTheme from '#build/b24ui/button'

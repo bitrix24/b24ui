@@ -7,7 +7,7 @@ export default {
   slots: {
     base: [
       'my-4',
-      'border-t border-base-master/10 dark:border-base-100/20'
+      'border-t border-(--ui-color-divider-default)'
     ].join(' ')
   }
 }

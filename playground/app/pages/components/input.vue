@@ -8,7 +8,7 @@ import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import CalculatorIcon from '@bitrix24/b24icons-vue/main/CalculatorIcon'
 import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
 import TaskIcon from '@bitrix24/b24icons-vue/button/TaskIcon'
-import FolderEmptyIcon from '@bitrix24/b24icons-vue/main/FolderEmptyIcon'
+// import FolderEmptyIcon from '@bitrix24/b24icons-vue/main/FolderEmptyIcon'
 import ALetterIcon from '@bitrix24/b24icons-vue/main/ALetterIcon'
 import CrossedEye2Icon from '@bitrix24/b24icons-vue/main/CrossedEye2Icon'
 import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
@@ -18,39 +18,65 @@ import CalendarIcon from '@bitrix24/b24icons-vue/outline/CalendarIcon'
 
 usePageMeta.setPageTitle('Input')
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
-const tagColors = Object.keys(theme.variants.tagColor) as Array<keyof typeof theme.variants.tagColor>
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
+
+const isUseBg = ref(true)
+
+const oldColors = computed(() => {
+  return colors.filter((color) => {
+    return !color.includes('air')
+  })
+})
+
+const airColors = computed(() => {
+  return colors.filter((color) => {
+    return color.includes('air')
+  })
+})
 </script>
 
 <template>
   <ExampleGrid v-once>
-    <ExampleCard title="base">
+    <ExampleCard title="base" :use-bg="isUseBg">
       <ExampleCardSubTitle title="autofocus" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Input autofocus name="some_value" placeholder="Insert value&hellip;" aria-label="Insert value" class="w-3/4" />
+        <B24Input
+          autofocus
+          name="some_value"
+          placeholder="Insert value&hellip;"
+          aria-label="Insert value"
+        />
       </div>
 
       <ExampleCardSubTitle title="underline" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24Input
-          color="success"
+          color="air-primary-success"
           underline
           name="some_value"
           placeholder="Insert value&hellip;"
           aria-label="Insert value"
-          type="search"
-          class="w-3/4"
         />
       </div>
 
       <ExampleCardSubTitle title="no border" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Input no-border name="some_value" placeholder="Insert value&hellip;" aria-label="Insert value" class="w-3/4" />
+        <B24Input
+          no-border
+          name="some_value"
+          placeholder="Insert value&hellip;"
+          aria-label="Insert value"
+        />
       </div>
 
       <ExampleCardSubTitle title="no padding" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Input no-padding name="some_value" placeholder="Insert value&hellip;" aria-label="Insert value" class="w-3/4" />
+        <B24Input
+          no-padding
+          name="some_value"
+          placeholder="Insert value&hellip;"
+          aria-label="Insert value"
+        />
       </div>
 
       <ExampleCardSubTitle title="some error" />
@@ -60,15 +86,25 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
           placeholder="Insert value&hellip;"
           aria-label="Insert value"
           highlight
-          color="danger"
-          class="w-3/4"
+          color="air-primary-alert"
+          aria-invalid="true"
         />
       </div>
 
       <ExampleCardSubTitle title="some more" />
-      <div class="mb-4 flex flex-col gap-4 w-3/4">
-        <B24Input name="disabled" placeholder="Disabled" aria-label="Disabled" disabled />
-        <B24Input name="required" placeholder="Required" aria-label="Required" required />
+      <div class="mb-4 flex flex-col gap-4">
+        <B24Input
+          name="disabled"
+          placeholder="Disabled"
+          aria-label="Disabled"
+          disabled
+        />
+        <B24Input
+          name="required"
+          placeholder="Required"
+          aria-label="Required"
+          required
+        />
         <B24Input
           name="rounded"
           placeholder="Rounded"
@@ -80,34 +116,59 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
       </div>
     </ExampleCard>
 
-    <ExampleCard title="type">
+    <ExampleCard title="type" :use-bg="isUseBg">
       <ExampleCardSubTitle title="text" />
-      <div class="mb-4 flex flex-col gap-4 w-3/4">
-        <B24Input type="text" name="text" aria-label="Some text" :icon="ALetterIcon" />
+      <div class="mb-4 flex flex-col gap-4">
+        <B24Input
+          type="text"
+          name="text"
+          aria-label="Some text"
+          :icon="ALetterIcon"
+        />
       </div>
       <ExampleCardSubTitle title="number" />
-      <div class="mb-4 flex flex-col gap-4 w-3/4">
-        <B24Input type="number" name="number" aria-label="Some number" :icon="CalculatorIcon" :model-value="10" />
+      <div class="mb-4 flex flex-col gap-4">
+        <B24Input
+          type="number"
+          name="number"
+          aria-label="Some number"
+          :icon="CalculatorIcon"
+          :model-value="10"
+        />
       </div>
       <ExampleCardSubTitle title="password" />
-      <div class="mb-4 flex flex-col gap-4 w-3/4">
-        <B24Input type="password" name="password" aria-label="Some password" :icon="CrossedEye2Icon" model-value="password" />
+      <div class="mb-4 flex flex-col gap-4">
+        <B24Input
+          type="password"
+          name="password"
+          aria-label="Some password"
+          :icon="CrossedEye2Icon"
+          model-value="E>]{78C(f+|9"
+        />
       </div>
       <ExampleCardSubTitle title="search" />
-      <div class="mb-4 flex flex-col gap-4 w-3/4">
-        <B24Input type="search" name="search" aria-label="Search" :icon="Search2Icon" />
+      <div class="mb-4 flex flex-col gap-4">
+        <B24Input
+          type="search"
+          name="search"
+          aria-label="Search"
+          :icon="Search2Icon"
+        />
       </div>
+
+      <!-- / @memo types are supported but not used
       <ExampleCardSubTitle title="file" />
-      <div class="mb-4 flex flex-col gap-4 w-3/4">
+      <div class="mb-4 flex flex-col gap-4">
+        <B24Input type="file" name="file" aria-label="Some file" :icon="FolderEmptyIcon" size="xss" />
         <B24Input type="file" name="file" aria-label="Some file" :icon="FolderEmptyIcon" size="xs" />
         <B24Input type="file" name="file" aria-label="Some file" :icon="FolderEmptyIcon" size="sm" />
-        <B24Input type="file" name="file" aria-label="Some file" :icon="FolderEmptyIcon" />
+        <B24Input type="file" name="file" aria-label="Some file" :icon="FolderEmptyIcon" size="md" />
         <B24Input type="file" name="file" aria-label="Some file" :icon="FolderEmptyIcon" size="lg" />
+        <B24Input type="file" name="file" aria-label="Some file" :icon="FolderEmptyIcon" size="xl" />
       </div>
-      <!-- / @memo types are supported but not used
+
       <ExampleCardSubTitle title="make this" />
       <div class="mb-4 flex flex-col gap-4 w-3/4">
-
         <B24Input type="date" :model-value="new Date().toISOString().substring(0, 10)" />
         <B24Input type="checkbox" />
         <B24Input type="radio" />
@@ -122,17 +183,21 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
       / -->
     </ExampleCard>
 
-    <ExampleCard title="loading">
+    <ExampleCard title="loading" :use-bg="isUseBg">
       <ExampleCardSubTitle title="loading" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Input loading name="some_value" placeholder="Insert value&hellip;" aria-label="Insert value" class="w-3/4" />
+        <B24Input
+          loading
+          name="some_value"
+          placeholder="Insert value&hellip;"
+          aria-label="Insert value"
+        />
         <B24Input
           loading
           trailing
           name="some_value"
           placeholder="Insert value&hellip;"
           aria-label="Insert value"
-          class="w-3/4"
         />
         <B24Input
           loading
@@ -141,7 +206,6 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
           name="some_value"
           placeholder="Insert value&hellip;"
           aria-label="Insert value"
-          class="w-3/4"
         />
         <B24Input
           loading
@@ -149,13 +213,12 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
           name="some_value"
           placeholder="Insert value&hellip;"
           aria-label="Insert value"
-          class="w-3/4"
         />
       </div>
     </ExampleCard>
 
-    <ExampleCard title="color">
-      <template v-for="color in colors" :key="color">
+    <ExampleCard title="color" :use-bg="isUseBg">
+      <template v-for="color in airColors" :key="color">
         <ExampleCardSubTitle :title="color as string" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
           <B24Input
@@ -164,39 +227,66 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
             aria-label="Insert value"
             :color="color"
             highlight
-            class="w-3/4"
           />
-        </div>
-      </template>
-    </ExampleCard>
 
-    <ExampleCard title="tag">
-      <template v-for="tagColor in tagColors" :key="tagColor">
-        <ExampleCardSubTitle :title="tagColor as string" />
-        <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
           <B24Input
-            :tag-color="tagColor"
+            :tag-color="color"
             tag="some text"
             name="some_value"
             placeholder="Insert value&hellip;"
             aria-label="Insert value"
-            class="w-3/4"
+            :color="color"
+            highlight
           />
         </div>
       </template>
-    </ExampleCard>
+      <B24Collapsible class="mb-2">
+        <B24Button
+          color="air-secondary-no-accent"
+          label="Deprecate"
+          use-dropdown
+        />
+        <template #content>
+          <template v-for="color in oldColors" :key="color">
+            <ExampleCardSubTitle :title="color as string" />
+            <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+              <B24Input
+                name="some_value"
+                placeholder="Insert value&hellip;"
+                aria-label="Insert value"
+                :color="color"
+                highlight
+              />
 
-    <ExampleCard title="mask" class="sm:col-span-2">
-      <B24Alert title="Memo" color="warning" class="mb-2">
-        <template #description>
-          There's no built-in support for masks, but you can use libraries like <ProseA href="https://github.com/beholdr/maska" target="_blank"><ProseCode color="warning">maska</ProseCode></ProseA> to mask the Input.
+              <B24Input
+                :tag-color="color"
+                tag="some text"
+                name="some_value"
+                placeholder="Insert value&hellip;"
+                aria-label="Insert value"
+                :color="color"
+                highlight
+              />
+            </div>
+          </template>
         </template>
-      </B24Alert>
-      <ExampleCardSubTitle title="card" />
-      <div class="mb-4 flex flex-col gap-2 w-3/4">
+      </B24Collapsible>
+    </ExampleCard>
+  </ExampleGrid>
+
+  <B24Separator accent="accent" class="my-4" label="Mask" type="dotted" />
+  <B24Alert title="Memo" color="air-primary-warning" class="mb-4">
+    <template #description>
+      There's no built-in support for masks, but you can use libraries like <ProseA href="https://github.com/beholdr/maska" target="_blank"><ProseCode color="air-primary">maska</ProseCode></ProseA> to mask the Input.
+    </template>
+  </B24Alert>
+  <ExampleGrid v-once>
+    <ExampleCard title="mask" :use-bg="isUseBg" class="sm:col-span-2 md:col-span-4">
+      <B24Separator class="my-3" type="dotted" />
+      <div class="mb-4 flex flex-col gap-2 w-full max-w-[240px]">
         <B24Input
           v-maska="'#### #### #### ####'"
-          placeholder="4242 4242 4242 4242"
+          placeholder="000 0000 0000 0000"
           :icon="CreditDebitCardIcon"
         />
 
@@ -213,12 +303,21 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
         </div>
       </div>
     </ExampleCard>
+  </ExampleGrid>
 
-    <ExampleCard title="size" class="sm:col-span-2">
+  <B24Separator accent="accent" class="my-4" label="Size" type="dotted" />
+  <ExampleGrid v-once class="mb-4">
+    <ExampleCard title="Some cases" :use-bg="isUseBg" class="sm:col-span-2 md:col-span-4">
       <template v-for="size in sizes" :key="size">
         <ExampleCardSubTitle :title="size as string" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-          <B24Input name="some_value" placeholder="Insert value&hellip;" aria-label="Insert value" :size="size" class="w-40" />
+          <B24Input
+            name="some_value"
+            placeholder="Insert value&hellip;"
+            aria-label="Insert value"
+            :size="size"
+            class="w-40"
+          />
           <B24Input
             :icon="Search2Icon"
             name="some_value"

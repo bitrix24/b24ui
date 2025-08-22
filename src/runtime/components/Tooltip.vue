@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { TooltipRootProps, TooltipRootEmits, TooltipContentProps, TooltipContentEmits, TooltipArrowProps, TooltipTriggerProps } from 'reka-ui'
+import type { TooltipRootProps, TooltipRootEmits, TooltipContentProps, TooltipContentEmits, TooltipArrowProps, TooltipTriggerProps, PopoverArrowProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/tooltip'
 import type { KbdProps } from '../types'
@@ -27,6 +27,11 @@ export interface TooltipProps extends TooltipRootProps {
    * @defaultValue true
    */
   portal?: boolean | string | HTMLElement
+  /**
+   * The reference (or anchor) element that is being referred to for positioning.
+   *
+   * If not provided will use the current component as anchor.
+   */
   reference?: TooltipTriggerProps['reference']
   class?: any
   b24ui?: Tooltip['slots']
@@ -51,17 +56,18 @@ import { tv } from '../utils/tv'
 import B24Kbd from './Kbd.vue'
 
 const props = withDefaults(defineProps<TooltipProps>(), {
-  portal: true
+  portal: true,
+  arrow: true
 })
 const emits = defineEmits<TooltipEmits>()
 const slots = defineSlots<TooltipSlots>()
 
 const appConfig = useAppConfig() as Tooltip['AppConfig']
 
-const rootProps = useForwardPropsEmits(reactivePick(props, 'defaultOpen', 'open', 'delayDuration', 'disableHoverableContent', 'disableClosingTrigger', 'disabled', 'ignoreNonKeyboardFocus'), emits)
+const rootProps = useForwardPropsEmits(reactivePick(props, 'defaultOpen', 'open', 'delayDuration', 'disableHoverableContent', 'disableClosingTrigger', 'ignoreNonKeyboardFocus'), emits)
 const portalProps = usePortal(toRef(() => props.portal))
 const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffset: 8, collisionPadding: 8 }) as TooltipContentProps)
-const arrowProps = toRef(() => props.arrow as TooltipArrowProps)
+const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 12, height: 7 }) as PopoverArrowProps)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.tooltip || {}) })({
@@ -70,7 +76,11 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.toolti
 </script>
 
 <template>
-  <TooltipRoot v-slot="{ open }" v-bind="rootProps">
+  <TooltipRoot
+    v-slot="{ open }"
+    v-bind="rootProps"
+    :disabled="!(text || kbds?.length || !!slots.content) || props.disabled"
+  >
     <TooltipTrigger
       v-if="!!slots.default || !!reference"
       v-bind="$attrs"
@@ -91,7 +101,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.toolti
               v-for="(kbd, index) in kbds"
               :key="index"
               :size="((props.b24ui?.kbdsSize || b24ui.kbdsSize()) as KbdProps['size'])"
-              :depth="((props.b24ui?.kbdsDepth || b24ui.kbdsDepth()) as KbdProps['depth'])"
+              :accent="((props.b24ui?.kbdsAccent || b24ui.kbdsAccent()) as KbdProps['accent'])"
               v-bind="typeof kbd === 'string' ? { value: kbd } : kbd"
             />
           </span>

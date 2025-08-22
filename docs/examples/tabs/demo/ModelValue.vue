@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 
-const route = useRoute()
-const router = useRouter()
-
+const state = ref('b24')
 const items = [
   {
     label: 'My Bitrix24',
@@ -17,15 +15,10 @@ const items = [
 
 const active = computed({
   get() {
-    return (route.query.tab as string) || 'b24'
+    return state.value
   },
   set(tab) {
-    // Hash is specified here to prevent the page from scrolling to the top
-    router.push({
-      path: '/components/tabs',
-      query: { tab },
-      hash: '#control-active-item'
-    })
+    state.value = tab
   }
 })
 </script>
@@ -37,4 +30,5 @@ const active = computed({
     :items="items"
     class="w-full"
   />
+  <ProsePre>{{ state }}</ProsePre>
 </template>

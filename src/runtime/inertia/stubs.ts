@@ -1,11 +1,11 @@
 import { ref, onScopeDispose } from 'vue'
 import type { Ref, Plugin as VuePlugin } from 'vue'
 import { createHooks } from 'hookable'
+import { usePage } from '@inertiajs/vue3'
+import { useColorMode as useColorModeVueUse } from '@vueuse/core'
 
 import appConfig from '#build/app.config'
 import type { NuxtApp } from '#app'
-import { useColorMode as useColorModeVueUse } from '@vueuse/core'
-import { usePage } from '@inertiajs/vue3'
 
 export { useHead } from '@unhead/vue'
 
@@ -18,12 +18,17 @@ export { useOverlay } from '../composables/useOverlay'
 
 export const useRoute = () => {
   const page = usePage()
+
   return {
     fullPath: page.url
   }
 }
 
 export const useRouter = () => {
+
+}
+
+export const clearError = () => {
 
 }
 

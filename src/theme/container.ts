@@ -5,5 +5,5 @@
  */
 
 export default {
-  base: 'w-full max-w-[80rem] mx-auto px-5' // max-w-7xl w-full
+  base: 'w-full max-w-[1280px] mx-auto px-[22px]' // max-w-7xl w-full
 }

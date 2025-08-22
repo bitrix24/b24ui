@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import type { SelectItem } from '@bitrix24/b24ui-nuxt'
 
 const items = ref([
   {
@@ -8,10 +9,10 @@ const items = ref([
   },
   'CRM settings',
   'My company details',
-  'Access permissions',
   {
     type: 'separator'
   },
+  'Access permissions',
   {
     type: 'label',
     label: 'Smart scripts'
@@ -19,8 +20,9 @@ const items = ref([
   'Scripts',
   'Create script',
   'Install from Bitrix24.Market'
-])
-const value = ref('Access permissions')
+] satisfies SelectItem[])
+
+const value = ref(items.value[4])
 </script>
 
 <template>

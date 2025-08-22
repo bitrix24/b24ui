@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import type { ButtonProps } from '@bitrix24/b24ui-nuxt/types/index.ts'
+import type { ButtonProps } from '@bitrix24/b24ui-nuxt'
 import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
 
 export interface ExampleProps {
   label?: string
-  depth?: ButtonProps['depth']
   color?: ButtonProps['color']
   size?: ButtonProps['size']
   isLoading?: boolean
@@ -12,9 +11,8 @@ export interface ExampleProps {
 
 withDefaults(defineProps<ExampleProps>(), {
   label: 'Button',
-  depth: 'dark' as const,
-  color: 'default' as const,
-  size: 'md' as const,
+  color: 'air-primary' as ButtonProps['color'],
+  size: 'md' as ButtonProps['size'],
   isLoading: true
 })
 </script>
@@ -24,7 +22,6 @@ withDefaults(defineProps<ExampleProps>(), {
     :loading="isLoading"
     :label="label"
     :color="color"
-    :depth="depth"
     :size="size"
   />
   <B24Button
@@ -32,7 +29,6 @@ withDefaults(defineProps<ExampleProps>(), {
     :loading="isLoading"
     :label="label"
     :color="color"
-    :depth="depth"
     :size="size"
     :icon="RocketIcon"
   />
@@ -41,7 +37,6 @@ withDefaults(defineProps<ExampleProps>(), {
     :loading="isLoading"
     :label="label"
     :color="color"
-    :depth="depth"
     :size="size"
     :avatar="{ src: '/b24ui/avatar/employee.png' }"
   />
