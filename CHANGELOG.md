@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.2](https://github.com/bitrix24/b24ui/compare/v1.0.1...v1.0.2) (2025-08-25)
+
+### Bug Fixes
+* **SidebarLayout**: color for `loadingIcon` for `edge-dark` context when using `useLightContent`
+
+### Features
+* **Slideover**: add b24ui `sidebarLayoutLoadingWrapper` and `sidebarLayoutLoadingIcon`
+
 ## [1.0.1](https://github.com/bitrix24/b24ui/compare/v0.7.2...v1.0.1) (2025-08-20)
 
 ### AirWeb
