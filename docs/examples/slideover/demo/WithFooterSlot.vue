@@ -22,8 +22,7 @@ withDefaults(defineProps<ExampleProps>(), {
       <Placeholder class="size-full" />
     </template>
     <template #footer="{ close }">
-      <div class="w-1/5 flex justify-start">
-      </div>
+      <div class="w-1/5 flex justify-start" />
       <div class="w-full flex flex-row justify-center gap-[10px]">
         <B24ModalDialogClose>
           <B24Button label="Send" color="air-primary" />
