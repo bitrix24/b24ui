@@ -360,7 +360,8 @@ const openSliderTopAndBottom = async () => {
           description="Some description"
           :use-light-content="false"
           :b24ui="{
-            content: 'sm:max-w-1/2'
+            content: 'sm:max-w-1/2',
+            sidebarLayoutLoadingIcon: 'text-(--ui-color-red-70)'
           }"
         >
           <B24Button label="Upload file" />
@@ -484,7 +485,7 @@ const openSliderTopAndBottom = async () => {
           description="Some description"
           :use-light-content="false"
           :b24ui="{
-            content: 'sm:max-w-[970px]',
+            content: 'sm:max-w-[970px] sm:top-[275px] sm:max-h-[calc(100%-275px)]',
             sidebarLayoutRoot: [
               'edge-dark',
               'edge-dark:[--air-theme-bg-color:#7c235b]',
@@ -598,7 +599,7 @@ const openSliderTopAndBottom = async () => {
           description="Some description"
           :use-light-content="false"
           :b24ui="{
-            content: 'sm:max-w-[900px]',
+            content: 'sm:max-w-[965px] sm:top-[375px] sm:max-h-[calc(100%-375px)]',
             body: 'relative',
             sidebarLayoutRoot: [
               'edge-light',

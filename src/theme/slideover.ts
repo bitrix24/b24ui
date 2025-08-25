@@ -28,6 +28,8 @@ export default {
     sidebarLayoutRoot: '',
     sidebarLayoutHeaderWrapper: '',
     sidebarLayoutPageBottomWrapper: '',
+    sidebarLayoutLoadingWrapper: '',
+    sidebarLayoutLoadingIcon: '',
     header: [
       'pt-[24px]',
       'flex-1 flex items-center gap-x-[12px] gap-y-1.5'

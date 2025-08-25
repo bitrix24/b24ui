@@ -30,7 +30,7 @@ const handleAction = async () => {
     description="Some description"
     :use-light-content="false"
     :b24ui="{
-      content: 'sm:max-w-[970px]',
+      content: 'sm:max-w-[970px] sm:top-[275px] sm:max-h-[calc(100%-275px)]',
       sidebarLayoutRoot: [
         'edge-dark',
         'edge-dark:[--air-theme-bg-color:#7c235b]',
@@ -40,7 +40,8 @@ const handleAction = async () => {
         'edge-dark:[--air-theme-bg-attachment:local]',
         'edge-dark:[--air-theme-bg-image:url(/bg/edge-dark-v2.jpg)]',
         'edge-dark:[--air-theme-bg-image-blurred:url(/bg/edge-dark-v2-blurred.webp)]'
-      ].join(' ')
+      ].join(' '),
+      sidebarLayoutLoadingIcon: 'text-(--ui-color-gray-70)'
     }"
   >
     <B24Button label="Some list" />
@@ -148,7 +149,7 @@ const handleAction = async () => {
     description="Some description"
     :use-light-content="false"
     :b24ui="{
-      content: 'sm:max-w-[900px]',
+      content: 'sm:max-w-[965px] sm:top-[375px] sm:max-h-[calc(100%-375px)]',
       body: 'relative',
       sidebarLayoutRoot: [
         'edge-light',
@@ -190,10 +191,10 @@ const handleAction = async () => {
     </template>
     <template #footer>
       <B24ModalDialogClose>
-        <B24Button label="Back" color="air-tertiary" />
+        <B24Button label="Continue" color="air-primary" />
       </B24ModalDialogClose>
       <B24ModalDialogClose>
-        <B24Button label="Continue" color="air-primary" />
+        <B24Button label="Back" color="air-tertiary" />
       </B24ModalDialogClose>
     </template>
   </B24Slideover>

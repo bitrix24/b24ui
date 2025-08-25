@@ -252,7 +252,9 @@ defineExpose<SlideoverInstance>({
             :b24ui="{
               root: b24ui.sidebarLayoutRoot({ class: props.b24ui?.sidebarLayoutRoot }),
               header: b24ui.sidebarLayoutHeaderWrapper({ class: props.b24ui?.sidebarLayoutHeaderWrapper }),
-              pageBottomWrapper: b24ui.sidebarLayoutPageBottomWrapper({ class: props.b24ui?.sidebarLayoutPageBottomWrapper })
+              pageBottomWrapper: b24ui.sidebarLayoutPageBottomWrapper({ class: props.b24ui?.sidebarLayoutPageBottomWrapper }),
+              loadingWrapper: b24ui.sidebarLayoutLoadingWrapper({ class: props.b24ui?.sidebarLayoutLoadingWrapper }),
+              loadingIcon: b24ui.sidebarLayoutLoadingIcon({ class: props.b24ui?.sidebarLayoutLoadingIcon })
             }"
           >
             <template v-if="!!slots['sidebar']" #sidebar>
