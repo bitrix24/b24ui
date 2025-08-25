@@ -83,7 +83,10 @@ export default {
       // 'bg-[#00204e]/52', //  //#000000/66 // [#00204e]/52
       // 'motion-safe:backdrop-blur-sm'
     ].join(' '),
-    loadingIcon: 'text-(--ui-color-design-plain-content-icon-secondary) size-[110px] animate-spin-slow'
+    loadingIcon: [
+      'text-(--ui-color-design-plain-content-icon-secondary)',
+      'size-[110px] animate-spin-slow'
+    ].join(' ')
   },
   variants: {
     inner: {
@@ -141,6 +144,9 @@ export default {
           // @memo set context* from component
           'text-(--ui-color-text-primary)',
           'bg-(--ui-color-bg-content-primary) ' // backdrop-blur-md dark:bg-(--ui-color-base-7)/80 edge-dark:bg-(--ui-color-base-7)/95
+        ].join(' '),
+        loadingIcon: [
+          'edge-dark:text-(--ui-color-gray-70)'
         ].join(' ')
       },
       false: {
