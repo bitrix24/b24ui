@@ -75,7 +75,7 @@ It should be understood that the [`Slideover`](/components/slideover) component 
 :::
 
 ::: tip
-Many examples can be found on the [playground](https://github.com/bitrix24/b24ui/blob/main/playground/app/pages/components/slideover.vue) and also seen in the [demo]((https://github.com/bitrix24/b24ui/demo/components/slideover/) version.
+Many examples can be found on the [playground](https://bitrix24.github.io/b24ui/demo/components/slideover) and also seen in the [demo](https://github.com/bitrix24/b24ui/blob/main/demo/app/pages/components/slideover.vue) version.
 :::
 
 ## API
