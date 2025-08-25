@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BadgeProps } from '@bitrix24/b24ui-nuxt/types/index.ts'
+import type { BadgeProps } from '@bitrix24/b24ui-nuxt'
 import InfoIcon from '@bitrix24/b24icons-vue/button/InfoIcon'
 
 export interface ExampleProps {

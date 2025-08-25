@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { AlertProps } from '@bitrix24/b24ui-nuxt/types/index.ts'
+import type { AlertProps } from '@bitrix24/b24ui-nuxt'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 
 export interface ExampleProps {

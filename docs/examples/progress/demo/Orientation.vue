@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ProgressProps } from '@bitrix24/b24ui-nuxt/types/index.ts'
+import type { ProgressProps } from '@bitrix24/b24ui-nuxt'
 
 export interface ExampleProps {
   orientation?: ProgressProps['orientation']

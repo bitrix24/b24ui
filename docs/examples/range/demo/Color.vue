@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { RangeProps } from '@bitrix24/b24ui-nuxt/types/index.ts'
+import type { RangeProps } from '@bitrix24/b24ui-nuxt'
 
 export interface ExampleProps {
   color?: RangeProps['color']

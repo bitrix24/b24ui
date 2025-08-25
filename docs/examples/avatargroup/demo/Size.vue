@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { AvatarGroup } from '@bitrix24/b24ui-nuxt/types/index.ts'
+import type { AvatarGroup } from '@bitrix24/b24ui-nuxt'
 
 export interface ExampleProps {
   size?: AvatarGroup['size']

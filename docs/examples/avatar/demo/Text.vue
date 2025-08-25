@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { AvatarProps } from '@bitrix24/b24ui-nuxt/types/index.ts'
+import type { AvatarProps } from '@bitrix24/b24ui-nuxt'
 
 export interface ExampleProps {
   text?: string

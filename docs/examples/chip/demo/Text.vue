@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import MailIcon from '@bitrix24/b24icons-vue/main/MailIcon'
-import type { ChipProps } from '@bitrix24/b24ui-nuxt/types/index.ts'
+import type { ChipProps } from '@bitrix24/b24ui-nuxt'
 
 export interface ExampleProps {
   text?: string
