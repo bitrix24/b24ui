@@ -1,25 +1,30 @@
 <script setup lang="ts">
-import type { Slideover } from '@bitrix24/b24ui-nuxt'
+import type { SlideoverProps } from '@bitrix24/b24ui-nuxt'
 
 export interface ExampleProps {
-  overlayBlur?: Slideover['overlayBlur']
+  overlayBlur?: SlideoverProps['overlayBlur']
+  title?: string
+  description?: string
 }
 
 withDefaults(defineProps<ExampleProps>(), {
-  overlayBlur: 'auto' as const
+  overlayBlur: 'auto' as SlideoverProps['overlayBlur'],
+  title: 'Heads up!',
+  description: 'Let\'s signal the manager that the deal is not moving.'
 })
 </script>
 
 <template>
   <B24Slideover
     :overlay-blur="overlayBlur"
-    :title="`Slideover overlay blur ${overlayBlur}`"
-    description="The `overlay-blur` prop use"
+    :title="title"
+    :description="description"
+    :b24ui="{ content: 'sm:top-[300px] sm:max-h-[calc(100%-300px)]' }"
   >
-    <B24Button label="Open" color="link" depth="dark" />
+    <B24Button label="Open" />
 
     <template #body>
-      <Placeholder class="h-48" />
+      <Placeholder class="size-full" />
     </template>
   </B24Slideover>
 </template>

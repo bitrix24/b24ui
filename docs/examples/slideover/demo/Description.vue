@@ -15,10 +15,10 @@ withDefaults(defineProps<ExampleProps>(), {
     :title="title"
     :description="description"
   >
-    <B24Button label="Open" color="link" depth="dark" />
+    <B24Button label="Open" />
 
     <template #body>
-      <Placeholder class="h-full" />
+      <Placeholder class="size-full" />
     </template>
   </B24Slideover>
 </template>

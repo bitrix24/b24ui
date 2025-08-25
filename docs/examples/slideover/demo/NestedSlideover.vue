@@ -1,6 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+export interface ExampleProps {
+  title?: string
+  description?: string
+}
+
+withDefaults(defineProps<ExampleProps>(), {
+  title: 'Heads up!',
+  description: 'Let\'s signal the manager that the deal is not moving.'
+})
+
 const first = ref(false)
 const second = ref(false)
 </script>
@@ -8,54 +18,45 @@ const second = ref(false)
 <template>
   <B24Slideover
     v-model:open="first"
-    title="First Slideover"
-    :b24ui="{ content: 'sm:max-w-1/2' }"
+    :title="title"
+    :description="description"
   >
-    <B24Button label="Open" color="link" depth="dark" />
+    <B24Button label="Open" />
 
     <template #body>
-      <B24Container class="h-full w-full pb-4">
-        <Placeholder class="h-full w-full" />
-      </B24Container>
+      <Placeholder class="size-full" />
     </template>
 
     <template #footer>
-      <B24Button
-        rounded
-        label="Close"
-        color="link"
-        depth="dark"
-        size="sm"
-        @click="first = false"
-      />
-      <B24Slideover
-        v-model:open="second"
-        title="Second Slideover"
-      >
-        <B24Button
-          color="default"
-          label="Open second"
-          rounded
-          size="sm"
-        />
-
-        <template #body>
-          <B24Container class="h-full w-full pb-4">
-            <Placeholder class="h-full w-full" />
-          </B24Container>
-        </template>
-
-        <template #footer>
+      <div class="flex flex-row gap-[10px]">
+        <B24Slideover
+          v-model:open="second"
+          title="Second Slideover"
+          :b24ui="{ content: 'sm:top-[300px] sm:max-h-[calc(100%-300px)]' }"
+        >
           <B24Button
-            rounded
-            label="Close"
-            color="link"
-            depth="dark"
-            size="sm"
-            @click="second = false"
+            color="air-primary"
+            label="Open second"
           />
-        </template>
-      </B24Slideover>
+
+          <template #body>
+            <Placeholder class="size-full" />
+          </template>
+
+          <template #footer>
+            <B24Button
+              color="air-tertiary"
+              label="Close"
+              @click="second = false"
+            />
+          </template>
+        </B24Slideover>
+        <B24Button
+          label="Close"
+          color="air-tertiary"
+          @click="first = false"
+        />
+      </div>
     </template>
   </B24Slideover>
 </template>

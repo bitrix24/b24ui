@@ -1,23 +1,27 @@
 <script setup lang="ts">
 export interface ExampleProps {
   isTransition?: boolean
+  title?: string
+  description?: string
 }
 
 withDefaults(defineProps<ExampleProps>(), {
-  isTransition: true
+  isTransition: true,
+  title: 'Heads up!',
+  description: 'Let\'s signal the manager that the deal is not moving.'
 })
 </script>
 
 <template>
   <B24Slideover
     :transition="isTransition"
-    :title="`Slideover ${isTransition ? 'with' : 'without'} transition`"
-    description="The `transition` prop use"
+    :title="title"
+    :description="description"
   >
-    <B24Button label="Open" color="link" depth="dark" />
+    <B24Button label="Open" />
 
     <template #body>
-      <Placeholder class="h-full w-full" />
+      <Placeholder class="size-full" />
     </template>
   </B24Slideover>
 </template>

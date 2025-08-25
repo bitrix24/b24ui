@@ -12,24 +12,19 @@ const emit = defineEmits<{ close: [boolean] }>()
     :title="`This Slideover was opened programmatically ${count} times`"
   >
     <template #body>
-      <Placeholder class="h-full" />
+      <Placeholder class="size-full" />
     </template>
 
     <template #footer>
-      <div class="flex gap-2">
+      <div class="flex flex-row gap-[10px]">
         <B24Button
-          color="success"
+          color="air-primary-success"
           label="Success"
-          rounded
-          size="sm"
           @click="emit('close', true)"
         />
         <B24Button
-          rounded
           label="Close"
-          color="link"
-          depth="dark"
-          size="sm"
+          color="air-tertiary"
           @click="emit('close', false)"
         />
       </div>

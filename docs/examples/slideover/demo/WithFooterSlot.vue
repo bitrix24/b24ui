@@ -1,26 +1,38 @@
+<script setup lang="ts">
+export interface ExampleProps {
+  title?: string
+  description?: string
+}
+
+withDefaults(defineProps<ExampleProps>(), {
+  title: 'Heads up!',
+  description: 'Let\'s signal the manager that the deal is not moving.'
+})
+</script>
+
 <template>
   <B24Slideover
-    title="Slideover with footer"
-    description="This is useful when you want a form in a Slideover."
-    :b24ui="{ footer: 'flex-row-reverse justify-start' }"
+    :title="title"
+    :description="description"
+    :b24ui="{ footer: 'justify-between' }"
   >
-    <B24Button label="Open" color="link" depth="dark" />
+    <B24Button label="Open" />
 
     <template #body>
-      <Placeholder class="h-full w-full" />
+      <Placeholder class="size-full" />
     </template>
     <template #footer="{ close }">
-      <B24ModalDialogClose>
-        <B24Button rounded label="Send" color="primary" size="sm" />
-      </B24ModalDialogClose>
-      <B24Button
-        rounded
-        label="Cancel"
-        color="link"
-        depth="dark"
-        size="sm"
-        @click="close"
-      />
+      <div class="w-1/5 flex justify-start">
+      </div>
+      <div class="w-full flex flex-row justify-center gap-[10px]">
+        <B24ModalDialogClose>
+          <B24Button label="Send" color="air-primary" />
+        </B24ModalDialogClose>
+        <B24Button label="Cancel" color="air-tertiary" @click="close" />
+      </div>
+      <div class="w-1/5 flex justify-end">
+        <B24Button label="Full version" size="sm" color="air-tertiary-no-accent" />
+      </div>
     </template>
   </B24Slideover>
 </template>

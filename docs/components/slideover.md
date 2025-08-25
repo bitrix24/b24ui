@@ -18,12 +18,9 @@ import DismissibleExample from '/examples/slideover/Dismissible.vue';
 import ProgrammaticUsageExample from '/examples/slideover/ProgrammaticUsage.vue';
 import NestedSlideoverExample from '/examples/slideover/NestedSlideover.vue';
 import WithFooterSlotExample from '/examples/slideover/WithFooterSlot.vue';
+import SidebarLayoutSlideoverExample from '/examples/sidebarlayout/SidebarLayoutSlideover.vue';
 </script>
 # Slideover
-
-::: warning We are still updating this page
-Some data may be missing here — we will complete it shortly.
-:::
 
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/slideover"
@@ -36,6 +33,9 @@ Some data may be missing here — we will complete it shortly.
 </Description>
 
 ## Usage
+::: info
+It should be understood that the `Slideover` component displays data using the [`SidebarLayout`](/components/sidebar-layout) component.
+:::
 
 Use a [Button](/components/button) or any other component in the default slot of the Slideover.
 
@@ -47,7 +47,7 @@ Then, use the `#content` slot to add the content displayed when the Slideover is
   </ClientOnly>
 </div>
 
-<<< @/examples/slideover/demo/Slideover.vue{2,5-7,8 vue:line-numbers}
+<<< @/examples/slideover/demo/Slideover.vue{vue:line-numbers}
 
 You can also use the `#header`{lang="ts"}, `#body`{lang="ts"} and `#footer`{lang="ts"} slots to customize the Slideover's content.
 
@@ -96,7 +96,7 @@ The close button is not displayed if the `#content` slot is used as it's a part 
 </div>
 
 ::: details
-<<< @/examples/slideover/demo/Close.vue{5-6,18 vue:line-numbers}
+<<< @/examples/slideover/demo/Close.vue{19-20 vue:line-numbers}
 :::
 
 ### Close Icon
@@ -115,7 +115,7 @@ Use the `close-icon` prop to customize the close button [@bitrix24/b24icons](htt
 
 ### Side
 
-Use the `side` prop to set the side of the screen where the Slideover will slide in from. Defaults to `right`.
+Use the `side` prop to set the side of the screen where the Slideover will slide in from. Defaults to `bottom`.
 
 <div class="lg:min-h-[275px]">
   <ClientOnly>
@@ -124,7 +124,7 @@ Use the `side` prop to set the side of the screen where the Slideover will slide
 </div>
 
 ::: details
-<<< @/examples/slideover/demo/Side.vue{15 vue:line-numbers}
+<<< @/examples/slideover/demo/Side.vue{11 vue:line-numbers}
 :::
 
 ### Overlay
@@ -138,15 +138,15 @@ Use the `overlay` prop to control whether the Modal has an overlay or not. Defau
 </div>
 
 ::: details
-<<< @/examples/slideover/demo/Overlay.vue{13 vue:line-numbers}
+<<< @/examples/slideover/demo/Overlay.vue{17 vue:line-numbers}
 :::
 
 If you want to disable background blur, you should use the `overlayBlur` prop.
 The `overlayBlur` prop has 3 options:
 
-- `auto`: (default) when the user has **not requested** [reduced motion](https://tailwindcss.com/docs/hover-focus-and-other-states#prefers-reduced-motion)
+- `auto`: when the user has **not requested** [reduced motion](https://tailwindcss.com/docs/hover-focus-and-other-states#prefers-reduced-motion)
 - `on`: always use blur
-- `off`: do not use blur
+- `off`: (default) do not use blur
 
 <div class="lg:min-h-[275px]">
   <ClientOnly>
@@ -155,7 +155,7 @@ The `overlayBlur` prop has 3 options:
 </div>
 
 ::: details
-<<< @/examples/modal/demo/OverlayBlur.vue{13 vue:line-numbers}
+<<< @/examples/modal/demo/OverlayBlur.vue{19 vue:line-numbers}
 :::
 
 ### Transition
@@ -173,7 +173,7 @@ Use the `transition` prop to control whether the Slideover is animated or not. D
 </div>
 
 ::: details
-<<< @/examples/slideover/demo/Transition.vue{13 vue:line-numbers}
+<<< @/examples/slideover/demo/Transition.vue{17 vue:line-numbers}
 :::
 
 ## Examples
@@ -197,7 +197,7 @@ This allows you to move the trigger outside of the Slideover or remove it entire
 </div>
 
 ::: details
-<<< @/examples/slideover/demo/ControlOpenState.vue{7,13 vue:line-numbers}
+<<< @/examples/slideover/demo/ControlOpenState.vue{14,17,23 vue:line-numbers}
 :::
 
 ### Disable dismissal
@@ -211,7 +211,7 @@ Set the `dismissible` prop to `false` to prevent the Slideover from being closed
 </div>
 
 ::: details
-<<< @/examples/slideover/demo/Dismissible.vue{3 vue:line-numbers}
+<<< @/examples/slideover/demo/Dismissible.vue{15 vue:line-numbers}
 :::
 
 ### Programmatic usage
@@ -225,7 +225,7 @@ Make sure to wrap your app with the [`App`](/components/app) component which use
 First, create a slideover component that will be opened programmatically:
 
 ::: code-group
-<<< @/examples/slideover/demo/LazySlideover.vue{6,11,12,25,33 vue:line-numbers}
+<<< @/examples/slideover/demo/LazySlideover.vue{6,11,12,23,28 vue:line-numbers}
 :::
 
 ::: info
@@ -245,7 +245,7 @@ You can close the slideover within the slideover component by emitting `emit('cl
 </div>
 
 ::: details
-<<< @/examples/slideover/demo/ProgrammaticUsage.vue{8,10-14,16-40,48 vue:line-numbers}
+<<< @/examples/slideover/demo/ProgrammaticUsage.vue{10,10-40,44 vue:line-numbers}
 :::
 
 ### Nested slideovers
@@ -259,7 +259,7 @@ You can nest slideovers within each other.
 </div>
 
 ::: details
-<<< @/examples/slideover/demo/NestedSlideover.vue{4-5,10,12,22,29,31,55 vue:line-numbers}
+<<< @/examples/slideover/demo/NestedSlideover.vue{20,33 vue:line-numbers}
 :::
 
 ### With footer slot
@@ -277,9 +277,24 @@ You can also close the dialog box using the `B24ModalDialogClose` component.
 </div>
 
 ::: details
-<<< @/examples/slideover/demo/WithFooterSlot.vue{5,12-19 vue:line-numbers}
+<<< @/examples/slideover/demo/WithFooterSlot.vue{17,24-36 vue:line-numbers}
 :::
 
+### Simple list of elements
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <SidebarLayoutSlideoverExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/sidebarlayout/demo/SidebarLayoutSlideover.vue{vue:line-numbers}
+:::
+
+::: tip
+Many examples can be found on the [playground](https://bitrix24.github.io/b24ui/demo/components/slideover) and also seen in the [demo](https://github.com/bitrix24/b24ui/blob/main/demo/app/pages/components/slideover.vue) version.
+:::
 
 ## API
 

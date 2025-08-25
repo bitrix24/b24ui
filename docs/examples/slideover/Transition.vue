@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
 import Demo from './demo/Transition.vue'
+import { title, description } from './dictionary'
 
 const isTransition = ref(false)
 </script>
@@ -13,6 +14,6 @@ const isTransition = ref(false)
         <B24Switch v-model="isTransition" />
       </B24FormField>
     </template>
-    <Demo :is-transition="isTransition" />
+    <Demo :is-transition="isTransition" :title="title" :description="description" />
   </ComponentShowExample>
 </template>
