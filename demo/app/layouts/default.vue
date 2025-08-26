@@ -9,40 +9,26 @@ import SunIcon from '@bitrix24/b24icons-vue/main/SunIcon'
 import SunIconAir from '@bitrix24/b24icons-vue/outline/SunIcon'
 import MoonIcon from '@bitrix24/b24icons-vue/main/MoonIcon'
 import MoonIconAir from '@bitrix24/b24icons-vue/outline/MoonIcon'
-
 import type { DropdownMenuItem, NavigationMenuItem, SidebarLayoutInstance } from '@bitrix24/b24ui-nuxt'
 
 const route = useRoute()
 const router = useRouter()
 
-type colorMode = 'dark' | 'light' | 'edgeDark' | 'edgeLight'
+type colorMode = 'dark' | 'light' | 'edge-dark' | 'edge-light'
 
 const colorMode = useColorMode()
+if (colorMode.value === 'system') {
+  colorMode.preference = 'edge-dark'
+}
+
 const mode = ref<colorMode>(colorMode.value as colorMode)
-// const mode = useColorMode<'light' | 'dark' | 'edgeLight' | 'edgeDark'>({
-//   attribute: 'class',
-//   modes: {
-//     light: 'light',
-//     dark: 'dark',
-//     edgeLight: 'edge-light',
-//     edgeDark: 'edge-dark'
-//   }
-// })
+
 const dir = useTextDirection()
 const { isSidebarLayoutUseLightContent, isSidebarLayoutClearContent, checkedUseLightContent } = useRouteCheck()
 
 // useHead({
 //   bodyAttrs: {
-//     // fix class: 'text-base-master dark:text-base-150 bg-base-50 dark:bg-base-dark font-b24-system antialiased'
-//   }
-// })
-
-// const isDark = computed({
-//   get() {
-//     return colorMode.value === 'dark'
-//   },
-//   set(_isDark) {
-//     colorMode.preference = _isDark ? 'dark' : 'light'
+//     class: ''
 //   }
 // })
 
@@ -56,62 +42,60 @@ function toggleDir() {
   dir.value = dir.value === 'ltr' ? 'rtl' : 'ltr'
 }
 
-const itemsForColorMode = computed<DropdownMenuItem[]>(() => {
-  return [
-    {
-      label: 'dark',
-      code: 'dark',
-      icon: MoonIcon,
-      active: mode.value === 'dark',
-      checked: mode.value === 'dark',
-      type: 'checkbox' as DropdownMenuItem['type'],
-      onSelect(e: Event) {
-        mode.value = 'dark'
-        colorMode.preference = 'dark'
-        e.preventDefault()
-      }
-    },
-    {
-      label: 'light',
-      code: 'light',
-      icon: SunIcon,
-      active: mode.value === 'light',
-      checked: mode.value === 'light',
-      type: 'checkbox' as DropdownMenuItem['type'],
-      onSelect(e: Event) {
-        mode.value = 'light'
-        colorMode.preference = 'light'
-        e.preventDefault()
-      }
-    },
-    {
-      label: 'edge-dark',
-      code: 'edgeDark',
-      icon: MoonIconAir,
-      active: mode.value === 'edgeDark',
-      checked: mode.value === 'edgeDark',
-      type: 'checkbox' as DropdownMenuItem['type'],
-      onSelect(e: Event) {
-        mode.value = 'edgeDark'
-        colorMode.preference = 'edge-dark'
-        e.preventDefault()
-      }
-    },
-    {
-      label: 'edge-light',
-      code: 'edgeLight',
-      icon: SunIconAir,
-      active: mode.value === 'edgeLight',
-      checked: mode.value === 'edgeLight',
-      type: 'checkbox' as DropdownMenuItem['type'],
-      onSelect(e: Event) {
-        mode.value = 'edgeLight'
-        colorMode.preference = 'edge-light'
-        e.preventDefault()
-      }
+const itemsForColorMode = computed<DropdownMenuItem[]>(() => [
+  {
+    label: 'dark',
+    code: 'dark',
+    icon: MoonIcon,
+    active: mode.value === 'dark',
+    checked: mode.value === 'dark',
+    type: 'checkbox' as DropdownMenuItem['type'],
+    onSelect(e: Event) {
+      mode.value = 'dark'
+      colorMode.preference = 'dark'
+      e.preventDefault()
     }
-  ]
-})
+  },
+  {
+    label: 'light',
+    code: 'light',
+    icon: SunIcon,
+    active: mode.value === 'light',
+    checked: mode.value === 'light',
+    type: 'checkbox' as DropdownMenuItem['type'],
+    onSelect(e: Event) {
+      mode.value = 'light'
+      colorMode.preference = 'light'
+      e.preventDefault()
+    }
+  },
+  {
+    label: 'edge-dark',
+    code: 'edge-dark',
+    icon: MoonIconAir,
+    active: mode.value === 'edge-dark',
+    checked: mode.value === 'edge-dark',
+    type: 'checkbox' as DropdownMenuItem['type'],
+    onSelect(e: Event) {
+      mode.value = 'edge-dark'
+      colorMode.preference = 'edge-dark'
+      e.preventDefault()
+    }
+  },
+  {
+    label: 'edge-light',
+    code: 'edge-light',
+    icon: SunIconAir,
+    active: mode.value === 'edge-light',
+    checked: mode.value === 'edge-light',
+    type: 'checkbox' as DropdownMenuItem['type'],
+    onSelect(e: Event) {
+      mode.value = 'edge-light'
+      colorMode.preference = 'edge-light'
+      e.preventDefault()
+    }
+  }
+])
 
 function toggleMode() {
   switch (mode.value) {
@@ -120,14 +104,14 @@ function toggleMode() {
       colorMode.preference = 'light'
       break
     case 'light':
-      mode.value = 'edgeDark'
+      mode.value = 'edge-dark'
       colorMode.preference = 'edge-dark'
       break
-    case 'edgeDark':
-      mode.value = 'edgeLight'
+    case 'edge-dark':
+      mode.value = 'edge-light'
       colorMode.preference = 'edge-light'
       break
-    case 'edgeLight':
+    case 'edge-light':
     default:
       mode.value = 'dark'
       colorMode.preference = 'dark'
@@ -135,6 +119,9 @@ function toggleMode() {
   }
 }
 
+/**
+ * Use for change context in containerWrapper
+ */
 const getLightContent = computed(() => {
   const result = {
     containerWrapper: ''
@@ -148,13 +135,7 @@ const getLightContent = computed(() => {
     case 'dark':
       result.containerWrapper = 'dark'
       break
-    case 'light':
-      result.containerWrapper = 'light'
-      break
-    case 'edgeDark':
-      result.containerWrapper = 'light'
-      break
-    case 'edgeLight':
+    default:
       result.containerWrapper = 'light'
       break
   }
@@ -278,22 +259,24 @@ const menuTop = computed<NavigationMenuItem[]>(() => {
       </B24NavbarSection>
       <B24NavbarSpacer />
       <B24NavbarSection class="flex-row items-center justify-start gap-4">
-        <B24DropdownMenu
-          arrow
-          :items="itemsForColorMode"
-        >
-          <B24Tooltip :content="{ side: 'bottom' }" :text="`Switch to next mode`" :kbds="['shift', 'D']">
-            <B24Button
-              :icon="colorModeIcon"
-              aria-label="Switch to next mode"
-              color="air-secondary-accent"
-              size="xs"
-              rounded
-              use-dropdown
-              :label="mode"
-            />
-          </B24Tooltip>
-        </B24DropdownMenu>
+        <ClientOnly>
+          <B24DropdownMenu
+            arrow
+            :items="itemsForColorMode"
+          >
+            <B24Tooltip :content="{ side: 'bottom' }" :text="`Switch to next mode`" :kbds="['shift', 'D']">
+              <B24Button
+                :icon="colorModeIcon"
+                aria-label="Switch to next mode"
+                color="air-secondary-accent"
+                size="xs"
+                rounded
+                use-dropdown
+                :label="mode"
+              />
+            </B24Tooltip>
+          </B24DropdownMenu>
+        </ClientOnly>
         <B24Switch
           v-model="checkedUseLightContent"
           :disabled="isSidebarLayoutClearContent"

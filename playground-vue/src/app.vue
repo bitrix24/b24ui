@@ -45,58 +45,56 @@ function toggleDir() {
   dir.value = dir.value === 'ltr' ? 'rtl' : 'ltr'
 }
 
-const itemsForColorMode = computed<DropdownMenuItem[]>(() => {
-  return [
-    {
-      label: 'dark',
-      code: 'dark',
-      icon: MoonIcon,
-      active: mode.value === 'dark',
-      checked: mode.value === 'dark',
-      type: 'checkbox' as DropdownMenuItem['type'],
-      onSelect(e: Event) {
-        mode.value = 'dark'
-        e.preventDefault()
-      }
-    },
-    {
-      label: 'light',
-      code: 'light',
-      icon: SunIcon,
-      active: mode.value === 'light',
-      checked: mode.value === 'light',
-      type: 'checkbox' as DropdownMenuItem['type'],
-      onSelect(e: Event) {
-        mode.value = 'light'
-        e.preventDefault()
-      }
-    },
-    {
-      label: 'edge-dark',
-      code: 'edgeDark',
-      icon: MoonIconAir,
-      active: mode.value === 'edgeDark',
-      checked: mode.value === 'edgeDark',
-      type: 'checkbox' as DropdownMenuItem['type'],
-      onSelect(e: Event) {
-        mode.value = 'edgeDark'
-        e.preventDefault()
-      }
-    },
-    {
-      label: 'edge-light',
-      code: 'edgeLight',
-      icon: SunIconAir,
-      active: mode.value === 'edgeLight',
-      checked: mode.value === 'edgeLight',
-      type: 'checkbox' as DropdownMenuItem['type'],
-      onSelect(e: Event) {
-        mode.value = 'edgeLight'
-        e.preventDefault()
-      }
+const itemsForColorMode = computed<DropdownMenuItem[]>(() => [
+  {
+    label: 'dark',
+    code: 'dark',
+    icon: MoonIcon,
+    active: mode.value === 'dark',
+    checked: mode.value === 'dark',
+    type: 'checkbox' as DropdownMenuItem['type'],
+    onSelect(e: Event) {
+      mode.value = 'dark'
+      e.preventDefault()
     }
-  ]
-})
+  },
+  {
+    label: 'light',
+    code: 'light',
+    icon: SunIcon,
+    active: mode.value === 'light',
+    checked: mode.value === 'light',
+    type: 'checkbox' as DropdownMenuItem['type'],
+    onSelect(e: Event) {
+      mode.value = 'light'
+      e.preventDefault()
+    }
+  },
+  {
+    label: 'edge-dark',
+    code: 'edgeDark',
+    icon: MoonIconAir,
+    active: mode.value === 'edgeDark',
+    checked: mode.value === 'edgeDark',
+    type: 'checkbox' as DropdownMenuItem['type'],
+    onSelect(e: Event) {
+      mode.value = 'edgeDark'
+      e.preventDefault()
+    }
+  },
+  {
+    label: 'edge-light',
+    code: 'edgeLight',
+    icon: SunIconAir,
+    active: mode.value === 'edgeLight',
+    checked: mode.value === 'edgeLight',
+    type: 'checkbox' as DropdownMenuItem['type'],
+    onSelect(e: Event) {
+      mode.value = 'edgeLight'
+      e.preventDefault()
+    }
+  }
+])
 
 function toggleMode() {
   switch (mode.value) {
@@ -116,6 +114,9 @@ function toggleMode() {
   }
 }
 
+/**
+ * Use for change context in containerWrapper
+ */
 const getLightContent = computed(() => {
   const result = {
     containerWrapper: ''
@@ -129,13 +130,7 @@ const getLightContent = computed(() => {
     case 'dark':
       result.containerWrapper = 'dark'
       break
-    case 'light':
-      result.containerWrapper = 'light'
-      break
-    case 'edgeDark':
-      result.containerWrapper = 'light'
-      break
-    case 'edgeLight':
+    default:
       result.containerWrapper = 'light'
       break
   }
@@ -174,6 +169,7 @@ defineShortcuts({
 })
 
 const currentSidebarRef = ref<SidebarLayoutInstance | null>(null)
+
 const handleSidebarLayoutLoadingAction = async () => {
   if (!currentSidebarRef.value) {
     return
