@@ -5,11 +5,11 @@ usePageMeta.setPageTitle('Bitrix24 UI - Playground')
 </script>
 
 <template>
-  <div class="w-full">
+  <div class="w-full flex flex-col items-center justify-between gap-[24px]">
     <div
       v-for="(group) in usePageMeta.groups"
       :key="group.id"
-      class="mb-md"
+      class="w-full"
     >
       <ProseH4 class="mb-sm">
         {{ group.label }}
@@ -18,20 +18,34 @@ usePageMeta.setPageTitle('Bitrix24 UI - Playground')
         <template v-for="(item) in group.children" :key="item.id">
           <B24Link
             raw
-            class="style-blurred-bg py-sm2 px-xs2 cursor-pointer rounded-(--ui-border-radius-md) flex flex-row gap-sm border-2 transition-shadow shadow hover:shadow-lg relative hover:border-primary"
-            :to="item.to"
             :class="[
-              item.description.includes('(-)') ? 'border-red-500/70' : (
-                item.description.includes('(+)') ? 'border-green-500/70' : (
-                  item.description.includes('(~)') ? 'border-ai-500/70' : 'border-base-master/10'
-                )
-              )
+              'relative group',
+              'style-blurred-bg',
+              'bg-(--ui-color-design-outline-bg)',
+              'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]',
+              'border-(length:--ui-design-outline-stroke-weight)',
+              'border-(--ui-color-design-outline-stroke)',
+              'hover:border-[color-mix(in_srgb,_var(--ui-color-design-outline-stroke)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]',
+              'py-sm2 px-xs2',
+              'cursor-pointer',
+              'rounded-(--ui-border-radius-md)',
+              'flex flex-row gap-sm'
             ]"
+            :to="item.to"
           >
             <B24Avatar
               :icon="item.iconData"
               size="xl"
-              :b24ui="item.iconClass"
+              :b24ui="{
+                ...item.iconClass,
+                root: [
+                  'bg-(--ui-color-design-outline-bg)',
+                  'group-hover:bg-[color-mix(in_srgb,_var(--ui-color-design-selection-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]',
+                  'ring-(length:--ui-design-outline-stroke-weight)',
+                  'ring-(--ui-color-design-outline-stroke)',
+                  'group-hover:ring-[color-mix(in_srgb,_var(--ui-color-design-selection-stroke)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
+                ].join(' ')
+              }"
             />
             <div class="max-w-11/12">
               <ProseH6 class="text-(--b24ui-typography-label-color) font-(--ui-font-weight-bold) mb-1 line-clamp-2">
