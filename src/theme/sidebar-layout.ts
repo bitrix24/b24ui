@@ -142,6 +142,7 @@ export default {
       true: {
         containerWrapper: [
           // @memo set context* from component
+          'light',
           'text-(--ui-color-text-primary)',
           'bg-(--ui-color-bg-content-primary) ' // backdrop-blur-md dark:bg-(--ui-color-base-7)/80 edge-dark:bg-(--ui-color-base-7)/95
         ].join(' '),
@@ -189,7 +190,7 @@ export default {
         pageTopWrapper: 'px-6 lg:px-0',
         pageActionsWrapper: 'px-6 lg:px-0',
         containerWrapper: [
-          'p-6 lg:p-[15px]',
+          'p-6 lg:px-[22px] lg:py-[15px]',
           'lg:rounded-(--ui-border-radius-md)'
         ].join(' ')
       }
