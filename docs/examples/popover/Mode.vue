@@ -11,7 +11,11 @@ const mode = ref('hover' as const)
 <template>
   <ComponentShowExample>
     <template #actions>
-      <B24RadioGroup v-model="mode" legend="mode" :items="modeList" orientation="horizontal" />
+      <div class="w-full sm:w-1/4">
+        <B24FormField label="mode">
+          <B24Select v-model="mode" :items="modeList" class="w-full" />
+        </B24FormField>
+      </div>
     </template>
     <Demo :mode="mode" />
   </ComponentShowExample>

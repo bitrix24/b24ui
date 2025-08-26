@@ -6,18 +6,19 @@ export interface ExampleProps {
 }
 
 withDefaults(defineProps<ExampleProps>(), {
-  mode: 'click' as const
+  mode: 'click' as PopoverProps['mode']
 })
 </script>
 
 <template>
   <B24Popover
     :mode="mode"
+    :b24ui="{ content: 'p-[10px]' }"
   >
-    <B24Button label="Open" color="link" depth="dark" />
+    <B24Button :label="mode === 'click' ? 'Open' : 'Hover'" />
 
     <template #content>
-      <Placeholder class="size-48 m-4 inline-flex" />
+      <Placeholder class="size-[192px]" />
     </template>
   </B24Popover>
 </template>

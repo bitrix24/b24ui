@@ -1,6 +1,27 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import CrossCircle70Icon from '@bitrix24/b24icons-vue/actions/CrossCircle70Icon'
+import { ref, computed } from 'vue'
+import Cross50Icon from '@bitrix24/b24icons-vue/actions/Cross50Icon'
+import type { ContentAlignVariants, ContentSideVariants } from './../../dictionary'
+
+export interface ExampleProps {
+  contentAlign?: ContentAlignVariants
+  contentSide?: ContentSideVariants
+  contentSideOffset?: number
+}
+
+const props = withDefaults(defineProps<ExampleProps>(), {
+  contentAlign: 'start' as ContentAlignVariants,
+  contentSide: 'top' as ContentSideVariants,
+  contentSideOffset: 8
+})
+
+const content = computed(() => {
+  return {
+    align: props.contentAlign,
+    side: props.contentSide,
+    sideOffset: props.contentSideOffset
+  }
+})
 
 const open = ref(false)
 </script>
@@ -8,26 +29,27 @@ const open = ref(false)
 <template>
   <B24Popover
     v-model:open="open"
-    arrow
     :dismissible="false"
-    :b24ui="{ content: 'p-5' }"
+    arrow
+    :b24ui="{ content: 'p-[10px]' }"
+    :content="content"
   >
-    <B24Button label="Open" color="link" depth="dark" />
+    <B24Button label="Open" />
 
     <template #content>
-      <div class="flex items-center justify-between gap-4 mb-2">
-        <ProseH2 class="mb-0">
+      <div class="flex items-center justify-between gap-4 mb-[4px]">
+        <ProseH2 class="mb-0.5">
           Popover non-dismissible
         </ProseH2>
 
         <B24Button
-          color="link"
-          :icon="CrossCircle70Icon"
+          color="air-tertiary"
+          :icon="Cross50Icon"
           @click="open = false"
         />
       </div>
 
-      <Placeholder class="size-full min-h-48" />
+      <Placeholder class="w-full h-[192px]" />
     </template>
   </B24Popover>
 </template>

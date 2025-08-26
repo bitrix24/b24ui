@@ -12,14 +12,11 @@ import ArrowExample from '/examples/popover/Arrow.vue';
 import ControlOpenStateExample from '/examples/popover/ControlOpenState.vue';
 import PreventClosingExample from '/examples/popover/PreventClosing.vue';
 import WithBodySlotExample from '/examples/popover/WithBodySlot.vue';
+import WithLongTextExample from '/examples/popover/WithLongText.vue';
 import WithAnchorSlotExample from '/examples/popover/WithAnchorSlot.vue';
 import WithFollowingCursorExample from '/examples/popover/WithFollowingCursor.vue';
 </script>
 # Popover
-
-::: warning We are still updating this page
-Some data may be missing here — we will complete it shortly.
-:::
 
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/popover"
@@ -43,7 +40,7 @@ Then, use the `#content` slot to add the content displayed when the Popover is o
   </ClientOnly>
 </div>
 
-<<< @/examples/popover/demo/Popover.vue{2,5-7,8 vue:line-numbers}
+<<< @/examples/popover/demo/Popover.vue{vue:line-numbers}
 
 ### Mode
 
@@ -74,7 +71,7 @@ When using the `hover` mode, you can use the `open-delay` and `close-delay` prop
 </div>
 
 ::: details
-<<< @/examples/popover/demo/Delay.vue{16-18 vue:line-numbers}
+<<< @/examples/popover/demo/Delay.vue{15-17 vue:line-numbers}
 :::
 
 ### Content
@@ -102,7 +99,7 @@ Use the `arrow` prop to display an arrow on the Popover.
 </div>
 
 ::: details
-<<< @/examples/popover/demo/Arrow.vue{4,14-17 vue:line-numbers}
+<<< @/examples/popover/demo/Arrow.vue{29,41 vue:line-numbers}
 :::
 
 ## Examples
@@ -122,7 +119,7 @@ In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), y
 </div>
 
 ::: details
-<<< @/examples/popover/demo/ControlOpenState.vue{4,6-8,13 vue:line-numbers}
+<<< @/examples/popover/demo/ControlOpenState.vue{25,27-29,34 vue:line-numbers}
 :::
 
 ### Disable dismissal
@@ -136,12 +133,12 @@ Set the `dismissible` prop to `false` to prevent the Popover from being closed w
 </div>
 
 ::: details
-<<< @/examples/popover/demo/PreventClosing.vue{5,10,12,26 vue:line-numbers}
+<<< @/examples/popover/demo/PreventClosing.vue{26,31-32,48 vue:line-numbers}
 :::
 
 ### Some content
 
-Can be used for various purposes
+Can be used for various purposes.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -151,6 +148,34 @@ Can be used for various purposes
 
 ::: details
 <<< @/examples/popover/demo/WithBodySlot.vue{vue:line-numbers}
+:::
+
+### Long text
+
+This is how you can display long text with scrolling.
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <WithLongTextExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/popover/demo/WithLongText.vue{vue:line-numbers}
+:::
+
+### With following cursor
+
+You can make the Popover follow the cursor when hovering over an element using the [`reference`](https://reka-ui.com/docs/components/tooltip#trigger) prop:
+
+<div class="lg:min-h-[160px]">
+  <ClientOnly>
+    <WithFollowingCursorExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/tooltip/demo/WithFollowingCursor.vue{vue:line-numbers}
 :::
 
 ### With anchor slot
@@ -169,20 +194,6 @@ This slot only works when `mode` is `click`.
 
 ::: details
 <<< @/examples/popover/demo/WithAnchorSlot.vue{vue:line-numbers}
-:::
-
-### With following cursor
-
-You can make the Popover follow the cursor when hovering over an element using the [`reference`](https://reka-ui.com/docs/components/tooltip#trigger) prop:
-
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithFollowingCursorExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/tooltip/demo/WithFollowingCursor.vue{vue:line-numbers}
 :::
 
 ## API

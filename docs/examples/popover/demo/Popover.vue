@@ -1,9 +1,9 @@
 <template>
-  <B24Popover>
-    <B24Button label="Open" color="link" depth="dark" />
+  <B24Popover :b24ui="{ content: 'p-[10px]' }">
+    <B24Button label="Open" />
 
     <template #content>
-      <Placeholder class="size-48 m-4 inline-flex" />
+      <Placeholder class="size-[192px]" />
     </template>
   </B24Popover>
 </template>

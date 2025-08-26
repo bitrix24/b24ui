@@ -1,25 +1,51 @@
+<script setup lang="ts">
+import { computed } from 'vue'
+import type { ContentAlignVariants, ContentSideVariants } from './../../dictionary'
+
+export interface ExampleProps {
+  contentAlign?: ContentAlignVariants
+  contentSide?: ContentSideVariants
+  contentSideOffset?: number
+}
+
+const props = withDefaults(defineProps<ExampleProps>(), {
+  contentAlign: 'start' as ContentAlignVariants,
+  contentSide: 'top' as ContentSideVariants,
+  contentSideOffset: 8
+})
+
+const content = computed(() => {
+  return {
+    align: props.contentAlign,
+    side: props.contentSide,
+    sideOffset: props.contentSideOffset
+  }
+})
+</script>
+
 <template>
   <B24Popover
     mode="hover"
     arrow
+    :content="content"
+    :b24ui="{ content: 'p-[10px]' }"
   >
-    <B24Button label="Hover" color="link" depth="dark" />
+    <B24Button label="Hover" />
 
     <template #content>
-      <Placeholder class="size-48 m-4 inline-flex" />
+      <Placeholder class="size-[192px]" />
     </template>
   </B24Popover>
 
   <B24Popover
-    :arrow="{
-      width: 20,
-      height: 10
-    }"
+    arrow
+    :content="content"
+    :b24ui="{ content: 'p-[10px]' }"
   >
-    <B24Button label="Open" color="link" depth="dark" />
+    <B24Button label="Open" />
 
     <template #content>
-      <Placeholder class="size-48 m-4 inline-flex" />
+      <Placeholder class="size-[192px]" />
     </template>
   </B24Popover>
 </template>
