@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.3](https://github.com/bitrix24/b24ui/compare/v1.0.2...v1.0.3) (2025-08-26)
+
+### Bug Fixes
+* **SidebarLayout**: for mode `useLightContent` set new padding, restore `containerWrapper` context `light`
+
 ## [1.0.2](https://github.com/bitrix24/b24ui/compare/v1.0.1...v1.0.2) (2025-08-25)
 
 ### Bug Fixes
