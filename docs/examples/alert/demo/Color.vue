@@ -4,10 +4,14 @@ import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 
 export interface ExampleProps {
   color?: AlertProps['color']
+  title?: string
+  description?: string
 }
 
 withDefaults(defineProps<ExampleProps>(), {
-  color: 'default' as const
+  color: 'air-primary' as AlertProps['color'],
+  title: 'Heads up!',
+  description: 'Let\'s signal the manager that the deal is not moving.'
 })
 </script>
 
@@ -15,7 +19,7 @@ withDefaults(defineProps<ExampleProps>(), {
   <B24Alert
     :color="color"
     :icon="SignIcon"
-    title="Heads up!"
-    description="Let's signal the manager that the deal is not moving."
+    :title="title"
+    :description="description"
   />
 </template>

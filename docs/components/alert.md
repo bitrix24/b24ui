@@ -9,6 +9,7 @@ import DescriptionExample from '/examples/alert/Description.vue';
 import IconExample from '/examples/alert/Icon.vue';
 import AvatarExample from '/examples/alert/Avatar.vue';
 import ColorExample from '/examples/alert/Color.vue';
+import ColorInvertedExample from '/examples/alert/ColorInverted.vue';
 import SizeExample from '/examples/alert/Size.vue';
 import CloseExample from '/examples/alert/Close.vue';
 import CloseButtonExample from '/examples/alert/CloseButton.vue';
@@ -16,10 +17,6 @@ import ActionsExample from '/examples/alert/Actions.vue';
 import OrientationExample from '/examples/alert/Orientation.vue';
 </script>
 # Alert
-
-::: warning We are still updating this page
-Some data may be missing here — we will complete it shortly.
-:::
 
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/alert"
@@ -41,7 +38,7 @@ Use the `title` prop to set the title of the Alert.
   </ClientOnly>
 </div>
 
-<<< @/examples/alert/demo/Alert.vue{2 vue:line-numbers}
+<<< @/examples/alert/demo/Alert.vue{vue:line-numbers}
 
 ### Description
 
@@ -68,7 +65,7 @@ Use the `icon` prop to show an [@bitrix24/b24icons](https://bitrix24.github.io/b
 </div>
 
 ::: details
-<<< @/examples/alert/demo/Icon.vue{2,7 vue:line-numbers}
+<<< @/examples/alert/demo/Icon.vue{2,17 vue:line-numbers}
 :::
 
 ### Avatar
@@ -82,7 +79,7 @@ Use the `avatar` prop to show an [Avatar](/components/avatar).
 </div>
 
 ::: details
-<<< @/examples/alert/demo/Avatar.vue{7,12 vue:line-numbers}
+<<< @/examples/alert/demo/Avatar.vue{17,22 vue:line-numbers}
 :::
 
 ### Color
@@ -96,7 +93,25 @@ Use the `color` prop to change the color of the Alert.
 </div>
 
 ::: details
-<<< @/examples/alert/demo/Color.vue{16 vue:line-numbers}
+<<< @/examples/alert/demo/Color.vue{20 vue:line-numbers}
+:::
+
+### Inverted
+
+Use the `inverted` prop to invert the color of the Alert.
+
+::: warning
+Only available for `air-primary*` colors
+:::
+
+<div class="lg:min-h-[275px]">
+  <ClientOnly>
+    <ColorInvertedExample />
+  </ClientOnly>
+</div>
+
+::: details
+<<< @/examples/alert/demo/ColorInverted.vue{22 vue:line-numbers}
 :::
 
 ### Size
@@ -110,7 +125,7 @@ Use the `size` prop to change the size of the Alert.
 </div>
 
 ::: details
-<<< @/examples/alert/demo/Size.vue{16 vue:line-numbers}
+<<< @/examples/alert/demo/Size.vue{22 vue:line-numbers}
 :::
 
 ### Close
@@ -128,7 +143,7 @@ An `update:open` event will be emitted when the close button is clicked.
 </div>
 
 ::: details
-<<< @/examples/alert/demo/Close.vue{10 vue:line-numbers}
+<<< @/examples/alert/demo/Close.vue{26,27 vue:line-numbers}
 :::
 
 You can pass any property from the [Button](/components/button) component to customize it.
@@ -140,35 +155,39 @@ You can pass any property from the [Button](/components/button) component to cus
 </div>
 
 ::: details
-<<< @/examples/alert/demo/CloseButton.vue{11-15 vue:line-numbers}
+<<< @/examples/alert/demo/CloseButton.vue{27 vue:line-numbers}
 :::
 
 ### Actions
 
 Use the `actions` prop to add some [Button](/components/button) actions to the Alert.
 
-<div class="lg:min-h-[316px]">
+<div class="lg:min-h-[290px]">
   <ClientOnly>
     <ActionsExample />
   </ClientOnly>
 </div>
 
 ::: details
-<<< @/examples/alert/demo/Actions.vue{19-28 vue:line-numbers}
+<<< @/examples/alert/demo/Actions.vue{23 vue:line-numbers}
+:::
+
+::: details alertSimpleItems
+<<< @/examples/alert/dictionary.ts#snippetSimpleActions{ts:line-numbers}
 :::
 
 ### Orientation
 
 Use the `orientation` prop to change the orientation of the Alert.
 
-<div class="lg:min-h-[316px]">
+<div class="lg:min-h-[362px]">
   <ClientOnly>
     <OrientationExample />
   </ClientOnly>
 </div>
 
 ::: details
-<<< @/examples/alert/demo/Orientation.vue{20 vue:line-numbers}
+<<< @/examples/alert/demo/Orientation.vue{24 vue:line-numbers}
 :::
 
 ## API

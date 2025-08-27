@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
 import Demo from './demo/Color.vue'
-import { colorList, colorValue } from './dictionary'
+import { colorList, colorValue, title, description } from './dictionary'
 </script>
 
 <template>
@@ -16,6 +16,6 @@ import { colorList, colorValue } from './dictionary'
         />
       </B24FormField>
     </template>
-    <Demo :color="colorValue" />
+    <Demo :color="colorValue" :title="title" :description="description" />
   </ComponentShowExample>
 </template>

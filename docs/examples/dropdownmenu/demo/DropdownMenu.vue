@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { dropdownMenuItems } from './../../dropdownmenu/dictionary'
+import { dropdownMenuItems } from './../dictionary'
 import HamburgerMenuIcon from '@bitrix24/b24icons-vue/outline/HamburgerMenuIcon'
 import CircleCheckThinIcon from '@bitrix24/b24icons-vue/main/CircleCheckThinIcon'
 </script>

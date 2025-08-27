@@ -9,3 +9,9 @@ export const contentSideVariants: ContentSideVariants[] = ['top', 'right', 'bott
 export const contentSide = ref(contentSideVariants[1])
 
 export const contentSideOffset = ref<number>(8)
+
+export const airColorsPrimary = (colorList: string[]) => {
+  return colorList.filter((color) => {
+    return color.includes('air-primary')
+  })
+}
