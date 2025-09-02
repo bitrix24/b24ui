@@ -230,7 +230,7 @@ There's no built-in support for masks, but you can use libraries like [maska](ht
 interface InputEmits {
   blur: (payload: [event: FocusEvent]) => void;
   change: (payload: [event: Event]) => void;
-  update:modelValue: (payload: [payload: AcceptableValue]) => void;
+  update:modelValue: (payload: [value: AcceptableValue]) => void;
 }
 ```
 

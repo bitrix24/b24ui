@@ -33,9 +33,8 @@ export interface RangeProps extends Pick<SliderRootProps, 'name' | 'disabled' | 
   b24ui?: Range['slots']
 }
 
-export interface RangeEmits<T extends number | number[] = number | number[]> {
-  'update:modelValue': [payload: T]
-  'change': [payload: Event]
+export interface RangeEmits {
+  change: [event: Event]
 }
 </script>
 
@@ -53,7 +52,7 @@ const props = withDefaults(defineProps<RangeProps>(), {
   step: 1,
   orientation: 'horizontal'
 })
-const emits = defineEmits<RangeEmits<T>>()
+const emits = defineEmits<RangeEmits>()
 
 const modelValue = defineModel<T>()
 

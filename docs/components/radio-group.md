@@ -204,7 +204,7 @@ Use the `disabled` prop to disable the RadioGroup.
  * Emitted events for the RadioGroup component
  */
 interface RadioGroupEmits {
-  change: (payload: [payload: Event]) => void;
+  change: (payload: [event: Event]) => void;
   update:modelValue: (payload: [payload: string]) => void;
 }
 ```

@@ -169,8 +169,8 @@ Or to validate list inputs:
  * Emitted events for the Form component
  */
 interface FormEmits {
-  error: (payload: [payload: FormErrorEvent]) => void;
-  submit: (payload: [payload: FormSubmitEvent<any>]) => void;
+  error: (payload: [event: FormErrorEvent]) => void;
+  submit: (payload: [event: FormSubmitEvent<any>]) => void;
 }
 ```
 

@@ -184,8 +184,7 @@ Use the `inverted` prop to visually invert the Range.
  * Emitted events for the Range component
  */
 interface RangeEmits {
-  change: (payload: [payload: Event]) => void;
-  update:modelValue: (payload: [payload: number | number[]]) => void;
+  change: (payload: [event: Event]) => void;
   update:modelValue: (payload: [value: number | number[] | undefined]) => void;
 }
 ```

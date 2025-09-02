@@ -58,7 +58,7 @@ export interface ChipProps {
 }
 
 export interface ChipEmits {
-  'update:show': [payload: boolean]
+  'update:show': [value: boolean]
 }
 
 export interface ChipSlots {

@@ -297,8 +297,8 @@ Use the `#increment` and `#decrement` slots to customize the buttons.
  */
 interface InputNumberEmits {
   blur: (payload: [event: FocusEvent]) => void;
-  change: (payload: [payload: Event]) => void;
-  update:modelValue: (payload: [payload: number]) => void;
+  change: (payload: [event: Event]) => void;
+  update:modelValue: (payload: [value: number]) => void;
 }
 ```
 

@@ -49,7 +49,7 @@ export interface SwitchProps extends Pick<SwitchRootProps, 'disabled' | 'id' | '
 }
 
 export type SwitchEmits = {
-  change: [payload: Event]
+  change: [event: Event]
 }
 
 export interface SwitchSlots {

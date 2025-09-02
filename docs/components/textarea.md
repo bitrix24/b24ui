@@ -222,7 +222,7 @@ Use the `disabled` prop to disable the Textarea.
 interface TextareaEmits {
   blur: (payload: [event: FocusEvent]) => void;
   change: (payload: [event: Event]) => void;
-  update:modelValue: (payload: [payload: TextareaValue]) => void;
+  update:modelValue: (payload: [value: TextareaValue]) => void;
 }
 ```
 

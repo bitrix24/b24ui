@@ -456,10 +456,10 @@ You can fetch items from an API and use them in the Select.
  * Emitted events for the Select component
  */
 interface SelectEmits {
-  blur: (payload: [payload: FocusEvent]) => void;
-  change: (payload: [payload: Event]) => void;
-  focus: (payload: [payload: FocusEvent]) => void;
-  update:modelValue: (payload: [payload: any]) => void;
+  blur: (payload: [event: FocusEvent]) => void;
+  change: (payload: [event: Event]) => void;
+  focus: (payload: [event: FocusEvent]) => void;
+  update:modelValue: (payload: [value: any]) => void;
   update:open: (payload: [value: boolean]) => void;
 }
 ```

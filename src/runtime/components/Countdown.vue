@@ -73,7 +73,7 @@ export interface CountdownEmits {
   start: []
   end: []
   abort: []
-  progress: [payload: CountdownData]
+  progress: [value: CountdownData]
 }
 
 export interface CountdownSlots {

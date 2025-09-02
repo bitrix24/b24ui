@@ -51,6 +51,6 @@ interface CountdownEmits {
   start: () => void;
   end: () => void;
   abort: () => void;
-  progress: (payload: CountdownData) => void;
+  progress: (payload: [value: CountdownData]) => void;
 }
 ```
