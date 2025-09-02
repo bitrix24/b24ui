@@ -4,6 +4,11 @@ Bitrix24 UI for developing web applications REST API for NUXT & VUE
 
 Find more details in the [documentation](https://bitrix24.github.io/b24ui/)
 
+## Documentation
+
+Visit https://bitrix24.github.io/b24ui/ to explore the documentation.
+
+
 ## Installation
 
 ```bash [pnpm]

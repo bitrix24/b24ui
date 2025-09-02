@@ -225,7 +225,7 @@ Tailwind Variants uses [`tailwind-merge`](https://github.com/dcastil/tailwind-me
 :::
 
 ::: info
-You can explore the theme for each component in the GitHub repository at [v3/src/theme](https://github.com/bitrix24/b24ui/tree/main/src/theme).
+You can explore the theme for each component in the GitHub repository at [src/theme](https://github.com/bitrix24/b24ui/tree/main/src/theme).
 :::
 
 ### `b24ui` prop
