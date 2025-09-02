@@ -54,7 +54,7 @@ import { computed, ref, inject, provide, useId } from 'vue'
 import type { Ref } from 'vue'
 import { Primitive, Label } from 'reka-ui'
 import { useAppConfig } from '#imports'
-import { formFieldInjectionKey, inputIdInjectionKey } from '../composables/useFormField'
+import { formFieldInjectionKey, inputIdInjectionKey, formErrorsInjectionKey } from '../composables/useFormField'
 import { tv } from '../utils/tv'
 import type { FormError, FormFieldInjectedOptions } from '../types/form'
 import WarningIcon from '@bitrix24/b24icons-vue/main/WarningIcon'
@@ -70,7 +70,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.formFi
   useDescription: Boolean(props.description) || !!slots.description
 }))
 
-const formErrors = inject<Ref<FormError[]> | null>('form-errors', null)
+const formErrors = inject<Ref<FormError[]> | null>(formErrorsInjectionKey, null)
 
 const error = computed(() => props.error || formErrors?.value?.find(error => error.name && (error.name === props.name || (props.errorPattern && error.name.match(props.errorPattern))))?.message)
 
