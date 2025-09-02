@@ -156,3 +156,14 @@ In this example, the Chip has a color per status and is displayed when the statu
 ### Slots
 
 <ComponentSlots component="Chip" />
+
+### Emits
+
+```ts
+/**
+ * Emitted events for the Chip component
+ */
+interface ChipEmits {
+  update:show: (payload: [value: boolean]) => void;
+}
+```
