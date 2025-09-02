@@ -1,5 +1,5 @@
 {
-  "name": "@bitrix24/b24ui-vue-playground",
+  "name": "playground-vue",
   "private": true,
   "version": "0.0.0",
   "type": "module",

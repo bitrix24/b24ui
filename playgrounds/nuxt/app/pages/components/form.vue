@@ -2,11 +2,11 @@
 /**
  * @todo add B24SelectMenu
  */
-import FormExample from '../../../../docs/examples/form/FormExample.vue'
-import FormExampleOnError from '../../../../docs/examples/form/FormExampleOnError.vue'
-import FormExampleNested from '../../../../docs/examples/form/FormExampleNested.vue'
-import FormExampleNestedList from '../../../../docs/examples/form/FormExampleNestedList.vue'
-import FormExampleElements from '../../../../docs/examples/form/FormExampleElements.vue'
+import FormExample from '../../../../../docs/examples/form/FormExample.vue'
+import FormExampleOnError from '../../../../../docs/examples/form/FormExampleOnError.vue'
+import FormExampleNested from '../../../../../docs/examples/form/FormExampleNested.vue'
+import FormExampleNestedList from '../../../../../docs/examples/form/FormExampleNestedList.vue'
+import FormExampleElements from '../../../../../docs/examples/form/FormExampleElements.vue'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'

@@ -29,15 +29,15 @@ logs
 .env.*
 !.env.example
 
-playground-vue/auto-imports.d.ts
-playground-vue/components.d.ts
-playground-vue/tsconfig.app.tsbuildinfo
-playground-vue/tsconfig.node.tsbuildinfo
+playgrounds/vue/auto-imports.d.ts
+playgrounds/vue/components.d.ts
+playgrounds/vue/tsconfig.app.tsbuildinfo
+playgrounds/vue/tsconfig.node.tsbuildinfo
 
-demo/auto-imports.d.ts
-demo/components.d.ts
-demo/tsconfig.app.tsbuildinfo
-demo/tsconfig.node.tsbuildinfo
+playgrounds/demo/auto-imports.d.ts
+playgrounds/demo/components.d.ts
+playgrounds/demo/tsconfig.app.tsbuildinfo
+playgrounds/demo/tsconfig.node.tsbuildinfo
 
 # Docs
 docs/.vitepress/dist

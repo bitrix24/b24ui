@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import usePageMeta from '../../playground/app/composables/usePageMeta'
+import usePageMeta from '../../nuxt/app/composables/usePageMeta'
 import { useRouteCheck } from '@bitrix24/b24ui-nuxt-playground/app/composables/useRouteCheck'
 import { useRouter, useRoute } from 'vue-router'
 import { reactive, ref, computed } from 'vue'
@@ -205,7 +205,7 @@ const menuTop = computed<NavigationMenuItem[]>(() => {
 
 <template>
   <B24App :toaster="(appConfig.toaster as any)">
-    <!-- // @see playground-vue/src/assets/css/main.css -->
+    <!-- // @see nuxt/vue/src/assets/css/main.css -->
     <B24SidebarLayout
       ref="currentSidebarRef"
       :use-light-content="isSidebarLayoutUseLightContent"

@@ -48,7 +48,7 @@ jobs:
           mkdir -p combined-artifact
           cp -r docs/.vitepress/dist/* combined-artifact/
           mkdir -p combined-artifact/demo
-          cp -r demo/dist/* combined-artifact/demo/
+          cp -r playgrounds/demo/dist/* combined-artifact/demo/
 
       - name: 'Upload artifact'
         uses: actions/upload-pages-artifact@v3

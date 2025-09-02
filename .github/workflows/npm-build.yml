@@ -43,8 +43,8 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Build playground
+      - name: Build Nuxt playground
         run: pnpm run dev:build
 
-      - name: Build playground (vue)
+      - name: Build Vue playground
         run: pnpm run dev:vue:build
