@@ -580,7 +580,7 @@ defineExpose({
     </ComboboxAnchor>
 
     <ComboboxPortal v-bind="portalProps">
-      <ComboboxContent :class="b24ui.content({ class: props.b24ui?.content })" v-bind="contentProps">
+      <ComboboxContent :class="b24ui.content({ class: props.b24ui?.content })" v-bind="contentProps" @focus-outside.prevent>
         <slot name="content-top" />
 
         <ComboboxEmpty :class="b24ui.empty({ class: props.b24ui?.empty })">
