@@ -102,7 +102,7 @@
   ],
   "scripts": {
     "dev:prepare-short": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxt prepare playgrounds/nuxt && pnpm dev:vue:build && nuxt prepare playgrounds/demo",
-    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxt prepare playgrounds/nuxt && pnpm dev:vue:build && nuxt prepare playgrounds/demo && nuxt-component-meta playgrounds/nuxt --outputDir ../src/.component-meta/",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxt prepare playgrounds/nuxt && pnpm dev:vue:build && nuxt prepare playgrounds/demo && nuxt-component-meta playgrounds/nuxt --outputDir ../../src/.component-meta/",
     "build": "nuxt-module-build build",
     "prepack": "pnpm build",
     "dev": "nuxt dev playgrounds/nuxt --uiDev",
