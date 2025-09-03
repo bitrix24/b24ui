@@ -37,15 +37,11 @@ type ComponentAppConfig<
   T,
   A extends Record<string, any>,
   K extends string,
-  U extends string = 'b24ui' | 'b24ui.content' | 'b24ui.prose'
+  U extends string = 'b24ui' | 'b24ui.prose'
 > = A & (
-  U extends 'b24ui'
-    ? { b24ui?: Record<K, Partial<T>> }
-    : U extends 'b24ui.content'
-      ? { b24ui?: { content?: Record<K, Partial<T>> } }
-      : U extends 'b24ui.prose'
-        ? { b24ui?: { prose?: Record<K, Partial<T>> } }
-        : never
+  U extends 'b24ui.prose'
+    ? { b24ui?: { prose?: { [k in K]?: Partial<T> } } }
+    : { [key in Exclude<U, 'b24ui.prose'>]?: { [k in K]?: Partial<T> } }
   )
 
 /**
@@ -59,7 +55,7 @@ export type ComponentConfig<
   T extends Record<string, any>,
   A extends Record<string, any>,
   K extends string,
-  U extends 'b24ui' | 'b24ui.content' | 'b24ui.prose' = 'b24ui'
+  U extends 'b24ui' | 'b24ui.prose' = 'b24ui'
 > = {
   AppConfig: ComponentAppConfig<T, A, K, U>
   variants: ComponentVariants<T & GetComponentAppConfig<A, U, K>>

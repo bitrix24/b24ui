@@ -5,7 +5,7 @@ import type { Bitrix24UIOptions } from '../unplugin'
  * This plugin injects Bitrix24 UI configuration into the runtime build so Bitrix24 UI components can
  * access it.
  */
-export default function AppConfigPlugin(options: Bitrix24UIOptions, appConfig: Record<string, any>) {
+export default function AppConfigPlugin(_options: Bitrix24UIOptions, appConfig: Record<string, any>) {
   return {
     name: 'bitrix24:b24ui:app-config',
     enforce: 'pre',

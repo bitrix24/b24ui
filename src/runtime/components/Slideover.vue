@@ -2,9 +2,10 @@
 import type { DialogRootProps, DialogRootEmits, DialogContentProps, DialogContentEmits } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/slideover'
-import type { ButtonProps, IconComponent } from '../types'
-import type { EmitsToProps, ComponentConfig } from '../types/utils'
 import type { SidebarLayoutApi } from '../composables/useSidebarLayout'
+import type { ButtonProps, IconComponent } from '../types'
+import type { EmitsToProps } from '../types/utils'
+import type { ComponentConfig } from '../types/tv'
 
 type Slideover = ComponentConfig<typeof theme, AppConfig, 'slideover'>
 

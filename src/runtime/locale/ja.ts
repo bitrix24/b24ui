@@ -6,58 +6,133 @@ export default defineLocale<Messages>({
   code: 'ja',
   locale: 'ja',
   messages: {
-    inputMenu: {
-      noMatch: '一致するデータがありません',
-      noData: 'データがありません',
-      create: '"{label}"を作成'
+    alert: {
+      close: 'Close'
+    },
+    authForm: {
+      hidePassword: 'Hide password',
+      showPassword: 'Show password',
+      submit: 'Continue'
+    },
+    banner: {
+      close: 'Close'
     },
     calendar: {
-      prevYear: '前年',
-      nextYear: '翌年',
-      prevMonth: '前月',
-      nextMonth: '翌月'
-    },
-    inputNumber: {
-      increment: '増やす',
-      decrement: '減らす'
-    },
-    commandPalette: {
-      placeholder: 'コマンドを入力するか検索...',
-      noMatch: '一致するデータがありません',
-      noData: 'データがありません',
-      close: '閉じる'
-    },
-    selectMenu: {
-      noMatch: '一致するデータがありません',
-      noData: 'データがありません',
-      create: '"{label}"を作成',
-      search: '検索...'
-    },
-    toast: {
-      close: '閉じる'
+      nextMonth: 'Next month',
+      nextYear: 'Next year',
+      prevMonth: 'Previous month',
+      prevYear: 'Previous year'
     },
     carousel: {
-      prev: '前へ',
-      next: '次へ',
-      goto: 'スライド {slide} に移動'
+      dots: 'Choose slide to display',
+      goto: 'Go to slide {slide}',
+      next: 'Next',
+      prev: 'Prev'
+    },
+    chatPrompt: {
+      placeholder: 'Type your message here...'
+    },
+    chatPromptSubmit: {
+      label: 'Send prompt'
+    },
+    colorMode: {
+      dark: 'Dark',
+      light: 'Light',
+      switchToDark: 'Switch to dark mode',
+      switchToLight: 'Switch to light mode',
+      system: 'System'
+    },
+    commandPalette: {
+      back: 'Back',
+      close: 'Close',
+      noData: 'No data',
+      noMatch: 'No matching data',
+      placeholder: 'Type a command or search...'
+    },
+    contentSearch: {
+      links: 'Links',
+      theme: 'Theme'
+    },
+    contentSearchButton: {
+      label: 'Search...'
+    },
+    contentToc: {
+      title: 'On this page'
+    },
+    dashboardSearch: {
+      theme: 'Theme'
+    },
+    dashboardSearchButton: {
+      label: 'Search...'
+    },
+    dashboardSidebarCollapse: {
+      collapse: 'Collapse sidebar',
+      expand: 'Expand sidebar'
+    },
+    dashboardSidebarToggle: {
+      close: 'Close sidebar',
+      open: 'Open sidebar'
+    },
+    error: {
+      clear: 'Back to home'
+    },
+    fileUpload: {
+      removeFile: 'Remove {filename}'
+    },
+    header: {
+      close: 'Close menu',
+      open: 'Open menu'
+    },
+    inputMenu: {
+      create: 'Create "{label}"',
+      noData: 'No data',
+      noMatch: 'No matching data'
+    },
+    inputNumber: {
+      decrement: 'Decrement',
+      increment: 'Increment'
     },
     modal: {
-      close: '閉じる'
+      close: 'Close'
+    },
+    pricingTable: {
+      caption: 'Pricing plan comparison'
+    },
+    prose: {
+      codeCollapse: {
+        closeText: 'Collapse',
+        name: 'code',
+        openText: 'Expand'
+      },
+      collapsible: {
+        closeText: 'Hide',
+        name: 'properties',
+        openText: 'Show'
+      },
+      pre: {
+        copy: 'Copy code to clipboard'
+      }
+    },
+    selectMenu: {
+      create: 'Create "{label}"',
+      noData: 'No data',
+      noMatch: 'No matching data',
+      search: 'Search...'
     },
     slideover: {
-      close: '閉じる'
-    },
-    alert: {
-      close: '閉じる'
+      close: 'Close'
     },
     table: {
-      noData: 'データがありません'
+      noData: 'No data'
+    },
+    toast: {
+      close: 'Close'
     },
     sidebarLayout: {
-      open: 'ナビゲーションを開く',
-      close: 'ナビゲーションを閉じる',
-      slideoverTitle: 'ナビゲーション',
-      slideoverDescription: 'コンテンツナビゲーション'
+      open: 'Open navigation',
+      close: 'Close navigation',
+      slideoverTitle: 'Navigation',
+      slideoverDescription: 'Content navigation'
     }
   }
 })

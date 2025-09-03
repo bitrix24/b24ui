@@ -6,5 +6,7 @@ export const getDefaultUiConfig = () => ({
 
 export const defaultOptions = {
   colorMode: true,
-  version
+  version,
+  mdc: false,
+  content: true
 }

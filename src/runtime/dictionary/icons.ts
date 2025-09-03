@@ -21,6 +21,9 @@ import Plus30Icon from '@bitrix24/b24icons-vue/actions/Plus30Icon'
 import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
 import LoaderWaitIcon from '@bitrix24/b24icons-vue/animated/LoaderWaitIcon'
 import ChevronDownLIcon from '@bitrix24/b24icons-vue/outline/ChevronDownLIcon'
+import ScreenIcon from '@bitrix24/b24icons-vue/outline/ScreenIcon'
+import SunIconAir from '@bitrix24/b24icons-vue/outline/SunIcon'
+import MoonIconAir from '@bitrix24/b24icons-vue/outline/MoonIcon'
 
 export default {
   arrowLeft: ArrowToTheLeftIcon,
@@ -39,5 +42,8 @@ export default {
   refresh: Refresh6Icon,
   minus: Minus30Icon,
   plus: Plus30Icon,
-  search: Search2Icon
+  search: Search2Icon,
+  system: ScreenIcon,
+  light: SunIconAir,
+  dark: MoonIconAir
 }

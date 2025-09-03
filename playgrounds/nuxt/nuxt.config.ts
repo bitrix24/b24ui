@@ -7,13 +7,19 @@ export default defineNuxtConfig({
   modules: [
     '@bitrix24/b24ui-nuxt'
   ],
-  devtools: { enabled: false },
+
+  devtools: {
+    enabled: false
+  },
+
   css: ['~/assets/css/main.css'],
+
   devServer: {
     loadingTemplate: () => {
-      return readFileSync('./playground/template/devServer-loading.html', 'utf-8')
+      return readFileSync('./playgrounds/nuxt/template/devServer-loading.html', 'utf-8')
     }
   },
+
   compatibilityDate: '2024-04-12',
   vite: {
     optimizeDeps: {

@@ -2,7 +2,7 @@
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/chip'
 import type { IconComponent } from '../types'
-import type { ComponentConfig } from '../types/utils'
+import type { ComponentConfig } from '../types/tv'
 
 type Chip = ComponentConfig<typeof theme, AppConfig, 'chip'>
 

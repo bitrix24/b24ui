@@ -1,9 +1,9 @@
 <script lang="ts">
+import type { Ref } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/sidebar-layout'
-import type { ComponentConfig } from '../types/utils'
-import type { Ref } from 'vue'
 import type { SidebarLayoutApi } from '../composables/useSidebarLayout'
+import type { ComponentConfig } from '../types/tv'
 
 type SidebarLayout = ComponentConfig<typeof theme, AppConfig, 'sidebarLayout'>
 export interface SidebarLayoutProps {

@@ -1,14 +1,13 @@
-import type { Bitrix24UIOptions } from '../unplugin'
-
-import { getTemplates } from '../templates'
 import type { UnpluginOptions } from 'unplugin'
+import type { Bitrix24UIOptions } from '../unplugin'
+import { getTemplates } from '../templates'
 
 /**
  * This plugin is responsible for getting the generated virtual templates and
  * making them available to the Vue build.
  */
-export default function TemplatePlugin(options: Bitrix24UIOptions) {
-  const templates = getTemplates(options)
+export default function TemplatePlugin(options: Bitrix24UIOptions, appConfig: Record<string, any>) {
+  const templates = getTemplates(options, appConfig.b24ui)
   const templateKeys = new Set(templates.map(t => `#build/${t.filename}`))
 
   return {

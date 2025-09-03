@@ -10,9 +10,6 @@
     "preview": "nuxt preview",
     "typecheck": "nuxt typecheck"
   },
-  "dd_dependencies": {
-    "@nuxthub/core": "^0.9.0"
-  },
   "dependencies": {
     "@bitrix24/b24icons-vue": "^2.0.2",
     "@internationalized/date": "^3.9.0",

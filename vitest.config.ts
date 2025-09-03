@@ -7,9 +7,7 @@ export default defineVitestConfig({
     globals: true,
     silent: true,
     include: [
-      './test/components/**.spec.ts',
-      './test/components/content/**.spec.ts',
-      './test/components/prose/**.spec.ts',
+      './test/components/**/**.spec.ts',
       './test/composables/**.spec.ts'
     ],
     environment: 'nuxt',

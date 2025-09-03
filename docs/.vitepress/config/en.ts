@@ -130,7 +130,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
         { text: 'Collapsible', link: 'collapsible' },
         { text: 'Countdown', link: 'countdown' },
         { text: 'Kbd', link: 'kbd' },
-        { text: 'TableWrapper', base: '/components/content/', link: 'table-wrapper' },
+        { text: 'TableWrapper', link: 'table-wrapper' },
         { text: 'Typography', link: 'typography' }
       ]
     },

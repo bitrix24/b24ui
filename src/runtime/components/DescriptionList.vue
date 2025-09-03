@@ -2,7 +2,8 @@
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/description-list'
 import type { AvatarProps, ButtonProps, IconComponent } from '../types'
-import type { DynamicSlots, ComponentConfig } from '../types/utils'
+import type { DynamicSlots } from '../types/utils'
+import type { ComponentConfig } from '../types/tv'
 
 type DescriptionList = ComponentConfig<typeof theme, AppConfig, 'descriptionList'>
 

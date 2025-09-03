@@ -83,12 +83,11 @@ const components: IComponentInfo[] = [
   { id: 'tabs', description: 'A set of tab panels that are displayed one at a time.', iconData: FolderEmptyIcon },
   { id: 'textarea', description: 'A textarea element to input multi-line text.', iconData: FormIcon },
   { id: 'toast', description: 'A succinct message to provide information or feedback to the user.', iconData: GroupIcon },
-  { id: 'tooltip', description: 'A popup that reveals information when hovering over an element.', iconData: GroupIcon }
-]
-
-const componentsContent: IComponentInfo[] = [
+  { id: 'tooltip', description: 'A popup that reveals information when hovering over an element.', iconData: GroupIcon },
   { id: 'table-wrapper', description: 'Wrapper for displaying a table.', iconData: TableIcon }
 ]
+
+const componentsContent: IComponentInfo[] = []
 
 const componentsProse: IComponentInfo[] = [
   { id: 'show', description: 'Show same prose', iconData: TextCheckIcon }

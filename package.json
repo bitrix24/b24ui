@@ -126,6 +126,7 @@
     "test:vue": "vitest -c vitest.vue.config.ts"
   },
   "dependencies": {
+    "@ai-sdk/vue": "^1.2.12",
     "@bitrix24/b24icons-vue": "^2.0.2",
     "@bitrix24/b24style": "^1.0.1",
     "@internationalized/date": "^3.9.0",
@@ -140,6 +141,7 @@
     "@unhead/vue": "^2.0.14",
     "@vueuse/core": "^13.8.0",
     "@vueuse/integrations": "^13.8.0",
+    "better-sqlite3": "^12.2.0",
     "canvas-confetti": "^1.9.3",
     "colortranslator": "^5.0.0",
     "consola": "^3.4.2",
@@ -156,6 +158,7 @@
     "knitwork": "^1.2.0",
     "magic-string": "^0.30.18",
     "mlly": "^1.8.0",
+    "motion-v": "^1.7.0",
     "ohash": "^2.0.11",
     "pathe": "^2.0.3",
     "reka-ui": "2.5.0",
@@ -171,6 +174,7 @@
     "vue-component-type-helpers": "^3.0.6"
   },
   "devDependencies": {
+    "@nuxt/content": "^3.6.3",
     "@nuxt/eslint-config": "^1.9.0",
     "@nuxt/module-builder": "^1.0.1",
     "@nuxt/test-utils": "^3.19.2",

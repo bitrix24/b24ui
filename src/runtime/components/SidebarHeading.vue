@@ -1,7 +1,7 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/sidebar-heading'
-import type { ComponentConfig } from '../types/utils'
+import type { ComponentConfig } from '../types/tv'
 
 type SidebarHeading = ComponentConfig<typeof theme, AppConfig, 'sidebarHeading'>
 

@@ -7,6 +7,9 @@ import { resolve } from 'pathe'
 const components = await glob('./src/runtime/components/*.vue', { absolute: true })
 const vueComponents = await glob('./src/runtime/vue/components/*.vue', { absolute: true })
 
+/**
+ * @memo we not test components/prose and components/content
+ */
 export default defineConfig({
   test: {
     testTimeout: 2500,
@@ -14,8 +17,6 @@ export default defineConfig({
     silent: true,
     include: [
       './test/components/**.spec.ts',
-      './test/components/content/**.spec.ts',
-      './test/components/prose/**.spec.ts',
       './test/composables/**.spec.ts'
     ],
     setupFiles: ['./test/utils/setup.ts'],
