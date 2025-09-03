@@ -87,8 +87,6 @@ const components: IComponentInfo[] = [
   { id: 'table-wrapper', description: 'Wrapper for displaying a table.', iconData: TableIcon }
 ]
 
-const componentsContent: IComponentInfo[] = []
-
 const componentsProse: IComponentInfo[] = [
   { id: 'show', description: 'Show same prose', iconData: TextCheckIcon }
 ]
@@ -100,19 +98,6 @@ const groups: IPageGroup[] = [
     children: components.map(component => ({
       id: component.id,
       to: `/components/${component.id}`,
-      icon: component.iconData ?? ItemIcon,
-      iconData: component.iconData ?? ItemIcon,
-      iconClass: { icon: component.iconUi ?? (component.iconData ? '' : 'pr-px') },
-      label: `${upperName(component.id)}`,
-      description: component.description
-    } as IPageItem))
-  } as IPageGroup,
-  {
-    id: `components/content`,
-    label: 'Content',
-    children: componentsContent.map(component => ({
-      id: component.id,
-      to: `/components/content/${component.id}`,
       icon: component.iconData ?? ItemIcon,
       iconData: component.iconData ?? ItemIcon,
       iconClass: { icon: component.iconUi ?? (component.iconData ? '' : 'pr-px') },
