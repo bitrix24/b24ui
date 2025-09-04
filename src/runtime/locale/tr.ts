@@ -7,132 +7,132 @@ export default defineLocale<Messages>({
   locale: 'tr',
   messages: {
     alert: {
-      close: 'Close'
+      close: 'Kapat'
     },
     authForm: {
-      hidePassword: 'Hide password',
-      showPassword: 'Show password',
-      submit: 'Continue'
+      hidePassword: 'Parolayı Gizle',
+      showPassword: 'Parolayı Göster',
+      submit: 'Devam Et'
     },
     banner: {
-      close: 'Close'
+      close: 'Kapat'
     },
     calendar: {
-      nextMonth: 'Next month',
-      nextYear: 'Next year',
-      prevMonth: 'Previous month',
-      prevYear: 'Previous year'
+      nextMonth: 'Sonraki Ay',
+      nextYear: 'Sonraki Yıl',
+      prevMonth: 'Önceki Ay',
+      prevYear: 'Önceki Yıl'
     },
     carousel: {
-      dots: 'Choose slide to display',
-      goto: 'Go to slide {slide}',
-      next: 'Next',
-      prev: 'Prev'
+      dots: 'Gösterilecek slaytı seçin',
+      goto: '{slide}\'a git',
+      next: 'İleri',
+      prev: 'Geri'
     },
     chatPrompt: {
-      placeholder: 'Type your message here...'
+      placeholder: 'Mesajınızı buraya yazın...'
     },
     chatPromptSubmit: {
-      label: 'Send prompt'
+      label: 'Gönder'
     },
     colorMode: {
-      dark: 'Dark',
-      light: 'Light',
-      switchToDark: 'Switch to dark mode',
-      switchToLight: 'Switch to light mode',
-      system: 'System'
+      dark: 'Koyu',
+      light: 'Açık',
+      switchToDark: 'Koyu moda geç',
+      switchToLight: 'Açık moda geç',
+      system: 'Sistem'
     },
     commandPalette: {
-      back: 'Back',
-      close: 'Close',
-      noData: 'No data',
-      noMatch: 'No matching data',
-      placeholder: 'Type a command or search...'
+      back: 'Geri',
+      close: 'Kapat',
+      noData: 'Veri yok',
+      noMatch: 'Eşleşme bulunamadı',
+      placeholder: 'Bir komut girin veya arama yapın...'
     },
     contentSearch: {
-      links: 'Links',
-      theme: 'Theme'
+      links: 'Sonuçlar',
+      theme: 'Tema'
     },
     contentSearchButton: {
-      label: 'Search...'
+      label: 'Ara...'
     },
     contentToc: {
-      title: 'On this page'
+      title: 'Bu sayfada'
     },
     dashboardSearch: {
-      theme: 'Theme'
+      theme: 'Tema'
     },
     dashboardSearchButton: {
-      label: 'Search...'
+      label: 'Ara...'
     },
     dashboardSidebarCollapse: {
-      collapse: 'Collapse sidebar',
-      expand: 'Expand sidebar'
+      collapse: 'Kenar çubuğunu daralt',
+      expand: 'Kenar çubuğunu genişlet'
     },
     dashboardSidebarToggle: {
-      close: 'Close sidebar',
-      open: 'Open sidebar'
+      close: 'Kenar çubuğunu kapat',
+      open: 'Kenar çubuğunu aç'
     },
     error: {
-      clear: 'Back to home'
+      clear: 'Tekrar Dene'
     },
     fileUpload: {
-      removeFile: 'Remove {filename}'
+      removeFile: '{filename} dosyasını sil'
     },
     header: {
-      close: 'Close menu',
-      open: 'Open menu'
+      close: 'Menüyü kapat',
+      open: 'Menüyü aç'
     },
     inputMenu: {
-      create: 'Create "{label}"',
-      noData: 'No data',
-      noMatch: 'No matching data'
+      create: '"{label}" oluştur',
+      noData: 'Veri yok',
+      noMatch: 'Eşleşme bulunamadı'
     },
     inputNumber: {
-      decrement: 'Decrement',
-      increment: 'Increment'
+      decrement: 'Azalt',
+      increment: 'Artır'
     },
     modal: {
-      close: 'Close'
+      close: 'Kapat'
     },
     pricingTable: {
-      caption: 'Pricing plan comparison'
+      caption: 'Fiyat planlarının karşılaştırılması'
     },
     prose: {
       codeCollapse: {
-        closeText: 'Collapse',
-        name: 'code',
-        openText: 'Expand'
+        closeText: 'Gizle',
+        name: 'kod',
+        openText: 'Göster'
       },
       collapsible: {
-        closeText: 'Hide',
-        name: 'properties',
-        openText: 'Show'
+        closeText: 'Gizle',
+        name: 'özellikler',
+        openText: 'Göster'
       },
       pre: {
-        copy: 'Copy code to clipboard'
+        copy: 'Kopyala'
       }
     },
     selectMenu: {
-      create: 'Create "{label}"',
-      noData: 'No data',
-      noMatch: 'No matching data',
-      search: 'Search...'
+      create: '"{label}" oluştur',
+      noData: 'Veri yok',
+      noMatch: 'Eşleşme bulunamadı',
+      search: 'Ara...'
     },
     slideover: {
-      close: 'Close'
+      close: 'Kapat'
     },
     table: {
-      noData: 'No data'
+      noData: 'Veri yok'
     },
     toast: {
-      close: 'Close'
+      close: 'Kapat'
     },
     sidebarLayout: {
-      open: 'Open navigation',
-      close: 'Close navigation',
-      slideoverTitle: 'Navigation',
-      slideoverDescription: 'Content navigation'
+      open: 'Gezintiyi aç',
+      close: 'Gezintiyi kapat',
+      slideoverTitle: 'Gezinti',
+      slideoverDescription: 'İçerik gezintisi'
     }
   }
 })

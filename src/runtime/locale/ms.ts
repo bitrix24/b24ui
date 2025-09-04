@@ -7,132 +7,132 @@ export default defineLocale<Messages>({
   locale: 'ms',
   messages: {
     alert: {
-      close: 'Close'
+      close: 'Tutup'
     },
     authForm: {
-      hidePassword: 'Hide password',
-      showPassword: 'Show password',
-      submit: 'Continue'
+      hidePassword: 'Sembunyi kata laluan',
+      showPassword: 'Tunjukkan kata laluan',
+      submit: 'Teruskan'
     },
     banner: {
-      close: 'Close'
+      close: 'Tutup'
     },
     calendar: {
-      nextMonth: 'Next month',
-      nextYear: 'Next year',
-      prevMonth: 'Previous month',
-      prevYear: 'Previous year'
+      nextMonth: 'Bulan depan',
+      nextYear: 'Tahun depan',
+      prevMonth: 'Bulan lepas',
+      prevYear: 'Tahun lepas'
     },
     carousel: {
-      dots: 'Choose slide to display',
-      goto: 'Go to slide {slide}',
-      next: 'Next',
-      prev: 'Prev'
+      dots: 'Pilih slaid untuk dipaparkan',
+      goto: 'Pergi ke {slide}',
+      next: 'Seterusnya',
+      prev: 'Sebelumnya'
     },
     chatPrompt: {
-      placeholder: 'Type your message here...'
+      placeholder: 'Taip mesej anda di sini...'
     },
     chatPromptSubmit: {
-      label: 'Send prompt'
+      label: 'Hantar'
     },
     colorMode: {
-      dark: 'Dark',
-      light: 'Light',
-      switchToDark: 'Switch to dark mode',
-      switchToLight: 'Switch to light mode',
-      system: 'System'
+      dark: 'Gelap',
+      light: 'Terang',
+      switchToDark: 'Tukar kepada mod gelap',
+      switchToLight: 'Tukar kepada mod terang',
+      system: 'Sistem'
     },
     commandPalette: {
-      back: 'Back',
-      close: 'Close',
-      noData: 'No data',
-      noMatch: 'No matching data',
-      placeholder: 'Type a command or search...'
+      back: 'Kembali',
+      close: 'Tutup',
+      noData: 'Tiada data',
+      noMatch: 'Tiada padanan ditemui',
+      placeholder: 'Taip arahan atau cari...'
     },
     contentSearch: {
-      links: 'Links',
-      theme: 'Theme'
+      links: 'Hasil',
+      theme: 'Tema'
     },
     contentSearchButton: {
-      label: 'Search...'
+      label: 'Cari...'
     },
     contentToc: {
-      title: 'On this page'
+      title: 'Pada halaman ini'
     },
     dashboardSearch: {
-      theme: 'Theme'
+      theme: 'Tema'
     },
     dashboardSearchButton: {
-      label: 'Search...'
+      label: 'Cari...'
     },
     dashboardSidebarCollapse: {
-      collapse: 'Collapse sidebar',
-      expand: 'Expand sidebar'
+      collapse: 'Runtuhkan bar sisi',
+      expand: 'Kembangkan bar sisi'
     },
     dashboardSidebarToggle: {
-      close: 'Close sidebar',
-      open: 'Open sidebar'
+      close: 'Tutup bar sisi',
+      open: 'Buka bar sisi'
     },
     error: {
-      clear: 'Back to home'
+      clear: 'Cuba lagi'
     },
     fileUpload: {
-      removeFile: 'Remove {filename}'
+      removeFile: 'Buang {filename}'
     },
     header: {
-      close: 'Close menu',
-      open: 'Open menu'
+      close: 'Tutup menu',
+      open: 'Buka menu'
     },
     inputMenu: {
-      create: 'Create "{label}"',
-      noData: 'No data',
-      noMatch: 'No matching data'
+      create: 'Cipta "{label}"',
+      noData: 'Tiada data',
+      noMatch: 'Tiada padanan ditemui'
     },
     inputNumber: {
-      decrement: 'Decrement',
-      increment: 'Increment'
+      decrement: 'Kurangkan',
+      increment: 'Tambah'
     },
     modal: {
-      close: 'Close'
+      close: 'Tutup'
     },
     pricingTable: {
-      caption: 'Pricing plan comparison'
+      caption: 'Perbandingan rancangan harga'
     },
     prose: {
       codeCollapse: {
-        closeText: 'Collapse',
-        name: 'code',
-        openText: 'Expand'
+        closeText: 'Sembunyi',
+        name: 'kod',
+        openText: 'Tunjukkan'
       },
       collapsible: {
-        closeText: 'Hide',
-        name: 'properties',
-        openText: 'Show'
+        closeText: 'Sembunyi',
+        name: 'ciri-ciri',
+        openText: 'Tunjukkan'
       },
       pre: {
-        copy: 'Copy code to clipboard'
+        copy: 'Salin'
       }
     },
     selectMenu: {
-      create: 'Create "{label}"',
-      noData: 'No data',
-      noMatch: 'No matching data',
-      search: 'Search...'
+      create: 'Cipta "{label}"',
+      noData: 'Tiada data',
+      noMatch: 'Tiada padanan ditemui',
+      search: 'Cari...'
     },
     slideover: {
-      close: 'Close'
+      close: 'Tutup'
     },
     table: {
-      noData: 'No data'
+      noData: 'Tiada data'
     },
     toast: {
-      close: 'Close'
+      close: 'Tutup'
     },
     sidebarLayout: {
-      open: 'Open navigation',
-      close: 'Close navigation',
-      slideoverTitle: 'Navigation',
-      slideoverDescription: 'Content navigation'
+      open: 'Buka navigasi',
+      close: 'Tutup navigasi',
+      slideoverTitle: 'Navigasi',
+      slideoverDescription: 'Navigasi kandungan'
     }
   }
 })

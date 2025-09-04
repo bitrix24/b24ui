@@ -7,132 +7,132 @@ export default defineLocale<Messages>({
   locale: 'pl',
   messages: {
     alert: {
-      close: 'Close'
+      close: 'Zamknij'
     },
     authForm: {
-      hidePassword: 'Hide password',
-      showPassword: 'Show password',
-      submit: 'Continue'
+      hidePassword: 'Ukryj hasło',
+      showPassword: 'Pokaż hasło',
+      submit: 'Kontynuuj'
     },
     banner: {
-      close: 'Close'
+      close: 'Zamknij'
     },
     calendar: {
-      nextMonth: 'Next month',
-      nextYear: 'Next year',
-      prevMonth: 'Previous month',
-      prevYear: 'Previous year'
+      nextMonth: 'Następny miesiąc',
+      nextYear: 'Następny rok',
+      prevMonth: 'Poprzedni miesiąc',
+      prevYear: 'Poprzedni rok'
     },
     carousel: {
-      dots: 'Choose slide to display',
-      goto: 'Go to slide {slide}',
-      next: 'Next',
-      prev: 'Prev'
+      dots: 'Wybierz slajd do wyświetlenia',
+      goto: 'Przejdź do {slide}',
+      next: 'Dalej',
+      prev: 'Wstecz'
     },
     chatPrompt: {
-      placeholder: 'Type your message here...'
+      placeholder: 'Wpisz swoją wiadomość tutaj...'
     },
     chatPromptSubmit: {
-      label: 'Send prompt'
+      label: 'Wyślij'
     },
     colorMode: {
-      dark: 'Dark',
-      light: 'Light',
-      switchToDark: 'Switch to dark mode',
-      switchToLight: 'Switch to light mode',
-      system: 'System'
+      dark: 'Ciemny',
+      light: 'Jasny',
+      switchToDark: 'Przełącz na tryb ciemny',
+      switchToLight: 'Przełącz na tryb jasny',
+      system: 'Systemowy'
     },
     commandPalette: {
-      back: 'Back',
-      close: 'Close',
-      noData: 'No data',
-      noMatch: 'No matching data',
-      placeholder: 'Type a command or search...'
+      back: 'Wstecz',
+      close: 'Zamknij',
+      noData: 'Brak danych',
+      noMatch: 'Nie znaleziono dopasowań',
+      placeholder: 'Wpisz komendę lub wyszukaj...'
     },
     contentSearch: {
-      links: 'Links',
-      theme: 'Theme'
+      links: 'Wyniki',
+      theme: 'Motyw'
     },
     contentSearchButton: {
-      label: 'Search...'
+      label: 'Szukaj...'
     },
     contentToc: {
-      title: 'On this page'
+      title: 'Na tej stronie'
     },
     dashboardSearch: {
-      theme: 'Theme'
+      theme: 'Motyw'
     },
     dashboardSearchButton: {
-      label: 'Search...'
+      label: 'Szukaj...'
     },
     dashboardSidebarCollapse: {
-      collapse: 'Collapse sidebar',
-      expand: 'Expand sidebar'
+      collapse: 'Zwiń panel boczny',
+      expand: 'Rozwiń panel boczny'
     },
     dashboardSidebarToggle: {
-      close: 'Close sidebar',
-      open: 'Open sidebar'
+      close: 'Zamknij panel boczny',
+      open: 'Otwórz panel boczny'
     },
     error: {
-      clear: 'Back to home'
+      clear: 'Spróbuj ponownie'
     },
     fileUpload: {
-      removeFile: 'Remove {filename}'
+      removeFile: 'Usuń {filename}'
     },
     header: {
-      close: 'Close menu',
-      open: 'Open menu'
+      close: 'Zamknij menu',
+      open: 'Otwórz menu'
     },
     inputMenu: {
-      create: 'Create "{label}"',
-      noData: 'No data',
-      noMatch: 'No matching data'
+      create: 'Utwórz "{label}"',
+      noData: 'Brak danych',
+      noMatch: 'Nie znaleziono dopasowań'
     },
     inputNumber: {
-      decrement: 'Decrement',
-      increment: 'Increment'
+      decrement: 'Zmniejsz',
+      increment: 'Zwiększ'
     },
     modal: {
-      close: 'Close'
+      close: 'Zamknij'
     },
     pricingTable: {
-      caption: 'Pricing plan comparison'
+      caption: 'Porównanie planów cenowych'
     },
     prose: {
       codeCollapse: {
-        closeText: 'Collapse',
-        name: 'code',
-        openText: 'Expand'
+        closeText: 'Ukryj',
+        name: 'kod',
+        openText: 'Pokaż'
       },
       collapsible: {
-        closeText: 'Hide',
-        name: 'properties',
-        openText: 'Show'
+        closeText: 'Ukryj',
+        name: 'właściwości',
+        openText: 'Pokaż'
       },
       pre: {
-        copy: 'Copy code to clipboard'
+        copy: 'Kopiuj'
       }
     },
     selectMenu: {
-      create: 'Create "{label}"',
-      noData: 'No data',
-      noMatch: 'No matching data',
-      search: 'Search...'
+      create: 'Utwórz "{label}"',
+      noData: 'Brak danych',
+      noMatch: 'Nie znaleziono dopasowań',
+      search: 'Szukaj...'
     },
     slideover: {
-      close: 'Close'
+      close: 'Zamknij'
     },
     table: {
-      noData: 'No data'
+      noData: 'Brak danych'
     },
     toast: {
-      close: 'Close'
+      close: 'Zamknij'
     },
     sidebarLayout: {
-      open: 'Open navigation',
-      close: 'Close navigation',
-      slideoverTitle: 'Navigation',
-      slideoverDescription: 'Content navigation'
+      open: 'Otwórz nawigację',
+      close: 'Zamknij nawigację',
+      slideoverTitle: 'Nawigacja',
+      slideoverDescription: 'Nawigacja treści'
     }
   }
 })

@@ -50,7 +50,7 @@ export default defineLocale<Messages>({
       placeholder: 'Введите команду или выполните поиск...'
     },
     contentSearch: {
-      links: 'Ссылки',
+      links: 'Результаты',
       theme: 'Тема'
     },
     contentSearchButton: {
@@ -74,7 +74,7 @@ export default defineLocale<Messages>({
       open: 'Открыть боковую панель'
     },
     error: {
-      clear: 'Вернуться на главную'
+      clear: 'Попробовать снова'
     },
     fileUpload: {
       removeFile: 'Удалить {filename}'
@@ -100,9 +100,9 @@ export default defineLocale<Messages>({
     },
     prose: {
       codeCollapse: {
-        closeText: 'Свернуть',
+        closeText: 'Скрыть',
         name: 'код',
-        openText: 'Развернуть'
+        openText: 'Показать'
       },
       collapsible: {
         closeText: 'Скрыть',
@@ -110,7 +110,7 @@ export default defineLocale<Messages>({
         openText: 'Показать'
       },
       pre: {
-        copy: 'Скопировать код в буфер обмена'
+        copy: 'Скопировать'
       }
     },
     selectMenu: {

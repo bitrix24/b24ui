@@ -7,132 +7,132 @@ export default defineLocale<Messages>({
   locale: 'kk',
   messages: {
     alert: {
-      close: 'Close'
+      close: 'Жабу'
     },
     authForm: {
-      hidePassword: 'Hide password',
-      showPassword: 'Show password',
-      submit: 'Continue'
+      hidePassword: 'Құпия сөзді жасыру',
+      showPassword: 'Құпия сөзді көрсету',
+      submit: 'Жалғастыру'
     },
     banner: {
-      close: 'Close'
+      close: 'Жабу'
     },
     calendar: {
-      nextMonth: 'Next month',
-      nextYear: 'Next year',
-      prevMonth: 'Previous month',
-      prevYear: 'Previous year'
+      nextMonth: 'Келесі ай',
+      nextYear: 'Келесі жыл',
+      prevMonth: 'Алдыңғы ай',
+      prevYear: 'Алдыңғы жыл'
     },
     carousel: {
-      dots: 'Choose slide to display',
-      goto: 'Go to slide {slide}',
-      next: 'Next',
-      prev: 'Prev'
+      dots: 'Көрсету үшін слайдты таңдаңыз',
+      goto: '{slide} слайдына өту',
+      next: 'Келесі',
+      prev: 'Артқа'
     },
     chatPrompt: {
-      placeholder: 'Type your message here...'
+      placeholder: 'Хабарламаңызды осында енгізіңіз...'
     },
     chatPromptSubmit: {
-      label: 'Send prompt'
+      label: 'Жіберу'
     },
     colorMode: {
-      dark: 'Dark',
-      light: 'Light',
-      switchToDark: 'Switch to dark mode',
-      switchToLight: 'Switch to light mode',
-      system: 'System'
+      dark: 'Қараңғы',
+      light: 'Ашық',
+      switchToDark: 'Қараңғы режимге ауысу',
+      switchToLight: 'Ашық режимге ауысу',
+      system: 'Жүйелік'
     },
     commandPalette: {
-      back: 'Back',
-      close: 'Close',
-      noData: 'No data',
-      noMatch: 'No matching data',
-      placeholder: 'Type a command or search...'
+      back: 'Артқа',
+      close: 'Жабу',
+      noData: 'Деректер жоқ',
+      noMatch: 'Сәйкестік табылмады',
+      placeholder: 'Пәрменді енгізіңіз немесе іздеу орындаңыз...'
     },
     contentSearch: {
-      links: 'Links',
-      theme: 'Theme'
+      links: 'Нәтижелер',
+      theme: 'Тақырып'
     },
     contentSearchButton: {
-      label: 'Search...'
+      label: 'Іздеу...'
     },
     contentToc: {
-      title: 'On this page'
+      title: 'Осы бетте'
     },
     dashboardSearch: {
-      theme: 'Theme'
+      theme: 'Тақырып'
     },
     dashboardSearchButton: {
-      label: 'Search...'
+      label: 'Іздеу...'
     },
     dashboardSidebarCollapse: {
-      collapse: 'Collapse sidebar',
-      expand: 'Expand sidebar'
+      collapse: 'Бүйір панельді жию',
+      expand: 'Бүйір панельді кеңейту'
     },
     dashboardSidebarToggle: {
-      close: 'Close sidebar',
-      open: 'Open sidebar'
+      close: 'Бүйір панельді жабу',
+      open: 'Бүйір панельді ашу'
     },
     error: {
-      clear: 'Back to home'
+      clear: 'Қайта көру'
     },
     fileUpload: {
-      removeFile: 'Remove {filename}'
+      removeFile: '{filename} жөндеу'
     },
     header: {
-      close: 'Close menu',
-      open: 'Open menu'
+      close: 'Мәзірді жабу',
+      open: 'Мәзірді ашу'
     },
     inputMenu: {
-      create: 'Create "{label}"',
-      noData: 'No data',
-      noMatch: 'No matching data'
+      create: '"{label}" жасау',
+      noData: 'Деректер жоқ',
+      noMatch: 'Сәйкестік табылмады'
     },
     inputNumber: {
-      decrement: 'Decrement',
-      increment: 'Increment'
+      decrement: 'Азайту',
+      increment: 'Көбейту'
     },
     modal: {
-      close: 'Close'
+      close: 'Жабу'
     },
     pricingTable: {
-      caption: 'Pricing plan comparison'
+      caption: 'Бағдарлық жоспарларды салыстыру'
     },
     prose: {
       codeCollapse: {
-        closeText: 'Collapse',
-        name: 'code',
-        openText: 'Expand'
+        closeText: 'Жасыру',
+        name: 'код',
+        openText: 'Көрсету'
       },
       collapsible: {
-        closeText: 'Hide',
-        name: 'properties',
-        openText: 'Show'
+        closeText: 'Жасыру',
+        name: 'қасиеттер',
+        openText: 'Көрсету'
       },
       pre: {
-        copy: 'Copy code to clipboard'
+        copy: 'Көшіру'
       }
     },
     selectMenu: {
-      create: 'Create "{label}"',
-      noData: 'No data',
-      noMatch: 'No matching data',
-      search: 'Search...'
+      create: '"{label}" жасау',
+      noData: 'Деректер жоқ',
+      noMatch: 'Сәйкестік табылмады',
+      search: 'Іздеу...'
     },
     slideover: {
-      close: 'Close'
+      close: 'Жабу'
     },
     table: {
-      noData: 'No data'
+      noData: 'Деректер жоқ'
     },
     toast: {
-      close: 'Close'
+      close: 'Жабу'
     },
     sidebarLayout: {
-      open: 'Open navigation',
-      close: 'Close navigation',
-      slideoverTitle: 'Navigation',
-      slideoverDescription: 'Content navigation'
+      open: 'Навигацияны ашу',
+      close: 'Навигацияны жабу',
+      slideoverTitle: 'Навигация',
+      slideoverDescription: 'Мазмұн бойынша навигация'
     }
   }
 })

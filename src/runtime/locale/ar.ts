@@ -19,14 +19,14 @@ export default defineLocale<Messages>({
       close: 'إغلاق'
     },
     calendar: {
-      nextMonth: 'الشهر المقبل',
-      nextYear: 'السنة المقبلة',
+      nextMonth: 'الشهر التالي',
+      nextYear: 'السنة التالية',
       prevMonth: 'الشهر السابق',
       prevYear: 'السنة السابقة'
     },
     carousel: {
-      dots: 'اختر الشريحة المراد عرضها',
-      goto: 'الذهاب إلى شريحة {slide}',
+      dots: 'اختر شريحة للعرض',
+      goto: 'انتقل إلى {slide}',
       next: 'التالي',
       prev: 'السابق'
     },
@@ -37,22 +37,22 @@ export default defineLocale<Messages>({
       label: 'إرسال'
     },
     colorMode: {
-      dark: 'داكن',
+      dark: 'مظلم',
       light: 'فاتح',
-      switchToDark: 'التبديل إلى الوضع الداكن',
-      switchToLight: 'التبديل إلى الوضع الفاتح',
+      switchToDark: 'التغيير إلى الوضع المظلم',
+      switchToLight: 'التغيير إلى الوضع الفاتح',
       system: 'النظام'
     },
     commandPalette: {
       back: 'رجوع',
       close: 'إغلاق',
       noData: 'لا توجد بيانات',
-      noMatch: 'لا توجد نتائج مطابقة',
-      placeholder: 'اكتب أمرًا أو ابحث...'
+      noMatch: 'لم يتم العثور على نتائج',
+      placeholder: 'أدخل أمرًا أو ابحث...'
     },
     contentSearch: {
-      links: 'الروابط',
-      theme: 'السمة'
+      links: 'النتائج',
+      theme: 'الموضوع'
     },
     contentSearchButton: {
       label: 'بحث...'
@@ -61,7 +61,7 @@ export default defineLocale<Messages>({
       title: 'في هذه الصفحة'
     },
     dashboardSearch: {
-      theme: 'السمة'
+      theme: 'الموضوع'
     },
     dashboardSearchButton: {
       label: 'بحث...'
@@ -75,10 +75,10 @@ export default defineLocale<Messages>({
       open: 'فتح الشريط الجانبي'
     },
     error: {
-      clear: 'العودة إلى الصفحة الرئيسية'
+      clear: 'حاول مرة أخرى'
     },
     fileUpload: {
-      removeFile: 'إزالة {filename}'
+      removeFile: 'حذف {filename}'
     },
     header: {
       close: 'إغلاق القائمة',
@@ -87,37 +87,37 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: 'إنشاء "{label}"',
       noData: 'لا توجد بيانات',
-      noMatch: 'لا توجد نتائج مطابقة'
+      noMatch: 'لم يتم العثور على نتائج'
     },
     inputNumber: {
-      decrement: 'تقليل',
+      decrement: 'إنقاص',
       increment: 'زيادة'
     },
     modal: {
       close: 'إغلاق'
     },
     pricingTable: {
-      caption: 'مقارنة الخطط السعرية'
+      caption: 'مقارنة الخطط التسعيرية'
     },
     prose: {
       codeCollapse: {
-        closeText: 'طي',
-        name: 'كود',
-        openText: 'توسيع'
+        closeText: 'إخفاء',
+        name: 'الكود',
+        openText: 'إظهار'
       },
       collapsible: {
         closeText: 'إخفاء',
-        name: 'خصائص',
+        name: 'الخصائص',
         openText: 'إظهار'
       },
       pre: {
-        copy: 'نسخ الكود إلى الحافظة'
+        copy: 'نسخ'
       }
     },
     selectMenu: {
       create: 'إنشاء "{label}"',
       noData: 'لا توجد بيانات',
-      noMatch: 'لا توجد نتائج مطابقة',
+      noMatch: 'لم يتم العثور على نتائج',
       search: 'بحث...'
     },
     slideover: {
@@ -133,7 +133,7 @@ export default defineLocale<Messages>({
       open: 'فتح التنقل',
       close: 'إغلاق التنقل',
       slideoverTitle: 'التنقل',
-      slideoverDescription: 'تنقل المحتوى'
+      slideoverDescription: 'التنقل بين المحتويات'
     }
   }
 })

@@ -7,132 +7,132 @@ export default defineLocale<Messages>({
   locale: 'th',
   messages: {
     alert: {
-      close: 'Close'
+      close: 'ปิด'
     },
     authForm: {
-      hidePassword: 'Hide password',
-      showPassword: 'Show password',
-      submit: 'Continue'
+      hidePassword: 'ซ่อนรหัสผ่าน',
+      showPassword: 'แสดงรหัสผ่าน',
+      submit: 'ดำเนินการต่อ'
     },
     banner: {
-      close: 'Close'
+      close: 'ปิด'
     },
     calendar: {
-      nextMonth: 'Next month',
-      nextYear: 'Next year',
-      prevMonth: 'Previous month',
-      prevYear: 'Previous year'
+      nextMonth: 'เดือนถัดไป',
+      nextYear: 'ปีถัดไป',
+      prevMonth: 'เดือนก่อนหน้า',
+      prevYear: 'ปีก่อนหน้า'
     },
     carousel: {
-      dots: 'Choose slide to display',
-      goto: 'Go to slide {slide}',
-      next: 'Next',
-      prev: 'Prev'
+      dots: 'เลือกสไลด์เพื่อแสดง',
+      goto: 'ไปยัง {slide}',
+      next: 'ต่อไป',
+      prev: 'ย้อนกลับ'
     },
     chatPrompt: {
-      placeholder: 'Type your message here...'
+      placeholder: 'พิมพ์ข้อความของคุณที่นี่...'
     },
     chatPromptSubmit: {
-      label: 'Send prompt'
+      label: 'ส่ง'
     },
     colorMode: {
-      dark: 'Dark',
-      light: 'Light',
-      switchToDark: 'Switch to dark mode',
-      switchToLight: 'Switch to light mode',
-      system: 'System'
+      dark: 'โหมดกลางคืน',
+      light: 'โหมดกลางวัน',
+      switchToDark: 'เปลี่ยนเป็นโหมดกลางคืน',
+      switchToLight: 'เปลี่ยนเป็นโหมดกลางวัน',
+      system: 'ตามระบบ'
     },
     commandPalette: {
-      back: 'Back',
-      close: 'Close',
-      noData: 'No data',
-      noMatch: 'No matching data',
-      placeholder: 'Type a command or search...'
+      back: 'ย้อนกลับ',
+      close: 'ปิด',
+      noData: 'ไม่มีข้อมูล',
+      noMatch: 'ไม่พบรายการที่ตรงกัน',
+      placeholder: 'ป้อนคำสั่งหรือค้นหา...'
     },
     contentSearch: {
-      links: 'Links',
-      theme: 'Theme'
+      links: 'ผลลัพธ์',
+      theme: 'ธีม'
     },
     contentSearchButton: {
-      label: 'Search...'
+      label: 'ค้นหา...'
     },
     contentToc: {
-      title: 'On this page'
+      title: 'บนหน้านี้'
     },
     dashboardSearch: {
-      theme: 'Theme'
+      theme: 'ธีม'
     },
     dashboardSearchButton: {
-      label: 'Search...'
+      label: 'ค้นหา...'
     },
     dashboardSidebarCollapse: {
-      collapse: 'Collapse sidebar',
-      expand: 'Expand sidebar'
+      collapse: 'ย่อแถบด้านข้าง',
+      expand: 'ขยายแถบด้านข้าง'
     },
     dashboardSidebarToggle: {
-      close: 'Close sidebar',
-      open: 'Open sidebar'
+      close: 'ปิดแถบด้านข้าง',
+      open: 'เปิดแถบด้านข้าง'
     },
     error: {
-      clear: 'Back to home'
+      clear: 'ลองอีกครั้ง'
     },
     fileUpload: {
-      removeFile: 'Remove {filename}'
+      removeFile: 'ลบ {filename}'
     },
     header: {
-      close: 'Close menu',
-      open: 'Open menu'
+      close: 'ปิดเมนู',
+      open: 'เปิดเมนู'
     },
     inputMenu: {
-      create: 'Create "{label}"',
-      noData: 'No data',
-      noMatch: 'No matching data'
+      create: 'สร้าง "{label}"',
+      noData: 'ไม่มีข้อมูล',
+      noMatch: 'ไม่พบรายการที่ตรงกัน'
     },
     inputNumber: {
-      decrement: 'Decrement',
-      increment: 'Increment'
+      decrement: 'ลดลง',
+      increment: 'เพิ่มขึ้น'
     },
     modal: {
-      close: 'Close'
+      close: 'ปิด'
     },
     pricingTable: {
-      caption: 'Pricing plan comparison'
+      caption: 'การเปรียบเทียบแผนราคา'
     },
     prose: {
       codeCollapse: {
-        closeText: 'Collapse',
-        name: 'code',
-        openText: 'Expand'
+        closeText: 'ซ่อน',
+        name: 'โค้ด',
+        openText: 'แสดง'
       },
       collapsible: {
-        closeText: 'Hide',
-        name: 'properties',
-        openText: 'Show'
+        closeText: 'ซ่อน',
+        name: 'คุณสมบัติ',
+        openText: 'แสดง'
       },
       pre: {
-        copy: 'Copy code to clipboard'
+        copy: 'คัดลอก'
       }
     },
     selectMenu: {
-      create: 'Create "{label}"',
-      noData: 'No data',
-      noMatch: 'No matching data',
-      search: 'Search...'
+      create: 'สร้าง "{label}"',
+      noData: 'ไม่มีข้อมูล',
+      noMatch: 'ไม่พบรายการที่ตรงกัน',
+      search: 'ค้นหา...'
     },
     slideover: {
-      close: 'Close'
+      close: 'ปิด'
     },
     table: {
-      noData: 'No data'
+      noData: 'ไม่มีข้อมูล'
     },
     toast: {
-      close: 'Close'
+      close: 'ปิด'
     },
     sidebarLayout: {
-      open: 'Open navigation',
-      close: 'Close navigation',
-      slideoverTitle: 'Navigation',
-      slideoverDescription: 'Content navigation'
+      open: 'เปิดการนำทาง',
+      close: 'ปิดการนำทาง',
+      slideoverTitle: 'การนำทาง',
+      slideoverDescription: 'การนำทางเนื้อหา'
     }
   }
 })

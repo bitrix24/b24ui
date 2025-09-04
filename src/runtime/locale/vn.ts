@@ -7,132 +7,132 @@ export default defineLocale<Messages>({
   locale: 'vi',
   messages: {
     alert: {
-      close: 'Close'
+      close: 'Đóng'
     },
     authForm: {
-      hidePassword: 'Hide password',
-      showPassword: 'Show password',
-      submit: 'Continue'
+      hidePassword: 'Ẩn mật khẩu',
+      showPassword: 'Hiện mật khẩu',
+      submit: 'Tiếp tục'
     },
     banner: {
-      close: 'Close'
+      close: 'Đóng'
     },
     calendar: {
-      nextMonth: 'Next month',
-      nextYear: 'Next year',
-      prevMonth: 'Previous month',
-      prevYear: 'Previous year'
+      nextMonth: 'Tháng sau',
+      nextYear: 'Năm sau',
+      prevMonth: 'Tháng trước',
+      prevYear: 'Năm trước'
     },
     carousel: {
-      dots: 'Choose slide to display',
-      goto: 'Go to slide {slide}',
-      next: 'Next',
-      prev: 'Prev'
+      dots: 'Chọn slide để hiển thị',
+      goto: 'Đi tới {slide}',
+      next: 'Tiếp theo',
+      prev: 'Quay lại'
     },
     chatPrompt: {
-      placeholder: 'Type your message here...'
+      placeholder: 'Nhập tin nhắn của bạn ở đây...'
     },
     chatPromptSubmit: {
-      label: 'Send prompt'
+      label: 'Gửi'
     },
     colorMode: {
-      dark: 'Dark',
-      light: 'Light',
-      switchToDark: 'Switch to dark mode',
-      switchToLight: 'Switch to light mode',
-      system: 'System'
+      dark: 'Tối',
+      light: 'Sáng',
+      switchToDark: 'Chuyển sang chế độ tối',
+      switchToLight: 'Chuyển sang chế độ sáng',
+      system: 'Hệ thống'
     },
     commandPalette: {
-      back: 'Back',
-      close: 'Close',
-      noData: 'No data',
-      noMatch: 'No matching data',
-      placeholder: 'Type a command or search...'
+      back: 'Quay lại',
+      close: 'Đóng',
+      noData: 'Không có dữ liệu',
+      noMatch: 'Không tìm thấy kết quả phù hợp',
+      placeholder: 'Nhập lệnh hoặc tìm kiếm...'
     },
     contentSearch: {
-      links: 'Links',
-      theme: 'Theme'
+      links: 'Kết quả',
+      theme: 'Chủ đề'
     },
     contentSearchButton: {
-      label: 'Search...'
+      label: 'Tìm kiếm...'
     },
     contentToc: {
-      title: 'On this page'
+      title: 'Trên trang này'
     },
     dashboardSearch: {
-      theme: 'Theme'
+      theme: 'Chủ đề'
     },
     dashboardSearchButton: {
-      label: 'Search...'
+      label: 'Tìm kiếm...'
     },
     dashboardSidebarCollapse: {
-      collapse: 'Collapse sidebar',
-      expand: 'Expand sidebar'
+      collapse: 'Thu gọn thanh bên',
+      expand: 'Mở rộng thanh bên'
     },
     dashboardSidebarToggle: {
-      close: 'Close sidebar',
-      open: 'Open sidebar'
+      close: 'Đóng thanh bên',
+      open: 'Mở thanh bên'
     },
     error: {
-      clear: 'Back to home'
+      clear: 'Thử lại'
     },
     fileUpload: {
-      removeFile: 'Remove {filename}'
+      removeFile: 'Xóa {filename}'
     },
     header: {
-      close: 'Close menu',
-      open: 'Open menu'
+      close: 'Đóng menu',
+      open: 'Mở menu'
     },
     inputMenu: {
-      create: 'Create "{label}"',
-      noData: 'No data',
-      noMatch: 'No matching data'
+      create: 'Tạo "{label}"',
+      noData: 'Không có dữ liệu',
+      noMatch: 'Không tìm thấy kết quả phù hợp'
     },
     inputNumber: {
-      decrement: 'Decrement',
-      increment: 'Increment'
+      decrement: 'Giảm',
+      increment: 'Tăng'
     },
     modal: {
-      close: 'Close'
+      close: 'Đóng'
     },
     pricingTable: {
-      caption: 'Pricing plan comparison'
+      caption: 'So sánh các gói dịch vụ'
     },
     prose: {
       codeCollapse: {
-        closeText: 'Collapse',
-        name: 'code',
-        openText: 'Expand'
+        closeText: 'Ẩn',
+        name: 'mã',
+        openText: 'Hiện'
       },
       collapsible: {
-        closeText: 'Hide',
-        name: 'properties',
-        openText: 'Show'
+        closeText: 'Ẩn',
+        name: 'thuộc tính',
+        openText: 'Hiện'
       },
       pre: {
-        copy: 'Copy code to clipboard'
+        copy: 'Sao chép'
       }
     },
     selectMenu: {
-      create: 'Create "{label}"',
-      noData: 'No data',
-      noMatch: 'No matching data',
-      search: 'Search...'
+      create: 'Tạo "{label}"',
+      noData: 'Không có dữ liệu',
+      noMatch: 'Không tìm thấy kết quả phù hợp',
+      search: 'Tìm kiếm...'
     },
     slideover: {
-      close: 'Close'
+      close: 'Đóng'
     },
     table: {
-      noData: 'No data'
+      noData: 'Không có dữ liệu'
     },
     toast: {
-      close: 'Close'
+      close: 'Đóng'
     },
     sidebarLayout: {
-      open: 'Open navigation',
-      close: 'Close navigation',
-      slideoverTitle: 'Navigation',
-      slideoverDescription: 'Content navigation'
+      open: 'Mở điều hướng',
+      close: 'Đóng điều hướng',
+      slideoverTitle: 'Điều hướng',
+      slideoverDescription: 'Điều hướng nội dung'
     }
   }
 })

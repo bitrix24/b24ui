@@ -24,16 +24,16 @@ export default defineLocale<Messages>({
       prevYear: 'Previous year'
     },
     carousel: {
-      dots: 'Choose slide to display',
-      goto: 'Go to slide {slide}',
+      dots: 'Select slide to display',
+      goto: 'Go to {slide}',
       next: 'Next',
-      prev: 'Prev'
+      prev: 'Previous'
     },
     chatPrompt: {
-      placeholder: 'Type your message here...'
+      placeholder: 'Enter your message here...'
     },
     chatPromptSubmit: {
-      label: 'Send prompt'
+      label: 'Send'
     },
     colorMode: {
       dark: 'Dark',
@@ -46,11 +46,11 @@ export default defineLocale<Messages>({
       back: 'Back',
       close: 'Close',
       noData: 'No data',
-      noMatch: 'No matching data',
-      placeholder: 'Type a command or search...'
+      noMatch: 'No matches found',
+      placeholder: 'Enter command or search...'
     },
     contentSearch: {
-      links: 'Links',
+      links: 'Results',
       theme: 'Theme'
     },
     contentSearchButton: {
@@ -74,7 +74,7 @@ export default defineLocale<Messages>({
       open: 'Open sidebar'
     },
     error: {
-      clear: 'Back to home'
+      clear: 'Try again'
     },
     fileUpload: {
       removeFile: 'Remove {filename}'
@@ -86,7 +86,7 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: 'Create "{label}"',
       noData: 'No data',
-      noMatch: 'No matching data'
+      noMatch: 'No matches found'
     },
     inputNumber: {
       decrement: 'Decrement',
@@ -96,13 +96,13 @@ export default defineLocale<Messages>({
       close: 'Close'
     },
     pricingTable: {
-      caption: 'Pricing plan comparison'
+      caption: 'Pricing plans comparison'
     },
     prose: {
       codeCollapse: {
-        closeText: 'Collapse',
+        closeText: 'Hide',
         name: 'code',
-        openText: 'Expand'
+        openText: 'Show'
       },
       collapsible: {
         closeText: 'Hide',
@@ -110,13 +110,13 @@ export default defineLocale<Messages>({
         openText: 'Show'
       },
       pre: {
-        copy: 'Copy code to clipboard'
+        copy: 'Copy'
       }
     },
     selectMenu: {
       create: 'Create "{label}"',
       noData: 'No data',
-      noMatch: 'No matching data',
+      noMatch: 'No matches found',
       search: 'Search...'
     },
     slideover: {

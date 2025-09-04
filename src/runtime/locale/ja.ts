@@ -7,132 +7,132 @@ export default defineLocale<Messages>({
   locale: 'ja',
   messages: {
     alert: {
-      close: 'Close'
+      close: '閉じる'
     },
     authForm: {
-      hidePassword: 'Hide password',
-      showPassword: 'Show password',
-      submit: 'Continue'
+      hidePassword: 'パスワードを非表示',
+      showPassword: 'パスワードを表示',
+      submit: '続ける'
     },
     banner: {
-      close: 'Close'
+      close: '閉じる'
     },
     calendar: {
-      nextMonth: 'Next month',
-      nextYear: 'Next year',
-      prevMonth: 'Previous month',
-      prevYear: 'Previous year'
+      nextMonth: '次の月',
+      nextYear: '次の年',
+      prevMonth: '前の月',
+      prevYear: '前の年'
     },
     carousel: {
-      dots: 'Choose slide to display',
-      goto: 'Go to slide {slide}',
-      next: 'Next',
-      prev: 'Prev'
+      dots: '表示するスライドを選択',
+      goto: '{slide}に移動',
+      next: '次へ',
+      prev: '前へ'
     },
     chatPrompt: {
-      placeholder: 'Type your message here...'
+      placeholder: 'メッセージを入力してください...'
     },
     chatPromptSubmit: {
-      label: 'Send prompt'
+      label: '送信'
     },
     colorMode: {
-      dark: 'Dark',
-      light: 'Light',
-      switchToDark: 'Switch to dark mode',
-      switchToLight: 'Switch to light mode',
-      system: 'System'
+      dark: 'ダーク',
+      light: 'ライト',
+      switchToDark: 'ダークモードに切り替え',
+      switchToLight: 'ライトモードに切り替え',
+      system: 'システム'
     },
     commandPalette: {
-      back: 'Back',
-      close: 'Close',
-      noData: 'No data',
-      noMatch: 'No matching data',
-      placeholder: 'Type a command or search...'
+      back: '戻る',
+      close: '閉じる',
+      noData: 'データなし',
+      noMatch: '一致する項目が見つかりません',
+      placeholder: 'コマンドを入力または検索...'
     },
     contentSearch: {
-      links: 'Links',
-      theme: 'Theme'
+      links: '検索結果',
+      theme: 'テーマ'
     },
     contentSearchButton: {
-      label: 'Search...'
+      label: '検索...'
     },
     contentToc: {
-      title: 'On this page'
+      title: 'このページの内容'
     },
     dashboardSearch: {
-      theme: 'Theme'
+      theme: 'テーマ'
     },
     dashboardSearchButton: {
-      label: 'Search...'
+      label: '検索...'
     },
     dashboardSidebarCollapse: {
-      collapse: 'Collapse sidebar',
-      expand: 'Expand sidebar'
+      collapse: 'サイドバーを折りたたむ',
+      expand: 'サイドバーを展開する'
     },
     dashboardSidebarToggle: {
-      close: 'Close sidebar',
-      open: 'Open sidebar'
+      close: 'サイドバーを閉じる',
+      open: 'サイドバーを開く'
     },
     error: {
-      clear: 'Back to home'
+      clear: '再試行'
     },
     fileUpload: {
-      removeFile: 'Remove {filename}'
+      removeFile: '{filename}を削除'
     },
     header: {
-      close: 'Close menu',
-      open: 'Open menu'
+      close: 'メニューを閉じる',
+      open: 'メニューを開く'
     },
     inputMenu: {
-      create: 'Create "{label}"',
-      noData: 'No data',
-      noMatch: 'No matching data'
+      create: '"{label}"を作成',
+      noData: 'データなし',
+      noMatch: '一致する項目が見つかりません'
     },
     inputNumber: {
-      decrement: 'Decrement',
-      increment: 'Increment'
+      decrement: '減らす',
+      increment: '増やす'
     },
     modal: {
-      close: 'Close'
+      close: '閉じる'
     },
     pricingTable: {
-      caption: 'Pricing plan comparison'
+      caption: 'プラン比較'
     },
     prose: {
       codeCollapse: {
-        closeText: 'Collapse',
-        name: 'code',
-        openText: 'Expand'
+        closeText: '折りたたむ',
+        name: 'コード',
+        openText: '展開する'
       },
       collapsible: {
-        closeText: 'Hide',
-        name: 'properties',
-        openText: 'Show'
+        closeText: '折りたたむ',
+        name: 'プロパティ',
+        openText: '展開する'
       },
       pre: {
-        copy: 'Copy code to clipboard'
+        copy: 'コピー'
       }
     },
     selectMenu: {
-      create: 'Create "{label}"',
-      noData: 'No data',
-      noMatch: 'No matching data',
-      search: 'Search...'
+      create: '"{label}"を作成',
+      noData: 'データなし',
+      noMatch: '一致する項目が見つかりません',
+      search: '検索...'
     },
     slideover: {
-      close: 'Close'
+      close: '閉じる'
     },
     table: {
-      noData: 'No data'
+      noData: 'データなし'
     },
     toast: {
-      close: 'Close'
+      close: '閉じる'
     },
     sidebarLayout: {
-      open: 'Open navigation',
-      close: 'Close navigation',
-      slideoverTitle: 'Navigation',
-      slideoverDescription: 'Content navigation'
+      open: 'ナビゲーションを開く',
+      close: 'ナビゲーションを閉じる',
+      slideoverTitle: 'ナビゲーション',
+      slideoverDescription: 'コンテンツナビゲーション'
     }
   }
 })

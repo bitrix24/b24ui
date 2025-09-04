@@ -7,132 +7,132 @@ export default defineLocale<Messages>({
   locale: 'es',
   messages: {
     alert: {
-      close: 'Close'
+      close: 'Cerrar'
     },
     authForm: {
-      hidePassword: 'Hide password',
-      showPassword: 'Show password',
-      submit: 'Continue'
+      hidePassword: 'Ocultar contraseña',
+      showPassword: 'Mostrar contraseña',
+      submit: 'Continuar'
     },
     banner: {
-      close: 'Close'
+      close: 'Cerrar'
     },
     calendar: {
-      nextMonth: 'Next month',
-      nextYear: 'Next year',
-      prevMonth: 'Previous month',
-      prevYear: 'Previous year'
+      nextMonth: 'Próximo mes',
+      nextYear: 'Próximo año',
+      prevMonth: 'Mes anterior',
+      prevYear: 'Año anterior'
     },
     carousel: {
-      dots: 'Choose slide to display',
-      goto: 'Go to slide {slide}',
-      next: 'Next',
-      prev: 'Prev'
+      dots: 'Seleccionar diapositiva para mostrar',
+      goto: 'Ir a {slide}',
+      next: 'Siguiente',
+      prev: 'Anterior'
     },
     chatPrompt: {
-      placeholder: 'Type your message here...'
+      placeholder: 'Escribe tu mensaje aquí...'
     },
     chatPromptSubmit: {
-      label: 'Send prompt'
+      label: 'Enviar'
     },
     colorMode: {
-      dark: 'Dark',
-      light: 'Light',
-      switchToDark: 'Switch to dark mode',
-      switchToLight: 'Switch to light mode',
-      system: 'System'
+      dark: 'Oscuro',
+      light: 'Claro',
+      switchToDark: 'Cambiar a modo oscuro',
+      switchToLight: 'Cambiar a modo claro',
+      system: 'Sistema'
     },
     commandPalette: {
-      back: 'Back',
-      close: 'Close',
-      noData: 'No data',
-      noMatch: 'No matching data',
-      placeholder: 'Type a command or search...'
+      back: 'Atrás',
+      close: 'Cerrar',
+      noData: 'Sin datos',
+      noMatch: 'No se encontraron coincidencias',
+      placeholder: 'Introduce un comando o busca...'
     },
     contentSearch: {
-      links: 'Links',
-      theme: 'Theme'
+      links: 'Resultados',
+      theme: 'Tema'
     },
     contentSearchButton: {
-      label: 'Search...'
+      label: 'Buscar...'
     },
     contentToc: {
-      title: 'On this page'
+      title: 'En esta página'
     },
     dashboardSearch: {
-      theme: 'Theme'
+      theme: 'Tema'
     },
     dashboardSearchButton: {
-      label: 'Search...'
+      label: 'Buscar...'
     },
     dashboardSidebarCollapse: {
-      collapse: 'Collapse sidebar',
-      expand: 'Expand sidebar'
+      collapse: 'Contraer panel lateral',
+      expand: 'Expandir panel lateral'
     },
     dashboardSidebarToggle: {
-      close: 'Close sidebar',
-      open: 'Open sidebar'
+      close: 'Cerrar panel lateral',
+      open: 'Abrir panel lateral'
     },
     error: {
-      clear: 'Back to home'
+      clear: 'Intentar de nuevo'
     },
     fileUpload: {
-      removeFile: 'Remove {filename}'
+      removeFile: 'Eliminar {filename}'
     },
     header: {
-      close: 'Close menu',
-      open: 'Open menu'
+      close: 'Cerrar menú',
+      open: 'Abrir menú'
     },
     inputMenu: {
-      create: 'Create "{label}"',
-      noData: 'No data',
-      noMatch: 'No matching data'
+      create: 'Crear "{label}"',
+      noData: 'Sin datos',
+      noMatch: 'No se encontraron coincidencias'
     },
     inputNumber: {
-      decrement: 'Decrement',
-      increment: 'Increment'
+      decrement: 'Disminuir',
+      increment: 'Aumentar'
     },
     modal: {
-      close: 'Close'
+      close: 'Cerrar'
     },
     pricingTable: {
-      caption: 'Pricing plan comparison'
+      caption: 'Comparación de planes de precios'
     },
     prose: {
       codeCollapse: {
-        closeText: 'Collapse',
-        name: 'code',
-        openText: 'Expand'
+        closeText: 'Ocultar',
+        name: 'código',
+        openText: 'Mostrar'
       },
       collapsible: {
-        closeText: 'Hide',
-        name: 'properties',
-        openText: 'Show'
+        closeText: 'Ocultar',
+        name: 'propiedades',
+        openText: 'Mostrar'
       },
       pre: {
-        copy: 'Copy code to clipboard'
+        copy: 'Copiar'
       }
     },
     selectMenu: {
-      create: 'Create "{label}"',
-      noData: 'No data',
-      noMatch: 'No matching data',
-      search: 'Search...'
+      create: 'Crear "{label}"',
+      noData: 'Sin datos',
+      noMatch: 'No se encontraron coincidencias',
+      search: 'Buscar...'
     },
     slideover: {
-      close: 'Close'
+      close: 'Cerrar'
     },
     table: {
-      noData: 'No data'
+      noData: 'Sin datos'
     },
     toast: {
-      close: 'Close'
+      close: 'Cerrar'
     },
     sidebarLayout: {
-      open: 'Open navigation',
-      close: 'Close navigation',
-      slideoverTitle: 'Navigation',
-      slideoverDescription: 'Content navigation'
+      open: 'Abrir navegación',
+      close: 'Cerrar navegación',
+      slideoverTitle: 'Navegación',
+      slideoverDescription: 'Navegación de contenido'
     }
   }
 })

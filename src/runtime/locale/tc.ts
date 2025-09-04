@@ -7,132 +7,132 @@ export default defineLocale<Messages>({
   locale: 'zh-TW',
   messages: {
     alert: {
-      close: 'Close'
+      close: '關閉'
     },
     authForm: {
-      hidePassword: 'Hide password',
-      showPassword: 'Show password',
-      submit: 'Continue'
+      hidePassword: '隱藏密碼',
+      showPassword: '顯示密碼',
+      submit: '繼續'
     },
     banner: {
-      close: 'Close'
+      close: '關閉'
     },
     calendar: {
-      nextMonth: 'Next month',
-      nextYear: 'Next year',
-      prevMonth: 'Previous month',
-      prevYear: 'Previous year'
+      nextMonth: '下個月',
+      nextYear: '下一年',
+      prevMonth: '上個月',
+      prevYear: '上一年'
     },
     carousel: {
-      dots: 'Choose slide to display',
-      goto: 'Go to slide {slide}',
-      next: 'Next',
-      prev: 'Prev'
+      dots: '選擇要顯示的幻燈片',
+      goto: '前往 {slide}',
+      next: '下一步',
+      prev: '上一步'
     },
     chatPrompt: {
-      placeholder: 'Type your message here...'
+      placeholder: '請在此輸入您的訊息...'
     },
     chatPromptSubmit: {
-      label: 'Send prompt'
+      label: '傳送'
     },
     colorMode: {
-      dark: 'Dark',
-      light: 'Light',
-      switchToDark: 'Switch to dark mode',
-      switchToLight: 'Switch to light mode',
-      system: 'System'
+      dark: '深色',
+      light: '淺色',
+      switchToDark: '切換至深色模式',
+      switchToLight: '切換至淺色模式',
+      system: '系統'
     },
     commandPalette: {
-      back: 'Back',
-      close: 'Close',
-      noData: 'No data',
-      noMatch: 'No matching data',
-      placeholder: 'Type a command or search...'
+      back: '返回',
+      close: '關閉',
+      noData: '無資料',
+      noMatch: '找不到匹配項',
+      placeholder: '輸入命令或搜尋...'
     },
     contentSearch: {
-      links: 'Links',
-      theme: 'Theme'
+      links: '結果',
+      theme: '主題'
     },
     contentSearchButton: {
-      label: 'Search...'
+      label: '搜尋...'
     },
     contentToc: {
-      title: 'On this page'
+      title: '本頁內容'
     },
     dashboardSearch: {
-      theme: 'Theme'
+      theme: '主題'
     },
     dashboardSearchButton: {
-      label: 'Search...'
+      label: '搜尋...'
     },
     dashboardSidebarCollapse: {
-      collapse: 'Collapse sidebar',
-      expand: 'Expand sidebar'
+      collapse: '折疊側邊欄',
+      expand: '展開側邊欄'
     },
     dashboardSidebarToggle: {
-      close: 'Close sidebar',
-      open: 'Open sidebar'
+      close: '關閉側邊欄',
+      open: '開啟側邊欄'
     },
     error: {
-      clear: 'Back to home'
+      clear: '重試'
     },
     fileUpload: {
-      removeFile: 'Remove {filename}'
+      removeFile: '刪除 {filename}'
     },
     header: {
-      close: 'Close menu',
-      open: 'Open menu'
+      close: '關閉選單',
+      open: '開啟選單'
     },
     inputMenu: {
-      create: 'Create "{label}"',
-      noData: 'No data',
-      noMatch: 'No matching data'
+      create: '創建 "{label}"',
+      noData: '無資料',
+      noMatch: '找不到匹配項'
     },
     inputNumber: {
-      decrement: 'Decrement',
-      increment: 'Increment'
+      decrement: '減少',
+      increment: '增加'
     },
     modal: {
-      close: 'Close'
+      close: '關閉'
     },
     pricingTable: {
-      caption: 'Pricing plan comparison'
+      caption: '方案比較'
     },
     prose: {
       codeCollapse: {
-        closeText: 'Collapse',
-        name: 'code',
-        openText: 'Expand'
+        closeText: '隱藏',
+        name: '代碼',
+        openText: '顯示'
       },
       collapsible: {
-        closeText: 'Hide',
-        name: 'properties',
-        openText: 'Show'
+        closeText: '隱藏',
+        name: '屬性',
+        openText: '顯示'
       },
       pre: {
-        copy: 'Copy code to clipboard'
+        copy: '複製'
       }
     },
     selectMenu: {
-      create: 'Create "{label}"',
-      noData: 'No data',
-      noMatch: 'No matching data',
-      search: 'Search...'
+      create: '創建 "{label}"',
+      noData: '無資料',
+      noMatch: '找不到匹配項',
+      search: '搜尋...'
     },
     slideover: {
-      close: 'Close'
+      close: '關閉'
     },
     table: {
-      noData: 'No data'
+      noData: '無資料'
     },
     toast: {
-      close: 'Close'
+      close: '關閉'
     },
     sidebarLayout: {
-      open: 'Open navigation',
-      close: 'Close navigation',
-      slideoverTitle: 'Navigation',
-      slideoverDescription: 'Content navigation'
+      open: '開啟導航',
+      close: '關閉導航',
+      slideoverTitle: '導航',
+      slideoverDescription: '內容導航'
     }
   }
 })
