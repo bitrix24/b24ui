@@ -227,7 +227,7 @@ You can use the prose components directly in your templates using the `Prose` pr
 ::: info
 You can use props `rounded`, `zebra`, `rowHover`, `bordered`.
 
-See [`TableWrapper`](/components/content/table-wrapper) for more details
+See [`TableWrapper`](/components/table-wrapper) for more details
 :::
 
 <div class="lg:min-h-[160px]">
