@@ -125,7 +125,7 @@
     "test:vue": "vitest -c vitest.vue.config.ts"
   },
   "dependencies": {
-    "@ai-sdk/vue": "^1.2.12",
+    "@ai-sdk/vue": "^2.0.9",
     "@bitrix24/b24icons-vue": "^2.0.2",
     "@bitrix24/b24style": "^1.0.1",
     "@internationalized/date": "^3.9.0",
