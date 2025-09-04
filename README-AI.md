@@ -36,7 +36,6 @@ Note on variants: Most visual options (colors, sizes, states) come from theme va
     - [B24Badge — badge](#b24badge--badge)
     - [B24Accordion / B24Collapsible — accordion/collapsible](#b24accordion--b24collapsible--accordioncollapsible)
     - [B24Chip — chip](#b24chip--chip)
-    - [B24Container — layout container](#b24container--layout-container)
     - [B24Separator — separator](#b24separator--separator)
     - [B24Skeleton — skeleton loader](#b24skeleton--skeleton-loader)
     - [B24Countdown — countdown](#b24countdown--countdown)
@@ -54,7 +53,7 @@ Note on variants: Most visual options (colors, sizes, states) come from theme va
     - [B24Popover — popover](#b24popover--popover)
     - [B24Modal — modal dialog](#b24modal--modal-dialog)
     - [B24Slideover — side panel](#b24slideover--side-panel)
-    - [B24Toast / B24Toaster — toasts](#b24toast--b24toaster--toasts)
+    - [B24Toast — toasts](#b24toast--b24toaster--toasts)
     - [Sidebar: B24SidebarLayout and parts](#sidebar-b24sidebarlayout-and-parts)
     - [Content \& Prose](#content--prose)
     - [Alert / Advice — alerts and tips](#alert--advice--alerts-and-tips)
@@ -64,10 +63,8 @@ Note on variants: Most visual options (colors, sizes, states) come from theme va
     - [useToast](#usetoast)
     - [useOverlay](#useoverlay)
     - [defineShortcuts](#defineshortcuts)
-    - [useKbd](#usekbd)
     - [useLocale / defineLocale](#uselocale--definelocale)
     - [useConfetti](#useconfetti)
-    - [usePortal](#useportal)
   - [Patterns and Best Practices](#patterns-and-best-practices)
   - [Links](#links)
   - [Exhaustiveness note on variant values](#exhaustiveness-note-on-variant-values)
@@ -167,22 +164,52 @@ app.mount('#app')
 - Many components accept a `b24ui` prop — an object with class hooks for internal parts (tailwind-variants slots). This enables targeted styling.
 - Icons come from `@bitrix24/b24icons-vue`.
 
+## Using icons
+
+We provide access to icons via the module `@bitrix24/b24icons-vue`.
+
+Example
+```vue
+<script setup lang="ts">
+import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
+</script>
+
+<template>
+<RocketIcon class="size-[15px]" />
+</template>
+```
+
+The list of icons is in the file `node_modules/@bitrix24/b24icons-vue/dist/metadata.json`.
+
+The data format is `{ list: string[] }`. Each line of the `list` array is written in the format `some-type:SomeNameIcon`.
+
+The icon needs to be imported according to the following rule:
+
+```ts
+import SomeNameIcon from '@bitrix24/b24icons-vue/some-type/SomeNameIcon'
+```
+
+The text will further mention the `IconComponent` type. It means that the imported icon needs to be substituted into `props`.
+
+Example
+```vue
+<script setup lang="ts">
+import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
+</script>
+
+<template>
+<B24Avatar :icon="RocketIcon" />
+</template>
+```
 
 ## About theme variants
 
-- Most visual props (`color`, `size`, `depth`, `variant`, `indicator`, `overlayBlur`, etc.) are derived from a theme (imported from `#build/b24ui/<component>`).
+- Most visual props (`color`, `size`, `accent`, `indicator`, `overlayBlur`, etc.) are derived from a theme (imported from `#build/b24ui/<component>`).
 - To get the exhaustive set of allowed values, read `theme.variants.<key>` for a component (see demo at `/playgrounds/demo/app/pages/components/button.vue`).
 - Typical sets:
   - color: `air-*` families (e.g., `air-primary`, `air-secondary-no-accent`, `air-primary-success`, `air-primary-alert`, `air-primary-warning`, `air-primary-copilot`) and more depending on the component.
   - size: commonly `xs | sm | md | lg | xl` (exact set depends on component and theme).
-  - variant/indicator: enumerations specific to the component.
-
-  [Docs](docs/components/calendar.md)
-  - size: commonly `xs | sm | md | lg | xl` (exact set depends on component and theme).
-  - variant/indicator: enumerations specific to the component.
-
-
-  [Docs](docs/components/link.md)
+  - accent: enumerations specific to the component.
 
 ## Theme Variants — Enumerated Values
 
@@ -203,8 +230,7 @@ This section lists the concrete enum keys found in the default theme files under
 - Button
   - color: air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-secondary, air-secondary-alert, air-secondary-accent, air-secondary-accent-1, air-secondary-accent-2, air-secondary-no-accent, air-tertiary, air-tertiary-accent, air-tertiary-no-accent, air-selection, air-boost; deprecated: default, danger, success, warning, primary, secondary, collab, ai, link
   - size: xss, xs, sm, md, lg, xl
-  - depth (deprecated): light, normal, dark
-  - booleans: block, rounded, leading, active, useLabel, useDropdown, useWait, useClock, loading, normalCase, isAir
+  - booleans: loading, block, rounded, active, loadingAuto, useDropdown, useWait, useClock, normalCase
 
 - ButtonGroup
   - orientation: horizontal, vertical
@@ -214,20 +240,46 @@ This section lists the concrete enum keys found in the default theme files under
 - Badge
   - color: air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning, air-secondary, air-secondary-alert, air-secondary-accent, air-secondary-accent-1, air-secondary-accent-2, air-tertiary, air-selection; deprecated: default, danger, success, warning, primary, secondary, collab, ai
   - size: xss, xs, sm, md, lg, xl
-  - square: true|false; inverted: true|false; leading: true|false; useLink: true|false; useClose: true|false
+  - square: true|false
+  - inverted: true|false
+  - useLink: true|false
+  - useClose: true|false
 
 - Input
   - size: xss, xs, sm, md, lg, xl
   - color: air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning; deprecated: default, danger, success, warning, primary, secondary, collab, ai
-  - type: file
-  - booleans: rounded, noPadding, noBorder, underline, leading, trailing, loading, highlight
+  - type: hidden, text, password, email, search, tel, url, date, datetime-local, month, week, time, file
+  - booleans: required, autofocus, rounded, noPadding, noBorder, underline, loading, highlight
+  - placeholder: string
+  - tag: string
+  - tagColor: Badge color variant
+
+- InputNumber
+  - inherits Input variants
+
+- InputMenu
+  - inherits Input variants
+  - adds:
+    - items: InputMenuItem[] | InputMenuItem[][]
+    - multiple: boolean
+    - addNew: boolean
 
 - Textarea
-  - inherits Input variants; specific: autoresize (boolean)
+  - inherits Input variants
+  - specific: autoresize (boolean)
 
 - Select
-  - size: xss, xs, sm, md, lg, xl
-  - colorItem (for items): air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning; deprecated: default, danger, success, warning, primary, secondary, collab, ai
+  - inherits Input variants
+  - adds:
+    - items: SelectItem[] | SelectItem[][]
+    - multiple: boolean
+
+- SelectMenu
+  - inherits Select variants
+  - specific: 
+    - items: SelectMenuItem[] | SelectMenuItem[][]
+  - adds:
+    - addNew: boolean
 
 - Checkbox
   - color: air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning; deprecated: default, danger, success, warning, primary, secondary, collab, ai
@@ -249,7 +301,7 @@ This section lists the concrete enum keys found in the default theme files under
   - orientation: horizontal, vertical
   - size: xss, xs, sm, md, lg, xl
 
-- Range (Slider)
+- Range
   - color: air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning; deprecated: default, danger, success, warning, primary, secondary, collab, ai
   - size: xs, sm, md, lg
   - orientation: horizontal, vertical
@@ -265,7 +317,8 @@ This section lists the concrete enum keys found in the default theme files under
 - DescriptionList
   - size: sm, md
   - orientation: horizontal, vertical
-  - title: boolean
+  - legend: string
+  - text: string
 
 - Separator
   - accent: default, accent, less
@@ -282,6 +335,8 @@ This section lists the concrete enum keys found in the default theme files under
 
 - Avatar
   - size: 3xs, 2xs, xs, sm, md, lg, xl, 2xl, 3xl
+  - src: string
+  - icon: IconComponent
 
 - AvatarGroup
   - size: 3xs, 2xs, xs, sm, md, lg, xl, 2xl, 3xl
@@ -295,42 +350,49 @@ This section lists the concrete enum keys found in the default theme files under
   - color: air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning, air-secondary, air-secondary-alert, air-secondary-accent, air-secondary-accent-1, air-secondary-accent-2, air-tertiary; deprecated: default, danger, success, warning, primary, secondary, collab, ai
   - size: sm, md
   - orientation: horizontal, vertical
-  - title: boolean; inverted: boolean
+  - inverted: boolean
+  - title: string
+  - description: string
 
 - Advice
   - angle: top, bottom
+  - description: string
+  - icon: IconComponent
+  - avatar: AvatarProps
 
 - DropdownMenu
-  - color (items): air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning; deprecated: default, danger, success, warning, primary, secondary, collab, ai
-  - active: boolean; loading: boolean
+  - items: DropdownMenuItem[] | DropdownMenuItem[][]
 
 - NavigationMenu
   - orientation: horizontal, vertical
-  - active: boolean; disabled: boolean; level: boolean; collapsed: boolean
+  - items: NavigationMenuItem[] | NavigationMenuItem[][]
 
 - Modal
+  - title: string
+  - description: string
   - overlayBlur: auto, on, off
   - transition: boolean
   - fullscreen: boolean
-  - scrollbarThin: boolean
 
 - Slideover
+  - title: string
+  - description: string
   - overlayBlur: auto, on, off
-  - side: right, left, top, bottom
+  - side: bottom (preferably), right, left, top 
   - transition: boolean
 
 - Tooltip
-  - kbdsSize: sm (for embedded B24Kbd); kbdsAccent: default
-
-- Popover
-  - no explicit variants in theme (style via slots)
+  - text: string
 
 - Toast
   - color: air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning, air-secondary; deprecated: default, danger, success, warning, primary, secondary, collab, ai
   - orientation: horizontal, vertical
   - title: boolean
+  - description: string
+  - icon: IconComponent
+  - avatar: AvatarProps
 
-- Content/TableWrapper
+- TableWrapper
   - size: xs, sm, md, lg
   - rounded: boolean
   - zebra: boolean
@@ -338,33 +400,26 @@ This section lists the concrete enum keys found in the default theme files under
   - pinCols: boolean
   - rowHover: boolean
   - bordered: boolean
-  - scrollbarThin: boolean
 
 - Chip
+  - text: string | number
   - color: air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning, air-secondary, air-secondary-accent, air-secondary-accent-1, air-tertiary; deprecated: default, danger, success, warning, primary, secondary, collab, ai
   - size: sm, md, lg
   - position: top-right, bottom-right, top-left, bottom-left
-  - inverted: boolean; inset: boolean; standalone: boolean; hideZero: boolean; oneDigit: boolean
+  - inverted: boolean
+  - inset: boolean
+  - standalone: boolean
+  - hideZero: boolean
 
 - Calendar
   - color: air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning; deprecated: default, danger, success, warning, primary, secondary, collab, ai
   - size: xs, sm, md, lg
 
-- InputMenu
-  - size: xss, xs, sm, md, lg, xl
-  - colorItem (items): air-primary, air-primary-success, air-primary-alert, air-primary-copilot, air-primary-warning; deprecated: default, danger, success, warning, primary, secondary, collab, ai
-  - multiple: boolean; addNew: boolean
-
-- SelectMenu
-  - inherits Select variants; adds addNew: boolean
-
 - SidebarLayout
   - inner: boolean
   - offContentScrollbar: boolean
-  - useSidebar: boolean
   - useLightContent: boolean
   - loading: boolean
-  - useNavbar: boolean
 
 - Sidebar, SidebarHeader, SidebarBody, SidebarFooter, Navbar, NavbarSection, NavbarDivider, Popover
   - no enumerated variants (style configured via slots)
@@ -419,7 +474,7 @@ Key props:
 - useWait?: boolean — hourglass loader icon
 - useClock?: boolean — clock loader icon
 - useDropdown?: boolean — show right chevron
-- onClick?: `(event: MouseEvent) => void | Promise<void> | Array<any>`
+- onClick?: `(event: MouseEvent) => void | Promise<void>`
 - Link props: subset of `B24Link` (e.g., `to`, `target`, `rel`)
 - activeClass?/inactiveClass?: string — link state classes
 - class?: any — extra classes for the root
@@ -441,12 +496,12 @@ Example:
   color="air-primary"
   :active-color="'air-primary-alert'"
   size="md"
-  :rounded="true"
+  rounded
   :block="false"
   :loading-auto="true"
   :use-wait="false"
-  :use-clock="true"
-  :use-dropdown="true"
+  use-clock
+  use-dropdown
   to="/tasks"
   active-class="italic"
   inactive-class="opacity-80"
@@ -510,22 +565,22 @@ Example:
 
 ```vue
 <B24Input
+  v-model.trim.number.nullify="login"
   id="login"
   name="login"
   placeholder="Login"
   color="air-primary"
   size="md"
-  :rounded="true"
+  rounded
   :underline="false"
   :no-border="false"
   :no-padding="false"
-  :tag="'Login'"
-  :tag-color="'air-primary'"
+  tag="Login"
+  tag-color="air-primary"
   :highlight="hasError"
-  v-model.trim.number.nullify="login"
   autocomplete="off"
   :disabled="false"
-  :autofocus="true"
+  autofocus
   :autofocus-delay="100"
 >
   <template #leading>
@@ -595,14 +650,14 @@ Key props:
 - placeholder?: string
 - color?: theme.variants.color, size?: theme.variants.size
 - noPadding?, noBorder?, underline?, rounded?
-- tag?: string, tagColor?: BadgeProps['color']
+- tag?: string
+- tagColor?: BadgeProps['color']
 - trailingIcon?: IconComponent — open icon (default chevron)
 - selectedIcon?: IconComponent — selected item icon (default check)
 - content?: popper/content props
-- arrow?: boolean | { width, height, ... }
 - portal?: boolean | string | HTMLElement
 - valueKey?: string (default 'value'), labelKey?: string (default 'label')
-- items?: Array<SelectItem | SelectItem[]> — primitives or objects: { label?, value?, type?: 'label'|'separator'|'item', icon?, avatar?, color?, chip?, disabled?, onSelect?, class?, b24ui? }
+- items?: Array<SelectItem | SelectItem[]> — primitives or objects: { label?, value?, type?: 'label'|'separator'|'item', icon?, avatar?, chip?, disabled?, onSelect?, class?, b24ui? }
 - defaultValue?, v-model:modelValue?
 - multiple?: boolean
 - highlight?: boolean
@@ -619,6 +674,7 @@ Example:
 
 ```vue
 <B24Select
+  v-model="selectedValues"
   :items="[
     { type: 'label', label: 'Team' },
     { label: 'Marketing', value: 'mkt', icon: MarketingIcon },
@@ -634,9 +690,7 @@ Example:
   value-key="value"
   label-key="label"
   :content="{ side: 'bottom', sideOffset: 8, collisionPadding: 8, position: 'popper' }"
-  :arrow="{ width: 20, height: 10 }"
   :portal="true"
-  v-model="selectedValues"
 >
   <template #leading="{ open }">
     <MyFilterIcon :class="open ? 'rotate-180' : ''" />
@@ -685,7 +739,7 @@ Example:
   color="air-primary"
   size="md"
   indicator="start"
-  :required="true"
+  required
 />
 ```
 
@@ -718,6 +772,7 @@ Example:
 
 ```vue
 <B24RadioGroup
+  v-model="priority"
   legend="Priority"
   :items="[
     { label: 'Low', value: 'low' },
@@ -727,7 +782,6 @@ Example:
   color="air-primary"
   size="md"
   orientation="vertical"
-  v-model="priority"
 />
 ```
 
@@ -751,23 +805,28 @@ B24FormField props:
 
 B24FormField slots:
 
-- label({ label }), hint({ hint }), description({ description }), help({ help }), error({ error }), default({ error })
+- label({ label })
+- hint({ hint })
+- description({ description })
+- help({ help })
+- error({ error })
+- default({ error })
 
 Example:
 
 ```vue
 <B24Form @submit="onSubmit">
-  <B24FormField name="email" label="Email" :required="true" hint="Work email">
+  <B24FormField name="email" label="Email" required hint="Work email">
     <template #default="{ error }">
       <B24Input
-        type="email"
         v-model.trim="email"
+        type="email"
         :highlight="!!error"
         placeholder="name@company.com"
       />
     </template>
   </B24FormField>
-  <B24Button type="submit" color="air-primary" :loading-auto="true">Submit</B24Button>
+  <B24Button type="submit" color="air-primary" loading-auto>Submit</B24Button>
 </B24Form>
 ```
 
@@ -790,7 +849,7 @@ Example:
 ```vue
 <B24Avatar src="/u.png" alt="User" size="md" />
 <B24Avatar :icon="UserIcon" size="sm" />
-<B24Avatar text="AB" chip :size="'lg'" />
+<B24Avatar text="AB" chip size="lg" />
 ```
 
 ---
@@ -807,7 +866,7 @@ Props:
 - square?: boolean — equal paddings
 - useLink?: boolean — underline on hover
 - useClose?: boolean — close (×) icon
-- `onCloseClick?: (event: MouseEvent) => void | Promise<any> | Array<any>`
+- `onCloseClick?: (event: MouseEvent) => void | Promise<any>
 - icon/avatar/leading, class?, b24ui?
 
 Slots: leading, default, trailing
@@ -820,8 +879,8 @@ Example:
   label="New"
   color="air-primary"
   size="sm"
-  :use-link="true"
-  :use-close="true"
+  use-link
+  use-close
   @onCloseClick="() => console.log('closed')"
 />
 ```
@@ -852,7 +911,7 @@ Example:
   ]"
 >
   <template #custom-body="{ item }">
-    <div class="p-4">Custom body for: {{ item.label }}</div>
+    <div class="p-[12px]">Custom body for: {{ item.label }}</div>
   </template>
 </B24Accordion>
 ```
@@ -875,17 +934,9 @@ Example:
 
 ---
 
-### B24Container — layout container
-
-Spacing/width wrapper, variants are theme-driven. Use for layout alignment.
-
----
-
 ### B24Separator — separator
 
 A horizontal or vertical separator with optional label, icon, or avatar.
-
-[Docs](docs/components/separator.md)
 
 Key props:
 
@@ -904,7 +955,7 @@ Example:
 
 ```vue
 <B24Separator label="Or" />
-<B24Separator orientation="vertical" :class="'h-8'" />
+<B24Separator orientation="vertical" decorative class="h-8" />
 ```
 
 ---
@@ -912,8 +963,6 @@ Example:
 ### B24Skeleton — skeleton loader
 
 Accessible loading placeholder.
-
-[Docs](docs/components/skeleton.md)
 
 Key props:
 
@@ -969,7 +1018,7 @@ Example:
   </template>
 </B24Countdown>
 
-<B24Countdown :seconds="30" :use-circle="true" />
+<B24Countdown :seconds="30" use-circle />
 ```
 
 ---
@@ -1033,14 +1082,33 @@ Example:
 
 ```vue
 <B24TableWrapper zebra bordered rounded>
-  <table class="w-full text-left">
+  <table>
+  <colgroup>
+        <col>
+        <col class="min-w-[200px]">
+      </colgroup>
     <thead>
-      <tr><th class="p-2">Name</th><th class="p-2">Role</th></tr>
+      <tr>
+        <th>Name</th>
+        <th>Role</th>
+      </tr>
     </thead>
     <tbody>
-      <tr><td class="p-2">Alice</td><td class="p-2">Owner</td></tr>
-      <tr><td class="p-2">Bob</td><td class="p-2">Editor</td></tr>
+      <tr>
+        <td>Alice</td>
+        <td>Owner</td>
+      </tr>
+      <tr>
+        <td>Bob</td>
+        <td>Editor</td>
+      </tr>
     </tbody>
+    <tfoot>
+      <tr>
+        <th />
+        <td>Deal Name</td>
+      </tr>
+    </tfoot>
   </table>
 </B24TableWrapper>
 ```
@@ -1054,15 +1122,15 @@ Renders a key label; used inside Tooltip and menus.
 Key props:
 
 - as?: any = 'kbd'
-- value?: string — key name (e.g., '⌘K', 'Esc')
+- value?: string — key name (e.g., 'meta', 'ctrl', 'alt', 'win', 'command', 'shift', 'control', 'option', 'enter', 'delete', 'backspace', 'escape', 'tab', 'capslock', 'arrowup', 'arrowright', 'arrowdown', 'arrowleft', 'pageup', 'pagedown', 'home', 'end' )
 - accent?: theme.variants.accent
-- size?: theme.variants.size
+- size?: theme.variants.size (sm/md/lg depends on theme)
 - class?
 
 Example:
 
 ```vue
-Find <B24Kbd value="⌘K" />
+Find <div class="inline-flex items-center justify-center gap-[4px]"><B24Kbd value="meta" /> <B24Kbd value="k" /></div>
 ```
 
 ---
@@ -1074,13 +1142,10 @@ Slots: trigger (default asChild) and content (via `B24DropdownMenuContent`).
 Example:
 
 ```vue
-<B24DropdownMenu>
-  <template #default>
-    <B24Button label="Open menu" use-dropdown />
-  </template>
-  <B24DropdownMenuContent>
-    <!-- menu items -->
-  </B24DropdownMenuContent>
+<B24DropdownMenu
+  :items="dropdownMenuItems"
+>
+  <B24Button label="Open menu" use-dropdown />
 </B24DropdownMenu>
 ```
 
@@ -1089,6 +1154,13 @@ Example:
 ### B24NavigationMenu — navigation menu
 
 Hierarchical menu built on Reka NavigationMenu and Accordion. Props: items[], hover/click delays, disabled, type/collapsible, unmountOnHide.
+
+```vue
+<B24NavigationMenu
+  :items="navigationMenuItems"
+  orientation="horizontal"
+/>
+```
 
 ---
 
@@ -1104,7 +1176,11 @@ Hierarchical menu built on Reka NavigationMenu and Accordion. Props: items[], ho
 Example:
 
 ```vue
-<B24Progress :value="60" :max="100" color="air-primary" />
+<B24Progress
+  :value="60"
+  :max="100"
+  color="air-primary"
+/>
 ```
 
 ---
@@ -1116,7 +1192,12 @@ Props: min/max/step, inverted, minStepsBetweenThumbs; name/disabled; size/color.
 Example:
 
 ```vue
-<B24Range :min="0" :max="100" :step="1" />
+<B24Range
+  v-model="value"
+  :min="0"
+  :max="100"
+  :step="1"
+/>
 ```
 
 ---
@@ -1128,7 +1209,10 @@ Boolean toggle.
 Example:
 
 ```vue
-<B24Switch v-model="enabled" color="air-primary" />
+<B24Switch
+  v-model="enabled"
+  color="air-primary"
+/>
 ```
 
 ---
@@ -1138,8 +1222,35 @@ Example:
 Slots for tab list and panels.
 
 ```vue
-<B24Tabs v-model="tab">
-  <!-- tabs and panels -->
+<B24Tabs
+  v-model="active"
+  :items="[
+    {
+      label: 'Account',
+      description: 'Make changes to your account here. Click save when you\'re done.',
+      icon: UserIcon,
+      slot: 'account'
+    },
+    {
+      label: 'Password',
+      description: 'Change your password here. After saving, you\'ll be logged out.',
+      icon: Shield2ContourIcon,
+      slot: 'password'
+    }
+  ]"
+  :items="items"
+  class="w-full"
+>
+  <template #account="{ item }">
+    <ProseP accent="less" class="mb-4 text-md">
+      {{ item.description }}
+    </ProseP>
+  </template>
+  <template #password="{ item }">
+    <ProseP accent="less" small class="mb-4">
+      {{ item.description }}
+    </ProseP>
+  </template>
 </B24Tabs>
 ```
 
@@ -1161,6 +1272,19 @@ Example:
 
 Use trigger and content slots; supports portal and positioning.
 
+Example:
+
+```vue
+<B24Popover :b24ui="{ content: 'p-[10px]' }">
+  <B24Button label="Open" />
+
+  <template #content>
+    <ProseP>
+      Some text
+    </ProseP>
+  </template>
+</B24Popover>
+```
 ---
 
 ### B24Modal — modal dialog
@@ -1174,7 +1298,7 @@ Key props:
 - transition?: boolean
 - fullscreen?: boolean
 - portal?: boolean | string | HTMLElement
-- `close?: boolean | Partial<ButtonProps>`
+- close?: boolean | Partial<ButtonProps>
 - closeIcon?: IconComponent
 - dismissible?: boolean
 - scrollbarThin?: boolean
@@ -1191,17 +1315,19 @@ Slots:
 Example:
 
 ```vue
-<B24Modal :dismissible="false" title="Title" description="Description" :overlay-blur="'auto'">
-  <template #default="{ open }">
-    <B24Button color="air-primary" @click="open">Open</B24Button>
-  </template>
-  <template #body="{ close }">
-    <p>Modal content</p>
-    <B24Button color="air-tertiary-no-accent" @click="close">Close</B24Button>
+<B24Modal
+  title="Title"
+  description="Description"
+>
+  <B24Button color="air-primary">Open</B24Button>
+  <template #body>
+    <ProseP>Modal content</ProseP>
   </template>
   <template #footer="{ close }">
-    <B24Button color="air-primary" @click="save">Save</B24Button>
-    <B24Button color="air-tertiary-no-accent" @click="close">Cancel</B24Button>
+    <div class="flex flex-row gap-[10px]">
+      <B24Button color="air-primary" @click="save">Save</B24Button>
+      <B24Button color="air-tertiary" @click="close">Cancel</B24Button>
+    </div>
   </template>
 </B24Modal>
 ```
@@ -1214,26 +1340,33 @@ Like `B24Modal` but slides in from a side.
 
 ```vue
 <B24Slideover :open="open" @update:open="v => open = v">
-  <template #body="{ close }">
-    <div class="p-4">Content</div>
-    <B24Button color="air-tertiary-no-accent" @click="close">Close</B24Button>
+  <template #body>
+    <ProseP>Content</ProseP>
+  </template>
+  <template #footer="{ close }">
+    <div class="w-1/5 flex justify-start" />
+      <div class="w-full flex flex-row justify-center gap-[10px]">
+        <B24Button label="Send" color="air-primary" @click="send" />
+        <B24Button label="Cancel" color="air-tertiary" @click="close" />
+      </div>
+      <div class="w-1/5 flex justify-end">
+        <B24Button label="Full version" size="sm" color="air-tertiary-no-accent" @click="someAction" />
+      </div>
   </template>
 </B24Slideover>
 ```
 
 ---
 
-### B24Toast / B24Toaster — toasts
+### B24Toast — toasts
 
-- `B24Toaster` — the container/provider, mounted in `B24App`.
 - `B24Toast` — a toast item (usually use `useToast` instead).
 
 Example (via composable):
 
 ```ts
 const toast = useToast()
-const t = toast.add({ title: 'Success', description: 'Saved', color: 'success' })
-setTimeout(() => toast.remove(t.id), 2000)
+toast.add({ title: 'Success', description: 'Saved', color: 'air-primary-success' })
 ```
 
 ---
@@ -1242,14 +1375,160 @@ setTimeout(() => toast.remove(t.id), 2000)
 
 - `B24SidebarLayout` — main layout with header/body/footer/sections.
 - Parts: `B24Sidebar`, `B24SidebarHeader`, `B24SidebarBody`, `B24SidebarFooter`, `B24SidebarSection`, `B24SidebarHeading`, `B24SidebarSpacer`.
-- Composable: `useSidebarLayout()` — access loading states (isLoading/isParentLoading/isRootLoading) and setters.
 
 Example:
 
 ```vue
 <B24SidebarLayout>
-  <B24SidebarHeader>Header</B24SidebarHeader>
-  <B24SidebarBody>Body</B24SidebarBody>
+  <template #sidebar>
+    <B24SidebarHeader>
+      <!-- Navigation header -->
+      <div class="h-full flex items-center relative my-0 ps-[25px] pe-xs rtl:pe-[25px]">
+        <ProseH4 class="font-medium mb-0">SideBar</ProseH4>
+      </div>
+    </B24SidebarHeader>
+    <B24SidebarBody>
+      <!-- Navigation elements -->
+      <B24SidebarSection>
+        <B24NavigationMenu
+          :items="[{ label: 'Page 1', type: 'trigger', active: true }, { label: 'Page 2', type: 'trigger' }]"
+          orientation="vertical"
+        />
+      </B24SidebarSection>
+
+      <B24SidebarSpacer />
+      <B24SidebarSection>
+        <B24NavigationMenu
+          :items="[{ label: 'Page 3', type: 'trigger' }, { label: 'Page 4', type: 'trigger' }]"
+          orientation="vertical"
+        />
+      </B24SidebarSection>
+    </B24SidebarBody>
+    <B24SidebarFooter>
+      <!-- Navigation footer -->
+      <B24SidebarSection>
+        <B24Link
+          class="text-sm mb-2 flex flex-row items-center justify-between"
+          to="https://bitrix24.github.io/b24ui/"
+          target="_blank"
+        >
+          <div>@bitrix24/b24ui</div>
+          <OpenIn50Icon class="size-4" />
+        </B24Link>
+        <B24Button
+          block
+          label="Use our Vue starter"
+          color="air-boost"
+          size="sm"
+          :icon="RocketIcon"
+          to="https://bitrix24.github.io/b24ui/"
+          target="_blank"
+        />
+      </B24SidebarSection>
+    </B24SidebarFooter>
+  </template>
+
+  <template #navbar>
+    <!-- Your navigation bar -->
+    <B24NavbarSection class="hidden sm:inline-flex">
+      <B24NavigationMenu
+        :items="[{ label: 'Page 1', type: 'trigger', active: true }, { label: 'Page 2', type: 'trigger' }]"
+        orientation="horizontal"
+      />
+    </B24NavbarSection>
+    <B24NavbarSpacer />
+    <B24NavbarSection class="flex-row items-center justify-start gap-4">
+      <B24DropdownMenu
+        arrow
+        :items="[{ label: 'Value 1' }, { label: 'Value 2' }]"
+      >
+        <B24Button
+          color="air-secondary-accent"
+          size="xs"
+          rounded
+          use-dropdown
+          label="Action"
+        />
+      </B24DropdownMenu>
+      <B24Switch
+        v-model="checkedUseLightContent"
+        size="xs"
+      />
+      <B24Button
+        label="Reload"
+        color="air-secondary-accent"
+        rounded
+        size="xs"
+        loading-auto
+        @click="handleAction"
+      />
+    </B24NavbarSection>
+  </template>
+
+  <template #content-top>
+    <div class="w-full flex flex-col gap-[20px]">
+      <div class="backdrop-blur-sm backdrop-brightness-110 px-[15px] py-[10px] flex flex-col items-start justify-between gap-[20px]">
+        <div class="w-full flex flex-row items-center justify-between gap-[20px]">
+          <div class="flex-1 flex flex-row items-center justify-end gap-[12px]">
+            <B24Avatar
+              :icon="BusinesProcessStagesIcon"
+              alt="Workflows"
+              size="xl"
+              :b24ui="{
+                root: 'bg-(--ui-color-primary-alt)',
+                icon: 'size-[36px] text-(--ui-color-palette-white-base)'
+              }"
+            />
+            <div class="flex-1">
+              <!-- Page Title -->
+              <ProseH1 class="text-(--b24ui-typography-label-color) leading-[29px] font-(--ui-font-weight-light)">
+                Some title
+              </ProseH1>
+            </div>
+          </div>
+          <div class="flex-1 hidden sm:flex flex-row items-center justify-end gap-[12px]">
+            <B24DropdownMenu
+              :items="[{ label: 'Value 1' }, { label: 'Value 2' }]"
+              arrow
+              :content="{ side: 'bottom', align: 'center' }"
+            >
+              <B24Button size="sm" :icon="MoreMIcon" color="air-secondary-accent" />
+            </B24DropdownMenu>
+          </div>
+        </div>
+        <div>
+          <MockSidebarLayoutMenu orientation="horizontal" />
+        </div>
+      </div>
+
+      <!-- Page SubTitle -->
+      <ProseH2 class="font-semibold mb-0">
+        Some sub-title
+      </ProseH2>
+    </div>
+  </template>
+
+  <template #content-actions>
+    <!-- Actions on page -->
+    <B24Button
+      color="air-secondary-accent"
+      label="Action"
+      loading-auto
+      @click="handleAction"
+    />
+  </template>
+
+  <!-- Main content -->
+  <div>
+    <ProseP>Your main content goes here</ProseP>
+  </div>
+
+  <template #content-bottom>
+    <!-- Bottom of page -->
+    <ProseP small accent="less-more" class="px-[22px] pb-[2px]">
+      Footer or additional information
+    </ProseP>
+  </template>
 </B24SidebarLayout>
 ```
 
@@ -1257,8 +1536,7 @@ Example:
 
 ### Content & Prose
 
-- `B24ContentTableWrapper` — content table wrapper.
-- Prose components (`B24ProseH1/H2/...`, `B24ProseP`, `B24ProseA`, `B24ProseTable`, etc.) — styled content tags.
+- Prose components (`ProseH1/H2/...`, `ProseP`, `ProseA`, `ProseTable`, etc.) — styled content tags.
 
 ---
 
@@ -1269,8 +1547,33 @@ Simple information blocks with slots and color/size variants.
 Example:
 
 ```vue
-<B24Alert color="air-primary">System message</B24Alert>
-<B24Advice color="air-primary-success">Tip</B24Advice>
+<B24Alert
+  :icon="SignIcon"
+  :title="title"
+  :description="description"
+  :color="air-primary"
+  inverted
+/>
+<B24Advice :description="description" :avatar="{ src: '/b24ui/avatar/assistant.png' }" />
+<B24Advice :avatar="{ src: '/b24ui/avatar/assistant.png' }">
+  <ProseP>Typically, instructions on how to add a SAML application and add the ACS URL and SP Entity ID can be found in the Microsoft Azure technical documentation. </ProseP>
+  <B24Link to="https://github.com/bitrix24/b24ui/" target="_blank" is-action>
+    Read more
+  </B24Link>
+</B24Advice>
+<B24Advice angle="top" :avatar="{ src: '/b24ui/avatar/employee.png' }">
+  <div class="flex flex-col items-start justify-between gap-1.5">
+    <ProseH3>
+      Reference information
+    </ProseH3>
+    <ProseP>Typically, instructions on how to add a SAML application and add the ACS URL and SP Entity ID can be found in the Microsoft Azure technical documentation.</ProseP>
+    <div class="mt-2 flex flex-row flex-wrap items-start justify-between gap-2">
+      <B24Button size="xs" color="air-primary" label="some action 1" />
+      <B24Button size="xs" color="air-secondary" label="some action 2" />
+      <B24Button size="xs" color="air-tertiary-no-accent" :icon="DotsIcon" />
+    </div>
+  </div>
+</B24Advice>
 ```
 
 ---
@@ -1280,7 +1583,16 @@ Example:
 Date/range picker.
 
 ```vue
-<B24Calendar v-model="date" />
+<script setup lang="ts">
+import { shallowRef } from 'vue'
+import { CalendarDate } from '@internationalized/date'
+
+const value = shallowRef(new CalendarDate(2012, 4, 12))
+</script>
+
+<template>
+  <B24Calendar v-model="value" />
+</template>
 ```
 
 ---
@@ -1290,7 +1602,13 @@ Date/range picker.
 Low-level link, used by `B24Button`. Props mirror routing / target / activeClass.
 
 ```vue
-<B24Link to="/" active-class="text-ai-500">Home</B24Link>
+<B24Link to="/" target="_blank">Home</B24Link>
+<B24Link is-action to="https://bitrix24.github.io/b24ui/components/link.html" target="_blank">
+  Link action
+</B24Link>
+<B24Link is-action>
+  Button action
+</B24Link>
 ```
 
 
@@ -1310,8 +1628,7 @@ Example:
 
 ```ts
 const toast = useToast()
-const t = toast.add({ title: 'Saved', description: 'Changes applied', color: 'success' })
-setTimeout(() => toast.remove(t.id), 2000)
+toast.add({ title: 'Saved', description: 'Changes applied', color: 'air-primary-success' })
 ```
 
 ### useOverlay
@@ -1341,17 +1658,9 @@ Register global keyboard shortcuts.
 import { defineShortcuts } from '@bitrix24/b24ui-nuxt'
 
 defineShortcuts({
-  'mod+k': () => openCommandPalette(),
+  'meta_k': () => openCommandPalette(),
   'escape': () => closeAllOverlays()
 })
-```
-
-### useKbd
-
-Format keyboard combos for display.
-
-```vue
-Search <B24Kbd value="⌘K" />
 ```
 
 ### useLocale / defineLocale
@@ -1366,23 +1675,13 @@ Trigger confetti animation.
 import { useConfetti } from '@bitrix24/b24ui-nuxt'
 
 const confetti = useConfetti()
-confetti.fire({
-  spread: 70,
-  particleCount: 120,
-  origin: { y: 0.6 }
-})
+confetti.fire()
 ```
-
-### usePortal
-
-Portal helpers for overlay components.
-
 
 ## Patterns and Best Practices
 
 - Always wrap apps that use overlays/tooltips/toasts with `B24App`.
 - For complex inputs, use `B24FormField` for correct ARIA wiring and error messages.
-- Use `activeColor`/`activeClass` for link/active states.
 - Leverage slots (`leading`, `trailing`, `content-*`) to match Bitrix24 UX precisely.
 - For exact variant values, enumerate from `theme.variants` for each component at build/runtime.
 
