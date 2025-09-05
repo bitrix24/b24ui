@@ -240,14 +240,23 @@ See [`TableWrapper`](/components/table-wrapper) for more details
 
 ### img
 
+::: tip
+If [`@nuxt/image`](https://image.nuxt.com/get-started/installation) is installed, the `<NuxtImg>` component will be used instead of the native img tag.
+:::
+
 <div class="lg:min-h-[160px]">
   <ClientOnly>
     <pImgExample />
   </ClientOnly>
 </div>
 
-<<< @/examples/prose/demo/pImg.vue{2,3 vue:line-numbers}
+::: details
+<<< @/examples/prose/demo/pImg.vue{3,10,16 vue:line-numbers}
+:::
 
+::: info Props
+<ComponentProps component="ProseImg" />
+:::
 ### code
 
 <div class="lg:min-h-[160px]">

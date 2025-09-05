@@ -5,7 +5,7 @@ import Demo from './demo/pImg.vue'
 
 <template>
   <ComponentShowExample>
-    <div class="items-start">
+    <div class="flex flex-col items-center justify-center gap-[5px]">
       <Demo />
     </div>
   </ComponentShowExample>
