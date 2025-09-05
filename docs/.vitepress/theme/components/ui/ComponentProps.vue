@@ -38,7 +38,7 @@ const $props = withDefaults(defineProps<{
 })
 
 const camelName = camelCase($props.component)
-const name = `B24${upperFirst(camelName)}`
+const name = $props.component.includes('Prose') ? `${upperFirst(camelName)}` : `B24${upperFirst(camelName)}`
 const meta = B24UIMeta[name] || {}
 
 const metaProps: ComputedRef<ComponentMeta['props']> = computed(() => {
