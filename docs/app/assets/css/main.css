@@ -1,0 +1,53 @@
+@import "tailwindcss" theme(static) source("../../../..");
+@import "@bitrix24/b24ui-nuxt";
+
+@source "../../../content/**/*";
+
+@theme static {
+
+}
+
+/*
+ * Custom bg
+ */
+@layer base {
+  /*
+    .light,
+    :root {
+      --air-theme-bg-color: #eef2f4;
+    }
+
+    .dark {
+      --air-theme-bg-color: #000000;
+    }
+  */
+  .edge-light {
+    --air-theme-bg-image: url(../bg/edge-light-v1.svg);
+    --air-theme-bg-image-blurred: url(../bg/edge-light-v1-blurred.webp);
+    --air-theme-bg-position: 0 0;
+    /*--air-theme-bg-size: auto;*/
+    --air-theme-bg-size: 240px 240px;
+    --air-theme-bg-repeat: repeat;
+    --air-theme-bg-attachment: fixed;
+    --air-theme-bg-color: #f1dbdb87;
+  }
+
+  .edge-dark {
+    --air-theme-bg-image: url(../bg/edge-dark-v1.jpg);
+    --air-theme-bg-image-blurred: url(../bg/edge-dark-v1-blurred.webp);
+    --air-theme-bg-position: 0 0;
+    --air-theme-bg-size: cover;
+    --air-theme-bg-repeat: no-repeat;
+    --air-theme-bg-attachment: fixed;
+    --air-theme-bg-color: #162345;
+  }
+}
+
+:root {
+
+}
+
+html[data-framework="nuxt"] .vue-only,
+html[data-framework="vue"] .nuxt-only {
+  display: none;
+}

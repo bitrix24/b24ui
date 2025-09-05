@@ -1,0 +1,14 @@
+title: @bitrix24/b24ui
+description: for REST API web-application development
+hero:
+  title: @bitrix24/b24ui
+  description: for REST API web-application development
+  links:
+    - label: Get started
+      to: /guide/installation-nuxt-app
+      class: 'nuxt-only'
+    - label: Get started
+      to: /guide/installation-vue
+      class: 'vue-only'
+    - label: Explore components
+      to: /components
