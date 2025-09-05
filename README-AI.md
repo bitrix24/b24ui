@@ -52,7 +52,7 @@ Note on variants: Most visual options (colors, sizes, states) come from theme va
     - [B24Popover — popover](#b24popover--popover)
     - [B24Modal — modal dialog](#b24modal--modal-dialog)
     - [B24Slideover — side panel](#b24slideover--side-panel)
-    - [B24Toast — toasts](#b24toast--b24toaster--toasts)
+    - [B24Toast — toasts](#b24toast--toasts)
     - [Sidebar: B24SidebarLayout and parts](#sidebar-b24sidebarlayout-and-parts)
     - [Content \& Prose](#content--prose)
     - [Alert / Advice — alerts and tips](#alert--advice--alerts-and-tips)
