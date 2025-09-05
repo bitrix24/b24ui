@@ -92,6 +92,7 @@
   "main": "./dist/module.mjs",
   "files": [
     "README.md",
+    "README-AI.md",
     "LICENSE",
     ".nuxt/b24ui",
     ".nuxt/b24ui.css",

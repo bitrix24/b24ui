@@ -2,11 +2,14 @@
 
 ## [1.1.0](https://github.com/bitrix24/b24ui/compare/v1.0.4...v1.1.0) (2025-09-xx)
 
-* feat(FieldGroup)!: rename from `ButtonGroup`
+### ⚠ BREAKING CHANGES
+* **FieldGroup**: rename from `ButtonGroup`
 
 ### Features
 
-* Add README for Bitrix24 UI Kit — AI Reference
+* Add **README** for Bitrix24 UI Kit — AI Reference
+* improve **ProseImg**
+* **FieldGroup**: rename from `ButtonGroup`
 
 ### Chore
 
