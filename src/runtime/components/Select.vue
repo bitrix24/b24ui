@@ -175,7 +175,7 @@ import { Primitive, SelectRoot, SelectArrow, SelectTrigger, SelectPortal, Select
 import { defu } from 'defu'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { useButtonGroup } from '../composables/useButtonGroup'
+import { useFieldGroup } from '../composables/useFieldGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
 import { usePortal } from '../composables/usePortal'
@@ -205,13 +205,13 @@ const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffse
 const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10 }) as SelectArrowProps)
 
 const { emitFormChange, emitFormInput, emitFormBlur, emitFormFocus, size: formGroupSize, color, id, name, highlight, disabled, ariaAttrs } = useFormField<InputProps>(props)
-const { orientation, size: buttonGroupSize } = useButtonGroup<InputProps>(props)
+const { orientation, size: fieldGroupSize } = useFieldGroup<InputProps>(props)
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(toRef(() => defu(
   props,
   { trailingIcon: icons.chevronDown }
 )))
 
-const selectSize = computed(() => buttonGroupSize.value || formGroupSize.value)
+const selectSize = computed(() => fieldGroupSize.value || formGroupSize.value)
 
 const isTag = computed(() => {
   return props.tag
@@ -228,7 +228,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.select
   highlight: highlight.value,
   leading: Boolean(isLeading.value || !!props.avatar || !!slots.leading),
   trailing: Boolean(isTrailing.value || !!slots.trailing),
-  buttonGroup: orientation.value
+  fieldGroup: orientation.value
 }))
 
 const groups = computed<SelectItem[][]>(() =>

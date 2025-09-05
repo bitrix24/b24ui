@@ -7,12 +7,12 @@ const value = ref('pnpm add @bitrix24/b24ui-nuxt@next')
 </script>
 
 <template>
-  <B24ButtonGroup>
+  <B24FieldGroup>
     <B24Input v-model="value" class="w-40" />
     <B24DropdownMenu :items="dropdownMenuItems" :content="{ align: 'end' }">
       <B24Button
         :icon="MoreMIcon"
       />
     </B24DropdownMenu>
-  </B24ButtonGroup>
+  </B24FieldGroup>
 </template>

@@ -5,7 +5,7 @@ import TrendUpIcon from '@bitrix24/b24icons-vue/outline/TrendUpIcon'
 </script>
 
 <template>
-  <B24ButtonGroup size="sm" no-split>
+  <B24FieldGroup size="sm" no-split>
     <B24Button label="List" color="air-secondary-accent" active active-color="air-selection" />
     <B24Button label="Deadline" color="air-secondary-accent" active-color="air-selection">
       <template #leading>
@@ -13,8 +13,8 @@ import TrendUpIcon from '@bitrix24/b24icons-vue/outline/TrendUpIcon'
       </template>
     </B24Button>
     <B24Button label="Planner" color="air-secondary-accent" active-color="air-selection" />
-  </B24ButtonGroup>
-  <B24ButtonGroup class="hidden sm:flex" size="sm" no-split>
+  </B24FieldGroup>
+  <B24FieldGroup class="hidden sm:flex" size="sm" no-split>
     <B24Button label="Overdue" color="air-secondary-accent" active-color="air-selection">
       <template #leading>
         <B24Chip standalone text="4" size="md" />
@@ -26,12 +26,12 @@ import TrendUpIcon from '@bitrix24/b24icons-vue/outline/TrendUpIcon'
       </template>
     </B24Button>
     <B24Button :icon="ChatsWithCheckIcon" color="air-secondary-accent" active-color="air-selection" />
-  </B24ButtonGroup>
+  </B24FieldGroup>
   <div class="flex-1 hidden sm:flex flex-row items-center justify-end gap-[12px]">
     <B24Button size="sm" :icon="RobotIcon" label="Automation rules" color="air-secondary-accent" />
-    <B24ButtonGroup size="sm">
+    <B24FieldGroup size="sm">
       <B24Button label="Extensions" color="air-secondary-accent" />
       <B24Button color="air-secondary-accent" use-dropdown />
-    </B24ButtonGroup>
+    </B24FieldGroup>
   </div>
 </template>

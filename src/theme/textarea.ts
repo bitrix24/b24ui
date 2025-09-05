@@ -8,7 +8,7 @@
  * @link /api_d7/bitrix/ui/forms/fields_types.php
  */
 
-import { buttonGroupVariantWithRoot } from './button-group'
+import { fieldGroupVariantWithRoot } from './field-group'
 
 export default {
   slots: {
@@ -60,7 +60,7 @@ export default {
     ].join(' ')
   },
   variants: {
-    ...buttonGroupVariantWithRoot,
+    ...fieldGroupVariantWithRoot,
     autoresize: { true: { base: 'resize-none' } },
     color: {
       'air-primary': { base: 'style-filled' },

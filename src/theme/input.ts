@@ -10,7 +10,7 @@
  * @todo fix docs
  */
 
-import { buttonGroupVariantWithRoot } from './button-group'
+import { fieldGroupVariantWithRoot } from './field-group'
 
 export default {
   slots: {
@@ -59,7 +59,7 @@ export default {
     ].join(' ')
   },
   variants: {
-    ...buttonGroupVariantWithRoot,
+    ...fieldGroupVariantWithRoot,
     size: {
       xss: {
         base: 'h-[20px] gap-1 text-(length:--ui-font-size-4xs)/[normal]',
@@ -307,6 +307,32 @@ export default {
       class: {
         trailingIcon: 'size-[21px]'
       }
+    },
+    // endregion ////
+    // region fieldGroup ////
+    {
+      fieldGroup: ['horizontal', 'vertical'],
+      size: ['xl', 'lg', 'md'],
+      rounded: false,
+      class: 'rounded-(--ui-border-radius-md)'
+    },
+    {
+      fieldGroup: ['horizontal', 'vertical'],
+      size: 'sm',
+      rounded: false,
+      class: 'rounded-(--ui-border-radius-sm)'
+    },
+    {
+      fieldGroup: ['horizontal', 'vertical'],
+      size: 'xs',
+      rounded: false,
+      class: 'rounded-(--ui-border-radius-xs)'
+    },
+    {
+      fieldGroup: ['horizontal', 'vertical'],
+      size: 'xss',
+      rounded: false,
+      class: 'rounded-[5px]'
     }
     // endregion ////
   ],

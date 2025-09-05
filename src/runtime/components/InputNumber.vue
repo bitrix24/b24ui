@@ -120,7 +120,7 @@ import { onMounted, ref, computed } from 'vue'
 import { NumberFieldRoot, NumberFieldInput, NumberFieldDecrement, NumberFieldIncrement, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { useButtonGroup } from '../composables/useButtonGroup'
+import { useFieldGroup } from '../composables/useFieldGroup'
 import { useFormField } from '../composables/useFormField'
 import { useLocale } from '../composables/useLocale'
 import { tv } from '../utils/tv'
@@ -145,10 +145,10 @@ const appConfig = useAppConfig() as InputNumber['AppConfig']
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'modelValue', 'defaultValue', 'min', 'max', 'step', 'stepSnapping', 'formatOptions', 'disableWheelChange', 'invertWheelChange', 'readonly'), emits)
 
 const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, id, color, size: formGroupSize, name, highlight, disabled, ariaAttrs } = useFormField<InputNumberProps>(props)
-const { orientation, size: buttonGroupSize } = useButtonGroup<InputNumberProps>(props)
+const { orientation, size: fieldGroupSize } = useFieldGroup<InputNumberProps>(props)
 
 const locale = computed(() => props.locale || codeLocale.value)
-const inputSize = computed(() => buttonGroupSize.value || formGroupSize.value)
+const inputSize = computed(() => fieldGroupSize.value || formGroupSize.value)
 
 const isTag = computed(() => {
   return props.tag
@@ -163,7 +163,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.inputN
   noBorder: Boolean(props.noBorder),
   underline: Boolean(props.underline),
   orientation: props.orientation,
-  buttonGroup: orientation.value
+  fieldGroup: orientation.value
 }))
 
 const incrementIcon = computed(() => props.incrementIcon || (props.orientation === 'horizontal' ? icons.plus : icons.chevronUp))

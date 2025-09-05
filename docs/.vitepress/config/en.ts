@@ -99,7 +99,7 @@ function sidebarComponents(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: 'Button', link: 'button' },
-        { text: 'ButtonGroup', link: 'button-group' },
+        { text: 'FieldGroup', link: 'field-group' },
         { text: 'DropdownMenu', link: 'dropdown-menu' },
         { text: 'Modal', link: 'modal' },
         { text: 'Slideover', link: 'slideover' },

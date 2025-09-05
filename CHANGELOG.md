@@ -2,10 +2,16 @@
 
 ## [1.1.0](https://github.com/bitrix24/b24ui/compare/v1.0.4...v1.1.0) (2025-09-xx)
 
-* feat: import `@nuxt/ui-pro` components
-* @todo fix lang
-* @todo fix prose
-* @todo fix docs
+* feat(FieldGroup)!: rename from `ButtonGroup`
+
+### Features
+
+* Add README for Bitrix24 UI Kit — AI Reference
+
+### Chore
+
+* import `@nuxt/ui-pro` components
+* **locale** improve
 
 ## [1.0.4](https://github.com/bitrix24/b24ui/compare/v1.0.3...v1.0.4) (2025-09-02)
 

@@ -9,7 +9,7 @@
 
 import { defuFn } from 'defu'
 import input from './input'
-import { buttonGroupVariantWithRoot } from './button-group'
+import { fieldGroupVariantWithRoot } from './field-group'
 
 export default () => {
   return defuFn(
@@ -126,7 +126,7 @@ export default () => {
         ].join(' ')
       },
       variants: {
-        ...buttonGroupVariantWithRoot,
+        ...fieldGroupVariantWithRoot,
         size: {
           xss: {
             base: 'h-[20px] gap-1 text-(length:--ui-font-size-4xs)/[normal]',

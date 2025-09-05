@@ -87,7 +87,7 @@ import { defu } from 'defu'
 import { useForwardProps } from 'reka-ui'
 import { useAppConfig } from '#imports'
 import { useComponentIcons } from '../composables/useComponentIcons'
-import { useButtonGroup } from '../composables/useButtonGroup'
+import { useFieldGroup } from '../composables/useFieldGroup'
 import { formLoadingInjectionKey } from '../composables/useFormField'
 import { omit, mergeClasses } from '../utils'
 import { tv } from '../utils/tv'
@@ -109,7 +109,7 @@ const slots = defineSlots<ButtonSlots>()
 
 const appConfig = useAppConfig() as Button['AppConfig']
 
-const { orientation, size: buttonSize, noSplit } = useButtonGroup<ButtonProps>(props)
+const { orientation, size: buttonSize, noSplit } = useFieldGroup<ButtonProps>(props)
 
 const linkProps = useForwardProps(pickLinkProps(props))
 
@@ -178,7 +178,7 @@ const b24ui = computed(() => tv({
   useWait: Boolean(props.useWait),
   useClock: Boolean(props.useClock),
   leading: Boolean(isLeading.value),
-  buttonGroup: orientation.value,
+  fieldGroup: orientation.value,
   isAir: true
 }))
 </script>

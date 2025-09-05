@@ -9,7 +9,7 @@
  * @todo fix docs
  */
 import inputTheme from './input'
-import { buttonGroupVariantWithRoot } from './button-group'
+import { fieldGroupVariantWithRoot } from './field-group'
 
 export default () => {
   const input = inputTheme
@@ -44,7 +44,7 @@ export default () => {
       tag: input.slots.tag
     },
     variants: {
-      ...buttonGroupVariantWithRoot,
+      ...fieldGroupVariantWithRoot,
       size: {
         xss: 'px-2 h-[20px] gap-1 text-(length:--ui-font-size-4xs)/[normal]',
         xs: 'px-2 h-[24px] gap-1 text-(length:--ui-font-size-xs)/[normal]',
@@ -254,8 +254,34 @@ export default () => {
           increment: '[&>button]:h-[20px] scale-80',
           decrement: '[&>button]:h-[20px] scale-80'
         }
-      }
+      },
       // endregion ////
+      // endregion ////
+      // region fieldGroup ////
+      {
+        fieldGroup: ['horizontal', 'vertical'],
+        size: ['xl', 'lg', 'md'],
+        rounded: false,
+        class: 'rounded-(--ui-border-radius-md)'
+      },
+      {
+        fieldGroup: ['horizontal', 'vertical'],
+        size: 'sm',
+        rounded: false,
+        class: 'rounded-(--ui-border-radius-sm)'
+      },
+      {
+        fieldGroup: ['horizontal', 'vertical'],
+        size: 'xs',
+        rounded: false,
+        class: 'rounded-(--ui-border-radius-xs)'
+      },
+      {
+        fieldGroup: ['horizontal', 'vertical'],
+        size: 'xss',
+        rounded: false,
+        class: 'rounded-[5px]'
+      }
       // endregion ////
     ],
     defaultVariants: {

@@ -23,10 +23,10 @@ function onCreateMultiple(item: string) {
         <slot />
       </ProseH2>
 
-      <B24ButtonGroup size="md">
+      <B24FieldGroup size="md">
         <B24Button label="Create" color="air-primary-success" />
         <B24Button color="air-primary-success" use-dropdown />
-      </B24ButtonGroup>
+      </B24FieldGroup>
 
       <div class="w-full max-w-[600px] hidden sm:flex">
         <B24InputMenu

@@ -114,7 +114,7 @@ import { ref, computed, onMounted } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useVModel } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { useButtonGroup } from '../composables/useButtonGroup'
+import { useFieldGroup } from '../composables/useFieldGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
 import { looseToNumber } from '../utils'
@@ -137,10 +137,10 @@ const modelValue = useVModel<InputProps<T>, 'modelValue', 'update:modelValue'>(p
 const appConfig = useAppConfig() as Input['AppConfig']
 
 const { emitFormBlur, emitFormInput, emitFormChange, size: formGroupSize, color, id, name, highlight, disabled, emitFormFocus, ariaAttrs } = useFormField<InputProps<T>>(props, { deferInputValidation: true })
-const { orientation, size: buttonGroupSize } = useButtonGroup<InputProps<T>>(props)
+const { orientation, size: fieldGroupSize } = useFieldGroup<InputProps<T>>(props)
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props)
 
-const inputSize = computed(() => buttonGroupSize.value || formGroupSize.value)
+const inputSize = computed(() => fieldGroupSize.value || formGroupSize.value)
 
 const isTag = computed(() => {
   return props.tag
@@ -158,7 +158,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.input 
   underline: Boolean(props.underline),
   leading: Boolean(isLeading.value || !!props.avatar || !!slots.leading),
   trailing: Boolean(isTrailing.value || !!slots.trailing),
-  buttonGroup: orientation.value
+  fieldGroup: orientation.value
 }))
 
 const inputRef = ref<HTMLInputElement | null>(null)

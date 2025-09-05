@@ -10,7 +10,7 @@
  * @todo fix hover:air-boost & etc
  */
 
-import { buttonGroupVariant } from './button-group'
+import { fieldGroupVariant } from './field-group'
 
 const safeList = [
   'invisible'
@@ -68,7 +68,7 @@ export default {
     safeList
   },
   variants: {
-    ...buttonGroupVariant,
+    ...fieldGroupVariant,
     color: {
       'air-primary': '--style-filled',
       'air-primary-success': '--style-filled-success',

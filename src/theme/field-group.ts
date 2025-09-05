@@ -1,15 +1,15 @@
 /**
- * ButtonGroup
+ * FieldGroup
  * ---
  * @todo fix docs
  */
-export const buttonGroupVariant = {
-  buttonGroup: {
+export const fieldGroupVariant = {
+  fieldGroup: {
     horizontal: [
       'focus-visible:outline-none',
       'ring ring-inset ring-0 focus-visible:ring-2',
-      'group-[.is-button-group]/items:not-only:first:rounded-e-none group-[.is-button-group]/items:not-only:last:rounded-s-none group-[.is-button-group]/items:not-last:not-first:rounded-none',
-      'group-[.is-button-group]/items:not-only:first:border-e-0 group-[.is-button-group]/items:not-only:not-first:border-s-0',
+      'group-[.is-field-group]/items:not-only:first:rounded-e-none group-[.is-field-group]/items:not-only:last:rounded-s-none group-[.is-field-group]/items:not-last:not-first:rounded-none',
+      'group-[.is-field-group]/items:not-only:first:border-e-0 group-[.is-field-group]/items:not-only:not-first:border-s-0',
       'focus-visible:z-[1]'
     ].join(' '),
     vertical: [
@@ -21,15 +21,15 @@ export const buttonGroupVariant = {
   },
   noSplit: {
     false: [
-      'group-[.is-button-group]/items:not-only:not-first:after:content-[\'\'] group-[.is-button-group]/items:not-only:not-first:after:absolute',
-      'group-[.is-button-group]/items:not-only:not-first:after:top-[7px] group-[.is-button-group]/items:not-only:not-first:after:bottom-[6px] group-[.is-button-group]/items:not-only:not-first:after:left-0 group-[.is-button-group]/items:not-only:not-first:after:w-px',
-      'group-[.is-button-group]/items:not-only:not-first:after:bg-current/30'
+      'group-[.is-field-group]/items:not-only:not-first:after:content-[\'\'] group-[.is-field-group]/items:not-only:not-first:after:absolute',
+      'group-[.is-field-group]/items:not-only:not-first:after:top-[7px] group-[.is-field-group]/items:not-only:not-first:after:bottom-[6px] group-[.is-field-group]/items:not-only:not-first:after:left-0 group-[.is-field-group]/items:not-only:not-first:after:w-px',
+      'group-[.is-field-group]/items:not-only:not-first:after:bg-current/30'
     ].join(' ')
   }
 }
 
-export const buttonGroupVariantWithRoot = {
-  buttonGroup: {
+export const fieldGroupVariantWithRoot = {
+  fieldGroup: {
     horizontal: {
       root: 'group leading-none has-focus-visible:z-[1]',
       base: [

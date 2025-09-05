@@ -1,11 +1,11 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
-import theme from '#build/b24ui/button-group'
+import theme from '#build/b24ui/field-group'
 import type { ComponentConfig } from '../types/tv'
 
-type ButtonGroup = ComponentConfig<typeof theme, AppConfig, 'buttonGroup'>
+type FieldGroup = ComponentConfig<typeof theme, AppConfig, 'fieldGroup'>
 
-export interface ButtonGroupProps {
+export interface FieldGroupProps {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
@@ -14,22 +14,22 @@ export interface ButtonGroupProps {
   /**
    * @defaultValue 'md'
    */
-  size?: ButtonGroup['variants']['size']
+  size?: FieldGroup['variants']['size']
   /**
    * The orientation the buttons are laid out.
    * @defaultValue 'horizontal'
    */
-  orientation?: ButtonGroup['variants']['orientation']
+  orientation?: FieldGroup['variants']['orientation']
   /**
    * Disable show split
    * @defaultValue false
    */
   noSplit?: boolean
   class?: any
-  b24ui?: ButtonGroup['slots']
+  b24ui?: FieldGroup['slots']
 }
 
-export interface ButtonGroupSlots {
+export interface FieldGroupSlots {
   default(props?: {}): any
 }
 </script>
@@ -38,21 +38,21 @@ export interface ButtonGroupSlots {
 import { provide, computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
-import { buttonGroupInjectionKey } from '../composables/useButtonGroup'
+import { fieldGroupInjectionKey } from '../composables/useFieldGroup'
 import { tv } from '../utils/tv'
 
-const props = withDefaults(defineProps<ButtonGroupProps>(), {
+const props = withDefaults(defineProps<FieldGroupProps>(), {
   orientation: 'horizontal',
   noSplit: false
 })
-defineSlots<ButtonGroupSlots>()
+defineSlots<FieldGroupSlots>()
 
-const appConfig = useAppConfig() as ButtonGroup['AppConfig']
+const appConfig = useAppConfig() as FieldGroup['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.buttonGroup || {}) }))
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.fieldGroup || {}) }))
 
-provide(buttonGroupInjectionKey, computed(() => ({
+provide(fieldGroupInjectionKey, computed(() => ({
   orientation: props.orientation,
   noSplit: Boolean(props.noSplit),
   size: props.size
@@ -62,7 +62,7 @@ provide(buttonGroupInjectionKey, computed(() => ({
 <template>
   <Primitive
     :as="as"
-    class="group/items is-button-group"
+    class="group/items is-field-group"
     :class="b24ui({ orientation, class: props.class })"
   >
     <slot />

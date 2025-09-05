@@ -8,7 +8,6 @@ This guide is for AI agents and developers generating UIs with the Bitrix24 UI K
 
 Note on variants: Most visual options (colors, sizes, states) come from theme variants. The exact sets are generated at build time and may differ per theme. Typical values are shown; to enumerate the exact values at runtime, read theme.variants for each component.
 
-
 ## Table of Contents
 
 - [Bitrix24 UI Kit — AI Reference](#bitrix24-ui-kit--ai-reference)
@@ -23,7 +22,7 @@ Note on variants: Most visual options (colors, sizes, states) come from theme va
   - [Components](#components)
     - [B24App — root provider](#b24app--root-provider)
     - [B24Button — button/link](#b24button--buttonlink)
-    - [B24ButtonGroup — grouped buttons](#b24buttongroup--grouped-buttons)
+    - [B24FieldGroup — grouped button-like elements](#b24fieldgroup--grouped-button-like-elements)
     - [B24Input — text input](#b24input--text-input)
     - [B24Textarea — textarea](#b24textarea--textarea)
     - [B24InputNumber — numeric input](#b24inputnumber--numeric-input)
@@ -68,7 +67,6 @@ Note on variants: Most visual options (colors, sizes, states) come from theme va
   - [Patterns and Best Practices](#patterns-and-best-practices)
   - [Links](#links)
   - [Exhaustiveness note on variant values](#exhaustiveness-note-on-variant-values)
-
 
 ## Initialization and Setup
 
@@ -232,7 +230,7 @@ This section lists the concrete enum keys found in the default theme files under
   - size: xss, xs, sm, md, lg, xl
   - booleans: loading, block, rounded, active, loadingAuto, useDropdown, useWait, useClock, normalCase
 
-- ButtonGroup
+- FieldGroup
   - orientation: horizontal, vertical
   - size: xss, xs, sm, md, lg, xl
   - noSplit: true|false
@@ -512,18 +510,23 @@ Example:
 
 ---
 
-### B24ButtonGroup — grouped buttons
+### B24FieldGroup — grouped button-like elements
 
 Provides `orientation`, `size`, and `noSplit` to child buttons via provide/inject.
 
 Example:
 
 ```vue
-<B24ButtonGroup orientation="horizontal" size="md">
+<B24FieldGroup orientation="horizontal" size="md">
   <B24Button label="One" />
   <B24Button label="Two" />
   <B24Button label="Three" />
-</B24ButtonGroup>
+</B24FieldGroup>
+
+<B24FieldGroup orientation="horizontal" size="md">
+  <B24Input class="w-40" name="search" placeholder="Search..." aria-label="Search" />
+  <B24Button label="Action" loading-auto @click="someAction" />
+</B24FieldGroup>
 ```
 
 ---

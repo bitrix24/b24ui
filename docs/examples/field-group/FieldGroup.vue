@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ComponentShowExample from '~/.vitepress/theme/components/ui/ComponentShowExample.vue'
-import Demo from './demo/ButtonGroup.vue'
+import Demo from './demo/FieldGroup.vue'
 </script>
 
 <template>

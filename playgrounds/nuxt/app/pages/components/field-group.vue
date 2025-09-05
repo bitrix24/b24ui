@@ -5,7 +5,7 @@ import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
 import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 
-usePageMeta.setPageTitle('ButtonGroup')
+usePageMeta.setPageTitle('FieldGroup')
 
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
@@ -40,7 +40,7 @@ const airColors = computed(() => {
     <ExampleCard title="base" class="md:col-span-2">
       <ExampleCardSubTitle title="single" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24ButtonGroup>
+        <B24FieldGroup>
           <B24Button
             loading-auto
             use-clock
@@ -48,25 +48,25 @@ const airColors = computed(() => {
           >
             Button
           </B24Button>
-        </B24ButtonGroup>
+        </B24FieldGroup>
 
-        <B24ButtonGroup>
+        <B24FieldGroup>
           <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
-        </B24ButtonGroup>
+        </B24FieldGroup>
 
-        <B24ButtonGroup>
+        <B24FieldGroup>
           <B24Select class="w-40" :items="items" name="some_value" placeholder="Choose a value&hellip;" aria-label="Choose a value" />
-        </B24ButtonGroup>
+        </B24FieldGroup>
 
-        <B24ButtonGroup>
+        <B24FieldGroup>
           <B24Badge color="default" label="https://" />
-        </B24ButtonGroup>
+        </B24FieldGroup>
       </div>
 
       <template v-for="color in airColors" :key="color">
         <ExampleCardSubTitle :title="color" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-          <B24ButtonGroup>
+          <B24FieldGroup>
             <B24Button
               rounded
               :color="color"
@@ -77,13 +77,13 @@ const airColors = computed(() => {
               Button
             </B24Button>
             <B24Button rounded :color="color" use-dropdown />
-          </B24ButtonGroup>
+          </B24FieldGroup>
         </div>
       </template>
 
       <ExampleCardSubTitle title="some more" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24ButtonGroup>
+        <B24FieldGroup>
           <B24Button
             label="Button"
             loading-auto
@@ -103,12 +103,12 @@ const airColors = computed(() => {
             @click="onClick"
           />
           <B24Button use-dropdown />
-        </B24ButtonGroup>
+        </B24FieldGroup>
       </div>
 
       <ExampleCardSubTitle title="size & no-split" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24ButtonGroup size="sm" no-split>
+        <B24FieldGroup size="sm" no-split>
           <B24Button
             loading-auto
             use-clock
@@ -130,12 +130,12 @@ const airColors = computed(() => {
           >
             Button
           </B24Button>
-        </B24ButtonGroup>
+        </B24FieldGroup>
       </div>
 
       <ExampleCardSubTitle title="vertical" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24ButtonGroup orientation="vertical">
+        <B24FieldGroup orientation="vertical">
           <B24Button
             color="air-primary-success"
             label="Button"
@@ -156,7 +156,7 @@ const airColors = computed(() => {
             use-clock
             @click="onClick"
           />
-        </B24ButtonGroup>
+        </B24FieldGroup>
       </div>
     </ExampleCard>
   </ExampleGrid>
@@ -165,7 +165,7 @@ const airColors = computed(() => {
     <ExampleCard title="Some cases" class="mb-4 md:col-span-4">
       <ExampleCardSubTitle title="orientation" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24ButtonGroup orientation="vertical">
+        <B24FieldGroup orientation="vertical">
           <B24Button
             loading-auto
             use-clock
@@ -174,9 +174,9 @@ const airColors = computed(() => {
             Button
           </B24Button>
           <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
-        </B24ButtonGroup>
+        </B24FieldGroup>
 
-        <B24ButtonGroup orientation="vertical" size="sm" no-split>
+        <B24FieldGroup orientation="vertical" size="sm" no-split>
           <B24InputNumber class="w-40" placeholder="some number" />
           <B24Button
             loading-auto
@@ -185,9 +185,9 @@ const airColors = computed(() => {
           >
             Button
           </B24Button>
-        </B24ButtonGroup>
+        </B24FieldGroup>
 
-        <B24ButtonGroup no-split>
+        <B24FieldGroup no-split>
           <B24Badge color="air-primary" inverted label="https://" />
           <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
           <B24Button
@@ -198,9 +198,9 @@ const airColors = computed(() => {
           >
             Button
           </B24Button>
-        </B24ButtonGroup>
+        </B24FieldGroup>
 
-        <B24ButtonGroup no-split>
+        <B24FieldGroup no-split>
           <B24Button
             color="air-primary-alert"
             loading-auto
@@ -210,13 +210,13 @@ const airColors = computed(() => {
             Button
           </B24Button>
           <B24Input name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
-        </B24ButtonGroup>
+        </B24FieldGroup>
       </div>
 
       <template v-for="size in sizes" :key="size">
         <ExampleCardSubTitle :title="size as string" />
         <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-          <B24ButtonGroup :size="size" no-split>
+          <B24FieldGroup :size="size" no-split>
             <B24Input class="w-40" name="search" placeholder="Search&hellip;" aria-label="Search" type="search" />
             <B24Button
               loading-auto
@@ -225,9 +225,9 @@ const airColors = computed(() => {
             >
               Button
             </B24Button>
-          </B24ButtonGroup>
+          </B24FieldGroup>
 
-          <B24ButtonGroup :size="size" no-split>
+          <B24FieldGroup :size="size" no-split>
             <B24Select
               class="w-40"
               :items="items"
@@ -243,14 +243,14 @@ const airColors = computed(() => {
             >
               Button
             </B24Button>
-          </B24ButtonGroup>
+          </B24FieldGroup>
 
-          <B24ButtonGroup :size="size" no-split>
+          <B24FieldGroup :size="size" no-split>
             <B24Badge color="air-tertiary" label="https://" />
             <B24Input class="w-40" type="url" placeholder="www.example.com" />
-          </B24ButtonGroup>
+          </B24FieldGroup>
 
-          <B24ButtonGroup :size="size" no-split>
+          <B24FieldGroup :size="size" no-split>
             <B24Badge color="air-tertiary" label="https://" />
             <B24Input class="w-40" type="url" placeholder="www.example.com" />
             <B24Button
@@ -260,9 +260,9 @@ const airColors = computed(() => {
               label="Button"
               @click="onClick"
             />
-          </B24ButtonGroup>
+          </B24FieldGroup>
 
-          <B24ButtonGroup :size="size" no-split>
+          <B24FieldGroup :size="size" no-split>
             <B24SelectMenu
               class="w-40"
               :items="items"
@@ -278,9 +278,9 @@ const airColors = computed(() => {
             >
               Button
             </B24Button>
-          </B24ButtonGroup>
+          </B24FieldGroup>
 
-          <B24ButtonGroup :size="size" no-split>
+          <B24FieldGroup :size="size" no-split>
             <B24InputNumber class="w-40" placeholder="Some number" />
             <B24Button
               loading-auto
@@ -289,7 +289,7 @@ const airColors = computed(() => {
             >
               Button
             </B24Button>
-          </B24ButtonGroup>
+          </B24FieldGroup>
         </div>
       </template>
 

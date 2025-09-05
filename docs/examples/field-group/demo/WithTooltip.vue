@@ -10,7 +10,7 @@ const { copy, copied } = useClipboard()
 </script>
 
 <template>
-  <B24ButtonGroup no-split>
+  <B24FieldGroup no-split>
     <B24Input v-model="value" class="w-40" />
     <B24Tooltip
       text="Copy to clipboard"
@@ -23,5 +23,5 @@ const { copy, copied } = useClipboard()
         @click="copy(value)"
       />
     </B24Tooltip>
-  </B24ButtonGroup>
+  </B24FieldGroup>
 </template>

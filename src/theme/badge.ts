@@ -9,7 +9,7 @@
  * @todo fix docs
  * @memo add size.xss && size.xl
  */
-import { buttonGroupVariant } from './button-group'
+import { fieldGroupVariant } from './field-group'
 
 export default {
   slots: {
@@ -34,7 +34,7 @@ export default {
     trailingIcon: 'shrink-0 cursor-pointer hover:rounded-(--ui-border-radius-circle) hover:bg-current/20'
   },
   variants: {
-    ...buttonGroupVariant,
+    ...fieldGroupVariant,
     useLink: {
       true: {
         base: 'cursor-pointer',
@@ -234,10 +234,26 @@ export default {
       }
     },
     // endregion ////
-    // region buttonGroup ////
+    // region fieldGroup ////
     {
-      buttonGroup: ['horizontal', 'vertical'],
+      fieldGroup: ['horizontal', 'vertical'],
+      size: ['xl', 'lg', 'md'],
       class: 'rounded-(--ui-border-radius-md)'
+    },
+    {
+      fieldGroup: ['horizontal', 'vertical'],
+      size: 'sm',
+      class: 'rounded-(--ui-border-radius-sm)'
+    },
+    {
+      fieldGroup: ['horizontal', 'vertical'],
+      size: 'xs',
+      class: 'rounded-(--ui-border-radius-xs)'
+    },
+    {
+      fieldGroup: ['horizontal', 'vertical'],
+      size: 'xss',
+      class: 'rounded-[5px]'
     }
     // endregion ////
   ],

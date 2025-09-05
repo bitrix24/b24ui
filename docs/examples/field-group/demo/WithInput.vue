@@ -7,7 +7,7 @@ function onClick() {
 </script>
 
 <template>
-  <B24ButtonGroup>
+  <B24FieldGroup>
     <B24Input class="w-40" name="search" placeholder="Search..." aria-label="Search" />
     <B24Button
       label="Button"
@@ -15,8 +15,8 @@ function onClick() {
       use-clock
       @click="onClick"
     />
-  </B24ButtonGroup>
-  <B24ButtonGroup no-split>
+  </B24FieldGroup>
+  <B24FieldGroup no-split>
     <B24Select v-model="selectItem" :items="selectItems" class="w-40" />
     <B24Button
       label="Button"
@@ -25,5 +25,5 @@ function onClick() {
       use-clock
       @click="onClick"
     />
-  </B24ButtonGroup>
+  </B24FieldGroup>
 </template>
