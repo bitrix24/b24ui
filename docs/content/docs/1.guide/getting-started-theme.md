@@ -20,7 +20,7 @@ Tailwind CSS v4 takes a CSS-first configuration approach, you now customize your
 
 ```css
 @import "tailwindcss";
-@import "@nuxt/ui";
+@import "@bitrix24/b24ui-nuxt";
 
 @theme static {
   --air-theme-bg-image: url(/bg/edge-dark-v1.jpg);

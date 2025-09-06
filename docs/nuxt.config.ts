@@ -6,6 +6,7 @@ const { resolve } = createResolver(import.meta.url)
 export default defineNuxtConfig({
   modules: [
     '../src/module',
+    // '@bitrix24/b24ui-nuxt',
     '@nuxt/content',
     '@nuxt/image',
     '@nuxtjs/plausible',
@@ -32,7 +33,7 @@ export default defineNuxtConfig({
   },
   $production: {
     site: {
-      url: 'https://bitrix24.github.io/b24ui/'
+      url: 'https://bitrix24.github.io'
     }
   },
 

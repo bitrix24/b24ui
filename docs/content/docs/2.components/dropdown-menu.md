@@ -16,13 +16,13 @@ import WithCustomSlotExample from '/examples/dropdownmenu/WithCustomSlot.vue';
 # DropdownMenu
 
 <Description
-  nuxt-ui="https://ui3.nuxt.dev/components/dropdown-menu"
-  reka-ui="https://reka-ui.com/docs/components/dropdown-menu"
-  reka-ui-title="DropdownMenu"
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/DropdownMenu.vue"
-  demo="/components/dropdown-menu"
+nuxt-ui="https://ui3.nuxt.dev/components/dropdown-menu"
+reka-ui="https://reka-ui.com/docs/components/dropdown-menu"
+reka-ui-title="DropdownMenu"
+git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/DropdownMenu.vue"
+demo="/components/dropdown-menu"
 >
-  A contextual menu for actions triggered by clicking an element.
+A contextual menu for actions triggered by clicking an element.
 </Description>
 
 ## Usage
@@ -216,6 +216,7 @@ You can also use the `#item`, `#item-leading`, `#item-label` and `#item-trailing
 ::: details dropdownMenuSimpleItems
 <<< @/examples/dropdownmenu/dictionary.ts#snippetSimpleItems{5 ts:line-numbers}
 :::
+
 ### Extract shortcuts
 
 When you have some items with `kbds` property (displaying some [Kbd](/components/kbd)), you can easily make them work with the [defineShortcuts](composables/define-shortcuts) composable.
@@ -271,11 +272,8 @@ On **Windows** in this example, `Ctrl` `E`, `Ctrl` `I` and `Ctrl` `N` would trig
 
 ### Emits
 
-```ts
-/**
- * Emitted events for the DropdownMenu component
- */
-interface DropdownMenuEmits {
-  update:open: (payload: [payload: boolean]) => void;
-}
-```
+<ComponentEmits component="DropdownMenu" />
+
+## Theme
+
+<ComponentTheme component="DropdownMenu" />

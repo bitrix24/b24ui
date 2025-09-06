@@ -98,9 +98,9 @@ export default defineNuxtModule<ModuleOptions>({
       nuxt.options.mdc = defu(nuxt.options.mdc, {
         highlight: {
           theme: {
-            // light: 'material-theme-lighter',
-            // default: 'material-theme',
-            // dark: 'material-theme-palenight'
+            light: 'material-theme-lighter',
+            default: 'material-theme',
+            dark: 'material-theme-palenight'
           }
         },
         components: {

@@ -129,7 +129,7 @@ bun add @nuxtjs/i18n
 ```ts:line-numbers {4,7-18} [nuxt.config.ts]
 export default defineNuxtConfig({
   modules: [
-    '@nuxt/ui',
+    '@bitrix24/b24ui-nuxt',
     '@nuxtjs/i18n'
   ],
   css: ['~/assets/css/main.css'],
