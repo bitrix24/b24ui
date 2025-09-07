@@ -17,11 +17,9 @@ const searchLinks = useSearchLinks()
 
 useHead({
   meta: [
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    { name: 'viewport', content: 'width=device-width, initial-scale=1' }
   ],
-  link: [
-    { rel: 'icon', type: 'image/svg+xml', href: '/icon.svg' }
-  ],
+  link: [],
   htmlAttrs: {
     lang: 'en'
   }
@@ -48,14 +46,14 @@ provide('navigation', mappedNavigation)
     <NuxtLoadingIndicator color="#FFF" />
 
     <div :class="[route.path.startsWith('/docs/') && 'root']">
-      <div Header :links="links" />
+      <Header :links="links" />
 
-      <div B24Error :error="error" />
+      <B24Error :error="error" />
 
-      <div Footer />
+      <Footer />
 
       <ClientOnly>
-        <div LazyB4ContentSearch
+        <LazyB4ContentSearch
           :links="searchLinks"
           :files="files"
           :groups="[{

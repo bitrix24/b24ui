@@ -39,6 +39,6 @@ useSeoMeta({
 
     <B24Separator />
 
-    <Promo_v1 />
+    <PromoV1 />
   </B24Main>
 </template>

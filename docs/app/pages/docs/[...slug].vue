@@ -54,9 +54,9 @@ const suffix = page.value?.path.includes('components/') ? 'Component ' : page.va
 const description = page.value?.seo?.description ? page.value.seo.description : page.value?.description
 
 useSeoMeta({
-  titleTemplate: `${prefix}%s ${suffix}- Nuxt UI ${page.value?.framework === 'vue' ? ' for Vue' : ''}`,
+  titleTemplate: `${prefix}%s ${suffix}- Bitrix24 UI ${page.value?.framework === 'vue' ? ' for Vue' : ''}`,
   title,
-  ogTitle: `${prefix}${title} ${suffix}- Nuxt UI ${page.value?.framework === 'vue' ? ' for Vue' : ''}`,
+  ogTitle: `${prefix}${title} ${suffix}- Bitrix24 UI ${page.value?.framework === 'vue' ? ' for Vue' : ''}`,
   description,
   ogDescription: description
 })
@@ -71,20 +71,21 @@ if (route.path.startsWith('/docs/components/')) {
   defineOgImageComponent('Docs', {
     title: page.value.title,
     description: page.value.description,
-    headline: breadcrumb.value?.[breadcrumb.value.length - 1]?.label || 'Nuxt UI',
+    headline: breadcrumb.value?.[breadcrumb.value.length - 1]?.label || 'Bitrix24 UI',
     framework: page.value?.framework
   })
 }
 
+// @todo fix icons
 const communityLinks = computed(() => [{
   icon: 'i-lucide-file-pen',
   label: 'Edit this page',
-  to: `https://github.com/nuxt/ui/edit/v4/docs/content/${page?.value?.stem}.md`,
+  to: `https://github.com/bitrix24/b24ui/edit/main/docs/content/${page?.value?.stem}.md`,
   target: '_blank'
 }, {
   icon: 'i-lucide-star',
   label: 'Star on GitHub',
-  to: `https://github.com/nuxt/ui`,
+  to: `https://github.com/bitrix24/b24ui`,
   target: '_blank'
 }])
 </script>
@@ -97,7 +98,12 @@ const communityLinks = computed(() => [{
       </template>
 
       <template #description>
-        <MDC v-if="page.description" :value="page.description" unwrap="p" :cache-key="`${kebabCase(route.path)}-description`" />
+        <MDC
+          v-if="page.description"
+          :value="page.description"
+          unwrap="p"
+          :cache-key="`${kebabCase(route.path)}-description`"
+        />
       </template>
 
       <template #links>
@@ -108,7 +114,11 @@ const communityLinks = computed(() => [{
           v-bind="link"
         >
           <template v-if="link.avatar" #leading>
-            <B24Avatar v-bind="link.avatar" size="2xs" :alt="`${link.label} avatar`" />
+            <B24Avatar
+              v-bind="link.avatar"
+              size="2xs"
+              :alt="`${link.label} avatar`"
+            />
           </template>
         </B24Button>
         <PageHeaderLinks />
@@ -126,11 +136,9 @@ const communityLinks = computed(() => [{
     <template v-if="page?.body?.toc?.links?.length" #right>
       <B24ContentToc :links="page.body.toc.links" class="z-[2]">
         <template #bottom>
-          <B24Separator v-if="page.body?.toc?.links?.length" type="dashed" />
+          <B24Separator type="dashed" />
 
           <B24PageLinks title="Community" :links="communityLinks" />
-
-          <B24Separator type="dashed" />
         </template>
       </B24ContentToc>
     </template>

@@ -17,18 +17,18 @@ useHead({
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
   ],
   link: [
-    // { rel: 'icon', type: 'image/svg+xml', href: '/icon.svg' },
-    { rel: 'canonical', href: `https://ui4.nuxt.com${withoutTrailingSlash(route.path)}` }
+    // @todo test this
+    { rel: 'canonical', href: `https://bitrix24.github.io${withoutTrailingSlash(route.path)}` }
   ],
-  style: [
-  ],
+  style: [],
   htmlAttrs: {
     lang: 'en'
   }
 })
 
+// @todo test this
 useServerSeoMeta({
-  ogSiteName: 'Nuxt UI',
+  ogSiteName: 'Bitrix24 UI',
   twitterCard: 'summary_large_image'
 })
 
@@ -40,12 +40,10 @@ provide('navigation', mappedNavigation)
 
 <template>
   <B24App :toaster="appConfig.toaster">
-    <NuxtLoadingIndicator color="var(--ui-primary)" :height="2" />
+    <NuxtLoadingIndicator color="var(--ui-color-accent-main-primary)" :height="2" />
 
     <div :class="[route.path.startsWith('/docs/') && 'root']">
       <template v-if="!route.path.startsWith('/examples')">
-        <!-- <Banner /> -->
-
         <Header :links="links" />
       </template>
 
@@ -55,7 +53,7 @@ provide('navigation', mappedNavigation)
 
       <template v-if="!route.path.startsWith('/examples')">
         <Footer />
-
+        <!-- / @todo test this / -->
         <ClientOnly>
           <LazyUContentSearch
             :links="searchLinks"

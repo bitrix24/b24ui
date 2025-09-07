@@ -12,7 +12,10 @@ export default defineNuxtConfig({
     '@nuxtjs/plausible',
     '@vueuse/nuxt',
     'nuxt-component-meta',
+    // @todo on this -> ssr ?
     'nuxt-og-image',
+    // @todo off this -> use in nuxt-og-image
+    'nuxt-site-config',
     'motion-v/nuxt',
     (_, nuxt) => {
       nuxt.hook('components:dirs', (dirs) => {
@@ -26,6 +29,7 @@ export default defineNuxtConfig({
     },
     'nuxt-llms'
   ],
+
   $development: {
     site: {
       url: 'http://localhost:3000'
@@ -33,16 +37,19 @@ export default defineNuxtConfig({
   },
   $production: {
     site: {
-      url: 'https://bitrix24.github.io'
+      url: 'https://bitrix24.github.io/b24ui'
     }
   },
+
+  ssr: false,
 
   devtools: {
     enabled: false
   },
 
   app: {
-    baseURL: '/b24ui/',
+    // @todo fix this
+    // baseURL: '/b24ui/',
     buildAssetsDir: '/_nuxt/',
     head: {
       link: [
@@ -179,6 +186,10 @@ export default defineNuxtConfig({
     optimizeDeps: {
       // prevents reloading page when navigating between components
       include: ['@internationalized/date', '@vueuse/shared', '@vueuse/integrations/useFuse', '@tanstack/vue-table', 'reka-ui', 'reka-ui/namespaced', 'embla-carousel-vue', 'embla-carousel-autoplay', 'embla-carousel-auto-scroll', 'embla-carousel-auto-height', 'embla-carousel-class-names', 'embla-carousel-fade', 'embla-carousel-wheel-gestures', 'colortranslator', 'tailwindcss/colors', 'tailwind-variants', 'ufo', 'zod', 'vaul-vue', 'scule', 'motion-v', 'json5', 'ohash', 'shiki-transformer-color-highlight']
+    },
+    // @todo remove this
+    viteNode: {
+      requestTimeout: 30000
     }
   },
 
@@ -237,5 +248,8 @@ export default defineNuxtConfig({
     notes: [
       'The content is automatically generated from the same source as the official documentation.'
     ]
-  }
+  },
+
+  // @todo fix this
+  ogImage: { enabled: false }
 })
