@@ -118,7 +118,7 @@
     "docs:generate": "nuxt generate docs",
     "docs:preview": "nuxt preview docs",
     "docs:build": "nuxt build docs",
-    "docs:full:build": "pnpm build && pnpm docs:generate",
+    "docs:full:generate": "pnpm build && pnpm docs:generate",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "vue-tsc --noEmit && nuxt typecheck playgrounds/nuxt && cd playgrounds/vue && vue-tsc --noEmit",

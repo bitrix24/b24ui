@@ -2,6 +2,13 @@
 import type { ContentNavigationItem } from '@nuxt/content'
 import { findPageChildren } from '@nuxt/content/utils'
 
+useHead({
+  bodyAttrs: {
+    // 'dark' | 'light' | 'edge-dark' | 'edge-light'
+    class: `edge-dark`
+  }
+})
+
 const route = useRoute()
 
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
@@ -88,23 +95,46 @@ const children = computed(() => {
 </script>
 
 <template>
-  <B24Main>
-    <B24Container>
-      <B24Page>
-        <template #left>
-          <B24PageAside>
-            <B24ContentNavigation
-              :key="route.path"
-              :navigation="children"
-              variant="link"
-              highlight
-              :b24ui="{ linkTrailingBadge: 'font-semibold uppercase' }"
-            />
-          </B24PageAside>
-        </template>
+  <B24SidebarLayout
+    :use-light-content="true"
+  >
+    <template #sidebar>
+      <B24SidebarHeader>
+        <div class="h-full flex items-center relative my-0 ps-[25px] pe-xs rtl:pe-[25px]">
+          <div class="flex flex-row flex-nowrap items-center justify-start gap-[6px]">
+            <LogoWithVersion />
+          </div>
+        </div>
+      </B24SidebarHeader>
+      <B24SidebarBody>
+        <!-- B24NavigationMenu
+          :items="links"
+          orientation="vertical"
+        / -->
+        <B24ContentNavigation
+          :key="route.path"
+          :navigation="children"
+          variant="link"
+          highlight
+          :b24ui="{ linkTrailingBadge: 'font-semibold uppercase' }"
+        />
+      </B24SidebarBody>
+      <B24SidebarFooter>
+        <B24SidebarSection>
+          <ExtLinks />
+        </B24SidebarSection>
+      </B24SidebarFooter>
+    </template>
+    <template #navbar>
+      <Header />
+    </template>
 
-        <slot />
-      </B24Page>
-    </B24Container>
-  </B24Main>
+    <div>
+      <slot />
+    </div>
+
+    <template #content-bottom>
+      <Footer />
+    </template>
+  </B24SidebarLayout>
 </template>

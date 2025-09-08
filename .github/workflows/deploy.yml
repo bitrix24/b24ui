@@ -37,8 +37,8 @@ jobs:
       - name: Prepare
         run: pnpm run dev:prepare
 
-      - name: 'Build with VitePress'
-        run: pnpm run docs:full:build
+      - name: 'Generate Docs'
+        run: pnpm run docs:full:generate
 
       - name: 'Generate Demo'
         run: pnpm run demo:generate
@@ -46,7 +46,7 @@ jobs:
       - name: 'Create combined artifact'
         run: |
           mkdir -p combined-artifact
-          cp -r docs/.vitepress/dist/* combined-artifact/
+          cp -r docs/.output/public/* combined-artifact/
           mkdir -p combined-artifact/demo
           cp -r playgrounds/demo/dist/* combined-artifact/demo/
 

@@ -3,14 +3,6 @@ import { upperFirst, camelCase } from 'scule'
 import { computed, type ComputedRef } from 'vue'
 import B24UIMeta from '@bitrix24/b24ui-nuxt/meta'
 import type { ComponentMeta } from 'vue-component-meta'
-import ProseTable from '../prose/ProseTable.vue'
-import ProseThead from '../prose/ProseThead.vue'
-import ProseTbody from '../prose/ProseTbody.vue'
-import ProseTr from '../prose/ProseTr.vue'
-import ProseTh from '../prose/ProseTh.vue'
-import ProseTd from '../prose/ProseTd.vue'
-import ProseCode from '../prose/ProseCode.vue'
-import ProseData from '../prose/ProseData.vue'
 
 const $props = withDefaults(defineProps<{
   component: string

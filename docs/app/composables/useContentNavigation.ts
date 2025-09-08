@@ -15,17 +15,19 @@ function processNavigationItem(item: ContentNavigationItem, parent?: ContentNavi
 }
 
 function processNavigationItemIcon(item: ContentNavigationItem) {
-  let icon = item.icon
-  if (item.path.startsWith('/docs/components')) {
-    icon = 'i-lucide-square-code'
-  }
-  if (item.path.startsWith('/docs/composables')) {
-    icon = 'i-lucide-square-function'
-  }
-  return {
-    ...item,
-    icon
-  }
+  // let icon = item.icon
+  // if (item.path.startsWith('/docs/components')) {
+  //   icon = 'i-lucide-square-code'
+  // }
+  // if (item.path.startsWith('/docs/composables')) {
+  //   icon = 'i-lucide-square-function'
+  // }
+  // return {
+  //   ...item,
+  //   icon
+  // }
+
+  return item
 }
 
 export const useContentNavigation = (navigation: Ref<ContentNavigationItem[] | undefined>) => {
