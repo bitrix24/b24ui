@@ -22,12 +22,11 @@ import type { IMenuItem } from '~/types'
 
   <B24Button
     block
-    label="Use our Vue starter"
+    label="Use our Nuxt starter"
     color="air-boost"
     size="sm"
-    loading-auto
     :icon="RocketIcon"
-    to="https://bitrix24.github.io/b24ui/guide/installation-vue.html#use-our-vue-starter"
+    to="https://bitrix24.github.io/b24ui/guide/installation-nuxt-app.html#use-our-nuxt-starter"
     target="_blank"
   />
 </template>
