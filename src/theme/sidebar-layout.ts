@@ -58,7 +58,7 @@ export default {
       'h-full'
     ].join(' '),
     container: [
-      'flex-1 flex flex-col gap-[22px]',
+      'flex-1 flex flex-col lg:gap-[22px]',
       'lg:min-w-0'
     ].join(' '),
     containerWrapper: [
@@ -125,8 +125,10 @@ export default {
           'relative'
         ].join(' '),
         container: [
-          'relative',
-          'mt-[22px]'
+          'relative'
+        ].join(' '),
+        containerWrapper: [
+          // 'mt-[22px]'
         ].join(' ')
       }
     },
@@ -187,8 +189,8 @@ export default {
       useLightContent: true,
       class: {
         container: 'lg:pb-2',
-        pageTopWrapper: 'px-6 lg:px-0',
-        pageActionsWrapper: 'px-6 lg:px-0',
+        // pageTopWrapper: 'px-6 lg:px-0',
+        // pageActionsWrapper: 'px-6 lg:px-0',
         containerWrapper: [
           'p-6 lg:px-[22px] lg:py-[15px]',
           'lg:rounded-(--ui-border-radius-md)'
@@ -244,7 +246,7 @@ export default {
       inner: false,
       useNavbar: true,
       class: {
-        container: 'h-[calc(100dvh-var(--topbar-height))]'
+        container: 'h-auto' // min-h-[calc(100dvh-var(--topbar-height))]
       }
     },
     {
