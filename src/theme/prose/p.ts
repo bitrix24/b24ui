@@ -16,8 +16,8 @@ export default {
   },
   variants: {
     small: {
-      true: 'text-sm',
-      false: 'text-base'
+      true: 'text-(length:--ui-font-size-3xs) leading-(--ui-font-line-height-2xs)',
+      false: 'text-(length:--ui-font-size-xl) leading-(--ui-font-line-height-lg)'
     },
     accent: {
       'default': 'text-(--b24ui-typography-label-color)',
