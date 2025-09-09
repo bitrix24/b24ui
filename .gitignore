@@ -40,7 +40,3 @@ playgrounds/demo/tsconfig.app.tsbuildinfo
 playgrounds/demo/tsconfig.node.tsbuildinfo
 
 # Docs
-docs/.vitepress/dist
-docs/.vitepress/cache
-docs/auto-imports.d.ts
-docs/components.d.ts
