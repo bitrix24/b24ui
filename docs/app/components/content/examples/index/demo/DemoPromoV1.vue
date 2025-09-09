@@ -64,7 +64,7 @@ defineShortcuts({
   <div class="h-[200px] flex flex-col items-center justify-center">
     <B24Advice
       v-if="isShowAdvice"
-      :avatar="{ src: '/avatar/assistant.png' }"
+      :avatar="{ src: '/b24ui/avatar/assistant.png' }"
     >
       <div class="font-bold">
         Deal on Hold: Attention Required

@@ -17,7 +17,7 @@ const DualModeImage = z.object({
 
 const Button = z.object({
   label: z.string(),
-  icon: z.string().optional(),
+  iconName: z.string().optional(),
   leadingIcon: z.string().optional(),
   trailingIcon: z.string().optional(),
   to: z.string().optional(),
@@ -64,7 +64,7 @@ export const collections = {
       }),
       links: z.array(z.object({
         label: z.string(),
-        icon: z.string(),
+        iconName: z.string(),
         avatar: z.object({
           src: z.string(),
           alt: z.string()

@@ -1,0 +1,77 @@
+<script setup lang="ts">
+import { withoutTrailingSlash } from 'ufo'
+import CopyIcon from '@bitrix24/b24icons-vue/outline/CopyIcon'
+import CircleCheckIcon from '@bitrix24/b24icons-vue/outline/CircleCheckIcon'
+import LinkIcon from '@bitrix24/b24icons-vue/outline/LinkIcon'
+
+const route = useRoute()
+const toast = useToast()
+const { copy, copied } = useClipboard()
+const site = useSiteConfig()
+
+const mdPath = computed(() => `${withoutTrailingSlash(`${site.url}/b24ui/raw${route.path}`)}.md`)
+
+const items = [
+  {
+    label: 'Copy Markdown link',
+    icon: LinkIcon,
+    onSelect() {
+      copy(mdPath.value)
+      toast.add({
+        title: 'Copied to clipboard',
+        icon: CircleCheckIcon
+      })
+    }
+  },
+  {
+    label: 'View as Markdown',
+    avatar: { src: '/b24ui/avatar/markdown.svg' },
+    target: '_blank',
+    to: `${withoutTrailingSlash(`/raw${route.path}`)}.md`
+  },
+  {
+    label: 'Open in ChatGPT',
+    avatar: { src: '/b24ui/avatar/openai.svg' },
+    target: '_blank',
+    to: `https://chatgpt.com/?hints=search&q=${encodeURIComponent(`Read ${mdPath.value} so I can ask questions about it.`)}`
+  },
+  {
+    label: 'Open in Claude',
+    avatar: { src: '/b24ui/avatar/anthropic.svg' },
+    target: '_blank',
+    to: `https://claude.ai/new?q=${encodeURIComponent(`Read ${mdPath.value} so I can ask questions about it.`)}`
+  }
+]
+
+async function copyPage() {
+  await copy(await $fetch<string>(`${withoutTrailingSlash(`/raw${route.path}`)}.md`))
+}
+</script>
+
+<template>
+  <B24FieldGroup no-split size="sm">
+    <B24Button
+      label="Copy page"
+      :icon="copied ? CircleCheckIcon : CopyIcon"
+      :b24ui="{
+        leadingIcon: [copied ? 'text-success' : 'text-(--ui-btn-color)']
+      }"
+      @click="copyPage"
+    />
+    <B24DropdownMenu
+      :items="items"
+      :content="{
+        align: 'end',
+        side: 'bottom',
+        sideOffset: 8
+      }"
+      :b24ui="{
+        content: 'w-48',
+        itemLeadingIcon: ['mr-[5px]'],
+        itemLeadingAvatar: ['mr-[5px]']
+      }"
+    >
+      <B24Button use-dropdown />
+    </B24DropdownMenu>
+  </B24FieldGroup>
+</template>

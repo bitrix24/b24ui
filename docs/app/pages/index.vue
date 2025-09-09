@@ -56,7 +56,7 @@ const links = useSearchLinks()
       <Header />
     </template>
 
-    <div v-if="page" class="light bg-(--ui-color-design-outline-na-bg) h-[calc(100vh-200px)] p-[12px] rounded-[24px] flex flex-col items-center justify-center md:flex-row md:justify-center gap-[24px]">
+    <div v-if="page" class="mt-[22px] light bg-(--ui-color-design-outline-na-bg) h-[calc(100vh-200px)] p-[12px] rounded-[24px] flex flex-col items-center justify-center md:flex-row md:justify-center gap-[24px]">
       <div class="flex-0 w-full max-w-[200px] flex flex-col gap-[12px]">
         <ProseH1 class="mb-0 leading-(--ui-font-line-height-3xs)">
           <span class="text-primary">@bitrix24/b24ui</span> <br>Bitrix24 UI-Kit

@@ -1,20 +1,32 @@
 import { createResolver } from '@nuxt/kit'
 import pkg from '../package.json'
+import { withoutTrailingSlash } from 'ufo'
 
 const { resolve } = createResolver(import.meta.url)
+
+const pages = [
+  '/docs/guide/getting-started/',
+  '/docs/components/app/'
+]
+
+const pagesService = [
+  '/api/countries.json',
+  '/api/locales.json',
+  '/404.html'
+]
 
 export default defineNuxtConfig({
   modules: [
     '../src/module',
     // '@bitrix24/b24ui-nuxt',
     '@nuxt/content',
-    '@nuxt/image',
+    // '@nuxt/image',
     '@nuxtjs/plausible',
     '@vueuse/nuxt',
     'nuxt-component-meta',
     'nuxt-og-image',
     // @memo off this -> use in nuxt-og-image
-    // 'nuxt-site-config',
+    'nuxt-site-config',
     'motion-v/nuxt',
     (_, nuxt) => {
       nuxt.hook('components:dirs', (dirs) => {
@@ -40,7 +52,7 @@ export default defineNuxtConfig({
     }
   },
 
-  // ssr: false,
+  ssr: true,
 
   devtools: {
     enabled: false
@@ -85,25 +97,25 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    // // v4 redirects - moved to `docs/`
+    // v4 redirects - moved to `docs/`
     // '/getting-started/**': { redirect: { to: '/docs/getting-started/**', statusCode: 301 }, prerender: false },
     // '/components/**': { redirect: { to: '/docs/components/**', statusCode: 301 }, prerender: false },
     // '/composables/**': { redirect: { to: '/docs/composables/**', statusCode: 301 }, prerender: false },
-    // // v4 redirects - default root pages
-    '/docs': { redirect: '/docs/guide/getting-started', prerender: false },
-    '/docs/components': { redirect: '/docs/components/app', prerender: false },
-    '/docs/composables': { redirect: '/docs/composables/define-shortcuts', prerender: false }
+    // v4 redirects - default root pages
+    '/docs': { redirect: '/docs/guide/getting-started/', prerender: false },
+    '/docs/components': { redirect: '/docs/components/app/', prerender: false },
+    '/docs/composables': { redirect: '/docs/composables/define-shortcuts/', prerender: false }
     // '/docs/getting-started/migration': { redirect: '/docs/getting-started/migration/v4', prerender: false },
-    // // v4 redirects - default shadow pages
+    // v4 redirects - default shadow pages
     // '/docs/getting-started/installation': { redirect: '/docs/getting-started/installation/nuxt', prerender: false },
     // '/docs/getting-started/icons': { redirect: '/docs/getting-started/icons/nuxt', prerender: false },
     // '/docs/getting-started/color-mode': { redirect: '/docs/getting-started/color-mode/nuxt', prerender: false },
     // '/docs/getting-started/i18n': { redirect: '/docs/getting-started/i18n/nuxt', prerender: false },
-    // // v4 redirects - renamed components
+    // v4 redirects - renamed components
     // '/docs/components/button-group': { redirect: { to: '/docs/components/field-group', statusCode: 301 }, prerender: false },
     // '/docs/components/page-accordion': { redirect: { to: '/docs/components/accordion', statusCode: 301 }, prerender: false },
     // '/docs/components/page-marquee': { redirect: { to: '/docs/components/marquee', statusCode: 301 }, prerender: false },
-    // // v4 redirects - removed pro pages
+    // v4 redirects - removed pro pages
     // '/pro': { redirect: { to: '/pro/activate', statusCode: 301 }, prerender: false },
     // '/pro/pricing': { redirect: { to: '/pro/activate', statusCode: 301 }, prerender: false },
     // '/pro/purchase': { redirect: { to: '/pro/activate', statusCode: 301 }, prerender: false },
@@ -119,12 +131,9 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: [
-        '/docs/guide/getting-started',
-        '/api/countries.json',
-        '/api/locales.json',
-        // '/api/releases.json',
-        // '/api/pulls.json'
-        '/404.html'
+        ...pages.map((page: string) => `${page}`),
+        ...pages.map((page: string) => `${withoutTrailingSlash(`/raw${page}`)}.md`),
+        ...pagesService
       ],
       crawlLinks: true,
       autoSubfolderIndex: false
@@ -164,7 +173,7 @@ export default defineNuxtConfig({
   },
 
   llms: {
-    domain: 'https://bitrix24.github.io/b24ui/',
+    domain: 'https://bitrix24.github.io',
     title: 'Bitrix24 UI',
     description: 'A comprehensive, Nuxt-integrated UI library providing a rich set of fully-styled, accessible and highly customizable components for building modern web applications.',
     full: {
@@ -193,8 +202,8 @@ export default defineNuxtConfig({
     notes: [
       'The content is automatically generated from the same source as the official documentation.'
     ]
-  }
+  },
 
   // @memo off for generate
-  // ogImage: { enabled: false }
+  ogImage: { enabled: false }
 })

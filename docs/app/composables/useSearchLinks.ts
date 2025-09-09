@@ -4,17 +4,17 @@ export function useSearchLinks() {
   return computed(() => [
     {
       label: 'Docs',
-      to: '/docs/guide/getting-started',
+      to: '/docs/guide/getting-started/',
       active: route.path.startsWith('/docs/guide/getting-started')
     },
     {
       label: 'Components',
-      to: '/docs/components',
+      to: '/docs/components/',
       active: route.path.startsWith('/docs/components')
     },
     {
       label: 'Composables',
-      to: '/docs/composables',
+      to: '/docs/composables/',
       active: route.path.startsWith('/docs/composables')
     }
     // {

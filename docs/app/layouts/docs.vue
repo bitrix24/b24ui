@@ -129,9 +129,11 @@ const children = computed(() => {
       <Header />
     </template>
 
-    <div>
-      <slot />
-    </div>
+    <template #content-top>
+      <slot name="header" />
+    </template>
+
+    <slot />
 
     <template #content-bottom>
       <Footer />

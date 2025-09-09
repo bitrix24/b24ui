@@ -3,12 +3,15 @@ import { kebabCase } from 'scule'
 import type { ContentNavigationItem } from '@nuxt/content'
 import { mapContentNavigation } from '@bitrix24/b24ui-nuxt/utils/content'
 import { findPageBreadcrumb } from '@nuxt/content/utils'
+import DesignIcon from '@bitrix24/b24icons-vue/outline/DesignIcon'
+import FavoriteIcon from '@bitrix24/b24icons-vue/outline/FavoriteIcon'
+import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 
 const route = useRoute()
 const { framework } = useSharedData()
 
 definePageMeta({
-  layout: 'docs'
+  layout: false
 })
 
 const { data: page } = await useAsyncData(kebabCase(route.path), () => queryCollection('docs').path(route.path).first())
@@ -76,71 +79,94 @@ if (route.path.startsWith('/docs/components/')) {
   })
 }
 
-// @todo fix icons
-const communityLinks = computed(() => [{
-  icon: 'i-lucide-file-pen',
-  label: 'Edit this page',
-  to: `https://github.com/bitrix24/b24ui/edit/main/docs/content/${page?.value?.stem}.md`,
-  target: '_blank'
-}, {
-  icon: 'i-lucide-star',
-  label: 'Star on GitHub',
-  to: `https://github.com/bitrix24/b24ui`,
-  target: '_blank'
-}])
+const communityLinks = computed(() => [
+  {
+    icon: DesignIcon,
+    label: 'Edit this page',
+    to: `https://github.com/bitrix24/b24ui/edit/main/docs/content/${page?.value?.stem}.md`,
+    target: '_blank'
+  },
+  {
+    icon: FavoriteIcon,
+    label: 'Star on GitHub',
+    to: `https://github.com/bitrix24/b24ui`,
+    target: '_blank'
+  }
+])
+
+const iconFromIconName = (iconName?: string) => {
+  if (!iconName) {
+    return undefined
+  }
+
+  switch (iconName) {
+    case 'GitHubIcon': return GitHubIcon
+  }
+
+  return undefined
+}
 </script>
 
 <template>
-  <B24Page v-if="page">
-    <B24PageHeader :title="page.title">
-      <template #headline>
-        <B24Breadcrumb :items="breadcrumb" />
-      </template>
-
-      <template #description>
-        <MDC
-          v-if="page.description"
-          :value="page.description"
-          unwrap="p"
-          :cache-key="`${kebabCase(route.path)}-description`"
-        />
-      </template>
-
-      <template #links>
-        <B24Button
-          v-for="link in page.links"
-          :key="link.label"
-          :target="link.to.startsWith('http') ? '_blank' : undefined"
-          v-bind="link"
-        >
-          <template v-if="link.avatar" #leading>
-            <B24Avatar
-              v-bind="link.avatar"
-              size="2xs"
-              :alt="`${link.label} avatar`"
+  <NuxtLayout name="docs">
+    <template #header>
+      <template v-if="page">
+        <PageHeader :title="page.title">
+          <template #description>
+            <MDC
+              v-if="page.description"
+              :value="page.description"
+              unwrap="p"
+              :cache-key="`${kebabCase(route.path)}-description`"
             />
           </template>
-        </B24Button>
-        <PageHeaderLinks />
+          <template #links>
+            <B24Button
+              v-for="link in page.links"
+              :key="link.label"
+              :target="link.to.startsWith('http') ? '_blank' : undefined"
+              v-bind="link"
+              :icon="iconFromIconName(link?.iconName)"
+              size="sm"
+              :b24ui="{
+                leadingIcon: 'mr-[5px]'
+              }"
+            >
+              <template v-if="link.avatar" #leading>
+                <B24Avatar
+                  v-bind="link.avatar"
+                  size="2xs"
+                  :alt="`${link.label}`"
+                  :b24ui="{
+                    root: 'mr-[5px]',
+                    image: 'w-[18px] h-[12px]'
+                  }"
+                />
+              </template>
+            </B24Button>
+            <PageHeaderLinks />
+          </template>
+        </PageHeader>
       </template>
-    </B24PageHeader>
-
-    <B24PageBody>
-      <ContentRenderer v-if="page.body" :value="page" />
-
-      <B24Separator v-if="surround?.filter(Boolean).length" />
-
-      <B24ContentSurround :surround="(surround as any)" />
-    </B24PageBody>
-
-    <template v-if="page?.body?.toc?.links?.length" #right>
-      <B24ContentToc :links="page.body.toc.links" class="z-[2]">
-        <template #bottom>
-          <B24Separator type="dashed" />
-
-          <B24PageLinks title="Community" :links="communityLinks" />
-        </template>
-      </B24ContentToc>
     </template>
-  </B24Page>
+    <div v-if="page" class="flex flex-row items-start justify-between gap-[12px]">
+      <div>
+        <ContentRenderer v-if="page.body" :value="page" />
+
+        <B24Separator v-if="surround?.filter(Boolean).length" />
+
+        <B24ContentSurround :surround="(surround as any)" />
+      </div>
+
+      <div v-if="page?.body?.toc?.links?.length">
+        <B24ContentToc :links="page.body.toc.links" class="z-[2]">
+          <template #bottom>
+            <B24Separator type="dashed" />
+
+            <B24PageLinks title="Community" :links="communityLinks" />
+          </template>
+        </B24ContentToc>
+      </div>
+    </div>
+  </NuxtLayout>
 </template>
