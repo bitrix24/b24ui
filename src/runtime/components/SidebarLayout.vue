@@ -28,12 +28,12 @@ export interface SidebarLayoutProps {
    */
   offContentScrollbar?: boolean
   class?: any
-  b24ui?: Pick<SidebarLayout['slots'], 'root' | 'sidebar' | 'sidebarSlideoverContainer' | 'sidebarSlideover' | 'sidebarSlideoverBtnClose' | 'contentWrapper' | 'header' | 'headerMenuIcon' | 'headerWrapper' | 'container' | 'containerWrapper' | 'pageTopWrapper' | 'pageActionsWrapper' | 'containerWrapperInner' | 'pageBottomWrapper' | 'loadingWrapper' | 'loadingIcon'>
+  b24ui?: Pick<SidebarLayout['slots'], 'root' | 'sidebar' | 'sidebarSlideoverContainer' | 'sidebarSlideover' | 'sidebarSlideoverBtnClose' | 'contentWrapper' | 'header' | 'headerMenuIcon' | 'headerWrapper' | 'pageWrapper' | 'container' | 'containerWrapper' | 'pageTopWrapper' | 'pageActionsWrapper' | 'containerWrapperInner' | 'pageRightWrapper' | 'pageBottomWrapper' | 'loadingWrapper' | 'loadingIcon'>
 }
 
 export interface SidebarLayoutSlots {
   /**
-   * Left menu.
+   * Left sidebar.
    * @param props
    * @param props.handleClick - Handler for navigation click events
    * @param props.isLoading - loading state
@@ -51,6 +51,10 @@ export interface SidebarLayoutSlots {
    * Content above the page. Use for show actions.
    */
   'content-actions': (props?: { isLoading: boolean }) => any
+  /**
+   * Right sidebar.
+   */
+  'content-right': (props?: { isLoading: boolean }) => any
   /**
    * The page content.
    */
@@ -103,11 +107,13 @@ const appConfig = useAppConfig() as SidebarLayout['AppConfig']
 const route = useRoute()
 const isUseSideBar = computed(() => !!slots.sidebar)
 const isUseNavbar = computed(() => !!slots.navbar)
+const isUseRightBar = computed(() => !!slots['content-right'])
 const openSidebarSlideover = ref(false)
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sidebarLayout || {}) })({
   useSidebar: isUseSideBar.value,
   useNavbar: isUseNavbar.value,
+  useRightBar: isUseRightBar.value,
   useLightContent: Boolean(props.useLightContent),
   loading: Boolean(isLoading.value),
   inner: Boolean(props.isInner),
@@ -266,36 +272,43 @@ defineExpose<SidebarLayoutInstance>({
         </div>
       </header>
 
-      <template v-if="!!slots['content-top'] || !!slots['content-actions'] || !!slots['default']">
-        <main :class="b24ui.container({ class: props.b24ui?.container })">
-          <template v-if="!!slots['content-top']">
-            <!-- Page Top -->
-            <div :class="b24ui.pageTopWrapper({ class: props.b24ui?.pageTopWrapper })">
-              <slot name="content-top" :is-loading="isLoading" />
-            </div>
-          </template>
-
-          <template v-if="!!slots['content-actions']">
-            <!-- Page Actions -->
-            <div :class="b24ui.pageActionsWrapper({ class: props.b24ui?.pageActionsWrapper })">
-              <slot name="content-actions" :is-loading="isLoading" />
-            </div>
-          </template>
-
-          <template v-if="!!slots['default']">
-            <!-- Page Content -->
-            <div
-              :data-content="props.useLightContent ? 'use-light' : 'not-set'"
-              :class="b24ui.containerWrapper({ class: props.b24ui?.containerWrapper })"
-            >
-              <div :class="b24ui.containerWrapperInner({ class: props.b24ui?.containerWrapperInner })">
-                <slot :is-loading="isLoading" />
+      <div :class="b24ui.pageWrapper({ class: props.b24ui?.pageWrapper })">
+        <template v-if="!!slots['content-top'] || !!slots['content-actions'] || !!slots['default']">
+          <main :class="b24ui.container({ class: props.b24ui?.container })">
+            <template v-if="!!slots['content-top']">
+              <!-- Page Top -->
+              <div :class="b24ui.pageTopWrapper({ class: props.b24ui?.pageTopWrapper })">
+                <slot name="content-top" :is-loading="isLoading" />
               </div>
-            </div>
-          </template>
-        </main>
-      </template>
+            </template>
 
+            <template v-if="!!slots['content-actions']">
+              <!-- Page Actions -->
+              <div :class="b24ui.pageActionsWrapper({ class: props.b24ui?.pageActionsWrapper })">
+                <slot name="content-actions" :is-loading="isLoading" />
+              </div>
+            </template>
+
+            <template v-if="!!slots['default']">
+              <!-- Page Content -->
+              <div
+                :data-content="props.useLightContent ? 'use-light' : 'not-set'"
+                :class="b24ui.containerWrapper({ class: props.b24ui?.containerWrapper })"
+              >
+                <div :class="b24ui.containerWrapperInner({ class: props.b24ui?.containerWrapperInner })">
+                  <slot :is-loading="isLoading" />
+                </div>
+              </div>
+            </template>
+          </main>
+        </template>
+
+        <template v-if="!!slots['content-right']">
+          <div :class="b24ui.pageRightWrapper({ class: props.b24ui?.pageRightWrapper })">
+            <slot name="content-right" :is-loading="isLoading" />
+          </div>
+        </template>
+      </div>
       <template v-if="!!slots['content-bottom']">
         <!-- Page Bottom -->
         <div :class="b24ui.pageBottomWrapper({ class: props.b24ui?.pageBottomWrapper })">

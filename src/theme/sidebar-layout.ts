@@ -43,8 +43,7 @@ export default {
       'px-4 pt-3'
     ].join(' '),
     contentWrapper: [
-      'flex-1 flex flex-col',
-      ''
+      'flex-1 flex flex-col'
     ].join(' '),
     header: [
       // @memo use src/runtime/air-design-tokens/components/navigation-menu.css
@@ -57,9 +56,14 @@ export default {
       'min-w-0 flex-1',
       'h-full'
     ].join(' '),
+    pageWrapper: [
+      'flex flex-col',
+      'lg:grid lg:grid-cols-12 lg:gap-[22px]'
+    ].join(' '),
     container: [
-      'flex-1 flex flex-col lg:gap-[22px]',
-      'lg:min-w-0'
+      'lg:col-span-12',
+      'lg:min-w-0',
+      'flex-1 flex flex-col lg:gap-[22px]'
     ].join(' '),
     containerWrapper: [
       'grow group/layout-content'
@@ -73,6 +77,7 @@ export default {
       'flex flex-col md:flex-row items-start md:items-center justify-start gap-[12px]'
     ].join(' '),
     containerWrapperInner: 'size-full',
+    pageRightWrapper: '',
     pageBottomWrapper: '',
     loadingWrapper: [
       'cursor-wait',
@@ -106,7 +111,6 @@ export default {
           'relative'
         ].join(' '),
         container: [
-          // @todo make property
           'mt-0'
         ].join(' '),
         containerWrapper: '',
@@ -127,9 +131,7 @@ export default {
         container: [
           'relative'
         ].join(' '),
-        containerWrapper: [
-          // 'mt-[22px]'
-        ].join(' ')
+        containerWrapper: [].join(' ')
       }
     },
     offContentScrollbar: {
@@ -153,7 +155,8 @@ export default {
         ].join(' ')
       },
       false: {
-        container: 'px-(--content-area-shift)'
+        pageWrapper: 'px-(--content-area-shift)',
+        container: '' // px-(--content-area-shift)'
       }
     },
     loading: {
@@ -165,6 +168,16 @@ export default {
       },
       false: {
         loadingWrapper: 'h-full',
+        container: ''
+      }
+    },
+    useRightBar: {
+      true: {
+        pageWrapper: '',
+        container: 'lg:col-span-10',
+        pageRightWrapper: 'lg:col-span-2 order-first lg:order-last z-[2]'
+      },
+      false: {
         container: ''
       }
     }
@@ -188,7 +201,7 @@ export default {
       inner: false,
       useLightContent: true,
       class: {
-        container: 'lg:pb-2',
+        container: '', // lg:pb-2
         // pageTopWrapper: 'px-6 lg:px-0',
         // pageActionsWrapper: 'px-6 lg:px-0',
         containerWrapper: [
@@ -221,7 +234,8 @@ export default {
       class: {
         // @memo --content-area-left-shift
         // container: 'lg:px-[calc(var(--content-area-shift)-6px)]',
-        container: 'lg:px-(--content-area-shift)',
+        pageWrapper: 'lg:px-(--content-area-shift)',
+        container: '', // lg:mx-(--content-area-shift)
         contentWrapper: 'lg:pl-[240px] '
       }
     },
@@ -229,7 +243,8 @@ export default {
       inner: false,
       useSidebar: false,
       class: {
-        container: 'px-(--content-area-shift) pb-2 lg:pt-2 lg:px-2',
+        pageWrapper: 'px-(--content-area-shift)',
+        container: 'pb-2 lg:pt-2 lg:px-2', // px-(--content-area-shift)
         contentWrapper: 'lg:pl-0'
       }
     },
