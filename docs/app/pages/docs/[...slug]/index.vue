@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { ContentNavigationItem } from '@nuxt/content'
 import { kebabCase } from 'scule'
+import { withoutTrailingSlash, withTrailingSlash } from 'ufo'
 import { mapContentNavigation } from '@bitrix24/b24ui-nuxt/utils/content'
 import { findPageBreadcrumb } from '@nuxt/content/utils'
 import DesignIcon from '@bitrix24/b24icons-vue/outline/DesignIcon'
@@ -27,10 +28,28 @@ watch(page, () => {
   }
 }, { immediate: true })
 
-const { data: surround } = await useAsyncData(`${kebabCase(route.path)}-surround`, () => {
-  return queryCollectionItemSurroundings('docs', route.path, {
+const { data: surround } = await useAsyncData(`${withoutTrailingSlash(kebabCase(route.path))}-surround`, () => {
+  const data = queryCollectionItemSurroundings('docs', withoutTrailingSlash(route.path), {
     fields: ['description']
-  }).orWhere(group => group.where('framework', '=', framework.value).where('framework', 'IS NULL'))
+  })
+    .orWhere(
+      group => group
+        .where('framework', '=', framework.value)
+        .where('framework', 'IS NULL')
+    )
+    /**
+     * @memo this path
+     */
+    .then((list) => {
+      return list.map((row) => {
+        return {
+          ...row,
+          path: withTrailingSlash(row.path)
+        }
+      })
+    })
+
+  return data
 }, {
   watch: [framework]
 })
@@ -46,7 +65,7 @@ if (!import.meta.prerender) {
       if (route.path.endsWith(`/${page.value?.framework}`)) {
         navigateTo(`${route.path.split('/').slice(0, -1).join('/')}/${framework.value}`)
       } else {
-        navigateTo(`/docs/guide/getting-started`)
+        navigateTo(`/docs/guide/getting-started/`)
       }
     }
   })
@@ -159,8 +178,7 @@ const iconFromIconName = (iconName?: string) => {
     <div v-if="page" class="flex flex-row items-start justify-between gap-[12px]">
       <div>
         <ContentRenderer v-if="page.body" :value="page" />
-
-        <B24Separator v-if="surround?.filter(Boolean).length" />
+        <B24Separator v-if="surround?.filter(Boolean).length" class="my-4" />
 
         <B24ContentSurround :surround="(surround as any)" />
       </div>

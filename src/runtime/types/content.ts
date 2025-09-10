@@ -1,1 +1,1 @@
-// export * from '../components/content/ContentNavigation.vue'
+export * from '../components/content/ContentSurround.vue'

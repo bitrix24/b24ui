@@ -167,10 +167,11 @@ export default defineNuxtConfig({
     }
   },
 
-  image: {
-    format: ['webp', 'jpeg', 'jpg', 'png', 'svg'],
-    provider: 'ipx'
-  },
+  // @memo not use this
+  // image: {
+  //   format: ['webp', 'jpeg', 'jpg', 'png', 'svg'],
+  //   provider: 'ipx'
+  // },
 
   llms: {
     domain: 'https://bitrix24.github.io',
