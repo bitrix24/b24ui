@@ -1,9 +1,9 @@
 import { describe, it, expect } from 'vitest'
-import TableWrapper from '../../../src/runtime/components/TableWrapper.vue'
-import type { TableWrapperProps, TableWrapperSlots } from '../../../src/runtime/components/TableWrapper.vue'
-import ComponentRender from '../../component-render'
+import TableWrapper from '../../src/runtime/components/TableWrapper.vue'
+import type { TableWrapperProps, TableWrapperSlots } from '../../src/runtime/components/TableWrapper.vue'
+import ComponentRender from '../component-render'
 
-describe('DescriptionList', () => {
+describe('TableWrapper', () => {
   const props = { }
 
   it.each([
