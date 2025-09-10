@@ -1,15 +1,22 @@
 <script lang="ts">
 export interface PageHeaderProps {
-  title: string
+  title?: string
+  description?: string
 }
 
 export interface PageHeaderSlots {
-  links: (props?: { }) => any
-  description: (props?: {}) => any
+  'title'(props?: {}): any
+  'head-links'(props?: {}): any
+  'description'(props?: {}): any
+  'links'(props?: {}): any
+  'default'(props?: {}): any
 }
 </script>
 
 <script setup lang="ts">
+/**
+ * @todo move to src
+ */
 const props = withDefaults(defineProps<PageHeaderProps>(), {
   title: 'horizontal' as const
 })
@@ -26,6 +33,9 @@ const slots = defineSlots<PageHeaderSlots>()
               {{ props.title }}
             </ProseH1>
           </div>
+        </div>
+        <div v-if="slots['head-links']" class="flex-1 hidden sm:flex flex-row items-center justify-end gap-[12px]">
+          <slot name="head-links" />
         </div>
       </div>
       <div v-if="slots['description']">

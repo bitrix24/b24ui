@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import RocketIcon from '@bitrix24/b24icons-vue/outline/RocketIcon'
-import OpenIn50Icon from '@bitrix24/b24icons-vue/actions/OpenIn50Icon'
 
 const { framework } = useSharedData()
 
@@ -24,19 +23,7 @@ const menuList = [
 </script>
 
 <template>
-  <template
-    v-for="(item, indexItem) in menuList"
-    :key="indexItem"
-  >
-    <B24Link
-      class="text-sm mb-2 flex flex-row items-center justify-between"
-      :to="item.to"
-      :target="item.target"
-    >
-      <div>{{ item.label }}</div>
-      <OpenIn50Icon class="size-4" />
-    </B24Link>
-  </template>
+  <B24PageLinks :links="menuList" class="mb-[12px]" />
 
   <B24Button
     v-if="framework === 'nuxt'"

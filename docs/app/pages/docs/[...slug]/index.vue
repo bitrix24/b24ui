@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { kebabCase } from 'scule'
 import type { ContentNavigationItem } from '@nuxt/content'
+import { kebabCase } from 'scule'
 import { mapContentNavigation } from '@bitrix24/b24ui-nuxt/utils/content'
 import { findPageBreadcrumb } from '@nuxt/content/utils'
 import DesignIcon from '@bitrix24/b24icons-vue/outline/DesignIcon'
 import FavoriteIcon from '@bitrix24/b24icons-vue/outline/FavoriteIcon'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
+import MoreMIcon from '@bitrix24/b24icons-vue/outline/MoreMIcon'
 
 const route = useRoute()
 const { framework } = useSharedData()
@@ -120,6 +121,15 @@ const iconFromIconName = (iconName?: string) => {
               :cache-key="`${kebabCase(route.path)}-description`"
             />
           </template>
+          <template #head-links>
+            <PageHeaderLinks />
+            <B24DropdownMenu
+              :items="communityLinks"
+              :content="{ side: 'bottom', align: 'end', sideOffset: 8 }"
+            >
+              <B24Button size="sm" :icon="MoreMIcon" color="air-secondary-accent" />
+            </B24DropdownMenu>
+          </template>
           <template #links>
             <B24Button
               v-for="link in page.links"
@@ -127,10 +137,8 @@ const iconFromIconName = (iconName?: string) => {
               :target="link.to.startsWith('http') ? '_blank' : undefined"
               v-bind="link"
               :icon="iconFromIconName(link?.iconName)"
-              size="sm"
-              :b24ui="{
-                leadingIcon: 'mr-[5px]'
-              }"
+              size="md"
+              :b24ui="{ leadingIcon: 'mr-[5px]' }"
             >
               <template v-if="link.avatar" #leading>
                 <B24Avatar
@@ -144,7 +152,6 @@ const iconFromIconName = (iconName?: string) => {
                 />
               </template>
             </B24Button>
-            <PageHeaderLinks />
           </template>
         </PageHeader>
       </template>
@@ -158,14 +165,11 @@ const iconFromIconName = (iconName?: string) => {
         <B24ContentSurround :surround="(surround as any)" />
       </div>
 
-      <div v-if="page?.body?.toc?.links?.length">
-        <B24ContentToc :links="page.body.toc.links" class="z-[2]">
-          <template #bottom>
-            <B24Separator type="dashed" />
-
-            <B24PageLinks title="Community" :links="communityLinks" />
-          </template>
-        </B24ContentToc>
+      <div
+        v-if="page?.body?.toc?.links?.length"
+        class="w-[240px]"
+      >
+        <!-- B24ContentToc :links="page.body.toc.links" class="z-[2]" / -->
       </div>
     </div>
   </NuxtLayout>

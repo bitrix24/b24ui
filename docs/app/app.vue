@@ -20,6 +20,9 @@ useHead({
   style: [],
   htmlAttrs: {
     lang: 'en'
+  },
+  bodyAttrs: {
+    class: `edge-dark`
   }
 })
 
