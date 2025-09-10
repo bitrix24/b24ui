@@ -9,6 +9,8 @@ useHead({
   }
 })
 
+const slots = defineSlots()
+
 const route = useRoute()
 
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
@@ -129,8 +131,12 @@ const children = computed(() => {
       <Header />
     </template>
 
-    <template #content-top>
+    <template v-if="slots['header']" #content-top>
       <slot name="header" />
+    </template>
+
+    <template v-if="slots['right']" #content-right>
+      <slot name="right" />
     </template>
 
     <slot />

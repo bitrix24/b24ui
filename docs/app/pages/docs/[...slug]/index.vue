@@ -175,20 +175,18 @@ const iconFromIconName = (iconName?: string) => {
         </PageHeader>
       </template>
     </template>
-    <div v-if="page" class="flex flex-row items-start justify-between gap-[12px]">
-      <div>
-        <ContentRenderer v-if="page.body" :value="page" />
-        <B24Separator v-if="surround?.filter(Boolean).length" class="my-4" />
-
-        <B24ContentSurround :surround="(surround as any)" />
-      </div>
-
-      <div
+    <template #right>
+      <B24ContentToc
         v-if="page?.body?.toc?.links?.length"
-        class="w-[240px]"
-      >
-        <!-- B24ContentToc :links="page.body.toc.links" class="z-[2]" / -->
-      </div>
-    </div>
+        :links="page.body.toc.links"
+        class="pt-[12px] lg:mt-[22px] px-[22px] lg:py-[15px] lg:sticky lg:top-(--topbar-height) lg:overflow-y-auto scrollbar-thin scrollbar-transparent lg:h-[calc(100vh-var(--topbar-height)-22px-22px)] lg:rounded-(--ui-border-radius-md) style-blurred-bg bg-(--ui-color-design-outline-bg)"
+      />
+    </template>
+    <template v-if="page">
+      <ContentRenderer v-if="page.body" :value="page" />
+      <B24Separator v-if="surround?.filter(Boolean).length" class="my-4" />
+
+      <B24ContentSurround :surround="(surround as any)" />
+    </template>
   </NuxtLayout>
 </template>

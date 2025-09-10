@@ -3,7 +3,7 @@ import RocketIcon from '@bitrix24/b24icons-vue/outline/RocketIcon'
 </script>
 
 <template>
-  <div class="m-[12px] flex flex-col sm:flex-row items-center justify-start gap-[12px]">
+  <div class="mx-[22px] my-[12px] flex flex-col sm:flex-row items-center justify-start gap-[12px]">
     <B24Button
       label="Releases"
       :icon="RocketIcon"

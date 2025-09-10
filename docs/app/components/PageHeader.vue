@@ -34,7 +34,7 @@ const slots = defineSlots<PageHeaderSlots>()
             </ProseH1>
           </div>
         </div>
-        <div v-if="slots['head-links']" class="flex-1 hidden sm:flex flex-row items-center justify-end gap-[12px]">
+        <div v-if="slots['head-links']" class="flex-1 flex flex-row items-center justify-end gap-[12px]">
           <slot name="head-links" />
         </div>
       </div>
