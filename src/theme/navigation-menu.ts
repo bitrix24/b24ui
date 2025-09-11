@@ -54,7 +54,7 @@ export default {
     ].join(' '),
     linkLeadingBadge: 'inline-flex m-0 absolute',
     linkLeadingBadgeSize: 'xs',
-    linkTrailing: 'group inline-flex mt-[2px] items-center   ',
+    linkTrailing: 'group inline-flex mt-[2px] items-center',
     linkTrailingIcon: [
       'text-(--ui-color-design-plain-na-content-icon)',
       'shrink-0'
