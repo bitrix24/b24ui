@@ -1,7 +1,7 @@
 ---
 title: Calendar
 description: A calendar tool for choosing individual dates, multiple dates, or date spans.
-outline: deep
+category: element
 ---
 <script setup>
 import CalendarExample from '/examples/calendar/Calendar.vue';

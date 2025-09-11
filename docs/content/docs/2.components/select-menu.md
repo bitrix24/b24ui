@@ -1,7 +1,7 @@
 ---
 title: SelectMenu
 description: A refined and searchable selection component.
-outline: deep
+category: form
 ---
 <script setup>
 import SelectMenuExample from '/examples/selectmenu/SelectMenu.vue';

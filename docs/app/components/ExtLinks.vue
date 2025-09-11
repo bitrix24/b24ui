@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import RocketIcon from '@bitrix24/b24icons-vue/outline/RocketIcon'
 
-const { framework } = useSharedData()
+const { framework } = useFrameworks()
 
 const menuList = [
   {

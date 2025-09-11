@@ -1,7 +1,7 @@
 ---
 title: Skeleton
 description: A toggle control for switching between two states.
-outline: deep
+category: element
 ---
 <script setup>
 import SkeletonExample from '/examples/skeleton/Skeleton.vue';

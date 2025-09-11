@@ -1,7 +1,7 @@
 ---
 title: Modal
 description: A popup window for showing messages or gathering user input.
-outline: deep
+category: overlay
 ---
 <script setup>
 import ModalExample from '/examples/modal/Modal.vue';

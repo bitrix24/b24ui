@@ -1,7 +1,7 @@
 ---
 title: Kbd
 description: A kbd element for indicating a keyboard input.
-outline: deep
+category: element
 ---
 <script setup>
 import KbdExample from '/examples/kbd/Kbd.vue';

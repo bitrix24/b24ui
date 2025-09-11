@@ -1,7 +1,7 @@
 ---
 title: Input
 description: An input box designed for text entry.
-outline: deep
+category: form
 ---
 <script setup>
 import InputExample from '/examples/input/Input.vue';

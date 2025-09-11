@@ -1,7 +1,7 @@
 ---
 title: FieldGroup
 description: Organize several button-like elements into a group.
-outline: deep
+category: element
 ---
 <script setup>
 import FieldGroupExample from '/examples/field-group/FieldGroup.vue';

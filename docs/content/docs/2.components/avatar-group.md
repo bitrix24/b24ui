@@ -1,7 +1,7 @@
 ---
 title: AvatarGroup
 description: Pile multiple avatars into a single group.
-outline: deep
+category: element
 ---
 <script setup>
 import AvatarGroupExample from '/examples/avatargroup/AvatarGroup.vue';

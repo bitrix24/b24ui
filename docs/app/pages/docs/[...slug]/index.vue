@@ -1,16 +1,13 @@
 <script setup lang="ts">
 import type { ContentNavigationItem } from '@nuxt/content'
 import { kebabCase } from 'scule'
-import { withoutTrailingSlash, withTrailingSlash } from 'ufo'
-import { mapContentNavigation } from '@bitrix24/b24ui-nuxt/utils/content'
-import { findPageBreadcrumb } from '@nuxt/content/utils'
 import DesignIcon from '@bitrix24/b24icons-vue/outline/DesignIcon'
 import FavoriteIcon from '@bitrix24/b24icons-vue/outline/FavoriteIcon'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 import MoreMIcon from '@bitrix24/b24icons-vue/outline/MoreMIcon'
 
 const route = useRoute()
-const { framework } = useSharedData()
+const { framework } = useFrameworks()
 
 definePageMeta({
   layout: false
@@ -28,42 +25,22 @@ watch(page, () => {
   }
 }, { immediate: true })
 
-const { data: surround } = await useAsyncData(`${withoutTrailingSlash(kebabCase(route.path))}-surround`, () => {
-  const data = queryCollectionItemSurroundings('docs', withoutTrailingSlash(route.path), {
-    fields: ['description']
-  })
-    .orWhere(
-      group => group
-        .where('framework', '=', framework.value)
-        .where('framework', 'IS NULL')
-    )
-    /**
-     * @memo this path
-     */
-    .then((list) => {
-      return list.map((row) => {
-        return {
-          ...row,
-          path: withTrailingSlash(row.path)
-        }
-      })
-    })
-
-  return data
-}, {
-  watch: [framework]
-})
-
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 
-const breadcrumb = computed(() => mapContentNavigation(findPageBreadcrumb(navigation?.value, page.value?.path, { indexAsChild: true })).map(({ icon, ...link }) => link))
+const { findSurround, findBreadcrumb } = useNavigation(navigation!)
+
+const breadcrumb = computed(() => findBreadcrumb(page.value?.path as string))
+const surround = computed(() => findSurround(page.value?.path as string))
 
 if (!import.meta.prerender) {
   // Redirect to the correct framework version if the page is not the current framework
   watch(framework, () => {
     if (page.value?.framework && page.value?.framework !== framework.value) {
-      if (route.path.endsWith(`/${page.value?.framework}`)) {
-        navigateTo(`${route.path.split('/').slice(0, -1).join('/')}/${framework.value}`)
+      /**
+       * @memo this path
+       */
+      if (route.path.endsWith(`/${page.value?.framework}/`)) {
+        navigateTo(`${route.path.split('/').slice(0, -1).join('/')}/${framework.value}/`)
       } else {
         navigateTo(`/docs/guide/getting-started/`)
       }
@@ -182,6 +159,7 @@ const iconFromIconName = (iconName?: string) => {
         class="pt-[12px] lg:mt-[22px] px-[22px] lg:py-[15px] lg:sticky lg:top-(--topbar-height) lg:overflow-y-auto scrollbar-thin scrollbar-transparent lg:h-[calc(100vh-var(--topbar-height)-22px-22px)] lg:rounded-(--ui-border-radius-md) style-blurred-bg bg-(--ui-color-design-outline-bg)"
       />
     </template>
+
     <template v-if="page">
       <ContentRenderer v-if="page.body" :value="page" />
       <B24Separator v-if="surround?.filter(Boolean).length" class="my-4" />

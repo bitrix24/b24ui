@@ -1,7 +1,7 @@
 ---
 title: FormField
 description: A container for form elements with built-in validation and error management.
-outline: deep
+category: form
 ---
 <script setup>
 import FormFieldExample from '/examples/formfield/FormField.vue';

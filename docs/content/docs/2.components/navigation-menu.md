@@ -1,7 +1,7 @@
 ---
 title: NavigationMenu
 description: A link list that can be arranged in horizontal or vertical orientation.
-outline: deep
+category: navigation
 ---
 <script setup>
 import NavigationMenuExample from '/examples/navigationmenu/NavigationMenu.vue';

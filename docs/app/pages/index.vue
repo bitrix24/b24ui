@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import { joinURL } from 'ufo'
+import EncloseTextInCodeTagIcon from '@bitrix24/b24icons-vue/editor/EncloseTextInCodeTagIcon'
+import InfoCircleIcon from '@bitrix24/b24icons-vue/outline/InfoCircleIcon'
 
 useHead({
   bodyAttrs: {
-    // 'dark' | 'light' | 'edge-dark' | 'edge-light'
     class: `edge-dark`
   }
 })
 
 const { data: page } = await useAsyncData('index', () => queryCollection('index').first())
+
 if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
@@ -25,47 +27,50 @@ useSeoMeta({
   ogImage: joinURL(url, '/b24ui/og-image.png')
 })
 
-const links = useSearchLinks()
+const iconFromIconName = (iconName?: string) => {
+  if (!iconName) {
+    return undefined
+  }
+
+  switch (iconName) {
+    case 'EncloseTextInCodeTagIcon': return EncloseTextInCodeTagIcon
+    case 'InfoCircleIcon': return InfoCircleIcon
+  }
+
+  return undefined
+}
 </script>
 
 <template>
   <B24SidebarLayout
     :use-light-content="false"
   >
-    <template #sidebar>
-      <B24SidebarHeader>
-        <div class="h-full flex items-center relative my-0 ps-[25px] pe-xs rtl:pe-[25px]">
-          <div class="flex flex-row flex-nowrap items-center justify-start gap-[6px]">
-            <LogoWithVersion />
-          </div>
-        </div>
-      </B24SidebarHeader>
-      <B24SidebarBody>
-        <B24NavigationMenu
-          :items="links"
-          orientation="vertical"
-        />
-      </B24SidebarBody>
-      <B24SidebarFooter>
-        <B24SidebarSection>
-          <ExtLinks />
-        </B24SidebarSection>
-      </B24SidebarFooter>
-    </template>
     <template #navbar>
-      <Header />
+      <Header
+        show-logo-all-time
+      />
     </template>
 
-    <div v-if="page" class="mt-[22px] light bg-(--ui-color-design-outline-na-bg) h-[calc(100vh-150px)] p-[12px] rounded-[24px] flex flex-col items-center justify-center md:flex-row md:justify-center gap-[24px]">
-      <div class="flex-0 w-full max-w-[200px] flex flex-col gap-[12px]">
+    <div v-if="page" class="mt-[22px] light bg-(--ui-color-design-outline-na-bg) h-[calc(100vh-200px)] p-[12px] rounded-[24px] grid lg:grid-cols-12 gap-[22px] items-center justify-between">
+      <div class="col-span-12 lg:col-start-2 lg:col-span-4 flex flex-col gap-[12px] text-center lg:text-right">
         <ProseH1 class="mb-0 leading-(--ui-font-line-height-3xs)">
           <span class="text-primary">@bitrix24/b24ui</span> <br>Bitrix24 UI-Kit
         </ProseH1>
         <ProseP>
           {{ page.hero.description }}
         </ProseP>
+        <B24Separator class="my-4" type="dashed" />
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-end gap-[6px]">
+          <B24Button
+            v-for="link of page.hero.links"
+            :key="link.label"
+            v-bind="link"
+            size="md"
+            :icon="iconFromIconName(link?.iconName)"
+          />
+        </div>
       </div>
-      <div class="flex-0 md:flex-1 w-full max-w-[400px]">
+      <div class="col-span-12 lg:col-end-11 lg:col-span-5">
         <PromoV1 />
       </div>
     </div>

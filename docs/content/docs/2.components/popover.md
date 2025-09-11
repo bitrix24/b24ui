@@ -1,7 +1,7 @@
 ---
 title: Popover
 description: A non-modal popup window for showing messages or gathering user input.
-outline: deep
+category: overlay
 ---
 <script setup>
 import PopoverExample from '/examples/popover/Popover.vue';

@@ -1,7 +1,7 @@
 ---
 title: Checkbox
 description: A toggle input for marking as checked or unchecked.
-outline: deep
+category: form
 ---
 <script setup>
 import CheckboxExample from '/examples/checkbox/Checkbox.vue';

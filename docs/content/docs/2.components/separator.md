@@ -1,7 +1,7 @@
 ---
 title: Separator
 description: Divides content in a horizontal or vertical manner.
-outline: deep
+category: element
 ---
 <script setup>
 import SeparatorExample from '/examples/separator/Separator.vue';

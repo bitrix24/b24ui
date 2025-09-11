@@ -1,7 +1,7 @@
 ---
 title: InputNumber
 description: Provide numerical input with a flexible range setting.
-outline: deep
+category: form
 ---
 <script setup>
 import InputNumberExample from '/examples/inputnumber/InputNumber.vue';

@@ -1,7 +1,7 @@
 ---
 title: Toast
 description: A short message to offer information or feedback to the user.
-outline: deep
+category: overlay
 ---
 <script setup>
 import TitleExample from '/examples/toast/Title.vue';

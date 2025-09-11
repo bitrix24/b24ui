@@ -1,7 +1,7 @@
-export function useSearchLinks() {
+export function useSearch() {
   const route = useRoute()
 
-  return computed(() => [
+  const links = computed(() => [
     {
       label: 'Docs',
       to: '/docs/guide/getting-started/',
@@ -16,16 +16,15 @@ export function useSearchLinks() {
       label: 'Composables',
       to: '/docs/composables/',
       active: route.path.startsWith('/docs/composables')
+    },
+    {
+      label: 'Typography',
+      to: '/docs/typography/',
+      active: route.path.startsWith('/docs/typography')
     }
-    // {
-    //   label: 'Figma',
-    //   description: 'Official Bitrix24 UI design kit for Figma.',
-    //   to: '/figma'
-    // },
-    // {
-    //   label: 'Templates',
-    //   description: 'Official templates made with Bitrix24 UI.',
-    //   to: '/templates'
-    // }
   ])
+
+  return {
+    links
+  }
 }

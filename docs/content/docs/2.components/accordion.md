@@ -1,7 +1,7 @@
 ---
 title: Accordion
 description: This is a stacked set of collapsible panels
-outline: deep
+category: data
 ---
 <script setup>
 import AccordionExample from '/examples/accordion/Accordion.vue';

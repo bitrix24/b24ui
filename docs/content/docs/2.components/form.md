@@ -1,7 +1,7 @@
 ---
 title: Form
 description: A form component designed for validation and handling submissions.
-outline: deep
+category: form
 ---
 <script setup>
 import FormExample from '/examples/form/FormExample.vue';

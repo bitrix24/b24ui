@@ -1,7 +1,7 @@
 ---
 title: Tooltip
 description: A small window that shows details when you move your mouse over an item.
-outline: deep
+category: overlay
 ---
 <script setup>
 import TextExample from '/examples/tooltip/Text.vue';

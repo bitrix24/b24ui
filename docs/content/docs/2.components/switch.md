@@ -1,7 +1,7 @@
 ---
 title: Switch
 description: A toggle control for switching between two states.
-outline: deep
+category: form
 ---
 <script setup>
 import SwitchExample from '/examples/switch/Switch.vue';

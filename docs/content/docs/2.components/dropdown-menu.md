@@ -1,7 +1,7 @@
 ---
 title: DropdownMenu
 description: A contextual menu for actions triggered by clicking an element.
-outline: deep
+category: overlay
 ---
 <script setup>
 import DropdownMenuExample from '/examples/dropdownmenu/DropdownMenu.vue';

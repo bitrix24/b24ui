@@ -1,7 +1,7 @@
 ---
 title: Chip
 description: An indicator that shows either a number or a state.
-outline: deep
+category: element
 ---
 <script setup>
 import ChipExample from '/examples/chip/Chip.vue';

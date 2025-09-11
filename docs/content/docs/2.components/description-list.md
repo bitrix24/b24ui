@@ -1,7 +1,7 @@
 ---
 title: DescriptionList
 description: 'For instances requiring the conversion of a table row into its own table to enhance page completeness.'
-outline: deep
+category: content
 ---
 <script setup>
 import IconsExample from '/examples/descriptionlist/Icons.vue';

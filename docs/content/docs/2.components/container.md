@@ -1,7 +1,7 @@
 ---
 title: Container
 description: A box for centering and setting a maximum width for your content.
-outline: deep
+category: layout
 ---
 <script setup>
 import ContainerExample from '/examples/container/Container.vue';

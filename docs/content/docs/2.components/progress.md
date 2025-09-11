@@ -1,7 +1,7 @@
 ---
 title: Progress
 description: A progress bar displaying task completion status.
-outline: deep
+category: element
 ---
 <script setup>
 import ProgressExample from '/examples/progress/Progress.vue';

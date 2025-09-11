@@ -4,7 +4,7 @@ import { withoutTrailingSlash } from 'ufo'
 const route = useRoute()
 const appConfig = useAppConfig()
 
-const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs', ['framework', 'category']))
+const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs', ['framework', 'category', 'description']))
 // const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections('docs'), {
 //   server: false
 // })
@@ -31,11 +31,11 @@ useServerSeoMeta({
   twitterCard: 'summary_large_image'
 })
 
-// const { frameworks } = useSharedData()
-// const { mappedNavigation, filteredNavigation } = useContentNavigation(navigation)
-const { mappedNavigation } = useContentNavigation(navigation)
+// const { frameworks } = useFrameworks()
+const { rootNavigation } = useNavigation(navigation)
+// const { links } = useSearch()
 
-provide('navigation', mappedNavigation)
+provide('navigation', rootNavigation)
 </script>
 
 <template>

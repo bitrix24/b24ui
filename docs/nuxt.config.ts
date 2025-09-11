@@ -6,7 +6,23 @@ const { resolve } = createResolver(import.meta.url)
 
 const pages = [
   '/docs/guide/getting-started/',
-  '/docs/components/app/'
+  '/docs/components/app/',
+  '/docs/components/container/',
+  '/docs/components/advice/',
+  '/docs/components/alert/',
+  '/docs/components/avatar/',
+  '/docs/components/avatar-group/',
+  '/docs/components/badge/',
+  '/docs/components/button/',
+  '/docs/components/calendar/',
+  '/docs/components/chip/',
+  '/docs/components/collapsible/',
+  '/docs/components/countdown/',
+  '/docs/components/field-group/',
+  '/docs/components/kbd/',
+  '/docs/components/progress/',
+  '/docs/components/separator/',
+  '/docs/components/skeleton/'
 ]
 
 const pagesService = [

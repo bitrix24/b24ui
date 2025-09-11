@@ -1,7 +1,7 @@
 ---
 title: Badge
 description: A short descriptor for a status or category.
-outline: deep
+category: element
 ---
 <script setup>
 import BadgeExample from '/examples/badge/Badge.vue';

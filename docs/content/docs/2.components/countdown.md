@@ -1,7 +1,7 @@
 ---
 title: Countdown
 description: Countdown with options control.
-outline: deep
+category: element
 ---
 <script setup>
 import CountdownExample from '/examples/countdown/Countdown.vue';

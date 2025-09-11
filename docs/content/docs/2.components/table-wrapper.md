@@ -1,7 +1,7 @@
 ---
 title: TableWrapper
 description: Wrapper for displaying a html table
-outline: deep
+category: data
 ---
 <script setup>
 import TableWrapperExample from '/examples/tablewrapper/TableWrapper.vue';

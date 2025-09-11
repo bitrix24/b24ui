@@ -1,7 +1,7 @@
 ---
 title: Slideover
 description: A dialog that slides in from any side of the screen.
-outline: deep
+category: overlay
 ---
 <script setup>
 import SlideoverExample from '/examples/slideover/Slideover.vue';

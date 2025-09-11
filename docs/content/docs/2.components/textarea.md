@@ -1,7 +1,7 @@
 ---
 title: Textarea
 description: A textarea for entering multi-line text.
-outline: deep
+category: form
 ---
 <script setup>
 import TextareaExample from '/examples/textarea/Textarea.vue';

@@ -1,7 +1,7 @@
 ---
 title: Collapsible
 description: A collapsible component for showing or hiding its content.
-outline: deep
+category: element
 ---
 <script setup>
 import CollapsibleExample from '/examples/collapsible/Collapsible.vue';

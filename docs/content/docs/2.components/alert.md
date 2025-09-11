@@ -1,7 +1,7 @@
 ---
 title: Alert
 description: An alert designed to capture the user's attention.
-outline: deep
+category: element
 ---
 <script setup>
 import AlertExample from '/examples/alert/Alert.vue';

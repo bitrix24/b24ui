@@ -1,7 +1,7 @@
 ---
 title: Link
 description: A wrapper around NuxtLink with extra props.
-outline: deep
+category: navigation
 ---
 <script setup>
 import LinkExample from '/examples/link/Link.vue';

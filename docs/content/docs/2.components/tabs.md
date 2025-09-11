@@ -1,7 +1,7 @@
 ---
 title: Tabs
 description: A collection of tab panels shown individually.
-outline: deep
+category: navigation
 ---
 <script setup>
 import TabsExample from '/examples/tabs/Tabs.vue';

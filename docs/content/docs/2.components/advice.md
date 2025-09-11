@@ -1,7 +1,7 @@
 ---
 title: Advice
 description: A couple of lines of text and an avatar
-outline: deep
+category: element
 ---
 <script setup>
 import AdviceExample from '/examples/advice/Advice.vue';

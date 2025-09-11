@@ -1,7 +1,7 @@
 ---
 title: Button
 description: A button capable of linking or performing an action.
-outline: deep
+category: element
 ---
 <script setup>
 import ButtonExample from '/examples/button/Button.vue';

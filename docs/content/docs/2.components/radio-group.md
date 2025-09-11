@@ -1,7 +1,7 @@
 ---
 title: RadioGroup
 description: A collection of radio buttons to pick a single choice from several options.
-outline: deep
+category: form
 ---
 <script setup>
 import RadioGroupExample from '/examples/radiogroup/RadioGroup.vue';

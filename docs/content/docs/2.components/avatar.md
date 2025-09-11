@@ -1,7 +1,7 @@
 ---
 title: Avatar
 description: An img element that includes fallback and supports Nuxt Image.
-outline: deep
+category: element
 ---
 <script setup>
 import AvatarExample from '/examples/avatar/Avatar.vue';

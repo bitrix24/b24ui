@@ -1,7 +1,7 @@
 ---
 title: SidebarLayout
 description: You incorporate a sidebar in the slider and CRM entity tab embedding. Overall, it's stylish, trendy, and youthful
-outline: deep
+category: dashboard
 ---
 <script setup>
 import SidebarLayoutExample from '/examples/sidebarlayout/SidebarLayout.vue';

@@ -1,7 +1,7 @@
 ---
 title: InputMenu
 description: An input field with live autocomplete suggestions.
-outline: deep
+category: form
 ---
 <script setup>
 import InputMenuExample from '/examples/inputmenu/InputMenu.vue';

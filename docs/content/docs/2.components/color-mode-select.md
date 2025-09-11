@@ -1,6 +1,7 @@
 ---
 title: ColorModeSelect
 description: 'A Select to switch between system, dark & light mode.'
+category: color-mode
 ---
 
 ::: warning We are still updating this page

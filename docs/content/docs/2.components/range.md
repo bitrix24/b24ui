@@ -1,7 +1,7 @@
 ---
 title: Range
 description: A control for selecting a numeric value within a specified range.
-outline: deep
+category: form
 ---
 <script setup>
 import RangeExample from '/examples/range/Range.vue';

@@ -1,6 +1,7 @@
 ---
 title: ColorModeButton
 description: 'A Button to switch between light and dark mode.'
+category: color-mode
 ---
 
 ::: warning We are still updating this page

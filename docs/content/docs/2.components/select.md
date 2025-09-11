@@ -1,7 +1,7 @@
 ---
 title: Select
 description: A selection field to pick from various options.
-outline: deep
+category: form
 ---
 <script setup>
 import SelectExample from '/examples/select/Select.vue';
