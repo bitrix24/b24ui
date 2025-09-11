@@ -24,6 +24,7 @@ import ChevronDownLIcon from '@bitrix24/b24icons-vue/outline/ChevronDownLIcon'
 import ScreenIcon from '@bitrix24/b24icons-vue/outline/ScreenIcon'
 import SunIconAir from '@bitrix24/b24icons-vue/outline/SunIcon'
 import MoonIconAir from '@bitrix24/b24icons-vue/outline/MoonIcon'
+import TagIcon from '@bitrix24/b24icons-vue/outline/TagIcon'
 
 export default {
   arrowLeft: ArrowToTheLeftIcon,
@@ -45,5 +46,6 @@ export default {
   search: Search2Icon,
   system: ScreenIcon,
   light: SunIconAir,
-  dark: MoonIconAir
+  dark: MoonIconAir,
+  hash: TagIcon
 }
