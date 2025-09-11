@@ -5,19 +5,19 @@
  * @see /bitrix/components/bitrix/main.interface.buttons/templates/.default/style.css
  * @todo get all variables
  * @memo fix *-content-light .air-header
+ * --b24ui-header-height: calc(var(--spacing)*16); => 64
  */
 
 @layer base {
-  /*--b24ui-header-height: calc(var(--spacing)*16);*/
+
 }
 
 @theme inline {
-  --b24ui-header-height: calc(var(--spacing)*16);
-
   --content-area-left-shift: 22px;
   --air-header-min-height: 58px;
   --air-footer-min-height: 76px;
   --topbar-height: 58px;
+  --b24ui-header-height: var(--topbar-height);
 }
 
 /**
