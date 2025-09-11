@@ -32,7 +32,7 @@ defineShortcuts({
 - For a complete list of available shortcut keys, refer to the [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/UI_Events/Keyboard_event_key_values) API documentation. Note that the key should be written in lowercase.
 
 ::: info
-[Learn](/components/kbd) how to display shortcuts in components in the **Kbd** component documentation.
+[Learn](/docs/components/kbd/) how to display shortcuts in components in the **Kbd** component documentation.
 :::
 
 ## API

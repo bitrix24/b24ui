@@ -197,25 +197,29 @@ export default defineNuxtConfig({
       title: 'Bitrix24 UI Full Documentation',
       description: 'This is the full documentation for Bitrix24 UI. It includes all the Markdown files written with the MDC syntax.'
     },
-    sections: [{
-      title: 'Getting Started',
-      contentCollection: 'docs',
-      contentFilters: [
-        { field: 'path', operator: 'LIKE', value: '/docs/guide/getting-started%' }
-      ]
-    }, {
-      title: 'Components',
-      contentCollection: 'docs',
-      contentFilters: [
-        { field: 'path', operator: 'LIKE', value: '/docs/components/%' }
-      ]
-    }, {
-      title: 'Composables',
-      contentCollection: 'docs',
-      contentFilters: [
-        { field: 'path', operator: 'LIKE', value: '/docs/composables/%' }
-      ]
-    }],
+    sections: [
+      {
+        title: 'Getting Started',
+        contentCollection: 'docs',
+        contentFilters: [
+          { field: 'path', operator: 'LIKE', value: '/docs/guide/getting-started%' }
+        ]
+      },
+      {
+        title: 'Components',
+        contentCollection: 'docs',
+        contentFilters: [
+          { field: 'path', operator: 'LIKE', value: '/docs/components/%' }
+        ]
+      },
+      {
+        title: 'Composables',
+        contentCollection: 'docs',
+        contentFilters: [
+          { field: 'path', operator: 'LIKE', value: '/docs/composables/%' }
+        ]
+      }
+    ],
     notes: [
       'The content is automatically generated from the same source as the official documentation.'
     ]

@@ -28,7 +28,7 @@ Some data may be missing here — we will complete it shortly.
 
 ## Usage
 
-Wrap any form component with a FormField. Used in a [Form](/components/form), it provides validation and error handling.
+Wrap any form component with a FormField. Used in a [Form](/docs/components/form/), it provides validation and error handling.
 
 ### Label
 
@@ -106,7 +106,7 @@ Use the `help` prop to display a help message below the form control.
 
 Use the `error` prop to display an error message below the form control. When used together with the `help` prop, the `error` prop takes precedence.
 
-When used inside a [Form](/components/form), this is automatically set when a validation error occurs.
+When used inside a [Form](/docs/components/form/), this is automatically set when a validation error occurs.
 
 <div class="lg:min-h-[275px]">
   <ClientOnly>

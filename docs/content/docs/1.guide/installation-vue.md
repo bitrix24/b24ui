@@ -226,7 +226,7 @@ It's recommended to install the [Tailwind CSS IntelliSense](https://marketplace.
 :::
 
 ::: tip
-The [`App`](/components/app) component sets up global config and is required for **Toast**, **Tooltip** and **programmatic overlays**.
+The [`App`](/docs/components/app/) component sets up global config and is required for **Toast**, **Tooltip** and **programmatic overlays**.
 :::
 
 #### Add the `isolate` class to your root container

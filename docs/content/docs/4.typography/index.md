@@ -43,7 +43,7 @@ When using Bitrix24 UI with [Nuxt Content v3](https://content.nuxt.com/), you ge
 When using the `<ContentRenderer>` component, your markdown content will be automatically styled with beautiful typography and consistent spacing. This includes headings, paragraphs, lists, tables, code blocks and more - no additional configuration required.
 
 ::: tip
-You can follow [`@nuxt/content`](/guide/content-nuxt) installation guide to get started.
+You can follow [`@nuxt/content`](/docs/guide/content-nuxt/) installation guide to get started.
 :::
 
 ## Prose Components
@@ -227,7 +227,7 @@ You can use the prose components directly in your templates using the `Prose` pr
 ::: info
 You can use props `rounded`, `zebra`, `rowHover`, `bordered`.
 
-See [`TableWrapper`](/components/table-wrapper) for more details
+See [`TableWrapper`](/docs/components/table-wrapper/) for more details
 :::
 
 <div class="lg:min-h-[160px]">

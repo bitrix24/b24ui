@@ -181,7 +181,7 @@ Use the `disabled` prop to disable the InputNumber.
 
 ### Increment / Decrement
 
-Use the `increment` and `decrement` props to customize the increment and decrement buttons with any [Button](/components/button) props. Defaults to `{ color: 'link', depth: 'light' }`{lang="ts"}.
+Use the `increment` and `decrement` props to customize the increment and decrement buttons with any [Button](/docs/components/button/) props. Defaults to `{ color: 'link', depth: 'light' }`{lang="ts"}.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -253,7 +253,7 @@ Use the `format-options` prop with `style: 'currency'` to customize the format o
 
 ### Within a FormField
 
-You can use the InputNumber within a [FormField](/components/form-field) component to display a label, help text, required indicator, etc.
+You can use the InputNumber within a [FormField](/docs/components/form-field/) component to display a label, help text, required indicator, etc.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>

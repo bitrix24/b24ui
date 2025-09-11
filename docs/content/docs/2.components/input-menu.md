@@ -56,11 +56,11 @@ Some data may be missing here — we will complete it shortly.
 Use the `v-model` directive to control the value of the InputMenu or the `default-value` prop to set the initial value when you do not need to control its state.
 
 ::: tip
-Use this over an [`Input`](/components/input) to take advantage of Reka UI's [`Combobox`](https://reka-ui.com/docs/components/combobox) component that offers autocomplete capabilities.
+Use this over an [`Input`](/docs/components/input/) to take advantage of Reka UI's [`Combobox`](https://reka-ui.com/docs/components/combobox) component that offers autocomplete capabilities.
 :::
 
 ::: info
-This component is similar to the [`SelectMenu`](/components/select-menu) but it's using an Input instead of a Select.
+This component is similar to the [`SelectMenu`](/docs/components/select-menu/) but it's using an Input instead of a Select.
 :::
 
 ### Items
@@ -291,7 +291,7 @@ Use the `selected-icon` prop to customize the icon [@bitrix24/b24icons](https://
 
 ### Avatar
 
-Use the `avatar` prop to show an [Avatar](/components/avatar) inside the InputMenu.
+Use the `avatar` prop to show an [Avatar](/docs/components/avatar/) inside the InputMenu.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -367,7 +367,7 @@ You can also use the `#leading` slot to display the selected icon.
 
 ### With avatar in items
 
-You can use the `avatar` property to display an [Avatar](/components/avatar) inside the items.
+You can use the `avatar` property to display an [Avatar](/docs/components/avatar/) inside the items.
 
 ::: tip
 You can also use the `#leading` slot to display the selected avatar.
@@ -385,7 +385,7 @@ You can also use the `#leading` slot to display the selected avatar.
 
 ### With chip in items
 
-You can use the `chip` property to display a [Chip](/components/chip) inside the items.
+You can use the `chip` property to display a [Chip](/docs/components/chip/) inside the items.
 
 ::: info
 In this example, the `#leading` slot is used to display the selected chip.
@@ -406,7 +406,7 @@ In this example, the `#leading` slot is used to display the selected chip.
 You can control the open state by using the `default-open` prop or the `v-model:open` directive.
 
 ::: info
-In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), you can toggle the InputMenu by pressing `O`.
+In this example, leveraging [`defineShortcuts`](/docs/composables/define-shortcuts), you can toggle the InputMenu by pressing `O`.
 :::
 
 <div class="lg:min-h-[160px]">

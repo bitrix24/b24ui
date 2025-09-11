@@ -10,7 +10,7 @@ Some data may be missing here — we will complete it shortly.
 
 ## Usage
 
-The ColorModeSwitch component extends the [Switch](/components/switch) component, so you can pass any property such as `color`, `size`, etc.
+The ColorModeSwitch component extends the [Switch](/docs/components/switch/) component, so you can pass any property such as `color`, `size`, etc.
 
 @todo
 

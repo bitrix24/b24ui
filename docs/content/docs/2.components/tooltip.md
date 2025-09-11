@@ -33,14 +33,14 @@ Some data may be missing here — we will complete it shortly.
 
 ## Usage
 
-Place a [Button](/components/button) or any other component in the Tooltip's default slot.
+Place a [Button](/docs/components/button/) or any other component in the Tooltip's default slot.
 
 ::: warning
-Ensure your application is enclosed with the [`App`](/components/app) component, which incorporates the [`TooltipProvider`](https://reka-ui.com/docs/components/tooltip#provider) from Reka UI.
+Ensure your application is enclosed with the [`App`](/docs/components/app/) component, which incorporates the [`TooltipProvider`](https://reka-ui.com/docs/components/tooltip#provider) from Reka UI.
 :::
 
 ::: tip
-You can [review](/components/app#props}) the `tooltip` property of the `App` component to learn how to set up the Tooltip globally.
+You can [review](/docs/components/app/#props) the `tooltip` property of the `App` component to learn how to set up the Tooltip globally.
 :::
 
 ### Text
@@ -57,7 +57,7 @@ Apply the `text` prop to specify what the Tooltip will display.
 
 ### Kbds
 
-Apply the `kbds` prop to render [Kbd](/components/kbd) components inside the Tooltip.
+Apply the `kbds` prop to render [Kbd](/docs/components/kbd/) components inside the Tooltip.
 
 ::: warning
 `Kbds` are displayed starting from breakpoint `lg`
@@ -140,7 +140,7 @@ Apply the `disabled` prop to turn off the Tooltip.
 You can manage the open state with the `default-open` prop or the `v-model:open` directive.
 
 ::: info
-In this example, using [`defineShortcuts`](composables/define-shortcuts). Press `O` to toggle the Tooltip.
+In this example, using [`defineShortcuts`](/docs/composables/define-shortcuts). Press `O` to toggle the Tooltip.
 :::
 
 <div class="lg:min-h-[160px]">

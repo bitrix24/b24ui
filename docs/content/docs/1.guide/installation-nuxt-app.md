@@ -135,7 +135,7 @@ It's recommended to install the [Tailwind CSS IntelliSense](https://marketplace.
 :::
 
 ::: tip
-The [`App`](/components/app) component provides global configurations and is required for **Toast**, **Tooltip** components to work as well as **Programmatic Overlays**.
+The [`App`](/docs/components/app/) component provides global configurations and is required for **Toast**, **Tooltip** components to work as well as **Programmatic Overlays**.
 :::
 
 ## Options

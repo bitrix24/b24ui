@@ -390,8 +390,20 @@ export function transformMDC(doc: Document): Document {
   visitAndReplace(doc, 'component-example', (node) => {
     const camelName = camelCase(node[1]['name'])
     const name = camelName.charAt(0).toUpperCase() + camelName.slice(1)
-    const code = components[name].code
-    replaceNodeWithPre(node, 'vue', code, `${name}.vue`)
+    try {
+      const code = components[name].code
+      replaceNodeWithPre(node, 'vue', code, `${name}.vue`)
+    } catch (error) {
+      console.error(
+        error,
+        name
+        // components[name],
+        // components
+      )
+
+      // @todo fix this
+      replaceNodeWithPre(node, 'vue', '? visitAndReplace ?', `${name}.vue`)
+    }
   })
 
   return doc

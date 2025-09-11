@@ -34,10 +34,10 @@ import SidebarLayoutSlideoverExample from '/examples/sidebarlayout/SidebarLayout
 
 ## Usage
 ::: info
-It should be understood that the `Slideover` component displays data using the [`SidebarLayout`](/components/sidebar-layout) component.
+It should be understood that the `Slideover` component displays data using the [`SidebarLayout`](/docs/components/sidebar-layout/) component.
 :::
 
-Use a [Button](/components/button) or any other component in the default slot of the Slideover.
+Use a [Button](/docs/components/button/) or any other component in the default slot of the Slideover.
 
 Then, use the `#content` slot to add the content displayed when the Slideover is open.
 
@@ -83,7 +83,7 @@ Use the `description` prop to set the description of the Slideover's header.
 
 Use the `close` prop to customize or hide the close button (with `false` value) displayed in the Slideover's header.
 
-You can pass any property from the [Button](/components/button) component to customize it.
+You can pass any property from the [Button](/docs/components/button/) component to customize it.
 
 ::: tip
 The close button is not displayed if the `#content` slot is used as it's a part of the header.
@@ -183,7 +183,7 @@ Use the `transition` prop to control whether the Slideover is animated or not. D
 You can control the open state by using the `default-open` prop or the `v-model:open` directive.
 
 ::: info
-In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), you can toggle the Slideover by pressing `O`.
+In this example, leveraging [`defineShortcuts`](/docs/composables/define-shortcuts), you can toggle the Slideover by pressing `O`.
 :::
 
 ::: tip
@@ -216,10 +216,10 @@ Set the `dismissible` prop to `false` to prevent the Slideover from being closed
 
 ### Programmatic usage
 
-You can use the [`useOverlay`](composables/use-overlay) composable to open a Slideover programmatically.
+You can use the [`useOverlay`](/docs/composables/use-overlay/) composable to open a Slideover programmatically.
 
 ::: warning
-Make sure to wrap your app with the [`App`](/components/app) component which uses the [`OverlayProvider`](https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/OverlayProvider.vue) component.
+Make sure to wrap your app with the [`App`](/docs/components/app/) component which uses the [`OverlayProvider`](https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/OverlayProvider.vue) component.
 :::
 
 First, create a slideover component that will be opened programmatically:

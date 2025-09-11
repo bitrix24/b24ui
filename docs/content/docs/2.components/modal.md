@@ -34,7 +34,7 @@ import WithFooterSlotExample from '/examples/modal/WithFooterSlot.vue';
 
 ## Usage
 
-Use a [Button](/components/button) or any other component in the default slot of the Modal.
+Use a [Button](/docs/components/button/) or any other component in the default slot of the Modal.
 
 Then, use the `#content` slot to add the content displayed when the Modal is open.
 
@@ -80,7 +80,7 @@ Use the `description` prop to set the description of the Modal's header.
 
 Use the `close` prop to customize or hide the close button (with `false` value) displayed in the Modal's header.
 
-You can pass any property from the [Button](/components/button) component to customize it.
+You can pass any property from the [Button](/docs/components/button/) component to customize it.
 
 ::: tip
 The close button is not displayed if the `#content` slot is used as it's a part of the header.
@@ -181,7 +181,7 @@ Use the `fullscreen` prop to make the Modal fullscreen.
 You can control the open state by using the `default-open` prop or the `v-model:open` directive.
 
 ::: info
-In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), you can toggle the Modal by pressing `O`.
+In this example, leveraging [`defineShortcuts`](/docs/composables/define-shortcuts), you can toggle the Modal by pressing `O`.
 :::
 
 ::: tip
@@ -214,10 +214,10 @@ Set the `dismissible` prop to `false` to prevent the Modal from being closed whe
 
 ### Programmatic usage
 
-You can use the [`useOverlay`](composables/use-overlay) composable to open a Modal programmatically.
+You can use the [`useOverlay`](/docs/composables/use-overlay/) composable to open a Modal programmatically.
 
 ::: warning
-Make sure to wrap your app with the [`App`](/components/app) component which uses the [`OverlayProvider`](https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/OverlayProvider.vue) component.
+Make sure to wrap your app with the [`App`](/docs/components/app/) component which uses the [`OverlayProvider`](https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/OverlayProvider.vue) component.
 :::
 
 First, create a modal component that will be opened programmatically:

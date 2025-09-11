@@ -13,7 +13,7 @@ description: 'A composable for showing toast notifications in your app.'
 
 ## Usage
 
-Use the auto-imported `useToast` composable to display [Toast](/components/toast) notifications.
+Use the auto-imported `useToast` composable to display [Toast](/docs/components/toast/) notifications.
 
 ```vue
 <script setup lang="ts">
@@ -26,11 +26,11 @@ const toast = useToast()
 - Upon removing a toast, a 200ms delay is applied before it is removed from the state, allowing for exit animations.
 
 ::: warning
-Be certain to wrap your app with the [`App`](/components/app) component, which integrates our [`Toaster`](https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Toaster.vue) component, leveraging the [`ToastProvider`](https://reka-ui.com/docs/components/toast#provider) from Reka UI.
+Be certain to wrap your app with the [`App`](/docs/components/app/) component, which integrates our [`Toaster`](https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Toaster.vue) component, leveraging the [`ToastProvider`](https://reka-ui.com/docs/components/toast#provider) from Reka UI.
 :::
 
 ::: tip
-Explore how to modify the appearance and behavior of toasts in the [`Toast`](/components/toast) component documentation.
+Explore how to modify the appearance and behavior of toasts in the [`Toast`](/docs/components/toast/) component documentation.
 :::
 
 ## API

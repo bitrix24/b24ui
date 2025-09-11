@@ -13,7 +13,7 @@ links:
 
 ## Usage
 
-The LocaleSelect component extends the [SelectMenu](/docs/components/select-menu) component, so you can pass any property such as `color`, `variant`, `size`, etc.
+The LocaleSelect component extends the [SelectMenu](/docs/components/select-menu/) component, so you can pass any property such as `color`, `variant`, `size`, etc.
 
 ::framework-only
 #nuxt

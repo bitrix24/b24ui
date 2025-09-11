@@ -70,7 +70,7 @@ Use the `icon` prop to show an [@bitrix24/b24icons](https://bitrix24.github.io/b
 
 ### Avatar
 
-Use the `avatar` prop to show an [Avatar](/components/avatar).
+Use the `avatar` prop to show an [Avatar](/docs/components/avatar/).
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -130,7 +130,7 @@ Use the `size` prop to change the size of the Alert.
 
 ### Close
 
-Use the `close` prop to display a [Button](/components/button) to dismiss the Alert.
+Use the `close` prop to display a [Button](/docs/components/button/) to dismiss the Alert.
 
 ::: tip
 An `update:open` event will be emitted when the close button is clicked.
@@ -146,7 +146,7 @@ An `update:open` event will be emitted when the close button is clicked.
 <<< @/examples/alert/demo/Close.vue{26,27 vue:line-numbers}
 :::
 
-You can pass any property from the [Button](/components/button) component to customize it.
+You can pass any property from the [Button](/docs/components/button/) component to customize it.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -160,7 +160,7 @@ You can pass any property from the [Button](/components/button) component to cus
 
 ### Actions
 
-Use the `actions` prop to add some [Button](/components/button) actions to the Alert.
+Use the `actions` prop to add some [Button](/docs/components/button/) actions to the Alert.
 
 <div class="lg:min-h-[290px]">
   <ClientOnly>

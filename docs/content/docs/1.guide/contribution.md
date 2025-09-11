@@ -109,7 +109,7 @@ bitrix24-ui make locale --code <code> --name <name>
 ```
 
 ::: tip
-Learn more about **i18n** in the documentation^ [Nuxt](/guide/i18n-nuxt#locale) or [Vue](/guide/i18n-vue#locale) app.
+Learn more about **i18n** in the documentation^ [Nuxt](/docs/guide/i18n-nuxt/#locale) or [Vue](/docs/guide/i18n-vue/#locale) app.
 :::
 
 ## Submit a Pull Request (PR)

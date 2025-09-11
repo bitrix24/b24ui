@@ -10,7 +10,7 @@ Some data may be missing here — we will complete it shortly.
 
 ## Usage
 
-The ColorModeButton component extends the [Button](/components/button) component, so you can pass any property such as `color`, `variant`, `size`, etc.
+The ColorModeButton component extends the [Button](/docs/components/button/) component, so you can pass any property such as `color`, `variant`, `size`, etc.
 
 @todo
 

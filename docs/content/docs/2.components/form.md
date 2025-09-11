@@ -28,7 +28,7 @@ Some data may be missing here — we will complete it shortly.
 
 Use the Form component to validate form data using validation libraries such as [Valibot](https://github.com/fabian-hiller/valibot), [Zod](https://github.com/colinhacks/zod), [Yup](https://github.com/jquense/yup), [Joi](https://github.com/hapijs/joi), [Superstruct](https://github.com/ianstormtaylor/superstruct) or your own validation logic.
 
-It works with the [FormField](/components/form-field) component to display error messages around form elements automatically.
+It works with the [FormField](/docs/components/form-field/) component to display error messages around form elements automatically.
 
 ### Schema Validation
 
@@ -41,7 +41,7 @@ It requires two props:
 **No validation library is included** by default, ensure you **install the one you need**.
 :::
 
-Errors are reported directly to the [FormField](/components/form-field) component based on the `name` or `error-pattern` prop. This means the validation rules defined for the `email` attribute in your schema will be applied to `<FormField name="email">`{lang="vue"}.
+Errors are reported directly to the [FormField](/docs/components/form-field/) component based on the `name` or `error-pattern` prop. This means the validation rules defined for the `email` attribute in your schema will be applied to `<FormField name="email">`{lang="vue"}.
 
 Nested validation rules are handled using dot notation. For example, a rule like `{ user: z.object({ email: z.string() }) }`{lang="ts"} will be applied to `<FormField name="user.email">`{lang="vue"}.
 
@@ -85,7 +85,7 @@ The form always validates on submit.
 :::
 
 ::: tip
-You can use the [`useFormField`](/components/composables/use-form-field) composable to implement this inside your own components.
+You can use the [`useFormField`](/docs/composables/use-form-field/) composable to implement this inside your own components.
 :::
 
 <div>

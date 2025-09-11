@@ -124,7 +124,7 @@ Use the `standalone` prop alongside the `inset` prop to display the Chip inline.
 :::
 
 ::: info
-It's used this way in the [`Select`](/components/select) components for example.
+It's used this way in the [`Select`](/docs/components/select/) components for example.
 :::
 
 ## Examples

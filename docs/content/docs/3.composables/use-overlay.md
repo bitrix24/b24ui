@@ -14,7 +14,7 @@ description: 'A composable to programmatically control overlays in App.'
 
 ## Usage
 
-Use the auto-imported `useOverlay` composable to programmatically control [Modal](/components/modal) and [Slideover](/components/slideover) components.
+Use the auto-imported `useOverlay` composable to programmatically control [Modal](/docs/components/modal/) and [Slideover](/docs/components/slideover/) components.
 
 ```vue
 <script setup lang="ts">

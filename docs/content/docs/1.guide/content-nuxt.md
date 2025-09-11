@@ -66,5 +66,5 @@ To make the most out of `@nuxt/content` we provide custom implementations of all
 This gives us precise control over styling while ensuring perfect visual harmony with our design system.
 
 ::: tip
-Learn more about the [Typography](/components/typography) system and all the available components.
+Learn more about the [Typography](/docs/typography/) system and all the available components.
 :::

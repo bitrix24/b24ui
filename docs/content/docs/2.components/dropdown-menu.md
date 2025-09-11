@@ -27,7 +27,7 @@ A contextual menu for actions triggered by clicking an element.
 
 ## Usage
 
-Use a [Button](/components/button) or any other component in the default slot of the DropdownMenu.
+Use a [Button](/docs/components/button/) or any other component in the default slot of the DropdownMenu.
 
 ### Items
 
@@ -48,7 +48,7 @@ Use the `items` prop as an array of objects with the following properties:
 - `class?: any`{lang="ts-type"}
 - `b24ui?: { item?: ClassNameValue, label?: ClassNameValue, separator?: ClassNameValue, itemLeadingIcon?: ClassNameValue, itemLeadingAvatarSize?: ClassNameValue, itemLeadingAvatar?: ClassNameValue, itemLabel?: ClassNameValue, itemLabelExternalIcon?: ClassNameValue, itemTrailing?: ClassNameValue, itemTrailingIcon?: ClassNameValue, itemTrailingKbds?: ClassNameValue, itemTrailingKbdsSize?: ClassNameValue }`{lang="ts-type"}
 
-You can pass any property from the [Link](/components/link#props) component such as `to`, `target`, etc.
+You can pass any property from the [Link](/docs/components/link/#props) component such as `to`, `target`, etc.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -173,7 +173,7 @@ You can use the `color` property to highlight certain items with a color.
 You can control the open state by using the `default-open` prop or the `v-model:open` directive.
 
 ::: info
-In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), you can toggle the DropdownMenu by pressing `O`.
+In this example, leveraging [`defineShortcuts`](/docs/composables/define-shortcuts), you can toggle the DropdownMenu by pressing `O`.
 :::
 
 <div class="lg:min-h-[160px]">
@@ -219,7 +219,7 @@ You can also use the `#item`, `#item-leading`, `#item-label` and `#item-trailing
 
 ### Extract shortcuts
 
-When you have some items with `kbds` property (displaying some [Kbd](/components/kbd)), you can easily make them work with the [defineShortcuts](composables/define-shortcuts) composable.
+When you have some items with `kbds` property (displaying some [Kbd](/docs/components/kbd/)), you can easily make them work with the [defineShortcuts](/docs/composables/define-shortcuts) composable.
 
 Inside the `defineShortcuts` composable, there is an `extractShortcuts` utility that will extract the shortcuts recursively from the items and return an object that you can pass to `defineShortcuts`. It will automatically call the `select` function of the item when the shortcut is pressed.
 

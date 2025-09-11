@@ -31,7 +31,7 @@ Some data may be missing here — we will complete it shortly.
 [Reduced movement](https://tailwindcss.com/docs/hover-focus-and-other-states#prefers-reduced-motion) is taken into account
 :::
 
-Use a [Button](/components/button) or any other component in the default slot of the Collapsible.
+Use a [Button](/docs/components/button/) or any other component in the default slot of the Collapsible.
 
 Then, use the `#content` slot to add the content displayed when the Collapsible is open.
 
@@ -84,7 +84,7 @@ Use the `disabled` prop to disable the Collapsible.
 You can control the open state by using the `default-open` prop or the `v-model:open` directive.
 
 ::: info
-In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), you can toggle the Collapsible by pressing `O`.
+In this example, leveraging [`defineShortcuts`](/docs/composables/define-shortcuts), you can toggle the Collapsible by pressing `O`.
 :::
 
 ::: tip

@@ -55,11 +55,11 @@ Some data may be missing here — we will complete it shortly.
 Use the `v-model` directive to control the value of the SelectMenu or the `default-value` prop to set the initial value when you do not need to control its state.
 
 ::: tip
-Use this over a [`Select`](/components/select) to take advantage of Reka UI's [`Combobox`](https://reka-ui.com/docs/components/combobox) component that offers search capabilities and multiple selection.
+Use this over a [`Select`](/docs/components/select/) to take advantage of Reka UI's [`Combobox`](https://reka-ui.com/docs/components/combobox) component that offers search capabilities and multiple selection.
 :::
 
 ::: info
-This component is similar to the [`InputMenu`](/components/input-menu) but it's using a Select instead of an Input with the search inside the menu.
+This component is similar to the [`InputMenu`](/docs/components/input-menu/) but it's using a Select instead of an Input with the search inside the menu.
 :::
 
 ### Items
@@ -98,7 +98,7 @@ You can also pass an array of objects with the following properties:
 :::
 
 ::: danger
-Unlike the [`Select`](/components/select) component, the SelectMenu expects the whole object to be passed to the `v-model` directive or the `default-value` prop by default.
+Unlike the [`Select`](/docs/components/select/) component, the SelectMenu expects the whole object to be passed to the `v-model` directive or the `default-value` prop by default.
 :::
 
 You can also pass an array of arrays to the `items` prop to display separated groups of items.
@@ -163,7 +163,7 @@ Use the `placeholder` prop to set a placeholder text.
 
 Use the `search-input` prop to customize or hide the search input (with `false` value).
 
-You can pass any property from the [Input](/components/input) component to customize it.
+You can pass any property from the [Input](/docs/components/input/) component to customize it.
 
 ::: tip
 You can set the `search-input` prop to `false` to hide the search input.
@@ -299,7 +299,7 @@ Use the `selected-icon` prop to customize the icon when an item is selected. Def
 
 ### Avatar
 
-Use the `avatar` prop to display an [Avatar](/components/avatar) inside the SelectMenu.
+Use the `avatar` prop to display an [Avatar](/docs/components/avatar/) inside the SelectMenu.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -375,7 +375,7 @@ You can also use the `#leading` slot to display the selected icon.
 
 ### With avatar in items
 
-You can use the `avatar` property to display an [Avatar](/components/avatar) inside the items.
+You can use the `avatar` property to display an [Avatar](/docs/components/avatar/) inside the items.
 
 ::: tip
 You can also use the `#leading` slot to display the selected avatar.
@@ -393,7 +393,7 @@ You can also use the `#leading` slot to display the selected avatar.
 
 ### With chip in items
 
-You can use the `chip` property to display a [Chip](/components/chip) inside the items.
+You can use the `chip` property to display a [Chip](/docs/components/chip/) inside the items.
 
 ::: info
 In this example, the `#leading` slot is used to display the selected chip.
@@ -414,7 +414,7 @@ In this example, the `#leading` slot is used to display the selected chip.
 You can control the open state by using the `default-open` prop or the `v-model:open` directive.
 
 ::: info
-In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), you can toggle the SelectMenu by pressing `O`.
+In this example, leveraging [`defineShortcuts`](/docs/composables/define-shortcuts), you can toggle the SelectMenu by pressing `O`.
 :::
 
 <div class="lg:min-h-[160px]">

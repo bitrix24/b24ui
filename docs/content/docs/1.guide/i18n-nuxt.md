@@ -14,7 +14,7 @@ outline: deep
 ## Usage
 
 ::: tip
-Bitrix24 UI provides an [`App`](/components/app) component that wraps your app to provide global configurations.
+Bitrix24 UI provides an [`App`](/docs/components/app/) component that wraps your app to provide global configurations.
 :::
 
 ### Locale

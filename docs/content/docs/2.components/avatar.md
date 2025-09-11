@@ -128,7 +128,7 @@ Use the `chip` prop to display a chip around the Avatar.
 
 ### With tooltip
 
-You can use a [Tooltip](/components/tooltip) component to display a tooltip when hovering the Avatar.
+You can use a [Tooltip](/docs/components/tooltip/) component to display a tooltip when hovering the Avatar.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>

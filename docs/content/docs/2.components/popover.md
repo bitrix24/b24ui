@@ -30,7 +30,7 @@ import WithFollowingCursorExample from '/examples/popover/WithFollowingCursor.vu
 
 ## Usage
 
-Use a [Button](/components/button) or any other component in the default slot of the Popover.
+Use a [Button](/docs/components/button/) or any other component in the default slot of the Popover.
 
 Then, use the `#content` slot to add the content displayed when the Popover is open.
 
@@ -109,7 +109,7 @@ Use the `arrow` prop to display an arrow on the Popover.
 You can control the open state by using the `default-open` prop or the `v-model:open` directive.
 
 ::: tip
-In this example, leveraging [`defineShortcuts`](composables/define-shortcuts), you can toggle the Popover by pressing `O`.
+In this example, leveraging [`defineShortcuts`](/docs/composables/define-shortcuts), you can toggle the Popover by pressing `O`.
 :::
 
 <div class="lg:min-h-[160px]">

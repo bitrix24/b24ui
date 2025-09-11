@@ -49,7 +49,7 @@ Use the `v-model` directive to control the value of the Input.
 
 Use the `type` prop to change the input type. Defaults to `text`.
 
-Some types have been implemented in their own components such as [Checkbox](/components/checkbox), [Radio](/components/radio-group) etc. and others have been styled like `file` for example.
+Some types have been implemented in their own components such as [Checkbox](/docs/components/checkbox/), [Radio](/docs/components/radio-group/) etc. and others have been styled like `file` for example.
 
 <div class="lg:min-h-[275px]">
   <ClientOnly>
@@ -155,7 +155,7 @@ Use the `leading-icon` and `trailing-icon` props to set a different icon for eac
 
 ### Avatar
 
-Use the `avatar` prop to show an [Avatar](/components/avatar) inside the Input.
+Use the `avatar` prop to show an [Avatar](/docs/components/avatar/) inside the Input.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>

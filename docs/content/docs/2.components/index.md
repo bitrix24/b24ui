@@ -8,7 +8,7 @@ navigation: false
 
 ## Layout
 
-Structural components for organizing your app's layout. Start by wrapping your app with the [App](/docs/components/app) component.
+Structural components for organizing your app's layout. Start by wrapping your app with the [App](/docs/components/app/) component.
 
 :components-list{category="layout"}
 

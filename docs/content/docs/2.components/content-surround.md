@@ -27,7 +27,7 @@ props:
 
 ### Prev / Next
 
-Use the `prev-icon` and `next-icon` props to customize the buttons [Icon](/docs/components/icon).
+Use the `prev-icon` and `next-icon` props to customize the buttons @todo Icon__/docs/components/icon.
 
 ::component-code{prefix="content"}
 ---

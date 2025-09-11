@@ -22,7 +22,7 @@ import SidebarLayoutSlideoverExample from '/examples/sidebarlayout/SidebarLayout
 The component must be used as a [`layout`](https://github.com/bitrix24/b24ui/blob/main/playground/app/layouts/default.vue).
 
 ::: info styling
-The styling process is described on the page [Theme](/guide/getting-started-theme.html#customize-theme) 
+The styling process is described on the page [Theme](/docs/guide/getting-started-theme/#customize-theme) 
 ::: 
 <div class="lg:min-h-[400px]">
   <ClientOnly>
@@ -40,7 +40,7 @@ On mobile devices the sidebar is hidden and accessible via `slideover`
 
 ### Inner
 ::: info
-If you need to manage loading state in child components, you should use [`useSidebarLayout`](/components/composables/use-sidebar-layout)
+If you need to manage loading state in child components, you should use [`useSidebarLayout`](/docs/composables/use-sidebar-layout/)
 :::
 
 If the component needs to be placed inside the content, then the props `isInner`  must be set.
@@ -62,7 +62,7 @@ SidebarLayoutInnerAction
 :::
 
 ### Slideover
-It should be understood that the [`Slideover`](/components/slideover) component displays data using the `SidebarLayout` component.
+It should be understood that the [`Slideover`](/docs/components/slideover/) component displays data using the `SidebarLayout` component.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>

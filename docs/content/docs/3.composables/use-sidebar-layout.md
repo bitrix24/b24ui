@@ -15,7 +15,7 @@ description: Controlling the loading mode of the SidebarLayout component
 
 ## Usage
 
-Use the auto-imported `useSidebarLayout` composable to access the [`SidebarLayout`](/components/sidebar-layout) API and manage loading states.
+Use the auto-imported `useSidebarLayout` composable to access the [`SidebarLayout`](/docs/components/sidebar-layout/) API and manage loading states.
 
 ```vue
 <script setup lang="ts">
@@ -24,7 +24,7 @@ const sidebarLayout = useSidebarLayout()
 ```
 
 ::: danger
-`useSidebarLayout` must be used within a [`SidebarLayout`](/components/sidebar-layout) component as it relies on component injection context.
+`useSidebarLayout` must be used within a [`SidebarLayout`](/docs/components/sidebar-layout/) component as it relies on component injection context.
 :::
 
 ## API

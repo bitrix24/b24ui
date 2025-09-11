@@ -10,7 +10,7 @@ links:
 
 ## Usage
 
-Like the [Main](/docs/components/main) component, the Error component renders a `<main>` element that works together with the [Header](/docs/components/header) component to create a full-height layout that extends to the viewport's available height.
+Like the @todo Main_/docs/components/main_ component, the Error component renders a `<main>` element that works together with the @todo Header__/docs/components/header component to create a full-height layout that extends to the viewport's available height.
 
 ::note
 The Header component defines its height through a `--ui-header-height` CSS variable, which you can customize by overriding it in your CSS:
@@ -49,7 +49,7 @@ props:
 
 Use the `clear` prop to customize or hide the clear button (with `false` value).
 
-You can pass any property from the [Button](/docs/components/button) component to customize it.
+You can pass any property from the [Button](/docs/components/button/) component to customize it.
 
 ::component-code
 ---

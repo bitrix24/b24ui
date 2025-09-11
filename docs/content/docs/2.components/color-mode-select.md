@@ -10,7 +10,7 @@ Some data may be missing here — we will complete it shortly.
 
 ## Usage
 
-The ColorModeSelect component extends the [SelectMenu](/components/select-menu) component, so you can pass any property such as `color`, `variant`, `size`, etc.
+The ColorModeSelect component extends the [SelectMenu](/docs/components/select-menu/) component, so you can pass any property such as `color`, `variant`, `size`, etc.
 
 :component-code{prefix="color-mode"}
 

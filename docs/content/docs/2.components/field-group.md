@@ -24,7 +24,7 @@ import WithBadgeExample from '/examples/field-group/WithBadge.vue';
 
 ## Usage
 
-Wrap multiple [Button](/components/button) within a FieldGroup to group them together.
+Wrap multiple [Button](/docs/components/button/) within a FieldGroup to group them together.
 
 ::: info
 If you use elements with different colors, use the `no-split` property to disable the display of the separator.
@@ -70,7 +70,7 @@ Use the `orientation` prop to change the orientation of the buttons. Defaults to
 
 ### With input
 
-You can use components like [Input](/components/input), [InputMenu](/components/input-menu), [Select](/components/select) [SelectMenu](/components/select-menu), etc. within a field group.
+You can use components like [Input](/docs/components/input/), [InputMenu](/docs/components/input-menu/), [Select](/docs/components/select/) [SelectMenu](/docs/components/select-menu/), etc. within a field group.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -84,7 +84,7 @@ You can use components like [Input](/components/input), [InputMenu](/components/
 
 ### With tooltip
 
-You can use a [Tooltip](/components/tooltip.html#usage) within a field group.
+You can use a [Tooltip](/docs/components/tooltip/#usage) within a field group.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -98,7 +98,7 @@ You can use a [Tooltip](/components/tooltip.html#usage) within a field group.
 
 ### With dropdown
 
-You can use a [DropdownMenu](/components/dropdown-menu) within a field group.
+You can use a [DropdownMenu](/docs/components/dropdown-menu/) within a field group.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -113,7 +113,7 @@ You can use a [DropdownMenu](/components/dropdown-menu) within a field group.
 
 ### With badge
 
-You can use a [Badge](/components/badge) within a field group.
+You can use a [Badge](/docs/components/badge/) within a field group.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>

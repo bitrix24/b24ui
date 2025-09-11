@@ -120,7 +120,7 @@ Use the `use-dropdown` prop to show trailing-icon.
 
 ### Avatar
 
-Use the `avatar` prop to show an [Avatar](/components/avatar) inside the Button.
+Use the `avatar` prop to show an [Avatar](/docs/components/avatar/) inside the Button.
 
 The `label` as prop or slot is optional so you can use the Button as an avatar-only button.
 
@@ -136,7 +136,7 @@ The `label` as prop or slot is optional so you can use the Button as an avatar-o
 
 ### Link
 
-You can pass any property from the [Link](/components/link#props) component such as `to`, `target`, etc.
+You can pass any property from the [Link](/docs/components/link/#props) component such as `to`, `target`, etc.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -202,7 +202,7 @@ Use the `loading-auto` prop to show the loading icon automatically while the `@c
 <<< @/examples/button/demo/LoadingAuto.vue{23,31-32,40-41 vue:line-numbers}
 :::
 
-This also works with the [Form](/components/form) component.
+This also works with the [Form](/docs/components/form/) component.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>

@@ -131,7 +131,7 @@ Let's explore the key features of this API:
 ### Slots
 
 Components in Bitrix24 UI can have multiple `slots`, each representing a distinct HTML element or section within the component.
-These slots allow for flexible content insertion and styling. Let's take the [AvatarGroup](/components/avatar-group) component as an example:
+These slots allow for flexible content insertion and styling. Let's take the [AvatarGroup](/docs/components/avatar-group/) component as an example:
 
 ```ts
 export default {
@@ -142,7 +142,7 @@ export default {
 }
 ```
 
-Some components don't have slots, they are just composed of a single root element. In this case, the theme only defines the `base` slot like the [Container](/components/container) component for example:
+Some components don't have slots, they are just composed of a single root element. In this case, the theme only defines the `base` slot like the [Container](/docs/components/container/) component for example:
 
 ```ts
 export default {
@@ -154,7 +154,7 @@ export default {
 
 ### Variants
 
-Bitrix24 UI components use `variants` to change the `slots` styles based on props. Here's an example of the [Avatar](/components/avatar) component:
+Bitrix24 UI components use `variants` to change the `slots` styles based on props. Here's an example of the [Avatar](/docs/components/avatar/) component:
 
 ```ts
 export default {

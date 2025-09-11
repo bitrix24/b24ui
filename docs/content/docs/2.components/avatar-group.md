@@ -27,7 +27,7 @@ Some data may be missing here — we will complete it shortly.
 
 ## Usage
 
-Wrap multiple [Avatar](/components/avatar) within an AvatarGroup to stack them.
+Wrap multiple [Avatar](/docs/components/avatar/) within an AvatarGroup to stack them.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -71,7 +71,7 @@ Use the `max` prop to limit the number of avatars displayed. The rest is display
 
 ### With tooltip
 
-Wrap each avatar with a [Tooltip](/components/tooltip) to display a tooltip on hover.
+Wrap each avatar with a [Tooltip](/docs/components/tooltip/) to display a tooltip on hover.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -85,7 +85,7 @@ Wrap each avatar with a [Tooltip](/components/tooltip) to display a tooltip on h
 
 ### With chip
 
-Wrap each avatar with a [Chip](/components/chip) to display a chip around the avatar.
+Wrap each avatar with a [Chip](/docs/components/chip/) to display a chip around the avatar.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -99,7 +99,7 @@ Wrap each avatar with a [Chip](/components/chip) to display a chip around the av
 
 ### With link
 
-Wrap each avatar with a [Link](/components/link) to make them clickable.
+Wrap each avatar with a [Link](/docs/components/link/) to make them clickable.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>

@@ -162,7 +162,7 @@ Use the `leading-icon` and `trailing-icon` props to set a different icon for eac
 
 ### Avatar
 
-Use the `avatar` prop to show an [Avatar](/components/avatar) inside the Textarea.
+Use the `avatar` prop to show an [Avatar](/docs/components/avatar/) inside the Textarea.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>

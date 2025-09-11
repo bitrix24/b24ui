@@ -105,7 +105,7 @@ Use the `use-close` prop to show close icon.
 
 ### Avatar
 
-Use the `avatar` prop to show an [Avatar](/components/avatar) inside the Badge.
+Use the `avatar` prop to show an [Avatar](/docs/components/avatar/) inside the Badge.
 
 <div class="lg:min-h-[275px]">
   <ClientOnly>

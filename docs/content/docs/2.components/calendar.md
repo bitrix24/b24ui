@@ -213,7 +213,7 @@ Use the `fixed-weeks` prop to display the calendar with fixed weeks.
 
 ### With chip events
 
-Use the [Chip](/components/chip) component to add events to specific days.
+Use the [Chip](/docs/components/chip/) component to add events to specific days.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -301,7 +301,7 @@ You can control the calendar with external controls by manipulating the date pas
 
 ### As a DatePicker
 
-Use a [Button](/components/button) and a [Popover](/components/popover) component to create a date picker.
+Use a [Button](/docs/components/button/) and a [Popover](/docs/components/popover/) component to create a date picker.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -315,7 +315,7 @@ Use a [Button](/components/button) and a [Popover](/components/popover) componen
 
 ### As a DateRangePicker
 
-Use a [Button](/components/button) and a [Popover](/components/popover) component to create a date range picker.
+Use a [Button](/docs/components/button/) and a [Popover](/docs/components/popover/) component to create a date range picker.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>

@@ -33,14 +33,14 @@ Some data may be missing here — we will complete it shortly.
 
 ## Usage
 
-Use the [useToast](composables/use-toast) composable to display a toast in your application.
+Use the [useToast](/docs/composables/use-toast) composable to display a toast in your application.
 
 ::: warning
-Be certain to wrap your app with the [`App`](/components/app) component, which integrates our [`Toaster`](https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Toaster.vue) component, leveraging the [`ToastProvider`](https://reka-ui.com/docs/components/toast#provider) from Reka UI.
+Be certain to wrap your app with the [`App`](/docs/components/app/) component, which integrates our [`Toaster`](https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Toaster.vue) component, leveraging the [`ToastProvider`](https://reka-ui.com/docs/components/toast#provider) from Reka UI.
 :::
 
 ::: tip
-You can check the [`App`](/components/app#props) component `toaster` prop to see how to configure the Toaster globally.
+You can check the [`App`](/docs/components/app/#props) component `toaster` prop to see how to configure the Toaster globally.
 :::
 
 ### Title
@@ -85,7 +85,7 @@ Pass an `icon` field to the `toast.add` method to display an [@bitrix24/b24icons
 
 ### Avatar
 
-Pass an `avatar` field to the `toast.add` method to display an [Avatar](/components/avatar).
+Pass an `avatar` field to the `toast.add` method to display an [Avatar](/docs/components/avatar/).
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -113,7 +113,7 @@ Pass a `color` field to the `toast.add` method to change the color of the Toast.
 
 ### Close
 
-Pass a `close` field to customize or hide the close [Button](/components/button) (with `false` value).
+Pass a `close` field to customize or hide the close [Button](/docs/components/button/) (with `false` value).
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -141,7 +141,7 @@ Pass a `closeIcon` field to customize the close button [@bitrix24/b24icons](http
 
 ### Actions
 
-Pass an `actions` field to add some [Button](/components/button) actions to the Toast.
+Pass an `actions` field to add some [Button](/docs/components/button/) actions to the Toast.
 
 <div class="lg:min-h-[310px]">
   <ClientOnly>
@@ -155,7 +155,7 @@ Pass an `actions` field to add some [Button](/components/button) actions to the 
 
 ### Progress
 
-Pass a `progress` field to customize or hide the [Progress](/components/progress) bar (with `false` value).
+Pass a `progress` field to customize or hide the [Progress](/docs/components/progress/) bar (with `false` value).
 
 ::: tip
 The Progress bar inherits the Toast color by default, but you can override it using the `progress.color` field.
@@ -189,12 +189,12 @@ Pass an `orientation` field to the `toast.add` method to change the orientation 
 ## Examples
 
 ::: tip
-Bitrix24 UI provides an [**App**](/components/app) component that wraps your app to provide global configurations.
+Bitrix24 UI provides an [**App**](/docs/components/app/) component that wraps your app to provide global configurations.
 :::
 
 ### Change global position
 
-Change the `toaster.position` prop on the [App](/components/app#props) component to change the position of the toasts.
+Change the `toaster.position` prop on the [App](/docs/components/app/#props) component to change the position of the toasts.
 
 ```vue [app.vue]
 <script setup lang="ts">
@@ -210,7 +210,7 @@ const toaster = { position: 'bottom-right' }
 
 ### Change global duration
 
-Change the `toaster.duration` prop on the [App](/components/app#props) component to change the duration of the toasts.
+Change the `toaster.duration` prop on the [App](/docs/components/app/#props) component to change the duration of the toasts.
 
 ```vue [app.vue]
 <script setup lang="ts">
@@ -226,7 +226,7 @@ const toaster = { duration: 5000 }
 
 ### Stacked toasts
 
-Set the `toaster.expand` prop to `false` on the [App](/components/app#props) component to display stacked toasts.
+Set the `toaster.expand` prop to `false` on the [App](/docs/components/app/#props) component to display stacked toasts.
 
 ::: tip
 You can hover over the toasts to expand them. This will also pause the timer of the toasts.

@@ -13,7 +13,7 @@ description: 'A composable to merge custom inputs with the Form component'
 
 ## Usage
 
-Use the auto-imported `useFormField` composable to integrate custom inputs with a [Form](/components/form).
+Use the auto-imported `useFormField` composable to integrate custom inputs with a [Form](/docs/components/form/).
 
 ```vue
 <script setup lang="ts">
