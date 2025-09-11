@@ -15,8 +15,10 @@ export default {
       'hover:text-(--ui-color-accent-main-primary-alt)',
       'focus-visible:outline-info-text',
       'transition-colors [&>code]:transition-colors',
-      '[&>code]:ring-dashed',
-      'hover:[&>code]:text-(--ui-color-accent-main-primary-alt) hover:[&>code]:bg-(--ui-color-design-selection-bg) hover:[&>code]:ring-(--ui-color-design-selection-stroke)'
+      // '[&>code]:ring-dashed',
+      'hover:[&>code]:text-(--ui-color-accent-main-primary-alt)',
+      'hover:[&>code]:bg-(--ui-color-design-selection-bg)',
+      'hover:[&>code]:ring-(--ui-color-design-selection-stroke)'
     ].join(' ')
   }
 }
