@@ -2,15 +2,14 @@
  * Prose/H6
  * Show h6
  * ---
- * @todo: docs
- * @todo: playground
+ * @memo not support hash
  */
 
 export default {
   slots: {
     base: [
       'relative mb-2',
-      'scroll-mt-[calc(32px+45px+var(--b24ui-header-height))] lg:scroll-mt-[calc(32px+var(--b24ui-header-height))]',
+      'scroll-mt-[calc(24px+45px+24px+var(--topbar-height))] lg:scroll-mt-[calc(24px+22px+15px+var(--topbar-height))]',
       'text-(length:--ui-font-size-md)'
     ].join(' ')
   },

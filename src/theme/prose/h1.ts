@@ -1,15 +1,18 @@
 /**
  * Prose/H1
  * Show h1
+ * @memo {B24SidebarLayout + ContentToc + PageHeader} | lg:{B24SidebarLayout + PageHeader}
  */
 
 export default {
   slots: {
     base: [
       'relative mb-2',
-      'scroll-mt-[calc(45px+var(--b24ui-header-height))] lg:scroll-mt-(--b24ui-header-height)',
-      'text-(length:--ui-font-size-5xl)'
-    ].join(' ')
+      'scroll-mt-[calc(45px+24px+var(--topbar-height))] lg:scroll-mt-[calc(22px+15px+var(--topbar-height))]',
+      'text-(length:--ui-font-size-5xl)',
+      '[&>code]:text-(length:--ui-font-size-4xl)/7'
+    ].join(' '),
+    link: 'inline-flex items-center gap-[8px]'
   },
   variants: {
     accent: {

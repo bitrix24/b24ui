@@ -6,6 +6,7 @@ import type { ComponentConfig } from '../../types/tv'
 type ProseH5 = ComponentConfig<typeof theme, AppConfig, 'h5', 'b24ui.prose'>
 
 export interface ProseH5Props {
+  id?: string
   /**
    * @defaultValue 'default'
    */
@@ -37,7 +38,10 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
 </script>
 
 <template>
-  <h5 :class="b24ui.base({ class: [props.b24ui?.base, props.class] })">
+  <h5
+    :id="id"
+    :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
+  >
     <slot />
   </h5>
 </template>
