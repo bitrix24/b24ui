@@ -1,19 +1,19 @@
 import { defineCollection, z } from '@nuxt/content'
 
-const Image = z.object({
-  src: z.string(),
-  alt: z.string().optional(),
-  width: z.number().optional(),
-  height: z.number().optional()
-})
+// const Image = z.object({
+//   src: z.string(),
+//   alt: z.string().optional(),
+//   width: z.number().optional(),
+//   height: z.number().optional()
+// })
 
-const DualModeImage = z.object({
-  light: z.string(),
-  dark: z.string(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-  alt: z.string().optional()
-})
+// const DualModeImage = z.object({
+//   light: z.string(),
+//   dark: z.string(),
+//   width: z.number().optional(),
+//   height: z.number().optional(),
+//   alt: z.string().optional()
+// })
 
 const Button = z.object({
   label: z.string(),
@@ -40,10 +40,10 @@ const Feature = z.object({
   to: z.string().optional()
 })
 
-const TitleIconFeature = z.object({
-  title: z.string(),
-  icon: z.string()
-})
+// const TitleIconFeature = z.object({
+//   title: z.string(),
+//   icon: z.string()
+// })
 
 const PageSection = BaseSection.extend({
   links: z.array(Button).optional(),
