@@ -20,6 +20,15 @@ export const clearError = () => {
 
 }
 
+/**
+ * @memo need add for prose components
+ */
+export const useRuntimeConfig = () => {
+  return {
+    public: null
+  }
+}
+
 export const useColorMode = () => {
   if (!appConfig.colorMode) {
     return {
