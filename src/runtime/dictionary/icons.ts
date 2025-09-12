@@ -25,6 +25,10 @@ import ScreenIcon from '@bitrix24/b24icons-vue/outline/ScreenIcon'
 import SunIconAir from '@bitrix24/b24icons-vue/outline/SunIcon'
 import MoonIconAir from '@bitrix24/b24icons-vue/outline/MoonIcon'
 import TagIcon from '@bitrix24/b24icons-vue/outline/TagIcon'
+import InfoCircleIcon from '@bitrix24/b24icons-vue/outline/InfoCircleIcon'
+import IdeaLampIcon from '@bitrix24/b24icons-vue/outline/IdeaLampIcon'
+import WarningIcon from '@bitrix24/b24icons-vue/main/WarningIcon'
+import AlertIcon from '@bitrix24/b24icons-vue/outline/AlertIcon'
 
 export default {
   arrowLeft: ArrowToTheLeftIcon,
@@ -47,5 +51,10 @@ export default {
   system: ScreenIcon,
   light: SunIconAir,
   dark: MoonIconAir,
-  hash: TagIcon
+  hash: TagIcon,
+  warning: WarningIcon,
+  tip: IdeaLampIcon,
+  info: InfoCircleIcon,
+  // this for error
+  caution: AlertIcon
 }
