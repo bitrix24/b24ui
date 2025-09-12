@@ -27,9 +27,9 @@ watch(page, () => {
 
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 
-const { findSurround, findBreadcrumb } = useNavigation(navigation!)
+const { findSurround } = useNavigation(navigation!)
 
-const breadcrumb = computed(() => findBreadcrumb(page.value?.path as string))
+// const breadcrumb = computed(() => findBreadcrumb(page.value?.path as string))
 const surround = computed(() => findSurround(page.value?.path as string))
 
 if (!import.meta.prerender) {
@@ -61,20 +61,20 @@ useSeoMeta({
   ogDescription: description
 })
 
-if (route.path.startsWith('/docs/components/')) {
-  defineOgImageComponent('OgImageComponent', {
-    title: page.value.title,
-    description: page.value.description,
-    component: (route.params.slug as string[]).pop() as string
-  })
-} else {
-  defineOgImageComponent('Docs', {
-    title: page.value.title,
-    description: page.value.description,
-    headline: breadcrumb.value?.[breadcrumb.value.length - 1]?.label || 'Bitrix24 UI',
-    framework: page.value?.framework
-  })
-}
+// if (route.path.startsWith('/docs/components/')) {
+//   defineOgImageComponent('OgImageComponent', {
+//     title: page.value.title,
+//     description: page.value.description,
+//     component: (route.params.slug as string[]).pop() as string
+//   })
+// } else {
+//   defineOgImageComponent('Docs', {
+//     title: page.value.title,
+//     description: page.value.description,
+//     headline: breadcrumb.value?.[breadcrumb.value.length - 1]?.label || 'Bitrix24 UI',
+//     framework: page.value?.framework
+//   })
+// }
 
 const communityLinks = computed(() => [
   {

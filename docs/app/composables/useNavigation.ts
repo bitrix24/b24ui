@@ -3,62 +3,88 @@ import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
 import { findPageChildren, findPageBreadcrumb } from '@nuxt/content/utils'
 import { mapContentNavigation } from '@bitrix24/b24ui-nuxt/utils/content'
 import { withTrailingSlash } from 'ufo' // withoutTrailingSlash
+import ALetterIcon from '@bitrix24/b24icons-vue/outline/ALetterIcon'
+import LayersIcon from '@bitrix24/b24icons-vue/outline/LayersIcon'
+import ItemIcon from '@bitrix24/b24icons-vue/crm/ItemIcon'
+import FormIcon from '@bitrix24/b24icons-vue/crm/FormIcon'
+import BulletedListIcon from '@bitrix24/b24icons-vue/outline/BulletedListIcon'
+import LinkIcon from '@bitrix24/b24icons-vue/outline/LinkIcon'
+import OpenChatIcon from '@bitrix24/b24icons-vue/outline/OpenChatIcon'
+import PageIcon from '@bitrix24/b24icons-vue/button/PageIcon'
+import TaskListIcon from '@bitrix24/b24icons-vue/outline/TaskListIcon'
+import DemonstrationOnIcon from '@bitrix24/b24icons-vue/outline/DemonstrationOnIcon'
+import AiStarsIcon from '@bitrix24/b24icons-vue/outline/AiStarsIcon'
+import BrushIcon from '@bitrix24/b24icons-vue/actions/BrushIcon'
+import EarthLanguageIcon from '@bitrix24/b24icons-vue/main/EarthLanguageIcon'
 
 const categories = {
   components: [
     {
       id: 'layout',
-      title: 'Layout'
+      title: 'Layout',
+      icon: LayersIcon
     },
     {
       id: 'element',
-      title: 'Element'
+      title: 'Element',
+      icon: ItemIcon
     },
     {
       id: 'form',
-      title: 'Form'
+      title: 'Form',
+      icon: FormIcon
     },
     {
       id: 'data',
-      title: 'Data'
+      title: 'Data',
+      icon: BulletedListIcon
     },
     {
       id: 'navigation',
-      title: 'Navigation'
+      title: 'Navigation',
+      icon: LinkIcon
     },
     {
       id: 'overlay',
-      title: 'Overlay'
+      title: 'Overlay',
+      icon: OpenChatIcon
     },
     {
       id: 'page',
-      title: 'Page'
+      title: 'Page',
+      icon: PageIcon
     },
     {
       id: 'content',
       title: 'Content',
-      framework: 'nuxt'
+      framework: 'nuxt',
+      icon: TaskListIcon
     },
     {
       id: 'dashboard',
-      title: 'Dashboard'
+      title: 'Dashboard',
+      icon: DemonstrationOnIcon
     },
     {
       id: 'chat',
-      title: 'AI Chat'
+      title: 'AI Chat',
+      icon: AiStarsIcon
     },
     {
       id: 'color-mode',
-      title: 'Color Mode'
+      title: 'Color Mode',
+      icon: BrushIcon
     },
     {
       id: 'i18n',
-      title: 'i18n'
+      title: 'i18n',
+      icon: EarthLanguageIcon
     }],
   typography: [
     {
       id: 'components',
-      title: 'Components'
+      title: 'Components',
+      icon: ALetterIcon
     }
   ]
 }
@@ -109,6 +135,7 @@ function groupChildrenByCategory(items: ContentNavigationItem[], slug: string): 
       groups.push({
         title: category.title,
         type: 'trigger' as const,
+        icon: category?.icon,
         /**
          * @memo this path
          */
@@ -186,6 +213,7 @@ export const useNavigation = (navigation: Ref<ContentNavigationItem[] | undefine
   )
 
   const navigationByCategory = computed(() => {
+    // @memo move to Top
     // const route = useRoute()
 
     const slug = route.params.slug?.[0] as string
