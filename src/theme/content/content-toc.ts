@@ -1,11 +1,13 @@
 /**
  * ContentToc
+ * ---
+ * @memo not use color, highlight, highlightColor
  */
 export default {
   slots: {
     root: '',
     container: [
-      'border-b border-dashed border-default',
+      'border-b border-dashed border-b-(length:--ui-border-width-thick) border-(--ui-color-divider-vibrant-default)',
       'lg:border-0',
       'flex flex-col'
     ].join(' '),
@@ -14,11 +16,11 @@ export default {
     trigger: [
       'group',
       'pb-[12px]',
-      'cursor-pointer lg:cursor-initial',
+      'cursor-pointer lg:cursor-text',
       'focus-visible:outline-(--ui-color-accent-main-primary)',
       'focus-visible:outline-2',
       'focus-visible:rounded-[4px]',
-      'text-(--b24ui-typography-label-color)',
+      'text-(--b24ui-typography-legend-color)',
       'text-(length:--ui-font-size-md) leading-(--ui-font-line-height-md)',
       'font-(--ui-font-weight-semi-bold)',
       'flex-1',
@@ -50,49 +52,22 @@ export default {
       'focus-visible:outline-(--ui-color-accent-main-primary)',
       'focus-visible:outline-1',
       'focus-visible:rounded-[4px]',
-      'text-(--ui-color-accent-main-link)',
+      'text-(--b24ui-typography-description-color)',
       'underline-offset-2',
-      'hover:text-(--ui-color-accent-main-primary-alt)',
+      'hover:text-(--b24ui-typography-label-color)',
       'hover:underline',
       'pb-[8px]'
     ].join(' '),
-    linkText: 'truncate',
-    indicator: [
-      'absolute',
-      'ms-2.5',
-      'transition-[translate,height]',
-      'duration-200',
-      'h-[15px]',
-      'translate-y-(--indicator-position)',
-      'w-px',
-      'rounded-full'
-    ]
+    linkText: 'truncate'
   },
   variants: {
-    color: {
-      neutral: ''
-    },
-    highlightColor: {
-      neutral: {
-        indicator: 'bg-inverted'
-      }
-    },
     active: {
       false: {
         link: [
-          'text-muted',
-          'hover:text-default',
+          'text-(--b24ui-typography-description-color)',
+          'hover:text-(--b24ui-typography-label-color)',
           'transition-colors'
         ].join(' ')
-      }
-    },
-    highlight: {
-      true: {
-        list: [
-          'ms-2.5 ps-4',
-          'border-s border-default'
-        ].join(' '),
-        item: '-ms-px'
       }
     },
     body: {
@@ -103,16 +78,12 @@ export default {
   },
   compoundVariants: [
     {
-      color: 'air-primary',
       active: true,
       class: {
-        link: 'text-highlighted',
-        linkLeadingIcon: 'text-highlighted'
+        link: 'text-(--b24ui-typography-label-color)',
+        linkLeadingIcon: 'text-(--b24ui-typography-label-color)'
       }
     }
   ],
-  defaultVariants: {
-    color: 'air-primary',
-    highlightColor: 'air-primary'
-  }
+  defaultVariants: {}
 }

@@ -30,19 +30,6 @@ export interface ContentTocProps<T extends ContentTocLink = ContentTocLink> exte
    * @defaultValue t('contentToc.title')
    */
   title?: string
-  /**
-   * @defaultValue 'air-primary'
-   */
-  color?: ContentToc['variants']['color']
-  /**
-   * Display a line next to the active link.
-   * @defaultValue false
-   */
-  highlight?: boolean
-  /**
-   * @defaultValue 'air-primary'
-   */
-  highlightColor?: ContentToc['variants']['highlightColor']
   links?: T[]
   class?: any
   b24ui?: ContentToc['slots']
@@ -98,37 +85,14 @@ const [DefineListTemplate, ReuseListTemplate] = createReusableTemplate<{ links: 
 })
 const [DefineTriggerTemplate, ReuseTriggerTemplate] = createReusableTemplate<{ open: boolean }>()
 
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.contentToc || {}) })({
-  color: props.color,
-  highlight: props.highlight,
-  highlightColor: props.highlightColor || props.color
-}))
+// eslint-disable-next-line vue/no-dupe-keys
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.contentToc || {}) })({}))
 
 function scrollToHeading(id: string) {
   const encodedId = encodeURIComponent(id)
   router.push(`#${encodedId}`)
   emits('move', id)
 }
-
-function flattenLinks(links: T[]): T[] {
-  return links.flatMap(link => [link, ...(link.children ? flattenLinks(link.children as T[]) : [])])
-}
-
-const indicatorStyle = computed(() => {
-  if (!activeHeadings.value?.length) {
-    return
-  }
-
-  const flatLinks = flattenLinks(props.links || [])
-  const activeIndex = flatLinks.findIndex(link => activeHeadings.value.includes(link.id))
-  const linkHeight = 28
-  const gapSize = 0
-
-  return {
-    '--indicator-size': `${(linkHeight * activeHeadings.value.length) + (gapSize * (activeHeadings.value.length - 1))}px`,
-    '--indicator-position': activeIndex >= 0 ? `${activeIndex * (linkHeight + gapSize)}px` : '0px'
-  }
-})
 
 const nuxtApp = useNuxtApp()
 
@@ -198,8 +162,6 @@ nuxtApp.hooks.hook('page:transition:finish', () => {
         </CollapsibleTrigger>
 
         <CollapsibleContent :class="b24ui.content({ class: [props.b24ui?.content, 'lg:hidden'] })">
-          <div v-if="highlight" :class="b24ui.indicator({ class: props.b24ui?.indicator })" :style="indicatorStyle" />
-
           <slot name="content" :links="links">
             <ReuseListTemplate :links="links" :level="0" />
           </slot>
@@ -210,8 +172,6 @@ nuxtApp.hooks.hook('page:transition:finish', () => {
         </p>
 
         <div :class="b24ui.content({ class: [props.b24ui?.content, 'hidden lg:flex'] })">
-          <div v-if="highlight" :class="b24ui.indicator({ class: props.b24ui?.indicator })" :style="indicatorStyle" />
-
           <slot name="content" :links="links">
             <ReuseListTemplate :links="links" :level="0" />
           </slot>
