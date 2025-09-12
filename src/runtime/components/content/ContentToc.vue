@@ -98,7 +98,7 @@ const [DefineListTemplate, ReuseListTemplate] = createReusableTemplate<{ links: 
 })
 const [DefineTriggerTemplate, ReuseTriggerTemplate] = createReusableTemplate<{ open: boolean }>()
 
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.v24ui?.contentToc || {}) })({
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.contentToc || {}) })({
   color: props.color,
   highlight: props.highlight,
   highlightColor: props.highlightColor || props.color
