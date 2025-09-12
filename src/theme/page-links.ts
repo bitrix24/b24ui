@@ -5,7 +5,7 @@ export default {
   slots: {
     root: 'flex flex-col gap-[12px]',
     title: [
-      'text-(--b24ui-typography-label-color)',
+      'text-(--b24ui-typography-legend-color)',
       'text-(length:--ui-font-size-md) leading-(--ui-font-line-height-md)',
       'font-(--ui-font-weight-semi-bold)',
       'flex items-center gap-[6px]'
