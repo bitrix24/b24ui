@@ -13,7 +13,7 @@ export default {
       'text-(length:--ui-font-size-sm)/[normal]',
       'rounded-(--ui-border-radius-md)',
       'inline-block',
-      'ring-(--b24ui-border-width) ring-inset',
+      'ring ring-inset',
       'text-(--b24ui-color) bg-(--b24ui-background) ring-(--b24ui-border-color)'
     ].join(' ')
   },
@@ -24,6 +24,8 @@ export default {
       'air-primary-alert': { base: 'style-filled-alert' },
       'air-primary-copilot': { base: 'style-filled-copilot' },
       'air-primary-warning': { base: 'style-filled-warning' },
+      'air-secondary': { base: 'style-tinted-no-accent-1' },
+      'air-tertiary': { base: 'style-outline-no-accent' },
       // @deprecate ////
       'default': { base: 'style-old-default' },
       'danger': { base: 'style-old-danger' },
@@ -36,6 +38,6 @@ export default {
     }
   },
   defaultVariants: {
-    color: 'default'
+    color: 'air-secondary'
   }
 }
