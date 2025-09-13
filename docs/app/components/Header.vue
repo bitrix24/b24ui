@@ -43,7 +43,7 @@ const { links } = useSearch()
     <!-- B24Tooltip text="Search" :kbds="['meta', 'K']">
       <B24ContentSearchButton />
     </B24Tooltip -->
-
+    <FrameworkTabs />
     <div class="flex flex-nowrap flex-row items-center justify-end gap-[4px]">
       <B24Button
         class="hidden sm:inline-flex"

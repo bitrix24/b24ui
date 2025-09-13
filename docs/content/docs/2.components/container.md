@@ -2,35 +2,32 @@
 title: Container
 description: A box for centering and setting a maximum width for your content.
 category: layout
+links:
+  - label: GitHub
+    iconName: GitHubIcon
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Container.vue
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/container
+  - label: Nuxt UI
+    avatar:
+      src: /b24ui/avatar/nuxtui.svg
+    to: https://ui.nuxt.com/components/container
 ---
-<script setup>
-import ContainerExample from '/examples/container/Container.vue';
-</script>
-# Container
 
-::: warning We are still updating this page
-Some data may be missing here — we will complete it shortly.
-:::
-
-<Description
-  nuxt-ui="https://ui3.nuxt.dev/components/container"
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Container.vue"
-  demo="/components/container"
->
-  A box for centering and setting a maximum width for your content.
-</Description>
+::warning
+We are still updating this page. Some data may be missing here — we will complete it shortly.
+::
 
 ## Usage
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <ContainerExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/container/demo/Container.vue{3 vue:line-numbers}
-:::
+::component-example
+---
+name: 'container-example'
+props:
+class: 'w-full'
+---
+::
 
 ## API
 

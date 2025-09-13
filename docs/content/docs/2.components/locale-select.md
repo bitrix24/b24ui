@@ -13,16 +13,16 @@ links:
 
 ## Usage
 
-The LocaleSelect component extends the [SelectMenu](/docs/components/select-menu/) component, so you can pass any property such as `color`, `variant`, `size`, etc.
+The LocaleSelect component extends the [SelectMenu](/docs/components/select-menu/) component, so you can pass any property such as `color`, `size`, etc.
 
 ::framework-only
 #nuxt
-::note{to="/docs/getting-started/i18n/nuxt"}
+::note{to="/docs/guide/i18n-nuxt/"}
 This component is meant to be used with the **i18n** system. Learn more about it in the guide.
 ::
 
 #vue
-::note{to="/docs/getting-started/i18n/vue"}
+::note{to="/docs/guide/i18n-vue/"}
 This component is meant to be used with the **i18n** system. Learn more about it in the guide.
 ::
 
@@ -34,13 +34,13 @@ The flags are displayed using Unicode characters. This may result in a different
 
 ### Locales
 
-Use the `locales` prop with an array of locales from `@nuxt/ui/locale`.
+Use the `locales` prop with an array of locales from `@bitrix24/b24ui/locale`.
 
-::component-example
+__component-example
 ---
 name: 'locale-select-example'
 ---
-::
+__
 
 You can pass only the locales you need in your application:
 

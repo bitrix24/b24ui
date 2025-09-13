@@ -9,7 +9,7 @@ links:
     to: https://github.com/nuxt/ui/blob/v4/src/runtime/components/content/ContentToc.vue
 ---
 
-::warning{to="/docs/getting-started/content"}
+::warning{to="/docs/guide/content-nuxt/"}
 This component is only available when the `@nuxt/content` module is installed.
 ::
 
@@ -17,19 +17,19 @@ This component is only available when the `@nuxt/content` module is installed.
 
 Use the `links` prop with the `page?.body?.toc?.links`{lang="ts-type"} you get when fetching a page.
 
-::component-example
+__component-example
 ---
 name: 'content-toc-example'
 props:
   class: 'w-full'
 ---
-::
+__
 
 ### Title
 
 Use the `title` prop to change the title of the Table of Contents.
 
-::component-code{prefix="content"}
+__component-code{prefix="content"}
 ---
 prettier: true
 collapse: true
@@ -70,13 +70,13 @@ props:
     depth: 2
     text: Theme
 ---
-::
+__
 
 ### Color
 
 Use the `color` prop to change the color of the links.
 
-::component-code{prefix="content"}
+__component-code{prefix="content"}
 ---
 prettier: true
 collapse: true
@@ -104,7 +104,7 @@ props:
           depth: 3
           text: Highlight
 ---
-::
+__
 
 ### Highlight
 
@@ -112,7 +112,7 @@ Use the `highlight` prop to display a highlighted border for the active item.
 
 Use the `highlight-color` prop to change the color of the border. It defaults to the `color` prop.
 
-::component-code{prefix="content"}
+__component-code{prefix="content"}
 ---
 prettier: true
 collapse: true
@@ -142,7 +142,7 @@ props:
           depth: 3
           text: Highlight
 ---
-::
+__
 
 ## Examples
 
@@ -196,7 +196,3 @@ if (!page.value) {
 ## Theme
 
 :component-theme
-
-## Changelog
-
-:component-changelog

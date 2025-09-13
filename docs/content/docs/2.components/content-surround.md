@@ -9,7 +9,7 @@ links:
     to: https://github.com/nuxt/ui/blob/v4/src/runtime/components/content/ContentSurround.vue
 ---
 
-::warning{to="/docs/getting-started/content"}
+::warning{to="/docs/guide/content-nuxt/"}
 This component is only available when the `@nuxt/content` module is installed.
 ::
 
@@ -17,19 +17,19 @@ This component is only available when the `@nuxt/content` module is installed.
 
 Use the `surround` prop with the `surround`{lang="ts-type"} value you get when fetching a page surround.
 
-::component-example
+__component-example
 ---
 name: 'content-surround-example'
 props:
   class: 'w-full'
 ---
-::
+__
 
 ### Prev / Next
 
 Use the `prev-icon` and `next-icon` props to customize the buttons @todo Icon__/docs/components/icon.
 
-::component-code{prefix="content"}
+__component-code{prefix="content"}
 ---
 prettier: true
 collapse: true
@@ -50,7 +50,7 @@ props:
     stem: 3.components/content-toc
     description: A sticky Table of Contents with customizable slots.
 ---
-::
+__
 
 ## Examples
 
@@ -101,6 +101,3 @@ if (!page.value) {
 
 :component-theme
 
-## Changelog
-
-:component-changelog

@@ -5,8 +5,11 @@ import components from '#component-example/nitro'
 
 export default defineEventHandler((event) => {
   appendHeader(event, 'Access-Control-Allow-Origin', '*')
+
   const componentName = (event.context.params?.['component?'] || '').replace(/\.json$/, '')
+
   if (componentName) {
+    // console.log(componentName)
     const component = components[pascalCase(componentName)]
     if (!component) {
       throw createError({
