@@ -165,6 +165,7 @@ export default defineNuxtConfig({
 
   componentMeta: {
     exclude: [
+      '@bitrix24/b24icons-vue',
       '@nuxt/content',
       '@nuxt/image',
       '@nuxtjs/color-mode',

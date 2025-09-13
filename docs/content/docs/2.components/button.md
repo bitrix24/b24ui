@@ -274,12 +274,16 @@ Use the `NormalCase` property to set `uppercase` for the Button.
 
 ### Props
 
-::: info
-The `Button` component extends the `Link` component. Check out the source code on [GitHub](https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Link.vue#L13).
-:::
+:component-props
 
-<ComponentProps component="Button" />
+::callout{icon-name="GitHubIcon" color="air-secondary-accent" to="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Link.vue#L13"}
+The `Button` component extends the `Link` component. Check out the source code on GitHub.
+::
 
 ### Slots
 
-<ComponentSlots component="Button" />
+:component-slots
+
+## Theme
+
+:component-theme

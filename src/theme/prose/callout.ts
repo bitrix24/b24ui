@@ -58,9 +58,10 @@ export default {
       'air-primary-warning': { base: 'style-filled-warning' },
       'air-secondary': { base: 'style-tinted' },
       'air-secondary-alert': { base: 'style-tinted-alert' },
-      'air-secondary-accent': { base: 'style-outline' },
+      'air-secondary-accent': { base: 'style-tinted-no-accent-1' },
       'air-secondary-accent-1': { base: 'style-outline-accent-1' },
       'air-secondary-accent-2': { base: 'style-outline-accent-2' },
+      'air-secondary-no-accent': { base: 'style-outline' },
       'air-tertiary': { base: 'style-outline-no-accent' }
     },
     to: {
@@ -73,6 +74,12 @@ export default {
       class: {
         base: 'hover:border-(--b24ui-border-color-hover)',
         externalIcon: 'group-hover:text-(--b24ui-icon)'
+      }
+    },
+    {
+      color: 'air-secondary-accent',
+      class: {
+        base: 'bg-(--b24ui-background)/20'
       }
     }
   ],

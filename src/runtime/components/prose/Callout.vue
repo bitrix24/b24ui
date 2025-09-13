@@ -10,6 +10,7 @@ export interface ProseCalloutProps {
   to?: LinkProps['to']
   target?: LinkProps['target']
   icon?: IconComponent
+  iconName?: string
   /**
    * @defaultValue 'air-primary'
    */
@@ -29,6 +30,7 @@ import { useAppConfig } from '#imports'
 import { tv } from '../../utils/tv'
 import icons from '../../dictionary/icons'
 import B24Link from '../Link.vue'
+import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 
 defineOptions({ inheritAttrs: false })
 
@@ -43,6 +45,18 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
 }))
 
 const target = computed(() => props.target || (!!props.to && typeof props.to === 'string' && props.to.startsWith('http') ? '_blank' : undefined))
+
+const iconFromIconName = computed(() => {
+  if (!props.iconName) {
+    return undefined
+  }
+
+  switch (props.iconName) {
+    case 'GitHubIcon': return GitHubIcon
+  }
+
+  return undefined
+})
 </script>
 
 <template>
@@ -60,6 +74,11 @@ const target = computed(() => props.target || (!!props.to && typeof props.to ===
     <Component
       :is="icon"
       v-if="icon"
+      :class="b24ui.icon({ class: props.b24ui?.icon })"
+    />
+    <Component
+      :is="iconFromIconName"
+      v-else-if="props.iconName"
       :class="b24ui.icon({ class: props.b24ui?.icon })"
     />
     <Component

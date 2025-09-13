@@ -36,8 +36,12 @@ Some data may be missing here — we will complete it shortly.
 
 ### Props
 
-<ComponentProps component="Container" />
+:component-props
 
 ### Slots
 
-<ComponentSlots component="Container" />
+:component-slots
+
+## Theme
+
+:component-theme
