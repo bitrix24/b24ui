@@ -70,6 +70,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
     :row-hover="props.rowHover"
     :rounded="props.rounded"
     :bordered="props.bordered"
+    size="sm"
   >
     <table :class="b24ui.base({ class: props.b24ui?.base })">
       <slot />
