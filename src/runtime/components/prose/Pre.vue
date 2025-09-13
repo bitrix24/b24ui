@@ -1,23 +1,23 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/prose/pre'
+import type { IconComponent } from '../../types'
 import type { ComponentConfig } from '../../types/tv'
 
 type ProsePre = ComponentConfig<typeof theme, AppConfig, 'pre', 'b24ui.prose'>
 
 export interface ProsePreProps {
-  /**
-   * The element or component this component should render as.
-   * @defaultValue 'div'
-   */
-  as?: any
+  icon?: IconComponent
+  code?: string
+  language?: string
+  filename?: string
+  highlights?: number[]
+  hideHeader?: boolean
+  meta?: string
   class?: any
   style?: any
   b24ui?: ProsePre['slots']
 }
-/**
- * @todo add Pick<Xxxx
- */
 
 export interface ProsePreSlots {
   default(props?: {}): any
@@ -26,17 +26,19 @@ export interface ProsePreSlots {
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { Primitive } from 'reka-ui'
+import { useClipboard } from '@vueuse/core'
 import { useAppConfig } from '#imports'
+import { useLocale } from '../../composables/useLocale'
 import { tv } from '../../utils/tv'
+import icons from '../../dictionary/icons'
+import B24CodeIcon from './CodeIcon.vue'
+import B24Button from '../Button.vue'
 
-defineOptions({ inheritAttrs: false })
-
-const props = withDefaults(defineProps<ProsePreProps>(), {
-  as: 'div'
-})
+const props = defineProps<ProsePreProps>()
 defineSlots<ProsePreSlots>()
 
+const { t } = useLocale()
+const { copy, copied } = useClipboard()
 const appConfig = useAppConfig() as ProsePre['AppConfig']
 
 // eslint-disable-next-line vue/no-dupe-keys
@@ -44,9 +46,39 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })" :style="props.style">
-    <pre
-      :class="b24ui.base({ class: props.b24ui?.base })"
-    ><slot /></pre>
-  </Primitive>
+  <div :class="b24ui.root({ class: [props.b24ui?.root], filename: !!filename })">
+    <div v-if="filename && !hideHeader" :class="b24ui.header({ class: props.b24ui?.header })">
+      <B24CodeIcon :icon="icon" :filename="filename" :class="b24ui.icon({ class: props.b24ui?.icon })" />
+
+      <span :class="b24ui.filename({ class: props.b24ui?.filename })">{{ filename }}</span>
+    </div>
+
+    <B24Button
+      color="air-tertiary"
+      size="sm"
+      :aria-label="t('prose.pre.copy')"
+      :class="b24ui.copy({ class: props.b24ui?.copy })"
+      tabindex="-1"
+      :icon="copied ? icons.copyCheck : icons.copy"
+      :b24ui="{
+        leadingIcon: [copied ? 'text-success' : 'text-(--ui-btn-color)']
+      }"
+      @click="copy(props.code || '')"
+    />
+
+    <pre :class="b24ui.base({ class: [props.b24ui?.base, props.class] })" v-bind="$attrs"><slot /></pre>
+  </div>
 </template>
+
+<style>
+.shiki span.line {
+  display: block;
+}
+
+.shiki span.line.highlight {
+  margin: 0 -16px;
+  padding: 0 16px;
+
+  @apply bg-(--ui-color-gray-30);
+}
+</style>

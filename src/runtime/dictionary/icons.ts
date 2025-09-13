@@ -29,6 +29,8 @@ import InfoCircleIcon from '@bitrix24/b24icons-vue/outline/InfoCircleIcon'
 import IdeaLampIcon from '@bitrix24/b24icons-vue/outline/IdeaLampIcon'
 import WarningIcon from '@bitrix24/b24icons-vue/main/WarningIcon'
 import AlertIcon from '@bitrix24/b24icons-vue/outline/AlertIcon'
+import CopyIcon from '@bitrix24/b24icons-vue/outline/CopyIcon'
+import CircleCheckIcon from '@bitrix24/b24icons-vue/outline/CircleCheckIcon'
 
 export default {
   arrowLeft: ArrowToTheLeftIcon,
@@ -56,5 +58,7 @@ export default {
   tip: IdeaLampIcon,
   info: InfoCircleIcon,
   // this for error
-  caution: AlertIcon
+  caution: AlertIcon,
+  copyCheck: CircleCheckIcon,
+  copy: CopyIcon
 }
