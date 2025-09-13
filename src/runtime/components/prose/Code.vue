@@ -7,15 +7,12 @@ type ProseCode = ComponentConfig<typeof theme, AppConfig, 'code', 'b24ui.prose'>
 
 export interface ProseCodeProps {
   /**
-   * @defaultValue 'default'
+   * @defaultValue 'air-secondary'
    */
   color?: ProseCode['variants']['color']
   class?: any
   b24ui?: ProseCode['slots']
 }
-/**
- * @todo add Pick<Xxxx
- */
 
 export interface ProseCodeSlots {
   default(props?: {}): any

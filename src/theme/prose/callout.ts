@@ -20,7 +20,7 @@ export default {
       'border-(--b24ui-border-color) border-(length:--b24ui-border-width)',
       'rounded-(--ui-border-radius-md)',
       // @todo fix this
-      '[&_code]:text-(length:--ui-font-size-4xs)/(--ui-font-line-height-reset)',
+      '[&_code]:text-(length:--ui-font-size-xs)/(--ui-font-line-height-reset)',
       '[&_code]:bg-default',
       '[&_pre]:bg-default',
       '[&>div]:my-2.5',
