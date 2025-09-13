@@ -9,7 +9,7 @@ export default {
       'my-4 p-4',
       'font-b24-system-mono font-semibold text-sm leading-4',
       'bg-black',
-      'overflow-auto rounded w-full',
+      'overflow-auto rounded-(--ui-border-radius-md) w-full',
       'text-pretty'
     ].join(' '),
     base: [

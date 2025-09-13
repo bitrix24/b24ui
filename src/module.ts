@@ -118,7 +118,7 @@ export default defineNuxtModule<ModuleOptions>({
             // 'code-icon': 'ProseCodeIcon',
             // 'code-preview': 'ProseCodePreview',
             // 'code-tree': 'ProseCodeTree',
-            // 'collapsible': 'ProseCollapsible',
+            collapsible: 'ProseCollapsible',
             // 'field': 'ProseField',
             // 'field-group': 'ProseFieldGroup',
             // 'icon': 'ProseIcon',
