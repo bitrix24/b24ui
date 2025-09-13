@@ -244,7 +244,7 @@ export default {
       useSidebar: false,
       class: {
         pageWrapper: 'px-(--content-area-shift)',
-        container: 'pb-2 lg:pt-2 lg:px-2', // px-(--content-area-shift)
+        container: '', // pb-2 lg:pt-2 lg:px-2 px-(--content-area-shift)
         contentWrapper: 'lg:pl-0'
       }
     },

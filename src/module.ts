@@ -109,26 +109,26 @@ export default defineNuxtModule<ModuleOptions>({
             // 'accordion': 'ProseAccordion',
             // 'accordion-item': 'ProseAccordionItem',
             // 'badge': 'ProseBadge',
-            callout: 'ProseCallout',
+            'callout': 'ProseCallout',
             // 'card': 'ProseCard',
             // 'card-group': 'ProseCardGroup',
-            caution: 'ProseCaution',
-            // 'code-collapse': 'ProseCodeCollapse',
+            'caution': 'ProseCaution',
+            'code-collapse': 'ProseCodeCollapse',
             // 'code-group': 'ProseCodeGroup',
             // 'code-icon': 'ProseCodeIcon',
             // 'code-preview': 'ProseCodePreview',
             // 'code-tree': 'ProseCodeTree',
-            collapsible: 'ProseCollapsible',
+            'collapsible': 'ProseCollapsible',
             // 'field': 'ProseField',
             // 'field-group': 'ProseFieldGroup',
             // 'icon': 'ProseIcon',
             // 'kbd': 'ProseKbd',
-            note: 'ProseNote',
+            'note': 'ProseNote',
             // 'steps': 'ProseSteps',
             // 'tabs': 'ProseTabs',
             // 'tabs-item': 'ProseTabsItem',
-            tip: 'ProseTip',
-            warning: 'ProseWarning'
+            'tip': 'ProseTip',
+            'warning': 'ProseWarning'
           }
         }
       })
