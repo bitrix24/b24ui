@@ -12,10 +12,31 @@ watch(framework, () => {
 </script>
 
 <template>
-  <B24FieldGroup size="xs" no-split>
+  <div class="inline-flex lg:hidden">
+    <B24DropdownMenu
+      :items="frameworks"
+      :content="{ align: 'end', side: 'bottom', sideOffset: 8 }"
+      class="w-[100px]"
+      size="sm"
+    >
+      <B24Button
+        color="air-secondary-accent"
+        use-dropdown
+        class="w-[60px]"
+        size="sm"
+        :label="value"
+      />
+    </B24DropdownMenu>
+  </div>
+  <B24FieldGroup
+    class="hidden lg:inline-flex"
+    size="sm"
+    no-split
+  >
     <B24Badge
       label="framework:"
-      color="air-secondary"
+      color="air-tertiary"
+      size="sm"
     />
     <B24DropdownMenu
       :items="frameworks"
@@ -23,7 +44,6 @@ watch(framework, () => {
       class="w-[100px]"
     >
       <B24Button
-        color="air-secondary-accent"
         use-dropdown
         class="w-[60px]"
         :label="value"

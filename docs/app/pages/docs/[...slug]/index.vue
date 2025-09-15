@@ -158,7 +158,7 @@ const iconFromIconName = (iconName?: string) => {
       <B24ContentToc
         v-if="page?.body?.toc?.links?.length"
         :links="page.body.toc.links"
-        class="pt-[12px] lg:mt-[22px] px-[22px] lg:py-[15px] lg:sticky lg:top-(--topbar-height) lg:overflow-y-auto scrollbar-thin scrollbar-transparent lg:h-[calc(100vh-var(--topbar-height)-22px-22px)] lg:rounded-(--ui-border-radius-md) style-blurred-bg bg-(--ui-color-design-outline-bg)"
+        class="pt-[12px] lg:mt-[22px] px-[22px] lg:py-[15px] lg:sticky lg:top-(--topbar-height) lg:overflow-y-auto scrollbar-thin scrollbar-transparent lg:h-[calc(100vh-var(--topbar-height)-22px-22px)] lg:rounded-(--ui-border-radius-md) backdrop-blur-md bg-(--ui-color-design-outline-na-bg) border-1 border-(--ui-color-design-outline-na-stroke)"
       />
     </template>
 

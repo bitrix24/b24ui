@@ -150,12 +150,12 @@ const urlSearchParams = computed(() => {
   <div ref="el" class="my-5">
     <template v-if="preview">
       <div
-        class="border border-(--ui-color-divider-vibrant-default) relative z-[1]"
+        class="border-(--ui-color-divider-vibrant-accent-more) border relative z-[1]"
         :class="[{ 'border-b-0 rounded-t-md': props.source, 'rounded-md': !props.source, 'overflow-hidden': props.overflowHidden }]"
       >
         <div
           v-if="props.options?.length || !!slots.options"
-          class="flex gap-4 p-4 border-b border-(--ui-color-divider-vibrant-default)"
+          class="flex gap-4 p-4 border-b border-(--ui-color-divider-vibrant-accent-more) border"
         >
           <slot name="options" />
 

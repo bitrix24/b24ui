@@ -44,9 +44,8 @@ const { links } = useSearch()
       <B24ContentSearchButton />
     </B24Tooltip -->
     <FrameworkTabs />
-    <div class="flex flex-nowrap flex-row items-center justify-end gap-[4px]">
+    <div class="hidden sm:flex flex-nowrap flex-row items-center justify-end gap-[4px]">
       <B24Button
-        class="hidden sm:inline-flex"
         aria-label="Bitrix24 REST API"
         :icon="Bitrix24Icon"
         to="https://apidocs.bitrix24.com/"
@@ -54,7 +53,6 @@ const { links } = useSearch()
         size="sm"
       />
       <B24Button
-        class="hidden sm:inline-flex"
         aria-label="Bitrix24 UI on Telegram"
         :icon="TelegramIcon"
         to="https://t.me/b24_dev"
