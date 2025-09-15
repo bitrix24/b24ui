@@ -4,6 +4,10 @@ description: 'A composable to programmatically control overlays in App.'
 ---
 # useOverlay
 
+::warning
+We are still updating this page. Some data may be missing here — we will complete it shortly.
+::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/composables/use-overlay"
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/composables/useOverlay.ts"

@@ -8,7 +8,10 @@ import SidebarLayoutExample from '/examples/sidebarlayout/SidebarLayout.vue';
 import SidebarLayoutInnerExample from '/examples/sidebarlayout/SidebarLayoutInner.vue';
 import SidebarLayoutSlideoverExample from '/examples/sidebarlayout/SidebarLayoutSlideover.vue';
 </script>
-# SidebarLayout
+
+::warning
+We are still updating this page. Some data may be missing here — we will complete it shortly.
+::
 
 <Description
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/SidebarLayout.vue"

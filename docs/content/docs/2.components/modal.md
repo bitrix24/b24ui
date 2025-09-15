@@ -20,7 +20,10 @@ import NestedModalsExample from '/examples/modal/NestedModals.vue';
 import WithBodySlotExample from '/examples/modal/WithBodySlot.vue';
 import WithFooterSlotExample from '/examples/modal/WithFooterSlot.vue';
 </script>
-# Modal
+
+::warning
+We are still updating this page. Some data may be missing here — we will complete it shortly.
+::
 
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/modal"

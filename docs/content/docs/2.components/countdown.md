@@ -8,9 +8,9 @@ import CountdownExample from '/examples/countdown/Countdown.vue';
 </script>
 # Countdown
 
-::: warning We are still updating this page
-Some data may be missing here — we will complete it shortly.
-:::
+::warning
+We are still updating this page. Some data may be missing here — we will complete it shortly.
+::
 
 <Description 
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Countdown.vue"

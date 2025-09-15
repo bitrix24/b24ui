@@ -9,6 +9,10 @@ links:
     to: https://github.com/nuxt/ui/blob/v4/src/runtime/components/content/ContentSurround.vue
 ---
 
+::warning
+We are still updating this page. Some data may be missing here — we will complete it shortly.
+::
+
 ::warning{to="/docs/guide/content-nuxt/"}
 This component is only available when the `@nuxt/content` module is installed.
 ::

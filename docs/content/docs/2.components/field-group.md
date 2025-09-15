@@ -12,7 +12,10 @@ import WithTooltipExample from '/examples/field-group/WithTooltip.vue';
 import WithDropdownMenuExample from '/examples/field-group/WithDropdownMenu.vue';
 import WithBadgeExample from '/examples/field-group/WithBadge.vue';
 </script>
-# FieldGroup
+
+::warning
+We are still updating this page. Some data may be missing here — we will complete it shortly.
+::
 
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/field-group"

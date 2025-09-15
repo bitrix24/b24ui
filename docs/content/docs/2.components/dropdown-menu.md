@@ -13,7 +13,10 @@ import WithColorItemsExample from '/examples/dropdownmenu/WithColorItems.vue';
 import ControlOpenStateExample from '/examples/dropdownmenu/ControlOpenState.vue';
 import WithCustomSlotExample from '/examples/dropdownmenu/WithCustomSlot.vue';
 </script>
-# DropdownMenu
+
+::warning
+We are still updating this page. Some data may be missing here — we will complete it shortly.
+::
 
 <Description
 nuxt-ui="https://ui3.nuxt.dev/components/dropdown-menu"

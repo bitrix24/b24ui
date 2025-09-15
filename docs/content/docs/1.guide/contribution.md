@@ -3,6 +3,10 @@ title: Contribution Guide
 description: 'A detailed guide on how to contribute to Bitrix24 UI, including insights on project structure, development workflow, and best practices.'
 ---
 
+::warning
+We are still updating this page. Some data may be missing here — we will complete it shortly.
+::
+
 The goal of this project is to provide components identical to Bitrix24 to enhance the user experience and simplify the development of applications for Bitrix24.
 
 We have chosen [Nuxt UI](https://ui.nuxt.com/) as the foundation.

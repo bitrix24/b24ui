@@ -5,6 +5,10 @@ outline: deep
 ---
 # Color Mode in Vue Application
 
+::warning
+We are still updating this page. Some data may be missing here — we will complete it shortly.
+::
+
 <Description
   nuxt-ui="https://ui3.nuxt.dev/getting-started/color-mode/vue"
 >

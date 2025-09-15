@@ -11,6 +11,10 @@ links:
     to: https://github.com/nuxt/ui/blob/v4/src/runtime/components/locale/LocaleSelect.vue
 ---
 
+::warning
+We are still updating this page. Some data may be missing here — we will complete it shortly.
+::
+
 ## Usage
 
 The LocaleSelect component extends the [SelectMenu](/docs/components/select-menu/) component, so you can pass any property such as `color`, `size`, etc.

@@ -12,9 +12,9 @@ import WithClassExample from '/examples/kbd/WithClass.vue';
 </script>
 # Keyboard Key
 
-::: warning We are still updating this page
-Some data may be missing here — we will complete it shortly.
-:::
+::warning
+We are still updating this page. Some data may be missing here — we will complete it shortly.
+::
 
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/kbd"

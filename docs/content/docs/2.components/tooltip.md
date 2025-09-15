@@ -17,9 +17,9 @@ import WithFollowingCursorExample from '/examples/tooltip/WithFollowingCursor.vu
 </script>
 # Tooltip
 
-::: warning We are still updating this page
-Some data may be missing here — we will complete it shortly.
-:::
+::warning
+We are still updating this page. Some data may be missing here — we will complete it shortly.
+::
 
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/tooltip"

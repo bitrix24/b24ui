@@ -1,7 +1,7 @@
 ---
 title: DescriptionList
 description: 'For instances requiring the conversion of a table row into its own table to enhance page completeness.'
-category: content
+category: data
 ---
 <script setup>
 import IconsExample from '/examples/descriptionlist/Icons.vue';
@@ -11,9 +11,9 @@ import CustomExample from '/examples/descriptionlist/Custom.vue';
 </script>
 # DescriptionList
 
-::: warning We are still updating this page
-Some data may be missing here — we will complete it shortly.
-:::
+::warning
+We are still updating this page. Some data may be missing here — we will complete it shortly.
+::
 
 <Description 
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/DescriptionList.vue"

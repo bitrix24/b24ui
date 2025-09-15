@@ -6,6 +6,10 @@ description: Controlling the loading mode of the SidebarLayout component
 </script>
 # useSidebarLayout
 
+::warning
+We are still updating this page. Some data may be missing here — we will complete it shortly.
+::
+
 <Description 
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/composables/useSidebarLayout.ts"
   demo="/demo/sidebar-layout"

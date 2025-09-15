@@ -20,7 +20,10 @@ import NestedSlideoverExample from '/examples/slideover/NestedSlideover.vue';
 import WithFooterSlotExample from '/examples/slideover/WithFooterSlot.vue';
 import SidebarLayoutSlideoverExample from '/examples/sidebarlayout/SidebarLayoutSlideover.vue';
 </script>
-# Slideover
+
+::warning
+We are still updating this page. Some data may be missing here — we will complete it shortly.
+::
 
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/slideover"

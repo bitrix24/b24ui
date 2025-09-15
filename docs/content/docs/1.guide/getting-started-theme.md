@@ -4,6 +4,10 @@ description: 'Learn how to customize Bitrix24 UI components using Tailwind CSS v
 outline: deep
 ---
 
+::warning
+We are still updating this page. Some data may be missing here — we will complete it shortly.
+::
+
 # Theme
 
 ::: warning We are still updating this page

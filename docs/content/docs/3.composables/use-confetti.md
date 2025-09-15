@@ -9,6 +9,10 @@ import ConfettiAtPlaceExample from '/examples/confetti/ConfettiAtPlace.vue';
 </script>
 # useConfetti
 
+::warning
+We are still updating this page. Some data may be missing here — we will complete it shortly.
+::
+
 <Description 
   git-custom="https://github.com/catdad/canvas-confetti"
   git-custom-title="canvas-confetti"

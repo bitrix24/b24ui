@@ -8,6 +8,10 @@ links:
     to: https://github.com/nuxt/ui/blob/v4/src/runtime/components/Error.vue
 ---
 
+::warning
+We are still updating this page. Some data may be missing here — we will complete it shortly.
+::
+
 ## Usage
 
 Like the @todo Main_/docs/components/main_ component, the Error component renders a `<main>` element that works together with the @todo Header__/docs/components/header component to create a full-height layout that extends to the viewport's available height.

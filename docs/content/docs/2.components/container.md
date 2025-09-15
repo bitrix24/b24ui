@@ -15,10 +15,6 @@ links:
     to: https://ui.nuxt.com/components/container
 ---
 
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
 ## Usage
 
 ::component-example

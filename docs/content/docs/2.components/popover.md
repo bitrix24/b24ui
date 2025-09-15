@@ -16,7 +16,10 @@ import WithLongTextExample from '/examples/popover/WithLongText.vue';
 import WithAnchorSlotExample from '/examples/popover/WithAnchorSlot.vue';
 import WithFollowingCursorExample from '/examples/popover/WithFollowingCursor.vue';
 </script>
-# Popover
+
+::warning
+We are still updating this page. Some data may be missing here — we will complete it shortly.
+::
 
 <Description
   nuxt-ui="https://ui3.nuxt.dev/components/popover"

@@ -4,6 +4,10 @@ description: 'Bitrix24 UI for developing web applications REST API for NUXT & VU
 ---
 # Bitrix24 UI {#getting-started}
 
+::warning
+We are still updating this page. Some data may be missing here — we will complete it shortly.
+::
+
 The goal of this project is to provide components identical to Bitrix24 to enhance the user experience and simplify the development of applications for Bitrix24.
 
 We have chosen [Nuxt UI v3](https://ui3.nuxt.dev/) as the foundation.

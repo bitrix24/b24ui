@@ -13,7 +13,10 @@ import PinnedRowsExample from '/examples/tablewrapper/PinnedRows.vue';
 import PinnedRowsColsExample from '/examples/tablewrapper/PinnedRowsCols.vue';
 import SizeExample from '/examples/tablewrapper/Size.vue';
 </script>
-# TableWrapper
+
+::warning
+We are still updating this page. Some data may be missing here — we will complete it shortly.
+::
 
 <Description
   git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/TableWrapper.vue"

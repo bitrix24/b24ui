@@ -6,6 +6,10 @@ outline: deep
 ---
 # Color Mode in Nuxt Application
 
+::warning
+We are still updating this page. Some data may be missing here — we will complete it shortly.
+::
+
 <Description
   git-custom="https://github.com/nuxt-modules/color-mode"
   git-custom-title="nuxtjs/color-mode"

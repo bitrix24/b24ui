@@ -3,6 +3,11 @@ title: LLMs.txt
 description: 'How to get AI tools like Cursor, Windsurf, GitHub Copilot, ChatGPT, and Claude to understand Bitrix24 UI components, theming, and best practices.'
 ---
 # LLMs.txt
+
+::warning
+We are still updating this page. Some data may be missing here — we will complete it shortly.
+::
+
 <Description>
   How to get AI tools like Cursor, Windsurf, GitHub Copilot, ChatGPT, and Claude to understand Bitrix24 UI components, theming, and best practices.
 </Description>

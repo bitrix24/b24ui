@@ -4,9 +4,9 @@ description: 'A Select to switch between system, dark & light mode.'
 category: color-mode
 ---
 
-::: warning We are still updating this page
-Some data may be missing here — we will complete it shortly.
-:::
+::warning
+We are still updating this page. Some data may be missing here — we will complete it shortly.
+::
 
 ## Usage
 
