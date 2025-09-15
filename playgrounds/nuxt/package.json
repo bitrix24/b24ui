@@ -11,7 +11,7 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "@bitrix24/b24icons-vue": "^2.0.2",
+    "@bitrix24/b24icons-vue": "^2.0.4",
     "@internationalized/date": "^3.9.0",
     "@bitrix24/b24ui-nuxt": "workspace:*",
     "nuxt": "^4.0.3",

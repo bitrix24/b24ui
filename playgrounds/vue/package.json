@@ -10,7 +10,7 @@
     "typecheck": "vue-tsc -p ./tsconfig.app.json"
   },
   "dependencies": {
-    "@bitrix24/b24icons-vue": "^2.0.2",
+    "@bitrix24/b24icons-vue": "^2.0.4",
     "@bitrix24/b24ui-nuxt": "workspace:*",
     "@internationalized/date": "^3.9.0",
     "vue": "^3.5.20",

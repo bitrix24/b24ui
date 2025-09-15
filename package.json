@@ -127,7 +127,7 @@
   },
   "dependencies": {
     "@ai-sdk/vue": "^2.0.9",
-    "@bitrix24/b24icons-vue": "^2.0.2",
+    "@bitrix24/b24icons-vue": "^2.0.4",
     "@bitrix24/b24style": "^1.0.1",
     "@internationalized/date": "^3.9.0",
     "@internationalized/number": "^3.6.5",
