@@ -2,32 +2,17 @@
 title: Alert
 description: An alert designed to capture the user's attention.
 category: element
+links:
+  - label: GitHub
+    iconName: GitHubIcon
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Alert.vue
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/alert
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui4.nuxt.com/docs/components/alert
 ---
-<script setup>
-import AlertExample from '/examples/alert/Alert.vue';
-import DescriptionExample from '/examples/alert/Description.vue';
-import IconExample from '/examples/alert/Icon.vue';
-import AvatarExample from '/examples/alert/Avatar.vue';
-import ColorExample from '/examples/alert/Color.vue';
-import ColorInvertedExample from '/examples/alert/ColorInverted.vue';
-import SizeExample from '/examples/alert/Size.vue';
-import CloseExample from '/examples/alert/Close.vue';
-import CloseButtonExample from '/examples/alert/CloseButton.vue';
-import ActionsExample from '/examples/alert/Actions.vue';
-import OrientationExample from '/examples/alert/Orientation.vue';
-</script>
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
-<Description
-  nuxt-ui="https://ui3.nuxt.dev/components/alert"
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Alert.vue"
-  demo="/components/alert"
->
-  An alert designed to capture the user's attention.
-</Description>
 
 ## Usage
 
@@ -35,181 +20,233 @@ We are still updating this page. Some data may be missing here — we will compl
 
 Use the `title` prop to set the title of the Alert.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <AlertExample />
-  </ClientOnly>
-</div>
-
-<<< @/examples/alert/demo/Alert.vue{vue:line-numbers}
+::component-code
+---
+props:
+  title: 'Heads up!'
+---
+::
 
 ### Description
 
 Use the `description` prop to set the description of the Alert.
 
-<div class="lg:min-h-[310px]">
-  <ClientOnly>
-    <DescriptionExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/alert/demo/Description.vue{15-16 vue:line-numbers}
-:::
+::component-code
+---
+props:
+  title: 'Heads up!'
+  description: 'We will immediately notify the manager that the deal is not progressing.'
+---
+::
 
 ### Icon
 
 Use the `icon` prop to show an [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html).
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <IconExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/alert/demo/Icon.vue{2,17 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - title
+  - description
+  - icon
+cast:
+  icon: 'TerminalIcon'
+props:
+  title: 'Heads up!'
+  description: 'We will immediately notify the manager that the deal is not progressing.'
+  icon: 'TerminalIcon'
+---
+::
 
 ### Avatar
 
 Use the `avatar` prop to show an [Avatar](/docs/components/avatar/).
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <AvatarExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/alert/demo/Avatar.vue{17,22 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - title
+  - description
+  - avatar.src
+  - avatar.size
+props:
+    title: 'Heads up!'
+    description: 'We will immediately notify the manager that the deal is not progressing.'
+    avatar.src: '/b24ui/avatar/employee.png'
+    avatar.size: 'xs'
+---
+::
 
 ### Color
 
 Use the `color` prop to change the color of the Alert.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <ColorExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/alert/demo/Color.vue{20 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - title
+  - description
+  - icon
+cast:
+  icon: 'TerminalIcon'
+props:
+  color: 'air-primary'
+  title: 'Heads up!'
+  description: 'We will immediately notify the manager that the deal is not progressing.'
+  icon: 'TerminalIcon'
+---
+::
 
 ### Inverted
 
 Use the `inverted` prop to invert the color of the Alert.
 
-::: warning
+::warning
 Only available for `air-primary*` colors
-:::
+::
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <ColorInvertedExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/alert/demo/ColorInverted.vue{22 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - title
+  - description
+  - icon
+cast:
+  icon: 'TerminalIcon'
+props:
+  inverted: true
+  color: 'air-primary'
+  title: 'Heads up!'
+  description: 'We will immediately notify the manager that the deal is not progressing.'
+  icon: 'TerminalIcon'
+---
+::
 
 ### Size
 
 Use the `size` prop to change the size of the Alert.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <SizeExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/alert/demo/Size.vue{22 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+ - title
+ - description
+ - icon
+cast:
+  icon: 'TerminalIcon'
+props:
+  size: 'md'
+  title: 'Heads up!'
+  description: 'We will immediately notify the manager that the deal is not progressing.'
+  icon: 'TerminalIcon'
+---
+::
 
 ### Close
 
 Use the `close` prop to display a [Button](/docs/components/button/) to dismiss the Alert.
 
-::: tip
+::tip
 An `update:open` event will be emitted when the close button is clicked.
-:::
+::
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <CloseExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/alert/demo/Close.vue{26,27 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - title
+  - description
+  - close
+  - color
+props:
+  close: true
+  title: 'Heads up!'
+  description: 'We will immediately notify the manager that the deal is not progressing.'
+---
+::
 
 You can pass any property from the [Button](/docs/components/button/) component to customize it.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <CloseButtonExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/alert/demo/CloseButton.vue{27 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - title
+  - description
+  - close.color
+  - color
+props:
+  title: 'Heads up!'
+  description: 'We will immediately notify the manager that the deal is not progressing.'
+  close:
+    color: 'air-primary'
+    class: 'rounded-full'
+---
+::
 
 ### Actions
 
 Use the `actions` prop to add some [Button](/docs/components/button/) actions to the Alert.
 
-<div class="lg:min-h-[290px]">
-  <ClientOnly>
-    <ActionsExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/alert/demo/Actions.vue{23 vue:line-numbers}
-:::
-
-::: details alertSimpleItems
-<<< @/examples/alert/dictionary.ts#snippetSimpleActions{ts:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - title
+  - description
+  - actions
+  - color
+props:
+  title: 'Heads up!'
+  description: 'We will immediately notify the manager that the deal is not progressing.'
+  actions:
+    - label: Action 1
+    - label: Action 2
+      color: 'air-primary'
+---
+::
 
 ### Orientation
 
 Use the `orientation` prop to change the orientation of the Alert.
 
-<div class="lg:min-h-[362px]">
-  <ClientOnly>
-    <OrientationExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/alert/demo/Orientation.vue{24 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - title
+  - actions
+  - color
+props:
+  title: 'Heads up!'
+  description: 'We will immediately notify the manager that the deal is not progressing.'
+  orientation: horizontal
+  actions:
+    - label: Action 1
+    - label: Action 2
+      color: 'air-primary'
+---
+::
 
 ## API
 
 ### Props
 
-<ComponentProps component="Alert" />
+:component-props
 
 ### Slots
 
-<ComponentSlots component="Alert" />
+:component-slots
 
 ### Emits
 
-```ts
-/**
- * Emitted events for the Alert component
- */
-interface AlertEmits {
-  update:open: (payload: [value: boolean]) => void;
-}
-```
+:component-emits
+
+## Theme
+
+:component-theme

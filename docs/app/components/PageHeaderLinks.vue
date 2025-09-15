@@ -3,6 +3,7 @@ import { withoutTrailingSlash } from 'ufo'
 import CopyIcon from '@bitrix24/b24icons-vue/outline/CopyIcon'
 import CircleCheckIcon from '@bitrix24/b24icons-vue/outline/CircleCheckIcon'
 import LinkIcon from '@bitrix24/b24icons-vue/outline/LinkIcon'
+import MarkdownIcon from '@bitrix24/b24icons-vue/file-type/MarkdownIcon'
 
 const route = useRoute()
 const toast = useToast()
@@ -25,7 +26,7 @@ const items = [
   },
   {
     label: 'View as Markdown',
-    avatar: { src: '/b24ui/avatar/markdown.svg' },
+    icon: MarkdownIcon,
     target: '_blank',
     to: `${withoutTrailingSlash(`/raw${route.path}`)}.md`
   },

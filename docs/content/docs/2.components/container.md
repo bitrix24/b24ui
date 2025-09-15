@@ -10,9 +10,8 @@ links:
     iconName: DemonstrationOnIcon
     to: https://bitrix24.github.io/b24ui/demo/components/container
   - label: Nuxt UI
-    avatar:
-      src: /b24ui/avatar/nuxtui.svg
-    to: https://ui.nuxt.com/components/container
+    iconName: NuxtIcon
+    to: https://ui4.nuxt.com/docs/components/container
 ---
 
 ## Usage

@@ -1,15 +1,14 @@
 <script setup lang="ts">
-import { upperFirst, camelCase, kebabCase } from 'scule'
+import { upperFirst, camelCase } from 'scule'
 
 const props = defineProps<{
   prose?: boolean
-  slug?: string
 }>()
 
 const route = useRoute()
 
-const camelName = camelCase(props.slug ?? route.path.split('/').filter(Boolean).pop() ?? '')
-const name = `${props.prose ? 'Prose' : 'B24'}${upperFirst(camelName)}`
+const camelName = camelCase(route.path.split('/').filter(Boolean).pop() ?? '')
+const name = props.prose ? `Prose${upperFirst(camelName)}` : `B24${upperFirst(camelName)}`
 
 const meta = await fetchComponentMeta(name as any)
 </script>
@@ -40,7 +39,7 @@ const meta = await fetchComponentMeta(name as any)
     <ProseThead>
       <ProseTr>
         <ProseTh>
-          Slot
+          Event
         </ProseTh>
         <ProseTh>
           Type
@@ -48,16 +47,14 @@ const meta = await fetchComponentMeta(name as any)
       </ProseTr>
     </ProseThead>
     <ProseTbody>
-      <ProseTr v-for="slot in (meta?.meta?.slots || [])" :key="slot.name">
+      <ProseTr v-for="event in (meta?.meta?.events || [])" :key="event.name">
         <ProseTd>
           <ProseCode>
-            {{ slot.name }}
+            {{ event.name }}
           </ProseCode>
         </ProseTd>
         <ProseTd>
-          <HighlightInlineType v-if="slot.type" :type="slot.type.replace(/b24ui:\s*\{[^}]*\}/g, 'b24ui: {}')" />
-
-          <MDC v-if="slot.description" :value="slot.description" class="text-toned mt-1" :cache-key="`${kebabCase(route.path)}-${slot.name}-description`" />
+          <HighlightInlineType v-if="event.type" :type="event.type" />
         </ProseTd>
       </ProseTr>
     </ProseTbody>

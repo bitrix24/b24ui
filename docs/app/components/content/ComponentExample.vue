@@ -193,6 +193,10 @@ const urlSearchParams = computed(() => {
           </B24FormField>
         </div>
 
+        <div
+          style="background-position: 10px 10px"
+          class="absolute inset-0 bg-grid-example [mask-image:linear-gradient(0deg,rgba(255,255,255,0.09),rgba(255,255,255,0.18))]"
+        />
         <iframe
           v-if="iframe"
           v-bind="typeof iframe === 'object' ? iframe : {}"
@@ -207,10 +211,15 @@ const urlSearchParams = computed(() => {
     </template>
 
     <template v-if="props.source">
-      <div v-if="!!slots.code" class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0">
+      <div v-if="!!slots.code" class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0 scrollbar-transparent">
         <slot name="code" />
       </div>
-      <MDCRenderer v-else-if="ast" :body="ast.body" :data="ast.data" class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0" />
+      <MDCRenderer
+        v-else-if="ast"
+        :body="ast.body"
+        :data="ast.data"
+        class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0 scrollbar-transparent"
+      />
     </template>
   </div>
 </template>
