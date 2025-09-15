@@ -20,7 +20,7 @@ export default {
       },
       false: {
         root: '[&_pre]:overflow-hidden',
-        footer: 'bg-gradient-to-t from-(--b24ui-typography-label-color)'
+        footer: 'bg-gradient-to-t from-(--ui-color-gray-04)'
       }
     }
   }
