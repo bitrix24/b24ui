@@ -141,7 +141,6 @@
     "@unhead/vue": "^2.0.14",
     "@vueuse/core": "^13.8.0",
     "@vueuse/integrations": "^13.8.0",
-    "better-sqlite3": "^12.2.0",
     "canvas-confetti": "^1.9.3",
     "colortranslator": "^5.0.0",
     "consola": "^3.4.2",

@@ -68,7 +68,7 @@ export default defineNuxtConfig({
     }
   },
 
-  ssr: true,
+  ssr: false,
 
   devtools: {
     enabled: false

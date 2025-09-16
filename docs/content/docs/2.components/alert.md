@@ -22,6 +22,7 @@ Use the `title` prop to set the title of the Alert.
 
 ::component-code
 ---
+prettier: true
 props:
   title: 'Heads up!'
 ---
@@ -33,6 +34,7 @@ Use the `description` prop to set the description of the Alert.
 
 ::component-code
 ---
+prettier: true
 props:
   title: 'Heads up!'
   description: 'We will immediately notify the manager that the deal is not progressing.'
