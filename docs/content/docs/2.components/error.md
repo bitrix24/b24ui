@@ -4,28 +4,19 @@ description: 'A pre-built error component with NuxtError support.'
 category: layout
 links:
   - label: GitHub
-    icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/blob/v4/src/runtime/components/Error.vue
+    iconName: GitHubIcon
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Error.vue
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: /docs/404
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui4.nuxt.com/docs/components/error
 ---
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
 
 ## Usage
 
-Like the @todo Main_/docs/components/main_ component, the Error component renders a `<main>` element that works together with the @todo Header__/docs/components/header component to create a full-height layout that extends to the viewport's available height.
-
-::note
-The Header component defines its height through a `--ui-header-height` CSS variable, which you can customize by overriding it in your CSS:
-
-```css
-:root {
-  --ui-header-height: --spacing(16);
-}
-```
-
-::
+The Error component renders a `<main>` element that works together with the [SidebarLayout](/docs/components/sidebar-layout/) component to create a full-height layout that extends to the viewport's available height.
 
 ### Error
 
@@ -68,11 +59,13 @@ ignore:
   - clear.size
   - clear.icon
   - clear.class
+cast:
+  clear: 'ComponentWithIcon'
 props:
   clear:
-    color: neutral
+    color: 'air-primary-alert'
     size: xl
-    icon: i-lucide-arrow-left
+    icon: 'TerminalIcon'
     class: 'rounded-full'
   error:
     statusCode: 404
@@ -96,7 +89,7 @@ ignore:
   - error.statusMessage
   - error.message
 props:
-  redirect: '/docs/getting-started'
+  redirect: '/docs/guide/getting-started/'
   error:
     statusCode: 404
     statusMessage: 'Page not found'
@@ -121,18 +114,18 @@ const props = defineProps<{
 </script>
 
 <template>
-  <UApp>
-    <UHeader />
+  <B24App>
+    <B24SidebarLayout :use-light-content="false">
 
-    <UError :error="error" />
+      <B24Error :error="error" />
 
-    <UFooter />
-  </UApp>
+    </B24SidebarLayout>
+  </B24App>
 </template>
 ```
 
 ::tip
-You might want to replicate the code of your `app.vue` inside your `error.vue` file to have the same layout and features, here is an example: <https://github.com/nuxt/ui/blob/v3/docs/app/error.vue>
+You might want to replicate the code of your `app.vue` inside your `error.vue` file to have the same layout and features, here is an example: <https://github.com/bitrix24/b24ui/blob/main/docs/app/error.vue>
 ::
 
 ::note
@@ -164,7 +157,3 @@ if (!page.value) {
 ## Theme
 
 :component-theme
-
-## Changelog
-
-:component-changelog

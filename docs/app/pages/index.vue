@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { joinURL } from 'ufo'
+import { navigateTo } from '#imports'
 import EncloseTextInCodeTagIcon from '@bitrix24/b24icons-vue/editor/EncloseTextInCodeTagIcon'
 import InfoCircleIcon from '@bitrix24/b24icons-vue/outline/InfoCircleIcon'
 
@@ -68,8 +69,28 @@ const iconFromIconName = (iconName?: string) => {
           />
         </div>
       </div>
-      <div class="col-span-12 lg:col-end-11 lg:col-span-5">
-        <PromoV1 />
+      <div class="relative col-span-12 lg:col-end-11 lg:col-span-5">
+        <ComponentExample
+          name="IndexPromoV1"
+          :source="false"
+          class="w-full"
+        />
+        <div class="mb-4 -mt-4">
+          <B24Badge
+            label="source"
+            use-link
+            color="air-tertiary"
+            @click.prevent="navigateTo({
+              path: 'https://github.com/bitrix24/b24ui/blob/main/docs/app/components/content/examples/index/IndexPromoV1.vue',
+              query: {}
+            }, {
+              external: true,
+              open: {
+                target: '_blank'
+              }
+            })"
+          />
+        </div>
       </div>
     </div>
 

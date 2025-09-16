@@ -7,7 +7,7 @@ export default {
   slots: {
     root: '',
     container: [
-      'border-b border-dashed border-b-(length:--ui-border-width-thick) border-(--ui-color-divider-vibrant-default)',
+      'border-dashed border-b-(length:--ui-border-width-thick) border-(--ui-color-divider-vibrant-default)',
       'lg:border-0',
       'flex flex-col'
     ].join(' '),

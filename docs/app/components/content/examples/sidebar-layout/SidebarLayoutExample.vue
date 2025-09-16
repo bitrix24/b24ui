@@ -1,26 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import type { SidebarLayoutInstance, SidebarLayoutProps } from '@bitrix24/b24ui-nuxt'
+import type { SidebarLayoutProps } from '@bitrix24/b24ui-nuxt'
 import RocketIcon from '@bitrix24/b24icons-vue/outline/RocketIcon'
-import OpenIn50Icon from '@bitrix24/b24icons-vue/actions/OpenIn50Icon'
 import BusinesProcessStagesIcon from '@bitrix24/b24icons-vue/outline/BusinesProcessStagesIcon'
 import MoreMIcon from '@bitrix24/b24icons-vue/outline/MoreMIcon'
 
 const checkedUseLightContent = ref(true)
-const sidebarLayoutRef = ref<SidebarLayoutInstance | null>(null)
 
 // Manage loading state
 const handleAction = async () => {
-  if (sidebarLayoutRef.value) {
-    sidebarLayoutRef.value.setLoading(true)
-
-    try {
-      // Performing an asynchronous operation
-      await new Promise(resolve => setTimeout(resolve, 2_000))
-    } finally {
-      sidebarLayoutRef.value.setLoading(false)
-    }
-  }
+  // Performing an asynchronous operation
+  await new Promise(resolve => setTimeout(resolve, 2_000))
 }
 
 // This is for demonstration purposes only
@@ -28,13 +18,13 @@ const customUIForDemo = {
   root: 'h-[400px] min-h-[400px]',
   loadingWrapper: 'h-[400px] min-h-[400px]',
   sidebar: 'relative z-[0]',
-  contentWrapper: 'lg:pl-0'
+  contentWrapper: 'lg:pl-0',
+  container: 'min-h-[calc(100vh-var(--topbar-height)-32px)]'
 } as SidebarLayoutProps['b24ui']
 </script>
 
 <template>
   <B24SidebarLayout
-    ref="sidebarLayoutRef"
     :use-light-content="checkedUseLightContent"
     :b24ui="customUIForDemo"
   >
@@ -68,17 +58,19 @@ const customUIForDemo = {
       <B24SidebarFooter>
         <!-- Navigation footer -->
         <B24SidebarSection>
-          <B24Link
-            class="text-sm mb-2 flex flex-row items-center justify-between"
-            to="https://bitrix24.github.io/b24ui/"
-            target="_blank"
-          >
-            <div>@bitrix24/b24ui</div>
-            <OpenIn50Icon class="size-4" />
-          </B24Link>
+          <B24PageLinks
+            :links="[
+              {
+                label: 'b24ui',
+                to: 'https://bitrix24.github.io/b24ui/',
+                target: '_blank'
+              }
+            ]"
+            class="mb-[12px]"
+          />
           <B24Button
             block
-            label="Use our Vue starter"
+            label="Docs"
             color="air-boost"
             size="sm"
             loading-auto
@@ -128,8 +120,8 @@ const customUIForDemo = {
     </template>
 
     <template #content-top>
-      <div class="w-full flex flex-col gap-[20px]">
-        <div class="backdrop-blur-sm backdrop-brightness-110 px-[15px] py-[10px] flex flex-col items-start justify-between gap-[20px]">
+      <div class="w-full flex flex-col gap-[20px] lg:mt-[22px]">
+        <div class="lg:rounded-(--ui-border-radius-md) lg:border-1 border-(--ui-color-design-outline-na-stroke) backdrop-blur-md bg-(--ui-color-design-outline-na-bg) p-[24px] lg:px-[22px] lg:py-[15px] flex flex-col items-start justify-between gap-[14px]">
           <div class="w-full flex flex-row items-center justify-between gap-[20px]">
             <div class="flex-1 flex flex-row items-center justify-end gap-[12px]">
               <B24Avatar
@@ -142,40 +134,35 @@ const customUIForDemo = {
                 }"
               />
               <div class="flex-1">
-                <ProseH1 class="text-(--b24ui-typography-label-color) leading-[29px] font-(--ui-font-weight-light)">
-                  Workflows
+                <!-- Page Title -->
+                <ProseH1 class="mb-0 text-(--b24ui-typography-label-color) leading-[29px] font-(--ui-font-weight-light)">
+                  Some title
                 </ProseH1>
               </div>
             </div>
-            <div class="flex-1 hidden sm:flex flex-row items-center justify-end gap-[12px]">
+            <div class="flex-1 flex flex-row items-center justify-end gap-[12px]">
               <B24DropdownMenu
                 :items="[{ label: 'Value 1' }, { label: 'Value 2' }]"
-                arrow
-                :content="{ side: 'bottom', align: 'center' }"
+                :content="{ side: 'bottom', align: 'end' }"
               >
                 <B24Button size="sm" :icon="MoreMIcon" color="air-secondary-accent" />
               </B24DropdownMenu>
             </div>
           </div>
-          <div>
-            <MockSidebarLayoutMenu orientation="horizontal" />
-          </div>
         </div>
-        <!-- Page Title -->
-        <ProseH2 class="font-semibold mb-0">
-          Some title
-        </ProseH2>
       </div>
     </template>
 
     <template #content-actions>
       <!-- Actions on page -->
-      <B24Button
-        color="air-secondary-accent"
-        label="Action"
-        loading-auto
-        @click="handleAction"
-      />
+      <div class="hidden lg:inline-flex">
+        <B24Button
+          color="air-secondary-accent"
+          label="Action"
+          loading-auto
+          @click="handleAction"
+        />
+      </div>
     </template>
 
     <!-- Main content -->
@@ -185,7 +172,7 @@ const customUIForDemo = {
 
     <template #content-bottom>
       <!-- Bottom of page -->
-      <ProseP small accent="less-more" class="px-[22px] pb-[2px]">
+      <ProseP small accent="less-more" class="mt-[12px] px-[22px] pb-[2px]">
         Footer or additional information
       </ProseP>
     </template>

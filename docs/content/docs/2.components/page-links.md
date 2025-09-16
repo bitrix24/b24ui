@@ -159,7 +159,3 @@ const links = computed<PageLink[]>(() => [{
 ## Theme
 
 :component-theme
-
-## Changelog
-
-:component-changelog

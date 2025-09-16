@@ -26,9 +26,9 @@ export default {
       // 'text-green-350'
       'group',
       'text-pretty',
-      'text-(length:--ui-font-size-sm)/[normal]',
+      'text-(length:--ui-font-size-md)/(--ui-font-line-height-md)',
       'font-[family-name:var(--ui-font-family-system-mono)]',
-      'border-(--ui-color-divider-vibrant-accent-more) border',
+      'border border-(--ui-color-divider-vibrant-accent-more)',
       'bg-(--ui-color-gray-04)',
       'rounded-(--ui-border-radius-md)',
       'px-4 py-3',

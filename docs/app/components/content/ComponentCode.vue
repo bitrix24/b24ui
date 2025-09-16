@@ -41,6 +41,15 @@ const castMap: Record<string, Cast> = {
   'TerminalIcon': {
     get: () => TerminalIcon,
     template: () => ''
+  },
+  'ComponentWithIcon': {
+    get: (args: any) => {
+      return {
+        ...args,
+        icon: (args?.icon ? TerminalIcon : undefined)
+      }
+    },
+    template: () => ''
   }
 }
 
@@ -175,6 +184,20 @@ const options = computed(() => {
 const code = computed(() => {
   let code = ''
 
+  let isUseIcon = false
+  for (const [key, value] of Object.entries(componentProps)) {
+    if (key === 'icon') {
+      isUseIcon = true
+      break
+    } else if (typeof value === 'object') {
+      const parsedValue = !props.external?.includes(key) ? value : key
+      if (parsedValue?.icon) {
+        isUseIcon = true
+        break
+      }
+    }
+  }
+
   if (props.prose) {
     code += `\`\`\`mdc
 ::${camelName}`
@@ -206,11 +229,11 @@ ${props.slots?.default}
 
   code += `\`\`\`vue${props.highlights?.length ? ` {${props.highlights.join('-')}}` : ''}`
 
-  if (props.external?.length || componentProps['icon']) {
+  if (props.external?.length || isUseIcon) {
     code += `
 <script setup lang="ts">
 `
-    if (componentProps['icon']) {
+    if (isUseIcon) {
       code += `import TerminalIcon from '@bitrix24/b24icons-vue/file-type/TerminalIcon'
 `
     }
@@ -273,9 +296,14 @@ ${props.slots?.default}
 
       code += value ? ` ${name}` : ` :${name}="false"`
     } else if (typeof value === 'object') {
-      const parsedValue = !props.external?.includes(key) ? json5.stringify(value, null, 2).replace(/,([ |\t\n]+[}|\])])/g, '$1') : key
+      const preValue = !props.external?.includes(key) ? { ...value } : key
+      if (preValue?.icon) {
+        preValue.icon = 'TerminalIcon'
+      }
 
-      code += ` :${name}="${parsedValue}"`
+      const parsedValue = !props.external?.includes(key) ? json5.stringify(preValue, null, 2).replace(/,([ |\t\n]+[}|\])])/g, '$1') : preValue
+
+      code += ` :${name}="${parsedValue.replace('\'TerminalIcon\'', 'TerminalIcon')}"`
     } else {
       if (propDefault === value) {
         continue
@@ -381,11 +409,18 @@ const { data: ast } = await useAsyncData(`component-code-${name}-${hash({ props:
       </div>
     </div>
 
-    <MDCRenderer
-      v-if="ast"
-      :body="ast.body"
-      :data="ast.data"
-      class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0"
-    />
+    <ClientOnly>
+      <MDCRenderer
+        v-if="ast"
+        :body="ast.body"
+        :data="ast.data"
+        class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0"
+      />
+      <template #fallback>
+        <div class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0">
+          <ProsePre class="text-xs">{{ { wait: 'Loading client-side content...' } }}</ProsePre>
+        </div>
+      </template>
+    </ClientOnly>
   </div>
 </template>

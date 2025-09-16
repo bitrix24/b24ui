@@ -150,7 +150,7 @@ const urlSearchParams = computed(() => {
   <div ref="el" class="my-5">
     <template v-if="preview">
       <div
-        class="border-(--ui-color-divider-vibrant-accent-more) border relative z-[1]"
+        class="border-(--ui-color-divider-vibrant-accent-more) border relative z-[1] overflow-auto"
         :class="[{ 'border-b-0 rounded-t-md': props.source, 'rounded-md': !props.source, 'overflow-hidden': props.overflowHidden }]"
       >
         <div
@@ -202,7 +202,7 @@ const urlSearchParams = computed(() => {
           v-bind="typeof iframe === 'object' ? iframe : {}"
           :src="`/examples/${name}?${urlSearchParams}`"
           class="relative w-full"
-          :class="[props.class, !iframeMobile && 'lg:left-1/2 lg:-translate-x-1/2 lg:w-[1024px]']"
+          :class="[props.class, !iframeMobile && 'lg:w-full']"
         />
         <div v-else class="flex justify-center p-4" :class="props.class">
           <component :is="camelName" v-bind="{ ...componentProps, ...optionsValues }" />

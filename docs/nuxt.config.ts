@@ -4,10 +4,14 @@ import { withoutTrailingSlash } from 'ufo'
 
 const { resolve } = createResolver(import.meta.url)
 
+/**
+ * @memo need add pages if ssr: false
+ */
 const pages = [
   '/docs/guide/getting-started/',
   '/docs/components/app/',
   '/docs/components/container/',
+  '/docs/components/error/',
   '/docs/components/advice/',
   '/docs/components/alert/',
   '/docs/components/avatar/',
@@ -68,7 +72,7 @@ export default defineNuxtConfig({
     }
   },
 
-  ssr: false,
+  ssr: true,
 
   devtools: {
     enabled: false
@@ -98,6 +102,9 @@ export default defineNuxtConfig({
         }
       }
     }
+    // watch: {
+    //   enabled: false
+    // }
   },
 
   mdc: {

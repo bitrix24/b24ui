@@ -25,9 +25,9 @@ export default {
       'flex flex-col focus:outline-none',
       'h-full'
     ].join(' '),
-    sidebarLayoutRoot: '',
-    sidebarLayoutHeaderWrapper: '',
-    sidebarLayoutPageBottomWrapper: '',
+    sidebarLayoutRoot: 'sidebarLayoutRoot relative',
+    sidebarLayoutHeaderWrapper: 'relative',
+    sidebarLayoutPageBottomWrapper: 'relative',
     sidebarLayoutLoadingWrapper: '',
     sidebarLayoutLoadingIcon: '',
     header: [
@@ -53,6 +53,7 @@ export default {
       'flex-1'
     ].join(' '),
     footer: [
+      'absolute inset-x-0 bottom-0',
       'light',
       'bg-(--popup-window-background-color)', // --ui-color-bg-content-primary
       'flex items-center justify-center gap-3',

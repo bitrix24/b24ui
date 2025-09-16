@@ -115,7 +115,3 @@ const { locale, setLocale } = useI18n()
 ### Props
 
 :component-props
-
-## Changelog
-
-:component-changelog

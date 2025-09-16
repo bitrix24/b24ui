@@ -64,7 +64,7 @@ export default {
     linkLabelExternalIcon: 'inline-block size-[16px] text-(--ui-color-design-plain-content-icon-secondary)',
     childList: 'isolate',
     childLabel: '',
-    childItem: '', // h-[36px] mt-(--menu-item-block-stack-space)
+    childItem: 'h-[36px] mt-(--menu-item-block-stack-space)',
     childLink: [
       'group relative',
       'size-full',

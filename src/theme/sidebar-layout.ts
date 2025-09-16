@@ -43,7 +43,8 @@ export default {
       'px-4 pt-3'
     ].join(' '),
     contentWrapper: [
-      'flex-1 flex flex-col'
+      'flex-1 flex flex-col',
+      'h-full'
     ].join(' '),
     header: [
       // @memo use src/runtime/air-design-tokens/components/navigation-menu.css
@@ -58,7 +59,8 @@ export default {
     ].join(' '),
     pageWrapper: [
       'flex flex-col',
-      'lg:grid lg:grid-cols-12 lg:gap-[22px]'
+      'lg:grid lg:grid-cols-12 lg:gap-[22px]',
+      'h-full'
     ].join(' '),
     container: [
       'lg:col-span-12',
@@ -131,7 +133,7 @@ export default {
         container: [
           'relative'
         ].join(' '),
-        containerWrapper: [].join(' ')
+        containerWrapper: ''
       }
     },
     offContentScrollbar: {
