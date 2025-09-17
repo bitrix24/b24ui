@@ -12,7 +12,8 @@ import ChevronToTheLeftIcon from '@bitrix24/b24icons-vue/outline/ChevronLeftLIco
 import ChevronToTheRightIcon from '@bitrix24/b24icons-vue/outline/ChevronRightLIcon'
 import DoubleShevronsRightIcon from '@bitrix24/b24icons-vue/actions/DoubleShevronsRightIcon'
 import DoubleShevronsLeftIcon from '@bitrix24/b24icons-vue/actions/DoubleShevronsLeftIcon'
-import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
+// import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
+import CrossMIcon from '@bitrix24/b24icons-vue/outline/CrossMIcon'
 import DotsIcon from '@bitrix24/b24icons-vue/button/DotsIcon'
 import OpenIn50Icon from '@bitrix24/b24icons-vue/actions/OpenIn50Icon'
 import Refresh6Icon from '@bitrix24/b24icons-vue/actions/Refresh6Icon'
@@ -42,7 +43,7 @@ export default {
   chevronLeft: ChevronToTheLeftIcon,
   chevronRight: ChevronToTheRightIcon,
   chevronUp: ChevronTopLIcon,
-  close: Cross30Icon,
+  close: CrossMIcon,
   ellipsis: DotsIcon,
   external: OpenIn50Icon,
   loading: LoaderWaitIcon,
