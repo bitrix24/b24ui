@@ -236,7 +236,6 @@ defineExpose<SlideoverInstance>({
                   :aria-label="t('slideover.close')"
                   size="lg"
                   :b24ui="{
-                    leadingIcon: 'group-hover:rounded-full group-hover:border-1 group-hover:border-current',
                     baseLine: 'ps-[4px] pe-[4px]',
                     label: 'hidden sm:flex'
                   }"
@@ -253,6 +252,7 @@ defineExpose<SlideoverInstance>({
             :b24ui="{
               root: b24ui.sidebarLayoutRoot({ class: props.b24ui?.sidebarLayoutRoot }),
               header: b24ui.sidebarLayoutHeaderWrapper({ class: props.b24ui?.sidebarLayoutHeaderWrapper }),
+              pageWrapper: b24ui.sidebarLayoutPageWrapper({ class: props.b24ui?.sidebarLayoutPageWrapper }),
               pageBottomWrapper: b24ui.sidebarLayoutPageBottomWrapper({ class: props.b24ui?.sidebarLayoutPageBottomWrapper }),
               loadingWrapper: b24ui.sidebarLayoutLoadingWrapper({ class: props.b24ui?.sidebarLayoutLoadingWrapper }),
               loadingIcon: b24ui.sidebarLayoutLoadingIcon({ class: props.b24ui?.sidebarLayoutLoadingIcon })
