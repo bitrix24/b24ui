@@ -129,7 +129,8 @@ const metaProps: ComputedRef<ComponentMeta['props']> = computed(() => {
           <HighlightInlineType v-if="prop.default" :type="prop.default" />
         </ProseTd>
         <ProseTd>
-          <HighlightInlineType v-if="prop.type" :type="prop.type" />
+          <HighlightInlineType v-if="prop.name.toLowerCase().includes('icon')" :type="'IconComponent'" />
+          <HighlightInlineType v-else-if="prop.type" :type="prop.type" />
 
           <MDC v-if="prop.description" :value="prop.description" class="text-toned mt-1" :cache-key="`${kebabCase(route.path)}-${prop.name}-description`" />
 

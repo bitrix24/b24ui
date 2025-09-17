@@ -12,7 +12,7 @@ hero:
     - label: Get started
       to: /docs/guide/installation-vue/
       class: 'vue-only'
-      color: 'air-primary-success'
+      color: 'air-secondary-accent-2'
       iconName: 'InfoCircleIcon'
     - label: Explore components
       to: /docs/components/

@@ -8,7 +8,7 @@ links:
     to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Error.vue
   - label: Demo
     iconName: DemonstrationOnIcon
-    to: /docs/404
+    to: https://bitrix24.github.io/b24ui/demo/404
   - label: Nuxt UI
     iconName: NuxtIcon
     to: https://ui4.nuxt.com/docs/components/error
@@ -65,7 +65,7 @@ props:
   clear:
     color: 'air-primary-alert'
     size: xl
-    icon: 'TerminalIcon'
+    icon: 'RocketIcon'
     class: 'rounded-full'
   error:
     statusCode: 404

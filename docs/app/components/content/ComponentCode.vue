@@ -6,7 +6,7 @@ import { hash } from 'ohash'
 import { CalendarDate } from '@internationalized/date'
 import * as theme from '#build/b24ui'
 import { get, set } from '#b24ui/utils'
-import TerminalIcon from '@bitrix24/b24icons-vue/file-type/TerminalIcon'
+import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
 
 interface Cast {
   get: (args: any) => any
@@ -38,15 +38,15 @@ const castMap: Record<string, Cast> = {
       return `{ start: new CalendarDate(${value.start.year}, ${value.start.month}, ${value.start.day}), end: new CalendarDate(${value.end.year}, ${value.end.month}, ${value.end.day}) }`
     }
   },
-  'TerminalIcon': {
-    get: () => TerminalIcon,
+  'RocketIcon': {
+    get: () => RocketIcon,
     template: () => ''
   },
   'ComponentWithIcon': {
     get: (args: any) => {
       return {
         ...args,
-        icon: (args?.icon ? TerminalIcon : undefined)
+        icon: (args?.icon ? RocketIcon : undefined)
       }
     },
     template: () => ''
@@ -128,12 +128,16 @@ const componentEvents = reactive({
   ...(componentProps.modelValue ? { [`onUpdate:modelValue`]: (e: any) => setComponentProp('modelValue', e) } : {})
 })
 
+const helperForChangeComponentProps = ref(hash({ name: name, ts: Date.now() }))
+
 function getComponentProp(name: string) {
   return get(componentProps, name) ?? undefined
 }
 
 function setComponentProp(name: string, value: any) {
   set(componentProps, name, value)
+  // Forcefully update the hash
+  helperForChangeComponentProps.value = hash({ name: name, ts: Date.now() })
 }
 
 const componentTheme = ((props.prose ? theme.prose : theme) as any)[camelName]
@@ -234,7 +238,7 @@ ${props.slots?.default}
 <script setup lang="ts">
 `
     if (isUseIcon) {
-      code += `import TerminalIcon from '@bitrix24/b24icons-vue/file-type/TerminalIcon'
+      code += `import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
 `
     }
     if (props.externalTypes?.length) {
@@ -269,7 +273,7 @@ ${props.slots?.default}
     }
 
     if (key === 'icon') {
-      code += ` :icon="TerminalIcon"`
+      code += ` :icon="RocketIcon"`
       continue
     }
 
@@ -298,12 +302,12 @@ ${props.slots?.default}
     } else if (typeof value === 'object') {
       const preValue = !props.external?.includes(key) ? { ...value } : key
       if (preValue?.icon) {
-        preValue.icon = 'TerminalIcon'
+        preValue.icon = 'RocketIcon'
       }
 
       const parsedValue = !props.external?.includes(key) ? json5.stringify(preValue, null, 2).replace(/,([ |\t\n]+[}|\])])/g, '$1') : preValue
 
-      code += ` :${name}="${parsedValue.replace('\'TerminalIcon\'', 'TerminalIcon')}"`
+      code += ` :${name}="${parsedValue.replace('\'RocketIcon\'', 'RocketIcon')}"`
     } else {
       if (propDefault === value) {
         continue
@@ -341,25 +345,29 @@ ${props.slots?.default}
   return code
 })
 
-const { data: ast } = await useAsyncData(`component-code-${name}-${hash({ props: componentProps, slots: props.slots })}`, async () => {
-  if (!props.prettier) {
-    return parseMarkdown(code.value)
-  }
+const { data: ast } = await useAsyncData(
+  `component-code-${name}-${hash({ props: componentProps, slots: props.slots })}-${helperForChangeComponentProps.value}`,
+  async () => {
+    if (!props.prettier) {
+      return parseMarkdown(code.value)
+    }
 
-  let formatted = ''
-  try {
-    formatted = await $prettier.format(code.value, {
-      trailingComma: 'none',
-      semi: false,
-      singleQuote: true,
-      printWidth: 100
-    })
-  } catch {
-    formatted = code.value
-  }
+    let formatted = ''
+    try {
+      formatted = await $prettier.format(code.value, {
+        trailingComma: 'none',
+        semi: false,
+        singleQuote: true,
+        printWidth: 100
+      })
+    } catch {
+      formatted = code.value
+    }
 
-  return parseMarkdown(formatted)
-}, { watch: [code] })
+    return parseMarkdown(formatted)
+  },
+  { watch: [code, helperForChangeComponentProps] }
+)
 </script>
 
 <template>
@@ -374,7 +382,7 @@ const { data: ast } = await useAsyncData(`component-code-${name}-${hash({ props:
             <B24Select
               v-if="option.items?.length"
               :model-value="getComponentProp(option.name)"
-              :items="option.items"
+              :items="option.name.toLowerCase().endsWith('color') ? option.items.filter((color: any): color is { value: string } => { return (color?.value || '').includes('air') }).filter(Boolean) : option.items"
               value-key="value"
               class="min-w-12"
               @update:model-value="setComponentProp(option.name, $event)"
@@ -399,28 +407,22 @@ const { data: ast } = await useAsyncData(`component-code-${name}-${hash({ props:
           style="background-position: 10px 10px"
           class="absolute inset-0 bg-grid-example [mask-image:linear-gradient(0deg,rgba(255,255,255,0.09),rgba(255,255,255,0.18))]"
         />
-        <component :is="component" v-bind="{ ...componentProps, ...componentEvents }">
-          <template v-for="slot in Object.keys(slots || {})" :key="slot" #[slot]>
-            <slot :name="slot" mdc-unwrap="p">
-              {{ slots?.[slot] }}
-            </slot>
-          </template>
-        </component>
+        <div class="isolate relative min-h-[160px] w-full h-full flex flex-col flex-nowrap justify-center items-center gap-4">
+          <component :is="component" v-bind="{ ...componentProps, ...componentEvents }">
+            <template v-for="slot in Object.keys(slots || {})" :key="slot" #[slot]>
+              <slot :name="slot" mdc-unwrap="p">
+                {{ slots?.[slot] }}
+              </slot>
+            </template>
+          </component>
+        </div>
       </div>
     </div>
-
-    <ClientOnly>
-      <MDCRenderer
-        v-if="ast"
-        :body="ast.body"
-        :data="ast.data"
-        class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0"
-      />
-      <template #fallback>
-        <div class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0">
-          <ProsePre class="text-xs">{{ { wait: 'Loading client-side content...' } }}</ProsePre>
-        </div>
-      </template>
-    </ClientOnly>
+    <MDCRenderer
+      v-if="ast"
+      :body="ast.body"
+      :data="ast.data"
+      class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0"
+    />
   </div>
 </template>

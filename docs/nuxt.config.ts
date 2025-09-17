@@ -9,9 +9,12 @@ const { resolve } = createResolver(import.meta.url)
  */
 const pages = [
   '/docs/guide/getting-started/',
+  //
   '/docs/components/app/',
+  '/docs/components/sidebar-layout/',
   '/docs/components/container/',
   '/docs/components/error/',
+  //
   '/docs/components/advice/',
   '/docs/components/alert/',
   '/docs/components/avatar/',
@@ -33,6 +36,11 @@ const pagesService = [
   '/api/countries.json',
   '/api/locales.json',
   '/404.html'
+]
+
+const pagesFrameExamples = [
+  '/examples/sidebar-layout-example/',
+  '/examples/sidebar-layout-inner-example/'
 ]
 
 export default defineNuxtConfig({
@@ -156,6 +164,7 @@ export default defineNuxtConfig({
       routes: [
         ...pages.map((page: string) => `${page}`),
         ...pages.map((page: string) => `${withoutTrailingSlash(`/raw${page}`)}.md`),
+        ...pagesFrameExamples,
         ...pagesService
       ],
       crawlLinks: true,

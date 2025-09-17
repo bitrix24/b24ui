@@ -2,70 +2,78 @@
 title: AvatarGroup
 description: Pile multiple avatars into a single group.
 category: element
+links:
+  - label: GitHub
+    iconName: GitHubIcon
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/AvatarGroup.vue
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/avatar
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui4.nuxt.com/docs/components/avatar-group
 ---
-<script setup>
-import AvatarGroupExample from '/examples/avatargroup/AvatarGroup.vue';
-import SizeExample from '/examples/avatargroup/Size.vue';
-import MaxExample from '/examples/avatargroup/Max.vue';
-import WithTooltipExample from '/examples/avatargroup/WithTooltip.vue';
-import WithChipExample from '/examples/avatargroup/WithChip.vue';
-import WithLinkExample from '/examples/avatargroup/WithLink.vue';
-</script>
-# AvatarGroup
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
-<Description
-  nuxt-ui="https://ui3.nuxt.dev/components/avatar-group"
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/AvatarGroup.vue"
-  demo="/components/avatar"
->
-  Pile multiple avatars into a single group.
-</Description>
 
 ## Usage
 
 Wrap multiple [Avatar](/docs/components/avatar/) within an AvatarGroup to stack them.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <AvatarGroupExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/avatargroup/demo/AvatarGroup.vue{2,6 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+slots:
+  default: |
+  
+    <B24Avatar src="/b24ui/avatar/employee.png" alt="Employee Name" />
+    <B24Avatar src="https://github.com/bitrix24.png" alt="Bitrix24" />
+    <B24Avatar src="/b24ui/avatar/assistant.png" alt="Assistant Name" />
+---
+:b24-avatar{src="/b24ui/avatar/employee.png" alt="Employee Name"}
+:b24-avatar{src="https://github.com/bitrix24.png" alt="Bitrix24"}
+:b24-avatar{src="/b24ui/avatar/assistant.png" alt="Assistant Name"}
+::
 
 ### Size
 
 Use the `size` prop to change the size of all the avatars.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <SizeExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+props:
+  size: xl
+slots:
+  default: |
 
-::: details
-<<< @/examples/avatargroup/demo/Size.vue{14 vue:line-numbers}
-:::
+    <B24Avatar src="/b24ui/avatar/employee.png" alt="Employee Name" />
+    <B24Avatar src="https://github.com/bitrix24.png" alt="Bitrix24" />
+    <B24Avatar src="/b24ui/avatar/assistant.png" alt="Assistant Name" />
+---
+:b24-avatar{src="/b24ui/avatar/employee.png" alt="Employee Name"}
+:b24-avatar{src="https://github.com/bitrix24.png" alt="Bitrix24"}
+:b24-avatar{src="/b24ui/avatar/assistant.png" alt="Assistant Name"}
+::
 
 ### Max
 
 Use the `max` prop to limit the number of avatars displayed. The rest is displayed as an `+X` avatar.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <MaxExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+props:
+  max: 2
+slots:
+  default: |
 
-::: details
-<<< @/examples/avatargroup/demo/Max.vue{13 vue:line-numbers}
-:::
+    <B24Avatar src="/b24ui/avatar/employee.png" alt="Employee Name" />
+    <B24Avatar src="https://github.com/bitrix24.png" alt="Bitrix24" />
+    <B24Avatar src="/b24ui/avatar/assistant.png" alt="Assistant Name" />
+---
+:b24-avatar{src="/b24ui/avatar/employee.png" alt="Employee Name"}
+:b24-avatar{src="https://github.com/bitrix24.png" alt="Bitrix24"}
+:b24-avatar{src="/b24ui/avatar/assistant.png" alt="Assistant Name"}
+::
 
 ## Examples
 
@@ -73,50 +81,40 @@ Use the `max` prop to limit the number of avatars displayed. The rest is display
 
 Wrap each avatar with a [Tooltip](/docs/components/tooltip/) to display a tooltip on hover.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithTooltipExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/avatargroup/demo/WithTooltip.vue{3,6,9 vue:line-numbers}
-:::
+:component-example{name="avatar-group-tooltip-example"}
 
 ### With chip
 
 Wrap each avatar with a [Chip](/docs/components/chip/) to display a chip around the avatar.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithChipExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/avatargroup/demo/WithChip.vue{7,13,20 vue:line-numbers}
-:::
+:component-example{name="avatar-group-chip-example"}
 
 ### With link
 
 Wrap each avatar with a [Link](/docs/components/link/) to make them clickable.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithLinkExample />
-  </ClientOnly>
-</div>
+:component-example{name="avatar-group-link-example"}
 
-::: details
-<<< @/examples/avatargroup/demo/WithLink.vue{3-8,10 vue:line-numbers}
-:::
+### With mask
+
+Wrap an avatar with a CSS mask to display it with a custom shape.
+
+:component-example{name="avatar-group-mask-example"}
+
+::warning
+The `chip` prop does not work correctly when using a mask. Chips may be cut depending on the mask shape.
+::
 
 ## API
 
 ### Props
 
-<ComponentProps component="AvatarGroup" />
+:component-props
 
 ### Slots
 
-<ComponentSlots component="AvatarGroup" />
+:component-slots
+
+## Theme
+
+:component-theme

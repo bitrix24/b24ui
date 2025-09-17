@@ -24,7 +24,7 @@ Use the `title` prop to set the title of the Alert.
 ---
 prettier: true
 props:
-  title: 'Heads up!'
+  title: Heads up!
 ---
 ::
 
@@ -36,8 +36,8 @@ Use the `description` prop to set the description of the Alert.
 ---
 prettier: true
 props:
-  title: 'Heads up!'
-  description: 'We will immediately notify the manager that the deal is not progressing.'
+  title: Heads up!
+  description: We will immediately notify the manager that the deal is not progressing.
 ---
 ::
 
@@ -53,11 +53,11 @@ ignore:
   - description
   - icon
 cast:
-  icon: 'TerminalIcon'
+  icon: 'RocketIcon'
 props:
-  title: 'Heads up!'
-  description: 'We will immediately notify the manager that the deal is not progressing.'
-  icon: 'TerminalIcon'
+  icon: 'RocketIcon'
+  title: Heads up!
+  description: We will immediately notify the manager that the deal is not progressing.
 ---
 ::
 
@@ -74,10 +74,10 @@ ignore:
   - avatar.src
   - avatar.size
 props:
-    title: 'Heads up!'
-    description: 'We will immediately notify the manager that the deal is not progressing.'
-    avatar.src: '/b24ui/avatar/employee.png'
-    avatar.size: 'xs'
+  avatar.src: '/b24ui/avatar/employee.png'
+  avatar.size: 'xs'
+  title: Heads up!
+  description: We will immediately notify the manager that the deal is not progressing.
 ---
 ::
 
@@ -93,12 +93,12 @@ ignore:
   - description
   - icon
 cast:
-  icon: 'TerminalIcon'
+  icon: 'RocketIcon'
 props:
   color: 'air-primary'
-  title: 'Heads up!'
-  description: 'We will immediately notify the manager that the deal is not progressing.'
-  icon: 'TerminalIcon'
+  title: Heads up!
+  description: We will immediately notify the manager that the deal is not progressing.
+  icon: 'RocketIcon'
 ---
 ::
 
@@ -118,13 +118,13 @@ ignore:
   - description
   - icon
 cast:
-  icon: 'TerminalIcon'
+  icon: 'RocketIcon'
 props:
   inverted: true
   color: 'air-primary'
-  title: 'Heads up!'
-  description: 'We will immediately notify the manager that the deal is not progressing.'
-  icon: 'TerminalIcon'
+  title: Heads up!
+  description: We will immediately notify the manager that the deal is not progressing.
+  icon: 'RocketIcon'
 ---
 ::
 
@@ -140,12 +140,12 @@ ignore:
  - description
  - icon
 cast:
-  icon: 'TerminalIcon'
+  icon: 'RocketIcon'
 props:
   size: 'md'
-  title: 'Heads up!'
-  description: 'We will immediately notify the manager that the deal is not progressing.'
-  icon: 'TerminalIcon'
+  title: Heads up!
+  description: We will immediately notify the manager that the deal is not progressing.
+  icon: 'RocketIcon'
 ---
 ::
 
@@ -167,8 +167,8 @@ ignore:
   - color
 props:
   close: true
-  title: 'Heads up!'
-  description: 'We will immediately notify the manager that the deal is not progressing.'
+  title: Heads up!
+  description: We will immediately notify the manager that the deal is not progressing.
 ---
 ::
 
@@ -183,8 +183,8 @@ ignore:
   - close.color
   - color
 props:
-  title: 'Heads up!'
-  description: 'We will immediately notify the manager that the deal is not progressing.'
+  title: Heads up!
+  description: We will immediately notify the manager that the deal is not progressing.
   close:
     color: 'air-primary'
     class: 'rounded-full'
@@ -204,8 +204,8 @@ ignore:
   - actions
   - color
 props:
-  title: 'Heads up!'
-  description: 'We will immediately notify the manager that the deal is not progressing.'
+  title: Heads up!
+  description: We will immediately notify the manager that the deal is not progressing.
   actions:
     - label: Action 1
     - label: Action 2
@@ -225,8 +225,8 @@ ignore:
   - actions
   - color
 props:
-  title: 'Heads up!'
-  description: 'We will immediately notify the manager that the deal is not progressing.'
+  title: Heads up!
+  description: We will immediately notify the manager that the deal is not progressing.
   orientation: horizontal
   actions:
     - label: Action 1

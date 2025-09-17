@@ -102,11 +102,43 @@ function generateTSInterface(
 function propItemHandler(propValue: any): string {
   if (!propValue?.name) return ''
   const propName = propValue.name
-  const propType = propValue.type
+  let propType = propValue.type
     ? Array.isArray(propValue.type)
       ? propValue.type.map((t: any) => t.name || t).join(' | ')
       : propValue.type.name || propValue.type
     : 'any'
+
+  /**
+   * @memo customize color property
+   * @todo test all colors
+   * @see docs/app/components/content/HighlightInlineType.vue
+   */
+  if (propName === 'color') {
+    // @todo remove whet unset default / danger / ...
+    propType = propType.replace('| undefined', '').replace('"default" | ', '').replace('"danger" | ', '').replace('"success" | ', '').replace('"warning" | ', '').replace('"primary" | ', '').replace('"secondary" | ', '').replace('"collab" | ', '').replace('"ai" | ', '').trim()
+    const priorityMap = new Map([
+      ['air-primary', 1],
+      ['air-primary-success', 2],
+      ['air-primary-alert', 3],
+      ['air-primary-warning', 4],
+      ['air-primary-copilot', 5],
+      ['air-secondary', 6],
+      ['air-secondary-alert', 7],
+      ['air-secondary-accent', 8],
+      ['air-secondary-accent-1', 9],
+      ['air-secondary-accent-2', 10],
+      ['air-tertiary', 11],
+      ['air-selection', 12]
+    ])
+    const items = propType.split(' | ').map((item: string) => item.replace(/"/g, ''))
+    const sortedItems = items.sort((a: string, b: string) => {
+      const priorityA = priorityMap.get(a) || Number.MAX_SAFE_INTEGER
+      const priorityB = priorityMap.get(b) || Number.MAX_SAFE_INTEGER
+      return priorityA - priorityB
+    })
+    propType = sortedItems.map((item: string) => `"${item}"`).join(' | ')
+  }
+
   const isRequired = propValue.required || false
   const hasDescription = propValue.description && propValue.description.trim().length > 0
   const hasDefault = propValue.default !== undefined

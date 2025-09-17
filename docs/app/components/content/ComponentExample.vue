@@ -197,15 +197,17 @@ const urlSearchParams = computed(() => {
           style="background-position: 10px 10px"
           class="absolute inset-0 bg-grid-example [mask-image:linear-gradient(0deg,rgba(255,255,255,0.09),rgba(255,255,255,0.18))]"
         />
-        <iframe
-          v-if="iframe"
-          v-bind="typeof iframe === 'object' ? iframe : {}"
-          :src="`/examples/${name}?${urlSearchParams}`"
-          class="relative w-full"
-          :class="[props.class, !iframeMobile && 'lg:w-full']"
-        />
-        <div v-else class="flex justify-center p-4" :class="props.class">
-          <component :is="camelName" v-bind="{ ...componentProps, ...optionsValues }" />
+        <div class="isolate relative min-h-[160px] w-full h-full flex flex-col flex-nowrap justify-center items-center gap-4">
+          <iframe
+            v-if="iframe"
+            v-bind="typeof iframe === 'object' ? iframe : {}"
+            :src="`/b24ui/examples/${name}/?${urlSearchParams}`"
+            class="relative w-full"
+            :class="[props.class, !iframeMobile && 'lg:w-full']"
+          />
+          <div v-else class="flex justify-center p-4" :class="props.class">
+            <component :is="camelName" v-bind="{ ...componentProps, ...optionsValues }" />
+          </div>
         </div>
       </div>
     </template>

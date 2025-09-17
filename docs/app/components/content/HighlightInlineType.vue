@@ -20,6 +20,37 @@ const type = computed(() => {
     type = type.replace('| undefined', '')
   }
 
+  /**
+   * @memo customize color property
+   * @todo test all colors
+   * @see docs/server/utils/transformMDC.ts
+   */
+  if (type.includes('air-primary')) {
+    // @todo remove whet unset default / danger / ...
+    type = type.replace('| undefined', '').replace('"default" | ', '').replace('"danger" | ', '').replace('"success" | ', '').replace('"warning" | ', '').replace('"primary" | ', '').replace('"secondary" | ', '').replace('"collab" | ', '').replace('"ai" | ', '').trim()
+    const priorityMap = new Map([
+      ['air-primary', 1],
+      ['air-primary-success', 2],
+      ['air-primary-alert', 3],
+      ['air-primary-warning', 4],
+      ['air-primary-copilot', 5],
+      ['air-secondary', 6],
+      ['air-secondary-alert', 7],
+      ['air-secondary-accent', 8],
+      ['air-secondary-accent-1', 9],
+      ['air-secondary-accent-2', 10],
+      ['air-tertiary', 11],
+      ['air-selection', 12]
+    ])
+    const items = type.split(' | ').map((item: string) => item.replace(/"/g, ''))
+    const sortedItems = items.sort((a: string, b: string) => {
+      const priorityA = priorityMap.get(a) || Number.MAX_SAFE_INTEGER
+      const priorityB = priorityMap.get(b) || Number.MAX_SAFE_INTEGER
+      return priorityA - priorityB
+    })
+    type = sortedItems.map((item: string) => `"${item}"`).join(' | ')
+  }
+
   return type
 })
 
