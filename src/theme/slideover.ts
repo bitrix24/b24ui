@@ -27,6 +27,7 @@ export default {
     ].join(' '),
     sidebarLayoutRoot: 'sidebarLayoutRoot relative',
     sidebarLayoutHeaderWrapper: 'relative',
+    sidebarLayoutPageWrapper: 'min-h-full pb-[calc(53px_+_10px)]',
     sidebarLayoutPageBottomWrapper: 'relative',
     sidebarLayoutLoadingWrapper: '',
     sidebarLayoutLoadingIcon: '',

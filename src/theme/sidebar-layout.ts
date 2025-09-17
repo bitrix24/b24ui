@@ -44,7 +44,7 @@ export default {
     ].join(' '),
     contentWrapper: [
       'flex-1 flex flex-col',
-      'h-full'
+      '' // h-full --- min-h-full
     ].join(' '),
     header: [
       // @memo use src/runtime/air-design-tokens/components/navigation-menu.css
@@ -60,7 +60,7 @@ export default {
     pageWrapper: [
       'flex flex-col',
       'lg:grid lg:grid-cols-12 lg:gap-[22px]',
-      'h-full'
+      '' // h-full ... min-h-full
     ].join(' '),
     container: [
       'lg:col-span-12',
@@ -218,7 +218,7 @@ export default {
       inner: true,
       offContentScrollbar: false,
       class: {
-        container: 'scrollbar-thin scrollbar-transparent overflow-y-scroll'
+        pageWrapper: 'scrollbar-thin scrollbar-transparent overflow-y-scroll'
       }
     },
     // endregion ////
@@ -227,7 +227,7 @@ export default {
       inner: true,
       useSidebar: [true, false],
       class: {
-        container: 'px-[20px] ps-[20px] pe-[10px] pb-[20px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[10px]'
+        pageWrapper: 'pb-[20px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[10px]'
       }
     },
     {
@@ -264,6 +264,7 @@ export default {
       inner: false,
       useNavbar: true,
       class: {
+        // pageWrapper: 'min-h-[calc(100dvh-var(--topbar-height))]', // ??
         container: 'h-auto' // min-h-[calc(100dvh-var(--topbar-height))]
       }
     },
