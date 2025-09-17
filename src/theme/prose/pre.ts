@@ -29,7 +29,7 @@ export default {
       'text-(length:--ui-font-size-md)/(--ui-font-line-height-md)',
       'font-[family-name:var(--ui-font-family-system-mono)]',
       'border border-(--ui-color-divider-vibrant-accent-more)',
-      'bg-(--ui-color-gray-04)',
+      'bg-(--ui-color-gray-03)',
       'rounded-(--ui-border-radius-md)',
       'px-4 py-3',
       'whitespace-pre-wrap',
