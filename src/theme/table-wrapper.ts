@@ -1,5 +1,5 @@
 /**
- * Content/TableWrapper
+ * TableWrapper
  * Wrapper for displaying a html table
  * ---
  * @link https://v5.daisyui.com/components/table/
@@ -40,7 +40,7 @@ export default {
         '[&>table>thead>tr>th]:text-(length:--ui-font-size-xs)/(--ui-font-line-height-2xs) [&>table>thead>tr>th]:px-2 [&>table>thead>tr>th]:py-1',
         '[&>table>tbody>tr>td]:text-(length:--ui-font-size-xs)/(--ui-font-line-height-2xs) [&>table>tbody>tr>td]:px-2 [&>table>tbody>tr>td]:py-1',
         '[&>table>tbody>tr>th]:text-(length:--ui-font-size-xs)/(--ui-font-line-height-2xs) [&>table>tbody>tr>th]:px-2 [&>table>tbody>tr>th]:py-1',
-        '[&>table>tfoot>tr>td]:text-(length:--ui-font-size-xs)/(--ui-font-line-height-2xs) [&>table>tfoot>tr>th]:px-2 [&>table>tfoot>tr>th]:py-1',
+        '[&>table>tfoot>tr>td]:text-(length:--ui-font-size-xs)/(--ui-font-line-height-2xs) [&>table>tfoot>tr>td]:px-2 [&>table>tfoot>tr>td]:py-1',
         '[&>table>tfoot>tr>th]:text-(length:--ui-font-size-xs)/(--ui-font-line-height-2xs) [&>table>tfoot>tr>th]:px-2 [&>table>tfoot>tr>th]:py-1'
       ].join(' '),
       sm: [
@@ -48,7 +48,7 @@ export default {
         '[&>table>thead>tr>th]:text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) [&>table>thead>tr>th]:px-3 [&>table>thead>tr>th]:py-2',
         '[&>table>tbody>tr>td]:text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) [&>table>tbody>tr>td]:px-3 [&>table>tbody>tr>td]:py-2',
         '[&>table>tbody>tr>th]:text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) [&>table>tbody>tr>th]:px-3 [&>table>tbody>tr>th]:py-2',
-        '[&>table>tfoot>tr>td]:text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) [&>table>tfoot>tr>th]:px-3 [&>table>tfoot>tr>th]:py-2',
+        '[&>table>tfoot>tr>td]:text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) [&>table>tfoot>tr>td]:px-3 [&>table>tfoot>tr>td]:py-2',
         '[&>table>tfoot>tr>th]:text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) [&>table>tfoot>tr>th]:px-3 [&>table>tfoot>tr>th]:py-2'
       ].join(' '),
       md: [
@@ -56,7 +56,7 @@ export default {
         '[&>table>thead>tr>th]:text-(length:--ui-font-size-md)/(--ui-font-line-height-md) [&>table>thead>tr>th]:px-4 [&>table>thead>tr>th]:py-3.5',
         '[&>table>tbody>tr>td]:text-(length:--ui-font-size-md)/(--ui-font-line-height-md) [&>table>tbody>tr>td]:px-4 [&>table>tbody>tr>td]:py-3.5',
         '[&>table>tbody>tr>th]:text-(length:--ui-font-size-md)/(--ui-font-line-height-md) [&>table>tbody>tr>th]:px-4 [&>table>tbody>tr>th]:py-3.5',
-        '[&>table>tfoot>tr>td]:text-(length:--ui-font-size-md)/(--ui-font-line-height-md) [&>table>tfoot>tr>th]:px-4 [&>table>tfoot>tr>th]:py-3.5',
+        '[&>table>tfoot>tr>td]:text-(length:--ui-font-size-md)/(--ui-font-line-height-md) [&>table>tfoot>tr>td]:px-4 [&>table>tfoot>tr>td]:py-3.5',
         '[&>table>tfoot>tr>th]:text-(length:--ui-font-size-md)/(--ui-font-line-height-md) [&>table>tfoot>tr>th]:px-4 [&>table>tfoot>tr>th]:py-3.5'
       ].join(' '),
       lg: [
@@ -64,7 +64,7 @@ export default {
         '[&>table>thead>tr>th]:text-(length:--ui-font-size-lg)/(--ui-font-line-height-lg) [&>table>thead>tr>th]:px-5 [&>table>thead>tr>th]:py-4',
         '[&>table>tbody>tr>td]:text-(length:--ui-font-size-lg)/(--ui-font-line-height-lg) [&>table>tbody>tr>td]:px-5 [&>table>tbody>tr>td]:py-4',
         '[&>table>tbody>tr>th]:text-(length:--ui-font-size-lg)/(--ui-font-line-height-lg) [&>table>tbody>tr>th]:px-5 [&>table>tbody>tr>th]:py-4',
-        '[&>table>tfoot>tr>td]:text-(length:--ui-font-size-lg)/(--ui-font-line-height-lg) [&>table>tfoot>tr>th]:px-5 [&>table>tfoot>tr>th]:py-4',
+        '[&>table>tfoot>tr>td]:text-(length:--ui-font-size-lg)/(--ui-font-line-height-lg) [&>table>tfoot>tr>td]:px-5 [&>table>tfoot>tr>td]:py-4',
         '[&>table>tfoot>tr>th]:text-(length:--ui-font-size-lg)/(--ui-font-line-height-lg) [&>table>tfoot>tr>th]:px-5 [&>table>tfoot>tr>th]:py-4'
       ].join(' ')
     },
