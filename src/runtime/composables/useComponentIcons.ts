@@ -6,7 +6,6 @@ import icons from '../dictionary/icons'
 export interface UseComponentIconsProps {
   /**
    * Display an icon on the left side.
-   * @defaultValue icons.loading
    * @IconComponent
    */
   icon?: IconComponent
