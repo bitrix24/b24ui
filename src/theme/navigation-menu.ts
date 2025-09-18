@@ -20,7 +20,7 @@ export default {
     root: 'relative flex [&>div]:min-w-0 font-[family-name:var(--ui-font-family-secondary)]',
     list: 'isolate min-w-0',
     label: [
-      'w-full h-[22px] overflow-hidden',
+      'w-full h-[22px] overflow-hidden mt-[10px]',
       'opacity-70 text-(length:--ui-font-size-sm)'
     ].join(' '),
     item: 'min-w-0',
