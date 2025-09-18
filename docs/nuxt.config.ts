@@ -20,6 +20,7 @@ const pages = [
   '/docs/components/avatar/',
   '/docs/components/avatar-group/',
   '/docs/components/badge/',
+  '/docs/components/banner/',
   '/docs/components/button/',
   '/docs/components/calendar/',
   '/docs/components/chip/',

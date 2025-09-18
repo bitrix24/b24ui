@@ -216,12 +216,20 @@ const urlSearchParams = computed(() => {
       <div v-if="!!slots.code" class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0 scrollbar-transparent">
         <slot name="code" />
       </div>
-      <MDCRenderer
-        v-else-if="ast"
-        :body="ast.body"
-        :data="ast.data"
-        class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0 scrollbar-transparent"
-      />
+      <template v-else-if="ast">
+        <ClientOnly>
+          <MDCRenderer
+            :body="ast.body"
+            :data="ast.data"
+            class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0 scrollbar-transparent"
+          />
+          <template #fallback>
+            <div class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0 scrollbar-transparent">
+              <ProsePre class="text-xs">{{ { wait: 'Loading client-side content...' } }}</ProsePre>
+            </div>
+          </template>
+        </ClientOnly>
+      </template>
     </template>
   </div>
 </template>

@@ -25,7 +25,7 @@ const type = computed(() => {
    * @todo test all colors
    * @see docs/server/utils/transformMDC.ts
    */
-  if (type.includes('air-primary')) {
+  if (type.includes('air-primary') && type.includes('air-primary-success')) {
     // @todo remove whet unset default / danger / ...
     type = type.replace('| undefined', '').replace('"default" | ', '').replace('"danger" | ', '').replace('"success" | ', '').replace('"warning" | ', '').replace('"primary" | ', '').replace('"secondary" | ', '').replace('"collab" | ', '').replace('"ai" | ', '').trim()
     const priorityMap = new Map([

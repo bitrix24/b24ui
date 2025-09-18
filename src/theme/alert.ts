@@ -19,7 +19,7 @@ export default {
       'min-w-0 flex-1 flex flex-col',
       'font-[family-name:var(--ui-font-family-primary)]'
     ].join(' '),
-    title: 'font-bold',
+    title: 'font-(--ui-font-weight-bold)',
     description: '',
     icon: 'shrink-0 size-6',
     avatar: 'shrink-0',

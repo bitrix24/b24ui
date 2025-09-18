@@ -44,12 +44,26 @@ const castMap: Record<string, Cast> = {
   },
   'ComponentWithIcon': {
     get: (args: any) => {
-      return {
-        ...args,
-        icon: (args?.icon ? RocketIcon : undefined)
+      if (Array.isArray(args)) {
+        const data = [...args]
+
+        for (const value of data) {
+          if (value?.icon) {
+            value.icon = RocketIcon
+          }
+        }
+
+        return data
+      } else {
+        return {
+          ...args,
+          icon: (args?.icon ? RocketIcon : undefined)
+        }
       }
     },
-    template: () => ''
+    template: (value: any) => {
+      return json5.stringify(value, null, 2)?.replace(/,([ |\t\n]+[}|\]])/g, '$1').replace('\'RocketIcon\'', 'RocketIcon')
+    }
   }
 }
 
@@ -195,7 +209,17 @@ const code = computed(() => {
       break
     } else if (typeof value === 'object') {
       const parsedValue = !props.external?.includes(key) ? value : key
+
       if (parsedValue?.icon) {
+        isUseIcon = true
+        break
+      }
+    }
+  }
+  if (!isUseIcon && props.external?.length) {
+    for (const [_i, key] of props.external.entries()) {
+      const parsedValue = json5.stringify(componentProps[key], null, 2)?.replace(/,([ |\t\n]+[}|\]])/g, '$1')
+      if (parsedValue?.includes('icon')) {
         isUseIcon = true
         break
       }
@@ -418,11 +442,19 @@ const { data: ast } = await useAsyncData(
         </div>
       </div>
     </div>
-    <MDCRenderer
-      v-if="ast"
-      :body="ast.body"
-      :data="ast.data"
-      class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0"
-    />
+
+    <ClientOnly>
+      <MDCRenderer
+        v-if="ast"
+        :body="ast.body"
+        :data="ast.data"
+        class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0"
+      />
+      <template #fallback>
+        <div class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0">
+          <ProsePre class="text-xs">{{ { wait: 'Loading client-side content...' } }}</ProsePre>
+        </div>
+      </template>
+    </ClientOnly>
   </div>
 </template>

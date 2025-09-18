@@ -101,7 +101,7 @@ The close button is not displayed if the `#content` slot is used as it's a part 
 
 ### Close Icon
 
-Use the `close-icon` prop to customize the close button [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html). Defaults to `Cross30Icon`.
+Use the `close-icon` prop to customize the close button [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html). Defaults to `CrossMIcon`.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>

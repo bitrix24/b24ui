@@ -144,7 +144,7 @@ Ensure to pass an array to the `default-value` prop or the `v-model` directive.
 
 ### Delete Icon
 
-With `multiple`, use the `delete-icon` prop to customize the delete icon [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html) in the badges. Defaults to `Cross30Icon`.
+With `multiple`, use the `delete-icon` prop to customize the delete icon [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html) in the badges. Defaults to `CrossMIcon`.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
