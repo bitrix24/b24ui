@@ -41,7 +41,9 @@ const pagesService = [
 
 const pagesFrameExamples = [
   '/examples/sidebar-layout-example/',
-  '/examples/sidebar-layout-inner-example/'
+  '/examples/sidebar-layout-inner-example/',
+  '/examples/banner-example/',
+  '/examples/banner-with-title-example/'
 ]
 
 export default defineNuxtConfig({
@@ -179,6 +181,8 @@ export default defineNuxtConfig({
       include: ['@internationalized/date', '@vueuse/shared', '@vueuse/integrations/useFuse', '@tanstack/vue-table', 'reka-ui', 'reka-ui/namespaced', 'embla-carousel-vue', 'embla-carousel-autoplay', 'embla-carousel-auto-scroll', 'embla-carousel-auto-height', 'embla-carousel-class-names', 'embla-carousel-fade', 'embla-carousel-wheel-gestures', 'colortranslator', 'tailwindcss/colors', 'tailwind-variants', 'ufo', 'zod', 'vaul-vue', 'scule', 'motion-v', 'json5', 'ohash', 'shiki-transformer-color-highlight']
     }
   },
+
+  // debug: true,
 
   componentMeta: {
     exclude: [

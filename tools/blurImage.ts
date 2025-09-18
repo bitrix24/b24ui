@@ -8,10 +8,11 @@ import path from 'node:path'
  * @param blurAmount Blur level (default 8)
  *
  * @example
- * `pnpm exec esno ./tools/blurImage.ts ./playground-vue/public/bg/edge-dark-v1.jpg`
- * `pnpm exec esno ./tools/blurImage.ts ./playground-vue/public/bg/edge-dark-v2.jpg`
- * `pnpm exec esno ./tools/blurImage.ts ./playground-vue/public/bg/edge-light-v1.svg`
- * `pnpm exec esno ./tools/blurImage.ts ./playground-vue/public/bg/slider-ring.png`
+ * `pnpm exec esno ./tools/blurImage.ts ./docs/public/bg/edge-dark-v1.jpg`
+ * `pnpm exec esno ./tools/blurImage.ts ./playgrounds/vue/public/bg/edge-dark-v1.jpg`
+ * `pnpm exec esno ./tools/blurImage.ts ./playgrounds/vue/public/bg/edge-dark-v2.jpg`
+ * `pnpm exec esno ./tools/blurImage.ts ./playgrounds/vue/public/bg/edge-light-v1.svg`
+ * `pnpm exec esno ./tools/blurImage.ts ./playgrounds/vue/public/bg/slider-ring.png`
  */
 async function blurImage(
   inputPath: string,

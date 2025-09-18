@@ -20,10 +20,10 @@ useHead({
   style: [],
   htmlAttrs: {
     lang: 'en'
-  },
-  bodyAttrs: {
-    class: `edge-dark`
   }
+  // bodyAttrs: {
+  //   class: `edge-dark`
+  // }
 })
 
 useServerSeoMeta({

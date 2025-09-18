@@ -103,7 +103,10 @@ Use the `close-icon` prop to customize the close button [@bitrix24/b24icons](htt
 iframe:
   style: 'height: 48px;'
 overflowHidden: true
-name: 'banner-example'
+name: 'banner-with-title-example'
+ignore:
+  - title
+  - closeIcon
 props:
   title: 'The subscription trial has ended. Subscribe to continue using all apps.'
   closeIcon: 'CircleCrossIcon'
@@ -116,7 +119,7 @@ import CircleCrossIcon from '@bitrix24/b24icons-vue/outline/CircleCrossIcon'
 </script>
 
 <template>
-  <UBanner
+  <B24Banner
     title="The subscription trial has ended. Subscribe to continue using all apps."
     close
     :close-icon="CircleCrossIcon"

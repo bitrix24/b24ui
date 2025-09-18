@@ -256,15 +256,40 @@ export const useNavigation = (navigation: Ref<ContentNavigationItem[] | undefine
     return mapContentNavigation(breadcrumb).map(({ icon, ...link }) => link)
   }
 
-  const navigationMenuByCategory = computed(() => mapContentNavigation(
-    navigationByCategory?.value ?? []
-  )?.map(item => ({
-    ...item,
-    open: true,
-    children: [
-      ...(((item?.children || []) as NavigationMenuItem[]).map(link => ({ ...link, active: link.to === route.path })))
-    ]
-  })))
+  const navigationMenuByCategory = computed(() => {
+    const data = mapContentNavigation(
+      navigationByCategory?.value ?? []
+    )?.map((item) => {
+      return {
+        ...item,
+        open: true,
+        children: [
+          ...(((item?.children || []) as NavigationMenuItem[]).map(link => ({ ...link, active: link.to === route.path })))
+        ]
+      }
+    })
+
+    const result = []
+    for (const row of data) {
+      if (row.type === 'trigger') {
+        result.push({
+          ...row,
+          type: 'label' as const,
+          open: undefined,
+          children: undefined
+        })
+
+        for (const child of row.children) {
+          result.push({
+            ...child,
+            icon: row?.icon
+          })
+        }
+      }
+    }
+
+    return result
+  })
 
   return {
     rootNavigation,

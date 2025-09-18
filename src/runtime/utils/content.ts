@@ -1,4 +1,5 @@
 import type { ContentNavigationItem } from '@nuxt/content'
+import type { IconComponent } from '#b24ui/types'
 
 type MapContentNavigationItemOptions = { labelAttribute?: string, deep?: number }
 
@@ -14,7 +15,8 @@ export function mapContentNavigationItem(item: ContentNavigationItem, options?: 
       link[mappedKey] = item[key]
     }
     return link
-  }, {} as Omit<ContentNavigationItem, 'title' | 'path'> & { label?: string, to?: string })
+    // @memo add type && icon
+  }, {} as Omit<ContentNavigationItem, 'title' | 'path'> & { label?: string, to?: string, type?: string, icon?: IconComponent })
 
   const shouldRecurse = typeof options?.deep === 'undefined' || currentDepth < options.deep
   if (shouldRecurse && Array.isArray(item.children)) {

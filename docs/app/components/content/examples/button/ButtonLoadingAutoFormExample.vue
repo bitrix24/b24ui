@@ -1,17 +1,4 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
-import type { ButtonProps } from '@bitrix24/b24ui-nuxt'
-
-export interface ExampleProps {
-  color?: ButtonProps['color']
-  size?: ButtonProps['size']
-}
-
-withDefaults(defineProps<ExampleProps>(), {
-  color: 'air-primary' as ButtonProps['color'],
-  size: 'md' as ButtonProps['size']
-})
-
 const state = reactive({ fullName: '' })
 
 async function onSubmit() {
@@ -29,14 +16,8 @@ async function validate(data: Partial<typeof state>) {
     <B24FormField name="fullName" label="Full name">
       <B24Input v-model="state.fullName" />
     </B24FormField>
-    <B24Button
-      type="submit"
-      class="mt-2"
-      :color="color"
-      :size="size"
-      use-clock
-      loading-auto
-      label="Submit"
-    />
+    <B24Button type="submit" class="mt-2" color="air-primary-success" loading-auto>
+      Submit
+    </B24Button>
   </B24Form>
 </template>

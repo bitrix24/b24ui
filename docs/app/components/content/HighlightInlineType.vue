@@ -27,7 +27,7 @@ const type = computed(() => {
    */
   if (type.includes('air-primary') && type.includes('air-primary-success')) {
     // @todo remove whet unset default / danger / ...
-    type = type.replace('| undefined', '').replace('"default" | ', '').replace('"danger" | ', '').replace('"success" | ', '').replace('"warning" | ', '').replace('"primary" | ', '').replace('"secondary" | ', '').replace('"collab" | ', '').replace('"ai" | ', '').trim()
+    type = type.replace('| undefined', '').replace('"default" | ', '').replace('"danger" | ', '').replace('"success" | ', '').replace('"warning" | ', '').replace('"primary" | ', '').replace('"secondary" | ', '').replace('"collab" | ', '').replace('"ai" | ', '').replace('"link" | ', '').trim()
     const priorityMap = new Map([
       ['air-primary', 1],
       ['air-primary-success', 2],
@@ -39,8 +39,12 @@ const type = computed(() => {
       ['air-secondary-accent', 8],
       ['air-secondary-accent-1', 9],
       ['air-secondary-accent-2', 10],
-      ['air-tertiary', 11],
-      ['air-selection', 12]
+      ['air-secondary-no-accent', 11],
+      ['air-tertiary', 12],
+      ['air-tertiary-accent', 13],
+      ['air-tertiary-no-accent', 14],
+      ['air-selection', 15],
+      ['air-boost', 16]
     ])
     const items = type.split(' | ').map((item: string) => item.replace(/"/g, ''))
     const sortedItems = items.sort((a: string, b: string) => {

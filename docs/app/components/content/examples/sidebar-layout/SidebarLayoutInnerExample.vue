@@ -100,7 +100,7 @@ const customUIInnerForDemo = {
             <B24NavbarSpacer />
           </template>
           <template #default>
-            <div class="text-(--ui-color-design-filled-market-content) max-w-[550px] mx-(--content-area-shift) px-[60px] py-[20px] rounded-[24px] bg-[#525c69]/20 flex flex-col items-center justify-center gap-[20px]">
+            <div class="mt-[22px] text-(--ui-color-design-filled-market-content) max-w-[550px] mx-(--content-area-shift) px-[60px] py-[20px] rounded-[24px] bg-[#525c69]/20 flex flex-col items-center justify-center gap-[20px]">
               <B24Avatar
                 :icon="NotificationIcon"
                 alt="Toast"

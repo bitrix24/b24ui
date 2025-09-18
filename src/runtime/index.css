@@ -32,10 +32,11 @@
     background: var(--air-theme-background);
   }
 
-  /*.--app {*/
-  /*  overflow-y: scroll;*/
-  /*  scrollbar-gutter: stable;*/
-  /*}*/
+  body {
+    overflow-y: scroll!important;
+    padding-right: 0!important;
+    scrollbar-gutter: stable;
+  }
 
   .--app[data-state="loading"] {
     overflow: hidden;

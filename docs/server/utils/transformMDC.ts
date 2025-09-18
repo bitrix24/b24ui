@@ -102,6 +102,7 @@ function generateTSInterface(
 function propItemHandler(propValue: any): string {
   if (!propValue?.name) return ''
   const propName = propValue.name
+
   let propType = propValue.type
     ? Array.isArray(propValue.type)
       ? propValue.type.map((t: any) => t.name || t).join(' | ')
@@ -109,13 +110,20 @@ function propItemHandler(propValue: any): string {
     : 'any'
 
   /**
+   * @memo remove depricate props
+   * @see docs/app/components/content/ComponentProps.vue
+   */
+  if (['depth', 'activeDepth'].includes(propName)) {
+    return ''
+  }
+  /**
    * @memo customize color property
    * @todo test all colors
    * @see docs/app/components/content/HighlightInlineType.vue
    */
   if (propName === 'color') {
     // @todo remove whet unset default / danger / ...
-    propType = propType.replace('| undefined', '').replace('"default" | ', '').replace('"danger" | ', '').replace('"success" | ', '').replace('"warning" | ', '').replace('"primary" | ', '').replace('"secondary" | ', '').replace('"collab" | ', '').replace('"ai" | ', '').trim()
+    propType = propType.replace('| undefined', '').replace('"default" | ', '').replace('"danger" | ', '').replace('"success" | ', '').replace('"warning" | ', '').replace('"primary" | ', '').replace('"secondary" | ', '').replace('"collab" | ', '').replace('"ai" | ', '').replace('"link" | ', '').trim()
     const priorityMap = new Map([
       ['air-primary', 1],
       ['air-primary-success', 2],
@@ -127,8 +135,12 @@ function propItemHandler(propValue: any): string {
       ['air-secondary-accent', 8],
       ['air-secondary-accent-1', 9],
       ['air-secondary-accent-2', 10],
-      ['air-tertiary', 11],
-      ['air-selection', 12]
+      ['air-secondary-no-accent', 11],
+      ['air-tertiary', 12],
+      ['air-tertiary-accent', 13],
+      ['air-tertiary-no-accent', 14],
+      ['air-selection', 15],
+      ['air-boost', 16]
     ])
     const items = propType.split(' | ').map((item: string) => item.replace(/"/g, ''))
     const sortedItems = items.sort((a: string, b: string) => {

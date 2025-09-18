@@ -35,7 +35,7 @@ const handleAction = async () => {
   >
     <B24Button label="Some list" color="air-boost" />
     <template #body>
-      <div class="light rounded-(--ui-border-radius-md) bg-(--ui-color-background-primary)">
+      <div class="light mt-[22px] rounded-(--ui-border-radius-md) bg-(--ui-color-background-primary)">
         <B24TableWrapper
           row-hover
           class="overflow-x-auto w-full"

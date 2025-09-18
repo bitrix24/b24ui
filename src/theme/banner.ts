@@ -33,6 +33,8 @@ export default {
     ].join(' '),
     actions: 'flex gap-1.5 shrink-0 isolate',
     close: [
+      // @todo fix this - may be change color for btn
+      'text-(--b24ui-color)',
       // 'text-inverted',
       // 'hover:bg-default/10',
       // 'focus-visible:bg-default/10',
