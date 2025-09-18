@@ -43,8 +43,7 @@ export default {
       'px-4 pt-3'
     ].join(' '),
     contentWrapper: [
-      'flex-1 flex flex-col',
-      '' // h-full --- min-h-full
+      'flex-1 flex flex-col' // h-full --- min-h-full
     ].join(' '),
     header: [
       // @memo use src/runtime/air-design-tokens/components/navigation-menu.css
@@ -59,8 +58,7 @@ export default {
     ].join(' '),
     pageWrapper: [
       'flex flex-col',
-      'lg:grid lg:grid-cols-12 lg:gap-[22px]',
-      '' // h-full ... min-h-full
+      'lg:grid lg:grid-cols-12 lg:gap-[22px]' // h-full ... min-h-full
     ].join(' '),
     container: [
       'lg:col-span-12',
@@ -121,11 +119,11 @@ export default {
       false: {
         root: [
           '--app',
-          'h-screen min-h-screen',
+          // 'h-screen min-h-screen',
           'max-lg:flex-col'
         ].join(' '),
         sidebar: [
-          'fixed'
+          'h-screen lg:sticky' // 'fixed'
         ].join(' '),
         header: [
           'relative'
@@ -218,7 +216,8 @@ export default {
       inner: true,
       offContentScrollbar: false,
       class: {
-        pageWrapper: 'scrollbar-thin scrollbar-transparent overflow-y-scroll'
+        // pageWrapper: 'scrollbar-thin scrollbar-transparent overflow-y-scroll'
+        // root: 'scrollbar-thin scrollbar-transparent' //  overflow-y-scroll
       }
     },
     // endregion ////
@@ -239,7 +238,7 @@ export default {
         header: 'px-[calc(var(--content-area-shift)-10px)] lg:px-(--content-area-shift)',
         pageWrapper: 'lg:px-(--content-area-shift)',
         container: '', // lg:mx-(--content-area-shift)
-        contentWrapper: 'lg:pl-[240px] '
+        contentWrapper: '' // 'lg:pl-[240px] '
       }
     },
     {

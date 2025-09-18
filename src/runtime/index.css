@@ -32,10 +32,10 @@
     background: var(--air-theme-background);
   }
 
-  .--app {
-    overflow-y: scroll;
-    scrollbar-gutter: stable;
-  }
+  /*.--app {*/
+  /*  overflow-y: scroll;*/
+  /*  scrollbar-gutter: stable;*/
+  /*}*/
 
   .--app[data-state="loading"] {
     overflow: hidden;
