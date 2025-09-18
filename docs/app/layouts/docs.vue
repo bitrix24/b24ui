@@ -17,6 +17,11 @@ const { navigationMenuByCategory } = useNavigation(navigation!)
 </script>
 
 <template>
+  <B24Banner
+    color="air-primary-copilot"
+    title="New component B24Banner"
+    to="/docs/components/banner/"
+  />
   <B24SidebarLayout
     :use-light-content="true"
   >
@@ -50,7 +55,6 @@ const { navigationMenuByCategory } = useNavigation(navigation!)
     <template v-if="slots['header']" #content-top>
       <slot name="header" />
     </template>
-
     <template v-if="slots['right']" #content-right>
       <slot name="right" />
     </template>
