@@ -890,7 +890,7 @@ exports[`NavigationMenu > renders with orientation vertical correctly 1`] = `
 "<nav data-collapsed="false" class="relative flex [&amp;>div]:min-w-0 font-[family-name:var(--ui-font-family-secondary)] flex-col w-full ps-(--menu-items-block-padding-x) rtl:pe-(--menu-items-block-padding-x)" data-slot="section" aria-label="Main" data-orientation="vertical" dir="ltr" data-reka-navigation-menu="">
   <ul class="isolate min-w-0 flex flex-col">
     <li data-state="closed" data-orientation="vertical" class="min-w-0 mt-(--menu-item-block-stack-space) data-[state=open]:rounded-(--menu-item-border-radius) data-[state=open]:border-(length:--leftmenu-group-stroke-weight) data-[state=open]:border-(--leftmenu-group-stroke) data-[state=open]:bg-(--leftmenu-group-bg)">
-      <div class="w-full h-[22px] overflow-hidden opacity-70 text-(length:--ui-font-size-sm)"><span class="flex items-center justify-between rtl:flex-row-reverse relative"><!--v-if--><!--v-if--><!--v-if--><span class="truncate -mt-px ms-[9px]">Links</span>
+      <div class="w-full h-[22px] overflow-hidden mt-[10px] opacity-70 text-(length:--ui-font-size-sm)"><span class="flex items-center justify-between rtl:flex-row-reverse relative"><!--v-if--><!--v-if--><!--v-if--><span class="truncate -mt-px ms-[9px]">Links</span>
         <!--v-if--></span>
         <!--v-if-->
       </div>

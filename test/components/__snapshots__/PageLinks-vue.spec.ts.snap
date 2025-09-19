@@ -296,7 +296,7 @@ exports[`PageLinks > renders with links correctly 1`] = `
 
 exports[`PageLinks > renders with title correctly 1`] = `
 "<nav class="flex flex-col gap-[12px]">
-  <p class="text-(--b24ui-typography-label-color) text-(length:--ui-font-size-md) leading-(--ui-font-line-height-md) font-(--ui-font-weight-semi-bold) flex items-center gap-[6px]">Resources</p>
+  <p class="text-(--b24ui-typography-legend-color) text-(length:--ui-font-size-md) leading-(--ui-font-line-height-md) font-(--ui-font-weight-semi-bold) flex items-center gap-[6px]">Resources</p>
   <ul class="flex flex-col gap-[8px]">
     <li class="relative"><a href="/docs" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-accent-main-link) hover:text-(--ui-color-accent-main-primary-alt)">
         <div class="flex items-center gap-[6px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
@@ -338,7 +338,7 @@ exports[`PageLinks > renders with title correctly 1`] = `
 
 exports[`PageLinks > renders with title slot correctly 1`] = `
 "<nav class="flex flex-col gap-[12px]">
-  <p class="text-(--b24ui-typography-label-color) text-(length:--ui-font-size-md) leading-(--ui-font-line-height-md) font-(--ui-font-weight-semi-bold) flex items-center gap-[6px]">Title slot</p>
+  <p class="text-(--b24ui-typography-legend-color) text-(length:--ui-font-size-md) leading-(--ui-font-line-height-md) font-(--ui-font-weight-semi-bold) flex items-center gap-[6px]">Title slot</p>
   <ul class="flex flex-col gap-[8px]">
     <li class="relative"><a href="/docs" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-accent-main-link) hover:text-(--ui-color-accent-main-primary-alt)">
         <div class="flex items-center gap-[6px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">

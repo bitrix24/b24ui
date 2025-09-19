@@ -2,9 +2,9 @@
 
 exports[`Error > renders with as correctly 1`] = `
 "<div class="min-h-[calc(100vh-var(--topbar-height))] flex flex-col items-center justify-center text-center">
-  <p class="text-base font-semibold text-(--b24ui-typography-legend-color)">404</p>
-  <h1 class="mt-2 text-4xl sm:text-5xl font-bold text-(--b24ui-typography-label-color) text-balance">Not Found</h1>
-  <p class="mt-4 text-lg text-(--b24ui-typography-description-color) text-balance">The page you are looking for does not exist.</p>
+  <p class="text-(length:--ui-font-size-sm) font-(--ui-font-weight-semibold) text-(--b24ui-typography-legend-color)">404</p>
+  <h1 class="mt-2 text-(length:--ui-font-size-4xl)/(--ui-font-line-height-md) sm:text-(length:--ui-font-size-5xl)/(--ui-font-line-height-md) font-(--ui-font-weight-bold) text-(--b24ui-typography-label-color) text-balance">Not Found</h1>
+  <p class="mt-4 text-(length:--ui-font-size-2xl)/(--ui-font-line-height-md) text-(--b24ui-typography-description-color) text-balance">The page you are looking for does not exist.</p>
   <div class="mt-8 flex items-center justify-center gap-6"><button type="button" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
       <div class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right)">
@@ -17,9 +17,9 @@ exports[`Error > renders with as correctly 1`] = `
 
 exports[`Error > renders with b24ui correctly 1`] = `
 "<main class="min-h-[calc(100vh-var(--topbar-height))] flex flex-col items-center justify-center text-center">
-  <p class="text-base font-semibold text-(--b24ui-typography-legend-color)">404</p>
-  <h1 class="mt-2 text-4xl sm:text-5xl font-bold text-(--b24ui-typography-label-color) text-balance">Not Found</h1>
-  <p class="mt-4 text-lg text-(--b24ui-typography-description-color) text-balance">The page you are looking for does not exist.</p>
+  <p class="text-(length:--ui-font-size-sm) font-(--ui-font-weight-semibold) text-(--b24ui-typography-legend-color)">404</p>
+  <h1 class="mt-2 text-(length:--ui-font-size-4xl)/(--ui-font-line-height-md) sm:text-(length:--ui-font-size-5xl)/(--ui-font-line-height-md) font-(--ui-font-weight-bold) text-(--b24ui-typography-label-color) text-balance">Not Found</h1>
+  <p class="mt-4 text-(length:--ui-font-size-2xl)/(--ui-font-line-height-md) text-(--b24ui-typography-description-color) text-balance">The page you are looking for does not exist.</p>
   <div class="flex items-center justify-center gap-6 mt-16"><button type="button" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
       <div class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right)">
@@ -32,9 +32,9 @@ exports[`Error > renders with b24ui correctly 1`] = `
 
 exports[`Error > renders with class correctly 1`] = `
 "<main class="flex flex-col items-center justify-center text-center min-h-full">
-  <p class="text-base font-semibold text-(--b24ui-typography-legend-color)">404</p>
-  <h1 class="mt-2 text-4xl sm:text-5xl font-bold text-(--b24ui-typography-label-color) text-balance">Not Found</h1>
-  <p class="mt-4 text-lg text-(--b24ui-typography-description-color) text-balance">The page you are looking for does not exist.</p>
+  <p class="text-(length:--ui-font-size-sm) font-(--ui-font-weight-semibold) text-(--b24ui-typography-legend-color)">404</p>
+  <h1 class="mt-2 text-(length:--ui-font-size-4xl)/(--ui-font-line-height-md) sm:text-(length:--ui-font-size-5xl)/(--ui-font-line-height-md) font-(--ui-font-weight-bold) text-(--b24ui-typography-label-color) text-balance">Not Found</h1>
+  <p class="mt-4 text-(length:--ui-font-size-2xl)/(--ui-font-line-height-md) text-(--b24ui-typography-description-color) text-balance">The page you are looking for does not exist.</p>
   <div class="mt-8 flex items-center justify-center gap-6"><button type="button" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
       <div class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right)">
@@ -47,9 +47,9 @@ exports[`Error > renders with class correctly 1`] = `
 
 exports[`Error > renders with clear correctly 1`] = `
 "<main class="min-h-[calc(100vh-var(--topbar-height))] flex flex-col items-center justify-center text-center">
-  <p class="text-base font-semibold text-(--b24ui-typography-legend-color)">404</p>
-  <h1 class="mt-2 text-4xl sm:text-5xl font-bold text-(--b24ui-typography-label-color) text-balance">Not Found</h1>
-  <p class="mt-4 text-lg text-(--b24ui-typography-description-color) text-balance">The page you are looking for does not exist.</p>
+  <p class="text-(length:--ui-font-size-sm) font-(--ui-font-weight-semibold) text-(--b24ui-typography-legend-color)">404</p>
+  <h1 class="mt-2 text-(length:--ui-font-size-4xl)/(--ui-font-line-height-md) sm:text-(length:--ui-font-size-5xl)/(--ui-font-line-height-md) font-(--ui-font-weight-bold) text-(--b24ui-typography-label-color) text-balance">Not Found</h1>
+  <p class="mt-4 text-(length:--ui-font-size-2xl)/(--ui-font-line-height-md) text-(--b24ui-typography-description-color) text-balance">The page you are looking for does not exist.</p>
   <div class="mt-8 flex items-center justify-center gap-6"><button type="button" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
       <div class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right)">
@@ -62,9 +62,9 @@ exports[`Error > renders with clear correctly 1`] = `
 
 exports[`Error > renders with default slot correctly 1`] = `
 "<main class="min-h-[calc(100vh-var(--topbar-height))] flex flex-col items-center justify-center text-center">
-  <p class="text-base font-semibold text-(--b24ui-typography-legend-color)">404</p>
-  <h1 class="mt-2 text-4xl sm:text-5xl font-bold text-(--b24ui-typography-label-color) text-balance">Not Found</h1>
-  <p class="mt-4 text-lg text-(--b24ui-typography-description-color) text-balance">The page you are looking for does not exist.</p>
+  <p class="text-(length:--ui-font-size-sm) font-(--ui-font-weight-semibold) text-(--b24ui-typography-legend-color)">404</p>
+  <h1 class="mt-2 text-(length:--ui-font-size-4xl)/(--ui-font-line-height-md) sm:text-(length:--ui-font-size-5xl)/(--ui-font-line-height-md) font-(--ui-font-weight-bold) text-(--b24ui-typography-label-color) text-balance">Not Found</h1>
+  <p class="mt-4 text-(length:--ui-font-size-2xl)/(--ui-font-line-height-md) text-(--b24ui-typography-description-color) text-balance">The page you are looking for does not exist.</p>
   <div class="mt-8 flex items-center justify-center gap-6"><button type="button" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
       <div class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right)">
@@ -77,9 +77,9 @@ exports[`Error > renders with default slot correctly 1`] = `
 
 exports[`Error > renders with error correctly 1`] = `
 "<main class="min-h-[calc(100vh-var(--topbar-height))] flex flex-col items-center justify-center text-center">
-  <p class="text-base font-semibold text-(--b24ui-typography-legend-color)">404</p>
-  <h1 class="mt-2 text-4xl sm:text-5xl font-bold text-(--b24ui-typography-label-color) text-balance">Not Found</h1>
-  <p class="mt-4 text-lg text-(--b24ui-typography-description-color) text-balance">The page you are looking for does not exist.</p>
+  <p class="text-(length:--ui-font-size-sm) font-(--ui-font-weight-semibold) text-(--b24ui-typography-legend-color)">404</p>
+  <h1 class="mt-2 text-(length:--ui-font-size-4xl)/(--ui-font-line-height-md) sm:text-(length:--ui-font-size-5xl)/(--ui-font-line-height-md) font-(--ui-font-weight-bold) text-(--b24ui-typography-label-color) text-balance">Not Found</h1>
+  <p class="mt-4 text-(length:--ui-font-size-2xl)/(--ui-font-line-height-md) text-(--b24ui-typography-description-color) text-balance">The page you are looking for does not exist.</p>
   <div class="mt-8 flex items-center justify-center gap-6"><button type="button" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
       <div class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right)">
@@ -92,18 +92,18 @@ exports[`Error > renders with error correctly 1`] = `
 
 exports[`Error > renders with links slot correctly 1`] = `
 "<main class="min-h-[calc(100vh-var(--topbar-height))] flex flex-col items-center justify-center text-center">
-  <p class="text-base font-semibold text-(--b24ui-typography-legend-color)">404</p>
-  <h1 class="mt-2 text-4xl sm:text-5xl font-bold text-(--b24ui-typography-label-color) text-balance">Not Found</h1>
-  <p class="mt-4 text-lg text-(--b24ui-typography-description-color) text-balance">The page you are looking for does not exist.</p>
+  <p class="text-(length:--ui-font-size-sm) font-(--ui-font-weight-semibold) text-(--b24ui-typography-legend-color)">404</p>
+  <h1 class="mt-2 text-(length:--ui-font-size-4xl)/(--ui-font-line-height-md) sm:text-(length:--ui-font-size-5xl)/(--ui-font-line-height-md) font-(--ui-font-weight-bold) text-(--b24ui-typography-label-color) text-balance">Not Found</h1>
+  <p class="mt-4 text-(length:--ui-font-size-2xl)/(--ui-font-line-height-md) text-(--b24ui-typography-description-color) text-balance">The page you are looking for does not exist.</p>
   <div class="mt-8 flex items-center justify-center gap-6">Links slot</div>
 </main>"
 `;
 
 exports[`Error > renders with message slot correctly 1`] = `
 "<main class="min-h-[calc(100vh-var(--topbar-height))] flex flex-col items-center justify-center text-center">
-  <p class="text-base font-semibold text-(--b24ui-typography-legend-color)">404</p>
-  <h1 class="mt-2 text-4xl sm:text-5xl font-bold text-(--b24ui-typography-label-color) text-balance">Not Found</h1>
-  <p class="mt-4 text-lg text-(--b24ui-typography-description-color) text-balance">Message slot</p>
+  <p class="text-(length:--ui-font-size-sm) font-(--ui-font-weight-semibold) text-(--b24ui-typography-legend-color)">404</p>
+  <h1 class="mt-2 text-(length:--ui-font-size-4xl)/(--ui-font-line-height-md) sm:text-(length:--ui-font-size-5xl)/(--ui-font-line-height-md) font-(--ui-font-weight-bold) text-(--b24ui-typography-label-color) text-balance">Not Found</h1>
+  <p class="mt-4 text-(length:--ui-font-size-2xl)/(--ui-font-line-height-md) text-(--b24ui-typography-description-color) text-balance">Message slot</p>
   <div class="mt-8 flex items-center justify-center gap-6"><button type="button" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
       <div class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right)">
@@ -116,9 +116,9 @@ exports[`Error > renders with message slot correctly 1`] = `
 
 exports[`Error > renders with redirect correctly 1`] = `
 "<main class="min-h-[calc(100vh-var(--topbar-height))] flex flex-col items-center justify-center text-center">
-  <p class="text-base font-semibold text-(--b24ui-typography-legend-color)">404</p>
-  <h1 class="mt-2 text-4xl sm:text-5xl font-bold text-(--b24ui-typography-label-color) text-balance">Not Found</h1>
-  <p class="mt-4 text-lg text-(--b24ui-typography-description-color) text-balance">The page you are looking for does not exist.</p>
+  <p class="text-(length:--ui-font-size-sm) font-(--ui-font-weight-semibold) text-(--b24ui-typography-legend-color)">404</p>
+  <h1 class="mt-2 text-(length:--ui-font-size-4xl)/(--ui-font-line-height-md) sm:text-(length:--ui-font-size-5xl)/(--ui-font-line-height-md) font-(--ui-font-weight-bold) text-(--b24ui-typography-label-color) text-balance">Not Found</h1>
+  <p class="mt-4 text-(length:--ui-font-size-2xl)/(--ui-font-line-height-md) text-(--b24ui-typography-description-color) text-balance">The page you are looking for does not exist.</p>
   <div class="mt-8 flex items-center justify-center gap-6"><button type="button" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
       <div class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right)">
@@ -131,9 +131,9 @@ exports[`Error > renders with redirect correctly 1`] = `
 
 exports[`Error > renders with statusCode slot correctly 1`] = `
 "<main class="min-h-[calc(100vh-var(--topbar-height))] flex flex-col items-center justify-center text-center">
-  <p class="text-base font-semibold text-(--b24ui-typography-legend-color)">Status code slot</p>
-  <h1 class="mt-2 text-4xl sm:text-5xl font-bold text-(--b24ui-typography-label-color) text-balance">Not Found</h1>
-  <p class="mt-4 text-lg text-(--b24ui-typography-description-color) text-balance">The page you are looking for does not exist.</p>
+  <p class="text-(length:--ui-font-size-sm) font-(--ui-font-weight-semibold) text-(--b24ui-typography-legend-color)">Status code slot</p>
+  <h1 class="mt-2 text-(length:--ui-font-size-4xl)/(--ui-font-line-height-md) sm:text-(length:--ui-font-size-5xl)/(--ui-font-line-height-md) font-(--ui-font-weight-bold) text-(--b24ui-typography-label-color) text-balance">Not Found</h1>
+  <p class="mt-4 text-(length:--ui-font-size-2xl)/(--ui-font-line-height-md) text-(--b24ui-typography-description-color) text-balance">The page you are looking for does not exist.</p>
   <div class="mt-8 flex items-center justify-center gap-6"><button type="button" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
       <div class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right)">
@@ -146,9 +146,9 @@ exports[`Error > renders with statusCode slot correctly 1`] = `
 
 exports[`Error > renders with statusMessage slot correctly 1`] = `
 "<main class="min-h-[calc(100vh-var(--topbar-height))] flex flex-col items-center justify-center text-center">
-  <p class="text-base font-semibold text-(--b24ui-typography-legend-color)">404</p>
-  <h1 class="mt-2 text-4xl sm:text-5xl font-bold text-(--b24ui-typography-label-color) text-balance">Status message slot</h1>
-  <p class="mt-4 text-lg text-(--b24ui-typography-description-color) text-balance">The page you are looking for does not exist.</p>
+  <p class="text-(length:--ui-font-size-sm) font-(--ui-font-weight-semibold) text-(--b24ui-typography-legend-color)">404</p>
+  <h1 class="mt-2 text-(length:--ui-font-size-4xl)/(--ui-font-line-height-md) sm:text-(length:--ui-font-size-5xl)/(--ui-font-line-height-md) font-(--ui-font-weight-bold) text-(--b24ui-typography-label-color) text-balance">Status message slot</h1>
+  <p class="mt-4 text-(length:--ui-font-size-2xl)/(--ui-font-line-height-md) text-(--b24ui-typography-description-color) text-balance">The page you are looking for does not exist.</p>
   <div class="mt-8 flex items-center justify-center gap-6"><button type="button" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
       <div class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right)">
