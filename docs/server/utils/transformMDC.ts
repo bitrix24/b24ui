@@ -123,7 +123,7 @@ function propItemHandler(propValue: any): string {
    */
   if (propName === 'color') {
     // @todo remove whet unset default / danger / ...
-    propType = propType.replace('| undefined', '').replace('"default" | ', '').replace('"danger" | ', '').replace('"success" | ', '').replace('"warning" | ', '').replace('"primary" | ', '').replace('"secondary" | ', '').replace('"collab" | ', '').replace('"ai" | ', '').replace('"link" | ', '').trim()
+    propType = propType.replace('| undefined', '').replace('"default" | ', '').replace('"danger" | ', '').replace('"success" | ', '').replace('"warning" | ', '').replace('"primary" | ', '').replace('"secondary" | ', '').replace('"collab" | ', '').replace('"ai" | ', '').replace('| "ai"', '').replace('"link" | ', '').trim()
     const priorityMap = new Map([
       ['air-primary', 1],
       ['air-primary-success', 2],

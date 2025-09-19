@@ -27,7 +27,7 @@ const type = computed(() => {
    */
   if (type.includes('air-primary') && type.includes('air-primary-success')) {
     // @todo remove whet unset default / danger / ...
-    type = type.replace('| undefined', '').replace('"default" | ', '').replace('"danger" | ', '').replace('"success" | ', '').replace('"warning" | ', '').replace('"primary" | ', '').replace('"secondary" | ', '').replace('"collab" | ', '').replace('"ai" | ', '').replace('"link" | ', '').trim()
+    type = type.replace('| undefined', '').replace('"default" | ', '').replace('"danger" | ', '').replace('"success" | ', '').replace('"warning" | ', '').replace('"primary" | ', '').replace('"secondary" | ', '').replace('"collab" | ', '').replace('"ai" | ', '').replace('| "ai"', '').replace('"link" | ', '').trim()
     const priorityMap = new Map([
       ['air-primary', 1],
       ['air-primary-success', 2],

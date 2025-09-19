@@ -41,8 +41,15 @@ provide('navigation', rootNavigation)
 <template>
   <B24App :toaster="appConfig.toaster">
     <NuxtLoadingIndicator color="var(--ui-color-accent-main-primary)" :height="2" />
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+
+    <div :class="[route.path.startsWith('/docs/') && 'root']">
+      <template v-if="!route.path.startsWith('/examples')">
+        <Banner />
+      </template>
+
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </div>
   </B24App>
 </template>

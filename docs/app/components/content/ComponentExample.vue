@@ -164,13 +164,6 @@ const urlSearchParams = computed(() => {
             :key="option.name"
             :label="option.label"
             :name="option.name"
-            size="sm"
-            class="inline-flex ring ring-accented rounded-sm"
-            :b24ui="{
-              wrapper: 'bg-elevated/50 rounded-l-sm flex border-r border-accented',
-              label: 'text-muted px-2 py-1.5',
-              container: 'mt-0'
-            }"
           >
             <B24SelectMenu
               v-if="option.items?.length"
@@ -193,21 +186,19 @@ const urlSearchParams = computed(() => {
           </B24FormField>
         </div>
 
-        <div
-          style="background-position: 10px 10px"
-          class="absolute inset-0 bg-grid-example [mask-image:linear-gradient(0deg,rgba(255,255,255,0.09),rgba(255,255,255,0.18))]"
+        <iframe
+          v-if="iframe"
+          v-bind="typeof iframe === 'object' ? iframe : {}"
+          :src="`/b24ui/examples/${name}/?${urlSearchParams}`"
+          class="relative w-full"
+          :class="[props.class, !iframeMobile && 'lg:w-full']"
         />
-        <div class="isolate relative min-h-[160px] w-full h-full flex flex-col flex-nowrap justify-center items-center gap-4">
-          <iframe
-            v-if="iframe"
-            v-bind="typeof iframe === 'object' ? iframe : {}"
-            :src="`/b24ui/examples/${name}/?${urlSearchParams}`"
-            class="relative w-full"
-            :class="[props.class, !iframeMobile && 'lg:w-full']"
-          />
-          <div v-else class="flex justify-center p-4" :class="props.class">
-            <component :is="camelName" v-bind="{ ...componentProps, ...optionsValues }" />
-          </div>
+        <div
+          v-else
+          class="flex justify-center p-[10px] bg-grid-example [mask-image:linear-gradient(0deg,rgba(255,255,255,0.09),rgba(255,255,255,0.18))"
+          :class="props.class"
+        >
+          <component :is="camelName" v-bind="{ ...componentProps, ...optionsValues }" />
         </div>
       </div>
     </template>

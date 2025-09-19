@@ -31,12 +31,7 @@ const modelValue = shallowRef({
     </B24Button>
 
     <template #content>
-      <B24Calendar
-        v-model="modelValue"
-        class="p-2"
-        :number-of-months="2"
-        range
-      />
+      <B24Calendar v-model="modelValue" class="p-2" :number-of-months="2" range />
     </template>
   </B24Popover>
 </template>

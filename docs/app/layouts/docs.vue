@@ -17,12 +17,6 @@ const { navigationMenuByCategory } = useNavigation(navigation!)
 </script>
 
 <template>
-  <B24Banner
-    class="light"
-    color="air-primary-success"
-    title="A new component, B24Banner, has been released."
-    to="/docs/components/banner/"
-  />
   <B24SidebarLayout
     :use-light-content="true"
   >

@@ -403,19 +403,30 @@ const { data: ast } = await useAsyncData(
       >
         <template v-for="option in options" :key="option.name">
           <B24FormField :label="option.label">
+            <B24Switch
+              v-if="option.type?.includes('boolean') && typeof getComponentProp(option.name) === 'boolean'"
+              :model-value="getComponentProp(option.name)"
+              @update:model-value="setComponentProp(option.name, $event)"
+            />
             <B24Select
-              v-if="option.items?.length"
+              v-else-if="option.items?.length"
               :model-value="getComponentProp(option.name)"
               :items="option.name.toLowerCase().endsWith('color') ? option.items.filter((color: any): color is { value: string } => { return (color?.value || '').includes('air') }).filter(Boolean) : option.items"
               value-key="value"
-              class="min-w-12"
+              :b24ui="{ base: 'min-w-[175px]' }"
+              @update:model-value="setComponentProp(option.name, $event)"
+            />
+            <B24InputNumber
+              v-else-if="option.type?.includes('number') && typeof getComponentProp(option.name) === 'number'"
+              :model-value="getComponentProp(option.name)"
+              :b24ui="{ base: 'w-[105px]' }"
               @update:model-value="setComponentProp(option.name, $event)"
             />
             <B24Input
               v-else
-              :type="option.type?.includes('number') && typeof getComponentProp(option.name) === 'number' ? 'number' : 'text'"
+              type="text"
               :model-value="getComponentProp(option.name)"
-              :b24ui="{ base: 'min-w-12' }"
+              :b24ui="{ base: 'min-w-[20px]' }"
               @update:model-value="setComponentProp(option.name, $event)"
             />
           </B24FormField>
@@ -424,22 +435,17 @@ const { data: ast } = await useAsyncData(
 
       <div
         v-if="component"
-        class="relative flex justify-center border-(--ui-color-divider-vibrant-accent-more) border border-b-0 p-[10px] py-[20px] z-[1]"
+        style="background-position: 10px 10px"
+        class="flex justify-center border border-b-0 border-(--ui-color-divider-vibrant-accent-more) relative p-[10px] z-[1] bg-grid-example [mask-image:linear-gradient(0deg,rgba(255,255,255,0.09),rgba(255,255,255,0.18))"
         :class="[!options.length && 'rounded-t-md', props.class, { 'overflow-hidden': props.overflowHidden }]"
       >
-        <div
-          style="background-position: 10px 10px"
-          class="absolute inset-0 bg-grid-example [mask-image:linear-gradient(0deg,rgba(255,255,255,0.09),rgba(255,255,255,0.18))]"
-        />
-        <div class="isolate relative min-h-[160px] w-full h-full flex flex-col flex-nowrap justify-center items-center gap-4">
-          <component :is="component" v-bind="{ ...componentProps, ...componentEvents }">
-            <template v-for="slot in Object.keys(slots || {})" :key="slot" #[slot]>
-              <slot :name="slot" mdc-unwrap="p">
-                {{ slots?.[slot] }}
-              </slot>
-            </template>
-          </component>
-        </div>
+        <component :is="component" v-bind="{ ...componentProps, ...componentEvents }">
+          <template v-for="slot in Object.keys(slots || {})" :key="slot" #[slot]>
+            <slot :name="slot" mdc-unwrap="p">
+              {{ slots?.[slot] }}
+            </slot>
+          </template>
+        </component>
       </div>
     </div>
 
