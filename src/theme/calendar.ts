@@ -8,8 +8,8 @@
 export default {
   slots: {
     root: [
-      'font-[family-name:var(--ui-font-family-primary)]',
-      'w-full'
+      'font-[family-name:var(--ui-font-family-primary)]'
+      // 'w-full'
     ].join(' '),
     header: 'flex items-center justify-between',
     body: 'flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0',
@@ -34,8 +34,8 @@ export default {
       'rounded-full whitespace-nowrap',
       'focus-visible:ring-2 focus:outline-none',
       'text-(--b24ui-typography-label-color)',
-      'data-disabled:text-(--b24ui-typography-legend-color)',
-      'data-unavailable:text-(--b24ui-typography-legend-color)',
+      'data-disabled:text-(--ui-color-design-plain-na-content-secondary)',
+      'data-unavailable:text-(--ui-color-design-plain-na-content-secondary)',
       'data-outside-view:text-(--ui-color-design-plain-na-content-secondary)',
       'data-[selected]:text-(--b24ui-color)', // data-[selected]:text-white
       'focus-visible:ring-(--b24ui-background-hover)',
