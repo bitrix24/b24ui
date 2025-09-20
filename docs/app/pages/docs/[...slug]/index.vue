@@ -157,11 +157,17 @@ const iconFromIconName = (iconName?: string) => {
       </template>
     </template>
     <template #right>
-      <B24ContentToc
-        v-if="page?.body?.toc?.links?.length"
-        :links="page.body.toc.links"
-        class="pt-[12px] lg:mt-[22px] px-[22px] lg:py-[15px] lg:sticky lg:top-(--topbar-height) lg:overflow-y-auto scrollbar-thin scrollbar-transparent lg:h-[calc(100vh-var(--topbar-height)-22px-22px)] lg:rounded-(--ui-border-radius-md) backdrop-blur-md bg-(--ui-color-design-outline-na-bg) lg:border-1 lg:border-(--ui-color-design-outline-na-stroke)"
-      />
+      <B24Card
+        variant="outline-no-accent"
+        class="lg:mt-[22px] lg:sticky lg:top-(--topbar-height) rounded-none lg:rounded-(--ui-border-radius-md) backdrop-blur-md"
+        :b24ui="{ body: 'p-0 sm:px-[22px] sm:py-0 pt-[12px] sm:pt-[12px] lg:py-[15px]' }"
+      >
+        <B24ContentToc
+          v-if="page?.body?.toc?.links?.length"
+          :links="page.body.toc.links"
+          class="p-0 lg:overflow-y-auto scrollbar-thin scrollbar-transparent lg:h-[calc(100vh-var(--topbar-height)-22px-22px)]"
+        />
+      </B24Card>
     </template>
 
     <template v-if="page">

@@ -23,6 +23,7 @@ const pages = [
   '/docs/components/banner/',
   '/docs/components/button/',
   '/docs/components/calendar/',
+  '/docs/components/card/',
   '/docs/components/chip/',
   '/docs/components/collapsible/',
   '/docs/components/countdown/',

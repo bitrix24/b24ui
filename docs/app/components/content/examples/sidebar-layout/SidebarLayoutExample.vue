@@ -121,7 +121,7 @@ const customUIForDemo = {
 
     <template #content-top>
       <div class="w-full flex flex-col gap-[20px] lg:mt-[22px]">
-        <div class="lg:rounded-(--ui-border-radius-md) lg:border-1 border-(--ui-color-design-outline-na-stroke) backdrop-blur-md bg-(--ui-color-design-outline-na-bg) p-[24px] lg:px-[22px] lg:py-[15px] flex flex-col items-start justify-between gap-[14px]">
+        <div class="lg:rounded-(--ui-border-radius-md) lg:border-1 border-(--ui-color-design-tinted-na-stroke) backdrop-blur-md bg-(--ui-color-design-tinted-na-bg) p-[24px] lg:px-[22px] lg:py-[15px] flex flex-col items-start justify-between gap-[14px]">
           <div class="w-full flex flex-row items-center justify-between gap-[20px]">
             <div class="flex-1 flex flex-row items-center justify-end gap-[12px]">
               <B24Avatar
