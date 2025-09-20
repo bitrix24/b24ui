@@ -2,7 +2,7 @@
 import type { ContentNavigationItem } from '@nuxt/content'
 
 useHead({
-  bodyAttrs: {
+  htmlAttrs: {
     // 'dark' | 'light' | 'edge-dark' | 'edge-light'
     class: `edge-dark`
   }

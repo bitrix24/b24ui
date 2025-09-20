@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useHead({
-  bodyAttrs: {
+  htmlAttrs: {
     // 'dark' | 'light' | 'edge-dark' | 'edge-light'
     class: `light`
   }

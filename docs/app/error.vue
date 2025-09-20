@@ -2,7 +2,7 @@
 import type { NuxtError } from '#app'
 
 useHead({
-  bodyAttrs: {
+  htmlAttrs: {
     // 'dark' | 'light' | 'edge-dark' | 'edge-light'
     class: `edge-dark`
   }
