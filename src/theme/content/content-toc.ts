@@ -21,12 +21,12 @@ export default {
       'focus-visible:outline-2',
       'focus-visible:rounded-[4px]',
       'text-(--b24ui-typography-legend-color)',
-      'text-(length:--ui-font-size-md) leading-(--ui-font-line-height-md)',
+      'text-(length:--ui-font-size-lg)/(--ui-font-line-height-3xs)',
       'font-(--ui-font-weight-semi-bold)',
       'flex-1',
       'flex items-center gap-[6px]'
     ].join(' '),
-    title: 'truncate',
+    title: 'line-clamp-1 lg:line-clamp-2', // truncate
     trailing: 'ms-auto inline-flex gap-[6px] items-center',
     trailingIcon: [
       'size-[20px]',
@@ -47,7 +47,7 @@ export default {
     itemWithChildren: '',
     link: [
       'group relative',
-      'text-(length:--ui-font-size-sm)',
+      'text-(length:--ui-font-size-lg)/(--ui-font-line-height-3xs)',
       'flex items-center',
       'focus-visible:outline-(--ui-color-accent-main-primary)',
       'focus-visible:outline-1',
@@ -56,9 +56,9 @@ export default {
       'underline-offset-2',
       'hover:text-(--b24ui-typography-label-color)',
       'hover:underline',
-      'pb-[8px]'
+      'pb-[12px]'
     ].join(' '),
-    linkText: 'truncate'
+    linkText: 'line-clamp-2' // truncate
   },
   variants: {
     active: {

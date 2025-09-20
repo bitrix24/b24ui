@@ -19,21 +19,21 @@ const meta = await fetchComponentMeta(name as any)
     :row-hover="false"
     :class="[
       'overflow-x-auto w-full',
-      'border border-(--ui-color-divider-vibrant-accent-more)',
+      'border border-(--ui-color-design-tinted-na-stroke)',
       '[&>table>tbody>tr>th]:align-top',
       '[&>table>tbody>tr>td]:align-top',
 
       '[&>table>thead>tr>th]:border-e',
       '[&>table>thead>tr>th]:last:border-e-0',
-      '[&>table>thead>tr>th]:border-(--ui-color-divider-vibrant-accent)',
+      '[&>table>thead>tr>th]:border-(--ui-color-design-tinted-na-stroke)',
 
       '[&>table>tbody>tr>td]:border-e',
       '[&>table>tbody>tr>td]:last:border-e-0',
-      '[&>table>tbody>tr>td]:border-(--ui-color-divider-vibrant-default)',
+      '[&>table>tbody>tr>td]:border-(--ui-color-design-tinted-na-stroke)',
 
       '[&>table>tbody>tr>th]:border-e',
       '[&>table>tbody>tr>th]:last:border-e-0',
-      '[&>table>tbody>tr>th]:border-(--ui-color-divider-vibrant-default)'
+      '[&>table>tbody>tr>th]:border-(--ui-color-design-tinted-na-stroke)'
     ]"
   >
     <ProseThead>

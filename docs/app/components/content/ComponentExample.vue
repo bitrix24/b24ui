@@ -150,12 +150,12 @@ const urlSearchParams = computed(() => {
   <div ref="el" class="my-5">
     <template v-if="preview">
       <div
-        class="border-(--ui-color-divider-vibrant-accent-more) border relative z-[1] overflow-auto"
+        class="border-(--ui-color-design-tinted-na-stroke) border relative z-[1] overflow-auto"
         :class="[{ 'border-b-0 rounded-t-md': props.source, 'rounded-md': !props.source, 'overflow-hidden': props.overflowHidden }]"
       >
         <div
           v-if="props.options?.length || !!slots.options"
-          class="flex gap-4 p-4 border-b border-(--ui-color-divider-vibrant-accent-more) border"
+          class="flex gap-4 p-4 border-b border-(--ui-color-design-tinted-na-stroke) border"
         >
           <slot name="options" />
 
@@ -195,7 +195,7 @@ const urlSearchParams = computed(() => {
         />
         <div
           v-else
-          class="flex justify-center p-[10px] bg-grid-example [mask-image:linear-gradient(0deg,rgba(255,255,255,0.09),rgba(255,255,255,0.18))"
+          class="flex justify-center p-[16px] bg-grid-example [mask-image:linear-gradient(0deg,rgba(255,255,255,0.09),rgba(255,255,255,0.18))"
           :class="props.class"
         >
           <component :is="camelName" v-bind="{ ...componentProps, ...optionsValues }" />

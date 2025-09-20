@@ -5,8 +5,8 @@ const patternId = `pattern-${useId()}`
 </script>
 
 <template>
-  <div class="relative overflow-hidden rounded-md border border-dashed border-(--ui-color-divider-vibrant-accent-more) px-4 flex items-center justify-center">
-    <svg class="absolute inset-0 h-full w-full stroke-(--ui-color-divider-vibrant-accent-more)">
+  <div class="relative overflow-hidden rounded-sm border border-dashed border-(--ui-color-design-tinted-na-stroke) px-4 flex items-center justify-center">
+    <svg class="absolute inset-0 h-full w-full stroke-(--ui-color-design-tinted-na-stroke)">
       <defs>
         <pattern
           :id="patternId"

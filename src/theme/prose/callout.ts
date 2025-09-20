@@ -22,7 +22,8 @@ export default {
       // @todo fix this
       '[&_code]:text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm)',
       '[&_code]:bg-(--ui-color-gray-01)',
-      '[&_pre]:bg-(--ui-color-gray-03)',
+      '[&_code]:text-(--ui-color-gray-90)',
+      '[&_pre]:bg-(--ui-color-gray-90)',
       '[&>div]:my-2.5',
       '[&_ul]:my-2.5',
       '[&_ol]:my-2.5',

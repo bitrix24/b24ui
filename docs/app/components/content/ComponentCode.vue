@@ -399,7 +399,7 @@ const { data: ast } = await useAsyncData(
     <div class="relative">
       <div
         v-if="options.length"
-        class="flex flex-wrap items-center gap-[10px] bg-(--ui-color-gray-01) border-(--ui-color-divider-vibrant-accent-more) border border-b-0 relative rounded-t-(--ui-border-radius-md) p-[10px] overflow-x-auto"
+        class="flex flex-wrap items-center gap-[10px] text-(--ui-color-design-tinted-na-content) bg-(--ui-color-design-tinted-na-bg) border-(--ui-color-design-tinted-na-stroke) border border-b-0 relative rounded-t-(--ui-border-radius-md) p-[10px] overflow-x-auto"
       >
         <template v-for="option in options" :key="option.name">
           <B24FormField :label="option.label">
@@ -436,7 +436,7 @@ const { data: ast } = await useAsyncData(
       <div
         v-if="component"
         style="background-position: 10px 10px"
-        class="flex justify-center border border-b-0 border-(--ui-color-divider-vibrant-accent-more) relative p-[10px] z-[1] bg-grid-example [mask-image:linear-gradient(0deg,rgba(255,255,255,0.09),rgba(255,255,255,0.18))"
+        class="flex justify-center border border-b-0 border-(--ui-color-design-tinted-na-stroke) relative p-[16px] z-[1] bg-grid-example [mask-image:linear-gradient(0deg,rgba(255,255,255,0.09),rgba(255,255,255,0.18))"
         :class="[!options.length && 'rounded-t-md', props.class, { 'overflow-hidden': props.overflowHidden }]"
       >
         <component :is="component" v-bind="{ ...componentProps, ...componentEvents }">
