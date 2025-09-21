@@ -2,138 +2,144 @@
 title: FieldGroup
 description: Organize several button-like elements into a group.
 category: element
+links:
+  - label: GitHub
+    iconName: GitHubIcon
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/FieldGroup.vue
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/field-group
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui4.nuxt.com/docs/components/field-group
 ---
-<script setup>
-import FieldGroupExample from '/examples/field-group/FieldGroup.vue';
-import SizeExample from '/examples/field-group/Size.vue';
-import OrientationExample from '/examples/field-group/Orientation.vue';
-import WithInputExample from '/examples/field-group/WithInput.vue';
-import WithTooltipExample from '/examples/field-group/WithTooltip.vue';
-import WithDropdownMenuExample from '/examples/field-group/WithDropdownMenu.vue';
-import WithBadgeExample from '/examples/field-group/WithBadge.vue';
-</script>
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
-<Description
-  nuxt-ui="https://ui3.nuxt.dev/components/field-group"
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/FieldGroup.vue"
-  demo="/components/field-group"
->
-  Organize several button-like elements into a group.
-</Description>
 
 ## Usage
 
-Wrap multiple [Button](/docs/components/button/) within a FieldGroup to group them together.
+Wrap multiple [Button](/components/button/) within a FieldGroup to group them together.
 
-::: info
+::component-code
+---
+prettier: true
+slots:
+  default: |
+
+    <B24Button color="air-primary-copilot" label="Button" />
+    <B24Button color="air-primary-copilot" label="Button" />
+---
+:b24-button{color="air-primary-copilot" label="Button"}
+:b24-button{color="air-primary-copilot" label="Button"}
+::
+
+### No split
+
 If you use elements with different colors, use the `no-split` property to disable the display of the separator.
-:::
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <FieldGroupExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+ignore:
+  - noSplit
+props:
+  noSplit: true
+slots:
+  default: |
 
-<<< @/examples/field-group/demo/FieldGroup.vue{6,9,10,14 vue:line-numbers}
+    <B24Button color="air-primary-copilot" label="Button" />
+    <B24Button color="air-primary-success" label="Button" />
+    <B24Button color="air-primary-alert" label="Button" />
+---
+:b24-button{color="air-primary-copilot" label="Button"}
+:b24-button{color="air-primary-success" label="Button"}
+:b24-button{color="air-primary-alert" label="Button"}
+::
 
 ### Size
 
 Use the `size` prop to change the size of all the buttons.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <SizeExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+props:
+  size: xl
+slots:
+  default: |
 
-::: details
-<<< @/examples/field-group/demo/Size.vue{16,22 vue:line-numbers}
-:::
+    <B24Button color="air-primary-copilot" label="Button" />
+    <B24Button color="air-primary-copilot" label="Button" />
+---
+:b24-button{color="air-primary-copilot" label="Button"}
+:b24-button{color="air-primary-copilot" label="Button"}
+::
 
 ### Orientation
 
 Use the `orientation` prop to change the orientation of the buttons. Defaults to `horizontal`.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <OrientationExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+props:
+  orientation: vertical
+slots:
+  default: |
 
-::: details
-<<< @/examples/field-group/demo/Orientation.vue{18,25 vue:line-numbers}
-:::
+    <B24Button color="air-primary-copilot" label="Button" />
+    <B24Button color="air-primary-copilot" label="Button" />
+---
+:b24-button{color="air-primary-copilot" label="Button"}
+:b24-button{color="air-primary-copilot" label="Button"}
+::
 
 ## Examples
 
 ### With input
 
-You can use components like [Input](/docs/components/input/), [InputMenu](/docs/components/input-menu/), [Select](/docs/components/select/) [SelectMenu](/docs/components/select-menu/), etc. within a field group.
+You can use components like [Input](/components/input/), [InputMenu](/components/input-menu/), [Select](/components/select/) [SelectMenu](/components/select-menu/), etc. within a field group.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithInputExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+slots:
+  default: |
 
-::: details
-<<< @/examples/field-group/demo/WithInput.vue{vue:line-numbers}
-:::
+    <B24Input placeholder="Enter token" />
+
+    <B24Button label="Button" />
+---
+:b24-input{color="neutral" variant="outline" placeholder="Enter token"}
+:b24-button{label="Button"}
+::
 
 ### With tooltip
 
-You can use a [Tooltip](/docs/components/tooltip/#usage) within a field group.
+You can use a [Tooltip](/components/tooltip/) within a field group.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithTooltipExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/field-group/demo/WithTooltip.vue{vue:line-numbers}
-:::
+:component-example{name="field-group-tooltip-example"}
 
 ### With dropdown
 
-You can use a [DropdownMenu](/docs/components/dropdown-menu/) within a field group.
+You can use a [DropdownMenu](/components/dropdown-menu/) within a field group.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithDropdownMenuExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/field-group/demo/WithDropdownMenu.vue{vue:line-numbers}
-:::
-
+:component-example{name="field-group-dropdown-example"}
 
 ### With badge
 
-You can use a [Badge](/docs/components/badge/) within a field group.
+You can use a [Badge](/components/badge/) within a field group.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithBadgeExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/field-group/demo/WithBadge.vue{3 vue:line-numbers}
-:::
+:component-example{name="field-group-badge-example"}
 
 ## API
 
 ### Props
 
-<ComponentProps component="FieldGroup" />
+:component-props
 
 ### Slots
 
-<ComponentSlots component="FieldGroup" />
+:component-slots
+
+## Theme
+
+:component-theme
