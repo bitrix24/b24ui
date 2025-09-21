@@ -2,80 +2,110 @@
 title: Collapsible
 description: A collapsible component for showing or hiding its content.
 category: element
+links:
+  - label: GitHub
+    iconName: GitHubIcon
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Collapsible.vue
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/collapsible
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui4.nuxt.com/docs/components/collapsible
+  - label: Collapsible
+    avatar:
+      src: /b24ui/avatar/rekaui.svg
+    to: https://reka-ui.com/docs/components/collapsible
 ---
-<script setup>
-import CollapsibleExample from '/examples/collapsible/Collapsible.vue';
-import UnmountExample from '/examples/collapsible/Unmount.vue';
-import DisabledExample from '/examples/collapsible/Disabled.vue';
-import ControlOpenStateExample from '/examples/collapsible/ControlOpenState.vue';
-</script>
-# Collapsible
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
-<Description
-  nuxt-ui="https://ui3.nuxt.dev/components/collapsible"
-  reka-ui="https://reka-ui.com/docs/components/collapsible"
-  reka-ui-title="Collapsible"
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Collapsible.vue"
-  demo="/components/collapsible"
->
-  A collapsible component for showing or hiding its content.
-</Description>
 
 ## Usage
-
-::: info
-[Reduced movement](https://tailwindcss.com/docs/hover-focus-and-other-states#prefers-reduced-motion) is taken into account
-:::
 
 Use a [Button](/docs/components/button/) or any other component in the default slot of the Collapsible.
 
 Then, use the `#content` slot to add the content displayed when the Collapsible is open.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <CollapsibleExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+ignore:
+  - class
+props:
+  class: 'flex flex-col gap-2 w-48'
+slots:
+  default: |
 
-::: details
-<<< @/examples/collapsible/demo/Collapsible.vue{vue:line-numbers}
-:::
+    <B24Button label="Open" block use-dropdown />
+
+  content: |
+
+    <Placeholder class="h-48" />
+---
+
+:b24-button{label="Open" block use-dropdown}
+
+#content
+:placeholder{class="h-48"}
+::
 
 ### Unmount
 
 Use the `unmount-on-hide` prop to prevent the content from being unmounted when the Collapsible is collapsed. Defaults to `true`.
 
-::: info
+::component-code
+---
+prettier: true
+ignore:
+  - class
+props:
+  unmountOnHide: false
+  class: 'flex flex-col gap-2 w-48'
+slots:
+  default: |
+
+    <B24Button label="Open" block use-dropdown />
+
+  content: |
+
+    <Placeholder class="h-48" />
+---
+
+:b24-button{label="Open" block use-dropdown}
+
+#content
+:placeholder{class="h-48"}
+::
+
+::note
 You can inspect the DOM to see the content being rendered.
-:::
-
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <UnmountExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/collapsible/demo/Unmount.vue{15 vue:line-numbers}
-:::
+::
 
 ### Disabled
 
 Use the `disabled` prop to disable the Collapsible.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <DisabledExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+ignore:
+  - class
+props:
+  class: 'flex flex-col gap-2 w-48'
+  disabled: true
+slots:
+  default: |
 
-::: details
-<<< @/examples/collapsible/demo/Disabled.vue{15 vue:line-numbers}
-:::
+    <B24Button label="Open" block use-dropdown />
+
+  content: |
+
+    <Placeholder class="h-48" />
+---
+
+:b24-button{label="Open" block use-dropdown}
+
+#content
+:placeholder{class="h-48"}
+::
 
 ## Examples
 
@@ -83,42 +113,44 @@ Use the `disabled` prop to disable the Collapsible.
 
 You can control the open state by using the `default-open` prop or the `v-model:open` directive.
 
-::: info
-In this example, leveraging [`defineShortcuts`](/docs/composables/define-shortcuts), you can toggle the Collapsible by pressing `O`.
-:::
+::component-example
+---
+name: 'collapsible-open-example'
+---
+::
 
-::: tip
+::note
+In this example, leveraging [`defineShortcuts`](/docs/composables/define-shortcuts/), you can toggle the Collapsible by pressing :kbd{value="O"}.
+::
+
+::tip
 This allows you to move the trigger outside of the Collapsible or remove it entirely.
-:::
+::
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <ControlOpenStateExample />
-  </ClientOnly>
-</div>
+### With rotating icon
 
-::: details
-<<< @/examples/collapsible/demo/ControlOpenState.vue{8,14 vue:line-numbers}
-:::
+Here is an example with a rotating icon in the Button that indicates the open state of the Collapsible.
+
+::component-example
+---
+name: 'collapsible-icon-example'
+---
+::
 
 ## API
 
 ### Props
 
-<ComponentProps component="Collapsible" />
+:component-props
 
 ### Slots
 
-<ComponentSlots component="Collapsible" />
+:component-slots
 
 ### Emits
 
-```ts
-/**
- * Emitted events for the Collapsible component
- */
-interface CollapsibleEmits {
-  update:open: (payload: [value: boolean]) => void;
-}
-```
+:component-emits
 
+## Theme
+
+:component-theme
