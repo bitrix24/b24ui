@@ -2,140 +2,141 @@
 title: Separator
 description: Divides content in a horizontal or vertical manner.
 category: element
+links:
+  - label: GitHub
+    iconName: GitHubIcon
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Separator.vue
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/separator
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui4.nuxt.com/docs/components/separator
+  - label: Separator
+    avatar:
+      src: /b24ui/avatar/rekaui.svg
+    to: https://reka-ui.com/docs/components/separator
 ---
-<script setup>
-import SeparatorExample from '/examples/separator/Separator.vue';
-import OrientationExample from '/examples/separator/Orientation.vue';
-import LabelExample from '/examples/separator/Label.vue';
-import IconExample from '/examples/separator/Icon.vue';
-import AvatarExample from '/examples/separator/Avatar.vue';
-import TypeExample from '/examples/separator/Type.vue';
-import SizeExample from '/examples/separator/Size.vue';
-</script>
-# Separator
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
-<Description
-  nuxt-ui="https://ui3.nuxt.dev/components/separator"
-  reka-ui="https://reka-ui.com/docs/components/separator"
-  reka-ui-title="Separator"
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Separator.vue"
-  demo="/components/separator"
->
-  Divides content in a horizontal or vertical manner.
-</Description>
 
 ## Usage
 
 Use the Separator component as-is to separate content.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <SeparatorExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/separator/demo/Separator.vue{2 vue:line-numbers}
-:::
+::component-code
+---
+class: 'p-[32px]'
+---
+::
 
 ### Orientation
 
 Use the `orientation` prop to change the orientation of the Separator. Defaults to `horizontal`.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <OrientationExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/separator/demo/Orientation.vue{13 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - class
+class: 'p-[32px]'
+props:
+  orientation: vertical
+  class: 'h-48'
+---
+::
 
 ### Label
 
 Use the `label` prop to display a label in the middle of the Separator.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <LabelExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/separator/demo/Label.vue{13 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+class: 'p-[32px]'
+props:
+  label: 'Bitrix24 UI'
+---
+::
 
 ### Icon
 
-Use the `icon` prop to display an icon in the middle of the Separator.
+Use the `icon` prop to display an [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html) in the middle of the Separator.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <IconExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/separator/demo/Icon.vue{2,7 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+class: 'p-[32px]'
+ignore:
+  - icon
+cast:
+  icon: 'RocketIcon'
+props:
+  icon: 'RocketIcon'
+---
+::
 
 ### Avatar
 
-Use the `avatar` prop to display an avatar in the middle of the Separator.
+Use the `avatar` prop to display an [Avatar](/docs/components/avatar/) in the middle of the Separator.
 
-<div class="lg:min-h-[172px]">
-  <ClientOnly>
-    <AvatarExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+class: 'p-[32px]'
+ignore:
+  - avatar.src
+props:
+  avatar:
+    src: '/b24ui/avatar/employee.png'
+---
+::
 
-::: details
-<<< @/examples/separator/demo/Avatar.vue{2,7,10 vue:line-numbers}
-:::
+### Accent
+
+Use the `accent` prop to change the variant of the Separator. Defaults to `default`.
+
+::component-code
+---
+class: 'p-[32px]'
+props:
+  accent: accent
+  type: solid
+---
+::
 
 ### Type
 
 Use the `type` prop to change the type of the Separator. Defaults to `solid`.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <TypeExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/separator/demo/Type.vue{14 vue:line-numbers}
-:::
-
-### Color
-
-`@remove`
+::component-code
+---
+class: 'p-[32px]'
+props:
+  type: dashed
+---
+::
 
 ### Size
 
-Use the `size` prop to change the size of the Separator. Defaults to `xs`.
+Use the `size` prop to change the size of the Separator. Defaults to `thin`.
 
-<div class="lg:min-h-[333px]">
-  <ClientOnly>
-    <SizeExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/separator/demo/Size.vue{19 vue:line-numbers}
-:::
+::component-code
+---
+class: 'p-[32px]'
+props:
+  size: thick
+---
+::
 
 ## API
 
 ### Props
 
-<ComponentProps component="Separator" />
+:component-props
 
 ### Slots
 
-<ComponentSlots component="Separator" />
+:component-slots
+
+## Theme
+
+:component-theme
