@@ -2,190 +2,169 @@
 title: Progress
 description: A progress bar displaying task completion status.
 category: element
+links:
+  - label: GitHub
+    iconName: GitHubIcon
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Progress.vue
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/progress
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui4.nuxt.com/docs/components/progress
+  - label: Progress
+    avatar:
+      src: /b24ui/avatar/rekaui.svg
+    to: https://reka-ui.com/docs/components/progress
 ---
-<script setup>
-import ProgressExample from '/examples/progress/Progress.vue';
-import MaxExample from '/examples/progress/Max.vue';
-import MaxArrayExample from '/examples/progress/MaxArray.vue';
-import StatusExample from '/examples/progress/Status.vue';
-import IndeterminateExample from '/examples/progress/Indeterminate.vue';
-import AnimationExample from '/examples/progress/Animation.vue';
-import OrientationExample from '/examples/progress/Orientation.vue';
-import ColorExample from '/examples/progress/Color.vue';
-import SizeExample from '/examples/progress/Size.vue';
-import InvertedExample from '/examples/progress/Inverted.vue';
-</script>
-# Progress
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
-<Description
-  nuxt-ui="https://ui3.nuxt.dev/components/progress"
-  reka-ui="https://reka-ui.com/docs/components/progress"
-  reka-ui-title="Progress"
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Progress.vue"
-  demo="/components/progress"
->
-  A progress bar displaying task completion status.
-</Description>
 
 ## Usage
 
 Use the `v-model` directive to control the value of the Progress.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <ProgressExample />
-  </ClientOnly>
-</div>
-
-<<< @/examples/progress/demo/Progress.vue{8 vue:line-numbers}
+::component-code
+---
+external:
+  - modelValue
+props:
+  modelValue: 24
+---
+::
 
 ### Max
 
 Use the `max` prop to set the maximum value of the Progress.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <MaxExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/progress/demo/Max.vue{18 vue:line-numbers}
-:::
+::component-code
+---
+external:
+  - modelValue
+props:
+  modelValue: 2
+  max: 4
+---
+::
 
 Use the `max` prop with an array of strings to display the active step under the bar, the maximum value of the Progress is the length of the array.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <MaxArrayExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/progress/demo/MaxArray.vue{4,10 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - max
+external:
+  - modelValue
+props:
+  modelValue: 3
+  max:
+    - 'Prospecting...'
+    - 'Qualifying...'
+    - 'Presenting...'
+    - 'Negotiating...'
+    - 'Closed!'
+---
+::
 
 ### Status
 
 Use the `status` prop to display the current Progress value above the bar.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <StatusExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/progress/demo/Status.vue{18 vue:line-numbers}
-:::
+::component-code
+---
+external:
+  - modelValue
+props:
+  modelValue: 24
+  status: true
+---
+::
 
 ### Indeterminate
 
 When no `v-model` is set or the value is `null`, the Progress becomes _indeterminate_. The progress bar is animated as a `loading`, but you can change it using the [`animation`](#animation) prop.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <IndeterminateExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/progress/demo/Indeterminate.vue{4,8 vue:line-numbers}
-:::
+::component-code
+---
+external:
+  - modelValue
+props:
+  modelValue: null
+---
+::
 
 ### Animation
 
 Use the `animation` prop to change the animation of the Progress to an inverse carousel, a swinging bar or an elastic bar. Defaults to `loading`.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <AnimationExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/progress/demo/Animation.vue{15 vue:line-numbers}
-:::
+::component-code
+---
+props:
+  animation: swing
+---
+::
 
 ### Orientation
 
 Use the `orientation` prop to change the orientation of the Progress. Defaults to `horizontal`.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <OrientationExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/progress/demo/Orientation.vue{15 vue:line-numbers}
-:::
+::component-code
+---
+ignore:
+  - class
+props:
+  orientation: vertical
+  class: 'h-48'
+---
+::
 
 ### Color
 
-Use the `color` prop to change the color of the Slider.
+Use the `color` prop to change the color of the Progress.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <ColorExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/progress/demo/Color.vue{15 vue:line-numbers}
-:::
+::component-code
+---
+props:
+  color: 'air-primary-copilot'
+---
+::
 
 ### Size
 
-Use the `size` prop to change the size of the Slider.
+Use the `size` prop to change the size of the Progress.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <SizeExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/progress/demo/Size.vue{15 vue:line-numbers}
-:::
+::component-code
+---
+props:
+  size: lg
+---
+::
 
 ### Inverted
 
 Use the `inverted` prop to visually invert the Progress.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <InvertedExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/progress/demo/Inverted.vue{18 vue:line-numbers}
-:::
+::component-code
+---
+props:
+  inverted: true
+  modelValue: 24
+---
+::
 
 ## API
 
 ### Props
 
-<ComponentProps component="Progress" />
+:component-props
 
 ### Slots
 
-<ComponentSlots component="Progress" />
+:component-slots
 
 ### Emits
 
-```ts
-/**
- * Emitted events for the Progress component
- */
-interface ProgressEmits {
-  update:modelValue: (payload: [value: string[] | undefined]) => void;
-  update:max: (payload: [value: number]) => void;
-}
-```
+:component-emits
 
+## Theme
+
+:component-theme
