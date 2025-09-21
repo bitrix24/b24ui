@@ -43,6 +43,12 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Generate Docs
+        run: pnpm run docs:generate
+
+      - name: Generate Demo
+        run: pnpm run demo:generate
+
       - name: Build Nuxt playground
         run: pnpm run dev:build
 
