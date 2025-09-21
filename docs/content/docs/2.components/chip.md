@@ -2,130 +2,199 @@
 title: Chip
 description: An indicator that shows either a number or a state.
 category: element
+links:
+  - label: GitHub
+    icon: i-simple-icons-github
+    to: https://Chip
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/chip
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui4.nuxt.com/docs/components/chip
 ---
-<script setup>
-import ChipExample from '/examples/chip/Chip.vue';
-import ColorExample from '/examples/chip/Color.vue';
-import SizeExample from '/examples/chip/Size.vue';
-import TextExample from '/examples/chip/Text.vue';
-import PositionExample from '/examples/chip/Position.vue';
-import InsetExample from '/examples/chip/Inset.vue';
-import StandaloneExample from '/examples/chip/Standalone.vue';
-import WithShowExample from '/examples/chip/WithShow.vue';
-</script>
-# Chip
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
-<Description
-  nuxt-ui="https://ui3.nuxt.dev/components/chip"
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Chip.vue"
-  demo="/components/chip"
->
-  An indicator that shows either a number or a state.
-</Description>
 
 ## Usage
 
 Wrap any component with a Chip to display an indicator.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <ChipExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+slots:
+  default: |
 
-<<< @/examples/chip/demo/Chip.vue{6,8 vue:line-numbers}
+    <B24Button color="air-secondary-no-accent" label="Button" />
+---
+:b24-button{color="air-secondary-no-accent" label="Button"}
+::
 
 ### Color
 
 Use the `color` prop to change the color of the Chip.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <ColorExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+props:
+  color: air-primary-warning
+slots:
+  default: |
 
-::: details
-<<< @/examples/chip/demo/Color.vue{16 vue:line-numbers}
-:::
+    <B24Button color="air-secondary-no-accent" label="Button" />
+---
+:b24-button{color="air-secondary-no-accent" label="Button"}
+::
+
+### Inverted
+
+Use the `inverted` prop to invert the color of the Chip.
+
+::warning
+Only available for `air-primary*` colors
+::
+
+::component-code
+---
+prettier: true
+props:
+  inverted: true
+  color: 'air-primary'
+slots:
+  default: |
+
+    <B24Button color="air-secondary-no-accent" label="Button" />
+---
+:b24-button{color="air-secondary-no-accent" label="Button"}
+::
 
 ### Size
 
 Use the `size` prop to change the size of the Chip.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <SizeExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+props:
+  size: lg
+slots:
+  default: |
 
-::: details
-<<< @/examples/chip/demo/Size.vue{16vue:line-numbers}
-:::
+    <B24Button color="air-secondary-no-accent" label="Button" />
+---
+:b24-button{color="air-secondary-no-accent" label="Button"}
+::
 
 ### Text
 
 Use the `text` prop to set the text of the Chip.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <TextExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+props:
+  text: 5
+  size: lg
+slots:
+  default: |
 
-::: details
-<<< @/examples/chip/demo/Text.vue{18 vue:line-numbers}
-:::
+    <B24Button color="air-secondary-no-accent" label="Button" />
+---
+:b24-button{color="air-secondary-no-accent" label="Button"}
+::
+
+### Hide zero
+
+Use the `hideZero` prop to hide the text if it is equal `0`.
+
+::component-code
+---
+prettier: true
+props:
+  hideZero: true
+  text: 1
+  size: lg
+slots:
+  default: |
+
+    <B24Button color="air-secondary-no-accent" label="Button" />
+---
+:b24-button{color="air-secondary-no-accent" label="Button"}
+::
+
+### Trailing Icon
+
+Use the `trailing-icon` prop to customize the trailing [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html).
+
+::component-code
+---
+prettier: true
+ignore:
+  - trailingIcon
+cast:
+  trailingIcon: 'RocketIcon'
+props:
+  trailingIcon: 'RocketIcon'
+  text: '+1'
+  size: lg
+  hideZero: true
+slots:
+  default: |
+
+    <B24Button color="air-secondary-no-accent" label="Button" />
+---
+:b24-button{color="air-secondary-no-accent" label="Button"}
+::
 
 ### Position
 
 Use the `position` prop to change the position of the Chip.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <PositionExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+props:
+  position: 'bottom-left'
+slots:
+  default: |
 
-::: details
-<<< @/examples/chip/demo/Position.vue{18 vue:line-numbers}
-:::
+    <B24Button color="air-secondary-no-accent" label="Button" />
+---
+:b24-button{color="air-secondary-no-accent" label="Button"}
+::
 
 ### Inset
 
 Use the `inset` prop to display the Chip inside the component. This is useful when dealing with rounded components.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <InsetExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+props:
+  inset: true
+slots:
+  default: |
 
-::: details
-<<< @/examples/chip/demo/Inset.vue{16,22,27 vue:line-numbers}
-:::
+    <B24Avatar src="/b24ui/avatar/employee.png" />
+---
+:b24-avatar{src="/b24ui/avatar/employee.png"}
+::
 
 ### Standalone
 
 Use the `standalone` prop alongside the `inset` prop to display the Chip inline.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <StandaloneExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+props:
+  standalone: true
+  inset: true
+---
+::
 
-::: details
-<<< @/examples/chip/demo/Standalone.vue{15 vue:line-numbers}
-:::
-
-::: info
-It's used this way in the [`Select`](/docs/components/select/) components for example.
-:::
+::note
+It's used this way in the [`InputMenu`](/docs/components/input-menu/), [`Select`](/docs/components/select/) or [`SelectMenu`](/docs/components/select-menu/) components for example.
+::
 
 ## Examples
 
@@ -133,37 +202,26 @@ It's used this way in the [`Select`](/docs/components/select/) components for ex
 
 You can control the visibility of the Chip using the `show` prop.
 
-::: info
+:component-example{name="chip-show-example"}
+
+::note
 In this example, the Chip has a color per status and is displayed when the status is not `offline`.
-:::
-
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithShowExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/chip/demo/WithShow.vue{30 vue:line-numbers}
-:::
+::
 
 ## API
 
 ### Props
 
-<ComponentProps component="Chip" />
+:component-props
 
 ### Slots
 
-<ComponentSlots component="Chip" />
+:component-slots
 
 ### Emits
 
-```ts
-/**
- * Emitted events for the Chip component
- */
-interface ChipEmits {
-  update:show: (payload: [value: boolean]) => void;
-}
-```
+:component-emits
+
+## Theme
+
+:component-theme

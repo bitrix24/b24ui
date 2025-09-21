@@ -1,18 +1,8 @@
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
-
 const statuses = ['online', 'away', 'busy', 'offline']
 const status = ref(statuses[0])
 
-const color = computed(() => status.value
-  ? {
-      online: 'success',
-      away: 'warning',
-      busy: 'danger',
-      offline: 'default'
-    }[status.value] as any
-  : 'online'
-)
+const color = computed(() => status.value ? { online: 'air-primary-success', away: 'air-primary-warning', busy: 'air-primary-alert', offline: 'air-tertiary' }[status.value] as any : 'online')
 
 const show = computed(() => status.value !== 'offline')
 
@@ -27,7 +17,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <B24Chip :color="color" :show="show" inset size="xs">
-    <B24Avatar src="/b24ui/avatar/employee.png" size="md" />
+  <B24Chip :color="color" :show="show" inset>
+    <B24Avatar src="/b24ui/avatar/employee.png" />
   </B24Chip>
 </template>
