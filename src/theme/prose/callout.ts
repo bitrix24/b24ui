@@ -19,11 +19,12 @@ export default {
       'bg-(--b24ui-background)',
       'border-(--b24ui-border-color) border-(length:--b24ui-border-width)',
       'rounded-(--ui-border-radius-md)',
-      // @todo fix this
+      // @memo use style-filled-black-inverted
       '[&_code]:text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm)',
-      '[&_code]:bg-(--ui-color-gray-01)',
-      '[&_code]:text-(--ui-color-gray-90)',
-      '[&_pre]:bg-(--ui-color-gray-90)',
+      '[&_code]:bg-(--ui-color-design-filled-black-content)',
+      '[&_code]:text-(--ui-color-design-filled-black-bg)',
+      // @memo use style-filled-black
+      '[&_pre]:bg-(--ui-color-design-filled-black-bg)',
       '[&>div]:my-2.5',
       '[&_ul]:my-2.5',
       '[&_ol]:my-2.5',
