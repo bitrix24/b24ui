@@ -2,163 +2,191 @@
 title: Checkbox
 description: A toggle input for marking as checked or unchecked.
 category: form
+links:
+  - label: GitHub
+    icon: i-simple-icons-github
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Checkbox
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/checkbox
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui4.nuxt.com/docs/components/checkbox
+  - label: Checkbox
+    avatar:
+      src: /b24ui/avatar/rekaui.svg
+    to: https://reka-ui.com/docs/components/checkbox
 ---
-<script setup>
-import CheckboxExample from '/examples/checkbox/Checkbox.vue';
-import CheckboxDefExample from '/examples/checkbox/CheckboxDef.vue';
-import IndeterminateExample from '/examples/checkbox/Indeterminate.vue';
-import LabelExample from '/examples/checkbox/Label.vue';
-import DescriptionExample from '/examples/checkbox/Description.vue';
-import ColorExample from '/examples/checkbox/Color.vue';
-import SizeExample from '/examples/checkbox/Size.vue';
-import DisabledExample from '/examples/checkbox/Disabled.vue';
-</script>
-# Checkbox
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
-<Description
-  nuxt-ui="https://ui3.nuxt.dev/components/checkbox"
-  reka-ui="https://reka-ui.com/docs/components/checkbox"
-  reka-ui-title="Checkbox"
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Checkbox.vue"
-  demo="/components/checkbox"
->
-  A toggle input for marking as checked or unchecked.
-</Description>
 
 ## Usage
 
 Use the `v-model` directive to control the checked state of the Checkbox.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <CheckboxExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/checkbox/demo/Checkbox.vue{4,8 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - modelValue
+external:
+  - modelValue
+props:
+  modelValue: true
+---
+::
 
 Use the `default-value` prop to set the initial value when you do not need to control its state.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <CheckboxDefExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/checkbox/demo/CheckboxDef.vue{2 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - defaultValue
+props:
+  defaultValue: true
+---
+::
 
 ### Indeterminate
 
 Use the `indeterminate` value in the `v-model` directive or `default-value` prop to set the Checkbox to an [indeterminate state](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#indeterminate_state_checkboxes).
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <IndeterminateExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/checkbox/demo/Indeterminate.vue{2 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - defaultValue
+props:
+  defaultValue: 'indeterminate'
+---
+::
 
 ### Label
 
 Use the `label` prop to set the label of the Checkbox.
 
+::component-code
+---
+prettier: true
+props:
+  label: All employees can post to Feed
+---
+::
+
 When using the `required` prop, an asterisk is added next to the label.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <LabelExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/checkbox/demo/Label.vue{15,16 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - label
+props:
+  required: true
+  label: All employees can post to Feed
+---
+::
 
 ### Description
 
 Use the `description` prop to set the description of the Checkbox.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <DescriptionExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/checkbox/demo/Description.vue{14 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - label
+props:
+  label: All employees can post to Feed
+  description: 'Broadcast posting is allowed in Feed. These posts will be visible to everyone.'
+---
+::
 
 ### Color
 
 Use the `color` prop to change the color of the Checkbox.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <ColorExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+ignore:
+  - label
+  - defaultValue
+props:
+  color: 'air-primary-copilot'
+  defaultValue: true
+  label: Enable rich link previews
+---
+::
 
-::: details
-<<< @/examples/checkbox/demo/Color.vue{15 vue:line-numbers}
-:::
+### Variant
+
+Use the `variant` prop to change the variant of the Checkbox.
+
+::component-code
+---
+prettier: true
+ignore:
+  - label
+  - defaultValue
+props:
+  variant: 'card'
+  color: 'air-primary-copilot'
+  defaultValue: true
+  label: All employees can post to Feed
+  description: 'Broadcast posting is allowed in Feed. These posts will be visible to everyone.'
+---
+::
 
 ### Size
 
 Use the `size` prop to change the size of the Checkbox.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <SizeExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/checkbox/demo/Size.vue{15 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - label
+  - description
+  - defaultValue
+props:
+  size: lg
+  variant: list
+  defaultValue: true
+  label: All employees can post to Feed
+  description: 'Broadcast posting is allowed in Feed. These posts will be visible to everyone.'
+---
+::
 
 ### Disabled
 
 Use the `disabled` prop to disable the Checkbox.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <DisabledExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/checkbox/demo/Disabled.vue{13 vue:line-numbers}
-:::
+::component-code
+---
+ignore:
+  - label
+  - description
+props:
+  disabled: true
+  label: All employees can post to Feed
+  description: 'Broadcast posting is allowed in Feed. These posts will be visible to everyone.'
+  variant: list
+---
+::
 
 ## API
 
 ### Props
 
-<ComponentProps component="Checkbox" />
+:component-props
 
 ### Slots
 
-<ComponentSlots component="Checkbox" />
+:component-slots
 
 ### Emits
 
-```ts
-/**
- * Emitted events for the Checkbox component
- */
-interface CheckboxEmits {
-  change: (payload: [event: Event]) => void;
-  update:modelValue: (payload: [value: boolean | "indeterminate"]) => void;
-}
-```
+:component-emits
+
+## Theme
+
+:component-theme

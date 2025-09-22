@@ -31,7 +31,7 @@ export default {
       'block',
       'text-(--b24ui-typography-label-color)'
     ].join(' '),
-    description: 'text-(--b24ui-typography-description-color)'
+    description: 'mt-[4px] text-(--b24ui-typography-description-color)'
   },
   variants: {
     color: {
@@ -77,26 +77,26 @@ export default {
       xs: {
         base: 'size-[12px]',
         container: 'h-[12px]',
-        wrapper: 'text-(length:--ui-font-size-xs)',
-        label: 'leading-[11px]'
+        wrapper: 'text-(length:--ui-font-size-xs) leading-[11px]',
+        label: ''
       },
       sm: {
         base: 'size-[14px]',
         container: 'h-[14px]',
-        wrapper: 'text-(length:--ui-font-size-sm)',
-        label: 'leading-[14px]'
+        wrapper: 'text-(length:--ui-font-size-sm) leading-[14px]',
+        label: ''
       },
       md: {
         base: 'size-[16px]',
         container: 'h-[16px]',
-        wrapper: 'text-(length:--ui-font-size-lg)',
-        label: 'leading-[15px]'
+        wrapper: 'text-(length:--ui-font-size-lg) leading-[16px]',
+        label: ''
       },
       lg: {
         base: 'size-[20px]',
         container: 'h-[20px]',
-        wrapper: 'text-(length:--ui-font-size-xl)',
-        label: 'leading-[18px]'
+        wrapper: 'text-(length:--ui-font-size-xl) leading-[18px]',
+        label: ''
       }
     },
     required: {

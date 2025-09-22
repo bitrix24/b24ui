@@ -54,7 +54,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
     </div>
 
     <B24Button
-      color="air-tertiary"
+      color="air-secondary-no-accent"
       size="sm"
       :aria-label="t('prose.pre.copy')"
       :class="b24ui.copy({ class: props.b24ui?.copy })"

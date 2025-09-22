@@ -31,7 +31,9 @@ const pages = [
   '/docs/components/kbd/',
   '/docs/components/progress/',
   '/docs/components/separator/',
-  '/docs/components/skeleton/'
+  '/docs/components/skeleton/',
+  //
+  '/docs/components/checkbox/'
 ]
 
 const apiComponentMeta = [
@@ -57,7 +59,9 @@ const apiComponentMeta = [
   '/api/component-meta/B24Kbd.json',
   '/api/component-meta/B24Progress.json',
   '/api/component-meta/B24Separator.json',
-  '/api/component-meta/B24Skeleton.json'
+  '/api/component-meta/B24Skeleton.json',
+  //
+  '/api/component-meta/B24Checkbox.json'
 ]
 
 const apiComponentExample = [
@@ -98,6 +102,7 @@ const apiComponentExample = [
   '/api/component-example/skeletonExample.json',
   '/api/component-example/skeletonAccentExample.json',
   '/api/component-example/skeletonTaskExample.json'
+  //
 ]
 
 const pagesFrameExamples = [
