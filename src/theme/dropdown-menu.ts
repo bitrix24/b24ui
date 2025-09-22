@@ -25,13 +25,13 @@ export default {
     ].join(' '),
     viewport: [
       'relative',
-      'w-[240px] max-h-[40vh]',
+      'w-full max-h-[40vh]', // w-[240px]
       'overflow-x-hidden overflow-y-auto scrollbar-thin' // scrollbar-transparent
     ].join(' '),
     arrow: 'fill-(--popup-window-background-color)', // for content bottom|top::start -> ml-[12px]
     group: 'grid', // p-1 isolate
     label: [
-      'w-full min-w-[195px] h-(--popup-window-delimiter-section-height)',
+      'w-full h-(--popup-window-delimiter-section-height)', // min-w-[195px]
       'px-[18px] mt-(--menu-item-block-stack-space)',
       'flex flex-row rtl:flex-row-reverse items-center',
       'select-none outline-none whitespace-nowrap',
@@ -44,7 +44,7 @@ export default {
     separator: 'my-[8px] mx-[18px] h-[1px] bg-(--popup-window-delimiter-bg-color)',
     item: [
       'group',
-      'w-full min-w-[195px] h-[36px]',
+      'w-full h-[36px]', // min-w-[195px]
       'px-[18px] mt-(--menu-item-block-stack-space)',
       'relative',
       'flex flex-row rtl:flex-row-reverse items-center',
