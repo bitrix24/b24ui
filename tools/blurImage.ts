@@ -9,6 +9,7 @@ import path from 'node:path'
  *
  * @example
  * `pnpm exec esno ./tools/blurImage.ts ./docs/public/bg/edge-dark-v1.jpg`
+ * `pnpm exec esno ./tools/blurImage.ts ./docs/public/bg/edge-dark-v3.jpg`
  * `pnpm exec esno ./tools/blurImage.ts ./playgrounds/vue/public/bg/edge-dark-v1.jpg`
  * `pnpm exec esno ./tools/blurImage.ts ./playgrounds/vue/public/bg/edge-dark-v2.jpg`
  * `pnpm exec esno ./tools/blurImage.ts ./playgrounds/vue/public/bg/edge-light-v1.svg`

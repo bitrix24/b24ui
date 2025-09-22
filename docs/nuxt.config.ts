@@ -34,10 +34,70 @@ const pages = [
   '/docs/components/skeleton/'
 ]
 
-const pagesService = [
-  '/api/countries.json',
-  '/api/locales.json',
-  '/404.html'
+const apiComponentMeta = [
+  '/api/component-meta/B24App.json',
+  '/api/component-meta/B24SidebarLayout.json',
+  '/api/component-meta/B24Container.json',
+  '/api/component-meta/B24Error.json',
+  '/api/component-meta/B24Advice.json',
+  '/api/component-meta/B24Alert.json',
+  '/api/component-meta/B24Avatar.json',
+  '/api/component-meta/B24AvatarGroup.json',
+  '/api/component-meta/B24Badge.json',
+  '/api/component-meta/B24Banner.json',
+  '/api/component-meta/B24Button.json',
+  '/api/component-meta/B24Calendar.json',
+  '/api/component-meta/B24Card.json',
+  '/api/component-meta/B24Chip.json',
+  '/api/component-meta/B24Collapsible.json',
+  '/api/component-meta/B24Countdown.json',
+  '/api/component-meta/B24FieldGroup.json',
+  '/api/component-meta/B24Collapsible.json',
+  '/api/component-meta/B24Collapsible.json',
+  '/api/component-meta/B24Kbd.json',
+  '/api/component-meta/B24Progress.json',
+  '/api/component-meta/B24Separator.json',
+  '/api/component-meta/B24Skeleton.json'
+]
+
+const apiComponentExample = [
+  '/api/component-example/indexPromoV1.json',
+  '/api/component-example/sidebarLayoutExample.json',
+  '/api/component-example/sidebarLayoutInnerExample.json',
+  '/api/component-example/sidebarLayoutSlideoverExample.json',
+  '/api/component-example/containerExample.json',
+  '/api/component-example/adviceExample.json',
+  '/api/component-example/avatarTooltipExample.json',
+  '/api/component-example/avatarMaskExample.json',
+  '/api/component-example/avatarGroupTooltipExample.json',
+  '/api/component-example/avatarGroupChipExample.json',
+  '/api/component-example/avatarGroupLinkExample.json',
+  '/api/component-example/avatarGroupMaskExample.json',
+  '/api/component-example/bannerExample.json',
+  '/api/component-example/bannerWithTitleExample.json',
+  '/api/component-example/buttonLoadingAutoExample.json',
+  '/api/component-example/buttonLoadingAutoFormExample.json',
+  '/api/component-example/calendarEventsExample.json',
+  '/api/component-example/calendarDisabledDatesExample.json',
+  '/api/component-example/calendarUnavailableDatesExample.json',
+  '/api/component-example/calendarMinMaxDatesExample.json',
+  '/api/component-example/calendarOtherSystemExample.json',
+  '/api/component-example/calendarExternalControlsExample.json',
+  '/api/component-example/calendarDatePickerExample.json',
+  '/api/component-example/calendarDateRangePickerExample.json',
+  '/api/component-example/cardExample.json',
+  '/api/component-example/chipShowExample.json',
+  '/api/component-example/collapsibleOpenExample.json',
+  '/api/component-example/collapsibleIconExample.json',
+  '/api/component-example/countdownInformationDisplayedExample.json',
+  '/api/component-example/countdownIntervalExample.json',
+  '/api/component-example/countdownEmitsExample.json',
+  '/api/component-example/fieldGroupTooltipExample.json',
+  '/api/component-example/fieldGroupDropdownExample.json',
+  '/api/component-example/fieldGroupBadgeExample.json',
+  '/api/component-example/skeletonExample.json',
+  '/api/component-example/skeletonAccentExample.json',
+  '/api/component-example/skeletonTaskExample.json'
 ]
 
 const pagesFrameExamples = [
@@ -45,6 +105,12 @@ const pagesFrameExamples = [
   '/examples/sidebar-layout-inner-example/',
   '/examples/banner-example/',
   '/examples/banner-with-title-example/'
+]
+
+const pagesService = [
+  '/api/countries.json',
+  '/api/locales.json',
+  '/404.html'
 ]
 
 export default defineNuxtConfig({
@@ -114,9 +180,6 @@ export default defineNuxtConfig({
         }
       }
     }
-    // watch: {
-    //   enabled: false
-    // }
   },
 
   mdc: {
@@ -168,6 +231,8 @@ export default defineNuxtConfig({
       routes: [
         ...pages.map((page: string) => `${page}`),
         ...pages.map((page: string) => `${withoutTrailingSlash(`/raw${page}`)}.md`),
+        ...apiComponentMeta,
+        ...apiComponentExample,
         ...pagesFrameExamples,
         ...pagesService
       ],

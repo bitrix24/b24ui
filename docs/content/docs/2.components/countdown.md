@@ -2,55 +2,152 @@
 title: Countdown
 description: Countdown with options control.
 category: element
+links:
+  - label: GitHub
+    icon: i-simple-icons-github
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Countdown
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/countdown
 ---
-<script setup>
-import CountdownExample from '/examples/countdown/Countdown.vue';
-</script>
-# Countdown
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
-<Description 
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Countdown.vue"
-  demo="/components/countdown"
->
-  Countdown with options control.
-</Description>
 
 ## Usage
 
-<div class="lg:min-h-[260px]">
-  <ClientOnly>
-    <CountdownExample />
-  </ClientOnly>
-</div>
+Use the `seconds` prop to set the number of seconds to Countdown.
 
-::: details
-<<< @/examples/countdown/demo/Countdown.vue{vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+props:
+  seconds: 120
+---
+::
+
+### Show minutes
+
+Use the `show-minutes` property to show or hide the minutes in the Countdown. Default value: `true`.
+
+::component-code
+---
+prettier: true
+props:
+  showMinutes: false
+  seconds: 120
+---
+::
+
+### Size
+
+Use the `size` prop to change the size of the Countdown.
+
+::component-code
+---
+prettier: true
+props:
+  size: xl
+  seconds: 120
+---
+::
+
+### Use Circle
+
+Use the `useCircle` property to display a `circle` around the Countdown.
+
+::component-code
+---
+prettier: true
+props:
+  useCircle: true
+  seconds: 120
+  size: xl
+---
+::
+
+### Icon
+
+Use the `icon` prop to show an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html).
+
+::component-code
+---
+prettier: true
+ignore:
+  - icon
+cast:
+  icon: 'RocketIcon'
+props:
+  icon: 'RocketIcon'
+  seconds: 120
+  size: xl
+---
+::
+
+### Avatar
+
+Use the `avatar` prop to show an [Avatar](/docs/components/avatar/).
+
+::component-code
+---
+prettier: true
+ignore:
+  - avatar.src
+cast:
+  icon: 'RocketIcon'
+props:
+  avatar.src: '/b24ui/avatar/employee.png'
+  seconds: 120
+  size: xl
+---
+::
+
+## Examples
+
+### Information displayed
+
+You can manage information using the default slot.
+
+::component-example
+---
+name: 'countdown-information-displayed-example'
+collapse: true
+---
+::
+
+### With interval
+
+You can control the countdown interval using the `interval` prop.
+
+::component-example
+---
+name: 'countdown-interval-example'
+collapse: true
+---
+::
+
+### Handling countdown emits
+
+Use emit `start`, `end`, `abort`, `progress` to respond to countdown events.
+
+::component-example
+---
+name: 'countdown-emits-example'
+collapse: true
+---
+::
 
 ## API
 
 ### Props
 
-<ComponentProps component="Countdown" />
+:component-props
 
 ### Slots
 
-<ComponentSlots component="Countdown" />
+:component-slots
 
 ### Emits
 
-```ts
-/**
- * Emitted events for the CountdownEmits component
- */
-interface CountdownEmits {
-  start: () => void;
-  end: () => void;
-  abort: () => void;
-  progress: (payload: [value: CountdownData]) => void;
-}
-```
+:component-emits
+
+## Theme
+
+:component-theme

@@ -107,6 +107,11 @@ const props = defineProps<{
    * Whether to add overflow-hidden to wrapper
    */
   overflowHidden?: boolean
+  /**
+   * Hide bg grid
+   * @defaultValue true
+   */
+  hideBgGrid?: boolean
 }>()
 
 const route = useRoute()
@@ -439,8 +444,13 @@ const { data: ast } = await useAsyncData(
       <div
         v-if="component"
         style="background-position: 10px 10px"
-        class="flex justify-center border border-b-0 border-(--ui-color-design-tinted-na-stroke) relative p-[16px] z-[1] bg-grid-example [mask-image:linear-gradient(0deg,rgba(255,255,255,0.09),rgba(255,255,255,0.18))"
-        :class="[!options.length && 'rounded-t-md', props.class, { 'overflow-hidden': props.overflowHidden }]"
+        class="flex justify-center border border-b-0 border-(--ui-color-design-tinted-na-stroke) relative p-[16px] z-[1]"
+        :class="[
+          !options.length && 'rounded-t-md',
+          props.class,
+          { 'overflow-hidden': props.overflowHidden },
+          { 'bg-grid-example [mask-image:linear-gradient(0deg,rgba(255,255,255,0.09),rgba(255,255,255,0.18))': !props.hideBgGrid }
+        ]"
       >
         <component :is="component" v-bind="{ ...componentProps, ...componentEvents }">
           <template v-for="slot in Object.keys(slots || {})" :key="slot" #[slot]>

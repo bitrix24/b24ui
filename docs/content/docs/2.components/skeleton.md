@@ -2,36 +2,33 @@
 title: Skeleton
 description: A toggle control for switching between two states.
 category: element
+links:
+  - label: GitHub
+    icon: i-simple-icons-github
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Skeleton
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/skeleton
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui4.nuxt.com/docs/components/skeleton
 ---
-<script setup>
-import SkeletonExample from '/examples/skeleton/Skeleton.vue';
-import TaskAddExample from '/examples/skeleton/TaskAdd.vue';
-</script>
-# Skeleton
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
-<Description
-  nuxt-ui="https://ui3.nuxt.dev/components/skeleton"
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Skeleton.vue"
-  demo="/components/skeleton"
->
-  A loading indicator shown while content is being fetched.
-</Description>
 
 ## Usage
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <SkeletonExample />
-  </ClientOnly>
-</div>
+Use the Skeleton component as-is to display a placeholder.
 
-::: details
-<<< @/examples/skeleton/demo/Skeleton.vue{3,6,7 vue:line-numbers}
-:::
+:component-example{name="skeleton-example"}
+
+### Accent
+
+Use the `accent` prop to change the variant of the Skeleton.
+
+::component-example
+---
+name: 'skeleton-accent-example'
+---
+::
 
 ## Examples
 
@@ -39,22 +36,23 @@ We are still updating this page. Some data may be missing here — we will compl
 
 Example of a loading indicator for a task creation form.
 
-<div class="lg:min-h-[623px]">
-  <ClientOnly>
-    <TaskAddExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/skeleton/demo/TaskAdd.vue{vue:line-numbers}
-:::
+::component-example
+---
+name: 'skeleton-task-example'
+collapse: true
+---
+::
 
 ## API
 
 ### Props
 
-<ComponentProps component="Skeleton" />
+:component-props
 
 ### Slots
 
-<ComponentSlots component="Skeleton" />
+:component-slots
+
+## Theme
+
+:component-theme

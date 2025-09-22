@@ -24,6 +24,7 @@ Use the Separator component as-is to separate content.
 
 ::component-code
 ---
+hideBgGrid: true
 class: 'p-[32px]'
 ---
 ::
@@ -35,6 +36,7 @@ Use the `orientation` prop to change the orientation of the Separator. Defaults 
 ::component-code
 ---
 prettier: true
+hideBgGrid: true
 ignore:
   - class
 class: 'p-[32px]'
@@ -51,6 +53,7 @@ Use the `label` prop to display a label in the middle of the Separator.
 ::component-code
 ---
 prettier: true
+hideBgGrid: true
 class: 'p-[32px]'
 props:
   label: 'Bitrix24 UI'
@@ -64,6 +67,7 @@ Use the `icon` prop to display an [Icon](https://bitrix24.github.io/b24icons/gui
 ::component-code
 ---
 prettier: true
+hideBgGrid: true
 class: 'p-[32px]'
 ignore:
   - icon
@@ -81,6 +85,7 @@ Use the `avatar` prop to display an [Avatar](/docs/components/avatar/) in the mi
 ::component-code
 ---
 prettier: true
+hideBgGrid: true
 class: 'p-[32px]'
 ignore:
   - avatar.src
@@ -96,7 +101,9 @@ Use the `accent` prop to change the variant of the Separator. Defaults to `defau
 
 ::component-code
 ---
+prettier: true
 class: 'p-[32px]'
+hideBgGrid: true
 props:
   accent: accent
   type: solid
@@ -109,7 +116,9 @@ Use the `type` prop to change the type of the Separator. Defaults to `solid`.
 
 ::component-code
 ---
+prettier: true
 class: 'p-[32px]'
+hideBgGrid: true
 props:
   type: dashed
   accent: accent
@@ -123,7 +132,9 @@ Use the `size` prop to change the size of the Separator. Defaults to `thin`.
 
 ::component-code
 ---
+prettier: true
 class: 'p-[32px]'
+hideBgGrid: true
 props:
   size: thick
 ---
