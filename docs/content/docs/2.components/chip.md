@@ -93,7 +93,7 @@ Use the `text` prop to set the text of the Chip.
 ---
 prettier: true
 props:
-  text: 5
+  text: '+5'
   size: lg
 slots:
   default: |

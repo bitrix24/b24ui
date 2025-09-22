@@ -399,7 +399,7 @@ const { data: ast } = await useAsyncData(
     <div class="relative">
       <div
         v-if="options.length"
-        class="flex flex-wrap items-center gap-[10px] text-(--ui-color-design-tinted-na-content) bg-(--ui-color-design-tinted-na-bg) border-(--ui-color-design-tinted-na-stroke) border border-b-0 relative rounded-t-(--ui-border-radius-md) p-[10px] overflow-x-auto"
+        class="flex flex-wrap items-start gap-[10px] text-(--ui-color-design-tinted-na-content) bg-(--ui-color-design-tinted-na-bg) border-(--ui-color-design-tinted-na-stroke) border border-b-0 relative rounded-t-(--ui-border-radius-md) p-[10px] overflow-x-auto"
       >
         <template v-for="option in options" :key="option.name">
           <B24FormField :label="option.label">
