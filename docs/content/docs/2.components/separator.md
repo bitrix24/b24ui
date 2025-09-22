@@ -59,7 +59,7 @@ props:
 
 ### Icon
 
-Use the `icon` prop to display an [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html) in the middle of the Separator.
+Use the `icon` prop to display an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) in the middle of the Separator.
 
 ::component-code
 ---
@@ -112,6 +112,8 @@ Use the `type` prop to change the type of the Separator. Defaults to `solid`.
 class: 'p-[32px]'
 props:
   type: dashed
+  accent: accent
+  size: thick
 ---
 ::
 

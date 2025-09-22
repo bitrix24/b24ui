@@ -71,7 +71,7 @@ Pass a `description` field to the `toast.add` method to display a description.
 
 ### Icon
 
-Pass an `icon` field to the `toast.add` method to display an [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html).
+Pass an `icon` field to the `toast.add` method to display an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html).
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -127,7 +127,7 @@ Pass a `close` field to customize or hide the close [Button](/docs/components/bu
 
 ### Close Icon
 
-Pass a `closeIcon` field to customize the close button [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html).
+Pass a `closeIcon` field to customize the close button [Icon](https://bitrix24.github.io/b24icons/guide/icons.html).
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>

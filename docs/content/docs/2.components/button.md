@@ -68,7 +68,7 @@ slots:
 
 ### Icon
 
-Use the `icon` prop to show an [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html) inside the Button.
+Use the `icon` prop to show an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) inside the Button.
 
 ::component-code
 ---

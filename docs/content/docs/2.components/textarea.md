@@ -136,7 +136,7 @@ Use the `tagColor` property to set the color for `tag`.
 
 ### Icon
 
-Use the `icon` prop to show an [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html) inside the Textarea.
+Use the `icon` prop to show an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) inside the Textarea.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>

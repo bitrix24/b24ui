@@ -67,7 +67,7 @@ The `<img>` element's `width` and `height` are automatically set based on the `s
 
 ### Icon
 
-Use the `icon` prop to display a fallback [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html).
+Use the `icon` prop to display a fallback [Icon](https://bitrix24.github.io/b24icons/guide/icons.html).
 
 ::component-code
 ---

@@ -113,7 +113,7 @@ ignore:
   - class
 props:
   orientation: vertical
-  class: 'h-48'
+  class: 'h-48 justify-center'
 ---
 ::
 

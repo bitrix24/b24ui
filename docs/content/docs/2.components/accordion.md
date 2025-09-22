@@ -120,7 +120,7 @@ You can also disable a specific item by using the `disabled` property in the ite
 
 ### Trailing Icon
 
-Use the `trailing-icon` prop to customize the trailing [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html) of each item. Defaults to `Actions::ChevronDownIcon`.
+Use the `trailing-icon` prop to customize the trailing [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) of each item. Defaults to `Actions::ChevronDownIcon`.
 
 ::: info
 You can also set an icon for a specific item by using the `trailingIcon` property in the item object.

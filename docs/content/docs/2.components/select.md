@@ -232,7 +232,7 @@ Use the `size` prop to change the size of the Select.
 
 ### Icon
 
-Use the `icon` prop to show an [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html) inside the Select.
+Use the `icon` prop to show an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) inside the Select.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -246,7 +246,7 @@ Use the `icon` prop to show an [@bitrix24/b24icons](https://bitrix24.github.io/b
 
 ### Trailing Icon
 
-Use the `trailing-icon` prop to customize the trailing [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html). Defaults to `Actions::ChevronDownIcon`.
+Use the `trailing-icon` prop to customize the trailing [Icon](https://bitrix24.github.io/b24icons/guide/icons.html). Defaults to `Actions::ChevronDownIcon`.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -332,7 +332,7 @@ You can use the `type` property with `separator` to display a separator between 
 
 ### With icon in items
 
-You can use the `icon` property to display an [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html) inside the items.
+You can use the `icon` property to display an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) inside the items.
 
 ::: info
 In this example, the icon is computed from the `value` property of the selected item.

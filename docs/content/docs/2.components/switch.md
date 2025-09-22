@@ -117,7 +117,7 @@ Use the `loading` prop to show a loading icon on the Switch.
 
 ### Loading Icon
 
-Use the `loading-icon` prop to customize the loading icon [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html). Defaults to `Refresh6Icon`.
+Use the `loading-icon` prop to customize the loading icon [Icon](https://bitrix24.github.io/b24icons/guide/icons.html). Defaults to `Refresh6Icon`.
 
 <div class="lg:min-h-[275px]">
   <ClientOnly>

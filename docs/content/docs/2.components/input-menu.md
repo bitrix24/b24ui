@@ -144,7 +144,7 @@ Ensure to pass an array to the `default-value` prop or the `v-model` directive.
 
 ### Delete Icon
 
-With `multiple`, use the `delete-icon` prop to customize the delete icon [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html) in the badges. Defaults to `CrossMIcon`.
+With `multiple`, use the `delete-icon` prop to customize the delete icon [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) in the badges. Defaults to `CrossMIcon`.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -249,7 +249,7 @@ Use the `size` prop to change the size of the InputMenu.
 
 ### Icon
 
-Use the `icon` prop to show an [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html) inside the InputMenu.
+Use the `icon` prop to show an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) inside the InputMenu.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -263,7 +263,7 @@ Use the `icon` prop to show an [@bitrix24/b24icons](https://bitrix24.github.io/b
 
 ### Trailing Icon
 
-Use the `trailing-icon` prop to customize the trailing [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html). Defaults to `ChevronDownIcon`.
+Use the `trailing-icon` prop to customize the trailing [Icon](https://bitrix24.github.io/b24icons/guide/icons.html). Defaults to `ChevronDownIcon`.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -277,7 +277,7 @@ Use the `trailing-icon` prop to customize the trailing [@bitrix24/b24icons](http
 
 ### Selected Icon
 
-Use the `selected-icon` prop to customize the icon [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html) when an item is selected. Defaults to `CheckIcon`.
+Use the `selected-icon` prop to customize the icon [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) when an item is selected. Defaults to `CheckIcon`.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>
@@ -349,7 +349,7 @@ You can use the `type` property with `separator` to display a separator between 
 
 ### With icon in items
 
-You can use the `icon` property to display an [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html) inside the items.
+You can use the `icon` property to display an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) inside the items.
 
 ::: tip
 You can also use the `#leading` slot to display the selected icon.

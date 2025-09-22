@@ -25,10 +25,6 @@ slots:
 ---
 ::
 
-::: details
-<<< @/examples/kbd/demo/Kbd.vue{2 vue:line-numbers}
-:::
-
 ### Value
 
 Use the `value` prop to set the value of the Kbd.

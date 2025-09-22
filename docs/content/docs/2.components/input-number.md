@@ -195,7 +195,7 @@ Use the `increment` and `decrement` props to customize the increment and decreme
 
 ### Increment / Decrement Icons
 
-Use the `increment-icon` and `decrement-icon` props to customize the buttons [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html). Defaults to `Plus30Icon` / `Minus30Icon`.
+Use the `increment-icon` and `decrement-icon` props to customize the buttons [Icon](https://bitrix24.github.io/b24icons/guide/icons.html). Defaults to `Plus30Icon` / `Minus30Icon`.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>

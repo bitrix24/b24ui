@@ -169,7 +169,7 @@ Discover ways to alter the tooltip's appearance. Don't forget to verify its appe
 
 ### Help Icon
 
-You can use the [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html) and the Tooltip.
+You can use the [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) and the Tooltip.
 
 <div class="lg:min-h-[160px]">
   <ClientOnly>

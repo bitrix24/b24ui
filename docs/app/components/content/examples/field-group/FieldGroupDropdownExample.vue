@@ -9,8 +9,7 @@ import MoreMIcon from '@bitrix24/b24icons-vue/outline/MoreMIcon'
 const items: DropdownMenuItem[] = [
   {
     label: 'My account',
-    avatar: { src: '/b24ui/avatar/employee.png' },
-    type: 'label' as DropdownMenuItem['type']
+    avatar: { src: '/b24ui/avatar/employee.png' }
   },
   {
     label: 'Profile',

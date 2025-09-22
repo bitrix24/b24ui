@@ -96,7 +96,7 @@ When closed, `banner-${id}` will be stored in the local storage to prevent it fr
 
 ### Close Icon
 
-Use the `close-icon` prop to customize the close button [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/guide/icons.html). Defaults to `CrossMIcon`.
+Use the `close-icon` prop to customize the close button [Icon](https://bitrix24.github.io/b24icons/guide/icons.html). Defaults to `CrossMIcon`.
 
 ::component-example
 ---
