@@ -24,7 +24,7 @@ export default {
       'air-primary-alert': { base: 'style-filled-alert' },
       'air-primary-copilot': { base: 'style-filled-copilot' },
       'air-primary-warning': { base: 'style-filled-warning' },
-      'air-secondary': { base: 'style-tinted-no-accent-1' },
+      'air-secondary': { base: 'style-filled-black' }, // style-tinted-no-accent-1
       'air-tertiary': { base: 'style-outline-no-accent' },
       // @deprecate ////
       'default': { base: 'style-old-default' },
