@@ -156,6 +156,23 @@ props:
 ---
 ::
 
+### Indicator
+
+Use the `indicator` prop to change the position or hide the indicator. Defaults to `start`.
+
+::component-code
+---
+ignore:
+  - label
+  - defaultValue
+props:
+  indicator: 'end'
+  variant: 'card'
+  defaultValue: true
+  label: All employees can post to Feed
+---
+::
+
 ### Disabled
 
 Use the `disabled` prop to disable the Checkbox.

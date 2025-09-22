@@ -17,13 +17,17 @@ export default {
       'outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2'
     ].join(' '),
     indicator: [
+      'rounded-(--ui-border-radius-2xs)',
       'flex items-center justify-center',
       'size-full',
-      'text-(--b24ui-color)'
+      'text-(--b24ui-color)',
+      'ring-1 ring-(--b24ui-background)',
+      'bg-(--b24ui-background)'
     ].join(' '),
     container: 'flex items-center',
     icon: 'shrink-0 size-full',
     wrapper: [
+      'w-full',
       'font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular)'
     ].join(' '),
     label: [
@@ -112,9 +116,7 @@ export default {
       }
     },
     checked: {
-      true: {
-        base: 'ring-1 ring-(--b24ui-background) bg-(--b24ui-background)'
-      }
+      true: ''
     }
   },
   compoundVariants: [

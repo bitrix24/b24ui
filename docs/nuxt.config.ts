@@ -33,7 +33,8 @@ const pages = [
   '/docs/components/separator/',
   '/docs/components/skeleton/',
   //
-  '/docs/components/checkbox/'
+  '/docs/components/checkbox/',
+  '/docs/components/checkbox-group/'
 ]
 
 const apiComponentMeta = [
@@ -61,7 +62,8 @@ const apiComponentMeta = [
   '/api/component-meta/B24Separator.json',
   '/api/component-meta/B24Skeleton.json',
   //
-  '/api/component-meta/B24Checkbox.json'
+  '/api/component-meta/B24Checkbox.json',
+  '/api/component-meta/B24CheckboxGroup.json'
 ]
 
 const apiComponentExample = [

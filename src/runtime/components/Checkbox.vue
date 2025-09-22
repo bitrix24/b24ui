@@ -36,7 +36,7 @@ export interface CheckboxProps extends Pick<CheckboxRootProps, 'disabled' | 'req
 }
 
 export type CheckboxEmits = {
-  change: [value: Event]
+  change: [event: Event]
 }
 
 export interface CheckboxSlots {
@@ -76,8 +76,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.checkb
   variant: props.variant,
   indicator: props.indicator,
   required: props.required,
-  disabled: disabled.value,
-  checked: Boolean(modelValue.value ?? props.defaultValue)
+  disabled: disabled.value
 }))
 
 function onUpdate(value: any) {

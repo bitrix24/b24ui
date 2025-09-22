@@ -24,7 +24,7 @@ export default {
     icon: 'size-[16px] shrink-0 mt-px',
     copy: 'absolute top-[11px] right-[11px] lg:opacity-0 lg:group-hover:opacity-100 transition',
     base: [
-      // 'text-green-350'
+      'text-green-350',
       'group',
       'text-pretty',
       'text-(length:--ui-font-size-md)/(--ui-font-line-height-md)',
