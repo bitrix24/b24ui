@@ -15,7 +15,7 @@ export interface BadgeProps extends Omit<UseComponentIconsProps, 'loading' | 'lo
   as?: any
   label?: string | number
   /**
-   * @defaultValue 'default'
+   * @defaultValue 'air-primary'
    */
   color?: Badge['variants']['color']
   /**

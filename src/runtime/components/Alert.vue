@@ -21,7 +21,7 @@ export interface AlertProps {
   icon?: IconComponent
   avatar?: AvatarProps
   /**
-   * @defaultValue 'default'
+   * @defaultValue 'air-secondary-accent'
    */
   color?: Alert['variants']['color']
   /**
