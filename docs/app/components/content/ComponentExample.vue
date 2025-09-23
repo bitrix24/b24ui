@@ -171,16 +171,16 @@ const urlSearchParams = computed(() => {
               :items="option.items"
               :search-input="false"
               :value-key="option.name.toLowerCase().endsWith('color') ? 'value' : undefined"
-              class="min-w-12"
+              class="min-w-[175px]"
               :multiple="option.multiple"
               :class="[option.name.toLowerCase().endsWith('color') && 'pl-6']"
-              :ui="{ itemLeadingChip: 'size-2' }"
+              :content="{ align: 'start', side: 'bottom', sideOffset: 8 }"
               @update:model-value="set(optionsValues, option.name, $event)"
             />
             <B24Input
               v-else
               :model-value="get(optionsValues, option.name)"
-              :b24ui="{ base: 'min-w-12' }"
+              :b24ui="{ base: 'min-w-[20px]' }"
               @update:model-value="set(optionsValues, option.name, $event)"
             />
           </B24FormField>

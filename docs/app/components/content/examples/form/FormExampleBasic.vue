@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { FormError, FormErrorEvent, FormSubmitEvent } from '@bitrix24/b24ui-nuxt'
+import type { FormError, FormSubmitEvent } from '@bitrix24/b24ui-nuxt'
 
 const state = reactive({
   email: undefined,
@@ -18,18 +18,10 @@ async function onSubmit(event: FormSubmitEvent<typeof state>) {
   toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'air-primary-success' })
   console.log(event.data)
 }
-
-async function onError(event: FormErrorEvent) {
-  if (event?.errors?.[0]?.id) {
-    const element = document.getElementById(event.errors[0].id)
-    element?.focus()
-    element?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-  }
-}
 </script>
 
 <template>
-  <B24Form :validate="validate" :state="state" class="space-y-4" @submit="onSubmit" @error="onError">
+  <B24Form :validate="validate" :state="state" class="space-y-4" @submit="onSubmit">
     <B24FormField label="Email" name="email">
       <B24Input v-model="state.email" />
     </B24FormField>

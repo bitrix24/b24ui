@@ -51,7 +51,6 @@ const isUseBg = ref(true)
     <ExampleCard title="elements" :use-bg="isUseBg" class="sm:col-span-2 md:col-span-4">
       <ExampleCardSubTitle title="form" />
       <FormExampleElements
-        class="mx-auto w-full max-w-[400px]"
         :validate-on="validateOn"
         :disabled="disabled"
       />

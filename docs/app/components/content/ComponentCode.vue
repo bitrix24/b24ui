@@ -421,6 +421,7 @@ const { data: ast } = await useAsyncData(
               :model-value="getComponentProp(option.name)"
               :items="option.name.toLowerCase().endsWith('color') ? option.items.filter((color: any): color is { value: string } => { return (color?.value || '').includes('air') }).filter(Boolean) : option.items"
               value-key="value"
+              :content="{ align: 'start', side: 'bottom', sideOffset: 8 }"
               :b24ui="{ base: 'min-w-[175px]' }"
               @update:model-value="setComponentProp(option.name, $event)"
             />

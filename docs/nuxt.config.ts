@@ -38,7 +38,8 @@ const pages = [
   '/docs/components/checkbox/',
   '/docs/components/checkbox-group/',
   '/docs/components/color-picker/',
-  '/docs/components/file-upload/'
+  '/docs/components/file-upload/',
+  '/docs/components/form/'
   // endregion ////
 ]
 
@@ -74,7 +75,8 @@ const apiComponentMeta = [
   '/api/component-meta/B24Checkbox.json',
   '/api/component-meta/B24CheckboxGroup.json',
   '/api/component-meta/B24ColorPicker.json',
-  '/api/component-meta/B24FileUpload.json'
+  '/api/component-meta/B24FileUpload.json',
+  '/api/component-meta/B24Form.json'
   // endregion ////
 ]
 
@@ -127,7 +129,17 @@ const apiComponentExample = [
   '/api/component-example/fileUploadFormValidationExample.json',
   '/api/component-example/fileUploadDefaultSlotExample.json',
   '/api/component-example/fileUploadFilesBottomSlotExample.json',
-  '/api/component-example/fileUploadFilesTopSlotExample.json'
+  '/api/component-example/fileUploadFilesTopSlotExample.json',
+  '/api/component-example/formExampleValibot.json',
+  '/api/component-example/formExampleZod.json',
+  '/api/component-example/formExampleYup.json',
+  '/api/component-example/formExampleJoi.json',
+  '/api/component-example/formExampleSuperstruct.json',
+  '/api/component-example/formExampleBasic.json',
+  '/api/component-example/formExampleElements.json',
+  '/api/component-example/formExampleOnError.json',
+  '/api/component-example/formExampleNested.json',
+  '/api/component-example/formExampleNestedList.json'
   // endregion ////
 ]
 
