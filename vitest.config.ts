@@ -8,7 +8,8 @@ export default defineVitestConfig({
     silent: true,
     include: [
       './test/components/**/**.spec.ts',
-      './test/composables/**.spec.ts'
+      './test/composables/**.spec.ts',
+      './test/utils/**/**.spec.ts'
     ],
     environment: 'nuxt',
     environmentOptions: {

@@ -1,6 +1,7 @@
 import { describe, it, expect, test } from 'vitest'
-import { mount } from '@vue/test-utils'
-import Textarea, { type TextareaProps, type TextareaSlots } from '../../src/runtime/components/Textarea.vue'
+import { mount, flushPromises } from '@vue/test-utils'
+import Textarea from '../../src/runtime/components/Textarea.vue'
+import type { TextareaProps, TextareaSlots } from '../../src/runtime/components/Textarea.vue'
 import ComponentRender from '../component-render'
 // import theme from '#build/b24ui/textarea'
 import { renderForm } from '../utils/form'
@@ -16,6 +17,7 @@ describe('Textarea', () => {
     ['with required', { props: { required: true } }],
     ['with disabled', { props: { disabled: true } }],
     ['with rows', { props: { rows: 5 } }],
+    ['with autoresize', { props: { autoresize: true } }],
     ['with icon', { props: { icon: Cross30Icon } }],
     ['with leading and icon', { props: { leading: true, icon: Cross30Icon } }],
     /**
@@ -32,9 +34,8 @@ describe('Textarea', () => {
     ['with loading trailing', { props: { loading: true, trailing: true } }],
     ['with loading trailing and avatar', { props: { loading: true, trailing: true, avatar: { src: 'https://github.com/bitrix24.png' } } }],
     ['with loadingIcon', { props: { loading: true, loadingIcon: Cross30Icon } }],
-    ['with autoresize', { props: { autoresize: true } }],
     ['with primary', { props: {} }],
-    ['with success', { props: { color: 'success' as const } }],
+    ['with air-primary-success', { props: { color: 'air-primary-success' as const } }],
     /**
      * @todo fix this
      */
@@ -56,7 +57,8 @@ describe('Textarea', () => {
     ['with .trim modifier', { props: { modelModifiers: { trim: true } } }, { input: 'input  ', expected: 'input' }],
     ['with .number modifier', { props: { modelModifiers: { number: true } } }, { input: '42', expected: 42 }],
     ['with .lazy modifier', { props: { modelModifiers: { lazy: true } } }, { input: 'input', expected: 'input' }],
-    ['with .nullify modifier', { props: { modelModifiers: { nullify: true } } }, { input: '', expected: null }]
+    ['with .nullable modifier', { props: { modelModifiers: { nullable: true } } }, { input: '', expected: null }],
+    ['with .optional modifier', { props: { modelModifiers: { optional: true } } }, { input: '', expected: undefined }]
   ])('%s works', async (_nameOrHtml: string, options: { props?: any, slots?: any }, spec: { input: any, expected: any }) => {
     const wrapper = mount(Textarea, {
       ...options
@@ -141,29 +143,35 @@ describe('Textarea', () => {
     test('validate on blur works', async () => {
       const { input, wrapper } = await createForm(['blur'])
       await input.trigger('blur')
+      await flushPromises()
       expect(wrapper.text()).toContain('Error message')
 
       await input.setValue('valid')
       await input.trigger('blur')
+      await flushPromises()
       expect(wrapper.text()).not.toContain('Error message')
     })
 
     test('validate on change works', async () => {
       const { input, wrapper } = await createForm(['change'])
       await input.trigger('change')
+      await flushPromises()
       expect(wrapper.text()).toContain('Error message')
 
       input.setValue('valid')
       await input.trigger('change')
+      await flushPromises()
       expect(wrapper.text()).not.toContain('Error message')
     })
 
     test('validate on input works', async () => {
       const { input, wrapper } = await createForm(['input'], true)
       await input.setValue('value')
+      await flushPromises()
       expect(wrapper.text()).toContain('Error message')
 
       await input.setValue('valid')
+      await flushPromises()
       expect(wrapper.text()).not.toContain('Error message')
     })
 
@@ -171,14 +179,17 @@ describe('Textarea', () => {
       const { input, wrapper } = await createForm(['input'])
 
       await input.setValue('value')
+      await flushPromises()
       expect(wrapper.text()).not.toContain('Error message')
 
       await input.trigger('blur')
 
       await input.setValue('value')
+      await flushPromises()
       expect(wrapper.text()).toContain('Error message')
 
       await input.setValue('valid')
+      await flushPromises()
       expect(wrapper.text()).not.toContain('Error message')
     })
   })
