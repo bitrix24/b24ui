@@ -9,24 +9,32 @@ import {
   B24RadioGroup,
   B24Textarea,
   B24Checkbox,
-  B24CheckboxGroup,
   B24Select,
   B24SelectMenu,
   B24InputMenu,
   B24InputNumber,
   B24Switch,
   B24Range,
-  B24FileUpload
   // B24PinInput
+  B24CheckboxGroup,
+  B24FileUpload
 } from '#components'
 
 export async function renderForm(options: {
   state?: Reactive<any>
-  props: Partial<FormProps<any>>
+  props?: Partial<FormProps<any>> & Record<string, any>
   slotVars?: object
-  slotTemplate: string
+  slotTemplate?: string
+  fixture?: string
 }) {
   const state = options.state ?? reactive({})
+
+  if (options.fixture) {
+    const fixture = await import(/* @vite-ignore */ `../components/fixtures/${options.fixture}.vue`).then(c => c.default)
+    return await mountSuspended(fixture, {
+      props: options.props
+    })
+  }
 
   return await mountSuspended(B24Form, {
     props: {
@@ -47,15 +55,15 @@ export async function renderForm(options: {
           B24RadioGroup,
           B24Textarea,
           B24Checkbox,
-          B24CheckboxGroup,
           B24Select,
           B24SelectMenu,
           B24InputMenu,
           B24InputNumber,
           B24Switch,
           B24Range,
+          // B24PinInput,
+          B24CheckboxGroup,
           B24FileUpload
-          // B24PinInput
         },
         template: options.slotTemplate
       }
