@@ -92,7 +92,7 @@ ignore:
 props:
   label: Email
   hint: Optional
-  slots:
+slots:
   default: |
 
     <B24Input placeholder="Enter your email" />
