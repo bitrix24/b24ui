@@ -2,7 +2,7 @@
 
 exports[`Form > custom validation works > with error 1`] = `
 "<form id="42" class="">
-  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
+  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="emailField">
     <div class="leading-(--ui-font-line-height-reset) mb-[10px]">
       <!--v-if-->
       <!--v-if-->
@@ -16,7 +16,7 @@ exports[`Form > custom validation works > with error 1`] = `
       <!--v-if-->
     </div>
   </div>
-  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
+  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="passwordField">
     <div class="leading-(--ui-font-line-height-reset) mb-[10px]">
       <!--v-if-->
       <!--v-if-->
@@ -41,7 +41,7 @@ exports[`Form > custom validation works > with error 1`] = `
 
 exports[`Form > custom validation works > without error 1`] = `
 "<form id="42" class="">
-  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
+  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="emailField">
     <div class="leading-(--ui-font-line-height-reset) mb-[10px]">
       <!--v-if-->
       <!--v-if-->
@@ -55,7 +55,7 @@ exports[`Form > custom validation works > without error 1`] = `
       <!--v-if-->
     </div>
   </div>
-  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
+  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="passwordField">
     <div class="leading-(--ui-font-line-height-reset) mb-[10px]">
       <!--v-if-->
       <!--v-if-->
@@ -74,7 +74,7 @@ exports[`Form > custom validation works > without error 1`] = `
 
 exports[`Form > joi validation works > with error 1`] = `
 "<form id="42" class="">
-  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
+  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="emailField">
     <div class="leading-(--ui-font-line-height-reset) mb-[10px]">
       <!--v-if-->
       <!--v-if-->
@@ -88,7 +88,7 @@ exports[`Form > joi validation works > with error 1`] = `
       <!--v-if-->
     </div>
   </div>
-  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
+  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="passwordField">
     <div class="leading-(--ui-font-line-height-reset) mb-[10px]">
       <!--v-if-->
       <!--v-if-->
@@ -113,7 +113,7 @@ exports[`Form > joi validation works > with error 1`] = `
 
 exports[`Form > joi validation works > without error 1`] = `
 "<form id="42" class="">
-  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
+  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="emailField">
     <div class="leading-(--ui-font-line-height-reset) mb-[10px]">
       <!--v-if-->
       <!--v-if-->
@@ -127,7 +127,7 @@ exports[`Form > joi validation works > without error 1`] = `
       <!--v-if-->
     </div>
   </div>
-  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
+  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="passwordField">
     <div class="leading-(--ui-font-line-height-reset) mb-[10px]">
       <!--v-if-->
       <!--v-if-->
@@ -150,7 +150,7 @@ exports[`Form > renders with state correctly 1`] = `"<form id="v-0" class=""></f
 
 exports[`Form > superstruct validation works > with error 1`] = `
 "<form id="42" class="">
-  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
+  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="emailField">
     <div class="leading-(--ui-font-line-height-reset) mb-[10px]">
       <!--v-if-->
       <!--v-if-->
@@ -164,7 +164,7 @@ exports[`Form > superstruct validation works > with error 1`] = `
       <!--v-if-->
     </div>
   </div>
-  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
+  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="passwordField">
     <div class="leading-(--ui-font-line-height-reset) mb-[10px]">
       <!--v-if-->
       <!--v-if-->
@@ -189,7 +189,7 @@ exports[`Form > superstruct validation works > with error 1`] = `
 
 exports[`Form > superstruct validation works > without error 1`] = `
 "<form id="42" class="">
-  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
+  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="emailField">
     <div class="leading-(--ui-font-line-height-reset) mb-[10px]">
       <!--v-if-->
       <!--v-if-->
@@ -203,7 +203,7 @@ exports[`Form > superstruct validation works > without error 1`] = `
       <!--v-if-->
     </div>
   </div>
-  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
+  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="passwordField">
     <div class="leading-(--ui-font-line-height-reset) mb-[10px]">
       <!--v-if-->
       <!--v-if-->
@@ -222,7 +222,7 @@ exports[`Form > superstruct validation works > without error 1`] = `
 
 exports[`Form > valibot validation works > with error 1`] = `
 "<form id="42" class="">
-  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
+  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="emailField">
     <div class="leading-(--ui-font-line-height-reset) mb-[10px]">
       <!--v-if-->
       <!--v-if-->
@@ -236,7 +236,7 @@ exports[`Form > valibot validation works > with error 1`] = `
       <!--v-if-->
     </div>
   </div>
-  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
+  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="passwordField">
     <div class="leading-(--ui-font-line-height-reset) mb-[10px]">
       <!--v-if-->
       <!--v-if-->
@@ -261,7 +261,7 @@ exports[`Form > valibot validation works > with error 1`] = `
 
 exports[`Form > valibot validation works > without error 1`] = `
 "<form id="42" class="">
-  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
+  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="emailField">
     <div class="leading-(--ui-font-line-height-reset) mb-[10px]">
       <!--v-if-->
       <!--v-if-->
@@ -275,7 +275,7 @@ exports[`Form > valibot validation works > without error 1`] = `
       <!--v-if-->
     </div>
   </div>
-  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
+  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="passwordField">
     <div class="leading-(--ui-font-line-height-reset) mb-[10px]">
       <!--v-if-->
       <!--v-if-->
@@ -294,7 +294,7 @@ exports[`Form > valibot validation works > without error 1`] = `
 
 exports[`Form > yup validation works > with error 1`] = `
 "<form id="42" class="">
-  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
+  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="emailField">
     <div class="leading-(--ui-font-line-height-reset) mb-[10px]">
       <!--v-if-->
       <!--v-if-->
@@ -308,7 +308,7 @@ exports[`Form > yup validation works > with error 1`] = `
       <!--v-if-->
     </div>
   </div>
-  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
+  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="passwordField">
     <div class="leading-(--ui-font-line-height-reset) mb-[10px]">
       <!--v-if-->
       <!--v-if-->
@@ -333,7 +333,7 @@ exports[`Form > yup validation works > with error 1`] = `
 
 exports[`Form > yup validation works > without error 1`] = `
 "<form id="42" class="">
-  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
+  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="emailField">
     <div class="leading-(--ui-font-line-height-reset) mb-[10px]">
       <!--v-if-->
       <!--v-if-->
@@ -347,7 +347,7 @@ exports[`Form > yup validation works > without error 1`] = `
       <!--v-if-->
     </div>
   </div>
-  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
+  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="passwordField">
     <div class="leading-(--ui-font-line-height-reset) mb-[10px]">
       <!--v-if-->
       <!--v-if-->
@@ -366,7 +366,7 @@ exports[`Form > yup validation works > without error 1`] = `
 
 exports[`Form > zod validation works > with error 1`] = `
 "<form id="42" class="">
-  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
+  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="emailField">
     <div class="leading-(--ui-font-line-height-reset) mb-[10px]">
       <!--v-if-->
       <!--v-if-->
@@ -380,7 +380,7 @@ exports[`Form > zod validation works > with error 1`] = `
       <!--v-if-->
     </div>
   </div>
-  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
+  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="passwordField">
     <div class="leading-(--ui-font-line-height-reset) mb-[10px]">
       <!--v-if-->
       <!--v-if-->
@@ -405,7 +405,7 @@ exports[`Form > zod validation works > with error 1`] = `
 
 exports[`Form > zod validation works > without error 1`] = `
 "<form id="42" class="">
-  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
+  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="emailField">
     <div class="leading-(--ui-font-line-height-reset) mb-[10px]">
       <!--v-if-->
       <!--v-if-->
@@ -419,7 +419,7 @@ exports[`Form > zod validation works > without error 1`] = `
       <!--v-if-->
     </div>
   </div>
-  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)">
+  <div class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="passwordField">
     <div class="leading-(--ui-font-line-height-reset) mb-[10px]">
       <!--v-if-->
       <!--v-if-->

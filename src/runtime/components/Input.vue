@@ -4,12 +4,14 @@ import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/input'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
 import type { AvatarProps, BadgeProps } from '../types'
+import type { ModelModifiers } from '../types/input'
 import type { AcceptableValue } from '../types/utils'
 import type { ComponentConfig } from '../types/tv'
 
 type Input = ComponentConfig<typeof theme, AppConfig, 'input'>
 
-export interface InputProps<T extends AcceptableValue = AcceptableValue> extends UseComponentIconsProps {
+export type InputValue = AcceptableValue
+export interface InputProps<T extends InputValue = InputValue> extends UseComponentIconsProps {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
@@ -17,13 +19,8 @@ export interface InputProps<T extends AcceptableValue = AcceptableValue> extends
   as?: any
   id?: string
   name?: string
-  /**
-   * @defaultValue 'text'
-   */
   type?: InputHTMLAttributes['type']
-  /**
-   * The placeholder text when the input is empty.
-   */
+  /** The placeholder text when the input is empty. */
   placeholder?: string
   /**
    * @defaultValue 'air-primary'
@@ -78,25 +75,16 @@ export interface InputProps<T extends AcceptableValue = AcceptableValue> extends
    * @defaultValue 'air-primary'
    */
   tagColor?: BadgeProps['color']
-  /**
-   * Highlight the ring color like a focus state
-   * @defaultValue false
-   */
+  /** Highlight the ring color like a focus state. */
   highlight?: boolean
   modelValue?: T
   defaultValue?: T
-  modelModifiers?: {
-    string?: boolean
-    number?: boolean
-    trim?: boolean
-    lazy?: boolean
-    nullify?: boolean
-  }
+  modelModifiers?: ModelModifiers
   class?: any
   b24ui?: Input['slots']
 }
 
-export interface InputEmits<T extends AcceptableValue = AcceptableValue> {
+export interface InputEmits<T extends InputValue = InputValue> {
   'update:modelValue': [value: T]
   'blur': [event: FocusEvent]
   'change': [event: Event]
@@ -109,7 +97,7 @@ export interface InputSlots {
 }
 </script>
 
-<script setup lang="ts" generic="T extends AcceptableValue">
+<script setup lang="ts" generic="T extends InputValue">
 import { ref, computed, onMounted } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useVModel } from '@vueuse/core'
@@ -164,7 +152,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.input 
 const inputRef = ref<HTMLInputElement | null>(null)
 
 // Custom function to handle the v-model properties
-function updateInput(value: string | null) {
+function updateInput(value: string | null | undefined) {
   if (props.modelModifiers?.trim) {
     value = value?.trim() ?? null
   }
@@ -173,8 +161,12 @@ function updateInput(value: string | null) {
     value = looseToNumber(value)
   }
 
-  if (props.modelModifiers?.nullify) {
+  if (props.modelModifiers?.nullable) {
     value ||= null
+  }
+
+  if (props.modelModifiers?.optional) {
+    value ||= undefined
   }
 
   modelValue.value = value as T

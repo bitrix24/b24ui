@@ -3,6 +3,7 @@ import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/textarea'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
 import type { AvatarProps, BadgeProps } from '../types'
+import type { ModelModifiers } from '../types/input'
 import type { ComponentConfig } from '../types/tv'
 
 type Textarea = ComponentConfig<typeof theme, AppConfig, 'textarea'>
@@ -17,9 +18,7 @@ export interface TextareaProps<T extends TextareaValue = TextareaValue> extends 
   as?: any
   id?: string
   name?: string
-  /**
-   * The placeholder text when the textarea is empty
-   */
+  /** The placeholder text when the textarea is empty. */
   placeholder?: string
   /**
    * @defaultValue 'air-primary'
@@ -89,13 +88,7 @@ export interface TextareaProps<T extends TextareaValue = TextareaValue> extends 
   highlight?: boolean
   modelValue?: T
   defaultValue?: T
-  modelModifiers?: {
-    string?: boolean
-    number?: boolean
-    trim?: boolean
-    lazy?: boolean
-    nullify?: boolean
-  }
+  modelModifiers?: ModelModifiers
   class?: any
   b24ui?: Textarea['slots']
 }
@@ -149,6 +142,7 @@ const isTag = computed(() => {
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.textarea || {}) })({
   color: color.value,
+  // size: size?.value,
   loading: props.loading,
   highlight: highlight.value,
   autoresize: Boolean(props.autoresize),
@@ -163,7 +157,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.textar
 const textareaRef = ref<HTMLTextAreaElement | null>(null)
 
 // Custom function to handle the v-model properties
-function updateInput(value: string | null) {
+function updateInput(value: string | null | undefined) {
   if (props.modelModifiers?.trim) {
     value = value?.trim() ?? null
   }
@@ -172,8 +166,12 @@ function updateInput(value: string | null) {
     value = looseToNumber(value)
   }
 
-  if (props.modelModifiers?.nullify) {
+  if (props.modelModifiers?.nullable) {
     value ||= null
+  }
+
+  if (props.modelModifiers?.optional) {
+    value ||= undefined
   }
 
   modelValue.value = value as T

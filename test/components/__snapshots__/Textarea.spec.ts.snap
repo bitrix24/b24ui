@@ -1,5 +1,13 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Textarea > renders with air-primary-success correctly 1`] = `
+"<div class="isolate relative inline-flex items-center w-full">
+  <!--v-if--><textarea rows="3" class="px-3 w-full pt-[7px] pb-[8px] border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear ring ring-inset ring-(--ui-color-design-outline-stroke) text-(--ui-color-base-1) style-blurred-bg-input placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs) align-middle focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-(--b24ui-border-color) group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 style-filled-success rounded-(--ui-border-radius-sm)"></textarea>
+  <!--v-if-->
+  <!--v-if-->
+</div>"
+`;
+
 exports[`Textarea > renders with as correctly 1`] = `
 "<section class="isolate relative inline-flex items-center w-full">
   <!--v-if--><textarea rows="3" class="px-3 w-full pt-[7px] pb-[8px] border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear ring ring-inset ring-(--ui-color-design-outline-stroke) text-(--ui-color-base-1) style-blurred-bg-input placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs) align-middle focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-(--b24ui-border-color) group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 style-filled rounded-(--ui-border-radius-sm)"></textarea>
@@ -166,14 +174,6 @@ exports[`Textarea > renders with required correctly 1`] = `
 exports[`Textarea > renders with rows correctly 1`] = `
 "<div class="isolate relative inline-flex items-center w-full">
   <!--v-if--><textarea rows="5" class="px-3 w-full pt-[7px] pb-[8px] border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear ring ring-inset ring-(--ui-color-design-outline-stroke) text-(--ui-color-base-1) style-blurred-bg-input placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs) align-middle focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-(--b24ui-border-color) group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 style-filled rounded-(--ui-border-radius-sm)"></textarea>
-  <!--v-if-->
-  <!--v-if-->
-</div>"
-`;
-
-exports[`Textarea > renders with success correctly 1`] = `
-"<div class="isolate relative inline-flex items-center w-full">
-  <!--v-if--><textarea rows="3" class="px-3 w-full pt-[7px] pb-[8px] border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear ring ring-inset ring-(--ui-color-design-outline-stroke) text-(--ui-color-base-1) style-blurred-bg-input placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs) align-middle focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-(--b24ui-border-color) group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 style-old-success rounded-(--ui-border-radius-sm)"></textarea>
   <!--v-if-->
   <!--v-if-->
 </div>"

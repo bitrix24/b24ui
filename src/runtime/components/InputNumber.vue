@@ -3,19 +3,18 @@ import type { NumberFieldRootProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/input-number'
 import type { ButtonProps, BadgeProps, IconComponent } from '../types'
+import type { ModelModifiers } from '../types/input'
 import type { ComponentConfig } from '../types/tv'
 
 type InputNumber = ComponentConfig<typeof theme, AppConfig, 'inputNumber'>
 
-export interface InputNumberProps extends Pick<NumberFieldRootProps, 'modelValue' | 'defaultValue' | 'min' | 'max' | 'stepSnapping' | 'step' | 'disabled' | 'required' | 'id' | 'name' | 'formatOptions' | 'disableWheelChange' | 'invertWheelChange' | 'readonly'> {
+export interface InputNumberProps extends Pick<NumberFieldRootProps, 'modelValue' | 'defaultValue' | 'min' | 'max' | 'step' | 'stepSnapping' | 'disabled' | 'required' | 'id' | 'name' | 'formatOptions' | 'disableWheelChange' | 'invertWheelChange' | 'readonly'> {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
    */
   as?: any
-  /**
-   * The placeholder text when the input is empty
-   */
+  /** The placeholder text when the input is empty. */
   placeholder?: string
   /**
    * @defaultValue 'air-primary'
@@ -50,10 +49,7 @@ export interface InputNumberProps extends Pick<NumberFieldRootProps, 'modelValue
    * @defaultValue 'air-primary'
    */
   tagColor?: BadgeProps['color']
-  /**
-   * Highlight the ring color like a focus state
-   * @defaultValue false
-   */
+  /** Highlight the ring color like a focus state. */
   highlight?: boolean
   /**
    * The orientation of the input menu.
@@ -94,6 +90,7 @@ export interface InputNumberProps extends Pick<NumberFieldRootProps, 'modelValue
    * @defaultValue 0
    */
   autofocusDelay?: number
+  modelModifiers?: Pick<ModelModifiers, 'optional'>
   /**
    * The locale to use for formatting and parsing numbers.
    * @defaultValue B24App.locale.code
@@ -118,7 +115,7 @@ export interface InputNumberSlots {
 <script setup lang="ts">
 import { onMounted, ref, computed } from 'vue'
 import { NumberFieldRoot, NumberFieldInput, NumberFieldDecrement, NumberFieldIncrement, useForwardPropsEmits } from 'reka-ui'
-import { reactivePick } from '@vueuse/core'
+import { reactivePick, useVModel } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useFieldGroup } from '../composables/useFieldGroup'
 import { useFormField } from '../composables/useFormField'
@@ -139,10 +136,12 @@ const props = withDefaults(defineProps<InputNumberProps>(), {
 const emits = defineEmits<InputNumberEmits>()
 defineSlots<InputNumberSlots>()
 
+const modelValue = useVModel<InputNumberProps, 'modelValue', 'update:modelValue'>(props, 'modelValue', emits, { defaultValue: props.defaultValue })
+
 const { t, code: codeLocale } = useLocale()
 const appConfig = useAppConfig() as InputNumber['AppConfig']
 
-const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'modelValue', 'defaultValue', 'min', 'max', 'step', 'stepSnapping', 'formatOptions', 'disableWheelChange', 'invertWheelChange', 'readonly'), emits)
+const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'defaultValue', 'min', 'max', 'step', 'stepSnapping', 'formatOptions', 'disableWheelChange', 'invertWheelChange', 'readonly'), emits)
 
 const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, id, color, size: formGroupSize, name, highlight, disabled, ariaAttrs } = useFormField<InputNumberProps>(props)
 const { orientation, size: fieldGroupSize } = useFieldGroup<InputNumberProps>(props)
@@ -171,7 +170,11 @@ const decrementIcon = computed(() => props.decrementIcon || (props.orientation =
 
 const inputRef = ref<InstanceType<typeof NumberFieldInput> | null>(null)
 
-function onUpdate(value: number) {
+function onUpdate(value: number | undefined) {
+  if (props.modelModifiers?.optional) {
+    value = value ?? undefined
+  }
+
   // @ts-expect-error - 'target' does not exist in type 'EventInit'
   const event = new Event('change', { target: { value } })
   emits('change', event)
@@ -206,6 +209,7 @@ defineExpose({
   <NumberFieldRoot
     v-bind="rootProps"
     :id="id"
+    :model-value="modelValue"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     :name="name"
     :disabled="disabled"
