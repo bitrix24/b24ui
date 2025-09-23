@@ -34,7 +34,8 @@ const pages = [
   '/docs/components/skeleton/',
   //
   '/docs/components/checkbox/',
-  '/docs/components/checkbox-group/'
+  '/docs/components/checkbox-group/',
+  '/docs/components/color-picker/'
 ]
 
 const apiComponentMeta = [
@@ -63,11 +64,15 @@ const apiComponentMeta = [
   '/api/component-meta/B24Skeleton.json',
   //
   '/api/component-meta/B24Checkbox.json',
-  '/api/component-meta/B24CheckboxGroup.json'
+  '/api/component-meta/B24CheckboxGroup.json',
+  '/api/component-meta/B24ColorPicker.json'
 ]
 
 const apiComponentExample = [
+  // region Index ////
   '/api/component-example/indexPromoV1.json',
+  // endregion ////
+  // region Layout ////
   '/api/component-example/sidebarLayoutExample.json',
   '/api/component-example/sidebarLayoutInnerExample.json',
   '/api/component-example/sidebarLayoutSlideoverExample.json',
@@ -103,8 +108,11 @@ const apiComponentExample = [
   '/api/component-example/fieldGroupBadgeExample.json',
   '/api/component-example/skeletonExample.json',
   '/api/component-example/skeletonAccentExample.json',
-  '/api/component-example/skeletonTaskExample.json'
-  //
+  '/api/component-example/skeletonTaskExample.json',
+  // endregion ////
+  // region Form ////
+  '/api/component-example/colorPickerChooserExample.json'
+  // endregion ////
 ]
 
 const pagesFrameExamples = [

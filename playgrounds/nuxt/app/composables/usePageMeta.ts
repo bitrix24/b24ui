@@ -55,6 +55,7 @@ const components: IComponentInfo[] = [
   { id: 'checkbox', description: 'An input element to toggle between checked and unchecked states.', iconData: FormIcon },
   { id: 'checkbox-group', description: 'Multi-select checklist using button controls.', iconData: FormIcon },
   { id: 'collapsible', description: 'A collapsible component for showing or hiding its content.', iconData: ItemIcon, iconUi: 'pr-px pb-[3px]' },
+  { id: 'color-picker', description: 'A color picker component.', iconData: FormIcon },
   { id: 'chip', description: 'An indicator of a numeric value or a state.', iconData: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'confetti', description: 'Performant confetti animation in the browser.', iconData: BoldSparkleIcon },
   { id: 'container', description: 'A container lets you center and constrain the width of your content.', iconData: GroupIcon },
