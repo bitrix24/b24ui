@@ -9,12 +9,13 @@ const { resolve } = createResolver(import.meta.url)
  */
 const pages = [
   '/docs/guide/getting-started/',
-  //
+  // region Layout ////
   '/docs/components/app/',
   '/docs/components/sidebar-layout/',
   '/docs/components/container/',
   '/docs/components/error/',
-  //
+  // endregion ////
+  // region Element ////
   '/docs/components/advice/',
   '/docs/components/alert/',
   '/docs/components/avatar/',
@@ -32,11 +33,13 @@ const pages = [
   '/docs/components/progress/',
   '/docs/components/separator/',
   '/docs/components/skeleton/',
-  //
+  // endregion ////
+  // region Form ////
   '/docs/components/checkbox/',
   '/docs/components/checkbox-group/',
   '/docs/components/color-picker/',
   '/docs/components/file-upload/'
+  // endregion ////
 ]
 
 const apiComponentMeta = [
@@ -71,7 +74,7 @@ const apiComponentMeta = [
   '/api/component-meta/B24Checkbox.json',
   '/api/component-meta/B24CheckboxGroup.json',
   '/api/component-meta/B24ColorPicker.json',
-  '/api/component-meta/FileUpload.json'
+  '/api/component-meta/B24FileUpload.json'
   // endregion ////
 ]
 
@@ -123,8 +126,8 @@ const apiComponentExample = [
   '/api/component-example/colorPickerChooserExample.json',
   '/api/component-example/fileUploadFormValidationExample.json',
   '/api/component-example/fileUploadDefaultSlotExample.json',
-  '/api/component-example/fileUploadFilesBottom-slotExample.json',
-  '/api/component-example/fileUploadFilesTop-slotExample.json'
+  '/api/component-example/fileUploadFilesBottomSlotExample.json',
+  '/api/component-example/fileUploadFilesTopSlotExample.json'
   // endregion ////
 ]
 
