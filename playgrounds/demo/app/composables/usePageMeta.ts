@@ -63,6 +63,7 @@ const components: IComponentInfo[] = [
   { id: 'description-list', description: 'For cases where you need to convert data from one row of a table into a separate table to make the page look more complete.', iconData: GroupIcon },
   { id: 'dropdown-menu', description: 'A menu to display actions when clicking on an element.', iconData: GroupIcon },
   { id: 'field-group', description: 'Group multiple button-like elements together.', iconData: GroupIcon },
+  { id: 'file-upload', description: 'A file upload input component.', iconData: FormIcon },
   { id: 'form', description: 'A form component with built-in validation and submission handling.', iconData: FormSettingsIcon },
   { id: 'form-field', description: 'A wrapper for form elements that provides validation and error handling.', iconData: FormIcon },
   { id: 'input', description: 'An input element to enter text.', iconData: FormIcon },

@@ -12,7 +12,6 @@ import ChevronToTheLeftIcon from '@bitrix24/b24icons-vue/outline/ChevronLeftLIco
 import ChevronToTheRightIcon from '@bitrix24/b24icons-vue/outline/ChevronRightLIcon'
 import DoubleShevronsRightIcon from '@bitrix24/b24icons-vue/actions/DoubleShevronsRightIcon'
 import DoubleShevronsLeftIcon from '@bitrix24/b24icons-vue/actions/DoubleShevronsLeftIcon'
-// import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
 import CrossMIcon from '@bitrix24/b24icons-vue/outline/CrossMIcon'
 import DotsIcon from '@bitrix24/b24icons-vue/button/DotsIcon'
 import OpenIn50Icon from '@bitrix24/b24icons-vue/actions/OpenIn50Icon'
@@ -32,6 +31,8 @@ import WarningIcon from '@bitrix24/b24icons-vue/main/WarningIcon'
 import AlertIcon from '@bitrix24/b24icons-vue/outline/AlertIcon'
 import CopyIcon from '@bitrix24/b24icons-vue/outline/CopyIcon'
 import CircleCheckIcon from '@bitrix24/b24icons-vue/outline/CircleCheckIcon'
+import FileIcon from '@bitrix24/b24icons-vue/outline/FileIcon'
+import UploadFileIcon from '@bitrix24/b24icons-vue/outline/UploadFileIcon'
 
 export default {
   arrowLeft: ArrowToTheLeftIcon,
@@ -46,11 +47,13 @@ export default {
   close: CrossMIcon,
   ellipsis: DotsIcon,
   external: OpenIn50Icon,
+  file: FileIcon,
   loading: LoaderWaitIcon,
   refresh: Refresh6Icon,
   minus: Minus30Icon,
   plus: Plus30Icon,
   search: Search2Icon,
+  upload: UploadFileIcon,
   system: ScreenIcon,
   light: SunIconAir,
   dark: MoonIconAir,

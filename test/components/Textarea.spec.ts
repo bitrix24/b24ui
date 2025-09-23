@@ -4,7 +4,7 @@ import Textarea, { type TextareaProps, type TextareaSlots } from '../../src/runt
 import ComponentRender from '../component-render'
 // import theme from '#build/b24ui/textarea'
 import { renderForm } from '../utils/form'
-import type { FormInputEvents } from '~/src/module'
+import type { FormInputEvents } from '../../src/module'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
 
 describe('Textarea', () => {

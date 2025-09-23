@@ -35,14 +35,18 @@ const pages = [
   //
   '/docs/components/checkbox/',
   '/docs/components/checkbox-group/',
-  '/docs/components/color-picker/'
+  '/docs/components/color-picker/',
+  '/docs/components/file-upload/'
 ]
 
 const apiComponentMeta = [
+  // region Layout ////
   '/api/component-meta/B24App.json',
   '/api/component-meta/B24SidebarLayout.json',
   '/api/component-meta/B24Container.json',
   '/api/component-meta/B24Error.json',
+  // endregion ////
+  // region Element ////
   '/api/component-meta/B24Advice.json',
   '/api/component-meta/B24Alert.json',
   '/api/component-meta/B24Avatar.json',
@@ -62,10 +66,13 @@ const apiComponentMeta = [
   '/api/component-meta/B24Progress.json',
   '/api/component-meta/B24Separator.json',
   '/api/component-meta/B24Skeleton.json',
-  //
+  // endregion ////
+  // region Form ////
   '/api/component-meta/B24Checkbox.json',
   '/api/component-meta/B24CheckboxGroup.json',
-  '/api/component-meta/B24ColorPicker.json'
+  '/api/component-meta/B24ColorPicker.json',
+  '/api/component-meta/FileUpload.json'
+  // endregion ////
 ]
 
 const apiComponentExample = [
@@ -77,6 +84,8 @@ const apiComponentExample = [
   '/api/component-example/sidebarLayoutInnerExample.json',
   '/api/component-example/sidebarLayoutSlideoverExample.json',
   '/api/component-example/containerExample.json',
+  // endregion ////
+  // region Element ////
   '/api/component-example/adviceExample.json',
   '/api/component-example/avatarTooltipExample.json',
   '/api/component-example/avatarMaskExample.json',
@@ -111,7 +120,11 @@ const apiComponentExample = [
   '/api/component-example/skeletonTaskExample.json',
   // endregion ////
   // region Form ////
-  '/api/component-example/colorPickerChooserExample.json'
+  '/api/component-example/colorPickerChooserExample.json',
+  '/api/component-example/fileUploadFormValidationExample.json',
+  '/api/component-example/fileUploadDefaultSlotExample.json',
+  '/api/component-example/fileUploadFilesBottom-slotExample.json',
+  '/api/component-example/fileUploadFilesTop-slotExample.json'
   // endregion ////
 ]
 

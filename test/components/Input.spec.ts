@@ -5,7 +5,7 @@ import type { InputProps, InputSlots } from '../../src/runtime/components/Input.
 import ComponentRender from '../component-render'
 import theme from '#build/b24ui/input'
 import { renderForm } from '../utils/form'
-import type { FormInputEvents } from '~/src/module'
+import type { FormInputEvents } from '../../src/module'
 import ArrowToTheLeftIcon from '@bitrix24/b24icons-vue/actions/ArrowToTheLeftIcon'
 import ArrowToTheRightIcon from '@bitrix24/b24icons-vue/actions/ArrowToTheRightIcon'
 import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'

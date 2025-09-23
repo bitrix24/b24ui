@@ -15,7 +15,8 @@ import {
   B24InputMenu,
   B24InputNumber,
   B24Switch,
-  B24Range
+  B24Range,
+  B24FileUpload
   // B24PinInput
 } from '#components'
 
@@ -52,7 +53,8 @@ export async function renderForm(options: {
           B24InputMenu,
           B24InputNumber,
           B24Switch,
-          B24Range
+          B24Range,
+          B24FileUpload
           // B24PinInput
         },
         template: options.slotTemplate
