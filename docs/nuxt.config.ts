@@ -35,11 +35,12 @@ const pages = [
   '/docs/components/skeleton/',
   // endregion ////
   // region Form ////
+  '/docs/components/form/',
   '/docs/components/checkbox/',
   '/docs/components/checkbox-group/',
   '/docs/components/color-picker/',
   '/docs/components/file-upload/',
-  '/docs/components/form/'
+  '/docs/components/form-field/'
   // endregion ////
 ]
 
@@ -72,11 +73,12 @@ const apiComponentMeta = [
   '/api/component-meta/B24Skeleton.json',
   // endregion ////
   // region Form ////
+  '/api/component-meta/B24Form.json',
   '/api/component-meta/B24Checkbox.json',
   '/api/component-meta/B24CheckboxGroup.json',
   '/api/component-meta/B24ColorPicker.json',
   '/api/component-meta/B24FileUpload.json',
-  '/api/component-meta/B24Form.json'
+  '/api/component-meta/B24FormField.json'
   // endregion ////
 ]
 

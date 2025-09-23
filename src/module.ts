@@ -125,8 +125,8 @@ export default defineNuxtModule<ModuleOptions>({
             // 'kbd': 'ProseKbd',
             'note': 'ProseNote',
             // 'steps': 'ProseSteps',
-            // 'tabs': 'ProseTabs',
-            // 'tabs-item': 'ProseTabsItem',
+            'tabs': 'ProseTabs',
+            'tabs-item': 'ProseTabsItem',
             'tip': 'ProseTip',
             'warning': 'ProseWarning'
           }
