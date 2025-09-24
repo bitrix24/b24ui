@@ -40,7 +40,8 @@ const pages = [
   '/docs/components/checkbox-group/',
   '/docs/components/color-picker/',
   '/docs/components/file-upload/',
-  '/docs/components/form-field/'
+  '/docs/components/form-field/',
+  '/docs/components/input/'
   // endregion ////
 ]
 
@@ -78,7 +79,8 @@ const apiComponentMeta = [
   '/api/component-meta/B24CheckboxGroup.json',
   '/api/component-meta/B24ColorPicker.json',
   '/api/component-meta/B24FileUpload.json',
-  '/api/component-meta/B24FormField.json'
+  '/api/component-meta/B24FormField.json',
+  '/api/component-meta/B24Input.json'
   // endregion ////
 ]
 
@@ -141,7 +143,17 @@ const apiComponentExample = [
   '/api/component-example/formExampleElements.json',
   '/api/component-example/formExampleOnError.json',
   '/api/component-example/formExampleNested.json',
-  '/api/component-example/formExampleNestedList.json'
+  '/api/component-example/formExampleNestedList.json',
+  '/api/component-example/inputClearButtonExample.json',
+  '/api/component-example/inputCopyButtonExample.json',
+  '/api/component-example/inputPasswordToggleExample.json',
+  '/api/component-example/inputPasswordStrengthIndicatorExample.json',
+  '/api/component-example/inputCharacterLimitExample.json',
+  '/api/component-example/inputKbdExample.json',
+  '/api/component-example/inputMaskExample.json',
+  '/api/component-example/inputFloatingLabelExample.json',
+  '/api/component-example/inputFormFieldExample.json',
+  '/api/component-example/inputFieldGroupExample.json'
   // endregion ////
 ]
 

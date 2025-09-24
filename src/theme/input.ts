@@ -14,7 +14,7 @@ import { fieldGroupVariantWithRoot } from './field-group'
 
 export default {
   slots: {
-    root: 'isolate relative inline-flex items-center w-full', // @todo remove ? w-full -> see select
+    root: 'isolate relative inline-flex items-center', // remove ? w-full -> see select
     base: [
       'px-3',
       'w-full py-0 border-0 focus:outline-none',

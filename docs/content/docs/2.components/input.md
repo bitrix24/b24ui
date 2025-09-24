@@ -2,237 +2,370 @@
 title: Input
 description: An input box designed for text entry.
 category: form
+links:
+  - label: GitHub
+    iconName: GitHubIcon
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Input.vue
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/input
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui4.nuxt.com/docs/components/input
 ---
-<script setup>
-import InputExample from '/examples/input/Input.vue';
-import TypeExample from '/examples/input/Type.vue';
-import PlaceholderExample from '/examples/input/Placeholder.vue';
-import ColorExample from '/examples/input/Color.vue';
-import TagExample from '/examples/input/Tag.vue';
-import SizeExample from '/examples/input/Size.vue';
-import IconExample from '/examples/input/Icon.vue';
-import IconLeadingTrailingExample from '/examples/input/IconLeadingTrailing.vue';
-import AvatarExample from '/examples/input/Avatar.vue';
-import LoadingExample from '/examples/input/Loading.vue';
-import DisabledExample from '/examples/input/Disabled.vue';
-import WithMaskExample from '/examples/input/WithMask.vue';
-</script>
-# Input
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
-<Description
-  nuxt-ui="https://ui3.nuxt.dev/components/input"
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Input.vue"
-  demo="/components/input"
->
-  An input box designed for text entry.
-</Description>
 
 ## Usage
 
 Use the `v-model` directive to control the value of the Input.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <InputExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/input/demo/Input.vue{4,8 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - modelValue
+external:
+  - modelValue
+props:
+  modelValue: ''
+---
+::
 
 ### Type
 
 Use the `type` prop to change the input type. Defaults to `text`.
 
-Some types have been implemented in their own components such as [Checkbox](/docs/components/checkbox/), [Radio](/docs/components/radio-group/) etc. and others have been styled like `file` for example.
+Some types have been implemented in their own components such as [Checkbox](/docs/components/checkbox/), [Radio](/docs/components/radio-group/), [InputNumber](/docs/components/input-number/) etc. and others have been styled like `file` for example.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <TypeExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+items:
+  type:
+    - text
+    - number
+    - password
+    - search
+    - file
+props:
+  type: 'file'
+---
+::
 
-::: details
-<<< @/examples/input/demo/Type.vue{13 vue:line-numbers}
-:::
-
-::: info
-You can check all the available types on the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types).
-:::
+::callout{color="air-secondary-accent-2" to="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types" target="_blank"}
+You can check all the available types on the MDN Web Docs.
+::
 
 ### Placeholder
 
 Use the `placeholder` prop to set a placeholder text.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <PlaceholderExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+props:
+  placeholder: 'Search...'
+---
+::
 
-::: details
-<<< @/examples/input/demo/Placeholder.vue{13 vue:line-numbers}
-:::
 
 ### Color
 
 Use the `color` prop to change the ring color when the Input is focused.
 
-::: info
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+props:
+  color: air-primary-warning
+  highlight: true
+  placeholder: 'Search...'
+---
+::
+
+::note
 The `highlight` prop is used here to show the focus state. It's used internally when a validation error occurs.
-:::
-
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <ColorExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/input/demo/Color.vue{17,18 vue:line-numbers}
-:::
+::
 
 ### Tag
 
-Use the `tag` property to display a small legend on top of the Input.
+Use the `tag` property to display a [Badge](/docs/components/badge/) on top of the Input.
 
-Use the `tagColor` property to set the color for `tag`.
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+props:
+  tag: note
+  color: air-primary-warning
+  highlight: true
+  placeholder: 'Search...'
+---
+::
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <TagExample />
-  </ClientOnly>
-</div>
+::note
+The `highlight` prop is used here to show the focus state. It's used internally when a validation error occurs.
+::
 
-::: details
-<<< @/examples/input/demo/Tag.vue{17-18 vue:line-numbers}
-:::
+Use the `tagColor` property to set the color for Badge.
+
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+items:
+  tagColor:
+    - air-primary
+    - air-primary-success
+    - air-primary-alert
+    - air-primary-copilot
+    - air-primary-warning
+    - air-secondary
+    - air-secondary-alert
+    - air-secondary-accent
+    - air-secondary-accent-1
+    - air-secondary-accent-2
+    - air-tertiary
+    - air-selection
+props:
+  tagColor: air-secondary-alert
+  tag: note
+  color: air-primary-warning
+  highlight: true
+  placeholder: 'Search...'
+---
+::
+
+::note
+The `highlight` prop is used here to show the focus state. It's used internally when a validation error occurs.
+::
 
 ### Size
 
 Use the `size` prop to change the size of the Input.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <SizeExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/input/demo/Size.vue{15 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+props:
+  size: xl
+  placeholder: 'Search...'
+---
+::
 
 ### Icon
 
 Use the `icon` prop to show an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) inside the Input.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <IconExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+  - icon
+cast:
+  icon: 'RocketIcon'
+props:
+  icon: 'RocketIcon'
+  size: md
+  placeholder: 'Search...'
+---
+::
 
-::: details
-<<< @/examples/input/demo/Icon.vue{7 vue:line-numbers}
-:::
+Use the `trailing-icon` props to set icon for trailing position.
 
-Use the `leading-icon` and `trailing-icon` props to set a different icon for each position.
-
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <IconLeadingTrailingExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/input/demo/IconLeadingTrailing.vue{8,9 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+  - trailingIcon
+cast:
+    trailingIcon: 'RocketIcon'
+props:
+  trailingIcon: 'RocketIcon'
+  placeholder: 'Enter your email'
+  size: md
+---
+::
 
 ### Avatar
 
 Use the `avatar` prop to show an [Avatar](/docs/components/avatar/) inside the Input.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <AvatarExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/input/demo/Avatar.vue{7,11 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+  - avatar.src
+  - avatar.size
+props:
+  avatar.src: '/b24ui/avatar/employee.png'
+  size: md
+  placeholder: 'Search...'
+---
+::
 
 ### Loading
 
 Use the `loading` prop to show a loading icon on the Input.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <LoadingExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/input/demo/Loading.vue{14 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+props:
+  loading: true
+  placeholder: 'Search...'
+---
+::
 
 ### Disabled
 
 Use the `disabled` prop to disable the Input.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <DisabledExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/input/demo/Disabled.vue{14 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+props:
+  disabled: true
+  placeholder: 'Search...'
+---
+::
 
 ## Examples
+
+### With clear button
+
+You can put a [Button](/docs/components/button/) inside the `#trailing` slot to clear the Input.
+
+::component-example
+---
+name: 'input-clear-button-example'
+---
+::
+
+### With copy button
+
+You can put a [Button](/docs/components/button/) inside the `#trailing` slot to copy the value to the clipboard.
+
+::component-example
+---
+name: 'input-copy-button-example'
+---
+::
+
+### With password toggle
+
+You can put a [Button](/docs/components/button/) inside the `#trailing` slot to toggle the password visibility.
+
+::component-example
+---
+name: 'input-password-toggle-example'
+---
+::
+
+### With password strength indicator
+
+You can use the [Range](/docs/components/range/) component to display the password strength indicator.
+
+::component-example
+---
+collapse: true
+name: 'input-password-strength-indicator-example'
+---
+::
+
+### With character limit
+
+You can use the `#trailing` slot to add a character limit to the Input.
+
+::component-example
+---
+name: 'input-character-limit-example'
+---
+::
+
+### With keyboard shortcut
+
+You can use the [Kbd](/docs/components/kbd/) component inside the `#trailing` slot to add a keyboard shortcut to the Input.
+
+::component-example
+---
+name: 'input-kbd-example'
+---
+::
+
+::note{to="/docs/composables/define-shortcuts/"}
+This example uses the `defineShortcuts` composable to focus the Input when the :kbd{value="/"} key is pressed.
+::
 
 ### With mask
 
 There's no built-in support for masks, but you can use libraries like [maska](https://github.com/beholdr/maska) to mask the Input.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithMaskExample />
-  </ClientOnly>
-</div>
+::component-example
+---
+name: 'input-mask-example'
+---
+::
 
-::: details
-<<< @/examples/input/demo/WithMask.vue{vue:line-numbers}
-:::
+### With floating label
+
+You can use the `#default` slot to add a floating label to the Input.
+
+::component-example
+---
+name: 'input-floating-label-example'
+---
+::
+
+### Within a FormField
+
+You can use the Input within a [FormField](/docs/components/form-field/) component to display a label, help text, required indicator, etc.
+
+::component-example
+---
+name: 'input-form-field-example'
+---
+::
+
+::tip{to="/docs/components/form/"}
+It also provides validation and error handling when used within a **Form** component.
+::
+
+### Within a FieldGroup
+
+You can use the Input within a [FieldGroup](/components/field-group/) component to group multiple elements together.
+
+::component-example
+---
+name: 'input-field-group-example'
+---
+::
 
 ## API
 
 ### Props
 
-<ComponentProps component="Input" />
+:component-props
 
 ### Slots
 
-<ComponentSlots component="Input" />
+:component-slots
 
 ### Emits
 
-```ts
-/**
- * Emitted events for the Input component
- */
-interface InputEmits {
-  blur: (payload: [event: FocusEvent]) => void;
-  change: (payload: [event: Event]) => void;
-  update:modelValue: (payload: [value: AcceptableValue]) => void;
-}
-```
+:component-emits
 
 ### Expose
 
@@ -240,4 +373,8 @@ When accessing the component via a template ref, you can use the following:
 
 | Name                       | Type                                            |
 |----------------------------|-------------------------------------------------|
-| `inputRef`{lang="ts"} | `Ref<HTMLInputElement \| null>`{lang="ts"} |
+| `inputRef`{lang="ts-type"} | `Ref<HTMLInputElement \| null>`{lang="ts-type"} |
+
+## Theme
+
+:component-theme
