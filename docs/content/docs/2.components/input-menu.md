@@ -78,6 +78,7 @@ You can also pass an array of objects with the following properties:
 - [`type?: "label" | "separator" | "item"`{lang="ts-type"}](#with-items-type)
 - [`icon?: IconComponent`{lang="ts-type"}](#with-icons-in-items)
 - [`avatar?: AvatarProps`{lang="ts-type"}](#with-avatar-in-items)
+- `color?: InputMenu['variants']['color']`{lang="ts-type"}
 - [`chip?: ChipProps`{lang="ts-type"}](#with-chip-in-items)
 - `disabled?: boolean`{lang="ts-type"}
 - `onSelect?(e: Event): void`{lang="ts-type"}
@@ -594,6 +595,108 @@ props:
     - In Progress
     - Done
 ---
+::
+
+### No padding
+
+Use the `noPadding` prop to removes padding from the InputMenu.
+
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - placeholder
+external:
+  - items
+props:
+  noPadding: true
+  highlight: true
+  placeholder: 'Select status'
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+---
+::
+
+::note
+The `highlight` prop is used here to show the focus state.
+::
+
+### No border
+
+Use the `noBorder` prop to removes all borders (rings) from the InputMenu.
+
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - placeholder
+external:
+  - items
+props:
+  noBorder: true
+  placeholder: 'Select status'
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+---
+::
+
+### Underline
+
+Use the `underline` prop to removes all borders (rings) except the bottom one from the InputMenu.
+
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - placeholder
+external:
+  - items
+props:
+  underline: true
+  placeholder: 'Select status'
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+---
+::
+
+### Rounded
+
+Use the `rounded` prop to round the Input.
+
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - placeholder
+external:
+  - items
+props:
+  rounded: true
+  highlight: true
+  placeholder: 'Select status'
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+---
+::
+
+::note
+The `highlight` prop is used here to show the focus state.
 ::
 
 ## Examples

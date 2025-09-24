@@ -67,7 +67,6 @@ props:
 ---
 ::
 
-
 ### Color
 
 Use the `color` prop to change the ring color when the Input is focused.
@@ -240,6 +239,76 @@ props:
   disabled: true
   placeholder: 'Search...'
 ---
+::
+
+### No padding
+
+Use the `noPadding` prop to removes padding from the Input.
+
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+props:
+  noPadding: true
+  highlight: true
+  placeholder: 'Search...'
+---
+::
+
+::note
+The `highlight` prop is used here to show the focus state.
+::
+
+### No border
+
+Use the `noBorder` prop to removes all borders (rings) from the Input.
+
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+props:
+  noBorder: true
+  placeholder: 'Search...'
+---
+::
+
+### Underline
+
+Use the `underline` prop to removes all borders (rings) except the bottom one from the Input.
+
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+props:
+  underline: true
+  placeholder: 'Search...'
+---
+::
+
+### Rounded
+
+Use the `rounded` prop to round the Input.
+
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+props:
+  rounded: true
+  highlight: true
+  placeholder: 'Search...'
+---
+::
+
+::note
+The `highlight` prop is used here to show the focus state.
 ::
 
 ## Examples
