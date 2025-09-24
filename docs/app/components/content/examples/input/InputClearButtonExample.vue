@@ -1,22 +1,23 @@
 <script setup lang="ts">
+import CircleCrossIcon from '@bitrix24/b24icons-vue/outline/CircleCrossIcon'
+
 const value = ref('Click to clear')
 </script>
 
 <template>
-  <UInput
+  <B24Input
     v-model="value"
     placeholder="Type something..."
-    :ui="{ trailing: 'pe-1' }"
+    :b24ui="{ trailing: 'pe-1' }"
   >
     <template v-if="value?.length" #trailing>
-      <UButton
-        color="neutral"
-        variant="link"
+      <B24Button
         size="sm"
-        icon="i-lucide-circle-x"
+        color="air-tertiary-no-accent"
+        :icon="CircleCrossIcon"
         aria-label="Clear input"
         @click="value = ''"
       />
     </template>
-  </UInput>
+  </B24Input>
 </template>

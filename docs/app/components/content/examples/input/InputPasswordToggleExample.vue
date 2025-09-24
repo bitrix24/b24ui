@@ -1,28 +1,30 @@
 <script setup lang="ts">
+import ObserverIcon from '@bitrix24/b24icons-vue/outline/ObserverIcon'
+import CrossedEyeIcon from '@bitrix24/b24icons-vue/outline/CrossedEyeIcon'
+
 const show = ref(false)
 const password = ref('')
 </script>
 
 <template>
-  <UInput
+  <B24Input
     v-model="password"
     placeholder="Password"
     :type="show ? 'text' : 'password'"
-    :ui="{ trailing: 'pe-1' }"
+    :b24ui="{ trailing: 'pe-1' }"
   >
     <template #trailing>
-      <UButton
-        color="neutral"
-        variant="link"
+      <B24Button
         size="sm"
-        :icon="show ? 'i-lucide-eye-off' : 'i-lucide-eye'"
+        color="air-tertiary-no-accent"
+        :icon="show ? CrossedEyeIcon : ObserverIcon"
         :aria-label="show ? 'Hide password' : 'Show password'"
         :aria-pressed="show"
         aria-controls="password"
         @click="show = !show"
       />
     </template>
-  </UInput>
+  </B24Input>
 </template>
 
 <style>

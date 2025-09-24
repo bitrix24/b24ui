@@ -276,7 +276,7 @@ name: 'input-password-toggle-example'
 
 ### With password strength indicator
 
-You can use the [Range](/docs/components/range/) component to display the password strength indicator.
+You can use the [Progress](/docs/components/progress/) component to display the password strength indicator.
 
 ::component-example
 ---

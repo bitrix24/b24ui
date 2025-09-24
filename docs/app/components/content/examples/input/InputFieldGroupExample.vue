@@ -5,22 +5,27 @@ const domain = ref(domains[0])
 </script>
 
 <template>
-  <UFieldGroup>
-    <UInput
+  <B24FieldGroup>
+    <B24Input
       v-model="value"
-      placeholder="nuxt"
-      :ui="{
-        base: 'pl-14.5',
+      placeholder="bitrix24"
+      :b24ui="{
+        base: 'pl-[48px]',
         leading: 'pointer-events-none'
       }"
     >
       <template #leading>
-        <p class="text-sm text-muted">
+        <p class="text-(length:--ui-font-size-xs)/(--ui-font-line-height-reset) text-(--b24ui-typography-label-color)">
           https://
         </p>
       </template>
-    </UInput>
+    </B24Input>
 
-    <USelectMenu v-model="domain" :items="domains" />
-  </UFieldGroup>
+    <B24SelectMenu
+      v-model="domain"
+      :items="domains"
+      class="w-[85px]"
+      :content="{ align: 'end', side: 'bottom', sideOffset: 4 }"
+    />
+  </B24FieldGroup>
 </template>

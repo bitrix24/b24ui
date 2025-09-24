@@ -1,27 +1,32 @@
 <script setup lang="ts">
+import CopyIcon from '@bitrix24/b24icons-vue/outline/CopyIcon'
+import CircleCheckIcon from '@bitrix24/b24icons-vue/outline/CircleCheckIcon'
+
 import { useClipboard } from '@vueuse/core'
 
-const value = ref('npx nuxt module add ui')
+const value = ref('npx nuxt module add @bitrix24/b24ui-nuxt')
 
 const { copy, copied } = useClipboard()
 </script>
 
 <template>
-  <UInput
+  <B24Input
     v-model="value"
-    :ui="{ trailing: 'pr-0.5' }"
+    :b24ui="{ trailing: 'pr-0.5' }"
   >
     <template v-if="value?.length" #trailing>
-      <UTooltip text="Copy to clipboard" :content="{ side: 'right' }">
-        <UButton
-          :color="copied ? 'success' : 'neutral'"
-          variant="link"
+      <B24Tooltip text="Copy to clipboard" :content="{ side: 'right' }">
+        <B24Button
+          :b24ui="{
+            leadingIcon: [copied ? 'text-success' : 'text-(--ui-btn-color)']
+          }"
           size="sm"
-          :icon="copied ? 'i-lucide-copy-check' : 'i-lucide-copy'"
+          color="air-tertiary-no-accent"
+          :icon="copied ? CircleCheckIcon : CopyIcon"
           aria-label="Copy to clipboard"
           @click="copy(value)"
         />
-      </UTooltip>
+      </B24Tooltip>
     </template>
-  </UInput>
+  </B24Input>
 </template>

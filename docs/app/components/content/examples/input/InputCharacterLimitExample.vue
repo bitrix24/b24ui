@@ -4,21 +4,21 @@ const maxLength = 15
 </script>
 
 <template>
-  <UInput
+  <B24Input
     v-model="value"
     :maxlength="maxLength"
     aria-describedby="character-count"
-    :ui="{ trailing: 'pointer-events-none' }"
+    :b24ui="{ trailing: 'pointer-events-none' }"
   >
     <template #trailing>
       <div
         id="character-count"
-        class="text-xs text-muted tabular-nums"
+        class="text-(length:--ui-font-size-xs)/(--ui-font-line-height-reset) text-(--b24ui-typography-description-color) tabular-nums"
         aria-live="polite"
         role="status"
       >
         {{ value?.length }}/{{ maxLength }}
       </div>
     </template>
-  </UInput>
+  </B24Input>
 </template>

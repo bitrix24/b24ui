@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import CrmSearchIcon from '@bitrix24/b24icons-vue/crm/CrmSearchIcon'
+
 const input = useTemplateRef('input')
 
 defineShortcuts({
@@ -9,13 +11,13 @@ defineShortcuts({
 </script>
 
 <template>
-  <UInput
+  <B24Input
     ref="input"
-    icon="i-lucide-search"
+    :icon="CrmSearchIcon"
     placeholder="Search..."
   >
     <template #trailing>
-      <UKbd value="/" />
+      <B24Kbd value="/" />
     </template>
-  </UInput>
+  </B24Input>
 </template>

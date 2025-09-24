@@ -3,9 +3,9 @@ const value = ref('')
 </script>
 
 <template>
-  <UInput v-model="value" placeholder="" :ui="{ base: 'peer' }">
-    <label class="pointer-events-none absolute left-0 -top-2.5 text-highlighted text-xs font-medium px-1.5 transition-all peer-focus:-top-2.5 peer-focus:text-highlighted peer-focus:text-xs peer-focus:font-medium peer-placeholder-shown:text-sm peer-placeholder-shown:text-dimmed peer-placeholder-shown:top-1.5 peer-placeholder-shown:font-normal">
-      <span class="inline-flex bg-default px-1">Email address</span>
+  <B24Input v-model="value" placeholder="" :b24ui="{ base: 'peer' }">
+    <label class="pointer-events-none absolute left-0 -top-[10px] text-(--b24ui-typography-label-color) text-(length:--ui-font-size-xs)/(--ui-font-line-height-reset) font-(--ui-font-weight-medium) px-1.5 transition-all peer-focus:-top-[10px] peer-focus:text-(--b24ui-typography-label-color) peer-focus:text-(length:--ui-font-size-xs)/(--ui-font-line-height-reset) peer-focus:font-(--ui-font-weight-medium) peer-placeholder-shown:text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) peer-placeholder-shown:text-(--b24ui-typography-legend-color) peer-placeholder-shown:top-[10px] peer-placeholder-shown:font-(--ui-font-weight-normal)">
+      <span class="inline-flex bg-(--ui-color-base-white-fixed) px-1">Email address</span>
     </label>
-  </UInput>
+  </B24Input>
 </template>

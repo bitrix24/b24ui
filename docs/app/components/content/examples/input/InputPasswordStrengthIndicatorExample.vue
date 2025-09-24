@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import ObserverIcon from '@bitrix24/b24icons-vue/outline/ObserverIcon'
+import CrossedEyeIcon from '@bitrix24/b24icons-vue/outline/CrossedEyeIcon'
+import CircleCheckIcon from '@bitrix24/b24icons-vue/outline/CircleCheckIcon'
+import CircleCrossIcon from '@bitrix24/b24icons-vue/outline/CircleCrossIcon'
+
 const show = ref(false)
 const password = ref('')
 
@@ -17,10 +22,10 @@ const strength = computed(() => checkStrength(password.value))
 const score = computed(() => strength.value.filter(req => req.met).length)
 
 const color = computed(() => {
-  if (score.value === 0) return 'neutral'
-  if (score.value <= 1) return 'error'
-  if (score.value <= 2) return 'warning'
-  if (score.value === 3) return 'warning'
+  if (score.value === 0) return 'air-primary'
+  if (score.value <= 1) return 'air-primary-alert'
+  if (score.value <= 2) return 'air-primary-warning'
+  if (score.value === 3) return 'air-primary-warning'
   return 'success'
 })
 
@@ -34,33 +39,32 @@ const text = computed(() => {
 
 <template>
   <div class="space-y-2">
-    <UFormField label="Password">
-      <UInput
+    <B24FormField label="Password">
+      <B24Input
         v-model="password"
         placeholder="Password"
         :color="color"
         :type="show ? 'text' : 'password'"
         :aria-invalid="score < 4"
         aria-describedby="password-strength"
-        :ui="{ trailing: 'pe-1' }"
+        :b24ui="{ trailing: 'pe-1' }"
         class="w-full"
       >
         <template #trailing>
-          <UButton
-            color="neutral"
-            variant="link"
+          <B24Button
             size="sm"
-            :icon="show ? 'i-lucide-eye-off' : 'i-lucide-eye'"
+            color="air-tertiary-no-accent"
+            :icon="show ? CrossedEyeIcon : ObserverIcon"
             :aria-label="show ? 'Hide password' : 'Show password'"
             :aria-pressed="show"
             aria-controls="password"
             @click="show = !show"
           />
         </template>
-      </UInput>
-    </UFormField>
+      </B24Input>
+    </B24FormField>
 
-    <UProgress
+    <B24Progress
       :color="color"
       :indicator="text"
       :model-value="score"
@@ -68,7 +72,7 @@ const text = computed(() => {
       size="sm"
     />
 
-    <p id="password-strength" class="text-sm font-medium">
+    <p id="password-strength" class="text-(length:--ui-font-size-sm) font-(--ui-font-weight-medium)">
       {{ text }}. Must contain:
     </p>
 
@@ -77,11 +81,12 @@ const text = computed(() => {
         v-for="(req, index) in strength"
         :key="index"
         class="flex items-center gap-0.5"
-        :class="req.met ? 'text-success' : 'text-muted'"
+        :class="req.met ? 'text-success' : 'text-(--b24ui-typography-label-color)'"
       >
-        <UIcon :name="req.met ? 'i-lucide-circle-check' : 'i-lucide-circle-x'" class="size-4 shrink-0" />
+        <CircleCheckIcon v-if="req.met" class="size-4 shrink-0" />
+        <CircleCrossIcon v-else class="size-4 shrink-0" />
 
-        <span class="text-xs font-light">
+        <span class="text-(length:--ui-font-size-xs) font-(--ui-font-weight-light)">
           {{ req.text }}
           <span class="sr-only">
             {{ req.met ? ' - Requirement met' : ' - Requirement not met' }}
