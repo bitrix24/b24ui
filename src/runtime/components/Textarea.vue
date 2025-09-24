@@ -48,43 +48,19 @@ export interface TextareaProps<T extends TextareaValue = TextareaValue> extends 
    * @defaultValue false
    */
   required?: boolean
-  /**
-   * @defaultValue false
-   */
   autofocus?: boolean
-  /**
-   * @defaultValue 0
-   */
   autofocusDelay?: number
-  /**
-   * @defaultValue false
-   */
   autoresize?: boolean
-  /**
-   * @defaultValue 0
-   */
   autoresizeDelay?: number
-  /**
-   * @defaultValue false
-   */
   disabled?: boolean
-  /**
-   * @defaultValue 3
-   */
   rows?: number
-  /**
-   * @defaultValue 5
-   */
   maxrows?: number
   tag?: string
   /**
    * @defaultValue 'primary'
    */
   tagColor?: BadgeProps['color']
-  /**
-   * Highlight the ring color like a focus state
-   * @defaultValue false
-   */
+  /** Highlight the ring color like a focus state. */
   highlight?: boolean
   modelValue?: T
   defaultValue?: T

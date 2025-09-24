@@ -124,8 +124,9 @@ const iconFromIconName = (iconName?: string) => {
           <template #head-links>
             <PageHeaderLinks />
             <B24DropdownMenu
+              class="hidden sm:flex"
               :items="communityLinks"
-              :content="{ side: 'bottom', align: 'end', sideOffset: 8 }"
+              :content="{ side: 'bottom', align: 'end', sideOffset: 4 }"
             >
               <B24Button size="sm" :icon="MoreMIcon" color="air-secondary-accent" />
             </B24DropdownMenu>
@@ -160,7 +161,7 @@ const iconFromIconName = (iconName?: string) => {
       <B24Card
         variant="outline-no-accent"
         class="lg:mt-[22px] lg:sticky lg:top-(--topbar-height) rounded-none lg:rounded-(--ui-border-radius-md) backdrop-blur-md"
-        :b24ui="{ body: 'p-0 sm:px-[22px] sm:py-0 pt-[12px] sm:pt-[12px] lg:py-[15px]' }"
+        :b24ui="{ body: 'px-[22px] py-0 sm:px-[22px] sm:py-0 pt-[12px] sm:pt-[12px] lg:py-[15px]' }"
       >
         <B24ContentToc
           v-if="page?.body?.toc?.links?.length"

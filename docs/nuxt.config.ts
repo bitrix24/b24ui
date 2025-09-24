@@ -41,7 +41,8 @@ const pages = [
   '/docs/components/color-picker/',
   '/docs/components/file-upload/',
   '/docs/components/form-field/',
-  '/docs/components/input/'
+  '/docs/components/input/',
+  '/docs/components/input-menu/'
   // endregion ////
 ]
 
@@ -80,7 +81,8 @@ const apiComponentMeta = [
   '/api/component-meta/B24ColorPicker.json',
   '/api/component-meta/B24FileUpload.json',
   '/api/component-meta/B24FormField.json',
-  '/api/component-meta/B24Input.json'
+  '/api/component-meta/B24Input.json',
+  '/api/component-meta/B24InputMenu.json'
   // endregion ////
 ]
 
@@ -153,7 +155,20 @@ const apiComponentExample = [
   '/api/component-example/inputMaskExample.json',
   '/api/component-example/inputFloatingLabelExample.json',
   '/api/component-example/inputFormFieldExample.json',
-  '/api/component-example/inputFieldGroupExample.json'
+  '/api/component-example/inputFieldGroupExample.json',
+  '/api/component-example/inputMenuItemsIconExample.json',
+  '/api/component-example/inputMenuItemsAvatarExample.json',
+  '/api/component-example/inputMenuItemsChipExample.json',
+  '/api/component-example/inputMenuOpenExample.json',
+  '/api/component-example/inputMenuOpenFocusExample.json',
+  '/api/component-example/inputMenuSearchTerm-example.json',
+  '/api/component-example/inputMenuIconExample.json',
+  '/api/component-example/inputMenuCreateItemExample.json',
+  '/api/component-example/inputMenuFetchExample.json',
+  '/api/component-example/inputMenuIgnoreFilterExample.json',
+  '/api/component-example/inputMenuFilterFieldsExample.json',
+  '/api/component-example/inputMenuContentWidthExample.json',
+  '/api/component-example/inputMenuCountriesExample.json'
   // endregion ////
 ]
 

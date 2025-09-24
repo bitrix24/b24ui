@@ -186,7 +186,7 @@ ignore:
   - placeholder
   - trailingIcon
 cast:
-    trailingIcon: 'RocketIcon'
+  trailingIcon: 'RocketIcon'
 props:
   trailingIcon: 'RocketIcon'
   placeholder: 'Enter your email'

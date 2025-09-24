@@ -62,11 +62,7 @@ async function copyPage() {
     />
     <B24DropdownMenu
       :items="items"
-      :content="{
-        align: 'end',
-        side: 'bottom',
-        sideOffset: 8
-      }"
+      :content="{ side: 'bottom', align: 'end', sideOffset: 4 }"
       :b24ui="{
         content: 'w-48',
         itemLeadingIcon: ['mr-[5px]'],

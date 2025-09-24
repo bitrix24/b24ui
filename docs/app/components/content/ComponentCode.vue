@@ -180,7 +180,6 @@ const options = computed(() => {
   return keys.map((key: string) => {
     const prop = meta?.meta?.props?.find((prop: any) => prop.name === key)
     const propItems = get(props.items, key, [])
-
     const items = propItems.length
       ? propItems.map((item: any) => ({
           value: item,
@@ -209,7 +208,7 @@ const code = computed(() => {
 
   let isUseIcon = false
   for (const [key, value] of Object.entries(componentProps)) {
-    if (['icon', 'trailingIcon'].includes(key)) {
+    if (['icon', 'trailingIcon', 'deleteIcon', 'selectedIcon'].includes(key)) {
       isUseIcon = true
       break
     } else if (typeof value === 'object') {
@@ -307,6 +306,12 @@ ${props.slots?.default}
     } else if (key === 'trailingIcon') {
       code += ` :trailing-icon="RocketIcon"`
       continue
+    } else if (key === 'deleteIcon') {
+      code += ` :delete-icon="RocketIcon"`
+      continue
+    } else if (key === 'selectedIcon') {
+      code += ` :selected-icon="RocketIcon"`
+      continue
     }
 
     if (props.model?.includes(key)) {
@@ -378,7 +383,7 @@ ${props.slots?.default}
 })
 
 const { data: ast } = await useAsyncData(
-  `component-code-${name}-${hash({ props: componentProps, slots: props.slots })}-${helperForChangeComponentProps.value}`,
+  `component-code-${name}-${hash({ props: componentProps, slots: props.slots, external: props.external, externalTypes: props.externalTypes, collapse: props.collapse })}-${helperForChangeComponentProps.value}`,
   async () => {
     if (!props.prettier) {
       return parseMarkdown(code.value)
@@ -426,7 +431,7 @@ const { data: ast } = await useAsyncData(
               @update:model-value="setComponentProp(option.name, $event)"
             />
             <B24InputNumber
-              v-else-if="option.type?.includes('number') && typeof getComponentProp(option.name) === 'number'"
+              v-else-if="option.label === 'content.sideOffset' || (option.type?.includes('number') && typeof getComponentProp(option.name) === 'number')"
               :model-value="getComponentProp(option.name)"
               :b24ui="{ base: 'w-[105px]' }"
               @update:model-value="setComponentProp(option.name, $event)"

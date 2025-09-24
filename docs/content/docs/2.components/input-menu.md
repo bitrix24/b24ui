@@ -2,334 +2,599 @@
 title: InputMenu
 description: An input field with live autocomplete suggestions.
 category: form
+links:
+  - label: GitHub
+    iconName: GitHubIcon
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/InputMenu.vue
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/input-menu
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui4.nuxt.com/docs/components/input-menu
+  - label: Combobox
+    avatar:
+      src: /b24ui/avatar/rekaui.svg
+    to: https://reka-ui.com/docs/components/combobox
 ---
-<script setup>
-import InputMenuExample from '/examples/inputmenu/InputMenu.vue';
-import ArrayExample from '/examples/inputmenu/Array.vue';
-import ArrayGroupExample from '/examples/inputmenu/ArrayGroup.vue';
-import ValueKeyExample from '/examples/inputmenu/ValueKey.vue';
-import MultipleExample from '/examples/inputmenu/Multiple.vue';
-import DeleteIconExample from '/examples/inputmenu/DeleteIcon.vue';
-import PlaceholderExample from '/examples/inputmenu/Placeholder.vue';
-import ContentExample from '/examples/inputmenu/Content.vue';
-import ArrowExample from '/examples/inputmenu/Arrow.vue';
-import ColorExample from '/examples/inputmenu/Color.vue';
-import TagExample from '/examples/inputmenu/Tag.vue';
-import SizeExample from '/examples/inputmenu/Size.vue';
-import IconExample from '/examples/inputmenu/Icon.vue';
-import TrailingIconExample from '/examples/inputmenu/TrailingIcon.vue';
-import SelectedIconExample from '/examples/inputmenu/SelectedIcon.vue';
-import AvatarExample from '/examples/inputmenu/Avatar.vue';
-import LoadingExample from '/examples/inputmenu/Loading.vue';
-import DisabledExample from '/examples/inputmenu/Disabled.vue';
-import WithItemsTypeExample from '/examples/inputmenu/WithItemsType.vue';
-import WithIconsInItemsExample from '/examples/inputmenu/WithIconsInItems.vue';
-import WithAvatarInItemsExample from '/examples/inputmenu/WithAvatarInItems.vue';
-import WithChipInItemsExample from '/examples/inputmenu/WithChipInItems.vue';
-import ControlOpenStateExample from '/examples/inputmenu/ControlOpenState.vue';
-import ControlOpenStateOnFocusExample from '/examples/inputmenu/ControlOpenStateOnFocus.vue';
-import ControlSearchTermExample from '/examples/inputmenu/ControlSearchTerm.vue';
-import WithRotatingIconExample from '/examples/inputmenu/WithRotatingIcon.vue';
-import WithCreateItemExample from '/examples/inputmenu/WithCreateItem.vue';
-import WithFetchedItemsExample from '/examples/inputmenu/WithFetchedItems.vue';
-import WithIgnoreFilterExample from '/examples/inputmenu/WithIgnoreFilter.vue';
-import WithFilterFieldsExample from '/examples/inputmenu/WithFilterFields.vue';
-</script>
-# InputMenu
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
-<Description
-  nuxt-ui="https://ui3.nuxt.dev/components/input-menu"
-  reka-ui="https://reka-ui.com/docs/components/combobox"
-  reka-ui-title="Combobox"
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/InputMenu.vue"
-  demo="/components/input-menu"
->
-  An input field with live autocomplete suggestions.
-</Description>
 
 ## Usage
 
 Use the `v-model` directive to control the value of the InputMenu or the `default-value` prop to set the initial value when you do not need to control its state.
 
-::: tip
-Use this over an [`Input`](/docs/components/input/) to take advantage of Reka UI's [`Combobox`](https://reka-ui.com/docs/components/combobox) component that offers autocomplete capabilities.
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - modelValue
+  - items
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Backlog'
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+---
+::
 
-::: info
+::tip
+Use this over an [`Input`](/docs/components/input/) to take advantage of Reka UI's [`Combobox`](https://reka-ui.com/docs/components/combobox) component that offers autocomplete capabilities.
+::
+
+::note
 This component is similar to the [`SelectMenu`](/docs/components/select-menu/) but it's using an Input instead of a Select.
-:::
+::
 
 ### Items
 
 Use the `items` prop as an array of strings, numbers or booleans:
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <InputMenuExample />
-  </ClientOnly>
-</div>
-
-<<< @/examples/inputmenu/demo/InputMenu.vue{4,5,10,11 vue:line-numbers}
+::component-code
+---
+prettier: true
+ignore:
+  - modelValue
+  - items
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Backlog'
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+---
+::
 
 You can also pass an array of objects with the following properties:
 
-- `label?: string`{lang="ts"}
-- `color?: "default" | "danger" | "success" | "warning" | "primary" | "secondary" | "collab" | "ai"`{lang="ts"}
-- [`type?: "label" | "separator" | "item"`{lang="ts"}](#with-items-type)
-- [`icon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts"}](#with-icons-in-items)
-- [`avatar?: AvatarProps`{lang="ts"}](#with-avatar-in-items)
-- [`chip?: ChipProps`{lang="ts"}](#with-chip-in-items)
-- `disabled?: boolean`{lang="ts"}
-- `onSelect?(e: Event): void`{lang="ts"}
+- `label?: string`{lang="ts-type"}
+- [`type?: "label" | "separator" | "item"`{lang="ts-type"}](#with-items-type)
+- [`icon?: IconComponent`{lang="ts-type"}](#with-icons-in-items)
+- [`avatar?: AvatarProps`{lang="ts-type"}](#with-avatar-in-items)
+- [`chip?: ChipProps`{lang="ts-type"}](#with-chip-in-items)
+- `disabled?: boolean`{lang="ts-type"}
+- `onSelect?(e: Event): void`{lang="ts-type"}
 - `class?: any`{lang="ts-type"}
 - `b24ui?: { tagsItem?: ClassNameValue, tagsItemText?: ClassNameValue, tagsItemDelete?: ClassNameValue, tagsItemDeleteIcon?: ClassNameValue, label?: ClassNameValue, separator?: ClassNameValue, item?: ClassNameValue, itemLeadingIcon?: ClassNameValue, itemLeadingAvatarSize?: ClassNameValue, itemLeadingAvatar?: ClassNameValue, itemLeadingChip?: ClassNameValue, itemLeadingChipSize?: ClassNameValue, itemLabel?: ClassNameValue, itemTrailing?: ClassNameValue, itemTrailingIcon?: ClassNameValue }`{lang="ts-type"}
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <ArrayExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/Array.vue{4-17,19,25 vue:line-numbers}
-:::
+::component-code
+---
+ignore:
+  - modelValue.label
+  - items
+external:
+  - items
+  - modelValue
+externalTypes:
+  - InputMenuItem[]
+props:
+  modelValue:
+    label: 'Todo'
+  items:
+    - label: 'Backlog'
+    - label: 'Todo'
+    - label: 'In Progress'
+    - label: 'Done'
+---
+::
 
 You can also pass an array of arrays to the `items` prop to display separated groups of items.
+Use the element type `separator` as a separator.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <ArrayGroupExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/ArrayGroup.vue{4-7,14 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - modelValue
+  - items
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Apple'
+  items:
+    - - Apple
+      - Banana
+      - Blueberry
+      - Grapes
+      - Pineapple
+    - - type: 'separator'
+      - Aubergine
+      - Broccoli
+      - Carrot
+      - Courgette
+      - Leek
+---
+::
 
 ### Value Key
 
 You can choose to bind a single property of the object rather than the whole object by using the `value-key` prop. Defaults to `undefined`.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <ValueKeyExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/ValueKey.vue{7,11,15,18,24 vue:line-numbers}
-:::
+::component-code
+---
+collapse: true
+ignore:
+  - modelValue
+  - valueKey
+  - items
+external:
+  - items
+  - modelValue
+externalTypes:
+  - InputMenuItem[]
+props:
+  modelValue: 'todo'
+  valueKey: 'id'
+  items:
+    - label: 'Backlog'
+      id: 'backlog'
+    - label: 'Todo'
+      id: 'todo'
+    - label: 'In Progress'
+      id: 'in_progress'
+    - label: 'Done'
+      id: 'done'
+---
+::
 
 ### Multiple
 
-Use the `multiple` prop to allow multiple selections, the selected items will be displayed as badges.
+Use the `multiple` prop to allow multiple selections, the selected items will be displayed as tags.
 
-::: danger
+::component-code
+---
+prettier: true
+ignore:
+  - modelValue
+  - items
+  - multiple
+external:
+  - items
+  - modelValue
+props:
+  modelValue:
+    - Backlog
+    - Todo
+  multiple: true
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+---
+::
+
+::caution
 Ensure to pass an array to the `default-value` prop or the `v-model` directive.
-:::
-
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <MultipleExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/Multiple.vue{4-5,11 vue:line-numbers}
-:::
+::
 
 ### Delete Icon
 
-With `multiple`, use the `delete-icon` prop to customize the delete icon [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) in the badges. Defaults to `CrossMIcon`.
+With `multiple`, use the `delete-icon` prop to customize the delete [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) in the tags.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <DeleteIconExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/DeleteIcon.vue{3,15 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - modelValue
+  - items
+  - multiple
+  - deleteIcon
+external:
+  - items
+  - modelValue
+cast:
+  deleteIcon: 'RocketIcon'
+props:
+  modelValue:
+    - Backlog
+    - Todo
+  multiple: true
+  deleteIcon: 'RocketIcon'
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+---
+::
 
 ### Placeholder
 
 Use the `placeholder` prop to set a placeholder text.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <PlaceholderExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/Placeholder.vue{33 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - items
+external:
+  - items
+props:
+  placeholder: 'Select status'
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+---
+::
 
 ### Content
 
 Use the `content` prop to control how the InputMenu content is rendered, like its `align` or `side` for example.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <ContentExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/Content.vue{45 vue:line-numbers}
-:::
-
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - modelValue
+external:
+  - items
+  - modelValue
+items:
+  content.align:
+    - start
+    - center
+    - end
+  content.side:
+    - right
+    - left
+    - top
+    - bottom
+props:
+  modelValue: 'Backlog'
+  content:
+    align: center
+    side: bottom
+    sideOffset: 8
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+---
+::
 
 ### Arrow
 
 Use the `arrow` prop to display an arrow on the InputMenu.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <ArrowExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/Arrow.vue{25 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - modelValue
+  - arrow
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Backlog'
+  arrow: true
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+---
+::
 
 ### Color
 
 Use the `color` prop to change the ring color when the InputMenu is focused.
 
-::: info
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - modelValue
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Backlog'
+  color: 'air-primary'
+  highlight: true
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+---
+::
+
+::note
 The `highlight` prop is used here to show the focus state. It's used internally when a validation error occurs.
-:::
-
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <ColorExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/Color.vue{34-35 vue:line-numbers}
-:::
+::
 
 ### Tag
 
-Use the `tag` property to display a small legend on top of the SelectMenu.
+Use the `tag` property to display a [Badge](/docs/components/badge/) on top of the Input.
 
-Use the `tagColor` property to set the color for `tag`.
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+  - items
+  - modelValue
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Backlog'
+  tag: note
+  color: air-primary-warning
+  highlight: true
+  placeholder: 'Search...'
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+---
+::
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <TagExample />
-  </ClientOnly>
-</div>
+::note
+The `highlight` prop is used here to show the focus state. It's used internally when a validation error occurs.
+::
 
-::: details
-<<< @/examples/inputmenu/demo/Tag.vue{34-35 vue:line-numbers}
-:::
+Use the `tagColor` property to set the color for Badge.
+
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+  - items
+  - modelValue
+external:
+  - items
+  - modelValue
+items:
+  tagColor:
+    - air-primary
+    - air-primary-success
+    - air-primary-alert
+    - air-primary-copilot
+    - air-primary-warning
+    - air-secondary
+    - air-secondary-alert
+    - air-secondary-accent
+    - air-secondary-accent-1
+    - air-secondary-accent-2
+    - air-tertiary
+    - air-selection
+props:
+  modelValue: 'Backlog'
+  tag: note
+  tagColor: air-secondary-alert
+  color: air-primary-warning
+  highlight: true
+  placeholder: 'Search...'
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+---
+::
+
+::note
+The `highlight` prop is used here to show the focus state. It's used internally when a validation error occurs.
+::
 
 ### Size
 
 Use the `size` prop to change the size of the InputMenu.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <SizeExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/Size.vue{32 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - modelValue
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Backlog'
+  size: xl
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+---
+::
 
 ### Icon
 
 Use the `icon` prop to show an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) inside the InputMenu.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <IconExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/Icon.vue{26 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - modelValue
+  - icon
+cast:
+  icon: 'RocketIcon'
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Backlog'
+  icon: 'RocketIcon'
+  size: md
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+---
+::
 
 ### Trailing Icon
 
-Use the `trailing-icon` prop to customize the trailing [Icon](https://bitrix24.github.io/b24icons/guide/icons.html). Defaults to `ChevronDownIcon`.
+Use the `trailing-icon` prop to customize the trailing [Icon](https://bitrix24.github.io/b24icons/guide/icons.html).
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <TrailingIconExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/TrailingIcon.vue{26 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - modelValue
+  - trailingIcon
+cast:
+  trailingIcon: 'RocketIcon'
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Backlog'
+  trailingIcon: 'RocketIcon'
+  size: md
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+---
+::
 
 ### Selected Icon
 
-Use the `selected-icon` prop to customize the icon [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) when an item is selected. Defaults to `CheckIcon`.
+Use the `selected-icon` prop to customize the [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) when an item is selected.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <SelectedIconExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/SelectedIcon.vue{26 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - modelValue
+  - selectedIcon
+cast:
+    selectedIcon: 'RocketIcon'
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Backlog'
+  selectedIcon: 'RocketIcon'
+  size: md
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+---
+::
 
 ### Avatar
 
 Use the `avatar` prop to show an [Avatar](/docs/components/avatar/) inside the InputMenu.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <AvatarExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/Avatar.vue{26,32 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - modelValue
+  - avatar.src
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Backlog'
+  avatar.src: '/b24ui/avatar/employee.png'
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+---
+::
 
 ### Loading
 
 Use the `loading` prop to show a loading icon on the InputMenu.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <LoadingExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/Loading.vue{33 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - modelValue
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Backlog'
+  loading: true
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+---
+::
 
 ### Disabled
 
 Use the `disabled` prop to disable the InputMenu.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <DisabledExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/Disabled.vue{33 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - placeholder
+external:
+  - items
+props:
+  disabled: true
+  placeholder: 'Select status'
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+---
+::
 
 ## Examples
 
@@ -337,231 +602,227 @@ Use the `disabled` prop to disable the InputMenu.
 
 You can use the `type` property with `separator` to display a separator between items or `label` to display a label.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithItemsTypeExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/WithItemsType.vue{7,15,22 vue:line-numbers}
-:::
+::component-code
+---
+collapse: true
+ignore:
+  - modelValue
+  - items
+external:
+  - items
+  - modelValue
+externalTypes:
+  - InputMenuItem[]
+props:
+  modelValue: 'Apple'
+  items:
+    - type: 'label'
+      label: 'Fruits'
+    - Apple
+    - Banana
+    - type: 'separator'
+    - Blueberry
+    - Grapes
+    - Pineapple
+    - type: 'label'
+      label: 'Vegetables'
+    - Aubergine
+    - Broccoli
+    - Carrot
+    - Courgette
+    - Leek
+---
+::
 
 ### With icon in items
 
 You can use the `icon` property to display an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) inside the items.
 
-::: tip
+::component-example
+---
+collapse: true
+name: 'input-menu-items-icon-example'
+---
+::
+
+::tip
 You can also use the `#leading` slot to display the selected icon.
-:::
-
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithIconsInItemsExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/WithIconsInItems.vue{11,16,21,22 vue:line-numbers}
-:::
+::
 
 ### With avatar in items
 
 You can use the `avatar` property to display an [Avatar](/docs/components/avatar/) inside the items.
 
-::: tip
+::component-example
+---
+collapse: true
+name: 'input-menu-items-avatar-example'
+---
+::
+
+::tip
 You can also use the `#leading` slot to display the selected avatar.
-:::
-
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithAvatarInItemsExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/WithAvatarInItems.vue{8-11,16-19,29 vue:line-numbers}
-:::
+::
 
 ### With chip in items
 
 You can use the `chip` property to display a [Chip](/docs/components/chip/) inside the items.
 
-::: info
+::component-example
+---
+collapse: true
+name: 'input-menu-items-chip-example'
+---
+::
+
+::note
 In this example, the `#leading` slot is used to display the selected chip.
-:::
-
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithChipInItemsExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/WithChipInItems.vue{8-10,15-17,29-38 vue:line-numbers}
-:::
+::
 
 ### Control open state
 
 You can control the open state by using the `default-open` prop or the `v-model:open` directive.
 
-::: info
-In this example, leveraging [`defineShortcuts`](/docs/composables/define-shortcuts), you can toggle the InputMenu by pressing `O`.
-:::
+::component-example
+---
+name: 'input-menu-open-example'
+---
+::
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <ControlOpenStateExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/ControlOpenState.vue{20,22-24,30 vue:line-numbers}
-:::
+::note
+In this example, leveraging [`defineShortcuts`](/docs/composables/define-shortcuts/), you can toggle the InputMenu by pressing :kbd{value="O"}.
+::
 
 ### Control open state on focus
 
 You can use the `open-on-focus` or `open-on-click` props to open the menu when the input is focused or clicked.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <ControlOpenStateOnFocusExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/ControlOpenStateOnFocus.vue{26 vue:line-numbers}
-:::
+::component-example
+---
+name: 'input-menu-open-focus-example'
+---
+::
 
 ### Control search term
 
 Use the `v-model:search-term` directive to control the search term.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <ControlSearchTermExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/ControlSearchTerm.vue{20,26 vue:line-numbers}
-:::
+::component-example
+---
+name: 'input-menu-search-term-example'
+---
+::
 
 ### With rotating icon
 
 Here is an example with a rotating icon that indicates the open state of the InputMenu.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithRotatingIconExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/WithRotatingIcon.vue{25-27 vue:line-numbers}
-:::
+::component-example
+---
+name: 'input-menu-icon-example'
+---
+::
 
 ### With create item
 
 Use the `create-item` prop to enable users to add custom values that aren't in the predefined options.
 
-::: info
+::component-example
+---
+collapse: true
+name: 'input-menu-create-item-example'
+---
+::
+
+::note
 The create option shows when no match is found by default. Set it to `always` to show it even when similar values exist.
-:::
+::
 
-::: tip
-Use the [`@create`](#emits) event to handle the creation of the item. You will receive the event and the item as arguments.
-:::
-
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithCreateItemExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/WithCreateItem.vue{11-15,21,24 vue:line-numbers}
-:::
+::tip{to="#emits"}
+Use the `@create` event to handle the creation of the item. You will receive the event and the item as arguments.
+::
 
 ### With fetched items
 
 You can fetch items from an API and use them in the InputMenu.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithFetchedItemsExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/WithFetchedItems.vue{vue:line-numbers}
-:::
+::component-example
+---
+collapse: true
+name: 'input-menu-fetch-example'
+---
+::
 
 ### With ignore filter
 
 Set the `ignore-filter` prop to `true` to disable the internal search and use your own search logic.
 
-::: info
+::component-example
+---
+collapse: true
+name: 'input-menu-ignore-filter-example'
+---
+::
+
+::note
 This example uses [`refDebounced`](https://vueuse.org/shared/refDebounced/#refdebounced) to debounce the API calls.
-:::
-
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithIgnoreFilterExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/inputmenu/demo/WithIgnoreFilter.vue{3,7-8,11,25,28 vue:line-numbers}
-:::
+::
 
 ### With filter fields
 
 Use the `filter-fields` prop with an array of fields to filter on. Defaults to `[labelKey]`.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithFilterFieldsExample />
-  </ClientOnly>
-</div>
+::component-example
+---
+collapse: true
+name: 'input-menu-filter-fields-example'
+---
+::
 
-::: details
-<<< @/examples/inputmenu/demo/WithFilterFields.vue{9,22 vue:line-numbers}
-:::
+### With full content width
+
+You can expand the content to the full width of its items by adding the `min-w-fit` class on the `b24ui.content`,`b24ui.item` and `b24ui.viewport` slots.
+
+::component-example
+---
+name: 'input-menu-content-width-example'
+collapse: true
+---
+::
+
+### As a CountryPicker
+
+This example demonstrates using the InputMenu as a country picker with lazy loading - countries are only fetched when the menu is opened.
+
+::component-example
+---
+collapse: true
+name: 'input-menu-countries-example'
+---
+::
 
 ## API
 
 ### Props
 
-<ComponentProps component="InputMenu" />
+:component-props
 
 ### Slots
 
-<ComponentSlots component="InputMenu" />
+:component-slots
 
 ### Emits
 
-```ts
-/**
- * Emitted events for the InputMenu component
- */
-interface InputMenuEmits {
-  blur: (payload: [event: FocusEvent]) => void;
-  change: (payload: [event: Event]) => void;
-  focus: (payload: [event: FocusEvent]) => void;
-  update:open: (payload: [value: boolean]) => void;
-  create: (payload: [item: string]) => void;
-  highlight: (payload: [payload: { ref: HTMLElement; value: any; } | undefined]) => void;
-  remove-tag: (payload: [item: any]) => void;
-  update:modelValue: (payload: [value: any]) => void;
-  update:searchTerm: (payload: [value: string]) => void;
-}
-```
+:component-emits
 
 ### Expose
 
 When accessing the component via a template ref, you can use the following:
 
-| Name                  | Type                                                           |
-|-----------------------|----------------------------------------------------------------|
-| `inputRef`{lang="ts"} | `Ref<InstanceType<typeof ComboboxTrigger> \| null>`{lang="ts"} |
+| Name                       | Type                                                                |
+|----------------------------|---------------------------------------------------------------------|
+| `inputRef`{lang="ts-type"} | `Ref<InstanceType<typeof ComboboxTrigger> \| null>`{lang="ts-type"} |
+
+## Theme
+
+:component-theme

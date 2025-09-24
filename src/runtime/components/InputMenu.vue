@@ -10,7 +10,8 @@ import type { ComponentConfig } from '../types/tv'
 
 type InputMenu = ComponentConfig<typeof theme, AppConfig, 'inputMenu'>
 
-interface _InputMenuItem {
+export type InputMenuValue = AcceptableValue
+export type InputMenuItem = InputMenuValue | {
   label?: string
   /**
    * Display an icon on the left side.
@@ -31,7 +32,6 @@ interface _InputMenuItem {
   b24ui?: Pick<InputMenu['slots'], 'tagsItem' | 'tagsItemText' | 'tagsItemDelete' | 'tagsItemDeleteIcon' | 'label' | 'separator' | 'item' | 'itemLeadingIcon' | 'itemLeadingAvatarSize' | 'itemLeadingAvatar' | 'itemLeadingChip' | 'itemLeadingChipSize' | 'itemLabel' | 'itemTrailing' | 'itemTrailingIcon'>
   [key: string]: any
 }
-export type InputMenuItem = _InputMenuItem | AcceptableValue | boolean
 
 export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOrNested<InputMenuItem>, VK extends GetItemKeys<T> | undefined = undefined, M extends boolean = false> extends Pick<ComboboxRootProps<T>, 'open' | 'defaultOpen' | 'disabled' | 'name' | 'resetSearchTermOnBlur' | 'resetSearchTermOnSelect' | 'highlightOnHover' | 'openOnClick' | 'openOnFocus'>, UseComponentIconsProps {
   /**
@@ -40,13 +40,8 @@ export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOr
    */
   as?: any
   id?: string
-  /**
-   * @defaultValue 'text'
-   */
   type?: InputHTMLAttributes['type']
-  /**
-   * The placeholder text when the input is empty
-   */
+  /** The placeholder text when the input is empty. */
   placeholder?: string
   /**
    * @defaultValue 'air-primary'
@@ -131,30 +126,20 @@ export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOr
    * When `items` is an array of objects, select the field to use as the label.
    * @defaultValue 'label'
    */
-  labelKey?: keyof NestedItem<T>
+  labelKey?: GetItemKeys<T>
   items?: T
-  /**
-   * The value of the InputMenu when initially rendered. Use when you do not need to control the state of the InputMenu
-   */
+  /** The value of the InputMenu when initially rendered. Use when you do not need to control the state of the InputMenu. */
   defaultValue?: GetModelValue<T, VK, M>
-  /**
-   * The controlled value of the InputMenu. Can be binded-with with `v-model`
-   */
+  /** The controlled value of the InputMenu. Can be binded-with with `v-model`. */
   modelValue?: GetModelValue<T, VK, M>
-  /**
-   * Whether multiple options can be selected or not
-   * @defaultValue false
-   */
+  /** Whether multiple options can be selected or not. */
   multiple?: M & boolean
   tag?: string
   /**
    * @defaultValue 'air-primary'
    */
   tagColor?: BadgeProps['color']
-  /**
-   * Highlight the ring color like a focus state
-   * @defaultValue false
-   */
+  /** Highlight the ring color like a focus state. */
   highlight?: boolean
   /**
    * Determines if custom user input that does not exist in options can be added.
@@ -220,7 +205,7 @@ export interface InputMenuSlots<
 </script>
 
 <script setup lang="ts" generic="T extends ArrayOrNested<InputMenuItem>, VK extends GetItemKeys<T> | undefined = undefined, M extends boolean = false">
-import { computed, ref, toRef, onMounted, toRaw } from 'vue'
+import { computed, ref, toRef, onMounted, toRaw, nextTick } from 'vue'
 import { ComboboxRoot, ComboboxArrow, ComboboxAnchor, ComboboxInput, ComboboxTrigger, ComboboxPortal, ComboboxContent, ComboboxEmpty, ComboboxGroup, ComboboxLabel, ComboboxSeparator, ComboboxItem, ComboboxItemIndicator, TagsInputRoot, TagsInputItem, TagsInputItemText, TagsInputItemDelete, TagsInputInput, useForwardPropsEmits, useFilter } from 'reka-ui'
 import { defu } from 'defu'
 import { isEqual } from 'ohash/utils'
@@ -244,7 +229,7 @@ const props = withDefaults(defineProps<InputMenuProps<T, VK, M>>(), {
   type: 'text',
   autofocusDelay: 0,
   portal: true,
-  labelKey: 'label' as never,
+  labelKey: 'label',
   resetSearchTermOnBlur: true,
   resetSearchTermOnSelect: true
 })
@@ -289,8 +274,11 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.inputM
   fieldGroup: orientation.value
 }))
 
+// eslint-disable-next-line vue/no-dupe-keys
+const items = computed(() => groups.value.flatMap(group => group) as T[])
+
 function displayValue(value: GetItemValue<T, VK>): string {
-  return getDisplayValue(items.value, value, {
+  return getDisplayValue<T[], GetItemValue<T, VK>>(items.value, value, {
     labelKey: props.labelKey,
     valueKey: props.valueKey
   }) ?? ''
@@ -303,8 +291,6 @@ const groups = computed<InputMenuItem[][]>(() =>
       : [props.items]
     : []
 )
-// eslint-disable-next-line vue/no-dupe-keys
-const items = computed(() => groups.value.flatMap(group => group) as T[])
 
 const filteredGroups = computed(() => {
   if (props.ignoreFilter || !searchTerm.value) {
@@ -331,7 +317,7 @@ const filteredGroups = computed(() => {
       return value !== undefined && value !== null && contains(String(value), searchTerm.value)
     })
   })).filter(group => group.filter(item =>
-    !isInputItem(item) || (isInputItem(item) && (!item.type || !['label', 'separator'].includes(item.type)))
+    !isInputItem(item) || (!item.type || !['label', 'separator'].includes(item.type))
   ).length > 0)
 })
 const filteredItems = computed(() => filteredGroups.value.flatMap(group => group))
@@ -360,6 +346,10 @@ function autoFocus() {
 }
 
 onMounted(() => {
+  nextTick(() => {
+    searchTerm.value = ''
+  })
+
   setTimeout(() => {
     autoFocus()
   }, props.autofocusDelay)
@@ -439,7 +429,7 @@ function onSelect(e: Event, item: InputMenuItem) {
   item.onSelect?.(e)
 }
 
-function isInputItem(item: InputMenuItem): item is _InputMenuItem {
+function isInputItem(item: InputMenuItem): item is Exclude<InputMenuItem, InputMenuValue> {
   return typeof item === 'object' && item !== null
 }
 
@@ -510,7 +500,7 @@ defineExpose({
           size="xs"
         />
 
-        <TagsInputItem v-for="(item, index) in tags" :key="index" :value="(item as string)" :class="b24ui.tagsItem({ class: [props.b24ui?.tagsItem, isInputItem(item) && item.b24ui?.tagsItem] })">
+        <TagsInputItem v-for="(item, index) in tags" :key="index" :value="isInputItem(item) ? item : String(item)" :class="b24ui.tagsItem({ class: [props.b24ui?.tagsItem, isInputItem(item) && item.b24ui?.tagsItem] })">
           <TagsInputItemText :class="b24ui.tagsItemText({ class: [props.b24ui?.tagsItemText, isInputItem(item) && item.b24ui?.tagsItemText] })">
             <slot name="tags-item-text" :item="(item as NestedItem<T>)" :index="index">
               {{ displayValue(item as GetItemValue<T, VK>) }}

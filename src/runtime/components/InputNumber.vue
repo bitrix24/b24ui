@@ -82,13 +82,7 @@ export interface InputNumberProps extends Pick<NumberFieldRootProps, 'modelValue
   decrementIcon?: IconComponent
   /** Disable the decrement button. */
   decrementDisabled?: boolean
-  /**
-   * @defaultValue false
-   */
   autofocus?: boolean
-  /**
-   * @defaultValue 0
-   */
   autofocusDelay?: number
   modelModifiers?: Pick<ModelModifiers, 'optional'>
   /**
@@ -239,8 +233,8 @@ defineExpose({
         <slot name="increment">
           <B24Button
             :icon="incrementIcon"
-            :size="size"
             color="air-tertiary-no-accent"
+            :size="size"
             :aria-label="t('inputNumber.increment')"
             v-bind="typeof increment === 'object' ? increment : undefined"
           />
@@ -253,8 +247,8 @@ defineExpose({
         <slot name="decrement">
           <B24Button
             :icon="decrementIcon"
-            :size="size"
             color="air-tertiary-no-accent"
+            :size="size"
             :aria-label="t('inputNumber.decrement')"
             v-bind="typeof decrement === 'object' ? decrement : undefined"
           />

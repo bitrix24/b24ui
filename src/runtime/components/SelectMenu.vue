@@ -9,7 +9,8 @@ import type { ComponentConfig } from '../types/tv'
 
 type SelectMenu = ComponentConfig<typeof theme, AppConfig, 'selectMenu'>
 
-interface _SelectMenuItem {
+export type SelectMenuValue = AcceptableValue
+export type SelectMenuItem = SelectMenuValue | {
   label?: string
   /**
    * Display an icon on the left side.
@@ -30,7 +31,6 @@ interface _SelectMenuItem {
   b24ui?: Pick<SelectMenu['slots'], 'label' | 'separator' | 'item' | 'itemLeadingIcon' | 'itemLeadingAvatarSize' | 'itemLeadingAvatar' | 'itemLeadingChipSize' | 'itemLeadingChip' | 'itemLabel' | 'itemTrailing' | 'itemTrailingIcon'>
   [key: string]: any
 }
-export type SelectMenuItem = _SelectMenuItem | AcceptableValue | boolean
 
 export interface SelectMenuProps<T extends ArrayOrNested<SelectMenuItem> = ArrayOrNested<SelectMenuItem>, VK extends GetItemKeys<T> | undefined = undefined, M extends boolean = false> extends Pick<ComboboxRootProps<T>, 'open' | 'defaultOpen' | 'disabled' | 'name' | 'resetSearchTermOnBlur' | 'resetSearchTermOnSelect' | 'highlightOnHover'>, UseComponentIconsProps {
   id?: string
@@ -116,25 +116,15 @@ export interface SelectMenuProps<T extends ArrayOrNested<SelectMenuItem> = Array
    * When `items` is an array of objects, select the field to use as the label.
    * @defaultValue 'label'
    */
-  labelKey?: keyof NestedItem<T>
+  labelKey?: GetItemKeys<T>
   items?: T
-  /**
-   * The value of the SelectMenu when initially rendered. Use when you do not need to control the state of the SelectMenu
-   */
+  /** The value of the SelectMenu when initially rendered. Use when you do not need to control the state of the SelectMenu. */
   defaultValue?: GetModelValue<T, VK, M>
-  /**
-   * The controlled value of the SelectMenu. Can be binded-with with `v-model`
-   */
+  /** The controlled value of the SelectMenu. Can be binded-with with `v-model`. */
   modelValue?: GetModelValue<T, VK, M>
-  /**
-   * Whether multiple options can be selected or not
-   * @defaultValue false
-   */
+  /** Whether multiple options can be selected or not. */
   multiple?: M & boolean
-  /**
-   * Highlight the ring color like a focus state
-   * @defaultValue false
-   */
+  /** Highlight the ring color like a focus state. */
   highlight?: boolean
   /**
    * Determines if custom user input that does not exist in options can be added.
@@ -203,26 +193,8 @@ export interface SelectMenuSlots<
 </script>
 
 <script setup lang="ts" generic="T extends ArrayOrNested<SelectMenuItem>, VK extends GetItemKeys<T> | undefined = undefined, M extends boolean = false">
-import { ref, computed, onMounted, toRef, toRaw, nextTick } from 'vue'
-import {
-  ComboboxRoot,
-  ComboboxArrow,
-  ComboboxAnchor,
-  ComboboxInput,
-  ComboboxTrigger,
-  ComboboxPortal,
-  ComboboxContent,
-  ComboboxEmpty,
-  ComboboxGroup,
-  ComboboxLabel,
-  ComboboxSeparator,
-  ComboboxItem,
-  ComboboxItemIndicator,
-  FocusScope,
-  useForwardPropsEmits,
-  useFilter,
-  Primitive
-} from 'reka-ui'
+import { ref, computed, onMounted, toRef, toRaw } from 'vue'
+import { Primitive, ComboboxRoot, ComboboxArrow, ComboboxAnchor, ComboboxInput, ComboboxTrigger, ComboboxPortal, ComboboxContent, ComboboxEmpty, ComboboxGroup, ComboboxLabel, ComboboxSeparator, ComboboxItem, ComboboxItemIndicator, FocusScope, useForwardPropsEmits, useFilter } from 'reka-ui'
 import { defu } from 'defu'
 import { reactivePick, createReusableTemplate } from '@vueuse/core'
 import { useAppConfig } from '#imports'
@@ -244,7 +216,7 @@ defineOptions({ inheritAttrs: false })
 const props = withDefaults(defineProps<SelectMenuProps<T, VK, M>>(), {
   portal: true,
   searchInput: true,
-  labelKey: 'label' as never,
+  labelKey: 'label',
   resetSearchTermOnBlur: true,
   resetSearchTermOnSelect: true,
   autofocusDelay: 0
@@ -296,7 +268,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.select
 function displayValue(value: GetItemValue<T, VK> | GetItemValue<T, VK>[]): string | undefined {
   if (props.multiple && Array.isArray(value)) {
     const displayedValues = value
-      .map(item => getDisplayValue(items.value, item, {
+      .map(item => getDisplayValue<T[], GetItemValue<T, VK>>(items.value, item, {
         labelKey: props.labelKey,
         valueKey: props.valueKey
       }))
@@ -305,7 +277,7 @@ function displayValue(value: GetItemValue<T, VK> | GetItemValue<T, VK>[]): strin
     return displayedValues.length > 0 ? displayedValues.join(', ') : undefined
   }
 
-  return getDisplayValue(items.value, value, {
+  return getDisplayValue<T[], GetItemValue<T, VK>>(items.value, value as GetItemValue<T, VK>, {
     labelKey: props.labelKey,
     valueKey: props.valueKey
   })
@@ -346,7 +318,7 @@ const filteredGroups = computed(() => {
       return value !== undefined && value !== null && contains(String(value), searchTerm.value)
     })
   })).filter(group => group.filter(item =>
-    !isSelectItem(item) || (isSelectItem(item) && (!item.type || !['label', 'separator'].includes(item.type)))
+    !isSelectItem(item) || (!item.type || !['label', 'separator'].includes(item.type))
   ).length > 0)
 })
 const filteredItems = computed(() => filteredGroups.value.flatMap(group => group))
@@ -377,10 +349,6 @@ function autoFocus() {
 }
 
 onMounted(() => {
-  nextTick(() => {
-    searchTerm.value = ''
-  })
-
   setTimeout(() => {
     autoFocus()
   }, props.autofocusDelay)
@@ -393,7 +361,6 @@ function onUpdate(value: any) {
   // @ts-expect-error - 'target' does not exist in type 'EventInit'
   const event = new Event('change', { target: { value } })
   emits('change', event)
-
   emitFormChange()
   emitFormInput()
 
@@ -403,7 +370,7 @@ function onUpdate(value: any) {
 }
 
 function onUpdateOpen(value: boolean) {
-  let timeoutId: ReturnType<typeof setTimeout> | undefined
+  let timeoutId
 
   if (!value) {
     const event = new FocusEvent('blur')
@@ -424,9 +391,7 @@ function onUpdateOpen(value: boolean) {
     const event = new FocusEvent('focus')
     emits('focus', event)
     emitFormFocus()
-    if (timeoutId) {
-      clearTimeout(timeoutId)
-    }
+    clearTimeout(timeoutId)
   }
 }
 
@@ -443,7 +408,7 @@ function onSelect(e: Event, item: SelectMenuItem) {
   item.onSelect?.(e)
 }
 
-function isSelectItem(item: SelectMenuItem): item is _SelectMenuItem {
+function isSelectItem(item: SelectMenuItem): item is Exclude<SelectMenuItem, SelectMenuValue> {
   return typeof item === 'object' && item !== null
 }
 
@@ -641,11 +606,13 @@ defineExpose({
                   </ComboboxItem>
                 </template>
               </ComboboxGroup>
+
               <ReuseCreateItemTemplate v-if="createItem && createItemPosition === 'bottom'" />
             </div>
 
             <slot name="content-bottom" />
           </FocusScope>
+
           <ComboboxArrow v-if="!!arrow" v-bind="arrowProps" :class="b24ui.arrow({ class: props.b24ui?.arrow })" />
         </ComboboxContent>
       </ComboboxPortal>

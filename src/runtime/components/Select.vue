@@ -9,7 +9,8 @@ import type { ComponentConfig } from '../types/tv'
 
 type Select = ComponentConfig<typeof theme, AppConfig, 'select'>
 
-interface SelectItemBase {
+export type SelectValue = AcceptableValue
+export type SelectItem = SelectValue | {
   label?: string
   /**
    * Display an icon on the left side.
@@ -24,14 +25,13 @@ interface SelectItemBase {
    * @defaultValue 'item'
    */
   type?: 'label' | 'separator' | 'item'
-  value?: AcceptableValue | boolean
+  value?: SelectValue
   disabled?: boolean
   onSelect?(e?: Event): void
   class?: any
   b24ui?: Pick<Select['slots'], 'label' | 'separator' | 'item' | 'itemLeadingIcon' | 'itemLeadingAvatarSize' | 'itemLeadingAvatar' | 'itemLeadingChipSize' | 'itemLeadingChip' | 'itemLabel' | 'itemTrailing' | 'itemTrailingIcon'>
   [key: string]: any
 }
-export type SelectItem = SelectItemBase | AcceptableValue | boolean
 
 export interface SelectProps<T extends ArrayOrNested<SelectItem> = ArrayOrNested<SelectItem>, VK extends GetItemKeys<T> = 'value', M extends boolean = false> extends Omit<SelectRootProps<T>, 'dir' | 'multiple' | 'modelValue' | 'defaultValue' | 'by'>, UseComponentIconsProps {
   id?: string
@@ -106,25 +106,15 @@ export interface SelectProps<T extends ArrayOrNested<SelectItem> = ArrayOrNested
    * When `items` is an array of objects, select the field to use as the label.
    * @defaultValue 'label'
    */
-  labelKey?: keyof NestedItem<T>
+  labelKey?: GetItemKeys<T>
   items?: T
-  /**
-   * The value of the Select when initially rendered. Use when you do not need to control the state of the Select
-   */
+  /** The value of the Select when initially rendered. Use when you do not need to control the state of the Select. */
   defaultValue?: GetModelValue<T, VK, M>
-  /**
-   * The controlled value of the Select. Can be bind as `v-model`
-   */
+  /** The controlled value of the Select. Can be bind as `v-model`. */
   modelValue?: GetModelValue<T, VK, M>
-  /**
-   * Whether multiple options can be selected or not
-   * @defaultValue false
-   */
+  /** Whether multiple options can be selected or not. */
   multiple?: M & boolean
-  /**
-   * Highlight the ring color like a focus state
-   * @defaultValue false
-   */
+  /** Highlight the ring color like a focus state. */
   highlight?: boolean
   autofocus?: boolean
   autofocusDelay?: number
@@ -171,7 +161,7 @@ export interface SelectSlots<
 
 <script setup lang="ts" generic="T extends ArrayOrNested<SelectItem>, VK extends GetItemKeys<T> = 'value', M extends boolean = false">
 import { ref, computed, onMounted, toRef } from 'vue'
-import { Primitive, SelectRoot, SelectArrow, SelectTrigger, SelectPortal, SelectContent, SelectLabel, SelectGroup, SelectItem, SelectItemIndicator, SelectItemText, SelectSeparator, useForwardPropsEmits } from 'reka-ui'
+import { Primitive, SelectRoot, SelectArrow, SelectTrigger, SelectPortal, SelectContent, SelectLabel, SelectGroup, SelectItem as RSelectItem, SelectItemIndicator, SelectItemText, SelectSeparator, useForwardPropsEmits } from 'reka-ui'
 import { defu } from 'defu'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
@@ -190,7 +180,7 @@ defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(defineProps<SelectProps<T, VK, M>>(), {
   valueKey: 'value' as never,
-  labelKey: 'label' as never,
+  labelKey: 'label',
   portal: true,
   autofocusDelay: 0
 })
@@ -244,7 +234,7 @@ const items = computed(() => groups.value.flatMap(group => group) as T[])
 function displayValue(value: GetItemValue<T, VK> | GetItemValue<T, VK>[]): string | undefined {
   if (props.multiple && Array.isArray(value)) {
     const displayedValues = value
-      .map(item => getDisplayValue(items.value, item, {
+      .map(item => getDisplayValue<T[], GetItemValue<T, VK>>(items.value, item, {
         labelKey: props.labelKey,
         valueKey: props.valueKey
       }))
@@ -253,7 +243,7 @@ function displayValue(value: GetItemValue<T, VK> | GetItemValue<T, VK>[]): strin
     return displayedValues.length > 0 ? displayedValues.join(', ') : undefined
   }
 
-  return getDisplayValue(items.value, value, {
+  return getDisplayValue<T[], GetItemValue<T, VK>>(items.value, value as GetItemValue<T, VK>, {
     labelKey: props.labelKey,
     valueKey: props.valueKey
   })
@@ -283,7 +273,6 @@ function onUpdate(value: any) {
   emitFormChange()
   emitFormInput()
 }
-
 function onUpdateOpen(value: boolean) {
   if (!value) {
     const event = new FocusEvent('blur')
@@ -296,7 +285,7 @@ function onUpdateOpen(value: boolean) {
   }
 }
 
-function isSelectItem(item: SelectItem): item is SelectItemBase {
+function isSelectItem(item: SelectItem): item is Exclude<SelectItem, SelectValue> {
   return typeof item === 'object' && item !== null
 }
 
@@ -314,8 +303,8 @@ defineExpose({
       v-bind="rootProps"
       :autocomplete="autocomplete"
       :disabled="disabled"
-      :default-value="(defaultValue as (AcceptableValue | AcceptableValue[]))"
-      :model-value="(modelValue as (AcceptableValue | AcceptableValue[]))"
+      :default-value="(defaultValue as Exclude<SelectItem, boolean> | Exclude<SelectItem, boolean>[])"
+      :model-value="(modelValue as Exclude<SelectItem, boolean> | Exclude<SelectItem, boolean>[])"
       @update:model-value="onUpdate"
       @update:open="onUpdateOpen"
     >
@@ -332,7 +321,6 @@ defineExpose({
           :label="props.tag"
           size="xs"
         />
-
         <span v-if="isLeading || !!avatar || !!slots.leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
           <slot name="leading" :model-value="(modelValue as GetModelValue<T, VK, M>)" :open="open" :b24ui="b24ui">
             <Component
@@ -393,7 +381,7 @@ defineExpose({
 
                 <SelectSeparator v-else-if="isSelectItem(item) && item.type === 'separator'" :class="b24ui.separator({ class: [props.b24ui?.separator, item.b24ui?.separator, item.class] })" />
 
-                <SelectItem
+                <RSelectItem
                   v-else
                   :class="b24ui.item({ class: [props.b24ui?.item, isSelectItem(item) && item.b24ui?.item, isSelectItem(item) && item.class], colorItem: (isSelectItem(item) && item?.color) || undefined })"
                   :disabled="isSelectItem(item) && item.disabled"
@@ -440,7 +428,7 @@ defineExpose({
                       </SelectItemIndicator>
                     </span>
                   </slot>
-                </SelectItem>
+                </RSelectItem>
               </template>
             </SelectGroup>
           </div>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { camelCase } from 'scule'
+import { hash } from 'ohash'
 import { useElementSize } from '@vueuse/core'
 import { get, set } from '#b24ui/utils'
 
@@ -98,7 +99,7 @@ ${data?.code ?? ''}
   return code
 })
 
-const { data: ast } = await useAsyncData(`component-example-${camelName}`, async () => {
+const { data: ast } = await useAsyncData(`component-example-${camelName}${hash({ props: componentProps, collapse: props.collapse })}`, async () => {
   if (!props.prettier) {
     return parseMarkdown(code.value)
   }
@@ -191,7 +192,7 @@ const urlSearchParams = computed(() => {
           v-bind="typeof iframe === 'object' ? iframe : {}"
           :src="`/b24ui/examples/${name}/?${urlSearchParams}`"
           class="relative w-full"
-          :class="[props.class, !iframeMobile && 'lg:w-full']"
+          :class="[props.class, !iframeMobile && 'lg:w-[1024px]']"
         />
         <div
           v-else
