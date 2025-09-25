@@ -203,7 +203,7 @@ export default () => {
           leading: 'px-1',
           trailing: 'px-1',
           leadingIcon: 'size-[12px]',
-          leadingAvatarSize: '3xs',
+          itemLeadingAvatarSize: '3xs',
           trailingIcon: 'size-[12px]',
           tagsInput: 'text-(length:--ui-font-size-4xs)/[normal]',
           tagsItem: [
@@ -217,7 +217,7 @@ export default () => {
           leading: 'px-1',
           trailing: 'px-1',
           leadingIcon: 'size-[14px]',
-          leadingAvatarSize: '3xs',
+          itemLeadingAvatarSize: '3xs',
           trailingIcon: 'size-[14px]',
           tagsInput: 'text-(length:--ui-font-size-xs)/[normal]',
           tagsItem: [
@@ -231,8 +231,8 @@ export default () => {
           leading: 'px-1.5',
           trailing: 'px-1.5',
           leadingIcon: 'size-[16px]',
-          leadingAvatar: 'size-[16px]',
-          leadingAvatarSize: '2xs',
+          itemLeadingAvatar: 'size-[16px]',
+          itemLeadingAvatarSize: '2xs',
           trailingIcon: 'size-[16px]',
           tagsInput: 'text-(length:--ui-font-size-sm)/[normal]',
           tagsItem: [
@@ -246,7 +246,7 @@ export default () => {
           leading: 'px-2',
           trailing: 'px-2',
           leadingIcon: 'size-[18px]',
-          leadingAvatarSize: '2xs',
+          itemLeadingAvatarSize: '2xs',
           trailingIcon: 'size-[18px]',
           tagsInput: 'text-(length:--ui-font-size-lg)/[normal]',
           tagsItem: [
@@ -260,7 +260,7 @@ export default () => {
           leading: 'px-2',
           trailing: 'px-2',
           leadingIcon: 'size-[22px]',
-          leadingAvatarSize: '2xs',
+          itemLeadingAvatarSize: '2xs',
           trailingIcon: 'size-[22px]',
           tagsInput: 'text-(length:--ui-font-size-lg)/[normal]',
           tagsItem: [
@@ -274,7 +274,7 @@ export default () => {
           leading: 'px-2',
           trailing: 'px-2',
           leadingIcon: 'size-[22px]',
-          leadingAvatarSize: '2xs',
+          itemLeadingAvatarSize: '2xs',
           trailingIcon: 'size-[22px]',
           tagsInput: 'text-(length:--ui-font-size-2xl)/[normal]',
           tagsItem: [

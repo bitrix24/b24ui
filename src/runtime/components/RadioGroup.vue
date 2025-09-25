@@ -186,6 +186,7 @@ function onUpdate(value: any) {
           {{ legend }}
         </slot>
       </legend>
+
       <component
         :is="(!variant || variant === 'list') ? 'div' : Label"
         v-for="item in normalizedItems"

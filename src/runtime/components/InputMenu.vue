@@ -14,7 +14,6 @@ export type InputMenuValue = AcceptableValue
 export type InputMenuItem = InputMenuValue | {
   label?: string
   /**
-   * Display an icon on the left side.
    * @IconComponent
    */
   icon?: IconComponent
@@ -71,17 +70,8 @@ export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOr
    * @defaultValue false
    */
   rounded?: boolean
-  /**
-   * @defaultValue false
-   */
   required?: boolean
-  /**
-   * @defaultValue false
-   */
   autofocus?: boolean
-  /**
-   * @defaultValue 0
-   */
   autofocusDelay?: number
   /**
    * The icon displayed to open the menu.
@@ -552,9 +542,9 @@ defineExpose({
           />
           <B24Avatar
             v-else-if="!!avatar"
-            :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+            :size="((props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])"
             v-bind="avatar"
-            :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
+            :class="b24ui.itemLeadingAvatar({ class: props.b24ui?.itemLeadingAvatar })"
           />
         </slot>
       </span>

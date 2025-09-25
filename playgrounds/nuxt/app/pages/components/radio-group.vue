@@ -35,7 +35,7 @@ const itemsWithDescription = [
   { value: '4', label: 'Enterprise', description: 'includes 250 users' }
 ]
 
-const value = ref<string | null>(null)
+const value = ref<string | undefined>(undefined)
 
 const oldColors = computed(() => {
   return colors.filter((color) => {

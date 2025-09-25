@@ -26,7 +26,9 @@ function fireAtPlace(): void {
 
 const actionColor = () => {
   fireAtPlace()
-  colorMain.value = colorList[(colorList.indexOf(colorMain.value) + 1) % colorList.length]
+  if (colorMain.value) {
+    colorMain.value = colorList[(colorList.indexOf(colorMain.value) + 1) % colorList.length]
+  }
 }
 
 const onClick = () => {
