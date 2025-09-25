@@ -2,6 +2,7 @@
 title: ContentToc
 description: 'A sticky Table of Contents with automatic active anchor link highlighting.'
 category: content
+badge: new
 framework: nuxt
 links:
   - label: GitHub

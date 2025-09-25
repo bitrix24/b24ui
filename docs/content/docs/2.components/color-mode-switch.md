@@ -2,6 +2,7 @@
 title: ColorModeSwitch
 description: 'A switch to toggle between light and dark mode.'
 category: color-mode
+badge: new
 ---
 
 ::warning

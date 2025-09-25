@@ -2,6 +2,7 @@
 title: FileUpload
 description: 'A file upload input component.'
 category: form
+badge: new
 links:
   - label: GitHub
     iconName: GitHubIcon

@@ -2,6 +2,7 @@
 title: CheckboxGroup
 description: Multi-select checklist using button controls.
 category: form
+badge: new
 links:
   - label: GitHub
     icon: i-simple-icons-github

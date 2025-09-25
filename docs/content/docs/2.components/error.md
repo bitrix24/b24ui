@@ -2,6 +2,7 @@
 title: Error
 description: 'A pre-built error component with NuxtError support.'
 category: layout
+badge: 'new'
 links:
   - label: GitHub
     iconName: GitHubIcon

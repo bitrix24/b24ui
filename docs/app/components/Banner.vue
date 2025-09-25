@@ -2,8 +2,8 @@
   <B24Banner
     id="new-component-banner"
     class="light"
-    color="air-primary-success"
-    title="A new component, B24Banner, has been released."
-    to="/docs/components/banner/"
+    color="air-primary-copilot"
+    title="New components have been implemented! Explore them."
+    to="/docs/components/error/"
   />
 </template>

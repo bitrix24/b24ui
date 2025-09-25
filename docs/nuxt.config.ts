@@ -161,7 +161,7 @@ const apiComponentExample = [
   '/api/component-example/inputMenuItemsChipExample.json',
   '/api/component-example/inputMenuOpenExample.json',
   '/api/component-example/inputMenuOpenFocusExample.json',
-  '/api/component-example/inputMenuSearchTerm-example.json',
+  '/api/component-example/inputMenuSearchTermExample.json',
   '/api/component-example/inputMenuIconExample.json',
   '/api/component-example/inputMenuCreateItemExample.json',
   '/api/component-example/inputMenuFetchExample.json',
@@ -222,7 +222,7 @@ export default defineNuxtConfig({
     }
   },
 
-  ssr: false,
+  ssr: true,
 
   devtools: {
     enabled: false

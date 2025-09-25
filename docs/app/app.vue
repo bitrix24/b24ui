@@ -4,7 +4,7 @@ import { withoutTrailingSlash } from 'ufo'
 const route = useRoute()
 const appConfig = useAppConfig()
 
-const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs', ['framework', 'category', 'description']))
+const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs', ['framework', 'category', 'description', 'badge']))
 // const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections('docs'), {
 //   server: false
 // })
@@ -40,7 +40,7 @@ provide('navigation', rootNavigation)
 
 <template>
   <B24App :toaster="appConfig.toaster">
-    <NuxtLoadingIndicator color="var(--ui-color-accent-main-primary)" :height="2" />
+    <NuxtLoadingIndicator color="var(--ui-color-design-filled-warning-bg)" :height="3" />
 
     <div :class="[route.path.startsWith('/docs/') && 'root']">
       <template v-if="!route.path.startsWith('/examples')">

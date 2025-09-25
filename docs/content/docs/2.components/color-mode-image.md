@@ -2,6 +2,7 @@
 title: ColorModeImage
 description: 'An image element with a different source for light and dark mode.'
 category: color-mode
+badge: new
 ---
 
 ::warning

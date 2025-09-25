@@ -1,6 +1,7 @@
 ---
 description: Render the content within a card component comprising a header, body, and footer section.
 category: element
+badge: new
 links:
   - label: GitHub
     icon: i-simple-icons-github
