@@ -10,18 +10,18 @@
     "typecheck": "vue-tsc -p ./tsconfig.app.json"
   },
   "dependencies": {
-    "@bitrix24/b24icons-vue": "^2.0.4",
     "@bitrix24/b24ui-nuxt": "workspace:*",
+    "@bitrix24/b24icons-vue": "^2.0.4",
     "@internationalized/date": "^3.9.0",
-    "vue": "^3.5.20",
+    "vue": "^3.5.21",
     "vue-router": "^4.5.1",
-    "zod": "^4.1.5",
+    "zod": "^4.1.11",
     "maska": "^3.2.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.1",
     "typescript": "^5.8.3",
-    "vite": "^7.0.6",
-    "vue-tsc": "^3.0.6"
+    "vite": "^7.1.7",
+    "vue-tsc": "^3.0.8"
   }
 }
