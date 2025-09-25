@@ -156,6 +156,7 @@ const apiComponentExample = [
   '/api/component-example/inputFloatingLabelExample.json',
   '/api/component-example/inputFormFieldExample.json',
   '/api/component-example/inputFieldGroupExample.json',
+  '/api/component-example/inputMenuItemsColorExample.json',
   '/api/component-example/inputMenuItemsIconExample.json',
   '/api/component-example/inputMenuItemsAvatarExample.json',
   '/api/component-example/inputMenuItemsChipExample.json',
@@ -222,7 +223,7 @@ export default defineNuxtConfig({
     }
   },
 
-  ssr: true,
+  ssr: false,
 
   devtools: {
     enabled: false

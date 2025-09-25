@@ -737,6 +737,17 @@ props:
 ---
 ::
 
+### With colors items
+
+You can use the `color` property to change the color of items.
+
+::component-example
+---
+collapse: true
+name: 'input-menu-items-color-example'
+---
+::
+
 ### With icon in items
 
 You can use the `icon` property to display an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) inside the items.
