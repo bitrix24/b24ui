@@ -15,7 +15,7 @@ import {
   B24InputNumber,
   B24Switch,
   B24Range,
-  // B24PinInput
+  B24PinInput,
   B24CheckboxGroup,
   B24FileUpload
 } from '#components'
@@ -61,7 +61,7 @@ export async function renderForm(options: {
           B24InputNumber,
           B24Switch,
           B24Range,
-          // B24PinInput,
+          B24PinInput,
           B24CheckboxGroup,
           B24FileUpload
         },

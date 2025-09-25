@@ -16,9 +16,9 @@ import {
   B24InputNumber,
   B24Switch,
   B24Range,
-  // B24PinInput,
-  B24FormField
-  // B24FileUpload
+  B24PinInput,
+  B24FormField,
+  B24FileUpload
 } from '#components'
 
 const inputComponents = [
@@ -31,9 +31,9 @@ const inputComponents = [
   B24InputMenu,
   B24InputNumber,
   B24Switch,
-  B24Range
-  // B24PinInput
-  // B24FileUpload
+  B24Range,
+  B24PinInput,
+  B24FileUpload
 ]
 
 async function renderFormField(options: {

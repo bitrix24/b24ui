@@ -132,11 +132,6 @@ exports[`Badge > renders with square correctly 1`] = `
 <!--v-if--></span>"
 `;
 
-exports[`Badge > renders with trailing and icon correctly 1`] = `
-"<span class="ui-label__scope --air select-none font-[family-name:var(--ui-font-family-secondary)] font-(--ui-label-font-weight) text-(length:--ui-label-font-size)/normal inline-flex items-center transition-all duration-200 ease-linear text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) group-[.is-field-group]/items:not-only:not-first:after:content-[''] group-[.is-field-group]/items:not-only:not-first:after:absolute group-[.is-field-group]/items:not-only:not-first:after:top-[7px] group-[.is-field-group]/items:not-only:not-first:after:bottom-[6px] group-[.is-field-group]/items:not-only:not-first:after:left-0 group-[.is-field-group]/items:not-only:not-first:after:w-px group-[.is-field-group]/items:not-only:not-first:after:bg-current/30 style-filled ui-label-md gap-1 rounded-[calc(var(--ui-label-height)_/_4)] p-0 ps-0 pe-0"><span class="h-(--ui-label-height) inline-flex items-center w-(--ui-label-height) p-[1px] gap-0"><!--v-if--><!--v-if--></span>
-<!--v-if--></span>"
-`;
-
 exports[`Badge > renders with trailing slot correctly 1`] = `"<span class="ui-label__scope --air select-none font-[family-name:var(--ui-font-family-secondary)] font-(--ui-label-font-weight) text-(length:--ui-label-font-size)/normal inline-flex items-center transition-all duration-200 ease-linear text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) group-[.is-field-group]/items:not-only:not-first:after:content-[''] group-[.is-field-group]/items:not-only:not-first:after:absolute group-[.is-field-group]/items:not-only:not-first:after:top-[7px] group-[.is-field-group]/items:not-only:not-first:after:bottom-[6px] group-[.is-field-group]/items:not-only:not-first:after:left-0 group-[.is-field-group]/items:not-only:not-first:after:w-px group-[.is-field-group]/items:not-only:not-first:after:bg-current/30 style-filled ui-label-md gap-1 rounded-[calc(var(--ui-label-height)_/_4)] p-0 ps-0 pe-0"><span class="h-(--ui-label-height) inline-flex items-center w-(--ui-label-height) p-[1px] gap-0"><!--v-if--><!--v-if--></span>Trailing slot</span>"`;
 
 exports[`Badge > renders with trailingIcon correctly 1`] = `

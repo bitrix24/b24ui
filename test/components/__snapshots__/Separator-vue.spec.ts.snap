@@ -5,7 +5,7 @@ exports[`Separator > renders with as correctly 1`] = `"<span data-orientation="h
 exports[`Separator > renders with avatar correctly 1`] = `
 "<div data-orientation="horizontal" role="separator" class="flex items-center align-center text-center w-full flex-row">
   <div class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
-  <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-normal) flex text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) mx-3 whitespace-nowrap"><span class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--ui-color-base-8) ring ring-(--ui-color-base-7) size-[28px] text-(length:--ui-font-size-xs)/(--ui-font-line-height-reset) shrink-0"><img role="img" src="https://github.com/benjamincanac.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover"></span></div>
+  <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-normal) flex text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) mx-3 whitespace-nowrap"><span class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--ui-color-base-8) ring ring-(--ui-color-base-7) size-[28px] text-(length:--ui-font-size-xs)/(--ui-font-line-height-reset) shrink-0"><img role="img" src="https://github.com/bitrix24.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover"></span></div>
   <div class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
 </div>"
 `;
@@ -41,9 +41,9 @@ exports[`Separator > renders with decorative correctly 1`] = `
 exports[`Separator > renders with icon correctly 1`] = `
 "<div data-orientation="horizontal" role="separator" class="flex items-center align-center text-center w-full flex-row">
   <div class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
-  <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-normal) flex text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) mx-3 whitespace-nowrap">
-    <i-lucide-image class="shrink-0 size-7"></i-lucide-image>
-  </div>
+  <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-normal) flex text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) mx-3 whitespace-nowrap"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-7">
+      <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+    </svg></div>
   <div class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
 </div>"
 `;

@@ -37,7 +37,7 @@ const schema = z.object({
     message: 'Include Option 2'
   }),
   range: z.number().max(20, { message: 'Must be less than 20' }),
-  // pin: z.string().regex(/^\d$/).array().length(5),
+  pin: z.string().regex(/^\d$/).array().length(5),
   file: z.file().min(1).max(1024 * 1024).mime('image/png')
 })
 
@@ -137,9 +137,9 @@ function resetState() {
           <B24CheckboxGroup v-model="state.checkboxGroup" legend="Checkbox group" :items="items" />
         </B24FormField>
       </div>
-      <!-- B24FormField name="pin" label="Pin Input" :error-pattern="/(pin)\..*/">
+      <B24FormField name="pin" label="Pin Input" :error-pattern="/(pin)\..*/">
         <B24PinInput v-model="state.pin" />
-      </B24FormField -->
+      </B24FormField>
 
       <B24FormField name="file" label="File Input">
         <B24FileUpload

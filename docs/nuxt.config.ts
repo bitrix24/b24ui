@@ -44,7 +44,8 @@ const pages = [
   '/docs/components/input/',
   '/docs/components/input-menu/',
   '/docs/components/input-number/',
-  '/docs/components/input-tags/'
+  '/docs/components/input-tags/',
+  '/docs/components/pin-input/'
   // endregion ////
 ]
 
@@ -86,7 +87,8 @@ const apiComponentMeta = [
   '/api/component-meta/B24Input.json',
   '/api/component-meta/B24InputMenu.json',
   '/api/component-meta/B24InputNumber.json',
-  '/api/component-meta/B24InputTags.json'
+  '/api/component-meta/B24InputTags.json',
+  '/api/component-meta/B24PinInput.json'
   // endregion ////
 ]
 
