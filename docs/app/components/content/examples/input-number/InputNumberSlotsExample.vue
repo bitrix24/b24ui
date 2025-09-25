@@ -7,9 +7,13 @@ const value = ref(5)
 </script>
 
 <template>
-  <B24InputNumber
-    v-model="value"
-    :increment-icon="ArrowToTheRightIcon"
-    :decrement-icon="ArrowToTheLeftIcon"
-  />
+  <B24InputNumber v-model="value">
+    <template #decrement>
+      <B24Button size="md" rounded :icon="ArrowToTheLeftIcon" />
+    </template>
+
+    <template #increment>
+      <B24Button size="md" rounded :icon="ArrowToTheRightIcon" />
+    </template>
+  </B24InputNumber>
 </template>

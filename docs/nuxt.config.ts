@@ -42,7 +42,8 @@ const pages = [
   '/docs/components/file-upload/',
   '/docs/components/form-field/',
   '/docs/components/input/',
-  '/docs/components/input-menu/'
+  '/docs/components/input-menu/',
+  '/docs/components/input-number/'
   // endregion ////
 ]
 
@@ -82,7 +83,8 @@ const apiComponentMeta = [
   '/api/component-meta/B24FileUpload.json',
   '/api/component-meta/B24FormField.json',
   '/api/component-meta/B24Input.json',
-  '/api/component-meta/B24InputMenu.json'
+  '/api/component-meta/B24InputMenu.json',
+  '/api/component-meta/B24InputNumber.json'
   // endregion ////
 ]
 
@@ -169,7 +171,12 @@ const apiComponentExample = [
   '/api/component-example/inputMenuIgnoreFilterExample.json',
   '/api/component-example/inputMenuFilterFieldsExample.json',
   '/api/component-example/inputMenuContentWidthExample.json',
-  '/api/component-example/inputMenuCountriesExample.json'
+  '/api/component-example/inputMenuCountriesExample.json',
+  '/api/component-example/inputNumberDecimalExample.json',
+  '/api/component-example/inputNumberPercentageExample.json',
+  '/api/component-example/inputNumberCurrencyExample.json',
+  '/api/component-example/inputNumberFormFieldExample.json',
+  '/api/component-example/inputNumberSlotsExample.json'
   // endregion ////
 ]
 

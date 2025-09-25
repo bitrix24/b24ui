@@ -208,7 +208,7 @@ const code = computed(() => {
 
   let isUseIcon = false
   for (const [key, value] of Object.entries(componentProps)) {
-    if (['icon', 'trailingIcon', 'deleteIcon', 'selectedIcon'].includes(key)) {
+    if (['icon', 'trailingIcon', 'deleteIcon', 'selectedIcon', 'incrementIcon', 'decrementIcon'].includes(key)) {
       isUseIcon = true
       break
     } else if (typeof value === 'object') {
@@ -311,6 +311,12 @@ ${props.slots?.default}
       continue
     } else if (key === 'selectedIcon') {
       code += ` :selected-icon="RocketIcon"`
+      continue
+    } else if (key === 'incrementIcon') {
+      code += ` :increment-icon="RocketIcon"`
+      continue
+    } else if (key === 'decrementIcon') {
+      code += ` :decrement-icon="RocketIcon"`
       continue
     }
 

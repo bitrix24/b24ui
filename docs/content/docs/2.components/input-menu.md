@@ -673,7 +673,7 @@ props:
 
 ### Rounded
 
-Use the `rounded` prop to round the Input.
+Use the `rounded` prop to round the InputMenu.
 
 ::component-code
 ---
