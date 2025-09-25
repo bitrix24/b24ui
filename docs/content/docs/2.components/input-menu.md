@@ -597,34 +597,6 @@ props:
 ---
 ::
 
-### No padding
-
-Use the `noPadding` prop to removes padding from the InputMenu.
-
-::component-code
----
-prettier: true
-ignore:
-  - items
-  - placeholder
-external:
-  - items
-props:
-  noPadding: true
-  highlight: true
-  placeholder: 'Select status'
-  items:
-    - Backlog
-    - Todo
-    - In Progress
-    - Done
----
-::
-
-::note
-The `highlight` prop is used here to show the focus state.
-::
-
 ### No border
 
 Use the `noBorder` prop to removes all borders (rings) from the InputMenu.

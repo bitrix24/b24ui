@@ -51,11 +51,6 @@ export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOr
    */
   size?: InputMenu['variants']['size']
   /**
-   * Removes padding from input
-   * @defaultValue false
-   */
-  noPadding?: boolean
-  /**
    * Removes all borders (rings)
    * @defaultValue false
    */
@@ -255,7 +250,6 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.inputM
   loading: props.loading,
   highlight: highlight.value,
   rounded: Boolean(props.rounded),
-  noPadding: Boolean(props.noPadding),
   noBorder: Boolean(props.noBorder),
   underline: Boolean(props.underline),
   leading: Boolean(isLeading.value || !!props.avatar || !!slots.leading),

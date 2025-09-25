@@ -25,11 +25,6 @@ export interface InputNumberProps extends Pick<NumberFieldRootProps, 'modelValue
    */
   size?: InputNumber['variants']['size']
   /**
-   * Removes padding from input
-   * @defaultValue false
-   */
-  noPadding?: boolean
-  /**
    * Removes all borders (rings)
    * @defaultValue false
    */
@@ -152,7 +147,6 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.inputN
   size: inputSize?.value,
   highlight: highlight.value,
   rounded: Boolean(props.rounded),
-  noPadding: Boolean(props.noPadding),
   noBorder: Boolean(props.noBorder),
   underline: Boolean(props.underline),
   orientation: props.orientation,

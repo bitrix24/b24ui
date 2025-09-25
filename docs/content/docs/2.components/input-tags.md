@@ -1,6 +1,6 @@
 ---
 title: InputTags
-description: An input element that displays interactive tags.
+description: A tags input component with interactive tag elements.
 category: form
 badge: new
 links:
@@ -272,6 +272,62 @@ props:
   modelValue: ['Bitrix24']
   disabled: true
 ---
+::
+
+### No border
+
+Use the `noBorder` prop to removes all borders (rings) from the InputTags.
+
+::component-code
+---
+prettier: true
+ignore:
+  - modelValue
+external:
+  - modelValue
+props:
+  noBorder: true
+  modelValue: ['Bitrix24']
+---
+::
+
+### Underline
+
+Use the `underline` prop to removes all borders (rings) except the bottom one from the InputTags.
+
+::component-code
+---
+prettier: true
+ignore:
+  - modelValue
+external:
+  - modelValue
+props:
+  underline: true
+  modelValue: ['Bitrix24']
+---
+::
+
+### Rounded
+
+Use the `rounded` prop to round the InputTags.
+
+::component-code
+---
+prettier: true
+ignore:
+  - modelValue
+external:
+  - modelValue
+props:
+  rounded: true
+  highlight: true
+  modelValue: ['Bitrix24']
+---
+::
+
+::note
+The `highlight` prop is used here to show the focus state.
 ::
 
 ## Examples

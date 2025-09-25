@@ -76,9 +76,6 @@ export default () => {
       rounded: {
         ...input.variants.rounded
       },
-      noPadding: {
-        ...input.variants.noPadding
-      },
       noBorder: {
         ...input.variants.noBorder
       },

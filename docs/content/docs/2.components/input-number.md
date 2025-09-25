@@ -267,27 +267,6 @@ props:
 ---
 ::
 
-### No padding
-
-Use the `noPadding` prop to removes padding from the InputNumber.
-
-::component-code
----
-ignore:
-  - modelValue
-external:
-  - modelValue
-props:
-  noPadding: true
-  highlight: true
-  modelValue: 5
----
-::
-
-::note
-The `highlight` prop is used here to show the focus state.
-::
-
 ### No border
 
 Use the `noBorder` prop to removes all borders (rings) from the InputNumber.
