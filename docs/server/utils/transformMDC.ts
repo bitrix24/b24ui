@@ -121,7 +121,7 @@ function propItemHandler(propValue: any): string {
    * @todo test all colors
    * @see docs/app/components/content/HighlightInlineType.vue
    */
-  if (propName === 'color') {
+  if (['color', 'tagColor'].includes(propName)) {
     // @todo remove whet unset default / danger / ...
     propType = propType.replace('| undefined', '').replace('"default" | ', '').replace('"danger" | ', '').replace('"success" | ', '').replace('"warning" | ', '').replace('"primary" | ', '').replace('"secondary" | ', '').replace('"collab" | ', '').replace('"ai" | ', '').replace('| "ai"', '').replace('"link" | ', '').trim()
     const priorityMap = new Map([

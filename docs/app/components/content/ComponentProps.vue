@@ -136,7 +136,7 @@ const metaProps: ComputedRef<ComponentMeta['props']> = computed(() => {
           </ProseCode>
         </ProseTd>
         <ProseTd>
-          <HighlightInlineType v-if="prop.default" :type="prop.default" class="[&_code]:text-nowrap" />
+          <HighlightInlineType v-if="prop.default" :type="prop.default" />
         </ProseTd>
         <ProseTd>
           <HighlightInlineType v-if="prop.name.toLowerCase().includes('icon')" :type="'IconComponent'" />

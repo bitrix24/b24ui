@@ -78,7 +78,7 @@ You can also pass an array of objects with the following properties:
 - [`type?: "label" | "separator" | "item"`{lang="ts-type"}](#with-items-type)
 - [`icon?: IconComponent`{lang="ts-type"}](#with-icons-in-items)
 - [`avatar?: AvatarProps`{lang="ts-type"}](#with-avatar-in-items)
-- `color?: InputMenu['variants']['color']`{lang="ts-type"}
+- `color?: InputMenu['color']`{lang="ts-type"}
 - [`chip?: ChipProps`{lang="ts-type"}](#with-chip-in-items)
 - `disabled?: boolean`{lang="ts-type"}
 - `onSelect?(e: Event): void`{lang="ts-type"}

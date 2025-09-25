@@ -27,6 +27,12 @@ const type = computed(() => {
    */
   if (type.includes('air-primary') && type.includes('air-primary-success')) {
     // @todo remove whet unset default / danger / ...
+    let isInnerColor = false
+
+    if (type.includes('color')) {
+      isInnerColor = true
+      type = type.replace('color?: ', '')
+    }
     type = type.replace('| undefined', '').replace('"default" | ', '').replace('"danger" | ', '').replace('"success" | ', '').replace('"warning" | ', '').replace('"primary" | ', '').replace('"secondary" | ', '').replace('"collab" | ', '').replace('"ai" | ', '').replace('| "ai"', '').replace('"link" | ', '').trim()
     const priorityMap = new Map([
       ['air-primary', 1],
@@ -53,6 +59,9 @@ const type = computed(() => {
       return priorityA - priorityB
     })
     type = sortedItems.map((item: string) => `"${item}"`).join(' | ')
+    if (isInnerColor) {
+      type = `color?: ${type}`
+    }
   }
 
   return type
