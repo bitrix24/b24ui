@@ -43,7 +43,8 @@ const pages = [
   '/docs/components/form-field/',
   '/docs/components/input/',
   '/docs/components/input-menu/',
-  '/docs/components/input-number/'
+  '/docs/components/input-number/',
+  '/docs/components/input-tags/'
   // endregion ////
 ]
 
@@ -84,7 +85,8 @@ const apiComponentMeta = [
   '/api/component-meta/B24FormField.json',
   '/api/component-meta/B24Input.json',
   '/api/component-meta/B24InputMenu.json',
-  '/api/component-meta/B24InputNumber.json'
+  '/api/component-meta/B24InputNumber.json',
+  '/api/component-meta/B24InputTags.json'
   // endregion ////
 ]
 
@@ -176,7 +178,8 @@ const apiComponentExample = [
   '/api/component-example/inputNumberPercentageExample.json',
   '/api/component-example/inputNumberCurrencyExample.json',
   '/api/component-example/inputNumberFormFieldExample.json',
-  '/api/component-example/inputNumberSlotsExample.json'
+  '/api/component-example/inputNumberSlotsExample.json',
+  '/api/component-example/inputTagsFormFieldExample.json'
   // endregion ////
 ]
 

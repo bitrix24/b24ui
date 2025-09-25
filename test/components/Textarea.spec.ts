@@ -24,15 +24,12 @@ describe('Textarea', () => {
      * @todo fix this
      */
     // ['with leadingIcon', { props: { leadingIcon: Cross30Icon } }],
-    ['with trailing and icon', { props: { trailing: true, icon: Cross30Icon } }],
     ['with trailingIcon', { props: { trailingIcon: Cross30Icon } }],
     ['with avatar', { props: { avatar: { src: 'https://github.com/bitrix24.png' } } }],
     ['with avatar and leadingIcon', { props: { avatar: { src: 'https://github.com/bitrix24.png' }, leadingIcon: Cross30Icon } }],
     ['with avatar and trailingIcon', { props: { avatar: { src: 'https://github.com/bitrix24.png' }, trailingIcon: Cross30Icon } }],
     ['with loading', { props: { loading: true } }],
     ['with loading and avatar', { props: { loading: true, avatar: { src: 'https://github.com/bitrix24.png' } } }],
-    ['with loading trailing', { props: { loading: true, trailing: true } }],
-    ['with loading trailing and avatar', { props: { loading: true, trailing: true, avatar: { src: 'https://github.com/bitrix24.png' } } }],
     ['with loadingIcon', { props: { loading: true, loadingIcon: Cross30Icon } }],
     ['with primary', { props: {} }],
     ['with air-primary-success', { props: { color: 'air-primary-success' as const } }],

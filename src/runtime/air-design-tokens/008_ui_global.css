@@ -114,7 +114,8 @@
     --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
 
-  .style-filled-alert[aria-invalid="true"] {
+  .style-filled-alert[aria-invalid="true"],
+  .style-filled-alert:has([aria-invalid="true"]) {
     --b24ui-border-color: var(--ui-color-accent-main-alert)
   }
 

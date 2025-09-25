@@ -6,6 +6,8 @@ import theme from '#build/b24ui/switch'
 import { flushPromises, mount } from '@vue/test-utils'
 import { renderForm } from '../utils/form'
 import type { FormInputEvents } from '../../src/module'
+import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
+import Shining2Icon from '@bitrix24/b24icons-vue/main/Shining2Icon'
 
 describe('Switch', () => {
   const sizes = Object.keys(theme.variants.size) as any
@@ -19,12 +21,12 @@ describe('Switch', () => {
     ['with value', { props: { value: 'value' } }],
     ['with disabled', { props: { disabled: true } }],
     // @todo fix this ////
-    ['with checkedIcon', { props: { checkedIcon: 'i-lucide-check', defaultValue: true } }],
+    ['with checkedIcon', { props: { checkedIcon: Search2Icon, defaultValue: true } }],
     // @todo fix this ////
-    ['with uncheckedIcon', { props: { uncheckedIcon: 'i-lucide-x' } }],
+    ['with uncheckedIcon', { props: { uncheckedIcon: Shining2Icon } }],
     ['with loading', { props: { loading: true } }],
     // @todo fix this ////
-    ['with loadingIcon', { props: { loading: true, loadingIcon: 'i-lucide-sparkles' } }],
+    ['with loadingIcon', { props: { loading: true, loadingIcon: Search2Icon } }],
     ['with label', { props: { label: 'Label' } }],
     ['with required', { props: { label: 'Label', required: true } }],
     ['with description', { props: { label: 'Label', description: 'Description' } }],

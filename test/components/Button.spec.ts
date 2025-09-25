@@ -6,6 +6,8 @@ import ComponentRender from '../component-render'
 import theme from '#build/b24ui/button'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { flushPromises } from '@vue/test-utils'
+import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
+import Shining2Icon from '@bitrix24/b24icons-vue/main/Shining2Icon'
 
 import {
   B24Form
@@ -23,29 +25,15 @@ describe('Button', () => {
     ...colors.map((color: string) => [`with normal color ${color}`, { props: { label: 'Button', color } }]),
     ...colors.map((color: string) => [`with light color ${color}`, { props: { label: 'Button', color, depth: 'light' } }]),
     ...colors.map((color: string) => [`with dark color ${color}`, { props: { label: 'Button', color, depth: 'dark' } }]),
-    // @todo fix this ////
-    ['with icon', { props: { icon: 'i-lucide-rocket' } }],
-    // @todo fix this ////
-    ['with leading and icon', { props: { leading: true, icon: 'i-lucide-arrow-left' } }],
-    // @todo fix this ////
-    ['with leadingIcon', { props: { leadingIcon: 'i-lucide-arrow-left' } }],
-    // @todo fix this ////
-    ['with trailing and icon', { props: { trailing: true, icon: 'i-lucide-arrow-right' } }],
-    // @todo fix this ////
-    ['with trailingIcon', { props: { trailingIcon: 'i-lucide-arrow-right' } }],
-    // @todo fix this ////
-    ['with avatar', { props: { avatar: { src: 'https://github.com/IgorShevchik.png' } } }],
-    // @todo fix this ////
-    ['with avatar and leadingIcon', { props: { avatar: { src: 'https://github.com/IgorShevchik.png' }, leadingIcon: 'i-lucide-arrow-left' } }],
-    // @todo fix this ////
-    ['with avatar and trailingIcon', { props: { avatar: { src: 'https://github.com/IgorShevchik.png' }, trailingIcon: 'i-lucide-arrow-right' } }],
+    ['with icon', { props: { icon: Search2Icon } }],
+    ['with leading and icon', { props: { leading: true, icon: Shining2Icon } }],
+    ['with leadingIcon', { props: { leadingIcon: Shining2Icon } }],
+    ['with trailingIcon', { props: { trailingIcon: Search2Icon } }],
+    ['with avatar', { props: { avatar: { src: 'https://github.com/bitrix24.png' } } }],
+    ['with avatar and leadingIcon', { props: { avatar: { src: 'https://github.com/bitrix24.png' }, leadingIcon: Search2Icon } }],
+    ['with avatar and trailingIcon', { props: { avatar: { src: 'https://github.com/bitrix24.png' }, trailingIcon: Shining2Icon } }],
     ['with loading', { props: { loading: true } }],
-    // @todo fix this ////
-    ['with loading and avatar', { props: { loading: true, avatar: { src: 'https://github.com/IgorShevchik.png' } } }],
-    ['with loading trailing', { props: { loading: true, trailing: true } }],
-    // @todo fix this ////
-    ['with loading trailing and avatar', { props: { loading: true, trailing: true, avatar: { src: 'https://github.com/IgorShevchik.png' } } }],
-    // @todo fix this ////
+    ['with loading and avatar', { props: { loading: true, avatar: { src: 'https://github.com/bitrix24.png' } } }],
     ['with disabled', { props: { label: 'Button', disabled: true } }],
     ['with disabled and with link', { props: { label: 'Button', disabled: true, to: '/link' } }],
     ['with block', { props: { label: 'Button', block: true } }],

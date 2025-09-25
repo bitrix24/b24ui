@@ -3,6 +3,7 @@ import Separator from '../../src/runtime/components/Separator.vue'
 import type { SeparatorProps, SeparatorSlots } from '../../src/runtime/components/Separator.vue'
 import ComponentRender from '../component-render'
 import theme from '#build/b24ui/separator'
+import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
 
 describe('Separator', () => {
   const types = Object.keys(theme.variants.type) as any
@@ -11,8 +12,8 @@ describe('Separator', () => {
   it.each([
     // Props
     ['with label', { props: { label: '+1' } }],
-    ['with icon', { props: { icon: 'i-lucide-image' } }],
-    ['with avatar', { props: { avatar: { src: 'https://github.com/benjamincanac.png' } } }],
+    ['with icon', { props: { icon: Search2Icon } }],
+    ['with avatar', { props: { avatar: { src: 'https://github.com/bitrix24.png' } } }],
     ['with orientation vertical', { props: { orientation: 'vertical' as const } }],
     ['with decorative', { props: { decorative: true } }],
     ...types.map((type: string) => [`with type ${type}`, { props: { type } }]),

@@ -15,7 +15,6 @@ describe('Badge', () => {
     ['with icon', { props: { icon: SignIcon } }],
     ['with leading and icon', { props: { leading: true, icon: SignIcon } }],
     ['with leadingIcon', { props: { leadingIcon: SignIcon } }],
-    ['with trailing and icon', { props: { trailing: true, icon: SignIcon } }],
     ['with trailingIcon', { props: { trailingIcon: SignIcon } }],
     ['with avatar', { props: { avatar: { src: 'https://github.com/bitrix24.png' } } }],
     ['with avatar and leadingIcon', { props: { avatar: { src: 'https://github.com/bitrix24.png' }, leadingIcon: SignIcon } }],

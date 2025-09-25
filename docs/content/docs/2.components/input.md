@@ -176,7 +176,9 @@ props:
 ---
 ::
 
-Use the `trailing-icon` props to set icon for trailing position.
+### Trailing Icon
+
+Use the `trailing-icon` prop to set icon for trailing position.
 
 ::component-code
 ---
@@ -203,7 +205,6 @@ prettier: true
 ignore:
   - placeholder
   - avatar.src
-  - avatar.size
 props:
   avatar.src: '/b24ui/avatar/employee.png'
   size: md

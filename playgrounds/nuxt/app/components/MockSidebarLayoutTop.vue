@@ -4,16 +4,7 @@ import TaskIcon from '@bitrix24/b24icons-vue/button/TaskIcon'
 import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
 import CrossMIcon from '@bitrix24/b24icons-vue/outline/CrossMIcon'
 
-/**
- * @todo make filter
- */
-const items = ref(['Prospecting', 'Qualifying', 'Presenting', 'Negotiating', 'Closed'])
-const valueMultiple = ref(['Prospecting', 'Presenting'])
-
-function onCreateMultiple(item: string) {
-  items.value.unshift(item)
-  valueMultiple.value.unshift(item)
-}
+const items = ref(['Prospecting', 'Presenting'])
 </script>
 
 <template>
@@ -29,33 +20,28 @@ function onCreateMultiple(item: string) {
       </B24FieldGroup>
 
       <div class="w-full max-w-[600px] hidden sm:flex">
-        <B24InputMenu
-          v-model="valueMultiple"
-          :items="items"
-          multiple
+        <B24InputTags
+          v-model="items"
+          tag="+ enter"
+          tag-color="air-primary-copilot"
           aria-label="Insert value"
           name="some_value"
           placeholder="Search"
-          tag="+ multiple"
-          tag-color="air-primary-copilot"
-          arrow
-          :create-item="{ position: 'bottom', when: 'always' }"
-          @create="onCreateMultiple"
         >
           <template #trailing>
             <div class="flex flex-row items-center justify-between gap-[2px] pe-[5px]">
               <Search2Icon
-                v-show="valueMultiple.length < 1"
+                v-show="items.length < 1"
                 class="size-[24px] text-(--b24ui-icon-color) hover:text-(--b24ui-icon-color-hover)"
               />
               <CrossMIcon
-                v-show="valueMultiple.length > 0"
+                v-show="items.length > 0"
                 class="size-[24px] text-(--b24ui-icon-color) hover:text-(--b24ui-icon-color-hover) cursor-pointer"
-                @click="valueMultiple = []"
+                @click="items = []"
               />
             </div>
           </template>
-        </B24InputMenu>
+        </B24InputTags>
       </div>
     </div>
     <div class="flex-1 hidden sm:flex flex-row items-center justify-end gap-[12px]">
