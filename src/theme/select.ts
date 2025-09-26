@@ -28,6 +28,11 @@ export default () => {
           'appearance-none transition duration-300 ease-linear', // transition-colors
           'ring ring-inset',
           'ring-(--ui-color-design-outline-stroke)',
+          'focus-visible:ring-1',
+          'focus-visible:ring-inset',
+          'focus-visible:ring-(--b24ui-border-color)',
+          'hover:ring-1 hover:ring-inset hover:ring-(--b24ui-border-color)',
+          'data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color)',
           'text-(--ui-color-base-1)',
           'style-blurred-bg-input',
           'hover:text-(--ui-color-base-1)',
@@ -35,10 +40,7 @@ export default () => {
           'active:text-(--ui-color-base-1)',
           'font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular)',
           'align-middle',
-          'text-ellipsis whitespace-nowrap',
-          'focus-visible:ring-1',
-          'focus-visible:ring-inset',
-          'focus-visible:ring-(--b24ui-border-color)'
+          'text-ellipsis whitespace-nowrap'
         ].join(' '),
         value: 'truncate pointer-events-none',
         placeholder: 'truncate text-(--ui-color-design-plain-na-content-secondary)',

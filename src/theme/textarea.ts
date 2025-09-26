@@ -23,6 +23,11 @@ export default {
       'appearance-none transition duration-300 ease-linear', // transition-colors
       'ring ring-inset',
       'ring-(--ui-color-design-outline-stroke)',
+      'focus-visible:ring-1',
+      'focus-visible:ring-inset',
+      'focus-visible:ring-(--b24ui-border-color)',
+      'hover:ring-1 hover:ring-inset hover:ring-(--b24ui-border-color)',
+      'data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color)',
       'text-(--ui-color-base-1)',
       'style-blurred-bg-input',
       'placeholder:text-(--ui-color-design-plain-na-content-secondary)',
@@ -32,10 +37,7 @@ export default {
       'font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular)',
       // @memo need set lineHeight
       'text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)',
-      'align-middle',
-      'focus-visible:ring-1',
-      'focus-visible:ring-inset',
-      'focus-visible:ring-(--b24ui-border-color)'
+      'align-middle'
     ].join(' '),
     leading: 'absolute inset-y-[7px] start-0 flex items-start px-[8px]',
     leadingIcon: [
