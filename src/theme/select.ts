@@ -15,7 +15,7 @@ export default () => {
   return defuFn(
     {
       slots: {
-        root: () => 'isolate relative inline-flex items-center w-full', // @memo w-full need
+        root: () => 'isolate relative inline-flex items-center', // @todo !!! ? w-full need
         base: () => [
           'relative inline-flex items-center group',
           'px-3',

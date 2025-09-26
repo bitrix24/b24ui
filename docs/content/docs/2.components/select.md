@@ -2,317 +2,714 @@
 title: Select
 description: A selection field to pick from various options.
 category: form
+links:
+  - label: GitHub
+    iconName: GitHubIcon
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Select.vue
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/select
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui4.nuxt.com/docs/components/select
+  - label: Select
+    avatar:
+      src: /b24ui/avatar/rekaui.svg
+    to: https://reka-ui.com/docs/components/select
 ---
-<script setup>
-import SelectExample from '/examples/select/Select.vue';
-import ArrayExample from '/examples/select/Array.vue';
-import ArrayGroupExample from '/examples/select/ArrayGroup.vue';
-import ArrayKeyExample from '/examples/select/ArrayKey.vue';
-import MultipleExample from '/examples/select/Multiple.vue';
-import PlaceholderExample from '/examples/select/Placeholder.vue';
-import ContentExample from '/examples/select/Content.vue';
-import ArrowExample from '/examples/select/Arrow.vue';
-import ColorExample from '/examples/select/Color.vue';
-import TagExample from '/examples/select/Tag.vue';
-import SizeExample from '/examples/select/Size.vue';
-import IconExample from '/examples/select/Icon.vue';
-import TrailingIconExample from '/examples/select/TrailingIcon.vue';
-import SelectedIconExample from '/examples/select/SelectedIcon.vue';
-import AvatarExample from '/examples/select/Avatar.vue';
-import LoadingExample from '/examples/select/Loading.vue';
-import DisabledExample from '/examples/select/Disabled.vue';
-import WithItemsTypeExample from '/examples/select/WithItemsType.vue';
-import WithItemsIconsExample from '/examples/select/WithItemsIcons.vue';
-import WithItemsAvatarExample from '/examples/select/WithItemsAvatar.vue';
-import WithItemsChipExample from '/examples/select/WithItemsChip.vue';
-import WithControlOpenStateExample from '/examples/select/WithControlOpenState.vue';
-import WithRotatingIconExample from '/examples/select/WithRotatingIcon.vue';
-import WithFetchedItemsExample from '/examples/select/WithFetchedItems.vue';
-</script>
-# Select
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
-<Description
-  nuxt-ui="https://ui3.nuxt.dev/components/select"
-  reka-ui="https://reka-ui.com/docs/components/select"
-  reka-ui-title="Select"
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Select.vue"
-  demo="/components/select"
->
-  A selection field to pick from various options.
-</Description>
 
 ## Usage
 
 Use the `v-model` directive to control the value of the Select or the `default-value` prop to set the initial value when you do not need to control its state.
 
+::component-code
+---
+prettier: true
+hide:
+  - class
+ignore:
+  - modelValue
+  - items
+  - class
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Backlog'
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+  class: 'w-48'
+---
+::
+
 ### Items
 
 Use the `items` prop as an array of strings, numbers or booleans:
 
-::: info
-If you need to limit the height of a dropdown list, you can use custom style parameters.
-
-For example, to set the maximum height of the list to 60 units, add the parameter :b24ui="{ content: 'max-h-60' }".
-
-This will help control the content display and improve the user experience.
-:::
-
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <SelectExample />
-  </ClientOnly>
-</div>
-
-<<< @/examples/select/demo/Select.vue{4,5,10,11 vue:line-numbers}
+::component-code
+---
+prettier: true
+ignore:
+  - modelValue
+  - items
+  - class
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Backlog'
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+  class: 'w-48'
+---
+::
 
 You can also pass an array of objects with the following properties:
 
-- `label?: string`{lang="ts"}
-- [`value?: string`{lang="ts"}](#value-key)
-- [`type?: "label" | "separator" | "item"`{lang="ts"}](#with-items-type)
-- [`icon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts"}](#with-icons-in-items)
-- [`avatar?: AvatarProps`{lang="ts"}](#with-avatar-in-items)
-- `color?: "default" | "danger" | "success" | "warning" | "primary" | "secondary" | "collab" | "ai"`{lang="ts"}
-- [`chip?: ChipProps`{lang="ts"}](#with-chip-in-items)
-- `disabled?: boolean`{lang="ts"}
-- `class?: any`{lang="ts"}
-- `b24ui?: { label?: ClassNameValue, separator?: ClassNameValue, item?: ClassNameValue, itemLeadingIcon?: ClassNameValue, itemLeadingAvatarSize?: ClassNameValue, itemLeadingAvatar?: ClassNameValue, itemLeadingChipSize?: ClassNameValue, itemLeadingChip?: ClassNameValue, itemLabel?: ClassNameValue, itemTrailing?: ClassNameValue, itemTrailingIcon?: ClassNameValue }`{lang="ts"}
+- `label?: string`{lang="ts-type"}
+- [`value?: string`{lang="ts-type"}](#value-key)
+- [`type?: "label" | "separator" | "item"`{lang="ts-type"}](#with-items-type)
+- [`icon?: string`{lang="ts-type"}](#with-icons-in-items)
+- [`avatar?: AvatarProps`{lang="ts-type"}](#with-avatar-in-items)
+- [`color?: SelectItem['color']`{lang="ts-type"}](#with-colors-items)
+- [`chip?: ChipProps`{lang="ts-type"}](#with-chip-in-items)
+- `disabled?: boolean`{lang="ts-type"}
+- `class?: any`{lang="ts-type"}
+- `b24ui?: { label?: ClassNameValue, separator?: ClassNameValue, item?: ClassNameValue, itemLeadingIcon?: ClassNameValue, itemLeadingAvatarSize?: ClassNameValue, itemLeadingAvatar?: ClassNameValue, itemLeadingChipSize?: ClassNameValue, itemLeadingChip?: ClassNameValue, itemLabel?: ClassNameValue, itemTrailing?: ClassNameValue, itemTrailingIcon?: ClassNameValue }`{lang="ts-type"}
 
-::: danger
+::component-code
+---
+ignore:
+  - modelValue
+  - items
+  - class
+external:
+  - items
+  - modelValue
+externalTypes:
+  - SelectItem[]
+props:
+  modelValue: 'backlog'
+  items:
+    - label: 'Backlog'
+      value: 'backlog'
+    - label: 'Todo'
+      value: 'todo'
+    - label: 'In Progress'
+      value: 'in_progress'
+    - label: 'Done'
+      value: 'done'
+  class: 'w-48'
+---
+::
+
+::caution
 When using objects, you need to reference the `value` property of the object in the `v-model` directive or the `default-value` prop.
-:::
+::
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <ArrayExample />
-  </ClientOnly>
-</div>
+You can also pass an array of arrays to the `items` prop.
+Use the element type `separator` as a separator.
 
-::: details
-<<< @/examples/select/demo/Array.vue{4-17,19,24-25 vue:line-numbers}
-:::
-
-You can also pass an array of arrays to the `items` prop to display separated groups of items.
-
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <ArrayGroupExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/select/demo/ArrayGroup.vue{4-7,14 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - modelValue
+  - items
+  - class
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Apple'
+  items:
+    - - Apple
+      - Banana
+      - Blueberry
+      - Grapes
+      - Pineapple
+    - - type: 'separator'
+      - Aubergine
+      - Broccoli
+      - Carrot
+      - Courgette
+      - Leek
+  class: 'w-48'
+---
+::
 
 ### Value Key
 
 You can change the property that is used to set the value by using the `value-key` prop. Defaults to `value`.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <ArrayKeyExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/select/demo/ArrayKey.vue{7,11,15,24 vue:line-numbers}
-:::
+::component-code
+---
+ignore:
+  - modelValue
+  - valueKey
+  - items
+  - class
+external:
+  - items
+  - modelValue
+externalTypes:
+  - SelectItem[]
+props:
+  modelValue: 'backlog'
+  valueKey: 'id'
+  items:
+    - label: 'Backlog'
+      id: 'backlog'
+    - label: 'Todo'
+      id: 'todo'
+    - label: 'In Progress'
+      id: 'in_progress'
+    - label: 'Done'
+      id: 'done'
+  class: 'w-48'
+---
+::
 
 ### Multiple
 
 Use the `multiple` prop to allow multiple selections, the selected items will be separated by a comma in the trigger.
 
-::: danger
+::component-code
+---
+prettier: true
+ignore:
+  - modelValue
+  - items
+  - multiple
+  - class
+external:
+  - items
+  - modelValue
+props:
+  modelValue:
+    - Backlog
+    - Todo
+  multiple: true
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+  class: 'w-48'
+---
+::
+
+::caution
 Ensure to pass an array to the `default-value` prop or the `v-model` directive.
-:::
-
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <MultipleExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/select/demo/Multiple.vue{5,11 vue:line-numbers}
-:::
+::
 
 ### Placeholder
 
 Use the `placeholder` prop to set a placeholder text.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <PlaceholderExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/select/demo/Placeholder.vue{20 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - class
+external:
+  - items
+props:
+  placeholder: 'Select status'
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+  class: 'w-48'
+---
+::
 
 ### Content
 
 Use the `content` prop to control how the Select content is rendered, like its `align` or `side` for example.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <ContentExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/select/demo/Content.vue{32 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - modelValue
+  - class
+external:
+  - items
+  - modelValue
+items:
+  content.align:
+    - start
+    - center
+    - end
+  content.side:
+    - right
+    - left
+    - top
+    - bottom
+props:
+  modelValue: 'Backlog'
+  content:
+    align: center
+    side: bottom
+    sideOffset: 8
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+  class: 'w-48'
+---
+::
 
 ### Arrow
 
 Use the `arrow` prop to display an arrow on the Select.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <ArrowExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/select/demo/Arrow.vue{11 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - modelValue
+  - class
+  - arrow
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Backlog'
+  arrow: true
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+  class: 'w-48'
+---
+::
 
 ### Color
 
 Use the `color` prop to change the ring color when the Select is focused.
 
-::: info
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - modelValue
+  - class
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Backlog'
+  color: air-primary-copilot
+  highlight: true
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+  class: 'w-48'
+---
+::
+
+::note
 The `highlight` prop is used here to show the focus state. It's used internally when a validation error occurs.
-:::
-
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <ColorExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/select/demo/Color.vue{21,22 vue:line-numbers}
-:::
+::
 
 ### Tag
 
-Use the `tag` property to display a small legend on top of the Select.
+Use the `tag` property to display a [Badge](/docs/components/badge/) on top of the Input.
 
-Use the `tagColor` property to set the color for `tag`.
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - modelValue
+  - class
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Backlog'
+  tag: note
+  color: air-primary-warning
+  highlight: true
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+  class: 'w-48'
+---
+::
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <TagExample />
-  </ClientOnly>
-</div>
+::note
+The `highlight` prop is used here to show the focus state. It's used internally when a validation error occurs.
+::
 
-::: details
-<<< @/examples/select/demo/Tag.vue{37,38 vue:line-numbers}
-:::
+Use the `tagColor` property to set the color for Badge.
+
+
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - modelValue
+  - class
+external:
+  - items
+  - modelValue
+items:
+  tagColor:
+    - air-primary
+    - air-primary-success
+    - air-primary-alert
+    - air-primary-copilot
+    - air-primary-warning
+    - air-secondary
+    - air-secondary-alert
+    - air-secondary-accent
+    - air-secondary-accent-1
+    - air-secondary-accent-2
+    - air-tertiary
+    - air-selection
+props:
+  modelValue: 'Backlog'
+  tag: note
+  tagColor: air-secondary-alert
+  color: air-primary-warning
+  highlight: true
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+  class: 'w-48'
+---
+::
+
+::note
+The `highlight` prop is used here to show the focus state. It's used internally when a validation error occurs.
+::
 
 ### Size
 
 Use the `size` prop to change the size of the Select.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <SizeExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/select/demo/Size.vue{19 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - modelValue
+  - class
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Backlog'
+  size: xl
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+  class: 'w-48'
+---
+::
 
 ### Icon
 
 Use the `icon` prop to show an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) inside the Select.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <IconExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/select/demo/Icon.vue{3,13 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - modelValue
+  - class
+  - icon
+cast:
+  icon: 'RocketIcon'
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Backlog'
+  icon: 'RocketIcon'
+  size: md
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+  class: 'w-48'
+---
+::
 
 ### Trailing Icon
 
-Use the `trailing-icon` prop to customize the trailing [Icon](https://bitrix24.github.io/b24icons/guide/icons.html). Defaults to `Actions::ChevronDownIcon`.
+Use the `trailing-icon` prop to customize the trailing [Icon](https://bitrix24.github.io/b24icons/guide/icons.html).
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <TrailingIconExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/select/demo/TrailingIcon.vue{3,13 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - modelValue
+  - class
+  - trailingIcon
+cast:
+  trailingIcon: 'RocketIcon'
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Backlog'
+  trailingIcon: 'RocketIcon'
+  size: md
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+  class: 'w-48'
+---
+::
 
 ### Selected Icon
 
-Use the `selected-icon` prop to customize the icon when an item is selected. Defaults to `Main::CheckIcon`.
+Use the `selected-icon` prop to customize the [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) when an item is selected.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <SelectedIconExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/select/demo/SelectedIcon.vue{3,13 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - modelValue
+  - class
+  - selectedIcon
+cast:
+    selectedIcon: 'RocketIcon'
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Backlog'
+  selectedIcon: 'RocketIcon'
+  size: md
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+  class: 'w-48'
+---
+::
 
 ### Avatar
 
 Use the `avatar` prop to show an [Avatar](/docs/components/avatar/) inside the Select.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <AvatarExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/select/demo/Avatar.vue{3,13,18 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - modelValue
+  - avatar.src
+  - class
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Backlog'
+  avatar.src: '/b24ui/avatar/employee.png'
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+  class: 'w-48'
+---
+::
 
 ### Loading
 
 Use the `loading` prop to show a loading icon on the Select.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <LoadingExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/select/demo/Loading.vue{20 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - modelValue
+  - class
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Backlog'
+  loading: true
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+  class: 'w-48'
+---
+::
 
 ### Disabled
 
 Use the `disabled` prop to disable the Select.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <DisabledExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - placeholder
+  - class
+external:
+  - items
+props:
+  disabled: true
+  placeholder: 'Select status'
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+  class: 'w-48'
+---
+::
 
-::: details
-<<< @/examples/select/demo/Disabled.vue{20 vue:line-numbers}
-:::
+### No padding
+
+Use the `noPadding` prop to removes padding from the Select.
+
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - placeholder
+  - class
+external:
+  - items
+props:
+  noPadding: true
+  highlight: true
+  placeholder: 'Select status'
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+  class: 'w-48'
+---
+::
+
+::note
+The `highlight` prop is used here to show the focus state.
+::
+
+### No border
+
+Use the `noBorder` prop to removes all borders (rings) from the Select.
+
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - placeholder
+  - class
+external:
+  - items
+props:
+  noBorder: true
+  placeholder: 'Select status'
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+  class: 'w-48'
+---
+::
+
+### Underline
+
+Use the `underline` prop to removes all borders (rings) except the bottom one from the Select.
+
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - placeholder
+  - class
+external:
+  - items
+props:
+  underline: true
+  placeholder: 'Select status'
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+  class: 'w-48'
+---
+::
+
+### Rounded
+
+Use the `rounded` prop to round the Select.
+
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - placeholder
+  - class
+external:
+  - items
+props:
+  rounded: true
+  highlight: true
+  placeholder: 'Select status'
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+  class: 'w-48'
+---
+::
+
+::note
+The `highlight` prop is used here to show the focus state.
+::
 
 ## Examples
 
@@ -320,154 +717,173 @@ Use the `disabled` prop to disable the Select.
 
 You can use the `type` property with `separator` to display a separator between items or `label` to display a label.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithItemsTypeExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+collapse: true
+ignore:
+  - modelValue
+  - items
+  - class
+external:
+  - items
+  - modelValue
+externalTypes:
+  - SelectItem[]
+props:
+  modelValue: 'Apple'
+  items:
+    - type: 'label'
+      label: 'Fruits'
+    - Apple
+    - Banana
+    - type: 'separator'
+    - Blueberry
+    - Grapes
+    - Pineapple
+    - type: 'label'
+      label: 'Vegetables'
+    - Aubergine
+    - Broccoli
+    - Carrot
+    - Courgette
+    - Leek
+  class: 'w-48'
+---
+::
 
-::: details
-<<< @/examples/select/demo/WithItemsType.vue{7,13,17 vue:line-numbers}
-:::
+### With colors items
+
+You can use the `color` property to change the color of items.
+
+::component-example
+---
+collapse: true
+name: 'select-items-color-example'
+---
+::
 
 ### With icon in items
 
 You can use the `icon` property to display an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) inside the items.
 
-::: info
+::component-example
+---
+collapse: true
+name: 'select-items-icon-example'
+---
+::
+
+::note
 In this example, the icon is computed from the `value` property of the selected item.
-:::
+::
 
-::: tip
+::tip
 You can also use the `#leading` slot to display the selected icon.
-:::
-
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithItemsIconsExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/select/demo/WithItemsIcons.vue{11,16-17,21,25,33 vue:line-numbers}
-:::
+::
 
 ### With avatar in items
 
 You can use the `avatar` property to display an [Avatar](/docs/components/avatar/) inside the items.
 
-::: info
+::component-example
+---
+collapse: true
+name: 'select-items-avatar-example'
+---
+::
+
+::note
 In this example, the avatar is computed from the `value` property of the selected item.
-:::
+::
 
-::: tip
+::tip
 You can also use the `#leading` slot to display the selected avatar.
-:::
-
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithItemsAvatarExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/select/demo/WithItemsAvatar.vue{9-12,17-20,25,32 vue:line-numbers}
-:::
+::
 
 
 ### With chip in items
 
 You can use the `chip` property to display a [Chip](/docs/components/chip/) inside the items.
 
-::: info
+::component-example
+---
+collapse: true
+name: 'select-items-chip-example'
+---
+::
+
+::note
 In this example, the `#leading` slot is used to display the selected chip.
-:::
-
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithItemsChipExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/select/demo/WithItemsChip.vue{8-10,15-17,20,22-24,33-42 vue:line-numbers}
-:::
+::
 
 ### Control open state
 
 You can control the open state by using the `default-open` prop or the `v-model:open` directive.
 
-::: info
-In this example, leveraging [`defineShortcuts`](/docs/composables/define-shortcuts), you can toggle the Select by pressing `O`.
-:::
+::component-example
+---
+name: 'select-open-example'
+---
+::
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithControlOpenStateExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/select/demo/WithControlOpenState.vue{8-10,17 vue:line-numbers}
-:::
+::note
+In this example, leveraging [`defineShortcuts`](/docs/composables/define-shortcuts/), you can toggle the Select by pressing :kbd{value="O"}.
+::
 
 ### With rotating icon
 
 Here is an example with a rotating icon that indicates the open state of the Select.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithRotatingIconExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/select/demo/WithRotatingIcon.vue{14-16 vue:line-numbers}
-:::
+::component-example
+---
+name: 'select-icon-example'
+---
+::
 
 ### With fetched items
 
 You can fetch items from an API and use them in the Select.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithFetchedItemsExample />
-  </ClientOnly>
-</div>
+::component-example
+---
+name: 'select-fetch-example'
+collapse: true
+---
+::
 
-::: details
-<<< @/examples/select/demo/WithFetchedItems.vue{vue:line-numbers}
-:::
+### With full content width
+
+You can expand the content to the full width of its items by adding the `b24ui.content`,`b24ui.item` and `b24ui.viewport` slots.
+
+::component-example
+---
+name: 'select-content-width-example'
+collapse: true
+---
+::
 
 ## API
 
 ### Props
 
-<ComponentProps component="Select" />
+:component-props
 
 ### Slots
 
-<ComponentSlots component="Select" />
+:component-slots
 
 ### Emits
 
-```ts
-/**
- * Emitted events for the Select component
- */
-interface SelectEmits {
-  blur: (payload: [event: FocusEvent]) => void;
-  change: (payload: [event: Event]) => void;
-  focus: (payload: [event: FocusEvent]) => void;
-  update:modelValue: (payload: [value: any]) => void;
-  update:open: (payload: [value: boolean]) => void;
-}
-```
+:component-emits
 
 ### Expose
 
 When accessing the component via a template ref, you can use the following:
 
-| Name                    | Type                                                         |
-|-------------------------|--------------------------------------------------------------|
-| `triggerRef`{lang="ts"} | `Ref<InstanceType<typeof SelectTrigger> \| null>`{lang="ts"} |
+| Name                         | Type                                                              |
+|------------------------------|-------------------------------------------------------------------|
+| `triggerRef`{lang="ts-type"} | `Ref<InstanceType<typeof SelectTrigger> \| null>`{lang="ts-type"} |
+
+## Theme
+
+:component-theme

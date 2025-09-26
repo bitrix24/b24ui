@@ -47,7 +47,8 @@ const pages = [
   '/docs/components/input-tags/',
   '/docs/components/pin-input/',
   '/docs/components/radio-group/',
-  '/docs/components/range/'
+  '/docs/components/range/',
+  '/docs/components/select/'
   // endregion ////
 ]
 
@@ -92,7 +93,8 @@ const apiComponentMeta = [
   '/api/component-meta/B24InputTags.json',
   '/api/component-meta/B24PinInput.json',
   '/api/component-meta/B24RadioGroup.json',
-  '/api/component-meta/B24Range.json'
+  '/api/component-meta/B24Range.json',
+  '/api/component-meta/B24Select.json'
   // endregion ////
 ]
 
@@ -185,7 +187,15 @@ const apiComponentExample = [
   '/api/component-example/inputNumberCurrencyExample.json',
   '/api/component-example/inputNumberFormFieldExample.json',
   '/api/component-example/inputNumberSlotsExample.json',
-  '/api/component-example/inputTagsFormFieldExample.json'
+  '/api/component-example/inputTagsFormFieldExample.json',
+  '/api/component-example/selectItemsIconExample.json',
+  '/api/component-example/selectItemsAvatarExample.json',
+  '/api/component-example/selectItemsChipExample.json',
+  '/api/component-example/selectOpenExample.json',
+  '/api/component-example/selectIconExample.json',
+  '/api/component-example/selectFetchExample.json',
+  '/api/component-example/selectContentWidthExample.json',
+  '/api/component-example/selectItemsColorExample.json'
   // endregion ////
 ]
 

@@ -77,7 +77,7 @@ async function onSubmit(event: FormSubmitEvent<schema>) {
           <B24Button :label="state.avatar ? 'Change image' : 'Upload image'" color="air-selection" @click="open()" />
         </div>
 
-        <p v-if="state.avatar" class="text-xs text-muted mt-1.5">
+        <p v-if="state.avatar" class="text-(length:--ui-font-size-xs) text-(--b24ui-typography-description-color) mt-1.5">
           {{ state.avatar.name }}
 
           <B24Button

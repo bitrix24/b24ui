@@ -78,7 +78,7 @@ You can also pass an array of objects with the following properties:
 - [`type?: "label" | "separator" | "item"`{lang="ts-type"}](#with-items-type)
 - [`icon?: IconComponent`{lang="ts-type"}](#with-icons-in-items)
 - [`avatar?: AvatarProps`{lang="ts-type"}](#with-avatar-in-items)
-- `color?: InputMenu['color']`{lang="ts-type"}
+- [`color?: InputMenu['color']`{lang="ts-type"}](#with-colors-items)
 - [`chip?: ChipProps`{lang="ts-type"}](#with-chip-in-items)
 - `disabled?: boolean`{lang="ts-type"}
 - `onSelect?(e: Event): void`{lang="ts-type"}
@@ -106,7 +106,7 @@ props:
 ---
 ::
 
-You can also pass an array of arrays to the `items` prop to display separated groups of items.
+You can also pass an array of arrays to the `items` prop.
 Use the element type `separator` as a separator.
 
 ::component-code
@@ -326,7 +326,7 @@ external:
   - modelValue
 props:
   modelValue: 'Backlog'
-  color: 'air-primary'
+  color: air-primary-copilot
   highlight: true
   items:
     - Backlog

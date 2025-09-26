@@ -2,6 +2,8 @@
 import UserIcon from '@bitrix24/b24icons-vue/common-b24/UserIcon'
 import Expand1Icon from '@bitrix24/b24icons-vue/actions/Expand1Icon'
 
+const value = ref<string>()
+
 const { data: users } = await useFetch('https://jsonplaceholder.typicode.com/users', {
   key: 'typicode-users-email',
   transform: (data: { id: number, name: string, email: string }[]) => {
@@ -17,12 +19,15 @@ const { data: users } = await useFetch('https://jsonplaceholder.typicode.com/use
 </script>
 
 <template>
-  <B24InputMenu
+  <B24Select
+    v-model="value"
     :items="users"
     :icon="UserIcon"
     :trailing-icon="Expand1Icon"
     placeholder="Select user"
+    value-key="value"
     :b24ui="{ content: 'min-w-fit', viewport: 'min-w-fit', item: 'min-w-fit' }"
+    class="w-48"
   >
     <template #item-label="{ item }">
       {{ item.label }}
@@ -31,5 +36,5 @@ const { data: users } = await useFetch('https://jsonplaceholder.typicode.com/use
         {{ item.email }}
       </span>
     </template>
-  </B24InputMenu>
+  </B24Select>
 </template>
