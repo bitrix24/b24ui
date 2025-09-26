@@ -2,210 +2,316 @@
 title: RadioGroup
 description: A collection of radio buttons to pick a single choice from several options.
 category: form
+links:
+  - label: GitHub
+    icon: i-simple-icons-github
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/RadioGroup
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/radio-group
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui4.nuxt.com/docs/components/radio-group
+  - label: RadioGroup
+    avatar:
+      src: /b24ui/avatar/rekaui.svg
+    to: https://reka-ui.com/docs/components/radio-group
 ---
-<script setup>
-import RadioGroupExample from '/examples/radiogroup/RadioGroup.vue';
-import ArrayExample from '/examples/radiogroup/Array.vue';
-import ArrayValueKeyExample from '/examples/radiogroup/ArrayValueKey.vue';
-import LegendExample from '/examples/radiogroup/Legend.vue';
-import OrientationExample from '/examples/radiogroup/Orientation.vue';
-import ColorExample from '/examples/radiogroup/Color.vue';
-import VariantExample from '/examples/radiogroup/Variant.vue';
-import SizeExample from '/examples/radiogroup/Size.vue';
-import IndicatorExample from '/examples/radiogroup/Indicator.vue';
-import DisabledExample from '/examples/radiogroup/Disabled.vue';
-</script>
-# RadioGroup
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
-<Description
-  nuxt-ui="https://ui3.nuxt.dev/components/radio-group"
-  reka-ui="https://reka-ui.com/docs/components/radio-group"
-  reka-ui-title="RadioGroup"
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/RadioGroup.vue"
-  demo="/components/radio-group"
->
-  A collection of radio buttons to pick a single choice from several options.
-</Description>
 
 ## Usage
 
 Use the `v-model` directive to control the value of the RadioGroup or the `default-value` prop to set the initial value when you do not need to control its state.
 
+::component-code
+---
+prettier: true
+ignore:
+  - modelValue
+  - items
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'System'
+  items:
+    - 'System'
+    - 'Light'
+    - 'Dark'
+---
+::
+
 ### Items
 
 Use the `items` prop as an array of strings or numbers:
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <RadioGroupExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/radiogroup/demo/RadioGroup.vue{4,5,10,11 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - modelValue
+  - items
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'System'
+  items:
+    - 'System'
+    - 'Light'
+    - 'Dark'
+---
+::
 
 You can also pass an array of objects with the following properties:
 
-- `label?: string`{lang="ts"}
-- `description?: string`{lang="ts"}
-- [`value?: string`{lang="ts"}](#value-key)
-- `disabled?: boolean`{lang="ts"}
-- `class?: any`{lang="ts"}
-- `b24ui?: { item?: ClassNameValue, container?: ClassNameValue, base?: ClassNameValue, 'indicator'?: ClassNameValue, wrapper?: ClassNameValue, label?: ClassNameValue, description?: ClassNameValue }`{lang="ts"}
+- `label?: string`{lang="ts-type"}
+- `description?: string`{lang="ts-type"}
+- [`value?: string`{lang="ts-type"}](#value-key)
+- `disabled?: boolean`{lang="ts-type"}
+- `class?: any`{lang="ts-type"}
+- `b24ui?: { item?: ClassNameValue, container?: ClassNameValue, base?: ClassNameValue, 'indicator'?: ClassNameValue, wrapper?: ClassNameValue, label?: ClassNameValue, description?: ClassNameValue }`{lang="ts-type"}
 
-::: danger
+::component-code
+---
+ignore:
+  - modelValue
+  - items
+external:
+  - items
+  - modelValue
+externalTypes:
+  - RadioGroupItem[]
+props:
+  modelValue: 'system'
+  items:
+    - label: 'System'
+      description: 'This is the first option.'
+      value: 'system'
+    - label: 'Light'
+      description: 'This is the second option.'
+      value: 'light'
+    - label: 'Dark'
+      description: 'This is the third option.'
+      value: 'dark'
+---
+::
+
+::caution
 When using objects, you need to reference the `value` property of the object in the `v-model` directive or the `default-value` prop.
-:::
-
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <ArrayExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/radiogroup/demo/Array.vue{4-20 vue:line-numbers}
-:::
+::
 
 ### Value Key
 
 You can change the property that is used to set the value by using the `value-key` prop. Defaults to `value`.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <ArrayValueKeyExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/radiogroup/demo/ArrayValueKey.vue{8,13,18,27 vue:line-numbers}
-:::
+::component-code
+---
+ignore:
+  - modelValue
+  - items
+  - valueKey
+external:
+  - items
+  - modelValue
+externalTypes:
+  - RadioGroupItem[]
+props:
+  modelValue: 'light'
+  valueKey: 'id'
+  items:
+    - label: 'System'
+      description: 'This is the first option.'
+      id: 'system'
+    - label: 'Light'
+      description: 'This is the second option.'
+      id: 'light'
+    - label: 'Dark'
+      description: 'This is the third option.'
+      id: 'dark'
+---
+::
 
 ### Legend
 
 Use the `legend` prop to set the legend of the RadioGroup.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <LegendExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/radiogroup/demo/Legend.vue{20 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - defaultValue
+  - items
+external:
+  - items
+props:
+  legend: 'Theme'
+  defaultValue: 'System'
+  items:
+    - 'System'
+    - 'Light'
+    - 'Dark'
+---
+::
 
 ### Color
 
 Use the `color` prop to change the color of the RadioGroup.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <ColorExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/radiogroup/demo/Color.vue{20 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - defaultValue
+  - items
+external:
+  - items
+props:
+  color: air-primary-copilot
+  defaultValue: 'System'
+  items:
+    - 'System'
+    - 'Light'
+    - 'Dark'
+---
+::
 
 
 ### Variant
 
 Use the `variant` prop to change the variant of the RadioGroup.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <VariantExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/radiogroup/demo/Variant.vue{23 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - defaultValue
+  - items
+external:
+  - items
+externalTypes:
+  - RadioGroupItem[]
+props:
+  color: 'air-primary-copilot'
+  variant: 'card'
+  defaultValue: 'pro'
+  items:
+    - label: 'Pro'
+      value: 'pro'
+      description: 'Tailored for indie hackers, freelancers and solo founders.'
+    - label: 'Startup'
+      value: 'startup'
+      description: 'Best suited for small teams, startups and agencies.'
+    - label: 'Enterprise'
+      value: 'enterprise'
+      description: 'Ideal for larger teams and organizations.'
+---
+::
 
 ### Size
 
 Use the `size` prop to change the size of the RadioGroup.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <SizeExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/radiogroup/demo/Size.vue{22 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - defaultValue
+  - items
+external:
+  - items
+props:
+  size: 'lg'
+  variant: 'list'
+  defaultValue: 'System'
+  items:
+    - 'System'
+    - 'Light'
+    - 'Dark'
+---
+::
 
 ### Orientation
 
 Use the `orientation` prop to change the orientation of the RadioGroup. Defaults to `vertical`.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <OrientationExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/radiogroup/demo/Orientation.vue{22 vue:line-numbers}
-:::
-
-
+::component-code
+---
+prettier: true
+ignore:
+  - defaultValue
+  - items
+external:
+  - items
+props:
+  orientation: 'horizontal'
+  variant: 'list'
+  defaultValue: 'System'
+  items:
+    - 'System'
+    - 'Light'
+    - 'Dark'
+---
+::
 
 ### Indicator
 
 Use the `indicator` prop to change the position or hide the indicator. Defaults to `start`.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <IndicatorExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/radiogroup/demo/Indicator.vue{22 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - defaultValue
+  - items
+external:
+  - items
+props:
+  indicator: 'end'
+  variant: 'card'
+  defaultValue: 'System'
+  items:
+    - 'System'
+    - 'Light'
+    - 'Dark'
+---
+::
 
 ### Disabled
 
 Use the `disabled` prop to disable the RadioGroup.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <DisabledExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/radiogroup/demo/Disabled.vue{20 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - defaultValue
+  - items
+external:
+  - items
+props:
+  disabled: true
+  defaultValue: 'System'
+  items:
+    - 'System'
+    - 'Light'
+    - 'Dark'
+---
+::
 
 ## API
 
 ### Props
 
-<ComponentProps component="RadioGroup" />
+:component-props
 
 ### Slots
 
-<ComponentSlots component="RadioGroup" />
+:component-slots
 
 ### Emits
 
-```ts
-/**
- * Emitted events for the RadioGroup component
- */
-interface RadioGroupEmits {
-  change: (payload: [event: Event]) => void;
-  update:modelValue: (payload: [payload: string]) => void;
-}
-```
+:component-emits
 
+## Theme
+
+:component-theme

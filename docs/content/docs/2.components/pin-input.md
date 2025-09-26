@@ -1,6 +1,6 @@
 ---
 title: PinInput
-description: An input element to enter a pin.
+description: A PIN code input component.
 category: form
 badge: new
 links:
@@ -160,26 +160,6 @@ props:
   disabled: true
   placeholder: '○'
 ---
-::
-
-### No padding
-
-Use the `noPadding` prop to removes padding from the InputTags.
-
-::component-code
----
-ignore:
-  - placeholder
-props:
-  noPadding: true
-  highlight: true
-  size: xl
-  placeholder: '○'
----
-::
-
-::note
-The `highlight` prop is used here to show the focus state.
 ::
 
 ### No border

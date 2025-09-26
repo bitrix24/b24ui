@@ -34,7 +34,7 @@ const { navigationMenuByCategory } = useNavigation(navigation!)
             :key="route.path"
             :items="navigationMenuByCategory"
             orientation="vertical"
-            :b24ui="{ linkLeadingBadge: 'bg-blue-500' }"
+            :b24ui="{ linkLeadingBadge: '-top-[4px] left-auto -right-[50px]  bg-blue-500' }"
           />
         </ClientOnly>
       </B24SidebarBody>

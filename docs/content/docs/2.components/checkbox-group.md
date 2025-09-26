@@ -171,15 +171,8 @@ ignore:
   - items
 external:
   - items
-items:
-  color:
-    - air-primary
-    - air-primary-success
-    - air-primary-alert
-    - air-primary-copilot
-    - air-primary-warning
 props:
-  color: air-primary
+  color: air-primary-copilot
   defaultValue:
     - 'System'
   items:
@@ -202,18 +195,12 @@ ignore:
 external:
   - items
 items:
-  color:
-    - air-primary
-    - air-primary-success
-    - air-primary-alert
-    - air-primary-copilot
-    - air-primary-warning
   variant:
     - list
     - card
     - table
 props:
-  color: 'air-primary'
+  color: 'air-primary-copilot'
   variant: 'card'
   defaultValue:
     - 'System'
