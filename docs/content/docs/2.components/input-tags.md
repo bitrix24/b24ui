@@ -287,8 +287,13 @@ external:
   - modelValue
 props:
   noBorder: true
+  highlight: true
   modelValue: ['Bitrix24']
 ---
+::
+
+::note
+The `highlight` prop is used here to indicate that there is no focus state.
 ::
 
 ### Underline
@@ -304,8 +309,13 @@ external:
   - modelValue
 props:
   underline: true
+  highlight: true
   modelValue: ['Bitrix24']
 ---
+::
+
+::note
+The `highlight` prop is used here to show the focus state.
 ::
 
 ### Rounded

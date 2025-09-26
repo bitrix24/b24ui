@@ -139,7 +139,7 @@ Use the `size` prop to change the size of the Range.
 ignore:
   - defaultValue
 props:
-  size: xl
+  size: lg
   defaultValue: 50
 ---
 ::

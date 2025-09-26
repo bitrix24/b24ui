@@ -23,16 +23,10 @@ export default () => {
           'cursor-pointer',
           'disabled:cursor-not-allowed',
           'disabled:pointer-events-none',
+          'disabled:select-none',
           'disabled:opacity-30',
           'disabled:resize-none',
           'appearance-none transition duration-300 ease-linear', // transition-colors
-          'ring ring-inset',
-          'ring-(--ui-color-design-outline-stroke)',
-          'focus-visible:ring-1',
-          'focus-visible:ring-inset',
-          'focus-visible:ring-(--b24ui-border-color)',
-          'hover:ring-1 hover:ring-inset hover:ring-(--b24ui-border-color)',
-          'data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color)',
           'text-(--ui-color-base-1)',
           'style-blurred-bg-input',
           'hover:text-(--ui-color-base-1)',
@@ -259,7 +253,11 @@ export default () => {
           },
           ...prev.map(item => ({
             ...item,
-            class: typeof item.class === 'string' ? replaceFocus(item.class) : item.class
+            class: typeof item.class === 'string'
+              ? replaceFocus(item.class)
+              : typeof item.class === 'object'
+                ? Object.fromEntries(Object.entries(item.class).map(([key, value]) => [key, typeof value === 'string' ? replaceFocus(value) : value]))
+                : item.class
           }))
         ]
       }
@@ -270,5 +268,6 @@ export default () => {
 
 function replaceFocus(str: string): string {
   return str
-    .replace(/focus-visible:/g, 'focus:')
+  // .replace(/focus-visible:/g, 'focus:')
+  // .replace(/not-disabled:not-data-disabled:/g, '')
 }

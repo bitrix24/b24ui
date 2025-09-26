@@ -192,7 +192,7 @@ const urlSearchParams = computed(() => {
           v-bind="typeof iframe === 'object' ? iframe : {}"
           :src="`/b24ui/examples/${name}/?${urlSearchParams}`"
           class="relative w-full"
-          :class="[props.class, !iframeMobile && 'lg:w-[1024px]']"
+          :class="[props.class, !iframeMobile && 'max-w-[1300px]']"
         />
         <div
           v-else

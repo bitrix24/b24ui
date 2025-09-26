@@ -24,13 +24,6 @@ export default () => {
         'disabled:opacity-30',
         'disabled:resize-none',
         'appearance-none transition duration-300 ease-linear', // transition-colors
-        'ring ring-inset',
-        'ring-(--ui-color-design-outline-stroke)',
-        'focus-visible:ring-1',
-        'focus-visible:ring-inset',
-        'focus-visible:ring-(--b24ui-border-color)',
-        'hover:ring-1 hover:ring-inset hover:ring-(--b24ui-border-color)',
-        'data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color)',
         'text-(--ui-color-base-1)',
         'style-blurred-bg-input',
         'placeholder:text-(--ui-color-design-plain-na-content-secondary)',
@@ -107,30 +100,68 @@ export default () => {
     },
     compoundVariants: [
       // region ring for focus and highlight ////
-      // region color ////
       {
+        highlight: false,
         noBorder: false,
         underline: false,
-        class: ''
+        class: {
+          base: [
+            'ring ring-inset',
+            'ring-(--ui-color-design-outline-stroke)',
+            'focus-visible:ring-1',
+            'focus-visible:ring-inset',
+            'focus-visible:ring-(--b24ui-border-color)',
+            'hover:ring-1 hover:ring-inset hover:ring-(--b24ui-border-color)',
+            'data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color)'
+          ].join(' ')
+        }
       },
       {
         highlight: true,
         noBorder: false,
         underline: false,
-        class: 'ring ring-inset ring-(--b24ui-border-color)'
+        class: {
+          base: [
+            'ring ring-inset',
+            'ring-(--b24ui-border-color)',
+            'focus-visible:ring-1',
+            'focus-visible:ring-inset',
+            'focus-visible:ring-(--b24ui-border-color)',
+            'hover:ring-1 hover:ring-inset hover:ring-(--b24ui-border-color)',
+            'data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color)'
+          ].join(' ')
+        }
       },
       {
         noBorder: false,
         underline: true,
-        class: 'focus-visible:border-(--b24ui-border-color)'
+        class: {
+          base: [
+            'focus-visible:border-(--b24ui-border-color)'
+          ].join(' ')
+        }
       },
       {
         highlight: true,
         noBorder: false,
         underline: true,
-        class: 'border-b-(--b24ui-border-color)'
+        class: {
+          base: [
+            'ring-0',
+            'border-b-(--b24ui-border-color)'
+          ].join(' ')
+        }
       },
-      // endregion ////
+      {
+        highlight: true,
+        noBorder: true,
+        underline: false,
+        class: {
+          base: [
+            'ring-0'
+          ].join(' ')
+        }
+      },
       // endregion ////
       // region orientation && size ////
       // region horizontal.rounded ////

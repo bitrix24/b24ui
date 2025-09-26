@@ -646,6 +646,7 @@ external:
   - items
 props:
   noBorder: true
+  highlight: true
   placeholder: 'Select status'
   items:
     - Backlog
@@ -654,6 +655,10 @@ props:
     - Done
   class: 'w-48'
 ---
+::
+
+::note
+The `highlight` prop is used here to indicate that there is no focus state.
 ::
 
 ### Underline
@@ -671,6 +676,7 @@ external:
   - items
 props:
   underline: true
+  highlight: true
   placeholder: 'Select status'
   items:
     - Backlog
@@ -679,6 +685,10 @@ props:
     - Done
   class: 'w-48'
 ---
+::
+
+::note
+The `highlight` prop is used here to show the focus state.
 ::
 
 ### Rounded

@@ -14,16 +14,10 @@ export default () => {
         'border-0 focus:outline-none',
         'disabled:cursor-not-allowed',
         'disabled:pointer-events-none',
+        'disabled:select-none',
         'disabled:opacity-30',
         'disabled:resize-none',
         'appearance-none transition duration-300 ease-linear transition-colors', // transition-colors
-        'ring ring-inset',
-        'ring-(--ui-color-design-outline-stroke)',
-        'focus-visible:ring-1',
-        'focus-visible:ring-inset',
-        'focus-visible:ring-(--b24ui-border-color)',
-        'hover:ring-1 hover:ring-inset hover:ring-(--b24ui-border-color)',
-        'data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color)',
         'text-(--ui-color-base-1)',
         'style-blurred-bg-input',
         'hover:text-(--ui-color-base-1)',
@@ -42,14 +36,19 @@ export default () => {
         'font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular)',
         'inline-flex items-center gap-1',
         'data-disabled:cursor-not-allowed data-disabled:opacity-30',
+        'data-disabled:pointer-events-none',
+        'data-disabled:select-none',
         'text-(--ui-color-design-tinted-content)',
         'bg-(--ui-color-design-tinted-bg-alt)'
       ].join(' '),
-      itemText: 'truncate max-w-[180px]',
+      itemText: [
+        'truncate max-w-[180px]'
+      ].join(' '),
       itemDelete: [
         'cursor-pointer',
         'inline-flex items-center',
         'disabled:pointer-events-none',
+        'disabled:select-none',
         'text-(--b24ui-icon-color-secondary)',
         'hover:text-(--b24ui-icon-color-secondary-hover)',
         'transition-none'
@@ -63,6 +62,8 @@ export default () => {
         'placeholder:text-(--ui-color-design-plain-na-content-secondary)',
         'focus:outline-none',
         'disabled:cursor-not-allowed',
+        'disabled:pointer-events-none',
+        'disabled:select-none',
         'disabled:opacity-30',
         'focus:ring-0',
         'focus-visible:ring-0'
@@ -173,7 +174,11 @@ export default () => {
     },
     compoundVariants: (prev: Record<string, any>[]) => prev.map(item => ({
       ...item,
-      class: typeof item.class === 'string' ? replaceFocus(item.class) : item.class
+      class: typeof item.class === 'string'
+        ? replaceFocus(item.class)
+        : typeof item.class === 'object'
+          ? Object.fromEntries(Object.entries(item.class).map(([key, value]) => [key, typeof value === 'string' ? replaceFocus(value) : value]))
+          : item.class
     }))
   }, input)
 }

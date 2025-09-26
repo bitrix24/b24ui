@@ -235,7 +235,8 @@ export default defineNuxtConfig({
         })
       })
     },
-    'nuxt-llms'
+    'nuxt-llms',
+    '@pinia/nuxt'
   ],
 
   $development: {

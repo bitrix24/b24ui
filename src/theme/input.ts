@@ -20,16 +20,10 @@ export default {
       'w-full py-0 border-0 focus:outline-none',
       'disabled:cursor-not-allowed',
       'disabled:pointer-events-none',
+      'disabled:select-none',
       'disabled:opacity-30',
       'disabled:resize-none',
       'appearance-none transition duration-300 ease-linear', // transition-colors
-      'ring ring-inset',
-      'ring-(--ui-color-design-outline-stroke)',
-      'focus-visible:ring-1',
-      'focus-visible:ring-inset',
-      'focus-visible:ring-(--b24ui-border-color)',
-      'hover:ring-1 hover:ring-inset hover:ring-(--b24ui-border-color)',
-      'data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color)',
       'text-(--ui-color-base-1)',
       'style-blurred-bg-input',
       'placeholder:text-(--ui-color-design-plain-na-content-secondary)',
@@ -129,10 +123,6 @@ export default {
       'collab': { base: 'style-old-collab' },
       'ai': { base: 'style-old-ai' }
     },
-    /**
-     * @memo now get from Badge
-     */
-    // tagColor: {},
     rounded: {
       true: 'rounded-(--ui-border-radius-3xl)',
       false: 'rounded-(--ui-border-radius-sm)'
@@ -141,10 +131,10 @@ export default {
     noBorder: { true: 'ring-0 focus-visible:ring-0 style-transparent-bg' },
     underline: {
       true: [
+        'rounded-none',
         'ring-0 focus-visible:ring-0 style-transparent-bg',
         'border-b-1',
-        'border-b-(--ui-color-design-outline-stroke)',
-        'rounded-none'
+        'border-b-(--ui-color-design-outline-stroke)'
       ].join(' ')
     },
     leading: { true: '' },
@@ -156,35 +146,75 @@ export default {
         'file:me-1.5',
         'file:text-(--ui-color-design-plain-na-content-secondary)',
         'file:outline-none'
-      ]
+      ].join(' ')
     }
   },
   compoundVariants: [
     // region ring for focus and highlight ////
-    // region color ////
     {
+      highlight: false,
       noBorder: false,
       underline: false,
-      class: ''
+      class: {
+        base: [
+          'ring ring-inset',
+          'ring-(--ui-color-design-outline-stroke)',
+          'focus-visible:ring-1',
+          'focus-visible:ring-inset',
+          'focus-visible:ring-(--b24ui-border-color)',
+          'hover:not-disabled:not-data-disabled:ring-1 hover:not-disabled:not-data-disabled:ring-inset hover:not-disabled:not-data-disabled:ring-(--b24ui-border-color)',
+          'data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color)'
+        ].join(' ')
+      }
     },
     {
       highlight: true,
       noBorder: false,
       underline: false,
-      class: 'ring ring-inset ring-(--b24ui-border-color)'
+      class: {
+        base: [
+          'ring ring-inset',
+          'ring-(--b24ui-border-color)',
+          'focus-visible:ring-1',
+          'focus-visible:ring-inset',
+          'focus-visible:ring-(--b24ui-border-color)',
+          'hover:ring-1 hover:ring-inset hover:ring-(--b24ui-border-color)',
+          'data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color)'
+        ].join(' ')
+      }
     },
     {
       noBorder: false,
       underline: true,
-      class: 'focus-visible:border-(--b24ui-border-color)'
+      class: {
+        base: [
+          'focus-visible:border-(--b24ui-border-color)',
+          'hover:border-(--b24ui-border-color)',
+          'data-[state=open]:border-(--b24ui-border-color)'
+        ].join(' ')
+      }
     },
     {
       highlight: true,
       noBorder: false,
       underline: true,
-      class: 'border-b-(--b24ui-border-color)'
+      class: {
+        base: [
+          'ring-0',
+          'border-b-(--b24ui-border-color)'
+        ].join(' ')
+      }
     },
-    // endregion ////
+    {
+      highlight: true,
+      noBorder: true,
+      underline: false,
+      class: {
+        base: [
+          'ring-0'
+        ].join(' ')
+      }
+    },
     // endregion ////
     // region type file ////
     {

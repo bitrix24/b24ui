@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ContentNavigationItem } from '@nuxt/content'
+import type { ContentNavigationItem, DocsCollectionItem } from '@nuxt/content'
 import { kebabCase } from 'scule'
 import DesignIcon from '@bitrix24/b24icons-vue/outline/DesignIcon'
 import FavoriteIcon from '@bitrix24/b24icons-vue/outline/FavoriteIcon'
@@ -7,6 +7,7 @@ import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 import MoreMIcon from '@bitrix24/b24icons-vue/outline/MoreMIcon'
 import NuxtIcon from '@bitrix24/b24icons-vue/file-type/NuxtIcon'
 import DemonstrationOnIcon from '@bitrix24/b24icons-vue/outline/DemonstrationOnIcon'
+import { sleepAction } from '~/utils/sleep'
 
 const route = useRoute()
 const { framework } = useFrameworks()
@@ -15,10 +16,24 @@ definePageMeta({
   layout: false
 })
 
-const { data: page } = await useAsyncData(kebabCase(route.path), () => queryCollection('docs').path(route.path).first())
-if (!page.value) {
-  throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
-}
+const pageStore = usePageStore()
+const page = ref<undefined | DocsCollectionItem>(undefined)
+const navigationData = ref<ContentNavigationItem[]>([])
+navigationData.value = pageStore.navigation
+const { findSurround } = useNavigation(navigationData!)
+
+onMounted(async () => {
+  pageStore.isLoading = true
+  // const { data: pageData2 } = await useAsyncData(kebabCase(route.path), () => queryCollection('docs').path(route.path).first())
+  const pageData = await queryCollection('docs').path(route.path).first()
+  await sleepAction(600)
+  if (!pageData) {
+    throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
+  }
+
+  page.value = pageData
+  pageStore.isLoading = false
+})
 
 // Update the framework if the page has different one
 watch(page, () => {
@@ -27,9 +42,7 @@ watch(page, () => {
   }
 }, { immediate: true })
 
-const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
-
-const { findSurround } = useNavigation(navigation!)
+// const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 
 // const breadcrumb = computed(() => findBreadcrumb(page.value?.path as string))
 const surround = computed(() => findSurround(page.value?.path as string))

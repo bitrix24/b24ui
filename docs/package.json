@@ -14,6 +14,7 @@
     "@ai-sdk/gateway": "^1.0.28",
     "@ai-sdk/vue": "^2.0.51",
     "@bitrix24/b24icons-vue": "^2.0.4",
+    "@pinia/nuxt": "^0.11.2",
     "@modelcontextprotocol/sdk": "^1.18.1",
     "@nuxt/content": "^3.7.1",
     "@nuxt/image": "^1.11.0",

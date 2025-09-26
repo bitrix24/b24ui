@@ -20,16 +20,10 @@ export default () => {
         'w-full py-0 border-0 focus:outline-none',
         'disabled:cursor-not-allowed',
         'disabled:pointer-events-none',
+        'disabled:select-none',
         'disabled:opacity-30',
         'disabled:resize-none',
         'appearance-none transition duration-300 ease-linear transition-colors', // transition-colors
-        'ring ring-inset',
-        'ring-(--ui-color-design-outline-stroke)',
-        'focus-visible:ring-1',
-        'focus-visible:ring-inset',
-        'focus-visible:ring-(--b24ui-border-color)',
-        'hover:ring-1 hover:ring-inset hover:ring-(--b24ui-border-color)',
-        'data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color)',
         'text-(--ui-color-base-1)',
         'style-blurred-bg-input',
         'hover:text-(--ui-color-base-1)',
@@ -97,6 +91,7 @@ export default () => {
         'select-none outline-none whitespace-nowrap',
         'cursor-pointer',
         'data-disabled:cursor-not-allowed data-disabled:opacity-30',
+        'data-disabled:select-none',
         'text-start',
         'text-(length:--menu-popup-item-font-size)',
         'text-(--menu-popup-item-color) hover:text-(--menu-popup-item-color-hover)',
@@ -135,6 +130,7 @@ export default () => {
         'font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular)',
         'inline-flex items-center gap-1',
         'data-disabled:cursor-not-allowed data-disabled:opacity-30',
+        'data-disabled:select-none',
         'text-(--ui-color-design-tinted-content)',
         'bg-(--ui-color-design-tinted-bg-alt)'
       ].join(' '),
@@ -185,6 +181,8 @@ export default () => {
             'placeholder:text-(--ui-color-design-plain-na-content-secondary)',
             'focus:outline-none',
             'disabled:cursor-not-allowed',
+            'disabled:pointer-events-none',
+            'disabled:select-none',
             'disabled:opacity-30',
             'focus:ring-0 focus-visible:ring-0'
           ].join(' ')
@@ -195,6 +193,8 @@ export default () => {
             'placeholder:text-(--ui-color-design-plain-na-content-secondary)',
             'focus:outline-none',
             'disabled:cursor-not-allowed',
+            'disabled:pointer-events-none',
+            'disabled:select-none',
             'disabled:opacity-30'
           ].join(' ')
         }

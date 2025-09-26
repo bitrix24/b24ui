@@ -172,9 +172,14 @@ ignore:
   - placeholder
 props:
   noBorder: true
+  highlight: true
   size: xl
   placeholder: '○'
 ---
+::
+
+::note
+The `highlight` prop is used here to indicate that there is no focus state.
 ::
 
 ### Underline
@@ -187,9 +192,14 @@ ignore:
   - placeholder
 props:
   underline: true
+  highlight: true
   size: xl
   placeholder: '○'
 ---
+::
+
+::note
+The `highlight` prop is used here to show the focus state.
 ::
 
 ### Rounded
