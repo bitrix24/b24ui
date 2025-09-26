@@ -9,7 +9,6 @@ import ComponentRender from '../component-render'
 import type { FormProps, FormSlots } from '../../src/runtime/components/Form.vue'
 import { renderForm } from '../utils/form'
 import { B24Form } from '#components'
-
 import { flushPromises } from '@vue/test-utils'
 
 describe('Form', () => {
