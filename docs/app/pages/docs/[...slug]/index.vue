@@ -20,7 +20,7 @@ const pageStore = usePageStore()
 const page = ref<undefined | DocsCollectionItem>(undefined)
 const navigationData = ref<ContentNavigationItem[]>([])
 navigationData.value = pageStore.navigation
-const { findSurround } = useNavigation(navigationData!)
+// const { findSurround } = useNavigation(navigationData!)
 
 onMounted(async () => {
   pageStore.isLoading = true
@@ -45,7 +45,7 @@ watch(page, () => {
 // const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 
 // const breadcrumb = computed(() => findBreadcrumb(page.value?.path as string))
-const surround = computed(() => findSurround(page.value?.path as string))
+const surround = computed(() => pageStore.findSurround(page.value?.path as string))
 
 if (!import.meta.prerender) {
   // Redirect to the correct framework version if the page is not the current framework

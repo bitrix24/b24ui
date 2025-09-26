@@ -30,7 +30,7 @@ const pageStore = usePageStore()
       <B24SidebarBody>
         <B24NavigationMenu
           :key="route.path"
-          :items="pageStore.navigationMenuByCategory.value"
+          :items="pageStore.navigationMenuByCategory"
           orientation="vertical"
           :b24ui="{ linkLeadingBadge: '-top-[4px] left-auto -right-[50px]  bg-blue-500' }"
         />

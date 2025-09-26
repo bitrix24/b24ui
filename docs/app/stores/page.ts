@@ -14,13 +14,19 @@ export const usePageStore = defineStore(
 
     const navigationMenuByCategory = computed(() => {
       const { navigationMenuByCategory } = useNavigation(navigation)
-      return navigationMenuByCategory
+      return navigationMenuByCategory.value
     })
+
+    const findSurround = (path: string) => {
+      const { findSurround } = useNavigation(navigation)
+      return findSurround(path)
+    }
 
     return {
       navigation,
       isLoading,
-      navigationMenuByCategory
+      navigationMenuByCategory,
+      findSurround
     }
   }
 )
