@@ -122,7 +122,7 @@ export default defineNuxtModule<ModuleOptions>({
             // 'field': 'ProseField',
             // 'field-group': 'ProseFieldGroup',
             // 'icon': 'ProseIcon',
-            // 'kbd': 'ProseKbd',
+            'kbd': 'ProseKbd',
             'note': 'ProseNote',
             // 'steps': 'ProseSteps',
             'tabs': 'ProseTabs',
