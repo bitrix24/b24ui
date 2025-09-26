@@ -10,7 +10,7 @@ const schema = z.object({
 type Schema = z.output<typeof schema>
 
 const nestedSchema = z.object({
-  email: z.string().email()
+  email: z.email()
 })
 
 type NestedSchema = z.output<typeof nestedSchema>
