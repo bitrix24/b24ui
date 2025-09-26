@@ -2,189 +2,201 @@
 title: Range
 description: A control for selecting a numeric value within a specified range.
 category: form
+links:
+  - label: GitHub
+    icon: i-simple-icons-github
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Range
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/range
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui4.nuxt.com/docs/components/slider
+  - label: Slider
+    avatar:
+      src: /b24ui/avatar/rekaui.svg
+    to: https://reka-ui.com/docs/components/slider
 ---
-<script setup>
-import RangeExample from '/examples/range/Range.vue';
-import MinMaxExample from '/examples/range/MinMax.vue';
-import StepExample from '/examples/range/Step.vue';
-import MultipleExample from '/examples/range/Multiple.vue';
-import MinStepsBetweenThumbsExample from '/examples/range/MinStepsBetweenThumbs.vue';
-import OrientationExample from '/examples/range/Orientation.vue';
-import ColorExample from '/examples/range/Color.vue';
-import SizeExample from '/examples/range/Size.vue';
-import DisabledExample from '/examples/range/Disabled.vue';
-import InvertedExample from '/examples/range/Inverted.vue';
-</script>
-# Range
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
-<Description
-  nuxt-ui="https://ui3.nuxt.dev/components/slider"
-  reka-ui="https://reka-ui.com/docs/components/slider"
-  reka-ui-title="Slider"
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Range.vue"
-  demo="/components/range"
->
-  A control for selecting a numeric value within a specified range.
-</Description>
 
 ## Usage
 
 Use the `v-model` directive to control the value of the Range.
 
+::component-code
+---
+external:
+  - modelValue
+props:
+  modelValue: 50
+---
+::
+
 Use the `default-value` prop to set the initial value when you do not need to control its state.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <RangeExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/range/demo/Range.vue{9,12 vue:line-numbers}
-:::
+::component-code
+---
+ignore:
+  - defaultValue
+props:
+  defaultValue: 50
+---
+::
 
 ### Min / Max
 
 Use the `min` and `max` props to set the minimum and maximum values of the Range. Defaults to `0` and `100`.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <MinMaxExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/range/demo/MinMax.vue{15,16 vue:line-numbers}
-:::
+::component-code
+---
+ignore:
+  - defaultValue
+props:
+  min: 0
+  max: 50
+  defaultValue: 50
+---
+::
 
 ### Step
 
 Use the `step` prop to set the increment value of the Range. Defaults to `1`.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <StepExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/range/demo/Step.vue{13 vue:line-numbers}
-:::
+::component-code
+---
+ignore:
+  - defaultValue
+props:
+  step: 10
+  defaultValue: 50
+---
+::
 
 ### Multiple
 
 Use the `v-model` directive or the `default-value` prop with an array of values to create a range Range.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <MultipleExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/range/demo/Multiple.vue{12 vue:line-numbers}
-:::
+::component-code
+---
+ignore:
+  - modelValue
+external:
+  - modelValue
+props:
+  modelValue: [25, 75]
+---
+::
 
 Use the `min-steps-between-thumbs` prop to limit the minimum distance between the thumbs.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <MinStepsBetweenThumbsExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/range/demo/MinStepsBetweenThumbs.vue{21 vue:line-numbers}
-:::
+::component-code
+---
+ignore:
+  - modelValue
+external:
+  - modelValue
+props:
+  modelValue: [25, 50, 75]
+  minStepsBetweenThumbs: 10
+---
+::
 
 ### Orientation
 
 Use the `orientation` prop to change the orientation of the Range. Defaults to `horizontal`.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <OrientationExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/range/demo/Orientation.vue{13,15 vue:line-numbers}
-:::
+::component-code
+---
+ignore:
+  - defaultValue
+  - class
+props:
+  orientation: vertical
+  defaultValue: 50
+  class: 'h-48'
+---
+::
 
 ### Color
 
 Use the `color` prop to change the color of the Range.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <ColorExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/range/demo/Color.vue{15 vue:line-numbers}
-:::
+::component-code
+---
+ignore:
+  - defaultValue
+props:
+  color: air-primary-copilot
+  defaultValue: 50
+---
+::
 
 ### Size
 
 Use the `size` prop to change the size of the Range.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <SizeExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+ignore:
+  - defaultValue
+props:
+  size: xl
+  defaultValue: 50
+---
+::
 
-::: details
-<<< @/examples/range/demo/Size.vue{13 vue:line-numbers}
-:::
+### Tooltip
+
+Use the `tooltip` prop to display a [Tooltip](/docs/components/tooltip/) around the Range thumbs with the current value. You can set it to `true` for default behavior or pass an object to customize it with any property from the [Tooltip](/docs/components/tooltip/#props) component.
+
+::component-code
+---
+ignore:
+  - defaultValue
+  - tooltip
+props:
+  defaultValue: 50
+  tooltip: true
+---
+::
 
 ### Disabled
 
 Use the `disabled` prop to disable the Range.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <DisabledExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/range/demo/Disabled.vue{4,7,13 vue:line-numbers}
-:::
+::component-code
+---
+ignore:
+  - defaultValue
+props:
+  disabled: true
+  defaultValue: 50
+---
+::
 
 ### Inverted
 
 Use the `inverted` prop to visually invert the Range.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <InvertedExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/range/demo/Inverted.vue{3 vue:line-numbers}
-:::
+::component-code
+---
+ignore:
+  - defaultValue
+props:
+  inverted: true
+  defaultValue: 25
+---
+::
 
 ## API
 
 ### Props
 
-<ComponentProps component="Range" />
+:component-props
 
 ### Emits
 
-```ts
-/**
- * Emitted events for the Range component
- */
-interface RangeEmits {
-  change: (payload: [event: Event]) => void;
-  update:modelValue: (payload: [value: number | number[] | undefined]) => void;
-}
-```
+:component-emits
+
+## Theme
+
+:component-theme

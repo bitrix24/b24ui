@@ -2,6 +2,7 @@
 import type { SliderRootProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/range'
+import type { TooltipProps } from '../types'
 import type { ComponentConfig } from '../types/tv'
 
 type Range = ComponentConfig<typeof theme, AppConfig, 'range'>
@@ -21,13 +22,17 @@ export interface RangeProps extends Pick<SliderRootProps, 'name' | 'disabled' | 
    */
   color?: Range['variants']['color']
   /**
-   * The orientation of the Range.
+   * The orientation of the range.
    * @defaultValue 'horizontal'
    */
   orientation?: SliderRootProps['orientation']
   /**
-   * The value of the Range when initially rendered. Use when you do not need to control the state of the Range
+   * Display a tooltip around the range thumbs with the current value.
+   * `{ disableClosingTrigger: true }`{lang="ts-type"}
+   * @defaultValue false
    */
+  tooltip?: boolean | TooltipProps
+  /** The value of the range when initially rendered. Use when you do not need to control the state of the range. */
   defaultValue?: number | number[]
   class?: any
   b24ui?: Range['slots']
@@ -45,6 +50,7 @@ import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useFormField } from '../composables/useFormField'
 import { tv } from '../utils/tv'
+import B24Tooltip from './Tooltip.vue'
 
 const props = withDefaults(defineProps<RangeProps>(), {
   min: 0,
@@ -81,7 +87,7 @@ const rangeValue = computed({
   }
 })
 
-const thumbsCount = computed(() => rangeValue.value?.length ?? 1)
+const thumbs = computed(() => rangeValue.value?.length ?? 1)
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.range || {}) })({
   disabled: disabled.value,
@@ -114,6 +120,16 @@ function onChange(value: any) {
       <SliderRange :class="b24ui.range({ class: props.b24ui?.range })" />
     </SliderTrack>
 
-    <SliderThumb v-for="count in thumbsCount" :key="count" :class="b24ui.thumb({ class: props.b24ui?.thumb })" />
+    <template v-for="thumb in thumbs" :key="thumb">
+      <B24Tooltip
+        v-if="!!tooltip"
+        :text="thumbs > 1 ? String(rangeValue?.[thumb - 1]) : String(rangeValue)"
+        disable-closing-trigger
+        v-bind="(typeof tooltip === 'object' ? tooltip : {})"
+      >
+        <SliderThumb :class="b24ui.thumb({ class: props.b24ui?.thumb })" />
+      </B24Tooltip>
+      <SliderThumb v-else :class="b24ui.thumb({ class: props.b24ui?.thumb })" />
+    </template>
   </SliderRoot>
 </template>

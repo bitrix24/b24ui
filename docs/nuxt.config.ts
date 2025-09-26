@@ -46,7 +46,8 @@ const pages = [
   '/docs/components/input-number/',
   '/docs/components/input-tags/',
   '/docs/components/pin-input/',
-  '/docs/components/radio-group/'
+  '/docs/components/radio-group/',
+  '/docs/components/range/'
   // endregion ////
 ]
 
@@ -90,7 +91,8 @@ const apiComponentMeta = [
   '/api/component-meta/B24InputNumber.json',
   '/api/component-meta/B24InputTags.json',
   '/api/component-meta/B24PinInput.json',
-  '/api/component-meta/B24RadioGroup.json'
+  '/api/component-meta/B24RadioGroup.json',
+  '/api/component-meta/B24Range.json'
   // endregion ////
 ]
 
