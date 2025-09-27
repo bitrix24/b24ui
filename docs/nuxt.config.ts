@@ -49,7 +49,8 @@ const pages = [
   '/docs/components/radio-group/',
   '/docs/components/range/',
   '/docs/components/select/',
-  '/docs/components/select-menu/'
+  '/docs/components/select-menu/',
+  '/docs/components/switch/'
   // endregion ////
 ]
 
@@ -96,7 +97,8 @@ const apiComponentMeta = [
   '/api/component-meta/B24RadioGroup.json',
   '/api/component-meta/B24Range.json',
   '/api/component-meta/B24Select.json',
-  '/api/component-meta/B24SelectMenu.json'
+  '/api/component-meta/B24SelectMenu.json',
+  '/api/component-meta/B24Switch.json'
   // endregion ////
 ]
 
