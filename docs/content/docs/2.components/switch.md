@@ -143,7 +143,7 @@ ignore:
   - label
   - defaultValue
 props:
-  size: xl
+  size: lg
   defaultValue: true
   label: Check me
 ---
