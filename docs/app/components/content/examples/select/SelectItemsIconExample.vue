@@ -32,5 +32,5 @@ const icon = computed(() => items.value.find(item => item.value === value.value)
 </script>
 
 <template>
-  <B24Select v-model="value" :items="items" value-key="value" :icon="icon" class="w-48" />
+  <B24Select v-model="value" :icon="icon" :items="items" value-key="value" class="w-48" />
 </template>

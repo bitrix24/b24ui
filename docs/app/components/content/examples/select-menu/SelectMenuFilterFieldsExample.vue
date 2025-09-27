@@ -4,39 +4,45 @@ import UserIcon from '@bitrix24/b24icons-vue/common-b24/UserIcon'
 import Expand1Icon from '@bitrix24/b24icons-vue/actions/Expand1Icon'
 
 const { data: users, status } = await useFetch('https://jsonplaceholder.typicode.com/users', {
-  key: 'typicode-users',
-  transform: (data: { id: number, name: string }[]) => {
+  key: 'typicode-users-email',
+  transform: (data: { id: number, name: string, email: string }[]) => {
     return data?.map(user => ({
       label: user.name,
+      email: user.email,
       value: String(user.id),
       avatar: { src: `https://i.pravatar.cc/120?img=${user.id}` }
     }))
   },
   lazy: true
 })
-
-function getUserAvatar(value: string) {
-  return users.value?.find(user => user.value === value)?.avatar || {}
-}
 </script>
 
 <template>
-  <B24Select
+  <B24SelectMenu
     :items="users"
     :loading="status === 'pending'"
+    :filter-fields="['label', 'email']"
     :icon="UserIcon"
     :trailing-icon="Expand1Icon"
     placeholder="Select user"
-    value-key="value"
-    class="w-48"
+    class="w-[320px]"
+    :b24ui="{ content: 'w-[320px]', viewport: 'w-[320px]' }"
   >
     <template #leading="{ modelValue, b24ui }">
       <B24Avatar
         v-if="modelValue"
-        v-bind="getUserAvatar(modelValue)"
+        v-bind="modelValue.avatar"
         :size="(b24ui.leadingAvatarSize() as AvatarProps['size'])"
         :class="b24ui.leadingAvatar()"
       />
     </template>
-  </B24Select>
+
+    <template #item-label="{ item }">
+      {{ item.label }}
+
+      <span class="text-(--b24ui-typography-description-color)">
+        {{ item.email }}
+      </span>
+    </template>
+  </B24SelectMenu>
 </template>

@@ -1,15 +1,20 @@
 <script setup lang="ts">
 const items = ref(['CRM settings', 'My company details', 'Access permissions'])
 const value = ref('My company details')
+
+function onCreate(item: string) {
+  items.value.push(item)
+
+  value.value = item
+}
 </script>
 
 <template>
-  <B24Select
+  <B24SelectMenu
     v-model="value"
+    create-item
     :items="items"
-    :b24ui="{
-      trailingIcon: 'group-data-[state=open]:rotate-180 transition-transform duration-200'
-    }"
     class="w-48"
+    @create="onCreate"
   />
 </template>

@@ -331,7 +331,7 @@ The `highlight` prop is used here to show the focus state. It's used internally 
 
 ### Tag
 
-Use the `tag` property to display a [Badge](/docs/components/badge/) on top of the Input.
+Use the `tag` property to display a [Badge](/docs/components/badge/) on top of the Select.
 
 ::component-code
 ---
@@ -362,7 +362,6 @@ The `highlight` prop is used here to show the focus state. It's used internally 
 ::
 
 Use the `tagColor` property to set the color for Badge.
-
 
 ::component-code
 ---

@@ -1,13 +1,9 @@
 <script setup lang="ts">
-const open = ref(false)
+const searchTerm = ref('o')
 const items = ref(['CRM settings', 'My company details', 'Access permissions'])
 const value = ref('My company details')
-
-defineShortcuts({
-  o: () => open.value = !open.value
-})
 </script>
 
 <template>
-  <B24Select v-model="value" v-model:open="open" :items="items" class="w-48" />
+  <B24SelectMenu v-model="value" v-model:search-term="searchTerm" :items="items" class="w-48" />
 </template>

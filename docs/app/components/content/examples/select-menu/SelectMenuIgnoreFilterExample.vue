@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import type { AvatarProps } from '@bitrix24/b24ui-nuxt'
+import { refDebounced } from '@vueuse/core'
 import UserIcon from '@bitrix24/b24icons-vue/common-b24/UserIcon'
 import Expand1Icon from '@bitrix24/b24icons-vue/actions/Expand1Icon'
 
+const searchTerm = ref('')
+const searchTermDebounced = refDebounced(searchTerm, 200)
+
 const { data: users, status } = await useFetch('https://jsonplaceholder.typicode.com/users', {
-  key: 'typicode-users',
+  params: { q: searchTermDebounced },
   transform: (data: { id: number, name: string }[]) => {
     return data?.map(user => ({
       label: user.name,
@@ -14,29 +18,26 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
   },
   lazy: true
 })
-
-function getUserAvatar(value: string) {
-  return users.value?.find(user => user.value === value)?.avatar || {}
-}
 </script>
 
 <template>
-  <B24Select
+  <B24SelectMenu
+    v-model:search-term="searchTerm"
     :items="users"
     :loading="status === 'pending'"
+    ignore-filter
     :icon="UserIcon"
     :trailing-icon="Expand1Icon"
     placeholder="Select user"
-    value-key="value"
     class="w-48"
   >
     <template #leading="{ modelValue, b24ui }">
       <B24Avatar
         v-if="modelValue"
-        v-bind="getUserAvatar(modelValue)"
+        v-bind="modelValue.avatar"
         :size="(b24ui.leadingAvatarSize() as AvatarProps['size'])"
         :class="b24ui.leadingAvatar()"
       />
     </template>
-  </B24Select>
+  </B24SelectMenu>
 </template>

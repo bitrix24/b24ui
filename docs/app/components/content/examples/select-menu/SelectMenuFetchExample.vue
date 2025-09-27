@@ -14,29 +14,24 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
   },
   lazy: true
 })
-
-function getUserAvatar(value: string) {
-  return users.value?.find(user => user.value === value)?.avatar || {}
-}
 </script>
 
 <template>
-  <B24Select
+  <B24SelectMenu
     :items="users"
     :loading="status === 'pending'"
     :icon="UserIcon"
     :trailing-icon="Expand1Icon"
     placeholder="Select user"
-    value-key="value"
     class="w-48"
   >
     <template #leading="{ modelValue, b24ui }">
       <B24Avatar
         v-if="modelValue"
-        v-bind="getUserAvatar(modelValue)"
+        v-bind="modelValue.avatar"
         :size="(b24ui.leadingAvatarSize() as AvatarProps['size'])"
         :class="b24ui.leadingAvatar()"
       />
     </template>
-  </B24Select>
+  </B24SelectMenu>
 </template>

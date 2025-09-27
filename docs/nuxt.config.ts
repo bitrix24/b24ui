@@ -48,7 +48,8 @@ const pages = [
   '/docs/components/pin-input/',
   '/docs/components/radio-group/',
   '/docs/components/range/',
-  '/docs/components/select/'
+  '/docs/components/select/',
+  '/docs/components/select-menu/'
   // endregion ////
 ]
 
@@ -94,7 +95,8 @@ const apiComponentMeta = [
   '/api/component-meta/B24PinInput.json',
   '/api/component-meta/B24RadioGroup.json',
   '/api/component-meta/B24Range.json',
-  '/api/component-meta/B24Select.json'
+  '/api/component-meta/B24Select.json',
+  '/api/component-meta/B24SelectMenu.json'
   // endregion ////
 ]
 
@@ -195,7 +197,20 @@ const apiComponentExample = [
   '/api/component-example/selectIconExample.json',
   '/api/component-example/selectFetchExample.json',
   '/api/component-example/selectContentWidthExample.json',
-  '/api/component-example/selectItemsColorExample.json'
+  '/api/component-example/selectItemsColorExample.json',
+  '/api/component-example/selectMenuItemsColorExample.json',
+  '/api/component-example/selectMenuItemsIconExample.json',
+  '/api/component-example/selectMenuItemsAvatarExample.json',
+  '/api/component-example/selectMenuItemsChipExample.json',
+  '/api/component-example/selectMenuOpenExample.json',
+  '/api/component-example/selectMenuSearchTermExample.json',
+  '/api/component-example/selectMenuIconExample.json',
+  '/api/component-example/selectMenuCreateItemExample.json',
+  '/api/component-example/selectMenuFetchExample.json',
+  '/api/component-example/selectMenuIgnoreFilterExample.json',
+  '/api/component-example/selectMenuFilterFieldsExample.json',
+  '/api/component-example/selectMenuContentWidthExample.json',
+  '/api/component-example/selectMenuCountriesExample.json'
   // endregion ////
 ]
 

@@ -4,7 +4,7 @@ const value = ref('My company details')
 </script>
 
 <template>
-  <B24Select
+  <B24SelectMenu
     v-model="value"
     :items="items"
     :b24ui="{
