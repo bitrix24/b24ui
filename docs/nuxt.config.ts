@@ -50,7 +50,8 @@ const pages = [
   '/docs/components/range/',
   '/docs/components/select/',
   '/docs/components/select-menu/',
-  '/docs/components/switch/'
+  '/docs/components/switch/',
+  '/docs/components/textarea/'
   // endregion ////
 ]
 
@@ -98,7 +99,8 @@ const apiComponentMeta = [
   '/api/component-meta/B24Range.json',
   '/api/component-meta/B24Select.json',
   '/api/component-meta/B24SelectMenu.json',
-  '/api/component-meta/B24Switch.json'
+  '/api/component-meta/B24Switch.json',
+  '/api/component-meta/B24Textarea.json'
   // endregion ////
 ]
 

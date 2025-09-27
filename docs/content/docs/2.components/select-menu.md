@@ -81,8 +81,9 @@ props:
 You can also pass an array of objects with the following properties:
 
 - `label?: string`{lang="ts-type"}
+- [`value?: string`{lang="ts-type"}](#value-key)
 - [`type?: "label" | "separator" | "item"`{lang="ts-type"}](#with-items-type)
-- [`icon?: string`{lang="ts-type"}](#with-icons-in-items)
+- [`icon?: IconComponent`{lang="ts-type"}](#with-icons-in-items)
 - [`avatar?: AvatarProps`{lang="ts-type"}](#with-avatar-in-items)
 - [`color?: SelectMenuItem['color']`{lang="ts-type"}](#with-colors-items)
 - [`chip?: ChipProps`{lang="ts-type"}](#with-chip-in-items)
@@ -356,6 +357,7 @@ Use the `tag` property to display a [Badge](/docs/components/badge/) on top of t
 ---
 prettier: true
 ignore:
+  - placeholder
   - items
   - modelValue
   - class
@@ -365,8 +367,9 @@ external:
 props:
   modelValue: 'Backlog'
   tag: note
-  color: air-primary-copilot
+  color: air-primary-warning
   highlight: true
+  placeholder: 'Search...'
   items:
     - Backlog
     - Todo
@@ -386,6 +389,7 @@ Use the `tagColor` property to set the color for Badge.
 ---
 prettier: true
 ignore:
+  - placeholder
   - items
   - modelValue
   - class
@@ -409,9 +413,10 @@ items:
 props:
   modelValue: 'Backlog'
   tag: note
-  tagColor: air-secondary-alert 
-  color: air-primary-copilot
+  tagColor: air-secondary-alert
+  color: air-primary-warning
   highlight: true
+  placeholder: 'Search...'
   items:
     - Backlog
     - Todo
@@ -585,7 +590,6 @@ external:
 props:
   modelValue: 'Backlog'
   loading: true
-  trailing: false
   items:
     - Backlog
     - Todo

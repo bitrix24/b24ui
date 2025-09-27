@@ -75,6 +75,7 @@ props:
 You can also pass an array of objects with the following properties:
 
 - `label?: string`{lang="ts-type"}
+- [`value?: string`{lang="ts-type"}](#value-key)
 - [`type?: "label" | "separator" | "item"`{lang="ts-type"}](#with-items-type)
 - [`icon?: IconComponent`{lang="ts-type"}](#with-icons-in-items)
 - [`avatar?: AvatarProps`{lang="ts-type"}](#with-avatar-in-items)
@@ -509,7 +510,7 @@ ignore:
   - modelValue
   - selectedIcon
 cast:
-    selectedIcon: 'RocketIcon'
+  selectedIcon: 'RocketIcon'
 external:
   - items
   - modelValue

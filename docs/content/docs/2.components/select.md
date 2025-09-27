@@ -75,7 +75,7 @@ You can also pass an array of objects with the following properties:
 - `label?: string`{lang="ts-type"}
 - [`value?: string`{lang="ts-type"}](#value-key)
 - [`type?: "label" | "separator" | "item"`{lang="ts-type"}](#with-items-type)
-- [`icon?: string`{lang="ts-type"}](#with-icons-in-items)
+- [`icon?: IconComponent`{lang="ts-type"}](#with-icons-in-items)
 - [`avatar?: AvatarProps`{lang="ts-type"}](#with-avatar-in-items)
 - [`color?: SelectItem['color']`{lang="ts-type"}](#with-colors-items)
 - [`chip?: ChipProps`{lang="ts-type"}](#with-chip-in-items)
@@ -150,6 +150,7 @@ You can change the property that is used to set the value by using the `value-ke
 
 ::component-code
 ---
+collapse: true
 ignore:
   - modelValue
   - valueKey
@@ -161,7 +162,7 @@ external:
 externalTypes:
   - SelectItem[]
 props:
-  modelValue: 'backlog'
+  modelValue: 'todo'
   valueKey: 'id'
   items:
     - label: 'Backlog'
@@ -337,6 +338,7 @@ Use the `tag` property to display a [Badge](/docs/components/badge/) on top of t
 ---
 prettier: true
 ignore:
+  - placeholder
   - items
   - modelValue
   - class
@@ -348,6 +350,7 @@ props:
   tag: note
   color: air-primary-warning
   highlight: true
+  placeholder: 'Search...'
   items:
     - Backlog
     - Todo
@@ -367,6 +370,7 @@ Use the `tagColor` property to set the color for Badge.
 ---
 prettier: true
 ignore:
+  - placeholder
   - items
   - modelValue
   - class
@@ -393,6 +397,7 @@ props:
   tagColor: air-secondary-alert
   color: air-primary-warning
   highlight: true
+  placeholder: 'Search...'
   items:
     - Backlog
     - Todo
@@ -505,7 +510,7 @@ ignore:
   - class
   - selectedIcon
 cast:
-    selectedIcon: 'RocketIcon'
+  selectedIcon: 'RocketIcon'
 external:
   - items
   - modelValue

@@ -2,234 +2,351 @@
 title: Textarea
 description: A textarea for entering multi-line text.
 category: form
+links:
+  - label: GitHub
+    iconName: GitHubIcon
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Textarea.vue
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/textarea
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui4.nuxt.com/docs/components/textarea
 ---
-<script setup>
-import TextareaExample from '/examples/textarea/Textarea.vue';
-import PlaceholderExample from '/examples/textarea/Placeholder.vue';
-import ColorExample from '/examples/textarea/Color.vue';
-import TagExample from '/examples/textarea/Tag.vue';
-import DisabledExample from '/examples/textarea/Disabled.vue';
-import RowsExample from '/examples/textarea/Rows.vue';
-import AutoresizeExample from '/examples/textarea/Autoresize.vue';
-import MaxrowsExample from '/examples/textarea/Maxrows.vue';
-import IconExample from '/examples/textarea/Icon.vue';
-import IconLeadingTrailingExample from '/examples/textarea/IconLeadingTrailing.vue';
-import AvatarExample from '/examples/textarea/Avatar.vue';
-import LoadingExample from '/examples/textarea/Loading.vue';
-</script>
-# Textarea
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
-<Description
-  nuxt-ui="https://ui3.nuxt.dev/components/textarea"
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Textarea.vue"
-  demo="/components/textarea"
->
-  A textarea for entering multi-line text.
-</Description>
 
 ## Usage
 
 Use the `v-model` directive to control the value of the Textarea.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <TextareaExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/textarea/demo/Textarea.vue{4,8 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - modelValue
+external:
+  - modelValue
+props:
+  modelValue: ''
+---
+::
 
 ### Rows
 
 Use the `rows` prop to set the number of rows. Defaults to `3`.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <RowsExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/textarea/demo/Rows.vue{13 vue:line-numbers}
-:::
+::component-code
+---
+props:
+  rows: 12
+---
+::
 
 ### Placeholder
 
 Use the `placeholder` prop to set a placeholder text.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <PlaceholderExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/textarea/demo/Placeholder.vue{12 vue:line-numbers}
-:::
-
+::component-code
+---
+prettier: true
+props:
+  placeholder: 'Type something...'
+---
+::
 
 ### Autoresize
 
 Use the `autoresize` prop to enable autoresizing the height of the Textarea.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <AutoresizeExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/textarea/demo/Autoresize.vue{18 vue:line-numbers}
-:::
+::component-code
+---
+ignore:
+  - modelValue
+external:
+  - modelValue
+props:
+  modelValue: 'This is a long text that will autoresize the height of the Textarea.'
+  autoresize: true
+---
+::
 
 Use the `maxrows` prop to set the maximum number of rows when autoresizing. If set to `0`, the Textarea will grow indefinitely.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <MaxrowsExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/textarea/demo/Maxrows.vue{18 vue:line-numbers}
-:::
+::component-code
+---
+ignore:
+  - modelValue
+external:
+  - modelValue
+props:
+  modelValue: 'This is a long text that will autoresize the height of the Textarea with a maximum of 4 rows.'
+  maxrows: 4
+  autoresize: true
+---
+::
 
 ### Color
 
 Use the `color` prop to change the ring color when the Textarea is focused.
 
-::: info
+::component-code
+---
+ignore:
+  - placeholder
+props:
+  color: air-primary-copilot
+  highlight: true
+  placeholder: 'Type something...'
+---
+::
+
+::note
 The `highlight` prop is used here to show the focus state. It's used internally when a validation error occurs.
-:::
-
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <ColorExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/textarea/demo/Color.vue{17-18 vue:line-numbers}
-:::
+::
 
 ### Tag
+Use the `tag` property to display a [Badge](/docs/components/badge/) on top of the Textarea.
 
-Use the `tag` property to display a small legend on top of the Textarea.
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+props:
+  tag: note
+  color: air-primary-warning
+  highlight: true
+  placeholder: 'Search...'
+---
+::
 
-Use the `tagColor` property to set the color for `tag`.
+::note
+The `highlight` prop is used here to show the focus state. It's used internally when a validation error occurs.
+::
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <TagExample />
-  </ClientOnly>
-</div>
+Use the `tagColor` property to set the color for Badge.
 
-::: details
-<<< @/examples/textarea/demo/Tag.vue{17-18 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+items:
+  tagColor:
+    - air-primary
+    - air-primary-success
+    - air-primary-alert
+    - air-primary-copilot
+    - air-primary-warning
+    - air-secondary
+    - air-secondary-alert
+    - air-secondary-accent
+    - air-secondary-accent-1
+    - air-secondary-accent-2
+    - air-tertiary
+    - air-selection
+props:
+  tagColor: air-secondary-alert
+  tag: note
+  color: air-primary-warning
+  highlight: true
+  placeholder: 'Search...'
+---
+::
+
+::note
+The `highlight` prop is used here to show the focus state. It's used internally when a validation error occurs.
+::
 
 ### Icon
 
 Use the `icon` prop to show an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) inside the Textarea.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <IconExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+  - icon
+cast:
+  icon: 'RocketIcon'
+props:
+  icon: 'RocketIcon'
+  size: md
+  placeholder: 'Search...'
+  rows: 1
+---
+::
 
-::: details
-<<< @/examples/textarea/demo/Icon.vue{7 vue:line-numbers}
-:::
+### Trailing Icon
 
-Use the `leading-icon` and `trailing-icon` props to set a different icon for each position.
+Use the `trailing-icon` prop to set icon for trailing position.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <IconLeadingTrailingExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/textarea/demo/IconLeadingTrailing.vue{8,9 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+  - trailingIcon
+cast:
+  trailingIcon: 'RocketIcon'
+props:
+  trailingIcon: 'RocketIcon'
+  placeholder: 'Enter your email'
+  size: md
+  rows: 1
+---
+::
 
 ### Avatar
 
 Use the `avatar` prop to show an [Avatar](/docs/components/avatar/) inside the Textarea.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <AvatarExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/textarea/demo/Avatar.vue{7,13 vue:line-numbers}
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+  - avatar.src
+props:
+  avatar.src: '/b24ui/avatar/employee.png'
+  size: md
+  placeholder: 'Search...'
+  rows: 1
+---
+::
 
 ### Loading
 
 Use the `loading` prop to show a loading icon on the Textarea.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <LoadingExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/textarea/demo/Loading.vue{14 vue:line-numbers}
-:::
-
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+props:
+  loading: true
+  placeholder: 'Search...'
+  rows: 1
+---
+::
 
 ### Disabled
 
 Use the `disabled` prop to disable the Textarea.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <DisabledExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+props:
+  disabled: true
+  placeholder: 'Type something...'
+---
+::
 
-::: details
-<<< @/examples/textarea/demo/Disabled.vue{15 vue:line-numbers}
-:::
+### No padding
+
+Use the `noPadding` prop to removes padding from the Input.
+
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+props:
+  noPadding: true
+  highlight: true
+  placeholder: 'Type something...'
+---
+::
+
+::note
+The `highlight` prop is used here to show the focus state.
+::
+
+### No border
+
+Use the `noBorder` prop to removes all borders (rings) from the Input.
+
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+props:
+  noBorder: true
+  highlight: true
+  placeholder: 'Type something...'
+---
+::
+
+::note
+The `highlight` prop is used here to indicate that there is no focus state.
+::
+
+### Underline
+
+Use the `underline` prop to removes all borders (rings) except the bottom one from the Input.
+
+::component-code
+---
+prettier: true
+ignore:
+- placeholder
+  props:
+  underline: true
+  highlight: true
+  placeholder: 'Type something...'
+---
+::
+
+::note
+The `highlight` prop is used here to show the focus state.
+::
+
+### Rounded
+
+Use the `rounded` prop to round the Input.
+
+::component-code
+---
+prettier: true
+ignore:
+  - placeholder
+props:
+  rounded: true
+  highlight: true
+  placeholder: 'Type something...'
+---
+
+::note
+The `highlight` prop is used here to show the focus state.
+::
 
 ## API
 
 ### Props
 
-<ComponentProps component="Textarea" />
+:component-props
 
 ### Slots
 
-<ComponentSlots component="Textarea" />
+:component-slots
 
 ### Emits
 
-```ts
-/**
- * Emitted events for the Textarea component
- */
-interface TextareaEmits {
-  blur: (payload: [event: FocusEvent]) => void;
-  change: (payload: [event: Event]) => void;
-  update:modelValue: (payload: [value: TextareaValue]) => void;
-}
-```
+:component-emits
 
 ### Expose
 
 When accessing the component via a template ref, you can use the following:
 
-| Name                      | Type                                           |
-|---------------------------|------------------------------------------------|
-| `textareaRef`{lang="ts"}  | `Ref<HTMLTextAreaElement \| null>`{lang="ts"}  |
+| Name | Type |
+| ---- | ---- |
+| `textareaRef`{lang="ts-type"} | `Ref<HTMLTextAreaElement \| null>`{lang="ts-type"} |
+
+## Theme
+
+:component-theme
