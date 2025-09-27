@@ -228,20 +228,16 @@ ignore:
   - modelValue.label
   - searchInput.icon
   - items
-  - class
 external:
   - items
   - modelValue
 externalTypes:
   - SelectMenuItem[]
-cast:
-  searchInput.icon: 'RocketIcon'
 props:
   modelValue:
     label: 'Backlog'
   searchInput:
     placeholder: 'Filter...'
-    icon: 'RocketIcon'
   items:
     - label: Backlog
     - label: Todo
@@ -528,7 +524,7 @@ ignore:
   - class
   - selectedIcon
 cast:
-    selectedIcon: 'RocketIcon'
+  selectedIcon: 'RocketIcon'
 external:
   - items
   - modelValue

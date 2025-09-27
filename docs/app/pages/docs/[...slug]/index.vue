@@ -32,6 +32,20 @@ onMounted(async () => {
   }
 
   page.value = pageData
+
+  const title = page.value?.seo?.title ? page.value.seo.title : page.value?.navigation?.title ? page.value.navigation.title : page.value?.title
+  const prefix = page.value?.path.includes('components/') || page.value?.path.includes('composables/') ? 'Vue ' : ''
+  const suffix = page.value?.path.includes('components/') ? 'Component ' : page.value?.path.includes('composables/') ? 'Composable ' : ''
+  const description = page.value?.seo?.description ? page.value.seo.description : page.value?.description
+
+  useSeoMeta({
+    titleTemplate: `${prefix}%s ${suffix}- Bitrix24 UI ${page.value?.framework === 'vue' ? ' for Vue' : ''}`,
+    title,
+    ogTitle: `${prefix}${title} ${suffix}- Bitrix24 UI ${page.value?.framework === 'vue' ? ' for Vue' : ''}`,
+    description,
+    ogDescription: description
+  })
+
   pageStore.isLoading = false
 })
 
@@ -63,18 +77,18 @@ if (!import.meta.prerender) {
   })
 }
 
-const title = page.value?.seo?.title ? page.value.seo.title : page.value?.navigation?.title ? page.value.navigation.title : page.value?.title
-const prefix = page.value?.path.includes('components/') || page.value?.path.includes('composables/') ? 'Vue ' : ''
-const suffix = page.value?.path.includes('components/') ? 'Component ' : page.value?.path.includes('composables/') ? 'Composable ' : ''
-const description = page.value?.seo?.description ? page.value.seo.description : page.value?.description
-
-useSeoMeta({
-  titleTemplate: `${prefix}%s ${suffix}- Bitrix24 UI ${page.value?.framework === 'vue' ? ' for Vue' : ''}`,
-  title,
-  ogTitle: `${prefix}${title} ${suffix}- Bitrix24 UI ${page.value?.framework === 'vue' ? ' for Vue' : ''}`,
-  description,
-  ogDescription: description
-})
+// const title = page.value?.seo?.title ? page.value.seo.title : page.value?.navigation?.title ? page.value.navigation.title : page.value?.title
+// const prefix = page.value?.path.includes('components/') || page.value?.path.includes('composables/') ? 'Vue ' : ''
+// const suffix = page.value?.path.includes('components/') ? 'Component ' : page.value?.path.includes('composables/') ? 'Composable ' : ''
+// const description = page.value?.seo?.description ? page.value.seo.description : page.value?.description
+//
+// useSeoMeta({
+//   titleTemplate: `${prefix}%s ${suffix}- Bitrix24 UI ${page.value?.framework === 'vue' ? ' for Vue' : ''}`,
+//   title,
+//   ogTitle: `${prefix}${title} ${suffix}- Bitrix24 UI ${page.value?.framework === 'vue' ? ' for Vue' : ''}`,
+//   description,
+//   ogDescription: description
+// })
 
 // if (route.path.startsWith('/docs/components/')) {
 //   defineOgImageComponent('OgImageComponent', {
