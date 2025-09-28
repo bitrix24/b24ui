@@ -62,6 +62,7 @@ const components: IComponentInfo[] = [
   { id: 'countdown', description: 'Countdown with options control.', iconData: Clock1Icon },
   { id: 'description-list', description: 'For cases where you need to convert data from one row of a table into a separate table to make the page look more complete.', iconData: GroupIcon },
   { id: 'dropdown-menu', description: 'A menu to display actions when clicking on an element.', iconData: GroupIcon },
+  { id: 'context-menu', description: 'A context menu component.', iconData: GroupIcon },
   { id: 'field-group', description: 'Group multiple button-like elements together.', iconData: GroupIcon },
   { id: 'file-upload', description: 'A file upload input component.', iconData: FormIcon },
   { id: 'form', description: 'A form component with built-in validation and submission handling.', iconData: FormSettingsIcon },
@@ -74,6 +75,7 @@ const components: IComponentInfo[] = [
   { id: 'modal', description: 'A dialog window that can be used to display a message or request user input.', iconData: GroupIcon },
   { id: 'navigation-menu', description: 'A link list that can be arranged in horizontal or vertical orientation.', iconData: GroupIcon },
   { id: 'link', description: 'A wrapper around NuxtLink with extra props.', iconData: GroupIcon },
+  { id: 'pagination', description: 'A navigation component with buttons or links for pagination.', iconData: GroupIcon },
   { id: 'pin-input', description: 'A PIN code input component.', iconData: GroupIcon },
   { id: 'popover', description: 'A non-modal popup window for showing messages or gathering user input.', iconData: GroupIcon },
   { id: 'progress', description: 'An indicator showing the progress of a task.', iconData: GroupIcon },
@@ -90,6 +92,7 @@ const components: IComponentInfo[] = [
   { id: 'textarea', description: 'A textarea element to input multi-line text.', iconData: FormIcon },
   { id: 'toast', description: 'A succinct message to provide information or feedback to the user.', iconData: GroupIcon },
   { id: 'tooltip', description: 'A popup that reveals information when hovering over an element.', iconData: GroupIcon },
+  { id: 'table', description: 'A responsive data table component.', iconData: TableIcon },
   { id: 'table-wrapper', description: 'Wrapper for displaying a table.', iconData: TableIcon }
 ]
 

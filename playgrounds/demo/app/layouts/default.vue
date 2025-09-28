@@ -31,7 +31,6 @@ const { isSidebarLayoutUseLightContent, isSidebarLayoutClearContent, checkedUseL
 //     class: ''
 //   }
 // })
-
 const isCommandPaletteOpen = ref(false)
 
 // function onSelect(item: any) {

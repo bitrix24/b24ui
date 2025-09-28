@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { ContextMenuItem } from '@bitrix24/b24ui-nuxt'
+import SpinnerIcon from '@bitrix24/b24icons-vue/specialized/SpinnerIcon'
 
 const loading = ref(true)
 
@@ -28,7 +29,7 @@ const items = [
     </template>
 
     <template #refresh-trailing>
-      <UIcon v-if="loading" name="i-lucide-loader-circle" class="shrink-0 size-5 text-primary animate-spin" />
+      <SpinnerIcon v-if="loading" class="shrink-0 size-5 text-primary animate-spin" />
     </template>
   </B24ContextMenu>
 </template>

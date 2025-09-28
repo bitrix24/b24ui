@@ -2,10 +2,13 @@
 import { h, resolveComponent } from 'vue'
 import type { TableColumn } from '@bitrix24/b24ui-nuxt'
 import type { Column } from '@tanstack/vue-table'
+import AscendingSortIcon from '@bitrix24/b24icons-vue/main/AscendingSortIcon'
+import DescendingSortIcon from '@bitrix24/b24icons-vue/main/DescendingSortIcon'
+import SortIcon from '@bitrix24/b24icons-vue/actions/SortIcon'
 
-const UBadge = resolveComponent('UBadge')
-const UButton = resolveComponent('UButton')
-const UDropdownMenu = resolveComponent('UDropdownMenu')
+const B24Badge = resolveComponent('B24Badge')
+const B24Button = resolveComponent('B24Button')
+const B24DropdownMenu = resolveComponent('B24DropdownMenu')
 
 type Payment = {
   id: string
@@ -68,12 +71,12 @@ const columns: TableColumn<Payment>[] = [{
   header: ({ column }) => getHeader(column, 'Status'),
   cell: ({ row }) => {
     const color = ({
-      paid: 'success' as const,
-      failed: 'error' as const,
-      refunded: 'neutral' as const
+      paid: 'air-primary-success' as const,
+      failed: 'air-primary-alert' as const,
+      refunded: 'air-primary' as const
     })[row.getValue('status') as string]
 
-    return h(UBadge, { class: 'capitalize', variant: 'subtle', color }, () => row.getValue('status'))
+    return h(B24Badge, { class: 'capitalize', color }, () => row.getValue('status'))
   }
 }, {
   accessorKey: 'email',
@@ -96,41 +99,43 @@ const columns: TableColumn<Payment>[] = [{
 function getHeader(column: Column<Payment>, label: string) {
   const isSorted = column.getIsSorted()
 
-  return h(UDropdownMenu, {
+  return h(B24DropdownMenu, {
     'content': {
       align: 'start'
     },
     'aria-label': 'Actions dropdown',
-    'items': [{
-      label: 'Asc',
-      type: 'checkbox',
-      icon: 'i-lucide-arrow-up-narrow-wide',
-      checked: isSorted === 'asc',
-      onSelect: () => {
-        if (isSorted === 'asc') {
-          column.clearSorting()
-        } else {
-          column.toggleSorting(false)
+    'items': [
+      {
+        label: 'Asc',
+        type: 'checkbox',
+        icon: AscendingSortIcon,
+        checked: isSorted === 'asc',
+        onSelect: () => {
+          if (isSorted === 'asc') {
+            column.clearSorting()
+          } else {
+            column.toggleSorting(false)
+          }
+        }
+      },
+      {
+        label: 'Desc',
+        icon: DescendingSortIcon,
+        type: 'checkbox',
+        checked: isSorted === 'desc',
+        onSelect: () => {
+          if (isSorted === 'desc') {
+            column.clearSorting()
+          } else {
+            column.toggleSorting(true)
+          }
         }
       }
-    }, {
-      label: 'Desc',
-      icon: 'i-lucide-arrow-down-wide-narrow',
-      type: 'checkbox',
-      checked: isSorted === 'desc',
-      onSelect: () => {
-        if (isSorted === 'desc') {
-          column.clearSorting()
-        } else {
-          column.toggleSorting(true)
-        }
-      }
-    }]
-  }, () => h(UButton, {
+    ]
+  }, () => h(B24Button, {
     'color': 'neutral',
-    'variant': 'ghost',
     label,
-    'icon': isSorted ? (isSorted === 'asc' ? 'i-lucide-arrow-up-narrow-wide' : 'i-lucide-arrow-down-wide-narrow') : 'i-lucide-arrow-up-down',
+    'icon': isSorted ? (isSorted === 'asc' ? AscendingSortIcon : DescendingSortIcon) : SortIcon,
     'class': '-mx-2.5 data-[state=open]:bg-elevated',
     'aria-label': `Sort by ${isSorted === 'asc' ? 'descending' : 'ascending'}`
   }))
@@ -143,7 +148,7 @@ const sorting = ref([{
 </script>
 
 <template>
-  <UTable
+  <B24Table
     v-model:sorting="sorting"
     :data="data"
     :columns="columns"

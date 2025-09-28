@@ -54,7 +54,14 @@ const pages = [
   '/docs/components/textarea/',
   // endregion ////
   // region Data ////,
-  '/docs/components/accordion/'
+  '/docs/components/accordion/',
+  '/docs/components/table/',
+  // endregion ////
+  // region Navigation ////
+  '/docs/components/pagination/',
+  // endregion ////
+  // region Overlay ////
+  '/docs/components/context-menu/'
   // endregion ////
 ]
 

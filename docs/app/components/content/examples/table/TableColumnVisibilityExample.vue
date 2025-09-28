@@ -66,12 +66,12 @@ const columns: TableColumn<Payment>[] = [{
   header: 'Status',
   cell: ({ row }) => {
     const color = ({
-      paid: 'success' as const,
-      failed: 'error' as const,
-      refunded: 'neutral' as const
+      paid: 'air-primary-success' as const,
+      failed: 'air-primary-alert' as const,
+      refunded: 'air-primary' as const
     })[row.getValue('status') as string]
 
-    return h(UBadge, { class: 'capitalize', variant: 'subtle', color }, () => row.getValue('status'))
+    return h(UBadge, { class: 'capitalize', color }, () => row.getValue('status'))
   }
 }, {
   accessorKey: 'email',
@@ -101,7 +101,7 @@ const columnVisibility = ref({
 <template>
   <div class="flex flex-col flex-1 w-full">
     <div class="flex justify-end px-4 py-3.5 border-b  border-accented">
-      <UDropdownMenu
+      <B24DropdownMenu
         :items="table?.tableApi?.getAllColumns().filter(column => column.getCanHide()).map(column => ({
           label: upperFirst(column.id),
           type: 'checkbox' as const,
@@ -115,16 +115,15 @@ const columnVisibility = ref({
         }))"
         :content="{ align: 'end' }"
       >
-        <UButton
+        <B24Button
           label="Columns"
-          color="neutral"
-          variant="outline"
-          trailing-icon="i-lucide-chevron-down"
+          color="air-primary-copilot"
+          use-dropdown
         />
-      </UDropdownMenu>
+      </B24DropdownMenu>
     </div>
 
-    <UTable
+    <B24Table
       ref="table"
       v-model:column-visibility="columnVisibility"
       :data="data"

@@ -18,7 +18,7 @@ export interface FileUploadProps<M extends boolean = false> {
   /**
    * The icon to display.
    * @defaultValue icons.upload
-   * @IconifyIcon
+   * @IconComponent
    */
   icon?: IconComponent
   label?: string
@@ -77,7 +77,7 @@ export interface FileUploadProps<M extends boolean = false> {
   /**
    * The icon to display for the file.
    * @defaultValue icons.file
-   * @IconifyIcon
+   * @IconComponent
    */
   fileIcon?: IconComponent
   /**
@@ -89,7 +89,7 @@ export interface FileUploadProps<M extends boolean = false> {
   /**
    * The icon displayed to delete a file.
    * @defaultValue icons.close
-   * @IconifyIcon
+   * @IconComponent
    */
   fileDeleteIcon?: IconComponent
   class?: any
