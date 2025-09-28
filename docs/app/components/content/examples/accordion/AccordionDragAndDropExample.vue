@@ -1,19 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import type { AccordionItem } from '@bitrix24/b24ui-nuxt'
+import { useSortable } from '@vueuse/integrations/useSortable'
 import SmartActivityIcon from '@bitrix24/b24icons-vue/outline/SmartActivityIcon'
 import FeedbackIcon from '@bitrix24/b24icons-vue/outline/FeedbackIcon'
 import RocketIcon from '@bitrix24/b24icons-vue/outline/RocketIcon'
 
-export interface ExampleProps {
-  isUnmountOnHide?: boolean
-}
-
-withDefaults(defineProps<ExampleProps>(), {
-  isUnmountOnHide: true
-})
-
-const items = ref<AccordionItem[]>([
+const items = shallowRef<AccordionItem[]>([
   {
     label: 'Getting started with Bitrix24',
     icon: SmartActivityIcon,
@@ -30,11 +22,14 @@ const items = ref<AccordionItem[]>([
     content: 'Bitrix24 is an online service for business management and work automation. It contains tools for companies of all sizes and industries. Bitrix24 has several plans with different sets of tools that are suitable for different types of business.'
   }
 ])
+
+const accordion = useTemplateRef<HTMLElement>('accordion')
+
+useSortable(accordion, items, {
+  animation: 150
+})
 </script>
 
 <template>
-  <B24Accordion
-    :items="items"
-    :unmount-on-hide="isUnmountOnHide"
-  />
+  <B24Accordion ref="accordion" :items="items" />
 </template>

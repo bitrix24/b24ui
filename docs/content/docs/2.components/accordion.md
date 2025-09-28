@@ -2,105 +2,171 @@
 title: Accordion
 description: This is a stacked set of collapsible panels
 category: data
+links:
+  - label: GitHub
+    iconName: GitHubIcon
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Accordion.vue
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/accordion
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui4.nuxt.com/docs/components/accordion
+  - label: Accordion
+    avatar:
+      src: /b24ui/avatar/rekaui.svg
+    to: https://reka-ui.com/docs/components/accordion
 ---
-<script setup>
-import AccordionExample from '/examples/accordion/Accordion.vue';
-import MultipleExample from '/examples/accordion/Multiple.vue';
-import CollapsibleExample from '/examples/accordion/Collapsible.vue';
-import UnmountExample from '/examples/accordion/Unmount.vue';
-import DisabledExample from '/examples/accordion/Disabled.vue';
-import TrailingIconExample from '/examples/accordion/TrailingIcon.vue';
-import ControlActiveItemExample from '/examples/accordion/ControlActiveItem.vue';
-import WithDragAndDropExample from '/examples/accordion/WithDragAndDrop.vue';
-import WithBodySlotExample from '/examples/accordion/WithBodySlot.vue';
-import WithContentSlotExample from '/examples/accordion/WithContentSlot.vue';
-import WithCustomSlotExample from '/examples/accordion/WithCustomSlot.vue';
-</script>
-# Accordion
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
-<Description
-  nuxt-ui="https://ui3.nuxt.dev/components/accordion"
-  reka-ui="https://reka-ui.com/docs/components/accordion"
-  reka-ui-title="Accordion"
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Accordion.vue"
-  demo="/components/accordion"
->
-This is a stacked set of collapsible panels.
-</Description>
 
 ## Usage
+
+Use the Accordion component to display a list of collapsible items.
+
+::component-code
+---
+collapse: true
+ignore:
+  - items
+external:
+  - items
+hide:
+  - class
+  - defaultValue
+props:
+  defaultValue: '0'
+  class: 'px-4 max-w-[512px]'
+  items:
+    - label: 'Getting started with Bitrix24'
+      content: 'Bitrix24 is an online service that offers useful tools for your company. This includes chats and calls, tasks and projects, CRM, and AI-powered assistant.'
+    - label: 'Main features of Bitrix24'
+      content: 'Bitrix24 is an online service that has all the tools for company operation and business management.'
+    - label: 'Bitrix24 Cloud plans'
+      content: 'Bitrix24 is an online service for business management and work automation. It contains tools for companies of all sizes and industries. Bitrix24 has several plans with different sets of tools that are suitable for different types of business.'
+---
+::
 
 ### Items
 
 Use the `items` prop as an array of objects with the following properties:
 
-- `label?: string`{lang="ts"}
-- `icon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts"}
-- `trailingIcon?: FunctionalComponent<HTMLAttributes & VNodeProps>`{lang="ts"}
-- `content?: string`{lang="ts"}
-- `value?: string`{lang="ts"}
-- `disabled?: boolean`{lang="ts"}
-- [`slot?: string`{lang="ts"}](#with-custom-slot)
-- `class?: any`{lang="ts"}
-- `b24ui?: { item?: ClassNameValue, header?: ClassNameValue, trigger?: ClassNameValue, leadingIcon?: ClassNameValue, label?: ClassNameValue, trailingIcon?: ClassNameValue, content?: ClassNameValue, body?: ClassNameValue }`{lang="ts"}
+- `label?: string`{lang="ts-type"}
+- `icon?: IconComponent`{lang="ts-type"}
+- `trailingIcon?: IconComponent`{lang="ts-type"}
+- `content?: string`{lang="ts-type"}
+- `value?: string`{lang="ts-type"}
+- `disabled?: boolean`{lang="ts-type"}
+- [`slot?: string`{lang="ts-type"}](#with-custom-slot)
+- `class?: any`{lang="ts-type"}
+- `b24ui?: { item?: ClassNameValue, header?: ClassNameValue, trigger?: ClassNameValue, leadingIcon?: ClassNameValue, label?: ClassNameValue, trailingIcon?: ClassNameValue, content?: ClassNameValue, body?: ClassNameValue }`{lang="ts-type"}
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <AccordionExample />
-  </ClientOnly>
-</div>
-
-<<< @/examples/accordion/demo/Accordion.vue{28 vue:line-numbers}
+::component-code
+---
+ignore:
+  - items
+external:
+  - items
+externalTypes:
+  - AccordionItem[]
+hide:
+  - class
+props:
+  class: 'px-4'
+  items:
+    - label: 'Getting started with Bitrix24'
+      content: 'Bitrix24 is an online service that offers useful tools for your company. This includes chats and calls, tasks and projects, CRM, and AI-powered assistant.'
+    - label: 'Main features of Bitrix24'
+      content: 'Bitrix24 is an online service that has all the tools for company operation and business management.'
+    - label: 'Bitrix24 Cloud plans'
+      content: 'Bitrix24 is an online service for business management and work automation. It contains tools for companies of all sizes and industries. Bitrix24 has several plans with different sets of tools that are suitable for different types of business.'
+---
+::
 
 ### Multiple
 
 Set the `type` prop to `multiple` to allow multiple items to be active at the same time. Defaults to `single`.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <MultipleExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/accordion/demo/Multiple.vue{30 vue:line-numbers}
-:::
+::component-code
+---
+ignore:
+  - type
+  - items
+external:
+  - items
+externalTypes:
+  - AccordionItem[]
+hide:
+  - class
+props:
+  class: 'px-4'
+  type: 'multiple'
+  items:
+    - label: 'Getting started with Bitrix24'
+      content: 'Bitrix24 is an online service that offers useful tools for your company. This includes chats and calls, tasks and projects, CRM, and AI-powered assistant.'
+    - label: 'Main features of Bitrix24'
+      content: 'Bitrix24 is an online service that has all the tools for company operation and business management.'
+    - label: 'Bitrix24 Cloud plans'
+      content: 'Bitrix24 is an online service for business management and work automation. It contains tools for companies of all sizes and industries. Bitrix24 has several plans with different sets of tools that are suitable for different types of business.'
+---
+::
 
 ### Collapsible
 
 When `type` is `single`, you can set the `collapsible` prop to `false` to prevent the active item from collapsing.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <CollapsibleExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/accordion/demo/Collapsible.vue{30 vue:line-numbers}
-:::
+::component-code
+---
+ignore:
+  - collapsible
+  - items
+external:
+  - items
+externalTypes:
+  - AccordionItem[]
+hide:
+  - class
+props:
+  class: 'px-4'
+  collapsible: false
+  items:
+    - label: 'Getting started with Bitrix24'
+      content: 'Bitrix24 is an online service that offers useful tools for your company. This includes chats and calls, tasks and projects, CRM, and AI-powered assistant.'
+    - label: 'Main features of Bitrix24'
+      content: 'Bitrix24 is an online service that has all the tools for company operation and business management.'
+    - label: 'Bitrix24 Cloud plans'
+      content: 'Bitrix24 is an online service for business management and work automation. It contains tools for companies of all sizes and industries. Bitrix24 has several plans with different sets of tools that are suitable for different types of business.'
+---
+::
 
 ### Unmount
 
 Use the `unmount-on-hide` prop to prevent the content from being unmounted when the accordion is collapsed. Defaults to `true`.
 
-::: info
+::component-code
+---
+ignore:
+  - items
+external:
+  - items
+externalTypes:
+  - AccordionItem[]
+hide:
+  - class
+props:
+  class: 'px-4'
+  unmountOnHide: false
+  items:
+    - label: 'Getting started with Bitrix24'
+      content: 'Bitrix24 is an online service that offers useful tools for your company. This includes chats and calls, tasks and projects, CRM, and AI-powered assistant.'
+    - label: 'Main features of Bitrix24'
+      content: 'Bitrix24 is an online service that has all the tools for company operation and business management.'
+    - label: 'Bitrix24 Cloud plans'
+      content: 'Bitrix24 is an online service for business management and work automation. It contains tools for companies of all sizes and industries. Bitrix24 has several plans with different sets of tools that are suitable for different types of business.'
+---
+::
+
+::note
 You can inspect the DOM to see each item's content being rendered.
-:::
-
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <UnmountExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/accordion/demo/Unmount.vue{38 vue:line-numbers}
-:::
+::
 
 ### Disabled
 
@@ -108,33 +174,62 @@ Use the `disabled` property to disable the Accordion.
 
 You can also disable a specific item by using the `disabled` property in the item object.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <DisabledExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/accordion/demo/Disabled.vue{26,39 vue:line-numbers}
-:::
+::component-code
+---
+ignore:
+  - items
+external:
+  - items
+externalTypes:
+  - AccordionItem[]
+hide:
+  - class
+props:
+  class: 'px-4'
+  disabled: true
+  items:
+    - label: 'Getting started with Bitrix24'
+      content: 'Bitrix24 is an online service that offers useful tools for your company. This includes chats and calls, tasks and projects, CRM, and AI-powered assistant.'
+    - label: 'Main features of Bitrix24'
+      content: 'Bitrix24 is an online service that has all the tools for company operation and business management.'
+    - label: 'Bitrix24 Cloud plans'
+      content: 'Bitrix24 is an online service for business management and work automation. It contains tools for companies of all sizes and industries. Bitrix24 has several plans with different sets of tools that are suitable for different types of business.'
+---
+::
 
 ### Trailing Icon
 
-Use the `trailing-icon` prop to customize the trailing [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) of each item. Defaults to `Actions::ChevronDownIcon`.
+Use the `trailing-icon` prop to customize the trailing [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) of each item.
 
-::: info
+::tip
 You can also set an icon for a specific item by using the `trailingIcon` property in the item object.
-:::
+::
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <TrailingIconExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/accordion/demo/TrailingIcon.vue{19 vue:line-numbers}
-:::
+::component-code
+---
+ignore:
+  - items
+  - trailingIcon
+external:
+  - items
+externalTypes:
+  - AccordionItem[]
+hide:
+  - class
+cast:
+  trailingIcon: 'RocketIcon'
+props:
+  class: 'px-4'
+  trailingIcon: 'RocketIcon'
+  items:
+    - label: 'Icons'
+      content: 'You have nothing to do, @nuxt/icon will handle it automatically.'
+    - label: 'Colors'
+      content: 'Choose a primary and a neutral color from your Tailwind CSS theme.'
+    - label: 'Components'
+      content: 'You can customize components by using the `class` / `ui` props or in your app.config.ts.'
+---
+::
 
 ## Examples
 
@@ -142,69 +237,59 @@ You can also set an icon for a specific item by using the `trailingIcon` propert
 
 You can control the active item(s) by using the `default-value` prop or the `v-model` directive with the index of the item.
 
-::: info
+::component-example
+---
+name: 'accordion-model-value-example'
+props:
+  class: 'px-4'
+---
+::
+
+::tip
 You can also pass the `value` of one of the items if provided.
-:::
+::
 
-::: warning
+::caution
 When `type="multiple"`, ensure to pass an array to the `default-value` prop or the `v-model` directive.
-:::
-
-<div class="lg:min-h-[260px]">
-  <ClientOnly>
-    <ControlActiveItemExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/accordion/demo/ControlActiveItem.vue{vue:line-numbers}
-:::
+::
 
 ### With drag and drop
 
 Use the [`useSortable`](https://vueuse.org/integrations/useSortable/) composable from [`@vueuse/integrations`](https://vueuse.org/integrations/README.html) to enable drag and drop functionality on the Accordion. This integration wraps [Sortable.js](https://sortablejs.github.io/Sortable/) to provide a seamless drag and drop experience.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithDragAndDropExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/accordion/demo/WithDragAndDrop.vue{vue:line-numbers}
-:::
+::component-example
+---
+name: 'accordion-drag-and-drop-example'
+---
+::
 
 ### With body slot
 
 Use the `#body` slot to customize the body of each item.
 
-::: info
+::component-example
+---
+name: 'accordion-body-slot-example'
+props:
+  class: 'px-4'
+---
+::
+
+::tip
 The `#body` slot includes some pre-defined styles, use the [`#content` slot](#with-content-slot) if you want to start from scratch.
-:::
-
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithBodySlotExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/accordion/demo/WithBodySlot.vue{vue:line-numbers}
-:::
+::
 
 ### With content slot
 
 Use the `#content` slot to customize the content of each item.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithContentSlotExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/accordion/demo/WithContentSlot.vue{vue:line-numbers}
-:::
+::component-example
+---
+name: 'accordion-content-slot-example'
+props:
+  class: 'px-4'
+---
+::
 
 ### With custom slot
 
@@ -212,38 +297,43 @@ Use the `slot` property to customize a specific item.
 
 You will have access to the following slots:
 
-```ts
-#{{ item.slot }}
-#{{ item.slot }}-body
-```
+- `#{{ item.slot }}`{lang="ts-type"}
+- `#{{ item.slot }}-body`{lang="ts-type"}
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithCustomSlotExample />
-  </ClientOnly>
-</div>
+::component-example
+---
+name: 'accordion-custom-slot-example'
+props:
+  class: 'px-4'
+---
+::
 
-::: details
-<<< @/examples/accordion/demo/WithCustomSlot.vue{vue:line-numbers}
-:::
+### With markdown content
+
+You can use the [MDC](https://github.com/nuxt-modules/mdc?tab=readme-ov-file#mdc) component from `@nuxtjs/mdc` to render markdown in the accordion items.
+
+::component-example
+---
+collapse: true
+name: 'accordion-markdown-example'
+class: 'px-8'
+---
+::
 
 ## API
 
 ### Props
 
-<ComponentProps component="Accordion" />
+:component-props
 
 ### Slots
 
-<ComponentSlots component="Accordion" />
+:component-slots
 
 ### Emits
 
-```ts
-/**
- * Emitted events for the Accordion component
- */
-interface AccordionEmits {
-  update:modelValue: (payload: [value: string | string[] | undefined]) => void;
-}
-```
+:component-emits
+
+## Theme
+
+:component-theme

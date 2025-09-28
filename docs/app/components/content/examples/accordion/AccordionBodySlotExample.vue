@@ -22,10 +22,8 @@ const items: AccordionItem[] = [
 
 <template>
   <B24Accordion :items="items">
-    <template #content="{ item }">
-      <p class="pb-4 text-base-700 dark:text-base-300">
-        This is the <ProseCode>{{ item.label }}</ProseCode> panel.
-      </p>
+    <template #body="{ item }">
+      This is the {{ item.label }} panel.
     </template>
   </B24Accordion>
 </template>

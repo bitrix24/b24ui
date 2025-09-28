@@ -51,7 +51,10 @@ const pages = [
   '/docs/components/select/',
   '/docs/components/select-menu/',
   '/docs/components/switch/',
-  '/docs/components/textarea/'
+  '/docs/components/textarea/',
+  // endregion ////
+  // region Data ////,
+  '/docs/components/accordion/'
   // endregion ////
 ]
 
