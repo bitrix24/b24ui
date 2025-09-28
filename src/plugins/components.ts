@@ -23,6 +23,11 @@ export default function ComponentImportPlugin(
     ].filter(Boolean) as string[]
   })
   const componentNames = new Set(components.map(c => `B24${c.split('/').pop()?.replace(/\.vue$/, '')}`))
+  const componentPaths = new Map(components.map((c) => {
+    const name = c.replace(/\.vue$/, '')
+    const componentName = `B24${name.split('/').pop()}`
+    return [componentName, c]
+  }))
 
   // @memo import Prose* all time
   const componentsProse = globSync('**/*.vue', {
@@ -57,8 +62,10 @@ export default function ComponentImportPlugin(
         }
         if (overrideNames.has(componentName))
           return { name: 'default', from: join(runtimeDir, 'vue/components', `${componentName.slice('B24'.length)}.vue`) }
-        if (componentNames.has(componentName))
-          return { name: 'default', from: join(runtimeDir, 'components', `${componentName.slice('B24'.length)}.vue`) }
+        if (componentNames.has(componentName)) {
+          const relativePath = componentPaths.get(componentName)
+          return { name: 'default', from: join(runtimeDir, 'components', `${componentName.slice('B24'.length)}.vue`, relativePath as string) }
+        }
         // @memo import Prose* all time
         if (componentProseNames.has(componentName))
           return { name: 'default', from: join(runtimeDir, 'components/prose', `${componentName.slice('Prose'.length)}.vue`) }
