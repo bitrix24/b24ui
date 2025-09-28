@@ -336,6 +336,12 @@ importers:
 
   playgrounds/demo:
     dependencies:
+      '@ai-sdk/gateway':
+        specifier: ^1.0.28
+        version: 1.0.29(zod@4.1.11)
+      '@ai-sdk/vue':
+        specifier: ^2.0.51
+        version: 2.0.52(vue@3.5.22(typescript@5.8.3))(zod@4.1.11)
       '@bitrix24/b24icons-vue':
         specifier: ^2.0.4
         version: 2.0.4(vue@3.5.22(typescript@5.8.3))
@@ -345,6 +351,9 @@ importers:
       '@internationalized/date':
         specifier: ^3.9.0
         version: 3.9.0
+      ai:
+        specifier: ^5.0.51
+        version: 5.0.52(zod@4.1.11)
       maska:
         specifier: ^3.2.0
         version: 3.2.0
