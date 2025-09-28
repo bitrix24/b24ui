@@ -16,16 +16,16 @@ if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
 
-const { url } = useSiteConfig()
+// const { url } = useSiteConfig()
 
 useSeoMeta({
   titleTemplate: `%s - Bitrix24 UI`,
   title: page.value.title,
   description: page.value.description,
   ogTitle: `${page.value.title} - Bitrix24 UI`,
-  ogDescription: page.value.description,
+  ogDescription: page.value.description
   // @todo fix this
-  ogImage: joinURL(url, '/b24ui/og-image.png')
+  // ogImage: joinURL(url, '/b24ui/og-image.png')
 })
 
 const iconFromIconName = (iconName?: string) => {

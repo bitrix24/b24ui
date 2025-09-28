@@ -317,6 +317,7 @@ props:
   highlight: true
   placeholder: 'Type something...'
 ---
+::
 
 ::note
 The `highlight` prop is used here to show the focus state.

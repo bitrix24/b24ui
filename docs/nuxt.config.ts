@@ -347,10 +347,10 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: [
-        ...pages.map((page: string) => `${page}`),
+        // ...pages.map((page: string) => `${page}`),
         ...pages.map((page: string) => `${withoutTrailingSlash(`/raw${page}`)}.md`),
-        ...apiComponentMeta,
-        ...apiComponentExample,
+        // ...apiComponentMeta,
+        // ...apiComponentExample,
         ...pagesFrameExamples,
         ...pagesService
       ],
