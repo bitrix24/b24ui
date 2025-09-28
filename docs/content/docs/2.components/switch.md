@@ -8,7 +8,7 @@ links:
     to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Switch.vue
   - label: Demo
     iconName: DemonstrationOnIcon
-    to: https://bitrix24.github.io/b24ui/demo/components/select
+    to: https://bitrix24.github.io/b24ui/demo/components/switch
   - label: Nuxt UI
     iconName: NuxtIcon
     to: https://ui4.nuxt.com/docs/components/switch
