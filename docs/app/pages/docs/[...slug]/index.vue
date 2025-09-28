@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ContentNavigationItem, DocsCollectionItem } from '@nuxt/content'
+import type { ContentNavigationItem } from '@nuxt/content'
 import { kebabCase } from 'scule'
 import DesignIcon from '@bitrix24/b24icons-vue/outline/DesignIcon'
 import FavoriteIcon from '@bitrix24/b24icons-vue/outline/FavoriteIcon'
@@ -7,7 +7,6 @@ import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 import MoreMIcon from '@bitrix24/b24icons-vue/outline/MoreMIcon'
 import NuxtIcon from '@bitrix24/b24icons-vue/file-type/NuxtIcon'
 import DemonstrationOnIcon from '@bitrix24/b24icons-vue/outline/DemonstrationOnIcon'
-import { sleepAction } from '~/utils/sleep'
 
 const route = useRoute()
 const { framework } = useFrameworks()
@@ -16,38 +15,10 @@ definePageMeta({
   layout: false
 })
 
-const pageStore = usePageStore()
-const page = ref<undefined | DocsCollectionItem>(undefined)
-const navigationData = ref<ContentNavigationItem[]>([])
-navigationData.value = pageStore.navigation
-// const { findSurround } = useNavigation(navigationData!)
-
-onMounted(async () => {
-  pageStore.isLoading = true
-  // const { data: pageData2 } = await useAsyncData(kebabCase(route.path), () => queryCollection('docs').path(route.path).first())
-  const pageData = await queryCollection('docs').path(route.path).first()
-  await sleepAction(600)
-  if (!pageData) {
-    throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
-  }
-
-  page.value = pageData
-
-  const title = page.value?.seo?.title ? page.value.seo.title : page.value?.navigation?.title ? page.value.navigation.title : page.value?.title
-  const prefix = page.value?.path.includes('components/') || page.value?.path.includes('composables/') ? 'Vue ' : ''
-  const suffix = page.value?.path.includes('components/') ? 'Component ' : page.value?.path.includes('composables/') ? 'Composable ' : ''
-  const description = page.value?.seo?.description ? page.value.seo.description : page.value?.description
-
-  useSeoMeta({
-    titleTemplate: `${prefix}%s ${suffix}- Bitrix24 UI ${page.value?.framework === 'vue' ? ' for Vue' : ''}`,
-    title,
-    ogTitle: `${prefix}${title} ${suffix}- Bitrix24 UI ${page.value?.framework === 'vue' ? ' for Vue' : ''}`,
-    description,
-    ogDescription: description
-  })
-
-  pageStore.isLoading = false
-})
+const { data: page } = await useAsyncData(kebabCase(route.path), () => queryCollection('docs').path(route.path).first())
+if (!page.value) {
+  throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
+}
 
 // Update the framework if the page has different one
 watch(page, () => {
@@ -56,10 +27,12 @@ watch(page, () => {
   }
 }, { immediate: true })
 
-// const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
+const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
+
+const { findSurround } = useNavigation(navigation!)
 
 // const breadcrumb = computed(() => findBreadcrumb(page.value?.path as string))
-const surround = computed(() => pageStore.findSurround(page.value?.path as string))
+const surround = computed(() => findSurround(page.value?.path as string))
 
 if (!import.meta.prerender) {
   // Redirect to the correct framework version if the page is not the current framework
@@ -77,18 +50,18 @@ if (!import.meta.prerender) {
   })
 }
 
-// const title = page.value?.seo?.title ? page.value.seo.title : page.value?.navigation?.title ? page.value.navigation.title : page.value?.title
-// const prefix = page.value?.path.includes('components/') || page.value?.path.includes('composables/') ? 'Vue ' : ''
-// const suffix = page.value?.path.includes('components/') ? 'Component ' : page.value?.path.includes('composables/') ? 'Composable ' : ''
-// const description = page.value?.seo?.description ? page.value.seo.description : page.value?.description
-//
-// useSeoMeta({
-//   titleTemplate: `${prefix}%s ${suffix}- Bitrix24 UI ${page.value?.framework === 'vue' ? ' for Vue' : ''}`,
-//   title,
-//   ogTitle: `${prefix}${title} ${suffix}- Bitrix24 UI ${page.value?.framework === 'vue' ? ' for Vue' : ''}`,
-//   description,
-//   ogDescription: description
-// })
+const title = page.value?.seo?.title ? page.value.seo.title : page.value?.navigation?.title ? page.value.navigation.title : page.value?.title
+const prefix = page.value?.path.includes('components/') || page.value?.path.includes('composables/') ? 'Vue ' : ''
+const suffix = page.value?.path.includes('components/') ? 'Component ' : page.value?.path.includes('composables/') ? 'Composable ' : ''
+const description = page.value?.seo?.description ? page.value.seo.description : page.value?.description
+
+useSeoMeta({
+  titleTemplate: `${prefix}%s ${suffix}- Bitrix24 UI ${page.value?.framework === 'vue' ? ' for Vue' : ''}`,
+  title,
+  ogTitle: `${prefix}${title} ${suffix}- Bitrix24 UI ${page.value?.framework === 'vue' ? ' for Vue' : ''}`,
+  description,
+  ogDescription: description
+})
 
 // if (route.path.startsWith('/docs/components/')) {
 //   defineOgImageComponent('OgImageComponent', {
@@ -187,8 +160,8 @@ const iconFromIconName = (iconName?: string) => {
     <template #right>
       <B24Card
         variant="outline-no-accent"
-        class="lg:mt-[22px] lg:sticky lg:top-(--topbar-height) rounded-none lg:rounded-(--ui-border-radius-md) backdrop-blur-md"
-        :b24ui="{ body: 'px-[22px] py-0 sm:px-[22px] sm:py-0 pt-[12px] sm:pt-[12px] lg:py-[15px]' }"
+        class="lg:mt-[22px] lg:sticky lg:top-[8px] rounded-none lg:rounded-(--ui-border-radius-md) backdrop-blur-md"
+        :b24ui="{ body: 'px-[22px] py-0 sm:ps-[22px] sm:pe-[4px] sm:py-0 pt-[12px] sm:pt-[12px] lg:py-[15px]' }"
       >
         <B24ContentToc
           v-if="page?.body?.toc?.links?.length"

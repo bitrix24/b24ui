@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app'
 
-const { components, groups, items } = useNavigation()
+// const { components, groups, items } = useNavigation()
 
 defineProps<{
   error: NuxtError
 }>()
 
-provide('components', components)
+// provide('components', components)
 </script>
 
 <template>

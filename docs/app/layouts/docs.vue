@@ -1,23 +1,21 @@
 <script setup lang="ts">
-import BtnSpinnerIcon from '@bitrix24/b24icons-vue/button-specialized/BtnSpinnerIcon'
+import type { ContentNavigationItem } from '@nuxt/content'
 
 useHead({
-  htmlAttrs: {
-    // 'dark' | 'light' | 'edge-dark' | 'edge-light'
-    class: `edge-dark`
-  }
+  htmlAttrs: { class: `edge-dark` }
 })
 
 const route = useRoute()
 
 const slots = defineSlots()
 
-const pageStore = usePageStore()
+const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
+const { navigationMenuByCategory } = useNavigation(navigation!)
 </script>
 
 <template>
   <B24SidebarLayout
-    :use-light-content="!pageStore.isLoading"
+    :use-light-content="true"
   >
     <template #sidebar>
       <B24SidebarHeader>
@@ -30,7 +28,7 @@ const pageStore = usePageStore()
       <B24SidebarBody>
         <B24NavigationMenu
           :key="route.path"
-          :items="pageStore.navigationMenuByCategory"
+          :items="navigationMenuByCategory"
           orientation="vertical"
           :b24ui="{ linkLeadingBadge: '-top-[4px] left-auto -right-[50px]  bg-blue-500' }"
         />
@@ -45,27 +43,16 @@ const pageStore = usePageStore()
       <Header />
     </template>
 
-    <div v-if="pageStore.isLoading">
-      <div class="cursor-wait isolate absolute z-1000 inset-0 w-full flex flex-row flex-nowrap items-center justify-center h-[400px] min-h-[400px]">
-        <BtnSpinnerIcon
-          class="text-(--ui-color-design-plain-content-icon-secondary) size-[110px] animate-spin-slow"
-          aria-hidden="true"
-        />
-      </div>
-    </div>
-
-    <template v-if="slots['header'] && !pageStore.isLoading" #content-top>
+    <template v-if="slots['header']" #content-top>
       <slot name="header" />
     </template>
-    <template v-if="slots['right'] && !pageStore.isLoading" #content-right>
+    <template v-if="slots['right']" #content-right>
       <slot name="right" />
     </template>
 
-    <div v-show="!pageStore.isLoading">
-      <slot />
-    </div>
+    <slot />
 
-    <template v-if="!pageStore.isLoading" #content-bottom>
+    <template #content-bottom>
       <Footer />
     </template>
   </B24SidebarLayout>

@@ -93,7 +93,7 @@ ignore:
   - defaultValue
   - checkedIcon
 cast:
-  icon: 'RocketIcon'
+  checkedIcon: 'RocketIcon'
 props:
   checkedIcon: 'RocketIcon'
   defaultValue: true

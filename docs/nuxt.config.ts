@@ -254,8 +254,7 @@ export default defineNuxtConfig({
         })
       })
     },
-    'nuxt-llms',
-    '@pinia/nuxt'
+    'nuxt-llms'
   ],
 
   $development: {
@@ -269,7 +268,7 @@ export default defineNuxtConfig({
     }
   },
 
-  ssr: false,
+  ssr: true,
 
   devtools: {
     enabled: false
