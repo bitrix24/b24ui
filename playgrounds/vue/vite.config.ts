@@ -9,6 +9,7 @@ export default defineConfig({
     bitrix24UIPluginVite({
       b24ui: {},
       autoImport: {
+        dirs: ['../nuxt/app/composables'],
         imports: ['vue']
       },
       components: {
