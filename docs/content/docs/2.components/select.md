@@ -77,7 +77,7 @@ You can also pass an array of objects with the following properties:
 - [`type?: "label" | "separator" | "item"`{lang="ts-type"}](#with-items-type)
 - [`icon?: IconComponent`{lang="ts-type"}](#with-icons-in-items)
 - [`avatar?: AvatarProps`{lang="ts-type"}](#with-avatar-in-items)
-- [`color?: SelectItem['color']`{lang="ts-type"}](#with-colors-items)
+- [`color?: Select['color']`{lang="ts-type"}](#with-colors-items)
 - [`chip?: ChipProps`{lang="ts-type"}](#with-chip-in-items)
 - `disabled?: boolean`{lang="ts-type"}
 - `class?: any`{lang="ts-type"}
