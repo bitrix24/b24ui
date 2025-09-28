@@ -19,11 +19,7 @@ const { navigationMenuByCategory } = useNavigation(navigation!)
   >
     <template #sidebar>
       <B24SidebarHeader>
-        <div class="h-full flex items-center relative my-0 ps-[25px] pe-xs rtl:pe-[25px]">
-          <div class="flex flex-row flex-nowrap items-center justify-start gap-[6px]">
-            <LogoWithVersion />
-          </div>
-        </div>
+        <LogoWithVersion />
       </B24SidebarHeader>
       <B24SidebarBody>
         <B24NavigationMenu
