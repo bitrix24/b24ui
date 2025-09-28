@@ -4,7 +4,7 @@ import { withTrailingSlash } from 'ufo'
 const route = useRoute()
 const appConfig = useAppConfig()
 
-const { data: navigation, status } = await useAsyncData('navigation', () => queryCollectionNavigation('docs', ['framework', 'category', 'description', 'badge']))
+const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs', ['framework', 'category', 'description', 'badge']))
 // const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections('docs'), {
 //   server: false
 // })
