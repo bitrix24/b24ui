@@ -98,7 +98,7 @@ defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(defineProps<TextareaProps<T>>(), {
   rows: 3,
-  maxrows: 5,
+  // maxrows: 5,
   autofocusDelay: 0,
   autoresizeDelay: 0
 })
