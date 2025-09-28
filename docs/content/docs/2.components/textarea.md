@@ -171,7 +171,6 @@ cast:
   icon: 'RocketIcon'
 props:
   icon: 'RocketIcon'
-  size: md
   placeholder: 'Search...'
   rows: 1
 ---
@@ -192,7 +191,6 @@ cast:
 props:
   trailingIcon: 'RocketIcon'
   placeholder: 'Enter your email'
-  size: md
   rows: 1
 ---
 ::
@@ -209,7 +207,6 @@ ignore:
   - avatar.src
 props:
   avatar.src: '/b24ui/avatar/employee.png'
-  size: md
   placeholder: 'Search...'
   rows: 1
 ---
@@ -294,8 +291,8 @@ Use the `underline` prop to removes all borders (rings) except the bottom one fr
 ---
 prettier: true
 ignore:
-- placeholder
-  props:
+  - placeholder
+props:
   underline: true
   highlight: true
   placeholder: 'Type something...'
@@ -343,8 +340,8 @@ The `highlight` prop is used here to show the focus state.
 
 When accessing the component via a template ref, you can use the following:
 
-| Name | Type |
-| ---- | ---- |
+| Name                          | Type                                               |
+|-------------------------------|----------------------------------------------------|
 | `textareaRef`{lang="ts-type"} | `Ref<HTMLTextAreaElement \| null>`{lang="ts-type"} |
 
 ## Theme
