@@ -62,6 +62,7 @@ provide(fieldGroupInjectionKey, computed(() => ({
 <template>
   <Primitive
     :as="as"
+    :data-orientation="orientation"
     class="group/items is-field-group"
     :class="b24ui({ orientation, class: props.class })"
   >
