@@ -2,7 +2,6 @@
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
-import theme from '#build/b24ui/context-menu'
 
 usePageMeta.setPageTitle('ContextMenu')
 
@@ -20,14 +19,14 @@ const items = computed(() => [
   [{
     label: 'Appearance',
     children: [{
-      label: 'System',
-      icon: 'i-lucide-monitor'
+      label: 'System'
+      // icon: 'i-lucide-monitor'
     }, {
-      label: 'Light',
-      icon: 'i-lucide-sun'
+      label: 'Light'
+      //  icon: 'i-lucide-sun'
     }, {
-      label: 'Dark',
-      icon: 'i-lucide-moon'
+      label: 'Dark'
+      // icon: 'i-lucide-moon'
     }]
   }],
   [{
@@ -58,10 +57,10 @@ const items = computed(() => [
     }
   }, {
     label: 'Clear Cookies and Refresh',
-    color: 'warning'
+    color: 'air-primary-warning'
   }, {
     label: 'Clear Cache and Refresh',
-    color: 'error'
+    color: 'air-primary-alert'
   }, {
     type: 'separator' as const
   }, {
@@ -94,31 +93,17 @@ const items = computed(() => [
   }]
 ])
 
-const sizes = Object.keys(theme.variants.size)
-
-const attrs = reactive({
-  size: [theme.defaultVariants.size]
-})
-
 defineShortcuts(extractShortcuts(items.value))
 </script>
 
 <template>
   <ExampleGrid v-once>
-    <ExampleCard title="options" :use-bg="isUseBg">
-      <div class="flex flex-col gap-2">
-        <B24Select v-model="attrs.size" :items="sizes" placeholder="Size" multiple />
-      </div>
+    <ExampleCard title="matrix" :use-bg="isUseBg" class="sm:col-span-2">
+      <B24ContextMenu :items="items">
+        <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) aspect-video w-full">
+          Right click here
+        </div>
+      </B24ContextMenu>
     </ExampleCard>
-
-    <Matrix v-slot="props" :attrs="attrs">
-      <ExampleCard title="matrix" :use-bg="isUseBg" class="sm:col-span-2">
-        <B24ContextMenu :items="items" v-bind="props">
-          <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-g-glass-grey-bg-2) text-(length:--ui-font-size-sm) aspect-video w-full">
-            Right click here
-          </div>
-        </B24ContextMenu>
-      </ExampleCard>
-    </Matrix>
   </ExampleGrid>
 </template>
