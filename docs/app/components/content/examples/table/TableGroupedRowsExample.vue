@@ -3,8 +3,10 @@ import { h, resolveComponent } from 'vue'
 import type { TableColumn } from '@bitrix24/b24ui-nuxt'
 import { getGroupedRowModel } from '@tanstack/vue-table'
 import type { GroupingOptions } from '@tanstack/vue-table'
+import MinusLIcon from '@bitrix24/b24icons-vue/outline/MinusLIcon'
+import PlusLIcon from '@bitrix24/b24icons-vue/outline/PlusLIcon'
 
-const UBadge = resolveComponent('UBadge')
+const B24Badge = resolveComponent('B24Badge')
 
 type Account = {
   id: string
@@ -162,7 +164,7 @@ const grouping_options = ref<GroupingOptions>({
 </script>
 
 <template>
-  <UTable
+  <B24Table
     :data="data"
     :columns="columns"
     :grouping="['account_id', 'status']"
@@ -179,25 +181,23 @@ const grouping_options = ref<GroupingOptions>({
           :style="{ width: `calc(${row.depth} * 1rem)` }"
         />
 
-        <UButton
-          variant="outline"
+        <B24Button
           class="mr-2"
           size="xs"
-          :icon="row.getIsExpanded() ? 'i-lucide-minus' : 'i-lucide-plus'"
+          :icon="row.getIsExpanded() ? MinusLIcon : PlusLIcon"
           @click="row.toggleExpanded()"
         />
         <strong v-if="row.groupingColumnId === 'account_id'">{{
           row.original.account.name
         }}</strong>
-        <UBadge
+        <B24Badge
           v-else-if="row.groupingColumnId === 'status'"
           :color="getColorByStatus(row.original.status)"
           class="capitalize"
-          variant="subtle"
         >
           {{ row.original.status }}
-        </UBadge>
+        </B24Badge>
       </div>
     </template>
-  </UTable>
+  </B24Table>
 </template>

@@ -12,40 +12,108 @@
 export default {
   slots: {
     root: 'relative overflow-auto',
-    base: 'min-w-full overflow-clip',
+    base: [
+      'min-w-full overflow-clip',
+      'font-[family-name:var(--ui-font-family-primary)]'
+    ].join(' '),
     caption: 'sr-only',
     thead: 'relative',
-    tbody: 'divide-y divide-(--ui-color-design-tinted-na-stroke) [&>tr]:data-[selectable=true]:hover:bg-elevated/50 [&>tr]:data-[selectable=true]:focus-visible:outline-primary',
+    tbody: [
+      'divide-y divide-(--ui-color-design-tinted-na-stroke)',
+      '[&>tr]:data-[selectable=true]:hover:bg-elevated/50',
+      '[&>tr]:data-[selectable=true]:focus-visible:outline-primary'
+    ].join(' '),
     tfoot: 'relative',
     tr: 'data-[selected=true]:bg-elevated/50',
-    th: 'px-4 py-3.5 text-(length:--ui-font-size-sm) text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&:has([role=checkbox])]:pe-0',
-    td: 'p-4 text-(length:--ui-font-size-sm) text-(--b24ui-typography-description-color) whitespace-nowrap [&:has([role=checkbox])]:pe-0',
-    separator: 'absolute z-[1] left-0 w-full h-px bg-(--ui-color-design-tinted-na-stroke)',
-    empty: 'py-6 text-center text-(length:--ui-font-size-sm) text-(--b24ui-typography-description-color)',
+    th: [
+      'px-4 py-3.5',
+      'text-(length:--ui-font-size-md)/(--ui-font-line-height-md)',
+      'text-(--b24ui-typography-label-color)',
+      'whitespace-nowrap',
+      'text-left rtl:text-right',
+      'font-(--ui-font-weight-normal)',
+      '[&:has([role=checkbox])]:pe-0',
+      'align-middle'
+    ].join(' '),
+    td: [
+      'p-4',
+      'text-(length:--ui-font-size-md)/(--ui-font-line-height-md)',
+      'text-(--b24ui-typography-label-color)',
+      'whitespace-nowrap',
+      'font-(--ui-font-weight-normal)',
+      '[&:has([role=checkbox])]:pe-0',
+      'align-middle'
+    ].join(' '),
+    separator: [
+      'absolute z-[1] left-0',
+      'w-full h-px',
+      'bg-(--ui-color-design-tinted-na-stroke)'
+    ].join(' '),
+    empty: [
+      'py-6',
+      'text-center',
+      'text-(length:--ui-font-size-sm)',
+      'text-(--b24ui-typography-description-color)'
+    ].join(' '),
     loading: 'py-6 text-center'
   },
   variants: {
     pinned: {
       true: {
-        th: 'sticky bg-(--ui-color-base-white-fixed) dark:bg-(--ui-color-base-5) data-[pinned=left]:left-0 data-[pinned=right]:right-0', // bg-default/75
-        td: 'sticky bg-(--ui-color-base-white-fixed) dark:bg-(--ui-color-base-5) data-[pinned=left]:left-0 data-[pinned=right]:right-0' // bg-default/75
+        th: [
+          'sticky',
+          'bg-(--ui-color-base-white-fixed) dark:bg-(--ui-color-base-5)',
+          'data-[pinned=left]:left-0',
+          'data-[pinned=right]:right-0'
+        ].join(' '), // bg-default/75
+        td: [
+          'sticky',
+          'bg-(--ui-color-base-white-fixed) dark:bg-(--ui-color-base-5)',
+          'data-[pinned=left]:left-0',
+          'data-[pinned=right]:right-0'
+        ].join(' ') // bg-default/75
       }
     },
     sticky: {
       true: {
-        thead: 'sticky top-0 inset-x-0 bg-(--ui-color-base-white-fixed) dark:bg-(--ui-color-base-5) z-[1] backdrop-blur', // bg-default/75
-        tfoot: 'sticky bottom-0 inset-x-0 bg-(--ui-color-base-white-fixed) dark:bg-(--ui-color-base-5) z-[1] backdrop-blur' // bg-default/75
+        thead: [
+          'sticky',
+          'top-0 inset-x-0',
+          'bg-(--ui-color-base-white-fixed) dark:bg-(--ui-color-base-5)',
+          'z-[1] backdrop-blur'
+        ].join(' '), // bg-default/75
+        tfoot: [
+          'sticky',
+          'bottom-0 inset-x-0',
+          'bg-(--ui-color-base-white-fixed) dark:bg-(--ui-color-base-5)',
+          'z-[1] backdrop-blur'
+        ].join(' ') // bg-default/75
       },
       header: {
-        thead: 'sticky top-0 inset-x-0 bg-(--ui-color-base-white-fixed) dark:bg-(--ui-color-base-5) z-[1] backdrop-blur' // bg-default/75
+        thead: [
+          'sticky',
+          'top-0 inset-x-0',
+          'bg-(--ui-color-base-white-fixed) dark:bg-(--ui-color-base-5)',
+          'z-[1] backdrop-blur'
+        ].join(' ') // bg-default/75
       },
       footer: {
-        tfoot: 'sticky bottom-0 inset-x-0 bg-(--ui-color-base-white-fixed) dark:bg-(--ui-color-base-5) z-[1] backdrop-blur' // bg-default/75
+        tfoot: [
+          'sticky',
+          'bottom-0 inset-x-0',
+          'bg-(--ui-color-base-white-fixed) dark:bg-(--ui-color-base-5)',
+          'z-[1] backdrop-blur'
+        ].join(' ') // bg-default/75
       }
     },
     loading: {
       true: {
-        thead: 'after:absolute after:z-[1] after:h-px after:bg-(--b24ui-background)'
+        thead: [
+          'after:absolute',
+          'after:z-[1]',
+          'after:h-px',
+          'after:bg-(--b24ui-background)'
+        ].join(' ')
       }
     },
     loadingAnimation: {

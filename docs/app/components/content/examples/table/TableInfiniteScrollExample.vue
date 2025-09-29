@@ -2,7 +2,7 @@
 import type { TableColumn } from '@bitrix24/b24ui-nuxt'
 import { useInfiniteScroll } from '@vueuse/core'
 
-const UAvatar = resolveComponent('UAvatar')
+const B24Avatar = resolveComponent('B24Avatar')
 
 type User = {
   id: number
@@ -31,23 +31,29 @@ const { data, status, execute } = await useFetch('https://dummyjson.com/users?li
   immediate: false
 })
 
-const columns: TableColumn<User>[] = [{
-  accessorKey: 'id',
-  header: 'ID'
-}, {
-  accessorKey: 'image',
-  header: 'Avatar',
-  cell: ({ row }) => h(UAvatar, { src: row.original.image })
-}, {
-  accessorKey: 'firstName',
-  header: 'First name'
-}, {
-  accessorKey: 'email',
-  header: 'Email'
-}, {
-  accessorKey: 'username',
-  header: 'Username'
-}]
+const columns: TableColumn<User>[] = [
+  {
+    accessorKey: 'id',
+    header: 'ID'
+  },
+  {
+    accessorKey: 'image',
+    header: 'Avatar',
+    cell: ({ row }) => h(B24Avatar, { src: row.original.image })
+  },
+  {
+    accessorKey: 'firstName',
+    header: 'First name'
+  },
+  {
+    accessorKey: 'email',
+    header: 'Email'
+  },
+  {
+    accessorKey: 'username',
+    header: 'Username'
+  }
+]
 
 const users = ref<User[]>([])
 
@@ -76,13 +82,13 @@ onMounted(() => {
 
 <template>
   <div class="w-full">
-    <UTable
+    <B24Table
       ref="table"
       :data="users"
       :columns="columns"
       :loading="status === 'pending'"
       sticky
-      class="flex-1 h-80"
+      class="flex-1 h-[290px]"
     />
   </div>
 </template>

@@ -150,7 +150,15 @@ const pagination = ref({
 </script>
 
 <template>
-  <B24Card class="w-full">
+  <B24Card
+    variant="outline"
+    class="flex-1 w-full"
+    :b24ui="{
+      header: 'p-[12px] px-[14px] py-[14px] sm:px-[14px] sm:py-[14px]',
+      body: 'p-0 sm:px-0 sm:py-0',
+      footer: 'p-[12px] px-[14px] py-[14px] sm:px-[14px] sm:py-[14px] text-(length:--ui-font-size-xs) text-(--b24ui-typography-legend-color) flex justify-center'
+    }"
+  >
     <B24Table
       ref="table"
       v-model:pagination="pagination"
@@ -160,16 +168,14 @@ const pagination = ref({
       class="flex-1"
     />
     <template #footer>
-      <div class="flex justify-center">
-        <B24Pagination
-          size="sm"
-          color="air-tertiary-no-accent"
-          :default-page="(table?.tableApi?.getState().pagination.pageIndex || 0) + 1"
-          :items-per-page="table?.tableApi?.getState().pagination.pageSize"
-          :total="table?.tableApi?.getFilteredRowModel().rows.length"
-          @update:page="(p) => table?.tableApi?.setPageIndex(p - 1)"
-        />
-      </div>
+      <B24Pagination
+        size="sm"
+        color="air-tertiary-no-accent"
+        :default-page="(table?.tableApi?.getState().pagination.pageIndex || 0) + 1"
+        :items-per-page="table?.tableApi?.getState().pagination.pageSize"
+        :total="table?.tableApi?.getFilteredRowModel().rows.length"
+        @update:page="(p) => table?.tableApi?.setPageIndex(p - 1)"
+      />
     </template>
   </B24Card>
 </template>

@@ -5,118 +5,141 @@
  * @todo add docs
  * @todo add color
  * @todo add demo
+ * @see src/theme/dropdown-menu.ts
+ * @todo add Badge
  */
 
 export default {
   slots: {
-    content: 'min-w-32 bg-default shadow-lg rounded-md ring ring-default overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-context-menu-content-transform-origin) flex flex-col',
-    viewport: 'relative divide-y divide-default scroll-py-1 overflow-y-auto flex-1',
-    group: 'p-1 isolate',
-    label: 'w-full flex items-center font-(--ui-font-weight-semibold) text-(--b24ui-typography-legend-color)',
-    separator: '-mx-1 my-1 h-px bg-border',
-    item: 'group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-md data-disabled:cursor-not-allowed data-disabled:opacity-75',
-    itemLeadingIcon: 'shrink-0',
-    itemLeadingAvatar: 'shrink-0',
-    itemLeadingAvatarSize: '',
-    itemTrailing: 'ms-auto inline-flex gap-1.5 items-center',
-    itemTrailingIcon: 'shrink-0',
-    itemTrailingKbds: 'hidden lg:inline-flex items-center shrink-0',
-    itemTrailingKbdsSize: '',
-    itemLabel: 'truncate',
-    itemLabelExternalIcon: 'inline-block size-3 align-top text-dimmed'
+    content: [
+      // 'min-w-32',
+      // 'ring ring-red-500',
+      // 'overflow-hidden',
+      // 'flex flex-col',
+      'light',
+      'bg-(--popup-window-background-color)',
+      'shadow-(--popup-window-box-shadow)',
+      'rounded-(--popup-window-border-radius) will-change-[opacity]',
+      'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]',
+      'origin-(--reka-context-menu-content-transform-origin)',
+      'font-[family-name:var(--ui-font-family-primary)]',
+      'relative',
+      'isolate',
+      'px-0 py-(--menu-popup-padding)',
+      'pointer-events-auto'
+    ].join(' '),
+    viewport: [
+      'relative',
+      'w-full max-h-[40vh]',
+      'scroll-py-1',
+      'overflow-x-hidden overflow-y-auto scrollbar-thin' // scrollbar-transparent
+    ].join(' '),
+    group: 'grid',
+    label: [
+      'w-full h-(--popup-window-delimiter-section-height)',
+      'px-[18px] mt-(--menu-item-block-stack-space)',
+      'flex flex-row rtl:flex-row-reverse items-center',
+      'select-none outline-none whitespace-nowrap',
+      'text-start',
+      'text-(length:--popup-window-delimiter-font-size)',
+      'text-(--popup-window-delimiter-text-color)',
+      'font-(--popup-window-delimiter-font-weight)',
+      'after:ms-[10px] after:block after:flex-1 after:min-w-[15px] after:h-px after:bg-(--popup-window-delimiter-bg-color)'
+    ].join(' '),
+    separator: 'my-[8px] mx-[18px] h-[1px] bg-(--popup-window-delimiter-bg-color)',
+    item: [
+      'group',
+      'w-full h-[36px]',
+      'px-[18px] mt-(--menu-item-block-stack-space)',
+      'relative',
+      'flex flex-row rtl:flex-row-reverse items-center',
+      'select-none outline-none whitespace-nowrap',
+      'cursor-pointer',
+      'data-disabled:cursor-not-allowed data-disabled:opacity-30',
+      'text-start',
+      'text-(length:--menu-popup-item-font-size)',
+      'text-(--menu-popup-item-color) hover:text-(--menu-popup-item-color-hover)',
+      'data-highlighted:text-(--menu-popup-item-color-hover)',
+      'data-[state=open]:text-(--menu-popup-item-color-hover)',
+      'hover:bg-(--menu-popup-item-bg-color-hover)',
+      'data-highlighted:bg-(--menu-popup-item-bg-color-hover)',
+      'data-[state=open]:bg-(--menu-popup-item-bg-color-hover)',
+      'transition-colors'
+    ].join(' '),
+    itemLeadingIcon: [
+      'shrink-0',
+      'size-[18px]',
+      'text-(--ui-color-design-plain-content-icon-secondary)',
+      'group-data-highlighted:text-(--ui-color-accent-main-primary)',
+      'group-data-[state=open]:text-(--ui-color-accent-main-primary)',
+      'group-data-[state=checked]:text-(--ui-color-accent-main-primary)',
+      'transition-colors'
+    ].join(' '),
+    itemLeadingAvatar: 'shrink-0 size-[16px] mx-px', // @memo 18-2px
+    itemLeadingAvatarSize: '2xs', // @memo this wrong
+    itemTrailing: 'ml-auto rtl:ml-0 rtl:mr-auto inline-flex gap-1.5 items-center',
+    itemTrailingIcon: 'shrink-0 size-[24px] text-(--ui-color-design-plain-content-icon-secondary)',
+    itemTrailingKbds: 'shrink-0 hidden lg:inline-flex items-center gap-0.5',
+    itemTrailingKbdsSize: 'md',
+    itemLabel: [
+      'truncate ms-[2px] -mt-px',
+      'group-data-[state=checked]:text-(--ui-color-accent-main-primary)'
+    ].join(' '),
+    itemLabelExternalIcon: 'inline-block size-[16px] text-(--ui-color-design-plain-content-icon-secondary)'
   },
   variants: {
     color: {
-      neutral: ''
+      'air-primary': { item: 'style-filled' },
+      'air-primary-success': { item: 'style-filled-success' },
+      'air-primary-alert': { item: 'style-filled-alert' },
+      'air-primary-copilot': { item: 'style-filled-copilot' },
+      'air-primary-warning': { item: 'style-filled-warning' }
     },
     active: {
       true: {
-        item: 'text-highlighted before:bg-elevated',
-        itemLeadingIcon: 'text-default'
-      },
-      false: {
         item: [
-          'text-default data-highlighted:text-(--b24ui-typography-legend-color) data-[state=open]:text-(--b24ui-typography-legend-color) data-highlighted:before:bg-elevated/50 data-[state=open]:before:bg-elevated/50',
-          'transition-colors before:transition-colors'
+          'text-(--ui-color-accent-main-primary)',
+          'hover:text-(--ui-color-accent-main-primary)'
         ].join(' '),
         itemLeadingIcon: [
-          'text-dimmed group-data-highlighted:text-default group-data-[state=open]:text-default',
-          'transition-colors'
+          'text-(--ui-color-accent-main-primary)',
+          'hover:text-(--ui-color-accent-main-primary)',
+          'group-data-[state=open]:text-(--ui-color-accent-main-primary)'
         ].join(' ')
-      }
+      },
+      false: {}
     },
     loading: {
       true: {
         itemLeadingIcon: 'animate-spin'
       }
-    },
-    size: {
-      xs: {
-        label: 'p-1 text-(length:--ui-font-size-xs) gap-1',
-        item: 'p-1 text-(length:--ui-font-size-xs) gap-1',
-        itemLeadingIcon: 'size-4',
-        itemLeadingAvatarSize: '3xs',
-        itemTrailingIcon: 'size-4',
-        itemTrailingKbds: 'gap-0.5',
-        itemTrailingKbdsSize: 'sm'
-      },
-      sm: {
-        label: 'p-1.5 text-(length:--ui-font-size-xs) gap-1.5',
-        item: 'p-1.5 text-(length:--ui-font-size-xs) gap-1.5',
-        itemLeadingIcon: 'size-4',
-        itemLeadingAvatarSize: '3xs',
-        itemTrailingIcon: 'size-4',
-        itemTrailingKbds: 'gap-0.5',
-        itemTrailingKbdsSize: 'sm'
-      },
-      md: {
-        label: 'p-1.5 text-(length:--ui-font-size-sm) gap-1.5',
-        item: 'p-1.5 text-(length:--ui-font-size-sm) gap-1.5',
-        itemLeadingIcon: 'size-5',
-        itemLeadingAvatarSize: '2xs',
-        itemTrailingIcon: 'size-5',
-        itemTrailingKbds: 'gap-0.5',
-        itemTrailingKbdsSize: 'md'
-      },
-      lg: {
-        label: 'p-2 text-(length:--ui-font-size-sm) gap-2',
-        item: 'p-2 text-(length:--ui-font-size-sm) gap-2',
-        itemLeadingIcon: 'size-5',
-        itemLeadingAvatarSize: '2xs',
-        itemTrailingIcon: 'size-5',
-        itemTrailingKbds: 'gap-1',
-        itemTrailingKbdsSize: 'md'
-      },
-      xl: {
-        label: 'p-2 text-base gap-2',
-        item: 'p-2 text-base gap-2',
-        itemLeadingIcon: 'size-6',
-        itemLeadingAvatarSize: 'xs',
-        itemTrailingIcon: 'size-6',
-        itemTrailingKbds: 'gap-1',
-        itemTrailingKbdsSize: 'lg'
-      }
     }
   },
   compoundVariants: [
     {
-      color: 'dd',
+      color: ['air-primary', 'air-primary-success', 'air-primary-alert', 'air-primary-copilot', 'air-primary-warning'],
       active: false,
       class: {
-        item: 'text-dd data-highlighted:text-dd data-highlighted:before:bg-dd/10 data-[state=open]:before:bg-dd/10',
-        itemLeadingIcon: 'text-dd/75 group-data-highlighted:text-dd group-data-[state=open]:text-dd'
+        item: [
+          'text-(--b24ui-background) data-highlighted:text-(--b24ui-background-hover) data-[state=open]:text-(--b24ui-background-hover)'
+        ].join(' '),
+        itemLeadingIcon: [
+          'text-(--b24ui-background) group-data-highlighted:text-(--b24ui-background-hover) group-data-[state=open]:text-(--b24ui-background-hover)'
+        ].join(' ')
       }
     },
     {
-      color: 'dd',
+      color: ['air-primary', 'air-primary-success', 'air-primary-alert', 'air-primary-copilot', 'air-primary-warning'],
       active: true,
       class: {
-        item: 'text-dd before:bg-dd/10',
-        itemLeadingIcon: 'text-dd'
+        item: [
+          'text-(--b24ui-background-active)'
+        ].join(' '),
+        itemLeadingIcon: [
+          'text-(--b24ui-background-active) group-data-[state=open]:text-(--b24ui-background-active)'
+        ].join(' ')
       }
     }
   ],
-  defaultVariants: {
-    size: 'md'
-  }
+  defaultVariants: {}
 }

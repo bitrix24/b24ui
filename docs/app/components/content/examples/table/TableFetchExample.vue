@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { TableColumn } from '@bitrix24/b24ui-nuxt'
 
-const UAvatar = resolveComponent('UAvatar')
+const B24Avatar = resolveComponent('B24Avatar')
 
 type User = {
   id: number
@@ -31,7 +31,7 @@ const columns: TableColumn<User>[] = [{
   header: 'Name',
   cell: ({ row }) => {
     return h('div', { class: 'flex items-center gap-3' }, [
-      h(UAvatar, {
+      h(B24Avatar, {
         ...row.original.avatar,
         size: 'lg'
       }),
@@ -52,5 +52,5 @@ const columns: TableColumn<User>[] = [{
 </script>
 
 <template>
-  <UTable :data="data" :columns="columns" :loading="status === 'pending'" class="flex-1" />
+  <B24Table :data="data" :columns="columns" :loading="status === 'pending'" class="flex-1" />
 </template>

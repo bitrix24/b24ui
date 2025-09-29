@@ -2,8 +2,8 @@
 import { h, resolveComponent } from 'vue'
 import type { TableColumn, TableRow } from '@bitrix24/b24ui-nuxt'
 
-const UBadge = resolveComponent('UBadge')
-const UCheckbox = resolveComponent('UCheckbox')
+const B24Badge = resolveComponent('B24Badge')
+const B24Checkbox = resolveComponent('B24Checkbox')
 
 type Payment = {
   id: string
@@ -13,46 +13,52 @@ type Payment = {
   amount: number
 }
 
-const data = ref<Payment[]>([{
-  id: '4600',
-  date: '2024-03-11T15:30:00',
-  status: 'paid',
-  email: 'james.anderson@example.com',
-  amount: 594
-}, {
-  id: '4599',
-  date: '2024-03-11T10:10:00',
-  status: 'failed',
-  email: 'mia.white@example.com',
-  amount: 276
-}, {
-  id: '4598',
-  date: '2024-03-11T08:50:00',
-  status: 'refunded',
-  email: 'william.brown@example.com',
-  amount: 315
-}, {
-  id: '4597',
-  date: '2024-03-10T19:45:00',
-  status: 'paid',
-  email: 'emma.davis@example.com',
-  amount: 529
-}, {
-  id: '4596',
-  date: '2024-03-10T15:55:00',
-  status: 'paid',
-  email: 'ethan.harris@example.com',
-  amount: 639
-}])
+const data = ref<Payment[]>([
+  {
+    id: '4600',
+    date: '2024-03-11T15:30:00',
+    status: 'paid',
+    email: 'james.anderson@example.com',
+    amount: 594
+  },
+  {
+    id: '4599',
+    date: '2024-03-11T10:10:00',
+    status: 'failed',
+    email: 'mia.white@example.com',
+    amount: 276
+  },
+  {
+    id: '4598',
+    date: '2024-03-11T08:50:00',
+    status: 'refunded',
+    email: 'william.brown@example.com',
+    amount: 315
+  },
+  {
+    id: '4597',
+    date: '2024-03-10T19:45:00',
+    status: 'paid',
+    email: 'emma.davis@example.com',
+    amount: 529
+  },
+  {
+    id: '4596',
+    date: '2024-03-10T15:55:00',
+    status: 'paid',
+    email: 'ethan.harris@example.com',
+    amount: 639
+  }
+])
 
 const columns: TableColumn<Payment>[] = [{
   id: 'select',
-  header: ({ table }) => h(UCheckbox, {
+  header: ({ table }) => h(B24Checkbox, {
     'modelValue': table.getIsSomePageRowsSelected() ? 'indeterminate' : table.getIsAllPageRowsSelected(),
     'onUpdate:modelValue': (value: boolean | 'indeterminate') => table.toggleAllPageRowsSelected(!!value),
     'aria-label': 'Select all'
   }),
-  cell: ({ row }) => h(UCheckbox, {
+  cell: ({ row }) => h(B24Checkbox, {
     'modelValue': row.getIsSelected(),
     'onUpdate:modelValue': (value: boolean | 'indeterminate') => row.toggleSelected(!!value),
     'aria-label': 'Select row'
@@ -83,7 +89,7 @@ const columns: TableColumn<Payment>[] = [{
       refunded: 'air-primary' as const
     })[row.getValue('status') as string]
 
-    return h(UBadge, { class: 'capitalize', color }, () => row.getValue('status'))
+    return h(B24Badge, { class: 'capitalize', color }, () => row.getValue('status'))
   }
 }, {
   accessorKey: 'email',
@@ -131,7 +137,7 @@ function onHover(_e: Event, row: TableRow<Payment> | null) {
 
 <template>
   <div class="flex w-full flex-1 gap-1">
-    <UTable
+    <B24Table
       :data="data"
       :columns="columns"
       class="flex-1"
@@ -142,7 +148,7 @@ function onHover(_e: Event, row: TableRow<Payment> | null) {
       @hover="onHover"
     />
 
-    <UPopover
+    <B24Popover
       :content="{ side: 'top', sideOffset: 16, updatePositionStrategy: 'always' }"
       :open="openDebounced"
       :reference="reference"
@@ -152,6 +158,6 @@ function onHover(_e: Event, row: TableRow<Payment> | null) {
           {{ selectedRow?.original?.id }}
         </div>
       </template>
-    </UPopover>
+    </B24Popover>
   </div>
 </template>

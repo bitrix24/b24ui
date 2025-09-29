@@ -2,9 +2,7 @@
  * DropdownMenu
  * A menu to display actions when clicking on an element.
  * ---
- * @link /api_d7/bitrix/ui/buttons/button.php
- * @see bitrix/js/ui/buttons/src/button/
- * @see src/theme/dropdown-menu.ts
+ * @see src/theme/context-menu.ts
  * @todo add Badge
  */
 

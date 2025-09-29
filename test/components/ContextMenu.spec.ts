@@ -2,7 +2,7 @@ import { h, defineComponent } from 'vue'
 import { describe, it, expect, test } from 'vitest'
 import ContextMenu from '../../src/runtime/components/ContextMenu.vue'
 import type { ContextMenuProps, ContextMenuSlots } from '../../src/runtime/components/ContextMenu.vue'
-import theme from '#build/b24ui/context-menu'
+// import theme from '#build/b24ui/context-menu'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { expectSlotProps } from '../utils/types'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
@@ -23,8 +23,6 @@ const ContextMenuWrapper = defineComponent({
 })
 
 describe('ContextMenu', () => {
-  const sizes = Object.keys(theme.variants.size) as any
-
   const items = [
     [{
       label: 'Appearance',
@@ -87,7 +85,6 @@ describe('ContextMenu', () => {
     ['with items', { props }],
     ['with labelKey', { props: { ...props, labelKey: 'icon' } }],
     ['with disabled', { props: { ...props, disabled: true } }],
-    ...sizes.map((size: string) => [`with size ${size}`, { props: { ...props, size } }]),
     ['with externalIcon', { props: { ...props, externalIcon: SignIcon } }],
     ['without externalIcon', { props: { ...props, externalIcon: false } }],
     ['with class', { props: { ...props, class: 'min-w-96' } }],
