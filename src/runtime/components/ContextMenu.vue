@@ -39,10 +39,6 @@ export interface ContextMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'custo
 }
 
 export interface ContextMenuProps<T extends ArrayOrNested<ContextMenuItem> = ArrayOrNested<ContextMenuItem>> extends Omit<ContextMenuRootProps, 'dir'> {
-  /**
-   * @defaultValue 'md'
-   */
-  size?: ContextMenu['variants']['size']
   items?: T
   /**
    * The icon displayed when an item is checked.
@@ -123,9 +119,8 @@ const rootProps = useForwardPropsEmits(reactivePick(props, 'modal'), emits)
 const contentProps = toRef(() => props.content)
 const getProxySlots = () => omit(slots, ['default'])
 
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.contextMenu || {}) })({
-  size: props.size
-}))
+// eslint-disable-next-line vue/no-dupe-keys
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.contextMenu || {}) })({}))
 </script>
 
 <template>
