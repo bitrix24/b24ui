@@ -262,6 +262,6 @@ This has priority over the global configuration and `variants` resolution.
 
 ```vue
 <template>
-  <B24Button class="font-bold rounded-full">Button</B24Button>
+  <B24Button class="font-(--ui-font-weight-bold) rounded-full">Button</B24Button>
 </template>
 ```

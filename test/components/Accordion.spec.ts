@@ -51,7 +51,7 @@ describe('Accordion', () => {
     ['with trailingIcon', { props: { ...props, trailingIcon: Cross30Icon } }],
     ['with as', { props: { ...props, as: 'section' } }],
     ['with class', { props: { ...props, class: 'w-48' } }],
-    ['with b24ui', { props: { ...props, b24ui: { item: 'font-bold' } } }],
+    ['with b24ui', { props: { ...props, b24ui: { item: 'font-(--ui-font-weight-bold)' } } }],
     // Slots
     ['with leading slot', { props: { ...props, modelValue: '1' }, slots: { leading: () => 'Leading slot' } }],
     ['with default slot', { props: { ...props, modelValue: '1' }, slots: { default: () => 'Default slot' } }],

@@ -11,8 +11,7 @@ import CircleCheckIcon from '@bitrix24/b24icons-vue/outline/CircleCheckIcon'
 import AscendingSortIcon from '@bitrix24/b24icons-vue/main/AscendingSortIcon'
 import DescendingSortIcon from '@bitrix24/b24icons-vue/main/DescendingSortIcon'
 import SortIcon from '@bitrix24/b24icons-vue/actions/SortIcon'
-import DragLIcon from '@bitrix24/b24icons-vue/outline/DragLIcon'
-import ChevronDownLIcon from '@bitrix24/b24icons-vue/outline/ChevronDownLIcon'
+import HamburgerMenuIcon from '@bitrix24/b24icons-vue/outline/HamburgerMenuIcon'
 
 usePageMeta.setPageTitle('CheckboxGroup')
 
@@ -171,7 +170,7 @@ function getRowItems(row: TableRow<Payment>) {
 
         toast.add({
           title: 'Payment ID copied to clipboard!',
-          color: 'success',
+          color: 'air-primary-success',
           icon: CircleCheckIcon
         })
       }
@@ -221,7 +220,7 @@ const columns: TableColumn<Payment>[] = [
         'items': getRowItems(row),
         'aria-label': 'Actions dropdown'
       }, () => h(B24Button, {
-        'icon': DragLIcon,
+        'icon': HamburgerMenuIcon,
         'color': 'air-primary-copilot',
         'class': 'ms-auto',
         'aria-label': 'Actions dropdown'
@@ -238,8 +237,8 @@ const columns: TableColumn<Payment>[] = [
     header: 'Date',
     meta: {
       class: {
-        td: 'text-center font-semibold',
-        th: 'text-right text-green-500 w-48'
+        td: 'text-center font-(--ui-font-weight-semibold)',
+        th: 'text-right text-(--ui-color-accent-main-success) w-[192px]'
       }
     },
     cell: ({ row }) => {
@@ -291,7 +290,7 @@ const columns: TableColumn<Payment>[] = [
         currency: 'EUR'
       }).format(total)
 
-      return h('div', { class: 'text-right font-medium' }, `Total: ${formatted}`)
+      return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, `Total: ${formatted}`)
     },
     cell: ({ row }) => {
       const amount = Number.parseFloat(row.getValue('amount'))
@@ -301,7 +300,7 @@ const columns: TableColumn<Payment>[] = [
         currency: 'EUR'
       }).format(amount)
 
-      return h('div', { class: 'text-right font-medium' }, formatted)
+      return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, formatted)
     }
   }
 ]
@@ -405,7 +404,7 @@ onMounted(() => {
       <B24Button
         label="Columns"
         color="air-primary-copilot"
-        :trailing-icon="ChevronDownLIcon"
+        use-dropdown
         class="ms-auto"
       />
     </B24DropdownMenu>
@@ -425,10 +424,10 @@ onMounted(() => {
           getPaginationRowModel: getPaginationRowModel()
         }"
         :b24ui="{
-          tr: 'divide-x divide-default'
+          tr: 'divide-x divide-(--ui-color-divider-vibrant-accent-more)'
         }"
         sticky
-        class="border border-accented rounded-sm"
+        class="border border-(--ui-color-divider-vibrant-accent-more) rounded-sm h-[380px]"
         @select="onSelect"
         @contextmenu="onContextmenu"
         @pointermove="(ev: PointerEvent) => {
@@ -452,7 +451,7 @@ onMounted(() => {
     </B24Popover>
 
     <div class="flex items-center justify-between gap-3">
-      <div class="text-sm text-muted">
+      <div class="text-(length:--ui-font-size-sm) text-(--b24ui-typography-description-color)">
         {{ table?.tableApi?.getFilteredSelectedRowModel().rows.length || 0 }} of
         {{ table?.tableApi?.getFilteredRowModel().rows.length || 0 }} row(s) selected.
       </div>

@@ -45,7 +45,7 @@ const description = ref('Let\'s signal the manager that the deal is not moving, 
         </B24Advice>
         <B24Advice angle="top" :avatar="{ src: '/avatar/employee.png' }">
           <div class="flex flex-col items-start justify-between gap-1.5">
-            <div class="font-bold">
+            <div class="font-(--ui-font-weight-bold)">
               Reference information
             </div>
             <div>Typically, instructions on how to add a SAML application and add the ACS URL and SP Entity ID can be found in the Microsoft Azure technical documentation.</div>

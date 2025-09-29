@@ -65,12 +65,12 @@ const columns: TableColumn<Payment>[] = [{
   header: 'Status',
   cell: ({ row }) => {
     const color = ({
-      paid: 'success' as const,
-      failed: 'error' as const,
-      refunded: 'neutral' as const
+      paid: 'air-primary-success' as const,
+      failed: 'air-primary-alert' as const,
+      refunded: 'air-primary' as const
     })[row.getValue('status') as string]
 
-    return h(UBadge, { class: 'capitalize', variant: 'subtle', color }, () => row.getValue('status'))
+    return h(UBadge, { class: 'capitalize', color }, () => row.getValue('status'))
   }
 }, {
   accessorKey: 'email',
@@ -86,7 +86,7 @@ const columns: TableColumn<Payment>[] = [{
       currency: 'EUR'
     }).format(amount)
 
-    return h('div', { class: 'text-right font-medium' }, formatted)
+    return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, formatted)
   }
 }]
 

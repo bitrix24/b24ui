@@ -33,7 +33,7 @@ export default (options: Required<ModuleOptions>) => ({
     isAction: {
       true: [
         'text-nowrap',
-        'text-sm h-auto py-0 font-normal rounded-none',
+        'text-(length:--ui-font-size-sm) h-auto py-0 font-(--ui-font-weight-normal) rounded-none',
         'border border-x-0 border-t-0 border-dashed',
         'text-(--ui-color-design-outline-a1-content) border-b-(--ui-color-design-outline-a1-content)',
         'hover:not-disabled:not-aria-disabled:no-underline',

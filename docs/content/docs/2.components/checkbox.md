@@ -4,7 +4,7 @@ description: A toggle input for marking as checked or unchecked.
 category: form
 links:
   - label: GitHub
-    icon: i-simple-icons-github
+    iconName: GitHubIcon
     to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Checkbox
   - label: Demo
     iconName: DemonstrationOnIcon

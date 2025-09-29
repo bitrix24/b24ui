@@ -503,7 +503,7 @@ Example:
   to="/tasks"
   active-class="italic"
   inactive-class="opacity-80"
-  :b24ui="{ baseLine: 'justify-center min-w-48', leadingIcon: 'text-ai-500' }"
+  :b24ui="{ baseLine: 'justify-center min-w-48', leadingIcon: 'text-(--ui-color-copilot-accent-primary)' }"
   @click="() => new Promise(res => setTimeout(res, 800))"
 />
 ```
@@ -1387,7 +1387,7 @@ Example:
     <B24SidebarHeader>
       <!-- Navigation header -->
       <div class="h-full flex items-center relative my-0 ps-[25px] pe-xs rtl:pe-[25px]">
-        <ProseH4 class="font-medium mb-0">SideBar</ProseH4>
+        <ProseH4 class="font-(--ui-font-weight-medium) mb-0">SideBar</ProseH4>
       </div>
     </B24SidebarHeader>
     <B24SidebarBody>
@@ -1411,7 +1411,7 @@ Example:
       <!-- Navigation footer -->
       <B24SidebarSection>
         <B24Link
-          class="text-sm mb-2 flex flex-row items-center justify-between"
+          class="text-(length:--ui-font-size-sm) mb-2 flex flex-row items-center justify-between"
           to="https://bitrix24.github.io/b24ui/"
           target="_blank"
         >
@@ -1505,7 +1505,7 @@ Example:
       </div>
 
       <!-- Page SubTitle -->
-      <ProseH2 class="font-semibold mb-0">
+      <ProseH2 class="font-(--ui-font-weight-semibold) mb-0">
         Some sub-title
       </ProseH2>
     </div>

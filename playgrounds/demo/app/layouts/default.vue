@@ -224,7 +224,7 @@ const menuTop = computed<NavigationMenuItem[]>(() => {
             :kbds="['ctrl', 'arrowleft']"
           >
             <B24Link to="/" class="mt-0 text-(--ui-color-design-selection-content)">
-              <ProseH4 class="font-medium mb-0">
+              <ProseH4 class="font-(--ui-font-weight-medium) mb-0">
                 Demo
               </ProseH4>
             </B24Link>
@@ -318,7 +318,7 @@ const menuTop = computed<NavigationMenuItem[]>(() => {
           <template #fallback>
             <div class="flex items-center gap-[12px]">
               <div class="w-full flex items-center gap-[20px]">
-                <ProseH2 class="font-semibold mb-0">
+                <ProseH2 class="font-(--ui-font-weight-semibold) mb-0">
                   Loading ...
                 </ProseH2>
               </div>

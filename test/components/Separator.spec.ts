@@ -21,7 +21,7 @@ describe('Separator', () => {
     ['with color success', { props: { color: 'success' } }],
     ['with as', { props: { as: 'span' } }],
     ['with class', { props: { class: 'flex-row-reverse' } }],
-    ['with b24ui', { props: { b24ui: { label: 'text-lg' } } }]
+    ['with b24ui', { props: { b24ui: { label: 'text-(length:--ui-font-size-lg)' } } }]
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: SeparatorProps, slots?: Partial<SeparatorSlots> }) => {
     const html = await ComponentRender(nameOrHtml, options, Separator)
     expect(html).toMatchSnapshot()

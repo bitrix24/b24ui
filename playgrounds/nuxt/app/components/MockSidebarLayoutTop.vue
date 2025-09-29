@@ -10,7 +10,7 @@ const items = ref(['Prospecting', 'Presenting'])
 <template>
   <div class="flex items-center gap-[12px]">
     <div class="w-full flex items-center gap-[20px]">
-      <ProseH2 class="font-semibold mb-0">
+      <ProseH2 class="font-(--ui-font-weight-semibold) mb-0">
         <slot />
       </ProseH2>
 

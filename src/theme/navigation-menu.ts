@@ -32,7 +32,7 @@ export default {
       'cursor-pointer',
       'w-full',
       'flex items-center gap-[2px]',
-      'font-normal text-lg',
+      'font-(--ui-font-weight-normal) text-(length:--ui-font-size-lg)',
       'focus:outline-none focus-visible:rounded-(--menu-item-border-radius) focus-visible:outline-none focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-(--ui-color-base-4)',
       'rounded-(--menu-item-border-radius)',
       'text-(--menu-item-color)',

@@ -4,6 +4,7 @@
  * ---
  * @link /api_d7/bitrix/ui/progressbar/common.php
  * @see /bitrix/js/ui/progressbar/
+ * @see Table.loadingAnimation
  */
 
 export default {

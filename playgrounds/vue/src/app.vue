@@ -221,7 +221,7 @@ const menuTop = computed<NavigationMenuItem[]>(() => {
               :kbds="['ctrl', 'arrowleft']"
             >
               <B24Link to="/" class="mt-0 text-(--ui-color-design-selection-content)">
-                <ProseH4 class="font-medium mb-0">
+                <ProseH4 class="font-(--ui-font-weight-medium) mb-0">
                   Vue::Playground
                 </ProseH4>
               </B24Link>

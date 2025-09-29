@@ -4,7 +4,7 @@ description: A toggle control for switching between two states.
 category: element
 links:
   - label: GitHub
-    icon: i-simple-icons-github
+    iconName: GitHubIcon
     to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Skeleton
   - label: Demo
     iconName: DemonstrationOnIcon

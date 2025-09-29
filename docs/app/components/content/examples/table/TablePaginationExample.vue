@@ -139,7 +139,7 @@ const columns: TableColumn<Payment>[] = [{
       style: 'currency',
       currency: 'EUR'
     }).format(amount)
-    return h('div', { class: 'text-right font-medium' }, formatted)
+    return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, formatted)
   }
 }]
 

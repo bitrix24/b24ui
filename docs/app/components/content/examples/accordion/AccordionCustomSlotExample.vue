@@ -27,7 +27,7 @@ const items = [
 <template>
   <B24Accordion :items="items">
     <template #colors="{ item }">
-      <p class="text-sm pb-3.5 text-primary">
+      <p class="text-(length:--ui-font-size-sm) pb-3.5 text-(--ui-color-accent-main-primary)">
         {{ item.content }}
       </p>
     </template>

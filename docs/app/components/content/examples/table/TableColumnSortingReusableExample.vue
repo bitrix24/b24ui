@@ -92,7 +92,7 @@ const columns: TableColumn<Payment>[] = [{
       currency: 'EUR'
     }).format(amount)
 
-    return h('div', { class: 'text-right font-medium' }, formatted)
+    return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, formatted)
   }
 }]
 
@@ -133,10 +133,11 @@ function getHeader(column: Column<Payment>, label: string) {
       }
     ]
   }, () => h(B24Button, {
-    'color': 'neutral',
+    'color': 'air-primary-copilot',
     label,
     'icon': isSorted ? (isSorted === 'asc' ? AscendingSortIcon : DescendingSortIcon) : SortIcon,
-    'class': '-mx-2.5 data-[state=open]:bg-elevated',
+    // @todo fix this
+    'class': '-mx-2.5 data-[state=open]:bg-red-500',
     'aria-label': `Sort by ${isSorted === 'asc' ? 'descending' : 'ascending'}`
   }))
 }

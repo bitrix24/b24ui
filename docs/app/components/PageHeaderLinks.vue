@@ -56,7 +56,7 @@ async function copyPage() {
       label="Copy page"
       :icon="copied ? CircleCheckIcon : CopyIcon"
       :b24ui="{
-        leadingIcon: [copied ? 'text-success' : 'text-(--ui-btn-color)']
+        leadingIcon: [copied ? 'text-(--ui-color-accent-main-success)' : 'text-(--ui-btn-color)']
       }"
       @click="copyPage"
     />
@@ -64,7 +64,7 @@ async function copyPage() {
       :items="items"
       :content="{ side: 'bottom', align: 'end', sideOffset: 4 }"
       :b24ui="{
-        content: 'w-48',
+        content: 'w-[192px]',
         itemLeadingIcon: ['mr-[5px]'],
         itemLeadingAvatar: ['mr-[5px]']
       }"

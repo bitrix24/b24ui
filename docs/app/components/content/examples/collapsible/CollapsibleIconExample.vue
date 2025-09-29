@@ -1,5 +1,5 @@
 <template>
-  <B24Collapsible class="flex flex-col gap-2 w-48">
+  <B24Collapsible class="flex flex-col gap-2 w-[192px]">
     <B24Button
       class="group"
       label="Open"

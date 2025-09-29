@@ -110,7 +110,7 @@ const airColors = computed(() => {
           :icon="DownloadDoubleIcon"
           label="Button"
           class="group"
-          :b24ui="{ leadingIcon: 'group-hover:text-ai-500' }"
+          :b24ui="{ leadingIcon: 'group-hover:text-(--ui-color-copilot-accent-primary)' }"
           loading-auto
           use-clock
           @click="onClick"

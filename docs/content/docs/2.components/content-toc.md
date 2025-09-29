@@ -6,7 +6,7 @@ badge: new
 framework: nuxt
 links:
   - label: GitHub
-    icon: i-simple-icons-github
+    iconName: GitHubIcon
     to: https://github.com/nuxt/ui/blob/v4/src/runtime/components/content/ContentToc.vue
 ---
 

@@ -42,7 +42,7 @@ export default {
     size: {
       sm: {
         legend: 'text-md',
-        text: 'mt-1 max-w-2/3 text-sm',
+        text: 'mt-1 max-w-2/3 text-(length:--ui-font-size-sm)',
         container: 'mt-2.5 text-md',
         labelWrapper: 'pt-3 sm:py-3',
         avatarSize: 'xs',
@@ -53,8 +53,8 @@ export default {
       },
       md: {
         legend: 'text-xl',
-        text: 'mt-2 max-w-2/3 text-lg leading-5',
-        container: 'mt-3 text-lg',
+        text: 'mt-2 max-w-2/3 text-(length:--ui-font-size-lg) leading-5',
+        container: 'mt-3 text-(length:--ui-font-size-lg)',
         labelWrapper: 'pt-3 sm:py-3',
         avatarSize: 'xs',
         label: '',

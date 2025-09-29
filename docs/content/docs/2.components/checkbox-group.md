@@ -5,7 +5,7 @@ category: form
 badge: new
 links:
   - label: GitHub
-    icon: i-simple-icons-github
+    iconName: GitHubIcon
     to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/CheckboxGroup
   - label: Demo
     iconName: DemonstrationOnIcon

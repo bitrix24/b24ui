@@ -103,7 +103,7 @@ Use the `class` prop to override the base styles of the Badge.
 ::component-code
 ---
 props:
-  class: 'text-ai-500 dark:text-orange-500 font-bold rounded-full'
+  class: 'text-(--ui-color-copilot-accent-primary) dark:text-(--ui-color-accent-main-warning) font-(--ui-font-weight-bold) rounded-full'
   accent: accent
 slots:
   default: K

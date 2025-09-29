@@ -24,9 +24,9 @@ type Payment = {
 
 const getColorByStatus = (status: PaymentStatus) => {
   return {
-    paid: 'success',
-    failed: 'error',
-    refunded: 'neutral'
+    paid: 'air-primary-success' as const,
+    failed: 'air-primary-alert' as const,
+    refunded: 'air-primary' as const
   }[status]
 }
 
@@ -149,7 +149,7 @@ const columns: TableColumn<Payment>[] = [
         currency: 'EUR'
       }).format(amount)
 
-      return h('div', { class: 'text-right font-medium' }, formatted)
+      return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, formatted)
     },
     aggregationFn: 'sum'
   }
@@ -167,7 +167,7 @@ const grouping_options = ref<GroupingOptions>({
     :columns="columns"
     :grouping="['account_id', 'status']"
     :grouping-options="grouping_options"
-    :ui="{
+    :b24ui="{
       root: 'min-w-full',
       td: 'empty:p-0' // helps with the colspaned row added for expand slot
     }"
@@ -181,7 +181,6 @@ const grouping_options = ref<GroupingOptions>({
 
         <UButton
           variant="outline"
-          color="neutral"
           class="mr-2"
           size="xs"
           :icon="row.getIsExpanded() ? 'i-lucide-minus' : 'i-lucide-plus'"

@@ -412,7 +412,7 @@ const openSliderTopAndBottom = async () => {
           <template #sidebar>
             <B24SidebarHeader>
               <div class="h-full flex items-center relative my-0 ps-[25px] pe-xs rtl:pe-[25px]">
-                <ProseH4 class="font-medium mb-0">
+                <ProseH4 class="font-(--ui-font-weight-medium) mb-0">
                   Inner
                 </ProseH4>
               </div>

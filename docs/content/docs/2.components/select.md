@@ -41,7 +41,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-48'
+  class: 'w-[192px]'
 ---
 ::
 
@@ -66,7 +66,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-48'
+  class: 'w-[192px]'
 ---
 ::
 
@@ -105,7 +105,7 @@ props:
       value: 'in_progress'
     - label: 'Done'
       value: 'done'
-  class: 'w-48'
+  class: 'w-[192px]'
 ---
 ::
 
@@ -140,7 +140,7 @@ props:
       - Carrot
       - Courgette
       - Leek
-  class: 'w-48'
+  class: 'w-[192px]'
 ---
 ::
 
@@ -173,7 +173,7 @@ props:
       id: 'in_progress'
     - label: 'Done'
       id: 'done'
-  class: 'w-48'
+  class: 'w-[192px]'
 ---
 ::
 
@@ -202,7 +202,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-48'
+  class: 'w-[192px]'
 ---
 ::
 
@@ -229,7 +229,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-48'
+  class: 'w-[192px]'
 ---
 ::
 
@@ -268,7 +268,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-48'
+  class: 'w-[192px]'
 ---
 ::
 
@@ -295,7 +295,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-48'
+  class: 'w-[192px]'
 ---
 ::
 
@@ -322,7 +322,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-48'
+  class: 'w-[192px]'
 ---
 ::
 
@@ -356,7 +356,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-48'
+  class: 'w-[192px]'
 ---
 ::
 
@@ -403,7 +403,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-48'
+  class: 'w-[192px]'
 ---
 ::
 
@@ -433,7 +433,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-48'
+  class: 'w-[192px]'
 ---
 ::
 
@@ -463,7 +463,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-48'
+  class: 'w-[192px]'
 ---
 ::
 
@@ -493,7 +493,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-48'
+  class: 'w-[192px]'
 ---
 ::
 
@@ -523,7 +523,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-48'
+  class: 'w-[192px]'
 ---
 ::
 
@@ -550,7 +550,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-48'
+  class: 'w-[192px]'
 ---
 ::
 
@@ -576,7 +576,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-48'
+  class: 'w-[192px]'
 ---
 ::
 
@@ -601,7 +601,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-48'
+  class: 'w-[192px]'
 ---
 ::
 
@@ -627,7 +627,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-48'
+  class: 'w-[192px]'
 ---
 ::
 
@@ -657,7 +657,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-48'
+  class: 'w-[192px]'
 ---
 ::
 
@@ -687,7 +687,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-48'
+  class: 'w-[192px]'
 ---
 ::
 
@@ -717,7 +717,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-48'
+  class: 'w-[192px]'
 ---
 ::
 
@@ -761,7 +761,7 @@ props:
     - Carrot
     - Courgette
     - Leek
-  class: 'w-48'
+  class: 'w-[192px]'
 ---
 ::
 

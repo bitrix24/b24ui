@@ -61,7 +61,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
       tabindex="-1"
       :icon="copied ? icons.copyCheck : icons.copy"
       :b24ui="{
-        leadingIcon: [copied ? 'text-success' : 'text-(--ui-btn-color)']
+        leadingIcon: [copied ? 'text-(--ui-color-accent-main-success)' : 'text-(--ui-btn-color)']
       }"
       @click="copy(props.code || '')"
     />

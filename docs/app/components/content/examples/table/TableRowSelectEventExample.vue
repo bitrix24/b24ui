@@ -74,12 +74,12 @@ const columns: TableColumn<Payment>[] = [{
   header: 'Status',
   cell: ({ row }) => {
     const color = ({
-      paid: 'success' as const,
-      failed: 'error' as const,
-      refunded: 'neutral' as const
+      paid: 'air-primary-success' as const,
+      failed: 'air-primary-alert' as const,
+      refunded: 'air-primary' as const
     })[row.getValue('status') as string]
 
-    return h(UBadge, { class: 'capitalize', variant: 'subtle', color }, () => row.getValue('status'))
+    return h(UBadge, { class: 'capitalize', color }, () => row.getValue('status'))
   }
 }, {
   accessorKey: 'email',
@@ -95,7 +95,7 @@ const columns: TableColumn<Payment>[] = [{
       currency: 'EUR'
     }).format(amount)
 
-    return h('div', { class: 'text-right font-medium' }, formatted)
+    return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, formatted)
   }
 }]
 
@@ -122,7 +122,7 @@ function onSelect(row: TableRow<Payment>, e?: Event) {
         @select="onSelect"
       />
 
-      <div class="px-4 py-3.5 border-t border-accented text-sm text-muted">
+      <div class="px-4 py-3.5 border-t border-accented text-(length:--ui-font-size-sm) text-(--b24ui-typography-description-color)">
         {{ table?.tableApi?.getFilteredSelectedRowModel().rows.length || 0 }} of
         {{ table?.tableApi?.getFilteredRowModel().rows.length || 0 }} row(s) selected.
       </div>

@@ -105,7 +105,7 @@ const columns: TableColumn<Payment>[] = [{
           size: 'xs',
           icon: row.getIsExpanded() ? 'i-lucide-minus' : 'i-lucide-plus',
           class: !row.getCanExpand() && 'invisible',
-          ui: {
+          b24ui: {
             base: 'p-0 rounded-sm',
             leadingIcon: 'size-4'
           },
@@ -141,7 +141,7 @@ const columns: TableColumn<Payment>[] = [{
       currency: 'EUR'
     }).format(amount)
 
-    return h('div', { class: 'text-right font-medium' }, formatted)
+    return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, formatted)
   }
 }]
 
@@ -156,7 +156,7 @@ const expanded = ref({ 0: true })
     :get-sub-rows="row => row.children"
     sticky
     class="flex-1"
-    :ui="{
+    :b24ui="{
       base: 'border-separate border-spacing-0',
       tbody: '[&>tr]:last:[&>td]:border-b-0',
       tr: 'group',

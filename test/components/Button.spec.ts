@@ -39,7 +39,7 @@ describe('Button', () => {
     ['with block', { props: { label: 'Button', block: true } }],
     ['with rounded', { props: { label: 'Button', rounded: true } }],
     ['with as', { props: { label: 'Button', as: 'div' } }],
-    ['with class', { props: { label: 'Button', class: 'rounded-full font-bold' } }],
+    ['with class', { props: { label: 'Button', class: 'rounded-full font-(--ui-font-weight-bold)' } }],
     ['with b24ui', { props: { label: 'Button', b24ui: { label: 'font-bold' } } }],
     // Slots
     ['with default slot', { slots: { default: () => 'Default slot' } }],

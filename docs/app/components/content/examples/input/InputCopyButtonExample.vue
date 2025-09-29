@@ -18,7 +18,7 @@ const { copy, copied } = useClipboard()
       <B24Tooltip text="Copy to clipboard" :content="{ side: 'right' }">
         <B24Button
           :b24ui="{
-            leadingIcon: [copied ? 'text-success' : 'text-(--ui-btn-color)']
+            leadingIcon: [copied ? 'text-(--ui-color-accent-main-success)' : 'text-(--ui-btn-color)']
           }"
           size="sm"
           color="air-tertiary-no-accent"

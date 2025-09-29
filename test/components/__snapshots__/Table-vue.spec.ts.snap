@@ -6,10 +6,10 @@ exports[`Table > renders with as correctly 1`] = `
     <!--v-if-->
     <thead class="relative">
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Id</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Amount</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Status</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Email</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Id</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Amount</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Status</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Email</th>
       </tr>
       <tr class="absolute z-[1] left-0 w-full h-px bg-(--ui-border-accented)"></tr>
     </thead>
@@ -61,10 +61,10 @@ exports[`Table > renders with b24ui correctly 1`] = `
     <!--v-if-->
     <thead class="relative">
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Id</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Amount</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Status</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Email</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Id</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Amount</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Status</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Email</th>
       </tr>
       <tr class="absolute z-[1] left-0 w-full h-px bg-(--ui-border-accented)"></tr>
     </thead>
@@ -116,10 +116,10 @@ exports[`Table > renders with body-bottom slot correctly 1`] = `
     <!--v-if-->
     <thead class="relative">
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Id</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Amount</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Status</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Email</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Id</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Amount</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Status</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Email</th>
       </tr>
       <tr class="absolute z-[1] left-0 w-full h-px bg-(--ui-border-accented)"></tr>
     </thead>
@@ -171,10 +171,10 @@ exports[`Table > renders with body-top slot correctly 1`] = `
     <!--v-if-->
     <thead class="relative">
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Id</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Amount</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Status</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Email</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Id</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Amount</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Status</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Email</th>
       </tr>
       <tr class="absolute z-[1] left-0 w-full h-px bg-(--ui-border-accented)"></tr>
     </thead>
@@ -225,10 +225,10 @@ exports[`Table > renders with caption correctly 1`] = `
     <caption class="sr-only">Table caption</caption>
     <thead class="relative">
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Id</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Amount</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Status</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Email</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Id</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Amount</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Status</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Email</th>
       </tr>
       <tr class="absolute z-[1] left-0 w-full h-px bg-(--ui-border-accented)"></tr>
     </thead>
@@ -280,10 +280,10 @@ exports[`Table > renders with caption slot correctly 1`] = `
     <caption class="sr-only">Caption slot</caption>
     <thead class="relative">
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Id</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Amount</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Status</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Email</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Id</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Amount</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Status</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Email</th>
       </tr>
       <tr class="absolute z-[1] left-0 w-full h-px bg-(--ui-border-accented)"></tr>
     </thead>
@@ -335,10 +335,10 @@ exports[`Table > renders with cell slot correctly 1`] = `
     <!--v-if-->
     <thead class="relative">
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Id</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Amount</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Status</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Email</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Id</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Amount</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Status</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Email</th>
       </tr>
       <tr class="absolute z-[1] left-0 w-full h-px bg-(--ui-border-accented)"></tr>
     </thead>
@@ -390,10 +390,10 @@ exports[`Table > renders with class correctly 1`] = `
     <!--v-if-->
     <thead class="relative">
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Id</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Amount</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Status</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Email</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Id</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Amount</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Status</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Email</th>
       </tr>
       <tr class="absolute z-[1] left-0 w-full h-px bg-(--ui-border-accented)"></tr>
     </thead>
@@ -445,7 +445,7 @@ exports[`Table > renders with columns correctly 1`] = `
     <!--v-if-->
     <thead class="relative">
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <div class="relative flex items-start style-filled flex-row">
             <div class="flex items-center h-[16px]"><button arialabel="Select all" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
                 <!---->
@@ -454,10 +454,10 @@ exports[`Table > renders with columns correctly 1`] = `
             <!--v-if-->
           </div>
         </th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">#</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Date</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Status</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0"><button type="button" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled-copilot ui-btn-md rounded-(--ui-btn-radius) normal-case --air -mx-2.5">
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">#</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Date</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Status</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0"><button type="button" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled-copilot ui-btn-md rounded-(--ui-btn-radius) normal-case --air -mx-2.5">
             <!--v-if-->
             <div class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) pe-(--ui-btn-padding-right) ps-[calc(var(--ui-btn-padding-left)_-_var(--ui-btn-icon-compensation))]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
                 <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
@@ -465,10 +465,10 @@ exports[`Table > renders with columns correctly 1`] = `
               <!--v-if-->
             </div>
           </button></th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <div class="text-right">Amount</div>
         </th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <!---->
         </th>
       </tr>
@@ -494,7 +494,7 @@ exports[`Table > renders with columns correctly 1`] = `
           <div class="lowercase">ken99@yahoo.com</div>
         </td>
         <td data-pinned="false" class="p-4 text-sm text-muted whitespace-nowrap [&amp;:has([role=checkbox])]:pe-0">
-          <div class="text-right font-medium">€316.00</div>
+          <div class="text-right font-(--ui-font-weight-medium)">€316.00</div>
         </td>
         <td data-pinned="false" class="p-4 text-sm text-muted whitespace-nowrap [&amp;:has([role=checkbox])]:pe-0">
           <div class="text-right"><button type="button" id="reka-dropdown-menu-trigger-v-2" aria-haspopup="menu" aria-expanded="false" data-state="closed" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled-copilot ui-btn-md rounded-(--ui-btn-radius) normal-case --air ml-auto">
@@ -532,7 +532,7 @@ exports[`Table > renders with columns correctly 1`] = `
           <div class="lowercase">Abe45@gmail.com</div>
         </td>
         <td data-pinned="false" class="p-4 text-sm text-muted whitespace-nowrap [&amp;:has([role=checkbox])]:pe-0">
-          <div class="text-right font-medium">€242.00</div>
+          <div class="text-right font-(--ui-font-weight-medium)">€242.00</div>
         </td>
         <td data-pinned="false" class="p-4 text-sm text-muted whitespace-nowrap [&amp;:has([role=checkbox])]:pe-0">
           <div class="text-right"><button type="button" id="reka-dropdown-menu-trigger-v-4" aria-haspopup="menu" aria-expanded="false" data-state="closed" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled-copilot ui-btn-md rounded-(--ui-btn-radius) normal-case --air ml-auto">
@@ -570,7 +570,7 @@ exports[`Table > renders with columns correctly 1`] = `
           <div class="lowercase">Monserrat44@gmail.com</div>
         </td>
         <td data-pinned="false" class="p-4 text-sm text-muted whitespace-nowrap [&amp;:has([role=checkbox])]:pe-0">
-          <div class="text-right font-medium">€837.00</div>
+          <div class="text-right font-(--ui-font-weight-medium)">€837.00</div>
         </td>
         <td data-pinned="false" class="p-4 text-sm text-muted whitespace-nowrap [&amp;:has([role=checkbox])]:pe-0">
           <div class="text-right"><button type="button" id="reka-dropdown-menu-trigger-v-6" aria-haspopup="menu" aria-expanded="false" data-state="closed" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled-copilot ui-btn-md rounded-(--ui-btn-radius) normal-case --air ml-auto">
@@ -608,7 +608,7 @@ exports[`Table > renders with columns correctly 1`] = `
           <div class="lowercase">Silas22@gmail.com</div>
         </td>
         <td data-pinned="false" class="p-4 text-sm text-muted whitespace-nowrap [&amp;:has([role=checkbox])]:pe-0">
-          <div class="text-right font-medium">€874.00</div>
+          <div class="text-right font-(--ui-font-weight-medium)">€874.00</div>
         </td>
         <td data-pinned="false" class="p-4 text-sm text-muted whitespace-nowrap [&amp;:has([role=checkbox])]:pe-0">
           <div class="text-right"><button type="button" id="reka-dropdown-menu-trigger-v-8" aria-haspopup="menu" aria-expanded="false" data-state="closed" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled-copilot ui-btn-md rounded-(--ui-btn-radius) normal-case --air ml-auto">
@@ -646,7 +646,7 @@ exports[`Table > renders with columns correctly 1`] = `
           <div class="lowercase">carmella@hotmail.com</div>
         </td>
         <td data-pinned="false" class="p-4 text-sm text-muted whitespace-nowrap [&amp;:has([role=checkbox])]:pe-0">
-          <div class="text-right font-medium">€721.00</div>
+          <div class="text-right font-(--ui-font-weight-medium)">€721.00</div>
         </td>
         <td data-pinned="false" class="p-4 text-sm text-muted whitespace-nowrap [&amp;:has([role=checkbox])]:pe-0">
           <div class="text-right"><button type="button" id="reka-dropdown-menu-trigger-v-10" aria-haspopup="menu" aria-expanded="false" data-state="closed" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled-copilot ui-btn-md rounded-(--ui-btn-radius) normal-case --air ml-auto">
@@ -669,25 +669,25 @@ exports[`Table > renders with columns correctly 1`] = `
     <tfoot class="relative">
       <tr class="absolute z-[1] left-0 w-full h-px bg-(--ui-border-accented)"></tr>
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <!---->
         </th>
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <!---->
         </th>
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <!---->
         </th>
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <!---->
         </th>
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <!---->
         </th>
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
-          <div class="text-right font-medium">Total: €2,990.00</div>
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
+          <div class="text-right font-(--ui-font-weight-medium)">Total: €2,990.00</div>
         </th>
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <!---->
         </th>
       </tr>
@@ -702,10 +702,10 @@ exports[`Table > renders with data correctly 1`] = `
     <!--v-if-->
     <thead class="relative">
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Id</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Amount</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Status</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Email</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Id</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Amount</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Status</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Email</th>
       </tr>
       <tr class="absolute z-[1] left-0 w-full h-px bg-(--ui-border-accented)"></tr>
     </thead>
@@ -775,7 +775,7 @@ exports[`Table > renders with empty slot correctly 1`] = `
     <!--v-if-->
     <thead class="relative">
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <div class="relative flex items-start style-filled flex-row">
             <div class="flex items-center h-[16px]"><button arialabel="Select all" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
                 <!---->
@@ -784,10 +784,10 @@ exports[`Table > renders with empty slot correctly 1`] = `
             <!--v-if-->
           </div>
         </th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">#</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Date</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Status</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0"><button type="button" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled-copilot ui-btn-md rounded-(--ui-btn-radius) normal-case --air -mx-2.5">
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">#</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Date</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Status</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0"><button type="button" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled-copilot ui-btn-md rounded-(--ui-btn-radius) normal-case --air -mx-2.5">
             <!--v-if-->
             <div class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) pe-(--ui-btn-padding-right) ps-[calc(var(--ui-btn-padding-left)_-_var(--ui-btn-icon-compensation))]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
                 <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
@@ -795,10 +795,10 @@ exports[`Table > renders with empty slot correctly 1`] = `
               <!--v-if-->
             </div>
           </button></th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <div class="text-right">Amount</div>
         </th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <!---->
         </th>
       </tr>
@@ -812,25 +812,25 @@ exports[`Table > renders with empty slot correctly 1`] = `
     <tfoot class="relative">
       <tr class="absolute z-[1] left-0 w-full h-px bg-(--ui-border-accented)"></tr>
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <!---->
         </th>
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <!---->
         </th>
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <!---->
         </th>
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <!---->
         </th>
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <!---->
         </th>
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
-          <div class="text-right font-medium">Total: €0.00</div>
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
+          <div class="text-right font-(--ui-font-weight-medium)">Total: €0.00</div>
         </th>
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <!---->
         </th>
       </tr>
@@ -845,10 +845,10 @@ exports[`Table > renders with expanded slot correctly 1`] = `
     <!--v-if-->
     <thead class="relative">
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Id</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Amount</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Status</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Email</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Id</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Amount</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Status</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Email</th>
       </tr>
       <tr class="absolute z-[1] left-0 w-full h-px bg-(--ui-border-accented)"></tr>
     </thead>
@@ -900,10 +900,10 @@ exports[`Table > renders with header slot correctly 1`] = `
     <!--v-if-->
     <thead class="relative">
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">ID Header slot</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Amount</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Status</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Email</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">ID Header slot</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Amount</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Status</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Email</th>
       </tr>
       <tr class="absolute z-[1] left-0 w-full h-px bg-(--ui-border-accented)"></tr>
     </thead>
@@ -955,10 +955,10 @@ exports[`Table > renders with loading animation carousel correctly 1`] = `
     <!--v-if-->
     <thead class="relative after:absolute after:z-[1] after:h-px after:animate-[carousel_2s_ease-in-out_infinite] rtl:after:animate-[carousel-rtl_2s_ease-in-out_infinite]">
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Id</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Amount</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Status</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Email</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Id</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Amount</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Status</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Email</th>
       </tr>
       <tr class="absolute z-[1] left-0 w-full h-px bg-(--ui-border-accented)"></tr>
     </thead>
@@ -1010,10 +1010,10 @@ exports[`Table > renders with loading animation carousel-inverse correctly 1`] =
     <!--v-if-->
     <thead class="relative after:absolute after:z-[1] after:h-px after:animate-[carousel-inverse_2s_ease-in-out_infinite] rtl:after:animate-[carousel-inverse-rtl_2s_ease-in-out_infinite]">
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Id</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Amount</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Status</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Email</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Id</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Amount</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Status</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Email</th>
       </tr>
       <tr class="absolute z-[1] left-0 w-full h-px bg-(--ui-border-accented)"></tr>
     </thead>
@@ -1065,10 +1065,10 @@ exports[`Table > renders with loading animation elastic correctly 1`] = `
     <!--v-if-->
     <thead class="relative after:absolute after:z-[1] after:h-px after:animate-[elastic_2s_ease-in-out_infinite]">
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Id</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Amount</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Status</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Email</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Id</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Amount</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Status</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Email</th>
       </tr>
       <tr class="absolute z-[1] left-0 w-full h-px bg-(--ui-border-accented)"></tr>
     </thead>
@@ -1120,10 +1120,10 @@ exports[`Table > renders with loading animation swing correctly 1`] = `
     <!--v-if-->
     <thead class="relative after:absolute after:z-[1] after:h-px after:animate-[swing_2s_ease-in-out_infinite]">
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Id</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Amount</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Status</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Email</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Id</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Amount</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Status</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Email</th>
       </tr>
       <tr class="absolute z-[1] left-0 w-full h-px bg-(--ui-border-accented)"></tr>
     </thead>
@@ -1175,10 +1175,10 @@ exports[`Table > renders with loading color neutral correctly 1`] = `
     <!--v-if-->
     <thead class="relative after:absolute after:z-[1] after:h-px after:bg-inverted after:animate-[carousel_2s_ease-in-out_infinite] rtl:after:animate-[carousel-rtl_2s_ease-in-out_infinite]">
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Id</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Amount</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Status</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Email</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Id</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Amount</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Status</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Email</th>
       </tr>
       <tr class="absolute z-[1] left-0 w-full h-px bg-(--ui-border-accented)"></tr>
     </thead>
@@ -1230,10 +1230,10 @@ exports[`Table > renders with loading correctly 1`] = `
     <!--v-if-->
     <thead class="relative after:absolute after:z-[1] after:h-px after:animate-[carousel_2s_ease-in-out_infinite] rtl:after:animate-[carousel-rtl_2s_ease-in-out_infinite]">
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Id</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Amount</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Status</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Email</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Id</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Amount</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Status</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Email</th>
       </tr>
       <tr class="absolute z-[1] left-0 w-full h-px bg-(--ui-border-accented)"></tr>
     </thead>
@@ -1285,7 +1285,7 @@ exports[`Table > renders with loading slot correctly 1`] = `
     <!--v-if-->
     <thead class="relative after:absolute after:z-[1] after:h-px after:animate-[carousel_2s_ease-in-out_infinite] rtl:after:animate-[carousel-rtl_2s_ease-in-out_infinite]">
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <div class="relative flex items-start style-filled flex-row">
             <div class="flex items-center h-[16px]"><button arialabel="Select all" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
                 <!---->
@@ -1294,10 +1294,10 @@ exports[`Table > renders with loading slot correctly 1`] = `
             <!--v-if-->
           </div>
         </th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">#</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Date</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Status</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0"><button type="button" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled-copilot ui-btn-md rounded-(--ui-btn-radius) normal-case --air -mx-2.5">
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">#</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Date</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Status</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0"><button type="button" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled-copilot ui-btn-md rounded-(--ui-btn-radius) normal-case --air -mx-2.5">
             <!--v-if-->
             <div class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) pe-(--ui-btn-padding-right) ps-[calc(var(--ui-btn-padding-left)_-_var(--ui-btn-icon-compensation))]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
                 <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
@@ -1305,10 +1305,10 @@ exports[`Table > renders with loading slot correctly 1`] = `
               <!--v-if-->
             </div>
           </button></th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <div class="text-right">Amount</div>
         </th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <!---->
         </th>
       </tr>
@@ -1322,25 +1322,25 @@ exports[`Table > renders with loading slot correctly 1`] = `
     <tfoot class="relative">
       <tr class="absolute z-[1] left-0 w-full h-px bg-(--ui-border-accented)"></tr>
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <!---->
         </th>
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <!---->
         </th>
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <!---->
         </th>
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <!---->
         </th>
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <!---->
         </th>
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
-          <div class="text-right font-medium">Total: €0.00</div>
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
+          <div class="text-right font-(--ui-font-weight-medium)">Total: €0.00</div>
         </th>
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">
           <!---->
         </th>
       </tr>
@@ -1355,7 +1355,7 @@ exports[`Table > renders with meta field on columns correctly 1`] = `
     <!--v-if-->
     <thead class="relative">
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0 custom-heading-class">
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0 custom-heading-class">
           <div class="relative flex items-start style-filled flex-row">
             <div class="flex items-center h-[16px]"><button arialabel="Select all" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
                 <!---->
@@ -1364,10 +1364,10 @@ exports[`Table > renders with meta field on columns correctly 1`] = `
             <!--v-if-->
           </div>
         </th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0 custom-heading-class">#</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0 custom-heading-class">Date</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0 custom-heading-class">Status</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0 custom-heading-class"><button type="button" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled-copilot ui-btn-md rounded-(--ui-btn-radius) normal-case --air -mx-2.5">
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0 custom-heading-class">#</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0 custom-heading-class">Date</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0 custom-heading-class">Status</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0 custom-heading-class"><button type="button" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled-copilot ui-btn-md rounded-(--ui-btn-radius) normal-case --air -mx-2.5">
             <!--v-if-->
             <div class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) pe-(--ui-btn-padding-right) ps-[calc(var(--ui-btn-padding-left)_-_var(--ui-btn-icon-compensation))]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
                 <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
@@ -1375,10 +1375,10 @@ exports[`Table > renders with meta field on columns correctly 1`] = `
               <!--v-if-->
             </div>
           </button></th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0 custom-heading-class">
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0 custom-heading-class">
           <div class="text-right">Amount</div>
         </th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0 custom-heading-class">
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0 custom-heading-class">
           <!---->
         </th>
       </tr>
@@ -1404,7 +1404,7 @@ exports[`Table > renders with meta field on columns correctly 1`] = `
           <div class="lowercase">ken99@yahoo.com</div>
         </td>
         <td data-pinned="false" class="p-4 text-sm text-muted whitespace-nowrap [&amp;:has([role=checkbox])]:pe-0 custom-cell-class" style="background-color: lightgray;">
-          <div class="text-right font-medium">€316.00</div>
+          <div class="text-right font-(--ui-font-weight-medium)">€316.00</div>
         </td>
         <td data-pinned="false" class="p-4 text-sm text-muted whitespace-nowrap [&amp;:has([role=checkbox])]:pe-0 custom-cell-class" style="background-color: lightgray;">
           <div class="text-right"><button type="button" id="reka-dropdown-menu-trigger-v-2" aria-haspopup="menu" aria-expanded="false" data-state="closed" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled-copilot ui-btn-md rounded-(--ui-btn-radius) normal-case --air ml-auto">
@@ -1442,7 +1442,7 @@ exports[`Table > renders with meta field on columns correctly 1`] = `
           <div class="lowercase">Abe45@gmail.com</div>
         </td>
         <td data-pinned="false" class="p-4 text-sm text-muted whitespace-nowrap [&amp;:has([role=checkbox])]:pe-0 custom-cell-class" style="background-color: lightgray;">
-          <div class="text-right font-medium">€242.00</div>
+          <div class="text-right font-(--ui-font-weight-medium)">€242.00</div>
         </td>
         <td data-pinned="false" class="p-4 text-sm text-muted whitespace-nowrap [&amp;:has([role=checkbox])]:pe-0 custom-cell-class" style="background-color: lightgray;">
           <div class="text-right"><button type="button" id="reka-dropdown-menu-trigger-v-4" aria-haspopup="menu" aria-expanded="false" data-state="closed" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled-copilot ui-btn-md rounded-(--ui-btn-radius) normal-case --air ml-auto">
@@ -1480,7 +1480,7 @@ exports[`Table > renders with meta field on columns correctly 1`] = `
           <div class="lowercase">Monserrat44@gmail.com</div>
         </td>
         <td data-pinned="false" class="p-4 text-sm text-muted whitespace-nowrap [&amp;:has([role=checkbox])]:pe-0 custom-cell-class" style="background-color: lightgray;">
-          <div class="text-right font-medium">€837.00</div>
+          <div class="text-right font-(--ui-font-weight-medium)">€837.00</div>
         </td>
         <td data-pinned="false" class="p-4 text-sm text-muted whitespace-nowrap [&amp;:has([role=checkbox])]:pe-0 custom-cell-class" style="background-color: lightgray;">
           <div class="text-right"><button type="button" id="reka-dropdown-menu-trigger-v-6" aria-haspopup="menu" aria-expanded="false" data-state="closed" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled-copilot ui-btn-md rounded-(--ui-btn-radius) normal-case --air ml-auto">
@@ -1518,7 +1518,7 @@ exports[`Table > renders with meta field on columns correctly 1`] = `
           <div class="lowercase">Silas22@gmail.com</div>
         </td>
         <td data-pinned="false" class="p-4 text-sm text-muted whitespace-nowrap [&amp;:has([role=checkbox])]:pe-0 custom-cell-class" style="background-color: lightgray;">
-          <div class="text-right font-medium">€874.00</div>
+          <div class="text-right font-(--ui-font-weight-medium)">€874.00</div>
         </td>
         <td data-pinned="false" class="p-4 text-sm text-muted whitespace-nowrap [&amp;:has([role=checkbox])]:pe-0 custom-cell-class" style="background-color: lightgray;">
           <div class="text-right"><button type="button" id="reka-dropdown-menu-trigger-v-8" aria-haspopup="menu" aria-expanded="false" data-state="closed" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled-copilot ui-btn-md rounded-(--ui-btn-radius) normal-case --air ml-auto">
@@ -1556,7 +1556,7 @@ exports[`Table > renders with meta field on columns correctly 1`] = `
           <div class="lowercase">carmella@hotmail.com</div>
         </td>
         <td data-pinned="false" class="p-4 text-sm text-muted whitespace-nowrap [&amp;:has([role=checkbox])]:pe-0 custom-cell-class" style="background-color: lightgray;">
-          <div class="text-right font-medium">€721.00</div>
+          <div class="text-right font-(--ui-font-weight-medium)">€721.00</div>
         </td>
         <td data-pinned="false" class="p-4 text-sm text-muted whitespace-nowrap [&amp;:has([role=checkbox])]:pe-0 custom-cell-class" style="background-color: lightgray;">
           <div class="text-right"><button type="button" id="reka-dropdown-menu-trigger-v-10" aria-haspopup="menu" aria-expanded="false" data-state="closed" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled-copilot ui-btn-md rounded-(--ui-btn-radius) normal-case --air ml-auto">
@@ -1579,25 +1579,25 @@ exports[`Table > renders with meta field on columns correctly 1`] = `
     <tfoot class="relative">
       <tr class="absolute z-[1] left-0 w-full h-px bg-(--ui-border-accented)"></tr>
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0 custom-heading-class" style="background-color: black;">
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0 custom-heading-class" style="background-color: black;">
           <!---->
         </th>
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0 custom-heading-class" style="background-color: black;">
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0 custom-heading-class" style="background-color: black;">
           <!---->
         </th>
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0 custom-heading-class" style="background-color: black;">
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0 custom-heading-class" style="background-color: black;">
           <!---->
         </th>
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0 custom-heading-class" style="background-color: black;">
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0 custom-heading-class" style="background-color: black;">
           <!---->
         </th>
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0 custom-heading-class" style="background-color: black;">
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0 custom-heading-class" style="background-color: black;">
           <!---->
         </th>
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0 custom-heading-class" style="background-color: black;">
-          <div class="text-right font-medium">Total: €2,990.00</div>
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0 custom-heading-class" style="background-color: black;">
+          <div class="text-right font-(--ui-font-weight-medium)">Total: €2,990.00</div>
         </th>
-        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0 custom-heading-class" style="background-color: black;">
+        <th data-pinned="false" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0 custom-heading-class" style="background-color: black;">
           <!---->
         </th>
       </tr>
@@ -1612,10 +1612,10 @@ exports[`Table > renders with meta prop correctly 1`] = `
     <!--v-if-->
     <thead class="relative">
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Id</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Amount</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Status</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Email</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Id</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Amount</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Status</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Email</th>
       </tr>
       <tr class="absolute z-[1] left-0 w-full h-px bg-(--ui-border-accented)"></tr>
     </thead>
@@ -1667,10 +1667,10 @@ exports[`Table > renders with sticky correctly 1`] = `
     <!--v-if-->
     <thead class="sticky top-0 inset-x-0 bg-default/75 z-[1] backdrop-blur">
       <tr class="data-[selected=true]:bg-elevated/50">
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Id</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Amount</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Status</th>
-        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-semibold [&amp;:has([role=checkbox])]:pe-0">Email</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Id</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Amount</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Status</th>
+        <th data-pinned="false" scope="col" class="px-4 py-3.5 text-sm text-highlighted text-left rtl:text-right font-(--ui-font-weight-semibold) [&amp;:has([role=checkbox])]:pe-0">Email</th>
       </tr>
       <tr class="absolute z-[1] left-0 w-full h-px bg-(--ui-border-accented)"></tr>
     </thead>

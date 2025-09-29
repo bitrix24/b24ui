@@ -4,7 +4,7 @@ description: A container for form elements with built-in validation and error ma
 category: form
 links:
   - label: GitHub
-    icon: i-simple-icons-github
+    iconName: GitHubIcon
     to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/FormField
   - label: Demo
     iconName: DemonstrationOnIcon

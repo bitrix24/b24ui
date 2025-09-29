@@ -11,7 +11,7 @@ import type { IMenuItem } from '~/types'
     :key="indexItem"
   >
     <B24Link
-      class="text-sm mb-2 flex flex-row items-center justify-between"
+      class="text-(length:--ui-font-size-sm) mb-2 flex flex-row items-center justify-between"
       :to="item.to"
       :target="item.target"
     >

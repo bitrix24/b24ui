@@ -7,7 +7,7 @@ const config = useRuntimeConfig().public
     <div class="flex flex-row flex-nowrap items-center justify-start gap-[6px]">
       <NuxtLink
         to="/"
-        class="flex items-end gap-2 font-bold text-xl min-w-0 shrink-0"
+        class="flex items-end gap-2 font-(--ui-font-weight-bold) text-xl min-w-0 shrink-0"
         aria-label="Bitrix24 UI"
       >
         <Logo class="w-auto h-[24px] shrink-0" />

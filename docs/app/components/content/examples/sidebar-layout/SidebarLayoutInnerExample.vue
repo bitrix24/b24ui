@@ -81,7 +81,7 @@ const customUIInnerForDemo = {
           <template #sidebar>
             <B24SidebarHeader>
               <div class="text-[#f8f7f7] h-full flex items-center relative my-0 ps-[25px] pe-xs rtl:pe-[25px]">
-                <ProseH6 class="font-medium mb-0">
+                <ProseH6 class="font-(--ui-font-weight-medium) mb-0">
                   Settings
                 </ProseH6>
               </div>
@@ -94,7 +94,7 @@ const customUIInnerForDemo = {
             </B24SidebarBody>
           </template>
           <template #navbar>
-            <ProseH4 class="font-medium mb-0">
+            <ProseH4 class="font-(--ui-font-weight-medium) mb-0">
               Demo
             </ProseH4>
             <B24NavbarSpacer />

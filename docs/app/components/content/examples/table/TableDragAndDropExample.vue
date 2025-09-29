@@ -59,7 +59,7 @@ const columns: TableColumn<Payment>[] = [{
       style: 'currency',
       currency: 'EUR'
     }).format(amount)
-    return h('div', { class: 'text-right font-medium' }, formatted)
+    return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, formatted)
   }
 }]
 
@@ -74,7 +74,7 @@ useSortable('.my-table-tbody', data, {
       ref="table"
       :data="data"
       :columns="columns"
-      :ui="{
+      :b24ui="{
         tbody: 'my-table-tbody'
       }"
     />

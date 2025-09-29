@@ -114,7 +114,7 @@ defineShortcuts(extractShortcuts(items.value))
     <Matrix v-slot="props" :attrs="attrs">
       <ExampleCard title="matrix" :use-bg="isUseBg" class="sm:col-span-2">
         <B24ContextMenu :items="items" v-bind="props">
-          <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-sm aspect-video w-full">
+          <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) aspect-video w-full">
             Right click here
           </div>
         </B24ContextMenu>

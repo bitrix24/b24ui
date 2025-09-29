@@ -52,10 +52,10 @@ defineShortcuts({
         >
           <template #content>
             <div class="text-pretty max-w-[200px]">
-              <ProseP small class="text-red-500">
-                Magna copiosae apeirian ius at. <a href="/" class="font-bold text-ai-500 underline hover:text-ai-500/90">An eos iusto solet</a>, id mel dico habemus. Sale liber et vel. Per in illud petentium iudicabit, integre sententiae pro no. Tation delenit percipitur at vix. Per in illud petentium iudicabit, integre sententiae pro no. An nam debet instructior, commodo mediocrem id cum.
+              <ProseP small class="text-(--ui-color-accent-main-success)">
+                Magna copiosae apeirian ius at. <a href="/" class="font-(--ui-font-weight-bold) text-(--ui-color-copilot-accent-primary) underline hover:text-(--ui-color-copilot-accent-primary)/90">An eos iusto solet</a>, id mel dico habemus. Sale liber et vel. Per in illud petentium iudicabit, integre sententiae pro no. Tation delenit percipitur at vix. Per in illud petentium iudicabit, integre sententiae pro no. An nam debet instructior, commodo mediocrem id cum.
               </ProseP>
-              <ProseP small class="text-orange-500">
+              <ProseP small class="text-(--ui-color-accent-main-warning)">
                 Elitr accommodare deterruisset eam te, vim munere pertinax consetetur at. Ceteros assentior omittantur cum ad. Ceteros assentior omittantur cum ad. Odio contentiones sed cu, usu commodo prompta prodesset id. Sea esse deserunt ei, no diam ubique euripidis has.
               </ProseP>
             </div>

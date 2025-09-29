@@ -11,7 +11,7 @@ import RocketIcon from '@bitrix24/b24icons-vue/outline/RocketIcon'
       target="_blank"
       size="md"
     />
-    <NuxtLink to="https://github.com/bitrix24/b24ui" target="_blank" class="text-sm hover:underline">
+    <NuxtLink to="https://github.com/bitrix24/b24ui" target="_blank" class="text-(length:--ui-font-size-sm) hover:underline">
       Published under MIT License.
     </NuxtLink>
     <ProseP small accent="less">

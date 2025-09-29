@@ -3,10 +3,12 @@ import { h, resolveComponent } from 'vue'
 import type { TableColumn } from '@bitrix24/b24ui-nuxt'
 import type { Row } from '@tanstack/vue-table'
 import { useClipboard } from '@vueuse/core'
+import CircleCheckIcon from '@bitrix24/b24icons-vue/outline/CircleCheckIcon'
+import HamburgerMenuIcon from '@bitrix24/b24icons-vue/outline/HamburgerMenuIcon'
 
-const UButton = resolveComponent('UButton')
-const UBadge = resolveComponent('UBadge')
-const UDropdownMenu = resolveComponent('UDropdownMenu')
+const B24Button = resolveComponent('B24Button')
+const B24Badge = resolveComponent('B24Badge')
+const B24DropdownMenu = resolveComponent('B24DropdownMenu')
 
 const toast = useToast()
 const { copy } = useClipboard()
@@ -19,37 +21,43 @@ type Payment = {
   amount: number
 }
 
-const data = ref<Payment[]>([{
-  id: '4600',
-  date: '2024-03-11T15:30:00',
-  status: 'paid',
-  email: 'james.anderson@example.com',
-  amount: 594
-}, {
-  id: '4599',
-  date: '2024-03-11T10:10:00',
-  status: 'failed',
-  email: 'mia.white@example.com',
-  amount: 276
-}, {
-  id: '4598',
-  date: '2024-03-11T08:50:00',
-  status: 'refunded',
-  email: 'william.brown@example.com',
-  amount: 315
-}, {
-  id: '4597',
-  date: '2024-03-10T19:45:00',
-  status: 'paid',
-  email: 'emma.davis@example.com',
-  amount: 529
-}, {
-  id: '4596',
-  date: '2024-03-10T15:55:00',
-  status: 'paid',
-  email: 'ethan.harris@example.com',
-  amount: 639
-}])
+const data = ref<Payment[]>([
+  {
+    id: '4600',
+    date: '2024-03-11T15:30:00',
+    status: 'paid',
+    email: 'james.anderson@example.com',
+    amount: 594
+  },
+  {
+    id: '4599',
+    date: '2024-03-11T10:10:00',
+    status: 'failed',
+    email: 'mia.white@example.com',
+    amount: 276
+  },
+  {
+    id: '4598',
+    date: '2024-03-11T08:50:00',
+    status: 'refunded',
+    email: 'william.brown@example.com',
+    amount: 315
+  },
+  {
+    id: '4597',
+    date: '2024-03-10T19:45:00',
+    status: 'paid',
+    email: 'emma.davis@example.com',
+    amount: 529
+  },
+  {
+    id: '4596',
+    date: '2024-03-10T15:55:00',
+    status: 'paid',
+    email: 'ethan.harris@example.com',
+    amount: 639
+  }
+])
 
 const columns: TableColumn<Payment>[] = [{
   accessorKey: 'id',
@@ -72,12 +80,12 @@ const columns: TableColumn<Payment>[] = [{
   header: 'Status',
   cell: ({ row }) => {
     const color = ({
-      paid: 'success' as const,
-      failed: 'error' as const,
-      refunded: 'neutral' as const
+      paid: 'air-primary-success' as const,
+      failed: 'air-primary-alert' as const,
+      refunded: 'air-primary' as const
     })[row.getValue('status') as string]
 
-    return h(UBadge, { class: 'capitalize', variant: 'subtle', color }, () => row.getValue('status'))
+    return h(B24Badge, { class: 'capitalize', color }, () => row.getValue('status'))
   }
 }, {
   accessorKey: 'email',
@@ -93,21 +101,20 @@ const columns: TableColumn<Payment>[] = [{
       currency: 'EUR'
     }).format(amount)
 
-    return h('div', { class: 'text-right font-medium' }, formatted)
+    return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, formatted)
   }
 }, {
   id: 'actions',
   cell: ({ row }) => {
-    return h('div', { class: 'text-right' }, h(UDropdownMenu, {
+    return h('div', { class: 'text-right' }, h(B24DropdownMenu, {
       'content': {
         align: 'end'
       },
       'items': getRowItems(row),
       'aria-label': 'Actions dropdown'
-    }, () => h(UButton, {
-      'icon': 'i-lucide-ellipsis-vertical',
-      'color': 'neutral',
-      'variant': 'ghost',
+    }, () => h(B24Button, {
+      'icon': HamburgerMenuIcon,
+      'color': 'air-primary-copilot',
       'class': 'ml-auto',
       'aria-label': 'Actions dropdown'
     })))
@@ -125,8 +132,8 @@ function getRowItems(row: Row<Payment>) {
 
       toast.add({
         title: 'Payment ID copied to clipboard!',
-        color: 'success',
-        icon: 'i-lucide-circle-check'
+        color: 'air-primary-success',
+        icon: CircleCheckIcon
       })
     }
   }, {
@@ -140,5 +147,5 @@ function getRowItems(row: Row<Payment>) {
 </script>
 
 <template>
-  <UTable :data="data" :columns="columns" class="flex-1" />
+  <B24Table :data="data" :columns="columns" class="flex-1" />
 </template>

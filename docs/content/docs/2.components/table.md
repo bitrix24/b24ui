@@ -3,11 +3,21 @@ title: Table
 description: A responsive data table component.
 category: data
 badge: new
+links:
+  - label: GitHub
+    iconName: GitHubIcon
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Table
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/table
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui4.nuxt.com/docs/components/table
+  - label: TanStack Table
+    avatar:
+      src: /b24ui/avatar/tanstack.png
+    to: https://tanstack.com/table/latest
 ---
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
 
 ## Usage
 
@@ -141,7 +151,7 @@ external:
 props:
   loading: true
   loadingColor: air-primary
-  loadingAnimation: carousel
+  loadingAnimation: loading
   data:
     - id: '4600'
       date: '2024-03-11T15:30:00'

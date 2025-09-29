@@ -28,8 +28,8 @@ describe('Tooltip', () => {
     ['with text', { props }],
     ['with arrow', { props: { ...props, arrow: true } }],
     ['with kbds', { props: { ...props, kbds: ['meta', 'K'] } }],
-    ['with class', { props: { ...props, class: 'text-sm' } }],
-    ['with b24ui', { props: { ...props, b24ui: { content: 'text-sm' } } }],
+    ['with class', { props: { ...props, class: 'text-(length:--ui-font-size-sm)' } }],
+    ['with b24ui', { props: { ...props, b24ui: { content: 'text-(length:--ui-font-size-sm)' } } }],
     // Slots
     ['with default slot', { props, slots: { default: () => 'Default slot' } }],
     ['with content slot', { props, slots: { content: () => 'Content slot' } }]

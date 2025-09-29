@@ -19,8 +19,8 @@ const items = [
 </script>
 
 <template>
-  <B24ContextMenu :items="items" :ui="{ content: 'w-48' }">
-    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-sm aspect-video w-72">
+  <B24ContextMenu :items="items" :ui="{ content: 'w-[192px]' }">
+    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) aspect-video w-72">
       Right click here
     </div>
 
@@ -29,7 +29,7 @@ const items = [
     </template>
 
     <template #refresh-trailing>
-      <SpinnerIcon v-if="loading" class="shrink-0 size-5 text-primary animate-spin" />
+      <SpinnerIcon v-if="loading" class="shrink-0 size-5 text-(--ui-color-accent-main-primary) animate-spin" />
     </template>
   </B24ContextMenu>
 </template>

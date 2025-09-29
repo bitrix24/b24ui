@@ -217,7 +217,7 @@ const urlSearchParams = computed(() => {
           />
           <template #fallback>
             <div class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0 scrollbar-transparent">
-              <ProsePre class="text-xs">{{ { wait: 'Loading client-side content...' } }}</ProsePre>
+              <ProsePre class="text-(length:--ui-font-size-xs)">{{ { wait: 'Loading client-side content...' } }}</ProsePre>
             </div>
           </template>
         </ClientOnly>

@@ -14,7 +14,7 @@ function onCreate(item: string) {
     v-model="value"
     create-item
     :items="items"
-    class="w-48"
+    class="w-[192px]"
     @create="onCreate"
   />
 </template>

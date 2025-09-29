@@ -24,7 +24,7 @@ function onOpen() {
     label-key="name"
     :search-input="{ icon: CrmSearchIcon }"
     placeholder="Select country"
-    class="w-48"
+    class="w-[192px]"
     @update:open="onOpen"
   >
     <template #leading="{ modelValue, b24ui }">

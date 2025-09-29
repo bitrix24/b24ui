@@ -86,7 +86,7 @@ const columns: TableColumn<Payment>[] = [{
       currency: 'EUR'
     }).format(total)
 
-    return h('div', { class: 'text-right font-medium' }, `Total: ${formatted}`)
+    return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, `Total: ${formatted}`)
   },
   cell: ({ row }) => {
     const amount = Number.parseFloat(row.getValue('amount'))
@@ -96,7 +96,7 @@ const columns: TableColumn<Payment>[] = [{
       currency: 'EUR'
     }).format(amount)
 
-    return h('div', { class: 'text-right font-medium' }, formatted)
+    return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, formatted)
   }
 }]
 </script>

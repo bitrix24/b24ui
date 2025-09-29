@@ -4,7 +4,7 @@ exports[`Link > renders with activeClass correctly 1`] = `"<button type="button"
 
 exports[`Link > renders with as correctly 1`] = `"<div class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start text-(--ui-color-accent-main-link) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt) hover:underline"></div>"`;
 
-exports[`Link > renders with class correctly 1`] = `"<button type="button" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start text-(--ui-color-accent-main-link) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt) hover:underline font-medium"></button>"`;
+exports[`Link > renders with class correctly 1`] = `"<button type="button" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start text-(--ui-color-accent-main-link) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt) hover:underline font-(--ui-font-weight-medium)"></button>"`;
 
 exports[`Link > renders with default slot correctly 1`] = `"<button type="button" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start text-(--ui-color-accent-main-link) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt) hover:underline">Default slot</button>"`;
 
@@ -12,7 +12,7 @@ exports[`Link > renders with disabled correctly 1`] = `"<button type="button" di
 
 exports[`Link > renders with inactiveClass correctly 1`] = `"<button type="button" class="cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start text-(--ui-color-accent-main-link) underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt) hover:underline"></button>"`;
 
-exports[`Link > renders with raw activeClass correctly 1`] = `"<button type="button" class="text-red-500"></button>"`;
+exports[`Link > renders with raw activeClass correctly 1`] = `"<button type="button" class="text-(--ui-color-accent-main-success)"></button>"`;
 
 exports[`Link > renders with raw correctly 1`] = `"<button type="button" class=""></button>"`;
 

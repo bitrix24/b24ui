@@ -68,7 +68,7 @@ defineShortcuts({
       v-if="isShowAdvice"
       :avatar="{ src: '/b24ui/avatar/assistant.png' }"
     >
-      <div class="font-bold">
+      <div class="font-(--ui-font-weight-bold)">
         Deal on Hold: Attention Required
       </div>
       <div class="mb-2">

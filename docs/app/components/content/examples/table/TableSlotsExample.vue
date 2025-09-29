@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { TableColumn, DropdownMenuItem } from '@bitrix24/b24ui-nuxt'
 import { useClipboard } from '@vueuse/core'
+import CircleCheckIcon from '@bitrix24/b24icons-vue/outline/CircleCheckIcon'
 
 interface User {
   id: number
@@ -76,9 +77,9 @@ function getDropdownActions(user: User): DropdownMenuItem[][] {
         copy(user.id.toString())
 
         toast.add({
-          title: 'User ID copied to clipboard!',
-          color: 'success',
-          icon: 'i-lucide-circle-check'
+          title: 'Payment ID copied to clipboard!',
+          color: 'air-primary-success',
+          icon: CircleCheckIcon
         })
       }
     }],
@@ -100,7 +101,7 @@ function getDropdownActions(user: User): DropdownMenuItem[][] {
       <div class="flex items-center gap-3">
         <UAvatar :src="`https://i.pravatar.cc/120?img=${row.original.id}`" size="lg" :alt="`${row.original.name} avatar`" />
         <div>
-          <p class="font-medium text-highlighted">
+          <p class="font-(--ui-font-weight-medium) font-(--ui-font-weight-medium)">
             {{ row.original.name }}
           </p>
           <p>

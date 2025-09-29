@@ -26,5 +26,5 @@ const avatar = computed(() => items.value.find(item => item.value === value.valu
 </script>
 
 <template>
-  <B24Select v-model="value" :items="items" value-key="value" :avatar="avatar" class="w-48" />
+  <B24Select v-model="value" :items="items" value-key="value" :avatar="avatar" class="w-[192px]" />
 </template>

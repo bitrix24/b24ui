@@ -44,7 +44,7 @@ describe('Toast', () => {
     ['with color success', { props: { ...props, color: 'success' as const } }],
     ['with as', { props: { ...props, as: 'section' } }],
     ['with class', { props: { ...props, class: 'bg-red-500/50' } }],
-    ['with b24ui', { props: { ...props, b24ui: { title: 'font-bold' } } }],
+    ['with b24ui', { props: { ...props, b24ui: { title: 'font-(--ui-font-weight-bold)' } } }],
     // Slots
     ['with leading slot', { props, slots: { leading: () => 'Leading slot' } }],
     ['with title slot', { props, slots: { title: () => 'Title slot' } }],

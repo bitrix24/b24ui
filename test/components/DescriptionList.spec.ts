@@ -45,7 +45,7 @@ describe('DescriptionList', () => {
     ['with as', { props: { ...props, as: 'section' } }],
     ['with items', { props }],
     ['with class', { props: { ...props, class: '' } }],
-    ['with b24ui', { props: { ...props, b24ui: { text: 'font-bold' } } }],
+    ['with b24ui', { props: { ...props, b24ui: { text: 'font-(--ui-font-weight-bold)' } } }],
     // Slots
     ['with default slot', { slots: { default: () => 'Default slot' } }],
     ['with custom slot', { props, slots: { custom: () => 'Custom slot' } }]

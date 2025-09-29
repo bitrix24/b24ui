@@ -53,8 +53,8 @@ const columns: ColumnDef<Payment>[] = [
     header: 'ID',
     meta: {
       class: {
-        th: 'text-center font-semibold',
-        td: 'text-center font-mono'
+        th: 'text-center font-(--ui-font-weight-semibold)',
+        td: 'text-center font-[family-name:var(--ui-font-family-system-mono)]'
       }
     }
   },
@@ -82,12 +82,12 @@ const columns: ColumnDef<Payment>[] = [
     cell: ({ row }) => {
       const status = row.getValue('status') as string
       const colorMap = {
-        paid: 'text-success',
-        failed: 'text-error',
-        refunded: 'text-warning'
+        paid: 'text-(--ui-color-accent-main-success)',
+        failed: 'text-(--ui-color-accent-main-alert)',
+        refunded: 'text-(--ui-color-accent-main-warning)'
       }
       return h('span', {
-        class: `font-semibold capitalize ${colorMap[status as keyof typeof colorMap]}`
+        class: `font-(--ui-font-weight-semibold) capitalize ${colorMap[status as keyof typeof colorMap]}`
       }, status)
     }
   },
@@ -106,8 +106,8 @@ const columns: ColumnDef<Payment>[] = [
     header: 'Amount',
     meta: {
       class: {
-        th: 'text-right font-bold text-primary',
-        td: 'text-right font-mono'
+        th: 'text-right font-(--ui-font-weight-bold) text-(--ui-color-accent-main-primary)',
+        td: 'text-right font-[family-name:var(--ui-font-family-system-mono)]'
       }
     },
     cell: ({ row }) => {
@@ -118,7 +118,7 @@ const columns: ColumnDef<Payment>[] = [
       }).format(amount)
 
       return h('span', {
-        class: 'font-semibold text-success'
+        class: 'font-(--ui-font-weight-semibold) text-(--ui-color-accent-main-success)'
       }, formatted)
     }
   }
@@ -126,5 +126,5 @@ const columns: ColumnDef<Payment>[] = [
 </script>
 
 <template>
-  <UTable :data="data" :columns="columns" class="w-full" />
+  <B24Table :data="data" :columns="columns" class="w-full" />
 </template>

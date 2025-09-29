@@ -54,7 +54,7 @@ const iconFromIconName = (iconName?: string) => {
       <div class="pt-[88px] h-auto lg:h-[calc(100vh-200px)] lg:pt-[12px] grid content-center lg:grid-cols-12 gap-y-[54px] lg:gap-[22px] items-center justify-between">
         <div class="col-span-12 lg:col-start-2 lg:col-span-4 flex flex-col gap-[12px] text-center lg:text-right">
           <ProseH1 class="mb-0 leading-(--ui-font-line-height-3xs)">
-            <span class="text-primary">@bitrix24/b24ui</span> <br>Bitrix24 UI-Kit
+            <span class="text-(--ui-color-accent-main-primary)">@bitrix24/b24ui</span> <br>Bitrix24 UI-Kit
           </ProseH1>
           <ProseP>
             {{ page.hero.description }}

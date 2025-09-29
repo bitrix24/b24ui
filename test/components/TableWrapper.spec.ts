@@ -18,7 +18,7 @@ describe('TableWrapper', () => {
     ['with bordered', { props: { bordered: true }, slots: { default: () => '<table><tbody><tr><th>1</th><td>2</td></tr></tbody></table>' } }],
     ['with scrollbarThin', { props: { scrollbarThin: false }, slots: { default: () => '<table><tbody><tr><th>1</th><td>2</td></tr></tbody></table>' } }],
     ['with class', { props: { ...props, class: 'overflow-x-auto w-full' }, slots: { default: () => '<table><tbody><tr><th>1</th><td>2</td></tr></tbody></table>' } }],
-    ['with b24ui', { props: { ...props, b24ui: { base: 'font-bold' } }, slots: { default: () => '<table><tbody><tr><th>1</th><td>2</td></tr></tbody></table>' } }],
+    ['with b24ui', { props: { ...props, b24ui: { base: 'font-(--ui-font-weight-bold)' } }, slots: { default: () => '<table><tbody><tr><th>1</th><td>2</td></tr></tbody></table>' } }],
     // Slots
     ['with default slot', { slots: { default: () => '<table><tbody><tr><th>1</th><td>2</td></tr></tbody></table>' } }]
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: TableWrapperProps, slots?: Partial<TableWrapperSlots> }) => {

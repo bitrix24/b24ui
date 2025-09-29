@@ -8,7 +8,7 @@ links:
     to: /docs/components/select-menu
     icon: i-simple-icons-nuxtdotjs
   - label: GitHub
-    icon: i-simple-icons-github
+    iconName: GitHubIcon
     to: https://github.com/nuxt/ui/blob/v4/src/runtime/components/locale/LocaleSelect.vue
 ---
 

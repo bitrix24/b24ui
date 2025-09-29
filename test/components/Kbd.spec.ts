@@ -14,7 +14,7 @@ describe('Kbd', () => {
     ...sizes.map((size: string) => [`with size ${size}`, { props: { value: 'K', size } }]),
     ...accents.map((accent: string) => [`with accent ${accent}`, { props: { value: 'K', accent } }]),
     ['with as', { props: { value: 'K', as: 'span' } }],
-    ['with class', { props: { value: 'K', class: 'font-bold' } }],
+    ['with class', { props: { value: 'K', class: 'font-(--ui-font-weight-bold)' } }],
     // Slots
     ['with default slot', { slots: { default: () => 'Default slot' } }]
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: KbdProps, slots?: Partial<KbdSlots> }) => {

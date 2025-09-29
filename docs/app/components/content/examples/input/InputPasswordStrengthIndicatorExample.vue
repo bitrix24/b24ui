@@ -81,7 +81,7 @@ const text = computed(() => {
         v-for="(req, index) in strength"
         :key="index"
         class="flex items-center gap-0.5"
-        :class="req.met ? 'text-success' : 'text-(--b24ui-typography-label-color)'"
+        :class="req.met ? 'text-(--ui-color-accent-main-success)' : 'text-(--b24ui-typography-label-color)'"
       >
         <CircleCheckIcon v-if="req.met" class="size-4 shrink-0" />
         <CircleCrossIcon v-else class="size-4 shrink-0" />

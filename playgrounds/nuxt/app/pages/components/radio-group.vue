@@ -266,7 +266,7 @@ const airColors = computed(() => {
           :indicator="indicator"
         >
           <template #legend>
-            <span class="italic font-bold">
+            <span class="italic font-(--ui-font-weight-bold)">
               Legend slot
             </span>
           </template>

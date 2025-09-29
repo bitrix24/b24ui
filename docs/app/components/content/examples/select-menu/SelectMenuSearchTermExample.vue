@@ -5,5 +5,5 @@ const value = ref('My company details')
 </script>
 
 <template>
-  <B24SelectMenu v-model="value" v-model:search-term="searchTerm" :items="items" class="w-48" />
+  <B24SelectMenu v-model="value" v-model:search-term="searchTerm" :items="items" class="w-[192px]" />
 </template>

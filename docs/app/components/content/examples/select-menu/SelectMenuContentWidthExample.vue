@@ -23,7 +23,7 @@ const { data: users } = await useFetch('https://jsonplaceholder.typicode.com/use
     :trailing-icon="Expand1Icon"
     placeholder="Select user"
     :b24ui="{ content: 'min-w-fit', viewport: 'min-w-fit', item: 'min-w-fit' }"
-    class="w-48"
+    class="w-[192px]"
   >
     <template #item-label="{ item }">
       {{ item.label }}

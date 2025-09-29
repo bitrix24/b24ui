@@ -9,5 +9,5 @@ defineShortcuts({
 </script>
 
 <template>
-  <B24Select v-model="value" v-model:open="open" :items="items" class="w-48" />
+  <B24Select v-model="value" v-model:open="open" :items="items" class="w-[192px]" />
 </template>

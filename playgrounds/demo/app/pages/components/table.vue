@@ -239,7 +239,7 @@ const columns: TableColumn<Payment>[] = [
     meta: {
       class: {
         td: 'text-center font-semibold',
-        th: 'text-right text-green-500 w-48'
+        th: 'text-right text-(--ui-color-accent-main-success) w-48'
       }
     },
     cell: ({ row }) => {
@@ -291,7 +291,7 @@ const columns: TableColumn<Payment>[] = [
         currency: 'EUR'
       }).format(total)
 
-      return h('div', { class: 'text-right font-medium' }, `Total: ${formatted}`)
+      return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, `Total: ${formatted}`)
     },
     cell: ({ row }) => {
       const amount = Number.parseFloat(row.getValue('amount'))
@@ -301,7 +301,7 @@ const columns: TableColumn<Payment>[] = [
         currency: 'EUR'
       }).format(amount)
 
-      return h('div', { class: 'text-right font-medium' }, formatted)
+      return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, formatted)
     }
   }
 ]
@@ -452,7 +452,7 @@ onMounted(() => {
     </B24Popover>
 
     <div class="flex items-center justify-between gap-3">
-      <div class="text-sm text-muted">
+      <div class="text-(length:--ui-font-size-sm) text-(--b24ui-typography-description-color)">
         {{ table?.tableApi?.getFilteredSelectedRowModel().rows.length || 0 }} of
         {{ table?.tableApi?.getFilteredRowModel().rows.length || 0 }} row(s) selected.
       </div>

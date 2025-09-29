@@ -108,7 +108,7 @@ export interface TableProps<T extends TableData = TableData> extends TableOption
    */
   loadingColor?: Table['variants']['loadingColor']
   /**
-   * @defaultValue 'carousel'
+   * @defaultValue 'loading'
    */
   loadingAnimation?: Table['variants']['loadingAnimation']
   /**

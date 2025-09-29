@@ -23,7 +23,7 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
     :icon="UserIcon"
     :trailing-icon="Expand1Icon"
     placeholder="Select user"
-    class="w-48"
+    class="w-[192px]"
   >
     <template #leading="{ modelValue, b24ui }">
       <B24Avatar

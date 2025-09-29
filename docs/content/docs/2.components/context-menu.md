@@ -68,12 +68,12 @@ props:
 slots:
   default: |
 
-    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-sm aspect-video w-72">
+    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) aspect-video w-72">
       Right click here
     </div>
 ---
 
-:div{class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-sm aspect-video w-72"}[Right click here]
+:div{class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) aspect-video w-72"}[Right click here]
 ::
 
 ### Items
@@ -153,16 +153,16 @@ props:
                 - meta
                 - j
   b24ui:
-    content: 'w-48'
+    content: 'w-[192px]'
 slots:
   default: |
 
-    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-sm aspect-video w-72">
+    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) aspect-video w-72">
       Right click here
     </div>
 ---
 
-:div{class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-sm aspect-video w-72"}[Right click here]
+:div{class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) aspect-video w-72"}[Right click here]
 ::
 
 ::note
@@ -194,16 +194,16 @@ props:
     - label: Light
     - label: Dark
   b24ui:
-    content: 'w-48'
+    content: 'w-[192px]'
 slots:
   default: |
 
-    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-sm aspect-video w-72">
+    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) aspect-video w-72">
       Right click here
     </div>
 ---
 
-:div{class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-sm aspect-video w-72"}[Right click here]
+:div{class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) aspect-video w-72"}[Right click here]
 ::
 
 ### Disabled
@@ -227,16 +227,16 @@ props:
     - label: Light
     - label: Dark
   b24ui:
-    content: 'w-48'
+    content: 'w-[192px]'
 slots:
   default: |
 
-    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-sm aspect-video w-72">
+    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) aspect-video w-72">
       Right click here
     </div>
 ---
 
-:div{class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-sm aspect-video w-72"}[Right click here]
+:div{class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) aspect-video w-72"}[Right click here]
 ::
 
 ## Examples
