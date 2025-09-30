@@ -11,8 +11,7 @@ const items: AccordionItem[] = [
   },
   {
     label: 'Main features of Bitrix24',
-    icon: FeedbackIcon,
-    slot: 'colors' as const
+    icon: FeedbackIcon
   },
   {
     label: 'Bitrix24 Cloud plans',
@@ -25,7 +24,7 @@ const items: AccordionItem[] = [
   <B24Accordion :items="items">
     <template #content="{ item }">
       <p class="pb-3.5 text-(length:--ui-font-size-sm) text-(--b24ui-typography-description-color)">
-        This is the {{ item.label }} panel.
+        This is the <b>{{ item.label }}</b> panel.
       </p>
     </template>
   </B24Accordion>

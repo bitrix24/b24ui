@@ -12,15 +12,15 @@ export default {
     header: 'flex',
     trigger: [
       'min-w-0 group flex-1 flex items-center gap-1.5',
-      'py-3',
-      'font-(--ui-font-weight-medium) text-(length:--ui-font-size-sm)',
+      'py-[12px]',
+      'font-(--ui-font-weight-medium) text-(length:--ui-font-size-sm) leading-[20px]',
       'focus-visible:outline-(--ui-color-accent-soft-element-blue)',
       'cursor-pointer'
     ].join(' '),
     content: 'motion-safe:data-[state=open]:animate-[accordion-down_200ms_ease-out] motion-safe:data-[state=closed]:animate-[accordion-up_200ms_ease-out] overflow-hidden focus:outline-none',
-    body: 'text-(length:--ui-font-size-sm) pb-3',
-    leadingIcon: 'shrink-0 size-5',
-    trailingIcon: 'shrink-0 size-5 ms-auto group-data-[state=open]:rotate-180 transition-transform duration-200',
+    body: 'text-(length:--ui-font-size-sm) pb-[12px]',
+    leadingIcon: 'shrink-0 size-[20px]',
+    trailingIcon: 'shrink-0 size-[20px] ms-auto group-data-[state=open]:rotate-180 transition-transform duration-200',
     label: 'text-start break-words'
   },
   variants: {

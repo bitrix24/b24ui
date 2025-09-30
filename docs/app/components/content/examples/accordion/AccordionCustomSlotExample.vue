@@ -13,7 +13,7 @@ const items = [
   {
     label: 'Main features of Bitrix24',
     icon: FeedbackIcon,
-    slot: 'colors' as const,
+    slot: 'features' as const,
     content: 'Bitrix24 is an online service that has all the tools for company operation and business management.'
   },
   {
@@ -26,7 +26,7 @@ const items = [
 
 <template>
   <B24Accordion :items="items">
-    <template #colors="{ item }">
+    <template #features="{ item }">
       <p class="text-(length:--ui-font-size-sm) pb-3.5 text-(--ui-color-accent-main-primary)">
         {{ item.content }}
       </p>

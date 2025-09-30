@@ -23,7 +23,7 @@ const items: AccordionItem[] = [
 <template>
   <B24Accordion :items="items">
     <template #body="{ item }">
-      This is the {{ item.label }} panel.
+      This is the <b>{{ item.label }}</b> panel.
     </template>
   </B24Accordion>
 </template>
