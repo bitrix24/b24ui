@@ -132,7 +132,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.contex
     <B24ContextMenuContent
       :class="b24ui.content({ class: [!slots.default && props.class, props.b24ui?.content] })"
       :b24ui="b24ui"
-      :ui-override="props.b24ui"
+      :b24ui-override="props.b24ui"
       v-bind="contentProps"
       :items="items"
       :portal="portal"

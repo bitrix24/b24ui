@@ -23,7 +23,7 @@ export default {
     ].join(' '),
     viewport: [
       'relative',
-      'w-full max-h-[40vh]', // w-[240px]
+      'w-full max-h-[40vh] min-w-[120px]', //
       'overflow-x-hidden overflow-y-auto scrollbar-thin' // scrollbar-transparent
     ].join(' '),
     arrow: 'fill-(--popup-window-background-color)', // for content bottom|top::start -> ml-[12px]
