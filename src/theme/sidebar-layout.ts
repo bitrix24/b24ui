@@ -235,7 +235,7 @@ export default {
       class: {
         // @memo --content-area-left-shift
         // container: 'lg:px-[calc(var(--content-area-shift)-6px)]',
-        header: 'px-[calc(var(--content-area-shift)-10px)] lg:px-(--content-area-shift)',
+        header: 'ps-[calc(var(--content-area-shift)-10px)] pe-[calc(var(--content-area-shift))] lg:px-(--content-area-shift)',
         pageWrapper: 'lg:px-(--content-area-shift)',
         container: '', // lg:mx-(--content-area-shift)
         contentWrapper: '' // 'lg:pl-[240px] '
