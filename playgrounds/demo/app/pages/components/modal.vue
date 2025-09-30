@@ -133,6 +133,8 @@ function openModal() {
           title="Modal prevent close"
           description="This modal has `dismissible: false` prop so it won't close when clicking outside."
           :dismissible="false"
+          :modal="false"
+          :overlay="false"
         >
           <B24Button label="Open unclosable" />
         </B24Modal>

@@ -249,6 +249,8 @@ const openSliderTopAndBottom = async () => {
           title="Slideover prevent close"
           description="This slideover has `dismissible: false` prop so it won't close when clicking outside."
           :dismissible="false"
+          :modal="false"
+          :overlay="false"
         >
           <B24Button label="Open unclosable" />
 
