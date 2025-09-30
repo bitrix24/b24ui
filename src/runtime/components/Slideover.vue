@@ -12,9 +12,7 @@ type Slideover = ComponentConfig<typeof theme, AppConfig, 'slideover'>
 export interface SlideoverProps extends DialogRootProps {
   title?: string
   description?: string
-  /**
-   * The content of the slideover
-   */
+  /** The content of the slideover. */
   content?: Omit<DialogContentProps, 'as' | 'asChild' | 'forceMount'> & Partial<EmitsToProps<DialogContentEmits>>
   /**
    * Render an overlay behind the slideover.

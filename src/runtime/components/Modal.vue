@@ -11,9 +11,7 @@ type Modal = ComponentConfig<typeof theme, AppConfig, 'modal'>
 export interface ModalProps extends DialogRootProps {
   title?: string
   description?: string
-  /**
-   * The content of the modal
-   */
+  /** The content of the modal. */
   content?: Omit<DialogContentProps, 'as' | 'asChild' | 'forceMount'> & Partial<EmitsToProps<DialogContentEmits>>
   /**
    * Render an overlay behind the modal.
@@ -43,7 +41,7 @@ export interface ModalProps extends DialogRootProps {
   portal?: boolean | string | HTMLElement
   /**
    * Display a close button to dismiss the modal.
-   * `{ size: 'xs', color: 'link' }`{lang="ts"}
+   * `{ size: 'xs', color: 'air-tertiary-no-accent' }`{lang="ts-type"}
    * @defaultValue true
    */
   close?: boolean | Partial<ButtonProps>
@@ -216,6 +214,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.modal 
               <slot name="body" :close="close" />
             </div>
           </div>
+
           <div v-if="!!slots.footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
             <slot name="footer" :close="close" />
           </div>
