@@ -59,7 +59,7 @@ export default {
       'text-(--ui-color-design-plain-na-content-icon)',
       'shrink-0'
     ].join(' '),
-    linkLabel: 'truncate -mt-px',
+    linkLabel: 'truncate', // @memo remove -mt-px
     linkLabelWrapper: 'flex items-center justify-between rtl:flex-row-reverse',
     linkLabelExternalIcon: 'inline-block size-[16px] text-(--ui-color-design-plain-content-icon-secondary)',
     childList: 'isolate',
@@ -152,7 +152,7 @@ export default {
         linkLeadingIcon: '', // group-data-[state=open]:size-[22px]
         linkTrailingIcon: 'size-[20px] group-data-[state=open]:rotate-180 transition-transform duration-200',
         linkLeadingBadge: '-top-[4px] left-[24px] -translate-x-1/2',
-        linkLabelWrapper: 'relative',
+        linkLabelWrapper: 'relative h-[36px]',
         childList: '',
         childLink: [
           'px-[18px]', // @memo 10 + 15 = 25 != 18
