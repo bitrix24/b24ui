@@ -89,11 +89,13 @@ const columns: TableColumn<Payment>[] = [{
   header: ({ table }) => h(B24Checkbox, {
     'modelValue': table.getIsSomePageRowsSelected() ? 'indeterminate' : table.getIsAllPageRowsSelected(),
     'onUpdate:modelValue': (value: boolean | 'indeterminate') => table.toggleAllPageRowsSelected(!!value),
+    'size': 'sm',
     'aria-label': 'Select all'
   }),
   cell: ({ row }) => h(B24Checkbox, {
     'modelValue': row.getIsSelected() ? true : row.getIsSomeSelected() ? 'indeterminate' : false,
     'onUpdate:modelValue': (value: boolean | 'indeterminate') => row.toggleSelected(!!value),
+    'size': 'sm',
     'aria-label': 'Select row'
   })
 }, {

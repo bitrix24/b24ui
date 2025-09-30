@@ -105,35 +105,44 @@ const columnVisibility = ref({
 </script>
 
 <template>
-  <div class="flex flex-col flex-1 w-full">
-    <div class="flex justify-end px-4 py-3.5 border-b  border-accented">
-      <B24DropdownMenu
-        :items="table?.tableApi?.getAllColumns().filter(column => column.getCanHide()).map(column => ({
-          label: upperFirst(column.id),
-          type: 'checkbox' as const,
-          checked: column.getIsVisible(),
-          onUpdateChecked(checked: boolean) {
-            table?.tableApi?.getColumn(column.id)?.toggleVisibility(!!checked)
-          },
-          onSelect(e?: Event) {
-            e?.preventDefault()
-          }
-        }))"
-        :content="{ align: 'end' }"
-      >
-        <B24Button
-          label="Columns"
-          color="air-primary-copilot"
-          use-dropdown
-        />
-      </B24DropdownMenu>
-    </div>
-
+  <B24Card
+    variant="outline"
+    class="flex-1 w-full"
+    :b24ui="{
+      header: 'p-[12px] px-[14px] py-[14px] sm:px-[14px] sm:py-[14px]',
+      body: 'p-0 sm:px-0 sm:py-0',
+      footer: 'p-[12px] px-[14px] py-[14px] sm:px-[14px] sm:py-[14px] text-(length:--ui-font-size-xs) text-(--b24ui-typography-legend-color)'
+    }"
+  >
+    <template #header>
+      <div class="flex justify-end">
+        <B24DropdownMenu
+          :items="table?.tableApi?.getAllColumns().filter(column => column.getCanHide()).map(column => ({
+            label: upperFirst(column.id),
+            type: 'checkbox' as const,
+            checked: column.getIsVisible(),
+            onUpdateChecked(checked: boolean) {
+              table?.tableApi?.getColumn(column.id)?.toggleVisibility(!!checked)
+            },
+            onSelect(e?: Event) {
+              e?.preventDefault()
+            }
+          }))"
+          :content="{ align: 'end' }"
+        >
+          <B24Button
+            label="Columns"
+            color="air-secondary-accent-1"
+            use-dropdown
+          />
+        </B24DropdownMenu>
+      </div>
+    </template>
     <B24Table
       ref="table"
       v-model:column-visibility="columnVisibility"
       :data="data"
       :columns="columns"
     />
-  </div>
+  </B24Card>
 </template>

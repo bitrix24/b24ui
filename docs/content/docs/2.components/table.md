@@ -26,6 +26,7 @@ The Table component is built on top of [TanStack Table](https://tanstack.com/tab
 ::component-example
 ---
 source: false
+border: false
 name: 'table-example'
 class: '!p-0'
 ---
@@ -253,8 +254,8 @@ prettier: true
 collapse: true
 name: 'table-row-actions-example'
 highlights:
-  - 110
-  - 134
+  - 64
+  - 93
 class: '!p-0'
 ---
 ::
@@ -305,8 +306,8 @@ prettier: true
 collapse: true
 name: 'table-grouped-rows-example'
 highlights:
-  - 159
-  - 169
+  - 163
+  - 172
 class: '!p-0'
 ---
 ::
@@ -318,6 +319,7 @@ You can add a new column that renders a [Checkbox](/docs/components/checkbox/) c
 ::component-example
 ---
 prettier: true
+border: false
 collapse: true
 name: 'table-row-selection-example'
 highlights:
@@ -342,6 +344,7 @@ The handler function receives the `TableRow` instance as the first argument and 
 ::component-example
 ---
 prettier: true
+border: false
 collapse: true
 name: 'table-row-select-event-example'
 highlights:
@@ -386,6 +389,7 @@ The handler function receives the `Event` and `TableRow` instance as the first a
 ::component-example
 ---
 prettier: true
+border: false
 collapse: true
 name: 'table-row-hover-event-example'
 highlights:
@@ -409,8 +413,8 @@ prettier: true
 collapse: true
 name: 'table-column-footer-example'
 highlights:
-  - 94
-  - 108
+  - 92
+  - 106
 class: '!p-0'
 ---
 ::
@@ -426,7 +430,7 @@ collapse: true
 name: 'table-column-sorting-example'
 highlights:
   - 90
-  - 105
+  - 115
 class: '!p-0'
 ---
 ::
@@ -443,8 +447,8 @@ prettier: true
 collapse: true
 name: 'table-column-sorting-reusable-example'
 highlights:
-  - 110
-  - 161
+  - 109
+  - 154
 class: '!p-0'
 ---
 ::
@@ -484,11 +488,12 @@ You can use a [DropdownMenu](/docs/components/dropdown-menu/) component to toggl
 ::component-example
 ---
 prettier: true
+border: false
 collapse: true
 name: 'table-column-visibility-example'
 highlights:
-  - 135
-  - 142
+  - 116
+  - 136
 class: '!p-0'
 ---
 ::
@@ -504,11 +509,12 @@ You can use an [Input](/docs/components/input/) component to filter per column t
 ::component-example
 ---
 prettier: true
+border: false
 collapse: true
 name: 'table-column-filters-example'
 highlights:
-  - 135
-  - 142
+  - 127
+  - 132
 class: '!p-0'
 ---
 ::
@@ -524,6 +530,7 @@ You can use an [Input](/docs/components/input/) component to filter the rows usi
 ::component-example
 ---
 prettier: true
+border: false
 collapse: true
 name: 'table-global-filter-example'
 class: '!p-0'
@@ -543,6 +550,7 @@ There are different pagination approaches as explained in [Pagination Guide](htt
 ::component-example
 ---
 prettier: true
+border: false
 collapse: true
 name: 'table-pagination-example'
 class: '!p-0'
@@ -591,6 +599,7 @@ Since the table ref doesn't expose the tbody element, add a unique class to it v
 ::component-example
 ---
 prettier: true
+border: false
 collapse: true
 name: 'table-drag-and-drop-example'
 class: '!p-0'

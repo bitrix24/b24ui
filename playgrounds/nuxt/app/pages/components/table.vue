@@ -8,10 +8,9 @@ import usePageMeta from './../../composables/usePageMeta'
 // import ExampleGrid from '../../components/ExampleGrid.vue'
 // import ExampleCard from '../../components/ExampleCard.vue'
 import CircleCheckIcon from '@bitrix24/b24icons-vue/outline/CircleCheckIcon'
-import AscendingSortIcon from '@bitrix24/b24icons-vue/main/AscendingSortIcon'
-import DescendingSortIcon from '@bitrix24/b24icons-vue/main/DescendingSortIcon'
-import SortIcon from '@bitrix24/b24icons-vue/actions/SortIcon'
-import HamburgerMenuIcon from '@bitrix24/b24icons-vue/outline/HamburgerMenuIcon'
+import MenuIcon from '@bitrix24/b24icons-vue/main/MenuIcon'
+import ChevronTopLIcon from '@bitrix24/b24icons-vue/outline/ChevronTopLIcon'
+import ChevronDownLIcon from '@bitrix24/b24icons-vue/outline/ChevronDownLIcon'
 
 usePageMeta.setPageTitle('CheckboxGroup')
 
@@ -33,127 +32,148 @@ type Payment = {
 
 const table = useTemplateRef('table')
 
-const data = ref<Payment[]>([{
-  id: '4600',
-  date: '2024-03-11T15:30:00',
-  status: 'paid',
-  email: 'james.anderson@example.com',
-  amount: 594
-}, {
-  id: '4599',
-  date: '2024-03-11T10:10:00',
-  status: 'failed',
-  email: 'mia.white@example.com',
-  amount: 276
-}, {
-  id: '4598',
-  date: '2024-03-11T08:50:00',
-  status: 'refunded',
-  email: 'william.brown@example.com',
-  amount: 315
-}, {
-  id: '4597',
-  date: '2024-03-10T19:45:00',
-  status: 'paid',
-  email: 'emma.davis@example.com',
-  amount: 529
-}, {
-  id: '4596',
-  date: '2024-03-10T15:55:00',
-  status: 'paid',
-  email: 'ethan.harris@example.com',
-  amount: 639
-}, {
-  id: '4595',
-  date: '2024-03-10T13:40:00',
-  status: 'refunded',
-  email: 'ava.thomas@example.com',
-  amount: 428
-}, {
-  id: '4594',
-  date: '2024-03-10T09:15:00',
-  status: 'paid',
-  email: 'michael.wilson@example.com',
-  amount: 683
-}, {
-  id: '4593',
-  date: '2024-03-09T20:25:00',
-  status: 'failed',
-  email: 'olivia.taylor@example.com',
-  amount: 947
-}, {
-  id: '4592',
-  date: '2024-03-09T18:45:00',
-  status: 'paid',
-  email: 'benjamin.jackson@example.com',
-  amount: 851
-}, {
-  id: '4591',
-  date: '2024-03-09T16:05:00',
-  status: 'paid',
-  email: 'sophia.miller@example.com',
-  amount: 762
-}, {
-  id: '4590',
-  date: '2024-03-09T14:20:00',
-  status: 'paid',
-  email: 'noah.clark@example.com',
-  amount: 573
-}, {
-  id: '4589',
-  date: '2024-03-09T11:35:00',
-  status: 'failed',
-  email: 'isabella.lee@example.com',
-  amount: 389
-}, {
-  id: '4588',
-  date: '2024-03-08T22:50:00',
-  status: 'refunded',
-  email: 'liam.walker@example.com',
-  amount: 701
-}, {
-  id: '4587',
-  date: '2024-03-08T20:15:00',
-  status: 'paid',
-  email: 'charlotte.hall@example.com',
-  amount: 856
-}, {
-  id: '4586',
-  date: '2024-03-08T17:40:00',
-  status: 'paid',
-  email: 'mason.young@example.com',
-  amount: 492
-}, {
-  id: '4585',
-  date: '2024-03-08T14:55:00',
-  status: 'failed',
-  email: 'amelia.king@example.com',
-  amount: 637
-}, {
-  id: '4584',
-  date: '2024-03-08T12:30:00',
-  status: 'paid',
-  email: 'elijah.wright@example.com',
-  amount: 784
-}, {
-  id: '4583',
-  date: '2024-03-08T09:45:00',
-  status: 'refunded',
-  email: 'harper.scott@example.com',
-  amount: 345
-}, {
-  id: '4582',
-  date: '2024-03-07T23:10:00',
-  status: 'paid',
-  email: 'evelyn.green@example.com',
-  amount: 918
-}, {
-  id: '4581',
-  date: '2024-03-07T20:25:00',
-  status: 'paid',
-  email: 'logan.baker@example.com',
-  amount: 567
-}])
+const data = ref<Payment[]>([
+  {
+    id: '4600',
+    date: '2024-03-11T15:30:00',
+    status: 'paid',
+    email: 'james.anderson@example.com',
+    amount: 594
+  },
+  {
+    id: '4599',
+    date: '2024-03-11T10:10:00',
+    status: 'failed',
+    email: 'mia.white@example.com',
+    amount: 276
+  },
+  {
+    id: '4598',
+    date: '2024-03-11T08:50:00',
+    status: 'refunded',
+    email: 'william.brown@example.com',
+    amount: 315
+  },
+  {
+    id: '4597',
+    date: '2024-03-10T19:45:00',
+    status: 'paid',
+    email: 'emma.davis@example.com',
+    amount: 529
+  },
+  {
+    id: '4596',
+    date: '2024-03-10T15:55:00',
+    status: 'paid',
+    email: 'ethan.harris@example.com',
+    amount: 639
+  },
+  {
+    id: '4595',
+    date: '2024-03-10T13:40:00',
+    status: 'refunded',
+    email: 'ava.thomas@example.com',
+    amount: 428
+  },
+  {
+    id: '4594',
+    date: '2024-03-10T09:15:00',
+    status: 'paid',
+    email: 'michael.wilson@example.com',
+    amount: 683
+  },
+  {
+    id: '4593',
+    date: '2024-03-09T20:25:00',
+    status: 'failed',
+    email: 'olivia.taylor@example.com',
+    amount: 947
+  },
+  {
+    id: '4592',
+    date: '2024-03-09T18:45:00',
+    status: 'paid',
+    email: 'benjamin.jackson@example.com',
+    amount: 851
+  },
+  {
+    id: '4591',
+    date: '2024-03-09T16:05:00',
+    status: 'paid',
+    email: 'sophia.miller@example.com',
+    amount: 762
+  },
+  {
+    id: '4590',
+    date: '2024-03-09T14:20:00',
+    status: 'paid',
+    email: 'noah.clark@example.com',
+    amount: 573
+  },
+  {
+    id: '4589',
+    date: '2024-03-09T11:35:00',
+    status: 'failed',
+    email: 'isabella.lee@example.com',
+    amount: 389
+  },
+  {
+    id: '4588',
+    date: '2024-03-08T22:50:00',
+    status: 'refunded',
+    email: 'liam.walker@example.com',
+    amount: 701
+  },
+  {
+    id: '4587',
+    date: '2024-03-08T20:15:00',
+    status: 'paid',
+    email: 'charlotte.hall@example.com',
+    amount: 856
+  },
+  {
+    id: '4586',
+    date: '2024-03-08T17:40:00',
+    status: 'paid',
+    email: 'mason.young@example.com',
+    amount: 492
+  },
+  {
+    id: '4585',
+    date: '2024-03-08T14:55:00',
+    status: 'failed',
+    email: 'amelia.king@example.com',
+    amount: 637
+  },
+  {
+    id: '4584',
+    date: '2024-03-08T12:30:00',
+    status: 'paid',
+    email: 'elijah.wright@example.com',
+    amount: 784
+  },
+  {
+    id: '4583',
+    date: '2024-03-08T09:45:00',
+    status: 'refunded',
+    email: 'harper.scott@example.com',
+    amount: 345
+  },
+  {
+    id: '4582',
+    date: '2024-03-07T23:10:00',
+    status: 'paid',
+    email: 'evelyn.green@example.com',
+    amount: 918
+  },
+  {
+    id: '4581',
+    date: '2024-03-07T20:25:00',
+    status: 'paid',
+    email: 'logan.baker@example.com',
+    amount: 567
+  }
+])
 
 const currentID = ref(4601)
 
@@ -196,14 +216,24 @@ function getRowItems(row: TableRow<Payment>) {
 const columns: TableColumn<Payment>[] = [
   {
     id: 'select',
+    meta: {
+      style: {
+        td: {
+          width: '20px',
+          padding: '16px'
+        }
+      }
+    },
     header: ({ table }) => h(B24Checkbox, {
       'modelValue': table.getIsSomePageRowsSelected() ? 'indeterminate' : table.getIsAllPageRowsSelected(),
       'onUpdate:modelValue': (value: boolean | 'indeterminate') => table.toggleAllPageRowsSelected(!!value),
+      'size': 'sm',
       'aria-label': 'Select all'
     }),
     cell: ({ row }) => h(B24Checkbox, {
       'modelValue': row.getIsSelected(),
       'onUpdate:modelValue': (value: boolean | 'indeterminate') => row.toggleSelected(!!value),
+      'size': 'sm',
       'aria-label': 'Select row'
     }),
     enableSorting: false,
@@ -211,20 +241,31 @@ const columns: TableColumn<Payment>[] = [
   },
   {
     id: 'actions',
+    meta: {
+      style: {
+        td: {
+          width: '20px',
+          padding: '16px 4px'
+        }
+      }
+    },
     enableHiding: false,
     cell: ({ row }) => {
-      return h('div', { class: 'text-right' }, h(B24DropdownMenu, {
+      return h(B24DropdownMenu, {
         'content': {
-          align: 'end'
+          align: 'start',
+          side: 'right',
+          sideOffset: -2
         },
+        'arrow': true,
         'items': getRowItems(row),
         'aria-label': 'Actions dropdown'
       }, () => h(B24Button, {
-        'icon': HamburgerMenuIcon,
-        'color': 'air-primary-copilot',
-        'class': 'ms-auto',
+        'icon': MenuIcon,
+        'color': 'air-tertiary-no-accent',
+        'size': 'sm',
         'aria-label': 'Actions dropdown'
-      })))
+      }))
     }
   },
   {
@@ -270,11 +311,15 @@ const columns: TableColumn<Payment>[] = [
       const isSorted = column.getIsSorted()
 
       return h(B24Button, {
-        color: 'air-primary-copilot',
+        color: 'air-tertiary-no-accent',
         label: 'Email',
-        icon: isSorted ? (isSorted === 'asc' ? AscendingSortIcon : DescendingSortIcon) : SortIcon,
-        class: '-mx-2.5',
+        size: 'sm',
+        class: '-mx-2.5 [--ui-btn-height:20px]',
         onClick: () => column.toggleSorting(column.getIsSorted() === 'asc')
+      }, {
+        trailing: () => h(isSorted ? (isSorted === 'asc' ? ChevronTopLIcon : ChevronDownLIcon) : ChevronTopLIcon, {
+          class: 'text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)'
+        })
       })
     },
     cell: ({ row }) => h('div', { class: 'lowercase' }, row.getValue('email'))
@@ -308,7 +353,7 @@ const columns: TableColumn<Payment>[] = [
 const loading = ref(true)
 const columnPinning = ref({
   left: ['id'],
-  right: ['actions']
+  right: ['amount']
 })
 
 const pagination = ref({
@@ -376,41 +421,51 @@ onMounted(() => {
 </script>
 
 <template>
-  <Navbar>
-    <B24Input
-      :model-value="(table?.tableApi?.getColumn('email')?.getFilterValue() as string)"
-      class="max-w-[400px]"
-      placeholder="Filter emails..."
-      @update:model-value="table?.tableApi?.getColumn('email')?.setFilterValue($event)"
-    />
+  <B24Card
+    variant="outline"
+    class="flex-1 w-full"
+    :b24ui="{
+      header: 'p-[12px] px-[14px] py-[14px] sm:px-[14px] sm:py-[14px]',
+      body: 'p-0 sm:px-0 sm:py-0',
+      footer: 'p-[12px] px-[14px] py-[14px] sm:px-[14px] sm:py-[14px] text-(length:--ui-font-size-xs) text-(--b24ui-typography-legend-color)'
+    }"
+  >
+    <template #header>
+      <div class="flex items-center gap-2 overflow-x-auto">
+        <B24Input
+          :model-value="(table?.tableApi?.getColumn('email')?.getFilterValue() as string)"
+          class="max-w-[400px]"
+          placeholder="Filter emails..."
+          @update:model-value="table?.tableApi?.getColumn('email')?.setFilterValue($event)"
+        />
 
-    <B24Button color="air-primary-copilot" label="Randomize" @click="randomize" />
-    <B24Button color="air-primary-copilot" label="Add element" @click="addElement" />
+        <B24Button color="air-primary-copilot" label="Randomize" @click="randomize" />
+        <B24Button color="air-primary" label="Add element" @click="addElement" />
 
-    <B24DropdownMenu
-      :items="table?.tableApi?.getAllColumns().filter(column => column.getCanHide()).map(column => ({
-        label: upperFirst(column.id),
-        type: 'checkbox' as const,
-        checked: column.getIsVisible(),
-        onUpdateChecked(checked: boolean) {
-          table?.tableApi?.getColumn(column.id)?.toggleVisibility(!!checked)
-        },
-        onSelect(e?: Event) {
-          e?.preventDefault()
-        }
-      }))"
-      :content="{ align: 'end' }"
-    >
-      <B24Button
-        label="Columns"
-        color="air-primary-copilot"
-        use-dropdown
-        class="ms-auto"
-      />
-    </B24DropdownMenu>
-  </Navbar>
+        <B24DropdownMenu
+          :items="table?.tableApi?.getAllColumns().filter(column => column.getCanHide()).map(column => ({
+            label: upperFirst(column.id),
+            type: 'checkbox' as const,
+            checked: column.getIsVisible(),
+            onUpdateChecked(checked: boolean) {
+              table?.tableApi?.getColumn(column.id)?.toggleVisibility(!!checked)
+            },
+            onSelect(e?: Event) {
+              e?.preventDefault()
+            }
+          }))"
+          :content="{ align: 'end' }"
+        >
+          <B24Button
+            label="Columns"
+            color="air-secondary-accent-1"
+            use-dropdown
+            class="ms-auto"
+          />
+        </B24DropdownMenu>
+      </div>
+    </template>
 
-  <div class="flex flex-col gap-4 w-full h-full">
     <B24ContextMenu :items="contextmenuItems">
       <B24Table
         ref="table"
@@ -424,10 +479,10 @@ onMounted(() => {
           getPaginationRowModel: getPaginationRowModel()
         }"
         :b24ui="{
-          tr: 'divide-x divide-(--ui-color-divider-vibrant-accent-more)'
+          tr: 'divide-x divide-(--ui-color-design-outline-content-divider)'
         }"
         sticky
-        class="border border-(--ui-color-divider-vibrant-accent-more) rounded-sm h-[380px]"
+        class="h-[380px]"
         @select="onSelect"
         @contextmenu="onContextmenu"
         @pointermove="(ev: PointerEvent) => {
@@ -449,29 +504,30 @@ onMounted(() => {
         </div>
       </template>
     </B24Popover>
+    <template #footer>
+      <div class="flex items-center justify-between gap-3">
+        <div class="text-(length:--ui-font-size-sm) text-(--b24ui-typography-description-color)">
+          {{ table?.tableApi?.getFilteredSelectedRowModel().rows.length || 0 }} of
+          {{ table?.tableApi?.getFilteredRowModel().rows.length || 0 }} row(s) selected.
+        </div>
 
-    <div class="flex items-center justify-between gap-3">
-      <div class="text-(length:--ui-font-size-sm) text-(--b24ui-typography-description-color)">
-        {{ table?.tableApi?.getFilteredSelectedRowModel().rows.length || 0 }} of
-        {{ table?.tableApi?.getFilteredRowModel().rows.length || 0 }} row(s) selected.
+        <div class="flex items-center gap-1.5">
+          <B24Button
+            color="air-tertiary-no-accent"
+            :disabled="!table?.tableApi?.getCanPreviousPage()"
+            @click="table?.tableApi?.previousPage()"
+          >
+            Prev
+          </B24Button>
+          <B24Button
+            color="air-secondary-accent-1"
+            :disabled="!table?.tableApi?.getCanNextPage()"
+            @click="table?.tableApi?.nextPage()"
+          >
+            Next
+          </B24Button>
+        </div>
       </div>
-
-      <div class="flex items-center gap-1.5">
-        <B24Button
-          color="air-primary-copilot"
-          :disabled="!table?.tableApi?.getCanPreviousPage()"
-          @click="table?.tableApi?.previousPage()"
-        >
-          Prev
-        </B24Button>
-        <B24Button
-          color="air-primary-copilot"
-          :disabled="!table?.tableApi?.getCanNextPage()"
-          @click="table?.tableApi?.nextPage()"
-        >
-          Next
-        </B24Button>
-      </div>
-    </div>
-  </div>
+    </template>
+  </B24Card>
 </template>

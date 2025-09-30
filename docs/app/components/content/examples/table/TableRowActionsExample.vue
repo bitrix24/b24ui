@@ -4,7 +4,7 @@ import type { TableColumn } from '@bitrix24/b24ui-nuxt'
 import type { Row } from '@tanstack/vue-table'
 import { useClipboard } from '@vueuse/core'
 import CircleCheckIcon from '@bitrix24/b24icons-vue/outline/CircleCheckIcon'
-import HamburgerMenuIcon from '@bitrix24/b24icons-vue/outline/HamburgerMenuIcon'
+import MenuIcon from '@bitrix24/b24icons-vue/main/MenuIcon'
 
 const B24Button = resolveComponent('B24Button')
 const B24Badge = resolveComponent('B24Badge')
@@ -59,90 +59,114 @@ const data = ref<Payment[]>([
   }
 ])
 
-const columns: TableColumn<Payment>[] = [{
-  accessorKey: 'id',
-  header: '#',
-  cell: ({ row }) => `#${row.getValue('id')}`
-}, {
-  accessorKey: 'date',
-  header: 'Date',
-  cell: ({ row }) => {
-    return new Date(row.getValue('date')).toLocaleString('en-US', {
-      day: 'numeric',
-      month: 'short',
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: false
-    })
-  }
-}, {
-  accessorKey: 'status',
-  header: 'Status',
-  cell: ({ row }) => {
-    const color = ({
-      paid: 'air-primary-success' as const,
-      failed: 'air-primary-alert' as const,
-      refunded: 'air-primary' as const
-    })[row.getValue('status') as string]
-
-    return h(B24Badge, { class: 'capitalize', color }, () => row.getValue('status'))
-  }
-}, {
-  accessorKey: 'email',
-  header: 'Email'
-}, {
-  accessorKey: 'amount',
-  header: () => h('div', { class: 'text-right' }, 'Amount'),
-  cell: ({ row }) => {
-    const amount = Number.parseFloat(row.getValue('amount'))
-
-    const formatted = new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'EUR'
-    }).format(amount)
-
-    return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, formatted)
-  }
-}, {
-  id: 'actions',
-  cell: ({ row }) => {
-    return h('div', { class: 'text-right' }, h(B24DropdownMenu, {
-      'content': {
-        align: 'end'
-      },
-      'items': getRowItems(row),
-      'aria-label': 'Actions dropdown'
-    }, () => h(B24Button, {
-      'icon': HamburgerMenuIcon,
-      'color': 'air-primary-copilot',
-      'class': 'ml-auto',
-      'aria-label': 'Actions dropdown'
-    })))
-  }
-}]
-
-function getRowItems(row: Row<Payment>) {
-  return [{
-    type: 'label',
-    label: 'Actions'
-  }, {
-    label: 'Copy payment ID',
-    onSelect() {
-      copy(row.original.id)
-
-      toast.add({
-        title: 'Payment ID copied to clipboard!',
-        color: 'air-primary-success',
-        icon: CircleCheckIcon
+const columns: TableColumn<Payment>[] = [
+  {
+    id: 'actions',
+    meta: {
+      style: {
+        td: {
+          width: '20px',
+          padding: '16px 4px'
+        }
+      }
+    },
+    cell: ({ row }) => {
+      return h(B24DropdownMenu, {
+        'content': {
+          align: 'start',
+          side: 'right',
+          sideOffset: -2
+        },
+        'arrow': true,
+        'items': getRowItems(row),
+        'aria-label': 'Actions dropdown'
+      }, () => h(B24Button, {
+        'icon': MenuIcon,
+        'color': 'air-tertiary-no-accent',
+        'size': 'sm',
+        'aria-label': 'Actions dropdown'
+      }))
+    }
+  },
+  {
+    accessorKey: 'id',
+    header: '#',
+    cell: ({ row }) => `#${row.getValue('id')}`
+  },
+  {
+    accessorKey: 'date',
+    header: 'Date',
+    cell: ({ row }) => {
+      return new Date(row.getValue('date')).toLocaleString('en-US', {
+        day: 'numeric',
+        month: 'short',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
       })
     }
-  }, {
-    type: 'separator'
-  }, {
-    label: 'View customer'
-  }, {
-    label: 'View payment details'
-  }]
+  },
+  {
+    accessorKey: 'status',
+    header: 'Status',
+    cell: ({ row }) => {
+      const color = ({
+        paid: 'air-primary-success' as const,
+        failed: 'air-primary-alert' as const,
+        refunded: 'air-primary' as const
+      })[row.getValue('status') as string]
+
+      return h(B24Badge, { class: 'capitalize', color }, () => row.getValue('status'))
+    }
+  },
+  {
+    accessorKey: 'email',
+    header: 'Email'
+  },
+  {
+    accessorKey: 'amount',
+    header: () => h('div', { class: 'text-right' }, 'Amount'),
+    cell: ({ row }) => {
+      const amount = Number.parseFloat(row.getValue('amount'))
+
+      const formatted = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'EUR'
+      }).format(amount)
+
+      return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, formatted)
+    }
+  }
+]
+
+function getRowItems(row: Row<Payment>) {
+  return [
+    {
+      type: 'label',
+      label: 'Actions'
+    },
+    {
+      label: 'Copy payment ID',
+      onSelect() {
+        copy(row.original.id)
+
+        toast.add({
+          title: 'Payment ID copied to clipboard!',
+          color: 'air-primary-success',
+          icon: CircleCheckIcon
+        })
+      }
+    },
+    {
+      type: 'separator'
+    },
+    {
+      label: 'View customer'
+    },
+    {
+      label: 'View payment details'
+    }
+  ]
 }
 </script>
 

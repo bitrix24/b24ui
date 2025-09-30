@@ -72,7 +72,7 @@ const columns: TableColumn<Payment>[] = [{
   header: ({ column }) => getHeader(column, 'Email', 'left')
 }, {
   accessorKey: 'amount',
-  header: ({ column }) => h('div', { class: 'text-right' }, getHeader(column, 'Amount', 'right')),
+  header: ({ column }) => h('div', { class: 'text-left w-[60px]' }, getHeader(column, 'Amount', 'right')),
   cell: ({ row }) => {
     const amount = Number.parseFloat(row.getValue('amount'))
 
@@ -89,10 +89,11 @@ function getHeader(column: Column<Payment>, label: string, position: 'left' | 'r
   const isPinned = column.getIsPinned()
 
   return h(B24Button, {
-    color: 'air-primary-copilot',
+    color: 'air-tertiary-no-accent',
     label,
+    size: 'sm',
     icon: isPinned ? UnpinIcon : PinIcon,
-    class: '-mx-2.5',
+    class: '-mx-2.5 [--ui-btn-height:20px]',
     onClick() {
       column.pin(isPinned === position ? false : position)
     }

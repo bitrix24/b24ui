@@ -2,13 +2,11 @@
 import { h, resolveComponent } from 'vue'
 import type { TableColumn } from '@bitrix24/b24ui-nuxt'
 import type { Column } from '@tanstack/vue-table'
-import AscendingSortIcon from '@bitrix24/b24icons-vue/main/AscendingSortIcon'
-import DescendingSortIcon from '@bitrix24/b24icons-vue/main/DescendingSortIcon'
-import SortIcon from '@bitrix24/b24icons-vue/actions/SortIcon'
+import ChevronTopLIcon from '@bitrix24/b24icons-vue/outline/ChevronTopLIcon'
+import ChevronDownLIcon from '@bitrix24/b24icons-vue/outline/ChevronDownLIcon'
 
 const B24Badge = resolveComponent('B24Badge')
 const B24Button = resolveComponent('B24Button')
-const B24DropdownMenu = resolveComponent('B24DropdownMenu')
 
 type Payment = {
   id: string
@@ -83,7 +81,7 @@ const columns: TableColumn<Payment>[] = [{
   header: ({ column }) => getHeader(column, 'Email')
 }, {
   accessorKey: 'amount',
-  header: ({ column }) => h('div', { class: 'text-right' }, getHeader(column, 'Amount')),
+  header: ({ column }) => h('div', { class: 'text-left w-[60px]' }, getHeader(column, 'Amount')),
   cell: ({ row }) => {
     const amount = Number.parseFloat(row.getValue('amount'))
 
@@ -99,47 +97,21 @@ const columns: TableColumn<Payment>[] = [{
 function getHeader(column: Column<Payment>, label: string) {
   const isSorted = column.getIsSorted()
 
-  return h(B24DropdownMenu, {
-    'content': {
-      align: 'start'
-    },
-    'aria-label': 'Actions dropdown',
-    'items': [
-      {
-        label: 'Asc',
-        type: 'checkbox',
-        icon: AscendingSortIcon,
-        checked: isSorted === 'asc',
-        onSelect: () => {
-          if (isSorted === 'asc') {
-            column.clearSorting()
-          } else {
-            column.toggleSorting(false)
-          }
-        }
-      },
-      {
-        label: 'Desc',
-        icon: DescendingSortIcon,
-        type: 'checkbox',
-        checked: isSorted === 'desc',
-        onSelect: () => {
-          if (isSorted === 'desc') {
-            column.clearSorting()
-          } else {
-            column.toggleSorting(true)
-          }
-        }
-      }
-    ]
-  }, () => h(B24Button, {
-    'color': 'air-primary-copilot',
+  return h(B24Button, {
+    'color': 'air-tertiary-no-accent',
     label,
-    'icon': isSorted ? (isSorted === 'asc' ? AscendingSortIcon : DescendingSortIcon) : SortIcon,
-    // @todo fix this
-    'class': '-mx-2.5 data-[state=open]:bg-red-500',
-    'aria-label': `Sort by ${isSorted === 'asc' ? 'descending' : 'ascending'}`
-  }))
+    'size': 'sm',
+    'class': 'group -mx-2.5 [--ui-btn-height:20px]',
+    'aria-label': `Sort by ${isSorted === 'asc' ? 'descending' : 'ascending'}`,
+    'onClick': () => column.toggleSorting(column.getIsSorted() === 'asc')
+  }, {
+    trailing: () => h(isSorted ? (isSorted === 'asc' ? ChevronTopLIcon : ChevronDownLIcon) : ChevronTopLIcon, {
+      class: {
+        'text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)': true,
+        'hidden group-hover:inline-flex': !isSorted
+      }
+    })
+  })
 }
 
 const sorting = ref([{

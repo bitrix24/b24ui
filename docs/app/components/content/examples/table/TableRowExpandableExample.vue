@@ -53,9 +53,18 @@ const data = ref<Payment[]>([
 
 const columns: TableColumn<Payment>[] = [{
   id: 'expand',
+  meta: {
+    style: {
+      td: {
+        width: '20px',
+        padding: '16px 4px'
+      }
+    }
+  },
   cell: ({ row }) => h(B24Button, {
     'class': 'group',
-    'color': 'air-primary-copilot',
+    'color': 'air-secondary-no-accent',
+    'size': 'sm',
     'use-dropdown': true,
     'aria-label': 'Expand',
     'b24ui': {

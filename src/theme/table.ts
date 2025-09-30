@@ -20,11 +20,18 @@ export default {
     thead: 'relative',
     tbody: [
       'divide-y divide-(--ui-color-design-tinted-na-stroke)',
-      '[&>tr]:data-[selectable=true]:hover:bg-elevated/50',
-      '[&>tr]:data-[selectable=true]:focus-visible:outline-primary'
+      '[&>tr]:data-[selectable=true]:hover:bg-(--ui-color-bg-content-secondary)',
+      'light:[&>tr]:data-[selectable=true]:hover:bg-[#f6f8f9]',
+      '[&>tr]:data-[selectable=true]:focus-visible:outline-(--ui-color-accent-soft-element-blue)',
+      '[&>tr]:data-[selected=true]:hover:bg-(--ui-color-bg-content-secondary)',
+      'light:[&>tr]:data-[selected=true]:hover:bg-(#eff7d7)',
+      '[&>tr]:data-[selected=true]:focus-visible:outline-(--ui-color-accent-soft-element-blue)'
     ].join(' '),
     tfoot: 'relative',
-    tr: 'data-[selected=true]:bg-elevated/50',
+    tr: [
+      'data-[selected=true]:bg-(--ui-color-bg-content-tertiary)',
+      'light:data-[selected=true]:bg-[#f4fcde]'
+    ].join(' '),
     th: [
       'px-4 py-3.5',
       'text-(length:--ui-font-size-md)/(--ui-font-line-height-md)',
@@ -62,16 +69,16 @@ export default {
       true: {
         th: [
           'sticky',
-          'bg-(--ui-color-base-white-fixed) dark:bg-(--ui-color-base-5)',
+          'bg-(--ui-color-bg-content-primary)',
           'data-[pinned=left]:left-0',
           'data-[pinned=right]:right-0'
-        ].join(' '), // bg-default/75
+        ].join(' '),
         td: [
           'sticky',
-          'bg-(--ui-color-base-white-fixed) dark:bg-(--ui-color-base-5)',
+          'bg-(--ui-color-bg-content-primary)',
           'data-[pinned=left]:left-0',
           'data-[pinned=right]:right-0'
-        ].join(' ') // bg-default/75
+        ].join(' ')
       }
     },
     sticky: {
@@ -79,13 +86,13 @@ export default {
         thead: [
           'sticky',
           'top-0 inset-x-0',
-          'bg-(--ui-color-base-white-fixed) dark:bg-(--ui-color-base-5)',
+          'bg-(--ui-color-bg-content-primary)',
           'z-[1] backdrop-blur'
         ].join(' '), // bg-default/75
         tfoot: [
           'sticky',
           'bottom-0 inset-x-0',
-          'bg-(--ui-color-base-white-fixed) dark:bg-(--ui-color-base-5)',
+          'bg-(--ui-color-bg-content-primary)',
           'z-[1] backdrop-blur'
         ].join(' ') // bg-default/75
       },
@@ -93,7 +100,7 @@ export default {
         thead: [
           'sticky',
           'top-0 inset-x-0',
-          'bg-(--ui-color-base-white-fixed) dark:bg-(--ui-color-base-5)',
+          'bg-(--ui-color-bg-content-primary)',
           'z-[1] backdrop-blur'
         ].join(' ') // bg-default/75
       },
@@ -101,7 +108,7 @@ export default {
         tfoot: [
           'sticky',
           'bottom-0 inset-x-0',
-          'bg-(--ui-color-base-white-fixed) dark:bg-(--ui-color-base-5)',
+          'bg-(--ui-color-bg-content-primary)',
           'z-[1] backdrop-blur'
         ].join(' ') // bg-default/75
       }

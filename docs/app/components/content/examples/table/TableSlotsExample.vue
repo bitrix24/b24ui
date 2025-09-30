@@ -62,7 +62,15 @@ const data = ref<User[]>([
 
 const columns: TableColumn<User>[] = [
   {
-    id: 'action'
+    id: 'action',
+    meta: {
+      style: {
+        td: {
+          width: '20px',
+          padding: '16px 4px'
+        }
+      }
+    }
   },
   {
     accessorKey: 'id',
@@ -122,8 +130,8 @@ function getDropdownActions(user: User): DropdownMenuItem[][] {
       </div>
     </template>
     <template #action-cell="{ row }">
-      <B24DropdownMenu :items="getDropdownActions(row.original)" arrow :content="{ align: 'start', side: 'right', sideOffset: 8 }">
-        <B24Button color="air-tertiary" :icon="MenuIcon" aria-label="Actions" />
+      <B24DropdownMenu :items="getDropdownActions(row.original)" arrow :content="{ align: 'start', side: 'right', sideOffset: -2 }">
+        <B24Button color="air-tertiary-no-accent" size="sm" :icon="MenuIcon" aria-label="Actions" />
       </B24DropdownMenu>
     </template>
   </B24Table>

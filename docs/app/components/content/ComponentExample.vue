@@ -40,6 +40,11 @@ const props = withDefaults(defineProps<{
    */
   source?: boolean
   /**
+   * Show border
+   * @defaultValue true
+   */
+  border?: boolean
+  /**
    * A list of variable props to link to the component.
    */
   options?: Array<{
@@ -60,7 +65,8 @@ const props = withDefaults(defineProps<{
   overflowHidden?: boolean
 }>(), {
   preview: true,
-  source: true
+  source: true,
+  border: true
 })
 
 const slots = defineSlots<{
@@ -151,8 +157,13 @@ const urlSearchParams = computed(() => {
   <div ref="el" class="my-5">
     <template v-if="preview">
       <div
-        class="border-(--ui-color-design-tinted-na-stroke) border relative z-[1] overflow-auto"
-        :class="[{ 'border-b-0 rounded-t-md': props.source, 'rounded-md': !props.source, 'overflow-hidden': props.overflowHidden }]"
+        class="relative z-[1] overflow-auto"
+        :class="[{
+          'border-(--ui-color-design-tinted-na-stroke) border': props.border,
+          'border-b-0 rounded-t-md': props.source,
+          'rounded-md': !props.source,
+          'overflow-hidden': props.overflowHidden
+        }]"
       >
         <div
           v-if="props.options?.length || !!slots.options"

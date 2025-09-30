@@ -4,10 +4,9 @@ import { upperFirst } from 'scule'
 import type { TableColumn } from '@bitrix24/b24ui-nuxt'
 import { useClipboard } from '@vueuse/core'
 import CircleCheckIcon from '@bitrix24/b24icons-vue/outline/CircleCheckIcon'
-import AscendingSortIcon from '@bitrix24/b24icons-vue/main/AscendingSortIcon'
-import DescendingSortIcon from '@bitrix24/b24icons-vue/main/DescendingSortIcon'
-import SortIcon from '@bitrix24/b24icons-vue/actions/SortIcon'
-import HamburgerMenuIcon from '@bitrix24/b24icons-vue/outline/HamburgerMenuIcon'
+import MenuIcon from '@bitrix24/b24icons-vue/main/MenuIcon'
+import ChevronTopLIcon from '@bitrix24/b24icons-vue/outline/ChevronTopLIcon'
+import ChevronDownLIcon from '@bitrix24/b24icons-vue/outline/ChevronDownLIcon'
 
 const B24Button = resolveComponent('B24Button')
 const B24Checkbox = resolveComponent('B24Checkbox')
@@ -16,6 +15,7 @@ const B24DropdownMenu = resolveComponent('B24DropdownMenu')
 
 const toast = useToast()
 const { copy } = useClipboard()
+const isLoading = ref(false)
 
 type Payment = {
   id: string
@@ -168,125 +168,157 @@ const data = ref<Payment[]>([
   }
 ])
 
-const columns: TableColumn<Payment>[] = [{
-  id: 'select',
-  header: ({ table }) => h(B24Checkbox, {
-    'modelValue': table.getIsSomePageRowsSelected() ? 'indeterminate' : table.getIsAllPageRowsSelected(),
-    'onUpdate:modelValue': (value: boolean | 'indeterminate') => table.toggleAllPageRowsSelected(!!value),
-    'aria-label': 'Select all'
-  }),
-  cell: ({ row }) => h(B24Checkbox, {
-    'modelValue': row.getIsSelected(),
-    'onUpdate:modelValue': (value: boolean | 'indeterminate') => row.toggleSelected(!!value),
-    'aria-label': 'Select row'
-  }),
-  enableSorting: false,
-  enableHiding: false
-}, {
-  accessorKey: 'id',
-  header: '#',
-  cell: ({ row }) => `#${row.getValue('id')}`
-}, {
-  accessorKey: 'date',
-  header: 'Date',
-  cell: ({ row }) => {
-    return new Date(row.getValue('date')).toLocaleString('en-US', {
-      day: 'numeric',
-      month: 'short',
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: false
-    })
-  }
-}, {
-  accessorKey: 'status',
-  header: 'Status',
-  cell: ({ row }) => {
-    const color = ({
-      paid: 'air-primary-success' as const,
-      failed: 'air-primary-alert' as const,
-      refunded: 'air-primary' as const
-    })[row.getValue('status') as string]
-
-    return h(B24Badge, { class: 'capitalize', color }, () => row.getValue('status'))
-  }
-}, {
-  accessorKey: 'email',
-  header: ({ column }) => {
-    const isSorted = column.getIsSorted()
-
-    return h(B24Button, {
-      color: 'air-primary-copilot',
-      label: 'Email',
-      icon: isSorted ? (isSorted === 'asc' ? AscendingSortIcon : DescendingSortIcon) : SortIcon,
-      class: '-mx-2.5',
-      onClick: () => column.toggleSorting(column.getIsSorted() === 'asc')
-    })
+const columns: TableColumn<Payment>[] = [
+  {
+    id: 'select',
+    header: ({ table }) => h(B24Checkbox, {
+      'modelValue': table.getIsSomePageRowsSelected() ? 'indeterminate' : table.getIsAllPageRowsSelected(),
+      'onUpdate:modelValue': (value: boolean | 'indeterminate') => table.toggleAllPageRowsSelected(!!value),
+      'size': 'sm',
+      'aria-label': 'Select all'
+    }),
+    cell: ({ row }) => h(B24Checkbox, {
+      'modelValue': row.getIsSelected(),
+      'onUpdate:modelValue': (value: boolean | 'indeterminate') => row.toggleSelected(!!value),
+      'size': 'sm',
+      'aria-label': 'Select row'
+    }),
+    enableSorting: false,
+    enableHiding: false
   },
-  cell: ({ row }) => h('div', { class: 'lowercase' }, row.getValue('email'))
-}, {
-  accessorKey: 'amount',
-  header: () => h('div', { class: 'text-right' }, 'Amount'),
-  cell: ({ row }) => {
-    const amount = Number.parseFloat(row.getValue('amount'))
+  {
+    id: 'actions',
+    meta: {
+      style: {
+        td: {
+          width: '20px',
+          padding: '16px 4px'
+        }
+      }
+    },
+    enableHiding: false,
+    cell: ({ row }) => {
+      const items = [{
+        type: 'label',
+        label: 'Actions'
+      }, {
+        label: 'Copy payment ID',
+        onSelect() {
+          copy(row.original.id)
 
-    const formatted = new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'EUR'
-    }).format(amount)
+          toast.add({
+            title: 'Payment ID copied to clipboard!',
+            color: 'air-primary-success',
+            icon: CircleCheckIcon
+          })
+        }
+      }, {
+        label: row.getIsExpanded() ? 'Collapse' : 'Expand',
+        onSelect() {
+          row.toggleExpanded()
+        }
+      }, {
+        type: 'separator'
+      }, {
+        label: 'View customer'
+      }, {
+        label: 'View payment details'
+      }]
 
-    return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, formatted)
-  }
-}, {
-  id: 'actions',
-  enableHiding: false,
-  cell: ({ row }) => {
-    const items = [{
-      type: 'label',
-      label: 'Actions'
-    }, {
-      label: 'Copy payment ID',
-      onSelect() {
-        copy(row.original.id)
+      return h(B24DropdownMenu, {
+        'content': {
+          align: 'start',
+          side: 'right',
+          sideOffset: -2
+        },
+        'arrow': true,
+        items,
+        'aria-label': 'Actions dropdown'
+      }, () => h(B24Button, {
+        'icon': MenuIcon,
+        'color': 'air-tertiary-no-accent',
+        'size': 'sm',
+        'aria-label': 'Actions dropdown'
+      }))
+    }
+  },
+  {
+    accessorKey: 'id',
+    header: '#',
+    cell: ({ row }) => `#${row.getValue('id')}`
+  },
+  {
+    accessorKey: 'date',
+    header: 'Date',
+    cell: ({ row }) => {
+      return new Date(row.getValue('date')).toLocaleString('en-US', {
+        day: 'numeric',
+        month: 'short',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+      })
+    }
+  },
+  {
+    accessorKey: 'status',
+    header: 'Status',
+    cell: ({ row }) => {
+      const color = ({
+        paid: 'air-primary-success' as const,
+        failed: 'air-primary-alert' as const,
+        refunded: 'air-primary' as const
+      })[row.getValue('status') as string]
 
-        toast.add({
-          title: 'Payment ID copied to clipboard!',
-          color: 'air-primary-success',
-          icon: CircleCheckIcon
+      return h(B24Badge, { class: 'capitalize', color }, () => row.getValue('status'))
+    }
+  },
+  {
+    accessorKey: 'email',
+    header: ({ column }) => {
+      const isSorted = column.getIsSorted()
+
+      return h(B24Button, {
+        color: 'air-tertiary-no-accent',
+        label: 'Email',
+        size: 'sm',
+        class: '-mx-2.5 [--ui-btn-height:20px]',
+        onClick: () => column.toggleSorting(column.getIsSorted() === 'asc')
+      }, {
+        trailing: () => h(isSorted ? (isSorted === 'asc' ? ChevronTopLIcon : ChevronDownLIcon) : ChevronTopLIcon, {
+          class: 'text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)'
         })
-      }
-    }, {
-      label: row.getIsExpanded() ? 'Collapse' : 'Expand',
-      onSelect() {
-        row.toggleExpanded()
-      }
-    }, {
-      type: 'separator'
-    }, {
-      label: 'View customer'
-    }, {
-      label: 'View payment details'
-    }]
+      })
+    },
+    cell: ({ row }) => h('div', { class: 'lowercase' }, row.getValue('email'))
+  },
+  {
+    accessorKey: 'amount',
+    header: () => h('div', { class: 'text-right' }, 'Amount'),
+    cell: ({ row }) => {
+      const amount = Number.parseFloat(row.getValue('amount'))
 
-    return h('div', { class: 'text-right' }, h(B24DropdownMenu, {
-      'content': {
-        align: 'end'
-      },
-      items,
-      'aria-label': 'Actions dropdown'
-    }, () => h(B24Button, {
-      'icon': HamburgerMenuIcon,
-      'color': 'air-primary-copilot',
-      'class': 'ml-auto',
-      'aria-label': 'Actions dropdown'
-    })))
+      const formatted = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'EUR'
+      }).format(amount)
+
+      return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, formatted)
+    }
   }
-}]
+]
 
 const table = useTemplateRef('table')
 
-function randomize() {
+async function randomize() {
+  isLoading.value = true
+  await sleepAction(600)
   data.value = [...data.value].sort(() => Math.random() - 0.5)
+  isLoading.value = false
+}
+
+async function sleepAction(timeout: number = 1000): Promise<void> {
+  return new Promise<void>(resolve => setTimeout(resolve, timeout))
 }
 </script>
 
@@ -327,7 +359,7 @@ function randomize() {
         >
           <B24Button
             label="Columns"
-            color="air-primary-copilot"
+            color="air-secondary-accent-1"
             use-dropdown
             class="ml-auto"
             aria-label="Columns select dropdown"
@@ -340,6 +372,7 @@ function randomize() {
       ref="table"
       :data="data"
       :columns="columns"
+      :loading="isLoading"
       sticky
       class="h-[380px]"
     >

@@ -2,8 +2,8 @@
 import { h, resolveComponent } from 'vue'
 import type { TableColumn, TableRow } from '@bitrix24/b24ui-nuxt'
 
-const B24Badge = resolveComponent('B24Badge')
 const B24Checkbox = resolveComponent('B24Checkbox')
+const B24Badge = resolveComponent('B24Badge')
 
 type Payment = {
   id: string
@@ -56,11 +56,13 @@ const columns: TableColumn<Payment>[] = [{
   header: ({ table }) => h(B24Checkbox, {
     'modelValue': table.getIsSomePageRowsSelected() ? 'indeterminate' : table.getIsAllPageRowsSelected(),
     'onUpdate:modelValue': (value: boolean | 'indeterminate') => table.toggleAllPageRowsSelected(!!value),
+    'size': 'sm',
     'aria-label': 'Select all'
   }),
   cell: ({ row }) => h(B24Checkbox, {
     'modelValue': row.getIsSelected(),
     'onUpdate:modelValue': (value: boolean | 'indeterminate') => row.toggleSelected(!!value),
+    'size': 'sm',
     'aria-label': 'Select row'
   })
 }, {
@@ -136,7 +138,15 @@ function onHover(_e: Event, row: TableRow<Payment> | null) {
 </script>
 
 <template>
-  <div class="flex w-full flex-1 gap-1">
+  <B24Card
+    variant="outline"
+    class="flex-1 w-full"
+    :b24ui="{
+      header: 'p-[12px] px-[14px] py-[14px] sm:px-[14px] sm:py-[14px]',
+      body: 'p-0 sm:px-0 sm:py-0',
+      footer: 'p-[12px] px-[14px] py-[14px] sm:px-[14px] sm:py-[14px] text-(length:--ui-font-size-xs) text-(--b24ui-typography-legend-color)'
+    }"
+  >
     <B24Table
       :data="data"
       :columns="columns"
@@ -159,5 +169,5 @@ function onHover(_e: Event, row: TableRow<Payment> | null) {
         </div>
       </template>
     </B24Popover>
-  </div>
+  </B24Card>
 </template>

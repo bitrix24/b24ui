@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { h, resolveComponent } from 'vue'
 import type { TableColumn } from '@bitrix24/b24ui-nuxt'
-import AscendingSortIcon from '@bitrix24/b24icons-vue/main/AscendingSortIcon'
-import DescendingSortIcon from '@bitrix24/b24icons-vue/main/DescendingSortIcon'
-import SortIcon from '@bitrix24/b24icons-vue/actions/SortIcon'
+import ChevronTopLIcon from '@bitrix24/b24icons-vue/outline/ChevronTopLIcon'
+import ChevronDownLIcon from '@bitrix24/b24icons-vue/outline/ChevronDownLIcon'
 
 const B24Badge = resolveComponent('B24Badge')
 const B24Button = resolveComponent('B24Button')
@@ -82,11 +81,15 @@ const columns: TableColumn<Payment>[] = [{
     const isSorted = column.getIsSorted()
 
     return h(B24Button, {
-      color: 'air-primary-copilot',
+      color: 'air-tertiary-no-accent',
       label: 'Email',
-      icon: isSorted ? (isSorted === 'asc' ? AscendingSortIcon : DescendingSortIcon) : SortIcon,
-      class: '-mx-2.5',
+      size: 'sm',
+      class: '-mx-2.5 [--ui-btn-height:20px]',
       onClick: () => column.toggleSorting(column.getIsSorted() === 'asc')
+    }, {
+      trailing: () => h(isSorted ? (isSorted === 'asc' ? ChevronTopLIcon : ChevronDownLIcon) : ChevronTopLIcon, {
+        class: 'text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)'
+      })
     })
   }
 }, {
