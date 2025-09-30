@@ -141,8 +141,8 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pagina
         </slot>
       </PaginationPrev>
 
-      <template v-for="(item, index) in items">
-        <PaginationListItem v-if="item.type === 'page'" :key="index" as-child :value="item.value" :class="b24ui.item({ class: props.b24ui?.item })">
+      <template v-for="(item, index) in items" :key="index">
+        <PaginationListItem v-if="item.type === 'page'" as-child :value="item.value" :class="b24ui.item({ class: props.b24ui?.item })">
           <slot name="item" v-bind="{ item, index, page, pageCount }">
             <B24Button
               :color="page === item.value ? activeColor : color"
@@ -155,9 +155,9 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pagina
           </slot>
         </PaginationListItem>
 
-        <PaginationEllipsis v-else :key="item.type" :index="index" as-child :class="b24ui.ellipsis({ class: props.b24ui?.ellipsis })">
+        <PaginationEllipsis v-else as-child :class="b24ui.ellipsis({ class: props.b24ui?.ellipsis })">
           <slot name="ellipsis">
-            <B24Button :color="color" :size="size" :icon="ellipsisIcon || icons.ellipsis" />
+            <B24Button as="div" :color="color" :size="size" :icon="ellipsisIcon || icons.ellipsis" />
           </slot>
         </PaginationEllipsis>
       </template>
