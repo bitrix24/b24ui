@@ -72,16 +72,16 @@ const components = [
   'skeleton',
   'slideover',
   'range',
-  // 'stepper',
+  // // 'stepper',
   'switch',
   'table',
   'tabs',
   'textarea',
-  // 'timeline',
+  'timeline',
   'toast',
   'tooltip'
   // 'tree',
-  // 'user'
+  // // 'user'
 ].map(component => ({ label: upperName(component.split('/').pop() as string), icon: GroupIcon, to: `/components/${component}` }))
 
 export const useNavigation = () => {

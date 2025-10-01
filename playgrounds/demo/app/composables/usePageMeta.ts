@@ -90,6 +90,7 @@ const components: IComponentInfo[] = [
   { id: 'switch', description: 'A control that toggles between two states.', iconData: FormIcon },
   { id: 'tabs', description: 'A set of tab panels that are displayed one at a time.', iconData: FolderEmptyIcon },
   { id: 'textarea', description: 'A textarea element to input multi-line text.', iconData: FormIcon },
+  { id: 'timeline', description: 'A component for displaying a chronological sequence of events, with dates, titles, and supporting icons or avatars.', iconData: GroupIcon },
   { id: 'toast', description: 'A succinct message to provide information or feedback to the user.', iconData: GroupIcon },
   { id: 'tooltip', description: 'A popup that reveals information when hovering over an element.', iconData: GroupIcon },
   { id: 'table', description: 'A responsive data table component.', iconData: TableIcon },
