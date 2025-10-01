@@ -1,12 +1,18 @@
 ---
 title: Timeline
-description: 'A component that displays a sequence of events with dates, titles, icons or avatars.'
+description: 'A component for displaying a chronological sequence of events, with dates, titles, and supporting icons or avatars.'
 category: data
 badge: new
 links:
   - label: GitHub
-    icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/blob/v4/src/runtime/components/Timeline.vue
+    iconName: GitHubIcon
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/PinInput.vue
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/timeline
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui4.nuxt.com/docs/components/timeline
 ---
 
 ## Usage
@@ -31,20 +37,16 @@ props:
     - date: 'Mar 15, 2025'
       title: 'Project Kickoff'
       description: 'Kicked off the project with team alignment. Set up project milestones and allocated resources.'
-      icon: 'i-lucide-rocket'
     - date: 'Mar 22 2025'
       title: 'Design Phase'
       description: 'User research and design workshops. Created wireframes and prototypes for user testing.'
-      icon: 'i-lucide-palette'
     - date: 'Mar 29 2025'
       title: 'Development Sprint'
       description: 'Frontend and backend development. Implemented core features and integrated with APIs.'
-      icon: 'i-lucide-code'
     - date: 'Apr 5 2025'
       title: 'Testing & Deployment'
       description: 'QA testing and performance optimization. Deployed the application to production.'
-      icon: 'i-lucide-check-circle'
-  class: 'w-96'
+  class: 'w-[384px]'
 ---
 ::
 
@@ -55,12 +57,12 @@ Use the `items` prop as an array of objects with the following properties:
 - `date?: string`{lang="ts-type"}
 - `title?: string`{lang="ts-type"}
 - `description?: AvatarProps`{lang="ts-type"}
-- `icon?: string`{lang="ts-type"}
+- [`icon?: IconComponent`{lang="ts-type"}](#with-alternating-layout)
 - `avatar?: AvatarProps`{lang="ts-type"}
 - `value?: string | number`{lang="ts-type"}
 - [`slot?: string`{lang="ts-type"}](#with-custom-slot)
 - `class?: any`{lang="ts-type"}
-- `ui?: { item?: ClassNameValue, container?: ClassNameValue, indicator?: ClassNameValue, separator?: ClassNameValue, wrapper?: ClassNameValue, date?: ClassNameValue, title?: ClassNameValue, description?: ClassNameValue }`{lang="ts-type"}
+- `b24ui?: { item?: ClassNameValue, container?: ClassNameValue, indicator?: ClassNameValue, separator?: ClassNameValue, wrapper?: ClassNameValue, date?: ClassNameValue, title?: ClassNameValue, description?: ClassNameValue }`{lang="ts-type"}
 
 ::component-code
 ---
@@ -78,20 +80,16 @@ props:
     - date: 'Mar 15, 2025'
       title: 'Project Kickoff'
       description: 'Kicked off the project with team alignment. Set up project milestones and allocated resources.'
-      icon: 'i-lucide-rocket'
     - date: 'Mar 22 2025'
       title: 'Design Phase'
       description: 'User research and design workshops. Created wireframes and prototypes for user testing.'
-      icon: 'i-lucide-palette'
     - date: 'Mar 29 2025'
       title: 'Development Sprint'
       description: 'Frontend and backend development. Implemented core features and integrated with APIs.'
-      icon: 'i-lucide-code'
     - date: 'Apr 5 2025'
       title: 'Testing & Deployment'
       description: 'QA testing and performance optimization. Deployed the application to production.'
-      icon: 'i-lucide-check-circle'
-  class: 'w-96'
+  class: 'w-[384px]'
 ---
 ::
 
@@ -110,26 +108,22 @@ external:
 externalTypes:
   - TimelineItem[]
 props:
-  color: neutral
+  color: air-primary
   defaultValue: 2
   items:
     - date: 'Mar 15, 2025'
       title: 'Project Kickoff'
       description: 'Kicked off the project with team alignment. Set up project milestones and allocated resources.'
-      icon: 'i-lucide-rocket'
     - date: 'Mar 22 2025'
       title: 'Design Phase'
       description: 'User research and design workshops. Created wireframes and prototypes for user testing.'
-      icon: 'i-lucide-palette'
     - date: 'Mar 29 2025'
       title: 'Development Sprint'
       description: 'Frontend and backend development. Implemented core features and integrated with APIs.'
-      icon: 'i-lucide-code'
     - date: 'Apr 5 2025'
       title: 'Testing & Deployment'
       description: 'QA testing and performance optimization. Deployed the application to production.'
-      icon: 'i-lucide-check-circle'
-  class: 'w-96'
+  class: 'w-[384px]'
 ---
 ::
 
@@ -154,20 +148,16 @@ props:
     - date: 'Mar 15, 2025'
       title: 'Project Kickoff'
       description: 'Kicked off the project with team alignment. Set up project milestones and allocated resources.'
-      icon: 'i-lucide-rocket'
     - date: 'Mar 22 2025'
       title: 'Design Phase'
       description: 'User research and design workshops. Created wireframes and prototypes for user testing.'
-      icon: 'i-lucide-palette'
     - date: 'Mar 29 2025'
       title: 'Development Sprint'
       description: 'Frontend and backend development. Implemented core features and integrated with APIs.'
-      icon: 'i-lucide-code'
     - date: 'Apr 5 2025'
       title: 'Testing & Deployment'
       description: 'QA testing and performance optimization. Deployed the application to production.'
-      icon: 'i-lucide-check-circle'
-  class: 'w-96'
+  class: 'w-[384px]'
 ---
 ::
 
@@ -192,19 +182,15 @@ props:
     - date: 'Mar 15, 2025'
       title: 'Project Kickoff'
       description: 'Kicked off the project with team alignment.'
-      icon: 'i-lucide-rocket'
     - date: 'Mar 22 2025'
       title: 'Design Phase'
       description: 'User research and design workshops.'
-      icon: 'i-lucide-palette'
     - date: 'Mar 29 2025'
       title: 'Development Sprint'
       description: 'Frontend and backend development.'
-      icon: 'i-lucide-code'
     - date: 'Apr 5 2025'
       title: 'Testing & Deployment'
       description: 'QA testing and performance optimization.'
-      icon: 'i-lucide-check-circle'
   class: 'w-full'
 class: 'overflow-x-auto'
 ---
@@ -232,19 +218,15 @@ props:
     - date: 'Mar 15, 2025'
       title: 'Project Kickoff'
       description: 'Kicked off the project with team alignment.'
-      icon: 'i-lucide-rocket'
     - date: 'Mar 22 2025'
       title: 'Design Phase'
       description: 'User research and design workshops.'
-      icon: 'i-lucide-palette'
     - date: 'Mar 29 2025'
       title: 'Development Sprint'
       description: 'Frontend and backend development.'
-      icon: 'i-lucide-code'
     - date: 'Apr 5 2025'
       title: 'Testing & Deployment'
       description: 'QA testing and performance optimization.'
-      icon: 'i-lucide-check-circle'
   class: 'w-full'
 class: 'overflow-x-auto'
 ---
@@ -264,7 +246,7 @@ You can also pass the `value` of one of the items if provided.
 
 ### With alternating layout
 
-Use the `ui` prop to create a Timeline with alternating layout.
+Use the `b24ui` prop to create a Timeline with alternating layout.
 
 :component-example{name="timeline-alternating-layout-example" prettier}
 
@@ -304,7 +286,3 @@ Use the available slots to create a more complex Timeline.
 ## Theme
 
 :component-theme
-
-## Changelog
-
-:component-changelog
