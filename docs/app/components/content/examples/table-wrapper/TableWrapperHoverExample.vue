@@ -1,6 +1,7 @@
 <template>
   <B24TableWrapper
     class="overflow-x-auto w-full"
+    row-hover
   >
     <table>
       <!-- head -->

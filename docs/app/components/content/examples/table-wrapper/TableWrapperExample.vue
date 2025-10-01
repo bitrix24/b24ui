@@ -1,9 +1,5 @@
 <template>
-  <B24TableWrapper
-    class="overflow-x-auto w-full"
-    zebra
-    row-hover
-  >
+  <B24TableWrapper class="overflow-x-auto w-full">
     <table>
       <!-- head -->
       <thead>
@@ -23,7 +19,7 @@
           <td>50,000</td>
         </tr>
         <!-- row 2 -->
-        <tr class="hover:bg-ai-300 dark:hover:bg-ai-700">
+        <tr>
           <th>2</th>
           <td>Global Solutions Ltd.</td>
           <td>Negotiation</td>
@@ -37,7 +33,7 @@
           <td>200,000</td>
         </tr>
         <!-- row 4 -->
-        <tr class="hover:bg-collab-300 dark:hover:bg-collab-700">
+        <tr>
           <th>4</th>
           <td>Bright Ideas Co.</td>
           <td>Initial Contact</td>
@@ -57,7 +53,7 @@
             Total:
           </th>
           <td>
-            685,000
+            685,00
           </td>
         </tr>
       </tfoot>

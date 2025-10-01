@@ -1,11 +1,7 @@
 <template>
   <B24TableWrapper
-    class="overflow-x-auto w-full bg-linear-165 from-red-500/20 to-ai-500/10"
-    bordered
-    rounded
-    :b24ui="{
-      base: 'border-2 border-ai-500 [&>table>thead>tr]:border-ai-500 [&>table>tbody>tr]:border-ai-300 [&>table>tfoot]:border-ai-500'
-    }"
+    class="overflow-x-auto w-full"
+    zebra
   >
     <table>
       <!-- head -->
@@ -19,7 +15,7 @@
       </thead>
       <tbody>
         <!-- row 1 -->
-        <tr>
+        <tr class="hover:bg-(--ui-color-copilot-accent-primary)/20">
           <th>1</th>
           <td>Tech Innovators Inc.</td>
           <td>Proposal Sent</td>

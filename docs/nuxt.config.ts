@@ -57,6 +57,7 @@ const pages = [
   '/docs/components/accordion/',
   '/docs/components/description-list/',
   '/docs/components/table/',
+  '/docs/components/table-wrapper/',
   // endregion ////
   // region Navigation ////
   '/docs/components/pagination/',

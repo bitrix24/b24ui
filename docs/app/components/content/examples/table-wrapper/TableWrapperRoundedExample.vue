@@ -1,17 +1,7 @@
-<script setup lang="ts">
-export interface ExampleProps {
-  size?: any
-}
-
-withDefaults(defineProps<ExampleProps>(), {
-  size: 'md' as const
-})
-</script>
-
 <template>
   <B24TableWrapper
-    class="overflow-x-auto w-full"
-    :size="size"
+    class="overflow-x-auto w-full dark bg-(--ui-color-gray-90)"
+    rounded
   >
     <table>
       <!-- head -->
