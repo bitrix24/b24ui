@@ -26,9 +26,8 @@ useServerSeoMeta({
   twitterCard: 'summary_large_image'
 })
 
-// // const { frameworks } = useFrameworks()
 const { rootNavigation } = useNavigation(navigation)
-// // const { links } = useSearch()
+
 provide('navigation', rootNavigation)
 </script>
 

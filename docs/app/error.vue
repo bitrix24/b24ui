@@ -37,7 +37,6 @@ useServerSeoMeta({
 })
 
 const { rootNavigation } = useNavigation(navigation)
-// const links = useSearch()
 
 provide('navigation', rootNavigation)
 </script>
