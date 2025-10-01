@@ -48,15 +48,15 @@ const items = ref([
     <B24DescriptionList
       legend="Applicant Information"
       text="Personal details and application."
-      class="light pt-4"
+      class="light"
       :items="items"
       :b24ui="{
         legend: 'sr-only',
         text: 'sr-only',
         labelWrapper: 'px-4',
-        container: '',
+        container: 'mt-0',
         descriptionWrapper: 'px-4',
-        footer: 'mt-4 px-4 py-6 flex flex-row flex-nowrap justify-end items-center'
+        footer: 'mt-4 px-0 py-4 pb-0 flex flex-row flex-nowrap justify-end items-center'
       }"
     >
       <template #amount="{ index }">
@@ -66,7 +66,7 @@ const items = ref([
           </ProseH4>
         </dt>
         <dd class="pb-3 pt-1 sm:py-3 px-4">
-          <div class="flex flex-wrap flex-row items-start justify-between gap-4">
+          <div class="flex flex-wrap flex-row items-center justify-start gap-4">
             <div>
               {{ items[index]?.value }}
             </div>
@@ -79,8 +79,7 @@ const items = ref([
         </dd>
       </template>
       <template #description="{ item }">
-        <template v-if="item.id === 'amount'" />
-        <template v-else-if="item.id === 'date'">
+        <template v-if="item.id === 'date'">
           <time :datetime="(item?.value as Date)?.toISOString()">{{ (item?.value as Date)?.toDateString() }}</time>
         </template>
         <template v-else>
