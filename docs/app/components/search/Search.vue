@@ -16,9 +16,9 @@ defineProps<{
   navigation?: ContentNavigationItem[]
 }>()
 
-const searchTerm = ref('')
-
 const chat = ref(false)
+const fullscreen = ref(false)
+const searchTerm = ref('')
 const messages = ref<UIMessage[]>([])
 
 const { frameworks } = useFrameworks()
@@ -53,6 +53,11 @@ const groups = computed(() => [{
   label: 'Framework',
   items: frameworks.value
 }])
+
+function onClose() {
+  chat.value = false
+  fullscreen.value = false
+}
 </script>
 
 <template>
@@ -62,10 +67,11 @@ const groups = computed(() => [{
     :files="files"
     :groups="groups"
     :navigation="navigation"
+    :fullscreen="fullscreen"
     :fuse="{ resultLimit: 115 }"
   >
     <template v-if="chat" #content>
-      <SearchChat v-model:messages="messages" @close="chat = false" />
+      <SearchChat v-model:messages="messages" v-model:fullscreen="fullscreen" @close="onClose" />
     </template>
   </B24ContentSearch>
 </template>
