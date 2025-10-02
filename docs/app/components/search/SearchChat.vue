@@ -9,12 +9,15 @@ import InfoCircleIcon from '@bitrix24/b24icons-vue/outline/InfoCircleIcon'
 import RobotIcon from '@bitrix24/b24icons-vue/outline/RobotIcon'
 import SearchIcon from '@bitrix24/b24icons-vue/outline/SearchIcon'
 import UserIcon from '@bitrix24/b24icons-vue/common-b24/UserIcon'
+import ExpandLIcon from '@bitrix24/b24icons-vue/outline/ExpandLIcon'
+import MinimizeIcon from '@bitrix24/b24icons-vue/outline/MinimizeIcon'
 
 const components = {
   pre: ProseStreamPre as unknown as DefineComponent
 }
 
 const messages = defineModel<UIMessage[]>('messages')
+const fullscreen = defineModel<boolean>('fullscreen')
 
 const emits = defineEmits<{
   close: []
@@ -74,7 +77,9 @@ function upperName(name: string) {
   return splitByCase(name).map(p => upperFirst(p)).join('')
 }
 
-function getToolMessage(state: UIToolInvocation<any>['state'], toolName: string, input: any) {
+type State = UIToolInvocation<any>['state']
+
+function getToolMessage(state: State, toolName: string, input: any) {
   const searchVerb = state === 'output-available' ? 'Searched' : 'Searching'
   const readVerb = state === 'output-available' ? 'Read' : 'Reading'
 
@@ -88,18 +93,21 @@ function getToolMessage(state: UIToolInvocation<any>['state'], toolName: string,
     get_documentation_page: `${readVerb} ${input.path || ''} page`,
     list_documentation_pages: `${searchVerb} documentation pages`,
     list_getting_started_guides: `${searchVerb} documentation guides`,
-    get_migration_guide: `${readVerb} ${input.version} migration guide`,
+    get_migration_guide: `${readVerb} migration guide${input.version ? ` for ${input.version}` : ''}`,
     list_examples: `${searchVerb} examples`,
     get_example: `${readVerb} ${upperName(input.exampleName)} example`,
     search_components_by_category: `${searchVerb} components${input.category ? ` in ${input.category} category` : ''}${input.search ? ` for "${input.search}"` : ''}`
   }[toolName] || `${searchVerb} ${toolName}`
 }
+
+const getCachedToolMessage = useMemoize((state: State, toolName: string, input: string) =>
+  getToolMessage(state, toolName, JSON.parse(input))
+)
 </script>
 
 <template>
   <B24ChatPalette>
     <B24ChatMessages
-      should-auto-scroll
       :messages="chat.messages"
       :status="chat.status"
       :user="{ side: 'left', variant: 'plain', icon: UserIcon }"
@@ -119,7 +127,7 @@ function getToolMessage(state: UIToolInvocation<any>['state'], toolName: string,
             />
 
             <p v-if="part.type === 'dynamic-tool'" class="text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm) leading-6 my-1.5">
-              {{ getToolMessage(part.state, part.toolName, part.input || {}) }}
+              {{ getCachedToolMessage(part.state, part.toolName, JSON.stringify(part.input || {})) }}
             </p>
           </template>
         </div>
@@ -132,11 +140,17 @@ function getToolMessage(state: UIToolInvocation<any>['state'], toolName: string,
         :icon="SearchIcon"
         variant="plain"
         :error="chat.error"
+        :b24ui="{ trailing: 'items-center' }"
         @submit="handleSubmit"
         @close="handleClose"
       >
         <template #trailing>
-          <B24Badge label="Beta" color="air-tertiary" />
+          <B24Button
+            :icon="fullscreen ? ExpandLIcon : MinimizeIcon"
+            color="air-tertiary-no-accent"
+            :b24ui="{ leadingIcon: 'text-(--b24ui-typography-label-color)' }"
+            @click="fullscreen = !fullscreen"
+          />
         </template>
       </B24ChatPrompt>
     </template>
