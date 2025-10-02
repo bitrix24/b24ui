@@ -6,6 +6,7 @@ useHead({
 })
 
 const slots = defineSlots()
+const route = useRoute()
 
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 const { navigationMenuByCategory } = useNavigation(navigation!)
@@ -21,6 +22,7 @@ const { navigationMenuByCategory } = useNavigation(navigation!)
       </B24SidebarHeader>
       <B24SidebarBody>
         <B24NavigationMenu
+          :key="route.path"
           :items="navigationMenuByCategory"
           orientation="vertical"
           :b24ui="{ linkLeadingBadge: '-top-[4px] left-auto -right-[50px]  bg-blue-500' }"
