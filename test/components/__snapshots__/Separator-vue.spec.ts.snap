@@ -5,7 +5,7 @@ exports[`Separator > renders with as correctly 1`] = `"<span data-orientation="h
 exports[`Separator > renders with avatar correctly 1`] = `
 "<div data-orientation="horizontal" role="separator" class="flex items-center align-center text-center w-full flex-row">
   <div class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
-  <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-normal) flex text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) mx-3 whitespace-nowrap"><span class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--ui-color-base-8) ring ring-(--ui-color-base-7) size-[28px] text-(length:--ui-font-size-xs)/(--ui-font-line-height-reset) shrink-0"><img role="img" src="https://github.com/bitrix24.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover"></span></div>
+  <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-normal) flex text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) mx-3 whitespace-nowrap"><span class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--ui-color-base-8) ring ring-(--ui-color-base-7) size-[28px] text-(length:--ui-font-size-xs)/(--ui-font-line-height-reset) shrink-0"><img src="https://github.com/bitrix24.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover"></span></div>
   <div class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
 </div>"
 `;

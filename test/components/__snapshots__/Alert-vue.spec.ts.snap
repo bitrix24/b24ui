@@ -31,7 +31,7 @@ exports[`Alert > renders with as correctly 1`] = `
 `;
 
 exports[`Alert > renders with avatar correctly 1`] = `
-"<div data-orientation="vertical" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start"><span class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--ui-color-base-8) ring-(--ui-color-base-7) ring-2 size-[48px] text-(length:--ui-font-size-2xl)/(--ui-font-line-height-reset) shrink-0"><img role="img" src="https://github.com/bitrix24.png" width="48" height="48" class="h-full w-full rounded-[inherit] object-cover"></span>
+"<div data-orientation="vertical" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start"><span class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--ui-color-base-8) ring-(--ui-color-base-7) ring-2 size-[48px] text-(length:--ui-font-size-2xl)/(--ui-font-line-height-reset) shrink-0"><img src="https://github.com/bitrix24.png" width="48" height="48" class="h-full w-full rounded-[inherit] object-cover"></span>
   <div class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
     <div class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
     <!--v-if-->
