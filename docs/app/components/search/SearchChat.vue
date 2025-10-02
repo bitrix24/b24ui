@@ -9,8 +9,8 @@ import InfoCircleIcon from '@bitrix24/b24icons-vue/outline/InfoCircleIcon'
 import RobotIcon from '@bitrix24/b24icons-vue/outline/RobotIcon'
 import SearchIcon from '@bitrix24/b24icons-vue/outline/SearchIcon'
 import UserIcon from '@bitrix24/b24icons-vue/common-b24/UserIcon'
-import ExpandLIcon from '@bitrix24/b24icons-vue/outline/ExpandLIcon'
 import MinimizeIcon from '@bitrix24/b24icons-vue/outline/MinimizeIcon'
+import MaximizeIcon from '@bitrix24/b24icons-vue/outline/MaximizeIcon'
 
 const components = {
   pre: ProseStreamPre as unknown as DefineComponent
@@ -146,7 +146,7 @@ const getCachedToolMessage = useMemoize((state: State, toolName: string, input: 
       >
         <template #trailing>
           <B24Button
-            :icon="fullscreen ? ExpandLIcon : MinimizeIcon"
+            :icon="fullscreen ? MaximizeIcon : MinimizeIcon"
             color="air-tertiary-no-accent"
             :b24ui="{ leadingIcon: 'text-(--b24ui-typography-label-color)' }"
             @click="fullscreen = !fullscreen"

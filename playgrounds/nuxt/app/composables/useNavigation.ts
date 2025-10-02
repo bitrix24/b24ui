@@ -79,9 +79,9 @@ const components = [
   'textarea',
   'timeline',
   'toast',
-  'tooltip'
+  'tooltip',
   // 'tree',
-  // // 'user'
+  'user'
 ].map(component => ({ label: upperName(component.split('/').pop() as string), icon: GroupIcon, to: `/components/${component}` }))
 
 export const useNavigation = () => {

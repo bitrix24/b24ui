@@ -10,7 +10,7 @@
  * @see bitrix/js/ui/label/src/style.css
  * @todo add animation >> demo >> https://github.com/nuxt/ui/blob/v3/docs/app/components/content/examples/chip/ChipShowExample.vue
  */
-
+// size: ['2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'],
 export default {
   slots: {
     root: [
@@ -129,59 +129,31 @@ export default {
     // inset ////
     {
       position: 'top-right',
-      size: ['2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'],
+      size: ['sm', 'md', 'lg'],
       inset: true,
       standalone: false,
       class: '-translate-y-1/3 translate-x-1/3 transform'
     },
     {
-      position: 'top-right',
-      size: ['2xs', '3xl'],
-      inset: true,
-      standalone: false,
-      class: 'translate-y-0 translate-x-0 transform'
-    },
-    {
       position: 'bottom-right',
-      size: ['2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'],
+      size: ['sm', 'md', 'lg'],
       inset: true,
       standalone: false,
       class: 'translate-y-1/3 translate-x-1/3 transform'
     },
     {
-      position: 'bottom-right',
-      size: ['2xs', '3xl'],
-      inset: true,
-      standalone: false,
-      class: 'translate-y-0 translate-x-0 transform'
-    },
-    {
       position: 'top-left',
-      size: ['2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'],
+      size: ['sm', 'md', 'lg'],
       inset: true,
       standalone: false,
       class: '-translate-y-1/3 -translate-x-1/3 transform'
     },
     {
-      position: 'top-left',
-      size: ['2xs', '3xl'],
-      inset: true,
-      standalone: false,
-      class: '-translate-y-0 -translate-x-0 transform'
-    },
-    {
       position: 'bottom-left',
-      size: ['2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'],
+      size: ['sm', 'md', 'lg'],
       inset: true,
       standalone: false,
       class: 'translate-y-1/3 -translate-x-1/3 transform'
-    },
-    {
-      position: 'bottom-left',
-      size: ['2xs', '3xl'],
-      inset: true,
-      standalone: false,
-      class: 'translate-y-0 -translate-x-0 transform'
     },
     // endregion ////
     // region color ////

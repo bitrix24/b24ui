@@ -93,6 +93,7 @@ const components: IComponentInfo[] = [
   { id: 'timeline', description: 'A component for displaying a chronological sequence of events, with dates, titles, and supporting icons or avatars.', iconData: GroupIcon },
   { id: 'toast', description: 'A succinct message to provide information or feedback to the user.', iconData: GroupIcon },
   { id: 'tooltip', description: 'A popup that reveals information when hovering over an element.', iconData: GroupIcon },
+  { id: 'user', description: ' A component to display user details, including their name, bio, and profile picture.', iconData: GroupIcon },
   { id: 'table', description: 'A responsive data table component.', iconData: TableIcon },
   { id: 'table-wrapper', description: 'Wrapper for displaying a table.', iconData: TableIcon }
 ]

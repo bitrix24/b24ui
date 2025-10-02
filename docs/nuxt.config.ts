@@ -59,6 +59,7 @@ const pages = [
   '/docs/components/table/',
   '/docs/components/table-wrapper/',
   '/docs/components/timeline/',
+  '/docs/components/user/',
   // endregion ////
   // region Navigation ////
   '/docs/components/pagination/',
