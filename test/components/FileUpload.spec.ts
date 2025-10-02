@@ -71,7 +71,7 @@ describe('FileUpload', () => {
     ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
     ['with as', { props: { as: 'section' } }],
     ['with class', { props: { class: 'w-full gap-4' } }],
-    ['with ui', { props: { ui: { base: 'rounded-xl' } } }],
+    ['with b24ui', { props: { b24ui: { base: 'rounded-xl' } } }],
     // Slots
     ['with default slot', { props, slots: { default: () => 'Default slot' } }],
     ['with leading slot', { props, slots: { leading: () => 'Leading slot' } }],

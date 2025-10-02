@@ -22,7 +22,7 @@ describe('ColorPicker', () => {
     ...formats.map(format => [`with format ${format[0]}`, { props: { format: format[0], defaultValue: format[1] } }]),
     ['with as', { props: { as: 'section' } }],
     ['with class', { props: { class: 'w-96' } }],
-    ['with ui', { props: { ui: { picker: 'gap-8' } } }]
+    ['with b24ui', { props: { b24ui: { picker: 'gap-8' } } }]
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: ColorPickerProps }) => {
     const html = await ComponentRender(nameOrHtml, options, ColorPicker)
     expect(html).toMatchSnapshot()

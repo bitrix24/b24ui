@@ -32,6 +32,38 @@ exports[`Modal > renders with actions slot correctly 1`] = `
 <!--teleport end-->"
 `;
 
+exports[`Modal > renders with b24ui correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
+  <!--v-if-->
+  <div class="flex flex-col gap-[15px] pt-[4px] overflow-hidden">
+    <div class="flex items-start justify-between gap-[6px]">
+      <div class="">
+        <!--v-if-->
+        <!--v-if-->
+      </div><button type="button" aria-label="Close" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain-no-accent ui-btn-md rounded-(--ui-btn-radius) normal-case --air -mt-[4px] end-2">
+        <!--v-if-->
+        <div class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
+            <path fill="currentColor" d="M8.46 7.54a.65.65 0 0 0-.92.92L11.08 12l-3.54 3.54a.65.65 0 1 0 .92.92L12 12.918l3.54 3.54a.65.65 0 1 0 .919-.92L12.919 12l3.54-3.54a.65.65 0 0 0-.92-.919L12 11.08z"></path>
+          </svg>
+          <!--v-if-->
+          <!--v-if-->
+        </div>
+      </button>
+    </div>
+    <!--v-if-->
+  </div>
+  <!--v-if-->
+</div>
+
+
+<!--teleport end-->"
+`;
+
 exports[`Modal > renders with body slot correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
@@ -421,38 +453,6 @@ exports[`Modal > renders with title slot correctly 1`] = `
     <div class="flex items-start justify-between gap-[6px]">
       <div class="">
         <h2 id="reka-dialog-title-v-0" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-medium) mb-0 text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)">Title slot</h2>
-        <!--v-if-->
-      </div><button type="button" aria-label="Close" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain-no-accent ui-btn-md rounded-(--ui-btn-radius) normal-case --air -mt-[4px]">
-        <!--v-if-->
-        <div class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
-            <path fill="currentColor" d="M8.46 7.54a.65.65 0 0 0-.92.92L11.08 12l-3.54 3.54a.65.65 0 1 0 .92.92L12 12.918l3.54 3.54a.65.65 0 1 0 .919-.92L12.919 12l3.54-3.54a.65.65 0 0 0-.92-.919L12 11.08z"></path>
-          </svg>
-          <!--v-if-->
-          <!--v-if-->
-        </div>
-      </button>
-    </div>
-    <!--v-if-->
-  </div>
-  <!--v-if-->
-</div>
-
-
-<!--teleport end-->"
-`;
-
-exports[`Modal > renders with ui correctly 1`] = `
-"<!--v-if-->
-<!--teleport start-->
-
-
-<div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" class="light bg-(--popup-window-background-color) fixed flex flex-col gap-[20px] focus:outline-none p-[24px] pt-[20px] motion-safe:data-[state=open]:animate-[scale-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_200ms_ease-in] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[32rem] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)] rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg" id="" role="dialog" aria-describedby="reka-dialog-description-v-1" aria-labelledby="reka-dialog-title-v-0" data-state="open">
-  <!--v-if-->
-  <div class="flex flex-col gap-[15px] pt-[4px] overflow-hidden">
-    <div class="flex items-start justify-between gap-[6px]">
-      <div class="">
-        <!--v-if-->
         <!--v-if-->
       </div><button type="button" aria-label="Close" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain-no-accent ui-btn-md rounded-(--ui-btn-radius) normal-case --air -mt-[4px]">
         <!--v-if-->

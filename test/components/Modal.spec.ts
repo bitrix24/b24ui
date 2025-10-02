@@ -18,7 +18,7 @@ describe('Modal', () => {
     ['without close', { props: { ...props, close: false, title: 'Title', description: 'Description' } }],
     ['with closeIcon', { props: { ...props, closeIcon: Cross30Icon } }],
     ['with class', { props: { ...props, class: 'bg-base-100' } }],
-    ['with ui', { props: { ...props, ui: { close: 'end-2' } } }],
+    ['with b24ui', { props: { ...props, b24ui: { close: 'end-2' } } }],
     // Slots
     ['with default slot', { props, slots: { default: () => 'Default slot' } }],
     ['with content slot', { props, slots: { content: () => 'Content slot' } }],

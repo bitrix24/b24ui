@@ -15,6 +15,21 @@ exports[`ColorPicker > renders with as correctly 1`] = `
 </section>"
 `;
 
+exports[`ColorPicker > renders with b24ui correctly 1`] = `
+"<div data-v-d6f23756="" class="data-[disabled]:opacity-30">
+  <div data-v-d6f23756="" class="flex gap-8">
+    <div data-v-d6f23756="" class="rounded-(--ui-border-radius-md) touch-none w-[168px] h-[168px]" style="background-color: #FF0000;">
+      <div data-v-d6f23756="" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
+        <div data-v-d6f23756="" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FFFFFF; left: 0%; top: 0%;"></div>
+      </div>
+    </div>
+    <div data-v-d6f23756="" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[168px]" data-color-picker-track="">
+      <div data-v-d6f23756="" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FF0000; top: 0%;"></div>
+    </div>
+  </div>
+</div>"
+`;
+
 exports[`ColorPicker > renders with class correctly 1`] = `
 "<div data-v-d6f23756="" class="data-[disabled]:opacity-30 w-96">
   <div data-v-d6f23756="" class="flex gap-4">
@@ -174,21 +189,6 @@ exports[`ColorPicker > renders with size xs correctly 1`] = `
       </div>
     </div>
     <div data-v-d6f23756="" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[152px]" data-color-picker-track="">
-      <div data-v-d6f23756="" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FF0000; top: 0%;"></div>
-    </div>
-  </div>
-</div>"
-`;
-
-exports[`ColorPicker > renders with ui correctly 1`] = `
-"<div data-v-d6f23756="" class="data-[disabled]:opacity-30" ui="[object Object]">
-  <div data-v-d6f23756="" class="flex gap-4">
-    <div data-v-d6f23756="" class="rounded-(--ui-border-radius-md) touch-none w-[168px] h-[168px]" style="background-color: #FF0000;">
-      <div data-v-d6f23756="" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
-        <div data-v-d6f23756="" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FFFFFF; left: 0%; top: 0%;"></div>
-      </div>
-    </div>
-    <div data-v-d6f23756="" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[168px]" data-color-picker-track="">
       <div data-v-d6f23756="" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FF0000; top: 0%;"></div>
     </div>
   </div>

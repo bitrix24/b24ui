@@ -28,7 +28,7 @@ describe('PinInput', () => {
     ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
     ['with as', { props: { as: 'span' } }],
     ['with class', { props: { class: 'absolute' } }],
-    ['with b24ui', { props: { ui: { base: 'rounded-full' } } }]
+    ['with b24ui', { props: { b24ui: { base: 'rounded-full' } } }]
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: PinInputProps }) => {
     const html = await ComponentRender(nameOrHtml, options, PinInput)
     expect(html).toMatchSnapshot()
