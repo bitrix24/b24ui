@@ -25,7 +25,7 @@ const components = [
   'collapsible',
   // // 'color-mode',
   // // 'color-picker',
-  // // 'command-palette',
+  'command-palette',
   // // 'content/content-navigation',
   // // 'content/content-surround',
   // // 'content/content-toc',

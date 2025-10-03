@@ -59,6 +59,7 @@ const components: IComponentInfo[] = [
   { id: 'color-picker', description: 'A color picker component.', iconData: FormIcon },
   { id: 'chip', description: 'An indicator of a numeric value or a state.', iconData: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'confetti', description: 'Performant confetti animation in the browser.', iconData: BoldSparkleIcon },
+  { id: 'command-palette', description: 'A searchable command palette powered by Fuse.js for fast, fuzzy text search.', iconData: GroupIcon },
   { id: 'container', description: 'A container lets you center and constrain the width of your content.', iconData: GroupIcon },
   { id: 'countdown', description: 'Countdown with options control.', iconData: Clock1Icon },
   { id: 'description-list', description: 'For cases where you need to convert data from one row of a table into a separate table to make the page look more complete.', iconData: GroupIcon },

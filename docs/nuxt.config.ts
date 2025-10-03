@@ -64,6 +64,7 @@ const pages = [
   // region Navigation ////
   '/docs/components/pagination/',
   '/docs/components/breadcrumb/',
+  '/docs/components/command-palette/',
   // endregion ////
   // region Overlay ////
   '/docs/components/context-menu/'
