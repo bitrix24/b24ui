@@ -49,6 +49,7 @@ const components: IComponentInfo[] = [
   { id: 'alert', description: 'A callout to draw user\'s attention.', iconData: AlertIcon },
   { id: 'avatar', description: 'An img element with fallback and Nuxt Image support.', iconData: PersonIcon },
   { id: 'badge', description: 'A short text to represent a status or a category.', iconData: ItemIcon, iconUi: 'pr-px pb-[3px]' },
+  { id: 'breadcrumb', description: 'A breadcrumb navigation component.', iconData: GroupIcon },
   { id: 'button', description: 'A button element that can act as a link or trigger an action.', iconData: GroupIcon },
   { id: 'calendar', description: 'A calendar tool for choosing individual dates, multiple dates, or date spans.', iconData: Calendar1Icon },
   { id: 'card', description: 'Render the content within a card component comprising a header, body, and footer section.', iconData: GroupIcon },

@@ -1,5 +1,7 @@
 /**
  * PageLinks
+ * ---
+ * @todo add demo
  */
 export default {
   slots: {
@@ -20,9 +22,9 @@ export default {
       'focus-visible:outline-1',
       'focus-visible:rounded-[4px]',
       'text-start',
-      'text-(--ui-color-accent-main-link)',
+      'text-(--ui-color-design-selection-content)',
       'underline-offset-2',
-      'hover:text-(--ui-color-accent-main-primary-alt)',
+      'hover:text-(--ui-color-accent-main-primary-alt-2)',
       'hover:underline',
       'flex flex-row items-center justify-between'
     ].join(' '),
@@ -31,16 +33,16 @@ export default {
     ].join(' '),
     linkLeadingIcon: 'size-5 shrink-0',
     linkLabel: 'truncate',
-    linkLabelExternalIcon: 'size-4 text-(--ui-color-accent-main-link) group-hover:text-(--ui-color-accent-main-primary-alt)'
+    linkLabelExternalIcon: 'size-4 text-(--ui-color-design-selection-content) group-hover:text-(--ui-color-accent-main-primary-alt-2)'
   },
   variants: {
     active: {
       true: {
-        link: 'text-(--ui-color-accent-main-primary-alt)',
-        linkLabelExternalIcon: 'text-(--ui-color-accent-main-primary-alt)'
+        link: 'text-(--ui-color-accent-main-primary-alt-2)',
+        linkLabelExternalIcon: 'text-(--ui-color-accent-main-primary-alt-2)'
       },
       false: {
-        link: ['text-(--ui-color-accent-main-link) hover:text-(--ui-color-accent-main-primary-alt)']
+        link: ['text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)']
       }
     }
   }

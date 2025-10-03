@@ -13,7 +13,7 @@ export default {
       'text-(length:--ui-font-size-4xl)',
       '[&>a>code]:text-(length:--ui-font-size-3xl)/7',
       '[&>a]:focus-visible:outline-(--ui-color-accent-main-primary)',
-      'hover:[&>a>code]:text-(--ui-color-accent-main-primary-alt)',
+      'hover:[&>a>code]:text-(--ui-color-accent-main-primary-alt-2)',
       'hover:[&>a>code]:bg-(--ui-color-design-selection-bg)',
       'hover:[&>a>code]:ring-(--ui-color-design-selection-stroke)'
     ].join(' '),
@@ -28,7 +28,7 @@ export default {
       'bg-(--b24ui-background)',
       'ring-(length:--b24ui-border-width) ring-(--b24ui-border-color)',
       'text-(--b24ui-color)',
-      'hover:text-(--ui-color-accent-main-primary-alt)',
+      'hover:text-(--ui-color-accent-main-primary-alt-2)',
       'rounded-(--ui-border-radius-2xs)',
       'hidden lg:flex',
       'transition'

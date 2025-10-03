@@ -12,11 +12,11 @@ export default {
       // fix 'text-(--ui-color-accent-main-primary)',
       'text-(--ui-color-accent-main-link)',
       'hover:underline underline-offset-2',
-      'hover:text-(--ui-color-accent-main-primary-alt)',
+      'hover:text-(--ui-color-accent-main-primary-alt-2)',
       'focus-visible:outline-info-text',
       'transition-colors [&>code]:transition-colors',
       // '[&>code]:ring-dashed',
-      'hover:[&>code]:text-(--ui-color-accent-main-primary-alt)',
+      'hover:[&>code]:text-(--ui-color-accent-main-primary-alt-2)',
       'hover:[&>code]:bg-(--ui-color-design-selection-bg)',
       'hover:[&>code]:ring-(--ui-color-design-selection-stroke)'
     ].join(' ')

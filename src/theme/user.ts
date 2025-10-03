@@ -1,6 +1,6 @@
 /**
  * User
- *  A component to display user details, including their name, bio, and profile picture.
+ * A component to display user details, including their name, bio, and profile picture.
  * ---
  */
 

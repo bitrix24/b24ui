@@ -23,7 +23,7 @@ export default (options: Required<ModuleOptions>) => ({
         'hover:not-disabled:not-aria-disabled:underline underline-offset-2'
       ].join(' '),
       false: [
-        'text-(--ui-color-accent-main-link)',
+        'text-(--ui-color-design-selection-content)',
         'underline-offset-2'
       ].join(' ')
     },
@@ -47,7 +47,7 @@ export default (options: Required<ModuleOptions>) => ({
       active: false,
       disabled: false,
       class: [
-        'hover:text-(--ui-color-accent-main-primary-alt)',
+        'hover:text-(--ui-color-accent-main-primary-alt-2)',
         'hover:underline'
       ].join(' ')
     }

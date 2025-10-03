@@ -13,7 +13,7 @@ const components = [
   'badge',
   // // 'banner',
   // 'blog-post',
-  // 'breadcrumb',
+  'breadcrumb',
   'button',
   'calendar',
   'card',
