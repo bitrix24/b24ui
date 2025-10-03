@@ -7,10 +7,10 @@ import { splitByCase, upperFirst } from 'scule'
 import ProseStreamPre from '../prose/PreStream.vue'
 import InfoCircleIcon from '@bitrix24/b24icons-vue/outline/InfoCircleIcon'
 import RobotIcon from '@bitrix24/b24icons-vue/outline/RobotIcon'
-import SearchIcon from '@bitrix24/b24icons-vue/outline/SearchIcon'
 import UserIcon from '@bitrix24/b24icons-vue/common-b24/UserIcon'
 import MinimizeIcon from '@bitrix24/b24icons-vue/outline/MinimizeIcon'
 import MaximizeIcon from '@bitrix24/b24icons-vue/outline/MaximizeIcon'
+import MessengerIcon from '@bitrix24/b24icons-vue/outline/MessengerIcon'
 
 const components = {
   pre: ProseStreamPre as unknown as DefineComponent
@@ -137,7 +137,7 @@ const getCachedToolMessage = useMemoize((state: State, toolName: string, input: 
     <template #prompt>
       <B24ChatPrompt
         v-model="input"
-        :icon="SearchIcon"
+        :icon="MessengerIcon"
         variant="plain"
         :error="chat.error"
         :b24ui="{ trailing: 'items-center' }"
@@ -148,7 +148,8 @@ const getCachedToolMessage = useMemoize((state: State, toolName: string, input: 
           <B24Button
             :icon="fullscreen ? MaximizeIcon : MinimizeIcon"
             color="air-tertiary-no-accent"
-            :b24ui="{ leadingIcon: 'text-(--b24ui-typography-label-color)' }"
+            class="group"
+            :b24ui="{ leadingIcon: 'text-(--b24ui-typography-legend-color) group-hover:text-(--b24ui-typography-label-color) transition' }"
             @click="fullscreen = !fullscreen"
           />
         </template>
