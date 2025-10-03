@@ -12,7 +12,7 @@ links:
     to: https://bitrix24.github.io/b24ui/demo/components/chip
   - label: Nuxt UI
     iconName: NuxtIcon
-    to: https://ui4.nuxt.com/docs/components/checkbox-group
+    to: https://ui.nuxt.com/docs/components/checkbox-group
   - label: CheckboxGroup
     avatar:
       src: /b24ui/avatar/rekaui.svg

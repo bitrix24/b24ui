@@ -11,7 +11,7 @@ links:
     to: https://bitrix24.github.io/b24ui/demo/components/container
   - label: Nuxt UI
     iconName: NuxtIcon
-    to: https://ui4.nuxt.com/docs/components/container
+    to: https://ui.nuxt.com/docs/components/container
 ---
 
 ## Usage

@@ -12,7 +12,7 @@ links:
     to: https://bitrix24.github.io/b24ui/demo/components/table
   - label: Nuxt UI
     iconName: NuxtIcon
-    to: https://ui4.nuxt.com/docs/components/table
+    to: https://ui.nuxt.com/docs/components/table
   - label: TanStack Table
     avatar:
       src: /b24ui/avatar/tanstack.png

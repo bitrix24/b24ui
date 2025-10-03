@@ -12,7 +12,7 @@ links:
     to: https://bitrix24.github.io/b24ui/demo/components/timeline
   - label: Nuxt UI
     iconName: NuxtIcon
-    to: https://ui4.nuxt.com/docs/components/timeline
+    to: https://ui.nuxt.com/docs/components/timeline
 ---
 
 ## Usage

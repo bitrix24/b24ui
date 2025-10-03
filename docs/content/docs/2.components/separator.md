@@ -11,7 +11,7 @@ links:
     to: https://bitrix24.github.io/b24ui/demo/components/separator
   - label: Nuxt UI
     iconName: NuxtIcon
-    to: https://ui4.nuxt.com/docs/components/separator
+    to: https://ui.nuxt.com/docs/components/separator
   - label: Separator
     avatar:
       src: /b24ui/avatar/rekaui.svg

@@ -12,7 +12,7 @@ links:
     to: https://bitrix24.github.io/b24ui/demo/components/input-tags
   - label: Nuxt UI
     iconName: NuxtIcon
-    to: https://ui4.nuxt.com/docs/components/input-tags
+    to: https://ui.nuxt.com/docs/components/input-tags
   - label: InputTags
     avatar:
       src: /b24ui/avatar/rekaui.svg

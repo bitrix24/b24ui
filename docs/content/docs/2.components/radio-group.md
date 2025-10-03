@@ -11,7 +11,7 @@ links:
     to: https://bitrix24.github.io/b24ui/demo/components/radio-group
   - label: Nuxt UI
     iconName: NuxtIcon
-    to: https://ui4.nuxt.com/docs/components/radio-group
+    to: https://ui.nuxt.com/docs/components/radio-group
   - label: RadioGroup
     avatar:
       src: /b24ui/avatar/rekaui.svg

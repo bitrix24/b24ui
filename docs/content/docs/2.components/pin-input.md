@@ -12,7 +12,7 @@ links:
     to: https://bitrix24.github.io/b24ui/demo/components/pin-input
   - label: Nuxt UI
     iconName: NuxtIcon
-    to: https://ui4.nuxt.com/docs/components/pin-input
+    to: https://ui.nuxt.com/docs/components/pin-input
   - label: PinInput
     avatar:
       src: /b24ui/avatar/rekaui.svg

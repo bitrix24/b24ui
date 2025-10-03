@@ -9,7 +9,7 @@ links:
     to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Banner.vue
   - label: Nuxt UI
     iconName: NuxtIcon
-    to: https://ui4.nuxt.com/docs/components/banner
+    to: https://ui.nuxt.com/docs/components/banner
 ---
 
 ## Usage
