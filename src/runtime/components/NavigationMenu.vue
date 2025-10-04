@@ -10,11 +10,10 @@ import type { ComponentConfig } from '../types/tv'
 type NavigationMenu = ComponentConfig<typeof theme, AppConfig, 'navigationMenu'>
 
 /**
- * @memo not use
+ * @memo not use in NavigationMenuChildItem
  * - description
- * - type
- * - b24ui
  * - avatar
+ * - b24ui
  * - children - only 1 level
  */
 export interface NavigationMenuChildItem extends Omit<NavigationMenuItem, 'type' | 'b24ui' | 'avatar' | 'children'> {
