@@ -15,6 +15,7 @@ export interface ButtonProps extends Omit<UseComponentIconsProps, 'trailing' | '
   color?: Button['variants']['color']
   activeColor?: Button['variants']['color']
   /**
+   * @depricate
    * @defaultValue 'normal'
    */
   depth?: Button['variants']['depth']
