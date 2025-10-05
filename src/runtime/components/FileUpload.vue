@@ -278,6 +278,7 @@ defineExpose({
             <slot name="file" :file="file" :index="index">
               <slot name="file-leading" :file="file" :index="index">
                 <B24Avatar
+                  :as="{ img: 'img' }"
                   :src="createObjectUrl(file)"
                   :icon="fileIcon || icons.file"
                   :size="props.size"

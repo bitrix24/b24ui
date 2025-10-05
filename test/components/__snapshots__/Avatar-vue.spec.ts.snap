@@ -2,6 +2,14 @@
 
 exports[`Avatar > renders with alt correctly 1`] = `"<span class="air-secondary-accent inline-flex items-center justify-center shrink-0 select-none rounded-full align-middle bg-(--ui-color-base-8) ring ring-(--ui-color-base-7) size-[32px] text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset)"><span class="font-(--ui-font-weight-medium) text-(--ui-color-design-plain-content-icon-secondary) truncate">b</span></span>"`;
 
+exports[`Avatar > renders with as (object) correctly 1`] = `
+"<section class="air-secondary-accent inline-flex items-center justify-center shrink-0 select-none rounded-full align-middle bg-(--ui-color-base-8) ring ring-(--ui-color-base-7) size-[32px] text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset)">
+  <p src="https://github.com/bitrix24.png" width="32" height="32" class="h-full w-full rounded-[inherit] object-cover"></p>
+</section>"
+`;
+
+exports[`Avatar > renders with as (partial object) correctly 1`] = `"<span class="air-secondary-accent inline-flex items-center justify-center shrink-0 select-none rounded-full align-middle bg-(--ui-color-base-8) ring ring-(--ui-color-base-7) size-[32px] text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset)"><p src="https://github.com/bitrix24.png" width="32" height="32" class="h-full w-full rounded-[inherit] object-cover"></p></span>"`;
+
 exports[`Avatar > renders with as correctly 1`] = `"<section class="air-secondary-accent inline-flex items-center justify-center shrink-0 select-none rounded-full align-middle bg-(--ui-color-base-8) ring ring-(--ui-color-base-7) size-[32px] text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset)"><span class="font-(--ui-font-weight-medium) text-(--ui-color-design-plain-content-icon-secondary) truncate">&nbsp;</span></section>"`;
 
 exports[`Avatar > renders with b24ui correctly 1`] = `"<span class="air-secondary-accent inline-flex items-center justify-center shrink-0 select-none rounded-full align-middle bg-(--ui-color-base-8) ring ring-(--ui-color-base-7) size-[32px] text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset)"><span class="text-(--ui-color-design-plain-content-icon-secondary) truncate font-bold">&nbsp;</span></span>"`;

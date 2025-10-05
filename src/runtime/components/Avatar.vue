@@ -11,7 +11,7 @@ export interface AvatarProps {
    * The element or component this component should render as.
    * @defaultValue 'span'
    */
-  as?: any
+  as?: any | { root?: any, img?: any }
   src?: string
   alt?: string
   /**
@@ -38,6 +38,7 @@ export interface AvatarSlots {
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue'
 import { Primitive, Slot } from 'reka-ui'
+import { defu } from 'defu'
 import { useAppConfig } from '#imports'
 import ImageComponent from '#build/b24ui-image-component'
 import { useAvatarGroup } from '../composables/useAvatarGroup'
@@ -46,7 +47,15 @@ import B24Chip from './Chip.vue'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<AvatarProps>(), { as: 'span' })
+const props = defineProps<AvatarProps>()
+
+const as = computed(() => {
+  if (typeof props.as === 'string' || typeof props.as?.render === 'function') {
+    return { root: props.as }
+  }
+
+  return defu(props.as, { root: 'span' })
+})
 
 const fallback = computed(() => props.text || (props.alt || '')
   .replace(/[+\-*)(}\][{]/g, '')
@@ -92,13 +101,13 @@ function onError() {
 <template>
   <component
     :is="props.chip ? B24Chip : Primitive"
-    :as="as"
+    :as="as.root"
     v-bind="props.chip ? (typeof props.chip === 'object' ? { inset: true, ...props.chip } : { inset: true }) : {}"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     :style="props.style"
   >
     <component
-      :is="ImageComponent"
+      :is="as.img || ImageComponent"
       v-if="src && !error"
       :src="src"
       :alt="alt"

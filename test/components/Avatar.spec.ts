@@ -17,6 +17,8 @@ describe('Avatar', () => {
     ['with chip', { props: { chip: { text: '1' } } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { src: 'https://github.com/bitrix24.png', size } }]),
     ['with as', { props: { as: 'section' } }],
+    ['with as (object)', { props: { src: 'https://github.com/bitrix24.png', as: { root: 'section', img: 'p' } } }],
+    ['with as (partial object)', { props: { src: 'https://github.com/bitrix24.png', as: { img: 'p' } } }],
     ['with class', { props: { class: 'bg-white' } }],
     ['with b24ui', { props: { b24ui: { fallback: 'font-bold' } } }],
     // Slots
