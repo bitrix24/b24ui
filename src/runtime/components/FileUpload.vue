@@ -337,7 +337,7 @@ defineExpose({
         :class="b24ui.base({ class: props.b24ui?.base })"
         :tabindex="interactive && !disabled ? 0 : -1"
         @click="interactive && !disabled && open()"
-        @keydown.prevent
+        @keydown.space.prevent
         @keyup.enter.space="interactive && !disabled && open()"
       >
         <ReuseFilesTemplate v-if="position === 'inside'" />
