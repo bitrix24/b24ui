@@ -27,6 +27,7 @@ onBeforeMount(() => {
     :id="id"
     :title="title || 'This is a closable banner'"
     :color="color"
+    class="light"
     :close-icon="closeIcon ? CircleCrossIcon : undefined"
     close
     @close="onClose"

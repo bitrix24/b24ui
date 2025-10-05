@@ -33,11 +33,10 @@ export default {
     ].join(' '),
     actions: 'flex gap-1.5 shrink-0 isolate',
     close: [
-      // @todo fix this - may be change color for btn
-      'text-(--b24ui-color)',
-      // 'text-inverted',
-      // 'hover:bg-default/10',
-      // 'focus-visible:bg-default/10',
+      // @memo change color|bg for btn
+      '[--ui-btn-color:var(--b24ui-color)]',
+      'hover:bg-(--ui-color-base-white-fixed)/10',
+      'focus-visible:bg-(--ui-color-base-white-fixed)/10',
       '-me-1.5 lg:me-0'
     ].join(' ')
   },

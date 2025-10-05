@@ -27,6 +27,7 @@ onBeforeMount(() => {
     :id="id"
     :title="title || 'The subscription trial has ended. Subscribe to continue using all apps.'"
     :color="color"
+    class="edge-light"
     :close-icon="CircleCrossIcon"
     close
     @close="onClose"
