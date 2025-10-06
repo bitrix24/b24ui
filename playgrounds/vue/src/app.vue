@@ -37,10 +37,6 @@ const router = useRouter()
 
 const isCommandPaletteOpen = ref(false)
 
-function onSelect(item: any) {
-  router.push(item.to)
-}
-
 function toggleDir() {
   dir.value = dir.value === 'ltr' ? 'rtl' : 'ltr'
 }
