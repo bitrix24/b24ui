@@ -1,7 +1,7 @@
 /**
  * ContentSearchButton
- * ---
  * A pre-styled button that opens the content search modal.
+ * ---
  */
 
 export default {

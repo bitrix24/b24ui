@@ -1,6 +1,6 @@
 /**
- * ContentSearch
- * A ready-to-use Command Palette component for your documentation.
+ * DashboardSearch
+ * A ready-to-use Command Palette component for your dashboard.
  * ---
  */
 

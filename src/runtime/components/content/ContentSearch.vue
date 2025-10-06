@@ -62,7 +62,7 @@ export interface ContentSearchProps<T extends ContentSearchLink = ContentSearchL
   loadingIcon?: IconComponent
   /**
    * Display a close button in the input (useful when inside a Modal for example).
-   * `{ size: 'md', color: 'neutral', variant: 'ghost' }`{lang="ts-type"}
+   * `{ size: 'sm', color: 'air-tertiary-no-accent' }`{lang="ts-type"}
    * @emits 'update:open'
    * @defaultValue true
    */
