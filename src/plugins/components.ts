@@ -11,7 +11,7 @@ import { runtimeDir } from '../unplugin'
  * This plugin adds all the Bitrix24 UI components as auto-imports.
  */
 export default function ComponentImportPlugin(
-  options: Bitrix24UIOptions & { extraRuntimeDir?: string },
+  options: Bitrix24UIOptions,
   meta: UnpluginContextMeta
 ) {
   const components = globSync('**/*.vue', {
@@ -34,6 +34,11 @@ export default function ComponentImportPlugin(
     cwd: join(runtimeDir, 'components/prose')
   })
   const componentProseNames = new Set(componentsProse.map(c => `Prose${c.replace(/\.vue$/, '')}`))
+  const componentProsePaths = new Map(componentsProse.map((c) => {
+    const name = c.replace(/\.vue$/, '')
+    const componentName = `Prose${name.split('/').pop()}`
+    return [componentName, c]
+  }))
 
   const overrides = globSync('**/*.vue', {
     cwd: join(runtimeDir, 'vue/components'),
@@ -42,6 +47,11 @@ export default function ComponentImportPlugin(
     ].filter(Boolean) as string[]
   })
   const overrideNames = new Set(overrides.map(c => `B24${c.split('/').pop()?.replace(/\.vue$/, '')}`))
+  const overridePaths = new Map(overrides.map((c) => {
+    const name = c.replace(/\.vue$/, '')
+    const componentName = `B24${name.split('/').pop()}`
+    return [componentName, c]
+  }))
 
   const inertiaOverrides = globSync('**/*.vue', {
     cwd: join(runtimeDir, 'inertia/components')
@@ -60,15 +70,19 @@ export default function ComponentImportPlugin(
         if (options.inertia && inertiaOverrideNames.has(componentName)) {
           return { name: 'default', from: join(runtimeDir, 'inertia/components', `${componentName.slice('B24'.length)}.vue`) }
         }
-        if (overrideNames.has(componentName))
-          return { name: 'default', from: join(runtimeDir, 'vue/components', `${componentName.slice('B24'.length)}.vue`) }
+        if (overrideNames.has(componentName)) {
+          const relativePath = overridePaths.get(componentName)
+          return { name: 'default', from: join(runtimeDir, 'vue/components', relativePath as string) }
+        }
         if (componentNames.has(componentName)) {
           const relativePath = componentPaths.get(componentName)
-          return { name: 'default', from: join(runtimeDir, 'components', `${componentName.slice('B24'.length)}.vue`, relativePath as string) }
+          return { name: 'default', from: join(runtimeDir, 'components', relativePath as string) }
         }
         // @memo import Prose* all time
-        if (componentProseNames.has(componentName))
-          return { name: 'default', from: join(runtimeDir, 'components/prose', `${componentName.slice('Prose'.length)}.vue`) }
+        if (componentProseNames.has(componentName)) {
+          const relativePath = componentProsePaths.get(componentName)
+          return { name: 'default', from: join(runtimeDir, 'components/prose', relativePath as string) }
+        }
       }
     ]
   })
@@ -97,7 +111,8 @@ export default function ComponentImportPlugin(
           return join(runtimeDir, 'inertia/components', `${filename}.vue`)
         }
         if (filename && overrideNames.has(`B24${filename}`)) {
-          return join(runtimeDir, 'vue/components', `${filename}.vue`)
+          const relativePath = overridePaths.get(`B24${filename}`)
+          return join(runtimeDir, 'vue/components', relativePath as string)
         }
       }
     },

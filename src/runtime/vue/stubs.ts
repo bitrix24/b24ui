@@ -2,7 +2,6 @@ import { ref, onScopeDispose } from 'vue'
 import type { Ref, Plugin as VuePlugin } from 'vue'
 import { createHooks } from 'hookable'
 import { useColorMode as useColorModeVueUse } from '@vueuse/core'
-
 import appConfig from '#build/app.config'
 import type { NuxtApp } from '#app'
 

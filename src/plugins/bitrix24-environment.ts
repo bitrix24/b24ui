@@ -10,6 +10,7 @@ import { runtimeDir } from '../unplugin'
  */
 export default function Bitrix24EnvironmentPlugin(options: Bitrix24UIOptions) {
   const stubPath = resolvePathSync(options.inertia ? '../runtime/inertia/stubs' : '../runtime/vue/stubs', { extensions: ['.ts', '.mjs', '.js'], url: import.meta.url })
+
   return {
     name: 'bitrix24:b24ui',
     enforce: 'pre',
