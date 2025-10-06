@@ -10,9 +10,6 @@
  * @memo remove arrow indicator
  * @memo remove color
  * @memo remove variant (link) -> use variant.pill
- *
- * @todo improve docs
- * @todo add docs props.hint
  */
 
 export default {
@@ -25,12 +22,12 @@ export default {
     ].join(' '),
     item: 'min-w-0',
     link: [
-      'min-w-[38px] max-w-full',
+      'min-w-[38px] w-full max-w-full', // max-w-[212px]
+      'overflow-hidden',
       'p-0',
       'm-0',
       'group relative',
       'cursor-pointer',
-      'w-full',
       'flex items-center gap-[2px]',
       'font-(--ui-font-weight-normal) text-(length:--ui-font-size-lg)',
       'focus:outline-none focus-visible:rounded-(--menu-item-border-radius) focus-visible:outline-none focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-(--ui-color-base-4)',
