@@ -88,7 +88,7 @@ You can use the `is-action` prop to indicate a pseudo-link.
 ---
 props:
   isAction: true
-  to: /docs/components/link/'
+  to: /docs/components/link/
 slots:
   default: Link
 ---
