@@ -16,7 +16,7 @@ links:
     to: https://ui.nuxt.com/docs/components/content-search-button
 ---
 
-::warning{to="/docs/getting-started/integrations/content"}
+::warning{to="/docs/guide/content-nuxt/"}
 This component is only available when the `@nuxt/content` module is installed.
 ::
 
