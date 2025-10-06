@@ -157,7 +157,7 @@ const urlSearchParams = computed(() => {
   <div ref="el" class="my-5">
     <template v-if="preview">
       <div
-        class="relative z-[1] overflow-auto"
+        class="relative"
         :class="[{
           'border-(--ui-color-design-tinted-na-stroke) border': props.border,
           'border-b-0 rounded-t-md': props.source,

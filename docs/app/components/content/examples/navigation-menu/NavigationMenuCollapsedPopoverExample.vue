@@ -28,6 +28,7 @@ const items: NavigationMenuItem[] = [
   },
   {
     label: 'Sales Analytics',
+    icon: CrmMapIcon,
     badge: '+3',
     children: [
       {
@@ -51,6 +52,7 @@ const items: NavigationMenuItem[] = [
   },
   {
     label: 'Resources',
+    icon: Info1Icon,
     children: [
       {
         label: 'Support',
@@ -66,21 +68,23 @@ const items: NavigationMenuItem[] = [
   }
 ]
 
-const active = ref()
-
-defineShortcuts({
-  1: () => {
-    active.value = '0'
-  },
-  2: () => {
-    active.value = '1'
-  },
-  3: () => {
-    active.value = '2'
-  }
-})
+const idCollapsed = ref(true)
+const isPopover = ref(true)
 </script>
 
 <template>
-  <B24NavigationMenu v-model="active" :items="items" class="w-full justify-center" />
+  <div class="flex flex-col items-center gap-[4px]">
+    <div class="flex flex-row flex-wrap items-center justify-center gap-[4px]">
+      <B24Switch v-model="idCollapsed" label="collapsed" />
+      <B24Switch v-model="isPopover" label="popover" />
+    </div>
+    <B24Separator class="my-[4px]" />
+    <B24NavigationMenu
+      orientation="vertical"
+      :collapsed="idCollapsed"
+      :popover="isPopover"
+      :items="items"
+      class="data-[collapsed=true]:w-[50px]"
+    />
+  </div>
 </template>

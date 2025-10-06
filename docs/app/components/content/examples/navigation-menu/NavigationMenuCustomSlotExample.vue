@@ -1,27 +1,32 @@
 <script setup lang="ts">
-import type { NavigationMenuItem } from '@nuxt/ui'
+import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
+import ConnectionIcon from '@bitrix24/b24icons-vue/actions/ConnectionIcon'
+import Info1Icon from '@bitrix24/b24icons-vue/main/Info1Icon'
 
 const items = [
   {
-    label: 'Guide',
-    icon: 'i-lucide-book-open'
+    label: 'Sales Pipeline',
+    icon: ConnectionIcon
   },
   {
-    label: 'Composables',
-    icon: 'i-lucide-database'
+    label: 'Sales Analytics',
+    badge: '+3'
   },
   {
-    label: 'Components',
-    icon: 'i-lucide-box',
-    slot: 'components' as const
+    label: 'Resources'
+  },
+  {
+    label: 'Support',
+    icon: Info1Icon,
+    slot: 'support' as const
   }
 ] satisfies NavigationMenuItem[]
 </script>
 
 <template>
-  <UNavigationMenu :items="items" class="w-full justify-center">
-    <template #components-trailing>
-      <UBadge label="44" variant="subtle" size="sm" />
+  <B24NavigationMenu :items="items" class="w-full justify-center">
+    <template #support-trailing>
+      <B24Badge label="44" size="sm" />
     </template>
-  </UNavigationMenu>
+  </B24NavigationMenu>
 </template>

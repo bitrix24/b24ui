@@ -109,11 +109,13 @@ props:
   items:
     - label: Sales management
       type: trigger
+      hint: note
       children:
         - label: Lead management
         - label: Deal management
-        - label: 'Pipelines'
-        - label: 'Access permissions'
+        - label: Pipelines
+          hint: note
+        - label: Access permissions
     - label: Collaboration
       type: trigger
       children:
@@ -149,7 +151,7 @@ You can also pass an array of arrays to the `items` prop to display groups of it
 ::
 
 ::tip
-Each item can take a `children` array of objects with the following properties to create submenus:
+Use a flat `children` array of objects to define submenus:
 
 - `label: string`
 - `icon?: IconComponent`
@@ -166,7 +168,7 @@ Use the `orientation` prop to change the orientation of the NavigationMenu.
 When orientation is `vertical`, an [Accordion](/docs/components/accordion/) component is used to display each group. You can control the open state of each item using the `open` and `defaultOpen` properties and change the behavior using the [`collapsible`](/docs/components/accordion/#collapsible) and [`type`](/docs/components/accordion/#multiple) props.
 ::
 
-::warn
+::warning
 The last top-level menu item needs to have `viewportRtl` set to ensure the drop-down menu is positioned correctly.
 ::
 
@@ -187,12 +189,14 @@ props:
         type: 'label'
       - label: Sales management
         type: trigger
+        hint: note
         defaultOpen: true 
         children:
           - label: Lead management
           - label: Deal management
-          - label: 'Pipelines'
-          - label: 'Access permissions'
+          - label: Pipelines
+            hint: note
+          - label: Access permissions
     - - label: GitHub
         to: https://github.com/bitrix24/b24ui
         target: _blank
@@ -227,63 +231,10 @@ In `vertical` orientation, use the `collapsed` prop to collapse the NavigationMe
 You can use the [`tooltip`](#with-tooltip-in-items) and [`popover`](#with-popover-in-items) props to display more information on the collapsed items.
 ::
 
-::alert
-@todo add icons
-::
-
-::component-code
+::component-example
 ---
 collapse: true
-ignore:
-  - items
-  - orientation
-  - class
-external:
-  - items
-externalTypes:
-  - NavigationMenuItem[][]
-items:
-  tooltip:
-    - true
-    - false
-  popover:
-    - true
-    - false
-props:
-  class: 'data-[collapsed=true]:w-[50px]'
-  collapsed: true
-  tooltip: false
-  popover: false
-  orientation: 'vertical'
-  items:
-    - - label: Links
-        type: 'label'
-      - label: Sales management
-        type: trigger
-        defaultOpen: true 
-        children:
-          - label: Lead management
-          - label: Deal management
-          - label: 'Pipelines'
-          - label: 'Access permissions'
-    - - label: GitHub
-        to: https://github.com/bitrix24/b24ui
-        target: _blank
-      - label: Help
-        disabled: true
-      - label: HR & Automation
-        type: trigger
-        viewportRtl: true 
-        badge: +5
-        active: true
-        children:
-          - label: Employee management
-            to: https://www.bitrix24.com/tools/hr_automation/employee-management.php
-          - label: Culture & engagement
-            to: https://www.bitrix24.com/tools/hr_automation/culture-and-engagement.php
-          - label: Automation
-            to: https://www.bitrix24.com/tools/hr_automation/automation.php
-            target: _blank
+name: 'navigation-menu-collapsed-example'
 ---
 ::
 
@@ -405,55 +356,10 @@ When orientation is `vertical` and the menu is `collapsed`, you can set the `too
 
 You can pass any property from the [Tooltip](/docs/components/tooltip/) component globally or on each item.
 
-::component-code
+::component-example
 ---
 collapse: true
-ignore:
-  - items
-  - orientation
-  - class
-external:
-  - items
-externalTypes:
-  - NavigationMenuItem[][]
-items:
-  tooltip:
-    - true
-    - false
-props:
-  class: 'data-[collapsed=true]:w-[50px]'
-  collapsed: true
-  tooltip: true
-  orientation: 'vertical'
-  items:
-    - - label: Links
-        type: 'label'
-      - label: Sales management
-        type: trigger
-        defaultOpen: true 
-        children:
-          - label: Lead management
-          - label: Deal management
-          - label: 'Pipelines'
-          - label: 'Access permissions'
-    - - label: GitHub
-        to: https://github.com/bitrix24/b24ui
-        target: _blank
-      - label: Help
-        disabled: true
-      - label: HR & Automation
-        type: trigger
-        viewportRtl: true 
-        badge: +5
-        active: true
-        children:
-          - label: Employee management
-            to: https://www.bitrix24.com/tools/hr_automation/employee-management.php
-          - label: Culture & engagement
-            to: https://www.bitrix24.com/tools/hr_automation/culture-and-engagement.php
-          - label: Automation
-            to: https://www.bitrix24.com/tools/hr_automation/automation.php
-            target: _blank
+name: 'navigation-menu-collapsed-tooltip-example'
 ---
 ::
 
@@ -463,55 +369,10 @@ When orientation is `vertical` and the menu is `collapsed`, you can set the `pop
 
 You can pass any property from the [Popover](/docs/components/popover/) component globally or on each item.
 
-::component-code
+::component-example
 ---
 collapse: true
-ignore:
-  - items
-  - orientation
-  - class
-external:
-  - items
-externalTypes:
-  - NavigationMenuItem[][]
-items:
-  popover:
-    - true
-    - false
-props:
-  class: 'data-[collapsed=true]:w-[50px]'
-  collapsed: true
-  popover: true
-  orientation: 'vertical'
-  items:
-    - - label: Links
-        type: 'label'
-      - label: Sales management
-        type: trigger
-        defaultOpen: true 
-        children:
-          - label: Lead management
-          - label: Deal management
-          - label: 'Pipelines'
-          - label: 'Access permissions'
-    - - label: GitHub
-        to: https://github.com/bitrix24/b24ui
-        target: _blank
-      - label: Help
-        disabled: true
-      - label: HR & Automation
-        type: trigger
-        viewportRtl: true 
-        badge: +5
-        active: true
-        children:
-          - label: Employee management
-            to: https://www.bitrix24.com/tools/hr_automation/employee-management.php
-          - label: Culture & engagement
-            to: https://www.bitrix24.com/tools/hr_automation/culture-and-engagement.php
-          - label: Automation
-            to: https://www.bitrix24.com/tools/hr_automation/automation.php
-            target: _blank
+name: 'navigation-menu-collapsed-popover-example'
 ---
 ::
 

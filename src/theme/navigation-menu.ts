@@ -120,7 +120,7 @@ export default {
         ].join(' '),
         linkTrailingIcon: 'size-[16px]',
         linkLeadingBadge: '-top-[6px] -right-[14px] -translate-x-1/2',
-        linkLabelWrapper: 'gap-[4px]',
+        linkLabelWrapper: 'gap-[4px] truncate',
         childList: 'grid px-0 py-(--menu-popup-padding)',
         childLink: [
           'px-[18px]', // @memo 10 + 15 = 25 != 18px
@@ -146,13 +146,12 @@ export default {
           'h-[38px] min-h-[38px]',
           'p-[6px]',
           'flex-row rtl:flex-row-reverse justify-between',
-          '',
           'data-[state=open]:text-(length:--ui-font-size-sm) data-[state=open]:opacity-70'
         ].join(' '),
         linkLeadingIcon: '', // group-data-[state=open]:size-[22px]
         linkTrailingIcon: 'size-[20px] group-data-[state=open]:rotate-180 transition-transform duration-200',
         linkLeadingBadge: '-top-[4px] left-[24px] -translate-x-1/2',
-        linkLabelWrapper: 'relative h-[36px]',
+        linkLabelWrapper: 'relative h-[22px]',
         childList: '',
         childLink: [
           'px-[18px]', // @memo 10 + 15 = 25 != 18

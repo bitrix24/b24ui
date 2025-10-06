@@ -1,92 +1,91 @@
 <script setup lang="ts">
-import type { NavigationMenuItem } from '@nuxt/ui'
+import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
+import ConnectionIcon from '@bitrix24/b24icons-vue/actions/ConnectionIcon'
+import MicrophoneOnIcon from '@bitrix24/b24icons-vue/main/MicrophoneOnIcon'
+import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
+import CrmMapIcon from '@bitrix24/b24icons-vue/crm/CrmMapIcon'
+import Settings5Icon from '@bitrix24/b24icons-vue/editor/Settings5Icon'
 
 const items = [
   {
-    label: 'Docs',
-    icon: 'i-lucide-book-open',
-    slot: 'docs' as const,
+    label: 'Sales Pipeline',
+    icon: ConnectionIcon,
+    slot: 'pipeline' as const,
     children: [
       {
-        label: 'Icons',
-        description: 'You have nothing to do, @nuxt/icon will handle it automatically.'
+        label: 'Lead Generation',
+        description: 'Initial contact with potential clients'
       },
       {
-        label: 'Colors',
-        description: 'Choose a primary and a neutral color from your Tailwind CSS theme.'
+        label: 'Lead Qualification',
+        description: 'Client potential assessment'
       },
       {
-        label: 'Theme',
-        description: 'You can customize components by using the `class` / `ui` props or in your app.config.ts.'
+        label: 'Negotiations',
+        description: 'Deal terms discussion',
+        icon: MicrophoneOnIcon
       }
     ]
   },
   {
-    label: 'Components',
-    icon: 'i-lucide-box',
-    slot: 'components' as const,
+    label: 'Sales Analytics',
+    badge: '+3',
     children: [
       {
-        label: 'Link',
-        description: 'Use NuxtLink with superpowers.'
+        label: 'Sales Reports',
+        icon: CrmMapIcon,
+        active: true,
+        badge: 1
       },
       {
-        label: 'Modal',
-        description: 'Display a modal within your application.'
+        label: 'Key Metrics',
+        icon: Settings5Icon,
+        badge: {
+          label: 2,
+          color: 'air-primary-copilot' as const
+        }
       },
       {
-        label: 'NavigationMenu',
-        description: 'Display a list of links.'
-      },
-      {
-        label: 'Pagination',
-        description: 'Display a list of pages.'
-      },
-      {
-        label: 'Popover',
-        description: 'Display a non-modal dialog that floats around a trigger element.'
-      },
-      {
-        label: 'Progress',
-        description: 'Show a horizontal bar to indicate task progression.'
+        label: 'CRM Integration'
       }
     ]
   },
   {
     label: 'GitHub',
-    icon: 'i-simple-icons-github'
+    icon: GitHubIcon,
+    to: 'https://github.com/bitrix24/b24ui',
+    target: '_blank'
   }
 ] satisfies NavigationMenuItem[]
 </script>
 
 <template>
-  <UNavigationMenu
+  <B24NavigationMenu
     :items="items"
-    :ui="{
+    :b24ui="{
       viewport: 'sm:w-(--reka-navigation-menu-viewport-width)',
       content: 'sm:w-auto',
-      childList: 'sm:w-96',
-      childLinkDescription: 'text-balance line-clamp-2'
+      childList: 'sm:w-[380px]'
     }"
     class="w-full justify-center"
   >
-    <template #docs-content="{ item }">
+    <template #pipeline-content="{ item }">
       <ul class="grid gap-2 p-4 lg:w-[500px] lg:grid-cols-[minmax(0,.75fr)_minmax(0,1fr)]">
         <li class="row-span-3">
-          <Placeholder class="size-full min-h-48" />
+          <Placeholder class="size-full min-h-[203px]" />
         </li>
 
         <li v-for="child in item.children" :key="child.label">
-          <ULink class="text-sm text-left rounded-md p-3 transition-colors hover:bg-elevated/50">
-            <p class="font-medium text-highlighted">
+          <B24Link class="group text-(length:--ui-font-size-sm) text-left rounded-(--ui-border-radius-md) p-3 transition-colors hover:no-underline hover:bg-(--ui-color-bg-content-secondary)">
+            <p class="font-(--ui-font-weight-medium) text-(--b24ui-typography-legend-color) group-hover:text-(--ui-color-accent-main-primary-alt-2)">
               {{ child.label }}
             </p>
-            <p class="text-muted line-clamp-2">
+            <p class="text-(--b24ui-typography-description-color) line-clamp-2">
               {{ child.description }}
             </p>
-          </ULink>
+          </B24Link>
         </li>
       </ul>
     </template>
-  </UNavigationMenu>
+  </B24NavigationMenu>
 </template>

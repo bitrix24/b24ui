@@ -38,7 +38,7 @@ export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
    */
   badge?: string | number | BadgeProps
   /**
-   * Display a hint on the item.
+   * Display a hint on the item in `horizontal` orientation.
    */
   hint?: string
   /**
