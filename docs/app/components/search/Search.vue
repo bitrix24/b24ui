@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { UIMessage } from 'ai'
 import type { ContentNavigationItem } from '@nuxt/content'
-import RobotIcon from '@bitrix24/b24icons-vue/outline/RobotIcon'
+// import RobotIcon from '@bitrix24/b24icons-vue/outline/RobotIcon'
 
 interface ContentSearchFile {
   id: string
@@ -24,35 +24,38 @@ const messages = ref<UIMessage[]>([])
 const { frameworks } = useFrameworks()
 const { links } = useSearch()
 
-const groups = computed(() => [{
-  id: 'ai',
-  label: 'Assistant',
-  ignoreFilter: true,
-  items: [{
-    label: 'Ask Bitrix24 AI',
-    icon: RobotIcon,
-    ui: {
-      itemLeadingIcon: 'group-data-highlighted:not-group-data-disabled:text-(--ui-color-accent-main-primary)'
-    },
-    onSelect: (e: any) => {
-      e.preventDefault()
-
-      messages.value = searchTerm.value
-        ? [{
-            id: '1',
-            role: 'user',
-            parts: [{ type: 'text', text: searchTerm.value }]
-          }]
-        : []
-
-      chat.value = true
-    }
-  }]
-}, {
-  id: 'framework',
-  label: 'Framework',
-  items: frameworks.value
-}])
+const groups = computed(() => [
+  // {
+  //   id: 'ai',
+  //   label: 'Assistant',
+  //   ignoreFilter: true,
+  //   items: [{
+  //     label: 'Ask Bitrix24 AI',
+  //     icon: RobotIcon,
+  //     ui: {
+  //       itemLeadingIcon: 'group-data-highlighted:not-group-data-disabled:text-(--ui-color-accent-main-primary)'
+  //     },
+  //     onSelect: (e: any) => {
+  //       e.preventDefault()
+  //
+  //       messages.value = searchTerm.value
+  //         ? [{
+  //             id: '1',
+  //             role: 'user',
+  //             parts: [{ type: 'text', text: searchTerm.value }]
+  //           }]
+  //         : []
+  //
+  //       chat.value = true
+  //     }
+  //   }]
+  // },
+  {
+    id: 'framework',
+    label: 'Framework',
+    items: frameworks.value
+  }
+])
 
 function onClose() {
   chat.value = false

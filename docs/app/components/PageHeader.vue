@@ -40,7 +40,7 @@ const slots = defineSlots<PageHeaderSlots>()
         <div v-if="slots['description']">
           <slot name="description" />
         </div>
-        <div v-if="slots['links']" class="mt-[14px] flex flex-wrap flex-row items-center justify-between gap-[8px]">
+        <div v-if="slots['links']" class="mt-[14px] flex flex-wrap flex-row items-center gap-[8px]">
           <slot name="links" />
         </div>
       </div>

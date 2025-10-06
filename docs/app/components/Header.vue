@@ -39,10 +39,9 @@ const { links } = useSearch()
   <B24NavbarSpacer />
 
   <B24NavbarSection>
-    <!-- @todo fix this -->
-    <!-- B24Tooltip text="Search" :kbds="['meta', 'K']">
+    <B24Tooltip text="Search" :kbds="['meta', 'K']">
       <B24ContentSearchButton />
-    </B24Tooltip -->
+    </B24Tooltip>
     <FrameworkTabs />
     <div class="hidden sm:flex flex-nowrap flex-row items-center justify-end gap-[4px]">
       <B24Button

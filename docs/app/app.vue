@@ -5,10 +5,9 @@ const route = useRoute()
 const appConfig = useAppConfig()
 
 const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs', ['framework', 'category', 'description', 'badge']))
-// const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections('docs'), {
-//   server: false
-// })
-// const searchLinks = useSearchLinks()
+const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections('docs'), {
+  server: false
+})
 
 useHead({
   meta: [
@@ -26,7 +25,7 @@ useServerSeoMeta({
   twitterCard: 'summary_large_image'
 })
 
-const { rootNavigation } = useNavigation(navigation)
+const { rootNavigation, navigationByFramework } = useNavigation(navigation)
 
 provide('navigation', rootNavigation)
 </script>
@@ -42,6 +41,12 @@ provide('navigation', rootNavigation)
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
+
+      <template v-if="!route.path.startsWith('/examples')">
+        <ClientOnly>
+          <Search :files="files" :navigation="navigationByFramework" />
+        </ClientOnly>
+      </template>
     </div>
   </B24App>
 </template>
