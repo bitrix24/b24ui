@@ -73,7 +73,7 @@ const columns: TableColumn<Payment>[] = [
     cell: ({ row }) => {
       return h(B24DropdownMenu, {
         'content': {
-          align: 'start',
+          align: 'center',
           side: 'right',
           sideOffset: -2
         },

@@ -130,7 +130,7 @@ function getDropdownActions(user: User): DropdownMenuItem[][] {
       </div>
     </template>
     <template #action-cell="{ row }">
-      <B24DropdownMenu :items="getDropdownActions(row.original)" arrow :content="{ align: 'start', side: 'right', sideOffset: -2 }">
+      <B24DropdownMenu :items="getDropdownActions(row.original)" arrow :content="{ align: 'center', side: 'right', sideOffset: -2 }">
         <B24Button color="air-tertiary-no-accent" size="sm" :icon="MenuIcon" aria-label="Actions" />
       </B24DropdownMenu>
     </template>
