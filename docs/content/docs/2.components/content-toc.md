@@ -21,19 +21,19 @@ This component is only available when the `@nuxt/content` module is installed.
 
 Use the `links` prop with the `page?.body?.toc?.links`{lang="ts-type"} you get when fetching a page.
 
-__component-example
+::component-example
 ---
 name: 'content-toc-example'
 props:
   class: 'w-full'
 ---
-__
+::
 
 ### Title
 
 Use the `title` prop to change the title of the Table of Contents.
 
-__component-code{prefix="content"}
+::component-code{prefix="content"}
 ---
 prettier: true
 collapse: true
@@ -54,12 +54,6 @@ props:
     - id: title
       depth: 3
       text: Title
-    - id: color
-      depth: 3
-      text: Color
-    - id: highlight
-      depth: 3
-      text: Highlight
   - id: api
     depth: 2
     text: API
@@ -82,7 +76,7 @@ props:
 
 Use the ContentToc component in a page to display the Table of Contents:
 
-```vue [pages/\[...slug\\].vue]{22-24}
+```vue [pages/\[...slug\\].vue]{14-16}
 <script setup lang="ts">
 const route = useRoute()
 
@@ -93,21 +87,21 @@ if (!page.value) {
 </script>
 
 <template>
-  <UPage v-if="page">
-    <UPageHeader :title="page.title" />
+  <template v-if="page">
+    <ProseH1>{{ page.title }}</ProseH1>
 
-    <UPageBody>
+    <template v-if="page?.body?.toc?.links?.length">
+      <B24ContentToc :links="page.body.toc.links" />
+    </template>
+
+    <div>
       <ContentRenderer v-if="page.body" :value="page" />
 
-      <USeparator v-if="surround?.filter(Boolean).length" />
+      <B24Separator v-if="surround?.filter(Boolean).length" class="my-4" />
 
-      <UContentSurround :surround="(surround as any)" />
-    </UPageBody>
-
-    <template v-if="page?.body?.toc?.links?.length" #right>
-      <UContentToc :links="page.body.toc.links" />
-    </template>
-  </UPage>
+      <B24ContentSurround :surround="(surround as any)" />
+    </div>
+  </template>
 </template>
 ```
 

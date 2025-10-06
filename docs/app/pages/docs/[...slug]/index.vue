@@ -7,6 +7,7 @@ import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 import MoreMIcon from '@bitrix24/b24icons-vue/outline/MoreMIcon'
 import NuxtIcon from '@bitrix24/b24icons-vue/file-type/NuxtIcon'
 import DemonstrationOnIcon from '@bitrix24/b24icons-vue/outline/DemonstrationOnIcon'
+import Bitrix24Icon from '@bitrix24/b24icons-vue/common-service/Bitrix24Icon'
 
 const route = useRoute()
 const { framework } = useFrameworks()
@@ -99,6 +100,7 @@ const iconFromIconName = (iconName?: string) => {
   }
 
   switch (iconName) {
+    case 'Bitrix24Icon': return Bitrix24Icon
     case 'GitHubIcon': return GitHubIcon
     case 'NuxtIcon': return NuxtIcon
     case 'DemonstrationOnIcon': return DemonstrationOnIcon

@@ -69,7 +69,26 @@ const pages = [
   '/docs/components/navigation-menu/',
   // endregion ////
   // region Overlay ////
-  '/docs/components/context-menu/'
+  '/docs/components/context-menu/',
+  // endregion ////
+  // region Page ////
+  // endregion ////
+  // region Dashboard ////
+  '/docs/components/dashboard-group/',
+  '/docs/components/dashboard-search/',
+  '/docs/components/dashboard-search-button/',
+  // endregion ////
+  // region Chat ////
+  // endregion ////
+  // region Content ////
+  '/docs/components/content-search/',
+  '/docs/components/content-search-button/',
+  '/docs/components/content-surround/',
+  '/docs/components/content-toc/'
+  // endregion ////
+  // region Color Mode ////
+  // endregion ////
+  // region i18n ////
   // endregion ////
 ]
 
@@ -243,7 +262,8 @@ const pagesFrameExamples = [
   '/examples/sidebar-layout-example/',
   '/examples/sidebar-layout-inner-example/',
   '/examples/banner-example/',
-  '/examples/banner-with-title-example/'
+  '/examples/banner-with-title-example/',
+  '/examples/content-search-example/'
 ]
 
 const pagesService = [

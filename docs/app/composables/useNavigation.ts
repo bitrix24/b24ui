@@ -12,7 +12,7 @@ import LinkIcon from '@bitrix24/b24icons-vue/outline/LinkIcon'
 import OpenChatIcon from '@bitrix24/b24icons-vue/outline/OpenChatIcon'
 import PageIcon from '@bitrix24/b24icons-vue/button/PageIcon'
 import TaskListIcon from '@bitrix24/b24icons-vue/outline/TaskListIcon'
-// import DemonstrationOnIcon from '@bitrix24/b24icons-vue/outline/DemonstrationOnIcon'
+import CodeIcon from '@bitrix24/b24icons-vue/common-service/CodeIcon'
 import AiStarsIcon from '@bitrix24/b24icons-vue/outline/AiStarsIcon'
 import BrushIcon from '@bitrix24/b24icons-vue/actions/BrushIcon'
 import EarthLanguageIcon from '@bitrix24/b24icons-vue/main/EarthLanguageIcon'
@@ -60,11 +60,11 @@ const categories = {
       framework: 'nuxt',
       icon: TaskListIcon
     },
-    // {
-    //   id: 'dashboard',
-    //   title: 'Dashboard',
-    //   icon: DemonstrationOnIcon
-    // },
+    {
+      id: 'dashboard',
+      title: 'Dashboard',
+      icon: CodeIcon
+    },
     {
       id: 'chat',
       title: 'AI Chat',
