@@ -14,6 +14,8 @@ import type { DropdownMenuItem, NavigationMenuItem, SidebarLayoutInstance } from
 const route = useRoute()
 const router = useRouter()
 
+const { groups } = useNavigation()
+
 type colorMode = 'dark' | 'light' | 'edge-dark' | 'edge-light'
 
 const colorMode = useColorMode()
@@ -32,10 +34,6 @@ const { isSidebarLayoutUseLightContent, isSidebarLayoutClearContent, checkedUseL
 //   }
 // })
 const isCommandPaletteOpen = ref(false)
-
-// function onSelect(item: any) {
-//   router.push(item.to)
-// }
 
 function toggleDir() {
   dir.value = dir.value === 'ltr' ? 'rtl' : 'ltr'
@@ -208,146 +206,137 @@ const menuTop = computed<NavigationMenuItem[]>(() => {
 </script>
 
 <template>
-  <!-- // @see playground/app/assets/css/main.css -->
-  <B24SidebarLayout
-    ref="currentSidebarRef"
-    :use-light-content="isSidebarLayoutUseLightContent"
-    :b24ui="getLightContent"
-  >
-    <template #sidebar>
-      <B24SidebarHeader>
-        <div class="h-full flex items-center relative my-0 ps-[25px] pe-xs rtl:pe-[25px]">
-          <B24Tooltip
-            class="flex-0 mt-1"
-            :content="{ side: 'bottom', align: 'start' }"
-            text="Go home"
-            :kbds="['ctrl', 'arrowleft']"
-          >
-            <B24Link to="/" class="mt-0 text-(--ui-color-design-selection-content)">
-              <ProseH4 class="font-(--ui-font-weight-medium) mb-0">
-                Demo
-              </ProseH4>
-            </B24Link>
-          </B24Tooltip>
-        </div>
-      </B24SidebarHeader>
-      <B24SidebarBody>
-        <template v-for="(group) in usePageMeta.groups" :key="group.id">
-          <B24NavigationMenu
-            :items="[
-              { label: group.label, type: 'label' },
-              ...group.children
-            ]"
-            orientation="vertical"
-          />
-        </template>
-      </B24SidebarBody>
-      <B24SidebarFooter>
-        <B24SidebarSection>
-          <MockSidebarLayoutSideFooter />
-        </B24SidebarSection>
-      </B24SidebarFooter>
-    </template>
-
-    <template #navbar>
-      <B24NavbarSection class="hidden sm:inline-flex">
-        <B24NavigationMenu
-          :items="menuTop"
-          orientation="horizontal"
-        />
-      </B24NavbarSection>
-      <B24NavbarSpacer />
-      <B24NavbarSection class="flex-row items-center justify-start gap-4">
-        <ClientOnly>
-          <B24DropdownMenu
-            arrow
-            :items="itemsForColorMode"
-          >
-            <B24Tooltip :content="{ side: 'bottom' }" :text="`Switch to next mode`" :kbds="['shift', 'D']">
-              <B24Button
-                :icon="colorModeIcon"
-                aria-label="Switch to next mode"
-                color="air-secondary-accent"
-                size="xs"
-                rounded
-                use-dropdown
-                :label="mode"
-              />
+  <B24DashboardGroup>
+    <!-- // @see playground/app/assets/css/main.css -->
+    <B24SidebarLayout
+      ref="currentSidebarRef"
+      :use-light-content="isSidebarLayoutUseLightContent"
+      :b24ui="getLightContent"
+    >
+      <template #sidebar>
+        <B24SidebarHeader>
+          <div class="h-full flex items-center relative my-0 ps-[25px] pe-xs rtl:pe-[25px]">
+            <B24Tooltip
+              class="flex-0 mt-1"
+              :content="{ side: 'bottom', align: 'start' }"
+              text="Go home"
+              :kbds="['ctrl', 'arrowleft']"
+            >
+              <B24Link to="/" class="mt-0 text-(--ui-color-design-selection-content)">
+                <ProseH4 class="font-(--ui-font-weight-medium) mb-0">
+                  Demo
+                </ProseH4>
+              </B24Link>
             </B24Tooltip>
-          </B24DropdownMenu>
-        </ClientOnly>
-        <B24Switch
-          v-model="checkedUseLightContent"
-          :disabled="isSidebarLayoutClearContent"
-          size="xs"
-        />
-        <B24Button
-          label="Reload"
-          color="air-secondary-accent"
-          rounded
-          size="xs"
-          loading-auto
-          @click="handleSidebarLayoutLoadingAction"
-        />
-        <B24Tooltip :content="{ side: 'bottom' }" :text="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', 'L']">
+          </div>
+        </B24SidebarHeader>
+        <B24SidebarBody>
+          <template v-for="(group) in usePageMeta.groups" :key="group.id">
+            <B24NavigationMenu
+              :items="[
+                { label: group.label, type: 'label' },
+                ...group.children
+              ]"
+              orientation="vertical"
+            />
+          </template>
+        </B24SidebarBody>
+        <B24SidebarFooter>
+          <B24SidebarSection>
+            <MockSidebarLayoutSideFooter />
+          </B24SidebarSection>
+        </B24SidebarFooter>
+      </template>
+
+      <template #navbar>
+        <B24NavbarSection class="hidden sm:inline-flex">
+          <B24NavigationMenu
+            :items="menuTop"
+            orientation="horizontal"
+          />
+        </B24NavbarSection>
+        <B24NavbarSpacer />
+        <B24NavbarSection class="flex-row items-center justify-start gap-4">
+          <B24Tooltip text="Search" :kbds="['meta', 'K']">
+            <B24DashboardSearchButton collapsed />
+          </B24Tooltip>
+          <ClientOnly>
+            <B24DropdownMenu
+              arrow
+              :items="itemsForColorMode"
+            >
+              <B24Tooltip :content="{ side: 'bottom' }" :text="`Switch to next mode`" :kbds="['shift', 'D']">
+                <B24Button
+                  :icon="colorModeIcon"
+                  aria-label="Switch to next mode"
+                  color="air-secondary-accent"
+                  size="xs"
+                  rounded
+                  use-dropdown
+                  :label="mode"
+                />
+              </B24Tooltip>
+            </B24DropdownMenu>
+          </ClientOnly>
+          <B24Switch
+            v-model="checkedUseLightContent"
+            :disabled="isSidebarLayoutClearContent"
+            size="xs"
+          />
           <B24Button
-            :icon="dir === 'ltr' ? AlignLeftIcon : AlignRightIcon"
-            :aria-label="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`"
+            label="Reload"
             color="air-secondary-accent"
             rounded
             size="xs"
-            @click="toggleDir"
+            loading-auto
+            @click="handleSidebarLayoutLoadingAction"
           />
-        </B24Tooltip>
-        <div class="hidden lg:flex flex-row flex-nowrap items-center justify-center gap-0.5">
-          <B24Kbd value="ctrl" size="sm" /> <B24Kbd value="K" size="sm" />
-        </div>
-      </B24NavbarSection>
-    </template>
+          <B24Tooltip :content="{ side: 'bottom' }" :text="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', 'L']">
+            <B24Button
+              :icon="dir === 'ltr' ? AlignLeftIcon : AlignRightIcon"
+              :aria-label="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`"
+              color="air-secondary-accent"
+              rounded
+              size="xs"
+              @click="toggleDir"
+            />
+          </B24Tooltip>
+        </B24NavbarSection>
+      </template>
 
-    <template
-      v-if="route.path !== '/' && !isSidebarLayoutClearContent"
-      #content-top
-    >
-      <div class="w-full flex flex-col gap-[20px]">
-        <MockSidebarLayoutTopProfile class="rounded-(--ui-border-radius-md)" />
-        <ClientOnly>
-          <MockSidebarLayoutTop class="flex-row">
-            {{ usePageMeta.getPageTitle() }}
-          </MockSidebarLayoutTop>
-          <template #fallback>
-            <div class="flex items-center gap-[12px]">
-              <div class="w-full flex items-center gap-[20px]">
-                <ProseH2 class="font-(--ui-font-weight-semibold) mb-0">
-                  Loading ...
-                </ProseH2>
+      <template
+        v-if="route.path !== '/' && !isSidebarLayoutClearContent"
+        #content-top
+      >
+        <div class="w-full flex flex-col gap-[20px]">
+          <MockSidebarLayoutTopProfile class="rounded-(--ui-border-radius-md)" />
+          <ClientOnly>
+            <MockSidebarLayoutTop class="flex-row">
+              {{ usePageMeta.getPageTitle() }}
+            </MockSidebarLayoutTop>
+            <template #fallback>
+              <div class="flex items-center gap-[12px]">
+                <div class="w-full flex items-center gap-[20px]">
+                  <ProseH2 class="font-(--ui-font-weight-semibold) mb-0">
+                    Loading ...
+                  </ProseH2>
+                </div>
               </div>
-            </div>
-          </template>
-        </ClientOnly>
-      </div>
-    </template>
+            </template>
+          </ClientOnly>
+        </div>
+      </template>
 
-    <template
-      v-if="route.path !== '/' && !isSidebarLayoutClearContent"
-      #content-actions
-    >
-      <MockSidebarLayoutActions />
-    </template>
+      <template
+        v-if="route.path !== '/' && !isSidebarLayoutClearContent"
+        #content-actions
+      >
+        <MockSidebarLayoutActions />
+      </template>
 
-    <slot />
-  </B24SidebarLayout>
+      <slot />
+    </B24SidebarLayout>
 
-  <B24Modal v-model:open="isCommandPaletteOpen" class="sm:h-96">
-    <template #content>
-      <ProseP>@todo open CommandPaletteOpen</ProseP>
-      <!-- B24CommandPalette
-        placeholder="Search a component..."
-        :groups="usePageMeta.groups"
-        :fuse="{ resultLimit: 100 }"
-        @update:model-value="onSelect"
-        @update:open="(value: boolean) => isCommandPaletteOpen = value"
-      / -->
-    </template>
-  </B24Modal>
+    <B24DashboardSearch :groups="groups" :fuse="{ resultLimit: 100 }" :color-mode="false" />
+  </B24DashboardGroup>
 </template>
