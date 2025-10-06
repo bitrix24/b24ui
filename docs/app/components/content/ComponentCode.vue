@@ -7,6 +7,9 @@ import { CalendarDate } from '@internationalized/date'
 import * as theme from '#build/b24ui'
 import { get, set } from '#b24ui/utils'
 import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
+// import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
+// import MoreMIcon from '@bitrix24/b24icons-vue/outline/MoreMIcon'
+// import InfoIcon from '@bitrix24/b24icons-vue/button/InfoIcon'
 
 interface Cast {
   get: (args: any) => any
@@ -14,6 +17,17 @@ interface Cast {
 }
 
 type CastDateValue = [number, number, number]
+
+// function prepareIconTitle(iconTitle?: string) {
+//   switch (iconTitle) {
+//     case 'RocketIcon': return RocketIcon
+//     case 'SignIcon': return SignIcon
+//     case 'InfoIcon': return InfoIcon
+//     case 'MoreMIcon': return MoreMIcon
+//   }
+//
+//   return undefined
+// }
 
 const castMap: Record<string, Cast> = {
   'DateValue': {
@@ -208,7 +222,7 @@ const code = computed(() => {
 
   let isUseIcon = false
   for (const [key, value] of Object.entries(componentProps)) {
-    if (['icon', 'trailingIcon', 'deleteIcon', 'selectedIcon', 'incrementIcon', 'decrementIcon', 'checkedIcon', 'uncheckedIcon'].includes(key)) {
+    if (['icon', 'trailingIcon', 'deleteIcon', 'selectedIcon', 'incrementIcon', 'decrementIcon', 'checkedIcon', 'uncheckedIcon', 'separatorIcon', 'closeIcon', 'backIcon'].includes(key)) {
       isUseIcon = true
       break
     } else if (typeof value === 'object') {
@@ -323,6 +337,15 @@ ${props.slots?.default}
       continue
     } else if (key === 'uncheckedIcon') {
       code += ` :unchecked-icon="RocketIcon"`
+      continue
+    } else if (key === 'separatorIcon') {
+      code += ` :separator-icon="RocketIcon"`
+      continue
+    } else if (key === 'closeIcon') {
+      code += ` :close-icon="RocketIcon"`
+      continue
+    } else if (key === 'backIcon') {
+      code += ` :back-icon="RocketIcon"`
       continue
     }
 
