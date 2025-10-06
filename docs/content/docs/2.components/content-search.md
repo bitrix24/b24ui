@@ -1,6 +1,6 @@
 ---
 title: ContentSearch
-description: 'A ready to use CommandPalette to add to your documentation.'
+description: 'A ready-to-use Command Palette component for your documentation.'
 category: content
 badge: new
 framework: nuxt
