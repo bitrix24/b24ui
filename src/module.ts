@@ -45,7 +45,7 @@ export default defineNuxtModule<ModuleOptions>({
     docs: 'https://bitrix24.github.io/b24ui/guide/installation-nuxt-app.html',
     configKey: 'b24ui',
     compatibility: {
-      nuxt: '>=3.16.0'
+      nuxt: '>=4.0.0'
     }
   },
   defaults: defaultOptions,
@@ -65,7 +65,7 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.app.rootAttrs = nuxt.options.app.rootAttrs || {}
     nuxt.options.app.rootAttrs.class = [nuxt.options.app.rootAttrs.class, 'isolate'].filter(Boolean).join(' ')
 
-    nuxt.hook('vite:extendConfig', async (config) => {
+    nuxt.hook('vite:extend', async ({ config }) => {
       const plugin = await import('@tailwindcss/vite').then(r => r.default)
       config.plugins ||= []
       config.plugins.push(plugin())
@@ -83,14 +83,10 @@ export default defineNuxtModule<ModuleOptions>({
     }
 
     if (options.colorMode) {
-      await registerModule(
-        '@nuxtjs/color-mode',
-        'colorMode',
-        {
-          classSuffix: '',
-          disableTransition: true
-        }
-      )
+      await registerModule('@nuxtjs/color-mode', 'colorMode', {
+        classSuffix: '',
+        disableTransition: true
+      })
     }
 
     addPlugin({ src: resolve('./runtime/plugins/colors') })
