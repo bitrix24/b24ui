@@ -1,5 +1,6 @@
 /**
  * ContentToc
+ * A sticky table of contents component with dynamic active section highlighting.
  * ---
  * @memo not use color, highlight, highlightColor
  */

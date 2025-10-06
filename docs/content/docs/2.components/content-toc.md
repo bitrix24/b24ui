@@ -1,18 +1,17 @@
 ---
 title: ContentToc
-description: 'A sticky Table of Contents with automatic active anchor link highlighting.'
+description: 'A sticky table of contents component with dynamic active section highlighting.'
 category: content
 badge: new
 framework: nuxt
 links:
   - label: GitHub
     iconName: GitHubIcon
-    to: https://github.com/nuxt/ui/blob/v4/src/runtime/components/content/ContentToc.vue
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/content/ContentToc.vue
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui.nuxt.com/docs/components/content-toc
 ---
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
 
 ::warning{to="/docs/guide/content-nuxt/"}
 This component is only available when the `@nuxt/content` module is installed.
@@ -75,79 +74,7 @@ props:
     depth: 2
     text: Theme
 ---
-__
-
-### Color
-
-Use the `color` prop to change the color of the links.
-
-__component-code{prefix="content"}
----
-prettier: true
-collapse: true
-hide:
-  - class
-ignore:
-  - links
-external:
-  - links
-props:
-  color: 'neutral'
-  class: 'w-full'
-  links:
-    - id: usage
-      depth: 2
-      text: Usage
-      children:
-        - id: title
-          depth: 3
-          text: Title
-        - id: color
-          depth: 3
-          text: Color
-        - id: highlight
-          depth: 3
-          text: Highlight
----
-__
-
-### Highlight
-
-Use the `highlight` prop to display a highlighted border for the active item.
-
-Use the `highlight-color` prop to change the color of the border. It defaults to the `color` prop.
-
-__component-code{prefix="content"}
----
-prettier: true
-collapse: true
-hide:
-  - class
-ignore:
-  - links
-external:
-  - links
-props:
-  highlight: true
-  highlightColor: 'neutral'
-  color: 'neutral'
-  class: 'w-full'
-  links:
-    - id: usage
-      depth: 2
-      text: Usage
-      children:
-        - id: title
-          depth: 3
-          text: Title
-        - id: color
-          depth: 3
-          text: Color
-        - id: highlight
-          depth: 3
-          text: Highlight
----
-__
+::
 
 ## Examples
 
