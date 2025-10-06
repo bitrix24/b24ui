@@ -2,8 +2,6 @@
  * CommandPalette
  * A searchable command palette powered by Fuse.js for fast, fuzzy text search.
  * ---
- * @todo add docs
- * @todo fix colors
  */
 
 export default {
@@ -13,7 +11,7 @@ export default {
       'min-h-0 min-w-0',
       'divide-y divide-(--ui-color-design-tinted-na-stroke)'
     ].join(' '),
-    input: '[&>input]:h-12',
+    input: '',
     close: '',
     back: 'p-0',
     content: 'relative overflow-hidden flex flex-col',

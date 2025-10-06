@@ -97,7 +97,7 @@ export interface CommandPaletteProps<G extends CommandPaletteGroup<T> = CommandP
   autofocus?: boolean
   /**
    * Display a close button in the input (useful when inside a Modal for example).
-   * `{ size: 'xs', color: 'air-tertiary-no-accent' }`{lang="ts-type"}
+   * `{ size: 'sm', color: 'air-tertiary-no-accent' }`{lang="ts-type"}
    * @emits 'update:open'
    * @defaultValue false
    */
@@ -110,7 +110,7 @@ export interface CommandPaletteProps<G extends CommandPaletteGroup<T> = CommandP
   closeIcon?: IconComponent
   /**
    * Display a button to navigate back in history.
-   * `{ size: 'xs', color: 'air-tertiary-no-accent' }`{lang="ts-type"}
+   * `{ size: 'sm', color: 'air-tertiary-no-accent' }`{lang="ts-type"}
    * @defaultValue true
    */
   back?: boolean | ButtonProps
@@ -340,6 +340,7 @@ function onSelect(e: Event, item: T) {
         no-border
         :autofocus="autofocus"
         v-bind="inputProps"
+        size="xl"
         :icon="icon || icons.search"
         :class="b24ui.input({ class: props.b24ui?.input })"
         @keydown.backspace="onBackspace"
@@ -348,7 +349,7 @@ function onSelect(e: Event, item: T) {
           <slot name="back" :b24ui="b24ui">
             <B24Button
               :icon="backIcon || icons.arrowLeft"
-              size="xs"
+              size="sm"
               color="air-tertiary-no-accent"
               variant="link"
               :aria-label="t('commandPalette.back')"
@@ -364,7 +365,7 @@ function onSelect(e: Event, item: T) {
             <B24Button
               v-if="close"
               :icon="closeIcon || icons.close"
-              size="xs"
+              size="sm"
               color="air-tertiary-no-accent"
               :aria-label="t('commandPalette.close')"
               v-bind="(typeof close === 'object' ? close as Partial<ButtonProps> : {})"

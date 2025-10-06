@@ -36,7 +36,7 @@ const users = [
 </script>
 
 <template>
-  <B24Modal v-model:open="open">
+  <B24Modal v-model:open="open" :b24ui="{ content: 'p-0 pt-0 pb-[10px]' }">
     <B24Button
       label="Search users..."
       :icon="SearchIcon"
