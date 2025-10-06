@@ -1,5 +1,6 @@
 /**
  * ContentSurround
+ *  A pair of "Previous" and "Next" buttons for sequential page navigation.
  * ---
  * @see Card outline
  */

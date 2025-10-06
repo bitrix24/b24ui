@@ -1,18 +1,17 @@
 ---
 title: ContentSurround
-description: 'A pair of prev and next links to navigate between pages.'
+description: ' A pair of "Previous" and "Next" buttons for sequential page navigation.'
 category: content
 badge: new
 framework: nuxt
 links:
   - label: GitHub
     iconName: GitHubIcon
-    to: https://github.com/nuxt/ui/blob/v4/src/runtime/components/content/ContentSurround.vue
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/content/ContentSurround.vue
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui.nuxt.com/docs/components/content-surround
 ---
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
 
 ::warning{to="/docs/guide/content-nuxt/"}
 This component is only available when the `@nuxt/content` module is installed.
@@ -22,40 +21,45 @@ This component is only available when the `@nuxt/content` module is installed.
 
 Use the `surround` prop with the `surround`{lang="ts-type"} value you get when fetching a page surround.
 
-__component-example
+::component-example
 ---
 name: 'content-surround-example'
 props:
   class: 'w-full'
 ---
-__
+::
 
 ### Prev / Next
 
-Use the `prev-icon` and `next-icon` props to customize the buttons @todo Icon__/docs/components/icon.
+Use the `prev-icon` and `next-icon` props to customize the buttons [Icon](https://bitrix24.github.io/b24icons/guide/icons.html).
 
-__component-code{prefix="content"}
+::component-code{prefix="content"}
 ---
 prettier: true
 collapse: true
 ignore:
   - surround
+  - prevIcon
+  - nextIcon
+cast:
+  prevIcon: 'RocketIcon'
+  nextIcon: 'RocketIcon'
 external:
   - surround
 props:
-  prevIcon: 'i-lucide-chevron-left'
-  nextIcon: 'i-lucide-chevron-right'
+  prevIcon: 'RocketIcon'
+  nextIcon: 'RocketIcon'
   surround:
   - title: ContentSearchButton
-    path: /components/content-search-button
+    path: /docs/components/content-search-button/
     stem: 3.components/content-search-button
     description: A pre-styled Button to open the ContentSearch modal.
   - title: ContentToc
-    path: /components/content-toc
+    path: /docs/components/content-toc/
     stem: 3.components/content-toc
     description: A sticky Table of Contents with customizable slots.
 ---
-__
+::
 
 ## Examples
 
@@ -63,7 +67,7 @@ __
 
 Use the ContentSurround component in a page to display the prev and next links:
 
-```vue [pages/\[...slug\\].vue]{19}
+```vue [pages/\[...slug\\].vue]{23}
 <script setup lang="ts">
 const route = useRoute()
 
@@ -74,21 +78,21 @@ if (!page.value) {
 </script>
 
 <template>
-  <UPage v-if="page">
-    <UPageHeader :title="page.title" />
+  <template v-if="page">
+    <ProseH1>{{ page.title }}</ProseH1>
 
-    <UPageBody>
+    <template v-if="page?.body?.toc?.links?.length">
+      <B24ContentToc :links="page.body.toc.links" />
+    </template>
+
+    <div>
       <ContentRenderer v-if="page.body" :value="page" />
 
-      <USeparator v-if="surround?.filter(Boolean).length" />
+      <B24Separator v-if="surround?.filter(Boolean).length" class="my-4" />
 
-      <UContentSurround :surround="(surround as any)" />
-    </UPageBody>
-
-    <template v-if="page?.body?.toc?.links?.length" #right>
-      <UContentToc :links="page.body.toc.links" />
-    </template>
-  </UPage>
+      <B24ContentSurround :surround="(surround as any)" />
+    </div>
+  </template>
 </template>
 ```
 
@@ -105,4 +109,3 @@ if (!page.value) {
 ## Theme
 
 :component-theme
-

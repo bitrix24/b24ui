@@ -222,7 +222,7 @@ const code = computed(() => {
 
   let isUseIcon = false
   for (const [key, value] of Object.entries(componentProps)) {
-    if (['icon', 'trailingIcon', 'deleteIcon', 'selectedIcon', 'incrementIcon', 'decrementIcon', 'checkedIcon', 'uncheckedIcon', 'separatorIcon', 'closeIcon', 'backIcon'].includes(key)) {
+    if (['icon', 'trailingIcon', 'deleteIcon', 'selectedIcon', 'incrementIcon', 'decrementIcon', 'checkedIcon', 'uncheckedIcon', 'separatorIcon', 'closeIcon', 'backIcon', 'prevIcon', 'nextIcon'].includes(key)) {
       isUseIcon = true
       break
     } else if (typeof value === 'object') {
@@ -346,6 +346,12 @@ ${props.slots?.default}
       continue
     } else if (key === 'backIcon') {
       code += ` :back-icon="RocketIcon"`
+      continue
+    } else if (key === 'prevIcon') {
+      code += ` :prev-icon="RocketIcon"`
+      continue
+    } else if (key === 'nextIcon') {
+      code += ` :next-icon="RocketIcon"`
       continue
     }
 
