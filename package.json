@@ -2,7 +2,7 @@
   "name": "@bitrix24/b24ui-nuxt",
   "description": "Bitrix24 UI-Kit for developing web applications REST API for NUXT & VUE",
   "version": "2.0.0",
-  "packageManager": "pnpm@10.18.0",
+  "packageManager": "pnpm@10.18.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bitrix24/b24ui.git"
@@ -109,8 +109,9 @@
     "dev": "nuxt dev playgrounds/nuxt --uiDev",
     "dev:build": "nuxt build playgrounds/nuxt",
     "dev:vue": "pnpm --filter './playgrounds/vue' dev -- --uiDev",
-    "dev:vue:build": "pnpm --filter './playgrounds/vue' build",
+    "dev:vue:build": "pnpm --filter ./playgrounds/vue build",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxt prepare playgrounds/nuxt && nuxt prepare docs && pnpm dev:vue:build && nuxt prepare playgrounds/demo && nuxt-component-meta playgrounds/nuxt --outputDir ../../src/.component-meta/",
+    "dev:prepare-component-meta": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxt prepare docs && nuxt-component-meta docs --outputDir ../../src/.component-meta/",
     "demo:dev": "nuxt dev playgrounds/demo",
     "demo:generate": "nuxt generate playgrounds/demo",
     "demo:preview": "nuxt preview playgrounds/demo",
