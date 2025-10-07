@@ -1,0 +1,15 @@
+@theme {
+  --tracking-tighter: -0.05em;
+  --tracking-neg-3: -0.03em;
+  --tracking-tight: -0.025em;
+  --tracking-neg-2: -0.02em;
+  --tracking-neg-1: -0.01em;
+  --tracking-normal: -0em;
+  --tracking-auto: auto;
+  --tracking-wide: 0.025em;
+  --tracking-1: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+  --tracking-2: 0.1em;
+  --tracking-3: 0.15em;
+}

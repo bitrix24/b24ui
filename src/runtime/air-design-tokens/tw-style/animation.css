@@ -1,0 +1,19 @@
+@theme {
+  --animate-loader-dash: loader-dash 1.5s ease-in-out infinite;
+  --animate-spin-slow: spin 2s linear infinite;
+
+  @keyframes loader-dash {
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -35px;
+    }
+    100% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -124px;
+    }
+  }
+}

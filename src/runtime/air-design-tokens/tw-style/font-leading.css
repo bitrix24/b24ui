@@ -1,0 +1,17 @@
+@theme {
+  --leading-reset: 1;
+  --leading-none: 1;
+  --leading-3xs: 1.2;
+  --leading-tight: 1.25;
+  --leading-2xs: 1.3;
+  --leading-sm: 1.35;
+  --leading-snug: 1.375;
+  --leading-md: 1.4;
+  --leading-lg: 1.5;
+  --leading-normal: 1.5;
+  --leading-xl: 1.62;
+  --leading-relaxed: 1.625;
+  --leading-2xl: 1.75;
+  --leading-3xl: 2;
+  --leading-loose: 2;
+}

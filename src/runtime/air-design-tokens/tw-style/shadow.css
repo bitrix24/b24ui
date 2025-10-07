@@ -1,0 +1,55 @@
+@theme {
+  /* Box Shadows */
+  --shadow-none: none;
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+  --shadow-base: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+  /* Top shadows */
+  --shadow-top-2xs: 0px -1px 2px 0px rgb(0 0 0 / 0.06);
+  --shadow-top-xs: 0px -2px 2px 0px rgb(0 0 0 / 0.07);
+  --shadow-top-sm: 0px -2px 4px 0px rgb(0 0 0 / 0.08);
+  --shadow-top-md: 0px -3px 4px 0px rgb(0 0 0 / 0.08);
+  --shadow-top-lg: 0px -4px 5px 0px rgb(0 0 0 / 0.08);
+  --shadow-top-xl: 0px -6px 10px 0px rgb(0 0 0 / 0.1);
+  --shadow-top-2xl: 0px -8px 10px 0px rgb(0 0 0 / 0.1);
+  --shadow-top-3xl: 0px -12px 17px 0px rgb(0 0 0 / 0.1);
+  --shadow-top-4xl: 0px -16px 24px 0px rgb(0 0 0 / 0.11);
+
+  /* Right shadows */
+  --shadow-right-2xs: 1px 0px 2px 0px rgb(0 0 0 / 0.06);
+  --shadow-right-xs: 2px 0px 2px 0px rgb(0 0 0 / 0.07);
+  --shadow-right-sm: 2px 0px 4px 0px rgb(0 0 0 / 0.08);
+  --shadow-right-md: 3px 0px 4px 0px rgb(0 0 0 / 0.08);
+  --shadow-right-lg: 4px 0px 5px 0px rgb(0 0 0 / 0.08);
+  --shadow-right-xl: 6px 0px 10px 0px rgb(0 0 0 / 0.1);
+  --shadow-right-2xl: 8px 0px 10px 0px rgb(0 0 0 / 0.1);
+  --shadow-right-3xl: 12px 0px 17px 0px rgb(0 0 0 / 0.1);
+  --shadow-right-4xl: 16px 0px 24px 0px rgb(0 0 0 / 0.11);
+
+  /* Bottom shadows */
+  --shadow-bottom-2xs: 0px 1px 2px 0px rgb(0 0 0 / 0.06);
+  --shadow-bottom-xs: 0px 2px 2px 0px rgb(0 0 0 / 0.07);
+  --shadow-bottom-sm: 0px 2px 4px 0px rgb(0 0 0 / 0.08);
+  --shadow-bottom-md: 0px 3px 4px 0px rgb(0 0 0 / 0.08);
+  --shadow-bottom-lg: 0px 4px 5px 0px rgb(0 0 0 / 0.08);
+  --shadow-bottom-xl: 0px 6px 10px 0px rgb(0 0 0 / 0.1);
+  --shadow-bottom-2xl: 0px 8px 10px 0px rgb(0 0 0 / 0.1);
+  --shadow-bottom-3xl: 0px 12px 17px 0px rgb(0 0 0 / 0.1);
+  --shadow-bottom-4xl: 0px 16px 24px 0px rgb(0 0 0 / 0.11);
+
+  /* Left shadows */
+  --shadow-left-2xs: -1px 0px 2px 0px rgb(0 0 0 / 0.06);
+  --shadow-left-xs: -2px 0px 2px 0px rgb(0 0 0 / 0.07);
+  --shadow-left-sm: -2px 0px 4px 0px rgb(0 0 0 / 0.08);
+  --shadow-left-md: -3px 0px 4px 0px rgb(0 0 0 / 0.08);
+  --shadow-left-lg: -4px 0px 5px 0px rgb(0 0 0 / 0.08);
+  --shadow-left-xl: -6px 0px 10px 0px rgb(0 0 0 / 0.1);
+  --shadow-left-2xl: -8px 0px 10px 0px rgb(0 0 0 / 0.1);
+  --shadow-left-3xl: -12px 0px 17px 0px rgb(0 0 0 / 0.1);
+  --shadow-left-4xl: -16px 0px 24px 0px rgb(0 0 0 / 0.11);
+}

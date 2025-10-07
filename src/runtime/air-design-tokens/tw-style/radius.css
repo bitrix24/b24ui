@@ -1,0 +1,15 @@
+@theme {
+  --radius-none: 0px;
+  --radius-3xs: 2px;
+  --radius-2xs: 4px;
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 14px;
+  --radius-2xl: 16px;
+  --radius-3xl: 20px;
+  --radius-circle: 50%;
+  --radius-pill: 99rem;
+  --radius-full: 9999px;
+}

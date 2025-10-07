@@ -1,0 +1,14 @@
+@theme {
+  --font-family-system: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+  --font-b24-system: var(--font-family-system);
+  --font-b24-system-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  --font-b24-primary: var(--font-family-system);
+  --font-b24-secondary: var(--font-family-system);
+  --font-b24-helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-b24-opensans: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-b24-roboto: Roboto, "Helvetica Neue", Helvetica, Arial, monospace;
+  --font-b24-roboto-mono: "Roboto Mono", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-b24-montserrat: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-b24-comforter-brush: "Comforter Brush";
+}
