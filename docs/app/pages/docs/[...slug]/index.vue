@@ -137,7 +137,7 @@ const iconFromIconName = (iconName?: string) => {
             <B24Button
               v-for="link in page.links"
               :key="link.label"
-              :target="link.to.startsWith('http') ? '_blank' : undefined"
+              :target="link.to?.startsWith('http') ? '_blank' : undefined"
               v-bind="link"
               :icon="iconFromIconName(link?.iconName)"
               size="md"

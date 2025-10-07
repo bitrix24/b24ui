@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import usePageMeta from '../../nuxt/app/composables/usePageMeta'
-import { useRouteCheck } from '../../nuxt/app/composables/useRouteCheck'
+import type { DropdownMenuItem, NavigationMenuItem, SidebarLayoutInstance } from '@bitrix24/b24ui-nuxt'
+// import useNavigation from '../../nuxt/app/composables/useNavigation'
+// import usePageMeta from '../../nuxt/app/composables/usePageMeta'
+// import { useRouteCheck } from '../../nuxt/app/composables/useRouteCheck'
 import { useRouter, useRoute } from 'vue-router'
 import { reactive, ref, computed } from 'vue'
 import { useColorMode, useTextDirection } from '@vueuse/core'
@@ -10,7 +12,6 @@ import SunIcon from '@bitrix24/b24icons-vue/main/SunIcon'
 import SunIconAir from '@bitrix24/b24icons-vue/outline/SunIcon'
 import MoonIcon from '@bitrix24/b24icons-vue/main/MoonIcon'
 import MoonIconAir from '@bitrix24/b24icons-vue/outline/MoonIcon'
-import type { DropdownMenuItem, NavigationMenuItem, SidebarLayoutInstance } from '@bitrix24/b24ui-nuxt'
 
 const appConfig = useAppConfig()
 
