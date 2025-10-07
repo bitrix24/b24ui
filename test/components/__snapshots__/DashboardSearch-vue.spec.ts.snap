@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`DashboardSearch > renders with b24ui correctly 1`] = `
-"<div class="fixed inset-0 flex overflow-hidden">
+"<div class="">
   <!--v-if-->
   <!--teleport start-->
   <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -38,7 +38,7 @@ exports[`DashboardSearch > renders with b24ui correctly 1`] = `
 `;
 
 exports[`DashboardSearch > renders with class correctly 1`] = `
-"<div class="fixed inset-0 flex overflow-hidden">
+"<div class="">
   <!--v-if-->
   <!--teleport start-->
   <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -75,7 +75,7 @@ exports[`DashboardSearch > renders with class correctly 1`] = `
 `;
 
 exports[`DashboardSearch > renders with fullscreen correctly 1`] = `
-"<div class="fixed inset-0 flex overflow-hidden">
+"<div class="">
   <!--v-if-->
   <!--teleport start-->
   <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -112,7 +112,7 @@ exports[`DashboardSearch > renders with fullscreen correctly 1`] = `
 `;
 
 exports[`DashboardSearch > renders with groups correctly 1`] = `
-"<div class="fixed inset-0 flex overflow-hidden">
+"<div class="">
   <!--v-if-->
   <!--teleport start-->
   <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -149,7 +149,7 @@ exports[`DashboardSearch > renders with groups correctly 1`] = `
 `;
 
 exports[`DashboardSearch > renders with icon correctly 1`] = `
-"<div class="fixed inset-0 flex overflow-hidden">
+"<div class="">
   <!--v-if-->
   <!--teleport start-->
   <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -186,7 +186,7 @@ exports[`DashboardSearch > renders with icon correctly 1`] = `
 `;
 
 exports[`DashboardSearch > renders with loading correctly 1`] = `
-"<div class="fixed inset-0 flex overflow-hidden">
+"<div class="">
   <!--v-if-->
   <!--teleport start-->
   <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -223,7 +223,7 @@ exports[`DashboardSearch > renders with loading correctly 1`] = `
 `;
 
 exports[`DashboardSearch > renders with loadingIcon correctly 1`] = `
-"<div class="fixed inset-0 flex overflow-hidden">
+"<div class="">
   <!--v-if-->
   <!--teleport start-->
   <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -275,7 +275,7 @@ exports[`DashboardSearch > renders with loadingIcon correctly 1`] = `
 `;
 
 exports[`DashboardSearch > renders with placeholder correctly 1`] = `
-"<div class="fixed inset-0 flex overflow-hidden">
+"<div class="">
   <!--v-if-->
   <!--teleport start-->
   <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
@@ -312,7 +312,7 @@ exports[`DashboardSearch > renders with placeholder correctly 1`] = `
 `;
 
 exports[`DashboardSearch > renders without colorMode correctly 1`] = `
-"<div class="fixed inset-0 flex overflow-hidden">
+"<div class="">
   <!--v-if-->
   <!--teleport start-->
   <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-[#003366]/20 motion-safe:backdrop-blur-[2px] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
