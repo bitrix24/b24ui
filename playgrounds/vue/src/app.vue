@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { DropdownMenuItem, NavigationMenuItem, SidebarLayoutInstance } from '@bitrix24/b24ui-nuxt'
-// import useNavigation from '../../nuxt/app/composables/useNavigation'
-// import usePageMeta from '../../nuxt/app/composables/usePageMeta'
-// import { useRouteCheck } from '../../nuxt/app/composables/useRouteCheck'
+import { useNavigation } from '../../nuxt/app/composables/useNavigation'
+import usePageMeta from '../../nuxt/app/composables/usePageMeta'
+import { useRouteCheck } from '../../nuxt/app/composables/useRouteCheck'
 import { useRouter, useRoute } from 'vue-router'
 import { reactive, ref, computed } from 'vue'
 import { useColorMode, useTextDirection } from '@vueuse/core'
