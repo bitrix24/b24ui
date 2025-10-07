@@ -1,0 +1,9 @@
+title: Showcase
+description: Check out some of the amazing projects built with Bitrix24 UI.
+navigation: false
+hero:
+  title: Showcase
+  description: Discover our selection of projects built with Bitrix24 UI.
+items:
+  - name: SomeCase
+    url: https://bitrix24.com

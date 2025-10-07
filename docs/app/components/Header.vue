@@ -13,26 +13,26 @@ const props = withDefaults(defineProps<HeaderProps>(), {
   showLogoAllTime: false
 })
 
-const { links } = useSearch()
+const { desktopLinks } = useHeader()
 </script>
 
 <template>
   <B24NavbarSection
     class="inline-flex"
     :class="[
-      props.showLogoAllTime ? 'pl-[3px]' : 'lg:hidden'
+      props.showLogoAllTime ? '' : 'lg:hidden'
     ]"
   >
-    <LogoWithVersion />
+    <LogoWithVersion :no-padding="props.showLogoAllTime" />
   </B24NavbarSection>
   <B24NavbarSection
     class="hidden lg:inline-flex"
     :class="[
-      props.showLogoAllTime ? 'pl-[37px]' : ''
+      props.showLogoAllTime ? 'pl-[29px]' : ''
     ]"
   >
     <B24NavigationMenu
-      :items="links"
+      :items="desktopLinks"
       orientation="horizontal"
     />
   </B24NavbarSection>

@@ -1,9 +1,24 @@
+<script lang="ts">
+export interface LogoWithVersionProps {
+  noPadding?: boolean
+}
+</script>
+
 <script setup lang="ts">
 const config = useRuntimeConfig().public
+
+const props = withDefaults(defineProps<LogoWithVersionProps>(), {
+  noPadding: false
+})
 </script>
 
 <template>
-  <div class="h-[58px] flex items-center relative my-0 ps-[25px] pe-xs rtl:pe-[25px]">
+  <div
+    class="h-[58px] flex items-center relative my-0"
+    :class="[
+      props.noPadding ? 'ps-[3px] pe-xs rtl:ps-xs rtl:pe-[3px]' : 'ps-[25px] pe-xs rtl:ps-xs rtl:pe-[25px]'
+    ]"
+  >
     <div class="flex flex-row flex-nowrap items-center justify-start gap-[6px]">
       <NuxtLink
         to="/"

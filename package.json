@@ -121,6 +121,7 @@
     "docs:full:generate": "pnpm build && pnpm docs:generate",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "typecheck-short": "vue-tsc --noEmit && nuxt typecheck playgrounds/nuxt && nuxt typecheck playgrounds/demo && nuxt typecheck docs",
     "typecheck": "vue-tsc --noEmit && nuxt typecheck playgrounds/nuxt && nuxt typecheck playgrounds/demo && nuxt typecheck docs && cd playgrounds/vue && vue-tsc --noEmit",
     "test": "vitest",
     "test:vue": "vitest -c vitest.vue.config.ts"

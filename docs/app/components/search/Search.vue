@@ -71,6 +71,7 @@ function onClose() {
     :groups="groups"
     :navigation="navigation"
     :fullscreen="fullscreen"
+    :color-mode="false"
     :fuse="{ resultLimit: 115 }"
   >
     <template v-if="chat" #content>
