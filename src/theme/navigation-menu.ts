@@ -23,7 +23,6 @@ export default {
     item: 'min-w-0',
     link: [
       'min-w-[38px] w-full max-w-full', // max-w-[212px]
-      'overflow-hidden',
       'p-0',
       'm-0',
       'group relative',
@@ -140,6 +139,7 @@ export default {
         ].join(' '),
         link: [
           'menu-item-vertical',
+          'overflow-hidden',
           'h-[38px] min-h-[38px]',
           'p-[6px]',
           'flex-row rtl:flex-row-reverse justify-between',
