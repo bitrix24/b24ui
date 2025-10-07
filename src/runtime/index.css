@@ -1,4 +1,4 @@
-@plugin '@bitrix24/b24style';
+/*@plugin '@bitrix24/b24style';*/
 @import '#build/b24ui.css';
 @import './keyframes.css';
 @import './air-design-tokens/index.css';

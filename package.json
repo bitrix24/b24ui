@@ -129,7 +129,6 @@
   "dependencies": {
     "@ai-sdk/vue": "^2.0.60",
     "@bitrix24/b24icons-vue": "^2.0.4",
-    "@bitrix24/b24style": "^1.0.1",
     "@internationalized/date": "^3.10.0",
     "@internationalized/number": "^3.6.5",
     "@nuxt/kit": "^4.1.2",
@@ -227,7 +226,9 @@
     }
   },
   "resolutions": {
-    "@nuxt/kit": "^4.1.2",
+    "@nuxt/kit": "4.1.2",
+    "@nuxt/schema": "4.1.2",
+    "nuxt": "4.1.2",
     "@bitrix24/b24ui-nuxt": "workspace:*",
     "chokidar": "3.6.0",
     "debug": "4.3.7",
