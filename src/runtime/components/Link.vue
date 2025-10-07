@@ -21,7 +21,7 @@ interface NuxtLinkProps extends Omit<RouterLinkProps, 'to'> {
    */
   external?: boolean
   /**
-   * Where to display the linked URL as the name for a browsing context.
+   * Where to display the linked URL, as the name for a browsing context.
    */
   target?: '_blank' | '_parent' | '_self' | '_top' | (string & {}) | null
   /**
