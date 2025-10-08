@@ -5,11 +5,6 @@ const { framework } = useFrameworks()
 
 const menuList = [
   {
-    label: 'b24style',
-    to: 'https://bitrix24.github.io/b24style/',
-    target: '_blank'
-  },
-  {
     label: 'b24icons',
     to: 'https://bitrix24.github.io/b24icons/',
     target: '_blank'

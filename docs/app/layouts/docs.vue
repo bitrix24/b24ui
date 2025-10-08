@@ -21,6 +21,9 @@ const { navigationMenuByCategory } = useNavigation(navigation!)
         <LogoWithVersion />
       </B24SidebarHeader>
       <B24SidebarBody>
+        <div class="ps-[20px] pe-xs rtl:ps-xs rtl:pe-[20px] flex flex-row flex-nowrap items-center justify-start gap-[6px]">
+          <FrameworkTabs />
+        </div>
         <B24NavigationMenu
           :key="route.path"
           :items="navigationMenuByCategory"
