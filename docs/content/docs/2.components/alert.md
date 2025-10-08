@@ -92,6 +92,7 @@ ignore:
   - title
   - description
   - icon
+  - close
 cast:
   icon: 'RocketIcon'
 props:
@@ -99,6 +100,7 @@ props:
   title: Heads up!
   description: We will immediately notify the manager that the deal is not progressing.
   icon: 'RocketIcon'
+  close: true
 ---
 ::
 
@@ -117,6 +119,7 @@ ignore:
   - title
   - description
   - icon
+  - close
 cast:
   icon: 'RocketIcon'
 props:
@@ -125,6 +128,7 @@ props:
   title: Heads up!
   description: We will immediately notify the manager that the deal is not progressing.
   icon: 'RocketIcon'
+  close: true
 ---
 ::
 
@@ -186,7 +190,7 @@ props:
   title: Heads up!
   description: We will immediately notify the manager that the deal is not progressing.
   close:
-    color: 'air-primary'
+    color: 'air-secondary-accent-2'
     class: 'rounded-full'
 ---
 ::
