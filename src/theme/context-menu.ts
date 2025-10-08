@@ -30,7 +30,7 @@ export default {
     ].join(' '),
     viewport: [
       'relative',
-      'w-full max-h-[40vh]',
+      'w-full max-h-[40vh] min-w-[120px]',
       'scroll-py-1',
       'overflow-x-hidden overflow-y-auto scrollbar-thin' // scrollbar-transparent
     ].join(' '),

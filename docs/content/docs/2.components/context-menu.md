@@ -3,11 +3,21 @@ title: ContextMenu
 description: A pop-up menu that appears upon right-clicking an element to present relevant actions.
 category: overlay
 badge: new
+links:
+  - label: GitHub
+    iconName: GitHubIcon
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/ContextMenu
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/context-menu
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui.nuxt.com/docs/components/context-menu
+  - label: ContextMenu
+    avatar:
+      src: /b24ui/avatar/rekaui.svg
+    to: https://reka-ui.com/docs/components/context-menu
 ---
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
 
 ## Usage
 
@@ -68,12 +78,12 @@ props:
 slots:
   default: |
 
-    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) aspect-video w-72">
+    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-bg-content-primary) text-(length:--ui-font-size-sm) aspect-video w-72">
       Right click here
     </div>
 ---
 
-:div{class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) aspect-video w-72"}[Right click here]
+:div{class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-bg-content-primary) text-(length:--ui-font-size-sm) aspect-video w-72"}[Right click here]
 ::
 
 ### Items
@@ -152,17 +162,15 @@ props:
                 - option
                 - meta
                 - j
-  b24ui:
-    content: 'w-[192px]'
 slots:
   default: |
 
-    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) aspect-video w-72">
+    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) bg-(--ui-color-bg-content-primary) aspect-video w-72">
       Right click here
     </div>
 ---
 
-:div{class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) aspect-video w-72"}[Right click here]
+:div{class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) bg-(--ui-color-bg-content-primary) aspect-video w-72"}[Right click here]
 ::
 
 ::note
@@ -173,45 +181,13 @@ You can also pass an array of arrays to the `items` prop to create separated gro
 Each item can take a `children` array of objects with the same properties as the `items` prop to create a nested menu which can be controlled using the `open`, `defaultOpen` and `content` properties.
 ::
 
-### Size
-
-Use the `size` prop to change the size of the ContextMenu.
-
-::component-code
----
-prettier: true
-ignore:
-  - items
-  - b24ui.content
-external:
-  - items
-externalTypes:
-  - ContextMenuItem[]
-props:
-  size: xl
-  items:
-    - label: System
-    - label: Light
-    - label: Dark
-  b24ui:
-    content: 'w-[192px]'
-slots:
-  default: |
-
-    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) aspect-video w-72">
-      Right click here
-    </div>
----
-
-:div{class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) aspect-video w-72"}[Right click here]
-::
-
 ### Disabled
 
 Use the `disabled` prop to disable the ContextMenu.
 
 ::component-code
 ---
+collapse: true
 prettier: true
 ignore:
   - items
@@ -226,17 +202,15 @@ props:
     - label: System
     - label: Light
     - label: Dark
-  b24ui:
-    content: 'w-[192px]'
 slots:
   default: |
 
-    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) aspect-video w-72">
+    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) bg-(--ui-color-bg-content-primary) aspect-video w-72">
       Right click here
     </div>
 ---
 
-:div{class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) aspect-video w-72"}[Right click here]
+:div{class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) bg-(--ui-color-bg-content-primary) aspect-video w-72"}[Right click here]
 ::
 
 ## Examples
@@ -263,6 +237,7 @@ You can use the `color` property to highlight certain items with a color.
 ::component-example
 ---
 name: 'context-menu-color-items-example'
+collapse: true
 ---
 ::
 
@@ -280,6 +255,7 @@ You will have access to the following slots:
 ::component-example
 ---
 name: 'context-menu-custom-slot-example'
+collapse: true
 ---
 ::
 
