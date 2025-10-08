@@ -16,7 +16,7 @@ const colors = Object.keys(theme.variants.color)
 const sizes = Object.keys(theme.variants.size)
 const orientations = Object.keys(theme.variants.orientation)
 
-const isUseBg = ref(false)
+const isUseBg = ref(true)
 
 const color = ref(theme.defaultVariants.color)
 const size = ref(theme.defaultVariants.size)
