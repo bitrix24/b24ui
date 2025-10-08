@@ -73,7 +73,7 @@ const pages = [
   // region Overlay ////
   '/docs/components/context-menu/',
   // '/docs/components/drawer/',
-  // // '/docs/components/dropdown-menu/',
+  '/docs/components/dropdown-menu/',
   // // '/docs/components/modal/',
   // // '/docs/components/popover/',
   // // '/docs/components/slideover/',
@@ -102,7 +102,7 @@ const pages = [
   '/docs/components/content-search/',
   '/docs/components/content-search-button/',
   '/docs/components/content-surround/',
-  '/docs/components/content-toc/',
+  '/docs/components/content-toc/'
   // endregion ////
   // region Color Mode ////,
   // // '/docs/components/color-mode-avatar/',
