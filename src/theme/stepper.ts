@@ -12,13 +12,14 @@ export default {
     item: 'group text-center relative w-full',
     container: 'relative',
     trigger: [
+      'cursor-pointer',
       'rounded-full',
       'font-(--ui-font-weight-medium)',
       'text-center',
       'align-middle',
       'flex items-center justify-center',
       'group-data-[state=completed]:text-(--b24ui-color) group-data-[state=active]:text-(--b24ui-color) text-(--b24ui-typography-description-color)',
-      'group-data-[state=completed]:bg-(--b24ui-background) group-data-[state=active]:bg-(--b24ui-background-active) focus-visible:outline-(--b24ui-background-active) bg-(--ui-color-base-8)',
+      'group-data-[state=completed]:bg-(--b24ui-background) group-data-[state=active]:bg-(--b24ui-background-active) focus-visible:outline-(--b24ui-background-active) bg-(--ui-color-base-8) ring ring-(--ui-color-base-7)',
       'focus-visible:outline-2',
       'focus-visible:outline-offset-2'
     ].join(' '),

@@ -48,7 +48,7 @@ Use the `items` prop as an array of objects with the following properties:
 - `title?: string`{lang="ts-type"}
 - `description?: AvatarProps`{lang="ts-type"}
 - `content?: string`{lang="ts-type"}
-- [`icon?: IconComponent`{lang="ts-type"}](#with--controls)
+- [`icon?: IconComponent`{lang="ts-type"}](#with-controls)
 - `value?: string | number`{lang="ts-type"}
 - `disabled?: boolean`{lang="ts-type"}
 - [`slot?: string`{lang="ts-type"}](#with-custom-slot)

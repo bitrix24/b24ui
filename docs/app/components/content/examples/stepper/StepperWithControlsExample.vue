@@ -27,7 +27,7 @@ const stepper = useTemplateRef('stepper')
   <div class="w-full">
     <B24Stepper ref="stepper" :items="items">
       <template #content="{ item }">
-        <Placeholder class="aspect-video">
+        <Placeholder class="h-[200px]">
           {{ item.title }}
         </Placeholder>
       </template>

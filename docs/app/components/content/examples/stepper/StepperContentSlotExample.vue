@@ -22,7 +22,7 @@ const items: StepperItem[] = [
 <template>
   <B24Stepper ref="stepper" :items="items" class="w-full">
     <template #content="{ item }">
-      <Placeholder class="aspect-video">
+      <Placeholder class="h-[200px]">
         This is the {{ item?.title }} step.
       </Placeholder>
     </template>

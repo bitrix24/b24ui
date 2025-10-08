@@ -7,14 +7,17 @@ const items: StepperItem[] = [
   {
     title: 'Address',
     description: 'Add your address here',
-    icon: LocationIcon
+    icon: LocationIcon,
+    slot: 'address'
   }, {
     title: 'Shipping',
     description: 'Set your preferred shipping method',
-    icon: DeliveryIcon
+    icon: DeliveryIcon,
+    slot: 'shipping'
   }, {
     title: 'Checkout',
-    description: 'Confirm your order'
+    description: 'Confirm your order',
+    slot: 'checkout'
   }
 ]
 </script>
@@ -22,19 +25,19 @@ const items: StepperItem[] = [
 <template>
   <B24Stepper :items="items" class="w-full">
     <template #address>
-      <Placeholder class="aspect-video">
+      <Placeholder class="h-[200px]">
         Address
       </Placeholder>
     </template>
 
     <template #shipping>
-      <Placeholder class="aspect-video">
+      <Placeholder class="h-[200px]">
         Shipping
       </Placeholder>
     </template>
 
     <template #checkout>
-      <Placeholder class="aspect-video">
+      <Placeholder class="h-[200px]">
         Checkout
       </Placeholder>
     </template>

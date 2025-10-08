@@ -32,7 +32,7 @@ onMounted(() => {
 <template>
   <B24Stepper v-model="active" :items="items" class="w-full">
     <template #content="{ item }">
-      <Placeholder class="aspect-video">
+      <Placeholder class="h-[200px]">
         This is the {{ item?.title }} step.
       </Placeholder>
     </template>
