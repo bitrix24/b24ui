@@ -62,33 +62,57 @@ const pages = [
   '/docs/components/user/',
   // endregion ////
   // region Navigation ////
-  '/docs/components/pagination/',
   '/docs/components/breadcrumb/',
   '/docs/components/command-palette/',
   '/docs/components/link/',
   '/docs/components/navigation-menu/',
+  '/docs/components/pagination/',
+  '/docs/components/stepper/',
+  '/docs/components/tabs/',
   // endregion ////
   // region Overlay ////
   '/docs/components/context-menu/',
+  // '/docs/components/drawer/',
+  '/docs/components/dropdown-menu/',
+  '/docs/components/modal/',
+  '/docs/components/popover/',
+  '/docs/components/slideover/',
+  '/docs/components/toast/',
+  '/docs/components/tooltip/',
   // endregion ////
   // region Page ////
+  '/docs/components/page-links/',
   // endregion ////
   // region Dashboard ////
   '/docs/components/dashboard-group/',
+  '/docs/components/dashboard-navbar/',
+  '/docs/components/dashboard-panel/',
+  '/docs/components/dashboard-resize-handle/',
   '/docs/components/dashboard-search/',
   '/docs/components/dashboard-search-button/',
+  '/docs/components/dashboard-sidebar/',
+  '/docs/components/dashboard-sidebar-collapse/',
+  '/docs/components/dashboard-sidebar-toggle/',
+  '/docs/components/dashboard-toolbar/',
   // endregion ////
   // region Chat ////
   // endregion ////
   // region Content ////
+  // '/docs/components/content-navigation/',
   '/docs/components/content-search/',
   '/docs/components/content-search-button/',
   '/docs/components/content-surround/',
-  '/docs/components/content-toc/'
+  '/docs/components/content-toc/',
   // endregion ////
-  // region Color Mode ////
+  // region Color Mode ////,
+  '/docs/components/color-mode-avatar/',
+  '/docs/components/color-mode-button/',
+  '/docs/components/color-mode-image/',
+  '/docs/components/color-mode-select/',
+  '/docs/components/color-mode-switch/',
   // endregion ////
   // region i18n ////
+  '/docs/components/locale-select/'
   // endregion ////
 ]
 

@@ -27,11 +27,6 @@ function getPageTitle(): Ref<string> {
 
 const menuList: IMenuItem[] = [
   {
-    label: 'b24style',
-    to: 'https://bitrix24.github.io/b24style/',
-    target: '_blank'
-  },
-  {
     label: 'b24icons',
     to: 'https://bitrix24.github.io/b24icons/',
     target: '_blank'
@@ -89,6 +84,7 @@ const components: IComponentInfo[] = [
   { id: 'shortcuts', description: 'A composable to define keyboard shortcuts in your app.', iconData: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'skeleton', description: 'A placeholder to show while content is loading.', iconData: ItemIcon, iconUi: 'pr-px pb-[3px]' },
   { id: 'slideover', description: 'A dialog that slides in from any side of the screen.', iconData: GroupIcon },
+  { id: 'stepper', description: 'A stepper component to visualize progress in a multistep workflow.', iconData: FormIcon },
   { id: 'switch', description: 'A control that toggles between two states.', iconData: FormIcon },
   { id: 'tabs', description: 'A set of tab panels that are displayed one at a time.', iconData: FolderEmptyIcon },
   { id: 'textarea', description: 'A textarea element to input multi-line text.', iconData: FormIcon },

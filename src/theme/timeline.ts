@@ -2,9 +2,7 @@
  * TimeLine
  * A component for displaying a chronological sequence of events, with dates, titles, and supporting icons or avatars.
  * ---
- * @todo docs
- * @todo color
- * @todo demo
+ * @see src/theme/stepper.ts
  */
 
 export default {

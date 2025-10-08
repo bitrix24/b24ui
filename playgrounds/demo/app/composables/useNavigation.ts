@@ -72,7 +72,7 @@ const components = [
   'skeleton',
   'slideover',
   'range',
-  // // 'stepper',
+  'stepper',
   'switch',
   'table',
   'tabs',
