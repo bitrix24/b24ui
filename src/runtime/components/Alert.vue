@@ -48,7 +48,7 @@ export interface AlertProps {
   actions?: ButtonProps[]
   /**
    * Display a close button to dismiss the alert.
-   * `{ size: 'sm', color: 'air-tertiary-no-accent' }`{lang="ts"}
+   * `{ size: 'md', color: 'air-tertiary-no-accent' }`{lang="ts"}
    * @emits 'update:open'
    * @defaultValue false
    */
@@ -146,8 +146,8 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.alert 
         <B24Button
           v-if="close"
           :icon="closeIcon || icons.close"
-          size="sm"
-          color="air-tertiary"
+          size="md"
+          color="air-tertiary-no-accent"
           :aria-label="t('alert.close')"
           v-bind="(typeof close === 'object' ? close as Partial<ButtonProps> : {})"
           :class="b24ui.close({ class: props.b24ui?.close })"

@@ -25,7 +25,14 @@ export default {
     avatar: 'shrink-0',
     avatarSize: '',
     actions: 'flex flex-wrap gap-1.5 shrink-0',
-    close: 'p-0'
+    close: [
+      'p-0',
+      // @memo change color|bg for btn
+      '[--ui-btn-color:var(--b24ui-color)]',
+      'hover:bg-(--ui-color-base-white-fixed)/10',
+      'focus-visible:bg-(--ui-color-base-white-fixed)/10',
+      '-me-1.5 lg:me-0'
+    ].join(' ')
   },
   variants: {
     color: {
