@@ -1,6 +1,71 @@
 # Changelog
 
-## [1.1.0](https://github.com/bitrix24/b24ui/compare/v1.0.4...v1.1.0) (2025-09-xx)
+## [2.0.0](https://github.com/bitrix24/b24ui/compare/v1.0.4...v2.0.0) (2025-09-xx)
+
+* feat(dictionary.icons): add some icons
+* feat(components)!: rename `nullify` modifier to `nullable` and add `optional`
+* feat(Error): new component
+* feat(PageLinks): new component
+* feat(ContentSurround): new component
+* feat(ContentToc): new component
+* feat(ProseCallout): new component
+* feat(ProseCollapsible): new component
+* feat(ProseCodeCollapse): new component
+* feat(ProseCodeIcon): new component
+* feat(ProsePre): improve
+* feat(ProseTabs): new component
+* feat(ProseTabsItem): new component
+* feat(ProseKbd): new component
+* feat(Banner): new component
+* feat(Card): new component
+* feat(CheckboxGroup): new component
+* feat(ColorPicker): new component
+* feat(FileUpload): new component
+* feat(InputTags): new component
+* feat(PinInput): new component
+* feat(ContextMenu): new component
+* feat(Pagination): new component
+* feat(Table): new component
+* feat(Timeline): new component
+* feat(User): new component
+* feat(Breadcrumb): new component
+* feat(Breadcrumb): new component
+* feat(ContentSearch): new component
+* feat(ContentSearchButton): new component
+* feat(DashboardGroup): new component
+* feat(DashboardSearch): new component
+* feat(DashboardSearchButton): new component
+* feat(Stepper): new component
+* fix(ProseLi,ProseOl,ProseUl,ProseP): fix color && size
+* fix(ProseH1\H2\H3\H4\H5\H6): add support hash
+* fix(SidebarLayout): improve theme, import Button, add slot 'content-right'
+* fix(Slideover): remove hover from close button && add them slot `sidebarLayoutPageWrapper`
+* fix(defaultIcons): change close icon
+* fix(NavigationMenu): improve theme
+* fix(vue): add mock useRuntimeConfig
+* fix(ProseA): improve code hover
+* fix(ProseTable): fix `size`
+* fix(ProseCode): fix `color`
+* fix(TableWrapper): fix footer px|py for td
+* fix(Calendar): fix width && `color`, add locale prop from reka-ui
+* fix(Form): remove `joi` and `yup` in favor of @standard-schema/spec
+* fix(Form): flaky reactivity tests
+* fix(Form): improve nested form validation handling
+* fix(Form)!: don't mutate the form's state if transformations are enabled
+* fix(Input): remove `w-full`
+* fix(components): standardize naming for type interfaces
+* fix(Input\InputMenu\InputNumber\InputTags\Select\SelectMenu\Textarea): fix ring in hover state
+* fix(unplugin): handle components resolution with subpath
+* fix(Textarea): remove maxrows def value, fix width
+* fix(Accordion): improve theme
+* fix(App): allow global portal disabling
+* fix(Avatar): remove redundant `img` role, improve icon size
+* fix(Table): empty cell value causing hydration errors
+* fix(FileUpload): stuck focus while tabbing
+* fix(FileUpload): use native img element for blob URLs preview
+* docs(app): implement AI search
+* doc(Component): added components for displaying props, slots, etc
+* chore(style): fix var(--b24ui-header-h`eight)
 
 ### ⚠ BREAKING CHANGES
 * **FieldGroup**: rename from `ButtonGroup`
