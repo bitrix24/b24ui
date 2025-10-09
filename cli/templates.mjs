@@ -177,61 +177,55 @@ describe('${upperName}', () => {
   }
 }
 
-const docs = ({ name, pro, primitive }) => {
+const docs = ({ name, primitive }) => {
   const kebabName = kebabCase(name)
   const upperName = splitByCase(name).map(p => upperFirst(p)).join('')
 
-  if (pro) {
-    // @memo for pro
-  }
-
   return {
-    filename: `docs/components/${kebabName}.md`,
+    filename: `docs/content/docs/2.components/${kebabName}.md`,
     contents: replaceBrackets(`---
 title: ${upperName}
-description: _todo_ change me
-outline: deep
+description: ''
+navigation.badge: Soon
+links:${primitive
+  ? ''
+  : `
+  - label: GitHub
+    iconName: GitHubIcon
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/${upperName}.vue
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/${kebabName}
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui.nuxt.com/docs/components/${kebabName}
+  - label: ${upperName}
+    avatar:
+      src: /b24ui/avatar/rekaui.svg
+    to: https://reka-ui.com/docs/components/${kebabName}`}
 ---
-[[script setup]]
-import ${upperName}Example from '/examples/${upperName.toLowerCase()}/${upperName}Example.vue';
-[[/script]]
-# ${upperName}
-
-[[Description ${
-  primitive
-    ? ''
-    : `
-  nuxt-ui="https://ui3.nuxt.dev/components/${kebabName}"
-  reka-ui="https://reka-ui.com/docs/components/${kebabName}"
-  reka-ui-title="${kebabName}"`}
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/${upperName}.vue"
-]]
-  @todo change me
-[[/Description]]
 
 ## Usage
 
-[[ComponentShowExample ]]
-  [[iframe data-why class="min-h-[80px]" allowtransparency="true"]]
-    [[${upperName}Example /]]
-  [[/iframe]]
-[[/ComponentShowExample]]
-
-<<< @/examples/${upperName.toLowerCase()}/${upperName}Example.vue
+## Examples
 
 ## API
 
 ### Props
 
-[[ComponentProps component="${upperName}" /]]
+:component-props
 
 ### Slots
 
-[[ComponentSlots component="${upperName}" /]]
+:component-slots
 
 ### Emits
 
-[[ComponentEmits component="${upperName}" /]]
+:component-emits
+
+## Theme
+
+:component-theme
 `)
   }
 }
