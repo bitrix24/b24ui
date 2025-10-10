@@ -5,8 +5,6 @@
  * @link /api_d7/bitrix/ui/select/index.php
  * @link /api_d7/bitrix/ui/forms/fields_types.php
  * @see bitrix/js/ui/select..
- *
- * @todo change empty template
  */
 import { defuFn } from 'defu'
 import select from './select'
@@ -16,12 +14,26 @@ export default () => {
     slots: {
       input: 'border-b border-(--popup-window-delimiter-bg-color)',
       focusScope: 'flex flex-col min-h-0',
+      viewport: [
+        'relative',
+        'scroll-py-1',
+        'w-[240px] max-h-[40vh]',
+        'overflow-x-hidden overflow-y-auto scrollbar-thin' // scrollbar-transparent
+      ].join(' '),
       content: (content: string) => [
         content,
         'origin-(--reka-combobox-content-transform-origin) ' // w-(--reka-combobox-trigger-width)
       ]
     },
     variants: {
+      virtualize: {
+        true: {
+          viewport: 'p-1 isolate'
+        },
+        false: {
+          viewport: '' // divide-y divide-(--ui-color-design-tinted-na-stroke)
+        }
+      },
       addNew: {
         true: {
           group: '', // p-0 isolate -m-px

@@ -19,6 +19,7 @@ import PlusInCircleIcon from '@bitrix24/b24icons-vue/actions/PlusInCircleIcon'
 import ArrowTopIcon from '@bitrix24/b24icons-vue/actions/ArrowTopIcon'
 import CircleCheckIcon from '@bitrix24/b24icons-vue/main/CircleCheckIcon'
 import CancelIcon from '@bitrix24/b24icons-vue/button/CancelIcon'
+import TaskListIcon from '@bitrix24/b24icons-vue/outline/TaskListIcon'
 
 usePageMeta.setPageTitle('SelectMenu')
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
@@ -280,6 +281,16 @@ const airColors = computed(() => {
           name="some_value"
           placeholder="Choose a value&hellip;"
           aria-label="Choose a value"
+        />
+      </div>
+
+      <ExampleCardSubTitle title="virtualize" />
+      <div class="mb-4 flex flex-col gap-4">
+        <B24SelectMenu
+          :icon="TaskListIcon"
+          placeholder="Search virtualized..."
+          virtualize
+          :items="[Array(1000).fill(0).map((_, i) => ({ label: `item-${i}`, value: i }))]"
         />
       </div>
     </ExampleCard>

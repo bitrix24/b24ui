@@ -24,6 +24,7 @@ const open = ref(false)
 const searchTerm = ref('')
 // const searchTermDebounced = refDebounced(searchTerm, 200)
 const selected = ref([])
+const virtualize = ref(false)
 
 const { data: users, status } = await useFetch('https://jsonplaceholder.typicode.com/users', {
   // params: { q: searchTermDebounced },
@@ -229,7 +230,9 @@ defineShortcuts({
     <ExampleCard title="simple" :use-bg="isUseBg">
       <B24Separator class="my-3" type="dotted" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Modal v-model:open="open">
+        <B24Switch v-model="virtualize" label="Virtualize" />
+
+        <B24Modal v-model:open="open" :b24ui="{ content: 'p-0 pt-0 pb-[0px]' }">
           <B24Button label="Open modal" />
 
           <template #content>
@@ -251,7 +254,16 @@ defineShortcuts({
       <B24Separator class="my-3" type="dotted" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24Card class="w-full" :b24ui="{ body: '!p-0' }">
-          <ReuseTemplate />
+          <B24CommandPalette
+            v-if="virtualize"
+            virtualize
+            :fuse="{ resultLimit: 1000 }"
+            placeholder="Search virtualized items..."
+            :groups="[{ id: 'items', items: Array(1000).fill(0).map((_, i) => ({ label: `item-${i}`, value: i, icon: FileUploadIcon })) }]"
+            class="sm:max-h-96"
+          />
+
+          <ReuseTemplate v-else />
         </B24Card>
       </div>
     </ExampleCard>

@@ -135,6 +135,23 @@ export interface CommandPaletteProps<G extends CommandPaletteGroup<T> = CommandP
    */
   fuse?: UseFuseOptions<T>
   /**
+   * Enable virtualization for large lists.
+   * Note: when enabled, all groups are flattened into a single list due to a limitation of Reka UI (https://github.com/unovue/reka-ui/issues/1885).
+   * @defaultValue false
+   */
+  virtualize?: boolean | {
+    /**
+     * Number of items rendered outside the visible area
+     * @defaultValue 12
+     */
+    overscan?: number
+    /**
+     * Estimated size (in px) of each item
+     * @defaultValue 32
+     */
+    estimateSize?: number
+  }
+  /**
    * The key used to get the label from the item.
    * @defaultValue 'label'
    */
@@ -163,10 +180,10 @@ export type CommandPaletteSlots<G extends CommandPaletteGroup<T> = CommandPalett
 </script>
 
 <script setup lang="ts" generic="G extends CommandPaletteGroup<T>, T extends CommandPaletteItem">
-import { computed, ref, useTemplateRef } from 'vue'
-import { ListboxRoot, ListboxFilter, ListboxContent, ListboxGroup, ListboxGroupLabel, ListboxItem, ListboxItemIndicator, useForwardProps, useForwardPropsEmits } from 'reka-ui'
+import { computed, ref, useTemplateRef, toRef } from 'vue'
+import { ListboxRoot, ListboxFilter, ListboxContent, ListboxGroup, ListboxGroupLabel, ListboxVirtualizer, ListboxItem, ListboxItemIndicator, useForwardProps, useForwardPropsEmits } from 'reka-ui'
 import { defu } from 'defu'
-import { reactivePick } from '@vueuse/core'
+import { reactivePick, createReusableTemplate } from '@vueuse/core'
 import { useFuse } from '@vueuse/integrations/useFuse'
 import { useAppConfig } from '#imports'
 import { useLocale } from '../composables/useLocale'
@@ -187,7 +204,8 @@ const props = withDefaults(defineProps<CommandPaletteProps<G, T>>(), {
   modelValue: '',
   labelKey: 'label',
   autofocus: true,
-  back: true
+  back: true,
+  virtualize: false
 })
 const emits = defineEmits<CommandPaletteEmits<T>>()
 const slots = defineSlots<CommandPaletteSlots<G, T>>()
@@ -199,9 +217,28 @@ const appConfig = useAppConfig() as CommandPalette['AppConfig']
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'disabled', 'multiple', 'modelValue', 'defaultValue', 'highlightOnHover'), emits)
 const inputProps = useForwardProps(reactivePick(props, 'loading'))
+const virtualizerProps = toRef(() => !!props.virtualize && defu(typeof props.virtualize === 'boolean' ? {} : props.virtualize, { estimateSize: 32 }))
 
-// eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.commandPalette || {}) })())
+const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: CommandPaletteItem, group?: CommandPaletteGroup, index: number }>({
+  props: {
+    item: {
+      type: Object,
+      required: true
+    },
+    group: {
+      type: Object,
+      required: false
+    },
+    index: {
+      type: Number,
+      required: false
+    }
+  }
+})
+
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.commandPalette || {}) })({
+  virtualize: !!props.virtualize
+}))
 
 const fuse = computed(() => defu({}, props.fuse, {
   fuseOptions: {
@@ -282,6 +319,8 @@ const filteredGroups = computed(() => {
   }, [...fuseGroups])
 })
 
+const filteredItems = computed(() => filteredGroups.value.flatMap(group => group.items || []))
+
 const listboxRootRef = useTemplateRef('listboxRootRef')
 
 function navigate(item: T) {
@@ -333,6 +372,109 @@ function onSelect(e: Event, item: T) {
 
 <!-- eslint-disable vue/no-v-html -->
 <template>
+  <DefineItemTemplate v-slot="{ item, index, group }">
+    <ListboxItem
+      :value="omit(item, ['matches' as any, 'group' as any, 'onSelect', 'labelHtml', 'suffixHtml', 'children'])"
+      :disabled="item.disabled"
+      as-child
+      @select="onSelect($event, item as T)"
+    >
+      <B24Link v-slot="{ active, ...slotProps }" v-bind="pickLinkProps(item)" custom>
+        <B24LinkBase
+          v-bind="slotProps"
+          :class="b24ui.item({ class: [props.b24ui?.item, item.b24ui?.item, item.class], active: active || item.active })"
+        >
+          <slot :name="((item.slot || group?.slot || 'item') as keyof CommandPaletteSlots<G, T>)" :item="(item as any)" :index="index">
+            <slot :name="((item.slot ? `${item.slot}-leading` : group?.slot ? `${group.slot}-leading` : `item-leading`) as keyof CommandPaletteSlots<G, T>)" :item="(item as any)" :index="index">
+              <Component
+                :is="icons.loading"
+                v-if="item.loading"
+                :class="b24ui.itemLeadingIcon({ class: [props.b24ui?.itemLeadingIcon, item.b24ui?.itemLeadingIcon], loading: true })"
+              />
+              <Component
+                :is="item.icon"
+                v-else-if="item.icon"
+                :class="b24ui.itemLeadingIcon({ class: [props.b24ui?.itemLeadingIcon, item.b24ui?.itemLeadingIcon], active: active || item.active })"
+              />
+              <B24Avatar
+                v-else-if="item.avatar"
+                :size="((item.b24ui?.itemLeadingAvatarSize || props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])"
+                v-bind="item.avatar"
+                :class="b24ui.itemLeadingAvatar({ class: [props.b24ui?.itemLeadingAvatar, item.b24ui?.itemLeadingAvatar], active: active || item.active })"
+              />
+              <B24Chip
+                v-else-if="item.chip"
+                :size="((item.b24ui?.itemLeadingChipSize || props.b24ui?.itemLeadingChipSize || b24ui.itemLeadingChipSize()) as ChipProps['size'])"
+                inset
+                standalone
+                v-bind="item.chip"
+                :class="b24ui.itemLeadingChip({ class: [props.b24ui?.itemLeadingChip, item.b24ui?.itemLeadingChip], active: active || item.active })"
+              />
+            </slot>
+
+            <span
+              v-if="item.labelHtml || get(item, props.labelKey as string) || !!slots[(item.slot ? `${item.slot}-label` : group?.slot ? `${group.slot}-label` : `item-label`) as keyof CommandPaletteSlots<G, T>]"
+              :class="b24ui.itemLabel({ class: [props.b24ui?.itemLabel, item.b24ui?.itemLabel], active: active || item.active })"
+            >
+              <slot :name="((item.slot ? `${item.slot}-label` : group?.slot ? `${group.slot}-label` : `item-label`) as keyof CommandPaletteSlots<G, T>)" :item="(item as any)" :index="index">
+                <span
+                  v-if="item.prefix"
+                  :class="b24ui.itemLabelPrefix({ class: [props.b24ui?.itemLabelPrefix, item.b24ui?.itemLabelPrefix] })"
+                >{{ item.prefix }}</span>
+
+                <span
+                  :class="b24ui.itemLabelBase({ class: [props.b24ui?.itemLabelBase, item.b24ui?.itemLabelBase], active: active || item.active })"
+                  v-html="item.labelHtml || get(item, props.labelKey as string)"
+                />
+
+                <span
+                  :class="b24ui.itemLabelSuffix({ class: [props.b24ui?.itemLabelSuffix, item.b24ui?.itemLabelSuffix], active: active || item.active })"
+                  v-html="item.suffixHtml || item.suffix"
+                />
+              </slot>
+            </span>
+
+            <span :class="b24ui.itemTrailing({ class: [props.b24ui?.itemTrailing, item.b24ui?.itemTrailing] })">
+              <slot
+                :name="((item.slot ? `${item.slot}-trailing` : group?.slot ? `${group.slot}-trailing` : `item-trailing`) as keyof CommandPaletteSlots<G, T>)"
+                :item="(item as any)"
+                :index="index"
+              >
+                <Component
+                  :is="trailingIcon || icons.chevronRight"
+                  v-if="item.children && item.children.length > 0"
+                  :class="b24ui.itemTrailingIcon({ class: [props.b24ui?.itemTrailingIcon, item.b24ui?.itemTrailingIcon] })"
+                />
+
+                <span v-else-if="item.kbds?.length" :class="b24ui.itemTrailingKbds({ class: [props.b24ui?.itemTrailingKbds, item.b24ui?.itemTrailingKbds] })">
+                  <B24Kbd
+                    v-for="(kbd, kbdIndex) in item.kbds"
+                    :key="kbdIndex"
+                    :size="((item.b24ui?.itemTrailingKbdsSize || props.b24ui?.itemTrailingKbdsSize || b24ui.itemTrailingKbdsSize()) as KbdProps['size'])"
+                    v-bind="typeof kbd === 'string' ? { value: kbd } : kbd"
+                  />
+                </span>
+
+                <Component
+                  :is="group.highlightedIcon"
+                  v-else-if="group?.highlightedIcon"
+                  :class="b24ui.itemTrailingHighlightedIcon({ class: [props.b24ui?.itemTrailingHighlightedIcon, item.b24ui?.itemTrailingHighlightedIcon] })"
+                />
+              </slot>
+
+              <ListboxItemIndicator v-if="!item.children?.length" as-child>
+                <Component
+                  :is="selectedIcon || icons.check"
+                  :class="b24ui.itemTrailingIcon({ class: [props.b24ui?.itemTrailingIcon, item.b24ui?.itemTrailingIcon] })"
+                />
+              </ListboxItemIndicator>
+            </span>
+          </slot>
+        </B24LinkBase>
+      </B24Link>
+    </ListboxItem>
+  </DefineItemTemplate>
+
   <ListboxRoot v-bind="rootProps" ref="listboxRootRef" :selection-behavior="selectionBehavior" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <ListboxFilter v-model="searchTerm" as-child>
       <B24Input
@@ -379,114 +521,31 @@ function onSelect(e: Event, item: T) {
 
     <ListboxContent :class="b24ui.content({ class: props.b24ui?.content })">
       <div v-if="filteredGroups?.length" role="presentation" :class="b24ui.viewport({ class: props.b24ui?.viewport })">
-        <ListboxGroup v-for="group in filteredGroups" :key="`group-${group.id}`" :class="b24ui.group({ class: props.b24ui?.group })">
-          <ListboxGroupLabel v-if="get(group, props.labelKey as string)" :class="b24ui.label({ class: props.b24ui?.label })">
-            {{ get(group, props.labelKey as string) }}
-          </ListboxGroupLabel>
+        <ListboxVirtualizer
+          v-if="!!virtualize"
+          v-slot="{ option: item, virtualItem }"
+          :options="(filteredItems as any[])"
+          :text-content="item => get(item, props.labelKey as string)"
+          v-bind="virtualizerProps"
+        >
+          <ReuseItemTemplate :item="item" :index="virtualItem.index" />
+        </ListboxVirtualizer>
 
-          <ListboxItem
-            v-for="(item, index) in group.items"
-            :key="`group-${group.id}-${index}`"
-            :value="omit(item, ['matches' as any, 'group' as any, 'onSelect', 'labelHtml', 'suffixHtml', 'children'])"
-            :disabled="item.disabled"
-            as-child
-            @select="onSelect($event, item)"
-          >
-            <B24Link v-slot="{ active, ...slotProps }" v-bind="pickLinkProps(item)" custom>
-              <B24LinkBase
-                v-bind="slotProps"
-                :class="b24ui.item({ class: [props.b24ui?.item, item.b24ui?.item, item.class], active: active || item.active })"
-              >
-                <slot :name="((item.slot || group.slot || 'item') as keyof CommandPaletteSlots<G, T>)" :item="(item as any)" :index="index">
-                  <slot :name="((item.slot ? `${item.slot}-leading` : group.slot ? `${group.slot}-leading` : `item-leading`) as keyof CommandPaletteSlots<G, T>)" :item="(item as any)" :index="index">
-                    <Component
-                      :is="icons.loading"
-                      v-if="item.loading"
-                      :class="b24ui.itemLeadingIcon({ class: [props.b24ui?.itemLeadingIcon, item.b24ui?.itemLeadingIcon], loading: true })"
-                    />
-                    <Component
-                      :is="item.icon"
-                      v-else-if="item.icon"
-                      :class="b24ui.itemLeadingIcon({ class: [props.b24ui?.itemLeadingIcon, item.b24ui?.itemLeadingIcon], active: active || item.active })"
-                    />
-                    <B24Avatar
-                      v-else-if="item.avatar"
-                      :size="((item.b24ui?.itemLeadingAvatarSize || props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])"
-                      v-bind="item.avatar"
-                      :class="b24ui.itemLeadingAvatar({ class: [props.b24ui?.itemLeadingAvatar, item.b24ui?.itemLeadingAvatar], active: active || item.active })"
-                    />
-                    <B24Chip
-                      v-else-if="item.chip"
-                      :size="((item.b24ui?.itemLeadingChipSize || props.b24ui?.itemLeadingChipSize || b24ui.itemLeadingChipSize()) as ChipProps['size'])"
-                      inset
-                      standalone
-                      v-bind="item.chip"
-                      :class="b24ui.itemLeadingChip({ class: [props.b24ui?.itemLeadingChip, item.b24ui?.itemLeadingChip], active: active || item.active })"
-                    />
-                  </slot>
+        <template v-else>
+          <ListboxGroup v-for="group in filteredGroups" :key="`group-${group.id}`" :class="b24ui.group({ class: props.b24ui?.group })">
+            <ListboxGroupLabel v-if="get(group, props.labelKey as string)" :class="b24ui.label({ class: props.b24ui?.label })">
+              {{ get(group, props.labelKey as string) }}
+            </ListboxGroupLabel>
 
-                  <span
-                    v-if="item.labelHtml || get(item, props.labelKey as string) || !!slots[(item.slot ? `${item.slot}-label` : group.slot ? `${group.slot}-label` : `item-label`) as keyof CommandPaletteSlots<G, T>]"
-                    :class="b24ui.itemLabel({ class: [props.b24ui?.itemLabel, item.b24ui?.itemLabel], active: active || item.active })"
-                  >
-                    <slot :name="((item.slot ? `${item.slot}-label` : group.slot ? `${group.slot}-label` : `item-label`) as keyof CommandPaletteSlots<G, T>)" :item="(item as any)" :index="index">
-                      <span
-                        v-if="item.prefix"
-                        :class="b24ui.itemLabelPrefix({ class: [props.b24ui?.itemLabelPrefix, item.b24ui?.itemLabelPrefix] })"
-                      >{{ item.prefix }}</span>
-
-                      <span
-                        :class="b24ui.itemLabelBase({ class: [props.b24ui?.itemLabelBase, item.b24ui?.itemLabelBase], active: active || item.active })"
-                        v-html="item.labelHtml || get(item, props.labelKey as string)"
-                      />
-
-                      <span
-                        :class="b24ui.itemLabelSuffix({ class: [props.b24ui?.itemLabelSuffix, item.b24ui?.itemLabelSuffix], active: active || item.active })"
-                        v-html="item.suffixHtml || item.suffix"
-                      />
-                    </slot>
-                  </span>
-
-                  <span :class="b24ui.itemTrailing({ class: [props.b24ui?.itemTrailing, item.b24ui?.itemTrailing] })">
-                    <slot
-                      :name="((item.slot ? `${item.slot}-trailing` : group.slot ? `${group.slot}-trailing` : `item-trailing`) as keyof CommandPaletteSlots<G, T>)"
-                      :item="(item as any)"
-                      :index="index"
-                    >
-                      <Component
-                        :is="trailingIcon || icons.chevronRight"
-                        v-if="item.children && item.children.length > 0"
-                        :class="b24ui.itemTrailingIcon({ class: [props.b24ui?.itemTrailingIcon, item.b24ui?.itemTrailingIcon] })"
-                      />
-
-                      <span v-else-if="item.kbds?.length" :class="b24ui.itemTrailingKbds({ class: [props.b24ui?.itemTrailingKbds, item.b24ui?.itemTrailingKbds] })">
-                        <B24Kbd
-                          v-for="(kbd, kbdIndex) in item.kbds"
-                          :key="kbdIndex"
-                          :size="((item.b24ui?.itemTrailingKbdsSize || props.b24ui?.itemTrailingKbdsSize || b24ui.itemTrailingKbdsSize()) as KbdProps['size'])"
-                          v-bind="typeof kbd === 'string' ? { value: kbd } : kbd"
-                        />
-                      </span>
-
-                      <Component
-                        :is="group.highlightedIcon"
-                        v-else-if="group.highlightedIcon"
-                        :class="b24ui.itemTrailingHighlightedIcon({ class: [props.b24ui?.itemTrailingHighlightedIcon, item.b24ui?.itemTrailingHighlightedIcon] })"
-                      />
-                    </slot>
-
-                    <ListboxItemIndicator v-if="!item.children?.length" as-child>
-                      <Component
-                        :is="selectedIcon || icons.check"
-                        :class="b24ui.itemTrailingIcon({ class: [props.b24ui?.itemTrailingIcon, item.b24ui?.itemTrailingIcon] })"
-                      />
-                    </ListboxItemIndicator>
-                  </span>
-                </slot>
-              </B24LinkBase>
-            </B24Link>
-          </ListboxItem>
-        </ListboxGroup>
+            <ReuseItemTemplate
+              v-for="(item, index) in group.items"
+              :key="`group-${group.id}-${index}`"
+              :item="item"
+              :index="index"
+              :group="(group as CommandPaletteGroup)"
+            />
+          </ListboxGroup>
+        </template>
       </div>
 
       <div v-else :class="b24ui.empty({ class: props.b24ui?.empty })">

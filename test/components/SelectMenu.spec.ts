@@ -67,11 +67,8 @@ describe('SelectMenu', () => {
     ['with trailingIcon', { props: { ...props, trailingIcon: Shining2Icon } }],
     ['with selectedIcon', { props: { ...props, selectedIcon: Shining2Icon } }],
     ['with arrow', { props: { ...props, arrow: true } }],
+    ['with virtualize', { props: { ...props, virtualize: true } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { ...props, size } }]),
-    // @todo fix this
-    // ...variants.map((variant: string) => [`with primary variant ${variant}`, { props: { ...props, variant } }]),
-    // @todo fix this
-    // ...variants.map((variant: string) => [`with success variant ${variant}`, { props: { ...props, variant, color: 'success' } }]),
     ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
     ['with class', { props: { ...props, class: 'rounded-full' } }],
     ['with b24ui', { props: { ...props, b24ui: { group: 'p-2' } } }],

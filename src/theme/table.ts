@@ -3,23 +3,18 @@
  * Like b24.grid
  * A responsive data table component.
  * ---
- * @todo add docs
- * @todo add color
- * @todo add animation
- * @todo add demo
  */
 
 export default {
   slots: {
     root: 'relative overflow-auto',
     base: [
-      'min-w-full overflow-clip',
+      'min-w-full',
       'font-[family-name:var(--ui-font-family-primary)]'
     ].join(' '),
     caption: 'sr-only',
     thead: 'relative',
     tbody: [
-      'divide-y divide-(--ui-color-design-tinted-na-stroke)',
       '[&>tr]:data-[selectable=true]:hover:bg-(--ui-color-bg-content-secondary)',
       'light:[&>tr]:data-[selectable=true]:hover:bg-[#f6f8f9]',
       '[&>tr]:data-[selectable=true]:focus-visible:outline-(--ui-color-accent-soft-element-blue)',
@@ -65,6 +60,15 @@ export default {
     loading: 'py-6 text-center'
   },
   variants: {
+    virtualize: {
+      true: {
+        tr: 'relative before:absolute before:z-1 before:w-full before:border-b before:border-b-(--ui-color-design-tinted-na-stroke)'
+      },
+      false: {
+        base: 'overflow-clip',
+        tbody: 'divide-y divide-(--ui-color-design-tinted-na-stroke)'
+      }
+    },
     pinned: {
       true: {
         th: [

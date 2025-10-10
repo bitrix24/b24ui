@@ -93,6 +93,7 @@ describe('CommandPalette', () => {
     ['with selectedIcon', { props: { ...props, selectedIcon: Cross30Icon, modelValue: groups[2]?.items[0] } }],
     ['with close', { props: { ...props, close: true } }],
     ['with closeIcon', { props: { ...props, close: true, closeIcon: SignIcon } }],
+    ['with virtualize', { props: { ...props, virtualize: true } }],
     ['with as', { props: { ...props, as: 'section' } }],
     ['with class', { props: { ...props, class: 'divide-(--ui-color-accent-main-success)' } }],
     ['with b24ui', { props: { ...props, b24ui: { input: '[&>input]:h-10' } } }],

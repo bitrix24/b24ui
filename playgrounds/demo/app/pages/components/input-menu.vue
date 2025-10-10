@@ -13,6 +13,7 @@ import Expand1Icon from '@bitrix24/b24icons-vue/actions/Expand1Icon'
 import ALetterIcon from '@bitrix24/b24icons-vue/main/ALetterIcon'
 import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
 import Cross20Icon from '@bitrix24/b24icons-vue/actions/Cross20Icon'
+import TaskListIcon from '@bitrix24/b24icons-vue/outline/TaskListIcon'
 
 usePageMeta.setPageTitle('InputMenu')
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
@@ -215,6 +216,22 @@ const airColors = computed(() => {
           name="some_value"
           placeholder="Insert value&hellip;"
           aria-label="Insert value"
+        />
+      </div>
+
+      <ExampleCardSubTitle title="virtualize" />
+      <div class="mb-4 flex flex-col gap-4">
+        <B24InputMenu
+          :icon="TaskListIcon"
+          placeholder="Search virtualized..."
+          virtualize
+          :items="[Array(1000).fill(0).map((_, i) => ({ label: `item-${i}`, value: i }))]"
+        />
+        <B24InputMenu
+          multiple
+          placeholder="Search virtualized..."
+          virtualize
+          :items="[Array(1000).fill(0).map((_, i) => ({ label: `item-${i}`, value: i }))]"
         />
       </div>
     </ExampleCard>

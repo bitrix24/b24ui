@@ -74,22 +74,13 @@ useSortable('.my-table-tbody', data, {
 </script>
 
 <template>
-  <B24Card
-    variant="outline"
-    class="w-full"
+  <B24Table
+    ref="table"
+    :data="data"
+    :columns="columns"
     :b24ui="{
-      header: 'p-[12px] px-[14px] py-[14px] sm:px-[14px] sm:py-[14px]',
-      body: 'p-0 sm:px-0 sm:py-0',
-      footer: 'p-[12px] px-[14px] py-[14px] sm:px-[14px] sm:py-[14px] text-(length:--ui-font-size-xs) text-(--b24ui-typography-legend-color)'
+      tbody: 'my-table-tbody'
     }"
-  >
-    <B24Table
-      ref="table"
-      :data="data"
-      :columns="columns"
-      :b24ui="{
-        tbody: 'my-table-tbody'
-      }"
-    />
-  </B24Card>
+    class="flex-1"
+  />
 </template>

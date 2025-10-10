@@ -4,6 +4,7 @@
 
 * feat(dictionary.icons): add some icons
 * feat(components)!: rename `nullify` modifier to `nullable` and add `optional`
+* feat(components): implement virtualization
 * feat(Error): new component
 * feat(PageLinks): new component
 * feat(ContentSurround): new component

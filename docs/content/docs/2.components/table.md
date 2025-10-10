@@ -454,12 +454,12 @@ class: '!p-0'
 ::
 
 ::note
-In this example, we use a function to define the column header, but you can also create an actual component.
+In this example, we use a function to define the column header but you can also create an actual component.
 ::
 
 ### With column pinning
 
-You can update a column `header` to render a [Button](/docs/components/button/) component inside the `header` to toggle the pinning state using the TanStack Table [Pinning APIs](https://tanstack.com/table/latest/docs/api/features/row-pinning).
+You can update a column `header` to render a [Button](/docs/components/button) component inside the `header` to toggle the pinning state using the TanStack Table [Pinning APIs](https://tanstack.com/table/latest/docs/api/features/row-pinning).
 
 ::note
 A pinned column will become sticky on the left or right side of the table.
@@ -582,6 +582,9 @@ If you use server-side pagination, you can use the [`useInfiniteScroll`](https:/
 ---
 prettier: true
 collapse: true
+highlights:
+  - 72
+  - 83
 overflowHidden: true
 name: 'table-infinite-scroll-example'
 class: '!p-0'
@@ -599,11 +602,34 @@ Since the table ref doesn't expose the tbody element, add a unique class to it v
 ::component-example
 ---
 prettier: true
-border: false
 collapse: true
+highlights:
+  - 76
+  - 78
 name: 'table-drag-and-drop-example'
 class: '!p-0'
 ---
+::
+
+### With virtualization
+
+Use the `virtualize` prop to enable virtualization for large datasets as a boolean or an object with options like `{ estimateSize: 65, overscan: 12 }`. You can also pass other [TanStack Virtual options](https://tanstack.com/virtual/latest/docs/api/virtualizer#optional-options) to customize the virtualization behavior.
+
+::warning
+When virtualization is enabled, the sticky properties are not supported.
+::
+
+::component-example
+---
+prettier: true
+collapse: true
+name: 'table-virtualize-example'
+class: '!p-0'
+---
+::
+
+::note
+A height constraint is required on the table for virtualization to work properly (e.g., `class="h-[400px]"`).
 ::
 
 ### With tree data
@@ -667,6 +693,7 @@ This will give you access to the following:
 
 | Name                       | Type                                                                                                    |
 |----------------------------|---------------------------------------------------------------------------------------------------------|
+| `rootRef`{lang="ts-type"}  | `Ref<HTMLDivElement \| null>`{lang="ts-type"}                                                           |
 | `tableRef`{lang="ts-type"} | `Ref<HTMLTableElement \| null>`{lang="ts-type"}                                                         |
 | `tableApi`{lang="ts-type"} | [`Ref<Table \| null>`{lang="ts-type"}](https://tanstack.com/table/latest/docs/api/core/table#table-api) |
 

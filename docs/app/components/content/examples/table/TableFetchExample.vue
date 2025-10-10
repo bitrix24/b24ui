@@ -52,5 +52,5 @@ const columns: TableColumn<User>[] = [{
 </script>
 
 <template>
-  <B24Table :data="data" :columns="columns" :loading="status === 'pending'" class="flex-1" />
+  <B24Table :data="data" :columns="columns" :loading="status === 'pending'" class="flex-1 h-[290px]" />
 </template>

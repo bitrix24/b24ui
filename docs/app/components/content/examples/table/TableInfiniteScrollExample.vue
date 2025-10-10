@@ -66,10 +66,10 @@ watch(data, () => {
 
 execute()
 
-const table = useTemplateRef<ComponentPublicInstance>('table')
+const table = useTemplateRef('table')
 
 onMounted(() => {
-  useInfiniteScroll(table.value?.$el, () => {
+  useInfiniteScroll(table.value?.rootRef, () => {
     skip.value += 10
   }, {
     distance: 200,
@@ -81,14 +81,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="w-full">
-    <B24Table
-      ref="table"
-      :data="users"
-      :columns="columns"
-      :loading="status === 'pending'"
-      sticky
-      class="flex-1 h-[290px]"
-    />
-  </div>
+  <B24Table
+    ref="table"
+    :data="users"
+    :columns="columns"
+    :loading="status === 'pending'"
+    sticky
+    class="flex-1 h-[290px]"
+  />
 </template>

@@ -303,6 +303,7 @@ props:
 ### Trailing Icon
 
 Use the `trailing-icon` prop to customize the trailing [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) when an item has children.
+
 ::component-code
 ---
 collapse: true
@@ -690,6 +691,24 @@ You can for example set `{ fuseOptions: { includeMatches: true } }`{lang="ts-typ
 ---
 collapse: true
 name: 'command-palette-fuse-example'
+class: '!p-0'
+props:
+  autofocus: false
+---
+::
+
+### With virtualization :badge{label="Soon"}
+
+Use the `virtualize` prop to enable virtualization for large lists as a boolean or an object with options like `{ estimateSize: 32, overscan: 12 }`.
+
+::warning{to="https://github.com/unovue/reka-ui/issues/1885" target="_blank"}
+When enabled, all groups are flattened into a single list due to a limitation of Reka UI.
+::
+
+::component-example
+---
+collapse: true
+name: 'command-palette-virtualize-example'
 class: '!p-0'
 props:
   autofocus: false

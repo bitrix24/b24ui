@@ -61,6 +61,7 @@ describe('InputMenu', () => {
     ['with trailingIcon', { props: { ...props, trailingIcon: SignIcon } }],
     ['with selectedIcon', { props: { ...props, selectedIcon: SignIcon } }],
     ['with arrow', { props: { ...props, arrow: true } }],
+    ['with virtualize', { props: { ...props, virtualize: true } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { ...props, size } }]),
     [`with success`, { props: { ...props, color: 'success' } }],
     ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],

@@ -6,7 +6,7 @@ import b24UiPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'
 
 import App from './app.vue'
 
-const pages = import.meta.glob(['../../nuxt/app/pages/*.vue', '../../nuxt/app/pages/components/*.vue'])
+const pages = import.meta.glob(['../../nuxt/app/pages/*.vue', '../../nuxt/app/pages/components/*.vue', '../../nuxt/app/pages/components/prose/*.vue'])
 
 const routes = Object.keys(pages).map((path) => {
   const name = path.match(/\.\.\/\.\.\/nuxt\/app\/pages(.*)\.vue$/)![1].toLowerCase()

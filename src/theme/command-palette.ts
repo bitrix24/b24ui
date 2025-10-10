@@ -18,7 +18,6 @@ export default {
     footer: 'p-1',
     viewport: [
       'relative',
-      'divide-y divide-(--ui-color-design-tinted-na-stroke)',
       'scroll-py-1',
       'overflow-y-auto',
       'scrollbar-thin',
@@ -74,6 +73,14 @@ export default {
     itemLabelSuffix: 'text-(--b24ui-typography-legend-color) [&>mark]:text-(--ui-color-black-base) [&>mark]:bg-(--ui-color-collab-accent-less-1)'
   },
   variants: {
+    virtualize: {
+      true: {
+        viewport: 'p-1 isolate'
+      },
+      false: {
+        viewport: '' // divide-y divide-(--ui-color-design-tinted-na-stroke)
+      }
+    },
     active: {
       true: {
         item: 'text-(--b24ui-typography-label-color) before:bg-(--ui-color-base-8)',

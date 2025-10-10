@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { TableColumn, TableRow } from '@bitrix24/b24ui-nuxt'
-import { h, resolveComponent } from 'vue'
+import { h, resolveComponent, ref } from 'vue'
 import { upperFirst } from 'scule'
 import { getPaginationRowModel } from '@tanstack/vue-table'
 import { useClipboard, refDebounced } from '@vueuse/core'
@@ -31,6 +31,8 @@ type Payment = {
 }
 
 const table = useTemplateRef('table')
+
+const virtualize = ref(false)
 
 const data = ref<Payment[]>([
   {
@@ -175,6 +177,27 @@ const data = ref<Payment[]>([
   }
 ])
 
+function makeLargeData(): Payment[] {
+  return Array.from({ length: 1000 }, (_, i) => ({
+    id: `4580-${i}`,
+    date: new Date().toISOString(),
+    status: 'paid',
+    email: `email-${i}@example.com`,
+    amount: 1,
+    amount2: Math.random() * 1000
+  }))
+}
+
+// const largeData = useState<Payment[]>('largeData', () => Array.from({ length: 1000 }, (_, i) => ({
+//   id: `4580-${i}`,
+//   date: new Date().toISOString(),
+//   status: 'paid',
+//   email: `email-${i}@example.com`,
+//   amount: Math.random() * 1000
+// })))
+
+const largeData = ref<Payment[]>([...makeLargeData()])
+
 const currentID = ref(4601)
 
 function getRowItems(row: TableRow<Payment>) {
@@ -253,7 +276,7 @@ const columns: TableColumn<Payment>[] = [
     cell: ({ row }) => {
       return h(B24DropdownMenu, {
         'content': {
-          align: 'start',
+          align: 'center',
           side: 'right',
           sideOffset: -2
         },
@@ -352,7 +375,6 @@ const columns: TableColumn<Payment>[] = [
 
 const loading = ref(true)
 const columnPinning = ref({
-  left: ['id'],
   right: ['amount']
 })
 
@@ -362,7 +384,7 @@ const pagination = ref({
 })
 
 function addElement() {
-  data.value.unshift({
+  (virtualize.value ? largeData.value : data.value).unshift({
     id: currentID.value.toString(),
     date: new Date().toISOString(),
     status: 'paid',
@@ -373,7 +395,7 @@ function addElement() {
 }
 
 function randomize() {
-  data.value = data.value.sort(() => Math.random() - 0.5)
+  (virtualize.value ? largeData : data).value = (virtualize.value ? largeData : data).value.sort(() => Math.random() - 0.5)
 }
 
 const rowSelection = ref<Record<string, boolean>>({})
@@ -432,6 +454,8 @@ onMounted(() => {
   >
     <template #header>
       <div class="flex items-center gap-2 overflow-x-auto">
+        <B24Switch v-model="virtualize" label="Virtualize" />
+
         <B24Input
           :model-value="(table?.tableApi?.getColumn('email')?.getFilterValue() as string)"
           class="max-w-[400px]"
@@ -469,17 +493,23 @@ onMounted(() => {
     <B24ContextMenu :items="contextmenuItems">
       <B24Table
         ref="table"
-        :data="data"
+        :key="String(virtualize)"
         :columns="columns"
         :column-pinning="columnPinning"
         :row-selection="rowSelection"
         :loading="loading"
-        :pagination="pagination"
-        :pagination-options="{
-          getPaginationRowModel: getPaginationRowModel()
-        }"
-        :b24ui="{
-          tr: 'divide-x divide-(--ui-color-design-outline-content-divider)'
+        :virtualize="virtualize"
+        v-bind="virtualize ? {
+          data: largeData
+        } : {
+          data,
+          pagination,
+          paginationOptions: {
+            getPaginationRowModel: getPaginationRowModel()
+          },
+          b24ui: {
+            tr: 'divide-x divide-(--ui-color-design-outline-content-divider)'
+          }
         }"
         sticky
         class="h-[380px]"

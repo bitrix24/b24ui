@@ -163,7 +163,6 @@ const expanded = ref({ 0: true })
     :data="data"
     :columns="columns"
     :get-sub-rows="row => row.children"
-    sticky
     class="flex-1"
     :b24ui="{
       base: 'border-separate border-spacing-0',
