@@ -74,7 +74,7 @@ const pages = [
   '/docs/components/context-menu/',
   // '/docs/components/drawer/',
   '/docs/components/dropdown-menu/',
-  // // '/docs/components/modal/',
+  '/docs/components/modal/',
   // // '/docs/components/popover/',
   // // '/docs/components/slideover/',
   // // '/docs/components/toast/',

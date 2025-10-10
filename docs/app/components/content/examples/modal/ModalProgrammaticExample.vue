@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import LazyModal from './LazyModal.vue'
+import { LazyModalExample } from '#components'
 
 const count = ref(0)
 
 const toast = useToast()
 const overlay = useOverlay()
 
-const modal = overlay.create(LazyModal)
+const modal = overlay.create(LazyModalExample)
 
 async function open() {
   const instance = modal.open({
