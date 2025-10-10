@@ -128,10 +128,6 @@ const rootProps = useForwardPropsEmits(reactivePick(props, 'open', 'defaultOpen'
 const portalProps = usePortal(toRef(() => props.portal))
 const contentProps = toRef(() => props.content)
 const contentEvents = computed(() => {
-  const defaultEvents = {
-    closeAutoFocus: (e: Event) => e.preventDefault()
-  }
-
   if (!props.dismissible) {
     const events = ['pointerDownOutside', 'interactOutside', 'escapeKeyDown']
 
@@ -141,10 +137,10 @@ const contentEvents = computed(() => {
         emits('close:prevent')
       }
       return acc
-    }, defaultEvents as Record<typeof events[number] | keyof typeof defaultEvents, (e: Event) => void>)
+    }, {} as Record<typeof events[number], (e: Event) => void>)
   }
 
-  return defaultEvents
+  return {}
 })
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.slideover || {}) })({
