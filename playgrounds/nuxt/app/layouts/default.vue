@@ -13,6 +13,7 @@ import type { DropdownMenuItem, NavigationMenuItem, SidebarLayoutInstance } from
 
 const route = useRoute()
 const router = useRouter()
+const appConfig = useAppConfig()
 
 const { groups } = useNavigation()
 
@@ -28,11 +29,18 @@ const mode = ref<colorMode>(colorMode.value as colorMode)
 const dir = useTextDirection()
 const { isSidebarLayoutUseLightContent, isSidebarLayoutClearContent, checkedUseLightContent } = useRouteCheck()
 
-// useHead({
-//   bodyAttrs: {
-//     class: ''
-//   }
-// })
+useHead({
+  title: 'Bitrix24 UI - Playground',
+  meta: [
+    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    { name: 'description', content: 'Explore and test all Bitrix24 UI components in an interactive environment' }
+  ],
+  htmlAttrs: {
+    lang: 'en',
+    dir: computed(() => appConfig.dir as 'ltr' | 'rtl')
+  }
+})
+
 const isCommandPaletteOpen = ref(false)
 
 function toggleDir() {
@@ -222,11 +230,11 @@ const menuTop = computed<NavigationMenuItem[]>(() => {
               text="Go home"
               :kbds="['ctrl', 'arrowleft']"
             >
-              <B24Link to="/" class="mt-0 text-(--ui-color-design-selection-content)">
+              <NuxtLink to="/" class="mt-0 text-(--ui-color-design-selection-content)" aria-label="Home">
                 <ProseH4 class="font-(--ui-font-weight-medium) mb-0">
                   Playground
                 </ProseH4>
-              </B24Link>
+              </NuxtLink>
             </B24Tooltip>
           </div>
         </B24SidebarHeader>

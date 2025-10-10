@@ -34,6 +34,17 @@ appConfig.toaster = reactive({
   expand: true
 })
 
+useHead({
+  title: 'Bitrix24 UI - Playground',
+  meta: [
+    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    { name: 'description', content: 'Explore and test all Bitrix24 UI components in an interactive environment' }
+  ],
+  htmlAttrs: {
+    dir: computed(() => appConfig.dir as 'ltr' | 'rtl')
+  }
+})
+
 const route = useRoute()
 const router = useRouter()
 
@@ -221,11 +232,11 @@ const { groups } = useNavigation()
                 text="Go home"
                 :kbds="['ctrl', 'arrowleft']"
               >
-                <B24Link to="/" class="mt-0 text-(--ui-color-design-selection-content)">
+                <RouterLink to="/" class="mt-0 text-(--ui-color-design-selection-content)" aria-label="Home">
                   <ProseH4 class="font-(--ui-font-weight-medium) mb-0">
-                    Vue::Playground
+                    Playground
                   </ProseH4>
-                </B24Link>
+                </RouterLink>
               </B24Tooltip>
             </div>
           </B24SidebarHeader>
