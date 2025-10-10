@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import type { DropdownMenuItem, NavigationMenuItem, SidebarLayoutInstance } from '@bitrix24/b24ui-nuxt'
+import { reactive, ref, computed } from 'vue'
+import { useHead } from '@unhead/vue'
+import { useRouter, useRoute } from 'vue-router'
 import { useNavigation } from '../../nuxt/app/composables/useNavigation'
 import usePageMeta from '../../nuxt/app/composables/usePageMeta'
 import { useRouteCheck } from '../../nuxt/app/composables/useRouteCheck'
-import { useRouter, useRoute } from 'vue-router'
-import { reactive, ref, computed } from 'vue'
 import { useColorMode, useTextDirection } from '@vueuse/core'
 import AlignRightIcon from '@bitrix24/b24icons-vue/outline/AlignRightIcon'
 import AlignLeftIcon from '@bitrix24/b24icons-vue/outline/AlignLeftIcon'
