@@ -212,6 +212,7 @@ function removeToast() {
                   :step="500"
                 />
               </B24FormField>
+              <B24InputNumber v-model="appConfig.toaster.max" label="Max" :min="0" :max="1000" />
             </div>
           </B24SidebarBody>
         </template>

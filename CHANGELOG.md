@@ -6,6 +6,7 @@
 * feat(components)!: rename `nullify` modifier to `nullable` and add `optional`
 * feat(components): implement virtualization
 * feat(Popover): add `close` method in slots
+* feat(useToast): handle `max` global configuration
 * feat(Error): new component
 * feat(PageLinks): new component
 * feat(ContentSurround): new component

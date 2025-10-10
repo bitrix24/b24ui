@@ -29,8 +29,9 @@ const { isSidebarLayoutUseLightContent, isSidebarLayoutClearContent, checkedUseL
 
 appConfig.toaster = reactive({
   position: 'top-right' as const,
-  expand: true,
-  duration: 8000
+  duration: 5000,
+  max: 5,
+  expand: true
 })
 
 const route = useRoute()

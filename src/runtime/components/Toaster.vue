@@ -28,6 +28,11 @@ export interface ToasterProps extends Omit<ToastProviderProps, 'swipeDirection'>
    */
   portal?: boolean | string | HTMLElement
   /**
+   * Maximum number of toasts to display at once.
+   * @defaultValue 5
+   */
+  max?: number
+  /**
    * @defaultValue 5000
    */
   duration?: number
@@ -45,13 +50,12 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ref, computed, toRef } from 'vue'
+import { ref, computed, toRef, provide } from 'vue'
 import { ToastProvider, ToastViewport, ToastPortal, useForwardProps } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
-import { useToast } from '../composables/useToast'
+import { useToast, toastMaxInjectionKey } from '../composables/useToast'
 import { usePortal } from '../composables/usePortal'
-import type { Toast } from '../composables/useToast'
 import { omit } from '../utils'
 import { tv } from '../utils/tv'
 import B24Toast from './Toast.vue'
@@ -59,21 +63,20 @@ import B24Toast from './Toast.vue'
 const props = withDefaults(defineProps<ToasterProps>(), {
   position: 'top-right' as const,
   expand: true,
+  portal: true,
   duration: 5000,
   progress: true,
-  portal: true
+  max: 5
 })
 defineSlots<ToasterSlots>()
 
 const { toasts, remove } = useToast()
 const appConfig = useAppConfig() as Toaster['AppConfig']
 
+provide(toastMaxInjectionKey, toRef(() => props.max))
+
 const providerProps = useForwardProps(reactivePick(props, 'duration', 'label', 'swipeThreshold'))
 const portalProps = usePortal(toRef(() => props.portal))
-
-const proxyToastProps = (toast: Toast) => {
-  return omit(toast, ['id', 'close'])
-}
 
 const swipeDirection = computed(() => {
   switch (props.position) {
@@ -122,11 +125,11 @@ function getOffset(index: number) {
     <slot />
 
     <B24Toast
-      v-for="(toast, index) in toasts"
+      v-for="(toast, index) of toasts"
       :key="toast.id"
       ref="refs"
       :progress="progress"
-      v-bind="proxyToastProps(toast)"
+      v-bind="omit(toast, ['id', 'close'])"
       :close="(toast.close as boolean)"
       :data-expanded="expanded"
       :data-front="!expanded && index === toasts.length - 1"
