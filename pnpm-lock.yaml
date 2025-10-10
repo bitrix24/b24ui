@@ -275,6 +275,12 @@ importers:
       '@octokit/rest':
         specifier: ^22.0.0
         version: 22.0.0
+      '@regle/core':
+        specifier: ^1.9.5
+        version: 1.9.5(vue@3.5.22(typescript@5.8.3))
+      '@regle/rules':
+        specifier: ^1.9.5
+        version: 1.9.5(vue@3.5.22(typescript@5.8.3))
       '@vueuse/integrations':
         specifier: ^13.9.0
         version: 13.9.0(axios@1.12.2)(change-case@5.4.4)(fuse.js@7.1.0)(sortablejs@1.15.6)(vue@3.5.22(typescript@5.8.3))
@@ -1706,6 +1712,18 @@ packages:
     resolution: {integrity: sha512-3ZG500+ZeLql8rE0hjfhkycJjDj0pI/btEh3L9IkWUYcOrgP0xCNRq3HbtbqOPbvDhFaAWD88pDFtlLv8ns8gA==}
     engines: {node: '>=18'}
     hasBin: true
+
+  '@regle/core@1.9.5':
+    resolution: {integrity: sha512-YAicq8119Xasahq9Jb0N5JoDAApQRpyw0Dc4XXC/ql9fPRUnmKp+6NyndIUyO81BY1WlnxeUzoLImwKZawTy4w==}
+    peerDependencies:
+      pinia: '>=2.2.5'
+      vue: '>=3.3.0'
+    peerDependenciesMeta:
+      pinia:
+        optional: true
+
+  '@regle/rules@1.9.5':
+    resolution: {integrity: sha512-hDdT9BSfjUVMyHpiTzhKIXydO9/GeKthEzVUrhunXHtCVmSe3Ir9mLBDVUEmMRVs3irAzH5N+lt3BpKmjLl+nw==}
 
   '@remusao/guess-url-type@2.1.0':
     resolution: {integrity: sha512-zI3dlTUxpjvx2GCxp9nLOSK5yEIqDCpxlAVGwb2Y49RKkS72oeNaxxo+VWS5+XQ5+Mf8Zfp9ZXIlk+G5eoEN8A==}
@@ -8259,6 +8277,18 @@ snapshots:
       - bare-buffer
       - react-native-b4a
       - supports-color
+
+  '@regle/core@1.9.5(vue@3.5.22(typescript@5.8.3))':
+    dependencies:
+      '@standard-schema/spec': 1.0.0
+      vue: 3.5.22(typescript@5.8.3)
+
+  '@regle/rules@1.9.5(vue@3.5.22(typescript@5.8.3))':
+    dependencies:
+      '@regle/core': 1.9.5(vue@3.5.22(typescript@5.8.3))
+    transitivePeerDependencies:
+      - pinia
+      - vue
 
   '@remusao/guess-url-type@2.1.0': {}
 

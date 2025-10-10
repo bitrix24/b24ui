@@ -21,6 +21,8 @@
     "@bitrix24/b24ui-nuxt": "workspace:*",
     "@nuxtjs/plausible": "^2.0.1",
     "@octokit/rest": "^22.0.0",
+    "@regle/core": "^1.9.5",
+    "@regle/rules": "^1.9.5",
     "@vueuse/integrations": "^13.9.0",
     "@vueuse/nuxt": "^13.9.0",
     "ai": "^5.0.60",
