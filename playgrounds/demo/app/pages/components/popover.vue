@@ -22,8 +22,10 @@ const openCustomAnchor = ref(false)
         <B24Popover :b24ui="{ content: 'p-[10px]' }">
           <B24Button label="Click" />
 
-          <template #content>
-            <Placeholder class="size-[192px]" />
+          <template #content="{ close }">
+            <div class="flex justify-center gap-2 p-4 w-48">
+              <B24Button label="Close" @click="close" />
+            </div>
           </template>
         </B24Popover>
 
