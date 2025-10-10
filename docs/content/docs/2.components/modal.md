@@ -110,7 +110,6 @@ prettier: true
 ignore:
   - title
   - close.color
-  - close.variant
 props:
   title: 'Modal with close button'
   close:

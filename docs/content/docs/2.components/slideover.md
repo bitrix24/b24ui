@@ -2,85 +2,101 @@
 title: Slideover
 description: A dialog that slides in from any side of the screen.
 category: overlay
+links:
+  - label: GitHub
+    iconName: GitHubIcon
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Slideover.vue
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/slideover
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui.nuxt.com/docs/components/slideover
+  - label: Dialog
+    avatar:
+      src: /b24ui/avatar/rekaui.svg
+    to: https://reka-ui.com/docs/components/dialog
 ---
-<script setup>
-import SlideoverExample from '/examples/slideover/Slideover.vue';
-import TitleExample from '/examples/slideover/Title.vue';
-import DescriptionExample from '/examples/slideover/Description.vue';
-import CloseExample from '/examples/slideover/Close.vue';
-import CloseIconExample from '/examples/slideover/CloseIcon.vue';
-import SideExample from '/examples/slideover/Side.vue';
-import OverlayExample from '/examples/slideover/Overlay.vue';
-import OverlayBlurExample from '/examples/slideover/OverlayBlur.vue';
-import TransitionExample from '/examples/slideover/Transition.vue';
-import ControlOpenStateExample from '/examples/slideover/ControlOpenState.vue';
-import DismissibleExample from '/examples/slideover/Dismissible.vue';
-import ProgrammaticUsageExample from '/examples/slideover/ProgrammaticUsage.vue';
-import NestedSlideoverExample from '/examples/slideover/NestedSlideover.vue';
-import WithFooterSlotExample from '/examples/slideover/WithFooterSlot.vue';
-import SidebarLayoutSlideoverExample from '/examples/sidebarlayout/SidebarLayoutSlideover.vue';
-</script>
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
-<Description
-  nuxt-ui="https://ui3.nuxt.dev/components/slideover"
-  reka-ui="https://reka-ui.com/docs/components/dialog"
-  reka-ui-title="Dialog"
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Slideover.vue"
-  demo="/components/slideover"
->
-  A dialog that slides in from any side of the screen.
-</Description>
 
 ## Usage
-::: info
-It should be understood that the `Slideover` component displays data using the [`SidebarLayout`](/docs/components/sidebar-layout/) component.
-:::
 
 Use a [Button](/docs/components/button/) or any other component in the default slot of the Slideover.
 
 Then, use the `#content` slot to add the content displayed when the Slideover is open.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <SlideoverExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+slots:
+  default: |
 
-<<< @/examples/slideover/demo/Slideover.vue{vue:line-numbers}
+    <B24Button label="Open" />
 
-You can also use the `#header`{lang="ts"}, `#body`{lang="ts"} and `#footer`{lang="ts"} slots to customize the Slideover's content.
+  content: |
+
+    <Placeholder class="h-full m-4" />
+---
+
+:b24-button{label="Open"}
+
+#content
+:placeholder{class="h-full m-4"}
+::
+
+You can also use the `#header`{lang="ts-type"}, `#body`{lang="ts-type"} and `#footer`{lang="ts-type"} slots to customize the Slideover's content.
 
 ### Title
 
 Use the `title` prop to set the title of the Slideover's header.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <TitleExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+props:
+  title: 'Slideover with title'
+slots:
+  default: |
 
-::: details
-<<< @/examples/slideover/demo/Title.vue{13 vue:line-numbers}
-:::
+    <B24Button label="Open" />
+
+  body: |
+
+    <Placeholder class="h-full" />
+---
+
+:b24-button{label="Open"}
+
+#body
+:placeholder{class="h-full"}
+::
 
 ### Description
 
 Use the `description` prop to set the description of the Slideover's header.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <DescriptionExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+ignore:
+  - title
+props:
+  title: 'Slideover with description'
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+slots:
+  default: |
 
-::: details
-<<< @/examples/slideover/demo/Description.vue{15-16 vue:line-numbers}
-:::
+    <B24Button label="Open" />
+
+  body: |
+
+    <Placeholder class="h-full" />
+---
+
+:b24-button{label="Open"}
+
+#body
+:placeholder{class="h-full"}
+::
 
 ### Close
 
@@ -88,96 +104,192 @@ Use the `close` prop to customize or hide the close button (with `false` value) 
 
 You can pass any property from the [Button](/docs/components/button/) component to customize it.
 
-::: tip
+::component-code
+---
+prettier: true
+ignore:
+  - title
+  - close.color
+props:
+  title: 'Slideover with close button'
+  close:
+    color: air-secondary-accent-2
+    class: 'rounded-full'
+slots:
+  default: |
+
+    <B24Button label="Open" />
+
+  body: |
+
+    <Placeholder class="h-full" />
+---
+
+:b24-button{label="Open"}
+
+#body
+:placeholder{class="h-full"}
+::
+
+::note
 The close button is not displayed if the `#content` slot is used as it's a part of the header.
-:::
-
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <CloseExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/slideover/demo/Close.vue{19-20 vue:line-numbers}
-:::
+::
 
 ### Close Icon
 
-Use the `close-icon` prop to customize the close button [Icon](https://bitrix24.github.io/b24icons/guide/icons.html). Defaults to `CrossMIcon`.
+Use the `close-icon` prop to customize the close button [Icon](https://bitrix24.github.io/b24icons/guide/icons.html).
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <CloseIconExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+ignore:
+  - title
+  - closeIcon
+cast:
+  closeIcon: 'RocketIcon'
+props:
+  title: 'Slideover with close button'
+  closeIcon: 'RocketIcon'
+slots:
+  default: |
 
-::: details
-<<< @/examples/slideover/demo/CloseIcon.vue{2,9 vue:line-numbers}
-:::
+    <B24Button label="Open" />
+
+body: |
+
+    <Placeholder class="h-full" />
+---
+
+:b24-button{label="Open"}
+
+#body
+:placeholder{class="h-full"}
+::
 
 ### Side
 
 Use the `side` prop to set the side of the screen where the Slideover will slide in from. Defaults to `bottom`.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <SideExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+ignore:
+  - title
+props:
+  side: 'bottom'
+  title: 'Slideover with side'
+slots:
+  default: |
 
-::: details
-<<< @/examples/slideover/demo/Side.vue{11 vue:line-numbers}
-:::
+    <B24Button label="Open" />
+
+body: |
+
+    <Placeholder class="h-full min-h-48" />
+---
+
+:b24-button{label="Open"}
+
+#body
+:placeholder{class="h-full min-h-48"}
+::
 
 ### Overlay
 
-Use the `overlay` prop to control whether the Modal has an overlay or not. Defaults to `true`.
+Use the `overlay` prop to control whether the Slideover has an overlay or not. Defaults to `true`.
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <OverlayExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+ignore:
+  - title
+props:
+  overlay: false
+  title: 'Slideover without overlay'
+slots:
+  default: |
 
-::: details
-<<< @/examples/slideover/demo/Overlay.vue{17 vue:line-numbers}
-:::
+    <B24Button label="Open" />
+
+body: |
+
+    <Placeholder class="h-full" />
+---
+
+:b24-button{label="Open"}
+
+#body
+:placeholder{class="h-full"}
+::
+
+### Overlay blur
 
 If you want to disable background blur, you should use the `overlayBlur` prop.
+
 The `overlayBlur` prop has 3 options:
 
-- `auto`: when the user has **not requested** [reduced motion](https://tailwindcss.com/docs/hover-focus-and-other-states#prefers-reduced-motion)
+- `auto`: (default) when the user has **not requested** [reduced motion](https://tailwindcss.com/docs/hover-focus-and-other-states#prefers-reduced-motion)
 - `on`: always use blur
-- `off`: (default) do not use blur
+- `off`: do not use blur
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <OverlayBlurExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+ignore:
+  - title
+  - overlay
+items:
+  overlayBlur:
+    - auto
+    - on
+    - off
+props:
+  overlay: true
+  overlayBlur: 'auto'
+  title: 'Overlay blur'
+slots:
+  default: |
 
-::: details
-<<< @/examples/modal/demo/OverlayBlur.vue{19 vue:line-numbers}
-:::
+    <B24Button label="Open" />
+
+  body: |
+
+    <Placeholder class="h-48" />
+---
+
+:b24-button{label="Open"}
+
+#body
+:placeholder{class="h-48"}
+::
 
 ### Transition
 
 Use the `transition` prop to control whether the Slideover is animated or not. Defaults to `true`.
 
-::: info
-[Reduced movement](https://tailwindcss.com/docs/hover-focus-and-other-states#prefers-reduced-motion) is taken into account
-:::
+::component-code
+---
+prettier: true
+ignore:
+  - title
+props:
+  transition: false
+  title: 'Slideover without transition'
+slots:
+  default: |
 
-<div class="lg:min-h-[275px]">
-  <ClientOnly>
-    <TransitionExample />
-  </ClientOnly>
-</div>
+    <B24Button label="Open" />
 
-::: details
-<<< @/examples/slideover/demo/Transition.vue{17 vue:line-numbers}
-:::
+body: |
+
+    <Placeholder class="h-full" />
+---
+
+:b24-button{label="Open"}
+
+#body
+:placeholder{class="h-full"}
+::
 
 ## Examples
 
@@ -185,140 +297,117 @@ Use the `transition` prop to control whether the Slideover is animated or not. D
 
 You can control the open state by using the `default-open` prop or the `v-model:open` directive.
 
-::: info
-In this example, leveraging [`defineShortcuts`](/docs/composables/define-shortcuts), you can toggle the Slideover by pressing `O`.
-:::
+::component-example
+---
+name: 'slideover-open-example'
+---
+::
 
-::: tip
+::note
+In this example, leveraging [`defineShortcuts`](/docs/composables/define-shortcuts/), you can toggle the Slideover by pressing :kbd{value="O"}.
+::
+
+::tip
 This allows you to move the trigger outside of the Slideover or remove it entirely.
-:::
-
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <ControlOpenStateExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/slideover/demo/ControlOpenState.vue{14,17,23 vue:line-numbers}
-:::
+::
 
 ### Disable dismissal
 
 Set the `dismissible` prop to `false` to prevent the Slideover from being closed when clicking outside of it or pressing escape. A `close:prevent` event will be emitted when the user tries to close it.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <DismissibleExample />
-  </ClientOnly>
-</div>
+::component-code
+---
+prettier: true
+ignore:
+  - title
+  - dismissible
+props:
+  dismissible: false
+  title: 'Slideover non-dismissible'
+slots:
+  default: |
 
-::: details
-<<< @/examples/slideover/demo/Dismissible.vue{15 vue:line-numbers}
-:::
+    <B24Button label="Open" />
+
+body: |
+
+    <Placeholder class="h-full" />
+---
+
+:b24-button{label="Open"}
+
+#body
+:placeholder{class="h-full"}
+::
 
 ### Programmatic usage
 
 You can use the [`useOverlay`](/docs/composables/use-overlay/) composable to open a Slideover programmatically.
 
-::: warning
-Make sure to wrap your app with the [`App`](/docs/components/app/) component which uses the [`OverlayProvider`](https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/OverlayProvider.vue) component.
-:::
+::warning
+Make sure to wrap your app with the [`App`](/docs/components/app/) component which uses the [`OverlayProvider`](https://github.com/nuxt/ui/blob/v4/src/runtime/components/OverlayProvider.vue) component.
+::
 
 First, create a slideover component that will be opened programmatically:
 
-::: code-group
-<<< @/examples/slideover/demo/LazySlideover.vue{6,11,12,23,28 vue:line-numbers}
-:::
+::component-example
+---
+prettier: true
+name: 'slideover-example'
+preview: false
+---
+::
 
-::: info
+::note
 We are emitting a `close` event when the slideover is closed or dismissed here. You can emit any data through the `close` event, however, the event must be emitted in order to capture the return value.
-:::
+::
 
 Then, use it in your app:
 
-::: tip
+::component-example
+---
+name: 'slideover-programmatic-example'
+---
+::
+
+::tip
 You can close the slideover within the slideover component by emitting `emit('close')`.
-:::
-
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <ProgrammaticUsageExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/slideover/demo/ProgrammaticUsage.vue{10,10-40,44 vue:line-numbers}
-:::
+::
 
 ### Nested slideovers
 
 You can nest slideovers within each other.
 
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <NestedSlideoverExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/slideover/demo/NestedSlideover.vue{20,33 vue:line-numbers}
-:::
+::component-example
+---
+name: 'slideover-nested-example'
+---
+::
 
 ### With footer slot
 
 Use the `#footer` slot to add content after the Slideover's body.
 
-::: tip
-You can also close the dialog box using the `B24ModalDialogClose` component.
-:::
-
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <WithFooterSlotExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/slideover/demo/WithFooterSlot.vue{17,24-36 vue:line-numbers}
-:::
-
-### Simple list of elements
-
-<div class="lg:min-h-[160px]">
-  <ClientOnly>
-    <SidebarLayoutSlideoverExample />
-  </ClientOnly>
-</div>
-
-::: details
-<<< @/examples/sidebarlayout/demo/SidebarLayoutSlideover.vue{vue:line-numbers}
-:::
-
-::: tip
-Many examples can be found on the [playground](https://bitrix24.github.io/b24ui/demo/components/slideover) and also seen in the [demo](https://github.com/bitrix24/b24ui/blob/main/demo/app/pages/components/slideover.vue) version.
-:::
+::component-example
+---
+name: 'slideover-footer-slot-example'
+---
+::
 
 ## API
 
 ### Props
 
-<ComponentProps component="Slideover" />
+:component-props
 
 ### Slots
 
-<ComponentSlots component="Slideover" />
+:component-slots
 
 ### Emits
 
-```ts
-/**
- * Emitted events for the Slideover component
- */
-interface SlideoverEmits {
-  update:open: (payload: [value: boolean]) => void;
-  after:leave: (payload: []) => void;
-  after:enter: (payload: []) => void;
-  close:prevent: (payload: []) => void;
-}
-```
+:component-emits
+
+## Theme
+
+:component-theme
