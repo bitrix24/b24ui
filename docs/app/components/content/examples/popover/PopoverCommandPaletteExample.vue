@@ -37,10 +37,10 @@ const label = ref([])
     <template #content>
       <B24CommandPalette
         v-model="label"
-        multiple
+        :multiple="true"
         placeholder="Search labels..."
         :groups="[{ id: 'labels', items }]"
-        :ui="{ input: '[&>input]:h-8 [&>input]:text-sm' }"
+        :b24ui="{ input: '[&>input]:h-8 [&>input]:text-sm' }"
       />
     </template>
   </B24Popover>
