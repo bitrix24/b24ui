@@ -346,7 +346,7 @@ slots:
 You can use the [`useOverlay`](/docs/composables/use-overlay/) composable to open a Modal programmatically.
 
 ::warning
-Make sure to wrap your app with the [`App`](/docs/components/app/) component which uses the [`OverlayProvider`](https://github.com/nuxt/ui/blob/v4/src/runtime/components/OverlayProvider.vue) component.
+Make sure to wrap your app with the [`App`](/docs/components/app/) component which uses the [`OverlayProvider`](https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/OverlayProvider.vue) component.
 ::
 
 First, create a modal component that will be opened programmatically:
