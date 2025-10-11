@@ -75,13 +75,13 @@ const pages = [
   // '/docs/components/drawer/',
   '/docs/components/dropdown-menu/',
   '/docs/components/modal/',
-  // // '/docs/components/popover/',
-  // // '/docs/components/slideover/',
-  // // '/docs/components/toast/',
-  // // '/docs/components/tooltip/',
+  '/docs/components/popover/',
+  '/docs/components/slideover/',
+  '/docs/components/toast/',
+  '/docs/components/tooltip/',
   // endregion ////
   // region Page ////
-  // // '/docs/components/page-links/',
+  '/docs/components/page-links/',
   // endregion ////
   // region Dashboard ////
   '/docs/components/dashboard-group/',

@@ -55,7 +55,7 @@ const components = [
   // 'page-feature',
   // 'page-header',
   // 'page-hero',
-  // // 'page-links',
+  'page-links',
   // 'page-logos',
   // 'page-section',
   'pagination',

@@ -1,7 +1,7 @@
 /**
  * PageLinks
+ * A list of links to display on the page.
  * ---
- * @todo add demo
  */
 export default {
   slots: {

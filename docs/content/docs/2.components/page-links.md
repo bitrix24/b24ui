@@ -1,17 +1,19 @@
 ---
 title: PageLinks
-description: 'A list of links to be displayed in the page.'
+description: 'A list of links to display on the page.'
 category: page
 badge: new
 links:
   - label: GitHub
     iconName: GitHubIcon
-    to: https://github.com/nuxt/ui/blob/v4/src/runtime/components/PageLinks.vue
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/PageLinks.vue
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/page-links
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui.nuxt.com/docs/components/page-links
 ---
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
 
 ## Usage
 
@@ -20,7 +22,7 @@ We are still updating this page. Some data may be missing here — we will compl
 Use the `links` prop as an array of objects with the following properties:
 
 - `label: string`{lang="ts-type"}
-- `icon?: string`{lang="ts-type"}
+- `icon?: IconComponent`{lang="ts-type"}
 - `class?: any`{lang="ts-type"}
 - `b24ui?: { item?: ClassNameValue, link?: ClassNameValue, linkLabel?: ClassNameValue, linkLabelExternalIcon?: ClassNameValue, linkLeadingIcon?: ClassNameValue }`{lang="ts-type"}
 
@@ -38,14 +40,11 @@ externalTypes:
 props:
   links:
     - label: 'Edit this page'
-      icon: i-lucide-file-pen
-      to: https://github.com/nuxt/ui/blob/v4/docs/content/3.components/page-links.md
+      to: https://github.com/bitrix24/b24ui/blob/main/docs/content/docs/2.components/page-links.md
     - label: 'Star on GitHub'
-      icon: i-lucide-star
-      to: https://github.com/nuxt/ui
+      to: https://github.com/bitrix24/b24ui
     - label: 'Releases'
-      icon: i-lucide-rocket
-      to: https://github.com/nuxt/ui/releases
+      to: https://github.com/bitrix24/b24ui/releases
 ---
 ::
 
@@ -66,14 +65,11 @@ props:
   title: 'Community'
   links:
     - label: 'Edit this page'
-      icon: i-lucide-file-pen
-      to: https://github.com/nuxt/ui/blob/v4/docs/content/3.components/page-links.md
+      to: https://github.com/bitrix24/b24ui/blob/main/docs/content/docs/2.components/page-links.md
     - label: 'Star on GitHub'
-      icon: i-lucide-star
-      to: https://github.com/nuxt/ui
+      to: https://github.com/bitrix24/b24ui
     - label: 'Releases'
-      icon: i-lucide-rocket
-      to: https://github.com/nuxt/ui/releases
+      to: https://github.com/bitrix24/b24ui/releases
 ---
 ::
 
@@ -89,7 +85,10 @@ Use the PageLinks component in the `bottom` slot of the ContentToc component to 
 
 ```vue [pages/\[...slug\\].vue]{48-52}
 <script setup lang="ts">
-import type { PageLink } from '@nuxt/ui'
+import type { PageLink } from '@bitrix24/b24ui-nuxt'
+import DocumentSignIcon from '@bitrix24/b24icons-vue/main/DocumentSignIcon'
+import AiStarsIcon from '@bitrix24/b24icons-vue/outline/AiStarsIcon'
+import RocketIcon from '@bitrix24/b24icons-vue/outline/RocketIcon'
 
 const route = useRoute()
 
@@ -106,44 +105,42 @@ const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
 })
 
 const links = computed<PageLink[]>(() => [{
-  icon: 'i-lucide-file-pen',
   label: 'Edit this page',
-  to: `https://github.com/nuxt/ui/edit/v3/docs/content/${page?.value?.stem}.md`,
+  icon: DocumentSignIcon,
+  to: `https://github.com/bitrix24/b24ui/blob/main/docs/content/docs/2.components/${page?.value?.stem}.md`,
   target: '_blank'
 }, {
-  icon: 'i-lucide-star',
   label: 'Star on GitHub',
-  to: 'https://github.com/nuxt/ui',
+  icon: AiStarsIcon,
+  to: 'https://github.com/bitrix24/b24ui',
   target: '_blank'
 }, {
   label: 'Releases',
-  icon: 'i-lucide-rocket',
-  to: 'https://github.com/nuxt/ui/releases'
+  icon: RocketIcon,
+  to: 'https://github.com/bitrix24/b24ui/releases'
 }])
 </script>
 
 <template>
-  <UPage>
-    <UPageHeader :title="page.title" :description="page.description" />
-
-    <UPageBody>
+  <div>
+    <div>
       <ContentRenderer :value="page" />
 
-      <USeparator />
+      <B24Separator />
 
-      <UContentSurround :surround="surround" />
-    </UPageBody>
+      <B24ContentSurround :surround="surround" />
+    </div>
 
-    <template #right>
-      <UContentToc :links="page.body.toc.links">
+    <div>
+      <B24ContentToc :links="page.body.toc.links">
         <template #bottom>
-          <USeparator type="dashed" />
+          <B24Separator type="dashed" />
 
-          <UPageLinks title="Community" :links="links" />
+          <B24PageLinks title="Community" :links="links" />
         </template>
-      </UContentToc>
-    </template>
-  </UPage>
+      </B24ContentToc>
+    </div>
+  </div>
 </template>
 ```
 
