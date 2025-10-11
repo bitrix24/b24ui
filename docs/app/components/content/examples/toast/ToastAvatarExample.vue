@@ -5,13 +5,11 @@ function showToast() {
   toast.add({
     title: 'The calculation of indicators has been completed',
     description: 'Is there anything else you need help with?',
-    avatar: {
-      src: '/b24ui/avatar/assistant.png'
-    }
+    avatar: { src: '/b24ui/avatar/assistant.png' }
   })
 }
 </script>
 
 <template>
-  <B24Button label="Show toast" color="primary" @click="showToast" />
+  <B24Button label="Show toast" @click="showToast" />
 </template>

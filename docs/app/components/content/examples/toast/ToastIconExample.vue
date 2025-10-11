@@ -5,13 +5,13 @@ const toast = useToast()
 
 function showToast() {
   toast.add({
-    title: 'The calculation of indicators has been completed',
-    description: 'Is there anything else you need help with?',
+    title: 'Uh oh! Something went wrong.',
+    description: 'There was a problem with your request.',
     icon: CopilotAiIcon
   })
 }
 </script>
 
 <template>
-  <B24Button label="Show toast" color="primary" @click="showToast" />
+  <B24Button label="Show toast" @click="showToast" />
 </template>
