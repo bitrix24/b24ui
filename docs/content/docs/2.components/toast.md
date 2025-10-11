@@ -177,7 +177,7 @@ name: 'toast-orientation-example'
 
 ## Examples
 
-::note{to="/components/app/"}
+::note{to="/docs/components/app/"}
 Bitrix24 UI provides an **App** component that wraps your app to provide global configurations.
 ::
 
