@@ -79,6 +79,7 @@ const pages = [
   '/docs/components/slideover/',
   '/docs/components/toast/',
   '/docs/components/tooltip/',
+  // // '/docs/components/confetti/',
   // endregion ////
   // region Page ////
   '/docs/components/page-links/',
@@ -102,17 +103,20 @@ const pages = [
   '/docs/components/content-search/',
   '/docs/components/content-search-button/',
   '/docs/components/content-surround/',
-  '/docs/components/content-toc/'
+  '/docs/components/content-toc/',
   // endregion ////
   // region Color Mode ////,
-  // // '/docs/components/color-mode-avatar/',
-  // // '/docs/components/color-mode-button/',
-  // // '/docs/components/color-mode-image/',
-  // // '/docs/components/color-mode-select/',
-  // // '/docs/components/color-mode-switch/',
+  '/docs/components/color-mode-avatar/',
+  '/docs/components/color-mode-button/',
+  '/docs/components/color-mode-image/',
+  '/docs/components/color-mode-select/',
+  '/docs/components/color-mode-switch/'
   // endregion ////
   // region i18n ////
   // // '/docs/components/locale-select/'
+  // endregion ////
+  // region Prose ////
+  // // '/docs/prose/***/'
   // endregion ////
 ]
 
