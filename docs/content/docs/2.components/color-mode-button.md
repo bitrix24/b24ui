@@ -1,38 +1,58 @@
 ---
 title: ColorModeButton
-description: 'A Button to switch between light and dark mode.'
+description: 'A button to toggle between light and dark themes.'
 category: color-mode
 badge: new
+links:
+  - label: GitHub
+    iconName: GitHubIcon
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/color-mode/ColorModeButton.vue
+  - label: Button
+    to: /docs/components/button/
+    icon: Bitrix24Icon
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/color-mode
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui.nuxt.com/docs/components/color-mode-button
 ---
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
 
 ## Usage
 
 The ColorModeButton component extends the [Button](/docs/components/button/) component, so you can pass any property such as `color`, `variant`, `size`, etc.
 
-@todo
+:component-code{prefix="color-mode"}
+
+::note
+The button defaults to `color="air-tertiary-no-accent"`.
+::
 
 ## Examples
-
-### With custom icons
-
-@todo
 
 ### With fallback slot
 
 As the button is wrapped in a [ClientOnly](https://nuxt.com/docs/api/components/client-only) component, you can pass a `fallback` slot to display a placeholder while the component is loading.
 
-@todo
+::component-code{prefix="color-mode"}
+---
+prettier: true
+slots:
+  fallback: |
+
+    <B24Button loading />
+---
+
+#fallback
+:B24-button{loading}
+::
 
 ## API
 
 ### Props
 
-<ComponentProps component="ColorModeButton" />
+:component-props
 
 ### Slots
 
-<ComponentSlots component="ColorModeButton" />
+:component-slots
