@@ -1,6 +1,6 @@
 ---
 title: ColorModeAvatar
-description: 'An Avatar with a different source for light and dark mode.'
+description: 'An Avatar that automatically switches its image based on the current theme (light/dark).'
 category: color-mode
 badge: new
 links:
