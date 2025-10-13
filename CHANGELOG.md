@@ -29,6 +29,7 @@
 * feat(ProseCardGroup): new component
 * feat(ProseCodeGroup): new component
 * feat(ProseCodePreview): new component
+* feat(ProseScript): new component
 * feat(Banner): new component
 * feat(Card): new component
 * feat(CheckboxGroup): new component
