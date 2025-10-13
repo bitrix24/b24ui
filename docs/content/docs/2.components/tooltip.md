@@ -160,7 +160,6 @@ Use the `arrow` prop to display an arrow on the Tooltip.
 prettier: true
 ignore:
   - text
-  - arrow
 props:
   arrow: true
   text: 'Open on GitHub'
