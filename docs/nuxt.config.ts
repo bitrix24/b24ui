@@ -110,10 +110,10 @@ const pages = [
   '/docs/components/color-mode-button/',
   '/docs/components/color-mode-image/',
   '/docs/components/color-mode-select/',
-  '/docs/components/color-mode-switch/'
+  '/docs/components/color-mode-switch/',
   // endregion ////
   // region i18n ////
-  // // '/docs/components/locale-select/'
+  '/docs/components/locale-select/'
   // endregion ////
   // region Prose ////
   // // '/docs/prose/***/'

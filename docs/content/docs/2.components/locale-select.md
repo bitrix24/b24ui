@@ -4,17 +4,16 @@ description: 'A Select to switch between locales.'
 category: i18n
 badge: new
 links:
-  - label: SelectMenu
-    to: /docs/components/select-menu
-    icon: i-simple-icons-nuxtdotjs
   - label: GitHub
     iconName: GitHubIcon
-    to: https://github.com/nuxt/ui/blob/v4/src/runtime/components/locale/LocaleSelect.vue
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/color-mode/LocaleSelect.vue
+  - label: SelectMenu
+    to: /docs/components/select-menu/
+    icon: Bitrix24Icon
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui.nuxt.com/docs/components/locale-select
 ---
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
 
 ## Usage
 
@@ -39,25 +38,25 @@ The flags are displayed using Unicode characters. This may result in a different
 
 ### Locales
 
-Use the `locales` prop with an array of locales from `@bitrix24/b24ui/locale`.
+Use the `locales` prop with an array of locales from `@bitrix24/b24ui-nuxt/locale`.
 
-__component-example
+::component-example
 ---
 name: 'locale-select-example'
 ---
-__
+::
 
 You can pass only the locales you need in your application:
 
 ```vue
 <script setup lang="ts">
-import { en, es, fr } from '@nuxt/ui/locale'
+import { en, es, ru, tr, ar } from '@bitrix24/b24ui-nuxt/locale'
 
 const locale = ref('en')
 </script>
 
 <template>
-  <ULocaleSelect v-model="locale" :locales="[en, es, fr]" />
+  <B24LocaleSelect v-model="locale" :locales="[en, es, ru, tr, ar]" />
 </template>
 ```
 
@@ -70,13 +69,13 @@ You can use it with Nuxt i18n:
 
 ```vue
 <script setup lang="ts">
-import * as locales from '@nuxt/ui/locale'
+import * as locales from '@bitrix24/b24ui-nuxt/locale'
 
 const { locale, setLocale } = useI18n()
 </script>
 
 <template>
-  <ULocaleSelect
+  <B24LocaleSelect
     v-model="locale"
     :locales="Object.values(locales)"
     @update:model-value="setLocale($event)"
@@ -93,13 +92,13 @@ You can use it with Vue i18n:
 ```vue
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-import * as locales from '@nuxt/ui/locale'
+import * as locales from '@bitrix24/b24ui-nuxt/locale'
 
 const { locale, setLocale } = useI18n()
 </script>
 
 <template>
-  <ULocaleSelect
+  <B24LocaleSelect
     v-model="locale"
     :locales="Object.values(locales)"
     @update:model-value="setLocale($event)"
