@@ -15,7 +15,9 @@ const isUseBg = ref(true)
       <div class="flex flex-col gap-10 min-h-0">
         <B24ColorModeSwitch />
         <B24ColorModeSelect />
-        <B24ColorModeButton />
+        <div>
+          <B24ColorModeButton />
+        </div>
       </div>
     </ExampleCard>
     <ExampleCard title="ver1" :use-bg="isUseBg">
