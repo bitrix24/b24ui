@@ -67,6 +67,7 @@
 * fix(FileUpload): stuck focus while tabbing
 * fix(FileUpload): use native img element for blob URLs preview
 * fix(Modal/Slideover): remove close autofocus prevent
+* fix(Table)!: consistent args order in select event
 * docs(app): implement AI search
 * doc(Component): added components for displaying props, slots, etc
 * chore(style): fix var(--b24ui-header-h`eight)
