@@ -20,7 +20,7 @@ links:
 
 ## Usage
 
-The ColorModeButton component extends the [Button](/docs/components/button/) component, so you can pass any property such as `color`, `variant`, `size`, etc.
+The ColorModeButton component extends the [Button](/docs/components/button/) component, so you can pass any property such as `color`, `size`, etc.
 
 :component-code{prefix="color-mode"}
 
