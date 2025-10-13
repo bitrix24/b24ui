@@ -26,6 +26,9 @@ Use the `light` and `dark` props to define the source for light and dark mode.
 
 ::component-code{prefix="color-mode"}
 ---
+ignore:
+  - light
+  - dark
 props:
   light: 'https://github.com/vuejs.png'
   dark: 'https://github.com/nuxt.png'
@@ -33,7 +36,7 @@ props:
 ::
 
 ::note
-Switch between light and dark mode to see the different images: :b24-color-mode-select{size="sm"}
+Switch between light and dark mode: :b24-color-mode-select{size="sm"} to see the different images
 ::
 
 ## API
