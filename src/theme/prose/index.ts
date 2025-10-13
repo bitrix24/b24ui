@@ -1,4 +1,6 @@
 export { default as callout } from './callout'
+export { default as card } from './card'
+export { default as cardGroup } from './card-group'
 export { default as h1 } from './h1'
 export { default as h2 } from './h2'
 export { default as h3 } from './h3'

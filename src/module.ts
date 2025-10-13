@@ -107,9 +107,9 @@ export default defineNuxtModule<ModuleOptions>({
             'accordion-item': 'ProseAccordionItem',
             'badge': 'ProseBadge',
             'callout': 'ProseCallout',
-            // @todo add
-            // 'card': 'ProseCard',
+            'card': 'ProseCard',
             // 'card-group': 'ProseCardGroup',
+            // @todo add
             'caution': 'ProseCaution',
             'code-collapse': 'ProseCodeCollapse',
             // 'code-group': 'ProseCodeGroup',
