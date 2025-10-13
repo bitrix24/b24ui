@@ -19,6 +19,7 @@
 * feat(ProsePre): improve
 * feat(ProseTabs): new component
 * feat(ProseTabsItem): new component
+* feat(ProseAccordion): new component
 * feat(ProseKbd): new component
 * feat(Banner): new component
 * feat(Card): new component
