@@ -1,7 +1,7 @@
 export * from '../components/prose/A.vue'
 export * from '../components/prose/Accordion.vue'
 export * from '../components/prose/AccordionItem.vue'
-// export * from '../components/prose/Badge.vue'
+export * from '../components/prose/Badge.vue'
 export * from '../components/prose/Blockquote.vue'
 export * from '../components/prose/Callout.vue'
 // export * from '../components/prose/Card.vue'

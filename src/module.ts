@@ -103,11 +103,11 @@ export default defineNuxtModule<ModuleOptions>({
         },
         components: {
           map: {
-            // @todo add
             'accordion': 'ProseAccordion',
             'accordion-item': 'ProseAccordionItem',
-            // 'badge': 'ProseBadge',
+            'badge': 'ProseBadge',
             'callout': 'ProseCallout',
+            // @todo add
             // 'card': 'ProseCard',
             // 'card-group': 'ProseCardGroup',
             'caution': 'ProseCaution',

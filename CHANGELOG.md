@@ -21,6 +21,7 @@
 * feat(ProseTabsItem): new component
 * feat(ProseAccordion): new component
 * feat(ProseAccordionItem): new component
+* feat(ProseBadge): new component
 * feat(ProseKbd): new component
 * feat(Banner): new component
 * feat(Card): new component
