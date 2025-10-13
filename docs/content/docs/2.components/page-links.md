@@ -83,7 +83,7 @@ While these examples use [Nuxt Content](https://content.nuxt.com), the component
 
 Use the PageLinks component in the `bottom` slot of the ContentToc component to display a list of links below the table of contents.
 
-```vue [pages/\[...slug\\].vue]{48-52}
+```vue [pages/\[...slug\\].vue]{50-54}
 <script setup lang="ts">
 import type { PageLink } from '@bitrix24/b24ui-nuxt'
 import DocumentSignIcon from '@bitrix24/b24icons-vue/main/DocumentSignIcon'
