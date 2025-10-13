@@ -105,7 +105,7 @@ export default defineNuxtModule<ModuleOptions>({
           map: {
             // @todo add
             'accordion': 'ProseAccordion',
-            // 'accordion-item': 'ProseAccordionItem',
+            'accordion-item': 'ProseAccordionItem',
             // 'badge': 'ProseBadge',
             'callout': 'ProseCallout',
             // 'card': 'ProseCard',
