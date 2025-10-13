@@ -111,10 +111,10 @@ export default defineNuxtModule<ModuleOptions>({
             'card-group': 'ProseCardGroup',
             'caution': 'ProseCaution',
             'code-collapse': 'ProseCodeCollapse',
-            // @todo add
-            // 'code-group': 'ProseCodeGroup',
+            'code-group': 'ProseCodeGroup',
             'code-icon': 'ProseCodeIcon',
             // 'code-preview': 'ProseCodePreview',
+            // @todo add
             // 'code-tree': 'ProseCodeTree',
             'collapsible': 'ProseCollapsible',
             'field': 'ProseField',
