@@ -24,6 +24,7 @@
 * feat(ProseBadge): new component
 * feat(ProseKbd): new component
 * feat(ProseSteps): new component
+* feat(FieldGroup): new component
 * feat(Banner): new component
 * feat(Card): new component
 * feat(CheckboxGroup): new component
