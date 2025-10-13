@@ -1,7 +1,7 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/prose/collapsible'
-import type { IconComponent } from '../../types'
+import type { IconComponent, CollapsibleProps } from '../../types'
 import type { ComponentConfig } from '../../types/tv'
 
 type ProseCollapsible = ComponentConfig<typeof theme, AppConfig, 'collapsible', 'b24ui.prose'>
@@ -28,7 +28,7 @@ export interface ProseCollapsibleProps {
    */
   closeText?: string
   class?: any
-  b24ui?: ProseCollapsible['slots']
+  b24ui?: ProseCollapsible['slots'] & CollapsibleProps['b24ui']
 }
 
 export interface ProseCollapsibleSlots {
@@ -56,7 +56,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
 </script>
 
 <template>
-  <B24Collapsible :unmount-on-hide="false" :class="props.class" :b24ui="transformUI(b24ui)">
+  <B24Collapsible :unmount-on-hide="false" :class="props.class" :b24ui="transformUI(b24ui, props.b24ui)">
     <template #default="{ open }">
       <button :class="b24ui.trigger({ class: props.b24ui?.trigger })">
         <Component

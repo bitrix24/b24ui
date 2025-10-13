@@ -2,6 +2,7 @@
 import type { AppConfig } from '@nuxt/schema'
 import type { TabsItem } from '@bitrix24/b24ui-nuxt'
 import theme from '#build/b24ui/prose/tabs'
+import type { TabsProps } from '../../types'
 import type { ComponentConfig } from '../../types/tv'
 
 type ProseTabs = ComponentConfig<typeof theme, AppConfig, 'tabs', 'b24ui.prose'>
@@ -21,6 +22,7 @@ export interface ProseTabsProps {
    */
   hash?: string
   class?: any
+  b24ui?: ProseTabs['slots'] & TabsProps['b24ui']
 }
 
 export interface ProseTabsSlots {
@@ -44,6 +46,7 @@ const model = defineModel<string>()
 
 const appConfig = useAppConfig() as ProseTabs['AppConfig']
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.tabs || {}) }))
 
 const rerenderCount = ref(1)
@@ -113,7 +116,7 @@ onBeforeUpdate(() => rerenderCount.value++)
     :items="items"
     :class="props.class"
     :unmount-on-hide="false"
-    :b24ui="transformUI(b24ui())"
+    :b24ui="transformUI(b24ui(), props.b24ui)"
     @update:model-value="onUpdateModelValue"
   >
     <template #content="{ item }">
