@@ -88,7 +88,7 @@ You can also pass an array of objects with the following properties:
 - [`color?: SelectMenu['color']`{lang="ts-type"}](#with-colors-items)
 - [`chip?: ChipProps`{lang="ts-type"}](#with-chip-in-items)
 - `disabled?: boolean`{lang="ts-type"}
-- `onSelect?(e: Event): void`{lang="ts-type"}
+- `onSelect?: (e: Event) => void`{lang="ts-type"}
 - `class?: any`{lang="ts-type"}
 - `b24ui?: { label?: ClassNameValue, separator?: ClassNameValue, item?: ClassNameValue, itemLeadingIcon?: ClassNameValue, itemLeadingAvatarSize?: ClassNameValue, itemLeadingAvatar?: ClassNameValue, itemLeadingChipSize?: ClassNameValue, itemLeadingChip?: ClassNameValue, itemLabel?: ClassNameValue, itemTrailing?: ClassNameValue, itemTrailingIcon?: ClassNameValue }`{lang="ts-type"}
 

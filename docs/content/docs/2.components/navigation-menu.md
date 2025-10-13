@@ -88,7 +88,7 @@ Use the `items` prop as an array of objects with the following properties:
 - `disabled?: boolean`{lang="ts-type"}
 - [`slot?: string`{lang="ts-type"}](#with-custom-slot)
 - [`viewportRtl?: boolean`{lang="ts-type"}](#orientation)
-- `onSelect?(e: Event): void`{lang="ts-type"}
+- `onSelect?: (e: Event) => void`{lang="ts-type"}
 - `children?: NavigationMenuChildItem[]`{lang="ts-type"}
 - `class?: any`{lang="ts-type"}
 - `b24ui?: { linkLeadingAvatarSize?: ClassNameValue, linkLeadingAvatar?: ClassNameValue, linkLeadingIcon?: ClassNameValue, linkLabel?: ClassNameValue, linkLabelExternalIcon?: ClassNameValue, linkTrailing?: ClassNameValue, linkLeadingHint?: ClassNameValue, linkLeadingBadgeSize?: ClassNameValue, linkLeadingBadge?: ClassNameValue, linkTrailingIcon?: ClassNameValue, label?: ClassNameValue, link?: ClassNameValue, content?: ClassNameValue, childList?: ClassNameValue, childLabel?: ClassNameValue, childItem?: ClassNameValue, childLink?: ClassNameValue, childLinkIcon?: ClassNameValue, childLinkHint?: ClassNameValue, childLinkBadgeSize?: ClassNameValue, childLinkBadge?: ClassNameValue, childLinkWrapper?: ClassNameValue, childLinkLabel?: ClassNameValue, childLinkLabelExternalIcon?: ClassNameValue, popoverWrapper?: ClassNameValue }`{lang="ts-type"}

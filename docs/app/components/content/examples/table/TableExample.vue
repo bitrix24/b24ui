@@ -351,8 +351,8 @@ async function sleepAction(timeout: number = 1000): Promise<void> {
             onUpdateChecked(checked: boolean) {
               table?.tableApi?.getColumn(column.id)?.toggleVisibility(!!checked)
             },
-            onSelect(e?: Event) {
-              e?.preventDefault()
+            onSelect(e: Event) {
+              e.preventDefault()
             }
           }))"
           :content="{ align: 'end' }"

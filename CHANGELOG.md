@@ -7,6 +7,7 @@
 * feat(components): implement virtualization
 * feat(Popover): add `close` method in slots
 * feat(useToast): handle `max` global configuration
+* feat(CommandPalette/ContextMenu/DropdownMenu/InputMenu/NavigationMenu/Select/SelectMenu): add global event handlers and checkbox example
 * feat(Error): new component
 * feat(PageLinks): new component
 * feat(ContentSurround): new component
