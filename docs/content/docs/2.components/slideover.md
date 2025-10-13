@@ -27,6 +27,11 @@ Then, use the `#content` slot to add the content displayed when the Slideover is
 ::component-code
 ---
 prettier: true
+collapse: true
+ignore:
+  - b24ui.content
+props:
+  b24ui.content: 'light bg-(--ui-color-base-7) sm:top-[300px] sm:max-h-[calc(100%-300px)]'
 slots:
   default: |
 
@@ -34,13 +39,13 @@ slots:
 
   content: |
 
-    <Placeholder class="h-full m-4" />
+    <Placeholder class="edge-light h-full m-4" />
 ---
 
 :b24-button{label="Open"}
 
 #content
-:placeholder{class="h-full m-4"}
+:placeholder{class="edge-light h-full m-4"}
 ::
 
 You can also use the `#header`{lang="ts-type"}, `#body`{lang="ts-type"} and `#footer`{lang="ts-type"} slots to customize the Slideover's content.
@@ -52,6 +57,7 @@ Use the `title` prop to set the title of the Slideover's header.
 ::component-code
 ---
 prettier: true
+collapse: true
 props:
   title: 'Slideover with title'
 slots:
@@ -77,6 +83,7 @@ Use the `description` prop to set the description of the Slideover's header.
 ::component-code
 ---
 prettier: true
+collapse: true
 ignore:
   - title
 props:
@@ -107,6 +114,7 @@ You can pass any property from the [Button](/docs/components/button/) component 
 ::component-code
 ---
 prettier: true
+collapse: true
 ignore:
   - title
   - close.color
@@ -114,7 +122,6 @@ props:
   title: 'Slideover with close button'
   close:
     color: air-secondary-accent-2
-    class: 'rounded-full'
 slots:
   default: |
 
@@ -142,6 +149,7 @@ Use the `close-icon` prop to customize the close button [Icon](https://bitrix24.
 ::component-code
 ---
 prettier: true
+collapse: true
 ignore:
   - title
   - closeIcon
@@ -173,6 +181,7 @@ Use the `side` prop to set the side of the screen where the Slideover will slide
 ::component-code
 ---
 prettier: true
+collapse: true
 ignore:
   - title
 props:
@@ -201,6 +210,7 @@ Use the `overlay` prop to control whether the Slideover has an overlay or not. D
 ::component-code
 ---
 prettier: true
+collapse: true
 ignore:
   - title
 props:
@@ -235,6 +245,7 @@ The `overlayBlur` prop has 3 options:
 ::component-code
 ---
 prettier: true
+collapse: true
 ignore:
   - title
   - overlay
@@ -270,6 +281,7 @@ Use the `transition` prop to control whether the Slideover is animated or not. D
 ::component-code
 ---
 prettier: true
+collapse: true
 ignore:
   - title
 props:
@@ -300,6 +312,7 @@ You can control the open state by using the `default-open` prop or the `v-model:
 ::component-example
 ---
 name: 'slideover-open-example'
+collapse: true
 ---
 ::
 
@@ -317,6 +330,7 @@ Set the `dismissible` prop to `false` to prevent the Slideover from being closed
 
 ::component-code
 ---
+collapse: true
 prettier: true
 ignore:
   - title
@@ -367,6 +381,7 @@ Then, use it in your app:
 ::component-example
 ---
 name: 'slideover-programmatic-example'
+collapse: true
 ---
 ::
 
@@ -381,6 +396,7 @@ You can nest slideovers within each other.
 ::component-example
 ---
 name: 'slideover-nested-example'
+collapse: true
 ---
 ::
 
@@ -391,7 +407,21 @@ Use the `#footer` slot to add content after the Slideover's body.
 ::component-example
 ---
 name: 'slideover-footer-slot-example'
+collapse: true
 ---
+::
+
+### Simple list of elements
+
+::component-example
+---
+name: 'slideover-simple-list-elements-example'
+collapse: true
+---
+::
+
+::tip
+Many examples can be found on the [`playground`](https://bitrix24.github.io/b24ui/demo/components/slideover) and also seen in the [`demo`](https://github.com/bitrix24/b24ui/blob/main/playgrounds/demo/app/pages/components/slideover.vue) version.
 ::
 
 ## API

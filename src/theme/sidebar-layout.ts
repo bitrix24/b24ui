@@ -226,7 +226,7 @@ export default {
       inner: true,
       useSidebar: [true, false],
       class: {
-        pageWrapper: 'pb-[20px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[10px]'
+        pageWrapper: 'pb-[20px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px]'
       }
     },
     {

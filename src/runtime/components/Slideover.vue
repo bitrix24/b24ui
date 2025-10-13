@@ -2,7 +2,6 @@
 import type { DialogRootProps, DialogRootEmits, DialogContentProps, DialogContentEmits } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/slideover'
-import type { SidebarLayoutApi } from '../composables/useSidebarLayout'
 import type { ButtonProps, IconComponent } from '../types'
 import type { EmitsToProps } from '../types/utils'
 import type { ComponentConfig } from '../types/tv'
@@ -86,16 +85,10 @@ export interface SlideoverSlots {
   body(props: { close: () => void }): any
   footer(props: { close: () => void }): any
 }
-
-export interface SlideoverInstance {
-  getSidebarApi: () => SidebarLayoutApi | null
-  setSidebarLoading: (value: boolean) => void
-  setSidebarRootLoading: (value: boolean) => void
-}
 </script>
 
 <script setup lang="ts">
-import { computed, toRef, ref } from 'vue'
+import { computed, toRef } from 'vue'
 import { DialogRoot, DialogTrigger, DialogPortal, DialogOverlay, DialogContent, DialogTitle, DialogDescription, DialogClose, VisuallyHidden, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
@@ -105,7 +98,6 @@ import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Button from './Button.vue'
 import B24SidebarLayout from './SidebarLayout.vue'
-import type { SidebarLayoutInstance } from './SidebarLayout.vue'
 
 const props = withDefaults(defineProps<SlideoverProps>(), {
   close: true,
@@ -146,38 +138,9 @@ const contentEvents = computed(() => {
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.slideover || {}) })({
   transition: props.transition,
   side: props.side,
-  overlayBlur: props.overlayBlur
+  overlayBlur: props.overlayBlur,
+  useFooter: !!slots.footer
 }))
-
-// Create a ref to access SidebarLayout
-const sidebarRef = ref<SidebarLayoutInstance | null>(null)
-
-// Export the SidebarLayout API for external use
-defineExpose<SlideoverInstance>({
-  /**
-   * Get SidebarLayout API
-   * @throws {Error} If SidebarLayout is not initialized
-   */
-  getSidebarApi: () => {
-    if (!sidebarRef.value) {
-      return null
-    }
-    return sidebarRef.value.api as unknown as SidebarLayoutApi
-  },
-
-  // Direct access to SidebarLayout methods
-  setSidebarLoading: (value: boolean) => {
-    if (sidebarRef.value) {
-      sidebarRef.value.api.setLoading(value)
-    }
-  },
-
-  setSidebarRootLoading: (value: boolean) => {
-    if (sidebarRef.value) {
-      sidebarRef.value.api.setRootLoading(value)
-    }
-  }
-})
 </script>
 
 <!-- eslint-disable vue/no-template-shadow -->
@@ -240,13 +203,13 @@ defineExpose<SlideoverInstance>({
             </DialogClose>
           </template>
           <B24SidebarLayout
-            ref="sidebarRef"
             :use-light-content="props.useLightContent"
             is-inner
             :b24ui="{
               root: b24ui.sidebarLayoutRoot({ class: props.b24ui?.sidebarLayoutRoot }),
               header: b24ui.sidebarLayoutHeaderWrapper({ class: props.b24ui?.sidebarLayoutHeaderWrapper }),
               pageWrapper: b24ui.sidebarLayoutPageWrapper({ class: props.b24ui?.sidebarLayoutPageWrapper }),
+              container: b24ui.sidebarLayoutContainer({ class: props.b24ui?.sidebarLayoutContainer }),
               pageBottomWrapper: b24ui.sidebarLayoutPageBottomWrapper({ class: props.b24ui?.sidebarLayoutPageBottomWrapper }),
               loadingWrapper: b24ui.sidebarLayoutLoadingWrapper({ class: props.b24ui?.sidebarLayoutLoadingWrapper }),
               loadingIcon: b24ui.sidebarLayoutLoadingIcon({ class: props.b24ui?.sidebarLayoutLoadingIcon })

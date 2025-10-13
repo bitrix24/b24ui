@@ -25,9 +25,10 @@ export default {
       'flex flex-col focus:outline-none',
       'h-full'
     ].join(' '),
-    sidebarLayoutRoot: 'sidebarLayoutRoot relative',
+    sidebarLayoutRoot: 'relative',
     sidebarLayoutHeaderWrapper: 'relative',
-    sidebarLayoutPageWrapper: 'min-h-full pb-[calc(53px_+_10px)]',
+    sidebarLayoutPageWrapper: 'min-h-full pb-[calc(53px_+_10px)] px-[20px] ps-[20px] pe-[20px] pb-[20px]',
+    sidebarLayoutContainer: 'gap-[22px]',
     sidebarLayoutPageBottomWrapper: 'relative',
     sidebarLayoutLoadingWrapper: '',
     sidebarLayoutLoadingIcon: '',
@@ -65,6 +66,11 @@ export default {
     safeList
   },
   variants: {
+    useFooter: {
+      true: {
+        sidebarLayoutPageWrapper: 'pb-[calc(53px+20px)]'
+      }
+    },
     overlayBlur: {
       auto: {
         overlay: 'motion-safe:backdrop-blur-sm'
@@ -79,26 +85,34 @@ export default {
     side: {
       // @todo fix if parent SidebarLayout.isUseSideBar > w-[calc(100%-135x)] > w-[calc(100%-150px)]
       right: {
-        content: 'right-0 inset-y-0 w-[calc(100%-60px)] sm:w-[calc(100%-150px)]',
+        content: [
+          'right-0 inset-y-0 w-[calc(100%-60px)] sm:w-[calc(100%-150px)]',
+          'sm:rounded-t-none'
+        ].join(' '),
         sidebarLayoutRoot: 'sm:rounded-t-none'
       },
       left: {
-        content: 'left-0 inset-y-0 w-[calc(100%-60px)] sm:w-[calc(100%-150px)]',
+        content: [
+          'left-0 inset-y-0 w-[calc(100%-60px)] sm:w-[calc(100%-150px)]',
+          'sm:rounded-t-none'
+        ].join(' '),
         sidebarLayoutRoot: 'sm:rounded-t-none'
       },
       top: {
-        content: 'inset-x-0 top-0 max-h-full',
+        content: [
+          'inset-x-0 top-0 max-h-full',
+          'sm:rounded-t-none'
+        ].join(' '),
         sidebarLayoutRoot: 'sm:rounded-t-none'
       },
       bottom: {
         content: [
-          'right-[5px] sm:right-[70px] top-0 sm:top-[18px] bottom-0',
+          'right-[5px] top-0 sm:top-[18px] bottom-0',
           'w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)]',
-          'sm:max-h-[calc(100%-18px)]'
+          'sm:max-h-[calc(100%-18px)]',
+          'sm:rounded-t-[18px]'
         ].join(' '),
-        // sidebarLayoutRoot: 'sm:rounded-t-none'
         sidebarLayoutRoot: 'sm:rounded-t-[18px]'
-        // fix sidebarLayoutHeaderWrapper: '' // sm:rounded-t-[18px]
       }
     },
     transition: {

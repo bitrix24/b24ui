@@ -1,8 +1,6 @@
 <script lang="ts">
-import type { Ref } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/sidebar-layout'
-import type { SidebarLayoutApi } from '../composables/useSidebarLayout'
 import type { ComponentConfig } from '../types/tv'
 
 type SidebarLayout = ComponentConfig<typeof theme, AppConfig, 'sidebarLayout'>
@@ -64,26 +62,18 @@ export interface SidebarLayoutSlots {
    */
   'content-bottom': (props?: { isLoading: boolean }) => any
   /**
-   * Loading state. You need to use `useSidebarLayout` to control it.
+   * Loading state.
    */
   'loading': (props?: { isLoading: boolean }) => any
-}
-
-export interface SidebarLayoutInstance {
-  api: SidebarLayoutApi
-  isLoading: Readonly<Ref<boolean>>
-  setLoading: (value: boolean) => void
-  setRootLoading: (value: boolean) => void
 }
 </script>
 
 <script setup lang="ts">
-import { ref, computed, watch, onUnmounted, readonly, provide, inject } from 'vue'
+import { ref, computed, watch, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
 import { useLocale } from '../composables/useLocale'
-import { sidebarLayoutInjectionKey } from '../composables/useSidebarLayout'
 import { tv } from '../utils/tv'
 import B24Button from './Button.vue'
 import B24Slideover from './Slideover.vue'
@@ -141,58 +131,10 @@ const handleNavigationClick = () => {
   closeModal()
 }
 
-// Get the parent API (if it exists)
-const parentApi = inject(sidebarLayoutInjectionKey, null)
-
-// 1. Determine the root boot state
-// For the root component we use our own state
-// For nested - use the root state of the parent
-const rootRef: Ref<boolean> = parentApi
-  ? (parentApi as any).rootRef
-  : ref(false)
-
-// 2. Current component loading state
+/**
+ * @todo make normal logic
+ */
 const isLoading = ref(false)
-
-// 3. Computed states
-const isParentLoading = computed(() =>
-  parentApi?.isLoading.value ?? false
-)
-
-const isRootLoading = computed(() =>
-  rootRef.value
-)
-
-// 4. Create an API for the current component
-const api: SidebarLayoutApi = {
-  isLoading: readonly(isLoading) as Readonly<Ref<boolean>>,
-  isParentLoading: readonly(isParentLoading) as Readonly<Ref<boolean>>,
-  isRootLoading: readonly(isRootLoading) as Readonly<Ref<boolean>>,
-
-  setLoading: (value: boolean) => { isLoading.value = value },
-
-  setParentLoading: (value: boolean) => {
-    if (parentApi) {
-      parentApi.setLoading(value)
-    }
-  },
-
-  setRootLoading: (value: boolean) => {
-    rootRef.value = value
-  },
-
-  rootRef
-}
-
-// 5. Exposing API to Child Components
-provide(sidebarLayoutInjectionKey, api)
-
-defineExpose<SidebarLayoutInstance>({
-  api,
-  isLoading,
-  setLoading: api.setLoading,
-  setRootLoading: api.setRootLoading
-})
 </script>
 
 <template>

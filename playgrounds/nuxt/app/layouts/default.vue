@@ -9,7 +9,7 @@ import SunIcon from '@bitrix24/b24icons-vue/main/SunIcon'
 import SunIconAir from '@bitrix24/b24icons-vue/outline/SunIcon'
 import MoonIcon from '@bitrix24/b24icons-vue/main/MoonIcon'
 import MoonIconAir from '@bitrix24/b24icons-vue/outline/MoonIcon'
-import type { DropdownMenuItem, NavigationMenuItem, SidebarLayoutInstance } from '@bitrix24/b24ui-nuxt'
+import type { DropdownMenuItem, NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
 
 const route = useRoute()
 const router = useRouter()
@@ -178,19 +178,8 @@ defineShortcuts({
   }
 })
 
-const currentSidebarRef = ref<SidebarLayoutInstance | null>(null)
-
 const handleSidebarLayoutLoadingAction = async () => {
-  if (!currentSidebarRef.value) {
-    return
-  }
-
-  try {
-    currentSidebarRef.value.setLoading(true)
-    await new Promise(resolve => setTimeout(resolve, 2_000))
-  } finally {
-    currentSidebarRef.value.setLoading(false)
-  }
+  await new Promise(resolve => setTimeout(resolve, 2_000))
 }
 
 const menuTop = computed<NavigationMenuItem[]>(() => {
@@ -217,7 +206,6 @@ const menuTop = computed<NavigationMenuItem[]>(() => {
   <B24DashboardGroup>
     <!-- // @see playground/app/assets/css/main.css -->
     <B24SidebarLayout
-      ref="currentSidebarRef"
       :use-light-content="isSidebarLayoutUseLightContent"
       :b24ui="getLightContent"
     >

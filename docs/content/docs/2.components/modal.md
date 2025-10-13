@@ -34,13 +34,13 @@ slots:
 
   content: |
 
-    <Placeholder class="h-48 m-4" />
+    <Placeholder class="h-48" />
 ---
 
 :b24-button{label="Open"}
 
 #content
-:placeholder{class="h-48 m-4"}
+:placeholder{class="h-48"}
 ::
 
 You can also use the `#header`{lang="ts-type"}, `#body`{lang="ts-type"} and `#footer`{lang="ts-type"} slots to customize the Modal's content.

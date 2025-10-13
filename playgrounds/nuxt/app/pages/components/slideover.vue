@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineAsyncComponent, useTemplateRef } from 'vue'
+import { defineAsyncComponent } from 'vue'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
@@ -16,7 +16,6 @@ import TrendUpIcon from '@bitrix24/b24icons-vue/outline/TrendUpIcon'
 import TrendDownIcon from '@bitrix24/b24icons-vue/outline/TrendDownIcon'
 import { useMockMenu } from './../../composables/useMockMenu'
 import B24Slideover from '@bitrix24/b24ui-nuxt/components/Slideover.vue'
-import type { SlideoverInstance } from '@bitrix24/b24ui-nuxt'
 
 usePageMeta.setPageTitle('Slideover')
 
@@ -44,18 +43,8 @@ function openSlideover() {
   })
 }
 
-const currentSlideoverRef = useTemplateRef<SlideoverInstance>('currentSlideoverRef')
 const handleSidebarLayoutLoadingAction = async () => {
-  if (!currentSlideoverRef.value) {
-    return
-  }
-
-  try {
-    currentSlideoverRef.value.setSidebarLoading(true)
-    await new Promise(resolve => setTimeout(resolve, 2_000))
-  } finally {
-    currentSlideoverRef.value.setSidebarLoading(false)
-  }
+  await new Promise(resolve => setTimeout(resolve, 2_000))
 }
 
 const openSliderTopAndBottom = async () => {

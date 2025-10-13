@@ -80,6 +80,7 @@
 * fix(Modal/Slideover): remove close autofocus prevent
 * fix(Table)!: consistent args order in select event
 * fix(components): add missing `b24ui` prop in prose proxy components
+* fix(Slideover|SidebarLayout)!: remove composable `useSidebarLayout`
 * docs(app): implement AI search
 * doc(Component): added components for displaying props, slots, etc
 * chore(style): fix var(--b24ui-header-h`eight)
