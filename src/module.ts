@@ -113,7 +113,7 @@ export default defineNuxtModule<ModuleOptions>({
             'code-collapse': 'ProseCodeCollapse',
             'code-group': 'ProseCodeGroup',
             'code-icon': 'ProseCodeIcon',
-            // 'code-preview': 'ProseCodePreview',
+            'code-preview': 'ProseCodePreview',
             // @todo add
             // 'code-tree': 'ProseCodeTree',
             'collapsible': 'ProseCollapsible',
