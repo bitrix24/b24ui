@@ -108,10 +108,10 @@ export default defineNuxtModule<ModuleOptions>({
             'badge': 'ProseBadge',
             'callout': 'ProseCallout',
             'card': 'ProseCard',
-            // 'card-group': 'ProseCardGroup',
-            // @todo add
+            'card-group': 'ProseCardGroup',
             'caution': 'ProseCaution',
             'code-collapse': 'ProseCodeCollapse',
+            // @todo add
             // 'code-group': 'ProseCodeGroup',
             'code-icon': 'ProseCodeIcon',
             // 'code-preview': 'ProseCodePreview',
