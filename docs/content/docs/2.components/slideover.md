@@ -265,13 +265,13 @@ slots:
 
   body: |
 
-    <Placeholder class="h-48" />
+    <Placeholder class="h-full" />
 ---
 
 :b24-button{label="Open"}
 
 #body
-:placeholder{class="h-48"}
+:placeholder{class="h-full"}
 ::
 
 ### Transition

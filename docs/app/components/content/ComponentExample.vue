@@ -167,7 +167,7 @@ const urlSearchParams = computed(() => {
       >
         <div
           v-if="props.options?.length || !!slots.options"
-          class="flex gap-4 p-4 border-b border-(--ui-color-design-tinted-na-stroke) border"
+          class="flex gap-4 p-4 border-b border-(--ui-color-design-tinted-na-stroke)"
         >
           <slot name="options" />
 
