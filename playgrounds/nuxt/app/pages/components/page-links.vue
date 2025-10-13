@@ -14,7 +14,7 @@ const isUseBg = ref(true)
 const links = computed<PageLink[]>(() => [{
   label: 'Edit this page',
   icon: DocumentSignIcon,
-  to: `https://github.com/bitrix24/b24ui/blob/main/docs/content/docs/2.components/${page?.value?.stem}.md`,
+  to: `https://github.com/bitrix24/b24ui/blob/main/docs/content/docs/2.components/page-links.md`,
   target: '_blank'
 }, {
   label: 'Star on GitHub',
