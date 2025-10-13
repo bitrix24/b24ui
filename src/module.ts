@@ -122,7 +122,7 @@ export default defineNuxtModule<ModuleOptions>({
             // 'icon': 'ProseIcon',
             'kbd': 'ProseKbd',
             'note': 'ProseNote',
-            // 'steps': 'ProseSteps',
+            'steps': 'ProseSteps',
             'tabs': 'ProseTabs',
             'tabs-item': 'ProseTabsItem',
             'tip': 'ProseTip',
