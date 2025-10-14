@@ -16,21 +16,13 @@ const dir = useTextDirection()
 const colorMode = useColorMode()
 const { isSidebarLayoutUseLightContent, isSidebarLayoutClearContent, checkedUseLightContent } = useRouteCheck()
 
-const isDark = computed({
-  get() {
-    return colorMode.value === 'dark'
-  },
-  set(_isDark: boolean) {
-    colorMode.preference = _isDark ? 'dark' : 'light'
-  }
-})
-
 appConfig.toaster = reactive({
   position: 'top-right' as const,
   duration: 5000,
   max: 5,
   expand: true
 })
+const modeContext = ref(appConfig.colorModeTypeLight)
 
 useHead({
   title: 'Bitrix24 UI - Playground',
@@ -39,26 +31,36 @@ useHead({
     { name: 'description', content: 'Explore and test all Bitrix24 UI components in an interactive environment' }
   ],
   htmlAttrs: {
-    dir: computed(() => appConfig.dir as 'ltr' | 'rtl')
+    dir: computed(() => appConfig.dir as 'ltr' | 'rtl'),
+    class: computed(() => { return [modeContext.value] })
   }
 })
 
 const route = useRoute()
 const router = useRouter()
 
-const isCommandPaletteOpen = ref(false)
-
-function toggleDir() {
-  dir.value = dir.value === 'ltr' ? 'rtl' : 'ltr'
-}
+const isDark = computed({
+  get() {
+    return colorMode.value === 'dark'
+  },
+  set(_isDark: boolean) {
+    colorMode.preference = _isDark ? 'dark' : 'light'
+    modeContext.value = _isDark ? 'dark' : appConfig.colorModeTypeLight
+  }
+})
 
 function toggleMode() {
   isDark.value = !isDark.value
 }
 
-/**
- * Use for change context in containerWrapper
- */
+function toggleDir() {
+  dir.value = dir.value === 'ltr' ? 'rtl' : 'ltr'
+}
+
+function toggleModeContext() {
+  colorMode.preference = modeContext.value === 'dark' ? 'dark' : 'light'
+}
+
 const getLightContent = computed(() => {
   const result = {
     containerWrapper: ''
@@ -74,9 +76,6 @@ const getLightContent = computed(() => {
 })
 
 defineShortcuts({
-  ctrl_k: () => {
-    isCommandPaletteOpen.value = true
-  },
   ctrl_arrowleft: () => {
     if (route.path === '/') {
       return
@@ -92,19 +91,6 @@ defineShortcuts({
 })
 
 const currentSidebarRef = ref<SidebarLayoutInstance | null>(null)
-
-const handleSidebarLayoutLoadingAction = async () => {
-  if (!currentSidebarRef.value) {
-    return
-  }
-
-  try {
-    currentSidebarRef.value.setLoading(true)
-    await new Promise(resolve => setTimeout(resolve, 2_000))
-  } finally {
-    currentSidebarRef.value.setLoading(false)
-  }
-}
 
 const menuTop = computed<NavigationMenuItem[]>(() => {
   return [
@@ -181,22 +167,23 @@ const { groups } = useNavigation()
           </B24NavbarSection>
           <B24NavbarSpacer />
           <B24NavbarSection class="flex-row items-center justify-start gap-4">
-            <B24Tooltip text="Search" :kbds="['meta', 'K']">
-              <B24DashboardSearchButton collapsed />
+            <B24DashboardSearchButton size="sm" rounded :collapsed="false" :kbds="[{ value: 'meta', size: 'sm' }, { value: 'K', size: 'sm' }]" />
+            <B24Tooltip :content="{ side: 'bottom' }" text="Switch color mode" :kbds="['shift', 'D']">
+              <B24ColorModeSelect rounded size="sm" class="w-[100px]" :content="{ align: 'end', side: 'bottom' }" />
             </B24Tooltip>
-            <B24ColorModeSelect rounded size="xs" class="w-[100px]" :content="{ align: 'end', side: 'bottom' }" />
+            <B24RadioGroup
+              v-model="modeContext"
+              :items="['dark', 'light', 'edge-dark', 'edge-light']"
+              size="xs"
+              orientation="horizontal"
+              variant="table"
+              indicator="hidden"
+              @change="toggleModeContext"
+            />
             <B24Switch
               v-model="checkedUseLightContent"
               :disabled="isSidebarLayoutClearContent"
-              size="xs"
-            />
-            <B24Button
-              label="Reload"
-              color="air-secondary-accent"
-              rounded
-              size="xs"
-              loading-auto
-              @click="handleSidebarLayoutLoadingAction"
+              size="sm"
             />
             <B24Tooltip :content="{ side: 'bottom' }" :text="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', 'L']">
               <B24Button
@@ -204,7 +191,7 @@ const { groups } = useNavigation()
                 :aria-label="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`"
                 color="air-secondary-accent"
                 rounded
-                size="xs"
+                size="sm"
                 @click="toggleDir"
               />
             </B24Tooltip>
