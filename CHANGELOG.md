@@ -50,6 +50,13 @@
 * feat(DashboardSearch): new component
 * feat(DashboardSearchButton): new component
 * feat(Stepper): new component
+* feat(ColorModeAvatar): improve config
+* feat(ColorModeButton): improve config
+* feat(ColorModeImage): improve config
+* feat(ColorModeSwitch): improve config
+* feat(ColorModeSelect): improve config
+* feat(LocaleSelect): improve config
+* feat(colorMode): improve config
 * fix(ProseLi,ProseOl,ProseUl,ProseP): fix color && size
 * fix(ProseH1\H2\H3\H4\H5\H6): add support hash
 * fix(SidebarLayout): improve theme, import Button, add slot 'content-right'
@@ -81,6 +88,7 @@
 * fix(Table)!: consistent args order in select event
 * fix(components): add missing `b24ui` prop in prose proxy components
 * fix(Slideover|SidebarLayout)!: remove composable `useSidebarLayout`
+* fix(unplugin): config for version
 * docs(app): implement AI search
 * doc(Component): added components for displaying props, slots, etc
 * chore(style): fix var(--b24ui-header-h`eight)
