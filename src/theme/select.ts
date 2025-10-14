@@ -142,7 +142,7 @@ export default () => {
             trailingIcon: 'size-[14px]'
           },
           sm: {
-            base: 'h-[28px] gap-1.5 text-(length:--ui-font-size-sm)/[normal]',
+            base: 'h-[28px] gap-1.5 text-(length:--ui-font-size-xs)/[normal]',
             leading: 'px-1.5',
             trailing: 'px-1.5',
             leadingIcon: 'size-[16px]',
