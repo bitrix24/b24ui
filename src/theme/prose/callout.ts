@@ -24,7 +24,7 @@ export default {
       '[&_code]:bg-(--ui-color-design-filled-black-content) dark:[&_code]:bg-(--ui-color-design-tinted-na-bg)',
       '[&_code]:text-(--ui-color-design-filled-black-bg)',
       // @memo use style-filled-black
-      '[&_pre]:bg-(--ui-color-design-filled-black-bg) [&_pre]:bg-(--ui-color-design-tinted-na-bg)',
+      '[&_pre]:bg-(--ui-color-design-filled-black-bg) dark:[&_pre]:bg-(--ui-color-design-tinted-na-bg)',
       '[&>div]:my-2.5',
       '[&_ul]:my-2.5',
       '[&_ol]:my-2.5',
