@@ -1,5 +1,5 @@
 import { defu } from 'defu'
-import { createResolver, defineNuxtModule, addComponentsDir, addImportsDir, addPlugin, installModule, hasNuxtModule } from '@nuxt/kit'
+import { createResolver, defineNuxtModule, addComponentsDir, addImportsDir, addPlugin, hasNuxtModule } from '@nuxt/kit'
 import type { HookResult } from '@nuxt/schema'
 import type { ColorModeTypeLight } from './runtime/types'
 import { addTemplates } from './templates'
@@ -13,7 +13,8 @@ export type * from './runtime/types'
 
 export interface ModuleOptions {
   /**
-   * Enable or disable `@nuxtjs/color-mode` module
+   * Enable or disable `@vueuse/core` color-mode integration
+   * @memo We not use `@nuxtjs/color-mode`
    * @defaultValue `true`
    * @link https://bitrix24.github.io/b24ui/guide/color-mode-nuxt.html
    */
@@ -61,6 +62,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     nuxt.options.alias['#b24ui'] = resolve('./runtime')
 
+    nuxt.options.appConfig.version = version
     nuxt.options.appConfig.b24ui = defu(nuxt.options.appConfig.b24ui || {}, getDefaultUiConfig())
 
     // Isolate root node from portaled components
@@ -74,27 +76,6 @@ export default defineNuxtModule<ModuleOptions>({
     })
     if (nuxt.options.builder !== '@nuxt/vite-builder') {
       nuxt.options.postcss.plugins['@tailwindcss/postcss'] = {}
-    }
-
-    async function registerModule(name: string, key: string, options: Record<string, any>) {
-      if (!hasNuxtModule(name)) {
-        await installModule(name, defu((nuxt.options as any)[key], options))
-      } else {
-        (nuxt.options as any)[key] = defu((nuxt.options as any)[key], options)
-      }
-    }
-
-    if (options.colorMode) {
-      await registerModule('@nuxtjs/color-mode', 'colorMode', {
-        classSuffix: '',
-        disableTransition: true,
-        fallback: 'light',
-        dataValue: {
-          system: 'system',
-          light: options.colorModeTypeLight,
-          dark: 'dark'
-        }
-      })
     }
 
     addPlugin({ src: resolve('./runtime/plugins/colors') })
@@ -155,16 +136,17 @@ export default defineNuxtModule<ModuleOptions>({
       })
     }
 
-    if (hasNuxtModule('@nuxtjs/color-mode')) {
+    // region ColorMode ////
+    if (options.colorMode) {
       addComponentsDir({
         path: resolve('./runtime/components/color-mode'),
         pathPrefix: false,
         prefix: 'B24'
       })
-    } else {
-      // Stub `useColorMode` composable used in `DashboardSearch` and `ContentSearch` components
-      addImportsDir(resolve('./runtime/composables/color-mode'))
     }
+    // Stub `useColorMode` composable used in `DashboardSearch` and `ContentSearch` components
+    addImportsDir(resolve('./runtime/composables/color-mode'))
+    // endregion ////
 
     addComponentsDir({
       path: resolve('./runtime/components'),

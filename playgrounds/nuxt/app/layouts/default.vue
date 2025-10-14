@@ -5,29 +5,14 @@ import { useTextDirection } from '@vueuse/core'
 import usePageMeta from '~/composables/usePageMeta'
 import AlignRightIcon from '@bitrix24/b24icons-vue/outline/AlignRightIcon'
 import AlignLeftIcon from '@bitrix24/b24icons-vue/outline/AlignLeftIcon'
-import SunIcon from '@bitrix24/b24icons-vue/main/SunIcon'
-import SunIconAir from '@bitrix24/b24icons-vue/outline/SunIcon'
-import MoonIcon from '@bitrix24/b24icons-vue/main/MoonIcon'
-import MoonIconAir from '@bitrix24/b24icons-vue/outline/MoonIcon'
-import type { DropdownMenuItem, NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
+import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
 
-const route = useRoute()
-const router = useRouter()
 const appConfig = useAppConfig()
-
-const { groups } = useNavigation()
-
-type colorMode = 'dark' | 'light' | 'edge-dark' | 'edge-light'
-
-const colorMode = useColorMode()
-if (colorMode.value === 'system') {
-  colorMode.preference = 'edge-dark'
-}
-
-const mode = ref<colorMode>(colorMode.value as colorMode)
-
 const dir = useTextDirection()
+const colorMode = useColorMode()
 const { isSidebarLayoutUseLightContent, isSidebarLayoutClearContent, checkedUseLightContent } = useRouteCheck()
+
+const modeContext = ref<string>((appConfig?.colorModeTypeLight || 'light') as string)
 
 useHead({
   title: 'Bitrix24 UI - Playground',
@@ -37,96 +22,36 @@ useHead({
   ],
   htmlAttrs: {
     lang: 'en',
-    dir: computed(() => appConfig.dir as 'ltr' | 'rtl')
+    dir: computed(() => appConfig.dir as 'ltr' | 'rtl'),
+    class: computed(() => [modeContext.value])
   }
 })
 
-const isCommandPaletteOpen = ref(false)
+const route = useRoute()
+const router = useRouter()
+
+const isDark = computed({
+  get() {
+    return colorMode.value === 'dark'
+  },
+  set(_isDark: boolean) {
+    colorMode.preference = _isDark ? 'dark' : appConfig.colorModeTypeLight
+    // modeContext.value = _isDark ? 'dark' : appConfig.colorModeTypeLight
+  }
+})
+
+function toggleMode() {
+  isDark.value = !isDark.value
+}
 
 function toggleDir() {
   dir.value = dir.value === 'ltr' ? 'rtl' : 'ltr'
 }
 
-const itemsForColorMode = computed<DropdownMenuItem[]>(() => [
-  {
-    label: 'dark',
-    code: 'dark',
-    icon: MoonIcon,
-    active: mode.value === 'dark',
-    checked: mode.value === 'dark',
-    type: 'checkbox' as DropdownMenuItem['type'],
-    onSelect(e: Event) {
-      mode.value = 'dark'
-      colorMode.preference = 'dark'
-      e.preventDefault()
-    }
-  },
-  {
-    label: 'light',
-    code: 'light',
-    icon: SunIcon,
-    active: mode.value === 'light',
-    checked: mode.value === 'light',
-    type: 'checkbox' as DropdownMenuItem['type'],
-    onSelect(e: Event) {
-      mode.value = 'light'
-      colorMode.preference = 'light'
-      e.preventDefault()
-    }
-  },
-  {
-    label: 'edge-dark',
-    code: 'edge-dark',
-    icon: MoonIconAir,
-    active: mode.value === 'edge-dark',
-    checked: mode.value === 'edge-dark',
-    type: 'checkbox' as DropdownMenuItem['type'],
-    onSelect(e: Event) {
-      mode.value = 'edge-dark'
-      colorMode.preference = 'edge-dark'
-      e.preventDefault()
-    }
-  },
-  {
-    label: 'edge-light',
-    code: 'edge-light',
-    icon: SunIconAir,
-    active: mode.value === 'edge-light',
-    checked: mode.value === 'edge-light',
-    type: 'checkbox' as DropdownMenuItem['type'],
-    onSelect(e: Event) {
-      mode.value = 'edge-light'
-      colorMode.preference = 'edge-light'
-      e.preventDefault()
-    }
-  }
-])
-
-function toggleMode() {
-  switch (mode.value) {
-    case 'dark':
-      mode.value = 'light'
-      colorMode.preference = 'light'
-      break
-    case 'light':
-      mode.value = 'edge-dark'
-      colorMode.preference = 'edge-dark'
-      break
-    case 'edge-dark':
-      mode.value = 'edge-light'
-      colorMode.preference = 'edge-light'
-      break
-    case 'edge-light':
-    default:
-      mode.value = 'dark'
-      colorMode.preference = 'dark'
-      break
-  }
+function toggleModeContext() {
+  colorMode.preference = modeContext.value === 'dark' ? 'dark' : 'light'
 }
 
-/**
- * Use for change context in containerWrapper
- */
 const getLightContent = computed(() => {
   const result = {
     containerWrapper: ''
@@ -136,34 +61,12 @@ const getLightContent = computed(() => {
     return result
   }
 
-  switch (mode.value) {
-    case 'dark':
-      result.containerWrapper = 'dark'
-      break
-    default:
-      result.containerWrapper = 'light'
-      break
-  }
+  result.containerWrapper = isDark.value ? 'dark' : 'light'
 
   return result
 })
 
-const colorModeIcon = computed(() => {
-  const theme = itemsForColorMode.value.find((row) => {
-    return row.code === mode.value
-  })
-
-  if (theme) {
-    return theme.icon
-  }
-
-  return MoonIcon
-})
-
 defineShortcuts({
-  ctrl_k: () => {
-    isCommandPaletteOpen.value = true
-  },
   ctrl_arrowleft: () => {
     if (route.path === '/') {
       return
@@ -177,10 +80,6 @@ defineShortcuts({
     toggleMode()
   }
 })
-
-const handleSidebarLayoutLoadingAction = async () => {
-  await new Promise(resolve => setTimeout(resolve, 2_000))
-}
 
 const menuTop = computed<NavigationMenuItem[]>(() => {
   return [
@@ -200,11 +99,13 @@ const menuTop = computed<NavigationMenuItem[]>(() => {
     }))
   ]
 })
+
+const { groups } = useNavigation()
 </script>
 
 <template>
   <B24DashboardGroup>
-    <!-- // @see playground/app/assets/css/main.css -->
+    <!-- // @see playgrounds/nuxt/app/assets/css/main.css -->
     <B24SidebarLayout
       :use-light-content="isSidebarLayoutUseLightContent"
       :b24ui="getLightContent"
@@ -253,39 +154,24 @@ const menuTop = computed<NavigationMenuItem[]>(() => {
         </B24NavbarSection>
         <B24NavbarSpacer />
         <B24NavbarSection class="flex-row items-center justify-start gap-4">
-          <B24Tooltip text="Search" :kbds="['meta', 'K']">
-            <B24DashboardSearchButton collapsed />
+          <B24DashboardSearchButton size="sm" rounded :collapsed="false" :kbds="[{ value: 'meta', size: 'sm' }, { value: 'K', size: 'sm' }]" />
+          <B24Tooltip :content="{ side: 'bottom' }" text="Switch color mode" :kbds="['shift', 'D']">
+            <B24ColorModeSelect rounded size="sm" class="w-[100px]" :content="{ align: 'end', side: 'bottom' }" />
           </B24Tooltip>
-          <ClientOnly>
-            <B24DropdownMenu
-              arrow
-              :items="itemsForColorMode"
-            >
-              <B24Tooltip :content="{ side: 'bottom' }" :text="`Switch to next mode`" :kbds="['shift', 'D']">
-                <B24Button
-                  :icon="colorModeIcon"
-                  aria-label="Switch to next mode"
-                  color="air-secondary-accent"
-                  size="xs"
-                  rounded
-                  use-dropdown
-                  :label="mode"
-                />
-              </B24Tooltip>
-            </B24DropdownMenu>
-          </ClientOnly>
+          <B24RadioGroup
+            v-model="modeContext"
+            class="hidden lg:inline-flex"
+            :items="['dark', 'light', 'edge-dark', 'edge-light']"
+            size="xs"
+            orientation="horizontal"
+            variant="table"
+            indicator="hidden"
+            @change="toggleModeContext"
+          />
           <B24Switch
             v-model="checkedUseLightContent"
             :disabled="isSidebarLayoutClearContent"
-            size="xs"
-          />
-          <B24Button
-            label="Reload"
-            color="air-secondary-accent"
-            rounded
-            size="xs"
-            loading-auto
-            @click="handleSidebarLayoutLoadingAction"
+            size="sm"
           />
           <B24Tooltip :content="{ side: 'bottom' }" :text="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', 'L']">
             <B24Button

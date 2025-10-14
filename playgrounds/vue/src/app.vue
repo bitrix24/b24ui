@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { NavigationMenuItem, SidebarLayoutInstance } from '@bitrix24/b24ui-nuxt'
+import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
 import { reactive, ref, computed } from 'vue'
 import { useHead } from '@unhead/vue'
 import { useRouter, useRoute } from 'vue-router'
@@ -31,6 +31,7 @@ useHead({
     { name: 'description', content: 'Explore and test all Bitrix24 UI components in an interactive environment' }
   ],
   htmlAttrs: {
+    lang: 'en',
     dir: computed(() => appConfig.dir as 'ltr' | 'rtl'),
     class: computed(() => { return [modeContext.value] })
   }
@@ -90,8 +91,6 @@ defineShortcuts({
   }
 })
 
-const currentSidebarRef = ref<SidebarLayoutInstance | null>(null)
-
 const menuTop = computed<NavigationMenuItem[]>(() => {
   return [
     {
@@ -119,7 +118,6 @@ const { groups } = useNavigation()
     <B24DashboardGroup>
       <!-- // @see nuxt/vue/src/assets/css/main.css -->
       <B24SidebarLayout
-        ref="currentSidebarRef"
         :use-light-content="isSidebarLayoutUseLightContent"
         :b24ui="getLightContent"
       >
