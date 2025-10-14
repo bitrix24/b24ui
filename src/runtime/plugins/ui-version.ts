@@ -5,7 +5,7 @@ import { defineNuxtPlugin, useHead, useAppConfig } from '#imports'
  */
 export default defineNuxtPlugin(() => {
   const appConfig = useAppConfig()
-  const version = appConfig.version || '__B24UI_VERSION__'
+  const version = (appConfig.version || '__B24UI_VERSION__') as string
 
   // Head
   useHead({

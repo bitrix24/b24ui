@@ -43,7 +43,7 @@ export const useColorMode = () => {
     attribute: 'class',
     modes: {
       auto: 'auto',
-      light: appConfig?.colorModeTypeLight || 'light',
+      light: (appConfig?.colorModeTypeLight || 'light') as string,
       dark: 'dark'
     }
   })

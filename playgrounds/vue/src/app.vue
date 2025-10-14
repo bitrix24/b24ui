@@ -172,8 +172,8 @@ const { groups } = useNavigation()
               <B24ColorModeSelect rounded size="sm" class="w-[100px]" :content="{ align: 'end', side: 'bottom' }" />
             </B24Tooltip>
             <B24RadioGroup
-              class="hidden lg:inline-flex"
               v-model="modeContext"
+              class="hidden lg:inline-flex"
               :items="['dark', 'light', 'edge-dark', 'edge-light']"
               size="xs"
               orientation="horizontal"

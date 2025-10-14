@@ -4,7 +4,7 @@ export const getDefaultUiConfig = () => ({})
 
 export const defaultOptions = {
   colorMode: true,
-  colorModeTypeLight: 'light',
+  colorModeTypeLight: 'light' as const,
   version,
   mdc: false,
   content: true
