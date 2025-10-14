@@ -17,7 +17,7 @@ useHead({
     { rel: 'canonical', href: `https://bitrix24.github.io/b24ui${withTrailingSlash(route.path)}` }
   ],
   style: [],
-  htmlAttrs: { lang: 'en', class: `edge-dark` }
+  htmlAttrs: { lang: 'en', class: `` }
 })
 
 useServerSeoMeta({

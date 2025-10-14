@@ -14,7 +14,8 @@ export default {
       'rounded-(--ui-border-radius-md)',
       'inline-block',
       'ring ring-inset',
-      'text-(--b24ui-color) bg-(--b24ui-background) ring-(--b24ui-border-color)'
+      'text-(--b24ui-color) bg-(--b24ui-background) ring-(--b24ui-border-color)',
+      'dark:bg-(--b24ui-background)'
     ].join(' ')
   },
   variants: {
@@ -24,7 +25,7 @@ export default {
       'air-primary-alert': { base: 'style-filled-alert' },
       'air-primary-copilot': { base: 'style-filled-copilot' },
       'air-primary-warning': { base: 'style-filled-warning' },
-      'air-secondary': { base: 'style-filled-black' }, // style-tinted-no-accent-1
+      'air-secondary': { base: 'style-tinted-no-accent-1' }, // style-filled-black
       'air-tertiary': { base: 'style-outline-no-accent' },
       // @deprecate ////
       'default': { base: 'style-old-default' },

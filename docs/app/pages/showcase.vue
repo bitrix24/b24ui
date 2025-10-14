@@ -1,14 +1,10 @@
 <script setup lang="ts">
+import { useColorMode } from '#imports'
+
 const { data: page } = await useAsyncData('showcase', () => queryCollection('showcase').first())
 if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
-
-useHead({
-  htmlAttrs: {
-    class: `edge-dark`
-  }
-})
 
 useSeoMeta({
   titleTemplate: '%s - Bitrix24 UI',
@@ -19,6 +15,11 @@ useSeoMeta({
 })
 
 // defineOgImageComponent('Docs')
+
+const colorMode = useColorMode()
+const isDark = computed(() => {
+  return colorMode.value === 'dark'
+})
 </script>
 
 <!-- eslint-disable vue/no-v-html -->
@@ -30,7 +31,11 @@ useSeoMeta({
       <Header show-logo-all-time />
     </template>
 
-    <B24Card v-if="page" class="mt-[22px] edge-dark">
+    <B24Card
+      v-if="page"
+      class="mt-[22px]"
+      :class="[isDark ? 'dark' : 'edge-dark']"
+    >
       <div class="min-h-[300px] h-auto lg:h-[calc(100vh-200px)] lg:pt-[12px] flex flex-cols items-center justify-between">
         <B24Alert color="air-primary-warning" title="We are still updating this page" description="Some data may be missing here — we will complete it shortly." />
       </div>

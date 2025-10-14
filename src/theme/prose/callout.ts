@@ -21,10 +21,10 @@ export default {
       'rounded-(--ui-border-radius-md)',
       // @memo use style-filled-black-inverted
       '[&_code]:text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm)',
-      '[&_code]:bg-(--ui-color-design-filled-black-content)',
+      '[&_code]:bg-(--ui-color-design-filled-black-content) dark:[&_code]:bg-(--ui-color-design-tinted-na-bg)',
       '[&_code]:text-(--ui-color-design-filled-black-bg)',
       // @memo use style-filled-black
-      '[&_pre]:bg-(--ui-color-design-filled-black-bg)',
+      '[&_pre]:bg-(--ui-color-design-filled-black-bg) [&_pre]:bg-(--ui-color-design-tinted-na-bg)',
       '[&>div]:my-2.5',
       '[&_ul]:my-2.5',
       '[&_ol]:my-2.5',

@@ -33,7 +33,7 @@ useHead({
   htmlAttrs: {
     lang: 'en',
     dir: computed(() => appConfig.dir as 'ltr' | 'rtl'),
-    class: computed(() => { return [modeContext.value] })
+    class: computed(() => [modeContext.value])
   }
 })
 

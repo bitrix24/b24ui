@@ -1,29 +1,49 @@
 <script setup lang="ts">
 import type { ContentNavigationItem } from '@nuxt/content'
 
-useHead({
-  htmlAttrs: { class: `edge-dark` }
-})
-
 const slots = defineSlots()
 const route = useRoute()
 
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 const { navigationMenuByCategory } = useNavigation(navigation!)
+
+const colorMode = useColorMode()
+
+const isDark = computed({
+  get() {
+    return colorMode.value === 'dark'
+  },
+  set(_isDark: boolean) {
+    colorMode.preference = _isDark ? 'dark' : 'light'
+  }
+})
+
+function toggleMode() {
+  isDark.value = !isDark.value
+}
+
+defineShortcuts({
+  shift_D: () => {
+    toggleMode()
+  }
+})
+
+const sidebarLayoutB24Ui = computed(() => {
+  return { containerWrapper: isDark.value ? 'dark' : 'light' }
+})
 </script>
 
 <template>
   <B24SidebarLayout
     :use-light-content="true"
+    :b24ui="sidebarLayoutB24Ui"
   >
     <template #sidebar>
       <B24SidebarHeader>
         <LogoWithVersion />
+        <FrameworkTabs />
       </B24SidebarHeader>
       <B24SidebarBody>
-        <div class="ps-[20px] pe-xs rtl:ps-xs rtl:pe-[20px] flex flex-row flex-nowrap items-center justify-start gap-[6px]">
-          <FrameworkTabs />
-        </div>
         <B24NavigationMenu
           :key="route.path"
           :items="navigationMenuByCategory"

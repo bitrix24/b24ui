@@ -5,5 +5,7 @@ export default defineAppConfig({
     max: 5,
     expand: true
   },
-  b24ui: {}
+  b24ui: {},
+  colorMode: true,
+  colorModeTypeLight: 'edge-dark' as const
 })

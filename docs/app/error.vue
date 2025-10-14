@@ -1,13 +1,6 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app'
 
-useHead({
-  htmlAttrs: {
-    // 'dark' | 'light' | 'edge-dark' | 'edge-light'
-    class: `edge-dark`
-  }
-})
-
 const props = defineProps<{
   error: NuxtError
 }>()

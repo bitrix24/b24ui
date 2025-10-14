@@ -35,8 +35,8 @@ const isDark = computed({
     return colorMode.value === 'dark'
   },
   set(_isDark: boolean) {
-    colorMode.preference = _isDark ? 'dark' : appConfig.colorModeTypeLight
-    // modeContext.value = _isDark ? 'dark' : appConfig.colorModeTypeLight
+    colorMode.preference = _isDark ? 'dark' : 'light'
+    modeContext.value = _isDark ? 'dark' : appConfig.colorModeTypeLight
   }
 })
 

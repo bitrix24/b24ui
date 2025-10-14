@@ -42,6 +42,7 @@ const { desktopLinks } = useHeader()
     <B24Tooltip text="Search" :kbds="['meta', 'K']">
       <B24ContentSearchButton />
     </B24Tooltip>
+    <B24ColorModeButton size="sm" :content="{ align: 'end', side: 'bottom' }" />
     <div class="hidden sm:flex flex-nowrap flex-row items-center justify-end gap-[4px]">
       <B24Button
         aria-label="Bitrix24 REST API"

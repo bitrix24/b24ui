@@ -1,14 +1,8 @@
 <script setup lang="ts">
 // import { joinURL } from 'ufo'
-import { navigateTo } from '#imports'
+import { navigateTo, useColorMode } from '#imports'
 import EncloseTextInCodeTagIcon from '@bitrix24/b24icons-vue/editor/EncloseTextInCodeTagIcon'
 import InfoCircleIcon from '@bitrix24/b24icons-vue/outline/InfoCircleIcon'
-
-useHead({
-  htmlAttrs: {
-    class: `edge-dark`
-  }
-})
 
 const { data: page } = await useAsyncData('index', () => queryCollection('index').first())
 if (!page.value) {
@@ -63,6 +57,11 @@ const iconFromIconName = (iconName?: string) => {
 
   return undefined
 }
+
+const colorMode = useColorMode()
+const isDark = computed(() => {
+  return colorMode.value === 'dark'
+})
 </script>
 
 <template>
@@ -73,7 +72,11 @@ const iconFromIconName = (iconName?: string) => {
       <Header show-logo-all-time />
     </template>
 
-    <B24Card v-if="page" class="mt-[22px] light">
+    <B24Card
+      v-if="page"
+      class="mt-[22px]"
+      :class="[isDark ? 'dark' : 'light']"
+    >
       <div class="pt-[88px] h-auto lg:h-[calc(100vh-200px)] lg:pt-[12px] grid content-center lg:grid-cols-12 gap-y-[54px] lg:gap-[22px] items-center justify-between">
         <div class="col-span-12 lg:col-start-2 lg:col-span-4 flex flex-col gap-[12px] text-center lg:text-right">
           <ProseH1 class="mb-0 leading-(--ui-font-line-height-3xs)">
