@@ -7,6 +7,7 @@ export default defineConfig({
   plugins: [
     vue(),
     bitrix24UIPluginVite({
+      colorModeTypeLight: 'edge-dark',
       b24ui: {},
       autoImport: {
         dirs: ['../nuxt/app/composables'],

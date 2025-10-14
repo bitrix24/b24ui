@@ -1,6 +1,7 @@
 import { defu } from 'defu'
 import { createResolver, defineNuxtModule, addComponentsDir, addImportsDir, addPlugin, installModule, hasNuxtModule } from '@nuxt/kit'
 import type { HookResult } from '@nuxt/schema'
+import type { ColorModeTypeLight } from './runtime/types'
 import { addTemplates } from './templates'
 import { defaultOptions, getDefaultUiConfig } from './defaults'
 import { name, version } from '../package.json'
@@ -17,6 +18,7 @@ export interface ModuleOptions {
    * @link https://bitrix24.github.io/b24ui/guide/color-mode-nuxt.html
    */
   colorMode?: boolean
+  colorModeTypeLight?: ColorModeTypeLight
   version?: string
   /**
    * Force the import of prose components even if `@nuxtjs/mdc` or `@nuxt/content` are not installed
@@ -85,7 +87,13 @@ export default defineNuxtModule<ModuleOptions>({
     if (options.colorMode) {
       await registerModule('@nuxtjs/color-mode', 'colorMode', {
         classSuffix: '',
-        disableTransition: true
+        disableTransition: true,
+        fallback: 'light',
+        dataValue: {
+          system: 'system',
+          light: options.colorModeTypeLight,
+          dark: 'dark'
+        }
       })
     }
 

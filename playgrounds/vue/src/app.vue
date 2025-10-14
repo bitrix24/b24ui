@@ -1,32 +1,29 @@
 <script setup lang="ts">
-import type { DropdownMenuItem, NavigationMenuItem, SidebarLayoutInstance } from '@bitrix24/b24ui-nuxt'
+import type { NavigationMenuItem, SidebarLayoutInstance } from '@bitrix24/b24ui-nuxt'
 import { reactive, ref, computed } from 'vue'
 import { useHead } from '@unhead/vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useNavigation } from '../../nuxt/app/composables/useNavigation'
 import usePageMeta from '../../nuxt/app/composables/usePageMeta'
 import { useRouteCheck } from '../../nuxt/app/composables/useRouteCheck'
-import { useColorMode, useTextDirection } from '@vueuse/core'
+import { useColorMode } from '#imports'
+import { useTextDirection } from '@vueuse/core'
 import AlignRightIcon from '@bitrix24/b24icons-vue/outline/AlignRightIcon'
 import AlignLeftIcon from '@bitrix24/b24icons-vue/outline/AlignLeftIcon'
-import SunIcon from '@bitrix24/b24icons-vue/main/SunIcon'
-import SunIconAir from '@bitrix24/b24icons-vue/outline/SunIcon'
-import MoonIcon from '@bitrix24/b24icons-vue/main/MoonIcon'
-import MoonIconAir from '@bitrix24/b24icons-vue/outline/MoonIcon'
 
 const appConfig = useAppConfig()
+const dir = useTextDirection()
+const colorMode = useColorMode()
+const { isSidebarLayoutUseLightContent, isSidebarLayoutClearContent, checkedUseLightContent } = useRouteCheck()
 
-const mode = useColorMode<'light' | 'dark' | 'edgeLight' | 'edgeDark'>({
-  attribute: 'class',
-  modes: {
-    light: 'light',
-    dark: 'dark',
-    edgeLight: 'edge-light',
-    edgeDark: 'edge-dark'
+const isDark = computed({
+  get() {
+    return colorMode.value === 'dark'
+  },
+  set(_isDark: boolean) {
+    colorMode.preference = _isDark ? 'dark' : 'light'
   }
 })
-const dir = useTextDirection()
-const { isSidebarLayoutUseLightContent, isSidebarLayoutClearContent, checkedUseLightContent } = useRouteCheck()
 
 appConfig.toaster = reactive({
   position: 'top-right' as const,
@@ -55,73 +52,8 @@ function toggleDir() {
   dir.value = dir.value === 'ltr' ? 'rtl' : 'ltr'
 }
 
-const itemsForColorMode = computed<DropdownMenuItem[]>(() => [
-  {
-    label: 'dark',
-    code: 'dark',
-    icon: MoonIcon,
-    active: mode.value === 'dark',
-    checked: mode.value === 'dark',
-    type: 'checkbox' as DropdownMenuItem['type'],
-    onSelect(e: Event) {
-      mode.value = 'dark'
-      e.preventDefault()
-    }
-  },
-  {
-    label: 'light',
-    code: 'light',
-    icon: SunIcon,
-    active: mode.value === 'light',
-    checked: mode.value === 'light',
-    type: 'checkbox' as DropdownMenuItem['type'],
-    onSelect(e: Event) {
-      mode.value = 'light'
-      e.preventDefault()
-    }
-  },
-  {
-    label: 'edge-dark',
-    code: 'edgeDark',
-    icon: MoonIconAir,
-    active: mode.value === 'edgeDark',
-    checked: mode.value === 'edgeDark',
-    type: 'checkbox' as DropdownMenuItem['type'],
-    onSelect(e: Event) {
-      mode.value = 'edgeDark'
-      e.preventDefault()
-    }
-  },
-  {
-    label: 'edge-light',
-    code: 'edgeLight',
-    icon: SunIconAir,
-    active: mode.value === 'edgeLight',
-    checked: mode.value === 'edgeLight',
-    type: 'checkbox' as DropdownMenuItem['type'],
-    onSelect(e: Event) {
-      mode.value = 'edgeLight'
-      e.preventDefault()
-    }
-  }
-])
-
 function toggleMode() {
-  switch (mode.value) {
-    case 'dark':
-      mode.value = 'light'
-      break
-    case 'light':
-      mode.value = 'edgeDark'
-      break
-    case 'edgeDark':
-      mode.value = 'edgeLight'
-      break
-    case 'edgeLight':
-    default:
-      mode.value = 'dark'
-      break
-  }
+  isDark.value = !isDark.value
 }
 
 /**
@@ -136,28 +68,9 @@ const getLightContent = computed(() => {
     return result
   }
 
-  switch (mode.value) {
-    case 'dark':
-      result.containerWrapper = 'dark'
-      break
-    default:
-      result.containerWrapper = 'light'
-      break
-  }
+  result.containerWrapper = isDark.value ? 'dark' : 'light'
 
   return result
-})
-
-const colorModeIcon = computed(() => {
-  const theme = itemsForColorMode.value.find((row) => {
-    return row.code === mode.value
-  })
-
-  if (theme) {
-    return theme.icon
-  }
-
-  return MoonIcon
 })
 
 defineShortcuts({
@@ -271,22 +184,7 @@ const { groups } = useNavigation()
             <B24Tooltip text="Search" :kbds="['meta', 'K']">
               <B24DashboardSearchButton collapsed />
             </B24Tooltip>
-            <B24DropdownMenu
-              arrow
-              :items="itemsForColorMode"
-            >
-              <B24Tooltip :content="{ side: 'bottom' }" :text="`Switch to next mode`" :kbds="['shift', 'D']">
-                <B24Button
-                  :icon="colorModeIcon"
-                  aria-label="Switch to next mode"
-                  color="air-secondary-accent"
-                  size="xs"
-                  rounded
-                  use-dropdown
-                  :label="mode"
-                />
-              </B24Tooltip>
-            </B24DropdownMenu>
+            <B24ColorModeSelect rounded size="xs" class="w-[100px]" :content="{ align: 'end', side: 'bottom' }" />
             <B24Switch
               v-model="checkedUseLightContent"
               :disabled="isSidebarLayoutClearContent"

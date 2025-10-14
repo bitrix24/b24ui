@@ -39,7 +39,14 @@ export const useColorMode = () => {
     }
   }
 
-  const { store, system } = useColorModeVueUse()
+  const { store, system } = useColorModeVueUse({
+    attribute: 'class',
+    modes: {
+      auto: 'auto',
+      light: appConfig?.colorModeTypeLight || 'light',
+      dark: 'dark'
+    }
+  })
 
   return {
     get preference() { return store.value === 'auto' ? 'system' : store.value },
