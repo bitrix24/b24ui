@@ -1,12 +1,11 @@
 /**
  * ProseCodePreview
  * ---
- * @todo fix color
  */
 export default {
   slots: {
     root: 'my-5',
-    preview: 'flex justify-center border border-muted relative p-4 rounded-md',
+    preview: 'flex justify-center border border-(--ui-color-design-tinted-na-stroke) relative p-4 rounded-md',
     code: '[&>div>pre]:rounded-t-none [&>div]:my-0'
   },
   variants: {
