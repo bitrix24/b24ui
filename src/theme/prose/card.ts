@@ -9,6 +9,7 @@ export default {
       'group',
       'relative block',
       'my-5 p-4 sm:p-6',
+      'text-(--b24ui-color)',
       'border border-(--ui-color-design-tinted-na-stroke)',
       'bg-(--b24ui-background)',
       'rounded-md',
@@ -16,7 +17,7 @@ export default {
     ].join(' '),
     icon: 'size-6 mb-2 block text-(--b24ui-icon)',
     title: 'text-(--b24ui-color) font-semibold',
-    description: 'text-[15px] text-(--b24ui-color) *:first:mt-0 *:last:mb-0 *:my-1',
+    description: 'text-[15px] text-(--b24ui-color) [&_p]:text-(--b24ui-color) *:first:mt-0 *:last:mb-0 *:my-1',
     externalIcon: [
       'size-4',
       'align-top',
@@ -57,7 +58,7 @@ export default {
       class: {
         base: 'hover:bg-(--ui-color-bg-content-secondary) hover:border-(--b24ui-border-color-hover)',
         title: 'group-hover:text-(--b24ui-border-color)',
-        description: 'group-hover:text-(--b24ui-border-color)',
+        description: 'group-hover:text-(--b24ui-border-color) [&_p]:group-hover:text-(--b24ui-border-color)',
         externalIcon: 'group-hover:text-(--b24ui-icon)'
       }
     }
