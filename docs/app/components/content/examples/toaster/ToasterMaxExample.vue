@@ -8,9 +8,9 @@ const appConfig = useAppConfig()
       label="toaster.max"
     >
       <B24InputNumber
+        v-model="appConfig.toaster.max"
         :min="0"
         :max="100"
-        v-model="appConfig.toaster.max"
       />
     </B24FormField>
   </div>

@@ -8,11 +8,9 @@ const appConfig = useAppConfig()
       label="toaster.duration"
     >
       <B24InputNumber
-        :min="0"
-        :format-options="{
-          style: 'decimal'
-        }"
         v-model="appConfig.toaster.duration"
+        :min="0"
+        :format-options="{ style: 'decimal' }"
       />
     </B24FormField>
   </div>
