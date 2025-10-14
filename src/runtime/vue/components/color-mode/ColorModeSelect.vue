@@ -21,9 +21,9 @@ const colorMode = useColorMode()
 // const appConfig = useAppConfig()
 
 const items = computed(() => [
-  { label: t('colorMode.system'), value: 'system', icon: icons.system },
-  { label: t('colorMode.light'), value: 'light', icon: icons.light },
-  { label: t('colorMode.dark'), value: 'dark', icon: icons.dark }
+  { label: t('colorMode.system'), value: 'system' as const, icon: icons.system },
+  { label: t('colorMode.light'), value: 'light' as const, icon: icons.light },
+  { label: t('colorMode.dark'), value: 'dark' as const, icon: icons.dark }
 ])
 
 const preference = computed({
