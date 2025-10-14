@@ -113,10 +113,29 @@ const pages = [
   '/docs/components/color-mode-switch/',
   // endregion ////
   // region i18n ////
-  '/docs/components/locale-select/'
+  '/docs/components/locale-select/',
   // endregion ////
   // region Prose ////
-  // // '/docs/prose/***/'
+  '/docs/typography/',
+  '/docs/typography/headers-and-text/',
+  '/docs/typography/lists-and-tables/',
+  '/docs/typography/images-and-embeds/',
+  '/docs/typography/accordion/',
+  '/docs/typography/badge/',
+  '/docs/typography/callout/',
+  '/docs/typography/card/',
+  '/docs/typography/card-group/',
+  '/docs/typography/code-collapse/',
+  '/docs/typography/code-group/',
+  '/docs/typography/code-preview/',
+  // '/docs/typography/code-tree/',
+  '/docs/typography/collapsible/',
+  '/docs/typography/field/',
+  '/docs/typography/field-group/',
+  // '/docs/typography/icon/',
+  '/docs/typography/kbd/',
+  '/docs/typography/steps/',
+  '/docs/typography/tabs/'
   // endregion ////
 ]
 

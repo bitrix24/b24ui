@@ -18,6 +18,11 @@ export function useHeader() {
       active: route.path.startsWith('/docs/composables')
     },
     {
+      label: 'Typography',
+      to: '/docs/typography/',
+      active: route.path.startsWith('/docs/typography')
+    },
+    {
       label: 'Templates',
       to: '/templates/'
     },
