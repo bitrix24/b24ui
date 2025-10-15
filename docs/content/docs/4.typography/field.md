@@ -1,6 +1,6 @@
 ---
 title: Field
-description: 'Provide clear and comprehensive documentation for the API's configurable elements.'
+description: Provide clear and comprehensive documentation for the API configurable elements.
 category: components
 links:
   - label: GitHub
