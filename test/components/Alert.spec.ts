@@ -1,4 +1,6 @@
 import { describe, it, expect } from 'vitest'
+import { axe } from 'vitest-axe'
+import { mountSuspended } from '@nuxt/test-utils/runtime'
 import Alert from '../../src/runtime/components/Alert.vue'
 import type { AlertProps, AlertSlots } from '../../src/runtime/components/Alert.vue'
 import ComponentRender from '../component-render'
@@ -19,7 +21,7 @@ describe('Alert', () => {
     ['with orientation horizontal', { props: { ...props, icon: SignIcon, description: 'This is a description', actions: [{ label: 'Action' }], orientation: 'horizontal' as const } }],
     ['with close', { props: { ...props, close: true } }],
     ['with closeIcon', { props: { ...props, close: true, closeIcon: Cross30Icon } }],
-    [`with success`, { props: { ...props, color: 'success' as const } }],
+    [`with success`, { props: { ...props, color: 'air-primary-success' as const } }],
     ['with as', { props: { ...props, as: 'article' } }],
     ['with class', { props: { ...props, class: 'w-48' } }],
     ['with b24ui', { props: { ...props, b24ui: { title: 'font-bold' } } }],
@@ -31,5 +33,23 @@ describe('Alert', () => {
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: AlertProps, slots?: Partial<AlertSlots> }) => {
     const html = await ComponentRender(nameOrHtml, options, Alert)
     expect(html).toMatchSnapshot()
+  })
+
+  it('passes accessibility tests', async () => {
+    const wrapper = await mountSuspended(Alert, {
+      props: {
+        title: 'Alert',
+        icon: SignIcon,
+        description: 'This is a description',
+        actions: [{ label: 'Action' }],
+        close: true,
+        avatar: {
+          src: 'https://github.com/bitrix24.png',
+          alt: 'Some User'
+        }
+      }
+    })
+
+    expect(await axe(wrapper.element)).toHaveNoViolations()
   })
 })

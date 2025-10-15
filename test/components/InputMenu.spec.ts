@@ -1,12 +1,14 @@
 import { describe, it, expect, test } from 'vitest'
+import { axe } from 'vitest-axe'
+import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { flushPromises, mount } from '@vue/test-utils'
 import InputMenu from '../../src/runtime/components/InputMenu.vue'
 import type { InputMenuProps, InputMenuSlots } from '../../src/runtime/components/InputMenu.vue'
-import ComponentRender from '../component-render'
-import theme from '#build/b24ui/input'
-import { renderForm } from '../utils/form'
-import { flushPromises, mount } from '@vue/test-utils'
 import type { FormInputEvents } from '../../src/module'
+import ComponentRender from '../component-render'
+import { renderForm } from '../utils/form'
 import { expectEmitPayloadType } from '../utils/types'
+import theme from '#build/b24ui/input'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 
 describe('InputMenu', () => {
@@ -16,7 +18,7 @@ describe('InputMenu', () => {
     label: 'Backlog',
     value: 'backlog',
     icon: SignIcon,
-    color: 'collab'
+    color: 'air-primary' as const
   }, {
     label: 'Todo',
     value: 'todo',
@@ -63,7 +65,7 @@ describe('InputMenu', () => {
     ['with arrow', { props: { ...props, arrow: true } }],
     ['with virtualize', { props: { ...props, virtualize: true } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { ...props, size } }]),
-    [`with success`, { props: { ...props, color: 'success' } }],
+    [`with success`, { props: { ...props, color: 'air-primary-success' } }],
     ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
     ['with as', { props: { ...props, as: 'section' } }],
     ['with class', { props: { ...props, class: 'absolute' } }],
@@ -80,6 +82,21 @@ describe('InputMenu', () => {
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: InputMenuProps, slots?: Partial<InputMenuSlots> }) => {
     const html = await ComponentRender(nameOrHtml, options, InputMenu)
     expect(html).toMatchSnapshot()
+  })
+
+  it('passes accessibility tests', async () => {
+    const wrapper = await mountSuspended(InputMenu, {
+      props: {
+        items,
+        modelValue: items[0],
+        placeholder: 'Select an item',
+        icon: SignIcon,
+        trailingIcon: SignIcon,
+        required: true
+      }
+    })
+
+    expect(await axe(wrapper.element)).toHaveNoViolations()
   })
 
   describe('emits', () => {

@@ -1,10 +1,11 @@
 import { h, defineComponent } from 'vue'
 import { describe, it, expect, test } from 'vitest'
+import { axe } from 'vitest-axe'
+import { mountSuspended } from '@nuxt/test-utils/runtime'
 import ContextMenu from '../../src/runtime/components/ContextMenu.vue'
 import type { ContextMenuProps, ContextMenuSlots } from '../../src/runtime/components/ContextMenu.vue'
-// import theme from '#build/b24ui/context-menu'
-import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { expectSlotProps } from '../utils/types'
+// import theme from '#build/b24ui/context-menu'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
 
@@ -102,6 +103,16 @@ describe('ContextMenu', () => {
     await wrapper.find('span').trigger('click.right')
 
     expect(wrapper.html()).toMatchSnapshot()
+  })
+
+  it('passes accessibility tests', async () => {
+    const wrapper = await mountSuspended(ContextMenuWrapper, {
+      props
+    })
+
+    await wrapper.find('span').trigger('click.right')
+
+    expect(await axe(wrapper.element)).toHaveNoViolations()
   })
 
   test('should have the correct types', () => {

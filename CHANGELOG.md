@@ -92,6 +92,7 @@
 * docs(app): implement AI search
 * doc(Component): added components for displaying props, slots, etc
 * chore(style): fix var(--b24ui-header-h`eight)
+* test(components): add a11y tests
 
 ### ⚠ BREAKING CHANGES
 * **FieldGroup**: rename from `ButtonGroup`

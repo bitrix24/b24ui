@@ -1,5 +1,6 @@
 import { h, ref, computed } from 'vue'
 import { describe, it, expect } from 'vitest'
+import { axe } from 'vitest-axe'
 import { flushPromises } from '@vue/test-utils'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { B24Checkbox, B24Button, B24Badge, B24DropdownMenu } from '#components'
@@ -53,12 +54,12 @@ describe('Table', () => {
       header: ({ table }) => h(B24Checkbox, {
         'modelValue': table.getIsSomePageRowsSelected() ? 'indeterminate' : table.getIsAllPageRowsSelected(),
         'onUpdate:modelValue': (value: boolean | 'indeterminate' | undefined) => table.toggleAllPageRowsSelected(!!value),
-        'ariaLabel': 'Select all'
+        'label': 'Select all'
       }),
       cell: ({ row }) => h(B24Checkbox, {
         'modelValue': row.getIsSelected(),
         'onUpdate:modelValue': (value: boolean | 'indeterminate' | undefined) => row.toggleSelected(!!value),
-        'ariaLabel': 'Select row'
+        'aria-label': 'Select row'
       }),
       enableSorting: false,
       enableHiding: false
@@ -158,9 +159,10 @@ describe('Table', () => {
           },
           items
         }, () => h(B24Button, {
-          icon: SignIcon,
-          color: 'air-primary-copilot',
-          class: 'ml-auto'
+          'icon': SignIcon,
+          'color': 'air-primary-copilot',
+          'class': 'ml-auto',
+          'aria-label': 'Actions'
         })))
       }
     }
@@ -197,6 +199,23 @@ describe('Table', () => {
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: TableProps, slots?: Partial<TableSlots> }) => {
     const html = await ComponentRender(nameOrHtml, options, Table)
     expect(html).toMatchSnapshot()
+  })
+
+  it('passes accessibility tests', async () => {
+    const wrapper = await mountSuspended(Table, {
+      props: {
+        ...props,
+        columns: columns as any,
+        caption: 'Table caption'
+      }
+    })
+    expect(await axe(wrapper.element, {
+      rules: {
+        // This is just incorrect test setup, and generally something
+        // that is in the control of the developer using the component.
+        'empty-table-header': { enabled: false }
+      }
+    })).toHaveNoViolations()
   })
 
   it('reactive columns', async () => {

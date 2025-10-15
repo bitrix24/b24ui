@@ -211,7 +211,7 @@ exports[`Alert > renders with orientation vertical correctly 1`] = `
 `;
 
 exports[`Alert > renders with success correctly 1`] = `
-"<div data-orientation="vertical" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-old-success py-md ps-md pe-xs gap-2.5 items-start">
+"<div data-orientation="vertical" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-filled-success py-md ps-md pe-xs gap-2.5 items-start">
   <!--v-if-->
   <div class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
     <div class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>

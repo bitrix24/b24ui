@@ -1,13 +1,14 @@
-import { describe, it, expect, test } from 'vitest'
-import { flushPromises } from '@vue/test-utils'
-import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { reactive } from 'vue'
+import { describe, it, expect, test } from 'vitest'
+import { axe } from 'vitest-axe'
+import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { flushPromises } from '@vue/test-utils'
 import InputNumber from '../../src/runtime/components/InputNumber.vue'
 import type { InputNumberProps, InputNumberSlots } from '../../src/runtime/components/InputNumber.vue'
-import ComponentRender from '../component-render'
-import theme from '#build/b24ui/input-number'
 import type { FormInputEvents } from '../../src/module'
+import ComponentRender from '../component-render'
 import { renderForm } from '../utils/form'
+import theme from '#build/b24ui/input-number'
 import ArrowToTheLeftIcon from '@bitrix24/b24icons-vue/actions/ArrowToTheLeftIcon'
 import ArrowToTheRightIcon from '@bitrix24/b24icons-vue/actions/ArrowToTheRightIcon'
 
@@ -29,7 +30,7 @@ describe('InputNumber', () => {
     // @todo fix this
     // ...variants.map((variant: string) => [`with primary variant ${variant}`, { props: { variant } }]),
     // @todo fix this
-    // ...variants.map((variant: string) => [`with success variant ${variant}`, { props: { variant, color: 'success' } }]),
+    // ...variants.map((variant: string) => [`with success variant ${variant}`, { props: { variant, color: 'air-primary-success' } }]),
     ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
     ['with as', { props: { as: 'section' } }],
     ['with class', { props: { class: 'absolute' } }],
@@ -41,6 +42,19 @@ describe('InputNumber', () => {
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: InputNumberProps, slots?: Partial<InputNumberSlots> }) => {
     const html = await ComponentRender(nameOrHtml, options, InputNumber)
     expect(html).toMatchSnapshot()
+  })
+
+  it('passes accessibility tests', async () => {
+    const wrapper = await mountSuspended(InputNumber, {
+      props: {
+        placeholder: 'Enter a number',
+        required: true,
+        incrementIcon: ArrowToTheLeftIcon,
+        decrementIcon: ArrowToTheRightIcon
+      }
+    })
+
+    expect(await axe(wrapper.element)).toHaveNoViolations()
   })
 
   describe('emits', () => {

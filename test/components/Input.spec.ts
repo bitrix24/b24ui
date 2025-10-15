@@ -1,11 +1,13 @@
 import { describe, it, expect, test } from 'vitest'
+import { axe } from 'vitest-axe'
+import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { mount, flushPromises } from '@vue/test-utils'
 import Input from '../../src/runtime/components/Input.vue'
 import type { InputProps, InputSlots } from '../../src/runtime/components/Input.vue'
-import ComponentRender from '../component-render'
-import theme from '#build/b24ui/input'
-import { renderForm } from '../utils/form'
 import type { FormInputEvents } from '../../src/module'
+import ComponentRender from '../component-render'
+import { renderForm } from '../utils/form'
+import theme from '#build/b24ui/input'
 import ArrowToTheLeftIcon from '@bitrix24/b24icons-vue/actions/ArrowToTheLeftIcon'
 import ArrowToTheRightIcon from '@bitrix24/b24icons-vue/actions/ArrowToTheRightIcon'
 import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
@@ -38,7 +40,7 @@ describe('Input', () => {
     // @todo fix this
     // ...variants.map((variant: string) => [`with primary variant ${variant}`, { props: { variant } }]),
     // @todo fix this
-    // ...variants.map((variant: string) => [`with success variant ${variant}`, { props: { variant, color: 'success' } }]),
+    // ...variants.map((variant: string) => [`with success variant ${variant}`, { props: { variant, color: 'air-primary-success' } }]),
     ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
     ['with as', { props: { as: 'section' } }],
     ['with class', { props: { class: 'absolute' } }],
@@ -50,6 +52,16 @@ describe('Input', () => {
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: InputProps, slots?: Partial<InputSlots> }) => {
     const html = await ComponentRender(nameOrHtml, options, Input)
     expect(html).toMatchSnapshot()
+  })
+
+  it('passes accessibility tests', async () => {
+    const wrapper = await mountSuspended(Input, {
+      props: {
+        placeholder: 'Enter text...'
+      }
+    })
+
+    expect(await axe(wrapper.element)).toHaveNoViolations()
   })
 
   it.each([

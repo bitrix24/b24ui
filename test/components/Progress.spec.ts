@@ -1,4 +1,6 @@
 import { describe, it, expect } from 'vitest'
+import { axe } from 'vitest-axe'
+import { mountSuspended } from '@nuxt/test-utils/runtime'
 import Progress from '../../src/runtime/components/Progress.vue'
 import type { ProgressProps, ProgressSlots } from '../../src/runtime/components/Progress.vue'
 import ComponentRender from '../component-render'
@@ -20,7 +22,7 @@ describe('Progress', () => {
     ...sizes.map((size: string) => [`with size ${size}`, { props: { size } }]),
     ...orientations.map((orientation: string) => [`with orientation ${orientation}`, { props: { orientation } }]),
     ...animations.map((animation: string) => [`with animation ${animation}`, { props: { animation } }]),
-    ['with color success', { props: { color: 'success', modelValue: 50 } }],
+    ['with color success', { props: { color: 'air-primary-success', modelValue: 50 } }],
     ['with as', { props: { as: 'section' } }],
     ['with class', { props: { class: 'w-48' } }],
     ['with b24ui', { props: { b24ui: { base: 'bg-red-200' } } }],
@@ -29,5 +31,16 @@ describe('Progress', () => {
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: ProgressProps, slots?: Partial<ProgressSlots> }) => {
     const html = await ComponentRender(nameOrHtml, options, Progress)
     expect(html).toMatchSnapshot()
+  })
+
+  it('passes accessibility tests', async () => {
+    const wrapper = await mountSuspended(Progress, {
+      props: {
+        modelValue: 75,
+        status: true
+      }
+    })
+
+    expect(await axe(wrapper.element)).toHaveNoViolations()
   })
 })

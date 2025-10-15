@@ -1,4 +1,6 @@
 import { describe, it, expect, test } from 'vitest'
+import { axe } from 'vitest-axe'
+import { mountSuspended } from '@nuxt/test-utils/runtime'
 import NavigationMenu from '../../src/runtime/components/NavigationMenu.vue'
 import type { NavigationMenuProps, NavigationMenuSlots } from '../../src/runtime/components/NavigationMenu.vue'
 import ComponentRender from '../component-render'
@@ -107,6 +109,17 @@ describe('NavigationMenu', () => {
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: NavigationMenuProps, slots?: Partial<NavigationMenuSlots> }) => {
     const html = await ComponentRender(nameOrHtml, options, NavigationMenu)
     expect(html).toMatchSnapshot()
+  })
+
+  it('passes accessibility tests', async () => {
+    const wrapper = await mountSuspended(NavigationMenu, {
+      props: {
+        items,
+        modelValue: 'item-0'
+      }
+    })
+
+    expect(await axe(wrapper.element)).toHaveNoViolations()
   })
 
   test('should have the correct types', () => {

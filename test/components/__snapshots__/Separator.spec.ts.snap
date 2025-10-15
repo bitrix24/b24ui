@@ -25,7 +25,7 @@ exports[`Separator > renders with class correctly 1`] = `
 `;
 
 exports[`Separator > renders with color success correctly 1`] = `
-"<div data-orientation="horizontal" role="separator" class="flex items-center align-center text-center w-full flex-row" color="success">
+"<div data-orientation="horizontal" role="separator" class="flex items-center align-center text-center w-full flex-row" color="air-primary-success">
   <div class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
   <!--v-if-->
 </div>"

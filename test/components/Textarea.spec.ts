@@ -1,5 +1,7 @@
 import { describe, it, expect, test } from 'vitest'
-import { mount, flushPromises } from '@vue/test-utils'
+import { axe } from 'vitest-axe'
+import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { flushPromises, mount } from '@vue/test-utils'
 import Textarea from '../../src/runtime/components/Textarea.vue'
 import type { TextareaProps, TextareaSlots } from '../../src/runtime/components/Textarea.vue'
 import ComponentRender from '../component-render'
@@ -48,6 +50,19 @@ describe('Textarea', () => {
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: TextareaProps, slots?: Partial<TextareaSlots> }) => {
     const html = await ComponentRender(nameOrHtml, options, Textarea)
     expect(html).toMatchSnapshot()
+  })
+
+  it('passes accessibility tests', async () => {
+    const wrapper = await mountSuspended(Textarea, {
+      props: {
+        placeholder: 'Placeholder',
+        leadingIcon: Cross30Icon,
+        trailingIcon: Cross30Icon,
+        rows: 5,
+        required: true
+      }
+    })
+    expect(await axe(wrapper.element)).toHaveNoViolations()
   })
 
   it.each([

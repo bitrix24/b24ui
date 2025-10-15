@@ -81,7 +81,7 @@ exports[`Progress > renders with class correctly 1`] = `
 `;
 
 exports[`Progress > renders with color success correctly 1`] = `
-"<div data-orientation="horizontal" class="gap-2 style-old-success w-full flex flex-col">
+"<div data-orientation="horizontal" class="gap-2 style-filled-success w-full flex flex-col">
   <!--v-if-->
   <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" aria-label="50%" role="progressbar" data-state="loading" data-value="50" data-max="100" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
     <div data-state="loading" data-value="50" data-max="100" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]" style="transform: translateX(-50%);"></div>

@@ -1,4 +1,6 @@
 import { describe, it, expect, test } from 'vitest'
+import { axe } from 'vitest-axe'
+import { mountSuspended } from '@nuxt/test-utils/runtime'
 import Range from '../../src/runtime/components/Range.vue'
 import type { RangeProps } from '../../src/runtime/components/Range.vue'
 import ComponentRender from '../component-render'
@@ -22,7 +24,7 @@ describe('Range', () => {
     ['with min max step', { props: { min: 4, max: 12, step: 2 } }],
     ['with min steps between thumbs', { props: { defaultValue: [0, 30], minStepsBetweenThumbs: 30 } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { size } }]),
-    ['with color success', { props: { color: 'success', defaultValue: 10 } }],
+    ['with color success', { props: { color: 'air-primary-success', defaultValue: 10 } }],
     ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
     ['with as', { props: { as: 'section' } }],
     ['with class', { props: { class: 'w-48' } }],
@@ -30,6 +32,25 @@ describe('Range', () => {
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: RangeProps }) => {
     const html = await ComponentRender(nameOrHtml, options, Range)
     expect(html).toMatchSnapshot()
+  })
+
+  it('passes accessibility tests', async () => {
+    const wrapper = await mountSuspended(Range, {
+      props: {
+        modelValue: 10
+      }
+    })
+    expect(await axe(wrapper.element, {
+      rules: {
+        // "ARIA input fields must have an accessible name (aria-input-field-name)"
+
+        // Fix any of the following:
+        //   aria-label attribute does not exist or is empty
+        //   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty
+        //   Element has no title attribute
+        'aria-input-field-name': { enabled: false }
+      }
+    })).toHaveNoViolations()
   })
 
   describe('emits', () => {

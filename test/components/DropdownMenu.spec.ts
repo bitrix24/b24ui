@@ -1,16 +1,19 @@
 import { describe, it, expect, test } from 'vitest'
+import { axe } from 'vitest-axe'
+import { mountSuspended } from '@nuxt/test-utils/runtime'
 import DropdownMenu, { type DropdownMenuProps, type DropdownMenuSlots } from '../../src/runtime/components/DropdownMenu.vue'
 import ComponentRender from '../component-render'
-// import theme from '#build/b24ui/dropdown-menu'
 import { expectSlotProps } from '../utils/types'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
+// import theme from '#build/b24ui/dropdown-menu'
 
 describe('DropdownMenu', () => {
   const items = [
     [{
       label: 'My account',
       avatar: {
-        src: 'https://github.com/bitrix24.png'
+        src: 'https://github.com/bitrix24.png',
+        alt: 'Some User'
       },
       type: 'label'
     }],
@@ -107,6 +110,22 @@ describe('DropdownMenu', () => {
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: DropdownMenuProps, slots?: Partial<DropdownMenuSlots> }) => {
     const html = await ComponentRender(nameOrHtml, options, DropdownMenu)
     expect(html).toMatchSnapshot()
+  })
+
+  it('passes accessibility tests', async () => {
+    const wrapper = await mountSuspended(DropdownMenu, {
+      props
+    })
+
+    expect(await axe(wrapper.element, {
+      rules: {
+        // "Certain ARIA roles must contain particular children (aria-required-children)"
+        //
+        // Fix any of the following:
+        //  Element has children which are not allowed: img[tabindex]
+        'aria-required-children': { enabled: false }
+      }
+    })).toHaveNoViolations()
   })
 
   test('should have the correct types', () => {

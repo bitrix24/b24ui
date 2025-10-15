@@ -1,9 +1,11 @@
 import { describe, it, expect } from 'vitest'
-import theme from '#build/b24ui/input'
+import { axe } from 'vitest-axe'
+import { mountSuspended } from '@nuxt/test-utils/runtime'
 import InputTags from '../../src/runtime/components/InputTags.vue'
 import type { InputTagsProps, InputTagsSlots } from '../../src/runtime/components/InputTags.vue'
 import ComponentRender from '../component-render'
 import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
+import theme from '#build/b24ui/input'
 
 describe('InputTags', () => {
   const sizes = Object.keys(theme.variants.size) as any
@@ -34,5 +36,18 @@ describe('InputTags', () => {
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: InputTagsProps, slots?: Partial<InputTagsSlots>, attrs?: Record<string, unknown> }) => {
     const html = await ComponentRender(nameOrHtml, options, InputTags)
     expect(html).toMatchSnapshot()
+  })
+
+  it('passes accessibility tests', async () => {
+    const wrapper = await mountSuspended(InputTags, {
+      props: {
+        modelValue: ['tag1', 'tag2'],
+        placeholder: 'Add tags...',
+        required: true,
+        icon: Search2Icon
+      }
+    })
+
+    expect(await axe(wrapper.element)).toHaveNoViolations()
   })
 })

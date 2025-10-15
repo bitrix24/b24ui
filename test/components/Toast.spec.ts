@@ -1,5 +1,7 @@
 import { defineComponent } from 'vue'
 import { describe, it, expect } from 'vitest'
+import { axe } from 'vitest-axe'
+import { mountSuspended } from '@nuxt/test-utils/runtime'
 import Toaster from '../../src/runtime/components/Toaster.vue'
 import Toast from '../../src/runtime/components/Toast.vue'
 import type { ToastProps, ToastSlots } from '../../src/runtime/components/Toast.vue'
@@ -41,7 +43,7 @@ describe('Toast', () => {
     ['without close', { props: { ...props, close: false } }],
     ['with closeIcon', { props: { ...props, closeIcon: Cross30Icon } }],
     ['with type', { props: { ...props, type: 'background' as const } }],
-    ['with color success', { props: { ...props, color: 'success' as const } }],
+    ['with color success', { props: { ...props, color: 'air-primary-success' as const } }],
     ['with as', { props: { ...props, as: 'section' } }],
     ['with class', { props: { ...props, class: 'bg-red-500/50' } }],
     ['with b24ui', { props: { ...props, b24ui: { title: 'font-(--ui-font-weight-bold)' } } }],
@@ -53,5 +55,35 @@ describe('Toast', () => {
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: ToastProps, slots?: Partial<ToastSlots> }) => {
     const html = await ComponentRender(nameOrHtml, options, ToastWrapper)
     expect(html).toMatchSnapshot()
+  })
+
+  it('passes accessibility tests', async () => {
+    const wrapper = await mountSuspended(ToastWrapper, {
+      props: {
+        title: 'Title',
+        description: 'Description',
+        avatar: { src: 'https://github.com/bitrix24.png', alt: 'Some User' },
+        actions: [{ label: 'Action' }]
+      }
+    })
+    expect(await axe(wrapper.element, {
+      rules: {
+        // "ARIA role should be appropriate for the element (aria-allowed-role)"
+
+        // Fix any of the following:
+        //   ARIA role alert is not allowed for given element
+        'aria-allowed-role': { enabled: false },
+        // "ARIA hidden element must not be focusable or contain focusable elements (aria-hidden-focus)"
+
+        // Fix all of the following:
+        //   Focusable content should have tabindex="-1" or be removed from the DOM
+        'aria-hidden-focus': { enabled: false },
+        // "<ul> and <ol> must only directly contain <li>, <script> or <template> elements (list)"
+
+        // Fix all of the following:
+        //   List element has direct children that are not allowed: [role=alert]
+        'list': { enabled: false }
+      }
+    })).toHaveNoViolations()
   })
 })

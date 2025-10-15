@@ -1,4 +1,6 @@
 import { describe, it, expect } from 'vitest'
+import { axe } from 'vitest-axe'
+import { mountSuspended } from '@nuxt/test-utils/runtime'
 import Banner from '../../src/runtime/components/Banner.vue'
 import type { BannerProps, BannerSlots } from '../../src/runtime/components/Banner.vue'
 import ComponentRender from '../component-render'
@@ -30,5 +32,19 @@ describe('Banner', () => {
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: BannerProps, slots?: Partial<BannerSlots> }) => {
     const html = await ComponentRender(nameOrHtml, options, Banner)
     expect(html).toMatchSnapshot()
+  })
+
+  it('passes accessibility tests', async () => {
+    const wrapper = await mountSuspended(Banner, {
+      props: {
+        id: 'banner',
+        title: 'Title',
+        icon: SignIcon,
+        actions: [{ label: 'Learn more', icon: Cross30Icon }],
+        close: true
+      }
+    })
+
+    expect(await axe(wrapper.element)).toHaveNoViolations()
   })
 })

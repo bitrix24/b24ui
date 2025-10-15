@@ -1,17 +1,15 @@
 import { ref } from 'vue'
 import { describe, it, expect, test } from 'vitest'
+import { axe } from 'vitest-axe'
+import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { flushPromises } from '@vue/test-utils'
 import Button from '../../src/runtime/components/Button.vue'
 import type { ButtonProps, ButtonSlots } from '../../src/runtime/components/Button.vue'
 import ComponentRender from '../component-render'
 import theme from '#build/b24ui/button'
-import { mountSuspended } from '@nuxt/test-utils/runtime'
-import { flushPromises } from '@vue/test-utils'
+import { B24Form } from '#components'
 import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
 import Shining2Icon from '@bitrix24/b24icons-vue/main/Shining2Icon'
-
-import {
-  B24Form
-} from '#components'
 
 describe('Button', () => {
   const sizes = Object.keys(theme.variants.size) as any
@@ -114,5 +112,21 @@ describe('Button', () => {
     */
 
     resolve?.(null)
+  })
+
+  it('passes accessibility tests', async () => {
+    const wrapper = await mountSuspended(Button, {
+      props: {
+        label: 'Button',
+        avatar: {
+          src: 'https://github.com/bitrix24.png',
+          alt: 'Some User'
+        },
+        icon: Search2Icon
+
+      }
+    })
+
+    expect(await axe(wrapper.element)).toHaveNoViolations()
   })
 })

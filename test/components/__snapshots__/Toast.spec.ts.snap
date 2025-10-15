@@ -300,7 +300,7 @@ exports[`Toast > renders with color success correctly 1`] = `
 
 <div role="region" aria-label="Notifications (F8)" tabindex="-1"><span aria-hidden="true" tabindex="0" style="position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); white-space: nowrap; word-wrap: normal; top: -1px; left: -1px;"></span>
   <ol tabindex="-1" data-expanded="true" class="fixed flex flex-col w-[calc(100%-2rem)] sm:w-[384px] z-[100] data-[expanded=true]:h-(--height) focus:outline-none mr-(--scrollbar-width) right-4 top-4" style="--scale-factor: 0.05; --translate-factor: 1px; --gap: 16px; --front-height: 0px; --height: 0px;">
-    <li data-reka-collection-item="" role="alert" aria-live="off" aria-atomic="true" tabindex="0" data-orientation="vertical" class="dark relative group overflow-hidden rounded-[26px] py-3.5 ps-6 pe-4 flex gap-2.5 focus-visible:outline-(length:--ui-design-outline-stroke-weight) focus-visible:outline-offset-2 focus-visible:outline-(--ui-color-design-outline-content-divider) font-[family-name:var(--ui-font-family-primary)] bg-(--ui-color-bg-content-primary)/80 text-(--ui-color-design-plain-na-focused-content) text-(length:--ui-font-size-sm) font-(--ui-font-weight-normal) old-style-success items-center" style="--height: 0; user-select: none; touch-action: none;" data-state="open" data-swipe-direction="right">
+    <li data-reka-collection-item="" role="alert" aria-live="off" aria-atomic="true" tabindex="0" data-orientation="vertical" class="dark relative group overflow-hidden rounded-[26px] py-3.5 ps-6 pe-4 flex gap-2.5 focus-visible:outline-(length:--ui-design-outline-stroke-weight) focus-visible:outline-offset-2 focus-visible:outline-(--ui-color-design-outline-content-divider) font-[family-name:var(--ui-font-family-primary)] bg-(--ui-color-bg-content-primary)/80 text-(--ui-color-design-plain-na-focused-content) text-(length:--ui-font-size-sm) font-(--ui-font-weight-normal) style-filled-success items-center" style="--height: 0; user-select: none; touch-action: none;" data-state="open" data-swipe-direction="right">
       <!--v-if-->
       <div class="w-0 flex-1 flex flex-col">
         <div class="font-(--ui-font-weight-medium)">Toast</div>
@@ -318,7 +318,7 @@ exports[`Toast > renders with color success correctly 1`] = `
           </div>
         </button>
       </div>
-      <div data-orientation="horizontal" class="gap-2 style-old-success w-full flex flex-col absolute inset-x-0 bottom-0">
+      <div data-orientation="horizontal" class="gap-2 style-filled-success w-full flex flex-col absolute inset-x-0 bottom-0">
         <!--v-if-->
         <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="100" aria-label="100%" role="progressbar" data-state="complete" data-value="100" data-max="100" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[4px]" style="transform: translateZ(0);">
           <div data-state="complete" data-value="100" data-max="100" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]" style="transform: translateX(-0%);"></div>

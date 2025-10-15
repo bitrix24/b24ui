@@ -1,9 +1,11 @@
 import { describe, it, expect } from 'vitest'
+import { axe } from 'vitest-axe'
+import { mountSuspended } from '@nuxt/test-utils/runtime'
 import FieldGroup from '../../src/runtime/components/FieldGroup.vue'
 import type { FieldGroupProps, FieldGroupSlots } from '../../src/runtime/components/FieldGroup.vue'
 import ComponentRender from '../component-render'
-import { B24Input, B24Button } from '#components'
 import buttonTheme from '#build/b24ui/button'
+import { B24Input, B24Button } from '#components'
 
 describe('FieldGroup', () => {
   const sizes = Object.keys(buttonTheme.variants.size) as any
@@ -44,5 +46,17 @@ describe('FieldGroup', () => {
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: FieldGroupProps, slots?: Partial<FieldGroupSlots> }) => {
     const html = await ComponentRender(nameOrHtml, options, FieldGroup)
     expect(html).toMatchSnapshot()
+  })
+
+  it('passes accessibility tests', async () => {
+    const wrapper = await mountSuspended(FieldGroup, {
+      slots: {
+        default: {
+          template: `<B24Input /> <B24Button> Click me! </B24Button>`
+        }
+      }
+    })
+
+    expect(await axe(wrapper.element)).toHaveNoViolations()
   })
 })

@@ -1,4 +1,6 @@
 import { describe, it, expect, test } from 'vitest'
+import { axe } from 'vitest-axe'
+import { mountSuspended } from '@nuxt/test-utils/runtime'
 import Switch from '../../src/runtime/components/Switch.vue'
 import type { SwitchProps, SwitchSlots } from '../../src/runtime/components/Switch.vue'
 import ComponentRender from '../component-render'
@@ -31,7 +33,7 @@ describe('Switch', () => {
     ['with required', { props: { label: 'Label', required: true } }],
     ['with description', { props: { label: 'Label', description: 'Description' } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { size } }]),
-    ['with color success', { props: { color: 'success', defaultValue: true } }],
+    ['with color success', { props: { color: 'air-primary-success', defaultValue: true } }],
     ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
     ['with as', { props: { as: 'section' } }],
     ['with class', { props: { class: 'inline-flex' } }],
@@ -42,6 +44,18 @@ describe('Switch', () => {
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: SwitchProps, slots?: Partial<SwitchSlots> }) => {
     const html = await ComponentRender(nameOrHtml, options, Switch)
     expect(html).toMatchSnapshot()
+  })
+
+  it('passes accessibility tests', async () => {
+    const wrapper = await mountSuspended(Switch, {
+      props: {
+        modelValue: true,
+        required: true,
+        label: 'Label',
+        description: 'Description'
+      }
+    })
+    expect(await axe(wrapper.element)).toHaveNoViolations()
   })
 
   describe('emits', () => {
