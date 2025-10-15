@@ -32,6 +32,7 @@ const components = [
   'context-menu',
   // 'drawer',
   'dropdown-menu',
+  'empty',
   'error',
   'field-group',
   'file-upload',
