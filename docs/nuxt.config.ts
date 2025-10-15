@@ -135,7 +135,10 @@ const pages = [
   // '/docs/typography/icon/',
   '/docs/typography/kbd/',
   '/docs/typography/steps/',
-  '/docs/typography/tabs/'
+  '/docs/typography/tabs/',
+  // endregion ////
+  // region Composables ////
+  '/docs/composables/use-confetti/'
   // endregion ////
 ]
 
