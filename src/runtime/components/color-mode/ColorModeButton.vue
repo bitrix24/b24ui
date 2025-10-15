@@ -51,7 +51,7 @@ const isDark = computed({
 
     <template #fallback>
       <slot name="fallback">
-        <div class="size-8" />
+        <div class="w-[32px] h-[34px]" />
       </slot>
     </template>
   </ClientOnly>
