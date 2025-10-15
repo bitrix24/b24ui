@@ -161,8 +161,8 @@ const iconFromIconName = (iconName?: string) => {
     </template>
     <template #right>
       <B24Card
-        variant="outline-no-accent"
-        class="lg:mt-[22px] lg:sticky lg:top-[8px] rounded-none lg:rounded-(--ui-border-radius-md) backdrop-blur-md"
+        variant="outline-alt"
+        class="lg:mt-[22px] lg:sticky lg:top-[8px] rounded-none lg:rounded-(--ui-border-radius-md) backdrop-blur-md border-0"
         :b24ui="{ body: 'px-[22px] py-0 sm:ps-[22px] lg:ps-[10px] lg:pe-[4px] sm:py-0 pt-[12px] sm:pt-[12px] lg:py-[15px]' }"
       >
         <B24ContentToc

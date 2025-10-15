@@ -28,7 +28,7 @@ const { desktopLinks } = useHeader()
   <B24NavbarSection
     class="hidden lg:inline-flex"
     :class="[
-      props.showLogoAllTime ? 'pl-[29px]' : ''
+      props.showLogoAllTime ? 'pl-[32px]' : ''
     ]"
   >
     <B24NavigationMenu
@@ -42,8 +42,8 @@ const { desktopLinks } = useHeader()
     <B24Tooltip text="Search" :kbds="['meta', 'K']">
       <B24ContentSearchButton />
     </B24Tooltip>
-    <B24ColorModeButton size="sm" :content="{ align: 'end', side: 'bottom' }" />
-    <div class="hidden sm:flex flex-nowrap flex-row items-center justify-end gap-[4px]">
+    <B24ColorModeButton :content="{ align: 'end', side: 'bottom' }" />
+    <div class="hidden sm:flex flex-nowrap flex-row items-center justify-end gap-3">
       <B24Button
         aria-label="Bitrix24 REST API"
         :icon="Bitrix24Icon"

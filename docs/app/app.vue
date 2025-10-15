@@ -17,7 +17,7 @@ useHead({
     { rel: 'canonical', href: `https://bitrix24.github.io/b24ui${withTrailingSlash(route.path)}` }
   ],
   style: [],
-  htmlAttrs: { lang: 'en', class: `` }
+  htmlAttrs: { lang: 'en', class: '' }
 })
 
 useServerSeoMeta({
@@ -28,6 +28,18 @@ useServerSeoMeta({
 const { rootNavigation, navigationByFramework } = useNavigation(navigation)
 
 provide('navigation', rootNavigation)
+
+const colorMode = useColorMode()
+
+function toggleMode() {
+  colorMode.preference = !(colorMode.value === 'dark') ? 'dark' : 'light'
+}
+
+defineShortcuts({
+  shift_D: () => {
+    toggleMode()
+  }
+})
 </script>
 
 <template>

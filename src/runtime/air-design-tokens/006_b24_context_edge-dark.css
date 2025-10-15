@@ -255,8 +255,10 @@
     --ui-color-design-outline-copilot-content-divider: var(--ui-color-base-7);
     --ui-color-design-outline-na-bg: var(--ui-color-bg-content-primary);
     --ui-color-design-outline-na-bg-alt: var(--ui-color-bg-content-primary);
-    --ui-color-design-outline-na-stroke: #ffffff24;
-    --ui-design-outline-na-stroke-weight: 0px;
+    /* fix #ffffff24 */
+    --ui-color-design-outline-na-stroke: #ffffff00;
+    /* fix 0px */
+    --ui-design-outline-na-stroke-weight: var(--ui-border-width-medium);
     --ui-design-outline-na-stroke-weight-alt: var(--ui-border-width-thin);
     --ui-color-design-outline-na-content: var(--ui-color-base-3);
     --ui-color-design-outline-na-content-icon: var(--ui-color-base-4);

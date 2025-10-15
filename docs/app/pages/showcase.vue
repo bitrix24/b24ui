@@ -20,6 +20,17 @@ const colorMode = useColorMode()
 const isDark = computed(() => {
   return colorMode.value === 'dark'
 })
+const isMounted = ref(false)
+const cardColorContext = computed(() => {
+  if (import.meta.server || !isMounted.value) {
+    return 'edge-dark'
+  }
+  return isDark.value ? 'dark' : 'edge-dark'
+})
+
+onMounted(() => {
+  isMounted.value = true
+})
 </script>
 
 <!-- eslint-disable vue/no-v-html -->
@@ -34,7 +45,7 @@ const isDark = computed(() => {
     <B24Card
       v-if="page"
       class="mt-[22px]"
-      :class="[isDark ? 'dark' : 'edge-dark']"
+      :class="cardColorContext"
     >
       <div class="min-h-[300px] h-auto lg:h-[calc(100vh-200px)] lg:pt-[12px] flex flex-cols items-center justify-between">
         <B24Alert color="air-primary-warning" title="We are still updating this page" description="Some data may be missing here — we will complete it shortly." />

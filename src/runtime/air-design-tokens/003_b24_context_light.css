@@ -139,7 +139,8 @@
     --ui-color-design-filled-na-bg-secondary: var(--ui-color-base-5);
     --ui-color-design-filled-copilot-bg: var(--ui-color-copilot-accent-primary);
     --ui-color-design-filled-copilot-stroke: var(--ui-color-copilot-accent-primary);
-    --ui-design-filled-copilot-stroke-weight: 0px;
+    /* fix 0px */
+    --ui-design-filled-copilot-stroke-weight: var(--ui-border-width-medium);
     --ui-color-design-filled-copilot-content: var(--ui-color-base-white-fixed);
     --ui-color-design-filled-copilot-content-icon: var(--ui-color-base-white-fixed);
     --ui-color-design-filled-copilot-content-chevron: var(--ui-color-base-white-fixed);

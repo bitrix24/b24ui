@@ -14,6 +14,7 @@ export const useColorMode = () => {
 
   const { store, system } = useColorModeVueUse({
     attribute: 'class',
+    initialValue: (appConfig?.colorModeTypeLight || 'light') as string,
     modes: {
       auto: 'auto',
       light: (appConfig?.colorModeTypeLight || 'light') as string,

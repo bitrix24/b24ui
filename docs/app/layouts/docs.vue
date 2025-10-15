@@ -8,28 +8,19 @@ const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 const { navigationMenuByCategory } = useNavigation(navigation!)
 
 const colorMode = useColorMode()
-
-const isDark = computed({
-  get() {
-    return colorMode.value === 'dark'
-  },
-  set(_isDark: boolean) {
-    colorMode.preference = _isDark ? 'dark' : 'light'
-  }
+const isDark = computed(() => {
+  return colorMode.value === 'dark'
 })
-
-function toggleMode() {
-  isDark.value = !isDark.value
-}
-
-defineShortcuts({
-  shift_D: () => {
-    toggleMode()
-  }
-})
-
+const isMounted = ref(false)
 const sidebarLayoutB24Ui = computed(() => {
+  if (import.meta.server || !isMounted.value) {
+    return { containerWrapper: '' }
+  }
   return { containerWrapper: isDark.value ? 'dark' : 'light' }
+})
+
+onMounted(() => {
+  isMounted.value = true
 })
 </script>
 

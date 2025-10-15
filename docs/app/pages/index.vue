@@ -62,6 +62,17 @@ const colorMode = useColorMode()
 const isDark = computed(() => {
   return colorMode.value === 'dark'
 })
+const isMounted = ref(false)
+const cardColorContext = computed(() => {
+  if (import.meta.server || !isMounted.value) {
+    return 'light'
+  }
+  return isDark.value ? 'dark' : 'light'
+})
+
+onMounted(() => {
+  isMounted.value = true
+})
 </script>
 
 <template>
@@ -75,7 +86,7 @@ const isDark = computed(() => {
     <B24Card
       v-if="page"
       class="mt-[22px]"
-      :class="[isDark ? 'dark' : 'light']"
+      :class="cardColorContext"
     >
       <div class="pt-[88px] h-auto lg:h-[calc(100vh-200px)] lg:pt-[12px] grid content-center lg:grid-cols-12 gap-y-[54px] lg:gap-[22px] items-center justify-between">
         <div class="col-span-12 lg:col-start-2 lg:col-span-4 flex flex-col gap-[12px] text-center lg:text-right">
