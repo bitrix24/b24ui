@@ -1,6 +1,6 @@
 ---
 title: Collapsible
-description: 'Toggle content visibility with smooth expand and collapse animations.'
+description: 'Smooth content toggle with expand and collapse effects.'
 category: components
 links:
   - label: GitHub

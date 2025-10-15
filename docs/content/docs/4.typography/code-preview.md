@@ -1,6 +1,6 @@
 ---
 title: CodePreview
-description: 'Display code examples with a preview and their source for clearer documentation.'
+description: 'For clearer docs, pair code snippets with their visual output and source.'
 category: components
 links:
   - label: GitHub

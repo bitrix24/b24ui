@@ -1,6 +1,6 @@
 ---
 title: FieldGroup
-description: 'Group related fields together for comprehensive API documentation.'
+description: 'Combine logically connected fields to create exhaustive API documentation.'
 category: components
 links:
   - label: GitHub

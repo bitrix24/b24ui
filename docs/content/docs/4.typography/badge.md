@@ -1,6 +1,6 @@
 ---
 title: Badge
-description: 'Display version numbers, status labels, and tags within your content.'
+description: 'Present versioning information, status labels, and relevant tags within your material.'
 category: components
 links:
   - label: GitHub

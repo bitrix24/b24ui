@@ -1,6 +1,6 @@
 ---
 title: CodeGroup
-description: 'Group multiple code examples in tabbed interfaces for easy comparison.'
+description: 'Use a tabbed layout to present multiple code snippets for a clearer view.'
 framework: nuxt
 category: components
 links:

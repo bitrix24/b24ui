@@ -1,6 +1,6 @@
 ---
 title: Card
-description: 'Create highlighted content blocks with optional links and navigation.'
+description: 'Develop prominent content areas with integrated navigation options.'
 category: components
 links:
   - label: GitHub

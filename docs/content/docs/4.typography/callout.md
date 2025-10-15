@@ -1,6 +1,6 @@
 ---
 title: Callout
-description: 'Highlight important information with eye-catching colored boxes and icons.'
+description: 'Organize critical content for easy scanning with colored panels and intuitive symbols.'
 category: components
 links:
   - label: GitHub

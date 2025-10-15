@@ -1,6 +1,6 @@
 ---
 title: CardGroup
-description: 'Organize multiple cards in responsive grid layouts for better content presentation.'
+description: 'Arrange content cards into flexible grids to enhance structure and readability.'
 category: components
 links:
   - label: GitHub

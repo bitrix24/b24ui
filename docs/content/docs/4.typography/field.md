@@ -1,6 +1,6 @@
 ---
 title: Field
-description: 'Document API parameters, props, and configuration options clearly.'
+description: 'Provide clear and comprehensive documentation for the API's configurable elements.'
 category: components
 links:
   - label: GitHub

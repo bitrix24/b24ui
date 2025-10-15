@@ -1,6 +1,6 @@
 ---
 title: Accordion
-description: 'Create expandable content sections for better information organization.'
+description: 'Add interactive toggles for a more structured content presentation.'
 category: components
 links:
   - label: GitHub

@@ -1,6 +1,6 @@
 ---
 title: Steps
-description: 'Transform headings into numbered step-by-step guides and tutorials.'
+description: 'Turn your headings into clear, sequential instructions.'
 category: components
 links:
   - label: GitHub

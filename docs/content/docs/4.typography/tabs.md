@@ -1,6 +1,6 @@
 ---
 title: Tabs
-description: 'Organize related content in interactive tabbed interfaces.'
+description: 'Group related information into interactive tabs to improve content navigation.'
 category: components
 links:
   - label: GitHub

@@ -1,6 +1,6 @@
 ---
 title: Kbd
-description: 'Display keyboard shortcuts and key combinations with proper styling.'
+description: 'Show all available hotkeys with their properly formatted keys.'
 category: components
 links:
   - label: GitHub

@@ -1,6 +1,6 @@
 ---
 title: CodeCollapse
-description: 'Make long code blocks collapsible to save space and improve readability.'
+description: 'Add toggle functionality for lengthy code sections to optimize layout.'
 category: components
 links:
   - label: GitHub
