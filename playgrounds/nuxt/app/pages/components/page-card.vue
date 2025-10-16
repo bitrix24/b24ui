@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { PageCardProps } from '@bitrix24/b24ui-nuxt'
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
@@ -14,12 +15,11 @@ const variants = Object.keys(theme.variants.variant)
 const orientations = Object.keys(theme.variants.orientation)
 
 const attrs = reactive({
-  variant: [...variants]
-  // variant: [theme.defaultVariants.variant]
+  variant: [theme.defaultVariants.variant]
 })
 
 const highlight = ref(false)
-const highlightColor = ref(theme.defaultVariants.highlightColor)
+const highlightColor = ref<PageCardProps['highlightColor']>(theme.defaultVariants.highlightColor)
 
 const orientation = ref('vertical' as keyof typeof theme.variants.orientation)
 const reverse = ref(false)
