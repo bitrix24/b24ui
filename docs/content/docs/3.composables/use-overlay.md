@@ -1,20 +1,17 @@
 ---
 title: useOverlay
 description: 'A composable to programmatically control overlays in App.'
+links:
+  - label: GitHub
+    iconName: GitHubIcon
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/composables/useOverlay.ts
+  - label: Demo
+    iconName: DemonstrationOnIcon
+    to: https://bitrix24.github.io/b24ui/demo/components/modal
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui.nuxt.com/docs/composables/use-overlay
 ---
-# useOverlay
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
-<Description
-  nuxt-ui="https://ui3.nuxt.dev/composables/use-overlay"
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/composables/useOverlay.ts"
-  demo="/components/modal"
->
-  A composable to programmatically control overlays in App.
-</Description>
 
 ## Usage
 
@@ -36,73 +33,154 @@ async function openModal() {
 
 - The `useOverlay` composable is created using `createSharedComposable`, ensuring that the same overlay state is shared across your entire application.
 
-::: tip
-In order to return a value from the overlay, the `overlay.open().instance` can be awaited. In order for this to work, however, the **overlay component must emit a `close` event**. See example below for details.
-:::
+::note
+In order to return a value from the overlay, the `overlay.open()` can be awaited. In order for this to work, however, the **overlay component must emit a `close` event**. See example below for details.
+::
+
 
 ## API
 
-### `create(component: T, options: OverlayOptions): OverlayInstance`
+`useOverlay()`{lang="ts-type"}
+
+The `useOverlay` composable provides methods to manage overlays globally. Each created overlay returns an instance with its own methods.
+
+### create()
+
+`create(component: T, options: OverlayOptions): OverlayInstance`{lang="ts-type"}
 
 Create an overlay, and return a factory instance.
 
-- Parameters:
-  - `component`: The overlay component.
-  - `options:`
-    - `defaultOpen?: boolean` Open the overlay immediately after being created. Defaults to `false`.
-    - `props?: ComponentProps`: An optional object of props to pass to the rendered component.
-    - `destroyOnClose?: boolean` Removes the overlay from memory when closed. Defaults to `false`.
+#### Parameters
 
-### `open(id: symbol, props?: ComponentProps<T>): OpenedOverlay<T>`
+::field-group
+  ::field{name="component" type="T" required}
+  The overlay component to render.
+  ::
+
+  ::field{name="options" type="OverlayOptions"}
+  Configuration options for the overlay.
+
+  ::collapsible
+    ::field-group
+    ::field{name="defaultOpen" type="boolean"}
+    Open the overlay immediately after being created. Defaults to `false`.
+    ::
+
+    ::field{name="props" type="ComponentProps"}
+    An optional object of props to pass to the rendered component.
+    ::
+
+    ::field{name="destroyOnClose" type="boolean"}
+    Removes the overlay from memory when closed. Defaults to `false`.
+    ::
+    ::
+  ::
+  ::
+::
+
+### open()
+
+`open(id: symbol, props?: ComponentProps<T>): OpenedOverlay<T>`{lang="ts-type"}
 
 Open an overlay by its `id`.
 
-- Parameters:
-  - `id`: The identifier of the overlay.
-  - `props`: An optional object of props to pass to the rendered component.
+#### Parameters
 
-### `close(id: symbol, value?: any): void`
+::field-group
+  ::field{name="id" type="symbol" required}
+  The identifier of the overlay.
+  ::
+
+  ::field{name="props" type="ComponentProps<T>"}
+  An optional object of props to pass to the rendered component.
+  ::
+::
+
+### close()
+
+`close(id: symbol, value?: any): void`{lang="ts-type"}
 
 Close an overlay by its `id`.
 
-- Parameters:
-  - `id`: The identifier of the overlay.
-  - `value`: A value to resolve the overlay promise with.
+#### Parameters
 
-### `patch(id: symbol, props: ComponentProps<T>): void`
+::field-group
+  ::field{name="id" type="symbol" required}
+  The identifier of the overlay.
+  ::
+
+  ::field{name="value" type="any"}
+  A value to resolve the overlay promise with.
+  ::
+::
+
+### patch()
+
+`patch(id: symbol, props: ComponentProps<T>): void`{lang="ts-type"}
 
 Update an overlay by its `id`.
 
-- Parameters:
-  - `id`: The identifier of the overlay.
-  - `props`: An object of props to update on the rendered component.
+#### Parameters
 
-### `unmount(id: symbol): void`
+::field-group
+  ::field{name="id" type="symbol" required}
+  The identifier of the overlay.
+  ::
+
+  ::field{name="props" type="ComponentProps<T>" required}
+  An object of props to update on the rendered component.
+  ::
+::
+
+### unmount()
+
+`unmount(id: symbol): void`{lang="ts-type"}
 
 Remove an overlay from the DOM by its `id`.
 
-- Parameters:
-  - `id`: The identifier of the overlay.
+#### Parameters
 
-### `isOpen(id: symbol): boolean`
+::field-group
+  ::field{name="id" type="symbol" required}
+  The identifier of the overlay.
+  ::
+::
+
+### isOpen()
+
+`isOpen(id: symbol): boolean`{lang="ts-type"}
 
 Check if an overlay is open using its `id`.
 
-- Parameters:
-  - `id`: The identifier of the overlay.
+#### Parameters
 
-### `overlays: Overlay[]`
+::field-group
+  ::field{name="id" type="symbol" required}
+  The identifier of the overlay.
+  ::
+::
+
+### overlays
+
+`overlays: Overlay[]`{lang="ts-type"}
 
 In-memory list of all overlays that were created.
 
 ## Instance API
 
-### `open(props?: ComponentProps<T>): Promise<OpenedOverlay<T>>`
+### open()
+
+`open(props?: ComponentProps<T>): Promise<OpenedOverlay<T>>`{lang="ts-type"}
 
 Open the overlay.
 
-- Parameters:
-  - `props`: An optional object of props to pass to the rendered component.
+#### Parameters
+
+::field-group
+  ::field{name="props" type="ComponentProps<T>"}
+  An optional object of props to pass to the rendered component.
+  ::
+::
 
 ```vue
 <script setup lang="ts">
@@ -120,19 +198,33 @@ function openModal() {
 </script>
 ```
 
-### `close(value?: any): void`
+### close()
+
+`close(value?: any): void`{lang="ts-type"}
 
 Close the overlay.
 
-- Parameters:
-  - `value`: A value to resolve the overlay promise with.
+#### Parameters
 
-### `patch(props: ComponentProps<T>)`
+::field-group
+  ::field{name="value" type="any"}
+  A value to resolve the overlay promise with.
+  ::
+::
+
+### patch()
+
+`patch(props: ComponentProps<T>): void`{lang="ts-type"}
 
 Update the props of the overlay.
 
-- Parameters:
-  - `props`: An object of props to update on the rendered component.
+#### Parameters
+
+::field-group
+  ::field{name="props" type="ComponentProps<T>" required}
+  An object of props to update on the rendered component.
+  ::
+::
 
 ```vue
 <script setup lang="ts">
@@ -171,7 +263,7 @@ const modalB = overlay.create(ModalB)
 const slideoverA = overlay.create(SlideoverA)
 
 const openModalA = () => {
-  // Open  modalA, but override the title prop
+  // Open modalA, but override the title prop
   modalA.open({ title: 'Hello' })
 }
 
@@ -179,7 +271,7 @@ const openModalB = async () => {
   // Open modalB, and wait for its result
   const modalBInstance = modalB.open()
 
-  const input = await modalBInstance.result
+  const input = await modalBInstance
 
   // Pass the result from modalB to the slideover, and open it
   slideoverA.open({ input })
@@ -187,9 +279,7 @@ const openModalB = async () => {
 </script>
 
 <template>
-  <div>
-    <button @click="openModalA">Open Modal</button>
-  </div>
+  <button @click="openModalA">Open Modal</button>
 </template>
 ```
 

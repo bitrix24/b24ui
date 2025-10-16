@@ -1,5 +1,5 @@
-import { reactive, markRaw, shallowReactive } from 'vue'
 import type { Component } from 'vue'
+import { reactive, markRaw, shallowReactive } from 'vue'
 import { createSharedComposable } from '@vueuse/core'
 import type { ComponentProps, ComponentEmit } from 'vue-component-type-helpers'
 
@@ -31,7 +31,6 @@ type CloseEventArgType<T> = T extends {
   (...args: any[]): void
   (...args: any[]): void
 } ? Arg : never
-
 export type OverlayOptions<OverlayAttrs = Record<string, any>> = {
   defaultOpen?: boolean
   props?: OverlayAttrs
@@ -63,7 +62,7 @@ function _useOverlay() {
   const overlays = shallowReactive<Overlay[]>([])
 
   const create = <T extends Component>(component: T, _options?: OverlayOptions<ComponentProps<T>>): OverlayInstance<T> => {
-    const { props: props, defaultOpen, destroyOnClose } = _options || {}
+    const { props, defaultOpen, destroyOnClose } = _options || {}
 
     const options = reactive<Overlay>({
       id: Symbol(import.meta.dev ? 'useOverlay' : ''),

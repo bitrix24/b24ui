@@ -1,19 +1,14 @@
 ---
 title: defineShortcuts
 description: 'A composable to assign keyboard shortcuts in your app.'
+links:
+  - label: GitHub
+    iconName: GitHubIcon
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/composables/defineShortcuts.ts
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui.nuxt.com/docs/composables/define-shortcuts
 ---
-# defineShortcuts
-
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
-<Description
-  nuxt-ui="https://ui3.nuxt.dev/composables/define-shortcuts"
-  git="https://github.com/bitrix24/b24ui/blob/main/src/runtime/composables/useFormField.ts"
->
-  A composable to assign keyboard shortcuts in your app.
-</Description>
 
 ## Usage
 
@@ -35,21 +30,35 @@ defineShortcuts({
 - The composable uses VueUse's [`useEventListener`](https://vueuse.org/core/useEventListener/) to handle keydown events.
 - For a complete list of available shortcut keys, refer to the [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/UI_Events/Keyboard_event_key_values) API documentation. Note that the key should be written in lowercase.
 
-::: info
-[Learn](/docs/components/kbd/) how to display shortcuts in components in the **Kbd** component documentation.
-:::
+::tip{to="/docs/components/kbd/"}
+Learn how to display shortcuts in components in the **Kbd** component documentation.
+::
 
 ## API
 
-### `defineShortcuts(config: ShortcutsConfig, options?: ShortcutsOptions)`
+`defineShortcuts(config: ShortcutsConfig, options?: ShortcutsOptions): void`{lang="ts-type"}
 
 Define keyboard shortcuts for your application.
 
-- `config`: An object where keys are shortcut definitions and values are either handler functions or shortcut configuration objects.
-- `options`: Optional configuration for the shortcuts behavior.
-  - `chainDelay`: The delay between key presses to consider the shortcut as chained. Default is `250`.
+#### Parameters
 
-#### Shortcut Definition
+::field-group
+  ::field{name="config" type="ShortcutsConfig" required}
+  An object where keys are shortcut definitions and values are either handler functions or shortcut configuration objects.
+  ::
+
+  ::field{name="options" type="ShortcutsOptions"}
+  Optional configuration for the shortcuts behavior.
+
+  ::collapsible
+    ::field{name="chainDelay" type="number"}
+    The delay between key presses to consider the shortcut as chained. Default is `250`.
+    ::
+  ::
+  ::
+::
+
+#### Shortcut definition
 
 Shortcuts are defined using the following format:
 
@@ -63,28 +72,32 @@ Shortcuts are defined using the following format:
 - `ctrl`: Represents `Ctrl` on all platforms
 - `shift`: Used for alphabetic keys when Shift is required
 
-#### Special Keys
+#### Special keys
 
 - `escape`: Triggers on Esc key
 - `enter`: Triggers on Enter key
 - `arrowleft`, `arrowright`, `arrowup`, `arrowdown`: Trigger on respective arrow keys
 
-#### Shortcut Configuration
+#### Shortcut configuration
 
 Each shortcut can be defined as a function or an object with the following properties:
 
-```ts
-interface ShortcutConfig {
-  handler: () => void
-  usingInput?: boolean | string
-}
-```
+`interface ShortcutConfig { handler: () => void; usingInput?: boolean | string }`{lang="ts-type"}
 
-- `handler`: Function to be executed when the shortcut is triggered
-- `usingInput`:
+#### Parameters
+
+::field-group
+  ::field{name="handler" type="() => void" required}
+  Function to be executed when the shortcut is triggered.
+  ::
+
+  ::field{name="usingInput" type="boolean | string"}
+  Controls when the shortcut should trigger based on input focus:
   - `false` (default): Shortcut only triggers when no input is focused
   - `true`: Shortcut triggers even when any input is focused
   - `string`: Shortcut only triggers when the specified input (by name) is focused
+  ::
+::
 
 ## Examples
 
@@ -122,5 +135,29 @@ defineShortcuts({
     handler: () => clearSearch()
   }
 })
+</script>
+```
+
+### Extracting shortcuts from menu items
+
+The `extractShortcuts` utility can be used to automatically define shortcuts from menu items:
+
+```vue
+<script setup lang="ts">
+const items = [{
+  label: 'Save',
+  kbds: ['meta', 'S'],
+  onSelect() {
+    save()
+  }
+}, {
+  label: 'Copy',
+  kbds: ['meta', 'C'],
+  onSelect() {
+    copy()
+  }
+}]
+
+defineShortcuts(extractShortcuts(items))
 </script>
 ```

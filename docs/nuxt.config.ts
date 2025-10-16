@@ -138,6 +138,7 @@ const pages = [
   '/docs/typography/tabs/',
   // endregion ////
   // region Composables ////
+  '/docs/composables/define-shortcuts/',
   '/docs/composables/use-confetti/'
   // endregion ////
 ]
