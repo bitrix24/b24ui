@@ -82,6 +82,8 @@ const pages = [
   // // '/docs/components/confetti/',
   // endregion ////
   // region Page ////
+  '/docs/components/page-card/',
+  '/docs/components/page-grid/',
   '/docs/components/page-links/',
   // endregion ////
   // region Dashboard ////

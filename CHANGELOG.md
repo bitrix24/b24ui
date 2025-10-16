@@ -58,6 +58,8 @@
 * feat(LocaleSelect): improve config
 * feat(colorMode): improve config
 * feat(Empty): new component
+* feat(PageCard): new component
+* feat(PageGrid): new component
 * fix(ProseLi,ProseOl,ProseUl,ProseP): fix color && size
 * fix(ProseH1\H2\H3\H4\H5\H6): add support hash
 * fix(SidebarLayout): improve theme, import Button, add slot 'content-right'
