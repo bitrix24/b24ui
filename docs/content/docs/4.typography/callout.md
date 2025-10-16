@@ -25,7 +25,7 @@ ignore:
   - to
 props:
   color: air-primary
-  to: '/docs/guide/installation-nuxt-app/'
+  to: '/docs/getting-started/installation/nuxt/'
   class: 'w-full my-0'
 hide:
   - class

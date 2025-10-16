@@ -34,14 +34,14 @@ Use it as at the root of your app:
 ::framework-only
 
 #nuxt
-::tip{to="/docs/guide/i18n-nuxt#locale"}
+:::tip{to="/docs/getting-started/integrations/i18n/nuxt/#locale"}
 Learn how to use the `locale` prop to change the locale of your app.
-::
+:::
 
 #vue
-::tip{to="/docs/guide/i18n-vue#locale"}
+:::tip{to="/docs/getting-started/integrations/i18n/vue/#locale"}
 Learn how to use the `locale` prop to change the locale of your app.
-::
+:::
 
 ::
 

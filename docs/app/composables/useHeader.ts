@@ -4,12 +4,12 @@ export function useHeader() {
   const desktopLinks = computed(() => [
     {
       label: 'Docs',
-      to: '/docs/',
-      active: route.path.startsWith('/docs/guide')
+      to: '/docs/getting-started/',
+      active: route.path.startsWith('/docs/getting-started')
     },
     {
       label: 'Components',
-      to: '/docs/components/app/',
+      to: '/docs/components/',
       active: route.path.startsWith('/docs/components')
     },
     {
@@ -35,8 +35,8 @@ export function useHeader() {
   const mobileLinks = computed(() => [
     {
       label: 'Get Started',
-      to: '/docs/guide/getting-started/',
-      active: route.path.startsWith('/docs/guide/getting-started')
+      to: '/docs/getting-started/',
+      active: route.path.startsWith('/docs/getting-started')
     },
     {
       label: 'Components',

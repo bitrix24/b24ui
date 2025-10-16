@@ -48,7 +48,7 @@ export default defineNuxtConfig({
 @import "@bitrix24/b24ui-nuxt";
 ```
 
-Learn more in the [installation guide](https://bitrix24.github.io/b24ui/guide/installation-nuxt-app.html).
+Learn more in the [installation guide](https://bitrix24.github.io/b24ui/docs/getting-started/installation/nuxt/).
 
 ### Vue
 
@@ -94,13 +94,12 @@ app.mount('#app')
 @import "@bitrix24/b24ui-nuxt";
 ```
 
-Learn more in the [installation guide](https://bitrix24.github.io/b24ui/guide/installation-vue.html).
+Learn more in the [installation guide](https://bitrix24.github.io/b24ui/docs/getting-started/installation/vue/).
 
 ## Credits
 
 - [nuxt/nuxt](https://github.com/nuxt/nuxt)
 - [nuxt/ui](https://github.com/nuxt/ui)
-- [nuxt-modules/color-mode](https://github.com/nuxt-modules/color-mode)
 - [unovue/reka-ui](https://github.com/unovue/reka-ui)
 - [tailwindlabs/tailwindcss](https://github.com/tailwindlabs/tailwindcss)
 - [vueuse/vueuse](https://github.com/vueuse/vueuse)

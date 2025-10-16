@@ -27,7 +27,7 @@ const menuList = [
     color="air-boost"
     size="sm"
     :icon="RocketIcon"
-    to="https://bitrix24.github.io/b24ui/guide/installation-nuxt-app.html#use-our-nuxt-starter"
+    to="/docs/getting-started/installation/nuxt/#use-a-nuxt-template"
     target="_blank"
   />
 
@@ -38,7 +38,7 @@ const menuList = [
     color="air-boost"
     size="sm"
     :icon="RocketIcon"
-    to="https://bitrix24.github.io/b24ui/guide/installation-vue.html#use-our-vue-starter"
+    to="/docs/getting-started/installation/vue/#use-a-vue-template"
     target="_blank"
   />
 </template>

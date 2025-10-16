@@ -14,14 +14,14 @@ export function useSearch() {
       label: 'Docs',
       description: 'Learn how to get started with Bitrix24 UI.',
       icon: PlayLIcon,
-      to: '/docs/guide/getting-started/',
-      active: route.path.startsWith('/docs/guide/getting-started')
+      to: '/docs/getting-started/',
+      active: route.path.startsWith('/docs/getting-started')
     },
     {
       label: 'Components',
       description: 'Explore the components available in Bitrix24 UI.',
       icon: DeveloperResourcesIcon,
-      to: '/docs/components/app/',
+      to: '/docs/components/',
       active: route.path.startsWith('/docs/components')
     },
     {

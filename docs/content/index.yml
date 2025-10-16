@@ -5,12 +5,12 @@ hero:
   description: for REST API web-application development
   links:
     - label: Get started
-      to: /docs/guide/installation-nuxt-app/
+      to: /docs/getting-started/installation/nuxt/
       class: 'nuxt-only'
       color: 'air-secondary-accent-2'
       iconName: 'InfoCircleIcon'
     - label: Get started
-      to: /docs/guide/installation-vue/
+      to: /docs/getting-started/installation/vue/
       class: 'vue-only'
       color: 'air-secondary-accent-2'
       iconName: 'InfoCircleIcon'

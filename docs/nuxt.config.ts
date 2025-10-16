@@ -8,7 +8,13 @@ const { resolve } = createResolver(import.meta.url)
  * @memo need add pages for raw/***.md
  */
 const pages = [
-  '/docs/guide/getting-started/',
+  // region getting-started ////
+  '/docs/getting-started/',
+  '/docs/getting-started/installation/nuxt/',
+  '/docs/getting-started/installation/vue/',
+  '/docs/getting-started/integrations/i18n/nuxt/',
+  '/docs/getting-started/integrations/i18n/vue/',
+  // endregion ////
   // region Layout ////
   '/docs/components/app/',
   '/docs/components/sidebar-layout/',
@@ -141,7 +147,9 @@ const pages = [
   // endregion ////
   // region Composables ////
   '/docs/composables/define-shortcuts/',
-  '/docs/composables/use-confetti/'
+  '/docs/composables/use-confetti/',
+  '/docs/composables/use-overlay/',
+  '/docs/composables/use-toast/'
   // endregion ////
 ]
 
@@ -374,11 +382,13 @@ export default defineNuxtConfig({
     head: {
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/b24ui/favicon.ico' }
-      ]
+      ],
+      htmlAttrs: {
+        class: 'edge-dark'
+      }
     },
     rootAttrs: {
       'data-vaul-drawer-wrapper': ''
-      // 'class': 'bg-default'
     }
   },
 
@@ -412,9 +422,14 @@ export default defineNuxtConfig({
     // '/components/**': { redirect: { to: '/docs/components/**', statusCode: 301 }, prerender: false },
     // '/composables/**': { redirect: { to: '/docs/composables/**', statusCode: 301 }, prerender: false },
     // v4 redirects - default root pages
-    '/docs': { redirect: '/docs/guide/getting-started/', prerender: false },
-    '/docs/components': { redirect: '/docs/components/app/', prerender: false },
-    '/docs/composables': { redirect: '/docs/composables/define-shortcuts/', prerender: false }
+    '/docs': { redirect: '/docs/getting-started/', prerender: false },
+    // // '/docs/components': { redirect: '/docs/components/app/', prerender: false },
+    '/docs/composables': { redirect: '/docs/composables/define-shortcuts/', prerender: false },
+    // v4 redirects - default shadow pages
+    '/docs/getting-started/installation/': { redirect: '/docs/getting-started/installation/nuxt/', prerender: false },
+    '/docs/getting-started/integrations/icons/': { redirect: '/docs/getting-started/integrations/icons/nuxt/', prerender: false },
+    '/docs/getting-started/integrations/color-mode/': { redirect: '/docs/getting-started/integrations/color-mode/nuxt/', prerender: false },
+    '/docs/getting-started/integrations/i18n/': { redirect: '/docs/getting-started/integrations/i18n/nuxt/', prerender: false }
     // '/docs/getting-started/migration': { redirect: '/docs/getting-started/migration/v4', prerender: false },
     // v4 redirects - default shadow pages
     // '/docs/getting-started/installation': { redirect: '/docs/getting-started/installation/nuxt', prerender: false },
@@ -442,7 +457,6 @@ export default defineNuxtConfig({
     prerender: {
       routes: [
         // ...pages.map((page: string) => `${page}`),
-        // @todo remove this comment
         // @memo fix EMFILE: too many open files
         ...pages.map((page: string) => `${withoutTrailingSlash(`/raw${page}`)}.md`),
         // ...apiComponentMeta,
@@ -456,18 +470,7 @@ export default defineNuxtConfig({
   },
 
   vite: {
-    // @todo remove this
-    // server: {
-    //   // @memo fix EMFILE: too many open files
-    //   watch: {
-    //     usePolling: true,
-    //     interval: 1000
-    //   }
-    // }
     optimizeDeps: {
-      // @todo remove this
-      // @memo fix EMFILE: too many open files
-      // force: true,
       // prevents reloading page when navigating between components
       include: ['@internationalized/date', '@vueuse/shared', '@vueuse/integrations/useFuse', '@tanstack/vue-table', 'reka-ui', 'reka-ui/namespaced', 'embla-carousel-vue', 'embla-carousel-autoplay', 'embla-carousel-auto-scroll', 'embla-carousel-auto-height', 'embla-carousel-class-names', 'embla-carousel-fade', 'embla-carousel-wheel-gestures', 'colortranslator', 'tailwindcss/colors', 'tailwind-variants', 'ufo', 'zod', 'vaul-vue', 'scule', 'motion-v', 'json5', 'ohash', 'shiki-transformer-color-highlight']
     }
@@ -515,7 +518,7 @@ export default defineNuxtConfig({
         title: 'Getting Started',
         contentCollection: 'docs',
         contentFilters: [
-          { field: 'path', operator: 'LIKE', value: '/docs/guide/getting-started%' }
+          { field: 'path', operator: 'LIKE', value: '/docs/getting-started%' }
         ]
       },
       {

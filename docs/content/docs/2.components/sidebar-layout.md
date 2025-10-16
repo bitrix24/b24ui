@@ -13,7 +13,7 @@ links:
 
 ## Usage
 
-::note{to="/docs/guide/getting-started-theme/#customize-theme"}
+::note{to="/docs/getting-started/theme/components/#customize-theme"}
 The styling process is described on the page `Theme`
 ::
 

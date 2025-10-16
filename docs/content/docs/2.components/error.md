@@ -90,7 +90,7 @@ ignore:
   - error.statusMessage
   - error.message
 props:
-  redirect: '/docs/guide/getting-started/'
+  redirect: '/docs/getting-started/'
   error:
     statusCode: 404
     statusMessage: 'Page not found'

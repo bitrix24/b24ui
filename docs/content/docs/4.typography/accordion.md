@@ -29,7 +29,7 @@ Yes! Bitrix24 UI is completely free and open source under the MIT license. All 1
 ::
 
 ::accordion-item{label="Can I use Bitrix24 UI with Vue without Nuxt?"}
-Yes! While optimized for Nuxt, Bitrix24 UI works perfectly with standalone Vue projects via our Vite plugin. You can follow the [installation guide](/docs/guide/installation-vue/) to get started.
+Yes! While optimized for Nuxt, Bitrix24 UI works perfectly with standalone Vue projects via our Vite plugin. You can follow the [installation guide](/docs/getting-started/installation/vue/) to get started.
 ::
 
 ::accordion-item{label="Is Bitrix24 UI production-ready?"}
@@ -52,7 +52,7 @@ Yes! Bitrix24 UI is completely free and open source under the MIT license. All 1
 ::
 
 ::accordion-item{label="Can I use Bitrix24 UI with Vue without Nuxt?"}
-Yes! While optimized for Nuxt, Bitrix24 UI works perfectly with standalone Vue projects via our Vite plugin. You can follow the [installation guide](/docs/guide/installation-vue/) to get started.
+Yes! While optimized for Nuxt, Bitrix24 UI works perfectly with standalone Vue projects via our Vite plugin. You can follow the [installation guide](/docs/getting-started/installation/vue/) to get started.
 ::
 
 ::accordion-item{label="Is Bitrix24 UI production-ready?"}

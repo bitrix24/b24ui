@@ -26,7 +26,7 @@ import type { IMenuItem } from '~/types'
     color="air-boost"
     size="sm"
     :icon="RocketIcon"
-    to="https://bitrix24.github.io/b24ui/guide/installation-nuxt-app.html#use-our-nuxt-starter"
+    to="https://bitrix24.github.io/b24ui/docs/getting-started/installation/nuxt/#use-a-nuxt-template"
     target="_blank"
   />
 </template>

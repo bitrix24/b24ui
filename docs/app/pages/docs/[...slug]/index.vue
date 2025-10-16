@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { ContentNavigationItem } from '@nuxt/content'
+import { withTrailingSlash } from 'ufo' // withoutTrailingSlash
 import { kebabCase } from 'scule'
 import DesignIcon from '@bitrix24/b24icons-vue/outline/DesignIcon'
 import FavoriteIcon from '@bitrix24/b24icons-vue/outline/FavoriteIcon'
@@ -32,20 +33,20 @@ const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 
 const { findSurround } = useNavigation(navigation!)
 
-// const breadcrumb = computed(() => findBreadcrumb(page.value?.path as string))
+//  breadcrumb = computed(() => findBreadcrumb(page.value?.path as string))
 const surround = computed(() => findSurround(page.value?.path as string))
 
 if (!import.meta.prerender) {
   // Redirect to the correct framework version if the page is not the current framework
   watch(framework, () => {
-    if (page.value?.framework && page.value?.framework !== framework.value) {
-      /**
-       * @memo this path
-       */
+    const route = useRoute()
+    const pagePath = withTrailingSlash(page.value?.path)
+    if (pagePath === route.path && page.value?.framework && page.value?.framework !== framework.value) {
+      /** @memo this path */
       if (route.path.endsWith(`/${page.value?.framework}/`)) {
-        navigateTo(`${route.path.split('/').slice(0, -1).join('/')}/${framework.value}/`)
+        navigateTo(`${route.path.split('/').slice(0, -2).join('/')}/${framework.value}/`)
       } else {
-        navigateTo(`/docs/guide/getting-started/`)
+        navigateTo(`/docs/getting-started/`)
       }
     }
   })
