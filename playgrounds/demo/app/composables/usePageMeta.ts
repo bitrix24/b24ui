@@ -74,6 +74,7 @@ const components: IComponentInfo[] = [
   { id: 'modal', description: 'A dialog window that can be used to display a message or request user input.', iconData: GroupIcon },
   { id: 'navigation-menu', description: 'A link list that can be arranged in horizontal or vertical orientation.', iconData: GroupIcon },
   { id: 'link', description: 'A wrapper around NuxtLink with extra props.', iconData: GroupIcon },
+  { id: 'page-card', description: 'A pre-styled card component featuring a title, description, and optional link.', iconData: GroupIcon },
   { id: 'page-links', description: 'A list of links to display on the page.', iconData: GroupIcon },
   { id: 'pagination', description: 'A navigation component with buttons or links for pagination.', iconData: GroupIcon },
   { id: 'pin-input', description: 'A PIN code input component.', iconData: GroupIcon },

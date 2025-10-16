@@ -1,20 +1,32 @@
 /**
- * Card
+ * PageCard
+ * A pre-styled card component featuring a title, description, and optional link.
  * ---
- * @memo we use ui-color-design-*
- * @see src/theme/page-card.ts
+ * @todo add colors
+ * @see src/theme/card.ts
  */
+
 export default {
   slots: {
-    root: [
-      'overflow-hidden',
-      'rounded-(--ui-border-radius-md)'
-    ].join(' '),
-    header: 'p-[24px] sm:px-[22px] sm:py-[15px]',
-    body: 'p-[24px] sm:px-[22px] sm:py-[15px]',
-    footer: 'p-[24px] sm:px-[22px] sm:py-[15px]'
+    root: 'relative flex rounded-lg',
+    container: 'relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6',
+    wrapper: 'flex flex-col flex-1 items-start',
+    header: 'mb-4',
+    body: 'flex-1',
+    footer: 'pt-4 mt-auto',
+    leading: 'inline-flex items-center mb-2.5',
+    leadingIcon: 'size-5 shrink-0',
+    title: 'text-2xl text-pretty font-(--ui-font-weight-semibold)',
+    description: 'text-lg text-pretty'
   },
   variants: {
+    orientation: {
+      horizontal: { container: 'lg:grid-cols-2 lg:items-center' },
+      vertical: { container: '' }
+    },
+    reverse: {
+      true: { wrapper: 'lg:order-last' }
+    },
     variant: {
       'filled': {
         root: [
@@ -22,8 +34,9 @@ export default {
           'border border-(--ui-color-design-filled-stroke) border-(length:--ui-design-filled-stroke-weight)',
           'text-(--ui-color-design-filled-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-filled-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-filled-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-filled-content-icon)',
+        title: 'text-(--ui-color-design-filled-content)',
+        description: 'text-(--ui-color-design-filled-content-secondary)'
       },
       'filled-success': {
         root: [
@@ -31,9 +44,11 @@ export default {
           'border border-(--ui-color-design-filled-success-stroke) border-(length:--ui-design-filled-success-stroke-weight)',
           'text-(--ui-color-design-filled-success-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-filled-success-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-filled-success-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-filled-success-content-icon)',
+        title: 'text-(--ui-color-design-filled-success-content)',
+        description: 'text-(--ui-color-design-filled-success-content)'
       },
+      // @todo
       'filled-alert': {
         root: [
           'bg-(--ui-color-design-filled-alert-bg)',
@@ -259,9 +274,113 @@ export default {
         header: 'border-b border-(--ui-color-design-selection-content-divider) border-b-1',
         footer: 'border-t border-(--ui-color-design-selection-content-divider) border-t-1'
       }
+    },
+    to: {
+      true: {
+        root: 'transition'
+      }
+    },
+    title: {
+      true: {
+        description: 'mt-1'
+      }
+    },
+    highlight: {
+      true: { root: 'ring-2' }
+    },
+    highlightColor: {
+      'air-primary': '',
+      'air-primary-success': '',
+      'air-primary-alert': '',
+      'air-primary-copilot': '',
+      'air-primary-warning': ''
     }
   },
+  compoundVariants: [
+    // region variant & to ////
+    // @todo
+    {
+      variant: 'solid',
+      to: true,
+      class: {
+        root: 'hover:bg-inverted/90'
+      }
+    },
+    {
+      variant: 'outline',
+      to: true,
+      class: {
+        root: 'hover:bg-elevated/50'
+      }
+    },
+    {
+      variant: 'soft',
+      to: true,
+      class: {
+        root: 'hover:bg-elevated'
+      }
+    },
+    {
+      variant: 'subtle',
+      to: true,
+      class: {
+        root: 'hover:bg-elevated'
+      }
+    },
+    {
+      variant: 'subtle',
+      to: true,
+      highlight: false,
+      class: {
+        root: 'hover:ring-accented'
+      }
+    },
+    {
+      variant: 'ghost',
+      to: true,
+      class: {
+        root: 'hover:bg-elevated/50'
+      }
+    },
+    // endregion ////
+    // region highlight ////
+    {
+      highlightColor: 'air-primary',
+      highlight: true,
+      class: { root: 'ring-(--ui-color-design-filled-stroke)' }
+    },
+    {
+      highlightColor: 'air-primary-success',
+      highlight: true,
+      class: { root: 'ring-(--ui-color-design-filled-success-stroke)' }
+    },
+    {
+      highlightColor: 'air-primary-alert',
+      highlight: true,
+      class: { root: 'ring-(--ui-color-design-filled-alert-stroke)' }
+    },
+    {
+      highlightColor: 'air-primary-copilot',
+      highlight: true,
+      class: { root: 'ring-(--ui-color-design-filled-copilot-stroke)' }
+    },
+    {
+      highlightColor: 'air-primary-warning',
+      highlight: true,
+      class: { root: 'ring-(--ui-color-design-filled-warning-stroke)' }
+    },
+    // endregion ////
+    // region to ////
+    {
+      to: true,
+      class: {
+        root: 'has-focus-visible:ring-2 has-focus-visible:ring-primary'
+      }
+    }
+    // endregion ////
+  ],
   defaultVariants: {
-    variant: 'outline'
+    variant: 'outline',
+    highlightColor: 'air-primary'
   }
 }

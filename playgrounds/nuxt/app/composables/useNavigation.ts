@@ -51,7 +51,7 @@ const components = [
   'modal',
   'navigation-menu',
   // 'page-anchors',
-  // 'page-card',
+  'page-card',
   // 'page-cta',
   // 'page-feature',
   // 'page-header',
