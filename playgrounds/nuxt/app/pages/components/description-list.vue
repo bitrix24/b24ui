@@ -86,7 +86,7 @@ const itemsSimple: DescriptionListItem[] = [
     label: 'Line 1.4',
     description: 'Description 1.4',
     b24ui: {
-      description: 'font-(--ui-font-weight-semibold)'
+      description: 'font-(--ui-font-weight-semi-bold)'
     }
   }
 ]
@@ -149,8 +149,8 @@ const itemsCustom: (DescriptionListItem & { value?: Date | string })[] = [
     value: 'Paid',
     description: '$10,560.00',
     b24ui: {
-      label: 'font-(--ui-font-weight-semibold) text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color)',
-      description: 'font-(--ui-font-weight-semibold) text-(length:--ui-font-size-lg) block w-full'
+      label: 'font-(--ui-font-weight-semi-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-md) text-(--b24ui-typography-label-color)',
+      description: 'font-(--ui-font-weight-semi-bold) text-(length:--ui-font-size-lg) block w-full'
     }
   },
   {
@@ -160,7 +160,7 @@ const itemsCustom: (DescriptionListItem & { value?: Date | string })[] = [
     },
     description: 'Employee Name',
     b24ui: {
-      description: 'font-(--ui-font-weight-semibold)'
+      description: 'font-(--ui-font-weight-semi-bold)'
     }
   },
   {

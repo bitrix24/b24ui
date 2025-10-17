@@ -16,7 +16,7 @@ export default {
     heading: [
       'mx-auto',
       'text-center',
-      'font-(--ui-font-weight-semibold)',
+      'font-(--ui-font-weight-semi-bold)',
       'truncate'
     ].join(' '),
     grid: 'w-full border-collapse select-none space-y-1 focus:outline-none',
@@ -47,7 +47,7 @@ export default {
       'hover:not-data-[disabled]:not-data-[selected]:text-(--b24ui-color)',
       'data-unavailable:line-through',
       'data-unavailable:pointer-events-none',
-      'data-today:font-(--ui-font-weight-semibold)',
+      'data-today:font-(--ui-font-weight-semi-bold)',
       'transition'
     ].join(' ')
   },

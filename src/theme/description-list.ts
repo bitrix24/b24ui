@@ -7,7 +7,7 @@ export default {
   slots: {
     root: 'w-full shrink-0',
     legend: [
-      'font-(--ui-font-weight-semibold)',
+      'font-(--ui-font-weight-semi-bold)',
       'text-(--b24ui-typography-label-color)'
     ].join(' '),
     text: 'text-(--b24ui-typography-description-color)',

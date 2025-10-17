@@ -53,7 +53,7 @@ const columns: ColumnDef<Payment>[] = [
     header: 'ID',
     meta: {
       class: {
-        th: 'text-center font-(--ui-font-weight-semibold)',
+        th: 'text-center font-(--ui-font-weight-semi-bold)',
         td: 'text-center font-[family-name:var(--ui-font-family-system-mono)]'
       }
     }
@@ -87,7 +87,7 @@ const columns: ColumnDef<Payment>[] = [
         refunded: 'text-(--ui-color-accent-main-warning)'
       }
       return h('span', {
-        class: `font-(--ui-font-weight-semibold) capitalize ${colorMap[status as keyof typeof colorMap]}`
+        class: `font-(--ui-font-weight-semi-bold) capitalize ${colorMap[status as keyof typeof colorMap]}`
       }, status)
     }
   },
@@ -118,7 +118,7 @@ const columns: ColumnDef<Payment>[] = [
       }).format(amount)
 
       return h('span', {
-        class: 'font-(--ui-font-weight-semibold) text-(--ui-color-accent-main-success)'
+        class: 'font-(--ui-font-weight-semi-bold) text-(--ui-color-accent-main-success)'
       }, formatted)
     }
   }

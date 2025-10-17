@@ -5,7 +5,7 @@
  * @todo: docs
  * @todo: test
  * @todo: playground
- * @todo: docs add in-data-[content=dd-light]:bg-red-500 group-data-[content=light]/layout-content:bg-red-500
+ * @todo: docs add in-data-[content=light]:bg-red-500 group-data-[content=light]/layout-content:bg-red-500
  * @todo: docs add inner {true|false}
  */
 

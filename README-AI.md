@@ -1505,7 +1505,7 @@ Example:
       </div>
 
       <!-- Page SubTitle -->
-      <ProseH2 class="font-(--ui-font-weight-semibold) mb-0">
+      <ProseH2 class="font-(--ui-font-weight-semi-bold) mb-0">
         Some sub-title
       </ProseH2>
     </div>

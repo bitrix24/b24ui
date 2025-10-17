@@ -13,8 +13,8 @@ const items = ref([
     value: '$10,560.00',
     description: 'Paid',
     b24ui: {
-      label: 'font-(--ui-font-weight-semibold) text-(length:--ui-font-size-md)/(--ui-font-line-height-md)',
-      description: 'font-(--ui-font-weight-semibold) text-(length:--ui-font-size-lg) block w-full'
+      label: 'font-(--ui-font-weight-semi-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-md)',
+      description: 'font-(--ui-font-weight-semi-bold) text-(length:--ui-font-size-lg) block w-full'
     }
   },
   {
@@ -25,7 +25,7 @@ const items = ref([
     },
     description: 'Employee Name',
     b24ui: {
-      description: 'font-(--ui-font-weight-semibold)'
+      description: 'font-(--ui-font-weight-semi-bold)'
     }
   },
   {
@@ -72,7 +72,7 @@ const items = ref([
             </div>
             <B24Badge
               :label="items[index]?.description"
-              class="font-(--ui-font-weight-semibold)"
+              class="font-(--ui-font-weight-semi-bold)"
               color="air-primary-success"
             />
           </div>

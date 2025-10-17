@@ -32,7 +32,7 @@ export default {
           'text-(--ui-color-design-selection-content)',
           'hover:text-(--ui-color-accent-main-primary-alt-2)',
           'hover:underline',
-          'font-(--ui-font-weight-semibold)'
+          'font-(--ui-font-weight-semi-bold)'
         ].join(' ')
       },
       false: {
