@@ -25,20 +25,16 @@ const { desktopLinks } = useHeader()
   >
     <LogoWithVersion :no-padding="props.showLogoAllTime" />
   </B24NavbarSection>
-  <B24NavbarSection
-    class="hidden lg:inline-flex"
-    :class="[
-      props.showLogoAllTime ? 'pl-[32px]' : ''
-    ]"
-  >
+  <B24NavbarSection :class="[props.showLogoAllTime ? 'pl-[32px]' : '']">
     <B24NavigationMenu
+      class="hidden lg:inline-flex"
       :items="desktopLinks"
       orientation="horizontal"
     />
   </B24NavbarSection>
   <B24NavbarSpacer />
 
-  <B24NavbarSection>
+  <B24NavbarSection class="gap-1 sm:gap-3">
     <B24Tooltip text="Search" :kbds="['meta', 'K']">
       <B24ContentSearchButton />
     </B24Tooltip>

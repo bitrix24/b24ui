@@ -22,6 +22,8 @@ const sidebarLayoutB24Ui = computed(() => {
 onMounted(() => {
   isMounted.value = true
 })
+
+const { mobileLinks } = useHeader()
 </script>
 
 <template>
@@ -34,7 +36,16 @@ onMounted(() => {
         <LogoWithVersion />
         <FrameworkTabs />
       </B24SidebarHeader>
-      <B24SidebarBody>
+      <B24SidebarBody
+        :b24ui="{
+          root: '[&>[data-slot=section]+[data-slot=section]]:mt-0'
+        }"
+      >
+        <B24NavigationMenu
+          class="lg:hidden"
+          :items="mobileLinks"
+          orientation="vertical"
+        />
         <B24NavigationMenu
           :key="route.path"
           :items="navigationMenuByCategory"

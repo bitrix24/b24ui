@@ -18,7 +18,7 @@ import BrushIcon from '@bitrix24/b24icons-vue/actions/BrushIcon'
 import EarthLanguageIcon from '@bitrix24/b24icons-vue/main/EarthLanguageIcon'
 
 const categories = {
-  components: [
+  'components': [
     {
       id: 'layout',
       title: 'Layout',
@@ -55,12 +55,6 @@ const categories = {
       icon: PageIcon
     },
     {
-      id: 'content',
-      title: 'Content',
-      framework: 'nuxt',
-      icon: TaskListIcon
-    },
-    {
       id: 'dashboard',
       title: 'Dashboard',
       icon: CodeIcon
@@ -71,6 +65,12 @@ const categories = {
       icon: AiStarsIcon
     },
     {
+      id: 'content',
+      title: 'Content',
+      framework: 'nuxt',
+      icon: TaskListIcon
+    },
+    {
       id: 'color-mode',
       title: 'Color Mode',
       icon: BrushIcon
@@ -79,12 +79,30 @@ const categories = {
       id: 'i18n',
       title: 'i18n',
       icon: EarthLanguageIcon
-    }],
-  typography: [
+    }
+  ],
+  'typography': [
     {
       id: 'components',
       title: 'Components',
       icon: ALetterIcon
+    }
+  ],
+  'getting-started': [
+    {
+      id: 'theme',
+      title: 'Theme',
+      icon: undefined
+    },
+    {
+      id: 'integrations',
+      title: 'Integrations',
+      icon: undefined
+    },
+    {
+      id: 'aiTools',
+      title: 'AI Tools',
+      icon: undefined
     }
   ]
 }
@@ -206,7 +224,6 @@ function processNavigationItem(item: ContentNavigationItem, parent?: ContentNavi
 
 export const useNavigation = (navigation: Ref<ContentNavigationItem[] | undefined>) => {
   const { framework } = useFrameworks()
-  const route = useRoute()
 
   const rootNavigation = computed(() =>
     navigation.value?.[0]?.children?.map(item => processNavigationItem(item)) as ContentNavigationItem[]
@@ -217,8 +234,7 @@ export const useNavigation = (navigation: Ref<ContentNavigationItem[] | undefine
   )
 
   const navigationByCategory = computed(() => {
-    // @memo move to Top
-    // const route = useRoute()
+    const route = useRoute()
 
     const slug = route.params.slug?.[0] as string
     const children = findPageChildren(navigation?.value, `/docs/${slug}`, { indexAsChild: true })
@@ -257,6 +273,8 @@ export const useNavigation = (navigation: Ref<ContentNavigationItem[] | undefine
   }
 
   const navigationMenuByCategory = computed(() => {
+    const route = useRoute()
+
     const data = mapContentNavigation(
       navigationByCategory?.value ?? []
     )?.map((item) => {
@@ -271,20 +289,18 @@ export const useNavigation = (navigation: Ref<ContentNavigationItem[] | undefine
 
     const result = []
     for (const row of data) {
-      if (row.type === 'trigger') {
-        result.push({
-          ...row,
-          type: 'label' as const,
-          open: undefined,
-          children: undefined
-        })
+      result.push({
+        ...row,
+        type: 'label' as const,
+        open: undefined,
+        children: undefined
+      })
 
-        for (const child of row.children) {
-          result.push({
-            ...child,
-            icon: row?.icon
-          })
-        }
+      for (const child of row.children) {
+        result.push({
+          ...child,
+          icon: row?.icon
+        })
       }
     }
 

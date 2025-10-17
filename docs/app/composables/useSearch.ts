@@ -2,8 +2,8 @@ import PlayLIcon from '@bitrix24/b24icons-vue/outline/PlayLIcon'
 import DeveloperResourcesIcon from '@bitrix24/b24icons-vue/outline/DeveloperResourcesIcon'
 import ViewmodeCodeIcon from '@bitrix24/b24icons-vue/editor/ViewmodeCodeIcon'
 import FormattingIcon from '@bitrix24/b24icons-vue/editor/FormattingIcon'
-import FormIcon from '@bitrix24/b24icons-vue/outline/FormIcon'
-import DemonstrationOnIcon from '@bitrix24/b24icons-vue/outline/DemonstrationOnIcon'
+// import FormIcon from '@bitrix24/b24icons-vue/outline/FormIcon'
+// import DemonstrationOnIcon from '@bitrix24/b24icons-vue/outline/DemonstrationOnIcon'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 
 export function useSearch() {
@@ -38,18 +38,18 @@ export function useSearch() {
       to: '/docs/typography/',
       active: route.path.startsWith('/docs/typography')
     },
-    {
-      label: 'Templates',
-      icon: FormIcon,
-      description: 'Explore official templates built with Bitrix24 UI.',
-      to: '/templates/'
-    },
-    {
-      label: 'Showcase',
-      icon: DemonstrationOnIcon,
-      description: 'Explore some of the amazing projects built with Bitrix24 UI.',
-      to: '/showcase/'
-    },
+    // {
+    //   label: 'Templates',
+    //   icon: FormIcon,
+    //   description: 'Explore official templates built with Bitrix24 UI.',
+    //   to: '/templates/'
+    // },
+    // {
+    //   label: 'Showcase',
+    //   icon: DemonstrationOnIcon,
+    //   description: 'Explore some of the amazing projects built with Bitrix24 UI.',
+    //   to: '/showcase/'
+    // },
     {
       label: 'GitHub',
       description: 'Check out the Bitrix24 UI repository and follow development on GitHub.',
