@@ -264,7 +264,7 @@ const generateComponentCode = ({
 
   let calendarValueCode = ''
   if (componentName === 'calendar' && props.modelValue && Array.isArray(props.modelValue)) {
-    calendarValueCode = `const value = ref(new CalendarDate(${props.modelValue.join(', ')}))`
+    calendarValueCode = `const value = shallowRef(new CalendarDate(${props.modelValue.join(', ')}))`
   }
 
   const propsString = Object.entries(filteredProps)
