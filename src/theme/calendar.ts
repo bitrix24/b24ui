@@ -17,6 +17,7 @@ export default {
       'mx-auto',
       'text-center',
       'font-(--ui-font-weight-semi-bold)',
+      'text-(--b24ui-typography-legend-color)',
       'truncate'
     ].join(' '),
     grid: 'w-full border-collapse select-none space-y-1 focus:outline-none',
