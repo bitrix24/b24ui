@@ -2,7 +2,6 @@
  * PageCard
  * A pre-styled card component featuring a title, description, and optional link.
  * ---
- * @todo add colors
  * @see src/theme/card.ts
  */
 
@@ -16,7 +15,7 @@ export default {
     footer: 'pt-4 mt-auto',
     leading: 'inline-flex items-center mb-2.5',
     leadingIcon: 'size-5 shrink-0',
-    title: 'text-2xl text-pretty font-(--ui-font-weight-semibold)',
+    title: 'text-2xl text-pretty font-(--ui-font-weight-semi-bold)',
     description: 'text-lg text-pretty'
   },
   variants: {
@@ -48,15 +47,15 @@ export default {
         title: 'text-(--ui-color-design-filled-success-content)',
         description: 'text-(--ui-color-design-filled-success-content)'
       },
-      // @todo
       'filled-alert': {
         root: [
           'bg-(--ui-color-design-filled-alert-bg)',
           'border border-(--ui-color-design-filled-alert-stroke) border-(length:--ui-design-filled-alert-stroke-weight)',
           'text-(--ui-color-design-filled-alert-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-filled-alert-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-filled-alert-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-filled-alert-content-icon)',
+        title: 'text-(--ui-color-design-filled-alert-content)',
+        description: 'text-(--ui-color-design-filled-alert-content-secondary)'
       },
       'filled-warning': {
         root: [
@@ -64,8 +63,9 @@ export default {
           'border border-(--ui-color-design-filled-warning-stroke) border-(length:--ui-design-filled-warning-stroke-weight)',
           'text-(--ui-color-design-filled-warning-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-filled-warning-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-filled-warning-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-filled-warning-content-icon)',
+        title: 'text-(--ui-color-design-filled-warning-content)',
+        description: 'text-(--ui-color-design-filled-warning-content)'
       },
       'filled-copilot': {
         root: [
@@ -73,8 +73,9 @@ export default {
           'border border-(--ui-color-design-filled-copilot-stroke) border-(length:--ui-design-filled-copilot-stroke-weight)',
           'text-(--ui-color-design-filled-copilot-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-filled-copilot-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-filled-copilot-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-filled-copilot-content-icon)',
+        title: 'text-(--ui-color-design-filled-copilot-content)',
+        description: 'text-(--ui-color-design-filled-copilot-content)'
       },
       'filled-no-accent': {
         root: [
@@ -82,8 +83,9 @@ export default {
           'border border-(--ui-color-design-filled-na-stroke) border-(length:--ui-design-filled-na-stroke-weight)',
           'text-(--ui-color-design-filled-na-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-filled-na-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-filled-na-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-filled-na-content-icon)',
+        title: 'text-(--ui-color-design-filled-na-content)',
+        description: 'text-(--ui-color-design-filled-na-content)'
       },
       'filled-black': {
         root: [
@@ -91,8 +93,9 @@ export default {
           'border border-(--ui-color-design-filled-black-stroke) border-(length:--ui-design-filled-black-stroke-weight)',
           'text-(--ui-color-design-filled-black-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-filled-black-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-filled-black-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-filled-black-content-icon)',
+        title: 'text-(--ui-color-design-filled-black-content)',
+        description: 'text-(--ui-color-design-filled-black-content)'
       },
       'tinted': {
         root: [
@@ -100,8 +103,9 @@ export default {
           'border border-(--ui-color-design-tinted-stroke) border-(length:--ui-design-tinted-stroke-weight)',
           'text-(--ui-color-design-tinted-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-tinted-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-tinted-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-tinted-content-icon)',
+        title: 'text-(--ui-color-design-tinted-content)',
+        description: 'text-(--ui-color-design-tinted-content)'
       },
       'tinted-alt': {
         root: [
@@ -109,8 +113,9 @@ export default {
           'border border-(--ui-color-design-tinted-stroke) border-(length:--ui-design-tinted-stroke-weight)',
           'text-(--ui-color-design-tinted-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-tinted-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-tinted-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-tinted-content-icon)',
+        title: 'text-(--ui-color-design-tinted-content)',
+        description: 'text-(--ui-color-design-tinted-content)'
       },
       'tinted-accent-1': {
         root: [
@@ -118,8 +123,9 @@ export default {
           'border border-(--ui-color-design-tinted-a1-stroke) border-(length:--ui-design-tinted-a1-stroke-weight)',
           'text-(--ui-color-design-tinted-a1-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-tinted-a1-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-tinted-a1-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-tinted-a1-content-icon)',
+        title: 'text-(--ui-color-design-tinted-a1-content)',
+        description: 'text-(--ui-color-design-tinted-a1-content)'
       },
       'tinted-success': {
         root: [
@@ -127,8 +133,9 @@ export default {
           'border border-(--ui-color-design-tinted-success-stroke) border-(length:--ui-design-tinted-success-stroke-weight)',
           'text-(--ui-color-design-tinted-success-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-tinted-success-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-tinted-success-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-tinted-success-content-icon)',
+        title: 'text-(--ui-color-design-tinted-success-content)',
+        description: 'text-(--ui-color-design-tinted-success-content)'
       },
       'tinted-alert': {
         root: [
@@ -136,8 +143,9 @@ export default {
           'border border-(--ui-color-design-tinted-alert-stroke) border-(length:--ui-design-tinted-alert-stroke-weight)',
           'text-(--ui-color-design-tinted-alert-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-tinted-alert-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-tinted-alert-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-tinted-alert-content-icon)',
+        title: 'text-(--ui-color-design-tinted-alert-content)',
+        description: 'text-(--ui-color-design-tinted-alert-content)'
       },
       'tinted-warning': {
         root: [
@@ -145,8 +153,9 @@ export default {
           'border border-(--ui-color-design-tinted-warning-stroke) border-(length:--ui-design-tinted-warning-stroke-weight)',
           'text-(--ui-color-design-tinted-warning-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-tinted-warning-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-tinted-warning-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-tinted-warning-content-icon)',
+        title: 'text-(--ui-color-design-tinted-warning-content)',
+        description: 'text-(--ui-color-design-tinted-warning-content)'
       },
       'tinted-no-accent': {
         root: [
@@ -154,8 +163,9 @@ export default {
           'border border-(--ui-color-design-tinted-na-stroke) border-(length:--ui-design-tinted-na-stroke-weight)',
           'text-(--ui-color-design-tinted-na-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-tinted-na-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-tinted-na-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-tinted-na-content-icon)',
+        title: 'text-(--ui-color-design-tinted-na-content)',
+        description: 'text-(--ui-color-design-tinted-na-content)'
       },
       'outline': {
         root: [
@@ -163,8 +173,9 @@ export default {
           'border border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight)',
           'text-(--ui-color-design-outline-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-outline-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-outline-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-outline-content-icon)',
+        title: 'text-(--ui-color-design-outline-content)',
+        description: 'text-(--ui-color-design-outline-content-secondary)'
       },
       'outline-alt': {
         root: [
@@ -172,8 +183,9 @@ export default {
           'border border-(--ui-color-design-outline-content-divider) border-(length:--ui-design-outline-stroke-weight-alt)',
           'text-(--ui-color-design-outline-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-outline-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-outline-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-outline-content-icon)',
+        title: 'text-(--ui-color-design-outline-content)',
+        description: 'text-(--ui-color-design-outline-content-secondary)'
       },
       'outline-accent': {
         root: [
@@ -181,8 +193,9 @@ export default {
           'border border-(--ui-color-design-outline-a1-stroke) border-(length:--ui-design-outline-a1-stroke-weight)',
           'text-(--ui-color-design-outline-a1-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-outline-a1-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-outline-a1-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-outline-a1-content-icon)',
+        title: 'text-(--ui-color-design-outline-a1-content)',
+        description: 'text-(--ui-color-design-outline-a1-content)'
       },
       'outline-accent-2': {
         root: [
@@ -190,8 +203,9 @@ export default {
           'border border-(--ui-color-design-outline-a2-stroke) border-(length:--ui-design-outline-a2-stroke-weight)',
           'text-(--ui-color-design-outline-a2-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-outline-a2-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-outline-a2-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-outline-a2-content-icon)',
+        title: 'text-(--ui-color-design-outline-a2-content)',
+        description: 'text-(--ui-color-design-outline-a2-content)'
       },
       'outline-success': {
         root: [
@@ -199,8 +213,9 @@ export default {
           'border border-(--ui-color-design-outline-success-stroke) border-(length:--ui-design-outline-success-stroke-weight)',
           'text-(--ui-color-design-outline-success-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-outline-success-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-outline-success-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-outline-success-content-icon)',
+        title: 'text-(--ui-color-design-outline-success-content)',
+        description: 'text-(--ui-color-design-outline-success-content)'
       },
       'outline-alert': {
         root: [
@@ -208,8 +223,9 @@ export default {
           'border border-(--ui-color-design-outline-alert-stroke) border-(length:--ui-design-outline-alert-stroke-weight)',
           'text-(--ui-color-design-outline-alert-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-outline-alert-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-outline-alert-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-outline-alert-content-icon)',
+        title: 'text-(--ui-color-design-outline-alert-content)',
+        description: 'text-(--ui-color-design-outline-alert-content)'
       },
       'outline-warning': {
         root: [
@@ -217,8 +233,9 @@ export default {
           'border border-(--ui-color-design-outline-warning-stroke) border-(length:--ui-design-outline-warning-stroke-weight)',
           'text-(--ui-color-design-outline-warning-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-outline-warning-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-outline-warning-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-outline-warning-content-icon)',
+        title: 'text-(--ui-color-design-outline-warning-content)',
+        description: 'text-(--ui-color-design-outline-warning-content)'
       },
       'outline-copilot': {
         root: [
@@ -226,8 +243,9 @@ export default {
           'border border-(--ui-color-design-outline-copilot-stroke) border-(length:--ui-design-outline-copilot-stroke-weight)',
           'text-(--ui-color-design-outline-copilot-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-outline-copilot-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-outline-copilot-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-outline-copilot-content-icon)',
+        title: 'text-(--ui-color-design-outline-copilot-content)',
+        description: 'text-(--ui-color-design-outline-copilot-content)'
       },
       'outline-no-accent': {
         root: [
@@ -235,8 +253,9 @@ export default {
           'border border-(--ui-color-design-outline-na-stroke) border-(length:--ui-design-outline-na-stroke-weight)',
           'text-(--ui-color-design-outline-na-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-outline-na-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-outline-na-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-outline-na-content-icon)',
+        title: 'text-(--ui-color-design-outline-na-content)',
+        description: 'text-(--ui-color-design-outline-na-content)'
       },
       'plain': {
         root: [
@@ -244,8 +263,9 @@ export default {
           'border border-(--ui-color-design-plain-stroke) border-(length:--ui-design-plain-stroke-weight)',
           'text-(--ui-color-design-plain-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-plain-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-plain-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-plain-content-icon)',
+        title: 'text-(--ui-color-design-plain-content)',
+        description: 'text-(--ui-color-design-plain-content)'
       },
       'plain-accent': {
         root: [
@@ -253,8 +273,9 @@ export default {
           'border border-(--ui-color-design-plain-a-stroke) border-(length:--ui-design-plain-a-stroke-weight)',
           'text-(--ui-color-design-plain-a-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-plain-a-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-plain-a-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-plain-a-content-icon)',
+        title: 'text-(--ui-color-design-plain-a-content)',
+        description: 'text-(--ui-color-design-plain-a-content)'
       },
       'plain-no-accent': {
         root: [
@@ -262,8 +283,9 @@ export default {
           'border border-(--ui-color-design-plain-na-stroke) border-(length:--ui-design-plain-na-stroke-weight)',
           'text-(--ui-color-design-plain-na-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-plain-na-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-plain-na-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-plain-na-content-icon)',
+        title: 'text-(--ui-color-design-plain-na-content)',
+        description: 'text-(--ui-color-design-plain-na-content)'
       },
       'selection': {
         root: [
@@ -271,8 +293,9 @@ export default {
           'border border-(--ui-color-design-selection-stroke) border-(length:--ui-design-selection-stroke-weight)',
           'text-(--ui-color-design-selection-content)'
         ].join(' '),
-        header: 'border-b border-(--ui-color-design-selection-content-divider) border-b-1',
-        footer: 'border-t border-(--ui-color-design-selection-content-divider) border-t-1'
+        leadingIcon: 'text-(--ui-color-design-selection-content-icon)',
+        title: 'text-(--ui-color-design-selection-content)',
+        description: 'text-(--ui-color-design-selection-content)'
       }
     },
     to: {
@@ -298,48 +321,193 @@ export default {
   },
   compoundVariants: [
     // region variant & to ////
-    // @todo
     {
-      variant: 'solid',
+      variant: 'filled',
       to: true,
       class: {
-        root: 'hover:bg-inverted/90'
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
+      }
+    },
+    {
+      variant: 'filled-success',
+      to: true,
+      class: {
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-success-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
+      }
+    },
+    {
+      variant: 'filled-alert',
+      to: true,
+      class: {
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-alert-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
+      }
+    },
+    {
+      variant: 'filled-warning',
+      to: true,
+      class: {
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-warning-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
+      }
+    },
+    {
+      variant: 'filled-copilot',
+      to: true,
+      class: {
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-copilot-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
+      }
+    },
+    {
+      variant: 'filled-no-accent',
+      to: true,
+      class: {
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-na-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
+      }
+    },
+    {
+      variant: 'filled-black',
+      to: true,
+      class: {
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-black-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
+      }
+    },
+    {
+      variant: 'tinted',
+      to: true,
+      class: {
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
+      }
+    },
+    {
+      variant: 'tinted-alt',
+      to: true,
+      class: {
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-bg-alt)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
+      }
+    },
+    {
+      variant: 'tinted-accent-1',
+      to: true,
+      class: {
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-a1-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
+      }
+    },
+    {
+      variant: 'tinted-success',
+      to: true,
+      class: {
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-success-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
+      }
+    },
+    {
+      variant: 'tinted-alert',
+      to: true,
+      class: {
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-alert-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
+      }
+    },
+    {
+      variant: 'tinted-warning',
+      to: true,
+      class: {
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-warning-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
+      }
+    },
+    {
+      variant: 'tinted-no-accent',
+      to: true,
+      class: {
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-na-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
       }
     },
     {
       variant: 'outline',
       to: true,
       class: {
-        root: 'hover:bg-elevated/50'
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
       }
     },
     {
-      variant: 'soft',
+      variant: 'outline-alt',
       to: true,
       class: {
-        root: 'hover:bg-elevated'
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-bg-alt)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
       }
     },
     {
-      variant: 'subtle',
+      variant: 'outline-accent',
       to: true,
       class: {
-        root: 'hover:bg-elevated'
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-a1-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
       }
     },
     {
-      variant: 'subtle',
+      variant: 'outline-accent-2',
       to: true,
-      highlight: false,
       class: {
-        root: 'hover:ring-accented'
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-a2-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
       }
     },
     {
-      variant: 'ghost',
+      variant: 'outline-success',
       to: true,
       class: {
-        root: 'hover:bg-elevated/50'
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-success-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
+      }
+    },
+    {
+      variant: 'outline-alert',
+      to: true,
+      class: {
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-alert-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
+      }
+    },
+    {
+      variant: 'outline-warning',
+      to: true,
+      class: {
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-warning-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
+      }
+    },
+    {
+      variant: 'outline-copilot',
+      to: true,
+      class: {
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-copilot-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
+      }
+    },
+    {
+      variant: 'outline-no-accent',
+      to: true,
+      class: {
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-na-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
+      }
+    },
+    {
+      variant: 'plain',
+      to: true,
+      class: {
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-plain-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
+      }
+    },
+    {
+      variant: 'plain-accent',
+      to: true,
+      class: {
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-plain-a-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
+      }
+    },
+    {
+      variant: 'plain-no-accent',
+      to: true,
+      class: {
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-plain-na-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
+      }
+    },
+    {
+      variant: 'selection',
+      to: true,
+      class: {
+        root: 'hover:bg-[color-mix(in_srgb,_var(--ui-color-design-selection-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]'
       }
     },
     // endregion ////
@@ -374,7 +542,7 @@ export default {
     {
       to: true,
       class: {
-        root: 'has-focus-visible:ring-2 has-focus-visible:ring-primary'
+        root: 'has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)'
       }
     }
     // endregion ////

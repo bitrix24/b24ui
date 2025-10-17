@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { withTrailingSlash } from 'ufo'
+
 const props = defineProps<{
   category: string
 }>()
@@ -20,7 +22,7 @@ const { data: components } = await useAsyncData(`components-${props.category}`, 
       :key="component.path"
       :title="component.title"
       :description="component.description"
-      :to="component.path"
+      :to="withTrailingSlash(component.path)"
       :b24ui="{
         root: 'overflow-hidden group ring-muted',
         header: 'mb-0',

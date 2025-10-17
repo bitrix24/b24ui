@@ -1,7 +1,6 @@
 <script setup lang="ts">
+import type { PageCardProps } from '@bitrix24/b24ui-nuxt'
 import usePageMeta from './../../composables/usePageMeta'
-import ExampleGrid from '../../components/ExampleGrid.vue'
-import ExampleCard from '../../components/ExampleCard.vue'
 import theme from '#build/b24ui/page-card'
 import PaletteIcon from '@bitrix24/b24icons-vue/outline/PaletteIcon'
 
@@ -18,16 +17,23 @@ const attrs = reactive({
 })
 
 const highlight = ref(false)
-const highlightColor = ref(theme.defaultVariants.highlightColor)
+const highlightColor = ref<PageCardProps['highlightColor']>(theme.defaultVariants.highlightColor)
 
 const orientation = ref('vertical' as keyof typeof theme.variants.orientation)
 const reverse = ref(false)
 </script>
 
 <template>
-  <ExampleGrid v-once>
-    <ExampleCard title="options">
-      <B24Separator class="my-3" type="dotted" />
+  <B24PageGrid v-once class="lg:grid-cols-4 gap-5">
+    <B24Card variant="outline">
+      <template #header>
+        <div class="flex flex-row items-center justify-between gap-2">
+          <ProseH5 class="mb-0">
+            Options
+          </ProseH5>
+          <B24Switch v-model="isUseBg" label="isUseBg" size="xs" />
+        </div>
+      </template>
       <div class="mb-4 flex flex-col gap-4">
         <B24Select v-model="attrs.variant" :items="variants" multiple />
         <B24Switch v-model="highlight" label="Highlight" />
@@ -35,11 +41,15 @@ const reverse = ref(false)
         <B24Select v-model="orientation" :items="orientations" />
         <B24Switch v-model="reverse" label="Reverse" />
       </div>
-    </ExampleCard>
+    </B24Card>
 
-    <Matrix v-slot="props" :attrs="attrs" class="flex-col gap-4">
-      <ExampleCard :title="[props?.variant].join(' ')" :use-bg="isUseBg" class="col-span-2">
-        <B24Separator class="my-3" type="dotted" />
+    <Matrix v-slot="props" :attrs="attrs">
+      <B24Card :variant="isUseBg ? 'outline-no-accent' : 'plain-no-accent'">
+        <template #header>
+          <ProseH5 class="mb-0">
+            {{ [props?.variant].join(' ') }}
+          </ProseH5>
+        </template>
         <B24PageCard
           :icon="PaletteIcon"
           title="Design system"
@@ -51,11 +61,10 @@ const reverse = ref(false)
           :orientation="orientation"
           :reverse="reverse"
           v-bind="props"
-          class="data-[orientation=vertical]:w-80"
         >
           <Placeholder class="size-full aspect-video" />
         </B24PageCard>
-      </ExampleCard>
+      </B24Card>
     </Matrix>
-  </ExampleGrid>
+  </B24PageGrid>
 </template>
