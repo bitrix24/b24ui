@@ -175,7 +175,7 @@ export default {
       true: {
         pageWrapper: '',
         container: 'lg:col-span-10',
-        pageRightWrapper: 'lg:col-span-2 order-first lg:order-last z-[2]'
+        pageRightWrapper: 'lg:col-span-2 order-first lg:order-last' //  z-[2]
       },
       false: {
         container: ''
