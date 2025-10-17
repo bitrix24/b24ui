@@ -65,7 +65,7 @@ const cards = ref([
         :height="card.image.height"
         :alt="card.title"
         class="w-full"
-      />
+      >
     </B24PageCard>
   </B24PageGrid>
 </template>
