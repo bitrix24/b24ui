@@ -10,7 +10,7 @@ import CopilotIcon from '@bitrix24/b24icons-vue/outline/CopilotIcon'
     :icon="CopilotIcon"
   >
     <img
-      src="/assets/demo/communications-main.png.webp"
+      src="/b24ui/assets/demo/communications-main.png.webp"
       alt="Online workspace for the whole team"
       class="w-full"
     >

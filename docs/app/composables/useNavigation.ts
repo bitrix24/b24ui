@@ -282,7 +282,7 @@ export const useNavigation = (navigation: Ref<ContentNavigationItem[] | undefine
         ...item,
         open: true,
         children: [
-          ...(((item?.children || []) as NavigationMenuItem[]).map(link => ({ ...link, active: link.to === route.path })))
+          ...(((item?.children || []) as NavigationMenuItem[]).map(link => ({ ...link, to: withTrailingSlash(link.to as string), active: withTrailingSlash(link.to as string) === route.path })))
         ]
       }
     })

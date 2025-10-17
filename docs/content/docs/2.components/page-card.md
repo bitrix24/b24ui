@@ -162,10 +162,10 @@ props:
 slots:
   default: |
 
-    <img src="/assets/demo/communications-main.png.webp" alt="Online workspace for the whole team" class="aspect-3/2 object-cover" />
+    <img src="/b24ui/assets/demo/communications-main.png.webp" alt="Online workspace for the whole team" class="aspect-3/2 object-cover" />
 ---
 
-:img{src="/assets/demo/communications-main.png.webp" alt="Online workspace for the whole team" class="aspect-3/2 object-cover"}
+:img{src="/b24ui/assets/demo/communications-main.png.webp" alt="Online workspace for the whole team" class="aspect-3/2 object-cover"}
 ::
 
 ### Reverse
@@ -190,10 +190,10 @@ props:
 slots:
   default: |
 
-    <img src="/assets/demo/communications-main.png.webp" alt="Online workspace for the whole team" class="aspect-3/2 object-cover" />
+    <img src="/b24ui/assets/demo/communications-main.png.webp" alt="Online workspace for the whole team" class="aspect-3/2 object-cover" />
 ---
 
-:img{src="/assets/demo/communications-main.png.webp" alt="Online workspace for the whole team" class="aspect-3/2 object-cover"}
+:img{src="/b24ui/assets/demo/communications-main.png.webp" alt="Online workspace for the whole team" class="aspect-3/2 object-cover"}
 ::
 
 ### Highlight
@@ -222,10 +222,10 @@ props:
 slots:
   default: |
 
-    <img src="/assets/demo/communications-main.png.webp" alt="Online workspace for the whole team" class="aspect-3/2 object-cover" />
+    <img src="/b24ui/assets/demo/communications-main.png.webp" alt="Online workspace for the whole team" class="aspect-3/2 object-cover" />
 ---
 
-:img{src="/assets/demo/communications-main.png.webp" alt="Online workspace for the whole team" class="aspect-3/2 object-cover"}
+:img{src="/b24ui/assets/demo/communications-main.png.webp" alt="Online workspace for the whole team" class="aspect-3/2 object-cover"}
 ::
 
 ## Examples

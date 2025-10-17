@@ -12,7 +12,7 @@ const cards = ref([
     to: 'https://www.bitrix24.com/tools/communications/',
     class: 'lg:col-span-2',
     image: {
-      path: '/assets/demo/communications-main.png.webp',
+      path: '/b24ui/assets/demo/communications-main.png.webp',
       width: 363,
       height: 152
     },
@@ -39,7 +39,7 @@ const cards = ref([
     icon: HrAutomationIcon,
     to: 'https://www.bitrix24.com/tools/hr_automation/',
     image: {
-      path: '/assets/demo/hr_automation-main.png.webp',
+      path: '/b24ui/assets/demo/hr_automation-main.png.webp',
       width: 362,
       height: 184
     },
