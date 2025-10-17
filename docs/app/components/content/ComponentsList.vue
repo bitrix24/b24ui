@@ -14,7 +14,7 @@ const { data: components } = await useAsyncData(`components-${props.category}`, 
 </script>
 
 <template>
-  <B24PageGrid class="gap-5">
+  <B24PageGrid class="gap-5 mb-4 mt-3">
     <B24PageCard
       v-for="(component) in components"
       :key="component.path"
@@ -27,7 +27,7 @@ const { data: components } = await useAsyncData(`components-${props.category}`, 
         container: 'p-0 lg:p-0',
         body: 'p-4',
         title: 'text-[15px] font-medium',
-        description: 'line-clamp-2 mt-0.5'
+        description: 'line-clamp-2 mt-1'
       }"
     />
   </B24PageGrid>

@@ -54,7 +54,12 @@ function toggleModeContext() {
 
 const getLightContent = computed(() => {
   const result = {
+    pageWrapper: '',
     containerWrapper: ''
+  }
+
+  if (route.path === '/') {
+    result.pageWrapper = 'lg:mt-[22px]'
   }
 
   if (!isSidebarLayoutUseLightContent.value) {
@@ -199,7 +204,7 @@ const { groups } = useNavigation()
             <template #fallback>
               <div class="flex items-center gap-[12px]">
                 <div class="w-full flex items-center gap-[20px]">
-                  <ProseH2 class="font-(--ui-font-weight-semibold) mb-0">
+                  <ProseH2 class="font-(--ui-font-weight-semi-bold) mb-0">
                     Loading ...
                   </ProseH2>
                 </div>

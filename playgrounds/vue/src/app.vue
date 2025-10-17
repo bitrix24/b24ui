@@ -64,7 +64,12 @@ function toggleModeContext() {
 
 const getLightContent = computed(() => {
   const result = {
+    pageWrapper: '',
     containerWrapper: ''
+  }
+
+  if (route.path === '/') {
+    result.pageWrapper = 'lg:mt-[22px]'
   }
 
   if (!isSidebarLayoutUseLightContent.value) {
