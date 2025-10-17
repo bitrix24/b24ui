@@ -14,12 +14,12 @@ exports[`PageCard > renders with b24ui correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-bold">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty text-(--ui-color-design-outline-content) font-bold">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -33,7 +33,7 @@ exports[`PageCard > renders with body slot correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">Body slot</div>
@@ -49,12 +49,12 @@ exports[`PageCard > renders with class correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -68,12 +68,12 @@ exports[`PageCard > renders with default slot correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>Default slot
@@ -90,7 +90,7 @@ exports[`PageCard > renders with description correctly 1`] = `
       <!--v-if-->
       <div class="flex-1">
         <!--v-if-->
-        <div class="text-lg text-pretty">Description</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary)">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -104,12 +104,12 @@ exports[`PageCard > renders with description slot correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description slot</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description slot</div>
       </div>
       <!--v-if-->
     </div>
@@ -123,14 +123,14 @@ exports[`PageCard > renders with footer slot correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
-      <div class="pt-4 mt-auto border-(--ui-color-design-outline-content-divider) border-t-1">Footer slot</div>
+      <div class="pt-4 mt-auto">Footer slot</div>
     </div>
   </div>
   <!--v-if-->
@@ -141,13 +141,13 @@ exports[`PageCard > renders with header slot correctly 1`] = `
 "<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content)">
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
-      <div class="mb-4 border-(--ui-color-design-outline-content-divider) border-b-1">Header slot</div>
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="mb-4">Header slot</div>
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -161,12 +161,12 @@ exports[`PageCard > renders with highlight color air-primary correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -180,12 +180,12 @@ exports[`PageCard > renders with highlight color air-primary correctly 2`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -199,12 +199,12 @@ exports[`PageCard > renders with highlight color air-primary-alert correctly 1`]
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -218,12 +218,12 @@ exports[`PageCard > renders with highlight color air-primary-copilot correctly 1
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -237,12 +237,12 @@ exports[`PageCard > renders with highlight color air-primary-success correctly 1
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -256,12 +256,12 @@ exports[`PageCard > renders with highlight color air-primary-warning correctly 1
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -275,12 +275,12 @@ exports[`PageCard > renders with highlight correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -294,7 +294,7 @@ exports[`PageCard > renders with icon correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <!--v-if-->
@@ -312,8 +312,8 @@ exports[`PageCard > renders with leading slot correctly 1`] = `
       <!--v-if-->
       <div class="inline-flex items-center mb-2.5">Leading slot</div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -327,12 +327,12 @@ exports[`PageCard > renders with orientation horizontal correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6 lg:grid-cols-2 lg:items-center">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -346,12 +346,12 @@ exports[`PageCard > renders with orientation horizontal reverse correctly 1`] = 
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6 lg:grid-cols-2 lg:items-center">
     <div class="flex flex-col flex-1 items-start lg:order-last">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -365,12 +365,12 @@ exports[`PageCard > renders with orientation vertical correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -384,12 +384,12 @@ exports[`PageCard > renders with orientation vertical reverse correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start lg:order-last">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -405,7 +405,7 @@ exports[`PageCard > renders with title correctly 1`] = `
       <!--v-if-->
       <!--v-if-->
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
         <!--v-if-->
       </div>
       <!--v-if-->
@@ -420,12 +420,12 @@ exports[`PageCard > renders with title slot correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title slot</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title slot</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -435,10 +435,402 @@ exports[`PageCard > renders with title slot correctly 1`] = `
 `;
 
 exports[`PageCard > renders with to correctly 1`] = `
-"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) transition hover:bg-elevated/50 has-focus-visible:ring-2 has-focus-visible:ring-primary">
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <!--v-if-->
   </div><a href="https://github.com/bitrix24" target="_blank" aria-label="Card link" class="focus:outline-none peer"><span class="absolute inset-0" aria-hidden="true"></span></a>
+</div>"
+`;
+
+exports[`PageCard > renders with variant filled correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-filled-bg) border-(--ui-color-design-filled-stroke) border-(length:--ui-design-filled-stroke-weight) text-(--ui-color-design-filled-content)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-filled-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-filled-content-secondary) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant filled highlight correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-filled-bg) border-(--ui-color-design-filled-stroke) border-(length:--ui-design-filled-stroke-weight) text-(--ui-color-design-filled-content) ring-2 ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-filled-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-filled-content-secondary) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant filled to correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-filled-bg) border-(--ui-color-design-filled-stroke) border-(length:--ui-design-filled-stroke-weight) text-(--ui-color-design-filled-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-filled-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-filled-content-secondary) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div><a href="https://github.com/bitrix24" target="_blank" aria-label="Title" class="focus:outline-none peer"><span class="absolute inset-0" aria-hidden="true"></span></a>
+</div>"
+`;
+
+exports[`PageCard > renders with variant filled-alert correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-filled-alert-bg) border-(--ui-color-design-filled-alert-stroke) border-(length:--ui-design-filled-alert-stroke-weight) text-(--ui-color-design-filled-alert-content)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-filled-alert-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-alert-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-filled-alert-content-secondary) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant filled-alert highlight correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-filled-alert-bg) border-(--ui-color-design-filled-alert-stroke) border-(length:--ui-design-filled-alert-stroke-weight) text-(--ui-color-design-filled-alert-content) ring-2 ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-filled-alert-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-alert-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-filled-alert-content-secondary) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant filled-alert to correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-filled-alert-bg) border-(--ui-color-design-filled-alert-stroke) border-(length:--ui-design-filled-alert-stroke-weight) text-(--ui-color-design-filled-alert-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-alert-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-filled-alert-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-alert-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-filled-alert-content-secondary) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div><a href="https://github.com/bitrix24" target="_blank" aria-label="Title" class="focus:outline-none peer"><span class="absolute inset-0" aria-hidden="true"></span></a>
+</div>"
+`;
+
+exports[`PageCard > renders with variant filled-black correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-filled-black-bg) border-(--ui-color-design-filled-black-stroke) border-(length:--ui-design-filled-black-stroke-weight) text-(--ui-color-design-filled-black-content)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-filled-black-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-black-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-filled-black-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant filled-black highlight correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-filled-black-bg) border-(--ui-color-design-filled-black-stroke) border-(length:--ui-design-filled-black-stroke-weight) text-(--ui-color-design-filled-black-content) ring-2 ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-filled-black-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-black-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-filled-black-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant filled-black to correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-filled-black-bg) border-(--ui-color-design-filled-black-stroke) border-(length:--ui-design-filled-black-stroke-weight) text-(--ui-color-design-filled-black-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-black-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-filled-black-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-black-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-filled-black-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div><a href="https://github.com/bitrix24" target="_blank" aria-label="Title" class="focus:outline-none peer"><span class="absolute inset-0" aria-hidden="true"></span></a>
+</div>"
+`;
+
+exports[`PageCard > renders with variant filled-copilot correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-filled-copilot-bg) border-(--ui-color-design-filled-copilot-stroke) border-(length:--ui-design-filled-copilot-stroke-weight) text-(--ui-color-design-filled-copilot-content)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-filled-copilot-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-copilot-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-filled-copilot-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant filled-copilot highlight correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-filled-copilot-bg) border-(--ui-color-design-filled-copilot-stroke) border-(length:--ui-design-filled-copilot-stroke-weight) text-(--ui-color-design-filled-copilot-content) ring-2 ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-filled-copilot-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-copilot-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-filled-copilot-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant filled-copilot to correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-filled-copilot-bg) border-(--ui-color-design-filled-copilot-stroke) border-(length:--ui-design-filled-copilot-stroke-weight) text-(--ui-color-design-filled-copilot-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-copilot-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-filled-copilot-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-copilot-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-filled-copilot-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div><a href="https://github.com/bitrix24" target="_blank" aria-label="Title" class="focus:outline-none peer"><span class="absolute inset-0" aria-hidden="true"></span></a>
+</div>"
+`;
+
+exports[`PageCard > renders with variant filled-no-accent correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-filled-na-bg) border-(--ui-color-design-filled-na-stroke) border-(length:--ui-design-filled-na-stroke-weight) text-(--ui-color-design-filled-na-content)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-filled-na-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-na-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-filled-na-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant filled-no-accent highlight correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-filled-na-bg) border-(--ui-color-design-filled-na-stroke) border-(length:--ui-design-filled-na-stroke-weight) text-(--ui-color-design-filled-na-content) ring-2 ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-filled-na-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-na-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-filled-na-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant filled-no-accent to correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-filled-na-bg) border-(--ui-color-design-filled-na-stroke) border-(length:--ui-design-filled-na-stroke-weight) text-(--ui-color-design-filled-na-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-na-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-filled-na-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-na-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-filled-na-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div><a href="https://github.com/bitrix24" target="_blank" aria-label="Title" class="focus:outline-none peer"><span class="absolute inset-0" aria-hidden="true"></span></a>
+</div>"
+`;
+
+exports[`PageCard > renders with variant filled-success correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-filled-success-bg) border-(--ui-color-design-filled-success-stroke) border-(length:--ui-design-filled-success-stroke-weight) text-(--ui-color-design-filled-success-content)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-filled-success-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-success-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-filled-success-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant filled-success highlight correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-filled-success-bg) border-(--ui-color-design-filled-success-stroke) border-(length:--ui-design-filled-success-stroke-weight) text-(--ui-color-design-filled-success-content) ring-2 ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-filled-success-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-success-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-filled-success-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant filled-success to correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-filled-success-bg) border-(--ui-color-design-filled-success-stroke) border-(length:--ui-design-filled-success-stroke-weight) text-(--ui-color-design-filled-success-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-success-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-filled-success-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-success-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-filled-success-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div><a href="https://github.com/bitrix24" target="_blank" aria-label="Title" class="focus:outline-none peer"><span class="absolute inset-0" aria-hidden="true"></span></a>
+</div>"
+`;
+
+exports[`PageCard > renders with variant filled-warning correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-filled-warning-bg) border-(--ui-color-design-filled-warning-stroke) border-(length:--ui-design-filled-warning-stroke-weight) text-(--ui-color-design-filled-warning-content)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-filled-warning-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-warning-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-filled-warning-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant filled-warning highlight correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-filled-warning-bg) border-(--ui-color-design-filled-warning-stroke) border-(length:--ui-design-filled-warning-stroke-weight) text-(--ui-color-design-filled-warning-content) ring-2 ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-filled-warning-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-warning-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-filled-warning-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant filled-warning to correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-filled-warning-bg) border-(--ui-color-design-filled-warning-stroke) border-(length:--ui-design-filled-warning-stroke-weight) text-(--ui-color-design-filled-warning-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-warning-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-filled-warning-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-warning-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-filled-warning-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div><a href="https://github.com/bitrix24" target="_blank" aria-label="Title" class="focus:outline-none peer"><span class="absolute inset-0" aria-hidden="true"></span></a>
 </div>"
 `;
 
@@ -447,12 +839,12 @@ exports[`PageCard > renders with variant outline correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -466,12 +858,12 @@ exports[`PageCard > renders with variant outline highlight correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -481,16 +873,16 @@ exports[`PageCard > renders with variant outline highlight correctly 1`] = `
 `;
 
 exports[`PageCard > renders with variant outline to correctly 1`] = `
-"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) transition hover:bg-elevated/50 has-focus-visible:ring-2 has-focus-visible:ring-primary">
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -503,12 +895,12 @@ exports[`PageCard > renders with variant outline-accent correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-a1-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-a1-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-a1-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -522,12 +914,12 @@ exports[`PageCard > renders with variant outline-accent highlight correctly 1`] 
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-a1-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-a1-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-a1-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -537,16 +929,16 @@ exports[`PageCard > renders with variant outline-accent highlight correctly 1`] 
 `;
 
 exports[`PageCard > renders with variant outline-accent to correctly 1`] = `
-"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-outline-a1-bg) border-(--ui-color-design-outline-a1-stroke) border-(length:--ui-design-outline-a1-stroke-weight) text-(--ui-color-design-outline-a1-content) transition has-focus-visible:ring-2 has-focus-visible:ring-primary">
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-outline-a1-bg) border-(--ui-color-design-outline-a1-stroke) border-(length:--ui-design-outline-a1-stroke-weight) text-(--ui-color-design-outline-a1-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-a1-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-a1-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-a1-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-a1-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -559,12 +951,12 @@ exports[`PageCard > renders with variant outline-accent-2 correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-a2-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-a2-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-a2-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -578,12 +970,12 @@ exports[`PageCard > renders with variant outline-accent-2 highlight correctly 1`
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-a2-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-a2-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-a2-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -593,16 +985,16 @@ exports[`PageCard > renders with variant outline-accent-2 highlight correctly 1`
 `;
 
 exports[`PageCard > renders with variant outline-accent-2 to correctly 1`] = `
-"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-outline-a2-bg) border-(--ui-color-design-outline-a2-stroke) border-(length:--ui-design-outline-a2-stroke-weight) text-(--ui-color-design-outline-a2-content) transition has-focus-visible:ring-2 has-focus-visible:ring-primary">
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-outline-a2-bg) border-(--ui-color-design-outline-a2-stroke) border-(length:--ui-design-outline-a2-stroke-weight) text-(--ui-color-design-outline-a2-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-a2-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-a2-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-a2-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-a2-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -615,12 +1007,12 @@ exports[`PageCard > renders with variant outline-alert correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-alert-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-alert-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-alert-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -634,12 +1026,12 @@ exports[`PageCard > renders with variant outline-alert highlight correctly 1`] =
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-alert-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-alert-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-alert-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -649,16 +1041,16 @@ exports[`PageCard > renders with variant outline-alert highlight correctly 1`] =
 `;
 
 exports[`PageCard > renders with variant outline-alert to correctly 1`] = `
-"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-outline-alert-bg) border-(--ui-color-design-outline-alert-stroke) border-(length:--ui-design-outline-alert-stroke-weight) text-(--ui-color-design-outline-alert-content) transition has-focus-visible:ring-2 has-focus-visible:ring-primary">
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-outline-alert-bg) border-(--ui-color-design-outline-alert-stroke) border-(length:--ui-design-outline-alert-stroke-weight) text-(--ui-color-design-outline-alert-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-alert-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-alert-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-alert-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-alert-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -671,12 +1063,12 @@ exports[`PageCard > renders with variant outline-alt correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -690,12 +1082,12 @@ exports[`PageCard > renders with variant outline-alt highlight correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -705,16 +1097,16 @@ exports[`PageCard > renders with variant outline-alt highlight correctly 1`] = `
 `;
 
 exports[`PageCard > renders with variant outline-alt to correctly 1`] = `
-"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg-alt) border-(--ui-color-design-outline-content-divider) border-(length:--ui-design-outline-stroke-weight-alt) text-(--ui-color-design-outline-content) transition has-focus-visible:ring-2 has-focus-visible:ring-primary">
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg-alt) border-(--ui-color-design-outline-content-divider) border-(length:--ui-design-outline-stroke-weight-alt) text-(--ui-color-design-outline-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-bg-alt)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -727,12 +1119,12 @@ exports[`PageCard > renders with variant outline-copilot correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-copilot-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-copilot-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-copilot-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -746,12 +1138,12 @@ exports[`PageCard > renders with variant outline-copilot highlight correctly 1`]
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-copilot-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-copilot-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-copilot-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -761,16 +1153,16 @@ exports[`PageCard > renders with variant outline-copilot highlight correctly 1`]
 `;
 
 exports[`PageCard > renders with variant outline-copilot to correctly 1`] = `
-"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-outline-copilot-bg) border-(--ui-color-design-outline-copilot-stroke) border-(length:--ui-design-outline-copilot-stroke-weight) text-(--ui-color-design-outline-copilot-content) transition has-focus-visible:ring-2 has-focus-visible:ring-primary">
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-outline-copilot-bg) border-(--ui-color-design-outline-copilot-stroke) border-(length:--ui-design-outline-copilot-stroke-weight) text-(--ui-color-design-outline-copilot-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-copilot-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-copilot-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-copilot-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-copilot-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -783,12 +1175,12 @@ exports[`PageCard > renders with variant outline-no-accent correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-na-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-na-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-na-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -802,12 +1194,12 @@ exports[`PageCard > renders with variant outline-no-accent highlight correctly 1
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-na-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-na-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-na-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -817,16 +1209,16 @@ exports[`PageCard > renders with variant outline-no-accent highlight correctly 1
 `;
 
 exports[`PageCard > renders with variant outline-no-accent to correctly 1`] = `
-"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-outline-na-bg) border-(--ui-color-design-outline-na-stroke) border-(length:--ui-design-outline-na-stroke-weight) text-(--ui-color-design-outline-na-content) transition has-focus-visible:ring-2 has-focus-visible:ring-primary">
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-outline-na-bg) border-(--ui-color-design-outline-na-stroke) border-(length:--ui-design-outline-na-stroke-weight) text-(--ui-color-design-outline-na-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-na-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-na-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-na-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-na-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -839,12 +1231,12 @@ exports[`PageCard > renders with variant outline-success correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-success-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-success-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-success-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -858,12 +1250,12 @@ exports[`PageCard > renders with variant outline-success highlight correctly 1`]
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-success-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-success-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-success-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -873,16 +1265,16 @@ exports[`PageCard > renders with variant outline-success highlight correctly 1`]
 `;
 
 exports[`PageCard > renders with variant outline-success to correctly 1`] = `
-"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-outline-success-bg) border-(--ui-color-design-outline-success-stroke) border-(length:--ui-design-outline-success-stroke-weight) text-(--ui-color-design-outline-success-content) transition has-focus-visible:ring-2 has-focus-visible:ring-primary">
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-outline-success-bg) border-(--ui-color-design-outline-success-stroke) border-(length:--ui-design-outline-success-stroke-weight) text-(--ui-color-design-outline-success-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-success-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-success-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-success-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-success-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -895,12 +1287,12 @@ exports[`PageCard > renders with variant outline-warning correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-warning-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-warning-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-warning-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -914,12 +1306,12 @@ exports[`PageCard > renders with variant outline-warning highlight correctly 1`]
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-warning-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-warning-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-warning-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -929,16 +1321,16 @@ exports[`PageCard > renders with variant outline-warning highlight correctly 1`]
 `;
 
 exports[`PageCard > renders with variant outline-warning to correctly 1`] = `
-"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-outline-warning-bg) border-(--ui-color-design-outline-warning-stroke) border-(length:--ui-design-outline-warning-stroke-weight) text-(--ui-color-design-outline-warning-content) transition has-focus-visible:ring-2 has-focus-visible:ring-primary">
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-outline-warning-bg) border-(--ui-color-design-outline-warning-stroke) border-(length:--ui-design-outline-warning-stroke-weight) text-(--ui-color-design-outline-warning-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-warning-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-warning-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-warning-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-outline-warning-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -951,12 +1343,12 @@ exports[`PageCard > renders with variant plain correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-plain-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-plain-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -970,12 +1362,12 @@ exports[`PageCard > renders with variant plain highlight correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-plain-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-plain-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -985,16 +1377,16 @@ exports[`PageCard > renders with variant plain highlight correctly 1`] = `
 `;
 
 exports[`PageCard > renders with variant plain to correctly 1`] = `
-"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-plain-bg) border-(--ui-color-design-plain-stroke) border-(length:--ui-design-plain-stroke-weight) text-(--ui-color-design-plain-content) transition has-focus-visible:ring-2 has-focus-visible:ring-primary">
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-plain-bg) border-(--ui-color-design-plain-stroke) border-(length:--ui-design-plain-stroke-weight) text-(--ui-color-design-plain-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-plain-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-plain-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-plain-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1007,12 +1399,12 @@ exports[`PageCard > renders with variant plain-accent correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-plain-a-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-a-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-plain-a-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1026,12 +1418,12 @@ exports[`PageCard > renders with variant plain-accent highlight correctly 1`] = 
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-plain-a-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-a-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-plain-a-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1041,16 +1433,16 @@ exports[`PageCard > renders with variant plain-accent highlight correctly 1`] = 
 `;
 
 exports[`PageCard > renders with variant plain-accent to correctly 1`] = `
-"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-plain-a-bg) border-(--ui-color-design-plain-a-stroke) border-(length:--ui-design-plain-a-stroke-weight) text-(--ui-color-design-plain-a-content) transition has-focus-visible:ring-2 has-focus-visible:ring-primary">
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-plain-a-bg) border-(--ui-color-design-plain-a-stroke) border-(length:--ui-design-plain-a-stroke-weight) text-(--ui-color-design-plain-a-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-plain-a-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-plain-a-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-a-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-plain-a-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1063,12 +1455,12 @@ exports[`PageCard > renders with variant plain-no-accent correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-plain-na-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-na-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-plain-na-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1082,12 +1474,12 @@ exports[`PageCard > renders with variant plain-no-accent highlight correctly 1`]
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-plain-na-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-na-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-plain-na-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1097,16 +1489,16 @@ exports[`PageCard > renders with variant plain-no-accent highlight correctly 1`]
 `;
 
 exports[`PageCard > renders with variant plain-no-accent to correctly 1`] = `
-"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-plain-na-bg) border-(--ui-color-design-plain-na-stroke) border-(length:--ui-design-plain-na-stroke-weight) text-(--ui-color-design-plain-na-content) transition has-focus-visible:ring-2 has-focus-visible:ring-primary">
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-plain-na-bg) border-(--ui-color-design-plain-na-stroke) border-(length:--ui-design-plain-na-stroke-weight) text-(--ui-color-design-plain-na-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-plain-na-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-plain-na-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-na-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-plain-na-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1119,12 +1511,12 @@ exports[`PageCard > renders with variant selection correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-selection-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-selection-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-selection-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1138,12 +1530,12 @@ exports[`PageCard > renders with variant selection highlight correctly 1`] = `
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-selection-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-selection-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-selection-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1153,16 +1545,408 @@ exports[`PageCard > renders with variant selection highlight correctly 1`] = `
 `;
 
 exports[`PageCard > renders with variant selection to correctly 1`] = `
-"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-selection-bg) border-(--ui-color-design-selection-stroke) border-(length:--ui-design-selection-stroke-weight) text-(--ui-color-design-selection-content) transition has-focus-visible:ring-2 has-focus-visible:ring-primary">
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-selection-bg) border-(--ui-color-design-selection-stroke) border-(length:--ui-design-selection-stroke-weight) text-(--ui-color-design-selection-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-selection-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
   <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div class="flex flex-col flex-1 items-start">
       <!--v-if-->
-      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-selection-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div class="flex-1">
-        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold)">Title</div>
-        <div class="text-lg text-pretty mt-1">Description</div>
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-selection-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-selection-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div><a href="https://github.com/bitrix24" target="_blank" aria-label="Title" class="focus:outline-none peer"><span class="absolute inset-0" aria-hidden="true"></span></a>
+</div>"
+`;
+
+exports[`PageCard > renders with variant tinted correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-tinted-bg) border-(--ui-color-design-tinted-stroke) border-(length:--ui-design-tinted-stroke-weight) text-(--ui-color-design-tinted-content)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-tinted-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-tinted-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant tinted highlight correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-tinted-bg) border-(--ui-color-design-tinted-stroke) border-(length:--ui-design-tinted-stroke-weight) text-(--ui-color-design-tinted-content) ring-2 ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-tinted-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-tinted-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant tinted to correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-tinted-bg) border-(--ui-color-design-tinted-stroke) border-(length:--ui-design-tinted-stroke-weight) text-(--ui-color-design-tinted-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-tinted-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-tinted-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div><a href="https://github.com/bitrix24" target="_blank" aria-label="Title" class="focus:outline-none peer"><span class="absolute inset-0" aria-hidden="true"></span></a>
+</div>"
+`;
+
+exports[`PageCard > renders with variant tinted-accent-1 correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-tinted-a1-bg) border-(--ui-color-design-tinted-a1-stroke) border-(length:--ui-design-tinted-a1-stroke-weight) text-(--ui-color-design-tinted-a1-content)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-tinted-a1-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-a1-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-tinted-a1-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant tinted-accent-1 highlight correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-tinted-a1-bg) border-(--ui-color-design-tinted-a1-stroke) border-(length:--ui-design-tinted-a1-stroke-weight) text-(--ui-color-design-tinted-a1-content) ring-2 ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-tinted-a1-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-a1-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-tinted-a1-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant tinted-accent-1 to correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-tinted-a1-bg) border-(--ui-color-design-tinted-a1-stroke) border-(length:--ui-design-tinted-a1-stroke-weight) text-(--ui-color-design-tinted-a1-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-a1-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-tinted-a1-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-a1-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-tinted-a1-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div><a href="https://github.com/bitrix24" target="_blank" aria-label="Title" class="focus:outline-none peer"><span class="absolute inset-0" aria-hidden="true"></span></a>
+</div>"
+`;
+
+exports[`PageCard > renders with variant tinted-alert correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-tinted-alert-bg) border-(--ui-color-design-tinted-alert-stroke) border-(length:--ui-design-tinted-alert-stroke-weight) text-(--ui-color-design-tinted-alert-content)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-tinted-alert-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-alert-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-tinted-alert-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant tinted-alert highlight correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-tinted-alert-bg) border-(--ui-color-design-tinted-alert-stroke) border-(length:--ui-design-tinted-alert-stroke-weight) text-(--ui-color-design-tinted-alert-content) ring-2 ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-tinted-alert-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-alert-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-tinted-alert-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant tinted-alert to correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-tinted-alert-bg) border-(--ui-color-design-tinted-alert-stroke) border-(length:--ui-design-tinted-alert-stroke-weight) text-(--ui-color-design-tinted-alert-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-alert-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-tinted-alert-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-alert-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-tinted-alert-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div><a href="https://github.com/bitrix24" target="_blank" aria-label="Title" class="focus:outline-none peer"><span class="absolute inset-0" aria-hidden="true"></span></a>
+</div>"
+`;
+
+exports[`PageCard > renders with variant tinted-alt correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-tinted-bg-alt) border-(--ui-color-design-tinted-stroke) border-(length:--ui-design-tinted-stroke-weight) text-(--ui-color-design-tinted-content)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-tinted-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-tinted-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant tinted-alt highlight correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-tinted-bg-alt) border-(--ui-color-design-tinted-stroke) border-(length:--ui-design-tinted-stroke-weight) text-(--ui-color-design-tinted-content) ring-2 ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-tinted-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-tinted-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant tinted-alt to correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-tinted-bg-alt) border-(--ui-color-design-tinted-stroke) border-(length:--ui-design-tinted-stroke-weight) text-(--ui-color-design-tinted-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-bg-alt)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-tinted-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-tinted-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div><a href="https://github.com/bitrix24" target="_blank" aria-label="Title" class="focus:outline-none peer"><span class="absolute inset-0" aria-hidden="true"></span></a>
+</div>"
+`;
+
+exports[`PageCard > renders with variant tinted-no-accent correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-tinted-na-bg) border-(--ui-color-design-tinted-na-stroke) border-(length:--ui-design-tinted-na-stroke-weight) text-(--ui-color-design-tinted-na-content)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-tinted-na-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-na-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-tinted-na-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant tinted-no-accent highlight correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-tinted-na-bg) border-(--ui-color-design-tinted-na-stroke) border-(length:--ui-design-tinted-na-stroke-weight) text-(--ui-color-design-tinted-na-content) ring-2 ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-tinted-na-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-na-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-tinted-na-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant tinted-no-accent to correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-tinted-na-bg) border-(--ui-color-design-tinted-na-stroke) border-(length:--ui-design-tinted-na-stroke-weight) text-(--ui-color-design-tinted-na-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-na-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-tinted-na-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-na-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-tinted-na-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div><a href="https://github.com/bitrix24" target="_blank" aria-label="Title" class="focus:outline-none peer"><span class="absolute inset-0" aria-hidden="true"></span></a>
+</div>"
+`;
+
+exports[`PageCard > renders with variant tinted-success correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-tinted-success-bg) border-(--ui-color-design-tinted-success-stroke) border-(length:--ui-design-tinted-success-stroke-weight) text-(--ui-color-design-tinted-success-content)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-tinted-success-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-success-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-tinted-success-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant tinted-success highlight correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-tinted-success-bg) border-(--ui-color-design-tinted-success-stroke) border-(length:--ui-design-tinted-success-stroke-weight) text-(--ui-color-design-tinted-success-content) ring-2 ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-tinted-success-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-success-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-tinted-success-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant tinted-success to correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-tinted-success-bg) border-(--ui-color-design-tinted-success-stroke) border-(length:--ui-design-tinted-success-stroke-weight) text-(--ui-color-design-tinted-success-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-success-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-tinted-success-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-success-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-tinted-success-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div><a href="https://github.com/bitrix24" target="_blank" aria-label="Title" class="focus:outline-none peer"><span class="absolute inset-0" aria-hidden="true"></span></a>
+</div>"
+`;
+
+exports[`PageCard > renders with variant tinted-warning correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-tinted-warning-bg) border-(--ui-color-design-tinted-warning-stroke) border-(length:--ui-design-tinted-warning-stroke-weight) text-(--ui-color-design-tinted-warning-content)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-tinted-warning-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-warning-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-tinted-warning-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant tinted-warning highlight correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-tinted-warning-bg) border-(--ui-color-design-tinted-warning-stroke) border-(length:--ui-design-tinted-warning-stroke-weight) text-(--ui-color-design-tinted-warning-content) ring-2 ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-tinted-warning-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-warning-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-tinted-warning-content) mt-1">Description</div>
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PageCard > renders with variant tinted-warning to correctly 1`] = `
+"<div data-orientation="vertical" class="relative flex rounded-lg bg-(--ui-color-design-tinted-warning-bg) border-(--ui-color-design-tinted-warning-stroke) border-(length:--ui-design-tinted-warning-stroke-weight) text-(--ui-color-design-tinted-warning-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-warning-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+  <div class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
+    <div class="flex flex-col flex-1 items-start">
+      <!--v-if-->
+      <div class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-tinted-warning-content-icon)">
+          <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+        </svg></div>
+      <div class="flex-1">
+        <div class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-warning-content)">Title</div>
+        <div class="text-lg text-pretty text-(--ui-color-design-tinted-warning-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
