@@ -12,7 +12,7 @@ export default {
       // fix 'text-(--ui-color-accent-main-primary)',
       'text-(--ui-color-accent-main-link) dark:text-(--ui-color-blue-40)',
       'hover:underline underline-offset-2',
-      'hover:text-(--ui-color-accent-main-primary-alt-2) dark:hover:text-(--ui-color-blue-50)',
+      'hover:text-(--ui-color-accent-main-primary-alt) dark:hover:text-(--ui-color-blue-50)',
       'focus-visible:outline-info-text',
       'transition-colors [&>code]:transition-colors',
       // '[&>code]:ring-dashed',

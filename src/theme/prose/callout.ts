@@ -2,9 +2,6 @@
  * Callout (Tip)
  * ---
  * @see Alert (m)
- * @todo fix inner style
- * @todo test colors
- * @todo add docs
  */
 export default {
   slots: {
