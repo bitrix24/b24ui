@@ -89,8 +89,10 @@ const pages = [
   // endregion ////
   // region Page ////
   '/docs/components/page-card/',
+  '/docs/components/page-columns/',
   '/docs/components/page-grid/',
   '/docs/components/page-links/',
+  '/docs/components/page-list/',
   // endregion ////
   // region Dashboard ////
   '/docs/components/dashboard-group/',
