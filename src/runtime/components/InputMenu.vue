@@ -431,9 +431,8 @@ function onUpdateOpen(value: boolean) {
   }
 }
 
-function onRemoveTag(event: any) {
+function onRemoveTag(event: any, modelValue: GetModelValue<T, VK, true>) {
   if (props.multiple) {
-    const modelValue = props.modelValue as GetModelValue<T, VK, true>
     const filteredValue = modelValue.filter(value => !isEqual(value, event))
     emits('update:modelValue', filteredValue as GetModelValue<T, VK, M>)
     emits('remove-tag', event)
@@ -565,7 +564,7 @@ defineExpose({
         as-child
         @blur="onBlur"
         @focus="onFocus"
-        @remove-tag="onRemoveTag"
+        @remove-tag="onRemoveTag($event, modelValue as GetModelValue<T, VK, true>)"
       >
         <B24Badge
           v-if="!!multiple && isTag"
@@ -574,7 +573,7 @@ defineExpose({
           :label="props.tag"
           size="xs"
         />
-        <TagsInputItem v-for="(item, index) in tags" :key="index" :value="isInputItem(item) ? item : String(item)" :class="b24ui.tagsItem({ class: [props.b24ui?.tagsItem, isInputItem(item) && item.b24ui?.tagsItem] })">
+        <TagsInputItem v-for="(item, index) in tags" :key="index" :value="item" :class="b24ui.tagsItem({ class: [props.b24ui?.tagsItem, isInputItem(item) && item.b24ui?.tagsItem] })">
           <TagsInputItemText :class="b24ui.tagsItemText({ class: [props.b24ui?.tagsItemText, isInputItem(item) && item.b24ui?.tagsItemText] })">
             <slot name="tags-item-text" :item="(item as NestedItem<T>)" :index="index">
               {{ displayValue(item as GetItemValue<T, VK>) }}

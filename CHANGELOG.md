@@ -96,6 +96,7 @@
 * fix(unplugin): config for version
 * fix(FileUpload): handle disabling file delete button
 * fix(Kbd): return original value and use `uppercase` class
+* fix(InputMenu): ensure tag can be removed when number
 * docs(app): implement AI search
 * doc(Component): added components for displaying props, slots, etc
 * chore(style): fix var(--b24ui-header-h`eight)
