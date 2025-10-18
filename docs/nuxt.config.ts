@@ -1,3 +1,4 @@
+import type { NuxtComponentMeta } from 'nuxt-component-meta'
 import { createResolver } from '@nuxt/kit'
 import pkg from '../package.json'
 import { withoutTrailingSlash } from 'ufo'
@@ -478,9 +479,28 @@ export default defineNuxtConfig({
     }
   },
 
-  // debug: true,
+  hooks: {
+    // @ts-expect-error - Hook is not typed correctly
+    'component-meta:schema': (schema: NuxtComponentMeta) => {
+      for (const componentName in schema) {
+        const component = schema[componentName]
+        // Delete schema from slots to reduce metadata file size
+        if (component?.meta?.slots) {
+          for (const slot of component.meta.slots) {
+            delete (slot as any).schema
+          }
+        }
+      }
+    }
+  },
 
   componentMeta: {
+    transformers: [(component, code) => {
+      // Simplify b24ui in slot prop types: `leading(props: { b24ui: Button['b24ui'] })` -> `leading(props: { b24ui: object })`
+      code = code.replace(/b24ui:[^}]+(?=\})/g, 'b24ui: object')
+
+      return { component, code }
+    }],
     exclude: [
       '@bitrix24/b24icons-vue',
       '@nuxt/content',

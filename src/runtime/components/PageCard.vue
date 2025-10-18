@@ -55,7 +55,7 @@ export interface PageCardProps {
 export interface PageCardSlots {
   header(props?: {}): any
   body(props?: {}): any
-  leading(props?: {}): any
+  leading(props: { b24ui: PageCard['b24ui'] }): any
   title(props?: {}): any
   description(props?: {}): any
   footer(props?: {}): any
@@ -113,7 +113,7 @@ const ariaLabel = computed(() => {
         </div>
 
         <div v-if="icon || !!slots.leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
-          <slot name="leading">
+          <slot name="leading" :b24ui="b24ui">
             <Component :is="icon" v-if="icon" :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })" />
           </slot>
         </div>

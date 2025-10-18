@@ -78,7 +78,7 @@ export interface ContextMenuProps<T extends ArrayOrNested<ContextMenuItem> = Arr
 
 export interface ContextMenuEmits extends ContextMenuRootEmits {}
 
-type SlotProps<T extends ContextMenuItem> = (props: { item: T, active?: boolean, index: number }) => any
+type SlotProps<T extends ContextMenuItem> = (props: { item: T, active?: boolean, index: number, b24ui: ContextMenu['b24ui'] }) => any
 
 export type ContextMenuSlots<
   A extends ArrayOrNested<ContextMenuItem> = ArrayOrNested<ContextMenuItem>,
@@ -87,11 +87,13 @@ export type ContextMenuSlots<
   'default'(props?: {}): any
   'item': SlotProps<T>
   'item-leading': SlotProps<T>
-  'item-label': SlotProps<T>
+  'item-label': (props: { item: T, active?: boolean, index: number }) => any
   'item-trailing': SlotProps<T>
   'content-top': (props?: {}) => any
   'content-bottom': (props?: {}) => any
-} & DynamicSlots<MergeTypes<T>, 'leading' | 'label' | 'trailing', { active?: boolean, index: number }>
+}
+& DynamicSlots<MergeTypes<T>, 'label', { active?: boolean, index: number }>
+& DynamicSlots<MergeTypes<T>, 'leading' | 'trailing', { active?: boolean, index: number, b24ui: ContextMenu['b24ui'] }>
 
 </script>
 

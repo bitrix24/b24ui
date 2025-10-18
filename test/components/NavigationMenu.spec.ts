@@ -1,14 +1,21 @@
 import { describe, it, expect, test } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
+import type { AppConfig } from '@nuxt/schema'
 import NavigationMenu from '../../src/runtime/components/NavigationMenu.vue'
 import type { NavigationMenuProps, NavigationMenuSlots } from '../../src/runtime/components/NavigationMenu.vue'
+import type { ComponentConfig } from '../../src/runtime/types/tv'
 import ComponentRender from '../component-render'
 import { expectSlotProps } from '../utils/types'
+import theme from '#build/b24ui/navigation-menu'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
 
+type NavigationMenu = ComponentConfig<typeof theme, AppConfig, 'navigationMenu'>
+
 describe('NavigationMenu', () => {
+  const orientations = Object.keys(theme.variants.orientation) as any
+
   const items = [
     [{
       label: 'Links',
@@ -92,6 +99,7 @@ describe('NavigationMenu', () => {
     ['with orientation vertical', { props: { ...props, orientation: 'vertical' as const, modelValue: 'item-0' } }],
     ['with orientation vertical and collapsed', { props: { ...props, orientation: 'vertical' as const, modelValue: 'item-0', collapsed: true } }],
     ['with content orientation vertical', { props: { ...props, contentOrientation: 'vertical' as const, modelValue: 'item-0' } }],
+    ...orientations.map((orientation: string) => [`with content orientation ${orientation}`, { props: { ...props, orientation } }]),
     [`with def`, { props: { ...props } }],
     ['with trailingIcon', { props: { ...props, trailingIcon: SignIcon } }],
     ['with externalIcon', { props: { ...props, externalIcon: Cross30Icon } }],
@@ -126,21 +134,21 @@ describe('NavigationMenu', () => {
     // normal
     expectSlotProps('item', () => NavigationMenu({
       items: [{ label: 'foo', value: 'bar' }]
-    })).toEqualTypeOf<{ item: { label: string, value: string }, index: number, active?: boolean }>()
+    })).toEqualTypeOf<{ item: { label: string, value: string }, index: number, active?: boolean, b24ui: NavigationMenu['b24ui'] }>()
 
     // groups
     expectSlotProps('item', () => NavigationMenu({
       items: [[{ label: 'foo', value: 'bar' }]]
-    })).toEqualTypeOf<{ item: { label: string, value: string }, index: number, active?: boolean }>()
+    })).toEqualTypeOf<{ item: { label: string, value: string }, index: number, active?: boolean, b24ui: NavigationMenu['b24ui'] }>()
 
     // custom
     expectSlotProps('item', () => NavigationMenu({
       items: [{ label: 'foo', value: 'bar', custom: 'nice' }]
-    })).toEqualTypeOf<{ item: { label: string, value: string, custom: string }, index: number, active?: boolean }>()
+    })).toEqualTypeOf<{ item: { label: string, value: string, custom: string }, index: number, active?: boolean, b24ui: NavigationMenu['b24ui'] }>()
 
     // custom + groups
     expectSlotProps('item', () => NavigationMenu({
       items: [[{ label: 'foo', value: 'bar', custom: 'nice' }]]
-    })).toEqualTypeOf<{ item: { label: string, value: string, custom: string }, index: number, active?: boolean }>()
+    })).toEqualTypeOf<{ item: { label: string, value: string, custom: string }, index: number, active?: boolean, b24ui: NavigationMenu['b24ui'] }>()
   })
 })

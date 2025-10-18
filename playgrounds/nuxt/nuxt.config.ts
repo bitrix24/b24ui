@@ -1,3 +1,4 @@
+import type { NuxtComponentMeta } from 'nuxt-component-meta'
 import { createResolver } from '@nuxt/kit'
 import { readFileSync } from 'node:fs'
 
@@ -27,8 +28,29 @@ export default defineNuxtConfig({
       include: ['@internationalized/date', '@vueuse/shared', '@vueuse/integrations/useFuse', '@tanstack/vue-table', 'reka-ui', 'reka-ui/namespaced', 'embla-carousel-vue', 'embla-carousel-autoplay', 'embla-carousel-auto-scroll', 'embla-carousel-auto-height', 'embla-carousel-class-names', 'embla-carousel-fade', 'embla-carousel-wheel-gestures', 'colortranslator', 'tailwindcss/colors', 'tailwind-variants', 'ufo', 'zod', 'vaul-vue']
     }
   },
-  // @ts-expect-error - `nuxt-component-meta` is used as CLI
+
+  hooks: {
+    // @ts-expect-error - Hook is not typed correctly
+    'component-meta:schema': (schema: NuxtComponentMeta) => {
+      for (const componentName in schema) {
+        const component = schema[componentName]
+        // Delete schema from slots to reduce metadata file size
+        if (component?.meta?.slots) {
+          for (const slot of component.meta.slots) {
+            delete (slot as any).schema
+          }
+        }
+      }
+    }
+  },
+
   componentMeta: {
+    transformers: [(component: any, code: any) => {
+      // Simplify b24ui in slot prop types: `leading(props: { b24ui: Button['b24ui'] })` -> `leading(props: { b24ui: object })`
+      code = code.replace(/b24ui:[^}]+(?=\})/g, 'b24ui: object')
+
+      return { component, code }
+    }],
     exclude: [
       resolve('./app/components')
     ],

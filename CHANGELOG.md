@@ -62,6 +62,7 @@
 * feat(PageGrid): new component
 * feat(PageColumns): new component
 * feat(PageList): new component
+* feat(components): expose `ui` in slot props where used
 * fix(ProseLi,ProseOl,ProseUl,ProseP): fix color && size
 * fix(ProseH1\H2\H3\H4\H5\H6): add support hash
 * fix(SidebarLayout): improve theme, import Button, add slot 'content-right'

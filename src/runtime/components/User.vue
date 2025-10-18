@@ -33,7 +33,7 @@ export interface UserProps {
 }
 
 export interface UserSlots {
-  avatar(props?: {}): any
+  avatar(props: { b24ui: User['b24ui'] }): any
   name(props?: {}): any
   description(props?: {}): any
   default(props?: {}): any
@@ -82,7 +82,7 @@ const chipSize = computed<ChipProps['size']>(() => {
 
 <template>
   <Primitive :as="as" :data-orientation="orientation" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })" @click="onClick">
-    <slot name="avatar">
+    <slot name="avatar" :b24ui="b24ui">
       <B24Chip v-if="chip && avatar && !['3xs'].includes(size || '')" inset v-bind="typeof chip === 'object' ? chip : {}" :size="chipSize">
         <B24Avatar :alt="name" v-bind="avatar" :size="size" :class="b24ui.avatar({ class: props.b24ui?.avatar })" />
       </B24Chip>

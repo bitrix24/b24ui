@@ -66,16 +66,16 @@ export interface TabsProps<T extends TabsItem = TabsItem> extends Pick<TabsRootP
 
 export interface TabsEmits extends TabsRootEmits<string | number> {}
 
-type SlotProps<T extends TabsItem> = (props: { item: T, index: number }) => any
+type SlotProps<T extends TabsItem> = (props: { item: T, index: number, b24ui: Tabs['b24ui'] }) => any
 
 export type TabsSlots<T extends TabsItem = TabsItem> = {
   'leading': SlotProps<T>
-  'default': SlotProps<T>
+  'default'(props: { item: T, index: number }): any
   'trailing': SlotProps<T>
   'content': SlotProps<T>
-  'list-leading': (props?: {}) => any
-  'list-trailing': (props?: {}) => any
-} & DynamicSlots<T, undefined, { index: number }>
+  'list-leading'(props?: {}): any
+  'list-trailing'(props?: {}): any
+} & DynamicSlots<T, undefined, { index: number, b24ui: Tabs['b24ui'] }>
 </script>
 
 <script setup lang="ts" generic="T extends TabsItem">
@@ -135,7 +135,7 @@ defineExpose({
         :disabled="item.disabled"
         :class="b24ui.trigger({ class: [props.b24ui?.trigger, item.b24ui?.trigger] })"
       >
-        <slot name="leading" :item="item" :index="index">
+        <slot name="leading" :item="item" :index="index" :b24ui="b24ui">
           <Component
             :is="item.icon"
             v-if="item.icon"
@@ -153,7 +153,7 @@ defineExpose({
           <slot :item="item" :index="index">{{ getLabel(item) }}</slot>
         </span>
 
-        <slot name="trailing" :item="item" :index="index">
+        <slot name="trailing" :item="item" :index="index" :b24ui="b24ui">
           <B24Badge
             v-if="item.badge !== undefined"
             color="air-primary"
@@ -175,7 +175,12 @@ defineExpose({
         :value="item.value || String(index)"
         :class="b24ui.content({ class: [props.b24ui?.content, item.b24ui?.content, item.class] })"
       >
-        <slot :name="((item.slot || 'content') as keyof TabsSlots<T>)" :item="(item as Extract<T, { slot: string; }>)" :index="index">
+        <slot
+          :name="((item.slot || 'content') as keyof TabsSlots<T>)"
+          :item="(item as Extract<T, { slot: string; }>)"
+          :index="index"
+          :b24ui="b24ui"
+        >
           {{ item.content }}
         </slot>
       </TabsContent>

@@ -108,9 +108,9 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.conten
         <slot :name="name" v-bind="slotData" />
       </template>
 
-      <template v-if="!collapsed" #trailing>
+      <template v-if="!collapsed" #trailing="{ b24ui: b24uiProxy }">
         <div :class="b24ui.trailing({ class: props.b24ui?.trailing })">
-          <slot name="trailing">
+          <slot name="trailing" :b24ui="b24uiProxy">
             <template v-if="kbds?.length">
               <B24Kbd
                 v-for="(kbd, index) in kbds"

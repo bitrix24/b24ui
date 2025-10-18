@@ -23,7 +23,7 @@ export interface AdviceProps extends Omit<UseComponentIconsProps, 'loading' | 't
 }
 
 export interface AdviceSlots {
-  leading(props?: {}): any
+  leading(props: { b24ui: Advice['b24ui'] }): any
   default(props?: {}): any
 }
 </script>
@@ -58,7 +58,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.advice
 <template>
   <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <div v-if="isLeading || !!avatar || !!slots.leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
-      <slot name="leading">
+      <slot name="leading" :b24ui="b24ui">
         <Component
           :is="leadingIconName"
           v-if="isLeading && leadingIconName"

@@ -164,13 +164,13 @@ export type CommandPaletteEmits<T extends CommandPaletteItem = CommandPaletteIte
   'update:open': [value: boolean]
 }
 
-type SlotProps<T> = (props: { item: T, index: number }) => any
+type SlotProps<T> = (props: { item: T, index: number, b24ui: CommandPalette['b24ui'] }) => any
 
 export type CommandPaletteSlots<G extends CommandPaletteGroup<T> = CommandPaletteGroup<any>, T extends CommandPaletteItem = CommandPaletteItem> = {
   'empty'(props: { searchTerm?: string }): any
-  'footer'(props: { b24ui: { [K in keyof Required<CommandPalette['slots']>]: (props?: Record<string, any>) => string } }): any
-  'back'(props: { b24ui: { [K in keyof Required<CommandPalette['slots']>]: (props?: Record<string, any>) => string } }): any
-  'close'(props: { b24ui: { [K in keyof Required<CommandPalette['slots']>]: (props?: Record<string, any>) => string } }): any
+  'footer'(props: { b24ui: CommandPalette['b24ui'] }): any
+  'back'(props: { b24ui: CommandPalette['b24ui'] }): any
+  'close'(props: { b24ui: CommandPalette['b24ui'] }): any
   'item': SlotProps<T>
   'item-leading': SlotProps<T>
   'item-label': SlotProps<T>
@@ -384,8 +384,18 @@ function onSelect(e: Event, item: T) {
           v-bind="slotProps"
           :class="b24ui.item({ class: [props.b24ui?.item, item.b24ui?.item, item.class], active: active || item.active })"
         >
-          <slot :name="((item.slot || group?.slot || 'item') as keyof CommandPaletteSlots<G, T>)" :item="(item as any)" :index="index">
-            <slot :name="((item.slot ? `${item.slot}-leading` : group?.slot ? `${group.slot}-leading` : `item-leading`) as keyof CommandPaletteSlots<G, T>)" :item="(item as any)" :index="index">
+          <slot
+            :name="((item.slot || group?.slot || 'item') as keyof CommandPaletteSlots<G, T>)"
+            :item="(item as any)"
+            :index="index"
+            :b24ui="b24ui"
+          >
+            <slot
+              :name="((item.slot ? `${item.slot}-leading` : group?.slot ? `${group.slot}-leading` : `item-leading`) as keyof CommandPaletteSlots<G, T>)"
+              :item="(item as any)"
+              :index="index"
+              :b24ui="b24ui"
+            >
               <Component
                 :is="icons.loading"
                 v-if="item.loading"
@@ -416,7 +426,12 @@ function onSelect(e: Event, item: T) {
               v-if="item.labelHtml || get(item, props.labelKey as string) || !!slots[(item.slot ? `${item.slot}-label` : group?.slot ? `${group.slot}-label` : `item-label`) as keyof CommandPaletteSlots<G, T>]"
               :class="b24ui.itemLabel({ class: [props.b24ui?.itemLabel, item.b24ui?.itemLabel], active: active || item.active })"
             >
-              <slot :name="((item.slot ? `${item.slot}-label` : group?.slot ? `${group.slot}-label` : `item-label`) as keyof CommandPaletteSlots<G, T>)" :item="(item as any)" :index="index">
+              <slot
+                :name="((item.slot ? `${item.slot}-label` : group?.slot ? `${group.slot}-label` : `item-label`) as keyof CommandPaletteSlots<G, T>)"
+                :item="(item as any)"
+                :index="index"
+                :b24ui="b24ui"
+              >
                 <span
                   v-if="item.prefix"
                   :class="b24ui.itemLabelPrefix({ class: [props.b24ui?.itemLabelPrefix, item.b24ui?.itemLabelPrefix] })"
@@ -439,6 +454,7 @@ function onSelect(e: Event, item: T) {
                 :name="((item.slot ? `${item.slot}-trailing` : group?.slot ? `${group.slot}-trailing` : `item-trailing`) as keyof CommandPaletteSlots<G, T>)"
                 :item="(item as any)"
                 :index="index"
+                :b24ui="b24ui"
               >
                 <Component
                   :is="trailingIcon || icons.chevronRight"

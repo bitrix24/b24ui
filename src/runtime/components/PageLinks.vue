@@ -28,14 +28,14 @@ export interface PageLinksProps<T extends PageLink = PageLink> {
   b24ui?: PageLinks['slots']
 }
 
-type SlotProps<T> = (props: { link: T, active: boolean }) => any
+type SlotProps<T> = (props: { link: T, active: boolean, b24ui: PageLinks['b24ui'] }) => any
 
 export interface PageLinksSlots<T extends PageLink = PageLink> {
   'title'(props?: {}): any
   'link': SlotProps<T>
   'link-leading': SlotProps<T>
-  'link-label': SlotProps<T>
-  'link-trailing': SlotProps<T>
+  'link-label'(props: { link: T, active: boolean }): any
+  'link-trailing'(props: { link: T, active: boolean }): any
 }
 </script>
 
@@ -72,9 +72,9 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pageLi
       <li v-for="(link, index) in links" :key="index" :class="b24ui.item({ class: [props.b24ui?.item, link.b24ui?.item] })">
         <B24Link v-slot="{ active, ...slotProps }" v-bind="pickLinkProps(link)" custom>
           <B24LinkBase v-bind="slotProps" :class="b24ui.link({ class: [props.b24ui?.link, link.b24ui?.link, link.class], active })">
-            <slot name="link" :link="link" :active="active">
+            <slot name="link" :link="link" :active="active" :b24ui="b24ui">
               <div :class="b24ui.linkWrapper({ class: [props.b24ui?.linkWrapper, link.b24ui?.linkWrapper], active })">
-                <slot name="link-leading" :link="link" :active="active">
+                <slot name="link-leading" :link="link" :active="active" :b24ui="b24ui">
                   <Component
                     :is="link.icon"
                     v-if="link.icon"

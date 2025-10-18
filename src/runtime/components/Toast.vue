@@ -62,11 +62,11 @@ export interface ToastProps extends Pick<ToastRootProps, 'defaultOpen' | 'open' 
 export interface ToastEmits extends ToastRootEmits {}
 
 export interface ToastSlots {
-  leading(props?: {}): any
+  leading(props: { b24ui: Toast['b24ui'] }): any
   title(props?: {}): any
   description(props?: {}): any
   actions(props?: {}): any
-  close(props: { b24ui: { [K in keyof Required<Toast['slots']>]: (props?: Record<string, any>) => string } }): any
+  close(props: { b24ui: Toast['b24ui'] }): any
 }
 </script>
 
@@ -128,7 +128,7 @@ defineExpose({
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     :style="{ '--height': height }"
   >
-    <slot name="leading">
+    <slot name="leading" :b24ui="b24ui">
       <Component
         :is="icon"
         v-if="icon"

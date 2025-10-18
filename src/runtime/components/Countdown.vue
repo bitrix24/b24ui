@@ -77,8 +77,8 @@ export interface CountdownEmits {
 }
 
 export interface CountdownSlots {
-  leading(props?: {}): any
-  default(props: CountdownData & { formatTime: string }): any
+  leading(props: { b24ui: Countdown['b24ui'] }): any
+  default(props: CountdownData & { formatTime: string, b24ui: Countdown['b24ui'] }): any
 }
 </script>
 
@@ -487,7 +487,7 @@ defineExpose({
         />
       </g>
     </svg>
-    <slot name="leading">
+    <slot name="leading" :b24ui="b24ui">
       <Component
         :is="leadingIconName"
         v-if="isLeading && (typeof leadingIconName !== 'undefined')"
@@ -512,6 +512,7 @@ defineExpose({
       :total-seconds="totalSeconds"
       :total-milliseconds="totalMilliseconds"
       :format-time="formatTime"
+      :b24ui="b24ui"
     >
       <span :class="b24ui.label({ class: props.b24ui?.label })">
         {{ formatTime }}

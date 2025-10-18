@@ -42,7 +42,7 @@ export interface TooltipEmits extends TooltipRootEmits {}
 
 export interface TooltipSlots {
   default(props: { open: boolean }): any
-  content(props?: {}): any
+  content(props: { b24ui: Tooltip['b24ui'] }): any
 }
 </script>
 
@@ -94,7 +94,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.toolti
 
     <TooltipPortal v-bind="portalProps">
       <TooltipContent v-bind="contentProps" :class="b24ui.content({ class: [!slots.default && props.b24ui?.content, props.class] })">
-        <slot name="content">
+        <slot name="content" :b24ui="b24ui">
           <span v-if="text" :class="b24ui.text({ class: props.b24ui?.text })">{{ text }}</span>
 
           <span v-if="kbds?.length" :class="b24ui.kbds({ class: props.b24ui?.kbds })">

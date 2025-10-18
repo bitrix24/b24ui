@@ -35,36 +35,23 @@ export interface SidebarLayoutSlots {
    * @param props
    * @param props.handleClick - Handler for navigation click events
    * @param props.isLoading - loading state
+   * @param props.b24ui - b24ui
    */
-  'sidebar'(props: { handleClick: () => void, isLoading: boolean }): any
-  /**
-   * Top menu.
-   */
-  'navbar'(props?: { handleClick: () => void, isLoading: boolean }): any
-  /**
-   * Content above the page. Used for title, filter, etc.
-   */
-  'content-top': (props?: { isLoading: boolean }) => any
-  /**
-   * Content above the page. Use for show actions.
-   */
-  'content-actions': (props?: { isLoading: boolean }) => any
-  /**
-   * Right sidebar.
-   */
-  'content-right': (props?: { isLoading: boolean }) => any
-  /**
-   * The page content.
-   */
-  'default'(props?: { isLoading: boolean }): any
-  /**
-   * Content below the page.
-   */
-  'content-bottom': (props?: { isLoading: boolean }) => any
-  /**
-   * Loading state.
-   */
-  'loading': (props?: { isLoading: boolean }) => any
+  'sidebar'(props: { handleClick: () => void, isLoading: boolean, b24ui: SidebarLayout['b24ui'] }): any
+  /** Top menu. */
+  'navbar'(props: { handleClick: () => void, isLoading: boolean, b24ui: SidebarLayout['b24ui'] }): any
+  /** Content above the page. Used for title, filter, etc. */
+  'content-top': (props: { isLoading: boolean, b24ui: SidebarLayout['b24ui'] }) => any
+  /** Content above the page. Use for show actions. */
+  'content-actions': (props: { isLoading: boolean, b24ui: SidebarLayout['b24ui'] }) => any
+  /** The page content. */
+  'default'(props: { isLoading: boolean, b24ui: SidebarLayout['b24ui'] }): any
+  /** Right sidebar. */
+  'content-right': (props: { isLoading: boolean, b24ui: SidebarLayout['b24ui'] }) => any
+  /** Content below the page. */
+  'content-bottom': (props: { isLoading: boolean, b24ui: SidebarLayout['b24ui'] }) => any
+  /** Loading state. */
+  'loading': (props: { isLoading: boolean, b24ui: SidebarLayout['b24ui'] }) => any
 }
 </script>
 
@@ -144,7 +131,7 @@ const isLoading = ref(false)
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
   >
     <!-- isLoading -->
-    <slot name="loading" :is-loading="isLoading">
+    <slot name="loading" :is-loading="isLoading" :b24ui="b24ui">
       <div
         v-if="isLoading"
         :class="b24ui.loadingWrapper({ class: props.b24ui?.loadingWrapper })"
@@ -158,7 +145,7 @@ const isLoading = ref(false)
     <template v-if="isUseSideBar">
       <div :class="b24ui.sidebar({ class: props.b24ui?.sidebar })">
         <B24Sidebar>
-          <slot name="sidebar" :handle-click="handleNavigationClick" :is-loading="isLoading" />
+          <slot name="sidebar" :handle-click="handleNavigationClick" :is-loading="isLoading" :b24ui="b24ui" />
         </B24Sidebar>
       </div>
     </template>
@@ -202,7 +189,7 @@ const isLoading = ref(false)
                     </B24ModalDialogClose>
                   </div>
 
-                  <slot name="sidebar" :handle-click="handleNavigationClick" :is-loading="isLoading" />
+                  <slot name="sidebar" :handle-click="handleNavigationClick" :is-loading="isLoading" :b24ui="b24ui" />
                 </B24Sidebar>
               </div>
             </template>
@@ -210,7 +197,7 @@ const isLoading = ref(false)
         </div>
         <div :class="b24ui.headerWrapper({ class: props.b24ui?.headerWrapper })">
           <B24Navbar>
-            <slot name="navbar" :is-loading="isLoading" />
+            <slot name="navbar" :handle-click="handleNavigationClick" :is-loading="isLoading" :b24ui="b24ui" />
           </B24Navbar>
         </div>
       </header>
@@ -221,14 +208,14 @@ const isLoading = ref(false)
             <template v-if="!!slots['content-top']">
               <!-- Page Top -->
               <div :class="b24ui.pageTopWrapper({ class: props.b24ui?.pageTopWrapper })">
-                <slot name="content-top" :is-loading="isLoading" />
+                <slot name="content-top" :is-loading="isLoading" :b24ui="b24ui" />
               </div>
             </template>
 
             <template v-if="!!slots['content-actions']">
               <!-- Page Actions -->
               <div :class="b24ui.pageActionsWrapper({ class: props.b24ui?.pageActionsWrapper })">
-                <slot name="content-actions" :is-loading="isLoading" />
+                <slot name="content-actions" :is-loading="isLoading" :b24ui="b24ui" />
               </div>
             </template>
 
@@ -239,7 +226,7 @@ const isLoading = ref(false)
                 :class="b24ui.containerWrapper({ class: props.b24ui?.containerWrapper })"
               >
                 <div :class="b24ui.containerWrapperInner({ class: props.b24ui?.containerWrapperInner })">
-                  <slot :is-loading="isLoading" />
+                  <slot :is-loading="isLoading" :b24ui="b24ui" />
                 </div>
               </div>
             </template>
@@ -248,14 +235,14 @@ const isLoading = ref(false)
 
         <template v-if="!!slots['content-right']">
           <div :class="b24ui.pageRightWrapper({ class: props.b24ui?.pageRightWrapper })">
-            <slot name="content-right" :is-loading="isLoading" />
+            <slot name="content-right" :is-loading="isLoading" :b24ui="b24ui" />
           </div>
         </template>
       </div>
       <template v-if="!!slots['content-bottom']">
         <!-- Page Bottom -->
         <div :class="b24ui.pageBottomWrapper({ class: props.b24ui?.pageBottomWrapper })">
-          <slot name="content-bottom" :is-loading="isLoading" />
+          <slot name="content-bottom" :is-loading="isLoading" :b24ui="b24ui" />
         </div>
       </template>
     </div>

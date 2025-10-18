@@ -76,7 +76,7 @@ export interface PaginationSlots {
   prev(props?: {}): any
   next(props?: {}): any
   last(props?: {}): any
-  ellipsis(props?: {}): any
+  ellipsis(props: { b24ui: Pagination['b24ui'] }): any
   item(props: {
     page: number
     pageCount: number
@@ -156,7 +156,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pagina
         </PaginationListItem>
 
         <PaginationEllipsis v-else as-child :class="b24ui.ellipsis({ class: props.b24ui?.ellipsis })">
-          <slot name="ellipsis">
+          <slot name="ellipsis" :b24ui="b24ui">
             <B24Button as="div" :color="color" :size="size" :icon="ellipsisIcon || icons.ellipsis" />
           </slot>
         </PaginationEllipsis>

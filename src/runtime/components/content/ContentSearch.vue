@@ -99,7 +99,7 @@ export interface ContentSearchProps<T extends ContentSearchLink = ContentSearchL
 }
 
 export type ContentSearchSlots = CommandPaletteSlots<CommandPaletteGroup<ContentSearchItem>, ContentSearchItem> & {
-  content(props?: {}): any
+  content(props: { close: () => void }): any
 }
 
 </script>
@@ -280,8 +280,8 @@ defineExpose({
     v-bind="modalProps"
     :class="b24ui.modal({ class: [props.b24ui?.modal, props.class] })"
   >
-    <template #content>
-      <slot name="content">
+    <template #content="contentData">
+      <slot name="content" v-bind="contentData">
         <B24CommandPalette
           ref="commandPaletteRef"
           v-model:search-term="searchTerm"

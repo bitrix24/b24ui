@@ -106,8 +106,9 @@ export interface FileUploadSlots<M extends boolean = false> {
   'default'(props: {
     open: UseFileDialogReturn['open']
     removeFile: (index?: number) => void
+    b24ui: FileUpload['b24ui']
   }): any
-  'leading'(props?: {}): any
+  'leading'(props: { b24ui: FileUpload['b24ui'] }): any
   'label'(props?: {}): any
   'description'(props?: {}): any
   'actions'(props: { files?: FileUploadFiles<M>, open: UseFileDialogReturn['open'], removeFile: (index?: number) => void }): any
@@ -115,10 +116,10 @@ export interface FileUploadSlots<M extends boolean = false> {
   'files-top'(props: { files?: FileUploadFiles<M>, open: UseFileDialogReturn['open'], removeFile: (index?: number) => void }): any
   'files-bottom'(props: { files?: FileUploadFiles<M>, open: UseFileDialogReturn['open'], removeFile: (index?: number) => void }): any
   'file'(props: { file: File, index: number }): any
-  'file-leading'(props: { file: File, index: number }): any
+  'file-leading'(props: { file: File, index: number, b24ui: FileUpload['b24ui'] }): any
   'file-name'(props: { file: File, index: number }): any
   'file-size'(props: { file: File, index: number }): any
-  'file-trailing'(props: { file: File, index: number }): any
+  'file-trailing'(props: { file: File, index: number, b24ui: FileUpload['b24ui'] }): any
 }
 </script>
 
@@ -277,7 +278,7 @@ defineExpose({
             :class="b24ui.file({ class: props.b24ui?.file })"
           >
             <slot name="file" :file="file" :index="index">
-              <slot name="file-leading" :file="file" :index="index">
+              <slot name="file-leading" :file="file" :index="index" :b24ui="b24ui">
                 <B24Avatar
                   :as="{ img: 'img' }"
                   :src="createObjectUrl(file)"
@@ -301,7 +302,7 @@ defineExpose({
                 </span>
               </div>
 
-              <slot name="file-trailing" :file="file" :index="index">
+              <slot name="file-trailing" :file="file" :index="index" :b24ui="b24ui">
                 <B24Button
                   v-if="fileDelete"
                   v-bind="{
@@ -330,7 +331,7 @@ defineExpose({
   </DefineFilesTemplate>
 
   <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <slot :open="open" :remove-file="removeFile">
+    <slot :open="open" :remove-file="removeFile" :b24ui="b24ui">
       <component
         :is="variant === 'button' ? 'button' : 'div'"
         ref="dropzoneRef"
@@ -349,7 +350,7 @@ defineExpose({
           v-if="position === 'inside' ? (multiple ? !(modelValue as File[])?.length : !modelValue) : true"
           :class="b24ui.wrapper({ class: props.b24ui?.wrapper })"
         >
-          <slot name="leading">
+          <slot name="leading" :b24ui="b24ui">
             <Component
               :is="icon || icons.upload"
               v-if="variant === 'button'"

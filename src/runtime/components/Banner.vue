@@ -53,10 +53,10 @@ export interface BannerProps {
 }
 
 export interface BannerSlots {
-  leading(props?: {}): any
+  leading(props: { b24ui: Banner['b24ui'] }): any
   title(props?: {}): any
   actions(props?: {}): any
-  close(props: { b24ui: any }): any
+  close(props: { b24ui: Banner['b24ui'] }): any
 }
 
 export interface BannerEmits {
@@ -135,7 +135,7 @@ function onClose() {
       <div :class="b24ui.left({ class: props.b24ui?.left })" />
 
       <div :class="b24ui.center({ class: props.b24ui?.center })">
-        <slot name="leading">
+        <slot name="leading" :b24ui="b24ui">
           <Component :is="icon" v-if="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
         </slot>
 

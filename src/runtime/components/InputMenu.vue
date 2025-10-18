@@ -175,7 +175,7 @@ export type InputMenuEmits<A extends ArrayOrNested<InputMenuItem>, VK extends Ge
   'remove-tag': [item: GetModelValue<A, VK, M>]
 } & GetModelValueEmits<A, VK, M>
 
-type SlotProps<T extends InputMenuItem> = (props: { item: T, index: number }) => any
+type SlotProps<T extends InputMenuItem> = (props: { item: T, index: number, b24ui: InputMenu['b24ui'] }) => any
 
 export interface InputMenuSlots<
   A extends ArrayOrNested<InputMenuItem> = ArrayOrNested<InputMenuItem>,
@@ -183,22 +183,14 @@ export interface InputMenuSlots<
   M extends boolean = false,
   T extends NestedItem<A> = NestedItem<A>
 > {
-  'leading'(props: {
-    modelValue?: GetModelValue<A, VK, M>
-    open: boolean
-    b24ui: { [K in keyof Required<InputMenu['slots']>]: (props?: Record<string, any>) => string }
-  }): any
-  'trailing'(props: {
-    modelValue?: GetModelValue<A, VK, M>
-    open: boolean
-    b24ui: { [K in keyof Required<InputMenu['slots']>]: (props?: Record<string, any>) => string }
-  }): any
+  'leading'(props: { modelValue?: GetModelValue<A, VK, M>, open: boolean, b24ui: InputMenu['b24ui'] }): any
+  'trailing'(props: { modelValue?: GetModelValue<A, VK, M>, open: boolean, b24ui: InputMenu['b24ui'] }): any
   'empty'(props: { searchTerm?: string }): any
   'item': SlotProps<T>
   'item-leading': SlotProps<T>
-  'item-label': SlotProps<T>
+  'item-label'(props: { item: T, index: number }): any
   'item-trailing': SlotProps<T>
-  'tags-item-text': SlotProps<T>
+  'tags-item-text'(props: { item: T, index: number }): any
   'tags-item-delete': SlotProps<T>
   'content-top': (props?: {}) => any
   'content-bottom': (props?: {}) => any
@@ -496,8 +488,8 @@ defineExpose({
       :value="props.valueKey && isInputItem(item) ? get(item, props.valueKey as string) : item"
       @select="onSelect($event, item)"
     >
-      <slot name="item" :item="(item as NestedItem<T>)" :index="index">
-        <slot name="item-leading" :item="(item as NestedItem<T>)" :index="index">
+      <slot name="item" :item="(item as NestedItem<T>)" :index="index" :b24ui="b24ui">
+        <slot name="item-leading" :item="(item as NestedItem<T>)" :index="index" :b24ui="b24ui">
           <Component
             :is="item.icon"
             v-if="isInputItem(item) && item.icon"
@@ -521,7 +513,7 @@ defineExpose({
         </span>
 
         <span :class="b24ui.itemTrailing({ class: [props.b24ui?.itemTrailing, isInputItem(item) && item.b24ui?.itemTrailing], colorItem: isInputItem(item) ? item?.color : undefined })">
-          <slot name="item-trailing" :item="(item as NestedItem<T>)" :index="index" />
+          <slot name="item-trailing" :item="(item as NestedItem<T>)" :index="index" :b24ui="b24ui" />
 
           <ComboboxItemIndicator as-child>
             <Component
@@ -581,7 +573,7 @@ defineExpose({
           </TagsInputItemText>
 
           <TagsInputItemDelete :class="b24ui.tagsItemDelete({ class: [props.b24ui?.tagsItemDelete, isInputItem(item) && item.b24ui?.tagsItemDelete] })" :disabled="disabled">
-            <slot name="tags-item-delete" :item="(item as NestedItem<T>)" :index="index">
+            <slot name="tags-item-delete" :item="(item as NestedItem<T>)" :index="index" :b24ui="b24ui">
               <Component
                 :is="deleteIcon || icons.close"
                 :class="b24ui.tagsItemDeleteIcon({ class: [props.b24ui?.tagsItemDeleteIcon, isInputItem(item) && item.b24ui?.tagsItemDeleteIcon] })"

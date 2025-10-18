@@ -68,11 +68,11 @@ export interface AlertEmits {
 }
 
 export interface AlertSlots {
-  leading(props?: {}): any
+  leading(props: { b24ui: Alert['b24ui'] }): any
   title(props?: {}): any
   description(props?: {}): any
   actions(props?: {}): any
-  close(props: { b24ui: { [K in keyof Required<Alert['slots']>]: (props?: Record<string, any>) => string } }): any
+  close(props: { b24ui: Alert['b24ui'] }): any
 }
 </script>
 
@@ -107,7 +107,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.alert 
 
 <template>
   <Primitive :as="as" :data-orientation="orientation" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <slot name="leading">
+    <slot name="leading" :b24ui="b24ui">
       <Component
         :is="icon"
         v-if="icon"

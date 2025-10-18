@@ -62,7 +62,7 @@ export type StepperEmits<T extends StepperItem = StepperItem> = Omit<StepperRoot
 type SlotProps<T extends StepperItem> = (props: { item: T }) => any
 
 export type StepperSlots<T extends StepperItem = StepperItem> = {
-  indicator: SlotProps<T>
+  indicator(props: { item: T, b24ui: Stepper['b24ui'] }): any
   title: SlotProps<T>
   description: SlotProps<T>
   content: SlotProps<T>
@@ -144,7 +144,7 @@ defineExpose({
         <div :class="b24ui.container({ class: [props.b24ui?.container, item.b24ui?.container] })">
           <StepperTrigger :class="b24ui.trigger({ class: [props.b24ui?.trigger, item.b24ui?.trigger] })">
             <StepperIndicator :class="b24ui.indicator({ class: [props.b24ui?.indicator, item.b24ui?.indicator] })">
-              <slot name="indicator" :item="item">
+              <slot name="indicator" :item="item" :b24ui="b24ui">
                 <Component
                   :is="item.icon"
                   v-if="item.icon"

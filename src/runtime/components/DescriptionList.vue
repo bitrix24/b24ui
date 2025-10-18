@@ -56,20 +56,20 @@ export interface DescriptionListProps<T extends DescriptionListItem = Descriptio
   b24ui?: DescriptionList['slots']
 }
 
-type SlotProps<T extends DescriptionListItem> = (props: { item: T, index: number }) => any
+type SlotProps<T extends DescriptionListItem> = (props: { item: T, index: number, b24ui: DescriptionList['b24ui'] }) => any
 
 export type DescriptionListSlots<T extends DescriptionListItem = DescriptionListItem> = {
   'legend'(props?: {}): any
   'text'(props?: {}): any
   'leading': SlotProps<T>
-  'label': SlotProps<T>
-  'description': SlotProps<T>
+  'label'(props: { item: T, index: number }): any
+  'description'(props: { item: T, index: number }): any
   'actions': SlotProps<T>
   'content-top': SlotProps<T>
   'content': SlotProps<T>
   'content-bottom': SlotProps<T>
-  'footer'(props?: { b24ui: any }): any
-} & DynamicSlots<T, undefined, { index: number }>
+  'footer'(props?: { b24ui: DescriptionList['b24ui'] }): any
+} & DynamicSlots<T, undefined, { index: number, b24ui: DescriptionList['b24ui'] }>
 </script>
 
 <script setup lang="ts" generic="T extends DescriptionListItem">
@@ -144,12 +144,14 @@ const normalizedItems = computed(() => {
           name="content-top"
           :item="(item as Extract<T, { slot: string; }>)"
           :index="index"
+          :b24ui="b24ui"
         />
 
         <slot
           :name="((item.slot || 'content') as keyof DescriptionListSlots<T>)"
           :item="(item as Extract<T, { slot: string; }>)"
           :index="index"
+          :b24ui="b24ui"
         >
           <dt
             :class="b24ui.labelWrapper({
@@ -159,7 +161,7 @@ const normalizedItems = computed(() => {
               ]
             })"
           >
-            <slot name="leading" :item="item" :index="index">
+            <slot name="leading" :item="item" :index="index" :b24ui="b24ui">
               <Component
                 :is="item.icon"
                 v-if="item.icon"
@@ -231,7 +233,7 @@ const normalizedItems = computed(() => {
                 orientation: item.orientation
               })"
             >
-              <slot name="actions" :item="item" :index="index">
+              <slot name="actions" :item="item" :index="index" :b24ui="b24ui">
                 <B24Button
                   v-for="(action, indexActions) in item.actions"
                   :key="indexActions"
@@ -247,6 +249,7 @@ const normalizedItems = computed(() => {
           name="content-bottom"
           :item="(item as Extract<T, { slot: string; }>)"
           :index="index"
+          :b24ui="b24ui"
         />
       </template>
     </dl>

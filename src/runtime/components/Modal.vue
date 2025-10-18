@@ -77,7 +77,7 @@ export interface ModalSlots {
   title(props?: {}): any
   description(props?: {}): any
   actions(props?: {}): any
-  close(props: { close: () => void, b24ui: { [K in keyof Required<Modal['slots']>]: (props?: Record<string, any>) => string } }): any
+  close(props: { b24ui: Modal['b24ui'] }): any
   body(props: { close: () => void }): any
   footer(props: { close: () => void }): any
 }
@@ -191,7 +191,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.modal 
                 <slot name="actions" />
 
                 <DialogClose v-if="props.close || !!slots.close" as-child>
-                  <slot name="close" :close="close" :b24ui="b24ui">
+                  <slot name="close" :b24ui="b24ui">
                     <B24Button
                       v-if="props.close"
                       :icon="closeIcon || icons.close"

@@ -26,7 +26,7 @@ interface ContextMenuContentProps<T extends ArrayOrNested<ContextMenuItem>> exte
    */
   externalIcon?: boolean | IconComponent
   class?: any
-  b24ui: { [K in keyof Required<ContextMenu['slots']>]: (props?: Record<string, any>) => string }
+  b24ui: ContextMenu['b24ui']
   b24uiOverride?: ContextMenu['slots']
 }
 
@@ -73,8 +73,8 @@ const groups = computed<ContextMenuItem[][]>(() =>
 
 <template>
   <DefineItemTemplate v-slot="{ item, active, index }">
-    <slot :name="((item.slot || 'item') as keyof ContextMenuSlots<T>)" :item="item" :index="index">
-      <slot :name="((item.slot ? `${item.slot}-leading`: 'item-leading') as keyof ContextMenuSlots<T>)" :item="item" :active="active" :index="index">
+    <slot :name="((item.slot || 'item') as keyof ContextMenuSlots<T>)" :item="item" :index="index" :b24ui="b24ui">
+      <slot :name="((item.slot ? `${item.slot}-leading`: 'item-leading') as keyof ContextMenuSlots<T>)" :item="item" :active="active" :index="index" :b24ui="b24ui">
         <Component
           :is="loadingIcon || icons.loading"
           v-if="item.loading"
@@ -106,7 +106,7 @@ const groups = computed<ContextMenuItem[][]>(() =>
       </span>
 
       <span :class="b24ui.itemTrailing({ class: [b24uiOverride?.itemTrailing, item.b24ui?.itemTrailing] })">
-        <slot :name="((item.slot ? `${item.slot}-trailing`: 'item-trailing') as keyof ContextMenuSlots<T>)" :item="item" :active="active" :index="index">
+        <slot :name="((item.slot ? `${item.slot}-trailing`: 'item-trailing') as keyof ContextMenuSlots<T>)" :item="item" :active="active" :index="index" :b24ui="b24ui">
           <Component
             :is="childrenIcon"
             v-if="item.children?.length"

@@ -46,9 +46,9 @@ export interface BadgeProps extends Omit<UseComponentIconsProps, 'loading' | 'lo
 }
 
 export interface BadgeSlots {
-  leading(props?: {}): any
-  default(props?: {}): any
-  trailing(props?: {}): any
+  leading(props: { b24ui: Badge['b24ui'] }): any
+  default(props: { b24ui: Badge['b24ui'] }): any
+  trailing(props: { b24ui: Badge['b24ui'] }): any
 }
 </script>
 
@@ -102,7 +102,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.badge 
       :as="as"
       :class="b24ui.wrapper({ class: props.b24ui?.wrapper })"
     >
-      <slot name="leading">
+      <slot name="leading" :b24ui="b24ui">
         <Component
           :is="leadingIconName"
           v-if="isLeading && leadingIconName"
@@ -116,13 +116,13 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.badge 
         />
       </slot>
 
-      <slot>
+      <slot :b24ui="b24ui">
         <span v-if="label !== undefined && label !== null" :class="b24ui.label({ class: props.b24ui?.label })">
           {{ label }}
         </span>
       </slot>
     </Primitive>
-    <slot name="trailing">
+    <slot name="trailing" :b24ui="b24ui">
       <Cross20Icon
         v-if="useClose"
         :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"

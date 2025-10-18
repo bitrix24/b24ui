@@ -1,13 +1,19 @@
 import { describe, it, expect, test } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
+import type { AppConfig } from '@nuxt/schema'
 import DropdownMenu, { type DropdownMenuProps, type DropdownMenuSlots } from '../../src/runtime/components/DropdownMenu.vue'
+import type { ComponentConfig } from '../../src/runtime/types/tv'
 import ComponentRender from '../component-render'
 import { expectSlotProps } from '../utils/types'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
-// import theme from '#build/b24ui/dropdown-menu'
+import theme from '#build/b24ui/dropdown-menu'
+
+type DropdownMenu = ComponentConfig<typeof theme, AppConfig, 'dropdownMenu'>
 
 describe('DropdownMenu', () => {
+  const colors = Object.keys(theme.variants.color) as any
+
   const items = [
     [{
       label: 'My account',
@@ -96,6 +102,7 @@ describe('DropdownMenu', () => {
     ['with labelKey', { props: { ...props, labelKey: 'icon' } }],
     ['with disabled', { props: { ...props, disabled: true } }],
     ['with arrow', { props: { ...props, arrow: true } }],
+    ...colors.map((color: string) => [`with color ${color}`, { props: { ...props, color } }]),
     ['with externalIcon', { props: { ...props, externalIcon: SignIcon } }],
     ['without externalIcon', { props: { ...props, externalIcon: false } }],
     ['with class', { props: { ...props, class: 'min-w-96' } }],
@@ -132,21 +139,21 @@ describe('DropdownMenu', () => {
     // normal
     expectSlotProps('item', () => DropdownMenu({
       items: [{ label: 'foo', value: 'bar' }]
-    })).toEqualTypeOf<{ item: { label: string, value: string }, index: number, active?: boolean }>()
+    })).toEqualTypeOf<{ item: { label: string, value: string }, index: number, active?: boolean, b24ui: DropdownMenu['b24ui'] }>()
 
     // groups
     expectSlotProps('item', () => DropdownMenu({
       items: [[{ label: 'foo', value: 'bar' }]]
-    })).toEqualTypeOf<{ item: { label: string, value: string }, index: number, active?: boolean }>()
+    })).toEqualTypeOf<{ item: { label: string, value: string }, index: number, active?: boolean, b24ui: DropdownMenu['b24ui'] }>()
 
     // custom
     expectSlotProps('item', () => DropdownMenu({
       items: [{ label: 'foo', value: 'bar', custom: 'nice' }]
-    })).toEqualTypeOf<{ item: { label: string, value: string, custom: string }, index: number, active?: boolean }>()
+    })).toEqualTypeOf<{ item: { label: string, value: string, custom: string }, index: number, active?: boolean, b24ui: DropdownMenu['b24ui'] }>()
 
     // custom + groups
     expectSlotProps('item', () => DropdownMenu({
       items: [[{ label: 'foo', value: 'bar', custom: 'nice' }]]
-    })).toEqualTypeOf<{ item: { label: string, value: string, custom: string }, index: number, active?: boolean }>()
+    })).toEqualTypeOf<{ item: { label: string, value: string, custom: string }, index: number, active?: boolean, b24ui: DropdownMenu['b24ui'] }>()
   })
 })

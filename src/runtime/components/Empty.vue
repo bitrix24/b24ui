@@ -43,7 +43,7 @@ export interface EmptyProps {
 
 export interface EmptySlots {
   header(props?: {}): any
-  leading(props?: {}): any
+  leading(props: { b24ui: Empty['b24ui'] }): any
   title(props?: {}): any
   description(props?: {}): any
   body(props?: {}): any
@@ -77,7 +77,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.empty 
   <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <div v-if="!!slots.header || (icon || !!slots.leading) || (title || !!slots.title) || (description || !!slots.description)" :class="b24ui.header({ class: props.b24ui?.header })">
       <slot name="header">
-        <slot name="leading">
+        <slot name="leading" :b24ui="b24ui">
           <div v-if="icon" :class="b24ui.indicator({ class: props.b24ui?.indicator })">
             <Component
               :is="icon"

@@ -128,7 +128,7 @@ export type SelectEmits<A extends ArrayOrNested<SelectItem>, VK extends GetItemK
   focus: [event: FocusEvent]
 } & GetModelValueEmits<A, VK, M>
 
-type SlotProps<T extends SelectItem> = (props: { item: T, index: number }) => any
+type SlotProps<T extends SelectItem> = (props: { item: T, index: number, b24ui: Select['b24ui'] }) => any
 
 export interface SelectSlots<
   A extends ArrayOrNested<SelectItem> = ArrayOrNested<SelectItem>,
@@ -136,23 +136,12 @@ export interface SelectSlots<
   M extends boolean = false,
   T extends NestedItem<A> = NestedItem<A>
 > {
-  'leading'(props: {
-    modelValue?: GetModelValue<A, VK, M>
-    open: boolean
-    b24ui: { [K in keyof Required<Select['slots']>]: (props?: Record<string, any>) => string }
-  }): any
-  'default'(props: {
-    modelValue?: GetModelValue<A, VK, M>
-    open: boolean
-  }): any
-  'trailing'(props: {
-    modelValue?: GetModelValue<A, VK, M>
-    open: boolean
-    b24ui: { [K in keyof Required<Select['slots']>]: (props?: Record<string, any>) => string }
-  }): any
+  'leading'(props: { modelValue?: GetModelValue<A, VK, M>, open: boolean, b24ui: Select['b24ui'] }): any
+  'default'(props: { modelValue?: GetModelValue<A, VK, M>, open: boolean, b24ui: Select['b24ui'] }): any
+  'trailing'(props: { modelValue?: GetModelValue<A, VK, M>, open: boolean, b24ui: Select['b24ui'] }): any
   'item': SlotProps<T>
   'item-leading': SlotProps<T>
-  'item-label': SlotProps<T>
+  'item-label'(props: { item: T, index: number }): any
   'item-trailing': SlotProps<T>
   'content-top': (props?: {}) => any
   'content-bottom': (props?: {}) => any
@@ -337,7 +326,7 @@ defineExpose({
           </slot>
         </span>
 
-        <slot :model-value="(modelValue as GetModelValue<T, VK, M>)" :open="open">
+        <slot :model-value="(modelValue as GetModelValue<T, VK, M>)" :open="open" :b24ui="b24ui">
           <template v-for="displayedModelValue in [displayValue(modelValue as GetModelValue<T, VK, M>)]" :key="displayedModelValue">
             <span
               v-if="displayedModelValue !== undefined && displayedModelValue !== null"
@@ -388,8 +377,8 @@ defineExpose({
                   :value="isSelectItem(item) ? get(item, props.valueKey as string) : item"
                   @select="isSelectItem(item) && item.onSelect?.($event)"
                 >
-                  <slot name="item" :item="(item as NestedItem<T>)" :index="index">
-                    <slot name="item-leading" :item="(item as NestedItem<T>)" :index="index">
+                  <slot name="item" :item="(item as NestedItem<T>)" :index="index" :b24ui="b24ui">
+                    <slot name="item-leading" :item="(item as NestedItem<T>)" :index="index" :b24ui="b24ui">
                       <Component
                         :is="item.icon"
                         v-if="isSelectItem(item) && item.icon"
@@ -418,7 +407,7 @@ defineExpose({
                     </SelectItemText>
 
                     <span :class="b24ui.itemTrailing({ class: [props.b24ui?.itemTrailing, isSelectItem(item) && item.b24ui?.itemTrailing], colorItem: (isSelectItem(item) && item?.color) || undefined })">
-                      <slot name="item-trailing" :item="(item as NestedItem<T>)" :index="index" />
+                      <slot name="item-trailing" :item="(item as NestedItem<T>)" :index="index" :b24ui="b24ui" />
 
                       <SelectItemIndicator as-child>
                         <Component

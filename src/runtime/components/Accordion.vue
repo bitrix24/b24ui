@@ -53,15 +53,15 @@ export interface AccordionProps<T extends AccordionItem = AccordionItem> extends
 
 export interface AccordionEmits extends AccordionRootEmits {}
 
-type SlotProps<T extends AccordionItem> = (props: { item: T, index: number, open: boolean }) => any
+type SlotProps<T extends AccordionItem> = (props: { item: T, index: number, open: boolean, b24ui: Accordion['b24ui'] }) => any
 
 export type AccordionSlots<T extends AccordionItem = AccordionItem> = {
   leading: SlotProps<T>
-  default: SlotProps<T>
+  default(props: { item: T, index: number, open: boolean }): any
   trailing: SlotProps<T>
   content: SlotProps<T>
   body: SlotProps<T>
-} & DynamicSlots<T, 'body', { index: number, open: boolean }>
+} & DynamicSlots<T, 'body', { index: number, open: boolean, b24ui: Accordion['b24ui'] }>
 
 </script>
 
@@ -104,7 +104,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.accord
     >
       <AccordionHeader as="div" :class="b24ui.header({ class: [props.b24ui?.header, item.b24ui?.header] })">
         <AccordionTrigger :class="b24ui.trigger({ class: [props.b24ui?.trigger, item.b24ui?.trigger], disabled: item.disabled })">
-          <slot name="leading" :item="item" :index="index" :open="open">
+          <slot name="leading" :item="item" :index="index" :open="open" :b24ui="b24ui">
             <Component
               :is="item.icon"
               v-if="item.icon"
@@ -119,7 +119,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.accord
             <slot :item="item" :index="index" :open="open">{{ get(item, props.labelKey as string) }}</slot>
           </span>
 
-          <slot name="trailing" :item="item" :index="index" :open="open">
+          <slot name="trailing" :item="item" :index="index" :open="open" :b24ui="b24ui">
             <Component
               :is="item.trailingIcon || trailingIcon || icons.chevronDown"
               :class="b24ui.trailingIcon({ class: [props.b24ui?.trailingIcon, item.b24ui?.trailingIcon] })"
@@ -137,6 +137,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.accord
           :item="(item as Extract<T, { slot: string; }>)"
           :index="index"
           :open="open"
+          :b24ui="b24ui"
         >
           <div :class="b24ui.body({ class: [props.b24ui?.body, item.b24ui?.body] })">
             <slot
@@ -144,6 +145,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.accord
               :item="(item as Extract<T, { slot: string; }>)"
               :index="index"
               :open="open"
+              :b24ui="b24ui"
             >
               {{ item.content }}
             </slot>

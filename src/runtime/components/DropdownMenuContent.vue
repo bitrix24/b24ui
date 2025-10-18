@@ -28,7 +28,7 @@ interface DropdownMenuContentProps<T extends ArrayOrNested<DropdownMenuItem>> ex
    */
   externalIcon?: boolean | IconComponent
   class?: any
-  b24ui: { [K in keyof Required<DropdownMenu['slots']>]: (props?: Record<string, any>) => string }
+  b24ui: DropdownMenu['b24ui']
   b24uiOverride?: DropdownMenu['slots']
 }
 
@@ -39,7 +39,9 @@ type DropdownMenuContentSlots<
   T extends NestedItem<A> = NestedItem<A>
 > = Pick<DropdownMenuSlots<A>, 'item' | 'item-leading' | 'item-label' | 'item-trailing' | 'content-top' | 'content-bottom'> & {
   default(props?: {}): any
-} & DynamicSlots<MergeTypes<T>, 'leading' | 'label' | 'trailing', { active?: boolean, index: number }>
+}
+& DynamicSlots<MergeTypes<T>, 'label', { active?: boolean, index: number }>
+& DynamicSlots<MergeTypes<T>, 'leading' | 'trailing', { active?: boolean, index: number, b24ui: DropdownMenu['b24ui'] }>
 </script>
 
 <script setup lang="ts" generic="T extends ArrayOrNested<DropdownMenuItem>">
@@ -92,8 +94,19 @@ const groups = computed<DropdownMenuItem[][]>(() =>
 
 <template>
   <DefineItemTemplate v-slot="{ item, active, index }">
-    <slot :name="((item.slot || 'item') as keyof DropdownMenuContentSlots<T>)" :item="(item as Extract<NestedItem<T>, { slot: string; }>)" :index="index">
-      <slot :name="((item.slot ? `${item.slot}-leading`: 'item-leading') as keyof DropdownMenuContentSlots<T>)" :item="(item as Extract<NestedItem<T>, { slot: string; }>)" :active="active" :index="index">
+    <slot
+      :name="((item.slot || 'item') as keyof DropdownMenuContentSlots<T>)"
+      :item="(item as Extract<NestedItem<T>, { slot: string; }>)"
+      :index="index"
+      :b24ui="b24ui"
+    >
+      <slot
+        :name="((item.slot ? `${item.slot}-leading`: 'item-leading') as keyof DropdownMenuContentSlots<T>)"
+        :item="(item as Extract<NestedItem<T>, { slot: string; }>)"
+        :active="active"
+        :index="index"
+        :b24ui="b24ui"
+      >
         <Component
           :is="icons.loading"
           v-if="item.loading"
@@ -124,7 +137,13 @@ const groups = computed<DropdownMenuItem[][]>(() =>
       </span>
 
       <span :class="b24ui.itemTrailing({ class: [b24uiOverride?.itemTrailing, item.b24ui?.itemTrailing] })">
-        <slot :name="((item.slot ? `${item.slot}-trailing`: 'item-trailing') as keyof DropdownMenuContentSlots<T>)" :item="(item as Extract<NestedItem<T>, { slot: string; }>)" :active="active" :index="index">
+        <slot
+          :name="((item.slot ? `${item.slot}-trailing`: 'item-trailing') as keyof DropdownMenuContentSlots<T>)"
+          :item="(item as Extract<NestedItem<T>, { slot: string; }>)"
+          :active="active"
+          :index="index"
+          :b24ui="b24ui"
+        >
           <Component
             :is="childrenIcon"
             v-if="item.children?.length"

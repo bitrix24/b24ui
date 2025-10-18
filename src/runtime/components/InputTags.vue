@@ -68,12 +68,12 @@ export interface InputTagsEmits<T extends InputTagItem> extends TagsInputRootEmi
   focus: [event: FocusEvent]
 }
 
-type SlotProps<T extends InputTagItem> = (props: { item: T, index: number }) => any
+type SlotProps<T extends InputTagItem> = (props: { item: T, index: number, b24ui: InputTags['b24ui'] }) => any
 
 export interface InputTagsSlots<T extends InputTagItem = InputTagItem> {
-  'leading'(props?: {}): any
-  'default'(props?: {}): any
-  'trailing'(props?: {}): any
+  'leading'(props: { b24ui: InputTags['b24ui'] }): any
+  'default'(props: { b24ui: InputTags['b24ui'] }): any
+  'trailing'(props: { b24ui: InputTags['b24ui'] }): any
   'item-text': SlotProps<T>
   'item-delete': SlotProps<T>
 }
@@ -196,14 +196,14 @@ defineExpose({
       :class="b24ui.item({ class: [props.b24ui?.item] })"
     >
       <TagsInputItemText :class="b24ui.itemText({ class: [props.b24ui?.itemText] })">
-        <slot v-if="!!slots['item-text']" name="item-text" :item="(item as T)" :index="index" />
+        <slot v-if="!!slots['item-text']" name="item-text" :item="(item as T)" :index="index" :b24ui="b24ui" />
       </TagsInputItemText>
 
       <TagsInputItemDelete
         :class="b24ui.itemDelete({ class: [props.b24ui?.itemDelete] })"
         :disabled="disabled"
       >
-        <slot name="item-delete" :item="(item as T)" :index="index">
+        <slot name="item-delete" :item="(item as T)" :index="index" :b24ui="b24ui">
           <Component
             :is="deleteIcon || icons.close"
             :class="b24ui.itemDeleteIcon({ class: [props.b24ui?.itemDeleteIcon] })"
@@ -222,10 +222,10 @@ defineExpose({
       @focus="onFocus"
     />
 
-    <slot />
+    <slot :b24ui="b24ui" />
 
     <span v-if="isLeading || !!avatar || !!slots.leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
-      <slot name="leading">
+      <slot name="leading" :b24ui="b24ui">
         <Component
           :is="leadingIconName"
           v-if="isLeading && leadingIconName"
@@ -241,7 +241,7 @@ defineExpose({
     </span>
 
     <span v-if="isTrailing || !!slots.trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
-      <slot name="trailing">
+      <slot name="trailing" :b24ui="b24ui">
         <Component
           :is="trailingIconName"
           v-if="trailingIconName"

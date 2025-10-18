@@ -75,9 +75,9 @@ export interface ButtonProps extends Omit<UseComponentIconsProps, 'trailing' | '
 }
 
 export interface ButtonSlots {
-  leading(props?: {}): any
-  default(props?: {}): any
-  trailing(props?: {}): any
+  leading(props: { b24ui: Button['b24ui'] }): any
+  default(props: { b24ui: Button['b24ui'] }): any
+  trailing(props: { b24ui: Button['b24ui'] }): any
 }
 </script>
 
@@ -216,7 +216,7 @@ const b24ui = computed(() => tv({
           isLoading ? 'invisible' : ''
         ]"
       >
-        <slot name="leading">
+        <slot name="leading" :b24ui="b24ui">
           <Component
             :is="leadingIconName"
             v-if="isLeading && (typeof leadingIconName !== 'undefined')"
@@ -230,7 +230,7 @@ const b24ui = computed(() => tv({
           />
         </slot>
 
-        <slot>
+        <slot :b24ui="b24ui">
           <span v-if="label !== undefined && label !== null" :class="b24ui.label({ class: props.b24ui?.label, active })">
             <span :class="b24ui.labelInner({ class: props.b24ui?.labelInner, active })">
               {{ label }}
@@ -238,7 +238,7 @@ const b24ui = computed(() => tv({
           </span>
         </slot>
 
-        <slot name="trailing">
+        <slot name="trailing" :b24ui="b24ui">
           <ChevronDownSIcon
             v-if="useDropdown"
             :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"

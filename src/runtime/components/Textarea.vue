@@ -76,9 +76,9 @@ export interface TextareaEmits<T extends TextareaValue = TextareaValue> {
 }
 
 export interface TextareaSlots {
-  leading(props?: {}): any
-  default(props?: {}): any
-  trailing(props?: {}): any
+  leading(props: { b24ui: Textarea['b24ui'] }): any
+  default(props: { b24ui: Textarea['b24ui'] }): any
+  trailing(props: { b24ui: Textarea['b24ui'] }): any
 }
 </script>
 
@@ -257,10 +257,10 @@ defineExpose({
       @focus="emitFormFocus"
     />
 
-    <slot />
+    <slot :b24ui="b24ui" />
 
     <span v-if="isLeading || !!avatar || !!slots.leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
-      <slot name="leading">
+      <slot name="leading" :b24ui="b24ui">
         <Component
           :is="leadingIconName"
           v-if="isLeading && leadingIconName"
@@ -276,7 +276,7 @@ defineExpose({
     </span>
 
     <span v-if="isTrailing || !!slots.trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
-      <slot name="trailing">
+      <slot name="trailing" :b24ui="b24ui">
         <Component
           :is="trailingIconName"
           v-if="trailingIconName"

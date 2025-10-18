@@ -46,7 +46,7 @@ export interface SeparatorProps extends Pick<_SeparatorProps, 'decorative'> {
 }
 
 export interface SeparatorSlots {
-  default(props?: {}): any
+  default(props: { b24ui: Separator['b24ui'] }): any
 }
 </script>
 
@@ -84,7 +84,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.separa
 
     <template v-if="(label !== undefined && label !== null) || icon || avatar || !!slots.default">
       <div :class="b24ui.container({ class: props.b24ui?.container })">
-        <slot>
+        <slot :b24ui="b24ui">
           <span v-if="label !== undefined && label !== null" :class="b24ui.label({ class: props.b24ui?.label })">{{ label }}</span>
           <Component :is="icon" v-else-if="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
           <B24Avatar v-else-if="avatar" :size="((props.b24ui?.avatarSize || b24ui.avatarSize()) as AvatarProps['size'])" v-bind="avatar" :class="b24ui.avatar({ class: props.b24ui?.avatar })" />

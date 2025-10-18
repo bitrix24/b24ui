@@ -40,7 +40,7 @@ export interface ContentSurroundProps<T extends ContentSurroundLink = ContentSur
   b24ui?: ContentSurround['slots']
 }
 
-type SlotProps<T> = (props: { link: T }) => any
+type SlotProps<T> = (props: { link: T, b24ui: ContentSurround['b24ui'] }) => any
 
 export interface ContentSurroundSlots<T extends ContentSurroundLink = ContentSurroundLink> {
   'link': SlotProps<T>
@@ -80,9 +80,9 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.conten
       raw
       :class="b24ui.link({ class: [props.b24ui?.link, link.b24ui?.link, link.class], direction })"
     >
-      <slot name="link" :link="(link as T)">
+      <slot name="link" :link="(link as T)" :b24ui="b24ui">
         <div :class="b24ui.linkLeading({ class: [props.b24ui?.linkLeading, link.b24ui?.linkLeading] })">
-          <slot name="link-leading" :link="(link as T)">
+          <slot name="link-leading" :link="(link as T)" :b24ui="b24ui">
             <Component
               :is="link.icon || icon"
               :class="b24ui.linkLeadingIcon({ class: [props.b24ui?.linkLeadingIcon, link.b24ui?.linkLeadingIcon], direction })"
@@ -91,13 +91,13 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.conten
         </div>
 
         <p :class="b24ui.linkTitle({ class: [props.b24ui?.linkTitle, link.b24ui?.linkTitle] })">
-          <slot name="link-title" :link="(link as T)">
+          <slot name="link-title" :link="(link as T)" :b24ui="b24ui">
             {{ link.title }}
           </slot>
         </p>
 
         <p :class="b24ui.linkDescription({ class: [props.b24ui?.linkDescription, link.b24ui?.linkDescription] })">
-          <slot name="link-description" :link="(link as T)">
+          <slot name="link-description" :link="(link as T)" :b24ui="b24ui">
             {{ link.description }}
           </slot>
         </p>
