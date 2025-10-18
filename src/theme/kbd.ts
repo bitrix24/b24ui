@@ -10,8 +10,10 @@ export default {
   slots: {
     base: [
       'inline-flex items-center justify-center',
-      'px-1 rounded-(--ui-border-radius-2xs)',
+      'px-1',
+      'rounded-(--ui-border-radius-2xs)',
       'font-(--ui-font-weight-normal) font-[family-name:var(--ui-font-family-system-mono)]',
+      'uppercase',
       'border border-(length:--b24ui-border-width) border-(--b24ui-border-color)',
       'text-(--b24ui-color) bg-(--b24ui-background)'
     ].join(' ')
