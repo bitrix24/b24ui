@@ -142,6 +142,7 @@ const props = withDefaults(defineProps<FileUploadProps<M>>(), {
   reset: false,
   dropzone: true,
   interactive: true,
+  fileDelete: true,
   layout: 'grid',
   position: 'outside'
 })
@@ -302,6 +303,7 @@ defineExpose({
 
               <slot name="file-trailing" :file="file" :index="index">
                 <B24Button
+                  v-if="fileDelete"
                   v-bind="{
                     ...(layout === 'grid' ? {
                       color: 'air-secondary-no-accent',
