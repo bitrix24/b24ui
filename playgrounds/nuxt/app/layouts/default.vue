@@ -145,7 +145,7 @@ const { groups } = useNavigation()
         </B24SidebarBody>
         <B24SidebarFooter>
           <B24SidebarSection>
-            <MockSidebarLayoutSideFooter />
+            <MockSidebarLayoutSideFooter framework="nuxt" />
           </B24SidebarSection>
         </B24SidebarFooter>
       </template>

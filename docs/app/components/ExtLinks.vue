@@ -27,8 +27,7 @@ const menuList = [
     color="air-boost"
     size="sm"
     :icon="RocketIcon"
-    to="/docs/getting-started/installation/nuxt/#use-a-nuxt-template"
-    target="_blank"
+    to="/docs/getting-started/installation/nuxt/#use-our-nuxt-starter"
   />
 
   <B24Button
@@ -38,7 +37,6 @@ const menuList = [
     color="air-boost"
     size="sm"
     :icon="RocketIcon"
-    to="/docs/getting-started/installation/vue/#use-a-vue-template"
-    target="_blank"
+    to="/docs/getting-started/installation/vue/#use-our-vue-starter"
   />
 </template>

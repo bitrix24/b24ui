@@ -3,6 +3,12 @@ import usePageMeta from './../composables/usePageMeta'
 import RocketIcon from '@bitrix24/b24icons-vue/outline/RocketIcon'
 import OpenIn50Icon from '@bitrix24/b24icons-vue/actions/OpenIn50Icon'
 import type { IMenuItem } from '~/types'
+
+const props = withDefaults(defineProps<{
+  framework?: 'nuxt' | 'vue'
+}>(), {
+  framework: 'nuxt'
+})
 </script>
 
 <template>
@@ -21,12 +27,23 @@ import type { IMenuItem } from '~/types'
   </template>
 
   <B24Button
+    v-if="props.framework === 'nuxt'"
     block
     label="Use our Nuxt starter"
     color="air-boost"
     size="sm"
     :icon="RocketIcon"
-    to="https://bitrix24.github.io/b24ui/guide/installation-nuxt-app.html#use-our-nuxt-starter"
+    to="https://bitrix24.github.io/b24ui/docs/getting-started/installation/nuxt/#use-our-nuxt-starter"
+    target="_blank"
+  />
+  <B24Button
+    v-else-if="props.framework === 'vue'"
+    block
+    label="Use our Vue starter"
+    color="air-boost"
+    size="sm"
+    :icon="RocketIcon"
+    to="https://bitrix24.github.io/b24ui/docs/getting-started/installation/vue/#use-our-vue-starter"
     target="_blank"
   />
 </template>
