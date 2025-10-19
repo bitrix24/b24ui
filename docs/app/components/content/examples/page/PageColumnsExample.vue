@@ -7,7 +7,7 @@ const testimonials = ref([
       name: 'Employee Name',
       description: 'Clients Relations Manager',
       avatar: {
-        src: '/avatar/employee.png',
+        src: '/b24ui/avatar/employee.png',
         alt: 'employee'
       }
     },
@@ -18,7 +18,7 @@ const testimonials = ref([
       name: 'Assistant Name',
       description: 'CEO',
       avatar: {
-        src: '/avatar/assistant.png',
+        src: '/b24ui/avatar/assistant.png',
         alt: 'Assistant Name'
       }
     },
@@ -29,7 +29,7 @@ const testimonials = ref([
       name: '员工姓名',
       description: '客户关系经理',
       avatar: {
-        src: '/avatar/employee.png',
+        src: '/b24ui/avatar/employee.png',
         alt: '员工姓名'
       }
     },
@@ -40,7 +40,7 @@ const testimonials = ref([
       name: '助理姓名',
       description: '首席执行官',
       avatar: {
-        src: '/avatar/assistant.png',
+        src: '/b24ui/avatar/assistant.png',
         alt: '助理姓名'
       }
     },

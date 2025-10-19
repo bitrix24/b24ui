@@ -11,6 +11,7 @@ const { resolve } = createResolver(import.meta.url)
 const pages = [
   // region getting-started ////
   '/docs/getting-started/',
+  '/docs/getting-started/installation/',
   '/docs/getting-started/installation/nuxt/',
   '/docs/getting-started/installation/vue/',
   '/docs/getting-started/migration/v2/',
