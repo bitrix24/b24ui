@@ -8,12 +8,12 @@ hero:
       to: /docs/getting-started/installation/nuxt/
       class: 'nuxt-only'
       color: 'air-secondary-accent-2'
-      iconName: 'InfoCircleIcon'
+      iconName: 'PlayLIcon'
     - label: Get started
       to: /docs/getting-started/installation/vue/
       class: 'vue-only'
       color: 'air-secondary-accent-2'
-      iconName: 'InfoCircleIcon'
+      iconName: 'PlayLIcon'
     - label: Explore components
       to: /docs/components/
       color: 'air-primary'
