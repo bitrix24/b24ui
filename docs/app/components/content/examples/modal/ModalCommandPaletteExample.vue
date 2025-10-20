@@ -10,7 +10,7 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
     return data?.map(user => ({ id: user.id, label: user.name, suffix: user.email, avatar: { src: `https://i.pravatar.cc/120?img=${user.id}` } })) || []
   },
   lazy: true,
-  onRequestError ({ request }) { console.warn("[fetch request error]", request) }
+  onRequestError({ request }) { console.warn('[fetch request error]', request) }
 })
 
 const groups = computed(() => [{

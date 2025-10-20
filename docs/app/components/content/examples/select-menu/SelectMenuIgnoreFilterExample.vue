@@ -17,7 +17,7 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
     }))
   },
   lazy: true,
-  onRequestError ({ request }) { console.warn("[fetch request error]", request) }
+  onRequestError({ request }) { console.warn('[fetch request error]', request) }
 })
 </script>
 
