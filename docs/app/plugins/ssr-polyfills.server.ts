@@ -1,5 +1,5 @@
 export default defineNuxtPlugin(() => {
-  if (process.client) {
+  if (import.meta.client) {
     return
   }
 
@@ -10,26 +10,26 @@ export default defineNuxtPlugin(() => {
 
   // polyfill requestAnimationFrame
   if (typeof global.requestAnimationFrame === 'undefined') {
-    global.requestAnimationFrame = function(callback: FrameRequestCallback): number {
+    global.requestAnimationFrame = function (callback: FrameRequestCallback): number {
       return setTimeout(() => {
         callback(Date.now())
       }, 16) as unknown as number
-    };
+    }
   }
 
   if (typeof global.cancelAnimationFrame === 'undefined') {
-    global.cancelAnimationFrame = function(id: number): void {
+    global.cancelAnimationFrame = function (id: number): void {
       clearTimeout(id)
-    };
+    }
   }
 
   // polyfill addEventListener
   if (typeof global.addEventListener === 'undefined') {
-    global.addEventListener = function() {} as any
+    global.addEventListener = function () {} as any
   }
 
   // polyfill removeEventListener
   if (typeof global.removeEventListener === 'undefined') {
-    global.removeEventListener = function() {} as any
+    global.removeEventListener = function () {} as any
   }
 })
