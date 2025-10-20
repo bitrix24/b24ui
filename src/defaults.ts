@@ -6,6 +6,6 @@ export const defaultOptions = {
   colorMode: true,
   colorModeTypeLight: 'light' as const,
   version,
-  mdc: false,
-  content: true
+  mdc: true,
+  content: false
 }

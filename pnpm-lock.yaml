@@ -356,9 +356,6 @@ importers:
       '@ai-sdk/vue':
         specifier: ^2.0.68
         version: 2.0.76(vue@3.5.22(typescript@5.8.3))(zod@4.1.12)
-      '@bitrix24/b24icons-vue':
-        specifier: ^2.0.4
-        version: 2.0.4(vue@3.5.22(typescript@5.8.3))
       '@bitrix24/b24ui-nuxt':
         specifier: workspace:*
         version: link:../..
@@ -393,9 +390,6 @@ importers:
       '@ai-sdk/vue':
         specifier: ^2.0.68
         version: 2.0.76(vue@3.5.22(typescript@5.8.3))(zod@4.1.12)
-      '@bitrix24/b24icons-vue':
-        specifier: ^2.0.4
-        version: 2.0.4(vue@3.5.22(typescript@5.8.3))
       '@bitrix24/b24ui-nuxt':
         specifier: workspace:*
         version: link:../..
@@ -427,9 +421,6 @@ importers:
 
   playgrounds/vue:
     dependencies:
-      '@bitrix24/b24icons-vue':
-        specifier: ^2.0.4
-        version: 2.0.4(vue@3.5.22(typescript@5.8.3))
       '@bitrix24/b24ui-nuxt':
         specifier: workspace:*
         version: link:../..

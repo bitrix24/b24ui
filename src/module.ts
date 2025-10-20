@@ -23,12 +23,12 @@ export interface ModuleOptions {
   version?: string
   /**
    * Force the import of prose components even if `@nuxtjs/mdc` or `@nuxt/content` are not installed
-   * @defaultValue false
+   * @defaultValue true
    */
   mdc?: boolean
   /**
    * Force the import of content & prose components even if `@nuxt/content` is not installed
-   * @defaultValue true
+   * @defaultValue false
    */
   content?: boolean
 }
