@@ -129,7 +129,7 @@ nuxtApp.hooks.hook('page:transition:finish', () => {
   </DefineListTemplate>
 
   <DefineTriggerTemplate v-slot="{ open }">
-    <slot name="leading" :open="open" :b24ui="b24ui"/>
+    <slot name="leading" :open="open" :b24ui="b24ui" />
 
     <span :class="b24ui.title({ class: props.b24ui?.title })">
       <slot :open="open">{{ title || t('contentToc.title') }}</slot>
