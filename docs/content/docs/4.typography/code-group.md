@@ -1,7 +1,6 @@
 ---
 title: CodeGroup
 description: 'Use a tabbed layout to present multiple code snippets for a clearer view.'
-framework: nuxt
 category: components
 links:
   - label: GitHub
