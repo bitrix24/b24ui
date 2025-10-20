@@ -1,7 +1,7 @@
 ---
 title: SidebarLayout
 description: You incorporate a sidebar in the slider and CRM entity tab embedding. Overall, it's stylish, trendy, and youthful
-category: dashboard
+category: layout
 links:
   - label: GitHub
     iconName: GitHubIcon

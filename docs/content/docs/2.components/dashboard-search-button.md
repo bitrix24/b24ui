@@ -52,10 +52,6 @@ props:
 ---
 ::
 
-::tip{to="/docs/components/dashboard-sidebar/#slots"}
-When using the button in the **DashboardSidebar** component, use the `collapsed` slot prop directly.
-::
-
 ### Kbds
 
 Use the `kbds` prop to display keyboard keys in the button. Defaults to `['meta', 'K']`{lang="ts-type"} to match the default shortcut of the [DashboardSearch](/docs/components/dashboard-search/#shortcut) component.

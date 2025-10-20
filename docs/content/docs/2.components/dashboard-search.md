@@ -25,16 +25,20 @@ The DashboardSearch component extends the [CommandPalette](/docs/components/comm
 
 Use it inside the default slot of the [DashboardGroup](/docs/components/dashboard-group/) component:
 
-```vue [layouts/dashboard.vue]{7}
+```vue [layouts/dashboard.vue]{10}
 <template>
   <B24DashboardGroup>
-    <B24DashboardSidebar>
-      <B24DashboardSearchButton />
-    </B24DashboardSidebar>
-
-    <B24DashboardSearch />
-
-    <slot />
+    <B24SidebarLayout>
+      <template #navbar>
+        <B24NavbarSection>
+          <B24DashboardSearchButton />
+        </B24NavbarSection>
+      </template>
+  
+      <B24DashboardSearch />
+  
+      <slot />
+    </B24SidebarLayout>
   </B24DashboardGroup>
 </template>
 ```
