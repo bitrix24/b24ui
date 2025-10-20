@@ -338,9 +338,7 @@ function navigate(item: T) {
 
   searchTerm.value = ''
 
-  if (import.meta.client) {
-    listboxRootRef.value?.highlightFirstItem()
-  }
+  listboxRootRef.value?.highlightFirstItem()
 }
 
 function navigateBack() {
@@ -352,9 +350,7 @@ function navigateBack() {
 
   searchTerm.value = ''
 
-  if (import.meta.client) {
-    listboxRootRef.value?.highlightFirstItem()
-  }
+  listboxRootRef.value?.highlightFirstItem()
 }
 
 function onBackspace() {
