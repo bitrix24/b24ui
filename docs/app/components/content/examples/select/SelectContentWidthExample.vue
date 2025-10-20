@@ -14,7 +14,8 @@ const { data: users } = await useFetch('https://jsonplaceholder.typicode.com/use
       avatar: { src: `https://i.pravatar.cc/120?img=${user.id}` }
     }))
   },
-  lazy: true
+  lazy: true,
+  onRequestError ({ request }) { console.warn("[fetch request error]", request) }
 })
 </script>
 

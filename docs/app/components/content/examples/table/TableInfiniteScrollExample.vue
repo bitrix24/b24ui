@@ -28,7 +28,8 @@ const { data, status, execute } = await useFetch('https://dummyjson.com/users?li
     return data?.users
   },
   lazy: true,
-  immediate: false
+  immediate: false,
+  onRequestError ({ request }) { console.warn("[fetch request error]", request) }
 })
 
 const columns: TableColumn<User>[] = [

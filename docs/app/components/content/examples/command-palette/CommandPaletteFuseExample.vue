@@ -4,7 +4,8 @@ const { data: users } = await useFetch('https://jsonplaceholder.typicode.com/use
   transform: (data: { id: number, name: string, email: string }[]) => {
     return data?.map(user => ({ id: user.id, label: user.name, suffix: user.email, avatar: { src: `https://i.pravatar.cc/120?img=${user.id}` } })) || []
   },
-  lazy: true
+  lazy: true,
+  onRequestError ({ request }) { console.warn("[fetch request error]", request) }
 })
 </script>
 
