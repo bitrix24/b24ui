@@ -6,7 +6,9 @@ import type { ComponentConfig } from '../../types/tv'
 type ProseA = ComponentConfig<typeof theme, AppConfig, 'a', 'b24ui.prose'>
 
 export interface ProseAProps {
+  href?: string
   class?: any
+  target?: '_blank' | '_parent' | '_self' | '_top' | (string & object) | null | undefined
   b24ui?: ProseA['slots']
 }
 
@@ -19,6 +21,7 @@ export interface ProseASlots {
 import { computed } from 'vue'
 import { useAppConfig } from '#imports'
 import { tv } from '../../utils/tv'
+import B24Link from '../Link.vue'
 
 const props = defineProps<ProseAProps>()
 defineSlots<ProseASlots>()
@@ -30,7 +33,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
 </script>
 
 <template>
-  <a :class="b24ui.base({ class: [props.b24ui?.base, props.class] })">
+  <B24Link :href="href" :target="target" :class="b24ui.base({ class: [props.b24ui?.base, props.class] })">
     <slot />
-  </a>
+  </B24Link>
 </template>

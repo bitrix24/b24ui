@@ -64,6 +64,7 @@
 * feat(PageList): new component
 * feat(components): expose `b24ui` in slot props where used
 * feat(module): add `experimental.componentDetection` option
+* feat(components): handle `description` in items and icons position
 * fix(ProseLi,ProseOl,ProseUl,ProseP): fix color && size
 * fix(ProseH1\H2\H3\H4\H5\H6): add support hash
 * fix(SidebarLayout): improve theme, import Button, add slot 'content-right'
