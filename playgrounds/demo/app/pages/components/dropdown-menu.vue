@@ -14,6 +14,7 @@ const { dropdownMenuItems } = useMockMenu()
 
 const itemsWithColor = computed(() => Object.keys(theme.variants.color).map(color => ({
   color: (color as keyof typeof theme.variants.color),
+  description: color.includes('air-') ? `Some color: ${color}` : undefined,
   icon: More9Cubes1Icon,
   label: color
 })))

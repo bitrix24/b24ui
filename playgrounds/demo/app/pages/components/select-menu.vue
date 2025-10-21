@@ -89,11 +89,13 @@ const statuses = [
   {
     label: 'Backlog',
     value: 'backlog',
+    description: 'Issues that have been identified but not yet prioritized',
     icon: HelpIcon
   },
   {
     label: 'Todo',
     value: 'todo',
+    description: 'Issues that are ready to be worked on',
     icon: PlusInCircleIcon,
     color: 'air-primary-copilot' as SelectMenuProps['color'],
     disabled: true
@@ -101,6 +103,7 @@ const statuses = [
   {
     label: 'In Progress',
     value: 'in_progress',
+    description: 'Issues that are currently being worked on',
     icon: ArrowTopIcon,
     color: 'air-primary' as SelectMenuProps['color']
   },

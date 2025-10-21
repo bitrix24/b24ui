@@ -97,6 +97,17 @@ const groups = computed(() => [
         kbds: ['meta', 'L']
       },
       {
+        label: 'Add label',
+        description: 'Add a label to the current item.',
+        icon: TagIcon,
+        onSelect(e: Event) {
+          e.preventDefault()
+
+          toast.add({ title: 'Label added!' })
+        },
+        kbds: ['meta', 'L']
+      },
+      {
         label: 'More actions',
         placeholder: 'Search actions...',
         children: [

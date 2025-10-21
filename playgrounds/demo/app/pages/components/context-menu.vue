@@ -2,6 +2,9 @@
 import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
+import SyncCircleIcon from '@bitrix24/b24icons-vue/main/SyncCircleIcon'
+import SunIcon from '@bitrix24/b24icons-vue/outline/SunIcon'
+import MoonIcon from '@bitrix24/b24icons-vue/outline/MoonIcon'
 
 usePageMeta.setPageTitle('ContextMenu')
 
@@ -13,20 +16,21 @@ const items = computed(() => [
     label: 'My account',
     type: 'label' as const,
     avatar: {
-      src: 'https://github.com/benjamincanac.png'
+      src: 'https://github.com/bitrix24.png'
     }
   }],
   [{
     label: 'Appearance',
+    description: 'Change the appearance of the app',
     children: [{
-      label: 'System'
-      // icon: 'i-lucide-monitor'
+      label: 'System',
+      icon: SyncCircleIcon
     }, {
-      label: 'Light'
-      //  icon: 'i-lucide-sun'
+      label: 'Light',
+      icon: SunIcon
     }, {
-      label: 'Dark'
-      // icon: 'i-lucide-moon'
+      label: 'Dark',
+      icon: MoonIcon
     }]
   }],
   [{
@@ -67,6 +71,7 @@ const items = computed(() => [
     label: 'Developer',
     children: [[{
       label: 'View Source',
+      description: 'View the source code of the app',
       kbds: ['option', 'meta', 'U'],
       onSelect() {
         console.log('View Source clicked')
@@ -100,7 +105,7 @@ defineShortcuts(extractShortcuts(items.value))
   <ExampleGrid v-once>
     <ExampleCard title="matrix" :use-bg="isUseBg" class="sm:col-span-2">
       <B24ContextMenu :items="items">
-        <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) aspect-video w-full">
+        <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) bg-(--ui-color-bg-content-primary) aspect-video w-full">
           Right click here
         </div>
       </B24ContextMenu>

@@ -63,6 +63,7 @@ export function useMockMenu() {
     [
       {
         label: 'Profile',
+        description: 'View your profile',
         icon: PersonIcon,
         slot: 'custom' as DropdownMenuItem['type'],
         onSelect(e: Event) {
@@ -72,6 +73,7 @@ export function useMockMenu() {
       },
       {
         label: 'Billing',
+        description: 'Manage billing',
         icon: CreditDebitCardIcon,
         kbds: ['shift', 'b'],
         onSelect() {
@@ -114,6 +116,7 @@ export function useMockMenu() {
           [
             {
               label: 'More',
+              description: 'Import from more sources',
               icon: PlusInCircleIcon,
               children: [
                 {
