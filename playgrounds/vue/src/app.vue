@@ -64,7 +64,8 @@ function toggleModeContext() {
 
 const getLightContent = computed(() => {
   const result = {
-    pageWrapper: '',
+    pageWrapper: 'px-(--content-area-shift)',
+    container: 'gap-[22px]',
     containerWrapper: ''
   }
 
@@ -206,7 +207,7 @@ const { groups } = useNavigation()
           v-if="route.path !== '/' && !isSidebarLayoutClearContent"
           #content-top
         >
-          <div class="w-full flex flex-col gap-[20px]">
+          <div class="w-full flex flex-col gap-[20px] mt-[20px]">
             <MockSidebarLayoutTopProfile class="rounded-(--ui-border-radius-md)" />
             <MockSidebarLayoutTop class="flex-row">
               {{ usePageMeta.getPageTitle() }}

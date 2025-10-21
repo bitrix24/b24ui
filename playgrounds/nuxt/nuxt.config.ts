@@ -13,6 +13,14 @@ export default defineNuxtConfig({
     enabled: false
   },
 
+  app: {
+    head: {
+      htmlAttrs: {
+        class: 'edge-dark'
+      }
+    }
+  },
+
   css: ['~/assets/css/main.css'],
 
   devServer: {
@@ -22,6 +30,7 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2024-04-12',
+
   vite: {
     optimizeDeps: {
       // prevents reloading page when navigating between components
