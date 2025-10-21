@@ -540,9 +540,9 @@ export default defineNuxtConfig({
   // },
 
   llms: {
-    domain: 'https://bitrix24.github.io',
+    domain: 'https://bitrix24.github.io/b24ui',
     title: 'Bitrix24 UI',
-    description: 'A comprehensive, Nuxt-integrated UI library providing a rich set of fully-styled, accessible and highly customizable components for building modern web applications.',
+    description: 'A comprehensive, Nuxt-integrated UI library providing a rich set of fully-styled, accessible and highly customizable components for REST API web-application development.',
     full: {
       title: 'Bitrix24 UI Full Documentation',
       description: 'This is the full documentation for Bitrix24 UI. It includes all the Markdown files written with the MDC syntax.'
