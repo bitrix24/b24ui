@@ -12,43 +12,43 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: 'Checkout'
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: 'Setup pnpm'
+      - name: Setup pnpm
         uses: pnpm/action-setup@v4
 
-      - name: 'Setup Node'
-        uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v6
         with:
           node-version: 20
           cache: pnpm
 
-      - name: 'Setup Pages'
+      - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: 'Install dependencies'
+      - name: Install dependencies
         run: pnpm install
 
       - name: Prepare
         run: pnpm run dev:prepare
 
-      - name: 'Generate Docs'
+      - name: Generate Docs
         run: pnpm run docs:full:generate
 
-      - name: 'Generate Demo'
+      - name: Generate Demo
         run: pnpm run demo:generate
 
-      - name: 'Create combined artifact'
+      - name: Create combined artifact
         run: |
           mkdir -p combined-artifact
           cp -r docs/.output/public/* combined-artifact/
           mkdir -p combined-artifact/demo
           cp -r playgrounds/demo/dist/* combined-artifact/demo/
 
-      - name: 'Upload artifact'
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: combined-artifact
