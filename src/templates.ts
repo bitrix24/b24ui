@@ -1,8 +1,11 @@
 import { fileURLToPath } from 'node:url'
-import { kebabCase } from 'scule'
+import { readFile } from 'node:fs/promises'
+import { join } from 'pathe'
+import { globSync } from 'tinyglobby'
+import { camelCase, kebabCase, pascalCase } from 'scule'
 import { genExport } from 'knitwork'
 // import colors from 'tailwindcss/colors'
-import { addTemplate, addTypeTemplate, hasNuxtModule } from '@nuxt/kit'
+import { addTemplate, addTypeTemplate, hasNuxtModule, logger, updateTemplates } from '@nuxt/kit'
 import type { Nuxt, NuxtTemplate, NuxtTypeTemplate } from '@nuxt/schema'
 import type { Resolver } from '@nuxt/kit'
 import type { ModuleOptions } from './module'
@@ -10,22 +13,137 @@ import * as theme from './theme'
 import * as themeProse from './theme/prose'
 import * as themeContent from './theme/content'
 
-function replaceBrackets(value: string): string {
-  return value.replace(/\[\[/g, '<').replace(/\]\]/g, '>')
+/**
+ * Build a dependency graph of components by scanning their source files
+ */
+async function buildComponentDependencyGraph(componentDir: string, prefix: string): Promise<Map<string, Set<string>>> {
+  const dependencyGraph = new Map<string, Set<string>>()
+
+  const componentFiles = globSync(['**/*.vue'], {
+    cwd: componentDir,
+    absolute: true
+  })
+
+  const componentPattern = new RegExp(`<${prefix}([A-Z][a-zA-Z]+)|\\b${prefix}([A-Z][a-zA-Z]+)\\b`, 'g')
+
+  for (const componentFile of componentFiles) {
+    try {
+      const content = await readFile(componentFile, 'utf-8')
+      const componentName = pascalCase(componentFile.split('/').pop()!.replace('.vue', ''))
+      const dependencies = new Set<string>()
+
+      const matches = content.matchAll(componentPattern)
+      for (const match of matches) {
+        const depName = match[1] || match[2]
+        if (depName && depName !== componentName) {
+          dependencies.add(depName)
+        }
+      }
+
+      dependencyGraph.set(componentName, dependencies)
+    } catch {
+      // Ignore files that can't be read
+    }
+  }
+
+  return dependencyGraph
 }
 
-export function buildTemplates(options: ModuleOptions) {
-  return Object.entries(theme).reduce((acc, [key, component]) => {
-    acc[key] = typeof component === 'function' ? component(options as Required<ModuleOptions>) : component
-    return acc
-  }, {} as Record<string, any>)
+/**
+ * Recursively resolve all dependencies for a component
+ */
+function resolveComponentDependencies(
+  component: string,
+  dependencyGraph: Map<string, Set<string>>,
+  resolved: Set<string> = new Set()
+): Set<string> {
+  if (resolved.has(component)) {
+    return resolved
+  }
+
+  resolved.add(component)
+  const dependencies = dependencyGraph.get(component)
+
+  if (dependencies) {
+    for (const dep of dependencies) {
+      resolveComponentDependencies(dep, dependencyGraph, resolved)
+    }
+  }
+
+  return resolved
 }
 
-export function getTemplates(options: ModuleOptions, uiConfig: Record<string, any>, nuxt?: Nuxt) {
+/**
+ * Detect components used in the project by scanning source files
+ */
+async function detectUsedComponents(
+  rootDir: string,
+  prefix: string,
+  componentDir: string,
+  includeComponents?: string[]
+): Promise<Set<string> | undefined> {
+  const detectedComponents = new Set<string>()
+
+  // Add manually specified components
+  if (includeComponents && includeComponents.length > 0) {
+    for (const component of includeComponents) {
+      detectedComponents.add(component)
+    }
+  }
+
+  // Scan all source files for component usage
+  const appFiles = globSync(['**/*.{vue,ts,js,tsx,jsx}'], {
+    cwd: rootDir,
+    ignore: ['node_modules/**', '.nuxt/**', 'dist/**']
+  })
+
+  // Pattern to match:
+  // - <UButton in templates
+  // - UButton in script (imports, usage)
+  const componentPattern = new RegExp(`<${prefix}([A-Z][a-zA-Z]+)|\\b${prefix}([A-Z][a-zA-Z]+)\\b`, 'g')
+
+  for (const file of appFiles) {
+    try {
+      const filePath = join(rootDir, file)
+      const content = await readFile(filePath, 'utf-8')
+      const matches = content.matchAll(componentPattern)
+
+      for (const match of matches) {
+        const componentName = match[1] || match[2]
+        if (componentName) {
+          detectedComponents.add(componentName)
+        }
+      }
+    } catch {
+      // Ignore files that can't be read
+    }
+  }
+
+  if (detectedComponents.size === 0) {
+    return undefined
+  }
+
+  // Build dependency graph of components
+  const dependencyGraph = await buildComponentDependencyGraph(componentDir, prefix)
+
+  // Resolve all dependencies for detected components
+  const allComponents = new Set<string>()
+  for (const component of detectedComponents) {
+    const resolved = resolveComponentDependencies(component, dependencyGraph)
+    for (const resolvedComponent of resolved) {
+      allComponents.add(resolvedComponent)
+    }
+  }
+
+  return allComponents
+}
+
+export function getTemplates(options: ModuleOptions, uiConfig: Record<string, any>, nuxt?: Nuxt, resolve?: Resolver['resolve']) {
   const templates: NuxtTemplate[] = []
 
   let hasProse = false
   let hasContent = false
+  let previousDetectedComponents: Set<string> | undefined
 
   const isDev = process.argv.includes('--uiDev')
 
@@ -95,6 +213,60 @@ export function getTemplates(options: ModuleOptions, uiConfig: Record<string, an
     }
   }
 
+  async function getSources() {
+    let sources = ''
+
+    if (!!nuxt && !!resolve && options.experimental?.componentDetection) {
+      const detectedComponents = await detectUsedComponents(
+        nuxt.options.rootDir,
+        'B24',
+        resolve!('./runtime/components'),
+        Array.isArray(options.experimental.componentDetection) ? options.experimental.componentDetection : undefined
+      )
+
+      if (detectedComponents && detectedComponents.size > 0) {
+        if (previousDetectedComponents) {
+          const newComponents = Array.from(detectedComponents).filter(
+            component => !previousDetectedComponents!.has(component)
+          )
+          if (newComponents.length > 0) {
+            logger.success(`Bitrix24 UI detected new components: ${newComponents.join(', ')}`)
+          }
+        } else {
+          logger.success(`Bitrix24 UI detected ${detectedComponents.size} components in use (including dependencies)`)
+        }
+
+        previousDetectedComponents = detectedComponents
+
+        const sourcesList: string[] = []
+
+        if (hasProse) {
+          sourcesList.push('@source "./b24ui/prose";')
+        }
+
+        for (const component of detectedComponents) {
+          const kebabComponent = kebabCase(component)
+          const camelComponent = camelCase(component)
+
+          if (hasContent && (themeContent as any)[camelComponent]) {
+            sourcesList.push(`@source "./b24ui/content/${kebabComponent}.ts";`)
+          } else if ((theme as any)[camelComponent]) {
+            sourcesList.push(`@source "./b24ui/${kebabComponent}.ts";`)
+          }
+        }
+
+        sources = sourcesList.join('\n')
+      } else {
+        if (!previousDetectedComponents || previousDetectedComponents.size > 0) {
+          logger.info('Bitrix24 UI detected no components in use, including all components')
+        }
+        previousDetectedComponents = new Set()
+      }
+    }
+
+    return sources || '@source "./b24ui";'
+  }
+
   if (!!nuxt && ((hasNuxtModule('@nuxtjs/mdc') || options.mdc) || (hasNuxtModule('@nuxt/content') || options.content))) {
     hasProse = true
 
@@ -120,29 +292,21 @@ export function getTemplates(options: ModuleOptions, uiConfig: Record<string, an
   /**
    * use to generate tw colors
    * in `index.css` add `@import '#build/b24ui.css';`
-   * @memo we use `@plugin '@bitrix24/b24style'`. This for compatibility only
+   * @memo This for compatibility only
    */
-  /*
   templates.push({
     filename: 'b24ui.css',
     write: true,
-    getContents: () => `@source "./b24ui";
+    getContents: async () => {
+      const sources = await getSources()
 
-@theme default inline {
-  --color-old-neutral-50: ${colors.neutral[50]};
-  --color-old-neutral-950: ${colors.neutral[950]};
-  ${[...([]).filter(color => !colors[color as keyof typeof colors]), 'default'].map(color => [50, 950].map(shade => `--color-${color}-${shade}: var(--ui-color-${color}-${shade});`).join('\n\t')).join('\n\t')}
-}
-`
-  })
-  */
-  templates.push({
-    filename: 'b24ui.css',
-    write: true,
-    getContents: () => `@source "./b24ui";
+      return `${sources}
+
+@theme static {}
 
 @theme default inline {}
 `
+    }
   })
 
   templates.push({
@@ -159,9 +323,11 @@ export function getTemplates(options: ModuleOptions, uiConfig: Record<string, an
     }
   })
 
+  // FIXME: `typeof colors[number]` should include all colors from the theme
   templates.push({
     filename: 'types/b24ui.d.ts',
-    getContents: () => replaceBrackets(`import * as b24ui from '#build/b24ui'
+    getContents: () => {
+      return `import * as b24ui from '#build/b24ui'
 import type { TVConfig } from '@bitrix24/b24ui-nuxt'
 import type { defaultConfig } from 'tailwind-variants'
 
@@ -173,13 +339,15 @@ declare module '@nuxt/schema' {
   interface AppConfigInput {
     /**
      * Bitrix24 UI theme configuration
+     * @see https://bitrix24.github.io/b24ui/docs/getting-started/theme/components/
      */
     b24ui?: AppConfigUI
   }
 }
 
 export {}
-`)
+`
+    }
   })
 
   templates.push({
@@ -196,7 +364,7 @@ export {}
 }
 
 export function addTemplates(options: ModuleOptions, nuxt: Nuxt, resolve: Resolver['resolve']) {
-  const templates = getTemplates(options, nuxt.options.appConfig.b24ui, nuxt)
+  const templates = getTemplates(options, nuxt.options.appConfig.b24ui, nuxt, resolve)
   for (const template of templates) {
     if (template.filename!.endsWith('.d.ts')) {
       addTypeTemplate(template as NuxtTypeTemplate)
@@ -208,4 +376,12 @@ export function addTemplates(options: ModuleOptions, nuxt: Nuxt, resolve: Resolv
   nuxt.hook('prepare:types', ({ references }) => {
     references.push({ path: resolve('./runtime/types/app.config.d.ts') })
   })
+
+  if (options.experimental?.componentDetection && nuxt.options.dev) {
+    nuxt.hook('builder:watch', async (_, path) => {
+      if (/\.(?:vue|ts|js|tsx|jsx)$/.test(path)) {
+        await updateTemplates({ filter: template => template.filename === 'ui.css' })
+      }
+    })
+  }
 }
