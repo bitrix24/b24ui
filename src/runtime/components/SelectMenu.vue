@@ -12,6 +12,7 @@ type SelectMenu = ComponentConfig<typeof theme, AppConfig, 'selectMenu'>
 export type SelectMenuValue = AcceptableValue
 export type SelectMenuItem = SelectMenuValue | {
   label?: string
+  description?: string
   /**
    * Display an icon on the left side.
    * @IconComponent
@@ -28,7 +29,7 @@ export type SelectMenuItem = SelectMenuValue | {
   disabled?: boolean
   onSelect?: (e: Event) => void
   class?: any
-  b24ui?: Pick<SelectMenu['slots'], 'label' | 'separator' | 'item' | 'itemLeadingIcon' | 'itemLeadingAvatarSize' | 'itemLeadingAvatar' | 'itemLeadingChipSize' | 'itemLeadingChip' | 'itemLabel' | 'itemTrailing' | 'itemTrailingIcon'>
+  b24ui?: Pick<SelectMenu['slots'], 'label' | 'separator' | 'item' | 'itemLeadingIcon' | 'itemLeadingAvatarSize' | 'itemLeadingAvatar' | 'itemLeadingChipSize' | 'itemLeadingChip' | 'itemWrapper' | 'itemLabel' | 'itemDescription' | 'itemTrailing' | 'itemTrailingIcon'>
   [key: string]: any
 }
 
@@ -134,6 +135,11 @@ export interface SelectMenuProps<T extends ArrayOrNested<SelectMenuItem> = Array
    * @defaultValue 'label'
    */
   labelKey?: GetItemKeys<T>
+  /**
+   * When `items` is an array of objects, select the field to use as the description.
+   * @defaultValue 'description'
+   */
+  descriptionKey?: GetItemKeys<T>
   items?: T
   /** The value of the SelectMenu when initially rendered. Use when you do not need to control the state of the SelectMenu. */
   defaultValue?: GetModelValue<T, VK, M>
@@ -191,6 +197,7 @@ export interface SelectMenuSlots<
   'item': SlotProps<T>
   'item-leading': SlotProps<T>
   'item-label'(props: { item: T, index: number }): any
+  'item-description'(props: { item: T, index: number }): any
   'item-trailing': SlotProps<T>
   'content-top': (props?: {}) => any
   'content-bottom': (props?: {}) => any
@@ -223,6 +230,7 @@ const props = withDefaults(defineProps<SelectMenuProps<T, VK, M>>(), {
   portal: true,
   searchInput: true,
   labelKey: 'label',
+  descriptionKey: 'description',
   resetSearchTermOnBlur: true,
   resetSearchTermOnSelect: true,
   autofocusDelay: 0,
@@ -486,42 +494,58 @@ defineExpose({
     >
       <slot name="item" :item="(item as NestedItem<T>)" :index="index" :b24ui="b24ui">
         <slot name="item-leading" :item="(item as NestedItem<T>)" :index="index" :b24ui="b24ui">
-          <Component
-            :is="item.icon"
-            v-if="isSelectItem(item) && item.icon"
-            :class="b24ui.itemLeadingIcon({ class: [props.b24ui?.itemLeadingIcon, item.b24ui?.itemLeadingIcon], colorItem: item?.color })"
-          />
           <B24Avatar
-            v-else-if="isSelectItem(item) && item.avatar"
+            v-if="isSelectItem(item) && item.avatar"
             :size="((item.b24ui?.itemLeadingAvatarSize || props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])"
             v-bind="item.avatar"
             :class="b24ui.itemLeadingAvatar({ class: [props.b24ui?.itemLeadingAvatar, item.b24ui?.itemLeadingAvatar], colorItem: item?.color })"
           />
-          <B24Chip
-            v-else-if="isSelectItem(item) && item.chip"
-            :size="((item.b24ui?.itemLeadingChipSize || props.b24ui?.itemLeadingChipSize || b24ui.itemLeadingChipSize()) as ChipProps['size'])"
-            inset
-            standalone
-            v-bind="item.chip"
-            :class="b24ui.itemLeadingChip({ class: [props.b24ui?.itemLeadingChip, item.b24ui?.itemLeadingChip], colorItem: item?.color })"
-          />
         </slot>
 
-        <span :class="b24ui.itemLabel({ class: [props.b24ui?.itemLabel, isSelectItem(item) && item.b24ui?.itemLabel] })">
-          <slot name="item-label" :item="(item as NestedItem<T>)" :index="index">
-            {{ isSelectItem(item) ? get(item, props.labelKey as string) : item }}
-          </slot>
+        <span :class="b24ui.itemWrapper({ class: [props.b24ui?.itemWrapper, isSelectItem(item) && item.b24ui?.itemWrapper] })">
+          <span :class="b24ui.itemLabel({ class: [props.b24ui?.itemLabel, isSelectItem(item) && item.b24ui?.itemLabel] })">
+            <slot name="item-label" :item="(item as NestedItem<T>)" :index="index">
+              {{ isSelectItem(item) ? get(item, props.labelKey as string) : item }}
+            </slot>
+          </span>
+
+          <span
+            v-if="isSelectItem(item) && (get(item, props.descriptionKey as string) || !!slots['item-description'])"
+            :class="b24ui.itemDescription({ class: [props.b24ui?.itemDescription, isSelectItem(item) && item.b24ui?.itemDescription] })"
+          >
+            <slot
+              name="item-description"
+              :item="(item as NestedItem<T>)"
+              :index="index"
+            >
+              {{ get(item, props.descriptionKey as string) }}
+            </slot>
+          </span>
         </span>
 
         <span :class="b24ui.itemTrailing({ class: [props.b24ui?.itemTrailing, isSelectItem(item) && item.b24ui?.itemTrailing], colorItem: (isSelectItem(item) && item?.color) || undefined })">
-          <slot name="item-trailing" :item="(item as NestedItem<T>)" :index="index" :b24ui="b24ui" />
-
           <ComboboxItemIndicator as-child>
             <Component
               :is="selectedIcon || icons.check"
               :class="b24ui.itemTrailingIcon({ class: [props.b24ui?.itemTrailingIcon, isSelectItem(item) && item.b24ui?.itemTrailingIcon], colorItem: (isSelectItem(item) && item?.color) || undefined })"
             />
           </ComboboxItemIndicator>
+
+          <slot name="item-trailing" :item="(item as NestedItem<T>)" :index="index" :b24ui="b24ui">
+            <Component
+              :is="item.icon"
+              v-if="isSelectItem(item) && item.icon"
+              :class="b24ui.itemLeadingIcon({ class: [props.b24ui?.itemLeadingIcon, item.b24ui?.itemLeadingIcon], colorItem: item?.color })"
+            />
+            <B24Chip
+              v-else-if="isSelectItem(item) && item.chip"
+              :size="((item.b24ui?.itemLeadingChipSize || props.b24ui?.itemLeadingChipSize || b24ui.itemLeadingChipSize()) as ChipProps['size'])"
+              inset
+              standalone
+              v-bind="item.chip"
+              :class="b24ui.itemLeadingChip({ class: [props.b24ui?.itemLeadingChip, item.b24ui?.itemLeadingChip], colorItem: item?.color })"
+            />
+          </slot>
         </span>
       </slot>
     </ComboboxItem>

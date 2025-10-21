@@ -11,7 +11,7 @@ export default {
       'min-h-0 min-w-0',
       'divide-y divide-(--ui-color-design-tinted-na-stroke)'
     ].join(' '),
-    input: '',
+    input: 'ps-[40px] pe-[44px]',
     close: '',
     back: 'p-0',
     content: 'relative overflow-hidden flex flex-col',
@@ -67,10 +67,12 @@ export default {
     ].join(' '),
     itemTrailingKbds: 'hidden lg:inline-flex items-center shrink-0 gap-0.5',
     itemTrailingKbdsSize: 'md',
+    itemWrapper: 'flex-1 flex flex-col items-start min-w-0 overflow-hidden',
     itemLabel: 'truncate space-x-1 text-(--b24ui-typography-label-color)',
+    itemDescription: 'truncate -mt-[6px] text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)',
     itemLabelBase: 'text-(--b24ui-typography-label-color) [&>mark]:text-(--ui-color-black-base) [&>mark]:bg-(--ui-color-collab-accent-less-1)',
     itemLabelPrefix: 'text-(--b24ui-typography-legend-color)',
-    itemLabelSuffix: 'text-(--b24ui-typography-legend-color) [&>mark]:text-(--ui-color-black-base) [&>mark]:bg-(--ui-color-collab-accent-less-1)'
+    itemLabelSuffix: 'truncate text-(--b24ui-typography-description-color) [&>mark]:text-(--ui-color-black-base) [&>mark]:bg-(--ui-color-collab-accent-less-1)'
   },
   variants: {
     virtualize: {

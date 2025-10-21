@@ -23,7 +23,6 @@ const isUseBg = ref(true)
 
 const items = ref(['Prospecting', 'Qualifying', 'Presenting', 'Negotiating', 'Closed'])
 const itemsSimple = ref(['Prospecting', 'Qualifying', 'Presenting', 'Negotiating', 'Closed'])
-const value = ref('Qualifying')
 const valueForAdd = ref('Prospecting')
 
 const valueMultiple = ref(['Prospecting', 'Presenting'])
@@ -42,11 +41,13 @@ const itemsObj = ref([
   {
     label: 'CRM settings',
     value: 'settings',
+    description: 'Issues that have been identified but not yet prioritized',
     color: 'air-primary-success' as InputMenuProps['color']
   },
   {
     label: 'My company details',
     value: 'my_company_details',
+    description: 'Issues that are ready to be worked on',
     disabled: true
   },
   {
@@ -54,7 +55,6 @@ const itemsObj = ref([
     value: 'access_permissions'
   }
 ] satisfies InputMenuItem[])
-const valueObj = ref(itemsObj.value[0])
 
 const oldColors = computed(() => {
   return colors.filter((color) => {
@@ -75,7 +75,6 @@ const airColors = computed(() => {
       <ExampleCardSubTitle title="autofocus" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24InputMenu
-          :items="items"
           default-value="Negotiating"
           aria-label="Insert value"
           autofocus
@@ -83,7 +82,6 @@ const airColors = computed(() => {
           placeholder="Insert value&hellip;"
         />
         <B24InputMenu
-          v-model="valueMultiple"
           :items="items"
           multiple
           aria-label="Insert value"
@@ -99,7 +97,6 @@ const airColors = computed(() => {
       <ExampleCardSubTitle title="underline" />
       <div class="mb-4 flex flex-col">
         <B24InputMenu
-          v-model="value"
           :items="items"
           color="air-primary-success"
           underline
@@ -112,7 +109,6 @@ const airColors = computed(() => {
       <ExampleCardSubTitle title="no border" />
       <div class="mb-4 flex flex-col">
         <B24InputMenu
-          v-model="value"
           :items="items"
           no-border
           name="some_value"
@@ -124,7 +120,6 @@ const airColors = computed(() => {
       <ExampleCardSubTitle title="no padding" />
       <div class="mb-4 flex flex-col">
         <B24InputMenu
-          v-model="value"
           :items="items"
           no-padding
           name="some_value"
@@ -136,7 +131,6 @@ const airColors = computed(() => {
       <ExampleCardSubTitle title="some error" />
       <div class="mb-4 flex flex-col">
         <B24InputMenu
-          v-model="value"
           :items="items"
           name="some_value"
           placeholder="Insert value&hellip;"
@@ -150,7 +144,6 @@ const airColors = computed(() => {
       <ExampleCardSubTitle title="some more" />
       <div class="mb-4 flex flex-col gap-4">
         <B24InputMenu
-          v-model="value"
           :items="items"
           name="disabled"
           placeholder="Disabled"
@@ -158,7 +151,6 @@ const airColors = computed(() => {
           disabled
         />
         <B24InputMenu
-          v-model="value"
           :items="items"
           name="required"
           placeholder="Required"
@@ -166,7 +158,6 @@ const airColors = computed(() => {
           required
         />
         <B24InputMenu
-          v-model="value"
           :items="items"
           name="rounded"
           placeholder="Rounded"
@@ -182,7 +173,6 @@ const airColors = computed(() => {
       <ExampleCardSubTitle title="loading" />
       <div class="mb-4 flex flex-col gap-4">
         <B24InputMenu
-          v-model="value"
           :items="items"
           loading
           name="some_value"
@@ -190,7 +180,6 @@ const airColors = computed(() => {
           aria-label="Insert value"
         />
         <B24InputMenu
-          v-model="value"
           :items="items"
           loading
           trailing
@@ -199,7 +188,6 @@ const airColors = computed(() => {
           aria-label="Insert value"
         />
         <B24InputMenu
-          v-model="value"
           :items="items"
           loading
           :icon="RocketIcon"
@@ -209,7 +197,6 @@ const airColors = computed(() => {
           aria-label="Insert value"
         />
         <B24InputMenu
-          v-model="value"
           :items="items"
           loading
           :avatar="{ src: '/avatar/employee.png' }"
@@ -241,7 +228,6 @@ const airColors = computed(() => {
         <ExampleCardSubTitle :title="color as string" />
         <div class="mb-4 flex flex-wrap flex-row items-center gap-4">
           <B24InputMenu
-            v-model="value"
             :items="items"
             name="some_value"
             placeholder="Insert value&hellip;"
@@ -252,7 +238,6 @@ const airColors = computed(() => {
           />
 
           <B24InputMenu
-            v-model="valueObj"
             :items="itemsObj"
             :tag-color="color"
             tag="some text"
@@ -273,7 +258,6 @@ const airColors = computed(() => {
             <ExampleCardSubTitle :title="color as string" />
             <div class="mb-4 flex flex-wrap flex-row items-center gap-4">
               <B24InputMenu
-                v-model="value"
                 :items="items"
                 name="some_value"
                 placeholder="Insert value&hellip;"
@@ -284,7 +268,6 @@ const airColors = computed(() => {
               />
 
               <B24InputMenu
-                v-model="valueObj"
                 :items="itemsObj"
                 :tag-color="color"
                 tag="some text"
@@ -305,7 +288,6 @@ const airColors = computed(() => {
         <ExampleCardSubTitle :title="size as string" />
         <div class="mb-4 flex flex-wrap flex-row items-center gap-4">
           <B24InputMenu
-            v-model="value"
             :items="items"
             name="some_value"
             placeholder="Insert value&hellip;"
@@ -332,7 +314,6 @@ const airColors = computed(() => {
             @create="onCreate"
           />
           <B24InputMenu
-            v-model="value"
             :items="items"
             :icon="Cross20Icon"
             trailing
@@ -344,7 +325,6 @@ const airColors = computed(() => {
             arrow
           />
           <B24InputMenu
-            v-model="value"
             :items="items"
             :icon="Search2Icon"
             :trailing-icon="Expand1Icon"
@@ -356,7 +336,6 @@ const airColors = computed(() => {
             arrow
           />
           <B24InputMenu
-            v-model="value"
             :items="items"
             :avatar="{ src: '/avatar/employee.png' }"
             name="some_value"
@@ -367,7 +346,6 @@ const airColors = computed(() => {
             arrow
           />
           <B24InputMenu
-            v-model="value"
             :items="items"
             :avatar="{ src: '/avatar/assistant.png' }"
             :trailing-icon="Expand1Icon"
@@ -379,7 +357,6 @@ const airColors = computed(() => {
             arrow
           />
           <B24InputMenu
-            v-model="valueObj"
             :items="itemsObj"
             :size="size"
             class="w-[240px]"
@@ -387,7 +364,6 @@ const airColors = computed(() => {
           />
           <div class="w-[640px]">
             <B24InputMenu
-              v-model="valueMultiple"
               :items="items"
               :size="size"
               multiple

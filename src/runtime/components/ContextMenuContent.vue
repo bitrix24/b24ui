@@ -13,6 +13,7 @@ interface ContextMenuContentProps<T extends ArrayOrNested<ContextMenuItem>> exte
   portal?: boolean | string | HTMLElement
   sub?: boolean
   labelKey: GetItemKeys<T>
+  descriptionKey: GetItemKeys<T>
   /**
    * @IconComponent
    */
@@ -56,7 +57,7 @@ const slots = defineSlots<ContextMenuSlots<T>>()
 const { dir } = useLocale()
 
 const portalProps = usePortal(toRef(() => props.portal))
-const contentProps = useForwardPropsEmits(reactiveOmit(props, 'sub', 'items', 'portal', 'labelKey', 'checkedIcon', 'loadingIcon', 'externalIcon', 'class', 'b24ui', 'b24uiOverride'), emits)
+const contentProps = useForwardPropsEmits(reactiveOmit(props, 'sub', 'items', 'portal', 'labelKey', 'descriptionKey', 'checkedIcon', 'loadingIcon', 'externalIcon', 'class', 'b24ui', 'b24uiOverride'), emits)
 const getProxySlots = () => omit(slots, ['default'])
 
 const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: ContextMenuItem, active?: boolean, index: number }>()
@@ -73,72 +74,119 @@ const groups = computed<ContextMenuItem[][]>(() =>
 
 <template>
   <DefineItemTemplate v-slot="{ item, active, index }">
-    <slot :name="((item.slot || 'item') as keyof ContextMenuSlots<T>)" :item="item" :index="index" :b24ui="b24ui">
-      <slot :name="((item.slot ? `${item.slot}-leading`: 'item-leading') as keyof ContextMenuSlots<T>)" :item="item" :active="active" :index="index" :b24ui="b24ui">
-        <Component
-          :is="loadingIcon || icons.loading"
-          v-if="item.loading"
-          :class="b24ui.itemLeadingIcon({ class: [b24uiOverride?.itemLeadingIcon, item.b24ui?.itemLeadingIcon], color: item?.color, loading: true })"
-        />
-        <Component
-          :is="item.icon"
-          v-else-if="item.icon"
-          :class="b24ui.itemLeadingIcon({ class: [b24uiOverride?.itemLeadingIcon, item.b24ui?.itemLeadingIcon], color: item?.color, active })"
-        />
+    <slot
+      :name="((item.slot || 'item') as keyof ContextMenuSlots<T>)"
+      :item="item"
+      :index="index"
+      :b24ui="b24ui"
+    >
+      <slot
+        :name="((item.slot ? `${item.slot}-leading`: 'item-leading') as keyof ContextMenuSlots<T>)"
+        :item="item"
+        :active="active"
+        :index="index"
+        :b24ui="b24ui"
+      >
         <B24Avatar
-          v-else-if="item.avatar"
+          v-if="item.avatar"
           :size="((item.b24ui?.itemLeadingAvatarSize || b24uiOverride?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])"
           v-bind="item.avatar"
           :class="b24ui.itemLeadingAvatar({ class: [b24uiOverride?.itemLeadingAvatar, item.b24ui?.itemLeadingAvatar], active })"
         />
       </slot>
 
-      <span v-if="get(item, props.labelKey as string) || !!slots[(item.slot ? `${item.slot}-label`: 'item-label') as keyof ContextMenuSlots<T>]" :class="b24ui.itemLabel({ class: [b24uiOverride?.itemLabel, item.b24ui?.itemLabel], active })">
-        <slot :name="((item.slot ? `${item.slot}-label`: 'item-label') as keyof ContextMenuSlots<T>)" :item="item" :active="active" :index="index">
-          {{ get(item, props.labelKey as string) }}
-        </slot>
+      <span
+        v-if="(get(item, props.labelKey as string) || !!slots[(item.slot ? `${item.slot}-label`: 'item-label') as keyof ContextMenuSlots<T>]) || (get(item, props.descriptionKey as string) || !!slots[(item.slot ? `${item.slot}-description`: 'item-description') as keyof ContextMenuSlots<T>])"
+        :class="b24ui.itemWrapper({ class: [b24uiOverride?.itemWrapper, item.b24ui?.itemWrapper] })"
+      >
+        <span :class="b24ui.itemLabel({ class: [b24uiOverride?.itemLabel, item.b24ui?.itemLabel], active })">
+          <slot :name="((item.slot ? `${item.slot}-label`: 'item-label') as keyof ContextMenuSlots<T>)" :item="item" :active="active" :index="index">
+            {{ get(item, props.labelKey as string) }}
+          </slot>
+        </span>
 
-        <Component
-          :is="typeof externalIcon !== 'boolean' ? externalIcon : icons.external"
-          v-if="item.target === '_blank' && externalIcon !== false"
-          :class="b24ui.itemLabelExternalIcon({ class: [b24uiOverride?.itemLabelExternalIcon, item.b24ui?.itemLabelExternalIcon], color: item?.color, active })"
-        />
+        <span
+          v-if="get(item, props.descriptionKey as string)"
+          :class="b24ui.itemDescription({ class: [b24uiOverride?.itemDescription, item.b24ui?.itemDescription] })"
+        >
+          <slot
+            :name="((item.slot ? `${item.slot}-description`: 'item-description') as keyof ContextMenuSlots<T>)"
+            :item="item"
+            :active="active"
+            :index="index"
+          >
+            {{ get(item, props.descriptionKey as string) }}
+          </slot>
+        </span>
       </span>
 
       <span :class="b24ui.itemTrailing({ class: [b24uiOverride?.itemTrailing, item.b24ui?.itemTrailing] })">
-        <slot :name="((item.slot ? `${item.slot}-trailing`: 'item-trailing') as keyof ContextMenuSlots<T>)" :item="item" :active="active" :index="index" :b24ui="b24ui">
-          <Component
-            :is="childrenIcon"
-            v-if="item.children?.length"
-            :class="b24ui.itemTrailingIcon({ class: [b24uiOverride?.itemTrailingIcon, item.b24ui?.itemTrailingIcon], color: item?.color, active })"
-          />
-          <span v-else-if="item.kbds?.length" :class="b24ui.itemTrailingKbds({ class: [b24uiOverride?.itemTrailingKbds, item.b24ui?.itemTrailingKbds] })">
-            <B24Kbd v-for="(kbd, kbdIndex) in item.kbds" :key="kbdIndex" :size="((item.b24ui?.itemTrailingKbdsSize || b24uiOverride?.itemTrailingKbdsSize || b24ui.itemTrailingKbdsSize()) as KbdProps['size'])" v-bind="typeof kbd === 'string' ? { value: kbd } : kbd" />
-          </span>
-        </slot>
-
         <ContextMenu.ItemIndicator as-child>
           <Component
             :is="checkedIcon || icons.check"
             :class="b24ui.itemTrailingIcon({ class: [b24uiOverride?.itemTrailingIcon, item.b24ui?.itemTrailingIcon], color: item?.color })"
           />
         </ContextMenu.ItemIndicator>
+
+        <slot
+          :name="((item.slot ? `${item.slot}-trailing`: 'item-trailing') as keyof ContextMenuSlots<T>)"
+          :item="item"
+          :active="active"
+          :index="index"
+          :b24ui="b24ui"
+        >
+          <Component
+            :is="loadingIcon || icons.loading"
+            v-if="item.loading"
+            :class="b24ui.itemLeadingIcon({ class: [b24uiOverride?.itemLeadingIcon, item.b24ui?.itemLeadingIcon], color: item?.color, loading: true })"
+          />
+          <Component
+            :is="childrenIcon"
+            v-else-if="item.children?.length"
+            :class="b24ui.itemTrailingIcon({ class: [b24uiOverride?.itemTrailingIcon, item.b24ui?.itemTrailingIcon], color: item?.color, active })"
+          />
+          <Component
+            :is="typeof externalIcon !== 'boolean' ? externalIcon : icons.external"
+            v-else-if="item.target === '_blank' && externalIcon !== false"
+            :class="b24ui.itemLabelExternalIcon({ class: [b24uiOverride?.itemLabelExternalIcon, item.b24ui?.itemLabelExternalIcon], color: item?.color, active })"
+          />
+          <Component
+            :is="item.icon"
+            v-else-if="item.icon"
+            :class="b24ui.itemLeadingIcon({ class: [b24uiOverride?.itemLeadingIcon, item.b24ui?.itemLeadingIcon], color: item?.color, active })"
+          />
+          <span v-else-if="item.kbds?.length" :class="b24ui.itemTrailingKbds({ class: [b24uiOverride?.itemTrailingKbds, item.b24ui?.itemTrailingKbds] })">
+            <B24Kbd v-for="(kbd, kbdIndex) in item.kbds" :key="kbdIndex" :size="((item.b24ui?.itemTrailingKbdsSize || b24uiOverride?.itemTrailingKbdsSize || b24ui.itemTrailingKbdsSize()) as KbdProps['size'])" v-bind="typeof kbd === 'string' ? { value: kbd } : kbd" />
+          </span>
+        </slot>
       </span>
     </slot>
   </DefineItemTemplate>
 
   <ContextMenu.Portal v-bind="portalProps">
-    <component :is="sub ? ContextMenu.SubContent : ContextMenu.Content" :class="props.class" v-bind="contentProps">
+    <component
+      :is="sub ? ContextMenu.SubContent : ContextMenu.Content"
+      :class="props.class"
+      v-bind="contentProps"
+    >
       <slot name="content-top" />
 
       <div role="presentation" :class="b24ui.viewport({ class: b24uiOverride?.viewport })">
-        <ContextMenu.Group v-for="(group, groupIndex) in groups" :key="`group-${groupIndex}`" :class="b24ui.group({ class: b24uiOverride?.group })">
+        <ContextMenu.Group
+          v-for="(group, groupIndex) in groups"
+          :key="`group-${groupIndex}`"
+          :class="b24ui.group({ class: b24uiOverride?.group })"
+        >
           <template v-for="(item, index) in group" :key="`group-${groupIndex}-${index}`">
             <ContextMenu.Label v-if="item.type === 'label'" :class="b24ui.label({ class: [b24uiOverride?.label, item.b24ui?.label, item.class] })">
               <ReuseItemTemplate :item="item" :index="index" />
             </ContextMenu.Label>
             <ContextMenu.Separator v-else-if="item.type === 'separator'" :class="b24ui.separator({ class: [b24uiOverride?.separator, item.b24ui?.separator, item.class] })" />
-            <ContextMenu.Sub v-else-if="item?.children?.length" :open="item.open" :default-open="item.defaultOpen">
+            <ContextMenu.Sub
+              v-else-if="item?.children?.length"
+              :open="item.open"
+              :default-open="item.defaultOpen"
+            >
               <ContextMenu.SubTrigger
                 as="button"
                 type="button"
@@ -158,6 +206,7 @@ const groups = computed<ContextMenuItem[][]>(() =>
                 :items="(item.children as T)"
                 :align-offset="-4"
                 :label-key="labelKey"
+                :description-key="descriptionKey"
                 :checked-icon="checkedIcon"
                 :loading-icon="loadingIcon"
                 :external-icon="externalIcon"
@@ -187,7 +236,10 @@ const groups = computed<ContextMenuItem[][]>(() =>
               @select="item.onSelect"
             >
               <B24Link v-slot="{ active, ...slotProps }" v-bind="pickLinkProps(item as Omit<ContextMenuItem, 'type'>)" custom>
-                <B24LinkBase v-bind="slotProps" :class="b24ui.item({ class: [b24uiOverride?.item, item.b24ui?.item, item.class], active, color: item?.color })">
+                <B24LinkBase
+                  v-bind="slotProps"
+                  :class="b24ui.item({ class: [b24uiOverride?.item, item.b24ui?.item, item.class], color: item?.color, active })"
+                >
                   <ReuseItemTemplate :item="item" :active="active" :index="index" />
                 </B24LinkBase>
               </B24Link>

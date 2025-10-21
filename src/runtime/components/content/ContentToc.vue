@@ -10,7 +10,7 @@ type ContentToc = ComponentConfig<typeof theme, AppConfig, 'contentToc'>
 
 export type ContentTocLink = TocLink & {
   class?: any
-  ui?: Pick<ContentToc['slots'], 'item' | 'itemWithChildren' | 'link' | 'linkText'>
+  b24ui?: Pick<ContentToc['slots'], 'item' | 'itemWithChildren' | 'link' | 'linkText'>
 }
 
 export interface ContentTocProps<T extends ContentTocLink = ContentTocLink> extends Pick<CollapsibleRootProps, 'defaultOpen' | 'open'> {
@@ -110,14 +110,14 @@ nuxtApp.hooks.hook('page:transition:finish', () => {
   <!-- eslint-disable-next-line vue/no-template-shadow -->
   <DefineListTemplate v-slot="{ links, level }">
     <ul :class="level > 0 ? b24ui.listWithChildren({ class: props.b24ui?.listWithChildren }) : b24ui.list({ class: props.b24ui?.list })">
-      <li v-for="(link, index) in links" :key="index" :class="link.children && link.children.length > 0 ? b24ui.itemWithChildren({ class: [props.b24ui?.itemWithChildren, link.ui?.itemWithChildren] }) : b24ui.item({ class: [props.b24ui?.item, link.ui?.item] })">
+      <li v-for="(link, index) in links" :key="index" :class="link.children && link.children.length > 0 ? b24ui.itemWithChildren({ class: [props.b24ui?.itemWithChildren, link.b24ui?.itemWithChildren] }) : b24ui.item({ class: [props.b24ui?.item, link.b24ui?.item] })">
         <a
           :href="`#${link.id}`"
-          :class="b24ui.link({ class: [props.b24ui?.link, link.ui?.link, link.class], active: activeHeadings.includes(link.id) })"
+          :class="b24ui.link({ class: [props.b24ui?.link, link.b24ui?.link, link.class], active: activeHeadings.includes(link.id) })"
           @click.prevent="scrollToHeading(link.id)"
         >
           <slot name="link" :link="link">
-            <span :class="b24ui.linkText({ class: [props.b24ui?.linkText, link.ui?.linkText] })">
+            <span :class="b24ui.linkText({ class: [props.b24ui?.linkText, link.b24ui?.linkText] })">
               {{ link.text }}
             </span>
           </slot>

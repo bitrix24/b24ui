@@ -2,20 +2,12 @@
  * ContextMenu
  * A pop-up menu that appears upon right-clicking an element to present relevant actions.
  * ---
- * @todo add docs
- * @todo add color
- * @todo add demo
  * @see src/theme/dropdown-menu.ts
- * @todo add Badge
  */
 
 export default {
   slots: {
     content: [
-      // 'min-w-32',
-      // 'ring ring-red-500',
-      // 'overflow-hidden',
-      // 'flex flex-col',
       'light',
       'bg-(--popup-window-background-color)',
       'shadow-(--popup-window-box-shadow)',
@@ -75,16 +67,18 @@ export default {
       'group-data-[state=checked]:text-(--ui-color-accent-main-primary)',
       'transition-colors'
     ].join(' '),
-    itemLeadingAvatar: 'shrink-0 size-[16px] mx-px', // @memo 18-2px
+    itemLeadingAvatar: 'shrink-0 size-[16px] me-[12px]', // @memo 18-2px
     itemLeadingAvatarSize: '2xs', // @memo this wrong
     itemTrailing: 'ml-auto rtl:ml-0 rtl:mr-auto inline-flex gap-1.5 items-center',
     itemTrailingIcon: 'shrink-0 size-[24px] text-(--ui-color-design-plain-content-icon-secondary)',
     itemTrailingKbds: 'shrink-0 hidden lg:inline-flex items-center gap-0.5',
+    itemWrapper: 'flex-1 flex flex-col items-start min-w-0',
     itemTrailingKbdsSize: 'md',
     itemLabel: [
-      'truncate ms-[2px] -mt-px',
+      'max-w-[240px] truncate -mt-px',
       'group-data-[state=checked]:text-(--ui-color-accent-main-primary)'
     ].join(' '),
+    itemDescription: 'max-w-[240px] truncate -mt-[6px] text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)',
     itemLabelExternalIcon: 'inline-block size-[16px] text-(--ui-color-design-plain-content-icon-secondary)'
   },
   variants: {

@@ -271,19 +271,19 @@ export default {
       leading: true,
       noPadding: false,
       size: 'md',
-      class: 'ps-[34px]'
+      class: 'ps-[32px]'
     },
     {
       leading: true,
       noPadding: false,
       size: 'lg',
-      class: 'ps-[38px]'
+      class: 'ps-[32px]'
     },
     {
       leading: true,
       noPadding: false,
       size: 'xl',
-      class: 'ps-[38px]'
+      class: 'ps-[32px]'
     },
     // endregion ////
     // region trailing ////

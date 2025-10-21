@@ -110,16 +110,18 @@ export default () => {
         'group-data-[state=checked]:text-(--ui-color-accent-main-primary)',
         'transition-colors'
       ].join(' '),
-      itemLeadingAvatar: 'shrink-0 size-[16px] mx-px', // @memo 18-2px
+      itemLeadingAvatar: 'shrink-0 size-[16px]', // @memo 18-2px
       itemLeadingAvatarSize: '2xs', // @memo this wrong
-      itemLeadingChip: 'shrink-0 size-[16px] mx-px',
+      itemLeadingChip: 'shrink-0 size-[16px]',
       itemLeadingChipSize: 'sm',
       itemTrailing: 'ml-auto rtl:ml-0 rtl:mr-auto inline-flex gap-1.5 items-center',
       itemTrailingIcon: 'shrink-0 size-[24px] text-(--ui-color-design-plain-content-icon-secondary)',
+      itemWrapper: 'flex-1 flex flex-col min-w-0',
       itemLabel: [
         'truncate ms-[2px] -mt-px',
         'group-data-[state=checked]:text-(--ui-color-accent-main-primary)'
       ].join(' '),
+      itemDescription: 'truncate -mt-[6px] text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)',
       tagsItem: [
         'ps-[13px] pe-[6px]',
         'rounded-(--ui-border-radius-xs)',
@@ -211,7 +213,8 @@ export default () => {
           leading: 'px-1',
           trailing: 'px-1',
           leadingIcon: 'size-[12px]',
-          itemLeadingAvatarSize: '3xs',
+          itemLeadingAvatar: 'size-[12px]',
+          itemLeadingAvatarSize: '3xs', // @memo this wrong
           trailingIcon: 'size-[12px]',
           tagsInput: 'text-(length:--ui-font-size-4xs)/[normal]',
           tagsItem: [
@@ -221,11 +224,12 @@ export default () => {
           tagsItemDeleteIcon: 'size-[10px]'
         },
         xs: {
-          base: '[--main-ui-square-item-height:16px] h-[24px] gap-1 text-(length:--ui-font-size-xs)/[normal]',
+          base: '[--main-ui-square-item-height:16px] h-[24px] gap-1 text-(length:--ui-font-size-4xs)/[normal]',
           leading: 'px-1',
           trailing: 'px-1',
           leadingIcon: 'size-[14px]',
-          itemLeadingAvatarSize: '3xs',
+          itemLeadingAvatar: 'size-[14px]',
+          itemLeadingAvatarSize: '3xs', // @memo this wrong
           trailingIcon: 'size-[14px]',
           tagsInput: 'text-(length:--ui-font-size-xs)/[normal]',
           tagsItem: [
@@ -235,12 +239,12 @@ export default () => {
           tagsItemDeleteIcon: 'size-[10px]'
         },
         sm: {
-          base: '[--main-ui-square-item-height:20px] h-[28px] gap-1.5 text-(length:--ui-font-size-sm)/[normal]',
+          base: '[--main-ui-square-item-height:20px] h-[28px] gap-1.5 text-(length:--ui-font-size-xs)/[normal]',
           leading: 'px-1.5',
           trailing: 'px-1.5',
           leadingIcon: 'size-[16px]',
           itemLeadingAvatar: 'size-[16px]',
-          itemLeadingAvatarSize: '2xs',
+          itemLeadingAvatarSize: '2xs', // @memo this wrong
           trailingIcon: 'size-[16px]',
           tagsInput: 'text-(length:--ui-font-size-sm)/[normal]',
           tagsItem: [
@@ -254,7 +258,7 @@ export default () => {
           leading: 'px-2',
           trailing: 'px-2',
           leadingIcon: 'size-[18px]',
-          itemLeadingAvatarSize: '2xs',
+          itemLeadingAvatarSize: '2xs', // @memo this wrong
           trailingIcon: 'size-[18px]',
           tagsInput: 'text-(length:--ui-font-size-lg)/[normal]',
           tagsItem: [

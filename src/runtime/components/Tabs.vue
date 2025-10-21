@@ -158,7 +158,7 @@ defineExpose({
             v-if="item.badge !== undefined"
             color="air-primary"
             variant="outline"
-            :size="((item.ui?.trailingBadgeSize || props.b24ui?.trailingBadgeSize || b24ui.trailingBadgeSize()) as BadgeProps['size'])"
+            :size="((item.b24ui?.trailingBadgeSize || props.b24ui?.trailingBadgeSize || b24ui.trailingBadgeSize()) as BadgeProps['size'])"
             v-bind="(typeof item.badge === 'string' || typeof item.badge === 'number') ? { label: item.badge } : item.badge"
             :class="b24ui.trailingBadge({ class: [props.b24ui?.trailingBadge, item.b24ui?.trailingBadge] })"
           />

@@ -16,6 +16,7 @@ export interface CommandPaletteItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
   prefix?: string
   label?: string
   suffix?: string
+  description?: string
   /**
    * @IconComponent
    */
@@ -34,7 +35,7 @@ export interface CommandPaletteItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
   children?: CommandPaletteItem[]
   onSelect?: (e: Event) => void
   class?: any
-  b24ui?: Pick<CommandPalette['slots'], 'item' | 'itemLeadingIcon' | 'itemLeadingAvatarSize' | 'itemLeadingAvatar' | 'itemLeadingChipSize' | 'itemLeadingChip' | 'itemLabel' | 'itemLabelPrefix' | 'itemLabelBase' | 'itemLabelSuffix' | 'itemTrailing' | 'itemTrailingKbds' | 'itemTrailingKbdsSize' | 'itemTrailingHighlightedIcon' | 'itemTrailingIcon'>
+  b24ui?: Pick<CommandPalette['slots'], 'item' | 'itemLeadingIcon' | 'itemLeadingAvatarSize' | 'itemLeadingAvatar' | 'itemLeadingChipSize' | 'itemLeadingChip' | 'itemWrapper' | 'itemLabel' | 'itemDescription' | 'itemLabelPrefix' | 'itemLabelBase' | 'itemLabelSuffix' | 'itemTrailing' | 'itemTrailingKbds' | 'itemTrailingKbdsSize' | 'itemTrailingHighlightedIcon' | 'itemTrailingIcon'>
   [key: string]: any
 }
 
@@ -110,7 +111,7 @@ export interface CommandPaletteProps<G extends CommandPaletteGroup<T> = CommandP
   closeIcon?: IconComponent
   /**
    * Display a button to navigate back in history.
-   * `{ size: 'sm', color: 'air-tertiary-no-accent' }`{lang="ts-type"}
+   * `{ size: 'sm', color: 'air-selection' }`{lang="ts-type"}
    * @defaultValue true
    */
   back?: boolean | ButtonProps
@@ -156,6 +157,11 @@ export interface CommandPaletteProps<G extends CommandPaletteGroup<T> = CommandP
    * @defaultValue 'label'
    */
   labelKey?: GetItemKeys<T>
+  /**
+   * The key used to get the description from the item.
+   * @defaultValue 'description'
+   */
+  descriptionKey?: GetItemKeys<T>
   class?: any
   b24ui?: CommandPalette['slots']
 }
@@ -174,6 +180,7 @@ export type CommandPaletteSlots<G extends CommandPaletteGroup<T> = CommandPalett
   'item': SlotProps<T>
   'item-leading': SlotProps<T>
   'item-label': SlotProps<T>
+  'item-description': SlotProps<T>
   'item-trailing': SlotProps<T>
 } & Record<string, SlotProps<G>> & Record<string, SlotProps<T>>
 
@@ -203,6 +210,7 @@ import B24Kbd from './Kbd.vue'
 const props = withDefaults(defineProps<CommandPaletteProps<G, T>>(), {
   modelValue: '',
   labelKey: 'label',
+  descriptionKey: 'description',
   autofocus: true,
   back: true,
   virtualize: false
@@ -423,30 +431,46 @@ function onSelect(e: Event, item: T) {
             </slot>
 
             <span
-              v-if="item.labelHtml || get(item, props.labelKey as string) || !!slots[(item.slot ? `${item.slot}-label` : group?.slot ? `${group.slot}-label` : `item-label`) as keyof CommandPaletteSlots<G, T>]"
-              :class="b24ui.itemLabel({ class: [props.b24ui?.itemLabel, item.b24ui?.itemLabel], active: active || item.active })"
+              v-if="(item.prefix || (item.labelHtml || get(item, props.labelKey as string)) || (item.suffixHtml || item.suffix) || !!slots[(item.slot ? `${item.slot}-label` : group?.slot ? `${group.slot}-label` : `item-label`) as keyof CommandPaletteSlots<G, T>]) || (get(item, props.descriptionKey as string) || !!slots[(item.slot ? `${item.slot}-description` : group?.slot ? `${group.slot}-description` : `item-description`) as keyof CommandPaletteSlots<G, T>])"
+              :class="b24ui.itemWrapper({ class: [props.b24ui?.itemWrapper, item.b24ui?.itemWrapper] })"
             >
-              <slot
-                :name="((item.slot ? `${item.slot}-label` : group?.slot ? `${group.slot}-label` : `item-label`) as keyof CommandPaletteSlots<G, T>)"
-                :item="(item as any)"
-                :index="index"
-                :b24ui="b24ui"
+              <span :class="b24ui.itemLabel({ class: [props.b24ui?.itemLabel, item.b24ui?.itemLabel], active: active || item.active })">
+                <slot
+                  :name="((item.slot ? `${item.slot}-label` : group?.slot ? `${group.slot}-label` : `item-label`) as keyof CommandPaletteSlots<G, T>)"
+                  :item="(item as any)"
+                  :index="index"
+                  :b24ui="b24ui"
+                >
+                  <span
+                    v-if="item.prefix"
+                    :class="b24ui.itemLabelPrefix({ class: [props.b24ui?.itemLabelPrefix, item.b24ui?.itemLabelPrefix] })"
+                  >{{ item.prefix }}</span>
+
+                  <span
+                    :class="b24ui.itemLabelBase({ class: [props.b24ui?.itemLabelBase, item.b24ui?.itemLabelBase], active: active || item.active })"
+                    v-html="item.labelHtml || get(item, props.labelKey as string)"
+                  />
+
+                  <span
+                    :class="b24ui.itemLabelSuffix({ class: [props.b24ui?.itemLabelSuffix, item.b24ui?.itemLabelSuffix], active: active || item.active })"
+                    v-html="item.suffixHtml || item.suffix"
+                  />
+                </slot>
+              </span>
+
+              <span
+                v-if="get(item, props.descriptionKey as string)"
+                :class="b24ui.itemDescription({ class: [props.b24ui?.itemDescription, item.b24ui?.itemDescription] })"
               >
-                <span
-                  v-if="item.prefix"
-                  :class="b24ui.itemLabelPrefix({ class: [props.b24ui?.itemLabelPrefix, item.b24ui?.itemLabelPrefix] })"
-                >{{ item.prefix }}</span>
-
-                <span
-                  :class="b24ui.itemLabelBase({ class: [props.b24ui?.itemLabelBase, item.b24ui?.itemLabelBase], active: active || item.active })"
-                  v-html="item.labelHtml || get(item, props.labelKey as string)"
-                />
-
-                <span
-                  :class="b24ui.itemLabelSuffix({ class: [props.b24ui?.itemLabelSuffix, item.b24ui?.itemLabelSuffix], active: active || item.active })"
-                  v-html="item.suffixHtml || item.suffix"
-                />
-              </slot>
+                <slot
+                  :name="((item.slot ? `${item.slot}-description` : group?.slot ? `${group.slot}-description` : `item-description`) as keyof CommandPaletteSlots<G, T>)"
+                  :item="(item as any)"
+                  :index="index"
+                  :b24ui="b24ui"
+                >
+                  {{ get(item, props.descriptionKey as string) }}
+                </slot>
+              </span>
             </span>
 
             <span :class="b24ui.itemTrailing({ class: [props.b24ui?.itemTrailing, item.b24ui?.itemTrailing] })">
@@ -496,6 +520,7 @@ function onSelect(e: Event, item: T) {
       <B24Input
         :placeholder="placeholder"
         no-border
+        no-padding
         :autofocus="autofocus"
         v-bind="inputProps"
         size="xl"
@@ -508,8 +533,7 @@ function onSelect(e: Event, item: T) {
             <B24Button
               :icon="backIcon || icons.arrowLeft"
               size="sm"
-              color="air-tertiary-no-accent"
-              variant="link"
+              color="air-selection"
               :aria-label="t('commandPalette.back')"
               v-bind="(typeof back === 'object' ? back as Partial<ButtonProps> : {})"
               :class="b24ui.back({ class: props.b24ui?.back })"

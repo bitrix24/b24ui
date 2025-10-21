@@ -68,16 +68,18 @@ export default {
       'group-data-[state=checked]:text-(--ui-color-accent-main-primary)',
       'transition-colors'
     ].join(' '),
-    itemLeadingAvatar: 'shrink-0 size-[16px] mx-px', // @memo 18-2px
+    itemLeadingAvatar: 'shrink-0 size-[16px] me-[8px]', // @memo 18-2px
     itemLeadingAvatarSize: '2xs', // @memo this wrong
     itemTrailing: 'ml-auto rtl:ml-0 rtl:mr-auto inline-flex gap-1.5 items-center',
     itemTrailingIcon: 'shrink-0 size-[24px] text-(--ui-color-design-plain-content-icon-secondary)',
     itemTrailingKbds: 'shrink-0 hidden lg:inline-flex items-center gap-0.5',
     itemTrailingKbdsSize: 'md',
+    itemWrapper: 'flex-1 flex flex-col items-start min-w-0',
     itemLabel: [
-      'truncate ms-[2px] -mt-px',
+      'max-w-[240px] truncate -mt-px',
       'group-data-[state=checked]:text-(--ui-color-accent-main-primary)'
     ].join(' '),
+    itemDescription: 'max-w-[240px] truncate -mt-[6px] text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)',
     itemLabelExternalIcon: 'inline-block size-[16px] text-(--ui-color-design-plain-content-icon-secondary)'
   },
   variants: {

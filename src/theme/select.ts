@@ -104,23 +104,25 @@ export default () => {
         ].join(' '),
         itemLeadingIcon: [
           'shrink-0',
-          'size-[18px]',
+          'size-[24px]',
           'text-(--ui-color-design-plain-content-icon-secondary)',
           'group-data-highlighted:not-data-disabled:text-(--ui-color-accent-main-primary)',
           'group-data-[state=open]:text-(--ui-color-accent-main-primary)',
           'group-data-[state=checked]:text-(--ui-color-accent-main-primary)',
           'transition-colors'
         ].join(' '),
-        itemLeadingAvatar: 'shrink-0 size-[16px] mx-px', // @memo 18-2px
+        itemLeadingAvatar: 'shrink-0 size-[16px] me-[12px]', // @memo 18-2px
         itemLeadingAvatarSize: '2xs', // @memo this wrong
-        itemLeadingChip: 'shrink-0 size-[16px] mx-px',
+        itemLeadingChip: 'shrink-0 size-[16px]',
         itemLeadingChipSize: 'sm',
         itemTrailing: 'ml-auto rtl:ml-0 rtl:mr-auto inline-flex gap-1.5 items-center',
-        itemTrailingIcon: 'shrink-0 size-[24px] text-(--ui-color-design-plain-content-icon-secondary)',
+        itemTrailingIcon: 'shrink-0 size-[24px] text-(--ui-color-accent-main-primary)',
+        itemWrapper: 'flex-1 flex flex-col min-w-0',
         itemLabel: [
-          'truncate ms-[2px] -mt-px',
+          'truncate',
           'group-data-[state=checked]:text-(--ui-color-accent-main-primary)'
-        ].join(' ')
+        ].join(' '),
+        itemDescription: 'truncate -mt-[6px] text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)'
       },
       variants: {
         ...fieldGroupVariantWithRoot,
