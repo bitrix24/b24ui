@@ -20,7 +20,6 @@ const pages = [
   '/docs/getting-started/theme/components/',
   '/docs/getting-started/integrations/icons/nuxt/',
   '/docs/getting-started/integrations/icons/vue/',
-  '/docs/getting-started/integrations/fonts/',
   '/docs/getting-started/integrations/color-mode/nuxt/',
   '/docs/getting-started/integrations/color-mode/vue/',
   '/docs/getting-started/integrations/i18n/nuxt/',

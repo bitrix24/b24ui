@@ -22,7 +22,7 @@ export default {
     root: [
       'style-outline-accent-2', // air-secondary-accent-2
       'flex items-center gap-2'
-    ],
+    ].join(' '),
     list: 'relative flex p-1 group',
     indicator: 'absolute transition-[translate,width] duration-200',
     trigger: [

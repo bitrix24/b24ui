@@ -14,7 +14,7 @@ export default {
       'relative overflow-hidden',
       'rounded-(--ui-border-radius-pill)',
       'bg-(--ui-color-base-5)'
-    ],
+    ].join(' '),
     indicator: [
       'rounded-(--ui-border-radius-pill)',
       'size-full',

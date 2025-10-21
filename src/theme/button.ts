@@ -36,9 +36,8 @@ export default {
       'focus-visible:outline-(--ui-btn-background)',
       'ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover)',
       'h-(--ui-btn-height)',
-      'text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight)',
-      ''
-    ],
+      'text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight)'
+    ].join(' '),
     baseLoading: 'h-full w-full absolute inset-0 flex flex-row flex-nowrap items-center justify-center',
     baseLoadingWaitIcon: 'text-(--ui-btn-color) size-[calc(var(--ui-btn-wait-icon-size)_+_7px)]',
     baseLoadingClockIcon: 'text-(--ui-btn-color) size-[calc(var(--ui-btn-wait-icon-size)_+_7px)]',

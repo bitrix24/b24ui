@@ -130,16 +130,14 @@ function groupChildrenByCategory(items: ContentNavigationItem[], slug: string): 
 
   if (uncategorized.length) {
     const withChildren = uncategorized.filter(item => item.children?.length)
-      ?.map(item => ({ ...item, children: item.children?.map(child => ({ ...child, icon: undefined })) }))
+      ?.map(item => ({ ...item, children: item.children?.map(child => ({ ...child, path: withTrailingSlash(child.path), icon: undefined })) }))
     const withoutChildren = uncategorized.filter(item => !item.children?.length)
 
     if (withoutChildren.length) {
       groups.push({
         title: 'Overview',
         type: 'trigger' as const,
-        /**
-         * @memo this path
-         */
+        /** @memo this path */
         path: `/docs/${slug}/`,
         children: withoutChildren?.map(item => ({ ...item, icon: undefined }))
       })
@@ -251,11 +249,13 @@ export const useNavigation = (navigation: Ref<ContentNavigationItem[] | undefine
       ?.flatMap(item => filterChildrenByFramework(item, framework.value)?.children) ?? []
 
     const index = flattenNavigation.findIndex(item => item?.path === pathFormatted)
+
     if (index === -1) {
       return [undefined, undefined]
     }
 
     const surround: [ContentNavigationItem | undefined, ContentNavigationItem | undefined] = [flattenNavigation[index - 1], flattenNavigation[index + 1]]
+
     if (surround[0]) {
       surround[0].path = withTrailingSlash(surround[0].path)
     }

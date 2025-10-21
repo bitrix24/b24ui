@@ -75,7 +75,7 @@ export default () => {
           base: [
             '[--main-ui-square-item-height:12px] gap-1 text-(length:--ui-font-size-4xs)/[normal]',
             'min-h-[20px] h-auto py-[2px] ps-[4px]'
-          ],
+          ].join(' '),
           leading: 'px-1',
           trailing: 'px-1',
           leadingIcon: 'size-[12px]',
@@ -155,7 +155,7 @@ export default () => {
           base: [
             '[--main-ui-square-item-height:32px] gap-2 text-(length:--ui-font-size-2xl)/[normal]',
             'min-h-[46px] h-auto py-[6px] ps-[6px]'
-          ],
+          ].join(' '),
           leading: 'px-2',
           trailing: 'px-2',
           leadingIcon: 'size-[22px]',

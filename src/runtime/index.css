@@ -1,4 +1,3 @@
-/*@plugin '@bitrix24/b24style';*/
 @import '#build/b24ui.css';
 @import './keyframes.css';
 @import './air-design-tokens/tw-style/index.css';
@@ -34,8 +33,6 @@
   }
 
   body {
-    /*overflow-y: scroll!important;*/
-    /*padding-right: 0!important;*/
     scrollbar-gutter: stable;
   }
 
