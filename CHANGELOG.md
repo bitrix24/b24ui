@@ -1,123 +1,56 @@
 # Changelog
 
-## [2.0.0](https://github.com/bitrix24/b24ui/compare/v1.0.4...v2.0.0) (2025-09-xx)
-
-* feat(dictionary.icons): add some icons
-* feat(components)!: rename `nullify` modifier to `nullable` and add `optional`
-* feat(components): implement virtualization
-* feat(Popover): add `close` method in slots
-* feat(useToast): handle `max` global configuration
-* feat(CommandPalette/ContextMenu/DropdownMenu/InputMenu/NavigationMenu/Select/SelectMenu): add global event handlers and checkbox example
-* feat(Error): new component
-* feat(PageLinks): new component
-* feat(ContentSurround): new component
-* feat(ContentToc): new component
-* feat(ProseCallout): new component
-* feat(ProseCollapsible): new component
-* feat(ProseCodeCollapse): new component
-* feat(ProseCodeIcon): new component
-* feat(ProsePre): improve
-* feat(ProseTabs): new component
-* feat(ProseTabsItem): new component
-* feat(ProseAccordion): new component
-* feat(ProseAccordionItem): new component
-* feat(ProseBadge): new component
-* feat(ProseKbd): new component
-* feat(ProseSteps): new component
-* feat(ProseSteps): new component
-* feat(ProseCard): new component
-* feat(ProseCardGroup): new component
-* feat(ProseCodeGroup): new component
-* feat(ProseCodePreview): new component
-* feat(ProseScript): new component
-* feat(Banner): new component
-* feat(Card): new component
-* feat(CheckboxGroup): new component
-* feat(ColorPicker): new component
-* feat(FileUpload): new component
-* feat(InputTags): new component
-* feat(PinInput): new component
-* feat(ContextMenu): new component
-* feat(Pagination): new component
-* feat(Table): new component
-* feat(Timeline): new component
-* feat(User): new component
-* feat(Breadcrumb): new component
-* feat(Breadcrumb): new component
-* feat(ContentSearch): new component
-* feat(ContentSearchButton): new component
-* feat(DashboardGroup): new component
-* feat(DashboardSearch): new component
-* feat(DashboardSearchButton): new component
-* feat(Stepper): new component
-* feat(ColorModeAvatar): improve config
-* feat(ColorModeButton): improve config
-* feat(ColorModeImage): improve config
-* feat(ColorModeSwitch): improve config
-* feat(ColorModeSelect): improve config
-* feat(LocaleSelect): improve config
-* feat(colorMode): improve config
-* feat(Empty): new component
-* feat(PageCard): new component
-* feat(PageGrid): new component
-* feat(PageColumns): new component
-* feat(PageList): new component
-* feat(components): expose `b24ui` in slot props where used
-* feat(module): add `experimental.componentDetection` option
-* feat(components): handle `description` in items and icons position
-* fix(ProseLi,ProseOl,ProseUl,ProseP): fix color && size
-* fix(ProseH1\H2\H3\H4\H5\H6): add support hash
-* fix(SidebarLayout): improve theme, import Button, add slot 'content-right'
-* fix(Slideover): remove hover from close button && add them slot `sidebarLayoutPageWrapper`
-* fix(defaultIcons): change close icon
-* fix(NavigationMenu): improve theme
-* fix(vue): add mock useRuntimeConfig
-* fix(ProseA): improve code hover
-* fix(ProseTable): fix `size`
-* fix(ProseCode): fix `color`
-* fix(TableWrapper): fix footer px|py for td
-* fix(Calendar): fix width && `color`, add locale prop from reka-ui
-* fix(Form): remove `joi` and `yup` in favor of @standard-schema/spec
-* fix(Form): flaky reactivity tests
-* fix(Form): improve nested form validation handling
-* fix(Form)!: don't mutate the form's state if transformations are enabled
-* fix(Input): remove `w-full`
-* fix(components): standardize naming for type interfaces
-* fix(Input\InputMenu\InputNumber\InputTags\Select\SelectMenu\Textarea): fix ring in hover state
-* fix(unplugin): handle components resolution with subpath
-* fix(Textarea): remove maxrows def value, fix width
-* fix(Accordion): improve theme
-* fix(App): allow global portal disabling
-* fix(Avatar): remove redundant `img` role, improve icon size
-* fix(Table): empty cell value causing hydration errors
-* fix(FileUpload): stuck focus while tabbing
-* fix(FileUpload): use native img element for blob URLs preview
-* fix(Modal/Slideover): remove close autofocus prevent
-* fix(Table)!: consistent args order in select event
-* fix(components): add missing `b24ui` prop in prose proxy components
-* fix(Slideover|SidebarLayout)!: remove composable `useSidebarLayout`
-* fix(unplugin): config for version
-* fix(FileUpload): handle disabling file delete button
-* fix(Kbd): return original value and use `uppercase` class
-* fix(InputMenu): ensure tag can be removed when number
-* docs(app): implement AI search
-* doc(Component): added components for displaying props, slots, etc
-* chore(style): fix var(--b24ui-header-h`eight)
-* test(components): add a11y tests
+## [2.0.0](https://github.com/bitrix24/b24ui/compare/v1.0.4...v2.0.0) (2025-10-21)
 
 ### ⚠ BREAKING CHANGES
-* **FieldGroup**: rename from `ButtonGroup`
+* **components:** rename nullify modifier to nullable and add optional
+* **Form:** don't mutate the form's state if transformations are enabled
+* **Table:** consistent args order in select event
+* **Slideover|SidebarLayout:** remove composable useSidebarLayout
+* **FieldGroup:** rename from ButtonGroup
 
 ### Features
 
-* Add **README** for Bitrix24 UI Kit — AI Reference
-* improve **ProseImg**
-* **FieldGroup**: rename from `ButtonGroup`
+* **components:** implement virtualization and expose `b24ui` in slot props
+* **components:** add `description` support in items and icons position
+* **module:** add `experimental.componentDetection` option
+* **overlays:** add `close` method to Popover slots
+* **useToast:** handle `max` global configuration
+* **menus:** add global event handlers and checkbox examples
+* **prose:** new components (Callout, Collapsible, CodeCollapse, CodeIcon, Tabs, Accordion, Badge, Kbd, Steps, Card, CodeGroup, CodePreview, Script)
+* **layout:** new components (Error, PageLinks, ContentSurround, ContentToc, Empty, PageCard, PageGrid, PageColumns, PageList)
+* **inputs:** new components (CheckboxGroup, ColorPicker, FileUpload, InputTags, PinInput)
+* **navigation:** new components (ContextMenu, Pagination, Timeline, User, Breadcrumb, ContentSearch, DashboardGroup, Stepper)
+* **data-display:** new components (Table, Banner, Card)
+* **color-mode:** improve configuration across all components
+* **locale:** improve configuration
+
+### Bug Fixes
+
+* **prose:** fix colors, sizes and add hash support for headings
+* **prose:** improve code hover and table sizing
+* **layouts:** improve SidebarLayout theme and Slideover close button
+* **NavigationMenu:** improve theme
+* **Form:** remove Joi and Yup in favor of @standard-schema/spec
+* **Form:** fix nested validation and reactivity issues
+* **inputs:** fix hover states and remove unwanted styles
+* **Table:** fix hydration errors and footer spacing
+* **FileUpload:** fix focus management and image preview
+* **Calendar:** fix width and color issues
+* **unplugin:** handle components resolution with subpath
+
+### Docs
+
+* **app:** implement AI search
+* **components:** add props, slots display components
+* **examples:** add input mask demonstration
 
 ### Chore
 
-* import `@nuxt/ui-pro` components
-* **locale** improve
+* **deps:** import `@nuxt/ui-pro` components
+* **tests:** add accessibility tests
+* **style:** fix CSS variable naming
+
 
 ## [1.0.4](https://github.com/bitrix24/b24ui/compare/v1.0.3...v1.0.4) (2025-09-02)
 
