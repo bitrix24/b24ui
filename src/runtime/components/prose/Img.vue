@@ -40,6 +40,7 @@ const props = withDefaults(defineProps<ProseImgProps>(), {
 const appConfig = useAppConfig() as ProseImg['AppConfig']
 
 const [DefineImageTemplate, ReuseImageTemplate] = createReusableTemplate()
+const [DefineZoomedImageTemplate, ReuseZoomedImageTemplate] = createReusableTemplate()
 
 const open = ref(false)
 
@@ -80,6 +81,16 @@ if (props.zoom) {
     />
   </DefineImageTemplate>
 
+  <DefineZoomedImageTemplate>
+    <component
+      :is="ImageComponent"
+      :src="refinedSrc"
+      :alt="alt"
+      v-bind="$attrs"
+      :class="b24ui.zoomedImage({ class: [props.b24ui?.zoomedImage] })"
+    />
+  </DefineZoomedImageTemplate>
+
   <DialogRoot
     v-if="zoom"
     v-slot="{ close }"
@@ -87,7 +98,7 @@ if (props.zoom) {
     :modal="false"
   >
     <DialogTrigger as-child>
-      <Motion :layout-id="layoutId" as-child :transition="{ type: 'spring', bounce: 0.2, duration: 0.4 }">
+      <Motion :layout-id="layoutId" as-child :transition="{ type: 'spring', bounce: 0.15, duration: 0.5, ease: 'easeInOut' }">
         <ReuseImageTemplate />
       </Motion>
     </DialogTrigger>
@@ -107,8 +118,8 @@ if (props.zoom) {
           :class="b24ui.content({ class: [props.b24ui?.content] })"
           @click="close"
         >
-          <Motion as-child :layout-id="layoutId" :transition="{ type: 'spring', bounce: 0.2, duration: 0.4 }">
-            <ReuseImageTemplate />
+          <Motion as-child :layout-id="layoutId" :transition="{ type: 'spring', bounce: 0.15, duration: 0.5, ease: 'easeInOut' }">
+            <ReuseZoomedImageTemplate />
           </Motion>
         </div>
       </AnimatePresence>
