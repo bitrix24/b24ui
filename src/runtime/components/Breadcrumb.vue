@@ -94,33 +94,33 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.breadc
             <B24LinkBase
               v-bind="slotProps"
               as="span"
-              :aria-current="active && (index === items!.length - 1) ? 'page' : undefined"
-              :class="b24ui.link({ class: [props.b24ui?.link, item.b24ui?.link, item.class], active: index === items!.length - 1, disabled: !!item.disabled, to: !!item.to })"
+              :aria-current="(item.active ?? active) && (index === items!.length - 1) ? 'page' : undefined"
+              :class="b24ui.link({ class: [props.b24ui?.link, item.b24ui?.link, item.class], active: item.active ?? (index === items!.length - 1), disabled: !!item.disabled, to: !!item.to })"
             >
               <slot
                 :name="((item.slot || 'item') as keyof BreadcrumbSlots<T>)"
                 :item="(item as Extract<T, { slot: string; }>)"
-                :active="index === items!.length - 1"
+                :active="item.active ?? (index === items!.length - 1)"
                 :index="index"
                 :b24ui="b24ui"
               >
                 <slot
                   :name="((item.slot ? `${item.slot}-leading`: 'item-leading') as keyof BreadcrumbSlots<T>)"
                   :item="(item as Extract<T, { slot: string; }>)"
-                  :active="index === items!.length - 1"
+                  :active="item.active ?? (index === items!.length - 1)"
                   :index="index"
                   :b24ui="b24ui"
                 >
                   <Component
                     :is="item.icon"
                     v-if="item.icon"
-                    :class="b24ui.linkLeadingIcon({ class: [props.b24ui?.linkLeadingIcon, item.b24ui?.linkLeadingIcon], active: index === items!.length - 1 })"
+                    :class="b24ui.linkLeadingIcon({ class: [props.b24ui?.linkLeadingIcon, item.b24ui?.linkLeadingIcon], active: item.active ?? (index === items!.length - 1) })"
                   />
                   <B24Avatar
                     v-else-if="item.avatar"
                     :size="((props.b24ui?.linkLeadingAvatarSize || b24ui.linkLeadingAvatarSize()) as AvatarProps['size'])"
                     v-bind="item.avatar"
-                    :class="b24ui.linkLeadingAvatar({ class: [props.b24ui?.linkLeadingAvatar, item.b24ui?.linkLeadingAvatar], active: index === items!.length - 1 })"
+                    :class="b24ui.linkLeadingAvatar({ class: [props.b24ui?.linkLeadingAvatar, item.b24ui?.linkLeadingAvatar], active: item.active ?? (index === items!.length - 1) })"
                   />
                 </slot>
 
@@ -131,7 +131,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.breadc
                   <slot
                     :name="((item.slot ? `${item.slot}-label`: 'item-label') as keyof DynamicSlots<T, 'label'>)"
                     :item="(item as Extract<T, { slot: string; }>)"
-                    :active="index === items!.length - 1"
+                    :active="item.active ?? (index === items!.length - 1)"
                     :index="index"
                   >
                     {{ get(item, props.labelKey as string) }}
@@ -141,7 +141,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.breadc
                 <slot
                   :name="((item.slot ? `${item.slot}-trailing`: 'item-trailing') as keyof DynamicSlots<T, 'trailing'>)"
                   :item="(item as Extract<T, { slot: string; }>)"
-                  :active="index === items!.length - 1"
+                  :active="item.active ?? (index === items!.length - 1)"
                   :index="index"
                 />
               </slot>

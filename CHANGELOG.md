@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.0.1](https://github.com/bitrix24/b24ui/compare/v2.0.0...v2.0.1) (2025-10-22)
+
+* fix(Breadcrumb): handle `active` in items
+
 ## [2.0.0](https://github.com/bitrix24/b24ui/compare/v1.0.4...v2.0.0) (2025-10-21)
 
 ### ⚠ BREAKING CHANGES
@@ -50,7 +54,6 @@
 * **deps:** import `@nuxt/ui-pro` components
 * **tests:** add accessibility tests
 * **style:** fix CSS variable naming
-
 
 ## [1.0.4](https://github.com/bitrix24/b24ui/compare/v1.0.3...v1.0.4) (2025-09-02)
 
