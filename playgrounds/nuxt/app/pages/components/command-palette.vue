@@ -26,6 +26,7 @@ const searchTerm = ref('')
 // const searchTermDebounced = refDebounced(searchTerm, 200)
 const selected = ref([])
 const virtualize = ref(false)
+const preserveGroupOrder = ref(false)
 
 const { data: users, status } = await useFetch('https://jsonplaceholder.typicode.com/users', {
   // params: { q: searchTermDebounced },
@@ -202,6 +203,7 @@ defineShortcuts({
         }
       }"
       multiple
+      :preserve-group-order="preserveGroupOrder"
       class="sm:max-h-96"
       @update:model-value="onSelect"
     >
@@ -234,6 +236,7 @@ defineShortcuts({
       <B24Separator class="my-3" type="dotted" />
       <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
         <B24Switch v-model="virtualize" label="Virtualize" />
+        <B24Switch v-model="preserveGroupOrder" label="Preserve order" />
 
         <B24Modal v-model:open="open" :b24ui="{ content: 'p-0 pt-0 pb-[0px]' }">
           <B24Button label="Open modal" />

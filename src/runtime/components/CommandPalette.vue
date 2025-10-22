@@ -162,6 +162,12 @@ export interface CommandPaletteProps<G extends CommandPaletteGroup<T> = CommandP
    * @defaultValue 'description'
    */
   descriptionKey?: GetItemKeys<T>
+  /**
+   * Whether to preserve the order of groups as defined in the `groups` prop when filtering.
+   * When `false`, groups will appear based on item matches.
+   * @defaultValue false
+   */
+  preserveGroupOrder?: boolean
   class?: any
   b24ui?: CommandPalette['slots']
 }
@@ -213,6 +219,7 @@ const props = withDefaults(defineProps<CommandPaletteProps<G, T>>(), {
   descriptionKey: 'description',
   autofocus: true,
   back: true,
+  preserveGroupOrder: false,
   virtualize: false
 })
 const emits = defineEmits<CommandPaletteEmits<T>>()
@@ -306,6 +313,26 @@ const filteredGroups = computed(() => {
 
     return acc
   }, {} as Record<string, (T & { matches?: FuseResult<T>['matches'] })[]>)
+
+  if (props.preserveGroupOrder) {
+    const processedGroups: Array<ReturnType<typeof getGroupWithItems>> = []
+
+    for (const group of groups.value || []) {
+      if (!group.items?.length) {
+        continue
+      }
+
+      const items = group.ignoreFilter
+        ? group.items
+        : groupsById[group.id]
+
+      if (items?.length) {
+        processedGroups.push(getGroupWithItems(group, items))
+      }
+    }
+
+    return processedGroups
+  }
 
   const fuseGroups = Object.entries(groupsById).map(([id, items]) => {
     const group = groups.value?.find(group => group.id === id)
