@@ -2,13 +2,17 @@
 
 ## [2.0.1](https://github.com/bitrix24/b24ui/compare/v2.0.0...v2.0.1) (2025-10-22)
 
-* fix(Breadcrumb): handle `active` in items
-* fix(ContextMenu/DropdownMenu): allow item content class override
-* fix(CommandPalette/ContextMenu/DropdownMenu): ensure items truncate work & itemTrailingIcon color
-* fix(ContentSearch): de-duplicate description and suffix
-* feat(ProseImg): improve `zoom` transition
-* feat(CommandPalette): preserve group order in search results
-* feat(CommandPalette): add `children-icon` prop to use `trailing-icon` in input
+### Features
+
+* **ProseImg:** improve `zoom` transition
+* **CommandPalette:** preserve group order in search results
+* **CommandPalette:** add `children-icon` prop to use `trailing-icon` in input
+
+### Bug Fixes
+* **Breadcrumb:** handle `active` in items
+* **ContextMenu/DropdownMenu:** allow item content class override
+* **CommandPalette/ContextMenu/DropdownMenu:** ensure items truncate work & itemTrailingIcon color
+* **ContentSearch:** de-duplicate description and suffix
 
 ## [2.0.0](https://github.com/bitrix24/b24ui/compare/v1.0.4...v2.0.0) (2025-10-21)
 
