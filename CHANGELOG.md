@@ -3,6 +3,7 @@
 ## [2.0.1](https://github.com/bitrix24/b24ui/compare/v2.0.0...v2.0.1) (2025-10-22)
 
 * fix(Breadcrumb): handle `active` in items
+* fix(ContextMenu/DropdownMenu): allow item content class override
 
 ## [2.0.0](https://github.com/bitrix24/b24ui/compare/v1.0.4...v2.0.0) (2025-10-21)
 

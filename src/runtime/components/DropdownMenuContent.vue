@@ -185,7 +185,7 @@ const groups = computed<DropdownMenuItem[][]>(() =>
   <DropdownMenu.Portal v-bind="portalProps">
     <component
       :is="sub ? DropdownMenu.SubContent : DropdownMenu.Content"
-      :class="props.class"
+      :class="b24ui.content({ class: [b24uiOverride?.content, props.class] })"
       v-bind="contentProps"
     >
       <slot name="content-top" />
@@ -218,7 +218,7 @@ const groups = computed<DropdownMenuItem[][]>(() =>
 
               <B24DropdownMenuContent
                 sub
-                :class="props.class"
+                :class="item.b24ui?.content"
                 :b24ui="b24ui"
                 :b24ui-override="b24uiOverride"
                 :portal="portal"
