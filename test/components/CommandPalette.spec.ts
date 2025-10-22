@@ -127,6 +127,8 @@ describe('CommandPalette', () => {
     ['with placeholder', { props: { ...props, placeholder: 'Search...' } }],
     ['with disabled', { props: { ...props, disabled: true } }],
     ['with icon', { props: { ...props, icon: Cross30Icon } }],
+    ['with trailingIcon', { props: { ...props, trailingIcon: SignIcon } }],
+    ['with childrenIcon', { props: { ...props, childrenIcon: Cross30Icon } }],
     ['with loading', { props: { ...props, loading: true } }],
     ['with loadingIcon', { props: { ...props, loading: true, loadingIcon: SignIcon } }],
     ['with selectedIcon', { props: { ...props, selectedIcon: Cross30Icon, modelValue: groups[2]?.items[0] } }],

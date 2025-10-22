@@ -75,6 +75,12 @@ export interface CommandPaletteProps<G extends CommandPaletteGroup<T> = CommandP
    */
   icon?: IconComponent
   /**
+   * The icon displayed on the right side of the input.
+   * @defaultValue icons.search
+   * @IconComponent
+   */
+  trailingIcon?: IconComponent
+  /**
    * The icon displayed when an item is selected.
    * @defaultValue icons.check
    * @IconComponent
@@ -85,7 +91,7 @@ export interface CommandPaletteProps<G extends CommandPaletteGroup<T> = CommandP
    * @defaultValue icons.chevronRight
    * @IconComponent
    */
-  trailingIcon?: IconComponent
+  childrenIcon?: IconComponent
   /**
    * The placeholder text for the input.
    * @defaultValue t('commandPalette.placeholder')
@@ -508,7 +514,7 @@ function onSelect(e: Event, item: T) {
                 :b24ui="b24ui"
               >
                 <Component
-                  :is="trailingIcon || icons.chevronRight"
+                  :is="childrenIcon || icons.chevronRight"
                   v-if="item.children && item.children.length > 0"
                   :class="b24ui.itemTrailingIcon({ class: [props.b24ui?.itemTrailingIcon, item.b24ui?.itemTrailingIcon] })"
                 />
@@ -551,6 +557,7 @@ function onSelect(e: Event, item: T) {
         :autofocus="autofocus"
         v-bind="inputProps"
         size="xl"
+        :trailing-icon="trailingIcon"
         :icon="icon || icons.search"
         :class="b24ui.input({ class: props.b24ui?.input })"
         @keydown.backspace="onBackspace"

@@ -8,6 +8,7 @@
 * fix(ContentSearch): de-duplicate description and suffix
 * feat(ProseImg): improve `zoom` transition
 * feat(CommandPalette): preserve group order in search results
+* feat(CommandPalette): add `children-icon` prop to use `trailing-icon` in input
 
 ## [2.0.0](https://github.com/bitrix24/b24ui/compare/v1.0.4...v2.0.0) (2025-10-21)
 
