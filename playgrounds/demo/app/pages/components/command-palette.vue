@@ -12,6 +12,7 @@ import Share2Icon from '@bitrix24/b24icons-vue/main/Share2Icon'
 import ShareIcon from '@bitrix24/b24icons-vue/button/ShareIcon'
 import UserCompanyIcon from '@bitrix24/b24icons-vue/common-b24/UserCompanyIcon'
 import Bitrix24Icon from '@bitrix24/b24icons-vue/common-service/Bitrix24Icon'
+import MoreLIcon from '@bitrix24/b24icons-vue/outline/MoreLIcon'
 
 usePageMeta.setPageTitle('CommandPalette')
 
@@ -97,18 +98,9 @@ const groups = computed(() => [
         kbds: ['meta', 'L']
       },
       {
-        label: 'Add label',
-        description: 'Add a label to the current item.',
-        icon: TagIcon,
-        onSelect(e: Event) {
-          e.preventDefault()
-
-          toast.add({ title: 'Label added!' })
-        },
-        kbds: ['meta', 'L']
-      },
-      {
         label: 'More actions',
+        description: 'More actions to perform on the current item.',
+        icon: MoreLIcon,
         placeholder: 'Search actions...',
         children: [
           {

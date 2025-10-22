@@ -58,7 +58,7 @@ export default {
     itemLeadingChip: 'shrink-0 size-[20px]',
     itemLeadingChipSize: 'md',
     itemTrailing: 'ms-auto inline-flex gap-[6px] items-center',
-    itemTrailingIcon: 'shrink-0 size-[20px]',
+    itemTrailingIcon: 'shrink-0 size-[20px] text-(--ui-color-accent-main-primary)',
     itemTrailingHighlightedIcon: [
       'shrink-0 size-[20px]',
       'text-(--b24ui-typography-label-color)',
@@ -67,7 +67,7 @@ export default {
     ].join(' '),
     itemTrailingKbds: 'hidden lg:inline-flex items-center shrink-0 gap-0.5',
     itemTrailingKbdsSize: 'md',
-    itemWrapper: 'flex-1 flex flex-col items-start min-w-0 overflow-hidden',
+    itemWrapper: 'flex-1 flex flex-col text-start min-w-0 overflow-hidden',
     itemLabel: 'truncate space-x-1 text-(--b24ui-typography-label-color)',
     itemDescription: 'truncate -mt-[6px] text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)',
     itemLabelBase: 'text-(--b24ui-typography-label-color) [&>mark]:text-(--ui-color-black-base) [&>mark]:bg-(--ui-color-collab-accent-less-1)',

@@ -71,10 +71,10 @@ export default {
     itemLeadingAvatar: 'shrink-0 size-[16px] me-[8px]', // @memo 18-2px
     itemLeadingAvatarSize: '2xs', // @memo this wrong
     itemTrailing: 'ml-auto rtl:ml-0 rtl:mr-auto inline-flex gap-1.5 items-center',
-    itemTrailingIcon: 'shrink-0 size-[24px] text-(--ui-color-design-plain-content-icon-secondary)',
+    itemTrailingIcon: 'shrink-0 size-[24px] text-(--ui-color-accent-main-primary)',
     itemTrailingKbds: 'shrink-0 hidden lg:inline-flex items-center gap-0.5',
     itemTrailingKbdsSize: 'md',
-    itemWrapper: 'flex-1 flex flex-col items-start min-w-0',
+    itemWrapper: 'flex-1 flex flex-col text-start min-w-0',
     itemLabel: [
       'max-w-[240px] truncate -mt-px',
       'group-data-[state=checked]:text-(--ui-color-accent-main-primary)'
