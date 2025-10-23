@@ -16,6 +16,8 @@ import TrendUpIcon from '@bitrix24/b24icons-vue/outline/TrendUpIcon'
 import TrendDownIcon from '@bitrix24/b24icons-vue/outline/TrendDownIcon'
 import { useMockMenu } from './../../composables/useMockMenu'
 import B24Slideover from '@bitrix24/b24ui-nuxt/components/Slideover.vue'
+import { useDashboard } from '@bitrix24/b24ui-nuxt/utils/dashboard'
+import { sleepAction } from '../../utils/sleep'
 
 usePageMeta.setPageTitle('Slideover')
 
@@ -43,8 +45,16 @@ function openSlideover() {
   })
 }
 
-const handleSidebarLayoutLoadingAction = async () => {
-  await new Promise(resolve => setTimeout(resolve, 2_000))
+/**
+ * @todo make inner toggle
+ * @todo add demo
+ * @todo add docs
+ */
+const { sidebarLoading, toggleLoading } = useDashboard({ sidebarLoading: ref(false), toggleLoading: () => {} })
+const makeToggleLoading = async (timeout: number = 1000) => {
+  toggleLoading?.(!sidebarLoading?.value)
+  await sleepAction(timeout)
+  toggleLoading?.(!sidebarLoading?.value)
 }
 
 const openSliderTopAndBottom = async () => {
@@ -345,39 +355,40 @@ const openSliderTopAndBottom = async () => {
           </template>
         </B24Slideover>
 
-        <B24Slideover
-          ref="currentSlideoverRef"
-          title="File upload"
-          description="Some description"
-          :use-light-content="false"
-          :b24ui="{
-            content: 'sm:max-w-1/2',
-            sidebarLayoutLoadingIcon: 'text-(--ui-color-red-70)'
-          }"
-        >
-          <B24Button label="Upload file" />
+        <B24DashboardGroup>
+          <B24Slideover
+            title="File upload"
+            description="Some description"
+            :use-light-content="false"
+            :b24ui="{
+              content: 'sm:max-w-1/2',
+              sidebarLayoutLoadingIcon: 'text-(--ui-color-red-70)'
+            }"
+          >
+            <B24Button label="Upload file" />
 
-          <template #body>
-            <div class="p-5 light rounded-(--ui-border-radius-md) bg-(--ui-color-background-primary)">
-              <MockContentUploadFile />
-            </div>
-          </template>
+            <template #body>
+              <div class="p-5 light rounded-(--ui-border-radius-md) bg-(--ui-color-background-primary)">
+                <MockContentUploadFile />
+              </div>
+            </template>
 
-          <template #footer>
-            <B24Button
-              label="Reload"
-              color="air-primary"
-              loading-auto
-              @click="handleSidebarLayoutLoadingAction"
-            />
-            <B24ModalDialogClose>
-              <B24Button label="Send" color="air-primary-success" />
-            </B24ModalDialogClose>
-            <B24ModalDialogClose>
-              <B24Button label="Cancel" color="air-tertiary" />
-            </B24ModalDialogClose>
-          </template>
-        </B24Slideover>
+            <template #footer>
+              <B24Button
+                label="Reload"
+                color="air-primary"
+                loading-auto
+                @click="makeToggleLoading(1500)"
+              />
+              <B24ModalDialogClose>
+                <B24Button label="Send" color="air-primary-success" />
+              </B24ModalDialogClose>
+              <B24ModalDialogClose>
+                <B24Button label="Cancel" color="air-tertiary" />
+              </B24ModalDialogClose>
+            </template>
+          </B24Slideover>
+        </B24DashboardGroup>
 
         <B24Slideover
           v-model:open="openTopAndBottom"

@@ -6,6 +6,11 @@ import type { ComponentConfig } from '../types/tv'
 type SidebarLayout = ComponentConfig<typeof theme, AppConfig, 'sidebarLayout'>
 export interface SidebarLayoutProps {
   /**
+   * The id of the SidebarLayout.
+   * @defaultValue useId()
+   */
+  id?: string
+  /**
    * The element or component this component should render as.
    * @defaultValue 'div'
    */
@@ -56,11 +61,12 @@ export interface SidebarLayoutSlots {
 </script>
 
 <script setup lang="ts">
-import { ref, computed, watch, onUnmounted } from 'vue'
+import { ref, computed, watch, onUnmounted, useId, isRef } from 'vue'
 import { useRoute } from 'vue-router'
 import { Primitive } from 'reka-ui'
-import { useAppConfig } from '#imports'
+import { useAppConfig, useRuntimeHook } from '#imports'
 import { useLocale } from '../composables/useLocale'
+import { useDashboard } from '../utils/dashboard'
 import { tv } from '../utils/tv'
 import B24Button from './Button.vue'
 import B24Slideover from './Slideover.vue'
@@ -79,8 +85,33 @@ const props = withDefaults(defineProps<SidebarLayoutProps>(), {
 })
 const slots = defineSlots<SidebarLayoutSlots>()
 
+const loading = defineModel<boolean>('loading', { default: false })
+const isLoading = computed({
+  get: () => loading.value,
+  set: (value: boolean) => {
+    if (isRef(loading)) {
+      loading.value = value
+    }
+  }
+})
+
 const { t } = useLocale()
 const appConfig = useAppConfig() as SidebarLayout['AppConfig']
+
+const dashboardContext = useDashboard({
+  storageKey: 'dashboard',
+  unit: '%',
+  sidebarOpen: ref(false),
+  sidebarCollapsed: ref(false),
+  sidebarLoading: ref(false)
+})
+
+useRuntimeHook('dashboard:content:loading', (value: boolean) => {
+  isLoading.value = value
+})
+watch(isLoading, () => dashboardContext.sidebarLoading!.value = isLoading.value, { immediate: true })
+
+const id = `${dashboardContext.storageKey}-sidebar-${props.id || useId()}`
 
 const route = useRoute()
 const isUseSideBar = computed(() => !!slots.sidebar)
@@ -117,15 +148,13 @@ onUnmounted(() => {
 const handleNavigationClick = () => {
   closeModal()
 }
-
-/**
- * @todo make normal logic
- */
-const isLoading = ref(false)
 </script>
 
 <template>
   <Primitive
+    :id="id"
+    ref="el"
+    v-bind="$attrs"
     :data-state="isLoading ? 'loading' : 'show'"
     :as="as"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"

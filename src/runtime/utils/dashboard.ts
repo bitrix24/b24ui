@@ -5,9 +5,11 @@ import type { UseResizableProps } from '../composables/useResizable'
 export interface DashboardContext extends Pick<UseResizableProps, 'storage' | 'storageKey' | 'persistent' | 'unit'> {
   sidebarOpen?: Ref<boolean>
   sidebarCollapsed?: Ref<boolean>
+  sidebarLoading?: Ref<boolean>
   toggleSearch?: () => void
   toggleSidebar?: () => void
   collapseSidebar?: (collapsed: boolean) => void
+  toggleLoading?: (loading: boolean) => void
 }
 
 export const [useDashboard, provideDashboardContext] = createContext<DashboardContext>('DashboardGroup')

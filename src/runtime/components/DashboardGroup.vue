@@ -42,6 +42,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashbo
 
 const sidebarOpen = ref(false)
 const sidebarCollapsed = ref(false)
+const sidebarLoading = ref(false)
 
 provideDashboardContext({
   storage: props.storage,
@@ -58,6 +59,10 @@ provideDashboardContext({
   },
   toggleSearch: () => {
     nuxtApp.hooks.callHook('dashboard:search:toggle')
+  },
+  sidebarLoading,
+  toggleLoading: (loading: boolean) => {
+    nuxtApp.hooks.callHook('dashboard:content:loading', loading)
   }
 })
 </script>
