@@ -4,7 +4,8 @@ export default defineAppConfig({
     position: 'top-right' as const,
     duration: 5000,
     max: 5,
-    expand: true
+    expand: true,
+    disableSwipe: false
   },
   b24ui: {},
   colorMode: true,

@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Calendar > renders with as correctly 1`] = `
-"<section role="application" aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<section aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
@@ -185,7 +185,7 @@ exports[`Calendar > renders with as correctly 1`] = `
 `;
 
 exports[`Calendar > renders with b24ui correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between gap-4">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
@@ -369,7 +369,7 @@ exports[`Calendar > renders with b24ui correctly 1`] = `
 `;
 
 exports[`Calendar > renders with class correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled max-w-sm">
+"<div aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled max-w-sm">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
@@ -553,7 +553,7 @@ exports[`Calendar > renders with class correctly 1`] = `
 `;
 
 exports[`Calendar > renders with color success correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled-success">
+"<div aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled-success">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
@@ -737,7 +737,7 @@ exports[`Calendar > renders with color success correctly 1`] = `
 `;
 
 exports[`Calendar > renders with day slot correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
@@ -921,7 +921,7 @@ exports[`Calendar > renders with day slot correctly 1`] = `
 `;
 
 exports[`Calendar > renders with default value correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
@@ -1105,7 +1105,7 @@ exports[`Calendar > renders with default value correctly 1`] = `
 `;
 
 exports[`Calendar > renders with disabled correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" data-disabled="" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January 2025" data-disabled="" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" disabled="" aria-label="Previous month" aria-disabled="true" data-disabled="true" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
@@ -1289,7 +1289,7 @@ exports[`Calendar > renders with disabled correctly 1`] = `
 `;
 
 exports[`Calendar > renders with heading slot correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
@@ -1473,7 +1473,7 @@ exports[`Calendar > renders with heading slot correctly 1`] = `
 `;
 
 exports[`Calendar > renders with isDateDisabled correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
@@ -1657,7 +1657,7 @@ exports[`Calendar > renders with isDateDisabled correctly 1`] = `
 `;
 
 exports[`Calendar > renders with isDateUnavailable correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
@@ -1841,7 +1841,7 @@ exports[`Calendar > renders with isDateUnavailable correctly 1`] = `
 `;
 
 exports[`Calendar > renders with modelValue correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
@@ -2025,7 +2025,7 @@ exports[`Calendar > renders with modelValue correctly 1`] = `
 `;
 
 exports[`Calendar > renders with multiple correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
@@ -2209,7 +2209,7 @@ exports[`Calendar > renders with multiple correctly 1`] = `
 `;
 
 exports[`Calendar > renders with nextMonth correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" dir="ltr" nextmonth="[object Object]" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January 2025" dir="ltr" nextmonth="[object Object]" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
@@ -2393,7 +2393,7 @@ exports[`Calendar > renders with nextMonth correctly 1`] = `
 `;
 
 exports[`Calendar > renders with nextYear correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" dir="ltr" nextyear="[object Object]" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January 2025" dir="ltr" nextyear="[object Object]" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
@@ -2577,7 +2577,7 @@ exports[`Calendar > renders with nextYear correctly 1`] = `
 `;
 
 exports[`Calendar > renders with numberOfMonths correctly 1`] = `
-"<div role="application" aria-label="Event Date, January - February 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January - February 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
@@ -2914,7 +2914,7 @@ exports[`Calendar > renders with numberOfMonths correctly 1`] = `
 `;
 
 exports[`Calendar > renders with prevMonth correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" dir="ltr" prevmonth="[object Object]" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January 2025" dir="ltr" prevmonth="[object Object]" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) ui-btn-lg rounded-(--ui-btn-radius) normal-case --air --style-primary">
       <!--v-if-->
@@ -3098,7 +3098,7 @@ exports[`Calendar > renders with prevMonth correctly 1`] = `
 `;
 
 exports[`Calendar > renders with prevYear correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" dir="ltr" prevyear="[object Object]" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January 2025" dir="ltr" prevyear="[object Object]" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
@@ -3282,7 +3282,7 @@ exports[`Calendar > renders with prevYear correctly 1`] = `
 `;
 
 exports[`Calendar > renders with range correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
     <div role="heading" aria-level="2">Event Date, January 2025</div>
   </div>
@@ -3466,7 +3466,7 @@ exports[`Calendar > renders with range correctly 1`] = `
 `;
 
 exports[`Calendar > renders with readonly correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" data-readonly="" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January 2025" data-readonly="" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
@@ -3650,7 +3650,7 @@ exports[`Calendar > renders with readonly correctly 1`] = `
 `;
 
 exports[`Calendar > renders with size lg correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
@@ -3834,7 +3834,7 @@ exports[`Calendar > renders with size lg correctly 1`] = `
 `;
 
 exports[`Calendar > renders with size md correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
@@ -4018,7 +4018,7 @@ exports[`Calendar > renders with size md correctly 1`] = `
 `;
 
 exports[`Calendar > renders with size sm correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
@@ -4202,7 +4202,7 @@ exports[`Calendar > renders with size sm correctly 1`] = `
 `;
 
 exports[`Calendar > renders with size xs correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-xs rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
@@ -4386,7 +4386,7 @@ exports[`Calendar > renders with size xs correctly 1`] = `
 `;
 
 exports[`Calendar > renders with week-day slot correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
@@ -4570,7 +4570,7 @@ exports[`Calendar > renders with week-day slot correctly 1`] = `
 `;
 
 exports[`Calendar > renders with weekStartsOn correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
@@ -4754,7 +4754,7 @@ exports[`Calendar > renders with weekStartsOn correctly 1`] = `
 `;
 
 exports[`Calendar > renders with weekdayFormat correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
@@ -4938,7 +4938,7 @@ exports[`Calendar > renders with weekdayFormat correctly 1`] = `
 `;
 
 exports[`Calendar > renders without fixedWeeks correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
@@ -5099,7 +5099,7 @@ exports[`Calendar > renders without fixedWeeks correctly 1`] = `
 `;
 
 exports[`Calendar > renders without monthControls correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between">
     <!--v-if-->
     <!--v-if-->
@@ -5269,7 +5269,7 @@ exports[`Calendar > renders without monthControls correctly 1`] = `
 `;
 
 exports[`Calendar > renders without yearControls correctly 1`] = `
-"<div role="application" aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
+"<div aria-label="Event Date, January 2025" dir="ltr" class="font-[family-name:var(--ui-font-family-primary)] style-filled">
   <div class="flex items-center justify-between">
     <!--v-if--><button type="button" aria-label="Previous month" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->

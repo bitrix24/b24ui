@@ -201,6 +201,7 @@ function removeToast() {
         <B24SidebarBody>
           <div class="space-y-6 px-[25px]">
             <B24RadioGroup v-model="appConfig.toaster.position" legend="Position" :items="positions" />
+            <B24Switch v-model="appConfig.toaster.disableSwipe" label="Disable swipe" class="mt-1" />
             <B24Switch v-model="appConfig.toaster.expand" label="Expand" class="mt-1" />
             <B24Switch v-model="isShowProgress" label="isShowProgress" class="mt-1" />
             <B24FormField
