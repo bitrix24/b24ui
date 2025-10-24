@@ -6,7 +6,7 @@ import NewMessageIcon from '@bitrix24/b24icons-vue/outline/NewMessageIcon'
   <B24Banner
     id="new-component-banner"
     title="New components have been implemented! Explore them."
-    to="/docs/components/error/"
+    to="/docs/components/card/"
     :icon="NewMessageIcon"
     close
     color="air-primary-copilot"
