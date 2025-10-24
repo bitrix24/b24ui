@@ -4,6 +4,7 @@
 
 * feat(InputNumber): handle `increment` / `decrement` as booleans
 * fix(Error): render as `div` instead of `main`
+* feat(SidebarLayout/DashboardGroup): improve sidebarLoading hook
 
 ## [2.0.2](https://github.com/bitrix24/b24ui/compare/v2.0.1...v2.0.2) (2025-10-23)
 

@@ -1,15 +1,11 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/sidebar-layout'
+import type { UseLoadingProps } from '../composables/useLoading'
 import type { ComponentConfig } from '../types/tv'
 
 type SidebarLayout = ComponentConfig<typeof theme, AppConfig, 'sidebarLayout'>
-export interface SidebarLayoutProps {
-  /**
-   * The id of the SidebarLayout.
-   * @defaultValue useId()
-   */
-  id?: string
+export interface SidebarLayoutProps extends Pick<UseLoadingProps, 'id'> {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
@@ -31,7 +27,7 @@ export interface SidebarLayoutProps {
    */
   offContentScrollbar?: boolean
   class?: any
-  b24ui?: Pick<SidebarLayout['slots'], 'root' | 'sidebar' | 'sidebarSlideoverContainer' | 'sidebarSlideover' | 'sidebarSlideoverBtnClose' | 'contentWrapper' | 'header' | 'headerMenuIcon' | 'headerWrapper' | 'pageWrapper' | 'container' | 'containerWrapper' | 'pageTopWrapper' | 'pageActionsWrapper' | 'containerWrapperInner' | 'pageRightWrapper' | 'pageBottomWrapper' | 'loadingWrapper' | 'loadingIcon'>
+  b24ui?: SidebarLayout['slots']
 }
 
 export interface SidebarLayoutSlots {
@@ -61,10 +57,11 @@ export interface SidebarLayoutSlots {
 </script>
 
 <script setup lang="ts">
-import { ref, computed, watch, onUnmounted, useId, isRef } from 'vue'
+import { ref, computed, watch, onUnmounted, useId, toRef } from 'vue'
 import { useRoute } from 'vue-router'
 import { Primitive } from 'reka-ui'
 import { useAppConfig, useRuntimeHook } from '#imports'
+import { useLoading } from '../composables/useLoading'
 import { useLocale } from '../composables/useLocale'
 import { useDashboard } from '../utils/dashboard'
 import { tv } from '../utils/tv'
@@ -86,32 +83,32 @@ const props = withDefaults(defineProps<SidebarLayoutProps>(), {
 const slots = defineSlots<SidebarLayoutSlots>()
 
 const loading = defineModel<boolean>('loading', { default: false })
-const isLoading = computed({
-  get: () => loading.value,
-  set: (value: boolean) => {
-    if (isRef(loading)) {
-      loading.value = value
-    }
-  }
-})
 
 const { t } = useLocale()
 const appConfig = useAppConfig() as SidebarLayout['AppConfig']
 
 const dashboardContext = useDashboard({
   storageKey: 'dashboard',
-  unit: '%',
   sidebarOpen: ref(false),
-  sidebarCollapsed: ref(false),
-  sidebarLoading: ref(false)
+  isLoading: ref(false)
 })
 
-useRuntimeHook('dashboard:content:loading', (value: boolean) => {
+const id = `${dashboardContext.storageKey}-${dashboardContext.contextId}-sidebar-layout-${props.id || useId()}`
+
+const { elLayout, isLoading } = useLoading(
+  id,
+  toRef(() => ({ ...dashboardContext, ...props })),
+  { loading }
+)
+
+useRuntimeHook('dashboard:content:load', (value: boolean, contextId?: string) => {
+  if (contextId !== dashboardContext.contextId) {
+    return
+  }
   isLoading.value = value
 })
-watch(isLoading, () => dashboardContext.sidebarLoading!.value = isLoading.value, { immediate: true })
 
-const id = `${dashboardContext.storageKey}-sidebar-${props.id || useId()}`
+watch(isLoading, () => dashboardContext.isLoading!.value = isLoading.value, { immediate: true })
 
 const route = useRoute()
 const isUseSideBar = computed(() => !!slots.sidebar)
@@ -153,23 +150,31 @@ const handleNavigationClick = () => {
 <template>
   <Primitive
     :id="id"
-    ref="el"
+    ref="elLayout"
     v-bind="$attrs"
-    :data-state="isLoading ? 'loading' : 'show'"
+    data-state="isLoading ? 'loading' : 'show'"
     :as="as"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
   >
     <!-- isLoading -->
     <slot name="loading" :is-loading="isLoading" :b24ui="b24ui">
-      <div
-        v-if="isLoading"
-        :class="b24ui.loadingWrapper({ class: props.b24ui?.loadingWrapper })"
+      <B24Slideover
+        v-model:open="isLoading"
+        :close="false"
+        :dismissible="false"
+        :transition="false"
+        side="top"
+        overlay-blur="off"
       >
-        <BtnSpinnerIcon
-          :class="b24ui.loadingIcon({ class: props.b24ui?.loadingIcon })"
-          aria-hidden="true"
-        />
-      </div>
+        <template #content>
+          <div :class="b24ui.loadingWrapper({ class: props.b24ui?.loadingWrapper })">
+            <BtnSpinnerIcon
+              :class="b24ui.loadingIcon({ class: props.b24ui?.loadingIcon })"
+              aria-hidden="true"
+            />
+          </div>
+        </template>
+      </B24Slideover>
     </slot>
     <template v-if="isUseSideBar">
       <div :class="b24ui.sidebar({ class: props.b24ui?.sidebar })">

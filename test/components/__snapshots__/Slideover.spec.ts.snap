@@ -17,9 +17,11 @@ exports[`Slideover > renders with actions slot correctly 1`] = `
       <!--v-if-->
     </div>
   </button>
-  <div id="dashboard-sidebar-v-0-0-2" data-state="show" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
+  <div id="dashboard-undefined-sidebar-layout-v-0-0-2" data-state="isLoading ? 'loading' : 'show'" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
     <!-- isLoading -->
     <!--v-if-->
+    <!--teleport start-->
+    <!--teleport end-->
     <!--v-if-->
     <div class="flex-1 flex flex-col">
       <!--v-if-->
@@ -58,9 +60,11 @@ exports[`Slideover > renders with b24ui correctly 1`] = `
       <!--v-if-->
     </div>
   </button>
-  <div id="dashboard-sidebar-v-0-0-2" data-state="show" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
+  <div id="dashboard-undefined-sidebar-layout-v-0-0-2" data-state="isLoading ? 'loading' : 'show'" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
     <!-- isLoading -->
     <!--v-if-->
+    <!--teleport start-->
+    <!--teleport end-->
     <!--v-if-->
     <div class="flex-1 flex flex-col">
       <!--v-if-->
@@ -94,9 +98,11 @@ exports[`Slideover > renders with body slot correctly 1`] = `
       <!--v-if-->
     </div>
   </button>
-  <div id="dashboard-sidebar-v-0-0-2" data-state="show" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
+  <div id="dashboard-undefined-sidebar-layout-v-0-0-2" data-state="isLoading ? 'loading' : 'show'" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
     <!-- isLoading -->
     <!--v-if-->
+    <!--teleport start-->
+    <!--teleport end-->
     <!--v-if-->
     <div class="flex-1 flex flex-col">
       <!--v-if-->
@@ -139,9 +145,11 @@ exports[`Slideover > renders with bottom side correctly 1`] = `
       <!--v-if-->
     </div>
   </button>
-  <div id="dashboard-sidebar-v-0-0-2" data-state="show" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
+  <div id="dashboard-undefined-sidebar-layout-v-0-0-2" data-state="isLoading ? 'loading' : 'show'" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
     <!-- isLoading -->
     <!--v-if-->
+    <!--teleport start-->
+    <!--teleport end-->
     <!--v-if-->
     <div class="flex-1 flex flex-col">
       <!--v-if-->
@@ -195,9 +203,11 @@ exports[`Slideover > renders with class correctly 1`] = `
       <!--v-if-->
     </div>
   </button>
-  <div id="dashboard-sidebar-v-0-0-2" data-state="show" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
+  <div id="dashboard-undefined-sidebar-layout-v-0-0-2" data-state="isLoading ? 'loading' : 'show'" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
     <!-- isLoading -->
     <!--v-if-->
+    <!--teleport start-->
+    <!--teleport end-->
     <!--v-if-->
     <div class="flex-1 flex flex-col">
       <!--v-if-->
@@ -221,9 +231,11 @@ exports[`Slideover > renders with close slot correctly 1`] = `
 
 <div data-state="open" style="pointer-events: auto;" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
 <div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:max-h-[calc(100%-18px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
-  <!--v-if-->Close slot<div id="dashboard-sidebar-v-0-0-2" data-state="show" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
+  <!--v-if-->Close slot<div id="dashboard-undefined-sidebar-layout-v-0-0-2" data-state="isLoading ? 'loading' : 'show'" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
     <!-- isLoading -->
     <!--v-if-->
+    <!--teleport start-->
+    <!--teleport end-->
     <!--v-if-->
     <div class="flex-1 flex flex-col">
       <!--v-if-->
@@ -257,9 +269,11 @@ exports[`Slideover > renders with closeIcon correctly 1`] = `
       <!--v-if-->
     </div>
   </button>
-  <div id="dashboard-sidebar-v-0-0-2" data-state="show" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
+  <div id="dashboard-undefined-sidebar-layout-v-0-0-2" data-state="isLoading ? 'loading' : 'show'" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
     <!-- isLoading -->
     <!--v-if-->
+    <!--teleport start-->
+    <!--teleport end-->
     <!--v-if-->
     <div class="flex-1 flex flex-col">
       <!--v-if-->
@@ -307,9 +321,11 @@ exports[`Slideover > renders with default slot correctly 1`] = `
       <!--v-if-->
     </div>
   </button>
-  <div id="dashboard-sidebar-v-0-0-3" data-state="show" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
+  <div id="dashboard-undefined-sidebar-layout-v-0-0-3" data-state="isLoading ? 'loading' : 'show'" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
     <!-- isLoading -->
     <!--v-if-->
+    <!--teleport start-->
+    <!--teleport end-->
     <!--v-if-->
     <div class="flex-1 flex flex-col">
       <!--v-if-->
@@ -343,9 +359,11 @@ exports[`Slideover > renders with description correctly 1`] = `
       <!--v-if-->
     </div>
   </button>
-  <div id="dashboard-sidebar-v-0-0-2" data-state="show" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
+  <div id="dashboard-undefined-sidebar-layout-v-0-0-2" data-state="isLoading ? 'loading' : 'show'" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
     <!-- isLoading -->
     <!--v-if-->
+    <!--teleport start-->
+    <!--teleport end-->
     <!--v-if-->
     <div class="flex-1 flex flex-col">
       <!--v-if-->
@@ -399,9 +417,11 @@ exports[`Slideover > renders with description slot correctly 1`] = `
       <!--v-if-->
     </div>
   </button>
-  <div id="dashboard-sidebar-v-0-0-2" data-state="show" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
+  <div id="dashboard-undefined-sidebar-layout-v-0-0-2" data-state="isLoading ? 'loading' : 'show'" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
     <!-- isLoading -->
     <!--v-if-->
+    <!--teleport start-->
+    <!--teleport end-->
     <!--v-if-->
     <div class="flex-1 flex flex-col">
       <!--v-if-->
@@ -455,9 +475,11 @@ exports[`Slideover > renders with footer slot correctly 1`] = `
       <!--v-if-->
     </div>
   </button>
-  <div id="dashboard-sidebar-v-0-0-2" data-state="show" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
+  <div id="dashboard-undefined-sidebar-layout-v-0-0-2" data-state="isLoading ? 'loading' : 'show'" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
     <!-- isLoading -->
     <!--v-if-->
+    <!--teleport start-->
+    <!--teleport end-->
     <!--v-if-->
     <div class="flex-1 flex flex-col">
       <!--v-if-->
@@ -491,9 +513,11 @@ exports[`Slideover > renders with header slot correctly 1`] = `
       <!--v-if-->
     </div>
   </button>
-  <div id="dashboard-sidebar-v-0-0-2" data-state="show" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
+  <div id="dashboard-undefined-sidebar-layout-v-0-0-2" data-state="isLoading ? 'loading' : 'show'" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
     <!-- isLoading -->
     <!--v-if-->
+    <!--teleport start-->
+    <!--teleport end-->
     <!--v-if-->
     <div class="flex-1 flex flex-col">
       <!--v-if-->
@@ -534,9 +558,11 @@ exports[`Slideover > renders with left side correctly 1`] = `
       <!--v-if-->
     </div>
   </button>
-  <div id="dashboard-sidebar-v-0-0-2" data-state="show" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-none">
+  <div id="dashboard-undefined-sidebar-layout-v-0-0-2" data-state="isLoading ? 'loading' : 'show'" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-none">
     <!-- isLoading -->
     <!--v-if-->
+    <!--teleport start-->
+    <!--teleport end-->
     <!--v-if-->
     <div class="flex-1 flex flex-col">
       <!--v-if-->
@@ -590,9 +616,11 @@ exports[`Slideover > renders with open correctly 1`] = `
       <!--v-if-->
     </div>
   </button>
-  <div id="dashboard-sidebar-v-0-0-2" data-state="show" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
+  <div id="dashboard-undefined-sidebar-layout-v-0-0-2" data-state="isLoading ? 'loading' : 'show'" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
     <!-- isLoading -->
     <!--v-if-->
+    <!--teleport start-->
+    <!--teleport end-->
     <!--v-if-->
     <div class="flex-1 flex flex-col">
       <!--v-if-->
@@ -626,9 +654,11 @@ exports[`Slideover > renders with title correctly 1`] = `
       <!--v-if-->
     </div>
   </button>
-  <div id="dashboard-sidebar-v-0-0-2" data-state="show" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
+  <div id="dashboard-undefined-sidebar-layout-v-0-0-2" data-state="isLoading ? 'loading' : 'show'" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
     <!-- isLoading -->
     <!--v-if-->
+    <!--teleport start-->
+    <!--teleport end-->
     <!--v-if-->
     <div class="flex-1 flex flex-col">
       <!--v-if-->
@@ -682,9 +712,11 @@ exports[`Slideover > renders with title slot correctly 1`] = `
       <!--v-if-->
     </div>
   </button>
-  <div id="dashboard-sidebar-v-0-0-2" data-state="show" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
+  <div id="dashboard-undefined-sidebar-layout-v-0-0-2" data-state="isLoading ? 'loading' : 'show'" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
     <!-- isLoading -->
     <!--v-if-->
+    <!--teleport start-->
+    <!--teleport end-->
     <!--v-if-->
     <div class="flex-1 flex flex-col">
       <!--v-if-->
@@ -730,9 +762,11 @@ exports[`Slideover > renders with top side correctly 1`] = `
 <div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="top" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full inset-x-0 top-0 max-h-full sm:rounded-t-none motion-safe:data-[state=open]:animate-[slide-in-from-top_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-top_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <!--v-if-->
-  <div id="dashboard-sidebar-v-0-0-2" data-state="show" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-none">
+  <div id="dashboard-undefined-sidebar-layout-v-0-0-2" data-state="isLoading ? 'loading' : 'show'" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-none">
     <!-- isLoading -->
     <!--v-if-->
+    <!--teleport start-->
+    <!--teleport end-->
     <!--v-if-->
     <div class="flex-1 flex flex-col">
       <!--v-if-->
@@ -778,9 +812,11 @@ exports[`Slideover > renders without close correctly 1`] = `
 <div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:max-h-[calc(100%-18px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <!--v-if-->
-  <div id="dashboard-sidebar-v-0-0-2" data-state="show" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
+  <div id="dashboard-undefined-sidebar-layout-v-0-0-2" data-state="isLoading ? 'loading' : 'show'" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
     <!-- isLoading -->
     <!--v-if-->
+    <!--teleport start-->
+    <!--teleport end-->
     <!--v-if-->
     <div class="flex-1 flex flex-col">
       <!--v-if-->
@@ -827,9 +863,11 @@ exports[`Slideover > renders without overlay correctly 1`] = `
       <!--v-if-->
     </div>
   </button>
-  <div id="dashboard-sidebar-v-0-0-2" data-state="show" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
+  <div id="dashboard-undefined-sidebar-layout-v-0-0-2" data-state="isLoading ? 'loading' : 'show'" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
     <!-- isLoading -->
     <!--v-if-->
+    <!--teleport start-->
+    <!--teleport end-->
     <!--v-if-->
     <div class="flex-1 flex flex-col">
       <!--v-if-->
@@ -883,9 +921,11 @@ exports[`Slideover > renders without transition correctly 1`] = `
       <!--v-if-->
     </div>
   </button>
-  <div id="dashboard-sidebar-v-0-0-2" data-state="show" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
+  <div id="dashboard-undefined-sidebar-layout-v-0-0-2" data-state="isLoading ? 'loading' : 'show'" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex --inner light isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
     <!-- isLoading -->
     <!--v-if-->
+    <!--teleport start-->
+    <!--teleport end-->
     <!--v-if-->
     <div class="flex-1 flex flex-col">
       <!--v-if-->

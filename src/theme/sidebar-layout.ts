@@ -81,7 +81,7 @@ export default {
     pageBottomWrapper: '',
     loadingWrapper: [
       'cursor-wait',
-      'isolate absolute z-1000 inset-0',
+      // 'isolate absolute z-1000 inset-0',
       'w-full h-dvh',
       'flex flex-row flex-nowrap items-center justify-center'
       // @memo save
@@ -145,10 +145,9 @@ export default {
     useLightContent: {
       true: {
         containerWrapper: [
-          // @memo set context* from component
           'light',
           'text-(--ui-color-text-primary)',
-          'bg-(--ui-color-bg-content-primary) ' // backdrop-blur-md dark:bg-(--ui-color-base-7)/80 edge-dark:bg-(--ui-color-base-7)/95
+          'bg-(--ui-color-bg-content-primary)'
         ].join(' '),
         loadingIcon: [
           'edge-dark:text-(--ui-color-gray-70)'
@@ -163,13 +162,8 @@ export default {
       true: ''
     },
     useNavbar: {
-      true: {
-        container: ''
-      },
-      false: {
-        loadingWrapper: 'h-full',
-        container: ''
-      }
+      true: '',
+      false: ''
     },
     useRightBar: {
       true: {

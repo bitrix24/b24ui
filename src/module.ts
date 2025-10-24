@@ -54,7 +54,7 @@ declare module '#app' {
     'dashboard:search:toggle': () => HookResult
     'dashboard:sidebar:toggle': () => HookResult
     'dashboard:sidebar:collapse': (value: boolean) => HookResult
-    'dashboard:content:loading': (value: boolean) => HookResult
+    'dashboard:content:load': (value: boolean, contextId?: string) => HookResult
   }
 }
 

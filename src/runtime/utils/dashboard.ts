@@ -1,15 +1,14 @@
 import type { Ref } from 'vue'
 import { createContext } from 'reka-ui'
-import type { UseResizableProps } from '../composables/useResizable'
+import type { UseLoadingProps } from '../composables/useLoading'
 
-export interface DashboardContext extends Pick<UseResizableProps, 'storage' | 'storageKey' | 'persistent' | 'unit'> {
+export interface DashboardContext extends Pick<UseLoadingProps, 'storage' | 'storageKey'> {
+  contextId?: string
   sidebarOpen?: Ref<boolean>
-  sidebarCollapsed?: Ref<boolean>
-  sidebarLoading?: Ref<boolean>
+  isLoading?: Ref<boolean>
   toggleSearch?: () => void
   toggleSidebar?: () => void
-  collapseSidebar?: (collapsed: boolean) => void
-  toggleLoading?: (loading: boolean) => void
+  load?: (loading: boolean, contextId?: string) => void
 }
 
 export const [useDashboard, provideDashboardContext] = createContext<DashboardContext>('DashboardGroup')

@@ -1,21 +1,18 @@
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue'
 import usePageMeta from './../../composables/usePageMeta'
-import ExampleGrid from '../../components/ExampleGrid.vue'
-import ExampleCard from '../../components/ExampleCard.vue'
 import Placeholder from '../../components/Placeholder.vue'
-import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import MockSidebarLayoutMenu from '../../components/MockSidebarLayoutMenu.vue'
 import MockSidebarLayoutActions from '../../components/MockSidebarLayoutActions.vue'
 import MockSidebarLayoutSideFooter from '../../components/MockSidebarLayoutSideFooter.vue'
 import MockContentLongString from '../../components/MockContentLongString.vue'
 import MockContentLongText from '../../components/MockContentLongText.vue'
 import MockContentUploadFile from '../../components/MockContentUploadFile.vue'
+import B24Slideover from '@bitrix24/b24ui-nuxt/components/Slideover.vue'
 import BusinesProcessStagesIcon from '@bitrix24/b24icons-vue/outline/BusinesProcessStagesIcon'
 import TrendUpIcon from '@bitrix24/b24icons-vue/outline/TrendUpIcon'
 import TrendDownIcon from '@bitrix24/b24icons-vue/outline/TrendDownIcon'
 import { useMockMenu } from './../../composables/useMockMenu'
-import B24Slideover from '@bitrix24/b24ui-nuxt/components/Slideover.vue'
 import { useDashboard } from '@bitrix24/b24ui-nuxt/utils/dashboard'
 import { sleepAction } from '../../utils/sleep'
 
@@ -45,16 +42,11 @@ function openSlideover() {
   })
 }
 
-/**
- * @todo make inner toggle
- * @todo add demo
- * @todo add docs
- */
-const { sidebarLoading, toggleLoading } = useDashboard({ sidebarLoading: ref(false), toggleLoading: () => {} })
+const { contextId, isLoading, load } = useDashboard({ isLoading: ref(false), load: () => {} })
 const makeToggleLoading = async (timeout: number = 1000) => {
-  toggleLoading?.(!sidebarLoading?.value)
+  load?.(!isLoading?.value, contextId)
   await sleepAction(timeout)
-  toggleLoading?.(!sidebarLoading?.value)
+  load?.(!isLoading?.value, contextId)
 }
 
 const openSliderTopAndBottom = async () => {
@@ -68,10 +60,16 @@ const openSliderTopAndBottom = async () => {
 </script>
 
 <template>
-  <ExampleGrid v-once class="mb-2">
-    <ExampleCard title="base" class="md:col-span-2">
-      <ExampleCardSubTitle title="opening options" />
-      <div class="mb-4 flex flex-row flex-wrap gap-2">
+  <B24PageGrid v-once class="lg:grid-cols-4 gap-5">
+    <B24Card variant="outline">
+      <template #header>
+        <div class="flex flex-row items-center justify-between gap-2">
+          <ProseH5 class="mb-0">
+            Opening options
+          </ProseH5>
+        </div>
+      </template>
+      <div class="mb-4 flex flex-col gap-4">
         <B24Slideover
           title="First slideover"
           description="This slideover has `side: 'right'` prop."
@@ -157,9 +155,7 @@ const openSliderTopAndBottom = async () => {
             </B24ModalDialogClose>
           </template>
         </B24Slideover>
-      </div>
 
-      <div class="mb-4 flex flex-row flex-wrap gap-2">
         <B24Slideover
           v-model:open="open"
           title="Slideover with v-model"
@@ -174,9 +170,17 @@ const openSliderTopAndBottom = async () => {
 
         <B24Button label="Open programmatically" color="air-secondary-accent-1" @click="openSlideover" />
       </div>
+    </B24Card>
 
-      <ExampleCardSubTitle title="overlay" />
-      <div class="mb-4 flex flex-row flex-wrap gap-2">
+    <B24Card variant="outline">
+      <template #header>
+        <div class="flex flex-row items-center justify-between gap-2">
+          <ProseH5 class="mb-0">
+            Overlay
+          </ProseH5>
+        </div>
+      </template>
+      <div class="mb-4 flex flex-col gap-4">
         <B24Slideover
           title="Slideover with overlay blur"
           description="This slideover has `overlay-blur: auto` prop."
@@ -214,9 +218,17 @@ const openSliderTopAndBottom = async () => {
           </template>
         </B24Slideover>
       </div>
+    </B24Card>
 
-      <ExampleCardSubTitle title="transition & portal & size" />
-      <div class="mb-4 flex flex-row flex-wrap gap-2">
+    <B24Card variant="outline">
+      <template #header>
+        <div class="flex flex-row items-center justify-between gap-2">
+          <ProseH5 class="mb-0">
+            Transition & portal & size
+          </ProseH5>
+        </div>
+      </template>
+      <div class="mb-4 flex flex-col gap-4">
         <B24Slideover
           title="Slideover without transition"
           description="This slideover has `transition: false` prop."
@@ -241,9 +253,17 @@ const openSliderTopAndBottom = async () => {
           </template>
         </B24Slideover>
       </div>
+    </B24Card>
 
-      <ExampleCardSubTitle title="closing options" />
-      <div class="mb-4 flex flex-row flex-wrap gap-2">
+    <B24Card variant="outline">
+      <template #header>
+        <div class="flex flex-row items-center justify-between gap-2">
+          <ProseH5 class="mb-0">
+            Closing options
+          </ProseH5>
+        </div>
+      </template>
+      <div class="mb-4 flex flex-col gap-4">
         <B24Slideover
           title="Slideover prevent close"
           description="This slideover has `dismissible: false` prop so it won't close when clicking outside."
@@ -302,11 +322,17 @@ const openSliderTopAndBottom = async () => {
           </template>
         </B24Slideover>
       </div>
-    </ExampleCard>
+    </B24Card>
 
-    <ExampleCard title="full" class="md:col-span-2">
-      <ExampleCardSubTitle title="different content" />
-      <div class="mb-4 flex flex-row flex-wrap gap-2">
+    <B24Card variant="outline">
+      <template #header>
+        <div class="flex flex-row items-center justify-between gap-2">
+          <ProseH5 class="mb-0">
+            Different content
+          </ProseH5>
+        </div>
+      </template>
+      <div class="mb-4 flex flex-col gap-4">
         <B24Slideover
           title="Vivendum dignissim conceptam."
           description="Magna copiosae apeirian ius at."
@@ -355,40 +381,32 @@ const openSliderTopAndBottom = async () => {
           </template>
         </B24Slideover>
 
-        <B24DashboardGroup>
-          <B24Slideover
-            title="File upload"
-            description="Some description"
-            :use-light-content="false"
-            :b24ui="{
-              content: 'sm:max-w-1/2',
-              sidebarLayoutLoadingIcon: 'text-(--ui-color-red-70)'
-            }"
-          >
-            <B24Button label="Upload file" />
+        <B24Slideover
+          title="File upload"
+          description="Some description"
+          :use-light-content="false"
+          :b24ui="{
+            content: 'sm:max-w-1/2',
+            sidebarLayoutLoadingIcon: 'text-(--ui-color-red-70)'
+          }"
+        >
+          <B24Button label="Upload file" />
 
-            <template #body>
-              <div class="p-5 light rounded-(--ui-border-radius-md) bg-(--ui-color-background-primary)">
-                <MockContentUploadFile />
-              </div>
-            </template>
+          <template #body>
+            <div class="p-5 light rounded-(--ui-border-radius-md) bg-(--ui-color-background-primary)">
+              <MockContentUploadFile />
+            </div>
+          </template>
 
-            <template #footer>
-              <B24Button
-                label="Reload"
-                color="air-primary"
-                loading-auto
-                @click="makeToggleLoading(1500)"
-              />
-              <B24ModalDialogClose>
-                <B24Button label="Send" color="air-primary-success" />
-              </B24ModalDialogClose>
-              <B24ModalDialogClose>
-                <B24Button label="Cancel" color="air-tertiary" />
-              </B24ModalDialogClose>
-            </template>
-          </B24Slideover>
-        </B24DashboardGroup>
+          <template #footer>
+            <B24ModalDialogClose>
+              <B24Button label="Send" color="air-primary-success" />
+            </B24ModalDialogClose>
+            <B24ModalDialogClose>
+              <B24Button label="Cancel" color="air-tertiary" />
+            </B24ModalDialogClose>
+          </template>
+        </B24Slideover>
 
         <B24Slideover
           v-model:open="openTopAndBottom"
@@ -651,6 +669,53 @@ const openSliderTopAndBottom = async () => {
           </template>
         </B24Slideover>
       </div>
-    </ExampleCard>
-  </ExampleGrid>
+    </B24Card>
+
+    <B24Card variant="outline">
+      <template #header>
+        <div class="flex flex-row items-center justify-between gap-2">
+          <ProseH5 class="mb-0">
+            Loading
+          </ProseH5>
+        </div>
+      </template>
+      <div class="mb-4 flex flex-col gap-4">
+        <B24Button
+          label="Reload current"
+          loading-auto
+          @click="makeToggleLoading(1500)"
+        />
+
+        <B24DashboardGroup>
+          <B24Slideover
+            title="Some slider"
+            description="Some description"
+            :b24ui="{
+              content: 'sm:max-w-1/2',
+              sidebarLayoutLoadingIcon: 'text-(--ui-color-red-70) edge-dark:text-(--ui-color-red-70)'
+            }"
+          >
+            <B24Button label="Open slider" block />
+
+            <template #body>
+              <Placeholder class="size-full" />
+            </template>
+
+            <template #footer>
+              <B24Button
+                label="Reload parent"
+                color="air-secondary-accent-2"
+                loading-auto
+                @click="makeToggleLoading(1500)"
+              />
+              <ChildButtonForReloadSidebar />
+              <B24ModalDialogClose>
+                <B24Button label="Cancel" color="air-tertiary" />
+              </B24ModalDialogClose>
+            </template>
+          </B24Slideover>
+        </B24DashboardGroup>
+      </div>
+    </B24Card>
+  </B24PageGrid>
 </template>

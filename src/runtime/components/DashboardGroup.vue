@@ -6,7 +6,7 @@ import type { ComponentConfig } from '../types/tv'
 
 type DashboardGroup = ComponentConfig<typeof theme, AppConfig, 'dashboardGroup'>
 
-export interface DashboardGroupProps extends Pick<UseResizableProps, 'storage' | 'storageKey' | 'persistent' | 'unit'> {
+export interface DashboardGroupProps extends Pick<UseResizableProps, 'id' | 'storage' | 'storageKey'> {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
@@ -21,7 +21,7 @@ export interface DashboardGroupSlots {
 </script>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, useId } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useNuxtApp, useAppConfig } from '#imports'
 import { provideDashboardContext } from '../utils/dashboard'
@@ -29,9 +29,7 @@ import { tv } from '../utils/tv'
 
 const props = withDefaults(defineProps<DashboardGroupProps>(), {
   storage: 'cookie',
-  storageKey: 'dashboard',
-  persistent: true,
-  unit: '%'
+  storageKey: 'dashboard'
 })
 defineSlots<DashboardGroupSlots>()
 
@@ -41,28 +39,24 @@ const appConfig = useAppConfig() as DashboardGroup['AppConfig']
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashboardGroup || {}) }))
 
 const sidebarOpen = ref(false)
-const sidebarCollapsed = ref(false)
-const sidebarLoading = ref(false)
+const isLoading = ref(false)
+
+const contextId = `${props.storage}-sidebar-group-${props.id || useId()}`
 
 provideDashboardContext({
+  contextId,
   storage: props.storage,
   storageKey: props.storageKey,
-  persistent: props.persistent,
-  unit: props.unit,
   sidebarOpen,
   toggleSidebar: () => {
     nuxtApp.hooks.callHook('dashboard:sidebar:toggle')
   },
-  sidebarCollapsed,
-  collapseSidebar: (collapsed: boolean) => {
-    nuxtApp.hooks.callHook('dashboard:sidebar:collapse', collapsed)
-  },
   toggleSearch: () => {
     nuxtApp.hooks.callHook('dashboard:search:toggle')
   },
-  sidebarLoading,
-  toggleLoading: (loading: boolean) => {
-    nuxtApp.hooks.callHook('dashboard:content:loading', loading)
+  isLoading,
+  load: (load: boolean, contextId?: string) => {
+    nuxtApp.hooks.callHook('dashboard:content:load', load, contextId)
   }
 })
 </script>
