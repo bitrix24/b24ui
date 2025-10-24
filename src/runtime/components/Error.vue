@@ -47,7 +47,6 @@ import { tv } from '../utils/tv'
 import B24Button from './Button.vue'
 
 const props = withDefaults(defineProps<ErrorProps>(), {
-  as: 'main',
   redirect: '/',
   clear: true
 })
