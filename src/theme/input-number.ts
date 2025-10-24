@@ -96,6 +96,12 @@ export default () => {
       },
       highlight: {
         true: ''
+      },
+      increment: {
+        false: ''
+      },
+      decrement: {
+        false: ''
       }
     },
     compoundVariants: [
@@ -174,12 +180,18 @@ export default () => {
         }
       },
       // endregion ////
-      // region horizontal ////
+      // region orientation:horizontal ////
+      {
+        orientation: 'horizontal',
+        decrement: false,
+        class: {
+          base: 'text-start'
+        }
+      },
       {
         orientation: 'horizontal',
         size: 'xss',
         class: {
-          base: 'px-[24px]',
           increment: '[&>button]:p-[2px] [&>button]:h-[24px] scale-70',
           decrement: '[&>button]:p-[2px] [&>button]:h-[24px] scale-70'
         }
@@ -188,7 +200,6 @@ export default () => {
         orientation: 'horizontal',
         size: 'xs',
         class: {
-          base: 'px-[24px]',
           increment: '[&>button]:p-[2px] [&>button]:h-[24px] scale-70',
           decrement: '[&>button]:p-[2px] [&>button]:h-[24px] scale-70'
         }
@@ -197,7 +208,6 @@ export default () => {
         orientation: 'horizontal',
         size: 'sm',
         class: {
-          base: 'px-[28px]',
           increment: '[&>button]:p-[2px] scale-70',
           decrement: '[&>button]:p-[2px] scale-70'
         }
@@ -206,7 +216,6 @@ export default () => {
         orientation: 'horizontal',
         size: 'md',
         class: {
-          base: 'px-[30px]',
           increment: '[&>button]:p-[2px] scale-60',
           decrement: '[&>button]:p-[2px] scale-60'
         }
@@ -215,7 +224,6 @@ export default () => {
         orientation: 'horizontal',
         size: 'lg',
         class: {
-          base: 'px-[30px]',
           increment: '[&>button]:p-[2px] scale-60',
           decrement: '[&>button]:p-[2px] scale-60'
         }
@@ -224,18 +232,16 @@ export default () => {
         orientation: 'horizontal',
         size: 'xl',
         class: {
-          base: 'px-[40px]',
           increment: '[&>button]:p-[4px] scale-60',
           decrement: '[&>button]:p-[4px] scale-60'
         }
       },
       // endregion ////
-      // region vertical ////
+      // region orientation:vertical ////
       {
         orientation: 'vertical',
         size: 'xss',
         class: {
-          base: 'pe-[24px]',
           increment: 'top-0 pe-0 [&>button]:h-[13px] scale-56',
           decrement: 'bottom-0 pe-0 [&>button]:h-[13px] scale-56'
         }
@@ -244,7 +250,6 @@ export default () => {
         orientation: 'vertical',
         size: 'xs',
         class: {
-          base: 'pe-[24px]',
           increment: 'top-0 pe-0 [&>button]:h-[13px] scale-80',
           decrement: 'bottom-0 pe-0 [&>button]:h-[13px] scale-80'
         }
@@ -253,7 +258,6 @@ export default () => {
         orientation: 'vertical',
         size: 'sm',
         class: {
-          base: 'pe-[30px]',
           increment: 'top-0 pe-0 [&>button]:h-[15px] scale-80',
           decrement: 'bottom-0 pe-0 [&>button]:h-[15px] scale-80'
         }
@@ -262,7 +266,6 @@ export default () => {
         orientation: 'vertical',
         size: 'md',
         class: {
-          base: 'pe-[34px]',
           increment: 'top-0 pe-0 [&>button]:h-[18px] scale-80',
           decrement: 'bottom-0 pe-0 [&>button]:h-[18px] scale-80'
         }
@@ -271,7 +274,6 @@ export default () => {
         orientation: 'vertical',
         size: 'lg',
         class: {
-          base: 'pe-[38px]',
           increment: '[&>button]:h-[16px] scale-80',
           decrement: '[&>button]:h-[16px] scale-80'
         }
@@ -280,9 +282,98 @@ export default () => {
         orientation: 'vertical',
         size: 'xl',
         class: {
-          base: 'pe-[38px]',
           increment: '[&>button]:h-[20px] scale-80',
           decrement: '[&>button]:h-[20px] scale-80'
+        }
+      },
+      // endregion ////
+      // region decrement:true ////
+      {
+        decrement: true,
+        size: 'xss',
+        class: {
+          base: 'ps-[24px]'
+        }
+      },
+      {
+        decrement: true,
+        size: 'xs',
+        class: {
+          base: 'ps-[24px]'
+        }
+      },
+      {
+        decrement: true,
+        size: 'sm',
+        class: {
+          base: 'ps-[28px]'
+        }
+      },
+      {
+        decrement: true,
+        size: 'md',
+        class: {
+          base: 'ps-[30px]'
+        }
+      },
+      {
+        decrement: true,
+        size: 'lg',
+        class: {
+          base: 'ps-[30px]'
+        }
+      },
+      {
+        decrement: true,
+        size: 'xl',
+        class: {
+          base: 'ps-[40px]'
+        }
+      },
+      // endregion ////
+      // region increment:true ////
+      {
+        increment: true,
+        size: 'xss',
+        class: {
+          base: 'pe-[24px]'
+        }
+      },
+      {
+        increment: true,
+        size: 'xs',
+        class: {
+          base: 'pe-[24px]'
+        }
+      },
+      {
+        increment: true,
+        size: 'sm',
+        class: {
+          base: 'pe-[30px]',
+          increment: 'top-0 pe-0 [&>button]:h-[15px] scale-80',
+          decrement: 'bottom-0 pe-0 [&>button]:h-[15px] scale-80'
+        }
+      },
+      {
+        increment: true,
+        size: 'md',
+        class: {
+          base: 'pe-[34px]'
+        }
+      },
+      {
+        increment: true,
+        size: 'lg',
+        class: {
+          base: 'pe-[38px]'
+        }
+      },
+      {
+        increment: true,
+        size: 'xl',
+        class: {
+          base: 'pe-[38px]'
         }
       },
       // endregion ////

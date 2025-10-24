@@ -14,8 +14,6 @@ import ArrowToTheRightIcon from '@bitrix24/b24icons-vue/actions/ArrowToTheRightI
 
 describe('InputNumber', () => {
   const sizes = Object.keys(theme.variants.size) as any
-  // @todo fix this
-  // const variants = []
 
   it.each([
     // Props
@@ -26,16 +24,18 @@ describe('InputNumber', () => {
     ['with orientation vertical', { props: { orientation: 'vertical' } }],
     ['with incrementIcon', { props: { incrementIcon: ArrowToTheLeftIcon } }],
     ['with decrementIcon', { props: { decrementIcon: ArrowToTheRightIcon } }],
+    ['without increment', { props: { increment: false } }],
+    ['without increment vertical', { props: { increment: false, orientation: 'vertical' } }],
+    ['without decrement', { props: { decrement: false } }],
+    ['without decrement vertical', { props: { decrement: false, orientation: 'vertical' } }],
+    ['without increment and decrement', { props: { increment: false, decrement: false } }],
+    ['without increment and decrement vertical', { props: { increment: false, decrement: false, orientation: 'vertical' } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { size } }]),
-    // @todo fix this
-    // ...variants.map((variant: string) => [`with primary variant ${variant}`, { props: { variant } }]),
-    // @todo fix this
-    // ...variants.map((variant: string) => [`with success variant ${variant}`, { props: { variant, color: 'air-primary-success' } }]),
     ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
+    ['with .optional modifier', { props: { modelModifiers: { optional: true } } }, { input: '', expected: undefined }],
     ['with as', { props: { as: 'section' } }],
     ['with class', { props: { class: 'absolute' } }],
     ['with b24ui', { props: { b24ui: { base: 'rounded-full' } } }],
-    ['with .optional modifier', { props: { modelModifiers: { optional: true } } }, { input: '', expected: undefined }],
     // Slots
     ['with increment slot', { slots: { increment: () => '+' } }],
     ['with decrement slot', { slots: { decrement: () => '-' } }]

@@ -32,6 +32,26 @@ const airColors = computed(() => {
         <B24InputNumber
           placeholder="Insert value&hellip;"
           class="w-40"
+          :increment="true"
+          :decrement="true"
+        />
+        <B24InputNumber
+          placeholder="Insert value&hellip;"
+          class="w-40"
+          :increment="true"
+          :decrement="false"
+        />
+        <B24InputNumber
+          placeholder="Insert value&hellip;"
+          class="w-40"
+          :increment="false"
+          :decrement="true"
+        />
+        <B24InputNumber
+          placeholder="Insert value&hellip;"
+          class="w-40"
+          :increment="false"
+          :decrement="false"
         />
       </div>
 

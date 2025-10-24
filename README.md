@@ -8,7 +8,6 @@ Find more details in the [documentation](https://bitrix24.github.io/b24ui/)
 
 Visit https://bitrix24.github.io/b24ui/ to explore the documentation.
 
-
 ## Installation
 
 ```bash [pnpm]

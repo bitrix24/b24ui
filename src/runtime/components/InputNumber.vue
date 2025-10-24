@@ -55,7 +55,7 @@ export interface InputNumberProps extends Pick<NumberFieldRootProps, 'modelValue
    * Configure the increment button. The `size` is inherited.
    * @defaultValue { color: 'air-tertiary-no-accent' }
    */
-  increment?: ButtonProps
+  increment?: boolean | ButtonProps
   /**
    * The icon displayed to increment the value.
    * @defaultValue icons.plus
@@ -68,7 +68,7 @@ export interface InputNumberProps extends Pick<NumberFieldRootProps, 'modelValue
    * Configure the decrement button. The `size` is inherited.
    * @defaultValue { color: 'air-tertiary-no-accent' }
    */
-  decrement?: ButtonProps
+  decrement?: boolean | ButtonProps
   /**
    * The icon displayed to decrement the value.
    * @defaultValue icons.minus
@@ -118,6 +118,8 @@ defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(defineProps<InputNumberProps>(), {
   orientation: 'horizontal',
+  increment: true,
+  decrement: true,
   disabledIncrement: false,
   disabledDecrement: false,
   color: 'air-primary'
@@ -150,7 +152,9 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.inputN
   noBorder: Boolean(props.noBorder),
   underline: Boolean(props.underline),
   orientation: props.orientation,
-  fieldGroup: orientation.value
+  fieldGroup: orientation.value,
+  increment: props.orientation === 'vertical' ? (!!props.increment || !!props.decrement) : !!props.increment,
+  decrement: props.orientation === 'vertical' ? false : !!props.decrement
 }))
 
 const incrementIcon = computed(() => props.incrementIcon || (props.orientation === 'horizontal' ? icons.plus : icons.chevronUp))
@@ -222,7 +226,7 @@ defineExpose({
       @focus="emitFormFocus"
     />
 
-    <div :class="b24ui.increment({ class: props.b24ui?.increment })">
+    <div v-if="!!increment" :class="b24ui.increment({ class: props.b24ui?.increment })">
       <NumberFieldIncrement as-child :disabled="disabled || incrementDisabled">
         <slot name="increment">
           <B24Button
@@ -236,7 +240,7 @@ defineExpose({
       </NumberFieldIncrement>
     </div>
 
-    <div :class="b24ui.decrement({ class: props.b24ui?.decrement })">
+    <div v-if="!!decrement" :class="b24ui.decrement({ class: props.b24ui?.decrement })">
       <NumberFieldDecrement as-child :disabled="disabled || decrementDisabled">
         <slot name="decrement">
           <B24Button
