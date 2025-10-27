@@ -2,8 +2,11 @@
 
 ## [2.0.5](https://github.com/bitrix24/b24ui/compare/v2.0.4...v2.0.5) (2025-10-27)
 
-* fix(utils\dashboard): added a little entropy
-* feat(ChatMessage): new component
+### Features
+* **ChatMessage:** new component
+
+### Bug Fixes
+* **utils\dashboard:** added a little entropy
 
 ## [2.0.4](https://github.com/bitrix24/b24ui/compare/v2.0.3...v2.0.4) (2025-10-27)
 
