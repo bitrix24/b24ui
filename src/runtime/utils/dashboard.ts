@@ -11,4 +11,7 @@ export interface DashboardContext extends Pick<UseLoadingProps, 'storage' | 'sto
   load?: (loading: boolean, contextId?: string) => void
 }
 
-export const [useDashboard, provideDashboardContext] = createContext<DashboardContext>('DashboardGroup')
+/**
+ * @memo We added a little entropy because we don't want this code to end up in the vite cache.
+ */
+export const [useDashboard, provideDashboardContext] = createContext<DashboardContext>(`DashboardGroup_${Date.now()}`)

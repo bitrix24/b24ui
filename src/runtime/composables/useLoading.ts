@@ -26,7 +26,7 @@ export type UseLoadingReturn = {
 }
 
 export const useLoading = (
-  key: string,
+  _key: string,
   options: Ref<UseLoadingProps> | UseLoadingProps = {},
   { loading = ref(false) }: { loading?: Ref<boolean> } = {}
 ): UseLoadingReturn => {
