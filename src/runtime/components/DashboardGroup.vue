@@ -1,12 +1,12 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/dashboard-group'
-import type { UseResizableProps } from '../composables/useResizable'
+import type { UseLoadingProps } from '../composables/useLoading'
 import type { ComponentConfig } from '../types/tv'
 
 type DashboardGroup = ComponentConfig<typeof theme, AppConfig, 'dashboardGroup'>
 
-export interface DashboardGroupProps extends Pick<UseResizableProps, 'id' | 'storage' | 'storageKey'> {
+export interface DashboardGroupProps extends Pick<UseLoadingProps, 'id' | 'storage' | 'storageKey'> {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
