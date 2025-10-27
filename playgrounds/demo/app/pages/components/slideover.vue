@@ -692,7 +692,7 @@ const openSliderTopAndBottom = async () => {
             description="Some description"
             :b24ui="{
               content: 'sm:max-w-1/2',
-              sidebarLayoutLoadingIcon: 'text-(--ui-color-red-70)'
+              sidebarLayoutLoadingIcon: 'text-(--ui-color-red-70) edge-dark:text-(--ui-color-red-70)'
             }"
           >
             <B24Button label="Open slider" block />
