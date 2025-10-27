@@ -7,7 +7,7 @@ export const fieldGroupInjectionKey: InjectionKey<ComputedRef<{
   size: FieldGroupProps['size']
   orientation: FieldGroupProps['orientation']
   noSplit: FieldGroupProps['noSplit']
-}>> = Symbol('nuxt-ui.field-group')
+}>> = Symbol('bitrix24-ui.field-group')
 
 type Props<T> = {
   size?: GetObjectField<T, 'size'>

@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.0.4](https://github.com/bitrix24/b24ui/compare/v2.0.3...v2.0.4) (2025-10-xx)
+
+* fix(useFieldGroup): change Symbol
+
 ## [2.0.3](https://github.com/bitrix24/b24ui/compare/v2.0.2...v2.0.3) (2025-10-24)
 
 ### Features
