@@ -9,7 +9,7 @@ links:
     to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/PageCard.vue
   - label: Demo
     iconName: DemonstrationOnIcon
-    to: https://bitrix24.github.io/b24ui/demo/page-card
+    to: https://bitrix24.github.io/b24ui/demo/components/page-card
   - label: Nuxt UI
     iconName: NuxtIcon
     to: https://ui.nuxt.com/docs/components/page-card
