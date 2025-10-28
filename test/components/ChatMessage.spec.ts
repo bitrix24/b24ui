@@ -27,7 +27,7 @@ describe('ChatMessage', () => {
     ...variants.map((variant: string) => [`with variant ${variant}`, { props: { ...props, variant } }]),
     ['with as', { props: { ...props, as: 'section' } }],
     ['with class', { props: { ...props, class: '' } }],
-    ['with ui', { props: { ...props, ui: {} } }],
+    ['with b24ui', { props: { ...props, b24ui: {} } }],
     // Slots
     ['with content slot', { props, slots: { content: () => 'Content slot' } }]
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: ChatMessageProps, slots?: Partial<ChatMessageSlots> }) => {

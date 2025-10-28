@@ -29,7 +29,7 @@ parts:
     id: '1'
     text: 'Hello! Tell me more about building AI chatbots with Bitrix24 UI.'
 side: 'right'
-variant: 'soft'
+variant: 'message'
 role: 'user'
 id: '1'
 avatar:
@@ -37,6 +37,10 @@ avatar:
 ---
 ::
 
+::
+
+::tip{to="/docs/components/chat-messages/"}
+Use the [`ChatMessages`](/docs/components/chat-messages/) component to display a list of chat messages.
 ::
 
 ### Parts
@@ -86,6 +90,10 @@ props:
 ---
 ::
 
+::note
+When using the [`ChatMessages`](/docs/components/chat-messages/) component, the `side` prop is set to `left` for `assistant` messages and `right` for `user` messages.
+::
+
 ### Variant
 
 Use the `variant` prop to change style of the message.
@@ -106,6 +114,10 @@ props:
   role: 'user'
   id: '1'
 ---
+::
+
+::note
+When using the [`ChatMessages`](/docs/components/chat-messages/) component, the `variant` prop is set to `message` for `assistant` messages and `message` for `user` messages.
 ::
 
 ### Icon
@@ -161,6 +173,16 @@ props:
       text: 'Hello! Tell me more about building AI chatbots with Bitrix24 UI.'
   role: 'user'
   id: '1'
+---
+::
+
+You can also use the `avatar.icon` prop to display an icon as the avatar.
+
+::component-example
+---
+name: "chat-message-avatar-icon-example"
+class: 'overflow-y-auto'
+collapse: true
 ---
 ::
 
