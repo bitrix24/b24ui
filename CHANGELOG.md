@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.0.6](https://github.com/bitrix24/b24ui/compare/v2.0.5...v2.0.6) (2025-10-28)
+
+* chore(deps): update all non-major dependencies
+
 ## [2.0.5](https://github.com/bitrix24/b24ui/compare/v2.0.4...v2.0.5) (2025-10-27)
 
 ### Features

@@ -11,11 +11,11 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "@ai-sdk/gateway": "^2.0.0",
-    "@ai-sdk/vue": "^2.0.76",
+    "@ai-sdk/gateway": "^2.0.1",
+    "@ai-sdk/vue": "^2.0.80",
     "@internationalized/date": "^3.10.0",
     "@bitrix24/b24ui-nuxt": "workspace:*",
-    "ai": "^5.0.76",
+    "ai": "^5.0.80",
     "nuxt": "^4.1.2",
     "zod": "^4.1.12",
     "maska": "^3.2.0"
