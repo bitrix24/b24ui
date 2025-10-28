@@ -2,10 +2,18 @@
 
 ## [2.0.6](https://github.com/bitrix24/b24ui/compare/v2.0.5...v2.0.6) (2025-10-28)
 
-* chore(deps): update all non-major dependencies
-* chore(deps): update vue-tsc to ^3.1.2
-* chore(deps): update devdependency vite to ^7.1.12
-* chore(deps): update nuxt framework to ^4.2.0
+### Features
+* **dictionary/icons:** add arrowDown,arrowUp,stop,reload
+* **chat:** new components: ChatMessages, ChatPalette, ChatPrompt, ChatPromptSubmit
+
+### Chore
+* **deps:** update all non-major dependencies
+* **deps:** update vue-tsc to ^3.1.2
+* **deps:** update devdependency vite to ^7.1.12
+
+### Bug Fixes
+* **utils\dashboard|SidebarLayout:** downgrade
+* **ChatMessage:** some improve
 
 ## [2.0.5](https://github.com/bitrix24/b24ui/compare/v2.0.4...v2.0.5) (2025-10-27)
 
