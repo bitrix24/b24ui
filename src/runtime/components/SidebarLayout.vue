@@ -57,13 +57,13 @@ export interface SidebarLayoutSlots {
 </script>
 
 <script setup lang="ts">
-import { ref, computed, watch, onUnmounted, useId, toRef } from 'vue'
+import { ref, computed, watch, onUnmounted } from 'vue' // useId, toRef
 import { useRoute } from 'vue-router'
 import { Primitive } from 'reka-ui'
-import { useAppConfig, useRuntimeHook } from '#imports'
-import { useLoading } from '../composables/useLoading'
+import { useAppConfig } from '#imports' // useRuntimeHook
+// import { useLoading } from '../composables/useLoading'
 import { useLocale } from '../composables/useLocale'
-import { useDashboard } from '@bitrix24/b24ui-nuxt/utils/dashboard'
+// import { useDashboard } from '@bitrix24/b24ui-nuxt/utils/dashboard'
 import { tv } from '../utils/tv'
 import B24Button from './Button.vue'
 import B24Slideover from './Slideover.vue'
@@ -82,39 +82,40 @@ const props = withDefaults(defineProps<SidebarLayoutProps>(), {
 })
 const slots = defineSlots<SidebarLayoutSlots>()
 
-const loading = defineModel<boolean>('loading', { default: false })
+// const loading = defineModel<boolean>('loading', { default: false })
 
 const { t } = useLocale()
 const appConfig = useAppConfig() as SidebarLayout['AppConfig']
 
-const dashboardContext = useDashboard({
-  storageKey: 'dashboard',
-  sidebarOpen: ref(false),
-  isLoading: ref(false)
-})
-
-const id = `${dashboardContext.storageKey}-${dashboardContext.contextId}-sidebar-layout-${props.id || useId()}`
-
-const { elLayout, isLoading } = useLoading(
-  id,
-  toRef(() => ({ ...dashboardContext, ...props })),
-  { loading }
-)
-
-useRuntimeHook('dashboard:content:load', (value: boolean, contextId?: string) => {
-  if (contextId !== dashboardContext.contextId) {
-    return
-  }
-  isLoading.value = value
-})
-
-watch(isLoading, () => dashboardContext.isLoading!.value = isLoading.value, { immediate: true })
+// const dashboardContext = useDashboard({
+//   storageKey: 'dashboard',
+//   sidebarOpen: ref(false),
+//   isLoading: ref(false)
+// })
+//
+// const id = `${dashboardContext.storageKey}-${dashboardContext.contextId}-sidebar-layout-${props.id || useId()}`
+//
+// const { elLayout, isLoading } = useLoading(
+//   id,
+//   toRef(() => ({ ...dashboardContext, ...props })),
+//   { loading }
+// )
+//
+// useRuntimeHook('dashboard:content:load', (value: boolean, contextId?: string) => {
+//   if (contextId !== dashboardContext.contextId) {
+//     return
+//   }
+//   isLoading.value = value
+// })
+//
+// watch(isLoading, () => dashboardContext.isLoading!.value = isLoading.value, { immediate: true })
 
 const route = useRoute()
 const isUseSideBar = computed(() => !!slots.sidebar)
 const isUseNavbar = computed(() => !!slots.navbar)
 const isUseRightBar = computed(() => !!slots['content-right'])
 const openSidebarSlideover = ref(false)
+const isLoading = ref(false)
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sidebarLayout || {}) })({
   useSidebar: isUseSideBar.value,
@@ -149,7 +150,6 @@ const handleNavigationClick = () => {
 
 <template>
   <Primitive
-    :id="id"
     ref="elLayout"
     v-bind="$attrs"
     data-state="isLoading ? 'loading' : 'show'"
