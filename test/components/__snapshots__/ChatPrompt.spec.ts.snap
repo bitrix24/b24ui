@@ -1,0 +1,133 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ChatPrompt > renders with as correctly 1`] = `
+"<section class="relative flex flex-col items-stretch gap-2 px-2.5 py-2 w-full rounded-lg backdrop-blur bg-default/75 ring ring-default">
+  <!--v-if-->
+  <div class="isolate relative inline-flex items-start">
+    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." class="px-3 w-full pt-[7px] pb-[8px] border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) style-blurred-bg-input placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring ring-inset ring-(--ui-color-design-outline-stroke) focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-(--b24ui-border-color) hover:not-disabled:not-data-disabled:ring-1 hover:not-disabled:not-data-disabled:ring-inset hover:not-disabled:not-data-disabled:ring-(--b24ui-border-color) data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color) text-base/5" variant="none" value=""></textarea>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+  <!--v-if-->
+</section>"
+`;
+
+exports[`ChatPrompt > renders with b24ui correctly 1`] = `
+"<form class="relative flex flex-col items-stretch gap-2 px-2.5 py-2 w-full rounded-lg backdrop-blur bg-default/75 ring ring-default">
+  <!--v-if-->
+  <div class="isolate relative inline-flex items-start">
+    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." class="px-3 w-full pt-[7px] pb-[8px] border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) style-blurred-bg-input placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring ring-inset ring-(--ui-color-design-outline-stroke) focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-(--b24ui-border-color) hover:not-disabled:not-data-disabled:ring-1 hover:not-disabled:not-data-disabled:ring-inset hover:not-disabled:not-data-disabled:ring-(--b24ui-border-color) data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color) text-base/5" variant="none" value=""></textarea>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+  <!--v-if-->
+</form>"
+`;
+
+exports[`ChatPrompt > renders with class correctly 1`] = `
+"<form class="relative flex flex-col items-stretch gap-2 w-full rounded-lg backdrop-blur bg-default/75 ring ring-default p-5">
+  <!--v-if-->
+  <div class="isolate relative inline-flex items-start">
+    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." class="px-3 w-full pt-[7px] pb-[8px] border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) style-blurred-bg-input placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring ring-inset ring-(--ui-color-design-outline-stroke) focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-(--b24ui-border-color) hover:not-disabled:not-data-disabled:ring-1 hover:not-disabled:not-data-disabled:ring-inset hover:not-disabled:not-data-disabled:ring-(--b24ui-border-color) data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color) text-base/5" variant="none" value=""></textarea>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+  <!--v-if-->
+</form>"
+`;
+
+exports[`ChatPrompt > renders with error correctly 1`] = `
+"<form class="relative flex flex-col items-stretch gap-2 px-2.5 py-2 w-full rounded-lg backdrop-blur bg-default/75 ring ring-default">
+  <!--v-if-->
+  <div class="isolate relative inline-flex items-start">
+    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." class="px-3 w-full pt-[7px] pb-[8px] border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) style-blurred-bg-input placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring ring-inset ring-(--ui-color-design-outline-stroke) focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-(--b24ui-border-color) hover:not-disabled:not-data-disabled:ring-1 hover:not-disabled:not-data-disabled:ring-inset hover:not-disabled:not-data-disabled:ring-(--b24ui-border-color) data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color) text-base/5" disabled="" variant="none" value=""></textarea>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+  <!--v-if-->
+</form>"
+`;
+
+exports[`ChatPrompt > renders with footer slot correctly 1`] = `
+"<form class="relative flex flex-col items-stretch gap-2 px-2.5 py-2 w-full rounded-lg backdrop-blur bg-default/75 ring ring-default">
+  <!--v-if-->
+  <div class="isolate relative inline-flex items-start">
+    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." class="px-3 w-full pt-[7px] pb-[8px] border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) style-blurred-bg-input placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring ring-inset ring-(--ui-color-design-outline-stroke) focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-(--b24ui-border-color) hover:not-disabled:not-data-disabled:ring-1 hover:not-disabled:not-data-disabled:ring-inset hover:not-disabled:not-data-disabled:ring-(--b24ui-border-color) data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color) text-base/5" variant="none" value=""></textarea>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+  <div class="flex items-center justify-between gap-1.5">Footer slot</div>
+</form>"
+`;
+
+exports[`ChatPrompt > renders with header slot correctly 1`] = `
+"<form class="relative flex flex-col items-stretch gap-2 px-2.5 py-2 w-full rounded-lg backdrop-blur bg-default/75 ring ring-default">
+  <div class="flex items-center gap-1.5">Header slot</div>
+  <div class="isolate relative inline-flex items-start">
+    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." class="px-3 w-full pt-[7px] pb-[8px] border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) style-blurred-bg-input placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring ring-inset ring-(--ui-color-design-outline-stroke) focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-(--b24ui-border-color) hover:not-disabled:not-data-disabled:ring-1 hover:not-disabled:not-data-disabled:ring-inset hover:not-disabled:not-data-disabled:ring-(--b24ui-border-color) data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color) text-base/5" variant="none" value=""></textarea>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+  <!--v-if-->
+</form>"
+`;
+
+exports[`ChatPrompt > renders with placeholder correctly 1`] = `
+"<form class="relative flex flex-col items-stretch gap-2 px-2.5 py-2 w-full rounded-lg backdrop-blur bg-default/75 ring ring-default">
+  <!--v-if-->
+  <div class="isolate relative inline-flex items-start">
+    <!--v-if--><textarea rows="1" placeholder="Placeholder" class="px-3 w-full pt-[7px] pb-[8px] border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) style-blurred-bg-input placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring ring-inset ring-(--ui-color-design-outline-stroke) focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-(--b24ui-border-color) hover:not-disabled:not-data-disabled:ring-1 hover:not-disabled:not-data-disabled:ring-inset hover:not-disabled:not-data-disabled:ring-(--b24ui-border-color) data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color) text-base/5" variant="none" value=""></textarea>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+  <!--v-if-->
+</form>"
+`;
+
+exports[`ChatPrompt > renders with variant naked correctly 1`] = `
+"<form class="relative flex flex-col items-stretch gap-2 px-2.5 py-2 w-full rounded-lg backdrop-blur">
+  <!--v-if-->
+  <div class="isolate relative inline-flex items-start">
+    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." class="px-3 w-full pt-[7px] pb-[8px] border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) style-blurred-bg-input placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring ring-inset ring-(--ui-color-design-outline-stroke) focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-(--b24ui-border-color) hover:not-disabled:not-data-disabled:ring-1 hover:not-disabled:not-data-disabled:ring-inset hover:not-disabled:not-data-disabled:ring-(--b24ui-border-color) data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color) text-base/5" variant="none" value=""></textarea>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+  <!--v-if-->
+</form>"
+`;
+
+exports[`ChatPrompt > renders with variant outline correctly 1`] = `
+"<form class="relative flex flex-col items-stretch gap-2 px-2.5 py-2 w-full rounded-lg backdrop-blur bg-default/75 ring ring-default">
+  <!--v-if-->
+  <div class="isolate relative inline-flex items-start">
+    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." class="px-3 w-full pt-[7px] pb-[8px] border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) style-blurred-bg-input placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring ring-inset ring-(--ui-color-design-outline-stroke) focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-(--b24ui-border-color) hover:not-disabled:not-data-disabled:ring-1 hover:not-disabled:not-data-disabled:ring-inset hover:not-disabled:not-data-disabled:ring-(--b24ui-border-color) data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color) text-base/5" variant="none" value=""></textarea>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+  <!--v-if-->
+</form>"
+`;
+
+exports[`ChatPrompt > renders with variant soft correctly 1`] = `
+"<form class="relative flex flex-col items-stretch gap-2 px-2.5 py-2 w-full rounded-lg backdrop-blur bg-elevated/50">
+  <!--v-if-->
+  <div class="isolate relative inline-flex items-start">
+    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." class="px-3 w-full pt-[7px] pb-[8px] border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) style-blurred-bg-input placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring ring-inset ring-(--ui-color-design-outline-stroke) focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-(--b24ui-border-color) hover:not-disabled:not-data-disabled:ring-1 hover:not-disabled:not-data-disabled:ring-inset hover:not-disabled:not-data-disabled:ring-(--b24ui-border-color) data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color) text-base/5" variant="none" value=""></textarea>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+  <!--v-if-->
+</form>"
+`;
+
+exports[`ChatPrompt > renders with variant subtle correctly 1`] = `
+"<form class="relative flex flex-col items-stretch gap-2 px-2.5 py-2 w-full rounded-lg backdrop-blur bg-elevated/50 ring ring-default">
+  <!--v-if-->
+  <div class="isolate relative inline-flex items-start">
+    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." class="px-3 w-full pt-[7px] pb-[8px] border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) style-blurred-bg-input placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring ring-inset ring-(--ui-color-design-outline-stroke) focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-(--b24ui-border-color) hover:not-disabled:not-data-disabled:ring-1 hover:not-disabled:not-data-disabled:ring-inset hover:not-disabled:not-data-disabled:ring-(--b24ui-border-color) data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color) text-base/5" variant="none" value=""></textarea>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+  <!--v-if-->
+</form>"
+`;
