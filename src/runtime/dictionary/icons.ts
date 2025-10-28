@@ -33,6 +33,10 @@ import CopyIcon from '@bitrix24/b24icons-vue/outline/CopyIcon'
 import CircleCheckIcon from '@bitrix24/b24icons-vue/outline/CircleCheckIcon'
 import FileIcon from '@bitrix24/b24icons-vue/outline/FileIcon'
 import UploadFileIcon from '@bitrix24/b24icons-vue/outline/UploadFileIcon'
+import ArrowDownLIcon from '@bitrix24/b24icons-vue/outline/ArrowDownLIcon'
+import ArrowTopLIcon from '@bitrix24/b24icons-vue/outline/ArrowTopLIcon'
+import StopLIcon from '@bitrix24/b24icons-vue/outline/StopLIcon'
+import RefreshIcon from '@bitrix24/b24icons-vue/outline/RefreshIcon'
 
 export default {
   arrowLeft: ArrowToTheLeftIcon,
@@ -64,5 +68,9 @@ export default {
   // this for error
   caution: AlertIcon,
   copyCheck: CircleCheckIcon,
-  copy: CopyIcon
+  copy: CopyIcon,
+  arrowDown: ArrowDownLIcon,
+  arrowUp: ArrowTopLIcon,
+  stop: StopLIcon,
+  reload: RefreshIcon
 }
