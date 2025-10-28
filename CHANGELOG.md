@@ -4,6 +4,7 @@
 
 * chore(deps): update all non-major dependencies
 * chore(deps): update vue-tsc to ^3.1.2
+* chore(deps): update devdependency vite to ^7.1.12
 
 ## [2.0.5](https://github.com/bitrix24/b24ui/compare/v2.0.4...v2.0.5) (2025-10-27)
 
