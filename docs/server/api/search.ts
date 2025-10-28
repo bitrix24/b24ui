@@ -44,6 +44,7 @@ Guidelines:
     `,
     messages: convertToModelMessages(messages),
     stopWhen: stepCountIs(6),
+    // @ts-expect-error - need debug this error - wait new version @ai-sdk/mcp
     tools,
     onFinish: async () => {
       await httpClient.close()
