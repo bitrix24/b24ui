@@ -120,6 +120,11 @@ const pages = [
   // // '/docs/components/dashboard-toolbar/',
   // endregion ////
   // region Chat ////
+  '/docs/components/chat-message/',
+  '/docs/components/chat-messages/',
+  '/docs/components/chat-palette/',
+  '/docs/components/chat-prompt/',
+  '/docs/components/chat-prompt-submit/',
   // endregion ////
   // region Content ////
   // '/docs/components/content-navigation/',
