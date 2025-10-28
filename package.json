@@ -130,8 +130,8 @@
     "@bitrix24/b24icons-vue": "^2.0.4",
     "@internationalized/date": "^3.10.0",
     "@internationalized/number": "^3.6.5",
-    "@nuxt/kit": "^4.2.0",
-    "@nuxt/schema": "^4.2.0",
+    "@nuxt/kit": "^4.1.2",
+    "@nuxt/schema": "^4.1.2",
     "@standard-schema/spec": "^1.0.0",
     "@tailwindcss/postcss": "^4.1.16",
     "@tailwindcss/vite": "^4.1.16",
@@ -177,7 +177,7 @@
     "@nuxt/module-builder": "^1.0.2",
     "@nuxt/test-utils": "^3.20.1",
     "@types/canvas-confetti": "^1.9.0",
-    "@types/node": "^24.1.0",
+    "@types/node": "^24.7.0",
     "esno": "^4.8.0",
     "nuxt-component-meta": "^0.14.1",
     "sharp": "^0.34.3",
@@ -186,7 +186,7 @@
     "embla-carousel": "^8.6.0",
     "eslint": "^9.38.0",
     "happy-dom": "^20.0.8",
-    "nuxt": "^4.2.0",
+    "nuxt": "^4.1.2",
     "vitest": "^3.2.4",
     "vitest-axe": "^0.1.0",
     "vitest-environment-nuxt": "^1.0.1",
@@ -226,12 +226,16 @@
     }
   },
   "resolutions": {
-    "@nuxt/kit": "^4.2.0",
+    "@nuxt/kit": "4.1.2",
+    "nuxt": "4.1.2",
     "@bitrix24/b24ui-nuxt": "workspace:*",
     "debug": "4.3.7",
     "typescript": "5.8.3",
     "unimport": "4.1.1",
-    "unplugin": "^2.3.10"
+    "unplugin": "^2.3.10",
+    "@ai-sdk/gateway": "2.0.1",
+    "ai": "5.0.80",
+    "@types/node": "24.7.0"
   },
   "keywords": [
     "bitrix24-ui",
