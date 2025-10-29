@@ -9,7 +9,7 @@ links:
     to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/color-mode/LocaleSelect.vue
   - label: SelectMenu
     to: /docs/components/select-menu/
-    icon: Bitrix24Icon
+    iconName: Bitrix24Icon
   - label: Nuxt UI
     iconName: NuxtIcon
     to: https://ui.nuxt.com/docs/components/locale-select
