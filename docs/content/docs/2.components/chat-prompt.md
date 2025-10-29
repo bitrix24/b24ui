@@ -4,11 +4,14 @@ description: 'An enhanced Textarea component optimized for prompt submission in 
 category: chat
 links:
   - label: Textarea
-    to: /docs/components/textarea
+    to: /docs/components/textarea/
     icon: i-simple-icons-nuxtdotjs
   - label: GitHub
-    icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/blob/v4/src/runtime/components/ChatPrompt.vue
+    iconName: GitHubIcon
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/ChatPrompt.vue
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui.nuxt.com/docs/components/chat-prompt
 ---
 
 ::warning
