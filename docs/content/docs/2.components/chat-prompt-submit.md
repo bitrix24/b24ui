@@ -207,7 +207,7 @@ Use the ChatPromptSubmit component with the `Chat` class from AI SDK v5 to displ
 
 Pass the `status` prop and listen to the `stop` and `reload` events to control the chat.
 
-```vue [pages/\[id\\].vue] {2,7-11,35}
+```vue [pages/\[id\\].vue] {2,7-11,33}
 <script setup lang="ts">
 import { Chat } from '@ai-sdk/vue'
 import { getTextFromMessage } from '@bitrix24/b24ui-nux/utils/ai'
