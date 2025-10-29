@@ -103,7 +103,8 @@ defineExpose({
       v-model="model"
       :placeholder="placeholder || t('chatPrompt.placeholder')"
       :disabled="Boolean(error) || disabled"
-      variant="none"
+      no-padding
+      no-border
       v-bind="{ ...textareaProps, ...$attrs }"
       :b24ui="transformUI(omit(b24ui, ['root', 'body', 'header', 'footer']), props.b24ui)"
       :class="b24ui.body({ class: props.b24ui?.body })"

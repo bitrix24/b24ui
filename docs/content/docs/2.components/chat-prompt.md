@@ -26,7 +26,7 @@ The ChatPrompt component renders a `<form>` element and extends the [Textarea](/
 
 :::b24-chat-prompt
 ---
-variant: 'subtle'
+variant: 'tinted'
 ---
 
 #default
@@ -76,7 +76,7 @@ Use the `variant` prop to change the style of the prompt. Defaults to `outline`.
 hide:
   - autofocus
 props:
-  variant: 'soft'
+  variant: 'filled'
   autofocus: false
 ---
 ::

@@ -18,16 +18,32 @@ export default {
   variants: {
     variant: {
       outline: {
-        root: 'bg-default/75 ring ring-default'
+        root: [
+          'bg-(--ui-color-design-outline-bg)',
+          'ring ring-(--ui-color-design-outline-stroke) ring-(length:--ui-design-outline-stroke-weight)',
+          'text-(--ui-color-design-outline-content)'
+        ].join(' ')
       },
-      soft: {
-        root: 'bg-elevated/50'
+      tinted: {
+        root: [
+          'bg-(--ui-color-design-tinted-na-bg)',
+          'ring ring-(--ui-color-design-tinted-na-stroke) ring-(length:--ui-design-tinted-na-stroke-weight)',
+          'text-(--ui-color-design-tinted-na-content)'
+        ].join(' ')
       },
-      subtle: {
-        root: 'bg-elevated/50 ring ring-default'
+      filled: {
+        root: [
+          'bg-(--ui-color-design-filled-na-bg)',
+          'ring ring-(--ui-color-design-filled-na-stroke) ring-(length:--ui-design-filled-na-stroke-weight)',
+          'text-(--ui-color-design-filled-na-content)'
+        ].join(' ')
       },
-      naked: {
-        root: ''
+      plain: {
+        root: [
+          'bg-(--ui-color-design-plain-bg)',
+          'ring ring-(--ui-color-design-plain-stroke) ring-(length:--ui-design-plain-stroke-weight)',
+          'text-(--ui-color-design-plain-content)'
+        ].join(' ')
       }
     }
   },
