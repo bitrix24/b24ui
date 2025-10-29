@@ -11,7 +11,7 @@ export interface ChatPromptSubmitProps extends /** @vue-ignore */ Pick<ButtonPro
   status?: ChatStatus
   /**
    * The icon displayed in the button when the status is `ready`.
-   * @defaultValue icons.arrowUp
+   * @defaultValue icons.imSend
    * @IconComponent
    */
   icon?: IconComponent
@@ -28,7 +28,7 @@ export interface ChatPromptSubmitProps extends /** @vue-ignore */ Pick<ButtonPro
   streamingIcon?: IconComponent
   /**
    * The color of the button when the status is `streaming`.
-   * @defaultValue 'air-secondary-no-accent'
+   * @defaultValue 'air-secondary-accent-2'
    */
   streamingColor?: ButtonProps['color']
   /**
@@ -74,7 +74,8 @@ import B24Button from './Button.vue'
 
 const props = withDefaults(defineProps<ChatPromptSubmitProps>(), {
   status: 'ready',
-  streamingColor: 'air-secondary-no-accent',
+  color: 'air-primary',
+  streamingColor: 'air-secondary-accent-2',
   submittedColor: 'air-secondary-no-accent',
   errorColor: 'air-primary-alert'
 })
@@ -86,7 +87,7 @@ const appConfig = useAppConfig() as ChatPromptSubmit['AppConfig']
 
 const buttonProps = computed(() => ({
   ready: {
-    icon: props.icon || icons.arrowUp,
+    icon: props.icon || icons.imSend,
     color: props.color,
     type: 'submit' as const
   },
@@ -120,6 +121,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatPr
 <template>
   <B24Button
     :aria-label="t('chatPromptSubmit.label')"
+    rounded
     v-bind="buttonProps"
     :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
     :b24ui="transformUI(b24ui, props.b24ui)"

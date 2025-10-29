@@ -19,7 +19,7 @@ links:
 We are still updating this page. Some data may be missing here — we will complete it shortly.
 ::
 
-## Usage
+## Usage :badge{label="2.1+"}
 
 The ChatPromptSubmit component is used inside the [ChatPrompt](/docs/components/chat-prompt/) component to submit the prompt. It automatically handles the different `status` values to control the chat.
 
@@ -121,7 +121,7 @@ props:
 
 When its status is `streaming`{lang="ts-type"}, use the `streaming-color` and `streaming-icon` props to customize the Button. Defaults to:
 
-- `streamingColor="air-secondary-no-accent"`{lang="ts-type"}
+- `streamingColor="air-secondary-accent-2"`{lang="ts-type"}
 - `streamingIcon="StopLIcon"`{lang="ts-type"}
 
 ::note
@@ -151,7 +151,7 @@ items:
     - air-selection
     - air-boost
 props:
-  streamingColor: 'air-secondary-no-accent'
+  streamingColor: 'air-secondary-accent-2'
   status: 'streaming'
 ---
 ::

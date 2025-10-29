@@ -8,6 +8,6 @@
 
 export default {
   slots: {
-    base: ''
+    base: 'rounded-full'
   }
 }

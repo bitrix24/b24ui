@@ -37,6 +37,7 @@ import ArrowDownLIcon from '@bitrix24/b24icons-vue/outline/ArrowDownLIcon'
 import ArrowTopLIcon from '@bitrix24/b24icons-vue/outline/ArrowTopLIcon'
 import StopLIcon from '@bitrix24/b24icons-vue/outline/StopLIcon'
 import RefreshIcon from '@bitrix24/b24icons-vue/outline/RefreshIcon'
+import SendIcon from '@bitrix24/b24icons-vue/main/SendIcon'
 
 export default {
   arrowLeft: ArrowToTheLeftIcon,
@@ -69,6 +70,7 @@ export default {
   caution: AlertIcon,
   copyCheck: CircleCheckIcon,
   copy: CopyIcon,
+  imSend: SendIcon,
   arrowDown: ArrowDownLIcon,
   arrowUp: ArrowTopLIcon,
   stop: StopLIcon,
