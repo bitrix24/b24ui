@@ -20,7 +20,7 @@ links:
 We are still updating this page. Some data may be missing here — we will complete it shortly.
 ::
 
-## Usage
+## Usage :badge{label="2.1+"}
 
 The ChatMessages component displays a list of [ChatMessage](/docs/components/chat-message/) components using either the default slot or the `messages` prop.
 

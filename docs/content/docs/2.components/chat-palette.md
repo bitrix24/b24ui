@@ -16,7 +16,7 @@ links:
 We are still updating this page. Some data may be missing here — we will complete it shortly.
 ::
 
-## Usage
+## Usage :badge{label="2.1+"}
 
 The ChatPalette component is a structured layout wrapper that organizes [ChatMessages](/docs/components/chat-messages/) in a scrollable content area and [ChatPrompt](/docs/components/chat-prompt/) in a fixed bottom section, creating cohesive chatbot interfaces for modals, slideovers.
 

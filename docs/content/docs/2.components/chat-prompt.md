@@ -18,7 +18,7 @@ links:
 We are still updating this page. Some data may be missing here — we will complete it shortly.
 ::
 
-## Usage
+## Usage :badge{label="2.1+"}
 
 The ChatPrompt component renders a `<form>` element and extends the [Textarea](/docs/components/textarea/) component so you can pass any property such as `icon`, `placeholder`, `autofocus`, etc.
 
