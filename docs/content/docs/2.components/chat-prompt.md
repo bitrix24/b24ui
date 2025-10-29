@@ -5,7 +5,7 @@ category: chat
 links:
   - label: Textarea
     to: /docs/components/textarea/
-    icon: i-simple-icons-nuxtdotjs
+    iconName: Bitrix24Icon
   - label: GitHub
     iconName: GitHubIcon
     to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/ChatPrompt.vue
@@ -93,7 +93,7 @@ Use the ChatPrompt component with the `Chat` class from AI SDK v5 to display a c
 
 Pass the `input` prop alongside the `error` prop to disable the textarea when an error occurs.
 
-```vue [pages/\[id\\].vue] {2,5,13-17,34,36}
+```vue [pages/\[id\\].vue] {2,5,13-17,32,34}
 <script setup lang="ts">
 import { Chat } from '@ai-sdk/vue'
 import { getTextFromMessage } from '@bitrix24/b24ui-nux/utils/ai'
@@ -136,7 +136,7 @@ function onSubmit() {
 
 You can also use it as a starting point for a chat interface.
 
-```vue [pages/index.vue] {2,4,8-15,24,26}
+```vue [pages/index.vue] {2,4,8-15,23,25}
 <script setup lang="ts">
 import { Chat } from '@ai-sdk/vue'
 
