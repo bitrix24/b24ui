@@ -282,7 +282,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
             {{ item.hint }}
           </div>
           <B24Badge
-            v-if="item.badge !== undefined && item.type !== 'label'"
+            v-if="(item.badge || item.badge === 0) && item.type !== 'label'"
             color="air-primary-alert"
             :size="((item.b24ui?.linkLeadingBadgeSize || props.b24ui?.linkLeadingBadgeSize || b24ui.linkLeadingBadgeSize()) as BadgeProps['size'])"
             v-bind="(typeof item.badge === 'string' || typeof item.badge === 'number') ? { label: item.badge } : item.badge"
@@ -307,7 +307,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
 
       <component
         :is="orientation === 'vertical' && item.children?.length && !collapsed ? AccordionTrigger : 'span'"
-        v-if="(!collapsed || orientation !== 'vertical') && (/* item.badge !== undefined || */(orientation === 'horizontal' && (item.children?.length || !!slots[(item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>])) || (orientation === 'vertical' && item.children?.length) || item.trailingIcon || !!slots[(item.slot ? `${item.slot}-trailing` : 'item-trailing') as keyof NavigationMenuSlots<T>])"
+        v-if="(!collapsed || orientation !== 'vertical') && (/* (item.badge || item.badge === 0) || */(orientation === 'horizontal' && (item.children?.length || !!slots[(item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>])) || (orientation === 'vertical' && item.children?.length) || item.trailingIcon || !!slots[(item.slot ? `${item.slot}-trailing` : 'item-trailing') as keyof NavigationMenuSlots<T>])"
         as="span"
         :class="b24ui.linkTrailing({ class: [props.b24ui?.linkTrailing, item.b24ui?.linkTrailing] })"
         @click.stop.prevent
