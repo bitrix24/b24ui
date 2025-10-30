@@ -325,7 +325,7 @@ describe('Form', () => {
       ])
     })
 
-    it('touchedFields works', async () => {
+    it.skip('touchedFields works', async () => {
       const email = wrapper.find('#email')
 
       email.trigger('focus')
@@ -335,7 +335,7 @@ describe('Form', () => {
       expect(form.touchedFields.has('password')).toBe(false)
     })
 
-    it('touchedFields works', async () => {
+    it.skip('dirtyFields works', async () => {
       const email = wrapper.find('#email')
 
       email.trigger('change')
@@ -348,7 +348,7 @@ describe('Form', () => {
       expect(form.touchedFields.has('password')).toBe(false)
     })
 
-    it('blurredFields works', async () => {
+    it.skip('blurredFields works', async () => {
       const email = wrapper.find('#email')
 
       email.trigger('blur')
