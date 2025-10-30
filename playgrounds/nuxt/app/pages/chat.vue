@@ -38,42 +38,45 @@ function onSubmit() {
 </script>
 
 <template>
-  <div class="flex-1 flex flex-col gap-4 sm:gap-6 w-full mx-auto min-h-0">
-    <B24ChatMessages
-      :messages="chat.messages"
-      :status="chat.status"
-      :user="{ avatar: { src: '/avatar/assistant.png' } }"
-      :spacing-offset="48"
-    >
-      <template #content="{ message }">
-        <template
-          v-for="(part, index) in message.parts"
-          :key="`${message.id}-${part.type}-${index}${'state' in part ? `-${part.state}` : ''}`"
+  <div class="relative flex flex-col min-w-0 h-[calc(100svh-380px)] flex-1">
+    <div class="flex-1 overflow-y-auto p-1 flex flex-col justify-center items-center scrollbar-thin scrollbar-transparent">
+      <div class="flex-1 flex flex-col gap-4 sm:gap-6 w-full mx-auto min-h-0">
+        <B24ChatMessages
+          :messages="chat.messages"
+          :status="chat.status"
+          :user="{ avatar: { src: '/avatar/assistant.png' } }"
+          :spacing-offset="24"
         >
-          <MDC
-            v-if="part.type === 'text'"
-            :value="part.text"
-            :cache-key="`${message.id}-${index}`"
-            class="*:first:mt-0 *:last:mb-0"
-          />
-          <p
-            v-else-if="part.type === 'reasoning'"
-            class="text-sm text-(--b24ui-typography-description-color) my-5"
-          >
-            {{ part.state === 'done' ? 'Thoughts' : 'Thinking...' }}
-          </p>
-        </template>
-      </template>
-    </B24ChatMessages>
-
-    <B24ChatPrompt
-      v-model="input"
-      :error="chat.error"
-      variant="outline"
-      class="sticky bottom-0"
-      @submit="onSubmit"
-    >
-      <B24ChatPromptSubmit :status="chat.status" @stop="chat.stop" @reload="chat.regenerate" />
-    </B24ChatPrompt>
+          <template #content="{ message }">
+            <template
+              v-for="(part, index) in message.parts"
+              :key="`${message.id}-${part.type}-${index}${'state' in part ? `-${part.state}` : ''}`"
+            >
+              <MDC
+                v-if="part.type === 'text'"
+                :value="part.text"
+                :cache-key="`${message.id}-${index}`"
+                class="*:first:mt-0 *:last:mb-0"
+              />
+              <p
+                v-else-if="part.type === 'reasoning'"
+                class="text-sm text-(--b24ui-typography-description-color) my-5"
+              >
+                {{ part.state === 'done' ? 'Thoughts' : 'Thinking...' }}
+              </p>
+            </template>
+          </template>
+        </B24ChatMessages>
+        <B24ChatPrompt
+          v-model="input"
+          :error="chat.error"
+          variant="outline"
+          class="sticky bottom-0"
+          @submit="onSubmit"
+        >
+          <B24ChatPromptSubmit :status="chat.status" @stop="chat.stop" @reload="chat.regenerate" />
+        </B24ChatPrompt>
+      </div>
+    </div>
   </div>
 </template>
