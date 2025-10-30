@@ -26,7 +26,7 @@ The ChatPrompt component renders a `<form>` element and extends the [Textarea](/
 
 :::b24-chat-prompt
 ---
-variant: 'tinted'
+variant: 'outline'
 ---
 
 #default
@@ -42,6 +42,7 @@ class: 'rounded-full'
 ---
 placeholder: 'Select a model'
 modelValue: 'deepseek'
+size: 'sm'
 items:
   - label: 'Gemini 2.5 Pro'
     value: 'gemini-2.5-pro'

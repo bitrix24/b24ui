@@ -65,7 +65,7 @@ const appConfig = useAppConfig() as ChatPrompt['AppConfig']
 
 const textareaProps = useForwardProps(reactivePick(props, 'rows', 'autofocus', 'autofocusDelay', 'autoresize', 'autoresizeDelay', 'maxrows', 'icon', 'avatar', 'loading'))
 
-const getProxySlots = () => omit(slots, ['header', 'footer'])
+const getProxySlots = () => omit(slots, ['header', 'footer', 'default'])
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatPrompt || {}) })({
   variant: props.variant
@@ -116,8 +116,9 @@ defineExpose({
       </template>
     </B24Textarea>
 
-    <div v-if="!!slots.footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
+    <div :class="b24ui.footer({ class: props.b24ui?.footer })">
       <slot name="footer" />
+      <slot name="default" :b24ui="transformUI(omit(b24ui, ['root', 'body', 'header', 'footer']), props.b24ui)" />
     </div>
   </Primitive>
 </template>

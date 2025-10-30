@@ -9,18 +9,18 @@
 
 export default {
   slots: {
-    root: 'relative flex flex-col items-stretch gap-2 px-2.5 py-2 w-full rounded-lg backdrop-blur',
-    header: 'flex items-center gap-1.5',
-    body: 'items-start',
-    footer: 'flex items-center justify-between gap-1.5',
-    base: 'text-base/5'
+    root: 'relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-[8px] py-[8px] w-full rounded-lg backdrop-blur',
+    header: 'flex items-center gap-[8px]',
+    body: 'py-[4px] items-start',
+    footer: 'flex items-center justify-end gap-[8px]',
+    base: 'pt-[1px] pb-[0px] text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)'
   },
   variants: {
     variant: {
       outline: {
         root: [
           'bg-(--ui-color-design-outline-bg)',
-          'ring ring-(--ui-color-design-outline-stroke) ring-(length:--ui-design-outline-stroke-weight)',
+          'ring ring-(--ui-color-design-outline-stroke) ring-1',
           'text-(--ui-color-design-outline-content)'
         ].join(' ')
       },
