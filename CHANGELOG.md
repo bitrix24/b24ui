@@ -5,6 +5,7 @@
 * chore(ChatPrompt): improve
 * chore(ChatPromptSubmit): improve
 * chore(deps): update nuxt framework to ^4.2.0
+* chore(deps): patch `@nuxt/vite-builder`
 
 ## [2.0.6](https://github.com/bitrix24/b24ui/compare/v2.0.5...v2.0.6) (2025-10-28)
 
