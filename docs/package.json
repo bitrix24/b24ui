@@ -11,9 +11,9 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "@ai-sdk/gateway": "^2.0.1",
-    "@ai-sdk/mcp": "^0.0.1",
-    "@ai-sdk/vue": "^2.0.80",
+    "@ai-sdk/gateway": "^2.0.2",
+    "@ai-sdk/mcp": "^0.0.3",
+    "@ai-sdk/vue": "^2.0.81",
     "@bitrix24/b24icons-vue": "^2.0.4",
     "@modelcontextprotocol/sdk": "^1.20.2",
     "@nuxt/content": "^3.7.1",
@@ -25,7 +25,7 @@
     "@regle/rules": "^1.9.8",
     "@vueuse/integrations": "^13.9.0",
     "@vueuse/nuxt": "^13.9.0",
-    "ai": "^5.0.80",
+    "ai": "^5.0.81",
     "better-sqlite3": "^12.4.1",
     "capture-website": "^5.0.1",
     "joi": "^18.0.1",
