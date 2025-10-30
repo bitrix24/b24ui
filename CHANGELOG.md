@@ -7,6 +7,7 @@
 * chore(deps): update nuxt framework to ^4.2.0
 * chore(deps): patch `@nuxt/vite-builder`
 * docs(nuxt.config): reduce component meta bundle size
+* fix(module): detect lazy components when using `experimental.componentDetection`
 
 ## [2.0.6](https://github.com/bitrix24/b24ui/compare/v2.0.5...v2.0.6) (2025-10-28)
 
