@@ -1,17 +1,22 @@
 # Changelog
 
-## [2.0.7](https://github.com/bitrix24/b24ui/compare/v2.0.6...v2.0.7) (2025-11-03)
+## [2.0.7](https://github.com/bitrix24/b24ui/compare/v2.0.6...v2.0.7) (2025-10-30)
 
-* chore(ChatPrompt): improve
-* chore(ChatPromptSubmit): improve
-* chore(ChatPalette): improve
-* chore(deps): update nuxt framework to ^4.2.0
-* chore(deps): patch `@nuxt/vite-builder`
-* docs(nuxt.config): reduce component meta bundle size
-* fix(module): detect lazy components when using `experimental.componentDetection`
-* fix(NavigationMenu/Tabs): ensure proper badge display
-* fix(Button): width for one icon
-* test(Form): skip tests because of race condition
+### Chore
+* **ChatPrompt:** improve
+* **ChatPromptSubmit:** improve
+* **ChatPalette:** improve
+* **deps:** update nuxt framework to ^4.2.0
+* **deps:** patch `@nuxt/vite-builder`
+* **Form:** skip tests because of race condition
+
+### Docs
+* **nuxt.config:** reduce component meta bundle size
+
+### Bug Fixes
+* **module:** detect lazy components when using `experimental.componentDetection`
+* **NavigationMenu/Tabs:** ensure proper badge display
+* **Button:** width for one icon
 
 ## [2.0.6](https://github.com/bitrix24/b24ui/compare/v2.0.5...v2.0.6) (2025-10-28)
 
