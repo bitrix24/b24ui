@@ -4,6 +4,7 @@
 
 * chore(ChatPrompt): improve
 * chore(ChatPromptSubmit): improve
+* chore(ChatPalette): improve
 * chore(deps): update nuxt framework to ^4.2.0
 * chore(deps): patch `@nuxt/vite-builder`
 * docs(nuxt.config): reduce component meta bundle size

@@ -74,11 +74,14 @@ function onClose(e: Event) {
         <template #prompt>
           <B24ChatPrompt
             v-model="input"
+            variant="plain"
             :icon="SearchIcon"
             :error="chat.error"
             @submit="onSubmit"
             @close="onClose"
-          />
+          >
+            <B24ChatPromptSubmit :status="chat.status" @stop="chat.stop" @reload="chat.regenerate" />
+          </B24ChatPrompt>
         </template>
       </B24ChatPalette>
     </template>

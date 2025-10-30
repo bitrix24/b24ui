@@ -20,7 +20,7 @@ function onSubmit() {
 </script>
 
 <template>
-  <B24Modal open :b24ui="{ content: 'sm:max-w-3xl sm:h-[28rem]' }">
+  <B24Modal open :b24ui="{ content: 'p-0 pt-0 sm:max-w-[786px] sm:h-[448px]' }">
     <template #content>
       <B24ChatPalette>
         <B24ChatMessages
@@ -41,10 +41,13 @@ function onSubmit() {
         <template #prompt>
           <B24ChatPrompt
             v-model="input"
+            variant="plain"
             :icon="SearchIcon"
             :error="chat.error"
             @submit="onSubmit"
-          />
+          >
+            <B24ChatPromptSubmit :status="chat.status" @stop="chat.stop" @reload="chat.regenerate" />
+          </B24ChatPrompt>
         </template>
       </B24ChatPalette>
     </template>

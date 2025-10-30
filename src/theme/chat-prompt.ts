@@ -2,14 +2,11 @@
  * ChatPrompt
  * An enhanced Textarea component optimized for prompt submission in AI chat interfaces.
  * ---
- * @todo add variant
- * @todo add demo
- * @todo add docs
  */
 
 export default {
   slots: {
-    root: 'relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-[8px] py-[8px] w-full rounded-lg backdrop-blur',
+    root: 'relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-[8px] py-[8px] w-full rounded-lg',
     header: 'flex items-center gap-[8px]',
     body: 'py-[4px] items-start',
     footer: 'flex items-center justify-end gap-[8px]',

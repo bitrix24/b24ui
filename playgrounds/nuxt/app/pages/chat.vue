@@ -69,7 +69,7 @@ function onSubmit() {
     <B24ChatPrompt
       v-model="input"
       :error="chat.error"
-      variant="subtle"
+      variant="outline"
       class="sticky bottom-0"
       @submit="onSubmit"
     >
