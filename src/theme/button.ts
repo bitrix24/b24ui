@@ -379,6 +379,18 @@ export default {
           'pe-[calc(var(--ui-btn-padding-right)_-_var(--ui-btn-icon-compensation))]'
         ].join(' ')
       }
+    },
+    // endregion ////
+    // region single icon ////
+    {
+      leading: true,
+      useLabel: false,
+      useDropdown: false,
+      class: {
+        base: [
+          'w-(--ui-btn-height)'
+        ].join(' ')
+      }
     }
     // endregion ////
   ],
