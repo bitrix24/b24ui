@@ -267,7 +267,11 @@ export function getTemplates(options: ModuleOptions, uiConfig: Record<string, an
     return sources || '@source "./b24ui";'
   }
 
-  if (!!nuxt && ((hasNuxtModule('@nuxtjs/mdc') || options.mdc) || (hasNuxtModule('@nuxt/content') || options.content))) {
+  /** @memo Add prose to Vue */
+  const forNuxt = !!nuxt && ((hasNuxtModule('@nuxtjs/mdc') || options.mdc) || (hasNuxtModule('@nuxt/content') || options.content))
+  const forVue = !nuxt && (options.mdc)
+
+  if (forNuxt || forVue) {
     hasProse = true
 
     const path = 'prose'

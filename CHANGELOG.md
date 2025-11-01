@@ -4,6 +4,7 @@
 
 * chore(deps): remove `unimport` resolution
 * fix(RadioGroup): update `update:modelValue` emit type
+* fix(vite)!: write theme templates
 
 ## [2.0.7](https://github.com/bitrix24/b24ui/compare/v2.0.6...v2.0.7) (2025-10-30)
 
