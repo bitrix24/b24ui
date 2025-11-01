@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.0.8](https://github.com/bitrix24/b24ui/compare/v2.0.7...v2.0.8) (2025-11-xx)
+## [2.0.8](https://github.com/bitrix24/b24ui/compare/v2.0.7...v2.0.8) (2025-11-01)
 
 ### Chore
 
