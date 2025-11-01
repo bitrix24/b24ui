@@ -1,6 +1,8 @@
+import type { H3Event } from 'h3'
 import json5 from 'json5'
 import { camelCase, kebabCase } from 'scule'
 import { visit } from '@nuxt/content/runtime'
+import { queryCollection } from '@nuxt/content/server'
 import * as theme from '../../.nuxt/b24ui'
 import meta from '#nuxt-component-meta'
 // @ts-expect-error - no types available
@@ -335,7 +337,7 @@ const generateComponentCode = ({
 </template>`
 }
 
-export function transformMDC(doc: Document): Document {
+export async function transformMDC(event: H3Event, doc: Document): Promise<Document> {
   const componentName = camelCase(doc.title)
 
   visitAndReplace(doc, 'component-theme', (node) => {
@@ -449,6 +451,32 @@ export function transformMDC(doc: Document): Document {
       replaceNodeWithPre(node, 'vue', '? visitAndReplace ?', `${name}.vue`)
     }
   })
+
+  const componentsListNodes: any[] = []
+  visit(doc.body, (node) => {
+    if (Array.isArray(node) && node[0] === 'components-list') {
+      componentsListNodes.push(node)
+    }
+    return true
+  }, node => node)
+
+  for (const node of componentsListNodes) {
+    const category = node[1]?.category
+    if (!category) continue
+
+    const components = await queryCollection(event, 'docs')
+      .where('path', 'LIKE', '/docs/components/%')
+      .where('extension', '=', 'md')
+      .where('category', '=', category)
+      .select('path', 'title')
+      .all()
+
+    const links = components.map((c: any) => `- [${c.title}](https://bitrix24.github.io/b24ui/raw${c.path}.md)`).join('\n')
+
+    node[0] = 'p'
+    node[1] = {}
+    node[2] = links
+  }
 
   return doc
 }
