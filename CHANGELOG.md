@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.0.9](https://github.com/bitrix24/b24ui/compare/v2.0.7...v2.0.8) (2025-11-xx)
+
+* chore(deps): remove `unimport` resolution
+
 ## [2.0.7](https://github.com/bitrix24/b24ui/compare/v2.0.6...v2.0.7) (2025-10-30)
 
 ### Chore
