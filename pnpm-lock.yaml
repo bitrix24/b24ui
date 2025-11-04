@@ -21,8 +21,8 @@ importers:
   .:
     dependencies:
       '@bitrix24/b24icons-vue':
-        specifier: ^2.0.4
-        version: 2.0.4(vue@3.5.22(typescript@5.8.3))
+        specifier: ^2.0.5
+        version: 2.0.5(vue@3.5.22(typescript@5.8.3))
       '@inertiajs/vue3':
         specifier: ^2.0.7
         version: 2.2.12(vue@3.5.22(typescript@5.8.3))
@@ -259,8 +259,8 @@ importers:
         specifier: ^2.0.81
         version: 2.0.81(vue@3.5.22(typescript@5.8.3))(zod@4.1.12)
       '@bitrix24/b24icons-vue':
-        specifier: ^2.0.4
-        version: 2.0.4(vue@3.5.22(typescript@5.8.3))
+        specifier: ^2.0.5
+        version: 2.0.5(vue@3.5.22(typescript@5.8.3))
       '@bitrix24/b24ui-nuxt':
         specifier: workspace:*
         version: link:..
@@ -624,10 +624,10 @@ packages:
   '@barbapapazes/plausible-tracker@0.5.6':
     resolution: {integrity: sha512-GRZxn3ZngYQ1+QbdP8d66D/lQg+T2oEevG8kBGfNwVbt9VZB67sgMx/gkRo/Ww2lH7QelgjUNzvOeG+DsJX2HQ==}
 
-  '@bitrix24/b24icons-vue@2.0.4':
-    resolution: {integrity: sha512-g8MCiPXkbg6pV01EQoIwXQWeGF5xGER4Tn4yixpPLPJBBIcG5+/M4DNeUy+thSpfNVA0QwZKZg6UfVsjgePsqA==}
+  '@bitrix24/b24icons-vue@2.0.5':
+    resolution: {integrity: sha512-FNT6CflIukha9TehpHIbpnBWDWLejPBqKjPu3JvLwJ3z4++q6DGCCHFrbohhLmOtVJwtFN5uziDt1kCDjo+HJg==}
     peerDependencies:
-      vue: ^3.5.21
+      vue: ^3.5.22
 
   '@clack/core@0.5.0':
     resolution: {integrity: sha512-p3y0FIOwaYRUPRcMO7+dlmLh8PSRcrjuTndsiA0WAFbWES0mLZlrjVoBRZ9DzkPFJZG6KGkJmoEAY0ZcVWTkow==}
@@ -7133,7 +7133,7 @@ snapshots:
 
   '@barbapapazes/plausible-tracker@0.5.6': {}
 
-  '@bitrix24/b24icons-vue@2.0.4(vue@3.5.22(typescript@5.8.3))':
+  '@bitrix24/b24icons-vue@2.0.5(vue@3.5.22(typescript@5.8.3))':
     dependencies:
       vue: 3.5.22(typescript@5.8.3)
 
