@@ -166,6 +166,34 @@ slots:
 :placeholder{class="h-48"}
 ::
 
+### Transition
+
+Use the `transition` prop to control whether the Modal is animated or not. Defaults to `true`.
+
+::component-code
+---
+prettier: true
+ignore:
+  - title
+props:
+  transition: false
+  title: 'Modal without transition'
+slots:
+  default: |
+
+    <B24Button label="Open" />
+
+  body: |
+
+    <Placeholder class="h-48" />
+---
+
+:b24-button{label="Open"}
+
+#body
+:placeholder{class="h-48"}
+::
+
 ### Overlay
 
 Use the `overlay` prop to control whether the Modal has an overlay or not. Defaults to `true`.
@@ -235,9 +263,13 @@ slots:
 :placeholder{class="h-48"}
 ::
 
-### Transition
+### Modal
 
-Use the `transition` prop to control whether the Modal is animated or not. Defaults to `true`.
+Use the `modal` prop to control whether the Modal blocks interaction with outside content. Defaults to `true`.
+
+::note
+When `modal` is set to `false`, the overlay is automatically disabled and outside content becomes interactive.
+::
 
 ::component-code
 ---
@@ -245,8 +277,8 @@ prettier: true
 ignore:
   - title
 props:
-  transition: false
-  title: 'Modal without transition'
+  modal: false
+  title: 'Modal interactive'
 slots:
   default: |
 
@@ -261,6 +293,80 @@ slots:
 
 #body
 :placeholder{class="h-48"}
+::
+
+### Dismissible
+
+Use the `dismissible` prop to control whether the Modal is dismissible when clicking outside of it or pressing escape. Defaults to `true`.
+
+::note
+A `close:prevent` event will be emitted when the user tries to close it.
+::
+
+::tip
+You can combine `modal: false` with `dismissible: false` to make the Modal's background interactive without closing it.
+::
+
+::component-code
+---
+prettier: true
+ignore:
+  - title
+props:
+  dismissible: false
+  modal: true
+  title: 'Modal non-dismissible'
+slots:
+  default: |
+
+    <B24Button label="Open" />
+
+  body: |
+
+    <Placeholder class="h-48" />
+---
+
+:b24-button{label="Open"}
+
+#body
+:placeholder{class="h-48"}
+::
+
+### Scrollable :badge{label="Soon"}
+
+Use the `scrollable` prop to make the Modal's content scrollable within the overlay.
+
+::warning
+As the overlay is needed for scrolling, `modal: false` is not compatible and `overlay: false` only removes the background.
+::
+
+::component-code
+---
+prettier: true
+ignore:
+  - title
+props:
+  scrollable: true
+  overlay: true
+  title: 'Modal scrollable'
+slots:
+  default: |
+
+    <B24Button label="Open" />
+
+  body: |
+
+    <Placeholder class="h-full" />
+---
+
+:b24-button{label="Open"}
+
+#body
+:placeholder{class="h-screen"}
+::
+
+::caution
+There's a [known issue](https://reka-ui.com/docs/components/dialog#scrollable-overlay) where clicking on the scrollbar may unintentionally close the dialog on some operating systems.
 ::
 
 ### Fullscreen
@@ -310,35 +416,6 @@ In this example, leveraging [`defineShortcuts`](/docs/composables/define-shortcu
 
 ::tip
 This allows you to move the trigger outside of the Modal or remove it entirely.
-::
-
-### Disable dismissal
-
-Set the `dismissible` prop to `false` to prevent the Modal from being closed when clicking outside of it or pressing escape. A `close:prevent` event will be emitted when the user tries to close it.
-
-::component-code
----
-prettier: true
-ignore:
-  - title
-  - dismissible
-props:
-  dismissible: false
-  title: 'Modal non-dismissible'
-slots:
-  default: |
-
-    <B24Button label="Open" />
-
-  body: |
-
-    <Placeholder class="h-48" />
----
-
-:b24-button{label="Open"}
-
-#body
-:placeholder{class="h-48"}
 ::
 
 ### Programmatic usage

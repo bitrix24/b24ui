@@ -231,6 +231,38 @@ slots:
 :b24-button{label="Open"}
 ::
 
+### Modal
+
+Use the `modal` prop to control whether the DropdownMenu blocks interaction with outside content. Defaults to `true`.
+
+::component-code
+---
+prettier: true
+collapse: true
+ignore:
+  - items
+  - b24ui.content
+external:
+  - items
+externalTypes:
+  - DropdownMenuItem[]
+props:
+  modal: false
+  items:
+    - label: Profile
+    - label: Billing
+    - label: Settings
+  b24ui:
+    content: 'w-48'
+slots:
+  default: |
+
+    <B24Button label="Open" />
+---
+
+:b24-button{label="Open"}
+::
+
 ### Disabled
 
 Use the `disabled` prop to disable the DropdownMenu.

@@ -125,6 +125,23 @@ function openModal() {
         >
           <B24Button label="Open fullscreen" />
         </B24Modal>
+
+        <B24Modal
+          title="Modal scrollable"
+          description="This modal has `scrollable: true` prop. Content scrolls within the overlay, preventing accidental closes on scrollbar clicks."
+          scrollable
+        >
+          <B24Button label="Open scrollable" color="air-secondary-alert" />
+
+          <template #body>
+            <Placeholder class="h-[200vh] w-full" />
+          </template>
+
+          <template #footer>
+            <B24Button label="Send" color="air-primary" />
+            <B24Button label="Cancel" color="air-tertiary" />
+          </template>
+        </B24Modal>
       </div>
 
       <ExampleCardSubTitle title="closing options" />

@@ -181,6 +181,39 @@ You can also pass an array of arrays to the `items` prop to create separated gro
 Each item can take a `children` array of objects with the same properties as the `items` prop to create a nested menu which can be controlled using the `open`, `defaultOpen` and `content` properties.
 ::
 
+### Modal
+
+Use the `modal` prop to control whether the ContextMenu blocks interaction with outside content. Defaults to `true`.
+
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - b24ui.content
+external:
+  - items
+externalTypes:
+  - ContextMenuItem[]
+props:
+  modal: false
+  items:
+    - label: System
+    - label: Light
+    - label: Dark
+  b24ui:
+    content: 'w-48'
+slots:
+  default: |
+
+    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) bg-(--ui-color-bg-content-primary) aspect-video w-72">
+      Right click here
+    </div>
+---
+
+:div{class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) bg-(--ui-color-bg-content-primary) aspect-video w-72"}[Right click here]
+::
+
 ### Disabled
 
 Use the `disabled` prop to disable the ContextMenu.

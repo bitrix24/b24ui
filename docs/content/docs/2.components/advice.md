@@ -84,8 +84,8 @@ Use the slot property to customize a description.
 ---
 name: 'advice-example'
 props:
-  class: 'w-full flex flex-col flex-nowrap justify-center items-center gap-4'
-  collapse: true
+class: 'w-full flex flex-col flex-nowrap justify-center items-center gap-4'
+collapse: true
 ---
 ::
 

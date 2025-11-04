@@ -19,6 +19,11 @@ export interface ModalProps extends DialogRootProps {
    */
   overlay?: boolean
   /**
+   * When `true`, enables scrollable overlay mode where content scrolls within the overlay.
+   * @defaultValue false
+   */
+  scrollable?: boolean
+  /**
    * Render an overlay blur behind the modal.
    * `auto` use `motion-safe`.
    * @defaultValue 'auto'
@@ -86,7 +91,7 @@ export interface ModalSlots {
 <script setup lang="ts">
 import { computed, toRef } from 'vue'
 import { DialogRoot, DialogTrigger, DialogPortal, DialogOverlay, DialogContent, DialogTitle, DialogDescription, DialogClose, VisuallyHidden, useForwardPropsEmits } from 'reka-ui'
-import { reactivePick } from '@vueuse/core'
+import { reactivePick, createReusableTemplate } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useLocale } from '../composables/useLocale'
 import { usePortal } from '../composables/usePortal'
@@ -126,26 +131,37 @@ const contentEvents = computed(() => {
     }, {} as Record<typeof events[number], (e: Event) => void>)
   }
 
+  if (props.scrollable) {
+    return {
+      // FIXME: This is a workaround to prevent the modal from closing when clicking on the scrollbar https://reka-ui.com/docs/components/dialog#scrollable-overlay but it's not working on Mac OS.
+      pointerDownOutside: (e: any) => {
+        const originalEvent = e.detail.originalEvent
+        const target = originalEvent.target as HTMLElement
+        if (originalEvent.offsetX > target.clientWidth || originalEvent.offsetY > target.clientHeight) {
+          e.preventDefault()
+        }
+      }
+    }
+  }
+
   return {}
 })
+
+const [DefineContentTemplate, ReuseContentTemplate] = createReusableTemplate()
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.modal || {}) })({
   transition: props.transition,
   fullscreen: props.fullscreen,
-  overlayBlur: props.overlayBlur
-}))
+  overlayBlur: props.overlayBlur,
+  overlay: props.overlay,
+  scrollable: props.scrollable
+} as any))
 </script>
 
 <!-- eslint-disable vue/no-template-shadow -->
 <template>
   <DialogRoot v-slot="{ open, close }" v-bind="rootProps">
-    <DialogTrigger v-if="!!slots.default" as-child :class="props.class">
-      <slot :open="open" />
-    </DialogTrigger>
-
-    <DialogPortal v-bind="portalProps">
-      <DialogOverlay v-if="overlay" :class="b24ui.overlay({ class: props.b24ui?.overlay })" />
-
+    <DefineContentTemplate>
       <DialogContent
         :class="b24ui.content({ class: [!slots.default && props.class, props.b24ui?.content] })"
         v-bind="contentProps"
@@ -216,6 +232,24 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.modal 
           </div>
         </slot>
       </DialogContent>
+    </DefineContentTemplate>
+
+    <DialogTrigger v-if="!!slots.default" as-child :class="props.class">
+      <slot :open="open" />
+    </DialogTrigger>
+
+    <DialogPortal v-bind="portalProps">
+      <template v-if="scrollable">
+        <DialogOverlay :class="b24ui.overlay({ class: props.b24ui?.overlay })">
+          <ReuseContentTemplate />
+        </DialogOverlay>
+      </template>
+
+      <template v-else>
+        <DialogOverlay v-if="overlay" :class="b24ui.overlay({ class: props.b24ui?.overlay })" />
+
+        <ReuseContentTemplate />
+      </template>
     </DialogPortal>
   </DialogRoot>
 </template>

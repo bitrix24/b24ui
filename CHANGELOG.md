@@ -3,6 +3,7 @@
 ## [2.0.9](https://github.com/bitrix24/b24ui/compare/v2.0.8...v2.0.9) (2025-11-xx)
 
 * fix(Form): refine `nested` prop type handling and simplify logic
+* feat(Modal): add `scrollable` prop
 * feat(module): add `theme.prefix` option
 * chore(deps): update vue-tsc to ^3.1.3
 
