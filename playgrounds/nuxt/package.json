@@ -13,6 +13,7 @@
   "dependencies": {
     "@ai-sdk/gateway": "^2.0.2",
     "@ai-sdk/vue": "^2.0.81",
+    "openai":"^6.7.0",
     "@internationalized/date": "^3.10.0",
     "@bitrix24/b24ui-nuxt": "workspace:*",
     "ai": "^5.0.81",
