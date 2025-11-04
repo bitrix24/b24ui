@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.0.9](https://github.com/bitrix24/b24ui/compare/v2.0.8...v2.0.9) (2025-11-xx)
+## [2.0.9](https://github.com/bitrix24/b24ui/compare/v2.0.8...v2.0.9) (2025-11-04)
 
 ### Features
 
