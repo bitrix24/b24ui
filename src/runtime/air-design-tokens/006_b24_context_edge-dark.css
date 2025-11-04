@@ -1,10 +1,4 @@
-@variant edge-dark (&:where(.edge-dark, .edge-dark *));
-
-@layer base {
-  body {
-    @apply edge-dark:scheme-light;
-  }
-
+@layer theme {
   .edge-dark {
     --air-theme-bg-image: none;
     --air-theme-bg-image-blurred: none;
@@ -15,8 +9,7 @@
     --air-theme-bg-color: #545d6b;
   }
 
-  .edge-dark.--inner
-  {
+  .edge-dark.--inner {
     --air-theme-bg-color: var(--ui-color-bg-content-light);
   }
 

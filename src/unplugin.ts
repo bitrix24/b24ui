@@ -10,7 +10,7 @@ import tailwind from '@tailwindcss/vite'
 
 import type * as b24ui from '#build/b24ui'
 
-import { defaultOptions, getDefaultUiConfig } from './defaults'
+import { defaultOptions, getDefaultConfig } from './utils/defaults'
 import type { ModuleOptions } from './module'
 
 import TemplatePlugin from './plugins/templates'
@@ -23,7 +23,9 @@ import AutoImportPlugin from './plugins/auto-import'
 import type { TVConfig } from './runtime/types/tv'
 import type { ColorModeTypeLight } from './runtime/types'
 
-type AppConfigB24UI = {} & TVConfig<typeof b24ui>
+type AppConfigB24UI = {
+  prefix?: string
+} & TVConfig<typeof b24ui>
 
 export interface Bitrix24UIOptions extends Omit<ModuleOptions, 'colorMode'> {
   /** Whether to generate declaration files for auto-imported components. */
@@ -54,6 +56,8 @@ export const runtimeDir = normalize(fileURLToPath(new URL('./runtime', import.me
 export const Bitrix24UIPlugin = createUnplugin<Bitrix24UIOptions | undefined>((_options = {}, meta) => {
   const options = defu(_options, { }, defaultOptions)
 
+  options.theme = options.theme || {}
+
   const appConfig = defu(
     {
       b24ui: options.b24ui,
@@ -62,7 +66,7 @@ export const Bitrix24UIPlugin = createUnplugin<Bitrix24UIOptions | undefined>((_
       colorModeTypeLight: options.colorModeTypeLight
     },
     {
-      b24ui: getDefaultUiConfig()
+      b24ui: getDefaultConfig(options.theme)
     }
   )
 

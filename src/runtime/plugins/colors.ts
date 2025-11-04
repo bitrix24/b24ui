@@ -1,11 +1,8 @@
 import { computed } from 'vue'
 // import colors from 'tailwindcss/colors'
 import type { UseHeadInput } from '@unhead/vue/types'
-import {
-  defineNuxtPlugin,
-  useNuxtApp,
-  useHead
-} from '#imports'
+// import { defineNuxtPlugin, useAppConfig, useNuxtApp, useHead } from '#imports'
+import { defineNuxtPlugin, useNuxtApp, useHead } from '#imports'
 
 /**
  * @see src/templates.ts -> getTemplates
@@ -20,8 +17,9 @@ function getColor(color: keyof typeof colors, shade: typeof shades[number]): str
   return ''
 }
 
-function generateShades(key: string, value: string) {
-  return `${shades.map(shade => `--ui-color-${key}-${shade}: var(--color-${value === 'neutral' ? 'old-neutral' : value}-${shade}, ${getColor(value as keyof typeof colors, shade)});`).join('\n  ')}`
+function generateShades(key: string, value: string, prefix?: string) {
+  const prefixStr = prefix ? `${prefix}-` : ''
+  return `${shades.map(shade => `--ui-color-${key}-${shade}: var(--${prefixStr}color-${value === 'neutral' ? 'old-neutral' : value}-${shade}, ${getColor(value as keyof typeof colors, shade)});`).join('\n  ')}`
 }
 function generateColor(key: string, shade: number) {
   return `--ui-${key}: var(--ui-color-${key}-${shade});`
@@ -34,12 +32,13 @@ export default defineNuxtPlugin(() => {
 
   const root = computed(() => {
     // const { base, ...colors } = appConfig.b24ui.colors
+    // const prefix = (appConfig.b24ui as { prefix?: string }).prefix
 
-    return `@layer base {
-  :root {
+    return `@layer theme {
+  :root, :host {
     ${[].join('\n  ')}
   }
-  :root, .light {
+  :root, :host, .light {
     ${[].join('\n  ')}
   }
   .dark {

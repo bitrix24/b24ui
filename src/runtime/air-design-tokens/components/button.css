@@ -13,7 +13,7 @@
   --button-link-dark-bg-active: color-mix(in srgb, transparent 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
 }
 
-@layer base {
+@layer components {
   /* region Old */
   .ui-btn {
     /* size */

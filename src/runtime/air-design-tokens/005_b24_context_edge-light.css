@@ -1,10 +1,4 @@
-@variant edge-light (&:where(.edge-light, .edge-light *));
-
-@layer base {
-  body {
-    @apply edge-light:scheme-light;
-  }
-
+@layer theme {
   .edge-light {
     --air-theme-bg-image: none;
     --air-theme-bg-image-blurred: none;
@@ -15,12 +9,11 @@
     --air-theme-bg-color: #eef2f4;
   }
 
-  .edge-light.--inner
-  {
+  .edge-light.--inner {
     --air-theme-bg-color: var(--ui-color-bg-content-light);
   }
 
-  .edge-light{
+  .edge-light {
     --b24ui-typography-legend-color: var(--ui-color-design-plain-na-content);
     --b24ui-typography-label-color: var(--ui-color-design-plain-content);
     --b24ui-typography-description-color: var(--ui-color-design-plain-na-content);

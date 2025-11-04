@@ -1,11 +1,5 @@
-@layer base {
-  body {
-    @apply antialiased font-(family-name:--ui-font-family-system);
-  }
-}
-
 @layer theme {
-  :host,:root {
+  :root, :host {
     --spacing: .25rem;
     --content-area-shift: 22px;
   }
@@ -13,7 +7,6 @@
 
 /*
  * Colors
- * @todo fix layer
  */
 @layer components {
   /* region air-primary */
@@ -690,7 +683,7 @@
   }
 
   .style-blurred-bg-input {
-    background: linear-gradient(to right,var(--ui-color-design-outline-bg-alt),var(--ui-color-design-outline-bg-alt)),var(--main-ui-filter-custom-background,none);
+    background: linear-gradient(to right,var(--ui-color-design-outline-bg-alt),var(--ui-color-design-outline-bg-alt)),var(--main-ui-filter-custom-background, none);
   }
 
   .style-transparent-bg {

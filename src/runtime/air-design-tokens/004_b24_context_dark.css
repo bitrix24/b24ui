@@ -1,10 +1,4 @@
-@variant dark (&:where(.dark, .dark *));
-
-@layer base {
-  body {
-    @apply dark:scheme-dark;
-  }
-
+@layer theme {
   .dark {
     --air-theme-bg-image: none;
     --air-theme-bg-image-blurred: none;

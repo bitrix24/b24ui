@@ -3,7 +3,7 @@ import { createResolver, defineNuxtModule, addComponentsDir, addImportsDir, addP
 import type { HookResult } from '@nuxt/schema'
 import type { ColorModeTypeLight } from './runtime/types'
 import { addTemplates } from './templates'
-import { defaultOptions, getDefaultUiConfig } from './defaults'
+import { defaultOptions, getDefaultConfig } from './utils/defaults'
 import { name, version } from '../package.json'
 
 export type * from './runtime/types'
@@ -16,11 +16,24 @@ export interface ModuleOptions {
    * Enable or disable `@vueuse/core` color-mode integration
    * @memo We not use `@nuxtjs/color-mode`
    * @defaultValue `true`
-   * @link https://bitrix24.github.io/b24ui/guide/color-mode-nuxt.html
+   * @link https://bitrix24.github.io/b24ui/docs/getting-started/installation/nuxt/#colormode
    */
   colorMode?: boolean
   colorModeTypeLight?: ColorModeTypeLight
   version?: string
+  /**
+   * Customize how the theme is generated
+   * @see https://bitrix24.github.io/b24ui/docs/getting-started/theme/design-system/
+   */
+  theme?: {
+    /**
+     * Prefix for Tailwind CSS utility classes
+     * @see https://bitrix24.github.io/b24ui/docs/getting-started/installation/nuxt/#themeprefix
+     * @example 'tw'
+     */
+    prefix?: string
+  }
+
   /**
    * Force the import of prose components even if `@nuxtjs/mdc` or `@nuxt/content` are not installed
    * @defaultValue true
@@ -72,7 +85,7 @@ export default defineNuxtModule<ModuleOptions>({
   async setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
 
-    // options.theme = options.theme || {}
+    options.theme = options.theme || {}
     // options.theme.colors = resolveColors(options.theme.colors)
 
     nuxt.options.b24ui = options
@@ -80,11 +93,11 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.alias['#b24ui'] = resolve('./runtime')
 
     nuxt.options.appConfig.version = version
-    nuxt.options.appConfig.b24ui = defu(nuxt.options.appConfig.b24ui || {}, getDefaultUiConfig())
+    nuxt.options.appConfig.b24ui = defu(nuxt.options.appConfig.b24ui || {}, getDefaultConfig(options.theme))
 
     // Isolate root node from portaled components
     nuxt.options.app.rootAttrs = nuxt.options.app.rootAttrs || {}
-    nuxt.options.app.rootAttrs.class = [nuxt.options.app.rootAttrs.class, 'isolate'].filter(Boolean).join(' ')
+    nuxt.options.app.rootAttrs.class = [nuxt.options.app.rootAttrs.class, `${options.theme?.prefix ? options.theme.prefix + ':' : ''}isolate`].filter(Boolean).join(' ')
 
     nuxt.hook('vite:extend', async ({ config }) => {
       const plugin = await import('@tailwindcss/vite').then(r => r.default)

@@ -1,12 +1,5 @@
-@variant light (&:where(.light, .light *));
-
-@layer base {
-  body {
-    @apply scheme-light;
-  }
-
-  .light,
-  :root {
+@layer theme {
+  :root, :host, .light {
     --air-theme-bg-image: none;
     --air-theme-bg-image-blurred: none;
     --air-theme-bg-position: 0 0;
@@ -20,8 +13,7 @@
     --air-theme-bg-color: var(--ui-color-gray-05);
   }
 
-  .light,
-  :root {
+  :root, :host, .light {
     --b24ui-typography-legend-color: var(--ui-color-design-plain-na-content);
     --b24ui-typography-label-color: var(--ui-color-design-plain-content);
     --b24ui-typography-description-color: var(--ui-color-design-plain-na-content);

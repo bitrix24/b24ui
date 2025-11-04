@@ -8,10 +8,6 @@
  * --b24ui-header-height: calc(var(--spacing)*16); => 64
  */
 
-@layer base {
-
-}
-
 @theme inline {
   --content-area-left-shift: 22px;
   --air-header-min-height: 58px;
@@ -20,177 +16,174 @@
   --b24ui-header-height: var(--topbar-height);
 }
 
-/**
- * Sidebar
- */
-.air-sidebar {
-  background: var(--air-theme-background-blurred, none);
-}
-.clip-path-viewport-wrapper {
-  clip-path: inset(0 -24px -28px -24px round 10px);
-}
+@layer components {
+  /**
+   * Sidebar
+   */
+  .air-sidebar {
+    background: var(--air-theme-background-blurred, none);
+  }
 
-.menu-item-horizontal {
-  --menu-item-border-radius: var(--ui-border-radius-sm);
-  --menu-item-border: var(--ui-color-design-selection-stroke);
+  .clip-path-viewport-wrapper {
+    clip-path: inset(0 -24px -28px -24px round 10px);
+  }
 
-  --menu-item-color: var(--menu-item-color-default);
-  --menu-item-color-default: var(--ui-color-design-plain-content);
-  --menu-item-color-active: var(--ui-color-design-selection-content);
-  --menu-item-background: var(--menu-item-background-default);
-  --menu-item-background-default: transparent;
-  --menu-item-background-hover: var(--ui-color-design-plain-na-focused-bg);
-  --menu-item-background-active: var(--ui-color-design-selection-bg);
+  .menu-item-horizontal {
+    --menu-item-border-radius: var(--ui-border-radius-sm);
+    --menu-item-border: var(--ui-color-design-selection-stroke);
 
-  transition: background-color .2s, opacity .2s;
-}
+    --menu-item-color: var(--menu-item-color-default);
+    --menu-item-color-default: var(--ui-color-design-plain-content);
+    --menu-item-color-active: var(--ui-color-design-selection-content);
+    --menu-item-background: var(--menu-item-background-default);
+    --menu-item-background-default: transparent;
+    --menu-item-background-hover: var(--ui-color-design-plain-na-focused-bg);
+    --menu-item-background-active: var(--ui-color-design-selection-bg);
 
-.menu-item-horizontal:hover {
-  --menu-item-color-active: var(--ui-color-design-plain-na-focused-content);
-}
+    transition: background-color .2s, opacity .2s;
+  }
 
-.menu-item-horizontal-active {
-  --menu-item-color: var(--menu-item-color-active);
-  --menu-item-background: var(--menu-item-background-active);
-}
+  .menu-item-horizontal:hover {
+    --menu-item-color-active: var(--ui-color-design-plain-na-focused-content);
+  }
 
-.menu-item-vertical {
-  --menu-item-color: var(--menu-item-color-default);
-  --menu-item-color-default: var(--ui-color-design-plain-content);
-  --menu-item-color-active: var(--ui-color-design-selection-content);
-  --menu-item-background: var(--menu-item-background-default);
-  --menu-item-background-default: transparent;
-  --menu-item-background-hover: color-mix(in srgb,var(--menu-item-background) 100%,var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
-  --menu-item-background-active: var(--ui-color-design-selection-bg);
+  .menu-item-horizontal-active {
+    --menu-item-color: var(--menu-item-color-active);
+    --menu-item-background: var(--menu-item-background-active);
+  }
 
-  transition: border-radius .2s ease-in-out, color .15s ease-in-out, background .15s ease-in-out;
-}
+  .menu-item-vertical {
+    --menu-item-color: var(--menu-item-color-default);
+    --menu-item-color-default: var(--ui-color-design-plain-content);
+    --menu-item-color-active: var(--ui-color-design-selection-content);
+    --menu-item-background: var(--menu-item-background-default);
+    --menu-item-background-default: transparent;
+    --menu-item-background-hover: color-mix(in srgb, var(--menu-item-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --menu-item-background-active: var(--ui-color-design-selection-bg);
 
-.menu-item-vertical:hover {
-  transition-duration: .2s, .15s, 0s;
-}
+    transition: border-radius .2s ease-in-out, color .15s ease-in-out, background .15s ease-in-out;
+  }
 
-.menu-item-vertical-active {
-  --menu-item-color: var(--menu-item-color-active);
-  --menu-item-background: var(--menu-item-background-active);
-}
+  .menu-item-vertical:hover {
+    transition-duration: .2s, .15s, 0s;
+  }
 
-.light,
-:root {
-  --menu-item-block-stack-space: 4px;
-  --menu-width-expanded: 240px;
-  --menu-width-collapsed: 66px;
-  --menu-items-block-padding-x: 14px;
-  --menu-item-border-radius: var(--ui-border-radius-md);
-  --leftmenu-bg: var(--ui-color-bg-content-secondary);
-  --leftmenu-bg-expanded: var(--ui-color-bg-content-secondary);
-  --leftmenu-bg-stroke: #fff;
-  --leftmenu-bg-stroke-expanded: #fff;
-  --leftmenu-bg-overlayed: rgba(33,51,76,.94);
-  --leftmenu-bg-blur: 0px;
-  --leftmenu-bg-blur-expanded: 0px;
-  --leftmenu-width: 66px;
-  --leftmenu-width-expanded: 240px;
-  --leftmenu-bg-divider: var(--ui-color-divider-default);
-  --leftmenu-group-bg: transparent;
-  --leftmenu-group-stroke: var(--ui-color-divider-default);
-  --leftmenu-group-stroke-weight: var(--ui-border-width-thin)
-}
+  .menu-item-vertical-active {
+    --menu-item-color: var(--menu-item-color-active);
+    --menu-item-background: var(--menu-item-background-active);
+  }
 
-.dark {
-  --leftmenu-bg: #262626;
-  --leftmenu-bg-expanded: #262626;
-  --leftmenu-bg-stroke: #3b3b3b;
-  --leftmenu-bg-stroke-expanded: #3b3b3b;
-  --leftmenu-bg-overlayed: rgba(52,74,103,.94);
-  --leftmenu-bg-blur: 0px;
-  --leftmenu-bg-blur-expanded: 0px;
-  --leftmenu-bg-divider: var(--ui-color-divider-default);
-  --leftmenu-group-bg: transparent;
-  --leftmenu-group-stroke: var(--ui-color-divider-default);
-  --leftmenu-group-stroke-weight: var(--ui-border-width-thin)
-}
+  .light,
+  :root {
+    --menu-item-block-stack-space: 4px;
+    --menu-width-expanded: 240px;
+    --menu-width-collapsed: 66px;
+    --menu-items-block-padding-x: 14px;
+    --menu-item-border-radius: var(--ui-border-radius-md);
+    --leftmenu-bg: var(--ui-color-bg-content-secondary);
+    --leftmenu-bg-expanded: var(--ui-color-bg-content-secondary);
+    --leftmenu-bg-stroke: #fff;
+    --leftmenu-bg-stroke-expanded: #fff;
+    --leftmenu-bg-overlayed: rgba(33, 51, 76, .94);
+    --leftmenu-bg-blur: 0px;
+    --leftmenu-bg-blur-expanded: 0px;
+    --leftmenu-width: 66px;
+    --leftmenu-width-expanded: 240px;
+    --leftmenu-bg-divider: var(--ui-color-divider-default);
+    --leftmenu-group-bg: transparent;
+    --leftmenu-group-stroke: var(--ui-color-divider-default);
+    --leftmenu-group-stroke-weight: var(--ui-border-width-thin)
+  }
 
-.edge-light {
-  --leftmenu-bg: rgb(0 0 0/3%);
-  --leftmenu-bg-expanded: rgb(0 0 0/2%);
-  --leftmenu-bg-stroke: transparent;
-  --leftmenu-bg-stroke-expanded: rgb(0 0 0/4%);
-  --leftmenu-bg-overlayed: rgba(33,51,76,.94);
-  --leftmenu-bg-blur: var(--ui-bg-blur-less);
-  --leftmenu-bg-blur-expanded: var(--ui-bg-blur-less);
-  --leftmenu-width: 66px;
-  --leftmenu-width-expanded: 240px;
-  --leftmenu-bg-divider: rgba(0,0,0,.1);
-  --leftmenu-group-bg: var(--ui-color-bg-content-tertiary,rgb(0 0 0/3%));
-  --leftmenu-group-stroke: var(--ui-color-divider-less);
-  --leftmenu-group-stroke-weight: var(--ui-border-width-thin)
-}
+  .dark {
+    --leftmenu-bg: #262626;
+    --leftmenu-bg-expanded: #262626;
+    --leftmenu-bg-stroke: #3b3b3b;
+    --leftmenu-bg-stroke-expanded: #3b3b3b;
+    --leftmenu-bg-overlayed: rgba(52, 74, 103, .94);
+    --leftmenu-bg-blur: 0px;
+    --leftmenu-bg-blur-expanded: 0px;
+    --leftmenu-bg-divider: var(--ui-color-divider-default);
+    --leftmenu-group-bg: transparent;
+    --leftmenu-group-stroke: var(--ui-color-divider-default);
+    --leftmenu-group-stroke-weight: var(--ui-border-width-thin)
+  }
 
-.edge-dark {
-  --leftmenu-bg: hsla(0,0%,100%,.06);
-  --leftmenu-bg-expanded: hsla(0,0%,100%,.03);
-  --leftmenu-bg-stroke: transparent;
-  --leftmenu-bg-stroke-expanded: hsla(0,0%,100%,.06);
-  --leftmenu-bg-overlayed: rgba(33,51,76,.94);
-  --leftmenu-bg-blur: var(--ui-bg-blur-less);
-  --leftmenu-bg-blur-expanded: var(--ui-bg-blur-less);
-  --leftmenu-width: 66px;
-  --leftmenu-width-expanded: 240px;
-  --leftmenu-bg-divider: hsla(0,0%,100%,.1);
-  --leftmenu-group-bg: var(--ui-color-bg-content-tertiary,hsla(0,0%,100%,.08));
-  --leftmenu-group-stroke: var(--ui-color-divider-less);
-  --leftmenu-group-stroke-weight: var(--ui-border-width-thin)
-}
+  .edge-light {
+    --leftmenu-bg: rgb(0 0 0/3%);
+    --leftmenu-bg-expanded: rgb(0 0 0/2%);
+    --leftmenu-bg-stroke: transparent;
+    --leftmenu-bg-stroke-expanded: rgb(0 0 0/4%);
+    --leftmenu-bg-overlayed: rgba(33, 51, 76, .94);
+    --leftmenu-bg-blur: var(--ui-bg-blur-less);
+    --leftmenu-bg-blur-expanded: var(--ui-bg-blur-less);
+    --leftmenu-width: 66px;
+    --leftmenu-width-expanded: 240px;
+    --leftmenu-bg-divider: rgba(0, 0, 0, .1);
+    --leftmenu-group-bg: var(--ui-color-bg-content-tertiary, rgb(0 0 0/3%));
+    --leftmenu-group-stroke: var(--ui-color-divider-less);
+    --leftmenu-group-stroke-weight: var(--ui-border-width-thin)
+  }
 
-/**
- * Header
- * @see /bitrix/templates/bitrix24/dist/bitrix24.bundle.css
- */
-.air-header,
-.light .air-header
-{
-  /*--topbar-bg: var(--ui-color-bg-content-primary);*/
-  --topbar-bg: var(--ui-color-bg-content-secondary);
-  --topbar-bg-stroke: var(--ui-color-bg-content-primary);
-  --topbar-bg-stroke-weight: 0;
-  --topbar-bg-blur: 0px;
-}
+  .edge-dark {
+    --leftmenu-bg: hsla(0, 0%, 100%, .06);
+    --leftmenu-bg-expanded: hsla(0, 0%, 100%, .03);
+    --leftmenu-bg-stroke: transparent;
+    --leftmenu-bg-stroke-expanded: hsla(0, 0%, 100%, .06);
+    --leftmenu-bg-overlayed: rgba(33, 51, 76, .94);
+    --leftmenu-bg-blur: var(--ui-bg-blur-less);
+    --leftmenu-bg-blur-expanded: var(--ui-bg-blur-less);
+    --leftmenu-width: 66px;
+    --leftmenu-width-expanded: 240px;
+    --leftmenu-bg-divider: hsla(0, 0%, 100%, .1);
+    --leftmenu-group-bg: var(--ui-color-bg-content-tertiary, hsla(0, 0%, 100%, .08));
+    --leftmenu-group-stroke: var(--ui-color-divider-less);
+    --leftmenu-group-stroke-weight: var(--ui-border-width-thin)
+  }
 
-.dark .air-header
-{
-  --topbar-bg: #2d2d2d;
-  --topbar-bg-stroke: #3d3d3d;
-  --topbar-bg-stroke-weight: 0;
-  --topbar-bg-blur: 0px;
-}
+  /**
+   * Header
+   * @see /bitrix/templates/bitrix24/dist/bitrix24.bundle.css
+   */
+  .air-header,
+  .light .air-header {
+    /*--topbar-bg: var(--ui-color-bg-content-primary);*/
+    --topbar-bg: var(--ui-color-bg-content-secondary);
+    --topbar-bg-stroke: var(--ui-color-bg-content-primary);
+    --topbar-bg-stroke-weight: 0;
+    --topbar-bg-blur: 0px;
+  }
 
-.edge-dark .air-header
-{
-  --topbar-bg: rgba(255, 255, 255, 0.1);
-  --topbar-bg-stroke: transparent;
-  --topbar-bg-stroke-weight: 0px;
-  --topbar-bg-blur: var(--ui-bg-blur-less);
-}
+  .dark .air-header {
+    --topbar-bg: #2d2d2d;
+    --topbar-bg-stroke: #3d3d3d;
+    --topbar-bg-stroke-weight: 0;
+    --topbar-bg-blur: 0px;
+  }
 
-.edge-light .air-header
-{
-  --topbar-bg: rgba(0, 0, 0, 0.05);
-  --topbar-bg-stroke: transparent;
-  --topbar-bg-stroke-weight: 0px;
-  --topbar-bg-blur: var(--ui-bg-blur-less);
-}
+  .edge-dark .air-header {
+    --topbar-bg: rgba(255, 255, 255, 0.1);
+    --topbar-bg-stroke: transparent;
+    --topbar-bg-stroke-weight: 0px;
+    --topbar-bg-blur: var(--ui-bg-blur-less);
+  }
 
-.air-header::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background:
-    linear-gradient(to right, var(--topbar-bg), var(--topbar-bg)),
-    var(--air-theme-background-blurred, none)
-  ;
-  z-index: -1;
+  .edge-light .air-header {
+    --topbar-bg: rgba(0, 0, 0, 0.05);
+    --topbar-bg-stroke: transparent;
+    --topbar-bg-stroke-weight: 0px;
+    --topbar-bg-blur: var(--ui-bg-blur-less);
+  }
+
+  .air-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to right, var(--topbar-bg), var(--topbar-bg)),
+    var(--air-theme-background-blurred, none);
+    z-index: -1;
+  }
 }
