@@ -2,10 +2,18 @@
 
 ## [2.0.9](https://github.com/bitrix24/b24ui/compare/v2.0.8...v2.0.9) (2025-11-xx)
 
-* fix(Form): refine `nested` prop type handling and simplify logic
-* feat(Modal): add `scrollable` prop
-* feat(module): add `theme.prefix` option
-* chore(deps): update vue-tsc to ^3.1.3
+### Features
+
+* **Modal:** add `scrollable` prop
+* **module:** add `theme.prefix` option
+
+### Bug Fixes
+
+* **Form:** refine `nested` prop type handling and simplify logic
+
+### Chore
+
+* **deps:** update vue-tsc to ^3.1.3
 
 ## [2.0.8](https://github.com/bitrix24/b24ui/compare/v2.0.7...v2.0.8) (2025-11-01)
 
@@ -25,6 +33,7 @@
 ## [2.0.7](https://github.com/bitrix24/b24ui/compare/v2.0.6...v2.0.7) (2025-10-30)
 
 ### Chore
+
 * **ChatPrompt:** improve
 * **ChatPromptSubmit:** improve
 * **ChatPalette:** improve
@@ -33,9 +42,11 @@
 * **Form:** skip tests because of race condition
 
 ### Docs
+
 * **nuxt.config:** reduce component meta bundle size
 
 ### Bug Fixes
+
 * **module:** detect lazy components when using `experimental.componentDetection`
 * **NavigationMenu/Tabs:** ensure proper badge display
 * **Button:** width for one icon
@@ -43,24 +54,29 @@
 ## [2.0.6](https://github.com/bitrix24/b24ui/compare/v2.0.5...v2.0.6) (2025-10-28)
 
 ### Features
+
 * **dictionary/icons:** add arrowDown,arrowUp,stop,reload
 * **chat:** new components: ChatMessages, ChatPalette, ChatPrompt, ChatPromptSubmit
 
 ### Chore
+
 * **deps:** update all non-major dependencies
 * **deps:** update vue-tsc to ^3.1.2
 * **deps:** update devdependency vite to ^7.1.12
 
 ### Bug Fixes
+
 * **utils\dashboard|SidebarLayout:** downgrade
 * **ChatMessage:** some improve
 
 ## [2.0.5](https://github.com/bitrix24/b24ui/compare/v2.0.4...v2.0.5) (2025-10-27)
 
 ### Features
+
 * **ChatMessage:** new component
 
 ### Bug Fixes
+
 * **utils\dashboard:** added a little entropy
 
 ## [2.0.4](https://github.com/bitrix24/b24ui/compare/v2.0.3...v2.0.4) (2025-10-27)
