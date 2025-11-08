@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { ShortcutsConfig } from '@bitrix24/b24ui-nuxt/composables/defineShortcuts'
 import { ref, nextTick, useTemplateRef } from 'vue'
 import usePageMeta from './../../composables/usePageMeta'
 import B24SidebarLayout from '@bitrix24/b24ui-nuxt/components/SidebarLayout.vue'

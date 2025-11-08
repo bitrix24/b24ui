@@ -4,7 +4,7 @@ import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
 import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
-import { kbdKeysMap } from '@bitrix24/b24ui-nuxt/composables/useKbd.js'
+import { kbdKeysMap } from '@bitrix24/b24ui-nuxt/composables/useKbd'
 
 usePageMeta.setPageTitle('Kbd')
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
