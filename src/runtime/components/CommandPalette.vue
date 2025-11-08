@@ -363,7 +363,7 @@ const filteredGroups = computed(() => {
 
 const filteredItems = computed(() => filteredGroups.value.flatMap(group => group.items || []))
 
-const listboxRootRef = useTemplateRef('listboxRootRef')
+const rootRef = useTemplateRef('rootRef')
 
 function navigate(item: T) {
   if (!item.children?.length) {
@@ -380,7 +380,7 @@ function navigate(item: T) {
 
   searchTerm.value = ''
 
-  listboxRootRef.value?.highlightFirstItem()
+  rootRef.value?.highlightFirstItem()
 }
 
 function navigateBack() {
@@ -392,7 +392,7 @@ function navigateBack() {
 
   searchTerm.value = ''
 
-  listboxRootRef.value?.highlightFirstItem()
+  rootRef.value?.highlightFirstItem()
 }
 
 function onBackspace() {
@@ -549,7 +549,7 @@ function onSelect(e: Event, item: T) {
     </ListboxItem>
   </DefineItemTemplate>
 
-  <ListboxRoot v-bind="rootProps" ref="listboxRootRef" :selection-behavior="selectionBehavior" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <ListboxRoot v-bind="rootProps" ref="rootRef" :selection-behavior="selectionBehavior" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <ListboxFilter v-model="searchTerm" as-child>
       <B24Input
         :placeholder="placeholder"

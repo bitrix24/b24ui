@@ -83,7 +83,7 @@ export interface TextareaSlots {
 </script>
 
 <script setup lang="ts" generic="T extends TextareaValue">
-import { ref, computed, onMounted, nextTick, watch } from 'vue'
+import { useTemplateRef, computed, onMounted, nextTick, watch } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useVModel } from '@vueuse/core'
 import { useAppConfig } from '#imports'
@@ -130,7 +130,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.textar
   trailing: Boolean(isTrailing.value || !!slots.trailing)
 }))
 
-const textareaRef = ref<HTMLTextAreaElement | null>(null)
+const textareaRef = useTemplateRef('textareaRef')
 
 // Custom function to handle the v-model properties
 function updateInput(value: string | null | undefined) {

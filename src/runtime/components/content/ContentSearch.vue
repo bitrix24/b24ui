@@ -149,6 +149,8 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.conten
   fullscreen: props.fullscreen
 }))
 
+const commandPaletteRef = useTemplateRef('commandPaletteRef')
+
 function mapLinksItems(links: T[]): ContentSearchItem[] {
   return links.flatMap(link => [{
     ...link,
@@ -266,8 +268,6 @@ defineShortcuts({
     handler: () => open.value = !open.value
   }
 })
-
-const commandPaletteRef = useTemplateRef('commandPaletteRef')
 
 defineExpose({
   commandPaletteRef

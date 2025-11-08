@@ -160,6 +160,8 @@ const groups = computed(() => {
   return groups
 })
 
+const commandPaletteRef = useTemplateRef('commandPaletteRef')
+
 function onSelect(item: CommandPaletteItem) {
   if (item.disabled) {
     return
@@ -177,8 +179,6 @@ defineShortcuts({
     handler: () => open.value = !open.value
   }
 })
-
-const commandPaletteRef = useTemplateRef('commandPaletteRef')
 
 defineExpose({
   commandPaletteRef

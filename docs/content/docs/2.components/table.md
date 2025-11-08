@@ -691,10 +691,10 @@ const table = useTemplateRef('table')
 
 This will give you access to the following:
 
-| Name                       | Type                                                                                                    |
-|----------------------------|---------------------------------------------------------------------------------------------------------|
-| `tableRef`{lang="ts-type"} | `Ref<HTMLTableElement \| null>`{lang="ts-type"}                                                         |
-| `tableApi`{lang="ts-type"} | [`Ref<Table \| null>`{lang="ts-type"}](https://tanstack.com/table/latest/docs/api/core/table#table-api) |
+| Name | Type |
+| ---- | ---- |
+| `tableRef`{lang="ts-type"} | `Ref<HTMLTableElement \| null>`{lang="ts-type"}                                            |
+| `tableApi`{lang="ts-type"} | [`Table`{lang="ts-type"}](https://tanstack.com/table/latest/docs/api/core/table#table-api) |
 
 ## Theme
 

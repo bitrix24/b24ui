@@ -98,7 +98,7 @@ export interface InputSlots {
 </script>
 
 <script setup lang="ts" generic="T extends InputValue">
-import { ref, computed, onMounted } from 'vue'
+import { useTemplateRef, computed, onMounted } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useVModel } from '@vueuse/core'
 import { useAppConfig } from '#imports'
@@ -149,7 +149,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.input 
   fieldGroup: orientation.value
 }))
 
-const inputRef = ref<HTMLInputElement | null>(null)
+const inputRef = useTemplateRef('inputRef')
 
 // Custom function to handle the v-model properties
 function updateInput(value: string | null | undefined) {

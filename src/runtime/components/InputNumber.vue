@@ -104,7 +104,7 @@ export interface InputNumberSlots {
 </script>
 
 <script setup lang="ts" generic="T extends InputNumberValue = InputNumberValue">
-import { onMounted, ref, computed } from 'vue'
+import { onMounted, computed, useTemplateRef, toRef } from 'vue'
 import { NumberFieldRoot, NumberFieldInput, NumberFieldDecrement, NumberFieldIncrement, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick, useVModel } from '@vueuse/core'
 import { useAppConfig } from '#imports'
@@ -162,7 +162,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.inputN
 const incrementIcon = computed(() => props.incrementIcon || (props.orientation === 'horizontal' ? icons.plus : icons.chevronUp))
 const decrementIcon = computed(() => props.decrementIcon || (props.orientation === 'horizontal' ? icons.minus : icons.chevronDown))
 
-const inputRef = ref<InstanceType<typeof NumberFieldInput> | null>(null)
+const inputRef = useTemplateRef('inputRef')
 
 function onUpdate(value: number | undefined) {
   if (props.modelModifiers?.optional) {
@@ -195,7 +195,7 @@ onMounted(() => {
 })
 
 defineExpose({
-  inputRef
+  inputRef: toRef(() => inputRef.value?.$el as HTMLInputElement)
 })
 </script>
 

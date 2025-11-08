@@ -894,9 +894,9 @@ collapse: true
 
 When accessing the component via a template ref, you can use the following:
 
-| Name                         | Type                                                              |
-|------------------------------|-------------------------------------------------------------------|
-| `triggerRef`{lang="ts-type"} | `Ref<InstanceType<typeof SelectTrigger> \| null>`{lang="ts-type"} |
+| Name | Type |
+| ---- | ---- |
+| `triggerRef`{lang="ts-type"} | `Ref<HTMLButtonElement \| null>`{lang="ts-type"} |
 
 ## Theme
 
