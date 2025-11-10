@@ -2,7 +2,6 @@
 title: Timeline
 description: 'A component for displaying a chronological sequence of events, with dates, titles, and supporting icons or avatars.'
 category: data
-badge: new
 links:
   - label: GitHub
     iconName: GitHubIcon

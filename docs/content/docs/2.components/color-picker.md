@@ -2,7 +2,6 @@
 title: ColorPicker
 description: A color picker component.
 category: form
-badge: new
 links:
   - label: GitHub
     iconName: GitHubIcon

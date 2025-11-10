@@ -2,7 +2,6 @@
 title: ContentSurround
 description: ' A pair of "Previous" and "Next" buttons for sequential page navigation.'
 category: content
-badge: new
 framework: nuxt
 links:
   - label: GitHub

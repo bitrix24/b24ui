@@ -2,7 +2,6 @@
 title: PageCard
 description: 'A pre-styled card component featuring a title, description, and optional link.'
 category: page
-badge: new
 links:
   - label: GitHub
     iconName: GitHubIcon

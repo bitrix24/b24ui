@@ -2,7 +2,6 @@
 title: PinInput
 description: A PIN code input component.
 category: form
-badge: new
 links:
   - label: GitHub
     iconName: GitHubIcon

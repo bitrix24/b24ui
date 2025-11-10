@@ -2,7 +2,6 @@
 title: PageLinks
 description: 'A list of links to display on the page.'
 category: page
-badge: new
 links:
   - label: GitHub
     iconName: GitHubIcon

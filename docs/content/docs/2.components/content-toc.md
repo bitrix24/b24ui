@@ -2,7 +2,6 @@
 title: ContentToc
 description: 'A sticky table of contents component with dynamic active section highlighting.'
 category: content
-badge: new
 framework: nuxt
 links:
   - label: GitHub

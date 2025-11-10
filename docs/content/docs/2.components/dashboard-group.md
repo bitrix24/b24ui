@@ -2,7 +2,6 @@
 title: DashboardGroup
 description: 'A fixed-layout dashboard container with sidebar state management and persistent UI state.'
 category: dashboard
-badge: new
 links:
   - label: GitHub
     iconName: GitHubIcon

@@ -2,7 +2,6 @@
 title: PageGrid
 description: 'A responsive grid system for creating flexible content layouts.'
 category: page
-badge: new
 links:
   - label: GitHub
     iconName: GitHubIcon

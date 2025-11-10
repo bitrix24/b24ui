@@ -2,7 +2,6 @@
 title: Table
 description: A responsive data table component.
 category: data
-badge: new
 links:
   - label: GitHub
     iconName: GitHubIcon

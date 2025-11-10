@@ -2,7 +2,6 @@
 title: User
 description: 'A component to display user details, including their name, bio, and profile picture.'
 category: data
-badge: new
 links:
   - label: GitHub
     iconName: GitHubIcon

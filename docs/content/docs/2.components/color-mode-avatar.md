@@ -2,7 +2,6 @@
 title: ColorModeAvatar
 description: 'An Avatar that automatically switches its image based on the current theme (light/dark).'
 category: color-mode
-badge: new
 links:
   - label: GitHub
     iconName: GitHubIcon

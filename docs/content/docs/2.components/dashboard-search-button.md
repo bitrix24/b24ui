@@ -2,7 +2,6 @@
 title: DashboardSearchButton
 description: 'A pre-styled button that opens the Dashboard Search modal.'
 category: dashboard
-badge: new
 links:
   - label: GitHub
     iconName: GitHubIcon

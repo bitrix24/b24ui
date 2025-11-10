@@ -2,7 +2,6 @@
 title: ContentSearch
 description: 'A ready-to-use Command Palette component for your documentation.'
 category: content
-badge: new
 framework: nuxt
 links:
   - label: GitHub

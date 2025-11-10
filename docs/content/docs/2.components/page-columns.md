@@ -2,7 +2,6 @@
 title: PageColumns
 description: 'A responsive multi-column layout system for organizing content side-by-side.'
 category: page
-badge: new
 links:
   - label: GitHub
     iconName: GitHubIcon

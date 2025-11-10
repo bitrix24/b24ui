@@ -2,7 +2,6 @@
 title: Empty
 description: 'An empty state component.'
 category: data
-badge: new
 links:
   - label: GitHub
     iconName: GitHubIcon

@@ -2,7 +2,6 @@
 title: ContentSearchButton
 description: 'A pre-styled button that opens the content search modal.'
 category: content
-badge: new
 framework: nuxt
 links:
   - label: GitHub

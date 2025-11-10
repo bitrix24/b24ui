@@ -2,7 +2,6 @@
 title: DashboardSearch
 description: 'A ready-to-use Command Palette component for your dashboard.'
 category: dashboard
-badge: new
 links:
   - label: GitHub
     iconName: GitHubIcon

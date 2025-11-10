@@ -2,7 +2,6 @@
 title: ContextMenu
 description: A pop-up menu that appears upon right-clicking an element to present relevant actions.
 category: overlay
-badge: new
 links:
   - label: GitHub
     iconName: GitHubIcon

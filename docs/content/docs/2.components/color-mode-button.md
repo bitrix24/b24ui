@@ -2,7 +2,6 @@
 title: ColorModeButton
 description: 'A button to toggle between light and dark themes.'
 category: color-mode
-badge: new
 links:
   - label: GitHub
     iconName: GitHubIcon

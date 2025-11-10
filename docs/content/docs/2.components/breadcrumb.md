@@ -2,7 +2,6 @@
 title: Breadcrumb
 description: A breadcrumb navigation component.
 category: navigation
-badge: new
 links:
   - label: GitHub
     iconName: GitHubIcon

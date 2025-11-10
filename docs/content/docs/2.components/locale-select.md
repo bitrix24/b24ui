@@ -2,7 +2,6 @@
 title: LocaleSelect
 description: 'A Select to switch between locales.'
 category: i18n
-badge: new
 links:
   - label: GitHub
     iconName: GitHubIcon
