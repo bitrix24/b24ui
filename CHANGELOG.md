@@ -1,5 +1,36 @@
 # Changelog
 
+## [2.1.0](https://github.com/bitrix24/b24ui/compare/v2.0.9...v2.1.0) (2025-11-10)
+
+### ⚠ BREAKING CHANGES
+
+* **module:** properly export composables from module
+* **components:** consistent exposed refs
+
+### Features
+
+* **components:** extend native HTML attributes
+* **InputDate:** new component
+* **InputTime:** new component
+
+### Bug Fixes
+
+* **FileUpload:** ensure native validation works with required
+* **Input/InputNumber/Textarea:** make `modelModifiers` generic
+* **components:** clean html attributes extend
+* **vue:** check `import.meta.env.SSR` to support `vite-ssg`
+* **Table:** apply styles to `th` based on column meta
+
+### Docs
+
+* **form:** type validate method schema
+* **locale-select:** use `model-value` instead of `v-model` in examples
+
+### Chore
+
+* **deps:** update all non-major dependencies
+* **deps:** update nuxt framework to ^4.2.1
+
 ## [2.0.9](https://github.com/bitrix24/b24ui/compare/v2.0.8...v2.0.9) (2025-11-04)
 
 ### Features
