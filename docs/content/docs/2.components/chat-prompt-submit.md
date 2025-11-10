@@ -19,7 +19,7 @@ links:
 We are still updating this page. Some data may be missing here — we will complete it shortly.
 ::
 
-## Usage :badge{label="2.1+"}
+## Usage :badge{label="2.2+"}
 
 The ChatPromptSubmit component is used inside the [ChatPrompt](/docs/components/chat-prompt/) component to submit the prompt. It automatically handles the different `status` values to control the chat.
 
