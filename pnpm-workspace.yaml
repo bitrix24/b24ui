@@ -18,6 +18,3 @@ onlyBuiltDependencies:
   - better-sqlite3
   - puppeteer
   - sharp
-
-patchedDependencies:
-  '@nuxt/vite-builder': patches/@nuxt__vite-builder.patch

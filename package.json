@@ -134,8 +134,8 @@
     "@bitrix24/b24icons-vue": "^2.0.5",
     "@internationalized/date": "^3.10.0",
     "@internationalized/number": "^3.6.5",
-    "@nuxt/kit": "^4.2.0",
-    "@nuxt/schema": "^4.2.0",
+    "@nuxt/kit": "^4.2.1",
+    "@nuxt/schema": "^4.2.1",
     "@standard-schema/spec": "^1.0.0",
     "@tailwindcss/postcss": "^4.1.16",
     "@tailwindcss/vite": "^4.1.16",
@@ -190,7 +190,7 @@
     "embla-carousel": "^8.6.0",
     "eslint": "^9.39.1",
     "happy-dom": "^20.0.10",
-    "nuxt": "^4.2.0",
+    "nuxt": "^4.2.1",
     "vitest": "^3.2.4",
     "vitest-axe": "^0.1.0",
     "vitest-environment-nuxt": "^1.0.1",
@@ -230,7 +230,7 @@
     }
   },
   "resolutions": {
-    "@nuxt/kit": "^4.2.0",
+    "@nuxt/kit": "^4.2.1",
     "@bitrix24/b24ui-nuxt": "workspace:*",
     "debug": "4.3.7",
     "typescript": "5.8.3",

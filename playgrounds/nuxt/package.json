@@ -17,7 +17,7 @@
     "@internationalized/date": "^3.10.0",
     "@bitrix24/b24ui-nuxt": "workspace:*",
     "ai": "^5.0.87",
-    "nuxt": "^4.2.0",
+    "nuxt": "^4.2.1",
     "nuxt-component-meta": "^0.14.1",
     "zod": "^4.1.12",
     "maska": "^3.2.0"
