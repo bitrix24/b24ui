@@ -1,0 +1,273 @@
+<script lang="ts">
+import type { ComponentPublicInstance } from 'vue'
+import type { DateFieldRootProps, DateFieldRootEmits, DateRangeFieldRootProps, DateRangeFieldRootEmits, DateValue } from 'reka-ui'
+import type { AppConfig } from '@nuxt/schema'
+import type { UseComponentIconsProps } from '../composables/useComponentIcons'
+import type { AvatarProps, BadgeProps, IconComponent } from '../types'
+import type { ComponentConfig } from '../types/tv'
+import theme from '#build/b24ui/input-date'
+
+type InputDate = ComponentConfig<typeof theme, AppConfig, 'inputDate'>
+
+type _DateFieldRootProps = Omit<DateFieldRootProps, 'as' | 'asChild' | 'modelValue' | 'defaultValue' | 'dir' | 'locale'>
+type _RangeDateFieldRootProps = Omit<DateRangeFieldRootProps, 'as' | 'asChild' | 'modelValue' | 'defaultValue' | 'dir' | 'locale'>
+
+type InputDateDefaultValue<R extends boolean = false> = R extends true ? DateRangeFieldRootProps['defaultValue'] : DateFieldRootProps['defaultValue']
+type InputDateModelValue<R extends boolean = false> = (R extends true ? DateRangeFieldRootProps['modelValue'] : DateFieldRootProps['modelValue']) | undefined
+
+export interface InputDateProps<R extends boolean = false> extends UseComponentIconsProps, _DateFieldRootProps, _RangeDateFieldRootProps {
+  /**
+   * The element or component this component should render as.
+   * @defaultValue 'div'
+   */
+  as?: any
+  /**
+   * @defaultValue 'air-primary'
+   */
+  color?: InputDate['variants']['color']
+  /**
+   * @defaultValue 'md'
+   */
+  size?: InputDate['variants']['size']
+  /**
+   * Removes padding from input
+   * @defaultValue false
+   */
+  noPadding?: boolean
+  /**
+   * Removes all borders (rings)
+   * @defaultValue false
+   */
+  noBorder?: boolean
+  /**
+   * Removes all borders (rings) except the bottom one
+   * @defaultValue false
+   */
+  underline?: boolean
+  /**
+   * Rounds the corners of the input
+   * @defaultValue false
+   */
+  rounded?: boolean
+  tag?: string
+  /**
+   * @defaultValue 'air-primary'
+   */
+  tagColor?: BadgeProps['color']
+  /** Highlight the ring color like a focus state. */
+  highlight?: boolean
+  autofocus?: boolean
+  autofocusDelay?: number
+  /**
+   * The icon to use as a range separator.
+   * @defaultValue icons.minus
+   * @IconComponent
+   */
+  separatorIcon?: IconComponent
+  /** Whether or not a range of dates can be selected */
+  range?: R & boolean
+  /**
+   * The locale to use for formatting and parsing numbers.
+   * @defaultValue B24App.locale.code
+   */
+  locale?: string
+  defaultValue?: InputDateDefaultValue<R>
+  modelValue?: InputDateModelValue<R>
+  class?: any
+  b24ui?: InputDate['slots']
+}
+
+export interface InputDateEmits<R extends boolean> extends Omit<DateFieldRootEmits & DateRangeFieldRootEmits, 'update:modelValue'> {
+  'update:modelValue': [date: InputDateModelValue<R>]
+  'change': [event: Event]
+  'blur': [event: FocusEvent]
+  'focus': [event: FocusEvent]
+}
+
+export interface InputDateSlots {
+  leading(props: { b24ui: InputDate['b24ui'] }): any
+  default(props: { b24ui: InputDate['b24ui'] }): any
+  trailing(props: { b24ui: InputDate['b24ui'] }): any
+  separator(props: { b24ui: InputDate['b24ui'] }): any
+}
+</script>
+
+<script setup lang="ts" generic="R extends boolean">
+import { computed, onMounted, ref } from 'vue'
+import { useForwardPropsEmits } from 'reka-ui'
+import { DateField as SingleDateField, DateRangeField as RangeDateField } from 'reka-ui/namespaced'
+import { reactiveOmit, createReusableTemplate } from '@vueuse/core'
+import { useAppConfig } from '#imports'
+import { useFieldGroup } from '../composables/useFieldGroup'
+import { useComponentIcons } from '../composables/useComponentIcons'
+import { useFormField } from '../composables/useFormField'
+import { useLocale } from '../composables/useLocale'
+import { tv } from '../utils/tv'
+import icons from '../dictionary/icons'
+import B24Badge from './Badge.vue'
+import B24Avatar from './Avatar.vue'
+
+defineOptions({ inheritAttrs: false })
+
+const props = withDefaults(defineProps<InputDateProps<R>>(), {
+  autofocusDelay: 0
+})
+const emits = defineEmits<InputDateEmits<R>>()
+const slots = defineSlots<InputDateSlots>()
+
+const { code: codeLocale, dir } = useLocale()
+const appConfig = useAppConfig() as InputDate['AppConfig']
+
+const rootProps = useForwardPropsEmits(reactiveOmit(props, 'id', 'name', 'range', 'modelValue', 'defaultValue', 'color', 'size', 'highlight', 'disabled', 'autofocus', 'autofocusDelay', 'icon', 'avatar', 'trailingIcon', 'loading', 'separatorIcon', 'class', 'b24ui'), emits)
+const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, size: formGroupSize, color, id, name, highlight, disabled, ariaAttrs } = useFormField<InputDateProps<R>>(props)
+const { orientation, size: fieldGroupSize } = useFieldGroup<InputDateProps<R>>(props)
+const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props)
+
+const [DefineSegmentsTemplate, ReuseSegmentsTemplate] = createReusableTemplate<{
+  // todo: need to make a PR in reka-ui to export this type - https://github.com/unovue/reka-ui/issues/2260
+  segments?: Parameters<InstanceType<typeof SingleDateField.Root>['$slots']['default'] & {}>[0]['segments']
+  type?: 'start' | 'end'
+}>()
+
+const locale = computed(() => props.locale || codeLocale.value)
+const inputSize = computed(() => fieldGroupSize.value || formGroupSize.value)
+
+const isTag = computed(() => {
+  return props.tag
+})
+
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.inputDate || {}) })({
+  color: color.value,
+  size: inputSize.value,
+  loading: props.loading,
+  highlight: highlight.value,
+  rounded: Boolean(props.rounded),
+  noPadding: Boolean(props.noPadding),
+  noBorder: Boolean(props.noBorder),
+  underline: Boolean(props.underline),
+  leading: Boolean(isLeading.value || !!props.avatar || !!slots.leading),
+  trailing: Boolean(isTrailing.value || !!slots.trailing),
+  fieldGroup: orientation.value
+}))
+
+const inputsRef = ref<ComponentPublicInstance[]>([])
+
+function onUpdate(value: any) {
+  // @ts-expect-error - 'target' does not exist in type 'EventInit'
+  const event = new Event('change', { target: { value } })
+  emits('change', event)
+
+  emitFormChange()
+  emitFormInput()
+}
+
+function onBlur(event: FocusEvent) {
+  emitFormBlur()
+  emits('blur', event)
+}
+
+function onFocus(event: FocusEvent) {
+  emitFormFocus()
+  emits('focus', event)
+}
+
+function autoFocus() {
+  if (props.autofocus) {
+    inputsRef.value[0]?.$el?.focus()
+  }
+}
+
+onMounted(() => {
+  setTimeout(() => {
+    autoFocus()
+  }, props.autofocusDelay)
+})
+
+const DateField = computed(() => props.range ? RangeDateField : SingleDateField)
+
+defineExpose({
+  inputsRef
+})
+</script>
+
+<template>
+  <DefineSegmentsTemplate v-slot="{ segments, type }">
+    <DateField.Input
+      v-for="(segment, index) in segments"
+      :key="`${segment.part}-${index}`"
+      :ref="el => (inputsRef[index] = el as ComponentPublicInstance)"
+      :type="type"
+      :part="segment.part"
+      :class="b24ui.segment({ class: props.b24ui?.segment })"
+      :data-segment="segment.part"
+    >
+      {{ segment.value.trim() }}
+    </DateField.Input>
+  </DefineSegmentsTemplate>
+
+  <DateField.Root
+    v-bind="{ ...rootProps, ...$attrs, ...ariaAttrs }"
+    :id="id"
+    v-slot="{ segments }"
+    :model-value="(modelValue as DateValue)"
+    :default-value="(defaultValue as DateValue)"
+    :name="name"
+    :disabled="disabled"
+    :locale="locale"
+    :dir="dir"
+    :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
+    @update:model-value="onUpdate"
+    @blur="onBlur"
+    @focus="onFocus"
+  >
+    <B24Badge
+      v-if="isTag"
+      :class="b24ui.tag({ class: props.b24ui?.tag })"
+      :color="props.tagColor"
+      :label="props.tag"
+      size="xs"
+    />
+
+    <template v-if="Array.isArray(segments)">
+      <ReuseSegmentsTemplate :segments="segments" />
+    </template>
+    <template v-else>
+      <ReuseSegmentsTemplate :segments="segments.start" type="start" />
+      <slot name="separator" :b24ui="b24ui">
+        <Component
+          :is="separatorIcon || icons.minus"
+          :class="b24ui.separatorIcon({ class: props.b24ui?.separatorIcon })"
+        />
+      </slot>
+      <ReuseSegmentsTemplate :segments="segments.end" type="end" />
+    </template>
+
+    <slot :b24ui="b24ui" />
+
+    <span v-if="isLeading || !!avatar || !!slots.leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
+      <slot name="leading" :b24ui="b24ui">
+        <Component
+          :is="leadingIconName"
+          v-if="isLeading && leadingIconName"
+          :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
+        />
+        <B24Avatar
+          v-else-if="!!avatar"
+          :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+          v-bind="avatar"
+          :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
+        />
+      </slot>
+    </span>
+
+    <span v-if="isTrailing || !!slots.trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
+      <slot name="trailing" :b24ui="b24ui">
+        <Component
+          :is="trailingIconName"
+          v-if="trailingIconName"
+          :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
+        />
+      </slot>
+    </span>
+  </DateField.Root>
+</template>
