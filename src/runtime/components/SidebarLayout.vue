@@ -63,7 +63,7 @@ import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports' // useRuntimeHook
 // import { useLoading } from '../composables/useLoading'
 import { useLocale } from '../composables/useLocale'
-// import { useDashboard } from '@bitrix24/b24ui-nuxt/utils/dashboard'
+// import { useDashboard } from '../utils/dashboard'
 import { tv } from '../utils/tv'
 import B24Button from './Button.vue'
 import B24Slideover from './Slideover.vue'

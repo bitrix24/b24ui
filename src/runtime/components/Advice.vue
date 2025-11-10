@@ -7,7 +7,7 @@ import type { ComponentConfig } from '../types/tv'
 
 type Advice = ComponentConfig<typeof theme, AppConfig, 'advice'>
 
-export interface AdviceProps extends Omit<UseComponentIconsProps, 'loading' | 'trailing' | 'trailingIcon'> {
+export interface AdviceProps extends /** @vue-ignore */ Omit<UseComponentIconsProps, 'loading' | 'trailing' | 'trailingIcon'> {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'

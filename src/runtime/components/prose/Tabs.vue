@@ -1,6 +1,6 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
-import type { TabsItem } from '@bitrix24/b24ui-nuxt'
+import type { TabsItem } from '../Tabs.vue'
 import theme from '#build/b24ui/prose/tabs'
 import type { TabsProps } from '../../types'
 import type { ComponentConfig } from '../../types/tv'

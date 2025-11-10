@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { SelectMenuProps } from '@bitrix24/b24ui-nuxt'
+import type { SelectMenuProps } from '../SelectMenu.vue'
 import type { Locale } from '../../types/locale'
 
 export interface LocaleSelectProps extends Omit<SelectMenuProps<Locale<any>[], 'code', false>, 'items' | 'modelValue'> {
