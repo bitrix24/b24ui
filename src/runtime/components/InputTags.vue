@@ -40,7 +40,7 @@ export interface InputTagsProps<T extends InputTagItem = InputTagItem> extends P
    */
   underline?: boolean
   /**
-   * Rounds the corners of the button
+   * Rounds the corners of the input
    * @defaultValue false
    */
   rounded?: boolean

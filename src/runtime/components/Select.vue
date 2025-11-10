@@ -64,7 +64,7 @@ export interface SelectProps<T extends ArrayOrNested<SelectItem> = ArrayOrNested
    */
   underline?: boolean
   /**
-   * Rounds the corners of the button
+   * Rounds the corners of the select
    * @defaultValue false
    */
   rounded?: boolean

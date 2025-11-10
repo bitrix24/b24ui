@@ -41,7 +41,7 @@ export interface TextareaProps<T extends TextareaValue = TextareaValue> extends 
    */
   underline?: boolean
   /**
-   * Rounds the corners of the button
+   * Rounds the corners of the textarea
    * @defaultValue false
    */
   rounded?: boolean

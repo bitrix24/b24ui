@@ -47,7 +47,7 @@ export interface InputProps<T extends InputValue = InputValue> extends UseCompon
    */
   underline?: boolean
   /**
-   * Rounds the corners of the button
+   * Rounds the corners of the input
    * @defaultValue false
    */
   rounded?: boolean

@@ -70,7 +70,7 @@ export interface SelectMenuProps<T extends ArrayOrNested<SelectMenuItem> = Array
    */
   underline?: boolean
   /**
-   * Rounds the corners of the button
+   * Rounds the corners of the select
    * @defaultValue false
    */
   rounded?: boolean

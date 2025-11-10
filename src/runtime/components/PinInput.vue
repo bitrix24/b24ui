@@ -31,7 +31,7 @@ export interface PinInputProps<T extends PinInputType = 'text'> extends Pick<Pin
    */
   underline?: boolean
   /**
-   * Rounds the corners of the button
+   * Rounds the corners of the input
    * @defaultValue false
    */
   rounded?: boolean
