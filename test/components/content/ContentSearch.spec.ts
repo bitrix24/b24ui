@@ -126,7 +126,8 @@ describe('ContentSearch', () => {
     ['with icon', { props: { ...props, icon: SignIcon } }],
     ['with placeholder', { props: { ...props, placeholder: 'Search' } }],
     ['with loading', { props: { ...props, loading: true } }],
-    ['with loadingIcon', { props: { ...props, loading: true, loadingIcon: Cross30Icon } }],
+    /** @memo not use loadingIcon */
+    // ['with loadingIcon', { props: { ...props, loading: true, loadingIcon: Cross30Icon } }],
     ['without colorMode', { props: { ...props, colorMode: false } }],
     ['with fullscreen', { props: { ...props, fullscreen: true } }],
     ['with b24ui', { props: { ...props, b24ui: { input: '[&>input]:text-lg' } } }],

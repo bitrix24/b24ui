@@ -215,8 +215,8 @@ You will have access to the following slots:
 
 When accessing the component via a template ref, you can use the following:
 
-| Name                          | Type                                             |
-|-------------------------------|--------------------------------------------------|
+| Name | Type |
+| ---- | ---- |
 | `triggersRef`{lang="ts-type"} | `Ref<ComponentPublicInstance[]>`{lang="ts-type"} |
 
 ## Theme

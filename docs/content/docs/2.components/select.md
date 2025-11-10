@@ -882,6 +882,10 @@ collapse: true
 
 :component-props
 
+::callout{color="air-secondary-accent-2" icon-name="MdnWebDocIcon" to="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attributes" target="_blank"}
+This component also supports all native `<button>` HTML attributes.
+::
+
 ### Slots
 
 :component-slots

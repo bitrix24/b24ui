@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { PropType } from 'vue'
 import type { ContentNavigationItem } from '@nuxt/content'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/content/content-surround'
@@ -66,7 +67,13 @@ defineSlots<ContentSurroundSlots<T>>()
 
 const appConfig = useAppConfig() as ContentSurround['AppConfig']
 
-const [DefineLinkTemplate, ReuseLinkTemplate] = createReusableTemplate()
+const [DefineLinkTemplate, ReuseLinkTemplate] = createReusableTemplate<{ link?: ContentSurroundLink, icon: IconComponent, direction: 'left' | 'right' }>({
+  props: {
+    link: Object,
+    icon: Object,
+    direction: String as PropType<'left' | 'right'>
+  }
+})
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.contentSurround || {}) })())

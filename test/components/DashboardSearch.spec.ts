@@ -6,7 +6,6 @@ import DashboardGroup from '../../src/runtime/components/DashboardGroup.vue'
 import DashboardSearch from '../../src/runtime/components/DashboardSearch.vue'
 import type { DashboardSearchProps } from '../../src/runtime/components/DashboardSearch.vue'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
-import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
 
 const DashboardWrapper = defineComponent({
   components: {
@@ -41,7 +40,8 @@ describe('DashboardSearch', () => {
     ['with icon', { props: { ...props, icon: SignIcon } }],
     ['with placeholder', { props: { ...props, placeholder: 'Search' } }],
     ['with loading', { props: { ...props, loading: true } }],
-    ['with loadingIcon', { props: { ...props, loading: true, loadingIcon: Cross30Icon } }],
+    /** @memo not use loadingIcon */
+    // ['with loadingIcon', { props: { ...props, loading: true, loadingIcon: SignIcon } }],
     ['without colorMode', { props: { ...props, colorMode: false } }],
     ['with fullscreen', { props: { ...props, fullscreen: true } }],
     ['with b24ui', { props: { ...props, b24ui: { input: '[&>input]:text-lg' } } }],

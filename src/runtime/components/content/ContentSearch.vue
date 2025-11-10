@@ -35,6 +35,9 @@ export interface ContentSearchItem extends Omit<LinkProps, 'custom'>, CommandPal
   icon?: IconComponent
 }
 
+/**
+ * @memo not use loadingIcon
+ */
 export interface ContentSearchProps<T extends ContentSearchLink = ContentSearchLink> extends Pick<ModalProps, 'title' | 'description' | 'overlay' | 'transition' | 'content' | 'dismissible' | 'fullscreen' | 'modal' | 'portal'> {
   /**
    * The icon displayed in the input.
@@ -54,12 +57,6 @@ export interface ContentSearchProps<T extends ContentSearchLink = ContentSearchL
   autofocus?: boolean
   /** When `true`, the loading icon will be displayed. */
   loading?: boolean
-  /**
-   * The icon when the `loading` prop is `true`.
-   * @defaultValue icons.loading
-   * @IconComponent
-   */
-  loadingIcon?: IconComponent
   /**
    * Display a close button in the input (useful when inside a Modal for example).
    * `{ size: 'sm', color: 'air-tertiary-no-accent' }`{lang="ts-type"}
@@ -134,7 +131,8 @@ const { open } = useContentSearch()
 const colorMode = useColorMode()
 const appConfig = useAppConfig() as ContentSearch['AppConfig']
 
-const commandPaletteProps = useForwardProps(reactivePick(props, 'icon', 'placeholder', 'autofocus', 'loading', 'loadingIcon', 'close', 'closeIcon'))
+/** @memo not use loadingIcon */
+const commandPaletteProps = useForwardProps(reactivePick(props, 'icon', 'placeholder', 'autofocus', 'loading', 'close', 'closeIcon'))
 const modalProps = useForwardProps(reactivePick(props, 'overlay', 'transition', 'content', 'dismissible', 'fullscreen', 'modal', 'portal'))
 
 const getProxySlots = () => omit(slots, ['content'])

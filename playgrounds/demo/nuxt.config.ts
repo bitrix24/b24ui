@@ -24,6 +24,10 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  // routeRules: {
+  //   '/docs/components/**': { redirect: { to: '/components/**', statusCode: 301 }, prerender: false }
+  // },
+
   runtimeConfig: {
     public: {
       baseURL: '/b24ui/demo/'

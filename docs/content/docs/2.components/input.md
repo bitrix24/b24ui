@@ -51,7 +51,7 @@ props:
 ---
 ::
 
-::callout{color="air-secondary-accent-2" to="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types" target="_blank"}
+::callout{color="air-secondary-accent-2" icon-name="MdnWebDocIcon" to="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types" target="_blank"}
 You can check all the available types on the MDN Web Docs.
 ::
 
@@ -439,6 +439,10 @@ name: 'input-field-group-example'
 
 :component-props
 
+::callout{color="air-secondary-accent-2" icon-name="MdnWebDocIcon" to="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes" target="_blank"}
+This component also supports all native `<input>` HTML attributes.
+::
+
 ### Slots
 
 :component-slots
@@ -451,8 +455,8 @@ name: 'input-field-group-example'
 
 When accessing the component via a template ref, you can use the following:
 
-| Name                       | Type                                            |
-|----------------------------|-------------------------------------------------|
+| Name | Type |
+| ---- | ---- |
 | `inputRef`{lang="ts-type"} | `Ref<HTMLInputElement \| null>`{lang="ts-type"} |
 
 ## Theme

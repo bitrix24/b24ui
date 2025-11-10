@@ -1,7 +1,7 @@
 <script lang="ts">
 import type { ButtonProps } from '../../../types'
 
-export interface ColorModeButtonProps extends /** @vue-ignore */ Pick<ButtonProps, 'as' | 'size' | 'disabled' | 'b24ui'> {
+export interface ColorModeButtonProps extends Omit<ButtonProps, 'color'> {
   /**
    * @defaultValue 'air-tertiary-no-accent'
    */
@@ -11,18 +11,24 @@ export interface ColorModeButtonProps extends /** @vue-ignore */ Pick<ButtonProp
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useForwardProps } from 'reka-ui'
+import { reactiveOmit } from '@vueuse/core'
 import { useColorMode } from '#imports'
 import { useLocale } from '../../../composables/useLocale'
 import icons from '../../../dictionary/icons'
 import B24Button from '../../../components/Button.vue'
 
-withDefaults(defineProps<ColorModeButtonProps>(), {
+defineOptions({ inheritAttrs: false })
+
+const props = withDefaults(defineProps<ColorModeButtonProps>(), {
   color: 'air-tertiary-no-accent'
 })
 
 const { t } = useLocale()
 const colorMode = useColorMode()
 // const appConfig = useAppConfig()
+
+const buttonProps = useForwardProps(reactiveOmit(props, 'icon'))
 
 const isDark = computed({
   get() {
@@ -36,9 +42,12 @@ const isDark = computed({
 
 <template>
   <B24Button
-    :icon="isDark ? icons.dark : icons.light"
-    :color="color"
-    :aria-label="isDark ? t('colorMode.switchToLight') : t('colorMode.switchToDark')"
+    v-bind="{
+      ...buttonProps,
+      'icon': props.icon || (isDark ? icons.dark : icons.light),
+      'aria-label': isDark ? t('colorMode.switchToLight') : t('colorMode.switchToDark'),
+      ...$attrs
+    }"
     @click="isDark = !isDark"
   />
 </template>

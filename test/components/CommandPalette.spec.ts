@@ -130,7 +130,8 @@ describe('CommandPalette', () => {
     ['with trailingIcon', { props: { ...props, trailingIcon: SignIcon } }],
     ['with childrenIcon', { props: { ...props, childrenIcon: Cross30Icon } }],
     ['with loading', { props: { ...props, loading: true } }],
-    ['with loadingIcon', { props: { ...props, loading: true, loadingIcon: SignIcon } }],
+    /** @memo not use loadingIcon */
+    // ['with loadingIcon', { props: { ...props, loading: true, loadingIcon: SignIcon } }],
     ['with selectedIcon', { props: { ...props, selectedIcon: Cross30Icon, modelValue: groups[2]?.items[0] } }],
     ['with close', { props: { ...props, close: true } }],
     ['with closeIcon', { props: { ...props, close: true, closeIcon: SignIcon } }],

@@ -236,8 +236,8 @@ The `highlight` prop is used here to show the focus state.
 
 When accessing the component via a template ref, you can use the following:
 
-| Name                        | Type                                             |
-|-----------------------------|--------------------------------------------------|
+| Name | Type |
+| ---- | ---- |
 | `inputsRef`{lang="ts-type"} | `Ref<ComponentPublicInstance[]>`{lang="ts-type"} |
 
 ## Theme

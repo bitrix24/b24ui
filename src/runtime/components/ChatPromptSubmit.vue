@@ -7,7 +7,7 @@ import type { ComponentConfig } from '../types/tv'
 
 type ChatPromptSubmit = ComponentConfig<typeof theme, AppConfig, 'chatPromptSubmit'>
 
-export interface ChatPromptSubmitProps extends /** @vue-ignore */ Pick<ButtonProps, 'size' | 'label'> {
+export interface ChatPromptSubmitProps extends Omit<ButtonProps, 'icon' | 'color'> {
   status?: ChatStatus
   /**
    * The icon displayed in the button when the status is `ready`.
@@ -65,12 +65,16 @@ export interface ChatPromptSubmitEmits {
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useForwardProps } from 'reka-ui'
+import { reactiveOmit } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useLocale } from '../composables/useLocale'
 import { transformUI } from '../utils'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Button from './Button.vue'
+
+defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(defineProps<ChatPromptSubmitProps>(), {
   status: 'ready',
@@ -85,7 +89,9 @@ const slots = defineSlots<ButtonSlots>()
 const { t } = useLocale()
 const appConfig = useAppConfig() as ChatPromptSubmit['AppConfig']
 
-const buttonProps = computed(() => ({
+const buttonProps = useForwardProps(reactiveOmit(props, 'icon', 'color', 'status', 'streamingIcon', 'streamingColor', 'submittedIcon', 'submittedColor', 'errorIcon', 'errorColor', 'class', 'b24ui'))
+
+const statusButtonProps = computed(() => ({
   ready: {
     icon: props.icon || icons.imSend,
     color: props.color,
@@ -120,9 +126,14 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatPr
 
 <template>
   <B24Button
+    v-bind="{
+      ...buttonProps,
+      ...statusButtonProps,
+      'aria-label': t('chatPromptSubmit.label'),
+      'rounded': true,
+      ...$attrs
+    }"
     :aria-label="t('chatPromptSubmit.label')"
-    rounded
-    v-bind="buttonProps"
     :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
     :b24ui="transformUI(b24ui, props.b24ui)"
   >

@@ -120,6 +120,10 @@ ignore:
 ---
 ::
 
+::callout{color="air-secondary-accent-2" icon-name="MdnWebDocIcon" to="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attributes" target="_blank"}
+This component also supports all native `<a>` HTML attributes.
+::
+
 ### Slots
 
 :component-slots

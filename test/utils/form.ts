@@ -38,7 +38,7 @@ export async function renderForm(options: {
 
   return await mountSuspended(B24Form, {
     props: {
-      id: 42,
+      id: '42',
       state,
       ...options.props
     },

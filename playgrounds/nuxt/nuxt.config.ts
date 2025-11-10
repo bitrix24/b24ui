@@ -23,6 +23,10 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  routeRules: {
+    '/docs/components/**': { redirect: { to: '/components/**', statusCode: 301 }, prerender: false }
+  },
+
   devServer: {
     loadingTemplate: () => {
       return readFileSync('./playgrounds/nuxt/template/devServer-loading.html', 'utf-8')

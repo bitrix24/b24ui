@@ -31,6 +31,7 @@ import { tv } from '../../utils/tv'
 import icons from '../../dictionary/icons'
 import B24Link from '../Link.vue'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
+import InfoCircleIcon from '@bitrix24/b24icons-vue/outline/InfoCircleIcon'
 
 defineOptions({ inheritAttrs: false })
 
@@ -53,6 +54,8 @@ const iconFromIconName = computed(() => {
 
   switch (props.iconName) {
     case 'GitHubIcon': return GitHubIcon
+    /** @todo change icon */
+    case 'MdnWebDocIcon': return InfoCircleIcon
   }
 
   return undefined

@@ -1,5 +1,6 @@
 <!-- eslint-disable vue/block-tag-newline -->
 <script lang="ts">
+import type { ComponentPublicInstance } from 'vue'
 import type { PinInputRootEmits, PinInputRootProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/pin-input'
@@ -59,7 +60,6 @@ export type PinInputEmits<T extends PinInputType = 'text'> = PinInputRootEmits<T
 </script>
 
 <script setup lang="ts" generic="T extends PinInputType">
-import type { ComponentPublicInstance } from 'vue'
 import { ref, computed, onMounted } from 'vue'
 import { PinInputInput, PinInputRoot, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'

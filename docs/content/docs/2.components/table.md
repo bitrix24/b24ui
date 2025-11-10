@@ -671,6 +671,10 @@ class: '!p-0'
 
 :component-props
 
+::callout{color="air-secondary-accent-2" icon-name="MdnWebDocIcon" to="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table#attributes" target="_blank"}
+This component also supports all native `<table>` HTML attributes.
+::
+
 ### Slots
 
 :component-slots

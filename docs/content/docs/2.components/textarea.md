@@ -329,6 +329,10 @@ The `highlight` prop is used here to show the focus state.
 
 :component-props
 
+::callout{color="air-secondary-accent-2" icon-name="MdnWebDocIcon" to="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#attributes" target="_blank"}
+This component also supports all native `<textarea>` HTML attributes.
+::
+
 ### Slots
 
 :component-slots
@@ -341,8 +345,8 @@ The `highlight` prop is used here to show the focus state.
 
 When accessing the component via a template ref, you can use the following:
 
-| Name                          | Type                                               |
-|-------------------------------|----------------------------------------------------|
+| Name | Type |
+| ---- | ---- |
 | `textareaRef`{lang="ts-type"} | `Ref<HTMLTextAreaElement \| null>`{lang="ts-type"} |
 
 ## Theme

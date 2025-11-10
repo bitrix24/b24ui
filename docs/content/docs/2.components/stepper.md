@@ -255,8 +255,8 @@ const stepper = useTemplateRef('stepper')
 
 This will give you access to the following:
 
-| Name                      | Type                           |
-|---------------------------|--------------------------------|
+| Name | Type |
+| ---- | ---- |
 | `next`{lang="ts-type"}    | `() => void`{lang="ts-type"}   |
 | `prev`{lang="ts-type"}    | `() => void`{lang="ts-type"}   |
 | `hasNext`{lang="ts-type"} | `Ref<boolean>`{lang="ts-type"} |

@@ -219,6 +219,8 @@ import B24Link from './Link.vue'
 import B24Input from './Input.vue'
 import B24Kbd from './Kbd.vue'
 
+defineOptions({ inheritAttrs: false })
+
 const props = withDefaults(defineProps<CommandPaletteProps<G, T>>(), {
   modelValue: '',
   labelKey: 'label',
@@ -549,7 +551,7 @@ function onSelect(e: Event, item: T) {
     </ListboxItem>
   </DefineItemTemplate>
 
-  <ListboxRoot v-bind="rootProps" ref="rootRef" :selection-behavior="selectionBehavior" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <ListboxRoot v-bind="{ ...rootProps, ...$attrs }" ref="rootRef" :selection-behavior="selectionBehavior" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <ListboxFilter v-model="searchTerm" as-child>
       <B24Input
         :placeholder="placeholder"

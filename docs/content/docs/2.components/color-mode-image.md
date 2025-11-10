@@ -44,3 +44,7 @@ Switch between light and dark mode to see the different images: :b24-color-mode-
 ### Props
 
 :component-props
+
+::callout{color="air-secondary-accent-2" icon-name="MdnWebDocIcon" to="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attributes" target="_blank"}
+This component also supports all native `<img>` HTML attributes.
+::

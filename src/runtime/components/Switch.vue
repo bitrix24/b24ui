@@ -3,11 +3,12 @@ import type { SwitchRootProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/switch'
 import type { IconComponent } from '../types'
+import type { ButtonHTMLAttributes } from '../types/html'
 import type { ComponentConfig } from '../types/tv'
 
 type Switch = ComponentConfig<typeof theme, AppConfig, 'switch'>
 
-export interface SwitchProps extends Pick<SwitchRootProps, 'disabled' | 'id' | 'name' | 'required' | 'value' | 'defaultValue'> {
+export interface SwitchProps extends Pick<SwitchRootProps, 'disabled' | 'id' | 'name' | 'required' | 'value' | 'defaultValue'>, /** @vue-ignore */ Omit<ButtonHTMLAttributes, 'type' | 'disabled' | 'value' | 'name'> {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'

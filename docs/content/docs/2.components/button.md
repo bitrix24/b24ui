@@ -341,7 +341,11 @@ Button
 
 :component-props
 
-::callout{icon-name="GitHubIcon" color="air-secondary-accent" to="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Link.vue#L13"}
+::callout{color="air-secondary-accent-2" icon-name="MdnWebDocIcon" to="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attributes" target="_blank"}
+This component also supports all native `<button>` HTML attributes.
+::
+
+::callout{color="air-secondary-accent" icon-name="GitHubIcon" to="https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Link.vue#L13"}
 The `Button` component extends the `Link` component. Check out the source code on GitHub.
 ::
 

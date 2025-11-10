@@ -6,7 +6,7 @@ import type { ComponentConfig } from '../../types/tv'
 
 type ContentSearchButton = ComponentConfig<typeof theme, AppConfig, 'contentSearchButton'>
 
-export interface ContentSearchButtonProps {
+export interface ContentSearchButtonProps extends Omit<ButtonProps, 'icon' | 'label' | 'color'> {
   /**
    * The icon displayed in the button.
    * @defaultValue icons.search
@@ -23,7 +23,6 @@ export interface ContentSearchButtonProps {
    * @defaultValue 'air-tertiary-no-accent'
    */
   color?: ButtonProps['color']
-  size?: ButtonProps['size']
   /**
    * Whether the button is collapsed.
    * @defaultValue true
@@ -49,7 +48,7 @@ export interface ContentSearchButtonProps {
 import { computed, toRef } from 'vue'
 import { useForwardProps } from 'reka-ui'
 import { defu } from 'defu'
-import { reactivePick, createReusableTemplate } from '@vueuse/core'
+import { reactiveOmit, createReusableTemplate } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useContentSearch } from '../../composables/useContentSearch'
 import { useLocale } from '../../composables/useLocale'
@@ -74,7 +73,7 @@ const [DefineButtonTemplate, ReuseButtonTemplate] = createReusableTemplate()
 
 const getProxySlots = () => omit(slots, ['trailing'])
 
-const rootProps = useForwardProps(reactivePick(props, 'color', 'size'))
+const buttonProps = useForwardProps(reactiveOmit(props, 'icon', 'label', 'collapsed', 'tooltip', 'kbds', 'class', 'b24ui'))
 const tooltipProps = toRef(() => defu(typeof props.tooltip === 'boolean' ? {} : props.tooltip, { delayDuration: 0, content: { side: 'right' } }) as TooltipProps)
 
 const { t } = useLocale()
@@ -91,7 +90,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.conten
       :icon="icon || icons.search"
       :label="label || t('contentSearchButton.label')"
       v-bind="{
-        ...rootProps,
+        ...buttonProps,
         ...(collapsed ? {
           'label': undefined,
           'aria-label': label || t('contentSearchButton.label')
