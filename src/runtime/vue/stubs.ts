@@ -84,7 +84,7 @@ const hooks = createHooks()
 export function useNuxtApp() {
   return {
     isHydrating: true,
-    payload: { serverRendered: false },
+    payload: { serverRendered: import.meta.env.SSR || false },
     hooks,
     hook: hooks.hook
   }
