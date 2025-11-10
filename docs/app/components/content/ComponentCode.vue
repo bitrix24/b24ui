@@ -3,7 +3,7 @@
 import json5 from 'json5'
 import { upperFirst, camelCase, kebabCase } from 'scule'
 import { hash } from 'ohash'
-import { CalendarDate } from '@internationalized/date'
+import { CalendarDate, Time } from '@internationalized/date'
 import * as theme from '#build/b24ui'
 import { get, set } from '#b24ui/utils'
 import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
@@ -17,6 +17,7 @@ interface Cast {
 }
 
 type CastDateValue = [number, number, number]
+type CastTimeValue = [number, number, number]
 
 // function prepareIconTitle(iconTitle?: string) {
 //   switch (iconTitle) {
@@ -50,6 +51,12 @@ const castMap: Record<string, Cast> = {
       }
 
       return `{ start: new CalendarDate(${value.start.year}, ${value.start.month}, ${value.start.day}), end: new CalendarDate(${value.end.year}, ${value.end.month}, ${value.end.day}) }`
+    }
+  },
+  'TimeValue': {
+    get: (args: CastTimeValue) => new Time(...args),
+    template: (value: Time) => {
+      return value ? `new Time(${value.hour}, ${value.minute}, ${value.second})` : 'null'
     }
   },
   'RocketIcon': {

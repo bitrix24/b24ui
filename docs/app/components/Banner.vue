@@ -4,7 +4,7 @@ import NewMessageIcon from '@bitrix24/b24icons-vue/outline/NewMessageIcon'
 
 <template>
   <B24Banner
-    id="new-component-banner"
+    id="new-component-date-banner"
     title="New components have been implemented! Explore them."
     to="/docs/components/card/"
     :icon="NewMessageIcon"
