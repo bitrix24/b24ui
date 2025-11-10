@@ -7,7 +7,7 @@ import type { ComponentConfig } from '../types/tv'
 
 type Checkbox = ComponentConfig<typeof theme, AppConfig, 'checkbox'>
 
-export interface CheckboxProps extends Pick<CheckboxRootProps, 'disabled' | 'required' | 'name' | 'value' | 'id' | 'defaultValue'>, /** @vue-ignore */ Omit<ButtonHTMLAttributes, 'type' | 'disabled' | 'value' | 'name'> {
+export interface CheckboxProps extends Pick<CheckboxRootProps, 'disabled' | 'required' | 'name' | 'value' | 'id' | 'defaultValue'>, /** @vue-ignore */ Omit<ButtonHTMLAttributes, 'type' | 'disabled' | 'name'> {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
