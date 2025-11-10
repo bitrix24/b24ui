@@ -70,7 +70,7 @@ const appConfig = useAppConfig() as ContentSurround['AppConfig']
 const [DefineLinkTemplate, ReuseLinkTemplate] = createReusableTemplate<{ link?: ContentSurroundLink, icon: IconComponent, direction: 'left' | 'right' }>({
   props: {
     link: Object,
-    icon: Object,
+    icon: [Object, Function] as PropType<IconComponent>,
     direction: String as PropType<'left' | 'right'>
   }
 })
