@@ -2,9 +2,6 @@
  * ChatMessage
  * A chat message component with icon, avatar, and action buttons.
  * ---
- * @todo add variant
- * @todo add demo
- * @todo add docs
  */
 
 export default {
@@ -12,7 +9,7 @@ export default {
     root: 'group/message relative w-full',
     container: 'relative flex items-start',
     leading: 'inline-flex items-center justify-center min-h-6',
-    leadingIcon: 'shrink-0',
+    leadingIcon: 'shrink-0 text-(--ui-color-design-plain-content-icon-secondary)',
     leadingAvatar: 'shrink-0',
     leadingAvatarSize: '',
     content: 'relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0',
