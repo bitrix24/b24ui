@@ -2,6 +2,7 @@ import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 const listPathClear = [
+  '/chat',
   '/components/shortcuts',
   '/components/toast',
   '/components/confetti',

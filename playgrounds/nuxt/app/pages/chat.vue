@@ -2,18 +2,22 @@
 import type { UIMessage } from 'ai'
 import { Chat } from '@ai-sdk/vue'
 import AlertIcon from '@bitrix24/b24icons-vue/outline/AlertIcon'
+import RobotIcon from '@bitrix24/b24icons-vue/outline/RobotIcon'
 
 const toast = useToast()
 
-const messages: UIMessage[] = [{
-  id: '1',
-  role: 'user',
-  parts: [{ type: 'text', text: 'Hello, how are you?' }]
-}, {
-  id: '2',
-  role: 'assistant',
-  parts: [{ type: 'text', text: 'I\'m good, thank you! How can I help you today?' }]
-}]
+const messages: UIMessage[] = [
+  {
+    id: '1',
+    role: 'user',
+    parts: [{ type: 'text', text: 'Hello, how are you?' }]
+  },
+  {
+    id: '2',
+    role: 'assistant',
+    parts: [{ type: 'text', text: 'I\'m good, thank you! How can I help you today?' }]
+  }
+]
 const input = ref('')
 
 const chat = new Chat({
@@ -38,14 +42,29 @@ function onSubmit() {
 </script>
 
 <template>
-  <div class="relative flex flex-col min-w-0 h-[calc(100svh-380px)] flex-1">
+  <B24Card
+    class="mt-[12px] edge-dark"
+    :b24ui="{
+      body: [
+        'sm:pr-[6px]',
+        'relative',
+        'flex-1',
+        'flex flex-col',
+        'min-w-0',
+        'h-[calc(100vh-var(--topbar-height)-26px)]',
+        'bg-[url(/bg/pattern-1.png)]',
+        'bg-cover bg-center bg-fixed bg-no-repeat',
+        'bg-[#799fe1]/90'
+      ].join(' ')
+    }"
+  >
     <div class="flex-1 overflow-y-auto p-1 flex flex-col justify-center items-center scrollbar-thin scrollbar-transparent">
       <div class="flex-1 flex flex-col gap-4 sm:gap-6 w-full mx-auto min-h-0">
         <B24ChatMessages
           :messages="chat.messages"
           :status="chat.status"
           :user="{ avatar: { src: '/avatar/assistant.png' } }"
-          :spacing-offset="24"
+          :assistant="{ icon: RobotIcon }"
         >
           <template #content="{ message }">
             <template
@@ -71,12 +90,12 @@ function onSubmit() {
           v-model="input"
           :error="chat.error"
           variant="outline"
-          class="sticky bottom-0"
+          class="sticky bottom-0 light"
           @submit="onSubmit"
         >
           <B24ChatPromptSubmit :status="chat.status" @stop="chat.stop" @reload="chat.regenerate" />
         </B24ChatPrompt>
       </div>
     </div>
-  </div>
+  </B24Card>
 </template>
