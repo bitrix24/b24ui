@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.1.1](https://github.com/bitrix24/b24ui/compare/v2.1.0...v2.1.1) (2025-11-xx)
+
+### Bug Fixes
+
+* **components:** remove `locale` / `dir` props proxy
+* **Advice:** restore icons and avatar
+* **ChatMessage:** icons color improve
+
+### Docs
+* **mcp:** update deprecated server.tool()
+* **chatAi:** add DeepSeek in dev mode
+* **playground\nuxt:** add DeepSeek in dev mode
+
 ## [2.1.0](https://github.com/bitrix24/b24ui/compare/v2.0.9...v2.1.0) (2025-11-10)
 
 ### ⚠ BREAKING CHANGES
