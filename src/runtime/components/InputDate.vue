@@ -66,11 +66,6 @@ export interface InputDateProps<R extends boolean = false> extends UseComponentI
   separatorIcon?: IconComponent
   /** Whether or not a range of dates can be selected */
   range?: R & boolean
-  /**
-   * The locale to use for formatting and parsing numbers.
-   * @defaultValue B24App.locale.code
-   */
-  locale?: string
   defaultValue?: InputDateDefaultValue<R>
   modelValue?: InputDateModelValue<R>
   class?: any
@@ -101,7 +96,6 @@ import { useAppConfig } from '#imports'
 import { useFieldGroup } from '../composables/useFieldGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
-import { useLocale } from '../composables/useLocale'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Badge from './Badge.vue'
@@ -115,7 +109,6 @@ const props = withDefaults(defineProps<InputDateProps<R>>(), {
 const emits = defineEmits<InputDateEmits<R>>()
 const slots = defineSlots<InputDateSlots>()
 
-const { code: codeLocale, dir } = useLocale()
 const appConfig = useAppConfig() as InputDate['AppConfig']
 
 const rootProps = useForwardPropsEmits(reactiveOmit(props, 'id', 'name', 'range', 'modelValue', 'defaultValue', 'color', 'size', 'highlight', 'disabled', 'autofocus', 'autofocusDelay', 'icon', 'avatar', 'trailingIcon', 'loading', 'separatorIcon', 'class', 'b24ui'), emits)
@@ -129,7 +122,6 @@ const [DefineSegmentsTemplate, ReuseSegmentsTemplate] = createReusableTemplate<{
   type?: 'start' | 'end'
 }>()
 
-const locale = computed(() => props.locale || codeLocale.value)
 const inputSize = computed(() => fieldGroupSize.value || formGroupSize.value)
 
 const isTag = computed(() => {
@@ -213,8 +205,6 @@ defineExpose({
     :default-value="(defaultValue as DateValue)"
     :name="name"
     :disabled="disabled"
-    :locale="locale"
-    :dir="dir"
     :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
     @update:model-value="onUpdate"
     @blur="onBlur"

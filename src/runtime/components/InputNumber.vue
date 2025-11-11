@@ -83,11 +83,6 @@ export interface InputNumberProps<T extends InputNumberValue = InputNumberValue>
   autofocus?: boolean
   autofocusDelay?: number
   modelModifiers?: Pick<ModelModifiers<T>, 'optional'>
-  /**
-   * The locale to use for formatting and parsing numbers.
-   * @defaultValue B24App.locale.code
-   */
-  locale?: string
   class?: any
   b24ui?: InputNumber['slots']
 }
@@ -132,7 +127,7 @@ defineSlots<InputNumberSlots>()
 
 const modelValue = useVModel<InputNumberProps<T>, 'modelValue', 'update:modelValue'>(props, 'modelValue', emits, { defaultValue: props.defaultValue })
 
-const { t, code: codeLocale } = useLocale()
+const { t } = useLocale()
 const appConfig = useAppConfig() as InputNumber['AppConfig']
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'defaultValue', 'min', 'max', 'step', 'stepSnapping', 'formatOptions', 'disableWheelChange', 'invertWheelChange', 'readonly'), emits)
@@ -140,7 +135,6 @@ const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'defaultValue',
 const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, id, color, size: formGroupSize, name, highlight, disabled, ariaAttrs } = useFormField<InputNumberProps<T>>(props)
 const { orientation, size: fieldGroupSize } = useFieldGroup<InputNumberProps<T>>(props)
 
-const locale = computed(() => props.locale || codeLocale.value)
 const inputSize = computed(() => fieldGroupSize.value || formGroupSize.value)
 
 const isTag = computed(() => {
@@ -208,7 +202,6 @@ defineExpose({
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     :name="name"
     :disabled="disabled"
-    :locale="locale"
     @update:model-value="onUpdate"
   >
     <B24Badge

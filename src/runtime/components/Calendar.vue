@@ -132,7 +132,7 @@ const props = withDefaults(defineProps<CalendarProps<R, M>>(), {
 const emits = defineEmits<CalendarEmits<R, M>>()
 defineSlots<CalendarSlots>()
 
-const { code: locale, dir, t } = useLocale()
+const { dir, t } = useLocale()
 const appConfig = useAppConfig() as Calendar['AppConfig']
 
 const rootProps = useForwardPropsEmits(reactiveOmit(props, 'range', 'modelValue', 'defaultValue', 'color', 'size', 'monthControls', 'yearControls', 'class', 'b24ui'), emits)
@@ -171,8 +171,6 @@ const btnSize = computed(() => {
     v-bind="rootProps"
     :model-value="(modelValue as DateValue | DateValue[])"
     :default-value="(defaultValue as DateValue)"
-    :locale="locale"
-    :dir="dir"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
   >
     <Calendar.Header :class="b24ui.header({ class: props.b24ui?.header })">

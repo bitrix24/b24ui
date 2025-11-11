@@ -52,11 +52,6 @@ export interface InputTimeProps extends Omit<TimeFieldRootProps, 'as' | 'asChild
   highlight?: boolean
   autofocus?: boolean
   autofocusDelay?: number
-  /**
-   * The locale to use for formatting and parsing numbers.
-   * @defaultValue B24App.locale.code
-   */
-  locale?: string
   class?: any
   b24ui?: InputTime['slots']
 }
@@ -82,7 +77,6 @@ import { useAppConfig } from '#imports'
 import { useFieldGroup } from '../composables/useFieldGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
-import { useLocale } from '../composables/useLocale'
 import { tv } from '../utils/tv'
 import B24Badge from './Badge.vue'
 import B24Avatar from './Avatar.vue'
@@ -93,16 +87,14 @@ const props = withDefaults(defineProps<InputTimeProps>(), {
 const emits = defineEmits<InputTimeEmits>()
 const slots = defineSlots<InputTimeSlots>()
 
-const { code: codeLocale, dir } = useLocale()
 const appConfig = useAppConfig() as InputTime['AppConfig']
 
-const rootProps = useForwardPropsEmits(reactiveOmit(props, 'id', 'name', 'color', 'size', 'highlight', 'disabled', 'autofocus', 'autofocusDelay', 'locale', 'icon', 'avatar', 'trailingIcon', 'loading', 'class', 'b24ui'), emits)
+const rootProps = useForwardPropsEmits(reactiveOmit(props, 'id', 'name', 'color', 'size', 'highlight', 'disabled', 'autofocus', 'autofocusDelay', 'icon', 'avatar', 'trailingIcon', 'loading', 'class', 'b24ui'), emits)
 
 const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, id, color, size: formGroupSize, name, highlight, disabled, ariaAttrs } = useFormField<InputTimeProps>(props)
 const { orientation, size: fieldGroupSize } = useFieldGroup<InputTimeProps>(props)
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props)
 
-const locale = computed(() => props.locale || codeLocale.value)
 const inputSize = computed(() => fieldGroupSize.value || formGroupSize.value)
 
 const isTag = computed(() => {
@@ -168,8 +160,6 @@ defineExpose({
     v-slot="{ segments }"
     :name="name"
     :disabled="disabled"
-    :locale="locale"
-    :dir="dir"
     :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
     @update:model-value="onUpdate"
     @blur="onBlur"
