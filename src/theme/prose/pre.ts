@@ -30,7 +30,7 @@ export default {
       'text-(length:--ui-font-size-md)/(--ui-font-line-height-md)',
       'font-[family-name:var(--ui-font-family-system-mono)]',
       'border border-(--ui-color-design-tinted-na-stroke)',
-      'bg-(--ui-color-gray-90) dark:bg-(--ui-color-gray-90)/20',
+      'bg-(--ui-color-gray-90) dark:bg-(--ui-color-gray-90)/20 light:bg-(--ui-color-gray-90)',
       'rounded-(--ui-border-radius-md)',
       'px-4 py-3',
       'whitespace-pre-wrap',
