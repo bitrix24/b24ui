@@ -32,7 +32,7 @@ export default defineCachedEventHandler(async (event) => {
 
   // Use the same approach as the docs components for metadata
   const camelName = camelCase(normalizedName)
-  const componentMetaName = `U${upperFirst(camelName)}`
+  const componentMetaName = `B24${upperFirst(camelName)}`
 
   const metadata = await $fetch(`/api/component-meta/${componentMetaName}.json`)
 

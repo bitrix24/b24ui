@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { ContentNavigationItem } from '@nuxt/content'
-// import RobotIcon from '@bitrix24/b24icons-vue/outline/RobotIcon'
 
 interface ContentSearchFile {
   id: string
@@ -15,7 +14,13 @@ defineProps<{
   navigation?: ContentNavigationItem[]
 }>()
 
-const { links, groups, fullscreen, searchTerm } = useSearch()
+const { links, groups, fullscreen, chat, searchTerm, messages } = useSearch()
+
+function onClose() {
+  chat.value = false
+
+  fullscreen.value = false
+}
 </script>
 
 <template>
@@ -28,5 +33,9 @@ const { links, groups, fullscreen, searchTerm } = useSearch()
     :fullscreen="fullscreen"
     :color-mode="false"
     :fuse="{ resultLimit: 115 }"
-  />
+  >
+    <template v-if="chat" #content>
+      <SearchChat v-model:messages="messages" v-model:fullscreen="fullscreen" @close="onClose" />
+    </template>
+  </B24ContentSearch>
 </template>
