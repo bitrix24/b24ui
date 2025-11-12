@@ -1,6 +1,10 @@
 # Changelog
 
-## [2.1.1](https://github.com/bitrix24/b24ui/compare/v2.1.0...v2.1.1) (2025-11-xx)
+## [2.1.2](https://github.com/bitrix24/b24ui/compare/v2.1.1...v2.1.2) (2025-11-xx)
+
+* fix(Link): partial extend for `vue-router` and `inertia`
+
+## [2.1.1](https://github.com/bitrix24/b24ui/compare/v2.1.0...v2.1.1) (2025-11-11)
 
 ### Bug Fixes
 
