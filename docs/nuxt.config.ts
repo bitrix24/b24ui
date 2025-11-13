@@ -192,6 +192,8 @@ const pagesService = [
   '/404.html'
 ]
 
+const extraAllowedHosts = (process?.env.NUXT_ALLOWED_HOSTS?.split(',').map((s: string) => s.trim()).filter(Boolean)) ?? []
+
 export default defineNuxtConfig({
   modules: [
     '../src/module',
@@ -332,6 +334,12 @@ export default defineNuxtConfig({
     optimizeDeps: {
       // prevents reloading page when navigating between components
       include: ['@ai-sdk/vue', '@internationalized/date', '@nuxt/content/utils', '@tanstack/vue-table', '@vue/devtools-core', '@vue/devtools-kit', '@vueuse/integrations/useFuse', '@vueuse/shared', 'ai', 'colortranslator', 'embla-carousel-auto-height', 'embla-carousel-auto-scroll', 'embla-carousel-autoplay', 'embla-carousel-class-names', 'embla-carousel-fade', 'embla-carousel-vue', 'embla-carousel-wheel-gestures', 'json5', 'motion-v', 'ohash', 'ohash/utils', 'prettier', 'reka-ui', 'reka-ui/namespaced', 'scule', 'shiki', 'shiki-stream/vue', 'shiki-transformer-color-highlight', 'shiki/engine-javascript.mjs', 'tailwind-variants', 'tailwindcss/colors', 'ufo', 'vaul-vue', 'zod']
+    },
+    server: {
+      // Fix: "Blocked request. This host is not allowed" when using tunnels like ngrok
+      allowedHosts: [...extraAllowedHosts]
+      // Optionally set HMR host if needed behind proxy:
+      // hmr: { protocol: 'wss', host: 'whale-viable-wasp.ngrok-free.app', port: 443 }
     }
   },
 
