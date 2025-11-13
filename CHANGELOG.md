@@ -6,6 +6,7 @@
 * fix(Link): partial extend for `vue-router` and `inertia`
 * fix(ProseCallout): add MdnWebDocIcon|InfoCircleIcon
 * docs(config): add extraAllowedHosts
+* docs(input-date): add DatePicker and DateRangePicker examples
 
 ## [2.1.1](https://github.com/bitrix24/b24ui/compare/v2.1.0...v2.1.1) (2025-11-11)
 
