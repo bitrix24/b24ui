@@ -8,7 +8,6 @@
 export default {
   slots: {
     root: [
-      'light',
       'relative',
       'flex flex-col'
     ].join(' '),
@@ -17,6 +16,7 @@ export default {
       'flex-1',
       'bg-(--b24ui-background)/90',
       'border-(--b24ui-border-color) border-(length:--b24ui-border-width)',
+      'text-(--b24ui-color)',
       'flex flex-col gap-2 items-stretch justify-center',
       'rounded-(--ui-border-radius-md)',
       'focus-visible:outline-2',
@@ -38,14 +38,14 @@ export default {
   },
   variants: {
     color: {
-      'air-primary': { root: 'style-filled-inverted' },
-      'air-primary-success': { root: 'style-filled-success-inverted' },
-      'air-primary-alert': { root: 'style-filled-alert-inverted' },
-      'air-primary-copilot': { root: 'style-filled-copilot-inverted' },
-      'air-primary-warning': { root: 'style-filled-warning-inverted' },
-      'air-secondary': { root: 'style-tinted' },
-      'air-secondary-alert': { root: 'style-tinted-alert' },
-      'air-secondary-accent': { root: 'style-outline' },
+      'air-primary': { root: 'light style-filled-inverted' },
+      'air-primary-success': { root: 'light style-filled-success-inverted' },
+      'air-primary-alert': { root: 'light style-filled-alert-inverted' },
+      'air-primary-copilot': { root: 'light style-filled-copilot-inverted' },
+      'air-primary-warning': { root: 'light style-filled-warning-inverted' },
+      'air-secondary': { root: 'style-outline' },
+      'air-secondary-alert': { root: 'light style-tinted-alert' },
+      'air-secondary-accent': { root: 'light style-tinted' },
       'air-secondary-accent-1': { root: 'style-outline-accent-1' },
       'air-secondary-accent-2': { root: 'style-outline-accent-2' },
       'air-tertiary': { root: 'style-outline-no-accent' }
@@ -104,7 +104,15 @@ export default {
           '-top-1.5',
           '-end-1.5',
           'rounded-(--ui-border-radius-pill)',
-          'border'
+          'border',
+          // @memo change color|bg for btn
+          'edge-light:[--ui-btn-background:var(--ui-color-base-white-fixed)]',
+          'edge-dark:[--ui-btn-background:var(--ui-color-base-white-fixed)]',
+          'edge-dark:hover:bg-(--ui-color-base-white-fixed)/90',
+          'edge-dark:[--ui-btn-color:var(--ui-color-g-content-grey-1)]',
+          'dark:[--ui-btn-background:var(--ui-color-g-content-grey-1)]',
+          'dark:hover:bg-(--ui-color-g-content-grey-1)/90',
+          'dark:[--ui-btn-color:var(--ui-color-g-content-grey-4)]'
         ].join(' ')
       }
     },
