@@ -439,7 +439,7 @@ props:
 
 ### Icon
 
-Use the `icon` prop to show an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) inside the Select.
+Use the `icon` prop to show an [Icon](https://bitrix24.github.io/b24icons/icons/) inside the Select.
 
 ::component-code
 ---
@@ -469,7 +469,7 @@ props:
 
 ### Trailing Icon
 
-Use the `trailing-icon` prop to customize the trailing [Icon](https://bitrix24.github.io/b24icons/guide/icons.html).
+Use the `trailing-icon` prop to customize the trailing [Icon](https://bitrix24.github.io/b24icons/icons/).
 
 ::component-code
 ---
@@ -499,7 +499,7 @@ props:
 
 ### Selected Icon
 
-Use the `selected-icon` prop to customize the [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) when an item is selected.
+Use the `selected-icon` prop to customize the [Icon](https://bitrix24.github.io/b24icons/icons/) when an item is selected.
 
 ::component-code
 ---
@@ -778,7 +778,7 @@ name: 'select-items-color-example'
 
 ### With icon in items
 
-You can use the `icon` property to display an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) inside the items.
+You can use the `icon` property to display an [Icon](https://bitrix24.github.io/b24icons/icons/) inside the items.
 
 ::component-example
 ---

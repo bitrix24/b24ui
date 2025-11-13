@@ -301,7 +301,7 @@ props:
 
 ### Auto Scroll Icon
 
-Use the `auto-scroll-icon` prop to customize the auto scroll button [Icon](https://bitrix24.github.io/b24icons/guide/icons.html).
+Use the `auto-scroll-icon` prop to customize the auto scroll button [Icon](https://bitrix24.github.io/b24icons/icons/).
 
 ::component-code
 ---

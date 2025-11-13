@@ -12,22 +12,18 @@ Visit https://bitrix24.github.io/b24ui/ to explore the documentation.
 
 ```bash [pnpm]
 pnpm add @bitrix24/b24ui-nuxt
-pnpm add @bitrix24/b24icons-vue
 ```
 
 ```bash [yarn]
 yarn add @bitrix24/b24ui-nuxt
-yarn add @bitrix24/b24icons-vue
 ```
 
 ```bash [npm]
 npm install @bitrix24/b24ui-nuxt
-npm install @bitrix24/b24icons-vue
 ```
 
 ```bash [bun]
 yarn add @bitrix24/b24ui-nuxt
-yarn add @bitrix24/b24icons-vue
 ```
 
 ### Nuxt

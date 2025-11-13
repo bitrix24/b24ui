@@ -159,7 +159,7 @@ The `highlight` prop is used here to show the focus state. It's used internally 
 
 ### Icon
 
-Use the `icon` prop to show an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) inside the Textarea.
+Use the `icon` prop to show an [Icon](https://bitrix24.github.io/b24icons/icons/) inside the Textarea.
 
 ::component-code
 ---

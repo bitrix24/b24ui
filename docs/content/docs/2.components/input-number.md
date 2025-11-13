@@ -246,7 +246,7 @@ props:
 
 ### Increment / Decrement Icons
 
-Use the `increment-icon` and `decrement-icon` props to customize the buttons [Icon](https://bitrix24.github.io/b24icons/guide/icons.html).
+Use the `increment-icon` and `decrement-icon` props to customize the buttons [Icon](https://bitrix24.github.io/b24icons/icons/).
 
 ::component-code
 ---

@@ -88,7 +88,7 @@ slots:
 
 ### Icon
 
-Use the `icon` prop to show an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) inside the Badge.
+Use the `icon` prop to show an [Icon](https://bitrix24.github.io/b24icons/icons/) inside the Badge.
 
 ::component-code
 ---

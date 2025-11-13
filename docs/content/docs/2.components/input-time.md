@@ -148,7 +148,7 @@ props:
 
 ### Icon
 
-Use the `icon` prop to show an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) inside the InputTime.
+Use the `icon` prop to show an [Icon](https://bitrix24.github.io/b24icons/icons/) inside the InputTime.
 
 ::component-code
 ---

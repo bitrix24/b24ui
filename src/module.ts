@@ -1,5 +1,5 @@
 import { defu } from 'defu'
-import { createResolver, defineNuxtModule, addComponentsDir, addImportsDir, addPlugin, hasNuxtModule } from '@nuxt/kit'
+import { createResolver, defineNuxtModule, addComponentsDir, addImportsDir, addPlugin, installModule, hasNuxtModule } from '@nuxt/kit'
 import type { HookResult } from '@nuxt/schema'
 import type { ColorModeTypeLight } from './runtime/types'
 import { addTemplates } from './templates'
@@ -107,6 +107,16 @@ export default defineNuxtModule<ModuleOptions>({
     if (nuxt.options.builder !== '@nuxt/vite-builder') {
       nuxt.options.postcss.plugins['@tailwindcss/postcss'] = {}
     }
+
+    async function registerModule(name: string, key: string, options: Record<string, any>) {
+      if (!hasNuxtModule(name)) {
+        await installModule(name, defu((nuxt.options as any)[key], options))
+      } else {
+        (nuxt.options as any)[key] = defu((nuxt.options as any)[key], options)
+      }
+    }
+
+    await registerModule('@bitrix24/b24icons-nuxt', 'empty', {})
 
     addPlugin({ src: resolve('./runtime/plugins/colors') })
     addPlugin({ src: resolve('./runtime/plugins/ui-version') })

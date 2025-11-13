@@ -122,7 +122,7 @@ When using the [`ChatMessages`](/docs/components/chat-messages/) component, the 
 
 ### Icon
 
-Use the `icon` prop to display an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html)  component next to the message.
+Use the `icon` prop to display an [Icon](https://bitrix24.github.io/b24icons/icons/)  component next to the message.
 
 ::component-code
 ---

@@ -124,7 +124,7 @@ slots:
 
 ### Trailing Icon
 
-Use the `trailing-icon` prop to customize the trailing [Icon](https://bitrix24.github.io/b24icons/guide/icons.html).
+Use the `trailing-icon` prop to customize the trailing [Icon](https://bitrix24.github.io/b24icons/icons/).
 
 ::component-code
 ---

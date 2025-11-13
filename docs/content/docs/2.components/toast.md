@@ -71,7 +71,7 @@ name: 'toast-description-example'
 
 ### Icon
 
-Pass an `icon` field to the `toast.add` method to display an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html).
+Pass an `icon` field to the `toast.add` method to display an [Icon](https://bitrix24.github.io/b24icons/icons/).
 
 ::component-example
 ---
@@ -122,7 +122,7 @@ name: 'toast-close-example'
 
 ### Close Icon
 
-Pass a `closeIcon` field to customize the close button [Icon](https://bitrix24.github.io/b24icons/guide/icons.html).
+Pass a `closeIcon` field to customize the close button [Icon](https://bitrix24.github.io/b24icons/icons/).
 
 ::component-example
 ---

@@ -14,7 +14,6 @@
     "@ai-sdk/deepseek": "^1.0.28",
     "@ai-sdk/mcp": "^0.0.7",
     "@ai-sdk/vue": "^2.0.90",
-    "@bitrix24/b24icons-vue": "^2.0.6",
     "@modelcontextprotocol/sdk": "^1.21.1",
     "@nuxt/content": "^3.8.0",
     "@nuxt/image": "^2.0.0",

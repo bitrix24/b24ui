@@ -2,6 +2,8 @@
  * Default icons
  * ---
  * @link https://bitrix24.github.io/b24icons/
+ * @memo sync with docs/content/docs/1.getting-started/6.integrations/1.icons/1.nuxt.md
+ * @memo sync with docs/content/docs/1.getting-started/6.integrations/1.icons/2.vue.md
  */
 
 import ArrowToTheLeftIcon from '@bitrix24/b24icons-vue/actions/ArrowToTheLeftIcon'

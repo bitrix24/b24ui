@@ -372,6 +372,7 @@ export default defineNuxtConfig({
     }],
     exclude: [
       '@bitrix24/b24icons-vue',
+      '@bitrix24/b24icons-nuxt',
       '@nuxt/content',
       '@nuxt/image',
       '@nuxtjs/color-mode',

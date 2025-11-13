@@ -74,7 +74,7 @@ A `span` is rendered instead of a link when the `to` property is not defined.
 
 ### Separator Icon
 
-Use the `separator-icon` prop to customize the [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) between each item.
+Use the `separator-icon` prop to customize the [Icon](https://bitrix24.github.io/b24icons/icons/) between each item.
 
 ::component-code
 ---

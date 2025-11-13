@@ -160,7 +160,7 @@ props:
 
 ### Icon
 
-Use the `icon` prop to show an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) inside the InputTags.
+Use the `icon` prop to show an [Icon](https://bitrix24.github.io/b24icons/icons/) inside the InputTags.
 
 ::component-code
 ---
@@ -221,7 +221,7 @@ props:
 
 ### Delete Icon
 
-Use the `delete-icon` prop to customize the delete [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) in the tags.
+Use the `delete-icon` prop to customize the delete [Icon](https://bitrix24.github.io/b24icons/icons/) in the tags.
 
 ::component-code
 ---

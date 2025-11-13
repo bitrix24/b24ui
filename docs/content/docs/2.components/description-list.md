@@ -171,7 +171,7 @@ props:
 
 ### With icon in items
 
-You can use the `icon` property to display an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) inside the items.
+You can use the `icon` property to display an [Icon](https://bitrix24.github.io/b24icons/icons/) inside the items.
 
 ::component-example
 ---

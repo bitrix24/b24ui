@@ -220,7 +220,7 @@ props:
 
 ### Icon
 
-Use the `icon` prop to customize the input [Icon](https://bitrix24.github.io/b24icons/guide/icons.html).
+Use the `icon` prop to customize the input [Icon](https://bitrix24.github.io/b24icons/icons/).
 
 ::component-code
 ---
@@ -251,7 +251,7 @@ props:
 
 ### Selected Icon
 
-Use the `selected-icon` prop to customize the selected item [Icon](https://bitrix24.github.io/b24icons/guide/icons.html).
+Use the `selected-icon` prop to customize the selected item [Icon](https://bitrix24.github.io/b24icons/icons/).
 
 ::component-code
 ---
@@ -301,7 +301,7 @@ props:
 
 ### Trailing Icon
 
-Use the `trailing-icon` prop to customize the trailing [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) when an item has children.
+Use the `trailing-icon` prop to customize the trailing [Icon](https://bitrix24.github.io/b24icons/icons/) when an item has children.
 
 ::component-code
 ---
@@ -429,7 +429,7 @@ props:
 
 ### Close Icon
 
-Use the `close-icon` prop to customize the close button [Icon](https://bitrix24.github.io/b24icons/guide/icons.html).
+Use the `close-icon` prop to customize the close button [Icon](https://bitrix24.github.io/b24icons/icons/).
 
 ::component-code
 ---
@@ -497,7 +497,7 @@ props:
 
 ### Back Icon
 
-Use the `back-icon` prop to customize the back button [Icon](https://bitrix24.github.io/b24icons/guide/icons.html).
+Use the `back-icon` prop to customize the back button [Icon](https://bitrix24.github.io/b24icons/icons/).
 
 ::component-code
 ---

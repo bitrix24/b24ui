@@ -63,7 +63,7 @@ props:
 
 ### Icon
 
-Use the `icon` prop to set the [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) of the card.
+Use the `icon` prop to set the [Icon](https://bitrix24.github.io/b24icons/icons/) of the card.
 
 ::component-code
 ---

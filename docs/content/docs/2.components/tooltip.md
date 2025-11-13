@@ -221,7 +221,7 @@ name: 'tooltip-cursor-example'
 
 ### Help Icon
 
-You can use the [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) and the Tooltip.
+You can use the [Icon](https://bitrix24.github.io/b24icons/icons/) and the Tooltip.
 
 ::component-example
 ---

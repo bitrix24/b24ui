@@ -65,7 +65,7 @@ props:
 
 ### Icon
 
-Use the `icon` prop to show an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html).
+Use the `icon` prop to show an [Icon](https://bitrix24.github.io/b24icons/icons/).
 
 ::component-code
 ---

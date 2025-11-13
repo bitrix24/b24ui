@@ -62,7 +62,7 @@ props:
 
 ### Icon
 
-Use the `icon` prop to display an [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) in the middle of the Separator.
+Use the `icon` prop to display an [Icon](https://bitrix24.github.io/b24icons/icons/) in the middle of the Separator.
 
 ::component-code
 ---

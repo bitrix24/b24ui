@@ -240,7 +240,7 @@ name: 'navigation-menu-collapsed-example'
 
 ### Trailing Icon
 
-Use the `trailing-icon` prop to customize the trailing [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) of each item. This icon is only displayed when an item has children.
+Use the `trailing-icon` prop to customize the trailing [Icon](https://bitrix24.github.io/b24icons/icons/) of each item. This icon is only displayed when an item has children.
 
 ::tip
 You can also set an icon for a specific item by using the `trailingIcon` property in the item object.

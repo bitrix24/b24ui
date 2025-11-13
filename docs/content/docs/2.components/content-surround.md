@@ -30,7 +30,7 @@ props:
 
 ### Prev / Next
 
-Use the `prev-icon` and `next-icon` props to customize the buttons [Icon](https://bitrix24.github.io/b24icons/guide/icons.html).
+Use the `prev-icon` and `next-icon` props to customize the buttons [Icon](https://bitrix24.github.io/b24icons/icons/).
 
 ::component-code{prefix="content"}
 ---

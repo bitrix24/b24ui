@@ -129,7 +129,7 @@ props:
 
 ### Icon
 
-Use the `icon` prop to set the [Icon](https://bitrix24.github.io/b24icons/guide/icons.html) of the FileUpload.
+Use the `icon` prop to set the [Icon](https://bitrix24.github.io/b24icons/icons/) of the FileUpload.
 
 ::component-code
 ---
