@@ -1,12 +1,21 @@
 # Changelog
 
-## [2.1.2](https://github.com/bitrix24/b24ui/compare/v2.1.1...v2.1.2) (2025-11-xx)
+## [2.1.2](https://github.com/bitrix24/b24ui/compare/v2.1.1...v2.1.2) (2025-11-13)
 
-* feat(FileUpload): add `preview` prop
-* fix(Link): partial extend for `vue-router` and `inertia`
-* fix(ProseCallout): add MdnWebDocIcon|InfoCircleIcon
-* docs(config): add extraAllowedHosts
-* docs(input-date): add DatePicker and DateRangePicker examples
+### Features
+
+* **FileUpload:** add `preview` prop
+* **icons:** use @bitrix24/b24icons-nuxt
+
+### Bug Fixes
+
+* **Link:** partial extend for `vue-router` and `inertia`
+* **ProseCallout:** add MdnWebDocIcon|InfoCircleIcon
+
+### Docs
+
+* **config:** add extraAllowedHosts
+* **input-date:** add DatePicker and DateRangePicker examples
 
 ## [2.1.1](https://github.com/bitrix24/b24ui/compare/v2.1.0...v2.1.1) (2025-11-11)
 
@@ -17,6 +26,7 @@
 * **ChatMessage:** icons color improve
 
 ### Docs
+
 * **mcp:** update deprecated server.tool()
 * **chatAi:** add DeepSeek in dev mode
 * **playground\nuxt:** add DeepSeek in dev mode
