@@ -5,7 +5,18 @@ const slots = defineSlots()
 const route = useRoute()
 
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
-const { navigationMenuByCategory } = useNavigation(navigation!)
+
+const input = useTemplateRef('input')
+const { filteredNavigation, value } = useDocs(navigation!)
+
+defineShortcuts({
+  '/': {
+    usingInput: true,
+    handler: () => {
+      input?.value?.inputRef?.focus()
+    }
+  }
+})
 
 const colorMode = useColorMode()
 const isDark = computed(() => {
@@ -35,6 +46,13 @@ const { mobileLinks } = useHeader()
       <B24SidebarHeader>
         <LogoWithVersion />
         <FrameworkTabs />
+        <div v-if="route.path.startsWith('/docs/components')" class="ps-[20px] pe-xs rtl:ps-xs rtl:pe-[20px] pb-[12px]">
+          <B24Input ref="input" v-model="value" placeholder="Filter..." class="group">
+            <template #trailing>
+              <B24Kbd value="/" dd-class="ring-(--ui-color-design-plain-na-content-secondary) bg-transparent text-muted" />
+            </template>
+          </B24Input>
+        </div>
       </B24SidebarHeader>
       <B24SidebarBody
         :b24ui="{
@@ -48,7 +66,7 @@ const { mobileLinks } = useHeader()
         />
         <B24NavigationMenu
           :key="route.path"
-          :items="navigationMenuByCategory"
+          :items="filteredNavigation"
           orientation="vertical"
           :b24ui="{ linkLeadingBadge: '-top-[4px] left-auto -right-[50px]  bg-blue-500' }"
         />

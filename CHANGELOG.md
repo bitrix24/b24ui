@@ -3,6 +3,7 @@
 ## [2.1.3](https://github.com/bitrix24/b24ui/compare/v2.1.2...v2.1.3) (2025-11-xx)
 
 * chore(deps): update `nuxt-component-meta`
+* docs(components): add search to filter navigation
 
 ## [2.1.2](https://github.com/bitrix24/b24ui/compare/v2.1.1...v2.1.2) (2025-11-13)
 
