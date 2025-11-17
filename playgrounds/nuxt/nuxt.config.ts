@@ -1,6 +1,10 @@
-import type { NuxtComponentMeta } from 'nuxt-component-meta'
 import { createResolver } from '@nuxt/kit'
 import { readFileSync } from 'node:fs'
+import type { NuxtConfig } from '@nuxt/schema'
+
+interface ExtendedNuxtConfig extends NuxtConfig {
+  componentMeta?: any
+}
 
 const { resolve } = createResolver(import.meta.url)
 
@@ -42,21 +46,6 @@ export default defineNuxtConfig({
     }
   },
 
-  hooks: {
-    // @ts-expect-error - Hook is not typed correctly
-    'component-meta:schema': (schema: NuxtComponentMeta) => {
-      for (const componentName in schema) {
-        const component = schema[componentName]
-        // Delete schema from slots to reduce metadata file size
-        if (component?.meta?.slots) {
-          for (const slot of component.meta.slots) {
-            delete (slot as any).schema
-          }
-        }
-      }
-    }
-  },
-
   componentMeta: {
     transformers: [(component: any, code: any) => {
       // Simplify b24ui in slot prop types: `leading(props: { b24ui: Button['b24ui'] })` -> `leading(props: { b24ui: object })`
@@ -65,14 +54,16 @@ export default defineNuxtConfig({
       return { component, code }
     }],
     exclude: [
+      '@bitrix24/b24icons-vue',
+      '@bitrix24/b24icons-nuxt',
       resolve('./app/components')
     ],
     metaFields: {
       type: false,
       props: true,
-      slots: true,
-      events: false,
+      slots: 'no-schema',
+      events: 'no-schema',
       exposed: false
     }
   }
-})
+} as ExtendedNuxtConfig & ReturnType<typeof defineNuxtConfig>)
