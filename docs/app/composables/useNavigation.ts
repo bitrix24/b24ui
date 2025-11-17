@@ -228,7 +228,15 @@ export const useNavigation = (navigation: Ref<ContentNavigationItem[] | undefine
   )
 
   const navigationByFramework = computed(() =>
-    rootNavigation.value?.map(item => filterChildrenByFramework(item, framework.value))
+    rootNavigation.value?.map(item => filterChildrenByFramework(item, framework.value)).map((item) => {
+      return {
+        ...item,
+        path: withTrailingSlash(item.path),
+        children: (item?.children || []).map((child) => {
+          return { ...child, path: withTrailingSlash(child.path) }
+        })
+      }
+    })
   )
 
   const navigationByCategory = computed(() => {

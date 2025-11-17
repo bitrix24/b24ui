@@ -5,11 +5,24 @@ const route = useRoute()
 const appConfig = useAppConfig()
 
 const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs', ['framework', 'category', 'description', 'badge']))
-const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections('docs', {
-  ignoredTags: ['style']
-}), {
-  server: false
-})
+const { data: files } = useLazyAsyncData(
+  'search',
+  async () => {
+    const data = await queryCollectionSearchSections('docs', {
+      ignoredTags: ['style']
+    })
+
+    return data.map((file) => {
+      return {
+        ...file,
+        id: file.id.replace(/([^/])(#.*)?$/, (_, char, hash = '') => `${char}/${hash}`)
+      }
+    })
+  },
+  {
+    server: false
+  }
+)
 
 useHead({
   meta: [
@@ -28,7 +41,6 @@ useServerSeoMeta({
 })
 
 const { rootNavigation, navigationByFramework } = useNavigation(navigation)
-
 provide('navigation', rootNavigation)
 
 const colorMode = useColorMode()
