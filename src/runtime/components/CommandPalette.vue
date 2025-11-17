@@ -202,7 +202,7 @@ export type CommandPaletteSlots<G extends CommandPaletteGroup<T> = CommandPalett
 import { computed, ref, useTemplateRef, toRef } from 'vue'
 import { ListboxRoot, ListboxFilter, ListboxContent, ListboxGroup, ListboxGroupLabel, ListboxVirtualizer, ListboxItem, ListboxItemIndicator, useForwardProps, useForwardPropsEmits } from 'reka-ui'
 import { defu } from 'defu'
-import { reactivePick, createReusableTemplate } from '@vueuse/core'
+import { reactivePick, createReusableTemplate, refThrottled } from '@vueuse/core'
 import { useFuse } from '@vueuse/integrations/useFuse'
 import { useAppConfig } from '#imports'
 import { useLocale } from '../composables/useLocale'
@@ -293,14 +293,18 @@ const items = computed(() => groups.value?.filter((group) => {
 
 const { results: fuseResults } = useFuse<typeof items.value[number]>(searchTerm, items, fuse)
 
-function getGroupWithItems(group: G, items: (T & { matches?: FuseResult<T>['matches'] })[]) {
+const throttledFuseResults = refThrottled(fuseResults, 16, true)
+
+function processGroupItems(group: G, items: (T & { matches?: FuseResult<T>['matches'] })[]) {
+  let processedItems = items
+
   if (group?.postFilter && typeof group.postFilter === 'function') {
-    items = group.postFilter(searchTerm.value, items)
+    processedItems = group.postFilter(searchTerm.value, processedItems)
   }
 
   return {
     ...group,
-    items: items.slice(0, fuse.value.resultLimit).map((item) => {
+    items: processedItems.slice(0, fuse.value.resultLimit).map((item) => {
       return {
         ...item,
         labelHtml: highlight<T>(item, searchTerm.value, props.labelKey),
@@ -311,7 +315,9 @@ function getGroupWithItems(group: G, items: (T & { matches?: FuseResult<T>['matc
 }
 
 const filteredGroups = computed(() => {
-  const groupsById = fuseResults.value.reduce((acc, result) => {
+  const currentGroups = groups.value
+
+  const groupsById = throttledFuseResults.value.reduce((acc, result) => {
     const { item, matches } = result
     if (!item.group) {
       return acc
@@ -324,19 +330,23 @@ const filteredGroups = computed(() => {
   }, {} as Record<string, (T & { matches?: FuseResult<T>['matches'] })[]>)
 
   if (props.preserveGroupOrder) {
-    const processedGroups: Array<ReturnType<typeof getGroupWithItems>> = []
+    const processedGroups: Array<ReturnType<typeof processGroupItems>> = []
 
-    for (const group of groups.value || []) {
+    for (const group of currentGroups || []) {
       if (!group.items?.length) {
         continue
       }
 
-      const items = group.ignoreFilter
-        ? group.items
-        : groupsById[group.id]
+      const items = group.ignoreFilter ? group.items : groupsById[group.id]
+      if (!items?.length) {
+        continue
+      }
 
-      if (items?.length) {
-        processedGroups.push(getGroupWithItems(group, items))
+      const processedGroup = processGroupItems(group, items)
+
+      // Filter out groups that become empty after postFilter
+      if (processedGroup.items?.length) {
+        processedGroups.push(processedGroup)
       }
     }
 
@@ -344,18 +354,25 @@ const filteredGroups = computed(() => {
   }
 
   const fuseGroups = Object.entries(groupsById).map(([id, items]) => {
-    const group = groups.value?.find(group => group.id === id)
+    const group = currentGroups?.find(group => group.id === id)
     if (!group) {
       return
     }
 
-    return getGroupWithItems(group, items)
+    const processedGroup = processGroupItems(group, items)
+    // Filter out groups without items after postFilter
+    return processedGroup.items?.length ? processedGroup : undefined
   }).filter(group => !!group)
 
-  const nonFuseGroups = groups.value
+  const nonFuseGroups = currentGroups
     ?.map((group, index) => ({ ...group, index }))
     ?.filter(group => group.ignoreFilter && group.items?.length)
-    ?.map(group => ({ ...getGroupWithItems(group, group.items || []), index: group.index })) || []
+    ?.map((group) => {
+      const processedGroup = processGroupItems(group, group.items || [])
+      return { ...processedGroup, index: group.index }
+    })
+    // Filter out groups without items after postFilter
+    ?.filter(group => group.items?.length) || []
 
   return nonFuseGroups.reduce((acc, group) => {
     acc.splice(group.index, 0, group)
@@ -483,14 +500,24 @@ function onSelect(e: Event, item: T) {
                   >{{ item.prefix }}</span>
 
                   <span
+                    v-if="item.labelHtml"
                     :class="b24ui.itemLabelBase({ class: [props.b24ui?.itemLabelBase, item.b24ui?.itemLabelBase], active: active || item.active })"
                     v-html="item.labelHtml || get(item, props.labelKey as string)"
                   />
+                  <span
+                    v-else
+                    :class="b24ui.itemLabelBase({ class: [props.b24ui?.itemLabelBase, item.b24ui?.itemLabelBase], active: active || item.active })"
+                  >{{ get(item, props.labelKey as string) }}</span>
 
                   <span
+                    v-if="item.suffixHtml"
                     :class="b24ui.itemLabelSuffix({ class: [props.b24ui?.itemLabelSuffix, item.b24ui?.itemLabelSuffix], active: active || item.active })"
                     v-html="item.suffixHtml || item.suffix"
                   />
+                  <span
+                    v-else-if="item.suffix"
+                    :class="b24ui.itemLabelSuffix({ class: [props.b24ui?.itemLabelSuffix, item.b24ui?.itemLabelSuffix], active: active || item.active })"
+                  >{{ item.suffix }}</span>
                 </slot>
               </span>
 

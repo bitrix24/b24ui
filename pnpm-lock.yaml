@@ -29,6 +29,9 @@ importers:
       '@internationalized/number':
         specifier: ^3.6.5
         version: 3.6.5
+      '@nuxt/content':
+        specifier: ^3.8.0
+        version: 3.8.0(better-sqlite3@12.4.1)(magicast@0.5.1)(valibot@1.1.0(typescript@5.8.3))
       '@nuxt/kit':
         specifier: ^4.2.1
         version: 4.2.1(magicast@0.5.1)
@@ -171,9 +174,6 @@ importers:
         specifier: ^3.24.0 || ^4.0.0
         version: 4.1.12
     devDependencies:
-      '@nuxt/content':
-        specifier: ^3.8.0
-        version: 3.8.0(better-sqlite3@12.4.1)(magicast@0.5.1)(valibot@1.1.0(typescript@5.8.3))
       '@nuxt/eslint-config':
         specifier: ^1.10.0
         version: 1.10.0(@typescript-eslint/utils@8.46.4(eslint@9.39.1(jiti@2.6.1))(typescript@5.8.3))(@vue/compiler-sfc@3.5.24)(eslint@9.39.1(jiti@2.6.1))(typescript@5.8.3)

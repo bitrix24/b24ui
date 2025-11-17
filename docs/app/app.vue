@@ -5,7 +5,9 @@ const route = useRoute()
 const appConfig = useAppConfig()
 
 const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs', ['framework', 'category', 'description', 'badge']))
-const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections('docs'), {
+const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections('docs', {
+  ignoredTags: ['style']
+}), {
   server: false
 })
 
