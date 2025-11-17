@@ -210,7 +210,7 @@ function createServer() {
     async () => {
       const result = await $fetch('/api/mcp/list-components')
       return {
-        content: [{ type: 'text', text: JSON.stringify(result, null, 2) }]
+        content: [{ type: 'text' as const, text: JSON.stringify(result, null, 2) }]
       }
     }
   )
@@ -224,7 +224,7 @@ function createServer() {
     async () => {
       const result = await $fetch('/api/mcp/list-composables')
       return {
-        content: [{ type: 'text', text: JSON.stringify(result, null, 2) }]
+        content: [{ type: 'text' as const, text: JSON.stringify(result, null, 2) }]
       }
     }
   )
@@ -239,10 +239,10 @@ function createServer() {
         componentName: z.string().describe('The name of the component (PascalCase)')
       }
     },
-    async (params) => {
+    async (params: { componentName: string }) => {
       const result = await $fetch('/api/mcp/get-component', { query: params })
       return {
-        content: [{ type: 'text', text: JSON.stringify(result, null, 2) }]
+        content: [{ type: 'text' as const, text: JSON.stringify(result, null, 2) }]
       }
     }
   )
@@ -257,10 +257,10 @@ function createServer() {
         componentName: z.string().describe('The name of the component (PascalCase)')
       }
     },
-    async (params) => {
+    async (params: { componentName: string }) => {
       const result = await $fetch('/api/mcp/get-component-metadata', { query: params })
       return {
-        content: [{ type: 'text', text: JSON.stringify(result, null, 2) }]
+        content: [{ type: 'text' as const, text: JSON.stringify(result, null, 2) }]
       }
     }
   )
@@ -278,10 +278,10 @@ function createServer() {
   //       category: z.string().optional().describe('Filter templates by category')
   //     }
   //   },
-  //   async (params) => {
+  //   async (params: { category?: string }) => {
   //     const result = await $fetch('/api/mcp/list-templates', { query: params })
   //     return {
-  //       content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
+  //       content: [{ type: 'text' as const, text: JSON.stringify(result, null, 2) }],
   //       structuredContent: result as any
   //     }
   //   }
@@ -300,10 +300,10 @@ function createServer() {
   //       templateName: z.string().describe('The name of the template')
   //     }
   //   },
-  //   async (params) => {
+  //   async (params: { templateName: string }) => {
   //     const result = await $fetch('/api/mcp/get-template', { query: params })
   //     return {
-  //       content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
+  //       content: [{ type: 'text' as const, text: JSON.stringify(result, null, 2) }],
   //       structuredContent: result as any
   //     }
   //   }
@@ -319,10 +319,10 @@ function createServer() {
         path: z.string().describe('The path to the content page (e.g., /docs/components/button)')
       }
     },
-    async (params) => {
+    async (params: { path: string }) => {
       const result = await $fetch<string>(`/raw${params.path}.md`)
       return {
-        content: [{ type: 'text', text: JSON.stringify(result, null, 2) }]
+        content: [{ type: 'text' as const, text: JSON.stringify(result, null, 2) }]
       }
     }
   )
@@ -336,7 +336,7 @@ function createServer() {
     async () => {
       const result = await $fetch('/api/mcp/list-documentation-pages')
       return {
-        content: [{ type: 'text', text: JSON.stringify(result, null, 2) }]
+        content: [{ type: 'text' as const, text: JSON.stringify(result, null, 2) }]
       }
     }
   )
@@ -350,7 +350,7 @@ function createServer() {
     async () => {
       const result = await $fetch('/api/mcp/list-getting-started-guides')
       return {
-        content: [{ type: 'text', text: JSON.stringify(result, null, 2) }]
+        content: [{ type: 'text' as const, text: JSON.stringify(result, null, 2) }]
       }
     }
   )
@@ -365,10 +365,10 @@ function createServer() {
         version: z.enum(['v2']).describe('The migration version (e.g., v2)')
       }
     },
-    async (params) => {
+    async (params: { version: 'v2' }) => {
       const result = await $fetch('/api/mcp/get-migration-guide', { query: params })
       return {
-        content: [{ type: 'text', text: JSON.stringify(result, null, 2) }]
+        content: [{ type: 'text' as const, text: JSON.stringify(result, null, 2) }]
       }
     }
   )
@@ -382,7 +382,7 @@ function createServer() {
     async () => {
       const result = await $fetch('/api/mcp/list-examples')
       return {
-        content: [{ type: 'text', text: JSON.stringify(result, null, 2) }]
+        content: [{ type: 'text' as const, text: JSON.stringify(result, null, 2) }]
       }
     }
   )
@@ -397,10 +397,10 @@ function createServer() {
         exampleName: z.string().describe('The name of the example (PascalCase)')
       }
     },
-    async ({ exampleName }) => {
+    async ({ exampleName }: { exampleName: string }) => {
       const result = await $fetch(`/api/component-example/${exampleName}.json`)
       return {
-        content: [{ type: 'text', text: result.code }]
+        content: [{ type: 'text' as const, text: result.code }]
       }
     }
   )
@@ -417,10 +417,10 @@ function createServer() {
         search: z.string().optional().describe('Search term to filter components by name or description')
       }
     },
-    async (params) => {
+    async (params: { category?: string, search?: string }) => {
       const result = await $fetch('/api/mcp/search-components-by-category', { query: params })
       return {
-        content: [{ type: 'text', text: JSON.stringify(result, null, 2) }]
+        content: [{ type: 'text' as const, text: JSON.stringify(result, null, 2) }]
       }
     }
   )

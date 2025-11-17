@@ -9,6 +9,7 @@
 * fix(CommandPalette/ContentSearch): improve performances and filtering logic
 * feat(components): add `data-slot` attributes
 * fix(inertia): set serverRendered dynamically to prevent SSR crash
+* chore(deps): update
 
 ## [2.1.2](https://github.com/bitrix24/b24ui/compare/v2.1.1...v2.1.2) (2025-11-13)
 
