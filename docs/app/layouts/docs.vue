@@ -6,8 +6,8 @@ const route = useRoute()
 
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 
+const { filteredNavigation, searchTerm, isActiveSearch } = useDocs(navigation!)
 const input = useTemplateRef('input')
-const { filteredNavigation, value } = useDocs(navigation!)
 
 defineShortcuts({
   '/': {
@@ -46,8 +46,8 @@ const { mobileLinks } = useHeader()
       <B24SidebarHeader>
         <LogoWithVersion />
         <FrameworkTabs />
-        <div v-if="route.path.startsWith('/docs/components')" class="ps-[20px] pe-xs rtl:ps-xs rtl:pe-[20px] pb-[12px]">
-          <B24Input ref="input" v-model="value" placeholder="Filter..." class="group">
+        <div v-if="isActiveSearch" class="ps-[20px] pe-xs rtl:ps-xs rtl:pe-[20px] pb-[12px]">
+          <B24Input ref="input" v-model="searchTerm" placeholder="Filter..." class="group">
             <template #trailing>
               <B24Kbd value="/" dd-class="ring-(--ui-color-design-plain-na-content-secondary) bg-transparent text-muted" />
             </template>
