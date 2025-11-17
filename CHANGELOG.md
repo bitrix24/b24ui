@@ -1,15 +1,25 @@
 # Changelog
 
-## [2.1.3](https://github.com/bitrix24/b24ui/compare/v2.1.2...v2.1.3) (2025-11-xx)
+## [2.1.3](https://github.com/bitrix24/b24ui/compare/v2.1.2...v2.1.3) (2025-11-17)
 
-* chore(deps): update `nuxt-component-meta`
-* docs(components): add search to filter navigation
-* fix(types): export missing utils types
-* docs(app): improve navigation filtering logic
-* fix(CommandPalette/ContentSearch): improve performances and filtering logic
-* feat(components): add `data-slot` attributes
-* fix(inertia): set serverRendered dynamically to prevent SSR crash
-* chore(deps): update
+### Features
+
+* **components:** add `data-slot` attributes
+
+### Bug Fixes
+
+* **types:** export missing utils types
+* **CommandPalette/ContentSearch:** improve performances and filtering logic
+* **inertia:** set serverRendered dynamically to prevent SSR crash
+
+### Docs
+
+* **app:** improve navigation filtering logic
+* **components:** add search to filter navigation
+
+### Chore
+
+* **deps:** update
 
 ## [2.1.2](https://github.com/bitrix24/b24ui/compare/v2.1.1...v2.1.2) (2025-11-13)
 
