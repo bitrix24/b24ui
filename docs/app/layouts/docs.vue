@@ -6,8 +6,24 @@ const route = useRoute()
 
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 
-const { filteredNavigation, searchTerm, isActiveSearch } = useDocs(navigation!)
+const { navigationMenuByCategory, contains, searchTerm } = useDocs(navigation!)
 const input = useTemplateRef('input')
+
+const isActiveSearch = computed(() => route.path.startsWith('/docs/components'))
+
+const filteredNavigation = computed(() => {
+  if (!searchTerm.value) {
+    return navigationMenuByCategory.value
+  }
+
+  return navigationMenuByCategory.value.filter(child => contains(child.label as string, searchTerm.value) || contains((child?.description || '') as string, searchTerm.value))
+})
+
+watch(() => route.path, () => {
+  if (!isActiveSearch.value) {
+    searchTerm.value = ''
+  }
+})
 
 defineShortcuts({
   '/': {
