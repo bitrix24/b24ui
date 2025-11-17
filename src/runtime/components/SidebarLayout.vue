@@ -154,6 +154,7 @@ const handleNavigationClick = () => {
     v-bind="$attrs"
     data-state="isLoading ? 'loading' : 'show'"
     :as="as"
+    data-slot="root"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
   >
     <!-- isLoading -->
@@ -167,8 +168,9 @@ const handleNavigationClick = () => {
         overlay-blur="off"
       >
         <template #content>
-          <div :class="b24ui.loadingWrapper({ class: props.b24ui?.loadingWrapper })">
+          <div data-slot="loadingWrapper" :class="b24ui.loadingWrapper({ class: props.b24ui?.loadingWrapper })">
             <BtnSpinnerIcon
+              data-slot="loadingIcon"
               :class="b24ui.loadingIcon({ class: props.b24ui?.loadingIcon })"
               aria-hidden="true"
             />
@@ -177,20 +179,22 @@ const handleNavigationClick = () => {
       </B24Slideover>
     </slot>
     <template v-if="isUseSideBar">
-      <div :class="b24ui.sidebar({ class: props.b24ui?.sidebar })">
+      <div data-slot="sidebar" :class="b24ui.sidebar({ class: props.b24ui?.sidebar })">
         <B24Sidebar>
           <slot name="sidebar" :handle-click="handleNavigationClick" :is-loading="isLoading" :b24ui="b24ui" />
         </B24Sidebar>
       </div>
     </template>
 
-    <div :class="b24ui.contentWrapper({ class: props.b24ui?.contentWrapper })">
+    <div data-slot="contentWrapper" :class="b24ui.contentWrapper({ class: props.b24ui?.contentWrapper })">
       <header
         v-if="isUseNavbar"
+        data-slot="header"
         :class="b24ui.header({ class: props.b24ui?.header })"
       >
         <div
           v-if="isUseSideBar"
+          data-slot="headerMenuIcon"
           :class="b24ui.headerMenuIcon({ class: props.b24ui?.headerMenuIcon })"
         >
           <B24Slideover
@@ -210,9 +214,9 @@ const handleNavigationClick = () => {
             />
 
             <template #content>
-              <div :class="b24ui.sidebarSlideover({ class: props.b24ui?.sidebarSlideover })">
+              <div data-slot="sidebarSlideover" :class="b24ui.sidebarSlideover({ class: props.b24ui?.sidebarSlideover })">
                 <B24Sidebar>
-                  <div :class="b24ui.sidebarSlideoverBtnClose({ class: props.b24ui?.sidebarSlideoverBtnClose })">
+                  <div data-slot="sidebarSlideoverBtnClose" :class="b24ui.sidebarSlideoverBtnClose({ class: props.b24ui?.sidebarSlideoverBtnClose })">
                     <B24ModalDialogClose>
                       <B24Button
                         color="air-tertiary"
@@ -229,26 +233,26 @@ const handleNavigationClick = () => {
             </template>
           </B24Slideover>
         </div>
-        <div :class="b24ui.headerWrapper({ class: props.b24ui?.headerWrapper })">
+        <div data-slot="headerWrapper" :class="b24ui.headerWrapper({ class: props.b24ui?.headerWrapper })">
           <B24Navbar>
             <slot name="navbar" :handle-click="handleNavigationClick" :is-loading="isLoading" :b24ui="b24ui" />
           </B24Navbar>
         </div>
       </header>
 
-      <div :class="b24ui.pageWrapper({ class: props.b24ui?.pageWrapper })">
+      <div data-slot="pageWrapper" :class="b24ui.pageWrapper({ class: props.b24ui?.pageWrapper })">
         <template v-if="!!slots['content-top'] || !!slots['content-actions'] || !!slots['default']">
-          <main :class="b24ui.container({ class: props.b24ui?.container })">
+          <main data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">
             <template v-if="!!slots['content-top']">
               <!-- Page Top -->
-              <div :class="b24ui.pageTopWrapper({ class: props.b24ui?.pageTopWrapper })">
+              <div data-slot="pageTopWrapper" :class="b24ui.pageTopWrapper({ class: props.b24ui?.pageTopWrapper })">
                 <slot name="content-top" :is-loading="isLoading" :b24ui="b24ui" />
               </div>
             </template>
 
             <template v-if="!!slots['content-actions']">
               <!-- Page Actions -->
-              <div :class="b24ui.pageActionsWrapper({ class: props.b24ui?.pageActionsWrapper })">
+              <div data-slot="pageActionsWrapper" :class="b24ui.pageActionsWrapper({ class: props.b24ui?.pageActionsWrapper })">
                 <slot name="content-actions" :is-loading="isLoading" :b24ui="b24ui" />
               </div>
             </template>
@@ -257,9 +261,10 @@ const handleNavigationClick = () => {
               <!-- Page Content -->
               <div
                 :data-content="props.useLightContent ? 'use-light' : 'not-set'"
+                data-slot="containerWrapper"
                 :class="b24ui.containerWrapper({ class: props.b24ui?.containerWrapper })"
               >
-                <div :class="b24ui.containerWrapperInner({ class: props.b24ui?.containerWrapperInner })">
+                <div data-slot="containerWrapperInner" :class="b24ui.containerWrapperInner({ class: props.b24ui?.containerWrapperInner })">
                   <slot :is-loading="isLoading" :b24ui="b24ui" />
                 </div>
               </div>
@@ -268,14 +273,14 @@ const handleNavigationClick = () => {
         </template>
 
         <template v-if="!!slots['content-right']">
-          <div :class="b24ui.pageRightWrapper({ class: props.b24ui?.pageRightWrapper })">
+          <div data-slot="pageRightWrapper" :class="b24ui.pageRightWrapper({ class: props.b24ui?.pageRightWrapper })">
             <slot name="content-right" :is-loading="isLoading" :b24ui="b24ui" />
           </div>
         </template>
       </div>
       <template v-if="!!slots['content-bottom']">
         <!-- Page Bottom -->
-        <div :class="b24ui.pageBottomWrapper({ class: props.b24ui?.pageBottomWrapper })">
+        <div data-slot="pageBottomWrapper" :class="b24ui.pageBottomWrapper({ class: props.b24ui?.pageBottomWrapper })">
           <slot name="content-bottom" :is-loading="isLoading" :b24ui="b24ui" />
         </div>
       </template>

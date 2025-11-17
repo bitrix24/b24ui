@@ -189,6 +189,7 @@ defineExpose({
     :title="title || t('dashboardSearch.title')"
     :description="description || t('dashboardSearch.description')"
     v-bind="modalProps"
+    data-slot="modal"
     :class="b24ui.modal({ class: [props.b24ui?.modal, props.class] })"
   >
     <template #content="contentData">

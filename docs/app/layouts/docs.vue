@@ -72,7 +72,7 @@ const { mobileLinks } = useHeader()
       </B24SidebarHeader>
       <B24SidebarBody
         :b24ui="{
-          root: '[&>[data-slot=section]+[data-slot=section]]:mt-0'
+          root: '[&>[data-component=section]+[data-component=section]]:mt-0'
         }"
       >
         <B24NavigationMenu

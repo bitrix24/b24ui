@@ -1,222 +1,222 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Progress > renders with animation carousel correctly 1`] = `
-"<div data-orientation="horizontal" class="gap-2 style-filled w-full flex flex-col">
+"<div data-orientation="horizontal" data-slot="root" class="gap-2 style-filled w-full flex flex-col">
   <!--v-if-->
-  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
-    <div data-state="indeterminate" data-max="100" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[carousel_2s_ease-in-out_infinite] data-[state=indeterminate]:rtl:animate-[carousel-rtl_2s_ease-in-out_infinite]"></div>
+  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
+    <div data-state="indeterminate" data-max="100" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[carousel_2s_ease-in-out_infinite] data-[state=indeterminate]:rtl:animate-[carousel-rtl_2s_ease-in-out_infinite]"></div>
   </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Progress > renders with animation carousel-inverse correctly 1`] = `
-"<div data-orientation="horizontal" class="gap-2 style-filled w-full flex flex-col">
+"<div data-orientation="horizontal" data-slot="root" class="gap-2 style-filled w-full flex flex-col">
   <!--v-if-->
-  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
-    <div data-state="indeterminate" data-max="100" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[carousel-inverse_2s_ease-in-out_infinite] data-[state=indeterminate]:rtl:animate-[carousel-inverse-rtl_2s_ease-in-out_infinite]"></div>
+  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
+    <div data-state="indeterminate" data-max="100" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[carousel-inverse_2s_ease-in-out_infinite] data-[state=indeterminate]:rtl:animate-[carousel-inverse-rtl_2s_ease-in-out_infinite]"></div>
   </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Progress > renders with animation elastic correctly 1`] = `
-"<div data-orientation="horizontal" class="gap-2 style-filled w-full flex flex-col">
+"<div data-orientation="horizontal" data-slot="root" class="gap-2 style-filled w-full flex flex-col">
   <!--v-if-->
-  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
-    <div data-state="indeterminate" data-max="100" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[elastic_2s_ease-in-out_infinite]"></div>
+  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
+    <div data-state="indeterminate" data-max="100" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[elastic_2s_ease-in-out_infinite]"></div>
   </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Progress > renders with animation loading correctly 1`] = `
-"<div data-orientation="horizontal" class="gap-2 style-filled w-full flex flex-col">
+"<div data-orientation="horizontal" data-slot="root" class="gap-2 style-filled w-full flex flex-col">
   <!--v-if-->
-  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
-    <div data-state="indeterminate" data-max="100" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]"></div>
+  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
+    <div data-state="indeterminate" data-max="100" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]"></div>
   </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Progress > renders with animation swing correctly 1`] = `
-"<div data-orientation="horizontal" class="gap-2 style-filled w-full flex flex-col">
+"<div data-orientation="horizontal" data-slot="root" class="gap-2 style-filled w-full flex flex-col">
   <!--v-if-->
-  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
-    <div data-state="indeterminate" data-max="100" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[swing_2s_ease-in-out_infinite]"></div>
+  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
+    <div data-state="indeterminate" data-max="100" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[swing_2s_ease-in-out_infinite]"></div>
   </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Progress > renders with as correctly 1`] = `
-"<section data-orientation="horizontal" class="gap-2 style-filled w-full flex flex-col">
+"<section data-orientation="horizontal" data-slot="root" class="gap-2 style-filled w-full flex flex-col">
   <!--v-if-->
-  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
-    <div data-state="indeterminate" data-max="100" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]"></div>
+  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
+    <div data-state="indeterminate" data-max="100" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]"></div>
   </div>
   <!--v-if-->
 </section>"
 `;
 
 exports[`Progress > renders with b24ui correctly 1`] = `
-"<div data-orientation="horizontal" class="gap-2 style-filled w-full flex flex-col">
+"<div data-orientation="horizontal" data-slot="root" class="gap-2 style-filled w-full flex flex-col">
   <!--v-if-->
-  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" class="relative overflow-hidden rounded-(--ui-border-radius-pill) w-full h-[8px] bg-red-200" style="transform: translateZ(0);">
-    <div data-state="indeterminate" data-max="100" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]"></div>
+  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) w-full h-[8px] bg-red-200" style="transform: translateZ(0);">
+    <div data-state="indeterminate" data-max="100" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]"></div>
   </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Progress > renders with class correctly 1`] = `
-"<div data-orientation="horizontal" class="gap-2 style-filled flex flex-col w-48">
+"<div data-orientation="horizontal" data-slot="root" class="gap-2 style-filled flex flex-col w-48">
   <!--v-if-->
-  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
-    <div data-state="indeterminate" data-max="100" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]"></div>
+  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
+    <div data-state="indeterminate" data-max="100" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]"></div>
   </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Progress > renders with color success correctly 1`] = `
-"<div data-orientation="horizontal" class="gap-2 style-filled-success w-full flex flex-col">
+"<div data-orientation="horizontal" data-slot="root" class="gap-2 style-filled-success w-full flex flex-col">
   <!--v-if-->
-  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" aria-label="50%" role="progressbar" data-state="loading" data-value="50" data-max="100" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
-    <div data-state="loading" data-value="50" data-max="100" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]" style="transform: translateX(-50%);"></div>
+  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" aria-label="50%" role="progressbar" data-state="loading" data-value="50" data-max="100" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
+    <div data-state="loading" data-value="50" data-max="100" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]" style="transform: translateX(-50%);"></div>
   </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Progress > renders with max correctly 1`] = `
-"<div data-orientation="horizontal" class="gap-2 style-filled w-full flex flex-col">
-  <div class="flex justify-end text-(--b24ui-typography-legend-color) transition-[width] duration-200 text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) flex-row" style="width: 50%;">50% </div>
-  <div aria-valuemax="4" aria-valuemin="0" aria-valuenow="2" aria-label="50%" role="progressbar" data-state="loading" data-value="2" data-max="4" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
-    <div data-state="loading" data-value="2" data-max="4" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]" style="transform: translateX(-50%);"></div>
+"<div data-orientation="horizontal" data-slot="root" class="gap-2 style-filled w-full flex flex-col">
+  <div data-slot="status" class="flex justify-end text-(--b24ui-typography-legend-color) transition-[width] duration-200 text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) flex-row" style="width: 50%;">50% </div>
+  <div aria-valuemax="4" aria-valuemin="0" aria-valuenow="2" aria-label="50%" role="progressbar" data-state="loading" data-value="2" data-max="4" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
+    <div data-state="loading" data-value="2" data-max="4" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]" style="transform: translateX(-50%);"></div>
   </div>
-  <div class="grid items-end text-(--b24ui-typography-legend-color) text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm)">
-    <div class="truncate text-end row-start-1 col-start-1 transition-opacity opacity-0">Waiting...</div>
-    <div class="truncate text-end row-start-1 col-start-1 transition-opacity opacity-0">Cloning...</div>
-    <div class="truncate text-end row-start-1 col-start-1 transition-opacity opacity-100">Migrating...</div>
-    <div class="truncate text-end row-start-1 col-start-1 transition-opacity opacity-0">Deploying...</div>
-    <div class="truncate text-end row-start-1 col-start-1 transition-opacity opacity-0">Done!</div>
+  <div data-slot="steps" class="grid items-end text-(--b24ui-typography-legend-color) text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm)">
+    <div data-slot="step" class="truncate text-end row-start-1 col-start-1 transition-opacity opacity-0">Waiting...</div>
+    <div data-slot="step" class="truncate text-end row-start-1 col-start-1 transition-opacity opacity-0">Cloning...</div>
+    <div data-slot="step" class="truncate text-end row-start-1 col-start-1 transition-opacity opacity-100">Migrating...</div>
+    <div data-slot="step" class="truncate text-end row-start-1 col-start-1 transition-opacity opacity-0">Deploying...</div>
+    <div data-slot="step" class="truncate text-end row-start-1 col-start-1 transition-opacity opacity-0">Done!</div>
   </div>
 </div>"
 `;
 
 exports[`Progress > renders with max inverted correctly 1`] = `
-"<div data-orientation="horizontal" class="gap-2 style-filled w-full flex flex-col">
-  <div class="flex justify-end text-(--b24ui-typography-legend-color) transition-[width] duration-200 text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) self-end flex-row-reverse" style="width: 50%;">50% </div>
-  <div aria-valuemax="4" aria-valuemin="0" aria-valuenow="2" aria-label="50%" role="progressbar" data-state="loading" data-value="2" data-max="4" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
-    <div data-state="loading" data-value="2" data-max="4" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]" style="transform: translateX(50%);"></div>
+"<div data-orientation="horizontal" data-slot="root" class="gap-2 style-filled w-full flex flex-col">
+  <div data-slot="status" class="flex justify-end text-(--b24ui-typography-legend-color) transition-[width] duration-200 text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) self-end flex-row-reverse" style="width: 50%;">50% </div>
+  <div aria-valuemax="4" aria-valuemin="0" aria-valuenow="2" aria-label="50%" role="progressbar" data-state="loading" data-value="2" data-max="4" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
+    <div data-state="loading" data-value="2" data-max="4" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]" style="transform: translateX(50%);"></div>
   </div>
-  <div class="grid items-end text-(--b24ui-typography-legend-color) text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm)">
-    <div class="truncate row-start-1 col-start-1 transition-opacity opacity-0 text-start">Waiting...</div>
-    <div class="truncate row-start-1 col-start-1 transition-opacity opacity-0 text-start">Cloning...</div>
-    <div class="truncate row-start-1 col-start-1 transition-opacity opacity-100 text-start">Migrating...</div>
-    <div class="truncate row-start-1 col-start-1 transition-opacity opacity-0 text-start">Deploying...</div>
-    <div class="truncate row-start-1 col-start-1 transition-opacity opacity-0 text-start">Done!</div>
+  <div data-slot="steps" class="grid items-end text-(--b24ui-typography-legend-color) text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm)">
+    <div data-slot="step" class="truncate row-start-1 col-start-1 transition-opacity opacity-0 text-start">Waiting...</div>
+    <div data-slot="step" class="truncate row-start-1 col-start-1 transition-opacity opacity-0 text-start">Cloning...</div>
+    <div data-slot="step" class="truncate row-start-1 col-start-1 transition-opacity opacity-100 text-start">Migrating...</div>
+    <div data-slot="step" class="truncate row-start-1 col-start-1 transition-opacity opacity-0 text-start">Deploying...</div>
+    <div data-slot="step" class="truncate row-start-1 col-start-1 transition-opacity opacity-0 text-start">Done!</div>
   </div>
 </div>"
 `;
 
 exports[`Progress > renders with modelValue correctly 1`] = `
-"<div data-orientation="horizontal" class="gap-2 style-filled w-full flex flex-col">
+"<div data-orientation="horizontal" data-slot="root" class="gap-2 style-filled w-full flex flex-col">
   <!--v-if-->
-  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" aria-label="50%" role="progressbar" data-state="loading" data-value="50" data-max="100" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
-    <div data-state="loading" data-value="50" data-max="100" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]" style="transform: translateX(-50%);"></div>
+  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" aria-label="50%" role="progressbar" data-state="loading" data-value="50" data-max="100" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
+    <div data-state="loading" data-value="50" data-max="100" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]" style="transform: translateX(-50%);"></div>
   </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Progress > renders with orientation horizontal correctly 1`] = `
-"<div data-orientation="horizontal" class="gap-2 style-filled w-full flex flex-col">
+"<div data-orientation="horizontal" data-slot="root" class="gap-2 style-filled w-full flex flex-col">
   <!--v-if-->
-  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
-    <div data-state="indeterminate" data-max="100" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]"></div>
+  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
+    <div data-state="indeterminate" data-max="100" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]"></div>
   </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Progress > renders with orientation vertical correctly 1`] = `
-"<div data-orientation="vertical" class="gap-2 style-filled h-full flex flex-row-reverse">
+"<div data-orientation="vertical" data-slot="root" class="gap-2 style-filled h-full flex flex-row-reverse">
   <!--v-if-->
-  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) h-full w-[8px]" style="transform: translateZ(0);">
-    <div data-state="indeterminate" data-max="100" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading-vertical_2s_infinite]"></div>
+  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) h-full w-[8px]" style="transform: translateZ(0);">
+    <div data-state="indeterminate" data-max="100" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading-vertical_2s_infinite]"></div>
   </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Progress > renders with size lg correctly 1`] = `
-"<div data-orientation="horizontal" class="gap-2 style-filled w-full flex flex-col">
+"<div data-orientation="horizontal" data-slot="root" class="gap-2 style-filled w-full flex flex-col">
   <!--v-if-->
-  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[12px]" style="transform: translateZ(0);">
-    <div data-state="indeterminate" data-max="100" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]"></div>
+  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[12px]" style="transform: translateZ(0);">
+    <div data-state="indeterminate" data-max="100" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]"></div>
   </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Progress > renders with size md correctly 1`] = `
-"<div data-orientation="horizontal" class="gap-2 style-filled w-full flex flex-col">
+"<div data-orientation="horizontal" data-slot="root" class="gap-2 style-filled w-full flex flex-col">
   <!--v-if-->
-  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
-    <div data-state="indeterminate" data-max="100" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]"></div>
+  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
+    <div data-state="indeterminate" data-max="100" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]"></div>
   </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Progress > renders with size sm correctly 1`] = `
-"<div data-orientation="horizontal" class="gap-2 style-filled w-full flex flex-col">
+"<div data-orientation="horizontal" data-slot="root" class="gap-2 style-filled w-full flex flex-col">
   <!--v-if-->
-  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[4px]" style="transform: translateZ(0);">
-    <div data-state="indeterminate" data-max="100" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]"></div>
+  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[4px]" style="transform: translateZ(0);">
+    <div data-state="indeterminate" data-max="100" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]"></div>
   </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Progress > renders with size xs correctly 1`] = `
-"<div data-orientation="horizontal" class="gap-2 style-filled w-full flex flex-col">
+"<div data-orientation="horizontal" data-slot="root" class="gap-2 style-filled w-full flex flex-col">
   <!--v-if-->
-  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[2px]" style="transform: translateZ(0);">
-    <div data-state="indeterminate" data-max="100" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]"></div>
+  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[2px]" style="transform: translateZ(0);">
+    <div data-state="indeterminate" data-max="100" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]"></div>
   </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Progress > renders with status correctly 1`] = `
-"<div data-orientation="horizontal" class="gap-2 style-filled w-full flex flex-col">
-  <div class="flex justify-end text-(--b24ui-typography-legend-color) transition-[width] duration-200 text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) flex-row" style="width: 50%;">50% </div>
-  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" aria-label="50%" role="progressbar" data-state="loading" data-value="50" data-max="100" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
-    <div data-state="loading" data-value="50" data-max="100" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]" style="transform: translateX(-50%);"></div>
+"<div data-orientation="horizontal" data-slot="root" class="gap-2 style-filled w-full flex flex-col">
+  <div data-slot="status" class="flex justify-end text-(--b24ui-typography-legend-color) transition-[width] duration-200 text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) flex-row" style="width: 50%;">50% </div>
+  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" aria-label="50%" role="progressbar" data-state="loading" data-value="50" data-max="100" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
+    <div data-state="loading" data-value="50" data-max="100" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]" style="transform: translateX(-50%);"></div>
   </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Progress > renders with status inverted correctly 1`] = `
-"<div data-orientation="horizontal" class="gap-2 style-filled w-full flex flex-col">
-  <div class="flex justify-end text-(--b24ui-typography-legend-color) transition-[width] duration-200 text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) self-end flex-row-reverse" style="width: 50%;">50% </div>
-  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" aria-label="50%" role="progressbar" data-state="loading" data-value="50" data-max="100" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
-    <div data-state="loading" data-value="50" data-max="100" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]" style="transform: translateX(50%);"></div>
+"<div data-orientation="horizontal" data-slot="root" class="gap-2 style-filled w-full flex flex-col">
+  <div data-slot="status" class="flex justify-end text-(--b24ui-typography-legend-color) transition-[width] duration-200 text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) self-end flex-row-reverse" style="width: 50%;">50% </div>
+  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" aria-label="50%" role="progressbar" data-state="loading" data-value="50" data-max="100" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
+    <div data-state="loading" data-value="50" data-max="100" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]" style="transform: translateX(50%);"></div>
   </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Progress > renders with status slot correctly 1`] = `
-"<div data-orientation="horizontal" class="gap-2 style-filled w-full flex flex-col">
+"<div data-orientation="horizontal" data-slot="root" class="gap-2 style-filled w-full flex flex-col">
   <!--v-if-->
-  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
-    <div data-state="indeterminate" data-max="100" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]"></div>
+  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" data-slot="base" class="relative overflow-hidden rounded-(--ui-border-radius-pill) bg-(--ui-color-base-5) w-full h-[8px]" style="transform: translateZ(0);">
+    <div data-state="indeterminate" data-max="100" data-slot="indicator" class="rounded-(--ui-border-radius-pill) size-full transition-transform duration-200 ease-out bg-(--b24ui-background) data-[state=indeterminate]:animate-[progressbar-loading_2s_infinite]"></div>
   </div>
   <!--v-if-->
 </div>"

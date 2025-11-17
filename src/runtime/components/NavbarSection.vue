@@ -40,8 +40,9 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.navbar
 <template>
   <Primitive
     :as="as"
+    data-component="section"
+    data-slot="root"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
-    data-slot="section"
   >
     <slot />
   </Primitive>

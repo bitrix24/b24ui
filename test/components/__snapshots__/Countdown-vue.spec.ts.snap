@@ -1,14 +1,14 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Countdown > renders with as correctly 1`] = `
-"<section class="relative flex flex-row flex-nowrap items-center justify-between text-(--b24ui-typography-legend-color) gap-1 text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">
+"<section data-slot="base" class="relative flex flex-row flex-nowrap items-center justify-between text-(--b24ui-typography-legend-color) gap-1 text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">
   <!--v-if-->
-  <!--v-if--><span class="">00:00</span>
+  <!--v-if--><span data-slot="label" class="">00:00</span>
 </section>"
 `;
 
-exports[`Countdown > renders with b24ui correctly 1`] = `"<span class="relative flex flex-row flex-nowrap items-center justify-between text-(--b24ui-typography-legend-color) gap-1 text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)"><!--v-if--><!--v-if--><span class="">00:00</span></span>"`;
+exports[`Countdown > renders with b24ui correctly 1`] = `"<span data-slot="base" class="relative flex flex-row flex-nowrap items-center justify-between text-(--b24ui-typography-legend-color) gap-1 text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)"><!--v-if--><!--v-if--><span data-slot="label" class="">00:00</span></span>"`;
 
-exports[`Countdown > renders with class correctly 1`] = `"<span class="relative flex flex-row flex-nowrap items-center justify-between text-(--b24ui-typography-legend-color) gap-1 text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)"><!--v-if--><!--v-if--><span class="">00:00</span></span>"`;
+exports[`Countdown > renders with class correctly 1`] = `"<span data-slot="base" class="relative flex flex-row flex-nowrap items-center justify-between text-(--b24ui-typography-legend-color) gap-1 text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)"><!--v-if--><!--v-if--><span data-slot="label" class="">00:00</span></span>"`;
 
-exports[`Countdown > renders with default slot correctly 1`] = `"<span class="relative flex flex-row flex-nowrap items-center justify-between text-(--b24ui-typography-legend-color) gap-1 text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)"><!--v-if--><!--v-if-->Default slot</span>"`;
+exports[`Countdown > renders with default slot correctly 1`] = `"<span data-slot="base" class="relative flex flex-row flex-nowrap items-center justify-between text-(--b24ui-typography-legend-color) gap-1 text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)"><!--v-if--><!--v-if-->Default slot</span>"`;

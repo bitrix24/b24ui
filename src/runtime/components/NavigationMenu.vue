@@ -254,7 +254,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
 <template>
   <DefineLinkTemplate v-slot="{ item, active, index }">
     <slot :name="((item.slot || 'item') as keyof NavigationMenuSlots<T>)" :item="item" :index="index" :active="active" :b24ui="b24ui">
-      <span :class="b24ui.linkLabelWrapper({ class: props.b24ui?.linkLabelWrapper, active })">
+      <span data-slot="linkLabelWrapper" :class="b24ui.linkLabelWrapper({ class: props.b24ui?.linkLabelWrapper, active })">
         <slot
           :name="((item.slot ? `${item.slot}-leading` : 'item-leading') as keyof NavigationMenuSlots<T>)"
           :item="item"
@@ -266,17 +266,20 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
             <Component
               :is="item.icon"
               v-if="item.icon"
+              data-slot="linkLeadingIcon"
               :class="b24ui.linkLeadingIcon({ class: [props.b24ui?.linkLeadingIcon, item.b24ui?.linkLeadingIcon], active, disabled: !!item.disabled })"
             />
             <B24Avatar
               v-else-if="item.avatar"
               :size="((item.b24ui?.linkLeadingAvatarSize || props.b24ui?.linkLeadingAvatarSize || b24ui.linkLeadingAvatarSize()) as AvatarProps['size'])"
               v-bind="item.avatar"
+              data-slot="linkLeadingAvatar"
               :class="b24ui.linkLeadingAvatar({ class: [props.b24ui?.linkLeadingAvatar, item.b24ui?.linkLeadingAvatar], active, disabled: !!item.disabled })"
             />
           </template>
           <div
             v-if="item.hint && item.type !== 'label' && orientation === 'horizontal'"
+            data-slot="linkLeadingHint"
             :class="b24ui.linkLeadingHint({ class: [props.b24ui?.linkLeadingHint, item.b24ui?.linkLeadingHint] })"
           >
             {{ item.hint }}
@@ -286,12 +289,14 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
             color="air-primary-alert"
             :size="((item.b24ui?.linkLeadingBadgeSize || props.b24ui?.linkLeadingBadgeSize || b24ui.linkLeadingBadgeSize()) as BadgeProps['size'])"
             v-bind="(typeof item.badge === 'string' || typeof item.badge === 'number') ? { label: item.badge } : item.badge"
+            data-slot="linkLeadingBadge"
             :class="b24ui.linkLeadingBadge({ class: [props.b24ui?.linkLeadingBadge, item.b24ui?.linkLeadingBadge] })"
           />
         </slot>
 
         <span
           v-if="(!collapsed || orientation !== 'vertical') && (get(item, props.labelKey as string) || !!slots[(item.slot ? `${item.slot}-label` : 'item-label') as keyof NavigationMenuSlots<T>])"
+          data-slot="linkLabel"
           :class="b24ui.linkLabel({ class: [props.b24ui?.linkLabel, item.b24ui?.linkLabel], active })"
         >
           <slot :name="((item.slot ? `${item.slot}-label` : 'item-label') as keyof NavigationMenuSlots<T>)" :item="item" :active="active" :index="index">
@@ -301,6 +306,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
         <Component
           :is="typeof externalIcon !== 'boolean' ? externalIcon : icons.external"
           v-if="item.target === '_blank' && externalIcon !== false"
+          data-slot="linkLabelExternalIcon"
           :class="b24ui.linkLabelExternalIcon({ class: [props.b24ui?.linkLabelExternalIcon, item.b24ui?.linkLabelExternalIcon], active })"
         />
       </span>
@@ -309,6 +315,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
         :is="orientation === 'vertical' && item.children?.length && !collapsed ? AccordionTrigger : 'span'"
         v-if="(!collapsed || orientation !== 'vertical') && (/* (item.badge || item.badge === 0) || */(orientation === 'horizontal' && (item.children?.length || !!slots[(item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>])) || (orientation === 'vertical' && item.children?.length) || item.trailingIcon || !!slots[(item.slot ? `${item.slot}-trailing` : 'item-trailing') as keyof NavigationMenuSlots<T>])"
         as="span"
+        data-slot="linkTrailing"
         :class="b24ui.linkTrailing({ class: [props.b24ui?.linkTrailing, item.b24ui?.linkTrailing] })"
         @click.stop.prevent
       >
@@ -322,11 +329,13 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
           <Component
             :is="item.trailingIcon || trailingIcon || icons.chevronDown"
             v-if="(orientation === 'horizontal' && (item.children?.length || !!slots[(item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>])) || (orientation === 'vertical' && item.children?.length)"
+            data-slot="linkTrailingIcon"
             :class="b24ui.linkTrailingIcon({ class: [props.b24ui?.linkTrailingIcon, item.b24ui?.linkTrailingIcon], active })"
           />
           <Component
             :is="item.trailingIcon"
             v-else-if="item.trailingIcon"
+            data-slot="linkTrailingIcon"
             :class="b24ui.linkTrailingIcon({ class: [props.b24ui?.linkTrailingIcon, item.b24ui?.linkTrailingIcon], active })"
           />
         </slot>
@@ -342,6 +351,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
     >
       <div
         v-if="orientation === 'vertical' && item.type === 'label' && !collapsed"
+        data-slot="label"
         :class="b24ui.label({ class: [props.b24ui?.label, item.b24ui?.label, item.class] })"
       >
         <ReuseLinkTemplate :item="item" :index="index" />
@@ -373,6 +383,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
           >
             <B24LinkBase
               v-bind="slotProps"
+              data-slot="link"
               :class="b24ui.link({
                 class: [props.b24ui?.link, item.b24ui?.link, item.class],
                 active: active || item.active,
@@ -384,7 +395,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
             </B24LinkBase>
 
             <template #content="{ close }">
-              <div :class="b24ui.popoverWrapper({ class: props.b24ui?.popoverWrapper })">
+              <div data-slot="popoverWrapper" :class="b24ui.popoverWrapper({ class: props.b24ui?.popoverWrapper })">
                 <slot
                   :name="((item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>)"
                   :item="item"
@@ -393,39 +404,44 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
                   :b24ui="b24ui"
                   :close="close"
                 >
-                  <ul :class="b24ui.childList({ class: [props.b24ui?.childList, item.b24ui?.childList] })">
-                    <li :class="b24ui.childLabel({ class: [props.b24ui?.childLabel, item.b24ui?.childLabel] })">
+                  <ul data-slot="childList" :class="b24ui.childList({ class: [props.b24ui?.childList, item.b24ui?.childList] })">
+                    <li data-slot="childLabel" :class="b24ui.childLabel({ class: [props.b24ui?.childLabel, item.b24ui?.childLabel] })">
                       {{ get(item, props.labelKey as string) }}
                     </li>
                     <li
                       v-for="(childItem, childIndex) in item.children"
                       :key="childIndex"
+                      data-slot="childItem"
                       :class="b24ui.childItem({ class: [props.b24ui?.childItem, item.b24ui?.childItem] })"
                     >
                       <B24Link v-slot="{ active: childActive, ...childSlotProps }" v-bind="pickLinkProps(childItem)" custom>
                         <NavigationMenuLink as-child :active="childActive" @select="childItem.onSelect">
                           <B24LinkBase
                             v-bind="childSlotProps"
+                            data-slot="childLink"
                             :class="b24ui.childLink({ class: [props.b24ui?.childLink, item.b24ui?.childLink, childItem.class], active: childActive })"
                           >
                             <Component
                               :is="childItem.icon"
                               v-if="childItem.icon"
+                              data-slot="childLinkIcon"
                               :class="b24ui.childLinkIcon({ class: [props.b24ui?.childLinkIcon, item.b24ui?.childLinkIcon], active: childActive })"
                             />
                             <div
                               v-if="childItem.hint"
+                              data-slot="childLinkHint"
                               :class="b24ui.childLinkHint({ class: [props.b24ui?.childLinkHint, item.b24ui?.childLinkHint] })"
                             >
                               {{ childItem.hint }}
                             </div>
 
-                            <span :class="b24ui.childLinkLabel({ class: [props.b24ui?.childLinkLabel, item.b24ui?.childLinkLabel], active: childActive })">
+                            <span data-slot="childLinkLabel" :class="b24ui.childLinkLabel({ class: [props.b24ui?.childLinkLabel, item.b24ui?.childLinkLabel], active: childActive })">
                               {{ get(childItem, props.labelKey as string) }}
                             </span>
                             <Component
                               :is="typeof externalIcon === 'boolean' ? icons.external : externalIcon"
                               v-if="childItem.target === '_blank' && externalIcon !== false"
+                              data-slot="childLinkLabelExternalIcon"
                               :class="b24ui.childLinkLabelExternalIcon({ class: [props.b24ui?.childLinkLabelExternalIcon, item.b24ui?.childLinkLabelExternalIcon], active: childActive })"
                             />
                           </B24LinkBase>
@@ -444,6 +460,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
           >
             <B24LinkBase
               v-bind="slotProps"
+              data-slot="link"
               :class="b24ui.link({
                 class: [props.b24ui?.link, item.b24ui?.link, item.class],
                 active: active || item.active,
@@ -457,6 +474,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
           <B24LinkBase
             v-else
             v-bind="slotProps"
+            data-slot="link"
             :class="b24ui.link({
               class: [props.b24ui?.link, item.b24ui?.link, item.class],
               active: active || item.active,
@@ -472,6 +490,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
           v-if="orientation === 'horizontal' && (item.children?.length || !!slots[(item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>])"
           v-bind="contentProps"
           :data-viewport="item.viewportRtl ? 'rtl' : 'ltr'"
+          data-slot="content"
           :class="b24ui.content({ class: [props.b24ui?.content, item.b24ui?.content] })"
         >
           <slot
@@ -481,10 +500,11 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
             :index="index"
             :b24ui="b24ui"
           >
-            <ul :class="b24ui.childList({ class: [props.b24ui?.childList, item.b24ui?.childList] })">
+            <ul data-slot="childList" :class="b24ui.childList({ class: [props.b24ui?.childList, item.b24ui?.childList] })">
               <li
                 v-for="(childItem, childIndex) in item.children"
                 :key="childIndex"
+                data-slot="childItem"
                 :class="b24ui.childItem({ class: [props.b24ui?.childItem, item.b24ui?.childItem] })"
               >
                 <B24Link
@@ -495,22 +515,25 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
                   <NavigationMenuLink as-child :active="childActive" @select="childItem.onSelect">
                     <B24LinkBase
                       v-bind="childSlotProps"
+                      data-slot="childLink"
                       :class="b24ui.childLink({ class: [props.b24ui?.childLink, childItem.childLink, childItem.class], active: childActive })"
                     >
                       <Component
                         :is="childItem.icon"
                         v-if="childItem.icon"
+                        data-slot="childLinkIcon"
                         :class="b24ui.childLinkIcon({ class: [props.b24ui?.childLinkIcon, item.b24ui?.childLinkIcon], active: childActive })"
                       />
 
                       <div
                         v-if="childItem.hint"
+                        data-slot="childLinkHint"
                         :class="b24ui.childLinkHint({ class: [props.b24ui?.childLinkHint, item.b24ui?.childLinkHint] })"
                       >
                         {{ childItem.hint }}
                       </div>
-                      <div :class="b24ui.childLinkWrapper({ class: [props.b24ui?.childLinkWrapper, item.b24ui?.childLinkWrapper] })">
-                        <p :class="b24ui.childLinkLabel({ class: [props.b24ui?.childLinkLabel, item.b24ui?.childLinkLabel], active: childActive })">
+                      <div data-slot="childLinkWrapper" :class="b24ui.childLinkWrapper({ class: [props.b24ui?.childLinkWrapper, item.b24ui?.childLinkWrapper] })">
+                        <p data-slot="childLinkLabel" :class="b24ui.childLinkLabel({ class: [props.b24ui?.childLinkLabel, item.b24ui?.childLinkLabel], active: childActive })">
                           {{ get(childItem, props.labelKey as string) }}
                         </p>
                         <B24Badge
@@ -518,12 +541,14 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
                           color="air-primary-alert"
                           :size="((item.b24ui?.childLinkBadgeSize || props.b24ui?.childLinkBadgeSize || b24ui.childLinkBadgeSize()) as BadgeProps['size'])"
                           v-bind="(typeof childItem.badge === 'string' || typeof childItem.badge === 'number') ? { label: childItem.badge } : childItem.badge"
+                          data-slot="childLinkBadge"
                           :class="b24ui.childLinkBadge({ class: [props.b24ui?.childLinkBadge, item.b24ui?.childLinkBadge] })"
                         />
                       </div>
                       <Component
                         :is="typeof externalIcon === 'boolean' ? icons.external : externalIcon"
                         v-if="childItem.target === '_blank' && externalIcon !== false"
+                        data-slot="childLinkLabelExternalIcon"
                         :class="b24ui.childLinkLabelExternalIcon({ class: [props.b24ui?.childLinkLabelExternalIcon, item.b24ui?.childLinkLabelExternalIcon], active: childActive })"
                       />
                     </B24LinkBase>
@@ -537,6 +562,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
 
       <AccordionContent
         v-if="orientation === 'vertical' && item.children?.length && !collapsed"
+        data-slot="content"
         :class="b24ui.content({ class: [props.b24ui?.content, item.b24ui?.content] })"
       >
         <AccordionRoot
@@ -545,6 +571,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
             defaultValue: getAccordionDefaultValue(item.children, level + 1)
           } as AccordionRootProps)"
           as="ul"
+          data-slot="childList"
           :class="b24ui.childList({ class: props.b24ui?.childList })"
         >
           <ReuseItemTemplate
@@ -553,6 +580,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
             :item="childItem"
             :index="childIndex"
             :level="level + 1"
+            data-slot="childItem"
             :class="b24ui.childItem({ class: [props.b24ui?.childItem, childItem.b24ui?.childItem] })"
           />
         </AccordionRoot>
@@ -563,8 +591,9 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
   <NavigationMenuRoot
     v-bind="{ ...rootProps, ...$attrs }"
     :data-collapsed="collapsed"
+    data-component="section"
+    data-slot="root"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
-    data-slot="section"
   >
     <slot name="list-leading" />
 
@@ -576,6 +605,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
         } : {}"
         :is="orientation === 'vertical' && !collapsed ? AccordionRoot : NavigationMenuList"
         as="ul"
+        data-slot="list"
         :class="b24ui.list({ class: props.b24ui?.list })"
       >
         <ReuseItemTemplate
@@ -583,17 +613,18 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
           :key="`list-${listIndex}-${index}`"
           :item="item"
           :index="index"
+          data-slot="item"
           :class="b24ui.item({ class: [props.b24ui?.item, item.b24ui?.item] })"
         />
       </component>
 
-      <div v-if="orientation === 'vertical' && listIndex < lists.length - 1" :class="b24ui.separator({ class: props.b24ui?.separator })" />
+      <div v-if="orientation === 'vertical' && listIndex < lists.length - 1" data-slot="separator" :class="b24ui.separator({ class: props.b24ui?.separator })" />
     </template>
 
     <slot name="list-trailing" />
 
-    <div v-if="orientation === 'horizontal'" :class="b24ui.viewportWrapper({ class: props.b24ui?.viewportWrapper })">
-      <NavigationMenuViewport :class="b24ui.viewport({ class: props.b24ui?.viewport })" />
+    <div v-if="orientation === 'horizontal'" data-slot="viewportWrapper" :class="b24ui.viewportWrapper({ class: props.b24ui?.viewportWrapper })">
+      <NavigationMenuViewport data-slot="viewport" :class="b24ui.viewport({ class: props.b24ui?.viewport })" />
     </div>
   </NavigationMenuRoot>
 </template>

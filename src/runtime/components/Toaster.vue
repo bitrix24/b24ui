@@ -141,6 +141,7 @@ function getOffset(index: number) {
         '--translate': expanded ? 'calc(var(--offset) * var(--translate-factor))' : 'calc(var(--before) * var(--gap))',
         '--transform': 'translateY(var(--translate)) scale(var(--scale))'
       }"
+      data-slot="base"
       :class="b24ui.base({ class: [props.b24ui?.base, toast.onClick ? 'cursor-pointer' : undefined] })"
       @update:open="onUpdateOpen($event, toast.id)"
       @click="toast.onClick && toast.onClick(toast)"
@@ -149,6 +150,7 @@ function getOffset(index: number) {
     <ToastPortal v-bind="portalProps">
       <ToastViewport
         :data-expanded="expanded"
+        data-slot="viewport"
         :class="b24ui.viewport({ class: [props.b24ui?.viewport, props.class] })"
         :style="{
           '--scale-factor': '0.05',

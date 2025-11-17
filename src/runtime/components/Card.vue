@@ -43,16 +43,16 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.card |
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <div v-if="!!slots.header" :class="b24ui.header({ class: props.b24ui?.header })">
+  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+    <div v-if="!!slots.header" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
       <slot name="header" />
     </div>
 
-    <div v-if="!!slots.default" :class="b24ui.body({ class: props.b24ui?.body })">
+    <div v-if="!!slots.default" data-slot="body" :class="b24ui.body({ class: props.b24ui?.body })">
       <slot />
     </div>
 
-    <div v-if="!!slots.footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
+    <div v-if="!!slots.footer" data-slot="footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
       <slot name="footer" />
     </div>
   </Primitive>

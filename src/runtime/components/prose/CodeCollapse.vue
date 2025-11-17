@@ -59,15 +59,16 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
 </script>
 
 <template>
-  <div :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <div data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <slot />
 
-    <div :class="b24ui.footer({ class: props.b24ui?.footer })">
+    <div data-slot="footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
       <B24Button
         :icon="icon || icons.chevronDown"
         color="air-secondary-accent-1"
         :data-state="open ? 'open' : 'closed'"
         :label="`${open ? (props.closeText || t('prose.codeCollapse.closeText')) : (props.openText || t('prose.codeCollapse.openText'))} ${props.name || t('prose.codeCollapse.name')}`"
+        data-slot="trigger"
         :class="b24ui.trigger({ class: props.b24ui?.trigger })"
         :b24ui="{ leadingIcon: b24ui.triggerIcon({ class: props.b24ui?.triggerIcon }) }"
         @click="open = !open"

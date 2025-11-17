@@ -113,11 +113,12 @@ nuxtApp.hooks.hook('page:transition:finish', () => {
       <li v-for="(link, index) in links" :key="index" :class="link.children && link.children.length > 0 ? b24ui.itemWithChildren({ class: [props.b24ui?.itemWithChildren, link.b24ui?.itemWithChildren] }) : b24ui.item({ class: [props.b24ui?.item, link.b24ui?.item] })">
         <a
           :href="`#${link.id}`"
+          data-slot="link"
           :class="b24ui.link({ class: [props.b24ui?.link, link.b24ui?.link, link.class], active: activeHeadings.includes(link.id) })"
           @click.prevent="scrollToHeading(link.id)"
         >
           <slot name="link" :link="link">
-            <span :class="b24ui.linkText({ class: [props.b24ui?.linkText, link.b24ui?.linkText] })">
+            <span data-slot="linkText" :class="b24ui.linkText({ class: [props.b24ui?.linkText, link.b24ui?.linkText] })">
               {{ link.text }}
             </span>
           </slot>
@@ -131,14 +132,15 @@ nuxtApp.hooks.hook('page:transition:finish', () => {
   <DefineTriggerTemplate v-slot="{ open }">
     <slot name="leading" :open="open" :b24ui="b24ui" />
 
-    <span :class="b24ui.title({ class: props.b24ui?.title })">
+    <span data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
       <slot :open="open">{{ title || t('contentToc.title') }}</slot>
     </span>
 
-    <span :class="b24ui.trailing({ class: props.b24ui?.trailing })">
+    <span data-slot="trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
       <slot name="trailing" :open="open" :b24ui="b24ui">
         <Component
           :is="trailingIcon || icons.chevronDown"
+          data-slot="trailingIcon"
           :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
         />
       </slot>
@@ -149,36 +151,37 @@ nuxtApp.hooks.hook('page:transition:finish', () => {
     v-slot="{ open }"
     v-bind="{ ...rootProps, ...$attrs }"
     :default-open="defaultOpen"
+    data-slot="root"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
   >
-    <div :class="b24ui.container({ class: props.b24ui?.container })">
-      <div v-if="!!slots.top" :class="b24ui.top({ class: props.b24ui?.top })">
+    <div data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">
+      <div v-if="!!slots.top" data-slot="top" :class="b24ui.top({ class: props.b24ui?.top })">
         <slot name="top" :links="links" />
       </div>
 
       <template v-if="links?.length">
-        <CollapsibleTrigger :class="b24ui.trigger({ class: 'lg:hidden' })">
+        <CollapsibleTrigger data-slot="trigger" :class="b24ui.trigger({ class: 'lg:hidden' })">
           <ReuseTriggerTemplate :open="open" />
         </CollapsibleTrigger>
 
-        <CollapsibleContent :class="b24ui.content({ class: [props.b24ui?.content, 'lg:hidden'] })">
+        <CollapsibleContent data-slot="content" :class="b24ui.content({ class: [props.b24ui?.content, 'lg:hidden'] })">
           <slot name="content" :links="links">
             <ReuseListTemplate :links="links" :level="0" />
           </slot>
         </CollapsibleContent>
 
-        <p :class="b24ui.trigger({ class: 'hidden lg:flex' })">
+        <p data-slot="trigger" :class="b24ui.trigger({ class: 'hidden lg:flex' })">
           <ReuseTriggerTemplate :open="open" />
         </p>
 
-        <div :class="b24ui.content({ class: [props.b24ui?.content, 'hidden lg:flex'] })">
+        <div data-slot="content" :class="b24ui.content({ class: [props.b24ui?.content, 'hidden lg:flex'] })">
           <slot name="content" :links="links">
             <ReuseListTemplate :links="links" :level="0" />
           </slot>
         </div>
       </template>
 
-      <div v-if="!!slots.bottom" :class="b24ui.bottom({ class: props.b24ui?.bottom, body: !!slots.top || !!links?.length })">
+      <div v-if="!!slots.bottom" data-slot="bottom" :class="b24ui.bottom({ class: props.b24ui?.bottom, body: !!slots.top || !!links?.length })">
         <slot name="bottom" :links="links" />
       </div>
     </div>

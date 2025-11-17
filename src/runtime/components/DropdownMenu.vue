@@ -160,6 +160,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dropdo
     </DropdownMenuTrigger>
 
     <B24DropdownMenuContent
+      data-slot="content"
       :class="b24ui.content({ class: [!slots.default && props.b24ui?.content, props.class] })"
       :b24ui="b24ui"
       :b24ui-override="props.b24ui"
@@ -176,7 +177,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dropdo
         <slot :name="(name as keyof DropdownMenuSlots<T>)" v-bind="slotData" />
       </template>
 
-      <DropdownMenuArrow v-if="!!arrow" v-bind="arrowProps" :class="b24ui.arrow({ class: props.b24ui?.arrow })" />
+      <DropdownMenuArrow v-if="!!arrow" v-bind="arrowProps" data-slot="arrow" :class="b24ui.arrow({ class: props.b24ui?.arrow })" />
     </B24DropdownMenuContent>
   </DropdownMenuRoot>
 </template>

@@ -46,17 +46,18 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
 </script>
 
 <template>
-  <div :class="b24ui.root({ class: [props.b24ui?.root], filename: !!filename })">
-    <div v-if="filename && !hideHeader" :class="b24ui.header({ class: props.b24ui?.header })">
-      <B24CodeIcon :icon="icon" :filename="filename" :class="b24ui.icon({ class: props.b24ui?.icon })" />
+  <div data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root], filename: !!filename })">
+    <div v-if="filename && !hideHeader" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
+      <B24CodeIcon :icon="icon" :filename="filename" data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
 
-      <span :class="b24ui.filename({ class: props.b24ui?.filename })">{{ filename }}</span>
+      <span data-slot="filename" :class="b24ui.filename({ class: props.b24ui?.filename })">{{ filename }}</span>
     </div>
 
     <B24Button
       color="air-secondary-no-accent"
       size="sm"
       :aria-label="t('prose.pre.copy')"
+      data-slot="copy"
       :class="b24ui.copy({ class: props.b24ui?.copy })"
       tabindex="-1"
       :icon="copied ? icons.copyCheck : icons.copy"
@@ -66,7 +67,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
       @click="copy(props.code || '')"
     />
 
-    <pre :class="b24ui.base({ class: [props.b24ui?.base, props.class] })" v-bind="$attrs"><slot /></pre>
+    <pre data-slot="base" :class="b24ui.base({ class: [props.b24ui?.base, props.class] })" v-bind="$attrs"><slot /></pre>
   </div>
 </template>
 

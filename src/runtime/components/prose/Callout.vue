@@ -64,7 +64,7 @@ const iconFromIconName = computed(() => {
 </script>
 
 <template>
-  <div :class="b24ui.base({ class: props.class })">
+  <div data-slot="base" :class="b24ui.base({ class: props.class })">
     <B24Link
       v-if="to"
       v-bind="{ to, target, ...$attrs }"
@@ -78,16 +78,19 @@ const iconFromIconName = computed(() => {
     <Component
       :is="icon"
       v-if="icon"
+      data-slot="icon"
       :class="b24ui.icon({ class: props.b24ui?.icon })"
     />
     <Component
       :is="iconFromIconName"
       v-else-if="props.iconName"
+      data-slot="icon"
       :class="b24ui.icon({ class: props.b24ui?.icon })"
     />
     <Component
       :is="icons.external"
       v-if="!!to && target === '_blank'"
+      data-slot="externalIcon"
       :class="b24ui.externalIcon({ class: props.b24ui?.externalIcon })"
     />
     <slot mdc-unwrap="p" />

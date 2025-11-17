@@ -7,6 +7,8 @@
 * fix(types): export missing utils types
 * docs(app): improve navigation filtering logic
 * fix(CommandPalette/ContentSearch): improve performances and filtering logic
+* feat(components): add `data-slot` attributes
+* fix(inertia): set serverRendered dynamically to prevent SSR crash
 
 ## [2.1.2](https://github.com/bitrix24/b24ui/compare/v2.1.1...v2.1.2) (2025-11-13)
 

@@ -119,7 +119,7 @@ function onClose() {
 </script>
 
 <template>
-  <Primitive :as="as" class="banner" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <Primitive :as="as" class="banner" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <B24Link
       v-if="to"
       :aria-label="title"
@@ -131,21 +131,21 @@ function onClose() {
       <span class="absolute inset-0 " aria-hidden="true" />
     </B24Link>
 
-    <B24Container :class="b24ui.container({ class: props.b24ui?.container })">
-      <div :class="b24ui.left({ class: props.b24ui?.left })" />
+    <B24Container data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">
+      <div data-slot="left" :class="b24ui.left({ class: props.b24ui?.left })" />
 
-      <div :class="b24ui.center({ class: props.b24ui?.center })">
+      <div data-slot="center" :class="b24ui.center({ class: props.b24ui?.center })">
         <slot name="leading" :b24ui="b24ui">
-          <Component :is="icon" v-if="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
+          <Component :is="icon" v-if="icon" data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
         </slot>
 
-        <div v-if="title || !!slots.title" :class="b24ui.title({ class: props.b24ui?.title })">
+        <div v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
           <slot name="title">
             {{ title }}
           </slot>
         </div>
 
-        <div v-if="actions?.length || !!slots.actions" :class="b24ui.actions({ class: props.b24ui?.actions })">
+        <div v-if="actions?.length || !!slots.actions" data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions })">
           <slot name="actions">
             <B24Button
               v-for="(action, index) in actions"
@@ -158,7 +158,7 @@ function onClose() {
         </div>
       </div>
 
-      <div :class="b24ui.right({ class: props.b24ui?.right })">
+      <div data-slot="right" :class="b24ui.right({ class: props.b24ui?.right })">
         <slot name="close" :b24ui="b24ui">
           <B24Button
             v-if="close"
@@ -167,6 +167,7 @@ function onClose() {
             color="air-tertiary-no-accent"
             :aria-label="t('banner.close')"
             v-bind="(typeof close === 'object' ? close as Partial<ButtonProps> : {})"
+            data-slot="close"
             :class="b24ui.close({ class: props.b24ui?.close })"
             @click="onClose"
           />

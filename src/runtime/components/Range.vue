@@ -111,13 +111,14 @@ function onChange(value: any) {
     v-model="rangeValue"
     :name="name"
     :disabled="disabled"
+    data-slot="root"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     :default-value="defaultRangeValue"
     @update:model-value="emitFormInput()"
     @value-commit="onChange"
   >
-    <SliderTrack :class="b24ui.track({ class: props.b24ui?.track })">
-      <SliderRange :class="b24ui.range({ class: props.b24ui?.range })" />
+    <SliderTrack data-slot="track" :class="b24ui.track({ class: props.b24ui?.track })">
+      <SliderRange data-slot="range" :class="b24ui.range({ class: props.b24ui?.range })" />
     </SliderTrack>
 
     <template v-for="thumb in thumbs" :key="thumb">
@@ -127,9 +128,9 @@ function onChange(value: any) {
         disable-closing-trigger
         v-bind="(typeof tooltip === 'object' ? tooltip : {})"
       >
-        <SliderThumb :class="b24ui.thumb({ class: props.b24ui?.thumb })" />
+        <SliderThumb data-slot="thumb" :class="b24ui.thumb({ class: props.b24ui?.thumb })" />
       </B24Tooltip>
-      <SliderThumb v-else :class="b24ui.thumb({ class: props.b24ui?.thumb })" />
+      <SliderThumb v-else data-slot="thumb" :class="b24ui.thumb({ class: props.b24ui?.thumb })" />
     </template>
   </SliderRoot>
 </template>

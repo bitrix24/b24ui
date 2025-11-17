@@ -163,6 +163,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.modal 
   <DialogRoot v-slot="{ open, close }" v-bind="rootProps">
     <DefineContentTemplate>
       <DialogContent
+        data-slot="content"
         :class="b24ui.content({ class: [!slots.default && props.class, props.b24ui?.content] })"
         v-bind="contentProps"
         @after-enter="emits('after:enter')"
@@ -186,18 +187,19 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.modal 
         <slot name="content" :close="close">
           <div
             v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description) || (props.close || !!slots.close) || !!slots.body"
+            data-slot="contentWrapper"
             :class="b24ui.contentWrapper({ class: props.b24ui?.contentWrapper })"
           >
-            <div v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description) || (props.close || !!slots.close)" :class="b24ui.header({ class: props.b24ui?.header })">
+            <div v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description) || (props.close || !!slots.close)" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
               <slot name="header" :close="close">
-                <div :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
-                  <DialogTitle v-if="title || !!slots.title" :class="b24ui.title({ class: props.b24ui?.title })">
+                <div data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
+                  <DialogTitle v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
                     <slot name="title">
                       {{ title }}
                     </slot>
                   </DialogTitle>
 
-                  <DialogDescription v-if="description || !!slots.description" :class="b24ui.description({ class: props.b24ui?.description })">
+                  <DialogDescription v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
                     <slot name="description">
                       {{ description }}
                     </slot>
@@ -215,6 +217,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.modal 
                       color="air-tertiary-no-accent"
                       :aria-label="t('modal.close')"
                       v-bind="(typeof props.close === 'object' ? props.close as Partial<ButtonProps> : {})"
+                      data-slot="close"
                       :class="b24ui.close({ class: props.b24ui?.close })"
                     />
                   </slot>
@@ -222,12 +225,12 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.modal 
               </slot>
             </div>
 
-            <div v-if="!!slots.body" :class="b24ui.body({ class: props.b24ui?.body, scrollbarThin: Boolean(props.scrollbarThin) })">
+            <div v-if="!!slots.body" data-slot="body" :class="b24ui.body({ class: props.b24ui?.body, scrollbarThin: Boolean(props.scrollbarThin) })">
               <slot name="body" :close="close" />
             </div>
           </div>
 
-          <div v-if="!!slots.footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
+          <div v-if="!!slots.footer" data-slot="footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
             <slot name="footer" :close="close" />
           </div>
         </slot>
@@ -240,13 +243,13 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.modal 
 
     <DialogPortal v-bind="portalProps">
       <template v-if="scrollable">
-        <DialogOverlay :class="b24ui.overlay({ class: props.b24ui?.overlay })">
+        <DialogOverlay data-slot="overlay" :class="b24ui.overlay({ class: props.b24ui?.overlay })">
           <ReuseContentTemplate />
         </DialogOverlay>
       </template>
 
       <template v-else>
-        <DialogOverlay v-if="overlay" :class="b24ui.overlay({ class: props.b24ui?.overlay })" />
+        <DialogOverlay v-if="overlay" data-slot="overlay" :class="b24ui.overlay({ class: props.b24ui?.overlay })" />
 
         <ReuseContentTemplate />
       </template>

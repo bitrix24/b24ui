@@ -64,23 +64,23 @@ function handleError() {
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <p v-if="!!props.error?.statusCode || !!slots.statusCode" :class="b24ui.statusCode({ class: props.b24ui?.statusCode })">
+  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+    <p v-if="!!props.error?.statusCode || !!slots.statusCode" data-slot="statusCode" :class="b24ui.statusCode({ class: props.b24ui?.statusCode })">
       <slot name="statusCode">
         {{ props.error?.statusCode }}
       </slot>
     </p>
-    <h1 v-if="!!props.error?.statusMessage || !!slots.statusMessage" :class="b24ui.statusMessage({ class: props.b24ui?.statusMessage })">
+    <h1 v-if="!!props.error?.statusMessage || !!slots.statusMessage" data-slot="statusMessage" :class="b24ui.statusMessage({ class: props.b24ui?.statusMessage })">
       <slot name="statusMessage">
         {{ props.error?.statusMessage }}
       </slot>
     </h1>
-    <p v-if="(props.error?.message && props.error.message !== props.error.statusMessage) || !!slots.message" :class="b24ui.message({ class: props.b24ui?.message })">
+    <p v-if="(props.error?.message && props.error.message !== props.error.statusMessage) || !!slots.message" data-slot="message" :class="b24ui.message({ class: props.b24ui?.message })">
       <slot name="message">
         {{ props.error?.message }}
       </slot>
     </p>
-    <div v-if="!!clear || !!slots.links" :class="b24ui.links({ class: props.b24ui?.links })">
+    <div v-if="!!clear || !!slots.links" data-slot="links" :class="b24ui.links({ class: props.b24ui?.links })">
       <slot name="links">
         <B24Button
           v-if="clear"

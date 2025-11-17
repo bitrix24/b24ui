@@ -43,6 +43,7 @@ const generate = computed(() => props.id && typeof headings?.anchorLinks === 'ob
 <template>
   <h1
     :id="id"
+    data-slot="base"
     :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
   >
     <a v-if="id && generate" :href="`#${id}`" :class="b24ui.link({ class: props.b24ui?.link })">

@@ -106,36 +106,37 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.alert 
 </script>
 
 <template>
-  <Primitive :as="as" :data-orientation="orientation" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <Primitive :as="as" :data-orientation="orientation" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <slot name="leading" :b24ui="b24ui">
       <Component
         :is="icon"
         v-if="icon"
+        data-slot="icon"
         :class="b24ui.icon({ class: props.b24ui?.icon })"
       />
-      <B24Avatar v-else-if="avatar" :size="((props.b24ui?.avatarSize || b24ui.avatarSize()) as AvatarProps['size'])" v-bind="avatar" :class="b24ui.avatar({ class: props.b24ui?.avatar })" />
+      <B24Avatar v-else-if="avatar" :size="((props.b24ui?.avatarSize || b24ui.avatarSize()) as AvatarProps['size'])" v-bind="avatar" data-slot="avatar" :class="b24ui.avatar({ class: props.b24ui?.avatar })" />
     </slot>
 
-    <div :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
-      <div v-if="title || !!slots.title" :class="b24ui.title({ class: props.b24ui?.title })">
+    <div data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
+      <div v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
         <slot name="title">
           {{ title }}
         </slot>
       </div>
-      <div v-if="description || !!slots.description" :class="b24ui.description({ class: props.b24ui?.description })">
+      <div v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
         <slot name="description">
           {{ description }}
         </slot>
       </div>
 
-      <div v-if="orientation === 'vertical' && (actions?.length || !!slots.actions)" :class="b24ui.actions({ class: props.b24ui?.actions })">
+      <div v-if="orientation === 'vertical' && (actions?.length || !!slots.actions)" data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions })">
         <slot name="actions">
           <B24Button v-for="(action, index) in actions" :key="index" size="sm" v-bind="action" />
         </slot>
       </div>
     </div>
 
-    <div v-if="(orientation === 'horizontal' && (actions?.length || !!slots.actions)) || close" :class="b24ui.actions({ class: props.b24ui?.actions, orientation: 'horizontal' })">
+    <div v-if="(orientation === 'horizontal' && (actions?.length || !!slots.actions)) || close" data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions, orientation: 'horizontal' })">
       <template v-if="orientation === 'horizontal' && (actions?.length || !!slots.actions)">
         <slot name="actions">
           <B24Button v-for="(action, index) in actions" :key="index" size="sm" v-bind="action" />
@@ -150,6 +151,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.alert 
           color="air-tertiary-no-accent"
           :aria-label="t('alert.close')"
           v-bind="(typeof close === 'object' ? close as Partial<ButtonProps> : {})"
+          data-slot="close"
           :class="b24ui.close({ class: props.b24ui?.close })"
           @click="emits('update:open', false)"
         />

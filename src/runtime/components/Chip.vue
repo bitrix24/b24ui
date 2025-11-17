@@ -108,6 +108,7 @@ const value = computed(() => {
 <template>
   <Primitive
     :as="as"
+    data-slot="root"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
   >
     <Slot v-bind="$attrs">
@@ -116,6 +117,7 @@ const value = computed(() => {
 
     <span
       v-if="show"
+      data-slot="base"
       :class="b24ui.base({ class: props.b24ui?.base })"
       :data-value="value"
     >
@@ -125,6 +127,7 @@ const value = computed(() => {
       <slot name="trailing">
         <Component
           :is="trailingIcon"
+          data-slot="trailingIcon"
           :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
         />
       </slot>

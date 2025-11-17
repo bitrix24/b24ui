@@ -93,11 +93,11 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.toolti
     </TooltipTrigger>
 
     <TooltipPortal v-bind="portalProps">
-      <TooltipContent v-bind="contentProps" :class="b24ui.content({ class: [!slots.default && props.b24ui?.content, props.class] })">
+      <TooltipContent v-bind="contentProps" data-slot="content" :class="b24ui.content({ class: [!slots.default && props.b24ui?.content, props.class] })">
         <slot name="content" :b24ui="b24ui">
-          <span v-if="text" :class="b24ui.text({ class: props.b24ui?.text })">{{ text }}</span>
+          <span v-if="text" data-slot="text" :class="b24ui.text({ class: props.b24ui?.text })">{{ text }}</span>
 
-          <span v-if="kbds?.length" :class="b24ui.kbds({ class: props.b24ui?.kbds })">
+          <span v-if="kbds?.length" data-slot="kbds" :class="b24ui.kbds({ class: props.b24ui?.kbds })">
             <B24Kbd
               v-for="(kbd, index) in kbds"
               :key="index"
@@ -108,7 +108,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.toolti
           </span>
         </slot>
 
-        <TooltipArrow v-if="!!arrow" v-bind="arrowProps" :class="b24ui.arrow({ class: props.b24ui?.arrow })" />
+        <TooltipArrow v-if="!!arrow" v-bind="arrowProps" data-slot="arrow" :class="b24ui.arrow({ class: props.b24ui?.arrow })" />
       </TooltipContent>
     </TooltipPortal>
   </TooltipRoot>

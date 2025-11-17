@@ -132,22 +132,24 @@ defineExpose({
 </script>
 
 <template>
-  <StepperRoot v-bind="rootProps" v-model="currentStepIndex" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <div :class="b24ui.header({ class: props.b24ui?.header })">
+  <StepperRoot v-bind="rootProps" v-model="currentStepIndex" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+    <div data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
       <StepperItem
         v-for="(item, count) in items"
         :key="item.value ?? count"
         :step="count"
         :disabled="item.disabled || props.disabled"
+        data-slot="item"
         :class="b24ui.item({ class: [props.b24ui?.item, item.b24ui?.item, item.class] })"
       >
-        <div :class="b24ui.container({ class: [props.b24ui?.container, item.b24ui?.container] })">
-          <StepperTrigger :class="b24ui.trigger({ class: [props.b24ui?.trigger, item.b24ui?.trigger] })">
-            <StepperIndicator :class="b24ui.indicator({ class: [props.b24ui?.indicator, item.b24ui?.indicator] })">
+        <div data-slot="container" :class="b24ui.container({ class: [props.b24ui?.container, item.b24ui?.container] })">
+          <StepperTrigger data-slot="trigger" :class="b24ui.trigger({ class: [props.b24ui?.trigger, item.b24ui?.trigger] })">
+            <StepperIndicator data-slot="indicator" :class="b24ui.indicator({ class: [props.b24ui?.indicator, item.b24ui?.indicator] })">
               <slot name="indicator" :item="item" :b24ui="b24ui">
                 <Component
                   :is="item.icon"
                   v-if="item.icon"
+                  data-slot="icon"
                   :class="b24ui.icon({ class: [props.b24ui?.icon, item.b24ui?.icon] })"
                 />
                 <template v-else>
@@ -159,17 +161,18 @@ defineExpose({
 
           <StepperSeparator
             v-if="count < items.length - 1"
+            data-slot="separator"
             :class="b24ui.separator({ class: [props.b24ui?.separator, item.b24ui?.separator] })"
           />
         </div>
 
-        <div :class="b24ui.wrapper({ class: [props.b24ui?.wrapper, item.b24ui?.wrapper] })">
-          <StepperTitle as="div" :class="b24ui.title({ class: [props.b24ui?.title, item.b24ui?.title] })">
+        <div data-slot="wrapper" :class="b24ui.wrapper({ class: [props.b24ui?.wrapper, item.b24ui?.wrapper] })">
+          <StepperTitle as="div" data-slot="title" :class="b24ui.title({ class: [props.b24ui?.title, item.b24ui?.title] })">
             <slot name="title" :item="item">
               {{ item.title }}
             </slot>
           </StepperTitle>
-          <StepperDescription as="div" :class="b24ui.description({ class: [props.b24ui?.description, item.b24ui?.description] })">
+          <StepperDescription as="div" data-slot="description" :class="b24ui.description({ class: [props.b24ui?.description, item.b24ui?.description] })">
             <slot name="description" :item="item">
               {{ item.description }}
             </slot>
@@ -178,7 +181,7 @@ defineExpose({
       </StepperItem>
     </div>
 
-    <div v-if="currentStep?.content || !!slots.content || currentStep?.slot" :class="b24ui.content({ class: props.b24ui?.content })">
+    <div v-if="currentStep?.content || !!slots.content || currentStep?.slot" data-slot="content" :class="b24ui.content({ class: props.b24ui?.content })">
       <slot
         :name="((currentStep?.slot || 'content') as keyof StepperSlots<T>)"
         :item="(currentStep as Extract<T, { slot: string }>)"

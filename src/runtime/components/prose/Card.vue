@@ -52,7 +52,7 @@ const ariaLabel = computed(() => (props.title || 'Card link').trim())
 </script>
 
 <template>
-  <div :class="b24ui.base({ class: props.class })">
+  <div data-slot="base" :class="b24ui.base({ class: props.class })">
     <B24Link
       v-if="to"
       :aria-label="ariaLabel"
@@ -67,21 +67,23 @@ const ariaLabel = computed(() => (props.title || 'Card link').trim())
     <Component
       :is="icon"
       v-if="icon"
+      data-slot="icon"
       :class="b24ui.icon({ class: props.b24ui?.icon })"
     />
     <Component
       :is="icons.external"
       v-if="!!to && target === '_blank'"
+      data-slot="externalIcon"
       :class="b24ui.externalIcon({ class: props.b24ui?.externalIcon })"
     />
 
-    <p v-if="title || !!slots.title" :class="b24ui.title({ class: props.b24ui?.title })">
+    <p v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
       <slot name="title" mdc-unwrap="p">
         {{ title }}
       </slot>
     </p>
 
-    <div v-if="!!slots.default" :class="b24ui.description({ class: props.b24ui?.description })">
+    <div v-if="!!slots.default" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
       <slot>
         {{ description }}
       </slot>

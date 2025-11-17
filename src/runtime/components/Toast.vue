@@ -125,6 +125,7 @@ defineExpose({
     v-slot="{ remaining, duration, open }"
     v-bind="rootProps"
     :data-orientation="orientation"
+    data-slot="root"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     :style="{ '--height': height }"
   >
@@ -132,13 +133,14 @@ defineExpose({
       <Component
         :is="icon"
         v-if="icon"
+        data-slot="icon"
         :class="b24ui.icon({ class: props.b24ui?.icon })"
       />
-      <B24Avatar v-else-if="avatar" :size="((props.b24ui?.avatarSize || b24ui.avatarSize()) as AvatarProps['size'])" v-bind="avatar" :class="b24ui.avatar({ class: props.b24ui?.avatar })" />
+      <B24Avatar v-else-if="avatar" :size="((props.b24ui?.avatarSize || b24ui.avatarSize()) as AvatarProps['size'])" v-bind="avatar" data-slot="avatar" :class="b24ui.avatar({ class: props.b24ui?.avatar })" />
     </slot>
 
-    <div :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
-      <ToastTitle v-if="title || !!slots.title" :class="b24ui.title({ class: props.b24ui?.title })">
+    <div data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
+      <ToastTitle v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
         <slot name="title">
           <component :is="title()" v-if="typeof title === 'function'" />
           <component :is="title" v-else-if="typeof title === 'object'" />
@@ -147,7 +149,7 @@ defineExpose({
           </template>
         </slot>
       </ToastTitle>
-      <ToastDescription v-if="description || !!slots.description" :class="b24ui.description({ class: props.b24ui?.description })">
+      <ToastDescription v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
         <slot name="description">
           <component :is="description()" v-if="typeof description === 'function'" />
           <component :is="description" v-else-if="typeof description === 'object'" />
@@ -157,7 +159,7 @@ defineExpose({
         </slot>
       </ToastDescription>
 
-      <div v-if="orientation === 'vertical' && (actions?.length || !!slots.actions)" :class="b24ui.actions({ class: props.b24ui?.actions })">
+      <div v-if="orientation === 'vertical' && (actions?.length || !!slots.actions)" data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions })">
         <slot name="actions">
           <ToastAction v-for="(action, index) in actions" :key="index" :alt-text="action.label || 'Action'" as-child @click.stop>
             <B24Button size="sm" :color="color as ButtonProps['color']" v-bind="action" />
@@ -166,7 +168,7 @@ defineExpose({
       </div>
     </div>
 
-    <div v-if="(orientation === 'horizontal' && (actions?.length || !!slots.actions)) || close !== null" :class="b24ui.actions({ class: props.b24ui?.actions, orientation: 'horizontal' })">
+    <div v-if="(orientation === 'horizontal' && (actions?.length || !!slots.actions)) || close !== null" data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions, orientation: 'horizontal' })">
       <template v-if="orientation === 'horizontal' && (actions?.length || !!slots.actions)">
         <slot name="actions">
           <ToastAction v-for="(action, index) in actions" :key="index" :alt-text="action.label || 'Action'" as-child @click.stop>
@@ -184,6 +186,7 @@ defineExpose({
             color="air-tertiary"
             :aria-label="t('toast.close')"
             v-bind="(typeof close === 'object' ? close as Partial<ButtonProps> : {})"
+            data-slot="close"
             :class="b24ui.close({ class: props.b24ui?.close })"
             @click.stop
           />
@@ -197,6 +200,7 @@ defineExpose({
       :color="color"
       v-bind="(typeof progress === 'object' ? progress as Partial<ProgressProps> : {})"
       size="sm"
+      data-slot="progress"
       :class="b24ui.progress({ class: props.b24ui?.progress })"
     />
   </ToastRoot>

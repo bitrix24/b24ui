@@ -33,7 +33,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
 </script>
 
 <template>
-  <li :class="b24ui.base({ class: [props.b24ui?.base, props.class] })">
+  <li data-slot="base" :class="b24ui.base({ class: [props.b24ui?.base, props.class] })">
     <slot />
   </li>
 </template>

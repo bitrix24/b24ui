@@ -41,7 +41,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sideba
 </script>
 
 <template>
-  <Primitive :as="as" aria-hidden="true" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <Primitive :as="as" aria-hidden="true" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <slot />
   </Primitive>
 </template>

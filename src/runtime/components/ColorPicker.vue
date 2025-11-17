@@ -263,16 +263,18 @@ const trackThumbStyle = computed(() => ({
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })" :data-disabled="disabled ? true : undefined">
-    <div :class="b24ui.picker({ class: props.b24ui?.picker })">
+  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })" :data-disabled="disabled ? true : undefined">
+    <div data-slot="picker" :class="b24ui.picker({ class: props.b24ui?.picker })">
       <div
         ref="selectorRef"
+        data-slot="selector"
         :class="b24ui.selector({ class: props.b24ui?.selector })"
         :style="selectorStyle"
       >
-        <div :class="b24ui.selectorBackground({ class: props.b24ui?.selectorBackground })" data-color-picker-background>
+        <div data-slot="selectorBackground" :class="b24ui.selectorBackground({ class: props.b24ui?.selectorBackground })" data-color-picker-background>
           <div
             ref="selectorThumbRef"
+            data-slot="selectorThumb"
             :class="b24ui.selectorThumb({ class: props.b24ui?.selectorThumb })"
             :style="selectorThumbStyle"
             :data-disabled="disabled ? true : undefined"
@@ -281,11 +283,13 @@ const trackThumbStyle = computed(() => ({
       </div>
       <div
         ref="trackRef"
+        data-slot="track"
         :class="b24ui.track({ class: props.b24ui?.track })"
         data-color-picker-track
       >
         <div
           ref="trackThumbRef"
+          data-slot="trackThumb"
           :class="b24ui.trackThumb({ class: props.b24ui?.trackThumb })"
           :style="trackThumbStyle"
           :data-disabled="disabled ? true : undefined"

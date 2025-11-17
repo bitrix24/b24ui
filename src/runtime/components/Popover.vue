@@ -125,10 +125,10 @@ const Component = computed(() => props.mode === 'hover' ? HoverCard : Popover)
     </Component.Anchor>
 
     <Component.Portal v-bind="portalProps">
-      <Component.Content v-bind="contentProps" :class="b24ui.content({ class: [!slots.default && props.class, props.b24ui?.content] })" v-on="contentEvents">
+      <Component.Content v-bind="contentProps" data-slot="content" :class="b24ui.content({ class: [!slots.default && props.class, props.b24ui?.content] })" v-on="contentEvents">
         <slot name="content" v-bind="((close ? { close } : {}) as SlotProps<M>)" />
 
-        <Component.Arrow v-if="!!arrow" v-bind="arrowProps" :class="b24ui.arrow({ class: props.b24ui?.arrow })" />
+        <Component.Arrow v-if="!!arrow" v-bind="arrowProps" data-slot="arrow" :class="b24ui.arrow({ class: props.b24ui?.arrow })" />
       </Component.Content>
     </Component.Portal>
   </Component.Root>

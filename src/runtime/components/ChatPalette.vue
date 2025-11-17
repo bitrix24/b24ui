@@ -37,14 +37,14 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatPa
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <div :class="b24ui.content({ class: props.b24ui?.content })">
+  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+    <div data-slot="content" :class="b24ui.content({ class: props.b24ui?.content })">
       <Slot compact>
         <slot />
       </Slot>
     </div>
 
-    <Slot v-if="!!slots.prompt" :class="b24ui.prompt({ class: props.b24ui?.prompt })">
+    <Slot v-if="!!slots.prompt" data-slot="prompt" :class="b24ui.prompt({ class: props.b24ui?.prompt })">
       <slot name="prompt" />
     </Slot>
   </Primitive>

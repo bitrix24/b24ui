@@ -108,18 +108,20 @@ function getItemState(index: number): 'active' | 'completed' | undefined {
 </script>
 
 <template>
-  <Primitive :as="as" :data-orientation="orientation" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <Primitive :as="as" :data-orientation="orientation" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <div
       v-for="(item, index) in items"
       :key="item.value ?? index"
+      data-slot="item"
       :class="b24ui.item({ class: [props.b24ui?.item, item.b24ui?.item, item.class] })"
       :data-state="getItemState(index)"
     >
-      <div :class="b24ui.container({ class: [props.b24ui?.container, item.b24ui?.container] })">
+      <div data-slot="container" :class="b24ui.container({ class: [props.b24ui?.container, item.b24ui?.container] })">
         <B24Avatar
           :size="size"
           :icon="item.icon"
           v-bind="typeof item.avatar === 'object' ? item.avatar : {}"
+          data-slot="indicator"
           :class="b24ui.indicator({ class: [props.b24ui?.indicator, item.b24ui?.indicator] })"
           :b24ui="{ icon: 'text-inherit', fallback: 'text-inherit' }"
         >
@@ -128,23 +130,24 @@ function getItemState(index: number): 'active' | 'completed' | undefined {
 
         <Separator
           v-if="index < items.length - 1"
+          data-slot="separator"
           :class="b24ui.separator({ class: [props.b24ui?.separator, item.b24ui?.separator] })"
           :orientation="props.orientation"
         />
       </div>
 
-      <div :class="b24ui.wrapper({ class: [props.b24ui?.wrapper, item.b24ui?.wrapper] })">
-        <div v-if="item.date" :class="b24ui.date({ class: [props.b24ui?.date, item.b24ui?.date] })">
+      <div data-slot="wrapper" :class="b24ui.wrapper({ class: [props.b24ui?.wrapper, item.b24ui?.wrapper] })">
+        <div v-if="item.date" data-slot="date" :class="b24ui.date({ class: [props.b24ui?.date, item.b24ui?.date] })">
           <slot :name="((item.slot ? `${item.slot}-date` : 'date') as keyof TimelineSlots<T>)" :item="(item as Extract<T, { slot: string; }>)">
             {{ item.date }}
           </slot>
         </div>
-        <div v-if="item.title || !!slots.title" :class="b24ui.title({ class: [props.b24ui?.title, item.b24ui?.title] })">
+        <div v-if="item.title || !!slots.title" data-slot="title" :class="b24ui.title({ class: [props.b24ui?.title, item.b24ui?.title] })">
           <slot :name="((item.slot ? `${item.slot}-title` : 'title') as keyof TimelineSlots<T>)" :item="(item as Extract<T, { slot: string; }>)">
             {{ item.title }}
           </slot>
         </div>
-        <div v-if="item.description || !!slots.description" :class="b24ui.description({ class: [props.b24ui?.description, item.b24ui?.description] })">
+        <div v-if="item.description || !!slots.description" data-slot="description" :class="b24ui.description({ class: [props.b24ui?.description, item.b24ui?.description] })">
           <slot :name="((item.slot ? `${item.slot}-description` : 'description') as keyof TimelineSlots<T>)" :item="(item as Extract<T, { slot: string; }>)">
             {{ item.description }}
           </slot>

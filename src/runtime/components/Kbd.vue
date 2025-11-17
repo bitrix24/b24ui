@@ -56,7 +56,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.kbd ||
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.base({ class: props.class })">
+  <Primitive :as="as" data-slot="base" :class="b24ui.base({ class: props.class })">
     <slot>
       {{ getKbdKey(value) }}
     </slot>

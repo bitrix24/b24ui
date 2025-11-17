@@ -91,38 +91,40 @@ function onUpdate(value: any) {
 
 <!-- eslint-disable vue/no-template-shadow -->
 <template>
-  <Primitive :as="(!variant || variant === 'list') ? as : Label" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <div :class="b24ui.container({ class: props.b24ui?.container })">
+  <Primitive :as="(!variant || variant === 'list') ? as : Label" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+    <div data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">
       <CheckboxRoot
         :id="id"
         v-bind="{ ...rootProps, ...$attrs, ...ariaAttrs }"
         v-model="modelValue"
         :name="name"
         :disabled="disabled"
+        data-slot="base"
         :class="b24ui.base({ class: props.b24ui?.base })"
         @update:model-value="onUpdate"
       >
         <template #default="{ modelValue }">
-          <CheckboxIndicator :class="b24ui.indicator({ class: props.b24ui?.indicator })">
-            <Minus20Icon v-if="modelValue === 'indeterminate'" :class="b24ui.icon({ class: props.b24ui?.icon })" />
-            <CheckIcon v-else :class="b24ui.icon({ class: props.b24ui?.icon })" />
+          <CheckboxIndicator data-slot="indicator" :class="b24ui.indicator({ class: props.b24ui?.indicator })">
+            <Minus20Icon v-if="modelValue === 'indeterminate'" data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
+            <CheckIcon v-else data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
           </CheckboxIndicator>
         </template>
       </CheckboxRoot>
     </div>
 
-    <div v-if="(label || !!slots.label) || (description || !!slots.description)" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
+    <div v-if="(label || !!slots.label) || (description || !!slots.description)" data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
       <component
         :is="(!variant || variant === 'list') ? Label : 'p'"
         v-if="label || !!slots.label"
         :for="id"
+        data-slot="label"
         :class="b24ui.label({ class: props.b24ui?.label })"
       >
         <slot name="label" :label="label">
           {{ label }}
         </slot>
       </component>
-      <p v-if="description || !!slots.description" :class="b24ui.description({ class: props.b24ui?.description })">
+      <p v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
         <slot name="description" :description="description">
           {{ description }}
         </slot>

@@ -77,6 +77,7 @@ if (props.zoom) {
       :width="width"
       :height="height"
       v-bind="$attrs"
+      data-slot="base"
       :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
     />
   </DefineImageTemplate>
@@ -87,6 +88,7 @@ if (props.zoom) {
       :src="refinedSrc"
       :alt="alt"
       v-bind="$attrs"
+      data-slot="zoomedImage"
       :class="b24ui.zoomedImage({ class: [props.b24ui?.zoomedImage] })"
     />
   </DefineZoomedImageTemplate>
@@ -110,11 +112,13 @@ if (props.zoom) {
           :initial="{ opacity: 0 }"
           :animate="{ opacity: 1 }"
           :exit="{ opacity: 0 }"
+          data-slot="overlay"
           :class="b24ui.overlay({ class: [props.b24ui?.overlay] })"
         />
 
         <div
           v-if="open"
+          data-slot="content"
           :class="b24ui.content({ class: [props.b24ui?.content] })"
           @click="close"
         >

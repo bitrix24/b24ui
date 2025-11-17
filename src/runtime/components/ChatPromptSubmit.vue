@@ -134,6 +134,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatPr
       ...$attrs
     }"
     :aria-label="t('chatPromptSubmit.label')"
+    data-slot="base"
     :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
     :b24ui="transformUI(b24ui, props.b24ui)"
   >

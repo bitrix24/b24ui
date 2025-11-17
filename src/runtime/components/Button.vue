@@ -194,6 +194,7 @@ const b24ui = computed(() => tv({
   >
     <B24LinkBase
       v-bind="slotProps"
+      data-slot="base"
       :class="b24ui.base({
         class: [props.b24ui?.base, props.class],
         active,
@@ -204,35 +205,36 @@ const b24ui = computed(() => tv({
     >
       <div
         v-if="isLoading"
+        data-slot="baseLoading"
         :class="b24ui.baseLoading({ class: props.b24ui?.baseLoading, active })"
       >
-        <LoaderWaitIcon v-if="useWait" :class="b24ui.baseLoadingWaitIcon({ class: props.b24ui?.baseLoadingWaitIcon })" aria-hidden="true" />
-        <LoaderClockIcon v-else-if="useClock" :class="b24ui.baseLoadingClockIcon({ class: props.b24ui?.baseLoadingClockIcon })" aria-hidden="true" />
-        <SpinnerIcon v-else :class="b24ui.baseLoadingSpinnerIcon({ class: props.b24ui?.baseLoadingSpinnerIcon })" aria-hidden="true" />
+        <LoaderWaitIcon v-if="useWait" data-slot="baseLoadingWaitIcon" :class="b24ui.baseLoadingWaitIcon({ class: props.b24ui?.baseLoadingWaitIcon })" aria-hidden="true" />
+        <LoaderClockIcon v-else-if="useClock" data-slot="baseLoadingClockIcon" :class="b24ui.baseLoadingClockIcon({ class: props.b24ui?.baseLoadingClockIcon })" aria-hidden="true" />
+        <SpinnerIcon v-else data-slot="baseLoadingSpinnerIcon" :class="b24ui.baseLoadingSpinnerIcon({ class: props.b24ui?.baseLoadingSpinnerIcon })" aria-hidden="true" />
       </div>
       <div
-        :class="[
-          b24ui.baseLine({ class: [props.b24ui?.baseLine] }),
-          isLoading ? 'invisible' : ''
-        ]"
+        data-slot="baseLine"
+        :class="[b24ui.baseLine({ class: [props.b24ui?.baseLine] }), isLoading ? 'invisible' : '']"
       >
         <slot name="leading" :b24ui="b24ui">
           <Component
             :is="leadingIconName"
             v-if="isLeading && (typeof leadingIconName !== 'undefined')"
+            data-slot="leadingIcon"
             :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
           />
           <B24Avatar
             v-else-if="!!avatar"
             :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
             v-bind="avatar"
+            data-slot="leadingAvatar"
             :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
           />
         </slot>
 
         <slot :b24ui="b24ui">
-          <span v-if="label !== undefined && label !== null" :class="b24ui.label({ class: props.b24ui?.label, active })">
-            <span :class="b24ui.labelInner({ class: props.b24ui?.labelInner, active })">
+          <span v-if="label !== undefined && label !== null" data-slot="label" :class="b24ui.label({ class: props.b24ui?.label, active })">
+            <span data-slot="labelInner" :class="b24ui.labelInner({ class: props.b24ui?.labelInner, active })">
               {{ label }}
             </span>
           </span>
@@ -241,6 +243,7 @@ const b24ui = computed(() => tv({
         <slot name="trailing" :b24ui="b24ui">
           <ChevronDownSIcon
             v-if="useDropdown"
+            data-slot="trailingIcon"
             :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
             aria-hidden="true"
           />

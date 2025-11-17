@@ -1,133 +1,133 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`ChatPrompt > renders with as correctly 1`] = `
-"<section class="relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-[8px] py-[8px] w-full rounded-lg bg-(--ui-color-design-outline-bg) ring-(--ui-color-design-outline-stroke) ring-1 text-(--ui-color-design-outline-content)">
+"<section data-slot="root" class="relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-[8px] py-[8px] w-full rounded-lg bg-(--ui-color-design-outline-bg) ring-(--ui-color-design-outline-stroke) ring-1 text-(--ui-color-design-outline-content)">
   <!--v-if-->
-  <div class="isolate relative inline-flex py-[4px] items-start">
-    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." class="px-3 w-full border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring-0 focus-visible:ring-0 style-transparent-bg pt-[1px] pb-[0px] text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)" value=""></textarea>
+  <div data-slot="root" class="isolate relative inline-flex py-[4px] items-start">
+    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." data-slot="body" class="px-3 w-full border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring-0 focus-visible:ring-0 style-transparent-bg pt-[1px] pb-[0px] text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)" value=""></textarea>
     <!--v-if-->
     <!--v-if-->
   </div>
-  <div class="flex items-center justify-end gap-[8px]"></div>
+  <div data-slot="footer" class="flex items-center justify-end gap-[8px]"></div>
 </section>"
 `;
 
 exports[`ChatPrompt > renders with b24ui correctly 1`] = `
-"<form class="relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-[8px] py-[8px] w-full rounded-lg bg-(--ui-color-design-outline-bg) ring-(--ui-color-design-outline-stroke) ring-1 text-(--ui-color-design-outline-content)">
+"<form data-slot="root" class="relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-[8px] py-[8px] w-full rounded-lg bg-(--ui-color-design-outline-bg) ring-(--ui-color-design-outline-stroke) ring-1 text-(--ui-color-design-outline-content)">
   <!--v-if-->
-  <div class="isolate relative inline-flex py-[4px] items-start">
-    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." class="px-3 w-full border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring-0 focus-visible:ring-0 style-transparent-bg pt-[1px] pb-[0px] text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)" value=""></textarea>
+  <div data-slot="root" class="isolate relative inline-flex py-[4px] items-start">
+    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." data-slot="body" class="px-3 w-full border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring-0 focus-visible:ring-0 style-transparent-bg pt-[1px] pb-[0px] text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)" value=""></textarea>
     <!--v-if-->
     <!--v-if-->
   </div>
-  <div class="flex items-center gap-[8px] justify-end"></div>
+  <div data-slot="footer" class="flex items-center gap-[8px] justify-end"></div>
 </form>"
 `;
 
 exports[`ChatPrompt > renders with class correctly 1`] = `
-"<form class="relative flex flex-col items-stretch gap-[2px] w-full rounded-lg bg-(--ui-color-design-outline-bg) ring-(--ui-color-design-outline-stroke) ring-1 text-(--ui-color-design-outline-content) p-5">
+"<form data-slot="root" class="relative flex flex-col items-stretch gap-[2px] w-full rounded-lg bg-(--ui-color-design-outline-bg) ring-(--ui-color-design-outline-stroke) ring-1 text-(--ui-color-design-outline-content) p-5">
   <!--v-if-->
-  <div class="isolate relative inline-flex py-[4px] items-start">
-    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." class="px-3 w-full border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring-0 focus-visible:ring-0 style-transparent-bg pt-[1px] pb-[0px] text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)" value=""></textarea>
+  <div data-slot="root" class="isolate relative inline-flex py-[4px] items-start">
+    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." data-slot="body" class="px-3 w-full border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring-0 focus-visible:ring-0 style-transparent-bg pt-[1px] pb-[0px] text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)" value=""></textarea>
     <!--v-if-->
     <!--v-if-->
   </div>
-  <div class="flex items-center justify-end gap-[8px]"></div>
+  <div data-slot="footer" class="flex items-center justify-end gap-[8px]"></div>
 </form>"
 `;
 
 exports[`ChatPrompt > renders with error correctly 1`] = `
-"<form class="relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-[8px] py-[8px] w-full rounded-lg bg-(--ui-color-design-outline-bg) ring-(--ui-color-design-outline-stroke) ring-1 text-(--ui-color-design-outline-content)">
+"<form data-slot="root" class="relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-[8px] py-[8px] w-full rounded-lg bg-(--ui-color-design-outline-bg) ring-(--ui-color-design-outline-stroke) ring-1 text-(--ui-color-design-outline-content)">
   <!--v-if-->
-  <div class="isolate relative inline-flex py-[4px] items-start">
-    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." class="px-3 w-full border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring-0 focus-visible:ring-0 style-transparent-bg pt-[1px] pb-[0px] text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)" disabled="" value=""></textarea>
+  <div data-slot="root" class="isolate relative inline-flex py-[4px] items-start">
+    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." data-slot="body" class="px-3 w-full border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring-0 focus-visible:ring-0 style-transparent-bg pt-[1px] pb-[0px] text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)" disabled="" value=""></textarea>
     <!--v-if-->
     <!--v-if-->
   </div>
-  <div class="flex items-center justify-end gap-[8px]"></div>
+  <div data-slot="footer" class="flex items-center justify-end gap-[8px]"></div>
 </form>"
 `;
 
 exports[`ChatPrompt > renders with footer slot correctly 1`] = `
-"<form class="relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-[8px] py-[8px] w-full rounded-lg bg-(--ui-color-design-outline-bg) ring-(--ui-color-design-outline-stroke) ring-1 text-(--ui-color-design-outline-content)">
+"<form data-slot="root" class="relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-[8px] py-[8px] w-full rounded-lg bg-(--ui-color-design-outline-bg) ring-(--ui-color-design-outline-stroke) ring-1 text-(--ui-color-design-outline-content)">
   <!--v-if-->
-  <div class="isolate relative inline-flex py-[4px] items-start">
-    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." class="px-3 w-full border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring-0 focus-visible:ring-0 style-transparent-bg pt-[1px] pb-[0px] text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)" value=""></textarea>
+  <div data-slot="root" class="isolate relative inline-flex py-[4px] items-start">
+    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." data-slot="body" class="px-3 w-full border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring-0 focus-visible:ring-0 style-transparent-bg pt-[1px] pb-[0px] text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)" value=""></textarea>
     <!--v-if-->
     <!--v-if-->
   </div>
-  <div class="flex items-center justify-end gap-[8px]">Footer slot</div>
+  <div data-slot="footer" class="flex items-center justify-end gap-[8px]">Footer slot</div>
 </form>"
 `;
 
 exports[`ChatPrompt > renders with header slot correctly 1`] = `
-"<form class="relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-[8px] py-[8px] w-full rounded-lg bg-(--ui-color-design-outline-bg) ring-(--ui-color-design-outline-stroke) ring-1 text-(--ui-color-design-outline-content)">
-  <div class="flex items-center gap-[8px]">Header slot</div>
-  <div class="isolate relative inline-flex py-[4px] items-start">
-    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." class="px-3 w-full border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring-0 focus-visible:ring-0 style-transparent-bg pt-[1px] pb-[0px] text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)" value=""></textarea>
+"<form data-slot="root" class="relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-[8px] py-[8px] w-full rounded-lg bg-(--ui-color-design-outline-bg) ring-(--ui-color-design-outline-stroke) ring-1 text-(--ui-color-design-outline-content)">
+  <div data-slot="header" class="flex items-center gap-[8px]">Header slot</div>
+  <div data-slot="root" class="isolate relative inline-flex py-[4px] items-start">
+    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." data-slot="body" class="px-3 w-full border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring-0 focus-visible:ring-0 style-transparent-bg pt-[1px] pb-[0px] text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)" value=""></textarea>
     <!--v-if-->
     <!--v-if-->
   </div>
-  <div class="flex items-center justify-end gap-[8px]"></div>
+  <div data-slot="footer" class="flex items-center justify-end gap-[8px]"></div>
 </form>"
 `;
 
 exports[`ChatPrompt > renders with placeholder correctly 1`] = `
-"<form class="relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-[8px] py-[8px] w-full rounded-lg bg-(--ui-color-design-outline-bg) ring-(--ui-color-design-outline-stroke) ring-1 text-(--ui-color-design-outline-content)">
+"<form data-slot="root" class="relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-[8px] py-[8px] w-full rounded-lg bg-(--ui-color-design-outline-bg) ring-(--ui-color-design-outline-stroke) ring-1 text-(--ui-color-design-outline-content)">
   <!--v-if-->
-  <div class="isolate relative inline-flex py-[4px] items-start">
-    <!--v-if--><textarea rows="1" placeholder="Placeholder" class="px-3 w-full border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring-0 focus-visible:ring-0 style-transparent-bg pt-[1px] pb-[0px] text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)" value=""></textarea>
+  <div data-slot="root" class="isolate relative inline-flex py-[4px] items-start">
+    <!--v-if--><textarea rows="1" placeholder="Placeholder" data-slot="body" class="px-3 w-full border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring-0 focus-visible:ring-0 style-transparent-bg pt-[1px] pb-[0px] text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)" value=""></textarea>
     <!--v-if-->
     <!--v-if-->
   </div>
-  <div class="flex items-center justify-end gap-[8px]"></div>
+  <div data-slot="footer" class="flex items-center justify-end gap-[8px]"></div>
 </form>"
 `;
 
 exports[`ChatPrompt > renders with variant filled correctly 1`] = `
-"<form class="relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-[8px] py-[8px] w-full rounded-lg bg-(--ui-color-design-filled-na-bg) ring-(--ui-color-design-filled-na-stroke) ring-(length:--ui-design-filled-na-stroke-weight) text-(--ui-color-design-filled-na-content)">
+"<form data-slot="root" class="relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-[8px] py-[8px] w-full rounded-lg bg-(--ui-color-design-filled-na-bg) ring-(--ui-color-design-filled-na-stroke) ring-(length:--ui-design-filled-na-stroke-weight) text-(--ui-color-design-filled-na-content)">
   <!--v-if-->
-  <div class="isolate relative inline-flex py-[4px] items-start">
-    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." class="px-3 w-full border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring-0 focus-visible:ring-0 style-transparent-bg pt-[1px] pb-[0px] text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)" value=""></textarea>
+  <div data-slot="root" class="isolate relative inline-flex py-[4px] items-start">
+    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." data-slot="body" class="px-3 w-full border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring-0 focus-visible:ring-0 style-transparent-bg pt-[1px] pb-[0px] text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)" value=""></textarea>
     <!--v-if-->
     <!--v-if-->
   </div>
-  <div class="flex items-center justify-end gap-[8px]"></div>
+  <div data-slot="footer" class="flex items-center justify-end gap-[8px]"></div>
 </form>"
 `;
 
 exports[`ChatPrompt > renders with variant outline correctly 1`] = `
-"<form class="relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-[8px] py-[8px] w-full rounded-lg bg-(--ui-color-design-outline-bg) ring-(--ui-color-design-outline-stroke) ring-1 text-(--ui-color-design-outline-content)">
+"<form data-slot="root" class="relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-[8px] py-[8px] w-full rounded-lg bg-(--ui-color-design-outline-bg) ring-(--ui-color-design-outline-stroke) ring-1 text-(--ui-color-design-outline-content)">
   <!--v-if-->
-  <div class="isolate relative inline-flex py-[4px] items-start">
-    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." class="px-3 w-full border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring-0 focus-visible:ring-0 style-transparent-bg pt-[1px] pb-[0px] text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)" value=""></textarea>
+  <div data-slot="root" class="isolate relative inline-flex py-[4px] items-start">
+    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." data-slot="body" class="px-3 w-full border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring-0 focus-visible:ring-0 style-transparent-bg pt-[1px] pb-[0px] text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)" value=""></textarea>
     <!--v-if-->
     <!--v-if-->
   </div>
-  <div class="flex items-center justify-end gap-[8px]"></div>
+  <div data-slot="footer" class="flex items-center justify-end gap-[8px]"></div>
 </form>"
 `;
 
 exports[`ChatPrompt > renders with variant plain correctly 1`] = `
-"<form class="relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-[8px] py-[8px] w-full rounded-lg bg-(--ui-color-design-plain-bg) ring-(--ui-color-design-plain-stroke) ring-(length:--ui-design-plain-stroke-weight) text-(--ui-color-design-plain-content)">
+"<form data-slot="root" class="relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-[8px] py-[8px] w-full rounded-lg bg-(--ui-color-design-plain-bg) ring-(--ui-color-design-plain-stroke) ring-(length:--ui-design-plain-stroke-weight) text-(--ui-color-design-plain-content)">
   <!--v-if-->
-  <div class="isolate relative inline-flex py-[4px] items-start">
-    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." class="px-3 w-full border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring-0 focus-visible:ring-0 style-transparent-bg pt-[1px] pb-[0px] text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)" value=""></textarea>
+  <div data-slot="root" class="isolate relative inline-flex py-[4px] items-start">
+    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." data-slot="body" class="px-3 w-full border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring-0 focus-visible:ring-0 style-transparent-bg pt-[1px] pb-[0px] text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)" value=""></textarea>
     <!--v-if-->
     <!--v-if-->
   </div>
-  <div class="flex items-center justify-end gap-[8px]"></div>
+  <div data-slot="footer" class="flex items-center justify-end gap-[8px]"></div>
 </form>"
 `;
 
 exports[`ChatPrompt > renders with variant tinted correctly 1`] = `
-"<form class="relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-[8px] py-[8px] w-full rounded-lg bg-(--ui-color-design-tinted-na-bg) ring-(--ui-color-design-tinted-na-stroke) ring-(length:--ui-design-tinted-na-stroke-weight) text-(--ui-color-design-tinted-na-content)">
+"<form data-slot="root" class="relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-[8px] py-[8px] w-full rounded-lg bg-(--ui-color-design-tinted-na-bg) ring-(--ui-color-design-tinted-na-stroke) ring-(length:--ui-design-tinted-na-stroke-weight) text-(--ui-color-design-tinted-na-content)">
   <!--v-if-->
-  <div class="isolate relative inline-flex py-[4px] items-start">
-    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." class="px-3 w-full border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring-0 focus-visible:ring-0 style-transparent-bg pt-[1px] pb-[0px] text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)" value=""></textarea>
+  <div data-slot="root" class="isolate relative inline-flex py-[4px] items-start">
+    <!--v-if--><textarea rows="1" placeholder="Enter your message here..." data-slot="body" class="px-3 w-full border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition duration-300 ease-linear text-(--ui-color-base-1) placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 resize-none style-filled rounded-(--ui-border-radius-sm) ring-0 focus-visible:ring-0 style-transparent-bg pt-[1px] pb-[0px] text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)" value=""></textarea>
     <!--v-if-->
     <!--v-if-->
   </div>
-  <div class="flex items-center justify-end gap-[8px]"></div>
+  <div data-slot="footer" class="flex items-center justify-end gap-[8px]"></div>
 </form>"
 `;

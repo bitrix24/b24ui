@@ -289,6 +289,7 @@ onMounted(() => {
   <div
     ref="el"
     :data-status="status"
+    data-slot="root"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     :style="{ '--last-message-height': `${lastMessageHeight}px` }"
   >
@@ -315,7 +316,7 @@ onMounted(() => {
     >
       <template #content>
         <slot name="indicator" :b24ui="b24ui">
-          <div :class="b24ui.indicator({ class: props.b24ui?.indicator })">
+          <div data-slot="indicator" :class="b24ui.indicator({ class: props.b24ui?.indicator })">
             <span />
             <span />
             <span />
@@ -325,13 +326,14 @@ onMounted(() => {
     </B24ChatMessage>
 
     <Presence :present="showAutoScroll">
-      <div :data-state="showAutoScroll ? 'open' : 'closed'" :class="b24ui.viewport({ class: props.b24ui?.viewport })">
+      <div :data-state="showAutoScroll ? 'open' : 'closed'" data-slot="viewport" :class="b24ui.viewport({ class: props.b24ui?.viewport })">
         <slot name="viewport" :b24ui="b24ui" :on-click="onAutoScrollClick">
           <B24Button
             v-if="autoScroll"
             :icon="autoScrollIcon || icons.arrowDown"
             color="air-secondary-no-accent"
             v-bind="(typeof autoScroll === 'object' ? autoScroll as Partial<ButtonProps> : {})"
+            data-slot="autoScroll"
             :class="b24ui.autoScroll({ class: props.b24ui?.autoScroll })"
             @click="onAutoScrollClick"
           />

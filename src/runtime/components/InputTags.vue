@@ -176,6 +176,7 @@ defineExpose({
     v-slot="{ modelValue: tags }"
     :model-value="modelValue"
     :default-value="defaultValue"
+    data-slot="root"
     :class="b24ui.root({ class: [b24ui.base({ class: props.b24ui?.base }), props.b24ui?.root, props.class] })"
     v-bind="rootProps"
     :name="name"
@@ -184,6 +185,7 @@ defineExpose({
   >
     <B24Badge
       v-if="isTag"
+      data-slot="tag"
       :class="b24ui.tag({ class: props.b24ui?.tag })"
       :color="props.tagColor"
       :label="props.tag"
@@ -194,19 +196,22 @@ defineExpose({
       v-for="(item, index) in tags"
       :key="index"
       :value="item"
+      data-slot="item"
       :class="b24ui.item({ class: [props.b24ui?.item] })"
     >
-      <TagsInputItemText :class="b24ui.itemText({ class: [props.b24ui?.itemText] })">
+      <TagsInputItemText data-slot="itemText" :class="b24ui.itemText({ class: [props.b24ui?.itemText] })">
         <slot v-if="!!slots['item-text']" name="item-text" :item="(item as T)" :index="index" :b24ui="b24ui" />
       </TagsInputItemText>
 
       <TagsInputItemDelete
+        data-slot="itemDelete"
         :class="b24ui.itemDelete({ class: [props.b24ui?.itemDelete] })"
         :disabled="disabled"
       >
         <slot name="item-delete" :item="(item as T)" :index="index" :b24ui="b24ui">
           <Component
             :is="deleteIcon || icons.close"
+            data-slot="itemDeleteIcon"
             :class="b24ui.itemDeleteIcon({ class: [props.b24ui?.itemDeleteIcon] })"
           />
         </slot>
@@ -218,6 +223,7 @@ defineExpose({
       v-bind="{ ...$attrs, ...ariaAttrs }"
       :placeholder="placeholder"
       :max-length="maxLength"
+      data-slot="input"
       :class="b24ui.input({ class: props.b24ui?.input })"
       @blur="onBlur"
       @focus="onFocus"
@@ -225,27 +231,30 @@ defineExpose({
 
     <slot :b24ui="b24ui" />
 
-    <span v-if="isLeading || !!avatar || !!slots.leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
+    <span v-if="isLeading || !!avatar || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
       <slot name="leading" :b24ui="b24ui">
         <Component
           :is="leadingIconName"
           v-if="isLeading && leadingIconName"
+          data-slot="leadingIcon"
           :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
         />
         <B24Avatar
           v-else-if="!!avatar"
           :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
           v-bind="avatar"
+          data-slot="leadingAvatar"
           :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
         />
       </slot>
     </span>
 
-    <span v-if="isTrailing || !!slots.trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
+    <span v-if="isTrailing || !!slots.trailing" data-slot="trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
       <slot name="trailing" :b24ui="b24ui">
         <Component
           :is="trailingIconName"
           v-if="trailingIconName"
+          data-slot="trailingIcon"
           :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
         />
       </slot>

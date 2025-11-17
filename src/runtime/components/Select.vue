@@ -295,7 +295,7 @@ defineExpose({
 
 <!-- eslint-disable vue/no-template-shadow -->
 <template>
-  <Primitive as="div" :class="b24ui.root({ class: [props.b24ui?.root] })">
+  <Primitive as="div" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root] })">
     <SelectRoot
       v-slot="{ modelValue, open }"
       :name="name"
@@ -310,27 +310,31 @@ defineExpose({
       <SelectTrigger
         :id="id"
         ref="triggerRef"
+        data-slot="base"
         :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
         v-bind="{ ...$attrs, ...ariaAttrs }"
       >
         <B24Badge
           v-if="isTag"
+          data-slot="tag"
           :class="b24ui.tag({ class: props.b24ui?.tag })"
           :color="props.tagColor"
           :label="props.tag"
           size="xs"
         />
-        <span v-if="isLeading || !!avatar || !!slots.leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
+        <span v-if="isLeading || !!avatar || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
           <slot name="leading" :model-value="(modelValue as GetModelValue<T, VK, M>)" :open="open" :b24ui="b24ui">
             <Component
               :is="leadingIconName"
               v-if="isLeading && leadingIconName"
+              data-slot="leadingIcon"
               :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
             />
             <B24Avatar
               v-else-if="!!avatar"
               :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
               v-bind="avatar"
+              data-slot="leadingAvatar"
               :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
             />
           </slot>
@@ -340,12 +344,14 @@ defineExpose({
           <template v-for="displayedModelValue in [displayValue(modelValue as GetModelValue<T, VK, M>)]" :key="displayedModelValue">
             <span
               v-if="displayedModelValue !== undefined && displayedModelValue !== null"
+              data-slot="value"
               :class="b24ui.value({ class: props.b24ui?.value })"
             >
               {{ displayedModelValue }}
             </span>
             <span
               v-else
+              data-slot="placeholder"
               :class="b24ui.placeholder({ class: props.b24ui?.placeholder })"
             >
               {{ placeholder ?? '&nbsp;' }}
@@ -353,11 +359,12 @@ defineExpose({
           </template>
         </slot>
 
-        <span v-if="isTrailing || !!slots.trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
+        <span v-if="isTrailing || !!slots.trailing" data-slot="trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
           <slot name="trailing" :model-value="(modelValue as GetModelValue<T, VK, M>)" :open="open" :b24ui="b24ui">
             <Component
               :is="trailingIconName"
               v-if="trailingIconName"
+              data-slot="trailingIcon"
               :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
             />
           </slot>
@@ -365,23 +372,25 @@ defineExpose({
       </SelectTrigger>
 
       <SelectPortal v-bind="portalProps">
-        <SelectContent :class="b24ui.content({ class: props.b24ui?.content })" v-bind="contentProps">
+        <SelectContent data-slot="content" :class="b24ui.content({ class: props.b24ui?.content })" v-bind="contentProps">
           <slot name="content-top" />
 
           <div
             role="presentation"
+            data-slot="viewport"
             :class="b24ui.viewport({ class: props.b24ui?.viewport })"
           >
-            <SelectGroup v-for="(group, groupIndex) in groups" :key="`group-${groupIndex}`" :class="b24ui.group({ class: props.b24ui?.group })">
+            <SelectGroup v-for="(group, groupIndex) in groups" :key="`group-${groupIndex}`" data-slot="group" :class="b24ui.group({ class: props.b24ui?.group })">
               <template v-for="(item, index) in group" :key="`group-${groupIndex}-${index}`">
-                <SelectLabel v-if="isSelectItem(item) && item.type === 'label'" :class="b24ui.label({ class: [props.b24ui?.label, item.b24ui?.label, item.class] })">
+                <SelectLabel v-if="isSelectItem(item) && item.type === 'label'" data-slot="label" :class="b24ui.label({ class: [props.b24ui?.label, item.b24ui?.label, item.class] })">
                   {{ get(item, props.labelKey as string) }}
                 </SelectLabel>
 
-                <SelectSeparator v-else-if="isSelectItem(item) && item.type === 'separator'" :class="b24ui.separator({ class: [props.b24ui?.separator, item.b24ui?.separator, item.class] })" />
+                <SelectSeparator v-else-if="isSelectItem(item) && item.type === 'separator'" data-slot="separator" :class="b24ui.separator({ class: [props.b24ui?.separator, item.b24ui?.separator, item.class] })" />
 
                 <RSelectItem
                   v-else
+                  data-slot="item"
                   :class="b24ui.item({ class: [props.b24ui?.item, isSelectItem(item) && item.b24ui?.item, isSelectItem(item) && item.class], colorItem: (isSelectItem(item) && item?.color) || undefined })"
                   :disabled="isSelectItem(item) && item.disabled"
                   :value="isSelectItem(item) ? get(item, props.valueKey as string) : item"
@@ -393,12 +402,13 @@ defineExpose({
                         v-if="isSelectItem(item) && item.avatar"
                         :size="((item.b24ui?.itemLeadingAvatarSize || props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])"
                         v-bind="item.avatar"
+                        data-slot="itemLeadingAvatar"
                         :class="b24ui.itemLeadingAvatar({ class: [props.b24ui?.itemLeadingAvatar, item.b24ui?.itemLeadingAvatar], colorItem: item?.color })"
                       />
                     </slot>
 
-                    <span :class="b24ui.itemWrapper({ class: [props.b24ui?.itemWrapper, isSelectItem(item) && item.b24ui?.itemWrapper] })">
-                      <SelectItemText :class="b24ui.itemLabel({ class: [props.b24ui?.itemLabel, isSelectItem(item) && item.b24ui?.itemLabel] })">
+                    <span data-slot="itemWrapper" :class="b24ui.itemWrapper({ class: [props.b24ui?.itemWrapper, isSelectItem(item) && item.b24ui?.itemWrapper] })">
+                      <SelectItemText data-slot="itemLabel" :class="b24ui.itemLabel({ class: [props.b24ui?.itemLabel, isSelectItem(item) && item.b24ui?.itemLabel] })">
                         <slot name="item-label" :item="(item as NestedItem<T>)" :index="index">
                           {{ isSelectItem(item) ? get(item, props.labelKey as string) : item }}
                         </slot>
@@ -406,6 +416,7 @@ defineExpose({
 
                       <span
                         v-if="isSelectItem(item) && (get(item, props.descriptionKey as string) || !!slots['item-description'])"
+                        data-slot="itemDescription"
                         :class="b24ui.itemDescription({ class: [props.b24ui?.itemDescription, isSelectItem(item) && item.b24ui?.itemDescription] })"
                       >
                         <slot
@@ -418,10 +429,11 @@ defineExpose({
                       </span>
                     </span>
 
-                    <span :class="b24ui.itemTrailing({ class: [props.b24ui?.itemTrailing, isSelectItem(item) && item.b24ui?.itemTrailing], colorItem: (isSelectItem(item) && item?.color) || undefined })">
+                    <span data-slot="itemTrailing" :class="b24ui.itemTrailing({ class: [props.b24ui?.itemTrailing, isSelectItem(item) && item.b24ui?.itemTrailing], colorItem: (isSelectItem(item) && item?.color) || undefined })">
                       <SelectItemIndicator as-child>
                         <Component
                           :is="selectedIcon || icons.check"
+                          data-slot="itemTrailingIcon"
                           :class="b24ui.itemTrailingIcon({ class: [props.b24ui?.itemTrailingIcon, isSelectItem(item) && item.b24ui?.itemTrailingIcon], colorItem: (isSelectItem(item) && item?.color) || undefined })"
                         />
                       </SelectItemIndicator>
@@ -430,6 +442,7 @@ defineExpose({
                         <Component
                           :is="item.icon"
                           v-if="isSelectItem(item) && item.icon"
+                          data-slot="itemLeadingIcon"
                           :class="b24ui.itemLeadingIcon({ class: [props.b24ui?.itemLeadingIcon, item.b24ui?.itemLeadingIcon], colorItem: item?.color })"
                         />
                         <B24Chip
@@ -438,6 +451,7 @@ defineExpose({
                           inset
                           standalone
                           v-bind="item.chip"
+                          data-slot="itemLeadingChip"
                           :class="b24ui.itemLeadingChip({ class: [props.b24ui?.itemLeadingChip, item.b24ui?.itemLeadingChip], colorItem: item?.color })"
                         />
                       </slot>
@@ -450,7 +464,7 @@ defineExpose({
 
           <slot name="content-bottom" />
 
-          <SelectArrow v-if="!!arrow" v-bind="arrowProps" :class="b24ui.arrow({ class: props.b24ui?.arrow })" />
+          <SelectArrow v-if="!!arrow" v-bind="arrowProps" data-slot="arrow" :class="b24ui.arrow({ class: props.b24ui?.arrow })" />
         </SelectContent>
       </SelectPortal>
     </SelectRoot>

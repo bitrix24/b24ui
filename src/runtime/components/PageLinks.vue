@@ -61,28 +61,29 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pageLi
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <p v-if="title || !!slots.title" :class="b24ui.title({ class: props.b24ui?.title })">
+  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+    <p v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
       <slot name="title">
         {{ title }}
       </slot>
     </p>
 
-    <ul :class="b24ui.list({ class: props.b24ui?.list })">
-      <li v-for="(link, index) in links" :key="index" :class="b24ui.item({ class: [props.b24ui?.item, link.b24ui?.item] })">
+    <ul data-slot="list" :class="b24ui.list({ class: props.b24ui?.list })">
+      <li v-for="(link, index) in links" :key="index" data-slot="item" :class="b24ui.item({ class: [props.b24ui?.item, link.b24ui?.item] })">
         <B24Link v-slot="{ active, ...slotProps }" v-bind="pickLinkProps(link)" custom>
-          <B24LinkBase v-bind="slotProps" :class="b24ui.link({ class: [props.b24ui?.link, link.b24ui?.link, link.class], active })">
+          <B24LinkBase v-bind="slotProps" data-slot="link" :class="b24ui.link({ class: [props.b24ui?.link, link.b24ui?.link, link.class], active })">
             <slot name="link" :link="link" :active="active" :b24ui="b24ui">
-              <div :class="b24ui.linkWrapper({ class: [props.b24ui?.linkWrapper, link.b24ui?.linkWrapper], active })">
+              <div data-slot="linkWrapper" :class="b24ui.linkWrapper({ class: [props.b24ui?.linkWrapper, link.b24ui?.linkWrapper], active })">
                 <slot name="link-leading" :link="link" :active="active" :b24ui="b24ui">
                   <Component
                     :is="link.icon"
                     v-if="link.icon"
+                    data-slot="linkLeadingIcon"
                     :class="b24ui.linkLeadingIcon({ class: [props.b24ui?.linkLeadingIcon, link.b24ui?.linkLeadingIcon], active })"
                   />
                 </slot>
 
-                <div v-if="link.label || !!slots['link-label']" :class="b24ui.linkLabel({ class: [props.b24ui?.linkLabel, link.b24ui?.linkLabel], active })">
+                <div v-if="link.label || !!slots['link-label']" data-slot="linkLabel" :class="b24ui.linkLabel({ class: [props.b24ui?.linkLabel, link.b24ui?.linkLabel], active })">
                   <slot name="link-label" :link="link" :active="active">
                     {{ link.label }}
                   </slot>
@@ -91,6 +92,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pageLi
               <Component
                 :is="icons.external"
                 v-if="link.target === '_blank'"
+                data-slot="linkLabelExternalIcon"
                 :class="b24ui.linkLabelExternalIcon({ class: [props.b24ui?.linkLabelExternalIcon, link.b24ui?.linkLabelExternalIcon], active })"
               />
 

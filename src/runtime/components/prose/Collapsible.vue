@@ -58,12 +58,13 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
 <template>
   <B24Collapsible :unmount-on-hide="false" :class="props.class" :b24ui="transformUI(b24ui, props.b24ui)">
     <template #default="{ open }">
-      <button :class="b24ui.trigger({ class: props.b24ui?.trigger })">
+      <button data-slot="trigger" :class="b24ui.trigger({ class: props.b24ui?.trigger })">
         <Component
           :is="icon || icons.chevronDown"
+          data-slot="triggerIcon"
           :class="b24ui.triggerIcon({ class: props.b24ui?.triggerIcon })"
         />
-        <span :class="b24ui.triggerLabel({ class: props.b24ui?.triggerLabel })">
+        <span data-slot="triggerLabel" :class="b24ui.triggerLabel({ class: props.b24ui?.triggerLabel })">
           {{ open ? (props.closeText || t('prose.collapsible.closeText')) : (props.openText || t('prose.collapsible.openText')) }} {{ props.name || t('prose.collapsible.name') }}
         </span>
       </button>

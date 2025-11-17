@@ -30,9 +30,6 @@ export interface ProseTableProps {
   class?: any
   b24ui?: ProseTable['slots']
 }
-/**
- * @todo add Pick<Xxxx
- */
 
 export interface ProseTableSlots {
   default(props?: {}): any
@@ -65,6 +62,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
 <template>
   <B24TableWrapper
     :as="as"
+    data-slot="root"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     :zebra="props.zebra"
     :row-hover="props.rowHover"
@@ -72,7 +70,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
     :bordered="props.bordered"
     size="sm"
   >
-    <table :class="b24ui.base({ class: props.b24ui?.base })">
+    <table data-slot="base" :class="b24ui.base({ class: props.b24ui?.base })">
       <slot />
     </table>
   </B24TableWrapper>

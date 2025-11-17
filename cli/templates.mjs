@@ -74,7 +74,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.${came
 [[/script]]
 
 [[template]]
-  [[Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"]]
+  [[Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"]]
     [[slot /]]
   [[/Primitive]]
 [[/template]]
@@ -120,7 +120,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.${came
 [[/script]]
 
 [[template]]
-  [[${upperName}Root v-bind="rootProps" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })" /]]
+  [[${upperName}Root v-bind="rootProps" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })" /]]
 [[/template]]
 `)
   }

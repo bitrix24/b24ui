@@ -1,106 +1,106 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Separator > renders with as correctly 1`] = `"<span data-orientation="horizontal" role="separator" class="flex items-center align-center text-center w-full flex-row"><div class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div><!--v-if--></span>"`;
+exports[`Separator > renders with as correctly 1`] = `"<span data-orientation="horizontal" role="separator" data-slot="root" class="flex items-center align-center text-center w-full flex-row"><div data-slot="border" class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div><!--v-if--></span>"`;
 
 exports[`Separator > renders with avatar correctly 1`] = `
-"<div data-orientation="horizontal" role="separator" class="flex items-center align-center text-center w-full flex-row">
-  <div class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
-  <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-normal) flex text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) mx-3 whitespace-nowrap"><span class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--ui-color-base-8) ring ring-(--ui-color-base-7) size-[28px] text-(length:--ui-font-size-xs)/(--ui-font-line-height-reset) shrink-0"><img src="https://github.com/bitrix24.png" width="22" height="22" class="h-full w-full rounded-[inherit] object-cover"></span></div>
-  <div class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
+"<div data-orientation="horizontal" role="separator" data-slot="root" class="flex items-center align-center text-center w-full flex-row">
+  <div data-slot="border" class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
+  <div data-slot="container" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-normal) flex text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) mx-3 whitespace-nowrap"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--ui-color-base-8) ring ring-(--ui-color-base-7) size-[28px] text-(length:--ui-font-size-xs)/(--ui-font-line-height-reset) shrink-0"><img src="https://github.com/bitrix24.png" width="22" height="22" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span></div>
+  <div data-slot="border" class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
 </div>"
 `;
 
 exports[`Separator > renders with b24ui correctly 1`] = `
-"<div data-orientation="horizontal" role="separator" class="flex items-center align-center text-center w-full flex-row">
-  <div class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
+"<div data-orientation="horizontal" role="separator" data-slot="root" class="flex items-center align-center text-center w-full flex-row">
+  <div data-slot="border" class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Separator > renders with class correctly 1`] = `
-"<div data-orientation="horizontal" role="separator" class="flex items-center align-center text-center w-full flex-row-reverse">
-  <div class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
+"<div data-orientation="horizontal" role="separator" data-slot="root" class="flex items-center align-center text-center w-full flex-row-reverse">
+  <div data-slot="border" class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Separator > renders with color success correctly 1`] = `
-"<div data-orientation="horizontal" role="separator" class="flex items-center align-center text-center w-full flex-row" color="air-primary-success">
-  <div class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
+"<div data-orientation="horizontal" role="separator" data-slot="root" class="flex items-center align-center text-center w-full flex-row" color="air-primary-success">
+  <div data-slot="border" class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Separator > renders with decorative correctly 1`] = `
-"<div data-orientation="horizontal" role="none" class="flex items-center align-center text-center w-full flex-row">
-  <div class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
+"<div data-orientation="horizontal" role="none" data-slot="root" class="flex items-center align-center text-center w-full flex-row">
+  <div data-slot="border" class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Separator > renders with icon correctly 1`] = `
-"<div data-orientation="horizontal" role="separator" class="flex items-center align-center text-center w-full flex-row">
-  <div class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
-  <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-normal) flex text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) mx-3 whitespace-nowrap"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-7">
+"<div data-orientation="horizontal" role="separator" data-slot="root" class="flex items-center align-center text-center w-full flex-row">
+  <div data-slot="border" class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
+  <div data-slot="container" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-normal) flex text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) mx-3 whitespace-nowrap"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-7">
       <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
     </svg></div>
-  <div class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
+  <div data-slot="border" class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
 </div>"
 `;
 
 exports[`Separator > renders with label correctly 1`] = `
-"<div data-orientation="horizontal" role="separator" class="flex items-center align-center text-center w-full flex-row">
-  <div class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
-  <div class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-normal) flex text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) mx-3 whitespace-nowrap"><span class="">+1</span></div>
-  <div class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
+"<div data-orientation="horizontal" role="separator" data-slot="root" class="flex items-center align-center text-center w-full flex-row">
+  <div data-slot="border" class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
+  <div data-slot="container" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-normal) flex text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) mx-3 whitespace-nowrap"><span data-slot="label" class="">+1</span></div>
+  <div data-slot="border" class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
 </div>"
 `;
 
 exports[`Separator > renders with orientation vertical correctly 1`] = `
-"<div data-orientation="vertical" aria-orientation="vertical" role="separator" class="flex items-center align-center text-center h-full flex-col">
-  <div class="border-(--ui-color-divider-vibrant-default) h-full border-solid border-s-(length:--ui-border-width-thin)"></div>
+"<div data-orientation="vertical" aria-orientation="vertical" role="separator" data-slot="root" class="flex items-center align-center text-center h-full flex-col">
+  <div data-slot="border" class="border-(--ui-color-divider-vibrant-default) h-full border-solid border-s-(length:--ui-border-width-thin)"></div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Separator > renders with size thick correctly 1`] = `
-"<div data-orientation="horizontal" role="separator" class="flex items-center align-center text-center w-full flex-row">
-  <div class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thick)"></div>
+"<div data-orientation="horizontal" role="separator" data-slot="root" class="flex items-center align-center text-center w-full flex-row">
+  <div data-slot="border" class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thick)"></div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Separator > renders with size thin correctly 1`] = `
-"<div data-orientation="horizontal" role="separator" class="flex items-center align-center text-center w-full flex-row">
-  <div class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
+"<div data-orientation="horizontal" role="separator" data-slot="root" class="flex items-center align-center text-center w-full flex-row">
+  <div data-slot="border" class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Separator > renders with type dashed correctly 1`] = `
-"<div data-orientation="horizontal" role="separator" class="flex items-center align-center text-center w-full flex-row">
-  <div class="border-(--ui-color-divider-vibrant-default) w-full border-dashed border-t-(length:--ui-border-width-thin)"></div>
+"<div data-orientation="horizontal" role="separator" data-slot="root" class="flex items-center align-center text-center w-full flex-row">
+  <div data-slot="border" class="border-(--ui-color-divider-vibrant-default) w-full border-dashed border-t-(length:--ui-border-width-thin)"></div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Separator > renders with type dotted correctly 1`] = `
-"<div data-orientation="horizontal" role="separator" class="flex items-center align-center text-center w-full flex-row">
-  <div class="border-(--ui-color-divider-vibrant-default) w-full border-dotted border-t-(length:--ui-border-width-thin)"></div>
+"<div data-orientation="horizontal" role="separator" data-slot="root" class="flex items-center align-center text-center w-full flex-row">
+  <div data-slot="border" class="border-(--ui-color-divider-vibrant-default) w-full border-dotted border-t-(length:--ui-border-width-thin)"></div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Separator > renders with type double correctly 1`] = `
-"<div data-orientation="horizontal" role="separator" class="flex items-center align-center text-center w-full flex-row">
-  <div class="border-(--ui-color-divider-vibrant-default) w-full border-double border-t-(length:--ui-border-width-thin)"></div>
+"<div data-orientation="horizontal" role="separator" data-slot="root" class="flex items-center align-center text-center w-full flex-row">
+  <div data-slot="border" class="border-(--ui-color-divider-vibrant-default) w-full border-double border-t-(length:--ui-border-width-thin)"></div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Separator > renders with type solid correctly 1`] = `
-"<div data-orientation="horizontal" role="separator" class="flex items-center align-center text-center w-full flex-row">
-  <div class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
+"<div data-orientation="horizontal" role="separator" data-slot="root" class="flex items-center align-center text-center w-full flex-row">
+  <div data-slot="border" class="border-(--ui-color-divider-vibrant-default) w-full border-solid border-t-(length:--ui-border-width-thin)"></div>
   <!--v-if-->
 </div>"
 `;

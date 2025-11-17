@@ -31,12 +31,12 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
 </script>
 
 <template>
-  <div :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <div :class="b24ui.preview({ class: [props.b24ui?.preview] })">
+  <div data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+    <div data-slot="preview" :class="b24ui.preview({ class: [props.b24ui?.preview] })">
       <slot />
     </div>
 
-    <div v-if="!!slots.code" :class="b24ui.code({ class: [props.b24ui?.code] })">
+    <div v-if="!!slots.code" data-slot="code" :class="b24ui.code({ class: [props.b24ui?.code] })">
       <slot name="code" />
     </div>
   </div>

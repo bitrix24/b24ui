@@ -1,8 +1,8 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Checkbox > renders with ariaLabel correctly 1`] = `
-"<div class="relative flex items-start style-filled flex-row">
-  <div class="flex items-center h-[16px]"><button aria-label="Aria label" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
+"<div data-slot="root" class="relative flex items-start style-filled flex-row">
+  <div data-slot="container" class="flex items-center h-[16px]"><button aria-label="Aria label" data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
       <!--v-if-->
     </button></div>
@@ -11,8 +11,8 @@ exports[`Checkbox > renders with ariaLabel correctly 1`] = `
 `;
 
 exports[`Checkbox > renders with as correctly 1`] = `
-"<section class="relative flex items-start style-filled flex-row">
-  <div class="flex items-center h-[16px]"><button class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
+"<section data-slot="root" class="relative flex items-start style-filled flex-row">
+  <div data-slot="container" class="flex items-center h-[16px]"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
       <!--v-if-->
     </button></div>
@@ -21,8 +21,8 @@ exports[`Checkbox > renders with as correctly 1`] = `
 `;
 
 exports[`Checkbox > renders with b24ui correctly 1`] = `
-"<div class="relative flex items-start style-filled flex-row">
-  <div class="flex items-center h-[16px]"><button class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
+"<div data-slot="root" class="relative flex items-start style-filled flex-row">
+  <div data-slot="container" class="flex items-center h-[16px]"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
       <!--v-if-->
     </button></div>
@@ -31,8 +31,8 @@ exports[`Checkbox > renders with b24ui correctly 1`] = `
 `;
 
 exports[`Checkbox > renders with class correctly 1`] = `
-"<div class="relative items-start style-filled flex-row inline-flex">
-  <div class="flex items-center h-[16px]"><button class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
+"<div data-slot="root" class="relative items-start style-filled flex-row inline-flex">
+  <div data-slot="container" class="flex items-center h-[16px]"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
       <!--v-if-->
     </button></div>
@@ -41,8 +41,8 @@ exports[`Checkbox > renders with class correctly 1`] = `
 `;
 
 exports[`Checkbox > renders with color air-primary-success correctly 1`] = `
-"<div class="relative flex items-start style-filled-success flex-row">
-  <div class="flex items-center h-[16px]"><button class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span>
+"<div data-slot="root" class="relative flex items-start style-filled-success flex-row">
+  <div data-slot="container" class="flex items-center h-[16px]"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span>
       <!--v-if-->
     </button></div>
   <!--v-if-->
@@ -50,8 +50,8 @@ exports[`Checkbox > renders with color air-primary-success correctly 1`] = `
 `;
 
 exports[`Checkbox > renders with defaultValue correctly 1`] = `
-"<div class="relative flex items-start style-filled flex-row">
-  <div class="flex items-center h-[16px]"><button class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span>
+"<div data-slot="root" class="relative flex items-start style-filled flex-row">
+  <div data-slot="container" class="flex items-center h-[16px]"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span>
       <!--v-if-->
     </button></div>
   <!--v-if-->
@@ -59,32 +59,32 @@ exports[`Checkbox > renders with defaultValue correctly 1`] = `
 `;
 
 exports[`Checkbox > renders with description correctly 1`] = `
-"<div class="relative flex items-start style-filled flex-row">
-  <div class="flex items-center h-[16px]"><button class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
+"<div data-slot="root" class="relative flex items-start style-filled flex-row">
+  <div data-slot="container" class="flex items-center h-[16px]"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
       <!--v-if-->
     </button></div>
-  <div class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-[16px]"><label for="v-0-0" class="cursor-pointer block text-(--b24ui-typography-label-color)">Label</label>
-    <p class="mt-[4px] text-(--b24ui-typography-description-color)">Description</p>
+  <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-[16px]"><label for="v-0-0" data-slot="label" class="cursor-pointer block text-(--b24ui-typography-label-color)">Label</label>
+    <p data-slot="description" class="mt-[4px] text-(--b24ui-typography-description-color)">Description</p>
   </div>
 </div>"
 `;
 
 exports[`Checkbox > renders with description slot correctly 1`] = `
-"<div class="relative flex items-start style-filled flex-row">
-  <div class="flex items-center h-[16px]"><button class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
+"<div data-slot="root" class="relative flex items-start style-filled flex-row">
+  <div data-slot="container" class="flex items-center h-[16px]"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
       <!--v-if-->
     </button></div>
-  <div class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-[16px]"><label for="v-0-0" class="cursor-pointer block text-(--b24ui-typography-label-color)">Description slot</label>
+  <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-[16px]"><label for="v-0-0" data-slot="label" class="cursor-pointer block text-(--b24ui-typography-label-color)">Description slot</label>
     <!--v-if-->
   </div>
 </div>"
 `;
 
 exports[`Checkbox > renders with disabled correctly 1`] = `
-"<div class="relative flex items-start style-filled flex-row">
-  <div class="flex items-center h-[16px]"><button class="flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px] cursor-not-allowed opacity-30" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" data-disabled="" disabled="">
+"<div data-slot="root" class="relative flex items-start style-filled flex-row">
+  <div data-slot="container" class="flex items-center h-[16px]"><button data-slot="base" class="flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px] cursor-not-allowed opacity-30" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" data-disabled="" disabled="">
       <!---->
       <!--v-if-->
     </button></div>
@@ -93,8 +93,8 @@ exports[`Checkbox > renders with disabled correctly 1`] = `
 `;
 
 exports[`Checkbox > renders with id correctly 1`] = `
-"<div class="relative flex items-start style-filled flex-row">
-  <div class="flex items-center h-[16px]"><button class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="id" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
+"<div data-slot="root" class="relative flex items-start style-filled flex-row">
+  <div data-slot="container" class="flex items-center h-[16px]"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="id" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
       <!--v-if-->
     </button></div>
@@ -103,8 +103,8 @@ exports[`Checkbox > renders with id correctly 1`] = `
 `;
 
 exports[`Checkbox > renders with indeterminate correctly 1`] = `
-"<div class="relative flex items-start style-filled flex-row">
-  <div class="flex items-center h-[16px]"><button class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="mixed" aria-required="false" data-state="indeterminate"><span data-state="indeterminate" style="pointer-events: none;" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M7 11v2h10v-2H7" clip-rule="evenodd"></path></svg></span>
+"<div data-slot="root" class="relative flex items-start style-filled flex-row">
+  <div data-slot="container" class="flex items-center h-[16px]"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="mixed" aria-required="false" data-state="indeterminate"><span data-state="indeterminate" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M7 11v2h10v-2H7" clip-rule="evenodd"></path></svg></span>
       <!--v-if-->
     </button></div>
   <!--v-if-->
@@ -112,32 +112,32 @@ exports[`Checkbox > renders with indeterminate correctly 1`] = `
 `;
 
 exports[`Checkbox > renders with label correctly 1`] = `
-"<div class="relative flex items-start style-filled flex-row">
-  <div class="flex items-center h-[16px]"><button class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
+"<div data-slot="root" class="relative flex items-start style-filled flex-row">
+  <div data-slot="container" class="flex items-center h-[16px]"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
       <!--v-if-->
     </button></div>
-  <div class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-[16px]"><label for="v-0-0" class="cursor-pointer block text-(--b24ui-typography-label-color)">Label</label>
+  <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-[16px]"><label for="v-0-0" data-slot="label" class="cursor-pointer block text-(--b24ui-typography-label-color)">Label</label>
     <!--v-if-->
   </div>
 </div>"
 `;
 
 exports[`Checkbox > renders with label slot correctly 1`] = `
-"<div class="relative flex items-start style-filled flex-row">
-  <div class="flex items-center h-[16px]"><button class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
+"<div data-slot="root" class="relative flex items-start style-filled flex-row">
+  <div data-slot="container" class="flex items-center h-[16px]"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
       <!--v-if-->
     </button></div>
-  <div class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-[16px]"><label for="v-0-0" class="cursor-pointer block text-(--b24ui-typography-label-color)">Label slot</label>
+  <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-[16px]"><label for="v-0-0" data-slot="label" class="cursor-pointer block text-(--b24ui-typography-label-color)">Label slot</label>
     <!--v-if-->
   </div>
 </div>"
 `;
 
 exports[`Checkbox > renders with modelValue correctly 1`] = `
-"<div class="relative flex items-start style-filled flex-row">
-  <div class="flex items-center h-[16px]"><button class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span>
+"<div data-slot="root" class="relative flex items-start style-filled flex-row">
+  <div data-slot="container" class="flex items-center h-[16px]"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="true" aria-required="false" data-state="checked"><span data-state="checked" style="pointer-events: none;" data-slot="indicator" class="rounded-(--ui-border-radius-2xs) flex items-center justify-center size-full text-(--b24ui-color) ring-1 ring-(--b24ui-background) bg-(--b24ui-background)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-full"><path fill="currentColor" fill-rule="evenodd" d="M9.602 19.018a.3.3 0 0 1-.419 0l-5.851-5.703a.4.4 0 0 1 0-.573l1.65-1.609a.4.4 0 0 1 .56 0l3.85 3.754L18.46 6.05a.4.4 0 0 1 .558 0l1.651 1.61a.4.4 0 0 1 0 .572z" clip-rule="evenodd"></path></svg></span>
       <!--v-if-->
     </button></div>
   <!--v-if-->
@@ -145,8 +145,8 @@ exports[`Checkbox > renders with modelValue correctly 1`] = `
 `;
 
 exports[`Checkbox > renders with name correctly 1`] = `
-"<div class="relative flex items-start style-filled flex-row">
-  <div class="flex items-center h-[16px]"><button class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
+"<div data-slot="root" class="relative flex items-start style-filled flex-row">
+  <div data-slot="container" class="flex items-center h-[16px]"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
       <!--v-if-->
     </button></div>
@@ -155,20 +155,20 @@ exports[`Checkbox > renders with name correctly 1`] = `
 `;
 
 exports[`Checkbox > renders with required correctly 1`] = `
-"<div class="relative flex items-start style-filled flex-row">
-  <div class="flex items-center h-[16px]"><button class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="true" data-state="unchecked">
+"<div data-slot="root" class="relative flex items-start style-filled flex-row">
+  <div data-slot="container" class="flex items-center h-[16px]"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="true" data-state="unchecked">
       <!---->
       <!--v-if-->
     </button></div>
-  <div class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-[16px]"><label for="v-0-0" class="cursor-pointer block text-(--b24ui-typography-label-color) after:content-['*'] after:ms-0.5 after:text-(--ui-color-accent-main-alert)">Label</label>
+  <div data-slot="wrapper" class="w-full font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) ms-2 text-(length:--ui-font-size-lg) leading-[16px]"><label for="v-0-0" data-slot="label" class="cursor-pointer block text-(--b24ui-typography-label-color) after:content-['*'] after:ms-0.5 after:text-(--ui-color-accent-main-alert)">Label</label>
     <!--v-if-->
   </div>
 </div>"
 `;
 
 exports[`Checkbox > renders with size lg correctly 1`] = `
-"<div class="relative flex items-start style-filled flex-row">
-  <div class="flex items-center h-[20px]"><button class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[20px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
+"<div data-slot="root" class="relative flex items-start style-filled flex-row">
+  <div data-slot="container" class="flex items-center h-[20px]"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[20px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
       <!--v-if-->
     </button></div>
@@ -177,8 +177,8 @@ exports[`Checkbox > renders with size lg correctly 1`] = `
 `;
 
 exports[`Checkbox > renders with size md correctly 1`] = `
-"<div class="relative flex items-start style-filled flex-row">
-  <div class="flex items-center h-[16px]"><button class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
+"<div data-slot="root" class="relative flex items-start style-filled flex-row">
+  <div data-slot="container" class="flex items-center h-[16px]"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
       <!--v-if-->
     </button></div>
@@ -187,8 +187,8 @@ exports[`Checkbox > renders with size md correctly 1`] = `
 `;
 
 exports[`Checkbox > renders with size sm correctly 1`] = `
-"<div class="relative flex items-start style-filled flex-row">
-  <div class="flex items-center h-[14px]"><button class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[14px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
+"<div data-slot="root" class="relative flex items-start style-filled flex-row">
+  <div data-slot="container" class="flex items-center h-[14px]"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[14px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
       <!--v-if-->
     </button></div>
@@ -197,8 +197,8 @@ exports[`Checkbox > renders with size sm correctly 1`] = `
 `;
 
 exports[`Checkbox > renders with size xs correctly 1`] = `
-"<div class="relative flex items-start style-filled flex-row">
-  <div class="flex items-center h-[12px]"><button class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[12px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
+"<div data-slot="root" class="relative flex items-start style-filled flex-row">
+  <div data-slot="container" class="flex items-center h-[12px]"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[12px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
       <!--v-if-->
     </button></div>
@@ -207,8 +207,8 @@ exports[`Checkbox > renders with size xs correctly 1`] = `
 `;
 
 exports[`Checkbox > renders with value correctly 1`] = `
-"<div class="relative flex items-start style-filled flex-row">
-  <div class="flex items-center h-[16px]"><button class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
+"<div data-slot="root" class="relative flex items-start style-filled flex-row">
+  <div data-slot="container" class="flex items-center h-[16px]"><button data-slot="base" class="cursor-pointer flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px]" id="v-0-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked">
       <!---->
       <!--v-if-->
     </button></div>

@@ -93,8 +93,8 @@ defineExpose({
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })" @submit.prevent="submit">
-    <div v-if="!!slots.header" :class="b24ui.header({ class: props.b24ui?.header })">
+  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })" @submit.prevent="submit">
+    <div v-if="!!slots.header" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
       <slot name="header" />
     </div>
 
@@ -106,6 +106,7 @@ defineExpose({
       no-border
       v-bind="{ ...textareaProps, ...$attrs }"
       :b24ui="transformUI(omit(b24ui, ['root', 'body', 'header', 'footer']), props.b24ui)"
+      data-slot="body"
       :class="b24ui.body({ class: props.b24ui?.body })"
       @keydown.enter.exact.prevent="submit"
       @keydown.esc="blur"
@@ -115,7 +116,7 @@ defineExpose({
       </template>
     </B24Textarea>
 
-    <div :class="b24ui.footer({ class: props.b24ui?.footer })">
+    <div data-slot="footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
       <slot name="footer" />
       <slot name="default" :b24ui="transformUI(omit(b24ui, ['root', 'body', 'header', 'footer']), props.b24ui)" />
     </div>

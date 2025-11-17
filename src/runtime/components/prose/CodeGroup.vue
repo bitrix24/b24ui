@@ -93,14 +93,14 @@ onBeforeUpdate(() => rerenderCount.value++)
 </script>
 
 <template>
-  <TabsRoot v-model="model" :default-value="defaultValue" :unmount-on-hide="false" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <TabsList :class="b24ui.list({ class: props.b24ui?.list })">
-      <TabsIndicator :class="b24ui.indicator({ class: props.b24ui?.indicator })" />
+  <TabsRoot v-model="model" :default-value="defaultValue" :unmount-on-hide="false" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+    <TabsList data-slot="list" :class="b24ui.list({ class: props.b24ui?.list })">
+      <TabsIndicator data-slot="indicator" :class="b24ui.indicator({ class: props.b24ui?.indicator })" />
 
-      <TabsTrigger v-for="(item, index) of items" :key="index" :value="String(index)" :class="b24ui.trigger({ class: props.b24ui?.trigger })">
-        <B24CodeIcon :icon="item.icon" :filename="item.label" :class="b24ui.triggerIcon({ class: props.b24ui?.triggerIcon })" />
+      <TabsTrigger v-for="(item, index) of items" :key="index" :value="String(index)" data-slot="trigger" :class="b24ui.trigger({ class: props.b24ui?.trigger })">
+        <B24CodeIcon :icon="item.icon" :filename="item.label" data-slot="triggerIcon" :class="b24ui.triggerIcon({ class: props.b24ui?.triggerIcon })" />
 
-        <span :class="b24ui.triggerLabel({ class: props.b24ui?.triggerLabel })">{{ item.label }}</span>
+        <span data-slot="triggerLabel" :class="b24ui.triggerLabel({ class: props.b24ui?.triggerLabel })">{{ item.label }}</span>
       </TabsTrigger>
     </TabsList>
 

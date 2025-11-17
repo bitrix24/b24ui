@@ -44,12 +44,14 @@ const generate = computed(() => props.id && typeof headings?.anchorLinks === 'ob
 <template>
   <h2
     :id="id"
+    data-slot="base"
     :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
   >
-    <a v-if="id && generate" :href="`#${id}`" :class="b24ui.link({ class: props.b24ui?.link })">
-      <span :class="b24ui.leading({ class: props.b24ui?.leading })">
+    <a v-if="id && generate" :href="`#${id}`" data-slot="link" :class="b24ui.link({ class: props.b24ui?.link })">
+      <span data-slot="leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
         <Component
           :is="icons.hash"
+          data-slot="leadingIcon"
           :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
         />
       </span>

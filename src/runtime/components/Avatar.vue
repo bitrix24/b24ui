@@ -104,6 +104,7 @@ function onError() {
     :is="props.chip ? B24Chip : Primitive"
     :as="as.root"
     v-bind="props.chip ? (typeof props.chip === 'object' ? { inset: true, ...props.chip } : { inset: true }) : {}"
+    data-slot="root"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     :style="props.style"
   >
@@ -115,14 +116,15 @@ function onError() {
       :width="sizePx"
       :height="sizePx"
       v-bind="$attrs"
+      data-slot="image"
       :class="b24ui.image({ class: props.b24ui?.image })"
       @error="onError"
     />
 
     <Slot v-else v-bind="$attrs">
       <slot>
-        <Component :is="icon" v-if="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
-        <span v-else :class="b24ui.fallback({ class: props.b24ui?.fallback })">{{ fallback || '&nbsp;' }}</span>
+        <Component :is="icon" v-if="icon" data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
+        <span v-else data-slot="fallback" :class="b24ui.fallback({ class: props.b24ui?.fallback })">{{ fallback || '&nbsp;' }}</span>
       </slot>
     </Slot>
   </component>

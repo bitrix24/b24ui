@@ -52,24 +52,24 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <div :class="b24ui.container({ class: props.b24ui?.container })">
-      <span v-if="name" :class="b24ui.name({ class: props.b24ui?.name })">
+  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+    <div data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">
+      <span v-if="name" data-slot="name" :class="b24ui.name({ class: props.b24ui?.name })">
         {{ name }}
       </span>
 
-      <div v-if="type || required" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
-        <span v-if="type" :class="b24ui.type({ class: props.b24ui?.type })">
+      <div v-if="type || required" data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
+        <span v-if="type" data-slot="type" :class="b24ui.type({ class: props.b24ui?.type })">
           {{ type }}
         </span>
 
-        <span v-if="required" :class="b24ui.required({ class: props.b24ui?.required })">
+        <span v-if="required" data-slot="required" :class="b24ui.required({ class: props.b24ui?.required })">
           required
         </span>
       </div>
     </div>
 
-    <div v-if="!!slots.default || description" :class="b24ui.description({ class: props.b24ui?.description })">
+    <div v-if="!!slots.default || description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
       <slot mdc-unwrap="p">
         {{ description }}
       </slot>

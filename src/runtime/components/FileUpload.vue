@@ -277,11 +277,12 @@ defineExpose({
     <template v-if="props.preview && modelValue && (Array.isArray(modelValue) ? modelValue.length : true)">
       <slot name="files-top" :files="modelValue" :open="open" :remove-file="removeFile" />
 
-      <div :class="b24ui.files({ class: props.b24ui?.files })">
+      <div data-slot="files" :class="b24ui.files({ class: props.b24ui?.files })">
         <slot name="files" :files="modelValue">
           <div
             v-for="(file, index) in Array.isArray(modelValue) ? modelValue : [modelValue]"
             :key="(file as File).name"
+            data-slot="file"
             :class="b24ui.file({ class: props.b24ui?.file })"
           >
             <slot name="file" :file="file" :index="index">
@@ -291,18 +292,19 @@ defineExpose({
                   :src="createObjectUrl(file)"
                   :icon="fileIcon || icons.file"
                   :size="props.size"
+                  data-slot="fileLeadingAvatar"
                   :class="b24ui.fileLeadingAvatar({ class: props.b24ui?.fileLeadingAvatar })"
                 />
               </slot>
 
-              <div :class="b24ui.fileWrapper({ class: props.b24ui?.fileWrapper })">
-                <span :class="b24ui.fileName({ class: props.b24ui?.fileName })">
+              <div data-slot="fileWrapper" :class="b24ui.fileWrapper({ class: props.b24ui?.fileWrapper })">
+                <span data-slot="fileName" :class="b24ui.fileName({ class: props.b24ui?.fileName })">
                   <slot name="file-name" :file="file" :index="index">
                     {{ (file as File).name }}
                   </slot>
                 </span>
 
-                <span :class="b24ui.fileSize({ class: props.b24ui?.fileSize })">
+                <span data-slot="fileSize" :class="b24ui.fileSize({ class: props.b24ui?.fileSize })">
                   <slot name="file-size" :file="file" :index="index">
                     {{ formatFileSize((file as File).size) }}
                   </slot>
@@ -324,6 +326,7 @@ defineExpose({
                   }"
                   :aria-label="t('fileUpload.removeFile', { filename: (file as File).name })"
                   :icon="fileDeleteIcon || icons.close"
+                  data-slot="fileTrailingButton"
                   :class="b24ui.fileTrailingButton({ class: props.b24ui?.fileTrailingButton })"
                   @click.stop.prevent="removeFile(index)"
                 />
@@ -337,7 +340,7 @@ defineExpose({
     </template>
   </DefineFilesTemplate>
 
-  <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <slot :open="open" :remove-file="removeFile" :b24ui="b24ui">
       <component
         :is="variant === 'button' ? 'button' : 'div'"
@@ -345,6 +348,7 @@ defineExpose({
         :type="variant === 'button' ? 'button' : undefined"
         :role="variant === 'button' ? undefined : 'button'"
         :data-dragging="isDragging"
+        data-slot="base"
         :class="b24ui.base({ class: props.b24ui?.base })"
         :tabindex="interactive && !disabled ? 0 : -1"
         @click="interactive && !disabled && open()"
@@ -355,35 +359,38 @@ defineExpose({
 
         <div
           v-if="position === 'inside' ? (multiple ? !(modelValue as File[])?.length : !modelValue) : true"
+          data-slot="wrapper"
           :class="b24ui.wrapper({ class: props.b24ui?.wrapper })"
         >
           <slot name="leading" :b24ui="b24ui">
             <Component
               :is="icon || icons.upload"
               v-if="variant === 'button'"
+              data-slot="icon"
               :class="b24ui.icon({ class: props.b24ui?.icon })"
             />
             <B24Avatar
               v-else
               :icon="icon || icons.upload"
               :size="props.size"
+              data-slot="avatar"
               :class="b24ui.avatar({ class: props.b24ui?.avatar })"
             />
           </slot>
 
           <template v-if="variant !== 'button'">
-            <div v-if="label || !!slots.label" :class="b24ui.label({ class: props.b24ui?.label })">
+            <div v-if="label || !!slots.label" data-slot="label" :class="b24ui.label({ class: props.b24ui?.label })">
               <slot name="label">
                 {{ label }}
               </slot>
             </div>
-            <div v-if="description || !!slots.description" :class="b24ui.description({ class: props.b24ui?.description })">
+            <div v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
               <slot name="description">
                 {{ description }}
               </slot>
             </div>
 
-            <div v-if="!!slots.actions" :class="b24ui.actions({ class: props.b24ui?.actions })">
+            <div v-if="!!slots.actions" data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions })">
               <slot name="actions" :files="modelValue" :open="open" :remove-file="removeFile" />
             </div>
           </template>

@@ -15,7 +15,7 @@ export default {
       'flex flex-col',
       'max-lg:hidden',
       // 'border-t border-(--leftmenu-bg-divider)',
-      '[&>[data-slot=section]+[data-slot=section]]:mt-2.5'
+      '[&>[data-component=section]+[data-component=section]]:mt-2.5'
     ].join(' ')
   }
 }

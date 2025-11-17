@@ -173,19 +173,19 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.progre
 </script>
 
 <template>
-  <Primitive :as="as" :data-orientation="orientation" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <div v-if="!isIndeterminate && (status || !!slots.status)" :class="b24ui.status({ class: props.b24ui?.status })" :style="statusStyle">
+  <Primitive :as="as" :data-orientation="orientation" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+    <div v-if="!isIndeterminate && (status || !!slots.status)" data-slot="status" :class="b24ui.status({ class: props.b24ui?.status })" :style="statusStyle">
       <slot name="status" :percent="percent">
         {{ percent }}%
       </slot>
     </div>
 
-    <ProgressRoot v-bind="rootProps" :max="realMax" :class="b24ui.base({ class: props.b24ui?.base })" style="transform: translateZ(0)">
-      <ProgressIndicator :class="b24ui.indicator({ class: props.b24ui?.indicator })" :style="indicatorStyle" />
+    <ProgressRoot v-bind="rootProps" :max="realMax" data-slot="base" :class="b24ui.base({ class: props.b24ui?.base })" style="transform: translateZ(0)">
+      <ProgressIndicator data-slot="indicator" :class="b24ui.indicator({ class: props.b24ui?.indicator })" :style="indicatorStyle" />
     </ProgressRoot>
 
-    <div v-if="hasSteps" :class="b24ui.steps({ class: props.b24ui?.steps })">
-      <div v-for="(step, index) in max" :key="index" :class="b24ui.step({ class: props.b24ui?.step, step: stepVariant(index) })">
+    <div v-if="hasSteps" data-slot="steps" :class="b24ui.steps({ class: props.b24ui?.steps })">
+      <div v-for="(step, index) in max" :key="index" data-slot="step" :class="b24ui.step({ class: props.b24ui?.step, step: stepVariant(index) })">
         <slot :name="`step-${index}`" :step="step">
           {{ step }}
         </slot>

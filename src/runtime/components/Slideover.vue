@@ -151,10 +151,11 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.slideo
     </DialogTrigger>
 
     <DialogPortal v-bind="portalProps">
-      <DialogOverlay v-if="overlay" :class="b24ui.overlay({ class: props.b24ui?.overlay })" />
+      <DialogOverlay v-if="overlay" data-slot="overlay" :class="b24ui.overlay({ class: props.b24ui?.overlay })" />
 
       <DialogContent
         :data-side="side"
+        data-slot="content"
         :class="b24ui.content({ class: [!slots.default && props.class, props.b24ui?.content] })"
         v-bind="contentProps"
         @after-enter="emits('after:enter')"
@@ -197,6 +198,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.slideo
                     label: 'hidden sm:flex'
                   }"
                   v-bind="(typeof props.close === 'object' ? props.close as Partial<ButtonProps> : {})"
+                  data-slot="close"
                   :class="b24ui.close({ class: props.b24ui?.close })"
                 />
               </slot>
@@ -224,16 +226,16 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.slideo
             </template>
 
             <template v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description) || (['top'].includes(props?.side) && (props.close || !!slots.close))" #content-top>
-              <div :class="b24ui.header({ class: props.b24ui?.header })">
+              <div data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
                 <slot name="header" :close="close">
-                  <div :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
-                    <DialogTitle v-if="title || !!slots.title" :class="b24ui.title({ class: props.b24ui?.title })">
+                  <div data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
+                    <DialogTitle v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
                       <slot name="title">
                         {{ title }}
                       </slot>
                     </DialogTitle>
 
-                    <DialogDescription v-if="description || !!slots.description" :class="b24ui.description({ class: props.b24ui?.description })">
+                    <DialogDescription v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
                       <slot name="description">
                         {{ description }}
                       </slot>
@@ -250,6 +252,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.slideo
                           :aria-label="t('slideover.close')"
                           size="lg"
                           v-bind="(typeof props.close === 'object' ? props.close as Partial<ButtonProps> : {})"
+                          data-slot="close"
                           :class="b24ui.close({ class: props.b24ui?.close })"
                         />
                       </slot>
@@ -264,13 +267,13 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.slideo
             </template>
 
             <template v-if="!!slots['body']" #default>
-              <div :class="b24ui.body({ class: props.b24ui?.body })">
+              <div data-slot="body" :class="b24ui.body({ class: props.b24ui?.body })">
                 <slot name="body" :close="close" />
               </div>
             </template>
 
             <template v-if="!!slots.footer" #content-bottom>
-              <div :class="b24ui.footer({ class: props.b24ui?.footer })">
+              <div data-slot="footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
                 <slot name="footer" :close="close" />
               </div>
             </template>

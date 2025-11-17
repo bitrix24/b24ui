@@ -467,14 +467,16 @@ defineExpose({
 <template>
   <DefineCreateItemTemplate>
     <ComboboxItem
+      data-slot="item"
       :class="b24ui.item({ addNew: true, class: props.b24ui?.item })"
       :value="searchTerm"
       @select.prevent="emits('create', searchTerm)"
     >
-      <span :class="b24ui.itemLabel({ addNew: true, class: props.b24ui?.itemLabel })">
+      <span data-slot="itemLabel" :class="b24ui.itemLabel({ addNew: true, class: props.b24ui?.itemLabel })">
         <slot name="create-item-label" :item="searchTerm">
           <Component
             :is="icons.plus"
+            data-slot="itemLeadingIcon"
             :class="b24ui.itemLeadingIcon({ addNew: true, class: props.b24ui?.itemLeadingIcon })"
           />
           {{ t('inputMenu.create', { label: searchTerm }) }}
@@ -484,14 +486,15 @@ defineExpose({
   </DefineCreateItemTemplate>
 
   <DefineItemTemplate v-slot="{ item, index }">
-    <ComboboxLabel v-if="isInputItem(item) && item.type === 'label'" :class="b24ui.label({ class: [props.b24ui?.label, item.b24ui?.label, item.class] })">
+    <ComboboxLabel v-if="isInputItem(item) && item.type === 'label'" data-slot="label" :class="b24ui.label({ class: [props.b24ui?.label, item.b24ui?.label, item.class] })">
       {{ get(item, props.labelKey as string) }}
     </ComboboxLabel>
 
-    <ComboboxSeparator v-else-if="isInputItem(item) && item.type === 'separator'" :class="b24ui.separator({ class: [props.b24ui?.separator, item.b24ui?.separator, item.class] })" />
+    <ComboboxSeparator v-else-if="isInputItem(item) && item.type === 'separator'" data-slot="separator" :class="b24ui.separator({ class: [props.b24ui?.separator, item.b24ui?.separator, item.class] })" />
 
     <ComboboxItem
       v-else
+      data-slot="item"
       :class="b24ui.item({ class: [props.b24ui?.item, isInputItem(item) && item.b24ui?.item, isInputItem(item) && item.class], colorItem: isInputItem(item) ? item?.color : undefined })"
       :disabled="isInputItem(item) && item.disabled"
       :value="props.valueKey && isInputItem(item) ? get(item, props.valueKey as string) : item"
@@ -499,11 +502,11 @@ defineExpose({
     >
       <slot name="item" :item="(item as NestedItem<T>)" :index="index" :b24ui="b24ui">
         <slot name="item-leading" :item="(item as NestedItem<T>)" :index="index" :b24ui="b24ui">
-          <B24Avatar v-if="isInputItem(item) && item.avatar" :size="((item.b24ui?.itemLeadingAvatarSize || props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])" v-bind="item.avatar" :class="b24ui.itemLeadingAvatar({ class: [props.b24ui?.itemLeadingAvatar, item.b24ui?.itemLeadingAvatar], colorItem: item?.color })" />
+          <B24Avatar v-if="isInputItem(item) && item.avatar" :size="((item.b24ui?.itemLeadingAvatarSize || props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])" v-bind="item.avatar" data-slot="itemLeadingAvatar" :class="b24ui.itemLeadingAvatar({ class: [props.b24ui?.itemLeadingAvatar, item.b24ui?.itemLeadingAvatar], colorItem: item?.color })" />
         </slot>
 
-        <span :class="b24ui.itemWrapper({ class: [props.b24ui?.itemWrapper, isInputItem(item) && item.b24ui?.itemWrapper] })">
-          <span :class="b24ui.itemLabel({ class: [props.b24ui?.itemLabel, isInputItem(item) && item.b24ui?.itemLabel] })">
+        <span data-slot="itemWrapper" :class="b24ui.itemWrapper({ class: [props.b24ui?.itemWrapper, isInputItem(item) && item.b24ui?.itemWrapper] })">
+          <span data-slot="itemLabel" :class="b24ui.itemLabel({ class: [props.b24ui?.itemLabel, isInputItem(item) && item.b24ui?.itemLabel] })">
             <slot name="item-label" :item="(item as NestedItem<T>)" :index="index">
               {{ isInputItem(item) ? get(item, props.labelKey as string) : item }}
             </slot>
@@ -511,6 +514,7 @@ defineExpose({
 
           <span
             v-if="isInputItem(item) && (get(item, props.descriptionKey as string) || !!slots['item-description'])"
+            data-slot="itemDescription"
             :class="b24ui.itemDescription({ class: [props.b24ui?.itemDescription, isInputItem(item) && item.b24ui?.itemDescription] })"
           >
             <slot
@@ -523,10 +527,11 @@ defineExpose({
           </span>
         </span>
 
-        <span :class="b24ui.itemTrailing({ class: [props.b24ui?.itemTrailing, isInputItem(item) && item.b24ui?.itemTrailing], colorItem: isInputItem(item) ? item?.color : undefined })">
+        <span data-slot="itemTrailing" :class="b24ui.itemTrailing({ class: [props.b24ui?.itemTrailing, isInputItem(item) && item.b24ui?.itemTrailing], colorItem: isInputItem(item) ? item?.color : undefined })">
           <ComboboxItemIndicator as-child>
             <Component
               :is="selectedIcon || icons.check"
+              data-slot="itemTrailingIcon"
               :class="b24ui.itemTrailingIcon({ class: [props.b24ui?.itemTrailingIcon, isInputItem(item) && item.b24ui?.itemTrailingIcon], colorItem: isInputItem(item) ? item?.color : undefined })"
             />
           </ComboboxItemIndicator>
@@ -535,6 +540,7 @@ defineExpose({
             <Component
               :is="item.icon"
               v-if="isInputItem(item) && item.icon"
+              data-slot="itemLeadingIcon"
               :class="b24ui.itemLeadingIcon({ class: [props.b24ui?.itemLeadingIcon, item.b24ui?.itemLeadingIcon], colorItem: item?.color })"
             />
             <B24Chip
@@ -543,6 +549,7 @@ defineExpose({
               inset
               standalone
               v-bind="item.chip"
+              data-slot="itemLeadingChip"
               :class="b24ui.itemLeadingChip({ class: [props.b24ui?.itemLeadingChip, item.b24ui?.itemLeadingChip], colorItem: item?.color })"
             />
           </slot>
@@ -556,6 +563,7 @@ defineExpose({
     v-bind="rootProps"
     :name="name"
     :disabled="disabled"
+    data-slot="root"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     :as-child="!!multiple"
     ignore-filter
@@ -565,12 +573,13 @@ defineExpose({
   >
     <B24Badge
       v-if="!multiple && isTag"
+      data-slot="tag"
       :class="b24ui.tag({ class: props.b24ui?.tag })"
       :color="props.tagColor"
       :label="props.tag"
       size="xs"
     />
-    <ComboboxAnchor :as-child="!multiple" :class="b24ui.base({ class: props.b24ui?.base })">
+    <ComboboxAnchor :as-child="!multiple" data-slot="base" :class="b24ui.base({ class: props.b24ui?.base })">
       <TagsInputRoot
         v-if="multiple"
         v-slot="{ modelValue: tags }"
@@ -585,22 +594,24 @@ defineExpose({
       >
         <B24Badge
           v-if="!!multiple && isTag"
+          data-slot="tag"
           :class="b24ui.tag({ class: props.b24ui?.tag })"
           :color="props.tagColor"
           :label="props.tag"
           size="xs"
         />
-        <TagsInputItem v-for="(item, index) in tags" :key="index" :value="item" :class="b24ui.tagsItem({ class: [props.b24ui?.tagsItem, isInputItem(item) && item.b24ui?.tagsItem] })">
-          <TagsInputItemText :class="b24ui.tagsItemText({ class: [props.b24ui?.tagsItemText, isInputItem(item) && item.b24ui?.tagsItemText] })">
+        <TagsInputItem v-for="(item, index) in tags" :key="index" :value="item" data-slot="tagsItem" :class="b24ui.tagsItem({ class: [props.b24ui?.tagsItem, isInputItem(item) && item.b24ui?.tagsItem] })">
+          <TagsInputItemText data-slot="tagsItemText" :class="b24ui.tagsItemText({ class: [props.b24ui?.tagsItemText, isInputItem(item) && item.b24ui?.tagsItemText] })">
             <slot name="tags-item-text" :item="(item as NestedItem<T>)" :index="index">
               {{ displayValue(item as GetItemValue<T, VK>) }}
             </slot>
           </TagsInputItemText>
 
-          <TagsInputItemDelete :class="b24ui.tagsItemDelete({ class: [props.b24ui?.tagsItemDelete, isInputItem(item) && item.b24ui?.tagsItemDelete] })" :disabled="disabled">
+          <TagsInputItemDelete data-slot="tagsItemDelete" :class="b24ui.tagsItemDelete({ class: [props.b24ui?.tagsItemDelete, isInputItem(item) && item.b24ui?.tagsItemDelete] })" :disabled="disabled">
             <slot name="tags-item-delete" :item="(item as NestedItem<T>)" :index="index" :b24ui="b24ui">
               <Component
                 :is="deleteIcon || icons.close"
+                data-slot="tagsItemDeleteIcon"
                 :class="b24ui.tagsItemDeleteIcon({ class: [props.b24ui?.tagsItemDeleteIcon, isInputItem(item) && item.b24ui?.tagsItemDeleteIcon] })"
               />
             </slot>
@@ -613,6 +624,7 @@ defineExpose({
             ref="inputRef"
             v-bind="{ ...$attrs, ...ariaAttrs }"
             :placeholder="placeholder"
+            data-slot="tagsInput"
             :class="b24ui.tagsInput({ class: props.b24ui?.tagsInput })"
             @keydown.enter.prevent
           />
@@ -633,27 +645,30 @@ defineExpose({
         @update:model-value="searchTerm = $event"
       />
 
-      <span v-if="isLeading || !!avatar || !!slots.leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
+      <span v-if="isLeading || !!avatar || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
         <slot name="leading" :model-value="(modelValue as GetModelValue<T, VK, M>)" :open="open" :b24ui="b24ui">
           <Component
             :is="leadingIconName"
             v-if="isLeading && leadingIconName"
+            data-slot="leadingIcon"
             :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
           />
           <B24Avatar
             v-else-if="!!avatar"
             :size="((props.b24ui?.itemLeadingAvatarSize || b24ui.itemLeadingAvatarSize()) as AvatarProps['size'])"
             v-bind="avatar"
+            data-slot="itemLeadingAvatar"
             :class="b24ui.itemLeadingAvatar({ class: props.b24ui?.itemLeadingAvatar })"
           />
         </slot>
       </span>
 
-      <ComboboxTrigger v-if="isTrailing || !!slots.trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
+      <ComboboxTrigger v-if="isTrailing || !!slots.trailing" data-slot="trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
         <slot name="trailing" :model-value="(modelValue as GetModelValue<T, VK, M>)" :open="open" :b24ui="b24ui">
           <Component
             :is="trailingIconName"
             v-if="trailingIconName"
+            data-slot="trailingIcon"
             :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
           />
         </slot>
@@ -661,10 +676,10 @@ defineExpose({
     </ComboboxAnchor>
 
     <ComboboxPortal v-bind="portalProps">
-      <ComboboxContent :class="b24ui.content({ class: props.b24ui?.content })" v-bind="contentProps" @focus-outside.prevent>
+      <ComboboxContent data-slot="content" :class="b24ui.content({ class: props.b24ui?.content })" v-bind="contentProps" @focus-outside.prevent>
         <slot name="content-top" />
 
-        <ComboboxEmpty :class="b24ui.empty({ class: props.b24ui?.empty })">
+        <ComboboxEmpty data-slot="empty" :class="b24ui.empty({ class: props.b24ui?.empty })">
           <slot name="empty" :search-term="searchTerm">
             {{ searchTerm ? t('inputMenu.noMatch', { searchTerm }) : t('inputMenu.noData') }}
           </slot>
@@ -672,6 +687,7 @@ defineExpose({
 
         <div
           role="presentation"
+          data-slot="viewport"
           :class="b24ui.viewport({ class: props.b24ui?.viewport })"
         >
           <template v-if="!!virtualize">
@@ -690,15 +706,15 @@ defineExpose({
           </template>
 
           <template v-else>
-            <ComboboxGroup v-if="createItem && createItemPosition === 'top'" :class="b24ui.group({ class: props.b24ui?.group })">
+            <ComboboxGroup v-if="createItem && createItemPosition === 'top'" data-slot="group" :class="b24ui.group({ class: props.b24ui?.group })">
               <ReuseCreateItemTemplate />
             </ComboboxGroup>
 
-            <ComboboxGroup v-for="(group, groupIndex) in filteredGroups" :key="`group-${groupIndex}`" :class="b24ui.group({ class: props.b24ui?.group })">
+            <ComboboxGroup v-for="(group, groupIndex) in filteredGroups" :key="`group-${groupIndex}`" data-slot="group" :class="b24ui.group({ class: props.b24ui?.group })">
               <ReuseItemTemplate v-for="(item, index) in group" :key="`group-${groupIndex}-${index}`" :item="item" :index="index" />
             </ComboboxGroup>
 
-            <ComboboxGroup v-if="createItem && createItemPosition === 'bottom'" :class="b24ui.group({ class: props.b24ui?.group })">
+            <ComboboxGroup v-if="createItem && createItemPosition === 'bottom'" data-slot="group" :class="b24ui.group({ class: props.b24ui?.group })">
               <ReuseCreateItemTemplate />
             </ComboboxGroup>
           </template>
@@ -706,7 +722,7 @@ defineExpose({
 
         <slot name="content-bottom" />
 
-        <ComboboxArrow v-if="!!arrow" v-bind="arrowProps" :class="b24ui.arrow({ class: props.b24ui?.arrow })" />
+        <ComboboxArrow v-if="!!arrow" v-bind="arrowProps" data-slot="arrow" :class="b24ui.arrow({ class: props.b24ui?.arrow })" />
       </ComboboxContent>
     </ComboboxPortal>
   </ComboboxRoot>

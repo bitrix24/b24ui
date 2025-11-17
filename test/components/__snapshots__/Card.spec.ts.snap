@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Card > renders with as correctly 1`] = `
-"<section class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content)">
+"<section data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -9,7 +9,7 @@ exports[`Card > renders with as correctly 1`] = `
 `;
 
 exports[`Card > renders with b24ui correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -17,7 +17,7 @@ exports[`Card > renders with b24ui correctly 1`] = `
 `;
 
 exports[`Card > renders with class correctly 1`] = `
-"<div class="overflow-hidden bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) rounded-xl">
+"<div data-slot="root" class="overflow-hidden bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) rounded-xl">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -25,31 +25,31 @@ exports[`Card > renders with class correctly 1`] = `
 `;
 
 exports[`Card > renders with default slot correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content)">
   <!--v-if-->
-  <div class="p-[24px] sm:px-[22px] sm:py-[15px]">Default slot</div>
+  <div data-slot="body" class="p-[24px] sm:px-[22px] sm:py-[15px]">Default slot</div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`Card > renders with footer slot correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content)">
   <!--v-if-->
   <!--v-if-->
-  <div class="p-[24px] sm:px-[22px] sm:py-[15px] border-(--ui-color-design-outline-content-divider) border-t-1">Footer slot</div>
+  <div data-slot="footer" class="p-[24px] sm:px-[22px] sm:py-[15px] border-(--ui-color-design-outline-content-divider) border-t-1">Footer slot</div>
 </div>"
 `;
 
 exports[`Card > renders with header slot correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content)">
-  <div class="p-[24px] sm:px-[22px] sm:py-[15px] border-(--ui-color-design-outline-content-divider) border-b-1">Header slot</div>
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content)">
+  <div data-slot="header" class="p-[24px] sm:px-[22px] sm:py-[15px] border-(--ui-color-design-outline-content-divider) border-b-1">Header slot</div>
   <!--v-if-->
   <!--v-if-->
 </div>"
 `;
 
 exports[`Card > renders with variant filled correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-filled-bg) border-(--ui-color-design-filled-stroke) border-(length:--ui-design-filled-stroke-weight) text-(--ui-color-design-filled-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-filled-bg) border-(--ui-color-design-filled-stroke) border-(length:--ui-design-filled-stroke-weight) text-(--ui-color-design-filled-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -57,7 +57,7 @@ exports[`Card > renders with variant filled correctly 1`] = `
 `;
 
 exports[`Card > renders with variant filled-alert correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-filled-alert-bg) border-(--ui-color-design-filled-alert-stroke) border-(length:--ui-design-filled-alert-stroke-weight) text-(--ui-color-design-filled-alert-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-filled-alert-bg) border-(--ui-color-design-filled-alert-stroke) border-(length:--ui-design-filled-alert-stroke-weight) text-(--ui-color-design-filled-alert-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -65,7 +65,7 @@ exports[`Card > renders with variant filled-alert correctly 1`] = `
 `;
 
 exports[`Card > renders with variant filled-black correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-filled-black-bg) border-(--ui-color-design-filled-black-stroke) border-(length:--ui-design-filled-black-stroke-weight) text-(--ui-color-design-filled-black-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-filled-black-bg) border-(--ui-color-design-filled-black-stroke) border-(length:--ui-design-filled-black-stroke-weight) text-(--ui-color-design-filled-black-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -73,7 +73,7 @@ exports[`Card > renders with variant filled-black correctly 1`] = `
 `;
 
 exports[`Card > renders with variant filled-copilot correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-filled-copilot-bg) border-(--ui-color-design-filled-copilot-stroke) border-(length:--ui-design-filled-copilot-stroke-weight) text-(--ui-color-design-filled-copilot-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-filled-copilot-bg) border-(--ui-color-design-filled-copilot-stroke) border-(length:--ui-design-filled-copilot-stroke-weight) text-(--ui-color-design-filled-copilot-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -81,7 +81,7 @@ exports[`Card > renders with variant filled-copilot correctly 1`] = `
 `;
 
 exports[`Card > renders with variant filled-no-accent correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-filled-na-bg) border-(--ui-color-design-filled-na-stroke) border-(length:--ui-design-filled-na-stroke-weight) text-(--ui-color-design-filled-na-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-filled-na-bg) border-(--ui-color-design-filled-na-stroke) border-(length:--ui-design-filled-na-stroke-weight) text-(--ui-color-design-filled-na-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -89,7 +89,7 @@ exports[`Card > renders with variant filled-no-accent correctly 1`] = `
 `;
 
 exports[`Card > renders with variant filled-success correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-filled-success-bg) border-(--ui-color-design-filled-success-stroke) border-(length:--ui-design-filled-success-stroke-weight) text-(--ui-color-design-filled-success-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-filled-success-bg) border-(--ui-color-design-filled-success-stroke) border-(length:--ui-design-filled-success-stroke-weight) text-(--ui-color-design-filled-success-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -97,7 +97,7 @@ exports[`Card > renders with variant filled-success correctly 1`] = `
 `;
 
 exports[`Card > renders with variant filled-warning correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-filled-warning-bg) border-(--ui-color-design-filled-warning-stroke) border-(length:--ui-design-filled-warning-stroke-weight) text-(--ui-color-design-filled-warning-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-filled-warning-bg) border-(--ui-color-design-filled-warning-stroke) border-(length:--ui-design-filled-warning-stroke-weight) text-(--ui-color-design-filled-warning-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -105,7 +105,7 @@ exports[`Card > renders with variant filled-warning correctly 1`] = `
 `;
 
 exports[`Card > renders with variant outline correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -113,7 +113,7 @@ exports[`Card > renders with variant outline correctly 1`] = `
 `;
 
 exports[`Card > renders with variant outline-accent correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-a1-bg) border-(--ui-color-design-outline-a1-stroke) border-(length:--ui-design-outline-a1-stroke-weight) text-(--ui-color-design-outline-a1-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-a1-bg) border-(--ui-color-design-outline-a1-stroke) border-(length:--ui-design-outline-a1-stroke-weight) text-(--ui-color-design-outline-a1-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -121,7 +121,7 @@ exports[`Card > renders with variant outline-accent correctly 1`] = `
 `;
 
 exports[`Card > renders with variant outline-accent-2 correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-a2-bg) border-(--ui-color-design-outline-a2-stroke) border-(length:--ui-design-outline-a2-stroke-weight) text-(--ui-color-design-outline-a2-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-a2-bg) border-(--ui-color-design-outline-a2-stroke) border-(length:--ui-design-outline-a2-stroke-weight) text-(--ui-color-design-outline-a2-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -129,7 +129,7 @@ exports[`Card > renders with variant outline-accent-2 correctly 1`] = `
 `;
 
 exports[`Card > renders with variant outline-alert correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-alert-bg) border-(--ui-color-design-outline-alert-stroke) border-(length:--ui-design-outline-alert-stroke-weight) text-(--ui-color-design-outline-alert-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-alert-bg) border-(--ui-color-design-outline-alert-stroke) border-(length:--ui-design-outline-alert-stroke-weight) text-(--ui-color-design-outline-alert-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -137,7 +137,7 @@ exports[`Card > renders with variant outline-alert correctly 1`] = `
 `;
 
 exports[`Card > renders with variant outline-alt correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-bg-alt) border-(--ui-color-design-outline-content-divider) border-(length:--ui-design-outline-stroke-weight-alt) text-(--ui-color-design-outline-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-bg-alt) border-(--ui-color-design-outline-content-divider) border-(length:--ui-design-outline-stroke-weight-alt) text-(--ui-color-design-outline-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -145,7 +145,7 @@ exports[`Card > renders with variant outline-alt correctly 1`] = `
 `;
 
 exports[`Card > renders with variant outline-copilot correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-copilot-bg) border-(--ui-color-design-outline-copilot-stroke) border-(length:--ui-design-outline-copilot-stroke-weight) text-(--ui-color-design-outline-copilot-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-copilot-bg) border-(--ui-color-design-outline-copilot-stroke) border-(length:--ui-design-outline-copilot-stroke-weight) text-(--ui-color-design-outline-copilot-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -153,7 +153,7 @@ exports[`Card > renders with variant outline-copilot correctly 1`] = `
 `;
 
 exports[`Card > renders with variant outline-no-accent correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-na-bg) border-(--ui-color-design-outline-na-stroke) border-(length:--ui-design-outline-na-stroke-weight) text-(--ui-color-design-outline-na-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-na-bg) border-(--ui-color-design-outline-na-stroke) border-(length:--ui-design-outline-na-stroke-weight) text-(--ui-color-design-outline-na-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -161,7 +161,7 @@ exports[`Card > renders with variant outline-no-accent correctly 1`] = `
 `;
 
 exports[`Card > renders with variant outline-success correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-success-bg) border-(--ui-color-design-outline-success-stroke) border-(length:--ui-design-outline-success-stroke-weight) text-(--ui-color-design-outline-success-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-success-bg) border-(--ui-color-design-outline-success-stroke) border-(length:--ui-design-outline-success-stroke-weight) text-(--ui-color-design-outline-success-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -169,7 +169,7 @@ exports[`Card > renders with variant outline-success correctly 1`] = `
 `;
 
 exports[`Card > renders with variant outline-warning correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-warning-bg) border-(--ui-color-design-outline-warning-stroke) border-(length:--ui-design-outline-warning-stroke-weight) text-(--ui-color-design-outline-warning-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-outline-warning-bg) border-(--ui-color-design-outline-warning-stroke) border-(length:--ui-design-outline-warning-stroke-weight) text-(--ui-color-design-outline-warning-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -177,7 +177,7 @@ exports[`Card > renders with variant outline-warning correctly 1`] = `
 `;
 
 exports[`Card > renders with variant plain correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-plain-bg) border-(--ui-color-design-plain-stroke) border-(length:--ui-design-plain-stroke-weight) text-(--ui-color-design-plain-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-plain-bg) border-(--ui-color-design-plain-stroke) border-(length:--ui-design-plain-stroke-weight) text-(--ui-color-design-plain-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -185,7 +185,7 @@ exports[`Card > renders with variant plain correctly 1`] = `
 `;
 
 exports[`Card > renders with variant plain-accent correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-plain-a-bg) border-(--ui-color-design-plain-a-stroke) border-(length:--ui-design-plain-a-stroke-weight) text-(--ui-color-design-plain-a-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-plain-a-bg) border-(--ui-color-design-plain-a-stroke) border-(length:--ui-design-plain-a-stroke-weight) text-(--ui-color-design-plain-a-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -193,7 +193,7 @@ exports[`Card > renders with variant plain-accent correctly 1`] = `
 `;
 
 exports[`Card > renders with variant plain-no-accent correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-plain-na-bg) border-(--ui-color-design-plain-na-stroke) border-(length:--ui-design-plain-na-stroke-weight) text-(--ui-color-design-plain-na-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-plain-na-bg) border-(--ui-color-design-plain-na-stroke) border-(length:--ui-design-plain-na-stroke-weight) text-(--ui-color-design-plain-na-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -201,7 +201,7 @@ exports[`Card > renders with variant plain-no-accent correctly 1`] = `
 `;
 
 exports[`Card > renders with variant selection correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-selection-bg) border-(--ui-color-design-selection-stroke) border-(length:--ui-design-selection-stroke-weight) text-(--ui-color-design-selection-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-selection-bg) border-(--ui-color-design-selection-stroke) border-(length:--ui-design-selection-stroke-weight) text-(--ui-color-design-selection-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -209,7 +209,7 @@ exports[`Card > renders with variant selection correctly 1`] = `
 `;
 
 exports[`Card > renders with variant tinted correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-tinted-bg) border-(--ui-color-design-tinted-stroke) border-(length:--ui-design-tinted-stroke-weight) text-(--ui-color-design-tinted-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-tinted-bg) border-(--ui-color-design-tinted-stroke) border-(length:--ui-design-tinted-stroke-weight) text-(--ui-color-design-tinted-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -217,7 +217,7 @@ exports[`Card > renders with variant tinted correctly 1`] = `
 `;
 
 exports[`Card > renders with variant tinted-accent-1 correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-tinted-a1-bg) border-(--ui-color-design-tinted-a1-stroke) border-(length:--ui-design-tinted-a1-stroke-weight) text-(--ui-color-design-tinted-a1-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-tinted-a1-bg) border-(--ui-color-design-tinted-a1-stroke) border-(length:--ui-design-tinted-a1-stroke-weight) text-(--ui-color-design-tinted-a1-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -225,7 +225,7 @@ exports[`Card > renders with variant tinted-accent-1 correctly 1`] = `
 `;
 
 exports[`Card > renders with variant tinted-alert correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-tinted-alert-bg) border-(--ui-color-design-tinted-alert-stroke) border-(length:--ui-design-tinted-alert-stroke-weight) text-(--ui-color-design-tinted-alert-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-tinted-alert-bg) border-(--ui-color-design-tinted-alert-stroke) border-(length:--ui-design-tinted-alert-stroke-weight) text-(--ui-color-design-tinted-alert-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -233,7 +233,7 @@ exports[`Card > renders with variant tinted-alert correctly 1`] = `
 `;
 
 exports[`Card > renders with variant tinted-alt correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-tinted-bg-alt) border-(--ui-color-design-tinted-stroke) border-(length:--ui-design-tinted-stroke-weight) text-(--ui-color-design-tinted-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-tinted-bg-alt) border-(--ui-color-design-tinted-stroke) border-(length:--ui-design-tinted-stroke-weight) text-(--ui-color-design-tinted-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -241,7 +241,7 @@ exports[`Card > renders with variant tinted-alt correctly 1`] = `
 `;
 
 exports[`Card > renders with variant tinted-no-accent correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-tinted-na-bg) border-(--ui-color-design-tinted-na-stroke) border-(length:--ui-design-tinted-na-stroke-weight) text-(--ui-color-design-tinted-na-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-tinted-na-bg) border-(--ui-color-design-tinted-na-stroke) border-(length:--ui-design-tinted-na-stroke-weight) text-(--ui-color-design-tinted-na-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -249,7 +249,7 @@ exports[`Card > renders with variant tinted-no-accent correctly 1`] = `
 `;
 
 exports[`Card > renders with variant tinted-success correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-tinted-success-bg) border-(--ui-color-design-tinted-success-stroke) border-(length:--ui-design-tinted-success-stroke-weight) text-(--ui-color-design-tinted-success-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-tinted-success-bg) border-(--ui-color-design-tinted-success-stroke) border-(length:--ui-design-tinted-success-stroke-weight) text-(--ui-color-design-tinted-success-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -257,7 +257,7 @@ exports[`Card > renders with variant tinted-success correctly 1`] = `
 `;
 
 exports[`Card > renders with variant tinted-warning correctly 1`] = `
-"<div class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-tinted-warning-bg) border-(--ui-color-design-tinted-warning-stroke) border-(length:--ui-design-tinted-warning-stroke-weight) text-(--ui-color-design-tinted-warning-content)">
+"<div data-slot="root" class="overflow-hidden rounded-(--ui-border-radius-md) bg-(--ui-color-design-tinted-warning-bg) border-(--ui-color-design-tinted-warning-stroke) border-(length:--ui-design-tinted-warning-stroke-weight) text-(--ui-color-design-tinted-warning-content)">
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->

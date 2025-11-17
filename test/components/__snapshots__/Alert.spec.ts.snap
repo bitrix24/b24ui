@@ -1,15 +1,15 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Alert > renders with actions correctly 1`] = `
-"<div data-orientation="vertical" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start">
+"<div data-orientation="vertical" data-slot="root" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start">
   <!--v-if-->
-  <div class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
-    <div class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
+  <div data-slot="wrapper" class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
+    <div data-slot="title" class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
     <!--v-if-->
-    <div class="flex flex-wrap gap-1.5 shrink-0 items-start mt-2"><button type="button" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-outline-no-accent ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
+    <div data-slot="actions" class="flex flex-wrap gap-1.5 shrink-0 items-start mt-2"><button type="button" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-outline-no-accent ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
         <!--v-if-->
-        <div class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right)">
-          <!--v-if--><span class="h-(--ui-btn-height) max-w-full inline-flex items-center tracking-(--ui-btn-letter-spacing) overflow-visible text-clip mt-(--ui-btn-title-compensation)"><span class="truncate inline-block max-w-full mt-(--ui-btn-title-compensation)">Action</span></span>
+        <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right)">
+          <!--v-if--><span data-slot="label" class="h-(--ui-btn-height) max-w-full inline-flex items-center tracking-(--ui-btn-letter-spacing) overflow-visible text-clip mt-(--ui-btn-title-compensation)"><span data-slot="labelInner" class="truncate inline-block max-w-full mt-(--ui-btn-title-compensation)">Action</span></span>
           <!--v-if-->
         </div>
       </button></div>
@@ -19,10 +19,10 @@ exports[`Alert > renders with actions correctly 1`] = `
 `;
 
 exports[`Alert > renders with as correctly 1`] = `
-"<article data-orientation="vertical" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start">
+"<article data-orientation="vertical" data-slot="root" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start">
   <!--v-if-->
-  <div class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
-    <div class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
+  <div data-slot="wrapper" class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
+    <div data-slot="title" class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
     <!--v-if-->
     <!--v-if-->
   </div>
@@ -31,9 +31,9 @@ exports[`Alert > renders with as correctly 1`] = `
 `;
 
 exports[`Alert > renders with avatar correctly 1`] = `
-"<div data-orientation="vertical" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start"><span class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--ui-color-base-8) ring-(--ui-color-base-7) ring-2 size-[48px] text-(length:--ui-font-size-2xl)/(--ui-font-line-height-reset) shrink-0"><img src="https://github.com/bitrix24.png" width="48" height="48" class="h-full w-full rounded-[inherit] object-cover"></span>
-  <div class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
-    <div class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
+"<div data-orientation="vertical" data-slot="root" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--ui-color-base-8) ring-(--ui-color-base-7) ring-2 size-[48px] text-(length:--ui-font-size-2xl)/(--ui-font-line-height-reset) shrink-0"><img src="https://github.com/bitrix24.png" width="48" height="48" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
+  <div data-slot="wrapper" class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
+    <div data-slot="title" class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
     <!--v-if-->
     <!--v-if-->
   </div>
@@ -42,10 +42,10 @@ exports[`Alert > renders with avatar correctly 1`] = `
 `;
 
 exports[`Alert > renders with b24ui correctly 1`] = `
-"<div data-orientation="vertical" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start">
+"<div data-orientation="vertical" data-slot="root" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start">
   <!--v-if-->
-  <div class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
-    <div class="text-(length:--ui-font-size-md)/(--ui-font-line-height-reset) font-bold">Alert</div>
+  <div data-slot="wrapper" class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
+    <div data-slot="title" class="text-(length:--ui-font-size-md)/(--ui-font-line-height-reset) font-bold">Alert</div>
     <!--v-if-->
     <!--v-if-->
   </div>
@@ -54,10 +54,10 @@ exports[`Alert > renders with b24ui correctly 1`] = `
 `;
 
 exports[`Alert > renders with class correctly 1`] = `
-"<div data-orientation="vertical" class="relative overflow-hidden flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start w-48">
+"<div data-orientation="vertical" data-slot="root" class="relative overflow-hidden flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start w-48">
   <!--v-if-->
-  <div class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
-    <div class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
+  <div data-slot="wrapper" class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
+    <div data-slot="title" class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
     <!--v-if-->
     <!--v-if-->
   </div>
@@ -66,17 +66,17 @@ exports[`Alert > renders with class correctly 1`] = `
 `;
 
 exports[`Alert > renders with close correctly 1`] = `
-"<div data-orientation="vertical" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start">
+"<div data-orientation="vertical" data-slot="root" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start">
   <!--v-if-->
-  <div class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
-    <div class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
+  <div data-slot="wrapper" class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
+    <div data-slot="title" class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
     <!--v-if-->
     <!--v-if-->
   </div>
-  <div class="flex flex-wrap gap-1.5 shrink-0 items-center">
-    <!--v-if--><button type="button" aria-label="Close" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain-no-accent ui-btn-md rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) p-0 [--ui-btn-color:var(--b24ui-color)] hover:bg-(--ui-color-base-white-fixed)/10 focus-visible:bg-(--ui-color-base-white-fixed)/10 -me-1.5 lg:me-0">
+  <div data-slot="actions" class="flex flex-wrap gap-1.5 shrink-0 items-center">
+    <!--v-if--><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain-no-accent ui-btn-md rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) p-0 [--ui-btn-color:var(--b24ui-color)] hover:bg-(--ui-color-base-white-fixed)/10 focus-visible:bg-(--ui-color-base-white-fixed)/10 -me-1.5 lg:me-0">
       <!--v-if-->
-      <div class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
+      <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
           <path fill="currentColor" d="M8.46 7.54a.65.65 0 0 0-.92.92L11.08 12l-3.54 3.54a.65.65 0 1 0 .92.92L12 12.918l3.54 3.54a.65.65 0 1 0 .919-.92L12.919 12l3.54-3.54a.65.65 0 0 0-.92-.919L12 11.08z"></path>
         </svg>
         <!--v-if-->
@@ -88,10 +88,10 @@ exports[`Alert > renders with close correctly 1`] = `
 `;
 
 exports[`Alert > renders with close slot correctly 1`] = `
-"<div data-orientation="vertical" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start">
+"<div data-orientation="vertical" data-slot="root" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start">
   <!--v-if-->
-  <div class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
-    <div class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
+  <div data-slot="wrapper" class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
+    <div data-slot="title" class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
     <!--v-if-->
     <!--v-if-->
   </div>
@@ -100,17 +100,17 @@ exports[`Alert > renders with close slot correctly 1`] = `
 `;
 
 exports[`Alert > renders with closeIcon correctly 1`] = `
-"<div data-orientation="vertical" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start">
+"<div data-orientation="vertical" data-slot="root" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start">
   <!--v-if-->
-  <div class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
-    <div class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
+  <div data-slot="wrapper" class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
+    <div data-slot="title" class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
     <!--v-if-->
     <!--v-if-->
   </div>
-  <div class="flex flex-wrap gap-1.5 shrink-0 items-center">
-    <!--v-if--><button type="button" aria-label="Close" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain-no-accent ui-btn-md rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) p-0 [--ui-btn-color:var(--b24ui-color)] hover:bg-(--ui-color-base-white-fixed)/10 focus-visible:bg-(--ui-color-base-white-fixed)/10 -me-1.5 lg:me-0">
+  <div data-slot="actions" class="flex flex-wrap gap-1.5 shrink-0 items-center">
+    <!--v-if--><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain-no-accent ui-btn-md rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) p-0 [--ui-btn-color:var(--b24ui-color)] hover:bg-(--ui-color-base-white-fixed)/10 focus-visible:bg-(--ui-color-base-white-fixed)/10 -me-1.5 lg:me-0">
       <!--v-if-->
-      <div class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
+      <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
           <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
         </svg>
         <!--v-if-->
@@ -122,11 +122,11 @@ exports[`Alert > renders with closeIcon correctly 1`] = `
 `;
 
 exports[`Alert > renders with description correctly 1`] = `
-"<div data-orientation="vertical" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start">
+"<div data-orientation="vertical" data-slot="root" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start">
   <!--v-if-->
-  <div class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
-    <div class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
-    <div class="text-(length:--ui-font-size-md)/(--ui-font-line-height-3xs) mt-1">Description</div>
+  <div data-slot="wrapper" class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
+    <div data-slot="title" class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
+    <div data-slot="description" class="text-(length:--ui-font-size-md)/(--ui-font-line-height-3xs) mt-1">Description</div>
     <!--v-if-->
   </div>
   <!--v-if-->
@@ -134,11 +134,11 @@ exports[`Alert > renders with description correctly 1`] = `
 `;
 
 exports[`Alert > renders with description slot correctly 1`] = `
-"<div data-orientation="vertical" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start">
+"<div data-orientation="vertical" data-slot="root" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start">
   <!--v-if-->
-  <div class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
-    <div class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
-    <div class="text-(length:--ui-font-size-md)/(--ui-font-line-height-3xs) mt-1">Description slot</div>
+  <div data-slot="wrapper" class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
+    <div data-slot="title" class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
+    <div data-slot="description" class="text-(length:--ui-font-size-md)/(--ui-font-line-height-3xs) mt-1">Description slot</div>
     <!--v-if-->
   </div>
   <!--v-if-->
@@ -146,11 +146,11 @@ exports[`Alert > renders with description slot correctly 1`] = `
 `;
 
 exports[`Alert > renders with icon correctly 1`] = `
-"<div data-orientation="vertical" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-6">
+"<div data-orientation="vertical" data-slot="root" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-6">
     <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
   </svg>
-  <div class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
-    <div class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
+  <div data-slot="wrapper" class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
+    <div data-slot="title" class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
     <!--v-if-->
     <!--v-if-->
   </div>
@@ -159,10 +159,10 @@ exports[`Alert > renders with icon correctly 1`] = `
 `;
 
 exports[`Alert > renders with leading slot correctly 1`] = `
-"<div data-orientation="vertical" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start">
+"<div data-orientation="vertical" data-slot="root" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start">
   <!--v-if-->
-  <div class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
-    <div class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Leading slot</div>
+  <div data-slot="wrapper" class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
+    <div data-slot="title" class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Leading slot</div>
     <!--v-if-->
     <!--v-if-->
   </div>
@@ -171,18 +171,18 @@ exports[`Alert > renders with leading slot correctly 1`] = `
 `;
 
 exports[`Alert > renders with orientation horizontal correctly 1`] = `
-"<div data-orientation="horizontal" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-6">
+"<div data-orientation="horizontal" data-slot="root" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-6">
     <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
   </svg>
-  <div class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
-    <div class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
-    <div class="text-(length:--ui-font-size-md)/(--ui-font-line-height-3xs) mt-1">This is a description</div>
+  <div data-slot="wrapper" class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
+    <div data-slot="title" class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
+    <div data-slot="description" class="text-(length:--ui-font-size-md)/(--ui-font-line-height-3xs) mt-1">This is a description</div>
     <!--v-if-->
   </div>
-  <div class="flex flex-wrap gap-1.5 shrink-0 items-center"><button type="button" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-outline-no-accent ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
+  <div data-slot="actions" class="flex flex-wrap gap-1.5 shrink-0 items-center"><button type="button" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-outline-no-accent ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
       <!--v-if-->
-      <div class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right)">
-        <!--v-if--><span class="h-(--ui-btn-height) max-w-full inline-flex items-center tracking-(--ui-btn-letter-spacing) overflow-visible text-clip mt-(--ui-btn-title-compensation)"><span class="truncate inline-block max-w-full mt-(--ui-btn-title-compensation)">Action</span></span>
+      <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right)">
+        <!--v-if--><span data-slot="label" class="h-(--ui-btn-height) max-w-full inline-flex items-center tracking-(--ui-btn-letter-spacing) overflow-visible text-clip mt-(--ui-btn-title-compensation)"><span data-slot="labelInner" class="truncate inline-block max-w-full mt-(--ui-btn-title-compensation)">Action</span></span>
         <!--v-if-->
       </div>
     </button>
@@ -192,16 +192,16 @@ exports[`Alert > renders with orientation horizontal correctly 1`] = `
 `;
 
 exports[`Alert > renders with orientation vertical correctly 1`] = `
-"<div data-orientation="vertical" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-6">
+"<div data-orientation="vertical" data-slot="root" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 size-6">
     <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
   </svg>
-  <div class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
-    <div class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
-    <div class="text-(length:--ui-font-size-md)/(--ui-font-line-height-3xs) mt-1">This is a description</div>
-    <div class="flex flex-wrap gap-1.5 shrink-0 items-start mt-2"><button type="button" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-outline-no-accent ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
+  <div data-slot="wrapper" class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
+    <div data-slot="title" class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
+    <div data-slot="description" class="text-(length:--ui-font-size-md)/(--ui-font-line-height-3xs) mt-1">This is a description</div>
+    <div data-slot="actions" class="flex flex-wrap gap-1.5 shrink-0 items-start mt-2"><button type="button" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-outline-no-accent ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
         <!--v-if-->
-        <div class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right)">
-          <!--v-if--><span class="h-(--ui-btn-height) max-w-full inline-flex items-center tracking-(--ui-btn-letter-spacing) overflow-visible text-clip mt-(--ui-btn-title-compensation)"><span class="truncate inline-block max-w-full mt-(--ui-btn-title-compensation)">Action</span></span>
+        <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right)">
+          <!--v-if--><span data-slot="label" class="h-(--ui-btn-height) max-w-full inline-flex items-center tracking-(--ui-btn-letter-spacing) overflow-visible text-clip mt-(--ui-btn-title-compensation)"><span data-slot="labelInner" class="truncate inline-block max-w-full mt-(--ui-btn-title-compensation)">Action</span></span>
           <!--v-if-->
         </div>
       </button></div>
@@ -211,10 +211,10 @@ exports[`Alert > renders with orientation vertical correctly 1`] = `
 `;
 
 exports[`Alert > renders with success correctly 1`] = `
-"<div data-orientation="vertical" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-filled-success py-md ps-md pe-xs gap-2.5 items-start">
+"<div data-orientation="vertical" data-slot="root" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-filled-success py-md ps-md pe-xs gap-2.5 items-start">
   <!--v-if-->
-  <div class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
-    <div class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
+  <div data-slot="wrapper" class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
+    <div data-slot="title" class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
     <!--v-if-->
     <!--v-if-->
   </div>
@@ -223,10 +223,10 @@ exports[`Alert > renders with success correctly 1`] = `
 `;
 
 exports[`Alert > renders with title correctly 1`] = `
-"<div data-orientation="vertical" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start">
+"<div data-orientation="vertical" data-slot="root" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start">
   <!--v-if-->
-  <div class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
-    <div class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
+  <div data-slot="wrapper" class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
+    <div data-slot="title" class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
     <!--v-if-->
     <!--v-if-->
   </div>
@@ -235,10 +235,10 @@ exports[`Alert > renders with title correctly 1`] = `
 `;
 
 exports[`Alert > renders with title slot correctly 1`] = `
-"<div data-orientation="vertical" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start">
+"<div data-orientation="vertical" data-slot="root" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start">
   <!--v-if-->
-  <div class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
-    <div class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Title slot</div>
+  <div data-slot="wrapper" class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
+    <div data-slot="title" class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Title slot</div>
     <!--v-if-->
     <!--v-if-->
   </div>

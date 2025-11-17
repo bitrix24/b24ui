@@ -199,6 +199,7 @@ defineExpose({
     v-bind="rootProps"
     :id="id"
     :model-value="modelValue"
+    data-slot="root"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     :name="name"
     :disabled="disabled"
@@ -206,6 +207,7 @@ defineExpose({
   >
     <B24Badge
       v-if="isTag"
+      data-slot="tag"
       :class="b24ui.tag({ class: props.b24ui?.tag })"
       :color="props.tagColor"
       :label="props.tag"
@@ -217,12 +219,13 @@ defineExpose({
       ref="inputRef"
       :placeholder="placeholder"
       :required="required"
+      data-slot="base"
       :class="b24ui.base({ class: props.b24ui?.base })"
       @blur="onBlur"
       @focus="emitFormFocus"
     />
 
-    <div v-if="!!increment" :class="b24ui.increment({ class: props.b24ui?.increment })">
+    <div v-if="!!increment" data-slot="increment" :class="b24ui.increment({ class: props.b24ui?.increment })">
       <NumberFieldIncrement as-child :disabled="disabled || incrementDisabled">
         <slot name="increment">
           <B24Button
@@ -236,7 +239,7 @@ defineExpose({
       </NumberFieldIncrement>
     </div>
 
-    <div v-if="!!decrement" :class="b24ui.decrement({ class: props.b24ui?.decrement })">
+    <div v-if="!!decrement" data-slot="decrement" :class="b24ui.decrement({ class: props.b24ui?.decrement })">
       <NumberFieldDecrement as-child :disabled="disabled || decrementDisabled">
         <slot name="decrement">
           <B24Button

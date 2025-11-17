@@ -33,7 +33,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
 </script>
 
 <template>
-  <B24Link :href="href" :target="target" :class="b24ui.base({ class: [props.b24ui?.base, props.class] })">
+  <B24Link :href="href" :target="target" data-slot="base" :class="b24ui.base({ class: [props.b24ui?.base, props.class] })">
     <slot />
   </B24Link>
 </template>

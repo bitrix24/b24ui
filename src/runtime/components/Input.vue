@@ -219,9 +219,10 @@ defineExpose({
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <B24Badge
       v-if="isTag"
+      data-slot="tag"
       :class="b24ui.tag({ class: props.b24ui?.tag })"
       :color="props.tagColor"
       :label="props.tag"
@@ -235,6 +236,7 @@ defineExpose({
       :value="modelValue"
       :name="name"
       :placeholder="placeholder"
+      data-slot="base"
       :class="b24ui.base({ class: props.b24ui?.base })"
       :disabled="disabled"
       :required="required"
@@ -248,27 +250,30 @@ defineExpose({
 
     <slot :b24ui="b24ui" />
 
-    <span v-if="isLeading || !!avatar || !!slots.leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
+    <span v-if="isLeading || !!avatar || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
       <slot name="leading" :b24ui="b24ui">
         <Component
           :is="leadingIconName"
           v-if="isLeading && leadingIconName"
+          data-slot="leadingIcon"
           :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
         />
         <B24Avatar
           v-else-if="!!avatar"
           :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
           v-bind="avatar"
+          data-slot="leadingAvatar"
           :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
         />
       </slot>
     </span>
 
-    <span v-if="isTrailing || !!slots.trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
+    <span v-if="isTrailing || !!slots.trailing" data-slot="trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
       <slot name="trailing" :b24ui="b24ui">
         <Component
           :is="trailingIconName"
           v-if="trailingIconName"
+          data-slot="trailingIcon"
           :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
         />
       </slot>

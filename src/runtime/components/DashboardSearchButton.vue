@@ -99,6 +99,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashbo
         }),
         ...$attrs
       }"
+      data-slot="base"
       :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
       :b24ui="transformUI(b24ui, props.b24ui)"
       @click="toggleSearch"
@@ -108,7 +109,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashbo
       </template>
 
       <template v-if="!collapsed" #trailing="{ b24ui: b24uiProxy }">
-        <div :class="b24ui.trailing({ class: props.b24ui?.trailing })">
+        <div data-slot="trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
           <slot name="trailing" :b24ui="b24uiProxy">
             <template v-if="kbds?.length">
               <B24Kbd

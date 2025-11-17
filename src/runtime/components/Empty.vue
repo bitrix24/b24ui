@@ -74,25 +74,26 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.empty 
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <div v-if="!!slots.header || (icon || !!slots.leading) || (title || !!slots.title) || (description || !!slots.description)" :class="b24ui.header({ class: props.b24ui?.header })">
+  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+    <div v-if="!!slots.header || (icon || !!slots.leading) || (title || !!slots.title) || (description || !!slots.description)" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
       <slot name="header">
         <slot name="leading" :b24ui="b24ui">
-          <div v-if="icon" :class="b24ui.indicator({ class: props.b24ui?.indicator })">
+          <div v-if="icon" data-slot="indicator" :class="b24ui.indicator({ class: props.b24ui?.indicator })">
             <Component
               :is="icon"
+              data-slot="icon"
               :class="b24ui.icon({ class: props.b24ui?.icon })"
             />
           </div>
         </slot>
 
-        <h2 v-if="title || !!slots.title" :class="b24ui.title({ class: props.b24ui?.title })">
+        <h2 v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
           <slot name="title">
             {{ title }}
           </slot>
         </h2>
 
-        <div v-if="description || !!slots.description" :class="b24ui.description({ class: props.b24ui?.description })">
+        <div v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
           <slot name="description">
             {{ description }}
           </slot>
@@ -100,9 +101,9 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.empty 
       </slot>
     </div>
 
-    <div v-if="!!slots.body || (actions?.length || !!slots.actions)" :class="b24ui.body({ class: props.b24ui?.body })">
+    <div v-if="!!slots.body || (actions?.length || !!slots.actions)" data-slot="body" :class="b24ui.body({ class: props.b24ui?.body })">
       <slot name="body">
-        <div v-if="actions?.length || !!slots.actions" :class="b24ui.actions({ class: props.b24ui?.actions })">
+        <div v-if="actions?.length || !!slots.actions" data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions })">
           <slot name="actions">
             <B24Button v-for="(action, index) in actions" :key="index" :size="size" v-bind="action" />
           </slot>
@@ -110,7 +111,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.empty 
       </slot>
     </div>
 
-    <div v-if="!!slots.footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
+    <div v-if="!!slots.footer" data-slot="footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
       <slot name="footer" />
     </div>
   </Primitive>

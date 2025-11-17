@@ -463,24 +463,29 @@ defineExpose({
   <Primitive
     :as="as"
     v-bind="$attrs"
+    data-slot="base"
     :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
   >
     <svg
       v-if="props.useCircle"
+      data-slot="circleBase"
       :class="b24ui.circleBase({ class: [props.b24ui?.circleBase] })"
       viewBox="0 0 100 100"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g
+        data-slot="circleGroup"
         :class="b24ui.circleGroup({ class: [props.b24ui?.circleGroup] })"
       >
         <circle
+          data-slot="circleElement"
           :class="b24ui.circleElement({ class: [props.b24ui?.circleElement] })"
           cx="50"
           cy="50"
           r="45"
         />
         <path
+          data-slot="circlePath"
           :class="b24ui.circlePath({ class: [props.b24ui?.circlePath] })"
           :stroke-dasharray="fullDashArray"
           d="M 50, 50 m -45, 0 a 45,45 0 1,0 90,0 a 45,45 0 1,0 -90,0"
@@ -491,12 +496,14 @@ defineExpose({
       <Component
         :is="leadingIconName"
         v-if="isLeading && (typeof leadingIconName !== 'undefined')"
+        data-slot="leadingIcon"
         :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
       />
       <B24Avatar
         v-else-if="!!avatar"
         :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
         v-bind="avatar"
+        data-slot="leadingAvatar"
         :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
       />
     </slot>
@@ -514,7 +521,7 @@ defineExpose({
       :format-time="formatTime"
       :b24ui="b24ui"
     >
-      <span :class="b24ui.label({ class: props.b24ui?.label })">
+      <span data-slot="label" :class="b24ui.label({ class: props.b24ui?.label })">
         {{ formatTime }}
       </span>
     </slot>

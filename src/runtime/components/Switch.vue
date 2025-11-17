@@ -102,45 +102,49 @@ function onUpdate(value: any) {
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <div :class="b24ui.container({ class: props.b24ui?.container })">
+  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+    <div data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">
       <SwitchRoot
         :id="id"
         v-bind="{ ...rootProps, ...omit({ ...$attrs }, ['data-state']), ...ariaAttrs }"
         v-model="modelValue"
         :name="name"
         :disabled="disabled || loading"
+        data-slot="base"
         :class="b24ui.base({ class: props.b24ui?.base })"
         @update:model-value="onUpdate"
       >
-        <SwitchThumb :class="b24ui.thumb({ class: props.b24ui?.thumb })">
+        <SwitchThumb data-slot="thumb" :class="b24ui.thumb({ class: props.b24ui?.thumb })">
           <Component
             :is="loadingIcon || icons.refresh"
             v-if="loading"
+            data-slot="icon"
             :class="b24ui.icon({ class: props.b24ui?.icon, checked: true, unchecked: true })"
           />
           <template v-else>
             <Component
               :is="checkedIcon"
               v-if="checkedIcon"
+              data-slot="icon"
               :class="b24ui.icon({ class: props.b24ui?.icon, checked: true })"
             />
             <Component
               :is="uncheckedIcon"
               v-if="uncheckedIcon"
+              data-slot="icon"
               :class="b24ui.icon({ class: props.b24ui?.icon, unchecked: true })"
             />
           </template>
         </SwitchThumb>
       </SwitchRoot>
     </div>
-    <div v-if="(label || !!slots.label) || (description || !!slots.description)" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
-      <Label v-if="label || !!slots.label" :for="id" :class="b24ui.label({ class: props.b24ui?.label })">
+    <div v-if="(label || !!slots.label) || (description || !!slots.description)" data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
+      <Label v-if="label || !!slots.label" :for="id" data-slot="label" :class="b24ui.label({ class: props.b24ui?.label })">
         <slot name="label" :label="label">
           {{ label }}
         </slot>
       </Label>
-      <p v-if="description || !!slots.description" :class="b24ui.description({ class: props.b24ui?.description })">
+      <p v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
         <slot name="description" :description="description">
           {{ description }}
         </slot>
