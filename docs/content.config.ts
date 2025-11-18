@@ -16,10 +16,7 @@ const Avatar = z.object({
 const Button = z.object({
   label: z.string(),
   iconName: z.string().optional(),
-  icon: z.string().optional(),
   avatar: Avatar.optional(),
-  leadingIcon: z.string().optional(),
-  trailingIcon: z.string().optional(),
   to: z.string().optional(),
   target: z.enum(['_blank', '_self']).optional(),
   color: z.enum(['air-primary', 'air-primary-success', 'air-primary-alert', 'air-primary-copilot', 'air-secondary', 'air-secondary-alert', 'air-secondary-accent', 'air-secondary-accent-1', 'air-secondary-accent-2', 'air-secondary-no-accent', 'air-tertiary', 'air-tertiary-accent', 'air-tertiary-no-accent', 'air-selection', 'air-boost']).optional(),
@@ -32,7 +29,7 @@ const Button = z.object({
 const PageFeature = z.object({
   title: z.string(),
   description: z.string().optional(),
-  icon: z.string(),
+  iconName: z.string(),
   to: z.string().optional(),
   target: z.enum(['_blank', '_self']).optional()
 })
@@ -46,7 +43,7 @@ const PageHero = z.object({
 const PageSection = z.object({
   title: z.string(),
   description: z.string(),
-  icon: z.string().optional(),
+  iconName: z.string().optional(),
   links: z.array(Button).optional(),
   features: z.array(PageFeature).optional()
 })

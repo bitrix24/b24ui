@@ -19,7 +19,7 @@ export function normalizeComponentName(componentName: string): string {
   if (normalizedName.startsWith('B24') && normalizedName.length > 1 && normalizedName[1] === normalizedName[1]?.toUpperCase()) {
     normalizedName = normalizedName.slice(3)
 
-    // Handle u-button -> button, b24-user -> user (kebab-case with b24- prefix)
+    // Handle b24-button -> button, b24-user -> user (kebab-case with b24- prefix)
   } else if (normalizedName.toLowerCase().startsWith('b24-')) {
     normalizedName = normalizedName.slice(4)
   }
