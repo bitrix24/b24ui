@@ -219,6 +219,7 @@ import { useFormField } from '../composables/useFormField'
 import { useLocale } from '../composables/useLocale'
 import { usePortal } from '../composables/usePortal'
 import { compare, get, getDisplayValue, isArrayOfArray } from '../utils'
+import { getEstimateSize } from '../utils/virtualizer'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Badge from './Badge.vue'
@@ -251,16 +252,13 @@ const rootProps = useForwardPropsEmits(reactivePick(props, 'modelValue', 'defaul
 const portalProps = usePortal(toRef(() => props.portal))
 const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffset: 8, collisionPadding: 8, position: 'popper' }) as ComboboxContentProps)
 const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10 }) as ComboboxArrowProps)
-const virtualizerProps = toRef(() => !!props.virtualize && defu(typeof props.virtualize === 'boolean' ? {} : props.virtualize, {
-  estimateSize: ({
-    xss: 20,
-    xs: 24,
-    sm: 28,
-    md: 32,
-    lg: 36,
-    xl: 40
-  })[props.size || 'md']
-}))
+const virtualizerProps = toRef(() => {
+  if (!props.virtualize) return false
+
+  return defu(typeof props.virtualize === 'boolean' ? {} : props.virtualize, {
+    estimateSize: getEstimateSize(items.value, props.size || 'md', props.descriptionKey as string)
+  })
+})
 const searchInputProps = toRef(() => defu(props.searchInput, { placeholder: t('selectMenu.search'), type: 'text', size: 'md' }) as InputProps)
 
 const { emitFormBlur, emitFormFocus, emitFormInput, emitFormChange, size: formGroupSize, color, id, name, highlight, disabled, ariaAttrs } = useFormField<InputProps>(props)
