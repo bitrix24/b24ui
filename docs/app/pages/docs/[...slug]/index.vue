@@ -12,6 +12,7 @@ import Bitrix24Icon from '@bitrix24/b24icons-vue/common-service/Bitrix24Icon'
 
 const route = useRoute()
 const { framework } = useFrameworks()
+const site = useSiteConfig()
 
 definePageMeta({
   layout: false
@@ -84,13 +85,13 @@ const communityLinks = computed(() => [
   {
     icon: DesignIcon,
     label: 'Edit this page',
-    to: `https://github.com/bitrix24/b24ui/edit/main/docs/content/${page?.value?.stem}.md`,
+    to: `${site.gitURL}/edit/main/docs/content/${page?.value?.stem}.md`,
     target: '_blank'
   },
   {
     icon: FavoriteIcon,
     label: 'Star on GitHub',
-    to: `https://github.com/bitrix24/b24ui`,
+    to: site.gitURL,
     target: '_blank'
   }
 ])

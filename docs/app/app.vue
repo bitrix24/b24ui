@@ -3,6 +3,7 @@ import { withTrailingSlash } from 'ufo'
 
 const route = useRoute()
 const appConfig = useAppConfig()
+const site = useSiteConfig()
 
 const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs', ['framework', 'category', 'description', 'badge']))
 const { data: files } = useLazyAsyncData(
@@ -29,7 +30,7 @@ useHead({
     { name: 'viewport', content: 'width=device-width, initial-scale=1' }
   ],
   link: [
-    { rel: 'canonical', href: `https://bitrix24.github.io/b24ui${withTrailingSlash(route.path)}` }
+    { rel: 'canonical', href: `${site.canonicalURL}${site.baseURL}${withTrailingSlash(route.path)}` }
   ],
   style: [],
   htmlAttrs: { lang: 'en', class: '' }

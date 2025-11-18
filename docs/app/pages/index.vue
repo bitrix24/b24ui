@@ -10,7 +10,7 @@ if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
 
-// const { url } = useSiteConfig()
+// const site = useSiteConfig()
 
 useSeoMeta({
   titleTemplate: '%s - Bitrix24 UI',
@@ -18,33 +18,8 @@ useSeoMeta({
   description: page.value.description,
   ogTitle: `${page.value.title} - Bitrix24 UI`,
   ogDescription: page.value.description
-  // @todo fix this
-  // ogImage: joinURL(url, '/b24ui/og-image.png')
+  // ogImage: joinURL(site.url, `${site.baseURL}/og-image.png`)
 })
-
-// const { data: components } = await useAsyncData('index-components', () => {
-//   return queryCollection('docs')
-//     .where('path', 'LIKE', '/docs/components/%')
-//     .where('extension', '=', 'md')
-//     .select('path', 'title', 'description', 'category')
-//     .all()
-// })
-//
-// const { data: templates } = await useAsyncData('index-templates', () => queryCollection('templates').first(), {
-//   transform: data => data?.items?.filter(template => template.framework === 'nuxt') || []
-// })
-//
-// const { data: module } = await useFetch('/api/module.json')
-//
-// const { format } = Intl.NumberFormat('en', { notation: 'compact' })
-//
-// const contributorsRef = ref(null)
-// const isContributorsInView = ref(false)
-// const isContributorsHovered = useElementHover(contributorsRef)
-//
-// useIntersectionObserver(contributorsRef, ([entry]) => {
-//   isContributorsInView.value = entry?.isIntersecting || false
-// })
 
 const iconFromIconName = (iconName?: string) => {
   if (!iconName) {

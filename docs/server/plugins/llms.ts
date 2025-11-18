@@ -2,6 +2,8 @@ import type { H3Event } from 'h3'
 import type { PageCollectionItemBase } from '@nuxt/content'
 import { withoutTrailingSlash } from 'ufo'
 
+const site = useSiteConfig()
+
 export default defineNitroPlugin((nitroApp) => {
   nitroApp.hooks.hook('content:llms:generate:document', async (event: H3Event, doc: PageCollectionItemBase) => {
     await transformMDC(event, doc as any)
@@ -28,5 +30,5 @@ export default defineNitroPlugin((nitroApp) => {
 })
 
 function transformRawLink(href: string) {
-  return `${withoutTrailingSlash(href.replace(/^https:\/\/bitrix24.github.io\/b24ui/, 'https://bitrix24.github.io/b24ui/raw'))}.md`
+  return `${withoutTrailingSlash(href.replace(new RegExp(`^${site.canonicalURL}${site.baseURL}`), `${site.canonicalURL}${site.baseURL}/raw`))}.md`
 }

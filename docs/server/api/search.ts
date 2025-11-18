@@ -3,6 +3,7 @@ import { streamText, convertToModelMessages, stepCountIs } from 'ai'
 import { experimental_createMCPClient } from '@ai-sdk/mcp'
 import { createDeepSeek } from '@ai-sdk/deepseek'
 
+const site = useSiteConfig()
 /**
  * @docs https://ai-sdk.dev/providers/ai-sdk-providers/deepseek
  */
@@ -10,7 +11,8 @@ export default defineEventHandler(async (event) => {
   const { messages } = await readBody(event)
 
   const httpTransport = new StreamableHTTPClientTransport(
-    new URL(import.meta.dev ? 'http://localhost:3000/b24ui/mcp/' : 'https://bitrix24.github.io/b24ui/mcp/')
+    // new URL(import.meta.dev ? `http://localhost:3000/b24ui/mcp/` : `https://bitrix24.github.io/b24ui/mcp/`)
+    new URL(`${site.url}${site.baseURL}/mcp/`)
   )
   const httpClient = await experimental_createMCPClient({
     transport: httpTransport

@@ -193,6 +193,11 @@ const pagesService = [
 
 const extraAllowedHosts = (process?.env.NUXT_ALLOWED_HOSTS?.split(',').map((s: string) => s.trim()).filter(Boolean)) ?? []
 
+const prodURL = 'https://bitrix24.github.io'
+const baseURL = '/b24ui'
+const canonicalURL = prodURL
+const gitURL = 'https://github.com/bitrix24/b24ui'
+
 export default defineNuxtConfig({
   modules: [
     '../src/module',
@@ -221,12 +226,18 @@ export default defineNuxtConfig({
 
   $development: {
     site: {
-      url: 'http://localhost:3000'
+      url: 'http://localhost:3000',
+      baseURL,
+      canonicalURL,
+      gitURL
     }
   },
   $production: {
     site: {
-      url: 'https://bitrix24.github.io'
+      url: prodURL,
+      baseURL,
+      canonicalURL,
+      gitURL
     }
   },
 
@@ -237,19 +248,15 @@ export default defineNuxtConfig({
   },
 
   app: {
-    baseURL: '/b24ui/',
+    baseURL: `${baseURL}/`,
     buildAssetsDir: '/_nuxt/',
     head: {
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/b24ui/favicon.ico' }
+        { rel: 'icon', type: 'image/x-icon', href: `${baseURL}/favicon.ico` }
       ],
-      htmlAttrs: {
-        class: 'edge-dark'
-      }
+      htmlAttrs: { class: 'edge-dark' }
     },
-    rootAttrs: {
-      'data-vaul-drawer-wrapper': ''
-    }
+    rootAttrs: { 'data-vaul-drawer-wrapper': '' }
   },
 
   css: ['~/assets/css/main.css'],
@@ -316,11 +323,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: [
-        // ...pages.map((page: string) => `${page}`),
-        // @memo fix EMFILE: too many open files
         ...pages.map((page: string) => `${withoutTrailingSlash(`/raw${page}`)}.md`),
-        // ...apiComponentMeta,
-        // ...apiComponentExample,
         ...pagesFrameExamples,
         ...pagesService
       ],
@@ -337,8 +340,6 @@ export default defineNuxtConfig({
     server: {
       // Fix: "Blocked request. This host is not allowed" when using tunnels like ngrok
       allowedHosts: [...extraAllowedHosts]
-      // Optionally set HMR host if needed behind proxy:
-      // hmr: { protocol: 'wss', host: 'whale-viable-wasp.ngrok-free.app', port: 443 }
     }
   },
 
@@ -377,7 +378,7 @@ export default defineNuxtConfig({
   // },
 
   llms: {
-    domain: 'https://bitrix24.github.io/b24ui',
+    domain: `${prodURL}${baseURL}`,
     title: 'Bitrix24 UI',
     description: 'A comprehensive, Nuxt-integrated UI library providing a rich set of fully-styled, accessible and highly customizable components for REST API web-application development.',
     full: {

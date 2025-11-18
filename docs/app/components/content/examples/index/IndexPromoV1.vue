@@ -6,7 +6,7 @@ import Bitrix24Icon from '@bitrix24/b24icons-vue/common-service/Bitrix24Icon'
 
 const myCanvas = ref<HTMLCanvasElement | undefined>()
 const confetti = useConfetti()
-
+const site = useSiteConfig()
 const toast = useToast()
 
 const colorList = [
@@ -66,7 +66,7 @@ defineShortcuts({
   <div class="h-[200px] flex flex-col items-center justify-center">
     <B24Advice
       v-if="isShowAdvice"
-      :avatar="{ src: '/b24ui/avatar/assistant.png' }"
+      :avatar="{ src: `${site.baseURL}/avatar/assistant.png` }"
     >
       <div class="font-(--ui-font-weight-bold)">
         Deal on Hold: Attention Required

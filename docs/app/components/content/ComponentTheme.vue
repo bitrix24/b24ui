@@ -12,6 +12,7 @@ const props = defineProps<{
 
 const route = useRoute()
 const { framework } = useFrameworks()
+const site = useSiteConfig()
 
 const name = props.slug ?? route.path.split('/').filter(Boolean).pop() ?? ''
 const camelName = camelCase(name)
@@ -78,7 +79,7 @@ const component = computed(() => {
 const themeLink = computed(() => {
   const slug = name.startsWith('content') ? `content/${name}` : name
 
-  return `https://github.com/bitrix24/b24ui/tree/main/src/theme/${slug}.ts`
+  return `${site.gitURL}/tree/main/src/theme/${slug}.ts`
 })
 
 const { data: ast } = await useAsyncData(`component-theme-${camelName}-${hash({ props })}`, async () => {

@@ -6,6 +6,8 @@ const querySchema = z.object({
   search: z.string().optional().describe('Search term to filter components by name or description')
 })
 
+const site = useSiteConfig()
+
 export default defineCachedEventHandler(async (event) => {
   const { category, search } = await getValidatedQuery(event, querySchema.parse)
 
@@ -26,7 +28,7 @@ export default defineCachedEventHandler(async (event) => {
     description: component.description,
     category: component.category,
     path: component.path,
-    url: `https://bitrix24.github.io/b24ui${component.path}`,
+    url: `${site.canonicalURL}${site.baseURL}${component.path}`,
     links: component.links
   }))
 

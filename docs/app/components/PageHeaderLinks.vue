@@ -10,7 +10,7 @@ const toast = useToast()
 const { copy, copied } = useClipboard()
 const site = useSiteConfig()
 
-const mdPath = computed(() => `${withoutTrailingSlash(`${site.url}/b24ui/raw${route.path}`)}.md`)
+const mdPath = computed(() => `${withoutTrailingSlash(`${site.url}${site.baseURL}/raw${route.path}`)}.md`)
 
 const items = [
   {
@@ -32,13 +32,13 @@ const items = [
   },
   {
     label: 'Open in ChatGPT',
-    avatar: { src: '/b24ui/avatar/openai.svg' },
+    avatar: { src: `${site.baseURL}/avatar/openai.svg` },
     target: '_blank',
     to: `https://chatgpt.com/?hints=search&q=${encodeURIComponent(`Read ${mdPath.value} so I can ask questions about it.`)}`
   },
   {
     label: 'Open in Claude',
-    avatar: { src: '/b24ui/avatar/anthropic.svg' },
+    avatar: { src: `${site.baseURL}/avatar/anthropic.svg` },
     target: '_blank',
     to: `https://claude.ai/new?q=${encodeURIComponent(`Read ${mdPath.value} so I can ask questions about it.`)}`
   }

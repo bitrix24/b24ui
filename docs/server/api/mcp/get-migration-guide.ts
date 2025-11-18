@@ -5,6 +5,8 @@ const querySchema = z.object({
   version: z.string().describe('The migration version (e.g., v2)')
 })
 
+const site = useSiteConfig()
+
 export default defineCachedEventHandler(async (event) => {
   const { version } = await getValidatedQuery(event, querySchema.parse)
 
@@ -29,7 +31,7 @@ export default defineCachedEventHandler(async (event) => {
     description: page.description,
     path: page.path,
     documentation,
-    url: `https://bitrix24.github.io/b24ui${page.path}`
+    url: `${site.canonicalURL}${site.baseURL}${page.path}`
   }
 }, {
   name: 'mcp-get-migration-guide',

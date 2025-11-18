@@ -7,6 +7,8 @@ const querySchema = z.object({
   componentName: z.string()
 })
 
+const site = useSiteConfig()
+
 export default defineCachedEventHandler(async (event) => {
   const { componentName } = await getValidatedQuery(event, querySchema.parse)
 
@@ -38,7 +40,7 @@ export default defineCachedEventHandler(async (event) => {
     description: page.description,
     category: page.category,
     documentation,
-    documentation_url: `https://bitrix24.github.io/b24ui${page.path}`
+    documentation_url: `${site.canonicalURL}${site.baseURL}${page.path}`
   }
 }, {
   name: 'mcp-get-component',

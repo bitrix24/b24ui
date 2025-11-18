@@ -1,5 +1,7 @@
 import { queryCollection } from '@nuxt/content/server'
 
+const site = useSiteConfig()
+
 export default defineCachedEventHandler(async (event) => {
   const pages = await queryCollection(event, 'docs')
     .where('path', 'LIKE', '/docs/getting-started/%')
@@ -11,7 +13,7 @@ export default defineCachedEventHandler(async (event) => {
     title: page.title,
     description: page.description,
     path: page.path,
-    url: `https://bitrix24.github.io/b24ui${page.path}`,
+    url: `${site.canonicalURL}${site.baseURL}${page.path}`,
     navigation: page.navigation
   })).sort((a, b) => a.path.localeCompare(b.path))
 }, {
