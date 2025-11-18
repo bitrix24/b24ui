@@ -119,8 +119,13 @@ export function getTemplates(options: ModuleOptions, uiConfig: Record<string, an
     let sources = ''
 
     if (!!nuxt && !!resolve && options.experimental?.componentDetection) {
-      const detectedComponents = await detectUsedComponents(
+      const dirs = [...new Set([
         nuxt.options.rootDir,
+        ...(nuxt.options._layers?.map(layer => layer.config.rootDir).filter(Boolean) || [])
+      ])]
+
+      const detectedComponents = await detectUsedComponents(
+        dirs,
         'B24',
         resolve('./runtime/components'),
         Array.isArray(options.experimental.componentDetection) ? options.experimental.componentDetection : undefined
