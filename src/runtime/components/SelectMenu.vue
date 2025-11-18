@@ -430,6 +430,13 @@ function onUpdateOpen(value: boolean) {
   }
 }
 
+function onCreate(e: Event) {
+  e.preventDefault()
+  e.stopPropagation()
+
+  emits('create', searchTerm.value)
+}
+
 function onSelect(e: Event, item: SelectMenuItem) {
   if (!isSelectItem(item)) {
     return
@@ -459,7 +466,7 @@ defineExpose({
       data-slot="item"
       :class="b24ui.item({ addNew: true, class: props.b24ui?.item })"
       :value="searchTerm"
-      @select.prevent="emits('create', searchTerm)"
+      @select="onCreate"
     >
       <span data-slot="itemLabel" :class="b24ui.itemLabel({ addNew: true, class: props.b24ui?.itemLabel })">
         <slot name="create-item-label" :item="searchTerm">
@@ -657,6 +664,7 @@ defineExpose({
                 v-bind="searchInputProps"
                 data-slot="input"
                 :class="b24ui.input({ class: props.b24ui?.input })"
+                @change.stop
               />
             </ComboboxInput>
 

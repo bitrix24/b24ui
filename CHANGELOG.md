@@ -6,6 +6,7 @@
 * fix(ColorModeButton): use css to display color mode icon
 * fix(components): calc virtualizer estimateSize based on item description
 * feat(Table): handle virtualizer `estimateSize` as function
+* fix(InputMenu): prevent change event when selecting create item
 
 ## [2.1.3](https://github.com/bitrix24/b24ui/compare/v2.1.2...v2.1.3) (2025-11-17)
 
