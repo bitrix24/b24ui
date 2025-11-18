@@ -1,12 +1,21 @@
 # Changelog
 
-## [2.1.4](https://github.com/bitrix24/b24ui/compare/v2.1.3...v2.1.4) (2025-11-xx)
+## [2.1.4](https://github.com/bitrix24/b24ui/compare/v2.1.3...v2.1.4) (2025-11-18)
 
-* fix(module): scan layers when using component detection
-* fix(ColorModeButton): use css to display color mode icon
-* fix(components): calc virtualizer estimateSize based on item description
-* feat(Table): handle virtualizer `estimateSize` as function
-* fix(InputMenu): prevent change event when selecting create item
+### Features
+
+* **Table:** handle virtualizer `estimateSize` as function
+
+### Bug Fixes
+
+* **module:** scan layers when using component detection
+* **ColorModeButton:** use css to display color mode icon
+* **components:** calc virtualizer estimateSize based on item description
+* **InputMenu:** prevent change event when selecting create item
+
+### Docs
+
+* improve llms
 
 ## [2.1.3](https://github.com/bitrix24/b24ui/compare/v2.1.2...v2.1.3) (2025-11-17)
 
