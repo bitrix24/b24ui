@@ -1,13 +1,13 @@
 import { queryCollection } from '@nuxt/content/server'
 
-const site = useSiteConfig()
-
 export default defineCachedEventHandler(async (event) => {
   const pages = await queryCollection(event, 'docs')
     .where('path', 'LIKE', '/docs/getting-started/%')
     .where('extension', '=', 'md')
     .select('id', 'title', 'description', 'path', 'navigation')
     .all()
+
+  const site = useSiteConfig()
 
   return pages.map(page => ({
     title: page.title,

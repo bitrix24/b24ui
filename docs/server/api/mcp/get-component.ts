@@ -7,8 +7,6 @@ const querySchema = z.object({
   componentName: z.string()
 })
 
-const site = useSiteConfig()
-
 export default defineCachedEventHandler(async (event) => {
   const { componentName } = await getValidatedQuery(event, querySchema.parse)
 
@@ -33,6 +31,7 @@ export default defineCachedEventHandler(async (event) => {
   }
 
   const documentation = await $fetch<string>(`/raw${page.path}.md`)
+  const site = useSiteConfig()
 
   return {
     name: normalizedName,

@@ -5,8 +5,6 @@ const querySchema = z.object({
   version: z.string().describe('The migration version (e.g., v2)')
 })
 
-const site = useSiteConfig()
-
 export default defineCachedEventHandler(async (event) => {
   const { version } = await getValidatedQuery(event, querySchema.parse)
 
@@ -24,6 +22,7 @@ export default defineCachedEventHandler(async (event) => {
   }
 
   const documentation = await $fetch<string>(`/raw${page.path}.md`)
+  const site = useSiteConfig()
 
   return {
     version,

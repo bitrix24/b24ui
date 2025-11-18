@@ -6,8 +6,6 @@ const querySchema = z.object({
   search: z.string().optional().describe('Search term to filter components by name or description')
 })
 
-const site = useSiteConfig()
-
 export default defineCachedEventHandler(async (event) => {
   const { category, search } = await getValidatedQuery(event, querySchema.parse)
 
@@ -21,6 +19,7 @@ export default defineCachedEventHandler(async (event) => {
   }
 
   const components = await query.all()
+  const site = useSiteConfig()
 
   let results = components.map(component => ({
     name: component.path.split('/').pop(),

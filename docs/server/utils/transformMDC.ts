@@ -40,8 +40,6 @@ type Document = {
 
 const parseBoolean = (value?: string): boolean => value === 'true'
 
-const site = useSiteConfig()
-
 function getComponentMeta(componentName: string) {
   const pascalCaseName = componentName.charAt(0).toUpperCase() + componentName.slice(1)
 
@@ -341,6 +339,8 @@ const generateComponentCode = ({
 
 export async function transformMDC(event: H3Event, doc: Document): Promise<Document> {
   const componentName = camelCase(doc.title)
+
+  const site = useSiteConfig()
 
   visitAndReplace(doc, 'component-theme', (node) => {
     const attributes = node[1] as Record<string, string>

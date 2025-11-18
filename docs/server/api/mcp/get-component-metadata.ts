@@ -7,8 +7,6 @@ const querySchema = z.object({
   componentName: z.string()
 })
 
-const site = useSiteConfig()
-
 export default defineCachedEventHandler(async (event) => {
   const { componentName } = await getValidatedQuery(event, querySchema.parse)
 
@@ -37,6 +35,7 @@ export default defineCachedEventHandler(async (event) => {
   const componentMetaName = `B24${upperFirst(camelName)}`
 
   const metadata = await $fetch(`/api/component-meta/${componentMetaName}.json`)
+  const site = useSiteConfig()
 
   return {
     name: normalizedName,
