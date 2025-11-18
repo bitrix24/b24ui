@@ -8,9 +8,9 @@ import MarkdownIcon from '@bitrix24/b24icons-vue/file-type/MarkdownIcon'
 const route = useRoute()
 const toast = useToast()
 const { copy, copied } = useClipboard()
-const site = useSiteConfig()
+const config = useRuntimeConfig()
 
-const mdPath = computed(() => `${withoutTrailingSlash(`${site.url}${site.baseURL}/raw${route.path}`)}.md`)
+const mdPath = computed(() => `${withoutTrailingSlash(`${config.public.siteUrl}${config.public.baseUrl}/raw${route.path}`)}.md`)
 
 const items = [
   {
@@ -32,13 +32,13 @@ const items = [
   },
   {
     label: 'Open in ChatGPT',
-    avatar: { src: `${site.baseURL}/avatar/openai.svg` },
+    avatar: { src: `${config.public.baseUrl}/avatar/openai.svg` },
     target: '_blank',
     to: `https://chatgpt.com/?hints=search&q=${encodeURIComponent(`Read ${mdPath.value} so I can ask questions about it.`)}`
   },
   {
     label: 'Open in Claude',
-    avatar: { src: `${site.baseURL}/avatar/anthropic.svg` },
+    avatar: { src: `${config.public.baseUrl}/avatar/anthropic.svg` },
     target: '_blank',
     to: `https://claude.ai/new?q=${encodeURIComponent(`Read ${mdPath.value} so I can ask questions about it.`)}`
   }

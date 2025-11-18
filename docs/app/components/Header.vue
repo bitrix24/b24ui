@@ -14,7 +14,7 @@ const props = withDefaults(defineProps<HeaderProps>(), {
 })
 
 const { desktopLinks } = useHeader()
-const site = useSiteConfig()
+const config = useRuntimeConfig()
 </script>
 
 <template>
@@ -58,7 +58,7 @@ const site = useSiteConfig()
       <B24Button
         aria-label="Bitrix24 UI on GitHub"
         :icon="GitHubIcon"
-        :to="site.gitURL"
+        :to="config.public.gitUrl"
         target="_blank"
         size="sm"
       />

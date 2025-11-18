@@ -78,7 +78,7 @@ const el = ref<HTMLElement | null>(null)
 
 const { $prettier } = useNuxtApp()
 const { width } = useElementSize(el)
-const site = useSiteConfig()
+const config = useRuntimeConfig()
 
 const camelName = camelCase(props.name)
 
@@ -202,7 +202,7 @@ const urlSearchParams = computed(() => {
         <iframe
           v-if="iframe"
           v-bind="typeof iframe === 'object' ? iframe : {}"
-          :src="`${site.baseURL}/examples/${name}/?${urlSearchParams}`"
+          :src="`${config.public.baseUrl}/examples/${name}/?${urlSearchParams}`"
           class="relative w-full"
           :class="[props.class, !iframeMobile && 'max-w-[1300px]']"
         />

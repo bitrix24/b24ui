@@ -7,13 +7,13 @@ export default defineCachedEventHandler(async (event) => {
     .select('id', 'title', 'description', 'path', 'navigation')
     .all()
 
-  const site = useSiteConfig()
+  const config = useRuntimeConfig()
 
   return pages.map(page => ({
     title: page.title,
     description: page.description,
     path: page.path,
-    url: `${site.canonicalURL}${site.baseURL}${page.path}`,
+    url: `${config.public.canonicalUrl}${config.public.baseUrl}${page.path}`,
     navigation: page.navigation
   })).sort((a, b) => a.path.localeCompare(b.path))
 }, {

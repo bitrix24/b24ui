@@ -35,14 +35,14 @@ export default defineCachedEventHandler(async (event) => {
   const componentMetaName = `B24${upperFirst(camelName)}`
 
   const metadata = await $fetch(`/api/component-meta/${componentMetaName}.json`)
-  const site = useSiteConfig()
+  const config = useRuntimeConfig()
 
   return {
     name: normalizedName,
     title: page.title,
     description: page.description,
     category: page.category,
-    documentation_url: `${site.canonicalURL}${site.baseURL}${page.path}`,
+    documentation_url: `${config.public.canonicalUrl}${config.public.baseUrl}${page.path}`,
     metadata: {
       pascalName: metadata.pascalName,
       kebabName: metadata.kebabName,

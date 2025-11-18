@@ -10,7 +10,7 @@ if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
 
-// const site = useSiteConfig()
+// const config = useRuntimeConfig()
 
 useSeoMeta({
   titleTemplate: '%s - Bitrix24 UI',
@@ -18,7 +18,7 @@ useSeoMeta({
   description: page.value.description,
   ogTitle: `${page.value.title} - Bitrix24 UI`,
   ogDescription: page.value.description
-  // ogImage: joinURL(site.url, `${site.baseURL}/og-image.png`)
+  // ogImage: joinURL(config.public.siteUrl, `${config.public.baseUrl}/og-image.png`)
 })
 
 const iconFromIconName = (iconName?: string) => {

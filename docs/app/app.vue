@@ -3,7 +3,7 @@ import { withTrailingSlash } from 'ufo'
 
 const route = useRoute()
 const appConfig = useAppConfig()
-const site = useSiteConfig()
+const config = useRuntimeConfig()
 
 const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs', ['framework', 'category', 'description', 'badge']))
 const { data: files } = useLazyAsyncData(
@@ -30,7 +30,7 @@ useHead({
     { name: 'viewport', content: 'width=device-width, initial-scale=1' }
   ],
   link: [
-    { rel: 'canonical', href: `${site.canonicalURL}${site.baseURL}${withTrailingSlash(route.path)}` }
+    { rel: 'canonical', href: `${config.public.canonicalUrl}${config.public.baseUrl}${withTrailingSlash(route.path)}` }
   ],
   style: [],
   htmlAttrs: { lang: 'en', class: '' }

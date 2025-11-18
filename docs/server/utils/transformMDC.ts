@@ -83,6 +83,7 @@ function visitAndReplace(doc: Document, type: string, handler: (node: any[]) => 
     if (Array.isArray(node) && node[0] === type) {
       handler(node)
     }
+
     return true
   }, node => node)
 }
@@ -337,10 +338,54 @@ const generateComponentCode = ({
 </template>`
 }
 
+function processLinks(
+  nodes: Node[],
+  baseUrl: string
+) {
+  if (!Array.isArray(nodes)) return
+
+  for (const node of nodes) {
+    if (Array.isArray(node)) {
+      if (node[0] === 'a' && node[1] && node[1].href) {
+        const href = node[1].href
+
+        if (href.startsWith('/docs/') && !href.startsWith('http')) {
+          let newHref = href.startsWith('/') ? href.slice(1) : href
+
+          if (newHref.endsWith('/')) {
+            newHref = newHref.slice(0, -1) + '.md'
+          }
+
+          node[1].href = `${baseUrl}/${newHref}`
+        }
+      } else if (node[0] === 'tip' && node[1] && node[1].to) {
+        console.log(node)
+        const href = node[1].to
+
+        if (href.startsWith('/docs/') && !href.startsWith('http')) {
+          let newHref = href.startsWith('/') ? href.slice(1) : href
+
+          if (newHref.endsWith('/')) {
+            newHref = newHref.slice(0, -1) + '.md'
+          }
+
+          node[1].to = `${baseUrl}/${newHref}`
+        }
+      }
+
+      for (let i = 1; i < node.length; i++) {
+        if (Array.isArray(node[i])) {
+          processLinks([node[i]], baseUrl)
+        }
+      }
+    }
+  }
+}
+
 export async function transformMDC(event: H3Event, doc: Document): Promise<Document> {
   const componentName = camelCase(doc.title)
 
-  const site = useSiteConfig()
+  const config = useRuntimeConfig()
 
   visitAndReplace(doc, 'component-theme', (node) => {
     const attributes = node[1] as Record<string, string>
@@ -473,12 +518,14 @@ export async function transformMDC(event: H3Event, doc: Document): Promise<Docum
       .select('path', 'title')
       .all()
 
-    const links = components.map((c: any) => `- [${c.title}](${site.canonicalURL}${site.baseURL}/raw${c.path}.md)`).join('\n')
+    const links = components.map((c: any) => `- [${c.title}](${config.public.canonicalUrl}${config.public.baseUrl}/raw${c.path}.md)`).join('\n')
 
     node[0] = 'p'
     node[1] = {}
     node[2] = links
   }
+
+  processLinks(doc.body.value, `${config.public.canonicalUrl}${config.public.baseUrl}/raw`)
 
   return doc
 }

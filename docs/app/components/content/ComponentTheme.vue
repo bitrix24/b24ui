@@ -12,7 +12,7 @@ const props = defineProps<{
 
 const route = useRoute()
 const { framework } = useFrameworks()
-const site = useSiteConfig()
+const config = useRuntimeConfig()
 
 const name = props.slug ?? route.path.split('/').filter(Boolean).pop() ?? ''
 const camelName = camelCase(name)
@@ -79,7 +79,7 @@ const component = computed(() => {
 const themeLink = computed(() => {
   const slug = name.startsWith('content') ? `content/${name}` : name
 
-  return `${site.gitURL}/tree/main/src/theme/${slug}.ts`
+  return `${config.public.gitUrl}/tree/main/src/theme/${slug}.ts`
 })
 
 const { data: ast } = await useAsyncData(`component-theme-${camelName}-${hash({ props })}`, async () => {

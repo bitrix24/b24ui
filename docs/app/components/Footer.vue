@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import RocketIcon from '@bitrix24/b24icons-vue/outline/RocketIcon'
 
-const site = useSiteConfig()
+const config = useRuntimeConfig()
 </script>
 
 <template>
@@ -9,11 +9,11 @@ const site = useSiteConfig()
     <B24Button
       label="Releases"
       :icon="RocketIcon"
-      :to="`${site.gitURL}/releases`"
+      :to="`${config.public.gitUrl}/releases`"
       target="_blank"
       size="md"
     />
-    <NuxtLink :to="site.gitURL" target="_blank" class="text-(length:--ui-font-size-sm) hover:underline">
+    <NuxtLink :to="config.public.gitUrl" target="_blank" class="text-(length:--ui-font-size-sm) hover:underline">
       Published under MIT License.
     </NuxtLink>
     <ProseP small accent="less">
