@@ -23,9 +23,6 @@ defineOptions({ inheritAttrs: false })
 const props = withDefaults(defineProps<ColorModeButtonProps>(), {
   color: 'air-tertiary-no-accent'
 })
-defineSlots<{
-  fallback(props?: {}): any
-}>()
 
 const { t } = useLocale()
 const colorMode = useColorMode()
@@ -44,21 +41,17 @@ const isDark = computed({
 </script>
 
 <template>
-  <ClientOnly v-if="!colorMode?.forced">
-    <B24Button
-      v-bind="{
-        ...buttonProps,
-        'icon': props.icon || (isDark ? icons.dark : icons.light),
-        'aria-label': isDark ? t('colorMode.switchToLight') : t('colorMode.switchToDark'),
-        ...$attrs
-      }"
-      @click="isDark = !isDark"
-    />
-
-    <template #fallback>
-      <slot name="fallback">
-        <div class="w-[32px] h-[34px]" />
-      </slot>
+  <B24Button
+    v-bind="{
+      ...buttonProps,
+      'aria-label': isDark ? t('colorMode.switchToLight') : t('colorMode.switchToDark'),
+      ...$attrs
+    }"
+    @click="isDark = !isDark"
+  >
+    <template #leading="{ b24ui }">
+      <Component :is="icons.dark" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })" class="hidden dark:inline" />
+      <Component :is="icons.light" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })" class="inline dark:hidden" />
     </template>
-  </ClientOnly>
+  </B24Button>
 </template>
