@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { withoutTrailingSlash } from 'ufo'
+import { useClipboard } from '@vueuse/core'
 import CopyIcon from '@bitrix24/b24icons-vue/outline/CopyIcon'
 import CircleCheckIcon from '@bitrix24/b24icons-vue/outline/CircleCheckIcon'
 import LinkIcon from '@bitrix24/b24icons-vue/outline/LinkIcon'

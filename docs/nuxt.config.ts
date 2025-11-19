@@ -206,7 +206,6 @@ export default defineNuxtConfig({
     '@nuxt/content',
     // '@nuxt/image',
     '@nuxtjs/plausible',
-    '@vueuse/nuxt',
     'nuxt-component-meta',
     'nuxt-og-image',
     // @memo off this -> use in nuxt-og-image

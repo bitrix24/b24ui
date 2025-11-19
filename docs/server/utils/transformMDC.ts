@@ -359,7 +359,6 @@ function processLinks(
           node[1].href = `${baseUrl}/${newHref}`
         }
       } else if (node[0] === 'tip' && node[1] && node[1].to) {
-        console.log(node)
         const href = node[1].to
 
         if (href.startsWith('/docs/') && !href.startsWith('http')) {
