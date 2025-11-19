@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { h, resolveComponent } from 'vue'
+import { refDebounced } from '@vueuse/core'
 import type { TableColumn, TableRow } from '@bitrix24/b24ui-nuxt'
 
 const B24Checkbox = resolveComponent('B24Checkbox')
