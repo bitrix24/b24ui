@@ -343,7 +343,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
         </slot>
 
         <span
-          v-if="(!collapsed || orientation !== 'vertical') && (get(item, props.labelKey as string) || !!slots[(item.slot ? `${item.slot}-label` : 'item-label') as keyof NavigationMenuSlots<T>])"
+          v-if="get(item, props.labelKey as string) || !!slots[(item.slot ? `${item.slot}-label` : 'item-label') as keyof NavigationMenuSlots<T>]"
           data-slot="linkLabel"
           :class="b24ui.linkLabel({ class: [props.b24ui?.linkLabel, item.b24ui?.linkLabel], active })"
         >
@@ -361,7 +361,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
 
       <component
         :is="orientation === 'vertical' && item.children?.length && !collapsed ? AccordionTrigger : 'span'"
-        v-if="(!collapsed || orientation !== 'vertical') && (/* (item.badge || item.badge === 0) || */(orientation === 'horizontal' && (item.children?.length || !!slots[(item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>])) || (orientation === 'vertical' && item.children?.length) || item.trailingIcon || !!slots[(item.slot ? `${item.slot}-trailing` : 'item-trailing') as keyof NavigationMenuSlots<T>])"
+        v-if="/* (item.badge || item.badge === 0) || */(orientation === 'horizontal' && (item.children?.length || !!slots[(item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>])) || (orientation === 'vertical' && item.children?.length) || item.trailingIcon || !!slots[(item.slot ? `${item.slot}-trailing` : 'item-trailing') as keyof NavigationMenuSlots<T>]"
         as="span"
         data-slot="linkTrailing"
         :class="b24ui.linkTrailing({ class: [props.b24ui?.linkTrailing, item.b24ui?.linkTrailing] })"
@@ -659,7 +659,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
           modelValue,
           defaultValue: defaultValue ?? getAccordionDefaultValue(list)
         } : {}"
-        :is="orientation === 'vertical' && !collapsed ? AccordionRoot : NavigationMenuList"
+        :is="orientation === 'vertical' ? AccordionRoot : NavigationMenuList"
         as="ul"
         data-slot="list"
         :class="b24ui.list({ class: props.b24ui?.list })"

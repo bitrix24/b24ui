@@ -224,7 +224,9 @@ export default {
       orientation: 'vertical',
       collapsed: true,
       class: {
-        childList: 'grid px-0 py-(--menu-popup-padding)'
+        childList: 'grid px-0 py-(--menu-popup-padding)',
+        linkLabel: 'hidden',
+        linkTrailing: 'hidden'
       }
     },
     {
@@ -234,21 +236,6 @@ export default {
         link: 'collapsed data-[state=open]:-mt-(--leftmenu-group-stroke-weight) data-[state=open]:-mx-(--leftmenu-group-stroke-weight)'
       }
     },
-    // {
-    //   orientation: 'horizontal',
-    //   class: {
-    //     link: ['after:absolute after:-bottom-2 after:inset-x-2.5 after:block after:h-px after:rounded-full', 'after:transition-colors']
-    //   }
-    // },
-    // endregion ////
-    // region vertical ////
-    // {
-    //   orientation: 'vertical',
-    //   level: true,
-    //   class: {
-    //     link: ['after:absolute after:-start-1.5 after:inset-y-0.5 after:block after:w-[7px] after:rounded-full', 'after:transition-colors']
-    //   }
-    // },
     // endregion ////
     // region pill ////
     {
