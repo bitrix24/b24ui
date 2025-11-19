@@ -235,7 +235,7 @@ props:
 
 ### Control active item(s)
 
-You can control the active item(s) by using the `default-value` prop or the `v-model` directive with the index of the item.
+You can control the active item by using the `default-value` prop or the `v-model` directive with the `value` of the item. If no `value` is provided, it defaults to the index **as a string**.
 
 ::component-example
 ---
@@ -243,10 +243,6 @@ name: 'accordion-model-value-example'
 props:
   class: 'px-4'
 ---
-::
-
-::tip
-You can also pass the `value` of one of the items if provided.
 ::
 
 ::caution
