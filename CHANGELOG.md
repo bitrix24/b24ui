@@ -6,6 +6,7 @@
 * chore(deps): remove @vueuse/nuxt
 * fix(NavigationMenu): proxy `modelValue` / `defaultValue` in vertical orientation
 * fix(NavigationMenu): hide label and trailing with css when collapsed
+* fix(ContentSearchButton/DashboardSearchButton): hide label and trailing with css when collapsed
 
 ## [2.1.4](https://github.com/bitrix24/b24ui/compare/v2.1.3...v2.1.4) (2025-11-18)
 

@@ -30,8 +30,10 @@ It extends the [Button](/docs/components/button/) component, so you can pass any
 ---
 ignore:
   - color
+  - collapsed
 props:
   color: 'air-primary'
+  collapsed: true
 ---
 ::
 
