@@ -288,8 +288,14 @@ ignore:
   - items
 external:
   - items
+items:
+  variant:
+  - list
+  - card
+  - table
 props:
   disabled: true
+  variant: 'list'
   defaultValue: 'System'
   items:
     - 'System'

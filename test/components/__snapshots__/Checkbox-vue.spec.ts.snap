@@ -83,8 +83,8 @@ exports[`Checkbox > renders with description slot correctly 1`] = `
 `;
 
 exports[`Checkbox > renders with disabled correctly 1`] = `
-"<div data-slot="root" class="relative flex items-start style-filled flex-row">
-  <div data-slot="container" class="flex items-center h-[16px]"><button data-slot="base" class="flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px] cursor-not-allowed opacity-30" id="v-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" data-disabled="" disabled="">
+"<div data-slot="root" class="relative flex items-start style-filled flex-row opacity-30">
+  <div data-slot="container" class="flex items-center h-[16px]"><button data-slot="base" class="flex items-center justify-center shrink-0 rounded-(--ui-border-radius-2xs) text-(--b24ui-typography-label-color) ring ring-inset ring-(--ui-color-base-5) focus-visible:outline-(--b24ui-border-color) outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 size-[16px] cursor-not-allowed" id="v-0" role="checkbox" type="button" aria-checked="false" aria-required="false" data-state="unchecked" data-disabled="" disabled="">
       <!---->
       <!--v-if-->
     </button></div>

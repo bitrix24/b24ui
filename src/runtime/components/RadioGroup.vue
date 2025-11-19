@@ -194,15 +194,15 @@ function onUpdate(value: any) {
         v-for="item in normalizedItems"
         :key="item.value"
         data-slot="item"
-        :class="b24ui.item({ class: [props.b24ui?.item, item.b24ui?.item, item.class] })"
+        :class="b24ui.item({ class: [props.b24ui?.item, item.b24ui?.item, item.class], disabled: item.disabled || disabled })"
       >
         <div data-slot="container" :class="b24ui.container({ class: [props.b24ui?.container, item.b24ui?.container] })">
           <RRadioGroupItem
             :id="item.id"
             :value="item.value"
-            :disabled="item.disabled"
+            :disabled="item.disabled || disabled"
             data-slot="base"
-            :class="b24ui.base({ class: [props.b24ui?.base, item.b24ui?.base], disabled: item.disabled })"
+            :class="b24ui.base({ class: [props.b24ui?.base, item.b24ui?.base], disabled: item.disabled || disabled  })"
           >
             <RadioGroupIndicator data-slot="indicator" :class="b24ui.indicator({ class: [props.b24ui?.indicator, item.b24ui?.indicator] })" />
           </RRadioGroupItem>
@@ -218,7 +218,7 @@ function onUpdate(value: any) {
             v-if="item.label || !!slots.label"
             :for="item.id"
             data-slot="label"
-            :class="b24ui.label({ class: [props.b24ui?.label, item.b24ui?.label] })"
+            :class="b24ui.label({ class: [props.b24ui?.label, item.b24ui?.label], disabled: item.disabled || disabled })"
           >
             <slot name="label" :item="item" :model-value="(modelValue as RadioGroupValue)">
               {{ item.label }}
@@ -227,7 +227,7 @@ function onUpdate(value: any) {
           <p
             v-if="item.description || !!slots.description"
             data-slot="description"
-            :class="b24ui.description({ class: [props.b24ui?.description, item.b24ui?.description] })"
+            :class="b24ui.description({ class: [props.b24ui?.description, item.b24ui?.description], disabled: item.disabled || disabled })"
           >
             <slot name="description" :item="item" :model-value="(modelValue as RadioGroupValue)">
               {{ item.description }}

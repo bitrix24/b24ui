@@ -112,7 +112,8 @@ const b24ui = computed(() => tv({ extend: theme, ...(appConfig.b24ui?.checkboxGr
   required: props.required,
   orientation: props.orientation,
   color: props.color,
-  variant: props.variant
+  variant: props.variant,
+  disabled: disabled.value
 }))
 
 function normalizeItem(item: any) {
@@ -188,7 +189,7 @@ function onUpdate(value: any) {
         :disabled="item.disabled || disabled"
         :b24ui="{ ...(props.b24ui ? omit(props.b24ui, ['root']) : undefined), ...(item.b24ui || {}) }"
         data-slot="item"
-        :class="b24ui.item({ class: [props.b24ui?.item, item.b24ui?.item, item.class] })"
+        :class="b24ui.item({ class: [props.b24ui?.item, item.b24ui?.item, item.class], disabled: item.disabled || disabled })"
       >
         <template v-for="(_, name) in getProxySlots()" #[name]>
           <slot :name="(name as keyof CheckboxGroupSlots<T>)" :item="item" />

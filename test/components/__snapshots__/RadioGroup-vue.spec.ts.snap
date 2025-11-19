@@ -501,30 +501,30 @@ exports[`RadioGroup > renders with disabled correctly 1`] = `
 "<div id="v-0" data-slot="root" class="relative style-filled" tabindex="-1" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" role="radiogroup" data-disabled="" aria-orientation="vertical" aria-required="false">
   <fieldset data-slot="fieldset" class="flex flex-col gap-x-[16px] gap-y-[8px]">
     <!--v-if-->
-    <div data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
-      <div data-slot="container" class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-disabled="" data-slot="base" class="rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px] cursor-not-allowed opacity-30" id="v-0:1" role="radio" type="button" aria-checked="false" disabled="" data-state="unchecked" required="false" value="1" aria-label="1">
+    <div data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg) opacity-30">
+      <div data-slot="container" class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-disabled="" data-slot="base" class="rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px] cursor-not-allowed" id="v-0:1" role="radio" type="button" aria-checked="false" disabled="" data-state="unchecked" required="false" value="1" aria-label="1">
           <!---->
           <!--v-if-->
         </button></div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0:1" data-slot="label" class="block text-(--b24ui-typography-label-color) leading-[15px] cursor-not-allowed opacity-30">Option 1</label>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0:1" data-slot="label" class="block text-(--b24ui-typography-label-color) leading-[15px] cursor-not-allowed">Option 1</label>
         <!--v-if-->
       </div>
     </div>
-    <div data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
-      <div data-slot="container" class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-disabled="" data-slot="base" class="rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px] cursor-not-allowed opacity-30" id="v-0:2" role="radio" type="button" aria-checked="false" disabled="" data-state="unchecked" required="false" value="2" aria-label="2">
+    <div data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg) opacity-30">
+      <div data-slot="container" class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-disabled="" data-slot="base" class="rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px] cursor-not-allowed" id="v-0:2" role="radio" type="button" aria-checked="false" disabled="" data-state="unchecked" required="false" value="2" aria-label="2">
           <!---->
           <!--v-if-->
         </button></div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0:2" data-slot="label" class="block text-(--b24ui-typography-label-color) leading-[15px] cursor-not-allowed opacity-30">Option 2</label>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0:2" data-slot="label" class="block text-(--b24ui-typography-label-color) leading-[15px] cursor-not-allowed">Option 2</label>
         <!--v-if-->
       </div>
     </div>
-    <div data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
-      <div data-slot="container" class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-disabled="" data-slot="base" class="rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px] cursor-not-allowed opacity-30" id="v-0:3" role="radio" type="button" aria-checked="false" disabled="" data-state="unchecked" required="false" value="3" aria-label="3">
+    <div data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg) opacity-30">
+      <div data-slot="container" class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-disabled="" data-slot="base" class="rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px] cursor-not-allowed" id="v-0:3" role="radio" type="button" aria-checked="false" disabled="" data-state="unchecked" required="false" value="3" aria-label="3">
           <!---->
           <!--v-if-->
         </button></div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0:3" data-slot="label" class="block text-(--b24ui-typography-label-color) leading-[15px] cursor-not-allowed opacity-30">Option 3</label>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0:3" data-slot="label" class="block text-(--b24ui-typography-label-color) leading-[15px] cursor-not-allowed">Option 3</label>
         <!--v-if-->
       </div>
     </div>

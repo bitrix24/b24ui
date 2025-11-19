@@ -81,11 +81,7 @@ export default {
       }
     },
     disabled: {
-      true: {
-        base: 'cursor-not-allowed opacity-30',
-        label: 'cursor-not-allowed opacity-30',
-        item: 'cursor-not-allowed opacity-30'
-      }
+      true: {}
     },
     required: {
       true: {
@@ -160,8 +156,15 @@ export default {
         item: 'first-of-type:rounded-t-(--ui-border-radius-md) last-of-type:rounded-b-(--ui-border-radius-md)',
         fieldset: 'gap-0 -space-y-px'
       }
-    }
+    },
     // endregion ////
+    {
+      variant: 'table',
+      disabled: true,
+      class: {
+        item: 'cursor-not-allowed'
+      }
+    }
   ],
   defaultVariants: {
     size: 'md',

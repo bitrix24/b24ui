@@ -123,9 +123,10 @@ export default {
     },
     disabled: {
       true: {
-        base: 'cursor-not-allowed opacity-30',
-        label: 'cursor-not-allowed opacity-30',
-        description: 'cursor-not-allowed opacity-30'
+        root: 'opacity-30',
+        base: 'cursor-not-allowed',
+        label: 'cursor-not-allowed',
+        description: 'cursor-not-allowed'
       }
     }
   },
