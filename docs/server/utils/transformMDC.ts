@@ -820,6 +820,61 @@ export async function transformMDC(event: H3Event, doc: Document): Promise<Docum
     }
   })
 
+  visitAndReplace(doc, 'callout', (node) => {
+    node[0] = 'blockquote'
+    node[1] = {}
+    node[2] = [
+      'p',
+      {},
+      '[!NOTE]\n',
+      [...node[2]]
+    ]
+  })
+
+  visitAndReplace(doc, 'note', (node) => {
+    node[0] = 'blockquote'
+    node[1] = {}
+    node[2] = [
+      'p',
+      {},
+      '[!NOTE]\n',
+      [...node[2]]
+    ]
+  })
+
+  visitAndReplace(doc, 'tip', (node) => {
+    node[0] = 'blockquote'
+    node[1] = {}
+    node[2] = [
+      'p',
+      {},
+      '[!TIP]\n',
+      [...node[2]]
+    ]
+  })
+
+  visitAndReplace(doc, 'warning', (node) => {
+    node[0] = 'blockquote'
+    node[1] = {}
+    node[2] = [
+      'p',
+      {},
+      '[!WARNING]\n',
+      [...node[2]]
+    ]
+  })
+
+  visitAndReplace(doc, 'caution', (node) => {
+    node[0] = 'blockquote'
+    node[1] = {}
+    node[2] = [
+      'p',
+      {},
+      '[!CAUTION]\n',
+      [...node[2]]
+    ]
+  })
+
   const componentsListNodes: any[] = []
   visit(doc.body, (node) => {
     if (Array.isArray(node) && node[0] === 'components-list') {
