@@ -202,7 +202,7 @@ function onUpdate(value: any) {
             :value="item.value"
             :disabled="item.disabled || disabled"
             data-slot="base"
-            :class="b24ui.base({ class: [props.b24ui?.base, item.b24ui?.base], disabled: item.disabled || disabled  })"
+            :class="b24ui.base({ class: [props.b24ui?.base, item.b24ui?.base], disabled: item.disabled || disabled })"
           >
             <RadioGroupIndicator data-slot="indicator" :class="b24ui.indicator({ class: [props.b24ui?.indicator, item.b24ui?.indicator] })" />
           </RRadioGroupItem>
