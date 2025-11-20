@@ -5,6 +5,7 @@
 * fix(Link): ensure consistency across Nuxt, Vue and Inertia
 * fix(Link): define NuxtLinkProps instead of importing from `#app`
 * docs: update props schema to prevent hydration issues
+* docs(ComponentCode): Improve import generation
 
 ## [2.1.5](https://github.com/bitrix24/b24ui/compare/v2.1.4...v2.1.5) (2025-11-19)
 

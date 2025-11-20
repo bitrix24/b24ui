@@ -286,25 +286,55 @@ ${props.slots?.default}
     code += `
 <script setup lang="ts">
 `
+    let isSomeImport = false
     if (isUseIcon) {
+      isSomeImport = true
       code += `import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
 `
     }
+
+    if (props.external?.length) {
+      for (const [_i, key] of props.external.entries()) {
+        const cast = props.cast?.[key]
+        const isCastDate = ['DateValue', 'DateValue[]', 'DateRange'].includes(cast || '')
+        const isCastTime = ['TimeValue'].includes(cast || '')
+        const types: string[] = []
+        if (isCastDate) {
+          types.push('CalendarDate')
+        }
+        if (isCastTime) {
+          types.push('Time')
+        }
+
+        if (types.length > 0) {
+          isSomeImport = true
+          code += `import { ${types.join(', ')} } from '@internationalized/date'
+`
+        }
+      }
+    }
+
     if (props.externalTypes?.length) {
+      isSomeImport = true
       const removeArrayBrackets = (type: string): string => type.endsWith('[]') ? removeArrayBrackets(type.slice(0, -2)) : type
 
       const types = props.externalTypes.map(type => removeArrayBrackets(type))
       code += `import type { ${types.join(', ')} } from '@bitrix24/b24ui-nuxt'
-
 `
     }
+
     if (props.external?.length) {
+      if (isSomeImport) {
+        code += `
+`
+      }
+
       for (const [i, key] of props.external.entries()) {
         const cast = props.cast?.[key]
         const value = cast ? castMap[cast]!.template(componentProps[key]) : json5.stringify(componentProps[key], null, 2)?.replace(/,([ |\t\n]+[}|\]])/g, '$1')
         const type = props.externalTypes?.[i] ? `<${props.externalTypes[i]}>` : ''
 
-        code += `const ${key === 'modelValue' ? 'value' : key} = ${['DateValue', 'DateValue[]', 'DateRange'].includes(cast || '') ? 'shallowRef' : 'ref'}${type}(${value})
+        code += `const ${key === 'modelValue' ? 'value' : key} = ${['DateValue', 'DateValue[]', 'DateRange', 'TimeValue'].includes(cast || '') ? 'shallowRef' : 'ref'}${type}(${value})
 `
       }
     }
