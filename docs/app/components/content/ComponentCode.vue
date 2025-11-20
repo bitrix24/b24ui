@@ -224,6 +224,9 @@ const options = computed(() => {
   })
 })
 
+/**
+ * @see docs/server/utils/transformMDC.ts -> generateComponentCode
+ */
 const code = computed(() => {
   let code = ''
 
@@ -233,9 +236,9 @@ const code = computed(() => {
       isUseIcon = true
       break
     } else if (typeof value === 'object') {
-      const parsedValue = !props.external?.includes(key) ? value : key
+      const parsedValue: string | { icon?: string } | null = !props.external?.includes(key) ? value : key
 
-      if (parsedValue?.icon) {
+      if (parsedValue && typeof parsedValue !== 'string' && parsedValue?.icon) {
         isUseIcon = true
         break
       }
