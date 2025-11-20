@@ -30,6 +30,10 @@ export interface LinkProps extends Partial<Omit<RouterLinkProps, 'custom'>>, /**
    */
   rel?: 'noopener' | 'noreferrer' | 'nofollow' | 'sponsored' | 'ugc' | (string & {}) | null
   /**
+   * If set to true, no rel attribute will be added to the link
+   */
+  noRel?: boolean
+  /**
    * The type of the button when not a link.
    * @defaultValue 'button'
    */
@@ -68,6 +72,7 @@ import { hasProtocol } from 'ufo'
 import { useRoute, RouterLink } from 'vue-router'
 import { useAppConfig } from '#imports'
 import { tv } from '../../utils/tv'
+import { mergeClasses } from '../../utils'
 import { isPartiallyEqual } from '../../utils/link'
 import B24LinkBase from '../../components/LinkBase.vue'
 
@@ -77,10 +82,8 @@ const props = withDefaults(defineProps<LinkProps>(), {
   as: 'button',
   type: 'button',
   ariaCurrentValue: 'page',
-  active: undefined,
   isAction: false,
-  activeClass: '',
-  inactiveClass: ''
+  active: undefined
 })
 defineSlots<LinkSlots>()
 
@@ -88,15 +91,15 @@ const route = useRoute()
 
 const appConfig = useAppConfig() as Link['AppConfig']
 
-const routerLinkProps = useForwardProps(reactiveOmit(props, 'as', 'type', 'disabled', 'active', 'exact', 'exactQuery', 'exactHash', 'activeClass', 'inactiveClass', 'to', 'href', 'raw', 'custom', 'class'))
+const routerLinkProps = useForwardProps(reactiveOmit(props, 'as', 'type', 'disabled', 'active', 'exact', 'exactQuery', 'exactHash', 'activeClass', 'inactiveClass', 'to', 'href', 'raw', 'custom', 'class', 'noRel'))
 
 const b24ui = computed(() => tv({
   extend: tv(theme),
   ...defu({
     variants: {
       active: {
-        true: props.activeClass,
-        false: props.inactiveClass
+        true: mergeClasses(appConfig.b24ui?.link?.variants?.active?.true, props.activeClass),
+        false: mergeClasses(appConfig.b24ui?.link?.variants?.active?.false, props.inactiveClass)
       }
     }
   }, appConfig.b24ui?.link || {})
@@ -105,10 +108,6 @@ const b24ui = computed(() => tv({
 const to = computed(() => props.to ?? props.href)
 
 const isExternal = computed(() => {
-  if (props.target === '_blank') {
-    return true
-  }
-
   if (props.external) {
     return true
   }
@@ -118,6 +117,27 @@ const isExternal = computed(() => {
   }
 
   return typeof to.value === 'string' && hasProtocol(to.value, { acceptRelative: true })
+})
+
+const hasTarget = computed(() => !!props.target && props.target !== '_self')
+
+const rel = computed(() => {
+  // If noRel is explicitly set, return null
+  if (props.noRel) {
+    return null
+  }
+
+  // If rel is explicitly set, use it
+  if (props.rel !== undefined) {
+    return props.rel || null
+  }
+
+  // Default to "noopener noreferrer" for external links or links with target
+  if (isExternal.value || hasTarget.value) {
+    return 'noopener noreferrer'
+  }
+
+  return null
 })
 
 function isLinkActive({ route: linkRoute, isActive, isExactActive }: any) {
@@ -178,9 +198,11 @@ function resolveLinkClass({ route, isActive, isExactActive }: any = {}) {
             as,
             type,
             disabled,
-            target: props.target ? props.target : undefined,
             href,
             navigate,
+            rel,
+            target,
+            isExternal,
             active: isLinkActive({ route: linkRoute, isActive, isExactActive })
           }"
         />
@@ -194,9 +216,12 @@ function resolveLinkClass({ route, isActive, isExactActive }: any = {}) {
           type,
           disabled,
           href,
-          navigate
+          navigate,
+          rel,
+          target,
+          isExternal
         }"
-        :class="resolveLinkClass({ route: linkRoute, isActive: isActive, isExactActive: isExactActive })"
+        :class="resolveLinkClass({ route: linkRoute, isActive, isExactActive })"
       >
         <slot :active="isLinkActive({ route: linkRoute, isActive, isExactActive })" />
       </B24LinkBase>
@@ -212,7 +237,8 @@ function resolveLinkClass({ route, isActive, isExactActive }: any = {}) {
           type,
           disabled,
           href: to,
-          target: isExternal ? '_blank' : undefined,
+          rel,
+          target,
           active,
           isExternal
         }"
@@ -226,7 +252,8 @@ function resolveLinkClass({ route, isActive, isExactActive }: any = {}) {
         type,
         disabled,
         href: (to as string),
-        target: isExternal ? '_blank' : undefined,
+        rel,
+        target,
         isExternal
       }"
       :class="resolveLinkClass()"

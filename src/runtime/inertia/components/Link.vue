@@ -35,6 +35,10 @@ export interface LinkProps extends Partial<Omit<InertiaLinkProps, 'href' | 'onCl
    */
   rel?: 'noopener' | 'noreferrer' | 'nofollow' | 'sponsored' | 'ugc' | (string & {}) | null
   /**
+   * If set to true, no rel attribute will be added to the link
+   */
+  noRel?: boolean
+  /**
    * Value passed to the attribute `aria-current` when the link is exact active.
    *
    * @defaultValue `'page'`
@@ -74,17 +78,17 @@ import { usePage } from '@inertiajs/vue3'
 import { hasProtocol } from 'ufo'
 import { useAppConfig } from '#imports'
 import { tv } from '../../utils/tv'
-import B24LinkBase from './../../components/LinkBase.vue'
+import { mergeClasses } from '../../utils'
+import B24LinkBase from '../../components/LinkBase.vue'
 
 defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(defineProps<LinkProps>(), {
   as: 'button',
   type: 'button',
-  active: undefined,
   isAction: false,
-  activeClass: '',
-  inactiveClass: ''
+  ariaCurrentValue: 'page',
+  active: undefined
 })
 defineSlots<LinkSlots>()
 
@@ -92,15 +96,15 @@ const page = usePage()
 
 const appConfig = useAppConfig() as Link['AppConfig']
 
-const routerLinkProps = useForwardProps(reactiveOmit(props, 'as', 'type', 'disabled', 'active', 'exact', 'activeClass', 'inactiveClass', 'to', 'href', 'raw', 'custom', 'class'))
+const routerLinkProps = useForwardProps(reactiveOmit(props, 'as', 'type', 'disabled', 'active', 'exact', 'activeClass', 'inactiveClass', 'to', 'href', 'raw', 'custom', 'class', 'noRel'))
 
 const b24ui = computed(() => tv({
   extend: tv(theme),
   ...defu({
     variants: {
       active: {
-        true: props.activeClass,
-        false: props.inactiveClass
+        true: mergeClasses(appConfig.b24ui?.link?.variants?.active?.true, props.activeClass),
+        false: mergeClasses(appConfig.b24ui?.link?.variants?.active?.false, props.inactiveClass)
       }
     }
   }, appConfig.b24ui?.link || {})
@@ -122,6 +126,27 @@ const isExternal = computed(() => {
   }
 
   return typeof href.value === 'string' && hasProtocol(href.value, { acceptRelative: true })
+})
+
+const hasTarget = computed(() => !!props.target && props.target !== '_self')
+
+const rel = computed(() => {
+  // If noRel is explicitly set, return null
+  if (props.noRel) {
+    return null
+  }
+
+  // If rel is explicitly set, use it
+  if (props.rel !== undefined) {
+    return props.rel || null
+  }
+
+  // Default to "noopener noreferrer" for external links or links with target
+  if (isExternal.value || hasTarget.value) {
+    return 'noopener noreferrer'
+  }
+
+  return null
 })
 
 const isLinkActive = computed(() => {
@@ -170,6 +195,8 @@ const linkClass = computed(() => {
         type,
         disabled,
         href,
+        rel,
+        target,
         active: isLinkActive,
         isExternal
       }"
@@ -184,6 +211,8 @@ const linkClass = computed(() => {
       type,
       disabled,
       href,
+      rel,
+      target,
       isExternal
     }"
     :class="linkClass"
