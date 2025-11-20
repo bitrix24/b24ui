@@ -2,12 +2,17 @@
 
 ## [2.1.6](https://github.com/bitrix24/b24ui/compare/v2.1.5...v2.1.6) (2025-11-xx)
 
-* fix(Link): ensure consistency across Nuxt, Vue and Inertia
-* fix(Link): define NuxtLinkProps instead of importing from `#app`
-* docs: update props schema to prevent hydration issues
-* docs(ComponentCode): Improve import generation
-* docs(md): Improve llms format
-* docs(md): Improve llms format callout
+### Bug Fixes
+
+* **Link:** ensure consistency across Nuxt, Vue and Inertia
+* **Link:** define NuxtLinkProps instead of importing from `#app`
+
+### Docs
+
+* update props schema to prevent hydration issues
+* **ComponentCode:** Improve import generation
+* **llms:** Improve llms format
+* **llms:** Improve llms format callout
 
 ## [2.1.5](https://github.com/bitrix24/b24ui/compare/v2.1.4...v2.1.5) (2025-11-19)
 
