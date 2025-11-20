@@ -202,7 +202,7 @@ function createServer() {
   // TOOLS
 
   server.registerTool(
-    'list_components',
+    'list_b24_ui_components',
     {
       title: 'List Components',
       description: 'Lists all available Bitrix24 UI components with their categories and basic information'
@@ -216,7 +216,7 @@ function createServer() {
   )
 
   server.registerTool(
-    'list_composables',
+    'list_b24_ui_composables',
     {
       title: 'List Composables',
       description: 'Lists all available Bitrix24 UI composables with their categories and basic information'
@@ -230,7 +230,7 @@ function createServer() {
   )
 
   server.registerTool(
-    'get_component',
+    'get_b24_ui_component',
     {
       title: 'Get Component',
       description: 'Retrieves Bitrix24 UI component documentation and details',
@@ -248,7 +248,7 @@ function createServer() {
   )
 
   server.registerTool(
-    'get_component_metadata',
+    'get_b24_ui_component_metadata',
     {
       title: 'Get Component Metadata',
       description: 'Retrieves detailed metadata for a Bitrix24 UI component including props, slots, and events',
@@ -269,7 +269,7 @@ function createServer() {
    * @memo add docs/server/api/mcp
    */
   // server.registerTool(
-  //   'list_templates',
+  //   'list_b24_ui_templates',
   //   {
   //     title: 'List Templates',
   //     description: 'Lists all available Bitrix24 UI templates with optional category filtering',
@@ -291,7 +291,7 @@ function createServer() {
    * @memo add docs/server/api/mcp
    */
   // server.registerTool(
-  //   'get_template',
+  //   'get_b24_ui_template',
   //   {
   //     title: 'Get Template',
   //     description: 'Retrieves template details and setup instructions',
@@ -310,7 +310,7 @@ function createServer() {
   // )
 
   server.registerTool(
-    'get_documentation_page',
+    'get_b24_ui_documentation_page',
     {
       title: 'Get Documentation Page',
       description: 'Retrieves documentation page content by URL path',
@@ -328,7 +328,7 @@ function createServer() {
   )
 
   server.registerTool(
-    'list_documentation_pages',
+    'list_b24_ui_documentation_pages',
     {
       title: 'List Documentation Pages',
       description: 'Lists all documentation pages'
@@ -342,7 +342,7 @@ function createServer() {
   )
 
   server.registerTool(
-    'list_getting_started_guides',
+    'list_b24_ui_getting_started_guides',
     {
       title: 'List Getting Started Guides',
       description: 'Lists all getting started guides and installation instructions'
@@ -356,7 +356,7 @@ function createServer() {
   )
 
   server.registerTool(
-    'get_migration_guide',
+    'get_b24_ui_migration_guide',
     {
       title: 'Get Migration Guide',
       description: 'Retrieves version-specific migration guides and upgrade instructions',
@@ -374,7 +374,7 @@ function createServer() {
   )
 
   server.registerTool(
-    'list_examples',
+    'list_b24_ui_examples',
     {
       title: 'List Examples',
       description: 'Lists all available UI examples and code demonstrations'
@@ -388,7 +388,7 @@ function createServer() {
   )
 
   server.registerTool(
-    'get_example',
+    'get_b24_ui_example',
     {
       title: 'Get Example',
       description: 'Retrieves specific UI example implementation code and details',
@@ -406,7 +406,7 @@ function createServer() {
   )
 
   server.registerTool(
-    'search_components_by_category',
+    'search_b24_ui_components_by_category',
     {
       title: 'Search Components by Category',
       description: 'Searches components by category or text filter',
