@@ -3,6 +3,7 @@
 ## [2.1.6](https://github.com/bitrix24/b24ui/compare/v2.1.5...v2.1.6) (2025-11-xx)
 
 * fix(Link): ensure consistency across Nuxt, Vue and Inertia
+* docs: update props schema to prevent hydration issues
 
 ## [2.1.5](https://github.com/bitrix24/b24ui/compare/v2.1.4...v2.1.5) (2025-11-19)
 
