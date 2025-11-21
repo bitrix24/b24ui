@@ -5,6 +5,7 @@
 * docs(installation/vue): typo fix
 * docs(typography/CardGroup): typo fix
 * docs(ComponentCode): add missing cast imports
+* docs(LLMs): fix typo
 
 ## [2.1.6](https://github.com/bitrix24/b24ui/compare/v2.1.5...v2.1.6) (2025-11-20)
 
