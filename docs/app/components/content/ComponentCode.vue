@@ -11,13 +11,56 @@ import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
 // import MoreMIcon from '@bitrix24/b24icons-vue/outline/MoreMIcon'
 // import InfoIcon from '@bitrix24/b24icons-vue/button/InfoIcon'
 
+interface CastImport {
+  name: string
+  from: string
+}
+
 interface Cast {
   get: (args: any) => any
   template: (args: any) => string
+  imports: CastImport[]
 }
 
 type CastDateValue = [number, number, number]
 type CastTimeValue = [number, number, number]
+
+const iconsTypeList = ['icon', 'trailingIcon', 'deleteIcon', 'selectedIcon', 'incrementIcon', 'decrementIcon', 'checkedIcon', 'uncheckedIcon', 'separatorIcon', 'closeIcon', 'backIcon', 'prevIcon', 'nextIcon']
+const convertIcon = (key: string): null | string => {
+  if (!iconsTypeList.includes(key)) {
+    return null
+  }
+
+  if (key === 'icon') {
+    return `:icon="RocketIcon"`
+  } else if (key === 'trailingIcon') {
+    return `:trailing-icon="RocketIcon"`
+  } else if (key === 'deleteIcon') {
+    return `:delete-icon="RocketIcon"`
+  } else if (key === 'selectedIcon') {
+    return `:selected-icon="RocketIcon"`
+  } else if (key === 'incrementIcon') {
+    return `:increment-icon="RocketIcon"`
+  } else if (key === 'decrementIcon') {
+    return `:decrement-icon="RocketIcon"`
+  } else if (key === 'checkedIcon') {
+    return `:checked-icon="RocketIcon"`
+  } else if (key === 'uncheckedIcon') {
+    return `:unchecked-icon="RocketIcon"`
+  } else if (key === 'separatorIcon') {
+    return `:separator-icon="RocketIcon"`
+  } else if (key === 'closeIcon') {
+    return `:close-icon="RocketIcon"`
+  } else if (key === 'backIcon') {
+    return `:back-icon="RocketIcon"`
+  } else if (key === 'prevIcon') {
+    return `:prev-icon="RocketIcon"`
+  } else if (key === 'nextIcon') {
+    return `:next-icon="RocketIcon"`
+  }
+
+  return null
+}
 
 // function prepareIconTitle(iconTitle?: string) {
 //   switch (iconTitle) {
@@ -35,13 +78,15 @@ const castMap: Record<string, Cast> = {
     get: (args: CastDateValue) => new CalendarDate(...args),
     template: (value: CalendarDate) => {
       return value ? `new CalendarDate(${value.year}, ${value.month}, ${value.day})` : 'null'
-    }
+    },
+    imports: [{ name: 'CalendarDate', from: '@internationalized/date' }]
   },
   'DateValue[]': {
     get: (args: CastDateValue[]) => args.map(date => new CalendarDate(...date)),
     template: (value: CalendarDate[]) => {
       return value ? `[${value.map(date => `new CalendarDate(${date.year}, ${date.month}, ${date.day})`).join(', ')}]` : '[]'
-    }
+    },
+    imports: [{ name: 'CalendarDate', from: '@internationalized/date' }]
   },
   'DateRange': {
     get: (args: { start: CastDateValue, end: CastDateValue }) => ({ start: new CalendarDate(...args.start), end: new CalendarDate(...args.end) }),
@@ -51,17 +96,20 @@ const castMap: Record<string, Cast> = {
       }
 
       return `{ start: new CalendarDate(${value.start.year}, ${value.start.month}, ${value.start.day}), end: new CalendarDate(${value.end.year}, ${value.end.month}, ${value.end.day}) }`
-    }
+    },
+    imports: [{ name: 'CalendarDate', from: '@internationalized/date' }]
   },
   'TimeValue': {
     get: (args: CastTimeValue) => new Time(...args),
     template: (value: Time) => {
       return value ? `new Time(${value.hour}, ${value.minute}, ${value.second})` : 'null'
-    }
+    },
+    imports: [{ name: 'Time', from: '@internationalized/date' }]
   },
   'RocketIcon': {
     get: () => RocketIcon,
-    template: () => ''
+    template: () => '',
+    imports: [{ name: 'RocketIcon', from: '@bitrix24/b24icons-vue/main/RocketIcon' }]
   },
   'ComponentWithIcon': {
     get: (args: any) => {
@@ -84,7 +132,8 @@ const castMap: Record<string, Cast> = {
     },
     template: (value: any) => {
       return json5.stringify(value, null, 2)?.replace(/,([ |\t\n]+[}|\]])/g, '$1').replace('\'RocketIcon\'', 'RocketIcon')
-    }
+    },
+    imports: [{ name: 'RocketIcon', from: '@bitrix24/b24icons-vue/main/RocketIcon' }]
   }
 }
 
@@ -232,7 +281,7 @@ const code = computed(() => {
 
   let isUseIcon = false
   for (const [key, value] of Object.entries(componentProps)) {
-    if (['icon', 'trailingIcon', 'deleteIcon', 'selectedIcon', 'incrementIcon', 'decrementIcon', 'checkedIcon', 'uncheckedIcon', 'separatorIcon', 'closeIcon', 'backIcon', 'prevIcon', 'nextIcon'].includes(key)) {
+    if (iconsTypeList.includes(key)) {
       isUseIcon = true
       break
     } else if (typeof value === 'object') {
@@ -289,36 +338,34 @@ ${props.slots?.default}
     code += `
 <script setup lang="ts">
 `
-    let isSomeImport = false
-    if (isUseIcon) {
-      isSomeImport = true
-      code += `import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
-`
-    }
-
+    // Collect imports from cast types
+    const importsBySource = new Map<string, Set<string>>()
     if (props.external?.length) {
-      for (const [_i, key] of props.external.entries()) {
+      for (const key of props.external) {
         const cast = props.cast?.[key]
-        const isCastDate = ['DateValue', 'DateValue[]', 'DateRange'].includes(cast || '')
-        const isCastTime = ['TimeValue'].includes(cast || '')
-        const types: string[] = []
-        if (isCastDate) {
-          types.push('CalendarDate')
-        }
-        if (isCastTime) {
-          types.push('Time')
-        }
-
-        if (types.length > 0) {
-          isSomeImport = true
-          code += `import { ${types.join(', ')} } from '@internationalized/date'
-`
+        if (cast && castMap[cast]) {
+          for (const imp of castMap[cast].imports) {
+            if (!importsBySource.has(imp.from)) {
+              importsBySource.set(imp.from, new Set())
+            }
+            importsBySource.get(imp.from)!.add(imp.name)
+          }
         }
       }
     }
 
+    // Generate import statements
+    for (const [source, names] of importsBySource) {
+      code += `import { ${Array.from(names).join(', ')} } from '${source}'
+`
+    }
+
+    if (isUseIcon) {
+      code += `import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
+`
+    }
+
     if (props.externalTypes?.length) {
-      isSomeImport = true
       const removeArrayBrackets = (type: string): string => type.endsWith('[]') ? removeArrayBrackets(type.slice(0, -2)) : type
 
       const types = props.externalTypes.map(type => removeArrayBrackets(type))
@@ -327,7 +374,7 @@ ${props.slots?.default}
     }
 
     if (props.external?.length) {
-      if (isSomeImport) {
+      if (importsBySource.size > 0 || props.externalTypes?.length || isUseIcon) {
         code += `
 `
       }
@@ -336,8 +383,9 @@ ${props.slots?.default}
         const cast = props.cast?.[key]
         const value = cast ? castMap[cast]!.template(componentProps[key]) : json5.stringify(componentProps[key], null, 2)?.replace(/,([ |\t\n]+[}|\]])/g, '$1')
         const type = props.externalTypes?.[i] ? `<${props.externalTypes[i]}>` : ''
+        const refType = cast && ['DateValue', 'DateValue[]', 'DateRange', 'TimeValue'].includes(cast || '') ? 'shallowRef' : 'ref'
 
-        code += `const ${key === 'modelValue' ? 'value' : key} = ${['DateValue', 'DateValue[]', 'DateRange', 'TimeValue'].includes(cast || '') ? 'shallowRef' : 'ref'}${type}(${value})
+        code += `const ${key === 'modelValue' ? 'value' : key} = ${refType}${type}(${value})
 `
       }
     }
@@ -354,44 +402,9 @@ ${props.slots?.default}
       continue
     }
 
-    if (key === 'icon') {
-      code += ` :icon="RocketIcon"`
-      continue
-    } else if (key === 'trailingIcon') {
-      code += ` :trailing-icon="RocketIcon"`
-      continue
-    } else if (key === 'deleteIcon') {
-      code += ` :delete-icon="RocketIcon"`
-      continue
-    } else if (key === 'selectedIcon') {
-      code += ` :selected-icon="RocketIcon"`
-      continue
-    } else if (key === 'incrementIcon') {
-      code += ` :increment-icon="RocketIcon"`
-      continue
-    } else if (key === 'decrementIcon') {
-      code += ` :decrement-icon="RocketIcon"`
-      continue
-    } else if (key === 'checkedIcon') {
-      code += ` :checked-icon="RocketIcon"`
-      continue
-    } else if (key === 'uncheckedIcon') {
-      code += ` :unchecked-icon="RocketIcon"`
-      continue
-    } else if (key === 'separatorIcon') {
-      code += ` :separator-icon="RocketIcon"`
-      continue
-    } else if (key === 'closeIcon') {
-      code += ` :close-icon="RocketIcon"`
-      continue
-    } else if (key === 'backIcon') {
-      code += ` :back-icon="RocketIcon"`
-      continue
-    } else if (key === 'prevIcon') {
-      code += ` :prev-icon="RocketIcon"`
-      continue
-    } else if (key === 'nextIcon') {
-      code += ` :next-icon="RocketIcon"`
+    const convertedIconValue = convertIcon(key)
+    if (typeof convertedIconValue === 'string') {
+      code += ` ${convertedIconValue}`
       continue
     }
 
@@ -463,29 +476,27 @@ ${props.slots?.default}
   return code
 })
 
-const { data: ast } = await useAsyncData(
-  `component-code-${name}-${hash({ props: componentProps, slots: props.slots, external: props.external, externalTypes: props.externalTypes, collapse: props.collapse })}-${helperForChangeComponentProps.value}`,
-  async () => {
-    if (!props.prettier) {
-      return parseMarkdown(code.value)
-    }
+const codeKey = computed(() => `component-code-${name}-${hash(props)}-${helperForChangeComponentProps.value}`)
 
-    let formatted = ''
-    try {
-      formatted = await $prettier.format(code.value, {
-        trailingComma: 'none',
-        semi: false,
-        singleQuote: true,
-        printWidth: 100
-      })
-    } catch {
-      formatted = code.value
-    }
+const { data: ast } = await useAsyncData(codeKey, async () => {
+  if (!props.prettier) {
+    return parseMarkdown(code.value)
+  }
 
-    return parseMarkdown(formatted)
-  },
-  { watch: [code, helperForChangeComponentProps] }
-)
+  let formatted = ''
+  try {
+    formatted = await $prettier.format(code.value, {
+      trailingComma: 'none',
+      semi: false,
+      singleQuote: true,
+      printWidth: 100
+    })
+  } catch {
+    formatted = code.value
+  }
+
+  return parseMarkdown(formatted)
+}, { watch: [code, helperForChangeComponentProps] })
 </script>
 
 <template>

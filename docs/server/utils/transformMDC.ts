@@ -13,6 +13,7 @@ import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
 type ComponentAttributes = {
   ':prose'?: string
   ':props'?: string
+  ':cast'?: string
   ':model'?: string
   ':external'?: string
   ':externalTypes'?: string
@@ -35,6 +36,7 @@ type CodeConfig = {
   hide: string[]
   componentName: string
   slots?: Record<string, string>
+  propsCast?: Record<string, unknown>
 }
 
 type Document = {
@@ -246,26 +248,71 @@ const generateThemeConfig = ({ prose, componentName }: ThemeConfig) => {
 /**
  * @see docs/app/components/content/ComponentCode.vue
  */
+interface CastImport {
+  name: string
+  from: string
+}
+
 interface Cast {
   get: (args: any) => any
   template: (args: any) => string
+  imports: CastImport[]
 }
 
 type CastDateValue = [number, number, number]
 type CastTimeValue = [number, number, number]
+
+const iconsTypeList = ['icon', 'trailingIcon', 'deleteIcon', 'selectedIcon', 'incrementIcon', 'decrementIcon', 'checkedIcon', 'uncheckedIcon', 'separatorIcon', 'closeIcon', 'backIcon', 'prevIcon', 'nextIcon']
+const convertIcon = (key: string): null | string => {
+  if (!iconsTypeList.includes(key)) {
+    return null
+  }
+
+  if (key === 'icon') {
+    return `:icon="RocketIcon"`
+  } else if (key === 'trailingIcon') {
+    return `:trailing-icon="RocketIcon"`
+  } else if (key === 'deleteIcon') {
+    return `:delete-icon="RocketIcon"`
+  } else if (key === 'selectedIcon') {
+    return `:selected-icon="RocketIcon"`
+  } else if (key === 'incrementIcon') {
+    return `:increment-icon="RocketIcon"`
+  } else if (key === 'decrementIcon') {
+    return `:decrement-icon="RocketIcon"`
+  } else if (key === 'checkedIcon') {
+    return `:checked-icon="RocketIcon"`
+  } else if (key === 'uncheckedIcon') {
+    return `:unchecked-icon="RocketIcon"`
+  } else if (key === 'separatorIcon') {
+    return `:separator-icon="RocketIcon"`
+  } else if (key === 'closeIcon') {
+    return `:close-icon="RocketIcon"`
+  } else if (key === 'backIcon') {
+    return `:back-icon="RocketIcon"`
+  } else if (key === 'prevIcon') {
+    return `:prev-icon="RocketIcon"`
+  } else if (key === 'nextIcon') {
+    return `:next-icon="RocketIcon"`
+  }
+
+  return null
+}
 
 const castMap: Record<string, Cast> = {
   'DateValue': {
     get: (args: CastDateValue) => new CalendarDate(...args),
     template: (value: CalendarDate) => {
       return value ? `new CalendarDate(${value.year}, ${value.month}, ${value.day})` : 'null'
-    }
+    },
+    imports: [{ name: 'CalendarDate', from: '@internationalized/date' }]
   },
   'DateValue[]': {
     get: (args: CastDateValue[]) => args.map(date => new CalendarDate(...date)),
     template: (value: CalendarDate[]) => {
       return value ? `[${value.map(date => `new CalendarDate(${date.year}, ${date.month}, ${date.day})`).join(', ')}]` : '[]'
-    }
+    },
+    imports: [{ name: 'CalendarDate', from: '@internationalized/date' }]
   },
   'DateRange': {
     get: (args: { start: CastDateValue, end: CastDateValue }) => ({ start: new CalendarDate(...args.start), end: new CalendarDate(...args.end) }),
@@ -275,17 +322,20 @@ const castMap: Record<string, Cast> = {
       }
 
       return `{ start: new CalendarDate(${value.start.year}, ${value.start.month}, ${value.start.day}), end: new CalendarDate(${value.end.year}, ${value.end.month}, ${value.end.day}) }`
-    }
+    },
+    imports: [{ name: 'CalendarDate', from: '@internationalized/date' }]
   },
   'TimeValue': {
     get: (args: CastTimeValue) => new Time(...args),
     template: (value: Time) => {
       return value ? `new Time(${value.hour}, ${value.minute}, ${value.second})` : 'null'
-    }
+    },
+    imports: [{ name: 'Time', from: '@internationalized/date' }]
   },
   'RocketIcon': {
     get: () => RocketIcon,
-    template: () => ''
+    template: () => '',
+    imports: [{ name: 'CalendarDate', from: '@internationalized/date' }]
   },
   'ComponentWithIcon': {
     get: (args: any) => {
@@ -308,7 +358,8 @@ const castMap: Record<string, Cast> = {
     },
     template: (value: any) => {
       return json5.stringify(value, null, 2)?.replace(/,([ |\t\n]+[}|\]])/g, '$1').replace('\'RocketIcon\'', 'RocketIcon')
-    }
+    },
+    imports: [{ name: 'CalendarDate', from: '@internationalized/date' }]
   }
 }
 
@@ -322,7 +373,8 @@ const generateComponentCode = async ({
   externalTypes,
   hide,
   componentName,
-  slots
+  slots,
+  propsCast
 }: CodeConfig) => {
   const componentProps = Object.fromEntries(
     Object.entries(props).filter(([key]) => !hide.includes(key))
@@ -330,7 +382,6 @@ const generateComponentCode = async ({
   const camelName = componentName
   let code = ''
   const prose = false
-  const propsCast: Record<string, any> = props.cast as Record<string, any>
 
   const name = `${props.prose ? 'Prose' : 'B24'}${upperFirst(camelName)}`
 
@@ -339,7 +390,7 @@ const generateComponentCode = async ({
 
   let isUseIcon = false
   for (const [key, value] of Object.entries(componentProps)) {
-    if (['icon', 'trailingIcon', 'deleteIcon', 'selectedIcon', 'incrementIcon', 'decrementIcon', 'checkedIcon', 'uncheckedIcon', 'separatorIcon', 'closeIcon', 'backIcon', 'prevIcon', 'nextIcon'].includes(key)) {
+    if (iconsTypeList.includes(key)) {
       isUseIcon = true
       break
     } else if (typeof value === 'object') {
@@ -389,36 +440,35 @@ ${slots?.default}
     code += `
 <script setup lang="ts">
 `
-    let isSomeImport = false
-    if (isUseIcon) {
-      isSomeImport = true
-      code += `import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
-`
-    }
+    // Collect imports from cast types
+    const importsBySource = new Map<string, Set<string>>()
 
     if (external?.length) {
-      for (const [_i, key] of external.entries()) {
-        const cast = propsCast?.[key]
-        const isCastDate = ['DateValue', 'DateValue[]', 'DateRange'].includes(cast || '')
-        const isCastTime = ['TimeValue'].includes(cast || '')
-        const types: string[] = []
-        if (isCastDate) {
-          types.push('CalendarDate')
-        }
-        if (isCastTime) {
-          types.push('Time')
-        }
-
-        if (types.length > 0) {
-          isSomeImport = true
-          code += `import { ${types.join(', ')} } from '@internationalized/date'
-`
+      for (const key of external) {
+        const cast = propsCast?.[key] as string
+        if (cast && castMap[cast]) {
+          for (const imp of castMap[cast].imports) {
+            if (!importsBySource.has(imp.from)) {
+              importsBySource.set(imp.from, new Set())
+            }
+            importsBySource.get(imp.from)!.add(imp.name)
+          }
         }
       }
     }
 
+    // Generate import statements
+    for (const [source, names] of importsBySource) {
+      code += `import { ${Array.from(names).join(', ')} } from '${source}'
+`
+    }
+
+    if (isUseIcon) {
+      code += `import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
+`
+    }
+
     if (externalTypes?.length) {
-      isSomeImport = true
       const removeArrayBrackets = (type: string): string => type.endsWith('[]') ? removeArrayBrackets(type.slice(0, -2)) : type
 
       const types = externalTypes.map(type => removeArrayBrackets(type))
@@ -427,17 +477,18 @@ ${slots?.default}
     }
 
     if (external?.length) {
-      if (isSomeImport) {
+      if (importsBySource.size > 0 || externalTypes?.length || isUseIcon) {
         code += `
 `
       }
 
       for (const [i, key] of external.entries()) {
-        const cast = propsCast?.[key]
+        const cast = propsCast?.[key] as string
         const value = cast ? castMap[cast]!.template(componentProps[key]) : json5.stringify(componentProps[key], null, 2)?.replace(/,([ |\t\n]+[}|\]])/g, '$1')
         const type = externalTypes?.[i] ? `<${externalTypes[i]}>` : ''
+        const refType = cast && ['DateValue', 'DateValue[]', 'DateRange', 'TimeValue'].includes(cast || '') ? 'shallowRef' : 'ref'
 
-        code += `const ${key === 'modelValue' ? 'value' : key} = ${['DateValue', 'DateValue[]', 'DateRange', 'TimeValue'].includes(cast || '') ? 'shallowRef' : 'ref'}${type}(${value})
+        code += `const ${key === 'modelValue' ? 'value' : key} = ${refType}${type}(${value})
 `
       }
     }
@@ -454,44 +505,9 @@ ${slots?.default}
       continue
     }
 
-    if (key === 'icon') {
-      code += ` :icon="RocketIcon"`
-      continue
-    } else if (key === 'trailingIcon') {
-      code += ` :trailing-icon="RocketIcon"`
-      continue
-    } else if (key === 'deleteIcon') {
-      code += ` :delete-icon="RocketIcon"`
-      continue
-    } else if (key === 'selectedIcon') {
-      code += ` :selected-icon="RocketIcon"`
-      continue
-    } else if (key === 'incrementIcon') {
-      code += ` :increment-icon="RocketIcon"`
-      continue
-    } else if (key === 'decrementIcon') {
-      code += ` :decrement-icon="RocketIcon"`
-      continue
-    } else if (key === 'checkedIcon') {
-      code += ` :checked-icon="RocketIcon"`
-      continue
-    } else if (key === 'uncheckedIcon') {
-      code += ` :unchecked-icon="RocketIcon"`
-      continue
-    } else if (key === 'separatorIcon') {
-      code += ` :separator-icon="RocketIcon"`
-      continue
-    } else if (key === 'closeIcon') {
-      code += ` :close-icon="RocketIcon"`
-      continue
-    } else if (key === 'backIcon') {
-      code += ` :back-icon="RocketIcon"`
-      continue
-    } else if (key === 'prevIcon') {
-      code += ` :prev-icon="RocketIcon"`
-      continue
-    } else if (key === 'nextIcon') {
-      code += ` :next-icon="RocketIcon"`
+    const convertedIconValue = convertIcon(key)
+    if (typeof convertedIconValue === 'string') {
+      code += ` ${convertedIconValue}`
       continue
     }
 
@@ -556,105 +572,6 @@ ${slots?.default}
 `
 
   return code
-}
-
-const __generateComponentCode = ({
-  props,
-  external,
-  externalTypes,
-  hide,
-  componentName,
-  slots
-}: CodeConfig) => {
-  const filteredProps = Object.fromEntries(
-    Object.entries(props).filter(([key]) => !hide.includes(key))
-  )
-
-  const imports = external
-    .filter((_, index) => externalTypes[index] && externalTypes[index] !== 'undefined')
-    .map((ext, index) => {
-      const type = externalTypes[index]?.replace(/[[\]]/g, '')
-      return `import type { ${type} } from '@bitrix24/b24ui-nuxt'`
-    })
-    .join('\n')
-
-  let itemsCode = ''
-  if (props.items) {
-    itemsCode = `const items = ref<${externalTypes[0]}>(${json5.stringify(props.items, null, 2)})`
-    delete filteredProps.items
-  }
-
-  let calendarValueCode = ''
-  if (componentName === 'calendar' && props.modelValue && Array.isArray(props.modelValue)) {
-    calendarValueCode = `const value = shallowRef(new CalendarDate(${props.modelValue.join(', ')}))`
-  }
-
-  const propsString = Object.entries(filteredProps)
-    .map(([key, value]) => {
-      const formattedKey = kebabCase(key)
-      if (typeof value === 'string') {
-        return `${formattedKey}="${value}"`
-      } else if (typeof value === 'number') {
-        return `:${formattedKey}="${value}"`
-      } else if (typeof value === 'boolean') {
-        return value ? formattedKey : `:${formattedKey}="false"`
-      }
-      return ''
-    })
-    .filter(Boolean)
-    .join(' ')
-
-  const itemsProp = props.items ? ':items="items"' : ''
-  const vModelProp = componentName === 'calendar' && props.modelValue ? 'v-model="value"' : ''
-  const allProps = [propsString, itemsProp, vModelProp].filter(Boolean).join(' ')
-  const formattedProps = allProps ? ` ${allProps}` : ''
-
-  let scriptSetup = ''
-  if (imports || itemsCode || calendarValueCode) {
-    scriptSetup = '<script setup lang="ts">'
-    if (imports) scriptSetup += `\n${imports}`
-    if (imports && (itemsCode || calendarValueCode)) scriptSetup += '\n'
-    if (calendarValueCode) scriptSetup += `\n${calendarValueCode}`
-    if (itemsCode) scriptSetup += `\n${itemsCode}`
-    scriptSetup += '\n</script>\n\n'
-  }
-
-  let componentContent = ''
-  let slotContent = ''
-
-  if (slots && Object.keys(slots).length > 0) {
-    const defaultSlot = slots.default?.trim()
-    if (defaultSlot) {
-      const indentedContent = defaultSlot
-        .split('\n')
-        .map(line => line.trim() ? `    ${line}` : line)
-        .join('\n')
-      componentContent = `\n${indentedContent}\n  `
-    }
-
-    Object.entries(slots).forEach(([slotName, content]) => {
-      if (slotName !== 'default' && content?.trim()) {
-        const indentedSlotContent = content.trim()
-          .split('\n')
-          .map(line => line.trim() ? `      ${line}` : line)
-          .join('\n')
-        slotContent += `\n    <template #${slotName}>\n${indentedSlotContent}\n    </template>`
-      }
-    })
-  }
-
-  const pascalCaseName = componentName.charAt(0).toUpperCase() + componentName.slice(1)
-
-  let componentTemplate = ''
-  if (componentContent || slotContent) {
-    componentTemplate = `<B24${pascalCaseName}${formattedProps}>${componentContent}${slotContent}</B24${pascalCaseName}>` // Removed space before closing tag
-  } else {
-    componentTemplate = `<B24${pascalCaseName}${formattedProps} />`
-  }
-
-  return `${scriptSetup}<template>
-  ${componentTemplate}
-</template>`
 }
 
 function processLinks(
@@ -725,6 +642,7 @@ export async function transformMDC(event: H3Event, doc: Document): Promise<Docum
   visitAndReplace(doc, 'component-code', (node) => {
     const attributes = node[1] as ComponentAttributes
     const props = attributes[':props'] ? json5.parse(attributes[':props']) : {}
+    const propsCast = attributes[':cast'] ? json5.parse(attributes[':cast']) : {}
     const model = attributes[':model'] ? json5.parse(attributes[':model']) : []
     const external = attributes[':external'] ? json5.parse(attributes[':external']) : []
     const externalTypes = attributes[':externalTypes'] ? json5.parse(attributes[':externalTypes']) : []
@@ -740,7 +658,8 @@ export async function transformMDC(event: H3Event, doc: Document): Promise<Docum
       ignore,
       hide,
       componentName,
-      slots
+      slots,
+      propsCast
     })
       .then((code) => {
         replaceNodeWithPre(node, 'vue', code)
