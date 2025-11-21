@@ -22,38 +22,38 @@ Wrap your `card` components with the `card-group` component to group them togeth
 
 ::card
 ---
-title: Dashboard
-to: https://github.com/nuxt-ui-templates/dashboard
+title: Pricing
+to: https://www.bitrix24.com/prices/
 target: _blank
 ---
-A dashboard with multi-column layout.
+Bitrix24 plans and pricing
 ::
 
 ::card
 ---
-title: SaaS
-to: https://github.com/nuxt-ui-templates/saas
+title: Webinars
+to: https://www.bitrix24.com/webinars/
 target: _blank
 ---
-A template with landing, pricing, docs and blog.
+Our webinars cover a wide range of topics and are available for free in multiple languages.
 ::
 
 ::card
 ---
-title: Docs
-to: https://github.com/nuxt-ui-templates/docs
+title: Bitrix24 REST API
+to: https://apidocs.bitrix24.com/
 target: _blank
 ---
-A documentation with `@nuxt/content`.
+A tool for creating integrations, automating workflows, and customizing user scenarios in Bitrix24
 ::
 
 ::card
 ---
-title: Landing
-to: https://github.com/nuxt-ui-templates/landing
+title: Bitrix24 UI-Kit
+to: https://bitrix24.github.io/b24ui/
 target: _blank
 ---
-A landing page you can use as starting point.
+Documentation for `@bitrix24/b24ui`.
 ::
 
 :::
@@ -65,34 +65,38 @@ A landing page you can use as starting point.
 
 ::card
 ---
-title: Dashboard
+title: Pricing
+to: https://www.bitrix24.com/prices/
 target: _blank
 ---
-A dashboard with multi-column layout.
+Bitrix24 plans and pricing
 ::
 
 ::card
 ---
-title: SaaS
+title: Webinars
+to: https://www.bitrix24.com/webinars/
 target: _blank
 ---
-A template with landing, pricing, docs and blog.
+Our webinars cover a wide range of topics and are available for free in multiple languages.
 ::
 
 ::card
 ---
-title: Docs
+title: Bitrix24 REST API
+to: https://apidocs.bitrix24.com/
 target: _blank
 ---
-A documentation with `@nuxt/content`.
+A tool for creating integrations, automating workflows, and customizing user scenarios in Bitrix24
 ::
 
 ::card
 ---
-title: Landing
+title: Bitrix24 UI-Kit
+to: https://bitrix24.github.io/b24ui/
 target: _blank
 ---
-A landing page you can use as starting point.
+Documentation for `@bitrix24/b24ui`.
 ::
 
 ::
