@@ -128,9 +128,9 @@ function onChange(value: any) {
         disable-closing-trigger
         v-bind="(typeof tooltip === 'object' ? tooltip : {})"
       >
-        <SliderThumb data-slot="thumb" :class="b24ui.thumb({ class: props.b24ui?.thumb })" />
+        <SliderThumb data-slot="thumb" :class="b24ui.thumb({ class: props.b24ui?.thumb })" :aria-label="thumbs === 1 ? 'Thumb' : `Thumb ${thumb} of ${thumbs}`" />
       </B24Tooltip>
-      <SliderThumb v-else data-slot="thumb" :class="b24ui.thumb({ class: props.b24ui?.thumb })" />
+      <SliderThumb v-else data-slot="thumb" :class="b24ui.thumb({ class: props.b24ui?.thumb })" :aria-label="thumbs === 1 ? 'Thumb' : `Thumb ${thumb} of ${thumbs}`" />
     </template>
   </SliderRoot>
 </template>
