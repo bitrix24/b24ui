@@ -93,7 +93,7 @@ function onSubmit() {
           class="sticky bottom-0 light"
           @submit="onSubmit"
         >
-          <B24ChatPromptSubmit :status="chat.status" @stop="chat.stop" @reload="chat.regenerate" />
+          <B24ChatPromptSubmit :status="chat.status" @stop="chat.stop()" @reload="chat.regenerate()" />
         </B24ChatPrompt>
       </div>
     </div>

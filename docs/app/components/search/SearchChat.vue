@@ -151,7 +151,7 @@ const getCachedToolMessage = useMemoize((state: State, toolName: string, input: 
         @submit="onSubmit"
         @close="onClose"
       >
-        <B24ChatPromptSubmit :status="chat.status" @stop="chat.stop" @reload="chat.regenerate" />
+        <B24ChatPromptSubmit :status="chat.status" @stop="chat.stop()" @reload="chat.regenerate()" />
         <template #footer>
           <B24Button
             :icon="fullscreen ? Minimize2Icon : Maximize2Icon"

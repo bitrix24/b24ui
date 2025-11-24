@@ -80,7 +80,7 @@ function onClose(e: Event) {
             @submit="onSubmit"
             @close="onClose"
           >
-            <B24ChatPromptSubmit :status="chat.status" @stop="chat.stop" @reload="chat.regenerate" />
+            <B24ChatPromptSubmit :status="chat.status" @stop="chat.stop()" @reload="chat.regenerate()" />
           </B24ChatPrompt>
         </template>
       </B24ChatPalette>

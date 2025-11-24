@@ -240,7 +240,7 @@ function onSubmit() {
     <template #footer>
       <B24Container class="pb-4 sm:pb-6">
         <B24ChatPrompt v-model="input" :error="chat.error" @submit="onSubmit">
-          <B24ChatPromptSubmit :status="chat.status" @stop="chat.stop" @reload="chat.regenerate" />
+          <B24ChatPromptSubmit :status="chat.status" @stop="chat.stop()" @reload="chat.regenerate()" />
         </B24ChatPrompt>
       </B24Container>
     </template>

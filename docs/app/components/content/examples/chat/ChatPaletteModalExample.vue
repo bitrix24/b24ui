@@ -46,7 +46,7 @@ function onSubmit() {
             :error="chat.error"
             @submit="onSubmit"
           >
-            <B24ChatPromptSubmit :status="chat.status" @stop="chat.stop" @reload="chat.regenerate" />
+            <B24ChatPromptSubmit :status="chat.status" @stop="chat.stop()" @reload="chat.regenerate()" />
           </B24ChatPrompt>
         </template>
       </B24ChatPalette>
