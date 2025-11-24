@@ -44,7 +44,7 @@ jobs:
         run: pnpm build
 
       - name: Generate Docs
-        run: pnpm run docs:generate
+        run: pnpm run docs:full:generate
 
       - name: Generate Demo
         run: pnpm run demo:generate

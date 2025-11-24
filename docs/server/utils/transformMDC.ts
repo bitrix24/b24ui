@@ -20,6 +20,7 @@ type ComponentAttributes = {
   ':ignore'?: string
   ':hide'?: string
   ':slots'?: string
+  ':slug'?: string
 }
 
 type ThemeConfig = {
@@ -37,6 +38,7 @@ type CodeConfig = {
   componentName: string
   slots?: Record<string, string>
   propsCast?: Record<string, unknown>
+  prose?: boolean
 }
 
 type Document = {
@@ -371,7 +373,7 @@ const castMap: Record<string, Cast> = {
 /**
  * @see docs/app/components/content/ComponentCode.vue -> code
  */
-const generateComponentCode = async ({
+const generateComponentCode = ({
   props,
   model,
   external,
@@ -379,18 +381,18 @@ const generateComponentCode = async ({
   hide,
   componentName,
   slots,
-  propsCast
+  propsCast,
+  prose
 }: CodeConfig) => {
   const componentProps = Object.fromEntries(
     Object.entries(props).filter(([key]) => !hide.includes(key))
   )
   const camelName = componentName
   let code = ''
-  const prose = false
 
-  const name = `${props.prose ? 'Prose' : 'B24'}${upperFirst(camelName)}`
+  const name = `${prose ? 'Prose' : 'B24'}${upperFirst(camelName)}`
 
-  const componentTheme = ((props.prose ? theme.prose : theme) as any)[camelName]
+  const componentTheme = ((prose ? theme.prose : theme) as any)[camelName]
   const { componentMeta } = getComponentMeta(name)
 
   let isUseIcon = false
@@ -675,21 +677,33 @@ export async function transformMDC(event: H3Event, doc: Document): Promise<Docum
     const ignore = attributes[':ignore'] ? json5.parse(attributes[':ignore']) : []
     const hide = attributes[':hide'] ? json5.parse(attributes[':hide']) : []
     const slots = attributes[':slots'] ? json5.parse(attributes[':slots']) : {}
+    const prose = !!attributes[':prose']
 
-    generateComponentCode({
+    const mdcSpecificName = attributes[':slug']
+
+    const finalComponentName = mdcSpecificName ? camelCase(mdcSpecificName) : componentName
+
+    /**
+     * @memo You need to understand that the code is trying to load a component by the page name, but it is not available for some pages.
+     */
+    if (['icons', 'customize components'].includes(finalComponentName.toLowerCase())) {
+      return
+    }
+
+    const code = generateComponentCode({
       props,
       model,
       external,
       externalTypes,
       ignore,
       hide,
-      componentName,
+      componentName: finalComponentName,
       slots,
-      propsCast
+      propsCast,
+      prose
     })
-      .then((code) => {
-        replaceNodeWithPre(node, 'vue', code)
-      })
+
+    replaceNodeWithPre(node, 'vue', code)
   })
 
   visitAndReplace(doc, 'component-props', (node) => {
@@ -860,6 +874,11 @@ export async function transformMDC(event: H3Event, doc: Document): Promise<Docum
   })
 
   visitAndReplace(doc, 'accordion', (node) => {
+    node[0] = 'p'
+    node[1] = {}
+  })
+
+  visitAndReplace(doc, 'code-group', (node) => {
     node[0] = 'p'
     node[1] = {}
   })
