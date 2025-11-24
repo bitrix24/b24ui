@@ -254,6 +254,7 @@ export const useNavigation = (navigation: Ref<ContentNavigationItem[] | undefine
   function findSurround(path: string): [ContentNavigationItem | undefined, ContentNavigationItem | undefined] {
     const pathFormatted = withTrailingSlash(path)
     const flattenNavigation = navigationByCategory.value
+      // @memo: while remove filterChildrenByFramework -> ?.flatMap(item => item?.children) ?? []
       ?.flatMap(item => filterChildrenByFramework(item, framework.value)?.children) ?? []
 
     const index = flattenNavigation.findIndex(item => item?.path === pathFormatted)
