@@ -10,6 +10,7 @@
 * fix(ChatPromptSubmit): proxy event to `stop` and `reload` emits
 * fix(Range): add `aria-label` to thumb
 * test(FileUpload): add `aria-label` to axe test case
+* fix(ProseCard): change hover text color
 
 ## [2.1.6](https://github.com/bitrix24/b24ui/compare/v2.1.5...v2.1.6) (2025-11-20)
 

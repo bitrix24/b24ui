@@ -61,6 +61,24 @@ export default {
         description: 'group-hover:text-(--b24ui-border-color) [&_p]:group-hover:text-(--b24ui-border-color)',
         externalIcon: 'group-hover:text-(--b24ui-icon)'
       }
+    },
+    {
+      to: true,
+      color: [
+        'air-secondary',
+        'air-secondary-alert',
+        'air-secondary-accent',
+        'air-secondary-accent-1',
+        'air-secondary-accent-2',
+        'air-secondary-no-accent',
+        'air-tertiary'
+      ],
+      class: {
+        base: 'hover:bg-(--ui-color-bg-content-secondary) hover:border-(--b24ui-border-color-hover)',
+        title: 'group-hover:text-(--b24ui-color)',
+        description: 'group-hover:text-(--b24ui-color) [&_p]:group-hover:text-(--b24ui-color)',
+        externalIcon: 'group-hover:text-(--b24ui-icon)'
+      }
     }
   ],
   defaultVariants: {
