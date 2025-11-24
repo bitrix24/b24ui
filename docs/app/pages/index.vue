@@ -4,6 +4,7 @@ import { navigateTo, useColorMode } from '#imports'
 import EncloseTextInCodeTagIcon from '@bitrix24/b24icons-vue/editor/EncloseTextInCodeTagIcon'
 import InfoCircleIcon from '@bitrix24/b24icons-vue/outline/InfoCircleIcon'
 import PlayLIcon from '@bitrix24/b24icons-vue/outline/PlayLIcon'
+import DemonstrationOnIcon from '@bitrix24/b24icons-vue/outline/DemonstrationOnIcon'
 
 const { data: page } = await useAsyncData('index', () => queryCollection('index').first())
 if (!page.value) {
@@ -30,6 +31,7 @@ const iconFromIconName = (iconName?: string) => {
     case 'EncloseTextInCodeTagIcon': return EncloseTextInCodeTagIcon
     case 'InfoCircleIcon': return InfoCircleIcon
     case 'PlayLIcon': return PlayLIcon
+    case 'DemonstrationOnIcon': return DemonstrationOnIcon
   }
 
   return undefined
@@ -50,14 +52,32 @@ const cardColorContext = computed(() => {
 onMounted(() => {
   isMounted.value = true
 })
+
+const { mobileLinks } = useHeader()
 </script>
 
 <template>
   <B24SidebarLayout
     :use-light-content="false"
   >
+    <template #sidebar>
+      <B24SidebarHeader>
+        <LogoWithVersion />
+      </B24SidebarHeader>
+      <B24SidebarBody>
+        <B24NavigationMenu
+          :items="mobileLinks"
+          orientation="vertical"
+        />
+      </B24SidebarBody>
+      <B24SidebarFooter>
+        <B24SidebarSection>
+          <ExtLinks />
+        </B24SidebarSection>
+      </B24SidebarFooter>
+    </template>
     <template #navbar>
-      <Header show-logo-all-time />
+      <Header />
     </template>
 
     <B24Card
@@ -84,7 +104,7 @@ onMounted(() => {
             />
           </div>
         </div>
-        <div class="relative col-span-12 lg:col-end-11 lg:col-span-5">
+        <div class="relative col-span-12 lg:col-end-13 lg:col-span-7">
           <ComponentExample
             name="IndexPromoV1"
             :source="false"

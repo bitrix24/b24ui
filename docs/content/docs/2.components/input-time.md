@@ -2,7 +2,6 @@
 title: InputTime
 description: 'A time selection input field.'
 category: form
-badge: new
 links:
   - label: GitHub
     iconName: GitHubIcon
