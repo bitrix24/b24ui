@@ -3,6 +3,7 @@
 ## [2.1.8](https://github.com/bitrix24/b24ui/compare/v2.1.7...v2.1.8) (2025-11-xx)
 
 * chore(deps): update all non-major dependencies
+* chore(deps): update actions/checkout action to v6
 
 ## [2.1.7](https://github.com/bitrix24/b24ui/compare/v2.1.6...v2.1.7) (2025-11-24)
 

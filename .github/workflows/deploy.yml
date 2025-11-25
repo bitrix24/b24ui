@@ -23,7 +23,7 @@ jobs:
       NUXT_PUBLIC_GIT_URL: https://github.com/bitrix24/b24ui
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
