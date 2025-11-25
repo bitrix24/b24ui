@@ -259,6 +259,7 @@ const columns: TableColumn<Payment>[] = [
       'size': 'sm',
       'aria-label': 'Select row'
     }),
+    size: 172,
     enableSorting: false,
     enableHiding: false
   },
@@ -289,12 +290,14 @@ const columns: TableColumn<Payment>[] = [
         'size': 'sm',
         'aria-label': 'Actions dropdown'
       }))
-    }
+    },
+    size: 172
   },
   {
     accessorKey: 'id',
     header: '#',
-    cell: ({ row }) => `#${row.getValue('id')}`
+    cell: ({ row }) => `#${row.getValue('id')}`,
+    size: 381
   },
   {
     accessorKey: 'date',
@@ -313,7 +316,8 @@ const columns: TableColumn<Payment>[] = [
         minute: '2-digit',
         hour12: false
       })
-    }
+    },
+    size: 172
   },
   {
     accessorKey: 'status',
@@ -326,7 +330,8 @@ const columns: TableColumn<Payment>[] = [
       })[row.getValue('status') as string]
 
       return h(B24Badge, { class: 'capitalize', color }, () => row.getValue('status'))
-    }
+    },
+    size: 103
   },
   {
     accessorKey: 'email',
@@ -345,7 +350,8 @@ const columns: TableColumn<Payment>[] = [
         })
       })
     },
-    cell: ({ row }) => h('div', { class: 'lowercase' }, row.getValue('email'))
+    cell: ({ row }) => h('div', { class: 'lowercase' }, row.getValue('email')),
+    size: 232
   },
   {
     accessorKey: 'amount',
@@ -369,7 +375,8 @@ const columns: TableColumn<Payment>[] = [
       }).format(amount)
 
       return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, formatted)
-    }
+    },
+    size: 130
   }
 ]
 
@@ -529,9 +536,9 @@ onMounted(() => {
 
     <B24Popover :content="{ side: 'top', sideOffset: 16, updatePositionStrategy: 'always' }" :open="popoverOpenDebounced" :reference="reference">
       <template #content>
-        <div class="p-4">
-          {{ popoverRow?.original?.id }}
-        </div>
+        <ProseP class="p-4">
+          {{ popoverRow?.original?.id || '?' }}
+        </ProseP>
       </template>
     </B24Popover>
     <template #footer>

@@ -74,14 +74,12 @@ export default {
         th: [
           'sticky',
           'bg-(--ui-color-bg-content-primary)',
-          'data-[pinned=left]:left-0',
-          'data-[pinned=right]:right-0'
+          'z-[1]'
         ].join(' '),
         td: [
           'sticky',
           'bg-(--ui-color-bg-content-primary)',
-          'data-[pinned=left]:left-0',
-          'data-[pinned=right]:right-0'
+          'z-[1]'
         ].join(' ')
       }
     },
@@ -91,13 +89,13 @@ export default {
           'sticky',
           'top-0 inset-x-0',
           'bg-(--ui-color-bg-content-primary)',
-          'z-[1] backdrop-blur'
+          'z-[2] backdrop-blur'
         ].join(' '), // bg-default/75
         tfoot: [
           'sticky',
           'bottom-0 inset-x-0',
           'bg-(--ui-color-bg-content-primary)',
-          'z-[1] backdrop-blur'
+          'z-[2] backdrop-blur'
         ].join(' ') // bg-default/75
       },
       header: {
@@ -105,7 +103,7 @@ export default {
           'sticky',
           'top-0 inset-x-0',
           'bg-(--ui-color-bg-content-primary)',
-          'z-[1] backdrop-blur'
+          'z-[2] backdrop-blur'
         ].join(' ') // bg-default/75
       },
       footer: {
@@ -113,7 +111,7 @@ export default {
           'sticky',
           'bottom-0 inset-x-0',
           'bg-(--ui-color-bg-content-primary)',
-          'z-[1] backdrop-blur'
+          'z-[2] backdrop-blur'
         ].join(' ') // bg-default/75
       }
     },

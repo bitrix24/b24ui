@@ -165,9 +165,9 @@ function onHover(_e: Event, row: TableRow<Payment> | null) {
       :reference="reference"
     >
       <template #content>
-        <div class="p-4">
-          {{ selectedRow?.original?.id }}
-        </div>
+        <ProseP class="p-4">
+          {{ selectedRow?.original?.id || '?' }}
+        </ProseP>
       </template>
     </B24Popover>
   </B24Card>
