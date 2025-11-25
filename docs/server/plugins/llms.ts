@@ -4,6 +4,11 @@ import { withoutTrailingSlash } from 'ufo'
 
 export default defineNitroPlugin((nitroApp) => {
   nitroApp.hooks.hook('content:llms:generate:document', async (event: H3Event, doc: PageCollectionItemBase) => {
+    if (doc.body.value[0]?.[0] !== 'h1') {
+      doc.body.value.push(['hr', {}, ''])
+      doc.body.value.unshift(['blockquote', {}, doc.description])
+    }
+
     await transformMDC(event, doc as any)
   })
 
@@ -23,6 +28,22 @@ export default defineNitroPlugin((nitroApp) => {
     if (docSetIdx !== -1) {
       const [docSet] = sections.splice(docSetIdx, 1)
       sections.push(docSet)
+    }
+  })
+
+  /**
+   * @see docs/server/utils/transformMDC.ts
+   * @see docs/server/plugins/llms.ts
+   * @see docs/server/routes/raw/[...slug].md.get.ts
+   */
+  nitroApp.hooks.hook('beforeResponse', (event, content) => {
+    if (event.path === '/llms-full.txt') {
+      content.body = content.body
+        .replaceAll('%br%', '\n')
+        .replaceAll('%br>%', '\n> ')
+        .replaceAll('\n\n\n', '\n\n')
+        .replaceAll('\n\n\n', '\n\n')
+        .replaceAll('\n\n\n', '\n\n')
     }
   })
 })
