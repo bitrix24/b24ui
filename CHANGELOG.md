@@ -4,6 +4,8 @@
 
 * chore(deps): update all non-major dependencies
 * chore(deps): update actions/checkout action to v6
+* fix(Table): properly position pinned columns based on `size`
+* fix(Button): some improve the label style
 
 ## [2.1.7](https://github.com/bitrix24/b24ui/compare/v2.1.6...v2.1.7) (2025-11-24)
 

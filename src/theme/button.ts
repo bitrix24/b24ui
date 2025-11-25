@@ -44,15 +44,16 @@ export default {
     baseLoadingSpinnerIcon: 'text-(--ui-btn-color) size-(--ui-btn-wait-icon-size) animate-spin stroke-2',
     baseLine: [
       'w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space)',
-      'ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right)'
+      'ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right)',
+      'h-(--ui-btn-height)'
     ].join(' '),
     label: [
       'h-(--ui-btn-height) max-w-full',
-      'inline-flex items-center',
+      'inline-flex flex-row items-center',
       'tracking-(--ui-btn-letter-spacing)',
       'overflow-visible',
-      'text-clip',
-      'mt-(--ui-btn-title-compensation)'
+      'text-clip'
+      // 'mt-(--ui-btn-title-compensation)'
     ].join(' '),
     labelInner: [
       'truncate',
