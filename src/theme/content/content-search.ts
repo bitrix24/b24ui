@@ -12,7 +12,7 @@ export default {
   variants: {
     fullscreen: {
       false: {
-        modal: 'sm:max-w-[768px] sm:h-[436px]'
+        modal: 'sm:max-w-[768px] h-full sm:h-[436px]'
       }
     }
   }
