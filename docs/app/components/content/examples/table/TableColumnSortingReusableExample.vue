@@ -2,6 +2,7 @@
 import { h, resolveComponent } from 'vue'
 import type { TableColumn } from '@bitrix24/b24ui-nuxt'
 import type { Column } from '@tanstack/vue-table'
+import SortIcon from '@bitrix24/b24icons-vue/actions/SortIcon'
 import ChevronTopLIcon from '@bitrix24/b24icons-vue/outline/ChevronTopLIcon'
 import ChevronDownLIcon from '@bitrix24/b24icons-vue/outline/ChevronDownLIcon'
 
@@ -105,7 +106,7 @@ function getHeader(column: Column<Payment>, label: string) {
     'aria-label': `Sort by ${isSorted === 'asc' ? 'descending' : 'ascending'}`,
     'onClick': () => column.toggleSorting(column.getIsSorted() === 'asc')
   }, {
-    trailing: () => h(isSorted ? (isSorted === 'asc' ? ChevronTopLIcon : ChevronDownLIcon) : ChevronTopLIcon, {
+    trailing: () => h(isSorted ? (isSorted === 'asc' ? ChevronTopLIcon : ChevronDownLIcon) : SortIcon, {
       class: {
         'text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)': true,
         'hidden group-hover:inline-flex': !isSorted

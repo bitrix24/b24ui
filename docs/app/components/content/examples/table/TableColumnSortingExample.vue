@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { h, resolveComponent } from 'vue'
 import type { TableColumn } from '@bitrix24/b24ui-nuxt'
+import SortIcon from '@bitrix24/b24icons-vue/actions/SortIcon'
 import ChevronTopLIcon from '@bitrix24/b24icons-vue/outline/ChevronTopLIcon'
 import ChevronDownLIcon from '@bitrix24/b24icons-vue/outline/ChevronDownLIcon'
 
@@ -87,7 +88,7 @@ const columns: TableColumn<Payment>[] = [{
       class: '-mx-2.5 [--ui-btn-height:20px]',
       onClick: () => column.toggleSorting(column.getIsSorted() === 'asc')
     }, {
-      trailing: () => h(isSorted ? (isSorted === 'asc' ? ChevronTopLIcon : ChevronDownLIcon) : ChevronTopLIcon, {
+      trailing: () => h(isSorted ? (isSorted === 'asc' ? ChevronTopLIcon : ChevronDownLIcon) : SortIcon, {
         class: 'text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)'
       })
     })

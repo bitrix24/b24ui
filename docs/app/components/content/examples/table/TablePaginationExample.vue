@@ -147,6 +147,8 @@ const pagination = ref({
   pageIndex: 0,
   pageSize: 5
 })
+
+const globalFilter = ref('')
 </script>
 
 <template>
@@ -156,12 +158,20 @@ const pagination = ref({
     :b24ui="{
       header: 'p-[12px] px-[14px] py-[14px] sm:px-[14px] sm:py-[14px]',
       body: 'p-0 sm:px-0 sm:py-0',
-      footer: 'p-[12px] px-[14px] py-[14px] sm:px-[14px] sm:py-[14px] text-(length:--ui-font-size-xs) text-(--b24ui-typography-legend-color) flex justify-center'
+      footer: 'p-[12px] px-[14px] py-[14px] sm:px-[14px] sm:py-[14px] text-(length:--ui-font-size-xs) text-(--b24ui-typography-legend-color) flex justify-end'
     }"
   >
+    <template #header>
+      <B24Input
+        v-model="globalFilter"
+        class="max-w-[300px]"
+        placeholder="Filter..."
+      />
+    </template>
     <B24Table
       ref="table"
       v-model:pagination="pagination"
+      v-model:global-filter="globalFilter"
       :data="data"
       :columns="columns"
       :pagination-options="{ getPaginationRowModel: getPaginationRowModel() }"
@@ -171,7 +181,7 @@ const pagination = ref({
       <B24Pagination
         size="sm"
         color="air-tertiary-no-accent"
-        :default-page="(table?.tableApi?.getState().pagination.pageIndex || 0) + 1"
+        :page="(table?.tableApi?.getState().pagination.pageIndex || 0) + 1"
         :items-per-page="table?.tableApi?.getState().pagination.pageSize"
         :total="table?.tableApi?.getFilteredRowModel().rows.length"
         @update:page="(p) => table?.tableApi?.setPageIndex(p - 1)"
