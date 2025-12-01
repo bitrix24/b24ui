@@ -1,14 +1,22 @@
 # Changelog
 
-## [2.1.9](https://github.com/bitrix24/b24ui/compare/v2.1.8...v2.1.9) (2025-11-xx)
+## [2.1.9](https://github.com/bitrix24/b24ui/compare/v2.1.8...v2.1.9) (2025-12-01)
 
-* fix(ContentSearch/DasboardSearch): set full height on mobile to prevent jump
-* fix(Table): only forward necessary props
-* fix(ColorModeButton): improve icon class merging
-* chore(components): reduce type verbosity by omitting link props from action buttons
-* docs(input-date/input-time/calendar): add note about date format
-* docs(mcp): use `@nuxtjs/mcp-toolkit`
-* chore(vitest): move vue config into vitest project
+### Bug Fixes
+
+* **ContentSearch/DasboardSearch:** set full height on mobile to prevent jump
+* **Table:** only forward necessary props
+* **ColorModeButton:** improve icon class merging
+
+### Docs
+
+* **input-date/input-time/calendar:** add note about date format
+* **mcp:** use `@nuxtjs/mcp-toolkit`
+
+### Chore
+
+* **vitest:** move vue config into vitest project
+* **components:** reduce type verbosity by omitting link props from action buttons
 
 ## [2.1.8](https://github.com/bitrix24/b24ui/compare/v2.1.7...v2.1.8) (2025-11-25)
 
