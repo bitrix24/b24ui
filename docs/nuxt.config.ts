@@ -206,6 +206,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     // '@nuxt/image',
     '@nuxtjs/plausible',
+    '@nuxtjs/mcp-toolkit',
     'nuxt-component-meta',
     'nuxt-og-image',
     // @memo off this -> use in nuxt-og-image
@@ -309,6 +310,15 @@ export default defineNuxtConfig({
     // '/docs/getting-started/installation/pro/vue': { redirect: { to: '/docs/getting-started/installation/vue', statusCode: 301 }, prerender: false },
   },
 
+  experimental: {
+    asyncContext: true,
+    defaults: {
+      nuxtLink: {
+        externalRelAttribute: 'noopener'
+      }
+    }
+  },
+
   compatibilityDate: '2024-07-09',
 
   nitro: {
@@ -402,6 +412,14 @@ export default defineNuxtConfig({
     notes: [
       'The content is automatically generated from the same source as the official documentation.'
     ]
+  },
+  mcp: {
+    /** @memo fix if you need */
+    enabled: import.meta.dev,
+    name: 'Bitrix24 UI',
+    version: '1.0.0',
+    route: `/mcp/`, // ${baseUrl}
+    browserRedirect: '/docs/getting-started/ai/mcp/'
   },
 
   // @memo off for generate

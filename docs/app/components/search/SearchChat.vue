@@ -88,25 +88,25 @@ function getToolMessage(state: State, toolName: string, input: any) {
     'bitrix-article-details': `${readVerb} b24/restApi ${input.title_or_hint || ''} article`,
     'bitrix-event-details': `${readVerb} b24/restApi ${input.title_or_hint || ''} event`,
     // b24/jsSdk
-    'get_b24_jssdk_documentation_page': `${readVerb} b24/jsSdk ${input.path || ''} page`,
-    'list_b24_jssdk_documentation_pages': `${searchVerb} b24/jsSdk documentation pages`,
-    'list_b24_jssdk_getting_started_guides': `${searchVerb} b24/jsSdk documentation guides`,
-    'list_b24_jssdk_examples': `${searchVerb} b24/jsSdk examples`,
-    'get_b24_jssdk_example': `${readVerb} b24/jsSdk ${upperName(input.exampleName)} example`,
+    'get-b24-jssdk-documentation-page': `${readVerb} b24/jsSdk ${input.path || ''} page`,
+    'list-b24-jssdk-documentation-pages': `${searchVerb} b24/jsSdk documentation pages`,
+    'list-b24-jssdk-getting-started-guides': `${searchVerb} b24/jsSdk documentation guides`,
+    'list-b24-jssdk-examples': `${searchVerb} b24/jsSdk examples`,
+    'get-b24-jssdk-example': `${readVerb} b24/jsSdk ${upperName(input.exampleName)} example`,
     // b24/ui
-    'list_b24_ui_components': `${searchVerb} b24/ui components`,
-    'list_b24_ui_composables': `${searchVerb} b24/ui composables`,
-    'get_b24_ui_component': `${readVerb} b24/ui ${upperName(input.componentName)} component`,
-    'get_b24_ui_component_metadata': `${readVerb} b24/ui metadata for component ${upperName(input.componentName)}`,
-    'list_b24_ui_templates': `${searchVerb} b24/ui templates${input.category ? ` in ${input.category} category` : ''}`,
-    'get_b24_ui_template': `${readVerb} b24/ui template ${upperName(input.templateName)}`,
-    'get_b24_ui_documentation_page': `${readVerb} b24/ui ${input.path || ''} page`,
-    'list_b24_ui_documentation_pages': `${searchVerb} b24/ui documentation pages`,
-    'list_b24_ui_getting_started_guides': `${searchVerb} b24/ui documentation guides`,
-    'get_b24_ui_migration_guide': `${readVerb} b24/ui migration guide${input.version ? ` for ${input.version}` : ''}`,
-    'list_b24_ui_examples': `${searchVerb} b24/ui examples`,
-    'get_b24_ui_example': `${readVerb} b24/ui ${upperName(input.exampleName)} example`,
-    'search_b24_ui_components_by_category': `${searchVerb} b24/ui components${input.category ? ` in ${input.category} category` : ''}${input.search ? ` for "${input.search}"` : ''}`
+    'b24-ui-list-components': `${searchVerb} b24/ui components`,
+    'b24-ui-list-composables': `${searchVerb} b24/ui composables`,
+    'b24-ui-get-component': `${readVerb} b24/ui ${upperName(input.componentName)} component`,
+    'b24-ui-get-component-metadata': `${readVerb} b24/ui metadata for component ${upperName(input.componentName)}`,
+    'b24-ui-list-templates': `${searchVerb} b24/ui templates${input.category ? ` in ${input.category} category` : ''}`,
+    'b24-ui-get-template': `${readVerb} b24/ui template ${upperName(input.templateName)}`,
+    'b24-ui-get-documentation-page': `${readVerb} b24/ui ${input.path || ''} page`,
+    'b24-ui-list-documentation-pages': `${searchVerb} b24/ui documentation pages`,
+    'b24-ui-list-getting-started-guides': `${searchVerb} b24/ui documentation guides`,
+    'b24-ui-get-migration-guide': `${readVerb} b24/ui migration guide${input.version ? ` for ${input.version}` : ''}`,
+    'b24-ui-list-examples': `${searchVerb} b24/ui examples`,
+    'b24-ui-get-example': `${readVerb} b24/ui ${upperName(input.exampleName)} example`,
+    'b24-ui-search-components-by-category': `${searchVerb} b24/ui components${input.category ? ` in ${input.category} category` : ''}${input.search ? ` for "${input.search}"` : ''}`
   }[toolName] || `${searchVerb} ${toolName}` // + `[${toolName}]::${JSON.stringify(input ?? {})}`
 }
 
