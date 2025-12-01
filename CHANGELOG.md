@@ -6,6 +6,7 @@
 * fix(Table): only forward necessary props
 * chore(vitest): move vue config into vitest project
 * fix(ColorModeButton): improve icon class merging
+* docs(input-date/input-time/calendar): add note about date format
 
 ## [2.1.8](https://github.com/bitrix24/b24ui/compare/v2.1.7...v2.1.8) (2025-11-25)
 
