@@ -1,7 +1,7 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/alert'
-import type { AvatarProps, ButtonProps, IconComponent } from '../types'
+import type { AvatarProps, ButtonProps, IconComponent, LinkPropsKeys } from '../types'
 import type { ComponentConfig } from '../types/tv'
 
 type Alert = ComponentConfig<typeof theme, AppConfig, 'alert'>
@@ -52,7 +52,7 @@ export interface AlertProps {
    * @emits 'update:open'
    * @defaultValue false
    */
-  close?: boolean | Partial<ButtonProps>
+  close?: boolean | Omit<ButtonProps, LinkPropsKeys>
   /**
    * The icon displayed in the close button.
    * @defaultValue icons.close
@@ -150,7 +150,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.alert 
           size="md"
           color="air-tertiary-no-accent"
           :aria-label="t('alert.close')"
-          v-bind="(typeof close === 'object' ? close as Partial<ButtonProps> : {})"
+          v-bind="(typeof close === 'object' ? close : {})"
           data-slot="close"
           :class="b24ui.close({ class: props.b24ui?.close })"
           @click="emits('update:open', false)"

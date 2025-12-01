@@ -1,12 +1,12 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/dashboard-search-button'
-import type { ButtonProps, ButtonSlots, IconComponent, KbdProps, TooltipProps } from '../types'
+import type { ButtonProps, ButtonSlots, IconComponent, KbdProps, TooltipProps, LinkPropsKeys } from '../types'
 import type { ComponentConfig } from '../types/tv'
 
 type DashboardSearchButton = ComponentConfig<typeof theme, AppConfig, 'dashboardSearchButton'>
 
-export interface DashboardSearchButtonProps extends Omit<ButtonProps, 'icon' | 'label' | 'color'> {
+export interface DashboardSearchButtonProps extends Omit<ButtonProps, LinkPropsKeys | 'icon' | 'label' | 'color'> {
   /**
    * The icon displayed in the button.
    * @defaultValue icons.search

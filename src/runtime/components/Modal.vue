@@ -2,7 +2,7 @@
 import type { DialogRootProps, DialogRootEmits, DialogContentProps, DialogContentEmits } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/modal'
-import type { ButtonProps, IconComponent } from '../types'
+import type { ButtonProps, IconComponent, LinkPropsKeys } from '../types'
 import type { EmitsToProps } from '../types/utils'
 import type { ComponentConfig } from '../types/tv'
 
@@ -49,7 +49,7 @@ export interface ModalProps extends DialogRootProps {
    * `{ size: 'xs', color: 'air-tertiary-no-accent' }`{lang="ts-type"}
    * @defaultValue true
    */
-  close?: boolean | Partial<ButtonProps>
+  close?: boolean | Omit<ButtonProps, LinkPropsKeys>
   /**
    * The icon displayed in the close button.
    * @defaultValue icons.close
@@ -216,7 +216,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.modal 
                       size="md"
                       color="air-tertiary-no-accent"
                       :aria-label="t('modal.close')"
-                      v-bind="(typeof props.close === 'object' ? props.close as Partial<ButtonProps> : {})"
+                      v-bind="(typeof props.close === 'object' ? props.close : {})"
                       data-slot="close"
                       :class="b24ui.close({ class: props.b24ui?.close })"
                     />

@@ -2,7 +2,7 @@
 import type { NumberFieldRootProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/input-number'
-import type { ButtonProps, BadgeProps, IconComponent } from '../types'
+import type { ButtonProps, BadgeProps, IconComponent, LinkPropsKeys } from '../types'
 import type { InputHTMLAttributes } from '../types/html'
 import type { ModelModifiers } from '../types/input'
 import type { ComponentConfig } from '../types/tv'
@@ -58,7 +58,7 @@ export interface InputNumberProps<T extends InputNumberValue = InputNumberValue>
    * Configure the increment button. The `size` is inherited.
    * @defaultValue { color: 'air-tertiary-no-accent' }
    */
-  increment?: boolean | ButtonProps
+  increment?: boolean | Omit<ButtonProps, LinkPropsKeys>
   /**
    * The icon displayed to increment the value.
    * @defaultValue icons.plus
@@ -71,7 +71,7 @@ export interface InputNumberProps<T extends InputNumberValue = InputNumberValue>
    * Configure the decrement button. The `size` is inherited.
    * @defaultValue { color: 'air-tertiary-no-accent' }
    */
-  decrement?: boolean | ButtonProps
+  decrement?: boolean | Omit<ButtonProps, LinkPropsKeys>
   /**
    * The icon displayed to decrement the value.
    * @defaultValue icons.minus

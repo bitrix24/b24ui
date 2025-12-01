@@ -3,7 +3,7 @@ import type { CalendarRootProps, CalendarRootEmits, RangeCalendarRootProps, Rang
 import type { DateValue } from '@internationalized/date'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/calendar'
-import type { IconComponent, ButtonProps } from '../types'
+import type { IconComponent, ButtonProps, LinkPropsKeys } from '../types'
 import type { ComponentConfig } from '../types/tv'
 
 type Calendar = ComponentConfig<typeof theme, AppConfig, 'calendar'>
@@ -40,7 +40,7 @@ export interface CalendarProps<R extends boolean = false, M extends boolean = fa
    * Configure the next year button.
    * `{ color: 'air-tertiary' }`{lang="ts"}
    */
-  nextYear?: ButtonProps
+  nextYear?: Omit<ButtonProps, LinkPropsKeys>
   /**
    * The icon to use for the next month control.
    * @defaultValue icons.chevronRight
@@ -51,7 +51,7 @@ export interface CalendarProps<R extends boolean = false, M extends boolean = fa
    * Configure the next month button.
    * `{ color: 'air-tertiary' }`{lang="ts"}
    */
-  nextMonth?: ButtonProps
+  nextMonth?: Omit<ButtonProps, LinkPropsKeys>
   /**
    * The icon to use for the previous year control.
    * @defaultValue icons.chevronDoubleLeft
@@ -62,7 +62,7 @@ export interface CalendarProps<R extends boolean = false, M extends boolean = fa
    * Configure the prev year button.
    * `{ color: 'air-tertiary' }`{lang="ts"}
    */
-  prevYear?: ButtonProps
+  prevYear?: Omit<ButtonProps, LinkPropsKeys>
   /**
    * The icon to use for the previous month control.
    * @defaultValue icons.chevronLeft
@@ -73,7 +73,7 @@ export interface CalendarProps<R extends boolean = false, M extends boolean = fa
    * Configure the prev month button.
    * `{ color: 'air-tertiary' }`{lang="ts"}
    */
-  prevMonth?: ButtonProps
+  prevMonth?: Omit<ButtonProps, LinkPropsKeys>
   /**
    * @defaultValue 'air-primary'
    */

@@ -2,7 +2,7 @@
 import type { DialogRootProps, DialogRootEmits, DialogContentProps, DialogContentEmits } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/slideover'
-import type { ButtonProps, IconComponent } from '../types'
+import type { ButtonProps, IconComponent, LinkPropsKeys } from '../types'
 import type { EmitsToProps } from '../types/utils'
 import type { ComponentConfig } from '../types/tv'
 
@@ -45,7 +45,7 @@ export interface SlideoverProps extends DialogRootProps {
    * `{ color: 'air-tertiary' }`{lang="ts"} for `top`
    * @defaultValue true
    */
-  close?: boolean | Partial<ButtonProps>
+  close?: boolean | Omit<ButtonProps, LinkPropsKeys>
   /**
    * The icon displayed in the close button.
    * @defaultValue icons.close
@@ -197,7 +197,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.slideo
                     baseLine: 'ps-[4px] pe-[4px]',
                     label: 'hidden sm:flex'
                   }"
-                  v-bind="(typeof props.close === 'object' ? props.close as Partial<ButtonProps> : {})"
+                  v-bind="(typeof props.close === 'object' ? props.close : {})"
                   data-slot="close"
                   :class="b24ui.close({ class: props.b24ui?.close })"
                 />
@@ -251,7 +251,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.slideo
                           color="air-tertiary-no-accent"
                           :aria-label="t('slideover.close')"
                           size="lg"
-                          v-bind="(typeof props.close === 'object' ? props.close as Partial<ButtonProps> : {})"
+                          v-bind="(typeof props.close === 'object' ? props.close : {})"
                           data-slot="close"
                           :class="b24ui.close({ class: props.b24ui?.close })"
                         />

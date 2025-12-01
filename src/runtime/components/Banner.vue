@@ -1,7 +1,7 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/banner'
-import type { ButtonProps, IconComponent, LinkProps } from '../types'
+import type { ButtonProps, IconComponent, LinkProps, LinkPropsKeys } from '../types'
 import type { ComponentConfig } from '../types/tv'
 
 type Banner = ComponentConfig<typeof theme, AppConfig, 'banner'>
@@ -41,7 +41,7 @@ export interface BannerProps {
    * @emits `close`
    * @defaultValue false
    */
-  close?: boolean | Partial<ButtonProps>
+  close?: boolean | Omit<ButtonProps, LinkPropsKeys>
   /**
    * The icon displayed in the close button.
    * @defaultValue icons.close
@@ -166,7 +166,7 @@ function onClose() {
             size="md"
             color="air-tertiary-no-accent"
             :aria-label="t('banner.close')"
-            v-bind="(typeof close === 'object' ? close as Partial<ButtonProps> : {})"
+            v-bind="(typeof close === 'object' ? close : {})"
             data-slot="close"
             :class="b24ui.close({ class: props.b24ui?.close })"
             @click="onClose"

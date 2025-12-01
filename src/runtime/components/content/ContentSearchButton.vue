@@ -1,12 +1,12 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/content/content-search-button'
-import type { ButtonProps, ButtonSlots, IconComponent, KbdProps, TooltipProps } from '../../types'
+import type { ButtonProps, ButtonSlots, IconComponent, KbdProps, TooltipProps, LinkPropsKeys } from '../../types'
 import type { ComponentConfig } from '../../types/tv'
 
 type ContentSearchButton = ComponentConfig<typeof theme, AppConfig, 'contentSearchButton'>
 
-export interface ContentSearchButtonProps extends Omit<ButtonProps, 'icon' | 'label' | 'color'> {
+export interface ContentSearchButtonProps extends Omit<ButtonProps, LinkPropsKeys | 'icon' | 'label' | 'color'> {
   /**
    * The icon displayed in the button.
    * @defaultValue icons.search

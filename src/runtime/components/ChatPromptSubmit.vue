@@ -2,12 +2,12 @@
 import type { ChatStatus } from 'ai'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/chat-prompt-submit'
-import type { ButtonProps, ButtonSlots, IconComponent } from '../types'
+import type { ButtonProps, ButtonSlots, IconComponent, LinkPropsKeys } from '../types'
 import type { ComponentConfig } from '../types/tv'
 
 type ChatPromptSubmit = ComponentConfig<typeof theme, AppConfig, 'chatPromptSubmit'>
 
-export interface ChatPromptSubmitProps extends Omit<ButtonProps, 'icon' | 'color'> {
+export interface ChatPromptSubmitProps extends Omit<ButtonProps, LinkPropsKeys | 'icon' | 'color'> {
   status?: ChatStatus
   /**
    * The icon displayed in the button when the status is `ready`.

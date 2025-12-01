@@ -2,7 +2,7 @@
 import type { AppConfig } from '@nuxt/schema'
 import type { UseFileDialogReturn } from '@vueuse/core'
 import theme from '#build/b24ui/file-upload'
-import type { ButtonProps, IconComponent } from '../types'
+import type { ButtonProps, IconComponent, LinkPropsKeys } from '../types'
 import type { InputHTMLAttributes } from '../types/html'
 import type { ComponentConfig } from '../types/tv'
 
@@ -86,7 +86,7 @@ export interface FileUploadProps<M extends boolean = false> extends /** @vue-ign
    * When `layout` is `grid`, the default is `{ color: 'air-secondary-no-accent', size: 'xs' }`{lang="ts-type"}
    * When `layout` is `list`, the default is `{ color: 'air-tertiary-no-accent' }`{lang="ts-type"}
    */
-  fileDelete?: boolean | Partial<ButtonProps>
+  fileDelete?: boolean | Omit<ButtonProps, LinkPropsKeys>
   /**
    * The icon displayed to delete a file.
    * @defaultValue icons.close

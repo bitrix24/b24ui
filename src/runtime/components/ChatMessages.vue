@@ -4,7 +4,7 @@ import type { ComponentPublicInstance } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import type { UIMessage, ChatStatus } from 'ai'
 import theme from '#build/b24ui/chat-messages'
-import type { ButtonProps, ChatMessageProps, ChatMessageSlots, IconComponent } from '../types'
+import type { ButtonProps, ChatMessageProps, ChatMessageSlots, IconComponent, LinkPropsKeys } from '../types'
 import type { ComponentConfig } from '../types/tv'
 
 type ChatMessages = ComponentConfig<typeof theme, AppConfig, 'chatMessages'>
@@ -27,7 +27,7 @@ export interface ChatMessagesProps {
    * `{ size: 'md', color: 'air-secondary-no-accent' }`{lang="ts-type"}
    * @defaultValue true
    */
-  autoScroll?: boolean | Partial<ButtonProps>
+  autoScroll?: boolean | Omit<ButtonProps, LinkPropsKeys>
   /**
    * The icon displayed in the auto scroll button.
    * @defaultValue icons.arrowDown
@@ -332,7 +332,7 @@ onMounted(() => {
             v-if="autoScroll"
             :icon="autoScrollIcon || icons.arrowDown"
             color="air-secondary-no-accent"
-            v-bind="(typeof autoScroll === 'object' ? autoScroll as Partial<ButtonProps> : {})"
+            v-bind="(typeof autoScroll === 'object' ? autoScroll : {})"
             data-slot="autoScroll"
             :class="b24ui.autoScroll({ class: props.b24ui?.autoScroll })"
             @click="onAutoScrollClick"
