@@ -50,8 +50,8 @@ const isDark = computed({
     @click="isDark = !isDark"
   >
     <template #leading="{ b24ui }">
-      <Component :is="icons.dark" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })" class="hidden dark:inline" />
-      <Component :is="icons.light" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })" class="inline dark:hidden" />
+      <Component :is="icons.dark" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: [props.b24ui?.leadingIcon, 'hidden dark:inline-block'] })" />
+      <Component :is="icons.light" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: [props.b24ui?.leadingIcon, 'dark:hidden'] })" />
     </template>
   </B24Button>
 </template>
