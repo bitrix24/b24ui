@@ -1,5 +1,27 @@
 # Changelog
 
+## [2.1.10](https://github.com/bitrix24/b24ui/compare/v2.1.9...v2.1.10) (2025-12-xx)
+
+### Bug Fixes
+
+* **ChatMessage:** colors
+
+### Docs
+
+* **contribution:** remove test vue command
+* **Slideover:** fix overlay blur default value
+* **ChatAI:** improve
+
+### Chore
+
+* **deps:** update dependency reka-ui to v2.6.1
+* **InputDate:** usage `SegmentPart` from `reka-ui`
+* **deps:** update all non-major dependencies
+* **deps**: remove debug resolution
+* **deps:** update vueuse monorepo to v14
+
+
+
 ## [2.1.9](https://github.com/bitrix24/b24ui/compare/v2.1.8...v2.1.9) (2025-12-01)
 
 ### Bug Fixes
