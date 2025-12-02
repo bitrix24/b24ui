@@ -267,9 +267,9 @@ If you want to disable background blur, you should use the `overlayBlur` prop.
 
 The `overlayBlur` prop has 3 options:
 
-- `auto`: (default) when the user has **not requested** [reduced motion](https://tailwindcss.com/docs/hover-focus-and-other-states#prefers-reduced-motion)
+- `auto`: when the user has **not requested** [reduced motion](https://tailwindcss.com/docs/hover-focus-and-other-states#prefers-reduced-motion)
 - `on`: always use blur
-- `off`: do not use blur
+- `off`: (default) do not use blur
 
 ::component-code
 ---
