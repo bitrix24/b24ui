@@ -21,13 +21,13 @@ export default {
   variants: {
     variant: {
       message: {
-        content: 'bg-inverted text-inverted'
+        content: 'ring-1 ring-(--ui-color-divider-vibrant-default) bg-(--ui-color-palette-white-base) text-(--ui-color-palette-black-base)'
       },
       event: {
-        content: 'bg-default ring ring-default'
+        content: 'bg-(--ui-color-design-outline-stroke) ring ring-(--ui-color-design-outline-content-secondary)'
       },
       system: {
-        content: 'bg-elevated/50'
+        content: 'bg-(--ui-color-copilot-bg-content-3)'
       }
     },
     side: {
@@ -87,7 +87,7 @@ export default {
       variant: ['message', 'event', 'system'],
       compact: false,
       class: {
-        content: 'px-4 py-3 rounded-lg min-h-12',
+        content: 'ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]',
         leading: 'mt-2'
       }
     },
@@ -95,7 +95,7 @@ export default {
       variant: ['message', 'event', 'system'],
       compact: true,
       class: {
-        content: 'px-2 py-1 rounded-lg min-h-8',
+        content: 'ps-[14px] pe-[10px] py-[8px] rounded-sm min-h-[32px]',
         leading: 'mt-1'
       }
     },
