@@ -8,8 +8,12 @@ import FormattingIcon from '@bitrix24/b24icons-vue/editor/FormattingIcon'
 import RobotIcon from '@bitrix24/b24icons-vue/outline/RobotIcon'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 
-const isDev = import.meta.dev
-// const isDev = false
+/**
+ * @memo not use AIChat at this place
+ * @see docs/app/components/AIChatSlideover.vue
+ */
+// const isDev = import.meta.dev
+const isDev = false
 
 export function useSearch() {
   const route = useRoute()

@@ -11,7 +11,7 @@ export default eventHandler(async (event) => {
   const path = withLeadingSlash(slug.replace('.md', ''))
   const page = await queryCollection(event, 'docs').path(path).first()
   if (!page) {
-    throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
+    throw createError({ statusCode: 404, statusMessage: `Page <${path}> not found`, fatal: true })
   }
 
   // Add title and description to the top of the page if missing

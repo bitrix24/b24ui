@@ -126,6 +126,7 @@ const iconFromIconName = (iconName?: string) => {
             />
           </template>
           <template #head-links>
+            <DocsAside v-if="config.public.useAI" />
             <PageHeaderLinks />
             <B24DropdownMenu
               class="hidden sm:flex"

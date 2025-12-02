@@ -53,7 +53,7 @@ async function copyPage() {
 <template>
   <B24FieldGroup no-split size="sm">
     <B24Button
-      color="air-selection"
+      color="air-secondary-accent"
       label="Copy page"
       :icon="copied ? CircleCheckIcon : CopyIcon"
       :b24ui="{
@@ -70,7 +70,7 @@ async function copyPage() {
         itemLeadingAvatar: ['mr-[5px]']
       }"
     >
-      <B24Button color="air-selection" use-dropdown />
+      <B24Button color="air-secondary-accent" use-dropdown />
     </B24DropdownMenu>
   </B24FieldGroup>
 </template>

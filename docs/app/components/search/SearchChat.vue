@@ -12,6 +12,9 @@ import UserIcon from '@bitrix24/b24icons-vue/common-b24/UserIcon'
 import Maximize2Icon from '@bitrix24/b24icons-vue/outline/Maximize2Icon'
 import Minimize2Icon from '@bitrix24/b24icons-vue/outline/Minimize2Icon'
 
+/**
+ * @depricate use docs/app/components/AIChatSlideover.vue
+ */
 const config = useRuntimeConfig()
 
 const components = {

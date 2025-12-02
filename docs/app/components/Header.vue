@@ -36,6 +36,7 @@ const config = useRuntimeConfig()
   <B24NavbarSpacer />
 
   <B24NavbarSection class="gap-1 sm:gap-3">
+    <AppHeaderCTA v-if="config.public.useAI"/>
     <B24Tooltip text="Search" :kbds="['meta', 'K']">
       <B24ContentSearchButton />
     </B24Tooltip>

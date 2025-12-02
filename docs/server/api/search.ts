@@ -23,8 +23,10 @@ export default defineEventHandler(async (event) => {
   })
 
   return streamText({
-    model: deepseek('deepseek-reasoner'),
-    maxOutputTokens: 10000,
+    // @todo fix me
+    model: deepseek('deepseek-chat'),
+    // @todo fix me
+    maxOutputTokens: 8100,
     system: `You are a helpful assistant for Bitrix24 UI, a UI library for Nuxt and Vue. Use your knowledge base tools to search for relevant information before answering questions.
 
 Guidelines:
