@@ -23,7 +23,7 @@
     "@octokit/rest": "^22.0.1",
     "@regle/core": "^1.11.0",
     "@regle/rules": "^1.11.0",
-    "@vueuse/integrations": "^13.9.0",
+    "@vueuse/integrations": "^14.1.0",
     "ai": "^5.0.105",
     "better-sqlite3": "^12.5.0",
     "capture-website": "^5.1.0",

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { TableColumn } from '@bitrix24/b24ui-nuxt'
-import { useSortable } from '@vueuse/integrations/useSortable.mjs'
+import { useSortable } from '@vueuse/integrations/useSortable'
 
 type Payment = {
   id: string
