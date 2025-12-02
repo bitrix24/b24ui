@@ -131,7 +131,7 @@ defineExpose({
     :name="name"
     :placeholder="placeholder"
     :model-value="(modelValue as PinInputValue<T>)"
-    :default-value="(defaultValue as PinInputValue<T>[])"
+    :default-value="(defaultValue as PinInputValue<T>)"
     data-slot="root"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
     @update:model-value="emitFormInput()"
