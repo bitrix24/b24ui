@@ -89,8 +89,8 @@ const faqQuestions = [
 
 const toast = useToast()
 
-function upperName(name: string) {
-  if (name.length < 1) {
+function upperName(name: string | null | undefined) {
+  if (!name || name.length < 1) {
     return ''
   }
   return splitByCase(name).map(p => upperFirst(p)).join('')
@@ -113,21 +113,21 @@ function getToolLabel(toolName: string, args: any) {
     'list-b24-jssdk-documentation-pages': `Searched b24/jsSdk documentation pages`,
     'list-b24-jssdk-getting-started-guides': `Searched b24/jsSdk documentation guides`,
     'list-b24-jssdk-examples': `Searched b24/jsSdk examples`,
-    'get-b24-jssdk-example': `Read b24/jsSdk ${upperName(args?.exampleName || '')} example`
+    'get-b24-jssdk-example': `Read b24/jsSdk ${upperName(args?.exampleName || '')} example`,
     // b24/ui
-    // 'b24-ui-list-components': `Searched b24/ui components`,
-    // 'b24-ui-list-composables': `Searched b24/ui composables`,
-    // 'b24-ui-get-component': `Read b24/ui ${upperName(args?.componentName || '')} component`,
-    // 'b24-ui-get-component-metadata': `Read b24/ui metadata for component ${upperName(args?.componentName || '')}`,
-    // 'b24-ui-list-templates': `Searched b24/ui templates${args.category ? ` in ${args.category} category` : ''}`,
-    // 'b24-ui-get-documentation-page': `Read b24/ui ${path} page`,
-    // 'b24-ui-get-template': `Read b24/ui template ${upperName(args?.templateName || '')}`,
-    // 'b24-ui-list-documentation-pages': `Searched b24/ui documentation pages`,
-    // 'b24-ui-list-getting-started-guides': `Searched b24/ui documentation guides`,
-    // 'b24-ui-get-migration-guide': `Read b24/ui migration guide${args?.version ? ` for ${args.version}` : ''}`,
-    // 'b24-ui-list-examples': `Searched b24/ui examples`,
-    // 'b24-ui-get-example': `Read b24/ui ${upperName(args?.exampleName || '')} example`,
-    // 'b24-ui-search-components-by-category': `Searched b24/ui components${args?.category ? ` in ${args.category} category` : ''}${args?.search ? ` for "${args.search}"` : ''}`
+    'b24-ui-list-components': `Searched b24/ui components`,
+    'b24-ui-list-composables': `Searched b24/ui composables`,
+    'b24-ui-get-component': `Read b24/ui ${upperName(args?.componentName || '')} component`,
+    'b24-ui-get-component-metadata': `Read b24/ui metadata for component ${upperName(args?.componentName || '')}`,
+    'b24-ui-list-templates': `Searched b24/ui templates${args.category ? ` in ${args.category} category` : ''}`,
+    'b24-ui-get-documentation-page': `Read b24/ui ${path} page`,
+    'b24-ui-get-template': `Read b24/ui template ${upperName(args?.templateName || '')}`,
+    'b24-ui-list-documentation-pages': `Searched b24/ui documentation pages`,
+    'b24-ui-list-getting-started-guides': `Searched b24/ui documentation guides`,
+    'b24-ui-get-migration-guide': `Read b24/ui migration guide${args?.version ? ` for ${args.version}` : ''}`,
+    'b24-ui-list-examples': `Searched b24/ui examples`,
+    'b24-ui-get-example': `Read b24/ui ${upperName(args?.exampleName || '')} example`,
+    'b24-ui-search-components-by-category': `Searched b24/ui components${args?.category ? ` in ${args.category} category` : ''}${args?.search ? ` for "${args.search}"` : ''}`
   }
 
   return labels[toolName] || toolName
@@ -257,7 +257,7 @@ onMounted(() => {
             :messages="chat.messages"
             :status="chat.status"
             :user="{ b24ui: { content: 'text-sm bg-(--ui-color-design-tinted-na-bg) border-(--ui-color-design-tinted-na-stroke) border-(length:--ui-design-tinted-na-stroke-weight) text-(--ui-color-design-tinted-na-content)' } }"
-            :assistant="{ b24ui: { content: 'ring-0 bg-transparent' } }"
+            :assistant="{ b24ui: { content: 'ring-0 bg-transparent ps-0 pe-0' } }"
             :b24ui="{ indicator: '*:bg-ai-350' }"
             class="flex-1 px-[20px] py-[20px]"
           >
