@@ -20,6 +20,5 @@ const { open } = useAIChat()
       size="sm"
       @click="open(`Explain the page ${pageUrl}`, true)"
     />
-    <AIChatSlideover />
   </div>
 </template>

@@ -1,4 +1,3 @@
-import type { UIMessage } from 'ai'
 import PlayLIcon from '@bitrix24/b24icons-vue/outline/PlayLIcon'
 import DeveloperResourcesIcon from '@bitrix24/b24icons-vue/outline/DeveloperResourcesIcon'
 import ViewmodeCodeIcon from '@bitrix24/b24icons-vue/editor/ViewmodeCodeIcon'
@@ -8,43 +7,27 @@ import FormattingIcon from '@bitrix24/b24icons-vue/editor/FormattingIcon'
 import RobotIcon from '@bitrix24/b24icons-vue/outline/RobotIcon'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 
-/**
- * @memo not use AIChat at this place
- * @see docs/app/components/AIChatSlideover.vue
- */
-// const isDev = import.meta.dev
-const isDev = false
-
 export function useSearch() {
   const route = useRoute()
   const { frameworks } = useFrameworks()
 
-  const chat = ref(false)
+  const config = useRuntimeConfig()
+  const { open: openAIChat } = useAIChat()
+  const { open: openContentSearch } = useContentSearch()
+
   const fullscreen = ref(false)
   const searchTerm = ref('')
-  const messages = ref<UIMessage[]>([])
 
   function onSelect(e: any) {
     e.preventDefault()
 
-    messages.value = searchTerm.value
-      ? [{
-          id: '1',
-          role: 'user',
-          parts: [{ type: 'text', text: searchTerm.value }]
-        }]
-      : [{
-          id: '1',
-          role: 'assistant',
-          parts: [{ type: 'text', text: 'Hello, how can I help you today?' }]
-        }]
-
-    chat.value = true
+    openContentSearch.value = false
+    openAIChat(searchTerm.value, true)
   }
 
   const links = computed(() => [
     ...(
-      isDev
+      config.public.useAI
         ? [
             !searchTerm.value && {
               label: 'Ask AI',
@@ -109,7 +92,7 @@ export function useSearch() {
 
   const groups = computed(() => [
     ...(
-      isDev
+      config.public.useAI
         ? [{
             id: 'ai',
             label: 'AI',
@@ -137,9 +120,7 @@ export function useSearch() {
   return {
     links,
     groups,
-    chat,
     fullscreen,
-    searchTerm,
-    messages
+    searchTerm
   }
 }

@@ -2,7 +2,7 @@ import { queryCollection } from '@nuxt/content/server'
 import { withTrailingSlash } from 'ufo'
 
 export default defineMcpTool({
-  title: 'Get Migration Guide',
+  title: 'List Documentation Pages',
   description: 'Lists all documentation pages',
   cache: '1h',
   async handler() {

@@ -6,6 +6,9 @@ import { createDeepSeek } from '@ai-sdk/deepseek'
 /**
  * @docs https://ai-sdk.dev/providers/ai-sdk-providers/deepseek
  */
+
+const maxStepCount = 20
+
 export default defineEventHandler(async (event) => {
   const { messages } = await readBody(event)
   const config = useRuntimeConfig()
@@ -16,7 +19,9 @@ export default defineEventHandler(async (event) => {
   const httpClient = await experimental_createMCPClient({
     transport: httpTransport
   })
-  const tools = await httpClient.tools()
+  const tools = {
+    ...await httpClient.tools()
+  }
 
   const deepseek = createDeepSeek({
     apiKey: process.env.DEEPSEEK_API_KEY ?? ''
@@ -46,11 +51,11 @@ Guidelines:
 - Reference specific component names, props, or APIs when applicable.
 - If a question is ambiguous, ask for clarification rather than guessing.
 - When multiple relevant items are found, list them clearly using bullet points.
-- You have up to 10 tool calls to find the answer, so be strategic: start broad, then get specific if needed.
+- You have up to ${maxStepCount} tool calls to find the answer, so be strategic: start broad, then get specific if needed.
 - Format responses in a conversational way, not as documentation sections.
     `,
     messages: convertToModelMessages(messages),
-    stopWhen: stepCountIs(10),
+    stopWhen: stepCountIs(maxStepCount),
     tools,
     onFinish: async () => {
       await httpClient.close()

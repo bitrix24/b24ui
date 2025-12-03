@@ -89,45 +89,51 @@ const faqQuestions = [
 
 const toast = useToast()
 
-function upperName(name: string | null | undefined) {
-  if (!name || name.length < 1) {
+function upperName(name: unknown) {
+  if (typeof name !== 'string' || name.length < 1) {
     return ''
   }
   return splitByCase(name).map(p => upperFirst(p)).join('')
 }
 
 function getToolLabel(toolName: string, args: any) {
-  const path = args?.path || ''
+  const getArg = (key: string, macros?: string): string => {
+    const value = args?.[key]
+    let result = typeof value === 'string' ? value : ''
 
-  /**
-   * @todo add this
-   */
+    if (typeof macros === 'string') {
+      result = result.replaceAll('%value%', result)
+    }
+
+    return result
+  }
+
   const labels: Record<string, string> = {
     // b24/restApi
     'bitrix-search': `Searched b24/restApi`,
-    'bitrix-method-details': `Read b24/restApi ${args?.method || ''} method`,
-    'bitrix-article-details': `Read b24/restApi ${args?.title_or_hint || ''} article`,
-    'bitrix-event-details': `Read b24/restApi ${args?.title_or_hint || ''} event`,
+    'bitrix-method-details': `Read b24/restApi ${getArg('method')} method`,
+    'bitrix-article-details': `Read b24/restApi ${getArg('title_or_hint')} article`,
+    'bitrix-event-details': `Read b24/restApi ${getArg('title_or_hint')} event`,
     // b24/jsSdk
-    'get-b24-jssdk-documentation-page': `Read b24/jsSdk ${path} page`,
-    'list-b24-jssdk-documentation-pages': `Searched b24/jsSdk documentation pages`,
-    'list-b24-jssdk-getting-started-guides': `Searched b24/jsSdk documentation guides`,
-    'list-b24-jssdk-examples': `Searched b24/jsSdk examples`,
-    'get-b24-jssdk-example': `Read b24/jsSdk ${upperName(args?.exampleName || '')} example`,
+    'b24-jssdk-list-documentation-pages': `Searched b24/jsSdk documentation pages`,
+    'b24-jssdk-get-documentation-page': `Read b24/jsSdk ${getArg('path')} page`,
+    'b24-jssdk-list-getting-started-guides': `Searched b24/jsSdk documentation guides`,
+    'b24-jssdk-list-examples': `Searched b24/jsSdk examples`,
+    'b24-jssdk-get-example': `Read b24/jsSdk ${upperName(getArg('exampleName'))} example`,
     // b24/ui
     'b24-ui-list-components': `Searched b24/ui components`,
+    'b24-ui-get-component': `Read b24/ui ${upperName(getArg('componentName'))} component`,
+    'b24-ui-get-component-metadata': `Read b24/ui metadata for component ${upperName(getArg('componentName'))}`,
+    'b24-ui-search-components-by-category': `Searched b24/ui components${getArg('category', ` in %value% category`)}${getArg('search', ` for %value%`)}`,
     'b24-ui-list-composables': `Searched b24/ui composables`,
-    'b24-ui-get-component': `Read b24/ui ${upperName(args?.componentName || '')} component`,
-    'b24-ui-get-component-metadata': `Read b24/ui metadata for component ${upperName(args?.componentName || '')}`,
-    'b24-ui-list-templates': `Searched b24/ui templates${args.category ? ` in ${args.category} category` : ''}`,
-    'b24-ui-get-documentation-page': `Read b24/ui ${path} page`,
-    'b24-ui-get-template': `Read b24/ui template ${upperName(args?.templateName || '')}`,
-    'b24-ui-list-documentation-pages': `Searched b24/ui documentation pages`,
+    'b24-ui-list-templates': `Searched b24/ui templates${getArg('category', ` in %value% category`)}`,
+    'b24-ui-get-template': `Read b24/ui template ${upperName(getArg('templateName'))}`,
     'b24-ui-list-getting-started-guides': `Searched b24/ui documentation guides`,
-    'b24-ui-get-migration-guide': `Read b24/ui migration guide${args?.version ? ` for ${args.version}` : ''}`,
+    'b24-ui-list-documentation-pages': `Searched b24/ui documentation pages`,
+    'b24-ui-get-documentation-page': `Read b24/ui ${getArg('path')} page`,
+    'b24-ui-get-migration-guide': `Read b24/ui migration guide${getArg('version', ` for %value%`)}`,
     'b24-ui-list-examples': `Searched b24/ui examples`,
-    'b24-ui-get-example': `Read b24/ui ${upperName(args?.exampleName || '')} example`,
-    'b24-ui-search-components-by-category': `Searched b24/ui components${args?.category ? ` in ${args.category} category` : ''}${args?.search ? ` for "${args.search}"` : ''}`
+    'b24-ui-get-example': `Read b24/ui ${upperName(getArg('exampleName'))} example`
   }
 
   return labels[toolName] || toolName

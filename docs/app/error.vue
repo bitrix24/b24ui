@@ -7,6 +7,7 @@ const props = defineProps<{
 }>()
 
 const route = useRoute()
+const config = useRuntimeConfig()
 
 const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs', ['framework']))
 const { data: files } = useLazyAsyncData(
@@ -90,6 +91,7 @@ onMounted(() => {
 
     <ClientOnly>
       <Search :files="files" :navigation="navigationByFramework" />
+      <AIChatSlideover v-if="config.public.useAI" />
     </ClientOnly>
   </B24App>
 </template>

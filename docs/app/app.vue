@@ -72,6 +72,7 @@ defineShortcuts({
       <template v-if="!route.path.startsWith('/examples')">
         <ClientOnly>
           <Search :files="files" :navigation="navigationByFramework" />
+          <AIChatSlideover v-if="config.public.useAI" />
         </ClientOnly>
       </template>
     </div>

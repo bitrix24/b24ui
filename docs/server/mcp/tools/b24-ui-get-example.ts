@@ -14,7 +14,8 @@ export default defineMcpTool({
         content: [{ type: 'text' as const, text: result.code }]
       }
     } catch {
-      return errorResult(`Example '${exampleName}' not found. Use the list_examples tool to see all available examples.`)
+      // @memo need change tool if you need
+      return errorResult(`Example '${exampleName}' not found. Use the b24-ui-list-examples tool to see all available examples.`)
     }
   }
 })
