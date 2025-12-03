@@ -5,7 +5,7 @@ category: i18n
 links:
   - label: GitHub
     iconName: GitHubIcon
-    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/color-mode/LocaleSelect.vue
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/locale/LocaleSelect.vue
   - label: SelectMenu
     to: /docs/components/select-menu/
     iconName: Bitrix24Icon
