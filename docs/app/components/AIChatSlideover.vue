@@ -9,6 +9,8 @@ import AiStarsIcon from '@bitrix24/b24icons-vue/outline/AiStarsIcon'
 import TrashcanIcon from '@bitrix24/b24icons-vue/outline/TrashcanIcon'
 import CrossMIcon from '@bitrix24/b24icons-vue/outline/CrossMIcon'
 import SendIcon from '@bitrix24/b24icons-vue/main/SendIcon'
+import MicrophoneOnIcon from '@bitrix24/b24icons-vue/outline/MicrophoneOnIcon'
+import StopLIcon from '@bitrix24/b24icons-vue/outline/StopLIcon'
 
 /**
  * @see https://github.com/nuxt-modules/mcp-toolkit/blob/main/apps/docs/app/components/AIChatSlideover.vue
@@ -16,6 +18,8 @@ import SendIcon from '@bitrix24/b24icons-vue/main/SendIcon'
  */
 
 const config = useRuntimeConfig()
+const appLocale = useLocale()
+const toast = useToast()
 
 const components = {
   pre: ProseStreamPre as unknown as DefineComponent
@@ -25,6 +29,7 @@ const { isOpen, messages, pendingMessage, clearPending } = useAIChat()
 
 const input = ref('')
 
+// region Chat ////
 watch(pendingMessage, (message) => {
   if (message) {
     if (messages.value.length === 0 && chat.messages.length > 0) {
@@ -86,8 +91,6 @@ const faqQuestions = [
     ]
   }
 ]
-
-const toast = useToast()
 
 function upperName(name: unknown) {
   if (typeof name !== 'string' || name.length < 1) {
@@ -171,6 +174,8 @@ function handleSubmit(event?: Event) {
   })
 
   input.value = ''
+
+  stopDictation()
 }
 
 function askQuestion(question: string) {
@@ -184,6 +189,61 @@ function resetChat() {
   messages.value = []
   chat.messages.length = 0
 }
+// endregion ////
+
+// region SpeechRecognition ////
+const {
+  isAvailable: speechIsAvailable,
+  isListening: speechIsListening,
+  start: startSpeech,
+  stop: stopSpeech,
+  setLanguage: setLanguageSpeech
+} = useSpeechRecognition({
+  lang: appLocale.locale.value.locale,
+  continuous: true,
+  interimResults: true
+}, {
+  onStart: () => {
+    if (input.value === '') {
+      return
+    }
+
+    input.value += ' '
+  },
+  onResult: (result) => {
+    input.value += result.text
+  }
+})
+
+const startDictation = async () => {
+  await startSpeech()
+}
+
+const stopDictation = async () => {
+  await stopSpeech()
+}
+
+defineShortcuts({
+  'r-r': () => {
+    toast.add({
+      title: 'Speech',
+      description: 'Use ru-RU for speech',
+      duration: 1000,
+      progress: false
+    })
+    setLanguageSpeech('ru-RU')
+  },
+  'e-e': () => {
+    toast.add({
+      title: 'Speech',
+      description: 'Use en-US for speech',
+      duration: 1000,
+      progress: false
+    })
+    setLanguageSpeech('en-US')
+  }
+})
+// endregion ////
 
 onMounted(() => {
   if (pendingMessage.value) {
@@ -334,15 +394,30 @@ onMounted(() => {
                 no-padding
                 no-border
                 class="flex-1 resize-none px-2.5"
-                :b24ui="{
-                  base: ''
-                }"
                 @keydown.enter.exact.prevent="handleSubmit"
               />
+              <template v-if="speechIsAvailable">
+                <B24Button
+                  v-if="!speechIsListening"
+                  :icon="MicrophoneOnIcon"
+                  color="air-tertiary-no-accent"
+                  size="sm"
+                  class="shrink-0"
+                  @click="startDictation"
+                />
+                <B24Button
+                  v-if="speechIsListening"
+                  :icon="StopLIcon"
+                  color="air-secondary"
+                  size="sm"
+                  class="shrink-0 rounded-lg"
+                  @click="stopDictation"
+                />
+              </template>
               <B24Button
                 :icon="SendIcon"
                 color="air-primary"
-                size="xs"
+                size="sm"
                 :disabled="!input.trim() || chat.status === 'streaming'"
                 :loading="chat.status === 'streaming'"
                 class="shrink-0 rounded-lg"

@@ -323,6 +323,17 @@ props:
 The `highlight` prop is used here to show the focus state.
 ::
 
+### Speech Recognition
+
+Use composable [useSpeechRecognition](/docs/composables/use-speech-recognition/) to provide speech recognition using the [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API).
+
+::component-example
+---
+collapse: true
+name: 'use-speech-recognition-example'
+---
+::
+
 ## API
 
 ### Props

@@ -169,6 +169,19 @@ async function onSubmit() {
 </template>
 ```
 
+### Speech Recognition
+
+Use composable [useSpeechRecognition](/docs/composables/use-speech-recognition/) to provide speech recognition using the [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API).
+
+::component-example
+---
+collapse: true
+class: '!p-0'
+border: false
+name: 'chat-prompt-speech-recognition-example'
+---
+::
+
 ## API
 
 ### Props

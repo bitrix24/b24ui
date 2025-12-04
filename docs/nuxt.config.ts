@@ -171,7 +171,8 @@ const pages = [
   '/docs/composables/define-shortcuts/',
   '/docs/composables/use-confetti/',
   '/docs/composables/use-overlay/',
-  '/docs/composables/use-toast/'
+  '/docs/composables/use-toast/',
+  '/docs/composables/use-speech-recognition/'
   // endregion ////
 ]
 

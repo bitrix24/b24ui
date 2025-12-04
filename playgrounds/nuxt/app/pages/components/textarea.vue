@@ -1,283 +1,234 @@
 <script setup lang="ts">
 import theme from '#build/b24ui/textarea'
 import usePageMeta from './../../composables/usePageMeta'
-import ExampleGrid from '../../components/ExampleGrid.vue'
-import ExampleCard from '../../components/ExampleCard.vue'
-import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
 import TaskIcon from '@bitrix24/b24icons-vue/button/TaskIcon'
+import MicrophoneOnIcon from '@bitrix24/b24icons-vue/outline/MicrophoneOnIcon'
+import StopLIcon from '@bitrix24/b24icons-vue/outline/StopLIcon'
 
 usePageMeta.setPageTitle('Textarea')
-const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
-const rows = [1, 2, 3, 4]
 
 const isUseBg = ref(true)
 
-const oldColors = computed(() => {
-  return colors.filter((color) => {
-    return !color.includes('air')
-  })
-})
+const colors = Object.keys(theme.variants.color)
+const rowsItems = [1, 2, 3, 4]
+const rows = ref(2)
 
 const airColors = computed(() => {
   return colors.filter((color) => {
     return color.includes('air')
   })
 })
+
+const attrs = reactive({
+  color: [theme.defaultVariants.color]
+})
+
+const value = ref('Value')
+
+// region SpeechRecognition ////
+const input = ref('')
+
+const appLocale = useLocale()
+const toast = useToast()
+
+const {
+  isAvailable: speechIsAvailable,
+  isListening: speechIsListening,
+  start: startSpeech,
+  stop: stopSpeech,
+  setLanguage: setLanguageSpeech
+} = useSpeechRecognition({
+  lang: appLocale.locale.value.locale,
+  continuous: true,
+  interimResults: true
+}, {
+  onStart: () => {
+    if (input.value === '') {
+      return
+    }
+
+    input.value += ' '
+  },
+  onResult: (result) => {
+    input.value += result.text
+  }
+})
+
+const startDictation = async () => {
+  await startSpeech()
+}
+
+const stopDictation = async () => {
+  await stopSpeech()
+}
+
+defineShortcuts({
+  'r-r': () => {
+    toast.add({
+      title: 'Speech',
+      description: 'Use ru-RU for speech',
+      duration: 1000,
+      progress: false
+    })
+    setLanguageSpeech('ru-RU')
+  },
+  'e-e': () => {
+    toast.add({
+      title: 'Speech',
+      description: 'Use en-US for speech',
+      duration: 1000,
+      progress: false
+    })
+    setLanguageSpeech('en-US')
+  }
+})
+// endregion ////
 </script>
 
 <template>
-  <ExampleGrid v-once>
-    <ExampleCard title="base" :use-bg="isUseBg">
-      <ExampleCardSubTitle title="autofocus" />
-      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Textarea
-          autofocus
-          name="something"
-          placeholder="Type something&hellip;"
-          aria-label="Type something"
-        />
-      </div>
+  <B24PageGrid v-once class="lg:grid-cols-4 gap-5">
+    <div>
+      <B24Card variant="outline">
+        <template #header>
+          <div class="flex flex-row items-center justify-between gap-2">
+            <ProseH5 class="mb-0">
+              Options
+            </ProseH5>
+            <B24Switch v-model="isUseBg" label="isUseBg" size="xs" />
+          </div>
+        </template>
+        <div class="mb-4 flex flex-col gap-4">
+          <B24Select v-model="attrs.color" :items="airColors" multiple placeholder="Color" />
+          <B24Select v-model="rows" :items="rowsItems" placeholder="Rows" />
+        </div>
+      </B24Card>
 
-      <ExampleCardSubTitle title="underline" />
-      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Textarea
-          color="air-primary-success"
-          underline
-          name="something"
-          placeholder="Type something&hellip;"
-          aria-label="Type something"
-        />
-      </div>
-
-      <ExampleCardSubTitle title="no border" />
-      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Textarea
-          no-border
-          name="something"
-          placeholder="Type something&hellip;"
-          aria-label="Type something"
-        />
-      </div>
-
-      <ExampleCardSubTitle title="no padding" />
-      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Textarea
-          no-padding
-          name="something"
-          placeholder="Type something&hellip;"
-          aria-label="Type something"
-        />
-      </div>
-
-      <ExampleCardSubTitle title="some error" />
-      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Textarea
-          highlight
-          name="something"
-          placeholder="Type something&hellip;"
-          aria-label="Type something"
-          color="air-primary-alert"
-          aria-invalid="true"
-        />
-      </div>
-    </ExampleCard>
-
-    <ExampleCard title="some more" :use-bg="isUseBg">
-      <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4 flex flex-col gap-4 w-full">
-        <B24Textarea
-          name="disabled"
-          placeholder="Disabled"
-          aria-label="Disabled"
-          disabled
-          :rows="2"
-        />
-        <B24Textarea
-          name="required"
-          placeholder="Required"
-          aria-label="Required"
-          required
-          :rows="1"
-        />
-        <B24Textarea
-          name="rounded"
-          placeholder="Rounded"
-          aria-label="Rounded"
-          rounded
-          :rows="3"
-        />
-        <B24Textarea
-          :icon="RocketIcon"
-          placeholder="Type something&hellip;"
-          autoresize
-          :rows="1"
-        />
-        <B24Textarea
-          :icon="RocketIcon"
-          trailing
-          placeholder="Type something&hellip;"
-          autoresize
-          :rows="2"
-        />
-
-        <div class="flex flex-col sm:flex-row items-start justify-between gap-4">
+      <B24Card class="mt-4" :variant="isUseBg ? 'outline-no-accent' : 'plain-no-accent'">
+        <template #header>
+          <ProseH5 class="mb-0">
+            Use speech recognition
+          </ProseH5>
+        </template>
+        <div class="relative flex items-end gap-2 bg-(--ui-color-bg-content-secondary) rounded-xs ring-1 ring-ai-250 hover:ring-ai-350 pr-2 pb-2">
+          <B24Textarea
+            v-model="input"
+            :rows="1"
+            autoresize
+            placeholder="Try use speech recognition..."
+            no-padding
+            no-border
+            class="flex-1 resize-none px-2.5"
+          />
+          <template v-if="speechIsAvailable">
+            <B24Button
+              v-if="!speechIsListening"
+              :icon="MicrophoneOnIcon"
+              color="air-tertiary-no-accent"
+              size="sm"
+              class="shrink-0"
+              @click="startDictation"
+            />
+            <B24Button
+              v-if="speechIsListening"
+              :icon="StopLIcon"
+              color="air-secondary"
+              size="sm"
+              class="shrink-0 rounded-lg"
+              @click="stopDictation"
+            />
+          </template>
+        </div>
+        <template #footer>
+          <div class="flex flex-col justify-between items-start gap-4 mt-2 px-1 text-xs text-dimmed">
+            <div class="flex items-center gap-1">
+              <span>Use en-US for speech</span>
+              <B24Kbd value="e" accent="less" size="sm" />
+              <B24Kbd value="e" accent="less" size="sm" />
+            </div>
+            <div class="flex items-center gap-1">
+              <span>Use ru-RU for speech</span>
+              <B24Kbd value="r" accent="less" size="sm" />
+              <B24Kbd value="r" accent="less" size="sm" />
+            </div>
+          </div>
+        </template>
+      </B24Card>
+    </div>
+    <Matrix v-slot="props" :attrs="attrs">
+      <B24Card :variant="isUseBg ? 'outline-no-accent' : 'plain-no-accent'">
+        <template #header>
+          <ProseH5 class="mb-0">
+            {{ [props?.color].join(' ') }}
+          </ProseH5>
+        </template>
+        <div class="mb-4 flex flex-wrap flex-col items-center justify-start gap-4">
+          <B24Textarea v-model="value" autofocus class="w-full" v-bind="props" />
+          <B24Textarea :default-value="'Default value'" class="w-full" v-bind="props" />
+          <B24Textarea placeholder="Highlight" highlight class="w-full" v-bind="props" />
+          <B24Textarea
+            placeholder="Highlight"
+            highlight
+            class="w-full"
+            v-bind="props"
+            color="air-primary-alert"
+            aria-invalid="true"
+          />
+          <B24Textarea disabled placeholder="Disabled" class="w-full" v-bind="props" />
+          <B24Textarea required placeholder="Required" class="w-full" v-bind="props" />
+          <B24Textarea rounded placeholder="Rounded" class="w-full" v-bind="props" />
+          <B24Textarea no-padding placeholder="No Padding" class="w-full" v-bind="props" />
+          <B24Textarea no-border placeholder="No Border" class="w-full" v-bind="props" />
+          <B24Textarea underline placeholder="Underline" class="w-full" v-bind="props" />
           <B24Textarea
             :icon="RocketIcon"
-            :trailing-icon="TaskIcon"
-            placeholder="Textarea"
-            autoresize
-            :rows="1"
-            :maxrows="0"
+            placeholder="Search..."
+            :rows="rows"
+            class="w-full"
+            v-bind="props"
           />
-          <B24Input
-            :icon="RocketIcon"
-            :trailing-icon="TaskIcon"
-            name="some_value"
-            placeholder="Input"
-            aria-label="Insert value"
-            size="md"
-            class="w-40"
+          <B24Textarea
+            :trailing-icon="RocketIcon"
+            placeholder="Search..."
+            :rows="rows"
+            class="w-full"
+            v-bind="props"
           />
-        </div>
-        <div class="flex flex-col sm:flex-row items-start justify-between gap-4">
           <B24Textarea
             :avatar="{ src: '/avatar/employee.png' }"
             :trailing-icon="TaskIcon"
-            placeholder="Textarea"
-            autoresize
-            :rows="1"
-            :maxrows="0"
+            placeholder="Search..."
+            :rows="rows"
+            class="w-full"
+            v-bind="props"
           />
-          <B24Input
-            :avatar="{ src: '/avatar/assistant.png' }"
+          <B24Textarea
+            loading
+            :avatar="{ src: '/avatar/employee.png' }"
+            placeholder="Loading..."
+            :rows="rows"
+            class="w-full"
+            v-bind="props"
+          />
+          <B24Textarea
+            loading
+            :icon="RocketIcon"
             :trailing-icon="TaskIcon"
-            name="some_value"
-            placeholder="Input"
-            aria-label="Insert value"
-            size="md"
-            class="w-40"
+            placeholder="Loading..."
+            :rows="rows"
+            class="w-full"
+            v-bind="props"
           />
-        </div>
-      </div>
-    </ExampleCard>
-
-    <ExampleCard title="loading" :use-bg="isUseBg">
-      <ExampleCardSubTitle title="loading" />
-      <div class="mb-4 flex flex-col gap-4 w-full">
-        <B24Textarea
-          loading
-          name="some_value"
-          placeholder="Type something&hellip;"
-          aria-label="Type something"
-          :rows="2"
-        />
-        <B24Textarea
-          loading
-          trailing
-          name="some_value"
-          placeholder="Type something&hellip;"
-          aria-label="Type something"
-          :rows="1"
-        />
-        <B24Textarea
-          loading
-          :icon="RocketIcon"
-          :trailing-icon="TaskIcon"
-          name="some_value"
-          placeholder="Type something&hellip;"
-          aria-label="Type something"
-          :rows="3"
-        />
-        <B24Textarea
-          loading
-          :avatar="{ src: '/avatar/employee.png' }"
-          name="some_value"
-          placeholder="Type something&hellip;"
-          aria-label="Type something"
-          :rows="2"
-        />
-      </div>
-    </ExampleCard>
-
-    <ExampleCard title="color" :use-bg="isUseBg">
-      <template v-for="color in airColors" :key="color">
-        <ExampleCardSubTitle :title="color as string" />
-        <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
           <B24Textarea
-            name="something"
-            placeholder="Type something&hellip;"
-            aria-label="Type something"
-            :color="color"
-            highlight
-            :rows="2"
-          />
-
-          <B24Textarea
-            :tag-color="color"
-            tag="some text"
-            name="something"
-            placeholder="Type something&hellip;"
-            aria-label="Type something"
-            :color="color"
-            highlight
-            :rows="2"
-          />
-        </div>
-      </template>
-      <B24Collapsible class="mb-2">
-        <B24Button
-          color="air-secondary-no-accent"
-          label="Deprecate"
-          use-dropdown
-        />
-        <template #content>
-          <template v-for="color in oldColors" :key="color">
-            <ExampleCardSubTitle :title="color as string" />
-            <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-              <B24Textarea
-                name="something"
-                placeholder="Type something&hellip;"
-                aria-label="Type something"
-                :color="color"
-                highlight
-                :rows="2"
-              />
-
-              <B24Textarea
-                :tag-color="color"
-                tag="some text"
-                name="something"
-                placeholder="Type something&hellip;"
-                aria-label="Type something"
-                :color="color"
-                highlight
-                :rows="2"
-              />
-            </div>
-          </template>
-        </template>
-      </B24Collapsible>
-    </ExampleCard>
-  </ExampleGrid>
-
-  <B24Separator accent="accent" class="my-4" label="Autoresize" type="dotted" />
-  <ExampleGrid v-once class="mb-4">
-    <ExampleCard title="Some cases" :use-bg="isUseBg" class="sm:col-span-2 md:col-span-4">
-      <template v-for="row in rows" :key="row">
-        <ExampleCardSubTitle :title="String(row)" />
-        <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-          <B24Textarea
-            name="something"
-            placeholder="Type something&hellip;"
-            aria-label="Type something"
-            class="w-[250px]"
+            placeholder="Autoresize"
             autoresize
             :maxrows="5"
-            :rows="row"
+            :rows="rows"
+            class="w-full"
+            v-bind="props"
           />
         </div>
-      </template>
-    </ExampleCard>
-  </ExampleGrid>
+      </B24Card>
+    </Matrix>
+  </B24PageGrid>
 </template>
