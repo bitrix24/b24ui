@@ -2,12 +2,10 @@
  * InputDate
  * A date selection input field.
  * ---
- * @todo docs
- * @todo demo
- * @todo color
  */
 import { defuFn } from 'defu'
 import input from './input'
+import { fieldGroupVariant } from './field-group'
 
 export default () => {
   return defuFn({
@@ -44,6 +42,7 @@ export default () => {
       separatorIcon: 'shrink-0 size-4 text-(--ui-color-base-6)'
     },
     variants: {
+      ...fieldGroupVariant,
       size: {
         xss: {
           base: (prev: string) => [prev, 'gap-0.20', 'px-1'].join(' '),
