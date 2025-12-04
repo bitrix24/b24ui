@@ -1,8 +1,19 @@
 # Changelog
 
-## [2.1.11](https://github.com/bitrix24/b24ui/compare/v2.1.10...v2.1.9) (2025-12-xx)
+## [2.1.11](https://github.com/bitrix24/b24ui/compare/v2.1.10...v2.1.11) (2025-12-04)
 
-* docs(ChatAI): improve
+### Features
+
+* useSpeechRecognition: add composable for speech recognition
+
+### Bug Fixes
+
+* InputDate/InputTime: add missing field group variant
+
+### Docs
+
+* ChatAI: improve
+* LocaleSelect: improve GitHub link
 
 ## [2.1.10](https://github.com/bitrix24/b24ui/compare/v2.1.9...v2.1.10) (2025-12-02)
 
