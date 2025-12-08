@@ -5,7 +5,7 @@ category: form
 links:
   - label: GitHub
     iconName: GitHubIcon
-    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/RadioGroup
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/RadioGroup.vue
   - label: Demo
     iconName: DemonstrationOnIcon
     to: https://bitrix24.github.io/b24ui/demo/components/radio-group

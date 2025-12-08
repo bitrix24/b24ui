@@ -5,7 +5,7 @@ category: overlay
 links:
   - label: GitHub
     iconName: GitHubIcon
-    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/DropdownMenu
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/DropdownMenu.vue
   - label: Demo
     iconName: DemonstrationOnIcon
     to: https://bitrix24.github.io/b24ui/demo/components/dropdown-menu

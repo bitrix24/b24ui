@@ -5,7 +5,7 @@ category: element
 links:
   - label: GitHub
     iconName: GitHubIcon
-    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Chip
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Chip.vue
   - label: Demo
     iconName: DemonstrationOnIcon
     to: https://bitrix24.github.io/b24ui/demo/components/chip
