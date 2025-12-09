@@ -1,19 +1,45 @@
 # Changelog
 
+## [2.1.12](https://github.com/bitrix24/b24ui/compare/v2.1.11...v2.1.12) (2025-12-xx)
+
+### Features
+
+* **Editor:** new component
+* **InputMenu/Select/SelectMenu:** add `modelModifiers` prop
+* **ContextMenu/DropdownMenu:** expose `sub` prop on content slots
+* **defineShortcuts:** add `layoutIndependent` option
+
+### Bug Fixes
+
+* **FormField:** hide error if error prop is false
+
+### Docs
+
+* fix github link
+* **file-upload:** correct `Schema` type casting
+* **integrations:** add SSR page for Vue
+
+### Chore
+
+* **deps:** update all non-major dependencies
+* **deps:** update tiptap to v3.13.0
+* **Select:** add `aria-label` to axe test case
+* **Popover:** add better comment about disabled Axe rule
+
 ## [2.1.11](https://github.com/bitrix24/b24ui/compare/v2.1.10...v2.1.11) (2025-12-04)
 
 ### Features
 
-* useSpeechRecognition: add composable for speech recognition
+* **useSpeechRecognition:** add composable for speech recognition
 
 ### Bug Fixes
 
-* InputDate/InputTime: add missing field group variant
+* **InputDate/InputTime:** add missing field group variant
 
 ### Docs
 
-* ChatAI: improve
-* LocaleSelect: improve GitHub link
+* **ChatAI:** improve
+* **LocaleSelect:** improve GitHub link
 
 ## [2.1.10](https://github.com/bitrix24/b24ui/compare/v2.1.9...v2.1.10) (2025-12-02)
 
