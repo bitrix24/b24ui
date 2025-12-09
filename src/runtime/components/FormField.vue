@@ -59,7 +59,9 @@ import { tv } from '../utils/tv'
 import type { FormError, FormFieldInjectedOptions } from '../types/form'
 import WarningIcon from '@bitrix24/b24icons-vue/main/WarningIcon'
 
-const props = defineProps<FormFieldProps>()
+const props = withDefaults(defineProps<FormFieldProps>(), {
+  error: undefined
+})
 const slots = defineSlots<FormFieldSlots>()
 
 const appConfig = useAppConfig() as FormField['AppConfig']
@@ -128,7 +130,7 @@ provide(formFieldInjectionKey, computed(() => ({
     <div data-slot="container" :class="[(label || !!slots.label || description || !!slots.description) && b24ui.container({ class: props.b24ui?.container })]">
       <slot :error="error" />
 
-      <div v-if="(typeof error === 'string' && error) || !!slots.error" :id="`${ariaId}-error`" data-slot="error" :class="b24ui.error({ class: props.b24ui?.error })">
+      <div v-if="props.error !== false && ((typeof error === 'string' && error) || !!slots.error)" :id="`${ariaId}-error`" data-slot="error" :class="b24ui.error({ class: props.b24ui?.error })">
         <slot name="error" :error="error">
           <div data-slot="errorWrapper" :class="b24ui.errorWrapper({ class: props.b24ui?.errorWrapper })">
             <WarningIcon data-slot="errorIcon" :class="b24ui.errorIcon()" />
