@@ -178,6 +178,10 @@ const props = defineProps<{
    */
   overflowHidden?: boolean
   /**
+   * Whether to add background-elevated to wrapper
+   */
+  elevated?: boolean
+  /**
    * Hide bg grid
    * @defaultValue true
    */
@@ -546,7 +550,7 @@ const { data: ast } = await useAsyncData(codeKey, async () => {
         :class="[
           !options.length && 'rounded-t-md',
           props.class,
-          { 'overflow-hidden': props.overflowHidden },
+          { 'overflow-hidden': props.overflowHidden, 'dark:bg-gray-950/50': props.elevated },
           { 'bg-grid-example [mask-image:linear-gradient(0deg,rgba(255,255,255,0.09),rgba(255,255,255,0.18))': !props.hideBgGrid }
         ]"
       >

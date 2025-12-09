@@ -65,7 +65,7 @@ onBeforeUpdate(() => rerenderCount.value++)
 </script>
 
 <template>
-  <B24Accordion :type="type" :items="items" :unmount-on-hide="false" :class="props.class" :ui="transformUI(b24ui(), props.b24ui)">
+  <B24Accordion :type="type" :items="items" :unmount-on-hide="false" :class="props.class" :b24ui="transformUI(b24ui(), props.b24ui)">
     <template #content="{ item }">
       <component :is="item.component" />
     </template>

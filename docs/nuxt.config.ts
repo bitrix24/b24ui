@@ -128,6 +128,14 @@ const pages = [
   '/docs/components/chat-prompt/',
   '/docs/components/chat-prompt-submit/',
   // endregion ////
+  // region editor ////
+  '/docs/components/editor/',
+  '/docs/components/editor-drag-handle/',
+  '/docs/components/editor-emoji-menu/',
+  '/docs/components/editor-mention-menu/',
+  '/docs/components/editor-suggestion-menu/',
+  '/docs/components/editor-toolbar/',
+  // endregion ////
   // region Content ////
   // '/docs/components/content-navigation/',
   '/docs/components/content-search/',
@@ -338,7 +346,7 @@ export default defineNuxtConfig({
   vite: {
     optimizeDeps: {
       // prevents reloading page when navigating between components
-      include: ['@ai-sdk/vue', '@internationalized/date', '@nuxt/content/utils', '@tanstack/vue-table', '@vue/devtools-core', '@vue/devtools-kit', '@vueuse/integrations/useFuse', '@vueuse/shared', 'ai', 'colortranslator', 'embla-carousel-auto-height', 'embla-carousel-auto-scroll', 'embla-carousel-autoplay', 'embla-carousel-class-names', 'embla-carousel-fade', 'embla-carousel-vue', 'embla-carousel-wheel-gestures', 'json5', 'motion-v', 'ohash', 'ohash/utils', 'prettier', 'reka-ui', 'reka-ui/namespaced', 'scule', 'shiki', 'shiki-stream/vue', 'shiki-transformer-color-highlight', 'shiki/engine-javascript.mjs', 'tailwind-variants', 'tailwindcss/colors', 'ufo', 'vaul-vue', 'zod']
+      include: ['@ai-sdk/vue', '@internationalized/date', '@nuxt/content/utils', '@tanstack/vue-table', '@tiptap/extension-emoji', '@tiptap/extension-text-align', '@tiptap/core', '@tiptap/extension-horizontal-rule', '@tiptap/extension-image', '@tiptap/extension-mention', '@tiptap/extension-placeholder', '@tiptap/markdown', '@tiptap/starter-kit', '@tiptap/vue-3', '@floating-ui/dom', '@tiptap/extension-drag-handle-vue-3', '@tiptap/vue-3/menus', '@tiptap/suggestion', '@tiptap/pm/state', '@vue/devtools-core', '@vue/devtools-kit', '@vueuse/integrations/useFuse', '@vueuse/shared', 'ai', 'colortranslator', 'embla-carousel-auto-height', 'embla-carousel-auto-scroll', 'embla-carousel-autoplay', 'embla-carousel-class-names', 'embla-carousel-fade', 'embla-carousel-vue', 'embla-carousel-wheel-gestures', 'json5', 'motion-v', 'ohash', 'ohash/utils', 'prettier', 'prosemirror-state', 'reka-ui', 'reka-ui/namespaced', 'scule', 'shiki', 'shiki-stream/vue', 'shiki-transformer-color-highlight', 'shiki/engine-javascript.mjs', 'tailwind-variants', 'tailwindcss/colors', 'ufo', 'vaul-vue', 'zod']
     },
     server: {
       // Fix: "Blocked request. This host is not allowed" when using tunnels like ngrok
@@ -353,6 +361,49 @@ export default defineNuxtConfig({
 
       return { component, code }
     }],
+    overrides: {
+      B24Editor: {
+        props: {
+          modelValue: { name: 'modelValue', type: 'null | string | JSONContent | JSONContent[]' },
+          parseOptions: { name: 'parseOptions', type: 'ParseOptions' }
+        }
+      },
+      B24EditorDragHandle: { props: { editor: { name: 'editor', type: 'Editor' } } },
+      B24EditorToolbar: { props: { editor: { name: 'editor', type: 'Editor' } } },
+      B24EditorSuggestionMenu: { props: { editor: { name: 'editor', type: 'Editor' } } },
+      B24EditorMentionMenu: { props: { editor: { name: 'editor', type: 'Editor' } } },
+      B24EditorEmojiMenu: { props: { editor: { name: 'editor', type: 'Editor' } } },
+      B24Calendar: {
+        props: {
+          defaultValue: { name: 'defaultValue', type: 'CalendarDate | CalendarDateTime | ZonedDateTime | DateRange | DateValue[]' },
+          modelValue: { name: 'modelValue', type: 'null | CalendarDate | CalendarDateTime | ZonedDateTime | DateRange | DateValue[]' },
+          defaultPlaceholder: { name: 'defaultPlaceholder', type: 'CalendarDate | CalendarDateTime | ZonedDateTime' },
+          placeholder: { name: 'placeholder', type: 'CalendarDate | CalendarDateTime | ZonedDateTime' },
+          maxValue: { name: 'maxValue', type: 'CalendarDate | CalendarDateTime | ZonedDateTime' },
+          minValue: { name: 'minValue', type: 'CalendarDate | CalendarDateTime | ZonedDateTime' }
+        }
+      },
+      B24InputDate: {
+        props: {
+          defaultValue: { name: 'defaultValue', type: 'CalendarDate | CalendarDateTime | ZonedDateTime | DateRange' },
+          modelValue: { name: 'modelValue', type: 'null | CalendarDate | CalendarDateTime | ZonedDateTime | DateRange' },
+          defaultPlaceholder: { name: 'defaultPlaceholder', type: 'CalendarDate | CalendarDateTime | ZonedDateTime' },
+          placeholder: { name: 'placeholder', type: 'CalendarDate | CalendarDateTime | ZonedDateTime' },
+          maxValue: { name: 'maxValue', type: 'CalendarDate | CalendarDateTime | ZonedDateTime' },
+          minValue: { name: 'minValue', type: 'CalendarDate | CalendarDateTime | ZonedDateTime' }
+        }
+      },
+      B24InputTime: {
+        props: {
+          defaultValue: { name: 'defaultValue', type: 'Time | CalendarDateTime | ZonedDateTime' },
+          modelValue: { name: 'modelValue', type: 'null | Time | CalendarDateTime | ZonedDateTime' },
+          defaultPlaceholder: { name: 'defaultPlaceholder', type: 'Time | CalendarDateTime | ZonedDateTime' },
+          placeholder: { name: 'placeholder', type: 'Time | CalendarDateTime | ZonedDateTime' },
+          maxValue: { name: 'maxValue', type: 'Time | CalendarDateTime | ZonedDateTime' },
+          minValue: { name: 'minValue', type: 'Time | CalendarDateTime | ZonedDateTime' }
+        }
+      }
+    },
     exclude: [
       '@bitrix24/b24icons-vue',
       '@bitrix24/b24icons-nuxt',

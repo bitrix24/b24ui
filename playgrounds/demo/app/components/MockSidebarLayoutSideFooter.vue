@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import usePageMeta from './../composables/usePageMeta'
 import RocketIcon from '@bitrix24/b24icons-vue/outline/RocketIcon'
-import OpenIn50Icon from '@bitrix24/b24icons-vue/actions/OpenIn50Icon'
+import GoToLIcon from '@bitrix24/b24icons-vue/outline/GoToLIcon'
 import type { IMenuItem } from '~/types'
 
 const props = withDefaults(defineProps<{
@@ -22,7 +22,7 @@ const props = withDefaults(defineProps<{
       :target="item.target"
     >
       <div>{{ item.label }}</div>
-      <OpenIn50Icon class="size-4" />
+      <GoToLIcon class="size-4" />
     </B24Link>
   </template>
 

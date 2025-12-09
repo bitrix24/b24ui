@@ -63,10 +63,16 @@ const props = withDefaults(defineProps<{
    * Whether to add overflow-hidden to wrapper
    */
   overflowHidden?: boolean
+  /**
+   * Whether to add background-elevated to wrapper
+   */
+  elevated?: boolean
+  lang?: string
 }>(), {
   preview: true,
   source: true,
-  border: true
+  border: true,
+  lang: 'vue'
 })
 
 const slots = defineSlots<{
@@ -94,7 +100,7 @@ const code = computed(() => {
 `
   }
 
-  code += `\`\`\`vue ${props.preview ? '' : ` [${data.pascalName}.vue]`}${props.highlights?.length ? `{${props.highlights.join('-')}}` : ''}
+  code += `\`\`\`${props.lang} ${props.preview ? '' : ` [${data.pascalName}.${props.lang}]`}${props.highlights?.length ? `{${props.highlights.join('-')}}` : ''}
 ${data?.code ?? ''}
 \`\`\``
 
@@ -204,12 +210,12 @@ const urlSearchParams = computed(() => {
           v-bind="typeof iframe === 'object' ? iframe : {}"
           :src="`${config.public.baseUrl}/examples/${name}/?${urlSearchParams}`"
           class="relative w-full"
-          :class="[props.class, !iframeMobile && 'max-w-[1300px]']"
+          :class="[props.class, { 'dark:bg-gray-950/50 rounded-t-md': props.elevated }, !iframeMobile && 'max-w-[1300px]']"
         />
         <div
           v-else
           class="flex justify-center p-[16px] bg-grid-example [mask-image:linear-gradient(0deg,rgba(255,255,255,0.09),rgba(255,255,255,0.18))"
-          :class="props.class"
+          :class="[props.class, { 'dark:bg-gray-950/50 rounded-t-md': props.elevated }]"
         >
           <component :is="camelName" v-bind="{ ...componentProps, ...optionsValues }" />
         </div>

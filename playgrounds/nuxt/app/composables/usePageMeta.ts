@@ -14,6 +14,7 @@ import BoldSparkleIcon from '@bitrix24/b24icons-vue/main/BoldSparkleIcon'
 import TextCheckIcon from '@bitrix24/b24icons-vue/editor/TextCheckIcon'
 import TableIcon from '@bitrix24/b24icons-vue/main/TableIcon'
 import Calendar1Icon from '@bitrix24/b24icons-vue/main/Calendar1Icon'
+import EditPencilIcon from '@bitrix24/b24icons-vue/main/EditPencilIcon'
 
 const title = ref('Playground')
 
@@ -61,6 +62,7 @@ const components: IComponentInfo[] = [
   { id: 'description-list', description: 'For cases where you need to convert data from one row of a table into a separate table to make the page look more complete.', iconData: GroupIcon },
   { id: 'dropdown-menu', description: 'A menu to display actions when clicking on an element.', iconData: GroupIcon },
   { id: 'context-menu', description: 'A context menu component.', iconData: GroupIcon },
+  { id: 'editor', description: 'A rich text editor built on TipTap supporting markdown, HTML, and JSON content formats.', iconData: EditPencilIcon },
   { id: 'empty', description: 'An empty state component.', iconData: GroupIcon },
   { id: 'field-group', description: 'Group multiple button-like elements together.', iconData: GroupIcon },
   { id: 'file-upload', description: 'A file upload input component.', iconData: FormIcon },

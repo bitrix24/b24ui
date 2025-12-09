@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import NewMessageIcon from '@bitrix24/b24icons-vue/outline/NewMessageIcon'
+import EditPencilIcon from '@bitrix24/b24icons-vue/main/EditPencilIcon'
 </script>
 
 <template>
   <B24Banner
-    id="new-component-date-banner"
-    title="New components have been implemented! Explore them."
-    to="/docs/components/input-date/"
-    :icon="NewMessageIcon"
+    id="component-editor-date-banner"
+    title="The Editor component is now implemented! Check it out."
+    to="/docs/components/editor/"
+    :icon="EditPencilIcon"
     close
     color="air-primary-copilot"
     class="light"

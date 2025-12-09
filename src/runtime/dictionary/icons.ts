@@ -16,7 +16,6 @@ import DoubleShevronsRightIcon from '@bitrix24/b24icons-vue/actions/DoubleShevro
 import DoubleShevronsLeftIcon from '@bitrix24/b24icons-vue/actions/DoubleShevronsLeftIcon'
 import CrossMIcon from '@bitrix24/b24icons-vue/outline/CrossMIcon'
 import DotsIcon from '@bitrix24/b24icons-vue/button/DotsIcon'
-import OpenIn50Icon from '@bitrix24/b24icons-vue/actions/OpenIn50Icon'
 import Refresh6Icon from '@bitrix24/b24icons-vue/actions/Refresh6Icon'
 import Minus30Icon from '@bitrix24/b24icons-vue/actions/Minus30Icon'
 import Plus30Icon from '@bitrix24/b24icons-vue/actions/Plus30Icon'
@@ -40,6 +39,8 @@ import ArrowTopLIcon from '@bitrix24/b24icons-vue/outline/ArrowTopLIcon'
 import StopLIcon from '@bitrix24/b24icons-vue/outline/StopLIcon'
 import RefreshIcon from '@bitrix24/b24icons-vue/outline/RefreshIcon'
 import SendIcon from '@bitrix24/b24icons-vue/main/SendIcon'
+import DragLIcon from '@bitrix24/b24icons-vue/outline/DragLIcon'
+import GoToLIcon from '@bitrix24/b24icons-vue/outline/GoToLIcon'
 
 export default {
   arrowLeft: ArrowToTheLeftIcon,
@@ -53,7 +54,7 @@ export default {
   chevronUp: ChevronTopLIcon,
   close: CrossMIcon,
   ellipsis: DotsIcon,
-  external: OpenIn50Icon,
+  external: GoToLIcon,
   file: FileIcon,
   loading: LoaderWaitIcon,
   refresh: Refresh6Icon,
@@ -76,5 +77,6 @@ export default {
   arrowDown: ArrowDownLIcon,
   arrowUp: ArrowTopLIcon,
   stop: StopLIcon,
-  reload: RefreshIcon
+  reload: RefreshIcon,
+  drag: DragLIcon
 }

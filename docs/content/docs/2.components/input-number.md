@@ -227,10 +227,8 @@ ignore:
   - modelValue
   - increment.size
   - increment.color
-  - increment.variant
   - decrement.size
   - decrement.color
-  - decrement.variant
 external:
   - modelValue
 props:

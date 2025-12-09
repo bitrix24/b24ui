@@ -27,7 +27,7 @@
 </script>
 
 <template>
-  <div class="dd-absolute dd-top-0 dd-inset-x-0 dd-z-5 dd-bg-default">
+  <div class="absolute top-0 inset-x-0 z-5 bg-(--popup-window-background-color) p-4 ">
     <slot />
   </div>
 </template>

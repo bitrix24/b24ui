@@ -3,6 +3,7 @@
  * A menu to display actions when clicking on an element.
  * ---
  * @see src/theme/context-menu.ts
+ * @see src/theme/editor-suggestion-menu.ts
  * @todo add Badge
  */
 

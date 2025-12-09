@@ -1416,7 +1416,7 @@ Example:
           target="_blank"
         >
           <div>@bitrix24/b24ui</div>
-          <OpenIn50Icon class="size-4" />
+          <GoToLIcon class="size-4" />
         </B24Link>
         <B24Button
           block

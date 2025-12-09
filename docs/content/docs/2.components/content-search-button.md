@@ -37,7 +37,7 @@ props:
 ::
 
 ::note{to="#collapsed"}
-The button defaults to `color="air-secondary-no-accent"` when not collapsed, `variant="air-tertiary-no-accent"` when collapsed.
+The button defaults to `color="air-secondary-no-accent"` when not collapsed, `color="air-tertiary-no-accent"` when collapsed.
 ::
 
 ### Collapsed

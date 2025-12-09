@@ -108,7 +108,7 @@ slots:
 
     <B24Button label="Button" />
 ---
-:b24-input{color="neutral" variant="outline" placeholder="Enter token"}
+:b24-input{placeholder="Enter token"}
 :b24-button{label="Button"}
 ::
 

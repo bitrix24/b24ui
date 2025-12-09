@@ -16,6 +16,7 @@ import CodeIcon from '@bitrix24/b24icons-vue/common-service/CodeIcon'
 import AiStarsIcon from '@bitrix24/b24icons-vue/outline/AiStarsIcon'
 import BrushIcon from '@bitrix24/b24icons-vue/actions/BrushIcon'
 import EarthLanguageIcon from '@bitrix24/b24icons-vue/main/EarthLanguageIcon'
+import EditPencilIcon from '@bitrix24/b24icons-vue/main/EditPencilIcon'
 
 const categories = {
   'components': [
@@ -63,6 +64,11 @@ const categories = {
       id: 'chat',
       title: 'AI Chat',
       icon: AiStarsIcon
+    },
+    {
+      id: 'editor',
+      title: 'Editor',
+      icon: EditPencilIcon
     },
     {
       id: 'content',

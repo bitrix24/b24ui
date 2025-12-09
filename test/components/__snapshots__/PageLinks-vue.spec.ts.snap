@@ -18,7 +18,8 @@ exports[`PageLinks > renders with as correctly 1`] = `
           </svg>
           <div data-slot="linkLabel" class="truncate">Playground</div>
         </div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4 text-(--ui-color-design-selection-content) group-hover:text-(--ui-color-accent-main-primary-alt-2)">
-          <path fill="currentColor" fill-rule="evenodd" d="M9.94 5v2.47H8.638c-.598 0-1.091.451-1.159 1.031l-.007.136v6.726c0 .598.45 1.091 1.03 1.159l.136.007h6.726c.598 0 1.091-.45 1.159-1.03l.007-.136v-1.305H19v2.609A2.333 2.333 0 0 1 16.667 19H7.333A2.333 2.333 0 0 1 5 16.667V7.333A2.333 2.333 0 0 1 7.333 5zm8.66 0c.22 0 .4.18.4.4v6.288a.3.3 0 0 1-.512.212l-2.292-2.292-3.231 3.232a.3.3 0 0 1-.424 0l-1.323-1.322a.3.3 0 0 1 0-.425l3.232-3.232-2.35-2.349A.3.3 0 0 1 12.314 5z" clip-rule="evenodd"></path>
+          <path fill="currentColor" d="M14.58 4.9a.7.7 0 1 0 0 1.4h2.166l-4.954 4.953a.7.7 0 0 0 .99.99l4.916-4.916v1.998a.7.7 0 1 0 1.4 0V6.6a1.7 1.7 0 0 0-1.7-1.7z"></path>
+          <path fill="currentColor" d="M12 5.7a.7.7 0 0 0-.7-.7H8a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-3.3a.7.7 0 1 0-1.4 0V16a1.6 1.6 0 0 1-1.6 1.6H8A1.6 1.6 0 0 1 6.4 16V8A1.6 1.6 0 0 1 8 6.4h3.3a.7.7 0 0 0 .7-.7"></path>
         </svg>
       </a></li>
     <li data-slot="item" class="relative"><button type="button" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt-2) hover:underline flex flex-row items-center justify-between text-(--ui-color-accent-main-primary-alt-2)">
@@ -35,7 +36,8 @@ exports[`PageLinks > renders with as correctly 1`] = `
           </svg>
           <div data-slot="linkLabel" class="truncate">Releases</div>
         </div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4 text-(--ui-color-design-selection-content) group-hover:text-(--ui-color-accent-main-primary-alt-2)">
-          <path fill="currentColor" fill-rule="evenodd" d="M9.94 5v2.47H8.638c-.598 0-1.091.451-1.159 1.031l-.007.136v6.726c0 .598.45 1.091 1.03 1.159l.136.007h6.726c.598 0 1.091-.45 1.159-1.03l.007-.136v-1.305H19v2.609A2.333 2.333 0 0 1 16.667 19H7.333A2.333 2.333 0 0 1 5 16.667V7.333A2.333 2.333 0 0 1 7.333 5zm8.66 0c.22 0 .4.18.4.4v6.288a.3.3 0 0 1-.512.212l-2.292-2.292-3.231 3.232a.3.3 0 0 1-.424 0l-1.323-1.322a.3.3 0 0 1 0-.425l3.232-3.232-2.35-2.349A.3.3 0 0 1 12.314 5z" clip-rule="evenodd"></path>
+          <path fill="currentColor" d="M14.58 4.9a.7.7 0 1 0 0 1.4h2.166l-4.954 4.953a.7.7 0 0 0 .99.99l4.916-4.916v1.998a.7.7 0 1 0 1.4 0V6.6a1.7 1.7 0 0 0-1.7-1.7z"></path>
+          <path fill="currentColor" d="M12 5.7a.7.7 0 0 0-.7-.7H8a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-3.3a.7.7 0 1 0-1.4 0V16a1.6 1.6 0 0 1-1.6 1.6H8A1.6 1.6 0 0 1 6.4 16V8A1.6 1.6 0 0 1 8 6.4h3.3a.7.7 0 0 0 .7-.7"></path>
         </svg>
       </a></li>
   </ul>
@@ -60,7 +62,8 @@ exports[`PageLinks > renders with b24ui correctly 1`] = `
           </svg>
           <div data-slot="linkLabel" class="truncate">Playground</div>
         </div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4 text-(--ui-color-design-selection-content) group-hover:text-(--ui-color-accent-main-primary-alt-2)">
-          <path fill="currentColor" fill-rule="evenodd" d="M9.94 5v2.47H8.638c-.598 0-1.091.451-1.159 1.031l-.007.136v6.726c0 .598.45 1.091 1.03 1.159l.136.007h6.726c.598 0 1.091-.45 1.159-1.03l.007-.136v-1.305H19v2.609A2.333 2.333 0 0 1 16.667 19H7.333A2.333 2.333 0 0 1 5 16.667V7.333A2.333 2.333 0 0 1 7.333 5zm8.66 0c.22 0 .4.18.4.4v6.288a.3.3 0 0 1-.512.212l-2.292-2.292-3.231 3.232a.3.3 0 0 1-.424 0l-1.323-1.322a.3.3 0 0 1 0-.425l3.232-3.232-2.35-2.349A.3.3 0 0 1 12.314 5z" clip-rule="evenodd"></path>
+          <path fill="currentColor" d="M14.58 4.9a.7.7 0 1 0 0 1.4h2.166l-4.954 4.953a.7.7 0 0 0 .99.99l4.916-4.916v1.998a.7.7 0 1 0 1.4 0V6.6a1.7 1.7 0 0 0-1.7-1.7z"></path>
+          <path fill="currentColor" d="M12 5.7a.7.7 0 0 0-.7-.7H8a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-3.3a.7.7 0 1 0-1.4 0V16a1.6 1.6 0 0 1-1.6 1.6H8A1.6 1.6 0 0 1 6.4 16V8A1.6 1.6 0 0 1 8 6.4h3.3a.7.7 0 0 0 .7-.7"></path>
         </svg>
       </a></li>
     <li data-slot="item" class="relative"><button type="button" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt-2) hover:underline flex flex-row items-center justify-between text-(--ui-color-accent-main-primary-alt-2)">
@@ -77,7 +80,8 @@ exports[`PageLinks > renders with b24ui correctly 1`] = `
           </svg>
           <div data-slot="linkLabel" class="truncate">Releases</div>
         </div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4 text-(--ui-color-design-selection-content) group-hover:text-(--ui-color-accent-main-primary-alt-2)">
-          <path fill="currentColor" fill-rule="evenodd" d="M9.94 5v2.47H8.638c-.598 0-1.091.451-1.159 1.031l-.007.136v6.726c0 .598.45 1.091 1.03 1.159l.136.007h6.726c.598 0 1.091-.45 1.159-1.03l.007-.136v-1.305H19v2.609A2.333 2.333 0 0 1 16.667 19H7.333A2.333 2.333 0 0 1 5 16.667V7.333A2.333 2.333 0 0 1 7.333 5zm8.66 0c.22 0 .4.18.4.4v6.288a.3.3 0 0 1-.512.212l-2.292-2.292-3.231 3.232a.3.3 0 0 1-.424 0l-1.323-1.322a.3.3 0 0 1 0-.425l3.232-3.232-2.35-2.349A.3.3 0 0 1 12.314 5z" clip-rule="evenodd"></path>
+          <path fill="currentColor" d="M14.58 4.9a.7.7 0 1 0 0 1.4h2.166l-4.954 4.953a.7.7 0 0 0 .99.99l4.916-4.916v1.998a.7.7 0 1 0 1.4 0V6.6a1.7 1.7 0 0 0-1.7-1.7z"></path>
+          <path fill="currentColor" d="M12 5.7a.7.7 0 0 0-.7-.7H8a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-3.3a.7.7 0 1 0-1.4 0V16a1.6 1.6 0 0 1-1.6 1.6H8A1.6 1.6 0 0 1 6.4 16V8A1.6 1.6 0 0 1 8 6.4h3.3a.7.7 0 0 0 .7-.7"></path>
         </svg>
       </a></li>
   </ul>
@@ -102,7 +106,8 @@ exports[`PageLinks > renders with class correctly 1`] = `
           </svg>
           <div data-slot="linkLabel" class="truncate">Playground</div>
         </div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4 text-(--ui-color-design-selection-content) group-hover:text-(--ui-color-accent-main-primary-alt-2)">
-          <path fill="currentColor" fill-rule="evenodd" d="M9.94 5v2.47H8.638c-.598 0-1.091.451-1.159 1.031l-.007.136v6.726c0 .598.45 1.091 1.03 1.159l.136.007h6.726c.598 0 1.091-.45 1.159-1.03l.007-.136v-1.305H19v2.609A2.333 2.333 0 0 1 16.667 19H7.333A2.333 2.333 0 0 1 5 16.667V7.333A2.333 2.333 0 0 1 7.333 5zm8.66 0c.22 0 .4.18.4.4v6.288a.3.3 0 0 1-.512.212l-2.292-2.292-3.231 3.232a.3.3 0 0 1-.424 0l-1.323-1.322a.3.3 0 0 1 0-.425l3.232-3.232-2.35-2.349A.3.3 0 0 1 12.314 5z" clip-rule="evenodd"></path>
+          <path fill="currentColor" d="M14.58 4.9a.7.7 0 1 0 0 1.4h2.166l-4.954 4.953a.7.7 0 0 0 .99.99l4.916-4.916v1.998a.7.7 0 1 0 1.4 0V6.6a1.7 1.7 0 0 0-1.7-1.7z"></path>
+          <path fill="currentColor" d="M12 5.7a.7.7 0 0 0-.7-.7H8a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-3.3a.7.7 0 1 0-1.4 0V16a1.6 1.6 0 0 1-1.6 1.6H8A1.6 1.6 0 0 1 6.4 16V8A1.6 1.6 0 0 1 8 6.4h3.3a.7.7 0 0 0 .7-.7"></path>
         </svg>
       </a></li>
     <li data-slot="item" class="relative"><button type="button" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt-2) hover:underline flex flex-row items-center justify-between text-(--ui-color-accent-main-primary-alt-2)">
@@ -119,7 +124,8 @@ exports[`PageLinks > renders with class correctly 1`] = `
           </svg>
           <div data-slot="linkLabel" class="truncate">Releases</div>
         </div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4 text-(--ui-color-design-selection-content) group-hover:text-(--ui-color-accent-main-primary-alt-2)">
-          <path fill="currentColor" fill-rule="evenodd" d="M9.94 5v2.47H8.638c-.598 0-1.091.451-1.159 1.031l-.007.136v6.726c0 .598.45 1.091 1.03 1.159l.136.007h6.726c.598 0 1.091-.45 1.159-1.03l.007-.136v-1.305H19v2.609A2.333 2.333 0 0 1 16.667 19H7.333A2.333 2.333 0 0 1 5 16.667V7.333A2.333 2.333 0 0 1 7.333 5zm8.66 0c.22 0 .4.18.4.4v6.288a.3.3 0 0 1-.512.212l-2.292-2.292-3.231 3.232a.3.3 0 0 1-.424 0l-1.323-1.322a.3.3 0 0 1 0-.425l3.232-3.232-2.35-2.349A.3.3 0 0 1 12.314 5z" clip-rule="evenodd"></path>
+          <path fill="currentColor" d="M14.58 4.9a.7.7 0 1 0 0 1.4h2.166l-4.954 4.953a.7.7 0 0 0 .99.99l4.916-4.916v1.998a.7.7 0 1 0 1.4 0V6.6a1.7 1.7 0 0 0-1.7-1.7z"></path>
+          <path fill="currentColor" d="M12 5.7a.7.7 0 0 0-.7-.7H8a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-3.3a.7.7 0 1 0-1.4 0V16a1.6 1.6 0 0 1-1.6 1.6H8A1.6 1.6 0 0 1 6.4 16V8A1.6 1.6 0 0 1 8 6.4h3.3a.7.7 0 0 0 .7-.7"></path>
         </svg>
       </a></li>
   </ul>
@@ -156,7 +162,8 @@ exports[`PageLinks > renders with link-label slot correctly 1`] = `
           </svg>
           <div data-slot="linkLabel" class="truncate">Link label slot</div>
         </div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4 text-(--ui-color-design-selection-content) group-hover:text-(--ui-color-accent-main-primary-alt-2)">
-          <path fill="currentColor" fill-rule="evenodd" d="M9.94 5v2.47H8.638c-.598 0-1.091.451-1.159 1.031l-.007.136v6.726c0 .598.45 1.091 1.03 1.159l.136.007h6.726c.598 0 1.091-.45 1.159-1.03l.007-.136v-1.305H19v2.609A2.333 2.333 0 0 1 16.667 19H7.333A2.333 2.333 0 0 1 5 16.667V7.333A2.333 2.333 0 0 1 7.333 5zm8.66 0c.22 0 .4.18.4.4v6.288a.3.3 0 0 1-.512.212l-2.292-2.292-3.231 3.232a.3.3 0 0 1-.424 0l-1.323-1.322a.3.3 0 0 1 0-.425l3.232-3.232-2.35-2.349A.3.3 0 0 1 12.314 5z" clip-rule="evenodd"></path>
+          <path fill="currentColor" d="M14.58 4.9a.7.7 0 1 0 0 1.4h2.166l-4.954 4.953a.7.7 0 0 0 .99.99l4.916-4.916v1.998a.7.7 0 1 0 1.4 0V6.6a1.7 1.7 0 0 0-1.7-1.7z"></path>
+          <path fill="currentColor" d="M12 5.7a.7.7 0 0 0-.7-.7H8a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-3.3a.7.7 0 1 0-1.4 0V16a1.6 1.6 0 0 1-1.6 1.6H8A1.6 1.6 0 0 1 6.4 16V8A1.6 1.6 0 0 1 8 6.4h3.3a.7.7 0 0 0 .7-.7"></path>
         </svg>
       </a></li>
     <li data-slot="item" class="relative"><button type="button" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt-2) hover:underline flex flex-row items-center justify-between text-(--ui-color-accent-main-primary-alt-2)">
@@ -173,7 +180,8 @@ exports[`PageLinks > renders with link-label slot correctly 1`] = `
           </svg>
           <div data-slot="linkLabel" class="truncate">Link label slot</div>
         </div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4 text-(--ui-color-design-selection-content) group-hover:text-(--ui-color-accent-main-primary-alt-2)">
-          <path fill="currentColor" fill-rule="evenodd" d="M9.94 5v2.47H8.638c-.598 0-1.091.451-1.159 1.031l-.007.136v6.726c0 .598.45 1.091 1.03 1.159l.136.007h6.726c.598 0 1.091-.45 1.159-1.03l.007-.136v-1.305H19v2.609A2.333 2.333 0 0 1 16.667 19H7.333A2.333 2.333 0 0 1 5 16.667V7.333A2.333 2.333 0 0 1 7.333 5zm8.66 0c.22 0 .4.18.4.4v6.288a.3.3 0 0 1-.512.212l-2.292-2.292-3.231 3.232a.3.3 0 0 1-.424 0l-1.323-1.322a.3.3 0 0 1 0-.425l3.232-3.232-2.35-2.349A.3.3 0 0 1 12.314 5z" clip-rule="evenodd"></path>
+          <path fill="currentColor" d="M14.58 4.9a.7.7 0 1 0 0 1.4h2.166l-4.954 4.953a.7.7 0 0 0 .99.99l4.916-4.916v1.998a.7.7 0 1 0 1.4 0V6.6a1.7 1.7 0 0 0-1.7-1.7z"></path>
+          <path fill="currentColor" d="M12 5.7a.7.7 0 0 0-.7-.7H8a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-3.3a.7.7 0 1 0-1.4 0V16a1.6 1.6 0 0 1-1.6 1.6H8A1.6 1.6 0 0 1 6.4 16V8A1.6 1.6 0 0 1 8 6.4h3.3a.7.7 0 0 0 .7-.7"></path>
         </svg>
       </a></li>
   </ul>
@@ -192,7 +200,8 @@ exports[`PageLinks > renders with link-leading slot correctly 1`] = `
     <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" rel="noopener noreferrer" target="_blank" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
         <div data-slot="linkWrapper" class="flex items-center gap-[6px]">Link leading slot<div data-slot="linkLabel" class="truncate">Playground</div>
         </div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4 text-(--ui-color-design-selection-content) group-hover:text-(--ui-color-accent-main-primary-alt-2)">
-          <path fill="currentColor" fill-rule="evenodd" d="M9.94 5v2.47H8.638c-.598 0-1.091.451-1.159 1.031l-.007.136v6.726c0 .598.45 1.091 1.03 1.159l.136.007h6.726c.598 0 1.091-.45 1.159-1.03l.007-.136v-1.305H19v2.609A2.333 2.333 0 0 1 16.667 19H7.333A2.333 2.333 0 0 1 5 16.667V7.333A2.333 2.333 0 0 1 7.333 5zm8.66 0c.22 0 .4.18.4.4v6.288a.3.3 0 0 1-.512.212l-2.292-2.292-3.231 3.232a.3.3 0 0 1-.424 0l-1.323-1.322a.3.3 0 0 1 0-.425l3.232-3.232-2.35-2.349A.3.3 0 0 1 12.314 5z" clip-rule="evenodd"></path>
+          <path fill="currentColor" d="M14.58 4.9a.7.7 0 1 0 0 1.4h2.166l-4.954 4.953a.7.7 0 0 0 .99.99l4.916-4.916v1.998a.7.7 0 1 0 1.4 0V6.6a1.7 1.7 0 0 0-1.7-1.7z"></path>
+          <path fill="currentColor" d="M12 5.7a.7.7 0 0 0-.7-.7H8a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-3.3a.7.7 0 1 0-1.4 0V16a1.6 1.6 0 0 1-1.6 1.6H8A1.6 1.6 0 0 1 6.4 16V8A1.6 1.6 0 0 1 8 6.4h3.3a.7.7 0 0 0 .7-.7"></path>
         </svg>
       </a></li>
     <li data-slot="item" class="relative"><button type="button" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt-2) hover:underline flex flex-row items-center justify-between text-(--ui-color-accent-main-primary-alt-2)">
@@ -203,7 +212,8 @@ exports[`PageLinks > renders with link-leading slot correctly 1`] = `
     <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" rel="noopener noreferrer" target="_blank" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
         <div data-slot="linkWrapper" class="flex items-center gap-[6px]">Link leading slot<div data-slot="linkLabel" class="truncate">Releases</div>
         </div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4 text-(--ui-color-design-selection-content) group-hover:text-(--ui-color-accent-main-primary-alt-2)">
-          <path fill="currentColor" fill-rule="evenodd" d="M9.94 5v2.47H8.638c-.598 0-1.091.451-1.159 1.031l-.007.136v6.726c0 .598.45 1.091 1.03 1.159l.136.007h6.726c.598 0 1.091-.45 1.159-1.03l.007-.136v-1.305H19v2.609A2.333 2.333 0 0 1 16.667 19H7.333A2.333 2.333 0 0 1 5 16.667V7.333A2.333 2.333 0 0 1 7.333 5zm8.66 0c.22 0 .4.18.4.4v6.288a.3.3 0 0 1-.512.212l-2.292-2.292-3.231 3.232a.3.3 0 0 1-.424 0l-1.323-1.322a.3.3 0 0 1 0-.425l3.232-3.232-2.35-2.349A.3.3 0 0 1 12.314 5z" clip-rule="evenodd"></path>
+          <path fill="currentColor" d="M14.58 4.9a.7.7 0 1 0 0 1.4h2.166l-4.954 4.953a.7.7 0 0 0 .99.99l4.916-4.916v1.998a.7.7 0 1 0 1.4 0V6.6a1.7 1.7 0 0 0-1.7-1.7z"></path>
+          <path fill="currentColor" d="M12 5.7a.7.7 0 0 0-.7-.7H8a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-3.3a.7.7 0 1 0-1.4 0V16a1.6 1.6 0 0 1-1.6 1.6H8A1.6 1.6 0 0 1 6.4 16V8A1.6 1.6 0 0 1 8 6.4h3.3a.7.7 0 0 0 .7-.7"></path>
         </svg>
       </a></li>
   </ul>
@@ -228,7 +238,8 @@ exports[`PageLinks > renders with link-trailing slot correctly 1`] = `
           </svg>
           <div data-slot="linkLabel" class="truncate">Playground</div>
         </div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4 text-(--ui-color-design-selection-content) group-hover:text-(--ui-color-accent-main-primary-alt-2)">
-          <path fill="currentColor" fill-rule="evenodd" d="M9.94 5v2.47H8.638c-.598 0-1.091.451-1.159 1.031l-.007.136v6.726c0 .598.45 1.091 1.03 1.159l.136.007h6.726c.598 0 1.091-.45 1.159-1.03l.007-.136v-1.305H19v2.609A2.333 2.333 0 0 1 16.667 19H7.333A2.333 2.333 0 0 1 5 16.667V7.333A2.333 2.333 0 0 1 7.333 5zm8.66 0c.22 0 .4.18.4.4v6.288a.3.3 0 0 1-.512.212l-2.292-2.292-3.231 3.232a.3.3 0 0 1-.424 0l-1.323-1.322a.3.3 0 0 1 0-.425l3.232-3.232-2.35-2.349A.3.3 0 0 1 12.314 5z" clip-rule="evenodd"></path>
+          <path fill="currentColor" d="M14.58 4.9a.7.7 0 1 0 0 1.4h2.166l-4.954 4.953a.7.7 0 0 0 .99.99l4.916-4.916v1.998a.7.7 0 1 0 1.4 0V6.6a1.7 1.7 0 0 0-1.7-1.7z"></path>
+          <path fill="currentColor" d="M12 5.7a.7.7 0 0 0-.7-.7H8a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-3.3a.7.7 0 1 0-1.4 0V16a1.6 1.6 0 0 1-1.6 1.6H8A1.6 1.6 0 0 1 6.4 16V8A1.6 1.6 0 0 1 8 6.4h3.3a.7.7 0 0 0 .7-.7"></path>
         </svg>Link trailing slot
       </a></li>
     <li data-slot="item" class="relative"><button type="button" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt-2) hover:underline flex flex-row items-center justify-between text-(--ui-color-accent-main-primary-alt-2)">
@@ -245,7 +256,8 @@ exports[`PageLinks > renders with link-trailing slot correctly 1`] = `
           </svg>
           <div data-slot="linkLabel" class="truncate">Releases</div>
         </div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4 text-(--ui-color-design-selection-content) group-hover:text-(--ui-color-accent-main-primary-alt-2)">
-          <path fill="currentColor" fill-rule="evenodd" d="M9.94 5v2.47H8.638c-.598 0-1.091.451-1.159 1.031l-.007.136v6.726c0 .598.45 1.091 1.03 1.159l.136.007h6.726c.598 0 1.091-.45 1.159-1.03l.007-.136v-1.305H19v2.609A2.333 2.333 0 0 1 16.667 19H7.333A2.333 2.333 0 0 1 5 16.667V7.333A2.333 2.333 0 0 1 7.333 5zm8.66 0c.22 0 .4.18.4.4v6.288a.3.3 0 0 1-.512.212l-2.292-2.292-3.231 3.232a.3.3 0 0 1-.424 0l-1.323-1.322a.3.3 0 0 1 0-.425l3.232-3.232-2.35-2.349A.3.3 0 0 1 12.314 5z" clip-rule="evenodd"></path>
+          <path fill="currentColor" d="M14.58 4.9a.7.7 0 1 0 0 1.4h2.166l-4.954 4.953a.7.7 0 0 0 .99.99l4.916-4.916v1.998a.7.7 0 1 0 1.4 0V6.6a1.7 1.7 0 0 0-1.7-1.7z"></path>
+          <path fill="currentColor" d="M12 5.7a.7.7 0 0 0-.7-.7H8a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-3.3a.7.7 0 1 0-1.4 0V16a1.6 1.6 0 0 1-1.6 1.6H8A1.6 1.6 0 0 1 6.4 16V8A1.6 1.6 0 0 1 8 6.4h3.3a.7.7 0 0 0 .7-.7"></path>
         </svg>Link trailing slot
       </a></li>
   </ul>
@@ -270,7 +282,8 @@ exports[`PageLinks > renders with links correctly 1`] = `
           </svg>
           <div data-slot="linkLabel" class="truncate">Playground</div>
         </div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4 text-(--ui-color-design-selection-content) group-hover:text-(--ui-color-accent-main-primary-alt-2)">
-          <path fill="currentColor" fill-rule="evenodd" d="M9.94 5v2.47H8.638c-.598 0-1.091.451-1.159 1.031l-.007.136v6.726c0 .598.45 1.091 1.03 1.159l.136.007h6.726c.598 0 1.091-.45 1.159-1.03l.007-.136v-1.305H19v2.609A2.333 2.333 0 0 1 16.667 19H7.333A2.333 2.333 0 0 1 5 16.667V7.333A2.333 2.333 0 0 1 7.333 5zm8.66 0c.22 0 .4.18.4.4v6.288a.3.3 0 0 1-.512.212l-2.292-2.292-3.231 3.232a.3.3 0 0 1-.424 0l-1.323-1.322a.3.3 0 0 1 0-.425l3.232-3.232-2.35-2.349A.3.3 0 0 1 12.314 5z" clip-rule="evenodd"></path>
+          <path fill="currentColor" d="M14.58 4.9a.7.7 0 1 0 0 1.4h2.166l-4.954 4.953a.7.7 0 0 0 .99.99l4.916-4.916v1.998a.7.7 0 1 0 1.4 0V6.6a1.7 1.7 0 0 0-1.7-1.7z"></path>
+          <path fill="currentColor" d="M12 5.7a.7.7 0 0 0-.7-.7H8a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-3.3a.7.7 0 1 0-1.4 0V16a1.6 1.6 0 0 1-1.6 1.6H8A1.6 1.6 0 0 1 6.4 16V8A1.6 1.6 0 0 1 8 6.4h3.3a.7.7 0 0 0 .7-.7"></path>
         </svg>
       </a></li>
     <li data-slot="item" class="relative"><button type="button" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt-2) hover:underline flex flex-row items-center justify-between text-(--ui-color-accent-main-primary-alt-2)">
@@ -287,7 +300,8 @@ exports[`PageLinks > renders with links correctly 1`] = `
           </svg>
           <div data-slot="linkLabel" class="truncate">Releases</div>
         </div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4 text-(--ui-color-design-selection-content) group-hover:text-(--ui-color-accent-main-primary-alt-2)">
-          <path fill="currentColor" fill-rule="evenodd" d="M9.94 5v2.47H8.638c-.598 0-1.091.451-1.159 1.031l-.007.136v6.726c0 .598.45 1.091 1.03 1.159l.136.007h6.726c.598 0 1.091-.45 1.159-1.03l.007-.136v-1.305H19v2.609A2.333 2.333 0 0 1 16.667 19H7.333A2.333 2.333 0 0 1 5 16.667V7.333A2.333 2.333 0 0 1 7.333 5zm8.66 0c.22 0 .4.18.4.4v6.288a.3.3 0 0 1-.512.212l-2.292-2.292-3.231 3.232a.3.3 0 0 1-.424 0l-1.323-1.322a.3.3 0 0 1 0-.425l3.232-3.232-2.35-2.349A.3.3 0 0 1 12.314 5z" clip-rule="evenodd"></path>
+          <path fill="currentColor" d="M14.58 4.9a.7.7 0 1 0 0 1.4h2.166l-4.954 4.953a.7.7 0 0 0 .99.99l4.916-4.916v1.998a.7.7 0 1 0 1.4 0V6.6a1.7 1.7 0 0 0-1.7-1.7z"></path>
+          <path fill="currentColor" d="M12 5.7a.7.7 0 0 0-.7-.7H8a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-3.3a.7.7 0 1 0-1.4 0V16a1.6 1.6 0 0 1-1.6 1.6H8A1.6 1.6 0 0 1 6.4 16V8A1.6 1.6 0 0 1 8 6.4h3.3a.7.7 0 0 0 .7-.7"></path>
         </svg>
       </a></li>
   </ul>
@@ -312,7 +326,8 @@ exports[`PageLinks > renders with title correctly 1`] = `
           </svg>
           <div data-slot="linkLabel" class="truncate">Playground</div>
         </div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4 text-(--ui-color-design-selection-content) group-hover:text-(--ui-color-accent-main-primary-alt-2)">
-          <path fill="currentColor" fill-rule="evenodd" d="M9.94 5v2.47H8.638c-.598 0-1.091.451-1.159 1.031l-.007.136v6.726c0 .598.45 1.091 1.03 1.159l.136.007h6.726c.598 0 1.091-.45 1.159-1.03l.007-.136v-1.305H19v2.609A2.333 2.333 0 0 1 16.667 19H7.333A2.333 2.333 0 0 1 5 16.667V7.333A2.333 2.333 0 0 1 7.333 5zm8.66 0c.22 0 .4.18.4.4v6.288a.3.3 0 0 1-.512.212l-2.292-2.292-3.231 3.232a.3.3 0 0 1-.424 0l-1.323-1.322a.3.3 0 0 1 0-.425l3.232-3.232-2.35-2.349A.3.3 0 0 1 12.314 5z" clip-rule="evenodd"></path>
+          <path fill="currentColor" d="M14.58 4.9a.7.7 0 1 0 0 1.4h2.166l-4.954 4.953a.7.7 0 0 0 .99.99l4.916-4.916v1.998a.7.7 0 1 0 1.4 0V6.6a1.7 1.7 0 0 0-1.7-1.7z"></path>
+          <path fill="currentColor" d="M12 5.7a.7.7 0 0 0-.7-.7H8a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-3.3a.7.7 0 1 0-1.4 0V16a1.6 1.6 0 0 1-1.6 1.6H8A1.6 1.6 0 0 1 6.4 16V8A1.6 1.6 0 0 1 8 6.4h3.3a.7.7 0 0 0 .7-.7"></path>
         </svg>
       </a></li>
     <li data-slot="item" class="relative"><button type="button" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt-2) hover:underline flex flex-row items-center justify-between text-(--ui-color-accent-main-primary-alt-2)">
@@ -329,7 +344,8 @@ exports[`PageLinks > renders with title correctly 1`] = `
           </svg>
           <div data-slot="linkLabel" class="truncate">Releases</div>
         </div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4 text-(--ui-color-design-selection-content) group-hover:text-(--ui-color-accent-main-primary-alt-2)">
-          <path fill="currentColor" fill-rule="evenodd" d="M9.94 5v2.47H8.638c-.598 0-1.091.451-1.159 1.031l-.007.136v6.726c0 .598.45 1.091 1.03 1.159l.136.007h6.726c.598 0 1.091-.45 1.159-1.03l.007-.136v-1.305H19v2.609A2.333 2.333 0 0 1 16.667 19H7.333A2.333 2.333 0 0 1 5 16.667V7.333A2.333 2.333 0 0 1 7.333 5zm8.66 0c.22 0 .4.18.4.4v6.288a.3.3 0 0 1-.512.212l-2.292-2.292-3.231 3.232a.3.3 0 0 1-.424 0l-1.323-1.322a.3.3 0 0 1 0-.425l3.232-3.232-2.35-2.349A.3.3 0 0 1 12.314 5z" clip-rule="evenodd"></path>
+          <path fill="currentColor" d="M14.58 4.9a.7.7 0 1 0 0 1.4h2.166l-4.954 4.953a.7.7 0 0 0 .99.99l4.916-4.916v1.998a.7.7 0 1 0 1.4 0V6.6a1.7 1.7 0 0 0-1.7-1.7z"></path>
+          <path fill="currentColor" d="M12 5.7a.7.7 0 0 0-.7-.7H8a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-3.3a.7.7 0 1 0-1.4 0V16a1.6 1.6 0 0 1-1.6 1.6H8A1.6 1.6 0 0 1 6.4 16V8A1.6 1.6 0 0 1 8 6.4h3.3a.7.7 0 0 0 .7-.7"></path>
         </svg>
       </a></li>
   </ul>
@@ -354,7 +370,8 @@ exports[`PageLinks > renders with title slot correctly 1`] = `
           </svg>
           <div data-slot="linkLabel" class="truncate">Playground</div>
         </div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4 text-(--ui-color-design-selection-content) group-hover:text-(--ui-color-accent-main-primary-alt-2)">
-          <path fill="currentColor" fill-rule="evenodd" d="M9.94 5v2.47H8.638c-.598 0-1.091.451-1.159 1.031l-.007.136v6.726c0 .598.45 1.091 1.03 1.159l.136.007h6.726c.598 0 1.091-.45 1.159-1.03l.007-.136v-1.305H19v2.609A2.333 2.333 0 0 1 16.667 19H7.333A2.333 2.333 0 0 1 5 16.667V7.333A2.333 2.333 0 0 1 7.333 5zm8.66 0c.22 0 .4.18.4.4v6.288a.3.3 0 0 1-.512.212l-2.292-2.292-3.231 3.232a.3.3 0 0 1-.424 0l-1.323-1.322a.3.3 0 0 1 0-.425l3.232-3.232-2.35-2.349A.3.3 0 0 1 12.314 5z" clip-rule="evenodd"></path>
+          <path fill="currentColor" d="M14.58 4.9a.7.7 0 1 0 0 1.4h2.166l-4.954 4.953a.7.7 0 0 0 .99.99l4.916-4.916v1.998a.7.7 0 1 0 1.4 0V6.6a1.7 1.7 0 0 0-1.7-1.7z"></path>
+          <path fill="currentColor" d="M12 5.7a.7.7 0 0 0-.7-.7H8a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-3.3a.7.7 0 1 0-1.4 0V16a1.6 1.6 0 0 1-1.6 1.6H8A1.6 1.6 0 0 1 6.4 16V8A1.6 1.6 0 0 1 8 6.4h3.3a.7.7 0 0 0 .7-.7"></path>
         </svg>
       </a></li>
     <li data-slot="item" class="relative"><button type="button" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt-2) hover:underline flex flex-row items-center justify-between text-(--ui-color-accent-main-primary-alt-2)">
@@ -371,7 +388,8 @@ exports[`PageLinks > renders with title slot correctly 1`] = `
           </svg>
           <div data-slot="linkLabel" class="truncate">Releases</div>
         </div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4 text-(--ui-color-design-selection-content) group-hover:text-(--ui-color-accent-main-primary-alt-2)">
-          <path fill="currentColor" fill-rule="evenodd" d="M9.94 5v2.47H8.638c-.598 0-1.091.451-1.159 1.031l-.007.136v6.726c0 .598.45 1.091 1.03 1.159l.136.007h6.726c.598 0 1.091-.45 1.159-1.03l.007-.136v-1.305H19v2.609A2.333 2.333 0 0 1 16.667 19H7.333A2.333 2.333 0 0 1 5 16.667V7.333A2.333 2.333 0 0 1 7.333 5zm8.66 0c.22 0 .4.18.4.4v6.288a.3.3 0 0 1-.512.212l-2.292-2.292-3.231 3.232a.3.3 0 0 1-.424 0l-1.323-1.322a.3.3 0 0 1 0-.425l3.232-3.232-2.35-2.349A.3.3 0 0 1 12.314 5z" clip-rule="evenodd"></path>
+          <path fill="currentColor" d="M14.58 4.9a.7.7 0 1 0 0 1.4h2.166l-4.954 4.953a.7.7 0 0 0 .99.99l4.916-4.916v1.998a.7.7 0 1 0 1.4 0V6.6a1.7 1.7 0 0 0-1.7-1.7z"></path>
+          <path fill="currentColor" d="M12 5.7a.7.7 0 0 0-.7-.7H8a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-3.3a.7.7 0 1 0-1.4 0V16a1.6 1.6 0 0 1-1.6 1.6H8A1.6 1.6 0 0 1 6.4 16V8A1.6 1.6 0 0 1 8 6.4h3.3a.7.7 0 0 0 .7-.7"></path>
         </svg>
       </a></li>
   </ul>

@@ -2,11 +2,13 @@ import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 const listPathClear = [
+  '/chat',
   '/components/shortcuts',
   '/components/toast',
   '/components/confetti',
   '/components/tooltip',
-  '/components/dropdown-menu'
+  '/components/dropdown-menu',
+  '/components/editor'
 ]
 
 export function useRouteCheck() {

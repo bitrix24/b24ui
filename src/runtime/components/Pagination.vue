@@ -46,7 +46,6 @@ export interface PaginationProps extends Partial<Pick<PaginationRootProps, 'defa
   /**
    * The color of the pagination controls.
    * @defaultValue 'air-secondary-no-accent'
-   * @IconComponent
    */
   color?: ButtonProps['color']
   /**
