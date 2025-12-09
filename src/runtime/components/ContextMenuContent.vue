@@ -178,7 +178,7 @@ const groups = computed<ContextMenuItem[][]>(() =>
       :class="b24ui.content({ class: [b24uiOverride?.content, props.class] })"
       v-bind="contentProps"
     >
-      <slot name="content-top" />
+      <slot name="content-top" :sub="sub ?? false" />
 
       <div role="presentation" data-slot="viewport" :class="b24ui.viewport({ class: b24uiOverride?.viewport })">
         <ContextMenu.Group
@@ -263,7 +263,7 @@ const groups = computed<ContextMenuItem[][]>(() =>
 
       <slot />
 
-      <slot name="content-bottom" />
+      <slot name="content-bottom" :sub="sub ?? false" />
     </component>
   </ContextMenu.Portal>
 </template>
