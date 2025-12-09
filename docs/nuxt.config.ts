@@ -24,6 +24,7 @@ const pages = [
   '/docs/getting-started/integrations/i18n/nuxt/',
   '/docs/getting-started/integrations/i18n/vue/',
   '/docs/getting-started/integrations/content/',
+  '/docs/getting-started/integrations/ssr/',
   '/docs/getting-started/ai/mcp/',
   '/docs/getting-started/ai/llms-txt/',
   // endregion ////
