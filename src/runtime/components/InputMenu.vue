@@ -4,6 +4,7 @@ import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/input-menu'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
 import type { AvatarProps, ChipProps, InputProps, BadgeProps, IconComponent } from '../types'
+import type { ModelModifiers } from '../types/input'
 import type { InputHTMLAttributes } from '../types/html'
 import type { AcceptableValue, ArrayOrNested, GetItemKeys, GetItemValue, GetModelValue, GetModelValueEmits, NestedItem, EmitsToProps } from '../types/utils'
 import type { ComponentConfig } from '../types/tv'
@@ -141,6 +142,7 @@ export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOr
   defaultValue?: GetModelValue<T, VK, M>
   /** The controlled value of the InputMenu. Can be binded-with with `v-model`. */
   modelValue?: GetModelValue<T, VK, M>
+  modelModifiers?: Omit<ModelModifiers<GetModelValue<T, VK, M>>, 'lazy'>
   /** Whether multiple options can be selected or not. */
   multiple?: M & boolean
   tag?: string
@@ -218,7 +220,7 @@ import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
 import { useLocale } from '../composables/useLocale'
 import { usePortal } from '../composables/usePortal'
-import { compare, get, getDisplayValue, isArrayOfArray } from '../utils'
+import { compare, get, getDisplayValue, isArrayOfArray, looseToNumber } from '../utils'
 import { getEstimateSize } from '../utils/virtualizer'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
@@ -383,6 +385,23 @@ function onUpdate(value: any) {
   if (toRaw(props.modelValue) === value) {
     return
   }
+
+  if (props.modelModifiers?.trim) {
+    value = value?.trim() ?? null
+  }
+
+  if (props.modelModifiers?.number) {
+    value = looseToNumber(value)
+  }
+
+  if (props.modelModifiers?.nullable) {
+    value ??= null
+  }
+
+  if (props.modelModifiers?.optional) {
+    value ??= undefined
+  }
+
   // @ts-expect-error - 'target' does not exist in type 'EventInit'
   const event = new Event('change', { target: { value } })
   emits('change', event)
