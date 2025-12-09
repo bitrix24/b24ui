@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { EditorToolbarItem } from '@bitrix24/b24ui-nuxt'
-import TextAlign from '@tiptap/extension-text-align'
+import { TextAlign } from '@tiptap/extension-text-align'
 import UndoIcon from '@bitrix24/b24icons-vue/outline/UndoIcon'
 import RedoIcon from '@bitrix24/b24icons-vue/outline/RedoIcon'
 import HeaderIcon from '@bitrix24/b24icons-vue/editor/HeaderIcon'
