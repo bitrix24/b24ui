@@ -14,6 +14,7 @@ export default {
   slots: {
     overlay: 'fixed inset-0',
     content: [
+      'base-mode',
       'bg-(--ui-color-bg-content-primary)',
       'flex flex-col gap-[20px]',
       'focus:outline-none',

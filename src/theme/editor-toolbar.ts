@@ -14,10 +14,10 @@ export default {
   variants: {
     layout: {
       bubble: {
-        base: 'bg-(--ui-color-bg-content-primary) border border-(--ui-color-divider-default) rounded-md p-1'
+        base: 'backdrop-blur-3xl bg-(--ui-color-bg-content-primary) border border-(--ui-color-divider-default) rounded-md p-1'
       },
       floating: {
-        base: 'bg-(--ui-color-bg-content-primary) border border-(--ui-color-divider-default) rounded-md p-1'
+        base: 'backdrop-blur-3xl bg-(--ui-color-bg-content-primary) border border-(--ui-color-divider-default) rounded-md p-1'
       },
       fixed: {
         base: ''

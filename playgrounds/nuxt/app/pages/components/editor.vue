@@ -445,7 +445,7 @@ const emojiItems: EditorEmojiMenuItem[] = gitHubEmojis.filter(emoji => !emoji.na
       <B24EditorToolbar
         :editor="editor"
         :items="toolbarItems"
-        class="border-b border-(--ui-color-design-tinted-na-stroke) absolute top-0 inset-x-0 px-8 mr-2 sm:px-16 py-2 z-20 overflow-x-auto rounded-t-md"
+        class="border-b border-(--ui-color-design-tinted-na-stroke) backdrop-blur-3xl bg-(--ui-color-bg-content-primary) absolute top-0 inset-x-0 px-8 mr-2 sm:px-16 py-2 z-20 overflow-x-auto rounded-t-md"
       >
         <template #link>
           <EditorLinkPopover :editor="editor" auto-open />
@@ -514,6 +514,6 @@ const emojiItems: EditorEmojiMenuItem[] = gitHubEmojis.filter(emoji => !emoji.na
       <B24EditorSuggestionMenu :editor="editor" :items="suggestionItems" />
       <B24EditorMentionMenu :editor="editor" :items="mentionItems" />
       <B24EditorEmojiMenu :editor="editor" :items="emojiItems" />
-</B24Editor>
+    </B24Editor>
   </div>
 </template>

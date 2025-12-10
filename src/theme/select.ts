@@ -40,6 +40,7 @@ export default () => {
         placeholder: 'truncate text-(--ui-color-design-plain-na-content-secondary)',
         content: [
           // w-(--reka-combobox-trigger-width)
+          'base-mode',
           'bg-(--ui-color-bg-content-primary)',
           'shadow-(--popup-window-box-shadow)',
           'rounded-(--ui-border-radius-xl) will-change-[opacity]',

@@ -13,7 +13,13 @@
     --air-theme-bg-color: var(--ui-color-gray-05);
   }
 
-  :root, :host, .light {
+  .light .base-mode {
+    --ui-color-bg-content-primary: var(--ui-color-base-white-fixed);
+  }
+
+  :root, :host,
+  .light,
+  .base-mode {
     --b24ui-typography-legend-color: var(--ui-color-design-plain-na-content);
     --b24ui-typography-label-color: var(--ui-color-design-plain-content);
     --b24ui-typography-description-color: var(--ui-color-design-plain-na-content);

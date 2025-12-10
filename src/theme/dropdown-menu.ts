@@ -10,6 +10,7 @@
 export default {
   slots: {
     content: [
+      'base-mode',
       'bg-(--ui-color-bg-content-primary)',
       'shadow-(--popup-window-box-shadow)',
       'rounded-(--ui-border-radius-xl) will-change-[opacity]',
@@ -23,7 +24,7 @@ export default {
     ].join(' '),
     viewport: [
       'relative',
-      'w-full max-h-[40vh] min-w-[120px]', //
+      'w-full max-h-[40vh] min-w-[192px]',
       'overflow-x-hidden overflow-y-auto scrollbar-thin' // scrollbar-transparent
     ].join(' '),
     arrow: 'fill-(--ui-color-bg-content-primary)', // for content bottom|top::start -> ml-[12px]

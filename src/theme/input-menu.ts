@@ -37,6 +37,7 @@ export default () => {
         'disabled:opacity-30'
       ].join(' '),
       content: [
+        'base-mode',
         // w-(--reka-combobox-trigger-width)
         'bg-(--ui-color-bg-content-primary)',
         'shadow-(--popup-window-box-shadow)',

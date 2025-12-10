@@ -88,7 +88,8 @@ export default {
     viewport: [
       'relative overflow-hidden',
       'w-full',
-      'bg-(--ui-color-bg-content-primary)', // 'bg-(--ui-color-base-white-fixed)/94',
+      'base-mode',
+      'bg-(--ui-color-bg-content-primary)',
       'shadow-(--popup-window-box-shadow)',
       'h-(--reka-navigation-menu-viewport-height)',
       'w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left)',
