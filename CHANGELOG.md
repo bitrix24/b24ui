@@ -1,6 +1,24 @@
 # Changelog
 
-## [2.1.12](https://github.com/bitrix24/b24ui/compare/v2.1.11...v2.1.12) (2025-12-xx)
+## [2.1.13](https://github.com/bitrix24/b24ui/compare/v2.1.12...v2.1.13) (2025-12-10)
+
+### Bug Fixes
+
+* **tw-style:** add in font size txt-xs, txt-sm, txt-md, txt-lg
+* **dark:** now support dark theme: ContextMenu, DropdownMenu, EditorSuggestionMenu, Editor, EditorToolbar, InputMenu, Modal, NavigationMenu, Popover, Select, SelectMenu, Slideover, Tooltip
+* **types:** add proseH5, proseH6
+* **PageCard:** add $attrs to root
+* **ContextMenuContent/DropdownMenuContent:** fix some warning
+* **ProseA/ProseCallout/ProseCard:** improve focus styles
+* **BlogPost/ChangelogVersion/PageFeature/User:** allow tab focus
+
+### Docs
+
+* **ai:** restore deepseek-reasoner
+* **components:** remove redundant links inside callouts with to prop
+* **Editor:** improve examples
+
+## [2.1.12](https://github.com/bitrix24/b24ui/compare/v2.1.11...v2.1.12) (2025-12-09)
 
 ### Features
 
