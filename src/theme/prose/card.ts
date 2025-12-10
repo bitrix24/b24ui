@@ -56,7 +56,7 @@ export default {
     {
       to: true,
       class: {
-        base: 'hover:bg-(--ui-color-bg-content-secondary) hover:border-(--b24ui-border-color-hover)',
+        base: 'hover:bg-(--ui-color-bg-content-secondary) hover:border-(--b24ui-border-color-hover) has-focus-visible:border-(--b24ui-border-color-hover)',
         title: 'group-hover:text-(--b24ui-border-color)',
         description: 'group-hover:text-(--b24ui-border-color) [&_p]:group-hover:text-(--b24ui-border-color)',
         externalIcon: 'group-hover:text-(--b24ui-icon)'

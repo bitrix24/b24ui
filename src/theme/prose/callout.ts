@@ -71,7 +71,7 @@ export default {
     {
       to: true,
       class: {
-        base: 'hover:border-(--b24ui-border-color-hover)',
+        base: 'hover:border-(--b24ui-border-color-hover) has-focus-visible:border-(--b24ui-border-color-hover)',
         externalIcon: 'group-hover:text-(--b24ui-icon)'
       }
     },
