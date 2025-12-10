@@ -66,4 +66,16 @@
   --text-h6: var(--text-md);
   --text-h6--line-height: var(--leading-md);
   --text-h6--font-weight: var(--font-weight-normal);
+  --text-txt-xs: var(--text-xs);
+  --text-txt-xs--line-height: var(--leading-md);
+  --text-txt-xs--font-weight: var(--font-weight-normal);
+  --text-txt-sm: var(--text-sm);
+  --text-txt-sm--line-height: var(--leading-md);
+  --text-txt-sm--font-weight: var(--font-weight-normal);
+  --text-txt-md: var(--text-md);
+  --text-txt-md--line-height: var(--leading-md);
+  --text-txt-md--font-weight: var(--font-weight-normal);
+  --text-txt-lg: var(--text-lg);
+  --text-txt-lg--line-height: var(--leading-md);
+  --text-txt-lg--font-weight: var(--font-weight-normal);
 }
