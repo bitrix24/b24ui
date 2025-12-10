@@ -86,14 +86,13 @@ export default {
     popoverWrapper: 'px-0 py-(--menu-popup-padding)',
     viewportWrapper: 'absolute top-[53px] left-0 flex w-full',
     viewport: [
-      'light',
       'relative overflow-hidden',
       'w-full',
-      'bg-(--popup-window-background-color)', // 'bg-(--ui-color-base-white-fixed)/94',
+      'bg-(--ui-color-bg-content-primary)', // 'bg-(--ui-color-base-white-fixed)/94',
       'shadow-(--popup-window-box-shadow)',
       'h-(--reka-navigation-menu-viewport-height)',
       'w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left)',
-      'rounded-(--popup-window-border-radius) will-change-[opacity]',
+      'rounded-(--ui-border-radius-xl) will-change-[opacity]',
       '[&:has(>[data-viewport=rtl])]:left-auto [&:has(>[data-viewport=rtl])]:-right-[calc(100%-var(--reka-navigation-menu-viewport-width))]',
       'transition-[width,height] duration-200 origin-[top_center]', // left
       // @memo see components/popup.css
@@ -123,9 +122,9 @@ export default {
           'min-w-[195px]',
           'whitespace-nowrap',
           'font-[family-name:var(--ui-font-family-primary)]',
-          'text-(length:--menu-popup-item-font-size)',
-          'text-(--menu-popup-item-color) hover:text-(--menu-popup-item-color-hover)',
-          'hover:bg-(--menu-popup-item-bg-color-hover)'
+          'text-(length:--ui-font-size-md)',
+          'text-(--b24ui-typography-legend-color) hover:text-(--b24ui-typography-label-color)',
+          'hover:bg-(--ui-color-divider-optical-1-alt)'
         ].join(' '),
         childLinkLabel: '',
         content: 'absolute top-0 left-0 w-full max-h-[70vh] overflow-y-auto scrollbar-thin scrollbar-transparent'
@@ -155,9 +154,9 @@ export default {
           'min-w-[195px]',
           'whitespace-nowrap',
           'font-[family-name:var(--ui-font-family-primary)]',
-          'text-(length:--menu-popup-item-font-size)',
-          'text-(--menu-popup-item-color) hover:text-(--menu-popup-item-color-hover)',
-          'hover:bg-(--menu-popup-item-bg-color-hover)'
+          'text-(length:--ui-font-size-md)',
+          'text-(--b24ui-typography-legend-color) hover:text-(--b24ui-typography-label-color)',
+          'hover:bg-(--ui-color-divider-optical-1-alt)'
         ].join(' '),
         // @memo 10 + 15 = 25 != 18
         childLabel: [
@@ -166,10 +165,10 @@ export default {
           'flex flex-row rtl:flex-row-reverse items-center',
           'select-none outline-none whitespace-nowrap',
           'text-start',
-          'text-(length:--popup-window-delimiter-font-size)',
-          'text-(--popup-window-delimiter-text-color)',
-          'font-(--popup-window-delimiter-font-weight)',
-          'after:ms-[10px] after:block after:flex-1 after:min-w-[15px] after:h-px after:bg-(--popup-window-delimiter-bg-color)'
+          'text-(length:--ui-size-sm)',
+          'text-(--b24ui-typography-legend-color)',
+          'font-(--ui-font-weight-normal)',
+          'after:ms-[10px] after:block after:flex-1 after:min-w-[15px] after:h-px after:bg-(--ui-color-divider-vibrant-default)'
         ].join(' ')
       }
     },

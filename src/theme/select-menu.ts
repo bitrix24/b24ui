@@ -12,7 +12,7 @@ import select from './select'
 export default () => {
   return defuFn({
     slots: {
-      input: 'border-b border-(--popup-window-delimiter-bg-color)',
+      input: 'border-b border-(--ui-color-divider-vibrant-default)',
       focusScope: 'flex flex-col min-h-0',
       viewport: [
         'relative',
@@ -38,9 +38,9 @@ export default () => {
         true: {
           group: '', // p-0 isolate -m-px
           item: [
-            'text-(--menu-popup-item-color)',
-            'data-highlighted:not-data-disabled:text-(--menu-popup-item-color-hover)',
-            'data-[state=checked]:text-(--menu-popup-item-color-hover)'
+            'text-(--b24ui-typography-legend-color)',
+            'data-highlighted:not-data-disabled:text-(--b24ui-typography-label-color)',
+            'data-[state=checked]:text-(--b24ui-typography-label-color)'
           ].join(' '),
           itemLabel: 'flex flex-row flex-nowrap items-center justify-start gap-2',
           itemLeadingIcon: [

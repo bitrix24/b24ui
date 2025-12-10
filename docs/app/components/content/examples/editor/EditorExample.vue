@@ -610,13 +610,13 @@ const emojiItems: EditorEmojiMenuItem[] = gitHubEmojis.filter(emoji => !emoji.na
     ]"
     :handlers="customHandlers"
     placeholder="Write, type '/' for commands..."
-    :b24ui="{ base: 'p-8 sm:px-16 py-13.5' }"
+    :b24ui="{ base: 'p-8 sm:px-16 py-24' }"
     class="w-full h-176 overflow-y-auto scrollbar-thin"
   >
     <B24EditorToolbar
       :editor="editor"
       :items="fixedToolbarItems"
-      class="border-b border-(--ui-color-design-tinted-na-stroke) absolute top-0 inset-x-0 px-8 mr-2 sm:px-16 py-2 z-50 bg-(--ui-color-bg-content-primary) overflow-x-auto rounded-t-md"
+      class="border-b border-(--ui-color-design-tinted-na-stroke) absolute top-0 inset-x-0 px-8 mr-2 sm:px-16 py-2 z-20 overflow-x-auto rounded-t-md"
     >
       <template #link>
         <EditorLinkPopover :editor="editor" auto-open />

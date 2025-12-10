@@ -56,8 +56,7 @@ export default {
     ].join(' '),
     footer: [
       'absolute inset-x-0 bottom-0',
-      'light',
-      'bg-(--popup-window-background-color)', // --ui-color-bg-content-primary
+      'bg-(--ui-color-bg-content-primary)', // --ui-color-bg-content-primary
       'flex items-center justify-center gap-3',
       'border-t border-t-1 border-t-(--ui-color-divider-less)',
       'shadow-top-md',

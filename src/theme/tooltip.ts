@@ -22,7 +22,7 @@ export default {
       'text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) font-[family-name:var(--ui-font-family-primary)]',
       'bg-(--ui-color-bg-content-primary)/80',
       'text-(--ui-color-design-plain-na-focused-content)',
-      'rounded-[calc(var(--popup-window-border-radius)-2px)]',
+      'rounded-[calc(var(--ui-border-radius-xl)-2px)]',
       // @memo see components/popup.css
       // 'border border-(--popup-window-border)'
       'origin-(--reka-tooltip-content-transform-origin)',

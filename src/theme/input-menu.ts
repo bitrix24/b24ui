@@ -37,11 +37,10 @@ export default () => {
         'disabled:opacity-30'
       ].join(' '),
       content: [
-        'light',
         // w-(--reka-combobox-trigger-width)
-        'bg-(--popup-window-background-color)',
+        'bg-(--ui-color-bg-content-primary)',
         'shadow-(--popup-window-box-shadow)',
-        'rounded-(--popup-window-border-radius) will-change-[opacity]',
+        'rounded-(--ui-border-radius-xl) will-change-[opacity]',
         'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]',
         'origin-(--reka-dropdown-menu-content-transform-origin)',
         'font-[family-name:var(--ui-font-family-primary)]',
@@ -56,7 +55,7 @@ export default () => {
         'w-[240px] max-h-[40vh]',
         'overflow-x-hidden overflow-y-auto scrollbar-thin' // scrollbar-transparent
       ].join(' '),
-      arrow: 'fill-(--popup-window-background-color)', // for content bottom|top::start -> ml-[12px]
+      arrow: 'fill-(--ui-color-bg-content-primary)', // for content bottom|top::start -> ml-[12px]
       group: 'grid',
       empty: [
         'h-(--popup-window-delimiter-section-height)',
@@ -64,9 +63,9 @@ export default () => {
         'py-[8px]',
         'select-none outline-none whitespace-nowrap',
         'text-center',
-        'text-(length:--popup-window-delimiter-font-size)/(--ui-font-line-height-lg)',
-        'text-(--popup-window-delimiter-text-color)',
-        'font-(--popup-window-delimiter-font-weight)'
+        'text-(length:--ui-size-sm)/(--ui-font-line-height-lg)',
+        'text-(--b24ui-typography-legend-color)',
+        'font-(--ui-font-weight-normal)'
       ].join(' '),
       label: [
         'w-full min-w-[195px] h-(--popup-window-delimiter-section-height)',
@@ -74,12 +73,12 @@ export default () => {
         'flex flex-row rtl:flex-row-reverse items-center',
         'select-none outline-none whitespace-nowrap',
         'text-start',
-        'text-(length:--popup-window-delimiter-font-size)',
-        'text-(--popup-window-delimiter-text-color)',
-        'font-(--popup-window-delimiter-font-weight)',
-        'after:ms-[10px] after:block after:flex-1 after:min-w-[15px] after:h-px after:bg-(--popup-window-delimiter-bg-color)'
+        'text-(length:--ui-size-sm)',
+        'text-(--b24ui-typography-legend-color)',
+        'font-(--ui-font-weight-normal)',
+        'after:ms-[10px] after:block after:flex-1 after:min-w-[15px] after:h-px after:bg-(--ui-color-divider-vibrant-default)'
       ].join(' '),
-      separator: 'my-[8px] mx-[18px] h-[1px] bg-(--popup-window-delimiter-bg-color)',
+      separator: 'my-[8px] mx-[18px] h-[1px] bg-(--ui-color-divider-vibrant-default)',
       item: [
         'group',
         'w-full min-w-[195px] h-[36px]',
@@ -91,14 +90,14 @@ export default () => {
         'data-disabled:cursor-not-allowed data-disabled:opacity-30',
         'data-disabled:select-none',
         'text-start',
-        'text-(length:--menu-popup-item-font-size)',
-        'text-(--menu-popup-item-color) hover:text-(--menu-popup-item-color-hover)',
-        'data-highlighted:not-data-disabled:text-(--menu-popup-item-color-hover)',
-        'data-[state=open]:text-(--menu-popup-item-color-hover)',
-        'data-[state=checked]:text-(--menu-popup-item-color-hover)',
-        'hover:bg-(--menu-popup-item-bg-color-hover)',
-        'data-highlighted:bg-(--menu-popup-item-bg-color-hover)',
-        'data-[state=open]:bg-(--menu-popup-item-bg-color-hover)',
+        'text-(length:--ui-font-size-md)',
+        'text-(--b24ui-typography-legend-color) hover:text-(--b24ui-typography-label-color)',
+        'data-highlighted:not-data-disabled:text-(--b24ui-typography-label-color)',
+        'data-[state=open]:text-(--b24ui-typography-label-color)',
+        'data-[state=checked]:text-(--b24ui-typography-label-color)',
+        'hover:bg-(--ui-color-divider-optical-1-alt)',
+        'data-highlighted:bg-(--ui-color-divider-optical-1-alt)',
+        'data-[state=open]:bg-(--ui-color-divider-optical-1-alt)',
         'transition-colors'
       ].join(' '),
       itemLeadingIcon: [
@@ -159,9 +158,9 @@ export default () => {
         true: {
           group: '', // p-0 isolate -m-px
           item: [
-            'text-(--menu-popup-item-color)',
-            'data-highlighted:not-data-disabled:text-(--menu-popup-item-color-hover)',
-            'data-[state=checked]:text-(--menu-popup-item-color-hover)'
+            'text-(--b24ui-typography-legend-color)',
+            'data-highlighted:not-data-disabled:text-(--b24ui-typography-label-color)',
+            'data-[state=checked]:text-(--b24ui-typography-label-color)'
           ].join(' '),
           itemLabel: 'flex flex-row flex-nowrap items-center justify-start gap-2',
           itemLeadingIcon: [

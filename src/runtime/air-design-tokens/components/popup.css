@@ -1,44 +1,14 @@
 /**
  * Popup
  * @see /bitrix/js/intranet/design-tokens/bitrix24/air-design-tokens.css
- *
  * @fix --menu-popup-padding
  */
 
 /* .popup-window { */
 @layer theme {
   :root, :host {
-    --popup-window-background-color: var(--ui-color-base-white-fixed);
-
-    --popup-window-border-radius: 14px; /* 18px */
-    --popup-window-content-border-radius: 4px;
-    /*--popup-window-border: 1px solid #f0f0f0;*/
     --popup-window-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.21);
-    --popup-window-button-border-radius: var(--ui-border-radius-2xs);
-
-    --popup-window-delimiter-margin: 0 18px;
-    --popup-window-delimiter-height: 17px;
-    --popup-window-delimiter-section-height: 33px;
-    --popup-window-delimiter-text-transform: none;
-    --popup-window-delimiter-font-size: 12px;
-    --popup-window-delimiter-text-color: #a7a7a7;
-    --popup-window-delimiter-font-weight: var(--ui-font-weight-normal);
-    --popup-window-delimiter-bg-color: #f0f0f0;
-    --popup-window-delimiter-left-line-display: none;
-    --popup-window-delimiter-text-padding: 0 10px 0 0;
-
     --menu-popup-padding: 10px;
-    --menu-popup-item-font-size: 14px;
-    --menu-popup-item-color: #333;
-    --menu-popup-item-color-hover: #333;
-    --menu-popup-item-color-active: #333;
-    --menu-popup-item-bg-color-hover: #00000008;
-    --menu-popup-item-bg-color-active: #0000000F;
-    --menu-popup-item-padding: 0 18px;
-    --menu-popup-item-has-submenu-padding: 60px;
-
-    --menu-popup-item-chevron-width: 24px;
-    --menu-popup-item-chevron-height: 25px;
-    --menu-popup-item-chevron-right: 18px;
+    --popup-window-delimiter-section-height: 33px;
   }
 }

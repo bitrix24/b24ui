@@ -488,7 +488,7 @@ exports[`Slideover > renders with footer slot correctly 1`] = `
         <!--v-if-->
       </div><!-- Page Bottom -->
       <div data-slot="pageBottomWrapper" class="flex-0 relative">
-        <div data-slot="footer" class="absolute inset-x-0 bottom-0 light bg-(--popup-window-background-color) flex items-center justify-center gap-3 border-t-1 border-t-(--ui-color-divider-less) shadow-top-md py-[9px] px-2 pr-(--scrollbar-width)">Footer slot</div>
+        <div data-slot="footer" class="absolute inset-x-0 bottom-0 bg-(--ui-color-bg-content-primary) flex items-center justify-center gap-3 border-t-1 border-t-(--ui-color-divider-less) shadow-top-md py-[9px] px-2 pr-(--scrollbar-width)">Footer slot</div>
       </div>
     </div>
   </div>

@@ -14,8 +14,7 @@ export default {
   slots: {
     overlay: 'fixed inset-0',
     content: [
-      'light',
-      'bg-(--popup-window-background-color)',
+      'bg-(--ui-color-bg-content-primary)',
       'flex flex-col gap-[20px]',
       'focus:outline-none',
       'p-[24px] pt-[20px]'
@@ -64,7 +63,7 @@ export default {
           // // 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
           'w-[calc(100vw-2rem)] max-w-[32rem]',
           // // 'max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)]',
-          'rounded-[calc(var(--popup-window-border-radius)-2px)] shadow-lg'
+          'rounded-[calc(var(--ui-border-radius-xl)-2px)] shadow-lg'
           // @memo see components/popup.css
           // 'ring ring-(--popup-window-border)'
         ].join(' '),
