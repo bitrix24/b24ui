@@ -616,7 +616,7 @@ const emojiItems: EditorEmojiMenuItem[] = gitHubEmojis.filter(emoji => !emoji.na
     <B24EditorToolbar
       :editor="editor"
       :items="fixedToolbarItems"
-      class="border-b border-(--ui-color-design-tinted-na-stroke) absolute top-0 inset-x-0 px-8 mr-2 sm:px-16 py-2 z-20 overflow-x-auto rounded-t-md"
+      class="border-b border-(--ui-color-design-tinted-na-stroke) absolute top-0 inset-x-0 px-8 mr-2 sm:px-16 py-2 z-20 bg-(--ui-color-bg-content-primary) overflow-x-auto rounded-t-md"
     >
       <template #link>
         <EditorLinkPopover :editor="editor" auto-open />

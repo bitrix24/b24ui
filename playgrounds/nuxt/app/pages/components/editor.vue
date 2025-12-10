@@ -46,7 +46,7 @@ const content = ref(`# Bitrix24 UI: A Modern UI Library
 Welcome to **Bitrix24 UI**, a comprehensive UI library for *Bitrix24* applications.
 Built with [Tailwind CSS](https://tailwindcss.com) and [Reka UI](https://reka-ui.com), it provides a complete set of components for building beautiful interfaces.
 
-![Image](https://bitrix24.github.io/b24ui/assets/demo/b24rich_new.png)
+![Placeholder](https://bitrix24.github.io/b24ui/assets/demo/b24rich_new.png)
 
 ## Key Features
 
@@ -422,109 +422,98 @@ const emojiItems: EditorEmojiMenuItem[] = gitHubEmojis.filter(emoji => !emoji.na
 </script>
 
 <template>
-  <B24Card
-    class="mt-[12px] light"
-    :b24ui="{
-      body: [
-        'min-h-21',
-        'p-0 sm:px-0 sm:py-0',
-        'relative',
-        'flex-1',
-        'flex flex-col',
-        'min-w-0',
-        'relative h-[calc(100vh-var(--topbar-height)-26px)] '
-      ].join(' ')
-    }"
+  <div
+    class="mt-[24px] relative h-[calc(100vh-var(--topbar-height)-56px)] !p-0 rounded-md bg-(--ui-color-design-outline-a1-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight)"
   >
-    <div class="sm:px-14 mt-14 overflow-y-auto scrollbar-thin scrollbar-transparent">
-      <B24Editor
-        v-slot="{ editor, handlers }"
-        v-model="content"
-        :extensions="[
-          Emoji,
-          ImageUpload,
-          TextAlign.configure({
-            types: ['heading', 'paragraph']
-          })
-        ]"
-        :handlers="customHandlers"
-        content-type="markdown"
-        autofocus
-        placeholder="Write, type '/' for commands..."
-        class="min-h-0"
-        :b24ui="{ base: '', content: '' }"
+    <B24Editor
+      v-slot="{ editor, handlers }"
+      v-model="content"
+      :extensions="[
+        Emoji,
+        ImageUpload,
+        TextAlign.configure({
+          types: ['heading', 'paragraph']
+        })
+      ]"
+      :handlers="customHandlers"
+      content-type="markdown"
+      autofocus
+      placeholder="Write, type '/' for commands..."
+      :b24ui="{ base: 'p-8 sm:px-16 py-24' }"
+      class="w-full h-[calc(100vh-var(--topbar-height)-56px)] overflow-y-auto scrollbar-thin scrollbar-transparent"
+    >
+      <B24EditorToolbar
+        :editor="editor"
+        :items="toolbarItems"
+        class="border-b border-(--ui-color-design-tinted-na-stroke) absolute top-0 inset-x-0 px-8 mr-2 sm:px-16 py-2 z-20 overflow-x-auto rounded-t-md"
       >
-        <Navbar>
-          <B24EditorToolbar :editor="editor" :items="toolbarItems">
-            <template #link>
-              <EditorLinkPopover :editor="editor" auto-open />
-            </template>
-          </B24EditorToolbar>
-        </Navbar>
+        <template #link>
+          <EditorLinkPopover :editor="editor" auto-open />
+        </template>
+      </B24EditorToolbar>
 
-        <B24EditorToolbar
-          :editor="editor"
-          :items="toolbarItems"
-          layout="bubble"
-          :should-show="({ editor, view, state }) => {
-            if (editor.isActive('imageUpload') || editor.isActive('image')) {
-              return false
-            }
-            const { selection } = state
-            return view.hasFocus() && !selection.empty
-          }"
-        >
-          <template #link>
-            <EditorLinkPopover :editor="editor" />
-          </template>
-        </B24EditorToolbar>
+      <B24EditorToolbar
+        :editor="editor"
+        :items="toolbarItems"
+        layout="bubble"
+        :should-show="({ editor, view, state }) => {
+          if (editor.isActive('imageUpload') || editor.isActive('image')) {
+            return false
+          }
+          const { selection } = state
+          return view.hasFocus() && !selection.empty
+        }"
+      >
+        <template #link>
+          <EditorLinkPopover :editor="editor" />
+        </template>
+      </B24EditorToolbar>
 
-        <B24EditorToolbar
-          :editor="editor"
-          :items="imageToolbarItems(editor)"
-          layout="bubble"
-          :should-show="({ editor, view }) => {
-            return editor.isActive('image') && view.hasFocus()
+      <B24EditorToolbar
+        :editor="editor"
+        :items="imageToolbarItems(editor)"
+        layout="bubble"
+        :should-show="({ editor, view }) => {
+          return editor.isActive('image') && view.hasFocus()
+        }"
+      />
+
+      <B24EditorDragHandle v-slot="{ b24ui, onClick }" :editor="editor" @node-change="selectedNode = $event">
+        <B24Button
+          :icon="PlusLIcon"
+          color="air-tertiary"
+          variant="ghost"
+          size="sm"
+          :class="b24ui.handle()"
+          @click="(e) => {
+            e.stopPropagation()
+
+            const selected = onClick()
+            handlers.suggestion?.execute(editor, { pos: selected?.pos }).run()
           }"
         />
 
-        <B24EditorDragHandle v-slot="{ b24ui, onClick }" :editor="editor" @node-change="selectedNode = $event">
+        <B24DropdownMenu
+          v-slot="{ open }"
+          :modal="false"
+          :items="handleItems(editor)"
+          :content="{ side: 'left' }"
+          :b24ui="{ content: 'w-48', label: 'text-xs' }"
+          @update:open="editor.chain().setMeta('lockDragHandle', $event).run()"
+        >
           <B24Button
-            :icon="PlusLIcon"
             color="air-tertiary"
-            variant="ghost"
             size="sm"
+            :icon="DragLIcon"
+            :active="open"
             :class="b24ui.handle()"
-            @click="(e) => {
-              e.stopPropagation()
-
-              const selected = onClick()
-              handlers.suggestion?.execute(editor, { pos: selected?.pos }).run()
-            }"
           />
+        </B24DropdownMenu>
+      </B24EditorDragHandle>
 
-          <B24DropdownMenu
-            v-slot="{ open }"
-            :modal="false"
-            :items="handleItems(editor)"
-            :content="{ side: 'left' }"
-            :b24ui="{ content: 'w-48', label: 'text-xs' }"
-            @update:open="editor.chain().setMeta('lockDragHandle', $event).run()"
-          >
-            <B24Button
-              color="air-tertiary"
-              size="sm"
-              :icon="DragLIcon"
-              :active="open"
-              :class="b24ui.handle()"
-            />
-          </B24DropdownMenu>
-        </B24EditorDragHandle>
-
-        <B24EditorSuggestionMenu :editor="editor" :items="suggestionItems" />
-        <B24EditorMentionMenu :editor="editor" :items="mentionItems" />
-        <B24EditorEmojiMenu :editor="editor" :items="emojiItems" />
-      </B24Editor>
-    </div>
-  </B24Card>
+      <B24EditorSuggestionMenu :editor="editor" :items="suggestionItems" />
+      <B24EditorMentionMenu :editor="editor" :items="mentionItems" />
+      <B24EditorEmojiMenu :editor="editor" :items="emojiItems" />
+</B24Editor>
+  </div>
 </template>
