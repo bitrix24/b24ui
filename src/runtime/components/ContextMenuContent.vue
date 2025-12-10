@@ -50,6 +50,8 @@ import B24Avatar from './Avatar.vue'
 import B24Kbd from './Kbd.vue'
 import B24ContextMenuContent from './ContextMenuContent.vue'
 
+defineOptions({ inheritAttrs: false })
+
 const props = defineProps<ContextMenuContentProps<T>>()
 const emits = defineEmits<ContextMenuContentEmits>()
 const slots = defineSlots<ContextMenuSlots<T>>()

@@ -66,6 +66,8 @@ import B24Avatar from './Avatar.vue'
 import B24Kbd from './Kbd.vue'
 import B24DropdownMenuContent from './DropdownMenuContent.vue'
 
+defineOptions({ inheritAttrs: false })
+
 const props = defineProps<DropdownMenuContentProps<T>>()
 const emits = defineEmits<DropdownMenuContentEmits>()
 const slots = defineSlots<DropdownMenuContentSlots<T>>()
@@ -76,7 +78,7 @@ const { dir } = useLocale()
 const portalProps = usePortal(toRef(() => props.portal))
 /** @memo we not use 'loadingIcon' */
 const contentProps = useForwardPropsEmits(reactiveOmit(props, 'sub', 'items', 'portal', 'labelKey', 'descriptionKey', 'checkedIcon', 'externalIcon', 'class', 'b24ui', 'b24uiOverride'), emits)
-const proxySlots = omit(slots, ['default'])
+const getProxySlots = () => omit(slots, ['default'])
 const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10 }) as DropdownMenuArrowProps)
 
 const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: DropdownMenuItem, active?: boolean, index: number }>()
@@ -245,7 +247,7 @@ const groups = computed<DropdownMenuItem[][]>(() =>
                 :external-icon="externalIcon"
                 v-bind="item.content"
               >
-                <template v-for="(_, name) in proxySlots" #[name]="slotData">
+                <template v-for="(_, name) in getProxySlots()" #[name]="slotData">
                   <slot :name="(name as keyof DropdownMenuContentSlots<T>)" v-bind="slotData" />
                 </template>
                 <DropdownMenuArrow v-if="!!arrow" v-bind="arrowProps" data-slot="arrow" :class="b24ui.arrow({ class: props.b24ui?.arrow })" />
