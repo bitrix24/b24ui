@@ -105,6 +105,7 @@ const ariaLabel = computed(() => {
     :data-orientation="orientation"
     data-slot="root"
     :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
+    v-bind="$attrs"
     @click="onClick"
   >
     <div data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">
@@ -146,7 +147,7 @@ const ariaLabel = computed(() => {
     <B24Link
       v-if="to"
       :aria-label="ariaLabel"
-      v-bind="{ to, target, ...$attrs }"
+      v-bind="{ to, target }"
       class="focus:outline-none peer"
       raw
     >
