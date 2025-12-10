@@ -223,10 +223,10 @@ exports[`User > renders with size xs correctly 1`] = `
 `;
 
 exports[`User > renders with to correctly 1`] = `
-"<div data-orientation="horizontal" data-slot="root" class="relative group/user flex items-center gap-2"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--ui-color-base-8) ring ring-(--ui-color-base-7) size-[32px] text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) shrink-0 transform transition-transform duration-200 group-hover/user:scale-115"><img src="https://github.com/bitrix24.png" alt="User alt" width="32" height="32" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
-  <div data-slot="wrapper" class=""><a href="https://github.com/bitrix24" tabindex="-1" rel="noopener noreferrer" aria-label="User name" class="focus:outline-none peer"><span class="absolute inset-0" aria-hidden="true"></span></a>
-    <p data-slot="name" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-label-color) peer-hover:text-(--ui-color-design-selection-content) transition-colors text-(length:--ui-font-size-sm)">User name</p>
-    <p data-slot="description" class="text-(--b24ui-typography-description-color) peer-hover:text-(--ui-color-design-selection-content) transition-colors text-(length:--ui-font-size-xs)">User description</p>
+"<div data-orientation="horizontal" data-slot="root" class="relative group/user flex items-center gap-2"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--ui-color-base-8) ring ring-(--ui-color-base-7) size-[32px] text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) shrink-0 transform transition-transform duration-200 group-hover/user:scale-115 group-has-focus-visible/user:scale-115"><img src="https://github.com/bitrix24.png" alt="User alt" width="32" height="32" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span>
+  <div data-slot="wrapper" class=""><a href="https://github.com/bitrix24" rel="noopener noreferrer" aria-label="User name" class="focus:outline-none peer"><span class="absolute inset-0" aria-hidden="true"></span></a>
+    <p data-slot="name" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-label-color) peer-hover:text-(--ui-color-design-selection-content) peer-focus-visible:text-(--ui-color-design-selection-content) transition-colors text-(length:--ui-font-size-sm)">User name</p>
+    <p data-slot="description" class="text-(--b24ui-typography-description-color) peer-hover:text-(--ui-color-design-selection-content) peer-focus-visible:text-(--ui-color-design-selection-content) transition-colors text-(length:--ui-font-size-xs)">User description</p>
   </div>
 </div>"
 `;

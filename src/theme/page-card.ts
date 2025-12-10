@@ -300,7 +300,7 @@ export default {
     },
     to: {
       true: {
-        root: 'transition'
+        root: 'has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition'
       }
     },
     title: {
@@ -536,15 +536,9 @@ export default {
       highlightColor: 'air-primary-warning',
       highlight: true,
       class: { root: 'ring-(--ui-color-design-filled-warning-stroke)' }
-    },
+    }
     // endregion ////
     // region to ////
-    {
-      to: true,
-      class: {
-        root: 'has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)'
-      }
-    }
     // endregion ////
   ],
   defaultVariants: {

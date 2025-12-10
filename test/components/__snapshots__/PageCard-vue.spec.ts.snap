@@ -435,7 +435,7 @@ exports[`PageCard > renders with title slot correctly 1`] = `
 `;
 
 exports[`PageCard > renders with to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <!--v-if-->
   </div><a href="https://github.com/bitrix24" rel="noopener noreferrer" aria-label="Card link" class="focus:outline-none peer"><span class="absolute inset-0" aria-hidden="true"></span></a>
@@ -481,7 +481,7 @@ exports[`PageCard > renders with variant filled highlight correctly 1`] = `
 `;
 
 exports[`PageCard > renders with variant filled to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-filled-bg) border-(--ui-color-design-filled-stroke) border-(length:--ui-design-filled-stroke-weight) text-(--ui-color-design-filled-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-filled-bg) border-(--ui-color-design-filled-stroke) border-(length:--ui-design-filled-stroke-weight) text-(--ui-color-design-filled-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -537,7 +537,7 @@ exports[`PageCard > renders with variant filled-alert highlight correctly 1`] = 
 `;
 
 exports[`PageCard > renders with variant filled-alert to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-filled-alert-bg) border-(--ui-color-design-filled-alert-stroke) border-(length:--ui-design-filled-alert-stroke-weight) text-(--ui-color-design-filled-alert-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-alert-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-filled-alert-bg) border-(--ui-color-design-filled-alert-stroke) border-(length:--ui-design-filled-alert-stroke-weight) text-(--ui-color-design-filled-alert-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-alert-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -593,7 +593,7 @@ exports[`PageCard > renders with variant filled-black highlight correctly 1`] = 
 `;
 
 exports[`PageCard > renders with variant filled-black to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-filled-black-bg) border-(--ui-color-design-filled-black-stroke) border-(length:--ui-design-filled-black-stroke-weight) text-(--ui-color-design-filled-black-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-black-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-filled-black-bg) border-(--ui-color-design-filled-black-stroke) border-(length:--ui-design-filled-black-stroke-weight) text-(--ui-color-design-filled-black-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-black-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -649,7 +649,7 @@ exports[`PageCard > renders with variant filled-copilot highlight correctly 1`] 
 `;
 
 exports[`PageCard > renders with variant filled-copilot to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-filled-copilot-bg) border-(--ui-color-design-filled-copilot-stroke) border-(length:--ui-design-filled-copilot-stroke-weight) text-(--ui-color-design-filled-copilot-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-copilot-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-filled-copilot-bg) border-(--ui-color-design-filled-copilot-stroke) border-(length:--ui-design-filled-copilot-stroke-weight) text-(--ui-color-design-filled-copilot-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-copilot-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -705,7 +705,7 @@ exports[`PageCard > renders with variant filled-no-accent highlight correctly 1`
 `;
 
 exports[`PageCard > renders with variant filled-no-accent to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-filled-na-bg) border-(--ui-color-design-filled-na-stroke) border-(length:--ui-design-filled-na-stroke-weight) text-(--ui-color-design-filled-na-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-na-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-filled-na-bg) border-(--ui-color-design-filled-na-stroke) border-(length:--ui-design-filled-na-stroke-weight) text-(--ui-color-design-filled-na-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-na-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -761,7 +761,7 @@ exports[`PageCard > renders with variant filled-success highlight correctly 1`] 
 `;
 
 exports[`PageCard > renders with variant filled-success to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-filled-success-bg) border-(--ui-color-design-filled-success-stroke) border-(length:--ui-design-filled-success-stroke-weight) text-(--ui-color-design-filled-success-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-success-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-filled-success-bg) border-(--ui-color-design-filled-success-stroke) border-(length:--ui-design-filled-success-stroke-weight) text-(--ui-color-design-filled-success-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-success-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -817,7 +817,7 @@ exports[`PageCard > renders with variant filled-warning highlight correctly 1`] 
 `;
 
 exports[`PageCard > renders with variant filled-warning to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-filled-warning-bg) border-(--ui-color-design-filled-warning-stroke) border-(length:--ui-design-filled-warning-stroke-weight) text-(--ui-color-design-filled-warning-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-warning-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-filled-warning-bg) border-(--ui-color-design-filled-warning-stroke) border-(length:--ui-design-filled-warning-stroke-weight) text-(--ui-color-design-filled-warning-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-filled-warning-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -873,7 +873,7 @@ exports[`PageCard > renders with variant outline highlight correctly 1`] = `
 `;
 
 exports[`PageCard > renders with variant outline to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -929,7 +929,7 @@ exports[`PageCard > renders with variant outline-accent highlight correctly 1`] 
 `;
 
 exports[`PageCard > renders with variant outline-accent to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-a1-bg) border-(--ui-color-design-outline-a1-stroke) border-(length:--ui-design-outline-a1-stroke-weight) text-(--ui-color-design-outline-a1-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-a1-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-a1-bg) border-(--ui-color-design-outline-a1-stroke) border-(length:--ui-design-outline-a1-stroke-weight) text-(--ui-color-design-outline-a1-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-a1-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -985,7 +985,7 @@ exports[`PageCard > renders with variant outline-accent-2 highlight correctly 1`
 `;
 
 exports[`PageCard > renders with variant outline-accent-2 to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-a2-bg) border-(--ui-color-design-outline-a2-stroke) border-(length:--ui-design-outline-a2-stroke-weight) text-(--ui-color-design-outline-a2-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-a2-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-a2-bg) border-(--ui-color-design-outline-a2-stroke) border-(length:--ui-design-outline-a2-stroke-weight) text-(--ui-color-design-outline-a2-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-a2-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -1041,7 +1041,7 @@ exports[`PageCard > renders with variant outline-alert highlight correctly 1`] =
 `;
 
 exports[`PageCard > renders with variant outline-alert to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-alert-bg) border-(--ui-color-design-outline-alert-stroke) border-(length:--ui-design-outline-alert-stroke-weight) text-(--ui-color-design-outline-alert-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-alert-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-alert-bg) border-(--ui-color-design-outline-alert-stroke) border-(length:--ui-design-outline-alert-stroke-weight) text-(--ui-color-design-outline-alert-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-alert-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -1097,7 +1097,7 @@ exports[`PageCard > renders with variant outline-alt highlight correctly 1`] = `
 `;
 
 exports[`PageCard > renders with variant outline-alt to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg-alt) border-(--ui-color-design-outline-content-divider) border-(length:--ui-design-outline-stroke-weight-alt) text-(--ui-color-design-outline-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-bg-alt)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg-alt) border-(--ui-color-design-outline-content-divider) border-(length:--ui-design-outline-stroke-weight-alt) text-(--ui-color-design-outline-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-bg-alt)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -1153,7 +1153,7 @@ exports[`PageCard > renders with variant outline-copilot highlight correctly 1`]
 `;
 
 exports[`PageCard > renders with variant outline-copilot to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-copilot-bg) border-(--ui-color-design-outline-copilot-stroke) border-(length:--ui-design-outline-copilot-stroke-weight) text-(--ui-color-design-outline-copilot-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-copilot-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-copilot-bg) border-(--ui-color-design-outline-copilot-stroke) border-(length:--ui-design-outline-copilot-stroke-weight) text-(--ui-color-design-outline-copilot-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-copilot-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -1209,7 +1209,7 @@ exports[`PageCard > renders with variant outline-no-accent highlight correctly 1
 `;
 
 exports[`PageCard > renders with variant outline-no-accent to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-na-bg) border-(--ui-color-design-outline-na-stroke) border-(length:--ui-design-outline-na-stroke-weight) text-(--ui-color-design-outline-na-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-na-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-na-bg) border-(--ui-color-design-outline-na-stroke) border-(length:--ui-design-outline-na-stroke-weight) text-(--ui-color-design-outline-na-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-na-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -1265,7 +1265,7 @@ exports[`PageCard > renders with variant outline-success highlight correctly 1`]
 `;
 
 exports[`PageCard > renders with variant outline-success to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-success-bg) border-(--ui-color-design-outline-success-stroke) border-(length:--ui-design-outline-success-stroke-weight) text-(--ui-color-design-outline-success-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-success-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-success-bg) border-(--ui-color-design-outline-success-stroke) border-(length:--ui-design-outline-success-stroke-weight) text-(--ui-color-design-outline-success-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-success-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -1321,7 +1321,7 @@ exports[`PageCard > renders with variant outline-warning highlight correctly 1`]
 `;
 
 exports[`PageCard > renders with variant outline-warning to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-warning-bg) border-(--ui-color-design-outline-warning-stroke) border-(length:--ui-design-outline-warning-stroke-weight) text-(--ui-color-design-outline-warning-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-warning-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-warning-bg) border-(--ui-color-design-outline-warning-stroke) border-(length:--ui-design-outline-warning-stroke-weight) text-(--ui-color-design-outline-warning-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-outline-warning-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -1377,7 +1377,7 @@ exports[`PageCard > renders with variant plain highlight correctly 1`] = `
 `;
 
 exports[`PageCard > renders with variant plain to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-plain-bg) border-(--ui-color-design-plain-stroke) border-(length:--ui-design-plain-stroke-weight) text-(--ui-color-design-plain-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-plain-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-plain-bg) border-(--ui-color-design-plain-stroke) border-(length:--ui-design-plain-stroke-weight) text-(--ui-color-design-plain-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-plain-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -1433,7 +1433,7 @@ exports[`PageCard > renders with variant plain-accent highlight correctly 1`] = 
 `;
 
 exports[`PageCard > renders with variant plain-accent to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-plain-a-bg) border-(--ui-color-design-plain-a-stroke) border-(length:--ui-design-plain-a-stroke-weight) text-(--ui-color-design-plain-a-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-plain-a-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-plain-a-bg) border-(--ui-color-design-plain-a-stroke) border-(length:--ui-design-plain-a-stroke-weight) text-(--ui-color-design-plain-a-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-plain-a-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -1489,7 +1489,7 @@ exports[`PageCard > renders with variant plain-no-accent highlight correctly 1`]
 `;
 
 exports[`PageCard > renders with variant plain-no-accent to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-plain-na-bg) border-(--ui-color-design-plain-na-stroke) border-(length:--ui-design-plain-na-stroke-weight) text-(--ui-color-design-plain-na-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-plain-na-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-plain-na-bg) border-(--ui-color-design-plain-na-stroke) border-(length:--ui-design-plain-na-stroke-weight) text-(--ui-color-design-plain-na-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-plain-na-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -1545,7 +1545,7 @@ exports[`PageCard > renders with variant selection highlight correctly 1`] = `
 `;
 
 exports[`PageCard > renders with variant selection to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-selection-bg) border-(--ui-color-design-selection-stroke) border-(length:--ui-design-selection-stroke-weight) text-(--ui-color-design-selection-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-selection-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-selection-bg) border-(--ui-color-design-selection-stroke) border-(length:--ui-design-selection-stroke-weight) text-(--ui-color-design-selection-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-selection-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -1601,7 +1601,7 @@ exports[`PageCard > renders with variant tinted highlight correctly 1`] = `
 `;
 
 exports[`PageCard > renders with variant tinted to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-tinted-bg) border-(--ui-color-design-tinted-stroke) border-(length:--ui-design-tinted-stroke-weight) text-(--ui-color-design-tinted-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-tinted-bg) border-(--ui-color-design-tinted-stroke) border-(length:--ui-design-tinted-stroke-weight) text-(--ui-color-design-tinted-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -1657,7 +1657,7 @@ exports[`PageCard > renders with variant tinted-accent-1 highlight correctly 1`]
 `;
 
 exports[`PageCard > renders with variant tinted-accent-1 to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-tinted-a1-bg) border-(--ui-color-design-tinted-a1-stroke) border-(length:--ui-design-tinted-a1-stroke-weight) text-(--ui-color-design-tinted-a1-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-a1-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-tinted-a1-bg) border-(--ui-color-design-tinted-a1-stroke) border-(length:--ui-design-tinted-a1-stroke-weight) text-(--ui-color-design-tinted-a1-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-a1-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -1713,7 +1713,7 @@ exports[`PageCard > renders with variant tinted-alert highlight correctly 1`] = 
 `;
 
 exports[`PageCard > renders with variant tinted-alert to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-tinted-alert-bg) border-(--ui-color-design-tinted-alert-stroke) border-(length:--ui-design-tinted-alert-stroke-weight) text-(--ui-color-design-tinted-alert-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-alert-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-tinted-alert-bg) border-(--ui-color-design-tinted-alert-stroke) border-(length:--ui-design-tinted-alert-stroke-weight) text-(--ui-color-design-tinted-alert-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-alert-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -1769,7 +1769,7 @@ exports[`PageCard > renders with variant tinted-alt highlight correctly 1`] = `
 `;
 
 exports[`PageCard > renders with variant tinted-alt to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-tinted-bg-alt) border-(--ui-color-design-tinted-stroke) border-(length:--ui-design-tinted-stroke-weight) text-(--ui-color-design-tinted-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-bg-alt)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-tinted-bg-alt) border-(--ui-color-design-tinted-stroke) border-(length:--ui-design-tinted-stroke-weight) text-(--ui-color-design-tinted-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-bg-alt)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -1825,7 +1825,7 @@ exports[`PageCard > renders with variant tinted-no-accent highlight correctly 1`
 `;
 
 exports[`PageCard > renders with variant tinted-no-accent to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-tinted-na-bg) border-(--ui-color-design-tinted-na-stroke) border-(length:--ui-design-tinted-na-stroke-weight) text-(--ui-color-design-tinted-na-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-na-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-tinted-na-bg) border-(--ui-color-design-tinted-na-stroke) border-(length:--ui-design-tinted-na-stroke-weight) text-(--ui-color-design-tinted-na-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-na-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -1881,7 +1881,7 @@ exports[`PageCard > renders with variant tinted-success highlight correctly 1`] 
 `;
 
 exports[`PageCard > renders with variant tinted-success to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-tinted-success-bg) border-(--ui-color-design-tinted-success-stroke) border-(length:--ui-design-tinted-success-stroke-weight) text-(--ui-color-design-tinted-success-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-success-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-tinted-success-bg) border-(--ui-color-design-tinted-success-stroke) border-(length:--ui-design-tinted-success-stroke-weight) text-(--ui-color-design-tinted-success-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-success-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->
@@ -1937,7 +1937,7 @@ exports[`PageCard > renders with variant tinted-warning highlight correctly 1`] 
 `;
 
 exports[`PageCard > renders with variant tinted-warning to correctly 1`] = `
-"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-tinted-warning-bg) border-(--ui-color-design-tinted-warning-stroke) border-(length:--ui-design-tinted-warning-stroke-weight) text-(--ui-color-design-tinted-warning-content) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-warning-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke)">
+"<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-tinted-warning-bg) border-(--ui-color-design-tinted-warning-stroke) border-(length:--ui-design-tinted-warning-stroke-weight) text-(--ui-color-design-tinted-warning-content) has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-design-filled-stroke) transition hover:bg-[color-mix(in_srgb,_var(--ui-color-design-tinted-warning-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))]">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
     <div data-slot="wrapper" class="flex flex-col flex-1 items-start">
       <!--v-if-->

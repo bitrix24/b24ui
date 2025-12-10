@@ -102,7 +102,6 @@ const chipSize = computed<ChipProps['size']>(() => {
         :aria-label="name"
         v-bind="{ to, target, ...$attrs }"
         class="focus:outline-none peer"
-        tabindex="-1"
         raw
       >
         <span class="absolute inset-0" aria-hidden="true" />
