@@ -7,6 +7,7 @@
 * **locale/Indian:** add locale Indian (हिन्दी)
 * **module:** generate `@source` for nuxt layers
 * **extractShortcuts:** add `separator` option
+* **twMergeConfig:** add `base-mode` in classGroups
 
 ### Bug Fixes
 

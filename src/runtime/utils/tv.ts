@@ -14,7 +14,7 @@ const twMergeConfig = {
     'b24-context': [
       'light', 'dark',
       'edge-light', 'edge-dark',
-      'inherit'
+      'inherit', 'base-mode'
     ],
     'b24-colors': [
       // primary ////
