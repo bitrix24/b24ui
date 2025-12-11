@@ -15,8 +15,9 @@ export function useRouteCheck() {
   const route = useRoute()
   const checkedUseLightContent = ref(true)
 
+  const clearPath = route.path.replace('/b24ui', '')
   const isSidebarLayoutClearContent = computed<boolean>(() => {
-    return (listPathClear.includes(route.path))
+    return (listPathClear.includes(clearPath))
   })
 
   const isSidebarLayoutUseLightContent = computed<boolean>(() => {
