@@ -344,7 +344,7 @@ exports[`PageCard > renders with orientation horizontal correctly 1`] = `
 exports[`PageCard > renders with orientation horizontal reverse correctly 1`] = `
 "<div data-orientation="horizontal" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content)">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6 lg:grid-cols-2 lg:items-center">
-    <div data-slot="wrapper" class="flex flex-col flex-1 items-start lg:order-last">
+    <div data-slot="wrapper" class="flex flex-col flex-1 items-start order-last">
       <!--v-if-->
       <div data-slot="leading" class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
@@ -382,7 +382,7 @@ exports[`PageCard > renders with orientation vertical correctly 1`] = `
 exports[`PageCard > renders with orientation vertical reverse correctly 1`] = `
 "<div data-orientation="vertical" data-slot="root" class="relative flex rounded-lg bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) text-(--ui-color-design-outline-content)">
   <div data-slot="container" class="relative flex flex-col flex-1 lg:grid gap-x-8 gap-y-4 p-4 sm:p-6">
-    <div data-slot="wrapper" class="flex flex-col flex-1 items-start lg:order-last">
+    <div data-slot="wrapper" class="flex flex-col flex-1 items-start order-last">
       <!--v-if-->
       <div data-slot="leading" class="inline-flex items-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-design-outline-content-icon)">
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>

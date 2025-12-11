@@ -24,7 +24,7 @@ export default {
       vertical: { container: '' }
     },
     reverse: {
-      true: { wrapper: 'lg:order-last' }
+      true: { wrapper: 'order-last' }
     },
     variant: {
       'filled': {
