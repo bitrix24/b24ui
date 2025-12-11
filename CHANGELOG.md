@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.1.14](https://github.com/bitrix24/b24ui/compare/v2.1.13...v2.1.14) (2025-12-11)
+
+### Features
+
+* **locale/Indian:** add locale Indian (हिन्दी)
+* **module:** generate `@source` for nuxt layers
+* **extractShortcuts:** add `separator` option
+
+### Bug Fixes
+
+* **PageCard:** handle `reverse` prop under lg screens
+
+### Docs
+
+* **toast:** add callback example
+* **use-overlay:** missing composable instance
+* **extract-shortcuts:** add own page
+* **composables:** add `defineLocale` and `extendLocale`
+
 ## [2.1.13](https://github.com/bitrix24/b24ui/compare/v2.1.12...v2.1.13) (2025-12-10)
 
 ### Bug Fixes
@@ -33,7 +52,7 @@
 
 ### Docs
 
-* fix github link
+* fix GitHub link
 * **file-upload:** correct `Schema` type casting
 * **integrations:** add SSR page for Vue
 
