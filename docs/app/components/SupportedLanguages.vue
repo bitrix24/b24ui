@@ -11,7 +11,7 @@ function getEmojiFlag(locale: string): string {
   const languageToCountry: Record<string, string> = {
     en: 'us', // English -> USA
     de: 'de', // Deutsch
-    la: 'es', // Catalan -> Spain
+    es: 'es', // Catalan -> Spain
 
     br: 'br', // Português
     fr: 'fr', // Français
@@ -33,7 +33,8 @@ function getEmojiFlag(locale: string): string {
     th: 'th', // ภาษาไทย
     ar: 'sa', // Arabic -> Saudi Arabia
 
-    kz: 'kz' // Kazakh -> Kazakhstan
+    kk: 'kz', // Kazakh -> Kazakhstan
+    hi: 'in' // Indian (हिन्दी)
   }
 
   const baseLanguage = locale.split('-')[0]?.toLowerCase() || locale
@@ -49,6 +50,7 @@ const localeList = computed(() => {
   return Object.values(locales).map((locale, _i) => {
     return {
       code: locale.code,
+      locale: locale.locale,
       name: locale.name
     }
   }).sort((a, b) => a.code.localeCompare(b.code))
@@ -65,12 +67,12 @@ const localeList = computed(() => {
       <div v-for="locale in localeList" :key="locale.code">
         <div class="flex gap-3 items-center">
           <B24Avatar size="md" class="text-(--b24ui-typography-legend-color)">
-            {{ getEmojiFlag(locale.code) }}
+            {{ getEmojiFlag(locale.locale) }}
           </B24Avatar>
 
           <div>
             <ProseH6 class="mb-1">{{ locale.name }}</ProseH6>
-            <ProseP small class="mt-1">Code: <ProseCode class="text-xs">{{ locale.code }}</ProseCode></ProseP>
+            <ProseP small class="mt-1">Code: <ProseCode class="text-xs">{{ locale.code }}</ProseCode> | Locale: <ProseCode class="text-xs">{{ locale.locale }}</ProseCode></ProseP>
           </div>
         </div>
       </div>

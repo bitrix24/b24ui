@@ -28,7 +28,7 @@ function getEmojiFlag(locale: string): string {
   const languageToCountry: Record<string, string> = {
     en: 'us', // English -> USA
     de: 'de', // Deutsch
-    la: 'es', // Catalan -> Spain
+    es: 'es', // Catalan -> Spain
 
     br: 'br', // Português
     fr: 'fr', // Français
@@ -50,7 +50,8 @@ function getEmojiFlag(locale: string): string {
     th: 'th', // ภาษาไทย
     ar: 'sa', // Arabic -> Saudi Arabia
 
-    kz: 'kz' // Kazakh -> Kazakhstan
+    kk: 'kz', // Kazakh -> Kazakhstan
+    hi: 'in' // Indian (हिन्दी)
   }
 
   const baseLanguage = locale.split('-')[0]?.toLowerCase() || locale
@@ -77,7 +78,7 @@ function getEmojiFlag(locale: string): string {
 
     <template #item-leading="{ item }">
       <span class="size-5 text-center">
-        {{ getEmojiFlag(item.code) }}
+        {{ getEmojiFlag(item.locale) }}
       </span>
     </template>
   </B24SelectMenu>
