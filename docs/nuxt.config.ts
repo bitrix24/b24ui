@@ -178,6 +178,7 @@ const pages = [
   // endregion ////
   // region Composables ////
   '/docs/composables/define-shortcuts/',
+  '/docs/composables/extract-shortcuts/',
   '/docs/composables/use-confetti/',
   '/docs/composables/use-overlay/',
   '/docs/composables/use-toast/',
