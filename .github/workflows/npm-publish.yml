@@ -5,6 +5,10 @@ on:
     types: [ published ]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   process:
     runs-on: ubuntu-latest
@@ -48,6 +52,4 @@ jobs:
 
       - name: 'Publish 🚀'
         shell: bash
-        run: pnpm publish --access public --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        run: pnpm publish
