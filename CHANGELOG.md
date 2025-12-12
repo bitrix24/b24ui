@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.1.15](https://github.com/bitrix24/b24ui/compare/v2.1.14...v2.1.15) (2025-12-xx)
+
+* chore(deps): update nuxt framework to ^4.2.2
+* docs(app): add component theme visualizer
+
 ## [2.1.14](https://github.com/bitrix24/b24ui/compare/v2.1.13...v2.1.14) (2025-12-11)
 
 ### Features
