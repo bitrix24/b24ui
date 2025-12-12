@@ -18,10 +18,10 @@
     "@tiptap/extension-emoji": "3.13.0",
     "@tiptap/extension-text-align": "3.13.0",
     "ai": "^5.0.108",
-    "nuxt": "^4.2.1",
-    "nuxt-component-meta": "^0.15.0",
+    "nuxt": "^4.2.2",
     "zod": "^4.1.13",
-    "maska": "^3.2.0"
+    "maska": "^3.2.0",
+    "nuxt-component-meta": "^0.15.0"
   },
   "devDependencies": {
     "typescript": "^5.8.3",
