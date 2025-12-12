@@ -81,6 +81,8 @@ const slots = defineSlots<{
 }>()
 
 const el = ref<HTMLElement | null>(null)
+const wrapperContainer = ref<HTMLElement | null>(null)
+const componentContainer = ref<HTMLElement | null>(null)
 
 const { $prettier } = useNuxtApp()
 const { width } = useElementSize(el)
@@ -164,61 +166,74 @@ const urlSearchParams = computed(() => {
   <div ref="el" class="my-5">
     <template v-if="preview">
       <div
-        class="relative"
-        :class="[{
-          'border-(--ui-color-design-tinted-na-stroke) border': props.border,
-          'border-b-0 rounded-t-md': props.source,
-          'rounded-md': !props.source,
-          'overflow-hidden': props.overflowHidden
-        }]"
+        ref="wrapperContainer"
+        class="relative group/component"
       >
         <div
-          v-if="props.options?.length || !!slots.options"
-          class="flex gap-4 p-4 border-b border-(--ui-color-design-tinted-na-stroke)"
+          class="relative z-[1]"
+          :class="[{
+            'border-(--ui-color-design-tinted-na-stroke) border': props.border,
+            'border-b-0 rounded-t-md': props.source,
+            'rounded-md': !props.source,
+            'overflow-hidden': props.overflowHidden
+          }]"
         >
-          <slot name="options" />
-
-          <B24FormField
-            v-for="option in props.options"
-            :key="option.name"
-            :label="option.label"
-            :name="option.name"
+          <div
+            v-if="props.options?.length || !!slots.options"
+            class="flex gap-4 p-4 border-b border-(--ui-color-design-tinted-na-stroke)"
           >
-            <B24SelectMenu
-              v-if="option.items?.length"
-              :model-value="get(optionsValues, option.name)"
-              :items="option.items"
-              :search-input="false"
-              :value-key="option.name.toLowerCase().endsWith('color') ? 'value' : undefined"
-              class="min-w-[175px]"
-              :multiple="option.multiple"
-              :class="[option.name.toLowerCase().endsWith('color') && 'pl-6']"
-              :content="{ align: 'start', side: 'bottom', sideOffset: 8 }"
-              @update:model-value="set(optionsValues, option.name, $event)"
-            />
-            <B24Input
-              v-else
-              :model-value="get(optionsValues, option.name)"
-              :b24ui="{ base: 'min-w-[20px]' }"
-              @update:model-value="set(optionsValues, option.name, $event)"
-            />
-          </B24FormField>
+            <slot name="options" />
+
+            <B24FormField
+              v-for="option in props.options"
+              :key="option.name"
+              :label="option.label"
+              :name="option.name"
+            >
+              <B24SelectMenu
+                v-if="option.items?.length"
+                :model-value="get(optionsValues, option.name)"
+                :items="option.items"
+                :search-input="false"
+                :value-key="option.name.toLowerCase().endsWith('color') ? 'value' : undefined"
+                class="min-w-[175px]"
+                :multiple="option.multiple"
+                :class="[option.name.toLowerCase().endsWith('color') && 'pl-6']"
+                :content="{ align: 'start', side: 'bottom', sideOffset: 8 }"
+                @update:model-value="set(optionsValues, option.name, $event)"
+              />
+              <B24Input
+                v-else
+                :model-value="get(optionsValues, option.name)"
+                :b24ui="{ base: 'min-w-[20px]' }"
+                @update:model-value="set(optionsValues, option.name, $event)"
+              />
+            </B24FormField>
+          </div>
+
+          <iframe
+            v-if="iframe"
+            v-bind="typeof iframe === 'object' ? iframe : {}"
+            :src="`${config.public.baseUrl}/examples/${name}/?${urlSearchParams}`"
+            class="relative w-full"
+            :class="[props.class, { 'dark:bg-gray-950/50 rounded-t-md': props.elevated }, !iframeMobile && 'max-w-[1300px]']"
+          />
+          <div
+            v-else
+            ref="componentContainer"
+            class="flex justify-center p-[16px] bg-grid-example [mask-image:linear-gradient(0deg,rgba(255,255,255,0.09),rgba(255,255,255,0.18))"
+            :class="[props.class, { 'dark:bg-gray-950/50 rounded-t-md': props.elevated }]"
+          >
+            <component :is="camelName" v-bind="{ ...componentProps, ...optionsValues }" />
+          </div>
         </div>
 
-        <iframe
-          v-if="iframe"
-          v-bind="typeof iframe === 'object' ? iframe : {}"
-          :src="`${config.public.baseUrl}/examples/${name}/?${urlSearchParams}`"
-          class="relative w-full"
-          :class="[props.class, { 'dark:bg-gray-950/50 rounded-t-md': props.elevated }, !iframeMobile && 'max-w-[1300px]']"
-        />
-        <div
-          v-else
-          class="flex justify-center p-[16px] bg-grid-example [mask-image:linear-gradient(0deg,rgba(255,255,255,0.09),rgba(255,255,255,0.18))"
-          :class="[props.class, { 'dark:bg-gray-950/50 rounded-t-md': props.elevated }]"
-        >
-          <component :is="camelName" v-bind="{ ...componentProps, ...optionsValues }" />
-        </div>
+        <ClientOnly>
+          <LazyComponentThemeVisualizer
+            :container="componentContainer"
+            :position-container="wrapperContainer"
+          />
+        </ClientOnly>
       </div>
     </template>
 
@@ -226,20 +241,12 @@ const urlSearchParams = computed(() => {
       <div v-if="!!slots.code" class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0 scrollbar-transparent">
         <slot name="code" />
       </div>
-      <template v-else-if="ast">
-        <ClientOnly>
-          <MDCRenderer
-            :body="ast.body"
-            :data="ast.data"
-            class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0 scrollbar-transparent"
-          />
-          <template #fallback>
-            <div class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0 scrollbar-transparent">
-              <ProsePre class="text-(length:--ui-font-size-xs)">{{ { wait: 'Loading client-side content...' } }}</ProsePre>
-            </div>
-          </template>
-        </ClientOnly>
-      </template>
+      <MDCRenderer
+        v-else-if="ast"
+        :body="ast.body"
+        :data="ast.data"
+        class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0 scrollbar-transparent"
+      />
     </template>
   </div>
 </template>

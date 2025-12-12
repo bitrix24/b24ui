@@ -1,5 +1,6 @@
 <!-- eslint-disable no-useless-escape -->
 <script setup lang="ts">
+// import type { ChipProps } from '@bitrix24/b24ui-nuxt'
 import json5 from 'json5'
 import { upperFirst, camelCase, kebabCase } from 'scule'
 import { hash } from 'ohash'
@@ -482,6 +483,9 @@ ${props.slots?.default}
 
 const codeKey = computed(() => `component-code-${name}-${hash(props)}-${helperForChangeComponentProps.value}`)
 
+const wrapperContainer = ref<HTMLElement | null>(null)
+const componentContainer = ref<HTMLElement | null>(null)
+
 const { data: ast } = await useAsyncData(codeKey, async () => {
   if (!props.prettier) {
     return parseMarkdown(code.value)
@@ -505,13 +509,15 @@ const { data: ast } = await useAsyncData(codeKey, async () => {
 
 <template>
   <div class="my-5">
-    <div class="relative">
+    <div ref="wrapperContainer" class="relative group/component">
       <div
         v-if="options.length"
         class="flex flex-wrap items-start gap-[10px] text-(--ui-color-design-tinted-na-content) bg-(--ui-color-design-tinted-na-bg) border-(--ui-color-design-tinted-na-stroke) border border-b-0 relative rounded-t-(--ui-border-radius-md) p-[10px] overflow-x-auto"
       >
         <template v-for="option in options" :key="option.name">
-          <B24FormField :label="option.label">
+          <B24FormField
+            :label="option.label"
+          >
             <B24Switch
               v-if="option.type?.includes('boolean') && typeof getComponentProp(option.name) === 'boolean'"
               :model-value="getComponentProp(option.name)"
@@ -545,6 +551,7 @@ const { data: ast } = await useAsyncData(codeKey, async () => {
 
       <div
         v-if="component"
+        ref="componentContainer"
         style="background-position: 10px 10px"
         class="flex justify-center border border-b-0 border-(--ui-color-design-tinted-na-stroke) relative p-[16px] z-[1]"
         :class="[
@@ -562,20 +569,21 @@ const { data: ast } = await useAsyncData(codeKey, async () => {
           </template>
         </component>
       </div>
+      <ClientOnly>
+        <LazyComponentThemeVisualizer
+          :container="componentContainer"
+          :position-container="wrapperContainer"
+          :slug="props.slug"
+          :prose="props.prose"
+        />
+      </ClientOnly>
     </div>
 
-    <ClientOnly>
-      <MDCRenderer
-        v-if="ast"
-        :body="ast.body"
-        :data="ast.data"
-        class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0"
-      />
-      <template #fallback>
-        <div class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0">
-          <ProsePre class="text-(length:--ui-font-size-xs)">{{ { wait: 'Loading client-side content...' } }}</ProsePre>
-        </div>
-      </template>
-    </ClientOnly>
+    <MDCRenderer
+      v-if="ast"
+      :body="ast.body"
+      :data="ast.data"
+      class="[&_pre]:!rounded-t-none [&_div.my-5]:!mt-0"
+    />
   </div>
 </template>
