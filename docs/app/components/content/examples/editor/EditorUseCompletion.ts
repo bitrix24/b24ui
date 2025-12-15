@@ -138,6 +138,7 @@ export function useEditorCompletion(editorRef: Ref<{ editor: Editor | undefined 
   // Configure Completion extension
   const extension = Completion.configure({
     onTrigger: (textBefore) => {
+      if (!config.public.useAI) return
       if (isLoading.value) return
       mode.value = 'continue'
       complete(textBefore)
@@ -154,7 +155,7 @@ export function useEditorCompletion(editorRef: Ref<{ editor: Editor | undefined 
   // Create handlers for toolbar
   const handlers = {
     aiContinue: {
-      canExecute: () => !isLoading.value,
+      canExecute: () => config.public.useAI && !isLoading.value,
       execute: (editor: Editor) => {
         triggerContinue(editor)
         return editor.chain()
@@ -163,7 +164,7 @@ export function useEditorCompletion(editorRef: Ref<{ editor: Editor | undefined 
       isDisabled: () => !!isLoading.value
     },
     aiFix: {
-      canExecute: (editor: Editor) => !editor.state.selection.empty && !isLoading.value,
+      canExecute: (editor: Editor) => config.public.useAI && !editor.state.selection.empty && !isLoading.value,
       execute: (editor: Editor) => {
         triggerTransform(editor, 'fix')
         return editor.chain()
@@ -172,7 +173,7 @@ export function useEditorCompletion(editorRef: Ref<{ editor: Editor | undefined 
       isDisabled: (editor: Editor) => editor.state.selection.empty || !!isLoading.value
     },
     aiExtend: {
-      canExecute: (editor: Editor) => !editor.state.selection.empty && !isLoading.value,
+      canExecute: (editor: Editor) => config.public.useAI && (!editor.state.selection.empty && !isLoading.value),
       execute: (editor: Editor) => {
         triggerTransform(editor, 'extend')
         return editor.chain()
@@ -181,7 +182,7 @@ export function useEditorCompletion(editorRef: Ref<{ editor: Editor | undefined 
       isDisabled: (editor: Editor) => editor.state.selection.empty || !!isLoading.value
     },
     aiReduce: {
-      canExecute: (editor: Editor) => !editor.state.selection.empty && !isLoading.value,
+      canExecute: (editor: Editor) => config.public.useAI && (!editor.state.selection.empty && !isLoading.value),
       execute: (editor: Editor) => {
         triggerTransform(editor, 'reduce')
         return editor.chain()
@@ -190,7 +191,7 @@ export function useEditorCompletion(editorRef: Ref<{ editor: Editor | undefined 
       isDisabled: (editor: Editor) => editor.state.selection.empty || !!isLoading.value
     },
     aiSimplify: {
-      canExecute: (editor: Editor) => !editor.state.selection.empty && !isLoading.value,
+      canExecute: (editor: Editor) => config.public.useAI && (!editor.state.selection.empty && !isLoading.value),
       execute: (editor: Editor) => {
         triggerTransform(editor, 'simplify')
         return editor.chain()
@@ -199,7 +200,7 @@ export function useEditorCompletion(editorRef: Ref<{ editor: Editor | undefined 
       isDisabled: (editor: Editor) => editor.state.selection.empty || !!isLoading.value
     },
     aiSummarize: {
-      canExecute: (editor: Editor) => !editor.state.selection.empty && !isLoading.value,
+      canExecute: (editor: Editor) => config.public.useAI && (!editor.state.selection.empty && !isLoading.value),
       execute: (editor: Editor) => {
         triggerTransform(editor, 'summarize')
         return editor.chain()
@@ -208,7 +209,7 @@ export function useEditorCompletion(editorRef: Ref<{ editor: Editor | undefined 
       isDisabled: (editor: Editor) => editor.state.selection.empty || !!isLoading.value
     },
     aiTranslate: {
-      canExecute: (editor: Editor) => !editor.state.selection.empty && !isLoading.value,
+      canExecute: (editor: Editor) => config.public.useAI && (!editor.state.selection.empty && !isLoading.value),
       execute: (editor: Editor, cmd: { language?: string } | undefined) => {
         triggerTransform(editor, 'translate', cmd?.language)
         return editor.chain()

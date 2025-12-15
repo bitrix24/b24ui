@@ -79,7 +79,7 @@ function convertHtmlTablesToMarkdown(input: string): string {
       while ((cellMatch = cellRegex.exec(rows[i] ?? '')) !== null) {
         let cellContent = cellMatch[1] ?? ''
 
-        cellContent = extractTextFromHtml(cellContent)
+        cellContent = extractTextFromHtml(cellContent || '')
         cells.push(cellContent.trim())
       }
 

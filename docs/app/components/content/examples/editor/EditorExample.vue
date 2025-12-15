@@ -49,6 +49,7 @@ import IdeaLampIcon from '@bitrix24/b24icons-vue/outline/IdeaLampIcon'
 import PenIcon from '@bitrix24/b24icons-vue/actions/PenIcon'
 import TranslationIcon from '@bitrix24/b24icons-vue/outline/TranslationIcon'
 
+const config = useRuntimeConfig()
 const editorRef = useTemplateRef('editorRef')
 
 const value = ref(`# Building Modern Interfaces with Bitrix24 UI
@@ -255,6 +256,7 @@ const bubbleToolbarItems = computed(() => [
   [
     {
       icon: CopilotIcon,
+      disabled: !config.public.useAI,
       loading: aiLoading.value,
       content: { align: 'start' },
       b24ui: { leadingIcon: 'text-(--ui-color-copilot-accent-less-1)' },
@@ -590,6 +592,7 @@ const suggestionItems = [
       label: 'AI'
     },
     {
+      disabled: !config.public.useAI,
       kind: 'aiContinue',
       label: 'Continue writing',
       icon: PenIcon

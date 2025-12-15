@@ -14,6 +14,7 @@ import ItalicIcon from '@bitrix24/b24icons-vue/outline/ItalicIcon'
 import UnderlineIcon from '@bitrix24/b24icons-vue/outline/UnderlineIcon'
 import PenIcon from '@bitrix24/b24icons-vue/actions/PenIcon'
 
+const config = useRuntimeConfig()
 const editorRef = useTemplateRef('editorRef')
 
 const value = ref(`# AI Completion
@@ -32,6 +33,7 @@ const items = computed(() => [
   [
     {
       icon: CopilotIcon,
+      disabled: !config.public.useAI,
       loading: aiLoading.value,
       content: { align: 'start' },
       b24ui: { leadingIcon: 'text-(--ui-color-copilot-accent-less-1)' },
