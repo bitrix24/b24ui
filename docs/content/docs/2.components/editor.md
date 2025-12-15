@@ -460,7 +460,7 @@ Learn more about creating custom extensions in the TipTap documentation.
 ::
 ### With AI completion
 
-This example demonstrates how to add AI-powered features to the Editor using the [Vercel AI SDK](https://ai-sdk.vercel.dev/), specifically the [`useCompletion`](https://ai-sdk.dev/docs/reference/ai-sdk-ui/use-completion) composable for streaming text completions, 
+This example demonstrates how to add AI-powered features to the Editor using the [Vercel AI SDK](https://ai-sdk.dev/), specifically the [`useCompletion`](https://ai-sdk.dev/docs/reference/ai-sdk-ui/use-completion) composable for streaming text completions, 
 combined with the [DeepSeek Provider](https://ai-sdk.dev/providers/ai-sdk-providers/deepseek) to access AI models through a centralized endpoint. 
 It includes ghost text autocompletion and text transformation actions (fix grammar, extend, reduce, simplify, translate, etc.).
 
@@ -596,7 +596,7 @@ class: '!p-0'
 ---
 ::
 
-::callout{to="https://ai-sdk.vercel.dev/" target="_blank"}
+::callout{to="https://ai-sdk.dev/" target="_blank"}
 Learn more about the Vercel AI SDK and available providers.
 ::
 

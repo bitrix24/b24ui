@@ -12,7 +12,7 @@ links:
     to: https://ui.nuxt.com/docs/components/chat-messages
   - label: AI SDK
     icon: i-simple-icons-vercel
-    to: https://ai-sdk.vercel.dev/
+    to: https://ai-sdk.dev/
     target: _blank
 ---
 
@@ -376,7 +376,7 @@ Use the `should-scroll-to-bottom` prop to enable/disable bottom auto scroll when
 
 ## Examples
 
-The Chat components are designed to be used with the [Vercel AI SDK](https://ai-sdk.vercel.dev/), specifically the [`Chat`](https://ai-sdk.dev/docs/reference/ai-sdk-ui/chat) class for managing chat state and streaming responses.
+The Chat components are designed to be used with the [Vercel AI SDK](https://ai-sdk.dev/), specifically the [`Chat`](https://ai-sdk.dev/docs/reference/ai-sdk-ui/chat) class for managing chat state and streaming responses.
 
 First, install the required dependencies:
 
