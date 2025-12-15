@@ -1,9 +1,20 @@
 # Changelog
 
-## [2.1.15](https://github.com/bitrix24/b24ui/compare/v2.1.14...v2.1.15) (2025-12-xx)
+## [2.1.15](https://github.com/bitrix24/b24ui/compare/v2.1.14...v2.1.15) (2025-12-15)
 
-* chore(deps): update nuxt framework to ^4.2.2
-* docs(app): add component theme visualizer
+### Bug Fixes
+
+* **EditorToolbar:** map dropdown items recursively to support `kind`
+
+### Docs
+
+* **app:** add component theme visualizer
+* **editor:** add ai completion example
+
+### Chore
+
+* **deps:** update nuxt framework to ^4.2.2
+* **useEditorCompletion:** use config.public.useAI for disable Completion
 
 ## [2.1.14](https://github.com/bitrix24/b24ui/compare/v2.1.13...v2.1.14) (2025-12-11)
 
