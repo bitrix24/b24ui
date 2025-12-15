@@ -11,6 +11,7 @@ export interface UseEditorCompletionOptions {
 
 export function useEditorCompletion(editorRef: Ref<{ editor: Editor | undefined } | null | undefined>, options: UseEditorCompletionOptions = {}) {
   const config = useRuntimeConfig()
+  const isUseAI = config.public?.useAI === true
 
   // State for direct insertion/transform mode
   const insertState = ref<{
@@ -138,7 +139,7 @@ export function useEditorCompletion(editorRef: Ref<{ editor: Editor | undefined 
   // Configure Completion extension
   const extension = Completion.configure({
     onTrigger: (textBefore) => {
-      if (!config.public.useAI) return
+      if (!isUseAI) return
       if (isLoading.value) return
       mode.value = 'continue'
       complete(textBefore)
@@ -155,67 +156,67 @@ export function useEditorCompletion(editorRef: Ref<{ editor: Editor | undefined 
   // Create handlers for toolbar
   const handlers = {
     aiContinue: {
-      canExecute: () => config.public.useAI && !isLoading.value,
-      execute: (editor: Editor) => {
+      canExecute: (): boolean => isUseAI && !isLoading.value,
+      execute: (editor: Editor): any => {
         triggerContinue(editor)
         return editor.chain()
       },
-      isActive: () => !!(isLoading.value && mode.value === 'continue'),
-      isDisabled: () => !!isLoading.value
+      isActive: (): boolean => !!(isLoading.value && mode.value === 'continue'),
+      isDisabled: (): boolean => !!isLoading.value
     },
     aiFix: {
-      canExecute: (editor: Editor) => config.public.useAI && !editor.state.selection.empty && !isLoading.value,
-      execute: (editor: Editor) => {
+      canExecute: (editor: Editor): boolean => isUseAI && !editor.state.selection.empty && !isLoading.value,
+      execute: (editor: Editor): any => {
         triggerTransform(editor, 'fix')
         return editor.chain()
       },
-      isActive: () => !!(isLoading.value && mode.value === 'fix'),
-      isDisabled: (editor: Editor) => editor.state.selection.empty || !!isLoading.value
+      isActive: (): boolean => !!(isLoading.value && mode.value === 'fix'),
+      isDisabled: (editor: Editor): boolean => editor.state.selection.empty || !!isLoading.value
     },
     aiExtend: {
-      canExecute: (editor: Editor) => config.public.useAI && (!editor.state.selection.empty && !isLoading.value),
-      execute: (editor: Editor) => {
+      canExecute: (editor: Editor): boolean => isUseAI && (!editor.state.selection.empty && !isLoading.value),
+      execute: (editor: Editor): any => {
         triggerTransform(editor, 'extend')
         return editor.chain()
       },
-      isActive: () => !!(isLoading.value && mode.value === 'extend'),
-      isDisabled: (editor: Editor) => editor.state.selection.empty || !!isLoading.value
+      isActive: (): boolean => !!(isLoading.value && mode.value === 'extend'),
+      isDisabled: (editor: Editor): boolean => editor.state.selection.empty || !!isLoading.value
     },
     aiReduce: {
-      canExecute: (editor: Editor) => config.public.useAI && (!editor.state.selection.empty && !isLoading.value),
-      execute: (editor: Editor) => {
+      canExecute: (editor: Editor): boolean => isUseAI && (!editor.state.selection.empty && !isLoading.value),
+      execute: (editor: Editor): any => {
         triggerTransform(editor, 'reduce')
         return editor.chain()
       },
-      isActive: () => !!(isLoading.value && mode.value === 'reduce'),
-      isDisabled: (editor: Editor) => editor.state.selection.empty || !!isLoading.value
+      isActive: (): boolean => !!(isLoading.value && mode.value === 'reduce'),
+      isDisabled: (editor: Editor): boolean => editor.state.selection.empty || !!isLoading.value
     },
     aiSimplify: {
-      canExecute: (editor: Editor) => config.public.useAI && (!editor.state.selection.empty && !isLoading.value),
-      execute: (editor: Editor) => {
+      canExecute: (editor: Editor): boolean => isUseAI && (!editor.state.selection.empty && !isLoading.value),
+      execute: (editor: Editor): any => {
         triggerTransform(editor, 'simplify')
         return editor.chain()
       },
-      isActive: () => !!(isLoading.value && mode.value === 'simplify'),
-      isDisabled: (editor: Editor) => editor.state.selection.empty || !!isLoading.value
+      isActive: (): boolean => !!(isLoading.value && mode.value === 'simplify'),
+      isDisabled: (editor: Editor): boolean => editor.state.selection.empty || !!isLoading.value
     },
     aiSummarize: {
-      canExecute: (editor: Editor) => config.public.useAI && (!editor.state.selection.empty && !isLoading.value),
-      execute: (editor: Editor) => {
+      canExecute: (editor: Editor): boolean => isUseAI && (!editor.state.selection.empty && !isLoading.value),
+      execute: (editor: Editor): any => {
         triggerTransform(editor, 'summarize')
         return editor.chain()
       },
-      isActive: () => !!(isLoading.value && mode.value === 'summarize'),
-      isDisabled: (editor: Editor) => editor.state.selection.empty || !!isLoading.value
+      isActive: (): boolean => !!(isLoading.value && mode.value === 'summarize'),
+      isDisabled: (editor: Editor): boolean => editor.state.selection.empty || !!isLoading.value
     },
     aiTranslate: {
-      canExecute: (editor: Editor) => config.public.useAI && (!editor.state.selection.empty && !isLoading.value),
-      execute: (editor: Editor, cmd: { language?: string } | undefined) => {
+      canExecute: (editor: Editor): boolean => isUseAI && (!editor.state.selection.empty && !isLoading.value),
+      execute: (editor: Editor, cmd: { language?: string } | undefined): any => {
         triggerTransform(editor, 'translate', cmd?.language)
         return editor.chain()
       },
-      isActive: (_editor: Editor, cmd: { language?: string } | undefined) => !!(isLoading.value && mode.value === 'translate' && language.value === cmd?.language),
-      isDisabled: (editor: Editor) => editor.state.selection.empty || !!isLoading.value
+      isActive: (_editor: Editor, cmd: { language?: string } | undefined): boolean => !!(isLoading.value && mode.value === 'translate' && language.value === cmd?.language),
+      isDisabled: (editor: Editor): boolean => editor.state.selection.empty || !!isLoading.value
     }
   }
 
