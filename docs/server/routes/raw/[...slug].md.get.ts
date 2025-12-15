@@ -1,6 +1,7 @@
 import { queryCollection } from '@nuxt/content/server'
 import { stringify } from 'minimark/stringify'
 import { withLeadingSlash } from 'ufo'
+import { clearMD } from '../../utils/clearMD'
 
 export default eventHandler(async (event) => {
   const slug = getRouterParams(event)['slug.md']
@@ -28,14 +29,9 @@ export default eventHandler(async (event) => {
   setHeader(event, 'Content-Type', 'text/markdown; charset=utf-8')
 
   /**
-   * @see docs/server/utils/transformMDC.ts
    * @see docs/server/plugins/llms.ts
-   * @see docs/server/routes/raw/[...slug].md.get.ts
    */
-  return stringify({ ...transformedPage.body, type: 'minimark' }, { format: 'markdown/html' })
-    .replaceAll('%br%', '\n')
-    .replaceAll('%br>%', '\n> ')
-    .replaceAll('\n\n\n', '\n\n')
-    .replaceAll('\n\n\n', '\n\n')
-    .replaceAll('\n\n\n', '\n\n')
+  return clearMD(
+    stringify({ ...transformedPage.body, type: 'minimark' }, { format: 'markdown/html' })
+  )
 })

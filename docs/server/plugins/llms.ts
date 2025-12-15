@@ -1,6 +1,7 @@
 import type { H3Event } from 'h3'
 import type { PageCollectionItemBase } from '@nuxt/content'
 import { withoutTrailingSlash } from 'ufo'
+import { clearMD } from '../utils/clearMD'
 
 export default defineNitroPlugin((nitroApp) => {
   nitroApp.hooks.hook('content:llms:generate:document', async (event: H3Event, doc: PageCollectionItemBase) => {
@@ -32,18 +33,11 @@ export default defineNitroPlugin((nitroApp) => {
   })
 
   /**
-   * @see docs/server/utils/transformMDC.ts
-   * @see docs/server/plugins/llms.ts
    * @see docs/server/routes/raw/[...slug].md.get.ts
    */
   nitroApp.hooks.hook('beforeResponse', (event, content) => {
     if (event.path === '/llms-full.txt') {
-      content.body = content.body
-        .replaceAll('%br%', '\n')
-        .replaceAll('%br>%', '\n> ')
-        .replaceAll('\n\n\n', '\n\n')
-        .replaceAll('\n\n\n', '\n\n')
-        .replaceAll('\n\n\n', '\n\n')
+      content.body = clearMD(content.body)
     }
   })
 })
