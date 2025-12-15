@@ -12,7 +12,7 @@ links:
     to: https://ui.nuxt.com/docs/components/chat-messages
   - label: AI SDK
     icon: i-simple-icons-vercel
-    to: https://sdk.vercel.ai/
+    to: https://ai-sdk.vercel.dev/
     target: _blank
 ---
 
@@ -376,9 +376,52 @@ Use the `should-scroll-to-bottom` prop to enable/disable bottom auto scroll when
 
 ## Examples
 
-::note{to="https://ai-sdk.dev/docs/getting-started/nuxt" target="_blank"}
-These chat components are designed to be used with the **AI SDK v5** from **Vercel AI SDK**.
+The Chat components are designed to be used with the [Vercel AI SDK](https://ai-sdk.vercel.dev/), specifically the [`Chat`](https://ai-sdk.dev/docs/reference/ai-sdk-ui/chat) class for managing chat state and streaming responses.
+
+First, install the required dependencies:
+
+::code-group{sync="pm"}
+
+```bash [pnpm]
+pnpm add ai @ai-sdk/deepseek @ai-sdk/vue
+```
+
+```bash [yarn]
+yarn add ai @ai-sdk/deepseek @ai-sdk/vue
+```
+
+```bash [npm]
+npm install ai @ai-sdk/deepseek @ai-sdk/vue
+```
+
+```bash [bun]
+bun add ai @ai-sdk/deepseek @ai-sdk/vue
+```
+
 ::
+
+Then, create a server API endpoint to handle chat requests using [`streamText`](https://ai-sdk.dev/docs/reference/ai-sdk-core/stream-text) from the AI SDK.
+You can use the [DeepSeek Provider](https://ai-sdk.dev/providers/ai-sdk-providers/deepseek to access AI model through a centralized endpoint:
+
+```ts [server/api/chat.post.ts]
+import { streamText, convertToModelMessages } from 'ai'
+import { createDeepSeek } from '@ai-sdk/deepseek'
+
+export default defineEventHandler(async (event) => {
+  const { messages } = await readBody(event)
+
+  const deepseek = createDeepSeek({
+    apiKey: process.env.DEEPSEEK_API_KEY ?? ''
+  })
+
+  return streamText({
+    model: deepseek('deepseek-reasoner'), // or 'deepseek-chat'
+    maxOutputTokens: 10000,
+    system: 'You are a helpful assistant.',
+    messages: convertToModelMessages(messages)
+  }).toUIMessageStreamResponse()
+})
+```
 
 ### Within a page
 

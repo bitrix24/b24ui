@@ -815,10 +815,11 @@ export async function transformMDC(event: H3Event, doc: Document): Promise<Docum
 
   visitAndReplace(doc, 'component-example', (node) => {
     const camelName = camelCase(node[1]['name'])
-    const name = camelName.charAt(0).toUpperCase() + camelName.slice(1)
+    const lang = node[1]['lang'] ?? 'vue'
+    const name = node[1]['filename'] ?? camelName.charAt(0).toUpperCase() + camelName.slice(1)
     try {
       const code = components[name].code
-      replaceNodeWithPre(node, 'vue', code, `${name}.vue`)
+      replaceNodeWithPre(node, lang, code, `${name}.${lang}`)
     } catch (error) {
       console.error(
         error,

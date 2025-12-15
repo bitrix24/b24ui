@@ -197,8 +197,8 @@ props:
 
 ## Examples
 
-::note{to="https://ai-sdk.dev/docs/getting-started/nuxt" target="_blank"}
-These chat components are designed to be used with the **AI SDK v5** from **Vercel AI SDK**.
+::tip{to="/docs/components/chat-messages/#examples"}
+Check the **ChatMessages** documentation for server API setup and installation instructions.
 ::
 
 ### Within a page

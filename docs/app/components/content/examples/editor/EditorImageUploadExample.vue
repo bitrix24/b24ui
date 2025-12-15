@@ -30,6 +30,13 @@ const customHandlers = {
 const items = [
   [
     {
+      kind: 'imageUpload',
+      icon: ImageIcon,
+      label: 'Add image'
+    }
+  ],
+  [
+    {
       icon: HeaderIcon,
       content: { align: 'start' },
       items: [{
@@ -72,13 +79,6 @@ const items = [
       kind: 'mark',
       mark: 'code',
       icon: DeveloperResourcesIcon
-    }
-  ],
-  [
-    {
-      kind: 'imageUpload',
-      icon: ImageIcon,
-      label: 'Add image'
     }
   ]
 ] satisfies EditorToolbarItem<typeof customHandlers>[][]

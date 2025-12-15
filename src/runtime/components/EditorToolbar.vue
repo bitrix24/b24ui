@@ -44,7 +44,7 @@ type EditorToolbarBaseProps<T extends ArrayOrNested<EditorToolbarItem> = ArrayOr
   color?: ButtonProps['color']
   /**
    * The color of the active toolbar control.
-   * @defaultValue 'air-primary'
+   * @defaultValue 'air-tertiary-accent'
    */
   activeColor?: ButtonProps['color']
   /**
@@ -103,7 +103,7 @@ defineOptions({ inheritAttrs: false })
 const props = withDefaults(defineProps<EditorToolbarProps<T>>(), {
   layout: 'fixed',
   color: 'air-tertiary-no-accent',
-  activeColor: 'air-primary',
+  activeColor: 'air-tertiary-accent',
   size: 'sm'
 })
 defineSlots<EditorToolbarSlots<T>>()
@@ -274,8 +274,11 @@ function mapDropdownItem(item: EditorToolbarDropdownChildItem): any {
   return {
     ...editorToolbarItem,
     ...(children && { children }),
+    // @ts-expect-error: need test at nuxt.ui? but this work
     active: isActive(editorToolbarItem),
+    // @ts-expect-error: need test at nuxt.ui? but this work
     disabled: isDisabled(editorToolbarItem),
+    // @ts-expect-error: need test at nuxt.ui? but this work
     onSelect: (e: Event) => onClick(e as MouseEvent, editorToolbarItem)
   }
 }

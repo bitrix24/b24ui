@@ -5,7 +5,9 @@ import type { JSONContent } from '@tiptap/vue-3'
 import { mapEditorItems } from '@bitrix24/b24ui-nuxt/utils/editor'
 import { Emoji, gitHubEmojis } from '@tiptap/extension-emoji'
 import { TextAlign } from '@tiptap/extension-text-align'
-import { ImageUpload } from '../../components/editor/ImageUpload'
+import { ImageUpload } from '../../../../../docs/app/components/content/examples/editor/EditorImageUpload'
+import { useEditorCompletion } from '../../../../../docs/app/components/content/examples/editor/EditorUseCompletion'
+import EditorLinkPopover from '../../../../../docs/app/components/content/examples/editor/EditorLinkPopover.vue'
 import UndoIcon from '@bitrix24/b24icons-vue/outline/UndoIcon'
 import RedoIcon from '@bitrix24/b24icons-vue/outline/RedoIcon'
 import MentionIcon from '@bitrix24/b24icons-vue/outline/MentionIcon'
@@ -40,6 +42,15 @@ import ArrowDownLIcon from '@bitrix24/b24icons-vue/outline/ArrowDownLIcon'
 import PlusLIcon from '@bitrix24/b24icons-vue/outline/PlusLIcon'
 import DragLIcon from '@bitrix24/b24icons-vue/outline/DragLIcon'
 import ActionRequiredIcon from '@bitrix24/b24icons-vue/outline/ActionRequiredIcon'
+import CopilotIcon from '@bitrix24/b24icons-vue/solid/CopilotIcon'
+import CheckGrammarIcon from '@bitrix24/b24icons-vue/editor/CheckGrammarIcon'
+import MakeLongerIcon from '@bitrix24/b24icons-vue/editor/MakeLongerIcon'
+import MakeShorterIcon from '@bitrix24/b24icons-vue/editor/MakeShorterIcon'
+import IdeaLampIcon from '@bitrix24/b24icons-vue/outline/IdeaLampIcon'
+import PenIcon from '@bitrix24/b24icons-vue/actions/PenIcon'
+import TranslationIcon from '@bitrix24/b24icons-vue/outline/TranslationIcon'
+
+const editorRef = useTemplateRef('editorRef')
 
 const content = ref(`# Bitrix24 UI: A Modern UI Library
 
@@ -104,133 +115,253 @@ Whether you're working on a personal project or building an enterprise applicati
 Visit our [documentation](https://bitrix24.github.io/b24ui/) to learn more and explore all available components.
 `)
 
+const { extension: completionExtension, handlers: aiHandlers, isLoading: aiLoading } = useEditorCompletion(editorRef)
+
 const customHandlers = {
   imageUpload: {
     canExecute: (editor: any) => editor.can().insertContent({ type: 'imageUpload' }),
     execute: (editor: any) => editor.chain().focus().insertContent({ type: 'imageUpload' }),
     isActive: (editor: any) => editor.isActive('imageUpload'),
     isDisabled: undefined
-  }
+  },
+  ...aiHandlers
 } satisfies EditorCustomHandlers
 
-const toolbarItems = [[{
-  kind: 'undo',
-  icon: UndoIcon,
-  tooltip: { text: 'Undo' }
-}, {
-  kind: 'redo',
-  icon: RedoIcon,
-  tooltip: { text: 'Redo' }
-}], [{
-  kind: 'suggestion',
-  icon: ActionRequiredIcon
-}, {
-  kind: 'mention',
-  icon: MentionIcon
-}, {
-  kind: 'emoji',
-  icon: SmileIcon
-}], [{
-  icon: HeaderIcon,
-  tooltip: { text: 'Headings' },
-  items: [{
-    kind: 'heading',
-    level: 1,
-    label: 'Heading 1'
-  }, {
-    kind: 'heading',
-    level: 2,
-    label: 'Heading 2'
-  }, {
-    kind: 'heading',
-    level: 3,
-    label: 'Heading 3'
-  }, {
-    kind: 'heading',
-    level: 4,
-    label: 'Heading 4'
-  }]
-}, {
-  icon: BulletedListIcon,
-  tooltip: { text: 'Lists' },
-  items: [{
-    kind: 'bulletList',
-    icon: BulletedListIcon,
-    label: 'Bullet List'
-  }, {
-    kind: 'orderedList',
-    icon: NumberedListIcon,
-    label: 'Ordered List'
-  }]
-}, {
-  kind: 'blockquote',
-  icon: QuoteIcon,
-  tooltip: { text: 'Blockquote' }
-}, {
-  kind: 'codeBlock',
-  icon: CodeIcon,
-  tooltip: { text: 'Code Block' }
-}, {
-  kind: 'horizontalRule',
-  icon: HrIcon,
-  tooltip: { text: 'Horizontal Rule' }
-}, {
-  kind: 'paragraph',
-  icon: TextIcon,
-  tooltip: { text: 'Paragraph' }
-}], [{
-  kind: 'mark',
-  mark: 'bold',
-  icon: BoldIcon,
-  tooltip: { text: 'Bold' }
-}, {
-  kind: 'mark',
-  mark: 'italic',
-  icon: ItalicIcon,
-  tooltip: { text: 'Italic' }
-}, {
-  kind: 'mark',
-  mark: 'underline',
-  icon: UnderlineIcon,
-  tooltip: { text: 'Underline' }
-}, {
-  kind: 'mark',
-  mark: 'strike',
-  icon: StrikethroughIcon,
-  tooltip: { text: 'Strikethrough' }
-}, {
-  kind: 'mark',
-  mark: 'code',
-  icon: DeveloperResourcesIcon,
-  tooltip: { text: 'Code' }
-}], [{
-  slot: 'link' as const,
-  icon: LinkIcon
-}, {
-  kind: 'imageUpload',
-  icon: ImageIcon,
-  tooltip: { text: 'Image' }
-}], [{
-  kind: 'textAlign',
-  align: 'left',
-  icon: AlignLeftIcon,
-  tooltip: { text: 'Align Left' }
-}, {
-  kind: 'textAlign',
-  align: 'center',
-  icon: AlignCenterIcon,
-  tooltip: { text: 'Align Center' }
-}, {
-  kind: 'textAlign',
-  align: 'right',
-  icon: AlignRightIcon,
-  tooltip: { text: 'Align Right' }
-}, {
-  kind: 'textAlign',
-  align: 'justify',
-  icon: AlignJustifyIcon,
-  tooltip: { text: 'Align Justify' }
-}]] satisfies EditorToolbarItem<typeof customHandlers>[][]
+const toolbarItems = computed(() => [
+  [
+    {
+      kind: 'undo',
+      icon: UndoIcon,
+      tooltip: { text: 'Undo' }
+    },
+    {
+      kind: 'redo',
+      icon: RedoIcon,
+      tooltip: { text: 'Redo' }
+    }
+  ],
+  [
+    {
+      icon: CopilotIcon,
+      loading: aiLoading.value,
+      content: { align: 'start' },
+      b24ui: { leadingIcon: 'text-(--ui-color-copilot-accent-less-1)' },
+      items: [
+        {
+          kind: 'aiFix',
+          icon: CheckGrammarIcon,
+          label: 'Fix spelling & grammar'
+        },
+        {
+          kind: 'aiExtend',
+          icon: MakeLongerIcon,
+          label: 'Extend text'
+        },
+        {
+          kind: 'aiReduce',
+          icon: MakeShorterIcon,
+          label: 'Reduce text'
+        },
+        {
+          kind: 'aiSimplify',
+          icon: IdeaLampIcon,
+          label: 'Simplify text'
+        },
+        {
+          kind: 'aiContinue',
+          icon: PenIcon,
+          label: 'Continue sentence'
+        },
+        {
+          kind: 'aiSummarize',
+          icon: QuoteIcon,
+          label: 'Summarize'
+        },
+        {
+          icon: TranslationIcon,
+          label: 'Translate',
+          children: [
+            {
+              kind: 'aiTranslate',
+              language: 'English',
+              label: 'English'
+            },
+            {
+              kind: 'aiTranslate',
+              language: 'French',
+              label: 'French'
+            },
+            {
+              kind: 'aiTranslate',
+              language: 'German',
+              label: 'German'
+            },
+            {
+              kind: 'aiTranslate',
+              language: 'Russian',
+              label: 'Russian'
+            },
+            {
+              kind: 'aiTranslate',
+              language: 'Spanish',
+              label: 'Spanish'
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  [
+    {
+      kind: 'suggestion',
+      icon: ActionRequiredIcon
+    },
+    {
+      kind: 'mention',
+      icon: MentionIcon
+    },
+    {
+      kind: 'emoji',
+      icon: SmileIcon
+    }
+  ],
+  [
+    {
+      icon: HeaderIcon,
+      tooltip: { text: 'Headings' },
+      items: [
+        {
+          kind: 'heading',
+          level: 1,
+          label: 'Heading 1'
+        }, {
+          kind: 'heading',
+          level: 2,
+          label: 'Heading 2'
+        }, {
+          kind: 'heading',
+          level: 3,
+          label: 'Heading 3'
+        }, {
+          kind: 'heading',
+          level: 4,
+          label: 'Heading 4'
+        }
+      ]
+    },
+    {
+      icon: BulletedListIcon,
+      tooltip: { text: 'Lists' },
+      items: [
+        {
+          kind: 'bulletList',
+          icon: BulletedListIcon,
+          label: 'Bullet List'
+        }, {
+          kind: 'orderedList',
+          icon: NumberedListIcon,
+          label: 'Ordered List'
+        }
+      ]
+    },
+    {
+      kind: 'blockquote',
+      icon: QuoteIcon,
+      tooltip: { text: 'Blockquote' }
+    },
+    {
+      kind: 'codeBlock',
+      icon: CodeIcon,
+      tooltip: { text: 'Code Block' }
+    },
+    {
+      kind: 'horizontalRule',
+      icon: HrIcon,
+      tooltip: { text: 'Horizontal Rule' }
+    },
+    {
+      kind: 'paragraph',
+      icon: TextIcon,
+      tooltip: { text: 'Paragraph' }
+    }
+  ],
+  [
+    {
+      kind: 'mark',
+      mark: 'bold',
+      icon: BoldIcon,
+      tooltip: { text: 'Bold' }
+    },
+    {
+      kind: 'mark',
+      mark: 'italic',
+      icon: ItalicIcon,
+      tooltip: { text: 'Italic' }
+    },
+    {
+      kind: 'mark',
+      mark: 'underline',
+      icon: UnderlineIcon,
+      tooltip: { text: 'Underline' }
+    },
+    {
+      kind: 'mark',
+      mark: 'strike',
+      icon: StrikethroughIcon,
+      tooltip: { text: 'Strikethrough' }
+    },
+    {
+      kind: 'mark',
+      mark: 'code',
+      icon: DeveloperResourcesIcon,
+      tooltip: { text: 'Code' }
+    }
+  ],
+  [
+    {
+      slot: 'link' as const,
+      icon: LinkIcon
+    },
+    {
+      kind: 'imageUpload',
+      icon: ImageIcon,
+      tooltip: { text: 'Image' }
+    }
+  ],
+  [
+    {
+      icon: AlignJustifyIcon,
+      tooltip: { text: 'Text Align' },
+      content: { align: 'end' },
+      items: [
+        {
+          kind: 'textAlign',
+          align: 'left',
+          icon: AlignLeftIcon,
+          label: 'Align Left'
+        },
+        {
+          kind: 'textAlign',
+          align: 'center',
+          icon: AlignCenterIcon,
+          label: 'Align Center'
+        },
+        {
+          kind: 'textAlign',
+          align: 'right',
+          icon: AlignRightIcon,
+          label: 'Align Right'
+        },
+        {
+          kind: 'textAlign',
+          align: 'justify',
+          icon: AlignJustifyIcon,
+          label: 'Align Justify'
+        }
+      ]
+    }
+  ]
+] satisfies EditorToolbarItem<typeof customHandlers>[][])
 
 const imageToolbarItems = (editor: any): EditorToolbarItem<typeof customHandlers>[][] => {
   const node = editor.state.doc.nodeAt(editor.state.selection.from)
@@ -347,61 +478,88 @@ const handleItems = (editor: any): DropdownMenuItem[][] => {
   ]], customHandlers) as DropdownMenuItem[][]
 }
 
-const suggestionItems = [[{
-  type: 'label',
-  label: 'Style'
-}, {
-  kind: 'paragraph',
-  label: 'Paragraph',
-  icon: TextIcon
-}, {
-  kind: 'heading',
-  level: 1,
-  label: 'Heading 1'
-}, {
-  kind: 'heading',
-  level: 2,
-  label: 'Heading 2'
-}, {
-  kind: 'heading',
-  level: 3,
-  label: 'Heading 3'
-}, {
-  kind: 'bulletList',
-  label: 'Bullet List',
-  icon: BulletedListIcon
-}, {
-  kind: 'orderedList',
-  label: 'Numbered List',
-  icon: NumberedListIcon
-}, {
-  kind: 'blockquote',
-  label: 'Blockquote',
-  icon: QuoteIcon
-}, {
-  kind: 'codeBlock',
-  label: 'Code Block',
-  icon: CodeIcon
-}], [{
-  type: 'label',
-  label: 'Insert'
-}, {
-  kind: 'mention',
-  label: 'Mention',
-  icon: MentionIcon
-}, {
-  kind: 'emoji',
-  label: 'Emoji',
-  icon: SmileIcon
-}, {
-  kind: 'imageUpload',
-  label: 'Image',
-  icon: ImageIcon
-}, {
-  kind: 'horizontalRule',
-  label: 'Horizontal Rule',
-  icon: HrIcon
-}]] satisfies EditorSuggestionMenuItem<typeof customHandlers>[][]
+const suggestionItems = [
+  [
+    {
+      type: 'label',
+      label: 'AI'
+    },
+    {
+      kind: 'aiContinue',
+      label: 'Continue writing',
+      icon: PenIcon
+    }
+  ],
+  [
+    {
+      type: 'label',
+      label: 'Style'
+    },
+    {
+      kind: 'paragraph',
+      label: 'Paragraph',
+      icon: TextIcon
+    },
+    {
+      kind: 'heading',
+      level: 1,
+      label: 'Heading 1'
+    },
+    {
+      kind: 'heading',
+      level: 2,
+      label: 'Heading 2'
+    },
+    {
+      kind: 'heading',
+      level: 3,
+      label: 'Heading 3'
+    },
+    {
+      kind: 'bulletList',
+      label: 'Bullet List',
+      icon: BulletedListIcon
+    },
+    {
+      kind: 'orderedList',
+      label: 'Numbered List',
+      icon: NumberedListIcon
+    },
+    {
+      kind: 'blockquote',
+      label: 'Blockquote',
+      icon: QuoteIcon
+    },
+    {
+      kind: 'codeBlock',
+      label: 'Code Block',
+      icon: CodeIcon
+    }
+  ],
+  [
+    {
+      type: 'label',
+      label: 'Insert'
+    },
+    {
+      kind: 'mention',
+      label: 'Mention',
+      icon: MentionIcon
+    }, {
+      kind: 'emoji',
+      label: 'Emoji',
+      icon: SmileIcon
+    }, {
+      kind: 'imageUpload',
+      label: 'Image',
+      icon: ImageIcon
+    }, {
+      kind: 'horizontalRule',
+      label: 'Horizontal Rule',
+      icon: HrIcon
+    }
+  ]
+] satisfies EditorSuggestionMenuItem<typeof customHandlers>[][]
 
 const mentionItems: EditorMentionMenuItem[] = [
   {
@@ -426,11 +584,13 @@ const emojiItems: EditorEmojiMenuItem[] = gitHubEmojis.filter(emoji => !emoji.na
     class="isolate mt-[24px] relative h-[calc(100vh-var(--topbar-height)-56px)] !p-0 rounded-md bg-(--ui-color-design-outline-a1-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight)"
   >
     <B24Editor
+      ref="editorRef"
       v-slot="{ editor, handlers }"
       v-model="content"
       :extensions="[
         Emoji,
         ImageUpload,
+        completionExtension,
         TextAlign.configure({
           types: ['heading', 'paragraph']
         })
