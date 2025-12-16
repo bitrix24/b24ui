@@ -16,7 +16,7 @@ defineProps<{
   <B24Card
     variant="outline-copilot"
     :b24ui="{
-      body: 'p-[24px] sm:px-[8px] sm:py-[6px] text-xs text-ai-350'
+      body: 'p-[8px] sm:px-[8px] sm:py-[6px] text-xs text-ai-350'
     }"
   >
     <motion.div

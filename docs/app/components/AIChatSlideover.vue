@@ -266,10 +266,11 @@ onMounted(() => {
     :use-light-content="false"
     :b24ui="{
       content: 'w-full sm:max-w-2/3',
+      // sidebarLayoutRoot: 'edge-dark',
       sidebarLayoutPageWrapper: 'px-0 ps-0 pe-0 pb-0 lg:px-0 lg:ps-0 lg:pe-0',
       sidebarLayoutContainer: 'gap-0 lg:gap-0 relative',
       header: 'px-[20px] py-[15px] border-b border-(--ui-color-divider-vibrant-default)',
-      body: 'p-0! bg-(--popup-window-background-color) relative'
+      body: 'p-0! relative'
     }"
   >
     <template #header>
@@ -314,7 +315,7 @@ onMounted(() => {
     </template>
 
     <template #body>
-      <div class="absolute flex flex-col inset-y-0 w-full h-full">
+      <div class="absolute flex flex-col inset-y-0 w-full h-full bg-(--ui-color-bg-content-primary)">
         <div class="flex-1 overflow-y-auto sm:p-6 p-0! scrollbar-thin">
           <B24ChatMessages
             v-if="chat.messages.length > 0"
@@ -383,7 +384,7 @@ onMounted(() => {
             </div>
           </div>
         </div>
-        <div class="flex items-center gap-1.5 p-0! border-t-1 border-t-(--ui-color-divider-less) shadow-top-md">
+        <div class="flex items-center gap-1.5 p-0! base-mode bg-(--ui-color-bg-content-primary) border-t-1 border-t-(--ui-color-divider-less) shadow-top-md">
           <div class="p-3 w-full">
             <div class="relative flex items-end gap-2 bg-(--ui-color-bg-content-secondary) rounded-xs ring-1 ring-ai-250 hover:ring-ai-350 pr-2 pb-2">
               <B24Textarea
@@ -402,7 +403,7 @@ onMounted(() => {
                   :icon="MicrophoneOnIcon"
                   color="air-tertiary-no-accent"
                   size="sm"
-                  class="shrink-0"
+                  class="shrink-0 hidden md:flex"
                   @click="startDictation"
                 />
                 <B24Button
@@ -424,7 +425,7 @@ onMounted(() => {
                 @click="handleSubmit"
               />
             </div>
-            <div class="flex justify-between items-center mt-2 px-1 text-xs text-dimmed">
+            <div class="flex justify-between items-center mt-2 text-xs text-dimmed">
               <span>Chat is cleared on refresh</span>
               <div class="flex items-center gap-1">
                 <span>Line break</span>
