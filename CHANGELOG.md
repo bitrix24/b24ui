@@ -1,10 +1,15 @@
 # Changelog
 
-## [2.1.16](https://github.com/bitrix24/b24ui/compare/v2.1.15...v2.1.16) (2025-12-xx)
+## [2.1.16](https://github.com/bitrix24/b24ui/compare/v2.1.15...v2.1.16) (2025-12-16)
 
-* chore(deps): update tailwindcss to ^4.1.18
-* chore(deps): update all non-major dependencies
-* fix(ProseCallout/ProseCode/ProseCollapse/ProsePre): improve dark and light theme
+### Bug Fixes
+
+* **ProseCallout/ProseCode/ProseCollapse/ProsePre:** improve dark and light theme
+
+### Chore
+
+* **deps:** update tailwindcss to ^4.1.18
+* **deps:** update all non-major dependencies
 
 ## [2.1.15](https://github.com/bitrix24/b24ui/compare/v2.1.14...v2.1.15) (2025-12-15)
 
