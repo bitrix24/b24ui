@@ -97,8 +97,8 @@ export default {
     inner: {
       true: {
         root: [
-          '--inner',
-          'light',
+          'base-mode --inner',
+          // 'light', base-mode
           'relative isolate',
           'h-full',
           'overflow-hidden'
@@ -145,7 +145,7 @@ export default {
     useLightContent: {
       true: {
         containerWrapper: [
-          'light',
+          'base-mode',
           'text-(--ui-color-text-primary)',
           'bg-(--ui-color-bg-content-primary)'
         ].join(' '),

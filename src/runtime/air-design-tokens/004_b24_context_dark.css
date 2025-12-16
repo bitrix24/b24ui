@@ -1,5 +1,6 @@
 @layer theme {
-  .dark {
+  .dark,
+  .dark .base-mode {
     --air-theme-bg-image: none;
     --air-theme-bg-image-blurred: none;
     --air-theme-bg-position: 0 0;
@@ -9,7 +10,9 @@
     --air-theme-bg-color: var(--ui-color-base-black-fixed);
   }
 
-  .dark.--inner {
+  .dark.--inner,
+  .dark .base-mode.--inner
+  {
     --air-theme-bg-color: var(--ui-color-base-black-fixed);
   }
 

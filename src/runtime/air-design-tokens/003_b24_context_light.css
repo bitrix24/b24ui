@@ -1,5 +1,8 @@
 @layer theme {
-  :root, :host, .light {
+  :root,
+  :host,
+  .light,
+  .base-mode {
     --air-theme-bg-image: none;
     --air-theme-bg-image-blurred: none;
     --air-theme-bg-position: 0 0;
@@ -9,7 +12,9 @@
     --air-theme-bg-color: var(--ui-color-gray-05);
   }
 
-  .light.--inner {
+  .light.--inner,
+  .light .base-mode.--inner
+  {
     --air-theme-bg-color: var(--ui-color-gray-05);
   }
 
