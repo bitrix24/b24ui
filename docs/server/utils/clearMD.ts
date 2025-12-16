@@ -45,6 +45,7 @@ function clearNewLine(content: string): string {
   return content
     .replace(/> \n/g, '')
     .replace(/\n{3,}/g, '\n\n')
+    .replace(/\| -{4,} /g, '| --- ')
 }
 
 function clearLangTsType(content: string): string {
@@ -94,7 +95,6 @@ function convertHtmlTablesToMarkdown(input: string): string {
     }
 
     return markdownRows.join('\n')
-      .replace(/\| -{4,} /g, '| --- ')
   })
 }
 
