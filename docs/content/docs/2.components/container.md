@@ -20,7 +20,7 @@ links:
 ---
 name: 'container-example'
 props:
-class: 'w-full'
+  class: 'w-full'
 ---
 ::
 

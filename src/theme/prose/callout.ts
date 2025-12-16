@@ -18,10 +18,6 @@ export default {
       'rounded-(--ui-border-radius-md)',
       // @memo use style-filled-black-inverted
       '[&_code]:text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm)',
-      '[&_code]:bg-(--ui-color-design-filled-black-content) dark:[&_code]:bg-(--ui-color-design-tinted-na-bg)',
-      '[&_code]:text-(--ui-color-design-filled-black-bg)',
-      // @memo use style-filled-black
-      '[&_pre]:bg-(--ui-color-design-filled-black-bg) dark:[&_pre]:bg-(--ui-color-design-tinted-na-bg)',
       '[&>div]:my-2.5',
       '[&_ul]:my-2.5',
       '[&_ol]:my-2.5',
@@ -29,6 +25,7 @@ export default {
       '[&_ul]:ps-4.5',
       '[&_ol]:ps-4.5',
       '[&_li]:my-0',
+      '[&_a]:underline',
       'transition-colors'
     ].join(' '),
     icon: [

@@ -265,6 +265,24 @@
     --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
   }
 
+  .dark .style-filled-black {
+    --b24ui-background: var(--ui-color-bg-content-tertiary);
+    --b24ui-border-color: var(--ui-color-bg-vibrant-accent);
+    --b24ui-border-width: var(--ui-design-tinted-na-stroke-weight);
+    --b24ui-icon: var(--ui-color-design-tinted-na-content-icon);
+    --b24ui-color: var(--ui-color-design-tinted-na-content);
+    --b24ui-split-divider-color: var(--ui-color-design-tinted-na-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
   .style-filled-black-inverted {
     --b24ui-background: var(--ui-color-design-filled-black-content);
     --b24ui-border-color: var(--ui-color-design-filled-black-stroke);
@@ -311,6 +329,60 @@
     --b24ui-icon: var(--ui-color-design-tinted-alert-content-icon);
     --b24ui-color: var(--ui-color-design-tinted-alert-content);
     --b24ui-split-divider-color: var(--ui-color-design-tinted-alert-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  .style-tinted-success {
+    --b24ui-background: var(--ui-color-design-tinted-success-bg);
+    --b24ui-border-color: var(--ui-color-design-tinted-success-stroke);
+    --b24ui-border-width: var(--ui-design-tinted-success-stroke-weight);
+    --b24ui-icon: var(--ui-color-design-tinted-success-content-icon);
+    --b24ui-color: var(--ui-color-design-tinted-success-content);
+    --b24ui-split-divider-color: var(--ui-color-design-tinted-success-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  .style-tinted-warning {
+    --b24ui-background: var(--ui-color-design-tinted-warning-bg);
+    --b24ui-border-color: var(--ui-color-design-tinted-warning-stroke);
+    --b24ui-border-width: var(--ui-design-tinted-warning-stroke-weight);
+    --b24ui-icon: var(--ui-color-design-tinted-warning-content-icon);
+    --b24ui-color: var(--ui-color-design-tinted-warning-content);
+    --b24ui-split-divider-color: var(--ui-color-design-tinted-warning-content-divider);
+
+    --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+    --b24ui-background-gradient: linear-gradient(180deg, var(--b24ui-background) 0%, var(--b24ui-background) 100%);
+    --b24ui-background-gradient-hover: linear-gradient(180deg, var(--b24ui-background-hover) 0%, var(--b24ui-background-hover) 100%);
+    --b24ui-background-gradient-active: linear-gradient(180deg, var(--b24ui-background-active) 0%, var(--b24ui-background-active) 100%);
+
+    --b24ui-border-color-hover: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
+    --b24ui-border-color-active: color-mix(in srgb, var(--b24ui-border-color) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));
+  }
+
+  .style-tinted-copilot {
+    --b24ui-background: var(--ui-color-accent-soft-violet-2);
+    --b24ui-border-color: var(--ui-color-accent-soft-violet-2);
+    --b24ui-border-width: var(--ui-border-width-medium);
+    --b24ui-icon: var(--ui-color-copilot-accent-less-2);
+    --b24ui-color: var(--ui-color-copilot-accent-less-2);
+    --b24ui-split-divider-color: var(--ui-color-copilot-bg-content-1);
 
     --b24ui-background-hover: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-hover-default-hex) var(--ui-color-bg-state-hover-default-opacity));
     --b24ui-background-active: color-mix(in srgb, var(--b24ui-background) 100%, var(--ui-color-bg-state-click-default-hex) var(--ui-color-bg-state-click-default-opacity));

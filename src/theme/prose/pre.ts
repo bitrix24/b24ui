@@ -14,7 +14,7 @@ export default {
     header: [
       'flex items-center gap-1.5',
       'border border-(--ui-color-design-tinted-na-stroke)',
-      'bg-(--ui-color-design-tinted-na-bg)',
+      'bg-(--ui-color-base-8)',
       'text-(--ui-color-design-tinted-na-content)',
       'border-b-0 relative',
       'rounded-t-md',
@@ -30,7 +30,7 @@ export default {
       'text-(length:--ui-font-size-md)/(--ui-font-line-height-md)',
       'font-[family-name:var(--ui-font-family-system-mono)]',
       'border border-(--ui-color-design-tinted-na-stroke)',
-      'bg-(--ui-color-gray-90) dark:bg-(--ui-color-gray-90)/20 light:bg-(--ui-color-gray-90)',
+      'bg-(--ui-color-g-plastic-greish-bg)',
       'rounded-(--ui-border-radius-md)',
       'px-4 py-3',
       'whitespace-pre-wrap',

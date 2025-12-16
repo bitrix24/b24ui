@@ -38,7 +38,7 @@ const key = computed(() => {
       :highlighter="highlighter"
       :code="trimmedCode"
       :lang="lang"
-      :theme="colorMode.value === 'dark' ? 'material-theme-palenight' : 'material-theme-palenight'"
+      :theme="colorMode.value === 'dark' ? 'material-theme-palenight' : 'material-theme-lighter'"
     />
   </ProsePre>
 </template>

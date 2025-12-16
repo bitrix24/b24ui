@@ -18,7 +18,6 @@ const config = useRuntimeConfig()
 
 const tgLink = computed(() => {
   return (
-    // eslint-disable-next-line no-undef
     typeof window !== 'undefined' && window.navigator?.language.includes('ru')
   )
     ? 'https://t.me/bitrix24apps'
@@ -27,7 +26,6 @@ const tgLink = computed(() => {
 
 const b24DocsLink = computed(() => {
   return (
-    // eslint-disable-next-line no-undef
     typeof window !== 'undefined' && window.navigator?.language.includes('ru')
   )
     ? 'https://apidocs.bitrix24.ru/'

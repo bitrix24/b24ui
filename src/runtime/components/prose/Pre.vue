@@ -80,6 +80,6 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
   margin: 0 -16px;
   padding: 0 16px;
 
-  @apply bg-(--ui-color-gray-15)/10;
+  @apply bg-(--ui-color-g-plastic-bluish-bg)/30;
 }
 </style>
