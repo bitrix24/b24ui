@@ -7,7 +7,7 @@ const route = useRoute()
 </script>
 
 <template>
-  <div class="block">
+  <div class="hidden lg:block">
     <B24Button
       v-if="route.path === '/'"
       to="/docs/getting-started/installation/"

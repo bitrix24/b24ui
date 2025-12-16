@@ -15,6 +15,24 @@ const props = withDefaults(defineProps<HeaderProps>(), {
 
 const { desktopLinks } = useHeader()
 const config = useRuntimeConfig()
+
+const tgLink = computed(() => {
+  return (
+    // eslint-disable-next-line no-undef
+    typeof window !== 'undefined' && window.navigator?.language.includes('ru')
+  )
+    ? 'https://t.me/bitrix24apps'
+    : 'https://t.me/b24_dev'
+})
+
+const b24DocsLink = computed(() => {
+  return (
+    // eslint-disable-next-line no-undef
+    typeof window !== 'undefined' && window.navigator?.language.includes('ru')
+  )
+    ? 'https://apidocs.bitrix24.ru/'
+    : 'https://apidocs.bitrix24.com/'
+})
 </script>
 
 <template>
@@ -45,14 +63,14 @@ const config = useRuntimeConfig()
       <B24Button
         aria-label="Bitrix24 REST API"
         :icon="Bitrix24Icon"
-        to="https://apidocs.bitrix24.com/"
+        :to="b24DocsLink"
         target="_blank"
         size="sm"
       />
       <B24Button
         aria-label="Bitrix24 UI on Telegram"
         :icon="TelegramIcon"
-        to="https://t.me/b24_dev"
+        :to="tgLink"
         target="_blank"
         size="sm"
       />

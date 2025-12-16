@@ -31,6 +31,8 @@ const props = withDefaults(defineProps<LogoWithVersionProps>(), {
       <B24Badge
         :label="`v${config.version}`"
         color="air-primary-copilot"
+        size="xs"
+        class="mb-4"
       />
     </div>
   </div>
