@@ -19,12 +19,10 @@ export default {
       // @memo use style-filled-black-inverted
       '[&_code]:text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm)',
       '[&>div]:my-2.5',
-      '[&_ul]:my-2.5',
-      '[&_ol]:my-2.5',
+      '[&_ul]:my-2.5 [&_ul]:ps-3 [&_ul]:marker:text-(--b24ui-color)',
+      '[&_ol]:my-2.5 [&_ol]:ps-3 [&_ul]:marker:text-(--b24ui-color)',
       '[&>*]:last:!mb-0',
-      '[&_ul]:ps-4.5',
-      '[&_ol]:ps-4.5',
-      '[&_li]:my-0',
+      '[&_li]:my-1.5 [&_li]:ps-1 [&_li]:text-(length:--ui-font-size-md)/(--ui-font-line-height-3xs) [&_li]:text-(--b24ui-color)',
       '[&_a]:underline',
       'transition-colors'
     ].join(' '),
