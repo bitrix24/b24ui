@@ -101,16 +101,18 @@ function handleKeyDown(event: KeyboardEvent) {
     <template #content>
       <B24Input
         v-model="url"
+        no-border
         autofocus
         name="url"
         type="url"
-        variant="none"
+        size="sm"
         placeholder="Paste a link..."
         @keydown="handleKeyDown"
       >
         <div class="flex items-center mr-0.5">
           <B24Button
             :icon="LowerRightArrowIcon"
+            color="air-tertiary-accent"
             size="sm"
             :disabled="!url && !active"
             title="Apply link"
@@ -121,6 +123,7 @@ function handleKeyDown(event: KeyboardEvent) {
 
           <B24Button
             :icon="GoToLIcon"
+            color="air-tertiary-no-accent"
             size="sm"
             :disabled="!url && !active"
             title="Open in new window"
@@ -129,6 +132,7 @@ function handleKeyDown(event: KeyboardEvent) {
 
           <B24Button
             :icon="TrashcanIcon"
+            color="air-tertiary-no-accent"
             size="sm"
             :disabled="!url && !active"
             title="Remove link"
