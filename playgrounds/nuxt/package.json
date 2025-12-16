@@ -11,15 +11,15 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "@ai-sdk/deepseek": "^1.0.31",
-    "@ai-sdk/vue": "^2.0.108",
+    "@ai-sdk/deepseek": "^1.0.32",
+    "@ai-sdk/vue": "^2.0.113",
     "@internationalized/date": "^3.10.0",
     "@bitrix24/b24ui-nuxt": "workspace:*",
     "@tiptap/extension-emoji": "3.13.0",
     "@tiptap/extension-text-align": "3.13.0",
-    "ai": "^5.0.108",
+    "ai": "^5.0.113",
     "nuxt": "^4.2.2",
-    "zod": "^4.1.13",
+    "zod": "^4.2.0",
     "maska": "^3.2.0",
     "nuxt-component-meta": "^0.15.0"
   },

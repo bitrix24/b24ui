@@ -3,6 +3,7 @@
 ## [2.1.16](https://github.com/bitrix24/b24ui/compare/v2.1.15...v2.1.16) (2025-12-xx)
 
 * chore(deps): update tailwindcss to ^4.1.18
+* chore(deps): update all non-major dependencies
 
 ## [2.1.15](https://github.com/bitrix24/b24ui/compare/v2.1.14...v2.1.15) (2025-12-15)
 
