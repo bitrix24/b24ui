@@ -884,19 +884,74 @@ export async function transformMDC(event: H3Event, doc: Document): Promise<Docum
     const title = [
       'strong',
       {},
-      `Question: ${customTitle}`
+      customTitle
     ]
 
     const description = Array.isArray(prevNode[2]) ? prevNode[2] : []
-    if (description) {
-      description[2] = `%br%Answer: ${description[2]}%br%%br%`
-    }
 
     node[2] = [
       'p',
       {},
+      ['p', {}, '', title, '%br%', description],
+      ['p', {}, '%br%']
+    ]
+  })
+
+  /**
+   * @memo before field we clear collapsible
+   */
+  visitAndReplace(doc, 'collapsible', (node) => {
+    node[0] = 'p'
+    node[1] = {}
+  })
+
+  /**
+   * @memo before field we clear field-group
+   */
+  visitAndReplace(doc, 'field-group', (node) => {
+    node[0] = 'p'
+    node[1] = {}
+  })
+
+  visitAndReplace(doc, 'field', (node) => {
+    const prevNode = { ...node }
+
+    node[0] = 'p'
+    node[1] = {}
+
+    const customTitle = prevNode[1]?.name || ''
+    const customType = prevNode[1]?.type || ''
+    const customRequired = prevNode[1]?.required === true
+
+    const title = [
+      'li',
+      {},
+      `Name: ${customTitle}`
+    ]
+    const type = [
+      'li',
+      {},
+      ` Type: ${customType}`
+    ]
+    const required = [
+      'li',
+      {},
+      ` Is Required: ${customRequired ? 'Yes' : 'No'}`
+    ]
+
+    const description = Array.isArray(prevNode[2]) ? prevNode[2] : []
+    if (description) {
+      description[0] = 'li'
+    }
+
+    node[2] = [
+      'ul',
+      {},
       title,
-      description
+      type,
+      required,
+      description,
+      ['p', {}, '%br%']
     ]
   })
 
