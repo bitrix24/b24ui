@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.1.17](https://github.com/bitrix24/b24ui/compare/v2.1.16...v2.1.17) (2025-12-17)
+
+### Features
+
+* **Slideover:** add `inset` prop
+* **FormField:** add `orientation` prop
+
+### Bug Fixes
+
+* **ProseCallout:** ul/ol color
+* **SidebarLayout:** support dark and light mode
+* **Slideover:** fix scroll for long content
+
+### Docs
+
+* **template:** improve
+
 ## [2.1.16](https://github.com/bitrix24/b24ui/compare/v2.1.15...v2.1.16) (2025-12-16)
 
 ### Bug Fixes
