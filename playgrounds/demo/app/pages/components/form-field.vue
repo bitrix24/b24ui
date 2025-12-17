@@ -1,14 +1,18 @@
 <script setup lang="ts">
 import theme from '#build/b24ui/form-field'
 import usePageMeta from './../../composables/usePageMeta'
-import ExampleGrid from '../../components/ExampleGrid.vue'
-import ExampleCard from '../../components/ExampleCard.vue'
-import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 
 usePageMeta.setPageTitle('FormField')
-const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
 const isUseBg = ref(true)
+
+const sizes = Object.keys(theme.variants.size)
+const orientations = Object.keys(theme.variants.orientation)
+
+const attrs = reactive({
+  size: [theme.defaultVariants.size],
+  orientation: [theme.defaultVariants.orientation]
+})
 
 const feedbacks = [
   { description: 'This is a description' },
@@ -17,154 +21,41 @@ const feedbacks = [
   { help: 'This is a help' },
   { required: true }
 ]
-
-const items = ref(['CRM settings', 'My company details', 'Access permissions', 'CRM Payment', 'CRM.Delivery', 'Scripts', 'Create script', 'Install from Bitrix24.Market'])
-const itemsRadioGroup = ref([
-  {
-    label: 'CRM settings',
-    description: 'Configure your CRM system.\n',
-    value: 'settings'
-  },
-  {
-    label: 'My company details',
-    description: 'Access and update your company\'s information and profile.\n',
-    value: 'my_company_details'
-  }
-])
 </script>
 
 <template>
-  <ExampleGrid v-once>
-    <ExampleCard title="feedback" :use-bg="isUseBg">
-      <ExampleCardSubTitle title="different" />
-      <div class="mb-4 flex flex-wrap flex-col items-stretch gap-4">
-        <template v-for="(feedback, index) in feedbacks" :key="index">
-          <B24FormField v-bind="feedback" label="Email" name="email">
-            <B24Input name="email" aria-label="Email" type="email" placeholder="john@lennon.com" />
-          </B24FormField>
-        </template>
+  <B24PageGrid v-once class="lg:grid-cols-4 gap-5">
+    <B24Card variant="outline">
+      <template #header>
+        <div class="flex flex-row items-center justify-between gap-2">
+          <ProseH5 class="mb-0">
+            Options
+          </ProseH5>
+          <B24Switch v-model="isUseBg" label="isUseBg" size="xs" />
+        </div>
+      </template>
+      <div class="mb-4 flex flex-col gap-4">
+        <B24Select v-model="attrs.size" :items="sizes" multiple />
+        <B24Select v-model="attrs.orientation" :items="orientations" multiple />
       </div>
-    </ExampleCard>
+    </B24Card>
 
-    <ExampleCard title="stream" :use-bg="isUseBg">
-      <ExampleCardSubTitle title="Department name and description" />
-      <div class="mb-4 flex flex-nowrap flex-col items-stretch gap-4">
-        <B24FormField label="Parent department" name="department" description="This is a description">
-          <B24Input name="parent_department" aria-label="Parent department" type="text" placeholder="Select parent department" />
-        </B24FormField>
-        <B24FormField label="Name" name="name" required error="Enter department name">
-          <B24Input name="department_name" aria-label="Department name" type="text" placeholder="Enter department name" />
-        </B24FormField>
-        <B24FormField label="Description" name="description">
-          <B24Textarea name="department_description" aria-label="Department description" placeholder="Enter department description" :rows="5" />
-        </B24FormField>
-      </div>
-      <ExampleCardSubTitle title="radio-group" />
-      <div class="mb-4 flex flex-wrap flex-col items-center gap-4">
-        <B24RadioGroup
-          legend="Email"
-          class="w-full"
-          required
-          :items="itemsRadioGroup"
-        />
-      </div>
-    </ExampleCard>
-  </ExampleGrid>
-  <B24Separator accent="accent" class="my-4" label="Size" type="dotted" />
-  <ExampleGrid v-once class="mb-4">
-    <ExampleCard title="Some cases" :use-bg="isUseBg" class="sm:col-span-2 md:col-span-4">
-      <ExampleCardSubTitle title="simple" />
-      <div class="mb-4 flex flex-wrap items-start justify-start gap-6">
-        <template v-for="size in sizes" :key="size">
-          <B24FormField
-            :size="size"
-            label="Email"
-            name="email"
-          >
-            <B24Input aria-label="Email" type="email" placeholder="john@lennon.com" />
-          </B24FormField>
-          <B24FormField
-            :size="size"
-            label="Select"
-            name="email"
-            required
-          >
-            <B24Select
-              aria-label="Select"
-              placeholder="Select value"
-              class="w-[140px]"
-              :items="items"
-            />
-          </B24FormField>
+    <Matrix v-slot="props" :attrs="attrs">
+      <B24Card :variant="isUseBg ? 'outline-no-accent' : 'plain-no-accent'">
+        <template #header>
+          <ProseH5 class="mb-0">
+            {{ [props?.size, props?.orientation].join(' ') }}
+          </ProseH5>
         </template>
-      </div>
 
-      <ExampleCardSubTitle title="with error" />
-      <div class="mb-4 flex flex-wrap items-start justify-start gap-6">
-        <template v-for="size in sizes" :key="size">
-          <B24FormField
-            :size="size"
-            label="Email"
-            hint="This is a hint"
-            description="This is a description"
-            help="This is a help"
-            error="This is an error"
-            name="email"
-            required
-          >
-            <B24Input aria-label="Email" type="email" placeholder="john@lennon.com" />
-          </B24FormField>
-          <B24FormField
-            :size="size"
-            label="Select"
-            hint="This is a hint"
-            description="This is a description"
-            error="This is an error"
-            name="email"
-            required
-          >
-            <B24Select
-              aria-label="Select"
-              placeholder="Select value"
-              class="w-[140px]"
-              :items="items"
-            />
-          </B24FormField>
-        </template>
-      </div>
-
-      <ExampleCardSubTitle title="with description" />
-      <div class="mb-4 flex flex-wrap items-start justify-start gap-6">
-        <template v-for="size in sizes" :key="size">
-          <B24FormField
-            :size="size"
-            label="Email"
-            hint="This is a hint"
-            description="This is a description"
-            help="Please enter a valid email address."
-            name="email"
-            required
-          >
-            <B24Input aria-label="Email" type="email" placeholder="john@lennon.com" />
-          </B24FormField>
-          <B24FormField
-            :size="size"
-            label="Select"
-            hint="This is a hint"
-            description="This is a description"
-            help="Please enter a valid email address."
-            name="email"
-            required
-          >
-            <B24Select
-              aria-label="Select"
-              placeholder="Select value"
-              class="w-[140px]"
-              :items="items"
-            />
-          </B24FormField>
-        </template>
-      </div>
-    </ExampleCard>
-  </ExampleGrid>
+        <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
+          <template v-for="(feedback, index) in feedbacks" :key="index">
+            <B24FormField label="Email" name="email" v-bind="{ ...feedback, ...props }" class="data-[orientation=horizontal]:w-full">
+              <B24Input placeholder="john@lennon.com" />
+            </B24FormField>
+          </template>
+        </div>
+      </B24Card>
+    </Matrix>
+  </B24PageGrid>
 </template>

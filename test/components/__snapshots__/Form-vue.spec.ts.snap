@@ -27,8 +27,8 @@ exports[`Form > custom validation works > with error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
-      <div id="v-1-error" data-slot="error" class="mt-[4px] text-(--ui-color-accent-main-alert)">
-        <div data-slot="errorWrapper" class="flex flex-row flex-nowrap items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="mt-[2px] size-[18px]">
+      <div id="v-1-error" data-slot="error" class="text-(--ui-color-accent-main-alert) mt-[4px]">
+        <div data-slot="errorWrapper" class="flex flex-row flex-nowrap items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-[18px] mt-[2px]">
             <path fill="currentColor" fill-rule="evenodd" d="m20.016 15.912-6.88-11.457c-.53-.88-1.792-.88-2.311 0l-6.88 11.457c-.54.902.113 2.041 1.162 2.041h13.758a1.347 1.347 0 0 0 1.15-2.04m-9.022-7.465a.91.91 0 0 1 .913-.914h.124a.91.91 0 0 1 .914.914v3.417a.91.91 0 0 1-.914.913h-.124a.91.91 0 0 1-.913-.913zm2.131 6.63c0 .632-.518 1.151-1.15 1.151s-1.15-.519-1.15-1.15c0-.632.519-1.15 1.15-1.15.632 0 1.15.518 1.15 1.15" clip-rule="evenodd"></path>
           </svg>
           <div>Must be at least 8 characters</div>
@@ -99,8 +99,8 @@ exports[`Form > joi validation works > with error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
-      <div id="v-1-error" data-slot="error" class="mt-[4px] text-(--ui-color-accent-main-alert)">
-        <div data-slot="errorWrapper" class="flex flex-row flex-nowrap items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="mt-[2px] size-[18px]">
+      <div id="v-1-error" data-slot="error" class="text-(--ui-color-accent-main-alert) mt-[4px]">
+        <div data-slot="errorWrapper" class="flex flex-row flex-nowrap items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-[18px] mt-[2px]">
             <path fill="currentColor" fill-rule="evenodd" d="m20.016 15.912-6.88-11.457c-.53-.88-1.792-.88-2.311 0l-6.88 11.457c-.54.902.113 2.041 1.162 2.041h13.758a1.347 1.347 0 0 0 1.15-2.04m-9.022-7.465a.91.91 0 0 1 .913-.914h.124a.91.91 0 0 1 .914.914v3.417a.91.91 0 0 1-.914.913h-.124a.91.91 0 0 1-.913-.913zm2.131 6.63c0 .632-.518 1.151-1.15 1.151s-1.15-.519-1.15-1.15c0-.632.519-1.15 1.15-1.15.632 0 1.15.518 1.15 1.15" clip-rule="evenodd"></path>
           </svg>
           <div>Must be at least 8 characters</div>
@@ -175,8 +175,8 @@ exports[`Form > superstruct validation works > with error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
-      <div id="v-1-error" data-slot="error" class="mt-[4px] text-(--ui-color-accent-main-alert)">
-        <div data-slot="errorWrapper" class="flex flex-row flex-nowrap items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="mt-[2px] size-[18px]">
+      <div id="v-1-error" data-slot="error" class="text-(--ui-color-accent-main-alert) mt-[4px]">
+        <div data-slot="errorWrapper" class="flex flex-row flex-nowrap items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-[18px] mt-[2px]">
             <path fill="currentColor" fill-rule="evenodd" d="m20.016 15.912-6.88-11.457c-.53-.88-1.792-.88-2.311 0l-6.88 11.457c-.54.902.113 2.041 1.162 2.041h13.758a1.347 1.347 0 0 0 1.15-2.04m-9.022-7.465a.91.91 0 0 1 .913-.914h.124a.91.91 0 0 1 .914.914v3.417a.91.91 0 0 1-.914.913h-.124a.91.91 0 0 1-.913-.913zm2.131 6.63c0 .632-.518 1.151-1.15 1.151s-1.15-.519-1.15-1.15c0-.632.519-1.15 1.15-1.15.632 0 1.15.518 1.15 1.15" clip-rule="evenodd"></path>
           </svg>
           <div>Must be at least 8 characters</div>
@@ -247,8 +247,8 @@ exports[`Form > valibot validation works > with error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
-      <div id="v-1-error" data-slot="error" class="mt-[4px] text-(--ui-color-accent-main-alert)">
-        <div data-slot="errorWrapper" class="flex flex-row flex-nowrap items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="mt-[2px] size-[18px]">
+      <div id="v-1-error" data-slot="error" class="text-(--ui-color-accent-main-alert) mt-[4px]">
+        <div data-slot="errorWrapper" class="flex flex-row flex-nowrap items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-[18px] mt-[2px]">
             <path fill="currentColor" fill-rule="evenodd" d="m20.016 15.912-6.88-11.457c-.53-.88-1.792-.88-2.311 0l-6.88 11.457c-.54.902.113 2.041 1.162 2.041h13.758a1.347 1.347 0 0 0 1.15-2.04m-9.022-7.465a.91.91 0 0 1 .913-.914h.124a.91.91 0 0 1 .914.914v3.417a.91.91 0 0 1-.914.913h-.124a.91.91 0 0 1-.913-.913zm2.131 6.63c0 .632-.518 1.151-1.15 1.151s-1.15-.519-1.15-1.15c0-.632.519-1.15 1.15-1.15.632 0 1.15.518 1.15 1.15" clip-rule="evenodd"></path>
           </svg>
           <div>Must be at least 8 characters</div>
@@ -319,8 +319,8 @@ exports[`Form > yup validation works > with error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
-      <div id="v-1-error" data-slot="error" class="mt-[4px] text-(--ui-color-accent-main-alert)">
-        <div data-slot="errorWrapper" class="flex flex-row flex-nowrap items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="mt-[2px] size-[18px]">
+      <div id="v-1-error" data-slot="error" class="text-(--ui-color-accent-main-alert) mt-[4px]">
+        <div data-slot="errorWrapper" class="flex flex-row flex-nowrap items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-[18px] mt-[2px]">
             <path fill="currentColor" fill-rule="evenodd" d="m20.016 15.912-6.88-11.457c-.53-.88-1.792-.88-2.311 0l-6.88 11.457c-.54.902.113 2.041 1.162 2.041h13.758a1.347 1.347 0 0 0 1.15-2.04m-9.022-7.465a.91.91 0 0 1 .913-.914h.124a.91.91 0 0 1 .914.914v3.417a.91.91 0 0 1-.914.913h-.124a.91.91 0 0 1-.913-.913zm2.131 6.63c0 .632-.518 1.151-1.15 1.151s-1.15-.519-1.15-1.15c0-.632.519-1.15 1.15-1.15.632 0 1.15.518 1.15 1.15" clip-rule="evenodd"></path>
           </svg>
           <div>Must be at least 8 characters</div>
@@ -391,8 +391,8 @@ exports[`Form > zod validation works > with error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
-      <div id="v-1-error" data-slot="error" class="mt-[4px] text-(--ui-color-accent-main-alert)">
-        <div data-slot="errorWrapper" class="flex flex-row flex-nowrap items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="mt-[2px] size-[18px]">
+      <div id="v-1-error" data-slot="error" class="text-(--ui-color-accent-main-alert) mt-[4px]">
+        <div data-slot="errorWrapper" class="flex flex-row flex-nowrap items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-[18px] mt-[2px]">
             <path fill="currentColor" fill-rule="evenodd" d="m20.016 15.912-6.88-11.457c-.53-.88-1.792-.88-2.311 0l-6.88 11.457c-.54.902.113 2.041 1.162 2.041h13.758a1.347 1.347 0 0 0 1.15-2.04m-9.022-7.465a.91.91 0 0 1 .913-.914h.124a.91.91 0 0 1 .914.914v3.417a.91.91 0 0 1-.914.913h-.124a.91.91 0 0 1-.913-.913zm2.131 6.63c0 .632-.518 1.151-1.15 1.151s-1.15-.519-1.15-1.15c0-.632.519-1.15 1.15-1.15.632 0 1.15.518 1.15 1.15" clip-rule="evenodd"></path>
           </svg>
           <div>Must be at least 8 characters</div>

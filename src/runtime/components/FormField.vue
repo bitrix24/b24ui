@@ -36,6 +36,11 @@ export interface FormFieldProps {
    * @defaultValue `300`
    */
   validateOnInputDelay?: number
+  /**
+   * The orientation of the form field.
+   * @defaultValue 'vertical'
+   */
+  orientation?: FormField['variants']['orientation']
   class?: any
   b24ui?: FormField['slots']
 }
@@ -69,6 +74,7 @@ const appConfig = useAppConfig() as FormField['AppConfig']
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.formField || {}) })({
   size: props.size,
   required: props.required,
+  orientation: props.orientation,
   useDescription: Boolean(props.description) || !!slots.description
 }))
 
@@ -105,7 +111,7 @@ provide(formFieldInjectionKey, computed(() => ({
 </script>
 
 <template>
-  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <Primitive :as="as" :data-orientation="orientation" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <div data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
       <div v-if="label || !!slots.label" data-slot="root" :class="b24ui.labelWrapper({ class: props.b24ui?.labelWrapper })">
         <Label :for="id" data-slot="label" :class="b24ui.label({ class: props.b24ui?.label })">
