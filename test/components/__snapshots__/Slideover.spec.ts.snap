@@ -6,7 +6,7 @@ exports[`Slideover > renders with actions slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:max-h-[calc(100%-18px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full max-h-full sm:max-h-[calc(100%-18px)] right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <!-- @todo fix this css --><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-[1px] rounded-l-full">
     <!--v-if-->
@@ -49,7 +49,7 @@ exports[`Slideover > renders with b24ui correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:max-h-[calc(100%-18px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full max-h-full sm:max-h-[calc(100%-18px)] right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <!-- @todo fix this css --><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-[1px] rounded-l-full end-2">
     <!--v-if-->
@@ -87,7 +87,7 @@ exports[`Slideover > renders with body slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:max-h-[calc(100%-18px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full max-h-full sm:max-h-[calc(100%-18px)] right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <!-- @todo fix this css --><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-[1px] rounded-l-full">
     <!--v-if-->
@@ -134,7 +134,7 @@ exports[`Slideover > renders with bottom side correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:max-h-[calc(100%-18px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full max-h-full sm:max-h-[calc(100%-18px)] right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <!-- @todo fix this css --><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-[1px] rounded-l-full">
     <!--v-if-->
@@ -161,7 +161,50 @@ exports[`Slideover > renders with bottom side correctly 1`] = `
               <div data-slot="wrapper" class="min-h-[30px]">
                 <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
                 <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
-              </div><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain-no-accent ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-[1px] rounded-l-full">
+              </div>
+              <!--v-if-->
+            </div>
+          </div>
+          <!--v-if-->
+          <!--v-if-->
+        </main>
+        <!--v-if-->
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+</div>
+
+
+<!--teleport end-->"
+`;
+
+exports[`Slideover > renders with bottom side inset correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full rounded-[18px] max-h-[calc(100%-2rem)] w-[calc(100%-2rem)] end-4 bottom-4 motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+  <!--v-if-->
+  <!--v-if-->
+  <div data-state="isLoading ? 'loading' : 'show'" data-slot="root" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex base-mode --inner isolate h-full overflow-hidden relative rounded-[18px]">
+    <!-- isLoading -->
+    <!--v-if-->
+    <!--teleport start-->
+    <!--teleport end-->
+    <!--v-if-->
+    <div data-slot="contentWrapper" class="flex-1 flex flex-col">
+      <!--v-if-->
+      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin">
+        <main data-slot="container" class="lg:col-span-12 lg:min-w-0 flex-1 flex flex-col lg:gap-[22px] mt-0 h-full gap-[22px]">
+          <!-- Page Top -->
+          <div data-slot="pageTopWrapper" class="text-(--ui-color-base-1) flex items-center gap-[12px] px-0 lg:px-0">
+            <div data-slot="header" class="pt-[24px] flex-1 flex items-center gap-x-[12px] gap-y-1.5">
+              <div data-slot="wrapper" class="min-h-[30px]">
+                <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
+                <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+              </div><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain-no-accent ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute top-4 end-4">
                 <!--v-if-->
                 <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
                     <path fill="currentColor" d="M8.46 7.54a.65.65 0 0 0-.92.92L11.08 12l-3.54 3.54a.65.65 0 1 0 .92.92L12 12.918l3.54 3.54a.65.65 0 1 0 .919-.92L12.919 12l3.54-3.54a.65.65 0 0 0-.92-.919L12 11.08z"></path>
@@ -192,7 +235,7 @@ exports[`Slideover > renders with class correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:max-h-[calc(100%-18px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out] bg-red-500" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full max-h-full sm:max-h-[calc(100%-18px)] right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out] bg-red-500" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <!-- @todo fix this css --><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-[1px] rounded-l-full">
     <!--v-if-->
@@ -230,7 +273,7 @@ exports[`Slideover > renders with close slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:max-h-[calc(100%-18px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full max-h-full sm:max-h-[calc(100%-18px)] right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->Close slot<div data-state="isLoading ? 'loading' : 'show'" data-slot="root" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex base-mode --inner isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
     <!-- isLoading -->
     <!--v-if-->
@@ -258,7 +301,7 @@ exports[`Slideover > renders with closeIcon correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:max-h-[calc(100%-18px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full max-h-full sm:max-h-[calc(100%-18px)] right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <!-- @todo fix this css --><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-[1px] rounded-l-full">
     <!--v-if-->
@@ -296,7 +339,7 @@ exports[`Slideover > renders with content slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:max-h-[calc(100%-18px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full max-h-full sm:max-h-[calc(100%-18px)] right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->Content slot
 </div>
 
@@ -310,7 +353,7 @@ exports[`Slideover > renders with default slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:max-h-[calc(100%-18px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="reka-dialog-content-v-0-0-0" role="dialog" aria-describedby="reka-dialog-description-v-0-0-2" aria-labelledby="reka-dialog-title-v-0-0-1" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full max-h-full sm:max-h-[calc(100%-18px)] right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="reka-dialog-content-v-0-0-0" role="dialog" aria-describedby="reka-dialog-description-v-0-0-2" aria-labelledby="reka-dialog-title-v-0-0-1" data-state="open">
   <!--v-if-->
   <!-- @todo fix this css --><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-[1px] rounded-l-full">
     <!--v-if-->
@@ -348,7 +391,7 @@ exports[`Slideover > renders with description correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:max-h-[calc(100%-18px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full max-h-full sm:max-h-[calc(100%-18px)] right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <!-- @todo fix this css --><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-[1px] rounded-l-full">
     <!--v-if-->
@@ -375,15 +418,8 @@ exports[`Slideover > renders with description correctly 1`] = `
               <div data-slot="wrapper" class="min-h-[30px]">
                 <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
                 <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
-              </div><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain-no-accent ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-[1px] rounded-l-full">
-                <!--v-if-->
-                <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
-                    <path fill="currentColor" d="M8.46 7.54a.65.65 0 0 0-.92.92L11.08 12l-3.54 3.54a.65.65 0 1 0 .92.92L12 12.918l3.54 3.54a.65.65 0 1 0 .919-.92L12.919 12l3.54-3.54a.65.65 0 0 0-.92-.919L12 11.08z"></path>
-                  </svg>
-                  <!--v-if-->
-                  <!--v-if-->
-                </div>
-              </button>
+              </div>
+              <!--v-if-->
             </div>
           </div>
           <!--v-if-->
@@ -406,7 +442,7 @@ exports[`Slideover > renders with description slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:max-h-[calc(100%-18px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full max-h-full sm:max-h-[calc(100%-18px)] right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <!-- @todo fix this css --><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-[1px] rounded-l-full">
     <!--v-if-->
@@ -433,15 +469,8 @@ exports[`Slideover > renders with description slot correctly 1`] = `
               <div data-slot="wrapper" class="min-h-[30px]">
                 <!--v-if-->
                 <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description slot</p>
-              </div><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain-no-accent ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-[1px] rounded-l-full">
-                <!--v-if-->
-                <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
-                    <path fill="currentColor" d="M8.46 7.54a.65.65 0 0 0-.92.92L11.08 12l-3.54 3.54a.65.65 0 1 0 .92.92L12 12.918l3.54 3.54a.65.65 0 1 0 .919-.92L12.919 12l3.54-3.54a.65.65 0 0 0-.92-.919L12 11.08z"></path>
-                  </svg>
-                  <!--v-if-->
-                  <!--v-if-->
-                </div>
-              </button>
+              </div>
+              <!--v-if-->
             </div>
           </div>
           <!--v-if-->
@@ -464,7 +493,7 @@ exports[`Slideover > renders with footer slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:max-h-[calc(100%-18px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full max-h-full sm:max-h-[calc(100%-18px)] right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <!-- @todo fix this css --><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-[1px] rounded-l-full">
     <!--v-if-->
@@ -504,7 +533,7 @@ exports[`Slideover > renders with header slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:max-h-[calc(100%-18px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open"><span aria-hidden="true" style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); white-space: nowrap; word-wrap: normal; top: -1px; left: -1px;"></span><!-- @todo fix this css --><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-[1px] rounded-l-full">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full max-h-full sm:max-h-[calc(100%-18px)] right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open"><span aria-hidden="true" style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); white-space: nowrap; word-wrap: normal; top: -1px; left: -1px;"></span><!-- @todo fix this css --><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-[1px] rounded-l-full">
     <!--v-if-->
     <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
         <path fill="currentColor" d="M8.46 7.54a.65.65 0 0 0-.92.92L11.08 12l-3.54 3.54a.65.65 0 1 0 .92.92L12 12.918l3.54 3.54a.65.65 0 1 0 .919-.92L12.919 12l3.54-3.54a.65.65 0 0 0-.92-.919L12 11.08z"></path>
@@ -547,7 +576,7 @@ exports[`Slideover > renders with left side correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="left" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full left-0 inset-y-0 w-[calc(100%-60px)] sm:w-[calc(100%-150px)] sm:rounded-t-none motion-safe:data-[state=open]:animate-[slide-in-from-left_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-left_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="left" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full w-[calc(100%-60px)] sm:w-[calc(100%-150px)] inset-y-0 left-0 motion-safe:data-[state=open]:animate-[slide-in-from-left_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-left_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <!-- @todo fix this css --><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pr-1.5 pl-[4px] top-[17px] translate-x-full right-[1px] rounded-r-full [&amp;>div]:flex-row-reverse">
     <!--v-if-->
@@ -558,7 +587,7 @@ exports[`Slideover > renders with left side correctly 1`] = `
       <!--v-if-->
     </div>
   </button>
-  <div data-state="isLoading ? 'loading' : 'show'" data-slot="root" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex base-mode --inner isolate h-full overflow-hidden relative sm:rounded-t-none">
+  <div data-state="isLoading ? 'loading' : 'show'" data-slot="root" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex base-mode --inner isolate h-full overflow-hidden relative">
     <!-- isLoading -->
     <!--v-if-->
     <!--teleport start-->
@@ -574,7 +603,50 @@ exports[`Slideover > renders with left side correctly 1`] = `
               <div data-slot="wrapper" class="min-h-[30px]">
                 <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
                 <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
-              </div><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain-no-accent ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pr-1.5 pl-[4px] top-[17px] translate-x-full right-[1px] rounded-r-full [&amp;>div]:flex-row-reverse">
+              </div>
+              <!--v-if-->
+            </div>
+          </div>
+          <!--v-if-->
+          <!--v-if-->
+        </main>
+        <!--v-if-->
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+</div>
+
+
+<!--teleport end-->"
+`;
+
+exports[`Slideover > renders with left side inset correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="left" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full rounded-[18px] w-[calc(100%-2rem)] max-h-[calc(100%-2rem)] inset-y-4 left-4 motion-safe:data-[state=open]:animate-[slide-in-from-left_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-left_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+  <!--v-if-->
+  <!--v-if-->
+  <div data-state="isLoading ? 'loading' : 'show'" data-slot="root" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex base-mode --inner isolate h-full overflow-hidden relative rounded-[18px]">
+    <!-- isLoading -->
+    <!--v-if-->
+    <!--teleport start-->
+    <!--teleport end-->
+    <!--v-if-->
+    <div data-slot="contentWrapper" class="flex-1 flex flex-col">
+      <!--v-if-->
+      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin">
+        <main data-slot="container" class="lg:col-span-12 lg:min-w-0 flex-1 flex flex-col lg:gap-[22px] mt-0 h-full gap-[22px]">
+          <!-- Page Top -->
+          <div data-slot="pageTopWrapper" class="text-(--ui-color-base-1) flex items-center gap-[12px] px-0 lg:px-0">
+            <div data-slot="header" class="pt-[24px] flex-1 flex items-center gap-x-[12px] gap-y-1.5">
+              <div data-slot="wrapper" class="min-h-[30px]">
+                <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
+                <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+              </div><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain-no-accent ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute top-4 end-4">
                 <!--v-if-->
                 <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
                     <path fill="currentColor" d="M8.46 7.54a.65.65 0 0 0-.92.92L11.08 12l-3.54 3.54a.65.65 0 1 0 .92.92L12 12.918l3.54 3.54a.65.65 0 1 0 .919-.92L12.919 12l3.54-3.54a.65.65 0 0 0-.92-.919L12 11.08z"></path>
@@ -605,7 +677,7 @@ exports[`Slideover > renders with open correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:max-h-[calc(100%-18px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" style="pointer-events: auto;">
+<div data-dismissable-layer="" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full max-h-full sm:max-h-[calc(100%-18px)] right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open" style="pointer-events: auto;">
   <!--v-if-->
   <!-- @todo fix this css --><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-[1px] rounded-l-full">
     <!--v-if-->
@@ -637,13 +709,114 @@ exports[`Slideover > renders with open correctly 1`] = `
 <!--teleport end-->"
 `;
 
+exports[`Slideover > renders with right side correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="right" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full w-[calc(100%-60px)] sm:w-[calc(100%-150px)] inset-y-0 right-0 motion-safe:data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+  <!--v-if-->
+  <!-- @todo fix this css --><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-[1px] rounded-l-full">
+    <!--v-if-->
+    <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
+        <path fill="currentColor" d="M8.46 7.54a.65.65 0 0 0-.92.92L11.08 12l-3.54 3.54a.65.65 0 1 0 .92.92L12 12.918l3.54 3.54a.65.65 0 1 0 .919-.92L12.919 12l3.54-3.54a.65.65 0 0 0-.92-.919L12 11.08z"></path>
+      </svg>
+      <!--v-if-->
+      <!--v-if-->
+    </div>
+  </button>
+  <div data-state="isLoading ? 'loading' : 'show'" data-slot="root" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex base-mode --inner isolate h-full overflow-hidden relative">
+    <!-- isLoading -->
+    <!--v-if-->
+    <!--teleport start-->
+    <!--teleport end-->
+    <!--v-if-->
+    <div data-slot="contentWrapper" class="flex-1 flex flex-col">
+      <!--v-if-->
+      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin">
+        <main data-slot="container" class="lg:col-span-12 lg:min-w-0 flex-1 flex flex-col lg:gap-[22px] mt-0 h-full gap-[22px]">
+          <!-- Page Top -->
+          <div data-slot="pageTopWrapper" class="text-(--ui-color-base-1) flex items-center gap-[12px] px-0 lg:px-0">
+            <div data-slot="header" class="pt-[24px] flex-1 flex items-center gap-x-[12px] gap-y-1.5">
+              <div data-slot="wrapper" class="min-h-[30px]">
+                <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
+                <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+              </div>
+              <!--v-if-->
+            </div>
+          </div>
+          <!--v-if-->
+          <!--v-if-->
+        </main>
+        <!--v-if-->
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+</div>
+
+
+<!--teleport end-->"
+`;
+
+exports[`Slideover > renders with right side inset correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="right" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full rounded-[18px] w-[calc(100%-2rem)] max-h-[calc(100%-2rem)] inset-y-4 right-4 motion-safe:data-[state=open]:animate-[slide-in-from-right_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-right_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+  <!--v-if-->
+  <!--v-if-->
+  <div data-state="isLoading ? 'loading' : 'show'" data-slot="root" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex base-mode --inner isolate h-full overflow-hidden relative rounded-[18px]">
+    <!-- isLoading -->
+    <!--v-if-->
+    <!--teleport start-->
+    <!--teleport end-->
+    <!--v-if-->
+    <div data-slot="contentWrapper" class="flex-1 flex flex-col">
+      <!--v-if-->
+      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin">
+        <main data-slot="container" class="lg:col-span-12 lg:min-w-0 flex-1 flex flex-col lg:gap-[22px] mt-0 h-full gap-[22px]">
+          <!-- Page Top -->
+          <div data-slot="pageTopWrapper" class="text-(--ui-color-base-1) flex items-center gap-[12px] px-0 lg:px-0">
+            <div data-slot="header" class="pt-[24px] flex-1 flex items-center gap-x-[12px] gap-y-1.5">
+              <div data-slot="wrapper" class="min-h-[30px]">
+                <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
+                <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+              </div><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain-no-accent ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute top-4 end-4">
+                <!--v-if-->
+                <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
+                    <path fill="currentColor" d="M8.46 7.54a.65.65 0 0 0-.92.92L11.08 12l-3.54 3.54a.65.65 0 1 0 .92.92L12 12.918l3.54 3.54a.65.65 0 1 0 .919-.92L12.919 12l3.54-3.54a.65.65 0 0 0-.92-.919L12 11.08z"></path>
+                  </svg>
+                  <!--v-if-->
+                  <!--v-if-->
+                </div>
+              </button>
+            </div>
+          </div>
+          <!--v-if-->
+          <!--v-if-->
+        </main>
+        <!--v-if-->
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+</div>
+
+
+<!--teleport end-->"
+`;
+
 exports[`Slideover > renders with title correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:max-h-[calc(100%-18px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full max-h-full sm:max-h-[calc(100%-18px)] right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <!-- @todo fix this css --><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-[1px] rounded-l-full">
     <!--v-if-->
@@ -670,15 +843,8 @@ exports[`Slideover > renders with title correctly 1`] = `
               <div data-slot="wrapper" class="min-h-[30px]">
                 <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
                 <!--v-if-->
-              </div><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain-no-accent ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-[1px] rounded-l-full">
-                <!--v-if-->
-                <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
-                    <path fill="currentColor" d="M8.46 7.54a.65.65 0 0 0-.92.92L11.08 12l-3.54 3.54a.65.65 0 1 0 .92.92L12 12.918l3.54 3.54a.65.65 0 1 0 .919-.92L12.919 12l3.54-3.54a.65.65 0 0 0-.92-.919L12 11.08z"></path>
-                  </svg>
-                  <!--v-if-->
-                  <!--v-if-->
-                </div>
-              </button>
+              </div>
+              <!--v-if-->
             </div>
           </div>
           <!--v-if-->
@@ -701,7 +867,7 @@ exports[`Slideover > renders with title slot correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:max-h-[calc(100%-18px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full max-h-full sm:max-h-[calc(100%-18px)] right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <!-- @todo fix this css --><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-[1px] rounded-l-full">
     <!--v-if-->
@@ -728,7 +894,50 @@ exports[`Slideover > renders with title slot correctly 1`] = `
               <div data-slot="wrapper" class="min-h-[30px]">
                 <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title slot</h2>
                 <!--v-if-->
-              </div><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain-no-accent ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-[1px] rounded-l-full">
+              </div>
+              <!--v-if-->
+            </div>
+          </div>
+          <!--v-if-->
+          <!--v-if-->
+        </main>
+        <!--v-if-->
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+</div>
+
+
+<!--teleport end-->"
+`;
+
+exports[`Slideover > renders with top side correctly 1`] = `
+"<!--v-if-->
+<!--teleport start-->
+
+
+<div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="top" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full max-h-full inset-x-0 top-0 motion-safe:data-[state=open]:animate-[slide-in-from-top_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-top_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+  <!--v-if-->
+  <!--v-if-->
+  <div data-state="isLoading ? 'loading' : 'show'" data-slot="root" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex base-mode --inner isolate h-full overflow-hidden relative">
+    <!-- isLoading -->
+    <!--v-if-->
+    <!--teleport start-->
+    <!--teleport end-->
+    <!--v-if-->
+    <div data-slot="contentWrapper" class="flex-1 flex flex-col">
+      <!--v-if-->
+      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin">
+        <main data-slot="container" class="lg:col-span-12 lg:min-w-0 flex-1 flex flex-col lg:gap-[22px] mt-0 h-full gap-[22px]">
+          <!-- Page Top -->
+          <div data-slot="pageTopWrapper" class="text-(--ui-color-base-1) flex items-center gap-[12px] px-0 lg:px-0">
+            <div data-slot="header" class="pt-[24px] flex-1 flex items-center gap-x-[12px] gap-y-1.5">
+              <div data-slot="wrapper" class="min-h-[30px]">
+                <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
+                <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
+              </div><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain-no-accent ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute top-4 end-4">
                 <!--v-if-->
                 <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
                     <path fill="currentColor" d="M8.46 7.54a.65.65 0 0 0-.92.92L11.08 12l-3.54 3.54a.65.65 0 1 0 .92.92L12 12.918l3.54 3.54a.65.65 0 1 0 .919-.92L12.919 12l3.54-3.54a.65.65 0 0 0-.92-.919L12 11.08z"></path>
@@ -753,16 +962,16 @@ exports[`Slideover > renders with title slot correctly 1`] = `
 <!--teleport end-->"
 `;
 
-exports[`Slideover > renders with top side correctly 1`] = `
+exports[`Slideover > renders with top side inset correctly 1`] = `
 "<!--v-if-->
 <!--teleport start-->
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="top" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full inset-x-0 top-0 max-h-full sm:rounded-t-none motion-safe:data-[state=open]:animate-[slide-in-from-top_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-top_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="top" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full rounded-[18px] max-h-[calc(100%-2rem)] inset-x-4 top-4 motion-safe:data-[state=open]:animate-[slide-in-from-top_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-top_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <!--v-if-->
-  <div data-state="isLoading ? 'loading' : 'show'" data-slot="root" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex base-mode --inner isolate h-full overflow-hidden relative sm:rounded-t-none">
+  <div data-state="isLoading ? 'loading' : 'show'" data-slot="root" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex base-mode --inner isolate h-full overflow-hidden relative rounded-[18px]">
     <!-- isLoading -->
     <!--v-if-->
     <!--teleport start-->
@@ -809,7 +1018,7 @@ exports[`Slideover > renders without close correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e] motion-safe:data-[state=open]:animate-[fade-in_200ms_ease-out] motion-safe:data-[state=closed]:animate-[fade-out_200ms_ease-in]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:max-h-[calc(100%-18px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full max-h-full sm:max-h-[calc(100%-18px)] right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <!--v-if-->
   <div data-state="isLoading ? 'loading' : 'show'" data-slot="root" class="sidebar-layout text-(--b24ui-typography-label-color) w-full flex base-mode --inner isolate h-full overflow-hidden relative sm:rounded-t-[18px]">
@@ -852,7 +1061,7 @@ exports[`Slideover > renders without overlay correctly 1`] = `
 
 
 <!--v-if-->
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:max-h-[calc(100%-18px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full max-h-full sm:max-h-[calc(100%-18px)] right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:rounded-t-[18px] motion-safe:data-[state=open]:animate-[slide-in-from-bottom_200ms_ease-in-out] motion-safe:data-[state=closed]:animate-[slide-out-to-bottom_200ms_ease-in-out]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <!-- @todo fix this css --><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-[1px] rounded-l-full">
     <!--v-if-->
@@ -879,15 +1088,8 @@ exports[`Slideover > renders without overlay correctly 1`] = `
               <div data-slot="wrapper" class="min-h-[30px]">
                 <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
                 <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
-              </div><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain-no-accent ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-[1px] rounded-l-full">
-                <!--v-if-->
-                <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
-                    <path fill="currentColor" d="M8.46 7.54a.65.65 0 0 0-.92.92L11.08 12l-3.54 3.54a.65.65 0 1 0 .92.92L12 12.918l3.54 3.54a.65.65 0 1 0 .919-.92L12.919 12l3.54-3.54a.65.65 0 0 0-.92-.919L12 11.08z"></path>
-                  </svg>
-                  <!--v-if-->
-                  <!--v-if-->
-                </div>
-              </button>
+              </div>
+              <!--v-if-->
             </div>
           </div>
           <!--v-if-->
@@ -910,7 +1112,7 @@ exports[`Slideover > renders without transition correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" data-slot="overlay" class="fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e]"></div>
-<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:max-h-[calc(100%-18px)] sm:rounded-t-[18px]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
+<div data-dismissable-layer="" style="pointer-events: auto;" tabindex="-1" data-side="bottom" data-slot="content" class="fixed sm:shadow-lg flex flex-col focus:outline-none h-full max-h-full sm:max-h-[calc(100%-18px)] right-[5px] top-0 sm:top-[18px] bottom-0 w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)] sm:rounded-t-[18px]" id="" role="dialog" aria-describedby="reka-dialog-description-v-0-0-1" aria-labelledby="reka-dialog-title-v-0-0-0" data-state="open">
   <!--v-if-->
   <!-- @todo fix this css --><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-filled ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-[1px] rounded-l-full">
     <!--v-if-->
@@ -937,15 +1139,8 @@ exports[`Slideover > renders without transition correctly 1`] = `
               <div data-slot="wrapper" class="min-h-[30px]">
                 <h2 id="reka-dialog-title-v-0-0-0" data-slot="title" class="font-[family-name:var(--ui-font-family-primary)] text-(--b24ui-typography-label-color) font-(--ui-font-weight-semi-bold) mb-0 text-(length:--ui-font-size-4xl)/[calc(var(--ui-font-size-4xl)+2px)]">Title</h2>
                 <p id="reka-dialog-description-v-0-0-1" data-slot="description" class="mt-1 text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)">Description</p>
-              </div><button type="button" aria-label="Close" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-plain-no-accent ui-btn-lg rounded-(--ui-btn-radius) normal-case --air w-(--ui-btn-height) group absolute pl-1.5 pr-[4px] top-[17px] -translate-x-full left-[1px] rounded-l-full">
-                <!--v-if-->
-                <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) h-(--ui-btn-height) ps-[4px] pe-[4px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
-                    <path fill="currentColor" d="M8.46 7.54a.65.65 0 0 0-.92.92L11.08 12l-3.54 3.54a.65.65 0 1 0 .92.92L12 12.918l3.54 3.54a.65.65 0 1 0 .919-.92L12.919 12l3.54-3.54a.65.65 0 0 0-.92-.919L12 11.08z"></path>
-                  </svg>
-                  <!--v-if-->
-                  <!--v-if-->
-                </div>
-              </button>
+              </div>
+              <!--v-if-->
             </div>
           </div>
           <!--v-if-->

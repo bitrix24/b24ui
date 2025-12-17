@@ -35,6 +35,11 @@ export interface SlideoverProps extends DialogRootProps {
    */
   side?: Slideover['variants']['side']
   /**
+   * Whether to inset the slideover from the edges.
+   * @defaultValue false
+   */
+  inset?: boolean
+  /**
    * Render the slideover in a portal.
    * @defaultValue true
    */
@@ -138,9 +143,12 @@ const contentEvents = computed(() => {
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.slideover || {}) })({
   transition: props.transition,
   side: props.side,
+  inset: props.inset,
   overlayBlur: props.overlayBlur,
   useFooter: !!slots.footer
 }))
+
+const isBtnCloseExternal = computed(() => (!props.inset && ['left', 'right', 'bottom'].includes(props?.side) && (props.close || !!slots.close)))
 </script>
 
 <!-- eslint-disable vue/no-template-shadow -->
@@ -182,7 +190,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.slideo
         </VisuallyHidden>
 
         <slot name="content" :close="close">
-          <template v-if="(['left', 'right', 'bottom'].includes(props?.side) && (props.close || !!slots.close))">
+          <template v-if="isBtnCloseExternal">
             <DialogClose v-if="props.close || !!slots.close" as-child>
               <slot name="close" :b24ui="b24ui">
                 <!-- @todo fix this css -->
@@ -225,7 +233,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.slideo
               <slot name="navbar" :close="close" />
             </template>
 
-            <template v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description) || (['top'].includes(props?.side) && (props.close || !!slots.close))" #content-top>
+            <template v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description) || (!isBtnCloseExternal && (props.close || !!slots.close))" #content-top>
               <div data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
                 <slot name="header" :close="close">
                   <div data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
@@ -241,7 +249,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.slideo
                       </slot>
                     </DialogDescription>
                   </div>
-                  <template v-if="props.close || !!slots.close">
+                  <template v-if="!isBtnCloseExternal && (props.close || !!slots.close)">
                     <DialogClose v-if="props.close || !!slots.close" as-child>
                       <slot name="close" :b24ui="b24ui">
                         <B24Button

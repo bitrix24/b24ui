@@ -7,11 +7,6 @@
  * @see src/theme/modal.ts
  */
 
-// :b24ui="{
-// leadingIcon: ['left', 'right', 'bottom'].includes(props?.side)
-//   ? 'group-hover:rounded-full group-hover:border-1 group-hover:border-current'
-//   : ''
-// }"
 const safeList = [
   'group-hover:rounded-full group-hover:border-1 group-hover:border-current'
 ].join(' ')
@@ -83,35 +78,27 @@ export default {
     },
     side: {
       // @todo fix if parent SidebarLayout.isUseSideBar > w-[calc(100%-135x)] > w-[calc(100%-150px)]
-      right: {
-        content: [
-          'right-0 inset-y-0 w-[calc(100%-60px)] sm:w-[calc(100%-150px)]',
-          'sm:rounded-t-none'
-        ].join(' '),
-        sidebarLayoutRoot: 'sm:rounded-t-none'
-      },
-      left: {
-        content: [
-          'left-0 inset-y-0 w-[calc(100%-60px)] sm:w-[calc(100%-150px)]',
-          'sm:rounded-t-none'
-        ].join(' '),
-        sidebarLayoutRoot: 'sm:rounded-t-none'
-      },
       top: {
-        content: [
-          'inset-x-0 top-0 max-h-full',
-          'sm:rounded-t-none'
-        ].join(' '),
-        sidebarLayoutRoot: 'sm:rounded-t-none'
+        content: '', // 'sm:rounded-t-none'
+        sidebarLayoutRoot: '' // sm:rounded-t-none
+      },
+      right: {
+        content: '', // sm:rounded-t-none
+        sidebarLayoutRoot: '' // sm:rounded-t-none
       },
       bottom: {
-        content: [
-          'right-[5px] top-0 sm:top-[18px] bottom-0',
-          'w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)]',
-          'sm:max-h-[calc(100%-18px)]',
-          'sm:rounded-t-[18px]'
-        ].join(' '),
-        sidebarLayoutRoot: 'sm:rounded-t-[18px]'
+        content: '',
+        sidebarLayoutRoot: ''
+      },
+      left: {
+        content: '', // sm:rounded-t-none
+        sidebarLayoutRoot: '' // sm:rounded-t-none
+      }
+    },
+    inset: {
+      true: {
+        content: 'rounded-[18px]',
+        sidebarLayoutRoot: 'rounded-[18px]'
       }
     },
     transition: {
@@ -121,9 +108,107 @@ export default {
     }
   },
   compoundVariants: [
-    // region btn.close ////
+    // region side && inset ////
+    {
+      side: 'top',
+      inset: true,
+      class: {
+        content: 'max-h-[calc(100%-2rem)] inset-x-4 top-4'
+      }
+    },
+    {
+      side: 'top',
+      inset: true,
+      useFooter: true,
+      class: {
+        sidebarLayoutPageWrapper: 'min-h-[calc(100vh_-_53px-2rem)]'
+      }
+    },
+    {
+      side: 'top',
+      inset: false,
+      class: {
+        content: 'max-h-full inset-x-0 top-0'
+      }
+    },
+    {
+      side: 'right',
+      inset: true,
+      class: {
+        content: 'w-[calc(100%-2rem)] max-h-[calc(100%-2rem)] inset-y-4 right-4 '
+      }
+    },
+    {
+      side: 'right',
+      inset: true,
+      useFooter: true,
+      class: {
+        sidebarLayoutPageWrapper: 'min-h-[calc(100vh_-_53px-2rem)]'
+      }
+    },
+    {
+      side: 'right',
+      inset: false,
+      class: {
+        content: 'w-[calc(100%-60px)] sm:w-[calc(100%-150px)] inset-y-0 right-0'
+      }
+    },
     {
       side: 'bottom',
+      inset: true,
+      class: {
+        content: [
+          'max-h-[calc(100%-2rem)] w-[calc(100%-2rem)] end-4 bottom-4'
+        ].join(' ')
+      }
+    },
+    {
+      side: 'bottom',
+      inset: true,
+      useFooter: true,
+      class: {
+        sidebarLayoutPageWrapper: 'min-h-[calc(100vh_-_53px_-_2rem)]'
+      }
+    },
+    {
+      side: 'bottom',
+      inset: false,
+      class: {
+        content: [
+          'max-h-full sm:max-h-[calc(100%-18px)] right-[5px] top-0 sm:top-[18px] bottom-0',
+          'w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)]',
+          'sm:rounded-t-[18px]'
+        ].join(' '),
+        sidebarLayoutRoot: 'sm:rounded-t-[18px]'
+      }
+    },
+    {
+      side: 'left',
+      inset: true,
+      class: {
+        content: 'w-[calc(100%-2rem)] max-h-[calc(100%-2rem)] inset-y-4 left-4'
+      }
+    },
+    {
+      side: 'left',
+      inset: true,
+      useFooter: true,
+      class: {
+        sidebarLayoutPageWrapper: 'min-h-[calc(100vh_-_53px-2rem)]'
+      }
+    },
+    {
+      side: 'left',
+      inset: false,
+      class: {
+        content: 'w-[calc(100%-60px)] sm:w-[calc(100%-150px)] inset-y-0 left-0'
+      }
+    },
+    // endregion ////
+    // region bottom & footer -> min-h ////
+    {
+      side: 'bottom',
+      inset: false,
       useFooter: true,
       class: {
         sidebarLayoutPageWrapper: 'sm:min-h-[calc(100vh_-_53px_-18px)]'
@@ -133,6 +218,7 @@ export default {
     // region btn.close ////
     {
       side: ['right', 'bottom'],
+      inset: false,
       class: {
         close: [
           'pl-1.5 pr-[4px]',
@@ -143,12 +229,22 @@ export default {
     },
     {
       side: 'left',
+      inset: false,
       class: {
         close: [
           'pr-1.5 pl-[4px]',
           'top-[17px] translate-x-full right-[1px]',
           'rounded-r-full',
           '[&>div]:flex-row-reverse'
+        ].join(' ')
+      }
+    },
+    {
+      // side: 'top',
+      inset: true,
+      class: {
+        close: [
+          'top-4 end-4'
         ].join(' ')
       }
     },

@@ -17,12 +17,14 @@ import { useDashboard } from '@bitrix24/b24ui-nuxt/utils/dashboard'
 import { sleepAction } from '../../utils/sleep'
 
 usePageMeta.setPageTitle('Slideover')
+const isUseBg = ref(true)
 
 const { action } = useMockMenu()
 
 const SlideoverExample = defineAsyncComponent(() => import('../../components/SlideoverExample.vue'))
 
 const open = ref(false)
+const inset = ref(false)
 const openTopAndBottom = ref(false)
 const openListItem = ref(false)
 const count = ref(0)
@@ -65,6 +67,20 @@ const openSliderTopAndBottom = async () => {
       <template #header>
         <div class="flex flex-row items-center justify-between gap-2">
           <ProseH5 class="mb-0">
+            Options
+          </ProseH5>
+          <B24Switch v-model="isUseBg" label="isUseBg" size="xs" />
+        </div>
+      </template>
+      <div class="mb-4 flex flex-col gap-4">
+        <B24Switch v-model="inset" label="Inset" />
+      </div>
+    </B24Card>
+
+    <B24Card :variant="isUseBg ? 'outline-no-accent' : 'plain-no-accent'">
+      <template #header>
+        <div class="flex flex-row items-center justify-between gap-2">
+          <ProseH5 class="mb-0">
             Opening options
           </ProseH5>
         </div>
@@ -74,7 +90,8 @@ const openSliderTopAndBottom = async () => {
           title="First slideover"
           description="This slideover has `side: 'right'` prop."
           side="right"
-          :close="{ label: 'Right' }"
+          :close="inset ? undefined : { label: 'Right' }"
+          :inset="inset"
         >
           <B24Button label="Right" />
 
@@ -86,6 +103,7 @@ const openSliderTopAndBottom = async () => {
             <B24Slideover
               title="Second slideover"
               :b24ui="{ content: 'max-w-[600px]' }"
+              :inset="inset"
             >
               <B24Button label="Open second" color="air-primary" />
 
@@ -105,7 +123,8 @@ const openSliderTopAndBottom = async () => {
           title="Slideover on left side"
           description="This slideover has `side: 'left'` prop."
           side="left"
-          :close="{ label: 'Left' }"
+          :close="inset ? undefined : { label: 'Left' }"
+          :inset="inset"
         >
           <B24Button label="Left" />
 
@@ -124,6 +143,7 @@ const openSliderTopAndBottom = async () => {
           title="Slideover on top side"
           description="This slideover has `side: 'top'` prop."
           side="top"
+          :inset="inset"
         >
           <B24Button label="Top" />
 
@@ -141,7 +161,8 @@ const openSliderTopAndBottom = async () => {
         <B24Slideover
           title="Slideover on bottom side"
           description="This slideover has `side: 'bottom'` prop."
-          :close="{ label: 'Bottom' }"
+          :close="inset ? undefined : { label: 'Bottom' }"
+          :inset="inset"
         >
           <B24Button label="Bottom" color="air-secondary-accent-2" />
 
@@ -160,6 +181,7 @@ const openSliderTopAndBottom = async () => {
           v-model:open="open"
           title="Slideover with v-model"
           description="This is useful to control the state yourself."
+          :inset="inset"
         >
           <template #body>
             <Placeholder class="size-full" />
@@ -172,7 +194,7 @@ const openSliderTopAndBottom = async () => {
       </div>
     </B24Card>
 
-    <B24Card variant="outline">
+    <B24Card :variant="isUseBg ? 'outline-no-accent' : 'plain-no-accent'">
       <template #header>
         <div class="flex flex-row items-center justify-between gap-2">
           <ProseH5 class="mb-0">
@@ -185,6 +207,7 @@ const openSliderTopAndBottom = async () => {
           title="Slideover with overlay blur"
           description="This slideover has `overlay-blur: auto` prop."
           overlay-blur="auto"
+          :inset="inset"
         >
           <B24Button label="Open with overlay blur" />
 
@@ -197,6 +220,7 @@ const openSliderTopAndBottom = async () => {
           title="Slideover without overlay"
           description="This slideover has `overlay: false` prop."
           :overlay="false"
+          :inset="inset"
         >
           <B24Button label="Open without overlay" />
 
@@ -210,6 +234,7 @@ const openSliderTopAndBottom = async () => {
           description="This slideover has `modal: false` and `overlay: false` to interact with outside content."
           :overlay="false"
           :modal="false"
+          :inset="inset"
         >
           <B24Button label="Open without modal" />
 
@@ -220,7 +245,7 @@ const openSliderTopAndBottom = async () => {
       </div>
     </B24Card>
 
-    <B24Card variant="outline">
+    <B24Card :variant="isUseBg ? 'outline-no-accent' : 'plain-no-accent'">
       <template #header>
         <div class="flex flex-row items-center justify-between gap-2">
           <ProseH5 class="mb-0">
@@ -233,6 +258,7 @@ const openSliderTopAndBottom = async () => {
           title="Slideover without transition"
           description="This slideover has `transition: false` prop."
           :transition="false"
+          :inset="inset"
         >
           <B24Button label="Open without transition" />
 
@@ -245,6 +271,7 @@ const openSliderTopAndBottom = async () => {
           title="Slideover without portal"
           description="This slideover has `portal: false` prop."
           :portal="false"
+          :inset="inset"
         >
           <B24Button label="Open without portal" />
 
@@ -255,7 +282,7 @@ const openSliderTopAndBottom = async () => {
       </div>
     </B24Card>
 
-    <B24Card variant="outline">
+    <B24Card :variant="isUseBg ? 'outline-no-accent' : 'plain-no-accent'">
       <template #header>
         <div class="flex flex-row items-center justify-between gap-2">
           <ProseH5 class="mb-0">
@@ -270,6 +297,7 @@ const openSliderTopAndBottom = async () => {
           :dismissible="false"
           :modal="false"
           :overlay="false"
+          :inset="inset"
         >
           <B24Button label="Open unclosable" />
 
@@ -288,6 +316,7 @@ const openSliderTopAndBottom = async () => {
           title="Slideover without close button"
           description="This slideover has `close: false` prop."
           :close="false"
+          :inset="inset"
         >
           <B24Button label="Open without close button" />
 
@@ -306,6 +335,7 @@ const openSliderTopAndBottom = async () => {
           title="Slideover with scoped slot close"
           description="This slideover has a scoped slot close that can be used to close the slideover from within the content."
           side="right"
+          :inset="inset"
         >
           <B24Button label="Open with scoped slot close" />
 
@@ -324,7 +354,7 @@ const openSliderTopAndBottom = async () => {
       </div>
     </B24Card>
 
-    <B24Card variant="outline">
+    <B24Card :variant="isUseBg ? 'outline-no-accent' : 'plain-no-accent'">
       <template #header>
         <div class="flex flex-row items-center justify-between gap-2">
           <ProseH5 class="mb-0">
@@ -341,6 +371,7 @@ const openSliderTopAndBottom = async () => {
             content: 'sm:max-w-1/2',
             sidebarLayoutRoot: 'edge-dark'
           }"
+          :inset="inset"
         >
           <B24Button label="Simple" />
 
@@ -364,6 +395,7 @@ const openSliderTopAndBottom = async () => {
             content: 'sm:max-w-1/2',
             sidebarLayoutRoot: '[--air-theme-bg-color:#ffffffb5] dark:[--air-theme-bg-color:#55476bb5]'
           }"
+          :inset="inset"
         >
           <B24Button label="Long text" color="air-secondary-alert" />
 
@@ -389,11 +421,12 @@ const openSliderTopAndBottom = async () => {
             content: 'sm:max-w-1/2',
             sidebarLayoutLoadingIcon: 'text-(--ui-color-red-70)'
           }"
+          :inset="inset"
         >
           <B24Button label="Upload file" />
 
           <template #body>
-            <div class="p-5 light rounded-(--ui-border-radius-md) bg-(--ui-color-background-primary)">
+            <div class="p-5 rounded-(--ui-border-radius-md) bg-(--ui-color-bg-content-primary)">
               <MockContentUploadFile />
             </div>
           </template>
@@ -517,6 +550,7 @@ const openSliderTopAndBottom = async () => {
               'edge-dark:[--air-theme-bg-image-blurred:url(/bg/edge-dark-v2-blurred.webp)]'
             ].join(' ')
           }"
+          :inset="inset"
         >
           <B24Button label="List" />
           <template #header>
@@ -632,6 +666,7 @@ const openSliderTopAndBottom = async () => {
               'edge-light:[--air-theme-bg-image-blurred:url(/bg/slider-ring-blurred.webp)]'
             ].join(' ')
           }"
+          :inset="inset"
         >
           <template #header>
             <div
@@ -671,7 +706,7 @@ const openSliderTopAndBottom = async () => {
       </div>
     </B24Card>
 
-    <B24Card variant="outline">
+    <B24Card :variant="isUseBg ? 'outline-no-accent' : 'plain-no-accent'">
       <template #header>
         <div class="flex flex-row items-center justify-between gap-2">
           <ProseH5 class="mb-0">
@@ -694,6 +729,7 @@ const openSliderTopAndBottom = async () => {
               content: 'sm:max-w-1/2',
               sidebarLayoutLoadingIcon: 'text-(--ui-color-red-70) edge-dark:text-(--ui-color-red-70)'
             }"
+            :inset="inset"
           >
             <B24Button label="Open slider" block />
 

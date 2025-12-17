@@ -203,6 +203,36 @@ body: |
 :placeholder{class="h-full min-h-48"}
 ::
 
+### Inset :badge{label="Soon" class="align-text-top"}
+
+Use the `inset` prop to inset the Slideover from the edges.
+
+::component-code
+---
+prettier: true
+ignore:
+  - title
+props:
+  side: 'right'
+  inset: true
+  title: 'Slideover with inset'
+slots:
+  default: |
+
+    <B24Button label="Open" />
+
+  body: |
+
+    <Placeholder class="min-w-96 min-h-96 size-full" />
+---
+
+:b24-button{label="Open"}
+
+#body
+:placeholder{class="min-w-96 min-h-96 size-full"}
+::
+
+
 ### Transition
 
 Use the `transition` prop to control whether the Slideover is animated or not. Defaults to `true`.
