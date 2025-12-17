@@ -25,7 +25,7 @@ exports[`Slideover > renders with actions slot correctly 1`] = `
     <!--v-if-->
     <div data-slot="contentWrapper" class="flex-1 flex flex-col">
       <!--v-if-->
-      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px]">
+      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin">
         <main data-slot="container" class="lg:col-span-12 lg:min-w-0 flex-1 flex flex-col lg:gap-[22px] mt-0 h-full gap-[22px]">
           <!--v-if-->
           <!-- Page Actions -->
@@ -68,7 +68,7 @@ exports[`Slideover > renders with b24ui correctly 1`] = `
     <!--v-if-->
     <div data-slot="contentWrapper" class="flex-1 flex flex-col">
       <!--v-if-->
-      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px]">
+      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin">
         <!--v-if-->
         <!--v-if-->
       </div>
@@ -106,7 +106,7 @@ exports[`Slideover > renders with body slot correctly 1`] = `
     <!--v-if-->
     <div data-slot="contentWrapper" class="flex-1 flex flex-col">
       <!--v-if-->
-      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px]">
+      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin">
         <main data-slot="container" class="lg:col-span-12 lg:min-w-0 flex-1 flex flex-col lg:gap-[22px] mt-0 h-full gap-[22px]">
           <!--v-if-->
           <!--v-if-->
@@ -153,7 +153,7 @@ exports[`Slideover > renders with bottom side correctly 1`] = `
     <!--v-if-->
     <div data-slot="contentWrapper" class="flex-1 flex flex-col">
       <!--v-if-->
-      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px]">
+      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin">
         <main data-slot="container" class="lg:col-span-12 lg:min-w-0 flex-1 flex flex-col lg:gap-[22px] mt-0 h-full gap-[22px]">
           <!-- Page Top -->
           <div data-slot="pageTopWrapper" class="text-(--ui-color-base-1) flex items-center gap-[12px] px-0 lg:px-0">
@@ -211,7 +211,7 @@ exports[`Slideover > renders with class correctly 1`] = `
     <!--v-if-->
     <div data-slot="contentWrapper" class="flex-1 flex flex-col">
       <!--v-if-->
-      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px]">
+      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin">
         <!--v-if-->
         <!--v-if-->
       </div>
@@ -239,7 +239,7 @@ exports[`Slideover > renders with close slot correctly 1`] = `
     <!--v-if-->
     <div data-slot="contentWrapper" class="flex-1 flex flex-col">
       <!--v-if-->
-      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px]">
+      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin">
         <!--v-if-->
         <!--v-if-->
       </div>
@@ -277,7 +277,7 @@ exports[`Slideover > renders with closeIcon correctly 1`] = `
     <!--v-if-->
     <div data-slot="contentWrapper" class="flex-1 flex flex-col">
       <!--v-if-->
-      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px]">
+      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin">
         <!--v-if-->
         <!--v-if-->
       </div>
@@ -329,7 +329,7 @@ exports[`Slideover > renders with default slot correctly 1`] = `
     <!--v-if-->
     <div data-slot="contentWrapper" class="flex-1 flex flex-col">
       <!--v-if-->
-      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px]">
+      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin">
         <!--v-if-->
         <!--v-if-->
       </div>
@@ -367,7 +367,7 @@ exports[`Slideover > renders with description correctly 1`] = `
     <!--v-if-->
     <div data-slot="contentWrapper" class="flex-1 flex flex-col">
       <!--v-if-->
-      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px]">
+      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin">
         <main data-slot="container" class="lg:col-span-12 lg:min-w-0 flex-1 flex flex-col lg:gap-[22px] mt-0 h-full gap-[22px]">
           <!-- Page Top -->
           <div data-slot="pageTopWrapper" class="text-(--ui-color-base-1) flex items-center gap-[12px] px-0 lg:px-0">
@@ -425,7 +425,7 @@ exports[`Slideover > renders with description slot correctly 1`] = `
     <!--v-if-->
     <div data-slot="contentWrapper" class="flex-1 flex flex-col">
       <!--v-if-->
-      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px]">
+      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin">
         <main data-slot="container" class="lg:col-span-12 lg:min-w-0 flex-1 flex flex-col lg:gap-[22px] mt-0 h-full gap-[22px]">
           <!-- Page Top -->
           <div data-slot="pageTopWrapper" class="text-(--ui-color-base-1) flex items-center gap-[12px] px-0 lg:px-0">
@@ -483,7 +483,7 @@ exports[`Slideover > renders with footer slot correctly 1`] = `
     <!--v-if-->
     <div data-slot="contentWrapper" class="flex-1 flex flex-col">
       <!--v-if-->
-      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[calc(53px+20px)]">
+      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin mb-[calc(53px)] min-h-[calc(100vh_-_53px)] sm:min-h-[calc(100vh_-_53px_-18px)]">
         <!--v-if-->
         <!--v-if-->
       </div><!-- Page Bottom -->
@@ -521,7 +521,7 @@ exports[`Slideover > renders with header slot correctly 1`] = `
     <!--v-if-->
     <div data-slot="contentWrapper" class="flex-1 flex flex-col">
       <!--v-if-->
-      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px]">
+      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin">
         <main data-slot="container" class="lg:col-span-12 lg:min-w-0 flex-1 flex flex-col lg:gap-[22px] mt-0 h-full gap-[22px]">
           <!-- Page Top -->
           <div data-slot="pageTopWrapper" class="text-(--ui-color-base-1) flex items-center gap-[12px] px-0 lg:px-0">
@@ -566,7 +566,7 @@ exports[`Slideover > renders with left side correctly 1`] = `
     <!--v-if-->
     <div data-slot="contentWrapper" class="flex-1 flex flex-col">
       <!--v-if-->
-      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px]">
+      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin">
         <main data-slot="container" class="lg:col-span-12 lg:min-w-0 flex-1 flex flex-col lg:gap-[22px] mt-0 h-full gap-[22px]">
           <!-- Page Top -->
           <div data-slot="pageTopWrapper" class="text-(--ui-color-base-1) flex items-center gap-[12px] px-0 lg:px-0">
@@ -624,7 +624,7 @@ exports[`Slideover > renders with open correctly 1`] = `
     <!--v-if-->
     <div data-slot="contentWrapper" class="flex-1 flex flex-col">
       <!--v-if-->
-      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px]">
+      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin">
         <!--v-if-->
         <!--v-if-->
       </div>
@@ -662,7 +662,7 @@ exports[`Slideover > renders with title correctly 1`] = `
     <!--v-if-->
     <div data-slot="contentWrapper" class="flex-1 flex flex-col">
       <!--v-if-->
-      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px]">
+      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin">
         <main data-slot="container" class="lg:col-span-12 lg:min-w-0 flex-1 flex flex-col lg:gap-[22px] mt-0 h-full gap-[22px]">
           <!-- Page Top -->
           <div data-slot="pageTopWrapper" class="text-(--ui-color-base-1) flex items-center gap-[12px] px-0 lg:px-0">
@@ -720,7 +720,7 @@ exports[`Slideover > renders with title slot correctly 1`] = `
     <!--v-if-->
     <div data-slot="contentWrapper" class="flex-1 flex flex-col">
       <!--v-if-->
-      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px]">
+      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin">
         <main data-slot="container" class="lg:col-span-12 lg:min-w-0 flex-1 flex flex-col lg:gap-[22px] mt-0 h-full gap-[22px]">
           <!-- Page Top -->
           <div data-slot="pageTopWrapper" class="text-(--ui-color-base-1) flex items-center gap-[12px] px-0 lg:px-0">
@@ -770,7 +770,7 @@ exports[`Slideover > renders with top side correctly 1`] = `
     <!--v-if-->
     <div data-slot="contentWrapper" class="flex-1 flex flex-col">
       <!--v-if-->
-      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px]">
+      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin">
         <main data-slot="container" class="lg:col-span-12 lg:min-w-0 flex-1 flex flex-col lg:gap-[22px] mt-0 h-full gap-[22px]">
           <!-- Page Top -->
           <div data-slot="pageTopWrapper" class="text-(--ui-color-base-1) flex items-center gap-[12px] px-0 lg:px-0">
@@ -820,7 +820,7 @@ exports[`Slideover > renders without close correctly 1`] = `
     <!--v-if-->
     <div data-slot="contentWrapper" class="flex-1 flex flex-col">
       <!--v-if-->
-      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px]">
+      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin">
         <main data-slot="container" class="lg:col-span-12 lg:min-w-0 flex-1 flex flex-col lg:gap-[22px] mt-0 h-full gap-[22px]">
           <!-- Page Top -->
           <div data-slot="pageTopWrapper" class="text-(--ui-color-base-1) flex items-center gap-[12px] px-0 lg:px-0">
@@ -871,7 +871,7 @@ exports[`Slideover > renders without overlay correctly 1`] = `
     <!--v-if-->
     <div data-slot="contentWrapper" class="flex-1 flex flex-col">
       <!--v-if-->
-      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px]">
+      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin">
         <main data-slot="container" class="lg:col-span-12 lg:min-w-0 flex-1 flex flex-col lg:gap-[22px] mt-0 h-full gap-[22px]">
           <!-- Page Top -->
           <div data-slot="pageTopWrapper" class="text-(--ui-color-base-1) flex items-center gap-[12px] px-0 lg:px-0">
@@ -929,7 +929,7 @@ exports[`Slideover > renders without transition correctly 1`] = `
     <!--v-if-->
     <div data-slot="contentWrapper" class="flex-1 flex flex-col">
       <!--v-if-->
-      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px]">
+      <div data-slot="pageWrapper" class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-[22px] lg:pt-0 lg:px-[20px] lg:ps-[20px] lg:pe-[20px] min-h-full px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin">
         <main data-slot="container" class="lg:col-span-12 lg:min-w-0 flex-1 flex flex-col lg:gap-[22px] mt-0 h-full gap-[22px]">
           <!-- Page Top -->
           <div data-slot="pageTopWrapper" class="text-(--ui-color-base-1) flex items-center gap-[12px] px-0 lg:px-0">

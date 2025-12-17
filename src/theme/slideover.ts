@@ -27,7 +27,7 @@ export default {
     ].join(' '),
     sidebarLayoutRoot: 'relative',
     sidebarLayoutHeaderWrapper: 'relative',
-    sidebarLayoutPageWrapper: 'min-h-full pb-[calc(53px_+_10px)] px-[20px] ps-[20px] pe-[20px] pb-[20px]',
+    sidebarLayoutPageWrapper: 'min-h-full pb-[calc(53px_+_10px)] px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin',
     sidebarLayoutContainer: 'gap-[22px]',
     sidebarLayoutPageBottomWrapper: 'relative',
     sidebarLayoutLoadingWrapper: '',
@@ -67,7 +67,7 @@ export default {
   variants: {
     useFooter: {
       true: {
-        sidebarLayoutPageWrapper: 'pb-[calc(53px+20px)]'
+        sidebarLayoutPageWrapper: 'mb-[calc(53px)] min-h-[calc(100vh_-_53px)]' // -_18px
       }
     },
     overlayBlur: {
@@ -121,6 +121,15 @@ export default {
     }
   },
   compoundVariants: [
+    // region btn.close ////
+    {
+      side: 'bottom',
+      useFooter: true,
+      class: {
+        sidebarLayoutPageWrapper: 'sm:min-h-[calc(100vh_-_53px_-18px)]'
+      }
+    },
+    // endregion ////
     // region btn.close ////
     {
       side: ['right', 'bottom'],
