@@ -78,6 +78,7 @@ const pages = [
   // region Data ////,
   '/docs/components/accordion/',
   '/docs/components/description-list/',
+  '/docs/components/scroll-area/',
   '/docs/components/table/',
   '/docs/components/table-wrapper/',
   '/docs/components/timeline/',

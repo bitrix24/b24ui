@@ -86,6 +86,7 @@ const components: IComponentInfo[] = [
   { id: 'progress', description: 'An indicator showing the progress of a task.', iconData: GroupIcon },
   { id: 'radio-group', description: 'A set of radio buttons to select a single option from a list.', iconData: FormIcon },
   { id: 'range', description: 'An input to select a numeric value within a range.', iconData: FormIcon },
+  { id: 'scroll-area', description: 'A flexible scrollable viewport component that implements virtualization to handle large datasets with optimal performance.', iconData: GroupIcon },
   { id: 'select', description: 'A select element to choose from a list of options.', iconData: FormIcon },
   { id: 'select-menu', description: 'An advanced searchable select element.', iconData: FormIcon },
   { id: 'separator', description: 'Separates content horizontally or vertically.', iconData: GroupIcon },

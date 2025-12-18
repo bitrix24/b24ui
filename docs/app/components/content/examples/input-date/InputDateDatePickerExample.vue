@@ -2,15 +2,15 @@
 import { CalendarDate } from '@internationalized/date'
 import CalendarIcon from '@bitrix24/b24icons-vue/outline/CalendarIcon'
 
-const inputDateRef = useTemplateRef('inputDateRef')
+const inputDate = useTemplateRef('inputDate')
 
 const modelValue = shallowRef(new CalendarDate(2022, 1, 10))
 </script>
 
 <template>
-  <B24InputDate ref="inputDateRef" v-model="modelValue">
+  <B24InputDate ref="inputDate" v-model="modelValue">
     <template #trailing>
-      <B24Popover :reference="inputDateRef?.inputsRef[3]?.$el">
+      <B24Popover :reference="inputDate?.inputsRef[3]?.$el">
         <B24Button
           color="air-tertiary-no-accent"
           size="sm"

@@ -41,7 +41,7 @@ import ArrowTopLIcon from '@bitrix24/b24icons-vue/outline/ArrowTopLIcon'
 import ArrowDownLIcon from '@bitrix24/b24icons-vue/outline/ArrowDownLIcon'
 import PlusLIcon from '@bitrix24/b24icons-vue/outline/PlusLIcon'
 import DragLIcon from '@bitrix24/b24icons-vue/outline/DragLIcon'
-import ActionRequiredIcon from '@bitrix24/b24icons-vue/outline/ActionRequiredIcon'
+import TaskListIcon from '@bitrix24/b24icons-vue/outline/TaskListIcon'
 import CopilotIcon from '@bitrix24/b24icons-vue/solid/CopilotIcon'
 import CheckGrammarIcon from '@bitrix24/b24icons-vue/editor/CheckGrammarIcon'
 import MakeLongerIcon from '@bitrix24/b24icons-vue/editor/MakeLongerIcon'
@@ -215,7 +215,7 @@ const toolbarItems = computed(() => [
   [
     {
       kind: 'suggestion',
-      icon: ActionRequiredIcon
+      icon: TaskListIcon
     },
     {
       kind: 'mention',

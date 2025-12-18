@@ -31,7 +31,7 @@ describe('Empty', () => {
     ...colors.map((color: string) => [`with inverted primary color ${color}`, { props: { ...props, inverted: true, color } }]),
     ...sizes.map((size: string) => [`with size ${size}`, { props: { ...props, size } }]),
     ['with class', { props: { ...props, class: 'gap-6' } }],
-    ['with ui', { props: { ...props, ui: {} } }],
+    ['with b24ui', { props: { ...props, b24ui: {} } }],
     // Slots
     ['with header slot', { props, slots: { header: () => 'Header slot' } }],
     ['with leading slot', { props, slots: { leading: () => 'Leading slot' } }],

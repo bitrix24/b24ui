@@ -15,7 +15,7 @@ links:
     to: https://ui.nuxt.com/docs/components/editor
   - label: TipTap
     avatar:
-      src: /b24ui/avatar/tiptap.png
+      src: https://github.com/ueberdosis.png
     to: https://tiptap.dev/
 ---
 

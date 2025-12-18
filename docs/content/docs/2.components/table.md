@@ -14,7 +14,7 @@ links:
     to: https://ui.nuxt.com/docs/components/table
   - label: TanStack Table
     avatar:
-      src: /b24ui/avatar/tanstack.png
+      src: https://github.com/tanstack.png
     to: https://tanstack.com/table/latest
 ---
 
@@ -576,7 +576,7 @@ class: '!p-0'
 
 ### With infinite scroll
 
-If you use server-side pagination, you can use the [`useInfiniteScroll`](https://vueuse.org/core/useInfiniteScroll/#useinfinitescroll) composable to load more data when scrolling.
+If you use server-side pagination, you can use the [`useInfiniteScroll`](https://vueuse.org/core/useInfiniteScroll/#useinfinitescroll) composable to load more data as the user scrolls.
 
 ::component-example
 ---

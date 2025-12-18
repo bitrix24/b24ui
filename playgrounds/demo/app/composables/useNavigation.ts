@@ -69,6 +69,7 @@ const components = [
   // 'pricing-table',
   'progress',
   'radio-group',
+  'scroll-area',
   'select-menu',
   'select',
   'separator',
