@@ -2,7 +2,7 @@
 title: ChatPromptSubmit
 description: 'A chat prompt submission button with automatic status handling.'
 category: chat
-badge: soon
+badge: New
 links:
   - label: Button
     iconName: Bitrix24Icon
@@ -15,11 +15,7 @@ links:
     to: https://ui.nuxt.com/docs/components/chat-prompt-submit
 ---
 
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
-## Usage :badge{label="2.2+"}
+## Usage
 
 The ChatPromptSubmit component is used inside the [ChatPrompt](/docs/components/chat-prompt/) component to submit the prompt. It automatically handles the different `status` values to control the chat.
 

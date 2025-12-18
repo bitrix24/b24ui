@@ -203,7 +203,7 @@ body: |
 :placeholder{class="h-full min-h-48"}
 ::
 
-### Inset :badge{label="Soon" class="align-text-top"}
+### Inset :badge{label="2.2+" class="align-text-top"}
 
 Use the `inset` prop to inset the Slideover from the edges.
 

@@ -21,13 +21,13 @@ export default {
   variants: {
     variant: {
       message: {
-        content: 'ring-1 ring-(--ui-color-divider-vibrant-default) bg-(--ui-color-palette-white-base) text-(--ui-color-palette-black-base)'
+        content: 'bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight-alt) text-(--ui-color-design-outline-content-secondary)'
       },
       event: {
-        content: 'bg-(--ui-color-design-outline-stroke) ring ring-(--ui-color-design-outline-content-secondary)'
+        content: 'bg-(--ui-color-design-tinted-na-bg) border-(--ui-color-design-tinted-na-stroke) border-(length:--ui-design-tinted-na-stroke-weight) text-(--ui-color-design-tinted-na-content)'
       },
       system: {
-        content: 'bg-(--ui-color-copilot-bg-content-3)'
+        content: 'bg-(--ui-color-copilot-bg-content-1) border-(--ui-color-design-outline-copilot-stroke) text-(--ui-color-design-outline-copilot-content)'
       }
     },
     side: {
@@ -35,7 +35,7 @@ export default {
         container: 'rtl:justify-end'
       },
       right: {
-        container: 'ltr:justify-end ms-auto max-w-[75%]'
+        container: 'ltr:justify-end ms-auto max-w-[85%]'
       }
     },
     leading: {
@@ -100,7 +100,7 @@ export default {
       }
     },
     {
-      variant: 'message',
+      variant: 'system',
       side: 'left',
       class: {
         content: 'w-full'

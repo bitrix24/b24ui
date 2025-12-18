@@ -14,10 +14,6 @@ links:
     to: https://ui.nuxt.com/docs/components/dashboard-search
 ---
 
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
 ## Usage
 
 The DashboardSearch component extends the [CommandPalette](/docs/components/command-palette/) component, so you can pass any property such as `icon`, `placeholder`, etc.

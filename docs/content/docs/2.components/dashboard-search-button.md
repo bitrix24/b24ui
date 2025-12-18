@@ -14,10 +14,6 @@ links:
     to: https://ui.nuxt.com/docs/components/dashboard-search-button
 ---
 
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
 ## Usage
 
 The DashboardSearchButton component is used to open the [DashboardSearch](/docs/components/dashboard-search/) modal.

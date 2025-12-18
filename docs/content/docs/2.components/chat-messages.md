@@ -2,7 +2,7 @@
 title: ChatMessages
 description: 'A chat messages list component designed for seamless integration with the Vercel AI SDK.'
 category: chat
-badge: soon
+badge: New
 links:
   - label: GitHub
     iconName: GitHubIcon
@@ -16,11 +16,7 @@ links:
     target: _blank
 ---
 
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
-## Usage :badge{label="2.2+"}
+## Usage
 
 The ChatMessages component displays a list of [ChatMessage](/docs/components/chat-message/) components using either the default slot or the `messages` prop.
 

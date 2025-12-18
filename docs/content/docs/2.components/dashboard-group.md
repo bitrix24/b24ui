@@ -11,10 +11,6 @@ links:
     to: https://ui.nuxt.com/docs/components/dashboard-group
 ---
 
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
 ## Usage
 
 The DashboardGroup component is the main layout that wraps the [SidebarLayout](/docs/components/sidebar-layout/) components to create a responsive dashboard interface.

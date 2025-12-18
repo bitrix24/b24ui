@@ -2,7 +2,7 @@
 title: ChatPalette
 description: 'A chat interface component designed to be displayed in a modal overlay.'
 category: chat
-badge: soon
+badge: New
 links:
   - label: GitHub
     iconName: GitHubIcon
@@ -12,11 +12,7 @@ links:
     to: https://ui.nuxt.com/docs/components/chat-palette
 ---
 
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
-## Usage :badge{label="2.2+"}
+## Usage
 
 The ChatPalette component is a structured layout wrapper that organizes [ChatMessages](/docs/components/chat-messages/) in a scrollable content area and [ChatPrompt](/docs/components/chat-prompt/) in a fixed bottom section, creating cohesive chatbot interfaces for modals, slideovers.
 

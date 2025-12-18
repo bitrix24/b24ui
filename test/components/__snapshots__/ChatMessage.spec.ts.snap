@@ -4,7 +4,7 @@ exports[`ChatMessage > renders with as correctly 1`] = `
 "<section data-role="user" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
   <div data-slot="container" class="relative flex items-start gap-3 pb-8">
     <!--v-if-->
-    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 ring-1 ring-(--ui-color-divider-vibrant-default) bg-(--ui-color-palette-white-base) text-(--ui-color-palette-black-base) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Hello, how are you?</div>
+    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight-alt) text-(--ui-color-design-outline-content-secondary) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Hello, how are you?</div>
     <!--v-if-->
   </div>
 </section>"
@@ -14,7 +14,7 @@ exports[`ChatMessage > renders with avatar correctly 1`] = `
 "<article data-role="user" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
   <div data-slot="container" class="relative flex items-start gap-3 pb-8">
     <div data-slot="leading" class="inline-flex items-center justify-center min-h-6 mt-2"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--ui-color-base-8) ring ring-(--ui-color-base-7) size-[32px] text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) shrink-0"><img src="https://github.com/bitrix24.png" width="32" height="32" data-slot="image" class="h-full w-full rounded-[inherit] object-cover"></span></div>
-    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 ring-1 ring-(--ui-color-divider-vibrant-default) bg-(--ui-color-palette-white-base) text-(--ui-color-palette-black-base) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Hello, how are you?</div>
+    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight-alt) text-(--ui-color-design-outline-content-secondary) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Hello, how are you?</div>
     <!--v-if-->
   </div>
 </article>"
@@ -24,7 +24,7 @@ exports[`ChatMessage > renders with b24ui correctly 1`] = `
 "<article data-role="user" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
   <div data-slot="container" class="relative flex items-start gap-3 pb-8">
     <!--v-if-->
-    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 ring-1 ring-(--ui-color-divider-vibrant-default) bg-(--ui-color-palette-white-base) text-(--ui-color-palette-black-base) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Hello, how are you?</div>
+    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight-alt) text-(--ui-color-design-outline-content-secondary) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Hello, how are you?</div>
     <!--v-if-->
   </div>
 </article>"
@@ -34,7 +34,7 @@ exports[`ChatMessage > renders with class correctly 1`] = `
 "<article data-role="user" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
   <div data-slot="container" class="relative flex items-start gap-3 pb-8">
     <!--v-if-->
-    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 ring-1 ring-(--ui-color-divider-vibrant-default) bg-(--ui-color-palette-white-base) text-(--ui-color-palette-black-base) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Hello, how are you?</div>
+    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight-alt) text-(--ui-color-design-outline-content-secondary) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Hello, how are you?</div>
     <!--v-if-->
   </div>
 </article>"
@@ -44,7 +44,7 @@ exports[`ChatMessage > renders with compact correctly 1`] = `
 "<article data-role="user" data-slot="root" class="group/message relative w-full scroll-mt-3">
   <div data-slot="container" class="relative flex items-start gap-1.5 pb-3">
     <!--v-if-->
-    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 ring-1 ring-(--ui-color-divider-vibrant-default) bg-(--ui-color-palette-white-base) text-(--ui-color-palette-black-base) ps-[14px] pe-[10px] py-[8px] rounded-sm min-h-[32px]">Hello, how are you?</div>
+    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight-alt) text-(--ui-color-design-outline-content-secondary) ps-[14px] pe-[10px] py-[8px] rounded-sm min-h-[32px]">Hello, how are you?</div>
     <!--v-if-->
   </div>
 </article>"
@@ -54,7 +54,7 @@ exports[`ChatMessage > renders with content correctly 1`] = `
 "<article data-role="user" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6" content="Hello, how are you?">
   <div data-slot="container" class="relative flex items-start gap-3 pb-8">
     <!--v-if-->
-    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 ring-1 ring-(--ui-color-divider-vibrant-default) bg-(--ui-color-palette-white-base) text-(--ui-color-palette-black-base) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Hello, how are you?</div>
+    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight-alt) text-(--ui-color-design-outline-content-secondary) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Hello, how are you?</div>
     <!--v-if-->
   </div>
 </article>"
@@ -64,7 +64,7 @@ exports[`ChatMessage > renders with content slot correctly 1`] = `
 "<article data-role="user" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
   <div data-slot="container" class="relative flex items-start gap-3 pb-8">
     <!--v-if-->
-    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 ring-1 ring-(--ui-color-divider-vibrant-default) bg-(--ui-color-palette-white-base) text-(--ui-color-palette-black-base) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Content slot</div>
+    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight-alt) text-(--ui-color-design-outline-content-secondary) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Content slot</div>
     <!--v-if-->
   </div>
 </article>"
@@ -76,7 +76,7 @@ exports[`ChatMessage > renders with icon correctly 1`] = `
     <div data-slot="leading" class="inline-flex items-center justify-center min-h-6 mt-2"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="shrink-0 text-(--ui-color-design-plain-content-icon-secondary) size-8">
         <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
       </svg></div>
-    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 ring-1 ring-(--ui-color-divider-vibrant-default) bg-(--ui-color-palette-white-base) text-(--ui-color-palette-black-base) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Hello, how are you?</div>
+    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight-alt) text-(--ui-color-design-outline-content-secondary) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Hello, how are you?</div>
     <!--v-if-->
   </div>
 </article>"
@@ -86,7 +86,7 @@ exports[`ChatMessage > renders with parts correctly 1`] = `
 "<article data-role="user" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
   <div data-slot="container" class="relative flex items-start gap-3 pb-8">
     <!--v-if-->
-    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 ring-1 ring-(--ui-color-divider-vibrant-default) bg-(--ui-color-palette-white-base) text-(--ui-color-palette-black-base) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Hello, how are you?</div>
+    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight-alt) text-(--ui-color-design-outline-content-secondary) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Hello, how are you?</div>
     <!--v-if-->
   </div>
 </article>"
@@ -96,7 +96,7 @@ exports[`ChatMessage > renders with role assistant correctly 1`] = `
 "<article data-role="assistant" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
   <div data-slot="container" class="relative flex items-start gap-3 pb-8">
     <!--v-if-->
-    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 ring-1 ring-(--ui-color-divider-vibrant-default) bg-(--ui-color-palette-white-base) text-(--ui-color-palette-black-base) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Hello, how are you?</div>
+    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight-alt) text-(--ui-color-design-outline-content-secondary) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Hello, how are you?</div>
     <!--v-if-->
   </div>
 </article>"
@@ -104,9 +104,9 @@ exports[`ChatMessage > renders with role assistant correctly 1`] = `
 
 exports[`ChatMessage > renders with side right correctly 1`] = `
 "<article data-role="user" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
-  <div data-slot="container" class="relative flex items-start ltr:justify-end ms-auto max-w-[75%] gap-3 pb-8">
+  <div data-slot="container" class="relative flex items-start ltr:justify-end ms-auto max-w-[85%] gap-3 pb-8">
     <!--v-if-->
-    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 ring-1 ring-(--ui-color-divider-vibrant-default) bg-(--ui-color-palette-white-base) text-(--ui-color-palette-black-base) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Hello, how are you?</div>
+    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight-alt) text-(--ui-color-design-outline-content-secondary) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Hello, how are you?</div>
     <!--v-if-->
   </div>
 </article>"
@@ -116,7 +116,7 @@ exports[`ChatMessage > renders with variant event correctly 1`] = `
 "<article data-role="user" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
   <div data-slot="container" class="relative flex items-start gap-3 pb-8">
     <!--v-if-->
-    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-(--ui-color-design-outline-stroke) ring ring-(--ui-color-design-outline-content-secondary) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Hello, how are you?</div>
+    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-(--ui-color-design-tinted-na-bg) border-(--ui-color-design-tinted-na-stroke) border-(length:--ui-design-tinted-na-stroke-weight) text-(--ui-color-design-tinted-na-content) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Hello, how are you?</div>
     <!--v-if-->
   </div>
 </article>"
@@ -126,7 +126,7 @@ exports[`ChatMessage > renders with variant message correctly 1`] = `
 "<article data-role="user" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
   <div data-slot="container" class="relative flex items-start gap-3 pb-8">
     <!--v-if-->
-    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 ring-1 ring-(--ui-color-divider-vibrant-default) bg-(--ui-color-palette-white-base) text-(--ui-color-palette-black-base) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Hello, how are you?</div>
+    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight-alt) text-(--ui-color-design-outline-content-secondary) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Hello, how are you?</div>
     <!--v-if-->
   </div>
 </article>"
@@ -136,7 +136,7 @@ exports[`ChatMessage > renders with variant system correctly 1`] = `
 "<article data-role="user" data-slot="root" class="group/message relative w-full scroll-mt-4 sm:scroll-mt-6">
   <div data-slot="container" class="relative flex items-start gap-3 pb-8">
     <!--v-if-->
-    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-(--ui-color-copilot-bg-content-3) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Hello, how are you?</div>
+    <div data-slot="content" class="relative text-pretty min-w-0 *:first:mt-0 *:last:mb-0 bg-(--ui-color-copilot-bg-content-1) border-(--ui-color-design-outline-copilot-stroke) text-(--ui-color-design-outline-copilot-content) ps-[14px] pe-[10px] py-[8px] rounded-md min-h-[42px]">Hello, how are you?</div>
     <!--v-if-->
   </div>
 </article>"

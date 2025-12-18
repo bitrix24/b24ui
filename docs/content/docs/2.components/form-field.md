@@ -172,7 +172,7 @@ slots:
 :b24-input{placeholder="Enter your email" class="w-full"}
 ::
 
-### Orientation :badge{label="Soon" class="align-text-top"}
+### Orientation :badge{label="2.2+" class="align-text-top"}
 
 Use the `orientation` prop to change the layout of the FormField. Defaults to `vertical`.
 

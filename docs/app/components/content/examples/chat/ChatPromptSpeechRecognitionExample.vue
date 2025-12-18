@@ -56,7 +56,7 @@ const stopDictation = async () => {
   <B24Card class="w-full">
     <template #footer>
       <B24Container class="pb-4 sm:pb-6">
-        <B24ChatPrompt v-model="input" :error="chat.error" @submit="onSubmit">
+        <B24ChatPrompt v-model="input" :autofocus="false" :error="chat.error" @submit="onSubmit">
           <template v-if="isAvailable">
             <B24Button
               v-if="!isListening"

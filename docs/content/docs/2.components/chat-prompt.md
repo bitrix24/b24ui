@@ -2,7 +2,7 @@
 title: ChatPrompt
 description: 'An enhanced Textarea component optimized for prompt submission in AI chat interfaces.'
 category: chat
-badge: soon
+badge: New
 links:
   - label: Textarea
     to: /docs/components/textarea/
@@ -15,11 +15,7 @@ links:
     to: https://ui.nuxt.com/docs/components/chat-prompt
 ---
 
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
-## Usage :badge{label="2.2+"}
+## Usage
 
 The ChatPrompt component renders a `<form>` element and extends the [Textarea](/docs/components/textarea/) component so you can pass any property such as `icon`, `placeholder`, `autofocus`, etc.
 
@@ -78,7 +74,7 @@ Use the `variant` prop to change the style of the prompt. Defaults to `outline`.
 hide:
   - autofocus
 props:
-  variant: 'filled'
+  variant: 'tinted'
   autofocus: false
 ---
 ::

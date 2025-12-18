@@ -1,15 +1,21 @@
 <script setup lang="ts">
 import { Chat } from '@ai-sdk/vue'
 import type { UIMessage } from 'ai'
+import { DefaultChatTransport } from 'ai'
 import { getTextFromMessage } from '@bitrix24/b24ui-nuxt/utils/ai'
 import RobotIcon from '@bitrix24/b24icons-vue/outline/RobotIcon'
 import SearchIcon from '@bitrix24/b24icons-vue/outline/SearchIcon'
+
+const config = useRuntimeConfig()
 
 const messages: UIMessage[] = []
 const input = ref('')
 
 const chat = new Chat({
-  messages
+  messages,
+  transport: new DefaultChatTransport({
+    api: `${config.public.baseUrl}/api/search`
+  })
 })
 
 function onSubmit() {

@@ -2,7 +2,7 @@
 title: ChatMessage
 description: 'A chat message component with icon, avatar, and action buttons.'
 category: chat
-badge: soon
+badge: New
 links:
   - label: GitHub
     iconName: GitHubIcon
@@ -12,11 +12,7 @@ links:
     to: https://ui.nuxt.com/docs/components/chat-message
 ---
 
-::warning
-We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
-## Usage :badge{label="2.2+"}
+## Usage
 
 The ChatMessage component renders an `<article>` element for a `user` or `assistant` chat message.
 
