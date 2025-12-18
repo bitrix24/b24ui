@@ -58,10 +58,19 @@ export default function ComponentImportPlugin(
   })
   const inertiaOverrideNames = new Set(inertiaOverrides.map(c => `B24${c.replace(/\.vue$/, '')}`))
 
+  const packagesToScan = [
+    '@bitrix24/b24ui-nuxt',
+    '@compodium/examples',
+    ...(Array.isArray(options.scanPackages) ? options.scanPackages : [])
+  ]
+  const escapeRegex = (str: string) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  const packagesRegex = packagesToScan.map(escapeRegex).join('|')
+  const excludeRegex = new RegExp(`[\\\\/]node_modules[\\\\/](?!\\.pnpm|${packagesRegex})`)
+
   const pluginOptions = defu(options.components, <ComponentsOptions>{
     dts: options.dts ?? true,
     exclude: [
-      /[\\/]node_modules[\\/](?!\.pnpm|@bitrix24\/b24ui-nuxt|@compodium\/examples)/,
+      excludeRegex,
       /[\\/]\.git[\\/]/,
       /[\\/]\.nuxt[\\/]/
     ],
