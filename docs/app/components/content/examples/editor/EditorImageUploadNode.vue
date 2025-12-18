@@ -58,7 +58,7 @@ watch(file, async (newFile) => {
         <B24Avatar
           :icon="loading ? SpinnerIcon : ImageIcon"
           size="md"
-          :class="[loading && 'animate-spin']"
+          :b24ui="{ icon: [loading && 'animate-spin'] }"
         />
       </template>
     </B24FileUpload>
