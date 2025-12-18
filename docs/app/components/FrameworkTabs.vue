@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { framework, frameworks } = useFrameworks()
+const { track } = useAnalytics()
 
 const value = ref<string | undefined>(undefined)
 
@@ -9,6 +10,11 @@ onMounted(() => {
 watch(framework, () => {
   value.value = framework.value
 })
+
+function onFrameworkChange(newFramework: string) {
+  framework.value = newFramework
+  track('Framework Tab Switched', { framework: newFramework })
+}
 </script>
 
 <template>
@@ -21,6 +27,7 @@ watch(framework, () => {
       variant="table"
       indicator="hidden"
       size="xs"
+      @update:model-value="onFrameworkChange($event as string)"
     />
   </div>
 </template>

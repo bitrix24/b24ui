@@ -20,6 +20,7 @@ import StopLIcon from '@bitrix24/b24icons-vue/outline/StopLIcon'
 const config = useRuntimeConfig()
 const appLocale = useLocale()
 const toast = useToast()
+const { track } = useAnalytics()
 
 const components = {
   pre: ProseStreamPre as unknown as DefineComponent
@@ -35,6 +36,9 @@ watch(pendingMessage, (message) => {
     if (messages.value.length === 0 && chat.messages.length > 0) {
       chat.messages.length = 0
     }
+
+    track('AI Chat Pending Message Sent')
+
     chat.sendMessage({
       text: message
     })
@@ -169,6 +173,8 @@ function handleSubmit(event?: Event) {
     return
   }
 
+  track('AI Chat Message Sent')
+
   chat.sendMessage({
     text: input.value
   })
@@ -179,6 +185,8 @@ function handleSubmit(event?: Event) {
 }
 
 function askQuestion(question: string) {
+  track('AI Chat Question Sent')
+
   chat.sendMessage({
     text: question
   })

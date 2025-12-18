@@ -16,9 +16,10 @@ const props = withDefaults(defineProps<HeaderProps>(), {
 const { desktopLinks } = useHeader()
 const config = useRuntimeConfig()
 
+const isNeedChangeTarget = ref(false)
 const tgLink = computed(() => {
   return (
-    typeof window !== 'undefined' && window.navigator?.language.includes('ru')
+    isNeedChangeTarget.value && (typeof window !== 'undefined' && window.navigator?.language.includes('ru'))
   )
     ? 'https://t.me/bitrix24apps'
     : 'https://t.me/b24_dev'
@@ -26,10 +27,14 @@ const tgLink = computed(() => {
 
 const b24DocsLink = computed(() => {
   return (
-    typeof window !== 'undefined' && window.navigator?.language.includes('ru')
+    isNeedChangeTarget.value && (typeof window !== 'undefined' && window.navigator?.language.includes('ru'))
   )
     ? 'https://apidocs.bitrix24.ru/'
     : 'https://apidocs.bitrix24.com/'
+})
+
+onMounted(() => {
+  isNeedChangeTarget.value = true
 })
 </script>
 

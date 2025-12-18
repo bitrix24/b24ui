@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { ContentNavigationItem } from '@nuxt/content'
+import { watchDebounced } from '@vueuse/core'
 
 interface ContentSearchFile {
   id: string
@@ -15,6 +16,13 @@ defineProps<{
 }>()
 
 const { links, groups, fullscreen, searchTerm } = useSearch()
+const { track } = useAnalytics()
+
+watchDebounced(searchTerm, (term) => {
+  if (term) {
+    track('Search Performed', { term })
+  }
+}, { debounce: 500 })
 </script>
 
 <template>
