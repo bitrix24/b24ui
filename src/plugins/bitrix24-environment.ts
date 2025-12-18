@@ -4,12 +4,16 @@ import { resolvePathSync } from 'mlly'
 import type { UnpluginOptions } from 'unplugin'
 import type { Bitrix24UIOptions } from '../unplugin'
 import { runtimeDir } from '../unplugin'
+import { resolveRouterMode } from '../utils/router'
 
 /**
  * This plugin normalises Nuxt environment (#imports) and `import.meta.client` within the Bitrix24 UI components.
  */
 export default function Bitrix24EnvironmentPlugin(options: Bitrix24UIOptions) {
-  const stubPath = resolvePathSync(options.inertia ? '../runtime/inertia/stubs' : '../runtime/vue/stubs', { extensions: ['.ts', '.mjs', '.js'], url: import.meta.url })
+  const routerMode = resolveRouterMode(options)
+  const stubsPath = `../runtime/vue/stubs/${routerMode}`
+
+  const stubPath = resolvePathSync(stubsPath, { extensions: ['.ts', '.mjs', '.js'], url: import.meta.url })
 
   return {
     name: 'bitrix24:b24ui',

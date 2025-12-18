@@ -6,14 +6,13 @@ import appConfig from '#build/app.config'
 import type { NuxtApp } from '#app'
 
 export { useHead } from '@unhead/vue'
-export { useRoute, useRouter } from 'vue-router'
 
-export { useAppConfig } from './composables/useAppConfig'
-export { defineShortcuts } from '../composables/defineShortcuts'
-export { defineLocale } from '../composables/defineLocale'
-export { useLocale } from '../composables/useLocale'
-export { useConfetti } from '../composables/useConfetti'
-export { useOverlay } from '../composables/useOverlay'
+export { useAppConfig } from '../composables/useAppConfig'
+export { defineShortcuts } from '../../composables/defineShortcuts'
+export { defineLocale } from '../../composables/defineLocale'
+export { useLocale } from '../../composables/useLocale'
+export { useConfetti } from '../../composables/useConfetti'
+export { useOverlay } from '../../composables/useOverlay'
 
 export const clearError = () => {
 
