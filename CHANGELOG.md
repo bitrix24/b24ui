@@ -1,5 +1,25 @@
 # Changelog
 
+## [2.2.1](https://github.com/bitrix24/b24ui/compare/v2.1.17...v2.2.1) (2025-12-18)
+
+### Features
+
+* **ScrollArea:** new component
+* **unplugin:** add `scanPackages` option
+* **unplugin:** add `router` option to disable router
+
+### Bug Fixes
+
+* **ChatMessage/ChatMessages:** improve colors
+
+### Docs
+
+* **editor:** improve loading icon on image upload
+
+### Chore
+
+* **deps:** update all non-major dependencies
+
 ## [2.1.17](https://github.com/bitrix24/b24ui/compare/v2.1.16...v2.1.17) (2025-12-17)
 
 ### Features
