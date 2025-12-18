@@ -332,7 +332,7 @@ onMounted(() => {
             :messages="chat.messages"
             :status="chat.status"
             :user="{ b24ui: { content: 'text-sm bg-(--ui-color-design-tinted-na-bg) border-(--ui-color-design-tinted-na-stroke) border-(length:--ui-design-tinted-na-stroke-weight) text-(--ui-color-design-tinted-na-content)' } }"
-            :assistant="{ b24ui: { content: 'ring-0 bg-transparent ps-0 pe-0' } }"
+            :assistant="{ b24ui: { content: 'ring-0 border-0 bg-transparent ps-0 pe-0' } }"
             :b24ui="{ indicator: '*:bg-ai-350' }"
             class="flex-1 px-[20px] py-[20px]"
           >
