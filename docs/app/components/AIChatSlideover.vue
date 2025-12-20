@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { DefineComponent } from 'vue'
+import { watch } from 'vue'
 import { Chat } from '@ai-sdk/vue'
 import { DefaultChatTransport } from 'ai'
 import { splitByCase, upperFirst } from 'scule'
