@@ -33,6 +33,8 @@ import B24Link from '../Link.vue'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 import InfoCircleIcon from '@bitrix24/b24icons-vue/outline/InfoCircleIcon'
 import MdnwebdocsIcon from '@bitrix24/b24icons-vue/social/MdnwebdocsIcon'
+import Bitrix24Icon from '@bitrix24/b24icons-vue/common-service/Bitrix24Icon'
+import DemonstrationOnIcon from '@bitrix24/b24icons-vue/outline/DemonstrationOnIcon'
 
 defineOptions({ inheritAttrs: false })
 
@@ -57,6 +59,8 @@ const iconFromIconName = computed(() => {
     case 'InfoCircleIcon': return InfoCircleIcon
     case 'GitHubIcon': return GitHubIcon
     case 'MdnWebDocIcon': return MdnwebdocsIcon
+    case 'Bitrix24Icon': return Bitrix24Icon
+    case 'DemonstrationOnIcon': return DemonstrationOnIcon
   }
 
   return undefined
