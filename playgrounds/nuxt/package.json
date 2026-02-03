@@ -11,13 +11,13 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "@ai-sdk/deepseek": "^1.0.32",
-    "@ai-sdk/vue": "^2.0.114",
+    "@ai-sdk/deepseek": "^2.0.17",
+    "@ai-sdk/vue": "^2.0.116",
     "@internationalized/date": "^3.10.1",
     "@bitrix24/b24ui-nuxt": "workspace:*",
-    "@tiptap/extension-emoji": "3.13.0",
-    "@tiptap/extension-text-align": "3.13.0",
-    "ai": "^5.0.114",
+    "@tiptap/extension-emoji": "^3.14.0",
+    "@tiptap/extension-text-align": "^3.14.0",
+    "ai": "^5.0.116",
     "nuxt": "^4.2.2",
     "zod": "^4.2.1",
     "maska": "^3.2.0",

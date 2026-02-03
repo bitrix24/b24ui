@@ -3,6 +3,8 @@
 ## [2.2.2](https://github.com/bitrix24/b24ui/compare/v2.2.1...v2.2.2) (2026-02-xx)
 
 * feat(Prose\Callout): add some icons
+* chore(deps): update tiptap to v3.14.0
+* chore(deps): update all non-major dependencies
 
 ## [2.2.1](https://github.com/bitrix24/b24ui/compare/v2.1.17...v2.2.1) (2025-12-18)
 
