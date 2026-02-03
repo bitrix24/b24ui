@@ -13,7 +13,7 @@ describe('ContentSurround', () => {
   }, {
     path: '/getting-started/theme',
     title: 'Theme',
-    description: 'Learn how to customize Bitrix24 UI components using Tailwind CSS v4, CSS variables and the Tailwind Variants API for powerful and flexible theming.'
+    description: 'Learn how to customize Bitrix24 UI components using Tailwind CSS, CSS variables and the Tailwind Variants API for powerful and flexible theming.'
   }]
 
   const props = { surround }

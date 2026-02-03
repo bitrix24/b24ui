@@ -12,7 +12,7 @@ exports[`ContentSurround > renders with as correctly 1`] = `
         <path fill="currentColor" fill-rule="evenodd" d="m10.16 6.343 4.528 4.528H5.009v2.259h9.679l-4.528 4.527 1.598 1.597L19.012 12l-7.254-7.254z" clip-rule="evenodd"></path>
       </svg></div>
     <p data-slot="linkTitle" class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-lg)/(--ui-font-line-height-lg) text-(--ui-color-design-outline-content) mb-[4px] truncate">Theme</p>
-    <p data-slot="linkDescription" class="text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) text-(--ui-color-design-outline-content-secondary) text-pretty line-clamp-2">Learn how to customize Bitrix24 UI components using Tailwind CSS v4, CSS variables and the Tailwind Variants API for powerful and flexible theming.</p>
+    <p data-slot="linkDescription" class="text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) text-(--ui-color-design-outline-content-secondary) text-pretty line-clamp-2">Learn how to customize Bitrix24 UI components using Tailwind CSS, CSS variables and the Tailwind Variants API for powerful and flexible theming.</p>
   </a></section>"
 `;
 
@@ -28,7 +28,7 @@ exports[`ContentSurround > renders with b24ui correctly 1`] = `
         <path fill="currentColor" fill-rule="evenodd" d="m10.16 6.343 4.528 4.528H5.009v2.259h9.679l-4.528 4.527 1.598 1.597L19.012 12l-7.254-7.254z" clip-rule="evenodd"></path>
       </svg></div>
     <p data-slot="linkTitle" class="font-(--ui-font-weight-bold) text-(--ui-color-design-outline-content) mb-[4px] truncate text-xl">Theme</p>
-    <p data-slot="linkDescription" class="text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) text-(--ui-color-design-outline-content-secondary) text-pretty line-clamp-2">Learn how to customize Bitrix24 UI components using Tailwind CSS v4, CSS variables and the Tailwind Variants API for powerful and flexible theming.</p>
+    <p data-slot="linkDescription" class="text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) text-(--ui-color-design-outline-content-secondary) text-pretty line-clamp-2">Learn how to customize Bitrix24 UI components using Tailwind CSS, CSS variables and the Tailwind Variants API for powerful and flexible theming.</p>
   </a></div>"
 `;
 
@@ -44,7 +44,7 @@ exports[`ContentSurround > renders with class correctly 1`] = `
         <path fill="currentColor" fill-rule="evenodd" d="m10.16 6.343 4.528 4.528H5.009v2.259h9.679l-4.528 4.527 1.598 1.597L19.012 12l-7.254-7.254z" clip-rule="evenodd"></path>
       </svg></div>
     <p data-slot="linkTitle" class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-lg)/(--ui-font-line-height-lg) text-(--ui-color-design-outline-content) mb-[4px] truncate">Theme</p>
-    <p data-slot="linkDescription" class="text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) text-(--ui-color-design-outline-content-secondary) text-pretty line-clamp-2">Learn how to customize Bitrix24 UI components using Tailwind CSS v4, CSS variables and the Tailwind Variants API for powerful and flexible theming.</p>
+    <p data-slot="linkDescription" class="text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) text-(--ui-color-design-outline-content-secondary) text-pretty line-clamp-2">Learn how to customize Bitrix24 UI components using Tailwind CSS, CSS variables and the Tailwind Variants API for powerful and flexible theming.</p>
   </a></div>"
 `;
 
@@ -58,7 +58,7 @@ exports[`ContentSurround > renders with link-leading slot correctly 1`] = `
   </a><a href="/getting-started/theme" data-slot="link" class="group block backdrop-blur-md rounded-(--ui-border-radius-md) px-[24px] py-[32px] bg-(--ui-color-design-outline-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) transition-colors text-right">
     <div data-slot="linkLeading" class="inline-flex items-center rounded-full select-none mb-[16px] p-[6px] bg-(--ui-color-design-outline-bg) group-hover:bg-[color-mix(in_srgb,_var(--ui-color-design-selection-bg)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] ring-(--ui-color-design-outline-stroke) ring-(length:--ui-design-outline-stroke-weight) group-hover:ring-[color-mix(in_srgb,_var(--ui-color-design-selection-stroke)_100%,_var(--ui-color-bg-state-hover-default-hex)_var(--ui-color-bg-state-hover-default-opacity))] transition">Link leading slot</div>
     <p data-slot="linkTitle" class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-lg)/(--ui-font-line-height-lg) text-(--ui-color-design-outline-content) mb-[4px] truncate">Theme</p>
-    <p data-slot="linkDescription" class="text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) text-(--ui-color-design-outline-content-secondary) text-pretty line-clamp-2">Learn how to customize Bitrix24 UI components using Tailwind CSS v4, CSS variables and the Tailwind Variants API for powerful and flexible theming.</p>
+    <p data-slot="linkDescription" class="text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) text-(--ui-color-design-outline-content-secondary) text-pretty line-clamp-2">Learn how to customize Bitrix24 UI components using Tailwind CSS, CSS variables and the Tailwind Variants API for powerful and flexible theming.</p>
   </a></div>"
 `;
 
@@ -74,7 +74,7 @@ exports[`ContentSurround > renders with link-title slot correctly 1`] = `
         <path fill="currentColor" fill-rule="evenodd" d="m10.16 6.343 4.528 4.528H5.009v2.259h9.679l-4.528 4.527 1.598 1.597L19.012 12l-7.254-7.254z" clip-rule="evenodd"></path>
       </svg></div>
     <p data-slot="linkTitle" class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-lg)/(--ui-font-line-height-lg) text-(--ui-color-design-outline-content) mb-[4px] truncate">Link title slot</p>
-    <p data-slot="linkDescription" class="text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) text-(--ui-color-design-outline-content-secondary) text-pretty line-clamp-2">Learn how to customize Bitrix24 UI components using Tailwind CSS v4, CSS variables and the Tailwind Variants API for powerful and flexible theming.</p>
+    <p data-slot="linkDescription" class="text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) text-(--ui-color-design-outline-content-secondary) text-pretty line-clamp-2">Learn how to customize Bitrix24 UI components using Tailwind CSS, CSS variables and the Tailwind Variants API for powerful and flexible theming.</p>
   </a></div>"
 `;
 
@@ -90,7 +90,7 @@ exports[`ContentSurround > renders with nextIcon correctly 1`] = `
         <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
       </svg></div>
     <p data-slot="linkTitle" class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-lg)/(--ui-font-line-height-lg) text-(--ui-color-design-outline-content) mb-[4px] truncate">Theme</p>
-    <p data-slot="linkDescription" class="text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) text-(--ui-color-design-outline-content-secondary) text-pretty line-clamp-2">Learn how to customize Bitrix24 UI components using Tailwind CSS v4, CSS variables and the Tailwind Variants API for powerful and flexible theming.</p>
+    <p data-slot="linkDescription" class="text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) text-(--ui-color-design-outline-content-secondary) text-pretty line-clamp-2">Learn how to customize Bitrix24 UI components using Tailwind CSS, CSS variables and the Tailwind Variants API for powerful and flexible theming.</p>
   </a></div>"
 `;
 
@@ -106,7 +106,7 @@ exports[`ContentSurround > renders with prevIcon correctly 1`] = `
         <path fill="currentColor" fill-rule="evenodd" d="m10.16 6.343 4.528 4.528H5.009v2.259h9.679l-4.528 4.527 1.598 1.597L19.012 12l-7.254-7.254z" clip-rule="evenodd"></path>
       </svg></div>
     <p data-slot="linkTitle" class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-lg)/(--ui-font-line-height-lg) text-(--ui-color-design-outline-content) mb-[4px] truncate">Theme</p>
-    <p data-slot="linkDescription" class="text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) text-(--ui-color-design-outline-content-secondary) text-pretty line-clamp-2">Learn how to customize Bitrix24 UI components using Tailwind CSS v4, CSS variables and the Tailwind Variants API for powerful and flexible theming.</p>
+    <p data-slot="linkDescription" class="text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) text-(--ui-color-design-outline-content-secondary) text-pretty line-clamp-2">Learn how to customize Bitrix24 UI components using Tailwind CSS, CSS variables and the Tailwind Variants API for powerful and flexible theming.</p>
   </a></div>"
 `;
 
@@ -122,6 +122,6 @@ exports[`ContentSurround > renders with surround correctly 1`] = `
         <path fill="currentColor" fill-rule="evenodd" d="m10.16 6.343 4.528 4.528H5.009v2.259h9.679l-4.528 4.527 1.598 1.597L19.012 12l-7.254-7.254z" clip-rule="evenodd"></path>
       </svg></div>
     <p data-slot="linkTitle" class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-lg)/(--ui-font-line-height-lg) text-(--ui-color-design-outline-content) mb-[4px] truncate">Theme</p>
-    <p data-slot="linkDescription" class="text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) text-(--ui-color-design-outline-content-secondary) text-pretty line-clamp-2">Learn how to customize Bitrix24 UI components using Tailwind CSS v4, CSS variables and the Tailwind Variants API for powerful and flexible theming.</p>
+    <p data-slot="linkDescription" class="text-(length:--ui-font-size-sm)/(--ui-font-line-height-sm) text-(--ui-color-design-outline-content-secondary) text-pretty line-clamp-2">Learn how to customize Bitrix24 UI components using Tailwind CSS, CSS variables and the Tailwind Variants API for powerful and flexible theming.</p>
   </a></div>"
 `;

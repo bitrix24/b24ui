@@ -61,12 +61,12 @@ describe('ContentSearch', () => {
     content: 'We\'ve transitioned from Headless UI to Reka UI.',
     level: 2
   }, {
-    id: '/getting-started#tailwind-css-v4',
-    title: 'Tailwind CSS v4',
+    id: '/getting-started#tailwind-css',
+    title: 'Tailwind CSS',
     titles: [
       'Introduction'
     ],
-    content: 'Bitrix24 UI integrates the latest Tailwind CSS v4.',
+    content: 'Bitrix24 UI integrates the latest Tailwind CSS.',
     level: 2
   }, {
     id: '/getting-started#tailwind-variants',
