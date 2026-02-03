@@ -36,6 +36,7 @@ export default () => {
         'disabled:cursor-not-allowed',
         'disabled:opacity-30'
       ].join(' '),
+      trailingClear: 'p-0',
       content: [
         'base-mode',
         // w-(--reka-combobox-trigger-width)

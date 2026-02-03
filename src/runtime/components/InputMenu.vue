@@ -3,7 +3,7 @@ import type { ComboboxRootProps, ComboboxRootEmits, ComboboxContentProps, Combob
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/input-menu'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
-import type { AvatarProps, ChipProps, InputProps, BadgeProps, IconComponent } from '../types'
+import type { AvatarProps, ButtonProps, ChipProps, InputProps, LinkPropsKeys, BadgeProps, IconComponent } from '../types'
 import type { ModelModifiers } from '../types/input'
 import type { InputHTMLAttributes } from '../types/html'
 import type { AcceptableValue, ArrayOrNested, GetItemKeys, GetItemValue, GetModelValue, GetModelValueEmits, NestedItem, EmitsToProps } from '../types/utils'
@@ -35,7 +35,7 @@ export type InputMenuItem = InputMenuValue | {
   [key: string]: any
 }
 
-export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOrNested<InputMenuItem>, VK extends GetItemKeys<T> | undefined = undefined, M extends boolean = false> extends Pick<ComboboxRootProps<T>, 'open' | 'defaultOpen' | 'disabled' | 'name' | 'resetSearchTermOnBlur' | 'resetSearchTermOnSelect' | 'highlightOnHover' | 'openOnClick' | 'openOnFocus'>, UseComponentIconsProps, /** @vue-ignore */ Omit<InputHTMLAttributes, 'disabled' | 'name' | 'type' | 'placeholder' | 'autofocus' | 'maxlength' | 'minlength' | 'pattern' | 'size' | 'min' | 'max' | 'step'> {
+export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOrNested<InputMenuItem>, VK extends GetItemKeys<T> | undefined = undefined, M extends boolean = false> extends Pick<ComboboxRootProps<T>, 'open' | 'defaultOpen' | 'disabled' | 'name' | 'resetSearchTermOnBlur' | 'resetSearchTermOnSelect' | 'resetModelValueOnClear' | 'highlightOnHover' | 'openOnClick' | 'openOnFocus'>, UseComponentIconsProps, /** @vue-ignore */ Omit<InputHTMLAttributes, 'disabled' | 'name' | 'type' | 'placeholder' | 'autofocus' | 'maxlength' | 'minlength' | 'pattern' | 'size' | 'min' | 'max' | 'step'> {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
@@ -90,6 +90,18 @@ export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOr
    * @IconComponent
    */
   deleteIcon?: IconComponent
+  /**
+   * Display a clear button to reset the model value.
+   * Can be an object to pass additional props to the Button.
+   * @defaultValue false
+   */
+  clear?: boolean | Partial<Omit<ButtonProps, LinkPropsKeys>>
+  /**
+   * The icon displayed in the clear button.
+   * @defaultValue icons.close
+   * @IconifyIcon
+   */
+  clearIcon?: IconComponent
   /**
    * The content of the menu.
    * @defaultValue { side: 'bottom', sideOffset: 8, collisionPadding: 8, position: 'popper' }
@@ -176,6 +188,7 @@ export type InputMenuEmits<A extends ArrayOrNested<InputMenuItem>, VK extends Ge
   'blur': [event: FocusEvent]
   'focus': [event: FocusEvent]
   'create': [item: string]
+  'clear': []
   /** Event handler when highlighted element changes. */
   'highlight': [payload: {
     ref: HTMLElement
@@ -210,7 +223,7 @@ export interface InputMenuSlots<
 
 <script setup lang="ts" generic="T extends ArrayOrNested<InputMenuItem>, VK extends GetItemKeys<T> | undefined = undefined, M extends boolean = false">
 import { computed, useTemplateRef, toRef, onMounted, toRaw, nextTick } from 'vue'
-import { ComboboxRoot, ComboboxArrow, ComboboxAnchor, ComboboxInput, ComboboxTrigger, ComboboxPortal, ComboboxContent, ComboboxEmpty, ComboboxGroup, ComboboxVirtualizer, ComboboxLabel, ComboboxSeparator, ComboboxItem, ComboboxItemIndicator, TagsInputRoot, TagsInputItem, TagsInputItemText, TagsInputItemDelete, TagsInputInput, useForwardPropsEmits, useFilter } from 'reka-ui'
+import { ComboboxRoot, ComboboxArrow, ComboboxAnchor, ComboboxInput, ComboboxTrigger, ComboboxCancel, ComboboxPortal, ComboboxContent, ComboboxEmpty, ComboboxGroup, ComboboxVirtualizer, ComboboxLabel, ComboboxSeparator, ComboboxItem, ComboboxItemIndicator, TagsInputRoot, TagsInputItem, TagsInputItemText, TagsInputItemDelete, TagsInputInput, useForwardPropsEmits, useFilter } from 'reka-ui'
 import { defu } from 'defu'
 import { isEqual } from 'ohash/utils'
 import { reactivePick, createReusableTemplate } from '@vueuse/core'
@@ -226,6 +239,7 @@ import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Badge from './Badge.vue'
 import B24Avatar from './Avatar.vue'
+import B24Button from './Button.vue'
 import B24Chip from './Chip.vue'
 
 defineOptions({ inheritAttrs: false })
@@ -238,6 +252,7 @@ const props = withDefaults(defineProps<InputMenuProps<T, VK, M>>(), {
   descriptionKey: 'description',
   resetSearchTermOnBlur: true,
   resetSearchTermOnSelect: true,
+  resetModelValueOnClear: true,
   virtualize: false
 })
 const emits = defineEmits<InputMenuEmits<T, VK, M>>()
@@ -249,10 +264,11 @@ const { t } = useLocale()
 const appConfig = useAppConfig() as InputMenu['AppConfig']
 const { contains } = useFilter({ sensitivity: 'base' })
 
-const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'modelValue', 'defaultValue', 'open', 'defaultOpen', 'required', 'multiple', 'resetSearchTermOnBlur', 'resetSearchTermOnSelect', 'highlightOnHover', 'openOnClick', 'openOnFocus'), emits)
+const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'modelValue', 'defaultValue', 'open', 'defaultOpen', 'required', 'multiple', 'resetSearchTermOnBlur', 'resetSearchTermOnSelect', 'resetModelValueOnClear', 'highlightOnHover', 'openOnClick', 'openOnFocus'), emits)
 const portalProps = usePortal(toRef(() => props.portal))
 const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffset: 8, collisionPadding: 8, position: 'popper' }) as ComboboxContentProps)
 const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10 }) as ComboboxArrowProps)
+const clearProps = computed(() => typeof props.clear === 'object' ? props.clear : {} as Partial<Omit<ButtonProps, LinkPropsKeys>>)
 const virtualizerProps = toRef(() => {
   if (!props.virtualize) return false
 
@@ -482,6 +498,17 @@ function isInputItem(item: InputMenuItem): item is Exclude<InputMenuItem, InputM
   return typeof item === 'object' && item !== null
 }
 
+function isModelValueEmpty(modelValue: GetModelValue<T, VK, M>): boolean {
+  if (props.multiple && Array.isArray(modelValue)) {
+    return modelValue.length === 0
+  }
+  return modelValue === undefined || modelValue === null || modelValue === ''
+}
+
+function onClear() {
+  emits('clear')
+}
+
 defineExpose({
   inputRef: toRef(() => inputRef.value?.$el as HTMLInputElement)
 })
@@ -687,11 +714,25 @@ defineExpose({
         </slot>
       </span>
 
-      <ComboboxTrigger v-if="isTrailing || !!slots.trailing" data-slot="trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
+      <ComboboxTrigger v-if="isTrailing || !!slots.trailing || !!clear" data-slot="trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
         <slot name="trailing" :model-value="(modelValue as GetModelValue<T, VK, M>)" :open="open" :b24ui="b24ui">
+          <ComboboxCancel v-if="!!clear && !isModelValueEmpty(modelValue as GetModelValue<T, VK, M>)" as-child>
+            <B24Button
+              as="span"
+              :icon="clearIcon || icons.close"
+              size="md"
+              color="air-tertiary-no-accent"
+              tabindex="-1"
+              v-bind="clearProps"
+              data-slot="trailingClear"
+              :class="b24ui.trailingClear({ class: props.b24ui?.trailingClear })"
+              @click.stop="onClear"
+            />
+          </ComboboxCancel>
+
           <Component
             :is="trailingIconName"
-            v-if="trailingIconName"
+            v-else-if="trailingIconName"
             data-slot="trailingIcon"
             :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
           />

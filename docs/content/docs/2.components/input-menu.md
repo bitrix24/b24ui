@@ -526,6 +526,58 @@ props:
 ---
 ::
 
+### Clear
+
+Use the `clear` prop to display a clear button when a value is selected.
+
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - modelValue
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Backlog'
+  clear: true
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+---
+::
+
+### Clear Icon
+
+Use the `clear-icon` prop to customize the clear button [Icon](https://bitrix24.github.io/b24icons/icons/).
+
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - modelValue
+  - clearIcon
+cast:
+    clearIcon: 'RocketIcon'
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Backlog'
+  clear: true
+  clearIcon: 'RocketIcon'
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+---
+::
+
 ### Avatar
 
 Use the `avatar` prop to show an [Avatar](/docs/components/avatar/) inside the InputMenu.

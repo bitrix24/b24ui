@@ -66,6 +66,8 @@ describe('InputMenu', () => {
     ['with loadingIcon', { props: { loading: true, loadingIcon: SignIcon } }],
     ['with trailingIcon', { props: { ...props, trailingIcon: SignIcon } }],
     ['with selectedIcon', { props: { ...props, selectedIcon: SignIcon } }],
+    ['with clear', { props: { ...props, clear: true, modelValue: items[0] } }],
+    ['with clear and clearIcon', { props: { ...props, clear: true, clearIcon: SignIcon, modelValue: items[0] } }],
     ['with arrow', { props: { ...props, arrow: true } }],
     ['with virtualize', { props: { ...props, virtualize: true } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { ...props, size } }]),

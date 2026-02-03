@@ -23,7 +23,8 @@ export default () => {
       content: (content: string) => [
         content,
         'origin-(--reka-combobox-content-transform-origin) ' // w-(--reka-combobox-trigger-width)
-      ]
+      ],
+      trailingClear: 'p-0'
     },
     variants: {
       virtualize: {

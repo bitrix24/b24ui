@@ -72,6 +72,8 @@ describe('SelectMenu', () => {
     ['with loadingIcon', { props: { loading: true, loadingIcon: Shining2Icon } }],
     ['with trailingIcon', { props: { ...props, trailingIcon: Shining2Icon } }],
     ['with selectedIcon', { props: { ...props, selectedIcon: Shining2Icon } }],
+    ['with clear', { props: { ...props, clear: true, modelValue: items[0] } }],
+    ['with clear and clearIcon', { props: { ...props, clear: true, clearIcon: Shining2Icon, modelValue: items[0] } }],
     ['with arrow', { props: { ...props, arrow: true } }],
     ['with virtualize', { props: { ...props, virtualize: true } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { ...props, size } }]),
