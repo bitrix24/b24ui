@@ -129,7 +129,7 @@ const groups = computed<DropdownMenuItem[][]>(() =>
         </span>
 
         <span
-          v-if="get(item, props.descriptionKey as string)"
+          v-if="get(item, props.descriptionKey as string) || !!slots[(item.slot ? `${item.slot}-description`: 'item-description') as keyof DropdownMenuContentSlots<T>]"
           data-slot="itemDescription"
           :class="b24ui.itemDescription({ class: [b24uiOverride?.itemDescription, item.b24ui?.itemDescription] })"
         >

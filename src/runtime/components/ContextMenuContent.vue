@@ -110,7 +110,7 @@ const groups = computed<ContextMenuItem[][]>(() =>
         </span>
 
         <span
-          v-if="get(item, props.descriptionKey as string)"
+          v-if="get(item, props.descriptionKey as string) || !!slots[(item.slot ? `${item.slot}-description`: 'item-description') as keyof ContextMenuSlots<T>]"
           data-slot="itemDescription"
           :class="b24ui.itemDescription({ class: [b24uiOverride?.itemDescription, item.b24ui?.itemDescription] })"
         >
