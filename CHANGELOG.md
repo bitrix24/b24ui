@@ -8,6 +8,7 @@
 * fix(CommandPalette/ContextMenu/DropdownMenu): keyboard selection on link items
 * chore(deps): update vue-tsc to ^3.2.1
 * docs: improve marketing and llms.txt
+* chore(deps): update dependency reka-ui to v2.7.0
 
 ## [2.2.1](https://github.com/bitrix24/b24ui/compare/v2.1.17...v2.2.1) (2025-12-18)
 

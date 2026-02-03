@@ -161,6 +161,7 @@ watch(open, (isOpen) => {
         size="sm"
         class="absolute -top-[11px] -right-[11px] z-1 rounded-full lg:opacity-0 lg:group-hover/component:opacity-100 ring-(--ui-color-design-tinted-na-bg) transition-opacity duration-200"
         :class="[open && 'lg:opacity-100 bg-(--ui-color-bg-content-secondary)']"
+        tabindex="-1"
       />
 
       <template #content>
