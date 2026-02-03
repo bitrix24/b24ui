@@ -127,6 +127,11 @@ export interface CommandPaletteProps<G extends CommandPaletteGroup<T> = CommandP
    * @IconComponent
    */
   backIcon?: IconComponent
+  /**
+   * Configure the input or hide it with `false`.
+   * @defaultValue true
+   */
+  input?: boolean | Omit<InputProps, 'modelValue' | 'defaultValue'>
   groups?: G[]
   /**
    * Options for [useFuse](https://vueuse.org/integrations/useFuse).
@@ -200,7 +205,7 @@ export type CommandPaletteSlots<G extends CommandPaletteGroup<T> = CommandPalett
 
 <script setup lang="ts" generic="G extends CommandPaletteGroup<T>, T extends CommandPaletteItem">
 import { computed, ref, useTemplateRef, toRef } from 'vue'
-import { ListboxRoot, ListboxFilter, ListboxContent, ListboxGroup, ListboxGroupLabel, ListboxVirtualizer, ListboxItem, ListboxItemIndicator, useForwardProps, useForwardPropsEmits } from 'reka-ui'
+import { ListboxRoot, ListboxFilter, ListboxContent, ListboxGroup, ListboxGroupLabel, ListboxVirtualizer, ListboxItem, ListboxItemIndicator, useForwardPropsEmits } from 'reka-ui'
 import { defu } from 'defu'
 import { reactivePick, createReusableTemplate, refThrottled } from '@vueuse/core'
 import { useFuse } from '@vueuse/integrations/useFuse'
@@ -226,6 +231,7 @@ const props = withDefaults(defineProps<CommandPaletteProps<G, T>>(), {
   modelValue: '',
   labelKey: 'label',
   descriptionKey: 'description',
+  input: true,
   autofocus: true,
   back: true,
   preserveGroupOrder: false,
@@ -241,7 +247,6 @@ const { t } = useLocale()
 const appConfig = useAppConfig() as CommandPalette['AppConfig']
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'disabled', 'multiple', 'modelValue', 'defaultValue', 'highlightOnHover'), emits)
-const inputProps = useForwardProps(reactivePick(props, 'loading'))
 const virtualizerProps = toRef(() => {
   if (!props.virtualize) return false
 
@@ -601,14 +606,15 @@ function onSelect(e: Event, item: T) {
   </DefineItemTemplate>
 
   <ListboxRoot v-bind="{ ...rootProps, ...$attrs }" ref="rootRef" :selection-behavior="selectionBehavior" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <ListboxFilter v-model="searchTerm" as-child>
+    <ListboxFilter v-if="input" v-model="searchTerm" as-child>
       <B24Input
-        :placeholder="placeholder"
         no-border
         no-padding
-        :autofocus="autofocus"
-        v-bind="inputProps"
         size="xl"
+        v-bind="typeof props.input === 'object' ? props.input : {}"
+        :placeholder="placeholder"
+        :autofocus="autofocus"
+        :loading="loading"
         :trailing-icon="trailingIcon"
         :icon="icon || icons.search"
         data-slot="input"

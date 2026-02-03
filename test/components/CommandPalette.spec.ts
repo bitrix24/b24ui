@@ -136,6 +136,7 @@ describe('CommandPalette', () => {
     ['with close', { props: { ...props, close: true } }],
     ['with closeIcon', { props: { ...props, close: true, closeIcon: SignIcon } }],
     ['with virtualize', { props: { ...props, virtualize: true } }],
+    ['without input', { props: { ...props, input: false } }],
     ['with as', { props: { ...props, as: 'section' } }],
     ['with class', { props: { ...props, class: 'divide-(--ui-color-accent-main-success)' } }],
     ['with b24ui', { props: { ...props, b24ui: { input: '[&>input]:h-10' } } }],
