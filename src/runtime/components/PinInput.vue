@@ -140,8 +140,8 @@ defineExpose({
     <PinInputInput
       v-for="(ids, index) in looseToNumber(props.length)"
       :key="ids"
-      :ref="el => (inputsRef[index] = el as ComponentPublicInstance)"
-      :index="index"
+      :ref="el => (inputsRef[index as number] = el as ComponentPublicInstance)"
+      :index="(index as number)"
       data-slot="base"
       :class="b24ui.base({ class: props.b24ui?.base })"
       :disabled="disabled"
