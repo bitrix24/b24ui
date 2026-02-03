@@ -265,14 +265,13 @@ const groups = computed<DropdownMenuItem[][]>(() =>
             >
               <ReuseItemTemplate :item="item" :index="index" />
             </DropdownMenu.CheckboxItem>
-            <DropdownMenu.Item
-              v-else
-              as-child
-              :disabled="item.disabled"
-              :text-value="get(item, props.labelKey as string)"
-              @select="item.onSelect"
-            >
-              <B24Link v-slot="{ active, ...slotProps }" v-bind="pickLinkProps(item as Omit<DropdownMenuItem, 'type'>)" custom>
+            <B24Link v-else v-slot="{ active, ...slotProps }" v-bind="pickLinkProps(item as Omit<DropdownMenuItem, 'type'>)" custom>
+              <DropdownMenu.Item
+                as-child
+                :disabled="item.disabled"
+                :text-value="get(item, props.labelKey as string)"
+                @select="item.onSelect"
+              >
                 <B24LinkBase
                   v-bind="slotProps"
                   data-slot="item"
@@ -280,8 +279,8 @@ const groups = computed<DropdownMenuItem[][]>(() =>
                 >
                   <ReuseItemTemplate :item="item" :active="active" :index="index" />
                 </B24LinkBase>
-              </B24Link>
-            </DropdownMenu.Item>
+              </DropdownMenu.Item>
+            </B24Link>
           </template>
         </DropdownMenu.Group>
       </div>

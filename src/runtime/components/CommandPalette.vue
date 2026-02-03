@@ -441,13 +441,13 @@ function onSelect(e: Event, item: T) {
 <!-- eslint-disable vue/no-v-html -->
 <template>
   <DefineItemTemplate v-slot="{ item, index, group }">
-    <ListboxItem
-      :value="omit(item, ['matches' as any, 'group' as any, 'onSelect', 'labelHtml', 'suffixHtml', 'children'])"
-      :disabled="item.disabled"
-      as-child
-      @select="onSelect($event, item as T)"
-    >
-      <B24Link v-slot="{ active, ...slotProps }" v-bind="pickLinkProps(item)" custom>
+    <B24Link v-slot="{ active, ...slotProps }" v-bind="pickLinkProps(item)" custom>
+      <ListboxItem
+        :value="omit(item, ['matches' as any, 'group' as any, 'onSelect', 'labelHtml', 'suffixHtml', 'children'])"
+        :disabled="item.disabled"
+        as-child
+        @select="onSelect($event, item as T)"
+      >
         <B24LinkBase
           v-bind="slotProps"
           data-slot="item"
@@ -596,8 +596,8 @@ function onSelect(e: Event, item: T) {
             </span>
           </slot>
         </B24LinkBase>
-      </B24Link>
-    </ListboxItem>
+      </ListboxItem>
+    </B24Link>
   </DefineItemTemplate>
 
   <ListboxRoot v-bind="{ ...rootProps, ...$attrs }" ref="rootRef" :selection-behavior="selectionBehavior" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">

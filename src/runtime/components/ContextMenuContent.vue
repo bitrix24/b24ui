@@ -242,14 +242,13 @@ const groups = computed<ContextMenuItem[][]>(() =>
             >
               <ReuseItemTemplate :item="item" :index="index" />
             </ContextMenu.CheckboxItem>
-            <ContextMenu.Item
-              v-else
-              as-child
-              :disabled="item.disabled"
-              :text-value="get(item, props.labelKey as string)"
-              @select="item.onSelect"
-            >
-              <B24Link v-slot="{ active, ...slotProps }" v-bind="pickLinkProps(item as Omit<ContextMenuItem, 'type'>)" custom>
+            <B24Link v-else v-slot="{ active, ...slotProps }" v-bind="pickLinkProps(item as Omit<ContextMenuItem, 'type'>)" custom>
+              <ContextMenu.Item
+                as-child
+                :disabled="item.disabled"
+                :text-value="get(item, props.labelKey as string)"
+                @select="item.onSelect"
+              >
                 <B24LinkBase
                   v-bind="slotProps"
                   data-slot="item"
@@ -257,8 +256,8 @@ const groups = computed<ContextMenuItem[][]>(() =>
                 >
                   <ReuseItemTemplate :item="item" :active="active" :index="index" />
                 </B24LinkBase>
-              </B24Link>
-            </ContextMenu.Item>
+              </ContextMenu.Item>
+            </B24Link>
           </template>
         </ContextMenu.Group>
       </div>
