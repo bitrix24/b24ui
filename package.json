@@ -205,7 +205,7 @@
     "nuxt-component-meta": "^0.14.2",
     "sharp": "^0.34.3",
     "@vue/test-utils": "^2.4.6",
-    "ai": "^5.0.116",
+    "ai": "^6.0.3",
     "embla-carousel": "^8.6.0",
     "eslint": "^9.39.2",
     "happy-dom": "^20.0.11",

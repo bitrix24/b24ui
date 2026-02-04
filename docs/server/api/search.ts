@@ -54,7 +54,7 @@ Guidelines:
 - You have up to ${maxStepCount} tool calls to find the answer, so be strategic: start broad, then get specific if needed.
 - Format responses in a conversational way, not as documentation sections.
     `,
-    messages: convertToModelMessages(messages),
+    messages: await convertToModelMessages(messages),
     stopWhen: stepCountIs(maxStepCount),
     tools,
     onFinish: async () => {

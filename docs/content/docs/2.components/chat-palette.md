@@ -95,7 +95,7 @@ export default defineEventHandler(async (event) => {
     model: deepseek('deepseek-reasoner'), // or 'deepseek-chat'
     maxOutputTokens: 10000,
     system: 'You are a helpful assistant. Use your tools to search for relevant information before answering questions.',
-    messages: convertToModelMessages(messages),
+    messages: await convertToModelMessages(messages),
     stopWhen: stepCountIs(6),
     tools,
     onFinish: async () => {

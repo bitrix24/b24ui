@@ -414,7 +414,7 @@ export default defineEventHandler(async (event) => {
     model: deepseek('deepseek-reasoner'), // or 'deepseek-chat'
     maxOutputTokens: 10000,
     system: 'You are a helpful assistant.',
-    messages: convertToModelMessages(messages)
+    messages: await convertToModelMessages(messages)
   }).toUIMessageStreamResponse()
 })
 ```
