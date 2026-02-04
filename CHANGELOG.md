@@ -20,6 +20,7 @@
 * docs(avatar): add tip on how to opt-out of Nuxt Image
 * fix(module): only override `primary` color and `md` size default variants
 * docs(input-menu/select-menu): improve `clear` selection
+* docs(app): reset navigation state on search clear
 
 ## [2.2.1](https://github.com/bitrix24/b24ui/compare/v2.1.17...v2.2.1) (2025-12-18)
 

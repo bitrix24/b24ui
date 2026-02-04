@@ -1,15 +1,14 @@
 <script setup lang="ts">
+import { useFilter } from 'reka-ui'
 import type { ContentNavigationItem } from '@nuxt/content'
 
 const slots = defineSlots()
-const route = useRoute()
 
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 
-const { navigationMenuByCategory, contains, searchTerm } = useDocs(navigation!)
-const input = useTemplateRef('input')
-
-const isActiveSearch = computed(() => route.path.startsWith('/docs/components'))
+const route = useRoute()
+const { contains } = useFilter({ sensitivity: 'base' })
+const { navigationMenuByCategory } = useNavigation(navigation!)
 
 const filteredNavigation = computed(() => {
   if (!searchTerm.value) {
@@ -19,11 +18,17 @@ const filteredNavigation = computed(() => {
   return navigationMenuByCategory.value.filter(child => contains(child.label as string, searchTerm.value) || contains((child?.description || '') as string, searchTerm.value))
 })
 
+const searchTerm = ref('')
+const isSearchActive = computed(() => route.path.startsWith('/docs/components'))
+const navigationKey = computed(() => `${route.path}-${searchTerm.value ? 'filtered' : 'unfiltered'}`)
+
 watch(() => route.path, () => {
   if (!isActiveSearch.value) {
     searchTerm.value = ''
   }
 })
+
+const input = useTemplateRef('input')
 
 defineShortcuts({
   '/': {
@@ -62,7 +67,7 @@ const { mobileLinks } = useHeader()
       <B24SidebarHeader>
         <LogoWithVersion />
         <FrameworkTabs />
-        <div v-if="isActiveSearch" class="ps-[20px] pe-xs rtl:ps-xs rtl:pe-[20px] pb-[12px]">
+        <div v-if="isSearchActive" class="ps-[20px] pe-xs rtl:ps-xs rtl:pe-[20px] pb-[12px]">
           <B24Input ref="input" v-model="searchTerm" placeholder="Filter..." class="group">
             <template #trailing>
               <B24Kbd value="/" dd-class="ring-(--ui-color-design-plain-na-content-secondary) bg-transparent text-muted" />
@@ -81,7 +86,7 @@ const { mobileLinks } = useHeader()
           orientation="vertical"
         />
         <B24NavigationMenu
-          :key="route.path"
+          :key="navigationKey"
           :items="filteredNavigation"
           orientation="vertical"
           :b24ui="{ linkLeadingBadge: '-top-[4px] left-auto -right-[50px]  bg-blue-500' }"
