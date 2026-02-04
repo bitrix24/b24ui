@@ -10,9 +10,6 @@ export default {
     base: [
       'text-(--b24ui-typography-label-color)',
       'w-full outline-none *:my-5 *:first:mt-0 *:last:mb-0 sm:px-8 selection:bg-(--ui-color-design-selection-bg)',
-      // Placeholder
-      '[&_:is(p,h1,h2,h3,h4).is-empty]:before:content-[attr(data-placeholder)] [&_:is(p,h1,h2,h3,h4).is-empty]:before:text-(--b24ui-typography-description-color) [&_:is(p,h1,h2,h3,h4).is-empty]:before:float-left [&_:is(p,h1,h2,h3,h4).is-empty]:before:h-0 [&_:is(p,h1,h2,h3,h4).is-empty]:before:pointer-events-none',
-      '[&_li_.is-empty]:before:content-none',
       // Paragraph
       '[&_p]:leading-7',
       // Links
@@ -50,5 +47,18 @@ export default {
       // Selected nodes
       '[&_.ProseMirror-selectednode:not(img):not(pre):not([data-node-view-wrapper])]:bg-(--ui-color-design-selection-bg)'
     ].join(' ')
+  },
+  variants: {
+    placeholderMode: {
+      firstLine: {
+        base: '[&_:is(p,h1,h2,h3,h4).is-editor-empty:first-child]:before:content-[attr(data-placeholder)] [&_:is(p,h1,h2,h3,h4).is-editor-empty:first-child]:before:text-(--b24ui-typography-description-color) [&_:is(p,h1,h2,h3,h4).is-editor-empty:first-child]:before:float-left [&_:is(p,h1,h2,h3,h4).is-editor-empty:first-child]:before:h-0 [&_:is(p,h1,h2,h3,h4).is-editor-empty:first-child]:before:pointer-events-none'
+      },
+      everyLine: {
+        base: '[&_:is(p,h1,h2,h3,h4).is-empty]:before:content-[attr(data-placeholder)] [&_:is(p,h1,h2,h3,h4).is-empty]:before:text-(--b24ui-typography-description-color) [&_:is(p,h1,h2,h3,h4).is-empty]:before:float-left [&_:is(p,h1,h2,h3,h4).is-empty]:before:h-0 [&_:is(p,h1,h2,h3,h4).is-empty]:before:pointer-events-none'
+      }
+    }
+  },
+  defaultVariants: {
+    placeholderMode: 'everyLine'
   }
 }
