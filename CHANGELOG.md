@@ -13,6 +13,7 @@
 * feat(CommandPalette): add `input` prop
 * feat(CommandPalette/InputMenu/SelectMenu/Tree): handle virtualizer `estimateSize` as function
 * fix(Editor): set `contentType` when updating value
+* fix(EditorToolbar): prevent disabled dropdown when items have no kind
 
 ## [2.2.1](https://github.com/bitrix24/b24ui/compare/v2.1.17...v2.2.1) (2025-12-18)
 

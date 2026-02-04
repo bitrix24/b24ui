@@ -166,15 +166,14 @@ function isDisabled(item: EditorToolbarItem): boolean {
 
   if ('items' in item && item.items?.length) {
     const items = isArrayOfArray(item.items) ? item.items.flat() : item.items
-    // @ts-expect-error: need test at nuxt.ui? but this work
-    const itemItems = items.filter((item): item is EditorToolbarItem => 'kind' in item)
+    // Filter out structural elements (separators, labels)
+    const actionableItems = items.filter((item: any) => item.type !== 'separator' && item.type !== 'label')
 
-    if (itemItems.length === 0) {
+    if (actionableItems.length === 0) {
       return true
     }
 
-    // @ts-expect-error: need test at nuxt.ui? but this work
-    return itemItems.every(item => isDisabled(item))
+    return actionableItems.every((item: any) => isDisabled(item))
   }
 
   if (!('kind' in item)) {
