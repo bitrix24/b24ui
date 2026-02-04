@@ -466,7 +466,7 @@ name: 'editor-image-upload-node'
 preview: false
 collapse: true
 lang: 'ts'
-name: 'editor-image-upload'
+name: 'editor-image-upload-extension'
 ---
 ::
 

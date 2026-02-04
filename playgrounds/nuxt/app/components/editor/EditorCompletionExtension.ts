@@ -1,7 +1,6 @@
 import { Extension } from '@tiptap/core'
 import { Decoration, DecorationSet } from '@tiptap/pm/view'
 import { Plugin, PluginKey } from '@tiptap/pm/state'
-import type { Editor } from '@tiptap/vue-3'
 import { useDebounceFn } from '@vueuse/core'
 
 export interface CompletionOptions {
@@ -21,9 +20,9 @@ export interface CompletionOptions {
    */
   triggerCharacters?: string[]
   /**
-   * Called when completion should be triggered, receives the text before cursor
+   * Called when completion should be triggered, receives the editor instance
    */
-  onTrigger?: (textBefore: string) => void
+  onTrigger?: (editor: any) => void
   /**
    * Called when suggestion is accepted
    */
@@ -38,7 +37,7 @@ export interface CompletionStorage {
   suggestion: string
   position: number | undefined
   visible: boolean
-  debouncedTrigger: ((editor: Editor) => void) | null
+  debouncedTrigger: ((editor: any) => void) | null
   setSuggestion: (text: string) => void
   clearSuggestion: () => void
 }
@@ -64,7 +63,7 @@ export const Completion = Extension.create<CompletionOptions, CompletionStorage>
       suggestion: '',
       position: undefined as number | undefined,
       visible: false,
-      debouncedTrigger: null as ((editor: Editor) => void) | null,
+      debouncedTrigger: null as ((editor: any) => void) | null,
       setSuggestion(text: string) {
         this.suggestion = text
       },
@@ -112,7 +111,7 @@ export const Completion = Extension.create<CompletionOptions, CompletionStorage>
           this.options.onDismiss?.()
         }
         // Manually trigger completion
-        this.storage.debouncedTrigger?.(editor as Editor)
+        this.storage.debouncedTrigger?.(editor as any)
         return true
       },
       'Tab': ({ editor }) => {
@@ -160,7 +159,7 @@ export const Completion = Extension.create<CompletionOptions, CompletionStorage>
 
     // Debounced trigger check (only if autoTrigger is enabled)
     if (this.options.autoTrigger) {
-      this.storage.debouncedTrigger?.(editor as Editor)
+      this.storage.debouncedTrigger?.(editor as any)
     }
   },
 
@@ -178,7 +177,7 @@ export const Completion = Extension.create<CompletionOptions, CompletionStorage>
     const options = this.options
 
     // Create debounced trigger function for this instance
-    this.storage.debouncedTrigger = useDebounceFn((editor: Editor) => {
+    this.storage.debouncedTrigger = useDebounceFn((editor: any) => {
       if (!options.onTrigger) return
 
       const { state } = editor
@@ -205,9 +204,8 @@ export const Completion = Extension.create<CompletionOptions, CompletionStorage>
       storage.position = selection.from
       storage.visible = true
 
-      // Get text before cursor as context
-      const textBefore = state.doc.textBetween(0, selection.from, '\n')
-      options.onTrigger(textBefore)
+      // Pass editor to let the handler extract content (e.g., as markdown)
+      options.onTrigger(editor)
     }, options.debounce || 250)
   },
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { EditorCustomHandlers, EditorToolbarItem } from '@bitrix24/b24ui-nuxt'
 import type { Editor } from '@tiptap/vue-3'
-import { ImageUpload } from './EditorImageUpload'
+import { ImageUpload } from './EditorImageUploadExtension'
 import HeaderIcon from '@bitrix24/b24icons-vue/editor/HeaderIcon'
 import BoldIcon from '@bitrix24/b24icons-vue/outline/BoldIcon'
 import ItalicIcon from '@bitrix24/b24icons-vue/outline/ItalicIcon'
