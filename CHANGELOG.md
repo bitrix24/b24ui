@@ -15,6 +15,7 @@
 * fix(Editor): set `contentType` when updating value
 * fix(EditorToolbar): prevent disabled dropdown when items have no kind
 * fix(EditorToolbar): prevent `onClick` from being called twice on items
+* fix(Banner): prevent XSS via id prop injection
 
 ## [2.2.1](https://github.com/bitrix24/b24ui/compare/v2.1.17...v2.2.1) (2025-12-18)
 
