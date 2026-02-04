@@ -27,6 +27,7 @@
 * docs(table): improve examples to use meta
 * feat(Editor): add `placeholder.mode` prop
 * chore(deps): update tiptap to ^3.15.1
+* docs(editor): improve extensions in examples
 
 ## [2.2.1](https://github.com/bitrix24/b24ui/compare/v2.1.17...v2.2.1) (2025-12-18)
 
