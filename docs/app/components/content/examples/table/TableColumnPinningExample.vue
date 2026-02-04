@@ -76,16 +76,19 @@ const columns: TableColumn<Payment>[] = [{
   size: 232
 }, {
   accessorKey: 'amount',
-  header: ({ column }) => h('div', { class: 'text-left w-[60px]' }, getHeader(column, 'Amount', 'right')),
+  header: ({ column }) => getHeader(column, 'Amount', 'right'),
+  meta: {
+    class: {
+      th: 'text-right',
+      td: 'text-right font-medium'
+    }
+  },
   cell: ({ row }) => {
     const amount = Number.parseFloat(row.getValue('amount'))
-
-    const formatted = new Intl.NumberFormat('en-US', {
+    return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'EUR'
     }).format(amount)
-
-    return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, formatted)
   },
   size: 130
 }]

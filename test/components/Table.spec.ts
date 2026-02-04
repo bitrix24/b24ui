@@ -108,35 +108,46 @@ describe('Table', () => {
           onClick: () => column.toggleSorting(column.getIsSorted() === 'asc')
         })
       },
-      cell: ({ row }) => h('div', { class: 'lowercase' }, row.getValue('email'))
+      meta: {
+        class: {
+          td: 'lowercase'
+        }
+      }
     },
     {
       accessorKey: 'amount',
-      header: () => h('div', { class: 'text-right' }, 'Amount'),
+      header: 'Amount',
+      meta: {
+        class: {
+          th: 'text-right',
+          td: 'text-right font-medium'
+        }
+      },
       footer: ({ column }) => {
         const total = column.getFacetedRowModel().rows.reduce((acc: number, row: TableRow<typeof data[number]>) => acc + Number.parseFloat(row.getValue('amount')), 0)
-
         const formatted = new Intl.NumberFormat('en-US', {
           style: 'currency',
           currency: 'EUR'
         }).format(total)
 
-        return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, `Total: ${formatted}`)
+        return `Total: ${formatted}`
       },
       cell: ({ row }) => {
         const amount = Number.parseFloat(row.getValue('amount'))
-
-        const formatted = new Intl.NumberFormat('en-US', {
+        return new Intl.NumberFormat('en-US', {
           style: 'currency',
           currency: 'EUR'
         }).format(amount)
-
-        return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, formatted)
       }
     },
     {
       id: 'actions',
       enableHiding: false,
+      meta: {
+        class: {
+          td: 'text-right'
+        }
+      },
       cell: ({ row }) => {
         const items = [{
           type: 'label',
@@ -153,7 +164,7 @@ describe('Table', () => {
           label: 'View payment details'
         }]
 
-        return h('div', { class: 'text-right' }, h<any>(B24DropdownMenu, {
+        return h<any>(B24DropdownMenu, {
           content: {
             align: 'end'
           },
@@ -161,9 +172,8 @@ describe('Table', () => {
         }, () => h(B24Button, {
           'icon': SignIcon,
           'color': 'air-primary-copilot',
-          'class': 'ml-auto',
           'aria-label': 'Actions'
-        })))
+        }))
       }
     }
   ]

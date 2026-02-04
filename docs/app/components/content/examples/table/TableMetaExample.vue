@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import type { ColumnDef } from '@tanstack/vue-table'
+import type { TableColumn } from '@bitrix24/b24ui-nuxt'
+import type { TableMeta, Row } from '@tanstack/vue-table'
 
-interface Payment {
+type Payment = {
   id: string
   date: string
   status: 'paid' | 'failed' | 'refunded'
@@ -9,7 +10,7 @@ interface Payment {
   amount: number
 }
 
-const data: Payment[] = [
+const data = ref<Payment[]>([
   {
     id: '4600',
     date: '2024-03-11T15:30:00',
@@ -45,9 +46,9 @@ const data: Payment[] = [
     email: 'ethan.harris@example.com',
     amount: 639
   }
-]
+])
 
-const columns: ColumnDef<Payment>[] = [
+const columns: TableColumn<Payment>[] = [
   {
     accessorKey: 'id',
     header: 'ID',
@@ -66,7 +67,8 @@ const columns: ColumnDef<Payment>[] = [
         day: 'numeric',
         month: 'short',
         hour: '2-digit',
-        minute: '2-digit'
+        minute: '2-digit',
+        hour12: false
       })
     }
   },
@@ -116,15 +118,26 @@ const columns: ColumnDef<Payment>[] = [
         style: 'currency',
         currency: 'USD'
       }).format(amount)
-
-      return h('span', {
-        class: 'font-(--ui-font-weight-semi-bold) text-(--ui-color-accent-main-success)'
-      }, formatted)
+      return h('span', { class: 'font-(--ui-font-weight-semi-bold) text-(--ui-color-accent-main-success)' }, formatted)
     }
   }
 ]
+
+const meta: TableMeta<Payment> = {
+  class: {
+    tr: (row: Row<Payment>) => {
+      if (row.original.status === 'failed') {
+        return 'bg-red-600/10'
+      }
+      if (row.original.status === 'refunded') {
+        return 'bg-orange-600/10'
+      }
+      return ''
+    }
+  }
+}
 </script>
 
 <template>
-  <B24Table :data="data" :columns="columns" class="w-full" />
+  <B24Table :data="data" :columns="columns" :meta="meta" class="flex-1" />
 </template>

@@ -41,6 +41,7 @@ Use the `data` prop as an array of objects, the columns will be generated based 
 
 ::component-code
 ---
+prettier: true
 collapse: true
 class: '!p-0'
 ignore:
@@ -109,7 +110,7 @@ class: '!p-0'
 name: 'table-columns-example'
 highlights:
   - 53
-  - 105
+  - 108
 ---
 ::
 
@@ -130,8 +131,11 @@ Use the `meta` prop as an object ([TableMeta](https://tanstack.com/table/latest/
 ---
 prettier: true
 collapse: true
-name: 'table-custom-meta-example'
+name: 'table-meta-example'
 class: '!p-0'
+highlights:
+  - 128
+  - 140
 ---
 ::
 
@@ -141,6 +145,7 @@ Use the `loading` prop to display a loading state, the `loading-color` prop to c
 
 ::component-code
 ---
+prettier: true
 collapse: true
 class: '!p-0'
 ignore:
@@ -188,6 +193,7 @@ Use the `sticky` prop to make the header or footer sticky.
 
 ::component-code
 ---
+prettier: true
 collapse: true
 class: '!p-0'
 ignore:
@@ -253,8 +259,8 @@ prettier: true
 collapse: true
 name: 'table-row-actions-example'
 highlights:
-  - 64
-  - 93
+  - 115
+  - 141
 class: '!p-0'
 ---
 ::
@@ -274,7 +280,7 @@ collapse: true
 name: 'table-row-expandable-example'
 highlights:
   - 55
-  - 71
+  - 72
 class: '!p-0'
 ---
 ::
@@ -305,8 +311,8 @@ prettier: true
 collapse: true
 name: 'table-grouped-rows-example'
 highlights:
-  - 163
-  - 172
+  - 157
+  - 160
 class: '!p-0'
 ---
 ::
@@ -347,8 +353,8 @@ border: false
 collapse: true
 name: 'table-row-select-event-example'
 highlights:
-  - 123
-  - 130
+  - 124
+  - 131
 class: '!p-0'
 ---
 ::
@@ -371,8 +377,8 @@ prettier: true
 collapse: true
 name: 'table-row-context-menu-event-example'
 highlights:
-  - 130
-  - 170
+  - 133
+  - 173
 class: '!p-0'
 ---
 ::
@@ -392,8 +398,8 @@ border: false
 collapse: true
 name: 'table-row-hover-event-example'
 highlights:
-  - 126
-  - 149
+  - 129
+  - 152
 class: '!p-0'
 ---
 ::
@@ -412,8 +418,8 @@ prettier: true
 collapse: true
 name: 'table-column-footer-example'
 highlights:
-  - 92
-  - 106
+  - 100
+  - 112
 class: '!p-0'
 ---
 ::
@@ -471,8 +477,8 @@ collapse: true
 overflowHidden: true
 name: 'table-column-pinning-example'
 highlights:
-  - 100
-  - 113
+  - 108
+  - 126
 class: '!p-0 overflow-clip'
 ---
 ::
@@ -492,8 +498,8 @@ border: false
 collapse: true
 name: 'table-column-visibility-example'
 highlights:
-  - 116
-  - 136
+  - 121
+  - 146
 class: '!p-0'
 ---
 ::
@@ -513,8 +519,8 @@ border: false
 collapse: true
 name: 'table-column-filters-example'
 highlights:
-  - 127
-  - 132
+  - 123
+  - 128
 class: '!p-0'
 ---
 ::
@@ -534,6 +540,8 @@ border: false
 collapse: true
 name: 'table-global-filter-example'
 class: '!p-0'
+highlights:
+  - 116
 ---
 ::
 
@@ -554,6 +562,9 @@ border: false
 collapse: true
 name: 'table-pagination-example'
 class: '!p-0'
+highlights:
+  - 204
+  - 209
 ---
 ::
 
@@ -570,6 +581,9 @@ You can fetch data from an API and use them in the Table.
 prettier: true
 collapse: true
 name: 'table-fetch-example'
+highlights:
+  - 15
+  - 26
 class: '!p-0'
 ---
 ::
@@ -583,7 +597,7 @@ If you use server-side pagination, you can use the [`useInfiniteScroll`](https:/
 prettier: true
 collapse: true
 highlights:
-  - 72
+  - 81
   - 83
 overflowHidden: true
 name: 'table-infinite-scroll-example'

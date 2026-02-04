@@ -128,6 +128,9 @@ const columns: TableColumn<Payment>[] = [
   {
     id: 'actions',
     meta: {
+      class: {
+        td: 'text-right'
+      },
       style: {
         td: {
           width: '20px',
@@ -137,7 +140,7 @@ const columns: TableColumn<Payment>[] = [
     },
     enableHiding: false,
     cell: ({ row }) => {
-      return h('div', { class: 'text-right' }, h(B24DropdownMenu, {
+      return h(B24DropdownMenu, {
         'content': {
           align: 'center',
           side: 'right',
@@ -150,9 +153,8 @@ const columns: TableColumn<Payment>[] = [
         'icon': MenuIcon,
         'color': 'air-tertiary-no-accent',
         'size': 'sm',
-        'class': 'ms-auto',
         'aria-label': 'Actions dropdown'
-      })))
+      }))
     },
     size: 64
   },
@@ -199,13 +201,21 @@ const columns: TableColumn<Payment>[] = [
   {
     accessorKey: 'firstName',
     header: ({ column }) => getPinnedHeader(column, 'First Name', 'left'),
-    cell: ({ row }) => h('div', { class: 'capitalize' }, row.getValue('firstName')),
+    meta: {
+      class: {
+        td: 'capitalize'
+      }
+    },
     size: 128
   },
   {
     accessorKey: 'lastName',
     header: ({ column }) => getPinnedHeader(column, 'Last Name', 'left'),
-    cell: ({ row }) => h('div', { class: 'capitalize' }, row.getValue('lastName')),
+    meta: {
+      class: {
+        td: 'capitalize'
+      }
+    },
     size: 128
   },
   {
@@ -225,31 +235,36 @@ const columns: TableColumn<Payment>[] = [
         })
       })
     },
-    cell: ({ row }) => h('div', { class: 'lowercase' }, row.getValue('email')),
+    meta: {
+      class: {
+        td: 'lowercase'
+      }
+    },
     size: 232
   },
   {
     accessorKey: 'amount',
-    header: ({ column }) => h('div', { class: 'text-right' }, getPinnedHeader(column, 'Amount', 'right')),
+    header: ({ column }) => getPinnedHeader(column, 'Amount', 'right'),
+    meta: {
+      class: {
+        th: 'text-right',
+        td: 'text-right font-medium'
+      }
+    },
     footer: ({ column }) => {
       const total = column.getFacetedRowModel().rows.reduce((acc: number, row: TableRow<Payment>) => acc + Number.parseFloat(row.getValue('amount')), 0)
-
       const formatted = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'EUR'
       }).format(total)
-
-      return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, `Total: ${formatted}`)
+      return `Total: ${formatted}`
     },
     cell: ({ row }) => {
       const amount = Number.parseFloat(row.getValue('amount'))
-
-      const formatted = new Intl.NumberFormat('en-US', {
+      return new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'EUR'
       }).format(amount)
-
-      return h('div', { class: 'text-right font-(--ui-font-weight-medium)' }, formatted)
     },
     size: 117
   }

@@ -24,6 +24,7 @@
 * docs(editor): improve prosemirror warning
 * feat(Editor): handle boolean in `image` and `mention` props
 * chore(deps): update tiptap to ^3.15.0
+* docs(table): improve examples to use meta
 
 ## [2.2.1](https://github.com/bitrix24/b24ui/compare/v2.1.17...v2.2.1) (2025-12-18)
 
