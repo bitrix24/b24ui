@@ -560,6 +560,10 @@ ignore:
 external:
   - items
   - modelValue
+items:
+  clear:
+    - true
+    - false
 props:
   modelValue: 'Backlog'
   clear: true
@@ -589,6 +593,10 @@ cast:
 external:
   - items
   - modelValue
+items:
+  clear:
+    - true
+    - false
 props:
   modelValue: 'Backlog'
   clear: true
