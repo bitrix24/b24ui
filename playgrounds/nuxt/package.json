@@ -21,7 +21,7 @@
     "nuxt": "^4.2.2",
     "zod": "^4.2.1",
     "maska": "^3.2.0",
-    "nuxt-component-meta": "^0.15.0"
+    "nuxt-component-meta": "^0.16.0"
   },
   "devDependencies": {
     "typescript": "^5.8.3",
