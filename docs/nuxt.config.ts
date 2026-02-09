@@ -350,10 +350,6 @@ export default defineNuxtConfig({
   },
 
   vite: {
-    optimizeDeps: {
-      // prevents reloading page when navigating between components
-      include: ['@ai-sdk/vue', '@internationalized/date', '@nuxt/content/utils', '@tanstack/vue-table', '@tiptap/extension-emoji', '@tiptap/extension-text-align', '@tiptap/core', '@tiptap/extension-horizontal-rule', '@tiptap/extension-image', '@tiptap/extension-mention', '@tiptap/extension-placeholder', '@tiptap/markdown', '@tiptap/starter-kit', '@tiptap/vue-3', '@floating-ui/dom', '@tiptap/extension-drag-handle-vue-3', '@tiptap/vue-3/menus', '@tiptap/suggestion', '@tiptap/pm/state', '@vue/devtools-core', '@vue/devtools-kit', '@vueuse/integrations/useFuse', '@vueuse/shared', 'ai', 'colortranslator', 'embla-carousel-auto-height', 'embla-carousel-auto-scroll', 'embla-carousel-autoplay', 'embla-carousel-class-names', 'embla-carousel-fade', 'embla-carousel-vue', 'embla-carousel-wheel-gestures', 'json5', 'motion-v', 'ohash', 'ohash/utils', 'prettier', 'prosemirror-state', 'reka-ui', 'reka-ui/namespaced', 'scule', 'shiki', 'shiki-stream/vue', 'shiki-transformer-color-highlight', 'shiki/engine-javascript.mjs', 'tailwind-variants', 'tailwindcss/colors', 'ufo', 'vaul-vue', 'zod']
-    },
     server: {
       // Fix: "Blocked request. This host is not allowed" when using tunnels like ngrok
       allowedHosts: [...extraAllowedHosts]

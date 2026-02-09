@@ -57,6 +57,9 @@ importers:
       '@tiptap/extension-bubble-menu':
         specifier: ^3.15.3
         version: 3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0)
+      '@tiptap/extension-code':
+        specifier: ^3.15.3
+        version: 3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))
       '@tiptap/extension-collaboration':
         specifier: ^3.15.3
         version: 3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0)(@tiptap/y-tiptap@3.0.1(prosemirror-model@1.25.4)(prosemirror-state@1.4.4)(prosemirror-view@1.41.4)(y-protocols@1.0.6(yjs@13.6.27))(yjs@13.6.27))(yjs@13.6.27)
@@ -108,6 +111,9 @@ importers:
       '@vueuse/integrations':
         specifier: ^14.1.0
         version: 14.1.0(axios@1.13.2)(change-case@5.4.4)(fuse.js@7.1.0)(sortablejs@1.15.6)(vue@3.5.25(typescript@5.8.3))
+      '@vueuse/shared':
+        specifier: ^14.1.0
+        version: 14.1.0(vue@3.5.25(typescript@5.8.3))
       canvas-confetti:
         specifier: ^1.9.3
         version: 1.9.4
@@ -192,6 +198,9 @@ importers:
       typescript:
         specifier: 5.8.3
         version: 5.8.3
+      ufo:
+        specifier: ^1.6.1
+        version: 1.6.3
       unplugin:
         specifier: ^2.3.11
         version: 2.3.11
@@ -220,6 +229,9 @@ importers:
         specifier: ^3.24.0 || ^4.0.0
         version: 4.1.13
     devDependencies:
+      '@floating-ui/dom':
+        specifier: ^1.7.4
+        version: 1.7.4
       '@nuxt/eslint-config':
         specifier: ^1.12.1
         version: 1.12.1(@typescript-eslint/utils@8.50.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.3))(@vue/compiler-sfc@3.5.25)(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.3)
@@ -229,12 +241,18 @@ importers:
       '@nuxt/test-utils':
         specifier: ^3.21.0
         version: 3.21.0(@vue/test-utils@2.4.6)(happy-dom@20.0.11)(magicast@0.5.1)(playwright-core@1.57.0)(typescript@5.8.3)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.10.1)(happy-dom@20.0.11)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2))
+      '@tanstack/table-core':
+        specifier: ^8.21.3
+        version: 8.21.3
       '@types/canvas-confetti':
         specifier: ^1.9.0
         version: 1.9.0
       '@types/node':
         specifier: ^24.7.0
         version: 24.10.1
+      '@vitejs/plugin-vue':
+        specifier: ^6.0.2
+        version: 6.0.2(vite@7.2.7(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2))(vue@3.5.25(typescript@5.8.3))
       '@vue/test-utils':
         specifier: ^2.4.6
         version: 2.4.6
@@ -262,6 +280,9 @@ importers:
       sharp:
         specifier: ^0.34.3
         version: 0.34.5
+      unbuild:
+        specifier: ^3.6.1
+        version: 3.6.1(typescript@5.8.3)(vue-sfc-transformer@0.1.17(@vue/compiler-core@3.5.27)(esbuild@0.27.1)(vue@3.5.25(typescript@5.8.3)))(vue-tsc@3.2.4(typescript@5.8.3))(vue@3.5.25(typescript@5.8.3))
       vitest:
         specifier: ^3.2.4
         version: 3.2.4(@types/debug@4.1.12)(@types/node@24.10.1)(happy-dom@20.0.11)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2)
@@ -271,6 +292,9 @@ importers:
       vitest-environment-nuxt:
         specifier: ^1.0.1
         version: 1.0.1(@vue/test-utils@2.4.6)(happy-dom@20.0.11)(magicast@0.5.1)(playwright-core@1.57.0)(typescript@5.8.3)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.10.1)(happy-dom@20.0.11)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2))
+      vue:
+        specifier: ^3.5.25
+        version: 3.5.25(typescript@5.8.3)
       vue-tsc:
         specifier: ^3.2.1
         version: 3.2.4(typescript@5.8.3)
@@ -319,6 +343,9 @@ importers:
       '@nuxtjs/mcp-toolkit':
         specifier: ^0.6.0
         version: 0.6.2(magicast@0.5.1)(zod@4.2.1)
+      '@nuxtjs/mdc':
+        specifier: ^0.19.2
+        version: 0.19.2(magicast@0.5.1)
       '@nuxtjs/plausible':
         specifier: ^2.0.1
         version: 2.0.1(magicast@0.5.1)
@@ -352,9 +379,15 @@ importers:
       joi:
         specifier: ^18.0.2
         version: 18.0.2
+      json5:
+        specifier: ^2.2.3
+        version: 2.2.3
       maska:
         specifier: ^3.2.0
         version: 3.2.0
+      minimark:
+        specifier: ^0.2.0
+        version: 0.2.0
       motion-v:
         specifier: ^1.7.3
         version: 1.7.4(@vueuse/core@14.1.0(vue@3.5.25(typescript@5.8.3)))(vue@3.5.25(typescript@5.8.3))
@@ -373,6 +406,9 @@ importers:
       prettier:
         specifier: ^3.7.4
         version: 3.7.4
+      shiki:
+        specifier: ^3.20.0
+        version: 3.22.0
       shiki-stream:
         specifier: ^0.1.3
         version: 0.1.3(vue@3.5.25(typescript@5.8.3))
@@ -385,15 +421,24 @@ importers:
       superstruct:
         specifier: ^2.0.2
         version: 2.0.2
+      tailwindcss:
+        specifier: ^4.1.18
+        version: 4.1.18
       tiptap-extension-code-block-shiki:
         specifier: ^1.0.0
         version: 1.0.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0)(shiki@3.22.0)
       ufo:
         specifier: ^1.6.1
         version: 1.6.1
+      unist-util-visit:
+        specifier: ^5.0.0
+        version: 5.0.0
       valibot:
         specifier: ^1.2.0
         version: 1.2.0(typescript@5.8.3)
+      vue-component-meta:
+        specifier: ^3.2.2
+        version: 3.2.4(typescript@5.8.3)
       yup:
         specifier: ^1.7.1
         version: 1.7.1
@@ -415,6 +460,9 @@ importers:
       '@internationalized/date':
         specifier: ^3.10.1
         version: 3.10.1
+      '@nuxt/content':
+        specifier: ^3.10.0
+        version: 3.11.0(better-sqlite3@12.5.0)(magicast@0.5.1)(valibot@1.2.0(typescript@5.8.3))
       '@tiptap/extension-emoji':
         specifier: ^3.15.3
         version: 3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0)(@tiptap/suggestion@3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0))(emojibase@17.0.0)
@@ -430,6 +478,9 @@ importers:
       nuxt:
         specifier: ^4.2.2
         version: 4.2.2(@parcel/watcher@2.5.1)(@types/node@24.10.1)(@vue/compiler-sfc@3.5.25)(better-sqlite3@12.5.0)(cac@6.7.14)(db0@0.3.4(better-sqlite3@12.5.0))(eslint@9.39.2(jiti@2.6.1))(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.53.3)(terser@5.44.1)(tsx@4.21.0)(typescript@5.8.3)(vite@7.2.7(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2))(vue-tsc@3.2.4(typescript@5.8.3))(yaml@2.8.2)
+      tailwindcss:
+        specifier: ^4.1.18
+        version: 4.1.18
       zod:
         specifier: ^4.2.1
         version: 4.2.1
@@ -455,6 +506,9 @@ importers:
       '@internationalized/date':
         specifier: ^3.10.1
         version: 3.10.1
+      '@nuxt/content':
+        specifier: ^3.10.0
+        version: 3.11.0(better-sqlite3@12.5.0)(magicast@0.5.1)(valibot@1.2.0(typescript@5.8.3))
       '@tiptap/extension-emoji':
         specifier: ^3.15.3
         version: 3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0)(@tiptap/suggestion@3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0))(emojibase@17.0.0)
@@ -473,6 +527,9 @@ importers:
       nuxt-component-meta:
         specifier: ^0.16.0
         version: 0.16.0(magicast@0.5.1)
+      tailwindcss:
+        specifier: ^4.1.18
+        version: 4.1.18
       zod:
         specifier: ^4.2.1
         version: 4.2.1
@@ -501,6 +558,9 @@ importers:
       maska:
         specifier: ^3.2.0
         version: 3.2.0
+      tailwindcss:
+        specifier: ^4.1.18
+        version: 4.1.18
       vue:
         specifier: ^3.5.25
         version: 3.5.25(typescript@5.8.3)
@@ -1764,6 +1824,9 @@ packages:
 
   '@nuxtjs/mdc@0.18.4':
     resolution: {integrity: sha512-lM4R0Mbbhw5h5Fwj7LqGiw6eanqjjPkzi+9FaXfn1BdmfbW8GlR2quLIiBXTbw0wUrWYyOWoc5FGIE/gpZUTjQ==}
+
+  '@nuxtjs/mdc@0.19.2':
+    resolution: {integrity: sha512-mtwBb9D5U7H1R3kpqEmqwML1RudN6qOJqJwebrqLxk+EWhtGUXAdUBXC2L/kPWiCNA4Yz/EO+tSfSQV8Idh5nw==}
 
   '@nuxtjs/mdc@0.20.0':
     resolution: {integrity: sha512-CV1FuCZppBpNjtWT+OaV+t7qbm/dD+2bbf7Or0h1gxperlf1bB3VZnDoBkOTRjgPWyYvzzRS7FUOQJLQG28MEA==}
@@ -8944,7 +9007,7 @@ snapshots:
       srvx: 0.9.7
       std-env: 3.10.0
       tinyexec: 1.0.2
-      ufo: 1.6.1
+      ufo: 1.6.3
       youch: 4.1.0-beta.13
     transitivePeerDependencies:
       - cac
@@ -9055,7 +9118,7 @@ snapshots:
       socket.io-client: 4.8.1
       std-env: 3.10.0
       tinyglobby: 0.2.15
-      ufo: 1.6.1
+      ufo: 1.6.3
       unctx: 2.4.1
       unified: 11.0.5
       unist-util-stringify-position: 4.0.0
@@ -9187,7 +9250,7 @@ snapshots:
       ohash: 2.0.11
       pathe: 2.0.3
       std-env: 3.10.0
-      ufo: 1.6.1
+      ufo: 1.6.3
     optionalDependencies:
       ipx: 3.1.1(db0@0.3.4(better-sqlite3@12.5.0))(ioredis@5.8.2)
     transitivePeerDependencies:
@@ -9231,7 +9294,7 @@ snapshots:
       scule: 1.3.0
       semver: 7.7.3
       tinyglobby: 0.2.15
-      ufo: 1.6.1
+      ufo: 1.6.3
       unctx: 2.4.1
       untyped: 2.0.0
     transitivePeerDependencies:
@@ -9283,7 +9346,7 @@ snapshots:
       pkg-types: 2.3.0
       radix3: 1.1.2
       std-env: 3.10.0
-      ufo: 1.6.1
+      ufo: 1.6.3
       unctx: 2.4.1
       unstorage: 1.17.3(db0@0.3.4(better-sqlite3@12.5.0))(ioredis@5.8.2)
       vue: 3.5.25(typescript@5.8.3)
@@ -9372,7 +9435,7 @@ snapshots:
       scule: 1.3.0
       std-env: 3.10.0
       tinyexec: 1.0.2
-      ufo: 1.6.1
+      ufo: 1.6.3
       unplugin: 2.3.11
       vitest-environment-nuxt: 1.0.1(@vue/test-utils@2.4.6)(happy-dom@20.0.11)(magicast@0.5.1)(playwright-core@1.57.0)(typescript@5.8.3)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.10.1)(happy-dom@20.0.11)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2))
       vue: 3.5.25(typescript@5.8.3)
@@ -9412,7 +9475,7 @@ snapshots:
       rollup-plugin-visualizer: 6.0.5(rollup@4.53.3)
       seroval: 1.4.0
       std-env: 3.10.0
-      ufo: 1.6.1
+      ufo: 1.6.3
       unenv: 2.0.0-rc.24
       vite: 7.2.7(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2)
       vite-node: 5.2.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2)
@@ -9501,12 +9564,61 @@ snapshots:
       remark-rehype: 11.1.2
       remark-stringify: 11.0.0
       scule: 1.3.0
-      shiki: 3.18.0
-      ufo: 1.6.1
+      shiki: 3.22.0
+      ufo: 1.6.3
       unified: 11.0.5
       unist-builder: 4.0.0
       unist-util-visit: 5.0.0
       unwasm: 0.5.0
+      vfile: 6.0.3
+    transitivePeerDependencies:
+      - magicast
+      - supports-color
+
+  '@nuxtjs/mdc@0.19.2(magicast@0.5.1)':
+    dependencies:
+      '@nuxt/kit': 4.2.2(magicast@0.5.1)
+      '@shikijs/core': 3.22.0
+      '@shikijs/langs': 3.22.0
+      '@shikijs/themes': 3.22.0
+      '@shikijs/transformers': 3.22.0
+      '@types/hast': 3.0.4
+      '@types/mdast': 4.0.4
+      '@vue/compiler-core': 3.5.27
+      consola: 3.4.2
+      debug: 4.4.3
+      defu: 6.1.4
+      destr: 2.0.5
+      detab: 3.0.2
+      github-slugger: 2.0.0
+      hast-util-format: 1.1.0
+      hast-util-to-mdast: 10.1.2
+      hast-util-to-string: 3.0.1
+      mdast-util-to-hast: 13.2.1
+      micromark-util-sanitize-uri: 2.0.1
+      parse5: 8.0.0
+      pathe: 2.0.3
+      property-information: 7.1.0
+      rehype-external-links: 3.0.0
+      rehype-minify-whitespace: 6.0.2
+      rehype-raw: 7.0.0
+      rehype-remark: 10.0.1
+      rehype-slug: 6.0.0
+      rehype-sort-attribute-values: 5.0.1
+      rehype-sort-attributes: 5.0.1
+      remark-emoji: 5.0.2
+      remark-gfm: 4.0.1
+      remark-mdc: 3.10.0
+      remark-parse: 11.0.0
+      remark-rehype: 11.1.2
+      remark-stringify: 11.0.0
+      scule: 1.3.0
+      shiki: 3.22.0
+      ufo: 1.6.3
+      unified: 11.0.5
+      unist-builder: 4.0.0
+      unist-util-visit: 5.0.0
+      unwasm: 0.5.3
       vfile: 6.0.3
     transitivePeerDependencies:
       - magicast
@@ -9566,7 +9678,7 @@ snapshots:
       '@barbapapazes/plausible-tracker': 0.5.6
       '@nuxt/kit': 4.2.2(magicast@0.5.1)
       defu: 6.1.4
-      ufo: 1.6.1
+      ufo: 1.6.3
     transitivePeerDependencies:
       - magicast
 
@@ -12726,7 +12838,7 @@ snapshots:
       iron-webcrypto: 1.2.1
       node-mock-http: 1.0.3
       radix3: 1.1.2
-      ufo: 1.6.1
+      ufo: 1.6.3
       uncrypto: 0.1.3
 
   happy-dom@20.0.11:
@@ -13017,7 +13129,7 @@ snapshots:
       pathe: 2.0.3
       sharp: 0.34.5
       svgo: 4.0.0
-      ufo: 1.6.1
+      ufo: 1.6.3
       unstorage: 1.17.3(db0@0.3.4(better-sqlite3@12.5.0))(ioredis@5.8.2)
       xss: 1.0.15
     transitivePeerDependencies:
@@ -13354,7 +13466,7 @@ snapshots:
       node-forge: 1.3.2
       pathe: 1.1.2
       std-env: 3.10.0
-      ufo: 1.6.1
+      ufo: 1.6.3
       untun: 0.1.3
       uqr: 0.1.2
 
@@ -13403,7 +13515,7 @@ snapshots:
       mlly: 1.8.0
       regexp-tree: 0.1.27
       type-level-regexp: 0.1.17
-      ufo: 1.6.1
+      ufo: 1.6.3
       unplugin: 2.3.11
 
   magic-string-ast@1.0.3:
@@ -13855,7 +13967,7 @@ snapshots:
       acorn: 8.15.0
       pathe: 2.0.3
       pkg-types: 1.3.1
-      ufo: 1.6.1
+      ufo: 1.6.3
 
   mocked-exports@0.1.1: {}
 
@@ -13961,7 +14073,7 @@ snapshots:
       serve-static: 2.2.0
       source-map: 0.7.6
       std-env: 3.10.0
-      ufo: 1.6.1
+      ufo: 1.6.3
       ultrahtml: 1.6.0
       uncrypto: 0.1.3
       unctx: 2.4.1
@@ -14064,7 +14176,7 @@ snapshots:
       ohash: 2.0.11
       scule: 1.3.0
       typescript: 5.8.3
-      ufo: 1.6.1
+      ufo: 1.6.3
       vue-component-meta: 3.1.5(typescript@5.8.3)
     transitivePeerDependencies:
       - magicast
@@ -14078,8 +14190,8 @@ snapshots:
       ohash: 2.0.11
       scule: 1.3.0
       typescript: 5.8.3
-      ufo: 1.6.1
-      vue-component-meta: 3.1.5(typescript@5.8.3)
+      ufo: 1.6.3
+      vue-component-meta: 3.2.4(typescript@5.8.3)
     transitivePeerDependencies:
       - magicast
 
@@ -14131,7 +14243,7 @@ snapshots:
       sirv: 3.0.2
       std-env: 3.10.0
       strip-literal: 3.1.0
-      ufo: 1.6.1
+      ufo: 1.6.3
       unplugin: 2.3.11
       unstorage: 1.17.3(db0@0.3.4(better-sqlite3@12.5.0))(ioredis@5.8.2)
       unwasm: 0.5.2
@@ -14149,7 +14261,7 @@ snapshots:
       pkg-types: 2.3.0
       site-config-stack: 3.2.11(vue@3.5.25(typescript@5.8.3))
       std-env: 3.10.0
-      ufo: 1.6.1
+      ufo: 1.6.3
     transitivePeerDependencies:
       - magicast
       - vue
@@ -14163,7 +14275,7 @@ snapshots:
       pkg-types: 2.3.0
       sirv: 3.0.2
       site-config-stack: 3.2.11(vue@3.5.25(typescript@5.8.3))
-      ufo: 1.6.1
+      ufo: 1.6.3
     transitivePeerDependencies:
       - magicast
       - vue
@@ -14217,7 +14329,7 @@ snapshots:
       semver: 7.7.3
       std-env: 3.10.0
       tinyglobby: 0.2.15
-      ufo: 1.6.1
+      ufo: 1.6.3
       ultrahtml: 1.6.0
       uncrypto: 0.1.3
       unctx: 2.4.1
@@ -14311,7 +14423,7 @@ snapshots:
     dependencies:
       destr: 2.0.5
       node-fetch-native: 1.6.7
-      ufo: 1.6.1
+      ufo: 1.6.3
 
   ohash@2.0.11: {}
 
@@ -15508,7 +15620,7 @@ snapshots:
 
   site-config-stack@3.2.11(vue@3.5.25(typescript@5.8.3)):
     dependencies:
-      ufo: 1.6.1
+      ufo: 1.6.3
       vue: 3.5.25(typescript@5.8.3)
 
   skin-tone@2.0.0:
@@ -16150,7 +16262,7 @@ snapshots:
       lru-cache: 10.4.3
       node-fetch-native: 1.6.7
       ofetch: 1.5.1
-      ufo: 1.6.1
+      ufo: 1.6.3
     optionalDependencies:
       db0: 0.3.4(better-sqlite3@12.5.0)
       ioredis: 5.8.2
@@ -16434,7 +16546,7 @@ snapshots:
 
   vue-bundle-renderer@2.2.0:
     dependencies:
-      ufo: 1.6.1
+      ufo: 1.6.3
 
   vue-component-meta@3.1.5(typescript@5.8.3):
     dependencies:

@@ -32,7 +32,7 @@ class: 'relative h-176 !p-0 rounded-b-md'
 ---
 ::
 
-::callout{icon-name="GitHubIcon" to="https://github.com/nuxt/ui/blob/v4/docs/app/components/content/examples/editor/EditorExample.vue" aria-label="View source code"}
+::callout{icon-name="GitHubIcon" to="https://github.com/bitrix24/b24ui/blob/main/docs/app/components/content/examples/editor/EditorExample.vue" aria-label="View source code"}
 This example demonstrates a production-ready Editor component. Check out the source code on GitHub.
 ::
 
@@ -44,11 +44,11 @@ export default defineNuxtConfig({
   vite: {
     optimizeDeps: {
       include: [
-        'prosemirror-state',
-        'prosemirror-transform',
-        'prosemirror-model',
-        'prosemirror-view',
-        'prosemirror-gapcursor'
+        '@bitrix24/b24ui-nuxt > prosemirror-state',
+        '@bitrix24/b24ui-nuxt > prosemirror-transform',
+        '@bitrix24/b24ui-nuxt > prosemirror-model',
+        '@bitrix24/b24ui-nuxt > prosemirror-view',
+        '@bitrix24/b24ui-nuxt > prosemirror-gapcursor'
       ]
     }
   }

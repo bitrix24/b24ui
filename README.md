@@ -11,19 +11,19 @@ Visit https://bitrix24.github.io/b24ui/ to explore the documentation.
 ## Installation
 
 ```bash [pnpm]
-pnpm add @bitrix24/b24ui-nuxt
+pnpm add @bitrix24/b24ui-nuxt tailwindcss
 ```
 
 ```bash [yarn]
-yarn add @bitrix24/b24ui-nuxt
+yarn add @bitrix24/b24ui-nuxt tailwindcss
 ```
 
 ```bash [npm]
-npm install @bitrix24/b24ui-nuxt
+npm install @bitrix24/b24ui-nuxt tailwindcss
 ```
 
 ```bash [bun]
-yarn add @bitrix24/b24ui-nuxt
+yarn add @bitrix24/b24ui-nuxt tailwindcss
 ```
 
 ### Nuxt
@@ -71,6 +71,7 @@ import b24UiPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'
 import App from './App.vue'
 
 const app = createApp(App)
+
 const router = createRouter({
   routes: [],
   history: createWebHistory()

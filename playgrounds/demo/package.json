@@ -14,11 +14,13 @@
     "@ai-sdk/deepseek": "^2.0.17",
     "@ai-sdk/vue": "^3.0.3",
     "@internationalized/date": "^3.10.1",
+    "@nuxt/content": "^3.10.0",
     "@bitrix24/b24ui-nuxt": "workspace:*",
     "@tiptap/extension-emoji": "^3.15.3",
     "@tiptap/extension-text-align": "^3.15.3",
     "ai": "^6.0.3",
     "nuxt": "^4.2.2",
+    "tailwindcss": "^4.1.18",
     "zod": "^4.2.1",
     "maska": "^3.2.0"
   },
