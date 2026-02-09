@@ -63,10 +63,11 @@ type SlotProps<T extends StepperItem> = (props: { item: T }) => any
 
 export type StepperSlots<T extends StepperItem = StepperItem> = {
   indicator(props: { item: T, b24ui: Stepper['b24ui'] }): any
+  wrapper: SlotProps<T>
   title: SlotProps<T>
   description: SlotProps<T>
   content: SlotProps<T>
-} & DynamicSlots<T>
+} & DynamicSlots<T, 'wrapper' | 'title' | 'description', { item: T }>
 
 </script>
 
@@ -167,21 +168,23 @@ defineExpose({
         </div>
 
         <div data-slot="wrapper" :class="b24ui.wrapper({ class: [props.b24ui?.wrapper, item.b24ui?.wrapper] })">
-          <StepperTitle as="div" data-slot="title" :class="b24ui.title({ class: [props.b24ui?.title, item.b24ui?.title] })">
-            <slot name="title" :item="item">
-              {{ item.title }}
-            </slot>
-          </StepperTitle>
-          <StepperDescription as="div" data-slot="description" :class="b24ui.description({ class: [props.b24ui?.description, item.b24ui?.description] })">
-            <slot name="description" :item="item">
-              {{ item.description }}
-            </slot>
-          </StepperDescription>
+          <slot :name="((item.slot ? `${item.slot}-wrapper` : 'wrapper') as keyof StepperSlots<T>)" :item="(item as Extract<T, { slot: string; }>)">
+            <StepperTitle v-if="item.title || !!slots[(item.slot ? `${item.slot}-title` : 'title') as keyof StepperSlots<T>]" as="div" data-slot="title" :class="b24ui.title({ class: [props.b24ui?.title, item.b24ui?.title] })">
+              <slot :name="((item.slot ? `${item.slot}-title` : 'title') as keyof StepperSlots<T>)" :item="(item as Extract<T, { slot: string; }>)">
+                {{ item.title }}
+              </slot>
+            </StepperTitle>
+            <StepperDescription v-if="item.description || !!slots[(item.slot ? `${item.slot}-description` : 'description') as keyof StepperSlots<T>]" as="div" data-slot="description" :class="b24ui.description({ class: [props.b24ui?.description, item.b24ui?.description] })">
+              <slot :name="((item.slot ? `${item.slot}-description` : 'description') as keyof StepperSlots<T>)" :item="(item as Extract<T, { slot: string; }>)">
+                {{ item.description }}
+              </slot>
+            </StepperDescription>
+          </slot>
         </div>
       </StepperItem>
     </div>
 
-    <div v-if="currentStep?.content || !!slots.content || currentStep?.slot" data-slot="content" :class="b24ui.content({ class: props.b24ui?.content })">
+    <div v-if="currentStep?.content || !!slots.content || (currentStep?.slot && !!slots[currentStep.slot as keyof StepperSlots<T>])" data-slot="content" :class="b24ui.content({ class: props.b24ui?.content })">
       <slot
         :name="((currentStep?.slot || 'content') as keyof StepperSlots<T>)"
         :item="(currentStep as Extract<T, { slot: string }>)"

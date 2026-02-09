@@ -24,6 +24,7 @@ describe('Timeline', () => {
     icon: Cross30Icon,
     value: 'design'
   }, {
+    slot: 'custom',
     date: 'Mar 29, 2025',
     title: 'Development Sprint',
     description: 'Frontend and backend development. Implemented core features and integrated with APIs.',
@@ -55,9 +56,11 @@ describe('Timeline', () => {
     ['with reverse and defaultValue', { props: { ...props, reverse: true, defaultValue: 'design' } }],
     // Slots
     ['with indicator slot', { props, slots: { indicator: () => 'Indicator slot' } }],
+    ['with wrapper slot', { props, slots: { wrapper: () => 'Wrapper slot' } }],
     ['with date slot', { props, slots: { date: () => 'Date slot' } }],
     ['with title slot', { props, slots: { title: () => 'Title slot' } }],
-    ['with description slot', { props, slots: { description: () => 'Description slot' } }]
+    ['with description slot', { props, slots: { description: () => 'Description slot' } }],
+    ['with custom-wrapper slot', { props, slots: { 'custom-wrapper': () => 'Custom wrapper slot' } }]
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: TimelineProps, slots?: Partial<TimelineSlots> }) => {
     const html = await ComponentRender(nameOrHtml, options, Timeline)
     expect(html).toMatchSnapshot()
