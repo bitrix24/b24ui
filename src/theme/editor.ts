@@ -15,6 +15,9 @@ export default {
       // Links
       '[&_a]:text-(--ui-color-accent-main-primary) [&_a]:border-b [&_a]:border-transparent [&_a]:hover:border-(--ui-color-accent-main-primary) [&_a]:font-(--ui-font-weight-medium)',
       '[&_a]:transition-colors',
+      // Code inside links
+      '[&_a>code]:border-dashed [&_a:hover>code]:border-(--ui-color-accent-soft-element-blue) [&_a:hover>code]:text-(--ui-color-accent-main-primary)',
+      '[&_a>code]:transition-colors',
       // Mentions
       '[&_.mention]:text-(--ui-color-accent-main-primary) [&_.mention]:font-(--ui-font-weight-medium)',
       // Headings - shared styles
