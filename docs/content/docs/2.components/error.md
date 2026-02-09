@@ -16,7 +16,7 @@ links:
 
 ## Usage
 
-The Error component works together with the [SidebarLayout](/docs/components/sidebar-layout/) component to create a full-height layout that extends to the viewport's available height.
+The Error component renders a `<main>` element that works together with the [SidebarLayout](/docs/components/sidebar-layout/) component to create a full-height layout that extends to the viewport's available height.
 
 ### Error
 
