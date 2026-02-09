@@ -112,7 +112,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.conten
         </p>
       </slot>
     </B24Link>
-    <span v-else class="hidden lg:block">&nbsp;</span>
+    <span v-else class="hidden sm:block">&nbsp;</span>
   </DefineLinkTemplate>
 
   <Primitive v-if="surround" :as="as" v-bind="$attrs" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
