@@ -9,6 +9,9 @@ export interface UseEditorCompletionOptions {
 }
 
 export function useEditorCompletion(editorRef: Ref<{ editor: any | undefined } | null | undefined>, options: UseEditorCompletionOptions = {}) {
+  const config = useRuntimeConfig()
+  const isUseAI = config.public?.useAI === true
+
   // State for direct insertion/transform mode
   const insertState = ref<{
     pos: number
@@ -24,7 +27,7 @@ export function useEditorCompletion(editorRef: Ref<{ editor: any | undefined } |
   }
 
   const { completion, complete, isLoading, stop, setCompletion } = useCompletion({
-    api: options.api || '/api/completion',
+    api: options.api || `${config.public.baseUrl}/api/completion`,
     streamProtocol: 'text',
     body: computed(() => ({
       mode: mode.value,
@@ -200,7 +203,7 @@ export function useEditorCompletion(editorRef: Ref<{ editor: any | undefined } |
   // Create handlers for toolbar
   const handlers = {
     aiContinue: {
-      canExecute: () => !isLoading.value,
+      canExecute: () => isUseAI && !isLoading.value,
       execute: (editor: any) => {
         triggerContinue(editor)
         return editor.chain()
@@ -209,7 +212,7 @@ export function useEditorCompletion(editorRef: Ref<{ editor: any | undefined } |
       isDisabled: () => !!isLoading.value
     },
     aiFix: {
-      canExecute: (editor: any) => !editor.state.selection.empty && !isLoading.value,
+      canExecute: (editor: any) => isUseAI && (!editor.state.selection.empty && !isLoading.value),
       execute: (editor: any) => {
         triggerTransform(editor, 'fix')
         return editor.chain()
@@ -218,7 +221,7 @@ export function useEditorCompletion(editorRef: Ref<{ editor: any | undefined } |
       isDisabled: (editor: any) => editor.state.selection.empty || !!isLoading.value
     },
     aiExtend: {
-      canExecute: (editor: any) => !editor.state.selection.empty && !isLoading.value,
+      canExecute: (editor: any) => isUseAI && (!editor.state.selection.empty && !isLoading.value),
       execute: (editor: any) => {
         triggerTransform(editor, 'extend')
         return editor.chain()
@@ -227,7 +230,7 @@ export function useEditorCompletion(editorRef: Ref<{ editor: any | undefined } |
       isDisabled: (editor: any) => editor.state.selection.empty || !!isLoading.value
     },
     aiReduce: {
-      canExecute: (editor: any) => !editor.state.selection.empty && !isLoading.value,
+      canExecute: (editor: any) => isUseAI && (!editor.state.selection.empty && !isLoading.value),
       execute: (editor: any) => {
         triggerTransform(editor, 'reduce')
         return editor.chain()
@@ -236,7 +239,7 @@ export function useEditorCompletion(editorRef: Ref<{ editor: any | undefined } |
       isDisabled: (editor: any) => editor.state.selection.empty || !!isLoading.value
     },
     aiSimplify: {
-      canExecute: (editor: any) => !editor.state.selection.empty && !isLoading.value,
+      canExecute: (editor: any) => isUseAI && (!editor.state.selection.empty && !isLoading.value),
       execute: (editor: any) => {
         triggerTransform(editor, 'simplify')
         return editor.chain()
@@ -245,7 +248,7 @@ export function useEditorCompletion(editorRef: Ref<{ editor: any | undefined } |
       isDisabled: (editor: any) => editor.state.selection.empty || !!isLoading.value
     },
     aiSummarize: {
-      canExecute: (editor: any) => !editor.state.selection.empty && !isLoading.value,
+      canExecute: (editor: any) => isUseAI && (!editor.state.selection.empty && !isLoading.value),
       execute: (editor: any) => {
         triggerTransform(editor, 'summarize')
         return editor.chain()
@@ -254,7 +257,7 @@ export function useEditorCompletion(editorRef: Ref<{ editor: any | undefined } |
       isDisabled: (editor: any) => editor.state.selection.empty || !!isLoading.value
     },
     aiTranslate: {
-      canExecute: (editor: any) => !editor.state.selection.empty && !isLoading.value,
+      canExecute: (editor: any) => isUseAI && (!editor.state.selection.empty && !isLoading.value),
       execute: (editor: any, cmd: { language?: string } | undefined) => {
         triggerTransform(editor, 'translate', cmd?.language)
         return editor.chain()

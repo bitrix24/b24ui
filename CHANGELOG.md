@@ -30,6 +30,7 @@
 * docs(editor): improve extensions in examples
 * fix(useOverlay): refine close event argument extraction
 * docs(ComponentTheme): prevent hydration warnings
+* docs(editor): improve completion example
 
 ## [2.2.1](https://github.com/bitrix24/b24ui/compare/v2.1.17...v2.2.1) (2025-12-18)
 

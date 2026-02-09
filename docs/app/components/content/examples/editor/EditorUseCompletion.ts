@@ -34,12 +34,34 @@ export function useEditorCompletion(editorRef: Ref<{ editor: Editor | undefined 
       mode: mode.value,
       language: language.value
     })),
-    onFinish: () => {
+    onFinish: (_prompt, completionText) => {
       // For inline suggestion mode, don't clear - let user accept with Tab
       const storage = getCompletionStorage()
       if (mode.value === 'continue' && storage?.visible) {
         return
       }
+
+      // For transform modes, insert the full completion with markdown parsing
+      const transformModes = ['fix', 'extend', 'reduce', 'simplify', 'summarize', 'translate']
+      if (transformModes.includes(mode.value) && insertState.value && completionText) {
+        const editor = editorRef.value?.editor
+        if (editor) {
+          // Delete the original selection if not already done
+          if (insertState.value.deleteRange) {
+            editor.chain()
+              .focus()
+              .deleteRange(insertState.value.deleteRange)
+              .run()
+          }
+
+          // Insert with markdown parsing
+          editor.chain()
+            .focus()
+            .insertContentAt(insertState.value.pos, completionText, { contentType: 'markdown' })
+            .run()
+        }
+      }
+
       insertState.value = undefined
     },
     onError: (error) => {
@@ -70,7 +92,14 @@ export function useEditorCompletion(editorRef: Ref<{ editor: Editor | undefined 
     } else if (insertState.value) {
       // Direct insertion/transform mode (from toolbar actions)
 
-      // If this is the first chunk, and we have a selection to replace, delete it first
+      // Transform modes use markdown insertion - wait for full completion
+      const transformModes = ['fix', 'extend', 'reduce', 'simplify', 'summarize', 'translate']
+      if (transformModes.includes(mode.value)) {
+        // Don't stream - will be handled in onFinish
+        return
+      }
+
+      // If this is the first chunk and we have a selection to replace, delete it first
       if (insertState.value.deleteRange && !oldCompletion) {
         editor.chain()
           .focus()
@@ -123,6 +152,17 @@ export function useEditorCompletion(editorRef: Ref<{ editor: Editor | undefined 
     complete(selectedText)
   }
 
+  function getMarkdownBefore(editor: Editor, pos: number): string {
+    const { state } = editor
+    const serializer = (editor.storage.markdown as { serializer?: { serialize: (content: unknown) => string } })?.serializer
+    if (serializer) {
+      const slice = state.doc.slice(0, pos)
+      return serializer.serialize(slice.content)
+    }
+    // Fallback to plain text
+    return state.doc.textBetween(0, pos, '\n')
+  }
+
   function triggerContinue(editor: Editor) {
     if (isLoading.value) return
 
@@ -133,23 +173,23 @@ export function useEditorCompletion(editorRef: Ref<{ editor: Editor | undefined 
 
     if (selection.empty) {
       // No selection: continue from cursor position
-      const textBefore = state.doc.textBetween(0, selection.from, '\n')
+      const textBefore = getMarkdownBefore(editor, selection.from)
       insertState.value = { pos: selection.from }
       complete(textBefore)
     } else {
       // Text selected: append completion after the selection
-      const selectedText = state.doc.textBetween(selection.from, selection.to)
+      const textBefore = getMarkdownBefore(editor, selection.to)
       insertState.value = { pos: selection.to }
-      complete(selectedText)
+      complete(textBefore)
     }
   }
 
   // Configure Completion extension
   const extension = Completion.configure({
-    onTrigger: (textBefore) => {
-      if (!isUseAI) return
+    onTrigger: (editor) => {
       if (isLoading.value) return
       mode.value = 'continue'
+      const textBefore = getMarkdownBefore(editor, editor.state.selection.from)
       complete(textBefore)
     },
     onAccept: () => {
@@ -164,67 +204,67 @@ export function useEditorCompletion(editorRef: Ref<{ editor: Editor | undefined 
   // Create handlers for toolbar
   const handlers = {
     aiContinue: {
-      canExecute: (): boolean => isUseAI && !isLoading.value,
-      execute: (editor: Editor): any => {
+      canExecute: () => isUseAI && !isLoading.value,
+      execute: (editor: Editor) => {
         triggerContinue(editor)
         return editor.chain()
       },
-      isActive: (): boolean => !!(isLoading.value && mode.value === 'continue'),
-      isDisabled: (): boolean => !!isLoading.value
+      isActive: () => !!(isLoading.value && mode.value === 'continue'),
+      isDisabled: () => !!isLoading.value
     },
     aiFix: {
-      canExecute: (editor: Editor): boolean => isUseAI && !editor.state.selection.empty && !isLoading.value,
-      execute: (editor: Editor): any => {
+      canExecute: (editor: Editor) => isUseAI && (!editor.state.selection.empty && !isLoading.value),
+      execute: (editor: Editor) => {
         triggerTransform(editor, 'fix')
         return editor.chain()
       },
-      isActive: (): boolean => !!(isLoading.value && mode.value === 'fix'),
-      isDisabled: (editor: Editor): boolean => editor.state.selection.empty || !!isLoading.value
+      isActive: () => !!(isLoading.value && mode.value === 'fix'),
+      isDisabled: (editor: Editor) => editor.state.selection.empty || !!isLoading.value
     },
     aiExtend: {
-      canExecute: (editor: Editor): boolean => isUseAI && (!editor.state.selection.empty && !isLoading.value),
-      execute: (editor: Editor): any => {
+      canExecute: (editor: Editor) => isUseAI && (!editor.state.selection.empty && !isLoading.value),
+      execute: (editor: Editor) => {
         triggerTransform(editor, 'extend')
         return editor.chain()
       },
-      isActive: (): boolean => !!(isLoading.value && mode.value === 'extend'),
-      isDisabled: (editor: Editor): boolean => editor.state.selection.empty || !!isLoading.value
+      isActive: () => !!(isLoading.value && mode.value === 'extend'),
+      isDisabled: (editor: Editor) => editor.state.selection.empty || !!isLoading.value
     },
     aiReduce: {
-      canExecute: (editor: Editor): boolean => isUseAI && (!editor.state.selection.empty && !isLoading.value),
-      execute: (editor: Editor): any => {
+      canExecute: (editor: Editor) => isUseAI && (!editor.state.selection.empty && !isLoading.value),
+      execute: (editor: Editor) => {
         triggerTransform(editor, 'reduce')
         return editor.chain()
       },
-      isActive: (): boolean => !!(isLoading.value && mode.value === 'reduce'),
-      isDisabled: (editor: Editor): boolean => editor.state.selection.empty || !!isLoading.value
+      isActive: () => !!(isLoading.value && mode.value === 'reduce'),
+      isDisabled: (editor: Editor) => editor.state.selection.empty || !!isLoading.value
     },
     aiSimplify: {
-      canExecute: (editor: Editor): boolean => isUseAI && (!editor.state.selection.empty && !isLoading.value),
-      execute: (editor: Editor): any => {
+      canExecute: (editor: Editor) => isUseAI && (!editor.state.selection.empty && !isLoading.value),
+      execute: (editor: Editor) => {
         triggerTransform(editor, 'simplify')
         return editor.chain()
       },
-      isActive: (): boolean => !!(isLoading.value && mode.value === 'simplify'),
-      isDisabled: (editor: Editor): boolean => editor.state.selection.empty || !!isLoading.value
+      isActive: () => !!(isLoading.value && mode.value === 'simplify'),
+      isDisabled: (editor: Editor) => editor.state.selection.empty || !!isLoading.value
     },
     aiSummarize: {
-      canExecute: (editor: Editor): boolean => isUseAI && (!editor.state.selection.empty && !isLoading.value),
-      execute: (editor: Editor): any => {
+      canExecute: (editor: Editor) => isUseAI && (!editor.state.selection.empty && !isLoading.value),
+      execute: (editor: Editor) => {
         triggerTransform(editor, 'summarize')
         return editor.chain()
       },
-      isActive: (): boolean => !!(isLoading.value && mode.value === 'summarize'),
-      isDisabled: (editor: Editor): boolean => editor.state.selection.empty || !!isLoading.value
+      isActive: () => !!(isLoading.value && mode.value === 'summarize'),
+      isDisabled: (editor: Editor) => editor.state.selection.empty || !!isLoading.value
     },
     aiTranslate: {
-      canExecute: (editor: Editor): boolean => isUseAI && (!editor.state.selection.empty && !isLoading.value),
-      execute: (editor: Editor, cmd: { language?: string } | undefined): any => {
+      canExecute: (editor: Editor) => isUseAI && (!editor.state.selection.empty && !isLoading.value),
+      execute: (editor: Editor, cmd: { language?: string } | undefined) => {
         triggerTransform(editor, 'translate', cmd?.language)
         return editor.chain()
       },
-      isActive: (_editor: Editor, cmd: { language?: string } | undefined): boolean => !!(isLoading.value && mode.value === 'translate' && language.value === cmd?.language),
-      isDisabled: (editor: Editor): boolean => editor.state.selection.empty || !!isLoading.value
+      isActive: (_editor: Editor, cmd: { language?: string } | undefined) => !!(isLoading.value && mode.value === 'translate' && language.value === cmd?.language),
+      isDisabled: (editor: Editor) => editor.state.selection.empty || !!isLoading.value
     }
   }
 
