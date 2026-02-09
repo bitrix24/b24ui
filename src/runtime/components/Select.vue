@@ -306,8 +306,11 @@ function isSelectItem(item: SelectItem): item is Exclude<SelectItem, SelectValue
   return typeof item === 'object' && item !== null
 }
 
+const viewportRef = useTemplateRef('viewportRef')
+
 defineExpose({
-  triggerRef: toRef(() => triggerRef.value?.$el as HTMLButtonElement)
+  triggerRef: toRef(() => triggerRef.value?.$el as HTMLButtonElement),
+  viewportRef: toRef(() => viewportRef.value)
 })
 </script>
 
@@ -394,6 +397,7 @@ defineExpose({
           <slot name="content-top" />
 
           <div
+            ref="viewportRef"
             role="presentation"
             data-slot="viewport"
             :class="b24ui.viewport({ class: props.b24ui?.viewport })"

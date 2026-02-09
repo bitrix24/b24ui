@@ -509,8 +509,11 @@ function onClear() {
   emits('clear')
 }
 
+const viewportRef = useTemplateRef('viewportRef')
+
 defineExpose({
-  inputRef: toRef(() => inputRef.value?.$el as HTMLInputElement)
+  inputRef: toRef(() => inputRef.value?.$el as HTMLInputElement),
+  viewportRef: toRef(() => viewportRef.value)
 })
 </script>
 
@@ -751,6 +754,7 @@ defineExpose({
         </ComboboxEmpty>
 
         <div
+          ref="viewportRef"
           role="presentation"
           data-slot="viewport"
           :class="b24ui.viewport({ class: props.b24ui?.viewport })"

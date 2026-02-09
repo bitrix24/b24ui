@@ -36,6 +36,7 @@
 * feat(ProseTd/ProseTh): handle `align` prop
 * feat(Editor): add support for code inside links
 * fix(ContentSurround): align next link to right on tablet without prev
+* feat(InputMenu/Select/SelectMenu): expose `viewportRef` for infinite scroll
 
 ## [2.2.1](https://github.com/bitrix24/b24ui/compare/v2.1.17...v2.2.1) (2025-12-18)
 
