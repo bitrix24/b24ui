@@ -26,7 +26,7 @@
 * chore(deps): update tiptap to ^3.15.0
 * docs(table): improve examples to use meta
 * feat(Editor): add `placeholder.mode` prop
-* chore(deps): update tiptap to ^3.15.1
+* chore(deps): update tiptap
 * docs(editor): improve extensions in examples
 * fix(useOverlay): refine close event argument extraction
 * docs(ComponentTheme): prevent hydration warnings

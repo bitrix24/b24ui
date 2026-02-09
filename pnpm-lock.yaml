@@ -52,52 +52,52 @@ importers:
         specifier: ^3.13.13
         version: 3.13.13(vue@3.5.25(typescript@5.8.3))
       '@tiptap/core':
-        specifier: ^3.15.1
+        specifier: ^3.15.2
         version: 3.18.0(@tiptap/pm@3.18.0)
       '@tiptap/extension-bubble-menu':
-        specifier: ^3.15.1
+        specifier: ^3.15.2
         version: 3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0)
       '@tiptap/extension-collaboration':
-        specifier: ^3.14.0
+        specifier: ^3.15.2
         version: 3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0)(@tiptap/y-tiptap@3.0.1(prosemirror-model@1.25.4)(prosemirror-state@1.4.4)(prosemirror-view@1.41.4)(y-protocols@1.0.6(yjs@13.6.27))(yjs@13.6.27))(yjs@13.6.27)
       '@tiptap/extension-drag-handle':
-        specifier: ^3.14.0
+        specifier: ^3.15.2
         version: 3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/extension-collaboration@3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0)(@tiptap/y-tiptap@3.0.1(prosemirror-model@1.25.4)(prosemirror-state@1.4.4)(prosemirror-view@1.41.4)(y-protocols@1.0.6(yjs@13.6.27))(yjs@13.6.27))(yjs@13.6.27))(@tiptap/extension-node-range@3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0)(@tiptap/y-tiptap@3.0.1(prosemirror-model@1.25.4)(prosemirror-state@1.4.4)(prosemirror-view@1.41.4)(y-protocols@1.0.6(yjs@13.6.27))(yjs@13.6.27))
       '@tiptap/extension-drag-handle-vue-3':
-        specifier: ^3.15.1
+        specifier: ^3.15.2
         version: 3.18.0(@tiptap/extension-drag-handle@3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/extension-collaboration@3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0)(@tiptap/y-tiptap@3.0.1(prosemirror-model@1.25.4)(prosemirror-state@1.4.4)(prosemirror-view@1.41.4)(y-protocols@1.0.6(yjs@13.6.27))(yjs@13.6.27))(yjs@13.6.27))(@tiptap/extension-node-range@3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0)(@tiptap/y-tiptap@3.0.1(prosemirror-model@1.25.4)(prosemirror-state@1.4.4)(prosemirror-view@1.41.4)(y-protocols@1.0.6(yjs@13.6.27))(yjs@13.6.27)))(@tiptap/pm@3.18.0)(@tiptap/vue-3@3.18.0(@floating-ui/dom@1.7.4)(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0)(vue@3.5.25(typescript@5.8.3)))(vue@3.5.25(typescript@5.8.3))
       '@tiptap/extension-floating-menu':
-        specifier: ^3.15.1
+        specifier: ^3.15.2
         version: 3.18.0(@floating-ui/dom@1.7.4)(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0)
       '@tiptap/extension-horizontal-rule':
-        specifier: ^3.15.1
+        specifier: ^3.15.2
         version: 3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0)
       '@tiptap/extension-image':
-        specifier: ^3.15.1
+        specifier: ^3.15.2
         version: 3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))
       '@tiptap/extension-mention':
-        specifier: ^3.15.1
+        specifier: ^3.15.2
         version: 3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0)(@tiptap/suggestion@3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0))
       '@tiptap/extension-node-range':
-        specifier: ^3.14.0
+        specifier: ^3.15.2
         version: 3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0)
       '@tiptap/extension-placeholder':
-        specifier: ^3.15.1
+        specifier: ^3.15.2
         version: 3.18.0(@tiptap/extensions@3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0))
       '@tiptap/markdown':
-        specifier: ^3.15.1
+        specifier: ^3.15.2
         version: 3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0)
       '@tiptap/pm':
-        specifier: ^3.15.1
+        specifier: ^3.15.2
         version: 3.18.0
       '@tiptap/starter-kit':
-        specifier: ^3.15.1
+        specifier: ^3.15.2
         version: 3.18.0
       '@tiptap/suggestion':
-        specifier: ^3.15.1
+        specifier: ^3.15.2
         version: 3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0)
       '@tiptap/vue-3':
-        specifier: ^3.15.1
+        specifier: ^3.15.2
         version: 3.18.0(@floating-ui/dom@1.7.4)(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0)(vue@3.5.25(typescript@5.8.3))
       '@unhead/vue':
         specifier: ^2.1.1
@@ -329,10 +329,10 @@ importers:
         specifier: ^1.14.7
         version: 1.17.4(vue@3.5.25(typescript@5.8.3))
       '@tiptap/extension-emoji':
-        specifier: ^3.15.1
+        specifier: ^3.15.2
         version: 3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0)(@tiptap/suggestion@3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0))(emojibase@17.0.0)
       '@tiptap/extension-text-align':
-        specifier: ^3.15.1
+        specifier: ^3.15.2
         version: 3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))
       '@vueuse/integrations':
         specifier: ^14.1.0
@@ -413,10 +413,10 @@ importers:
         specifier: ^3.10.1
         version: 3.10.1
       '@tiptap/extension-emoji':
-        specifier: ^3.15.1
+        specifier: ^3.15.2
         version: 3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0)(@tiptap/suggestion@3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0))(emojibase@17.0.0)
       '@tiptap/extension-text-align':
-        specifier: ^3.15.1
+        specifier: ^3.15.2
         version: 3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))
       ai:
         specifier: ^6.0.3
@@ -453,10 +453,10 @@ importers:
         specifier: ^3.10.1
         version: 3.10.1
       '@tiptap/extension-emoji':
-        specifier: ^3.15.1
+        specifier: ^3.15.2
         version: 3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0)(@tiptap/suggestion@3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0))(emojibase@17.0.0)
       '@tiptap/extension-text-align':
-        specifier: ^3.15.1
+        specifier: ^3.15.2
         version: 3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))
       ai:
         specifier: ^6.0.3
@@ -490,10 +490,10 @@ importers:
         specifier: ^3.9.0
         version: 3.10.0
       '@tiptap/extension-emoji':
-        specifier: ^3.15.1
+        specifier: ^3.15.2
         version: 3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0)(@tiptap/suggestion@3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0))(emojibase@17.0.0)
       '@tiptap/extension-text-align':
-        specifier: ^3.15.1
+        specifier: ^3.15.2
         version: 3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))
       maska:
         specifier: ^3.2.0
