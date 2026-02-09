@@ -40,6 +40,7 @@
 * feat(Editor): add `taskList` handler
 * docs: add `@nuxt/a11y` module
 * chore(deps): remove `shamefully-hoist` option
+* chore(deps): update all non-major dependencies
 
 ## [2.2.1](https://github.com/bitrix24/b24ui/compare/v2.1.17...v2.2.1) (2025-12-18)
 
