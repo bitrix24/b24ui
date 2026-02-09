@@ -217,7 +217,7 @@ importers:
         specifier: 0.4.1
         version: 0.4.1(reka-ui@2.7.0(typescript@5.8.3)(vue@3.5.25(typescript@5.8.3)))(vue@3.5.25(typescript@5.8.3))
       vue-component-type-helpers:
-        specifier: ^3.2.1
+        specifier: ^3.2.2
         version: 3.2.4
       vue-router:
         specifier: ^4.5.0
@@ -296,7 +296,7 @@ importers:
         specifier: ^3.5.25
         version: 3.5.25(typescript@5.8.3)
       vue-tsc:
-        specifier: ^3.2.1
+        specifier: ^3.2.2
         version: 3.2.4(typescript@5.8.3)
 
   cli:
@@ -489,7 +489,7 @@ importers:
         specifier: 5.8.3
         version: 5.8.3
       vue-tsc:
-        specifier: ^3.2.1
+        specifier: ^3.2.2
         version: 3.2.4(typescript@5.8.3)
 
   playgrounds/nuxt:
@@ -538,7 +538,7 @@ importers:
         specifier: 5.8.3
         version: 5.8.3
       vue-tsc:
-        specifier: ^3.2.1
+        specifier: ^3.2.2
         version: 3.2.4(typescript@5.8.3)
 
   playgrounds/vue:
@@ -581,7 +581,7 @@ importers:
         specifier: ^7.2.7
         version: 7.2.7(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2)
       vue-tsc:
-        specifier: ^3.2.1
+        specifier: ^3.2.2
         version: 3.2.4(typescript@5.8.3)
 
 packages:
@@ -11259,8 +11259,8 @@ snapshots:
   '@vue/language-core@3.2.4':
     dependencies:
       '@volar/language-core': 2.4.27
-      '@vue/compiler-dom': 3.5.25
-      '@vue/shared': 3.5.25
+      '@vue/compiler-dom': 3.5.27
+      '@vue/shared': 3.5.27
       alien-signals: 3.1.1
       muggle-string: 0.4.1
       path-browserify: 1.0.1
@@ -14497,7 +14497,7 @@ snapshots:
       unctx: 2.4.1
       unimport: 5.5.0
       unplugin: 2.3.11
-      unplugin-vue-router: 0.19.0(@vue/compiler-sfc@3.5.27)(typescript@5.8.3)(vue-router@4.6.3(vue@3.5.25(typescript@5.8.3)))(vue@3.5.25(typescript@5.8.3))
+      unplugin-vue-router: 0.19.0(@vue/compiler-sfc@3.5.27)(vue-router@4.6.3(vue@3.5.25(typescript@5.8.3)))(vue@3.5.25(typescript@5.8.3))
       untyped: 2.0.0
       vue: 3.5.25(typescript@5.8.3)
       vue-router: 4.6.3(vue@3.5.25(typescript@5.8.3))
@@ -16350,12 +16350,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  unplugin-vue-router@0.19.0(@vue/compiler-sfc@3.5.27)(typescript@5.8.3)(vue-router@4.6.3(vue@3.5.25(typescript@5.8.3)))(vue@3.5.25(typescript@5.8.3)):
+  unplugin-vue-router@0.19.0(@vue/compiler-sfc@3.5.27)(vue-router@4.6.3(vue@3.5.25(typescript@5.8.3)))(vue@3.5.25(typescript@5.8.3)):
     dependencies:
       '@babel/generator': 7.28.5
       '@vue-macros/common': 3.1.1(vue@3.5.25(typescript@5.8.3))
       '@vue/compiler-sfc': 3.5.27
-      '@vue/language-core': 3.1.5(typescript@5.8.3)
+      '@vue/language-core': 3.2.4
       ast-walker-scope: 0.8.3
       chokidar: 5.0.0
       json5: 2.2.3
@@ -16373,7 +16373,6 @@ snapshots:
     optionalDependencies:
       vue-router: 4.6.3(vue@3.5.25(typescript@5.8.3))
     transitivePeerDependencies:
-      - typescript
       - vue
 
   unplugin@2.3.11:
