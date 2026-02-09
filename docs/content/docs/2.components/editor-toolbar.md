@@ -48,7 +48,7 @@ Use the `items` prop as an array of objects with the following properties:
 - `color?: ButtonProps['color']`{lang="ts-type"}
 - `activeColor?: ButtonProps['color']`{lang="ts-type"}
 - `size?: ButtonProps['size']`{lang="ts-type"}
-- [`kind?: "mark" | "textAlign" | "heading" | "link" | "image" | "blockquote" | "bulletList" | "orderedList" | "codeBlock" | "horizontalRule" | "paragraph" | "undo" | "redo" | "clearFormatting" | "duplicate" | "delete" | "moveUp" | "moveDown" | "suggestion" | "mention" | "emoji"`{lang="ts-type"}](/docs/components/editor#handlers)
+- [`kind?: "mark" | "textAlign" | "heading" | "link" | "image" | "blockquote" | "bulletList" | "orderedList" | "taskList" | "codeBlock" | "horizontalRule" | "paragraph" | "undo" | "redo" | "clearFormatting" | "duplicate" | "delete" | "moveUp" | "moveDown" | "suggestion" | "mention" | "emoji"`{lang="ts-type"}](/docs/components/editor/#handlers)
 - `disabled?: boolean`{lang="ts-type"}
 - `loading?: boolean`{lang="ts-type"}
 - `active?: boolean`{lang="ts-type"}
