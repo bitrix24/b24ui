@@ -41,6 +41,7 @@
 * docs: add `@nuxt/a11y` module
 * chore(deps): remove `shamefully-hoist` option
 * chore(deps): update all non-major dependencies
+* docs(chat-messages): prevent XSS by rendering user messages as plain text
 
 ## [2.2.1](https://github.com/bitrix24/b24ui/compare/v2.1.17...v2.2.1) (2025-12-18)
 

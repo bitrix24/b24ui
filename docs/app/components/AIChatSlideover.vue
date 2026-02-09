@@ -344,13 +344,17 @@ onMounted(() => {
                   :key="`${message.id}-${part.type}-${index}${'state' in part ? `-${part.state}` : ''}`"
                 >
                   <MDCCached
-                    v-if="part.type === 'text'"
+                    v-if="part.type === 'text' && message.role === 'assistant'"
                     :value="part.text"
                     :cache-key="`${message.id}-${index}`"
                     :components="components"
                     :parser-options="{ highlight: false }"
                     class="*:first:mt-0 *:last:mb-0"
                   />
+                  <p v-else-if="part.type === 'text' && message.role === 'user'" class="whitespace-pre-wrap">
+                    {{ part.text }}
+                  </p>
+
                   <template v-else-if="part.type === 'tool-invocation' || part.type === 'dynamic-tool'">
                     <ChatToolCall
                       :text="getToolLabel((part as any).toolName, (part as any).args || (part as any).input)"
