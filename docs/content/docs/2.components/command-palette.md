@@ -218,6 +218,34 @@ props:
 ---
 ::
 
+### Size
+
+Use the `size` prop to change the size of the CommandPalette.
+
+::component-code
+---
+collapse: true
+hide:
+  - autofocus
+ignore:
+  - class
+  - groups
+external:
+  - groups
+class: '!p-0'
+props:
+  autofocus: false
+  size: 'xl'
+  groups:
+    - id: 'apps'
+      items:
+        - label: 'Calendar'
+        - label: 'Music'
+        - label: 'Maps'
+  class: 'flex-1'
+---
+::
+
 ### Icon
 
 Use the `icon` prop to customize the input [Icon](https://bitrix24.github.io/b24icons/icons/).

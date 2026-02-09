@@ -441,6 +441,9 @@ export default defineNuxtConfig({
     domain: `${prodUrl}${baseUrl}`,
     title: 'Bitrix24 UI',
     description: 'A comprehensive Vue UI component library (Nuxt optional) with 125+ accessible, production-ready, Tailwind CSS components for REST API web-application development.',
+    // Disable content module's built-in raw markdown route - we use our own custom handler
+    // in server/routes/raw/[...slug].md.get.ts that applies MDC transformations
+    contentRawMarkdown: false,
     full: {
       title: 'Bitrix24 UI Full Documentation',
       description: 'This is the full documentation for Bitrix24 UI. It includes all the Markdown files written with the MDC syntax.'

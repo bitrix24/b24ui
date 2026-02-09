@@ -5,6 +5,7 @@ import ExampleCard from '../../components/ExampleCard.vue'
 // import { createReusableTemplate, refDebounced } from '@vueuse/core'
 import { createReusableTemplate } from '@vueuse/core'
 import type { IUser } from '~/types'
+import theme from '#build/b24ui/command-palette'
 import FileUploadIcon from '@bitrix24/b24icons-vue/main/FileUploadIcon'
 import FolderPlusIcon from '@bitrix24/b24icons-vue/outline/FolderPlusIcon'
 import TagIcon from '@bitrix24/b24icons-vue/main/TagIcon'
@@ -27,6 +28,12 @@ const searchTerm = ref('')
 const selected = ref([])
 const virtualize = ref(false)
 const preserveGroupOrder = ref(false)
+
+/**
+ * @todo add size
+ */
+const _sizes = Object.keys(theme.variants.size)
+const _size = ref(theme.defaultVariants.size)
 
 const { data: users, status } = await useFetch('https://jsonplaceholder.typicode.com/users', {
   // params: { q: searchTermDebounced },

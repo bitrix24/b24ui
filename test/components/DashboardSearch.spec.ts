@@ -4,6 +4,7 @@ import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import DashboardGroup from '../../src/runtime/components/DashboardGroup.vue'
 import DashboardSearch from '../../src/runtime/components/DashboardSearch.vue'
+import theme from '#build/b24ui/dashboard-search'
 import type { DashboardSearchProps } from '../../src/runtime/components/DashboardSearch.vue'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 
@@ -23,6 +24,8 @@ const DashboardWrapper = defineComponent({
 })
 
 describe('DashboardSearch', () => {
+  const sizes = Object.keys(theme.variants.size) as any
+
   const groups = [{
     id: 'links',
     label: 'Go to',
@@ -44,6 +47,7 @@ describe('DashboardSearch', () => {
     // ['with loadingIcon', { props: { ...props, loading: true, loadingIcon: SignIcon } }],
     ['without colorMode', { props: { ...props, colorMode: false } }],
     ['with fullscreen', { props: { ...props, fullscreen: true } }],
+    ...sizes.map((size: string) => [`with size ${size}`, { props: { ...props, size } }]),
     ['with b24ui', { props: { ...props, b24ui: { input: '[&>input]:text-lg' } } }],
     ['with class', { props: { ...props, class: 'sm:max-w-5xl' } }]
   ])('renders %s correctly', async (_: string, options: { props?: DashboardSearchProps }) => {

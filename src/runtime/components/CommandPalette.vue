@@ -69,6 +69,10 @@ export interface CommandPaletteProps<G extends CommandPaletteGroup<T> = CommandP
    */
   as?: any
   /**
+   * @defaultValue 'md'
+   */
+  size?: CommandPalette['variants']['size']
+  /**
    * The icon displayed in the input.
    * @defaultValue icons.search
    * @IconComponent
@@ -273,6 +277,7 @@ const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: C
 })
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.commandPalette || {}) })({
+  size: props.size,
   virtualize: !!props.virtualize
 }))
 
@@ -610,7 +615,7 @@ function onSelect(e: Event, item: T) {
       <B24Input
         no-border
         no-padding
-        size="xl"
+        :size="size"
         v-bind="typeof props.input === 'object' ? props.input : {}"
         :placeholder="placeholder"
         :autofocus="autofocus"
@@ -625,7 +630,7 @@ function onSelect(e: Event, item: T) {
           <slot name="back" :b24ui="b24ui">
             <B24Button
               :icon="backIcon || icons.arrowLeft"
-              size="sm"
+              :size="size"
               color="air-selection"
               :aria-label="t('commandPalette.back')"
               v-bind="(typeof back === 'object' ? back : {})"
@@ -641,7 +646,7 @@ function onSelect(e: Event, item: T) {
             <B24Button
               v-if="close"
               :icon="closeIcon || icons.close"
-              size="sm"
+              :size="size"
               color="air-tertiary-no-accent"
               :aria-label="t('commandPalette.close')"
               v-bind="(typeof close === 'object' ? close : {})"

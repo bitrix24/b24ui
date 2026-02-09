@@ -40,6 +40,10 @@ export interface ContentSearchItem extends Omit<LinkProps, 'custom'>, CommandPal
  */
 export interface ContentSearchProps<T extends ContentSearchLink = ContentSearchLink> extends Pick<ModalProps, 'title' | 'description' | 'overlay' | 'transition' | 'content' | 'dismissible' | 'fullscreen' | 'modal' | 'portal'> {
   /**
+   * @defaultValue 'md'
+   */
+  size?: ContentSearch['variants']['size']
+  /**
    * The icon displayed in the input.
    * @defaultValue icons.search
    * @IconComponent
@@ -132,7 +136,7 @@ const colorMode = useColorMode()
 const appConfig = useAppConfig() as ContentSearch['AppConfig']
 
 /** @memo not use loadingIcon */
-const commandPaletteProps = useForwardProps(reactivePick(props, 'icon', 'placeholder', 'autofocus', 'loading', 'close', 'closeIcon'))
+const commandPaletteProps = useForwardProps(reactivePick(props, 'size', 'icon', 'placeholder', 'autofocus', 'loading', 'close', 'closeIcon'))
 const modalProps = useForwardProps(reactivePick(props, 'overlay', 'transition', 'content', 'dismissible', 'fullscreen', 'modal', 'portal'))
 
 const getProxySlots = () => omit(slots, ['content'])
@@ -144,6 +148,7 @@ const fuse = computed(() => defu({}, props.fuse, {
 } as UseFuseOptions<T>))
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.contentSearch || {}) })({
+  size: props.size,
   fullscreen: props.fullscreen
 }))
 

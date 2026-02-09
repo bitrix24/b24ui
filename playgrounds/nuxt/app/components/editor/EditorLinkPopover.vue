@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { Editor } from '@tiptap/vue-3'
 import LinkIcon from '@bitrix24/b24icons-vue/outline/LinkIcon'
 import LowerRightArrowIcon from '@bitrix24/b24icons-vue/outline/LowerRightArrowIcon'
 import GoToLIcon from '@bitrix24/b24icons-vue/outline/GoToLIcon'

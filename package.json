@@ -136,6 +136,7 @@
   },
   "dependencies": {
     "@bitrix24/b24icons-nuxt": "^2.0.7",
+    "@bitrix24/b24icons-vue": "^2.0.7",
     "@internationalized/date": "^3.10.1",
     "@internationalized/number": "^3.6.5",
     "@nuxt/kit": "^4.2.2",

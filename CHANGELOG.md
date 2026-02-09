@@ -47,6 +47,7 @@
 * docs(use-overlay): add confirm dialog example
 * fix(CommandPalette): prevent XSS in search highlight
 * feat(Timeline/Stepper): add wrapper slot and fix dynamic slot conditions
+* feat(CommandPalette): add `size` prop
 
 ## [2.2.1](https://github.com/bitrix24/b24ui/compare/v2.1.17...v2.2.1) (2025-12-18)
 
