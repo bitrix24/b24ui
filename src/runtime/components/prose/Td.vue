@@ -6,12 +6,10 @@ import type { ComponentConfig } from '../../types/tv'
 type ProseTd = ComponentConfig<typeof theme, AppConfig, 'td', 'b24ui.prose'>
 
 export interface ProseTdProps {
+  align?: 'left' | 'center' | 'right'
   class?: any
   b24ui?: ProseTd['slots']
 }
-/**
- * @todo add Pick<Xxxx
- */
 
 export interface ProseTdSlots {
   default(props?: {}): any
@@ -28,8 +26,9 @@ defineSlots<ProseTdSlots>()
 
 const appConfig = useAppConfig() as ProseTd['AppConfig']
 
-// eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.td || {}) })())
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.td || {}) })({
+  align: props.align
+}))
 </script>
 
 <template>

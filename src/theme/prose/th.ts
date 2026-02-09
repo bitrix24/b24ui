@@ -2,11 +2,21 @@
  * Prose/Th
  * Show th
  *
- * @see src/theme/content/table-wrapper.ts
+ * @see src/theme/table-wrapper.ts
  */
 
 export default {
   slots: {
     base: ''
+  },
+  variants: {
+    align: {
+      left: 'text-left',
+      center: 'text-center',
+      right: 'text-right'
+    }
+  },
+  defaultVariants: {
+    align: 'left'
   }
 }

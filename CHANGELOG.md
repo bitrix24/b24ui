@@ -33,6 +33,7 @@
 * docs(editor): improve completion example
 * docs(content-search): duplicate async data key
 * docs(components): consistent kbd spacing
+* feat(ProseTd/ProseTh): handle `align` prop
 
 ## [2.2.1](https://github.com/bitrix24/b24ui/compare/v2.1.17...v2.2.1) (2025-12-18)
 
