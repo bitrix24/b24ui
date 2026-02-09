@@ -219,9 +219,11 @@ export default defineNuxtConfig({
     // '@bitrix24/b24ui-nuxt',
     '@nuxt/content',
     // '@nuxt/image',
+    '@nuxt/a11y',
     '@nuxtjs/plausible',
     '@nuxtjs/mcp-toolkit',
     'nuxt-component-meta',
+    'nuxt-llms',
     'nuxt-og-image',
     // @memo off this -> use in nuxt-og-image
     'nuxt-site-config',
@@ -235,8 +237,7 @@ export default defineNuxtConfig({
           global: true
         })
       })
-    },
-    'nuxt-llms'
+    }
   ],
 
   ssr: true,
@@ -357,6 +358,10 @@ export default defineNuxtConfig({
       // Fix: "Blocked request. This host is not allowed" when using tunnels like ngrok
       allowedHosts: [...extraAllowedHosts]
     }
+  },
+
+  a11y: {
+    logIssues: false
   },
 
   componentMeta: {

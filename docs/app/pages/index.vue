@@ -82,6 +82,7 @@ const { mobileLinks } = useHeader()
 
     <B24Card
       v-if="page"
+      as="main"
       class="mt-[22px]"
       :class="cardColorContext"
     >

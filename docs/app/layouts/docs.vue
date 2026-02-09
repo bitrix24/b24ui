@@ -109,7 +109,9 @@ const { mobileLinks } = useHeader()
       <slot name="right" />
     </template>
 
-    <slot />
+    <main>
+      <slot />
+    </main>
 
     <template #content-bottom>
       <Footer />
