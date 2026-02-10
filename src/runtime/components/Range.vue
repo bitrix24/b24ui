@@ -25,7 +25,7 @@ export interface RangeProps extends Pick<SliderRootProps, 'name' | 'disabled' | 
    * The orientation of the range.
    * @defaultValue 'horizontal'
    */
-  orientation?: SliderRootProps['orientation']
+  orientation?: Range['variants']['orientation']
   /**
    * Display a tooltip around the range thumbs with the current value.
    * `{ disableClosingTrigger: true }`{lang="ts-type"}

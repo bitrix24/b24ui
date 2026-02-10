@@ -815,42 +815,6 @@ exports[`RadioGroup > renders with label slot correctly 1`] = `
 </div>"
 `;
 
-exports[`RadioGroup > renders with labelKey correctly 1`] = `
-"<div id="v-0-0" data-slot="root" class="relative style-filled" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" role="radiogroup" aria-orientation="vertical" aria-required="false">
-  <fieldset data-slot="fieldset" class="flex flex-col gap-x-[16px] gap-y-[8px]">
-    <!--v-if-->
-    <div data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
-      <div data-slot="container" class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:1" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="1" aria-label="1">
-          <!---->
-          <!--v-if-->
-        </button></div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:1" data-slot="label" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">1</label>
-        <!--v-if-->
-      </div>
-    </div>
-    <div data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
-      <div data-slot="container" class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:2" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="2" aria-label="2">
-          <!---->
-          <!--v-if-->
-        </button></div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:2" data-slot="label" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">2</label>
-        <!--v-if-->
-      </div>
-    </div>
-    <div data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
-      <div data-slot="container" class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:3" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="3" aria-label="3">
-          <!---->
-          <!--v-if-->
-        </button></div>
-      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:3" data-slot="label" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">3</label>
-        <!--v-if-->
-      </div>
-    </div>
-  </fieldset>
-  <!--v-if-->
-</div>"
-`;
-
 exports[`RadioGroup > renders with legend slot correctly 1`] = `
 "<div id="v-0-0" data-slot="root" class="relative style-filled" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" role="radiogroup" aria-orientation="vertical" aria-required="false">
   <fieldset data-slot="fieldset" class="flex flex-col gap-x-[16px] gap-y-[8px]">
@@ -1109,6 +1073,41 @@ exports[`RadioGroup > renders with valueKey correctly 1`] = `
     <div data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
       <div data-slot="container" class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:Option 1" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="Option 1" aria-label="Option 1">
           <!---->
+          <!--v-if-->
+        </button></div>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:Option 1" data-slot="label" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 1</label>
+        <!--v-if-->
+      </div>
+    </div>
+    <div data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
+      <div data-slot="container" class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:Option 2" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="Option 2" aria-label="Option 2">
+          <!---->
+          <!--v-if-->
+        </button></div>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:Option 2" data-slot="label" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 2</label>
+        <!--v-if-->
+      </div>
+    </div>
+    <div data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
+      <div data-slot="container" class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:Option 3" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" value="Option 3" aria-label="Option 3">
+          <!---->
+          <!--v-if-->
+        </button></div>
+      <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:Option 3" data-slot="label" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 3</label>
+        <!--v-if-->
+      </div>
+    </div>
+  </fieldset>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`RadioGroup > renders with valueKey correctly 2`] = `
+"<div id="v-0-0" data-slot="root" class="relative style-filled" tabindex="0" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" role="radiogroup" aria-orientation="vertical" aria-required="false">
+  <fieldset data-slot="fieldset" class="flex flex-col gap-x-[16px] gap-y-[8px]">
+    <!--v-if-->
+    <div data-slot="item" class="flex items-start flex-row text-(length:--ui-font-size-lg)">
+      <div data-slot="container" class="flex items-center h-[16px]"><button data-reka-collection-item="" tabindex="-1" data-orientation="vertical" data-active="" data-slot="base" class="cursor-pointer rounded-(--ui-border-radius-pill) ring ring-inset ring-(--ui-color-base-5) outline-(--ui-color-background-transparent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--b24ui-background) me-2 size-[16px]" id="v-0-0:Option 1" role="radio" type="button" aria-checked="true" data-state="checked" required="false" value="Option 1" aria-label="Option 1"><span data-state="checked" data-slot="indicator" class="flex items-center justify-center size-full rounded-(--ui-border-radius-pill) after:bg-(--b24ui-color) after:rounded-(--ui-border-radius-pill) bg-(--b24ui-background) after:size-[6px]"></span>
           <!--v-if-->
         </button></div>
       <div data-slot="wrapper" class="font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) w-full"><label for="v-0-0:Option 1" data-slot="label" class="cursor-pointer block text-(--b24ui-typography-label-color) leading-[15px]">Option 1</label>

@@ -50,10 +50,10 @@ export interface InputNumberProps<T extends InputNumberValue = InputNumberValue>
   /** Highlight the ring color like a focus state. */
   highlight?: boolean
   /**
-   * The orientation of the input menu.
+   * The orientation of the input number.
    * @defaultValue 'horizontal'
    */
-  orientation?: 'vertical' | 'horizontal'
+  orientation?: InputNumber['variants']['orientation']
   /**
    * Configure the increment button. The `size` is inherited.
    * @defaultValue { color: 'air-tertiary-no-accent' }

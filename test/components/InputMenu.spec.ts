@@ -47,6 +47,7 @@ describe('InputMenu', () => {
     ['with items with description', { props: { ...props, items: itemsWithDescription } }],
     ['with modelValue', { props: { ...props, modelValue: items[0] } }],
     ['with defaultValue', { props: { ...props, defaultValue: items[0] } }],
+    ['with valueKey', { props: { ...props, valueKey: 'label', defaultValue: 'Backlog' } }],
     ['with valueKey', { props: { ...props, valueKey: 'value' } }],
     ['with labelKey', { props: { ...props, labelKey: 'value' } }],
     ['with descriptionKey', { props: { ...props, descriptionKey: 'description' } }],

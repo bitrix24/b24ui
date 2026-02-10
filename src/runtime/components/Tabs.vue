@@ -51,12 +51,17 @@ export interface TabsProps<T extends TabsItem = TabsItem> extends Pick<TabsRootP
    * The orientation of the tabs.
    * @defaultValue 'horizontal'
    */
-  orientation?: TabsRootProps['orientation']
+  orientation?: Tabs['variants']['orientation']
   /**
    * The content of the tabs, can be disabled to prevent rendering the content.
    * @defaultValue true
    */
   content?: boolean
+  /**
+   * The key used to get the value from the item.
+   * @defaultValue 'value'
+   */
+  valueKey?: GetItemKeys<T>
   /**
    * The key used to get the label from the item.
    * @defaultValue 'label'
@@ -96,6 +101,7 @@ const props = withDefaults(defineProps<TabsProps<T>>(), {
   defaultValue: '0',
   orientation: 'horizontal',
   unmountOnHide: true,
+  valueKey: 'value',
   labelKey: 'label'
 })
 const emits = defineEmits<TabsEmits>()
@@ -137,7 +143,7 @@ defineExpose({
         v-for="(item, index) of items"
         :key="index"
         :ref="el => (triggersRef[index] = el as ComponentPublicInstance)"
-        :value="item.value ?? String(index)"
+        :value="get(item, props.valueKey as string) ?? String(index)"
         :disabled="item.disabled"
         data-slot="trigger"
         :class="b24ui.trigger({ class: [props.b24ui?.trigger, item.b24ui?.trigger] })"
@@ -181,7 +187,7 @@ defineExpose({
       <TabsContent
         v-for="(item, index) of items"
         :key="index"
-        :value="item.value ?? String(index)"
+        :value="get(item, props.valueKey as string) ?? String(index)"
         data-slot="content"
         :class="b24ui.content({ class: [props.b24ui?.content, item.b24ui?.content, item.class] })"
       >

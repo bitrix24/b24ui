@@ -59,7 +59,7 @@ export interface CheckboxGroupProps<T extends CheckboxGroupItem[] = CheckboxGrou
    * The orientation the checkbox buttons are laid out.
    * @defaultValue 'vertical'
    */
-  orientation?: CheckboxGroupRootProps['orientation']
+  orientation?: CheckboxGroup['variants']['orientation']
   class?: any
   b24ui?: CheckboxGroup['slots'] & CheckboxProps['b24ui']
 }

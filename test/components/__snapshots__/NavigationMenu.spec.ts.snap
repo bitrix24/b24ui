@@ -486,6 +486,61 @@ exports[`NavigationMenu > renders with def correctly 1`] = `
 </nav>"
 `;
 
+exports[`NavigationMenu > renders with defaultValue correctly 1`] = `
+"<nav data-collapsed="false" data-component="section" data-slot="root" class="flex [&amp;>div]:min-w-0 font-[family-name:var(--ui-font-family-secondary)] relative h-full items-center justify-between" aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="">
+  <div style="position: relative;">
+    <ul data-slot="list" class="isolate min-w-0 flex items-center gap-x-1 h-full" data-orientation="horizontal">
+      <li data-menu-item="" data-slot="item" class="min-w-0 empty:hidden"></li>
+      <li data-menu-item="" data-slot="item" class="min-w-0 empty:hidden"><button type="button" data-reka-collection-item="" id="reka-navigation-menu-v-0-0-0-trigger-item-1" data-state="closed" data-navigation-menu-trigger="" aria-expanded="false" aria-controls="reka-navigation-menu-v-0-0-0-content-item-1" data-slot="link" class="min-w-[38px] w-full max-w-full p-0 m-0 group relative cursor-pointer flex items-center gap-[2px] font-(--ui-font-weight-normal) text-(length:--ui-font-size-lg) focus:outline-none focus-visible:rounded-(--menu-item-border-radius) focus-visible:outline-none focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-(--ui-color-base-4) rounded-(--menu-item-border-radius) text-(--menu-item-color) bg-(--menu-item-background) hover:bg-(--menu-item-background-hover) menu-item-horizontal h-[32px] min-h-[32px] px-[10px] border border-(--menu-item-background) hover:border-(--ui-color-design-plain-na-focused-stroke) data-[state=open]:bg-(--ui-color-design-plain-na-focused-stroke) transition-colors"><span data-slot="linkLabelWrapper" class="flex items-center justify-between rtl:flex-row-reverse gap-[4px] truncate"><!--v-if--><!--v-if--><span data-slot="linkLeadingBadge" class="ui-label__scope --air select-none font-[family-name:var(--ui-font-family-secondary)] font-(--ui-label-font-weight) text-(length:--ui-label-font-size)/normal items-center transition-all duration-200 ease-linear px-(--ui-label-inline-space) text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) group-[.is-field-group]/items:not-only:not-first:after:content-[''] group-[.is-field-group]/items:not-only:not-first:after:absolute group-[.is-field-group]/items:not-only:not-first:after:top-[7px] group-[.is-field-group]/items:not-only:not-first:after:bottom-[6px] group-[.is-field-group]/items:not-only:not-first:after:left-0 group-[.is-field-group]/items:not-only:not-first:after:w-px group-[.is-field-group]/items:not-only:not-first:after:bg-current/30 style-filled-alert ui-label-xs gap-0.5 rounded-[calc(var(--ui-label-height)_/_2)] inline-flex m-0 absolute -top-[6px] -right-[14px] -translate-x-1/2"><span data-slot="wrapper" class="h-(--ui-label-height) inline-flex items-center gap-0.5"><!--v-if--><span data-slot="label" class="max-w-full whitespace-nowrap text-ellipsis decoration-from-font underline-offset-1">10</span></span>
+          <!--v-if--></span><span data-slot="linkLabel" class="truncate">Documentation</span>
+          <!--v-if--></span><span as="span" data-slot="linkTrailing" class="group inline-flex mt-[2px] items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-color-design-plain-na-content-icon) shrink-0 size-[16px]"><path fill="currentColor" fill-rule="evenodd" d="M5.505 9.505a.7.7 0 0 1 .99 0L12 15.01l5.505-5.505a.7.7 0 0 1 .99.99l-6 6a.7.7 0 0 1-.99 0l-6-6a.7.7 0 0 1 0-.99" clip-rule="evenodd"></path></svg></span>
+        </button>
+        <!--v-if-->
+        <!--teleport start-->
+        <!--teleport end-->
+        <!--v-if-->
+      </li>
+      <li data-menu-item="" data-slot="item" class="min-w-0 empty:hidden"><button type="button" data-reka-collection-item="" id="reka-navigation-menu-v-0-0-0-trigger-item-2" data-state="closed" data-navigation-menu-trigger="" aria-expanded="false" aria-controls="reka-navigation-menu-v-0-0-0-content-item-2" data-slot="link" class="min-w-[38px] w-full max-w-full p-0 m-0 group relative cursor-pointer flex items-center gap-[2px] font-(--ui-font-weight-normal) text-(length:--ui-font-size-lg) focus:outline-none focus-visible:rounded-(--menu-item-border-radius) focus-visible:outline-none focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-(--ui-color-base-4) rounded-(--menu-item-border-radius) hover:bg-(--menu-item-background-hover) menu-item-horizontal h-[32px] min-h-[32px] px-[10px] border hover:border-(--ui-color-design-plain-na-focused-stroke) data-[state=open]:bg-(--ui-color-design-plain-na-focused-stroke) leading-9 text-(--menu-item-color-active) bg-(--menu-item-background-active) menu-item-horizontal-active border-(--menu-item-border)"><span data-slot="linkLabelWrapper" class="flex items-center justify-between rtl:flex-row-reverse gap-[4px] truncate"><!--v-if--><!--v-if--><!--v-if--><span data-slot="linkLabel" class="truncate">Components</span>
+          <!--v-if--></span><span as="span" data-slot="linkTrailing" class="group inline-flex mt-[2px] items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-color-design-plain-na-content-icon) shrink-0 size-[16px]"><path fill="currentColor" fill-rule="evenodd" d="M5.505 9.505a.7.7 0 0 1 .99 0L12 15.01l5.505-5.505a.7.7 0 0 1 .99.99l-6 6a.7.7 0 0 1-.99 0l-6-6a.7.7 0 0 1 0-.99" clip-rule="evenodd"></path></svg></span>
+        </button>
+        <!--v-if-->
+        <!--teleport start-->
+        <!--teleport end-->
+        <!--v-if-->
+      </li>
+    </ul>
+  </div>
+  <!--v-if-->
+  <div style="position: relative;">
+    <ul data-slot="list" class="isolate min-w-0 flex items-center gap-x-1 h-full" data-orientation="horizontal">
+      <li data-menu-item="" data-slot="item" class="min-w-0 empty:hidden"><a href="https://github.com/bitrix24/b24ui" rel="noopener noreferrer" target="_blank" data-reka-collection-item="" data-slot="link" class="min-w-[38px] w-full max-w-full p-0 m-0 group relative cursor-pointer flex items-center gap-[2px] font-(--ui-font-weight-normal) text-(length:--ui-font-size-lg) focus:outline-none focus-visible:rounded-(--menu-item-border-radius) focus-visible:outline-none focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-(--ui-color-base-4) rounded-(--menu-item-border-radius) text-(--menu-item-color) bg-(--menu-item-background) hover:bg-(--menu-item-background-hover) menu-item-horizontal h-[32px] min-h-[32px] px-[10px] border border-(--menu-item-background) hover:border-(--ui-color-design-plain-na-focused-stroke) data-[state=open]:bg-(--ui-color-design-plain-na-focused-stroke) transition-colors"><span data-slot="linkLabelWrapper" class="flex items-center justify-between rtl:flex-row-reverse gap-[4px] truncate"><!--v-if--><!--v-if--><!--v-if--><span data-slot="linkLabel" class="truncate">GitHub</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="inline-block size-[16px] text-(--ui-color-design-plain-content-icon-secondary)">
+            <path fill="currentColor" d="M14.58 4.9a.7.7 0 1 0 0 1.4h2.166l-4.954 4.953a.7.7 0 0 0 .99.99l4.916-4.916v1.998a.7.7 0 1 0 1.4 0V6.6a1.7 1.7 0 0 0-1.7-1.7z"></path>
+            <path fill="currentColor" d="M12 5.7a.7.7 0 0 0-.7-.7H8a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-3.3a.7.7 0 1 0-1.4 0V16a1.6 1.6 0 0 1-1.6 1.6H8A1.6 1.6 0 0 1 6.4 16V8A1.6 1.6 0 0 1 8 6.4h3.3a.7.7 0 0 0 .7-.7"></path>
+          </svg></span>
+          <!--v-if-->
+        </a>
+        <!--v-if-->
+        <!--v-if-->
+      </li>
+      <li data-menu-item="" data-slot="item" class="min-w-0 empty:hidden"><button type="button" disabled="" data-reka-collection-item="" data-slot="link" class="min-w-[38px] w-full max-w-full p-0 m-0 group relative flex items-center gap-[2px] font-(--ui-font-weight-normal) text-(length:--ui-font-size-lg) focus:outline-none focus-visible:rounded-(--menu-item-border-radius) focus-visible:outline-none focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-(--ui-color-base-4) rounded-(--menu-item-border-radius) text-(--menu-item-color) bg-(--menu-item-background) hover:bg-(--menu-item-background-hover) menu-item-horizontal h-[32px] min-h-[32px] px-[10px] border border-(--menu-item-background) hover:border-(--ui-color-design-plain-na-focused-stroke) data-[state=open]:bg-(--ui-color-design-plain-na-focused-stroke) cursor-not-allowed opacity-75"><span data-slot="linkLabelWrapper" class="flex items-center justify-between rtl:flex-row-reverse gap-[4px] truncate"><!--v-if--><!--v-if--><!--v-if--><span data-slot="linkLabel" class="truncate">Help</span>
+          <!--v-if--></span>
+          <!--v-if-->
+        </button>
+        <!--v-if-->
+        <!--v-if-->
+      </li>
+    </ul>
+  </div>
+  <!--v-if-->
+  <div data-slot="viewportWrapper" class="absolute top-[53px] left-0 flex w-full">
+    <div data-slot="viewport" class="relative overflow-hidden base-mode bg-(--ui-color-bg-content-primary) shadow-(--popup-window-box-shadow) h-(--reka-navigation-menu-viewport-height) w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left) rounded-(--ui-border-radius-xl) will-change-[opacity] [&amp;:has(>[data-viewport=rtl])]:left-auto [&amp;:has(>[data-viewport=rtl])]:-right-[calc(100%-var(--reka-navigation-menu-viewport-width))] transition-[width,height] duration-200 origin-[top_center] z-[1]" data-state="open" data-orientation="horizontal">
+      <!---->
+      <!---->
+    </div>
+  </div>
+</nav>"
+`;
+
 exports[`NavigationMenu > renders with externalIcon correctly 1`] = `
 "<nav data-collapsed="false" data-component="section" data-slot="root" class="flex [&amp;>div]:min-w-0 font-[family-name:var(--ui-font-family-secondary)] relative h-full items-center justify-between" aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="">
   <div style="position: relative;">
@@ -1265,6 +1320,103 @@ exports[`NavigationMenu > renders with unmountOnHide correctly 1`] = `
             </a></li>
         </ul>
       </div>
+    </div>
+  </div>
+</nav>"
+`;
+
+exports[`NavigationMenu > renders with valueKey correctly 1`] = `
+"<nav data-collapsed="false" data-component="section" data-slot="root" class="flex [&amp;>div]:min-w-0 font-[family-name:var(--ui-font-family-secondary)] relative h-full items-center justify-between" aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="">
+  <div style="position: relative;">
+    <ul data-slot="list" class="isolate min-w-0 flex items-center gap-x-1 h-full" data-orientation="horizontal">
+      <li data-menu-item="" data-slot="item" class="min-w-0 empty:hidden"></li>
+      <li data-menu-item="" data-slot="item" class="min-w-0 empty:hidden"><button type="button" data-reka-collection-item="" id="reka-navigation-menu-v-0-0-0-trigger-Documentation" data-state="open" data-navigation-menu-trigger="" aria-expanded="true" aria-controls="reka-navigation-menu-v-0-0-0-content-Documentation" data-slot="link" class="min-w-[38px] w-full max-w-full p-0 m-0 group relative cursor-pointer flex items-center gap-[2px] font-(--ui-font-weight-normal) text-(length:--ui-font-size-lg) focus:outline-none focus-visible:rounded-(--menu-item-border-radius) focus-visible:outline-none focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-(--ui-color-base-4) rounded-(--menu-item-border-radius) text-(--menu-item-color) bg-(--menu-item-background) hover:bg-(--menu-item-background-hover) menu-item-horizontal h-[32px] min-h-[32px] px-[10px] border border-(--menu-item-background) hover:border-(--ui-color-design-plain-na-focused-stroke) data-[state=open]:bg-(--ui-color-design-plain-na-focused-stroke) transition-colors"><span data-slot="linkLabelWrapper" class="flex items-center justify-between rtl:flex-row-reverse gap-[4px] truncate"><!--v-if--><!--v-if--><span data-slot="linkLeadingBadge" class="ui-label__scope --air select-none font-[family-name:var(--ui-font-family-secondary)] font-(--ui-label-font-weight) text-(length:--ui-label-font-size)/normal items-center transition-all duration-200 ease-linear px-(--ui-label-inline-space) text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) group-[.is-field-group]/items:not-only:not-first:after:content-[''] group-[.is-field-group]/items:not-only:not-first:after:absolute group-[.is-field-group]/items:not-only:not-first:after:top-[7px] group-[.is-field-group]/items:not-only:not-first:after:bottom-[6px] group-[.is-field-group]/items:not-only:not-first:after:left-0 group-[.is-field-group]/items:not-only:not-first:after:w-px group-[.is-field-group]/items:not-only:not-first:after:bg-current/30 style-filled-alert ui-label-xs gap-0.5 rounded-[calc(var(--ui-label-height)_/_2)] inline-flex m-0 absolute -top-[6px] -right-[14px] -translate-x-1/2"><span data-slot="wrapper" class="h-(--ui-label-height) inline-flex items-center gap-0.5"><!--v-if--><span data-slot="label" class="max-w-full whitespace-nowrap text-ellipsis decoration-from-font underline-offset-1">10</span></span>
+          <!--v-if--></span><span data-slot="linkLabel" class="truncate">Documentation</span>
+          <!--v-if--></span><span as="span" data-slot="linkTrailing" class="group inline-flex mt-[2px] items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-color-design-plain-na-content-icon) shrink-0 size-[16px]"><path fill="currentColor" fill-rule="evenodd" d="M5.505 9.505a.7.7 0 0 1 .99 0L12 15.01l5.505-5.505a.7.7 0 0 1 .99.99l-6 6a.7.7 0 0 1-.99 0l-6-6a.7.7 0 0 1 0-.99" clip-rule="evenodd"></path></svg></span>
+        </button><span aria-hidden="true" tabindex="0" style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); white-space: nowrap; word-wrap: normal; top: -1px; left: -1px;"></span><span aria-owns="reka-navigation-menu-v-0-0-0-content-Documentation"></span>
+        <!--teleport start-->
+        <!--teleport end-->
+        <!--v-if-->
+      </li>
+      <li data-menu-item="" data-slot="item" class="min-w-0 empty:hidden"><button type="button" data-reka-collection-item="" id="reka-navigation-menu-v-0-0-0-trigger-Components" data-state="closed" data-navigation-menu-trigger="" aria-expanded="false" aria-controls="reka-navigation-menu-v-0-0-0-content-Components" data-slot="link" class="min-w-[38px] w-full max-w-full p-0 m-0 group relative cursor-pointer flex items-center gap-[2px] font-(--ui-font-weight-normal) text-(length:--ui-font-size-lg) focus:outline-none focus-visible:rounded-(--menu-item-border-radius) focus-visible:outline-none focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-(--ui-color-base-4) rounded-(--menu-item-border-radius) hover:bg-(--menu-item-background-hover) menu-item-horizontal h-[32px] min-h-[32px] px-[10px] border hover:border-(--ui-color-design-plain-na-focused-stroke) data-[state=open]:bg-(--ui-color-design-plain-na-focused-stroke) leading-9 text-(--menu-item-color-active) bg-(--menu-item-background-active) menu-item-horizontal-active border-(--menu-item-border)"><span data-slot="linkLabelWrapper" class="flex items-center justify-between rtl:flex-row-reverse gap-[4px] truncate"><!--v-if--><!--v-if--><!--v-if--><span data-slot="linkLabel" class="truncate">Components</span>
+          <!--v-if--></span><span as="span" data-slot="linkTrailing" class="group inline-flex mt-[2px] items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-color-design-plain-na-content-icon) shrink-0 size-[16px]"><path fill="currentColor" fill-rule="evenodd" d="M5.505 9.505a.7.7 0 0 1 .99 0L12 15.01l5.505-5.505a.7.7 0 0 1 .99.99l-6 6a.7.7 0 0 1-.99 0l-6-6a.7.7 0 0 1 0-.99" clip-rule="evenodd"></path></svg></span>
+        </button>
+        <!--v-if-->
+        <!--teleport start-->
+        <!--teleport end-->
+        <!--v-if-->
+      </li>
+    </ul>
+  </div>
+  <!--v-if-->
+  <div style="position: relative;">
+    <ul data-slot="list" class="isolate min-w-0 flex items-center gap-x-1 h-full" data-orientation="horizontal">
+      <li data-menu-item="" data-slot="item" class="min-w-0 empty:hidden"><a href="https://github.com/bitrix24/b24ui" rel="noopener noreferrer" target="_blank" data-reka-collection-item="" data-slot="link" class="min-w-[38px] w-full max-w-full p-0 m-0 group relative cursor-pointer flex items-center gap-[2px] font-(--ui-font-weight-normal) text-(length:--ui-font-size-lg) focus:outline-none focus-visible:rounded-(--menu-item-border-radius) focus-visible:outline-none focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-(--ui-color-base-4) rounded-(--menu-item-border-radius) text-(--menu-item-color) bg-(--menu-item-background) hover:bg-(--menu-item-background-hover) menu-item-horizontal h-[32px] min-h-[32px] px-[10px] border border-(--menu-item-background) hover:border-(--ui-color-design-plain-na-focused-stroke) data-[state=open]:bg-(--ui-color-design-plain-na-focused-stroke) transition-colors"><span data-slot="linkLabelWrapper" class="flex items-center justify-between rtl:flex-row-reverse gap-[4px] truncate"><!--v-if--><!--v-if--><!--v-if--><span data-slot="linkLabel" class="truncate">GitHub</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="inline-block size-[16px] text-(--ui-color-design-plain-content-icon-secondary)">
+            <path fill="currentColor" d="M14.58 4.9a.7.7 0 1 0 0 1.4h2.166l-4.954 4.953a.7.7 0 0 0 .99.99l4.916-4.916v1.998a.7.7 0 1 0 1.4 0V6.6a1.7 1.7 0 0 0-1.7-1.7z"></path>
+            <path fill="currentColor" d="M12 5.7a.7.7 0 0 0-.7-.7H8a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-3.3a.7.7 0 1 0-1.4 0V16a1.6 1.6 0 0 1-1.6 1.6H8A1.6 1.6 0 0 1 6.4 16V8A1.6 1.6 0 0 1 8 6.4h3.3a.7.7 0 0 0 .7-.7"></path>
+          </svg></span>
+          <!--v-if-->
+        </a>
+        <!--v-if-->
+        <!--v-if-->
+      </li>
+      <li data-menu-item="" data-slot="item" class="min-w-0 empty:hidden"><button type="button" disabled="" data-reka-collection-item="" data-slot="link" class="min-w-[38px] w-full max-w-full p-0 m-0 group relative flex items-center gap-[2px] font-(--ui-font-weight-normal) text-(length:--ui-font-size-lg) focus:outline-none focus-visible:rounded-(--menu-item-border-radius) focus-visible:outline-none focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-(--ui-color-base-4) rounded-(--menu-item-border-radius) text-(--menu-item-color) bg-(--menu-item-background) hover:bg-(--menu-item-background-hover) menu-item-horizontal h-[32px] min-h-[32px] px-[10px] border border-(--menu-item-background) hover:border-(--ui-color-design-plain-na-focused-stroke) data-[state=open]:bg-(--ui-color-design-plain-na-focused-stroke) cursor-not-allowed opacity-75"><span data-slot="linkLabelWrapper" class="flex items-center justify-between rtl:flex-row-reverse gap-[4px] truncate"><!--v-if--><!--v-if--><!--v-if--><span data-slot="linkLabel" class="truncate">Help</span>
+          <!--v-if--></span>
+          <!--v-if-->
+        </button>
+        <!--v-if-->
+        <!--v-if-->
+      </li>
+    </ul>
+  </div>
+  <!--v-if-->
+  <div data-slot="viewportWrapper" class="absolute top-[53px] left-0 flex w-full">
+    <div data-slot="viewport" class="relative overflow-hidden base-mode bg-(--ui-color-bg-content-primary) shadow-(--popup-window-box-shadow) h-(--reka-navigation-menu-viewport-height) w-(--reka-navigation-menu-viewport-width) left-(--reka-navigation-menu-viewport-left) rounded-(--ui-border-radius-xl) will-change-[opacity] [&amp;:has(>[data-viewport=rtl])]:left-auto [&amp;:has(>[data-viewport=rtl])]:-right-[calc(100%-var(--reka-navigation-menu-viewport-width))] transition-[width,height] duration-200 origin-[top_center] z-[1]" data-state="open" data-orientation="horizontal">
+      <div data-dismissable-layer="" id="reka-navigation-menu-v-0-0-0-content-Documentation" aria-labelledby="reka-navigation-menu-v-0-0-0-trigger-Documentation" data-state="open" data-orientation="horizontal" data-viewport="ltr" data-slot="content" class="absolute top-0 left-0 max-h-[70vh] overflow-y-auto scrollbar-thin scrollbar-transparent w-[240px]">
+        <ul data-slot="childList" class="isolate grid px-0 py-(--menu-popup-padding)">
+          <li data-slot="childItem" class="h-[36px] mt-(--menu-item-block-stack-space)"><button type="button" data-reka-collection-item="" data-slot="childLink" class="group relative size-full flex flex-row rtl:flex-row-reverse items-center transition-colors text-start px-[18px] min-w-[195px] whitespace-nowrap font-[family-name:var(--ui-font-family-primary)] text-(length:--ui-font-size-md) text-(--b24ui-typography-legend-color) hover:text-(--b24ui-typography-label-color) hover:bg-(--ui-color-divider-optical-1-alt)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-[18px] shrink-0 text-(--ui-color-design-plain-content-icon-secondary) group-hover:text-(--ui-color-accent-main-primary)">
+                <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+              </svg>
+              <!--v-if-->
+              <div data-slot="childLinkWrapper" class="min-w-0 flex-1 flex flex-row items-center justify-start rtl:justify-end gap-0.5">
+                <p data-slot="childLinkLabel" class="truncate ms-[2px] -mt-px">Introduction</p>
+                <!--v-if-->
+              </div>
+              <!--v-if-->
+            </button></li>
+          <li data-slot="childItem" class="h-[36px] mt-(--menu-item-block-stack-space)"><button type="button" data-reka-collection-item="" data-slot="childLink" class="group relative size-full flex flex-row rtl:flex-row-reverse items-center transition-colors text-start px-[18px] min-w-[195px] whitespace-nowrap font-[family-name:var(--ui-font-family-primary)] text-(length:--ui-font-size-md) text-(--b24ui-typography-legend-color) hover:text-(--b24ui-typography-label-color) hover:bg-(--ui-color-divider-optical-1-alt)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-[18px] shrink-0 text-(--ui-color-design-plain-content-icon-secondary) group-hover:text-(--ui-color-accent-main-primary)">
+                <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+              </svg>
+              <!--v-if-->
+              <div data-slot="childLinkWrapper" class="min-w-0 flex-1 flex flex-row items-center justify-start rtl:justify-end gap-0.5">
+                <p data-slot="childLinkLabel" class="truncate ms-[2px] -mt-px">Installation</p>
+                <!--v-if-->
+              </div>
+              <!--v-if-->
+            </button></li>
+          <li data-slot="childItem" class="h-[36px] mt-(--menu-item-block-stack-space)"><button type="button" data-reka-collection-item="" data-slot="childLink" class="group relative size-full flex flex-row rtl:flex-row-reverse items-center transition-colors text-start px-[18px] min-w-[195px] whitespace-nowrap font-[family-name:var(--ui-font-family-primary)] text-(length:--ui-font-size-md) text-(--b24ui-typography-legend-color) hover:text-(--b24ui-typography-label-color) hover:bg-(--ui-color-divider-optical-1-alt)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-[18px] shrink-0 text-(--ui-color-design-plain-content-icon-secondary) group-hover:text-(--ui-color-accent-main-primary)">
+                <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+              </svg>
+              <!--v-if-->
+              <div data-slot="childLinkWrapper" class="min-w-0 flex-1 flex flex-row items-center justify-start rtl:justify-end gap-0.5">
+                <p data-slot="childLinkLabel" class="truncate ms-[2px] -mt-px">Theming</p>
+                <!--v-if-->
+              </div>
+              <!--v-if-->
+            </button></li>
+          <li data-slot="childItem" class="h-[36px] mt-(--menu-item-block-stack-space)"><button type="button" data-reka-collection-item="" data-slot="childLink" class="group relative size-full flex flex-row rtl:flex-row-reverse items-center transition-colors text-start px-[18px] min-w-[195px] whitespace-nowrap font-[family-name:var(--ui-font-family-primary)] text-(length:--ui-font-size-md) text-(--b24ui-typography-legend-color) hover:text-(--b24ui-typography-label-color) hover:bg-(--ui-color-divider-optical-1-alt)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-[18px] shrink-0 text-(--ui-color-design-plain-content-icon-secondary) group-hover:text-(--ui-color-accent-main-primary)">
+                <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
+              </svg>
+              <!--v-if-->
+              <div data-slot="childLinkWrapper" class="min-w-0 flex-1 flex flex-row items-center justify-start rtl:justify-end gap-0.5">
+                <p data-slot="childLinkLabel" class="truncate ms-[2px] -mt-px">Shortcuts</p>
+                <!--v-if-->
+              </div>
+              <!--v-if-->
+            </button></li>
+        </ul>
+      </div>
+      <!---->
     </div>
   </div>
 </nav>"

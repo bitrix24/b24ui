@@ -3,7 +3,7 @@
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/timeline'
 import type { AvatarProps, IconComponent } from '../types'
-import type { DynamicSlots } from '../types/utils'
+import type { DynamicSlots, GetItemKeys } from '../types/utils'
 import type { ComponentConfig } from '../types/tv'
 
 type Timeline = ComponentConfig<typeof theme, AppConfig, 'timeline'>
@@ -41,6 +41,11 @@ export interface TimelineProps<T extends TimelineItem = TimelineItem> {
    * @defaultValue 'vertical'
    */
   orientation?: Timeline['variants']['orientation']
+  /**
+   * The key used to get the value from the item.
+   * @defaultValue 'value'
+   */
+  valueKey?: GetItemKeys<T>
   defaultValue?: string | number
   reverse?: boolean
   class?: any
@@ -64,10 +69,12 @@ import { computed } from 'vue'
 import { Primitive, Separator } from 'reka-ui'
 import { useAppConfig } from '#imports'
 import { tv } from '../utils/tv'
+import { get } from '../utils'
 import B24Avatar from './Avatar.vue'
 
 const props = withDefaults(defineProps<TimelineProps<T>>(), {
-  orientation: 'vertical'
+  orientation: 'vertical',
+  valueKey: 'value'
 })
 const slots = defineSlots<TimelineSlots<T>>()
 
@@ -86,7 +93,7 @@ const currentStepIndex = computed(() => {
   const value = modelValue.value ?? props.defaultValue
 
   if (typeof value === 'string') {
-    return props.items.findIndex(item => item.value === value) ?? -1
+    return props.items.findIndex(item => get(item, props.valueKey as string) === value) ?? -1
   }
 
   if (props.reverse) {
@@ -112,7 +119,7 @@ function getItemState(index: number): 'active' | 'completed' | undefined {
   <Primitive :as="as" :data-orientation="orientation" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <div
       v-for="(item, index) in items"
-      :key="item.value ?? index"
+      :key="index"
       data-slot="item"
       :class="b24ui.item({ class: [props.b24ui?.item, item.b24ui?.item, item.class] })"
       :data-state="getItemState(index)"

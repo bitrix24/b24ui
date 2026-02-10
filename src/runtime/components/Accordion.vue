@@ -4,7 +4,7 @@ import type { AccordionRootProps, AccordionRootEmits } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/accordion'
 import type { IconComponent } from '../types'
-import type { DynamicSlots } from '../types/utils'
+import type { DynamicSlots, GetItemKeys } from '../types/utils'
 import type { ComponentConfig } from '../types/tv'
 
 type Accordion = ComponentConfig<typeof theme, AppConfig, 'accordion'>
@@ -43,10 +43,15 @@ export interface AccordionProps<T extends AccordionItem = AccordionItem> extends
    */
   trailingIcon?: IconComponent
   /**
+   * The key used to get the value from the item.
+   * @defaultValue 'value'
+   */
+  valueKey?: GetItemKeys<T>
+  /**
    * The key used to get the label from the item.
    * @defaultValue 'label'
    */
-  labelKey?: string
+  labelKey?: GetItemKeys<T>
   class?: any
   b24ui?: Accordion['slots']
 }
@@ -78,6 +83,7 @@ const props = withDefaults(defineProps<AccordionProps<T>>(), {
   type: 'single',
   collapsible: true,
   unmountOnHide: true,
+  valueKey: 'value',
   labelKey: 'label'
 })
 const emits = defineEmits<AccordionEmits>()
@@ -85,7 +91,7 @@ const slots = defineSlots<AccordionSlots<T>>()
 
 const appConfig = useAppConfig() as Accordion['AppConfig']
 
-const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'collapsible', 'defaultValue', 'disabled', 'modelValue', 'type', 'unmountOnHide'), emits)
+const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'collapsible', 'defaultValue', 'disabled', 'modelValue', 'unmountOnHide'), emits)
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.accordion || {}) })({
   disabled: props.disabled
@@ -93,12 +99,12 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.accord
 </script>
 
 <template>
-  <AccordionRoot v-bind="rootProps" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <AccordionRoot v-bind="rootProps" :type="type" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
     <AccordionItem
       v-for="(item, index) in props.items"
       v-slot="{ open }"
       :key="index"
-      :value="item.value || String(index)"
+      :value="get(item, props.valueKey as string) ?? String(index)"
       :disabled="item.disabled"
       data-slot="item"
       :class="b24ui.item({ class: [props.b24ui?.item, item.b24ui?.item, item.class] })"

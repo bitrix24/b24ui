@@ -55,6 +55,7 @@
 * feat(EditorMentionMenu): handle async search with `ignoreFilter` prop
 * docs(composables): improve field group parsing
 * docs(installation): resolve missing theme prop types in vue
+* feat(components): add `valueKey` prop
 
 ## [2.2.1](https://github.com/bitrix24/b24ui/compare/v2.1.17...v2.2.1) (2025-12-18)
 
