@@ -60,6 +60,7 @@
 * docs(popover): improve command palette example
 * docs(tabs): improve model value examples
 * fix(Banner): isolate banner visibility using per-instance CSS variables
+* chore(deps): update dependency unplugin-auto-import to v21
 
 ## [2.2.1](https://github.com/bitrix24/b24ui/compare/v2.1.17...v2.2.1) (2025-12-18)
 
