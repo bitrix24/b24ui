@@ -94,6 +94,10 @@ name: 'banner-example'
 When closed, `banner-${id}` will be stored in the local storage to prevent it from being displayed again. :br For the example above, `banner-example` will be stored in the local storage.
 ::
 
+::caution
+To persist the dismissed state across page reloads, you must specify an `id` prop. Without an explicit `id`, the banner will only be hidden for the current session and will reappear on page reload.
+::
+
 ### Close Icon
 
 Use the `close-icon` prop to customize the close button [Icon](https://bitrix24.github.io/b24icons/icons/). Defaults to `CrossMIcon`.
