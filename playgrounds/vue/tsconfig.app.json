@@ -20,7 +20,14 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* Aliases */
+    "paths": {
+      "#build/b24ui": [
+        "./node_modules/.b24ui-nuxt/b24ui/*"
+      ],
+    }
   },
   "include": [
     "src/**/*.ts",
