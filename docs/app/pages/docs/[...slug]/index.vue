@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { ContentNavigationItem } from '@nuxt/content'
 import { withTrailingSlash } from 'ufo' // withoutTrailingSlash
+import { joinURL } from 'ufo'
 import { kebabCase } from 'scule'
 import DesignIcon from '@bitrix24/b24icons-vue/outline/DesignIcon'
 import FavoriteIcon from '@bitrix24/b24icons-vue/outline/FavoriteIcon'
@@ -80,6 +81,20 @@ useSeoMeta({
 //     framework: page.value?.framework
 //   })
 // }
+
+// Pre-render the markdown path + add it to alternate links
+const site = useSiteConfig()
+const path = computed(() => route.path.replace(/\/$/, ''))
+prerenderRoutes([joinURL('/raw', `${path.value}.md`)])
+useHead({
+  link: [
+    {
+      rel: 'alternate',
+      href: joinURL(site.url, 'raw', `${path.value}.md`),
+      type: 'text/markdown'
+    }
+  ]
+})
 
 const communityLinks = computed(() => [
   {
