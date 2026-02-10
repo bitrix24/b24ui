@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { CommandPaletteItem } from '@bitrix24/b24ui-nuxt'
 import TagIcon from '@bitrix24/b24icons-vue/outline/TagIcon'
 
 const items = ref([
@@ -6,24 +7,25 @@ const items = ref([
     label: 'bug',
     value: 'bug',
     chip: {
-      color: 'air-primary-alert' as const
+      color: 'air-primary-alert'
     }
   },
   {
     label: 'feature',
     value: 'feature',
     chip: {
-      color: 'air-primary-success' as const
+      color: 'air-primary-success'
     }
   },
   {
     label: 'enhancement',
     value: 'enhancement',
     chip: {
-      color: 'air-primary' as const
+      color: 'air-primary'
     }
   }
-])
+] satisfies CommandPaletteItem[])
+
 const label = ref([])
 </script>
 
