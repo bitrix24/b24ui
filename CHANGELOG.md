@@ -49,6 +49,7 @@
 * feat(Timeline/Stepper): add wrapper slot and fix dynamic slot conditions
 * feat(CommandPalette): add `size` prop
 * docs: send back markdown if accept header is `text/markdown`
+* fix(FileUpload): keep input visible when preview is disabled with multiple files
 
 ## [2.2.1](https://github.com/bitrix24/b24ui/compare/v2.1.17...v2.2.1) (2025-12-18)
 

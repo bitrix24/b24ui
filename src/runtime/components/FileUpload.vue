@@ -358,7 +358,7 @@ defineExpose({
         <ReuseFilesTemplate v-if="position === 'inside'" />
 
         <div
-          v-if="position === 'inside' ? (multiple ? !(modelValue as File[])?.length : !modelValue) : true"
+          v-if="position === 'inside' ? (!props.preview || (multiple ? !(modelValue as File[])?.length : !modelValue)) : true"
           data-slot="wrapper"
           :class="b24ui.wrapper({ class: props.b24ui?.wrapper })"
         >
