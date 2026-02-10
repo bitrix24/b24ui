@@ -9,14 +9,18 @@ export default defineNuxtModule((_options, nuxt) => {
       return
     }
     nitro.hooks.hook('compiled', async () => {
+      const config = useRuntimeConfig()
       const { resolve } = process.getBuiltinModule('node:path')
       const { readFile, writeFile }
         = process.getBuiltinModule('node:fs/promises')
       const vcJSON = resolve(nitro.options.output.dir, 'config.json')
       const vcConfig = JSON.parse(await readFile(vcJSON, 'utf8'))
+      /**
+       * @memo need test `config.public.baseUrl`
+       */
       vcConfig.routes.unshift({
-        src: '^/docs/(.*)$',
-        dest: '/raw/docs/$1.md',
+        src: `^${config.public.baseUrl}/docs/(.*)$`,
+        dest: `${config.public.baseUrl}/raw/docs/$1.md`,
         has: [{ type: 'header', key: 'accept', value: '(.*)text/markdown(.*)' }],
         check: true
       })
