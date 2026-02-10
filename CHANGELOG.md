@@ -59,7 +59,6 @@
 * feat(components): add `by` prop
 * docs(popover): improve command palette example
 * docs(tabs): improve model value examples
-* docs(popover): improve command palette example
 
 ## [2.2.1](https://github.com/bitrix24/b24ui/compare/v2.1.17...v2.2.1) (2025-12-18)
 

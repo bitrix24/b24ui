@@ -1,32 +1,26 @@
 <script setup lang="ts">
 import type { TabsItem } from '@bitrix24/b24ui-nuxt'
-
-const route = useRoute()
-const router = useRouter()
+import UserIcon from '@bitrix24/b24icons-vue/common-b24/UserIcon'
+import Shield2ContourIcon from '@bitrix24/b24icons-vue/main/Shield2ContourIcon'
 
 const items: TabsItem[] = [
   {
     label: 'Account',
-    value: 'account'
+    icon: UserIcon
   },
   {
     label: 'Password',
-    value: 'password'
+    icon: Shield2ContourIcon
   }
 ]
 
-const active = computed({
-  get() {
-    return (route.query.tab as string) || 'account'
-  },
-  set(tab) {
-    // Hash is specified here to prevent the page from scrolling to the top
-    router.push({
-      path: '/docs/components/tabs/',
-      query: { tab },
-      hash: '#control-active-item'
-    })
-  }
+const active = ref('0')
+
+// Note: This is for demonstration purposes only. Don't do this at home.
+onMounted(() => {
+  setInterval(() => {
+    active.value = String((Number(active.value) + 1) % items.length)
+  }, 2000)
 })
 </script>
 

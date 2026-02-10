@@ -185,6 +185,12 @@ You can control the active item by using the `default-value` prop or the `v-mode
 Use the `value-key` prop to change the key used to match items when a `v-model` or `default-value` is provided.
 ::
 
+### With route query
+
+You can control the active item by a URL query parameter, using `route.query.tab` as the `value` of the item.
+
+:component-example{name="tabs-route-query-example"}
+
 ### With content slot
 
 Use the `#content` slot to customize the content of each item.
@@ -199,7 +205,12 @@ You will have access to the following slots:
 
 - `#{{ item.slot }}`{lang="ts-type"}
 
-:component-example{name="tabs-custom-slot-example" collapse}
+::component-example
+---
+collapse: true
+name: 'tabs-custom-slot-example'
+---
+::
 
 ## API
 
