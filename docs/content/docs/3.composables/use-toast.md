@@ -50,72 +50,74 @@ Adds a new toast notification.
 #### Parameters
 
 ::field-group
+
   ::field{name="toast" type="Partial<Toast>" required}
   A partial `Toast` object with the following properties:
 
-  ::collapsible
-    ::field-group
-      ::field{name="id" type="string | number"}
-      A unique identifier for the toast. If not provided, a timestamp will be used.
-      ::
-    
-      ::field{name="open" type="boolean"}
-      Whether the toast is open. Defaults to `true`.
-      ::
+    ::collapsible
 
-      ::field{name="title" type="string"}
-      The title displayed in the toast.
-      ::
-
-      ::field{name="description" type="string"}
-      The description displayed in the toast.
-      ::
-
-      ::field{name="icon" type="IconComponent"}
-      The icon displayed in the toast.
-      ::
-
-      ::field{name="avatar" type="AvatarProps"}
-      The avatar displayed in the toast. See [Avatar](/docs/components/avatar/#props).
-      ::
-
-      ::field{name="color" type="string"}
-      The color of the toast.
-      ::
-
-      ::field{name="orientation" type="'horizontal' | 'vertical'"}
-      The orientation between the content and the actions. Defaults to `vertical`.
-      ::
-
-      ::field{name="close" type="boolean | ButtonProps"}
-      Customize or hide the close button (with `false` value). Defaults to `true`.
-      ::
-
-      ::field{name="closeIcon" type="IconComponent"}
-      The icon displayed in the close button.
-      ::
-
-      ::field{name="actions" type="ButtonProps[]"}
-      The actions displayed in the toast. See [Button](/docs/components/button/#props).
-      ::
-
-      ::field{name="progress" type="boolean | ProgressProps"}
-      Customize or hide the progress bar (with `false` value). Defaults to `true`.
-      ::
-
-      ::field{name="duration" type="number"}
-      The duration in milliseconds before the toast auto-closes. Can also be set globally on the [`App`](/docs/components/app/) component.
-      ::
-
-      ::field{name="onClick" type="(toast: Toast) => void"}
-      A callback function invoked when the toast is clicked.
-      ::
-
-      ::field{name="onUpdateOpen" type="(open: boolean) => void"}
-      A callback function invoked when the toast open state changes. Useful to perform an action when the toast closes (expired or dismissed).
+      ::field-group
+        ::field{name="id" type="string | number"}
+        A unique identifier for the toast. If not provided, a timestamp will be used.
+        ::
+      
+        ::field{name="open" type="boolean"}
+        Whether the toast is open. Defaults to `true`.
+        ::
+  
+        ::field{name="title" type="string"}
+        The title displayed in the toast.
+        ::
+  
+        ::field{name="description" type="string"}
+        The description displayed in the toast.
+        ::
+  
+        ::field{name="icon" type="IconComponent"}
+        The icon displayed in the toast.
+        ::
+  
+        ::field{name="avatar" type="AvatarProps"}
+        The avatar displayed in the toast. See [Avatar](/docs/components/avatar/#props).
+        ::
+  
+        ::field{name="color" type="string"}
+        The color of the toast.
+        ::
+  
+        ::field{name="orientation" type="'horizontal' | 'vertical'"}
+        The orientation between the content and the actions. Defaults to `vertical`.
+        ::
+  
+        ::field{name="close" type="boolean | ButtonProps"}
+        Customize or hide the close button (with `false` value). Defaults to `true`.
+        ::
+  
+        ::field{name="closeIcon" type="IconComponent"}
+        The icon displayed in the close button.
+        ::
+  
+        ::field{name="actions" type="ButtonProps[]"}
+        The actions displayed in the toast. See [Button](/docs/components/button/#props).
+        ::
+  
+        ::field{name="progress" type="boolean | ProgressProps"}
+        Customize or hide the progress bar (with `false` value). Defaults to `true`.
+        ::
+  
+        ::field{name="duration" type="number"}
+        The duration in milliseconds before the toast auto-closes. Can also be set globally on the [`App`](/docs/components/app/) component.
+        ::
+  
+        ::field{name="onClick" type="(toast: Toast) => void"}
+        A callback function invoked when the toast is clicked.
+        ::
+  
+        ::field{name="onUpdateOpen" type="(open: boolean) => void"}
+        A callback function invoked when the toast open state changes. Useful to perform an action when the toast closes (expired or dismissed).
+        ::
       ::
     ::
-  ::
   ::
 ::
 

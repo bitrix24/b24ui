@@ -54,21 +54,21 @@ Creates a speech recognition instance with specified options and event handlers.
 
 ::field-group
 
-::field{name="lang" type="string"}
-Recognition language. Default: `'en-US'`.
-::
-
-::field{name="continuous" type="boolean"}
-Continuous recognition. If `true`, recognition continues until explicitly stopped. Default: `true`.
-::
-
-::field{name="interimResults" type="boolean"}
-Show interim results. Default: `true`.
-::
-
-::field{name="maxAlternatives" type="number"}
-Maximum number of alternatives for each result. Default: `1`.
-::
+  ::field{name="lang" type="string"}
+  Recognition language. Default: `'en-US'`.
+  ::
+  
+  ::field{name="continuous" type="boolean"}
+  Continuous recognition. If `true`, recognition continues until explicitly stopped. Default: `true`.
+  ::
+  
+  ::field{name="interimResults" type="boolean"}
+  Show interim results. Default: `true`.
+  ::
+  
+  ::field{name="maxAlternatives" type="number"}
+  Maximum number of alternatives for each result. Default: `1`.
+  ::
 
 ::
 
@@ -76,21 +76,21 @@ Maximum number of alternatives for each result. Default: `1`.
 
 ::field-group
 
-::field{name="onStart" type="() => void"}
-Called when recognition starts.
-::
-
-::field{name="onEnd" type="() => void"}
-Called when recognition ends.
-::
-
-::field{name="onError" type="(error: string) => void"}
-Called when a recognition error occurs.
-::
-
-::field{name="onResult" type="(result: SpeechRecognitionResult) => void"}
-Called when a recognition result is received.
-::
+  ::field{name="onStart" type="() => void"}
+  Called when recognition starts.
+  ::
+  
+  ::field{name="onEnd" type="() => void"}
+  Called when recognition ends.
+  ::
+  
+  ::field{name="onError" type="(error: string) => void"}
+  Called when a recognition error occurs.
+  ::
+  
+  ::field{name="onResult" type="(result: SpeechRecognitionResult) => void"}
+  Called when a recognition result is received.
+  ::
 
 ::
 
@@ -104,17 +104,17 @@ The current speech recognition state.
 
 ::field-group
 
-::field{name="isAvailable" type="boolean"}
-Whether speech recognition is available in the current browser.
-::
-
-::field{name="isListening" type="boolean"}
-Whether recognition is currently active.
-::
-
-::field{name="lastRecognizedText" type="string"}
-The last recognized text (accumulated in continuous mode).
-::
+  ::field{name="isAvailable" type="boolean"}
+  Whether speech recognition is available in the current browser.
+  ::
+  
+  ::field{name="isListening" type="boolean"}
+  Whether recognition is currently active.
+  ::
+  
+  ::field{name="lastRecognizedText" type="string"}
+  The last recognized text (accumulated in continuous mode).
+  ::
 
 ::
 
@@ -162,9 +162,9 @@ Sets the recognition language.
 
 ::field-group
 
-::field{name="lang" type="string" required}
-Language code in BCP 47 format (e.g., `'ru-RU'`, `'en-US'`).
-::
+  ::field{name="lang" type="string" required}
+  Language code in BCP 47 format (e.g., `'ru-RU'`, `'en-US'`).
+  ::
 
 ::
 

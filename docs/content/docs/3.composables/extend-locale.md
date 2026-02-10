@@ -53,6 +53,7 @@ Extends an existing locale with the provided options, deeply merging the message
 #### Parameters
 
 ::field-group
+
   ::field{name="locale" type="Locale<M>" required}
   The base locale to extend. Import from `@bitrix24/b24ui-nuxt/locale`.
   ::
@@ -60,29 +61,31 @@ Extends an existing locale with the provided options, deeply merging the message
   ::field{name="options" type="Partial<DefineLocaleOptions<DeepPartial<M>>>" required}
   The properties to override:
 
-  ::collapsible
-    ::field-group
-      ::field{name="name" type="string"}
-      Override the display name of the locale.
-      ::
-
-      ::field{name="code" type="string" required}
-      The code of the locale from [Bitrix24](https://apidocs.bitrix24.com/api-reference/sale/status-lang/sale-status-lang-get-list-langs.html).
-      ::
-
-      ::field{name="locale" type="string"}
-      Override the ISO code of the locale (e.g., `'en-GB'`, `'fr-CA'`).
-      ::
-
-      ::field{name="dir" type="'ltr' | 'rtl'"}
-      Override the text direction of the locale.
-      ::
-
-      ::field{name="messages" type="DeepPartial<M>"}
-      Partial messages object to merge with the base locale. Only specify the messages you want to override.
+    ::collapsible
+  
+      ::field-group
+  
+        ::field{name="name" type="string"}
+        Override the display name of the locale.
+        ::
+  
+        ::field{name="code" type="string" required}
+        The code of the locale from [Bitrix24](https://apidocs.bitrix24.com/api-reference/sale/status-lang/sale-status-lang-get-list-langs.html).
+        ::
+  
+        ::field{name="locale" type="string"}
+        Override the ISO code of the locale (e.g., `'en-GB'`, `'fr-CA'`).
+        ::
+  
+        ::field{name="dir" type="'ltr' | 'rtl'"}
+        Override the text direction of the locale.
+        ::
+  
+        ::field{name="messages" type="DeepPartial<M>"}
+        Partial messages object to merge with the base locale. Only specify the messages you want to override.
+        ::
       ::
     ::
-  ::
   ::
 ::
 

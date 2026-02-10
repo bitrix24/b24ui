@@ -53,6 +53,7 @@
 * feat(Editor): add `size` prop in menus
 * fix(FileUpload): emit null when clearing file
 * feat(EditorMentionMenu): handle async search with `ignoreFilter` prop
+* docs(composables): improve field group parsing
 
 ## [2.2.1](https://github.com/bitrix24/b24ui/compare/v2.1.17...v2.2.1) (2025-12-18)
 

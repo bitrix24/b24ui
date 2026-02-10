@@ -49,32 +49,35 @@ Creates a new locale object with the provided options.
 #### Parameters
 
 ::field-group
+
   ::field{name="options" type="DefineLocaleOptions<M>" required}
   The locale configuration object with the following properties:
 
-  ::collapsible
-    ::field-group
-      ::field{name="name" type="string" required}
-      The display name of the locale (e.g., `'English'`, `'Français'`).
-      ::
-
-      ::field{name="code" type="string" required}
-      The code of the locale from [Bitrix24](https://apidocs.bitrix24.com/api-reference/sale/status-lang/sale-status-lang-get-list-langs.html).
-      ::
-
-      ::field{name="locale" type="string" required}
-      The ISO code of the locale (e.g., `'en'`, `'fr'`, `'de-AT'`).
-      ::
-
-      ::field{name="dir" type="'ltr' | 'rtl'"}
-      The text direction of the locale. Defaults to `'ltr'`.
-      ::
-
-      ::field{name="messages" type="M" required}
-      The translation messages object. Use the `Messages` type from `@bitrix24/b24ui-nuxt` for type safety.
+    ::collapsible
+  
+      ::field-group
+  
+        ::field{name="name" type="string" required}
+        The display name of the locale (e.g., `'English'`, `'Français'`).
+        ::
+  
+        ::field{name="code" type="string" required}
+        The code of the locale from [Bitrix24](https://apidocs.bitrix24.com/api-reference/sale/status-lang/sale-status-lang-get-list-langs.html).
+        ::
+  
+        ::field{name="locale" type="string" required}
+        The ISO code of the locale (e.g., `'en'`, `'fr'`, `'de-AT'`).
+        ::
+  
+        ::field{name="dir" type="'ltr' | 'rtl'"}
+        The text direction of the locale. Defaults to `'ltr'`.
+        ::
+  
+        ::field{name="messages" type="M" required}
+        The translation messages object. Use the `Messages` type from `@bitrix24/b24ui-nuxt` for type safety.
+        ::
       ::
     ::
-  ::
   ::
 ::
 
