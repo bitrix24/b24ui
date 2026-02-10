@@ -1120,3 +1120,17 @@ exports[`FileUpload > renders without preview correctly 1`] = `
   <!--v-if--><input data-hidden="" tabindex="-1" style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); white-space: nowrap; word-wrap: normal; top: -1px; left: -1px;" type="file" accept="*">
 </div>"
 `;
+
+exports[`FileUpload > renders without preview with multiple correctly 1`] = `
+"<div data-slot="root" class="relative flex flex-col style-outline-no-accent">
+  <div role="button" data-dragging="false" data-slot="base" class="w-full flex-1 bg-(--b24ui-background)/90 border-(--b24ui-border-color) border-(length:--b24ui-border-width) text-(--b24ui-color) flex flex-col gap-2 items-stretch justify-center rounded-(--ui-border-radius-md) focus-visible:outline-2 transition-[background] p-4 text-(length:--ui-font-size-sm) border-dashed data-[dragging=true]:bg-(--ui-color-accent-soft-grey-1)/90 focus-visible:outline-inverted hover:bg-elevated/25" tabindex="0">
+    <!--v-if-->
+    <div data-slot="wrapper" class="flex flex-col items-center justify-center text-center px-4 py-3"><span data-slot="root" class="air-secondary-accent inline-flex items-center justify-center select-none rounded-full align-middle bg-(--ui-color-base-8) ring ring-(--ui-color-base-7) size-[32px] text-(length:--ui-font-size-sm)/(--ui-font-line-height-reset) shrink-0"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="text-(--ui-color-design-plain-content-icon-secondary) shrink-0 size-[28px]"><path fill="currentColor" fill-rule="evenodd" d="M17.1 9.028a1.3 1.3 0 0 0-.368-.906l-2.325-2.356a1.24 1.24 0 0 0-.868-.366H8.132c-.648 0-1.232.575-1.232 1.267v10.666c0 .692.584 1.267 1.232 1.267h7.736c.648 0 1.232-.575 1.232-1.267zM13.535 4H8.132C6.684 4 5.5 5.23 5.5 6.667v10.666C5.5 18.771 6.684 20 8.132 20h7.736c1.449 0 2.632-1.23 2.632-2.667V9.031a2.7 2.7 0 0 0-.772-1.893l-2.325-2.356A2.64 2.64 0 0 0 13.535 4" clip-rule="evenodd"></path><path fill="currentColor" fill-rule="evenodd" d="M9.25 15.831a.7.7 0 0 1 .7-.7h4.1a.7.7 0 1 1 0 1.4h-4.1a.7.7 0 0 1-.7-.7M12 7.929a.7.7 0 0 1 .7.7v5a.7.7 0 1 1-1.4 0v-5a.7.7 0 0 1 .7-.7" clip-rule="evenodd"></path><path fill="currentColor" fill-rule="evenodd" d="M12.495 8.134a.7.7 0 0 1 0 .99l-2.05 2.05a.7.7 0 1 1-.99-.99l2.05-2.05a.7.7 0 0 1 .99 0" clip-rule="evenodd"></path><path fill="currentColor" fill-rule="evenodd" d="M11.505 8.134a.7.7 0 0 1 .99 0l2.05 2.05a.7.7 0 1 1-.99.99l-2.05-2.05a.7.7 0 0 1 0-.99" clip-rule="evenodd"></path></svg></span>
+      <!--v-if-->
+      <!--v-if-->
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if--><input data-hidden="" tabindex="-1" style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); white-space: nowrap; word-wrap: normal; top: -1px; left: -1px;" type="file" accept="*" multiple="">
+</div>"
+`;

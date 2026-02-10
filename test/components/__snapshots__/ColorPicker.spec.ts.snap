@@ -1,195 +1,195 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`ColorPicker > renders with as correctly 1`] = `
-"<section data-v-d6f23756="" data-slot="root" class="data-[disabled]:opacity-30">
-  <div data-v-d6f23756="" data-slot="picker" class="flex gap-4">
-    <div data-v-d6f23756="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[168px] h-[168px]" style="background-color: #FF0000;">
-      <div data-v-d6f23756="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
-        <div data-v-d6f23756="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FFFFFF; left: 0%; top: 0%;"></div>
+"<section data-v-c9a043d6="" data-slot="root" class="data-[disabled]:opacity-30">
+  <div data-v-c9a043d6="" data-slot="picker" class="flex gap-4">
+    <div data-v-c9a043d6="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[168px] h-[168px]" style="background-color: #FF0000;">
+      <div data-v-c9a043d6="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
+        <div data-v-c9a043d6="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FFFFFF; left: 0%; top: 0%;"></div>
       </div>
     </div>
-    <div data-v-d6f23756="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[168px]" data-color-picker-track="">
-      <div data-v-d6f23756="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FF0000; top: 0%;"></div>
+    <div data-v-c9a043d6="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[168px]" data-color-picker-track="">
+      <div data-v-c9a043d6="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FF0000; top: 0%;"></div>
     </div>
   </div>
 </section>"
 `;
 
 exports[`ColorPicker > renders with b24ui correctly 1`] = `
-"<div data-v-d6f23756="" data-slot="root" class="data-[disabled]:opacity-30">
-  <div data-v-d6f23756="" data-slot="picker" class="flex gap-8">
-    <div data-v-d6f23756="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[168px] h-[168px]" style="background-color: #FF0000;">
-      <div data-v-d6f23756="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
-        <div data-v-d6f23756="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FFFFFF; left: 0%; top: 0%;"></div>
+"<div data-v-c9a043d6="" data-slot="root" class="data-[disabled]:opacity-30">
+  <div data-v-c9a043d6="" data-slot="picker" class="flex gap-8">
+    <div data-v-c9a043d6="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[168px] h-[168px]" style="background-color: #FF0000;">
+      <div data-v-c9a043d6="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
+        <div data-v-c9a043d6="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FFFFFF; left: 0%; top: 0%;"></div>
       </div>
     </div>
-    <div data-v-d6f23756="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[168px]" data-color-picker-track="">
-      <div data-v-d6f23756="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FF0000; top: 0%;"></div>
+    <div data-v-c9a043d6="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[168px]" data-color-picker-track="">
+      <div data-v-c9a043d6="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FF0000; top: 0%;"></div>
     </div>
   </div>
 </div>"
 `;
 
 exports[`ColorPicker > renders with class correctly 1`] = `
-"<div data-v-d6f23756="" data-slot="root" class="data-[disabled]:opacity-30 w-96">
-  <div data-v-d6f23756="" data-slot="picker" class="flex gap-4">
-    <div data-v-d6f23756="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[168px] h-[168px]" style="background-color: #FF0000;">
-      <div data-v-d6f23756="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
-        <div data-v-d6f23756="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FFFFFF; left: 0%; top: 0%;"></div>
+"<div data-v-c9a043d6="" data-slot="root" class="data-[disabled]:opacity-30 w-96">
+  <div data-v-c9a043d6="" data-slot="picker" class="flex gap-4">
+    <div data-v-c9a043d6="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[168px] h-[168px]" style="background-color: #FF0000;">
+      <div data-v-c9a043d6="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
+        <div data-v-c9a043d6="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FFFFFF; left: 0%; top: 0%;"></div>
       </div>
     </div>
-    <div data-v-d6f23756="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[168px]" data-color-picker-track="">
-      <div data-v-d6f23756="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FF0000; top: 0%;"></div>
+    <div data-v-c9a043d6="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[168px]" data-color-picker-track="">
+      <div data-v-c9a043d6="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FF0000; top: 0%;"></div>
     </div>
   </div>
 </div>"
 `;
 
 exports[`ColorPicker > renders with disabled correctly 1`] = `
-"<div data-v-d6f23756="" data-slot="root" class="data-[disabled]:opacity-30" data-disabled="true">
-  <div data-v-d6f23756="" data-slot="picker" class="flex gap-4">
-    <div data-v-d6f23756="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[168px] h-[168px]" style="background-color: #FF0000;">
-      <div data-v-d6f23756="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
-        <div data-v-d6f23756="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FFFFFF; left: 0%; top: 0%;" data-disabled="true"></div>
+"<div data-v-c9a043d6="" data-slot="root" class="data-[disabled]:opacity-30" data-disabled="true">
+  <div data-v-c9a043d6="" data-slot="picker" class="flex gap-4">
+    <div data-v-c9a043d6="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[168px] h-[168px]" style="background-color: #FF0000;">
+      <div data-v-c9a043d6="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
+        <div data-v-c9a043d6="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FFFFFF; left: 0%; top: 0%;" data-disabled="true"></div>
       </div>
     </div>
-    <div data-v-d6f23756="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[168px]" data-color-picker-track="">
-      <div data-v-d6f23756="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FF0000; top: 0%;" data-disabled="true"></div>
+    <div data-v-c9a043d6="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[168px]" data-color-picker-track="">
+      <div data-v-c9a043d6="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FF0000; top: 0%;" data-disabled="true"></div>
     </div>
   </div>
 </div>"
 `;
 
 exports[`ColorPicker > renders with format cmyk correctly 1`] = `
-"<div data-v-d6f23756="" data-slot="root" class="data-[disabled]:opacity-30">
-  <div data-v-d6f23756="" data-slot="picker" class="flex gap-4">
-    <div data-v-d6f23756="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[168px] h-[168px]" style="background-color: #00FF8C;">
-      <div data-v-d6f23756="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
-        <div data-v-d6f23756="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #00C16A; left: 100%; top: 24.310000000000002%;"></div>
+"<div data-v-c9a043d6="" data-slot="root" class="data-[disabled]:opacity-30">
+  <div data-v-c9a043d6="" data-slot="picker" class="flex gap-4">
+    <div data-v-c9a043d6="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[168px] h-[168px]" style="background-color: #00FF8C;">
+      <div data-v-c9a043d6="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
+        <div data-v-c9a043d6="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #00C16A; left: 100%; top: 24.310000000000002%;"></div>
       </div>
     </div>
-    <div data-v-d6f23756="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[168px]" data-color-picker-track="">
-      <div data-v-d6f23756="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #00FF8C; top: 42.48666666666667%;"></div>
+    <div data-v-c9a043d6="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[168px]" data-color-picker-track="">
+      <div data-v-c9a043d6="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #00FF8C; top: 42.48666666666667%;"></div>
     </div>
   </div>
 </div>"
 `;
 
 exports[`ColorPicker > renders with format hex correctly 1`] = `
-"<div data-v-d6f23756="" data-slot="root" class="data-[disabled]:opacity-30">
-  <div data-v-d6f23756="" data-slot="picker" class="flex gap-4">
-    <div data-v-d6f23756="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[168px] h-[168px]" style="background-color: #00FF8C;">
-      <div data-v-d6f23756="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
-        <div data-v-d6f23756="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #00C16A; left: 100%; top: 24.313726000000003%;"></div>
+"<div data-v-c9a043d6="" data-slot="root" class="data-[disabled]:opacity-30">
+  <div data-v-c9a043d6="" data-slot="picker" class="flex gap-4">
+    <div data-v-c9a043d6="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[168px] h-[168px]" style="background-color: #00FF8C;">
+      <div data-v-c9a043d6="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
+        <div data-v-c9a043d6="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #00C16A; left: 100%; top: 24.313726000000003%;"></div>
       </div>
     </div>
-    <div data-v-d6f23756="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[168px]" data-color-picker-track="">
-      <div data-v-d6f23756="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #00FF8C; top: 42.48704666666667%;"></div>
+    <div data-v-c9a043d6="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[168px]" data-color-picker-track="">
+      <div data-v-c9a043d6="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #00FF8C; top: 42.48704666666667%;"></div>
     </div>
   </div>
 </div>"
 `;
 
 exports[`ColorPicker > renders with format hsl correctly 1`] = `
-"<div data-v-d6f23756="" data-slot="root" class="data-[disabled]:opacity-30">
-  <div data-v-d6f23756="" data-slot="picker" class="flex gap-4">
-    <div data-v-d6f23756="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[168px] h-[168px]" style="background-color: #00FF8C;">
-      <div data-v-d6f23756="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
-        <div data-v-d6f23756="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #00C16A; left: 100%; top: 24.400000000000006%;"></div>
+"<div data-v-c9a043d6="" data-slot="root" class="data-[disabled]:opacity-30">
+  <div data-v-c9a043d6="" data-slot="picker" class="flex gap-4">
+    <div data-v-c9a043d6="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[168px] h-[168px]" style="background-color: #00FF8C;">
+      <div data-v-c9a043d6="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
+        <div data-v-c9a043d6="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #00C16A; left: 100%; top: 24.400000000000006%;"></div>
       </div>
     </div>
-    <div data-v-d6f23756="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[168px]" data-color-picker-track="">
-      <div data-v-d6f23756="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #00FF8C; top: 42.5%;"></div>
+    <div data-v-c9a043d6="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[168px]" data-color-picker-track="">
+      <div data-v-c9a043d6="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #00FF8C; top: 42.5%;"></div>
     </div>
   </div>
 </div>"
 `;
 
 exports[`ColorPicker > renders with format lab correctly 1`] = `
-"<div data-v-d6f23756="" data-slot="root" class="data-[disabled]:opacity-30">
-  <div data-v-d6f23756="" data-slot="picker" class="flex gap-4">
-    <div data-v-d6f23756="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[168px] h-[168px]" style="background-color: #00FF6F;">
-      <div data-v-d6f23756="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
-        <div data-v-d6f23756="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #00C757; left: 100%; top: 22.031043999999994%;"></div>
+"<div data-v-c9a043d6="" data-slot="root" class="data-[disabled]:opacity-30">
+  <div data-v-c9a043d6="" data-slot="picker" class="flex gap-4">
+    <div data-v-c9a043d6="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[168px] h-[168px]" style="background-color: #00FF6F;">
+      <div data-v-c9a043d6="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
+        <div data-v-c9a043d6="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #00C757; left: 100%; top: 22.031043999999994%;"></div>
       </div>
     </div>
-    <div data-v-d6f23756="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[168px]" data-color-picker-track="">
-      <div data-v-d6f23756="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #00FF6F; top: 40.609066111111105%;"></div>
+    <div data-v-c9a043d6="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[168px]" data-color-picker-track="">
+      <div data-v-c9a043d6="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #00FF6F; top: 40.609066111111105%;"></div>
     </div>
   </div>
 </div>"
 `;
 
 exports[`ColorPicker > renders with format rgb correctly 1`] = `
-"<div data-v-d6f23756="" data-slot="root" class="data-[disabled]:opacity-30">
-  <div data-v-d6f23756="" data-slot="picker" class="flex gap-4">
-    <div data-v-d6f23756="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[168px] h-[168px]" style="background-color: #00FF8C;">
-      <div data-v-d6f23756="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
-        <div data-v-d6f23756="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #00C16A; left: 100%; top: 24.313726000000003%;"></div>
+"<div data-v-c9a043d6="" data-slot="root" class="data-[disabled]:opacity-30">
+  <div data-v-c9a043d6="" data-slot="picker" class="flex gap-4">
+    <div data-v-c9a043d6="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[168px] h-[168px]" style="background-color: #00FF8C;">
+      <div data-v-c9a043d6="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
+        <div data-v-c9a043d6="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #00C16A; left: 100%; top: 24.313726000000003%;"></div>
       </div>
     </div>
-    <div data-v-d6f23756="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[168px]" data-color-picker-track="">
-      <div data-v-d6f23756="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #00FF8C; top: 42.48704666666667%;"></div>
+    <div data-v-c9a043d6="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[168px]" data-color-picker-track="">
+      <div data-v-c9a043d6="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #00FF8C; top: 42.48704666666667%;"></div>
     </div>
   </div>
 </div>"
 `;
 
 exports[`ColorPicker > renders with size lg correctly 1`] = `
-"<div data-v-d6f23756="" data-slot="root" class="data-[disabled]:opacity-30">
-  <div data-v-d6f23756="" data-slot="picker" class="flex gap-4">
-    <div data-v-d6f23756="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[176px] h-[176px]" style="background-color: #FF0000;">
-      <div data-v-d6f23756="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
-        <div data-v-d6f23756="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FFFFFF; left: 0%; top: 0%;"></div>
+"<div data-v-c9a043d6="" data-slot="root" class="data-[disabled]:opacity-30">
+  <div data-v-c9a043d6="" data-slot="picker" class="flex gap-4">
+    <div data-v-c9a043d6="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[176px] h-[176px]" style="background-color: #FF0000;">
+      <div data-v-c9a043d6="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
+        <div data-v-c9a043d6="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FFFFFF; left: 0%; top: 0%;"></div>
       </div>
     </div>
-    <div data-v-d6f23756="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[176px]" data-color-picker-track="">
-      <div data-v-d6f23756="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FF0000; top: 0%;"></div>
+    <div data-v-c9a043d6="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[176px]" data-color-picker-track="">
+      <div data-v-c9a043d6="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FF0000; top: 0%;"></div>
     </div>
   </div>
 </div>"
 `;
 
 exports[`ColorPicker > renders with size md correctly 1`] = `
-"<div data-v-d6f23756="" data-slot="root" class="data-[disabled]:opacity-30">
-  <div data-v-d6f23756="" data-slot="picker" class="flex gap-4">
-    <div data-v-d6f23756="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[168px] h-[168px]" style="background-color: #FF0000;">
-      <div data-v-d6f23756="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
-        <div data-v-d6f23756="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FFFFFF; left: 0%; top: 0%;"></div>
+"<div data-v-c9a043d6="" data-slot="root" class="data-[disabled]:opacity-30">
+  <div data-v-c9a043d6="" data-slot="picker" class="flex gap-4">
+    <div data-v-c9a043d6="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[168px] h-[168px]" style="background-color: #FF0000;">
+      <div data-v-c9a043d6="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
+        <div data-v-c9a043d6="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FFFFFF; left: 0%; top: 0%;"></div>
       </div>
     </div>
-    <div data-v-d6f23756="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[168px]" data-color-picker-track="">
-      <div data-v-d6f23756="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FF0000; top: 0%;"></div>
+    <div data-v-c9a043d6="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[168px]" data-color-picker-track="">
+      <div data-v-c9a043d6="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FF0000; top: 0%;"></div>
     </div>
   </div>
 </div>"
 `;
 
 exports[`ColorPicker > renders with size sm correctly 1`] = `
-"<div data-v-d6f23756="" data-slot="root" class="data-[disabled]:opacity-30">
-  <div data-v-d6f23756="" data-slot="picker" class="flex gap-4">
-    <div data-v-d6f23756="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[160px] h-[160px]" style="background-color: #FF0000;">
-      <div data-v-d6f23756="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
-        <div data-v-d6f23756="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FFFFFF; left: 0%; top: 0%;"></div>
+"<div data-v-c9a043d6="" data-slot="root" class="data-[disabled]:opacity-30">
+  <div data-v-c9a043d6="" data-slot="picker" class="flex gap-4">
+    <div data-v-c9a043d6="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[160px] h-[160px]" style="background-color: #FF0000;">
+      <div data-v-c9a043d6="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
+        <div data-v-c9a043d6="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FFFFFF; left: 0%; top: 0%;"></div>
       </div>
     </div>
-    <div data-v-d6f23756="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[160px]" data-color-picker-track="">
-      <div data-v-d6f23756="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FF0000; top: 0%;"></div>
+    <div data-v-c9a043d6="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[160px]" data-color-picker-track="">
+      <div data-v-c9a043d6="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FF0000; top: 0%;"></div>
     </div>
   </div>
 </div>"
 `;
 
 exports[`ColorPicker > renders with size xs correctly 1`] = `
-"<div data-v-d6f23756="" data-slot="root" class="data-[disabled]:opacity-30">
-  <div data-v-d6f23756="" data-slot="picker" class="flex gap-4">
-    <div data-v-d6f23756="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[152px] h-[152px]" style="background-color: #FF0000;">
-      <div data-v-d6f23756="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
-        <div data-v-d6f23756="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FFFFFF; left: 0%; top: 0%;"></div>
+"<div data-v-c9a043d6="" data-slot="root" class="data-[disabled]:opacity-30">
+  <div data-v-c9a043d6="" data-slot="picker" class="flex gap-4">
+    <div data-v-c9a043d6="" data-slot="selector" class="rounded-(--ui-border-radius-md) touch-none w-[152px] h-[152px]" style="background-color: #FF0000;">
+      <div data-v-c9a043d6="" data-slot="selectorBackground" class="w-full h-full relative rounded-(--ui-border-radius-md)" data-color-picker-background="">
+        <div data-v-c9a043d6="" data-slot="selectorThumb" class="-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FFFFFF; left: 0%; top: 0%;"></div>
       </div>
     </div>
-    <div data-v-d6f23756="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[152px]" data-color-picker-track="">
-      <div data-v-d6f23756="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FF0000; top: 0%;"></div>
+    <div data-v-c9a043d6="" data-slot="track" class="w-[8px] relative rounded-(--ui-border-radius-md) touch-none h-[152px]" data-color-picker-track="">
+      <div data-v-c9a043d6="" data-slot="trackThumb" class="absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed" style="background-color: #FF0000; top: 0%;"></div>
     </div>
   </div>
 </div>"
