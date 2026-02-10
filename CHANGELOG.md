@@ -56,6 +56,9 @@
 * docs(composables): improve field group parsing
 * docs(installation): resolve missing theme prop types in vue
 * feat(components): add `valueKey` prop
+* feat(components): add `by` prop
+* docs(popover): improve command palette example
+* docs(tabs): improve model value examples
 
 ## [2.2.1](https://github.com/bitrix24/b24ui/compare/v2.1.17...v2.2.1) (2025-12-18)
 
