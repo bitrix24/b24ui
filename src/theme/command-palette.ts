@@ -127,7 +127,7 @@ export default {
         input: 'ps-[40px] pe-[44px]', // [&>input]:h-12
         empty: 'py-6 text-(length:--ui-font-size-sm)',
         label: 'p-[6px] text-(length:--ui-font-size-xs) gap-[6px]',
-        item: 'p-[6px] text-(length:--ui-font-size-sm) gap-[6px]',
+        item: 'p-[6px] text-(length:--ui-font-size-md) gap-[6px]',
         itemLeadingIcon: 'size-[20px]',
         itemLeadingAvatarSize: '2xs',
         itemLeadingChip: 'size-[20px]',

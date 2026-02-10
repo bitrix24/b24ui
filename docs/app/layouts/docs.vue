@@ -23,7 +23,7 @@ const isSearchActive = computed(() => route.path.startsWith('/docs/components'))
 const navigationKey = computed(() => `${route.path}-${searchTerm.value ? 'filtered' : 'unfiltered'}`)
 
 watch(() => route.path, () => {
-  if (!isActiveSearch.value) {
+  if (!isSearchActive.value) {
     searchTerm.value = ''
   }
 })

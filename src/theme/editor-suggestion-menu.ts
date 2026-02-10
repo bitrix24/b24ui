@@ -29,26 +29,24 @@ export default {
     group: 'grid', // p-1 isolate
     label: [
       'w-full h-(--popup-window-delimiter-section-height)',
-      'px-[18px] mt-(--menu-item-block-stack-space)',
+      'mt-(--menu-item-block-stack-space)',
       'flex flex-row rtl:flex-row-reverse items-center',
       'select-none outline-none whitespace-nowrap',
       'text-start',
-      'text-(length:--ui-size-sm)',
       'text-(--b24ui-typography-legend-color)',
       'font-(--ui-font-weight-normal)',
       'after:ms-[10px] after:block after:flex-1 after:min-w-[15px] after:h-px after:bg-(--ui-color-divider-vibrant-default)'
     ].join(' '),
     item: [
       'group',
-      'w-full h-[36px]', // min-w-[195px]
-      'px-[18px] mt-(--menu-item-block-stack-space)',
+      'w-full ', // min-w-[195px]
+      'mt-(--menu-item-block-stack-space)',
       'relative',
       'flex flex-row rtl:flex-row-reverse items-center',
       'select-none outline-none whitespace-nowrap',
       'cursor-pointer',
       'data-disabled:cursor-not-allowed data-disabled:opacity-30',
       'text-start',
-      'text-(length:--ui-font-size-md)',
       'text-(--b24ui-typography-legend-color) hover:text-(--b24ui-typography-label-color)',
       'data-highlighted:text-(--b24ui-typography-label-color)',
       'data-[state=open]:text-(--b24ui-typography-label-color)',
@@ -59,15 +57,14 @@ export default {
     ].join(' '),
     itemLeadingIcon: [
       'shrink-0',
-      'size-[18px]',
       'text-(--ui-color-design-plain-content-icon-secondary)',
       'group-data-highlighted:text-(--ui-color-accent-main-primary)',
       'group-data-[state=open]:text-(--ui-color-accent-main-primary)',
       'group-data-[state=checked]:text-(--ui-color-accent-main-primary)',
       'transition-colors'
     ].join(' '),
-    itemLeadingAvatar: 'shrink-0 size-[16px] me-[8px]', // @memo 18-2px
-    itemLeadingAvatarSize: '2xs', // @memo this wrong
+    itemLeadingAvatar: 'shrink-0',
+    itemLeadingAvatarSize: '',
     itemWrapper: 'ms-[4px] flex-1 flex flex-col text-start min-w-0',
     itemLabel: [
       'max-w-[240px] truncate -mt-px',
@@ -77,6 +74,47 @@ export default {
     itemLabelExternalIcon: 'inline-block size-[16px] text-(--ui-color-design-plain-content-icon-secondary)'
   },
   variants: {
+    size: {
+      xss: {
+        label: 'px-[14px] text-(length:--ui-font-size-4xs)/[normal] gap-[14px]',
+        item: 'px-[14px] :text-(length:--ui-font-size-4xs)/[normal] gap-[14px]',
+        itemLeadingIcon: 'size-4 text-(length:--ui-font-size-sm)/[normal]',
+        itemLeadingAvatarSize: '3xs'
+      },
+      xs: {
+        label: 'px-[14px] text-(length:--ui-font-size-4xs)/[normal] gap-[14px]',
+        item: 'px-[14px] :text-(length:--ui-font-size-xs)/[normal] gap-[14px]',
+        itemLeadingIcon: 'size-4 text-(length:--ui-font-size-sm)/[normal]',
+        itemLeadingAvatarSize: '3xs'
+      },
+      sm: {
+        label: 'px-[18px] text-(length:--ui-font-size-xs)/[normal] gap-[18px]',
+        item: 'px-[18px] :text-(length:--ui-font-size-xs)/[normal] gap-[18px]',
+        itemLeadingIcon: 'size-4 text-(length:--ui-font-size-sm)/[normal]',
+        itemLeadingAvatarSize: '3xs'
+      },
+      md: {
+        label: 'px-[18px] text-(length:--ui-font-size-sm)/[normal] gap-[18px]',
+        item: 'h-[36px] px-[18px] text-(length:--ui-font-size-sm)/[normal] gap-[18px]',
+        itemLeadingIcon: 'size-[18px] text-(length:--ui-font-size-lg)/[normal]',
+        itemLeadingAvatar: 'size-[16px] me-[8px]', // @memo 18-2px
+        itemLeadingAvatarSize: '2xs' // @memo this wrong
+      },
+      lg: {
+        label: 'px-[20px] :text-(length:--ui-font-size-sm)/[normal] gap-[20px]',
+        item: 'px-[20px] text-(length:--ui-font-size-sm)/[normal] gap-[20px]',
+        itemLeadingIcon: 'size-[18px] text-(length:--ui-font-size-lg)/[normal]',
+        itemLeadingAvatar: 'size-[16px] me-[8px]', // @memo 18-2px
+        itemLeadingAvatarSize: '2xs' // @memo this wrong
+      },
+      xl: {
+        label: 'px-[20px] text-(length:--ui-font-size-sm)/[normal] gap-[20px]',
+        item: 'px-[20px] text-(length:--ui-font-size-lg)/[normal] gap-[20px]',
+        itemLeadingIcon: 'size-[20px] text-(length:--ui-font-size-2xl)/[normal]',
+        itemLeadingAvatar: 'size-[16px] me-[8px]', // @memo 18-2px
+        itemLeadingAvatarSize: 'xs' // @memo this wrong
+      }
+    },
     active: {
       true: {
         item: [
@@ -91,5 +129,8 @@ export default {
       },
       false: {}
     }
+  },
+  defaultVariants: {
+    size: 'md'
   }
 }

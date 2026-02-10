@@ -21,6 +21,10 @@ export interface EditorMentionMenuItem {
 }
 
 export interface EditorMentionMenuProps<T extends EditorMentionMenuItem = EditorMentionMenuItem> extends Partial<Pick<EditorMenuOptions<T>, 'editor' | 'char' | 'pluginKey' | 'filterFields' | 'limit' | 'options' | 'appendTo'>> {
+  /**
+   * @defaultValue 'md'
+   */
+  size?: EditorMentionMenu['variants']['size']
   items?: T[] | T[][]
   class?: any
   b24ui?: EditorMentionMenu['slots']
@@ -43,8 +47,9 @@ const props = withDefaults(defineProps<EditorMentionMenuProps<T>>(), {
 
 const appConfig = useAppConfig() as EditorMentionMenu['AppConfig']
 
-// eslint-disable-next-line vue/no-dupe-keys
-const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.editorMentionMenu || {}) })())
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.editorMentionMenu || {}) })({
+  size: props.size
+}))
 
 let menu: ReturnType<typeof useEditorMenu> | null = null
 

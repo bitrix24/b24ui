@@ -26,7 +26,7 @@ export default {
         input: '[&>input]:text-(length:--ui-font-size-sm)/[normal]'
       },
       md: {
-        input: '[&>input]:text-(length:--ui-font-size-lg)/[normal]'
+        input: '[&>input]:text-(length:--ui-font-size-md)/[normal]'
       },
       lg: {
         input: '[&>input]:text-(length:--ui-font-size-lg)/[normal]'
