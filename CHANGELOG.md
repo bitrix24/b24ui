@@ -35,6 +35,7 @@
 * **Editor:** support all heading levels by default
 * **EditorToolbar:** prevent `onClick` from being called twice on items
 * **EditorToolbar:** prevent disabled dropdown when items have no kind
+* **EditorToolbar:** proxy size prop to dropdown menu
 * **Error:** render as `main` instead of `div`
 * **FileUpload:** emit null when clearing file
 * **FileUpload:** keep input visible when preview is disabled with multiple files
