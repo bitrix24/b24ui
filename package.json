@@ -200,7 +200,7 @@
     "unplugin-auto-import": "^21.0.0",
     "unplugin-vue-components": "^31.0.0",
     "vaul-vue": "0.4.1",
-    "vue-component-type-helpers": "^3.2.2"
+    "vue-component-type-helpers": "^3.2.4"
   },
   "devDependencies": {
     "@floating-ui/dom": "^1.7.4",
@@ -225,7 +225,7 @@
     "vitest-axe": "^0.1.0",
     "vitest-environment-nuxt": "^1.0.1",
     "vue": "^3.5.25",
-    "vue-tsc": "^3.2.2"
+    "vue-tsc": "^3.2.4"
   },
   "peerDependencies": {
     "@inertiajs/vue3": "^2.0.7",

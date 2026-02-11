@@ -221,7 +221,7 @@ importers:
         specifier: 0.4.1
         version: 0.4.1(reka-ui@2.7.0(typescript@5.8.3)(vue@3.5.28(typescript@5.8.3)))(vue@3.5.28(typescript@5.8.3))
       vue-component-type-helpers:
-        specifier: ^3.2.2
+        specifier: ^3.2.4
         version: 3.2.4
       vue-router:
         specifier: ^4.5.0
@@ -300,7 +300,7 @@ importers:
         specifier: ^3.5.25
         version: 3.5.28(typescript@5.8.3)
       vue-tsc:
-        specifier: ^3.2.2
+        specifier: ^3.2.4
         version: 3.2.4(typescript@5.8.3)
 
   cli:
@@ -499,7 +499,7 @@ importers:
         specifier: 5.8.3
         version: 5.8.3
       vue-tsc:
-        specifier: ^3.2.2
+        specifier: ^3.2.4
         version: 3.2.4(typescript@5.8.3)
 
   playgrounds/nuxt:
@@ -554,7 +554,7 @@ importers:
         specifier: 5.8.3
         version: 5.8.3
       vue-tsc:
-        specifier: ^3.2.2
+        specifier: ^3.2.4
         version: 3.2.4(typescript@5.8.3)
 
   playgrounds/vue:
@@ -600,7 +600,7 @@ importers:
         specifier: ^7.2.7
         version: 7.3.1(@types/node@24.10.12)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
       vue-tsc:
-        specifier: ^3.2.2
+        specifier: ^3.2.4
         version: 3.2.4(typescript@5.8.3)
 
 packages:
