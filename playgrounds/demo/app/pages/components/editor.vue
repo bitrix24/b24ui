@@ -5,9 +5,9 @@ import type { JSONContent } from '@tiptap/vue-3'
 import { mapEditorItems } from '@bitrix24/b24ui-nuxt/utils/editor'
 import { Emoji, gitHubEmojis } from '@tiptap/extension-emoji'
 import { TextAlign } from '@tiptap/extension-text-align'
-import { ImageUpload } from '../../../../../docs/app/components/content/examples/editor/EditorImageUpload'
-// import { useEditorCompletion } from '../../../../../docs/app/components/content/examples/editor/EditorUseCompletion'
-import EditorLinkPopover from '../../../../../docs/app/components/content/examples/editor/EditorLinkPopover.vue'
+import { ImageUpload } from '../../components/editor/EditorImageUploadExtension'
+import { useEditorCompletion } from '../../composables/useEditorCompletion'
+import EditorLinkPopover from '../../components/editor/EditorLinkPopover.vue'
 import UndoIcon from '@bitrix24/b24icons-vue/outline/UndoIcon'
 import RedoIcon from '@bitrix24/b24icons-vue/outline/RedoIcon'
 import MentionIcon from '@bitrix24/b24icons-vue/outline/MentionIcon'
@@ -247,6 +247,14 @@ const toolbarItems = computed(() => [
           kind: 'heading',
           level: 4,
           label: 'Heading 4'
+        }, {
+          kind: 'heading',
+          level: 5,
+          label: 'Heading 5'
+        }, {
+          kind: 'heading',
+          level: 6,
+          label: 'Heading 6'
         }
       ]
     },

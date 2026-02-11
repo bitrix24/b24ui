@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { TableColumn } from '@bitrix24/b24ui-nuxt'
+import type { UseSortableOptions } from '@vueuse/integrations/useSortable'
 import { useSortable } from '@vueuse/integrations/useSortable'
 
 type Payment = {
@@ -75,7 +76,7 @@ const columns: TableColumn<Payment>[] = [{
 
 useSortable('.my-table-tbody', data, {
   animation: 150
-})
+} as UseSortableOptions)
 </script>
 
 <template>

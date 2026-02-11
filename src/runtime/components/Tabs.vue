@@ -117,7 +117,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.tabs |
   orientation: props.orientation
 }))
 
-const triggersRef = ref<ComponentPublicInstance[]>([])
+const triggersRef = ref<any[]>([])
 
 defineExpose({
   triggersRef
@@ -142,7 +142,7 @@ defineExpose({
       <TabsTrigger
         v-for="(item, index) of items"
         :key="index"
-        :ref="el => (triggersRef[index] = el as ComponentPublicInstance)"
+        :ref="el => (triggersRef[index] = el as unknown as ComponentPublicInstance)"
         :value="get(item, props.valueKey as string) ?? String(index)"
         :disabled="item.disabled"
         data-slot="trigger"

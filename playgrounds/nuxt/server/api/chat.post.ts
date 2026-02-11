@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
     model: deepseek('deepseek-reasoner'),
     maxOutputTokens: 1000,
     system: `You are a helpful assistant for Bitrix24 UI, a UI library for Nuxt and Vue.`,
-    messages: convertToModelMessages(messages),
+    messages: await convertToModelMessages(messages),
     stopWhen: stepCountIs(6),
     providerOptions: {
       openai: {

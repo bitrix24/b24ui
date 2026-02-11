@@ -115,7 +115,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.inputT
   fieldGroup: orientation.value
 }))
 
-const inputsRef = ref<ComponentPublicInstance[]>([])
+const inputsRef = ref<any[]>([])
 
 function onUpdate(value: any) {
   // @ts-expect-error - 'target' does not exist in type 'EventInit'
@@ -178,7 +178,7 @@ defineExpose({
     <TimeFieldInput
       v-for="(segment, index) in segments"
       :key="`${segment.part}-${index}`"
-      :ref="el => (inputsRef[index] = el as ComponentPublicInstance)"
+      :ref="el => (inputsRef[index] = el as unknown as ComponentPublicInstance)"
       :part="segment.part"
       data-slot="segment"
       :class="b24ui.segment({ class: props.b24ui?.segment })"

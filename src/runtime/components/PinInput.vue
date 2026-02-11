@@ -90,7 +90,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pinInp
   underline: Boolean(props.underline)
 }))
 
-const inputsRef = ref<ComponentPublicInstance[]>([])
+const inputsRef = ref<any[]>([])
 
 const completed = ref(false)
 function onComplete(value: string[] | number[]) {
@@ -140,7 +140,7 @@ defineExpose({
     <PinInputInput
       v-for="(ids, index) in looseToNumber(props.length)"
       :key="ids"
-      :ref="el => (inputsRef[index as number] = el as ComponentPublicInstance)"
+      :ref="el => (inputsRef[index as number] = el as unknown as ComponentPublicInstance)"
       :index="(index as number)"
       data-slot="base"
       :class="b24ui.base({ class: props.b24ui?.base })"
