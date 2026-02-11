@@ -8,6 +8,7 @@ import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import MockContentLongString from '../../components/MockContentLongString.vue'
 import MockContentLongText from '../../components/MockContentLongText.vue'
 import MockContentUploadFile from '../../components/MockContentUploadFile.vue'
+import NotificationIcon from '@bitrix24/b24icons-vue/outline/NotificationIcon'
 
 usePageMeta.setPageTitle('Modal')
 
@@ -16,6 +17,7 @@ const LazyModalExample = defineAsyncComponent(() => import('../../components/Mod
 const open = ref(false)
 const count = ref(0)
 const overlay = useOverlay()
+const toast = useToast()
 
 const modal = overlay.create(LazyModalExample, {
   props: {
@@ -29,6 +31,15 @@ function openModal() {
   modal.open({
     description: 'And you can even provide a description!',
     count: count.value
+  })
+}
+
+function showToast() {
+  toast.add({
+    title: 'Toast displayed!',
+    description: 'This toast was triggered from the modal.',
+    color: 'success',
+    icon: 'i-lucide-check-circle'
   })
 }
 </script>
@@ -229,6 +240,18 @@ function openModal() {
             <div>
               <B24Button label="Full version" size="sm" color="air-tertiary-no-accent" />
             </div>
+          </template>
+        </B24Modal>
+
+        <B24Modal title="Modal with toast" description="Touch bug repro: tap 'Show Toast' multiple times, modal closes unexpectedly on touch devices.">
+          <B24Button label="Open with toast" />
+
+          <template #body>
+            <B24Button
+              label="Show Toast"
+              :icon="NotificationIcon"
+              @click="showToast"
+            />
           </template>
         </B24Modal>
       </div>

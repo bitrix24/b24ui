@@ -65,6 +65,7 @@ import { Popover, HoverCard } from 'reka-ui/namespaced'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { usePortal } from '../composables/usePortal'
+import { pointerDownOutside } from '../utils/overlay'
 import { tv } from '../utils/tv'
 
 const props = withDefaults(defineProps<PopoverProps<M>>(), {
@@ -96,7 +97,9 @@ const contentEvents = computed(() => {
     }, {} as Record<typeof events[number], (e: Event) => void>)
   }
 
-  return {}
+  return {
+    pointerDownOutside
+  }
 })
 
 const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10 }) as PopoverArrowProps)

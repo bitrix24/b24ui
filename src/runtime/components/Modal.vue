@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { DialogRootProps, DialogRootEmits, DialogContentProps, DialogContentEmits } from 'reka-ui'
+import type { DialogRootProps, DialogRootEmits, DialogContentProps, DialogContentEmits, PointerDownOutsideEvent } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/modal'
 import type { ButtonProps, IconComponent, LinkPropsKeys } from '../types'
@@ -95,6 +95,7 @@ import { reactivePick, createReusableTemplate } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useLocale } from '../composables/useLocale'
 import { usePortal } from '../composables/usePortal'
+import { pointerDownOutside } from '../utils/overlay'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Button from './Button.vue'
@@ -131,20 +132,9 @@ const contentEvents = computed(() => {
     }, {} as Record<typeof events[number], (e: Event) => void>)
   }
 
-  if (props.scrollable) {
-    return {
-      // FIXME: This is a workaround to prevent the modal from closing when clicking on the scrollbar https://reka-ui.com/docs/components/dialog#scrollable-overlay but it's not working on Mac OS.
-      pointerDownOutside: (e: any) => {
-        const originalEvent = e.detail.originalEvent
-        const target = originalEvent.target as HTMLElement
-        if (originalEvent.offsetX > target.clientWidth || originalEvent.offsetY > target.clientHeight) {
-          e.preventDefault()
-        }
-      }
-    }
+  return {
+    pointerDownOutside: (e: PointerDownOutsideEvent) => pointerDownOutside(e, { scrollable: props.scrollable })
   }
-
-  return {}
 })
 
 const [DefineContentTemplate, ReuseContentTemplate] = createReusableTemplate()
