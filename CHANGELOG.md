@@ -1,75 +1,44 @@
 # Changelog
 
-## [2.2.2](https://github.com/bitrix24/b24ui/compare/v2.2.1...v2.2.2) (2026-02-xx)
+## [2.3.0](https://github.com/bitrix24/b24ui/compare/v2.2.1...v2.3.0) (2026-02-xx)
 
-* feat(Prose\Callout): add some icons
-* chore(deps): update tiptap to v3.14.0
-* chore(deps): update all non-major dependencies
-* fix(CommandPalette/ContextMenu/DropdownMenu): keyboard selection on link items
-* chore(deps): update vue-tsc to ^3.2.1
-* docs: improve marketing and llms.txt
-* chore(deps): update dependency reka-ui to v2.7.0
-* feat(InputMenu/SelectMenu): add `clear` prop
-* feat(CommandPalette): add `input` prop
-* feat(CommandPalette/InputMenu/SelectMenu/Tree): handle virtualizer `estimateSize` as function
-* fix(Editor): set `contentType` when updating value
-* fix(EditorToolbar): prevent disabled dropdown when items have no kind
-* fix(EditorToolbar): prevent `onClick` from being called twice on items
-* fix(Banner): prevent XSS via id prop injection
-* docs(components): properly escape markdown in prop type rendering
-* docs(avatar): add tip on how to opt-out of Nuxt Image
-* fix(module): only override `primary` color and `md` size default variants
-* docs(input-menu/select-menu): improve `clear` selection
-* docs(app): reset navigation state on search clear
-* docs(editor): improve prosemirror warning
-* feat(Editor): handle boolean in `image` and `mention` props
-* chore(deps): update tiptap to ^3.15.0
-* docs(table): improve examples to use meta
-* feat(Editor): add `placeholder.mode` prop
-* chore(deps): update tiptap
-* docs(editor): improve extensions in examples
-* fix(useOverlay): refine close event argument extraction
-* docs(ComponentTheme): prevent hydration warnings
-* docs(editor): improve completion example
-* docs(content-search): duplicate async data key
-* docs(components): consistent kbd spacing
-* feat(ProseTd/ProseTh): handle `align` prop
-* feat(Editor): add support for code inside links
-* fix(ContentSurround): align next link to right on tablet without prev
-* feat(InputMenu/Select/SelectMenu): expose `viewportRef` for infinite scroll
-* feat(Editor): add `taskList` handler
-* docs: add `@nuxt/a11y` module
-* chore(deps): remove `shamefully-hoist` option
-* chore(deps): update all non-major dependencies
-* docs(chat-messages): prevent XSS by rendering user messages as plain text
-* chore(deps): update vue-tsc to ^3.2.2
-* fix(Error): render as `main` instead of `div`
-* docs(use-overlay): add confirm dialog example
-* fix(CommandPalette): prevent XSS in search highlight
-* feat(Timeline/Stepper): add wrapper slot and fix dynamic slot conditions
-* feat(CommandPalette): add `size` prop
-* docs: send back markdown if accept header is `text/markdown`
-* fix(FileUpload): keep input visible when preview is disabled with multiple files
-* feat(Editor): add `size` prop in menus
-* fix(FileUpload): emit null when clearing file
-* feat(EditorMentionMenu): handle async search with `ignoreFilter` prop
-* docs(composables): improve field group parsing
-* docs(installation): resolve missing theme prop types in vue
-* feat(components): add `valueKey` prop
-* feat(components): add `by` prop
-* docs(popover): improve command palette example
-* docs(tabs): improve model value examples
-* fix(Banner): isolate banner visibility using per-instance CSS variables
-* chore(deps): update dependency unplugin-auto-import to v21
-* fix(defineShortcuts): check shift modifier for special character shortcuts
-* feat(Link): support custom navigate function in vue
-* feat(Calendar): add `weekNumbers` prop
-* fix(Editor): support all heading levels by default
-* docs(i18n): improve locale documentation for date/time formatting
-* feat(Timeline): add `select` event
-* docs(components): add missing external types
-* docs(llms): improve mdc transform
-* docs(mcp): add sections param to tools for reduced response size
+### Features
+
+* **Calendar:** add `weekNumbers` prop
+* **CommandPalette/InputMenu/SelectMenu:** handle virtualizer `estimateSize` as function
+* **CommandPalette:** add `input` prop
+* **CommandPalette:** add `size` prop
+* **components:** add `by` prop
+* **components:** add `valueKey` prop
+* **Editor:** add `placeholder.mode` prop
+* **Editor:** add `size` prop in menus
+* **Editor:** add `taskList` handler
+* **Editor:** add support for code inside links
+* **Editor:** handle boolean in `image` and `mention` props
+* **EditorMentionMenu:** handle async search with `ignoreFilter` prop
+* **InputMenu/Select/SelectMenu:** expose `viewportRef` for infinite scroll
+* **InputMenu/SelectMenu:** add `clear` prop
+* **Link:** support custom navigate function in vue
+* **ProseTd/ProseTh:** handle `align` prop
+* **Timeline/Stepper:** add wrapper slot and fix dynamic slot conditions
+* **Timeline:** add `select` event
+
+### Bug Fixes
+
+* **Banner:** isolate banner visibility using per-instance CSS variables
+* **Banner:** prevent XSS via id prop injection
+* **CommandPalette/ContextMenu/DropdownMenu:** keyboard selection on link items
+* **CommandPalette:** prevent XSS in search highlight
+* **ContentSurround:** align next link to right on tablet without prev
+* **defineShortcuts:** check shift modifier for special character shortcuts
+* **Editor:** set `contentType` when updating value
+* **Editor:** support all heading levels by default
+* **EditorToolbar:** prevent `onClick` from being called twice on items
+* **EditorToolbar:** prevent disabled dropdown when items have no kind
+* **Error:** render as `main` instead of `div`
+* **FileUpload:** emit null when clearing file
+* **FileUpload:** keep input visible when preview is disabled with multiple files
+* **useOverlay:** refine close event argument extraction
 
 ## [2.2.1](https://github.com/bitrix24/b24ui/compare/v2.1.17...v2.2.1) (2025-12-18)
 
