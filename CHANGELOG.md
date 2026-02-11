@@ -16,6 +16,7 @@
 * **Editor:** add support for code inside links
 * **Editor:** handle boolean in `image` and `mention` props
 * **EditorMentionMenu:** handle async search with `ignoreFilter` prop
+* **EditorDragHandle:** proxy `nested` / `nestedOptions` props and emit `hover` event
 * **InputMenu/Select/SelectMenu:** expose `viewportRef` for infinite scroll
 * **InputMenu/SelectMenu:** add `clear` prop
 * **Link:** support custom navigate function in vue
