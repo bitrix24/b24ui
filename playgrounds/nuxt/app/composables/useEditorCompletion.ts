@@ -9,7 +9,7 @@ export interface UseEditorCompletionOptions {
 }
 
 export function useEditorCompletion(editorRef: Ref<{ editor: any | undefined } | null | undefined>, options: UseEditorCompletionOptions = {}) {
-  const config = useRuntimeConfig()
+  const config = typeof useRuntimeConfig === 'function' ? useRuntimeConfig() : { public: { useAI: false, baseUrl: '' } }
   const isUseAI = config.public?.useAI === true
 
   // State for direct insertion/transform mode

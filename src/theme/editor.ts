@@ -21,14 +21,16 @@ export default {
       // Mentions
       '[&_.mention]:text-(--ui-color-accent-main-primary) [&_.mention]:font-(--ui-font-weight-medium)',
       // Headings - shared styles
-      '[&_:is(h1,h2,h3,h4)]:text-(--b24ui-typography-label-color) [&_:is(h1,h2,h3,h4)]:font-(--ui-font-weight-bold)',
+      '[&_:is(h1,h2,h3,h4,h5,h6)]:text-(--b24ui-typography-label-color) [&_:is(h1,h2,h3,h4,h5,h6)]:font-(--ui-font-weight-bold)',
       // Headings - unique styles
       '[&_h1]:text-3xl',
       '[&_h2]:text-2xl',
       '[&_h3]:text-xl',
       '[&_h4]:text-lg',
+      '[&_h5]:text-md',
+      '[&_h6]:text-md',
       // Code inside headings
-      '[&_:is(h1,h2,h3,h4)>code]:border-dashed [&_:is(h1,h2,h3,h4)>code]:font-(--ui-font-weight-bold)',
+      '[&_:is(h1,h2,h3,h4,h5,h6)>code]:border-dashed [&_:is(h1,h2,h3,h4,h5,h6)>code]:font-(--ui-font-weight-bold)',
       '[&_h2>code]:text-xl/6',
       '[&_h3>code]:text-lg/5',
       // Blockquote & HR
@@ -54,10 +56,10 @@ export default {
   variants: {
     placeholderMode: {
       firstLine: {
-        base: '[&_:is(p,h1,h2,h3,h4).is-editor-empty:first-child]:before:content-[attr(data-placeholder)] [&_:is(p,h1,h2,h3,h4).is-editor-empty:first-child]:before:text-(--b24ui-typography-description-color) [&_:is(p,h1,h2,h3,h4).is-editor-empty:first-child]:before:float-left [&_:is(p,h1,h2,h3,h4).is-editor-empty:first-child]:before:h-0 [&_:is(p,h1,h2,h3,h4).is-editor-empty:first-child]:before:pointer-events-none'
+        base: '[&_:is(p,h1,h2,h3,h4,h5,h6).is-editor-empty:first-child]:before:content-[attr(data-placeholder)] [&_:is(p,h1,h2,h3,h4,h5,h6).is-editor-empty:first-child]:before:text-(--b24ui-typography-description-color) [&_:is(p,h1,h2,h3,h4,h5,h6).is-editor-empty:first-child]:before:float-left [&_:is(p,h1,h2,h3,h4,h5,h6).is-editor-empty:first-child]:before:h-0 [&_:is(p,h1,h2,h3,h4,h5,h6).is-editor-empty:first-child]:before:pointer-events-none'
       },
       everyLine: {
-        base: '[&_:is(p,h1,h2,h3,h4).is-empty]:before:content-[attr(data-placeholder)] [&_:is(p,h1,h2,h3,h4).is-empty]:before:text-(--b24ui-typography-description-color) [&_:is(p,h1,h2,h3,h4).is-empty]:before:float-left [&_:is(p,h1,h2,h3,h4).is-empty]:before:h-0 [&_:is(p,h1,h2,h3,h4).is-empty]:before:pointer-events-none'
+        base: '[&_:is(p,h1,h2,h3,h4,h5,h6).is-empty]:before:content-[attr(data-placeholder)] [&_:is(p,h1,h2,h3,h4,h5,h6).is-empty]:before:text-(--b24ui-typography-description-color) [&_:is(p,h1,h2,h3,h4,h5,h6).is-empty]:before:float-left [&_:is(p,h1,h2,h3,h4,h5,h6).is-empty]:before:h-0 [&_:is(p,h1,h2,h3,h4,h5,h6).is-empty]:before:pointer-events-none'
       }
     }
   },

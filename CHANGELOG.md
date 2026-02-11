@@ -64,6 +64,7 @@
 * fix(defineShortcuts): check shift modifier for special character shortcuts
 * feat(Link): support custom navigate function in vue
 * feat(Calendar): add `weekNumbers` prop
+* fix(Editor): support all heading levels by default
 
 ## [2.2.1](https://github.com/bitrix24/b24ui/compare/v2.1.17...v2.2.1) (2025-12-18)
 

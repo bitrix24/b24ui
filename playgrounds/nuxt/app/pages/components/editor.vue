@@ -246,6 +246,14 @@ const toolbarItems = computed(() => [
           kind: 'heading',
           level: 4,
           label: 'Heading 4'
+        }, {
+          kind: 'heading',
+          level: 5,
+          label: 'Heading 5'
+        }, {
+          kind: 'heading',
+          level: 6,
+          label: 'Heading 6'
         }
       ]
     },
