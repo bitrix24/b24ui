@@ -14,7 +14,9 @@ import type { Bitrix24UIOptions } from '../unplugin'
 export default function PluginsPlugin(options: Bitrix24UIOptions) {
   const plugins = globSync(['**/*', '!*.d.ts'], { cwd: join(runtimeDir, 'plugins'), absolute: true })
 
+  plugins.unshift(resolvePathSync('../runtime/vue/plugins/router', { extensions: ['.ts', '.mjs', '.js'], url: import.meta.url }))
   plugins.unshift(resolvePathSync('../runtime/vue/plugins/head', { extensions: ['.ts', '.mjs', '.js'], url: import.meta.url }))
+
   if (options.colorMode) {
     plugins.push(resolvePathSync('../runtime/vue/plugins/color-mode', { extensions: ['.ts', '.mjs', '.js'], url: import.meta.url }))
   }
@@ -44,9 +46,10 @@ export default function PluginsPlugin(options: Bitrix24UIOptions) {
     load() {
       return `
         ${plugins.map(p => `import ${genSafeVariableName(p)} from "${p}"`).join('\n')}
+
 export default {
-  install (app) {
-${plugins.map(p => `    app.use(${genSafeVariableName(p)})`).join('\n')}
+  install (app, pluginOptions = {}) {
+${plugins.map(p => `    app.use(${genSafeVariableName(p)}, pluginOptions)`).join('\n')}
   }
 }
         `
