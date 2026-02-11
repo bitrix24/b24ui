@@ -1,5 +1,5 @@
 import type { H3Event } from 'h3'
-import { getRequestURL } from 'h3'
+// import { getRequestURL } from 'h3'
 import json5 from 'json5'
 import { camelCase, kebabCase, upperFirst } from 'scule'
 import { visit } from '@nuxt/content/runtime'
@@ -862,7 +862,7 @@ export async function transformMDC(event: H3Event, doc: Document): Promise<Docum
       // Extract text content from children
       const extractText = (children: any[]): string => {
         return children.map((child) => {
-          if (typeof child === 'string'){
+          if (typeof child === 'string') {
             return child
           }
           if (Array.isArray(child)) {

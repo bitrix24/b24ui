@@ -93,4 +93,3 @@ function extractSections(markdown: string, sectionTitles: string[]): string {
 
   return result.join('\n').trim()
 }
-
