@@ -33,6 +33,8 @@ ignore:
   - class
 external:
   - items
+externalTypes:
+  - DescriptionListItem[]
 props:
   items:
     - label: 'Full name'
@@ -54,6 +56,8 @@ ignore:
   - class
 external:
   - items
+externalTypes:
+  - DescriptionListItem[]
 props:
   legend: 'Applicant Information'
   items:
@@ -76,6 +80,8 @@ ignore:
   - class
 external:
   - items
+externalTypes:
+  - DescriptionListItem[]
 props:
   legend: 'Applicant Information'
   text: 'Personal details and application.'
@@ -102,6 +108,8 @@ ignore:
   - class
 external:
   - items
+externalTypes:
+  - DescriptionListItem[]
 props:
   legend: 'Applicant Information'
   text: 'Personal details and application.'
@@ -130,6 +138,8 @@ ignore:
   - class
 external:
   - items
+externalTypes:
+  - DescriptionListItem[]
 props:
   legend: 'Applicant Information'
   text: 'Personal details and application.'
@@ -155,6 +165,8 @@ ignore:
   - class
 external:
   - items
+externalTypes:
+  - DescriptionListItem[]
 props:
   size: sm
   legend: 'Applicant Information'

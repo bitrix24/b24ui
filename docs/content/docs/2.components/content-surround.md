@@ -45,6 +45,8 @@ cast:
   nextIcon: 'RocketIcon'
 external:
   - surround
+externalTypes:
+  - ContentSurroundLink[]
 props:
   prevIcon: 'RocketIcon'
   nextIcon: 'RocketIcon'

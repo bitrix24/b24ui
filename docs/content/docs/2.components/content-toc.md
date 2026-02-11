@@ -42,6 +42,8 @@ ignore:
   - links
 external:
   - links
+externalTypes:
+  - ContentTocLink[]
 props:
   title: 'On this page'
   class: 'w-full'

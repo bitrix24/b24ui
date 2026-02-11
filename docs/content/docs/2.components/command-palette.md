@@ -39,6 +39,8 @@ ignore:
 external:
   - groups
   - modelValue
+externalTypes:
+  - CommandPaletteGroup[]
 class: '!p-0'
 props:
   modelValue: {}
@@ -116,6 +118,8 @@ ignore:
 external:
   - groups
   - modelValue
+externalTypes:
+  - CommandPaletteGroup[]
 class: '!p-0'
 props:
   modelValue: {}
@@ -161,6 +165,8 @@ ignore:
 external:
   - groups
   - modelValue
+externalTypes:
+  - CommandPaletteGroup[]
 class: '!p-0'
 props:
   multiple: true
@@ -204,6 +210,8 @@ ignore:
   - groups
 external:
   - groups
+externalTypes:
+  - CommandPaletteGroup[]
 class: '!p-0'
 props:
   autofocus: false
@@ -232,6 +240,8 @@ ignore:
   - groups
 external:
   - groups
+externalTypes:
+  - CommandPaletteGroup[]
 class: '!p-0'
 props:
   autofocus: false
@@ -261,6 +271,8 @@ ignore:
   - icon
 external:
   - groups
+externalTypes:
+  - CommandPaletteGroup[]
 cast:
   icon: 'RocketIcon'
 class: '!p-0'
@@ -295,6 +307,8 @@ ignore:
 external:
   - groups
   - modelValue
+externalTypes:
+  - CommandPaletteGroup[]
 cast:
   selectedIcon: 'RocketIcon'
 class: '!p-0'
@@ -343,6 +357,8 @@ ignore:
   - trailingIcon
 external:
   - groups
+externalTypes:
+  - CommandPaletteGroup[]
 cast:
   trailingIcon: 'RocketIcon'
 class: '!p-0'
@@ -375,6 +391,8 @@ ignore:
   - groups
 external:
   - groups
+externalTypes:
+  - CommandPaletteGroup[]
 class: '!p-0'
 props:
   autofocus: false
@@ -408,6 +426,8 @@ ignore:
   - close
 external:
   - groups
+externalTypes:
+  - CommandPaletteGroup[]
 class: '!p-0'
 props:
   autofocus: false
@@ -438,6 +458,8 @@ ignore:
   - class
 external:
   - groups
+externalTypes:
+  - CommandPaletteGroup[]
 class: '!p-0'
 props:
   autofocus: false
@@ -473,6 +495,8 @@ cast:
   closeIcon: 'RocketIcon'
 external:
   - groups
+externalTypes:
+  - CommandPaletteGroup[]
 class: '!p-0'
 props:
   autofocus: false
@@ -506,6 +530,8 @@ ignore:
   - class
 external:
   - groups
+externalTypes:
+  - CommandPaletteGroup[]
 class: '!p-0'
 props:
   autofocus: false
@@ -541,6 +567,8 @@ cast:
   backIcon: 'RocketIcon'
 external:
   - groups
+externalTypes:
+  - CommandPaletteGroup[]
 class: '!p-0'
 props:
   autofocus: false
@@ -572,6 +600,8 @@ ignore:
   - class
 external:
   - groups
+externalTypes:
+  - CommandPaletteGroup[]
 class: '!p-0'
 props:
   autofocus: false

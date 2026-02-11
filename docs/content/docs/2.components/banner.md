@@ -147,6 +147,8 @@ ignore:
   - variant
 external:
   - actions
+externalTypes:
+  - ButtonProps[]
 cast:
   actions: 'ComponentWithIcon'
 props:

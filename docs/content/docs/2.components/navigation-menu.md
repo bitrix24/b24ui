@@ -31,6 +31,8 @@ ignore:
   - items
 external:
   - items
+externalTypes:
+  - NavigationMenuItem[]
 props:
   items:
     - label: Sales management

@@ -30,6 +30,8 @@ ignore:
   - items
 external:
   - items
+externalTypes:
+  - ContextMenuItem[][]
 props:
   items:
     - - label: Appearance

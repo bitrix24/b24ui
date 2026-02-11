@@ -31,6 +31,8 @@ ignore:
   - ui.content
 external:
   - items
+externalTypes:
+  - DropdownMenuItem[][]
 props:
   items:
     - - label: Bitrix24

@@ -29,6 +29,8 @@ ignore:
   - items
 external:
   - items
+externalTypes:
+  - AccordionItem[]
 hide:
   - class
   - defaultValue
