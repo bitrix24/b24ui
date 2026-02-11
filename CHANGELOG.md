@@ -39,6 +39,7 @@
 * **FileUpload:** emit null when clearing file
 * **FileUpload:** keep input visible when preview is disabled with multiple files
 * **useOverlay:** refine close event argument extraction
+* fix(CheckboxGroup): update `update:modelValue` emit type
 
 ## [2.2.1](https://github.com/bitrix24/b24ui/compare/v2.1.17...v2.2.1) (2025-12-18)
 
