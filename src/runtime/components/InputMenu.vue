@@ -724,7 +724,7 @@ defineExpose({
             <B24Button
               as="span"
               :icon="clearIcon || icons.close"
-              size="md"
+              :size="inputSize"
               color="air-tertiary-no-accent"
               tabindex="-1"
               v-bind="clearProps"

@@ -690,7 +690,7 @@ defineExpose({
                 <B24Button
                   as="span"
                   :icon="clearIcon || icons.close"
-                  size="md"
+                  :size="selectSize"
                   color="air-tertiary-no-accent"
                   tabindex="-1"
                   v-bind="clearProps"
@@ -726,7 +726,7 @@ defineExpose({
                 no-border
                 autofocus
                 autocomplete="off"
-                :size="size"
+                :size="selectSize"
                 v-bind="searchInputProps"
                 data-slot="input"
                 :class="b24ui.input({ class: props.b24ui?.input })"
