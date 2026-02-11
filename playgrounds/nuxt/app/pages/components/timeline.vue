@@ -49,6 +49,10 @@ const items = [{
 }] satisfies TimelineItem[]
 
 const value = ref('design')
+
+function onSelect(_e: Event, item: TimelineItem) {
+  value.value = item.value as string
+}
 </script>
 
 <template>
@@ -73,6 +77,7 @@ const value = ref('design')
         :items="items"
         :reverse="reverse"
         class="data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-[400px] min-h-0"
+        @select="onSelect"
       />
     </ExampleCard>
   </ExampleGrid>
