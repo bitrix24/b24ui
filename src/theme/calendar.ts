@@ -26,8 +26,9 @@ export default {
     gridBody: 'grid',
     headCell: [
       'font-(--ui-font-weight-normal)',
-      'text-(--ui-color-design-plain-na-content)' // text-base-500
+      'text-(--ui-color-design-plain-na-content-secondary)' // text-base-500
     ].join(' '),
+    headCellWeek: 'text-(--ui-color-design-plain-na-content-secondary)',
     cell: 'relative text-center cursor-pointer aria-disabled:cursor-not-allowed',
     cellTrigger: [
       'm-0.5 relative',
@@ -50,6 +51,11 @@ export default {
       'data-unavailable:pointer-events-none',
       'data-today:font-(--ui-font-weight-semi-bold)',
       'transition'
+    ].join(' '),
+    cellWeek: [
+      'relative',
+      'text-center',
+      'text-(--ui-color-design-plain-na-content-secondary)'
     ].join(' ')
   },
   variants: {
@@ -73,27 +79,41 @@ export default {
       xs: {
         heading: 'text-(length:--ui-font-size-md)',
         cell: 'text-(length:--ui-font-size-sm)',
-        headCell: 'text-[10px]',
+        cellWeek: 'text-(length:--ui-font-size-4xs)',
+        headCell: 'text-(length:--ui-font-size-4xs)',
+        headCellWeek: 'text-(length:--ui-font-size-4xs)',
         cellTrigger: 'size-[28px]',
         body: 'space-y-2 pt-2'
       },
       sm: {
         heading: 'text-(length:--ui-font-size-md)',
-        headCell: 'text-(length:--ui-font-size-sm)',
+        headCell: 'text-(length:--ui-font-size-3xs)',
+        headCellWeek: 'text-(length:--ui-font-size-3xs)',
+        cellWeek: 'text-(length:--ui-font-size-3xs)',
         cell: 'text-(length:--ui-font-size-sm)',
         cellTrigger: 'size-[28px]'
       },
       md: {
         heading: 'text-(length:--ui-font-size-lg)',
-        headCell: 'text-(length:--ui-font-size-md)',
+        headCell: 'text-(length:--ui-font-size-xs)',
+        headCellWeek: 'text-(length:--ui-font-size-xs)',
+        cellWeek: 'text-(length:--ui-font-size-xs)',
         cell: 'text-(length:--ui-font-size-md)',
         cellTrigger: 'size-[32px]'
       },
       lg: {
         heading: 'text-(length:--ui-font-size-2xl)',
-        headCell: 'text-(length:--ui-font-size-lg)',
+        headCell: 'text-(length:--ui-font-size-xs)',
+        headCellWeek: 'text-(length:--ui-font-size-xs)',
+        cellWeek: 'text-(length:--ui-font-size-xs)',
         cell: 'text-(length:--ui-font-size-lg)',
         cellTrigger: 'size-[36px] text-(length:--ui-font-size-lg)'
+      }
+    },
+    weekNumbers: {
+      true: {
+        gridRow: 'grid-cols-8',
+        gridWeekDaysRow: 'grid-cols-8 [&>*:first-child]:col-start-2'
       }
     }
   },

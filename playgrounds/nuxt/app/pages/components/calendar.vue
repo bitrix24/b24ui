@@ -95,10 +95,10 @@ const airColors = computed(() => {
 
 <template>
   <ExampleGrid v-once>
-    <ExampleCard title="v-model" :use-bg="isUseBg">
+    <ExampleCard title="v-model ??" :use-bg="isUseBg">
       <B24Separator class="my-3" type="dotted" />
       <div class="mb-4 max-w-[250px] mx-auto">
-        <B24Calendar v-model="value" />
+        <B24Calendar v-model="value" week-numbers />
       </div>
     </ExampleCard>
 

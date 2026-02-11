@@ -1,5 +1,6 @@
 <script lang="ts">
 import type { CalendarRootProps, CalendarRootEmits, RangeCalendarRootProps, RangeCalendarRootEmits, DateRange, CalendarCellTriggerProps } from 'reka-ui'
+import { getWeekNumber } from 'reka-ui/date'
 import type { DateValue } from '@internationalized/date'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/calendar'
@@ -98,6 +99,7 @@ export interface CalendarProps<R extends boolean = false, M extends boolean = fa
   yearControls?: boolean
   defaultValue?: CalendarDefaultValue<R, M>
   modelValue?: CalendarModelValue<R, M>
+  weekNumbers?: boolean
   class?: any
   b24ui?: Calendar['slots']
 }
@@ -132,7 +134,7 @@ const props = withDefaults(defineProps<CalendarProps<R, M>>(), {
 const emits = defineEmits<CalendarEmits<R, M>>()
 defineSlots<CalendarSlots>()
 
-const { dir, t } = useLocale()
+const { dir, t, locale } = useLocale()
 const appConfig = useAppConfig() as Calendar['AppConfig']
 
 const rootProps = useForwardPropsEmits(reactiveOmit(props, 'range', 'modelValue', 'defaultValue', 'color', 'size', 'monthControls', 'yearControls', 'class', 'b24ui'), emits)
@@ -144,7 +146,8 @@ const prevMonthIcon = computed(() => props.prevMonthIcon || (dir.value === 'rtl'
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.calendar || {}) })({
   color: props.color,
-  size: props.size
+  size: props.size,
+  weekNumbers: props.weekNumbers
 }))
 
 function paginateYear(date: DateValue, sign: -1 | 1) {
@@ -221,6 +224,14 @@ const btnSize = computed(() => {
             data-slot="gridRow"
             :class="b24ui.gridRow({ class: props.b24ui?.gridRow })"
           >
+            <td
+              v-if="weekNumbers && weekDates[0]"
+              role="gridcell"
+              data-slot="cellWeek"
+              :class="b24ui.cellWeek({ class: props.b24ui?.cellWeek })"
+            >
+              {{ getWeekNumber(weekDates[0], locale.code) }}
+            </td>
             <Calendar.Cell
               v-for="weekDate in weekDates"
               :key="weekDate.toString()"
