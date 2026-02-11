@@ -32,17 +32,15 @@ Use it as at the root of your app:
 ```
 
 ::framework-only
-
 #nuxt
 :::tip{to="/docs/getting-started/integrations/i18n/nuxt/#locale"}
-Learn how to use the `locale` prop to change the locale of your app.
+Learn how to use the `locale` prop to change the locale of your app. This also controls the date/time format in components like Calendar, InputDate, and InputTime.
 :::
 
 #vue
 :::tip{to="/docs/getting-started/integrations/i18n/vue/#locale"}
-Learn how to use the `locale` prop to change the locale of your app.
+Learn how to use the `locale` prop to change the locale of your app. This also controls the date/time format in components like Calendar, InputDate, and InputTime.
 :::
-
 ::
 
 ## API
