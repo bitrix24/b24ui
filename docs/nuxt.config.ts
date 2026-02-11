@@ -25,7 +25,6 @@ const pages = [
   '/docs/getting-started/integrations/i18n/vue/',
   '/docs/getting-started/integrations/content/',
   '/docs/getting-started/integrations/ssr/',
-  '/docs/getting-started/ai/mcp/',
   '/docs/getting-started/ai/llms-txt/',
   // endregion ////
   '/docs/components/',
@@ -496,7 +495,7 @@ export default defineNuxtConfig({
     name: 'Bitrix24 UI',
     version: '1.0.0',
     route: `/mcp/`, // ${baseUrl}
-    browserRedirect: '/docs/getting-started/ai/mcp/'
+    browserRedirect: '/docs/getting-started/'
   },
 
   // @memo off for generate

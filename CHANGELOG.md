@@ -69,6 +69,7 @@
 * feat(Timeline): add `select` event
 * docs(components): add missing external types
 * docs(llms): improve mdc transform
+* docs(mcp): add sections param to tools for reduced response size
 
 ## [2.2.1](https://github.com/bitrix24/b24ui/compare/v2.1.17...v2.2.1) (2025-12-18)
 
