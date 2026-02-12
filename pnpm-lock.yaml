@@ -22,11 +22,14 @@ importers:
       '@bitrix24/b24icons-vue':
         specifier: ^2.0.7
         version: 2.0.7(vue@3.5.28(typescript@5.8.3))
+      '@floating-ui/dom':
+        specifier: ^1.7.5
+        version: 1.7.5
       '@inertiajs/vue3':
         specifier: ^2.0.7
         version: 2.3.13(vue@3.5.28(typescript@5.8.3))
       '@internationalized/date':
-        specifier: ^3.10.1
+        specifier: ^3.11.0
         version: 3.11.0
       '@internationalized/number':
         specifier: ^3.6.5
@@ -107,7 +110,7 @@ importers:
         specifier: ^3.19.0
         version: 3.19.0(@floating-ui/dom@1.7.5)(@tiptap/core@3.19.0(@tiptap/pm@3.19.0))(@tiptap/pm@3.19.0)(vue@3.5.28(typescript@5.8.3))
       '@unhead/vue':
-        specifier: ^2.1.2
+        specifier: ^2.1.4
         version: 2.1.4(vue@3.5.28(typescript@5.8.3))
       '@vueuse/core':
         specifier: ^14.2.0
@@ -233,11 +236,8 @@ importers:
         specifier: ^3.24.0 || ^4.0.0
         version: 4.3.6
     devDependencies:
-      '@floating-ui/dom':
-        specifier: ^1.7.5
-        version: 1.7.5
       '@nuxt/eslint-config':
-        specifier: ^1.13.0
+        specifier: ^1.14.0
         version: 1.15.1(@typescript-eslint/utils@8.55.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.3))(@vue/compiler-sfc@3.5.28)(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.3)
       '@nuxt/module-builder':
         specifier: ^1.0.2
@@ -261,7 +261,7 @@ importers:
         specifier: ^2.4.6
         version: 2.4.6
       ai:
-        specifier: ^6.0.68
+        specifier: ^6.0.77
         version: 6.0.79(zod@4.3.6)
       embla-carousel:
         specifier: ^8.6.0
@@ -273,7 +273,7 @@ importers:
         specifier: ^4.8.0
         version: 4.8.0
       happy-dom:
-        specifier: ^20.5.0
+        specifier: ^20.5.3
         version: 20.6.1
       nuxt:
         specifier: ^4.3.0
@@ -324,31 +324,31 @@ importers:
         specifier: ^2.0.19
         version: 2.0.19(zod@4.3.6)
       '@ai-sdk/mcp':
-        specifier: ^1.0.18
+        specifier: ^1.0.19
         version: 1.0.19(zod@4.3.6)
       '@ai-sdk/vue':
-        specifier: ^3.0.68
+        specifier: ^3.0.77
         version: 3.0.79(vue@3.5.28(typescript@5.8.3))(zod@4.3.6)
       '@bitrix24/b24ui-nuxt':
         specifier: workspace:*
         version: link:..
       '@modelcontextprotocol/sdk':
-        specifier: ^1.25.3
+        specifier: ^1.26.0
         version: 1.26.0(zod@4.3.6)
       '@nuxt/a11y':
         specifier: 1.0.0-alpha.1
         version: 1.0.0-alpha.1(magicast@0.5.2)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
       '@nuxt/content':
-        specifier: ^3.11.0
+        specifier: ^3.11.2
         version: 3.11.2(better-sqlite3@12.6.2)(magicast@0.5.2)(valibot@1.2.0(typescript@5.8.3))
       '@nuxt/image':
         specifier: ^2.0.0
         version: 2.0.0(db0@0.3.4(better-sqlite3@12.6.2))(ioredis@5.9.2)(magicast@0.5.2)
       '@nuxtjs/mcp-toolkit':
-        specifier: ^0.6.2
+        specifier: ^0.6.3
         version: 0.6.4(magicast@0.5.2)(zod@4.3.6)
       '@nuxtjs/mdc':
-        specifier: ^0.20.0
+        specifier: ^0.20.1
         version: 0.20.1(magicast@0.5.2)
       '@nuxtjs/plausible':
         specifier: ^2.0.1
@@ -357,10 +357,10 @@ importers:
         specifier: ^22.0.1
         version: 22.0.1
       '@regle/core':
-        specifier: ^1.17.4
+        specifier: ^1.18.3
         version: 1.18.3(vue@3.5.28(typescript@5.8.3))
       '@regle/rules':
-        specifier: ^1.17.4
+        specifier: ^1.18.3
         version: 1.18.3(vue@3.5.28(typescript@5.8.3))
       '@tiptap/extension-emoji':
         specifier: ^3.19.0
@@ -372,7 +372,7 @@ importers:
         specifier: ^14.2.0
         version: 14.2.1(axios@1.13.5)(change-case@5.4.4)(fuse.js@7.1.0)(sortablejs@1.15.6)(vue@3.5.28(typescript@5.8.3))
       ai:
-        specifier: ^6.0.68
+        specifier: ^6.0.77
         version: 6.0.79(zod@4.3.6)
       better-sqlite3:
         specifier: ^12.6.2
@@ -460,7 +460,7 @@ importers:
         specifier: ^2.0.19
         version: 2.0.19(zod@4.3.6)
       '@ai-sdk/vue':
-        specifier: ^3.0.68
+        specifier: ^3.0.77
         version: 3.0.79(vue@3.5.28(typescript@5.8.3))(zod@4.3.6)
       '@bitrix24/b24icons-nuxt':
         specifier: ^2.0.7
@@ -472,10 +472,10 @@ importers:
         specifier: workspace:*
         version: link:../..
       '@internationalized/date':
-        specifier: ^3.10.1
+        specifier: ^3.11.0
         version: 3.11.0
       '@nuxt/content':
-        specifier: ^3.11.0
+        specifier: ^3.11.2
         version: 3.11.2(better-sqlite3@12.6.2)(magicast@0.5.2)(valibot@1.2.0(typescript@5.8.3))
       '@tiptap/extension-emoji':
         specifier: ^3.19.0
@@ -484,7 +484,7 @@ importers:
         specifier: ^3.19.0
         version: 3.19.0(@tiptap/core@3.19.0(@tiptap/pm@3.19.0))
       ai:
-        specifier: ^6.0.68
+        specifier: ^6.0.77
         version: 6.0.79(zod@4.3.6)
       maska:
         specifier: ^3.2.0
@@ -512,7 +512,7 @@ importers:
         specifier: ^2.0.19
         version: 2.0.19(zod@4.3.6)
       '@ai-sdk/vue':
-        specifier: ^3.0.68
+        specifier: ^3.0.77
         version: 3.0.79(vue@3.5.28(typescript@5.8.3))(zod@4.3.6)
       '@bitrix24/b24icons-nuxt':
         specifier: ^2.0.7
@@ -524,10 +524,10 @@ importers:
         specifier: workspace:*
         version: link:../..
       '@internationalized/date':
-        specifier: ^3.10.1
+        specifier: ^3.11.0
         version: 3.11.0
       '@nuxt/content':
-        specifier: ^3.11.0
+        specifier: ^3.11.2
         version: 3.11.2(better-sqlite3@12.6.2)(magicast@0.5.2)(valibot@1.2.0(typescript@5.8.3))
       '@tiptap/extension-emoji':
         specifier: ^3.19.0
@@ -536,7 +536,7 @@ importers:
         specifier: ^3.19.0
         version: 3.19.0(@tiptap/core@3.19.0(@tiptap/pm@3.19.0))
       ai:
-        specifier: ^6.0.68
+        specifier: ^6.0.77
         version: 6.0.79(zod@4.3.6)
       maska:
         specifier: ^3.2.0
