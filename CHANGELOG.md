@@ -46,6 +46,7 @@
 * **InputMenu:** prevent focus on trailing button
 * **Modal/Popover/Slideover:** prevent unexpected close on touch when interacting with other overlays
 * **ChatMessages:** allow message props to override role defaults
+* **useEditorMenu:** rank filtered results by relevance
 
 ## [2.2.1](https://github.com/bitrix24/b24ui/compare/v2.1.17...v2.2.1) (2025-12-18)
 
