@@ -12,8 +12,8 @@
   "dependencies": {
     "@bitrix24/b24ui-nuxt": "workspace:*",
     "@bitrix24/b24icons-vue": "^2.0.7",
-    "@tiptap/extension-emoji": "^3.17.1",
-    "@tiptap/extension-text-align": "^3.17.1",
+    "@tiptap/extension-emoji": "^3.18.0",
+    "@tiptap/extension-text-align": "^3.18.0",
     "@internationalized/date": "^3.9.0",
     "tailwindcss": "^4.1.18",
     "vue": "^3.5.25",
