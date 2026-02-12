@@ -28,13 +28,14 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup pnpm
+      - name: Install pnpm
         uses: pnpm/action-setup@v4
 
-      - name: Setup Node
+      - name: Install node
         uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 'lts/*'
+          registry-url: 'https://registry.npmjs.org'
           cache: pnpm
 
       - name: Setup Pages

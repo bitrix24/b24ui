@@ -8,6 +8,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      NUXT_PUBLIC_USE_AI: false
+      NUXT_PUBLIC_SITE_URL: https://bitrix24.github.io
+      NUXT_PUBLIC_BASE_URL: /b24ui
+      NUXT_PUBLIC_CANONICAL_URL: https://bitrix24.github.io
+      NUXT_PUBLIC_GIT_URL: https://github.com/bitrix24/b24ui
     steps:
       - name: Checkout
         uses: actions/checkout@v6
