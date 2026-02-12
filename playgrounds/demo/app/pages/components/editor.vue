@@ -5,6 +5,7 @@ import type { JSONContent } from '@tiptap/vue-3'
 import { mapEditorItems } from '@bitrix24/b24ui-nuxt/utils/editor'
 import { Emoji, gitHubEmojis } from '@tiptap/extension-emoji'
 import { TextAlign } from '@tiptap/extension-text-align'
+import Navbar from '../../components/Navbar.vue'
 import { ImageUpload } from '../../components/editor/EditorImageUploadExtension'
 // import { useEditorCompletion } from '../../composables/useEditorCompletion'
 import EditorLinkPopover from '../../components/editor/EditorLinkPopover.vue'
@@ -589,8 +590,9 @@ const emojiItems: EditorEmojiMenuItem[] = gitHubEmojis.filter(emoji => !emoji.na
 </script>
 
 <template>
-  <div
-    class="isolate mt-[24px] relative h-[calc(100vh-var(--topbar-height)-56px)] !p-0 rounded-md bg-(--ui-color-design-outline-a1-bg) border-(--ui-color-design-outline-stroke) border-(length:--ui-design-outline-stroke-weight)"
+  <B24Card
+    class="isolate relative h-screen p-0! backdrop-blur-[20px] rounded-none lg:rounded-(--ui-border-radius-md) border-0"
+    :b24ui="{ body: 'mt-16 lg:mt-34 pt-0' }"
   >
     <B24Editor
       ref="editorRef"
@@ -608,23 +610,28 @@ const emojiItems: EditorEmojiMenuItem[] = gitHubEmojis.filter(emoji => !emoji.na
       content-type="markdown"
       autofocus
       placeholder="Write, type '/' for commands..."
-      :b24ui="{ base: 'p-8 sm:px-16 py-24' }"
-      class="w-full h-[calc(100vh-var(--topbar-height)-56px)] overflow-y-auto scrollbar-thin scrollbar-transparent"
+      :b24ui="{ base: 'p-8 sm:px-16' }"
+      class="w-full h-[calc(100vh-var(--topbar-height)-56px)] lg:h-[calc(100vh-var(--topbar-height)-100px)] overflow-y-auto scrollbar-thin scrollbar-transparent"
     >
-      <B24EditorToolbar
-        :editor="editor"
-        :items="toolbarItems"
-        class="border-b border-(--ui-color-design-tinted-na-stroke) backdrop-blur-3xl bg-(--ui-color-bg-content-primary) absolute top-0 inset-x-0 px-8 mr-2 sm:px-16 py-2 z-20 overflow-x-auto rounded-t-md"
-      >
-        <template #link>
-          <EditorLinkPopover :editor="editor" auto-open />
+      <Navbar :b24ui="{ root: 'absolute md:absolute top-0 inset-x-0 z-30 backdrop-blur-none' }">
+        <template #controls>
+          <B24EditorToolbar
+            :editor="editor"
+            :items="toolbarItems"
+            class="overflow-x-auto pb-3 mx-auto"
+          >
+            <template #link>
+              <EditorLinkPopover :editor="editor" auto-open />
+            </template>
+          </B24EditorToolbar>
         </template>
-      </B24EditorToolbar>
+      </Navbar>
 
       <B24EditorToolbar
         :editor="editor"
         :items="toolbarItems"
         layout="bubble"
+        :b24ui="{ base: 'edge-dark:bg-[#21334cf0] edge-light:bg-(--ui-color-base-white-fixed) shadow-sm' }"
         :should-show="({ editor, view, state }) => {
           if (editor.isActive('imageUpload') || editor.isActive('image')) {
             return false
@@ -642,6 +649,7 @@ const emojiItems: EditorEmojiMenuItem[] = gitHubEmojis.filter(emoji => !emoji.na
         :editor="editor"
         :items="imageToolbarItems(editor)"
         layout="bubble"
+        :b24ui="{ base: 'edge-dark:bg-[#21334cf0] edge-light:bg-(--ui-color-base-white-fixed) shadow-sm' }"
         :should-show="({ editor, view }) => {
           return editor.isActive('image') && view.hasFocus()
         }"
@@ -684,5 +692,5 @@ const emojiItems: EditorEmojiMenuItem[] = gitHubEmojis.filter(emoji => !emoji.na
       <B24EditorMentionMenu :editor="editor" :items="mentionItems" />
       <B24EditorEmojiMenu :editor="editor" :items="emojiItems" />
     </B24Editor>
-  </div>
+  </B24Card>
 </template>

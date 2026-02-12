@@ -4,12 +4,7 @@
  */
 import type { SelectMenuItem, SelectMenuProps, AvatarProps, ChipProps } from '@bitrix24/b24ui-nuxt'
 import theme from '#build/b24ui/select-menu'
-import usePageMeta from './../../composables/usePageMeta'
-import ExampleGrid from '../../components/ExampleGrid.vue'
-import ExampleCard from '../../components/ExampleCard.vue'
-import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import type { IUser } from '~/types'
-import ALetterIcon from '@bitrix24/b24icons-vue/main/ALetterIcon'
 import Expand1Icon from '@bitrix24/b24icons-vue/actions/Expand1Icon'
 import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
 import UserIcon from '@bitrix24/b24icons-vue/common-b24/UserIcon'
@@ -21,11 +16,26 @@ import CircleCheckIcon from '@bitrix24/b24icons-vue/main/CircleCheckIcon'
 import CancelIcon from '@bitrix24/b24icons-vue/button/CancelIcon'
 import TaskListIcon from '@bitrix24/b24icons-vue/outline/TaskListIcon'
 
-usePageMeta.setPageTitle('SelectMenu')
 const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
-const isUseBg = ref(true)
+const airColors = computed(() => {
+  return colors.filter((color) => {
+    return color.includes('air')
+  })
+})
+
+const multipleAttrs = reactive({
+  color: [theme.defaultVariants.color],
+  size: [theme.defaultVariants.size]
+})
+
+const singleAttrs = reactive({
+  disabled: false,
+  loading: false,
+  highlight: false,
+  rounded: false
+})
 
 const knowledgeBase = ['Select Knowledge base', 'Create knowledge base'] satisfies SelectMenuItem[]
 const smartScripts = ['Scripts', 'Create script', 'Install from Bitrix24.Market'] satisfies SelectMenuItem[]
@@ -137,359 +147,195 @@ function getStatusIcon(value: string) {
   return statuses.find(status => status.value === value)?.icon || UserIcon
 }
 
-const oldColors = computed(() => {
-  return colors.filter((color) => {
-    return !color.includes('air')
-  })
-})
+function getSizeValue(size?: string | string[]) {
+  return Array.isArray(size) ? size[0] : size
+}
 
-const airColors = computed(() => {
-  return colors.filter((color) => {
-    return color.includes('air')
-  })
-})
+function getFirstValue(value?: string | (string | undefined)[]) {
+  return Array.isArray(value) ? value[0] : value
+}
 </script>
 
 <template>
-  <ExampleGrid v-once>
-    <ExampleCard title="base" :use-bg="isUseBg">
-      <ExampleCardSubTitle title="simple" />
-      <div class="mb-4 flex flex-col">
-        <B24SelectMenu
-          :items="items"
-          name="some_value"
-          placeholder="Choose a value&hellip;"
-          aria-label="Choose a value"
-          default-value="Scripts"
-        />
-      </div>
+  <PlaygroundPage>
+    <template #controls>
+      <B24Select v-model="multipleAttrs.color" class="w-44" :items="airColors" placeholder="Color" multiple />
+      <B24Select v-model="multipleAttrs.size" class="w-32" :items="sizes" placeholder="Size" multiple />
 
-      <ExampleCardSubTitle title="underline" />
-      <div class="mb-4 flex flex-col">
-        <B24SelectMenu
-          :items="items"
-          name="some_value"
-          placeholder="Choose a value&hellip;"
-          aria-label="Choose a value"
-          default-value="Scripts"
-          color="air-primary-success"
-          underline
-        />
-      </div>
+      <B24Switch v-model="singleAttrs.disabled" label="Disabled" />
+      <B24Switch v-model="singleAttrs.loading" label="Loading" />
+      <B24Switch v-model="singleAttrs.highlight" label="Highlight" />
+      <B24Switch v-model="singleAttrs.rounded" label="Rounded" />
+    </template>
 
-      <ExampleCardSubTitle title="no border" />
-      <div class="mb-4 flex flex-col">
-        <B24SelectMenu
-          :items="items"
-          name="some_value"
-          placeholder="Choose a value&hellip;"
-          aria-label="Choose a value"
-          default-value="Scripts"
-          no-border
-        />
-      </div>
-
-      <ExampleCardSubTitle title="no padding" />
-      <div class="mb-4 flex flex-col">
-        <B24SelectMenu
-          :items="items"
-          name="some_value"
-          placeholder="Choose a value&hellip;"
-          aria-label="Choose a value"
-          default-value="Scripts"
-          no-padding
-        />
-      </div>
-
-      <ExampleCardSubTitle title="some error" />
-      <div class="mb-4 flex flex-col">
-        <B24SelectMenu
-          :items="items"
-          name="some_value"
-          placeholder="Choose a value&hellip;"
-          aria-label="Choose a value"
-          default-value="Scripts"
-          highlight
-          color="air-primary-alert"
-          aria-invalid="true"
-        />
-      </div>
-
-      <ExampleCardSubTitle title="some more" />
-      <div class="mb-4 flex flex-col gap-4">
-        <B24SelectMenu
-          :items="items"
-          name="disabled"
-          placeholder="Disabled"
-          aria-label="Disabled"
-          disabled
-        />
-        <B24SelectMenu
-          :items="items"
-          name="required"
-          placeholder="Required"
-          aria-label="Required"
-          required
-        />
-        <B24SelectMenu
-          v-model="selectedItems"
-          :items="items"
-          name="multiple"
-          placeholder="Multiple"
-          aria-label="Multiple"
-          multiple
-        />
-        <B24SelectMenu
-          :items="items"
-          name="rounded"
-          placeholder="Rounded"
-          aria-label="Rounded"
-          rounded
-          :icon="ALetterIcon"
-          :trailing-icon="Expand1Icon"
-        />
-      </div>
-    </ExampleCard>
-
-    <ExampleCard title="loading" :use-bg="isUseBg">
-      <ExampleCardSubTitle title="loading" />
-      <div class="mb-4 flex flex-col gap-4">
-        <B24SelectMenu
-          :items="items"
-          loading
-          name="some_value"
-          placeholder="Choose a value&hellip;"
-          aria-label="Choose a value"
-        />
-        <B24SelectMenu
-          :items="items"
-          loading
-          trailing
-          name="some_value"
-          placeholder="Choose a value&hellip;"
-          aria-label="Choose a value"
-        />
-        <B24SelectMenu
-          :items="items"
-          loading
-          :icon="RocketIcon"
-          name="some_value"
-          placeholder="Choose a value&hellip;"
-          aria-label="Choose a value"
-        />
-        <B24SelectMenu
-          :items="items"
-          loading
-          :avatar="{ src: '/b24ui/demo/avatar/employee.png' }"
-          name="some_value"
-          placeholder="Choose a value&hellip;"
-          aria-label="Choose a value"
-        />
-      </div>
-
-      <ExampleCardSubTitle title="virtualize" />
-      <div class="mb-4 flex flex-col gap-4">
-        <B24SelectMenu
-          :icon="TaskListIcon"
-          placeholder="Search virtualized..."
-          virtualize
-          :items="[Array(1000).fill(0).map((_, i) => ({ label: `item-${i}`, value: i }))]"
-        />
-      </div>
-    </ExampleCard>
-
-    <ExampleCard title="color" :use-bg="isUseBg" class="sm:col-span-2">
-      <template v-for="color in airColors" :key="color">
-        <ExampleCardSubTitle :title="color as string" />
-        <div class="mb-4 flex flex-wrap flex-row items-center gap-4">
-          <B24SelectMenu
-            :items="items"
-            name="some_value"
-            placeholder="Choose a value&hellip;"
-            aria-label="Choose a value"
-            :color="color"
-            highlight
-            class="w-40"
+    <Matrix v-slot="props" :attrs="multipleAttrs" :b24ui="{ root: 'max-w-80' }">
+      <B24SelectMenu
+        :items="items"
+        :b24ui="{ root: 'w-full' }"
+        name="some_value"
+        placeholder="Choose a value&hellip;"
+        aria-label="Choose a value"
+        v-bind="{ ...singleAttrs, ...props }"
+      />
+      <B24SelectMenu
+        :items="items"
+        :b24ui="{ root: 'w-full' }"
+        name="some_value"
+        placeholder="Underline"
+        aria-label="Underline"
+        underline
+        v-bind="{ ...singleAttrs, ...props }"
+      />
+      <B24SelectMenu
+        :items="items"
+        :b24ui="{ root: 'w-full' }"
+        name="some_value"
+        placeholder="No border"
+        aria-label="No border"
+        no-border
+        v-bind="{ ...singleAttrs, ...props }"
+      />
+      <B24SelectMenu
+        :items="items"
+        :b24ui="{ root: 'w-full' }"
+        name="some_value"
+        placeholder="No padding"
+        aria-label="No padding"
+        no-padding
+        v-bind="{ ...singleAttrs, ...props }"
+      />
+      <B24SelectMenu
+        :items="items"
+        :b24ui="{ root: 'w-full' }"
+        :tag-color="props?.color || 'air-primary'"
+        tag="some text"
+        name="some_value"
+        placeholder="Tag"
+        aria-label="Tag"
+        v-bind="{ ...singleAttrs, ...props }"
+      />
+      <B24SelectMenu
+        :items="items"
+        :b24ui="{ root: 'w-full' }"
+        trailing
+        name="some_value"
+        placeholder="Loading trailing"
+        aria-label="Loading trailing"
+        v-bind="{ ...singleAttrs, ...props }"
+      />
+      <B24SelectMenu
+        :items="items"
+        :b24ui="{ root: 'w-full' }"
+        :icon="RocketIcon"
+        name="some_value"
+        placeholder="Icon"
+        aria-label="Icon"
+        v-bind="{ ...singleAttrs, ...props }"
+      />
+      <B24SelectMenu
+        :items="items"
+        :b24ui="{ root: 'w-full' }"
+        :avatar="{ src: '/b24ui/demo/avatar/employee.png' }"
+        name="some_value"
+        placeholder="Avatar"
+        aria-label="Avatar"
+        v-bind="{ ...singleAttrs, ...props }"
+      />
+      <B24SelectMenu
+        v-model="selectedItems"
+        :items="items"
+        :b24ui="{ root: 'w-full' }"
+        name="multiple"
+        placeholder="Multiple"
+        aria-label="Multiple"
+        multiple
+        v-bind="{ ...props, disabled: singleAttrs.disabled, loading: singleAttrs.loading }"
+      />
+      <B24SelectMenu
+        v-model="value"
+        :b24ui="{ root: 'w-full' }"
+        :create-item="{ position: 'bottom', when: 'always' }"
+        :items="itemsSimple"
+        :icon="Search2Icon"
+        name="some_value"
+        placeholder="Create item"
+        aria-label="Create item"
+        aria-invalid="true"
+        highlight
+        tag="+ item"
+        tag-color="air-primary-copilot"
+        color="air-primary-alert"
+        value-key="value"
+        v-bind="{ ...props, disabled: singleAttrs.disabled, loading: singleAttrs.loading }"
+        @create="onCreate"
+      />
+      <B24SelectMenu
+        :items="statuses"
+        :b24ui="{ root: 'w-full' }"
+        :icon="Search2Icon"
+        name="some_value"
+        placeholder="Search status&hellip;"
+        aria-label="Search status"
+        value-key="value"
+        arrow
+        v-bind="{ ...singleAttrs, ...props }"
+      >
+        <template #leading="{ modelValue, b24ui }">
+          <Component
+            :is="getStatusIcon(getFirstValue(modelValue) || '')"
+            v-if="modelValue"
+            :class="b24ui.leadingIcon()"
           />
-          <B24SelectMenu
-            :items="items"
-            :tag-color="color"
-            tag="some text"
-            name="some_value"
-            placeholder="Choose a value&hellip;"
-            aria-label="Choose a value"
-            :color="color"
-            highlight
-            class="w-40"
-          />
-        </div>
-      </template>
-      <B24Collapsible class="mb-2">
-        <B24Button
-          color="air-secondary-no-accent"
-          label="Deprecate"
-          use-dropdown
-        />
-        <template #content>
-          <template v-for="color in oldColors" :key="color">
-            <ExampleCardSubTitle :title="color as string" />
-            <div class="mb-4 flex flex-wrap flex-row items-center gap-4">
-              <B24SelectMenu
-                :items="items"
-                name="some_value"
-                placeholder="Choose a value&hellip;"
-                aria-label="Choose a value"
-                :color="color"
-                highlight
-                class="w-40"
-              />
-              <B24SelectMenu
-                :items="items"
-                :tag-color="color"
-                tag="some text"
-                name="some_value"
-                placeholder="Choose a value&hellip;"
-                aria-label="Choose a value"
-                :color="color"
-                highlight
-                class="w-40"
-              />
-            </div>
-          </template>
         </template>
-      </B24Collapsible>
-    </ExampleCard>
-  </ExampleGrid>
-
-  <B24Separator accent="accent" class="my-4" label="Size" type="dotted" />
-  <ExampleGrid v-once class="mb-4">
-    <ExampleCard title="Some cases" :use-bg="isUseBg" class="sm:col-span-2 md:col-span-4">
-      <template v-for="size in sizes" :key="size">
-        <ExampleCardSubTitle :title="size as string" />
-        <div class="mb-4 flex flex-wrap flex-row items-center gap-4">
-          <div>
-            <B24SelectMenu
-              :items="items"
-              name="some_value"
-              placeholder="Choose a value&hellip;"
-              aria-label="Choose a value"
-              :size="size"
-              class="w-[240px]"
-              arrow
-            />
-          </div>
-          <div>
-            <B24SelectMenu
-              v-model="value"
-              :create-item="{ position: 'bottom', when: 'always' }"
-              :items="itemsSimple"
-              :icon="Search2Icon"
-              name="some_value"
-              placeholder="Choose a value&hellip;"
-              aria-label="Choose a value"
-              :size="size"
-              highlight
-              tag="+ item"
-              tag-color="air-primary-copilot"
-              color="air-primary-copilot"
-              value-key="value"
-              class="w-[240px]"
-              arrow
-              @create="onCreate"
-            />
-          </div>
-          <div>
-            <B24SelectMenu
-              :items="statuses"
-              :icon="Search2Icon"
-              name="some_value"
-              placeholder="Search status&hellip;"
-              aria-label="Search status"
-              :size="size"
-              value-key="value"
-              class="w-[240px]"
-              arrow
-            >
-              <template #leading="{ modelValue, b24ui }">
-                <Component
-                  :is="getStatusIcon(modelValue)"
-                  v-if="modelValue"
-                  :class="b24ui.leadingIcon()"
-                />
-              </template>
-            </B24SelectMenu>
-          </div>
-          <div class="flex flex-row items-center justify-between gap-4">
-            <B24SelectMenu
-              :items="items"
-              :avatar="{ src: '/b24ui/demo/avatar/employee.png' }"
-              :trailing-icon="Expand1Icon"
-              name="some_value"
-              placeholder="Choose a value&hellip;"
-              aria-label="Choose a value"
-              :size="size"
-              class="w-[240px]"
-              arrow
-            />
-            <B24Input
-              :avatar="{ src: '/b24ui/demo/avatar/assistant.png' }"
-              :trailing-icon="Search2Icon"
-              name="some_value"
-              placeholder="Input"
-              aria-label="Insert value"
-              :size="size"
-              class="w-[140px]"
-            />
-          </div>
-          <div>
-            <B24SelectMenu
-              :items="users"
-              :loading="status === 'pending'"
-              :icon="UserIcon"
-              :trailing-icon="Expand1Icon"
-              name="some_users"
-              placeholder="Search users&hellip;"
-              aria-label="Search users"
-              :size="size"
-              class="w-[240px]"
-              arrow
-            >
-              <template #leading="{ modelValue, b24ui }">
-                <B24Avatar
-                  v-if="modelValue"
-                  v-bind="modelValue.avatar"
-                  :size="b24ui.leadingAvatarSize() as AvatarProps['size']"
-                  :class="b24ui.leadingAvatar()"
-                />
-              </template>
-            </B24SelectMenu>
-          </div>
-          <div>
-            <B24SelectMenu
-              v-model="chipValue"
-              :items="chipItems"
-              name="some_chips"
-              aria-label="Search chips"
-              :size="size"
-              class="w-[240px]"
-              arrow
-              :b24ui="{
-                base: ['xss'].includes(size) ? 'ps-[25px]' : ''
-              }"
-            >
-              <template #leading="{ modelValue, b24ui }">
-                <B24Chip
-                  v-if="modelValue"
-                  v-bind="modelValue.chip"
-                  standalone
-                  :size="['xl', 'lg'].includes(size) ? 'lg' : (['md'].includes(size) ? 'md' : 'sm')"
-                  :class="b24ui.itemLeadingChip()"
-                />
-              </template>
-            </B24SelectMenu>
-          </div>
-        </div>
-      </template>
-    </ExampleCard>
-  </ExampleGrid>
+      </B24SelectMenu>
+      <B24SelectMenu
+        :items="users"
+        :b24ui="{ root: 'w-full' }"
+        :loading="singleAttrs.loading || status === 'pending'"
+        :icon="UserIcon"
+        :trailing-icon="Expand1Icon"
+        name="some_users"
+        placeholder="Search users&hellip;"
+        aria-label="Search users"
+        arrow
+        v-bind="{ ...props, disabled: singleAttrs.disabled }"
+      >
+        <template #leading="{ modelValue, b24ui }">
+          <B24Avatar
+            v-if="modelValue"
+            v-bind="modelValue.avatar"
+            :size="b24ui.leadingAvatarSize() as AvatarProps['size']"
+            :class="b24ui.leadingAvatar()"
+          />
+        </template>
+      </B24SelectMenu>
+      <B24SelectMenu
+        v-model="chipValue"
+        :items="chipItems"
+        name="some_chips"
+        aria-label="Search chips"
+        arrow
+        :b24ui="{ root: 'w-full', base: ['xss'].includes(getSizeValue(props?.size) || '') ? 'ps-[25px]' : '' }"
+        v-bind="{ ...singleAttrs, ...props }"
+      >
+        <template #leading="{ modelValue, b24ui }">
+          <B24Chip
+            v-if="modelValue && typeof modelValue === 'object' && 'chip' in modelValue && modelValue.chip"
+            v-bind="modelValue.chip"
+            standalone
+            :size="['xl', 'lg'].includes(getSizeValue(props?.size) || '') ? 'lg' : (['md'].includes(getSizeValue(props?.size) || '') ? 'md' : 'sm')"
+            :class="b24ui.itemLeadingChip()"
+          />
+        </template>
+      </B24SelectMenu>
+      <B24SelectMenu
+        :b24ui="{ root: 'w-full' }"
+        :icon="TaskListIcon"
+        placeholder="Search virtualized..."
+        virtualize
+        :items="[Array(1000).fill(0).map((_, i) => ({ label: `item-${i}`, value: i }))]"
+        v-bind="{ ...props, singleAttrs }"
+      />
+    </Matrix>
+  </PlaygroundPage>
 </template>

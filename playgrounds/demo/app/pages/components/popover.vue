@@ -1,188 +1,152 @@
 <script setup lang="ts">
-import usePageMeta from './../../composables/usePageMeta'
-import ExampleGrid from '../../components/ExampleGrid.vue'
-import ExampleCard from '../../components/ExampleCard.vue'
-import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import MockContentLongText from '../../components/MockContentLongText.vue'
 import MockContentUploadFile from '../../components/MockContentUploadFile.vue'
 import Cross50Icon from '@bitrix24/b24icons-vue/actions/Cross50Icon'
 
-usePageMeta.setPageTitle('Popover')
-
-const openVer1 = ref(false)
-const openVer2 = ref(false)
+const open = ref(false)
 const openCustomAnchor = ref(false)
+
+const contentAligns = ['start', 'center', 'end']
+const contentSides = ['right', 'left', 'top', 'bottom']
+
+const align = ref<'start' | 'center' | 'end'>('center')
+const side = ref<'right' | 'left' | 'top' | 'bottom'>('bottom')
+const sideOffset = ref(0)
+const openDelay = ref(500)
+const closeDelay = ref(300)
+const arrow = ref(false)
+const modal = ref(false)
 </script>
 
 <template>
-  <ExampleGrid v-once class="mb-2">
-    <ExampleCard title="base" class="md:col-span-2">
-      <ExampleCardSubTitle title="opening options" />
-      <div class="mb-4 flex flex-row flex-wrap gap-2">
-        <B24Popover :b24ui="{ content: 'p-[10px]' }">
-          <B24Button label="Click" />
+  <PlaygroundPage :b24ui="{ body: 'flex-col max-w-60 mx-auto' }">
+    <template #controls>
+      <B24FormField label="content.align" name="sideOffset">
+        <B24Select v-model="align" placeholder="content.align" :items="contentAligns" />
+      </B24FormField>
+      <B24FormField label="content.side" name="side">
+        <B24Select v-model="side" placeholder="content.side" :items="contentSides" />
+      </B24FormField>
+      <B24FormField label="content.sideOffset" name="sideOffset">
+        <B24InputNumber v-model="sideOffset" placeholder="content.sideOffset" class="w-30" />
+      </B24FormField>
 
-          <template #content="{ close }">
-            <div class="flex justify-center gap-2 p-4 w-48">
-              <B24Button label="Close" @click="close" />
-            </div>
-          </template>
-        </B24Popover>
+      <B24FormField label="Open delay(hover)" name="openDelay">
+        <B24InputNumber v-model="openDelay" placeholder="openDelay" class="w-30" />
+      </B24FormField>
+      <B24FormField label="Close delay(hover)" name="closeDelay">
+        <B24InputNumber v-model="closeDelay" placeholder="closeDelay" class="w-30" />
+      </B24FormField>
 
-        <B24Popover mode="hover" :b24ui="{ content: 'p-[10px]' }">
-          <B24Button label="Hover" />
-
-          <template #content>
-            <Placeholder class="size-[192px]" />
-          </template>
-        </B24Popover>
-
-        <B24Popover
-          mode="hover"
-          :open-delay="500"
-          :close-delay="300"
-          :b24ui="{ content: 'p-[10px]' }"
-        >
-          <B24Button label="Delay" />
-
-          <template #content>
-            <Placeholder class="size-[192px]" />
-          </template>
-        </B24Popover>
-
-        <B24Popover
-          mode="hover"
-          :content="{
-            align: 'center',
-            side: 'right',
-            sideOffset: 16
-          }"
-          :b24ui="{ content: 'p-[10px]' }"
-        >
-          <B24Button label="Content" />
-
-          <template #content>
-            <Placeholder class="size-[192px]" />
-          </template>
-        </B24Popover>
-
-        <B24Popover
-          mode="hover"
-          arrow
-          :b24ui="{ content: 'p-[10px]' }"
-        >
-          <B24Button label="Arrow" />
-
-          <template #content>
-            <Placeholder class="size-[192px]" />
-          </template>
-        </B24Popover>
+      <div class="flex flex-col gap-5">
+        <B24Switch v-model="arrow" label="Arrow" />
+        <B24Switch v-model="modal" label="Modal" />
       </div>
-    </ExampleCard>
+    </template>
 
-    <ExampleCard title="full" class="md:col-span-2">
-      <ExampleCardSubTitle title="different content" />
-      <div class="mb-4 flex flex-row flex-wrap gap-[20px]">
-        <B24Popover
-          v-model:open="openVer1"
-          arrow
-          :dismissible="false"
-          :b24ui="{ content: 'p-[10px]' }"
-        >
-          <B24Button label="Non-dismissible" color="air-secondary-accent-1" />
+    <B24Popover
+      :arrow="arrow"
+      :modal="modal"
+      :content="{
+        align,
+        side,
+        sideOffset
+      }"
+      :b24ui="{ content: 'p-[10px]' }"
+    >
+      <B24Button label="Click me" />
 
-          <template #content>
-            <div class="flex items-center justify-between gap-4 mb-[4px]">
-              <ProseH2 class="mb-0.5">
-                Popover non-dismissible
-              </ProseH2>
+      <template #content="{ close }">
+        <div class="flex items-center justify-between gap-4 mb-2xs border-b">
+          <ProseH4 class="mb-0.5">
+            Popover with long text
+          </ProseH4>
 
-              <B24Button
-                color="air-tertiary"
-                :icon="Cross50Icon"
-                @click="openVer1 = false"
-              />
-            </div>
+          <B24Button
+            color="air-tertiary"
+            :icon="Cross50Icon"
+            @click="close"
+          />
+        </div>
+        <div class="max-w-60 max-h-48 overflow-y-auto scrollbar-thin scrollbar-transparent">
+          <MockContentLongText />
+        </div>
+      </template>
+    </B24Popover>
 
-            <Placeholder class="w-full h-[192px]" />
-          </template>
-        </B24Popover>
+    <B24Popover
+      v-model:open="open"
+      mode="hover"
+      :open-delay="openDelay"
+      :close-delay="closeDelay"
+      :arrow="arrow"
+      :modal="modal"
+      :content="{
+        align,
+        side,
+        sideOffset
+      }"
+      :b24ui="{ content: 'p-[10px]' }"
+    >
+      <B24Button label="Hover me" />
 
-        <B24Popover arrow :b24ui="{ content: 'p-[10px] pe-[4px]' }">
-          <B24Button label="Long text" color="air-secondary-alert" />
+      <template #content>
+        <div class="max-w-48 max-h-73">
+          <MockContentUploadFile />
+        </div>
 
-          <template #content>
-            <div class="max-w-[192px] max-h-[192px] overflow-y-auto scrollbar-thin scrollbar-transparent">
-              <MockContentLongText />
-            </div>
-          </template>
-        </B24Popover>
+        <div class="mt-lg flex flex-row gap-xs2">
+          <B24Button
+            rounded
+            label="Send"
+            color="air-primary-success"
+            size="sm"
+            @click="open = false"
+          />
+          <B24Button
+            rounded
+            label="Cancel"
+            color="air-tertiary-no-accent"
+            size="sm"
+            @click="open = false"
+          />
+        </div>
+      </template>
+    </B24Popover>
 
-        <B24Popover
-          v-model:open="openVer2"
-          arrow
-          :b24ui="{ content: 'p-[10px]' }"
-        >
-          <B24Button label="Upload file" />
+    <B24Popover
+      v-model:open="openCustomAnchor"
+      :arrow="arrow"
+      :modal="modal"
+      :dismissible="false"
+      :content="{
+        align,
+        side,
+        sideOffset
+      }"
+      :b24ui="{ content: 'p-[10px]' }"
+    >
+      <template #anchor>
+        <B24Input
+          placeholder="Focus me"
+          @focus="openCustomAnchor = true"
+        />
+      </template>
 
-          <template #content>
-            <div class="max-w-[192px] max-h-[292px]">
-              <MockContentUploadFile />
-            </div>
+      <template #content>
+        <div class="flex items-center justify-between gap-4 mb-2xs">
+          <ProseH4 class="mb-0.5">
+            Popover non-dismissible
+          </ProseH4>
 
-            <div class="mt-[20px] flex flex-row gap-[10px]">
-              <B24Button
-                rounded
-                label="Send"
-                color="air-primary-success"
-                size="sm"
-                @click="openVer2 = false"
-              />
-              <B24Button
-                rounded
-                label="Cancel"
-                color="air-tertiary-no-accent"
-                size="sm"
-                @click="openVer2 = false"
-              />
-            </div>
-          </template>
-        </B24Popover>
-
-        <B24Popover
-          v-model:open="openCustomAnchor"
-          :dismissible="false"
-          :content="{
-            align: 'center',
-            side: 'bottom',
-            sideOffset: -50
-          }"
-          :b24ui="{ content: 'w-[calc(var(--reka-popper-anchor-width)+10px)] p-[10px]' }"
-        >
-          <template #anchor>
-            <B24Input
-              placeholder="Search"
-              class="w-full"
-              @focus="openCustomAnchor = true"
-            />
-          </template>
-
-          <template #content>
-            <div class="flex items-center justify-between gap-4 mb-[4px]">
-              <ProseH2 class="mb-0.5">
-                Popover non-dismissible
-              </ProseH2>
-
-              <B24Button
-                color="air-tertiary"
-                :icon="Cross50Icon"
-                @click="openCustomAnchor = false"
-              />
-            </div>
-            <Placeholder class="w-full h-[192px]" />
-          </template>
-        </B24Popover>
-      </div>
-    </ExampleCard>
-  </ExampleGrid>
+          <B24Button
+            color="air-tertiary"
+            :icon="Cross50Icon"
+            @click="openCustomAnchor = false"
+          />
+        </div>
+        <Placeholder class="w-60 h-48" />
+      </template>
+    </B24Popover>
+  </PlaygroundPage>
 </template>

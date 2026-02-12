@@ -1,28 +1,25 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import theme from '#build/b24ui/range'
-import usePageMeta from './../../composables/usePageMeta'
-import ExampleGrid from '../../components/ExampleGrid.vue'
-import ExampleCard from '../../components/ExampleCard.vue'
-import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
-
-usePageMeta.setPageTitle('Range')
-const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
-const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
 
 const value = ref(50)
 const value2 = ref([40, 80])
 const value22 = ref([40, 80])
 const value3 = ref([15, 40, 80])
 
-const isDisabled = ref(false)
+const sizes = Object.keys(theme.variants.size)
+const colors = Object.keys(theme.variants.color)
+const orientations = Object.keys(theme.variants.orientation) as Array<keyof typeof theme.variants.orientation>
 
-const isUseBg = ref(true)
+const multipleAttrs = reactive({
+  color: [theme.defaultVariants.color],
+  size: [theme.defaultVariants.size]
+})
 
-const oldColors = computed(() => {
-  return colors.filter((color) => {
-    return !color.includes('air')
-  })
+const singleAttrs = reactive({
+  orientation: orientations[0],
+  inverted: false,
+  disabled: false
 })
 
 const airColors = computed(() => {
@@ -30,77 +27,36 @@ const airColors = computed(() => {
     return color.includes('air')
   })
 })
-
-onMounted(() => {
-  isDisabled.value = true
-})
 </script>
 
 <template>
-  <ExampleGrid v-once>
-    <ExampleCard title="color" :use-bg="isUseBg">
-      <template v-for="color in airColors" :key="color">
-        <ExampleCardSubTitle :title="color as string" />
-        <div class="mb-6 flex flex-col items-center gap-4">
-          <B24Range v-model="value" :color="color" :aria-label="color" />
-        </div>
-      </template>
-      <B24Collapsible class="my-4">
-        <B24Button
-          color="air-secondary-no-accent"
-          label="Deprecate"
-          use-dropdown
-        />
-        <template #content>
-          <template v-for="color in oldColors" :key="color">
-            <ExampleCardSubTitle :title="color as string" />
-            <div class="mb-6 flex flex-col items-center gap-4">
-              <B24Range v-model="value" :color="color" :aria-label="color" />
-            </div>
-          </template>
-        </template>
-      </B24Collapsible>
-    </ExampleCard>
+  <PlaygroundPage>
+    <template #controls>
+      <B24Select v-model="multipleAttrs.color" class="w-44" :items="airColors" placeholder="Color" multiple />
+      <B24Select v-model="multipleAttrs.size" class="w-32" :items="sizes" placeholder="Size" multiple />
+      <B24Select v-model="singleAttrs.orientation" class="w-44" :items="orientations" placeholder="Orientation" />
 
-    <ExampleCard title="statuses" :use-bg="isUseBg">
-      <ExampleCardSubTitle title="variants" />
-      <div class="mb-6 flex flex-col items-center gap-8">
-        <B24Range v-model="value" aria-label="Some range" />
-        <B24Range :default-value="100" aria-label="Some range" />
-        <B24Range :default-value="40" inverted aria-label="Some inverted range" />
-      </div>
-      <ExampleCardSubTitle title="disabled" />
-      <div class="mb-6 flex flex-col items-center gap-8">
-        <B24Range :disabled="isDisabled" aria-label="Disabled" />
-        <B24Range v-model="value" :disabled="isDisabled" aria-label="Disabled" />
-      </div>
-      <ExampleCardSubTitle title="step" />
-      <div class="mb-6 flex flex-col items-center gap-8">
-        <B24Range :min="4" :max="12" :step="2" :model-value="6" aria-label="Some range" />
-        <B24Range v-model="value22" :min-steps-between-thumbs="20" aria-label="Some range" />
-      </div>
-      <ExampleCardSubTitle title="model" />
-      <div class="mb-6 flex flex-col items-center gap-8">
-        <B24Range v-model="value2" aria-label="Some range" />
-        <B24Range v-model="value3" aria-label="Some range" />
-      </div>
-    </ExampleCard>
+      <B24Switch v-model="singleAttrs.inverted" label="Inverted" />
+      <B24Switch v-model="singleAttrs.disabled" label="Disabled" />
+    </template>
 
-    <ExampleCard title="size" :use-bg="isUseBg">
-      <template v-for="size in sizes" :key="size">
-        <ExampleCardSubTitle :title="size as string" />
-        <div class="mb-6 flex flex-col items-center gap-4">
-          <B24Range v-model="value" :size="size" :aria-label="size" />
-        </div>
-      </template>
-    </ExampleCard>
-
-    <ExampleCard title="vertical" :use-bg="isUseBg">
-      <div class="mb-6 h-48 flex flex-row items-center justify-center gap-16">
-        <B24Range v-model="value" orientation="vertical" aria-label="Some vertical range" />
-        <B24Range v-model="value2" :min-steps-between-thumbs="20" orientation="vertical" aria-label="Some vertical range" />
-        <B24Range v-model="value3" orientation="vertical" aria-label="Some vertical range" />
-      </div>
-    </ExampleCard>
-  </ExampleGrid>
+    <Matrix
+      v-slot="props"
+      :attrs="multipleAttrs"
+      :b24ui="{
+        root: 'max-w-80',
+        body: ['overflow-x-auto', singleAttrs.orientation === 'vertical' ? 'h-48 flex flex-row w-max' : 'w-64']
+      }"
+    >
+      <B24Range v-model="value" v-bind="{ ...singleAttrs, ...props }" />
+      <B24Range :default-value="80" v-bind="{ ...singleAttrs, ...props }" />
+      <B24Separator label="Multiple" :orientation="singleAttrs.orientation" />
+      <B24Range :default-value="value2" v-bind="{ ...singleAttrs, ...props }" />
+      <B24Range :model-value="value22" v-bind="{ ...singleAttrs, ...props }" />
+      <B24Range :model-value="value3" v-bind="{ ...singleAttrs, ...props }" />
+      <B24Separator label="Steps" :orientation="singleAttrs.orientation" />
+      <B24Range :min="4" :max="12" :step="2" :model-value="6" v-bind="{ ...singleAttrs, ...props }" />
+      <B24Range :min-steps-between-thumbs="20" :model-value="value3" v-bind="{ ...singleAttrs, ...props }" />
+    </Matrix>
+  </PlaygroundPage>
 </template>

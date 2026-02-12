@@ -1,21 +1,14 @@
 <script lang="ts" setup>
 import type { TimelineItem } from '@bitrix24/b24ui-nuxt'
 import theme from '#build/b24ui/timeline'
-import usePageMeta from './../../composables/usePageMeta'
-import ExampleGrid from '../../components/ExampleGrid.vue'
-import ExampleCard from '../../components/ExampleCard.vue'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 import MoreMIcon from '@bitrix24/b24icons-vue/outline/MoreMIcon'
 import InfoIcon from '@bitrix24/b24icons-vue/button/InfoIcon'
 import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
 
-usePageMeta.setPageTitle('Timeline')
-
 const sizes = Object.keys(theme.variants.size)
 const colors = Object.keys(theme.variants.color)
 const orientations = Object.keys(theme.variants.orientation)
-
-const isUseBg = ref(true)
 
 const color = ref(theme.defaultVariants.color)
 const size = ref(theme.defaultVariants.size)
@@ -52,28 +45,23 @@ const value = ref('design')
 </script>
 
 <template>
-  <ExampleGrid v-once>
-    <ExampleCard title="settings" :use-bg="isUseBg">
-      <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Select v-model="color" :items="colors" placeholder="Color" />
-        <B24Select v-model="size" :items="sizes" placeholder="Size" />
-        <B24Select v-model="orientation" :items="orientations" placeholder="Orientation" />
-        <B24Select v-model="value" :items="items.map(item => item.value)" placeholder="Value" />
-        <B24Switch v-model="reverse" label="Reverse" />
-      </div>
-    </ExampleCard>
-    <ExampleCard title="matrix" :use-bg="isUseBg" class="sm:col-span-3">
-      <B24Separator class="my-3" type="dotted" />
-      <B24Timeline
-        v-model="value"
-        :color="color"
-        :orientation="orientation"
-        :size="size"
-        :items="items"
-        :reverse="reverse"
-        class="data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-[400px] min-h-0"
-      />
-    </ExampleCard>
-  </ExampleGrid>
+  <PlaygroundPage :b24ui="{ body: 'overflow-x-auto' }">
+    <template #controls>
+      <B24Select v-model="color" class="w-44" :items="colors" placeholder="Color" />
+      <B24Select v-model="size" class="w-32" :items="sizes" placeholder="Size" />
+      <B24Select v-model="orientation" class="w-44" :items="orientations" placeholder="Orientation" />
+      <B24Select v-model="value" class="w-32" :items="items.map(item => item.value)" placeholder="Value" />
+      <B24Switch v-model="reverse" label="Reverse" />
+    </template>
+
+    <B24Timeline
+      v-model="value"
+      :color="color"
+      :orientation="orientation"
+      :size="size"
+      :items="items"
+      :reverse="reverse"
+      class="data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-[400px] min-h-0"
+    />
+  </PlaygroundPage>
 </template>

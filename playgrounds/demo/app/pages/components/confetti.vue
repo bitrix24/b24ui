@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import usePageMeta from './../../composables/usePageMeta'
 import MagicWandIcon from '@bitrix24/b24icons-vue/outline/MagicWandIcon'
-
-usePageMeta.setPageTitle('Confetti')
 
 const myCanvas = ref<HTMLCanvasElement | undefined>()
 const confetti = useConfetti()

@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import theme from '#build/b24ui/table-wrapper'
-import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
 // import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 
-usePageMeta.setPageTitle('TableWrapper')
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
 const isUseBg = ref(true)
@@ -363,7 +361,7 @@ const isUseBg = ref(true)
       <B24Separator class="my-3" type="dotted" />
       <B24TableWrapper
         class="overflow-x-auto w-full h-[400px]"
-        size="xs"
+        size="sm"
         pin-rows
         :scrollbar-thin="false"
       >
@@ -534,7 +532,7 @@ const isUseBg = ref(true)
       <B24Separator class="my-3" type="dotted" />
       <B24TableWrapper
         class="overflow-x-auto w-full h-[400px]"
-        size="xs"
+        size="sm"
         pin-cols
         pin-rows
       >
@@ -850,7 +848,7 @@ const isUseBg = ref(true)
       <B24Separator class="my-3" type="dotted" />
       <B24TableWrapper
         class="overflow-x-auto w-full h-[400px]"
-        size="xs"
+        size="sm"
         pin-rows
         rounded
         bordered

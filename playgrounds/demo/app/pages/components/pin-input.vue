@@ -1,68 +1,43 @@
 <script setup lang="ts">
 import theme from '#build/b24ui/pin-input'
-import usePageMeta from './../../composables/usePageMeta'
-import ExampleGrid from '../../components/ExampleGrid.vue'
-import ExampleCard from '../../components/ExampleCard.vue'
 
-usePageMeta.setPageTitle('PinInput')
+const colors = Object.keys(theme.variants.color)
+const sizes = Object.keys(theme.variants.size)
 
-const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
+const airColors = computed(() => {
+  return colors.filter((color) => {
+    return color.includes('air')
+  })
+})
 
-const onComplete = (e: string[]) => {
-  console.log(e)
+const attrs = reactive({
+  color: [theme.defaultVariants.color],
+  size: [theme.defaultVariants.size]
+})
+
+const singleAttrs = reactive({
+  highlight: false,
+  disabled: false
+})
+
+const onComplete = (value: string[]) => {
+  console.log(value)
 }
 </script>
 
 <template>
-  <ExampleGrid v-once class="mb-2">
-    <ExampleCard title="simple" class="md:col-span-2">
-      <B24Separator class="mb-4" />
-      <div class="flex gap-4">
-        <B24PinInput placeholder="○" autofocus @complete="onComplete" />
-      </div>
+  <PlaygroundPage>
+    <template #controls>
+      <B24Select v-model="attrs.color" class="w-44" :items="airColors" placeholder="Color" multiple />
+      <B24Select v-model="attrs.size" class="w-32" :items="sizes" placeholder="Size" multiple />
 
-      <div class="mt-3 flex items-center gap-2">
-        <B24PinInput placeholder="○" />
-      </div>
-    </ExampleCard>
+      <B24Switch v-model="singleAttrs.disabled" label="Disabled" />
+      <B24Switch v-model="singleAttrs.highlight" label="Highlight" />
+    </template>
 
-    <ExampleCard title="some color" class="md:col-span-2">
-      <B24Separator class="mb-4" />
-      <div class="flex items-center gap-2">
-        <B24PinInput
-          placeholder="○"
-          color="air-primary"
-        />
-      </div>
-
-      <div class="mt-3 flex items-center gap-2">
-        <B24PinInput
-          placeholder="○"
-          highlight
-          color="air-primary-alert"
-          aria-invalid="true"
-        />
-      </div>
-    </ExampleCard>
-
-    <ExampleCard title="some more" class="md:col-span-2">
-      <B24Separator class="mb-4" />
-      <div class="flex flex-col gap-4">
-        <B24PinInput placeholder="○" disabled />
-        <B24PinInput placeholder="○" required />
-      </div>
-    </ExampleCard>
-
-    <ExampleCard title="size" class="md:col-span-2">
-      <B24Separator class="mb-4" />
-      <div class="flex flex-col gap-4">
-        <B24PinInput
-          v-for="size in sizes"
-          :key="size"
-          placeholder="○"
-          :size="size"
-        />
-      </div>
-    </ExampleCard>
-  </ExampleGrid>
+    <Matrix v-slot="props" :attrs="attrs" :b24ui="{ root: 'max-w-80' }">
+      <B24PinInput placeholder="○" autofocus v-bind="{ ...singleAttrs, ...props }" @complete="onComplete" />
+      <B24PinInput placeholder="○" required v-bind="{ ...singleAttrs, ...props }" />
+    </Matrix>
+  </PlaygroundPage>
 </template>

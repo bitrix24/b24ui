@@ -1,51 +1,23 @@
 <script setup lang="ts">
 import theme from '#build/b24ui/chip'
-import usePageMeta from './../../composables/usePageMeta'
-import ExampleGrid from '../../components/ExampleGrid.vue'
-import ExampleCard from '../../components/ExampleCard.vue'
-import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import BellIcon from '@bitrix24/b24icons-vue/main/BellIcon'
-import MessageChatWithPointIcon from '@bitrix24/b24icons-vue/main/MessageChatWithPointIcon'
 import MailIcon from '@bitrix24/b24icons-vue/main/MailIcon'
 import TrendUpIcon from '@bitrix24/b24icons-vue/outline/TrendUpIcon'
 
-usePageMeta.setPageTitle('Chip')
-const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
-const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
-const positions = Object.keys(theme.variants.position) as Array<keyof typeof theme.variants.position>
+const colors = Object.keys(theme.variants.color)
+const sizes = Object.keys(theme.variants.size)
+const positions = Object.keys(theme.variants.position)
 
-const items = [
-  {
-    name: 'messages-0',
-    icon: MailIcon,
-    count: 0
-  },
-  {
-    name: 'messages-1',
-    icon: BellIcon,
-    count: 1
-  },
-  {
-    name: 'messages-2',
-    icon: MessageChatWithPointIcon,
-    count: 53
-  },
-  {
-    name: 'notifications-3',
-    icon: MailIcon,
-    count: 100
-  },
-  {
-    name: 'notifications-4',
-    icon: BellIcon,
-    count: 1000
-  }
-]
+const multipleAttrs = reactive({
+  color: [theme.defaultVariants.color],
+  size: [theme.defaultVariants.size],
+  position: [theme.defaultVariants.position]
+})
 
-const oldColors = computed(() => {
-  return colors.filter((color) => {
-    return !color.includes('air')
-  })
+const singleAttrs = reactive({
+  inset: false,
+  inverted: false,
+  hideZero: false
 })
 
 const airColors = computed(() => {
@@ -56,116 +28,30 @@ const airColors = computed(() => {
 </script>
 
 <template>
-  <ExampleGrid v-once class="mb-2">
-    <ExampleCard title="inset" class="sm:col-span-2">
-      <template v-for="size in sizes" :key="size">
-        <ExampleCardSubTitle :title="size as string" />
-        <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-          <B24Chip
-            v-for="position in positions"
-            :key="position"
-            :position="position"
-            :size="size"
-            color="air-primary-success"
-            :b24ui="{ base: 'style-filled-boost' }"
-            inset
-          >
-            <B24Avatar
-              src="/b24ui/demo/avatar/employee.png"
-              :size="size"
-              alt="Employee Name"
-            />
-          </B24Chip>
-          <B24Chip
-            :size="size"
-            hide-zero
-            inset
-            color="air-primary"
-            :text="'50'"
-            :trailing-icon="TrendUpIcon"
-          >
-            <B24Avatar
-              src="/b24ui/demo/avatar/employee.png"
-              :size="size"
-              alt="Employee Name"
-            />
-          </B24Chip>
-          <B24Chip
-            v-for="{ name, count } in items"
-            :key="name"
-            :text="count"
-            :size="size"
-            inset
-            hide-zero
-          >
-            <B24Avatar src="/b24ui/demo/avatar/assistant.png" alt="Assistant Name" :size="size" />
-          </B24Chip>
-        </div>
-      </template>
-    </ExampleCard>
-    <ExampleCard title="B24Button" class="sm:col-span-2">
-      <template v-for="size in sizes" :key="size">
-        <ExampleCardSubTitle :title="size as string" />
-        <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-          <B24Chip v-for="{ name, icon, count } in items" :key="name" :text="count" :size="size">
-            <B24Button :icon="icon" color="air-secondary-no-accent" />
-          </B24Chip>
-        </div>
-      </template>
-    </ExampleCard>
-    <template v-for="color in airColors" :key="color">
-      <ExampleCard :title="color as string" class="sm:col-span-2">
-        <template v-for="size in sizes" :key="size">
-          <ExampleCardSubTitle :title="size as string" />
-          <div class="mb-4 flex flex-wrap items-center justify-start gap-6">
-            <B24Chip
-              :size="size"
-              hide-zero
-              :color="color"
-            >
-              <B24Button :icon="MailIcon" color="air-secondary-no-accent" />
-            </B24Chip>
-            <template v-for="{ name, count } in items" :key="name">
-              <B24Chip
-                v-for="position in positions"
-                :key="position"
-                :text="count"
-                hide-zero
-                :size="size"
-                :position="position"
-                :color="color"
-                :inverted="position === 'bottom-right'"
-              >
-                <B24Button :icon="MailIcon" color="air-secondary-no-accent" />
-              </B24Chip>
-            </template>
-          </div>
-        </template>
-      </ExampleCard>
-    </template>
-  </ExampleGrid>
+  <PlaygroundPage>
+    <template #controls>
+      <B24Select v-model="multipleAttrs.color" class="w-44" :items="airColors" placeholder="Color" multiple />
+      <B24Select v-model="multipleAttrs.size" class="w-32" :items="sizes" placeholder="Size" multiple />
+      <B24Select v-model="multipleAttrs.position" class="w-44" :items="positions" placeholder="Position" multiple />
 
-  <B24Collapsible class="mb-2">
-    <B24Button
-      color="air-secondary-no-accent"
-      label="Deprecate"
-      use-dropdown
-    />
-    <template #content>
-      <ExampleGrid v-once class="my-2">
-        <template v-for="color in oldColors" :key="color">
-          <ExampleCard :title="color as string" class="sm:col-span-2">
-            <template v-for="size in sizes" :key="size">
-              <ExampleCardSubTitle :title="size as string" />
-              <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-                <B24Chip v-for="position in positions" :key="position" :position="position" :size="size" :color="color">
-                  <B24Button :icon="MailIcon" color="air-secondary-no-accent" />
-                </B24Chip>
-              </div>
-            </template>
-          </ExampleCard>
-        </template>
-      </ExampleGrid>
+      <B24Switch v-model="singleAttrs.inset" label="Inset" />
+      <B24Switch v-model="singleAttrs.inverted" label="Inverted" />
+      <B24Switch v-model="singleAttrs.hideZero" label="HideZero" />
     </template>
-  </B24Collapsible>
+
+    <Matrix v-slot="props" :attrs="multipleAttrs" :b24ui="{ root: 'max-w-90', body: 'flex-row flex-wrap gap-6' }">
+      <B24Chip :text="53" :trailing-icon="TrendUpIcon" v-bind="{ ...singleAttrs, ...props }">
+        <B24Button :icon="MailIcon" color="air-secondary-no-accent" />
+      </B24Chip>
+      <B24Chip :b24ui="{ base: 'style-filled-boost' }" v-bind="{ ...singleAttrs, ...props }">
+        <B24Button :icon="BellIcon" color="air-secondary-no-accent" />
+      </B24Chip>
+      <B24Chip :text="0" v-bind="{ ...singleAttrs, ...props }">
+        <B24Avatar src="/b24ui/demo/avatar/employee.png" alt="Employee" />
+      </B24Chip>
+      <B24Chip :text="1000" v-bind="{ ...singleAttrs, ...props }">
+        <B24Avatar src="/b24ui/demo/avatar/assistant.png" alt="Assistant" />
+      </B24Chip>
+    </Matrix>
+  </PlaygroundPage>
 </template>

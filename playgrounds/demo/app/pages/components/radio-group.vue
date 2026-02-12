@@ -1,34 +1,34 @@
 <script setup lang="ts">
 import theme from '#build/b24ui/radio-group'
-import usePageMeta from './../../composables/usePageMeta'
-import ExampleGrid from '../../components/ExampleGrid.vue'
-import ExampleCard from '../../components/ExampleCard.vue'
+import type { RadioGroupItem } from '@bitrix24/b24ui-nuxt'
 
-usePageMeta.setPageTitle('RadioGroup')
-const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
-const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
-const colorValue = ref('air-primary' as const)
-const variants = Object.keys(theme.variants.variant) as Array<keyof typeof theme.variants.variant>
-const variant = ref('list' as const) // list | card | table
-const indicators = Object.keys(theme.variants.indicator) as Array<keyof typeof theme.variants.indicator>
-const indicator = ref('start' as const)
+const sizes = Object.keys(theme.variants.size)
+const colors = Object.keys(theme.variants.color)
+const variants = Object.keys(theme.variants.variant)
+const indicators = Object.keys(theme.variants.indicator)
+const orientations = Object.keys(theme.variants.orientation)
 
-const isUseBg = ref(true)
+const multipleAttrs = reactive({
+  color: [theme.defaultVariants.color],
+  size: [theme.defaultVariants.size],
+  variant: [theme.defaultVariants.variant],
+  indicator: [theme.defaultVariants.indicator]
+})
 
-const literalOptions = [
-  'Basic',
-  'Standard',
-  'Professional',
-  'Enterprise'
-]
-const items = [
+const singleAttrs = reactive({
+  orientation: theme.defaultVariants.orientation,
+  required: false,
+  disabled: false
+})
+
+const items: RadioGroupItem[] = [
   { value: '1', label: 'Basic' },
   { value: '2', label: 'Standard' },
   { value: '3', label: 'Professional' },
   { value: '4', label: 'Enterprise' }
 ]
 
-const itemsWithDescription = [
+const itemsWithDescription: RadioGroupItem[] = [
   { value: '1', label: 'Basic', description: 'includes 5 users' },
   { value: '2', label: 'Standard', description: 'includes 50 users' },
   { value: '3', label: 'Professional', description: 'includes 100 users' },
@@ -36,12 +36,6 @@ const itemsWithDescription = [
 ]
 
 const value = ref<string | undefined>(undefined)
-
-const oldColors = computed(() => {
-  return colors.filter((color) => {
-    return !color.includes('air')
-  })
-})
 
 const airColors = computed(() => {
   return colors.filter((color) => {
@@ -51,232 +45,33 @@ const airColors = computed(() => {
 </script>
 
 <template>
-  <ExampleGrid v-once>
-    <ExampleCard title="settings" :use-bg="isUseBg" class="sm:col-span-4">
-      <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4 flex flex-col sm:flex-row items-center justify-start gap-4">
-        <div class="w-[100px]">
-          <B24Select
-            v-model="variant"
-            :items="variants"
-            class="w-[100px]"
-          />
-        </div>
-        <div class="w-[100px]">
-          <B24Select
-            v-model="indicator"
-            :items="indicators"
-            class="w-[100px]"
-          />
-        </div>
-      </div>
-    </ExampleCard>
-  </ExampleGrid>
+  <PlaygroundPage>
+    <template #controls>
+      <B24Select v-model="multipleAttrs.color" class="w-44" :items="airColors" placeholder="Color" multiple />
+      <B24Select v-model="multipleAttrs.size" class="w-32" :items="sizes" placeholder="Size" multiple />
+      <B24Select v-model="multipleAttrs.variant" class="w-32" :items="variants" placeholder="Variant" multiple />
+      <B24Select v-model="multipleAttrs.indicator" class="w-32" :items="indicators" placeholder="Indicator" multiple />
+      <B24Select v-model="singleAttrs.orientation" class="w-32" :items="orientations" placeholder="Orientation" />
 
-  <B24Separator accent="accent" class="my-4" label="Color" type="dotted" />
-  <ExampleGrid v-once>
-    <template v-for="color in airColors" :key="color">
-      <ExampleCard :title="color as string" :use-bg="isUseBg">
-        <B24Separator class="my-3" type="dotted" />
-        <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
-          <B24RadioGroup
-            v-model="value"
-            :items="items"
-            :color="color"
-            :legend="color"
-            :variant="variant"
-            :indicator="indicator"
-            :aria-label="color"
-            default-value="1"
-          />
-        </div>
-      </ExampleCard>
+      <B24Switch v-model="singleAttrs.required" label="Required" />
+      <B24Switch v-model="singleAttrs.disabled" label="Disabled" />
     </template>
-  </ExampleGrid>
 
-  <B24Collapsible class="my-4">
-    <B24Button
-      color="air-secondary-no-accent"
-      label="Deprecate"
-      use-dropdown
-    />
-    <template #content>
-      <ExampleGrid v-once class="mt-4">
-        <template v-for="color in oldColors" :key="color">
-          <ExampleCard :title="color as string" :use-bg="isUseBg">
-            <B24Separator class="my-3" type="dotted" />
-            <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
-              <B24RadioGroup
-                v-model="value"
-                :items="items"
-                :color="color"
-                :legend="color"
-                :variant="variant"
-                :indicator="indicator"
-                :aria-label="color"
-                default-value="1"
-              />
-            </div>
-          </ExampleCard>
+    <Matrix v-slot="props" :attrs="multipleAttrs" :b24ui="{ root: 'max-w-80' }">
+      <B24RadioGroup v-model="value" :items="items" default-value="2" v-bind="{ ...singleAttrs, ...props }" />
+      <B24RadioGroup v-model="value" legend="Items with description" :items="itemsWithDescription" v-bind="{ ...singleAttrs, ...props }" />
+      <B24RadioGroup v-model="value" :items="items" v-bind="{ ...singleAttrs, ...props }">
+        <template #legend>
+          <span class="italic font-(--ui-font-weight-bold)">
+            With legend and label slots
+          </span>
         </template>
-      </ExampleGrid>
-    </template>
-  </B24Collapsible>
-
-  <ExampleGrid v-once>
-    <ExampleCard title="settings" :use-bg="isUseBg" class="sm:col-span-4">
-      <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4 flex flex-col sm:flex-row items-center justify-start gap-4">
-        <div class="w-[200px]">
-          <B24Select
-            v-model="colorValue"
-            :items="colors"
-            class="w-[200px]"
-          />
-        </div>
-      </div>
-    </ExampleCard>
-  </ExampleGrid>
-
-  <B24Separator accent="accent" class="my-4" label="Orientation" type="dotted" />
-  <ExampleGrid v-once>
-    <ExampleCard title="horizontal" :use-bg="isUseBg" class="md:col-span-4 overflow-x-auto">
-      <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
-        <B24RadioGroup
-          v-model="value"
-          :items="items"
-          aria-label="Horizontal"
-          orientation="horizontal"
-          :color="colorValue"
-          :variant="variant"
-          :indicator="indicator"
-          :b24ui="{ label: 'whitespace-nowrap' }"
-        />
-      </div>
-    </ExampleCard>
-  </ExampleGrid>
-
-  <B24Separator accent="accent" class="my-4" label="Size" type="dotted" />
-  <ExampleGrid v-once>
-    <template v-for="size in sizes" :key="size">
-      <ExampleCard :title="size as string" :use-bg="isUseBg">
-        <B24Separator class="my-3" type="dotted" />
-        <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
-          <B24RadioGroup
-            v-model="value"
-            :size="size"
-            :items="items"
-            :color="colorValue"
-            :variant="variant"
-            :indicator="indicator"
-            :legend="`legend for ${size}`"
-            :aria-label="`legend for ${size}`"
-          />
-        </div>
-      </ExampleCard>
-    </template>
-    <template v-for="size in sizes" :key="size">
-      <ExampleCard :title="size as string" :use-bg="isUseBg">
-        <B24Separator class="my-3" type="dotted" />
-        <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
-          <B24RadioGroup
-            v-model="value"
-            :size="size"
-            :items="itemsWithDescription"
-            :color="colorValue"
-            :variant="variant"
-            :indicator="indicator"
-            :legend="`legend with description for ${size}`"
-            :aria-label="`legend with description for ${size}`"
-          />
-        </div>
-      </ExampleCard>
-    </template>
-  </ExampleGrid>
-
-  <B24Separator accent="accent" class="my-4" label="Cases" type="dotted" />
-  <ExampleGrid v-once class="mb-4">
-    <ExampleCard title="default" :use-bg="isUseBg">
-      <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
-        <B24RadioGroup
-          v-model="value"
-          :items="items"
-          :color="colorValue"
-          :variant="variant"
-          :indicator="indicator"
-          aria-label="Default"
-          default-value="1"
-        />
-      </div>
-    </ExampleCard>
-
-    <ExampleCard title="literal options" :use-bg="isUseBg">
-      <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
-        <B24RadioGroup
-          :items="literalOptions"
-          :color="colorValue"
-          :variant="variant"
-          :indicator="indicator"
-          aria-label="Literal options"
-        />
-      </div>
-    </ExampleCard>
-
-    <ExampleCard title="required" :use-bg="isUseBg">
-      <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
-        <B24RadioGroup
-          v-model="value"
-          :items="items"
-          :color="colorValue"
-          :variant="variant"
-          :indicator="indicator"
-          required
-          aria-label="Required"
-        />
-      </div>
-    </ExampleCard>
-
-    <ExampleCard title="disabled" :use-bg="isUseBg">
-      <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
-        <B24RadioGroup
-          v-model="value"
-          :items="items"
-          :color="colorValue"
-          :variant="variant"
-          :indicator="indicator"
-          disabled
-          aria-label="Disabled"
-        />
-      </div>
-    </ExampleCard>
-
-    <ExampleCard title="with slots" :use-bg="isUseBg">
-      <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
-        <B24RadioGroup
-          v-model="value"
-          :items="items"
-          :color="colorValue"
-          :variant="variant"
-          :indicator="indicator"
-        >
-          <template #legend>
-            <span class="italic font-(--ui-font-weight-bold)">
-              Legend slot
-            </span>
-          </template>
-          <template #label="{ item }">
-            <span class="italic">
-              {{ item.label }}
-            </span>
-          </template>
-        </B24RadioGroup>
-      </div>
-    </ExampleCard>
-  </ExampleGrid>
+        <template #label="{ item }">
+          <span class="italic">
+            {{ item.label }}
+          </span>
+        </template>
+      </B24RadioGroup>
+    </Matrix>
+  </PlaygroundPage>
 </template>

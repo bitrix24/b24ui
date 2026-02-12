@@ -1,32 +1,30 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
 import theme from '#build/b24ui/progress'
-import usePageMeta from './../../composables/usePageMeta'
-import ExampleGrid from '../../components/ExampleGrid.vue'
-import ExampleCard from '../../components/ExampleCard.vue'
-import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 
-usePageMeta.setPageTitle('Progress')
-const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
-const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
-const animations = Object.keys(theme.variants.animation) as Array<keyof typeof theme.variants.animation>
+const sizes = Object.keys(theme.variants.size)
+const colors = Object.keys(theme.variants.color)
+const animations = Object.keys(theme.variants.animation)
+const orientations = Object.keys(theme.variants.orientation) as Array<keyof typeof theme.variants.orientation>
 
 const value1 = ref(0)
 const value2 = ref(0)
 const max = ['Waiting...', 'Cloning...', 'Migrating...', 'Deploying...', 'Done!']
 
-const isUseBg = ref(true)
-
-const oldColors = computed(() => {
-  return colors.filter((color) => {
-    return !color.includes('air')
-  })
-})
-
 const airColors = computed(() => {
   return colors.filter((color) => {
     return color.includes('air')
   })
+})
+
+const attrs = reactive({
+  color: [theme.defaultVariants.color],
+  size: [theme.defaultVariants.size],
+  animation: [theme.defaultVariants.animation]
+})
+
+const singleAttrs = reactive({
+  orientation: orientations[0] as keyof typeof theme.variants.orientation,
+  inverted: false
 })
 
 onMounted(() => {
@@ -51,105 +49,27 @@ onMounted(() => {
 </script>
 
 <template>
-  <ExampleGrid v-once>
-    <ExampleCard title="color" :use-bg="isUseBg">
-      <template v-for="color in airColors" :key="color">
-        <ExampleCardSubTitle :title="color as string" />
-        <div class="mb-6 flex flex-col items-center gap-4">
-          <B24Progress :color="color" animation="elastic" />
-        </div>
-      </template>
-      <B24Collapsible class="my-4">
-        <B24Button
-          color="air-secondary-no-accent"
-          label="Deprecate"
-          use-dropdown
-        />
-        <template #content>
-          <template v-for="color in oldColors" :key="color">
-            <ExampleCardSubTitle :title="color as string" />
-            <div class="mb-6 flex flex-col items-center gap-4">
-              <B24Progress :color="color" animation="elastic" />
-            </div>
-          </template>
-        </template>
-      </B24Collapsible>
-    </ExampleCard>
+  <PlaygroundPage>
+    <template #controls>
+      <B24Select v-model="attrs.color" class="w-44" :items="airColors" placeholder="Color" multiple />
+      <B24Select v-model="attrs.size" class="w-32" :items="sizes" placeholder="Size" multiple />
+      <B24Select v-model="attrs.animation" class="w-40" :items="animations" placeholder="Animation" multiple />
+      <B24Select v-model="singleAttrs.orientation" class="w-40" :items="orientations" placeholder="Orientation" />
+      <B24Switch v-model="singleAttrs.inverted" label="Inverted" />
+    </template>
 
-    <ExampleCard title="animation" :use-bg="isUseBg">
-      <template v-for="animation in animations" :key="animation">
-        <ExampleCardSubTitle :title="animation as string" />
-        <div class="mb-6 flex flex-col items-center gap-4">
-          <B24Progress :animation="animation" />
-        </div>
-      </template>
-    </ExampleCard>
-
-    <ExampleCard title="status" :use-bg="isUseBg">
-      <B24Separator class="my-3" type="dotted" />
-      <div class="mb-6 flex flex-col items-center gap-4">
-        <B24Progress v-model="value2" :max="max" status size="xs" />
-      </div>
-
-      <ExampleCardSubTitle title="inverted" />
-      <div class="mb-6 flex flex-col items-center gap-4">
-        <B24Progress v-model="value2" :max="max" status inverted />
-      </div>
-    </ExampleCard>
-
-    <ExampleCard title="size" :use-bg="isUseBg">
-      <template v-for="size in sizes" :key="size">
-        <ExampleCardSubTitle :title="size as string" />
-        <div class="mb-6 flex flex-col items-center gap-4">
-          <B24Progress v-model="value1" :size="size" />
-        </div>
-      </template>
-    </ExampleCard>
-  </ExampleGrid>
-
-  <B24Separator accent="accent" class="my-4" label="Vertical" type="dotted" />
-  <ExampleGrid v-once class="mb-4">
-    <ExampleCard title="color" :use-bg="isUseBg">
-      <B24Separator class="my-3" type="dotted" />
-      <div class="mb-6 h-48 flex flex-row items-center justify-center gap-8">
-        <template v-for="color in airColors" :key="color">
-          <B24Progress orientation="vertical" :color="color" animation="swing" />
-        </template>
-      </div>
-    </ExampleCard>
-
-    <ExampleCard title="animation" :use-bg="isUseBg">
-      <B24Separator class="my-3" type="dotted" />
-      <div class="mb-6 h-48 flex flex-row items-center justify-center gap-8">
-        <template v-for="animation in animations" :key="animation">
-          <B24Progress orientation="vertical" :animation="animation" />
-        </template>
-      </div>
-    </ExampleCard>
-
-    <ExampleCard title="status" :use-bg="isUseBg">
-      <B24Separator class="my-3" type="dotted" />
-      <div class="mb-6 h-48 flex flex-row items-center justify-start gap-2">
-        <B24Progress v-model="value2" orientation="vertical" :max="max" status class="w-48 justify-start" />
-        <B24Progress
-          v-model="value2"
-          orientation="vertical"
-          :max="max"
-          status
-          inverted
-          size="xs"
-          class="w-48 justify-start"
-        />
-      </div>
-    </ExampleCard>
-
-    <ExampleCard title="size" :use-bg="isUseBg">
-      <B24Separator class="my-3" type="dotted" />
-      <div class="mb-6 h-48 flex flex-row items-center justify-center gap-8">
-        <template v-for="size in sizes" :key="size">
-          <B24Progress v-model="value1" orientation="vertical" :size="size" />
-        </template>
-      </div>
-    </ExampleCard>
-  </ExampleGrid>
+    <Matrix
+      v-slot="props"
+      :attrs="attrs"
+      :b24ui="{ root: 'max-w-80', body: ['gap-4', singleAttrs.orientation === 'vertical' ? 'w-48 h-48 flex-row' : ''] }"
+    >
+      <B24Progress v-bind="{ ...singleAttrs, ...props }" />
+      <B24Progress
+        v-model="value2"
+        :max="max"
+        status
+        v-bind="{ ...singleAttrs, ...props }"
+      />
+    </Matrix>
+  </PlaygroundPage>
 </template>

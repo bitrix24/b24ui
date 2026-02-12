@@ -1,118 +1,61 @@
 <script setup lang="ts">
-import { upperFirst } from 'scule'
 import theme from '#build/b24ui/input-tags'
-import usePageMeta from './../../composables/usePageMeta'
-import ExampleGrid from '../../components/ExampleGrid.vue'
-import ExampleCard from '../../components/ExampleCard.vue'
 import ALetterIcon from '@bitrix24/b24icons-vue/main/ALetterIcon'
 import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
 
-usePageMeta.setPageTitle('InputTags')
+const colors = Object.keys(theme.variants.color)
+const sizes = Object.keys(theme.variants.size)
 
-const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
+const attrs = reactive({
+  color: [theme.defaultVariants.color],
+  size: [theme.defaultVariants.size]
+})
+
+const singleAttrs = reactive({
+  disabled: false,
+  loading: false,
+  highlight: false,
+  rounded: false
+})
+
+const airColors = computed(() => {
+  return colors.filter((color) => {
+    return color.includes('air')
+  })
+})
 
 const tags = ref(['Bitrix24', 'Crm', 'Copilot'])
 </script>
 
 <template>
-  <ExampleGrid v-once class="mb-2">
-    <ExampleCard title="simple" class="md:col-span-2">
-      <B24Separator class="mb-4" />
-      <div class="flex flex-col gap-2">
-        <B24InputTags
-          v-model="tags"
-          placeholder="Enter tags..."
-          autofocus
-        />
-      </div>
+  <PlaygroundPage>
+    <template #controls>
+      <B24Select v-model="attrs.color" class="w-44" :items="airColors" placeholder="Color" multiple />
+      <B24Select v-model="attrs.size" class="w-32" :items="sizes" placeholder="Size" multiple />
 
-      <div class="mt-3 flex items-center gap-2">
-        <B24InputTags
-          placeholder="Enter tags..."
-        />
-      </div>
-    </ExampleCard>
+      <B24Switch v-model="singleAttrs.disabled" label="Disabled" />
+      <B24Switch v-model="singleAttrs.loading" label="Loading" />
+      <B24Switch v-model="singleAttrs.highlight" label="Highlight" />
+      <B24Switch v-model="singleAttrs.rounded" label="Rounded" />
+    </template>
 
-    <ExampleCard title="some color" class="md:col-span-2">
-      <B24Separator class="mb-4" />
-      <div class="flex items-center gap-2">
-        <B24InputTags
-          v-model="tags"
-          placeholder="Enter tags..."
-          color="air-primary"
-        />
-      </div>
-
-      <div class="mt-3 flex items-center gap-2">
-        <B24InputTags
-          v-model="tags"
-          placeholder="Enter tags..."
-          highlight
-          color="air-primary-alert"
-          aria-invalid="true"
-        />
-      </div>
-
-      <div class="mt-3 flex items-center gap-2">
-        <B24InputTags
-          v-model="tags"
-          placeholder="Enter tags..."
-          color="air-primary-copilot"
-          highlight
-          tag="note"
-          tag-color="air-primary-alert"
-        />
-      </div>
-    </ExampleCard>
-
-    <ExampleCard title="some more" class="md:col-span-2">
-      <B24Separator class="mb-4" />
-      <div class="flex flex-col gap-4">
-        <B24InputTags v-model="tags" placeholder="Disabled" disabled />
-        <B24InputTags v-model="tags" placeholder="Required" required />
-        <B24InputTags v-model="tags" loading placeholder="Loading..." />
-      </div>
-    </ExampleCard>
-
-    <ExampleCard title="size" class="md:col-span-2">
-      <B24Separator class="mb-4" />
-      <div class="flex flex-col gap-4">
-        <B24InputTags
-          v-for="size in sizes"
-          :key="size"
-          v-model="tags"
-          :size="size"
-          :placeholder="upperFirst(size)"
-        />
-      </div>
-    </ExampleCard>
-
-    <ExampleCard title="icon" class="md:col-span-2">
-      <B24Separator class="mb-4" />
-      <div class="flex flex-col gap-4">
-        <B24InputTags
-          v-for="size in sizes"
-          :key="size"
-          v-model="tags"
-          :icon="ALetterIcon"
-          placeholder="Search..."
-          :size="size"
-        />
-      </div>
-    </ExampleCard>
-
-    <ExampleCard title="trailing icon" class="md:col-span-2">
-      <B24Separator class="mb-4" />
-      <div class="flex flex-col gap-4">
-        <B24InputTags
-          v-for="size in sizes"
-          :key="size"
-          v-model="tags"
-          :trailing-icon="Search2Icon"
-          placeholder="Search..."
-          :size="size"
-        />
-      </div>
-    </ExampleCard>
-  </ExampleGrid>
+    <Matrix v-slot="props" :attrs="attrs" :b24ui="{ root: 'max-w-120' }">
+      <B24InputTags v-model="tags" placeholder="Enter tags..." autofocus v-bind="{ ...singleAttrs, ...props }" class="w-full" />
+      <B24InputTags v-model="tags" placeholder="Required" required v-bind="{ ...singleAttrs, ...props }" class="w-full" />
+      <B24InputTags v-model="tags" placeholder="Underline" underline v-bind="{ ...singleAttrs, ...props }" class="w-full" />
+      <B24InputTags v-model="tags" placeholder="No border" no-border v-bind="{ ...singleAttrs, ...props }" class="w-full" />
+      <B24InputTags
+        v-model="tags"
+        placeholder="Tag"
+        tag="note"
+        tag-color="air-primary-copilot"
+        v-bind="{ ...singleAttrs, ...props }"
+        class="w-full"
+      />
+      <B24InputTags v-model="tags" placeholder="Trailing loading..." v-bind="{ ...singleAttrs, ...props }" class="w-full" />
+      <B24InputTags v-model="tags" :icon="ALetterIcon" placeholder="Icon" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
+      <B24InputTags v-model="tags" :trailing-icon="Search2Icon" placeholder="Trailing icon" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
+      <B24InputTags v-model="tags" :avatar="{ src: '/b24ui/demo/avatar/employee.png' }" placeholder="Avatar" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
+    </Matrix>
+  </PlaygroundPage>
 </template>

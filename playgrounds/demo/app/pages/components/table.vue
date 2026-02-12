@@ -5,7 +5,6 @@ import type { TableColumn, TableRow } from '@bitrix24/b24ui-nuxt'
 import type { Column } from '@tanstack/vue-table'
 import { getPaginationRowModel } from '@tanstack/vue-table'
 import { useClipboard, refDebounced } from '@vueuse/core'
-import usePageMeta from './../../composables/usePageMeta'
 import { useState } from '#imports'
 import CircleCheckIcon from '@bitrix24/b24icons-vue/outline/CircleCheckIcon'
 import MenuIcon from '@bitrix24/b24icons-vue/main/MenuIcon'
@@ -14,8 +13,6 @@ import ChevronTopLIcon from '@bitrix24/b24icons-vue/outline/ChevronTopLIcon'
 import ChevronDownLIcon from '@bitrix24/b24icons-vue/outline/ChevronDownLIcon'
 import PinIcon from '@bitrix24/b24icons-vue/outline/PinIcon'
 import UnpinIcon from '@bitrix24/b24icons-vue/outline/UnpinIcon'
-
-usePageMeta.setPageTitle('CheckboxGroup')
 
 const B24Button = resolveComponent('B24Button')
 const B24Checkbox = resolveComponent('B24Checkbox')
@@ -335,115 +332,115 @@ onMounted(() => {
 </script>
 
 <template>
-  <B24Card
-    variant="outline"
-    class="flex-1 w-full"
-    :b24ui="{
-      header: 'p-[12px] px-[14px] py-[14px] sm:px-[14px] sm:py-[14px]',
-      body: 'p-0 sm:px-0 sm:py-0',
-      footer: 'p-[12px] px-[14px] py-[14px] sm:px-[14px] sm:py-[14px] text-(length:--ui-font-size-xs) text-(--b24ui-typography-legend-color)'
-    }"
-  >
-    <template #header>
-      <div class="flex items-center gap-2 overflow-x-auto">
-        <B24Switch v-model="virtualize" label="Virtualize" />
+  <PlaygroundPage :b24ui="{ root: 'backdrop-blur-none' }">
+    <template #controls>
+      <B24Switch v-model="virtualize" label="Virtualize" />
 
-        <B24Input
-          :model-value="(table?.tableApi?.getColumn('email')?.getFilterValue() as string)"
-          class="max-w-[400px]"
-          placeholder="Filter emails..."
-          @update:model-value="table?.tableApi?.getColumn('email')?.setFilterValue($event)"
+      <B24Input
+        :model-value="(table?.tableApi?.getColumn('email')?.getFilterValue() as string)"
+        class="min-w-44 w-44"
+        placeholder="Filter emails..."
+        @update:model-value="table?.tableApi?.getColumn('email')?.setFilterValue($event)"
+      />
+
+      <B24Button color="air-primary-copilot" label="Randomize" @click="randomize" />
+      <B24Button color="air-primary" label="Add element" @click="addElement" />
+
+      <B24DropdownMenu
+        :items="table?.tableApi?.getAllColumns().filter(column => column.getCanHide()).map(column => ({
+          label: upperFirst(column.id),
+          type: 'checkbox' as const,
+          checked: column.getIsVisible(),
+          onUpdateChecked(checked: boolean) {
+            table?.tableApi?.getColumn(column.id)?.toggleVisibility(!!checked)
+          },
+          onSelect(e: Event) {
+            e.preventDefault()
+          }
+        }))"
+        :content="{ align: 'end' }"
+      >
+        <B24Button
+          label="Columns"
+          color="air-secondary-accent-1"
+          use-dropdown
+          class="ms-auto"
         />
-
-        <B24Button color="air-primary-copilot" label="Randomize" @click="randomize" />
-        <B24Button color="air-primary" label="Add element" @click="addElement" />
-
-        <B24DropdownMenu
-          :items="table?.tableApi?.getAllColumns().filter(column => column.getCanHide()).map(column => ({
-            label: upperFirst(column.id),
-            type: 'checkbox' as const,
-            checked: column.getIsVisible(),
-            onUpdateChecked(checked: boolean) {
-              table?.tableApi?.getColumn(column.id)?.toggleVisibility(!!checked)
-            },
-            onSelect(e: Event) {
-              e.preventDefault()
-            }
-          }))"
-          :content="{ align: 'end' }"
-        >
-          <B24Button
-            label="Columns"
-            color="air-secondary-accent-1"
-            use-dropdown
-            class="ms-auto"
-          />
-        </B24DropdownMenu>
-      </div>
+      </B24DropdownMenu>
     </template>
 
-    <div class="flex flex-col gap-4 w-full h-full">
-      <B24ContextMenu :items="contextmenuItems">
-        <B24Table
-          ref="table"
-          :key="String(virtualize)"
-          :data="data"
-          :columns="columns"
-          :column-pinning="columnPinning"
-          :row-selection="rowSelection"
-          :loading="loading"
-          :virtualize="virtualize"
-          v-bind="virtualize ? {} : {
-            data,
-            pagination,
-            paginationOptions: {
-              getPaginationRowModel: getPaginationRowModel()
-            },
-            b24ui: {
-              tr: 'divide-x divide-(--ui-color-design-outline-content-divider)'
-            }
-          }"
-          sticky
-          class="h-[380px]"
-          @select="onSelect"
-          @contextmenu="onContextmenu"
-          @pointermove="(ev: PointerEvent) => {
-            popoverAnchor.x = ev.clientX
-            popoverAnchor.y = ev.clientY
-          }"
-          @hover="onHover"
-        >
-          <template #expanded="{ row }">
-            <pre>{{ row.original }}</pre>
+    <template #default="{ cardVariant, cardBorderClass }">
+      <B24Card
+        :variant="cardVariant"
+        :class="[cardBorderClass, 'flex-1 w-full']"
+        :b24ui="{
+          body: 'p-0 sm:px-0 sm:py-0',
+          footer: 'p-[12px] px-[14px] py-[14px] sm:px-[14px] sm:py-[14px] text-(length:--ui-font-size-xs) text-(--b24ui-typography-legend-color)'
+        }"
+      >
+        <B24ContextMenu :items="contextmenuItems">
+          <B24Table
+            ref="table"
+            :key="String(virtualize)"
+            :data="data"
+            :columns="columns"
+            :column-pinning="columnPinning"
+            :row-selection="rowSelection"
+            :loading="loading"
+            :virtualize="virtualize"
+            v-bind="virtualize ? {} : {
+              data,
+              pagination,
+              paginationOptions: {
+                getPaginationRowModel: getPaginationRowModel()
+              },
+              b24ui: {
+                tr: 'divide-x divide-(--ui-color-design-outline-content-divider)'
+              }
+            }"
+            sticky
+            class="h-[380px]"
+            @select="onSelect"
+            @contextmenu="onContextmenu"
+            @pointermove="(ev: PointerEvent) => {
+              popoverAnchor.x = ev.clientX
+              popoverAnchor.y = ev.clientY
+            }"
+            @hover="onHover"
+          >
+            <template #expanded="{ row }">
+              <pre>{{ row.original }}</pre>
+            </template>
+          </B24Table>
+        </B24ContextMenu>
+
+        <B24Popover :content="{ side: 'top', sideOffset: 16, updatePositionStrategy: 'always' }" :open="popoverOpenDebounced" :reference="reference">
+          <template #content>
+            <ProseP class="p-4">
+              {{ popoverRow?.original?.id || '?' }}
+            </ProseP>
           </template>
-        </B24Table>
-      </B24ContextMenu>
+        </B24Popover>
 
-      <B24Popover :content="{ side: 'top', sideOffset: 16, updatePositionStrategy: 'always' }" :open="popoverOpenDebounced" :reference="reference">
-        <template #content>
-          <ProseP class="p-4">
-            {{ popoverRow?.original?.id || '?' }}
-          </ProseP>
+        <template #footer>
+          <div class="flex items-center justify-between gap-3">
+            <div class="text-(length:--ui-font-size-sm) text-description">
+              {{ table?.tableApi?.getFilteredSelectedRowModel().rows.length || 0 }} of
+              {{ table?.tableApi?.getFilteredRowModel().rows.length || 0 }} row(s) selected.
+            </div>
+
+            <div class="flex items-center gap-1.5">
+              <B24Pagination
+                :disabled="!!virtualize"
+                :page="(table?.tableApi?.getState().pagination.pageIndex ?? 0) + 1"
+                :items-per-page="table?.tableApi?.getState().pagination.pageSize ?? 10"
+                :total="table?.tableApi?.getFilteredRowModel().rows.length || 0"
+                @update:page="(p: number) => table?.tableApi?.setPageIndex(p - 1)"
+              />
+            </div>
+          </div>
         </template>
-      </B24Popover>
-    </div>
-    <template #footer>
-      <div class="flex items-center justify-between gap-3">
-        <div class="text-(length:--ui-font-size-sm) text-(--b24ui-typography-description-color)">
-          {{ table?.tableApi?.getFilteredSelectedRowModel().rows.length || 0 }} of
-          {{ table?.tableApi?.getFilteredRowModel().rows.length || 0 }} row(s) selected.
-        </div>
-
-        <div class="flex items-center gap-1.5">
-          <B24Pagination
-            :disabled="!!virtualize"
-            :page="(table?.tableApi?.getState().pagination.pageIndex ?? 0) + 1"
-            :items-per-page="table?.tableApi?.getState().pagination.pageSize ?? 10"
-            :total="table?.tableApi?.getFilteredRowModel().rows.length || 0"
-            @update:page="(p: number) => table?.tableApi?.setPageIndex(p - 1)"
-          />
-        </div>
-      </div>
+      </B24Card>
     </template>
-  </B24Card>
+  </PlaygroundPage>
 </template>

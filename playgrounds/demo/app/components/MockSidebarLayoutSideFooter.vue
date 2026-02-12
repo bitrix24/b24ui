@@ -1,30 +1,18 @@
 <script setup lang="ts">
-import usePageMeta from './../composables/usePageMeta'
 import RocketIcon from '@bitrix24/b24icons-vue/outline/RocketIcon'
-import GoToLIcon from '@bitrix24/b24icons-vue/outline/GoToLIcon'
-import type { IMenuItem } from '~/types'
+import { useNavigation } from '~/composables/useNavigation'
 
 const props = withDefaults(defineProps<{
   framework?: 'nuxt' | 'vue'
 }>(), {
   framework: 'nuxt'
 })
+
+const { externalLinks } = useNavigation()
 </script>
 
 <template>
-  <template
-    v-for="(item, indexItem) in usePageMeta.menuList as IMenuItem[]"
-    :key="indexItem"
-  >
-    <B24Link
-      class="text-(length:--ui-font-size-sm) mb-2 flex flex-row items-center justify-between"
-      :to="item.to"
-      :target="item.target"
-    >
-      <div>{{ item.label }}</div>
-      <GoToLIcon class="size-4" />
-    </B24Link>
-  </template>
+  <B24PageLinks :links="externalLinks" class="mb-3" />
 
   <B24Button
     v-if="props.framework === 'nuxt'"

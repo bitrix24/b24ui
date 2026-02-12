@@ -1,33 +1,33 @@
 <script setup lang="ts">
-// import { useRoute, useRouter } from '#imports'
-// import { upperName } from '../utils'
-//
-// const route = useRoute()
-// const router = useRouter()
-//
-// defineProps<{
-//   to?: string
-// }>()
-//
-// const name = computed(() => route.path.split('/').pop() as string)
-// const title = computed(() => upperName(name.value))
-//
-// const components = inject<{ to: string, label: string }[]>('components')
-//
-// const index = computed(() => components?.findIndex(component => component.to === route.path) ?? -1)
-//
-// function navigate(index: number) {
-//   router.push(components?.[index]?.to as string)
-// }
-//
-// defineShortcuts({
-//   j: () => navigate(index.value + 1),
-//   k: () => navigate(index.value - 1)
-// })
+import type { CardProps } from '@bitrix24/b24ui-nuxt'
+
+defineProps<{
+  to?: string
+  b24ui?: CardProps['b24ui']
+}>()
+
+const slots = defineSlots<{
+  controls?: () => any
+  trailing?: () => any
+}>()
 </script>
 
 <template>
-  <div class="absolute top-0 inset-x-0 z-5 bg-(--popup-window-background-color) p-4 ">
-    <slot />
-  </div>
+  <B24Card
+    :b24ui="{
+      root: ['backdrop-blur-xl border-0 rounded-none lg:rounded-(--ui-border-radius-md)', b24ui?.root],
+      header: ['flex items-center justify-between flex-wrap gap-2', b24ui?.header],
+      body: ['w-full flex items-center gap-3 py-3', b24ui?.body]
+    }"
+  >
+    <template #header>
+      <NavbarHeader :to="to" />
+      <div v-if="slots.trailing" class="flex flex-wrap flex-row items-center justify-end gap-3">
+        <slot name="trailing" />
+      </div>
+    </template>
+    <template v-if="slots.controls" #default>
+      <slot name="controls" />
+    </template>
+  </B24Card>
 </template>
