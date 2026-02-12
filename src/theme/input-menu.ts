@@ -34,7 +34,8 @@ export default () => {
         'group',
         'absolute inset-y-0 end-0 flex items-center',
         'disabled:cursor-not-allowed',
-        'disabled:opacity-30'
+        'disabled:opacity-30',
+        'focus:outline-none'
       ].join(' '),
       trailingClear: 'p-0',
       content: [
