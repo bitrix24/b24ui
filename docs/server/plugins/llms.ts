@@ -1,5 +1,6 @@
 import type { H3Event } from 'h3'
 import type { PageCollectionItemBase } from '@nuxt/content'
+import { withoutTrailingSlash } from 'ufo'
 import { clearMD } from '../utils/clearMD'
 
 export default defineNitroPlugin((nitroApp) => {
@@ -13,6 +14,16 @@ export default defineNitroPlugin((nitroApp) => {
   })
 
   nitroApp.hooks.hook('llms:generate', (_, { sections }) => {
+    // Transform links except for "Documentation Sets"
+    sections.forEach((section) => {
+      if (section.title !== 'Documentation Sets') {
+        section.links = section.links.map(link => ({
+          ...link,
+          href: transformRawLink(link.href)
+        }))
+      }
+    })
+
     // Move "Documentation Sets" to the end
     const docSetIdx = sections.findIndex(s => s.title === 'Documentation Sets')
     if (docSetIdx !== -1) {
@@ -30,3 +41,9 @@ export default defineNitroPlugin((nitroApp) => {
     }
   })
 })
+
+function transformRawLink(href: string) {
+  const config = useRuntimeConfig()
+
+  return `${withoutTrailingSlash(href.replace(new RegExp(`^${config.public.canonicalUrl}${config.public.baseUrl}`), `${config.public.canonicalUrl}${config.public.baseUrl}/raw`))}.md`
+}
