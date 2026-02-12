@@ -1,5 +1,4 @@
 import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
-import type { IconComponent } from '@bitrix24/b24ui-nuxt/icons'
 
 export interface IUser {
   id: number
@@ -8,31 +7,10 @@ export interface IUser {
   phone: string
 }
 
-export interface IMenuItem extends NavigationMenuItem {}
-
-export interface IComponentInfo extends NavigationMenuItem {
+export interface NavigationGroup {
   id: string
-  description: string
-  iconData?: IconComponent
-  iconUi?: string
+  label?: string
+  items: NavigationMenuItem[]
 }
 
-export interface IPageItem extends IComponentInfo {
-  iconData: IconComponent
-  label: string
-  to?: string
-  iconClass: Record<'icon', string>
-}
-
-export interface IPageGroup extends NavigationMenuItem {
-  id: string
-  label: string
-  defaultOpen: boolean
-  children: IPageItem[]
-}
-
-export interface IPageGroup {
-  id: string
-  label: string
-  items: IPageItem[]
-}
+export type Surround<T> = [T | undefined, T | undefined]

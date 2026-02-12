@@ -1,45 +1,32 @@
 <script setup lang="ts">
 import theme from '#build/b24ui/kbd'
-import usePageMeta from './../../composables/usePageMeta'
-import ExampleGrid from '../../components/ExampleGrid.vue'
-import ExampleCard from '../../components/ExampleCard.vue'
-import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import { kbdKeysMap } from '@bitrix24/b24ui-nuxt/composables/useKbd'
 
-usePageMeta.setPageTitle('Kbd')
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
+const accents = Object.keys(theme.variants.accent) as Array<keyof typeof theme.variants.accent>
+
+const attrs = reactive({
+  size: [theme.defaultVariants.size],
+  accent: [theme.defaultVariants.accent]
+})
 
 const kbdKeys = Object.keys(kbdKeysMap)
 </script>
 
 <template>
-  <ExampleGrid v-once>
-    <ExampleCard title="variants">
-      <ExampleCardSubTitle title="accent" />
-      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
-        <B24Kbd value="meta" accent="less" />
-        <B24Kbd value="meta" accent="default" />
-        <B24Kbd value="meta" accent="accent" />
-        <B24Kbd value="meta" accent="default" class="style-filled" />
+  <PlaygroundPage>
+    <template #controls>
+      <B24Select v-model="attrs.size" class="w-32" :items="sizes" placeholder="Size" multiple />
+      <B24Select v-model="attrs.accent" class="w-32" :items="accents" placeholder="Accent" multiple />
+    </template>
+
+    <Matrix v-slot="props" :attrs="attrs" :b24ui="{ root: 'max-w-80' }">
+      <div class="flex flex-wrap items-center gap-3">
+        <B24Kbd v-for="(kdbKey, index) in kbdKeys" :key="index" :value="kdbKey" v-bind="props" />
       </div>
-      <ExampleCardSubTitle title="size" />
-      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Kbd v-for="size in sizes" :key="size" value="meta" :size="size" />
+      <div class="flex flex-wrap items-center gap-3">
+        <B24Kbd v-for="(kdbKey, index) in kbdKeys" :key="index" :value="kdbKey" class="style-filled" v-bind="props" />
       </div>
-    </ExampleCard>
-    <ExampleCard title="values" class="sm:col-span-2 md:col-span-3">
-      <ExampleCardSubTitle title="sm" />
-      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Kbd v-for="(kdbKey, index) in kbdKeys" :key="index" :value="kdbKey" size="sm" />
-      </div>
-      <ExampleCardSubTitle title="md" />
-      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Kbd v-for="(kdbKey, index) in kbdKeys" :key="index" :value="kdbKey" size="md" />
-      </div>
-      <ExampleCardSubTitle title="lg" />
-      <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-        <B24Kbd v-for="(kdbKey, index) in kbdKeys" :key="index" :value="kdbKey" size="lg" />
-      </div>
-    </ExampleCard>
-  </ExampleGrid>
+    </Matrix>
+  </PlaygroundPage>
 </template>

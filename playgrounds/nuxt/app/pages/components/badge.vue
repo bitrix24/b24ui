@@ -1,18 +1,30 @@
 <script setup lang="ts">
 import theme from '#build/b24ui/badge'
-import usePageMeta from './../../composables/usePageMeta'
-import ExampleGrid from '../../components/ExampleGrid.vue'
-import ExampleCard from '../../components/ExampleCard.vue'
-import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
 import InfoIcon from '@bitrix24/b24icons-vue/button/InfoIcon'
 import type { ToastProps } from '@bitrix24/b24ui-nuxt'
 
-usePageMeta.setPageTitle('Badge')
-const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
-const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
-
 const toast = useToast()
-const isUseBg = ref(true)
+
+const sizes = Object.keys(theme.variants.size)
+const colors = Object.keys(theme.variants.color)
+
+const multipleAttrs = reactive({
+  color: [theme.defaultVariants.color],
+  size: [theme.defaultVariants.size]
+})
+
+const singleAttrs = reactive({
+  inverted: false,
+  useLink: false,
+  useClose: false,
+  square: false
+})
+
+const airColors = computed(() => {
+  return colors.filter((color) => {
+    return color.includes('air')
+  })
+})
 
 function onClick() {
   toast.add({
@@ -35,212 +47,38 @@ function onCloseClick(event: MouseEvent) {
     }
   }
 }
-
-const oldColors = computed(() => {
-  return colors.filter((color) => {
-    return !color.includes('air')
-  })
-})
-
-const airColors = computed(() => {
-  return colors.filter((color) => {
-    return color.includes('air')
-  })
-})
-
-const isPrimary = (color: string) => {
-  return color.includes('air-primary')
-}
 </script>
 
 <template>
-  <ExampleGrid v-once class="mb-4">
-    <ExampleCard title="color" :use-bg="isUseBg" class="sm:col-span-2">
-      <ExampleCardSubTitle title="default" />
-      <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
-        <div class="flex flex-col sm:flex-row gap-4">
-          <B24Badge
-            size="lg"
-            color="air-primary"
-            label="Employee Name"
-            :avatar="{ src: '/avatar/employee.png', text: 'Employee Name' }"
-            use-link
-            use-close
-            :on-close-click="onCloseClick"
-            @click="onClick"
-          />
-          <div>
-            <B24Badge
-              size="lg"
-              color="air-primary"
-              :avatar="{ src: '/avatar/employee.png', text: 'Employee Name' }"
-              use-link
-              use-close
-              :on-close-click="onCloseClick"
-              inverted
-              @click="onClick"
-            >
-              <span class="text-nowrap">Use slot</span>
-            </B24Badge>
-          </div>
-        </div>
-      </div>
-      <ExampleCardSubTitle title="colors" />
+  <PlaygroundPage>
+    <template #controls>
+      <B24Select v-model="multipleAttrs.color" class="w-44" :items="airColors" placeholder="Color" multiple />
+      <B24Select v-model="multipleAttrs.size" class="w-24" :items="sizes" placeholder="Size" multiple />
+      <B24Switch v-model="singleAttrs.inverted" label="Inverted" />
+      <B24Switch v-model="singleAttrs.square" label="Square" />
+      <B24Switch v-model="singleAttrs.useLink" label="useLink" />
+      <B24Switch v-model="singleAttrs.useClose" label="useClose" />
+    </template>
 
-      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
-        <template v-for="color in airColors" :key="color">
-          <B24Badge
-            :color="color"
-            :label="`This is ${color}`"
-            size="lg"
-          />
-          <B24Badge
-            v-if="isPrimary(color)"
-            :color="color"
-            :label="`This is inverted ${color}`"
-            inverted
-            size="lg"
-          />
-        </template>
-      </div>
-
-      <B24Collapsible class="mb-2">
-        <B24Button
-          color="air-secondary-no-accent"
-          label="Deprecate"
-          use-dropdown
-        />
-        <template #content>
-          <div class="my-4 flex flex-wrap items-start justify-start gap-4">
-            <template v-for="color in oldColors" :key="color">
-              <B24Badge
-                :color="color"
-                :label="`This is ${color}`"
-                size="lg"
-              />
-            </template>
-          </div>
-        </template>
-      </B24Collapsible>
-    </ExampleCard>
-
-    <ExampleCard title="size" :use-bg="isUseBg" class="sm:col-span-2">
-      <template v-for="size in sizes" :key="size">
-        <ExampleCardSubTitle :title="`${size}`" />
-        <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-          <B24Badge
-            :size="size"
-            :label="`this is ${size}`"
-          />
-          <B24Badge
-            :size="size"
-            :label="`this is inverted ${size}`"
-            inverted
-          />
-          <B24Badge
-            :size="size"
-            label="1"
-          />
-          <B24Badge
-            :size="size"
-            label="2"
-          />
-          <B24Badge
-            :size="size"
-            label="14"
-          />
-          <B24Badge
-            :size="size"
-            label="square"
-            square
-          />
-          <B24Badge
-            :size="size"
-            label="square"
-            inverted
-            square
-          />
-          <B24Badge
-            :size="size"
-            square
-            :icon="InfoIcon"
-          />
-          <B24Badge
-            :size="size"
-            inverted
-            :icon="InfoIcon"
-          />
-        </div>
-      </template>
-    </ExampleCard>
-
-    <ExampleCard title="variants" :use-bg="isUseBg">
-      <ExampleCardSubTitle title="link" />
-      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
-        <B24Badge
-          label="Use link"
-          use-link
-        />
-        <B24Badge
-          label="Use link inverted"
-          use-link
-          inverted
-        />
-      </div>
-
-      <ExampleCardSubTitle title="close icon" />
-      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
-        <B24Badge
-          label="Use close icon"
-          use-close
-        />
-        <B24Badge
-          label="Use close icon inverted"
-          use-close
-          inverted
-        />
-      </div>
-
-      <ExampleCardSubTitle title="icon" />
-      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
-        <B24Badge
-          label="Use icon"
-          :icon="InfoIcon"
-        />
-        <B24Badge
-          label="Use inverted icon"
-          :icon="InfoIcon"
-          inverted
-        />
-      </div>
-    </ExampleCard>
-
-    <ExampleCard title="Avatar" :use-bg="isUseBg" class="sm:col-span-2 md:col-span-3">
-      <template v-for="color in airColors" :key="color">
-        <ExampleCardSubTitle :title="color as string" />
-        <div class="mb-4 flex flex-wrap items-center justify-start gap-4">
-          <template v-for="size in sizes" :key="size">
-            <B24Badge
-              :color="color"
-              :size="size"
-              :label="`This is ${size}`"
-              :avatar="{ src: '/avatar/assistant.png' }"
-              use-close
-              use-link
-            />
-            <B24Badge
-              v-if="isPrimary(color)"
-              :color="color"
-              :size="size"
-              :label="`This is inverted ${size}`"
-              :avatar="{ src: '/avatar/assistant.png' }"
-              use-close
-              use-link
-              inverted
-            />
-          </template>
-        </div>
-      </template>
-    </ExampleCard>
-  </ExampleGrid>
+    <Matrix v-slot="props" :attrs="multipleAttrs" :b24ui="{ root: 'max-w-80' }">
+      <B24Badge
+        label="Badge"
+        v-bind="{ ...singleAttrs, ...props }"
+        :on-close-click="onCloseClick"
+        @click="onClick"
+      />
+      <B24Badge
+        :label="singleAttrs.square ? '' : 'Icon'"
+        :icon="InfoIcon"
+        v-bind="{ ...singleAttrs, ...props }"
+        :on-close-click="onCloseClick"
+      />
+      <B24Badge
+        label="With avatar"
+        v-bind="{ ...singleAttrs, ...props }"
+        :avatar="{ src: '/avatar/employee.png', text: 'Employee' }"
+        :on-close-click="onCloseClick"
+      />
+    </Matrix>
+  </PlaygroundPage>
 </template>

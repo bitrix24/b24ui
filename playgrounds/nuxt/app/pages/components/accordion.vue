@@ -1,87 +1,85 @@
 <script setup lang="ts">
 import type { AccordionItem } from '@bitrix24/b24ui-nuxt'
-import usePageMeta from './../../composables/usePageMeta'
-import ExampleGrid from '../../components/ExampleGrid.vue'
-import ExampleCard from '../../components/ExampleCard.vue'
-import IncertImageIcon from '@bitrix24/b24icons-vue/editor/IncertImageIcon'
-import CalculatorIcon from '@bitrix24/b24icons-vue/main/CalculatorIcon'
-import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
 import CollapseIcon from '@bitrix24/b24icons-vue/actions/CollapseIcon'
+import InfoIcon from '@bitrix24/b24icons-vue/button/InfoIcon'
+import Download3Icon from '@bitrix24/b24icons-vue/actions/Download3Icon'
+import ThemeIcon from '@bitrix24/b24icons-vue/outline/ThemeIcon'
+import FlipchartIcon from '@bitrix24/b24icons-vue/main/FlipchartIcon'
+import LayersIcon from '@bitrix24/b24icons-vue/outline/LayersIcon'
+import ServicesIcon from '@bitrix24/b24icons-vue/outline/ServicesIcon'
 
-usePageMeta.setPageTitle('Accordion')
+const items = [{
+  label: 'Getting Started',
+  icon: InfoIcon,
+  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.'
+}, {
+  label: 'Installation',
+  icon: Download3Icon,
+  disabled: true,
+  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.'
+}, {
+  label: 'Theming',
+  icon: ThemeIcon,
+  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.'
+}, {
+  label: 'Layouts',
+  icon: FlipchartIcon,
+  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.'
+}, {
+  label: 'Components',
+  slot: 'test' as const,
+  icon: LayersIcon,
+  trailingIcon: CollapseIcon,
+  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.'
+}, {
+  label: 'Utilities',
+  slot: 'custom' as const,
+  icon: ServicesIcon,
+  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.'
+}] satisfies AccordionItem[]
 
-const items = ref<AccordionItem[]>([
-  {
-    label: 'Icons',
-    icon: IncertImageIcon,
-    content: 'You have nothing to do.'
-  },
-  {
-    label: 'Colors',
-    icon: CalculatorIcon,
-    content: 'Choose a primary color from your Tailwind CSS theme.',
-    trailingIcon: CollapseIcon
-  },
-  {
-    label: 'Components',
-    icon: RocketIcon,
-    content: 'You can customize components by using the `class` / `b24ui` props.',
-    disabled: true
-  }
-])
-
-const active = ref('0')
-
-// Note: This is for demonstration purposes only. Don't do this at home.
-onMounted(() => {
-  setInterval(() => {
-    active.value = String((Number(active.value) + 1) % items.value.length)
-  }, 2000)
+const types: ('single' | 'multiple')[] = ['single', 'multiple']
+const attrs = reactive({
+  type: types[0],
+  collapsible: false,
+  disabled: false,
+  unmountOnHide: true
 })
 </script>
 
 <template>
-  <ExampleGrid v-once class="mb-2">
-    <ExampleCard title="simple">
-      <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4">
-        <B24Accordion :items="items" />
-      </div>
-    </ExampleCard>
+  <PlaygroundPage>
+    <template #controls>
+      <B24Select v-model="attrs.type" class="w-44" :items="types" placeholder="Type" />
+      <B24Switch v-if="attrs.type === 'single'" v-model="attrs.collapsible" label="Collapsible" />
+      <B24Switch v-model="attrs.disabled" label="Disabled" />
+      <B24Switch v-model="attrs.unmountOnHide" label="UnmountOnHide" />
+    </template>
 
-    <ExampleCard title="multiple">
-      <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4">
-        <B24Accordion :items="items" type="multiple" />
-      </div>
-    </ExampleCard>
+    <template #default="{ cardVariant, cardBorderClass }">
+      <B24Card
+        :variant="cardVariant"
+        :class="[cardBorderClass, 'mx-auto max-w-96 w-full']"
+      >
+        <B24Accordion
+          :key="`${attrs.type}-${attrs.collapsible}-${attrs.disabled}-${attrs.unmountOnHide}`"
+          v-bind="attrs"
+          :items="items"
+          class="w-full"
+        >
+          <template #body="{ item }">
+            <p class="text-muted">
+              {{ item.content }}
+            </p>
+          </template>
 
-    <ExampleCard title="collapsible">
-      <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4">
-        <B24Accordion :items="items" :collapsible="false" />
-      </div>
-    </ExampleCard>
-
-    <ExampleCard title="unmount">
-      <B24Separator class="my-3" type="dotted" />
-      <div class="mb-4">
-        <B24Accordion :items="items" :unmount-on-hide="false" />
-      </div>
-    </ExampleCard>
-
-    <ExampleCard title="disabled">
-      <B24Separator class="my-3" type="dotted" />
-      <div class="flex flex-col gap-4 min-h-[250px]">
-        <B24Accordion :items="items" :disabled="true" />
-      </div>
-    </ExampleCard>
-
-    <ExampleCard title="control open state">
-      <B24Separator class="my-3" type="dotted" />
-      <div class="flex flex-col gap-4 min-h-[250px]">
-        <B24Accordion v-model="active" :items="items" />
-      </div>
-    </ExampleCard>
-  </ExampleGrid>
+          <template #custom="{ item }">
+            <p class="text-muted">
+              Custom: {{ item.content }}
+            </p>
+          </template>
+        </B24Accordion>
+      </B24Card>
+    </template>
+  </PlaygroundPage>
 </template>

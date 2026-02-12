@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import theme from '#build/b24ui/countdown'
 import B24Countdown from '@bitrix24/b24ui-nuxt/components/Countdown.vue'
-import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
 import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
@@ -12,8 +11,6 @@ import StopHandIcon from '@bitrix24/b24icons-vue/main/StopHandIcon'
 import Refresh5Icon from '@bitrix24/b24icons-vue/actions/Refresh5Icon'
 import Clock2Icon from '@bitrix24/b24icons-vue/main/Clock2Icon'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
-
-usePageMeta.setPageTitle('Countdown')
 
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
@@ -193,7 +190,7 @@ const onCountdownRoundStop = () => {
       <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
         <B24Button
           color="air-primary"
-          size="xs"
+          size="sm"
           :disabled="counting"
           @click="startCountdown"
         >
@@ -225,7 +222,7 @@ const onCountdownRoundStop = () => {
         <B24Button
           color="air-secondary"
           label="Some action"
-          size="xs"
+          size="sm"
           :disabled="countingV2"
           @click="startCountdownV2"
         />

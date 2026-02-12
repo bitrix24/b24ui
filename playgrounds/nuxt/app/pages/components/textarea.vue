@@ -1,18 +1,11 @@
 <script setup lang="ts">
 import theme from '#build/b24ui/textarea'
-import usePageMeta from './../../composables/usePageMeta'
 import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
 import TaskIcon from '@bitrix24/b24icons-vue/button/TaskIcon'
 import MicrophoneOnIcon from '@bitrix24/b24icons-vue/outline/MicrophoneOnIcon'
 import StopLIcon from '@bitrix24/b24icons-vue/outline/StopLIcon'
 
-usePageMeta.setPageTitle('Textarea')
-
-const isUseBg = ref(true)
-
 const colors = Object.keys(theme.variants.color)
-const rowsItems = [1, 2, 3, 4]
-const rows = ref(2)
 
 const airColors = computed(() => {
   return colors.filter((color) => {
@@ -22,6 +15,14 @@ const airColors = computed(() => {
 
 const attrs = reactive({
   color: [theme.defaultVariants.color]
+})
+
+const singleAttrs = reactive({
+  rows: 2,
+  disabled: false,
+  loading: false,
+  highlight: false,
+  rounded: false
 })
 
 const value = ref('Value')
@@ -87,148 +88,101 @@ defineShortcuts({
 </script>
 
 <template>
-  <B24PageGrid v-once class="lg:grid-cols-4 gap-5">
-    <div>
-      <B24Card variant="outline">
-        <template #header>
-          <div class="flex flex-row items-center justify-between gap-2">
-            <ProseH5 class="mb-0">
-              Options
-            </ProseH5>
-            <B24Switch v-model="isUseBg" label="isUseBg" size="xs" />
-          </div>
-        </template>
-        <div class="mb-4 flex flex-col gap-4">
-          <B24Select v-model="attrs.color" :items="airColors" multiple placeholder="Color" />
-          <B24Select v-model="rows" :items="rowsItems" placeholder="Rows" />
-        </div>
-      </B24Card>
+  <PlaygroundPage>
+    <template #controls>
+      <B24Select v-model="attrs.color" class="w-44" :items="airColors" placeholder="Color" multiple />
 
-      <B24Card class="mt-4" :variant="isUseBg ? 'outline-no-accent' : 'plain-no-accent'">
-        <template #header>
-          <ProseH5 class="mb-0">
-            Use speech recognition
-          </ProseH5>
-        </template>
-        <div class="relative flex items-end gap-2 bg-(--ui-color-bg-content-secondary) rounded-xs ring-1 ring-ai-250 hover:ring-ai-350 pr-2 pb-2">
-          <B24Textarea
-            v-model="input"
-            :rows="1"
-            autoresize
-            placeholder="Try use speech recognition..."
-            no-padding
-            no-border
-            class="flex-1 resize-none px-2.5"
+      <B24FormField label="Rows" name="rows" orientation="horizontal">
+        <B24InputNumber
+          v-model="singleAttrs.rows"
+          class="w-20"
+          :min="0"
+          :max="9"
+        />
+      </B24FormField>
+
+      <B24Switch v-model="singleAttrs.disabled" label="Disabled" />
+      <B24Switch v-model="singleAttrs.loading" label="Loading" />
+      <B24Switch v-model="singleAttrs.highlight" label="Highlight" />
+      <B24Switch v-model="singleAttrs.rounded" label="Rounded" />
+    </template>
+
+    <Matrix v-slot="props" :attrs="attrs" :b24ui="{ root: 'max-w-80' }">
+      <B24Textarea v-model="value" autofocus v-bind="{ ...singleAttrs, ...props }" class="w-full" />
+      <B24Textarea :default-value="'Default value'" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
+      <B24Textarea placeholder="Autoresize" autoresize :maxrows="6" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
+      <B24Textarea required placeholder="Required" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
+      <B24Textarea no-padding placeholder="No Padding" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
+      <B24Textarea no-border placeholder="No Border" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
+      <B24Textarea underline placeholder="Underline" v-bind="{ ...singleAttrs, ...props }" class="w-full" />
+      <B24Textarea
+        :icon="RocketIcon"
+        placeholder="Icon"
+        v-bind="{ ...singleAttrs, ...props }"
+        class="w-full"
+      />
+      <B24Textarea
+        :trailing-icon="RocketIcon"
+        placeholder="Trailing icon"
+        v-bind="{ ...singleAttrs, ...props }"
+        class="w-full"
+      />
+      <B24Textarea
+        :avatar="{ src: '/avatar/employee.png' }"
+        :trailing-icon="TaskIcon"
+        placeholder="Avatar with trailing icon"
+        v-bind="{ ...singleAttrs, ...props }"
+        class="w-full"
+      />
+      <B24Textarea
+        trailing
+        :icon="TaskIcon"
+        placeholder="Loading trailing..."
+        v-bind="{ ...singleAttrs, ...props }"
+        class="w-full"
+      />
+
+      <div class="w-full relative flex items-center gap-2 bg-(--ui-color-bg-content-secondary) rounded-xs ring-1 ring-ai-250 hover:ring-ai-350">
+        <B24Textarea
+          v-model="input"
+          autoresize
+          placeholder="Try use speech recognition..."
+          no-padding
+          no-border
+          class="flex-1 resize-none px-2.5"
+          v-bind="props"
+        />
+        <template v-if="speechIsAvailable">
+          <B24Button
+            v-if="!speechIsListening"
+            :icon="MicrophoneOnIcon"
+            color="air-tertiary-no-accent"
+            size="sm"
+            class="shrink-0"
+            @click="startDictation"
           />
-          <template v-if="speechIsAvailable">
-            <B24Button
-              v-if="!speechIsListening"
-              :icon="MicrophoneOnIcon"
-              color="air-tertiary-no-accent"
-              size="sm"
-              class="shrink-0"
-              @click="startDictation"
-            />
-            <B24Button
-              v-if="speechIsListening"
-              :icon="StopLIcon"
-              color="air-secondary"
-              size="sm"
-              class="shrink-0 rounded-lg"
-              @click="stopDictation"
-            />
-          </template>
+          <B24Button
+            v-if="speechIsListening"
+            :icon="StopLIcon"
+            color="air-secondary"
+            size="sm"
+            class="shrink-0 rounded-lg"
+            @click="stopDictation"
+          />
+        </template>
+      </div>
+      <div class="flex flex-col justify-between items-start gap-4 mt-2 px-1 text-xs text-dimmed">
+        <div class="flex items-center gap-1">
+          <span>Use en-US for speech</span>
+          <B24Kbd value="e" accent="less" size="sm" />
+          <B24Kbd value="e" accent="less" size="sm" />
         </div>
-        <template #footer>
-          <div class="flex flex-col justify-between items-start gap-4 mt-2 px-1 text-xs text-dimmed">
-            <div class="flex items-center gap-1">
-              <span>Use en-US for speech</span>
-              <B24Kbd value="e" accent="less" size="sm" />
-              <B24Kbd value="e" accent="less" size="sm" />
-            </div>
-            <div class="flex items-center gap-1">
-              <span>Use ru-RU for speech</span>
-              <B24Kbd value="r" accent="less" size="sm" />
-              <B24Kbd value="r" accent="less" size="sm" />
-            </div>
-          </div>
-        </template>
-      </B24Card>
-    </div>
-    <Matrix v-slot="props" :attrs="attrs">
-      <B24Card :variant="isUseBg ? 'outline-no-accent' : 'plain-no-accent'">
-        <template #header>
-          <ProseH5 class="mb-0">
-            {{ [props?.color].join(' ') }}
-          </ProseH5>
-        </template>
-        <div class="mb-4 flex flex-wrap flex-col items-center justify-start gap-4">
-          <B24Textarea v-model="value" autofocus class="w-full" v-bind="props" />
-          <B24Textarea :default-value="'Default value'" class="w-full" v-bind="props" />
-          <B24Textarea placeholder="Highlight" highlight class="w-full" v-bind="props" />
-          <B24Textarea
-            placeholder="Highlight"
-            highlight
-            class="w-full"
-            v-bind="props"
-            color="air-primary-alert"
-            aria-invalid="true"
-          />
-          <B24Textarea disabled placeholder="Disabled" class="w-full" v-bind="props" />
-          <B24Textarea required placeholder="Required" class="w-full" v-bind="props" />
-          <B24Textarea rounded placeholder="Rounded" class="w-full" v-bind="props" />
-          <B24Textarea no-padding placeholder="No Padding" class="w-full" v-bind="props" />
-          <B24Textarea no-border placeholder="No Border" class="w-full" v-bind="props" />
-          <B24Textarea underline placeholder="Underline" class="w-full" v-bind="props" />
-          <B24Textarea
-            :icon="RocketIcon"
-            placeholder="Search..."
-            :rows="rows"
-            class="w-full"
-            v-bind="props"
-          />
-          <B24Textarea
-            :trailing-icon="RocketIcon"
-            placeholder="Search..."
-            :rows="rows"
-            class="w-full"
-            v-bind="props"
-          />
-          <B24Textarea
-            :avatar="{ src: '/avatar/employee.png' }"
-            :trailing-icon="TaskIcon"
-            placeholder="Search..."
-            :rows="rows"
-            class="w-full"
-            v-bind="props"
-          />
-          <B24Textarea
-            loading
-            :avatar="{ src: '/avatar/employee.png' }"
-            placeholder="Loading..."
-            :rows="rows"
-            class="w-full"
-            v-bind="props"
-          />
-          <B24Textarea
-            loading
-            :icon="RocketIcon"
-            :trailing-icon="TaskIcon"
-            placeholder="Loading..."
-            :rows="rows"
-            class="w-full"
-            v-bind="props"
-          />
-          <B24Textarea
-            placeholder="Autoresize"
-            autoresize
-            :maxrows="5"
-            :rows="rows"
-            class="w-full"
-            v-bind="props"
-          />
+        <div class="flex items-center gap-1">
+          <span>Use ru-RU for speech</span>
+          <B24Kbd value="r" accent="less" size="sm" />
+          <B24Kbd value="r" accent="less" size="sm" />
         </div>
-      </B24Card>
+      </div>
     </Matrix>
-  </B24PageGrid>
+  </PlaygroundPage>
 </template>

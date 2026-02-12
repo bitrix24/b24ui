@@ -1,91 +1,51 @@
 <script setup lang="ts">
-import usePageMeta from './../../composables/usePageMeta'
-import ExampleGrid from '../../components/ExampleGrid.vue'
-import ExampleCard from '../../components/ExampleCard.vue'
-import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
+const attrs = reactive({
+  to: '/components/link',
+  active: false,
+  disabled: false,
+  raw: false,
+  isAction: false
+})
 
-usePageMeta.setPageTitle('Links')
+const classes = reactive({
+  activeClass: 'font-(--ui-font-weight-bold) text-(--ui-color-copilot-accent-primary)',
+  inactiveClass: 'text-(--ui-color-accent-main-alert)'
+})
 </script>
 
 <template>
-  <ExampleGrid v-once>
-    <ExampleCard title="button" class="md:col-span-2">
-      <ExampleCardSubTitle title="raw" />
-      <div class="mb-4 flex flex-col items-start gap-4 text-(length:--ui-font-size-sm)">
-        <B24Link raw>
-          Button raw
-        </B24Link>
-      </div>
-      <div class="mb-4 flex flex-col items-start gap-4 text-(length:--ui-font-size-sm)">
-        <B24Link is-action>
-          Some action
-        </B24Link>
-      </div>
+  <PlaygroundPage>
+    <template #controls>
+      <B24Input v-model="attrs.to" class="min-w-52" type="url" placeholder="to" />
+      <B24Input v-model="classes.activeClass" class="min-w-52" placeholder="activeClass" />
+      <B24Input v-model="classes.inactiveClass" class="min-w-52" placeholder="inactiveClass" />
 
-      <ExampleCardSubTitle title="active" />
-      <div class="mb-4 flex flex-col items-start gap-4 text-(length:--ui-font-size-sm)">
-        <B24Link active>
-          Button active
-        </B24Link>
-        <B24Link active class="font-(--ui-font-weight-medium)" active-class="text-(--ui-color-accent-main-alert)">
-          Button active with class
-        </B24Link>
-        <B24Link active disabled>
-          Button active disabled
-        </B24Link>
-      </div>
+      <B24Switch v-model="attrs.active" label="Active" />
+      <B24Switch v-model="attrs.disabled" label="Disabled" />
+      <B24Switch v-model="attrs.raw" label="Raw" />
+      <B24Switch v-model="attrs.isAction" label="isAction" />
+    </template>
 
-      <ExampleCardSubTitle title="inactive" />
-      <div class="mb-4 flex flex-col items-start gap-4 text-(length:--ui-font-size-sm)">
-        <B24Link>
-          Button inactive
-        </B24Link>
-        <B24Link class="font-(--ui-font-weight-medium)" inactive-class="hover:not-disabled:not-aria-disabled:text-(--ui-color-accent-main-alert)">
-          Button inactive with class
-        </B24Link>
-        <B24Link disabled>
-          Button inactive disabled
-        </B24Link>
-      </div>
-    </ExampleCard>
-    <ExampleCard title="link" class="md:col-span-2">
-      <ExampleCardSubTitle title="raw" />
-      <div class="mb-4 flex flex-col items-start gap-4 text-(length:--ui-font-size-sm)">
-        <B24Link to="/components/link" raw>
-          Link raw
-        </B24Link>
-      </div>
-      <div class="mb-4 flex flex-col items-start gap-4 text-(length:--ui-font-size-sm)">
-        <B24Link to="/components/link" is-action>
-          Some action
-        </B24Link>
-      </div>
+    <template #default="{ cardVariant, cardBorderClass }">
+      <B24Card
+        :variant="cardVariant"
+        :class="[cardBorderClass, 'mx-auto']"
+      >
+        <template #header>
+          <ProseH5 class="mb-0">
+            {{ attrs.to ? 'As link (tag <a>)' : 'As tag <button>' }}
+          </ProseH5>
+        </template>
 
-      <ExampleCardSubTitle title="active" />
-      <div class="mb-4 flex flex-col items-start gap-4 text-(length:--ui-font-size-sm)">
-        <B24Link to="/components/link">
-          Link active
-        </B24Link>
-        <B24Link to="/components/link" class="font-(--ui-font-weight-medium)" active-class="text-(--ui-color-accent-main-alert)">
-          Link active with class
-        </B24Link>
-        <B24Link to="/components/link" disabled>
-          Link active disabled
-        </B24Link>
-      </div>
-
-      <ExampleCardSubTitle title="inactive" />
-      <div class="mb-4 flex flex-col items-start gap-4 text-(length:--ui-font-size-sm)">
-        <B24Link to="/components/button">
-          Link inactive
-        </B24Link>
-        <B24Link to="/components/button" class="font-(--ui-font-weight-medium)" inactive-class="hover:not-disabled:not-aria-disabled:text-(--ui-color-accent-main-alert)">
-          Link inactive with class
-        </B24Link>
-        <B24Link to="/components/button" disabled>
-          Link inactive disabled
-        </B24Link>
-      </div>
-    </ExampleCard>
-  </ExampleGrid>
+        <div class="flex flex-col items-start gap-3 text-(length:--ui-font-size-sm)">
+          <B24Link v-bind="attrs">
+            {{ `${attrs.to ? 'Link' : 'Button'} preview` }}
+          </B24Link>
+          <B24Link v-bind="{ ...attrs, ...classes }">
+            {{ `${attrs.to ? 'Link' : 'Button'} preview (with classes)` }}
+          </B24Link>
+        </div>
+      </B24Card>
+    </template>
+  </PlaygroundPage>
 </template>

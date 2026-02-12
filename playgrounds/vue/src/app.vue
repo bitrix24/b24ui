@@ -4,17 +4,13 @@ import { reactive, ref, computed } from 'vue'
 import { useHead } from '@unhead/vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useNavigation } from '../../nuxt/app/composables/useNavigation'
-import usePageMeta from '../../nuxt/app/composables/usePageMeta'
-import { useRouteCheck } from '../../nuxt/app/composables/useRouteCheck'
-import { useColorMode } from '#imports'
+import { useThemeMode, type LightThemeClass } from '../../nuxt/app/composables/useThemeMode'
 import { useTextDirection } from '@vueuse/core'
-import AlignRightIcon from '@bitrix24/b24icons-vue/outline/AlignRightIcon'
-import AlignLeftIcon from '@bitrix24/b24icons-vue/outline/AlignLeftIcon'
 
+const route = useRoute()
+const router = useRouter()
 const appConfig = useAppConfig()
 const dir = useTextDirection()
-const colorMode = useColorMode()
-const { isSidebarLayoutUseLightContent, isSidebarLayoutClearContent, checkedUseLightContent } = useRouteCheck()
 
 appConfig.toaster = reactive({
   position: 'top-right' as const,
@@ -22,101 +18,83 @@ appConfig.toaster = reactive({
   max: 5,
   expand: true
 })
-const modeContext = ref(appConfig.colorModeTypeLight)
+
+const {
+  modeContext,
+  syncColorModePreference,
+  toggleDarkMode,
+  themeItems
+} = useThemeMode((appConfig?.colorModeTypeLight || 'light') as LightThemeClass)
 
 useHead({
-  title: 'Bitrix24 UI - Playground',
+  title: 'Bitrix24 UI - Playground Vue',
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     { name: 'description', content: 'Explore and test all Bitrix24 UI components in an interactive environment' }
   ],
   htmlAttrs: {
     lang: 'en',
-    dir: computed(() => appConfig.dir as 'ltr' | 'rtl'),
-    class: computed(() => [modeContext.value])
+    dir: computed(() => appConfig.dir as 'ltr' | 'rtl')
   }
 })
 
-const route = useRoute()
-const router = useRouter()
+const { groups, components } = useNavigation()
+provide('components', components)
 
-const isDark = computed({
-  get() {
-    return colorMode.value === 'dark'
-  },
-  set(_isDark: boolean) {
-    colorMode.preference = _isDark ? 'dark' : 'light'
-    modeContext.value = _isDark ? 'dark' : appConfig.colorModeTypeLight
+const searchTerm = ref('')
+const input = useTemplateRef('input')
+
+const contains = (value: string, search: string) => value.toLowerCase().includes(search.toLowerCase())
+
+const filteredGroups = computed(() => {
+  if (!searchTerm.value) {
+    return groups.value
   }
-})
 
-function toggleMode() {
-  isDark.value = !isDark.value
-}
+  return groups.value.map((group) => {
+    if (!group.id.includes('component')) {
+      return group
+    }
+
+    return {
+      ...group,
+      items: group.items.filter(item => contains(String(item.label), searchTerm.value))
+    }
+  })
+})
 
 function toggleDir() {
   dir.value = dir.value === 'ltr' ? 'rtl' : 'ltr'
 }
 
-function toggleModeContext() {
-  colorMode.preference = modeContext.value === 'dark' ? 'dark' : 'light'
-}
-
 const getLightContent = computed(() => {
-  const result = {
-    pageWrapper: 'px-(--content-area-shift)',
-    container: 'gap-[22px]',
-    containerWrapper: ''
+  return {
+    sidebarSlideoverContainer: 'z-3',
+    pageWrapper: 'px-0 lg:px-(--content-area-shift)',
+    containerWrapperInner: 'flex flex-col lg:gap-4 lg:pt-lg'
   }
-
-  if (route.path === '/') {
-    result.pageWrapper = 'lg:mt-[22px]'
-  }
-
-  if (!isSidebarLayoutUseLightContent.value) {
-    return result
-  }
-
-  result.containerWrapper = isDark.value ? 'dark' : 'light'
-
-  return result
 })
 
 defineShortcuts({
-  ctrl_arrowleft: () => {
+  'ctrl_arrowleft': () => {
     if (route.path === '/') {
       return
     }
     router.push('/')
   },
-  shift_L: () => {
+  'shift_L': () => {
     toggleDir()
   },
-  shift_D: () => {
-    toggleMode()
+  'shift_D': () => {
+    toggleDarkMode()
+  },
+  '/': {
+    usingInput: false,
+    handler: () => {
+      input?.value?.inputRef?.focus()
+    }
   }
 })
-
-const menuTop = computed<NavigationMenuItem[]>(() => {
-  return [
-    {
-      label: 'Home',
-      to: '/'
-    },
-    ...(usePageMeta.groups.map((group) => {
-      return {
-        label: group.label,
-        type: 'trigger' as NavigationMenuItem['type'],
-        active: (group.id === 'components' && (route.path.includes(`content/`) || route.path.includes(`prose/`)))
-          ? false
-          : route.path.includes(`${group.id}`),
-        children: group.children
-      }
-    }))
-  ]
-})
-
-const { groups } = useNavigation()
 </script>
 
 <template>
@@ -124,32 +102,40 @@ const { groups } = useNavigation()
     <B24DashboardGroup>
       <!-- // @see nuxt/vue/src/assets/css/main.css -->
       <B24SidebarLayout
-        :use-light-content="isSidebarLayoutUseLightContent"
+        :use-light-content="false"
         :b24ui="getLightContent"
       >
         <template #sidebar>
           <B24SidebarHeader>
-            <div class="h-full flex items-center relative my-0 ps-[25px] pe-xs rtl:pe-[25px]">
+            <div class="h-full flex items-center gap-x-sm relative my-0 ps-6 pe-xs rtl:pe-6">
               <B24Tooltip
-                class="flex-0 mt-1"
+                class="mt-1"
                 :content="{ side: 'bottom', align: 'start' }"
                 text="Go home"
                 :kbds="['ctrl', 'arrowleft']"
               >
                 <RouterLink to="/" class="mt-0 text-(--ui-color-design-selection-content)" aria-label="Home">
-                  <ProseH4 class="font-(--ui-font-weight-medium) mb-0">
+                  <ProseH3 class="font-(--ui-font-weight-medium) mb-0">
                     Playground
-                  </ProseH4>
+                  </ProseH3>
                 </RouterLink>
               </B24Tooltip>
             </div>
+            <div class="mt-4 ps-6 pe-xs rtl:pe-6 pb-3">
+              <B24Input ref="input" v-model="searchTerm" placeholder="Filter..." class="group">
+                <template #trailing>
+                  <B24Kbd value="/" dd-class="ring-(--ui-color-design-plain-na-content-secondary) bg-transparent text-muted" />
+                </template>
+              </B24Input>
+            </div>
           </B24SidebarHeader>
           <B24SidebarBody>
-            <template v-for="(group) in usePageMeta.groups" :key="group.id">
+            <template v-for="group in filteredGroups" :key="group.id">
               <B24NavigationMenu
+                v-if="group.items.length > 0"
                 :items="[
-                  { label: group.label, type: 'label' },
-                  ...group.children
+                  ...(group.label ? [{ label: group.label, type: 'label' as NavigationMenuItem['type'] }] : []),
+                  ...group.items
                 ]"
                 orientation="vertical"
               />
@@ -163,63 +149,35 @@ const { groups } = useNavigation()
         </template>
 
         <template #navbar>
-          <B24NavbarSection class="hidden sm:inline-flex">
-            <B24NavigationMenu
-              :items="menuTop"
-              orientation="horizontal"
-            />
-          </B24NavbarSection>
+          <B24Tooltip
+            class="lg:hidden inline-flex"
+            :content="{ side: 'bottom', align: 'start' }"
+            text="Go home"
+            :kbds="['ctrl', 'arrowleft']"
+          >
+            <RouterLink to="/" class="mt-0 text-(--ui-color-design-selection-content)" aria-label="Home">
+              <ProseH1 class="font-(--ui-font-weight-medium) mb-0">
+                Playground
+              </ProseH1>
+            </RouterLink>
+          </B24Tooltip>
           <B24NavbarSpacer />
           <B24NavbarSection class="flex-row items-center justify-start gap-4">
             <B24DashboardSearchButton size="sm" rounded :collapsed="false" :kbds="[{ value: 'meta', size: 'sm' }, { value: 'K', size: 'sm' }]" />
             <B24Tooltip :content="{ side: 'bottom' }" text="Switch color mode" :kbds="['shift', 'D']">
-              <B24ColorModeSelect rounded size="sm" class="w-[100px]" :content="{ align: 'end', side: 'bottom' }" />
+              <B24ColorModeSwitch />
             </B24Tooltip>
             <B24RadioGroup
               v-model="modeContext"
               class="hidden lg:inline-flex"
-              :items="['dark', 'light', 'edge-dark', 'edge-light']"
+              :items="themeItems"
               size="xs"
               orientation="horizontal"
               variant="table"
               indicator="hidden"
-              @change="toggleModeContext"
+              @change="syncColorModePreference"
             />
-            <B24Switch
-              v-model="checkedUseLightContent"
-              :disabled="isSidebarLayoutClearContent"
-              size="sm"
-            />
-            <B24Tooltip :content="{ side: 'bottom' }" :text="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`" :kbds="['shift', 'L']">
-              <B24Button
-                :icon="dir === 'ltr' ? AlignLeftIcon : AlignRightIcon"
-                :aria-label="`Switch to ${dir === 'ltr' ? 'Right-to-left' : 'Left-to-right'} mode`"
-                color="air-secondary-accent"
-                rounded
-                size="sm"
-                @click="toggleDir"
-              />
-            </B24Tooltip>
           </B24NavbarSection>
-        </template>
-
-        <template
-          v-if="route.path !== '/' && !isSidebarLayoutClearContent"
-          #content-top
-        >
-          <div class="w-full flex flex-col gap-[20px] mt-[20px]">
-            <MockSidebarLayoutTopProfile class="rounded-(--ui-border-radius-md)" />
-            <MockSidebarLayoutTop class="flex-row">
-              {{ usePageMeta.getPageTitle() }}
-            </MockSidebarLayoutTop>
-          </div>
-        </template>
-
-        <template
-          v-if="route.path !== '/' && !isSidebarLayoutClearContent"
-          #content-actions
-        >
-          <MockSidebarLayoutActions />
         </template>
 
         <Suspense>

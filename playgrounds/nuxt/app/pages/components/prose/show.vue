@@ -1,15 +1,7 @@
 <script setup lang="ts">
-import usePageMeta from './../../../composables/usePageMeta'
 import ExampleGrid from '../../../components/ExampleGrid.vue'
 import ExampleCard from '../../../components/ExampleCard.vue'
 // import ExampleCardSubTitle from '../../../components/ExampleCardSubTitle.vue'
-import KnowledgeBaseIcon from '@bitrix24/b24icons-vue/outline/KnowledgeBaseIcon'
-import InfoCircleIcon from '@bitrix24/b24icons-vue/outline/InfoCircleIcon'
-import IdeaLampIcon from '@bitrix24/b24icons-vue/outline/IdeaLampIcon'
-import WarningIcon from '@bitrix24/b24icons-vue/main/WarningIcon'
-import AlertIcon from '@bitrix24/b24icons-vue/outline/AlertIcon'
-
-usePageMeta.setPageTitle('Prose')
 
 const demoPreText = `
 | Analytics:| Data:    | Sample:    |
@@ -62,92 +54,6 @@ const demoPreObj = [
           "Working with this agency boosted our revenue by 300% in six months!"<br>
           - TechProduct LLC
         </ProseBlockquote>
-
-        <ProseCallout
-          :icon="KnowledgeBaseIcon"
-          color="air-primary"
-          to="https://bitrix24.github.io/b24ui/"
-        >
-          For API integration see <ProseCode>Docs</ProseCode>
-        </ProseCallout>
-
-        <ProseCallout
-          color="air-primary-warning"
-          :icon="WarningIcon"
-          to="https://bitrix24.github.io/b24ui/"
-        >
-          For API integration see <ProseCode>Docs</ProseCode>
-        </ProseCallout>
-
-        <ProseCallout
-          color="air-primary-success"
-          :icon="IdeaLampIcon"
-          to="https://bitrix24.github.io/b24ui/"
-        >
-          For API integration see <ProseCode>Docs</ProseCode>
-        </ProseCallout>
-
-        <ProseCallout
-          color="air-secondary"
-          :icon="InfoCircleIcon"
-          to="https://bitrix24.github.io/b24ui/"
-        >
-          For API integration see <ProseCode>Docs</ProseCode>
-        </ProseCallout>
-
-        <ProseCallout
-          color="air-secondary-alert"
-          :icon="AlertIcon"
-          to="https://bitrix24.github.io/b24ui/"
-        >
-          For API integration see <ProseCode>Docs</ProseCode>
-        </ProseCallout>
-
-        <ProseCallout
-          color="air-secondary-alert"
-          :icon="AlertIcon"
-          to="https://bitrix24.github.io/b24ui/"
-        >
-          <span>Some demo row 1</span>
-          <span>Some demo row 2</span>
-          <span>Some demo row 3</span>
-          <ProseUl>
-            <ProseLi>PPC Advertising</ProseLi>
-            <ProseLi>SEO Optimization</ProseLi>
-            <ProseLi>SMM Promotion</ProseLi>
-            <ProseLi>Conversion-focused Website Development</ProseLi>
-            <ProseLi>Email Marketing</ProseLi>
-            <ProseLi>Analytics & Big Data</ProseLi>
-          </ProseUl>
-
-          <ProseH4>Workflow Stages:</ProseH4>
-          <ProseOl>
-            <ProseLi>Business Audit</ProseLi>
-            <ProseLi>Strategy Development</ProseLi>
-            <ProseLi>Implementation</ProseLi>
-            <ProseLi>Testing</ProseLi>
-            <ProseLi>Launch</ProseLi>
-            <ProseLi>Ongoing Support</ProseLi>
-          </ProseOl>
-
-          <ProseH5>Comprehensive Solutions:</ProseH5>
-          <ProseUl>
-            <ProseLi>
-              Startup Package
-              <ProseOl>
-                <ProseLi>Landing Page</ProseLi>
-                <ProseLi>Google Ads Setup</ProseLi>
-                <ProseLi>Basic SEO</ProseLi>
-                <ProseLi>Monthly Reporting</ProseLi>
-              </ProseOl>
-            </ProseLi>
-            <ProseLi>...</ProseLi>
-          </ProseUl>
-
-          <ProsePre>
-            {{ demoPreText }}
-          </ProsePre>
-        </ProseCallout>
 
         <ProseHr />
 

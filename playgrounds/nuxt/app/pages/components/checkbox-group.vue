@@ -1,19 +1,31 @@
 <script setup lang="ts">
 import theme from '#build/b24ui/checkbox-group'
-import usePageMeta from './../../composables/usePageMeta'
-import ExampleGrid from '../../components/ExampleGrid.vue'
-import ExampleCard from '../../components/ExampleCard.vue'
-import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
+import themeCheckbox from '#build/b24ui/checkbox'
 
-usePageMeta.setPageTitle('CheckboxGroup')
-const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
-const colors = Object.keys(theme.variants.color) as Array<keyof typeof theme.variants.color>
+const colors = Object.keys(theme.variants.color)
+const sizes = Object.keys(theme.variants.size)
+const variants = Object.keys(theme.variants.variant)
+const indicators = Object.keys(themeCheckbox.variants.indicator)
+const orientations = Object.keys(theme.variants.orientation) as Array<keyof typeof theme.variants.orientation>
 
-const isUseBg = ref(true)
+const multipleAttrs = reactive({
+  color: [theme.defaultVariants.color],
+  size: [theme.defaultVariants.size],
+  variant: [theme.defaultVariants.variant],
+  indicator: [themeCheckbox.defaultVariants.indicator]
+})
 
-const value = ref(['System'])
-const items = ref(['System', 'Light', 'Dark'])
-const valueWithDesc = ref(['system'])
+const singleAttrs = reactive({
+  orientation: orientations[0],
+  disabled: false
+})
+
+const value = ref(['1'])
+const items = [
+  { value: '1', label: 'System' },
+  { value: '2', label: 'Light' },
+  { value: '3', label: 'Dark' }
+]
 const itemsWithDesc = ref([
   {
     label: 'System',
@@ -40,180 +52,32 @@ const airColors = computed(() => {
 </script>
 
 <template>
-  <ExampleGrid v-once>
-    <template
-      v-for="color in airColors"
-      :key="color"
-    >
-      <ExampleCard :title="color" :use-bg="isUseBg">
-        <div class="mb-4 flex flex-wrap flex-col items-start justify-start gap-4">
-          <div class="px-2 flex flex-col gap-4">
-            <B24CheckboxGroup
-              v-model="value"
-              :items="items"
-              :color="color"
-              :legend="color"
-            />
-          </div>
-        </div>
-      </ExampleCard>
+  <PlaygroundPage>
+    <template #controls>
+      <B24Select v-model="multipleAttrs.color" class="w-44" :items="airColors" placeholder="Color" multiple />
+      <B24Select v-model="multipleAttrs.size" class="w-32" :items="sizes" placeholder="Size" multiple />
+      <B24Select v-model="multipleAttrs.variant" class="w-32" :items="variants" placeholder="Variant" multiple />
+      <B24Select v-model="multipleAttrs.indicator" class="w-32" :items="indicators" placeholder="Indicator" multiple />
+      <B24Select v-model="singleAttrs.orientation" class="w-32" :items="orientations" placeholder="Orientation" />
+      <B24Switch v-model="singleAttrs.disabled" class="w-24" label="Disabled" />
     </template>
-
-    <ExampleCard title="with description list" :use-bg="isUseBg" class="mb-4 sm:col-span-2">
-      <ExampleCardSubTitle title="list" />
-      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
-        <B24CheckboxGroup
-          v-for="size in sizes"
-          :key="size"
-          v-model="valueWithDesc"
-          :size="size"
-          :items="itemsWithDesc"
-          :legend="size"
-          variant="list"
-        />
-      </div>
-    </ExampleCard>
-    <ExampleCard title="with description card" :use-bg="isUseBg" class="mb-4 sm:col-span-2">
-      <ExampleCardSubTitle title="card" />
-      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
-        <B24CheckboxGroup
-          v-for="size in sizes"
-          :key="size"
-          v-model="valueWithDesc"
-          :size="size"
-          :items="itemsWithDesc"
-          :legend="size"
-          variant="card"
-        />
-      </div>
-    </ExampleCard>
-    <ExampleCard title="with description table" :use-bg="isUseBg" class="mb-4 sm:col-span-2">
-      <ExampleCardSubTitle title="table" />
-      <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
-        <B24CheckboxGroup
-          v-for="size in sizes"
-          :key="size"
-          v-model="valueWithDesc"
-          :size="size"
-          :items="itemsWithDesc"
-          :legend="size"
-          variant="table"
-        />
-      </div>
-    </ExampleCard>
-
-    <ExampleCard title="indicator list" :use-bg="isUseBg" class="mb-4 sm:col-span-2">
-      <template v-for="size in sizes" :key="size">
-        <ExampleCardSubTitle :title="size" />
-        <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
-          <div>
-            <B24CheckboxGroup
-              v-model="valueWithDesc"
-              :size="size"
-              :items="itemsWithDesc"
-              legend="start"
-              variant="list"
-              indicator="start"
-            />
-          </div>
-          <div class="border-s ps-[10px]">
-            <B24CheckboxGroup
-              v-model="valueWithDesc"
-              :size="size"
-              :items="itemsWithDesc"
-              legend="end"
-              variant="list"
-              indicator="end"
-            />
-          </div>
-          <div class="border-s ps-[10px]">
-            <B24CheckboxGroup
-              v-model="valueWithDesc"
-              :size="size"
-              :items="itemsWithDesc"
-              legend="hidden"
-              variant="list"
-              indicator="hidden"
-            />
-          </div>
-        </div>
-      </template>
-    </ExampleCard>
-
-    <ExampleCard title="indicator card" :use-bg="isUseBg" class="mb-4 sm:col-span-2">
-      <template v-for="size in sizes" :key="size">
-        <ExampleCardSubTitle :title="size" />
-        <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
-          <div>
-            <B24CheckboxGroup
-              v-model="valueWithDesc"
-              :size="size"
-              :items="itemsWithDesc"
-              legend="start"
-              variant="card"
-              indicator="start"
-            />
-          </div>
-          <div>
-            <B24CheckboxGroup
-              v-model="valueWithDesc"
-              :size="size"
-              :items="itemsWithDesc"
-              legend="end"
-              variant="card"
-              indicator="end"
-            />
-          </div>
-          <div>
-            <B24CheckboxGroup
-              v-model="valueWithDesc"
-              :size="size"
-              :items="itemsWithDesc"
-              legend="hidden"
-              variant="card"
-              indicator="hidden"
-            />
-          </div>
-        </div>
-      </template>
-    </ExampleCard>
-
-    <ExampleCard title="indicator table" :use-bg="isUseBg" class="mb-4 sm:col-span-2">
-      <template v-for="size in sizes" :key="size">
-        <ExampletableSubTitle :title="size" />
-        <div class="mb-4 flex flex-wrap items-start justify-start gap-4">
-          <div>
-            <B24CheckboxGroup
-              v-model="valueWithDesc"
-              :size="size"
-              :items="itemsWithDesc"
-              legend="start"
-              variant="table"
-              indicator="start"
-            />
-          </div>
-          <div>
-            <B24CheckboxGroup
-              v-model="valueWithDesc"
-              :size="size"
-              :items="itemsWithDesc"
-              legend="end"
-              variant="table"
-              indicator="end"
-            />
-          </div>
-          <div>
-            <B24CheckboxGroup
-              v-model="valueWithDesc"
-              :size="size"
-              :items="itemsWithDesc"
-              legend="hidden"
-              variant="table"
-              indicator="hidden"
-            />
-          </div>
-        </div>
-      </template>
-    </ExampleCard>
-  </ExampleGrid>
+    <Matrix v-slot="props" :attrs="multipleAttrs" :b24ui="{ root: 'grow-0', body: 'overflow-x-auto' }">
+      <B24CheckboxGroup v-model="value" :items="items" v-bind="{ ...singleAttrs, ...props }" />
+      <B24CheckboxGroup :items="items" :default-value="value" v-bind="{ ...singleAttrs, ...props }" />
+      <B24CheckboxGroup :items="itemsWithDesc" v-bind="{ ...singleAttrs, ...props }" />
+      <B24CheckboxGroup v-model="value" :items="items" legend="Legend" v-bind="{ ...singleAttrs, ...props }" required />
+      <B24CheckboxGroup v-model="value" :items="items" v-bind="{ ...singleAttrs, ...props }">
+        <template #legend>
+          <span class="italic font-bold">
+            Legend with slots
+          </span>
+        </template>
+        <template #label="{ item }">
+          <span class="italic">
+            {{ item.label }}
+          </span>
+        </template>
+      </B24CheckboxGroup>
+    </Matrix>
+  </PlaygroundPage>
 </template>

@@ -1,15 +1,9 @@
 <script setup lang="ts">
-import usePageMeta from './../../composables/usePageMeta'
-import ExampleGrid from '../../components/ExampleGrid.vue'
-import ExampleCard from '../../components/ExampleCard.vue'
 import SyncCircleIcon from '@bitrix24/b24icons-vue/main/SyncCircleIcon'
 import SunIcon from '@bitrix24/b24icons-vue/outline/SunIcon'
 import MoonIcon from '@bitrix24/b24icons-vue/outline/MoonIcon'
 
-usePageMeta.setPageTitle('ContextMenu')
-
 const loading = ref(false)
-const isUseBg = ref(true)
 
 const items = computed(() => [
   [{
@@ -102,13 +96,11 @@ defineShortcuts(extractShortcuts(items.value))
 </script>
 
 <template>
-  <ExampleGrid v-once>
-    <ExampleCard title="matrix" :use-bg="isUseBg" class="sm:col-span-2">
-      <B24ContextMenu :items="items">
-        <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) bg-(--ui-color-bg-content-primary) aspect-video w-full">
-          Right click here
-        </div>
-      </B24ContextMenu>
-    </ExampleCard>
-  </ExampleGrid>
+  <PlaygroundPage>
+    <B24ContextMenu :items="items" class="mx-auto">
+      <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) bg-(--ui-color-bg-content-primary) aspect-video w-full max-w-[520px]">
+        Right click here
+      </div>
+    </B24ContextMenu>
+  </PlaygroundPage>
 </template>

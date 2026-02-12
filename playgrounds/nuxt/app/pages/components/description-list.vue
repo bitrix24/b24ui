@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import theme from '#build/b24ui/description-list'
-import usePageMeta from './../../composables/usePageMeta'
 import ExampleGrid from '../../components/ExampleGrid.vue'
 import ExampleCard from '../../components/ExampleCard.vue'
 import ExampleCardSubTitle from '../../components/ExampleCardSubTitle.vue'
@@ -13,7 +12,6 @@ import PersonIcon from '@bitrix24/b24icons-vue/main/PersonIcon'
 import Calendar1Icon from '@bitrix24/b24icons-vue/main/Calendar1Icon'
 import CreditDebitCardIcon from '@bitrix24/b24icons-vue/main/CreditDebitCardIcon'
 
-usePageMeta.setPageTitle('DescriptionList')
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
 const isUseBg = ref(true)
