@@ -23,10 +23,6 @@
       "types": "./dist/unplugin.d.mts",
       "import": "./dist/unplugin.mjs"
     },
-    "./meta": {
-      "types": "./dist/meta.d.mts",
-      "import": "./dist/meta.mjs"
-    },
     "./vite": {
       "types": "./dist/vite.d.mts",
       "import": "./dist/vite.mjs"
@@ -112,7 +108,6 @@
     "vue-plugin.d.ts"
   ],
   "scripts": {
-    "dev:prepare-short": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxt prepare playgrounds/nuxt && nuxt prepare docs && pnpm dev:vue:build && nuxt prepare playgrounds/demo",
     "dev:generate": "nuxt generate playgrounds/nuxt",
     "dev:preview": "nuxt preview playgrounds/nuxt",
     "build": "nuxt-module-build build",
@@ -121,7 +116,7 @@
     "dev:build": "nuxt build playgrounds/nuxt",
     "dev:vue": "pnpm --filter ./playgrounds/vue dev -- --uiDev",
     "dev:vue:build": "pnpm --filter ./playgrounds/vue build",
-    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxt prepare playgrounds/nuxt && nuxt prepare docs && pnpm dev:vue:build && nuxt prepare playgrounds/demo && nuxt-component-meta playgrounds/nuxt --outputDir ../../src/.component-meta/",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxt prepare playgrounds/nuxt && nuxt prepare docs && pnpm dev:vue:build && nuxt prepare playgrounds/demo",
     "demo:dev": "nuxt dev playgrounds/demo",
     "demo:generate": "nuxt generate playgrounds/demo",
     "demo:preview": "nuxt preview playgrounds/demo",

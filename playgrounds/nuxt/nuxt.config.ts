@@ -1,12 +1,4 @@
-import { createResolver } from '@nuxt/kit'
 import { readFileSync } from 'node:fs'
-import type { NuxtConfig } from '@nuxt/schema'
-
-interface ExtendedNuxtConfig extends NuxtConfig {
-  componentMeta?: any
-}
-
-const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
   modules: [
@@ -38,69 +30,5 @@ export default defineNuxtConfig({
     }
   },
 
-  compatibilityDate: '2024-07-09',
-
-  componentMeta: {
-    transformers: [(component: any, code: any) => {
-      // Simplify b24ui in slot prop types: `leading(props: { b24ui: Button['b24ui'] })` -> `leading(props: { b24ui: object })`
-      code = code.replace(/b24ui:[^}]+(?=\})/g, 'b24ui: object')
-
-      return { component, code }
-    }],
-    overrides: {
-      B24Editor: {
-        props: {
-          modelValue: { name: 'modelValue', type: 'null | string | JSONContent | JSONContent[]' },
-          parseOptions: { name: 'parseOptions', type: 'ParseOptions' }
-        }
-      },
-      B24EditorDragHandle: { props: { editor: { name: 'editor', type: 'Editor' } } },
-      B24EditorToolbar: { props: { editor: { name: 'editor', type: 'Editor' } } },
-      B24EditorSuggestionMenu: { props: { editor: { name: 'editor', type: 'Editor' } } },
-      B24EditorMentionMenu: { props: { editor: { name: 'editor', type: 'Editor' } } },
-      B24EditorEmojiMenu: { props: { editor: { name: 'editor', type: 'Editor' } } },
-      B24Calendar: {
-        props: {
-          defaultValue: { name: 'defaultValue', type: 'CalendarDate | CalendarDateTime | ZonedDateTime | DateRange | DateValue[]' },
-          modelValue: { name: 'modelValue', type: 'null | CalendarDate | CalendarDateTime | ZonedDateTime | DateRange | DateValue[]' },
-          defaultPlaceholder: { name: 'defaultPlaceholder', type: 'CalendarDate | CalendarDateTime | ZonedDateTime' },
-          placeholder: { name: 'placeholder', type: 'CalendarDate | CalendarDateTime | ZonedDateTime' },
-          maxValue: { name: 'maxValue', type: 'CalendarDate | CalendarDateTime | ZonedDateTime' },
-          minValue: { name: 'minValue', type: 'CalendarDate | CalendarDateTime | ZonedDateTime' }
-        }
-      },
-      B24InputDate: {
-        props: {
-          defaultValue: { name: 'defaultValue', type: 'CalendarDate | CalendarDateTime | ZonedDateTime | DateRange' },
-          modelValue: { name: 'modelValue', type: 'null | CalendarDate | CalendarDateTime | ZonedDateTime | DateRange' },
-          defaultPlaceholder: { name: 'defaultPlaceholder', type: 'CalendarDate | CalendarDateTime | ZonedDateTime' },
-          placeholder: { name: 'placeholder', type: 'CalendarDate | CalendarDateTime | ZonedDateTime' },
-          maxValue: { name: 'maxValue', type: 'CalendarDate | CalendarDateTime | ZonedDateTime' },
-          minValue: { name: 'minValue', type: 'CalendarDate | CalendarDateTime | ZonedDateTime' }
-        }
-      },
-      B24InputTime: {
-        props: {
-          defaultValue: { name: 'defaultValue', type: 'Time | CalendarDateTime | ZonedDateTime' },
-          modelValue: { name: 'modelValue', type: 'null | Time | CalendarDateTime | ZonedDateTime' },
-          defaultPlaceholder: { name: 'defaultPlaceholder', type: 'Time | CalendarDateTime | ZonedDateTime' },
-          placeholder: { name: 'placeholder', type: 'Time | CalendarDateTime | ZonedDateTime' },
-          maxValue: { name: 'maxValue', type: 'Time | CalendarDateTime | ZonedDateTime' },
-          minValue: { name: 'minValue', type: 'Time | CalendarDateTime | ZonedDateTime' }
-        }
-      }
-    },
-    exclude: [
-      '@bitrix24/b24icons-vue',
-      '@bitrix24/b24icons-nuxt',
-      resolve('./app/components')
-    ],
-    metaFields: {
-      type: false,
-      props: true,
-      slots: 'no-schema',
-      events: 'no-schema',
-      exposed: false
-    }
-  }
-} as ExtendedNuxtConfig & ReturnType<typeof defineNuxtConfig>)
+  compatibilityDate: '2024-07-09'
+})

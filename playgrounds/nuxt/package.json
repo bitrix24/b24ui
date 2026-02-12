@@ -18,7 +18,6 @@
     "@bitrix24/b24ui-nuxt": "workspace:*",
     "@bitrix24/b24icons-nuxt": "^2.0.7",
     "@bitrix24/b24icons-vue": "^2.0.7",
-    "nuxt-component-meta": "^0.16.0",
     "@tiptap/extension-emoji": "^3.19.0",
     "@tiptap/extension-text-align": "^3.19.0",
     "ai": "^6.0.77",
