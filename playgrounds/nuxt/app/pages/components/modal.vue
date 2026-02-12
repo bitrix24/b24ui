@@ -38,8 +38,8 @@ function showToast() {
   toast.add({
     title: 'Toast displayed!',
     description: 'This toast was triggered from the modal.',
-    color: 'success',
-    icon: 'i-lucide-check-circle'
+    color: 'air-primary-success',
+    icon: NotificationIcon
   })
 }
 </script>

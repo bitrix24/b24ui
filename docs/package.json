@@ -11,9 +11,9 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "@ai-sdk/deepseek": "^2.0.18",
-    "@ai-sdk/mcp": "^1.0.13",
-    "@ai-sdk/vue": "^3.0.49",
+    "@ai-sdk/deepseek": "^2.0.19",
+    "@ai-sdk/mcp": "^1.0.18",
+    "@ai-sdk/vue": "^3.0.68",
     "@modelcontextprotocol/sdk": "^1.25.3",
     "@nuxt/a11y": "1.0.0-alpha.1",
     "@nuxt/content": "^3.11.0",
@@ -23,12 +23,12 @@
     "@nuxtjs/mdc": "^0.20.0",
     "@nuxtjs/plausible": "^2.0.1",
     "@octokit/rest": "^22.0.1",
-    "@regle/core": "^1.17.1",
-    "@regle/rules": "^1.17.1",
+    "@regle/core": "^1.17.4",
+    "@regle/rules": "^1.17.4",
     "@tiptap/extension-emoji": "^3.17.1",
     "@tiptap/extension-text-align": "^3.17.1",
-    "@vueuse/integrations": "^14.1.0",
-    "ai": "^6.0.49",
+    "@vueuse/integrations": "^14.2.0",
+    "ai": "^6.0.68",
     "better-sqlite3": "^12.6.2",
     "capture-website": "^5.1.0",
     "joi": "^18.0.2",
@@ -41,7 +41,7 @@
     "nuxt-llms": "^0.2.0",
     "nuxt-og-image": "^5.1.13",
     "prettier": "^3.8.1",
-    "shiki": "^3.21.0",
+    "shiki": "^3.22.0",
     "shiki-stream": "^0.1.4",
     "shiki-transformer-color-highlight": "^1.0.0",
     "sortablejs": "^1.15.6",
@@ -54,5 +54,8 @@
     "vue-component-meta": "^3.2.4",
     "yup": "^1.7.1",
     "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/sortablejs": "^1.15.9"
   }
 }

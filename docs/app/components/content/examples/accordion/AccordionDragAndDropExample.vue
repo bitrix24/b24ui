@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { AccordionItem } from '@bitrix24/b24ui-nuxt'
-import type { UseSortableOptions } from '@vueuse/integrations/useSortable'
 import { useSortable } from '@vueuse/integrations/useSortable'
 import SmartActivityIcon from '@bitrix24/b24icons-vue/outline/SmartActivityIcon'
 import FeedbackIcon from '@bitrix24/b24icons-vue/outline/FeedbackIcon'
@@ -28,7 +27,7 @@ const accordion = useTemplateRef<HTMLElement>('accordion')
 
 useSortable(accordion, items, {
   animation: 150
-} as UseSortableOptions)
+})
 </script>
 
 <template>
