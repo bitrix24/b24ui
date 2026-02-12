@@ -1,5 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Skeleton > renders with as correctly 1`] = `"<span aria-busy="true" aria-label="loading" aria-live="polite" role="alert" data-slot="base" class="animate-pulse rounded-(--ui-border-radius-md) bg-(--ui-color-g-glass-grey-bg-1)"></span>"`;
+exports[`Skeleton > renders with as correctly 1`] = `"<span aria-busy="true" aria-label="loading" aria-live="polite" role="alert" data-slot="base" class="animate-pulse rounded-(--ui-border-radius-md) bg-(--ui-color-g-glass-grey-bg-1) edge-dark:bg-(--ui-color-g-glass-grey-bg-3)"></span>"`;
 
-exports[`Skeleton > renders with class correctly 1`] = `"<div aria-busy="true" aria-label="loading" aria-live="polite" role="alert" data-slot="base" class="animate-pulse bg-(--ui-color-g-glass-grey-bg-1) rounded-full size-12"></div>"`;
+exports[`Skeleton > renders with class correctly 1`] = `"<div aria-busy="true" aria-label="loading" aria-live="polite" role="alert" data-slot="base" class="animate-pulse bg-(--ui-color-g-glass-grey-bg-1) edge-dark:bg-(--ui-color-g-glass-grey-bg-3) rounded-full size-12"></div>"`;

@@ -11,9 +11,9 @@ export default {
   },
   variants: {
     accent: {
-      default: 'bg-(--ui-color-g-glass-grey-bg-1)',
-      accent: 'bg-(--ui-color-g-glass-grey-bg-2)',
-      less: 'bg-(--ui-color-g-glass-grey-bg-3)'
+      default: 'bg-(--ui-color-g-glass-grey-bg-1) edge-dark:bg-(--ui-color-g-glass-grey-bg-3)',
+      accent: 'bg-(--ui-color-g-glass-grey-bg-3) light:bg-(--ui-color-g-glass-grey-bg-2) edge-dark:bg-(--ui-color-g-glass-grey-bg-1)',
+      less: 'bg-(--ui-color-tech-push) dark:bg-(--ui-color-g-content-grey-3)'
     }
   },
   defaultVariants: {
