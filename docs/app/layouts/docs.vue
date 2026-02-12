@@ -11,16 +11,24 @@ const { contains } = useFilter({ sensitivity: 'base' })
 const { navigationMenuByCategory } = useNavigation(navigation!)
 
 const filteredNavigation = computed(() => {
-  if (!searchTerm.value) {
+  if (!cleanedSearchTerm.value) {
     return navigationMenuByCategory.value
   }
 
-  return navigationMenuByCategory.value.filter(child => contains(child.label as string, searchTerm.value) || contains((child?.description || '') as string, searchTerm.value))
+  return navigationMenuByCategory.value.map(item => ({
+    ...item,
+    children: item.children?.filter(child => contains(child.title as string, cleanedSearchTerm.value) || contains(child.description as string, cleanedSearchTerm.value))
+  })).filter(item => item.children && item.children.length > 0)
 })
 
 const searchTerm = ref('')
 const isSearchActive = computed(() => route.path.startsWith('/docs/components'))
 const navigationKey = computed(() => `${route.path}-${searchTerm.value ? 'filtered' : 'unfiltered'}`)
+const cleanedSearchTerm = computed(() => {
+  return searchTerm.value
+    .replace(/^B24(?=[A-Z])/, '')
+    .replace(/^b24-/, '')
+})
 
 watch(() => route.path, () => {
   if (!isSearchActive.value) {
