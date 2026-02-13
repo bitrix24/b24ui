@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.3.1](https://github.com/bitrix24/b24ui/compare/v2.3.0...v2.3.1) (2026-02-xx)
+
+* doc(filteredNavigation): improve
+
 ## [2.3.0](https://github.com/bitrix24/b24ui/compare/v2.2.1...v2.3.0) (2026-02-12)
 
 ### ⚠ BREAKING CHANGES

@@ -14,11 +14,7 @@ const filteredNavigation = computed(() => {
   if (!cleanedSearchTerm.value) {
     return navigationMenuByCategory.value
   }
-
-  return navigationMenuByCategory.value.map(item => ({
-    ...item,
-    children: item.children?.filter(child => contains(child.title as string, cleanedSearchTerm.value) || contains(child.description as string, cleanedSearchTerm.value))
-  })).filter(item => item.children && item.children.length > 0)
+  return navigationMenuByCategory.value?.filter(item => contains(item.label ?? '', cleanedSearchTerm.value) || contains(item?.description ?? '', cleanedSearchTerm.value))
 })
 
 const searchTerm = ref('')
