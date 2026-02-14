@@ -1,0 +1,6 @@
+@layer theme {
+  [data-platform="mobile.app"].edge-dark {
+    --ui-color-base-0: #fff;
+    --ui-color-base-1: #fff;
+  }
+}
