@@ -1,5 +1,7 @@
 import { readFileSync } from 'node:fs'
 
+const extraAllowedHosts = (process?.env.NUXT_ALLOWED_HOSTS?.split(',').map((s: string) => s.trim()).filter(Boolean)) ?? []
+
 export default defineNuxtConfig({
   modules: [
     '@bitrix24/b24ui-nuxt',
@@ -30,5 +32,12 @@ export default defineNuxtConfig({
     }
   },
 
-  compatibilityDate: '2024-07-09'
+  compatibilityDate: '2024-07-09',
+
+  vite: {
+    server: {
+      // Fix: "Blocked request. This host is not allowed" when using tunnels like ngrok
+      allowedHosts: [...extraAllowedHosts]
+    }
+  }
 })
