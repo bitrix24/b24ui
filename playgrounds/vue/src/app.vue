@@ -107,21 +107,20 @@ defineShortcuts({
       >
         <template #sidebar>
           <B24SidebarHeader>
-            <div class="h-full flex items-center gap-x-sm relative my-0 ps-6 pe-xs rtl:pe-6">
+            <div class="h-full flex items-center gap-x-sm relative my-0 px-4">
               <B24Tooltip
-                class="mt-1"
-                :content="{ side: 'bottom', align: 'start' }"
+                :content="{ align: 'start', side: 'bottom', sideOffset: 8 }"
                 text="Go home"
                 :kbds="['ctrl', 'arrowleft']"
               >
-                <RouterLink to="/" class="mt-0 text-(--ui-color-design-selection-content)" aria-label="Home">
+                <RouterLink to="/" class="my-3 text-(--ui-color-design-selection-content)" aria-label="Home">
                   <ProseH3 class="font-(--ui-font-weight-medium) mb-0">
                     Playground
                   </ProseH3>
                 </RouterLink>
               </B24Tooltip>
             </div>
-            <div class="mt-4 ps-6 pe-xs rtl:pe-6 pb-3">
+            <div class="mt-0 px-4 pb-3">
               <B24Input ref="input" v-model="searchTerm" placeholder="Filter..." class="group">
                 <template #trailing>
                   <B24Kbd value="/" dd-class="ring-(--ui-color-design-plain-na-content-secondary) bg-transparent text-muted" />
