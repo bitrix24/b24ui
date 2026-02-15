@@ -1,13 +1,17 @@
 <template>
   <div class="flex items-center justify-center min-h-[calc(100vh-var(--topbar-height))]">
-    <B24Card class="text-center backdrop-blur-xl">
+    <B24Card class="mx-4 text-center backdrop-blur-xl max-w-96">
       <template #header>
-        <ProseH1 class="text-2xl font-bold">
+        <ProseH1 class="mb-0">
           Demo Playground
         </ProseH1>
       </template>
-      <ProseP class="max-w-96 mx-auto text-(--ui-color-design-outline-content-secondary)">
+      <ProseP class="bitrix-mobile:hidden">
         Explore and test all Bitrix24 UI components in an interactive environment.
+      </ProseP>
+
+      <ProseP class="hidden bitrix-mobile:inline-block">
+        It's magic! 🔮 Check out what the Bitrix24 Mobile UI is capable of. You're doing great! 😎
       </ProseP>
     </B24Card>
   </div>

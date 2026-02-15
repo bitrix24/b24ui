@@ -20,25 +20,21 @@ export default defineConfig(({ mode }) => {
           dirs: ['../nuxt/app/components']
         }
       }),
+      {
+        name: 'global-post-to-get-rewriter',
+        configureServer(server) {
+          server.middlewares.use((req, res, next) => {
+            if (req.method === 'POST') {
+              req.method = 'GET'
+            }
+            next()
+          })
+        }
+      }
     ],
     server: {
       // Fix: "Blocked request. This host is not allowed" when using tunnels like ngrok
       allowedHosts: [...extraAllowedHosts]
-      // proxy: {
-      //   '/': {
-      //     target: `http://localhost:5173`,
-      //     selfHandleResponse: true,
-      //     configure: (proxy, _options) => {
-      //       proxy.on('proxyReq', (_proxyReq, req, res) => {
-      //         if (req.method === 'POST') {
-      //           // const location = `https://${extraAllowedHosts[0]}`
-      //           res.writeHead(303, { Location: req.url })
-      //           res.end();
-      //         }
-      //       })
-      //     }
-      //   }
-      // }
     }
   }
 })

@@ -121,7 +121,7 @@ defineShortcuts({
               </B24Tooltip>
             </div>
             <div class="mt-0 px-4 pb-3">
-              <B24Input ref="input" v-model="searchTerm" placeholder="Filter..." class="group">
+              <B24Input ref="input" v-model="searchTerm" placeholder="Filter..." class="group w-full">
                 <template #trailing>
                   <B24Kbd value="/" dd-class="ring-(--ui-color-design-plain-na-content-secondary) bg-transparent text-muted" />
                 </template>
@@ -148,21 +148,21 @@ defineShortcuts({
         </template>
 
         <template #navbar>
-          <B24Tooltip
-            class="lg:hidden inline-flex"
-            :content="{ side: 'bottom', align: 'start' }"
-            text="Go home"
-            :kbds="['ctrl', 'arrowleft']"
-          >
-            <RouterLink to="/" class="mt-0 text-(--ui-color-design-selection-content)" aria-label="Home">
-              <ProseH1 class="font-(--ui-font-weight-medium) mb-0">
+          <RouterLink to="/" class="inline-flex lg:hidden mt-0 text-(--ui-color-design-selection-content)" aria-label="Home">
+            <B24Tooltip
+              class=""
+              :content="{ side: 'bottom', align: 'start' }"
+              text="Go home"
+              :kbds="['ctrl', 'arrowleft']"
+            >
+              <ProseH3 class="font-(--ui-font-weight-medium) mb-0">
                 Playground
-              </ProseH1>
-            </RouterLink>
-          </B24Tooltip>
+              </ProseH3>
+            </B24Tooltip>
+          </RouterLink>
           <B24NavbarSpacer />
           <B24NavbarSection class="flex-row items-center justify-start gap-4">
-            <B24DashboardSearchButton size="sm" rounded :collapsed="false" :kbds="[{ value: 'meta', size: 'sm' }, { value: 'K', size: 'sm' }]" />
+            <B24DashboardSearchButton class="hidden lg:inline-flex" size="sm" rounded :collapsed="false" :kbds="[{ value: 'meta', size: 'sm' }, { value: 'K', size: 'sm' }]" />
             <B24Tooltip :content="{ side: 'bottom' }" text="Switch color mode" :kbds="['shift', 'D']">
               <B24ColorModeSwitch />
             </B24Tooltip>
