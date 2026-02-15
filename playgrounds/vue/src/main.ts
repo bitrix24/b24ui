@@ -21,25 +21,6 @@ const router = createRouter({
   history: createWebHistory()
 })
 
-// detect-platform.global
-router.beforeEach((to, from, next) => {
-  const userAgent = navigator.userAgent;
-
-  // @todo fix this
-  // console.warn({ userAgent, to, from })
-  alert(JSON.stringify({ userAgent, to, from }, null, 2))
-  const isNativeApp = userAgent.includes('MyCoolApp');
-  const platformValue = isNativeApp ? 'mobile' : 'web';
-
-  document.documentElement.setAttribute('data-platform', platformValue);
-
-  // Optional: You can push this to the global state (Pinia)
-  // const store = useAppStore();
-  // store.setPlatform(platformValue);
-
-  next()
-})
-
 const app = createApp(App)
 
 app.use(router)

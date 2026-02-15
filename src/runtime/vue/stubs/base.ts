@@ -27,6 +27,13 @@ export const useRuntimeConfig = () => {
   }
 }
 
+/**
+ * @memo Use this in plugin to detect the bitrix24 mobile application environment.
+ */
+export const useRequestHeader = () => {
+  return undefined
+}
+
 export const useColorMode = () => {
   if (!appConfig.colorMode) {
     return {

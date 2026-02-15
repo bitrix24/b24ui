@@ -1,7 +1,7 @@
 import { defineNuxtPlugin, useHead, useAppConfig } from '#imports'
 
 /**
- * @memo Add b24ui version
+ * Add b24ui version
  */
 export default defineNuxtPlugin(() => {
   const appConfig = useAppConfig()

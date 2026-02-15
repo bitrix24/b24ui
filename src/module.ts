@@ -120,6 +120,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     addPlugin({ src: resolve('./runtime/plugins/colors') })
     addPlugin({ src: resolve('./runtime/plugins/ui-version') })
+    addPlugin({ src: resolve('./runtime/plugins/platform') })
 
     if ((hasNuxtModule('@nuxtjs/mdc') || options.mdc) || (hasNuxtModule('@nuxt/content') || options.content)) {
       nuxt.options.mdc = defu(nuxt.options.mdc, {
