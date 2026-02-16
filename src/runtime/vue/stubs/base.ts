@@ -19,15 +19,6 @@ export const clearError = () => {
 }
 
 /**
- * @memo need add for prose components
- */
-export const useRuntimeConfig = () => {
-  return {
-    public: null
-  }
-}
-
-/**
  * @memo Use this in plugin to detect the bitrix24 mobile application environment.
  */
 export const useRequestHeader = () => {
@@ -102,6 +93,15 @@ export function useRuntimeHook(name: string, fn: (...args: any[]) => void): void
   const unregister = nuxtApp.hook(name, fn)
 
   onScopeDispose(unregister)
+}
+
+export const useRuntimeConfig = () => {
+  return {
+    app: {
+      baseURL: '/'
+    },
+    public: {}
+  }
 }
 
 export function defineNuxtPlugin(plugin: (nuxtApp: NuxtApp) => void) {

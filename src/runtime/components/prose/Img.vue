@@ -22,14 +22,13 @@ export interface ProseImgProps {
 
 <script setup lang="ts">
 import { ref, computed, useId } from 'vue'
-// import { withTrailingSlash, withLeadingSlash, joinURL } from 'ufo'
 import { DialogRoot, DialogPortal, DialogTrigger } from 'reka-ui'
 import { AnimatePresence, Motion } from 'motion-v'
 import { useEventListener, createReusableTemplate } from '@vueuse/core'
-// @memo useRuntimeConfig not support under vue
-import { useAppConfig } from '#imports'
-import { useComponentUI } from '../../composables/useComponentUI'
+import { useAppConfig, useRuntimeConfig } from '#imports'
 import ImageComponent from '#build/b24ui-image-component'
+import { useComponentUI } from '../../composables/useComponentUI'
+import { resolveBaseURL } from '../../utils'
 import { tv } from '../../utils/tv'
 
 defineOptions({ inheritAttrs: false })
@@ -51,15 +50,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
   open: open.value
 }))
 
-const refinedSrc = computed(() => {
-  // if (props.src?.startsWith('/') && !props.src.startsWith('//')) {
-  //   const _base = withLeadingSlash(withTrailingSlash(useRuntimeConfig().app.baseURL))
-  //   if (_base !== '/' && !props.src.startsWith(_base)) {
-  //     return joinURL(_base, props.src)
-  //   }
-  // }
-  return props.src
-})
+const refinedSrc = computed(() => resolveBaseURL(props.src, useRuntimeConfig().app.baseURL))
 
 const layoutId = computed(() => `${refinedSrc.value}::${useId()}`)
 
