@@ -226,13 +226,13 @@ export type TableSlots<T extends TableData = TableData> = {
 </script>
 
 <script setup lang="ts" generic="T extends TableData">
-import { ref, computed, useTemplateRef, watch, toRef } from 'vue'
+import { computed, useTemplateRef, watch, toRef } from 'vue'
 import { Primitive, useForwardProps } from 'reka-ui'
 import { upperFirst } from 'scule'
 import { defu } from 'defu'
 import { FlexRender, getCoreRowModel, getFilteredRowModel, getSortedRowModel, getExpandedRowModel, useVueTable } from '@tanstack/vue-table'
 import { useVirtualizer } from '@tanstack/vue-virtual'
-import { reactivePick, createReusableTemplate } from '@vueuse/core'
+import { reactivePick, createReusableTemplate, createRef } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useComponentUI } from '../composables/useComponentUI'
 import { useLocale } from '../composables/useLocale'
@@ -252,7 +252,7 @@ const { t } = useLocale()
 const appConfig = useAppConfig() as Table['AppConfig']
 const uiProp = useComponentUI('table', props)
 
-const data = ref(props.data ?? []) as Ref<T[]>
+const data = createRef(props.data ?? [], props.watchOptions?.deep !== false)
 const meta = computed(() => props.meta ?? {})
 const columns = computed<TableColumn<T>[]>(() => processColumns(props.columns ?? Object.keys(data.value[0] ?? {}).map((accessorKey: string) => ({ accessorKey, header: upperFirst(accessorKey) }))))
 
