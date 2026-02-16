@@ -75,7 +75,7 @@ export interface FormSlots {
 </script>
 
 <script lang="ts" setup generic="S extends FormSchema, T extends boolean = true, N extends boolean = false">
-import { provide, inject, nextTick, ref, onUnmounted, onMounted, computed, useId, readonly, reactive } from 'vue'
+import { provide, inject, nextTick, ref, onUnmounted, onMounted, computed, useId, readonly, reactive, useTemplateRef } from 'vue'
 import { useEventBus } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useComponentUI } from '../composables/useComponentUI'
@@ -106,6 +106,7 @@ const uiProp = useComponentUI('form', props)
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.form || {}) }))
 
 const formId = props.id ?? useId() as string
+const formRef = useTemplateRef('formRef')
 
 const bus = useEventBus<FormEvent<I>>(`form-${formId}`)
 
@@ -403,6 +404,10 @@ const api = {
   },
 
   async submit() {
+    if (formRef.value instanceof HTMLFormElement && formRef.value.reportValidity() === false) {
+      return
+    }
+
     await onSubmitWrapper(new Event('submit'))
   },
 
@@ -452,6 +457,7 @@ defineExpose(api)
   <component
     :is="parentBus ? 'div' : 'form'"
     :id="formId"
+    ref="formRef"
     :class="b24ui({ class: [uiProp?.base, props.class] })"
     @submit.prevent="onSubmitWrapper"
   >
