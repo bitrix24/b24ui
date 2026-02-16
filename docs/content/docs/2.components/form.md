@@ -162,7 +162,7 @@ props:
 ---
 ::
 
-### HTML5 validation
+### HTML5 validation :badge{label="Soon" class="align-text-top"}
 
 When calling `form.submit()` programmatically, the Form component automatically triggers native HTML5 validation before submission.
 
