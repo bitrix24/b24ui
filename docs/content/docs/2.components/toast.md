@@ -305,6 +305,17 @@ name: 'toast-example'
 In this example, we use the `AppConfig` to configure the `expand` prop of the `Toaster` component globally.
 ::
 
+### Deduplicated toasts
+
+When calling `toast.add` with an `id` that already exists, the existing toast will pulse instead of creating a duplicate.
+
+::component-example
+---
+collapse: true
+name: 'toast-duplicate-example'
+---
+::
+
 ### With callback
 
 Pass an `onUpdateOpen` field to execute a callback when the toast is closed (either by expiration or user dismissal).
