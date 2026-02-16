@@ -8,6 +8,7 @@
 * feat(Theme): new component
 * fix(ColorModeImage): add baseURL support for public paths
 * fix(Table): improve perfs with `shallowRef` when watch deep is disabled
+* fix(EditorMentionMenu): use `char` prop as mention prefix instead of always `@`
 
 ## [2.3.0](https://github.com/bitrix24/b24ui/compare/v2.2.1...v2.3.0) (2026-02-12)
 

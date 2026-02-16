@@ -60,10 +60,11 @@ export interface EditorProps<T extends Content = Content, H extends EditorCustom
   image?: boolean | Partial<ImageOptions>
   /**
    * The mention extension options to configure mention handling. Set to `false` to disable the extension.
+   * The `suggestion` and `suggestions` options are omitted as they are managed by the `EditorMentionMenu` component.
    * @defaultValue { HTMLAttributes: { class: 'mention' } }
    * @see https://tiptap.dev/docs/editor/extensions/nodes/mention
    */
-  mention?: boolean | Partial<MentionOptions>
+  mention?: boolean | Partial<Omit<MentionOptions, 'suggestion' | 'suggestions'>>
   /**
    * Custom item handlers to override or extend the default handlers.
    * These handlers are provided to all child components (toolbar, suggestion menu, etc.).
@@ -160,6 +161,16 @@ const image = computed(() => typeof props.image === 'boolean' ? {} : props.image
 const mention = computed(() => defu(typeof props.mention === 'boolean' ? {} : props.mention, {
   HTMLAttributes: {
     class: 'mention'
+  },
+  renderText({ node }: { node: any }) {
+    return `${node.attrs.mentionSuggestionChar ?? '@'}${node.attrs.label ?? node.attrs.id}`
+  },
+  renderHTML({ options, node }: { options: any, node: any }) {
+    return [
+      'span',
+      mergeAttributes({ 'data-type': 'mention' }, options.HTMLAttributes),
+      `${node.attrs.mentionSuggestionChar ?? '@'}${node.attrs.label ?? node.attrs.id}`
+    ]
   }
 } as Partial<MentionOptions>))
 
