@@ -42,6 +42,7 @@ import { computed, toRef, useTemplateRef } from 'vue'
 import { Primitive, useForwardProps } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { useLocale } from '../composables/useLocale'
 import { omit, transformUI } from '../utils'
 import { tv } from '../utils/tv'
@@ -62,6 +63,7 @@ const model = defineModel<string>({ default: '' })
 
 const { t } = useLocale()
 const appConfig = useAppConfig() as ChatPrompt['AppConfig']
+const uiProp = useComponentUI('chatPrompt', props)
 
 const textareaProps = useForwardProps(reactivePick(props, 'rows', 'autofocus', 'autofocusDelay', 'autoresize', 'autoresizeDelay', 'maxrows', 'icon', 'avatar', 'loading'))
 
@@ -93,8 +95,8 @@ defineExpose({
 </script>
 
 <template>
-  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })" @submit.prevent="submit">
-    <div v-if="!!slots.header" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
+  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })" @submit.prevent="submit">
+    <div v-if="!!slots.header" data-slot="header" :class="b24ui.header({ class: uiProp?.header })">
       <slot name="header" />
     </div>
 
@@ -105,9 +107,9 @@ defineExpose({
       :disabled="Boolean(error) || disabled"
       no-border
       v-bind="{ ...textareaProps, ...$attrs }"
-      :b24ui="transformUI(omit(b24ui, ['root', 'body', 'header', 'footer']), props.b24ui)"
+      :b24ui="transformUI(omit(b24ui, ['root', 'body', 'header', 'footer']), uiProp)"
       data-slot="body"
-      :class="b24ui.body({ class: props.b24ui?.body })"
+      :class="b24ui.body({ class: uiProp?.body })"
       @keydown.enter.exact.prevent="submit"
       @keydown.esc="blur"
     >
@@ -116,9 +118,9 @@ defineExpose({
       </template>
     </B24Textarea>
 
-    <div data-slot="footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
+    <div data-slot="footer" :class="b24ui.footer({ class: uiProp?.footer })">
       <slot name="footer" />
-      <slot name="default" :b24ui="transformUI(omit(b24ui, ['root', 'body', 'header', 'footer']), props.b24ui)" />
+      <slot name="default" :b24ui="transformUI(omit(b24ui, ['root', 'body', 'header', 'footer']), uiProp)" />
     </div>
   </Primitive>
 </template>

@@ -24,6 +24,7 @@ export interface SkeletonProps {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { tv } from '../utils/tv'
 
 const props = withDefaults(defineProps<SkeletonProps>(), {
@@ -31,6 +32,7 @@ const props = withDefaults(defineProps<SkeletonProps>(), {
 })
 
 const appConfig = useAppConfig() as Skeleton['AppConfig']
+const uiProp = useComponentUI('skeleton', props)
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.skeleton || {}) })({
   accent: props.accent
@@ -45,7 +47,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.skelet
     aria-live="polite"
     role="alert"
     data-slot="base"
-    :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
+    :class="b24ui.base({ class: [uiProp?.base, props.class] })"
   >
     <slot />
   </Primitive>

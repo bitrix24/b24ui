@@ -14,9 +14,6 @@ export interface SidebarSpacerProps {
   class?: any
   b24ui?: SidebarSpacer['slots']
 }
-/**
- * @todo add Pick<Xxxx
- */
 
 export interface SidebarSpacerSlots {
   default(props?: {}): any
@@ -27,6 +24,7 @@ export interface SidebarSpacerSlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { tv } from '../utils/tv'
 
 const props = withDefaults(defineProps<SidebarSpacerProps>(), {
@@ -35,13 +33,14 @@ const props = withDefaults(defineProps<SidebarSpacerProps>(), {
 defineSlots<SidebarSpacerSlots>()
 
 const appConfig = useAppConfig() as SidebarSpacer['AppConfig']
+const uiProp = useComponentUI('sidebarSpacer', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sidebarSpacer || {}) })())
 </script>
 
 <template>
-  <Primitive :as="as" aria-hidden="true" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <Primitive :as="as" aria-hidden="true" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
     <slot />
   </Primitive>
 </template>

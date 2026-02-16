@@ -50,6 +50,7 @@ import { useForwardProps } from 'reka-ui'
 import { defu } from 'defu'
 import { reactiveOmit, createReusableTemplate } from '@vueuse/core'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { useLocale } from '../composables/useLocale'
 import { useDashboard } from '../utils/dashboard'
 import { omit, transformUI } from '../utils'
@@ -78,6 +79,7 @@ const tooltipProps = toRef(() => defu(typeof props.tooltip === 'boolean' ? {} : 
 
 const { t } = useLocale()
 const appConfig = useAppConfig() as DashboardSearchButton['AppConfig']
+const uiProp = useComponentUI('dashboardSearchButton', props)
 const { toggleSearch } = useDashboard({ toggleSearch: () => {} })
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashboardSearchButton || {}) })({
@@ -100,8 +102,8 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashbo
         ...$attrs
       }"
       data-slot="base"
-      :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
-      :b24ui="transformUI(b24ui, props.b24ui)"
+      :class="b24ui.base({ class: [uiProp?.base, props.class] })"
+      :b24ui="transformUI(b24ui, uiProp)"
       @click="toggleSearch"
     >
       <template v-for="(_, name) in getProxySlots()" #[name]="slotData">
@@ -109,7 +111,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashbo
       </template>
 
       <template #trailing="{ b24ui: b24uiProxy }">
-        <div data-slot="trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
+        <div data-slot="trailing" :class="b24ui.trailing({ class: uiProp?.trailing })">
           <slot name="trailing" :b24ui="b24uiProxy">
             <template v-if="kbds?.length">
               <B24Kbd

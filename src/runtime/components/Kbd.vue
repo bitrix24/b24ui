@@ -25,6 +25,7 @@ export interface KbdProps {
    */
   size?: Kbd['variants']['size']
   class?: any
+  b24ui?: Kbd['slots']
 }
 
 export interface KbdSlots {
@@ -36,6 +37,7 @@ export interface KbdSlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { useKbd } from '../composables/useKbd'
 import { tv } from '../utils/tv'
 
@@ -48,6 +50,7 @@ defineSlots<KbdSlots>()
 const { getKbdKey } = useKbd()
 
 const appConfig = useAppConfig() as Kbd['AppConfig']
+const uiProp = useComponentUI('kbd', props)
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.kbd || {}) })({
   accent: props.accent,
@@ -56,7 +59,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.kbd ||
 </script>
 
 <template>
-  <Primitive :as="as" data-slot="base" :class="b24ui.base({ class: props.class })">
+  <Primitive :as="as" data-slot="base" :class="b24ui.base({ class: [uiProp?.base, props.class] })">
     <slot>
       {{ getKbdKey(value) }}
     </slot>

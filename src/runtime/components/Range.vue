@@ -48,6 +48,7 @@ import { computed } from 'vue'
 import { SliderRoot, SliderRange, SliderTrack, SliderThumb, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { useFormField } from '../composables/useFormField'
 import { tv } from '../utils/tv'
 import B24Tooltip from './Tooltip.vue'
@@ -63,6 +64,7 @@ const emits = defineEmits<RangeEmits>()
 const modelValue = defineModel<T>()
 
 const appConfig = useAppConfig() as Range['AppConfig']
+const uiProp = useComponentUI('range', props)
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'orientation', 'min', 'max', 'step', 'minStepsBetweenThumbs', 'inverted'), emits)
 
@@ -112,13 +114,13 @@ function onChange(value: any) {
     :name="name"
     :disabled="disabled"
     data-slot="root"
-    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
+    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
     :default-value="defaultRangeValue"
     @update:model-value="emitFormInput()"
     @value-commit="onChange"
   >
-    <SliderTrack data-slot="track" :class="b24ui.track({ class: props.b24ui?.track })">
-      <SliderRange data-slot="range" :class="b24ui.range({ class: props.b24ui?.range })" />
+    <SliderTrack data-slot="track" :class="b24ui.track({ class: uiProp?.track })">
+      <SliderRange data-slot="range" :class="b24ui.range({ class: uiProp?.range })" />
     </SliderTrack>
 
     <template v-for="thumb in thumbs" :key="thumb">
@@ -128,9 +130,9 @@ function onChange(value: any) {
         disable-closing-trigger
         v-bind="(typeof tooltip === 'object' ? tooltip : {})"
       >
-        <SliderThumb data-slot="thumb" :class="b24ui.thumb({ class: props.b24ui?.thumb })" :aria-label="thumbs === 1 ? 'Thumb' : `Thumb ${thumb} of ${thumbs}`" />
+        <SliderThumb data-slot="thumb" :class="b24ui.thumb({ class: uiProp?.thumb })" :aria-label="thumbs === 1 ? 'Thumb' : `Thumb ${thumb} of ${thumbs}`" />
       </B24Tooltip>
-      <SliderThumb v-else data-slot="thumb" :class="b24ui.thumb({ class: props.b24ui?.thumb })" :aria-label="thumbs === 1 ? 'Thumb' : `Thumb ${thumb} of ${thumbs}`" />
+      <SliderThumb v-else data-slot="thumb" :class="b24ui.thumb({ class: uiProp?.thumb })" :aria-label="thumbs === 1 ? 'Thumb' : `Thumb ${thumb} of ${thumbs}`" />
     </template>
   </SliderRoot>
 </template>

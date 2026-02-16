@@ -67,6 +67,7 @@ export interface PageCardSlots {
 import { computed, ref } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { getSlotChildrenText } from '../utils'
 import { tv } from '../utils/tv'
 import B24Link from './Link.vue'
@@ -81,6 +82,7 @@ const slots = defineSlots<PageCardSlots>()
 const cardRef = ref<HTMLElement>()
 
 const appConfig = useAppConfig() as PageCard['AppConfig']
+const uiProp = useComponentUI('pageCard', props)
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pageCard || {}) })({
   orientation: props.orientation,
@@ -104,31 +106,31 @@ const ariaLabel = computed(() => {
     :as="as"
     :data-orientation="orientation"
     data-slot="root"
-    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
+    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
     v-bind="$attrs"
     @click="onClick"
   >
-    <div data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">
-      <div v-if="!!slots.header || (icon || !!slots.leading) || !!slots.body || (title || !!slots.title) || (description || !!slots.description) || !!slots.footer" data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
-        <div v-if="!!slots.header" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
+    <div data-slot="container" :class="b24ui.container({ class: uiProp?.container })">
+      <div v-if="!!slots.header || (icon || !!slots.leading) || !!slots.body || (title || !!slots.title) || (description || !!slots.description) || !!slots.footer" data-slot="wrapper" :class="b24ui.wrapper({ class: uiProp?.wrapper })">
+        <div v-if="!!slots.header" data-slot="header" :class="b24ui.header({ class: uiProp?.header })">
           <slot name="header" />
         </div>
 
-        <div v-if="icon || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
+        <div v-if="icon || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: uiProp?.leading })">
           <slot name="leading" :b24ui="b24ui">
-            <Component :is="icon" v-if="icon" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })" />
+            <Component :is="icon" v-if="icon" data-slot="leadingIcon" :class="b24ui.leadingIcon({ class: uiProp?.leadingIcon })" />
           </slot>
         </div>
 
-        <div v-if="!!slots.body || (title || !!slots.title) || (description || !!slots.description)" data-slot="body" :class="b24ui.body({ class: props.b24ui?.body })">
+        <div v-if="!!slots.body || (title || !!slots.title) || (description || !!slots.description)" data-slot="body" :class="b24ui.body({ class: uiProp?.body })">
           <slot name="body">
-            <div v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
+            <div v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
               <slot name="title">
                 {{ title }}
               </slot>
             </div>
 
-            <div v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
+            <div v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
               <slot name="description">
                 {{ description }}
               </slot>
@@ -136,7 +138,7 @@ const ariaLabel = computed(() => {
           </slot>
         </div>
 
-        <div v-if="!!slots.footer" data-slot="footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
+        <div v-if="!!slots.footer" data-slot="footer" :class="b24ui.footer({ class: uiProp?.footer })">
           <slot name="footer" />
         </div>
       </div>

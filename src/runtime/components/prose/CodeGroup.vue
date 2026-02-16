@@ -29,6 +29,7 @@ export interface ProseCodeGroupSlots {
 import { computed, watch, onMounted, ref, onBeforeUpdate } from 'vue'
 import { TabsRoot, TabsList, TabsIndicator, TabsTrigger, TabsContent } from 'reka-ui'
 import { useState, useAppConfig } from '#imports'
+import { useComponentUI } from '../../composables/useComponentUI'
 import { tv } from '../../utils/tv'
 import B24CodeIcon from './CodeIcon.vue'
 
@@ -40,6 +41,7 @@ const slots = defineSlots<ProseCodeGroupSlots>()
 const model = defineModel<string>()
 
 const appConfig = useAppConfig() as ProseCodeGroup['AppConfig']
+const uiProp = useComponentUI('prose.codeGroup', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.codeGroup || {}) })())
@@ -93,14 +95,14 @@ onBeforeUpdate(() => rerenderCount.value++)
 </script>
 
 <template>
-  <TabsRoot v-model="model" :default-value="defaultValue" :unmount-on-hide="false" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <TabsList data-slot="list" :class="b24ui.list({ class: props.b24ui?.list })">
-      <TabsIndicator data-slot="indicator" :class="b24ui.indicator({ class: props.b24ui?.indicator })" />
+  <TabsRoot v-model="model" :default-value="defaultValue" :unmount-on-hide="false" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
+    <TabsList data-slot="list" :class="b24ui.list({ class: uiProp?.list })">
+      <TabsIndicator data-slot="indicator" :class="b24ui.indicator({ class: uiProp?.indicator })" />
 
-      <TabsTrigger v-for="(item, index) of items" :key="index" :value="String(index)" data-slot="trigger" :class="b24ui.trigger({ class: props.b24ui?.trigger })">
-        <B24CodeIcon :icon="item.icon" :filename="item.label" data-slot="triggerIcon" :class="b24ui.triggerIcon({ class: props.b24ui?.triggerIcon })" />
+      <TabsTrigger v-for="(item, index) of items" :key="index" :value="String(index)" data-slot="trigger" :class="b24ui.trigger({ class: uiProp?.trigger })">
+        <B24CodeIcon :icon="item.icon" :filename="item.label" data-slot="triggerIcon" :class="b24ui.triggerIcon({ class: uiProp?.triggerIcon })" />
 
-        <span data-slot="triggerLabel" :class="b24ui.triggerLabel({ class: props.b24ui?.triggerLabel })">{{ item.label }}</span>
+        <span data-slot="triggerLabel" :class="b24ui.triggerLabel({ class: uiProp?.triggerLabel })">{{ item.label }}</span>
       </TabsTrigger>
     </TabsList>
 

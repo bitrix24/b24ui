@@ -1,6 +1,6 @@
 /**
  * Prose/Strong
- * Show Strong
+ * Show <strong>
  */
 
 export default {

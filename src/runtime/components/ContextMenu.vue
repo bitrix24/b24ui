@@ -109,6 +109,7 @@ import { computed, toRef } from 'vue'
 import { ContextMenuRoot, ContextMenuTrigger, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { omit } from '../utils'
 import { tv } from '../utils/tv'
 import B24ContextMenuContent from './ContextMenuContent.vue'
@@ -124,6 +125,7 @@ const emits = defineEmits<ContextMenuEmits>()
 const slots = defineSlots<ContextMenuSlots<T>>()
 
 const appConfig = useAppConfig() as ContextMenu['AppConfig']
+const uiProp = useComponentUI('contextMenu', props)
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'modal'), emits)
 const contentProps = toRef(() => props.content)
@@ -141,9 +143,9 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.contex
 
     <B24ContextMenuContent
       data-slot="content"
-      :class="b24ui.content({ class: [!slots.default && props.class, props.b24ui?.content] })"
+      :class="b24ui.content({ class: [!slots.default && props.class, uiProp?.content] })"
       :b24ui="b24ui"
-      :b24ui-override="props.b24ui"
+      :b24ui-override="uiProp"
       v-bind="contentProps"
       :items="items"
       :portal="portal"

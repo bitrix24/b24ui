@@ -13,6 +13,7 @@ export interface DashboardGroupProps extends Pick<UseLoadingProps, 'id' | 'stora
    */
   as?: any
   class?: any
+  b24ui?: { base?: any }
 }
 
 export interface DashboardGroupSlots {
@@ -24,6 +25,7 @@ export interface DashboardGroupSlots {
 import { ref, computed, useId } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useNuxtApp, useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { provideDashboardContext } from '../utils/dashboard'
 import { tv } from '../utils/tv'
 
@@ -35,7 +37,9 @@ defineSlots<DashboardGroupSlots>()
 
 const nuxtApp = useNuxtApp()
 const appConfig = useAppConfig() as DashboardGroup['AppConfig']
+const uiProp = useComponentUI('dashboardGroup', props)
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashboardGroup || {}) }))
 
 const sidebarOpen = ref(false)
@@ -62,7 +66,7 @@ provideDashboardContext({
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui({ class: props.class })">
+  <Primitive :as="as" :class="b24ui({ class: [uiProp?.base, props.class] })">
     <slot />
   </Primitive>
 </template>

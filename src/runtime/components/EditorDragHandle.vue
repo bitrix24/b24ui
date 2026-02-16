@@ -47,6 +47,7 @@ import { useForwardProps } from 'reka-ui'
 import { reactiveOmit, reactivePick } from '@vueuse/core'
 import { defu } from 'defu'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { buildFloatingUIMiddleware } from '../utils/editor'
 import { transformUI } from '../utils'
 import { tv } from '../utils/tv'
@@ -66,6 +67,7 @@ const dragHandleProps = useForwardProps(reactivePick(props, 'pluginKey', 'nested
 const buttonProps = useForwardProps(reactiveOmit(props, 'icon', 'options', 'editor', 'pluginKey', 'nested', 'nestedOptions', 'onElementDragEnd', 'onElementDragStart', 'getReferencedVirtualElement', 'class', 'b24ui'))
 
 const appConfig = useAppConfig() as EditorDragHandle['AppConfig']
+const uiProp = useComponentUI('editorDragHandle', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.editorDragHandle || {}) })())
@@ -145,7 +147,7 @@ function onClick() {
     :editor="editor"
     :on-node-change="onNodeChange"
     data-slot="root"
-    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
+    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
     @click="onClick"
   >
     <slot :b24ui="b24ui" :on-click="onClick">
@@ -156,8 +158,8 @@ function onClick() {
           ...$attrs
         }"
         data-slot="handle"
-        :class="b24ui.handle({ class: [props.b24ui?.handle, props.class] })"
-        :b24ui="transformUI(b24ui, props.b24ui)"
+        :class="b24ui.handle({ class: [uiProp?.handle, props.class] })"
+        :b24ui="transformUI(b24ui, uiProp)"
       />
     </slot>
   </DragHandle>

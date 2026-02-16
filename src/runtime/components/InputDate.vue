@@ -93,6 +93,7 @@ import { useForwardPropsEmits } from 'reka-ui'
 import { DateField as SingleDateField, DateRangeField as RangeDateField } from 'reka-ui/namespaced'
 import { reactiveOmit, createReusableTemplate } from '@vueuse/core'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { useFieldGroup } from '../composables/useFieldGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
@@ -110,6 +111,7 @@ const emits = defineEmits<InputDateEmits<R>>()
 const slots = defineSlots<InputDateSlots>()
 
 const appConfig = useAppConfig() as InputDate['AppConfig']
+const uiProp = useComponentUI('inputDate', props)
 
 const rootProps = useForwardPropsEmits(reactiveOmit(props, 'id', 'name', 'range', 'modelValue', 'defaultValue', 'color', 'size', 'highlight', 'disabled', 'autofocus', 'autofocusDelay', 'icon', 'avatar', 'trailingIcon', 'loading', 'separatorIcon', 'class', 'b24ui'), emits)
 const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, size: formGroupSize, color, id, name, highlight, disabled, ariaAttrs } = useFormField<InputDateProps<R>>(props)
@@ -190,7 +192,7 @@ defineExpose({
       :type="type"
       :part="segment.part"
       data-slot="segment"
-      :class="b24ui.segment({ class: props.b24ui?.segment })"
+      :class="b24ui.segment({ class: uiProp?.segment })"
       :data-segment="segment.part"
     >
       {{ segment.value.trim() }}
@@ -206,7 +208,7 @@ defineExpose({
     :name="name"
     :disabled="disabled"
     data-slot="base"
-    :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
+    :class="b24ui.base({ class: [uiProp?.base, props.class] })"
     @update:model-value="onUpdate"
     @blur="onBlur"
     @focus="onFocus"
@@ -214,7 +216,7 @@ defineExpose({
     <B24Badge
       v-if="isTag"
       data-slot="tag"
-      :class="b24ui.tag({ class: props.b24ui?.tag })"
+      :class="b24ui.tag({ class: uiProp?.tag })"
       :color="props.tagColor"
       :label="props.tag"
       size="xs"
@@ -229,7 +231,7 @@ defineExpose({
         <Component
           :is="separatorIcon || icons.minus"
           data-slot="separatorIcon"
-          :class="b24ui.separatorIcon({ class: props.b24ui?.separatorIcon })"
+          :class="b24ui.separatorIcon({ class: uiProp?.separatorIcon })"
         />
       </slot>
       <ReuseSegmentsTemplate :segments="segments.end" type="end" />
@@ -237,31 +239,31 @@ defineExpose({
 
     <slot :b24ui="b24ui" />
 
-    <span v-if="isLeading || !!avatar || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
+    <span v-if="isLeading || !!avatar || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: uiProp?.leading })">
       <slot name="leading" :b24ui="b24ui">
         <Component
           :is="leadingIconName"
           v-if="isLeading && leadingIconName"
           data-slot="leadingIcon"
-          :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
+          :class="b24ui.leadingIcon({ class: uiProp?.leadingIcon })"
         />
         <B24Avatar
           v-else-if="!!avatar"
-          :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+          :size="((uiProp?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
           v-bind="avatar"
           data-slot="leadingAvatar"
-          :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
+          :class="b24ui.leadingAvatar({ class: uiProp?.leadingAvatar })"
         />
       </slot>
     </span>
 
-    <span v-if="isTrailing || !!slots.trailing" data-slot="trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
+    <span v-if="isTrailing || !!slots.trailing" data-slot="trailing" :class="b24ui.trailing({ class: uiProp?.trailing })">
       <slot name="trailing" :b24ui="b24ui">
         <Component
           :is="trailingIconName"
           v-if="trailingIconName"
           data-slot="trailingIcon"
-          :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
+          :class="b24ui.trailingIcon({ class: uiProp?.trailingIcon })"
         />
       </slot>
     </span>

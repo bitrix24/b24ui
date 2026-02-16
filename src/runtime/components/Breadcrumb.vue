@@ -61,6 +61,7 @@ export type BreadcrumbSlots<T extends BreadcrumbItem = BreadcrumbItem> = {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { useLocale } from '../composables/useLocale'
 import { get } from '../utils'
 import { tv } from '../utils/tv'
@@ -78,6 +79,7 @@ const slots = defineSlots<BreadcrumbSlots<T>>()
 
 const { dir } = useLocale()
 const appConfig = useAppConfig() as Breadcrumb['AppConfig']
+const uiProp = useComponentUI('breadcrumb', props)
 
 const separatorIcon = computed(() => props.separatorIcon || (dir.value === 'rtl' ? icons.chevronLeft : icons.chevronRight))
 
@@ -86,17 +88,17 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.breadc
 </script>
 
 <template>
-  <Primitive :as="as" aria-label="breadcrumb" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <ol data-slot="list" :class="b24ui.list({ class: props.b24ui?.list })">
+  <Primitive :as="as" aria-label="breadcrumb" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
+    <ol data-slot="list" :class="b24ui.list({ class: uiProp?.list })">
       <template v-for="(item, index) in items" :key="index">
-        <li data-slot="item" :class="b24ui.item({ class: [props.b24ui?.item, item.b24ui?.item] })">
+        <li data-slot="item" :class="b24ui.item({ class: [uiProp?.item, item.b24ui?.item] })">
           <B24Link v-slot="{ active, ...slotProps }" v-bind="pickLinkProps(item)" custom>
             <B24LinkBase
               v-bind="slotProps"
               as="span"
               :aria-current="(item.active ?? active) && (index === items!.length - 1) ? 'page' : undefined"
               data-slot="link"
-              :class="b24ui.link({ class: [props.b24ui?.link, item.b24ui?.link, item.class], active: item.active ?? (index === items!.length - 1), disabled: !!item.disabled, to: !!item.to })"
+              :class="b24ui.link({ class: [uiProp?.link, item.b24ui?.link, item.class], active: item.active ?? (index === items!.length - 1), disabled: !!item.disabled, to: !!item.to })"
             >
               <slot
                 :name="((item.slot || 'item') as keyof BreadcrumbSlots<T>)"
@@ -116,21 +118,21 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.breadc
                     :is="item.icon"
                     v-if="item.icon"
                     data-slot="linkLeadingIcon"
-                    :class="b24ui.linkLeadingIcon({ class: [props.b24ui?.linkLeadingIcon, item.b24ui?.linkLeadingIcon], active: item.active ?? (index === items!.length - 1) })"
+                    :class="b24ui.linkLeadingIcon({ class: [uiProp?.linkLeadingIcon, item.b24ui?.linkLeadingIcon], active: item.active ?? (index === items!.length - 1) })"
                   />
                   <B24Avatar
                     v-else-if="item.avatar"
-                    :size="((props.b24ui?.linkLeadingAvatarSize || b24ui.linkLeadingAvatarSize()) as AvatarProps['size'])"
+                    :size="((uiProp?.linkLeadingAvatarSize || b24ui.linkLeadingAvatarSize()) as AvatarProps['size'])"
                     v-bind="item.avatar"
                     data-slot="linkLeadingAvatar"
-                    :class="b24ui.linkLeadingAvatar({ class: [props.b24ui?.linkLeadingAvatar, item.b24ui?.linkLeadingAvatar], active: item.active ?? (index === items!.length - 1) })"
+                    :class="b24ui.linkLeadingAvatar({ class: [uiProp?.linkLeadingAvatar, item.b24ui?.linkLeadingAvatar], active: item.active ?? (index === items!.length - 1) })"
                   />
                 </slot>
 
                 <span
                   v-if="get(item, props.labelKey as string) || !!slots[(item.slot ? `${item.slot}-label`: 'item-label') as keyof BreadcrumbSlots<T>]"
                   data-slot="linkLabel"
-                  :class="b24ui.linkLabel({ class: [props.b24ui?.linkLabel, item.b24ui?.linkLabel] })"
+                  :class="b24ui.linkLabel({ class: [uiProp?.linkLabel, item.b24ui?.linkLabel] })"
                 >
                   <slot
                     :name="((item.slot ? `${item.slot}-label`: 'item-label') as keyof DynamicSlots<T, 'label'>)"
@@ -153,12 +155,12 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.breadc
           </B24Link>
         </li>
 
-        <li v-if="index < items!.length - 1" role="presentation" aria-hidden="true" data-slot="separator" :class="b24ui.separator({ class: [props.b24ui?.separator, item.b24ui?.separator] })">
+        <li v-if="index < items!.length - 1" role="presentation" aria-hidden="true" data-slot="separator" :class="b24ui.separator({ class: [uiProp?.separator, item.b24ui?.separator] })">
           <slot name="separator" :b24ui="b24ui">
             <Component
               :is="separatorIcon"
               data-slot="separatorIcon"
-              :class="b24ui.separatorIcon({ class: [props.b24ui?.separatorIcon, item.b24ui?.separatorIcon] })"
+              :class="b24ui.separatorIcon({ class: [uiProp?.separatorIcon, item.b24ui?.separatorIcon] })"
             />
           </slot>
         </li>

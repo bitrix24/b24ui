@@ -12,6 +12,7 @@ export interface PageGridProps {
    */
   as?: any
   class?: any
+  b24ui?: { base?: any }
 }
 
 export interface PageGridSlots {
@@ -23,18 +24,21 @@ export interface PageGridSlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { tv } from '../utils/tv'
 
 const props = defineProps<PageGridProps>()
 defineSlots<PageGridSlots>()
 
 const appConfig = useAppConfig() as PageGrid['AppConfig']
+const uiProp = useComponentUI('pageGrid', props)
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pageGrid || {}) }))
 </script>
 
 <template>
-  <Primitive :as="as" :class="b24ui({ class: props.class })">
+  <Primitive :as="as" :class="b24ui({ class: [uiProp?.base, props.class] })">
     <slot />
   </Primitive>
 </template>

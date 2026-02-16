@@ -22,12 +22,14 @@ export interface ProseCodeSlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../../composables/useComponentUI'
 import { tv } from '../../utils/tv'
 
 const props = defineProps<ProseCodeProps>()
 defineSlots<ProseCodeSlots>()
 
 const appConfig = useAppConfig() as ProseCode['AppConfig']
+const uiProp = useComponentUI('prose.code', props)
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.code || {}) })({
   color: props.color
@@ -37,6 +39,6 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
 <template>
   <code
     data-slot="base"
-    :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
+    :class="b24ui.base({ class: [uiProp?.base, props.class] })"
   ><slot /></code>
 </template>

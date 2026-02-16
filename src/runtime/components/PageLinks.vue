@@ -43,6 +43,7 @@ export interface PageLinksSlots<T extends PageLink = PageLink> {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { pickLinkProps } from '../utils/link'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
@@ -55,35 +56,36 @@ const props = withDefaults(defineProps<PageLinksProps<T>>(), {
 const slots = defineSlots<PageLinksSlots<T>>()
 
 const appConfig = useAppConfig() as PageLinks['AppConfig']
+const uiProp = useComponentUI('pageLinks', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pageLinks || {}) })())
 </script>
 
 <template>
-  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <p v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
+  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
+    <p v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
       <slot name="title">
         {{ title }}
       </slot>
     </p>
 
-    <ul data-slot="list" :class="b24ui.list({ class: props.b24ui?.list })">
-      <li v-for="(link, index) in links" :key="index" data-slot="item" :class="b24ui.item({ class: [props.b24ui?.item, link.b24ui?.item] })">
+    <ul data-slot="list" :class="b24ui.list({ class: uiProp?.list })">
+      <li v-for="(link, index) in links" :key="index" data-slot="item" :class="b24ui.item({ class: [uiProp?.item, link.b24ui?.item] })">
         <B24Link v-slot="{ active, ...slotProps }" v-bind="pickLinkProps(link)" custom>
-          <B24LinkBase v-bind="slotProps" data-slot="link" :class="b24ui.link({ class: [props.b24ui?.link, link.b24ui?.link, link.class], active })">
+          <B24LinkBase v-bind="slotProps" data-slot="link" :class="b24ui.link({ class: [uiProp?.link, link.b24ui?.link, link.class], active })">
             <slot name="link" :link="link" :active="active" :b24ui="b24ui">
-              <div data-slot="linkWrapper" :class="b24ui.linkWrapper({ class: [props.b24ui?.linkWrapper, link.b24ui?.linkWrapper], active })">
+              <div data-slot="linkWrapper" :class="b24ui.linkWrapper({ class: [uiProp?.linkWrapper, link.b24ui?.linkWrapper], active })">
                 <slot name="link-leading" :link="link" :active="active" :b24ui="b24ui">
                   <Component
                     :is="link.icon"
                     v-if="link.icon"
                     data-slot="linkLeadingIcon"
-                    :class="b24ui.linkLeadingIcon({ class: [props.b24ui?.linkLeadingIcon, link.b24ui?.linkLeadingIcon], active })"
+                    :class="b24ui.linkLeadingIcon({ class: [uiProp?.linkLeadingIcon, link.b24ui?.linkLeadingIcon], active })"
                   />
                 </slot>
 
-                <div v-if="link.label || !!slots['link-label']" data-slot="linkLabel" :class="b24ui.linkLabel({ class: [props.b24ui?.linkLabel, link.b24ui?.linkLabel], active })">
+                <div v-if="link.label || !!slots['link-label']" data-slot="linkLabel" :class="b24ui.linkLabel({ class: [uiProp?.linkLabel, link.b24ui?.linkLabel], active })">
                   <slot name="link-label" :link="link" :active="active">
                     {{ link.label }}
                   </slot>
@@ -93,7 +95,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pageLi
                 :is="icons.external"
                 v-if="link.target === '_blank'"
                 data-slot="linkLabelExternalIcon"
-                :class="b24ui.linkLabelExternalIcon({ class: [props.b24ui?.linkLabelExternalIcon, link.b24ui?.linkLabelExternalIcon], active })"
+                :class="b24ui.linkLabelExternalIcon({ class: [uiProp?.linkLabelExternalIcon, link.b24ui?.linkLabelExternalIcon], active })"
               />
 
               <slot name="link-trailing" :link="link" :active="active" />

@@ -41,6 +41,7 @@ import { ref, computed, watch } from 'vue'
 import { Primitive, Slot } from 'reka-ui'
 import { defu } from 'defu'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import ImageComponent from '#build/b24ui-image-component'
 import { useAvatarGroup } from '../composables/useAvatarGroup'
 import { tv } from '../utils/tv'
@@ -67,6 +68,7 @@ const fallback = computed(() => props.text || (props.alt || '')
 )
 
 const appConfig = useAppConfig() as Avatar['AppConfig']
+const uiProp = useComponentUI('avatar', props)
 const { size } = useAvatarGroup(props)
 
 // eslint-disable-next-line vue/no-dupe-keys
@@ -105,7 +107,7 @@ function onError() {
     :as="as.root"
     v-bind="props.chip ? (typeof props.chip === 'object' ? { inset: true, ...props.chip } : { inset: true }) : {}"
     data-slot="root"
-    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
+    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
     :style="props.style"
   >
     <component
@@ -117,14 +119,14 @@ function onError() {
       :height="sizePx"
       v-bind="$attrs"
       data-slot="image"
-      :class="b24ui.image({ class: props.b24ui?.image })"
+      :class="b24ui.image({ class: uiProp?.image })"
       @error="onError"
     />
 
     <Slot v-else v-bind="$attrs">
       <slot>
-        <Component :is="icon" v-if="icon" data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
-        <span v-else data-slot="fallback" :class="b24ui.fallback({ class: props.b24ui?.fallback })">{{ fallback || '&nbsp;' }}</span>
+        <Component :is="icon" v-if="icon" data-slot="icon" :class="b24ui.icon({ class: uiProp?.icon })" />
+        <span v-else data-slot="fallback" :class="b24ui.fallback({ class: uiProp?.fallback })">{{ fallback || '&nbsp;' }}</span>
       </slot>
     </Slot>
   </component>

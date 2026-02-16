@@ -27,6 +27,7 @@ export interface ProseCalloutSlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../../composables/useComponentUI'
 import { tv } from '../../utils/tv'
 import icons from '../../dictionary/icons'
 import B24Link from '../Link.vue'
@@ -42,6 +43,7 @@ const props = defineProps<ProseCalloutProps>()
 defineSlots<ProseCalloutSlots>()
 
 const appConfig = useAppConfig() as ProseCallout['AppConfig']
+const uiProp = useComponentUI('prose.callout', props)
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.callout || {}) })({
   color: props.color,
@@ -82,19 +84,19 @@ const iconFromIconName = computed(() => {
       :is="icon"
       v-if="icon"
       data-slot="icon"
-      :class="b24ui.icon({ class: props.b24ui?.icon })"
+      :class="b24ui.icon({ class: uiProp?.icon })"
     />
     <Component
       :is="iconFromIconName"
       v-else-if="props.iconName"
       data-slot="icon"
-      :class="b24ui.icon({ class: props.b24ui?.icon })"
+      :class="b24ui.icon({ class: uiProp?.icon })"
     />
     <Component
       :is="icons.external"
       v-if="!!to && target === '_blank'"
       data-slot="externalIcon"
-      :class="b24ui.externalIcon({ class: props.b24ui?.externalIcon })"
+      :class="b24ui.externalIcon({ class: uiProp?.externalIcon })"
     />
     <slot mdc-unwrap="p" />
   </div>

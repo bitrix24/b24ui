@@ -19,12 +19,14 @@ export interface ProseTdSlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../../composables/useComponentUI'
 import { tv } from '../../utils/tv'
 
 const props = defineProps<ProseTdProps>()
 defineSlots<ProseTdSlots>()
 
 const appConfig = useAppConfig() as ProseTd['AppConfig']
+const uiProp = useComponentUI('prose.td', props)
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.td || {}) })({
   align: props.align
@@ -32,7 +34,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
 </script>
 
 <template>
-  <td data-slot="base" :class="b24ui.base({ class: [props.b24ui?.base, props.class] })">
+  <td data-slot="base" :class="b24ui.base({ class: [uiProp?.base, props.class] })">
     <slot />
   </td>
 </template>

@@ -60,6 +60,7 @@ export type FormProps<S extends FormSchema, T extends boolean = true, N extends 
    */
   loadingAuto?: boolean
   class?: any
+  b24ui?: { base?: any }
   onSubmit?: ((event: FormSubmitEvent<FormData<S, T>>) => void | Promise<void>) | (() => void | Promise<void>)
 } & /** @vue-ignore */ Omit<FormHTMLAttributes, 'name'>
 
@@ -77,6 +78,7 @@ export interface FormSlots {
 import { provide, inject, nextTick, ref, onUnmounted, onMounted, computed, useId, readonly, reactive } from 'vue'
 import { useEventBus } from '@vueuse/core'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { formOptionsInjectionKey, formInputsInjectionKey, formBusInjectionKey, formLoadingInjectionKey, formErrorsInjectionKey, formStateInjectionKey } from '../composables/useFormField'
 import { tv } from '../utils/tv'
 import { validateSchema, getAtPath, setAtPath } from '../utils/form'
@@ -98,7 +100,9 @@ const emits = defineEmits<FormEmits<S, T>>()
 defineSlots<FormSlots>()
 
 const appConfig = useAppConfig() as FormConfig['AppConfig']
+const uiProp = useComponentUI('form', props)
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.form || {}) }))
 
 const formId = props.id ?? useId() as string
@@ -448,7 +452,7 @@ defineExpose(api)
   <component
     :is="parentBus ? 'div' : 'form'"
     :id="formId"
-    :class="b24ui({ class: props.class })"
+    :class="b24ui({ class: [uiProp?.base, props.class] })"
     @submit.prevent="onSubmitWrapper"
   >
     <slot :errors="errors" :loading="loading" />

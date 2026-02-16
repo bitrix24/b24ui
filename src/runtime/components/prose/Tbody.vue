@@ -9,9 +9,6 @@ export interface ProseTbodyProps {
   class?: any
   b24ui?: ProseTbody['slots']
 }
-/**
- * @todo add Pick<Xxxx
- */
 
 export interface ProseTbodySlots {
   default(props?: {}): any
@@ -21,19 +18,21 @@ export interface ProseTbodySlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../../composables/useComponentUI'
 import { tv } from '../../utils/tv'
 
 const props = defineProps<ProseTbodyProps>()
 defineSlots<ProseTbodySlots>()
 
 const appConfig = useAppConfig() as ProseTbody['AppConfig']
+const uiProp = useComponentUI('prose.tbody', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.tbody || {}) })())
 </script>
 
 <template>
-  <tbody data-slot="base" :class="b24ui.base({ class: [props.b24ui?.base, props.class] })">
+  <tbody data-slot="base" :class="b24ui.base({ class: [uiProp?.base, props.class] })">
     <slot />
   </tbody>
 </template>

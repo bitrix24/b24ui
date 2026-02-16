@@ -24,6 +24,7 @@ export interface NavbarSectionSlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { tv } from '../utils/tv'
 
 const props = withDefaults(defineProps<NavbarSectionProps>(), {
@@ -32,6 +33,7 @@ const props = withDefaults(defineProps<NavbarSectionProps>(), {
 defineSlots<NavbarSectionSlots>()
 
 const appConfig = useAppConfig() as NavSection['AppConfig']
+const uiProp = useComponentUI('navSection', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.navbarSection || {}) })())
@@ -42,7 +44,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.navbar
     :as="as"
     data-component="section"
     data-slot="root"
-    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
+    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
   >
     <slot />
   </Primitive>

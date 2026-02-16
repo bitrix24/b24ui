@@ -44,6 +44,7 @@ export interface UserSlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { tv } from '../utils/tv'
 import B24Chip from './Chip.vue'
 import B24Avatar from './Avatar.vue'
@@ -57,6 +58,7 @@ const props = withDefaults(defineProps<UserProps>(), {
 const slots = defineSlots<UserSlots>()
 
 const appConfig = useAppConfig() as User['AppConfig']
+const uiProp = useComponentUI('user', props)
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.user || {}) })({
   size: props.size,
@@ -81,10 +83,10 @@ const chipSize = computed<ChipProps['size']>(() => {
 </script>
 
 <template>
-  <Primitive :as="as" :data-orientation="orientation" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })" @click="onClick">
+  <Primitive :as="as" :data-orientation="orientation" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })" @click="onClick">
     <slot name="avatar" :b24ui="b24ui">
       <B24Chip v-if="chip && avatar && !['3xs'].includes(size || '')" inset v-bind="typeof chip === 'object' ? chip : {}" :size="chipSize">
-        <B24Avatar :alt="name" v-bind="avatar" :size="size" data-slot="avatar" :class="b24ui.avatar({ class: props.b24ui?.avatar })" />
+        <B24Avatar :alt="name" v-bind="avatar" :size="size" data-slot="avatar" :class="b24ui.avatar({ class: uiProp?.avatar })" />
       </B24Chip>
       <B24Avatar
         v-else-if="avatar"
@@ -92,11 +94,11 @@ const chipSize = computed<ChipProps['size']>(() => {
         v-bind="avatar"
         :size="size"
         data-slot="avatar"
-        :class="b24ui.avatar({ class: props.b24ui?.avatar })"
+        :class="b24ui.avatar({ class: uiProp?.avatar })"
       />
     </slot>
 
-    <div data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
+    <div data-slot="wrapper" :class="b24ui.wrapper({ class: uiProp?.wrapper })">
       <B24Link
         v-if="to"
         :aria-label="name"
@@ -108,12 +110,12 @@ const chipSize = computed<ChipProps['size']>(() => {
       </B24Link>
 
       <slot>
-        <p v-if="name || !!slots.name" data-slot="name" :class="b24ui.name({ class: props.b24ui?.name })">
+        <p v-if="name || !!slots.name" data-slot="name" :class="b24ui.name({ class: uiProp?.name })">
           <slot name="name">
             {{ name }}
           </slot>
         </p>
-        <p v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
+        <p v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
           <slot name="description">
             {{ description }}
           </slot>

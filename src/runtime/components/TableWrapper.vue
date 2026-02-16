@@ -56,6 +56,7 @@ export interface TableWrapperSlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { tv } from '../utils/tv'
 
 defineOptions({ inheritAttrs: false })
@@ -66,6 +67,7 @@ const props = withDefaults(defineProps<TableWrapperProps>(), {
 })
 
 const appConfig = useAppConfig() as TableWrapper['AppConfig']
+const uiProp = useComponentUI('tableWrapper', props)
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.tableWrapper || {}) })({
   size: props.size,
@@ -83,7 +85,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.tableW
   <Primitive
     :as="as"
     data-slot="base"
-    :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
+    :class="b24ui.base({ class: [uiProp?.base, props.class] })"
   >
     <slot />
   </Primitive>

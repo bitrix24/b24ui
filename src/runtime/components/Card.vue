@@ -30,12 +30,14 @@ export interface CardSlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { tv } from '../utils/tv'
 
 const props = defineProps<CardProps>()
 const slots = defineSlots<CardSlots>()
 
 const appConfig = useAppConfig() as Card['AppConfig']
+const uiProp = useComponentUI('card', props)
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.card || {}) })({
   variant: props.variant
@@ -43,16 +45,16 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.card |
 </script>
 
 <template>
-  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <div v-if="!!slots.header" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
+  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
+    <div v-if="!!slots.header" data-slot="header" :class="b24ui.header({ class: uiProp?.header })">
       <slot name="header" />
     </div>
 
-    <div v-if="!!slots.default" data-slot="body" :class="b24ui.body({ class: props.b24ui?.body })">
+    <div v-if="!!slots.default" data-slot="body" :class="b24ui.body({ class: uiProp?.body })">
       <slot />
     </div>
 
-    <div v-if="!!slots.footer" data-slot="footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
+    <div v-if="!!slots.footer" data-slot="footer" :class="b24ui.footer({ class: uiProp?.footer })">
       <slot name="footer" />
     </div>
   </Primitive>

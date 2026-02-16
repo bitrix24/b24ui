@@ -14,9 +14,6 @@ export interface SidebarHeadingProps {
   class?: any
   b24ui?: SidebarHeading['slots']
 }
-/**
- * @todo add Pick<Xxxx
- */
 
 export interface SidebarHeadingSlots {
   default(props?: {}): any
@@ -27,6 +24,7 @@ export interface SidebarHeadingSlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { tv } from '../utils/tv'
 
 const props = withDefaults(defineProps<SidebarHeadingProps>(), {
@@ -35,13 +33,14 @@ const props = withDefaults(defineProps<SidebarHeadingProps>(), {
 defineSlots<SidebarHeadingSlots>()
 
 const appConfig = useAppConfig() as SidebarHeading['AppConfig']
+const uiProp = useComponentUI('sidebarHeading', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sidebarHeading || {}) })())
 </script>
 
 <template>
-  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
     <slot />
   </Primitive>
 </template>

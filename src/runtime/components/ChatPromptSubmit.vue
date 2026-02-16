@@ -68,6 +68,7 @@ import { computed } from 'vue'
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { useLocale } from '../composables/useLocale'
 import { transformUI } from '../utils'
 import { tv } from '../utils/tv'
@@ -88,6 +89,7 @@ const slots = defineSlots<ButtonSlots>()
 
 const { t } = useLocale()
 const appConfig = useAppConfig() as ChatPromptSubmit['AppConfig']
+const uiProp = useComponentUI('chatPromptSubmit', props)
 
 const buttonProps = useForwardProps(reactiveOmit(props, 'icon', 'color', 'status', 'streamingIcon', 'streamingColor', 'submittedIcon', 'submittedColor', 'errorIcon', 'errorColor', 'class', 'b24ui'))
 
@@ -135,8 +137,8 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatPr
     }"
     :aria-label="t('chatPromptSubmit.label')"
     data-slot="base"
-    :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
-    :b24ui="transformUI(b24ui, props.b24ui)"
+    :class="b24ui.base({ class: [uiProp?.base, props.class] })"
+    :b24ui="transformUI(b24ui, uiProp)"
   >
     <template v-for="(_, name) in slots" #[name]="slotData">
       <slot :name="name" v-bind="slotData" />

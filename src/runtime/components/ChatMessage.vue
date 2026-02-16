@@ -53,6 +53,7 @@ export interface ChatMessageSlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { omit } from '../utils'
 import { tv } from '../utils/tv'
 import B24Button from './Button.vue'
@@ -65,6 +66,7 @@ const props = withDefaults(defineProps<ChatMessageProps>(), {
 const slots = defineSlots<ChatMessageSlots>()
 
 const appConfig = useAppConfig() as ChatMessage['AppConfig']
+const uiProp = useComponentUI('chatMessage', props)
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatMessage || {}) })({
   variant: props.variant,
@@ -76,27 +78,27 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatMe
 </script>
 
 <template>
-  <Primitive :as="as" :data-role="role" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <div data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">
-      <div v-if="icon || avatar || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
+  <Primitive :as="as" :data-role="role" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
+    <div data-slot="container" :class="b24ui.container({ class: uiProp?.container })">
+      <div v-if="icon || avatar || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: uiProp?.leading })">
         <slot name="leading" :avatar="avatar" :b24ui="b24ui">
           <Component
             :is="icon"
             v-if="icon"
             data-slot="leadingIcon"
-            :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
+            :class="b24ui.leadingIcon({ class: uiProp?.leadingIcon })"
           />
           <B24Avatar
             v-else-if="avatar"
-            :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+            :size="((uiProp?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
             v-bind="avatar"
             data-slot="leadingAvatar"
-            :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
+            :class="b24ui.leadingAvatar({ class: uiProp?.leadingAvatar })"
           />
         </slot>
       </div>
 
-      <div v-if="parts.length || !!slots.content" data-slot="content" :class="b24ui.content({ class: props.b24ui?.content })">
+      <div v-if="parts.length || !!slots.content" data-slot="content" :class="b24ui.content({ class: uiProp?.content })">
         <slot
           :id="id"
           name="content"
@@ -111,7 +113,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chatMe
         </slot>
       </div>
 
-      <div v-if="actions || !!slots.actions" data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions })">
+      <div v-if="actions || !!slots.actions" data-slot="actions" :class="b24ui.actions({ class: uiProp?.actions })">
         <slot name="actions" :actions="actions">
           <B24Tooltip v-for="(action, index) in actions" :key="index" :text="action.label">
             <B24Button

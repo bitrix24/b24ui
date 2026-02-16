@@ -97,6 +97,7 @@ import { computed, toRef } from 'vue'
 import { DialogRoot, DialogTrigger, DialogPortal, DialogOverlay, DialogContent, DialogTitle, DialogDescription, DialogClose, VisuallyHidden, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { useLocale } from '../composables/useLocale'
 import { usePortal } from '../composables/usePortal'
 import { pointerDownOutside } from '../utils/overlay'
@@ -121,6 +122,7 @@ const slots = defineSlots<SlideoverSlots>()
 
 const { t } = useLocale()
 const appConfig = useAppConfig() as Slideover['AppConfig']
+const uiProp = useComponentUI('slideover', props)
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'open', 'defaultOpen', 'modal'), emits)
 const portalProps = usePortal(toRef(() => props.portal))
@@ -162,12 +164,12 @@ const isBtnCloseExternal = computed(() => (!props.inset && ['left', 'right', 'bo
     </DialogTrigger>
 
     <DialogPortal v-bind="portalProps">
-      <DialogOverlay v-if="overlay" data-slot="overlay" :class="b24ui.overlay({ class: props.b24ui?.overlay })" />
+      <DialogOverlay v-if="overlay" data-slot="overlay" :class="b24ui.overlay({ class: uiProp?.overlay })" />
 
       <DialogContent
         :data-side="side"
         data-slot="content"
-        :class="b24ui.content({ class: [!slots.default && props.class, props.b24ui?.content] })"
+        :class="b24ui.content({ class: [!slots.default && props.class, uiProp?.content] })"
         v-bind="contentProps"
         @after-enter="emits('after:enter')"
         @after-leave="emits('after:leave')"
@@ -210,7 +212,7 @@ const isBtnCloseExternal = computed(() => (!props.inset && ['left', 'right', 'bo
                   }"
                   v-bind="(typeof props.close === 'object' ? props.close : {})"
                   data-slot="close"
-                  :class="b24ui.close({ class: props.b24ui?.close })"
+                  :class="b24ui.close({ class: uiProp?.close })"
                 />
               </slot>
             </DialogClose>
@@ -219,13 +221,13 @@ const isBtnCloseExternal = computed(() => (!props.inset && ['left', 'right', 'bo
             :use-light-content="props.useLightContent"
             is-inner
             :b24ui="{
-              root: b24ui.sidebarLayoutRoot({ class: props.b24ui?.sidebarLayoutRoot }),
-              header: b24ui.sidebarLayoutHeaderWrapper({ class: props.b24ui?.sidebarLayoutHeaderWrapper }),
-              pageWrapper: b24ui.sidebarLayoutPageWrapper({ class: props.b24ui?.sidebarLayoutPageWrapper }),
-              container: b24ui.sidebarLayoutContainer({ class: props.b24ui?.sidebarLayoutContainer }),
-              pageBottomWrapper: b24ui.sidebarLayoutPageBottomWrapper({ class: props.b24ui?.sidebarLayoutPageBottomWrapper }),
-              loadingWrapper: b24ui.sidebarLayoutLoadingWrapper({ class: props.b24ui?.sidebarLayoutLoadingWrapper }),
-              loadingIcon: b24ui.sidebarLayoutLoadingIcon({ class: props.b24ui?.sidebarLayoutLoadingIcon })
+              root: b24ui.sidebarLayoutRoot({ class: uiProp?.sidebarLayoutRoot }),
+              header: b24ui.sidebarLayoutHeaderWrapper({ class: uiProp?.sidebarLayoutHeaderWrapper }),
+              pageWrapper: b24ui.sidebarLayoutPageWrapper({ class: uiProp?.sidebarLayoutPageWrapper }),
+              container: b24ui.sidebarLayoutContainer({ class: uiProp?.sidebarLayoutContainer }),
+              pageBottomWrapper: b24ui.sidebarLayoutPageBottomWrapper({ class: uiProp?.sidebarLayoutPageBottomWrapper }),
+              loadingWrapper: b24ui.sidebarLayoutLoadingWrapper({ class: uiProp?.sidebarLayoutLoadingWrapper }),
+              loadingIcon: b24ui.sidebarLayoutLoadingIcon({ class: uiProp?.sidebarLayoutLoadingIcon })
             }"
           >
             <template v-if="!!slots['sidebar']" #sidebar>
@@ -237,16 +239,16 @@ const isBtnCloseExternal = computed(() => (!props.inset && ['left', 'right', 'bo
             </template>
 
             <template v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description) || (!isBtnCloseExternal && (props.close || !!slots.close))" #content-top>
-              <div data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
+              <div data-slot="header" :class="b24ui.header({ class: uiProp?.header })">
                 <slot name="header" :close="close">
-                  <div data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
-                    <DialogTitle v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
+                  <div data-slot="wrapper" :class="b24ui.wrapper({ class: uiProp?.wrapper })">
+                    <DialogTitle v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
                       <slot name="title">
                         {{ title }}
                       </slot>
                     </DialogTitle>
 
-                    <DialogDescription v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
+                    <DialogDescription v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
                       <slot name="description">
                         {{ description }}
                       </slot>
@@ -264,7 +266,7 @@ const isBtnCloseExternal = computed(() => (!props.inset && ['left', 'right', 'bo
                           size="lg"
                           v-bind="(typeof props.close === 'object' ? props.close : {})"
                           data-slot="close"
-                          :class="b24ui.close({ class: props.b24ui?.close })"
+                          :class="b24ui.close({ class: uiProp?.close })"
                         />
                       </slot>
                     </DialogClose>
@@ -278,13 +280,13 @@ const isBtnCloseExternal = computed(() => (!props.inset && ['left', 'right', 'bo
             </template>
 
             <template v-if="!!slots['body']" #default>
-              <div data-slot="body" :class="b24ui.body({ class: props.b24ui?.body })">
+              <div data-slot="body" :class="b24ui.body({ class: uiProp?.body })">
                 <slot name="body" :close="close" />
               </div>
             </template>
 
             <template v-if="!!slots.footer" #content-bottom>
-              <div data-slot="footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
+              <div data-slot="footer" :class="b24ui.footer({ class: uiProp?.footer })">
                 <slot name="footer" :close="close" />
               </div>
             </template>

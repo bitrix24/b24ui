@@ -82,6 +82,7 @@ import { computed, useId } from 'vue'
 import { CheckboxGroupRoot, useForwardProps, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { useFormField } from '../composables/useFormField'
 import { get, omit } from '../utils'
 import { tv } from '../utils/tv'
@@ -98,6 +99,7 @@ const emits = defineEmits<CheckboxGroupEmits<T, VK>>()
 const slots = defineSlots<CheckboxGroupSlots<T>>()
 
 const appConfig = useAppConfig() as CheckboxGroup['AppConfig']
+const uiProp = useComponentUI('checkboxGroup', props)
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'modelValue', 'defaultValue', 'orientation', 'loop', 'required'), emits)
 const checkboxProps = useForwardProps(reactivePick(props, 'variant', 'indicator'))
@@ -170,11 +172,11 @@ function onUpdate(value: any) {
     :name="name"
     :disabled="disabled"
     data-slot="root"
-    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
+    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
     @update:model-value="onUpdate"
   >
-    <fieldset data-slot="fieldset" :class="b24ui.fieldset({ class: props.b24ui?.fieldset })" v-bind="ariaAttrs">
-      <legend v-if="legend || !!slots.legend" data-slot="legend" :class="b24ui.legend({ class: props.b24ui?.legend })">
+    <fieldset data-slot="fieldset" :class="b24ui.fieldset({ class: uiProp?.fieldset })" v-bind="ariaAttrs">
+      <legend v-if="legend || !!slots.legend" data-slot="legend" :class="b24ui.legend({ class: uiProp?.legend })">
         <slot name="legend">
           {{ legend }}
         </slot>
@@ -187,9 +189,9 @@ function onUpdate(value: any) {
         :size="size"
         :name="name"
         :disabled="item.disabled || disabled"
-        :b24ui="{ ...(props.b24ui ? omit(props.b24ui, ['root']) : undefined), ...(item.b24ui || {}) }"
+        :b24ui="{ ...(uiProp ? omit(uiProp, ['root']) : undefined), ...(item.b24ui || {}) }"
         data-slot="item"
-        :class="b24ui.item({ class: [props.b24ui?.item, item.b24ui?.item, item.class], disabled: item.disabled || disabled })"
+        :class="b24ui.item({ class: [uiProp?.item, item.b24ui?.item, item.class], disabled: item.disabled || disabled })"
       >
         <template v-for="(_, name) in getProxySlots()" #[name]>
           <slot :name="(name as keyof CheckboxGroupSlots<T>)" :item="item" />

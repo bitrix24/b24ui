@@ -75,6 +75,7 @@ export type DescriptionListSlots<T extends DescriptionListItem = DescriptionList
 <script setup lang="ts" generic="T extends DescriptionListItem">
 import { computed } from 'vue'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { get } from '../utils'
 import { tv } from '../utils/tv'
 import B24Avatar from './Avatar.vue'
@@ -87,6 +88,7 @@ const props = withDefaults(defineProps<DescriptionListProps<T>>(), {
 const slots = defineSlots<DescriptionListSlots<T>>()
 
 const appConfig = useAppConfig() as DescriptionList['AppConfig']
+const uiProp = useComponentUI('descriptionList', props)
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.descriptionList || {}) })({
   size: props.size
@@ -123,19 +125,19 @@ const normalizedItems = computed(() => {
 </script>
 
 <template>
-  <div data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <h2 v-if="legend || !!slots.legend" data-slot="legend" :class="b24ui.legend({ class: props.b24ui?.legend })">
+  <div data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
+    <h2 v-if="legend || !!slots.legend" data-slot="legend" :class="b24ui.legend({ class: uiProp?.legend })">
       <slot name="legend">
         {{ legend }}
       </slot>
     </h2>
-    <p v-if="text || !!slots.text" data-slot="text" :class="b24ui.text({ class: props.b24ui?.text })">
+    <p v-if="text || !!slots.text" data-slot="text" :class="b24ui.text({ class: uiProp?.text })">
       <slot name="text">
         {{ text }}
       </slot>
     </p>
 
-    <dl data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">
+    <dl data-slot="container" :class="b24ui.container({ class: uiProp?.container })">
       <template
         v-for="(item, index) in normalizedItems"
         :key="index"
@@ -157,7 +159,7 @@ const normalizedItems = computed(() => {
             data-slot="labelWrapper"
             :class="b24ui.labelWrapper({
               class: [
-                props.b24ui?.labelWrapper,
+                uiProp?.labelWrapper,
                 item?.b24ui?.labelWrapper
               ]
             })"
@@ -169,19 +171,19 @@ const normalizedItems = computed(() => {
                 data-slot="icon"
                 :class="b24ui.icon({
                   class: [
-                    props.b24ui?.icon,
+                    uiProp?.icon,
                     item?.b24ui?.icon
                   ]
                 })"
               />
               <B24Avatar
                 v-else-if="item.avatar"
-                :size="((props.b24ui?.avatarSize || b24ui.avatarSize()) as AvatarProps['size'])"
+                :size="((uiProp?.avatarSize || b24ui.avatarSize()) as AvatarProps['size'])"
                 v-bind="item.avatar"
                 data-slot="avatar"
                 :class="b24ui.avatar({
                   class: [
-                    props.b24ui?.avatar,
+                    uiProp?.avatar,
                     item?.b24ui?.avatar
                   ]
                 })"
@@ -192,7 +194,7 @@ const normalizedItems = computed(() => {
               :class="b24ui.label({
                 class: [
                   item?.class,
-                  props.b24ui?.label,
+                  uiProp?.label,
                   item?.b24ui?.label
                 ]
               })"
@@ -207,7 +209,7 @@ const normalizedItems = computed(() => {
             data-slot="descriptionWrapper"
             :class="b24ui.descriptionWrapper({
               class: [
-                props.b24ui?.descriptionWrapper,
+                uiProp?.descriptionWrapper,
                 item?.b24ui?.descriptionWrapper,
                 item?.b24ui?.class
               ],
@@ -219,7 +221,7 @@ const normalizedItems = computed(() => {
               :class="b24ui.description({
                 class: [
                   item?.class,
-                  props.b24ui?.description,
+                  uiProp?.description,
                   item?.b24ui?.description
                 ],
                 orientation: item.orientation
@@ -234,7 +236,7 @@ const normalizedItems = computed(() => {
               data-slot="actions"
               :class="b24ui.actions({
                 class: [
-                  props.b24ui?.actions,
+                  uiProp?.actions,
                   item?.b24ui?.actions
                 ],
                 orientation: item.orientation
@@ -263,7 +265,7 @@ const normalizedItems = computed(() => {
     <div
       v-if="!!slots.footer"
       data-slot="footer"
-      :class="b24ui.footer({ class: props.b24ui?.footer })"
+      :class="b24ui.footer({ class: uiProp?.footer })"
     >
       <slot name="footer" :b24ui="b24ui" />
     </div>

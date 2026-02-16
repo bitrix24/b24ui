@@ -20,6 +20,7 @@ export interface ProseASlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../../composables/useComponentUI'
 import { tv } from '../../utils/tv'
 import B24Link from '../Link.vue'
 
@@ -27,6 +28,7 @@ const props = defineProps<ProseAProps>()
 defineSlots<ProseASlots>()
 
 const appConfig = useAppConfig() as ProseA['AppConfig']
+const uiProp = useComponentUI('prose.a', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.a || {}) })())

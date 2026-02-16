@@ -79,6 +79,7 @@ import { Primitive } from 'reka-ui'
 import { defu } from 'defu'
 import { useVirtualizer } from '@tanstack/vue-virtual'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { tv } from '../utils/tv'
 import { useLocale } from '../composables/useLocale'
 
@@ -91,6 +92,7 @@ const emits = defineEmits<ScrollAreaEmits>()
 
 const { dir } = useLocale()
 const appConfig = useAppConfig() as ScrollArea['AppConfig']
+const uiProp = useComponentUI('scrollArea', props)
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.scrollArea || {}) })({
   orientation: props.orientation
@@ -236,12 +238,12 @@ defineExpose({
     :as="as"
     data-slot="root"
     :data-orientation="orientation"
-    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
+    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
   >
     <template v-if="virtualizer">
       <div
         data-slot="viewport"
-        :class="b24ui.viewport({ class: props.b24ui?.viewport })"
+        :class="b24ui.viewport({ class: uiProp?.viewport })"
         :style="virtualViewportStyle"
       >
         <div
@@ -250,7 +252,7 @@ defineExpose({
           :ref="measureElement"
           :data-index="virtualItem.index"
           data-slot="item"
-          :class="b24ui.item({ class: props.b24ui?.item })"
+          :class="b24ui.item({ class: uiProp?.item })"
           :style="getVirtualItemStyle(virtualItem)"
         >
           <slot
@@ -263,13 +265,13 @@ defineExpose({
     </template>
 
     <template v-else>
-      <div data-slot="viewport" :class="b24ui.viewport({ class: props.b24ui?.viewport })">
+      <div data-slot="viewport" :class="b24ui.viewport({ class: uiProp?.viewport })">
         <template v-if="items?.length">
           <div
             v-for="(item, index) in items"
             :key="getItemKey(item, index)"
             data-slot="item"
-            :class="b24ui.item({ class: props.b24ui?.item })"
+            :class="b24ui.item({ class: uiProp?.item })"
           >
             <slot :item="item" :index="index" />
           </div>

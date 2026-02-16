@@ -28,6 +28,7 @@ import { AnimatePresence, Motion } from 'motion-v'
 import { useEventListener, createReusableTemplate } from '@vueuse/core'
 // @memo useRuntimeConfig not support under vue
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../../composables/useComponentUI'
 import ImageComponent from '#build/b24ui-image-component'
 import { tv } from '../../utils/tv'
 
@@ -38,6 +39,7 @@ const props = withDefaults(defineProps<ProseImgProps>(), {
 })
 
 const appConfig = useAppConfig() as ProseImg['AppConfig']
+const uiProp = useComponentUI('prose.img', props)
 
 const [DefineImageTemplate, ReuseImageTemplate] = createReusableTemplate()
 const [DefineZoomedImageTemplate, ReuseZoomedImageTemplate] = createReusableTemplate()
@@ -78,7 +80,7 @@ if (props.zoom) {
       :height="height"
       v-bind="$attrs"
       data-slot="base"
-      :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
+      :class="b24ui.base({ class: [uiProp?.base, props.class] })"
     />
   </DefineImageTemplate>
 
@@ -89,7 +91,7 @@ if (props.zoom) {
       :alt="alt"
       v-bind="$attrs"
       data-slot="zoomedImage"
-      :class="b24ui.zoomedImage({ class: [props.b24ui?.zoomedImage] })"
+      :class="b24ui.zoomedImage({ class: [uiProp?.zoomedImage] })"
     />
   </DefineZoomedImageTemplate>
 
@@ -113,13 +115,13 @@ if (props.zoom) {
           :animate="{ opacity: 1 }"
           :exit="{ opacity: 0 }"
           data-slot="overlay"
-          :class="b24ui.overlay({ class: [props.b24ui?.overlay] })"
+          :class="b24ui.overlay({ class: [uiProp?.overlay] })"
         />
 
         <div
           v-if="open"
           data-slot="content"
-          :class="b24ui.content({ class: [props.b24ui?.content] })"
+          :class="b24ui.content({ class: [uiProp?.content] })"
           @click="close"
         >
           <Motion as-child :layout-id="layoutId" :transition="{ type: 'spring', bounce: 0.15, duration: 0.5, ease: 'easeInOut' }">

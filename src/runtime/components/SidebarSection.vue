@@ -14,9 +14,6 @@ export interface SidebarSectionProps {
   class?: any
   b24ui?: SidebarSection['slots']
 }
-/**
- * @todo add Pick<Xxxx
- */
 
 export interface SidebarSectionSlots {
   default(props?: {}): any
@@ -27,6 +24,7 @@ export interface SidebarSectionSlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { tv } from '../utils/tv'
 
 const props = withDefaults(defineProps<SidebarSectionProps>(), {
@@ -35,6 +33,7 @@ const props = withDefaults(defineProps<SidebarSectionProps>(), {
 defineSlots<SidebarSectionSlots>()
 
 const appConfig = useAppConfig() as SidebarSection['AppConfig']
+const uiProp = useComponentUI('sidebarSection', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sidebarSection || {}) })())
@@ -45,7 +44,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sideba
     :as="as"
     data-component="section"
     data-slot="root"
-    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
+    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
   >
     <slot />
   </Primitive>

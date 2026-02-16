@@ -39,6 +39,7 @@ export interface ProseCodeCollapseSlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../../composables/useComponentUI'
 import { useLocale } from '../../composables/useLocale'
 import { tv } from '../../utils/tv'
 import icons from '../../dictionary/icons'
@@ -51,6 +52,7 @@ const open = defineModel<boolean>('open', { default: false })
 
 const { t } = useLocale()
 const appConfig = useAppConfig() as ProseCodeCollapse['AppConfig']
+const uiProp = useComponentUI('prose.codeCollapse', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.codeCollapse || {}) })({
@@ -59,18 +61,18 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
 </script>
 
 <template>
-  <div data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <div data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
     <slot />
 
-    <div data-slot="footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
+    <div data-slot="footer" :class="b24ui.footer({ class: uiProp?.footer })">
       <B24Button
         :icon="icon || icons.chevronDown"
         color="air-secondary-accent-1"
         :data-state="open ? 'open' : 'closed'"
         :label="`${open ? (props.closeText || t('prose.codeCollapse.closeText')) : (props.openText || t('prose.codeCollapse.openText'))} ${props.name || t('prose.codeCollapse.name')}`"
         data-slot="trigger"
-        :class="b24ui.trigger({ class: props.b24ui?.trigger })"
-        :b24ui="{ leadingIcon: b24ui.triggerIcon({ class: props.b24ui?.triggerIcon }) }"
+        :class="b24ui.trigger({ class: uiProp?.trigger })"
+        :b24ui="{ leadingIcon: b24ui.triggerIcon({ class: uiProp?.triggerIcon }) }"
         @click="open = !open"
       />
     </div>

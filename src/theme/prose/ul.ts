@@ -1,6 +1,6 @@
 /**
  * Prose/Ul
- * Show ul
+ * Show <ul>
  */
 
 export default {

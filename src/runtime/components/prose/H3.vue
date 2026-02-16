@@ -23,6 +23,7 @@ export interface ProseH3Slots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppConfig, useRuntimeConfig } from '#imports'
+import { useComponentUI } from '../../composables/useComponentUI'
 import { tv } from '../../utils/tv'
 import icons from '../../dictionary/icons'
 
@@ -32,6 +33,7 @@ const props = withDefaults(defineProps<ProseH3Props>(), {
 defineSlots<ProseH3Slots>()
 
 const appConfig = useAppConfig() as ProseH3['AppConfig']
+const uiProp = useComponentUI('prose.h3', props)
 const { headings } = useRuntimeConfig().public?.mdc || {}
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.h3 || {}) })({
@@ -45,14 +47,14 @@ const generate = computed(() => props.id && typeof headings?.anchorLinks === 'ob
   <h3
     :id="id"
     data-slot="base"
-    :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
+    :class="b24ui.base({ class: [uiProp?.base, props.class] })"
   >
-    <a v-if="id && generate" :href="`#${id}`" data-slot="link" :class="b24ui.link({ class: props.b24ui?.link })">
-      <span data-slot="leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
+    <a v-if="id && generate" :href="`#${id}`" data-slot="link" :class="b24ui.link({ class: uiProp?.link })">
+      <span data-slot="leading" :class="b24ui.leading({ class: uiProp?.leading })">
         <Component
           :is="icons.hash"
           data-slot="leadingIcon"
-          :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
+          :class="b24ui.leadingIcon({ class: uiProp?.leadingIcon })"
         />
       </span>
 

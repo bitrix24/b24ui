@@ -56,6 +56,7 @@ export interface BadgeSlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { useFieldGroup } from '../composables/useFieldGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { tv } from '../utils/tv'
@@ -70,6 +71,7 @@ const props = withDefaults(defineProps<BadgeProps>(), {
 const slots = defineSlots<BadgeSlots>()
 
 const appConfig = useAppConfig() as Badge['AppConfig']
+const uiProp = useComponentUI('badge', props)
 
 async function onCloseClickWrapper(event: MouseEvent) {
   const callbacks = Array.isArray(props.onCloseClick) ? props.onCloseClick : [props.onCloseClick]
@@ -97,31 +99,31 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.badge 
   <Primitive
     :as="as"
     data-slot="base"
-    :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
+    :class="b24ui.base({ class: [uiProp?.base, props.class] })"
   >
     <Primitive
       :as="as"
       data-slot="wrapper"
-      :class="b24ui.wrapper({ class: props.b24ui?.wrapper })"
+      :class="b24ui.wrapper({ class: uiProp?.wrapper })"
     >
       <slot name="leading" :b24ui="b24ui">
         <Component
           :is="leadingIconName"
           v-if="isLeading && leadingIconName"
           data-slot="leadingIcon"
-          :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
+          :class="b24ui.leadingIcon({ class: uiProp?.leadingIcon })"
         />
         <B24Avatar
           v-else-if="!!avatar"
-          :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+          :size="((uiProp?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
           v-bind="avatar"
           data-slot="leadingAvatar"
-          :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
+          :class="b24ui.leadingAvatar({ class: uiProp?.leadingAvatar })"
         />
       </slot>
 
       <slot :b24ui="b24ui">
-        <span v-if="label !== undefined && label !== null" data-slot="label" :class="b24ui.label({ class: props.b24ui?.label })">
+        <span v-if="label !== undefined && label !== null" data-slot="label" :class="b24ui.label({ class: uiProp?.label })">
           {{ label }}
         </span>
       </slot>
@@ -130,7 +132,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.badge 
       <Cross20Icon
         v-if="useClose"
         data-slot="trailingIcon"
-        :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
+        :class="b24ui.trailingIcon({ class: uiProp?.trailingIcon })"
         aria-hidden="true"
         @click.stop.prevent="onCloseClickWrapper"
       />

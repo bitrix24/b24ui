@@ -111,6 +111,7 @@ import { useForwardProps } from 'reka-ui'
 import { defu } from 'defu'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig, useColorMode, defineShortcuts } from '#imports'
+import { useComponentUI } from '../../composables/useComponentUI'
 import { useContentSearch } from '../../composables/useContentSearch'
 import { useLocale } from '../../composables/useLocale'
 import { omit, transformUI } from '../../utils'
@@ -134,6 +135,7 @@ const { open, mapNavigationItems, postFilter } = useContentSearch()
 // eslint-disable-next-line vue/no-dupe-keys
 const colorMode = useColorMode()
 const appConfig = useAppConfig() as ContentSearch['AppConfig']
+const uiProp = useComponentUI('contentSearch', props)
 
 /** @memo not use loadingIcon */
 const commandPaletteProps = useForwardProps(reactivePick(props, 'size', 'icon', 'placeholder', 'autofocus', 'loading', 'close', 'closeIcon'))
@@ -272,7 +274,7 @@ defineExpose({
     :description="description || t('contentSearch.description')"
     v-bind="modalProps"
     data-slot="modal"
-    :class="b24ui.modal({ class: [props.b24ui?.modal, props.class] })"
+    :class="b24ui.modal({ class: [uiProp?.modal, props.class] })"
   >
     <template #content="contentData">
       <slot name="content" v-bind="contentData">
@@ -282,7 +284,7 @@ defineExpose({
           v-bind="commandPaletteProps"
           :groups="groups"
           :fuse="fuse"
-          :b24ui="transformUI(omit(b24ui, ['modal']), props.b24ui)"
+          :b24ui="transformUI(omit(b24ui, ['modal']), uiProp)"
           @update:model-value="onSelect"
           @update:open="open = $event"
         >

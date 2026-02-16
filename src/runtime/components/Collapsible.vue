@@ -29,6 +29,7 @@ import { computed } from 'vue'
 import { CollapsibleRoot, CollapsibleTrigger, CollapsibleContent, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { tv } from '../utils/tv'
 
 const props = withDefaults(defineProps<CollapsibleProps>(), {
@@ -38,6 +39,7 @@ const emits = defineEmits<CollapsibleEmits>()
 const slots = defineSlots<CollapsibleSlots>()
 
 const appConfig = useAppConfig() as Collapsible['AppConfig']
+const uiProp = useComponentUI('collapsible', props)
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'defaultOpen', 'open', 'disabled', 'unmountOnHide'), emits)
 
@@ -46,12 +48,12 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.collap
 </script>
 
 <template>
-  <CollapsibleRoot v-slot="{ open }" v-bind="rootProps" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <CollapsibleRoot v-slot="{ open }" v-bind="rootProps" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
     <CollapsibleTrigger v-if="!!slots.default" as-child>
       <slot :open="open" />
     </CollapsibleTrigger>
 
-    <CollapsibleContent data-slot="content" :class="b24ui.content({ class: props.b24ui?.content })">
+    <CollapsibleContent data-slot="content" :class="b24ui.content({ class: uiProp?.content })">
       <slot name="content" />
     </CollapsibleContent>
   </CollapsibleRoot>

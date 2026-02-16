@@ -1,6 +1,6 @@
 /**
  * Prose/Tr
- * Show tr
+ * Show <tr>
  */
 
 export default {

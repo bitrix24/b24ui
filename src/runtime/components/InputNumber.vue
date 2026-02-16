@@ -104,6 +104,7 @@ import { onMounted, computed, useTemplateRef, toRef } from 'vue'
 import { NumberFieldRoot, NumberFieldInput, NumberFieldDecrement, NumberFieldIncrement, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick, useVModel } from '@vueuse/core'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { useFieldGroup } from '../composables/useFieldGroup'
 import { useFormField } from '../composables/useFormField'
 import { useLocale } from '../composables/useLocale'
@@ -129,6 +130,7 @@ const modelValue = useVModel<InputNumberProps<T>, 'modelValue', 'update:modelVal
 
 const { t } = useLocale()
 const appConfig = useAppConfig() as InputNumber['AppConfig']
+const uiProp = useComponentUI('inputNumber', props)
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'defaultValue', 'min', 'max', 'step', 'stepSnapping', 'formatOptions', 'disableWheelChange', 'invertWheelChange', 'readonly', 'focusOnChange'), emits)
 
@@ -200,7 +202,7 @@ defineExpose({
     :id="id"
     :model-value="modelValue"
     data-slot="root"
-    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
+    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
     :name="name"
     :disabled="disabled"
     @update:model-value="onUpdate"
@@ -208,7 +210,7 @@ defineExpose({
     <B24Badge
       v-if="isTag"
       data-slot="tag"
-      :class="b24ui.tag({ class: props.b24ui?.tag })"
+      :class="b24ui.tag({ class: uiProp?.tag })"
       :color="props.tagColor"
       :label="props.tag"
       size="xs"
@@ -220,12 +222,12 @@ defineExpose({
       :placeholder="placeholder"
       :required="required"
       data-slot="base"
-      :class="b24ui.base({ class: props.b24ui?.base })"
+      :class="b24ui.base({ class: uiProp?.base })"
       @blur="onBlur"
       @focus="emitFormFocus"
     />
 
-    <div v-if="!!increment" data-slot="increment" :class="b24ui.increment({ class: props.b24ui?.increment })">
+    <div v-if="!!increment" data-slot="increment" :class="b24ui.increment({ class: uiProp?.increment })">
       <NumberFieldIncrement as-child :disabled="disabled || incrementDisabled">
         <slot name="increment">
           <B24Button
@@ -239,7 +241,7 @@ defineExpose({
       </NumberFieldIncrement>
     </div>
 
-    <div v-if="!!decrement" data-slot="decrement" :class="b24ui.decrement({ class: props.b24ui?.decrement })">
+    <div v-if="!!decrement" data-slot="decrement" :class="b24ui.decrement({ class: uiProp?.decrement })">
       <NumberFieldDecrement as-child :disabled="disabled || decrementDisabled">
         <slot name="decrement">
           <B24Button

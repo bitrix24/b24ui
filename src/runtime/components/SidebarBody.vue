@@ -18,9 +18,6 @@ export interface SidebarBodyProps {
   class?: any
   b24ui?: SidebarBody['slots']
 }
-/**
- * @todo add Pick<Xxxx
- */
 
 export interface SidebarBodySlots {
   default(props?: {}): any
@@ -31,6 +28,7 @@ export interface SidebarBodySlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { tv } from '../utils/tv'
 
 const props = withDefaults(defineProps<SidebarBodyProps>(), {
@@ -40,6 +38,7 @@ const props = withDefaults(defineProps<SidebarBodyProps>(), {
 defineSlots<SidebarBodySlots>()
 
 const appConfig = useAppConfig() as SidebarBody['AppConfig']
+const uiProp = useComponentUI('sidebarBody', props)
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sidebarBody || {}) })({
   scrollbarThin: Boolean(props.scrollbarThin)
@@ -47,7 +46,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.sideba
 </script>
 
 <template>
-  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
     <slot />
   </Primitive>
 </template>

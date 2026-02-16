@@ -29,6 +29,7 @@ export interface ProseCardSlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../../composables/useComponentUI'
 import { tv } from '../../utils/tv'
 import icons from '../../dictionary/icons'
 import B24Link from '../Link.vue'
@@ -39,6 +40,7 @@ const props = defineProps<ProseCardProps>()
 const slots = defineSlots<ProseCardSlots>()
 
 const appConfig = useAppConfig() as ProseCard['AppConfig']
+const uiProp = useComponentUI('prose.card', props)
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.card || {}) })({
   color: props.color,
@@ -52,7 +54,7 @@ const ariaLabel = computed(() => (props.title || 'Card link').trim())
 </script>
 
 <template>
-  <div data-slot="base" :class="b24ui.base({ class: props.class })">
+  <div data-slot="base" :class="b24ui.base({ class: [uiProp?.base, props.class] })">
     <B24Link
       v-if="to"
       :aria-label="ariaLabel"
@@ -67,22 +69,22 @@ const ariaLabel = computed(() => (props.title || 'Card link').trim())
       :is="icon"
       v-if="icon"
       data-slot="icon"
-      :class="b24ui.icon({ class: props.b24ui?.icon })"
+      :class="b24ui.icon({ class: uiProp?.icon })"
     />
     <Component
       :is="icons.external"
       v-if="!!to && target === '_blank'"
       data-slot="externalIcon"
-      :class="b24ui.externalIcon({ class: props.b24ui?.externalIcon })"
+      :class="b24ui.externalIcon({ class: uiProp?.externalIcon })"
     />
 
-    <p v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
+    <p v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
       <slot name="title" mdc-unwrap="p">
         {{ title }}
       </slot>
     </p>
 
-    <div v-if="!!slots.default" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
+    <div v-if="!!slots.default" data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
       <slot>
         {{ description }}
       </slot>

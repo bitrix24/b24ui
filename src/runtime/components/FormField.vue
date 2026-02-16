@@ -59,6 +59,7 @@ export interface FormFieldSlots {
 import { computed, ref, inject, provide, useId, watch } from 'vue'
 import { Primitive, Label } from 'reka-ui'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { formFieldInjectionKey, inputIdInjectionKey, formErrorsInjectionKey, formInputsInjectionKey } from '../composables/useFormField'
 import { tv } from '../utils/tv'
 import type { FormError, FormFieldInjectedOptions } from '../types/form'
@@ -70,6 +71,7 @@ const props = withDefaults(defineProps<FormFieldProps>(), {
 const slots = defineSlots<FormFieldSlots>()
 
 const appConfig = useAppConfig() as FormField['AppConfig']
+const uiProp = useComponentUI('formField', props)
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.formField || {}) })({
   size: props.size,
@@ -111,40 +113,40 @@ provide(formFieldInjectionKey, computed(() => ({
 </script>
 
 <template>
-  <Primitive :as="as" :data-orientation="orientation" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <div data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
-      <div v-if="label || !!slots.label" data-slot="root" :class="b24ui.labelWrapper({ class: props.b24ui?.labelWrapper })">
-        <Label :for="id" data-slot="label" :class="b24ui.label({ class: props.b24ui?.label })">
+  <Primitive :as="as" :data-orientation="orientation" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
+    <div data-slot="wrapper" :class="b24ui.wrapper({ class: uiProp?.wrapper })">
+      <div v-if="label || !!slots.label" data-slot="root" :class="b24ui.labelWrapper({ class: uiProp?.labelWrapper })">
+        <Label :for="id" data-slot="label" :class="b24ui.label({ class: uiProp?.label })">
           <slot name="label" :label="label">
             {{ label }}
           </slot>
         </Label>
-        <span v-if="hint || !!slots.hint" :id="`${ariaId}-hint`" data-slot="hint" :class="b24ui.hint({ class: props.b24ui?.hint })">
+        <span v-if="hint || !!slots.hint" :id="`${ariaId}-hint`" data-slot="hint" :class="b24ui.hint({ class: uiProp?.hint })">
           <slot name="hint" :hint="hint">
             {{ hint }}
           </slot>
         </span>
       </div>
 
-      <p v-if="description || !!slots.description" :id="`${ariaId}-description`" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
+      <p v-if="description || !!slots.description" :id="`${ariaId}-description`" data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
         <slot name="description" :description="description">
           {{ description }}
         </slot>
       </p>
     </div>
 
-    <div data-slot="container" :class="[(label || !!slots.label || description || !!slots.description) && b24ui.container({ class: props.b24ui?.container })]">
+    <div data-slot="container" :class="[(label || !!slots.label || description || !!slots.description) && b24ui.container({ class: uiProp?.container })]">
       <slot :error="error" />
 
-      <div v-if="props.error !== false && ((typeof error === 'string' && error) || !!slots.error)" :id="`${ariaId}-error`" data-slot="error" :class="b24ui.error({ class: props.b24ui?.error })">
+      <div v-if="props.error !== false && ((typeof error === 'string' && error) || !!slots.error)" :id="`${ariaId}-error`" data-slot="error" :class="b24ui.error({ class: uiProp?.error })">
         <slot name="error" :error="error">
-          <div data-slot="errorWrapper" :class="b24ui.errorWrapper({ class: props.b24ui?.errorWrapper })">
+          <div data-slot="errorWrapper" :class="b24ui.errorWrapper({ class: uiProp?.errorWrapper })">
             <WarningIcon data-slot="errorIcon" :class="b24ui.errorIcon()" />
             <div>{{ error }}</div>
           </div>
         </slot>
       </div>
-      <div v-else-if="help || !!slots.help" :id="`${ariaId}-help`" data-slot="help" :class="b24ui.help({ class: props.b24ui?.help })">
+      <div v-else-if="help || !!slots.help" :id="`${ariaId}-help`" data-slot="help" :class="b24ui.help({ class: uiProp?.help })">
         <slot name="help" :help="help">
           {{ help }}
         </slot>

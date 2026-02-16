@@ -1,0 +1,80 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Theme > renders with b24ui prop taking priority over theme correctly 1`] = `
+"<button type="button" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-outline-no-accent ui-btn-md rounded-(--ui-btn-radius) normal-case --air px-[2.234rem]">
+  <!--v-if-->
+  <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right) h-(--ui-btn-height)">
+    <!--v-if--><span data-slot="label" class="h-(--ui-btn-height) max-w-full inline-flex flex-row items-center tracking-(--ui-btn-letter-spacing) overflow-visible text-clip text-[#ff0]"><span data-slot="labelInner" class="truncate inline-block max-w-full mt-(--ui-btn-title-compensation)">Button</span></span>
+    <!--v-if-->
+  </div>
+</button>"
+`;
+
+exports[`Theme > renders with empty b24ui correctly 1`] = `
+"<button type="button" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-outline-no-accent ui-btn-md rounded-(--ui-btn-radius) normal-case --air">
+  <!--v-if-->
+  <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right) h-(--ui-btn-height)">
+    <!--v-if--><span data-slot="label" class="h-(--ui-btn-height) max-w-full inline-flex flex-row items-center tracking-(--ui-btn-letter-spacing) overflow-visible text-clip"><span data-slot="labelInner" class="truncate inline-block max-w-full mt-(--ui-btn-title-compensation)">Button</span></span>
+    <!--v-if-->
+  </div>
+</button>"
+`;
+
+exports[`Theme > renders with nested theme overriding outer theme correctly 1`] = `
+"<button type="button" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-outline-no-accent ui-btn-md rounded-(--ui-btn-radius) normal-case --air px-[2.234rem]">
+  <!--v-if-->
+  <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right) h-(--ui-btn-height)">
+    <!--v-if--><span data-slot="label" class="h-(--ui-btn-height) max-w-full inline-flex flex-row items-center tracking-(--ui-btn-letter-spacing) overflow-visible text-clip text-[#000]"><span data-slot="labelInner" class="truncate inline-block max-w-full mt-(--ui-btn-title-compensation)">Button</span></span>
+    <!--v-if-->
+  </div>
+</button>"
+`;
+
+exports[`Theme > renders with theme applied to alert correctly 1`] = `
+"<div data-orientation="vertical" data-slot="root" class="relative overflow-hidden w-full flex text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) rounded-(--ui-border-radius-md) style-outline py-md ps-md pe-xs gap-2.5 items-start border-[3px]">
+  <!--v-if-->
+  <div data-slot="wrapper" class="min-w-0 flex-1 flex flex-col font-[family-name:var(--ui-font-family-primary)]">
+    <div data-slot="title" class="font-(--ui-font-weight-bold) text-(length:--ui-font-size-md)/(--ui-font-line-height-reset)">Alert</div>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`Theme > renders with theme applied to badge correctly 1`] = `
+"<span data-slot="base" class="ui-label__scope --air select-none font-[family-name:var(--ui-font-family-secondary)] font-(--ui-label-font-weight) text-(length:--ui-label-font-size)/normal inline-flex items-center transition-all duration-200 ease-linear px-(--ui-label-inline-space) text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) group-[.is-field-group]/items:not-only:not-first:after:content-[''] group-[.is-field-group]/items:not-only:not-first:after:absolute group-[.is-field-group]/items:not-only:not-first:after:top-[7px] group-[.is-field-group]/items:not-only:not-first:after:bottom-[6px] group-[.is-field-group]/items:not-only:not-first:after:left-0 group-[.is-field-group]/items:not-only:not-first:after:w-px group-[.is-field-group]/items:not-only:not-first:after:bg-current/30 style-filled ui-label-md gap-1 rounded-[1.234rem]"><span data-slot="wrapper" class="h-(--ui-label-height) inline-flex items-center gap-1"><!--v-if--><span data-slot="label" class="max-w-full whitespace-nowrap text-ellipsis decoration-from-font underline-offset-1">Badge</span></span>
+<!--v-if--></span>"
+`;
+
+exports[`Theme > renders with theme applied to button base slot correctly 1`] = `
+"<button type="button" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-outline-no-accent ui-btn-md rounded-(--ui-btn-radius) normal-case --air px-[1.234rem]">
+  <!--v-if-->
+  <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right) h-(--ui-btn-height)">
+    <!--v-if--><span data-slot="label" class="h-(--ui-btn-height) max-w-full inline-flex flex-row items-center tracking-(--ui-btn-letter-spacing) overflow-visible text-clip text-[#ff0]"><span data-slot="labelInner" class="truncate inline-block max-w-full mt-(--ui-btn-title-compensation)">Button</span></span>
+    <!--v-if-->
+  </div>
+</button>"
+`;
+
+exports[`Theme > renders with theme applied to multiple component types correctly 1`] = `
+"<button type="button" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-outline-no-accent ui-btn-md rounded-(--ui-btn-radius) normal-case --air px-[1.234rem]">
+  <!--v-if-->
+  <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right) h-(--ui-btn-height)">
+    <!--v-if--><span data-slot="label" class="h-(--ui-btn-height) max-w-full inline-flex flex-row items-center tracking-(--ui-btn-letter-spacing) overflow-visible text-clip"><span data-slot="labelInner" class="truncate inline-block max-w-full mt-(--ui-btn-title-compensation)">Button</span></span>
+    <!--v-if-->
+  </div>
+</button>
+<span data-slot="base" class="ui-label__scope --air select-none font-[family-name:var(--ui-font-family-secondary)] font-(--ui-label-font-weight) text-(length:--ui-label-font-size)/normal inline-flex items-center transition-all duration-200 ease-linear px-(--ui-label-inline-space) text-(--b24ui-color) bg-(--b24ui-background) border-(--b24ui-border-color) border-(length:--b24ui-border-width) group-[.is-field-group]/items:not-only:not-first:after:content-[''] group-[.is-field-group]/items:not-only:not-first:after:absolute group-[.is-field-group]/items:not-only:not-first:after:top-[7px] group-[.is-field-group]/items:not-only:not-first:after:bottom-[6px] group-[.is-field-group]/items:not-only:not-first:after:left-0 group-[.is-field-group]/items:not-only:not-first:after:w-px group-[.is-field-group]/items:not-only:not-first:after:bg-current/30 style-filled ui-label-md gap-1 rounded-[1.234rem]"><span data-slot="wrapper" class="h-(--ui-label-height) inline-flex items-center gap-1"><!--v-if--><span data-slot="label" class="max-w-full whitespace-nowrap text-ellipsis decoration-from-font underline-offset-1">Badge</span></span>
+<!--v-if--></span>"
+`;
+
+exports[`Theme > renders with theme not affecting unrelated component correctly 1`] = `
+"<button type="button" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-outline-no-accent ui-btn-md rounded-(--ui-btn-radius) normal-case --air">
+  <!--v-if-->
+  <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) ps-(--ui-btn-padding-left) pe-(--ui-btn-padding-right) h-(--ui-btn-height)">
+    <!--v-if--><span data-slot="label" class="h-(--ui-btn-height) max-w-full inline-flex flex-row items-center tracking-(--ui-btn-letter-spacing) overflow-visible text-clip"><span data-slot="labelInner" class="truncate inline-block max-w-full mt-(--ui-btn-title-compensation)">Button</span></span>
+    <!--v-if-->
+  </div>
+</button>"
+`;

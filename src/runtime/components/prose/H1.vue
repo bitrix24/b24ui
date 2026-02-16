@@ -23,6 +23,7 @@ export interface ProseH1Slots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppConfig, useRuntimeConfig } from '#imports'
+import { useComponentUI } from '../../composables/useComponentUI'
 import { tv } from '../../utils/tv'
 
 const props = withDefaults(defineProps<ProseH1Props>(), {
@@ -31,6 +32,7 @@ const props = withDefaults(defineProps<ProseH1Props>(), {
 defineSlots<ProseH1Slots>()
 
 const appConfig = useAppConfig() as ProseH1['AppConfig']
+const uiProp = useComponentUI('prose.h1', props)
 const { headings } = useRuntimeConfig().public?.mdc || {}
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.h1 || {}) })({
@@ -44,9 +46,9 @@ const generate = computed(() => props.id && typeof headings?.anchorLinks === 'ob
   <h1
     :id="id"
     data-slot="base"
-    :class="b24ui.base({ class: [props.b24ui?.base, props.class] })"
+    :class="b24ui.base({ class: [uiProp?.base, props.class] })"
   >
-    <a v-if="id && generate" :href="`#${id}`" :class="b24ui.link({ class: props.b24ui?.link })">
+    <a v-if="id && generate" :href="`#${id}`" :class="b24ui.link({ class: uiProp?.link })">
       <slot />
     </a>
     <slot v-else />

@@ -56,6 +56,7 @@ export interface EmptySlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { tv } from '../utils/tv'
 import B24Button from './Button.vue'
 
@@ -65,6 +66,7 @@ const props = withDefaults(defineProps<EmptyProps>(), {
 const slots = defineSlots<EmptySlots>()
 
 const appConfig = useAppConfig() as Empty['AppConfig']
+const uiProp = useComponentUI('empty', props)
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.empty || {}) })({
   color: props.color,
@@ -74,26 +76,26 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.empty 
 </script>
 
 <template>
-  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <div v-if="!!slots.header || (icon || !!slots.leading) || (title || !!slots.title) || (description || !!slots.description)" data-slot="header" :class="b24ui.header({ class: props.b24ui?.header })">
+  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
+    <div v-if="!!slots.header || (icon || !!slots.leading) || (title || !!slots.title) || (description || !!slots.description)" data-slot="header" :class="b24ui.header({ class: uiProp?.header })">
       <slot name="header">
         <slot name="leading" :b24ui="b24ui">
-          <div v-if="icon" data-slot="indicator" :class="b24ui.indicator({ class: props.b24ui?.indicator })">
+          <div v-if="icon" data-slot="indicator" :class="b24ui.indicator({ class: uiProp?.indicator })">
             <Component
               :is="icon"
               data-slot="icon"
-              :class="b24ui.icon({ class: props.b24ui?.icon })"
+              :class="b24ui.icon({ class: uiProp?.icon })"
             />
           </div>
         </slot>
 
-        <h2 v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
+        <h2 v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
           <slot name="title">
             {{ title }}
           </slot>
         </h2>
 
-        <div v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
+        <div v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
           <slot name="description">
             {{ description }}
           </slot>
@@ -101,9 +103,9 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.empty 
       </slot>
     </div>
 
-    <div v-if="!!slots.body || (actions?.length || !!slots.actions)" data-slot="body" :class="b24ui.body({ class: props.b24ui?.body })">
+    <div v-if="!!slots.body || (actions?.length || !!slots.actions)" data-slot="body" :class="b24ui.body({ class: uiProp?.body })">
       <slot name="body">
-        <div v-if="actions?.length || !!slots.actions" data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions })">
+        <div v-if="actions?.length || !!slots.actions" data-slot="actions" :class="b24ui.actions({ class: uiProp?.actions })">
           <slot name="actions">
             <B24Button v-for="(action, index) in actions" :key="index" :size="size" v-bind="action" />
           </slot>
@@ -111,7 +113,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.empty 
       </slot>
     </div>
 
-    <div v-if="!!slots.footer" data-slot="footer" :class="b24ui.footer({ class: props.b24ui?.footer })">
+    <div v-if="!!slots.footer" data-slot="footer" :class="b24ui.footer({ class: uiProp?.footer })">
       <slot name="footer" />
     </div>
   </Primitive>

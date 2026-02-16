@@ -54,6 +54,7 @@ import { ref, computed, toRef, provide } from 'vue'
 import { ToastProvider, ToastViewport, ToastPortal, useForwardProps } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { useToast, toastMaxInjectionKey } from '../composables/useToast'
 import { usePortal } from '../composables/usePortal'
 import { omit } from '../utils'
@@ -72,6 +73,7 @@ defineSlots<ToasterSlots>()
 
 const { toasts, remove } = useToast()
 const appConfig = useAppConfig() as Toaster['AppConfig']
+const uiProp = useComponentUI('toaster', props)
 
 provide(toastMaxInjectionKey, toRef(() => props.max))
 
@@ -142,7 +144,7 @@ function getOffset(index: number) {
         '--transform': 'translateY(var(--translate)) scale(var(--scale))'
       }"
       data-slot="base"
-      :class="b24ui.base({ class: [props.b24ui?.base, toast.onClick ? 'cursor-pointer' : undefined] })"
+      :class="b24ui.base({ class: [uiProp?.base, toast.onClick ? 'cursor-pointer' : undefined] })"
       @update:open="onUpdateOpen($event, toast.id)"
       @click="toast.onClick && toast.onClick(toast)"
     />
@@ -151,7 +153,7 @@ function getOffset(index: number) {
       <ToastViewport
         :data-expanded="expanded"
         data-slot="viewport"
-        :class="b24ui.viewport({ class: [props.b24ui?.viewport, props.class] })"
+        :class="b24ui.viewport({ class: [uiProp?.viewport, props.class] })"
         :style="{
           '--scale-factor': '0.05',
           '--translate-factor': position?.startsWith('top') ? '1px' : '-1px',

@@ -67,6 +67,7 @@ export interface BannerEmits {
 import { computed, ref, onMounted, useId } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useHead, useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { useLocale } from '../composables/useLocale'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
@@ -82,6 +83,7 @@ const emits = defineEmits<BannerEmits>()
 
 const { t } = useLocale()
 const appConfig = useAppConfig() as Banner['AppConfig']
+const uiProp = useComponentUI('banner', props)
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.banner || {}) })({
   color: props.color,
@@ -147,7 +149,7 @@ function onClose() {
     class="banner"
     :data-banner-id="id"
     data-slot="root"
-    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
+    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
   >
     <B24Link
       v-if="to"
@@ -160,21 +162,21 @@ function onClose() {
       <span class="absolute inset-0 " aria-hidden="true" />
     </B24Link>
 
-    <B24Container data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">
-      <div data-slot="left" :class="b24ui.left({ class: props.b24ui?.left })" />
+    <B24Container data-slot="container" :class="b24ui.container({ class: uiProp?.container })">
+      <div data-slot="left" :class="b24ui.left({ class: uiProp?.left })" />
 
-      <div data-slot="center" :class="b24ui.center({ class: props.b24ui?.center })">
+      <div data-slot="center" :class="b24ui.center({ class: uiProp?.center })">
         <slot name="leading" :b24ui="b24ui">
-          <Component :is="icon" v-if="icon" data-slot="icon" :class="b24ui.icon({ class: props.b24ui?.icon })" />
+          <Component :is="icon" v-if="icon" data-slot="icon" :class="b24ui.icon({ class: uiProp?.icon })" />
         </slot>
 
-        <div v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: props.b24ui?.title })">
+        <div v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
           <slot name="title">
             {{ title }}
           </slot>
         </div>
 
-        <div v-if="actions?.length || !!slots.actions" data-slot="actions" :class="b24ui.actions({ class: props.b24ui?.actions })">
+        <div v-if="actions?.length || !!slots.actions" data-slot="actions" :class="b24ui.actions({ class: uiProp?.actions })">
           <slot name="actions">
             <B24Button
               v-for="(action, index) in actions"
@@ -187,7 +189,7 @@ function onClose() {
         </div>
       </div>
 
-      <div data-slot="right" :class="b24ui.right({ class: props.b24ui?.right })">
+      <div data-slot="right" :class="b24ui.right({ class: uiProp?.right })">
         <slot name="close" :b24ui="b24ui">
           <B24Button
             v-if="close"
@@ -197,7 +199,7 @@ function onClose() {
             :aria-label="t('banner.close')"
             v-bind="(typeof close === 'object' ? close : {})"
             data-slot="close"
-            :class="b24ui.close({ class: props.b24ui?.close })"
+            :class="b24ui.close({ class: uiProp?.close })"
             @click="onClose"
           />
         </slot>

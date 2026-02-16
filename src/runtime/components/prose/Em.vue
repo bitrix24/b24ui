@@ -9,9 +9,6 @@ export interface ProseEmProps {
   class?: any
   b24ui?: ProseEm['slots']
 }
-/**
- * @todo add Pick<Xxxx
- */
 
 export interface ProseEmSlots {
   default(props?: {}): any
@@ -21,19 +18,21 @@ export interface ProseEmSlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../../composables/useComponentUI'
 import { tv } from '../../utils/tv'
 
 const props = defineProps<ProseEmProps>()
 defineSlots<ProseEmSlots>()
 
 const appConfig = useAppConfig() as ProseEm['AppConfig']
+const uiProp = useComponentUI('prose.em', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.em || {}) })())
 </script>
 
 <template>
-  <em data-slot="base" :class="b24ui.base({ class: [props.b24ui?.base, props.class] })">
+  <em data-slot="base" :class="b24ui.base({ class: [uiProp?.base, props.class] })">
     <slot />
   </em>
 </template>

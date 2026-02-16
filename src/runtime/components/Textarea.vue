@@ -88,6 +88,7 @@ import { useTemplateRef, computed, onMounted, nextTick, watch } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useVModel } from '@vueuse/core'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
 import { looseToNumber } from '../utils'
@@ -109,6 +110,7 @@ const slots = defineSlots<TextareaSlots>()
 const modelValue = useVModel<TextareaProps<T>, 'modelValue', 'update:modelValue'>(props, 'modelValue', emits, { defaultValue: props.defaultValue })
 
 const appConfig = useAppConfig() as Textarea['AppConfig']
+const uiProp = useComponentUI('textarea', props)
 
 const { emitFormFocus, emitFormBlur, emitFormInput, emitFormChange, color, id, name, highlight, disabled, ariaAttrs } = useFormField<TextareaProps<T>>(props, { deferInputValidation: true })
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props)
@@ -232,11 +234,11 @@ defineExpose({
 </script>
 
 <template>
-  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
     <B24Badge
       v-if="isTag"
       data-slot="tag"
-      :class="b24ui.tag({ class: props.b24ui?.tag })"
+      :class="b24ui.tag({ class: uiProp?.tag })"
       :color="props.tagColor"
       :label="props.tag"
       size="xs"
@@ -250,7 +252,7 @@ defineExpose({
       :rows="rows"
       :placeholder="placeholder"
       data-slot="base"
-      :class="b24ui.base({ class: props.b24ui?.base })"
+      :class="b24ui.base({ class: uiProp?.base })"
       :disabled="disabled"
       :required="required"
       v-bind="{ ...$attrs, ...ariaAttrs }"
@@ -262,31 +264,31 @@ defineExpose({
 
     <slot :b24ui="b24ui" />
 
-    <span v-if="isLeading || !!avatar || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: props.b24ui?.leading })">
+    <span v-if="isLeading || !!avatar || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: uiProp?.leading })">
       <slot name="leading" :b24ui="b24ui">
         <Component
           :is="leadingIconName"
           v-if="isLeading && leadingIconName"
           data-slot="leadingIcon"
-          :class="b24ui.leadingIcon({ class: props.b24ui?.leadingIcon })"
+          :class="b24ui.leadingIcon({ class: uiProp?.leadingIcon })"
         />
         <B24Avatar
           v-else-if="!!avatar"
-          :size="((props.b24ui?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
+          :size="((uiProp?.leadingAvatarSize || b24ui.leadingAvatarSize()) as AvatarProps['size'])"
           v-bind="avatar"
           data-slot="leadingAvatar"
-          :class="b24ui.leadingAvatar({ class: props.b24ui?.leadingAvatar })"
+          :class="b24ui.leadingAvatar({ class: uiProp?.leadingAvatar })"
         />
       </slot>
     </span>
 
-    <span v-if="isTrailing || !!slots.trailing" data-slot="trailing" :class="b24ui.trailing({ class: props.b24ui?.trailing })">
+    <span v-if="isTrailing || !!slots.trailing" data-slot="trailing" :class="b24ui.trailing({ class: uiProp?.trailing })">
       <slot name="trailing" :b24ui="b24ui">
         <Component
           :is="trailingIconName"
           v-if="trailingIconName"
           data-slot="trailingIcon"
-          :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
+          :class="b24ui.trailingIcon({ class: uiProp?.trailingIcon })"
         />
       </slot>
     </span>

@@ -24,6 +24,7 @@ export interface NavbarSpacerSlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { tv } from '../utils/tv'
 
 const props = withDefaults(defineProps<NavbarSpacerProps>(), {
@@ -32,13 +33,14 @@ const props = withDefaults(defineProps<NavbarSpacerProps>(), {
 defineSlots<NavbarSpacerSlots>()
 
 const appConfig = useAppConfig() as NavbarSpacer['AppConfig']
+const uiProp = useComponentUI('navbarSpacer', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.navbarSpacer || {}) })())
 </script>
 
 <template>
-  <Primitive :as="as" aria-hidden="true" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
+  <Primitive :as="as" aria-hidden="true" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
     <slot />
   </Primitive>
 </template>

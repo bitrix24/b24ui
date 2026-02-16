@@ -64,6 +64,7 @@ import { computed, useId } from 'vue'
 import { Primitive, SwitchRoot, SwitchThumb, useForwardProps, Label } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { useFormField } from '../composables/useFormField'
 import { tv } from '../utils/tv'
 import { omit } from '../utils'
@@ -78,6 +79,7 @@ const emits = defineEmits<SwitchEmits>()
 const modelValue = defineModel<boolean>({ default: undefined })
 
 const appConfig = useAppConfig() as Switch['AppConfig']
+const uiProp = useComponentUI('switch', props)
 
 const rootProps = useForwardProps(reactivePick(props, 'required', 'value', 'defaultValue'))
 
@@ -102,8 +104,8 @@ function onUpdate(value: any) {
 </script>
 
 <template>
-  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <div data-slot="container" :class="b24ui.container({ class: props.b24ui?.container })">
+  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
+    <div data-slot="container" :class="b24ui.container({ class: uiProp?.container })">
       <SwitchRoot
         :id="id"
         v-bind="{ ...rootProps, ...omit({ ...$attrs }, ['data-state']), ...ariaAttrs }"
@@ -111,40 +113,40 @@ function onUpdate(value: any) {
         :name="name"
         :disabled="disabled || loading"
         data-slot="base"
-        :class="b24ui.base({ class: props.b24ui?.base })"
+        :class="b24ui.base({ class: uiProp?.base })"
         @update:model-value="onUpdate"
       >
-        <SwitchThumb data-slot="thumb" :class="b24ui.thumb({ class: props.b24ui?.thumb })">
+        <SwitchThumb data-slot="thumb" :class="b24ui.thumb({ class: uiProp?.thumb })">
           <Component
             :is="loadingIcon || icons.refresh"
             v-if="loading"
             data-slot="icon"
-            :class="b24ui.icon({ class: props.b24ui?.icon, checked: true, unchecked: true })"
+            :class="b24ui.icon({ class: uiProp?.icon, checked: true, unchecked: true })"
           />
           <template v-else>
             <Component
               :is="checkedIcon"
               v-if="checkedIcon"
               data-slot="icon"
-              :class="b24ui.icon({ class: props.b24ui?.icon, checked: true })"
+              :class="b24ui.icon({ class: uiProp?.icon, checked: true })"
             />
             <Component
               :is="uncheckedIcon"
               v-if="uncheckedIcon"
               data-slot="icon"
-              :class="b24ui.icon({ class: props.b24ui?.icon, unchecked: true })"
+              :class="b24ui.icon({ class: uiProp?.icon, unchecked: true })"
             />
           </template>
         </SwitchThumb>
       </SwitchRoot>
     </div>
-    <div v-if="(label || !!slots.label) || (description || !!slots.description)" data-slot="wrapper" :class="b24ui.wrapper({ class: props.b24ui?.wrapper })">
-      <Label v-if="label || !!slots.label" :for="id" data-slot="label" :class="b24ui.label({ class: props.b24ui?.label })">
+    <div v-if="(label || !!slots.label) || (description || !!slots.description)" data-slot="wrapper" :class="b24ui.wrapper({ class: uiProp?.wrapper })">
+      <Label v-if="label || !!slots.label" :for="id" data-slot="label" :class="b24ui.label({ class: uiProp?.label })">
         <slot name="label" :label="label">
           {{ label }}
         </slot>
       </Label>
-      <p v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: props.b24ui?.description })">
+      <p v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
         <slot name="description" :description="description">
           {{ description }}
         </slot>

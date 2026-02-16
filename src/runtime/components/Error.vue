@@ -42,6 +42,7 @@ export interface ErrorSlots {
 import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { clearError, useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { useLocale } from '../composables/useLocale'
 import { tv } from '../utils/tv'
 import B24Button from './Button.vue'
@@ -55,6 +56,7 @@ const slots = defineSlots<ErrorSlots>()
 
 const { t } = useLocale()
 const appConfig = useAppConfig() as Error['AppConfig']
+const uiProp = useComponentUI('error', props)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.error || {}) })())
@@ -65,23 +67,23 @@ function handleError() {
 </script>
 
 <template>
-  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [props.b24ui?.root, props.class] })">
-    <p v-if="!!props.error?.statusCode || !!slots.statusCode" data-slot="statusCode" :class="b24ui.statusCode({ class: props.b24ui?.statusCode })">
+  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
+    <p v-if="!!props.error?.statusCode || !!slots.statusCode" data-slot="statusCode" :class="b24ui.statusCode({ class: uiProp?.statusCode })">
       <slot name="statusCode">
         {{ props.error?.statusCode }}
       </slot>
     </p>
-    <h1 v-if="!!props.error?.statusMessage || !!slots.statusMessage" data-slot="statusMessage" :class="b24ui.statusMessage({ class: props.b24ui?.statusMessage })">
+    <h1 v-if="!!props.error?.statusMessage || !!slots.statusMessage" data-slot="statusMessage" :class="b24ui.statusMessage({ class: uiProp?.statusMessage })">
       <slot name="statusMessage">
         {{ props.error?.statusMessage }}
       </slot>
     </h1>
-    <p v-if="(props.error?.message && props.error.message !== props.error.statusMessage) || !!slots.message" data-slot="message" :class="b24ui.message({ class: props.b24ui?.message })">
+    <p v-if="(props.error?.message && props.error.message !== props.error.statusMessage) || !!slots.message" data-slot="message" :class="b24ui.message({ class: uiProp?.message })">
       <slot name="message">
         {{ props.error?.message }}
       </slot>
     </p>
-    <div v-if="!!clear || !!slots.links" data-slot="links" :class="b24ui.links({ class: props.b24ui?.links })">
+    <div v-if="!!clear || !!slots.links" data-slot="links" :class="b24ui.links({ class: uiProp?.links })">
       <slot name="links">
         <B24Button
           v-if="clear"

@@ -72,6 +72,7 @@ export interface ChipSlots {
 import { computed } from 'vue'
 import { Primitive, Slot } from 'reka-ui'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
 import { tv } from '../utils/tv'
 
 defineOptions({ inheritAttrs: false })
@@ -88,6 +89,7 @@ const show = defineModel<boolean>('show', { default: true })
 
 // const { size } = useAvatarGroup(props)
 const appConfig = useAppConfig() as Chip['AppConfig']
+const uiProp = useComponentUI('chip', props)
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.chip || {}) })({
   color: props.color,
@@ -109,7 +111,7 @@ const value = computed(() => {
   <Primitive
     :as="as"
     data-slot="root"
-    :class="b24ui.root({ class: [props.b24ui?.root, props.class] })"
+    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
   >
     <Slot v-bind="$attrs">
       <slot />
@@ -118,7 +120,7 @@ const value = computed(() => {
     <span
       v-if="show"
       data-slot="base"
-      :class="b24ui.base({ class: props.b24ui?.base })"
+      :class="b24ui.base({ class: uiProp?.base })"
       :data-value="value"
     >
       <slot name="content">
@@ -128,7 +130,7 @@ const value = computed(() => {
         <Component
           :is="trailingIcon"
           data-slot="trailingIcon"
-          :class="b24ui.trailingIcon({ class: props.b24ui?.trailingIcon })"
+          :class="b24ui.trailingIcon({ class: uiProp?.trailingIcon })"
         />
       </slot>
     </span>

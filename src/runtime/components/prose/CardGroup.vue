@@ -7,6 +7,7 @@ type ProseCardGroup = ComponentConfig<typeof theme, AppConfig, 'cardGroup', 'b24
 
 export interface ProseCardGroupProps {
   class?: any
+  b24ui?: { base?: any }
 }
 
 export interface ProseCardGroupSlots {
@@ -17,18 +18,21 @@ export interface ProseCardGroupSlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppConfig } from '#imports'
+import { useComponentUI } from '../../composables/useComponentUI'
 import { tv } from '../../utils/tv'
 
 const props = defineProps<ProseCardGroupProps>()
 defineSlots<ProseCardGroupSlots>()
 
 const appConfig = useAppConfig() as ProseCardGroup['AppConfig']
+const uiProp = useComponentUI('prose.cardGroup', props)
 
+// eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?.cardGroup || {}) }))
 </script>
 
 <template>
-  <div :class="b24ui({ class: props.class })">
+  <div :class="b24ui({ class: [uiProp?.base, props.class] })">
     <slot />
   </div>
 </template>
