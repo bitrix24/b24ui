@@ -47,7 +47,7 @@ export interface CheckboxSlots {
 </script>
 
 <script setup lang="ts">
-import { computed, useId } from 'vue'
+import { computed, useAttrs, useId } from 'vue'
 import { Primitive, CheckboxRoot, CheckboxIndicator, Label, useForwardProps } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
@@ -73,6 +73,13 @@ const rootProps = useForwardProps(reactivePick(props, 'required', 'value', 'defa
 const { id: _id, emitFormChange, emitFormInput, size, color, name, disabled, ariaAttrs } = useFormField<CheckboxProps>(props)
 const id = _id.value ?? useId()
 
+const attrs = useAttrs()
+// Omit `data-state` to prevent conflicts with parent components (e.g. TooltipTrigger)
+const forwardedAttrs = computed(() => {
+  const { 'data-state': _, ...rest } = attrs
+  return rest
+})
+
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.checkbox || {}) })({
   size: size.value,
   color: color.value,
@@ -97,7 +104,7 @@ function onUpdate(value: any) {
     <div data-slot="container" :class="b24ui.container({ class: uiProp?.container })">
       <CheckboxRoot
         :id="id"
-        v-bind="{ ...rootProps, ...$attrs, ...ariaAttrs }"
+        v-bind="{ ...rootProps, ...forwardedAttrs, ...ariaAttrs }"
         v-model="modelValue"
         :name="name"
         :disabled="disabled"

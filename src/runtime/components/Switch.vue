@@ -60,14 +60,13 @@ export interface SwitchSlots {
 </script>
 
 <script setup lang="ts">
-import { computed, useId } from 'vue'
+import { computed, useAttrs, useId } from 'vue'
 import { Primitive, SwitchRoot, SwitchThumb, useForwardProps, Label } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useComponentUI } from '../composables/useComponentUI'
 import { useFormField } from '../composables/useFormField'
 import { tv } from '../utils/tv'
-import { omit } from '../utils'
 import icons from '../dictionary/icons'
 
 defineOptions({ inheritAttrs: false })
@@ -85,6 +84,13 @@ const rootProps = useForwardProps(reactivePick(props, 'required', 'value', 'defa
 
 const { id: _id, emitFormChange, emitFormInput, size, color, name, disabled, ariaAttrs } = useFormField<SwitchProps>(props)
 const id = _id.value ?? useId()
+
+const attrs = useAttrs()
+// Omit `data-state` to prevent conflicts with parent components (e.g. TooltipTrigger)
+const forwardedAttrs = computed(() => {
+  const { 'data-state': _, ...rest } = attrs
+  return rest
+})
 
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.switch || {}) })({
   size: size.value,
@@ -108,7 +114,7 @@ function onUpdate(value: any) {
     <div data-slot="container" :class="b24ui.container({ class: uiProp?.container })">
       <SwitchRoot
         :id="id"
-        v-bind="{ ...rootProps, ...omit({ ...$attrs }, ['data-state']), ...ariaAttrs }"
+        v-bind="{ ...rootProps, ...forwardedAttrs, ...ariaAttrs }"
         v-model="modelValue"
         :name="name"
         :disabled="disabled || loading"
