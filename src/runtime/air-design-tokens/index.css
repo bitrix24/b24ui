@@ -10,6 +10,11 @@
 @import './015_b24_mobile_edge-light.css';
 @import './016_b24_mobile_edge-dark.css';
 
+@import './023_b24_desktop_light.css';
+@import './024_b24_desktop_dark.css';
+@import './025_b24_desktop_edge-light.css';
+@import './026_b24_desktop_edge-dark.css';
+
 @import './007_b24_global.css';
 @import './008_ui_global.css';
 @import './009_b24_tools.css';

@@ -6,12 +6,16 @@
           Demo Playground
         </ProseH1>
       </template>
-      <ProseP class="bitrix-mobile:hidden">
+      <ProseP class="bitrix-mobile:hidden bitrix-desktop:hidden">
         Explore and test all Bitrix24 UI components in an interactive environment.
       </ProseP>
 
       <ProseP class="hidden bitrix-mobile:inline-block">
         It's magic! 🔮 Check out what the Bitrix24 Mobile UI is capable of. You're doing great! 😎
+      </ProseP>
+
+      <ProseP class="hidden bitrix-desktop:inline-block">
+        Pure magic! ✨ Look at what the Bitrix24 Desktop UI can do. You rock! 🔥
       </ProseP>
     </B24Card>
   </div>

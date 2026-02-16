@@ -23,7 +23,7 @@ export default defineConfig(({ mode }) => {
       {
         name: 'global-post-to-get-rewriter',
         configureServer(server) {
-          server.middlewares.use((req, res, next) => {
+          server.middlewares.use((req, _res, next) => {
             if (req.method === 'POST') {
               req.method = 'GET'
             }

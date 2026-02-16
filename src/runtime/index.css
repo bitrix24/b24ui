@@ -8,6 +8,7 @@
 @variant edge-light (&:where(.edge-light, .edge-light *));
 @variant dark (&:where(.dark, .dark *));
 @variant bitrix-mobile (&:where(html[data-platform="bitrix-mobile"] *));
+@variant bitrix-desktop (&:where(html[data-platform="bitrix-desktop"] *));
 
 @layer base {
   body, .sidebar-layout.--inner {

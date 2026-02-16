@@ -1,6 +1,6 @@
 @layer theme {
-  [data-platform="mobile.app"].dark,
-  [data-platform="mobile.app"].mobile-dark .base-mode {
+  [data-platform="bitrix-mobile"].dark,
+  [data-platform="bitrix-mobile"].dark .base-mode {
     --ui-color-base-0: #fff;
     --ui-color-base-1: #f8f8f8;
   }

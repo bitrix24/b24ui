@@ -1,0 +1,7 @@
+@layer theme {
+  [data-platform="bitrix-desktop"].light,
+  [data-platform="bitrix-desktop"].light .base-mode {
+    --ui-color-base-0: #000;
+    --ui-color-base-1: #333;
+  }
+}
