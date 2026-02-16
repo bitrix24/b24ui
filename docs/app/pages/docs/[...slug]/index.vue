@@ -130,7 +130,17 @@ const iconFromIconName = (iconName?: string) => {
   <NuxtLayout name="docs">
     <template #header>
       <template v-if="page">
-        <PageHeader :title="page.title">
+        <PageHeader>
+          <template #title>
+            {{ page.title }}
+
+            <B24Badge
+              v-if="page.navigation?.badge"
+              :label="page.navigation?.badge"
+              size="lg"
+              class="align-middle"
+            />
+          </template>
           <template #description>
             <MDC
               v-if="page.description"

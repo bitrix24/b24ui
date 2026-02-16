@@ -65,7 +65,8 @@ export const collections = {
       framework: z.enum(['nuxt', 'vue']).optional(),
       badge: z.string().optional(),
       navigation: z.object({
-        title: z.string().optional()
+        title: z.string().optional(),
+        badge: z.string().optional()
       }),
       links: z.array(Button)
     })
