@@ -35,6 +35,8 @@ export type InputMenuItem = InputMenuValue | {
   [key: string]: any
 }
 
+type ExcludeItem = { type: 'label' | 'separator' }
+
 export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOrNested<InputMenuItem>, VK extends GetItemKeys<T> | undefined = undefined, M extends boolean = false> extends Pick<ComboboxRootProps<T>, 'open' | 'defaultOpen' | 'disabled' | 'name' | 'resetSearchTermOnBlur' | 'resetSearchTermOnSelect' | 'resetModelValueOnClear' | 'highlightOnHover' | 'openOnClick' | 'openOnFocus' | 'by'>, UseComponentIconsProps, /** @vue-ignore */ Omit<InputHTMLAttributes, 'disabled' | 'name' | 'type' | 'placeholder' | 'autofocus' | 'maxlength' | 'minlength' | 'pattern' | 'size' | 'min' | 'max' | 'step'> {
   /**
    * The element or component this component should render as.
@@ -151,10 +153,10 @@ export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOr
   descriptionKey?: GetItemKeys<T>
   items?: T
   /** The value of the InputMenu when initially rendered. Use when you do not need to control the state of the InputMenu. */
-  defaultValue?: GetModelValue<T, VK, M>
+  defaultValue?: GetModelValue<T, VK, M, ExcludeItem>
   /** The controlled value of the InputMenu. Can be binded-with with `v-model`. */
-  modelValue?: GetModelValue<T, VK, M>
-  modelModifiers?: Omit<ModelModifiers<GetModelValue<T, VK, M>>, 'lazy'>
+  modelValue?: GetModelValue<T, VK, M, ExcludeItem>
+  modelModifiers?: Omit<ModelModifiers<GetModelValue<T, VK, M, ExcludeItem>>, 'lazy'>
   /** Whether multiple options can be selected or not. */
   multiple?: M & boolean
   tag?: string
@@ -192,10 +194,10 @@ export type InputMenuEmits<A extends ArrayOrNested<InputMenuItem>, VK extends Ge
   /** Event handler when highlighted element changes. */
   'highlight': [payload: {
     ref: HTMLElement
-    value: GetModelValue<A, VK, M>
+    value: GetModelValue<A, VK, M, ExcludeItem>
   } | undefined]
-  'remove-tag': [item: GetModelValue<A, VK, M>]
-} & GetModelValueEmits<A, VK, M>
+  'remove-tag': [item: GetModelValue<A, VK, M, ExcludeItem>]
+} & GetModelValueEmits<A, VK, M, ExcludeItem>
 
 type SlotProps<T extends InputMenuItem> = (props: { item: T, index: number, b24ui: InputMenu['b24ui'] }) => any
 
@@ -205,8 +207,8 @@ export interface InputMenuSlots<
   M extends boolean = false,
   T extends NestedItem<A> = NestedItem<A>
 > {
-  'leading'(props: { modelValue?: GetModelValue<A, VK, M>, open: boolean, b24ui: InputMenu['b24ui'] }): any
-  'trailing'(props: { modelValue?: GetModelValue<A, VK, M>, open: boolean, b24ui: InputMenu['b24ui'] }): any
+  'leading'(props: { modelValue?: GetModelValue<A, VK, M, ExcludeItem>, open: boolean, b24ui: InputMenu['b24ui'] }): any
+  'trailing'(props: { modelValue?: GetModelValue<A, VK, M, ExcludeItem>, open: boolean, b24ui: InputMenu['b24ui'] }): any
   'empty'(props: { searchTerm?: string }): any
   'item': SlotProps<T>
   'item-leading': SlotProps<T>
@@ -321,8 +323,8 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.inputM
 // eslint-disable-next-line vue/no-dupe-keys
 const items = computed(() => groups.value.flatMap(group => group) as T[])
 
-function displayValue(value: GetItemValue<T, VK>): string {
-  return getDisplayValue<T[], GetItemValue<T, VK>>(items.value, value, {
+function displayValue(value: GetItemValue<T, VK, ExcludeItem>): string {
+  return getDisplayValue<T[], GetItemValue<T, VK, ExcludeItem>>(items.value, value, {
     labelKey: props.labelKey,
     valueKey: props.valueKey,
     by: props.by
@@ -468,10 +470,10 @@ function onUpdateOpen(value: boolean) {
   }
 }
 
-function onRemoveTag(event: any, modelValue: GetModelValue<T, VK, true>) {
+function onRemoveTag(event: any, modelValue: GetModelValue<T, VK, true, ExcludeItem>) {
   if (props.multiple) {
     const filteredValue = modelValue.filter(value => !isEqual(value, event))
-    emits('update:modelValue', filteredValue as GetModelValue<T, VK, M>)
+    emits('update:modelValue', filteredValue as GetModelValue<T, VK, M, ExcludeItem>)
     emits('remove-tag', event)
     onUpdate(filteredValue)
   }
@@ -501,7 +503,7 @@ function isInputItem(item: InputMenuItem): item is Exclude<InputMenuItem, InputM
   return typeof item === 'object' && item !== null
 }
 
-function isModelValueEmpty(modelValue: GetModelValue<T, VK, M>): boolean {
+function isModelValueEmpty(modelValue: GetModelValue<T, VK, M, ExcludeItem>): boolean {
   if (props.multiple && Array.isArray(modelValue)) {
     return modelValue.length === 0
   }
@@ -646,7 +648,7 @@ defineExpose({
         as-child
         @blur="onBlur"
         @focus="onFocus"
-        @remove-tag="onRemoveTag($event, modelValue as GetModelValue<T, VK, true>)"
+        @remove-tag="onRemoveTag($event, modelValue as GetModelValue<T, VK, true, ExcludeItem>)"
       >
         <B24Badge
           v-if="!!multiple && isTag"
@@ -659,7 +661,7 @@ defineExpose({
         <TagsInputItem v-for="(item, index) in tags" :key="index" :value="item" data-slot="tagsItem" :class="b24ui.tagsItem({ class: [uiProp?.tagsItem, isInputItem(item) && item.b24ui?.tagsItem] })">
           <TagsInputItemText data-slot="tagsItemText" :class="b24ui.tagsItemText({ class: [uiProp?.tagsItemText, isInputItem(item) && item.b24ui?.tagsItemText] })">
             <slot name="tags-item-text" :item="(item as NestedItem<T>)" :index="index">
-              {{ displayValue(item as GetItemValue<T, VK>) }}
+              {{ displayValue(item as GetItemValue<T, VK, ExcludeItem>) }}
             </slot>
           </TagsInputItemText>
 
@@ -703,7 +705,7 @@ defineExpose({
       />
 
       <span v-if="isLeading || !!avatar || !!slots.leading" data-slot="leading" :class="b24ui.leading({ class: uiProp?.leading })">
-        <slot name="leading" :model-value="(modelValue as GetModelValue<T, VK, M>)" :open="open" :b24ui="b24ui">
+        <slot name="leading" :model-value="(modelValue as GetModelValue<T, VK, M, ExcludeItem>)" :open="open" :b24ui="b24ui">
           <Component
             :is="leadingIconName"
             v-if="isLeading && leadingIconName"
@@ -721,8 +723,8 @@ defineExpose({
       </span>
 
       <ComboboxTrigger v-if="isTrailing || !!slots.trailing || !!clear" data-slot="trailing" :class="b24ui.trailing({ class: uiProp?.trailing })">
-        <slot name="trailing" :model-value="(modelValue as GetModelValue<T, VK, M>)" :open="open" :b24ui="b24ui">
-          <ComboboxCancel v-if="!!clear && !isModelValueEmpty(modelValue as GetModelValue<T, VK, M>)" as-child>
+        <slot name="trailing" :model-value="(modelValue as GetModelValue<T, VK, M, ExcludeItem>)" :open="open" :b24ui="b24ui">
+          <ComboboxCancel v-if="!!clear && !isModelValueEmpty(modelValue as GetModelValue<T, VK, M, ExcludeItem>)" as-child>
             <B24Button
               as="span"
               :icon="clearIcon || icons.close"
