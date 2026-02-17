@@ -113,13 +113,13 @@ importers:
         specifier: ^2.1.4
         version: 2.1.4(vue@3.5.28(typescript@5.8.3))
       '@vueuse/core':
-        specifier: ^14.2.0
+        specifier: ^14.2.1
         version: 14.2.1(vue@3.5.28(typescript@5.8.3))
       '@vueuse/integrations':
-        specifier: ^14.2.0
-        version: 14.2.1(axios@1.13.5)(change-case@5.4.4)(fuse.js@7.1.0)(sortablejs@1.15.6)(vue@3.5.28(typescript@5.8.3))
+        specifier: ^14.2.1
+        version: 14.2.1(axios@1.13.5)(change-case@5.4.4)(fuse.js@7.1.0)(sortablejs@1.15.7)(vue@3.5.28(typescript@5.8.3))
       '@vueuse/shared':
-        specifier: ^14.2.0
+        specifier: ^14.2.1
         version: 14.2.1(vue@3.5.28(typescript@5.8.3))
       canvas-confetti:
         specifier: ^1.9.3
@@ -173,7 +173,7 @@ importers:
         specifier: ^1.8.0
         version: 1.8.0
       motion-v:
-        specifier: ^1.10.2
+        specifier: ^1.10.3
         version: 1.10.3(@vueuse/core@14.2.1(vue@3.5.28(typescript@5.8.3)))(vue@3.5.28(typescript@5.8.3))
       ohash:
         specifier: ^2.0.11
@@ -191,11 +191,11 @@ importers:
         specifier: ^2.0.0
         version: 2.0.2
       tailwind-merge:
-        specifier: ^3.4.0
-        version: 3.4.0
+        specifier: ^3.4.1
+        version: 3.4.1
       tailwind-variants:
         specifier: ^3.2.2
-        version: 3.2.2(tailwind-merge@3.4.0)(tailwindcss@4.1.18)
+        version: 3.2.2(tailwind-merge@3.4.1)(tailwindcss@4.1.18)
       tailwindcss:
         specifier: ^4.1.18
         version: 4.1.18
@@ -237,7 +237,7 @@ importers:
         version: 4.3.6
     devDependencies:
       '@nuxt/eslint-config':
-        specifier: ^1.14.0
+        specifier: ^1.15.1
         version: 1.15.1(@typescript-eslint/utils@8.55.0(eslint@10.0.0(jiti@2.6.1))(typescript@5.8.3))(@vue/compiler-sfc@3.5.28)(eslint@10.0.0(jiti@2.6.1))(typescript@5.8.3)
       '@nuxt/module-builder':
         specifier: ^1.0.2
@@ -261,8 +261,8 @@ importers:
         specifier: ^2.4.6
         version: 2.4.6
       ai:
-        specifier: ^6.0.77
-        version: 6.0.79(zod@4.3.6)
+        specifier: ^6.0.86
+        version: 6.0.86(zod@4.3.6)
       embla-carousel:
         specifier: ^8.6.0
         version: 8.6.0
@@ -273,7 +273,7 @@ importers:
         specifier: ^4.8.0
         version: 4.8.0
       happy-dom:
-        specifier: ^20.5.3
+        specifier: ^20.6.1
         version: 20.6.1
       nuxt:
         specifier: ^4.3.0
@@ -306,8 +306,8 @@ importers:
   cli:
     dependencies:
       citty:
-        specifier: ^0.2.0
-        version: 0.2.0
+        specifier: ^0.2.1
+        version: 0.2.1
       consola:
         specifier: ^3.4.2
         version: 3.4.2
@@ -321,14 +321,14 @@ importers:
   docs:
     dependencies:
       '@ai-sdk/deepseek':
-        specifier: ^2.0.19
-        version: 2.0.19(zod@4.3.6)
+        specifier: ^2.0.20
+        version: 2.0.20(zod@4.3.6)
       '@ai-sdk/mcp':
-        specifier: ^1.0.19
-        version: 1.0.19(zod@4.3.6)
+        specifier: ^1.0.21
+        version: 1.0.21(zod@4.3.6)
       '@ai-sdk/vue':
-        specifier: ^3.0.77
-        version: 3.0.79(vue@3.5.28(typescript@5.8.3))(zod@4.3.6)
+        specifier: ^3.0.86
+        version: 3.0.86(vue@3.5.28(typescript@5.8.3))(zod@4.3.6)
       '@bitrix24/b24ui-nuxt':
         specifier: workspace:*
         version: link:..
@@ -345,7 +345,7 @@ importers:
         specifier: ^2.0.0
         version: 2.0.0(db0@0.3.4(better-sqlite3@12.6.2))(ioredis@5.9.2)(magicast@0.5.2)
       '@nuxtjs/mcp-toolkit':
-        specifier: ^0.6.3
+        specifier: ^0.6.4
         version: 0.6.4(magicast@0.5.2)(zod@4.3.6)
       '@nuxtjs/mdc':
         specifier: ^0.20.1
@@ -357,11 +357,11 @@ importers:
         specifier: ^22.0.1
         version: 22.0.1
       '@regle/core':
-        specifier: ^1.18.3
-        version: 1.18.3(vue@3.5.28(typescript@5.8.3))
+        specifier: ^1.19.1
+        version: 1.19.6(vue@3.5.28(typescript@5.8.3))
       '@regle/rules':
-        specifier: ^1.18.3
-        version: 1.18.3(vue@3.5.28(typescript@5.8.3))
+        specifier: ^1.19.1
+        version: 1.19.6(vue@3.5.28(typescript@5.8.3))
       '@tiptap/extension-emoji':
         specifier: ^3.19.0
         version: 3.19.0(@tiptap/core@3.19.0(@tiptap/pm@3.19.0))(@tiptap/pm@3.19.0)(@tiptap/suggestion@3.19.0(@tiptap/core@3.19.0(@tiptap/pm@3.19.0))(@tiptap/pm@3.19.0))(emojibase@17.0.0)
@@ -369,11 +369,11 @@ importers:
         specifier: ^3.19.0
         version: 3.19.0(@tiptap/core@3.19.0(@tiptap/pm@3.19.0))
       '@vueuse/integrations':
-        specifier: ^14.2.0
-        version: 14.2.1(axios@1.13.5)(change-case@5.4.4)(fuse.js@7.1.0)(sortablejs@1.15.6)(vue@3.5.28(typescript@5.8.3))
+        specifier: ^14.2.1
+        version: 14.2.1(axios@1.13.5)(change-case@5.4.4)(fuse.js@7.1.0)(sortablejs@1.15.7)(vue@3.5.28(typescript@5.8.3))
       ai:
-        specifier: ^6.0.77
-        version: 6.0.79(zod@4.3.6)
+        specifier: ^6.0.86
+        version: 6.0.86(zod@4.3.6)
       better-sqlite3:
         specifier: ^12.6.2
         version: 12.6.2
@@ -393,13 +393,13 @@ importers:
         specifier: ^0.2.0
         version: 0.2.0
       motion-v:
-        specifier: ^1.10.2
+        specifier: ^1.10.3
         version: 1.10.3(@vueuse/core@14.2.1(vue@3.5.28(typescript@5.8.3)))(vue@3.5.28(typescript@5.8.3))
       nuxt:
         specifier: ^4.3.0
         version: 4.3.1(@parcel/watcher@2.5.6)(@types/node@24.10.13)(@vue/compiler-sfc@3.5.28)(better-sqlite3@12.6.2)(cac@6.7.14)(db0@0.3.4(better-sqlite3@12.6.2))(eslint@10.0.0(jiti@2.6.1))(ioredis@5.9.2)(lightningcss@1.30.2)(magicast@0.5.2)(optionator@0.9.4)(rollup@4.57.1)(terser@5.46.0)(tsx@4.21.0)(typescript@5.8.3)(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(vue-tsc@3.2.4(typescript@5.8.3))(yaml@2.8.2)
       nuxt-component-meta:
-        specifier: ^0.17.1
+        specifier: ^0.17.2
         version: 0.17.2(magicast@0.5.2)
       nuxt-llms:
         specifier: ^0.2.0
@@ -417,11 +417,11 @@ importers:
         specifier: ^0.1.4
         version: 0.1.4(vue@3.5.28(typescript@5.8.3))
       shiki-transformer-color-highlight:
-        specifier: ^1.0.0
-        version: 1.0.0
+        specifier: ^1.1.0
+        version: 1.1.0
       sortablejs:
-        specifier: ^1.15.6
-        version: 1.15.6
+        specifier: ^1.15.7
+        version: 1.15.7
       superstruct:
         specifier: ^2.0.2
         version: 2.0.2
@@ -457,11 +457,11 @@ importers:
   playgrounds/demo:
     dependencies:
       '@ai-sdk/deepseek':
-        specifier: ^2.0.19
-        version: 2.0.19(zod@4.3.6)
+        specifier: ^2.0.20
+        version: 2.0.20(zod@4.3.6)
       '@ai-sdk/vue':
-        specifier: ^3.0.77
-        version: 3.0.79(vue@3.5.28(typescript@5.8.3))(zod@4.3.6)
+        specifier: ^3.0.86
+        version: 3.0.86(vue@3.5.28(typescript@5.8.3))(zod@4.3.6)
       '@bitrix24/b24icons-nuxt':
         specifier: ^2.0.7
         version: 2.0.7(magicast@0.5.2)(vue@3.5.28(typescript@5.8.3))
@@ -484,8 +484,8 @@ importers:
         specifier: ^3.19.0
         version: 3.19.0(@tiptap/core@3.19.0(@tiptap/pm@3.19.0))
       ai:
-        specifier: ^6.0.77
-        version: 6.0.79(zod@4.3.6)
+        specifier: ^6.0.86
+        version: 6.0.86(zod@4.3.6)
       maska:
         specifier: ^3.2.0
         version: 3.2.0
@@ -509,11 +509,11 @@ importers:
   playgrounds/nuxt:
     dependencies:
       '@ai-sdk/deepseek':
-        specifier: ^2.0.19
-        version: 2.0.19(zod@4.3.6)
+        specifier: ^2.0.20
+        version: 2.0.20(zod@4.3.6)
       '@ai-sdk/vue':
-        specifier: ^3.0.77
-        version: 3.0.79(vue@3.5.28(typescript@5.8.3))(zod@4.3.6)
+        specifier: ^3.0.86
+        version: 3.0.86(vue@3.5.28(typescript@5.8.3))(zod@4.3.6)
       '@bitrix24/b24icons-nuxt':
         specifier: ^2.0.7
         version: 2.0.7(magicast@0.5.2)(vue@3.5.28(typescript@5.8.3))
@@ -536,8 +536,8 @@ importers:
         specifier: ^3.19.0
         version: 3.19.0(@tiptap/core@3.19.0(@tiptap/pm@3.19.0))
       ai:
-        specifier: ^6.0.77
-        version: 6.0.79(zod@4.3.6)
+        specifier: ^6.0.86
+        version: 6.0.86(zod@4.3.6)
       maska:
         specifier: ^3.2.0
         version: 3.2.0
@@ -606,26 +606,26 @@ importers:
 
 packages:
 
-  '@ai-sdk/deepseek@2.0.19':
-    resolution: {integrity: sha512-TdeC9T7gUrdBJ669wBYjkQZ+V54zV8oogOeoot9HXQf14jHXbUl6pDow1z5H++nL7kX7UNK6LX5cUOEWXNcaBQ==}
+  '@ai-sdk/deepseek@2.0.20':
+    resolution: {integrity: sha512-MAL04sDTOWUiBjAGWaVgyeE4bYRb9QpKYRlIeCTZFga6I8yQs50XakhWEssrmvVihdpHGkqpDtCHsFqCydsWLA==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
 
-  '@ai-sdk/gateway@3.0.40':
-    resolution: {integrity: sha512-AK6UQIPv342zl5srFmhAHmq/rtOfmNvCkQ0J12B93KNmU1AN3eP8DO5KxhSATLffPWWGK66qWLUgU22J7RcE9A==}
+  '@ai-sdk/gateway@3.0.46':
+    resolution: {integrity: sha512-zH1UbNRjG5woOXXFOrVCZraqZuFTtmPvLardMGcgLkzpxKV0U3tAGoyWKSZ862H+eBJfI/Hf2yj/zzGJcCkycg==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
 
-  '@ai-sdk/mcp@1.0.19':
-    resolution: {integrity: sha512-RJ5I9IU0MNOFMJXTNh+pjGM8EeUNxT5FZHADoW/x2HhkMvZzpbx6ZKXvLzJ6/+uJBe50PHj4ZNxObeihH0JdoA==}
+  '@ai-sdk/mcp@1.0.21':
+    resolution: {integrity: sha512-dRX2X6GDadZNpiylNnw0HP7zJC8ggVOOJV/JtxuF6CgtP8CKnc7a/wEzpUw1m/4AGdD3mTDhKnKFwC4y10a8FQ==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
 
-  '@ai-sdk/provider-utils@4.0.14':
-    resolution: {integrity: sha512-7bzKd9lgiDeXM7O4U4nQ8iTxguAOkg8LZGD9AfDVZYjO5cKYRwBPwVjboFcVrxncRHu0tYxZtXZtiLKpG4pEng==}
+  '@ai-sdk/provider-utils@4.0.15':
+    resolution: {integrity: sha512-8XiKWbemmCbvNN0CLR9u3PQiet4gtEVIrX4zzLxnCj06AwsEDJwJVBbKrEI4t6qE8XRSIvU2irka0dcpziKW6w==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
@@ -634,8 +634,8 @@ packages:
     resolution: {integrity: sha512-oGMAgGoQdBXbZqNG0Ze56CHjDZ1IDYOwGYxYjO5KLSlz5HiNQ9udIXsPZ61VWaHGZ5XW/jyjmr6t2xz2jGVwbQ==}
     engines: {node: '>=18'}
 
-  '@ai-sdk/vue@3.0.79':
-    resolution: {integrity: sha512-AqbsR0BvYTB/7zRSw1UrTgnQ5juHItd8N2N9D1fxx4aSzORyBy/q3281t9puj7Ce2fxCFi9JGESWHzsZmLErQg==}
+  '@ai-sdk/vue@3.0.86':
+    resolution: {integrity: sha512-a1CTfrlyrdogMjcUSQcnwofoajKUXPCx+JpFsmdBeVvpR8KKUj/dz+0TpNSYbD4/l+dJC2ooTDlQqmNim+7TmQ==}
     engines: {node: '>=18'}
     peerDependencies:
       vue: ^3.3.4
@@ -2242,8 +2242,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  '@regle/core@1.18.3':
-    resolution: {integrity: sha512-5n/VNMCj2melAejsr7AHoVtlK2hWfIA97gW7mAF1biHmjHnOkzKBFzz2QXSOXYifEJrXFc3gldsWB583ET8NIA==}
+  '@regle/core@1.19.6':
+    resolution: {integrity: sha512-Py/dvVvDKoGMikhUFu20V77/dZcmjnTO/lZCJqnHnTNTPp43n0qkzZXewyZvUl91WZbDv4DzELHU3M6nDdoNSA==}
     peerDependencies:
       pinia: '>=2.2.5'
       vue: '>=3.3.0'
@@ -2251,8 +2251,8 @@ packages:
       pinia:
         optional: true
 
-  '@regle/rules@1.18.3':
-    resolution: {integrity: sha512-hiIYv+o/coiC2+If5tXgTj+uW9HN6EaiTiQWZszu9tUW5wHVkwjn22tEwJSpj+isiD6wHk5dT6JEQiFPSxXbEg==}
+  '@regle/rules@1.19.6':
+    resolution: {integrity: sha512-11c53en7SEG3FxbbRYLl3urQlMoYJGKInDMf6VQWeYSL6csLAfAtHPLdymcm68zTue/h5vhZDvkEzqJ5szfP2Q==}
 
   '@remirror/core-constants@3.0.0':
     resolution: {integrity: sha512-42aWfPrimMfDKDi4YegyS7x+/0tlzaqwPQCULLanv3DMIlu96KTJR0fM5isWX2UViOqlGnX6YFgqWepcX+XMNg==}
@@ -3524,8 +3524,8 @@ packages:
     resolution: {integrity: sha512-MnA+YT8fwfJPgBx3m60MNqakm30XOkyIoH1y6huTQvC0PwZG7ki8NacLBcrPbNoo8vEZy7Jpuk7+jMO+CUovTQ==}
     engines: {node: '>= 14'}
 
-  ai@6.0.79:
-    resolution: {integrity: sha512-xmZHdJu3g+tbafqU+RDat/cfL4C9UUehjZuwn3+Il88E6T2gZdSRm2h/TV9Txaqj86vz9OSmdrELDUKWJB+Kog==}
+  ai@6.0.86:
+    resolution: {integrity: sha512-U2W2LBCHA/pr0Ui7vmmsjBiLEzBbZF3yVHNy7Rbzn7IX+SvoQPFM5rN74hhfVzZoE8zBuGD4nLLk+j0elGacvQ==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
@@ -3883,8 +3883,8 @@ packages:
   citty@0.1.6:
     resolution: {integrity: sha512-tskPPKEs8D2KPafUypv2gxwJP8h/OaJmC82QQGGDQcHvXX43xF2VDACcJVmZ0EuSxkpO9Kc4MlrA3q0+FG58AQ==}
 
-  citty@0.2.0:
-    resolution: {integrity: sha512-8csy5IBFI2ex2hTVpaHN2j+LNE199AgiI7y4dMintrr8i0lQiFn+0AWMZrWdHKIgMOer65f8IThysYhoReqjWA==}
+  citty@0.2.1:
+    resolution: {integrity: sha512-kEV95lFBhQgtogAPlQfJJ0WGVSokvLr/UEoFPiKKOXF7pl98HfUVUD0ejsuTCld/9xH9vogSywZ5KqHzXrZpqg==}
 
   clean-git-ref@2.0.1:
     resolution: {integrity: sha512-bLSptAy2P0s6hU4PzuIMKmMJJSE6gLXGH1cntDu7bWJUksvuM+7ReOK61mozULErYvP6a15rnYl0zFDef+pyPw==}
@@ -3915,8 +3915,8 @@ packages:
   colord@2.9.3:
     resolution: {integrity: sha512-jeC1axXpnb0/2nn/Y1LPuLdgXBLH7aDcHu4KEKfqw3CUhX7ZpfBSlPKyqXE6btIgEzfWtrX3/tyBCaCvXvMkOw==}
 
-  colorjs.io@0.5.2:
-    resolution: {integrity: sha512-twmVoizEW7ylZSN32OgKdXRmo1qg+wT5/6C3xu5b9QsWzSFAhHLn2xd8ro0diCsKfCj1RdaTP/nrcW+vAoQPIw==}
+  colorjs.io@0.6.1:
+    resolution: {integrity: sha512-8lyR2wHzuIykCpqHKgluGsqQi5iDm3/a2IgP2GBZrasn2sBRkE4NOGsglZxWLs/jZQoNkmA/KM/8NV16rLUdBg==}
 
   colortranslator@5.0.0:
     resolution: {integrity: sha512-Z3UPUKasUVDFCDYAjP2fmlVRf1jFHJv1izAmPjiOa0OCIw1W7iC8PZ2GsoDa8uZv+mKyWopxxStT9q05+27h7w==}
@@ -6861,8 +6861,8 @@ packages:
       vue:
         optional: true
 
-  shiki-transformer-color-highlight@1.0.0:
-    resolution: {integrity: sha512-WwoXcbSQF4Hcfu/F4V7jvZxqmix4f8KNYNlYiNwz0w9RcABqhdNQOLeRRw3VNV2LBYdNcNR0qd9HVnlV+D+uzg==}
+  shiki-transformer-color-highlight@1.1.0:
+    resolution: {integrity: sha512-kjmJajroVi7llqSA7vsdMlOv5jmnYUs8O3Er4RfEIm8kd2g6ou9rEHxm5mNWbb6o2aXI4F/xhkq46Vyh/1bEVQ==}
 
   shiki@3.22.0:
     resolution: {integrity: sha512-LBnhsoYEe0Eou4e1VgJACes+O6S6QC0w71fCSp5Oya79inkwkm15gQ1UF6VtQ8j/taMDh79hAB49WUk8ALQW3g==}
@@ -6946,8 +6946,8 @@ packages:
     resolution: {integrity: sha512-HLpt+uLy/pxB+bum/9DzAgiKS8CX1EvbWxI4zlmgGCExImLdiad2iCwXT5Z4c9c3Eq8rP2318mPW2c+QbtjK8A==}
     engines: {node: '>= 10.0.0', npm: '>= 3.0.0'}
 
-  sortablejs@1.15.6:
-    resolution: {integrity: sha512-aNfiuwMEpfBM/CN6LY0ibyhxPfPbyFeBTYJKCvzkJ2GkUpazIt3H+QIPAMHwqQ7tMKaHz1Qj+rJJCqljnf4p3A==}
+  sortablejs@1.15.7:
+    resolution: {integrity: sha512-Kk8wLQPlS+yi1ZEf48a4+fzHa4yxjC30M/Sr2AnQu+f/MPwvvX9XjZ6OWejiz8crBsLwSq8GHqaxaET7u6ux0A==}
 
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
@@ -7099,8 +7099,8 @@ packages:
     resolution: {integrity: sha512-yEFYrVhod+hdNyx7g5Bnkkb0G6si8HJurOoOEgC8B/O0uXLHlaey/65KRv6cuWBNhBgHKAROVpc7QyYqE5gFng==}
     engines: {node: '>=20'}
 
-  tailwind-merge@3.4.0:
-    resolution: {integrity: sha512-uSaO4gnW+b3Y2aWoWfFpX62vn2sR3skfhbjsEnaBI81WD1wBLlHZe5sWf0AqjksNdYTbGBEd0UasQMT3SNV15g==}
+  tailwind-merge@3.4.1:
+    resolution: {integrity: sha512-2OA0rFqWOkITEAOFWSBSApYkDeH9t2B3XSJuI4YztKBzK3mX0737A2qtxDZ7xkw9Zfh0bWl+r34sF3HXV+Ig7Q==}
 
   tailwind-variants@3.2.2:
     resolution: {integrity: sha512-Mi4kHeMTLvKlM98XPnK+7HoBPmf4gygdFmqQPaDivc3DpYS6aIY6KiG/PgThrGvii5YZJqRsPz0aPyhoFzmZgg==}
@@ -7269,10 +7269,6 @@ packages:
   type-fest@2.19.0:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
-
-  type-fest@5.4.3:
-    resolution: {integrity: sha512-AXSAQJu79WGc79/3e9/CR77I/KQgeY1AhNvcShIH4PTcGYyC4xv6H4R4AUOwkPS5799KlVDAu8zExeCrkGquiA==}
-    engines: {node: '>=20'}
 
   type-fest@5.4.4:
     resolution: {integrity: sha512-JnTrzGu+zPV3aXIUhnyWJj4z/wigMsdYajGLIYakqyOW1nPllzXEJee0QQbHj+CTIQtXGlAjuK0UY+2xTyjVAw==}
@@ -7938,27 +7934,27 @@ packages:
 
 snapshots:
 
-  '@ai-sdk/deepseek@2.0.19(zod@4.3.6)':
+  '@ai-sdk/deepseek@2.0.20(zod@4.3.6)':
     dependencies:
       '@ai-sdk/provider': 3.0.8
-      '@ai-sdk/provider-utils': 4.0.14(zod@4.3.6)
+      '@ai-sdk/provider-utils': 4.0.15(zod@4.3.6)
       zod: 4.3.6
 
-  '@ai-sdk/gateway@3.0.40(zod@4.3.6)':
+  '@ai-sdk/gateway@3.0.46(zod@4.3.6)':
     dependencies:
       '@ai-sdk/provider': 3.0.8
-      '@ai-sdk/provider-utils': 4.0.14(zod@4.3.6)
+      '@ai-sdk/provider-utils': 4.0.15(zod@4.3.6)
       '@vercel/oidc': 3.1.0
       zod: 4.3.6
 
-  '@ai-sdk/mcp@1.0.19(zod@4.3.6)':
+  '@ai-sdk/mcp@1.0.21(zod@4.3.6)':
     dependencies:
       '@ai-sdk/provider': 3.0.8
-      '@ai-sdk/provider-utils': 4.0.14(zod@4.3.6)
+      '@ai-sdk/provider-utils': 4.0.15(zod@4.3.6)
       pkce-challenge: 5.0.1
       zod: 4.3.6
 
-  '@ai-sdk/provider-utils@4.0.14(zod@4.3.6)':
+  '@ai-sdk/provider-utils@4.0.15(zod@4.3.6)':
     dependencies:
       '@ai-sdk/provider': 3.0.8
       '@standard-schema/spec': 1.1.0
@@ -7969,10 +7965,10 @@ snapshots:
     dependencies:
       json-schema: 0.4.0
 
-  '@ai-sdk/vue@3.0.79(vue@3.5.28(typescript@5.8.3))(zod@4.3.6)':
+  '@ai-sdk/vue@3.0.86(vue@3.5.28(typescript@5.8.3))(zod@4.3.6)':
     dependencies:
-      '@ai-sdk/provider-utils': 4.0.14(zod@4.3.6)
-      ai: 6.0.79(zod@4.3.6)
+      '@ai-sdk/provider-utils': 4.0.15(zod@4.3.6)
+      ai: 6.0.86(zod@4.3.6)
       swrv: 1.1.0(vue@3.5.28(typescript@5.8.3))
       vue: 3.5.28(typescript@5.8.3)
     transitivePeerDependencies:
@@ -8171,10 +8167,10 @@ snapshots:
     dependencies:
       vue: 3.5.28(typescript@5.8.3)
 
-  '@bomb.sh/tab@0.0.12(cac@6.7.14)(citty@0.2.0)':
+  '@bomb.sh/tab@0.0.12(cac@6.7.14)(citty@0.2.1)':
     optionalDependencies:
       cac: 6.7.14
-      citty: 0.2.0
+      citty: 0.2.1
 
   '@clack/core@1.0.0':
     dependencies:
@@ -8772,10 +8768,10 @@ snapshots:
 
   '@nuxt/cli@3.33.1(@nuxt/schema@4.3.1)(cac@6.7.14)(magicast@0.5.2)':
     dependencies:
-      '@bomb.sh/tab': 0.0.12(cac@6.7.14)(citty@0.2.0)
+      '@bomb.sh/tab': 0.0.12(cac@6.7.14)(citty@0.2.1)
       '@clack/prompts': 1.0.0
       c12: 3.3.3(magicast@0.5.2)
-      citty: 0.2.0
+      citty: 0.2.1
       confbox: 0.2.4
       consola: 3.4.2
       copy-paste: 2.2.0
@@ -9131,7 +9127,7 @@ snapshots:
   '@nuxt/telemetry@2.7.0(@nuxt/kit@4.3.1(magicast@0.5.2))':
     dependencies:
       '@nuxt/kit': 4.3.1(magicast@0.5.2)
-      citty: 0.2.0
+      citty: 0.2.1
       consola: 3.4.2
       ofetch: 2.0.0-alpha.3
       rc9: 3.0.0
@@ -9660,17 +9656,17 @@ snapshots:
       - react-native-b4a
       - supports-color
 
-  '@regle/core@1.18.3(vue@3.5.28(typescript@5.8.3))':
+  '@regle/core@1.19.6(vue@3.5.28(typescript@5.8.3))':
     dependencies:
       '@standard-schema/spec': 1.1.0
       '@vue/devtools-api': 7.7.9
-      type-fest: 5.4.3
+      type-fest: 5.4.4
       vue: 3.5.28(typescript@5.8.3)
 
-  '@regle/rules@1.18.3(vue@3.5.28(typescript@5.8.3))':
+  '@regle/rules@1.19.6(vue@3.5.28(typescript@5.8.3))':
     dependencies:
-      '@regle/core': 1.18.3(vue@3.5.28(typescript@5.8.3))
-      type-fest: 5.4.3
+      '@regle/core': 1.19.6(vue@3.5.28(typescript@5.8.3))
+      type-fest: 5.4.4
     transitivePeerDependencies:
       - pinia
       - vue
@@ -10842,7 +10838,7 @@ snapshots:
       '@vueuse/shared': 14.2.1(vue@3.5.28(typescript@5.8.3))
       vue: 3.5.28(typescript@5.8.3)
 
-  '@vueuse/integrations@14.2.1(axios@1.13.5)(change-case@5.4.4)(fuse.js@7.1.0)(sortablejs@1.15.6)(vue@3.5.28(typescript@5.8.3))':
+  '@vueuse/integrations@14.2.1(axios@1.13.5)(change-case@5.4.4)(fuse.js@7.1.0)(sortablejs@1.15.7)(vue@3.5.28(typescript@5.8.3))':
     dependencies:
       '@vueuse/core': 14.2.1(vue@3.5.28(typescript@5.8.3))
       '@vueuse/shared': 14.2.1(vue@3.5.28(typescript@5.8.3))
@@ -10851,7 +10847,7 @@ snapshots:
       axios: 1.13.5
       change-case: 5.4.4
       fuse.js: 7.1.0
-      sortablejs: 1.15.6
+      sortablejs: 1.15.7
 
   '@vueuse/metadata@10.11.1': {}
 
@@ -10895,11 +10891,11 @@ snapshots:
 
   agent-base@7.1.4: {}
 
-  ai@6.0.79(zod@4.3.6):
+  ai@6.0.86(zod@4.3.6):
     dependencies:
-      '@ai-sdk/gateway': 3.0.40(zod@4.3.6)
+      '@ai-sdk/gateway': 3.0.46(zod@4.3.6)
       '@ai-sdk/provider': 3.0.8
-      '@ai-sdk/provider-utils': 4.0.14(zod@4.3.6)
+      '@ai-sdk/provider-utils': 4.0.15(zod@4.3.6)
       '@opentelemetry/api': 1.9.0
       zod: 4.3.6
 
@@ -11273,7 +11269,7 @@ snapshots:
     dependencies:
       consola: 3.4.2
 
-  citty@0.2.0: {}
+  citty@0.2.1: {}
 
   clean-git-ref@2.0.1: {}
 
@@ -11303,7 +11299,7 @@ snapshots:
 
   colord@2.9.3: {}
 
-  colorjs.io@0.5.2: {}
+  colorjs.io@0.6.1: {}
 
   colortranslator@5.0.0: {}
 
@@ -13934,7 +13930,7 @@ snapshots:
 
   nypm@0.6.5:
     dependencies:
-      citty: 0.2.0
+      citty: 0.2.1
       pathe: 2.0.3
       tinyexec: 1.0.2
 
@@ -15079,11 +15075,11 @@ snapshots:
     optionalDependencies:
       vue: 3.5.28(typescript@5.8.3)
 
-  shiki-transformer-color-highlight@1.0.0:
+  shiki-transformer-color-highlight@1.1.0:
     dependencies:
       '@shikijs/core': 3.22.0
       '@shikijs/types': 3.22.0
-      colorjs.io: 0.5.2
+      colorjs.io: 0.6.1
 
   shiki@3.22.0:
     dependencies:
@@ -15200,7 +15196,7 @@ snapshots:
       ip-address: 10.1.0
       smart-buffer: 4.2.0
 
-  sortablejs@1.15.6: {}
+  sortablejs@1.15.7: {}
 
   source-map-js@1.2.1: {}
 
@@ -15334,13 +15330,13 @@ snapshots:
 
   tagged-tag@1.0.0: {}
 
-  tailwind-merge@3.4.0: {}
+  tailwind-merge@3.4.1: {}
 
-  tailwind-variants@3.2.2(tailwind-merge@3.4.0)(tailwindcss@4.1.18):
+  tailwind-variants@3.2.2(tailwind-merge@3.4.1)(tailwindcss@4.1.18):
     dependencies:
       tailwindcss: 4.1.18
     optionalDependencies:
-      tailwind-merge: 3.4.0
+      tailwind-merge: 3.4.1
 
   tailwindcss@4.1.18: {}
 
@@ -15501,10 +15497,6 @@ snapshots:
       prelude-ls: 1.2.1
 
   type-fest@2.19.0: {}
-
-  type-fest@5.4.3:
-    dependencies:
-      tagged-tag: 1.0.0
 
   type-fest@5.4.4:
     dependencies:
