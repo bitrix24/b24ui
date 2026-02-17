@@ -13,9 +13,11 @@ export default defineEventHandler(async (event) => {
   const { messages } = await readBody(event)
   const config = useRuntimeConfig()
 
-  const httpTransport = new StreamableHTTPClientTransport(
-    new URL(import.meta.dev ? `http://localhost:3000${config.public.baseUrl}/mcp/` : `${config.public.siteUrl}${config.public.baseUrl}/mcp/`)
-  )
+  const mcpUrl = import.meta.dev
+    ? new URL(`${config.public.baseUrl}/mcp/`, getRequestURL(event).origin)
+    : new URL(`${config.public.siteUrl}${config.public.baseUrl}/mcp/`)
+  const httpTransport = new StreamableHTTPClientTransport(mcpUrl)
+
   const httpClient = await experimental_createMCPClient({
     transport: httpTransport
   })
