@@ -255,7 +255,7 @@ importers:
         specifier: ^24.7.0
         version: 24.10.13
       '@vitejs/plugin-vue':
-        specifier: ^6.0.2
+        specifier: ^6.0.4
         version: 6.0.4(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(vue@3.5.28(typescript@5.8.3))
       '@vue/test-utils':
         specifier: ^2.4.6
@@ -297,7 +297,7 @@ importers:
         specifier: ^1.0.1
         version: 1.0.1(@vue/test-utils@2.4.6)(happy-dom@20.6.1)(magicast@0.5.2)(playwright-core@1.58.2)(typescript@5.8.3)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.10.13)(happy-dom@20.6.1)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
       vue:
-        specifier: ^3.5.25
+        specifier: ^3.5.28
         version: 3.5.28(typescript@5.8.3)
       vue-tsc:
         specifier: ^3.2.4
@@ -582,23 +582,23 @@ importers:
         specifier: ^4.1.18
         version: 4.1.18
       vue:
-        specifier: ^3.5.25
+        specifier: ^3.5.28
         version: 3.5.28(typescript@5.8.3)
       vue-router:
-        specifier: ^4.6.3
+        specifier: ^4.6.4
         version: 4.6.4(vue@3.5.28(typescript@5.8.3))
       zod:
         specifier: ^4.3.6
         version: 4.3.6
     devDependencies:
       '@vitejs/plugin-vue':
-        specifier: ^6.0.2
+        specifier: ^6.0.4
         version: 6.0.4(vite@7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(vue@3.5.28(typescript@5.8.3))
       typescript:
         specifier: 5.8.3
         version: 5.8.3
       vite:
-        specifier: ^7.2.7
+        specifier: ^7.3.1
         version: 7.3.1(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
       vue-tsc:
         specifier: ^3.2.4
