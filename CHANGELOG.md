@@ -2,7 +2,6 @@
 
 ## [2.3.1](https://github.com/bitrix24/b24ui/compare/v2.3.0...v2.3.1) (2026-02-xx)
 
-* doc(filteredNavigation): improve
 * feat(plugins\platform): detect `bitrixMobile`
 * fix(Prose.A): add prop `raw`
 * feat(Theme): new component
@@ -13,7 +12,7 @@
 * feat(Toaster): prevent duplicate toasts and add pulse animation
 * fix(defineShortcuts): add alt key guard
 * feat(Form): add HTML5 validation to programmatic submit
-* docs(toast): add duplicate example
+* fix(ChatMessages): prevent flash at top before scrolling to bottom on mount
 
 ## [2.3.0](https://github.com/bitrix24/b24ui/compare/v2.2.1...v2.3.0) (2026-02-12)
 
