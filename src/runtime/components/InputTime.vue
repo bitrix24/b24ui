@@ -117,7 +117,12 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.inputT
   fieldGroup: orientation.value
 }))
 
-const inputsRef = ref<any[]>([])
+const inputsRef = ref<ComponentPublicInstance[]>([])
+
+function setInputRef(index: number, el: Element | ComponentPublicInstance | null) {
+  // @ts-expect-error - ComponentPublicInstance type mismatch in Nuxt module augmentation
+  inputsRef.value[index] = el
+}
 
 function onUpdate(value: any) {
   // @ts-expect-error - 'target' does not exist in type 'EventInit'
@@ -180,7 +185,7 @@ defineExpose({
     <TimeFieldInput
       v-for="(segment, index) in segments"
       :key="`${segment.part}-${index}`"
-      :ref="el => (inputsRef[index] = el as unknown as ComponentPublicInstance)"
+      :ref="el => setInputRef(index, el)"
       :part="segment.part"
       data-slot="segment"
       :class="b24ui.segment({ class: uiProp?.segment })"

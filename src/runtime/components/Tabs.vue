@@ -119,7 +119,12 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.tabs |
   orientation: props.orientation
 }))
 
-const triggersRef = ref<any[]>([])
+const triggersRef = ref<ComponentPublicInstance[]>([])
+
+function setTriggerRef(index: number, el: Element | ComponentPublicInstance | null) {
+  // @ts-expect-error - ComponentPublicInstance type mismatch in Nuxt module augmentation
+  triggersRef.value[index] = el
+}
 
 defineExpose({
   triggersRef
@@ -144,7 +149,7 @@ defineExpose({
       <TabsTrigger
         v-for="(item, index) of items"
         :key="index"
-        :ref="el => (triggersRef[index] = el as unknown as ComponentPublicInstance)"
+        :ref="el => setTriggerRef(index, el)"
         :value="get(item, props.valueKey as string) ?? String(index)"
         :disabled="item.disabled"
         data-slot="trigger"

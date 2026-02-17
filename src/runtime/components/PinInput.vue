@@ -92,7 +92,12 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pinInp
   underline: Boolean(props.underline)
 }))
 
-const inputsRef = ref<any[]>([])
+const inputsRef = ref<ComponentPublicInstance[]>([])
+
+function setInputRef(index: number, el: Element | ComponentPublicInstance | null) {
+  // @ts-expect-error - ComponentPublicInstance type mismatch in Nuxt module augmentation
+  inputsRef.value[index] = el
+}
 
 const completed = ref(false)
 function onComplete(value: string[] | number[]) {
@@ -142,7 +147,7 @@ defineExpose({
     <PinInputInput
       v-for="(ids, index) in looseToNumber(props.length)"
       :key="ids"
-      :ref="el => (inputsRef[index as number] = el as unknown as ComponentPublicInstance)"
+      :ref="el => setInputRef(index as number, el)"
       :index="(index as number)"
       data-slot="base"
       :class="b24ui.base({ class: uiProp?.base })"

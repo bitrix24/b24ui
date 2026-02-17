@@ -108,11 +108,11 @@
     "vue-plugin.d.ts"
   ],
   "scripts": {
-    "dev:generate": "nuxt generate playgrounds/nuxt",
-    "dev:preview": "nuxt preview playgrounds/nuxt",
     "build": "nuxt-module-build build",
     "prepack": "pnpm build",
     "dev": "nuxt dev playgrounds/nuxt --uiDev",
+    "dev:generate": "nuxt generate playgrounds/nuxt",
+    "dev:preview": "nuxt preview playgrounds/nuxt",
     "dev:build": "nuxt build playgrounds/nuxt",
     "dev:vue": "pnpm --filter ./playgrounds/vue dev -- --uiDev",
     "dev:vue:build": "pnpm --filter ./playgrounds/vue build",
@@ -138,8 +138,8 @@
     "@bitrix24/b24icons-vue": "^2.0.7",
     "@internationalized/date": "^3.11.0",
     "@internationalized/number": "^3.6.5",
-    "@nuxt/kit": "^4.3.0",
-    "@nuxt/schema": "^4.3.0",
+    "@nuxt/kit": "^4.3.1",
+    "@nuxt/schema": "^4.3.1",
     "@standard-schema/spec": "^1.1.0",
     "@tailwindcss/postcss": "^4.1.18",
     "@tailwindcss/vite": "^4.1.18",
@@ -205,11 +205,6 @@
     "@tanstack/table-core": "^8.21.3",
     "@vitejs/plugin-vue": "^6.0.4",
     "@vue/test-utils": "^2.4.6",
-    "@types/canvas-confetti": "^1.9.0",
-    "@types/node": "^24.7.0",
-    "esno": "^4.8.0",
-    "nuxt-component-meta": "^0.14.2",
-    "sharp": "^0.34.3",
     "ai": "^6.0.86",
     "embla-carousel": "^8.6.0",
     "eslint": "^10.0.0",
@@ -220,7 +215,11 @@
     "vitest-axe": "^0.1.0",
     "vitest-environment-nuxt": "^1.0.1",
     "vue": "^3.5.28",
-    "vue-tsc": "^3.2.4"
+    "vue-tsc": "^3.2.4",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/node": "^24.7.0",
+    "esno": "^4.8.0",
+    "sharp": "^0.34.3"
   },
   "peerDependencies": {
     "@inertiajs/vue3": "^2.0.7",
@@ -261,7 +260,7 @@
     }
   },
   "resolutions": {
-    "@nuxt/kit": "^4.3.0",
+    "@nuxt/kit": "^4.3.1",
     "@bitrix24/b24ui-nuxt": "workspace:*",
     "nitropack": "^2.13.0",
     "typescript": "5.8.3",
