@@ -219,7 +219,6 @@ export default defineNuxtConfig({
     '@nuxt/content',
     // '@nuxt/image',
     '@nuxt/a11y',
-    '@nuxtjs/plausible',
     '@nuxtjs/mcp-toolkit',
     'nuxt-component-meta',
     'nuxt-llms',
@@ -416,7 +415,6 @@ export default defineNuxtConfig({
       '@nuxt/image',
       '@nuxtjs/color-mode',
       '@nuxtjs/mdc',
-      '@nuxtjs/plausible',
       'nuxt/dist',
       'nuxt-og-image',
       resolve('./app/components')
