@@ -1,107 +1,70 @@
-import { ref, computed, watch, nextTick } from 'vue'
+import { nextTick, ref, watch } from 'vue'
 import { useColorMode } from '#imports'
 
-export const THEME_CLASSES = ['light', 'edge-dark', 'edge-light', 'dark'] as const
-export type ThemeClass = typeof THEME_CLASSES[number]
-export type LightThemeClass = Exclude<ThemeClass, 'dark'>
-export function useThemeMode(initialLightMode: LightThemeClass = 'light') {
+export function useThemeMode() {
   const colorMode = useColorMode()
+  const colorModel = ref<string>(colorMode.colorModeInitialValue!)
+  const colorList = ref<string[]>([...(colorMode.modeKeysList || []).filter(key => key !== 'auto')])
+  const lastLightModel = ref<string>('')
 
-  const modeContext = ref<ThemeClass>(initialLightMode)
+  if (isDarkMode(colorModel.value)) {
+    lastLightModel.value = colorMode.colorModeTypeLight
+  } else {
+    lastLightModel.value = colorModel.value
+  }
 
-  const lastLightMode = ref<LightThemeClass>(initialLightMode)
-
-  let isInternalUpdate = false
-  function syncHtmlClass() {
-    if (import.meta.client && typeof document !== 'undefined') {
-      const htmlElement = document.documentElement
-      THEME_CLASSES.forEach(themeClass => htmlElement.classList.remove(themeClass))
-      htmlElement.classList.add(modeContext.value)
+  function setLastLightModel(mode: string) {
+    if (!isDarkMode(mode)) {
+      lastLightModel.value = mode
     }
   }
 
-  function isDarkMode(mode: ThemeClass): boolean {
+  function isDarkMode(mode: string): boolean {
     return mode === 'dark'
   }
 
-  watch(() => colorMode.preference, (newPreference) => {
-    if (isInternalUpdate) return
-
-    if (newPreference === 'dark') {
-      if (!isDarkMode(modeContext.value)) {
-        lastLightMode.value = modeContext.value as LightThemeClass
-      }
-      modeContext.value = 'dark'
-    } else if (newPreference === 'light') {
-      modeContext.value = lastLightMode.value
-    }
-
-    nextTick(() => {
-      syncHtmlClass()
-    })
-  }, { immediate: true, flush: 'post' })
-
-  watch(modeContext, (newMode) => {
-    if (!isDarkMode(newMode)) {
-      lastLightMode.value = newMode as LightThemeClass
-    }
-
-    nextTick(() => {
-      syncHtmlClass()
-    })
-  }, { flush: 'post' })
-
   function syncColorModePreference() {
-    isInternalUpdate = true
+    setLastLightModel(colorModel.value)
 
-    if (isDarkMode(modeContext.value)) {
+    if (isDarkMode(colorModel.value)) {
       colorMode.preference = 'dark'
     } else {
-      colorMode.preference = 'light'
+      colorMode.preference = colorModel.value
     }
-
-    nextTick(() => {
-      isInternalUpdate = false
-    })
   }
 
   function toggleDarkMode() {
-    if (isDarkMode(modeContext.value)) {
-      modeContext.value = lastLightMode.value
-      colorMode.preference = 'light'
+    if (isDarkMode(colorModel.value)) {
+      colorModel.value = lastLightModel.value
+      colorMode.preference = colorModel.value
     } else {
-      lastLightMode.value = modeContext.value as LightThemeClass
-      modeContext.value = 'dark'
+      setLastLightModel(colorModel.value)
+      colorModel.value = 'dark'
       colorMode.preference = 'dark'
     }
   }
 
-  const isDark = computed({
-    get() {
-      return colorMode.value === 'dark'
-    },
-    set(_isDark: boolean) {
-      colorMode.preference = _isDark ? 'dark' : 'light'
+  watch(() => colorMode.preference, (newPreference) => {
+    if (newPreference === 'dark') {
+      if (!isDarkMode(colorModel.value)) {
+        setLastLightModel(colorModel.value)
+      }
+      colorModel.value = 'dark'
+    } else if (newPreference === 'light') {
+      colorModel.value = lastLightModel.value
     }
-  })
 
-  const themeItems = [...THEME_CLASSES]
+    nextTick(() => {
+      colorMode.preference = colorModel.value
+    })
+  }, { immediate: true, flush: 'post' })
 
-  if (import.meta.client) {
-    syncHtmlClass()
-  }
+  colorMode.preference = colorModel.value
 
   return {
-    modeContext,
-    lastLightMode,
-    isDark,
-
-    THEME_CLASSES,
-    themeItems,
-
-    syncHtmlClass,
+    colorList,
+    colorModel,
     syncColorModePreference,
-    toggleDarkMode,
-    isDarkMode
+    toggleDarkMode
   }
 }

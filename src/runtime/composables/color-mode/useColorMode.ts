@@ -12,17 +12,25 @@ export const useColorMode = () => {
     }
   }
 
+  const modes = {
+    'auto': 'auto',
+    'light': (appConfig?.colorModeTypeLight || 'light') as string,
+    'edge-dark': 'edge-dark',
+    'edge-light': 'edge-light',
+    'dark': 'dark'
+  } as const
+
+  const modeKeysList = Object.keys(modes) as (keyof typeof modes)[]
   const { store, system } = useColorModeVueUse({
     attribute: 'class',
-    initialValue: (appConfig?.colorModeTypeLight || 'light') as string,
-    modes: {
-      auto: 'auto',
-      light: (appConfig?.colorModeTypeLight || 'light') as string,
-      dark: 'dark'
-    }
+    initialValue: (appConfig?.colorModeInitialValue || 'light') as string,
+    modes
   })
 
   return {
+    modeKeysList,
+    colorModeInitialValue: (appConfig?.colorModeInitialValue || 'light') as string,
+    colorModeTypeLight: (appConfig?.colorModeTypeLight || 'light') as string,
     get preference() { return store.value === 'auto' ? 'system' : store.value },
     set preference(value) { store.value = value === 'system' ? 'auto' : value },
     get value() { return store.value === 'auto' ? system.value : store.value },

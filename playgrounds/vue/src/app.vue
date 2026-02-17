@@ -4,7 +4,7 @@ import { reactive, ref, computed } from 'vue'
 import { useHead } from '@unhead/vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useNavigation } from '../../nuxt/app/composables/useNavigation'
-import { useThemeMode, type LightThemeClass } from '../../nuxt/app/composables/useThemeMode'
+import { useThemeMode } from '../../nuxt/app/composables/useThemeMode'
 import { useTextDirection } from '@vueuse/core'
 
 const route = useRoute()
@@ -19,12 +19,7 @@ appConfig.toaster = reactive({
   expand: true
 })
 
-const {
-  modeContext,
-  syncColorModePreference,
-  toggleDarkMode,
-  themeItems
-} = useThemeMode((appConfig?.colorModeTypeLight || 'light') as LightThemeClass)
+const { colorList, colorModel, syncColorModePreference, toggleDarkMode } = useThemeMode()
 
 useHead({
   title: 'Bitrix24 UI - Playground Vue',
@@ -109,7 +104,7 @@ defineShortcuts({
           <B24SidebarHeader>
             <div class="h-full flex items-center gap-x-sm relative my-0 px-4">
               <B24Tooltip
-                :content="{ align: 'start', side: 'bottom', sideOffset: 8 }"
+                :content="{ align: 'start', side: 'bottom' }"
                 text="Go home"
                 :kbds="['ctrl', 'arrowleft']"
               >
@@ -150,7 +145,6 @@ defineShortcuts({
         <template #navbar>
           <RouterLink to="/" class="inline-flex lg:hidden mt-0 text-(--ui-color-design-selection-content)" aria-label="Home">
             <B24Tooltip
-              class=""
               :content="{ side: 'bottom', align: 'start' }"
               text="Go home"
               :kbds="['ctrl', 'arrowleft']"
@@ -164,18 +158,17 @@ defineShortcuts({
           <B24NavbarSection class="flex-row items-center justify-start gap-4">
             <B24DashboardSearchButton class="hidden lg:inline-flex" size="sm" rounded :collapsed="false" :kbds="[{ value: 'meta', size: 'sm' }, { value: 'K', size: 'sm' }]" />
             <B24Tooltip :content="{ side: 'bottom' }" text="Switch color mode" :kbds="['shift', 'D']">
-              <B24ColorModeSwitch />
+              <B24RadioGroup
+                v-model="colorModel"
+                :items="colorList"
+                class="hidden lg:inline-flex"
+                size="xs"
+                orientation="horizontal"
+                variant="table"
+                indicator="hidden"
+                @change="syncColorModePreference"
+              />
             </B24Tooltip>
-            <B24RadioGroup
-              v-model="modeContext"
-              class="hidden lg:inline-flex"
-              :items="themeItems"
-              size="xs"
-              orientation="horizontal"
-              variant="table"
-              indicator="hidden"
-              @change="syncColorModePreference"
-            />
           </B24NavbarSection>
         </template>
 

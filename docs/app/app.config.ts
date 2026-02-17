@@ -7,5 +7,6 @@ export default defineAppConfig({
   },
   b24ui: {},
   colorMode: true,
+  colorModeInitialValue: 'edge-dark' as const, // edge-dark | edge-light | light
   colorModeTypeLight: 'edge-dark' as const // edge-dark | edge-light | light
 })

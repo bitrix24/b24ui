@@ -19,6 +19,7 @@ export function getDefaultConfig(theme?: ModuleOptions['theme']) {
 
 export const defaultOptions = {
   colorMode: true,
+  colorModeInitialValue: 'light' as const,
   colorModeTypeLight: 'light' as const,
   version,
   mdc: true,

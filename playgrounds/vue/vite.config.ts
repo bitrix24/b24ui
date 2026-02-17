@@ -10,7 +10,9 @@ export default defineConfig(({ mode }) => {
     plugins: [
       vue(),
       bitrix24UIPluginVite({
-        colorModeTypeLight: 'edge-dark',
+        // @memo set in playgrounds/vue/index.html too
+        colorModeInitialValue: 'edge-dark',
+        colorModeTypeLight: 'light',
         b24ui: {},
         autoImport: {
           dirs: ['../nuxt/app/composables'],

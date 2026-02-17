@@ -21,7 +21,7 @@ import Bitrix24EnvironmentPlugin from './plugins/bitrix24-environment'
 import AutoImportPlugin from './plugins/auto-import'
 
 import type { TVConfig } from './runtime/types/tv'
-import type { ColorModeTypeLight } from './runtime/types'
+import type { ColorModeType, ColorModeTypeLight } from './runtime/types'
 
 type AppConfigB24UI = {
   prefix?: string
@@ -36,6 +36,7 @@ export interface Bitrix24UIOptions extends Omit<ModuleOptions, 'colorMode'> {
    * @defaultValue `true`
    */
   colorMode?: boolean
+  colorModeInitialValue?: ColorModeType
   colorModeTypeLight?: ColorModeTypeLight
   /**
    * Override options for `unplugin-auto-import`
@@ -76,6 +77,7 @@ export const Bitrix24UIPlugin = createUnplugin<Bitrix24UIOptions | undefined>((_
       b24ui: options.b24ui,
       version: options.version,
       colorMode: options.colorMode,
+      colorModeInitialValue: options.colorModeInitialValue,
       colorModeTypeLight: options.colorModeTypeLight
     },
     {

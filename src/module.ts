@@ -1,7 +1,7 @@
+import type { HookResult } from '@nuxt/schema'
+import type { ColorModeType, ColorModeTypeLight } from './runtime/types'
 import { defu } from 'defu'
 import { createResolver, defineNuxtModule, addComponentsDir, addImportsDir, addPlugin, installModule, hasNuxtModule } from '@nuxt/kit'
-import type { HookResult } from '@nuxt/schema'
-import type { ColorModeTypeLight } from './runtime/types'
 import { addTemplates } from './templates'
 import { defaultOptions, getDefaultConfig } from './utils/defaults'
 import { name, version } from '../package.json'
@@ -19,6 +19,7 @@ export interface ModuleOptions {
    * @link https://bitrix24.github.io/b24ui/docs/getting-started/installation/nuxt/#colormode
    */
   colorMode?: boolean
+  colorModeInitialValue?: ColorModeType
   colorModeTypeLight?: ColorModeTypeLight
   version?: string
   /**

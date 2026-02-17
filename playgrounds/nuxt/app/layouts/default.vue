@@ -4,19 +4,13 @@ import { useTextDirection } from '@vueuse/core'
 import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
 import { useNavigation } from '~/composables/useNavigation'
 import { useThemeMode } from '~/composables/useThemeMode'
-import type { LightThemeClass } from '~/composables/useThemeMode'
 
 const route = useRoute()
 const router = useRouter()
 const appConfig = useAppConfig()
 const dir = useTextDirection()
 
-const {
-  modeContext,
-  syncColorModePreference,
-  toggleDarkMode,
-  themeItems
-} = useThemeMode((appConfig?.colorModeTypeLight || 'light') as LightThemeClass)
+const { colorList, colorModel, syncColorModePreference, toggleDarkMode } = useThemeMode()
 
 useHead({
   title: 'Bitrix24 UI - Demo Playground',
@@ -30,7 +24,7 @@ useHead({
   }
 })
 
-const { components, groups } = useNavigation()
+const { groups, components } = useNavigation()
 provide('components', components)
 
 const searchTerm = ref('')
@@ -60,13 +54,11 @@ function toggleDir() {
 }
 
 const getLightContent = computed(() => {
-  const result = {
+  return {
     sidebarSlideoverContainer: 'z-3',
     pageWrapper: 'px-0 lg:px-(--content-area-shift)',
     containerWrapperInner: 'flex flex-col lg:gap-4 lg:pt-lg'
   }
-
-  return result
 })
 
 defineShortcuts({
@@ -100,22 +92,21 @@ defineShortcuts({
     >
       <template #sidebar>
         <B24SidebarHeader>
-          <div class="h-full flex items-center gap-x-sm relative my-0 ps-6 pe-xs rtl:pe-6">
+          <div class="h-full flex items-center gap-x-sm relative my-0 px-4">
             <B24Tooltip
-              class="mt-1"
-              :content="{ side: 'bottom', align: 'start' }"
+              :content="{ align: 'start', side: 'bottom' }"
               text="Go home"
               :kbds="['ctrl', 'arrowleft']"
             >
-              <NuxtLink to="/" class="mt-0 text-(--ui-color-design-selection-content)" aria-label="Home">
+              <NuxtLink to="/" class="my-3 text-(--ui-color-design-selection-content)" aria-label="Home">
                 <ProseH3 class="font-(--ui-font-weight-medium) mb-0">
                   Demo
                 </ProseH3>
               </NuxtLink>
             </B24Tooltip>
           </div>
-          <div class="mt-4 ps-6 pe-xs rtl:pe-6 pb-3">
-            <B24Input ref="input" v-model="searchTerm" placeholder="Filter..." class="group">
+          <div class="mt-0 px-4 pb-3">
+            <B24Input ref="input" v-model="searchTerm" placeholder="Filter..." class="group w-full">
               <template #trailing>
                 <B24Kbd value="/" dd-class="ring-(--ui-color-design-plain-na-content-secondary) bg-transparent text-muted" />
               </template>
@@ -142,34 +133,32 @@ defineShortcuts({
       </template>
 
       <template #navbar>
-        <B24Tooltip
-          class="lg:hidden inline-flex"
-          :content="{ side: 'bottom', align: 'start' }"
-          text="Go home"
-          :kbds="['ctrl', 'arrowleft']"
-        >
-          <NuxtLink to="/" class="mt-0 text-(--ui-color-design-selection-content)" aria-label="Home">
-            <ProseH1 class="font-(--ui-font-weight-medium) mb-0">
+        <NuxtLink to="/" class="inline-flex lg:hidden mt-0 text-(--ui-color-design-selection-content)" aria-label="Home">
+          <B24Tooltip
+            :content="{ side: 'bottom', align: 'start' }"
+            text="Go home"
+            :kbds="['ctrl', 'arrowleft']"
+          >
+            <ProseH3 class="font-(--ui-font-weight-medium) mb-0">
               Demo
-            </ProseH1>
-          </NuxtLink>
-        </B24Tooltip>
+            </ProseH3>
+          </B24Tooltip>
+        </NuxtLink>
         <B24NavbarSpacer />
         <B24NavbarSection class="flex-row items-center justify-start gap-4">
-          <B24DashboardSearchButton size="sm" rounded :collapsed="false" :kbds="[{ value: 'meta', size: 'sm' }, { value: 'K', size: 'sm' }]" />
+          <B24DashboardSearchButton class="hidden lg:inline-flex" size="sm" rounded :collapsed="false" :kbds="[{ value: 'meta', size: 'sm' }, { value: 'K', size: 'sm' }]" />
           <B24Tooltip :content="{ side: 'bottom' }" text="Switch color mode" :kbds="['shift', 'D']">
-            <B24ColorModeSwitch />
+            <B24RadioGroup
+              v-model="colorModel"
+              :items="colorList"
+              class="hidden lg:inline-flex"
+              size="xs"
+              orientation="horizontal"
+              variant="table"
+              indicator="hidden"
+              @change="syncColorModePreference"
+            />
           </B24Tooltip>
-          <B24RadioGroup
-            v-model="modeContext"
-            class="hidden lg:inline-flex"
-            :items="themeItems"
-            size="xs"
-            orientation="horizontal"
-            variant="table"
-            indicator="hidden"
-            @change="syncColorModePreference"
-          />
         </B24NavbarSection>
       </template>
 

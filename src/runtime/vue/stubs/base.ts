@@ -1,8 +1,6 @@
 import { ref, onScopeDispose } from 'vue'
 import type { Ref, Plugin as VuePlugin } from 'vue'
 import { createHooks } from 'hookable'
-import { useColorMode as useColorModeVueUse } from '@vueuse/core'
-import appConfig from '#build/app.config'
 import type { NuxtApp } from '#app'
 
 export { useHead } from '@unhead/vue'
@@ -13,6 +11,7 @@ export { defineLocale } from '../../composables/defineLocale'
 export { useLocale } from '../../composables/useLocale'
 export { useConfetti } from '../../composables/useConfetti'
 export { useOverlay } from '../../composables/useOverlay'
+export { useColorMode } from '../../composables/color-mode/useColorMode'
 
 export const clearError = () => {
 
@@ -23,30 +22,6 @@ export const clearError = () => {
  */
 export const useRequestHeader = () => {
   return undefined
-}
-
-export const useColorMode = () => {
-  if (!appConfig.colorMode) {
-    return {
-      forced: true
-    }
-  }
-
-  const { store, system } = useColorModeVueUse({
-    attribute: 'class',
-    modes: {
-      auto: 'auto',
-      light: (appConfig?.colorModeTypeLight || 'light') as string,
-      dark: 'dark'
-    }
-  })
-
-  return {
-    get preference() { return store.value === 'auto' ? 'system' : store.value },
-    set preference(value) { store.value = value === 'system' ? 'auto' : value },
-    get value() { return store.value === 'auto' ? system.value : store.value },
-    forced: false
-  }
 }
 
 export const useCookie = <T = string>(

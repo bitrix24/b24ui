@@ -1,17 +1,18 @@
-import { upperName } from '../utils'
 import type { NavigationMenuItem, PageLink } from '@bitrix24/b24ui-nuxt'
+import type { Surround } from '../types'
+import { upperName } from '../utils'
 import ItemIcon from '@bitrix24/b24icons-vue/crm/ItemIcon'
 import TextIcon from '@bitrix24/b24icons-vue/outline/TextIcon'
 import HomeIcon from '@bitrix24/b24icons-vue/outline/HomeIcon'
-import type { NavigationGroup, Surround } from '../types'
 // import CopilotIcon from '@bitrix24/b24icons-vue/outline/CopilotIcon'
 // import ArrowRightLIcon from '@bitrix24/b24icons-vue/outline/ArrowRightLIcon'
 // import ArrowLeftLIcon from '@bitrix24/b24icons-vue/outline/ArrowLeftLIcon'
 
 const normalizePath = (p: string) => (p.endsWith('/') ? p.slice(0, -1) : p)
 
-const components: NavigationMenuItem[] = [
+const components = [
   'accordion',
+  'advice',
   'alert',
   // 'auth-form',
   'avatar',
@@ -94,7 +95,7 @@ const components: NavigationMenuItem[] = [
   'user'
 ].map(component => ({ label: upperName(component.split('/').pop() as string), icon: ItemIcon, to: `/components/${component}` }))
 
-const componentsProse: NavigationMenuItem[] = ['show'].map(component => ({
+const componentsProse = ['show'].map(component => ({
   label: upperName(component.split('/').pop() as string),
   icon: TextIcon,
   to: `/components/prose/${component}`
@@ -116,11 +117,12 @@ const externalLinks: PageLink[] = [
 export const useNavigation = () => {
   // const appConfig = useAppConfig()
 
-  const items: NavigationMenuItem[] = [
+  const items = [
     { label: 'Home', icon: HomeIcon, to: '/' }
     // { label: 'Chat', icon: CopilotIcon, to: '/chat' }
   ]
-  const groups = computed<NavigationGroup[]>(() => [
+
+  const groups = computed(() => [
     { id: 'links', items },
     { id: 'components', label: 'Components', items: components },
     { id: 'components/prose', label: 'Prose', items: componentsProse }
