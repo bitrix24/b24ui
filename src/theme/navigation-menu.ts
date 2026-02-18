@@ -39,6 +39,7 @@ export default {
     linkLeadingIcon: 'shrink-0 size-[26px]',
     linkLeadingAvatar: 'shrink-0',
     linkLeadingAvatarSize: 'xs',
+    linkLeadingChipSize: 'sm',
     linkLeadingHint: [
       'inline-flex m-0 absolute -top-[5px] left-[8px]',
       'text-(length:--ui-font-size-4xs)',

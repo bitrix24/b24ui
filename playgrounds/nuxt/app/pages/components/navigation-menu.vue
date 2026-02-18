@@ -23,13 +23,14 @@ const items = [
       label: 'Current Deals',
       type: 'label' as NavigationMenuItem['type'],
       active: true,
-      badge: 13,
+      badge: 42,
       icon: ConnectionIcon
     },
     {
       label: 'Sales Pipeline',
       type: 'trigger' as NavigationMenuItem['type'],
       avatar: { src: '/avatar/employee.png' },
+      badge: 24,
       children: [
         {
           label: 'Lead Generation',
@@ -44,6 +45,7 @@ const items = [
         {
           label: 'Negotiations',
           description: 'Deal terms discussion',
+          chip: true,
           icon: MicrophoneOnIcon
         }
       ]
@@ -63,6 +65,7 @@ const items = [
       icon: GitHubIcon,
       to: 'https://github.com/bitrix24/b24ui',
       target: '_blank',
+      chip: true,
       tooltip: {
         text: 'Open on GitHub',
         kbds: [
@@ -78,6 +81,7 @@ const items = [
       active: true,
       activeClass: '',
       defaultOpen: true,
+      chip: false,
       badge: {
         label: '14',
         color: 'air-primary' as const,
@@ -112,7 +116,11 @@ const items = [
 </script>
 
 <template>
-  <PlaygroundPage>
+  <PlaygroundPage
+    :b24ui="{
+      root: 'overflow-visible'
+    }"
+  >
     <template #controls>
       <B24Select v-model="orientation" :items="orientations" placeholder="Orientation" />
       <template v-if="orientation ==='vertical'">
@@ -123,7 +131,7 @@ const items = [
     </template>
 
     <div
-      :class="['flex gap-2 w-full overflow-auto py-3 px-1', { 'flex-col min-h-52': orientation === 'horizontal' }]"
+      :class="['flex gap-2 w-full py-3 px-1', { 'flex-col min-h-52': orientation === 'horizontal' }]"
     >
       <B24NavigationMenu
         :tooltip="tooltip"

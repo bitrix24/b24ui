@@ -3,7 +3,7 @@
 import type { NavigationMenuRootProps, NavigationMenuContentProps, NavigationMenuContentEmits, AccordionRootProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/navigation-menu'
-import type { AvatarProps, BadgeProps, IconComponent, LinkProps, PopoverProps, TooltipProps } from '../types'
+import type { AvatarProps, BadgeProps, ChipProps, IconComponent, LinkProps, PopoverProps, TooltipProps } from '../types'
 import type { ArrayOrNested, DynamicSlots, GetItemKeys, MergeTypes, NestedItem, EmitsToProps } from '../types/utils'
 import type { ComponentConfig } from '../types/tv'
 
@@ -37,6 +37,11 @@ export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
    * `{ size: 'xs', color: 'air-primary-alert' }`{lang="ts"}
    */
   badge?: string | number | BadgeProps
+  /**
+   * Display a chip around the icon of the item.
+   * `{ inset: true }`{lang="ts-type"}
+   */
+  chip?: boolean | ChipProps
   /**
    * Display a hint on the item in `horizontal` orientation.
    */
@@ -77,7 +82,7 @@ export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
   open?: boolean
   onSelect?: (e: Event) => void
   class?: any
-  b24ui?: Pick<NavigationMenu['slots'], 'item' | 'linkLeadingAvatarSize' | 'linkLeadingAvatar' | 'linkLeadingIcon' | 'linkLabel' | 'linkLabelExternalIcon' | 'linkTrailing' | 'linkLeadingHint' | 'linkLeadingBadgeSize' | 'linkLeadingBadge' | 'linkTrailingIcon' | 'label' | 'link' | 'content' | 'childList' | 'childLabel' | 'childItem' | 'childLink' | 'childLinkIcon' | 'childLinkHint' | 'childLinkBadgeSize' | 'childLinkBadge' | 'childLinkWrapper' | 'childLinkLabel' | 'childLinkLabelExternalIcon' | 'popoverWrapper'>
+  b24ui?: Pick<NavigationMenu['slots'], 'item' | 'linkLeadingAvatarSize' | 'linkLeadingAvatar' | 'linkLeadingIcon' | 'linkLeadingChipSize' | 'linkLabel' | 'linkLabelExternalIcon' | 'linkTrailing' | 'linkLeadingHint' | 'linkLeadingBadgeSize' | 'linkLeadingBadge' | 'linkTrailingIcon' | 'label' | 'link' | 'content' | 'childList' | 'childLabel' | 'childItem' | 'childLink' | 'childLinkIcon' | 'childLinkHint' | 'childLinkBadgeSize' | 'childLinkBadge' | 'childLinkWrapper' | 'childLinkLabel' | 'childLinkLabelExternalIcon' | 'popoverWrapper'>
   [key: string]: any
 }
 
@@ -236,6 +241,7 @@ import B24LinkBase from './LinkBase.vue'
 import B24Link from './Link.vue'
 import B24Avatar from './Avatar.vue'
 import B24Badge from './Badge.vue'
+import B24Chip from './Chip.vue'
 import B24Popover from './Popover.vue'
 import B24Tooltip from './Tooltip.vue'
 
@@ -319,9 +325,22 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
           :b24ui="b24ui"
         >
           <template v-if="orientation === 'vertical' && item.type !== 'label'">
+            <B24Chip
+              v-if="item.icon && item.chip"
+              :size="((item.b24ui?.linkLeadingChipSize || uiProp?.linkLeadingChipSize || b24ui.linkLeadingChipSize()) as ChipProps['size'])"
+              inset
+              v-bind="typeof item.chip === 'object' ? item.chip : {}"
+              data-slot="linkLeadingChip"
+            >
+              <Component
+                :is="item.icon"
+                data-slot="linkLeadingIcon"
+                :class="b24ui.linkLeadingIcon({ class: [uiProp?.linkLeadingIcon, item.b24ui?.linkLeadingIcon], active, disabled: !!item.disabled })"
+              />
+            </B24Chip>
             <Component
               :is="item.icon"
-              v-if="item.icon"
+              v-else-if="item.icon"
               data-slot="linkLeadingIcon"
               :class="b24ui.linkLeadingIcon({ class: [uiProp?.linkLeadingIcon, item.b24ui?.linkLeadingIcon], active, disabled: !!item.disabled })"
             />
@@ -477,9 +496,22 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
                             data-slot="childLink"
                             :class="b24ui.childLink({ class: [uiProp?.childLink, item.b24ui?.childLink, childItem.class], active: childActive })"
                           >
+                            <B24Chip
+                              v-if="childItem.icon && childItem.chip"
+                              :size="((childItem.b24ui?.linkLeadingChipSize || uiProp?.linkLeadingChipSize || b24ui.linkLeadingChipSize()) as ChipProps['size'])"
+                              inset
+                              v-bind="typeof childItem.chip === 'object' ? childItem.chip : {}"
+                              data-slot="linkLeadingChip"
+                            >
+                              <Component
+                                :is="childItem.icon"
+                                data-slot="childLinkIcon"
+                                :class="b24ui.childLinkIcon({ class: [uiProp?.childLinkIcon, item.b24ui?.childLinkIcon], active: childActive })"
+                              />
+                            </B24Chip>
                             <Component
                               :is="childItem.icon"
-                              v-if="childItem.icon"
+                              v-else-if="childItem.icon"
                               data-slot="childLinkIcon"
                               :class="b24ui.childLinkIcon({ class: [uiProp?.childLinkIcon, item.b24ui?.childLinkIcon], active: childActive })"
                             />
@@ -574,9 +606,22 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
                       data-slot="childLink"
                       :class="b24ui.childLink({ class: [uiProp?.childLink, childItem.childLink, childItem.class], active: childActive })"
                     >
+                      <B24Chip
+                        v-if="childItem.icon && childItem.chip"
+                        :size="((childItem.b24ui?.linkLeadingChipSize || uiProp?.linkLeadingChipSize || b24ui.linkLeadingChipSize()) as ChipProps['size'])"
+                        inset
+                        v-bind="typeof childItem.chip === 'object' ? childItem.chip : {}"
+                        data-slot="linkLeadingChip"
+                      >
+                        <Component
+                          :is="childItem.icon"
+                          data-slot="childLinkIcon"
+                          :class="b24ui.childLinkIcon({ class: [uiProp?.childLinkIcon, item.b24ui?.childLinkIcon], active: childActive })"
+                        />
+                      </B24Chip>
                       <Component
                         :is="childItem.icon"
-                        v-if="childItem.icon"
+                        v-else-if="childItem.icon"
                         data-slot="childLinkIcon"
                         :class="b24ui.childLinkIcon({ class: [uiProp?.childLinkIcon, item.b24ui?.childLinkIcon], active: childActive })"
                       />

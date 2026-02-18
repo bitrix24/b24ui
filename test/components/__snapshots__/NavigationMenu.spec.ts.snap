@@ -142,6 +142,31 @@ exports[`NavigationMenu > renders with b24ui correctly 1`] = `
 </nav>"
 `;
 
+exports[`NavigationMenu > renders with chip correctly 1`] = `
+"<nav data-collapsed="false" data-component="section" data-slot="root" class="flex [&amp;>div]:min-w-0 font-[family-name:var(--ui-font-family-secondary)] relative h-full items-center justify-between" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="">
+  <div style="position: relative;">
+    <ul data-slot="list" class="isolate min-w-0 flex items-center gap-x-1 h-full" data-orientation="horizontal">
+      <li data-menu-item="" data-slot="item" class="min-w-0 empty:hidden"><button type="button" data-reka-collection-item="" data-slot="link" class="min-w-[38px] w-full max-w-full p-0 m-0 group relative cursor-pointer flex items-center gap-[2px] font-(--ui-font-weight-normal) text-(length:--ui-font-size-lg) focus:outline-none focus-visible:rounded-(--menu-item-border-radius) focus-visible:outline-none focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-(--ui-color-base-4) rounded-(--menu-item-border-radius) text-(--menu-item-color) bg-(--menu-item-background) hover:bg-(--menu-item-background-hover) menu-item-horizontal h-[32px] min-h-[32px] px-[10px] border border-(--menu-item-background) hover:border-(--ui-color-design-plain-na-focused-stroke) data-[state=open]:bg-(--ui-color-design-plain-na-focused-stroke) transition-colors"><span data-slot="linkLabelWrapper" class="flex items-center justify-between rtl:flex-row-reverse gap-[4px] truncate"><!--v-if--><!--v-if--><!--v-if--><span data-slot="linkLabel" class="truncate">Guide<!--v-if--></span></span>
+          <!--v-if-->
+        </button>
+        <!--v-if-->
+        <!--v-if-->
+      </li>
+      <li data-menu-item="" data-slot="item" class="min-w-0 empty:hidden"><button type="button" data-reka-collection-item="" data-slot="link" class="min-w-[38px] w-full max-w-full p-0 m-0 group relative cursor-pointer flex items-center gap-[2px] font-(--ui-font-weight-normal) text-(length:--ui-font-size-lg) focus:outline-none focus-visible:rounded-(--menu-item-border-radius) focus-visible:outline-none focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-(--ui-color-base-4) rounded-(--menu-item-border-radius) text-(--menu-item-color) bg-(--menu-item-background) hover:bg-(--menu-item-background-hover) menu-item-horizontal h-[32px] min-h-[32px] px-[10px] border border-(--menu-item-background) hover:border-(--ui-color-design-plain-na-focused-stroke) data-[state=open]:bg-(--ui-color-design-plain-na-focused-stroke) transition-colors"><span data-slot="linkLabelWrapper" class="flex items-center justify-between rtl:flex-row-reverse gap-[4px] truncate"><!--v-if--><!--v-if--><!--v-if--><span data-slot="linkLabel" class="truncate">Components<!--v-if--></span></span>
+          <!--v-if-->
+        </button>
+        <!--v-if-->
+        <!--v-if-->
+      </li>
+    </ul>
+  </div>
+  <!--v-if-->
+  <div data-slot="viewportWrapper" class="absolute top-[53px] left-0 flex w-full">
+    <!---->
+  </div>
+</nav>"
+`;
+
 exports[`NavigationMenu > renders with class correctly 1`] = `
 "<nav data-collapsed="false" data-component="section" data-slot="root" class="flex [&amp;>div]:min-w-0 font-[family-name:var(--ui-font-family-secondary)] relative h-full items-center justify-between w-48" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="">
   <div style="position: relative;">

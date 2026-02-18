@@ -80,8 +80,10 @@ Use the `items` prop as an array of objects with the following properties:
 - `icon?: IconComponent`{lang="ts-type"}
 - `avatar?: AvatarProps`{lang="ts-type"}
 - `badge?: string | number | BadgeProps`{lang="ts-type"}
+- [`chip?: boolean | ChipProps`{lang="ts-type"}](#with-chip-in-items)
 - `hint?: string`{lang="ts-type"}
-- `tooltip?: TooltipProps`{lang="ts-type"}
+- [`tooltip?: TooltipProps`{lang="ts-type"}](#with-tooltip-in-items)
+- [`popover?: PopoverProps`{lang="ts-type"}](#with-popover-in-items)
 - `trailingIcon?: IconComponent`{lang="ts-type"}
 - `type?: 'label' | 'trigger' | 'link'`{lang="ts-type"}
 - `defaultOpen?: boolean`{lang="ts-type"}
@@ -93,7 +95,7 @@ Use the `items` prop as an array of objects with the following properties:
 - `onSelect?: (e: Event) => void`{lang="ts-type"}
 - `children?: NavigationMenuChildItem[]`{lang="ts-type"}
 - `class?: any`{lang="ts-type"}
-- `b24ui?: { linkLeadingAvatarSize?: ClassNameValue, linkLeadingAvatar?: ClassNameValue, linkLeadingIcon?: ClassNameValue, linkLabel?: ClassNameValue, linkLabelExternalIcon?: ClassNameValue, linkTrailing?: ClassNameValue, linkLeadingHint?: ClassNameValue, linkLeadingBadgeSize?: ClassNameValue, linkLeadingBadge?: ClassNameValue, linkTrailingIcon?: ClassNameValue, label?: ClassNameValue, link?: ClassNameValue, content?: ClassNameValue, childList?: ClassNameValue, childLabel?: ClassNameValue, childItem?: ClassNameValue, childLink?: ClassNameValue, childLinkIcon?: ClassNameValue, childLinkHint?: ClassNameValue, childLinkBadgeSize?: ClassNameValue, childLinkBadge?: ClassNameValue, childLinkWrapper?: ClassNameValue, childLinkLabel?: ClassNameValue, childLinkLabelExternalIcon?: ClassNameValue, popoverWrapper?: ClassNameValue }`{lang="ts-type"}
+- `b24ui?: { linkLeadingAvatarSize?: ClassNameValue, linkLeadingAvatar?: ClassNameValue, linkLeadingIcon?: ClassNameValue, linkLeadingChipSize?: ClassNameValue, linkLabel?: ClassNameValue, linkLabelExternalIcon?: ClassNameValue, linkTrailing?: ClassNameValue, linkLeadingHint?: ClassNameValue, linkLeadingBadgeSize?: ClassNameValue, linkLeadingBadge?: ClassNameValue, linkTrailingIcon?: ClassNameValue, label?: ClassNameValue, link?: ClassNameValue, content?: ClassNameValue, childList?: ClassNameValue, childLabel?: ClassNameValue, childItem?: ClassNameValue, childLink?: ClassNameValue, childLinkIcon?: ClassNameValue, childLinkHint?: ClassNameValue, childLinkBadgeSize?: ClassNameValue, childLinkBadge?: ClassNameValue, childLinkWrapper?: ClassNameValue, childLinkLabel?: ClassNameValue, childLinkLabelExternalIcon?: ClassNameValue, popoverWrapper?: ClassNameValue }`{lang="ts-type"}
 
 You can pass any property from the [Link](/docs/components/link/#props) component such as `to`, `target`, etc.
 
@@ -380,6 +382,17 @@ name: 'navigation-menu-collapsed-popover-example'
 
 ::tip{to="#with-content-slot"}
 You can use the `#content` slot to customize the content of the popover in the `vertical` orientation.
+::
+
+### With chip in items :badge{label="Soon" class="align-text-top"}
+
+Use the `chip` property to display a [Chip](/docs/components/chip/) around the icon of the items, you can pass any of its props.
+
+::component-example
+---
+collapse: true
+name: 'navigation-menu-chip-items-example'
+---
 ::
 
 ### Control active item
