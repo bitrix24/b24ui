@@ -57,6 +57,7 @@ const items = [
       hint: '500%',
       icon: PulseCircleIcon,
       disabled: true,
+      chip: true,
       to: 'https://helpdesk.bitrix24.com/',
       target: '_blank'
     },
@@ -65,12 +66,9 @@ const items = [
       icon: GitHubIcon,
       to: 'https://github.com/bitrix24/b24ui',
       target: '_blank',
-      chip: true,
       tooltip: {
         text: 'Open on GitHub',
-        kbds: [
-          '3.8k'
-        ]
+        kbds: ['meta', 'G']
       }
     },
     {

@@ -3,12 +3,12 @@ import { useColorMode } from '#imports'
 
 export function useThemeMode() {
   const colorMode = useColorMode()
-  const colorModel = ref<string>(colorMode.colorModeInitialValue!)
+  const colorModel = ref<string>(colorMode?.colorModeInitialValue || 'light')
   const colorList = ref<string[]>([...(colorMode.modeKeysList || []).filter(key => key !== 'auto')])
   const lastLightModel = ref<string>('')
 
   if (isDarkMode(colorModel.value)) {
-    lastLightModel.value = colorMode.colorModeTypeLight
+    lastLightModel.value = colorMode?.colorModeTypeLight || 'light'
   } else {
     lastLightModel.value = colorModel.value
   }

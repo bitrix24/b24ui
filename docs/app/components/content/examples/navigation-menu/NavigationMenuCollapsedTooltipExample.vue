@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
+import type { NavigationMenuItem, NavigationMenuProps } from '@bitrix24/b24ui-nuxt'
 import ConnectionIcon from '@bitrix24/b24icons-vue/actions/ConnectionIcon'
 import Info1Icon from '@bitrix24/b24icons-vue/main/Info1Icon'
 import MicrophoneOnIcon from '@bitrix24/b24icons-vue/main/MicrophoneOnIcon'
 import CrmMapIcon from '@bitrix24/b24icons-vue/crm/CrmMapIcon'
 import Settings5Icon from '@bitrix24/b24icons-vue/editor/Settings5Icon'
+import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 
 const items: NavigationMenuItem[] = [
   {
@@ -65,9 +66,20 @@ const items: NavigationMenuItem[] = [
         label: 'RestApi Integration'
       }
     ]
+  },
+  {
+    label: 'Resources',
+    icon: GitHubIcon,
+    to: 'https://github.com/bitrix24/b24ui',
+    target: '_blank',
+    tooltip: {
+      text: 'Open on GitHub',
+      kbds: ['meta', 'G']
+    }
   }
 ]
 
+const orientation = ref<NavigationMenuProps['orientation']>('vertical')
 const idCollapsed = ref(true)
 const isTooltip = ref(true)
 </script>
@@ -75,12 +87,13 @@ const isTooltip = ref(true)
 <template>
   <div class="flex flex-col items-center gap-[4px]">
     <div class="flex flex-row flex-wrap items-center justify-center gap-[4px]">
+      <B24Select v-model="orientation" :items="['horizontal', 'vertical']" class="min-w-[175px]" />
       <B24Switch v-model="idCollapsed" label="collapsed" />
       <B24Switch v-model="isTooltip" label="tooltip" />
     </div>
     <B24Separator class="my-[4px]" />
     <B24NavigationMenu
-      orientation="vertical"
+      :orientation="orientation"
       :collapsed="idCollapsed"
       :tooltip="isTooltip"
       :items="items"

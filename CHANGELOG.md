@@ -16,6 +16,7 @@
 * fix(InputMenu/Select/SelectMenu): exclude cosmetic items from model value type
 * fix(colorMode): improve
 * feat(NavigationMenu): handle `chip` in items
+* feat(NavigationMenu): allow tooltip usage in `horizontal` orientation
 
 ## [2.3.0](https://github.com/bitrix24/b24ui/compare/v2.2.1...v2.3.0) (2026-02-12)
 
