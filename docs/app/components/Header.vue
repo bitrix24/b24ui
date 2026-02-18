@@ -36,6 +36,8 @@ const b24DocsLink = computed(() => {
 onMounted(() => {
   isNeedChangeTarget.value = true
 })
+
+const { isEnabled: isAssistantEnabled } = useAssistant()
 </script>
 
 <template>
@@ -57,8 +59,8 @@ onMounted(() => {
   <B24NavbarSpacer />
 
   <B24NavbarSection class="gap-1 sm:gap-3">
-    <template v-if="config.public.useAI">
-      <AiChat />
+    <template v-if="isAssistantEnabled">
+      <AssistantChat />
     </template>
     <template v-else>
       <B24Tooltip text="Search" :kbds="['meta', 'K']">

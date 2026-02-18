@@ -9,16 +9,21 @@ import MoreMIcon from '@bitrix24/b24icons-vue/outline/MoreMIcon'
 import NuxtIcon from '@bitrix24/b24icons-vue/file-type/NuxtIcon'
 import DemonstrationOnIcon from '@bitrix24/b24icons-vue/outline/DemonstrationOnIcon'
 import Bitrix24Icon from '@bitrix24/b24icons-vue/common-service/Bitrix24Icon'
+import AiStarsIcon from '@bitrix24/b24icons-vue/outline/AiStarsIcon'
 
 const route = useRoute()
 const { framework } = useFrameworks()
+const pageUrl = route.path
 const config = useRuntimeConfig()
+const appConfig = useAppConfig()
+
+const { isEnabled, open } = useAssistant()
 
 definePageMeta({
   layout: false
 })
 
-const { data: page } = await useAsyncData(kebabCase(route.path), () => queryCollection('docs').path(route.path).first())
+const { data: page } = await useAsyncData(kebabCase(pageUrl), () => queryCollection('docs').path(pageUrl).first())
 if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
@@ -66,7 +71,7 @@ useSeoMeta({
   ogDescription: description
 })
 
-// if (route.path.startsWith('/docs/components/')) {
+// if (pageUrl.startsWith('/docs/components/')) {
 //   defineOgImageComponent('OgImageComponent', {
 //     title: page.value.title,
 //     description: page.value.description,
@@ -83,7 +88,7 @@ useSeoMeta({
 
 // Pre-render the markdown path + add it to alternate links
 const site = useSiteConfig()
-const path = computed(() => route.path.replace(/\/$/, ''))
+const path = computed(() => pageUrl.replace(/\/$/, ''))
 prerenderRoutes([joinURL(`${config.public.baseUrl}/raw`, `${path.value}.md`)])
 useHead({
   link: [
@@ -124,6 +129,10 @@ const iconFromIconName = (iconName?: string) => {
 
   return undefined
 }
+
+const showExplainWithAi = computed(() => {
+  return isEnabled.value && appConfig.bxAssistant?.explainWithAi !== false
+})
 </script>
 
 <template>
@@ -146,11 +155,18 @@ const iconFromIconName = (iconName?: string) => {
               v-if="page.description"
               :value="page.description"
               unwrap="p"
-              :cache-key="`${kebabCase(route.path)}-description`"
+              :cache-key="`${kebabCase(pageUrl)}-description`"
             />
           </template>
           <template #head-links>
-            <DocsAside v-if="config.public.useAI" />
+            <B24Button
+              v-if="showExplainWithAi"
+              :icon="AiStarsIcon"
+              label="Explain with AI"
+              color="air-selection"
+              size="sm"
+              @click="open(`Explain the page ${pageUrl}`, true)"
+            />
             <PageHeaderLinks />
             <B24DropdownMenu
               class="hidden sm:flex"

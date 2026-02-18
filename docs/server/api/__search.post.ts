@@ -17,7 +17,8 @@ export default defineEventHandler(async (event) => {
     ? new URL(`${config.public.baseUrl}/mcp/`, getRequestURL(event).origin)
     : new URL(`${config.public.siteUrl}${config.public.baseUrl}/mcp/`)
   const httpTransport = new StreamableHTTPClientTransport(mcpUrl)
-
+// @todo remove this
+console.error(mcpUrl)
   const httpClient = await experimental_createMCPClient({
     transport: httpTransport
   })

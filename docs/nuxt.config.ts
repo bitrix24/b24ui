@@ -216,6 +216,7 @@ export default defineNuxtConfig({
   modules: [
     '../src/module',
     // '@bitrix24/b24ui-nuxt',
+    './modules/bx-assistant',
     '@nuxt/content',
     // '@nuxt/image',
     '@nuxt/a11y',
@@ -280,7 +281,8 @@ export default defineNuxtConfig({
    */
   runtimeConfig: {
     public: {
-      useAI: false,
+      // @depricate
+      // useAI: false,
       version: pkg.version,
       siteUrl: prodUrl,
       baseUrl,
@@ -356,6 +358,16 @@ export default defineNuxtConfig({
 
   a11y: {
     logIssues: false
+  },
+
+  /**
+   * @todo fix this
+   */
+  bxAssistant: {
+    apiPath: `/b24ui/__bx__/assistant/`,
+    mcpServer: `/b24ui/mcp/`,
+    // mcpServer: `https://b24js.bx-shef.by/b24jssdk/mcp/`,
+    model: 'deepseek-reasoner'
   },
 
   componentMeta: {

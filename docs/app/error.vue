@@ -7,7 +7,6 @@ const props = defineProps<{
 }>()
 
 const route = useRoute()
-const config = useRuntimeConfig()
 
 const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs', ['framework']))
 const { data: files } = useLazyAsyncData(
@@ -39,7 +38,7 @@ useHead({
 
 useSeoMeta({
   titleTemplate: '%s - Bitrix24 UI',
-  title: String(props.error.statusCode)
+  title: props.error.status
 })
 
 useServerSeoMeta({
@@ -90,8 +89,7 @@ onMounted(() => {
     </B24SidebarLayout>
 
     <ClientOnly>
-      <Search :files="files" :navigation="navigationByFramework" />
-      <AIChatSlideover v-if="config.public.useAI" />
+      <LazySearch :files="files" :navigation="navigationByFramework" />
     </ClientOnly>
   </B24App>
 </template>
