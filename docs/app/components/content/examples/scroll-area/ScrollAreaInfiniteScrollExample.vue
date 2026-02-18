@@ -62,7 +62,10 @@ onMounted(() => {
     ref="scrollArea"
     v-slot="{ item }"
     :items="users"
-    :virtualize="{ estimateSize: 88 }"
+    :virtualize="{
+      estimateSize: 88,
+      skipMeasurement: true
+    }"
     class="relative h-96 w-full scrollbar-thin"
   >
     <B24PageCard
