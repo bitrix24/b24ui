@@ -5,20 +5,23 @@ import CheckLIcon from '@bitrix24/b24icons-vue/outline/CheckLIcon'
 const toast = useToast()
 
 function showToast() {
-  toast.add({
+  const t = toast.add({
     'title': 'Uploading file...',
     'description': 'Your file is being uploaded.',
     'icon': UploadIcon,
     'duration': 3000,
-    'onUpdate:open': (open) => {
-      if (!open) {
-        toast.add({
-          title: 'File uploaded!',
-          description: 'Your file has been successfully uploaded.',
-          icon: CheckLIcon,
-          color: 'air-primary-success'
-        })
+    'onUpdate:open': (open: boolean) => {
+      if (open) {
+        return
       }
+
+      toast.update(t.id, {
+        'title': 'File uploaded!',
+        'description': 'Your file has been successfully uploaded.',
+        'icon': CheckLIcon,
+        'color': 'air-primary-success',
+        'onUpdate:open': undefined
+      })
     }
   })
 }
