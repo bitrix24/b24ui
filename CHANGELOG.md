@@ -22,6 +22,7 @@
 * fix(Toast): allow `update` to keep toast open and reset duration
 * fix(InputMenu/SelectMenu): sort filtered items by match relevance
 * fix(components): nullable and optional type support
+* chore(deps): update @nuxt/test-utils + vitest to v4
 
 ## [2.3.0](https://github.com/bitrix24/b24ui/compare/v2.2.1...v2.3.0) (2026-02-12)
 
