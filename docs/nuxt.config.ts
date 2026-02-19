@@ -360,13 +360,9 @@ export default defineNuxtConfig({
     logIssues: false
   },
 
-  /**
-   * @todo fix this
-   */
   bxAssistant: {
-    apiPath: `/b24ui/__bx__/assistant/`,
-    mcpServer: `/b24ui/mcp/`,
-    // mcpServer: `https://b24js.bx-shef.by/b24jssdk/mcp/`,
+    apiPath: `${baseUrl}/__bx__/assistant/`,
+    mcpServer: `${baseUrl}/mcp/`,
     model: 'deepseek-reasoner'
   },
 

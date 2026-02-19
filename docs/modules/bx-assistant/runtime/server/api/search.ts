@@ -67,9 +67,6 @@ export default defineEventHandler(async (event) => {
   const mcpUrl = isExternalUrl
     ? mcpServer
     : import.meta.dev
-      /**
-       * @todo fix this
-       */
       ? `http://localhost:3000${mcpServer}`
       : `${getRequestURL(event).origin}${mcpServer}`
 

@@ -12,7 +12,7 @@ exports[`PageLinks > renders with as correctly 1`] = `
         </div>
         <!--v-if-->
       </a></li>
-    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" rel="noopener noreferrer" target="_blank" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
+    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
         <div data-slot="linkWrapper" class="flex items-center gap-[6px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
             <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
           </svg>
@@ -30,7 +30,7 @@ exports[`PageLinks > renders with as correctly 1`] = `
         </div>
         <!--v-if-->
       </button></li>
-    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" rel="noopener noreferrer" target="_blank" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
+    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
         <div data-slot="linkWrapper" class="flex items-center gap-[6px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
             <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
           </svg>
@@ -56,7 +56,7 @@ exports[`PageLinks > renders with b24ui correctly 1`] = `
         </div>
         <!--v-if-->
       </a></li>
-    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" rel="noopener noreferrer" target="_blank" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
+    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
         <div data-slot="linkWrapper" class="flex items-center gap-[6px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
             <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
           </svg>
@@ -74,7 +74,7 @@ exports[`PageLinks > renders with b24ui correctly 1`] = `
         </div>
         <!--v-if-->
       </button></li>
-    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" rel="noopener noreferrer" target="_blank" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
+    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
         <div data-slot="linkWrapper" class="flex items-center gap-[6px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
             <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
           </svg>
@@ -100,7 +100,7 @@ exports[`PageLinks > renders with class correctly 1`] = `
         </div>
         <!--v-if-->
       </a></li>
-    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" rel="noopener noreferrer" target="_blank" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
+    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
         <div data-slot="linkWrapper" class="flex items-center gap-[6px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
             <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
           </svg>
@@ -118,7 +118,7 @@ exports[`PageLinks > renders with class correctly 1`] = `
         </div>
         <!--v-if-->
       </button></li>
-    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" rel="noopener noreferrer" target="_blank" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
+    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
         <div data-slot="linkWrapper" class="flex items-center gap-[6px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
             <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
           </svg>
@@ -137,9 +137,9 @@ exports[`PageLinks > renders with link slot correctly 1`] = `
   <!--v-if-->
   <ul data-slot="list" class="flex flex-col gap-[8px]">
     <li data-slot="item" class="relative"><a href="/docs" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">Link slot</a></li>
-    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" rel="noopener noreferrer" target="_blank" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">Link slot</a></li>
+    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">Link slot</a></li>
     <li data-slot="item" class="relative"><button type="button" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:text-(--ui-color-accent-main-primary-alt-2) hover:underline flex flex-row items-center justify-between text-(--ui-color-accent-main-primary-alt-2)">Link slot</button></li>
-    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" rel="noopener noreferrer" target="_blank" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">Link slot</a></li>
+    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">Link slot</a></li>
   </ul>
 </nav>"
 `;
@@ -156,7 +156,7 @@ exports[`PageLinks > renders with link-label slot correctly 1`] = `
         </div>
         <!--v-if-->
       </a></li>
-    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" rel="noopener noreferrer" target="_blank" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
+    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
         <div data-slot="linkWrapper" class="flex items-center gap-[6px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
             <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
           </svg>
@@ -174,7 +174,7 @@ exports[`PageLinks > renders with link-label slot correctly 1`] = `
         </div>
         <!--v-if-->
       </button></li>
-    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" rel="noopener noreferrer" target="_blank" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
+    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
         <div data-slot="linkWrapper" class="flex items-center gap-[6px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
             <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
           </svg>
@@ -197,7 +197,7 @@ exports[`PageLinks > renders with link-leading slot correctly 1`] = `
         </div>
         <!--v-if-->
       </a></li>
-    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" rel="noopener noreferrer" target="_blank" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
+    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
         <div data-slot="linkWrapper" class="flex items-center gap-[6px]">Link leading slot<div data-slot="linkLabel" class="truncate">Playground</div>
         </div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4 text-(--ui-color-design-selection-content) group-hover:text-(--ui-color-accent-main-primary-alt-2)">
           <path fill="currentColor" d="M14.58 4.9a.7.7 0 1 0 0 1.4h2.166l-4.954 4.953a.7.7 0 0 0 .99.99l4.916-4.916v1.998a.7.7 0 1 0 1.4 0V6.6a1.7 1.7 0 0 0-1.7-1.7z"></path>
@@ -209,7 +209,7 @@ exports[`PageLinks > renders with link-leading slot correctly 1`] = `
         </div>
         <!--v-if-->
       </button></li>
-    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" rel="noopener noreferrer" target="_blank" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
+    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
         <div data-slot="linkWrapper" class="flex items-center gap-[6px]">Link leading slot<div data-slot="linkLabel" class="truncate">Releases</div>
         </div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4 text-(--ui-color-design-selection-content) group-hover:text-(--ui-color-accent-main-primary-alt-2)">
           <path fill="currentColor" d="M14.58 4.9a.7.7 0 1 0 0 1.4h2.166l-4.954 4.953a.7.7 0 0 0 .99.99l4.916-4.916v1.998a.7.7 0 1 0 1.4 0V6.6a1.7 1.7 0 0 0-1.7-1.7z"></path>
@@ -232,7 +232,7 @@ exports[`PageLinks > renders with link-trailing slot correctly 1`] = `
         </div>
         <!--v-if-->Link trailing slot
       </a></li>
-    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" rel="noopener noreferrer" target="_blank" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
+    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
         <div data-slot="linkWrapper" class="flex items-center gap-[6px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
             <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
           </svg>
@@ -250,7 +250,7 @@ exports[`PageLinks > renders with link-trailing slot correctly 1`] = `
         </div>
         <!--v-if-->Link trailing slot
       </button></li>
-    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" rel="noopener noreferrer" target="_blank" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
+    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
         <div data-slot="linkWrapper" class="flex items-center gap-[6px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
             <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
           </svg>
@@ -276,7 +276,7 @@ exports[`PageLinks > renders with links correctly 1`] = `
         </div>
         <!--v-if-->
       </a></li>
-    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" rel="noopener noreferrer" target="_blank" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
+    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
         <div data-slot="linkWrapper" class="flex items-center gap-[6px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
             <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
           </svg>
@@ -294,7 +294,7 @@ exports[`PageLinks > renders with links correctly 1`] = `
         </div>
         <!--v-if-->
       </button></li>
-    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" rel="noopener noreferrer" target="_blank" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
+    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
         <div data-slot="linkWrapper" class="flex items-center gap-[6px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
             <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
           </svg>
@@ -320,7 +320,7 @@ exports[`PageLinks > renders with title correctly 1`] = `
         </div>
         <!--v-if-->
       </a></li>
-    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" rel="noopener noreferrer" target="_blank" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
+    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
         <div data-slot="linkWrapper" class="flex items-center gap-[6px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
             <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
           </svg>
@@ -338,7 +338,7 @@ exports[`PageLinks > renders with title correctly 1`] = `
         </div>
         <!--v-if-->
       </button></li>
-    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" rel="noopener noreferrer" target="_blank" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
+    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
         <div data-slot="linkWrapper" class="flex items-center gap-[6px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
             <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
           </svg>
@@ -364,7 +364,7 @@ exports[`PageLinks > renders with title slot correctly 1`] = `
         </div>
         <!--v-if-->
       </a></li>
-    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" rel="noopener noreferrer" target="_blank" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
+    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
         <div data-slot="linkWrapper" class="flex items-center gap-[6px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
             <path fill="currentColor" fill-rule="evenodd" d="M11.985 3a1.706 1.706 0 0 0-1.699 1.825L6.774 7.304h-1.7a1 1 0 0 0-1 1v9.203a1 1 0 0 0 1 1h13.822a1 1 0 0 0 1-1V8.304a1 1 0 0 0-1-1H17.19l-3.51-2.447q.006-.075.007-.15c0-.94-.763-1.707-1.703-1.707M10.8 5.931a1.694 1.694 0 0 0 2.35.019l1.943 1.354H8.855zm-4.231 4.744a.8.8 0 0 1 .8-.8h7.115a.8.8 0 0 1 .8.8v.137a.8.8 0 0 1-.8.8H7.37a.8.8 0 0 1-.8-.8zm.8 2.845a.8.8 0 0 0-.8.8v.137a.8.8 0 0 0 .8.8H13.1a.8.8 0 0 0 .8-.8v-.138a.8.8 0 0 0-.8-.8z" clip-rule="evenodd"></path>
           </svg>
@@ -382,7 +382,7 @@ exports[`PageLinks > renders with title slot correctly 1`] = `
         </div>
         <!--v-if-->
       </button></li>
-    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" rel="noopener noreferrer" target="_blank" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
+    <li data-slot="item" class="relative"><a href="https://github.com/bitrix24/b24ui/releases" data-slot="link" class="group text-(length:--ui-font-size-sm) cursor-pointer focus-visible:outline-(--ui-color-accent-main-primary) focus-visible:outline-1 focus-visible:rounded-[4px] text-start underline-offset-2 hover:underline flex flex-row items-center justify-between text-(--ui-color-design-selection-content) hover:text-(--ui-color-accent-main-primary-alt-2)">
         <div data-slot="linkWrapper" class="flex items-center gap-[6px]"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0">
             <path fill="currentColor" fill-rule="evenodd" d="m13.505 12 3.905 3.904-1.505 1.505L12 13.505l-3.905 3.904-1.505-1.505L10.495 12 6.59 8.095 8.095 6.59 12 10.495l3.905-3.905 1.505 1.505z" clip-rule="evenodd"></path>
           </svg>
