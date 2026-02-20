@@ -9,7 +9,6 @@ export default defineAppConfig({
   colorMode: true,
   colorModeInitialValue: 'edge-dark' as const, // edge-dark | edge-light | light
   colorModeTypeLight: 'edge-dark' as const, // edge-dark | edge-light | light
-  // @todo fix this
   bxAssistant: {
     floatingInput: true,
     explainWithAi: true,

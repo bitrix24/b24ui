@@ -14,10 +14,10 @@ export interface BxAssistantModuleOptions {
    */
   mcpServer?: string
   /**
-   * AI model to use via AI DeepSeek `deepseek-reasoner` | `deepseek-chat`
+   * The DeepSeek AI model to use. Possible values: `deepseek-reasoner` | `deepseek-chat`.
    * @default 'deepseek-reasoner'
    */
-  model?: string
+  modelDeepSeek?: string
 }
 
 const log = logger.withTag('BxAssistant')
@@ -30,7 +30,7 @@ export default defineNuxtModule<BxAssistantModuleOptions>({
   defaults: {
     apiPath: '/__bx__/assistant',
     mcpServer: '/mcp',
-    model: 'deepseek-reasoner'
+    modelDeepSeek: 'deepseek-reasoner'
   },
   setup(options, nuxt) {
     const hasApiKey = !!process.env.DEEPSEEK_API_KEY
@@ -76,17 +76,15 @@ export default defineNuxtModule<BxAssistantModuleOptions>({
 
     nuxt.options.runtimeConfig.bxAssistant = {
       mcpServer: options.mcpServer!,
-      model: options.model!
+      modelDeepSeek: options.modelDeepSeek!
     }
 
-    const routePath = options.apiPath!.replace(/^\//, '')
+    const baseUrl = nuxt.options.app.baseURL ?? '/'
 
-    /**
-     * @todo fix this
-     */
+    const routePath = options.apiPath!.replace(baseUrl, '').replace(/^\//, '')
+
     addServerHandler({
-      // route: `/${routePath}`,
-      route: `/__bx__/assistant/`,
+      route: `/${routePath}`,
       handler: resolve('./runtime/server/api/search/')
     })
   }
@@ -102,7 +100,7 @@ declare module 'nuxt/schema' {
   interface RuntimeConfig {
     bxAssistant: {
       mcpServer: string
-      model: string
+      modelDeepSeek: string
     }
   }
 }

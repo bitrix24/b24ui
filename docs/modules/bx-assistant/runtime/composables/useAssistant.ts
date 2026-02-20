@@ -23,7 +23,6 @@ const PANEL_WIDTH_EXPANDED = 520
 export function useAssistant() {
   const config = useRuntimeConfig()
   const appConfig = useAppConfig()
-  // config.public.useAI
   const isEnabled = computed(() => config.public.bxAssistant?.enabled ?? false)
 
   const isOpen = useState('assistant-open', () => false)

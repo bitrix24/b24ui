@@ -83,9 +83,8 @@ export default defineEventHandler(async (event) => {
     execute: async ({ writer }: { writer: UIMessageStreamWriter }) => {
       const modelMessages = await convertToModelMessages(messages)
       const result = streamText({
-        // model: config.bxAssistant.model,
-        model: deepseek(config.bxAssistant.model),
-        // @todo fix me 10000 | 8100 | 4000
+        model: deepseek(config.bxAssistant.modelDeepSeek),
+        // @memo Possible values: `10000` | `8100` | `4000`
         maxOutputTokens: 4000,
         maxRetries: 2,
         stopWhen: stopWhenResponseComplete,

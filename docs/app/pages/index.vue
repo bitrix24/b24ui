@@ -95,7 +95,7 @@ const { mobileLinks } = useHeader()
             {{ page.hero.description }}
           </ProseP>
           <B24Separator class="my-4" type="dashed" />
-          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-end gap-[6px]">
+          <div class="flex flex-wrap flex-col sm:flex-row items-center justify-center lg:justify-end gap-[6px]">
             <B24Button
               v-for="link of page.hero.links"
               :key="link.label"

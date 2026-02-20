@@ -114,7 +114,7 @@ onUnmounted(() => {
 <template>
   <div class="flex flex-col gap-2">
     <!-- Main loader with matrix and text -->
-    <div class="flex items-center text-xs text-muted overflow-hidden">
+    <div class="flex items-center text-xs text-ai-350 overflow-hidden">
       <motion.div
         v-if="isLoading"
         :initial="{ opacity: 1, width: 'auto' }"

@@ -22,7 +22,7 @@ export default defineNuxtConfig({
   bxAssistant: {
     apiPath: '/__bx__/assistant',
     mcpServer: '/mcp',
-    model: 'deepseek-reasoner'
+    modelDeepSeek: 'deepseek-reasoner'
   }
 })
 ```
@@ -138,10 +138,10 @@ clearMessages()
 ## Module Options
 
 | Option | Type | Default | Description |
-|--------|------|---------|-------------|
+|---|---|---|---|
 | `apiPath` | `string` | `/__docbx__/assistant` | API endpoint path for the chat |
 | `mcpServer` | `string` | `/mcp` | MCP server path or full URL (e.g., `https://docs.example.com/mcp` for external servers) |
-| `model` | `string` | `deepseek-reasoner` | AI model to use via AI DeepSeek `deepseek-reasoner` \| `deepseek-chat` |
+| `modelDeepSeek` | `string` | `deepseek-reasoner` | The DeepSeek AI model to use. Possible values: `deepseek-reasoner` \| `deepseek-chat`. |
 
 ## Components
 
