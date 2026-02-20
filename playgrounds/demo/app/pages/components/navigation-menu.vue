@@ -29,7 +29,7 @@ const items = [
     {
       label: 'Sales Pipeline',
       type: 'trigger' as NavigationMenuItem['type'],
-      avatar: { src: '/avatar/employee.png' },
+      avatar: { src: '/b24ui/demo/avatar/employee.png' },
       badge: 24,
       children: [
         {
