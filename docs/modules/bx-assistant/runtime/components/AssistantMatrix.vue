@@ -8,7 +8,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   size: 4,
   dotSize: 2,
-  gap: 2,
+  gap: 2
 })
 
 const totalDots = computed(() => props.size * props.size)
@@ -36,7 +36,7 @@ const patterns = [
   // Snake
   [[0], [1], [2], [3], [7], [6], [5], [4], [8], [9], [10], [11], [15], [14], [13], [12]],
   // Diagonal wave
-  [[0], [1, 4], [2, 5, 8], [3, 6, 9, 12], [7, 10, 13], [11, 14], [15]],
+  [[0], [1, 4], [2, 5, 8], [3, 6, 9, 12], [7, 10, 13], [11, 14], [15]]
 ]
 
 let patternIndex = 0
@@ -61,12 +61,12 @@ const gridStyle = computed(() => ({
   gridTemplateColumns: `repeat(${props.size}, 1fr)`,
   gap: `${props.gap}px`,
   width: `${props.size * props.dotSize + (props.size - 1) * props.gap}px`,
-  height: `${props.size * props.dotSize + (props.size - 1) * props.gap}px`,
+  height: `${props.size * props.dotSize + (props.size - 1) * props.gap}px`
 }))
 
 const dotStyle = computed(() => ({
   width: `${props.dotSize}px`,
-  height: `${props.dotSize}px`,
+  height: `${props.dotSize}px`
 }))
 
 onMounted(() => {
