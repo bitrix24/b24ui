@@ -46,7 +46,7 @@ const components = [
   'footer',
   'form-field',
   'form',
-  // 'header',
+  'header',
   'input-date',
   'input-menu',
   'input-number',

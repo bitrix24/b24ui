@@ -8,50 +8,68 @@ import Bitrix24Icon from '@bitrix24/b24icons-vue/common-b24/Bitrix24Icon'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 
 describe('FooterColumns', () => {
-  const columns = [{
-    label: 'Community',
-    children: [{
-      label: 'REST API',
-      to: 'https://apidocs.bitrix24.com',
-      target: '_blank',
-      icon: Bitrix24Icon
-    }, {
-      label: 'Bitrix24 on GitHub',
-      to: 'https://github.com/bitrix24',
-      icon: GitHubIcon,
-      target: '_blank'
-    }, {
-      label: 'Documentation'
-    }, {
-      label: 'Design Kit'
-    }]
-  }, {
-    label: 'Enterprise',
-    children: [{
-      label: 'Support'
-    }, {
-      label: 'Agencies'
-    }, {
-      label: 'Jobs'
-    }, {
-      label: 'Sponsors'
-    }]
-  }, {
-    label: 'Solutions',
-    children: [{
-      label: 'Bitrix24 JsSdk',
-      to: 'https://bitrix24.github.io/b24jssdk/',
-      target: '_blank'
-    }, {
-      label: 'Bitrix24 Icons',
-      to: 'https://bitrix24.github.io/b24icons/',
-      target: '_blank'
-    }, {
-      label: 'Bitrix24 UI',
-      to: 'https://bitrix24.github.io/b24ui/',
-      target: '_blank'
-    }]
-  }]
+  const columns = [
+    {
+      label: 'Community',
+      children: [
+        {
+          label: 'REST API',
+          to: 'https://apidocs.bitrix24.com',
+          target: '_blank',
+          icon: Bitrix24Icon
+        },
+        {
+          label: 'Bitrix24 on GitHub',
+          to: 'https://github.com/bitrix24',
+          icon: GitHubIcon,
+          target: '_blank'
+        },
+        {
+          label: 'Documentation'
+        },
+        {
+          label: 'Design Kit'
+        }
+      ]
+    },
+    {
+      label: 'Enterprise',
+      children: [
+        {
+          label: 'Support'
+        },
+        {
+          label: 'Agencies'
+        },
+        {
+          label: 'Jobs'
+        },
+        {
+          label: 'Sponsors'
+        }
+      ]
+    },
+    {
+      label: 'Solutions',
+      children: [
+        {
+          label: 'Bitrix24 JsSdk',
+          to: 'https://bitrix24.github.io/b24jssdk/',
+          target: '_blank'
+        },
+        {
+          label: 'Bitrix24 Icons',
+          to: 'https://bitrix24.github.io/b24icons/',
+          target: '_blank'
+        },
+        {
+          label: 'Bitrix24 UI',
+          to: 'https://bitrix24.github.io/b24ui/',
+          target: '_blank'
+        }
+      ]
+    }
+  ]
 
   const props = { columns }
 

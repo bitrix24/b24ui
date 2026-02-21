@@ -35,6 +35,7 @@ const pages = [
   '/docs/components/error/',
   '/docs/components/theme/',
   '/docs/components/footer/',
+  '/docs/components/header/',
   // endregion ////
   // region Element ////
   '/docs/components/advice/',
@@ -199,7 +200,8 @@ const pagesFrameExamples = [
   '/examples/sidebar-layout-inner-example/',
   '/examples/banner-example/',
   '/examples/banner-with-title-example/',
-  '/examples/content-search-example/'
+  '/examples/content-search-example/',
+  '/examples/header-menu-example/'
 ]
 
 const pagesService = [

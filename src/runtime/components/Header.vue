@@ -1,0 +1,205 @@
+<script lang="ts">
+import type { AppConfig } from '@nuxt/schema'
+import theme from '#build/b24ui/header'
+import type { ButtonProps, DrawerProps, ModalProps, SlideoverProps, LinkPropsKeys } from '../types'
+import type { ComponentConfig } from '../types/tv'
+
+type Header = ComponentConfig<typeof theme, AppConfig, 'header'>
+
+type HeaderMode = 'modal' | 'slideover' | 'drawer'
+type HeaderMenu<T> = T extends 'modal' ? ModalProps : T extends 'slideover' ? SlideoverProps : T extends 'drawer' ? DrawerProps : never
+
+export interface HeaderProps<T extends HeaderMode = HeaderMode> {
+  /**
+   * The element or component this component should render as.
+   * @defaultValue 'header'
+   */
+  as?: any
+  title?: string
+  to?: string
+  /**
+   * The mode of the header menu.
+   * @defaultValue 'modal'
+   */
+  mode?: T
+  /**
+   * The props for the header menu component.
+   */
+  menu?: HeaderMenu<T>
+  /**
+   * Customize the toggle button to open the header menu displayed when the `content` slot is used.
+   * `{ color: 'air-tertiary', size: 'md' }`{lang="ts-type"}
+   */
+  toggle?: boolean | Omit<ButtonProps, LinkPropsKeys>
+  /**
+   * The side to render the toggle button on.
+   * @defaultValue 'left'
+   */
+  toggleSide?: 'left' | 'right'
+  class?: any
+  b24ui?: Header['slots']
+}
+
+export interface HeaderSlots {
+  title(props?: {}): any
+  left(props?: {}): any
+  default(props?: {}): any
+  right(props?: {}): any
+  toggle(props: { open: boolean, toggle: () => void, b24ui: Header['b24ui'] }): any
+  top(props?: {}): any
+  bottom(props?: {}): any
+  body(props?: {}): any
+  content(props: { close?: () => void }): any
+}
+</script>
+
+<script setup lang="ts" generic="T extends HeaderMode">
+import { computed, watch, toRef } from 'vue'
+import { Primitive } from 'reka-ui'
+import { defu } from 'defu'
+import { createReusableTemplate } from '@vueuse/core'
+import { useAppConfig, useRoute } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
+import { useLocale } from '../composables/useLocale'
+import { getSlotChildrenText } from '../utils'
+import { tv } from '../utils/tv'
+import icons from '../dictionary/icons'
+import B24Button from './Button.vue'
+import B24Link from './Link.vue'
+import B24Container from './Container.vue'
+import B24Slideover from './Slideover.vue'
+import B24Modal from './Modal.vue'
+import B24Drawer from './Drawer.vue'
+
+defineOptions({ inheritAttrs: false })
+
+const props = withDefaults(defineProps<HeaderProps<T>>(), {
+  as: 'header',
+  mode: 'modal' as never,
+  toggle: true,
+  toggleSide: 'left',
+  to: '/',
+  title: 'Bitrix24 UI'
+})
+const slots = defineSlots<HeaderSlots>()
+
+const open = defineModel<boolean>('open', { default: false })
+
+const route = useRoute()
+const { t } = useLocale()
+const appConfig = useAppConfig() as Header['AppConfig']
+const uiProp = useComponentUI('header', props)
+
+const [DefineLeftTemplate, ReuseLeftTemplate] = createReusableTemplate()
+const [DefineRightTemplate, ReuseRightTemplate] = createReusableTemplate()
+const [DefineToggleTemplate, ReuseToggleTemplate] = createReusableTemplate()
+
+const ariaLabel = computed(() => {
+  const slotText = slots.title && getSlotChildrenText(slots.title())
+  return (slotText || props.title || 'Nuxt UI').trim()
+})
+
+watch(() => route.fullPath, () => {
+  open.value = false
+})
+
+// eslint-disable-next-line vue/no-dupe-keys
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.header || {}) })())
+
+const Menu = computed(() => ({
+  slideover: B24Slideover,
+  modal: B24Modal,
+  drawer: B24Drawer
+})[props.mode as HeaderMode])
+
+const menuProps = toRef(() => defu(props.menu, {
+  content: {
+    onOpenAutoFocus: (e: Event) => e.preventDefault()
+  }
+}, props.mode === 'modal' ? { fullscreen: true, transition: false } : {}) as HeaderMenu<T>)
+
+function toggleOpen() {
+  open.value = !open.value
+}
+</script>
+
+<template>
+  <DefineToggleTemplate>
+    <slot name="toggle" :open="open" :toggle="toggleOpen" :b24ui="b24ui">
+      <B24Button
+        v-if="toggle"
+        color="air-tertiary"
+        size="md"
+        :aria-label="open ? t('header.close') : t('header.open')"
+        :icon="open ? icons.close : icons.menu"
+        v-bind="(typeof toggle === 'object' ? toggle : {})"
+        data-slot="toggle"
+        :class="b24ui.toggle({ class: uiProp?.toggle, toggleSide })"
+        @click="toggleOpen"
+      />
+    </slot>
+  </DefineToggleTemplate>
+
+  <DefineLeftTemplate>
+    <div data-slot="left" :class="b24ui.left({ class: uiProp?.left })">
+      <ReuseToggleTemplate v-if="toggleSide === 'left'" />
+
+      <slot name="left">
+        <B24Link :to="to" :aria-label="ariaLabel" data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
+          <slot name="title">
+            {{ title }}
+          </slot>
+        </B24Link>
+      </slot>
+    </div>
+  </DefineLeftTemplate>
+
+  <DefineRightTemplate>
+    <div data-slot="right" :class="b24ui.right({ class: uiProp?.right })">
+      <slot name="right" />
+
+      <ReuseToggleTemplate v-if="toggleSide === 'right'" />
+    </div>
+  </DefineRightTemplate>
+
+  <Primitive :as="as" v-bind="$attrs" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
+    <slot name="top" />
+
+    <B24Container data-slot="container" :class="b24ui.container({ class: uiProp?.container })">
+      <ReuseLeftTemplate />
+
+      <div data-slot="center" :class="b24ui.center({ class: uiProp?.center })">
+        <slot />
+      </div>
+
+      <ReuseRightTemplate />
+    </B24Container>
+
+    <slot name="bottom" />
+  </Primitive>
+
+  <Menu
+    v-model:open="open"
+    :title="t('header.title')"
+    :description="t('header.description')"
+    v-bind="menuProps"
+    :b24ui="{
+      overlay: b24ui.overlay({ class: uiProp?.overlay }),
+      content: b24ui.content({ class: uiProp?.content })
+    }"
+  >
+    <template #content="contentData">
+      <slot name="content" v-bind="contentData">
+        <div v-if="mode !== 'drawer'" data-slot="header" :class="b24ui.header({ class: uiProp?.header })">
+          <ReuseLeftTemplate />
+
+          <ReuseRightTemplate />
+        </div>
+
+        <div data-slot="body" :class="b24ui.body({ class: uiProp?.body })">
+          <slot name="body" />
+        </div>
+      </slot>
+    </template>
+  </Menu>
+</template>

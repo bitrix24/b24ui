@@ -56,7 +56,6 @@ import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Link from './Link.vue'
 import B24LinkBase from './LinkBase.vue'
-import icons from "#b24ui/dictionary/icons";
 
 const props = withDefaults(defineProps<FooterColumnsProps<T>>(), {
   as: 'nav'
