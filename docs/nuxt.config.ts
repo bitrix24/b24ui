@@ -33,6 +33,8 @@ const pages = [
   '/docs/components/sidebar-layout/',
   '/docs/components/container/',
   '/docs/components/error/',
+  '/docs/components/theme/',
+  '/docs/components/footer/',
   // endregion ////
   // region Element ////
   '/docs/components/advice/',
@@ -91,6 +93,7 @@ const pages = [
   '/docs/components/pagination/',
   '/docs/components/stepper/',
   '/docs/components/tabs/',
+  '/docs/components/footer-columns/',
   // endregion ////
   // region Overlay ////
   '/docs/components/context-menu/',

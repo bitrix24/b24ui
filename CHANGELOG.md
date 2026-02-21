@@ -4,7 +4,6 @@
 
 * feat(plugins\platform): detect `bitrixMobile`
 * fix(Prose.A): add prop `raw`
-* feat(Theme): new component
 * fix(ColorModeImage): add baseURL support for public paths
 * fix(Table): improve perfs with `shallowRef` when watch deep is disabled
 * fix(EditorMentionMenu): use `char` prop as mention prefix instead of always `@`
@@ -23,6 +22,9 @@
 * fix(InputMenu/SelectMenu): sort filtered items by match relevance
 * fix(components): nullable and optional type support
 * chore(deps): update @nuxt/test-utils + vitest to v4
+* feat(Theme): new component
+* feat(Footer): new component
+* feat(FooterColumns): new component
 
 ## [2.3.0](https://github.com/bitrix24/b24ui/compare/v2.2.1...v2.3.0) (2026-02-12)
 
