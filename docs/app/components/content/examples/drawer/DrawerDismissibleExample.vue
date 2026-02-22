@@ -1,21 +1,23 @@
 <script setup lang="ts">
+import Cross50Icon from '@bitrix24/b24icons-vue/actions/Cross50Icon'
+
 const open = ref(false)
 </script>
 
 <template>
-  <UDrawer v-model:open="open" :dismissible="false" :modal="false" :handle="false">
-    <UButton label="Open" color="neutral" variant="subtle" trailing-icon="i-lucide-chevron-up" />
+  <B24Drawer v-model:open="open" :dismissible="false" :modal="false" :handle="false">
+    <B24Button label="Open" use-dropdown :b24ui="{ trailingIcon: 'rotate-180' }" />
 
     <template #body>
       <div class="flex items-center justify-between gap-4 mb-4">
-        <h2 class="text-highlighted font-semibold">
+        <ProseH2 class="mb-0">
           Drawer non-dismissible
-        </h2>
+        </ProseH2>
 
-        <UButton color="neutral" variant="ghost" icon="i-lucide-x" @click="open = false" />
+        <B24Button color="air-tertiary" :icon="Cross50Icon" @click="open = false" />
       </div>
 
       <Placeholder class="size-full min-h-48" />
     </template>
-  </UDrawer>
+  </B24Drawer>
 </template>

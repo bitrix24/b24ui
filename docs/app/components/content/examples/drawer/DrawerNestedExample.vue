@@ -1,15 +1,15 @@
 <template>
-  <UDrawer :ui="{ content: 'h-full', overlay: 'bg-inverted/30' }">
-    <UButton label="Open" color="neutral" variant="subtle" trailing-icon="i-lucide-chevron-up" />
+  <B24Drawer :b24ui="{ content: 'h-full' }">
+    <B24Button label="Open" use-dropdown :b24ui="{ trailingIcon: 'rotate-180' }" />
 
     <template #footer>
-      <UDrawer nested :ui="{ content: 'h-full', overlay: 'bg-inverted/30' }">
-        <UButton color="neutral" variant="outline" label="Open nested" />
+      <B24Drawer nested :b24ui="{ content: 'h-full' }">
+        <B24Button label="Open nested" />
 
         <template #content>
           <Placeholder class="flex-1 m-4" />
         </template>
-      </UDrawer>
+      </B24Drawer>
     </template>
-  </UDrawer>
+  </B24Drawer>
 </template>

@@ -7,11 +7,11 @@ defineShortcuts({
 </script>
 
 <template>
-  <UDrawer v-model:open="open">
-    <UButton label="Open" color="neutral" variant="subtle" trailing-icon="i-lucide-chevron-up" />
+  <B24Drawer v-model:open="open">
+    <B24Button label="Open" use-dropdown :b24ui="{ trailingIcon: 'rotate-180' }" />
 
     <template #content>
       <Placeholder class="h-48 m-4" />
     </template>
-  </UDrawer>
+  </B24Drawer>
 </template>

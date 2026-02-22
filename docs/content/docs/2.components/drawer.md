@@ -13,7 +13,8 @@ links:
     iconName: NuxtIcon
     to: https://ui.nuxt.com/docs/components/drawer
   - label: Drawer
-    icon: i-custom-reka-ui
+    avatar:
+      src: /b24ui/avatar/rekaui.svg
     to: https://github.com/unovue/vaul-vue
 navigation.badge: Soon
 ---
@@ -84,7 +85,7 @@ props:
   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
 slots:
   default: |
-
+    
     <B24Button label="Open" />
 
   body: |
@@ -302,6 +303,8 @@ slots:
 
 ::warning
 Make sure to add the `data-vaul-drawer-wrapper` directive to a parent element of your app to make this work.
+
+@todo fix this bg-default
 
 ```vue [app.vue]
 <template>

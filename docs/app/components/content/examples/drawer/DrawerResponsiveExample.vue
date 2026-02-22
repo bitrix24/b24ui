@@ -16,28 +16,28 @@ const description = 'Make changes to your profile here. Click save when you\'re 
 
 <template>
   <DefineFormTemplate>
-    <UForm :state="state" class="space-y-4">
-      <UFormField label="Email" name="email" required>
-        <UInput v-model="state.email" placeholder="shadcn@example.com" required />
-      </UFormField>
+    <B24Form :state="state" class="space-y-4">
+      <B24FormField label="Email" name="email" required>
+        <B24Input v-model="state.email" placeholder="shadcn@example.com" required />
+      </B24FormField>
 
-      <UButton label="Save changes" type="submit" />
-    </UForm>
+      <B24Button label="Save changes" color="air-primary-success" type="submit" />
+    </B24Form>
   </DefineFormTemplate>
 
-  <UModal v-if="isDesktop" v-model:open="open" :title="title" :description="description">
-    <UButton label="Edit profile" color="neutral" variant="outline" />
+  <B24Modal v-if="isDesktop" v-model:open="open" :title="title" :description="description">
+    <B24Button label="Edit profile" />
 
     <template #body>
       <ReuseFormTemplate />
     </template>
-  </UModal>
+  </B24Modal>
 
-  <UDrawer v-else v-model:open="open" :title="title" :description="description">
-    <UButton label="Edit profile" color="neutral" variant="outline" />
+  <B24Drawer v-else v-model:open="open" :title="title" :description="description">
+    <B24Button label="Edit profile" />
 
     <template #body>
       <ReuseFormTemplate />
     </template>
-  </UDrawer>
+  </B24Drawer>
 </template>

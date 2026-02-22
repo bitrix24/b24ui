@@ -3,16 +3,21 @@ const open = ref(false)
 </script>
 
 <template>
-  <UDrawer v-model:open="open" title="Drawer with footer" description="This is useful when you want a form in a Drawer." :ui="{ container: 'max-w-xl mx-auto' }">
-    <UButton label="Open" color="neutral" variant="subtle" trailing-icon="i-lucide-chevron-up" />
+  <B24Drawer
+    v-model:open="open"
+    title="Drawer with footer"
+    description="This is useful when you want a form in a Drawer."
+    :b24ui="{ container: 'max-w-xl mx-auto' }"
+  >
+    <B24Button label="Open" use-dropdown :b24ui="{ trailingIcon: 'rotate-180' }" />
 
     <template #body>
       <Placeholder class="h-48" />
     </template>
 
     <template #footer>
-      <UButton label="Submit" color="neutral" class="justify-center" />
-      <UButton label="Cancel" color="neutral" variant="outline" class="justify-center" @click="open = false" />
+      <B24Button label="Submit" color="air-primary-success" />
+      <B24Button label="Cancel" @click="open = false" />
     </template>
-  </UDrawer>
+  </B24Drawer>
 </template>
