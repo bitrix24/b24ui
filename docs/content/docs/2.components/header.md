@@ -156,7 +156,7 @@ props:
 
 Use the `toggle` prop to customize the toggle button displayed on mobile.
 
-You can pass any property from the [Button](/docs/components/button) component to customize it.
+You can pass any property from the [Button](/docs/components/button/) component to customize it.
 
 ::component-example
 ---
@@ -197,6 +197,7 @@ Use the Header component in your `app.vue` or in a layout:
 ```vue [app.vue]{28-51}
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
+import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 
 const route = useRoute()
 
@@ -239,7 +240,7 @@ const items = computed<NavigationMenuItem[]>(() => [
         <B24Button
           to="https://github.com/bitrix24/b24ui"
           target="_blank"
-          icon="GitHubIcon"
+          :icon="GitHubIcon"
           aria-label="GitHub"
         />
       </template>

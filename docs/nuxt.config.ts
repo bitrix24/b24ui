@@ -201,7 +201,9 @@ const pagesFrameExamples = [
   '/examples/banner-example/',
   '/examples/banner-with-title-example/',
   '/examples/content-search-example/',
-  '/examples/header-menu-example/'
+  '/examples/header-menu-example/',
+  '/examples/header-toggle-example/',
+  '/examples/header-toggle-side-example/'
 ]
 
 const pagesService = [

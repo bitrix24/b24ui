@@ -16,14 +16,14 @@ const items = [
   },
   {
     label: 'REST API',
-    icon: Bitrix24Icon,
     to: 'https://apidocs.bitrix24.com',
+    icon: Bitrix24Icon,
     target: '_blank'
   },
   {
     label: 'Releases',
-    icon: GitHubIcon,
     to: 'https://github.com/bitrix24/b24ui/releases',
+    icon: GitHubIcon,
     target: '_blank'
   }
 ]
