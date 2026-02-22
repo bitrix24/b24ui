@@ -36,7 +36,7 @@ const components = [
   // // 'content/content-surround',
   // // 'content/content-toc',
   'context-menu',
-  // 'drawer',
+  'drawer',
   'dropdown-menu',
   'editor',
   'empty',

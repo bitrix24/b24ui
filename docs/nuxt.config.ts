@@ -99,7 +99,7 @@ const pages = [
   // endregion ////
   // region Overlay ////
   '/docs/components/context-menu/',
-  // '/docs/components/drawer/',
+  '/docs/components/drawer/',
   '/docs/components/dropdown-menu/',
   '/docs/components/modal/',
   '/docs/components/popover/',

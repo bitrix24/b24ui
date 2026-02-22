@@ -5,7 +5,6 @@
  * @link /api_d7/bitrix/ui/messages/alerts.php
  * @see bitrix/js/ui/alerts/src
  */
-
 export default {
   slots: {
     root: [
