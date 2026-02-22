@@ -1,6 +1,6 @@
 ---
 title: Header
-description: 'A site header that adapts its layout and content to different screen sizes.'
+description: 'A header that adapts its structure and content to different screen sizes.'
 category: layout
 links:
   - label: GitHub

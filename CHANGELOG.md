@@ -26,6 +26,7 @@
 * feat(Footer): new component
 * feat(FooterColumns): new component
 * feat(Header): new component
+* feat(Main): new component
 * feat(dictionary): add menu icon
 * docs(CSS Variables): improve
 

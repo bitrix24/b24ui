@@ -1,6 +1,6 @@
 /**
  * Header
- * A site header that adapts its layout and content to different screen sizes.
+ * A header that adapts its structure and content to different screen sizes.
  * ---
  * @todo color
  * @todo plgrng/vue/nuxt/demo

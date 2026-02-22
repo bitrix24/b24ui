@@ -36,6 +36,7 @@ const pages = [
   '/docs/components/theme/',
   '/docs/components/footer/',
   '/docs/components/header/',
+  '/docs/components/main/',
   // endregion ////
   // region Element ////
   '/docs/components/advice/',
