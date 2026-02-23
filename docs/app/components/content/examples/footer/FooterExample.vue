@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
-import Bitrix24Icon from '@bitrix24/b24icons-vue/common-b24/Bitrix24Icon'
+import Bitrix24Icon from '@bitrix24/b24icons-vue/common-service/Bitrix24Icon'
 
 const items: NavigationMenuItem[] = [
   {
@@ -20,9 +20,9 @@ const items: NavigationMenuItem[] = [
 <template>
   <B24Footer>
     <template #left>
-      <p class="text-muted text-sm">
+      <ProseP small accent="less">
         Copyright © {{ new Date().getFullYear() }}
-      </p>
+      </ProseP>
     </template>
 
     <B24NavigationMenu :items="items" variant="link" />

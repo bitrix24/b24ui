@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
-import Bitrix24Icon from '@bitrix24/b24icons-vue/common-b24/Bitrix24Icon'
+import Bitrix24Icon from '@bitrix24/b24icons-vue/common-service/Bitrix24Icon'
 
 const items = [
   {
@@ -52,9 +52,7 @@ const columns = [
 
 <template>
   <PlaygroundPage>
-    <Navbar />
-
-    <B24Footer class="w-full border-t border-default divide-y divide-default min-h-0">
+    <B24Footer class="w-full border-t border-(--ui-color-divider-default) divide-y divide-(--ui-color-divider-default) min-h-0">
       <template #top>
         <B24Container>
           <B24FooterColumns :columns="columns">
@@ -62,7 +60,7 @@ const columns = [
               <B24FormField name="email" label="Subscribe to our newsletter" size="lg">
                 <B24Input type="email" class="w-full">
                   <template #trailing>
-                    <B24Button type="submit" size="xs" label="Subscribe" />
+                    <B24Button type="submit" color="air-primary" size="xs" label="Subscribe" />
                   </template>
                 </B24Input>
               </B24FormField>
@@ -72,9 +70,9 @@ const columns = [
       </template>
 
       <template #left>
-        <p class="text-muted text-sm">
+        <ProseP small accent="less">
           Copyright © {{ new Date().getFullYear() }}
-        </p>
+        </ProseP>
       </template>
 
       <B24NavigationMenu :items="items" variant="link" />

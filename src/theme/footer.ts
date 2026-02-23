@@ -2,8 +2,6 @@
  * Footer
  * A responsive footer for displaying copyright, links, and additional information.
  * ---
- * @todo color
- * @todo plgrng/vue/nuxt/demo
  */
 export default {
   slots: {

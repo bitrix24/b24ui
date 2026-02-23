@@ -102,16 +102,16 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.footer
                       <slot name="link-label" :link="(link as T)" :active="active">
                         {{ (link as T).label }}
                       </slot>
+                    </span>
 
+                    <slot name="link-trailing" :link="(link as T)" :active="active">
                       <Component
                         :is="icons.external"
                         v-if="link.target === '_blank'"
                         data-slot="linkLabelExternalIcon"
                         :class="b24ui.linkLabelExternalIcon({ class: [uiProp?.linkLabelExternalIcon, link.b24ui?.linkLabelExternalIcon], active })"
                       />
-                    </span>
-
-                    <slot name="link-trailing" :link="(link as T)" :active="active" />
+                    </slot>
                   </slot>
                 </B24LinkBase>
               </B24Link>

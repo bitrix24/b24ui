@@ -2,7 +2,6 @@
  * Drawer
  * A toggleable drawer with fluid enter/exit transitions.
  * ---
- * @todo color round size
  */
 export default {
   slots: {
@@ -13,13 +12,11 @@ export default {
       'bg-(--ui-color-bg-content-primary)',
       'flex',
       'focus:outline-none',
-      'ring ring-default'
+      'ring ring-(--ui-color-divider-default)'
     ].join(' '),
-    handle: 'shrink-0 !bg-accented transition-opacity',
+    handle: 'shrink-0 !bg-(--ui-color-divider-default) transition-opacity',
     container: 'w-full flex flex-col gap-4 p-4 overflow-y-auto',
     header: '',
-    // title: 'text-highlighted font-semibold',
-    // description: 'mt-1 text-muted text-sm',
     title: [
       'font-[family-name:var(--ui-font-family-primary)]',
       'text-(--b24ui-typography-label-color)',

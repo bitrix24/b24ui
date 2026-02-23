@@ -379,13 +379,13 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
           <slot :name="((item.slot ? `${item.slot}-label` : 'item-label') as keyof NavigationMenuSlots<T>)" :item="item" :active="active" :index="index">
             {{ get(item, props.labelKey as string) }}
           </slot>
-          <Component
-            :is="typeof externalIcon !== 'boolean' ? externalIcon : icons.external"
-            v-if="item.target === '_blank' && externalIcon !== false"
-            data-slot="linkLabelExternalIcon"
-            :class="b24ui.linkLabelExternalIcon({ class: [uiProp?.linkLabelExternalIcon, item.b24ui?.linkLabelExternalIcon], active })"
-          />
         </span>
+        <Component
+          :is="typeof externalIcon !== 'boolean' ? externalIcon : icons.external"
+          v-if="item.target === '_blank' && externalIcon !== false"
+          data-slot="linkLabelExternalIcon"
+          :class="b24ui.linkLabelExternalIcon({ class: [uiProp?.linkLabelExternalIcon, item.b24ui?.linkLabelExternalIcon], active })"
+        />
       </span>
 
       <component

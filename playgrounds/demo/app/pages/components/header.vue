@@ -16,14 +16,14 @@ const items = [
   },
   {
     label: 'REST API',
-    icon: Bitrix24Icon,
     to: 'https://apidocs.bitrix24.com',
+    icon: Bitrix24Icon,
     target: '_blank'
   },
   {
     label: 'Releases',
-    icon: GitHubIcon,
     to: 'https://github.com/bitrix24/b24ui/releases',
+    icon: GitHubIcon,
     target: '_blank'
   }
 ]
@@ -31,8 +31,6 @@ const items = [
 
 <template>
   <PlaygroundPage>
-    <Navbar />
-
     <B24Header class="w-full">
       <template #title>
         <Logo class="h-6 w-auto" />
@@ -41,8 +39,6 @@ const items = [
       <B24NavigationMenu :items="items" />
 
       <template #right>
-        <B24ColorModeButton />
-
         <B24Tooltip text="Open on GitHub" :kbds="['meta', 'G']">
           <B24Button
             to="https://github.com/bitrix24/b24ui"

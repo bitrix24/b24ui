@@ -126,7 +126,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.drawer
   snapPoints: props.snapPoints && props.snapPoints.length > 0,
   overlayBlur: props.overlayBlur,
   overlay: props.overlay,
-  scrollable: props.scrollable
+  scrollbarThin: props.scrollbarThin
 }))
 </script>
 

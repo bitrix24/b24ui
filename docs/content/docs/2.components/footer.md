@@ -46,7 +46,7 @@ You can use the `FooterColumns` component to display a list of links inside the 
 
 Use the Footer component in your `app.vue` or in a layout:
 
-```vue [app.vue]{32-67}
+```vue [app.vue]
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
@@ -80,9 +80,9 @@ const items: NavigationMenuItem[] = [
 
     <B24Footer>
       <template #left>
-        <p class="text-muted text-sm">
+        <ProseP small accent="less">
           Copyright © {{ new Date().getFullYear() }}
-        </p>
+        </ProseP>
       </template>
 
       <B24NavigationMenu :items="items" variant="link" />

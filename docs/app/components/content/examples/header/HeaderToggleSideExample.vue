@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
-import Bitrix24Icon from '@bitrix24/b24icons-vue/common-b24/Bitrix24Icon'
+import Bitrix24Icon from '@bitrix24/b24icons-vue/common-service/Bitrix24Icon'
 import PlayLIcon from '@bitrix24/b24icons-vue/outline/PlayLIcon'
 import DeveloperResourcesIcon from '@bitrix24/b24icons-vue/outline/DeveloperResourcesIcon'
 
@@ -38,7 +38,7 @@ const items = computed<NavigationMenuItem[]>(() => [
 <template>
   <B24Header toggle-side="right">
     <template #title>
-      <Logo class="h-6 w-auto" />
+      <Logo class="h-6 w-auto text-(--b24ui-typography-label-color)" />
     </template>
 
     <B24NavigationMenu :items="items" />

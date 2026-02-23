@@ -17,6 +17,9 @@ export default defineNuxtConfig({
       htmlAttrs: {
         class: 'edge-dark'
       }
+    },
+    rootAttrs: {
+      'data-vaul-drawer-wrapper': ''
     }
   },
 

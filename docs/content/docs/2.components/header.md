@@ -73,12 +73,12 @@ props:
 slots:
   title: |
 
-    <Logo class="h-6 w-auto" />
+    <Logo class="h-6 w-auto text-(--b24ui-typography-label-color)" />
 class: '!px-0 !pt-0'
 ---
 
 #title
-:logo{class="h-6 w-auto"}
+:logo{class="h-6 w-auto text-(--b24ui-typography-label-color)"}
 ::
 
 ### To
@@ -91,7 +91,7 @@ hide:
   - class
 class: '!px-0 !pt-0'
 props:
-  to: '/docs'
+  to: '/docs/'
   class: 'w-full'
 ---
 ::
@@ -110,14 +110,14 @@ props:
 slots:
   left: |
 
-    <NuxtLink to="/docs">
-      <Logo class="h-6 w-auto" />
+    <NuxtLink to="/docs"">
+      <Logo class="h-6 w-auto text-(--b24ui-typography-label-color)" />
     </NuxtLink>
 ---
 
 #left
 ::nuxt-link{to="/docs"}
-:logo{class="h-6 w-auto"}
+:logo{class="h-6 w-auto text-(--b24ui-typography-label-color)"}
 ::
 ::
 
@@ -194,7 +194,7 @@ props:
 
 Use the Header component in your `app.vue` or in a layout:
 
-```vue [app.vue]{28-51}
+```vue [app.vue]
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'

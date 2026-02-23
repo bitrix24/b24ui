@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import Cross50Icon from '@bitrix24/b24icons-vue/actions/Cross50Icon'
+
 const open = ref(false)
+const openDismissible = ref(false)
 const inset = ref(false)
 </script>
 
@@ -18,8 +21,8 @@ const inset = ref(false)
         </template>
 
         <template #footer>
-          <B24Button label="Submit" color="air-primary" class="justify-center" />
-          <B24Button label="Cancel" color="air-tertiary" class="justify-center" @click="open = false" />
+          <B24Button label="Submit" color="air-primary-success" />
+          <B24Button label="Cancel" @click="open = false" />
         </template>
       </B24Drawer>
 
@@ -31,7 +34,7 @@ const inset = ref(false)
         </template>
       </B24Drawer>
 
-      <B24Drawer title="Drawer with nested" :inset="inset" :b24ui="{ content: 'h-full' }" should-scale-background>
+      <B24Drawer title="Drawer with nested" :inset="inset" :b24ui="{ content: 'h-full' }">
         <B24Button color="air-secondary-accent" label="Open nested" />
 
         <template #footer>
@@ -46,8 +49,7 @@ const inset = ref(false)
       </B24Drawer>
 
       <B24Drawer
-        title="Drawer prevent close"
-        description="This drawer has `dismissible: false` prop so it won't close when clicking outside."
+        v-model:open="openDismissible"
         :dismissible="false"
         :modal="false"
         :overlay="false"
@@ -56,7 +58,15 @@ const inset = ref(false)
         <B24Button label="Open unclosable" />
 
         <template #body>
-          <Placeholder class="h-96 w-full" />
+          <div class="flex items-center justify-between gap-4 mb-4">
+            <ProseH2 class="mb-0">
+              Drawer non-dismissible
+            </ProseH2>
+
+            <B24Button color="air-tertiary" :icon="Cross50Icon" @click="openDismissible = false" />
+          </div>
+
+          <Placeholder class="size-full min-h-48" />
         </template>
       </B24Drawer>
 

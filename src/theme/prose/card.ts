@@ -16,7 +16,7 @@ export default {
       'transition-colors'
     ].join(' '),
     icon: 'size-6 mb-2 block text-(--b24ui-icon)',
-    title: 'text-(--b24ui-color) font-semibold',
+    title: 'text-(--b24ui-color) font-(--ui-font-weight-semi-bold)',
     description: 'text-[15px] text-(--b24ui-color) [&_p]:text-(--b24ui-color) *:first:mt-0 *:last:mb-0 *:my-1',
     externalIcon: [
       'size-4',

@@ -227,6 +227,7 @@ export default {
       class: {
         childList: 'grid px-0 py-(--menu-popup-padding)',
         linkLabel: 'hidden',
+        linkLabelExternalIcon: 'hidden',
         linkTrailing: 'hidden'
       }
     },
