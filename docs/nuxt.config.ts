@@ -33,6 +33,10 @@ const pages = [
   '/docs/components/sidebar-layout/',
   '/docs/components/container/',
   '/docs/components/error/',
+  '/docs/components/theme/',
+  '/docs/components/footer/',
+  '/docs/components/header/',
+  '/docs/components/main/',
   // endregion ////
   // region Element ////
   '/docs/components/advice/',
@@ -91,10 +95,11 @@ const pages = [
   '/docs/components/pagination/',
   '/docs/components/stepper/',
   '/docs/components/tabs/',
+  '/docs/components/footer-columns/',
   // endregion ////
   // region Overlay ////
   '/docs/components/context-menu/',
-  // '/docs/components/drawer/',
+  '/docs/components/drawer/',
   '/docs/components/dropdown-menu/',
   '/docs/components/modal/',
   '/docs/components/popover/',
@@ -196,7 +201,10 @@ const pagesFrameExamples = [
   '/examples/sidebar-layout-inner-example/',
   '/examples/banner-example/',
   '/examples/banner-with-title-example/',
-  '/examples/content-search-example/'
+  '/examples/content-search-example/',
+  '/examples/header-menu-example/',
+  '/examples/header-toggle-example/',
+  '/examples/header-toggle-side-example/'
 ]
 
 const pagesService = [

@@ -32,7 +32,7 @@ const items: ContextMenuItem[][] = [
 
 <template>
   <B24ContextMenu :items="items">
-    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) bg-(--ui-color-bg-content-primary) aspect-video w-72">
+    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(--b24ui-typography-legend-color) text-(length:--ui-font-size-sm) bg-(--ui-color-bg-content-primary) aspect-video w-72">
       Right click here
     </div>
   </B24ContextMenu>

@@ -18,6 +18,12 @@
   }
 }
 
+@layer theme {
+  :root, :host {
+    --b24ui-header-height: --spacing(14.5); /* 58px */
+  }
+}
+
 @theme default inline {
   --text-color-dimmed: var(--ui-color-base-6);
   --text-color-muted: var(--ui-color-design-plain-na-content-secondary);

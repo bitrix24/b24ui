@@ -19,16 +19,16 @@ export interface ModalProps extends DialogRootProps {
    */
   overlay?: boolean
   /**
-   * When `true`, enables scrollable overlay mode where content scrolls within the overlay.
-   * @defaultValue false
-   */
-  scrollable?: boolean
-  /**
    * Render an overlay blur behind the modal.
    * `auto` use `motion-safe`.
    * @defaultValue 'auto'
    */
   overlayBlur?: Modal['variants']['overlayBlur']
+  /**
+   * When `true`, enables scrollable overlay mode where content scrolls within the overlay.
+   * @defaultValue false
+   */
+  scrollable?: boolean
   /**
    * Animate the modal when opening or closing.
    * @defaultValue true

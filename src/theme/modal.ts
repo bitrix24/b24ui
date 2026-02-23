@@ -6,7 +6,6 @@
  * @see bitrix/js/ui/dialogs/messagebox/..
  *
  * @todo: use modal template from - What's new in Bitrix24 + set position ~> top-right
- * @todo: add command palette to docs example
  * @todo: add wizard component
  */
 

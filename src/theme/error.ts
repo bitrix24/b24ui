@@ -1,3 +1,8 @@
+/**
+ * Error
+ * A pre-built error component with NuxtError support.
+ * ---
+ */
 export default {
   slots: {
     root: 'min-h-[calc(100vh-var(--topbar-height))] flex flex-col items-center justify-center text-center',
