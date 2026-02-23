@@ -16,24 +16,12 @@ export default {
       }
     },
     size: {
-      xss: {
-        input: '[&>input]:text-(length:--ui-font-size-4xs)/[normal]'
-      },
-      xs: {
-        input: '[&>input]:text-(length:--ui-font-size-xs)/[normal]'
-      },
-      sm: {
-        input: '[&>input]:text-(length:--ui-font-size-sm)/[normal]'
-      },
-      md: {
-        input: '[&>input]:text-(length:--ui-font-size-md)/[normal]'
-      },
-      lg: {
-        input: '[&>input]:text-(length:--ui-font-size-lg)/[normal]'
-      },
-      xl: {
-        input: '[&>input]:text-(length:--ui-font-size-2xl)/[normal]'
-      }
+      xss: {},
+      xs: {},
+      sm: {},
+      md: {},
+      lg: {},
+      xl: {}
     }
   },
   defaultVariants: {

@@ -141,6 +141,9 @@ export default {
     trailing: { true: '' },
     loading: { true: '' },
     highlight: { true: 'ring ring-inset ring-(--b24ui-border-color)' },
+    fixed: {
+      false: ''
+    },
     type: {
       file: [
         'file:me-1.5',
@@ -365,6 +368,33 @@ export default {
       size: 'xss',
       rounded: false,
       class: 'rounded-[5px]'
+    },
+    // endregion ////
+    // region fixed ////
+    {
+      fixed: false,
+      size: 'xss',
+      class: 'md:text-(length:--ui-font-size-4xs)/[normal]'
+    },
+    {
+      fixed: false,
+      size: 'xs',
+      class: 'md:text-(length:--ui-font-size-xs)/[normal]'
+    },
+    {
+      fixed: false,
+      size: 'sm',
+      class: 'md:text-(length:--ui-font-size-sm)/[normal]'
+    },
+    {
+      fixed: false,
+      size: 'md',
+      class: 'md:text-(length:--ui-font-size-lg)/[normal]'
+    },
+    {
+      fixed: false,
+      size: 'lg',
+      class: 'md:text-(length:--ui-font-size-lg)/[normal]'
     }
     // endregion ////
   ],

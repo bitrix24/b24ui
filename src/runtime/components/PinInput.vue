@@ -48,6 +48,8 @@ export interface PinInputProps<T extends PinInputType = 'text'> extends Pick<Pin
   autofocus?: boolean
   autofocusDelay?: number
   highlight?: boolean
+  /** Keep the mobile text size on all breakpoints. (Left for backward compatibility.) */
+  fixed?: boolean
   class?: any
   b24ui?: PinInput['slots']
 }
@@ -87,6 +89,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.pinInp
   color: color.value,
   size: size.value,
   highlight: highlight.value,
+  fixed: props.fixed,
   rounded: Boolean(props.rounded),
   noBorder: Boolean(props.noBorder),
   underline: Boolean(props.underline)

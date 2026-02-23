@@ -56,6 +56,8 @@ export interface InputDateProps<R extends boolean = false> extends UseComponentI
   tagColor?: BadgeProps['color']
   /** Highlight the ring color like a focus state. */
   highlight?: boolean
+  /** Keep the mobile text size on all breakpoints. (Left for backward compatibility.) */
+  fixed?: boolean
   autofocus?: boolean
   autofocusDelay?: number
   /**
@@ -113,7 +115,8 @@ const slots = defineSlots<InputDateSlots>()
 const appConfig = useAppConfig() as InputDate['AppConfig']
 const uiProp = useComponentUI('inputDate', props)
 
-const rootProps = useForwardPropsEmits(reactiveOmit(props, 'id', 'name', 'range', 'modelValue', 'defaultValue', 'color', 'size', 'highlight', 'disabled', 'autofocus', 'autofocusDelay', 'icon', 'avatar', 'trailingIcon', 'loading', 'separatorIcon', 'class', 'b24ui'), emits)
+/** @memo we not use `leading`, `leadingIcon`, `trailing` and `loadingIcon` */
+const rootProps = useForwardPropsEmits(reactiveOmit(props, 'id', 'name', 'range', 'modelValue', 'defaultValue', 'color', 'size', 'highlight', 'fixed', 'disabled', 'autofocus', 'autofocusDelay', 'icon', 'avatar', 'trailingIcon', 'loading', 'separatorIcon', 'class', 'b24ui'), emits)
 const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, size: formGroupSize, color, id, name, highlight, disabled, ariaAttrs } = useFormField<InputDateProps<R>>(props)
 const { orientation, size: fieldGroupSize } = useFieldGroup<InputDateProps<R>>(props)
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props)
@@ -134,6 +137,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.inputD
   size: inputSize.value,
   loading: props.loading,
   highlight: highlight.value,
+  fixed: props.fixed,
   rounded: Boolean(props.rounded),
   noPadding: Boolean(props.noPadding),
   noBorder: Boolean(props.noBorder),

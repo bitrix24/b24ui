@@ -79,7 +79,10 @@ export default () => ({
         'border-b-(--ui-color-design-outline-stroke)'
       ].join(' ')
     },
-    highlight: { true: 'ring ring-inset ring-(--b24ui-border-color)' }
+    highlight: { true: 'ring ring-inset ring-(--b24ui-border-color)' },
+    fixed: {
+      false: ''
+    }
   },
   compoundVariants: [
     // region ring for focus and highlight ////
@@ -144,6 +147,33 @@ export default () => ({
           'ring-0'
         ].join(' ')
       }
+    },
+    // endregion ////
+    // region fixed ////
+    {
+      fixed: false,
+      size: 'xss',
+      class: 'md:text-(length:--ui-font-size-4xs)/[normal]'
+    },
+    {
+      fixed: false,
+      size: 'xs',
+      class: 'md:text-(length:--ui-font-size-xs)/[normal]'
+    },
+    {
+      fixed: false,
+      size: 'sm',
+      class: 'md:text-(length:--ui-font-size-sm)/[normal]'
+    },
+    {
+      fixed: false,
+      size: 'md',
+      class: 'md:text-(length:--ui-font-size-lg)/[normal]'
+    },
+    {
+      fixed: false,
+      size: 'lg',
+      class: 'md:text-(length:--ui-font-size-lg)/[normal]'
     }
     // endregion ////
   ],

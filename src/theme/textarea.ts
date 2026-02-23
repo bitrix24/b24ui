@@ -74,10 +74,6 @@ export default {
       'collab': { base: 'style-old-collab' },
       'ai': { base: 'style-old-ai' }
     },
-    /**
-     * @memo now get from Badge
-     */
-    // tagColor: {},
     rounded: {
       true: 'rounded-(--ui-border-radius-3xl)',
       false: 'rounded-(--ui-border-radius-sm)'
@@ -96,6 +92,9 @@ export default {
     leading: { true: '' },
     trailing: { true: '' },
     loading: { true: '' },
+    fixed: {
+      false: ''
+    },
     highlight: { true: 'ring ring-inset ring-(--b24ui-border-color)' }
   },
   compoundVariants: [

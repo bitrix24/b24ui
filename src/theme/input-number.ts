@@ -97,6 +97,9 @@ export default () => {
       highlight: {
         true: ''
       },
+      fixed: {
+        false: ''
+      },
       increment: {
         false: ''
       },
@@ -402,6 +405,33 @@ export default () => {
         size: 'xss',
         rounded: false,
         class: 'rounded-[5px]'
+      },
+      // endregion ////
+      // region fixed ////
+      {
+        fixed: false,
+        size: 'xss',
+        class: 'md:text-(length:--ui-font-size-4xs)/[normal]'
+      },
+      {
+        fixed: false,
+        size: 'xs',
+        class: 'md:text-(length:--ui-font-size-xs)/[normal]'
+      },
+      {
+        fixed: false,
+        size: 'sm',
+        class: 'md:text-(length:--ui-font-size-sm)/[normal]'
+      },
+      {
+        fixed: false,
+        size: 'md',
+        class: 'md:text-(length:--ui-font-size-lg)/[normal]'
+      },
+      {
+        fixed: false,
+        size: 'lg',
+        class: 'md:text-(length:--ui-font-size-lg)/[normal]'
       }
       // endregion ////
     ],

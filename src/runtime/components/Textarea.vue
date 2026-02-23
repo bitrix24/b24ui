@@ -63,6 +63,8 @@ export interface TextareaProps<T extends TextareaValue = TextareaValue, Mod exte
   tagColor?: BadgeProps['color']
   /** Highlight the ring color like a focus state. */
   highlight?: boolean
+  /** Keep the mobile text size on all breakpoints. (Left for backward compatibility.) */
+  fixed?: boolean
   defaultValue?: ApplyModifiers<T, Mod>
   modelValue?: ApplyModifiers<T, Mod>
   modelModifiers?: Mod
@@ -125,6 +127,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.textar
   // size: size?.value,
   loading: props.loading,
   highlight: highlight.value,
+  fixed: props.fixed,
   autoresize: Boolean(props.autoresize),
   rounded: Boolean(props.rounded),
   noPadding: Boolean(props.noPadding),

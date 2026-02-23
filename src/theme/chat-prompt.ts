@@ -10,7 +10,7 @@ export default {
     header: 'flex items-center gap-[8px]',
     body: 'py-[4px] items-start',
     footer: 'flex items-center justify-end gap-[8px]',
-    base: 'pt-[1px] pb-[0px] text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)'
+    base: 'pt-[1px] pb-[0px]' // text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)
   },
   variants: {
     variant: {

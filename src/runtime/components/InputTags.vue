@@ -59,6 +59,8 @@ export interface InputTagsProps<T extends InputTagItem = InputTagItem> extends P
   tagColor?: BadgeProps['color']
   /** Highlight the ring color like a focus state. */
   highlight?: boolean
+  /** Keep the mobile text size on all breakpoints. (Left for backward compatibility.) */
+  fixed?: boolean
   class?: any
   b24ui?: InputTags['slots']
 }
@@ -123,6 +125,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.inputT
   size: inputSize?.value,
   loading: props.loading,
   highlight: highlight.value,
+  fixed: props.fixed,
   rounded: Boolean(props.rounded),
   noBorder: Boolean(props.noBorder),
   underline: Boolean(props.underline),
