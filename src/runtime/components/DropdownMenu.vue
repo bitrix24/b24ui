@@ -165,8 +165,8 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dropdo
       :items="items"
       :arrow="arrow"
       :portal="portal"
-      :label-key="(labelKey as keyof NestedItem<T>)"
-      :description-key="(descriptionKey as keyof NestedItem<T>)"
+      :label-key="(labelKey as string & keyof NestedItem<T>)"
+      :description-key="(descriptionKey as string & keyof NestedItem<T>)"
       :checked-icon="checkedIcon"
       :external-icon="externalIcon"
     >
