@@ -8,6 +8,7 @@ import ComponentRender from '../component-render'
 import { expectSlotProps } from '../utils/types'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 import theme from '#build/b24ui/dropdown-menu'
+import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 
 type DropdownMenu = ComponentConfig<typeof theme, AppConfig, 'dropdownMenu'>
 
@@ -53,15 +54,12 @@ describe('DropdownMenu', () => {
         icon: SignIcon,
         children: [{
           label: 'Import from Slack',
-          icon: 'i-simple-icons-slack',
           to: 'https://slack.com',
           target: '_blank'
         }, {
-          label: 'Import from Trello',
-          icon: 'i-simple-icons-trello'
+          label: 'Import from Trello'
         }, {
-          label: 'Import from Asana',
-          icon: 'i-simple-icons-asana'
+          label: 'Import from Asana'
         }]
       }]]
     }, {
@@ -70,7 +68,7 @@ describe('DropdownMenu', () => {
       kbds: ['meta', 'n']
     }], [{
       label: 'GitHub',
-      icon: 'i-simple-icons-github',
+      icon: GitHubIcon,
       to: 'https://github.com/bitrix24/b24ui',
       target: '_blank'
     }, {

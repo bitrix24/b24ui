@@ -1,0 +1,59 @@
+<script lang="ts">
+import type { AppConfig } from '@nuxt/schema'
+import theme from '#build/b24ui/page'
+import type { ComponentConfig } from '../types/tv'
+
+type Page = ComponentConfig<typeof theme, AppConfig, 'page'>
+
+export interface PageProps {
+  /**
+   * The element or component this component should render as.
+   * @defaultValue 'div'
+   */
+  as?: any
+  class?: any
+  b24ui?: Page['slots']
+}
+
+export interface PageSlots {
+  left(props?: {}): any
+  default(props?: {}): any
+  right(props?: {}): any
+}
+</script>
+
+<script setup lang="ts">
+import { computed } from 'vue'
+import { Primitive, Slot } from 'reka-ui'
+import { useAppConfig } from '#imports'
+import { useComponentUI } from '../composables/useComponentUI'
+import { tv } from '../utils/tv'
+
+const props = defineProps<PageProps>()
+const slots = defineSlots<PageSlots>()
+
+const appConfig = useAppConfig() as Page['AppConfig']
+const uiProp = useComponentUI('page', props)
+
+// eslint-disable-next-line vue/no-dupe-keys
+const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.page || {}) })({
+  left: !!slots.left,
+  right: !!slots.right
+}))
+</script>
+
+<template>
+  <Primitive :as="as" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
+    <Slot v-if="!!slots.left" data-slot="left" :class="b24ui.left({ class: uiProp?.left })">
+      <slot name="left" />
+    </Slot>
+
+    <div data-slot="center" :class="b24ui.center({ class: uiProp?.center })">
+      <slot />
+    </div>
+
+    <Slot v-if="!!slots.right" data-slot="right" :class="b24ui.right({ class: uiProp?.right })">
+      <slot name="right" />
+    </Slot>
+  </Primitive>
+</template>
