@@ -10,13 +10,12 @@ import type { ComponentConfig } from '../types/tv'
 type NavigationMenu = ComponentConfig<typeof theme, AppConfig, 'navigationMenu'>
 
 /**
- * @memo not use in NavigationMenuChildItem
- * - description
- * - avatar
- * - b24ui
- * - children - only 1 level
+ * @memo only 1 level
+ * @memo not use in NavigationMenuChildItem: `b24ui` | `description` | `avatar` | `children` | `description`
  */
-export interface NavigationMenuChildItem extends Omit<NavigationMenuItem, 'type' | 'b24ui' | 'avatar' | 'children'> {
+export interface NavigationMenuChildItem extends Omit<NavigationMenuItem, 'type' | 'b24ui' | 'avatar' | 'children' | 'description'> {
+  // Description is only used when `orientation` is `horizontal`.
+  // description?: string
   [key: string]: any
 }
 
@@ -34,7 +33,7 @@ export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
   avatar?: AvatarProps
   /**
    * Display a badge on the item.
-   * `{ size: 'xs', color: 'air-primary-alert' }`{lang="ts"}
+   * `{ size: 'xs', color: 'air-primary-alert' }`{lang="ts-type"}
    */
   badge?: string | number | BadgeProps
   /**
@@ -71,7 +70,7 @@ export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
   slot?: string
   /**
    * The value of the item. Avoid using `index` as the value to prevent conflicts in horizontal orientation with Reka UI.
-   * @defaultValue `item-${index}`
+   * @defaultValue `item-${index}`, `item-${level}-${index}` for nested children, or `group-${listIndex}-item-${index}` when using grouped items
    */
   value?: string
   children?: NavigationMenuChildItem[]
@@ -96,14 +95,8 @@ type NavigationMenuModelValue<
 > = O extends 'horizontal' ? string : K extends 'single' ? string : K extends 'multiple' ? string[] : string | string[]
 
 /**
- * @memo remove contentOrientation
- * @memo remove highlight
- * @memo remove highlightColor
- * @memo remove arrow
- * @memo remove color
- * @memo remove variant (link) -> use variant.pill
+ * @memo remove contentOrientation | highlight | highlightColor | arrow | color | variant (link) -> use variant.pill
  */
-
 export interface NavigationMenuProps<
   T extends ArrayOrNested<NavigationMenuItem> = ArrayOrNested<NavigationMenuItem>,
   K extends SingleOrMultipleType = SingleOrMultipleType,
@@ -282,11 +275,12 @@ const tooltipProps = toRef(() => defu(typeof props.tooltip === 'boolean' ? {} : 
 const popoverProps = toRef(() => defu(typeof props.popover === 'boolean' ? {} : props.popover, { arrow: true, mode: 'hover', content: { side: 'right', align: 'center', alignOffset: 2 } }) as PopoverProps)
 
 const [DefineLinkTemplate, ReuseLinkTemplate] = createReusableTemplate<{ item: NavigationMenuItem, index: number, active?: boolean }>()
-const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: NavigationMenuItem, index: number, level?: number }>({
+const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: NavigationMenuItem, index: number, level?: number, listIndex?: number }>({
   props: {
     item: Object,
     index: Number,
-    level: Number
+    level: Number,
+    listIndex: Number
   }
 })
 
@@ -303,10 +297,15 @@ const lists = computed<NavigationMenuItem[][]>(() =>
     : []
 )
 
-function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
+function getItemValue(item: NavigationMenuItem, index: number, level: number, listIndex: number) {
+  const prefix = lists.value.length > 1 ? `group-${listIndex}-` : ''
+  return get(item, props.valueKey as string) ?? (level > 0 ? `${prefix}item-${level}-${index}` : `${prefix}item-${index}`)
+}
+
+function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0, listIndex = 0) {
   const indexes = list.reduce((acc: string[], item, index) => {
     if (item.defaultOpen || item.open) {
-      acc.push(get(item, props.valueKey as string) ?? (level > 0 ? `item-${level}-${index}` : `item-${index}`))
+      acc.push(getItemValue(item, index, level, listIndex))
     }
     return acc
   }, [])
@@ -425,11 +424,11 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
     </slot>
   </DefineLinkTemplate>
 
-  <DefineItemTemplate v-slot="{ item, index, level = 0 }">
+  <DefineItemTemplate v-slot="{ item, index, level = 0, listIndex = 0 }">
     <component
       :is="(orientation === 'vertical' && !collapsed) ? AccordionItem : NavigationMenuItem"
       as="li"
-      :value="get(item, props.valueKey as string) ?? (level > 0 ? `item-${level}-${index}` : `item-${index}`)"
+      :value="getItemValue(item, index, level, listIndex)"
     >
       <div
         v-if="orientation === 'vertical' && item.type === 'label' && !collapsed"
@@ -676,7 +675,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
         <AccordionRoot
           v-bind="({
             ...accordionProps,
-            defaultValue: getAccordionDefaultValue(item.children, level + 1)
+            defaultValue: getAccordionDefaultValue(item.children, level + 1, listIndex)
           } as AccordionRootProps)"
           as="ul"
           data-slot="childList"
@@ -688,6 +687,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
             :item="childItem"
             :index="childIndex"
             :level="level + 1"
+            :list-index="listIndex"
             data-slot="childItem"
             :class="b24ui.childItem({ class: [uiProp?.childItem, childItem.b24ui?.childItem] })"
           />
@@ -717,7 +717,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
         v-bind="orientation === 'vertical' && !collapsed ? {
           ...accordionProps,
           modelValue,
-          defaultValue: defaultValue ?? getAccordionDefaultValue(list)
+          defaultValue: defaultValue ?? getAccordionDefaultValue(list, 0, listIndex)
         } : {}"
         :is="orientation === 'vertical' ? AccordionRoot : NavigationMenuList"
         as="ul"
@@ -729,6 +729,7 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
           :key="`list-${listIndex}-${index}`"
           :item="item"
           :index="index"
+          :list-index="listIndex"
           data-slot="item"
           :class="b24ui.item({ class: [uiProp?.item, item.b24ui?.item] })"
         />
