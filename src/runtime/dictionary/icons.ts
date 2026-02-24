@@ -42,6 +42,8 @@ import SendIcon from '@bitrix24/b24icons-vue/main/SendIcon'
 import DragLIcon from '@bitrix24/b24icons-vue/outline/DragLIcon'
 import GoToLIcon from '@bitrix24/b24icons-vue/outline/GoToLIcon'
 import HamburgerMenuIcon from '@bitrix24/b24icons-vue/outline/HamburgerMenuIcon'
+import CloseChatIcon from '@bitrix24/b24icons-vue/outline/CloseChatIcon'
+import OpenChatIcon from '@bitrix24/b24icons-vue/outline/OpenChatIcon'
 
 export default {
   arrowLeft: ArrowToTheLeftIcon,
@@ -80,5 +82,7 @@ export default {
   stop: StopLIcon,
   reload: RefreshIcon,
   drag: DragLIcon,
-  menu: HamburgerMenuIcon
+  menu: HamburgerMenuIcon,
+  panelClose: CloseChatIcon,
+  panelOpen: OpenChatIcon
 }
