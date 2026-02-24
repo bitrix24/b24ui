@@ -25,8 +25,9 @@
 * chore(deps): update @nuxt/test-utils + vitest to v4
 * fix(components): add `fixed` prop to prevent responsive text size reduction
 * fix(types): improve `DotPathKeys` accuracy and `GetItemKeys` performance
-* feat(dictionary): add menu icon
+* fix(NavigationMenu): allow clicking trailing slot in horizontal orientation
 * docs(CSS Variables): improve
+* feat(dictionary): add menu icon
 * feat(Theme): new component
 * feat(Drawer): new component
 * feat(Header|Main|Footer|FooterColumns): new component

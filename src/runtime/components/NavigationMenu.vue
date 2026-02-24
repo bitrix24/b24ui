@@ -391,10 +391,15 @@ function getAccordionDefaultValue(list: NavigationMenuItem[], level = 0) {
       <component
         :is="orientation === 'vertical' && item.children?.length && !collapsed ? AccordionTrigger : 'span'"
         v-if="/* (item.badge || item.badge === 0) || */(orientation === 'horizontal' && (item.children?.length || !!slots[(item.slot ? `${item.slot}-content` : 'item-content') as keyof NavigationMenuSlots<T>])) || (orientation === 'vertical' && item.children?.length) || item.trailingIcon || !!slots[(item.slot ? `${item.slot}-trailing` : 'item-trailing') as keyof NavigationMenuSlots<T>]"
-        as="span"
+        :as="orientation === 'vertical' && item.children?.length && !collapsed ? 'span' : undefined"
         data-slot="linkTrailing"
         :class="b24ui.linkTrailing({ class: [uiProp?.linkTrailing, item.b24ui?.linkTrailing] })"
-        @click.stop.prevent
+        @click="(e: Event) => {
+          if (orientation === 'vertical' && item.children?.length && !collapsed) {
+            e.preventDefault()
+            e.stopPropagation()
+          }
+        }"
       >
         <slot
           :name="((item.slot ? `${item.slot}-trailing` : 'item-trailing') as keyof NavigationMenuSlots<T>)"
