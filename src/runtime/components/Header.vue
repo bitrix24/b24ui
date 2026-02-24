@@ -36,6 +36,11 @@ export interface HeaderProps<T extends HeaderMode = HeaderMode> {
    * @defaultValue 'left'
    */
   toggleSide?: 'left' | 'right'
+  /**
+   * Automatically close when route changes.
+   * @defaultValue true
+   */
+  autoClose?: boolean
   class?: any
   b24ui?: Header['slots']
 }
@@ -76,6 +81,7 @@ defineOptions({ inheritAttrs: false })
 const props = withDefaults(defineProps<HeaderProps<T>>(), {
   as: 'header',
   mode: 'modal' as never,
+  autoClose: true,
   toggle: true,
   toggleSide: 'left',
   to: '/',
@@ -100,6 +106,8 @@ const ariaLabel = computed(() => {
 })
 
 watch(() => route.fullPath, () => {
+  if (!props.autoClose) return
+
   open.value = false
 })
 
