@@ -18,8 +18,8 @@ exports[`PageCard > renders with b24ui correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty text-(--ui-color-design-outline-content) font-bold">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty text-(--ui-color-design-outline-content) font-bold">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -53,8 +53,8 @@ exports[`PageCard > renders with class correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -72,8 +72,8 @@ exports[`PageCard > renders with default slot correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>Default slot
@@ -90,7 +90,7 @@ exports[`PageCard > renders with description correctly 1`] = `
       <!--v-if-->
       <div data-slot="body" class="flex-1">
         <!--v-if-->
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary)">Description</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary)">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -108,8 +108,8 @@ exports[`PageCard > renders with description slot correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description slot</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description slot</div>
       </div>
       <!--v-if-->
     </div>
@@ -127,8 +127,8 @@ exports[`PageCard > renders with footer slot correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <div data-slot="footer" class="pt-4 mt-auto">Footer slot</div>
     </div>
@@ -146,8 +146,8 @@ exports[`PageCard > renders with header slot correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -165,8 +165,8 @@ exports[`PageCard > renders with highlight color air-primary correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -184,8 +184,8 @@ exports[`PageCard > renders with highlight color air-primary correctly 2`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -203,8 +203,8 @@ exports[`PageCard > renders with highlight color air-primary-alert correctly 1`]
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -222,8 +222,8 @@ exports[`PageCard > renders with highlight color air-primary-copilot correctly 1
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -241,8 +241,8 @@ exports[`PageCard > renders with highlight color air-primary-success correctly 1
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -260,8 +260,8 @@ exports[`PageCard > renders with highlight color air-primary-warning correctly 1
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -279,8 +279,8 @@ exports[`PageCard > renders with highlight correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -312,8 +312,8 @@ exports[`PageCard > renders with leading slot correctly 1`] = `
       <!--v-if-->
       <div data-slot="leading" class="inline-flex items-center mb-2.5">Leading slot</div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -331,8 +331,8 @@ exports[`PageCard > renders with orientation horizontal correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -350,8 +350,8 @@ exports[`PageCard > renders with orientation horizontal reverse correctly 1`] = 
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -369,8 +369,8 @@ exports[`PageCard > renders with orientation vertical correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -388,8 +388,8 @@ exports[`PageCard > renders with orientation vertical reverse correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -405,7 +405,7 @@ exports[`PageCard > renders with title correctly 1`] = `
       <!--v-if-->
       <!--v-if-->
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
         <!--v-if-->
       </div>
       <!--v-if-->
@@ -424,8 +424,8 @@ exports[`PageCard > renders with title slot correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title slot</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title slot</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -451,8 +451,8 @@ exports[`PageCard > renders with variant filled correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-filled-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-filled-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -470,8 +470,8 @@ exports[`PageCard > renders with variant filled highlight correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-filled-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-filled-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -489,8 +489,8 @@ exports[`PageCard > renders with variant filled to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-filled-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-filled-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -507,8 +507,8 @@ exports[`PageCard > renders with variant filled-alert correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-alert-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-filled-alert-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-alert-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-filled-alert-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -526,8 +526,8 @@ exports[`PageCard > renders with variant filled-alert highlight correctly 1`] = 
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-alert-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-filled-alert-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-alert-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-filled-alert-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -545,8 +545,8 @@ exports[`PageCard > renders with variant filled-alert to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-alert-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-filled-alert-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-alert-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-filled-alert-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -563,8 +563,8 @@ exports[`PageCard > renders with variant filled-black correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-black-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-filled-black-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-black-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-filled-black-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -582,8 +582,8 @@ exports[`PageCard > renders with variant filled-black highlight correctly 1`] = 
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-black-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-filled-black-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-black-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-filled-black-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -601,8 +601,8 @@ exports[`PageCard > renders with variant filled-black to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-black-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-filled-black-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-black-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-filled-black-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -619,8 +619,8 @@ exports[`PageCard > renders with variant filled-copilot correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-copilot-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-filled-copilot-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-copilot-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-filled-copilot-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -638,8 +638,8 @@ exports[`PageCard > renders with variant filled-copilot highlight correctly 1`] 
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-copilot-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-filled-copilot-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-copilot-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-filled-copilot-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -657,8 +657,8 @@ exports[`PageCard > renders with variant filled-copilot to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-copilot-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-filled-copilot-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-copilot-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-filled-copilot-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -675,8 +675,8 @@ exports[`PageCard > renders with variant filled-no-accent correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-na-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-filled-na-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-na-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-filled-na-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -694,8 +694,8 @@ exports[`PageCard > renders with variant filled-no-accent highlight correctly 1`
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-na-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-filled-na-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-na-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-filled-na-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -713,8 +713,8 @@ exports[`PageCard > renders with variant filled-no-accent to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-na-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-filled-na-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-na-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-filled-na-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -731,8 +731,8 @@ exports[`PageCard > renders with variant filled-success correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-success-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-filled-success-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-success-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-filled-success-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -750,8 +750,8 @@ exports[`PageCard > renders with variant filled-success highlight correctly 1`] 
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-success-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-filled-success-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-success-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-filled-success-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -769,8 +769,8 @@ exports[`PageCard > renders with variant filled-success to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-success-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-filled-success-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-success-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-filled-success-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -787,8 +787,8 @@ exports[`PageCard > renders with variant filled-warning correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-warning-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-filled-warning-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-warning-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-filled-warning-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -806,8 +806,8 @@ exports[`PageCard > renders with variant filled-warning highlight correctly 1`] 
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-warning-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-filled-warning-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-warning-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-filled-warning-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -825,8 +825,8 @@ exports[`PageCard > renders with variant filled-warning to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-warning-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-filled-warning-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-filled-warning-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-filled-warning-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -843,8 +843,8 @@ exports[`PageCard > renders with variant outline correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -862,8 +862,8 @@ exports[`PageCard > renders with variant outline highlight correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -881,8 +881,8 @@ exports[`PageCard > renders with variant outline to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -899,8 +899,8 @@ exports[`PageCard > renders with variant outline-accent correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-a1-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-a1-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-a1-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-a1-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -918,8 +918,8 @@ exports[`PageCard > renders with variant outline-accent highlight correctly 1`] 
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-a1-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-a1-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-a1-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-a1-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -937,8 +937,8 @@ exports[`PageCard > renders with variant outline-accent to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-a1-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-a1-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-a1-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-a1-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -955,8 +955,8 @@ exports[`PageCard > renders with variant outline-accent-2 correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-a2-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-a2-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-a2-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-a2-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -974,8 +974,8 @@ exports[`PageCard > renders with variant outline-accent-2 highlight correctly 1`
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-a2-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-a2-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-a2-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-a2-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -993,8 +993,8 @@ exports[`PageCard > renders with variant outline-accent-2 to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-a2-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-a2-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-a2-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-a2-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1011,8 +1011,8 @@ exports[`PageCard > renders with variant outline-alert correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-alert-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-alert-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-alert-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-alert-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1030,8 +1030,8 @@ exports[`PageCard > renders with variant outline-alert highlight correctly 1`] =
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-alert-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-alert-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-alert-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-alert-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1049,8 +1049,8 @@ exports[`PageCard > renders with variant outline-alert to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-alert-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-alert-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-alert-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-alert-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1067,8 +1067,8 @@ exports[`PageCard > renders with variant outline-alt correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1086,8 +1086,8 @@ exports[`PageCard > renders with variant outline-alt highlight correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1105,8 +1105,8 @@ exports[`PageCard > renders with variant outline-alt to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-content-secondary) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1123,8 +1123,8 @@ exports[`PageCard > renders with variant outline-copilot correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-copilot-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-copilot-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-copilot-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-copilot-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1142,8 +1142,8 @@ exports[`PageCard > renders with variant outline-copilot highlight correctly 1`]
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-copilot-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-copilot-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-copilot-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-copilot-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1161,8 +1161,8 @@ exports[`PageCard > renders with variant outline-copilot to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-copilot-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-copilot-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-copilot-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-copilot-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1179,8 +1179,8 @@ exports[`PageCard > renders with variant outline-no-accent correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-na-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-na-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-na-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-na-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1198,8 +1198,8 @@ exports[`PageCard > renders with variant outline-no-accent highlight correctly 1
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-na-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-na-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-na-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-na-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1217,8 +1217,8 @@ exports[`PageCard > renders with variant outline-no-accent to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-na-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-na-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-na-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-na-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1235,8 +1235,8 @@ exports[`PageCard > renders with variant outline-success correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-success-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-success-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-success-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-success-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1254,8 +1254,8 @@ exports[`PageCard > renders with variant outline-success highlight correctly 1`]
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-success-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-success-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-success-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-success-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1273,8 +1273,8 @@ exports[`PageCard > renders with variant outline-success to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-success-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-success-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-success-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-success-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1291,8 +1291,8 @@ exports[`PageCard > renders with variant outline-warning correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-warning-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-warning-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-warning-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-warning-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1310,8 +1310,8 @@ exports[`PageCard > renders with variant outline-warning highlight correctly 1`]
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-warning-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-warning-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-warning-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-warning-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1329,8 +1329,8 @@ exports[`PageCard > renders with variant outline-warning to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-warning-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-outline-warning-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-outline-warning-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-outline-warning-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1347,8 +1347,8 @@ exports[`PageCard > renders with variant plain correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-plain-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-plain-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1366,8 +1366,8 @@ exports[`PageCard > renders with variant plain highlight correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-plain-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-plain-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1385,8 +1385,8 @@ exports[`PageCard > renders with variant plain to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-plain-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-plain-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1403,8 +1403,8 @@ exports[`PageCard > renders with variant plain-accent correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-a-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-plain-a-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-a-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-plain-a-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1422,8 +1422,8 @@ exports[`PageCard > renders with variant plain-accent highlight correctly 1`] = 
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-a-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-plain-a-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-a-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-plain-a-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1441,8 +1441,8 @@ exports[`PageCard > renders with variant plain-accent to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-a-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-plain-a-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-a-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-plain-a-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1459,8 +1459,8 @@ exports[`PageCard > renders with variant plain-no-accent correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-na-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-plain-na-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-na-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-plain-na-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1478,8 +1478,8 @@ exports[`PageCard > renders with variant plain-no-accent highlight correctly 1`]
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-na-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-plain-na-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-na-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-plain-na-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1497,8 +1497,8 @@ exports[`PageCard > renders with variant plain-no-accent to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-na-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-plain-na-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-plain-na-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-plain-na-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1515,8 +1515,8 @@ exports[`PageCard > renders with variant selection correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-selection-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-selection-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-selection-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-selection-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1534,8 +1534,8 @@ exports[`PageCard > renders with variant selection highlight correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-selection-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-selection-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-selection-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-selection-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1553,8 +1553,8 @@ exports[`PageCard > renders with variant selection to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-selection-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-selection-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-selection-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-selection-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1571,8 +1571,8 @@ exports[`PageCard > renders with variant tinted correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-tinted-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-tinted-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1590,8 +1590,8 @@ exports[`PageCard > renders with variant tinted highlight correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-tinted-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-tinted-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1609,8 +1609,8 @@ exports[`PageCard > renders with variant tinted to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-tinted-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-tinted-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1627,8 +1627,8 @@ exports[`PageCard > renders with variant tinted-accent-1 correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-a1-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-tinted-a1-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-a1-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-tinted-a1-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1646,8 +1646,8 @@ exports[`PageCard > renders with variant tinted-accent-1 highlight correctly 1`]
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-a1-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-tinted-a1-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-a1-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-tinted-a1-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1665,8 +1665,8 @@ exports[`PageCard > renders with variant tinted-accent-1 to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-a1-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-tinted-a1-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-a1-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-tinted-a1-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1683,8 +1683,8 @@ exports[`PageCard > renders with variant tinted-alert correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-alert-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-tinted-alert-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-alert-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-tinted-alert-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1702,8 +1702,8 @@ exports[`PageCard > renders with variant tinted-alert highlight correctly 1`] = 
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-alert-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-tinted-alert-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-alert-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-tinted-alert-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1721,8 +1721,8 @@ exports[`PageCard > renders with variant tinted-alert to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-alert-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-tinted-alert-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-alert-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-tinted-alert-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1739,8 +1739,8 @@ exports[`PageCard > renders with variant tinted-alt correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-tinted-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-tinted-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1758,8 +1758,8 @@ exports[`PageCard > renders with variant tinted-alt highlight correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-tinted-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-tinted-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1777,8 +1777,8 @@ exports[`PageCard > renders with variant tinted-alt to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-tinted-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-tinted-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1795,8 +1795,8 @@ exports[`PageCard > renders with variant tinted-no-accent correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-na-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-tinted-na-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-na-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-tinted-na-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1814,8 +1814,8 @@ exports[`PageCard > renders with variant tinted-no-accent highlight correctly 1`
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-na-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-tinted-na-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-na-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-tinted-na-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1833,8 +1833,8 @@ exports[`PageCard > renders with variant tinted-no-accent to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-na-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-tinted-na-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-na-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-tinted-na-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1851,8 +1851,8 @@ exports[`PageCard > renders with variant tinted-success correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-success-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-tinted-success-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-success-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-tinted-success-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1870,8 +1870,8 @@ exports[`PageCard > renders with variant tinted-success highlight correctly 1`] 
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-success-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-tinted-success-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-success-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-tinted-success-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1889,8 +1889,8 @@ exports[`PageCard > renders with variant tinted-success to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-success-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-tinted-success-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-success-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-tinted-success-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1907,8 +1907,8 @@ exports[`PageCard > renders with variant tinted-warning correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-warning-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-tinted-warning-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-warning-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-tinted-warning-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1926,8 +1926,8 @@ exports[`PageCard > renders with variant tinted-warning highlight correctly 1`] 
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-warning-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-tinted-warning-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-warning-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-tinted-warning-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>
@@ -1945,8 +1945,8 @@ exports[`PageCard > renders with variant tinted-warning to correctly 1`] = `
           <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
         </svg></div>
       <div data-slot="body" class="flex-1">
-        <div data-slot="title" class="text-2xl text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-warning-content)">Title</div>
-        <div data-slot="description" class="text-lg text-pretty text-(--ui-color-design-tinted-warning-content) mt-1">Description</div>
+        <div data-slot="title" class="text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold) text-(--ui-color-design-tinted-warning-content)">Title</div>
+        <div data-slot="description" class="text-(length:--ui-font-size-lg)/[normal] text-pretty text-(--ui-color-design-tinted-warning-content) mt-1">Description</div>
       </div>
       <!--v-if-->
     </div>

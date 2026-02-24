@@ -109,11 +109,17 @@ const pages = [
   // // '/docs/components/confetti/',
   // endregion ////
   // region Page ////
+  '/docs/components/page/',
+  '/docs/components/page-aside/',
+  '/docs/components/page-body/',
   '/docs/components/page-card/',
+  '/docs/components/page-feature/',
   '/docs/components/page-columns/',
   '/docs/components/page-grid/',
+  '/docs/components/page-header/',
   '/docs/components/page-links/',
   '/docs/components/page-list/',
+  '/docs/components/page-section/',
   // endregion ////
   // region Dashboard ////
   '/docs/components/dashboard-group/',

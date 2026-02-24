@@ -248,13 +248,13 @@ const items = computed<NavigationMenuItem[]>(() => [
       <template #body>
         <B24NavigationMenu :items="items" orientation="vertical" class="-mx-2.5" />
       </template>
-    </UHeader>
+    </B24Header>
 
-    <UMain>
+    <B24Main>
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
-    </UMain>
+    </B24Main>
 
     <B24Footer />
   </B24App>

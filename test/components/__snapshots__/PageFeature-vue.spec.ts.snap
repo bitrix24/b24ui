@@ -1,0 +1,157 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PageFeature > renders with as correctly 1`] = `
+"<section data-orientation="horizontal" data-slot="root" class="relative rounded-sm flex items-start gap-2.5">
+  <!--v-if-->
+  <div data-slot="wrapper" class="">
+    <!--v-if-->
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</section>"
+`;
+
+exports[`PageFeature > renders with b24ui correctly 1`] = `
+"<div data-orientation="horizontal" data-slot="root" class="relative rounded-sm flex items-start gap-2.5">
+  <div data-slot="leading" class="inline-flex items-center justify-center p-0.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-accent-main-primary)">
+      <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+    </svg></div>
+  <div data-slot="wrapper" class="">
+    <!--v-if-->
+    <div data-slot="title" class="text-(length:--ui-font-size-md) text-pretty text-(--b24ui-typography-legend-color) font-bold">Title</div>
+    <div data-slot="description" class="text-(length:--ui-font-size-sm) text-pretty text-(--b24ui-typography-description-color) mt-1">Description</div>
+  </div>
+</div>"
+`;
+
+exports[`PageFeature > renders with class correctly 1`] = `
+"<div data-orientation="horizontal" data-slot="root" class="relative flex items-start gap-2.5 rounded-xl">
+  <div data-slot="leading" class="inline-flex items-center justify-center p-0.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-accent-main-primary)">
+      <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+    </svg></div>
+  <div data-slot="wrapper" class="">
+    <!--v-if-->
+    <div data-slot="title" class="text-(length:--ui-font-size-md) text-pretty font-(--ui-font-weight-semi-bold) text-(--b24ui-typography-legend-color)">Title</div>
+    <div data-slot="description" class="text-(length:--ui-font-size-sm) text-pretty text-(--b24ui-typography-description-color) mt-1">Description</div>
+  </div>
+</div>"
+`;
+
+exports[`PageFeature > renders with default slot correctly 1`] = `
+"<div data-orientation="horizontal" data-slot="root" class="relative rounded-sm flex items-start gap-2.5">
+  <div data-slot="leading" class="inline-flex items-center justify-center p-0.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-accent-main-primary)">
+      <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+    </svg></div>
+  <div data-slot="wrapper" class="">
+    <!--v-if-->Default slot
+  </div>
+</div>"
+`;
+
+exports[`PageFeature > renders with description correctly 1`] = `
+"<div data-orientation="horizontal" data-slot="root" class="relative rounded-sm flex items-start gap-2.5">
+  <!--v-if-->
+  <div data-slot="wrapper" class="">
+    <!--v-if-->
+    <!--v-if-->
+    <div data-slot="description" class="text-(length:--ui-font-size-sm) text-pretty text-(--b24ui-typography-description-color)">Description</div>
+  </div>
+</div>"
+`;
+
+exports[`PageFeature > renders with description slot correctly 1`] = `
+"<div data-orientation="horizontal" data-slot="root" class="relative rounded-sm flex items-start gap-2.5">
+  <div data-slot="leading" class="inline-flex items-center justify-center p-0.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-accent-main-primary)">
+      <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+    </svg></div>
+  <div data-slot="wrapper" class="">
+    <!--v-if-->
+    <div data-slot="title" class="text-(length:--ui-font-size-md) text-pretty font-(--ui-font-weight-semi-bold) text-(--b24ui-typography-legend-color)">Title</div>
+    <div data-slot="description" class="text-(length:--ui-font-size-sm) text-pretty text-(--b24ui-typography-description-color) mt-1">Description slot</div>
+  </div>
+</div>"
+`;
+
+exports[`PageFeature > renders with icon correctly 1`] = `
+"<div data-orientation="horizontal" data-slot="root" class="relative rounded-sm flex items-start gap-2.5">
+  <div data-slot="leading" class="inline-flex items-center justify-center p-0.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-accent-main-primary)">
+      <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+    </svg></div>
+  <div data-slot="wrapper" class="">
+    <!--v-if-->
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageFeature > renders with leading slot correctly 1`] = `
+"<div data-orientation="horizontal" data-slot="root" class="relative rounded-sm flex items-start gap-2.5">
+  <div data-slot="leading" class="inline-flex items-center justify-center p-0.5">Leading slot</div>
+  <div data-slot="wrapper" class="">
+    <!--v-if-->
+    <div data-slot="title" class="text-(length:--ui-font-size-md) text-pretty font-(--ui-font-weight-semi-bold) text-(--b24ui-typography-legend-color)">Title</div>
+    <div data-slot="description" class="text-(length:--ui-font-size-sm) text-pretty text-(--b24ui-typography-description-color) mt-1">Description</div>
+  </div>
+</div>"
+`;
+
+exports[`PageFeature > renders with orientation horizontal correctly 1`] = `
+"<div data-orientation="horizontal" data-slot="root" class="relative rounded-sm flex items-start gap-2.5">
+  <div data-slot="leading" class="inline-flex items-center justify-center p-0.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-accent-main-primary)">
+      <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+    </svg></div>
+  <div data-slot="wrapper" class="">
+    <!--v-if-->
+    <div data-slot="title" class="text-(length:--ui-font-size-md) text-pretty font-(--ui-font-weight-semi-bold) text-(--b24ui-typography-legend-color)">Title</div>
+    <div data-slot="description" class="text-(length:--ui-font-size-sm) text-pretty text-(--b24ui-typography-description-color) mt-1">Description</div>
+  </div>
+</div>"
+`;
+
+exports[`PageFeature > renders with orientation vertical correctly 1`] = `
+"<div data-orientation="vertical" data-slot="root" class="relative rounded-sm">
+  <div data-slot="leading" class="inline-flex items-center justify-center mb-2.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-accent-main-primary)">
+      <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+    </svg></div>
+  <div data-slot="wrapper" class="">
+    <!--v-if-->
+    <div data-slot="title" class="text-(length:--ui-font-size-md) text-pretty font-(--ui-font-weight-semi-bold) text-(--b24ui-typography-legend-color)">Title</div>
+    <div data-slot="description" class="text-(length:--ui-font-size-sm) text-pretty text-(--b24ui-typography-description-color) mt-1">Description</div>
+  </div>
+</div>"
+`;
+
+exports[`PageFeature > renders with title correctly 1`] = `
+"<div data-orientation="horizontal" data-slot="root" class="relative rounded-sm flex items-start gap-2.5">
+  <!--v-if-->
+  <div data-slot="wrapper" class="">
+    <!--v-if-->
+    <div data-slot="title" class="text-(length:--ui-font-size-md) text-pretty font-(--ui-font-weight-semi-bold) text-(--b24ui-typography-legend-color)">Title</div>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageFeature > renders with title slot correctly 1`] = `
+"<div data-orientation="horizontal" data-slot="root" class="relative rounded-sm flex items-start gap-2.5">
+  <div data-slot="leading" class="inline-flex items-center justify-center p-0.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-5 shrink-0 text-(--ui-color-accent-main-primary)">
+      <path fill="currentColor" fill-rule="evenodd" d="M14.05 15.886a6.37 6.37 0 1 1 1.836-1.837l3.311 3.311a1 1 0 0 1 0 1.414l-.422.423a1 1 0 0 1-1.414 0zm1.058-5.328a4.55 4.55 0 1 1-9.098 0 4.55 4.55 0 0 1 9.099 0" clip-rule="evenodd"></path>
+    </svg></div>
+  <div data-slot="wrapper" class="">
+    <!--v-if-->
+    <div data-slot="title" class="text-(length:--ui-font-size-md) text-pretty font-(--ui-font-weight-semi-bold) text-(--b24ui-typography-legend-color)">Title slot</div>
+    <div data-slot="description" class="text-(length:--ui-font-size-sm) text-pretty text-(--b24ui-typography-description-color) mt-1">Description</div>
+  </div>
+</div>"
+`;
+
+exports[`PageFeature > renders with to correctly 1`] = `
+"<div data-orientation="horizontal" data-slot="root" class="relative rounded-sm flex items-start gap-2.5 has-focus-visible:ring-2 has-focus-visible:ring-(--ui-color-accent-soft-element-blue) transition">
+  <!--v-if-->
+  <div data-slot="wrapper" class=""><a href="https://github.com/bitrix24" rel="noopener noreferrer" aria-label="Feature link" class="focus:outline-none peer"><span class="absolute inset-0" aria-hidden="true"></span></a>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;

@@ -1,0 +1,164 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PageHeader > renders with as correctly 1`] = `
+"<section data-slot="root" class="relative border-b border-(--ui-color-divider-default) py-8">
+  <!--v-if-->
+  <div data-slot="container" class="">
+    <div data-slot="wrapper" class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <!--v-if-->
+      <!--v-if-->
+    </div>
+    <!--v-if-->
+  </div>
+</section>"
+`;
+
+exports[`PageHeader > renders with b24ui correctly 1`] = `
+"<div data-slot="root" class="relative border-b border-(--ui-color-divider-default) py-8">
+  <!--v-if-->
+  <div data-slot="container" class="py-12">
+    <div data-slot="wrapper" class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <!--v-if-->
+      <!--v-if-->
+    </div>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageHeader > renders with class correctly 1`] = `
+"<div data-slot="root" class="relative border-b border-(--ui-color-divider-default) py-12">
+  <!--v-if-->
+  <div data-slot="container" class="">
+    <div data-slot="wrapper" class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <!--v-if-->
+      <!--v-if-->
+    </div>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageHeader > renders with default slot correctly 1`] = `
+"<div data-slot="root" class="relative border-b border-(--ui-color-divider-default) py-8">
+  <!--v-if-->
+  <div data-slot="container" class="">
+    <div data-slot="wrapper" class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <!--v-if-->
+      <!--v-if-->
+    </div>
+    <!--v-if-->Default slot
+  </div>
+</div>"
+`;
+
+exports[`PageHeader > renders with description correctly 1`] = `
+"<div data-slot="root" class="relative border-b border-(--ui-color-divider-default) py-8">
+  <!--v-if-->
+  <div data-slot="container" class="">
+    <div data-slot="wrapper" class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <!--v-if-->
+      <!--v-if-->
+    </div>
+    <div data-slot="description" class="text-(length:--ui-font-size-lg) text-pretty text-(--b24ui-typography-description-color)">Description</div>
+  </div>
+</div>"
+`;
+
+exports[`PageHeader > renders with description slot correctly 1`] = `
+"<div data-slot="root" class="relative border-b border-(--ui-color-divider-default) py-8">
+  <!--v-if-->
+  <div data-slot="container" class="">
+    <div data-slot="wrapper" class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <!--v-if-->
+      <!--v-if-->
+    </div>
+    <div data-slot="description" class="text-(length:--ui-font-size-lg) text-pretty text-(--b24ui-typography-description-color)">Description slot</div>
+  </div>
+</div>"
+`;
+
+exports[`PageHeader > renders with headline correctly 1`] = `
+"<div data-slot="root" class="relative border-b border-(--ui-color-divider-default) py-8">
+  <div data-slot="headline" class="mb-2.5 text-(length:--ui-font-size-sm) font-(--ui-font-weight-semi-bold) text-(--ui-color-accent-main-primary) flex items-center gap-1.5">Headline</div>
+  <div data-slot="container" class="">
+    <div data-slot="wrapper" class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <!--v-if-->
+      <!--v-if-->
+    </div>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageHeader > renders with headline slot correctly 1`] = `
+"<div data-slot="root" class="relative border-b border-(--ui-color-divider-default) py-8">
+  <div data-slot="headline" class="mb-2.5 text-(length:--ui-font-size-sm) font-(--ui-font-weight-semi-bold) text-(--ui-color-accent-main-primary) flex items-center gap-1.5">Headline slot</div>
+  <div data-slot="container" class="">
+    <div data-slot="wrapper" class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <!--v-if-->
+      <!--v-if-->
+    </div>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageHeader > renders with links correctly 1`] = `
+"<div data-slot="root" class="relative border-b border-(--ui-color-divider-default) py-8">
+  <!--v-if-->
+  <div data-slot="container" class="">
+    <div data-slot="wrapper" class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <!--v-if-->
+      <div data-slot="links" class="flex flex-wrap items-center gap-1.5"><button type="button" data-slot="base" class="ui-btn font-[family-name:var(--ui-font-family-primary)] select-none cursor-pointer inline-flex items-center relative outline-transparent focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-30 aria-disabled:opacity-30 transition duration-0 ease-linear border-(length:--ui-btn-border-width) text-(--ui-btn-color) bg-(--ui-btn-background) border-(--ui-btn-border-color) hover:text-(--ui-btn-color-hover) hover:bg-(--ui-btn-background-hover) hover:border-(--ui-btn-border-color-hover) focus:text-(--ui-btn-color-hover) focus:bg-(--ui-btn-background-hover) focus:border-(--ui-btn-border-color-hover) active:text-(--ui-btn-color-active) active:bg-(--ui-btn-background-active) active:border-(--ui-btn-border-color-active) disabled:bg-(--ui-btn-background) disabled:border-(--ui-btn-border-color) aria-disabled:bg-(--ui-btn-background) aria-disabled:border-(--ui-btn-border-color) focus-visible:outline-(--ui-btn-background) ring-(--ui-btn-background-hover) focus:outline-none focus-visible:ring-(--ui-btn-background-hover) h-(--ui-btn-height) text-(length:--ui-btn-font-size) leading-(--ui-btn-height) font-(--ui-btn-font-weight) --style-outline ui-btn-sm rounded-(--ui-btn-radius) normal-case --air">
+          <!--v-if-->
+          <div data-slot="baseLine" class="w-full inline-flex items-center justify-center gap-(--ui-btn-icon-space) pe-(--ui-btn-padding-right) h-(--ui-btn-height) ps-[calc(var(--ui-btn-padding-left)_-_var(--ui-btn-icon-compensation))]"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon" class="text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
+            </svg><span data-slot="label" class="h-(--ui-btn-height) max-w-full inline-flex flex-row items-center tracking-(--ui-btn-letter-spacing) overflow-visible text-clip"><span data-slot="labelInner" class="truncate inline-block max-w-full mt-(--ui-btn-title-compensation)">GitHub</span></span>
+            <!--v-if-->
+          </div>
+        </button></div>
+    </div>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageHeader > renders with links slot correctly 1`] = `
+"<div data-slot="root" class="relative border-b border-(--ui-color-divider-default) py-8">
+  <!--v-if-->
+  <div data-slot="container" class="">
+    <div data-slot="wrapper" class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <!--v-if-->
+      <div data-slot="links" class="flex flex-wrap items-center gap-1.5">Links slot</div>
+    </div>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageHeader > renders with title correctly 1`] = `
+"<div data-slot="root" class="relative border-b border-(--ui-color-divider-default) py-8">
+  <!--v-if-->
+  <div data-slot="container" class="">
+    <div data-slot="wrapper" class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <h1 data-slot="title" class="text-(length:--ui-font-size-3xl) sm:text-(length:--ui-font-size-4xl) text-pretty font-(--ui-font-weight-bold) text-(--b24ui-typography-label-color)">Title</h1>
+      <!--v-if-->
+    </div>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageHeader > renders with title slot correctly 1`] = `
+"<div data-slot="root" class="relative border-b border-(--ui-color-divider-default) py-8">
+  <!--v-if-->
+  <div data-slot="container" class="">
+    <div data-slot="wrapper" class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <h1 data-slot="title" class="text-(length:--ui-font-size-3xl) sm:text-(length:--ui-font-size-4xl) text-pretty font-(--ui-font-weight-bold) text-(--b24ui-typography-label-color)">Title slot</h1>
+      <!--v-if-->
+    </div>
+    <!--v-if-->
+  </div>
+</div>"
+`;

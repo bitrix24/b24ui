@@ -15,8 +15,8 @@ export default {
     footer: 'pt-4 mt-auto',
     leading: 'inline-flex items-center mb-2.5',
     leadingIcon: 'size-5 shrink-0',
-    title: 'text-2xl text-pretty font-(--ui-font-weight-semi-bold)',
-    description: 'text-lg text-pretty'
+    title: 'text-(length:--ui-font-size-2xl)/[normal] text-pretty font-(--ui-font-weight-semi-bold)',
+    description: 'text-(length:--ui-font-size-lg)/[normal] text-pretty'
   },
   variants: {
     orientation: {
