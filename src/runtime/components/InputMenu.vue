@@ -104,7 +104,7 @@ export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOr
   /**
    * The icon displayed in the clear button.
    * @defaultValue icons.close
-   * @IconifyIcon
+   * @IconComponent
    */
   clearIcon?: IconComponent
   /**

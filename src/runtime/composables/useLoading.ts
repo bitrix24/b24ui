@@ -1,6 +1,9 @@
 import { ref, computed, isRef } from 'vue'
 import type { Ref } from 'vue'
 
+/**
+ * @deprecated Subject to refactoring
+ */
 export type UseLoadingProps = {
   /**
    * The id of the SidebarLayout.

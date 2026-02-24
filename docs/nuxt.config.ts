@@ -123,15 +123,15 @@ const pages = [
   // endregion ////
   // region Dashboard ////
   '/docs/components/dashboard-group/',
-  // // '/docs/components/dashboard-navbar/',
-  // // '/docs/components/dashboard-panel/',
-  // // '/docs/components/dashboard-resize-handle/',
+  '/docs/components/dashboard-navbar/',
+  '/docs/components/dashboard-panel/',
+  '/docs/components/dashboard-resize-handle/',
   '/docs/components/dashboard-search/',
   '/docs/components/dashboard-search-button/',
-  // // '/docs/components/dashboard-sidebar/',
-  // // '/docs/components/dashboard-sidebar-collapse/',
-  // // '/docs/components/dashboard-sidebar-toggle/',
-  // // '/docs/components/dashboard-toolbar/',
+  '/docs/components/dashboard-sidebar/',
+  '/docs/components/dashboard-sidebar-collapse/',
+  '/docs/components/dashboard-sidebar-toggle/',
+  '/docs/components/dashboard-toolbar/',
   // endregion ////
   // region Chat ////
   '/docs/components/chat-message/',
@@ -210,7 +210,9 @@ const pagesFrameExamples = [
   '/examples/content-search-example/',
   '/examples/header-menu-example/',
   '/examples/header-toggle-example/',
-  '/examples/header-toggle-side-example/'
+  '/examples/header-toggle-side-example/',
+  '/examples/dashboard-navbar-toggle-example/',
+  '/examples/dashboard-navbar-toggle-side-example/'
 ]
 
 const pagesService = [
