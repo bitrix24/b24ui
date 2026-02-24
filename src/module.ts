@@ -118,7 +118,7 @@ export default defineNuxtModule<ModuleOptions>({
       }
     }
 
-    await registerModule('@bitrix24/b24icons-nuxt', 'empty', {})
+    await registerModule('@bitrix24/b24icons-nuxt', 'b24icons', {})
 
     addPlugin({ src: resolve('./runtime/plugins/colors') })
     addPlugin({ src: resolve('./runtime/plugins/ui-version') })
