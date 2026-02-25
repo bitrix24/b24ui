@@ -212,7 +212,11 @@ const pagesFrameExamples = [
   '/examples/header-toggle-example/',
   '/examples/header-toggle-side-example/',
   '/examples/dashboard-navbar-toggle-example/',
-  '/examples/dashboard-navbar-toggle-side-example/'
+  '/examples/dashboard-navbar-toggle-side-example/',
+  '/examples/dashboard-sidebar-mode-example/',
+  '/examples/dashboard-sidebar-toggle-example/',
+  '/examples/dashboard-sidebar-toggle-side-example/',
+  '/examples/dashboard-sidebar-open-example/'
 ]
 
 const pagesService = [

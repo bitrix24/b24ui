@@ -13,16 +13,16 @@ links:
 
 ## Usage
 
-The DashboardGroup component is the main layout that wraps the [SidebarLayout](/docs/components/sidebar-layout/) components to create a responsive dashboard interface.
+The DashboardGroup component is the main layout that wraps the [DashboardSidebar](/docs/components/dashboard-sidebar/) and [DashboardPanel](/docs/components/dashboard-panel/) components to create a responsive dashboard interface.
 
 Use it in a layout or in your `app.vue`:
 
 ```vue [layouts/dashboard.vue]{2,6}
 <template>
   <B24DashboardGroup>
-    <B24SidebarLayout>
-      <slot />
-    <B24SidebarLayout>
+    <B24DashboardSidebar />
+
+    <slot />
   </B24DashboardGroup>
 </template>
 ```

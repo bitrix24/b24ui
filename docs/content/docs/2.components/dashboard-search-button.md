@@ -1,6 +1,6 @@
 ---
 title: DashboardSearchButton
-description: 'A pre-styled button that opens the Dashboard Search modal.'
+description: 'A pre-styled button that opens the DashboardSearch modal.'
 category: dashboard
 links:
   - label: GitHub
@@ -18,7 +18,15 @@ links:
 
 The DashboardSearchButton component is used to open the [DashboardSearch](/docs/components/dashboard-search/) modal.
 
-:component-code
+::component-code
+---
+ignore:
+  - color
+  - collapsed
+props:
+  collapsed: false
+---
+::
 
 It extends the [Button](/docs/components/button/) component, so you can pass any property such as `color`, `size`, etc.
 
@@ -28,8 +36,8 @@ ignore:
   - color
   - collapsed
 props:
-  color: 'air-primary'
-  collapsed: true
+  color: 'air-primary-success'
+  collapsed: false
 ---
 ::
 
@@ -43,10 +51,13 @@ Use the `collapsed` prop to hide the button's label and [kbds](#kbds). Defaults 
 
 ::component-code
 ---
-prettier: true
 props:
-  collapsed: true
+  collapsed: false
 ---
+::
+
+::tip{to="/docs/components/dashboard-sidebar/#slots"}
+When using the button in the **DashboardSidebar** component, use the `collapsed` slot prop directly.
 ::
 
 ### Kbds

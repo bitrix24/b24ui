@@ -40,10 +40,7 @@ collapse: true
 name: 'dashboard-sidebar-example'
 class: '!p-0 !justify-start'
 props:
-  minSize: 22
-  defaultSize: 35
-  maxSize: 40
-  class: '!min-h-97 h-136'
+  class: '!min-h-98 h-140'
 ---
 ::
 
@@ -59,24 +56,18 @@ Use the `resizable` prop to make the sidebar resizable.
 ---
 prettier: true
 hide:
-  - minSize
-  - defaultSize
-  - maxSize
   - class
 props:
   resizable: true
-  minSize: 22
-  defaultSize: 35
-  maxSize: 40
   class: '!min-h-96'
 slots:
   default: |
 
-    <Placeholder class="h-96" />
+    <Placeholder class="ms-2 h-96" />
 class: '!p-0 !justify-start'
 ---
 
-:placeholder{class="h-96"}
+:placeholder{class="ms-2 h-96"}
 ::
 
 ### Collapsible
@@ -93,25 +84,19 @@ prettier: true
 ignore:
   - resizable
 hide:
-  - minSize
-  - defaultSize
-  - maxSize
   - class
 props:
   resizable: true
   collapsible: true
-  minSize: 22
-  defaultSize: 35
-  maxSize: 40
   class: '!min-h-96'
 slots:
   default: |
 
-    <Placeholder class="h-96" />
+    <Placeholder class="ms-2 h-96" />
 class: '!p-0 !justify-start'
 ---
 
-:placeholder{class="h-96"}
+:placeholder{class="ms-2 h-96"}
 ::
 
 ::tip{to="#slots"}
@@ -120,7 +105,7 @@ You can access the `collapsed` state in the slot props to customize the content 
 
 ### Size
 
-Use the `min-size`,  `max-size`, `default-size` and `collapsed-size` props to customize the size of the sidebar.
+Use the `min-size`,  `max-size`, `default-size` and `collapsed-size` props (`px`) to customize the size of the sidebar.
 
 ::component-code
 ---
@@ -133,19 +118,19 @@ hide:
 props:
   resizable: true
   collapsible: true
-  minSize: 22
-  defaultSize: 35
-  maxSize: 40
-  collapsedSize: 0
+  minSize: 200
+  defaultSize: 240
+  maxSize: 250
+  collapsedSize: 66
   class: '!min-h-96'
 slots:
   default: |
 
-    <Placeholder class="h-96" />
+    <Placeholder class="ms-2 h-96" />
 class: '!p-0 !justify-start'
 ---
 
-:placeholder{class="h-96"}
+:placeholder{class="ms-2 h-96"}
 ::
 
 ::tip{to="/docs/components/dashboard-group/#props"}
@@ -166,27 +151,22 @@ prettier: true
 ignore:
   - resizable
   - collapsible
+  - side
 hide:
-  - minSize
-  - defaultSize
-  - maxSize
   - class
 props:
   side: 'right'
   resizable: true
   collapsible: true
-  minSize: 22
-  defaultSize: 35
-  maxSize: 40
   class: '!min-h-96'
 slots:
   default: |
 
-    <Placeholder class="h-96" />
+    <Placeholder class="ms-2 h-96" />
 class: '!p-0 !justify-end'
 ---
 
-:placeholder{class="h-96"}
+:placeholder{class="ms-2 h-96"}
 ::
 
 ### Mode
@@ -204,6 +184,7 @@ You can use the `menu` prop to customize the menu of the sidebar, it will adapt 
 collapse: true
 iframe:
   height: 500px;
+  class: 'max-w-[1000px]'
 iframeMobile: true
 overflowHidden: true
 name: 'dashboard-sidebar-mode-example'
@@ -235,6 +216,7 @@ You can pass any property from the [Button](/docs/components/button/) component 
 collapse: true
 iframe:
   height: 500px;
+  class: 'max-w-[1000px]'
 iframeMobile: true
 overflowHidden: true
 name: 'dashboard-sidebar-toggle-example'
@@ -252,6 +234,7 @@ Use the `toggle-side` prop to change the side of the toggle button. Defaults to 
 collapse: true
 iframe:
   height: 500px;
+  class: 'max-w-[1000px]'
 iframeMobile: true
 overflowHidden: true
 name: 'dashboard-sidebar-toggle-side-example'
@@ -268,8 +251,10 @@ You can control the open state by using the `open` prop or the `v-model:open` di
 
 ::component-example
 ---
+collapse: true
 iframe:
   height: 500px;
+  class: 'max-w-[1000px]'
 iframeMobile: true
 overflowHidden: true
 name: 'dashboard-sidebar-open-example'
@@ -289,10 +274,8 @@ You can control the collapsed state by using the `collapsed` prop or the `v-mode
 ---
 name: 'dashboard-sidebar-collapsed-example'
 class: '!p-0 !justify-start'
+collapse: true
 props:
-  minSize: 22
-  defaultSize: 35
-  maxSize: 40
   class: '!min-h-96 h-136'
 ---
 ::

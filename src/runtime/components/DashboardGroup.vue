@@ -1,12 +1,12 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/dashboard-group'
-import type { UseLoadingProps } from '../composables/useLoading'
+import type { UseResizableProps } from '../composables/useResizable'
 import type { ComponentConfig } from '../types/tv'
 
 type DashboardGroup = ComponentConfig<typeof theme, AppConfig, 'dashboardGroup'>
 
-export interface DashboardGroupProps extends Pick<UseLoadingProps, 'id' | 'storage' | 'storageKey'> {
+export interface DashboardGroupProps extends Pick<UseResizableProps, 'storage' | 'storageKey' | 'persistent' | 'unit'> {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
@@ -22,7 +22,7 @@ export interface DashboardGroupSlots {
 </script>
 
 <script setup lang="ts">
-import { ref, computed, useId } from 'vue'
+import { ref, computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useNuxtApp, useAppConfig } from '#imports'
 import { useComponentUI } from '../composables/useComponentUI'
@@ -31,7 +31,9 @@ import { tv } from '../utils/tv'
 
 const props = withDefaults(defineProps<DashboardGroupProps>(), {
   storage: 'cookie',
-  storageKey: 'dashboard'
+  storageKey: 'dashboard',
+  persistent: true,
+  unit: 'px'
 })
 defineSlots<DashboardGroupSlots>()
 
@@ -43,24 +45,23 @@ const uiProp = useComponentUI('dashboardGroup', props)
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashboardGroup || {}) }))
 
 const sidebarOpen = ref(false)
-const isLoading = ref(false)
-
-const contextId = `${props.storage}-sidebar-group-${props.id || useId()}`
+const sidebarCollapsed = ref(false)
 
 provideDashboardContext({
-  contextId,
   storage: props.storage,
   storageKey: props.storageKey,
+  persistent: props.persistent,
+  unit: props.unit,
   sidebarOpen,
   toggleSidebar: () => {
     nuxtApp.hooks.callHook('dashboard:sidebar:toggle')
   },
+  sidebarCollapsed,
+  collapseSidebar: (collapsed: boolean) => {
+    nuxtApp.hooks.callHook('dashboard:sidebar:collapse', collapsed)
+  },
   toggleSearch: () => {
     nuxtApp.hooks.callHook('dashboard:search:toggle')
-  },
-  isLoading,
-  load: (load: boolean, contextId?: string) => {
-    nuxtApp.hooks.callHook('dashboard:content:load', load, contextId)
   }
 })
 </script>

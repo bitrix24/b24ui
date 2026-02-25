@@ -48,9 +48,9 @@ collapse: true
 name: 'dashboard-panel-example'
 class: '!p-0 !justify-start'
 props:
-  minSize: 22
-  defaultSize: 35
-  maxSize: 40
+  minSize: 200
+  defaultSize: 240
+  maxSize: 250
   class: '!min-h-96 h-136'
 ---
 ::
@@ -67,25 +67,22 @@ Use the `resizable` prop to make the panel resizable.
 ---
 prettier: true
 hide:
-  - minSize
-  - defaultSize
-  - maxSize
   - class
 props:
   resizable: true
-  minSize: 22
-  defaultSize: 35
-  maxSize: 40
+  minSize: 200
+  defaultSize: 240
+  maxSize: 250
   class: '!min-h-96'
 slots:
   body: |
 
-    <Placeholder class="h-96" />
+    <Placeholder class="ms-2 h-96" />
 class: '!p-0 !justify-start'
 ---
 
 #body
-:placeholder{class="h-96"}
+:placeholder{class="ms-2 h-96"}
 ::
 
 ### Size
@@ -101,19 +98,19 @@ hide:
   - class
 props:
   resizable: true
-  minSize: 22
-  defaultSize: 35
-  maxSize: 40
+  minSize: 200
+  defaultSize: 240
+  maxSize: 250
   class: '!min-h-96'
 slots:
   body: |
 
-    <Placeholder class="h-96" />
+    <Placeholder class="ms-2 h-96" />
 class: '!p-0 !justify-start'
 ---
 
 #body
-:placeholder{class="h-96"}
+:placeholder{class="ms-2 h-96"}
 ::
 
 ::tip{to="/docs/components/dashboard-group/#props"}

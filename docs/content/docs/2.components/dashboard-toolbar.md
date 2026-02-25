@@ -1,18 +1,22 @@
 ---
 title: DashboardToolbar
-description: 'A toolbar to display under the navbar in a dashboard.'
+description: 'A secondary action bar positioned beneath the main navigation in dashboards.'
 category: dashboard
 links:
   - label: GitHub
-    icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/blob/v4/src/runtime/components/DashboardToolbar.vue
+    iconName: GitHubIcon
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/DashboardToolbar.vue
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui.nuxt.com/docs/components/dashboard-toolbar
+navigation.badge: Soon
 ---
 
 ## Usage
 
-The DashboardToolbar component is used to display a toolbar under the [DashboardNavbar](/docs/components/dashboard-navbar) component.
+The DashboardToolbar component is used to display a toolbar under the [DashboardNavbar](/docs/components/dashboard-navbar/) component.
 
-Use it inside the `header` slot of the [DashboardPanel](/docs/components/dashboard-panel) component:
+Use it inside the `header` slot of the [DashboardPanel](/docs/components/dashboard-panel/) component:
 
 ```vue [pages/index.vue]{9-13}
 <script setup lang="ts">
@@ -22,13 +26,13 @@ definePageMeta({
 </script>
 
 <template>
-  <UDashboardPanel>
+  <B24DashboardPanel>
     <template #header>
-      <UDashboardNavbar />
+      <B24DashboardNavbar />
 
-      <UDashboardToolbar />
+      <B24DashboardToolbar />
     </template>
-  </UDashboardPanel>
+  </B24DashboardPanel>
 </template>
 ```
 
@@ -45,7 +49,7 @@ props:
 ::
 
 ::note
-In this example, we use the [NavigationMenu](/docs/components/navigation-menu) component to render some links.
+In this example, we use the [NavigationMenu](/docs/components/navigation-menu/) component to render some links.
 ::
 
 ## API
@@ -61,7 +65,3 @@ In this example, we use the [NavigationMenu](/docs/components/navigation-menu) c
 ## Theme
 
 :component-theme
-
-## Changelog
-
-:component-changelog

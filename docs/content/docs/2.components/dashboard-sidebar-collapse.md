@@ -1,62 +1,66 @@
 ---
 title: DashboardSidebarCollapse
-description: 'A Button to collapse the sidebar on desktop.'
+description: 'A desktop toggle button that collapses the sidebar to provide more space for content.'
 category: dashboard
 links:
-  - label: Button
-    to: /docs/components/button
-    icon: i-simple-icons-nuxtdotjs
   - label: GitHub
-    icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/blob/v4/src/runtime/components/DashboardSidebarCollapse.vue
+    iconName: GitHubIcon
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/DashboardSidebarCollapse.vue
+  - label: Button
+    iconName: Bitrix24Icon
+    to: /docs/components/button/
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui.nuxt.com/docs/components/dashboard-sidebar-collapse
+navigation.badge: Soon
 ---
 
 ## Usage
 
-The DashboardSidebarCollapse component is used to collapse/expand the [DashboardSidebar](/docs/components/dashboard-sidebar) component **when its `collapsible` prop is set**.
+The DashboardSidebarCollapse component is used to collapse/expand the [DashboardSidebar](/docs/components/dashboard-sidebar/) component **when its `collapsible` prop is set**.
 
 :component-code
 
-It extends the [Button](/docs/components/button) component, so you can pass any property such as `color`, `variant`, `size`, etc.
+It extends the [Button](/docs/components/button/) component, so you can pass any property such as `color`, `size`, etc.
 
 ::component-code
 ---
 ignore:
-  - variant
+  - color
 props:
-  variant: 'subtle'
+    color: 'air-primary'
 ---
 ::
 
 ::note
-The button defaults to `color="neutral"` and `variant="ghost"`.
+The button defaults to `color="air-tertiary"`.
 ::
 
 ## Examples
 
 ### Within `header` slot
 
-You can put this component in the `header` slot of the [DashboardSidebar](/docs/components/dashboard-sidebar) component and use the `collapsed` prop to hide the left part of the header for example:
+You can put this component in the `header` slot of the [DashboardSidebar](/docs/components/dashboard-sidebar/) component and use the `collapsed` prop to hide the left part of the header for example:
 
 ```vue [layouts/dashboard.vue]{4-8}
 <template>
-  <UDashboardGroup>
-    <UDashboardSidebar collapsible>
+  <B24DashboardGroup>
+    <B24DashboardSidebar collapsible>
       <template #header="{ collapsed }">
         <Logo v-if="!collapsed" />
 
-        <UDashboardSidebarCollapse variant="subtle" />
+        <B24DashboardSidebarCollapse />
       </template>
-    </UDashboardSidebar>
+    </B24DashboardSidebar>
 
     <slot />
-  </UDashboardGroup>
+  </B24DashboardGroup>
 </template>
 ```
 
 ### Within `leading` slot
 
-You can put this component in the `leading` slot of the [DashboardNavbar](/docs/components/dashboard-navbar) component to display it before the title for example:
+You can put this component in the `leading` slot of the [DashboardNavbar](/docs/components/dashboard-navbar/) component to display it before the title for example:
 
 ```vue [pages/index.vue]{11-13}
 <script setup lang="ts">
@@ -66,15 +70,15 @@ definePageMeta({
 </script>
 
 <template>
-  <UDashboardPanel>
+  <B24DashboardPanel>
     <template #header>
-      <UDashboardNavbar title="Home">
+      <B24DashboardNavbar title="Home">
         <template #leading>
-          <UDashboardSidebarCollapse variant="subtle" />
+          <B24DashboardSidebarCollapse />
         </template>
-      </UDashboardNavbar>
+      </B24DashboardNavbar>
     </template>
-  </UDashboardPanel>
+  </B24DashboardPanel>
 </template>
 ```
 
@@ -84,14 +88,10 @@ definePageMeta({
 
 :component-props
 
-::callout{icon="i-simple-icons-mdnwebdocs" to="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attributes" target="_blank"}
+::callout{color="air-secondary-accent-2" icon-name="MdnWebDocIcon" to="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attributes" target="_blank"}
 This component also supports all native `<button>` HTML attributes.
 ::
 
 ## Theme
 
 :component-theme
-
-## Changelog
-
-:component-changelog

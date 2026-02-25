@@ -32,14 +32,14 @@ import B24DashboardResizeHandle from './DashboardResizeHandle.vue'
 defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(defineProps<DashboardPanelProps>(), {
-  minSize: 15,
+  minSize: 200,
   resizable: false
 })
 defineSlots<DashboardPanelSlots>()
 
 const appConfig = useAppConfig() as DashboardPanel['AppConfig']
 const uiProp = useComponentUI('dashboardPanel', props)
-const dashboardContext = useDashboard({ storageKey: 'dashboard', unit: '%' })
+const dashboardContext = useDashboard({ storageKey: 'dashboard', unit: 'px' })
 
 const id = `${dashboardContext.storageKey}-panel-${props.id || useId()}`
 

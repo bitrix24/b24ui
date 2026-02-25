@@ -44,9 +44,9 @@ export interface DashboardSidebarSlots {
   'header'(props: { collapsed?: boolean, collapse?: (value: boolean) => void }): any
   'default'(props: { collapsed?: boolean, collapse?: (value: boolean) => void }): any
   'footer'(props: { collapsed?: boolean, collapse?: (value: boolean) => void }): any
-  'toggle'(props: { open: boolean, toggle: () => void, ui: DashboardSidebar['ui'] }): any
+  'toggle'(props: { open: boolean, toggle: () => void, b24ui: DashboardSidebar['b24ui'] }): any
   'content'(props: { close?: () => void }): any
-  'resize-handle'(props: { onMouseDown: (e: MouseEvent) => void, onTouchStart: (e: TouchEvent) => void, onDoubleClick: (e: MouseEvent) => void, ui: DashboardSidebar['ui'] }): any
+  'resize-handle'(props: { onMouseDown: (e: MouseEvent) => void, onTouchStart: (e: TouchEvent) => void, onDoubleClick: (e: MouseEvent) => void, b24ui: DashboardSidebar['b24ui'] }): any
 }
 </script>
 
@@ -74,12 +74,12 @@ const props = withDefaults(defineProps<DashboardSidebarProps<T>>(), {
   autoClose: true,
   toggle: true,
   toggleSide: 'left',
-  minSize: 10,
-  maxSize: 20,
-  defaultSize: 15,
+  minSize: 200,
+  defaultSize: 240,
+  maxSize: 250,
   resizable: false,
   collapsible: false,
-  collapsedSize: 0
+  collapsedSize: 66
 })
 const slots = defineSlots<DashboardSidebarSlots>()
 
@@ -93,7 +93,7 @@ const uiProp = useComponentUI('dashboardSidebar', props)
 
 const dashboardContext = useDashboard({
   storageKey: 'dashboard',
-  unit: '%',
+  unit: 'px',
   sidebarOpen: ref(false),
   sidebarCollapsed: ref(false)
 })
@@ -145,7 +145,7 @@ function toggleOpen() {
 
 <template>
   <DefineToggleTemplate>
-    <slot name="toggle" :open="open" :toggle="toggleOpen" :ui="b24ui">
+    <slot name="toggle" :open="open" :toggle="toggleOpen" :b24ui="b24ui">
       <B24DashboardSidebarToggle
         v-if="toggle"
         v-bind="(typeof toggle === 'object' ? toggle : {})"

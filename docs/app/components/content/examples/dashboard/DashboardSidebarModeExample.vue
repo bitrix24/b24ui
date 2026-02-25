@@ -1,41 +1,56 @@
 <script setup lang="ts">
-import type { NavigationMenuItem } from '@nuxt/ui'
+import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
+import B24Icon from '@bitrix24/b24icons-vue/main/B24Icon'
+import HomeIcon from '@bitrix24/b24icons-vue/outline/HomeIcon'
+import MailIcon from '@bitrix24/b24icons-vue/outline/MailIcon'
+import ContactIcon from '@bitrix24/b24icons-vue/outline/ContactIcon'
 
 defineProps<{
   mode: 'drawer' | 'slideover' | 'modal'
 }>()
 
-const items: NavigationMenuItem[] = [{
-  label: 'Home',
-  icon: 'i-lucide-house',
-  active: true
-}, {
-  label: 'Inbox',
-  icon: 'i-lucide-inbox'
-}, {
-  label: 'Contacts',
-  icon: 'i-lucide-users'
-}]
+const items: NavigationMenuItem[] = [
+  {
+    label: 'Home',
+    icon: HomeIcon,
+    active: true
+  },
+  {
+    label: 'Inbox',
+    icon: MailIcon
+  },
+  {
+    label: 'Contacts',
+    icon: ContactIcon
+  }
+]
 </script>
 
 <template>
-  <UDashboardGroup>
-    <UDashboardSidebar :mode="mode">
+  <B24DashboardGroup>
+    <B24DashboardSidebar
+      :mode="mode"
+      :menu="{
+        side: 'left',
+        inset: true
+      }"
+      :b24ui="{ overlay: 'bg-(--ui-color-bg-content-primary) base-mode' }"
+    >
       <template #header="{ collapsed }">
-        <Logo v-if="!collapsed" class="h-5 w-auto" />
-        <UIcon v-else name="i-simple-icons-nuxtdotjs" class="size-5 text-primary mx-auto" />
+        <Logo v-if="!collapsed" class="h-5 w-auto text-(--b24ui-typography-label-color)" />
+        <B24Icon v-else class="size-10 text-[#2fc6f6] mx-auto" />
       </template>
 
-      <UNavigationMenu
+      <B24NavigationMenu
         :items="items"
         orientation="vertical"
       />
-    </UDashboardSidebar>
+    </B24DashboardSidebar>
 
-    <UDashboardPanel>
+    <B24DashboardPanel>
       <template #header>
-        <UDashboardNavbar title="Dashboard" />
+        <B24DashboardNavbar title="Dashboard" />
       </template>
-    </UDashboardPanel>
-  </UDashboardGroup>
+    </B24DashboardPanel>
+  </B24DashboardGroup>
 </template>

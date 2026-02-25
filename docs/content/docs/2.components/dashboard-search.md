@@ -1,6 +1,6 @@
 ---
 title: DashboardSearch
-description: 'A ready-to-use Command Palette component for your dashboard.'
+description: 'A ready-to-use CommandPalette component for your dashboard.'
 category: dashboard
 links:
   - label: GitHub
@@ -20,20 +20,16 @@ The DashboardSearch component extends the [CommandPalette](/docs/components/comm
 
 Use it inside the default slot of the [DashboardGroup](/docs/components/dashboard-group/) component:
 
-```vue [layouts/dashboard.vue]{10}
+```vue [layouts/dashboard.vue]{4}
 <template>
   <B24DashboardGroup>
-    <B24SidebarLayout>
-      <template #navbar>
-        <B24NavbarSection>
-          <B24DashboardSearchButton />
-        </B24NavbarSection>
-      </template>
-  
-      <B24DashboardSearch />
-  
-      <slot />
-    </B24SidebarLayout>
+    <B24DashboardSidebar>
+      <B24DashboardSearchButton />
+    </B24DashboardSidebar>
+
+    <B24DashboardSearch />
+
+    <slot />
   </B24DashboardGroup>
 </template>
 ```
@@ -87,10 +83,6 @@ You can disable this behavior by setting the `color-mode` prop to `false`:
 ### Props
 
 :component-props
-
-::callout{color="air-secondary-accent-2" icon-name="MdnWebDocIcon" to="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attributes" target="_blank"}
-This component also supports all native `<button>` HTML attributes.
-::
 
 ### Slots
 

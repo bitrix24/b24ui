@@ -62,7 +62,7 @@ export type UseResizableProps = {
   persistent?: boolean
   /**
    * The unit to use for size values.
-   * @defaultValue '%'
+   * @defaultValue 'px'
    */
   unit?: '%' | 'rem' | 'px'
 }
@@ -90,7 +90,7 @@ export const useResizable = (key: string, options: Ref<UseResizableProps> | UseR
     collapsible: false,
     collapsedSize: 0,
     resizable: true,
-    unit: '%',
+    unit: 'px',
     ...(isRef(options) ? options.value : options)
   }))
 

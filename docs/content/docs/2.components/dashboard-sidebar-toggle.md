@@ -1,19 +1,23 @@
 ---
 title: DashboardSidebarToggle
-description: 'A Button to toggle the sidebar on mobile.'
+description: 'A mobile menu button that shows or hides the sidebar navigation.'
 category: dashboard
 links:
-  - label: Button
-    to: /docs/components/button
-    icon: i-simple-icons-nuxtdotjs
   - label: GitHub
-    icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/blob/v4/src/runtime/components/DashboardSidebarToggle.vue
+    iconName: GitHubIcon
+    to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/DashboardSidebarToggle.vue
+  - label: Button
+    iconName: Bitrix24Icon
+    to: /docs/components/button/
+  - label: Nuxt UI
+    iconName: NuxtIcon
+    to: https://ui.nuxt.com/docs/components/dashboard-sidebar-toggle
+navigation.badge: Soon
 ---
 
 ## Usage
 
-The DashboardSidebarToggle component is used by the [DashboardNavbar](/docs/components/dashboard-navbar) and [DashboardSidebar](/docs/components/dashboard-sidebar) components.
+The DashboardSidebarToggle component is used by the [DashboardNavbar](/docs/components/dashboard-navbar/) and [DashboardSidebar](/docs/components/dashboard-sidebar/) components.
 
 It is automatically displayed on mobile to toggle the sidebar, **you don't have to add it manually**.
 
@@ -26,43 +30,43 @@ props:
 ---
 ::
 
-It extends the [Button](/docs/components/button) component, so you can pass any property such as `color`, `variant`, `size`, etc.
+It extends the [Button](/docs/components/button/) component, so you can pass any property such as `color`, `size`, etc.
 
 ::component-code
 ---
 hide:
   - class
 ignore:
-  - variant
+  - color
 props:
-  variant: 'subtle'
+  color: 'air-primary'
   class: 'lg:flex'
 ---
 ::
 
 ::note
-The button defaults to `color="neutral"` and `variant="ghost"`.
+The button defaults to `color="air-tertiary"`.
 ::
 
 ## Examples
 
 ### Within `toggle` slot
 
-Even though this component is automatically displayed on mobile, you can use the `toggle` slot of the [DashboardNavbar](/docs/components/dashboard-navbar) and [DashboardSidebar](/docs/components/dashboard-sidebar) components to customize the button.
+Even though this component is automatically displayed on mobile, you can use the `toggle` slot of the [DashboardNavbar](/docs/components/dashboard-navbar/) and [DashboardSidebar](/docs/components/dashboard-sidebar/) components to customize the button.
 
 ::code-group
 
 ```vue [layouts/dashboard.vue]{4-6}
 <template>
-  <UDashboardGroup>
-    <UDashboardSidebar>
+  <B24DashboardGroup>
+    <B24DashboardSidebar>
       <template #toggle>
-        <UDashboardSidebarToggle variant="subtle" />
+        <B24DashboardSidebarToggle />
       </template>
-    </UDashboardSidebar>
+    </B24DashboardSidebar>
 
     <slot />
-  </UDashboardGroup>
+  </B24DashboardGroup>
 </template>
 ```
 
@@ -74,15 +78,15 @@ definePageMeta({
 </script>
 
 <template>
-  <UDashboardPanel>
+  <B24DashboardPanel>
     <template #header>
-      <UDashboardNavbar title="Home">
+      <B24DashboardNavbar title="Home">
         <template #toggle>
-          <UDashboardSidebarToggle variant="subtle" />
+          <B24DashboardSidebarToggle />
         </template>
-      </UDashboardNavbar>
+      </B24DashboardNavbar>
     </template>
-  </UDashboardPanel>
+  </B24DashboardPanel>
 </template>
 ```
 
@@ -98,14 +102,10 @@ When using the `toggle-side` prop of the `DashboardSidebar` and `DashboardNavbar
 
 :component-props
 
-::callout{icon="i-simple-icons-mdnwebdocs" to="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attributes" target="_blank"}
+::callout{color="air-secondary-accent-2" icon-name="MdnWebDocIcon" to="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attributes" target="_blank"}
 This component also supports all native `<button>` HTML attributes.
 ::
 
 ## Theme
 
 :component-theme
-
-## Changelog
-
-:component-changelog

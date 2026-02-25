@@ -94,10 +94,11 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashbo
       :label="label || t('dashboardSearchButton.label')"
       v-bind="{
         ...buttonProps,
-        ...(collapsed ? {
+        ...(props.collapsed ? {
+          'label': undefined,
           'aria-label': label || t('dashboardSearchButton.label')
         } : {
-          color: 'air-secondary-no-accent'
+          color: buttonProps['color'] === 'air-tertiary-no-accent' ? 'air-secondary-no-accent' : buttonProps['color']
         }),
         ...$attrs
       }"
@@ -113,7 +114,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashbo
       <template #trailing="{ b24ui: b24uiProxy }">
         <div data-slot="trailing" :class="b24ui.trailing({ class: uiProp?.trailing })">
           <slot name="trailing" :b24ui="b24uiProxy">
-            <template v-if="kbds?.length">
+            <template v-if="!collapsed && kbds?.length">
               <B24Kbd
                 v-for="(kbd, index) in kbds"
                 :key="index"
