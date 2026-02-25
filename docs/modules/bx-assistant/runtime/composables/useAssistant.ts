@@ -42,7 +42,7 @@ export function useAssistant() {
     // Check if it's a localized object (has locale keys like 'en', 'fr')
     if (!Array.isArray(faqConfig)) {
       const localizedConfig = faqConfig as LocalizedFaqQuestions
-      const currentLocale = (config.public?.locale || 'en') as string
+      const currentLocale = (appConfig.docs?.locale || 'en') as string
       const defaultLocale = ((config.public.i18n && (config.public.i18n as any)?.defaultLocale) || 'en') as string
 
       // Try current locale, then default locale, then first available
