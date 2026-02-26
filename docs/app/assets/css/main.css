@@ -12,8 +12,8 @@
  */
 @layer base {
   .edge-dark {
-    --air-theme-bg-image: url(../bg/edge-dark-v3.jpg);
-    --air-theme-bg-image-blurred: url(../bg/edge-dark-v3-blurred.webp);
+    --air-theme-bg-image: url(../bg/dawn-harmony-blurred.webp);
+    --air-theme-bg-image-blurred: url(../bg/dawn-harmony-blurred-blurred.webp);
     --air-theme-bg-position: 0 0;
     --air-theme-bg-size: cover;
     --air-theme-bg-repeat: no-repeat;
