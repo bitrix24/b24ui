@@ -14,18 +14,18 @@ const props = withDefaults(defineProps<LogoWithVersionProps>(), {
 
 <template>
   <div
-    class="h-[58px] flex items-center relative my-0"
+    class="h-[58px] overflow-hidden flex items-center relative my-0"
     :class="[
       props.noPadding ? 'ps-0 pe-xs rtl:ps-xs rtl:pe-0' : 'in-data-[dismissable-layer]:ps-[22px] lg:ps-[22px] pe-xs rtl:ps-xs rtl:lg:pe-[22px]'
     ]"
   >
-    <div class="flex flex-row flex-nowrap items-center justify-start gap-[6px]">
+    <div class=" flex flex-row flex-nowrap items-center justify-start gap-[6px]">
       <NuxtLink
         to="/"
         class="flex items-end gap-2 font-(--ui-font-weight-bold) text-xl min-w-0 shrink-0"
         aria-label="Bitrix24 UI"
       >
-        <Logo class="w-auto h-[24px] shrink-0" />
+        <Logo class="w-auto h-[24px] shrink-0 text-(--b24ui-typography-label-color)" />
       </NuxtLink>
 
       <B24Badge

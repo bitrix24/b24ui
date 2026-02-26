@@ -9,29 +9,9 @@ const props = defineProps<{
 const route = useRoute()
 
 const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs', ['framework']))
-const { data: files } = useLazyAsyncData(
-  'search',
-  async () => {
-    const data = await queryCollectionSearchSections('docs', {
-      ignoredTags: ['style']
-    })
-
-    return data.map((file) => {
-      return {
-        ...file,
-        id: file.id.replace(/([^/])(#.*)?$/, (_, char, hash = '') => `${char}/${hash}`)
-      }
-    })
-  },
-  {
-    server: false
-  }
-)
 
 useHead({
-  meta: [
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' }
-  ],
+  meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
   link: [],
   htmlAttrs: { lang: 'en' }
 })
@@ -46,7 +26,7 @@ useServerSeoMeta({
   twitterCard: 'summary_large_image'
 })
 
-const { rootNavigation, navigationByFramework } = useNavigation(navigation)
+const { rootNavigation } = useNavigation(navigation)
 
 provide('navigation', rootNavigation)
 
@@ -71,25 +51,15 @@ onMounted(() => {
   <B24App>
     <NuxtLoadingIndicator color="var(--ui-color-accent-main-primary)" :height="2" />
 
-    <B24SidebarLayout :use-light-content="false" :class="[route.path.startsWith('/docs/') && 'root']">
-      <template #navbar>
-        <Header show-logo-all-time />
-      </template>
+    <div :class="[route.path.startsWith('/docs/') && 'root']">
+      <Header />
 
       <B24Error
         :error="error"
         :class="cardColorContext"
-        :b24ui="{
-          root: 'mt-[22px] min-h-[calc(100vh-200px)] bg-(--ui-color-design-outline-na-bg) h-[calc(100vh-200px)] p-[12px] rounded-[24px]'
-        }"
       />
-      <template #content-bottom>
-        <Footer />
-      </template>
-    </B24SidebarLayout>
 
-    <ClientOnly>
-      <LazySearch :files="files" :navigation="navigationByFramework" />
-    </ClientOnly>
+      <Footer />
+    </div>
   </B24App>
 </template>

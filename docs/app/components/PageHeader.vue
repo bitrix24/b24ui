@@ -22,7 +22,7 @@ const slots = defineSlots<PageHeaderSlots>()
 </script>
 
 <template>
-  <div class="w-full flex flex-col gap-[20px] lg:mt-[22px]">
+  <div class="w-full flex flex-col gap-[20px]">
     <B24Card variant="outline-alt" class="backdrop-blur-md rounded-none lg:rounded-(--ui-border-radius-md) border-0 lg:border-1">
       <div class="flex flex-col items-start justify-between gap-[6px]">
         <div class="w-full flex flex-row items-center justify-between gap-[4px]">

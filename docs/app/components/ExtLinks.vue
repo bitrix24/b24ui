@@ -18,25 +18,27 @@ const menuList = [
 </script>
 
 <template>
-  <B24PageLinks :links="menuList" class="mb-[12px]" />
+  <div class="w-full flex flex-col gap-0.5">
+    <B24PageLinks :links="menuList" class="mb-[12px]" />
 
-  <B24Button
-    v-if="framework === 'nuxt'"
-    block
-    label="Use our Nuxt starter"
-    color="air-boost"
-    size="sm"
-    :icon="RocketIcon"
-    to="/docs/getting-started/installation/nuxt/#use-our-nuxt-starter"
-  />
+    <B24Button
+      v-if="framework === 'nuxt'"
+      block
+      label="Use our Nuxt starter"
+      color="air-boost"
+      size="sm"
+      :icon="RocketIcon"
+      to="/docs/getting-started/installation/nuxt/#use-our-nuxt-starter"
+    />
 
-  <B24Button
-    v-if="framework === 'vue'"
-    block
-    label="Use our Vue starter"
-    color="air-boost"
-    size="sm"
-    :icon="RocketIcon"
-    to="/docs/getting-started/installation/vue/#use-our-vue-starter"
-  />
+    <B24Button
+      v-if="framework === 'vue'"
+      block
+      label="Use our Vue starter"
+      color="air-boost"
+      size="sm"
+      :icon="RocketIcon"
+      to="/docs/getting-started/installation/vue/#use-our-vue-starter"
+    />
+  </div>
 </template>

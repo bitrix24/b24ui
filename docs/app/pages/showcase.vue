@@ -3,7 +3,7 @@ import { useColorMode } from '#imports'
 
 const { data: page } = await useAsyncData('showcase', () => queryCollection('showcase').first())
 if (!page.value) {
-  throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
+  throw createError({ status: 404, statusText: 'Page not found', fatal: true })
 }
 
 useSeoMeta({
@@ -13,8 +13,6 @@ useSeoMeta({
   ogTitle: `${page.value.title} - Bitrix24 UI`,
   ogDescription: page.value.description
 })
-
-// defineOgImageComponent('Docs')
 
 const colorMode = useColorMode()
 const isDark = computed(() => {
@@ -35,26 +33,34 @@ onMounted(() => {
 
 <!-- eslint-disable vue/no-v-html -->
 <template>
-  <B24SidebarLayout
-    :use-light-content="false"
+  <B24DashboardPanel
+    id="showcase"
+    :b24ui="{
+      body: 'items-stretch justify-between scrollbar-transparent'
+    }"
   >
-    <template #navbar>
-      <Header show-logo-all-time />
+    <template #header>
+      <Header />
     </template>
 
-    <B24Card
-      v-if="page"
-      as="main"
-      class="mt-[22px]"
-      :class="cardColorContext"
-    >
-      <div class="min-h-[300px] h-auto lg:h-[calc(100vh-200px)] lg:pt-[12px] flex flex-cols items-center justify-between">
-        <B24Alert color="air-primary-warning" title="We are still updating this page" description="Some data may be missing here — we will complete it shortly." />
-      </div>
-    </B24Card>
+    <template #body>
+      <B24Card
+        v-if="page"
+        as="main"
+        class="min-h-[calc(100%-100px)]"
+        :class="cardColorContext"
+        :b24ui="{
+          body: 'min-h-[300px] h-auto lg:pt-[12px] flex flex-col items-center justify-between'
+        }"
+      >
+        <B24Alert
+          color="air-primary-warning"
+          title="We are still updating this page"
+          description="Some data may be missing here — we will complete it shortly."
+        />
+      </B24Card>
 
-    <template #content-bottom>
       <Footer />
     </template>
-  </B24SidebarLayout>
+  </B24DashboardPanel>
 </template>

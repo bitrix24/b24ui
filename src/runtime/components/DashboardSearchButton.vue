@@ -118,6 +118,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashbo
               <B24Kbd
                 v-for="(kbd, index) in kbds"
                 :key="index"
+                size="sm"
                 v-bind="typeof kbd === 'string' ? { value: kbd } : kbd"
               />
             </template>

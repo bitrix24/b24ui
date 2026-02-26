@@ -4,7 +4,6 @@ import { withTrailingSlash } from 'ufo'
 const route = useRoute()
 const appConfig = useAppConfig()
 const config = useRuntimeConfig()
-const { isEnabled: isAssistantEnabled, panelWidth: assistantPanelWidth, shouldPushContent } = useAssistant()
 
 const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs', ['framework', 'category', 'description', 'badge']))
 const { data: files } = useLazyAsyncData(
@@ -42,51 +41,21 @@ useServerSeoMeta({
   twitterCard: 'summary_large_image'
 })
 
-const { rootNavigation, navigationByFramework } = useNavigation(navigation)
+const { rootNavigation } = useNavigation(navigation)
 provide('navigation', rootNavigation)
-
-const colorMode = useColorMode()
-
-function toggleMode() {
-  colorMode.preference = !(colorMode.value === 'dark') ? 'dark' : 'light'
-}
-
-defineShortcuts({
-  shift_D: () => {
-    toggleMode()
-  }
-})
+provide('files', files)
 </script>
 
 <template>
   <B24App :toaster="appConfig.toaster">
     <NuxtLoadingIndicator color="var(--ui-color-design-filled-warning-bg)" :height="3" />
-    <div
-      class="transition-[margin-right] duration-200 ease-linear will-change-[margin-right]"
-      :class="[route.path.startsWith('/docs/') && 'root']"
-      :style="{ marginRight: shouldPushContent ? `${assistantPanelWidth}px` : '0' }"
-    >
-      <template v-if="!route.path.startsWith('/examples')">
-        <!-- <Banner /> -->
-      </template>
+    <template v-if="!route.path.startsWith('/examples')">
+      <!-- <Banner /> -->
+    </template>
 
-      <NuxtLayout>
-        <NuxtPage />
-      </NuxtLayout>
-
-      <template v-if="!route.path.startsWith('/examples')">
-        <ClientOnly>
-          <LazySearch
-            :files="files"
-            :navigation="navigationByFramework"
-          />
-          <template v-if="isAssistantEnabled">
-            <LazyAssistantPanel />
-            <LazyAssistantFloatingInput />
-          </template>
-        </ClientOnly>
-      </template>
-    </div>
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </B24App>
 </template>
 
