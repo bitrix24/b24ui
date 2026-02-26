@@ -2,7 +2,6 @@
 title: EditorEmojiMenu
 description: "An emoji suggestion menu that automatically appears upon typing the colon : character in the editor."
 category: editor
-badge: New
 links:
   - label: GitHub
     iconName: GitHubIcon

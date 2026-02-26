@@ -2,7 +2,6 @@
 title: EditorDragHandle
 description: A draggable handle component for reordering and selecting editor blocks.
 category: editor
-badge: New
 links:
   - label: GitHub
     iconName: GitHubIcon

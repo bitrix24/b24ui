@@ -12,7 +12,7 @@ links:
   - label: Nuxt UI
     iconName: NuxtIcon
     to: https://ui.nuxt.com/docs/components/page-section
-navigation.badge: Soon
+navigation.badge: New
 ---
 
 ## Usage

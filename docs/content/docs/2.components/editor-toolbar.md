@@ -2,7 +2,6 @@
 title: EditorToolbar
 description: 'A customizable toolbar for editor actions with multiple display modes: fixed, bubble, or floating.'
 category: editor
-badge: New
 links:
   - label: GitHub
     iconName: GitHubIcon

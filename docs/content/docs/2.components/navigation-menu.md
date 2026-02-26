@@ -392,7 +392,7 @@ name: 'navigation-menu-collapsed-popover-example'
 You can use the `#content` slot to customize the content of the popover in the `vertical` orientation.
 ::
 
-### With chip in items :badge{label="Soon" class="align-text-top"}
+### With chip in items
 
 Use the `chip` property to display a [Chip](/docs/components/chip/) around the icon of the items, you can pass any of its props.
 

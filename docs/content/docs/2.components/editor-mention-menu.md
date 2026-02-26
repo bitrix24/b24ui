@@ -2,7 +2,6 @@
 title: EditorMentionMenu
 description: A mention menu that displays user suggestions when a trigger character is typed in the editor.
 category: editor
-badge: New
 links:
   - label: GitHub
     iconName: GitHubIcon

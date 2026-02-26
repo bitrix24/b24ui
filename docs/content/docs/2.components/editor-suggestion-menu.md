@@ -2,7 +2,6 @@
 title: EditorSuggestionMenu
 description: A slash command menu that displays formatting and action suggestions when typing /.
 category: editor
-badge: New
 links:
   - label: GitHub
     iconName: GitHubIcon

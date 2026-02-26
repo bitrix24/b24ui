@@ -12,7 +12,7 @@ links:
   - label: Nuxt UI
     iconName: NuxtIcon
     to: https://ui.nuxt.com/docs/components/dashboard-sidebar-toggle
-navigation.badge: Soon
+navigation.badge: New
 ---
 
 ## Usage

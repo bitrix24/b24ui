@@ -2,7 +2,6 @@
 title: Editor
 description: A rich text editor built on TipTap supporting markdown, HTML, and JSON content formats.
 category: editor
-badge: New
 links:
   - label: GitHub
     iconName: GitHubIcon
