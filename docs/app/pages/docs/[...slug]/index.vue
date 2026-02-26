@@ -2,6 +2,7 @@
 import type { ContentNavigationItem } from '@nuxt/content'
 import { withTrailingSlash, joinURL } from 'ufo' // withoutTrailingSlash
 import { kebabCase } from 'scule'
+import { useColorMode } from '#b24ui/composables/color-mode/useColorMode'
 import DesignIcon from '@bitrix24/b24icons-vue/outline/DesignIcon'
 import FavoriteIcon from '@bitrix24/b24icons-vue/outline/FavoriteIcon'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
@@ -10,7 +11,6 @@ import NuxtIcon from '@bitrix24/b24icons-vue/file-type/NuxtIcon'
 import DemonstrationOnIcon from '@bitrix24/b24icons-vue/outline/DemonstrationOnIcon'
 import Bitrix24Icon from '@bitrix24/b24icons-vue/common-service/Bitrix24Icon'
 import AiStarsIcon from '@bitrix24/b24icons-vue/outline/AiStarsIcon'
-import {useColorMode} from "#b24ui/composables/color-mode/useColorMode";
 
 const route = useRoute()
 const { framework } = useFrameworks()
