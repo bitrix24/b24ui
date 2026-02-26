@@ -130,6 +130,8 @@ const iconFromIconName = (iconName?: string) => {
   return undefined
 }
 
+const explainIcon = computed(() => appConfig.bxAssistant?.icons?.explain || AiStarsIcon)
+
 const showExplainWithAi = computed(() => {
   return isEnabled.value && appConfig.bxAssistant?.explainWithAi !== false
 })
@@ -161,7 +163,7 @@ const showExplainWithAi = computed(() => {
           <template #head-links>
             <B24Button
               v-if="showExplainWithAi"
-              :icon="AiStarsIcon"
+              :icon="explainIcon"
               label="Explain with AI"
               color="air-selection"
               size="sm"

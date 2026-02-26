@@ -1,4 +1,5 @@
 import type { FaqQuestions, LocalizedFaqQuestions } from '../../modules/bx-assistant/runtime/types'
+import type { IconComponent } from '@bitrix24/b24ui-nuxt'
 
 export type { FaqCategory, FaqQuestions, LocalizedFaqQuestions } from '../../modules/bx-assistant/runtime/types'
 
@@ -41,17 +42,19 @@ declare module 'nuxt/schema' {
        */
       icons?: {
         /**
-         * Icon for the assistant trigger button and slideover header.
-         * @memo we use AiStarsIcon
-         * @link?: docs/modules/bx-assistant/runtime/components/AssistantChat.vue:11
+         * Icon for the assistant trigger button and slideover header. We use AiStarsIcon
+         * @IconComponent
+         *
+         * @see docs/modules/bx-assistant/runtime/components/AssistantChat.vue:11
          */
-        // trigger?: string
+        trigger?: IconComponent
         /**
-         * Icon for the "Explain with AI" button.
-         * @memo we use AiStarsIcon
-         * @link docs/app/pages/docs/[...slug]/index.vue:162
+         * Icon for the "Explain with AI" button. We use AiStarsIcon
+         * @IconComponent
+         *
+         * @see docs/app/pages/docs/[...slug]/index.vue:162
          */
-        // explain?: string
+        explain?: IconComponent
       }
     }
   }
