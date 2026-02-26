@@ -35,7 +35,7 @@ const reference = computed(() => ({
     </div>
 
     <template #content>
-      <div class="p-4">
+      <div class="p-4 text-(--b24ui-typography-description-color)D">
         {{ anchor.x.toFixed(0) }} - {{ anchor.y.toFixed(0) }}
       </div>
     </template>

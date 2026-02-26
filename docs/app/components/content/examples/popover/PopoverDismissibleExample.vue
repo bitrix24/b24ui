@@ -8,7 +8,7 @@ import Cross50Icon from '@bitrix24/b24icons-vue/actions/Cross50Icon'
 
     <template #content="{ close }">
       <div class="flex items-center gap-4 mb-4">
-        <h2 class="text-highlighted font-semibold">
+        <h2 class="text-(--b24ui-typography-legend-color) font-(--ui-font-weight-semi-bold)">
           Popover non-dismissible
         </h2>
 
