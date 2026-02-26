@@ -145,7 +145,6 @@ defineShortcuts({
         <LazyAssistantPanel />
         <LazyAssistantFloatingInput />
       </template>
-      <ProsePre>{{ navigationByFramework }}</ProsePre>
     </ClientOnly>
   </B24DashboardGroup>
 </template>
