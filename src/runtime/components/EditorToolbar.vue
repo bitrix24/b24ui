@@ -133,11 +133,11 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.editor
   layout: props.layout
 }))
 
-const groups = computed<EditorToolbarItem[][]>(() =>
+const groups = computed(() =>
   props.items?.length
     ? isArrayOfArray(props.items)
       ? props.items
-      : [props.items]
+      : [props.items as NestedItem<T>[]]
     : []
 )
 
