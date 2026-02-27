@@ -1,5 +1,7 @@
 <template>
-  <div class="flex items-center justify-center min-h-[calc(100vh-var(--topbar-height))]">
+  <B24DashboardNavbar class="absolute top-0 inset-x-0 lg:border-b-0" />
+
+  <div class="text-center space-y-4">
     <B24Card class="mx-4 text-center backdrop-blur-xl max-w-96">
       <template #header>
         <ProseH1 class="mb-0">

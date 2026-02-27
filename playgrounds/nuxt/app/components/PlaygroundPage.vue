@@ -22,10 +22,10 @@ const { cardVariant, cardBorderClass } = usePlaygroundCardStyles(playgroundConte
 <template>
   <Navbar>
     <template #trailing>
-      <B24Switch v-model="playgroundContext.isUseBg.value" label="isUseBg" />
+      <B24Switch v-model="playgroundContext.isUseBg.value" label="isUseBg" size="xs" />
     </template>
-    <template v-if="slots.controls" #controls>
-      <div class="flex items-center flex-wrap gap-2 py-2 pr-3 max-w-full">
+    <template v-if="slots.controls">
+      <div class="items-center flex-wrap gap-2 py-2 pr-3 max-w-full hidden lg:flex">
         <slot name="controls" :playground="playgroundContext" />
       </div>
     </template>
@@ -35,8 +35,8 @@ const { cardVariant, cardBorderClass } = usePlaygroundCardStyles(playgroundConte
     :variant="cardVariant"
     :b24ui="{
       ...b24ui,
-      root: [playgroundContext.isUseBg.value ? 'backdrop-blur-xl' : '', 'border-0 border-t-2 lg:border-t-0 rounded-none lg:rounded-(--ui-border-radius-md)', b24ui?.root],
-      body: ['flex items-stretch flex-wrap justify-center md:justify-start gap-4 min-h-0 p-4', b24ui?.body]
+      root: [playgroundContext.isUseBg.value ? 'backdrop-blur-xl' : '', 'overflow-clip border-0 border-t-2 lg:border-t-0 rounded-none lg:rounded-(--ui-border-radius-md)', b24ui?.root],
+      body: ['mt-[22px] flex items-stretch flex-wrap justify-center md:justify-start gap-4 min-h-0 p-4', b24ui?.body]
     }"
   >
     <slot v-bind="{ playgroundContext, cardVariant, cardBorderClass }" />
