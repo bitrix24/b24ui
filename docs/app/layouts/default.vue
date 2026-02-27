@@ -34,7 +34,7 @@ function toggleMode() {
 // region Search ////
 const searchTerm = ref('')
 const isSearchActive = computed(() => route.path.startsWith('/docs/components'))
-const isPanelCollapsed = ref(isSearchActive.value)
+const isPanelCollapsed = ref(false)
 const navigationKey = computed(() => `${route.path}-${searchTerm.value ? 'filtered' : 'unfiltered'}`)
 const cleanedSearchTerm = computed(() => {
   return searchTerm.value
