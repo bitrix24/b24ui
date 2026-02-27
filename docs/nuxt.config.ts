@@ -106,7 +106,6 @@ const pages = [
   '/docs/components/slideover/',
   '/docs/components/toast/',
   '/docs/components/tooltip/',
-  // // '/docs/components/confetti/',
   // endregion ////
   // region Page ////
   '/docs/components/page/',

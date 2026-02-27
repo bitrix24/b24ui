@@ -61,7 +61,7 @@ defineShortcuts(shortcuts)
       :animate="{ y: 0, opacity: 1 }"
       :exit="{ y: 100, opacity: 0 }"
       :transition="{ duration: 0.2, ease: 'easeOut' }"
-      class="pointer-events-none fixed inset-x-0 z-10 bottom-[max(1.5rem,env(safe-area-inset-bottom))] px-4 sm:px-80"
+      class="pointer-events-none fixed inset-x-0 z-10 bottom-[max(4rem,env(safe-area-inset-bottom))] px-4 sm:px-80"
       style="will-change: transform"
     >
       <form
@@ -77,7 +77,7 @@ defineShortcuts(shortcuts)
             maxlength="1000"
             :b24ui="{
               root: 'group w-full! min-w-0 sm:max-w-96 transition-all duration-300 ease-out [@media(hover:hover)]:hover:scale-105 [@media(hover:hover)]:focus-within:scale-105',
-              base: 'base-mode bg-(--ui-color-bg-content-primary) shadow-lg rounded-xl text-base',
+              base: 'base-mode bg-(--ui-color-bg-content-primary) shadow-lg rounded-xl text-md',
               trailing: 'pe-2'
             }"
             @keydown.enter.exact.prevent="handleSubmit"

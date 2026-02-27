@@ -54,7 +54,7 @@ onMounted(() => {
 <template>
   <B24DashboardPanel
     id="home"
-    :b24ui="{ body: 'items-stretch justify-between scrollbar-transparent' }"
+    :b24ui="{ body: 'p-0 lg:p-2 items-stretch justify-between scrollbar-transparent scrollbar-both-edges' }"
   >
     <template #header>
       <Header />
@@ -66,7 +66,10 @@ onMounted(() => {
         as="main"
         class="overflow-clip"
         :class="cardColorContext"
-        :b24ui="{ body: 'min-h-[300px] flex flex-col gap-5 items-center justify-stretch lg:justify-center' }"
+        :b24ui="{
+          root: 'rounded-none lg:rounded-(--ui-border-radius-md)',
+          body: 'min-h-[300px] flex flex-col gap-5 items-center justify-stretch lg:justify-center'
+        }"
       >
         <div class="w-full flex-1 flex flex-col text-center">
           <ProseH1 class="mt-[24px] mb-0 leading-(--ui-font-line-height-3xs)">

@@ -153,7 +153,7 @@ onMounted(() => {
 <template>
   <B24DashboardPanel
     id="doc"
-    :b24ui="{ body: 'items-stretch justify-between scrollbar-transparent scrollbar-both-edges' }"
+    :b24ui="{ body: 'p-0 lg:px-2 lg:py-4 items-stretch justify-between scrollbar-transparent scrollbar-both-edges' }"
   >
     <template #header>
       <Header />
@@ -162,7 +162,8 @@ onMounted(() => {
     <template v-if="page" #body>
       <B24Page
         :b24ui="{
-          center: 'flex flex-col lg:gap-2.5',
+          root: 'lg:gap-4',
+          center: 'flex flex-col lg:gap-4',
           right: 'lg:col-span-2 order-first lg:order-last lg:top-[0px]'
         }"
       >
@@ -230,7 +231,7 @@ onMounted(() => {
             <B24Card
               variant="outline-alt"
               class="rounded-none lg:rounded-(--ui-border-radius-md) backdrop-blur-md border-0"
-              :b24ui="{ body: 'px-3 py-0 sm:ps-[22px] lg:ps-[10px] lg:pe-1 sm:py-0 pt-3 sm:pt-3 lg:py-[15px]' }"
+              :b24ui="{ body: 'px-3 py-0 sm:ps-[22px] lg:ps-2.5 lg:pe-1 sm:py-0 pt-3 sm:pt-3 lg:py-3' }"
             >
               <B24ContentToc
                 :links="page.body.toc.links"
