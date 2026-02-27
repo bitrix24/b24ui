@@ -3,6 +3,7 @@
 ## [2.4.1](https://github.com/bitrix24/b24ui/compare/v2.3.0...v2.4.1) (2026-03-xx)
 
 * fix(Page): make slot presence reactive for variant computation
+* docs(navigation-menu): improve examples
 
 ## [2.4.0](https://github.com/bitrix24/b24ui/compare/v2.3.0...v2.4.0) (2026-02-26)
 

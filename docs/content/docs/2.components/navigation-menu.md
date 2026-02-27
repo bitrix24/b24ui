@@ -354,6 +354,25 @@ You can inspect the DOM to see each item's content being rendered.
 
 ## Examples
 
+### Control active item
+
+You can control the active item(s) by using the `default-value` prop or the `v-model` directive with the `value` of the item. If no `value` is provided, it defaults to `item-${index}` for top-level items or `item-${level}-${index}` for nested items.
+
+::component-example
+---
+collapse: true
+name: 'navigation-menu-model-value-example'
+---
+::
+
+::tip
+Use the `value-key` prop to change the key used to match items when a `v-model` or `default-value` is provided.
+::
+
+::note
+In this example, leveraging [`defineShortcuts`](/docs/composables/define-shortcuts/), you can switch the active item by pressing :kbd{value="1"}, :kbd{value="2"}, or :kbd{value="3"}.
+::
+
 ### With tooltip in items
 
 When orientation is `vertical` and the menu is `collapsed`, you can set the `tooltip` prop to `true` to display a [Tooltip](/docs/components/tooltip/) around items with their label, but you can also use the `tooltip` property on each item to override the default tooltip. In `horizontal` orientation, you can use the `tooltip` property on each item to display a [Tooltip](/docs/components/tooltip/) around items.
@@ -403,23 +422,26 @@ name: 'navigation-menu-chip-items-example'
 ---
 ::
 
-### Control active item
+### With bottom tab bar
 
-You can control the active item(s) by using the `default-value` prop or the `v-model` directive with the `value` of the item. If no `value` is provided, it defaults to `item-${index}` for top-level items or `item-${level}-${index}` for nested items.
+Use the `b24ui` prop to transform the NavigationMenu into a mobile-style bottom tab bar with icons and small labels.
 
 ::component-example
 ---
 collapse: true
-name: 'navigation-menu-model-value-example'
+name: 'navigation-menu-bottom-tab-bar-example'
 ---
 ::
 
-::note
-In this example, leveraging [`defineShortcuts`](/docs/composables/define-shortcuts/), you can switch the active item by pressing :kbd{value="1"}, :kbd{value="2"}, or :kbd{value="3"}.
-::
+### With collapsed labels
 
-::tip
-Use the `value-key` prop to change the key used to match items when a `v-model` or `default-value` is provided.
+Use the `b24ui` prop to display a label underneath each icon when collapsed.
+
+::component-example
+---
+collapse: true
+name: 'navigation-menu-collapsed-label-example'
+---
 ::
 
 ### With custom slot
@@ -436,12 +458,24 @@ You will have access to the following slots:
 
 ::component-example
 ---
+collapse: true
 name: 'navigation-menu-custom-slot-example'
 ---
 ::
 
 ::tip{to="#slots"}
 You can also use the `#item`, `#item-leading`, `#item-label`, `#item-trailing` and `#item-content` slots to customize all items.
+::
+
+### With trailing slot
+
+Use the `#item-trailing` slot or the `slot` property (`#{{ item.slot }}-trailing`) to add a [DropdownMenu](/docs/components/dropdown-menu/) that appears on hover, similar to Notion or Linear.
+
+::component-example
+---
+collapse: true
+name: 'navigation-menu-trailing-slot-example'
+---
 ::
 
 ### With content slot

@@ -47,10 +47,10 @@ onMounted(() => {
       <B24Card
         v-if="page"
         as="main"
-        class="min-h-[calc(100%-100px)]"
+        class="overflow-clip"
         :class="cardColorContext"
         :b24ui="{
-          body: 'min-h-[300px] h-auto lg:pt-[12px] flex flex-col items-center justify-between'
+          body: 'min-h-[300px] flex flex-col gap-5 items-center justify-between'
         }"
       >
         <B24Alert

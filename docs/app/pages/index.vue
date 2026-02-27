@@ -64,11 +64,9 @@ onMounted(() => {
       <B24Card
         v-if="page"
         as="main"
-        class="min-h-[calc(100%-100px)]"
+        class="overflow-clip"
         :class="cardColorContext"
-        :b24ui="{
-          body: 'min-h-[300px] h-full flex flex-col gap-5 items-center justify-stretch lg:justify-center'
-        }"
+        :b24ui="{ body: 'min-h-[300px] flex flex-col gap-5 items-center justify-stretch lg:justify-center' }"
       >
         <div class="w-full flex-1 flex flex-col text-center">
           <ProseH1 class="mt-[24px] mb-0 leading-(--ui-font-line-height-3xs)">

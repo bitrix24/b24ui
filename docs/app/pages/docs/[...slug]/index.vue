@@ -243,7 +243,6 @@ onMounted(() => {
         <B24Card
           v-if="page"
           as="main"
-          class=""
           :class="cardColorContext"
         >
           <ContentRenderer v-if="page.body" :value="page" />
