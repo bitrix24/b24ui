@@ -36,7 +36,7 @@ defineShortcuts({
 
 <template>
   <B24App :toaster="appConfig.toaster" :dir="appConfig.dir">
-    <B24DashboardGroup unit="px">
+    <B24DashboardGroup unit="px" storage="local">
       <B24DashboardSidebar
         mode="modal"
         class="bg-(--ui-color-bg-content-secondary)"

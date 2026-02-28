@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
+import B24Icon from '@bitrix24/b24icons-vue/main/B24Icon'
 import { reactive, ref, computed } from 'vue'
 import { useHead } from '@unhead/vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useNavigation } from '../../nuxt/app/composables/useNavigation'
 import { useThemeMode } from '../../nuxt/app/composables/useThemeMode'
-import { useTextDirection } from '@vueuse/core'
 
 const route = useRoute()
 const router = useRouter()
 const appConfig = useAppConfig()
-const dir = useTextDirection()
+const { components, groups, items } = useNavigation()
 
+appConfig.dir = ref('ltr')
 appConfig.toaster = reactive({
   position: 'top-right' as const,
   duration: 5000,
@@ -33,135 +33,44 @@ useHead({
   }
 })
 
-const { groups, components } = useNavigation()
 provide('components', components)
 
-const searchTerm = ref('')
-const input = useTemplateRef('input')
-
-const contains = (value: string, search: string) => value.toLowerCase().includes(search.toLowerCase())
-
-const filteredGroups = computed(() => {
-  if (!searchTerm.value) {
-    return groups.value
-  }
-
-  return groups.value.map((group) => {
-    if (!group.id.includes('component')) {
-      return group
-    }
-
-    return {
-      ...group,
-      items: group.items.filter(item => contains(String(item.label), searchTerm.value))
-    }
-  })
-})
-
-function toggleDir() {
-  dir.value = dir.value === 'ltr' ? 'rtl' : 'ltr'
-}
-
-const getLightContent = computed(() => {
-  return {
-    sidebarSlideoverContainer: 'z-3',
-    pageWrapper: 'px-0 lg:px-(--content-area-shift)',
-    containerWrapperInner: 'flex flex-col lg:gap-4 lg:pt-lg'
-  }
-})
-
 defineShortcuts({
-  'ctrl_arrowleft': () => {
+  ctrl_arrowleft: () => {
     if (route.path === '/') {
       return
     }
     router.push('/')
   },
-  'shift_L': () => {
-    toggleDir()
-  },
-  'shift_D': () => {
+  shift_D: () => {
     toggleDarkMode()
-  },
-  '/': {
-    usingInput: false,
-    handler: () => {
-      input?.value?.inputRef?.focus()
-    }
   }
 })
 </script>
 
 <template>
-  <B24App :toaster="(appConfig.toaster as any)">
-    <B24DashboardGroup>
-      <!-- // @see nuxt/vue/src/assets/css/main.css -->
-      <B24SidebarLayout
-        :use-light-content="false"
-        :b24ui="getLightContent"
+  <B24App :toaster="appConfig.toaster" :dir="appConfig.dir">
+    <B24DashboardGroup unit="px" storage="local">
+      <B24DashboardSidebar
+        mode="modal"
+        class="bg-(--ui-color-bg-content-secondary)"
+        resizable
+        collapsible
+        :toggle="{ size: 'sm', class: 'ring-(--ui-color-divider-default)' }"
       >
-        <template #sidebar>
-          <B24SidebarHeader>
-            <div class="h-full flex items-center gap-x-sm relative my-0 px-4">
-              <B24Tooltip
-                :content="{ align: 'start', side: 'bottom' }"
-                text="Go home"
-                :kbds="['ctrl', 'arrowleft']"
-              >
-                <RouterLink to="/" class="my-3 text-(--ui-color-design-selection-content)" aria-label="Home">
-                  <ProseH3 class="font-(--ui-font-weight-medium) mb-0">
-                    Playground
-                  </ProseH3>
-                </RouterLink>
-              </B24Tooltip>
-            </div>
-            <div class="mt-0 px-4 pb-3">
-              <B24Input ref="input" v-model="searchTerm" placeholder="Filter..." class="group w-full">
-                <template #trailing>
-                  <B24Kbd value="/" dd-class="ring-(--ui-color-design-plain-na-content-secondary) bg-transparent text-muted" />
-                </template>
-              </B24Input>
-            </div>
-          </B24SidebarHeader>
-          <B24SidebarBody>
-            <template v-for="group in filteredGroups" :key="group.id">
-              <B24NavigationMenu
-                v-if="group.items.length > 0"
-                :items="[
-                  ...(group.label ? [{ label: group.label, type: 'label' as NavigationMenuItem['type'] }] : []),
-                  ...group.items
-                ]"
-                orientation="vertical"
-              />
-            </template>
-          </B24SidebarBody>
-          <B24SidebarFooter>
-            <B24SidebarSection>
-              <MockSidebarLayoutSideFooter framework="vue" />
-            </B24SidebarSection>
-          </B24SidebarFooter>
+        <template #header="{ collapsed }">
+          <RouterLink to="/" class="text-(--b24ui-typography-label-color) inline-flex" aria-label="Home">
+            <Logo v-if="!collapsed" class="h-5 w-auto shrink-0 text-(--b24ui-typography-label-color)" />
+            <B24Icon v-else class="size-10 text-[#2fc6f6] mx-auto" />
+          </RouterLink>
         </template>
 
-        <template #navbar>
-          <RouterLink to="/" class="inline-flex lg:hidden mt-0 text-(--ui-color-design-selection-content)" aria-label="Home">
-            <B24Tooltip
-              :content="{ side: 'bottom', align: 'start' }"
-              text="Go home"
-              :kbds="['ctrl', 'arrowleft']"
-            >
-              <ProseH3 class="font-(--ui-font-weight-medium) mb-0">
-                Playground
-              </ProseH3>
-            </B24Tooltip>
-          </RouterLink>
-          <B24NavbarSpacer />
-          <B24NavbarSection class="flex-row items-center justify-start gap-4">
-            <B24DashboardSearchButton class="hidden lg:inline-flex" size="sm" rounded :collapsed="false" :kbds="[{ value: 'meta', size: 'sm' }, { value: 'K', size: 'sm' }]" />
+        <template #default="{ collapsed }">
+          <div v-if="!collapsed" class="ms-4 flex items-center">
             <B24Tooltip :content="{ side: 'bottom' }" text="Switch color mode" :kbds="['shift', 'D']">
               <B24RadioGroup
                 v-model="colorModel"
                 :items="colorList"
-                class="hidden lg:inline-flex"
                 size="xs"
                 orientation="horizontal"
                 variant="table"
@@ -169,15 +78,50 @@ defineShortcuts({
                 @change="syncColorModePreference"
               />
             </B24Tooltip>
-          </B24NavbarSection>
+          </div>
+
+          <B24DashboardSearchButton
+            :collapsed="collapsed"
+            class="ms-4"
+          />
+
+          <B24NavigationMenu
+            :collapsed="collapsed"
+            :items="items"
+            orientation="vertical"
+            tooltip
+            popover
+          />
+
+          <B24Separator type="dashed" />
+
+          <B24NavigationMenu
+            :collapsed="collapsed"
+            :items="components"
+            orientation="vertical"
+            tooltip
+            popover
+          />
         </template>
+      </B24DashboardSidebar>
 
-        <Suspense>
-          <RouterView />
-        </Suspense>
-      </B24SidebarLayout>
+      <B24DashboardPanel
+        :b24ui="{
+          body: [
+            !route.path.startsWith('/components') && 'justify-center items-center',
+            route.path.startsWith('/components') && 'mt-15',
+            route.path.startsWith('/components/scroll-area') && 'p-0!'
+          ]
+        }"
+      >
+        <template #body>
+          <Suspense>
+            <RouterView />
+          </Suspense>
+        </template>
+      </B24DashboardPanel>
 
-      <B24DashboardSearch :groups="groups" :fuse="{ resultLimit: 100 }" :color-mode="false" />
+      <B24DashboardSearch :groups="groups" :fuse="{ resultLimit: 100 }" />
     </B24DashboardGroup>
   </B24App>
 </template>

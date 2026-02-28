@@ -27,8 +27,8 @@
   }
 
   .edge-dark {
-    --air-theme-bg-image: url(/bg/edge-dark-v1.jpg);
-    --air-theme-bg-image-blurred: url(/bg/edge-dark-v1-blurred.webp);
+    --air-theme-bg-image: url(/bg/edge-dark-v4.jpeg);
+    --air-theme-bg-image-blurred: url(/bg/edge-dark-v4-blurred.webp);
     --air-theme-bg-position: 0 0;
     --air-theme-bg-size: cover;
     --air-theme-bg-repeat: no-repeat;

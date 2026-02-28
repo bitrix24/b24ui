@@ -5,7 +5,6 @@ import type { JSONContent } from '@tiptap/vue-3'
 import { mapEditorItems } from '@bitrix24/b24ui-nuxt/utils/editor'
 import { Emoji, gitHubEmojis } from '@tiptap/extension-emoji'
 import { TextAlign } from '@tiptap/extension-text-align'
-import Navbar from '../../components/Navbar.vue'
 import { ImageUpload } from '../../components/editor/EditorImageUploadExtension'
 // import { useEditorCompletion } from '../../composables/useEditorCompletion'
 import EditorLinkPopover from '../../components/editor/EditorLinkPopover.vue'
@@ -590,10 +589,7 @@ const emojiItems: EditorEmojiMenuItem[] = gitHubEmojis.filter(emoji => !emoji.na
 </script>
 
 <template>
-  <B24Card
-    class="isolate relative h-screen p-0! backdrop-blur-[20px] rounded-none lg:rounded-(--ui-border-radius-md) border-0"
-    :b24ui="{ body: 'mt-16 lg:mt-34 pt-0' }"
-  >
+  <PlaygroundPage>
     <B24Editor
       ref="editorRef"
       v-slot="{ editor, handlers }"
@@ -611,22 +607,17 @@ const emojiItems: EditorEmojiMenuItem[] = gitHubEmojis.filter(emoji => !emoji.na
       autofocus
       placeholder="Write, type '/' for commands..."
       :b24ui="{ base: 'p-8 sm:px-16' }"
-      class="w-full h-[calc(100vh-var(--topbar-height)-56px)] lg:h-[calc(100vh-var(--topbar-height)-100px)] overflow-y-auto scrollbar-thin scrollbar-transparent"
+      class="w-full h-[calc(100vh-var(--b24ui-header-height)-56px)] lg:h-[calc(100vh-var(--b24ui-header-height)-100px)] overflow-y-auto scrollbar-thin scrollbar-transparent"
     >
-      <Navbar :b24ui="{ root: 'absolute md:absolute top-0 inset-x-0 z-30 backdrop-blur-none' }">
-        <template #controls>
-          <B24EditorToolbar
-            :editor="editor"
-            :items="toolbarItems"
-            class="overflow-x-auto pb-3 mx-auto"
-          >
-            <template #link>
-              <EditorLinkPopover :editor="editor" auto-open />
-            </template>
-          </B24EditorToolbar>
+      <B24EditorToolbar
+        :editor="editor"
+        :items="toolbarItems"
+        class="overflow-x-auto mx-auto sticky z-100 top-0 backdrop-blur-3xl bg-(--ui-color-bg-content-primary) border border-(--ui-color-divider-default) rounded-md p-1 edge-dark:bg-[#21334cf0] edge-light:bg-(--ui-color-base-white-fixed) shadow-sm"
+      >
+        <template #link>
+          <EditorLinkPopover :editor="editor" auto-open />
         </template>
-      </Navbar>
-
+      </B24EditorToolbar>
       <B24EditorToolbar
         :editor="editor"
         :items="toolbarItems"
@@ -692,5 +683,5 @@ const emojiItems: EditorEmojiMenuItem[] = gitHubEmojis.filter(emoji => !emoji.na
       <B24EditorMentionMenu :editor="editor" :items="mentionItems" />
       <B24EditorEmojiMenu :editor="editor" :items="emojiItems" />
     </B24Editor>
-  </B24Card>
+  </PlaygroundPage>
 </template>
