@@ -220,6 +220,7 @@ const pagesFrameExamples = [
 
 const pagesService = [
   '/api/countries.json',
+  '/api/phone-codes.json',
   '/api/locales.json',
   '/404.html'
 ]
