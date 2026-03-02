@@ -1,11 +1,10 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/sidebar-layout'
-import type { UseLoadingProps } from '../composables/useLoading'
 import type { ComponentConfig } from '../types/tv'
 
 type SidebarLayout = ComponentConfig<typeof theme, AppConfig, 'sidebarLayout'>
-export interface SidebarLayoutProps extends Pick<UseLoadingProps, 'id'> {
+export interface SidebarLayoutProps {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
