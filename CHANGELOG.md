@@ -4,6 +4,7 @@
 
 * feat(designSystem): add tw `scrollbar-both-edges`
 * fix(Page): make slot presence reactive for variant computation
+* fix(useResizable): use function declaration to prevent false auto-import
 * docs(navigation-menu): improve examples
 
 ## [2.4.0](https://github.com/bitrix24/b24ui/compare/v2.3.0...v2.4.0) (2026-02-26)
