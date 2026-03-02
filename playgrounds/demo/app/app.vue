@@ -39,7 +39,7 @@ defineShortcuts({
     <B24DashboardGroup unit="px" storage="local">
       <B24DashboardSidebar
         mode="modal"
-        class="bg-(--ui-color-bg-content-secondary)"
+        class="bg-(--ui-color-design-outline-bg-alt) backdrop-blur-md"
         resizable
         collapsible
         :toggle="{ size: 'sm', class: 'ring-(--ui-color-divider-default)' }"
@@ -57,8 +57,9 @@ defineShortcuts({
               <B24RadioGroup
                 v-model="colorModel"
                 :items="colorList"
-                size="xs"
-                orientation="horizontal"
+                class="w-full"
+                size="sm"
+                orientation="vertical"
                 variant="table"
                 indicator="hidden"
                 @change="syncColorModePreference"
@@ -79,7 +80,7 @@ defineShortcuts({
             popover
           />
 
-          <B24Separator type="dashed" />
+          <B24Separator type="dashed" class="ps-4" />
 
           <B24NavigationMenu
             :collapsed="collapsed"
