@@ -68,13 +68,27 @@ const itemsObj = ref([
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24Select v-model="attrs.color" class="w-44" :items="airColors" placeholder="Color" multiple />
-      <B24Select v-model="attrs.size" class="w-32" :items="sizes" placeholder="Size" multiple />
+      <B24Select
+        v-model="attrs.color"
+        class="w-44"
+        size="xs"
+        :items="airColors"
+        placeholder="Color"
+        multiple
+      />
+      <B24Select
+        v-model="attrs.size"
+        class="w-32"
+        size="xs"
+        :items="sizes"
+        placeholder="Size"
+        multiple
+      />
 
-      <B24Switch v-model="singleAttrs.disabled" label="Disabled" />
-      <B24Switch v-model="singleAttrs.loading" label="Loading" />
-      <B24Switch v-model="singleAttrs.highlight" label="Highlight" />
-      <B24Switch v-model="singleAttrs.rounded" label="Rounded" />
+      <B24Switch v-model="singleAttrs.disabled" size="xs" label="Disabled" />
+      <B24Switch v-model="singleAttrs.loading" size="xs" label="Loading" />
+      <B24Switch v-model="singleAttrs.highlight" size="xs" label="Highlight" />
+      <B24Switch v-model="singleAttrs.rounded" size="xs" label="Rounded" />
     </template>
 
     <Matrix v-slot="props" :attrs="attrs" :b24ui="{ root: 'max-w-80' }">
@@ -149,6 +163,7 @@ const itemsObj = ref([
         name="some_value"
         placeholder="Icons"
         aria-label="Icons"
+        arrow
         v-bind="{ ...singleAttrs, ...props }"
         class="w-full"
       />

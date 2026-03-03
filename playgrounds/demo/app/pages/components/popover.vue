@@ -21,27 +21,24 @@ const modal = ref(false)
 <template>
   <PlaygroundPage :b24ui="{ body: 'flex-col max-w-60 mx-auto' }">
     <template #controls>
-      <B24FormField label="content.align" name="sideOffset">
-        <B24Select v-model="align" placeholder="content.align" :items="contentAligns" />
-      </B24FormField>
-      <B24FormField label="content.side" name="side">
-        <B24Select v-model="side" placeholder="content.side" :items="contentSides" />
-      </B24FormField>
-      <B24FormField label="content.sideOffset" name="sideOffset">
-        <B24InputNumber v-model="sideOffset" placeholder="content.sideOffset" class="w-30" />
-      </B24FormField>
+      <B24Tooltip text="content.align">
+        <B24Select v-model="align" placeholder="content.align" size="xs" :items="contentAligns" />
+      </B24Tooltip>
+      <B24Tooltip text="content.side">
+        <B24Select v-model="side" placeholder="content.side" size="xs" :items="contentSides" />
+      </B24Tooltip>
+      <B24Tooltip text="content.sideOffset">
+        <B24InputNumber v-model="sideOffset" size="xs" placeholder="content.sideOffset" class="w-20" />
+      </B24Tooltip>
 
-      <B24FormField label="Open delay(hover)" name="openDelay">
-        <B24InputNumber v-model="openDelay" placeholder="openDelay" class="w-30" />
-      </B24FormField>
-      <B24FormField label="Close delay(hover)" name="closeDelay">
-        <B24InputNumber v-model="closeDelay" placeholder="closeDelay" class="w-30" />
-      </B24FormField>
-
-      <div class="flex flex-col gap-5">
-        <B24Switch v-model="arrow" label="Arrow" />
-        <B24Switch v-model="modal" label="Modal" />
-      </div>
+      <B24Tooltip text="Open delay (hover)">
+        <B24InputNumber v-model="openDelay" size="xs" placeholder="openDelay" class="w-20" />
+      </B24Tooltip>
+      <B24Tooltip text="Close delay (hover)">
+        <B24InputNumber v-model="closeDelay" size="xs" placeholder="closeDelay" class="w-20" />
+      </B24Tooltip>
+      <B24Switch v-model="arrow" size="xs" label="Arrow" />
+      <B24Switch v-model="modal" size="xs" label="Modal" />
     </template>
 
     <B24Popover
@@ -57,13 +54,13 @@ const modal = ref(false)
       <B24Button label="Click me" />
 
       <template #content="{ close }">
-        <div class="flex items-center justify-between gap-4 mb-2xs border-b">
+        <div class="flex items-center justify-between gap-4 mb-2xs border-b border-(--ui-color-divider-default)">
           <ProseH4 class="mb-0.5">
             Popover with long text
           </ProseH4>
 
           <B24Button
-            color="air-tertiary"
+            color="air-tertiary-no-accent"
             :icon="Cross50Icon"
             @click="close"
           />
@@ -140,7 +137,7 @@ const modal = ref(false)
           </ProseH4>
 
           <B24Button
-            color="air-tertiary"
+            color="air-tertiary-no-accent"
             :icon="Cross50Icon"
             @click="openCustomAnchor = false"
           />

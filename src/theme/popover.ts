@@ -11,10 +11,11 @@ export default {
       'bg-(--ui-color-bg-content-primary)',
       'shadow-(--popup-window-box-shadow)',
       'rounded-(--ui-border-radius-xl) will-change-[opacity]',
+      // 'ring ring-(--ui-color-divider-default)',
       'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]',
       'origin-(--reka-popover-content-transform-origin)',
       'focus:outline-none pointer-events-auto'
     ].join(' '),
-    arrow: 'fill-(--ui-color-bg-content-primary)'
+    arrow: 'fill-(--ui-color-bg-content-primary)' // stroke-(--ui-color-divider-default)
   }
 }

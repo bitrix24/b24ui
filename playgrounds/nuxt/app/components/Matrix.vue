@@ -93,7 +93,7 @@ const headers = computed(() => {
         :b24ui="{
           ...props.b24ui,
           root: ['grow', cardBorderClass, props.b24ui?.root],
-          body: ['flex flex-col items-start justify-start gap-4', props.b24ui?.body]
+          body: ['flex flex-col items-start justify-start gap-5', props.b24ui?.body]
         }"
       >
         <template #header>

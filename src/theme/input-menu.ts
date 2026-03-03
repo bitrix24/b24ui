@@ -44,6 +44,7 @@ export default () => {
         'bg-(--ui-color-bg-content-primary)',
         'shadow-(--popup-window-box-shadow)',
         'rounded-(--ui-border-radius-xl) will-change-[opacity]',
+        // 'ring ring-(--ui-color-divider-default)',
         'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]',
         'origin-(--reka-dropdown-menu-content-transform-origin)',
         'font-[family-name:var(--ui-font-family-primary)]',
@@ -58,7 +59,7 @@ export default () => {
         'w-[240px] max-h-[40vh]',
         'overflow-x-hidden overflow-y-auto scrollbar-thin' // scrollbar-transparent
       ].join(' '),
-      arrow: 'fill-(--ui-color-bg-content-primary)', // for content bottom|top::start -> ml-[12px]
+      arrow: 'fill-(--ui-color-bg-content-primary)', // stroke-(--ui-color-divider-default) for content bottom|top::start -> ml-[12px]
       group: 'grid',
       empty: [
         'h-(--popup-window-delimiter-section-height)',
