@@ -11,19 +11,19 @@ Visit https://bitrix24.github.io/b24ui/ to explore the documentation.
 ## Installation
 
 ```bash [pnpm]
-pnpm add @bitrix24/b24ui-nuxt tailwindcss
+pnpm add @bitrix24/b24ui-nuxt @bitrix24/b24icons-vue tailwindcss
 ```
 
 ```bash [yarn]
-yarn add @bitrix24/b24ui-nuxt tailwindcss
+yarn add @bitrix24/b24ui-nuxt @bitrix24/b24icons-vue tailwindcss
 ```
 
 ```bash [npm]
-npm install @bitrix24/b24ui-nuxt tailwindcss
+npm install @bitrix24/b24ui-nuxt @bitrix24/b24icons-vue tailwindcss
 ```
 
 ```bash [bun]
-yarn add @bitrix24/b24ui-nuxt tailwindcss
+yarn add @bitrix24/b24ui-nuxt @bitrix24/b24icons-vue tailwindcss
 ```
 
 ### Nuxt
