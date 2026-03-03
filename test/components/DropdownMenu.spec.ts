@@ -1,13 +1,13 @@
 import { describe, it, expect, test } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { renderEach } from '../component-render'
 import type { AppConfig } from '@nuxt/schema'
-import DropdownMenu, { type DropdownMenuProps, type DropdownMenuSlots } from '../../src/runtime/components/DropdownMenu.vue'
+import DropdownMenu from '../../src/runtime/components/DropdownMenu.vue'
 import type { ComponentConfig } from '../../src/runtime/types/tv'
-import ComponentRender from '../component-render'
 import { expectSlotProps } from '../utils/types'
-import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 import theme from '#build/b24ui/dropdown-menu'
+import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 
 type DropdownMenu = ComponentConfig<typeof theme, AppConfig, 'dropdownMenu'>
@@ -116,7 +116,7 @@ describe('DropdownMenu', () => {
 
   const props = { open: true, portal: false, items }
 
-  it.each([
+  renderEach(DropdownMenu, [
     // Props
     ['with items', { props }],
     ['with items with description', { props: { ...props, items: itemsWithDescription } }],
@@ -137,10 +137,7 @@ describe('DropdownMenu', () => {
     ['with item-description slot', { props: { ...props, items: itemsWithDescription }, slots: { 'item-description': () => 'Item description slot' } }],
     ['with item-trailing slot', { props, slots: { 'item-trailing': () => 'Item trailing slot' } }],
     ['with custom slot', { props, slots: { custom: () => 'Custom slot' } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: DropdownMenuProps, slots?: Partial<DropdownMenuSlots> }) => {
-    const html = await ComponentRender(nameOrHtml, options, DropdownMenu)
-    expect(html).toMatchSnapshot()
-  })
+  ])
 
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(DropdownMenu, {
@@ -162,21 +159,21 @@ describe('DropdownMenu', () => {
     // normal
     expectSlotProps('item', () => DropdownMenu({
       items: [{ label: 'foo', value: 'bar' }]
-    })).toEqualTypeOf<{ item: { label: string, value: string }, index: number, active?: boolean, b24ui: DropdownMenu['b24ui'] }>()
+    })).toEqualTypeOf<{ item: { label: string, value: string }, index: number, active: boolean, b24ui: DropdownMenu['b24ui'] }>()
 
     // groups
     expectSlotProps('item', () => DropdownMenu({
       items: [[{ label: 'foo', value: 'bar' }]]
-    })).toEqualTypeOf<{ item: { label: string, value: string }, index: number, active?: boolean, b24ui: DropdownMenu['b24ui'] }>()
+    })).toEqualTypeOf<{ item: { label: string, value: string }, index: number, active: boolean, b24ui: DropdownMenu['b24ui'] }>()
 
     // custom
     expectSlotProps('item', () => DropdownMenu({
       items: [{ label: 'foo', value: 'bar', custom: 'nice' }]
-    })).toEqualTypeOf<{ item: { label: string, value: string, custom: string }, index: number, active?: boolean, b24ui: DropdownMenu['b24ui'] }>()
+    })).toEqualTypeOf<{ item: { label: string, value: string, custom: string }, index: number, active: boolean, b24ui: DropdownMenu['b24ui'] }>()
 
     // custom + groups
     expectSlotProps('item', () => DropdownMenu({
       items: [[{ label: 'foo', value: 'bar', custom: 'nice' }]]
-    })).toEqualTypeOf<{ item: { label: string, value: string, custom: string }, index: number, active?: boolean, b24ui: DropdownMenu['b24ui'] }>()
+    })).toEqualTypeOf<{ item: { label: string, value: string, custom: string }, index: number, active: boolean, b24ui: DropdownMenu['b24ui'] }>()
   })
 })

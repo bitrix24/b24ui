@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/input'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
@@ -94,9 +95,9 @@ export interface InputEmits<T extends InputValue = InputValue, Mod extends Model
 }
 
 export interface InputSlots {
-  leading(props: { b24ui: Input['b24ui'] }): any
-  default(props: { b24ui: Input['b24ui'] }): any
-  trailing(props: { b24ui: Input['b24ui'] }): any
+  leading?(props: { b24ui: Input['b24ui'] }): VNode[]
+  default?(props: { b24ui: Input['b24ui'] }): VNode[]
+  trailing?(props: { b24ui: Input['b24ui'] }): VNode[]
 }
 </script>
 

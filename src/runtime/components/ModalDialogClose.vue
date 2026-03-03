@@ -1,6 +1,8 @@
 <script lang="ts">
+import type { VNode } from 'vue'
+
 export interface ModalDialogCloseSlots {
-  default(props: {}): any
+  default?(props: {}): VNode[]
 }
 </script>
 

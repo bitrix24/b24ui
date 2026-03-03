@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/prose/pre'
 import type { IconComponent } from '../../types'
@@ -20,7 +21,7 @@ export interface ProsePreProps {
 }
 
 export interface ProsePreSlots {
-  default(props?: {}): any
+  default(props?: {}): VNode[]
 }
 </script>
 

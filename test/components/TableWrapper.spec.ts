@@ -1,12 +1,11 @@
-import { describe, it, expect } from 'vitest'
+import { describe } from 'vitest'
 import TableWrapper from '../../src/runtime/components/TableWrapper.vue'
-import type { TableWrapperProps, TableWrapperSlots } from '../../src/runtime/components/TableWrapper.vue'
-import ComponentRender from '../component-render'
+import { renderEach } from '../component-render'
 
 describe('TableWrapper', () => {
   const props = { }
 
-  it.each([
+  renderEach(TableWrapper, [
     // Props
     ['with as', { props: { ...props, as: 'section' }, slots: { default: () => '<table><tbody><tr><th>1</th><td>2</td></tr></tbody></table>' } }],
     ['with size xs', { props: { ...props, size: 'xs' as const }, slots: { default: () => '<table><tbody><tr><th>1</th><td>2</td></tr></tbody></table>' } }],
@@ -21,8 +20,5 @@ describe('TableWrapper', () => {
     ['with b24ui', { props: { ...props, b24ui: { base: 'font-(--ui-font-weight-bold)' } }, slots: { default: () => '<table><tbody><tr><th>1</th><td>2</td></tr></tbody></table>' } }],
     // Slots
     ['with default slot', { slots: { default: () => '<table><tbody><tr><th>1</th><td>2</td></tr></tbody></table>' } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: TableWrapperProps, slots?: Partial<TableWrapperSlots> }) => {
-    const html = await ComponentRender(nameOrHtml, options, TableWrapper)
-    expect(html).toMatchSnapshot()
-  })
+  ])
 })

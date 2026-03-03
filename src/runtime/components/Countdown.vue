@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/countdown'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
@@ -77,8 +78,8 @@ export interface CountdownEmits {
 }
 
 export interface CountdownSlots {
-  leading(props: { b24ui: Countdown['b24ui'] }): any
-  default(props: CountdownData & { formatTime: string, b24ui: Countdown['b24ui'] }): any
+  leading?(props: { b24ui: Countdown['b24ui'] }): VNode[]
+  default?(props: CountdownData & { formatTime: string, b24ui: Countdown['b24ui'] }): VNode[]
 }
 </script>
 

@@ -4,9 +4,9 @@ import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import type { AppConfig } from '@nuxt/schema'
 import ContextMenu from '../../src/runtime/components/ContextMenu.vue'
-import type { ContextMenuProps, ContextMenuSlots } from '../../src/runtime/components/ContextMenu.vue'
 import type { ComponentConfig } from '../../src/runtime/types/tv'
 import { expectSlotProps } from '../utils/types'
+import { renderEach } from '../component-render'
 import theme from '#build/b24ui/context-menu'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
@@ -80,7 +80,7 @@ describe('ContextMenu', () => {
     }], [{
       label: 'GitHub',
       icon: Cross30Icon,
-      to: 'https://github.com/bitrix24/b24ui/',
+      to: 'https://github.com/bitrix24/b24ui',
       target: '_blank'
     }]
   ]
@@ -113,33 +113,37 @@ describe('ContextMenu', () => {
 
   const props = { portal: false, items }
 
-  it.each([
+  renderEach(
+    ContextMenuWrapper,
+    [
     // Props
-    ['with items', { props }],
-    ['with items with description', { props: { ...props, items: itemsWithDescription } }],
-    ['with labelKey', { props: { ...props, labelKey: 'icon' } }],
-    ['with descriptionKey', { props: { ...props, items: itemsWithDescription, descriptionKey: 'label' } }],
-    ['with disabled', { props: { ...props, disabled: true } }],
-    ...colors.map((color: string) => [`with color ${color}`, { props: { ...props, color } }]),
-    ['with externalIcon', { props: { ...props, externalIcon: SignIcon } }],
-    ['without externalIcon', { props: { ...props, externalIcon: false } }],
-    ['with class', { props: { ...props, class: 'min-w-96' } }],
-    ['with b24ui', { props: { ...props, b24ui: { itemLeadingIcon: 'size-4' } } }],
-    // Slots
-    ['with default slot', { props, slots: { default: () => h('span', 'Default slot') } }],
-    ['with item slot', { props, slots: { item: () => 'Item slot' } }],
-    ['with item-leading slot', { props, slots: { 'item-leading': () => 'Item leading slot' } }],
-    ['with item-label slot', { props, slots: { 'item-label': () => 'Item label slot' } }],
-    ['with item-description slot', { props: { ...props, items: itemsWithDescription }, slots: { 'item-description': () => 'Item description slot' } }],
-    ['with item-trailing slot', { props, slots: { 'item-trailing': () => 'Item trailing slot' } }],
-    ['with custom slot', { props, slots: { custom: () => 'Custom slot' } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: ContextMenuProps, slots?: Partial<ContextMenuSlots> }) => {
-    const wrapper = await mountSuspended(ContextMenuWrapper, options as any)
+      ['with items', { props }],
+      ['with items with description', { props: { ...props, items: itemsWithDescription } }],
+      ['with labelKey', { props: { ...props, labelKey: 'icon' } }],
+      ['with descriptionKey', { props: { ...props, items: itemsWithDescription, descriptionKey: 'label' } }],
+      ['with disabled', { props: { ...props, disabled: true } }],
+      ...colors.map((color: string) => [`with color ${color}`, { props: { ...props, color } }]),
+      ['with externalIcon', { props: { ...props, externalIcon: SignIcon } }],
+      ['without externalIcon', { props: { ...props, externalIcon: false } }],
+      ['with class', { props: { ...props, class: 'min-w-96' } }],
+      ['with b24ui', { props: { ...props, b24ui: { itemLeadingIcon: 'size-4' } } }],
+      // Slots
+      ['with default slot', { props, slots: { default: () => h('span', 'Default slot') } }],
+      ['with item slot', { props, slots: { item: () => 'Item slot' } }],
+      ['with item-leading slot', { props, slots: { 'item-leading': () => 'Item leading slot' } }],
+      ['with item-label slot', { props, slots: { 'item-label': () => 'Item label slot' } }],
+      ['with item-description slot', { props: { ...props, items: itemsWithDescription }, slots: { 'item-description': () => 'Item description slot' } }],
+      ['with item-trailing slot', { props, slots: { 'item-trailing': () => 'Item trailing slot' } }],
+      ['with custom slot', { props, slots: { custom: () => 'Custom slot' } }]
+    ],
+    async (_, options) => {
+      const wrapper = await mountSuspended(ContextMenuWrapper, options)
 
-    await wrapper.find('span').trigger('click.right')
+      await wrapper.find('span').trigger('click.right')
 
-    expect(wrapper.html()).toMatchSnapshot()
-  })
+      expect(wrapper.html()).toMatchSnapshot()
+    }
+  )
 
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(ContextMenuWrapper, {
@@ -155,21 +159,21 @@ describe('ContextMenu', () => {
     // normal
     expectSlotProps('item', () => ContextMenu({
       items: [{ label: 'foo', value: 'bar' }]
-    })).toEqualTypeOf<{ item: { label: string, value: string }, index: number, active?: boolean, b24ui: ContextMenu['b24ui'] }>()
+    })).toEqualTypeOf<{ item: { label: string, value: string }, index: number, active: boolean, b24ui: ContextMenu['b24ui'] }>()
 
     // groups
     expectSlotProps('item', () => ContextMenu({
       items: [[{ label: 'foo', value: 'bar' }]]
-    })).toEqualTypeOf<{ item: { label: string, value: string }, index: number, active?: boolean, b24ui: ContextMenu['b24ui'] }>()
+    })).toEqualTypeOf<{ item: { label: string, value: string }, index: number, active: boolean, b24ui: ContextMenu['b24ui'] }>()
 
     // custom
     expectSlotProps('item', () => ContextMenu({
       items: [{ label: 'foo', value: 'bar', custom: 'nice' }]
-    })).toEqualTypeOf<{ item: { label: string, value: string, custom: string }, index: number, active?: boolean, b24ui: ContextMenu['b24ui'] }>()
+    })).toEqualTypeOf<{ item: { label: string, value: string, custom: string }, index: number, active: boolean, b24ui: ContextMenu['b24ui'] }>()
 
     // custom + groups
     expectSlotProps('item', () => ContextMenu({
       items: [[{ label: 'foo', value: 'bar', custom: 'nice' }]]
-    })).toEqualTypeOf<{ item: { label: string, value: string, custom: string }, index: number, active?: boolean, b24ui: ContextMenu['b24ui'] }>()
+    })).toEqualTypeOf<{ item: { label: string, value: string, custom: string }, index: number, active: boolean, b24ui: ContextMenu['b24ui'] }>()
   })
 })

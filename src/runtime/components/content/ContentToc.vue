@@ -1,5 +1,6 @@
 <script lang="ts">
 import type { CollapsibleRootProps, CollapsibleRootEmits } from 'reka-ui'
+import type { VNode } from 'vue'
 import type { TocLink } from '@nuxt/content'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/content/content-toc'
@@ -39,16 +40,16 @@ export type ContentTocEmits = CollapsibleRootEmits & {
   move: [id: string]
 }
 
-type SlotProps<T> = (props: { link: T }) => any
+type SlotProps<T> = (props: { link: T }) => VNode[]
 
 export interface ContentTocSlots<T extends ContentTocLink = ContentTocLink> {
-  leading(props: { open: boolean, b24ui: ContentToc['b24ui'] }): any
-  default(props: { open: boolean }): any
-  trailing(props: { open: boolean, b24ui: ContentToc['b24ui'] }): any
-  content(props: { links: T[] }): any
-  link: SlotProps<T>
-  top(props: { links?: T[] }): any
-  bottom(props: { links?: T[] }): any
+  leading?(props: { open: boolean, b24ui: ContentToc['b24ui'] }): VNode[]
+  default?(props: { open: boolean }): VNode[]
+  trailing?(props: { open: boolean, b24ui: ContentToc['b24ui'] }): VNode[]
+  content?(props: { links: T[] }): VNode[]
+  link?: SlotProps<T>
+  top?(props: { links?: T[] }): VNode[]
+  bottom?(props: { links?: T[] }): VNode[]
 }
 </script>
 

@@ -2,10 +2,9 @@ import { defineComponent } from 'vue'
 import { describe, it, expect } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
-import Avatar from '../../src/runtime/components/Avatar.vue'
+import { renderEach } from '../component-render'
 import AvatarGroup from '../../src/runtime/components/AvatarGroup.vue'
-import type { AvatarGroupProps, AvatarGroupSlots } from '../../src/runtime/components/AvatarGroup.vue'
-import ComponentRender from '../component-render'
+import Avatar from '../../src/runtime/components/Avatar.vue'
 import theme from '#build/b24ui/avatar-group'
 
 const AvatarGroupWrapper = defineComponent({
@@ -14,16 +13,16 @@ const AvatarGroupWrapper = defineComponent({
     B24AvatarGroup: AvatarGroup
   },
   template: `<B24AvatarGroup>
-  <B24Avatar src="https://github.com/IgorShevchik.png" alt="Igor Shevchik" />
-  <B24Avatar src="https://github.com/romhml.png" alt="Romain Hamel" />
-  <B24Avatar src="https://github.com/noook.png" alt="Neil Richter" />
+  <B24Avatar src="https://github.com/bitrix24.png" alt="Some user" />
+  <B24Avatar src="https://github.com/bitrix24.png" alt="Some user" />
+  <B24Avatar src="https://github.com/bitrix24.png" alt="Some user" />
 </B24AvatarGroup>`
 })
 
 describe('AvatarGroup', () => {
   const sizes = Object.keys(theme.variants.size) as any
 
-  it.each([
+  renderEach(AvatarGroupWrapper, [
     // Props
     ['with max', { props: { max: 2 } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { size } }]),
@@ -32,10 +31,7 @@ describe('AvatarGroup', () => {
     ['with b24ui', { props: { b24ui: { base: 'rounded-lg' } } }],
     // Slots
     ['with default slot', {}]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: AvatarGroupProps, slots?: Partial<AvatarGroupSlots> }) => {
-    const html = await ComponentRender(nameOrHtml, options, AvatarGroupWrapper)
-    expect(html).toMatchSnapshot()
-  })
+  ])
 
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(AvatarGroupWrapper, {

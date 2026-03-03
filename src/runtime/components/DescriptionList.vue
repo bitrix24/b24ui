@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/description-list'
 import type { AvatarProps, ButtonProps, IconComponent } from '../types'
@@ -56,19 +57,19 @@ export interface DescriptionListProps<T extends DescriptionListItem = Descriptio
   b24ui?: DescriptionList['slots']
 }
 
-type SlotProps<T extends DescriptionListItem> = (props: { item: T, index: number, b24ui: DescriptionList['b24ui'] }) => any
+type SlotProps<T extends DescriptionListItem> = (props: { item: T, index: number, b24ui: DescriptionList['b24ui'] }) => VNode[]
 
 export type DescriptionListSlots<T extends DescriptionListItem = DescriptionListItem> = {
-  'legend'(props?: {}): any
-  'text'(props?: {}): any
-  'leading': SlotProps<T>
-  'label'(props: { item: T, index: number }): any
-  'description'(props: { item: T, index: number }): any
-  'actions': SlotProps<T>
-  'content-top': SlotProps<T>
-  'content': SlotProps<T>
-  'content-bottom': SlotProps<T>
-  'footer'(props?: { b24ui: DescriptionList['b24ui'] }): any
+  'legend'?(props?: { b24ui: DescriptionList['b24ui'] }): VNode[]
+  'text'?(props?: { b24ui: DescriptionList['b24ui'] }): VNode[]
+  'leading'?: SlotProps<T>
+  'label'?: SlotProps<T>
+  'description'?: SlotProps<T>
+  'actions'?: SlotProps<T>
+  'content-top'?: SlotProps<T>
+  'content'?: SlotProps<T>
+  'content-bottom'?: SlotProps<T>
+  'footer'?(props?: { b24ui: DescriptionList['b24ui'] }): VNode[]
 } & DynamicSlots<T, undefined, { index: number, b24ui: DescriptionList['b24ui'] }>
 </script>
 
@@ -127,12 +128,12 @@ const normalizedItems = computed(() => {
 <template>
   <div data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
     <h2 v-if="legend || !!slots.legend" data-slot="legend" :class="b24ui.legend({ class: uiProp?.legend })">
-      <slot name="legend">
+      <slot name="legend" :b24ui="b24ui">
         {{ legend }}
       </slot>
     </h2>
     <p v-if="text || !!slots.text" data-slot="text" :class="b24ui.text({ class: uiProp?.text })">
-      <slot name="text">
+      <slot name="text" :b24ui="b24ui">
         {{ text }}
       </slot>
     </p>
@@ -199,7 +200,7 @@ const normalizedItems = computed(() => {
                 ]
               })"
             >
-              <slot name="label" :item="item" :index="index">
+              <slot name="label" :item="item" :index="index" :b24ui="b24ui">
                 {{ item.label }}
               </slot>
             </span>
@@ -227,7 +228,7 @@ const normalizedItems = computed(() => {
                 orientation: item.orientation
               })"
             >
-              <slot name="description" :item="item" :index="index">
+              <slot name="description" :item="item" :index="index" :b24ui="b24ui">
                 {{ item.description }}
               </slot>
             </span>

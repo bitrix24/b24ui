@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/dashboard-navbar'
 import type { DashboardContext } from '../utils/dashboard'
@@ -37,13 +38,13 @@ export interface DashboardNavbarProps {
 type DashboardNavbarSlotsProps = Omit<DashboardContext, 'storage' | 'storageKey' | 'persistent' | 'unit'>
 
 export interface DashboardNavbarSlots {
-  title(props?: {}): any
-  leading(props: DashboardNavbarSlotsProps & { b24ui: DashboardNavbar['b24ui'] }): any
-  trailing(props: DashboardNavbarSlotsProps & { b24ui: DashboardNavbar['b24ui'] }): any
-  left(props: DashboardNavbarSlotsProps): any
-  default(props: DashboardNavbarSlotsProps): any
-  right(props: DashboardNavbarSlotsProps): any
-  toggle(props: DashboardNavbarSlotsProps & { b24ui: DashboardNavbar['b24ui'] }): any
+  title?(props?: {}): VNode[]
+  leading?(props: DashboardNavbarSlotsProps & { b24ui: DashboardNavbar['b24ui'] }): VNode[]
+  trailing?(props: DashboardNavbarSlotsProps & { b24ui: DashboardNavbar['b24ui'] }): VNode[]
+  left?(props: DashboardNavbarSlotsProps): VNode[]
+  default?(props: DashboardNavbarSlotsProps): VNode[]
+  right?(props: DashboardNavbarSlotsProps): VNode[]
+  toggle?(props: DashboardNavbarSlotsProps & { b24ui: DashboardNavbar['b24ui'] }): VNode[]
 }
 </script>
 

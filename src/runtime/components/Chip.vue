@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/chip'
 import type { IconComponent } from '../types'
@@ -62,9 +63,9 @@ export interface ChipEmits {
 }
 
 export interface ChipSlots {
-  default(props?: {}): any
-  content(props?: {}): any
-  trailing(props?: {}): any
+  default?(props?: {}): VNode[]
+  content?(props?: {}): VNode[]
+  trailing?(props?: {}): VNode[]
 }
 </script>
 

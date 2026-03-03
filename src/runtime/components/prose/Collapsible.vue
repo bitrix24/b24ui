@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/prose/collapsible'
 import type { IconComponent, CollapsibleProps } from '../../types'
@@ -32,7 +33,7 @@ export interface ProseCollapsibleProps {
 }
 
 export interface ProseCollapsibleSlots {
-  default(props?: {}): any
+  default(props?: {}): VNode[]
 }
 </script>
 

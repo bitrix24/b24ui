@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/alert'
 import type { AvatarProps, ButtonProps, IconComponent, LinkPropsKeys } from '../types'
@@ -68,11 +69,11 @@ export interface AlertEmits {
 }
 
 export interface AlertSlots {
-  leading(props: { b24ui: Alert['b24ui'] }): any
-  title(props?: {}): any
-  description(props?: {}): any
-  actions(props?: {}): any
-  close(props: { b24ui: Alert['b24ui'] }): any
+  leading?(props: { b24ui: Alert['b24ui'] }): VNode[]
+  title?(props?: {}): VNode[]
+  description?(props?: {}): VNode[]
+  actions?(props?: {}): VNode[]
+  close?(props: { b24ui: Alert['b24ui'] }): VNode[]
 }
 </script>
 

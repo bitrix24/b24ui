@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/badge'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
@@ -46,9 +47,9 @@ export interface BadgeProps extends Omit<UseComponentIconsProps, 'loading' | 'lo
 }
 
 export interface BadgeSlots {
-  leading(props: { b24ui: Badge['b24ui'] }): any
-  default(props: { b24ui: Badge['b24ui'] }): any
-  trailing(props: { b24ui: Badge['b24ui'] }): any
+  leading?(props: { b24ui: Badge['b24ui'] }): VNode[]
+  default?(props: { b24ui: Badge['b24ui'] }): VNode[]
+  trailing?(props: { b24ui: Badge['b24ui'] }): VNode[]
 }
 </script>
 

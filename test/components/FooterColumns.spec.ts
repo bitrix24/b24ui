@@ -1,9 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { renderEach } from '../component-render'
 import FooterColumns from '../../src/runtime/components/FooterColumns.vue'
-import type { FooterColumnsProps, FooterColumnsSlots } from '../../src/runtime/components/FooterColumns.vue'
-import ComponentRender from '../component-render'
 import Bitrix24Icon from '@bitrix24/b24icons-vue/common-b24/Bitrix24Icon'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 
@@ -73,7 +72,7 @@ describe('FooterColumns', () => {
 
   const props = { columns }
 
-  it.each([
+  renderEach(FooterColumns, [
     // Props
     ['with columns', { props }],
     ['with as', { props: { ...props, as: 'section' } }],
@@ -88,10 +87,7 @@ describe('FooterColumns', () => {
     ['with link-leading slot', { props, slots: { 'link-leading': () => 'Link leading slot' } }],
     ['with link-label slot', { props, slots: { 'link-label': () => 'Link label slot' } }],
     ['with link-trailing slot', { props, slots: { 'link-trailing': () => 'Link trailing slot' } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: FooterColumnsProps, slots?: Partial<FooterColumnsSlots> }) => {
-    const html = await ComponentRender(nameOrHtml, options, FooterColumns)
-    expect(html).toMatchSnapshot()
-  })
+  ])
 
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(FooterColumns, {

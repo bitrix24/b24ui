@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/banner'
 import type { ButtonProps, IconComponent, LinkProps, LinkPropsKeys } from '../types'
@@ -52,10 +53,10 @@ export interface BannerProps {
 }
 
 export interface BannerSlots {
-  leading(props: { b24ui: Banner['b24ui'] }): any
-  title(props?: {}): any
-  actions(props?: {}): any
-  close(props: { b24ui: Banner['b24ui'] }): any
+  leading?(props: { b24ui: Banner['b24ui'] }): VNode[]
+  title?(props?: {}): VNode[]
+  actions?(props?: {}): VNode[]
+  close?(props: { b24ui: Banner['b24ui'] }): VNode[]
 }
 
 export interface BannerEmits {

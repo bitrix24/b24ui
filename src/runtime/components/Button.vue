@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { Ref } from 'vue'
+import type { Ref, VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/button'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
@@ -76,9 +76,9 @@ export interface ButtonProps extends Omit<UseComponentIconsProps, 'trailing' | '
 }
 
 export interface ButtonSlots {
-  leading(props: { b24ui: Button['b24ui'] }): any
-  default(props: { b24ui: Button['b24ui'] }): any
-  trailing(props: { b24ui: Button['b24ui'] }): any
+  leading?(props: { b24ui: Button['b24ui'] }): VNode[]
+  default?(props: { b24ui: Button['b24ui'] }): VNode[]
+  trailing?(props: { b24ui: Button['b24ui'] }): VNode[]
 }
 </script>
 

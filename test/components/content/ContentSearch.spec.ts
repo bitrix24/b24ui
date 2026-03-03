@@ -1,7 +1,6 @@
-import { describe, it, expect } from 'vitest'
+import { describe } from 'vitest'
+import { renderEach } from '../../component-render'
 import ContentSearch from '../../../src/runtime/components/content/ContentSearch.vue'
-import type { ContentSearchProps } from '../../../src/runtime/components/content/ContentSearch.vue'
-import ComponentRender from '../../component-render'
 import theme from '#build/b24ui/content/content-search'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
@@ -123,7 +122,7 @@ describe('ContentSearch', () => {
 
   const props = { links, navigation, files, open: true, portal: false }
 
-  it.each([
+  renderEach(ContentSearch, [
     // Props
     ['with links', { props }],
     ['with icon', { props: { ...props, icon: SignIcon } }],
@@ -136,8 +135,5 @@ describe('ContentSearch', () => {
     ...sizes.map((size: string) => [`with size ${size}`, { props: { ...props, size } }]),
     ['with b24ui', { props: { ...props, b24ui: { input: '[&>input]:text-lg' } } }],
     ['with class', { props: { ...props, class: 'sm:max-w-5xl' } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: ContentSearchProps }) => {
-    const html = await ComponentRender(nameOrHtml, options, ContentSearch)
-    expect(html).toMatchSnapshot()
-  })
+  ])
 })

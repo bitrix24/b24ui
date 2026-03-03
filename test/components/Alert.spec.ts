@@ -2,15 +2,15 @@ import { describe, it, expect } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import Alert from '../../src/runtime/components/Alert.vue'
-import type { AlertProps, AlertSlots } from '../../src/runtime/components/Alert.vue'
-import ComponentRender from '../component-render'
+import { renderEach } from '../component-render'
+// import theme from '#build/b24ui/alert'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
 
 describe('Alert', () => {
   const props = { title: 'Alert' }
 
-  it.each([
+  renderEach(Alert, [
     // Props
     ['with title', { props }],
     ['with description', { props: { ...props, description: 'Description' } }],
@@ -30,10 +30,7 @@ describe('Alert', () => {
     ['with title slot', { props, slots: { title: () => 'Title slot' } }],
     ['with description slot', { props, slots: { description: () => 'Description slot' } }],
     ['with close slot', { props, slots: { close: () => 'Close slot' } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: AlertProps, slots?: Partial<AlertSlots> }) => {
-    const html = await ComponentRender(nameOrHtml, options, Alert)
-    expect(html).toMatchSnapshot()
-  })
+  ])
 
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(Alert, {

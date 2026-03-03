@@ -1,9 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { renderEach } from '../component-render'
 import Pagination from '../../src/runtime/components/Pagination.vue'
-import type { PaginationProps, PaginationSlots } from '../../src/runtime/components/Pagination.vue'
-import ComponentRender from '../component-render'
 import theme from '#build/b24ui/button'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
@@ -13,7 +12,7 @@ describe('Pagination', () => {
 
   const props = { total: 100 }
 
-  it.each([
+  renderEach(Pagination, [
     // Props
     ['with total', { props }],
     ['with defaultPage', { props: { ...props, defaultPage: 2 } }],
@@ -39,10 +38,7 @@ describe('Pagination', () => {
     ['with last slot', { props, slots: { last: () => 'Last slot' } }],
     ['with ellipsis slot', { props: { ...props, siblingCount: 1, showEdges: true, page: 5 }, slots: { ellipsis: () => 'Ellipsis slot' } }],
     ['with item slot', { props, slots: { item: () => 'Item slot' } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: PaginationProps, slots?: Partial<PaginationSlots> }) => {
-    const html = await ComponentRender(nameOrHtml, options, Pagination)
-    expect(html).toMatchSnapshot()
-  })
+  ])
 
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(Pagination, {

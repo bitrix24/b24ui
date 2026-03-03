@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/table-wrapper'
 import type { ComponentConfig } from '../types/tv'
@@ -48,7 +49,7 @@ export interface TableWrapperProps {
 }
 
 export interface TableWrapperSlots {
-  default(props?: {}): any
+  default?(props?: {}): VNode[]
 }
 </script>
 

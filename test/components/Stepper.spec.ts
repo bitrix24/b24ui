@@ -1,9 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { renderEach } from '../component-render'
 import Stepper from '../../src/runtime/components/Stepper.vue'
-import type { StepperProps, StepperSlots } from '../../src/runtime/components/Stepper.vue'
-import ComponentRender from '../component-render'
 import theme from '#build/b24ui/stepper'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
@@ -29,7 +28,7 @@ describe('Stepper', () => {
 
   const props = { items }
 
-  it.each([
+  renderEach(Stepper, [
     // Props
     ['with items', { props }],
     ['with defaultValue', { props: { ...props, defaultValue: 1 } }],
@@ -51,10 +50,7 @@ describe('Stepper', () => {
     ['with content slot', { props, slots: { content: () => 'Content slot' } }],
     ['with custom slot', { props: { ...props, defaultValue: 2 }, slots: { custom: () => 'Custom slot' } }],
     ['with custom-wrapper slot', { props, slots: { 'custom-wrapper': () => 'Custom wrapper slot' } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: StepperProps, slots?: Partial<StepperSlots> }) => {
-    const html = await ComponentRender(nameOrHtml, options, Stepper)
-    expect(html).toMatchSnapshot()
-  })
+  ])
 
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(Stepper, {

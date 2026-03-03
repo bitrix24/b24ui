@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/prose/callout'
 import type { IconComponent, LinkProps } from '../../types'
@@ -20,7 +21,7 @@ export interface ProseCalloutProps {
 }
 
 export interface ProseCalloutSlots {
-  default(props?: {}): any
+  default(props?: {}): VNode[]
 }
 </script>
 

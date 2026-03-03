@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/prose/ol'
 import type { ComponentConfig } from '../../types/tv'
@@ -11,7 +12,7 @@ export interface ProseOlProps {
 }
 
 export interface ProseOlSlots {
-  default(props?: {}): any
+  default(props?: {}): VNode[]
 }
 </script>
 

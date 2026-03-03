@@ -1,9 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { renderEach } from '../component-render'
 import Timeline from '../../src/runtime/components/Timeline.vue'
-import type { TimelineProps, TimelineSlots } from '../../src/runtime/components/Timeline.vue'
-import ComponentRender from '../component-render'
 import theme from '#build/b24ui/timeline'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
@@ -40,7 +39,7 @@ describe('Timeline', () => {
 
   const props = { items }
 
-  it.each([
+  renderEach(Timeline, [
     // Props
     ['with items', { props }],
     ['with modelValue', { props: { ...props, modelValue: 'design' } }],
@@ -62,10 +61,7 @@ describe('Timeline', () => {
     ['with title slot', { props, slots: { title: () => 'Title slot' } }],
     ['with description slot', { props, slots: { description: () => 'Description slot' } }],
     ['with custom-wrapper slot', { props, slots: { 'custom-wrapper': () => 'Custom wrapper slot' } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: TimelineProps, slots?: Partial<TimelineSlots> }) => {
-    const html = await ComponentRender(nameOrHtml, options, Timeline)
-    expect(html).toMatchSnapshot()
-  })
+  ])
 
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(Timeline, {

@@ -1,7 +1,6 @@
-import { describe, it, expect } from 'vitest'
+import { describe } from 'vitest'
 import ContentSurround from '../../../src/runtime/components/content/ContentSurround.vue'
-import type { ContentSurroundProps, ContentSurroundSlots } from '../../../src/runtime/components/content/ContentSurround.vue'
-import ComponentRender from '../../component-render'
+import { renderEach } from '../../component-render'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
 
@@ -18,7 +17,7 @@ describe('ContentSurround', () => {
 
   const props = { surround }
 
-  it.each([
+  renderEach(ContentSurround, [
     // Props
     ['with surround', { props }],
     ['with prevIcon', { props: { ...props, prevIcon: SignIcon } }],
@@ -30,8 +29,5 @@ describe('ContentSurround', () => {
     ['with link slot', { props, slots: { link: () => 'Link slot' } }],
     ['with link-leading slot', { props, slots: { 'link-leading': () => 'Link leading slot' } }],
     ['with link-title slot', { props, slots: { 'link-title': () => 'Link title slot' } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: ContentSurroundProps, slots?: Partial<ContentSurroundSlots> }) => {
-    const html = await ComponentRender(nameOrHtml, options, ContentSurround)
-    expect(html).toMatchSnapshot()
-  })
+  ])
 })

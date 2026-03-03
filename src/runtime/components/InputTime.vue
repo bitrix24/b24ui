@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { ComponentPublicInstance } from 'vue'
+import type { ComponentPublicInstance, VNode } from 'vue'
 import type { TimeFieldRootProps, TimeFieldRootEmits } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/input-time'
@@ -65,9 +65,9 @@ export interface InputTimeEmits extends TimeFieldRootEmits {
 }
 
 export interface InputTimeSlots {
-  leading(props: { b24ui: InputTime['b24ui'] }): any
-  default(props: { b24ui: InputTime['b24ui'] }): any
-  trailing(props: { b24ui: InputTime['b24ui'] }): any
+  leading?(props: { b24ui: InputTime['b24ui'] }): VNode[]
+  default?(props: { b24ui: InputTime['b24ui'] }): VNode[]
+  trailing?(props: { b24ui: InputTime['b24ui'] }): VNode[]
 }
 </script>
 

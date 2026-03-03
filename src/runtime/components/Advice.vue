@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/advice'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
@@ -23,8 +24,8 @@ export interface AdviceProps extends Omit<UseComponentIconsProps, 'loading' | 't
 }
 
 export interface AdviceSlots {
-  leading(props: { b24ui: Advice['b24ui'] }): any
-  default(props?: {}): any
+  default?(props?: {}): VNode[]
+  leading?(props: { b24ui: Advice['b24ui'] }): VNode[]
 }
 </script>
 

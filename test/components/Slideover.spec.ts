@@ -1,9 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { renderEach } from '../component-render'
 import Slideover from '../../src/runtime/components/Slideover.vue'
-import type { SlideoverProps, SlideoverSlots } from '../../src/runtime/components/Slideover.vue'
-import ComponentRender from '../component-render'
 import theme from '#build/b24ui/slideover'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 
@@ -12,7 +11,7 @@ describe('Slideover', () => {
 
   const props = { open: true, portal: false }
 
-  it.each([
+  renderEach(Slideover, [
     // Props
     ['with open', { props }],
     ['with title', { props: { ...props, title: 'Title' } }],
@@ -35,10 +34,7 @@ describe('Slideover', () => {
     ['with close slot', { props, slots: { close: () => 'Close slot' } }],
     ['with body slot', { props, slots: { body: () => 'Body slot' } }],
     ['with footer slot', { props, slots: { footer: () => 'Footer slot' } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: SlideoverProps, slots?: Partial<SlideoverSlots> }) => {
-    const html = await ComponentRender(nameOrHtml, options, Slideover)
-    expect(html).toMatchSnapshot()
-  })
+  ])
 
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(Slideover, {

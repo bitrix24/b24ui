@@ -3,10 +3,10 @@ import { describe, it, expect } from 'vitest'
 import { axe } from 'vitest-axe'
 import { flushPromises } from '@vue/test-utils'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { renderEach } from '../component-render'
 import { B24Checkbox, B24Button, B24Badge, B24DropdownMenu } from '#components'
 import Table from '../../src/runtime/components/Table.vue'
-import type { TableProps, TableSlots, TableColumn, TableRow } from '../../src/runtime/components/Table.vue'
-import ComponentRender from '../component-render'
+import type { TableColumn, TableRow } from '../../src/runtime/components/Table.vue'
 import theme from '#build/b24ui/table'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
@@ -180,7 +180,7 @@ describe('Table', () => {
 
   const props = { data }
 
-  it.each([
+  renderEach(Table, [
     // Props
     ['with data', { props }],
     ['without data', {}],
@@ -206,10 +206,7 @@ describe('Table', () => {
     ['with caption slot', { props, slots: { caption: () => 'Caption slot' } }],
     ['with body-top slot', { props, slots: { 'body-top': () => 'Body top slot' } }],
     ['with body-bottom slot', { props, slots: { 'body-bottom': () => 'Body bottom slot' } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: TableProps, slots?: Partial<TableSlots> }) => {
-    const html = await ComponentRender(nameOrHtml, options, Table)
-    expect(html).toMatchSnapshot()
-  })
+  ])
 
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(Table, {

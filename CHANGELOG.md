@@ -7,6 +7,7 @@
 * fix(useResizable): use function declaration to prevent false auto-import
 * fix(ContentToc): add relative positioning to content slot
 * fix(components): improve arrow styling with `stroke-default` and `fill-bg`
+* fix(components): improve slots return types and tests
 * docs(navigation-menu): improve examples
 * docs(input): add phone number example
 

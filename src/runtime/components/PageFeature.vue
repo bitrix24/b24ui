@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/page-feature'
 import type { IconComponent, LinkProps } from '../types'
@@ -32,10 +33,10 @@ export interface PageFeatureProps {
 }
 
 export interface PageFeatureSlots {
-  leading(props: { b24ui: PageFeature['b24ui'] }): any
-  title(props?: {}): any
-  description(props?: {}): any
-  default(props?: {}): any
+  leading?(props: { b24ui: PageFeature['b24ui'] }): VNode[]
+  title?(props?: {}): VNode[]
+  description?(props?: {}): VNode[]
+  default?(props?: {}): VNode[]
 }
 </script>
 

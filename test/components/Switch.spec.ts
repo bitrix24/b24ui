@@ -1,9 +1,8 @@
 import { describe, it, expect, test } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { renderEach } from '../component-render'
 import Switch from '../../src/runtime/components/Switch.vue'
-import type { SwitchProps, SwitchSlots } from '../../src/runtime/components/Switch.vue'
-import ComponentRender from '../component-render'
 import theme from '#build/b24ui/switch'
 import { flushPromises, mount } from '@vue/test-utils'
 import { renderForm } from '../utils/form'
@@ -14,7 +13,7 @@ import Shining2Icon from '@bitrix24/b24icons-vue/main/Shining2Icon'
 describe('Switch', () => {
   const sizes = Object.keys(theme.variants.size) as any
 
-  it.each([
+  renderEach(Switch, [
     // Props
     ['with modelValue', { props: { modelValue: true } }],
     ['with defaultValue', { props: { defaultValue: true } }],
@@ -22,12 +21,9 @@ describe('Switch', () => {
     ['with name', { props: { name: 'name' } }],
     ['with value', { props: { value: 'value' } }],
     ['with disabled', { props: { disabled: true } }],
-    // @todo fix this ////
     ['with checkedIcon', { props: { checkedIcon: Search2Icon, defaultValue: true } }],
-    // @todo fix this ////
     ['with uncheckedIcon', { props: { uncheckedIcon: Shining2Icon } }],
     ['with loading', { props: { loading: true } }],
-    // @todo fix this ////
     ['with loadingIcon', { props: { loading: true, loadingIcon: Search2Icon } }],
     ['with label', { props: { label: 'Label' } }],
     ['with required', { props: { label: 'Label', required: true } }],
@@ -41,10 +37,7 @@ describe('Switch', () => {
     // Slots
     ['with label slot', { slots: { label: () => 'Label slot' } }],
     ['with description slot', { slots: { label: () => 'Description slot' } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: SwitchProps, slots?: Partial<SwitchSlots> }) => {
-    const html = await ComponentRender(nameOrHtml, options, Switch)
-    expect(html).toMatchSnapshot()
-  })
+  ])
 
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(Switch, {

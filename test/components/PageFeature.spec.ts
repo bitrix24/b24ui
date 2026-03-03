@@ -1,9 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { renderEach } from '../component-render'
 import PageFeature from '../../src/runtime/components/PageFeature.vue'
-import type { PageFeatureProps, PageFeatureSlots } from '../../src/runtime/components/PageFeature.vue'
-import ComponentRender from '../component-render'
 import theme from '#build/b24ui/page-feature'
 import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
 
@@ -16,7 +15,7 @@ describe('PageFeature', () => {
     icon: Search2Icon
   }
 
-  it.each([
+  renderEach(PageFeature, [
     // Props
     ['with as', { props: { as: 'section' } }],
     ['with icon', { props: { icon: Search2Icon } }],
@@ -31,10 +30,7 @@ describe('PageFeature', () => {
     ['with title slot', { props, slots: { title: () => 'Title slot' } }],
     ['with description slot', { props, slots: { description: () => 'Description slot' } }],
     ['with default slot', { props, slots: { default: () => 'Default slot' } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: PageFeatureProps, slots?: Partial<PageFeatureSlots> }) => {
-    const html = await ComponentRender(nameOrHtml, options, PageFeature)
-    expect(html).toMatchSnapshot()
-  })
+  ])
 
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(PageFeature, {

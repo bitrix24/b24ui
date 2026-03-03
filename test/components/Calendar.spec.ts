@@ -2,9 +2,8 @@ import { describe, it, expect, vi, afterAll, test } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { CalendarDate } from '@internationalized/date'
+import { renderEach } from '../component-render'
 import Calendar from '../../src/runtime/components/Calendar.vue'
-import type { CalendarProps, CalendarSlots } from '../../src/runtime/components/Calendar.vue'
-import ComponentRender from '../component-render'
 import theme from '#build/b24ui/calendar'
 
 describe('Calendar', () => {
@@ -17,7 +16,7 @@ describe('Calendar', () => {
     vi.useRealTimers()
   })
 
-  it.each([
+  renderEach(Calendar, [
     // Props
     ['with modelValue', { props: { modelValue: new CalendarDate(2025, 1, 1) } }],
     ['with default value', { props: { defaultValue: new CalendarDate(2025, 1, 1) } }],
@@ -45,12 +44,9 @@ describe('Calendar', () => {
     ['with b24ui', { props: { b24ui: { header: 'gap-4' } } }],
     // Slots
     ['with heading slot', { slots: { heading: () => 'Heading' } }],
-    ['with day slot', { slots: { day: ({ day }: Parameters<CalendarSlots['day']>[0]) => day.day } }],
-    ['with week-day slot', { slots: { 'week-day': ({ day }: Parameters<CalendarSlots['week-day']>[0]) => day } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: CalendarProps<false, false>, slots?: Partial<CalendarSlots> }) => {
-    const html = await ComponentRender(nameOrHtml, options, Calendar)
-    expect(html).toMatchSnapshot()
-  })
+    ['with day slot', { slots: { day: ({ day }) => day.day } }],
+    ['with week-day slot', { slots: { 'week-day': ({ day }) => day } }]
+  ])
 
   describe('emits', () => {
     test('update:modelValue event single', async () => {

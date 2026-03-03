@@ -1,11 +1,10 @@
 import { describe, it, expect, vi, test } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { renderEach } from '../component-render'
 import { mount } from '@vue/test-utils'
 import FileUpload from '../../src/runtime/components/FileUpload.vue'
-import type { FileUploadProps, FileUploadSlots } from '../../src/runtime/components/FileUpload.vue'
 import type { FormInputEvents } from '../../src/module'
-import ComponentRender from '../component-render'
 import { renderForm } from '../utils/form'
 import theme from '#build/b24ui/file-upload'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
@@ -43,7 +42,7 @@ describe('FileUpload', () => {
 
   const props = { modelValue }
 
-  it.each([
+  renderEach(FileUpload, [
     // Props
     ['with modelValue', { props }],
     ['with id', { props: { id: 'id' } }],
@@ -90,10 +89,7 @@ describe('FileUpload', () => {
     ['with file-name slot', { props, slots: { 'file-name': () => 'File name slot' } }],
     ['with file-size slot', { props, slots: { 'file-size': () => 'File size slot' } }],
     ['with file-trailing slot', { props, slots: { 'file-trailing': () => 'File trailing slot' } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: FileUploadProps, slots?: Partial<FileUploadSlots> }) => {
-    const html = await ComponentRender(nameOrHtml, options, FileUpload)
-    expect(html).toMatchSnapshot()
-  })
+  ])
 
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(FileUpload, {

@@ -4,8 +4,8 @@ import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import DashboardGroup from '../../src/runtime/components/DashboardGroup.vue'
 import DashboardSearch from '../../src/runtime/components/DashboardSearch.vue'
+import { renderEach } from '../component-render'
 import theme from '#build/b24ui/dashboard-search'
-import type { DashboardSearchProps } from '../../src/runtime/components/DashboardSearch.vue'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 
 const DashboardWrapper = defineComponent({
@@ -37,23 +37,27 @@ describe('DashboardSearch', () => {
 
   const props = { groups, open: true, portal: false }
 
-  it.each([
+  renderEach(
+    DashboardWrapper,
+    [
     // Props
-    ['with groups', { props }],
-    ['with icon', { props: { ...props, icon: SignIcon } }],
-    ['with placeholder', { props: { ...props, placeholder: 'Search' } }],
-    ['with loading', { props: { ...props, loading: true } }],
-    /** @memo not use loadingIcon */
-    // ['with loadingIcon', { props: { ...props, loading: true, loadingIcon: SignIcon } }],
-    ['without colorMode', { props: { ...props, colorMode: false } }],
-    ['with fullscreen', { props: { ...props, fullscreen: true } }],
-    ...sizes.map((size: string) => [`with size ${size}`, { props: { ...props, size } }]),
-    ['with b24ui', { props: { ...props, b24ui: { input: '[&>input]:text-lg' } } }],
-    ['with class', { props: { ...props, class: 'sm:max-w-5xl' } }]
-  ])('renders %s correctly', async (_: string, options: { props?: DashboardSearchProps }) => {
-    const wrapper = await mountSuspended(DashboardWrapper, options)
-    expect(wrapper.html()).toMatchSnapshot()
-  })
+      ['with groups', { props }],
+      ['with icon', { props: { ...props, icon: SignIcon } }],
+      ['with placeholder', { props: { ...props, placeholder: 'Search' } }],
+      ['with loading', { props: { ...props, loading: true } }],
+      /** @memo not use loadingIcon */
+      // ['with loadingIcon', { props: { ...props, loading: true, loadingIcon: SignIcon } }],
+      ['without colorMode', { props: { ...props, colorMode: false } }],
+      ['with fullscreen', { props: { ...props, fullscreen: true } }],
+      ...sizes.map((size: string) => [`with size ${size}`, { props: { ...props, size } }]),
+      ['with b24ui', { props: { ...props, b24ui: { input: '[&>input]:text-lg' } } }],
+      ['with class', { props: { ...props, class: 'sm:max-w-5xl' } }]
+    ],
+    async (_, options) => {
+      const wrapper = await mountSuspended(DashboardWrapper, options)
+      expect(wrapper.html()).toMatchSnapshot()
+    }
+  )
 
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(DashboardWrapper, {

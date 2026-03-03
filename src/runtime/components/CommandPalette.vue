@@ -1,6 +1,7 @@
 <!-- eslint-disable vue/block-tag-newline -->
 <script lang="ts">
 import type { ListboxRootProps, ListboxRootEmits } from 'reka-ui'
+import type { VNode } from 'vue'
 import type { FuseResult } from 'fuse.js'
 import type { AppConfig } from '@nuxt/schema'
 import type { UseFuseOptions } from '@vueuse/integrations/useFuse'
@@ -196,19 +197,19 @@ export type CommandPaletteEmits<T extends CommandPaletteItem = CommandPaletteIte
   'update:open': [value: boolean]
 }
 
-type SlotProps<T> = (props: { item: T, index: number, b24ui: CommandPalette['b24ui'] }) => any
+type SlotProps<T> = (props: { item: T, index: number, b24ui: CommandPalette['b24ui'] }) => VNode[]
 
-export type CommandPaletteSlots<G extends CommandPaletteGroup<T> = CommandPaletteGroup<any>, T extends CommandPaletteItem = CommandPaletteItem> = {
-  'empty'(props: { searchTerm?: string }): any
-  'footer'(props: { b24ui: CommandPalette['b24ui'] }): any
-  'back'(props: { b24ui: CommandPalette['b24ui'] }): any
-  'close'(props: { b24ui: CommandPalette['b24ui'] }): any
-  'item': SlotProps<T>
-  'item-leading': SlotProps<T>
-  'item-label': SlotProps<T>
-  'item-description': SlotProps<T>
-  'item-trailing': SlotProps<T>
-} & Record<string, SlotProps<G>> & Record<string, SlotProps<T>>
+export type CommandPaletteSlots<T extends CommandPaletteItem = CommandPaletteItem> = {
+  'empty'?(props: { searchTerm?: string }): VNode[]
+  'footer'?(props: { b24ui: CommandPalette['b24ui'] }): VNode[]
+  'back'?(props: { b24ui: CommandPalette['b24ui'] }): VNode[]
+  'close'?(props: { b24ui: CommandPalette['b24ui'] }): VNode[]
+  'item'?: SlotProps<T>
+  'item-leading'?: SlotProps<T>
+  'item-label'?: SlotProps<T>
+  'item-description'?: SlotProps<T>
+  'item-trailing'?: SlotProps<T>
+} & Record<string, SlotProps<T>>
 
 </script>
 
@@ -248,7 +249,7 @@ const props = withDefaults(defineProps<CommandPaletteProps<G, T>>(), {
   highlightOnHover: true
 })
 const emits = defineEmits<CommandPaletteEmits<T>>()
-const slots = defineSlots<CommandPaletteSlots<G, T>>()
+const slots = defineSlots<CommandPaletteSlots<T>>()
 
 const searchTerm = defineModel<string>('searchTerm', { default: '' })
 
@@ -470,13 +471,13 @@ function onSelect(e: Event, item: T) {
           :class="b24ui.item({ class: [uiProp?.item, item.b24ui?.item, item.class], active: active || item.active })"
         >
           <slot
-            :name="((item.slot || group?.slot || 'item') as keyof CommandPaletteSlots<G, T>)"
+            :name="((item.slot || group?.slot || 'item') as keyof CommandPaletteSlots<T>)"
             :item="(item as any)"
             :index="index"
             :b24ui="b24ui"
           >
             <slot
-              :name="((item.slot ? `${item.slot}-leading` : group?.slot ? `${group.slot}-leading` : `item-leading`) as keyof CommandPaletteSlots<G, T>)"
+              :name="((item.slot ? `${item.slot}-leading` : group?.slot ? `${group.slot}-leading` : `item-leading`) as keyof CommandPaletteSlots<T>)"
               :item="(item as any)"
               :index="index"
               :b24ui="b24ui"
@@ -512,13 +513,13 @@ function onSelect(e: Event, item: T) {
             </slot>
 
             <span
-              v-if="(item.prefix || (item.labelHtml || get(item, props.labelKey as string)) || (item.suffixHtml || item.suffix) || !!slots[(item.slot ? `${item.slot}-label` : group?.slot ? `${group.slot}-label` : `item-label`) as keyof CommandPaletteSlots<G, T>]) || (get(item, props.descriptionKey as string) || !!slots[(item.slot ? `${item.slot}-description` : group?.slot ? `${group.slot}-description` : `item-description`) as keyof CommandPaletteSlots<G, T>])"
+              v-if="(item.prefix || (item.labelHtml || get(item, props.labelKey as string)) || (item.suffixHtml || item.suffix) || !!slots[(item.slot ? `${item.slot}-label` : group?.slot ? `${group.slot}-label` : `item-label`) as keyof CommandPaletteSlots<T>]) || (get(item, props.descriptionKey as string) || !!slots[(item.slot ? `${item.slot}-description` : group?.slot ? `${group.slot}-description` : `item-description`) as keyof CommandPaletteSlots<T>])"
               data-slot="itemWrapper"
               :class="b24ui.itemWrapper({ class: [uiProp?.itemWrapper, item.b24ui?.itemWrapper] })"
             >
               <span data-slot="itemLabel" :class="b24ui.itemLabel({ class: [uiProp?.itemLabel, item.b24ui?.itemLabel], active: active || item.active })">
                 <slot
-                  :name="((item.slot ? `${item.slot}-label` : group?.slot ? `${group.slot}-label` : `item-label`) as keyof CommandPaletteSlots<G, T>)"
+                  :name="((item.slot ? `${item.slot}-label` : group?.slot ? `${group.slot}-label` : `item-label`) as keyof CommandPaletteSlots<T>)"
                   :item="(item as any)"
                   :index="index"
                   :b24ui="b24ui"
@@ -561,7 +562,7 @@ function onSelect(e: Event, item: T) {
                 :class="b24ui.itemDescription({ class: [uiProp?.itemDescription, item.b24ui?.itemDescription] })"
               >
                 <slot
-                  :name="((item.slot ? `${item.slot}-description` : group?.slot ? `${group.slot}-description` : `item-description`) as keyof CommandPaletteSlots<G, T>)"
+                  :name="((item.slot ? `${item.slot}-description` : group?.slot ? `${group.slot}-description` : `item-description`) as keyof CommandPaletteSlots<T>)"
                   :item="(item as any)"
                   :index="index"
                   :b24ui="b24ui"
@@ -573,7 +574,7 @@ function onSelect(e: Event, item: T) {
 
             <span data-slot="itemTrailing" :class="b24ui.itemTrailing({ class: [uiProp?.itemTrailing, item.b24ui?.itemTrailing] })">
               <slot
-                :name="((item.slot ? `${item.slot}-trailing` : group?.slot ? `${group.slot}-trailing` : `item-trailing`) as keyof CommandPaletteSlots<G, T>)"
+                :name="((item.slot ? `${item.slot}-trailing` : group?.slot ? `${group.slot}-trailing` : `item-trailing`) as keyof CommandPaletteSlots<T>)"
                 :item="(item as any)"
                 :index="index"
                 :b24ui="b24ui"

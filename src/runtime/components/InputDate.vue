@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { ComponentPublicInstance } from 'vue'
+import type { ComponentPublicInstance, VNode } from 'vue'
 import type { DateFieldRootProps, DateFieldRootEmits, DateRangeFieldRootProps, DateRangeFieldRootEmits, DateValue, SegmentPart } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
@@ -82,10 +82,10 @@ export interface InputDateEmits<R extends boolean> extends Omit<DateFieldRootEmi
 }
 
 export interface InputDateSlots {
-  leading(props: { b24ui: InputDate['b24ui'] }): any
-  default(props: { b24ui: InputDate['b24ui'] }): any
-  trailing(props: { b24ui: InputDate['b24ui'] }): any
-  separator(props: { b24ui: InputDate['b24ui'] }): any
+  leading?(props: { b24ui: InputDate['b24ui'] }): VNode[]
+  default?(props: { b24ui: InputDate['b24ui'] }): VNode[]
+  trailing?(props: { b24ui: InputDate['b24ui'] }): VNode[]
+  separator?(props: { b24ui: InputDate['b24ui'] }): VNode[]
 }
 </script>
 

@@ -1,9 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { renderEach } from '../component-render'
 import PageCard from '../../src/runtime/components/PageCard.vue'
-import type { PageCardProps, PageCardSlots } from '../../src/runtime/components/PageCard.vue'
-import ComponentRender from '../component-render'
 import theme from '#build/b24ui/page-card'
 import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
 
@@ -18,7 +17,7 @@ describe('PageCard', () => {
     icon: Search2Icon
   }
 
-  it.each([
+  renderEach(PageCard, [
     // Props
     ['with as', { props: { as: 'section' } }],
     ['with icon', { props: { icon: Search2Icon } }],
@@ -43,10 +42,7 @@ describe('PageCard', () => {
     ['with description slot', { props, slots: { description: () => 'Description slot' } }],
     ['with footer slot', { props, slots: { footer: () => 'Footer slot' } }],
     ['with default slot', { props, slots: { default: () => 'Default slot' } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: PageCardProps, slots?: Partial<PageCardSlots> }) => {
-    const html = await ComponentRender(nameOrHtml, options, PageCard)
-    expect(html).toMatchSnapshot()
-  })
+  ])
 
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(PageCard, {

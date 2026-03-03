@@ -1,10 +1,9 @@
 import { describe, it, expect, vi } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { renderEach } from '../component-render'
 import type { Editor } from '@tiptap/vue-3'
 import EditorToolbar from '../../src/runtime/components/EditorToolbar.vue'
-import type { EditorToolbarProps, EditorToolbarSlots } from '../../src/runtime/components/EditorToolbar.vue'
-import ComponentRender from '../component-render'
 import HeaderIcon from '@bitrix24/b24icons-vue/editor/HeaderIcon'
 import BoldIcon from '@bitrix24/b24icons-vue/editor/BoldIcon'
 import ItalicIcon from '@bitrix24/b24icons-vue/editor/ItalicIcon'
@@ -64,7 +63,7 @@ describe('EditorToolbar', () => {
   }]]
   const props = { editor: { registerPlugin: vi.fn() } as unknown as Editor, items }
 
-  it.each([
+  renderEach(EditorToolbar, [
     // Props
     ['with as', { props: { ...props, as: 'section' } }],
     ['with layout bubble', { props: { ...props, layout: 'bubble' as const } }],
@@ -73,10 +72,7 @@ describe('EditorToolbar', () => {
     ['with b24ui', { props: { ...props, b24ui: { separator: 'bg-default' } } }],
     // Slots
     ['with item slot', { props, slots: { item: () => 'Item slot' } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: EditorToolbarProps, slots?: Partial<EditorToolbarSlots> }) => {
-    const html = await ComponentRender(nameOrHtml, options, EditorToolbar)
-    expect(html).toMatchSnapshot()
-  })
+  ])
 
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(EditorToolbar, {

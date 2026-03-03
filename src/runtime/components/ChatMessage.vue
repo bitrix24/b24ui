@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import type { UIMessage } from 'ai'
 import theme from '#build/b24ui/chat-message'
@@ -43,9 +44,9 @@ export interface ChatMessageProps extends UIMessage {
 }
 
 export interface ChatMessageSlots {
-  leading(props: { avatar: ChatMessageProps['avatar'], b24ui: ChatMessage['b24ui'] }): any
-  content(props: ChatMessageProps): any
-  actions(props: { actions: ChatMessageProps['actions'] }): any
+  leading?(props: { avatar: ChatMessageProps['avatar'], b24ui: ChatMessage['b24ui'] }): VNode[]
+  content?(props: ChatMessageProps): VNode[]
+  actions?(props: { actions: ChatMessageProps['actions'] }): VNode[]
 }
 </script>
 

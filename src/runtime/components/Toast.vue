@@ -1,5 +1,6 @@
 <script lang="ts">
 import type { ToastRootProps, ToastRootEmits } from 'reka-ui'
+import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/toast'
 import type { AvatarProps, ButtonProps, ProgressProps, IconComponent, LinkPropsKeys } from '../types'
@@ -62,11 +63,11 @@ export interface ToastProps extends Pick<ToastRootProps, 'defaultOpen' | 'open' 
 export interface ToastEmits extends ToastRootEmits {}
 
 export interface ToastSlots {
-  leading(props: { b24ui: Toast['b24ui'] }): any
-  title(props?: {}): any
-  description(props?: {}): any
-  actions(props?: {}): any
-  close(props: { b24ui: Toast['b24ui'] }): any
+  leading?(props: { b24ui: Toast['b24ui'] }): VNode[]
+  title?(props?: {}): VNode[]
+  description?(props?: {}): VNode[]
+  actions?(props?: {}): VNode[]
+  close?(props: { b24ui: Toast['b24ui'] }): VNode[]
 }
 </script>
 

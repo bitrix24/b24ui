@@ -1,13 +1,12 @@
 import { describe, it, expect } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { renderEach } from '../component-render'
 import PageSection from '../../src/runtime/components/PageSection.vue'
-import type { PageSectionProps, PageSectionSlots } from '../../src/runtime/components/PageSection.vue'
-import ComponentRender from '../component-render'
 import Bitrix24Icon from '@bitrix24/b24icons-vue/common-b24/Bitrix24Icon'
 
 describe('PageSection', () => {
-  it.each([
+  renderEach(PageSection, [
     // Props
     ['with as', { props: { as: 'div' } }],
     ['with headline', { props: { headline: 'Headline' } }],
@@ -20,10 +19,10 @@ describe('PageSection', () => {
     ['with features and description', { props: { features: [{ title: 'Title', description: 'Description', icon: Bitrix24Icon }], description: 'Description' } }],
     ['with links and features', { props: { links: [{ label: 'Get started' }], features: [{ title: 'Title', description: 'Description', icon: Bitrix24Icon }] } }],
     ['with reverse', { props: { reverse: true } }],
-    ['with orientation horizontal', { props: { orientation: 'horizontal' as const } }],
-    ['with orientation horizontal links', { props: { orientation: 'horizontal' as const, links: [{ label: 'Get started' }] } }],
-    ['with orientation horizontal features', { props: { orientation: 'horizontal' as const, features: [{ title: 'Title', description: 'Description', icon: Bitrix24Icon }] } }],
-    ['with orientation horizontal reverse', { props: { orientation: 'horizontal' as const, reverse: true } }],
+    ['with orientation horizontal', { props: { orientation: 'horizontal' } }],
+    ['with orientation horizontal links', { props: { orientation: 'horizontal', links: [{ label: 'Get started' }] } }],
+    ['with orientation horizontal features', { props: { orientation: 'horizontal', features: [{ title: 'Title', description: 'Description', icon: Bitrix24Icon }] } }],
+    ['with orientation horizontal reverse', { props: { orientation: 'horizontal', reverse: true } }],
     ['with class', { props: { class: 'absolute' } }],
     ['with b24ui', { props: { b24ui: { container: 'max-w-5xl' } } }],
     // Slots
@@ -39,10 +38,7 @@ describe('PageSection', () => {
     ['with links slot', { slots: { links: () => 'Links slot' } }],
     ['with default slot', { slots: { default: () => 'Default slot' } }],
     ['with bottom slot', { slots: { bottom: () => 'Bottom slot' } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: PageSectionProps, slots?: Partial<PageSectionSlots> }) => {
-    const html = await ComponentRender(nameOrHtml, options, PageSection)
-    expect(html).toMatchSnapshot()
-  })
+  ])
 
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(PageSection, {

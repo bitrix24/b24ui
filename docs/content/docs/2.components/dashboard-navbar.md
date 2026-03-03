@@ -12,7 +12,7 @@ links:
 navigation.badge: New
 ---
 
-## Usage`
+## Usage
 
 The DashboardNavbar component is a responsive navigation bar that integrates with the [DashboardSidebar](/docs/components/dashboard-sidebar/) component. It includes a mobile toggle button to enable responsive navigation in dashboard layouts.
 

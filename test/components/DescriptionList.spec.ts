@@ -1,7 +1,6 @@
-import { describe, it, expect } from 'vitest'
+import { describe } from 'vitest'
 import DescriptionList from '../../src/runtime/components/DescriptionList.vue'
-import type { DescriptionListProps, DescriptionListSlots } from '../../src/runtime/components/DescriptionList.vue'
-import ComponentRender from '../component-render'
+import { renderEach } from '../component-render'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 
 describe('DescriptionList', () => {
@@ -40,7 +39,7 @@ describe('DescriptionList', () => {
 
   const props = { items }
 
-  it.each([
+  renderEach(DescriptionList, [
     // Props
     ['with as', { props: { ...props, as: 'section' } }],
     ['with items', { props }],
@@ -49,8 +48,5 @@ describe('DescriptionList', () => {
     // Slots
     ['with default slot', { slots: { default: () => 'Default slot' } }],
     ['with custom slot', { props, slots: { custom: () => 'Custom slot' } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: DescriptionListProps, slots?: Partial<DescriptionListSlots> }) => {
-    const html = await ComponentRender(nameOrHtml, options, DescriptionList)
-    expect(html).toMatchSnapshot()
-  })
+  ])
 })

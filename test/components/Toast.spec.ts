@@ -2,10 +2,9 @@ import { defineComponent } from 'vue'
 import { describe, it, expect } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { renderEach } from '../component-render'
 import Toaster from '../../src/runtime/components/Toaster.vue'
 import Toast from '../../src/runtime/components/Toast.vue'
-import type { ToastProps, ToastSlots } from '../../src/runtime/components/Toast.vue'
-import ComponentRender from '../component-render'
 import { ClientOnly } from '#components'
 import SignIcon from '@bitrix24/b24icons-vue/main/SignIcon'
 import Cross30Icon from '@bitrix24/b24icons-vue/actions/Cross30Icon'
@@ -31,7 +30,7 @@ const ToastWrapper = defineComponent({
 describe('Toast', () => {
   const props = { title: 'Toast' }
 
-  it.each([
+  renderEach(ToastWrapper, [
     // Props
     ['with title', { props }],
     ['with description', { props: { ...props, description: 'This is a toast' } }],
@@ -42,8 +41,8 @@ describe('Toast', () => {
     ['with orientation horizontal', { props: { ...props, icon: SignIcon, description: 'This is a toast', actions: [{ label: 'Action' }], orientation: 'horizontal' as const } }],
     ['without close', { props: { ...props, close: false } }],
     ['with closeIcon', { props: { ...props, closeIcon: Cross30Icon } }],
-    ['with type', { props: { ...props, type: 'background' as const } }],
-    ['with color success', { props: { ...props, color: 'air-primary-success' as const } }],
+    ['with type', { props: { ...props, type: 'background' } }],
+    ['with color success', { props: { ...props, color: 'air-primary-success' } }],
     ['with as', { props: { ...props, as: 'section' } }],
     ['with class', { props: { ...props, class: 'bg-red-500/50' } }],
     ['with b24ui', { props: { ...props, b24ui: { title: 'font-(--ui-font-weight-bold)' } } }],
@@ -52,10 +51,7 @@ describe('Toast', () => {
     ['with title slot', { props, slots: { title: () => 'Title slot' } }],
     ['with description slot', { props, slots: { description: () => 'Description slot' } }],
     ['with close slot', { props, slots: { close: () => 'Close slot' } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: ToastProps, slots?: Partial<ToastSlots> }) => {
-    const html = await ComponentRender(nameOrHtml, options, ToastWrapper)
-    expect(html).toMatchSnapshot()
-  })
+  ])
 
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(ToastWrapper, {

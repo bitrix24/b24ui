@@ -2,10 +2,9 @@ import { defineComponent } from 'vue'
 import { describe, it, expect, test, vi } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
-import type { FormFieldProps, FormFieldSlots } from '../../src/runtime/components/FormField.vue'
-import ComponentRender from '../component-render'
+import { renderEach } from '../component-render'
+import type { FormFieldProps } from '../../src/runtime/components/FormField.vue'
 import theme from '#build/b24ui/form-field'
-
 import {
   B24Input,
   B24RadioGroup,
@@ -77,7 +76,7 @@ describe('FormField', () => {
   const sizes = Object.keys(theme.variants.size) as any
   const orientations = Object.keys(theme.variants.orientation) as any
 
-  it.each([
+  renderEach(FormFieldWrapper, [
     // Props
     ['with label and description', { props: { label: 'Username', description: 'Enter your username' } }],
     ['with required', { props: { label: 'Username', required: true } }],
@@ -96,10 +95,7 @@ describe('FormField', () => {
     ['with error slot', { slots: { error: () => 'Error slot' } }],
     ['with hint slot', { slots: { hint: () => 'Hint slot' } }],
     ['with help slot', { slots: { help: () => 'Help slot' } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: FormFieldProps, slots?: Partial<FormFieldSlots> }) => {
-    const html = await ComponentRender(nameOrHtml, options, FormFieldWrapper)
-    expect(html).toMatchSnapshot()
-  })
+  ])
 
   it('passes accessibility tests', async () => {
     const wrapper = await mountSuspended(FormFieldWrapper, {
@@ -131,6 +127,7 @@ describe('FormField', () => {
           props: { label: 'Label' },
           inputComponent
         })
+
         const label = wrapper.find('label[for=v-0-0]')
         expect(label.exists()).toBe(false)
       })

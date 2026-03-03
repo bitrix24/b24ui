@@ -1,5 +1,6 @@
 <script lang="ts">
 import type { PopoverRootProps, HoverCardRootProps, PopoverRootEmits, PopoverContentProps, PopoverContentEmits, PopoverArrowProps, HoverCardTriggerProps } from 'reka-ui'
+import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/popover'
 import type { EmitsToProps } from '../types/utils'
@@ -48,12 +49,12 @@ export interface PopoverEmits extends PopoverRootEmits {
   'close:prevent': []
 }
 
-type SlotProps<M extends PopoverMode = PopoverMode> = [M] extends ['hover'] ? {} : { close: () => void }
+type SlotProps<M extends PopoverMode = PopoverMode> = [M] extends ['hover'] ? { close: undefined } : { close: () => void }
 
 export interface PopoverSlots<M extends PopoverMode = PopoverMode> {
-  default(props: { open: boolean }): any
-  content(props: SlotProps<M>): any
-  anchor(props: SlotProps<M>): any
+  default?(props: { open: boolean }): VNode[]
+  content?(props: SlotProps<M>): VNode[]
+  anchor?(props: SlotProps<M>): VNode[]
 }
 </script>
 

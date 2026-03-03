@@ -3,9 +3,8 @@ import { describe, it, expect, test } from 'vitest'
 import { axe } from 'vitest-axe'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { flushPromises } from '@vue/test-utils'
+import { renderEach } from '../component-render'
 import Button from '../../src/runtime/components/Button.vue'
-import type { ButtonProps, ButtonSlots } from '../../src/runtime/components/Button.vue'
-import ComponentRender from '../component-render'
 import theme from '#build/b24ui/button'
 import { B24Form } from '#components'
 import Search2Icon from '@bitrix24/b24icons-vue/main/Search2Icon'
@@ -14,9 +13,8 @@ import Shining2Icon from '@bitrix24/b24icons-vue/main/Shining2Icon'
 describe('Button', () => {
   const sizes = Object.keys(theme.variants.size) as any
   const colors = Object.keys(theme.variants.color) as any
-  // const depths = Object.keys(theme.variants.depth) as any
 
-  it.each([
+  renderEach(Button, [
     // Props
     ['with label', { props: { label: 'Button' } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { label: 'Button', size } }]),
@@ -43,10 +41,7 @@ describe('Button', () => {
     ['with default slot', { slots: { default: () => 'Default slot' } }],
     ['with leading slot', { slots: { leading: () => 'Leading slot' } }],
     ['with trailing slot', { slots: { trailing: () => 'Trailing slot' } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: ButtonProps, slots?: Partial<ButtonSlots> }) => {
-    const html = await ComponentRender(nameOrHtml, options, Button)
-    expect(html).toMatchSnapshot()
-  })
+  ])
 
   test('with loading-auto works', async () => {
     let resolve: any | null = null
@@ -68,14 +63,11 @@ describe('Button', () => {
     button.trigger('click')
     await flushPromises()
 
-    // @todo fix this ////
-    /*
-    const icon = wrapper.findComponent({ name: 'Icon' })
+    // const icon = wrapper.findComponent({ name: 'Icon' })
 
-    expect(icon.classes()).toContain('animate-spin')
+    // expect(icon.classes()).toContain('animate-spin')
+    // expect(icon?.vm?.name).toBe('i-lucide-loader-circle')
 
-    expect(icon?.vm?.name).toBe('i-lucide-refresh-cw')
-    */
     resolve?.(null)
   })
 
@@ -102,14 +94,10 @@ describe('Button', () => {
     form.value.submit()
     await flushPromises()
 
-    // @todo fix this ////
-    /*
-    const icon = wrapper.findComponent({ name: 'Icon' })
+    // const icon = wrapper.findComponent({ name: 'Icon' })
 
-    expect(icon.classes()).toContain('animate-spin')
-    // @todo fix this ////
-    expect(icon?.vm?.name).toBe('i-lucide-refresh-cw')
-    */
+    // expect(icon.classes()).toContain('animate-spin')
+    // expect(icon?.vm?.name).toBe('i-lucide-loader-circle')
 
     resolve?.(null)
   })

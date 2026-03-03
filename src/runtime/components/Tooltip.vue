@@ -1,5 +1,6 @@
 <script lang="ts">
 import type { TooltipRootProps, TooltipRootEmits, TooltipContentProps, TooltipContentEmits, TooltipArrowProps, TooltipTriggerProps, PopoverArrowProps } from 'reka-ui'
+import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/tooltip'
 import type { KbdProps } from '../types'
@@ -41,8 +42,8 @@ export interface TooltipProps extends TooltipRootProps {
 export interface TooltipEmits extends TooltipRootEmits {}
 
 export interface TooltipSlots {
-  default(props: { open: boolean }): any
-  content(props: { b24ui: Tooltip['b24ui'] }): any
+  default?(props: { open: boolean }): VNode[]
+  content?(props: { b24ui: Tooltip['b24ui'] }): VNode[]
 }
 </script>
 
