@@ -18,7 +18,7 @@ exports[`Chip > renders with class correctly 1`] = `
 `;
 
 exports[`Chip > renders with color ai correctly 1`] = `
-"<div data-slot="root" class="relative shrink-0 isolate inline-flex items-center justify-center"><span data-slot="base" class="ui-counter__scope --air font-[family-name:var(--ui-font-family-primary)] select-none min-w-(--ui-counter-size) h-(--ui-counter-size) py-0 px-(--ui-counter-inline-space) inline-flex items-center justify-center bg-(--b24ui-background) rounded-(--ui-counter-current-size) ring-(length:--b24ui-border-width) ring-(--b24ui-border-color) text-center align-middle text-(length:--ui-counter-font-size) text-(--b24ui-color) leading-(--ui-counter-current-size) overflow-hidden z-1 text-nowrap style-old-ai ui-counter-sm font-(--ui-font-weight-regular) top-0 right-0 absolute -translate-y-1/2 translate-x-1/2 transform"><span></span>
+"<div data-slot="root" class="relative shrink-0 isolate inline-flex items-center justify-center"><span data-slot="base" class="ui-counter__scope --air font-[family-name:var(--ui-font-family-primary)] select-none min-w-(--ui-counter-size) h-(--ui-counter-size) py-0 px-(--ui-counter-inline-space) inline-flex items-center justify-center bg-(--b24ui-background) rounded-(--ui-counter-current-size) ring-(length:--b24ui-border-width) ring-(--b24ui-border-color) text-center align-middle text-(length:--ui-counter-font-size) text-(--b24ui-color) leading-(--ui-counter-current-size) overflow-hidden z-1 text-nowrap style-filled-copilot ui-counter-sm font-(--ui-font-weight-regular) top-0 right-0 absolute -translate-y-1/2 translate-x-1/2 transform"><span></span>
   <!----></span>
 </div>"
 `;

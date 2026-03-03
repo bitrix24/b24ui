@@ -8,6 +8,7 @@
 * fix(ContentToc): add relative positioning to content slot
 * fix(components): improve arrow styling with `stroke-default` and `fill-bg`
 * fix(components): improve slots return types and tests
+* docs(deprecated): mark components as deprecated
 * docs(navigation-menu): improve examples
 * docs(input): add phone number example
 

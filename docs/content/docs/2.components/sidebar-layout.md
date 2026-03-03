@@ -11,6 +11,10 @@ links:
     to: https://bitrix24.github.io/b24ui/demo/
 ---
 
+::warning
+This component is deprecated and will be removed in version `3.0.0`
+::
+
 ## Usage
 
 ::note{to="/docs/getting-started/theme/components/#customize-theme"}
