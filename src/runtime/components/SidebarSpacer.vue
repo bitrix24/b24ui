@@ -3,6 +3,13 @@ import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/sidebar-spacer'
 import type { ComponentConfig } from '../types/tv'
 
+/**
+ * @deprecated This component is deprecated and will be removed in version `3.0.0`
+ *   - use [DashboardSidebar](https://bitrix24.github.io/b24ui/docs/components/dashboard-sidebar/)
+ *
+ * @removed 3.0.0
+ */
+
 type SidebarSpacer = ComponentConfig<typeof theme, AppConfig, 'sidebarSpacer'>
 
 export interface SidebarSpacerProps {

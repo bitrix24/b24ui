@@ -3,6 +3,15 @@ import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/navbar-spacer'
 import type { ComponentConfig } from '../types/tv'
 
+/**
+ * @deprecated This component is deprecated and will be removed in version `3.0.0`
+ *   - use [Header](https://bitrix24.github.io/b24ui/docs/components/header/)
+ *   - use [PageHeader ](https://bitrix24.github.io/b24ui/docs/components/page-header/)
+ *   - use [DashboardNavbar](https://bitrix24.github.io/b24ui/docs/components/dashboard-navbar/)
+ *
+ * @removed 3.0.0
+ */
+
 type NavbarSpacer = ComponentConfig<typeof theme, AppConfig, 'navbarSpacer'>
 
 export interface NavbarSpacerProps {
