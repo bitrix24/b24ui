@@ -3,6 +3,7 @@
 ## [2.4.1](https://github.com/bitrix24/b24ui/compare/v2.3.0...v2.4.1) (2026-03-xx)
 
 * feat(designSystem): add tw `scrollbar-both-edges`
+* feat(colorMode): add appConfig colorModeStorageKey
 * fix(Page): make slot presence reactive for variant computation
 * fix(useResizable): use function declaration to prevent false auto-import
 * fix(ContentToc): add relative positioning to content slot

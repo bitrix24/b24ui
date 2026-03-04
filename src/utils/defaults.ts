@@ -21,6 +21,7 @@ export const defaultOptions = {
   colorMode: true,
   colorModeInitialValue: 'light' as const,
   colorModeTypeLight: 'light' as const,
+  colorModeStorageKey: 'vueuse-color-scheme' as const,
   version,
   mdc: true,
   content: false

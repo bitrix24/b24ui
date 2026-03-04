@@ -39,6 +39,12 @@ export interface Bitrix24UIOptions extends Omit<ModuleOptions, 'colorMode'> {
   colorModeInitialValue?: ColorModeType
   colorModeTypeLight?: ColorModeTypeLight
   /**
+   * Key to persist the data into localStorage/sessionStorage.
+   * Pass `null` to disable persistence
+   * @defaultValue 'vueuse-color-scheme'
+   */
+  colorModeStorageKey?: string | null
+  /**
    * Override options for `unplugin-auto-import`
    */
   autoImport?: Partial<AutoImportOptions>
@@ -78,7 +84,8 @@ export const Bitrix24UIPlugin = createUnplugin<Bitrix24UIOptions | undefined>((_
       version: options.version,
       colorMode: options.colorMode,
       colorModeInitialValue: options.colorModeInitialValue,
-      colorModeTypeLight: options.colorModeTypeLight
+      colorModeTypeLight: options.colorModeTypeLight,
+      colorModeStorageKey: options.colorModeStorageKey
     },
     {
       b24ui: getDefaultConfig(options.theme)

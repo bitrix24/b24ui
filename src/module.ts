@@ -21,6 +21,12 @@ export interface ModuleOptions {
   colorMode?: boolean
   colorModeInitialValue?: ColorModeType
   colorModeTypeLight?: ColorModeTypeLight
+  /**
+   * Key to persist the data into localStorage/sessionStorage.
+   * Pass `null` to disable persistence
+   * @defaultValue 'vueuse-color-scheme'
+   */
+  colorModeStorageKey?: string | null
   version?: string
   /**
    * Customize how the theme is generated

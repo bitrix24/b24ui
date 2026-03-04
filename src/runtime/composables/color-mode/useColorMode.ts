@@ -14,6 +14,15 @@ export const useColorMode = () => {
 
   const colorModeTypeLight = (appConfig?.colorModeTypeLight || 'light') as string
   const colorModeInitialValue = (appConfig?.colorModeInitialValue || 'light') as string
+  const storageKey = (
+    typeof appConfig.colorModeStorageKey === 'undefined'
+      ? 'vueuse-color-scheme'
+      : (
+          appConfig.colorModeStorageKey === null
+            ? null
+            : appConfig.colorModeStorageKey as string
+        )
+  )
   const modes = {
     'auto': 'auto',
     'light': colorModeTypeLight,
@@ -26,7 +35,8 @@ export const useColorMode = () => {
   const { store, system } = useColorModeVueUse({
     attribute: 'class',
     initialValue: colorModeInitialValue,
-    modes
+    modes,
+    storageKey
   })
 
   return {
