@@ -1,17 +1,25 @@
 # Changelog
 
-## [2.4.1](https://github.com/bitrix24/b24ui/compare/v2.3.0...v2.4.1) (2026-03-xx)
+## [2.4.1](https://github.com/bitrix24/b24ui/compare/v2.3.0...v2.4.1) (2026-03-04)
 
-* feat(designSystem): add tw `scrollbar-both-edges`
-* feat(colorMode): add appConfig colorModeStorageKey
-* fix(Page): make slot presence reactive for variant computation
-* fix(useResizable): use function declaration to prevent false auto-import
-* fix(ContentToc): add relative positioning to content slot
-* fix(components): improve arrow styling with `stroke-default` and `fill-bg`
-* fix(components): improve slots return types and tests
-* docs(deprecated): mark components as deprecated
-* docs(navigation-menu): improve examples
-* docs(input): add phone number example
+### Features
+
+* **designSystem:** add tw `scrollbar-both-edges`
+* **colorMode:** add appConfig colorModeStorageKey
+
+### Bug Fixes
+
+* **Page:** make slot presence reactive for variant computation
+* **useResizable:** use function declaration to prevent false auto-import
+* **ContentToc:** add relative positioning to content slot
+* **components:** improve arrow styling with `stroke-default` and `fill-bg`
+* **components:** improve slots return types and tests
+
+### Docs
+
+* **deprecated:** mark components as deprecated
+* **navigation-menu:** improve examples
+* **input:** add phone number example
 
 ## [2.4.0](https://github.com/bitrix24/b24ui/compare/v2.3.0...v2.4.0) (2026-02-26)
 
