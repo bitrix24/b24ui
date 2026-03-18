@@ -227,22 +227,22 @@ defineShortcuts({
   <PlaygroundPage>
     <template #controls>
       <B24Modal v-model:open="open" :b24ui="{ content: 'p-0 pt-0 pb-[0px]' }">
-        <B24Button label="Open modal" />
+        <B24Button label="Open modal" size="xs" />
         <template #content>
           <ReuseTemplate :close="true" @update:open="open = $event" />
         </template>
       </B24Modal>
 
       <B24Popover :content="{ side: 'right', align: 'start' }">
-        <B24Button label="Select label (popover)" />
+        <B24Button label="Select label (popover)" size="xs" />
 
         <template #content>
           <B24CommandPalette v-model="label" placeholder="Search labels..." :groups="[{ id: 'labels', items: labels }]" :ui="{ input: '[&>input]:h-8 [&>input]:text-sm' }" />
         </template>
       </B24Popover>
 
-      <B24Switch v-model="virtualize" label="Virtualize" />
-      <B24Switch v-model="preserveGroupOrder" label="PreserveOrder" />
+      <B24Switch v-model="virtualize" size="xs" label="Virtualize" />
+      <B24Switch v-model="preserveGroupOrder" size="xs" label="PreserveOrder" />
     </template>
 
     <B24Card class="w-full max-w-150 mx-auto" :b24ui="{ body: '!p-0' }">
@@ -252,6 +252,7 @@ defineShortcuts({
         :fuse="{ resultLimit: 1000 }"
         placeholder="Search virtualized items..."
         :groups="[{ id: 'items', items: Array(1000).fill(0).map((_, i) => ({ label: `item-${i}`, value: i, icon: FileUploadIcon })) }]"
+        class="sm:max-h-96"
       />
 
       <ReuseTemplate v-else />

@@ -2,9 +2,6 @@
  * SelectMenu
  * An advanced searchable select element.
  * ---
- * @link /api_d7/bitrix/ui/select/index.php
- * @link /api_d7/bitrix/ui/forms/fields_types.php
- * @see bitrix/js/ui/select..
  */
 import { defuFn } from 'defu'
 import select from './select'
@@ -18,11 +15,11 @@ export default () => {
         'relative',
         'scroll-py-1',
         'w-[240px] max-h-[40vh]',
-        'overflow-x-hidden overflow-y-auto scrollbar-thin' // scrollbar-transparent
+        'overflow-x-hidden overflow-y-auto scrollbar-thin'
       ].join(' '),
       content: (content: string) => [
         content,
-        'origin-(--reka-combobox-content-transform-origin) ' // w-(--reka-combobox-trigger-width)
+        'origin-(--reka-combobox-content-transform-origin)'
       ],
       trailingClear: 'p-0'
     },
@@ -32,12 +29,12 @@ export default () => {
           viewport: 'p-1 isolate'
         },
         false: {
-          viewport: '' // divide-y divide-(--ui-color-design-tinted-na-stroke)
+          viewport: ''
         }
       },
       addNew: {
         true: {
-          group: '', // p-0 isolate -m-px
+          group: '',
           item: [
             'text-(--b24ui-typography-legend-color)',
             'data-highlighted:not-data-disabled:text-(--b24ui-typography-label-color)',

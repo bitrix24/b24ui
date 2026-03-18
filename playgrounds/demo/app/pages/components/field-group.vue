@@ -29,9 +29,16 @@ const singleAttrs = reactive({
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24Select v-model="attrs.size" class="w-32" :items="sizes" placeholder="Size" multiple />
-      <B24Select v-model="singleAttrs.orientation" class="w-44" :items="orientations" placeholder="Orientation" />
-      <B24Switch v-model="singleAttrs.noSplit" label="NoSplit" />
+      <B24Select
+        v-model="attrs.size"
+        size="xs"
+        class="w-32"
+        :items="sizes"
+        placeholder="Size"
+        multiple
+      />
+      <B24Select v-model="singleAttrs.orientation" size="xs" class="w-44" :items="orientations" placeholder="Orientation" />
+      <B24Switch v-model="singleAttrs.noSplit" size="xs" label="NoSplit" />
     </template>
 
     <Matrix v-slot="props" :attrs="attrs" :b24ui="{ root: 'max-w-80' }">

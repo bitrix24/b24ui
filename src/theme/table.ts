@@ -63,11 +63,11 @@ export default {
   variants: {
     virtualize: {
       true: {
-        tr: 'relative before:absolute before:z-1 before:w-full before:border-b before:border-b-(--ui-color-design-tinted-na-stroke)'
+        tr: 'relative before:absolute before:z-1 before:w-full before:border-b before:border-b-(--ui-color-divider-default)'
       },
       false: {
         base: 'overflow-clip',
-        tbody: 'divide-y divide-(--ui-color-design-tinted-na-stroke)'
+        tbody: 'divide-y divide-(--ui-color-divider-default)'
       }
     },
     pinned: {

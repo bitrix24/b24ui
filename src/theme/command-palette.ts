@@ -2,8 +2,6 @@
  * CommandPalette
  * A searchable command palette powered by Fuse.js for fast, fuzzy text search.
  * ---
- *
- * @todo fix size
  */
 
 export default {
@@ -11,11 +9,11 @@ export default {
     root: [
       'flex flex-col',
       'min-h-0 min-w-0',
-      'divide-y divide-(--ui-color-design-tinted-na-stroke)'
+      'divide-y divide-(--ui-color-divider-default)'
     ].join(' '),
     input: '',
     close: '',
-    back: 'p-0',
+    back: 'p-0 -ms-1.5 me-1',
     content: 'relative overflow-hidden flex flex-col',
     footer: 'p-1',
     viewport: [
@@ -74,7 +72,7 @@ export default {
         viewport: 'p-1 isolate'
       },
       false: {
-        viewport: '' // divide-y divide-(--ui-color-design-tinted-na-stroke)
+        viewport: ''
       }
     },
     size: {
