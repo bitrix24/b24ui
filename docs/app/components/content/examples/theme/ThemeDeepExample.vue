@@ -10,7 +10,7 @@ import MyButton from './MyButton.vue'
       }
     }"
   >
-    <B24Card :ui="{ body: 'flex items-center gap-2 sm:flex-row flex-col' }">
+    <B24Card :b24ui="{ body: 'flex items-center gap-2 sm:flex-row flex-col' }">
       <B24Button label="Direct child" />
       <MyButton />
     </B24Card>

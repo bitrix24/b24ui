@@ -3,7 +3,7 @@ const open = ref(false)
 </script>
 
 <template>
-  <B24Modal v-model:open="open" title="Modal with footer" description="This is useful when you want a form in a Modal." :ui="{ footer: 'justify-end' }">
+  <B24Modal v-model:open="open" title="Modal with footer" description="This is useful when you want a form in a Modal." :b24ui="{ footer: 'justify-end' }">
     <B24Button label="Open" />
 
     <template #body>

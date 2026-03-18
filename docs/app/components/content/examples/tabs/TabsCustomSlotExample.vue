@@ -28,7 +28,7 @@ const state = reactive({
 </script>
 
 <template>
-  <B24Tabs :items="items" variant="link" :ui="{ trigger: 'grow' }" class="gap-4 w-full">
+  <B24Tabs :items="items" variant="link" :b24ui="{ trigger: 'grow' }" class="gap-4 w-full">
     <template #account="{ item }">
       <ProseP accent="less" class="mb-4">
         {{ item.description }}

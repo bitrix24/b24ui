@@ -53,7 +53,7 @@ const items = computed(() => [
 </script>
 
 <template>
-  <B24DropdownMenu :items="items" :content="{ align: 'start' }" :ui="{ content: 'w-48' }">
+  <B24DropdownMenu :items="items" :content="{ align: 'start' }" :b24ui="{ content: 'w-48' }">
     <B24Button label="Open" :icon="HamburgerMenuIcon" />
   </B24DropdownMenu>
 </template>

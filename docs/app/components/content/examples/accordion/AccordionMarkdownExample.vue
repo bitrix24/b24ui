@@ -28,7 +28,7 @@ const items = [
     :items="items"
     :unmount-on-hide="false"
     :default-value="['3']"
-    :ui="{
+    :b24ui="{
       trigger: 'text-base',
       body: 'text-base text-(--b24ui-typography-description-color)'
     }"
