@@ -170,6 +170,11 @@ export default {
       noPadding: false,
       class: 'ps-[34px]'
     },
+    {
+      leading: true,
+      loading: true,
+      class: 'ps-[34px]'
+    },
     // endregion ////
     // region trailing ////
     {

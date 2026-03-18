@@ -343,6 +343,23 @@ export default {
         trailingIcon: 'size-[21px]'
       }
     },
+    {
+      loading: true,
+      leading: true,
+      noPadding: true,
+      class: {
+        base: 'ps-[34px]'
+      }
+    },
+    {
+      loading: true,
+      leading: false,
+      trailing: true,
+      noPadding: true,
+      class: {
+        base: 'pe-[34px]'
+      }
+    },
     // endregion ////
     // region fieldGroup ////
     {
