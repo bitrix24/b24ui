@@ -13,6 +13,7 @@ export default defineConfig(({ mode }) => {
         // @memo set in playgrounds/vue/index.html too
         colorModeInitialValue: 'edge-dark',
         colorModeTypeLight: 'light',
+        colorModeStorageKey: 'playground-vue',
         b24ui: {},
         autoImport: {
           dirs: ['../nuxt/app/composables'],

@@ -106,7 +106,7 @@ defineShortcuts({
         </template>
       </B24DashboardPanel>
 
-      <B24DashboardSearch :groups="groups" :fuse="{ resultLimit: 100 }" />
+      <B24DashboardSearch :groups="groups" :color-mode="false" :fuse="{ resultLimit: 100 }" />
     </B24DashboardGroup>
   </B24App>
 </template>
