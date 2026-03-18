@@ -2,6 +2,7 @@
  * InputTag
  * ---
  * @see InputMenu.multiple
+ * @memo not support noPadding
  */
 import { defuFn } from 'defu'
 import input from './input'
@@ -13,11 +14,11 @@ export default () => {
       base: [
         'border-0 focus:outline-none',
         'disabled:cursor-not-allowed',
-        'disabled:pointer-events-none',
+        'disabled:pointer-events-auto',
         'disabled:select-none',
         'disabled:opacity-30',
         'disabled:resize-none',
-        'appearance-none transition duration-300 ease-linear transition-colors', // transition-colors
+        'appearance-none transition-colors duration-300 ease-linear',
         'text-(--ui-color-base-1)',
         'style-blurred-bg-input',
         'hover:text-(--ui-color-base-1)',
@@ -35,8 +36,9 @@ export default () => {
         'leading-(--main-ui-square-item-height)',
         'font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular)',
         'inline-flex items-center gap-1',
-        'data-disabled:cursor-not-allowed data-disabled:opacity-30',
-        'data-disabled:pointer-events-none',
+        'data-disabled:cursor-not-allowed',
+        'data-disabled:opacity-30',
+        'data-disabled:pointer-events-auto',
         'data-disabled:select-none',
         'text-(--ui-color-design-tinted-content)',
         'bg-(--ui-color-design-tinted-bg-alt)'
@@ -47,7 +49,8 @@ export default () => {
       itemDelete: [
         'cursor-pointer',
         'inline-flex items-center',
-        'disabled:pointer-events-none',
+        'disabled:cursor-not-allowed',
+        'disabled:pointer-events-auto',
         'disabled:select-none',
         'text-(--b24ui-icon-color-secondary)',
         'hover:text-(--b24ui-icon-color-secondary-hover)',
@@ -62,7 +65,7 @@ export default () => {
         'placeholder:text-(--ui-color-design-plain-na-content-secondary)',
         'focus:outline-none',
         'disabled:cursor-not-allowed',
-        'disabled:pointer-events-none',
+        'disabled:pointer-events-auto',
         'disabled:select-none',
         'disabled:opacity-30',
         'focus:ring-0',

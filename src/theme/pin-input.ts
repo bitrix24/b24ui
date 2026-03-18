@@ -2,7 +2,6 @@
  * PinInput
  * ---
  * @see Input
- * @todo doc
  */
 export default () => ({
   slots: {
@@ -11,12 +10,12 @@ export default () => ({
       'px-0 py-0',
       'border-0 focus:outline-none',
       'disabled:cursor-not-allowed',
-      'disabled:pointer-events-none',
+      'disabled:pointer-events-auto',
       'disabled:select-none',
       'disabled:opacity-30',
       'disabled:resize-none',
       'text-center',
-      'appearance-none transition duration-300 ease-linear', // transition-colors
+      'appearance-none transition-colors duration-300 ease-linear',
       'text-(--ui-color-base-1)',
       'style-blurred-bg-input',
       'placeholder:text-(--ui-color-design-plain-na-content-secondary)',
@@ -56,7 +55,7 @@ export default () => ({
       'air-primary-alert': { base: 'style-filled-alert' },
       'air-primary-copilot': { base: 'style-filled-copilot' },
       'air-primary-warning': { base: 'style-filled-warning' },
-      // @deprecate ////
+      // @deprecate This rule is deprecated and will be removed in version `3.0.0` ////
       'default': { base: 'style-old-default' },
       'danger': { base: 'style-old-danger' },
       'success': { base: 'style-old-success' },

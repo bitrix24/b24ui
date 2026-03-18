@@ -2,10 +2,6 @@
  * InputMenu
  * An autocomplete input with real-time suggestions.
  * ---
- * @link /api_d7/bitrix/ui/entity_selector/tag_selector/index.php
- * @link /api_d7/bitrix/ui/select/index.php
- * @link /api_d7/bitrix/ui/forms/fields_types.php
- * @see bitrix/js/ui/select..
  */
 import { defuFn } from 'defu'
 import input from './input'
@@ -16,11 +12,11 @@ export default () => {
       base: [
         'w-full py-0 border-0 focus:outline-none',
         'disabled:cursor-not-allowed',
-        'disabled:pointer-events-none',
+        'disabled:pointer-events-auto',
         'disabled:select-none',
         'disabled:opacity-30',
         'disabled:resize-none',
-        'appearance-none transition duration-300 ease-linear transition-colors', // transition-colors
+        'appearance-none transition-colors duration-300 ease-linear',
         'text-(--ui-color-base-1)',
         'style-blurred-bg-input',
         'hover:text-(--ui-color-base-1)',
@@ -40,11 +36,9 @@ export default () => {
       trailingClear: 'p-0',
       content: [
         'base-mode',
-        // w-(--reka-combobox-trigger-width)
         'bg-(--ui-color-bg-content-primary)',
         'shadow-(--popup-window-box-shadow)',
         'rounded-(--ui-border-radius-xl) will-change-[opacity]',
-        // 'ring ring-(--ui-color-divider-default)',
         'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]',
         'origin-(--reka-dropdown-menu-content-transform-origin)',
         'font-[family-name:var(--ui-font-family-primary)]',
@@ -57,13 +51,12 @@ export default () => {
         'relative',
         'scroll-py-1',
         'w-[240px] max-h-[40vh]',
-        'overflow-x-hidden overflow-y-auto scrollbar-thin' // scrollbar-transparent
+        'overflow-x-hidden overflow-y-auto scrollbar-thin'
       ].join(' '),
-      arrow: 'fill-(--ui-color-bg-content-primary)', // stroke-(--ui-color-divider-default) for content bottom|top::start -> ml-[12px]
+      arrow: 'fill-(--ui-color-bg-content-primary)',
       group: 'grid',
       empty: [
         'h-(--popup-window-delimiter-section-height)',
-        // 'mt-(--menu-item-block-stack-space)',
         'py-[8px]',
         'select-none outline-none whitespace-nowrap',
         'text-center',
@@ -141,7 +134,8 @@ export default () => {
       tagsItemDelete: [
         'cursor-pointer',
         'inline-flex items-center',
-        'disabled:pointer-events-none',
+        'disabled:cursor-not-allowed',
+        'disabled:pointer-events-auto',
         'text-(--b24ui-icon-color-secondary)',
         'hover:text-(--b24ui-icon-color-secondary-hover)',
         'transition-none'
@@ -155,12 +149,12 @@ export default () => {
           viewport: 'p-1 isolate'
         },
         false: {
-          viewport: '' // divide-y divide-(--ui-color-design-tinted-na-stroke)
+          viewport: ''
         }
       },
       addNew: {
         true: {
-          group: '', // p-0 isolate -m-px
+          group: '',
           item: [
             'text-(--b24ui-typography-legend-color)',
             'data-highlighted:not-data-disabled:text-(--b24ui-typography-label-color)',
@@ -192,7 +186,7 @@ export default () => {
             'placeholder:text-(--ui-color-design-plain-na-content-secondary)',
             'focus:outline-none',
             'disabled:cursor-not-allowed',
-            'disabled:pointer-events-none',
+            'disabled:pointer-events-auto',
             'disabled:select-none',
             'disabled:opacity-30',
             'focus:ring-0 focus-visible:ring-0'
@@ -204,7 +198,7 @@ export default () => {
             'placeholder:text-(--ui-color-design-plain-na-content-secondary)',
             'focus:outline-none',
             'disabled:cursor-not-allowed',
-            'disabled:pointer-events-none',
+            'disabled:pointer-events-auto',
             'disabled:select-none',
             'disabled:opacity-30'
           ].join(' ')
@@ -305,6 +299,7 @@ export default () => {
         'air-primary-alert': { item: 'style-filled-alert' },
         'air-primary-copilot': { item: 'style-filled-copilot' },
         'air-primary-warning': { item: 'style-filled-warning' },
+        // @deprecate This rule is deprecated and will be removed in version `3.0.0` ////
         'default': { item: 'style-old-default' },
         'danger': { item: 'style-old-danger' },
         'success': { item: 'style-old-success' },
@@ -316,7 +311,6 @@ export default () => {
       }
     },
     compoundVariants: [
-      // 'has-focus-visible:ring-1 has-focus-visible:ring-red-500'
       // from dropdown-menu
       {
         colorItem: ['air-primary', 'air-primary-success', 'air-primary-alert', 'air-primary-copilot', 'air-primary-warning'],
@@ -352,6 +346,7 @@ export default () => {
         active: true,
         class: ''
       },
+      // @deprecate This rule is deprecated and will be removed in version `3.0.0` ////
       {
         colorItem: ['danger', 'success', 'warning', 'primary', 'secondary', 'collab', 'ai'],
         active: false,
@@ -364,6 +359,7 @@ export default () => {
           ].join(' ')
         }
       },
+      // @deprecate This rule is deprecated and will be removed in version `3.0.0` ////
       {
         colorItem: ['danger', 'success', 'warning', 'primary', 'secondary', 'collab', 'ai'],
         active: true,

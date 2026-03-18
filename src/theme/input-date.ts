@@ -33,7 +33,7 @@ export default () => {
         'data-[segment=literal]:text-(--ui-color-base-6)',
         'data-invalid:text-(--ui-color-accent-main-alert)',
         'data-disabled:cursor-not-allowed',
-        'data-disabled:pointer-events-none',
+        'data-disabled:pointer-events-auto',
         'data-disabled:select-none',
         'data-disabled:opacity-30',
         'transition-colors',

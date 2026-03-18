@@ -2,9 +2,6 @@
  * Select
  * A select element to choose from a list of options.
  * ---
- * @link /api_d7/bitrix/ui/forms/fields_types.php
- * @see bitrix/js/ui/..
- * @todo fix docs
  */
 
 import { defuFn } from 'defu'
@@ -15,18 +12,18 @@ export default () => {
   return defuFn(
     {
       slots: {
-        root: () => 'isolate relative inline-flex items-center', // @todo !!! ? w-full need
+        root: () => 'isolate relative inline-flex items-center',
         base: () => [
           'relative inline-flex items-center group',
           'px-3',
           'w-full py-0 border-0 focus:outline-none',
           'cursor-pointer',
           'disabled:cursor-not-allowed',
-          'disabled:pointer-events-none',
+          'disabled:pointer-events-auto', // fix ! 'disabled:pointer-events-none',
           'disabled:select-none',
           'disabled:opacity-30',
           'disabled:resize-none',
-          'appearance-none transition duration-300 ease-linear', // transition-colors
+          'appearance-none transition-colors duration-300 ease-linear', // fix ! transition
           'text-(--ui-color-base-1)',
           'style-blurred-bg-input',
           'hover:text-(--ui-color-base-1)',
@@ -39,12 +36,10 @@ export default () => {
         value: 'truncate pointer-events-none',
         placeholder: 'truncate text-(--ui-color-design-plain-na-content-secondary)',
         content: [
-          // w-(--reka-combobox-trigger-width)
           'base-mode',
           'bg-(--ui-color-bg-content-primary)',
           'shadow-(--popup-window-box-shadow)',
           'rounded-(--ui-border-radius-xl) will-change-[opacity]',
-          // 'ring ring-(--ui-color-divider-default)',
           'motion-safe:data-[state=open]:animate-[scale-in_100ms_ease-out] motion-safe:data-[state=closed]:animate-[scale-out_100ms_ease-in]',
           'origin-(--reka-dropdown-menu-content-transform-origin)',
           'font-[family-name:var(--ui-font-family-primary)]',
@@ -57,9 +52,9 @@ export default () => {
           'relative',
           'scroll-py-1',
           'w-[240px] max-h-[40vh]',
-          'overflow-x-hidden overflow-y-auto scrollbar-thin' // scrollbar-transparent
+          'overflow-x-hidden overflow-y-auto scrollbar-thin'
         ].join(' '),
-        arrow: 'fill-(--ui-color-bg-content-primary)', // stroke-(--ui-color-divider-default) for content bottom|top::start -> ml-[12px]
+        arrow: 'fill-(--ui-color-bg-content-primary)',
         group: 'grid',
         empty: [
           'h-(--popup-window-delimiter-section-height)',
@@ -184,6 +179,7 @@ export default () => {
           'air-primary-alert': { item: 'style-filled-alert' },
           'air-primary-copilot': { item: 'style-filled-copilot' },
           'air-primary-warning': { item: 'style-filled-warning' },
+          // @deprecate This rule is deprecated and will be removed in version `3.0.0` ////
           'default': { item: 'style-old-default' },
           'danger': { item: 'style-old-danger' },
           'success': { item: 'style-old-success' },
@@ -196,7 +192,7 @@ export default () => {
       },
       compoundVariants: (prev: Record<string, any>[]) => {
         return [
-          // from dropdown-menu
+          // @memo from dropdown-menu
           {
             colorItem: ['air-primary', 'air-primary-success', 'air-primary-alert', 'air-primary-copilot', 'air-primary-warning'],
             active: false,
@@ -243,6 +239,7 @@ export default () => {
               ].join(' ')
             }
           },
+          // @deprecate This rule is deprecated and will be removed in version `3.0.0` ////
           {
             colorItem: ['danger', 'success', 'warning', 'primary', 'secondary', 'collab', 'ai'],
             active: true,

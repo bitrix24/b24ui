@@ -24,19 +24,33 @@ const airColors = computed(() => {
   })
 })
 
-const tags = ref(['Bitrix24', 'Crm', 'Copilot'])
+const tags = ref(['Bitrix24', 'Crm'])
 </script>
 
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24Select v-model="attrs.color" class="w-44" :items="airColors" placeholder="Color" multiple />
-      <B24Select v-model="attrs.size" class="w-32" :items="sizes" placeholder="Size" multiple />
+      <B24Select
+        v-model="attrs.color"
+        size="xs"
+        class="w-44"
+        :items="airColors"
+        placeholder="Color"
+        multiple
+      />
+      <B24Select
+        v-model="attrs.size"
+        size="xs"
+        class="w-32"
+        :items="sizes"
+        placeholder="Size"
+        multiple
+      />
 
-      <B24Switch v-model="singleAttrs.disabled" label="Disabled" />
-      <B24Switch v-model="singleAttrs.loading" label="Loading" />
-      <B24Switch v-model="singleAttrs.highlight" label="Highlight" />
-      <B24Switch v-model="singleAttrs.rounded" label="Rounded" />
+      <B24Switch v-model="singleAttrs.disabled" size="xs" label="Disabled" />
+      <B24Switch v-model="singleAttrs.loading" size="xs" label="Loading" />
+      <B24Switch v-model="singleAttrs.highlight" size="xs" label="Highlight" />
+      <B24Switch v-model="singleAttrs.rounded" size="xs" label="Rounded" />
     </template>
 
     <Matrix v-slot="props" :attrs="attrs" :b24ui="{ root: 'max-w-120' }">

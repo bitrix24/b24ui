@@ -2,28 +2,22 @@
  * Input
  * An input element to enter text.
  * ---
- * @link /api_d7/bitrix/ui/forms/common.php
- * @link /api_d7/bitrix/ui/forms/icons.php
- * @link /api_d7/bitrix/ui/forms/fields_types.php
- * @see src/theme/input-number.ts
- * @see bitrix/js/ui/..
- * @todo fix docs
  */
 
 import { fieldGroupVariantWithRoot } from './field-group'
 
 export default {
   slots: {
-    root: 'isolate relative inline-flex items-center', // remove ? w-full -> see select
+    root: 'isolate relative inline-flex items-center',
     base: [
       'px-3',
       'w-full py-0 border-0 focus:outline-none',
       'disabled:cursor-not-allowed',
-      'disabled:pointer-events-none',
+      'disabled:pointer-events-auto',
       'disabled:select-none',
       'disabled:opacity-30',
       'disabled:resize-none',
-      'appearance-none transition duration-300 ease-linear', // transition-colors
+      'appearance-none transition-colors duration-300 ease-linear',
       'text-(--ui-color-base-1)',
       'style-blurred-bg-input',
       'placeholder:text-(--ui-color-design-plain-na-content-secondary)',
@@ -113,7 +107,7 @@ export default {
       'air-primary-alert': { base: 'style-filled-alert' },
       'air-primary-copilot': { base: 'style-filled-copilot' },
       'air-primary-warning': { base: 'style-filled-warning' },
-      // @deprecate ////
+      // @deprecate This rule is deprecated and will be removed in version `3.0.0` ////
       'default': { base: 'style-old-default' },
       'danger': { base: 'style-old-danger' },
       'success': { base: 'style-old-success' },
@@ -192,7 +186,7 @@ export default {
       class: {
         base: [
           'focus-visible:border-(--b24ui-border-color)',
-          'hover:border-(--b24ui-border-color)',
+          'hover:not-disabled:not-data-disabled:border-(--b24ui-border-color)',
           'data-[state=open]:border-(--b24ui-border-color)'
         ].join(' ')
       }

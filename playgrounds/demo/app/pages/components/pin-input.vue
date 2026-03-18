@@ -28,11 +28,25 @@ const onComplete = (value: string[]) => {
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24Select v-model="attrs.color" class="w-44" :items="airColors" placeholder="Color" multiple />
-      <B24Select v-model="attrs.size" class="w-32" :items="sizes" placeholder="Size" multiple />
+      <B24Select
+        v-model="attrs.color"
+        size="xs"
+        class="w-44"
+        :items="airColors"
+        placeholder="Color"
+        multiple
+      />
+      <B24Select
+        v-model="attrs.size"
+        size="xs"
+        class="w-32"
+        :items="sizes"
+        placeholder="Size"
+        multiple
+      />
 
-      <B24Switch v-model="singleAttrs.disabled" label="Disabled" />
-      <B24Switch v-model="singleAttrs.highlight" label="Highlight" />
+      <B24Switch v-model="singleAttrs.disabled" size="xs" label="Disabled" />
+      <B24Switch v-model="singleAttrs.highlight" size="xs" label="Highlight" />
     </template>
 
     <Matrix v-slot="props" :attrs="attrs" :b24ui="{ root: 'max-w-80' }">

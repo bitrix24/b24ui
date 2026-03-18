@@ -45,18 +45,25 @@ export function useThemeMode() {
   }
 
   watch(() => colorMode.preference, (newPreference) => {
+    let isNeedFix = false
     if (newPreference === 'dark') {
       if (!isDarkMode(colorModel.value)) {
         setLastLightModel(colorModel.value)
+        colorModel.value = 'dark'
+        isNeedFix = true
       }
-      colorModel.value = 'dark'
     } else if (newPreference === 'light') {
-      colorModel.value = lastLightModel.value
+      if (isDarkMode(colorModel.value)) {
+        colorModel.value = lastLightModel.value
+        isNeedFix = true
+      }
     }
 
-    nextTick(() => {
-      colorMode.preference = colorModel.value
-    })
+    if (isNeedFix) {
+      nextTick(() => {
+        colorMode.preference = colorModel.value
+      })
+    }
   }, { immediate: true, flush: 'post' })
 
   colorMode.preference = colorModel.value

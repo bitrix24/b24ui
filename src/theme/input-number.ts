@@ -2,11 +2,7 @@
  * InputNumber
  * Input numerical values with a customizable range.
  * ---
- * @link /api_d7/bitrix/ui/forms/common.php
- * @link /api_d7/bitrix/ui/forms/fields_types.php
- * @see bitrix/js/ui/..
- * @see src/theme/input.ts
- * @todo fix docs
+ * @memo not use loading
  */
 import inputTheme from './input'
 import { fieldGroupVariantWithRoot } from './field-group'
@@ -20,10 +16,11 @@ export default () => {
       base: [
         'w-full py-0 border-0 focus:outline-none',
         'disabled:cursor-not-allowed',
-        'disabled:pointer-events-none',
+        'disabled:pointer-events-auto',
+        'disabled:select-none',
         'disabled:opacity-30',
         'disabled:resize-none',
-        'appearance-none transition duration-300 ease-linear', // transition-colors
+        'appearance-none transition-colors duration-300 ease-linear',
         'text-(--ui-color-base-1)',
         'style-blurred-bg-input',
         'placeholder:text-(--ui-color-design-plain-na-content-secondary)',
@@ -54,7 +51,7 @@ export default () => {
         'air-primary-alert': { base: 'style-filled-alert' },
         'air-primary-copilot': { base: 'style-filled-copilot' },
         'air-primary-warning': { base: 'style-filled-warning' },
-        // @deprecate ////
+        // @deprecate This rule is deprecated and will be removed in version `3.0.0` ////
         'default': { base: 'style-old-default' },
         'danger': { base: 'style-old-danger' },
         'success': { base: 'style-old-success' },
@@ -64,10 +61,6 @@ export default () => {
         'collab': { base: 'style-old-collab' },
         'ai': { base: 'style-old-ai' }
       },
-      /**
-       * @memo now get from Badge
-       */
-      // tagColor: {},
       rounded: {
         ...input.variants.rounded
       },
@@ -120,7 +113,7 @@ export default () => {
             'focus-visible:ring-1',
             'focus-visible:ring-inset',
             'focus-visible:ring-(--b24ui-border-color)',
-            'hover:ring-1 hover:ring-inset hover:ring-(--b24ui-border-color)',
+            'hover:not-disabled:not-data-disabled:ring-1 hover:not-disabled:not-data-disabled:ring-inset hover:not-disabled:not-data-disabled:ring-(--b24ui-border-color)',
             'data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color)'
           ].join(' ')
         }

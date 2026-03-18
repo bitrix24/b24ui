@@ -4,6 +4,7 @@ import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
 import TaskIcon from '@bitrix24/b24icons-vue/button/TaskIcon'
 import MicrophoneOnIcon from '@bitrix24/b24icons-vue/outline/MicrophoneOnIcon'
 import StopLIcon from '@bitrix24/b24icons-vue/outline/StopLIcon'
+import HelpIcon from '@bitrix24/b24icons-vue/main/HelpIcon'
 
 const colors = Object.keys(theme.variants.color)
 
@@ -90,9 +91,16 @@ defineShortcuts({
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24Select v-model="attrs.color" class="w-44" :items="airColors" placeholder="Color" multiple />
+      <B24Select
+        v-model="attrs.color"
+        size="xs"
+        class="w-44"
+        :items="airColors"
+        placeholder="Color"
+        multiple
+      />
 
-      <B24FormField label="Rows" name="rows" orientation="horizontal">
+      <B24FormField label="Rows" name="rows" size="xs" orientation="horizontal">
         <B24InputNumber
           v-model="singleAttrs.rows"
           class="w-20"
@@ -101,10 +109,10 @@ defineShortcuts({
         />
       </B24FormField>
 
-      <B24Switch v-model="singleAttrs.disabled" label="Disabled" />
-      <B24Switch v-model="singleAttrs.loading" label="Loading" />
-      <B24Switch v-model="singleAttrs.highlight" label="Highlight" />
-      <B24Switch v-model="singleAttrs.rounded" label="Rounded" />
+      <B24Switch v-model="singleAttrs.disabled" size="xs" label="Disabled" />
+      <B24Switch v-model="singleAttrs.loading" size="xs" label="Loading" />
+      <B24Switch v-model="singleAttrs.highlight" size="xs" label="Highlight" />
+      <B24Switch v-model="singleAttrs.rounded" size="xs" label="Rounded" />
     </template>
 
     <Matrix v-slot="props" :attrs="attrs" :b24ui="{ root: 'max-w-80' }">
@@ -142,46 +150,60 @@ defineShortcuts({
         class="w-full"
       />
 
-      <div class="w-full relative flex items-center gap-2 bg-(--ui-color-bg-content-secondary) rounded-xs ring-1 ring-ai-250 hover:ring-ai-350">
-        <B24Textarea
-          v-model="input"
-          autoresize
-          placeholder="Try use speech recognition..."
-          no-padding
-          no-border
-          class="flex-1 resize-none px-2.5"
-          v-bind="props"
-        />
-        <template v-if="speechIsAvailable">
-          <B24Button
-            v-if="!speechIsListening"
-            :icon="MicrophoneOnIcon"
-            color="air-tertiary-no-accent"
-            size="sm"
-            class="shrink-0"
-            @click="startDictation"
+      <div class="w-full">
+        <div class="w-full relative flex items-center gap-2 bg-(--ui-color-bg-content-secondary) rounded-xs">
+          <B24Textarea
+            v-model="input"
+            autoresize
+            placeholder="Try use speech recognition..."
+            no-padding
+            no-border
+            class="flex-1 resize-none px-2.5"
+            v-bind="props"
           />
-          <B24Button
-            v-if="speechIsListening"
-            :icon="StopLIcon"
-            color="air-secondary"
-            size="sm"
-            class="shrink-0 rounded-lg"
-            @click="stopDictation"
-          />
-        </template>
-      </div>
-      <div class="flex flex-col justify-between items-start gap-4 mt-2 px-1 text-xs text-dimmed">
-        <div class="flex items-center gap-1">
-          <span>Use en-US for speech</span>
-          <B24Kbd value="e" accent="less" size="sm" />
-          <B24Kbd value="e" accent="less" size="sm" />
+          <template v-if="speechIsAvailable">
+            <B24Button
+              v-if="!speechIsListening"
+              :icon="MicrophoneOnIcon"
+              color="air-tertiary-no-accent"
+              size="sm"
+              class="shrink-0"
+              :disabled="singleAttrs.disabled"
+              @click="startDictation"
+            />
+            <B24Button
+              v-if="speechIsListening"
+              :icon="StopLIcon"
+              color="air-secondary"
+              size="sm"
+              class="shrink-0 rounded-lg"
+              :disabled="singleAttrs.disabled"
+              @click="stopDictation"
+            />
+          </template>
         </div>
-        <div class="flex items-center gap-1">
-          <span>Use ru-RU for speech</span>
-          <B24Kbd value="r" accent="less" size="sm" />
-          <B24Kbd value="r" accent="less" size="sm" />
-        </div>
+        <B24Tooltip
+          :delay-duration="100"
+          :content="{ side: 'right' }"
+        >
+          <template #content>
+            <div class="text-pretty max-w-[200px] flex flex-col items-start gap-2">
+              <div class="flex flex-row items-center gap-1">
+                <p>RU Locale:</p>
+                <B24Kbd value="r" accent="less" size="sm" />
+                <p>+</p>
+                <B24Kbd value="r" accent="less" size="sm" />
+              </div>
+              <div class="flex flex-row items-center gap-1">
+                <p>EN Locale:</p>
+                <B24Kbd value="e" accent="less" size="sm" />
+                <p>+</p>
+                <B24Kbd value="e" accent="less" size="sm" />
+              </div>
+            </div>
+          </template>
+          <HelpIcon class="size-5 cursor-help" />
+        </B24Tooltip>
       </div>
     </Matrix>
   </PlaygroundPage>
