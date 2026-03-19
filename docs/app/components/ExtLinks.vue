@@ -5,13 +5,13 @@ const { framework } = useFrameworks()
 
 const menuList = [
   {
-    label: 'b24icons',
-    to: 'https://bitrix24.github.io/b24icons/',
+    label: 'B24 Js Sdk',
+    to: 'https://bitrix24.github.io/b24jssdk/',
     target: '_blank'
   },
   {
-    label: 'b24jssdk',
-    to: 'https://bitrix24.github.io/b24jssdk/',
+    label: 'B24 Icons',
+    to: 'https://bitrix24.github.io/b24icons/',
     target: '_blank'
   }
 ]

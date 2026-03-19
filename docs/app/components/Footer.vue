@@ -13,7 +13,7 @@ const config = useRuntimeConfig()
       target="_blank"
       size="md"
     />
-    <NuxtLink :to="config.public.gitUrl" target="_blank" class="text-(length:--ui-font-size-sm) hover:underline">
+    <NuxtLink :to="config.public.gitUrl" target="_blank" class="text-legend text-(length:--ui-font-size-sm) hover:underline">
       Published under MIT License.
     </NuxtLink>
     <ProseP small accent="less">

@@ -79,7 +79,8 @@ defineShortcuts({
   </template>
   <B24DashboardGroup
     v-else
-    class="transition-[margin-right] duration-200 ease-linear will-change-[margin-right]"
+    unit="px"
+    storage="local"
     :class="[route.path.startsWith('/docs/') && 'root']"
     :style="{ marginRight: shouldPushContent ? `${assistantPanelWidth}px` : '0' }"
   >
@@ -87,11 +88,10 @@ defineShortcuts({
       id="default"
       v-model:open="open"
       v-model:collapsed="isPanelCollapsed"
-      mode="drawer"
+      mode="modal"
       :collapsible="false"
-      resizable
-      class="bg-(--ui-color-design-outline-bg-alt) backdrop-blur-md"
-      :b24ui="{ footer: 'border-t border-(--ui-color-divider-default)' }"
+      :resizable="false"
+      class="bg-(--ui-color-base-0)/10"
     >
       <template #header>
         <LogoWithVersion no-padding />
@@ -99,17 +99,17 @@ defineShortcuts({
 
       <template #default="{ collapsed }">
         <FrameworkTabs v-if="!collapsed " />
-        <div v-if="!collapsed && isSearchActive" class="ps-[20px] pe-xs rtl:ps-xs rtl:pe-[20px] pb-[12px]">
+        <div v-if="!collapsed && isSearchActive" class="pb-[12px]">
           <B24Input ref="input" v-model="searchTerm" placeholder="Filter..." class="group">
             <template #trailing>
-              <B24Kbd value="/" dd-class="ring-(--ui-color-design-plain-na-content-secondary) bg-transparent text-muted" />
+              <B24Kbd value="/" />
             </template>
           </B24Input>
         </div>
         <B24ContentSearchButton
           v-else
           :collapsed="collapsed"
-          class="ms-4"
+          class="opacity-70 hover:opacity-100"
         />
 
         <B24NavigationMenu
@@ -128,7 +128,7 @@ defineShortcuts({
           orientation="vertical"
           tooltip
           popover
-          :b24ui="{ linkLeadingBadge: 'mt-auto -top-[4px] left-auto -right-[50px]  bg-blue-500' }"
+          :b24ui="{ linkLeadingBadge: 'mt-auto -top-[4px] left-auto -right-[50px] bg-blue-500' }"
         />
       </template>
 

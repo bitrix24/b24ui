@@ -357,7 +357,7 @@ exports[`NavigationMenu > renders with content orientation vertical correctly 2`
 "<nav data-collapsed="false" data-component="section" data-slot="root" class="relative flex [&amp;>div]:min-w-0 font-[family-name:var(--ui-font-family-secondary)] flex-col w-full ps-0 pe-0 rtl:pe-0 rtl:ps-0" data-orientation="vertical" dir="ltr" data-reka-navigation-menu="">
   <ul data-slot="list" class="isolate min-w-0 flex flex-col">
     <li data-state="closed" data-orientation="vertical" data-slot="item" class="min-w-0 mt-(--menu-item-block-stack-space) data-[state=open]:rounded-(--menu-item-border-radius) data-[state=open]:border-(length:--leftmenu-group-stroke-weight) data-[state=open]:border-(--leftmenu-group-stroke) data-[state=open]:bg-(--leftmenu-group-bg)">
-      <div data-slot="label" class="w-full h-[22px] overflow-hidden mt-[10px] opacity-70 text-(length:--ui-font-size-sm)"><span data-slot="linkLabelWrapper" class="flex items-center justify-between rtl:flex-row-reverse relative h-[22px]"><!--v-if--><!--v-if--><!--v-if--><span data-slot="linkLabel" class="truncate ms-[9px]">Links</span>
+      <div data-slot="label" class="w-full h-[22px] overflow-hidden mt-[10px] opacity-70 text-legend text-(length:--ui-font-size-sm)"><span data-slot="linkLabelWrapper" class="flex items-center justify-between rtl:flex-row-reverse relative h-[22px]"><!--v-if--><!--v-if--><!--v-if--><span data-slot="linkLabel" class="truncate ms-[9px]">Links</span>
         <!--v-if--></span>
         <!--v-if-->
       </div>
@@ -1089,7 +1089,7 @@ exports[`NavigationMenu > renders with orientation vertical correctly 1`] = `
 "<nav data-collapsed="false" data-component="section" data-slot="root" class="relative flex [&amp;>div]:min-w-0 font-[family-name:var(--ui-font-family-secondary)] flex-col w-full ps-0 pe-0 rtl:pe-0 rtl:ps-0" data-orientation="vertical" dir="ltr" data-reka-navigation-menu="">
   <ul data-slot="list" class="isolate min-w-0 flex flex-col">
     <li data-state="closed" data-orientation="vertical" data-slot="item" class="min-w-0 mt-(--menu-item-block-stack-space) data-[state=open]:rounded-(--menu-item-border-radius) data-[state=open]:border-(length:--leftmenu-group-stroke-weight) data-[state=open]:border-(--leftmenu-group-stroke) data-[state=open]:bg-(--leftmenu-group-bg)">
-      <div data-slot="label" class="w-full h-[22px] overflow-hidden mt-[10px] opacity-70 text-(length:--ui-font-size-sm)"><span data-slot="linkLabelWrapper" class="flex items-center justify-between rtl:flex-row-reverse relative h-[22px]"><!--v-if--><!--v-if--><!--v-if--><span data-slot="linkLabel" class="truncate ms-[9px]">Links</span>
+      <div data-slot="label" class="w-full h-[22px] overflow-hidden mt-[10px] opacity-70 text-legend text-(length:--ui-font-size-sm)"><span data-slot="linkLabelWrapper" class="flex items-center justify-between rtl:flex-row-reverse relative h-[22px]"><!--v-if--><!--v-if--><!--v-if--><span data-slot="linkLabel" class="truncate ms-[9px]">Links</span>
         <!--v-if--></span>
         <!--v-if-->
       </div>

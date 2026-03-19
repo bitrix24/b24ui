@@ -153,7 +153,7 @@ onMounted(() => {
 <template>
   <B24DashboardPanel
     id="doc"
-    :b24ui="{ body: 'p-0 lg:px-2 lg:py-4 items-stretch justify-between scrollbar-transparent scrollbar-both-edges' }"
+    :b24ui="{ body: 'md:pt-6 items-stretch justify-between scrollbar-transparent scrollbar-both-edges' }"
   >
     <template #header>
       <Header />

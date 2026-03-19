@@ -6,13 +6,10 @@ links:
   - label: GitHub
     iconName: GitHubIcon
     to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/SidebarLayout.vue
-  - label: Demo
-    iconName: DemonstrationOnIcon
-    to: https://bitrix24.github.io/b24ui/demo/
 ---
 
 ::warning
-This component is deprecated and will be removed in version `3.0.0`
+This component is `deprecated` and will be removed in version `3.0.0`
 ::
 
 ## Usage

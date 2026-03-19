@@ -18,7 +18,7 @@ export default {
     list: 'isolate min-w-0',
     label: [
       'w-full h-[22px] overflow-hidden mt-[10px]',
-      'opacity-70 text-(length:--ui-font-size-sm)'
+      'opacity-70 text-legend text-(length:--ui-font-size-sm)'
     ].join(' '),
     item: 'min-w-0',
     link: [
