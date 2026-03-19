@@ -10,10 +10,11 @@ export default {
     root: 'relative overflow-auto',
     base: [
       'min-w-full',
-      'font-[family-name:var(--ui-font-family-primary)]'
+      'font-[family-name:var(--ui-font-family-primary)]',
+      'table-fixed border-separate border-spacing-0'
     ].join(' '),
     caption: 'sr-only',
-    thead: 'relative',
+    thead: 'relative [&>tr]:[&>th]:h-[45px]',
     tbody: [
       'isolate',
       '[&>tr]:data-[selectable=true]:hover:bg-(--ui-color-bg-content-secondary)',
@@ -21,7 +22,8 @@ export default {
       '[&>tr]:data-[selectable=true]:focus-visible:outline-(--ui-color-accent-soft-element-blue)',
       '[&>tr]:data-[selected=true]:hover:bg-(--ui-color-bg-content-secondary)',
       'light:[&>tr]:data-[selected=true]:hover:bg-(#eff7d7)',
-      '[&>tr]:data-[selected=true]:focus-visible:outline-(--ui-color-accent-soft-element-blue)'
+      '[&>tr]:data-[selected=true]:focus-visible:outline-(--ui-color-accent-soft-element-blue)',
+      '[&>tr]:last:[&>td]:border-b-0'
     ].join(' '),
     tfoot: 'relative',
     tr: [
@@ -29,14 +31,15 @@ export default {
       'light:data-[selected=true]:bg-[#f4fcde]'
     ].join(' '),
     th: [
-      'px-4 py-3.5',
+      'px-4 py-2',
       'text-(length:--ui-font-size-md)/(--ui-font-line-height-md)',
       'text-(--b24ui-typography-label-color)',
       'whitespace-nowrap',
       'text-left rtl:text-right',
       'font-(--ui-font-weight-normal)',
       '[&:has([role=checkbox])]:pe-0',
-      'align-middle'
+      'align-middle',
+      'border-b border-(--ui-color-divider-default)'
     ].join(' '),
     td: [
       'p-4',
@@ -45,7 +48,8 @@ export default {
       'whitespace-nowrap',
       'font-(--ui-font-weight-normal)',
       '[&:has([role=checkbox])]:pe-0',
-      'align-middle'
+      'align-middle',
+      'border-b border-(--ui-color-divider-default)'
     ].join(' '),
     separator: [
       'absolute z-1 left-0',
