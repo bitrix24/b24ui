@@ -1,14 +1,27 @@
 # Changelog
 
-## [2.4.2](https://github.com/bitrix24/b24ui/compare/v2.4.1...v2.4.2) (2026-03-xx)
+## [2.4.2](https://github.com/bitrix24/b24ui/compare/v2.4.1...v2.4.2) (2026-03-19)
 
 ### Features
 
+* **platform** added utilities for determining the execution environment
+* **DashboardToolbar** improve theme
+* **NavigationMenu** improve theme and colors for `light`
+* **DashboardNavbar** improve theme
+* **DropdownMenu** improve theme
+* **DashboardSidebar** improve theme
+* **DashboardPanel** improve theme
+* **Table** improve theme
+
 ### Bug Fixes
 
-* fix(Input|Textarea): padding for `noPadding+loading`
-* fix(components): improve `disabled` state
-* fix(CommandPalette): improve `back` button and divide color
+* **Input|Textarea:** padding for `noPadding+loading`
+* **components:** improve `disabled` state
+* **CommandPalette:** improve `back` button and divide color
+
+### Chore
+* **platform:** improve
+* **air:** mark `--air-theme-bg-image-blurred` as `deprecate`. Now we use something like `backdrop-blur-md` or `backdrop-blur-md`
 
 ## [2.4.1](https://github.com/bitrix24/b24ui/compare/v2.4.0...v2.4.1) (2026-03-04)
 
