@@ -205,13 +205,16 @@ export function getTemplates(options: ModuleOptions, uiConfig: Record<string, an
       const sources = await generateSources()
       const prefix = options.theme?.prefix ? `${options.theme.prefix}:` : ''
 
+      /**
+       * @memo we remove `${prefix}text-(--b24ui-typography-legend-color)`
+       */
       return `${sources}
 
 @layer base {
   body {
     scrollbar-gutter: stable;
     background: var(--air-theme-background);
-    @apply ${prefix}antialiased ${prefix}font-(family-name:--ui-font-family-system) ${prefix}text-(--b24ui-typography-legend-color) ${prefix}scheme-light ${prefix}dark:scheme-dark ${prefix}edge-light:scheme-light ${prefix}edge-dark:scheme-light;
+    @apply ${prefix}antialiased ${prefix}font-(family-name:--ui-font-family-system) ${prefix}scheme-light ${prefix}dark:scheme-dark ${prefix}edge-light:scheme-light ${prefix}edge-dark:scheme-light;
   }
 
   /* @deprecate This rule is deprecated and will be removed in version 3.0.0 */
