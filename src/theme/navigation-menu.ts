@@ -113,7 +113,11 @@ export default {
           'menu-item-horizontal',
           'h-[32px] min-h-[32px]',
           'px-[10px]',
-          'border border-(--menu-item-background) hover:border-(--ui-color-design-plain-na-focused-stroke) data-[state=open]:bg-(--ui-color-design-plain-na-focused-stroke)'
+          'leading-7',
+          'border border-(--menu-item-background) hover:border-(--ui-color-design-plain-na-focused-stroke) data-[state=open]:bg-(--ui-color-design-plain-na-focused-stroke)',
+          'bitrix-mobile:px-3',
+          'bitrix-mobile:h-[34px] bitrix-mobile:min-h-[34px]',
+          'bitrix-mobile:text-(--ui-color-base-4) bitrix-mobile:border-(--ui-color-base-7)'
         ].join(' '),
         linkTrailingIcon: 'size-[16px]',
         linkLeadingBadge: '-top-[6px] -right-[14px] -translate-x-1/2',
@@ -132,7 +136,7 @@ export default {
         content: 'absolute top-0 left-0 w-full max-h-[70vh] overflow-y-auto scrollbar-thin scrollbar-transparent'
       },
       vertical: {
-        root: 'flex-col w-full ps-(--menu-items-block-padding-x) rtl:pe-(--menu-items-block-padding-x)',
+        root: 'flex-col w-full ps-0 pe-0 rtl:pe-0 rtl:ps-0', // ps-(--menu-items-block-padding-x) rtl:pe-(--menu-items-block-padding-x)
         list: 'flex flex-col',
         item: [
           'mt-(--menu-item-block-stack-space)',
@@ -176,8 +180,14 @@ export default {
     },
     active: {
       true: {
+        /**
+         * @memo Special color for `light` mode - see b24.settings.
+         * @see src/runtime/air-design-tokens/components/navigation-menu.css
+         */
+        link: 'light:font-semibold',
         childLink: [
-          'text-(--ui-color-accent-main-primary) hover:text-(--ui-color-accent-main-primary)' // [#0075ff]
+          'text-(--ui-color-accent-main-primary)',
+          'hover:text-(--ui-color-accent-main-primary)'
         ].join(' '),
         childLinkIcon: 'text-(--ui-color-accent-main-primary)'
       },
@@ -262,7 +272,10 @@ export default {
       active: true,
       orientation: 'horizontal',
       class: {
-        link: 'menu-item-horizontal-active border-(--menu-item-border)'
+        link: [
+          'leading-7 menu-item-horizontal-active border-(--menu-item-border)',
+          'bitrix-mobile:text-(--ui-color-base-2) bitrix-mobile:bg-transparent bitrix-mobile:border-(--ui-color-base-2)'
+        ].join(' ')
       }
     },
     {
