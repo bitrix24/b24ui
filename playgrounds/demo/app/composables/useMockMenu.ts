@@ -204,6 +204,9 @@ export function useMockMenu() {
     ],
     [
       {
+        type: 'separator' as DropdownMenuItem['type']
+      },
+      {
         label: 'Logout',
         icon: CrossCircle50Icon,
         kbds: ['shift', 'q'],

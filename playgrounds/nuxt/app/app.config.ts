@@ -12,5 +12,6 @@ export default defineAppConfig({
   b24ui: {},
   colorMode: true,
   colorModeInitialValue: 'edge-dark' as const,
-  colorModeTypeLight: 'light' as const
+  colorModeTypeLight: 'light' as const,
+  colorModeStorageKey: 'playground-nuxt' as const
 })

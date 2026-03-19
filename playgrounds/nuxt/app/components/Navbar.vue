@@ -36,13 +36,8 @@ defineShortcuts({
       left: 'shrink-0',
       right: 'shrink overflow-x-auto py-2'
     }"
-    class="absolute top-0 inset-x-0 z-5 bg-(--ui-color-bg-content-primary)"
+    class="absolute top-0 inset-x-0 z-5 backdrop-blur-md bg-(--ui-color-base-0)/5"
   >
-    <template #toggle>
-      <B24DashboardSidebarToggle size="sm" class="ring-(--ui-color-divider-default)" />
-      <B24DashboardSidebarCollapse size="sm" class="ring-(--ui-color-divider-default)" />
-    </template>
-
     <template #leading>
       <B24FieldGroup size="sm">
         <B24Button

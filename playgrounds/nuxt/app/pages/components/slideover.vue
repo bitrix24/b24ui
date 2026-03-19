@@ -1,4 +1,5 @@
 <script setup lang="ts">
+/* @deprecate This page is deprecated and will be removed in version 3.0.0 */
 import theme from '#build/b24ui/slideover'
 import { defineAsyncComponent } from 'vue'
 import Placeholder from '../../components/Placeholder.vue'

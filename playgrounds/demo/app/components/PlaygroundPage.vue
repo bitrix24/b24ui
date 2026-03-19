@@ -36,7 +36,7 @@ const { cardVariant, cardBorderClass } = usePlaygroundCardStyles(playgroundConte
     :b24ui="{
       ...b24ui,
       root: [playgroundContext.isUseBg.value ? 'backdrop-blur-xl' : '', 'overflow-clip border-0 border-t-2 lg:border-t-0 rounded-none lg:rounded-(--ui-border-radius-md)', b24ui?.root],
-      body: ['mt-[22px] flex items-stretch flex-wrap justify-center md:justify-start gap-4 min-h-0 p-4', b24ui?.body]
+      body: ['flex items-stretch flex-wrap justify-center md:justify-start gap-4 min-h-0 p-4', b24ui?.body]
     }"
   >
     <slot v-bind="{ playgroundContext, cardVariant, cardBorderClass }" />

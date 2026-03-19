@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import B24Icon from '@bitrix24/b24icons-vue/main/B24Icon'
+import HamburgerMenuIcon from '@bitrix24/b24icons-vue/outline/HamburgerMenuIcon'
 
 const route = useRoute()
 const router = useRouter()
@@ -38,21 +38,21 @@ defineShortcuts({
   <B24App :toaster="appConfig.toaster" :dir="appConfig.dir">
     <B24DashboardGroup unit="px" storage="local">
       <B24DashboardSidebar
+        id="default"
         mode="modal"
-        class="bg-(--ui-color-design-outline-bg-alt) backdrop-blur-md"
-        resizable
         collapsible
-        :toggle="{ size: 'sm', class: 'ring-(--ui-color-divider-default)' }"
+        resizable
+        class="light:bg-(--ui-color-base-0)/5"
       >
         <template #header="{ collapsed }">
+          <B24DashboardSidebarCollapse :icon="HamburgerMenuIcon" class="size-9 px-2" />
           <NuxtLink to="/" class="text-(--b24ui-typography-label-color) inline-flex" aria-label="Home">
             <Logo v-if="!collapsed" class="h-5 w-auto shrink-0 text-(--b24ui-typography-label-color)" />
-            <B24Icon v-else class="size-10 text-[#2fc6f6] mx-auto" />
           </NuxtLink>
         </template>
 
         <template #default="{ collapsed }">
-          <div v-if="!collapsed" class="ms-4 flex items-center">
+          <div v-if="!collapsed" class="flex items-center">
             <B24Tooltip :content="{ side: 'bottom' }" text="Switch color mode" :kbds="['shift', 'D']">
               <B24RadioGroup
                 v-model="colorModel"
@@ -69,7 +69,7 @@ defineShortcuts({
 
           <B24DashboardSearchButton
             :collapsed="collapsed"
-            class="ms-4"
+            class="opacity-70 hover:opacity-100"
           />
 
           <B24NavigationMenu
@@ -80,14 +80,13 @@ defineShortcuts({
             popover
           />
 
-          <B24Separator type="dashed" class="ps-4" />
-
           <B24NavigationMenu
             :collapsed="collapsed"
             :items="components"
             orientation="vertical"
             tooltip
             popover
+            class="mt-auto"
           />
         </template>
       </B24DashboardSidebar>
@@ -96,7 +95,7 @@ defineShortcuts({
         :b24ui="{
           body: [
             !route.path.startsWith('/components') && 'justify-center items-center',
-            route.path.startsWith('/components') && 'mt-15',
+            route.path.startsWith('/components') && 'mt-17',
             route.path.startsWith('/components/scroll-area') && 'p-0!'
           ]
         }"
