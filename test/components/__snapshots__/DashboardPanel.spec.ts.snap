@@ -2,8 +2,8 @@
 
 exports[`DashboardPanel > renders with b24ui correctly 1`] = `
 "<div class="fixed inset-0 flex overflow-hidden">
-  <div id="dashboard-panel-v-0-0-0" data-dragging="false" data-slot="root" class="relative flex flex-col min-w-0 min-h-svh lg:not-last:border-e lg:not-last:border-(--ui-color-divider-default) flex-1">
-    <div data-slot="body" class="flex flex-col gap-4 sm:gap-6 flex-1 overflow-y-auto lg:p-4 scrollbar-thin p-8"></div>
+  <div id="dashboard-panel-v-0-0-0" data-dragging="false" data-slot="root" class="relative flex flex-col min-w-0 min-h-svh lg:not-last:border-e-0 lg:not-last:border-(--ui-color-divider-default) flex-1">
+    <div data-slot="body" class="flex flex-col gap-4 sm:gap-6 flex-1 overflow-y-auto sm:p-4 sm:pt-0 scrollbar-thin p-8"></div>
   </div>
   <!--v-if-->
 </div>"
@@ -11,8 +11,8 @@ exports[`DashboardPanel > renders with b24ui correctly 1`] = `
 
 exports[`DashboardPanel > renders with body slot correctly 1`] = `
 "<div class="fixed inset-0 flex overflow-hidden">
-  <div id="dashboard-panel-v-0-0-0" data-dragging="false" data-slot="root" class="relative flex flex-col min-w-0 min-h-svh lg:not-last:border-e lg:not-last:border-(--ui-color-divider-default) flex-1">
-    <div data-slot="body" class="flex flex-col gap-4 sm:gap-6 flex-1 overflow-y-auto pt-2.5 lg:p-4 scrollbar-thin">Body slot</div>
+  <div id="dashboard-panel-v-0-0-0" data-dragging="false" data-slot="root" class="relative flex flex-col min-w-0 min-h-svh lg:not-last:border-e-0 lg:not-last:border-(--ui-color-divider-default) flex-1">
+    <div data-slot="body" class="flex flex-col gap-4 sm:gap-6 flex-1 overflow-y-auto sm:p-4 sm:pt-0 scrollbar-thin">Body slot</div>
   </div>
   <!--v-if-->
 </div>"
@@ -20,8 +20,8 @@ exports[`DashboardPanel > renders with body slot correctly 1`] = `
 
 exports[`DashboardPanel > renders with class correctly 1`] = `
 "<div class="fixed inset-0 flex overflow-hidden">
-  <div id="dashboard-panel-v-0-0-0" data-dragging="false" data-slot="root" class="relative flex flex-col min-w-0 min-h-svh lg:not-last:border-e lg:not-last:border-(--ui-color-divider-default) flex-1 lg:border-none">
-    <div data-slot="body" class="flex flex-col gap-4 sm:gap-6 flex-1 overflow-y-auto pt-2.5 lg:p-4 scrollbar-thin"></div>
+  <div id="dashboard-panel-v-0-0-0" data-dragging="false" data-slot="root" class="relative flex flex-col min-w-0 min-h-svh lg:not-last:border-e-0 lg:not-last:border-(--ui-color-divider-default) flex-1 lg:border-none">
+    <div data-slot="body" class="flex flex-col gap-4 sm:gap-6 flex-1 overflow-y-auto sm:p-4 sm:pt-0 scrollbar-thin"></div>
   </div>
   <!--v-if-->
 </div>"
@@ -29,15 +29,15 @@ exports[`DashboardPanel > renders with class correctly 1`] = `
 
 exports[`DashboardPanel > renders with default slot correctly 1`] = `
 "<div class="fixed inset-0 flex overflow-hidden">
-  <div id="dashboard-panel-v-0-0-0" data-dragging="false" data-slot="root" class="relative flex flex-col min-w-0 min-h-svh lg:not-last:border-e lg:not-last:border-(--ui-color-divider-default) flex-1">Default slot</div>
+  <div id="dashboard-panel-v-0-0-0" data-dragging="false" data-slot="root" class="relative flex flex-col min-w-0 min-h-svh lg:not-last:border-e-0 lg:not-last:border-(--ui-color-divider-default) flex-1">Default slot</div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`DashboardPanel > renders with defaultSize correctly 1`] = `
 "<div class="fixed inset-0 flex overflow-hidden">
-  <div id="dashboard-panel-v-0-0-0" data-dragging="false" data-slot="root" class="relative flex flex-col min-w-0 min-h-svh lg:not-last:border-e lg:not-last:border-(--ui-color-divider-default) shrink-0 w-full lg:w-(--width)" style="--width: 50px;">
-    <div data-slot="body" class="flex flex-col gap-4 sm:gap-6 flex-1 overflow-y-auto pt-2.5 lg:p-4 scrollbar-thin"></div>
+  <div id="dashboard-panel-v-0-0-0" data-dragging="false" data-slot="root" class="relative flex flex-col min-w-0 min-h-svh lg:not-last:border-e-0 lg:not-last:border-(--ui-color-divider-default) shrink-0 w-full lg:w-(--width)" style="--width: 50px;">
+    <div data-slot="body" class="flex flex-col gap-4 sm:gap-6 flex-1 overflow-y-auto sm:p-4 sm:pt-0 scrollbar-thin"></div>
   </div>
   <!--v-if-->
 </div>"
@@ -45,8 +45,8 @@ exports[`DashboardPanel > renders with defaultSize correctly 1`] = `
 
 exports[`DashboardPanel > renders with footer slot correctly 1`] = `
 "<div class="fixed inset-0 flex overflow-hidden">
-  <div id="dashboard-panel-v-0-0-0" data-dragging="false" data-slot="root" class="relative flex flex-col min-w-0 min-h-svh lg:not-last:border-e lg:not-last:border-(--ui-color-divider-default) flex-1">
-    <div data-slot="body" class="flex flex-col gap-4 sm:gap-6 flex-1 overflow-y-auto pt-2.5 lg:p-4 scrollbar-thin"></div>Footer slot
+  <div id="dashboard-panel-v-0-0-0" data-dragging="false" data-slot="root" class="relative flex flex-col min-w-0 min-h-svh lg:not-last:border-e-0 lg:not-last:border-(--ui-color-divider-default) flex-1">
+    <div data-slot="body" class="flex flex-col gap-4 sm:gap-6 flex-1 overflow-y-auto sm:p-4 sm:pt-0 scrollbar-thin"></div>Footer slot
   </div>
   <!--v-if-->
 </div>"
@@ -54,7 +54,7 @@ exports[`DashboardPanel > renders with footer slot correctly 1`] = `
 
 exports[`DashboardPanel > renders with header slot correctly 1`] = `
 "<div class="fixed inset-0 flex overflow-hidden">
-  <div id="dashboard-panel-v-0-0-0" data-dragging="false" data-slot="root" class="relative flex flex-col min-w-0 min-h-svh lg:not-last:border-e lg:not-last:border-(--ui-color-divider-default) flex-1">Header slot<div data-slot="body" class="flex flex-col gap-4 sm:gap-6 flex-1 overflow-y-auto pt-2.5 lg:p-4 scrollbar-thin"></div>
+  <div id="dashboard-panel-v-0-0-0" data-dragging="false" data-slot="root" class="relative flex flex-col min-w-0 min-h-svh lg:not-last:border-e-0 lg:not-last:border-(--ui-color-divider-default) flex-1">Header slot<div data-slot="body" class="flex flex-col gap-4 sm:gap-6 flex-1 overflow-y-auto sm:p-4 sm:pt-0 scrollbar-thin"></div>
   </div>
   <!--v-if-->
 </div>"
@@ -62,8 +62,8 @@ exports[`DashboardPanel > renders with header slot correctly 1`] = `
 
 exports[`DashboardPanel > renders with id correctly 1`] = `
 "<div class="fixed inset-0 flex overflow-hidden">
-  <div id="dashboard-panel-test" data-dragging="false" data-slot="root" class="relative flex flex-col min-w-0 min-h-svh lg:not-last:border-e lg:not-last:border-(--ui-color-divider-default) flex-1">
-    <div data-slot="body" class="flex flex-col gap-4 sm:gap-6 flex-1 overflow-y-auto pt-2.5 lg:p-4 scrollbar-thin"></div>
+  <div id="dashboard-panel-test" data-dragging="false" data-slot="root" class="relative flex flex-col min-w-0 min-h-svh lg:not-last:border-e-0 lg:not-last:border-(--ui-color-divider-default) flex-1">
+    <div data-slot="body" class="flex flex-col gap-4 sm:gap-6 flex-1 overflow-y-auto sm:p-4 sm:pt-0 scrollbar-thin"></div>
   </div>
   <!--v-if-->
 </div>"
@@ -71,8 +71,8 @@ exports[`DashboardPanel > renders with id correctly 1`] = `
 
 exports[`DashboardPanel > renders with maxSize correctly 1`] = `
 "<div class="fixed inset-0 flex overflow-hidden">
-  <div id="dashboard-panel-v-0-0-0" data-dragging="false" data-slot="root" class="relative flex flex-col min-w-0 min-h-svh lg:not-last:border-e lg:not-last:border-(--ui-color-divider-default) flex-1">
-    <div data-slot="body" class="flex flex-col gap-4 sm:gap-6 flex-1 overflow-y-auto pt-2.5 lg:p-4 scrollbar-thin"></div>
+  <div id="dashboard-panel-v-0-0-0" data-dragging="false" data-slot="root" class="relative flex flex-col min-w-0 min-h-svh lg:not-last:border-e-0 lg:not-last:border-(--ui-color-divider-default) flex-1">
+    <div data-slot="body" class="flex flex-col gap-4 sm:gap-6 flex-1 overflow-y-auto sm:p-4 sm:pt-0 scrollbar-thin"></div>
   </div>
   <!--v-if-->
 </div>"
@@ -80,8 +80,8 @@ exports[`DashboardPanel > renders with maxSize correctly 1`] = `
 
 exports[`DashboardPanel > renders with minSize correctly 1`] = `
 "<div class="fixed inset-0 flex overflow-hidden">
-  <div id="dashboard-panel-v-0-0-0" data-dragging="false" data-slot="root" class="relative flex flex-col min-w-0 min-h-svh lg:not-last:border-e lg:not-last:border-(--ui-color-divider-default) flex-1">
-    <div data-slot="body" class="flex flex-col gap-4 sm:gap-6 flex-1 overflow-y-auto pt-2.5 lg:p-4 scrollbar-thin"></div>
+  <div id="dashboard-panel-v-0-0-0" data-dragging="false" data-slot="root" class="relative flex flex-col min-w-0 min-h-svh lg:not-last:border-e-0 lg:not-last:border-(--ui-color-divider-default) flex-1">
+    <div data-slot="body" class="flex flex-col gap-4 sm:gap-6 flex-1 overflow-y-auto sm:p-4 sm:pt-0 scrollbar-thin"></div>
   </div>
   <!--v-if-->
 </div>"
@@ -89,8 +89,8 @@ exports[`DashboardPanel > renders with minSize correctly 1`] = `
 
 exports[`DashboardPanel > renders with resizable correctly 1`] = `
 "<div class="fixed inset-0 flex overflow-hidden">
-  <div id="dashboard-panel-v-0-0-0" data-dragging="false" data-slot="root" class="relative flex flex-col min-w-0 min-h-svh lg:not-last:border-e lg:not-last:border-(--ui-color-divider-default) flex-1">
-    <div data-slot="body" class="flex flex-col gap-4 sm:gap-6 flex-1 overflow-y-auto pt-2.5 lg:p-4 scrollbar-thin"></div>
+  <div id="dashboard-panel-v-0-0-0" data-dragging="false" data-slot="root" class="relative flex flex-col min-w-0 min-h-svh lg:not-last:border-e-0 lg:not-last:border-(--ui-color-divider-default) flex-1">
+    <div data-slot="body" class="flex flex-col gap-4 sm:gap-6 flex-1 overflow-y-auto sm:p-4 sm:pt-0 scrollbar-thin"></div>
   </div>
   <div role="separator" class="hidden lg:block touch-none select-none cursor-ew-resize relative before:absolute before:inset-y-0 before:-left-1.5 before:-right-1.5 before:z-1" aria-controls="dashboard-panel-v-0-0-0" data-slot="handle"></div>
 </div>"
@@ -98,8 +98,8 @@ exports[`DashboardPanel > renders with resizable correctly 1`] = `
 
 exports[`DashboardPanel > renders with resize-handle slot correctly 1`] = `
 "<div class="fixed inset-0 flex overflow-hidden">
-  <div id="dashboard-panel-v-0-0-0" data-dragging="false" data-slot="root" class="relative flex flex-col min-w-0 min-h-svh lg:not-last:border-e lg:not-last:border-(--ui-color-divider-default) flex-1">
-    <div data-slot="body" class="flex flex-col gap-4 sm:gap-6 flex-1 overflow-y-auto pt-2.5 lg:p-4 scrollbar-thin"></div>
+  <div id="dashboard-panel-v-0-0-0" data-dragging="false" data-slot="root" class="relative flex flex-col min-w-0 min-h-svh lg:not-last:border-e-0 lg:not-last:border-(--ui-color-divider-default) flex-1">
+    <div data-slot="body" class="flex flex-col gap-4 sm:gap-6 flex-1 overflow-y-auto sm:p-4 sm:pt-0 scrollbar-thin"></div>
   </div>Resize handle slot
 </div>"
 `;
