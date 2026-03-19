@@ -214,6 +214,7 @@ export function getTemplates(options: ModuleOptions, uiConfig: Record<string, an
     @apply ${prefix}antialiased ${prefix}font-(family-name:--ui-font-family-system) ${prefix}text-(--b24ui-typography-legend-color) ${prefix}scheme-light ${prefix}dark:scheme-dark ${prefix}edge-light:scheme-light ${prefix}edge-dark:scheme-light;
   }
 
+  /* @deprecate This rule is deprecated and will be removed in version 3.0.0 */
   .sidebar-layout.--inner {
     background: var(--air-theme-background);
   }

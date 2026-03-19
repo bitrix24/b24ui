@@ -40,6 +40,7 @@ const twMergeConfig = {
       'style-old-collab', 'style-old-ai'
     ],
     'b24-bg': [
+      // @deprecate This rule (style-blurred-bg) is deprecated and will be removed in version `3.0.0`
       'style-blurred-bg', 'style-blurred-bg-input', 'style-transparent-bg'
     ]
   },

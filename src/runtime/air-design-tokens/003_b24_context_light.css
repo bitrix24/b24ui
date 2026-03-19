@@ -3,8 +3,10 @@
   :host,
   .light,
   .base-mode {
-    --air-theme-bg-image: none;
+    /* @deprecate This rule is deprecated and will be removed in version 3.0.0 */
     --air-theme-bg-image-blurred: none;
+
+    --air-theme-bg-image: none;
     --air-theme-bg-position: 0 0;
     --air-theme-bg-size: auto;
     --air-theme-bg-repeat: repeat;

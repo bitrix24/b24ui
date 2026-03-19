@@ -1,12 +1,8 @@
 /**
+ * @deprecate This component is deprecated and will be removed in version `3.0.0`
  * SidebarLayout
  * You incorporate a sidebar in the slider and CRM entity tab embedding. Overall, it's stylish, trendy, and youthful
  * ---
- * @todo: docs
- * @todo: test
- * @todo: playground
- * @todo: docs add in-data-[content=light]:bg-red-500 group-data-[content=light]/layout-content:bg-red-500
- * @todo: docs add inner {true|false}
  */
 
 export default {
@@ -20,6 +16,7 @@ export default {
     ].join(' '),
     sidebar: [
       // @memo use src/runtime/air-design-tokens/components/navigation-menu.css
+      // @deprecate This rule (air-sidebar) is deprecated and will be removed in version `3.0.0` ////
       'air-sidebar',
       'before:absolute before:inset-0 before:z-[-1]',
       'before:bg-(--leftmenu-bg-expanded)',
@@ -47,6 +44,7 @@ export default {
     ].join(' '),
     header: [
       // @memo use src/runtime/air-design-tokens/components/navigation-menu.css
+      // @deprecate This rule (air-header) is deprecated and will be removed in version `3.0.0` ////
       'air-header',
       'px-(--content-area-shift) min-h-(--topbar-height)',
       'flex items-center gap-x-1'
