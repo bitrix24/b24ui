@@ -117,7 +117,10 @@ export default {
           'border border-(--menu-item-background) hover:border-(--ui-color-design-plain-na-focused-stroke) data-[state=open]:bg-(--ui-color-design-plain-na-focused-stroke)',
           'bitrix-mobile:px-3',
           'bitrix-mobile:h-[34px] bitrix-mobile:min-h-[34px]',
-          'bitrix-mobile:text-(--ui-color-base-4) bitrix-mobile:border-(--ui-color-base-7)'
+          'bitrix-mobile:text-(--ui-color-base-4) bitrix-mobile:border-(--ui-color-base-7)',
+          'bitrix-mobile:leading-6 bitrix-mobile:text-(length:--ui-font-size-md)',
+          // @memo This is a temporary solution until we connect the required font.
+          'bitrix-mobile:scale-x-[0.92]'
         ].join(' '),
         linkTrailingIcon: 'size-[16px]',
         linkLeadingBadge: '-top-[6px] -right-[14px] -translate-x-1/2',
@@ -180,11 +183,7 @@ export default {
     },
     active: {
       true: {
-        /**
-         * @memo Special color for `light` mode - see b24.settings.
-         * @see src/runtime/air-design-tokens/components/navigation-menu.css
-         */
-        link: 'light:font-semibold',
+        link: '',
         childLink: [
           'text-(--ui-color-accent-main-primary)',
           'hover:text-(--ui-color-accent-main-primary)'
