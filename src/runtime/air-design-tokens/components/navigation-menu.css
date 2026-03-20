@@ -76,6 +76,11 @@
     .menu-item-vertical {
       --menu-item-background-active: var(--ui-color-design-filled-bg);
       --menu-item-color-active: var(--ui-color-base-white-fixed);
+
+      transition: color 0.17s;
+    }
+    .menu-item-vertical:hover {
+      transition-duration: 0s;
     }
     .menu-item-vertical-active {
       --menu-item-background: var(--ui-color-design-filled-bg);

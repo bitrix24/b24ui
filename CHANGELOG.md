@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.4.3](https://github.com/bitrix24/b24ui/compare/v2.4.2...v2.4.3) (2026-03-xx)
+
+### Bug Fixes
+
+* **NavigationMenu** improve theme
+
 ## [2.4.2](https://github.com/bitrix24/b24ui/compare/v2.4.1...v2.4.2) (2026-03-19)
 
 ### Features

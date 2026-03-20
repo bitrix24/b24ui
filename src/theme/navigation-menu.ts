@@ -225,7 +225,7 @@ export default {
       collapsed: false,
       class: {
         item: 'data-[state=open]:bg-(--leftmenu-group-bg)',
-        childList: '',
+        childList: 'mb-0.5',
         childItem: '',
         content: 'motion-safe:data-[state=open]:animate-[collapsible-down_200ms_ease-out] motion-safe:data-[state=closed]:animate-[collapsible-up_200ms_ease-out] overflow-hidden',
         linkLabel: 'ms-[9px]'
