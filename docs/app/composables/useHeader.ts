@@ -3,7 +3,7 @@ import PlayLIcon from '@bitrix24/b24icons-vue/outline/PlayLIcon'
 import DeveloperResourcesIcon from '@bitrix24/b24icons-vue/outline/DeveloperResourcesIcon'
 import ViewmodeCodeIcon from '@bitrix24/b24icons-vue/editor/ViewmodeCodeIcon'
 import FormattingIcon from '@bitrix24/b24icons-vue/editor/FormattingIcon'
-// import FormIcon from '@bitrix24/b24icons-vue/outline/FormIcon'
+import FormIcon from '@bitrix24/b24icons-vue/outline/FormIcon'
 // import DemonstrationOnIcon from '@bitrix24/b24icons-vue/outline/DemonstrationOnIcon'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 
@@ -30,11 +30,11 @@ export function useHeader() {
       label: 'Typography',
       to: '/docs/typography/',
       active: route.path.startsWith('/docs/typography')
+    },
+    {
+      label: 'Templates',
+      to: '/templates/'
     }
-    // {
-    //   label: 'Templates',
-    //   to: '/templates/'
-    // },
     // {
     //   label: 'Showcase',
     //   to: '/showcase/'
@@ -66,11 +66,11 @@ export function useHeader() {
       icon: FormattingIcon,
       active: route.path.startsWith('/docs/typography')
     },
-    // {
-    //   label: 'Templates',
-    //   to: '/templates/',
-    //   icon: FormIcon
-    // },
+    {
+      label: 'Templates',
+      to: '/templates/',
+      icon: FormIcon
+    },
     // {
     //   label: 'Showcase',
     //   to: '/showcase/',
