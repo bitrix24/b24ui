@@ -6,6 +6,7 @@
 
 * **NavigationMenu** improve theme
 * **DashboardSidebar** improve theme
+* **DashboardPanel** improve theme
 
 ## [2.4.2](https://github.com/bitrix24/b24ui/compare/v2.4.1...v2.4.2) (2026-03-19)
 
