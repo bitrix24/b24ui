@@ -1,42 +1,42 @@
 title: Official Bitrix24 UI Templates
 description: 'Explore ready-made templates powered by our Vue components. These templates are fully responsive, accessible, and easy to customize, so you can launch your project quickly and effortlessly.'
 hero:
-  title: Ship [faster]{.text-(--ui-color-accent-main-primary)} with :br Bitrix24 UI Templates
+  title: Ship faster with :br Bitrix24 UI Templates
   description: 'Explore ready-made templates powered by our Vue components. These templates are fully responsive, accessible, and easy to customize, so you can launch your project quickly and effortlessly.'
 navigation: false
 items:
   - title: 'Dashboard'
-      description: "A dashboard template with multi-column layout for building sophisticated app interfaces."
-      iconName: TodoIconsChartBig
-      framework: vue
-      features:
-        - title: Charts and date pickers
-          iconName: TodoIconsChartBig
-        - title: Multi-column layout
-          iconName: TodoIconsColumns3
-      deploy_links:
-        - label: Vercel
-          to: https://vercel.com/new/clone?repository-name=dashboard-vue&repository-url=sssssss&demo-url=xxxxxx&demo-title=Vue%20Dashboard%20Template&demo-description=A%20dashboard%20template%20with%20multi-column%20layout%20for%20building%20sophisticated%20app%20interfaces.
-          target: _blank
-          iconName: TodoIconsVercel
-        - label: Netlify
-          to: https://app.netlify.com/start/deploy?repository=https://github.com/bitrix24/templates-dashboard-vue
-          target: _blank
-          iconName: TodoIconsNetlify
-      links:
-        - label: Preview
-          to: https://bitrix24.github.io/templates-dashboard-vue/
-          target: _blank
-          iconName: TodoIconsLink
-      open_links:
-        - label: v0
-          to: https://v0.app/chat/api/open?url=https://github.com/bitrix24/templates-dashboard-vue
-          target: _blank
-          iconName: TodoIconsV0
-        - label: GitHub
-          to: https://github.com/bitrix24/templates-dashboard-vue
-          target: _blank
-          iconName: GitHubIcon
+    description: "A dashboard template with multi-column layout for building sophisticated app interfaces."
+    iconName: TodoIconsChartBig
+    framework: vue
+    features:
+      - title: Charts and date pickers
+        iconName: TodoIconsChartBig
+      - title: Multi-column layout
+        iconName: TodoIconsColumns3
+    deploy_links:
+      - label: Vercel
+        to: https://vercel.com/new/clone?repository-name=dashboard-vue&repository-url=sssssss&demo-url=xxxxxx&demo-title=Vue%20Dashboard%20Template&demo-description=A%20dashboard%20template%20with%20multi-column%20layout%20for%20building%20sophisticated%20app%20interfaces.
+        target: _blank
+        iconName: TodoIconsVercel
+      - label: Netlify
+        to: https://app.netlify.com/start/deploy?repository=https://github.com/bitrix24/templates-dashboard-vue
+        target: _blank
+        iconName: TodoIconsNetlify
+    links:
+      - label: Preview
+        to: https://bitrix24.github.io/templates-dashboard-vue/
+        target: _blank
+        iconName: TodoIconsLink
+    open_links:
+      - label: v0
+        to: https://v0.app/chat/api/open?url=https://github.com/bitrix24/templates-dashboard-vue
+        target: _blank
+        iconName: TodoIconsV0
+      - label: GitHub
+        to: https://github.com/bitrix24/templates-dashboard-vue
+        target: _blank
+        iconName: GitHubIcon
   - title: 'Starter'
     description: "A minimal template to get started with Bitrix24 UI."
     iconName: TodoIconsFlower

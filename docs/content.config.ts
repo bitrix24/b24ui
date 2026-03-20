@@ -159,7 +159,7 @@ export const collections = {
       items: z.array(z.object({
         title: z.string(),
         description: z.string(),
-        icon: z.string(),
+        iconName: z.string().optional(),
         framework: z.enum(['nuxt', 'vue']),
         features: z.array(PageFeature).optional(),
         links: z.array(Button).optional(),
