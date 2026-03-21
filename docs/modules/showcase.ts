@@ -5,9 +5,7 @@ import captureWebsite from 'capture-website'
 
 interface ContentFile {
   id?: string
-  body?: {
-    items: TemplateItem[]
-  }
+  items?: TemplateItem[]
 }
 
 interface TemplateItem {
@@ -22,13 +20,13 @@ export default defineNuxtModule((_, nuxt) => {
     if (!file.id?.includes('showcase')) {
       return
     }
-    if (!file.body?.items?.length) {
+    if (!file.items?.length) {
       return
     }
-    for (const template of file.body.items) {
+    for (const template of file.items) {
       const url = template.screenshotUrl || template.url
       if (!url) {
-        console.error(`Template ${template.name} has no "url" or "screenshotUrl" to take a screenshot from`)
+        console.error(`❌  Template ${template.name} has no "url" or "screenshotUrl" to take a screenshot from`)
         continue
       }
 
@@ -39,17 +37,17 @@ export default defineNuxtModule((_, nuxt) => {
         continue
       }
 
-      console.log(`Generating screenshot for Template ${template.name} hitting ${url}...`)
-
+      console.log(`🧬 Generating screenshot for Template ${template.name} hitting ${url}...`)
       try {
         await captureWebsite.file(url, filename, {
           ...(template.screenshotOptions || {}),
+          delay: 2,
           launchOptions: { headless: true }
         })
 
-        console.log(`Screenshot for ${template.name} generated successfully`)
+        console.log(`✅  Screenshot for ${template.name} generated successfully`)
       } catch (error) {
-        console.error(`Error generating screenshot for ${template.name}:`, error)
+        console.error(`❌  Error generating screenshot for ${template.name}:`, error)
       }
     }
   })

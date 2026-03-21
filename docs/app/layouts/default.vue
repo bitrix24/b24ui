@@ -74,9 +74,6 @@ defineShortcuts({
   <template v-else-if="route.path.startsWith('/showcase')">
     <slot />
   </template>
-  <template v-else-if="route.path.startsWith('/templates')">
-    <slot />
-  </template>
   <B24DashboardGroup
     v-else
     unit="px"
@@ -118,7 +115,7 @@ defineShortcuts({
           orientation="vertical"
           tooltip
           popover
-          :class="[route.path === '/' ? '' : 'lg:hidden']"
+          :class="[(route.path === '/' || route.path.startsWith('/templates')) ? '' : 'lg:hidden']"
         />
 
         <B24NavigationMenu

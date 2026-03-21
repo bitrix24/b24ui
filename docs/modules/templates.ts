@@ -5,7 +5,7 @@ import captureWebsite from 'capture-website'
 
 interface ContentFile {
   id?: string
-  items: TemplateItem[]
+  items?: TemplateItem[]
 }
 
 interface TemplateItem {
@@ -19,11 +19,20 @@ async function captureTemplate(url: string, path: string, darkMode: boolean) {
     return
   }
 
+  const onBeforeScreenshot = async (page: any) => {
+    await page.evaluate(() => {
+      document.documentElement.classList.remove('edge-dark', 'edge-light', 'dark', 'light')
+      document.documentElement.classList.add('dark')
+    })
+  }
+
   await captureWebsite.file(url, path, {
     darkMode,
     width: 1280,
     height: 720,
-    launchOptions: { headless: true }
+    delay: 2,
+    launchOptions: { headless: true },
+    beforeScreenshot: darkMode ? onBeforeScreenshot : undefined
   })
 }
 
@@ -38,7 +47,7 @@ export default defineNuxtModule((_, nuxt) => {
     for (const template of file.items) {
       const url = template.links?.[0]?.to
       if (!url) {
-        console.error(`Template ${template.title} has no "to" to take a screenshot from`)
+        console.error(`❌  Template ${template.title} has no "to" to take a screenshot from`)
         continue
       }
 
@@ -49,15 +58,15 @@ export default defineNuxtModule((_, nuxt) => {
         continue
       }
 
-      console.log(`Generating screenshots for Template ${template.title} hitting ${url}...`)
+      console.log(`🧬 Generating screenshots for Template ${template.title} hitting ${url}...`)
       try {
         await Promise.all([
           captureTemplate(url, darkPath, true),
           captureTemplate(url, lightPath, false)
         ])
-        console.log(`Screenshots for ${template.title} generated successfully`)
+        console.log(`✅  Screenshots for ${template.title} generated successfully`)
       } catch (error) {
-        console.error(`Error generating screenshots for ${template.title}:`, error)
+        console.error(`❌  Error generating screenshots for ${template.title}:`, error)
       }
     }
   })
