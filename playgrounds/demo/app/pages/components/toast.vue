@@ -8,6 +8,12 @@ import NotificationIcon from '@bitrix24/b24icons-vue/outline/NotificationIcon'
 const colors = Object.keys(themeToast.variants.color) as Array<keyof typeof themeToast.variants.color>
 const positions = Object.keys(theme.variants.position)
 
+const airColors = computed(() => {
+  return colors.filter((color) => {
+    return color.includes('air')
+  })
+})
+
 const { toasts, add, update, remove } = useToast()
 const appConfig = useAppConfig()
 
@@ -30,36 +36,30 @@ const templates = (id: number) => [
   {
     title: `Title for toast ${id}`,
     description: `${getRandomString(messageList)}Description for toast ${id}`,
-    color: getRandomString(colors)
-  },
-  {
-    class: 'light',
-    title: `Title for albino toast ${id}`,
-    description: `${getRandomString(messageList)}Description for toast ${id}`,
-    color: getRandomString(colors)
+    color: getRandomString(airColors.value)
   },
   {
     title: `Title for toast ${id}`
   },
   {
     description: `${getRandomString(messageList)}Description for toast ${id}`,
-    color: getRandomString(colors)
+    color: getRandomString(airColors.value)
   },
   {
     title: `Title for toast ${id}`,
     description: `${getRandomString(messageList)}Description for toast ${id}`,
     icon: RocketIcon,
-    color: getRandomString(colors)
+    color: getRandomString(airColors.value)
   },
   {
     title: `Title for toast ${id}`,
     icon: RocketIcon,
-    color: getRandomString(colors)
+    color: getRandomString(airColors.value)
   },
   {
     description: `${getRandomString(messageList)}Description for toast ${id}`,
     icon: RocketIcon,
-    color: getRandomString(colors)
+    color: getRandomString(airColors.value)
   },
   {
     title: `Title for toast ${id}`,
@@ -67,12 +67,12 @@ const templates = (id: number) => [
     avatar: {
       src: '/b24ui/demo/avatar/employee.png'
     },
-    color: getRandomString(colors)
+    color: getRandomString(airColors.value)
   },
   {
     title: `Title for toast ${id}`,
     description: `${getRandomString(messageList)}Description for toast ${id}`,
-    color: getRandomString(colors),
+    color: getRandomString(airColors.value),
     avatar: {
       src: '/b24ui/demo/avatar/assistant.png'
     },
@@ -87,7 +87,7 @@ const templates = (id: number) => [
   {
     title: `Title for toast ${id}`,
     icon: RocketIcon,
-    color: getRandomString(colors),
+    color: getRandomString(airColors.value),
     actions: [
       {
         label: 'Trash',
@@ -107,7 +107,8 @@ const templates = (id: number) => [
   },
   {
     description: `File successfully deleted`,
-    color: getRandomString(colors),
+    color: getRandomString(airColors.value),
+    close: false,
     icon: RocketIcon,
     actions: [{
       label: 'Cancel',
@@ -159,11 +160,12 @@ function removeToast() {
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24Select v-model="appConfig.toaster.position" placeholder="Position" :items="positions" />
+      <B24Select v-model="appConfig.toaster.position" size="xs" placeholder="Position" :items="positions" />
       <B24FormField
         label="Duration"
         :hint="`${appConfig.toaster.duration} ms.`"
         name="duration"
+        size="xs"
         class="min-w-32"
       >
         <B24Range
@@ -174,16 +176,14 @@ function removeToast() {
           :step="500"
         />
       </B24FormField>
-      <B24Input v-model="appConfig.toaster.max" placeholder="Max" type="number" class="min-w-24 w-24" />
+      <B24Input v-model="appConfig.toaster.max" size="xs" placeholder="Max" type="number" class="min-w-24 w-24" />
 
-      <B24Switch v-model="appConfig.toaster.disableSwipe" label="DisableSwipe" />
-      <B24Switch v-model="appConfig.toaster.expand" label="Expand" />
-      <B24Switch v-model="isShowProgress" label="isShowProgress" />
+      <B24Switch v-model="appConfig.toaster.disableSwipe" size="xs" label="DisableSwipe" />
+      <B24Switch v-model="appConfig.toaster.expand" size="xs" label="Expand" />
+      <B24Switch v-model="isShowProgress" size="xs" label="isShowProgress" />
     </template>
 
-    <div
-      class="max-w-[550px] mx-auto px-[60px] py-5xl rounded-[24px] flex flex-col items-center justify-center gap-lg"
-    >
+    <div class="max-w-[550px] mx-auto px-[60px] py-5xl rounded-[24px] flex flex-col items-center justify-center gap-lg">
       <B24Avatar
         :icon="NotificationIcon"
         alt="Toast"

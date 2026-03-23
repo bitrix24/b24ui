@@ -5,7 +5,7 @@ const { framework } = useFrameworks()
 
 const menuList = [
   {
-    label: 'B24 Js Sdk',
+    label: 'B24 JsSdk',
     to: 'https://bitrix24.github.io/b24jssdk/',
     target: '_blank'
   },

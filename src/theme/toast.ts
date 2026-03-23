@@ -4,12 +4,16 @@
  * --
  * @link /api_d7/bitrix/ui/notification/start.php
  * @see bitrix/js/ui/notification
+ * @see bitrix/js/ui/notification-manager
+ * @todo support `BX.UI.Notification.Center.notify({ useAirDesign: true })`
  */
 
 /*
 // @memo: run in b24
 BX.UI.Notification.Center.notify({
   content: "Content message",
+  useAirDesign: true,
+  autoHide: false,
   autoHideDelay: 500000,
   actions: [{
     title: "Action",
@@ -26,11 +30,11 @@ export default {
     root: [
       'dark',
       'relative group overflow-hidden',
-      'rounded-[26px] py-3.5 ps-6 pe-4',
-      'flex items-center gap-2.5',
+      'rounded-[8px] p-4',
+      'flex gap-4',
       'focus-visible:outline-(length:--ui-design-outline-stroke-weight) focus-visible:outline-offset-2 focus-visible:outline-(--ui-color-design-outline-content-divider)',
       'font-[family-name:var(--ui-font-family-primary)]',
-      'bg-(--ui-color-bg-content-primary)/80',
+      'bg-(--ui-color-base-black-fixed)/80',
       'text-(--ui-color-design-plain-na-focused-content)',
       'text-(length:--ui-font-size-sm) font-(--ui-font-weight-normal)'
     ].join(' '),
@@ -41,8 +45,8 @@ export default {
     avatar: 'shrink-0',
     avatarSize: 'xl',
     actions: 'flex gap-1.5 shrink-0',
-    progress: 'absolute inset-x-0 bottom-0', //  h-1 z-[-1] bg-(--b24ui-border-color)
-    close: 'p-0'
+    progress: 'absolute inset-x-0 bottom-0',
+    close: 'p-0 absolute top-2 right-2'
   },
   variants: {
     color: {
@@ -52,7 +56,7 @@ export default {
       'air-primary-copilot': { root: 'style-filled-copilot' },
       'air-primary-warning': { root: 'style-filled-warning' },
       'air-secondary': { root: 'style-filled-inverted' },
-      // @deprecate ////
+      // @deprecate This rule is deprecated and will be removed in version `3.0.0` ////
       'default': { root: 'old-style-default' },
       'danger': { root: 'old-style-danger' },
       'success': { root: 'old-style-success' },
