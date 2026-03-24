@@ -1,6 +1,13 @@
 # Changelog
 
-## [2.4.3](https://github.com/bitrix24/b24ui/compare/v2.4.2...v2.4.3) (2026-03-20)
+## [2.5.1](https://github.com/bitrix24/b24ui/compare/v2.4.2...v2.5.1) (2026-03-24)
+
+### ⚠ BREAKING CHANGES
+* **Slideover** remove usage `sidebarLayout` and improve theme
+
+### Features
+
+* **Toast** improve theme
 
 ### Bug Fixes
 
