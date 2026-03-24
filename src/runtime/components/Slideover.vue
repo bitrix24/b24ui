@@ -63,11 +63,6 @@ export interface SlideoverProps extends DialogRootProps {
    * @defaultValue false
    */
   dismissible?: boolean
-  /**
-   * The content is placed on a light background.
-   * @defaultValue 'true'
-   */
-  useLightContent?: boolean
   class?: any
   b24ui?: Slideover['slots']
 }
@@ -81,8 +76,6 @@ export interface SlideoverEmits extends DialogRootEmits {
 export interface SlideoverSlots {
   default?(props: { open: boolean }): VNode[]
   content?(props: { close: () => void }): VNode[]
-  sidebar?(props: { close: () => void }): VNode[]
-  navbar?(props: { close: () => void }): VNode[]
   header?(props: { close: () => void }): VNode[]
   title?(props?: {}): VNode[]
   description?(props?: {}): VNode[]
@@ -105,7 +98,6 @@ import { pointerDownOutside } from '../utils/overlay'
 import { tv } from '../utils/tv'
 import icons from '../dictionary/icons'
 import B24Button from './Button.vue'
-import B24SidebarLayout from './SidebarLayout.vue'
 
 const props = withDefaults(defineProps<SlideoverProps>(), {
   close: true,
@@ -115,8 +107,7 @@ const props = withDefaults(defineProps<SlideoverProps>(), {
   modal: true,
   dismissible: true,
   side: 'bottom',
-  overlayBlur: 'off',
-  useLightContent: true
+  overlayBlur: 'off'
 })
 const emits = defineEmits<SlideoverEmits>()
 const slots = defineSlots<SlideoverSlots>()
@@ -195,103 +186,80 @@ const isBtnCloseExternal = computed(() => (!props.inset && ['left', 'right', 'bo
           </DialogDescription>
         </VisuallyHidden>
 
+        <template v-if="isBtnCloseExternal && (props.close || !!slots.close)">
+          <DialogClose as-child>
+            <slot name="close" :b24ui="b24ui">
+              <B24Button
+                v-if="props.close"
+                :icon="closeIcon || icons.close"
+                class="group"
+                color="air-primary"
+                :aria-label="t('slideover.close')"
+                size="lg"
+                :b24ui="{
+                  baseLine: 'ps-1 pe-1',
+                  label: 'hidden sm:flex'
+                }"
+                v-bind="(typeof props.close === 'object' ? props.close : {})"
+                data-slot="close"
+                :class="b24ui.close({ class: uiProp?.close })"
+              />
+            </slot>
+          </DialogClose>
+        </template>
+
         <slot name="content" :close="close">
-          <template v-if="isBtnCloseExternal">
-            <DialogClose v-if="props.close || !!slots.close" as-child>
-              <slot name="close" :b24ui="b24ui">
-                <!-- @todo fix this css -->
-                <B24Button
-                  v-if="props.close"
-                  :icon="closeIcon || icons.close"
-                  class="group"
-                  color="air-primary"
-                  :aria-label="t('slideover.close')"
-                  size="lg"
-                  :b24ui="{
-                    baseLine: 'ps-[4px] pe-[4px]',
-                    label: 'hidden sm:flex'
-                  }"
-                  v-bind="(typeof props.close === 'object' ? props.close : {})"
-                  data-slot="close"
-                  :class="b24ui.close({ class: uiProp?.close })"
-                />
-              </slot>
-            </DialogClose>
-          </template>
-          <B24SidebarLayout
-            :use-light-content="props.useLightContent"
-            is-inner
-            :b24ui="{
-              root: b24ui.sidebarLayoutRoot({ class: uiProp?.sidebarLayoutRoot }),
-              header: b24ui.sidebarLayoutHeaderWrapper({ class: uiProp?.sidebarLayoutHeaderWrapper }),
-              pageWrapper: b24ui.sidebarLayoutPageWrapper({ class: uiProp?.sidebarLayoutPageWrapper }),
-              container: b24ui.sidebarLayoutContainer({ class: uiProp?.sidebarLayoutContainer }),
-              pageBottomWrapper: b24ui.sidebarLayoutPageBottomWrapper({ class: uiProp?.sidebarLayoutPageBottomWrapper }),
-              loadingWrapper: b24ui.sidebarLayoutLoadingWrapper({ class: uiProp?.sidebarLayoutLoadingWrapper }),
-              loadingIcon: b24ui.sidebarLayoutLoadingIcon({ class: uiProp?.sidebarLayoutLoadingIcon })
-            }"
+          <div
+            v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description) || (!isBtnCloseExternal && (props.close || !!slots.close))"
+            data-slot="header"
+            :class="b24ui.header({ class: uiProp?.header })"
           >
-            <template v-if="!!slots['sidebar']" #sidebar>
-              <slot name="sidebar" :close="close" />
-            </template>
+            <slot name="header" :close="close">
+              <div data-slot="wrapper" :class="b24ui.wrapper({ class: uiProp?.wrapper })">
+                <DialogTitle v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
+                  <slot name="title">
+                    {{ title }}
+                  </slot>
+                </DialogTitle>
 
-            <template v-if="!!slots['navbar']" #navbar>
-              <slot name="navbar" :close="close" />
-            </template>
-
-            <template v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description) || (!isBtnCloseExternal && (props.close || !!slots.close))" #content-top>
-              <div data-slot="header" :class="b24ui.header({ class: uiProp?.header })">
-                <slot name="header" :close="close">
-                  <div data-slot="wrapper" :class="b24ui.wrapper({ class: uiProp?.wrapper })">
-                    <DialogTitle v-if="title || !!slots.title" data-slot="title" :class="b24ui.title({ class: uiProp?.title })">
-                      <slot name="title">
-                        {{ title }}
-                      </slot>
-                    </DialogTitle>
-
-                    <DialogDescription v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
-                      <slot name="description">
-                        {{ description }}
-                      </slot>
-                    </DialogDescription>
-                  </div>
-                  <template v-if="!isBtnCloseExternal && (props.close || !!slots.close)">
-                    <DialogClose v-if="props.close || !!slots.close" as-child>
-                      <slot name="close" :b24ui="b24ui">
-                        <B24Button
-                          v-if="props.close"
-                          :icon="closeIcon || icons.close"
-                          class="group"
-                          color="air-tertiary-no-accent"
-                          :aria-label="t('slideover.close')"
-                          size="lg"
-                          v-bind="(typeof props.close === 'object' ? props.close : {})"
-                          data-slot="close"
-                          :class="b24ui.close({ class: uiProp?.close })"
-                        />
-                      </slot>
-                    </DialogClose>
-                  </template>
-                </slot>
+                <DialogDescription v-if="description || !!slots.description" data-slot="description" :class="b24ui.description({ class: uiProp?.description })">
+                  <slot name="description">
+                    {{ description }}
+                  </slot>
+                </DialogDescription>
               </div>
-            </template>
 
-            <template v-if="!!slots['actions']" #content-actions>
               <slot name="actions" />
-            </template>
 
-            <template v-if="!!slots['body']" #default>
-              <div data-slot="body" :class="b24ui.body({ class: uiProp?.body })">
-                <slot name="body" :close="close" />
-              </div>
-            </template>
+              <template v-if="!isBtnCloseExternal && (props.close || !!slots.close)">
+                <DialogClose v-if="props.close || !!slots.close" as-child>
+                  <slot name="close" :b24ui="b24ui">
+                    <B24Button
+                      v-if="props.close"
+                      :icon="closeIcon || icons.close"
+                      class="group"
+                      color="air-tertiary-no-accent"
+                      :aria-label="t('slideover.close')"
+                      size="lg"
+                      v-bind="(typeof props.close === 'object' ? props.close : {})"
+                      data-slot="close"
+                      :class="b24ui.close({ class: uiProp?.close })"
+                    />
+                  </slot>
+                </DialogClose>
+              </template>
+            </slot>
+          </div>
 
-            <template v-if="!!slots.footer" #content-bottom>
-              <div data-slot="footer" :class="b24ui.footer({ class: uiProp?.footer })">
-                <slot name="footer" :close="close" />
-              </div>
-            </template>
-          </B24SidebarLayout>
+          <template v-if="!!slots['body']">
+            <div data-slot="body" :class="b24ui.body({ class: uiProp?.body })">
+              <slot name="body" :close="close" />
+            </div>
+          </template>
+
+          <div v-if="!!slots.footer" data-slot="footer" :class="b24ui.footer({ class: uiProp?.footer })">
+            <slot name="footer" :close="close" />
+          </div>
         </slot>
       </DialogContent>
     </DialogPortal>

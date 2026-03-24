@@ -14,7 +14,13 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="backdrop-blur-sm backdrop-brightness-110 px-[15px] py-[10px] flex flex-col items-start justify-between gap-[20px]">
+  <B24Card
+    variant="outline"
+    :b24ui="{
+      root: 'backdrop-blur-sm backdrop-brightness-90',
+      body: 'flex flex-col items-start justify-between gap-[20px]'
+    }"
+  >
     <div class="w-full flex flex-row items-center justify-between gap-[20px]">
       <div class="flex-1 flex flex-row items-center justify-end gap-[12px]">
         <B24Avatar
@@ -37,8 +43,7 @@ onMounted(() => {
         <B24Button size="sm" label="SCRUM items" color="air-selection" />
         <B24DropdownMenu
           :items="dropdownMenuItems"
-          arrow
-          :content="{ side: 'bottom', align: 'center' }"
+          :content="{ side: 'bottom', align: 'end' }"
         >
           <B24Button size="sm" :icon="MoreMIcon" color="air-secondary-accent" />
         </B24DropdownMenu>
@@ -47,5 +52,5 @@ onMounted(() => {
     <div>
       <MockSidebarLayoutMenu orientation="horizontal" />
     </div>
-  </div>
+  </B24Card>
 </template>

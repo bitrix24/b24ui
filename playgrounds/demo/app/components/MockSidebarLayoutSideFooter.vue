@@ -1,37 +1,34 @@
 <script setup lang="ts">
 import RocketIcon from '@bitrix24/b24icons-vue/outline/RocketIcon'
-import { useNavigation } from '~/composables/useNavigation'
 
 const props = withDefaults(defineProps<{
+  collapsed?: boolean
   framework?: 'nuxt' | 'vue'
 }>(), {
-  framework: 'nuxt'
+  framework: 'nuxt',
+  collapsed: false
 })
-
-const { externalLinks } = useNavigation()
 </script>
 
 <template>
-  <B24PageLinks :links="externalLinks" class="mb-3" />
-
   <B24Button
     v-if="props.framework === 'nuxt'"
     block
-    label="Use our Nuxt starter"
+    :label="collapsed ? undefined : 'Use our Nuxt dashboard'"
     color="air-boost"
     size="sm"
     :icon="RocketIcon"
-    to="https://bitrix24.github.io/b24ui/docs/getting-started/installation/nuxt/#use-our-nuxt-starter"
+    to="https://github.com/bitrix24/templates-dashboard"
     target="_blank"
   />
   <B24Button
     v-else-if="props.framework === 'vue'"
     block
-    label="Use our Vue starter"
+    :label="collapsed ? undefined : 'Use our Vue dashboard'"
     color="air-boost"
     size="sm"
     :icon="RocketIcon"
-    to="https://bitrix24.github.io/b24ui/docs/getting-started/installation/vue/#use-our-vue-starter"
+    to="https://github.com/bitrix24/templates-dashboard-vue"
     target="_blank"
   />
 </template>

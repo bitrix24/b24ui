@@ -16,14 +16,14 @@ const open = ref(false)
     </template>
 
     <template #footer="{ close }">
-      <div class="w-1/5 flex justify-start" />
-      <div class="w-full flex flex-row justify-center gap-[10px]">
+      <div class="w-1/5 flex items-center justify-start" />
+      <div class="w-full flex flex-row items-center justify-center gap-2.5">
         <B24ModalDialogClose>
-          <B24Button label="Send" color="air-primary" />
+          <B24Button size="lg" color="air-primary" label="Save" />
         </B24ModalDialogClose>
-        <B24Button label="Cancel" color="air-tertiary" @click="close" />
+        <B24Button size="sm" color="air-tertiary" label="Cancel" :normal-case="false" @click="close" />
       </div>
-      <div class="w-1/5 flex justify-end">
+      <div class="w-1/5 flex items-center justify-end">
         <B24Button label="Full version" size="sm" color="air-tertiary-no-accent" />
       </div>
     </template>

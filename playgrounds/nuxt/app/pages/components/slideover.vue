@@ -2,6 +2,7 @@
 /* @deprecate This page is deprecated and will be removed in version 3.0.0 */
 import theme from '#build/b24ui/slideover'
 import { defineAsyncComponent } from 'vue'
+import { useMockMenu } from '../../composables/useMockMenu'
 import Placeholder from '../../components/Placeholder.vue'
 import MockSidebarLayoutMenu from '../../components/MockSidebarLayoutMenu.vue'
 import MockSidebarLayoutActions from '../../components/MockSidebarLayoutActions.vue'
@@ -13,7 +14,7 @@ import B24Slideover from '@bitrix24/b24ui-nuxt/components/Slideover.vue'
 import BusinesProcessStagesIcon from '@bitrix24/b24icons-vue/outline/BusinesProcessStagesIcon'
 import TrendUpIcon from '@bitrix24/b24icons-vue/outline/TrendUpIcon'
 import TrendDownIcon from '@bitrix24/b24icons-vue/outline/TrendDownIcon'
-import { useMockMenu } from './../../composables/useMockMenu'
+import HamburgerMenuIcon from '@bitrix24/b24icons-vue/outline/HamburgerMenuIcon'
 
 const { action } = useMockMenu()
 
@@ -33,6 +34,7 @@ const attrs = reactive({
 
 const open = ref(false)
 const openTopAndBottom = ref(false)
+const openTopAndBottomVer2 = ref(false)
 const openListItem = ref(false)
 const count = ref(0)
 const overlay = useOverlay()
@@ -53,29 +55,29 @@ function openSlideover() {
 
 const openSliderTopAndBottom = async () => {
   openTopAndBottom.value = true
-  Promise.resolve().then(() => {
-    requestAnimationFrame(() => {
-      console.log(123)
-    })
-  })
+}
+
+const openSliderTopAndBottomVer2 = async () => {
+  openTopAndBottomVer2.value = true
 }
 </script>
 
 <template>
   <PlaygroundPage :b24ui="{ body: 'flex-col gap-2 max-w-100 mx-auto' }">
     <template #controls>
-      <B24Select v-model="attrs.side" :items="sides" label="Side" class="w-24" />
-      <B24Switch v-model="attrs.overlay" label="Overlay" />
-      <B24Switch v-model="attrs.modal" label="Modal" />
-      <B24Switch v-model="attrs.transition" label="Transition" />
-      <B24Switch v-model="attrs.close" label="Close" />
-      <B24Switch v-model="attrs.portal" label="Portal" />
-      <B24Switch v-model="attrs.inset" label="Inset" />
+      <B24Select v-model="attrs.side" :items="sides" size="xs" label="Side" class="w-24" />
+      <B24Switch v-model="attrs.overlay" size="xs" label="Overlay" />
+      <B24Switch v-model="attrs.modal" size="xs" label="Modal" />
+      <B24Switch v-model="attrs.transition" size="xs" label="Transition" />
+      <B24Switch v-model="attrs.close" size="xs" label="Close" />
+      <B24Switch v-model="attrs.portal" size="xs" label="Portal" />
+      <B24Switch v-model="attrs.inset" size="xs" label="Inset" />
     </template>
 
     <B24Slideover
       title="First slideover"
-      v-bind="{ ...attrs, close: { label: attrs.side } }"
+      v-bind="{ ...attrs, close: attrs.close ? { label: attrs.side } : false }"
+      :b24ui="{ content: 'sm:max-w-1/2 lg:max-w-1/4' }"
     >
       <B24Button label="Open with nested slideover" />
 
@@ -86,20 +88,25 @@ const openSliderTopAndBottom = async () => {
       <template #footer>
         <B24Slideover
           title="Second slideover"
-          :b24ui="{ content: 'max-w-[600px]' }"
           v-bind="attrs"
+          side="bottom"
+          :b24ui="{ content: 'sm:max-w-1/2 lg:max-w-1/4 sm:top-[375px] sm:max-h-[calc(100%-375px)]' }"
         >
-          <B24Button label="Open second" color="air-primary" />
+          <B24Button size="lg" label="Open second" color="air-primary" />
 
           <template #body>
             <Placeholder class="size-full" />
           </template>
           <template #footer>
             <B24ModalDialogClose>
-              <B24Button label="Cancel" />
+              <B24Button size="sm" color="air-tertiary" label="Cancel" :normal-case="false" />
             </B24ModalDialogClose>
           </template>
         </B24Slideover>
+
+        <B24ModalDialogClose>
+          <B24Button size="sm" color="air-tertiary" label="Cancel" :normal-case="false" />
+        </B24ModalDialogClose>
       </template>
     </B24Slideover>
 
@@ -107,21 +114,20 @@ const openSliderTopAndBottom = async () => {
       v-model:open="open"
       title="Slideover with v-model"
       description="This is useful to control the state yourself."
-      :b24ui="{
-        content: 'sm:max-w-1/2',
-        sidebarLayoutRoot: 'edge-dark'
-      }"
+      :b24ui="{ content: 'edge-dark air-custom-bg sm:max-w-1/2 lg:max-w-1/4' }"
       v-bind="{ ...attrs, close: { label: 'Test' } }"
     >
       <template #body>
-        <MockContentLongString />
+        <B24Card class="base-mode" :b24ui="{ root: 'size-full' }">
+          <MockContentLongString />
+        </B24Card>
       </template>
       <template #footer>
         <B24ModalDialogClose>
-          <B24Button label="Send" color="air-primary-success" />
+          <B24Button size="lg" color="air-primary" label="Save" />
         </B24ModalDialogClose>
         <B24ModalDialogClose>
-          <B24Button label="Cancel" color="air-tertiary" />
+          <B24Button size="sm" color="air-tertiary" label="Cancel" :normal-case="false" />
         </B24ModalDialogClose>
       </template>
     </B24Slideover>
@@ -130,8 +136,9 @@ const openSliderTopAndBottom = async () => {
     <B24Slideover
       title="Slideover with overlay blur"
       description="This slideover has `overlay-blur: auto` prop."
-      overlay-blur="auto"
       v-bind="attrs"
+      :b24ui="{ content: 'sm:max-w-1/2 lg:max-w-1/4' }"
+      overlay-blur="auto"
     >
       <B24Button label="Open with overlay blur" />
 
@@ -143,22 +150,23 @@ const openSliderTopAndBottom = async () => {
     <B24Slideover
       title="Slideover prevent close"
       description="This slideover has `dismissible: false` prop so it won't close when clicking outside."
-      v-bind="{ ...attrs, dismissible: false, modal: false, overlay: false }"
+      :b24ui="{ content: 'sm:max-w-1/2 lg:max-w-1/4' }"
+      v-bind="{ ...attrs, dismissible: false, modal: true, overlay: true }"
     >
       <B24Button label="Open unclosable" color="air-secondary-accent" />
 
       <template #body>
-        <div class="p-5 rounded-(--ui-border-radius-md) bg-(--ui-color-bg-content-primary)">
+        <B24Card :b24ui="{ root: 'w-full' }">
           <MockContentUploadFile />
-        </div>
+        </B24Card>
       </template>
 
       <template #footer>
         <B24ModalDialogClose>
-          <B24Button label="Send" color="air-primary-success" />
+          <B24Button size="lg" color="air-primary" label="Save" />
         </B24ModalDialogClose>
         <B24ModalDialogClose>
-          <B24Button label="Cancel" color="air-tertiary" />
+          <B24Button size="sm" color="air-tertiary" label="Cancel" :normal-case="false" />
         </B24ModalDialogClose>
       </template>
     </B24Slideover>
@@ -167,43 +175,46 @@ const openSliderTopAndBottom = async () => {
       title="Slideover with scoped slot close"
       description="This slideover has a scoped slot close that can be used to close the slideover from within the content."
       v-bind="attrs"
+      :b24ui="{ content: 'sm:max-w-1/2 lg:max-w-1/4' }"
     >
       <B24Button label="Open with scoped slot close" />
 
       <template #header="{ close }">
-        <B24Button label="Close with scoped slot close" @click="close" />
+        <B24Button label="Close with scoped slot[header] close" @click="close" />
       </template>
 
       <template #body="{ close }">
-        <B24Button label="Close with scoped slot close" @click="close" />
+        <B24Button label="Close with scoped slot[body] close" @click="close" />
       </template>
 
       <template #footer="{ close }">
-        <B24Button label="Close with scoped slot close" @click="close" />
+        <B24Button label="Close with scoped slot[footer] close" @click="close" />
       </template>
     </B24Slideover>
 
     <B24Slideover
       title="Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Magna copiosae apeirian ius at."
       description="Ius dicat feugiat no, vix cu modo dicat principes. Eu cum iuvaret debitis voluptatibus, esse perfecto reformidans id has."
-      :b24ui="{
-        content: 'sm:max-w-1/2',
-        sidebarLayoutRoot: '[--air-theme-bg-color:#ffffffb5] dark:[--air-theme-bg-color:#55476bb5]'
-      }"
       v-bind="attrs"
+      :b24ui="{
+        content: 'bg-[#ffffffb5] dark:bg-[#55476bb5] sm:max-w-1/2 lg:max-w-1/3',
+        body: 'scrollbar-thin'
+      }"
     >
       <B24Button label="Open with long text" color="air-secondary-accent" />
 
       <template #body>
-        <MockContentLongText />
+        <B24Card class="base-mode" :b24ui="{ root: 'w-full' }">
+          <MockContentLongText />
+        </B24Card>
       </template>
 
       <template #footer>
         <B24ModalDialogClose>
-          <B24Button label="Send" color="air-primary-success" />
+          <B24Button size="lg" color="air-primary" label="Save" />
         </B24ModalDialogClose>
         <B24ModalDialogClose>
-          <B24Button label="Cancel" color="air-tertiary" />
+          <B24Button size="sm" color="air-tertiary" label="Cancel" :normal-case="false" />
         </B24ModalDialogClose>
       </template>
     </B24Slideover>
@@ -212,96 +223,183 @@ const openSliderTopAndBottom = async () => {
       v-model:open="openTopAndBottom"
       title="Bottom"
       description="Some description"
-      v-bind="{ ...attrs, side: 'bottom' }"
-      :use-light-content="false"
+      v-bind="{ ...attrs }"
+      side="bottom"
+      :dismissible="false"
+      :overlay="true"
+      :modal="true"
+      :close="true"
+      :inert="false"
       :b24ui="{
         overlay: 'bg-[#00204e]/85',
-        content: 'top-[58px] sm:top-[58px] right-[22px] sm:right-[22px] max-h-[calc(100%-58px)] sm:max-h-[calc(100%-58px)] w-[calc(100%-60px-22px)] sm:w-[calc(100%-60px-22px)]',
-        sidebarLayoutRoot: [
-          'edge-light',
-          'edge-light:[--air-theme-bg-color:#eef2f4]',
-          'edge-light:[--air-theme-bg-size:auto]',
-          'edge-light:[--air-theme-bg-repeat:repeat]',
-          'edge-light:[--air-theme-bg-position:0_0]',
-          'edge-light:[--air-theme-bg-attachment:scroll]',
-          'edge-light:[--air-theme-bg-image:none]',
-          'edge-light:[--air-theme-bg-image-blurred:none]'
-        ].join(' ')
+        content: [
+          'light',
+          'top-[58px] sm:top-[58px]',
+          'right-[22px] sm:right-[22px]',
+          'max-h-[calc(100%-58px)] sm:max-h-[calc(100%-58px)]',
+          'w-[calc(100%-60px-22px)] sm:w-[calc(100%-60px-22px)]'
+        ].join(' '),
+        header: 'base-mode px-0 pb-0',
+        body: 'base-mode pt-[20px] scrollbar-thin scrollbar-transparent'
       }"
     >
-      <template #sidebar>
-        <B24SidebarHeader>
-          <div class="h-full flex items-center relative my-0 ps-[25px] pe-xs rtl:pe-[25px]">
-            <ProseH4 class="font-(--ui-font-weight-medium) mb-0">
-              Inner
-            </ProseH4>
-          </div>
-        </B24SidebarHeader>
-        <B24SidebarBody>
-          <MockSidebarLayoutMenu orientation="vertical" />
-        </B24SidebarBody>
-        <B24SidebarFooter>
-          <B24SidebarSection>
-            <MockSidebarLayoutSideFooter />
-          </B24SidebarSection>
-        </B24SidebarFooter>
-      </template>
-      <template #navbar>
-        <MockSidebarLayoutMenu orientation="horizontal" />
-      </template>
       <template #header>
         <div class="w-full flex flex-col gap-lg">
-          <MockSidebarLayoutTopProfile class="rounded-(--ui-border-radius-md)" />
+          <MockSidebarLayoutTopProfile class="rounded-b-none rounded-t-[18px] -mt-[20px]" />
+        </div>
+      </template>
+      <template #body>
+        <div class="lg:col-span-12 lg:min-w-0 flex-1 flex flex-col lg:gap-[22px] mt-0 h-full gap-[22px]">
           <MockSidebarLayoutTop class="flex-row">
             Bottom
           </MockSidebarLayoutTop>
+          <MockSidebarLayoutActions />
+
+          <Placeholder class="w-full min-h-[calc(100%+20px)]">
+            <div class="p-4 rounded-md bg-(--ui-color-g-content-glass-1)">
+              <ProseP>Selected action: <ProseStrong>{{ action }}</ProseStrong></ProseP>
+            </div>
+          </Placeholder>
         </div>
-      </template>
-      <template #actions>
-        <MockSidebarLayoutActions />
-      </template>
-      <template #body>
-        <Placeholder class="size-full">
-          <div class="p-4 rounded-md bg-(--ui-color-g-content-glass-1)">
-            <ProseP>Selected action: <ProseStrong>{{ action }}</ProseStrong></ProseP>
-          </div>
-        </Placeholder>
       </template>
     </B24Slideover>
     <B24Slideover
       v-model:open="openTopAndBottom"
       title="Top"
       description="Some description"
-      v-bind="{ ...attrs, side: 'top' }"
+      v-bind="{ ...attrs }"
+      side="top"
+      :dismissible="false"
+      :overlay="false"
+      :modal="false"
+      :close="false"
+      :inert="false"
+      class="edge-dark"
       :b24ui="{
-        content: 'max-h-[56px] sm:shadow-none',
-        sidebarLayoutRoot: [
-          'edge-dark',
-          'edge-dark:[--air-theme-bg-color:#00204e85]',
-          'edge-dark:[--air-theme-bg-size:cover]',
-          'edge-dark:[--air-theme-bg-repeat:no-repeat]',
-          'edge-dark:[--air-theme-bg-position:0_0]',
-          'edge-dark:[--air-theme-bg-attachment:fixed]',
-          'edge-dark:[--air-theme-bg-image:none]',
-          'edge-dark:[--air-theme-bg-image-blurred:none]',
-          'pl-[calc(60px+0px)]'
-        ].join(' '),
-        sidebarLayoutHeaderWrapper: 'before:hidden'
+        content: 'max-h-[56px] sm:shadow-none bg-transparent dark:bg-transparent',
+        header: 'ps-[86px]'
       }"
     >
-      <template #navbar>
+      <template #header>
         <MockSidebarLayoutMenu orientation="horizontal" />
       </template>
     </B24Slideover>
     <B24Button label="Top & Bottom" @click="openSliderTopAndBottom" />
 
     <B24Slideover
+      v-model:open="openTopAndBottomVer2"
+      title="Bottom"
+      description="Some description"
+      v-bind="{ ...attrs }"
+      side="bottom"
+      :dismissible="false"
+      :overlay="true"
+      :modal="true"
+      :close="true"
+      :inert="false"
+      :b24ui="{
+        overlay: 'bg-[#00204e]/85',
+        content: [
+          'light',
+          'top-[58px] sm:top-[58px]',
+          'right-[22px] sm:right-[22px]',
+          'max-h-[calc(100%-58px)] sm:max-h-[calc(100%-58px)]',
+          'w-[calc(100%-60px-22px)] sm:w-[calc(100%-60px-22px)]',
+          'p-0!'
+        ].join(' ')
+      }"
+    >
+      <template #content>
+        <div class="relative isolate flex-1 base-mode ">
+          <B24DashboardGroup unit="px" storage="local" class="absolute overflow-clip rounded-t-[18px]">
+            <B24DashboardSidebar
+              id="default"
+              mode="slideover"
+              collapsible
+              resizable
+              class="border-e-1 backdrop-blur-none min-h-full"
+            >
+              <template #header="{ collapsed }">
+                <B24DashboardSidebarCollapse :icon="HamburgerMenuIcon" class="size-9 px-2" />
+                <ProseH2 v-show="!collapsed" class="mb-0 text-[length:22px] font-semibold text-(--ui-color-base-1)">
+                  Inner
+                </ProseH2>
+              </template>
+              <template #default="{ collapsed }">
+                <MockSidebarLayoutMenu :collapsed="collapsed" orientation="vertical" />
+              </template>
+
+              <template #footer="{ collapsed }">
+                <MockSidebarLayoutSideFooter :collapsed="collapsed" />
+              </template>
+            </B24DashboardSidebar>
+            <B24DashboardPanel
+              id="demo-slider-top-bottom-v2"
+              :b24ui="{
+                root: 'min-h-full',
+                body: 'p-4 sm:pt-0 scrollbar-transparent'
+              }"
+            >
+              <template #header>
+                <B24DashboardNavbar title="Sub Title" :b24ui="{ root: 'lg:pe-6.5' }">
+                  <template #right>
+                    <MockSidebarLayoutMenu orientation="horizontal" />
+                  </template>
+                </B24DashboardNavbar>
+              </template>
+              <template #body>
+                <div class="w-full flex flex-col gap-lg">
+                  <MockSidebarLayoutTopProfile class="" />
+                </div>
+                <div class="lg:col-span-12 lg:min-w-0 flex-1 flex flex-col mt-[20px] h-full gap-[22px]">
+                  <MockSidebarLayoutTop class="flex-row">
+                    Bottom
+                  </MockSidebarLayoutTop>
+                  <MockSidebarLayoutActions />
+
+                  <Placeholder class="w-full min-h-[calc(100%+20px)]">
+                    <div class="p-4 rounded-md bg-(--ui-color-g-content-glass-1)">
+                      <ProseP>Selected action: <ProseStrong>{{ action }}</ProseStrong></ProseP>
+                    </div>
+                  </Placeholder>
+                </div>
+              </template>
+            </B24DashboardPanel>
+          </B24DashboardGroup>
+        </div>
+      </template>
+    </B24Slideover>
+    <B24Slideover
+      v-model:open="openTopAndBottomVer2"
+      title="Top"
+      description="Some description"
+      v-bind="{ ...attrs }"
+      side="top"
+      :dismissible="false"
+      :overlay="false"
+      :modal="false"
+      :close="false"
+      :inert="false"
+      class="edge-dark"
+      :b24ui="{
+        content: 'max-h-[56px] sm:shadow-none bg-transparent dark:bg-transparent',
+        header: 'ps-[86px]'
+      }"
+    >
+      <template #header>
+        <MockSidebarLayoutMenu orientation="horizontal" />
+      </template>
+    </B24Slideover>
+    <B24Button label="Top & Bottom Ver2" color="air-secondary-accent" @click="openSliderTopAndBottomVer2" />
+
+    <B24Slideover
       title="List"
       description="Some description"
       :use-light-content="false"
       :b24ui="{
-        content: 'sm:max-w-[970px]',
-        sidebarLayoutRoot: [
+        content: [
+          'sm:max-w-[970px] sm:top-[275px] sm:max-h-[calc(100%-275px)]',
+          'air-custom-bg',
           'edge-dark',
           'edge-dark:[--air-theme-bg-color:#7c235b]',
           'edge-dark:[--air-theme-bg-size:cover]',
@@ -309,22 +407,24 @@ const openSliderTopAndBottom = async () => {
           'edge-dark:[--air-theme-bg-position:0_0]',
           'edge-dark:[--air-theme-bg-attachment:local]',
           'edge-dark:[--air-theme-bg-image:url(/bg/edge-dark-v2.jpg)]',
-          'edge-dark:[--air-theme-bg-image-blurred:url(/bg/edge-dark-v2-blurred.webp)]'
-        ].join(' ')
+          'dark:before:absolute',
+          'dark:before:inset-0 dark:before:bg-black/50'
+        ].join(' '),
+        header: 'px-0'
       }"
       v-bind="{ ...attrs, close: { label: 'List' } }"
     >
-      <B24Button label="List" color="air-secondary-accent" />
+      <B24Button label="List" />
       <template #header>
         <div class="w-full flex flex-col gap-lg">
-          <MockSidebarLayoutTopProfile class="-mt-xl rounded-b-(--ui-border-radius-md)" />
+          <MockSidebarLayoutTopProfile class="rounded-b-none rounded-t-[18px] -mt-[20px]" />
           <MockSidebarLayoutTop class="flex-row">
             List
           </MockSidebarLayoutTop>
         </div>
       </template>
       <template #body>
-        <div class="light px-0.5 rounded-(--ui-border-radius-md) bg-(--ui-color-background-primary)">
+        <B24Card class="base-mode" :b24ui="{ body: '!px-0 !py-0' }">
           <B24TableWrapper
             row-hover
             class="overflow-x-auto w-full"
@@ -343,28 +443,44 @@ const openSliderTopAndBottom = async () => {
                 <!-- row 1 -->
                 <tr>
                   <th>1</th>
-                  <td><B24Link @click="openListItem = true">Tech Innovators Inc.</B24Link></td>
+                  <td>
+                    <B24Link @click="openListItem = true">
+                      Tech Innovators Inc.
+                    </B24Link>
+                  </td>
                   <td><B24Badge label="Proposal Sent" use-link use-close /></td>
                   <td>50,000</td>
                 </tr>
                 <!-- row 2 -->
                 <tr>
                   <th>2</th>
-                  <td><B24Link @click="openListItem = true">Global Solutions Ltd.</B24Link></td>
+                  <td>
+                    <B24Link @click="openListItem = true">
+                      Global Solutions Ltd.
+                    </B24Link>
+                  </td>
                   <td><B24Badge label="Negotiation" use-link inverted use-close /></td>
                   <td>120,000</td>
                 </tr>
                 <!-- row 3 -->
                 <tr>
                   <th>3</th>
-                  <td><B24Link @click="openListItem = true">Future Enterprises</B24Link></td>
+                  <td>
+                    <B24Link @click="openListItem = true">
+                      Future Enterprises
+                    </B24Link>
+                  </td>
                   <td><B24Chip standalone color="air-primary-warning" text="Contract Signed" size="lg" :trailing-icon="TrendUpIcon" /></td>
                   <td>200,000</td>
                 </tr>
                 <!-- row 4 -->
                 <tr>
                   <th>4</th>
-                  <td><B24Link @click="openListItem = true">Bright Ideas Co.</B24Link></td>
+                  <td>
+                    <B24Link @click="openListItem = true">
+                      Bright Ideas Co.
+                    </B24Link>
+                  </td>
                   <td>
                     <B24Chip
                       standalone
@@ -380,7 +496,11 @@ const openSliderTopAndBottom = async () => {
                 <!-- row 5 -->
                 <tr>
                   <th>5</th>
-                  <td><B24Link @click="openListItem = true">NextGen Technologies</B24Link></td>
+                  <td>
+                    <B24Link @click="openListItem = true">
+                      NextGen Technologies
+                    </B24Link>
+                  </td>
                   <td>
                     <B24Chip
                       standalone
@@ -405,7 +525,7 @@ const openSliderTopAndBottom = async () => {
               </tfoot>
             </table>
           </B24TableWrapper>
-        </div>
+        </B24Card>
       </template>
     </B24Slideover>
     <B24Slideover
@@ -414,9 +534,9 @@ const openSliderTopAndBottom = async () => {
       description="Some description"
       :use-light-content="false"
       :b24ui="{
-        content: 'sm:max-w-[965px] sm:top-[375px] sm:max-h-[calc(100%-375px)]',
-        body: 'relative',
-        sidebarLayoutRoot: [
+        content: [
+          'sm:max-w-[965px] sm:top-[375px] sm:max-h-[calc(100%-375px)]',
+          'air-custom-bg',
           'edge-light',
           'edge-light:[--air-theme-bg-color:#eef2f4]',
           'edge-light:[--air-theme-bg-size:auto]',
@@ -424,14 +544,20 @@ const openSliderTopAndBottom = async () => {
           'edge-light:[--air-theme-bg-position:0_0]',
           'edge-light:[--air-theme-bg-attachment:local]',
           'edge-light:[--air-theme-bg-image:url(/bg/slider-ring-blurred.webp)]',
-          'edge-light:[--air-theme-bg-image-blurred:url(/bg/slider-ring-blurred.webp)]'
-        ].join(' ')
+          'dark:before:absolute',
+          'dark:before:inset-0 dark:before:bg-black/70'
+        ].join(' '),
+        body: 'relative'
       }"
       v-bind="{ ...attrs, close: { label: 'Item' } }"
     >
       <template #header>
-        <div
-          class="w-full pt-(--ui-space-inset-md2) pb-[calc(var(--ui-space-inset-md2)+10px)] px-(--ui-space-inset-lg) rounded-(--ui-border-radius-3xl) bg-(--ui-color-background-primary)/80 flex flex-row items-center justify-between gap-lg"
+        <B24Card
+          dd-variant="outline"
+          :b24ui="{
+            root: 'w-full backdrop-blur-sm backdrop-brightness-90',
+            body: 'flex flex-row items-center justify-between gap-[20px]'
+          }"
         >
           <B24Avatar
             :icon="BusinesProcessStagesIcon"
@@ -442,29 +568,29 @@ const openSliderTopAndBottom = async () => {
               icon: 'size-[48px] text-(--ui-color-palette-white-base)'
             }"
           />
-          <div class="flex-1">
-            <ProseH1 class="text-(--ui-color-text-primary) leading-[29px] font-(--ui-font-weight-light)">
+          <div class="flex-1 base-mode">
+            <ProseH1 class="leading-[29px] font-(--ui-font-weight-light)">
               Workflows
             </ProseH1>
             <ProseP small accent="less">
               Automate your workflows, control every stage and manage workflows from your mobile.
             </ProseP>
           </div>
-        </div>
+        </B24Card>
       </template>
       <template #body>
         <Placeholder class="w-full h-[300px]" />
       </template>
       <template #footer>
         <B24ModalDialogClose>
-          <B24Button label="Back" color="air-tertiary" />
+          <B24Button size="lg" color="air-primary" label="Continue" />
         </B24ModalDialogClose>
         <B24ModalDialogClose>
-          <B24Button label="Continue" color="air-primary" />
+          <B24Button size="sm" color="air-tertiary" label="Cancel" :normal-case="false" />
         </B24ModalDialogClose>
       </template>
     </B24Slideover>
 
-    <B24Button label="Open programmatically" @click="openSlideover" />
+    <B24Button label="Open programmatically" color="air-secondary-accent" @click="openSlideover" />
   </PlaygroundPage>
 </template>

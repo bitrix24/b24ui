@@ -31,7 +31,7 @@ collapse: true
 ignore:
   - b24ui.content
 props:
-  b24ui.content: 'light bg-(--ui-color-base-7) sm:top-[300px] sm:max-h-[calc(100%-300px)]'
+  b24ui.content: 'sm:top-[300px] sm:max-h-[calc(100%-300px)]'
 slots:
   default: |
 
@@ -39,13 +39,13 @@ slots:
 
   content: |
 
-    <Placeholder class="edge-light h-full m-4" />
+    <Placeholder class="h-full m-4" />
 ---
 
 :b24-button{label="Open"}
 
 #content
-:placeholder{class="edge-light h-full m-4"}
+:placeholder{class="h-full m-4"}
 ::
 
 You can also use the `#header`{lang="ts-type"}, `#body`{lang="ts-type"} and `#footer`{lang="ts-type"} slots to customize the Slideover's content.
@@ -163,7 +163,7 @@ slots:
 
     <B24Button label="Open" />
 
-body: |
+  body: |
 
     <Placeholder class="h-full" />
 ---
@@ -192,7 +192,7 @@ slots:
 
     <B24Button label="Open" />
 
-body: |
+  body: |
 
     <Placeholder class="h-full min-h-48" />
 ---
@@ -251,7 +251,7 @@ slots:
 
     <B24Button label="Open" />
 
-body: |
+  body: |
 
     <Placeholder class="h-full" />
 ---
@@ -280,7 +280,7 @@ slots:
 
     <B24Button label="Open" />
 
-body: |
+  body: |
 
     <Placeholder class="h-full" />
 ---
@@ -393,7 +393,7 @@ slots:
 
     <B24Button label="Open" />
 
-body: |
+  body: |
 
     <Placeholder class="h-full" />
 ---

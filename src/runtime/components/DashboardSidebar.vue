@@ -137,7 +137,7 @@ const menuProps = toRef(() => defu(props.menu, {
   content: {
     onOpenAutoFocus: (e: Event) => e.preventDefault()
   }
-}, props.mode === 'modal' ? { fullscreen: true, transition: false } : props.mode === 'slideover' ? { side: 'left' } : {}) as DashboardSidebarMenu<T>)
+}, props.mode === 'modal' ? { fullscreen: true, transition: false } : props.mode === 'slideover' ? { side: 'left', close: false } : {}) as DashboardSidebarMenu<T>)
 
 function toggleOpen() {
   open.value = !open.value

@@ -19,8 +19,9 @@ const handleAction = async () => {
     description="Some description"
     :use-light-content="false"
     :b24ui="{
-      content: 'sm:max-w-[970px] sm:top-[275px] sm:max-h-[calc(100%-275px)]',
-      sidebarLayoutRoot: [
+      content: [
+        'sm:max-w-[970px] sm:top-[275px] sm:max-h-[calc(100%-275px)]',
+        'air-custom-bg',
         'edge-dark',
         'edge-dark:[--air-theme-bg-color:#7c235b]',
         'edge-dark:[--air-theme-bg-size:cover]',
@@ -28,14 +29,15 @@ const handleAction = async () => {
         'edge-dark:[--air-theme-bg-position:0_0]',
         'edge-dark:[--air-theme-bg-attachment:local]',
         'edge-dark:[--air-theme-bg-image:url(/bg/edge-dark-v2.jpg)]',
-        'edge-dark:[--air-theme-bg-image-blurred:url(/bg/edge-dark-v2-blurred.webp)]'
+        'dark:before:absolute',
+        'dark:before:inset-0 dark:before:bg-black/50'
       ].join(' '),
-      sidebarLayoutLoadingIcon: 'text-(--ui-color-gray-70)'
+      body: 'scrollbar-thin pt-0'
     }"
   >
     <B24Button label="Some list" color="air-boost" />
     <template #body>
-      <div class="light mt-[22px] rounded-(--ui-border-radius-md) bg-(--ui-color-background-primary)">
+      <B24Card class="base-mode" :b24ui="{ body: '!px-0 !py-0' }">
         <B24TableWrapper
           row-hover
           class="overflow-x-auto w-full"
@@ -54,28 +56,44 @@ const handleAction = async () => {
               <!-- row 1 -->
               <tr>
                 <th>1</th>
-                <td><B24Link @click="openListItem = true">Tech Innovators Inc.</B24Link></td>
+                <td>
+                  <B24Link @click="openListItem = true">
+                    Tech Innovators Inc.
+                  </B24Link>
+                </td>
                 <td><B24Badge label="Proposal Sent" use-link use-close /></td>
                 <td>50,000</td>
               </tr>
               <!-- row 2 -->
               <tr>
                 <th>2</th>
-                <td><B24Link @click="openListItem = true">Global Solutions Ltd.</B24Link></td>
+                <td>
+                  <B24Link @click="openListItem = true">
+                    Global Solutions Ltd.
+                  </B24Link>
+                </td>
                 <td><B24Badge label="Negotiation" use-link inverted use-close /></td>
                 <td>120,000</td>
               </tr>
               <!-- row 3 -->
               <tr>
                 <th>3</th>
-                <td><B24Link @click="openListItem = true">Future Enterprises</B24Link></td>
+                <td>
+                  <B24Link @click="openListItem = true">
+                    Future Enterprises
+                  </B24Link>
+                </td>
                 <td><B24Chip standalone color="air-primary-warning" text="Contract Signed" size="lg" :trailing-icon="TrendUpIcon" /></td>
                 <td>200,000</td>
               </tr>
               <!-- row 4 -->
               <tr>
                 <th>4</th>
-                <td><B24Link @click="openListItem = true">Bright Ideas Co.</B24Link></td>
+                <td>
+                  <B24Link @click="openListItem = true">
+                    Bright Ideas Co.
+                  </B24Link>
+                </td>
                 <td>
                   <B24Chip
                     standalone
@@ -91,7 +109,11 @@ const handleAction = async () => {
               <!-- row 5 -->
               <tr>
                 <th>5</th>
-                <td><B24Link @click="openListItem = true">NextGen Technologies</B24Link></td>
+                <td>
+                  <B24Link @click="openListItem = true">
+                    NextGen Technologies
+                  </B24Link>
+                </td>
                 <td>
                   <B24Chip
                     standalone
@@ -103,6 +125,142 @@ const handleAction = async () => {
                 </td>
                 <td>300,000</td>
               </tr>
+              <!-- row 6 -->
+              <tr>
+                <th>6</th>
+                <td>
+                  <B24Link @click="openListItem = true">
+                    Apex Dynamics
+                  </B24Link>
+                </td>
+                <td><B24Badge label="Discovery Call" use-link use-close /></td>
+                <td>35,000</td>
+              </tr>
+              <!-- row 7 -->
+              <tr>
+                <th>7</th>
+                <td>
+                  <B24Link @click="openListItem = true">
+                    Vertex Systems
+                  </B24Link>
+                </td>
+                <td><B24Badge label="Proposal Sent" use-link inverted use-close /></td>
+                <td>82,000</td>
+              </tr>
+              <!-- row 8 -->
+              <tr>
+                <th>8</th>
+                <td>
+                  <B24Link @click="openListItem = true">
+                    NovaSphere LLC
+                  </B24Link>
+                </td>
+                <td><B24Chip standalone color="air-primary-success" text="Closed Won" size="lg" :trailing-icon="TrendUpIcon" /></td>
+                <td>450,000</td>
+              </tr>
+              <!-- row 9 -->
+              <tr>
+                <th>9</th>
+                <td>
+                  <B24Link @click="openListItem = true">
+                    Stellar Innovations
+                  </B24Link>
+                </td>
+                <td>
+                  <B24Chip
+                    standalone
+                    text="Contract Review"
+                    color="air-primary-warning"
+                    size="lg"
+                    inverted
+                    :trailing-icon="TrendUpIcon"
+                  />
+                </td>
+                <td>175,000</td>
+              </tr>
+              <!-- row 10 -->
+              <tr>
+                <th>10</th>
+                <td>
+                  <B24Link @click="openListItem = true">
+                    Crestline Partners
+                  </B24Link>
+                </td>
+                <td><B24Badge label="Negotiation" use-link use-close /></td>
+                <td>95,000</td>
+              </tr>
+              <!-- row 11 -->
+              <tr>
+                <th>11</th>
+                <td>
+                  <B24Link @click="openListItem = true">
+                    OmniCore Solutions
+                  </B24Link>
+                </td>
+                <td>
+                  <B24Chip
+                    standalone
+                    text="Urgent"
+                    size="lg"
+                    color="air-primary-alert"
+                    :b24ui="{ base: 'style-filled-boost' }"
+                  />
+                </td>
+                <td>60,000</td>
+              </tr>
+              <!-- row 12 -->
+              <tr>
+                <th>12</th>
+                <td>
+                  <B24Link @click="openListItem = true">
+                    BlueWave Technologies
+                  </B24Link>
+                </td>
+                <td><B24Badge label="Proposal Sent" use-link inverted use-close /></td>
+                <td>110,000</td>
+              </tr>
+              <!-- row 13 -->
+              <tr>
+                <th>13</th>
+                <td>
+                  <B24Link @click="openListItem = true">
+                    Aspire Group
+                  </B24Link>
+                </td>
+                <td><B24Chip standalone color="air-primary-success" text="Closed Won" size="lg" :trailing-icon="TrendUpIcon" /></td>
+                <td>525,000</td>
+              </tr>
+              <!-- row 14 -->
+              <tr>
+                <th>14</th>
+                <td>
+                  <B24Link @click="openListItem = true">
+                    Catalyst Partners
+                  </B24Link>
+                </td>
+                <td>
+                  <B24Chip
+                    standalone
+                    text="Initial Contact"
+                    color="air-primary-alert"
+                    size="lg"
+                    inverted
+                    :trailing-icon="TrendDownIcon"
+                  />
+                </td>
+                <td>28,000</td>
+              </tr>
+              <!-- row 15 -->
+              <tr>
+                <th>15</th>
+                <td>
+                  <B24Link @click="openListItem = true">
+                    Zenith Technologies
+                  </B24Link>
+                </td>
+                <td><B24Badge label="Discovery Call" use-link use-close /></td>
+                <td>42,000</td>
+              </tr>
             </tbody>
             <tfoot>
               <tr>
@@ -110,24 +268,30 @@ const handleAction = async () => {
                   Total:
                 </th>
                 <td>
-                  685,000
+                  2,387,000
                 </td>
               </tr>
             </tfoot>
           </table>
         </B24TableWrapper>
-      </div>
+      </B24Card>
     </template>
 
     <template #footer>
       <B24Button
-        label="Reload"
+        size="lg"
         color="air-primary"
+        label="Reload"
         loading-auto
         @click="handleAction"
       />
       <B24ModalDialogClose>
-        <B24Button label="Cancel" color="air-tertiary" />
+        <B24Button
+          size="sm"
+          color="air-tertiary"
+          label="Cancel"
+          :normal-case="false"
+        />
       </B24ModalDialogClose>
     </template>
   </B24Slideover>
@@ -136,26 +300,10 @@ const handleAction = async () => {
     :close="{ label: 'Item' }"
     title="Item"
     description="Some description"
-    :use-light-content="false"
-    :b24ui="{
-      content: 'sm:max-w-[965px] sm:top-[375px] sm:max-h-[calc(100%-375px)]',
-      body: 'relative',
-      sidebarLayoutRoot: [
-        'edge-light',
-        'edge-light:[--air-theme-bg-color:#eef2f4]',
-        'edge-light:[--air-theme-bg-size:auto]',
-        'edge-light:[--air-theme-bg-repeat:no-repeat]',
-        'edge-light:[--air-theme-bg-position:0_0]',
-        'edge-light:[--air-theme-bg-attachment:local]',
-        'edge-light:[--air-theme-bg-image:url(/bg/slider-ring-blurred.webp)]',
-        'edge-light:[--air-theme-bg-image-blurred:url(/bg/slider-ring-blurred.webp)]'
-      ].join(' ')
-    }"
+    :b24ui="{ content: 'sm:max-w-[965px] sm:top-[375px] sm:max-h-[calc(100%-375px)]' }"
   >
     <template #header>
-      <div
-        class="w-full pt-(--ui-space-inset-md2) pb-[calc(var(--ui-space-inset-md2)+10px)] px-(--ui-space-inset-lg) rounded-(--ui-border-radius-3xl) bg-(--ui-color-background-primary)/80 flex flex-row items-center justify-between gap-[20px]"
-      >
+      <B24Card class="base-mode" :b24ui="{ root: 'w-full', body: 'flex flex-row items-center justify-between gap-[20px]' }">
         <B24Avatar
           :icon="BusinesProcessStagesIcon"
           alt="Workflows"
@@ -166,24 +314,24 @@ const handleAction = async () => {
           }"
         />
         <div class="flex-1">
-          <ProseH1 class="text-(--ui-color-text-primary) leading-[29px] font-(--ui-font-weight-light)">
+          <ProseH1 class="leading-[29px] font-(--ui-font-weight-light)">
             Workflows
           </ProseH1>
           <ProseP small accent="less">
             Automate your workflows, control every stage and manage workflows from your mobile.
           </ProseP>
         </div>
-      </div>
+      </B24Card>
     </template>
     <template #body>
-      <Placeholder class="w-full h-[300px]" />
+      <Placeholder class="size-full" />
     </template>
     <template #footer>
       <B24ModalDialogClose>
-        <B24Button label="Continue" color="air-primary" />
+        <B24Button size="lg" color="air-primary" label="Continue" />
       </B24ModalDialogClose>
       <B24ModalDialogClose>
-        <B24Button label="Back" color="air-tertiary" />
+        <B24Button size="sm" color="air-tertiary" label="Cancel" :normal-case="false" />
       </B24ModalDialogClose>
     </template>
   </B24Slideover>

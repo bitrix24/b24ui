@@ -13,25 +13,34 @@ const safeList = [
 
 export default {
   slots: {
-    overlay: 'fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e]', //
+    overlay: 'fixed inset-0 bg-linear-to-b from-[#00204e]/52 to-[#00204e]',
     content: [
+      'base-mode',
       'fixed',
+      'bg-(--ui-color-gray-05) dark:bg-(--ui-color-base-black-fixed)',
       'sm:shadow-lg',
       'flex flex-col focus:outline-none',
       'h-full'
     ].join(' '),
-    sidebarLayoutRoot: 'relative',
-    sidebarLayoutHeaderWrapper: 'relative',
-    sidebarLayoutPageWrapper: 'min-h-full pb-[calc(53px_+_10px)] px-[20px] ps-[20px] pe-[20px] pb-[20px] overflow-y-auto scrollbar-thin',
-    sidebarLayoutContainer: 'gap-[22px]',
-    sidebarLayoutPageBottomWrapper: 'relative',
-    sidebarLayoutLoadingWrapper: '',
-    sidebarLayoutLoadingIcon: '',
     header: [
-      'pt-[24px]',
-      'flex-1 flex items-center gap-x-[12px] gap-y-1.5'
+      'py-[20px] px-[20px]',
+      'flex items-center gap-x-[12px] gap-y-1.5',
+      'overflow-hidden'
     ].join(' '),
     wrapper: 'min-h-[30px]',
+    body: [
+      'size-full',
+      'flex-1 overflow-y-auto pb-2.5 px-[20px]'
+    ].join(' '),
+    footer: [
+      'absolute inset-x-0 bottom-0',
+      'base-mode',
+      'bg-(--ui-color-bg-content-primary)',
+      'flex items-center justify-center gap-2.5', //
+      'border-t border-t-1 border-t-(--ui-color-divider-less)',
+      'shadow-top-md',
+      'py-[13px] px-[13px]' //  pr-(--scrollbar-width)
+    ].join(' '),
     title: [
       'font-[family-name:var(--ui-font-family-primary)]',
       'text-(--b24ui-typography-label-color)',
@@ -45,24 +54,12 @@ export default {
       'text-(length:--ui-font-size-sm)'
     ].join(' '),
     close: 'absolute',
-    body: [
-      'size-full',
-      'flex-1'
-    ].join(' '),
-    footer: [
-      'absolute inset-x-0 bottom-0',
-      'bg-(--ui-color-bg-content-primary)', // --ui-color-bg-content-primary
-      'flex items-center justify-center gap-3',
-      'border-t border-t-1 border-t-(--ui-color-divider-less)',
-      'shadow-top-md',
-      'py-[9px] px-2 pr-(--scrollbar-width)'
-    ].join(' '),
     safeList
   },
   variants: {
     useFooter: {
       true: {
-        sidebarLayoutPageWrapper: 'mb-[calc(53px)] min-h-[calc(100vh_-_53px)]' // -_18px
+        body: 'mb-[64px]'
       }
     },
     overlayBlur: {
@@ -77,28 +74,22 @@ export default {
       }
     },
     side: {
-      // @todo fix if parent SidebarLayout.isUseSideBar > w-[calc(100%-135x)] > w-[calc(100%-150px)]
       top: {
-        content: '', // 'sm:rounded-t-none'
-        sidebarLayoutRoot: '' // sm:rounded-t-none
+        content: ''
       },
       right: {
-        content: '', // sm:rounded-t-none
-        sidebarLayoutRoot: '' // sm:rounded-t-none
+        content: '' // sm:rounded-t-none
       },
       bottom: {
-        content: '',
-        sidebarLayoutRoot: ''
+        content: ''
       },
       left: {
-        content: '', // sm:rounded-t-none
-        sidebarLayoutRoot: '' // sm:rounded-t-none
+        content: '' // sm:rounded-t-none
       }
     },
     inset: {
       true: {
-        content: 'rounded-[18px]',
-        sidebarLayoutRoot: 'rounded-[18px]'
+        content: 'rounded-4.5'
       }
     },
     transition: {
@@ -116,13 +107,12 @@ export default {
         content: 'max-h-[calc(100%-2rem)] inset-x-4 top-4'
       }
     },
+    // @todo remove this ?
     {
       side: 'top',
       inset: true,
       useFooter: true,
-      class: {
-        sidebarLayoutPageWrapper: 'min-h-[calc(100vh_-_53px-2rem)]'
-      }
+      class: {}
     },
     {
       side: 'top',
@@ -138,13 +128,12 @@ export default {
         content: 'w-[calc(100%-2rem)] max-h-[calc(100%-2rem)] inset-y-4 right-4 '
       }
     },
+    // @todo remove this ?
     {
       side: 'right',
       inset: true,
       useFooter: true,
-      class: {
-        sidebarLayoutPageWrapper: 'min-h-[calc(100vh_-_53px-2rem)]'
-      }
+      class: {}
     },
     {
       side: 'right',
@@ -157,18 +146,15 @@ export default {
       side: 'bottom',
       inset: true,
       class: {
-        content: [
-          'max-h-[calc(100%-2rem)] w-[calc(100%-2rem)] end-4 bottom-4'
-        ].join(' ')
+        content: 'max-h-[calc(100%-2rem)] w-[calc(100%-2rem)] end-4 bottom-4'
       }
     },
+    // @todo remove this ?
     {
       side: 'bottom',
       inset: true,
       useFooter: true,
-      class: {
-        sidebarLayoutPageWrapper: 'min-h-[calc(100vh_-_53px_-_2rem)]'
-      }
+      class: {}
     },
     {
       side: 'bottom',
@@ -178,8 +164,7 @@ export default {
           'max-h-full sm:max-h-[calc(100%-18px)] right-[5px] top-0 sm:top-[18px] bottom-0',
           'w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)]',
           'sm:rounded-t-[18px]'
-        ].join(' '),
-        sidebarLayoutRoot: 'sm:rounded-t-[18px]'
+        ].join(' ')
       }
     },
     {
@@ -189,13 +174,12 @@ export default {
         content: 'w-[calc(100%-2rem)] max-h-[calc(100%-2rem)] inset-y-4 left-4'
       }
     },
+    // @todo remove this ?
     {
       side: 'left',
       inset: true,
       useFooter: true,
-      class: {
-        sidebarLayoutPageWrapper: 'min-h-[calc(100vh_-_53px-2rem)]'
-      }
+      class: {}
     },
     {
       side: 'left',
@@ -206,13 +190,12 @@ export default {
     },
     // endregion ////
     // region bottom & footer -> min-h ////
+    // @todo remove this ?
     {
       side: 'bottom',
       inset: false,
       useFooter: true,
-      class: {
-        sidebarLayoutPageWrapper: 'sm:min-h-[calc(100vh_-_53px_-18px)]'
-      }
+      class: {}
     },
     // endregion ////
     // region btn.close ////
@@ -222,7 +205,7 @@ export default {
       class: {
         close: [
           'pl-1.5 pr-[4px]',
-          'top-[17px] -translate-x-full left-[1px]',
+          'top-[17px] -translate-x-full left-0',
           'rounded-l-full'
         ].join(' ')
       }
@@ -233,7 +216,7 @@ export default {
       class: {
         close: [
           'pr-1.5 pl-[4px]',
-          'top-[17px] translate-x-full right-[1px]',
+          'top-[17px] translate-x-full right-0',
           'rounded-r-full',
           '[&>div]:flex-row-reverse'
         ].join(' ')
@@ -243,17 +226,13 @@ export default {
       // side: 'top',
       inset: true,
       class: {
-        close: [
-          'top-4 end-4'
-        ].join(' ')
+        close: 'top-4 end-4'
       }
     },
     {
       side: 'top',
       class: {
-        close: [
-          'top-4 end-4'
-        ].join(' ')
+        close: 'top-4 end-4'
       }
     },
     // endregion ////

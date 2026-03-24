@@ -1,5 +1,6 @@
-import { computed, ref } from 'vue'
 import type { NavigationMenuItem, DropdownMenuItem } from '@bitrix24/b24ui-nuxt'
+import { computed, ref } from 'vue'
+import { createSharedComposable } from '@vueuse/core'
 import PersonIcon from '@bitrix24/b24icons-vue/main/PersonIcon'
 import CreditDebitCardIcon from '@bitrix24/b24icons-vue/main/CreditDebitCardIcon'
 import Settings2Icon from '@bitrix24/b24icons-vue/actions/Settings2Icon'
@@ -18,7 +19,7 @@ import CircleCheckThinIcon from '@bitrix24/b24icons-vue/main/CircleCheckThinIcon
 import Bitrix24Icon from '@bitrix24/b24icons-vue/common-service/Bitrix24Icon'
 import LoaderWaitIcon from '@bitrix24/b24icons-vue/animated/LoaderWaitIcon'
 
-export function useMockMenu() {
+const _useMockMenu = () => {
   const toast = useToast()
 
   const action = ref('Action 1')
@@ -28,24 +29,30 @@ export function useMockMenu() {
         label: 'Action 1',
         type: 'trigger' as NavigationMenuItem['type'],
         active: action.value === 'Action 1',
+        icon: ItemIcon,
         onSelect() {
           action.value = 'Action 1'
+          console.warn(action.value)
         }
       },
       {
         label: 'Action 2',
         type: 'trigger' as NavigationMenuItem['type'],
         active: action.value === 'Action 2',
+        icon: SendIcon,
         onSelect() {
           action.value = 'Action 2'
+          console.warn(action.value)
         }
       },
       {
         label: 'Action 3',
         type: 'trigger' as NavigationMenuItem['type'],
         active: action.value === 'Action 3',
+        icon: Link3Icon,
         onSelect() {
           action.value = 'Action 3'
+          console.warn(action.value)
         }
       }
     ]
@@ -223,3 +230,8 @@ export function useMockMenu() {
     dropdownMenuItems
   }
 }
+
+/**
+ * Export a shared composable for use in multiple components.
+ */
+export const useMockMenu = createSharedComposable(_useMockMenu)

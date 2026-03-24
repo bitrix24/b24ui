@@ -1,4 +1,4 @@
-import type { NavigationMenuItem, PageLink } from '@bitrix24/b24ui-nuxt'
+import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
 import type { Surround } from '../types'
 import { upperName } from '../utils'
 import ItemIcon from '@bitrix24/b24icons-vue/crm/ItemIcon'
@@ -101,15 +101,20 @@ const componentsProse = ['show'].map(component => ({
   to: `/components/prose/${component}`
 }))
 
-const externalLinks: PageLink[] = [
+const externalLinks: NavigationMenuItem[] = [
   {
-    label: 'b24icons',
-    to: 'https://bitrix24.github.io/b24icons/',
+    label: 'B24 UI',
+    to: 'https://bitrix24.github.io/b24ui/',
     target: '_blank'
   },
   {
-    label: 'b24jssdk',
+    label: 'B24 JsSdk',
     to: 'https://bitrix24.github.io/b24jssdk/',
+    target: '_blank'
+  },
+  {
+    label: 'B24 Icons',
+    to: 'https://bitrix24.github.io/b24icons/',
     target: '_blank'
   }
 ]

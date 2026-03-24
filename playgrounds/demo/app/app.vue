@@ -39,7 +39,7 @@ defineShortcuts({
     <B24DashboardGroup unit="px" storage="local">
       <B24DashboardSidebar
         id="default"
-        mode="modal"
+        mode="slideover"
         collapsible
         resizable
         class="light:bg-(--ui-color-base-0)/5"

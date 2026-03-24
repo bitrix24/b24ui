@@ -218,7 +218,8 @@ export function getTemplates(options: ModuleOptions, uiConfig: Record<string, an
   }
 
   /* @deprecate This rule is deprecated and will be removed in version 3.0.0 */
-  .sidebar-layout.--inner {
+  .sidebar-layout.--inner,
+  .air-custom-bg {
     background: var(--air-theme-background);
   }
 }
