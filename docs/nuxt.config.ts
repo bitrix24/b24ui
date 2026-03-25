@@ -270,7 +270,7 @@ export default defineNuxtConfig({
     buildAssetsDir: '/_nuxt/',
     head: {
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: `${baseUrl}/favicon.ico` }
+        { rel: 'icon', type: 'image/x-icon', href: `${baseUrl}/favicon.ico?v=2` }
       ],
       htmlAttrs: { class: 'edge-dark' }
     },

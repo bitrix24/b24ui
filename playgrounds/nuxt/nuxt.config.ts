@@ -15,7 +15,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico?v=2' }
       ],
       htmlAttrs: {
         class: 'edge-dark'
