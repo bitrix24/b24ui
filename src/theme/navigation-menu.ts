@@ -143,6 +143,8 @@ export default {
         list: 'flex flex-col',
         item: [
           'mt-(--menu-item-block-stack-space)',
+          // @see `--leftmenu-group-stroke` src/runtime/air-design-tokens/components/navigation-menu.css:75
+          // @see `light:--leftmenu-group-stroke` src/theme/dashboard-sidebar.ts:16
           'data-[state=open]:rounded-(--menu-item-border-radius) data-[state=open]:border-(length:--leftmenu-group-stroke-weight) data-[state=open]:border-(--leftmenu-group-stroke)'
         ].join(' '),
         link: [
