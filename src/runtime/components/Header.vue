@@ -1,9 +1,9 @@
 <script lang="ts">
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
-import theme from '#build/b24ui/header'
 import type { ButtonProps, DrawerProps, ModalProps, SlideoverProps, LinkPropsKeys } from '../types'
 import type { ComponentConfig } from '../types/tv'
+import theme from '#build/b24ui/header'
 
 type Header = ComponentConfig<typeof theme, AppConfig, 'header'>
 
@@ -20,7 +20,7 @@ export interface HeaderProps<T extends HeaderMode = HeaderMode> {
   to?: string
   /**
    * The mode of the header menu.
-   * @defaultValue 'modal'
+   * @defaultValue 'slideover'
    */
   mode?: T
   /**
@@ -81,7 +81,7 @@ defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(defineProps<HeaderProps<T>>(), {
   as: 'header',
-  mode: 'modal' as never,
+  mode: 'slideover' as never,
   autoClose: true,
   toggle: true,
   toggleSide: 'left',
@@ -121,11 +121,27 @@ const Menu = computed(() => ({
   drawer: B24Drawer
 })[props.mode as HeaderMode])
 
-const menuProps = toRef(() => defu(props.menu, {
-  content: {
-    onOpenAutoFocus: (e: Event) => e.preventDefault()
-  }
-}, props.mode === 'modal' ? { fullscreen: true, transition: false } : {}) as HeaderMenu<T>)
+const menuProps = toRef(() => {
+  const modeSettings = props.mode === 'modal'
+    ? { fullscreen: true, transition: false, b24ui: { content: 'p-0 pt-0' } }
+    : props.mode === 'slideover'
+      ? { side: 'left', close: false }
+      : {}
+
+  return defu(
+    props.menu,
+    { content: { onOpenAutoFocus: (e: Event) => e.preventDefault() } },
+    modeSettings,
+    {
+      b24ui: {
+        overlay: b24ui.value.overlay({ class: uiProp.value?.overlay }),
+        content: b24ui.value.content({
+          class: [modeSettings.b24ui?.content, uiProp.value?.content]
+        })
+      }
+    }
+  ) as HeaderMenu<T>
+})
 
 function toggleOpen() {
   open.value = !open.value
@@ -192,10 +208,6 @@ function toggleOpen() {
     :title="t('header.title')"
     :description="t('header.description')"
     v-bind="menuProps"
-    :b24ui="{
-      overlay: b24ui.overlay({ class: uiProp?.overlay }),
-      content: b24ui.content({ class: uiProp?.content })
-    }"
   >
     <template #content="contentData">
       <slot name="content" v-bind="contentData">

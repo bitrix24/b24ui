@@ -1,10 +1,10 @@
 <script lang="ts">
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
-import theme from '#build/b24ui/dashboard-sidebar'
 import type { UseResizableProps } from '../composables/useResizable'
 import type { ButtonProps, DrawerProps, ModalProps, SlideoverProps, LinkPropsKeys } from '../types'
 import type { ComponentConfig } from '../types/tv'
+import theme from '#build/b24ui/dashboard-sidebar'
 
 type DashboardSidebar = ComponentConfig<typeof theme, AppConfig, 'dashboardSidebar'>
 
@@ -14,7 +14,7 @@ type DashboardSidebarMenu<T> = T extends 'modal' ? ModalProps : T extends 'slide
 export interface DashboardSidebarProps<T extends DashboardSidebarMode = DashboardSidebarMode> extends Pick<UseResizableProps, 'id' | 'side' | 'minSize' | 'maxSize' | 'defaultSize' | 'resizable' | 'collapsible' | 'collapsedSize'> {
   /**
    * The mode of the sidebar menu.
-   * @defaultValue 'modal'
+   * @defaultValue 'slideover'
    */
   mode?: T
   /**
@@ -133,11 +133,27 @@ const Menu = computed(() => ({
   drawer: B24Drawer
 })[props.mode as DashboardSidebarMode])
 
-const menuProps = toRef(() => defu(props.menu, {
-  content: {
-    onOpenAutoFocus: (e: Event) => e.preventDefault()
-  }
-}, props.mode === 'modal' ? { fullscreen: true, transition: false } : props.mode === 'slideover' ? { side: 'left', close: false } : {}) as DashboardSidebarMenu<T>)
+const menuProps = toRef(() => {
+  const modeSettings = props.mode === 'modal'
+    ? { fullscreen: true, transition: false, b24ui: { content: 'p-0 pt-0' } }
+    : props.mode === 'slideover'
+      ? { side: 'left', close: false }
+      : {}
+
+  return defu(
+    props.menu,
+    { content: { onOpenAutoFocus: (e: Event) => e.preventDefault() } },
+    modeSettings,
+    {
+      b24ui: {
+        overlay: b24ui.value.overlay({ class: uiProp.value?.overlay }),
+        content: b24ui.value.content({
+          class: [modeSettings.b24ui?.content, uiProp.value?.content]
+        })
+      }
+    }
+  ) as DashboardSidebarMenu<T>
+})
 
 function toggleOpen() {
   open.value = !open.value
@@ -203,10 +219,6 @@ function toggleOpen() {
     :title="t('dashboardSidebar.title')"
     :description="t('dashboardSidebar.description')"
     v-bind="menuProps"
-    :b24ui="{
-      overlay: b24ui.overlay({ class: uiProp?.overlay }),
-      content: b24ui.content({ class: uiProp?.content })
-    }"
   >
     <template #content="contentData">
       <slot name="content" v-bind="contentData">
