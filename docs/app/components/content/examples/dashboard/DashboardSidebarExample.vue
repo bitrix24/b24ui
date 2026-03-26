@@ -62,7 +62,7 @@ const items: NavigationMenuItem[][] = [
   <B24DashboardSidebar
     collapsible
     resizable
-    :b24ui="{ footer: 'border-t border-(--ui-color-divider-default)' }"
+    class="border-e-1"
   >
     <template #header="{ collapsed }">
       <Logo v-if="!collapsed" class="h-5 w-auto shrink-0 text-(--b24ui-typography-label-color)" />
@@ -70,10 +70,7 @@ const items: NavigationMenuItem[][] = [
     </template>
 
     <template #default="{ collapsed }">
-      <B24DashboardSearchButton
-        :collapsed="collapsed"
-        class="ms-4"
-      />
+      <B24DashboardSearchButton :collapsed="collapsed" />
 
       <B24NavigationMenu
         :collapsed="collapsed"

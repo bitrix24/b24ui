@@ -31,11 +31,6 @@ defineShortcuts({
 <template>
   <B24DashboardSidebar
     v-model:open="open"
-    :menu="{
-      side: 'left',
-      inset: true
-    }"
-    :b24ui="{ overlay: 'bg-(--ui-color-bg-content-primary) base-mode' }"
   >
     <template #header="{ collapsed }">
       <Logo v-if="!collapsed" class="h-5 w-auto text-(--b24ui-typography-label-color)" />

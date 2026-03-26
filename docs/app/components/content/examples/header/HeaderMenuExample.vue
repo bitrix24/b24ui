@@ -36,13 +36,7 @@ const items = computed<NavigationMenuItem[]>(() => [
 </script>
 
 <template>
-  <B24Header
-    :menu="{
-      side: 'left',
-      inset: true
-    }"
-    :b24ui="{ overlay: 'bg-(--ui-color-bg-content-primary) base-mode' }"
-  >
+  <B24Header>
     <template #title>
       <Logo class="h-6 w-auto text-(--b24ui-typography-label-color)" />
     </template>

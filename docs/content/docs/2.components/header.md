@@ -123,7 +123,7 @@ slots:
 
 ### Mode
 
-Use the `mode` prop to change the mode of the header menu. Defaults to `modal`.
+Use the `mode` prop to change the mode of the header menu. Defaults to `slideover`.
 
 Use the `body` slot to fill the menu body (under the header) or the `content` slot to fill the entire menu.
 
@@ -136,6 +136,7 @@ You can use the `menu` prop to customize the menu of the header, it will adapt d
 collapse: true
 iframe:
   height: 300px;
+  class: 'max-w-[1000px]'
 iframeMobile: true
 overflowHidden: true
 name: 'header-menu-example'
@@ -163,6 +164,7 @@ You can pass any property from the [Button](/docs/components/button/) component 
 collapse: true
 iframe:
   height: 300px;
+  class: 'max-w-[1000px]'
 iframeMobile: true
 overflowHidden: true
 name: 'header-toggle-example'
@@ -180,6 +182,7 @@ Use the `toggle-side` prop to change the side of the toggle button. Defaults to 
 collapse: true
 iframe:
   height: 300px;
+  class: 'max-w-[1000px]'
 iframeMobile: true
 overflowHidden: true
 name: 'header-toggle-side-example'

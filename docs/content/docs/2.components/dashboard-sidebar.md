@@ -249,6 +249,10 @@ props:
 
 You can control the open state by using the `open` prop or the `v-model:open` directive.
 
+::note
+In this example, leveraging [`defineShortcuts`](/docs/composables/define-shortcuts/), you can toggle the open state of the DashboardSidebar by pressing :kbd{value="O"}.
+::
+
 ::component-example
 ---
 collapse: true
@@ -262,13 +266,13 @@ class: '!p-0 !justify-start'
 ---
 ::
 
-::note
-In this example, leveraging [`defineShortcuts`](/docs/composables/define-shortcuts/), you can toggle the open state of the DashboardSidebar by pressing :kbd{value="O"}.
-::
-
 ### Control collapsed state
 
 You can control the collapsed state by using the `collapsed` prop or the `v-model:collapsed` directive.
+
+::note
+In this example, leveraging [`defineShortcuts`](/docs/composables/define-shortcuts/), you can toggle the collapsed state of the DashboardSidebar by pressing :kbd{value="C"}.
+::
 
 ::component-example
 ---
@@ -278,10 +282,6 @@ collapse: true
 props:
   class: '!min-h-96 h-136'
 ---
-::
-
-::note
-In this example, leveraging [`defineShortcuts`](/docs/composables/define-shortcuts/), you can toggle the collapsed state of the DashboardSidebar by pressing :kbd{value="C"}.
 ::
 
 ## API

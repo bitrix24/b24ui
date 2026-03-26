@@ -30,11 +30,6 @@ const items: NavigationMenuItem[] = [
   <B24DashboardGroup>
     <B24DashboardSidebar
       :mode="mode"
-      :menu="{
-        side: 'left',
-        inset: true
-      }"
-      :b24ui="{ overlay: 'bg-(--ui-color-bg-content-primary) base-mode' }"
     >
       <template #header="{ collapsed }">
         <Logo v-if="!collapsed" class="h-5 w-auto text-(--b24ui-typography-label-color)" />
@@ -49,7 +44,7 @@ const items: NavigationMenuItem[] = [
 
     <B24DashboardPanel>
       <template #header>
-        <B24DashboardNavbar title="Dashboard" />
+        <B24DashboardNavbar title="Dashboard" class="bg-(--ui-color-design-outline-bg-alt) backdrop-blur-md" />
       </template>
     </B24DashboardPanel>
   </B24DashboardGroup>

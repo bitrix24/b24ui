@@ -29,7 +29,11 @@ defineShortcuts({
 </script>
 
 <template>
-  <B24DashboardSidebar v-model:collapsed="collapsed" collapsible>
+  <B24DashboardSidebar
+    v-model:collapsed="collapsed"
+    collapsible
+    class="border-e-1"
+  >
     <template #header>
       <Logo v-if="!collapsed" class="h-5 w-auto text-(--b24ui-typography-label-color)" />
       <B24Icon v-else class="size-10 text-[#2fc6f6] mx-auto" />
