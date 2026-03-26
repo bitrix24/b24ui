@@ -2,7 +2,6 @@
 title: ChatPromptSubmit
 description: 'A chat prompt submission button with automatic status handling.'
 category: chat
-badge: New
 links:
   - label: Button
     iconName: Bitrix24Icon

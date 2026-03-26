@@ -12,7 +12,6 @@ links:
   - label: Nuxt UI
     iconName: NuxtIcon
     to: https://ui.nuxt.com/docs/components/header
-navigation.badge: New
 ---
 
 ## Usage

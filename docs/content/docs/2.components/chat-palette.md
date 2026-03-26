@@ -2,7 +2,6 @@
 title: ChatPalette
 description: 'A chat interface component designed to be displayed in a modal overlay.'
 category: chat
-badge: New
 links:
   - label: GitHub
     iconName: GitHubIcon

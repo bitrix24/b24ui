@@ -8,7 +8,7 @@ links:
   - label: plugin Platform
     iconName: GitHubIcon
     to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/plugins/platform.ts
-navigation.badge: Soon
+navigation.badge: New
 ---
 
 ## Usage

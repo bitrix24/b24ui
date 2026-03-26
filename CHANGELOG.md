@@ -14,7 +14,7 @@
 
 ### Docs
 
-* **dashboard*:** improve
+* **dashboard:** improve
 
 ## [2.5.1](https://github.com/bitrix24/b24ui/compare/v2.4.2...v2.5.1) (2026-03-24)
 

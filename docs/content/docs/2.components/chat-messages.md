@@ -2,7 +2,6 @@
 title: ChatMessages
 description: 'A chat messages list component designed for seamless integration with the Vercel AI SDK.'
 category: chat
-badge: New
 links:
   - label: GitHub
     iconName: GitHubIcon

@@ -9,7 +9,6 @@ links:
   - label: Nuxt UI
     iconName: NuxtIcon
     to: https://ui.nuxt.com/docs/components/dashboard-panel
-navigation.badge: New
 ---
 
 ## Usage

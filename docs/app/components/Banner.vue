@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import EditPencilIcon from '@bitrix24/b24icons-vue/main/EditPencilIcon'
+import MobileSelectedIcon from '@bitrix24/b24icons-vue/outline/MobileSelectedIcon'
 </script>
 
 <template>
   <B24Banner
-    id="component-editor-date-banner"
-    title="The Editor component is now implemented! Check it out."
-    to="/docs/components/editor/"
-    :icon="EditPencilIcon"
+    id="use-device-banner"
+    title="useDevice: tailor content to Mobile, Desktop, or Web."
+    to="b24ui/docs/composables/use-device/"
+    :icon="MobileSelectedIcon"
     close
-    color="air-primary-copilot"
+    color="air-primary"
     class="light"
   />
 </template>

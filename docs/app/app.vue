@@ -50,7 +50,7 @@ provide('files', files)
   <B24App :toaster="appConfig.toaster">
     <NuxtLoadingIndicator color="var(--ui-color-design-filled-warning-bg)" :height="3" />
     <template v-if="!route.path.startsWith('/examples')">
-      <!-- <Banner /> -->
+      <Banner />
     </template>
 
     <NuxtLayout>

@@ -9,7 +9,6 @@ links:
   - label: Nuxt UI
     iconName: NuxtIcon
     to: https://ui.nuxt.com/docs/components/dashboard-resize-handle
-navigation.badge: New
 ---
 
 ## Usage

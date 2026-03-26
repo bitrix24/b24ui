@@ -2,7 +2,6 @@
 title: ChatMessage
 description: 'A chat message component with icon, avatar, and action buttons.'
 category: chat
-badge: New
 links:
   - label: GitHub
     iconName: GitHubIcon
