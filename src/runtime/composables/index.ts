@@ -6,4 +6,8 @@ export * from './useOverlay'
 export * from './useResizable'
 export * from './useScrollspy'
 export * from './useToast'
+// special composables
+export * from './useDevice'
+export * from './useConfetti'
 export * from './useSpeechRecognition'
+export * from './color-mode/useColorMode'

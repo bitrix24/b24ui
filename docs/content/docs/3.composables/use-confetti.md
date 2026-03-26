@@ -99,7 +99,7 @@ Here's a complete example of how to use the `useConfetti` composable:
 ::component-example
 ---
 collapse: true
-name: 'use-confetti--example'
+name: 'use-confetti-example'
 ---
 ::
 

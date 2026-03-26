@@ -9,6 +9,7 @@
 @variant dark (&:where(.dark, .dark *));
 @variant bitrix-mobile (&:where(html[data-platform="bitrix-mobile"] *));
 @variant bitrix-desktop (&:where(html[data-platform="bitrix-desktop"] *));
+@variant web (&:where(html[data-platform="web"] *));
 
 @layer base {
   body,

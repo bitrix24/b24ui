@@ -1,7 +1,7 @@
 import { defineNuxtPlugin, useState, useRequestHeader, useHead } from '#imports'
 
 /**
- * Plugin to detect the Bitrix24 mobile application environment.
+ * Plugin to detect the Bitrix24 application environment.
  *
  * @description
  * 1. Analyzes the User-Agent on the server-side (SSR) or client-side.
