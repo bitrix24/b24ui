@@ -1,16 +1,25 @@
 # Changelog
 
-## [2.5.2](https://github.com/bitrix24/b24ui/compare/v2.5.1...v2.5.2) (2026-03-xx)
+## [2.5.2](https://github.com/bitrix24/b24ui/compare/v2.5.1...v2.5.2) (2026-03-26)
 
-* feat(useDevice): new composables for detect the current platform (Bitrix24 mobile/desktop app or web) and screen size
-* fix(NavigationMenu): improve theme
-* fix(DashboardSidebar|Header): improve menu
-* docs(dashboard*): improve
-* playgrounds: improve page shortcuts
+### Features
+
+* **useDevice:** new composables for detect the current platform (Bitrix24 mobile/desktop app or web) and screen size
+* **playgrounds:** improve page shortcuts
+
+### Bug Fixes
+
+* **NavigationMenu:** improve theme
+* **DashboardSidebar|Header:** improve menu
+
+### Docs
+
+* **dashboard*:** improve
 
 ## [2.5.1](https://github.com/bitrix24/b24ui/compare/v2.4.2...v2.5.1) (2026-03-24)
 
 ### ⚠ BREAKING CHANGES
+
 * **Slideover** remove usage `sidebarLayout` and improve theme
 
 ### Features
@@ -43,6 +52,7 @@
 * **CommandPalette:** improve `back` button and divide color
 
 ### Chore
+
 * **platform:** improve
 * **air:** mark `--air-theme-bg-image-blurred` as `deprecate`. Now we use something like `backdrop-blur-md` or `backdrop-blur-md`
 
