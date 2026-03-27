@@ -19,33 +19,33 @@ export function useHeader() {
     {
       label: 'Templates',
       to: '/templates/'
-    },
-    {
-      label: 'Resources',
-      children: [
-        {
-          label: 'Community',
-          description: 'Explore projects built around Nuxt UI.',
-          icon: 'i-lucide-globe',
-          to: '/community',
-          target: '_blank'
-        },
-        {
-          label: 'Community',
-          description: 'Explore projects built around Nuxt UI.',
-          icon: 'i-lucide-globe',
-          to: '/community',
-          target: '_blank'
-        },
-        {
-          label: 'Playground',
-          description: 'Try Nuxt UI components live in your browser.',
-          icon: 'i-lucide-square-terminal',
-          to: '/play',
-          target: '_blank'
-        }
-      ]
     }
+    // {
+    //   label: 'Resources',
+    //   children: [
+    //     {
+    //       label: 'UI / ICONS / Js',
+    //       description: 'Explore projects built around Nuxt UI.',
+    //       icon: 'i-lucide-globe',
+    //       to: '/community',
+    //       target: '_blank'
+    //     },
+    //     {
+    //       label: 'Community',
+    //       description: 'Explore projects built around Nuxt UI.',
+    //       icon: 'i-lucide-globe',
+    //       to: '/community',
+    //       target: '_blank'
+    //     },
+    //     {
+    //       label: 'Playground',
+    //       description: 'Try Nuxt UI components live in your browser.',
+    //       icon: 'i-lucide-square-terminal',
+    //       to: '/play',
+    //       target: '_blank'
+    //     }
+    //   ]
+    // }
   ])
 
   const mobileLinks = computed<NavigationMenuItem[]>(() => [
