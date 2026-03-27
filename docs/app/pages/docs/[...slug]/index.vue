@@ -18,6 +18,10 @@ const pageUrl = route.path
 const config = useRuntimeConfig()
 const appConfig = useAppConfig()
 
+definePageMeta({
+  layout: 'docs'
+})
+
 const { isEnabled, open } = useAssistant()
 
 const { data: page } = await useAsyncData(kebabCase(pageUrl), () => queryCollection('docs').path(pageUrl).first())
@@ -151,114 +155,96 @@ onMounted(() => {
 </script>
 
 <template>
-  <B24DashboardPanel
-    id="doc"
-    :b24ui="{ body: 'md:pt-6 items-stretch justify-between scrollbar-transparent scrollbar-both-edges' }"
+  <B24Page
+    v-if="page"
+    :b24ui="{
+      root: 'lg:gap-2.5 lg:py-3',
+      center: 'flex flex-col lg:gap-4',
+      right: 'lg:col-span-2 order-first lg:order-last lg:top-[0px]'
+    }"
   >
-    <template #header>
-      <Header />
+    <PageHeader>
+      <template #title>
+        {{ page.title }}
+
+        <B24Badge
+          v-if="page.navigation?.badge"
+          :label="page.navigation?.badge"
+          size="lg"
+          class="align-middle"
+        />
+      </template>
+      <template #description>
+        <MDC
+          v-if="page.description"
+          :value="page.description"
+          unwrap="p"
+          :cache-key="`${kebabCase(pageUrl)}-description`"
+        />
+      </template>
+      <template #head-links>
+        <B24Button
+          v-if="showExplainWithAi"
+          :icon="explainIcon"
+          label="Explain with AI"
+          color="air-selection"
+          size="sm"
+          @click="open(`Explain the page ${pageUrl}`, true)"
+        />
+        <PageHeaderLinks />
+        <B24DropdownMenu
+          class="hidden sm:flex"
+          :items="communityLinks"
+          :content="{ side: 'bottom', align: 'end', sideOffset: 4 }"
+        >
+          <B24Button size="sm" :icon="MoreMIcon" color="air-secondary-accent" />
+        </B24DropdownMenu>
+      </template>
+      <template #links>
+        <B24Button
+          v-for="link in page.links"
+          :key="link.label"
+          :target="link.to?.startsWith('http') ? '_blank' : undefined"
+          v-bind="link"
+          :icon="iconFromIconName(link?.iconName)"
+          size="md"
+          :b24ui="{ leadingIcon: 'mr-[5px]' }"
+        >
+          <template v-if="link.avatar" #leading>
+            <B24Avatar
+              v-bind="link.avatar"
+              size="2xs"
+              :alt="`${link.label}`"
+              :b24ui="{ root: 'mr-[5px]', image: 'w-[18px] h-[12px]' }"
+            />
+          </template>
+        </B24Button>
+      </template>
+    </PageHeader>
+
+    <template v-if="page?.body?.toc?.links?.length" #right>
+      <B24ContentToc
+        :links="page.body.toc.links"
+        class="sticky top-(--b24ui-header-height) px-3 py-3 pb-0 lg:p-4 lg:top-(--b24ui-header-height) scrollbar-thin scrollbar-transparent bg-(--ui-color-accent-soft-element-violet)/60 dark:bg-(--ui-color-copilot-bg-content-3)/40 lg:bg-transparent dark:lg:bg-transparent backdrop-blur-md lg:ms-0 overflow-y-auto max-h-[calc(100vh-var(--b24ui-header-height))] lg:col-span-2 order-first lg:order-last z-2"
+      />
     </template>
 
-    <template v-if="page" #body>
-      <B24Page
+    <B24PageBody class="mt-0">
+      <B24Card
+        v-if="page"
+        as="main"
+        :class="cardColorContext"
         :b24ui="{
-          root: 'lg:gap-4',
-          center: 'flex flex-col lg:gap-4',
-          right: 'lg:col-span-2 order-first lg:order-last lg:top-[0px]'
+          root: 'rounded-none lg:rounded-(--ui-border-radius-md)',
+          body: 'p-3'
         }"
       >
-        <PageHeader>
-          <template #title>
-            {{ page.title }}
+        <ContentRenderer v-if="page.body" :value="page" />
 
-            <B24Badge
-              v-if="page.navigation?.badge"
-              :label="page.navigation?.badge"
-              size="lg"
-              class="align-middle"
-            />
-          </template>
-          <template #description>
-            <MDC
-              v-if="page.description"
-              :value="page.description"
-              unwrap="p"
-              :cache-key="`${kebabCase(pageUrl)}-description`"
-            />
-          </template>
-          <template #head-links>
-            <B24Button
-              v-if="showExplainWithAi"
-              :icon="explainIcon"
-              label="Explain with AI"
-              color="air-selection"
-              size="sm"
-              @click="open(`Explain the page ${pageUrl}`, true)"
-            />
-            <PageHeaderLinks />
-            <B24DropdownMenu
-              class="hidden sm:flex"
-              :items="communityLinks"
-              :content="{ side: 'bottom', align: 'end', sideOffset: 4 }"
-            >
-              <B24Button size="sm" :icon="MoreMIcon" color="air-secondary-accent" />
-            </B24DropdownMenu>
-          </template>
-          <template #links>
-            <B24Button
-              v-for="link in page.links"
-              :key="link.label"
-              :target="link.to?.startsWith('http') ? '_blank' : undefined"
-              v-bind="link"
-              :icon="iconFromIconName(link?.iconName)"
-              size="md"
-              :b24ui="{ leadingIcon: 'mr-[5px]' }"
-            >
-              <template v-if="link.avatar" #leading>
-                <B24Avatar
-                  v-bind="link.avatar"
-                  size="2xs"
-                  :alt="`${link.label}`"
-                  :b24ui="{ root: 'mr-[5px]', image: 'w-[18px] h-[12px]' }"
-                />
-              </template>
-            </B24Button>
-          </template>
-        </PageHeader>
+        <B24Separator v-if="surround?.filter(Boolean).length" class="my-4" />
 
-        <template v-if="page?.body?.toc?.links?.length" #right>
-          <B24PageAside :b24ui="{ root: 'block' }">
-            <B24Card
-              variant="outline-alt"
-              class="rounded-none lg:rounded-(--ui-border-radius-md) backdrop-blur-md border-0"
-              :b24ui="{ body: 'px-3 py-0 sm:ps-[22px] lg:ps-2.5 lg:pe-1 sm:py-0 pt-3 sm:pt-3 lg:py-3' }"
-            >
-              <B24ContentToc
-                :links="page.body.toc.links"
-                class="p-0 lg:overflow-y-auto scrollbar-thin scrollbar-transparent lg:h-[calc(100vh-var(--topbar-height)-22px-22px)]"
-              />
-            </B24Card>
-          </B24PageAside>
-        </template>
-
-        <B24Card
-          v-if="page"
-          as="main"
-          :class="cardColorContext"
-          :b24ui="{
-            root: 'rounded-none lg:rounded-(--ui-border-radius-md)',
-            body: 'p-3'
-          }"
-        >
-          <ContentRenderer v-if="page.body" :value="page" />
-
-          <B24Separator v-if="surround?.filter(Boolean).length" class="my-4" />
-
-          <B24ContentSurround :surround="(surround as any)" />
-        </B24Card>
-      </B24Page>
-
-      <Footer />
-    </template>
-  </B24DashboardPanel>
+        <B24ContentSurround :surround="(surround as any)" />
+      </B24Card>
+    </B24PageBody>
+  </B24Page>
 </template>

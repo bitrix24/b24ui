@@ -1,23 +1,70 @@
 <script setup lang="ts">
 import RocketIcon from '@bitrix24/b24icons-vue/outline/RocketIcon'
+import Bitrix24Icon from '@bitrix24/b24icons-vue/common-service/Bitrix24Icon'
+import TelegramIcon from '@bitrix24/b24icons-vue/outline/TelegramIcon'
 
+const route = useRoute()
 const config = useRuntimeConfig()
+
+const isNeedChangeTarget = ref(false)
+const tgLink = computed(() => {
+  return (
+    isNeedChangeTarget.value && (typeof window !== 'undefined' && window.navigator?.language.includes('ru'))
+  )
+    ? 'https://t.me/bitrix24apps'
+    : 'https://t.me/b24_dev'
+})
+
+const b24DocsLink = computed(() => {
+  return (
+    isNeedChangeTarget.value && (typeof window !== 'undefined' && window.navigator?.language.includes('ru'))
+  )
+    ? 'https://apidocs.bitrix24.ru/'
+    : 'https://apidocs.bitrix24.com/'
+})
+
+onMounted(() => {
+  isNeedChangeTarget.value = true
+})
 </script>
 
 <template>
-  <div class="mx-[22px] my-[12px] flex flex-col sm:flex-row items-center justify-start gap-[12px]">
-    <B24Button
-      label="Releases"
-      :icon="RocketIcon"
-      :to="`${config.public.gitUrl}/releases`"
-      target="_blank"
-      size="md"
-    />
+  <B24Separator :icon="route.path === '/' ? undefined : Bitrix24Icon" class="h-px" />
+
+  <B24Footer>
+    <template #left>
+      <ProseP small accent="less">
+        Copyright © 2024-present Bitrix24
+      </ProseP>
+    </template>
+
+    <template #right>
+      <B24Button
+        aria-label="Bitrix24 REST API"
+        :icon="Bitrix24Icon"
+        :to="b24DocsLink"
+        target="_blank"
+        size="md"
+      />
+
+      <B24Button
+        aria-label="Bitrix24 UI on Telegram"
+        :icon="TelegramIcon"
+        :to="tgLink"
+        target="_blank"
+        size="md"
+      />
+      <B24Button
+        label="Releases"
+        :icon="RocketIcon"
+        :to="`${config.public.gitUrl}/releases`"
+        target="_blank"
+        size="md"
+      />
+    </template>
+
     <NuxtLink :to="config.public.gitUrl" target="_blank" class="text-legend text-(length:--ui-font-size-sm) hover:underline">
       Published under MIT License.
     </NuxtLink>
-    <ProseP small accent="less">
-      Copyright © 2024-present Bitrix24
-    </ProseP>
-  </div>
+  </B24Footer>
 </template>

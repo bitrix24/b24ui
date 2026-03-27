@@ -17,28 +17,35 @@ export function useHeader() {
       active: route.path.startsWith('/docs/getting-started')
     },
     {
-      label: 'Components',
-      to: '/docs/components/',
-      active: route.path.startsWith('/docs/components')
-    },
-    {
-      label: 'Composables',
-      to: '/docs/composables/define-shortcuts/',
-      active: route.path.startsWith('/docs/composables')
-    },
-    {
-      label: 'Typography',
-      to: '/docs/typography/',
-      active: route.path.startsWith('/docs/typography')
-    },
-    {
       label: 'Templates',
       to: '/templates/'
+    },
+    {
+      label: 'Resources',
+      children: [
+        {
+          label: 'Community',
+          description: 'Explore projects built around Nuxt UI.',
+          icon: 'i-lucide-globe',
+          to: '/community',
+          target: '_blank'
+        },
+        {
+          label: 'Community',
+          description: 'Explore projects built around Nuxt UI.',
+          icon: 'i-lucide-globe',
+          to: '/community',
+          target: '_blank'
+        },
+        {
+          label: 'Playground',
+          description: 'Try Nuxt UI components live in your browser.',
+          icon: 'i-lucide-square-terminal',
+          to: '/play',
+          target: '_blank'
+        }
+      ]
     }
-    // {
-    //   label: 'Showcase',
-    //   to: '/showcase/'
-    // }
   ])
 
   const mobileLinks = computed<NavigationMenuItem[]>(() => [
@@ -71,11 +78,6 @@ export function useHeader() {
       to: '/templates/',
       icon: FormIcon
     },
-    // {
-    //   label: 'Showcase',
-    //   to: '/showcase/',
-    //   icon: DemonstrationOnIcon
-    // },
     {
       label: 'GitHub',
       to: 'https://github.com/bitrix24/b24ui',

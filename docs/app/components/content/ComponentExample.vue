@@ -177,7 +177,7 @@ const urlSearchParams = computed(() => {
         <div
           class="relative z-[1]"
           :class="[{
-            'border-(--ui-color-design-tinted-na-stroke) border': props.border,
+            'border-(--ui-color-divider-accent) border': props.border,
             'border-b-0 rounded-t-md': props.source,
             'rounded-md': !props.source,
             'overflow-hidden': props.overflowHidden

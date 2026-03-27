@@ -9,7 +9,6 @@ import MobileSelectedIcon from '@bitrix24/b24icons-vue/outline/MobileSelectedIco
     to="/docs/composables/use-device/"
     :icon="MobileSelectedIcon"
     close
-    color="air-primary"
-    class="light"
+    color="air-primary-copilot"
   />
 </template>

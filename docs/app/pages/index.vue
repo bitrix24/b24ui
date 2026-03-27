@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // import { joinURL } from 'ufo'
-import { navigateTo, useColorMode } from '#imports'
+import { navigateTo } from '#imports'
 import EncloseTextInCodeTagIcon from '@bitrix24/b24icons-vue/editor/EncloseTextInCodeTagIcon'
 import InfoCircleIcon from '@bitrix24/b24icons-vue/outline/InfoCircleIcon'
 import PlayLIcon from '@bitrix24/b24icons-vue/outline/PlayLIcon'
@@ -33,86 +33,51 @@ const iconFromIconName = (iconName?: string) => {
 
   return undefined
 }
-
-const colorMode = useColorMode()
-const isDark = computed(() => {
-  return colorMode.value === 'dark'
-})
-const isMounted = ref(false)
-const cardColorContext = computed(() => {
-  if (import.meta.server || !isMounted.value) {
-    return 'light'
-  }
-  return isDark.value ? 'dark' : 'light'
-})
-
-onMounted(() => {
-  isMounted.value = true
-})
 </script>
 
 <template>
-  <B24DashboardPanel
-    id="home"
-    :b24ui="{ body: 'md:pt-6 items-stretch justify-between scrollbar-transparent scrollbar-both-edges' }"
-  >
-    <template #header>
-      <Header />
-    </template>
+  <main v-if="page">
+    <B24Container class="px-[22px] lg:px-8 py-10 sm:py-16 lg:py-24 relative flex flex-col items-start sm:items-center justify-center gap-[20px]">
+      <h1 class="relative text-(--b24ui-typography-label-color) sm:text-center text-5xl sm:text-8xl font-bold mb-0">
+        @bitrix24/b24ui <br> Bitrix24 UI-Kit
+      </h1>
 
-    <template #body>
-      <B24Card
-        v-if="page"
-        as="main"
-        class="overflow-clip"
-        :class="cardColorContext"
-        :b24ui="{
-          root: 'rounded-none lg:rounded-(--ui-border-radius-md)',
-          body: 'min-h-[300px] flex flex-col gap-5 items-center justify-stretch lg:justify-center'
-        }"
-      >
-        <div class="w-full flex-1 flex flex-col text-center">
-          <ProseH1 class="mt-[24px] mb-0 leading-(--ui-font-line-height-3xs)">
-            <span class="text-(--ui-color-accent-main-primary)">@bitrix24/b24ui</span> <br>Bitrix24 UI-Kit
-          </ProseH1>
-          <ProseP>
-            {{ page.hero.description }}
-          </ProseP>
-          <B24Separator class="my-4" type="dashed" />
-          <div class="flex flex-wrap flex-col sm:flex-row items-center justify-center gap-2">
-            <B24Button
-              v-for="link of page.hero.links"
-              :key="link.label"
-              v-bind="link"
-              size="md"
-              :icon="iconFromIconName(link?.iconName)"
-            />
-          </div>
-        </div>
-        <div class="w-full flex-1 flex flex-col text-center">
-          <ComponentExample
-            name="IndexPromoV1"
-            :source="false"
-            class="w-full"
-          />
-          <div class="mb-4 -mt-4">
-            <B24Badge
-              label="source"
-              use-link
-              color="air-tertiary"
-              @click.prevent="navigateTo({
-                path: 'https://github.com/bitrix24/b24ui/blob/main/docs/app/components/content/examples/index/IndexPromoV1.vue',
-                query: {}
-              }, {
-                external: true,
-                open: { target: '_blank' }
-              })"
-            />
-          </div>
-        </div>
-      </B24Card>
+      <div class="sm:text-center sm:text-4xl mb-2 last:mb-0 text-pretty text-(length:--ui-font-size-xl) leading-(--ui-font-line-height-lg) text-(--b24ui-typography-label-color)">
+        {{ page.hero.description }}
+      </div>
 
-      <Footer />
-    </template>
-  </B24DashboardPanel>
+      <B24Separator class="my-4" type="dashed" accent="accent" />
+      <div class="mt-2 flex flex-wrap items-start sm:items-center gap-4">
+        <B24Button
+          v-for="link of page.hero.links"
+          :key="link.label"
+          v-bind="link"
+          size="md"
+          :icon="iconFromIconName(link?.iconName)"
+        />
+      </div>
+    </B24Container>
+
+    <B24PageSection :b24ui="{ container: 'py-10 sm:py-10 lg:py-10 gap-0 sm:gap-0' }">
+      <ComponentExample
+        name="IndexPromoV1"
+        :source="false"
+        class="rounded-t w-full bg-(--ui-color-design-outline-bg-alt) backdrop-blur-md"
+      />
+      <div>
+        <B24Badge
+          label="source"
+          use-link
+          color="air-tertiary"
+          @click.prevent="navigateTo({
+            path: 'https://github.com/bitrix24/b24ui/blob/main/docs/app/components/content/examples/index/IndexPromoV1.vue',
+            query: {}
+          }, {
+            external: true,
+            open: { target: '_blank' }
+          })"
+        />
+      </div>
+    </B24PageSection>
+  </main>
 </template>

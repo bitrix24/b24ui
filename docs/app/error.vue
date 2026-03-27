@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app'
-import { useColorMode } from '#imports'
 
 const props = defineProps<{
   error: NuxtError
@@ -29,22 +28,6 @@ useServerSeoMeta({
 const { rootNavigation } = useNavigation(navigation)
 
 provide('navigation', rootNavigation)
-
-const colorMode = useColorMode()
-const isDark = computed(() => {
-  return colorMode.value === 'dark'
-})
-const isMounted = ref(false)
-const cardColorContext = computed(() => {
-  if (import.meta.server || !isMounted.value) {
-    return 'edge-dark'
-  }
-  return isDark.value ? 'dark' : 'edge-dark'
-})
-
-onMounted(() => {
-  isMounted.value = true
-})
 </script>
 
 <template>
@@ -52,11 +35,15 @@ onMounted(() => {
     <NuxtLoadingIndicator color="var(--ui-color-accent-main-primary)" :height="2" />
 
     <div :class="[route.path.startsWith('/docs/') && 'root']">
+      <!-- <Banner /> -->
+
       <Header />
 
       <B24Error
         :error="error"
-        :class="cardColorContext"
+        :b24ui="{
+          root: 'min-h-[calc(100vh-var(--topbar-height)-var(--topbar-height))]'
+        }"
       />
 
       <Footer />

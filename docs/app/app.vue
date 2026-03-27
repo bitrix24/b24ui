@@ -4,6 +4,7 @@ import { withTrailingSlash } from 'ufo'
 const route = useRoute()
 const appConfig = useAppConfig()
 const config = useRuntimeConfig()
+const { isEnabled: isAssistantEnabled, panelWidth: assistantPanelWidth, shouldPushContent } = useAssistant()
 
 const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs', ['framework', 'category', 'description', 'badge']))
 const { data: files } = useLazyAsyncData(
@@ -41,7 +42,7 @@ useServerSeoMeta({
   twitterCard: 'summary_large_image'
 })
 
-const { rootNavigation } = useNavigation(navigation)
+const { rootNavigation, navigationByFramework } = useNavigation(navigation)
 provide('navigation', rootNavigation)
 provide('files', files)
 </script>
@@ -49,16 +50,46 @@ provide('files', files)
 <template>
   <B24App :toaster="appConfig.toaster">
     <NuxtLoadingIndicator color="var(--ui-color-design-filled-warning-bg)" :height="3" />
-    <template v-if="!route.path.startsWith('/examples')">
-      <!-- Banner / -->
-    </template>
 
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+    <div
+      :class="[
+        route.path.startsWith('/docs/') && 'root',
+        'transition-[margin-right] duration-200 ease-linear will-change-[margin-right]'
+        // { 'docus-sub-header': subNavigationMode === 'header' }
+      ]"
+      :style="{ marginRight: shouldPushContent ? `${assistantPanelWidth}px` : '0' }"
+    >
+      <template v-if="!route.path.startsWith('/examples')">
+        <Banner />
+
+        <Header />
+      </template>
+
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+
+      <template v-if="!route.path.startsWith('/examples')">
+        <Footer />
+
+        <ClientOnly>
+          <Search :files="files" :navigation="navigationByFramework" />
+          <template v-if="isAssistantEnabled">
+            <LazyAssistantPanel />
+            <LazyAssistantFloatingInput />
+          </template>
+        </ClientOnly>
+      </template>
+    </div>
   </B24App>
 </template>
 
 <style>
 /* Safelist (do not remove): air-custom-bg [&>div]:*:my-0 [&>div]:*:w-full h-176 h-64 !px-0 !py-0 !pt-0 !pb-0 !p-0 p-0! !justify-start !justify-end !min-h-96 h-136 !min-h-98 h-140 max-h-[341px] max-w-[1000px] scrollbar-thin */
+
+@media (min-width: 1024px) {
+  .root {
+    --b24ui-header-height: 112px;
+  }
+}
 </style>
