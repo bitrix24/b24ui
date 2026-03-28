@@ -2,19 +2,19 @@
 
 exports[`PageSection > renders with as correctly 1`] = `
 "<div data-orientation="vertical" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container"></div>
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container"></div>
 </div>"
 `;
 
 exports[`PageSection > renders with b24ui correctly 1`] = `
 "<section data-orientation="vertical" data-slot="root" class="relative isolate">
-  <div class="w-full mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 max-w-5xl" data-slot="container"></div>
+  <div class="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 max-w-5xl" data-slot="container"></div>
 </section>"
 `;
 
 exports[`PageSection > renders with body slot correctly 1`] = `
 "<section data-orientation="vertical" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
     <div data-slot="wrapper" class="">
       <!--v-if-->
       <div data-slot="body" class="mt-8">Body slot</div>
@@ -27,19 +27,19 @@ exports[`PageSection > renders with body slot correctly 1`] = `
 
 exports[`PageSection > renders with bottom slot correctly 1`] = `
 "<section data-orientation="vertical" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container"></div>Bottom slot
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container"></div>Bottom slot
 </section>"
 `;
 
 exports[`PageSection > renders with class correctly 1`] = `
 "<section data-orientation="vertical" data-slot="root" class="isolate absolute">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container"></div>
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container"></div>
 </section>"
 `;
 
 exports[`PageSection > renders with default slot correctly 1`] = `
 "<section data-orientation="vertical" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
     <!--v-if-->Default slot
   </div>
 </section>"
@@ -47,7 +47,7 @@ exports[`PageSection > renders with default slot correctly 1`] = `
 
 exports[`PageSection > renders with description correctly 1`] = `
 "<section data-orientation="vertical" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
     <div data-slot="wrapper" class="">
       <div data-slot="header" class="">
         <!--v-if-->
@@ -65,7 +65,7 @@ exports[`PageSection > renders with description correctly 1`] = `
 
 exports[`PageSection > renders with description slot correctly 1`] = `
 "<section data-orientation="vertical" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
     <div data-slot="wrapper" class="">
       <div data-slot="header" class="">
         <!--v-if-->
@@ -83,7 +83,7 @@ exports[`PageSection > renders with description slot correctly 1`] = `
 
 exports[`PageSection > renders with features and description correctly 1`] = `
 "<section data-orientation="vertical" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
     <div data-slot="wrapper" class="">
       <div data-slot="header" class="">
         <!--v-if-->
@@ -116,7 +116,7 @@ exports[`PageSection > renders with features and description correctly 1`] = `
 
 exports[`PageSection > renders with features and title correctly 1`] = `
 "<section data-orientation="vertical" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
     <div data-slot="wrapper" class="">
       <div data-slot="header" class="">
         <!--v-if-->
@@ -149,7 +149,7 @@ exports[`PageSection > renders with features and title correctly 1`] = `
 
 exports[`PageSection > renders with features correctly 1`] = `
 "<section data-orientation="vertical" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
     <div data-slot="wrapper" class="">
       <!--v-if-->
       <div data-slot="body" class="mt-8">
@@ -177,7 +177,7 @@ exports[`PageSection > renders with features correctly 1`] = `
 
 exports[`PageSection > renders with features slot correctly 1`] = `
 "<section data-orientation="vertical" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
     <div data-slot="wrapper" class="">
       <!--v-if-->
       <div data-slot="body" class="mt-8">
@@ -192,7 +192,7 @@ exports[`PageSection > renders with features slot correctly 1`] = `
 
 exports[`PageSection > renders with footer slot correctly 1`] = `
 "<section data-orientation="vertical" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
     <div data-slot="wrapper" class="">
       <!--v-if-->
       <!--v-if-->
@@ -205,7 +205,7 @@ exports[`PageSection > renders with footer slot correctly 1`] = `
 
 exports[`PageSection > renders with header slot correctly 1`] = `
 "<section data-orientation="vertical" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
     <div data-slot="wrapper" class="">
       <div data-slot="header" class="">Header slot</div>
       <!--v-if-->
@@ -218,7 +218,7 @@ exports[`PageSection > renders with header slot correctly 1`] = `
 
 exports[`PageSection > renders with headline correctly 1`] = `
 "<section data-orientation="vertical" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
     <div data-slot="wrapper" class="">
       <div data-slot="header" class="">
         <!--v-if-->
@@ -236,7 +236,7 @@ exports[`PageSection > renders with headline correctly 1`] = `
 
 exports[`PageSection > renders with headline slot correctly 1`] = `
 "<section data-orientation="vertical" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
     <div data-slot="wrapper" class="">
       <div data-slot="header" class="">
         <!--v-if-->
@@ -254,7 +254,7 @@ exports[`PageSection > renders with headline slot correctly 1`] = `
 
 exports[`PageSection > renders with icon correctly 1`] = `
 "<section data-orientation="vertical" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
     <div data-slot="wrapper" class="">
       <div data-slot="header" class="">
         <div data-slot="leading" class="flex items-center mb-6 justify-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 945 250" fill="currentColor" aria-hidden="true" data-slot="icon" class="size-10 shrink-0 text-(--ui-color-accent-main-primary)">
@@ -276,7 +276,7 @@ exports[`PageSection > renders with icon correctly 1`] = `
 
 exports[`PageSection > renders with leading slot correctly 1`] = `
 "<section data-orientation="vertical" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
     <div data-slot="wrapper" class="">
       <div data-slot="header" class="">
         <div data-slot="leading" class="flex items-center mb-6 justify-center">Leading slot</div>
@@ -294,7 +294,7 @@ exports[`PageSection > renders with leading slot correctly 1`] = `
 
 exports[`PageSection > renders with links and features correctly 1`] = `
 "<section data-orientation="vertical" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
     <div data-slot="wrapper" class="">
       <!--v-if-->
       <div data-slot="body" class="mt-8">
@@ -330,7 +330,7 @@ exports[`PageSection > renders with links and features correctly 1`] = `
 
 exports[`PageSection > renders with links correctly 1`] = `
 "<section data-orientation="vertical" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
     <div data-slot="wrapper" class="">
       <!--v-if-->
       <!--v-if-->
@@ -351,7 +351,7 @@ exports[`PageSection > renders with links correctly 1`] = `
 
 exports[`PageSection > renders with links slot correctly 1`] = `
 "<section data-orientation="vertical" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
     <div data-slot="wrapper" class="">
       <!--v-if-->
       <!--v-if-->
@@ -366,7 +366,7 @@ exports[`PageSection > renders with links slot correctly 1`] = `
 
 exports[`PageSection > renders with orientation horizontal correctly 1`] = `
 "<section data-orientation="horizontal" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid-cols-2 lg:items-center" data-slot="container">
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid-cols-2 lg:items-center" data-slot="container">
     <!--v-if-->
     <div class="hidden lg:block"></div>
   </div>
@@ -375,7 +375,7 @@ exports[`PageSection > renders with orientation horizontal correctly 1`] = `
 
 exports[`PageSection > renders with orientation horizontal features correctly 1`] = `
 "<section data-orientation="horizontal" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid-cols-2 lg:items-center" data-slot="container">
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid-cols-2 lg:items-center" data-slot="container">
     <div data-slot="wrapper" class="">
       <!--v-if-->
       <div data-slot="body" class="mt-8">
@@ -403,7 +403,7 @@ exports[`PageSection > renders with orientation horizontal features correctly 1`
 
 exports[`PageSection > renders with orientation horizontal links correctly 1`] = `
 "<section data-orientation="horizontal" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid-cols-2 lg:items-center" data-slot="container">
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid-cols-2 lg:items-center" data-slot="container">
     <div data-slot="wrapper" class="">
       <!--v-if-->
       <!--v-if-->
@@ -424,7 +424,7 @@ exports[`PageSection > renders with orientation horizontal links correctly 1`] =
 
 exports[`PageSection > renders with orientation horizontal reverse correctly 1`] = `
 "<section data-orientation="horizontal" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid-cols-2 lg:items-center" data-slot="container">
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid-cols-2 lg:items-center" data-slot="container">
     <!--v-if-->
     <div class="hidden lg:block"></div>
   </div>
@@ -433,13 +433,13 @@ exports[`PageSection > renders with orientation horizontal reverse correctly 1`]
 
 exports[`PageSection > renders with reverse correctly 1`] = `
 "<section data-orientation="vertical" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container"></div>
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container"></div>
 </section>"
 `;
 
 exports[`PageSection > renders with title correctly 1`] = `
 "<section data-orientation="vertical" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
     <div data-slot="wrapper" class="">
       <div data-slot="header" class="">
         <!--v-if-->
@@ -457,7 +457,7 @@ exports[`PageSection > renders with title correctly 1`] = `
 
 exports[`PageSection > renders with title slot correctly 1`] = `
 "<section data-orientation="vertical" data-slot="root" class="relative isolate">
-  <div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
+  <div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container">
     <div data-slot="wrapper" class="">
       <div data-slot="header" class="">
         <!--v-if-->
@@ -474,6 +474,6 @@ exports[`PageSection > renders with title slot correctly 1`] = `
 `;
 
 exports[`PageSection > renders with top slot correctly 1`] = `
-"<section data-orientation="vertical" data-slot="root" class="relative isolate">Top slot<div class="w-full max-w-[1280px] mx-auto px-[22px] flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container"></div>
+"<section data-orientation="vertical" data-slot="root" class="relative isolate">Top slot<div class="w-full max-w-(--b24ui-container-width) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16" data-slot="container"></div>
 </section>"
 `;
