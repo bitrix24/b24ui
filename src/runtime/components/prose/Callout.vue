@@ -1,9 +1,9 @@
 <script lang="ts">
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
-import theme from '#build/b24ui/prose/callout'
 import type { IconComponent, LinkProps } from '../../types'
 import type { ComponentConfig } from '../../types/tv'
+import theme from '#build/b24ui/prose/callout'
 
 type ProseCallout = ComponentConfig<typeof theme, AppConfig, 'callout', 'b24ui.prose'>
 
