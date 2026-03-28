@@ -28,7 +28,7 @@ defineShortcuts({
   <B24Header
     mode="modal"
     class="bg-(--ui-color-accent-soft-element-violet)/40 dark:bg-(--ui-color-copilot-bg-content-3)/40 backdrop-blur-md"
-    :b24ui="{ container: 'px-3 lg:ps-2 h-auto', right: 'gap-1 sm:gap-3' }"
+    :b24ui="{ container: 'lg:ps-10.5 h-auto', right: 'gap-1 sm:gap-3' }"
   >
     <template #left>
       <LogoWithVersion no-padding />

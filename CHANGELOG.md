@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.5.3](https://github.com/bitrix24/b24ui/compare/v2.5.2...v2.5.3) (2026-03-28)
+
+* feat(Container): improve theme
+* fix(module): add `@source` on components
+
 ## [2.5.2](https://github.com/bitrix24/b24ui/compare/v2.5.1...v2.5.2) (2026-03-26)
 
 ### Features

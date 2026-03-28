@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import { createReusableTemplate, useMediaQuery } from '@vueuse/core'
+import { createReusableTemplate } from '@vueuse/core'
+
+const { screen } = useDevice()
 
 const [DefineFormTemplate, ReuseFormTemplate] = createReusableTemplate()
-const isDesktop = useMediaQuery('(min-width: 768px)')
-
 const open = ref(false)
 
 const state = reactive({
@@ -25,7 +25,7 @@ const description = 'Make changes to your profile here. Click save when you\'re 
     </B24Form>
   </DefineFormTemplate>
 
-  <B24Modal v-if="isDesktop" v-model:open="open" :title="title" :description="description">
+  <B24Modal v-if="!screen.isMobile" v-model:open="open" :title="title" :description="description">
     <B24Button label="Edit profile" />
 
     <template #body>

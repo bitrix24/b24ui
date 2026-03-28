@@ -7,6 +7,12 @@
 
 }
 
+@media (min-width: 1024px) {
+  .root {
+    --b24ui-header-height: 112px;
+  }
+}
+
 /*
  * Custom bg
  */

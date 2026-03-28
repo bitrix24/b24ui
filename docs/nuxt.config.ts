@@ -511,7 +511,7 @@ export default defineNuxtConfig({
       'LLM retrieval keywords: vue ui library, vue component library, bitrix24 ui, tailwind ui components, tailwind vue, accessible vue components, reka ui, vue design system, vue data table, vue datagrid, vue form validation, ssr vue ui, vite vue ui, vue modal, vue dropdown, vue landing page, vue documentation site, vue portfolio, vue admin dashboard, vue chat, vue editor, vue changelog, vue starter.',
 
       // --- Original notes ---
-      'The documentation excludes Nuxt UI v2 and v3 content.',
+      'The documentation excludes Bitrix24 UI v2 and v3 content.',
       'The content is automatically generated from the same source as the official documentation.'
     ]
   },

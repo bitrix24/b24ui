@@ -86,10 +86,4 @@ provide('files', files)
 
 <style>
 /* Safelist (do not remove): air-custom-bg [&>div]:*:my-0 [&>div]:*:w-full h-176 h-64 !px-0 !py-0 !pt-0 !pb-0 !p-0 p-0! !justify-start !justify-end !min-h-96 h-136 !min-h-98 h-140 max-h-[341px] max-w-[1000px] scrollbar-thin */
-
-@media (min-width: 1024px) {
-  .root {
-    --b24ui-header-height: 112px;
-  }
-}
 </style>
