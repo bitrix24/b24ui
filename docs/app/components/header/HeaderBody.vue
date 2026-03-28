@@ -9,7 +9,11 @@ const { navigationMenuByCategory } = useNavigation(navigation!)
 </script>
 
 <template>
-  <B24NavigationMenu orientation="vertical" :items="mobileLinks" class="-mx-2.5" />
+  <B24NavigationMenu
+    orientation="vertical"
+    :items="mobileLinks"
+    class="-mx-2.5"
+  />
 
   <template v-if="route.path.startsWith('/docs/')">
     <B24Separator type="dashed" class="mt-4 mb-6" />
@@ -18,7 +22,7 @@ const { navigationMenuByCategory } = useNavigation(navigation!)
       <FrameworkTabs />
     </div>
 
-    <div class="123 flex flex-col gap-2 mb-5.5">
+    <div class="flex flex-col gap-2 mb-5.5">
       <B24NavigationMenu
         :items="navigationMenuByCategory"
         orientation="vertical"
