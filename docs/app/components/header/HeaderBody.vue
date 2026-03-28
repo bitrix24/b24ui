@@ -5,7 +5,7 @@ const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 
 const route = useRoute()
 const { mobileLinks } = useHeader()
-const { navigationByCategory } = useNavigation(navigation!)
+const { navigationMenuByCategory } = useNavigation(navigation!)
 </script>
 
 <template>
@@ -18,9 +18,12 @@ const { navigationByCategory } = useNavigation(navigation!)
       <FrameworkTabs />
     </div>
 
-    <B24NavigationMenu
-      :navigation="navigationByCategory"
-      highlight
-    />
+    <div class="123 flex flex-col gap-2 mb-5.5">
+      <B24NavigationMenu
+        :items="navigationMenuByCategory"
+        orientation="vertical"
+        :b24ui="{ linkLeadingBadge: 'mt-auto -top-[4px] left-auto -right-[50px] bg-blue-500' }"
+      />
+    </div>
   </template>
 </template>

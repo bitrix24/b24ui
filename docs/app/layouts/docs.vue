@@ -9,7 +9,6 @@ const { contains } = useFilter({ sensitivity: 'base' })
 
 // region Navigation ////
 const { navigationMenuByCategory } = useNavigation(navigation!)
-const { mobileLinks } = useHeader()
 const filteredNavigation = computed(() => {
   if (!cleanedSearchTerm.value) {
     return navigationMenuByCategory.value
@@ -53,7 +52,7 @@ defineShortcuts({
 
 <template>
   <B24Main>
-    <B24Container class="px-0">
+    <B24Container class="px-0 sm:px-0">
       <B24Page class="lg:gap-4">
         <template #left>
           <B24PageAside class="scrollbar-thin scrollbar-transparent border-(--ui-color-divider-accent) border-e-1">
@@ -66,19 +65,9 @@ defineShortcuts({
             </div>
 
             <B24NavigationMenu
-              :items="mobileLinks"
-              orientation="vertical"
-              tooltip
-              popover
-              :class="[(route.path === '/' || route.path.startsWith('/templates')) ? '' : 'lg:hidden']"
-            />
-
-            <B24NavigationMenu
               :key="navigationKey"
               :items="filteredNavigation"
               orientation="vertical"
-              tooltip
-              popover
               :b24ui="{ linkLeadingBadge: 'mt-auto -top-[4px] left-auto -right-[50px] bg-blue-500' }"
             />
           </B24PageAside>
