@@ -319,7 +319,6 @@ export default defineNuxtConfig({
     // '/composables/**': { redirect: { to: '/docs/composables/**', statusCode: 301 }, prerender: false },
     // v4 redirects - default root pages
     '/docs': { redirect: '/docs/getting-started/', prerender: false },
-    // // '/docs/components': { redirect: '/docs/components/app/', prerender: false },
     '/docs/composables': { redirect: '/docs/composables/define-shortcuts/', prerender: false },
     // v4 redirects - default shadow pages
     '/docs/getting-started/installation/': { redirect: '/docs/getting-started/installation/nuxt/', prerender: false },
