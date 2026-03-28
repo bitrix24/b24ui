@@ -2,6 +2,7 @@
 @import './keyframes.css';
 @import './air-design-tokens/tw-style/index.css';
 @import './air-design-tokens/index.css';
+@source './components';
 
 @variant light (&:where(.light, .light *));
 @variant edge-dark (&:where(.edge-dark, .edge-dark *));
