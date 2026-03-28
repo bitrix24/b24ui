@@ -1,14 +1,34 @@
 import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
+import { createSharedComposable } from '@vueuse/core'
 import PlayLIcon from '@bitrix24/b24icons-vue/outline/PlayLIcon'
 import DeveloperResourcesIcon from '@bitrix24/b24icons-vue/outline/DeveloperResourcesIcon'
 import ViewmodeCodeIcon from '@bitrix24/b24icons-vue/editor/ViewmodeCodeIcon'
 import FormattingIcon from '@bitrix24/b24icons-vue/editor/FormattingIcon'
 import FormIcon from '@bitrix24/b24icons-vue/outline/FormIcon'
-// import DemonstrationOnIcon from '@bitrix24/b24icons-vue/outline/DemonstrationOnIcon'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
+import BarcodeIcon from '@bitrix24/b24icons-vue/outline/BarcodeIcon'
+import EarthIcon from '@bitrix24/b24icons-vue/outline/EarthIcon'
+import Bitrix24Icon from '@bitrix24/b24icons-vue/common-service/Bitrix24Icon'
 
-export function useHeader() {
+const _useHeader = () => {
   const route = useRoute()
+
+  const isNeedChangeTarget = ref(false)
+  const tgLink = computed(() => {
+    return (
+      isNeedChangeTarget.value && (typeof window !== 'undefined' && window.navigator?.language.includes('ru'))
+    )
+      ? 'https://t.me/bitrix24apps'
+      : 'https://t.me/b24_dev'
+  })
+
+  const b24DocsLink = computed(() => {
+    return (
+      isNeedChangeTarget.value && (typeof window !== 'undefined' && window.navigator?.language.includes('ru'))
+    )
+      ? 'https://apidocs.bitrix24.ru/'
+      : 'https://apidocs.bitrix24.com/'
+  })
 
   const desktopLinks = computed<NavigationMenuItem[]>(() => [
     {
@@ -19,33 +39,41 @@ export function useHeader() {
     {
       label: 'Templates',
       to: '/templates/'
+    },
+    {
+      label: 'Resources',
+      type: 'trigger',
+      children: [
+        {
+          label: 'B24 JsSdk',
+          description: 'for using Bitrix24 REST API in applications',
+          icon: DeveloperResourcesIcon,
+          to: 'https://bitrix24.github.io/b24jssdk/',
+          target: '_blank'
+        },
+        {
+          label: 'B24 Icons',
+          description: 'Design your applications in the Bitrix24 style.',
+          icon: BarcodeIcon,
+          to: 'https://bitrix24.github.io/b24icons/',
+          target: '_blank'
+        },
+        {
+          label: 'Community',
+          description: 'Bitrix24 UI on Telegram',
+          icon: EarthIcon,
+          to: tgLink.value,
+          target: '_blank'
+        },
+        {
+          label: 'REST API',
+          description: 'Bitrix24 REST API and Marketplace Applications',
+          icon: Bitrix24Icon,
+          to: b24DocsLink.value,
+          target: '_blank'
+        }
+      ]
     }
-    // {
-    //   label: 'Resources',
-    //   children: [
-    //     {
-    //       label: 'UI / ICONS / Js',
-    //       description: 'Explore projects built around Nuxt UI.',
-    //       icon: 'i-lucide-globe',
-    //       to: '/community',
-    //       target: '_blank'
-    //     },
-    //     {
-    //       label: 'Community',
-    //       description: 'Explore projects built around Nuxt UI.',
-    //       icon: 'i-lucide-globe',
-    //       to: '/community',
-    //       target: '_blank'
-    //     },
-    //     {
-    //       label: 'Playground',
-    //       description: 'Try Nuxt UI components live in your browser.',
-    //       icon: 'i-lucide-square-terminal',
-    //       to: '/play',
-    //       target: '_blank'
-    //     }
-    //   ]
-    // }
   ])
 
   const mobileLinks = computed<NavigationMenuItem[]>(() => [
@@ -86,8 +114,16 @@ export function useHeader() {
     }
   ])
 
+  onMounted(() => {
+    isNeedChangeTarget.value = true
+  })
+
   return {
     desktopLinks,
-    mobileLinks
+    mobileLinks,
+    b24DocsLink,
+    tgLink
   }
 }
+
+export const useHeader = /* @__PURE__ */ createSharedComposable(_useHeader)

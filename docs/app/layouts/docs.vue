@@ -81,10 +81,6 @@ defineShortcuts({
               popover
               :b24ui="{ linkLeadingBadge: 'mt-auto -top-[4px] left-auto -right-[50px] bg-blue-500' }"
             />
-
-            <template #footer>
-              <ExtLinks />
-            </template>
           </B24PageAside>
         </template>
 

@@ -5,27 +5,7 @@ import TelegramIcon from '@bitrix24/b24icons-vue/outline/TelegramIcon'
 
 const route = useRoute()
 const config = useRuntimeConfig()
-
-const isNeedChangeTarget = ref(false)
-const tgLink = computed(() => {
-  return (
-    isNeedChangeTarget.value && (typeof window !== 'undefined' && window.navigator?.language.includes('ru'))
-  )
-    ? 'https://t.me/bitrix24apps'
-    : 'https://t.me/b24_dev'
-})
-
-const b24DocsLink = computed(() => {
-  return (
-    isNeedChangeTarget.value && (typeof window !== 'undefined' && window.navigator?.language.includes('ru'))
-  )
-    ? 'https://apidocs.bitrix24.ru/'
-    : 'https://apidocs.bitrix24.com/'
-})
-
-onMounted(() => {
-  isNeedChangeTarget.value = true
-})
+const { b24DocsLink, tgLink } = useHeader()
 </script>
 
 <template>

@@ -3,7 +3,9 @@
 ## [2.5.3](https://github.com/bitrix24/b24ui/compare/v2.5.2...v2.5.3) (2026-03-28)
 
 * feat(Container): improve theme
+* feat(ProseCard): support iconName
 * fix(module): add `@source` on components
+* docs(install): add templates
 
 ## [2.5.2](https://github.com/bitrix24/b24ui/compare/v2.5.1...v2.5.2) (2026-03-26)
 

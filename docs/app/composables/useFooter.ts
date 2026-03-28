@@ -3,10 +3,6 @@ export function useFooter() {
     {
       label: 'Templates',
       to: '/templates/'
-    },
-    {
-      label: 'Showcase',
-      to: '/showcase/'
     }
   ]
 
