@@ -26,6 +26,7 @@ const pages = [
   '/docs/getting-started/integrations/content/',
   '/docs/getting-started/integrations/ssr/',
   '/docs/getting-started/ai/llms-txt/',
+  '/docs/getting-started/ai/skills/',
   // endregion ////
   '/docs/components/',
   // region Layout ////
