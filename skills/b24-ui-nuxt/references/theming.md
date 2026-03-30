@@ -29,8 +29,8 @@
 
 | Class | Use |
 |---|---|
-| `text-muted` | Low-emphasis text |
 | `text-dimmed` | Placeholders, hints |
+| `text-muted` | Low-emphasis text |
 | `text-description` | Body text, description |
 | `text-legend` | Subtitles |
 | `text-label` | Headings, emphasis |
@@ -43,7 +43,6 @@
 | `bg-muted` | Subtle sections |
 | `bg-elevated` | Cards, modals |
 | `bg-accented` | Hover states |
-| `bg-inverted` | Inverted sections |
 
 ### Border
 
@@ -52,7 +51,6 @@
 | `border-default` |
 | `border-muted` |
 | `border-accented` |
-| `border-inverted` |
 
 ### CSS variables
 

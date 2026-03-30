@@ -1,10 +1,11 @@
 # Changelog
 
-## [2.5.3](https://github.com/bitrix24/b24ui/compare/v2.5.2...v2.5.3) (2026-03-28)
+## [2.5.3](https://github.com/bitrix24/b24ui/compare/v2.5.2...v2.5.3) (2026-03-30)
 
 * feat(skills): add skills
 * feat(Container): improve theme
 * feat(ProseCard): support iconName
+* feat(theming): add bg and border like `text-default`, `bg-elevated`, `border-muted`
 * fix(module): add `@source` on components
 * docs(install): add templates
 

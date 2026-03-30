@@ -38,4 +38,15 @@
   --text-color-description: var(--b24ui-typography-description-color);
   --text-color-legend: var(--b24ui-typography-legend-color);
   --text-color-label: var(--b24ui-typography-label-color);
+
+  --background-color-default: var(--ui-color-bg-content-primary);
+  --background-color-muted: var(--ui-color-design-tinted-na-bg);
+  --background-color-elevated: var(--ui-color-bg-content-secondary);
+  --background-color-accented: var(--ui-color-accent-soft-element-blue);
+  --background-color-border: var(--ui-color-divider-default);
+
+  --border-color-default: var(--ui-color-divider-default);
+  --border-color-muted: var(--ui-color-design-tinted-na-stroke);
+  --border-color-accented: var(--ui-color-accent-soft-element-blue);
+  --border-color-bg: var(--ui-color-bg-content-primary);
 }
