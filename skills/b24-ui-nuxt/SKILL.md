@@ -105,23 +105,9 @@ Wrapping your app in `B24App` is **required** — it provides global config for 
 
 Bitrix24 UI uses [@bitrix24/b24icons](https://bitrix24.github.io/b24icons/) for 1,400+ icons.
 
-### Usage Icon component
-
-Icons use the format `i-{collection}-{name}`:
-
-```vue
-<script setup>
-import Bitrix24Icon from '@bitrix24/b24icons-vue/common-service/Bitrix24Icon'
-</script>
-
-<template>
-  <Bitrix24Icon class="size-15" />
-</template>
-```
-
 ### Usage in Component props
 
-Icons use the format `i-{collection}-{name}`:
+Import the icon to use it:
 
 ```vue
 <script setup>
@@ -130,6 +116,20 @@ import RocketIcon from '@bitrix24/b24icons-vue/main/RocketIcon'
 
 <template>
   <B24Button :icon="RocketIcon">Button</B24Button>
+</template>
+```
+
+### Usage Icon component
+
+Import the icon to use it:
+
+```vue
+<script setup>
+import Bitrix24Icon from '@bitrix24/b24icons-vue/common-service/Bitrix24Icon'
+</script>
+
+<template>
+  <Bitrix24Icon class="size-15" />
 </template>
 ```
 
@@ -143,7 +143,7 @@ Bitrix24 UI provides a native look and feel out of the box, so your app fits the
 
 ### Customizing components
 
-**Override priority** (highest wins): `b24ui` prop / `class` prop > global config > theme defaults.
+**Override priority** (highest wins): `b24ui` prop / `class` prop > theme defaults.
 
 The `b24ui` prop overrides a component's **slots** after variants are computed — it wins over everything:
 
@@ -157,14 +157,29 @@ The `b24ui` prop overrides a component's **slots** after variants are computed �
 - **Nuxt**: `.nuxt/b24ui/<component>.ts`
 - **Vue**: `node_modules/.b24ui-nuxt/b24ui/<component>.ts`
 
-> For CSS variables, custom colors, global config, compound variants, see [references/theming.md](references/theming.md)
+> For CSS variables, custom colors, compound variants, see [references/theming.md](references/theming.md)
 
 ## Composables
+
+```vue
+<script setup lang="ts">
+// Detect platform (Bitrix24 mobile/desktop app or web) and screen size
+const { isBitrixMobile, screen } = useDevice()
+</script>
+
+<template>
+  <div>
+    <p v-if="isBitrixMobile">ou are using the Bitrix24 mobile app on a small screen.</p>
+    <p v-else-if="screen.isMobile">Regular web browser on a small screen.</p>
+    <p v-else-if="!isBitrixMobile && (!screen.isMobile)">Regular web browser on a desktop.</p>
+    <p v-else>Other combination.</p>
+  </div>
+</template>
+```
 
 ```ts
 // Notifications
 import CircleCheckIcon from '@bitrix24/b24icons-vue/outline/CircleCheckIcon'
-
 const toast = useToast()
 toast.add({ title: 'Saved', color: 'air-primary-success', icon: CircleCheckIcon })
 
@@ -179,6 +194,10 @@ defineShortcuts({
   meta_k: () => openSearch(),
   escape: () => close()
 })
+
+// useConfetti
+const confetti = useConfetti()
+confetti.fire()
 ```
 
 > For full composable reference, see [references/composables.md](references/composables.md)
@@ -346,5 +365,5 @@ Load based on your task — **do not load all at once**:
 
 - [references/theming.md](references/theming.md) — CSS variables, component theme overrides
 - [references/components.md](references/components.md) — all 125+ components by category with props and usage
-- [references/composables.md](references/composables.md) — useDevice, useToast, useOverlay, defineShortcuts, useConfetti, useSpeechRecognition
+- [references/composables.md](references/composables.md) — useDevice, useToast, useOverlay, defineShortcuts, useConfetti
 - Generated theme files — all slots, variants, and default classes for any component (Nuxt: `.nuxt/b24ui/<component>.ts`, Vue: `node_modules/.b24ui-nuxt/b24ui/<component>.ts`)

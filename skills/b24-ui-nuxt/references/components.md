@@ -12,8 +12,8 @@ Core structural components for organizing your application's layout.
 | `B24Header` | Responsive header with mobile menu (`#title`, `#default`, `#right`, `#body`) |
 | `B24Footer` | Footer (`#left`, `#default`, `#right`, `#top`, `#bottom`) |
 | `B24FooterColumns` | Multi-column footer with link groups |
-| `B24Main` | Main content area (respects `--ui-header-height`) |
-| `B24Container` | Centered max-width container (`--ui-container`) |
+| `B24Main` | Main content area (respects `--b24ui-header-height`) |
+| `B24Container` | Centered max-width container (`--b24ui-container-width`) |
 
 ## Element
 
@@ -21,13 +21,13 @@ Essential UI building blocks.
 
 | Component | Key props |
 |---|---|
-| `B24Button` | `label`, `icon`, `color`, `variant`, `size`, `loading`, `disabled`, `to` |
-| `B24Badge` | `label`, `color`, `variant`, `size` |
+| `B24Button` | `label`, `icon`, `color`, `size`, `loading`, `disabled`, `to` |
+| `B24Badge` | `label`, `color`, `size` |
 | `B24Avatar` | `src`, `alt`, `icon`, `text`, `size` |
 | `B24AvatarGroup` | `max`, `size` — wraps multiple `B24Avatar` |
 | `B24Icon` | `name`, `size` |
 | `B24Card` | `variant` — slots: `#header`, `#default`, `#footer` |
-| `B24Alert` | `title`, `description`, `icon`, `color`, `variant`, `close` |
+| `B24Alert` | `title`, `description`, `icon`, `color`, `close` |
 | `B24Banner` | `title`, `icon`, `close` — sticky top banner |
 | `B24Chip` | `color`, `size`, `position` — notification dot on children |
 | `B24Kbd` | `value` — keyboard key display |
@@ -57,8 +57,8 @@ Comprehensive form components for user input.
 | `B24Checkbox` | `v-model`, `label`, `description` |
 | `B24CheckboxGroup` | `v-model`, `items`, `orientation` |
 | `B24RadioGroup` | `v-model`, `items`, `orientation` |
-| `B24Switch` | `v-model`, `label`, `on-icon`, `off-icon` |
-| `B24Slider` | `v-model`, `min`, `max`, `step` |
+| `B24Switch` | `v-model`, `label`, `checked-icon`, `unchecked-icon` |
+| `B24Range` | `v-model`, `min`, `max`, `step` |
 | `B24ColorPicker` | `v-model`, `format` (hex/rgb/hsl/cmyk/lab), `size` |
 | `B24FileUpload` | `v-model`, `accept`, `multiple`, `variant` (area/button) |
 | `B24Form` | `schema`, `state`, `@submit` — validation wrapper |
@@ -73,7 +73,7 @@ Uses Standard Schema — works with Zod, Valibot, Yup, or Joi.
 import { z } from 'zod'
 
 const schema = z.object({
-  email: z.string().email('Invalid email'),
+  email: z.email('Invalid email'),
   password: z.string().min(8, 'Min 8 characters')
 })
 
@@ -118,13 +118,15 @@ const schema = v.object({
 
 ```vue
 <script setup>
+import UploadIcon from '@bitrix24/b24icons-vue/outline/UploadIcon'
+
 const files = ref<File[]>([])
 </script>
 
 <template>
   <B24FileUpload v-model="files" accept="image/*" multiple>
     <template #actions="{ open }">
-      <B24Button label="Upload" icon="i-lucide-upload" color="neutral" variant="outline" @click="open()" />
+      <B24Button label="Upload" :icon="UploadIcon" @click="open()" />
     </template>
   </B24FileUpload>
 </template>
@@ -138,12 +140,9 @@ Components for displaying and organizing data.
 |---|---|
 | `B24Table` | `data`, `columns`, `loading`, `sticky` |
 | `B24Accordion` | `items`, `type` (single/multiple), `collapsible` |
-| `B24Carousel` | `items`, `orientation`, `arrows`, `dots` |
 | `B24Timeline` | `items` — vertical timeline |
-| `B24Tree` | `items` — hierarchical tree |
 | `B24User` | `name`, `description`, `avatar` — user display |
 | `B24Empty` | `icon`, `title`, `description` — empty state |
-| `B24Marquee` | `repeat`, `reverse`, `orientation`, `pauseOnHover` — infinite scroll |
 | `B24ScrollArea` | Custom scrollbar wrapper |
 
 ## Navigation
@@ -154,7 +153,7 @@ Components for user navigation and wayfinding.
 |---|---|
 | `B24NavigationMenu` | `items` (flat `T[]` or grouped `T[][]`), `orientation` (horizontal/vertical) |
 | `B24Breadcrumb` | `items` |
-| `B24Tabs` | `items`, `orientation`, `variant` |
+| `B24Tabs` | `items` |
 | `B24Stepper` | `items`, `orientation`, `color` |
 | `B24Pagination` | `v-model`, `total`, `items-per-page` |
 | `B24Link` | `to`, `active`, `inactive` — styled NuxtLink |
@@ -181,20 +180,20 @@ Floating UI elements that appear above the main content. **All require `<B24App>
 <B24Modal v-model:open="isOpen" title="Edit" description="Edit your profile">
   <template #body>Content</template>
   <template #footer>
-  <B24Button
-        size="lg"
-        color="air-primary"
-        label="Reload"
-        loading-auto
-        @click="save"
-      />
-      <B24Button
-        size="sm"
-        color="air-tertiary"
-        label="Cancel"
-        :normal-case="false"
-        @click="isOpen = false"
-      />
+    <B24Button
+      size="lg"
+      color="air-primary"
+      label="Save"
+      loading-auto
+      @click="save"
+    />
+    <B24Button
+      size="sm"
+      color="air-tertiary"
+      label="Cancel"
+      :normal-case="false"
+      @click="isOpen = false"
+    />
   </template>
 </B24Modal>
 ```
@@ -308,11 +307,13 @@ if (await result) {
 
 ```vue
 <script setup>
+import PlusLIcon from '@bitrix24/b24icons-vue/outline/PlusLIcon'
+
 const groups = [{
   id: 'actions',
   label: 'Actions',
   items: [
-    { label: 'New file', icon: 'i-lucide-file-plus', onSelect: () => {} },
+    { label: 'New file', icon: PlusLIcon, onSelect: () => {} },
     { label: 'Settings', to: '/settings' }
   ]
 }]
@@ -331,25 +332,15 @@ Pre-built sections for marketing and content pages.
 |---|---|
 | `B24Page` | Multi-column grid (`#left`, `#default`, `#right`) |
 | `B24PageAside` | Sticky sidebar wrapper (visible from `lg`) |
-| `B24PageHero` | Hero section with title, description, links, media |
 | `B24PageSection` | Content section with headline, features grid |
-| `B24PageCTA` | Call to action block |
 | `B24PageHeader` | Page title and description |
 | `B24PageBody` | Main content area with prose styling |
 | `B24PageFeature` | Individual feature item |
 | `B24PageGrid` | Grid layout for cards |
 | `B24PageColumns` | Multi-column layout |
 | `B24PageCard` | Content card for grids |
-| `B24PageLogos` | Logo wall |
-| `B24PageAnchors` | Anchor links (simpler TOC) |
 | `B24PageLinks` | Related resource links |
 | `B24PageList` | List items |
-| `B24BlogPosts` | Responsive grid of blog posts (`orientation`) |
-| `B24BlogPost` | Individual blog post card |
-| `B24ChangelogVersions` | Changelog version list |
-| `B24ChangelogVersion` | Individual changelog entry |
-| `B24PricingPlans` | Pricing plan cards |
-| `B24PricingTable` | Feature comparison table |
 
 ## Dashboard
 
@@ -399,7 +390,6 @@ Components integrating with `@nuxt/content`.
 
 | Component | Purpose |
 |---|---|
-| `B24ContentNavigation` | Sidebar navigation tree |
 | `B24ContentToc` | Table of contents |
 | `B24ContentSurround` | Prev/next links |
 | `B24ContentSearch` | Search command palette |

@@ -1,18 +1,58 @@
 # Composables
 
+## useDevice
+
+Detect the current platform (Bitrix24 mobile/desktop app or web) and screen size based.
+
+```vue
+<script setup lang="ts">
+const { isBitrixMobile, screen } = useDevice()
+</script>
+
+<template>
+  <div>
+    <p v-if="isBitrixMobile">ou are using the Bitrix24 mobile app on a small screen.</p>
+    <p v-else-if="screen.isMobile">Regular web browser on a small screen.</p>
+    <p v-else-if="!isBitrixMobile && (!screen.isMobile)">Regular web browser on a desktop.</p>
+    <p v-else>Other combination.</p>
+  </div>
+</template>
+```
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `platform` | `Readonly<{name?:PlatformName,version?:string}>` | Raw platform state (readonly) |
+| `version` | `ComputedRef<string\|undefined>` | Version string of the Bitrix app (if available) |
+| `isWeb` | `ComputedRef<boolean>` | `true` when running in a regular web browser |
+| `isBitrixMobile` | `ComputedRef<boolean>` | `true` inside the Bitrix24 mobile app |
+| `isBitrixDesktop` | `ComputedRef<boolean>` | `true` inside the Bitrix24 desktop app |
+| `screen.current` | `ComputedRefS<creenSize>` | The smallest active breakpoint: `'2xl'|'xl'|'lg'|'md'|'sm'|'xs'` |
+| `screen.xs` | `ComputedRef<boolean>` | Width < 640px |
+| `screen.sm` | `ComputedRef<boolean>` | Width ≥ 640px |
+| `screen.md` | `ComputedRef<boolean>` | Width ≥ 768px |
+| `screen.lg` | `ComputedRef<boolean>` | Width ≥ 1024px |
+| `screen.xl` | `ComputedRef<boolean>` | Width ≥ 1280px |
+| `screen['2xl']` | `ComputedRef<boolean>` | Width ≥ 1536px |
+| `screen.isMobile` | `ComputedRef<boolean>` | Width < 768px (alias for `!screen.md` ) |
+| `screen.isTablet` | `ComputedRef<boolean>` | Width between 768px and 1023px (alias for `screen.md&&!screen.lg` ) |
+| `screen.isDesktop` | `ComputedRef<boolean>` | Width ≥ 1024px (alias for `screen.lg` ) |
+| `screen.isLargeDesktop` | `ComputedRef<boolean>` | Width ≥ 1536px (alias for `screen['2xl']` ) |
+
 ## useToast
 
 Show notifications. Requires `<B24App>` wrapper.
 
 ```ts
+import CircleCheckIcon from '@bitrix24/b24icons-vue/outline/CircleCheckIcon'
+
 const toast = useToast()
 
 toast.add({
   title: 'Success',
   description: 'Item saved',
-  color: 'success',       // primary, success, error, warning, info
-  icon: 'i-lucide-check-circle',
-  duration: 5000,         // 0 = never dismiss
+  color: 'air-primary-success', // air-primary, air-primary-success, air-primary-alert, air-primary-warning, air-primary-copilot, air-secondary
+  icon: CircleCheckIcon,
+  duration: 5000, // 0 = never dismiss
   actions: [{ label: 'Undo', onClick: () => {} }]
 })
 
@@ -71,6 +111,18 @@ defineShortcuts({
 | `shift` | Shift key |
 | `_` | Key separator |
 
+## useConfetti
+
+Performant confetti animation.
+
+```ts
+const confetti = useConfetti()
+
+function fireConfetti(): void {
+  confetti.fire()
+}
+```
+
 ## defineLocale / extendLocale
 
 i18n locale definition.
@@ -120,8 +172,10 @@ defineShortcuts(extractShortcuts(items))
 
 | Composable | Purpose |
 |---|---|
+| `useDevice` | Detect platform (mobile/desktop app or web) and screen size |
 | `useToast` | Show notifications |
 | `useOverlay` | Programmatic modals/slideovers |
 | `defineShortcuts` | Keyboard shortcuts |
+| `useConfetti` | Performant confetti animation |
 | `defineLocale` / `extendLocale` | i18n locale |
 | `extractShortcuts` | Parse shortcut definitions |

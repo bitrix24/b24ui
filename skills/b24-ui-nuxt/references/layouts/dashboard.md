@@ -24,22 +24,27 @@ B24App
 ```vue [layouts/dashboard.vue]
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@bitrix24/b24ui-nuxt'
+import HomeIcon from '@bitrix24/b24icons-vue/outline/HomeIcon'
+import MessagesIcon from '@bitrix24/b24icons-vue/outline/MessagesIcon'
+import GroupIcon from '@bitrix24/b24icons-vue/outline/GroupIcon'
+import SettingsIcon from '@bitrix24/b24icons-vue/outline/SettingsIcon'
+import LogOutIcon from '@bitrix24/b24icons-vue/outline/LogOutIcon'
 
 const items = computed<NavigationMenuItem[]>(() => [{
   label: 'Home',
-  icon: 'i-lucide-house',
+  icon: HomeIcon,
   to: '/dashboard'
 }, {
   label: 'Inbox',
-  icon: 'i-lucide-inbox',
+  icon: MessagesIcon,
   to: '/dashboard/inbox'
 }, {
   label: 'Users',
-  icon: 'i-lucide-users',
+  icon: GroupIcon,
   to: '/dashboard/users'
 }, {
   label: 'Settings',
-  icon: 'i-lucide-settings',
+  icon: SettingsIcon,
   to: '/dashboard/settings'
 }])
 </script>
@@ -61,10 +66,10 @@ const items = computed<NavigationMenuItem[]>(() => [{
 
       <template #footer="{ collapsed }">
         <B24Button
-          :icon="collapsed ? 'i-lucide-log-out' : undefined"
+          :icon="collapsed ? LogOutIcon : undefined"
           :label="collapsed ? undefined : 'Sign out'"
-          color="neutral"
-          variant="ghost"
+          :class="[!collapsed && 'py-2']"
+          color="air-tertiary"
           block
         />
       </template>
@@ -79,6 +84,8 @@ const items = computed<NavigationMenuItem[]>(() => [{
 
 ```vue [pages/dashboard/index.vue]
 <script setup lang="ts">
+import PlusLIcon from '@bitrix24/b24icons-vue/outline/PlusLIcon'
+
 definePageMeta({ layout: 'dashboard' })
 </script>
 
@@ -87,7 +94,7 @@ definePageMeta({ layout: 'dashboard' })
     <template #header>
       <B24DashboardNavbar title="Home">
         <template #right>
-          <B24Button icon="i-lucide-plus" label="New" />
+          <B24Button :icon="PlusLIcons" label="New" />
         </template>
       </B24DashboardNavbar>
     </template>
@@ -168,20 +175,26 @@ definePageMeta({ layout: 'dashboard' })
 ## With toolbar
 
 ```vue
-<B24DashboardPanel>
-  <template #header>
-    <B24DashboardNavbar title="Users" />
+<script setup lang="ts">
+import SearchIcon from '@bitrix24/b24icons-vue/outline/SearchIcon'
+</script>
 
-    <B24DashboardToolbar>
-      <template #left>
-        <B24Input icon="i-lucide-search" placeholder="Search..." />
-      </template>
-      <template #right>
-        <B24Select :items="['All', 'Active', 'Inactive']" />
-      </template>
-    </B24DashboardToolbar>
-  </template>
-</B24DashboardPanel>
+<template>
+  <B24DashboardPanel>
+    <template #header>
+      <B24DashboardNavbar title="Users" />
+  
+      <B24DashboardToolbar>
+        <template #left>
+          <B24Input :icon="SearchIcon" placeholder="Search..." />
+        </template>
+        <template #right>
+          <B24Select :items="['All', 'Active', 'Inactive']" />
+        </template>
+      </B24DashboardToolbar>
+    </template>
+  </B24DashboardPanel>
+</template>
 ```
 
 ## With search

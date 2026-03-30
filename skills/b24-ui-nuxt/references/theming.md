@@ -60,7 +60,7 @@ All customizable in `main.css`:
 
 ```css
 :root {
-  --b24ui-container-width: 80rem;              /* B24Container max-width */
+  --b24ui-container-width: 80rem;         /* B24Container max-width */
   --b24ui-header-height: 4rem;            /* B24Header height */
 }
 ```
@@ -73,12 +73,12 @@ Components are styled with [Tailwind Variants](https://www.tailwind-variants.org
 
 - **`slots`** — named style targets (e.g., `root`, `base`, `label`, `leadingIcon`)
 - **`variants`** — styles applied based on props (e.g., `color`, `size`)
-- **`compoundVariants`** — styles for specific prop combinations (e.g., `color: 'primary'`)
+- **`compoundVariants`** — styles for specific prop combinations (e.g., `color: 'air-primary'`)
 - **`defaultVariants`** — default prop values when none are specified
 
 ### Override priority
 
-**`:b24ui` prop / `class` prop > global config > theme defaults**
+**`:b24ui` prop / `class` prop > theme defaults**
 
 The `b24ui` prop overrides slots **after** variants are computed. If the `size: 'md'` variant applies `size-5` to `trailingIcon`, and you set `:b24ui="{ trailingIcon: 'size-3' }"`, the `size-3` wins.
 
