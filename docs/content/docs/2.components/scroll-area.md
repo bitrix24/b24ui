@@ -74,7 +74,7 @@ options:
 Use the `virtualize` prop to render only the items currently in view, significantly boosting performance when working with large datasets.
 
 ::note
-When virtualization is **enabled**, customize spacing via the `virtualize` prop options like `gap`, `paddingStart`, and `paddingEnd`. Otherwise, use the `ui` prop to apply classes like `gap p-4` on the `viewport` slot.
+When virtualization is **enabled**, customize spacing via the `virtualize` prop options like `gap`, `paddingStart`, and `paddingEnd`. Otherwise, use the `b24ui` prop to apply classes like `gap p-4` on the `viewport` slot.
 ::
 
 ::tip
