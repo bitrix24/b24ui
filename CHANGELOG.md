@@ -2,6 +2,7 @@
 
 ## [2.5.4](https://github.com/bitrix24/b24ui/compare/v2.5.5...v2.5.4) (2026-04-xx)
 
+* feat(Tooltip): support global content configuration via App tooltip prop
 * chore(agents): add guide for coding agents
 * docs: improve build performance and client-side navigation
 * fix(Error): support `status` and `statusText` properties

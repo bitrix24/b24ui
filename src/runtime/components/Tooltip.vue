@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { TooltipRootProps, TooltipRootEmits, TooltipContentProps, TooltipContentEmits, TooltipArrowProps, TooltipTriggerProps, PopoverArrowProps } from 'reka-ui'
+import type { TooltipRootProps, TooltipRootEmits, TooltipContentProps, TooltipContentEmits, TooltipArrowProps, TooltipTriggerProps } from 'reka-ui'
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/tooltip'
@@ -16,11 +16,14 @@ export interface TooltipProps extends TooltipRootProps {
   kbds?: KbdProps['value'][] | KbdProps[]
   /**
    * The content of the tooltip.
+   *
+   * Inherits from the `tooltip.content` of the {@link AppProps} component when not provided.
    * @defaultValue { side: 'bottom', sideOffset: 8, collisionPadding: 8 }
    */
   content?: Omit<TooltipContentProps, 'as' | 'asChild'> & Partial<EmitsToProps<TooltipContentEmits>>
   /**
    * Display an arrow alongside the tooltip.
+   * `{ rounded: true }`{lang="ts-type"}
    * @defaultValue false
    */
   arrow?: boolean | Omit<TooltipArrowProps, 'as' | 'asChild'>
@@ -50,7 +53,7 @@ export interface TooltipSlots {
 <script setup lang="ts">
 import { computed, toRef } from 'vue'
 import { defu } from 'defu'
-import { TooltipRoot, TooltipTrigger, TooltipPortal, TooltipContent, TooltipArrow, useForwardPropsEmits } from 'reka-ui'
+import { TooltipRoot, TooltipTrigger, TooltipPortal, TooltipContent, TooltipArrow, useForwardPropsEmits, injectTooltipProviderContext } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useComponentUI } from '../composables/useComponentUI'
@@ -68,10 +71,12 @@ const slots = defineSlots<TooltipSlots>()
 const appConfig = useAppConfig() as Tooltip['AppConfig']
 const uiProp = useComponentUI('tooltip', props)
 
+const providerContext = injectTooltipProviderContext()
+
 const rootProps = useForwardPropsEmits(reactivePick(props, 'defaultOpen', 'open', 'delayDuration', 'disableHoverableContent', 'disableClosingTrigger', 'ignoreNonKeyboardFocus'), emits)
 const portalProps = usePortal(toRef(() => props.portal))
-const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffset: 8, collisionPadding: 8 }) as TooltipContentProps)
-const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10 }) as PopoverArrowProps)
+const contentProps = toRef(() => defu(props.content, providerContext.content.value, { side: 'bottom', sideOffset: 8, collisionPadding: 8 }) as TooltipContentProps)
+const arrowProps = toRef(() => defu(typeof props.arrow === 'boolean' ? {} : props.arrow, { width: 20, height: 10, rounded: true }) as TooltipArrowProps)
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.tooltip || {}) })({
@@ -96,7 +101,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.toolti
     </TooltipTrigger>
 
     <TooltipPortal v-bind="portalProps">
-      <TooltipContent v-bind="contentProps" data-slot="content" :class="b24ui.content({ class: [!slots.default && uiProp?.content, props.class] })">
+      <TooltipContent v-bind="contentProps" data-slot="content" :class="b24ui.content({ class: [!slots.default && props.class, uiProp?.content] })">
         <slot name="content" :b24ui="b24ui">
           <span v-if="text" data-slot="text" :class="b24ui.text({ class: uiProp?.text })">{{ text }}</span>
 
