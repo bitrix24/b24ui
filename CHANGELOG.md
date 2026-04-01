@@ -4,6 +4,7 @@
 
 * chore(agents): add guide for coding agents
 * docs: improve build performance and client-side navigation
+* fix(Error): support `status` and `statusText` properties
 
 ## [2.5.3](https://github.com/bitrix24/b24ui/compare/v2.5.2...v2.5.3) (2026-03-30)
 
