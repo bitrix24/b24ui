@@ -94,6 +94,6 @@ const items = [
     :b24ui="{ base: 'p-8 sm:px-16' }"
     class="w-full min-h-74"
   >
-    <B24EditorToolbar :editor="editor" :items="items" class="border-b border-(--ui-color-design-tinted-na-stroke) bg-(--ui-color-bg-content-primary) py-2 px-8 sm:px-16 overflow-x-auto" />
+    <B24EditorToolbar :editor="editor" :items="items" class="border-b border-muted bg-default py-2 px-8 sm:px-16 overflow-x-auto" />
   </B24Editor>
 </template>

@@ -8,7 +8,8 @@ const testimonials = ref([
       description: 'Clients Relations Manager',
       avatar: {
         src: '/b24ui/avatar/employee.png',
-        alt: 'employee'
+        alt: 'employee',
+        loading: 'lazy' as const
       }
     },
     quote: 'Bitrix24 has given us a crystal-clear overview of all our ongoing projects. The combination of task deadlines, time tracking, and visual workflow management in Kanban boards ensures that nothing falls through the cracks, significantly improving our on-time delivery and team accountability.'
@@ -19,7 +20,8 @@ const testimonials = ref([
       description: 'CEO',
       avatar: {
         src: '/b24ui/avatar/assistant.png',
-        alt: 'Assistant Name'
+        alt: 'Assistant Name',
+        loading: 'lazy' as const
       }
     },
     quote: 'The CRM and marketing automation tools in Bitrix24 have revolutionized our sales process. We can now track every customer interaction, automate follow-up emails, and segment our leads effectively, which has directly led to a higher conversion rate and more closed deals.'
@@ -30,7 +32,8 @@ const testimonials = ref([
       description: '客户关系经理',
       avatar: {
         src: '/b24ui/avatar/employee.png',
-        alt: '员工姓名'
+        alt: '员工姓名',
+        loading: 'lazy' as const
       }
     },
     quote: 'Bitrix24 帮助我们整个团队在一个功能丰富的统一平台上进行协作，彻底结束了之前需要在多个独立软件之间频繁切换的麻烦。这大大节省了我们的时间，并简化了工作流程。'
@@ -41,7 +44,8 @@ const testimonials = ref([
       description: '首席执行官',
       avatar: {
         src: '/b24ui/avatar/assistant.png',
-        alt: '助理姓名'
+        alt: '助理姓名',
+        loading: 'lazy' as const
       }
     },
     quote: '借助Bitrix24强大的任务管理、分析和信息共享工具，我们为内部流程的沟通和审批创建了自动化工作流。这极大地减少了手动操作和等待时间，从而显著提升了整体工作效率。'

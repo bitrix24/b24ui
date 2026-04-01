@@ -7,7 +7,8 @@ const items = ref([
     value: 'assistant',
     avatar: {
       src: '/b24ui/avatar/assistant.png',
-      alt: 'assistant'
+      alt: 'assistant',
+      loading: 'lazy' as const
     }
   },
   {
@@ -15,7 +16,8 @@ const items = ref([
     value: 'employee',
     avatar: {
       src: '/b24ui/avatar/employee.png',
-      alt: 'employee'
+      alt: 'employee',
+      loading: 'lazy' as const
     }
   }
 ] satisfies InputMenuItem[])

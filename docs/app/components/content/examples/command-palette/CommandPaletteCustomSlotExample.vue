@@ -63,7 +63,7 @@ const groups = [
 <template>
   <B24CommandPalette :groups="groups" class="flex-1 h-80">
     <template #users-leading="{ item }">
-      <B24Avatar :src="item?.avatarSrc" size="2xs" />
+      <B24Avatar :src="item?.avatarSrc" size="2xs" loading="lazy" />
     </template>
 
     <template #billing-label="{ item }">

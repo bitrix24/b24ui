@@ -28,7 +28,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
     :b24ui="{
       formField: {
         root: 'flex max-sm:flex-col justify-between gap-4',
-        wrapper: 'w-full sm:max-w-[320px]'
+        wrapper: 'w-full sm:max-w-80'
       }
     }"
   >

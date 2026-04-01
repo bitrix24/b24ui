@@ -53,14 +53,17 @@ props:
           suffix: 'assistant'
           avatar:
             src: '/b24ui/avatar/assistant.png'
+            loading: lazy
         - label: 'Bitrix24'
           suffix: 'bitrix24'
           avatar:
             src: 'https://github.com/bitrix24.png'
+            loading: lazy
         - label: 'Employee Name'
           suffix: 'employee'
           avatar:
             src: '/b24ui/avatar/employee.png'
+            loading: lazy
   class: 'flex-1'
 ---
 ::
@@ -132,14 +135,17 @@ props:
           suffix: 'assistant'
           avatar:
             src: '/b24ui/avatar/assistant.png'
+            loading: lazy
         - label: 'Bitrix24'
           suffix: 'bitrix24'
           avatar:
             src: 'https://github.com/bitrix24.png'
+            loading: lazy
         - label: 'Employee Name'
           suffix: 'employee'
           avatar:
             src: '/b24ui/avatar/employee.png'
+            loading: lazy
   class: 'flex-1'
 ---
 ::
@@ -180,14 +186,17 @@ props:
           suffix: 'assistant'
           avatar:
             src: '/b24ui/avatar/assistant.png'
+            loading: lazy
         - label: 'Bitrix24'
           suffix: 'bitrix24'
           avatar:
             src: 'https://github.com/bitrix24.png'
+            loading: lazy
         - label: 'Employee Name'
           suffix: 'employee'
           avatar:
             src: '/b24ui/avatar/employee.png'
+            loading: lazy
   class: 'flex-1'
 ---
 ::
@@ -320,6 +329,7 @@ props:
       suffix: 'bitrix24'
       avatar:
         src: 'https://github.com/bitrix24.png'
+        loading: lazy
   selectedIcon: 'RocketIcon'
   groups:
     - id: 'users'
@@ -329,14 +339,17 @@ props:
           suffix: 'assistant'
           avatar:
             src: '/b24ui/avatar/assistant.png'
+            loading: lazy
         - label: 'Bitrix24'
           suffix: 'bitrix24'
           avatar:
             src: 'https://github.com/bitrix24.png'
+            loading: lazy
         - label: 'Employee Name'
           suffix: 'employee'
           avatar:
             src: '/b24ui/avatar/employee.png'
+            loading: lazy
   class: 'flex-1'
 ---
 ::
@@ -690,6 +703,10 @@ props:
 ---
 ::
 
+::note
+This example uses `useLazyFetch` with `server: false` to fetch data on the client without blocking the initial render. The loading state checks for both `pending` and `idle` status to display a loading indicator before and during the fetch.
+::
+
 ### With ignore filter
 
 You can set the `ignoreFilter` field to `true` on a group to disable the internal search and use your own search logic.
@@ -705,7 +722,7 @@ props:
 ::
 
 ::note
-This example uses [`refDebounced`](https://vueuse.org/shared/refDebounced/#refdebounced) to debounce the API calls.
+This example uses [`refDebounced`](https://vueuse.org/shared/refDebounced/#refdebounced) to debounce the API calls. The loading state checks for both `pending` and `idle` status to display a loading indicator before and during the fetch.
 ::
 
 ### With post-filtered items
@@ -800,6 +817,27 @@ name: 'modal-command-palette-example'
 props:
   autofocus: false
 ---
+::
+
+::note
+This example uses `useLazyFetch` with `immediate: false` to only fetch data when the Modal opens.
+::
+
+### Within a Drawer
+
+You can use the CommandPalette component inside a [Drawer](/docs/components/drawer/)'s content.
+
+::component-example
+---
+collapse: true
+name: 'drawer-command-palette-example'
+props:
+  autofocus: false
+---
+::
+
+::note
+This example uses `useLazyFetch` with `immediate: false` to only fetch data when the Drawer opens.
 ::
 
 ### Listen open state

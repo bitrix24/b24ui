@@ -79,12 +79,12 @@ props:
 slots:
   default: |
 
-    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-bg-content-primary) text-(length:--ui-font-size-sm) aspect-video w-72">
+    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) bg-default text-(length:--ui-font-size-sm) aspect-video w-72">
       Right click here
     </div>
 ---
 
-:div{class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) bg-(--ui-color-bg-content-primary) text-(length:--ui-font-size-sm) aspect-video w-72"}[Right click here]
+:div{class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) bg-default text-(length:--ui-font-size-sm) aspect-video w-72"}[Right click here]
 ::
 
 ### Items
@@ -166,12 +166,12 @@ props:
 slots:
   default: |
 
-    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) bg-(--ui-color-bg-content-primary) aspect-video w-72">
+    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) bg-default aspect-video w-72">
       Right click here
     </div>
 ---
 
-:div{class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) bg-(--ui-color-bg-content-primary) aspect-video w-72"}[Right click here]
+:div{class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) bg-default aspect-video w-72"}[Right click here]
 ::
 
 ::note
@@ -207,12 +207,12 @@ props:
 slots:
   default: |
 
-    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) bg-(--ui-color-bg-content-primary) aspect-video w-72">
+    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) bg-default aspect-video w-72">
       Right click here
     </div>
 ---
 
-:div{class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) bg-(--ui-color-bg-content-primary) aspect-video w-72"}[Right click here]
+:div{class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) bg-default aspect-video w-72"}[Right click here]
 ::
 
 ### Disabled
@@ -239,12 +239,12 @@ props:
 slots:
   default: |
 
-    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) bg-(--ui-color-bg-content-primary) aspect-video w-72">
+    <div class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) bg-default aspect-video w-72">
       Right click here
     </div>
 ---
 
-:div{class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) bg-(--ui-color-bg-content-primary) aspect-video w-72"}[Right click here]
+:div{class="flex items-center justify-center rounded-md border border-dashed border-(--ui-color-design-outline-na-stroke) text-(length:--ui-font-size-sm) bg-default aspect-video w-72"}[Right click here]
 ::
 
 ## Examples

@@ -30,5 +30,5 @@ const value = ref(items.value[0])
 </script>
 
 <template>
-  <B24SelectMenu v-model="value" :icon="value?.icon" :items="items" class="w-[192px]" />
+  <B24SelectMenu v-model="value" :icon="value?.icon" :items="items" class="w-48" />
 </template>

@@ -7,6 +7,7 @@ const { data: countries, status, execute } = await useLazyFetch<{
   code: string
   emoji: string
 }[]>('/api/countries.json', {
+  key: 'api-countries',
   immediate: false
 })
 
@@ -24,17 +25,17 @@ function onOpen() {
     label-key="name"
     :search-input="{ icon: CrmSearchIcon }"
     placeholder="Select country"
-    class="w-[192px]"
+    class="w-48"
     @update:open="onOpen"
   >
     <template #leading="{ modelValue, b24ui }">
-      <span v-if="modelValue" class="size-[26px] text-center">
+      <span v-if="modelValue" class="size-6.5 text-center">
         {{ modelValue?.emoji }}
       </span>
       <EarthIcon v-else :class="b24ui.leadingIcon()" />
     </template>
     <template #item-leading="{ item }">
-      <span class="size-[26px] text-center">
+      <span class="size-6.5 text-center">
         {{ item.emoji }}
       </span>
     </template>

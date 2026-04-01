@@ -16,8 +16,6 @@ links:
 
 ## Usage
 
-### Label
-
 Use the default slot to set the label of the Badge.
 
 ::component-code
@@ -27,7 +25,17 @@ slots:
 ---
 ::
 
-You can achieve the same result by using the `label` prop.
+### Label
+
+Use the `label` prop to set the label of the Badge.
+
+::component-code
+---
+prettier: true
+props:
+  label: Badge
+---
+::
 
 Use the `use-link` prop to show underline.
 
@@ -134,9 +142,11 @@ Use the `avatar` prop to show an [Avatar](/docs/components/avatar/) inside the B
 prettier: true
 ignore:
   - avatar.src
+  - avatar.loading
 props:
   avatar:
     src: '/b24ui/avatar/employee.png'
+    loading: lazy
   size: xl
   color: 'air-primary'
 slots:

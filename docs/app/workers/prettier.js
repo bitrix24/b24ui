@@ -1,66 +1,45 @@
-/* eslint-disable no-undef */
-let isPrettierLoaded = false
-const messageQueue = []
+let _prettier
+let _plugins
 
-// Function for downloading Prettier and plugins
-async function loadPrettier() {
-  if (!isPrettierLoaded) {
-    await Promise.all([
-      import('https://cdn.jsdelivr.net/npm/prettier@3.7.4/standalone.js'),
-      import('https://cdn.jsdelivr.net/npm/prettier@3.7.4/plugins/babel.js'),
-      import('https://cdn.jsdelivr.net/npm/prettier@3.7.4/plugins/estree.js'),
-      import('https://cdn.jsdelivr.net/npm/prettier@3.7.4/plugins/html.js'),
-      import('https://cdn.jsdelivr.net/npm/prettier@3.7.4/plugins/markdown.js'),
-      import('https://cdn.jsdelivr.net/npm/prettier@3.7.4/plugins/typescript.js')
-    ])
-    isPrettierLoaded = true
-
-    // We process all messages accumulated in the queue
-    messageQueue.forEach(event => processMessage(event))
-    messageQueue.length = 0
-  }
-}
-
-// Main message handler
 self.onmessage = async function (event) {
-  if (!isPrettierLoaded) {
-    messageQueue.push(event)
-    if (messageQueue.length === 1) {
-      loadPrettier()
-    }
-  } else {
-    processMessage(event)
+  try {
+    self.postMessage({
+      uid: event.data.uid,
+      message: await handleMessage(event.data.message)
+    })
+  } catch (error) {
+    self.postMessage({
+      uid: event.data.uid,
+      error: error.message || String(error)
+    })
   }
-}
-
-async function processMessage(event) {
-  const response = {
-    uid: event.data.uid,
-    message: await handleMessage(event.data.message)
-  }
-  self.postMessage(response)
 }
 
 function handleMessage(message) {
   switch (message.type) {
     case 'format':
       return handleFormatMessage(message)
-    default:
-      return Promise.resolve(null)
   }
 }
 
 async function handleFormatMessage(message) {
-  const { options, source } = message
+  if (!_prettier) {
+    const [prettierModule, ...plugins] = await Promise.all([
+      import('https://cdn.jsdelivr.net/npm/prettier@3.7.4/standalone.mjs'),
+      import('https://cdn.jsdelivr.net/npm/prettier@3.7.4/plugins/babel.mjs'),
+      import('https://cdn.jsdelivr.net/npm/prettier@3.7.4/plugins/estree.mjs'),
+      import('https://cdn.jsdelivr.net/npm/prettier@3.7.4/plugins/html.mjs'),
+      import('https://cdn.jsdelivr.net/npm/prettier@3.7.4/plugins/markdown.mjs'),
+      import('https://cdn.jsdelivr.net/npm/prettier@3.7.4/plugins/typescript.mjs')
+    ])
+    _prettier = prettierModule
+    _plugins = plugins
+  }
 
-  const formatted = await prettier.format(source, {
+  const { options, source } = message
+  return _prettier.format(source, {
     parser: 'markdown',
-    plugins: prettierPlugins,
+    plugins: _plugins,
     ...options
   })
-
-  return formatted
 }
-
-// Start loading Prettier when worker is initialized
-loadPrettier()

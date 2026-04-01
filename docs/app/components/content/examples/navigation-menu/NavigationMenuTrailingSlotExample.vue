@@ -80,7 +80,7 @@ const dropdownItems: DropdownMenuItem[][] = [
             :icon="MoreMIcon"
             color="air-tertiary"
             size="xs"
-            class="text-(--b24ui-typography-description-color) hover:text-(--b24ui-typography-label-color) hover:bg-(--ui-color-accent-soft-element-blue)/40 data-[state=open]:bg-(--ui-color-accent-soft-element-blue)/30 mr-1.5"
+            class="text-description hover:text-label hover:bg-(--ui-color-accent-soft-element-blue)/40 data-[state=open]:bg-(--ui-color-accent-soft-element-blue)/30 mr-1.5"
           />
         </B24DropdownMenu>
       </div>

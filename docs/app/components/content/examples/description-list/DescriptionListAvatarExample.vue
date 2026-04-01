@@ -6,20 +6,23 @@ const items = ref([
     label: 'Line 1.1',
     description: 'Description 1.1',
     avatar: {
-      src: '/b24ui/avatar/employee.png'
+      src: '/b24ui/avatar/employee.png',
+      loading: 'lazy' as const
     }
   },
   {
     label: 'Line 1.2',
     description: 'Description 1.2',
     avatar: {
-      src: '/b24ui/avatar/assistant.png'
+      src: '/b24ui/avatar/assistant.png',
+      loading: 'lazy' as const
     }
   },
   {
     description: 'Description 1.3',
     avatar: {
-      src: 'https://github.com/bitrix24.png'
+      src: 'https://github.com/bitrix24.png',
+      loading: 'lazy' as const
     }
   }
 ] satisfies DescriptionListItem[])

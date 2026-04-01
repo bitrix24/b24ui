@@ -73,9 +73,11 @@ ignore:
   - description
   - avatar.src
   - avatar.size
+  - avatar.loading
 props:
   avatar.src: '/b24ui/avatar/employee.png'
   avatar.size: 'xs'
+  avatar.loading: 'lazy'
   title: Heads up!
   description: We will immediately notify the manager that the deal is not progressing.
 ---

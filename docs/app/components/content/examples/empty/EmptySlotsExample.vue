@@ -10,7 +10,8 @@ const members: UserProps[] = [
     target: '_blank',
     avatar: {
       src: '/b24ui/avatar/employee.png',
-      alt: 'Employee Name'
+      alt: 'Employee Name',
+      loading: 'lazy' as const
     }
   },
   {
@@ -20,7 +21,8 @@ const members: UserProps[] = [
     target: '_blank',
     avatar: {
       src: '/b24ui/avatar/assistant.png',
-      alt: 'Assistant Name'
+      alt: 'Assistant Name',
+      loading: 'lazy' as const
     }
   }
 ]
@@ -37,8 +39,8 @@ const members: UserProps[] = [
   >
     <template #leading>
       <B24AvatarGroup size="xl">
-        <B24Avatar src="/b24ui/avatar/employee.png" alt="Employee Name" />
-        <B24Avatar src="https://github.com/bitrix24.png" alt="bitrix24" />
+        <B24Avatar src="/b24ui/avatar/employee.png" alt="Employee Name" loading="lazy" />
+        <B24Avatar src="https://github.com/bitrix24.png" alt="bitrix24" loading="lazy" />
       </B24AvatarGroup>
     </template>
 

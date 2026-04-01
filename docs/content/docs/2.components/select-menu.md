@@ -41,7 +41,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -74,14 +74,13 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
 You can also pass an array of objects with the following properties:
 
 - `label?: string`{lang="ts-type"}
-- [`value?: string`{lang="ts-type"}](#value-key)
 - [`type?: "label" | "separator" | "item"`{lang="ts-type"}](#with-items-type)
 - [`icon?: IconComponent`{lang="ts-type"}](#with-icons-in-items)
 - [`avatar?: AvatarProps`{lang="ts-type"}](#with-avatar-in-items)
@@ -92,6 +91,28 @@ You can also pass an array of objects with the following properties:
 - `class?: any`{lang="ts-type"}
 - `b24ui?: { label?: ClassNameValue, separator?: ClassNameValue, item?: ClassNameValue, itemLeadingIcon?: ClassNameValue, itemLeadingAvatarSize?: ClassNameValue, itemLeadingAvatar?: ClassNameValue, itemLeadingChipSize?: ClassNameValue, itemLeadingChip?: ClassNameValue, itemLabel?: ClassNameValue, itemTrailing?: ClassNameValue, itemTrailingIcon?: ClassNameValue }`{lang="ts-type"}
 
+::component-code
+---
+ignore:
+  - modelValue.label
+  - items
+  - class
+external:
+  - items
+  - modelValue
+externalTypes:
+  - SelectMenuItem[]
+props:
+  modelValue:
+    label: 'Todo'
+  items:
+    - label: 'Backlog'
+    - label: 'Todo'
+    - label: 'In Progress'
+    - label: 'Done'
+  class: 'w-48'
+---
+::
 ::caution
 Unlike the [`Select`](/docs/components/select/) component, the SelectMenu expects the whole object to be passed to the `v-model` directive or the `default-value` prop by default.
 ::
@@ -123,7 +144,7 @@ props:
       - Carrot
       - Courgette
       - Leek
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -156,7 +177,7 @@ props:
       id: 'in_progress'
     - label: 'Done'
       id: 'done'
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -189,7 +210,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -216,7 +237,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -233,6 +254,7 @@ ignore:
   - modelValue.label
   - searchInput.icon
   - items
+  - class
 external:
   - items
   - modelValue
@@ -248,7 +270,7 @@ props:
     - label: Todo
     - label: In Progress
     - label: Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -291,7 +313,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -318,7 +340,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -345,7 +367,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -379,7 +401,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -426,7 +448,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -456,7 +478,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -486,7 +508,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -516,7 +538,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -546,7 +568,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -576,7 +598,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -610,7 +632,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -625,19 +647,22 @@ ignore:
   - items
   - modelValue
   - avatar.src
+  - avatar.loading
   - class
 external:
   - items
   - modelValue
 props:
   modelValue: 'Backlog'
-  avatar.src: '/b24ui/avatar/employee.png'
+  avatar:
+    src: '/b24ui/avatar/employee.png'
+    loading: lazy
   items:
     - Backlog
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -663,7 +688,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -688,7 +713,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -714,7 +739,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -744,7 +769,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -774,7 +799,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -804,7 +829,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -848,7 +873,7 @@ props:
     - Carrot
     - Courgette
     - Leek
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -972,6 +997,10 @@ name: 'select-menu-fetch-example'
 ---
 ::
 
+::note
+This example uses `useLazyFetch` with `immediate: false` to only fetch data when the menu opens, avoiding unnecessary API calls on page load.
+::
+
 ### With ignore filter
 
 Set the `ignore-filter` prop to `true` to disable the internal search and use your own search logic.
@@ -984,7 +1013,7 @@ name: 'select-menu-ignore-filter-example'
 ::
 
 ::note
-This example uses [`refDebounced`](https://vueuse.org/shared/refDebounced/#refdebounced) to debounce the API calls.
+This example uses [`refDebounced`](https://vueuse.org/shared/refDebounced/#refdebounced) to debounce the API calls. The fetch is deferred with `immediate: false` so no request is made until the user types.
 ::
 
 ### With filter fields
@@ -997,6 +1026,11 @@ collapse: true
 name: 'select-menu-filter-fields-example'
 ---
 ::
+
+::note
+This example uses `useLazyFetch` with `immediate: false` to only fetch data when the menu opens, avoiding unnecessary API calls on page load.
+::
+
 ### With virtualization
 
 Use the `virtualize` prop to enable virtualization for large lists as a boolean or an object with options like `{ estimateSize: 32, overscan: 12 }`.
@@ -1026,6 +1060,10 @@ highlights:
 overflowHidden: true
 name: 'select-menu-infinite-scroll-example'
 ---
+::
+
+::note
+This example uses `useLazyFetch` with `immediate: false` so data is only loaded as the user scrolls.
 ::
 
 ### With full content width

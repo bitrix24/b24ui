@@ -30,7 +30,7 @@ prettier: true
 ignore:
   - class
 props:
-  class: 'flex flex-col gap-2 w-[192px]'
+  class: 'flex flex-col gap-2 w-48'
 slots:
   default: |
 
@@ -58,7 +58,7 @@ ignore:
   - class
 props:
   unmountOnHide: false
-  class: 'flex flex-col gap-2 w-[192px]'
+  class: 'flex flex-col gap-2 w-48'
 slots:
   default: |
 
@@ -89,7 +89,7 @@ prettier: true
 ignore:
   - class
 props:
-  class: 'flex flex-col gap-2 w-[192px]'
+  class: 'flex flex-col gap-2 w-48'
   disabled: true
 slots:
   default: |

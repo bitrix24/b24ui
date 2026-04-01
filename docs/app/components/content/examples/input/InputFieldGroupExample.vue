@@ -15,7 +15,7 @@ const domain = ref(domains[0])
       }"
     >
       <template #leading>
-        <p class="text-(length:--ui-font-size-xs)/(--ui-font-line-height-reset) text-(--b24ui-typography-label-color)">
+        <p class="text-(length:--ui-font-size-xs)/(--ui-font-line-height-reset) text-label">
           https://
         </p>
       </template>

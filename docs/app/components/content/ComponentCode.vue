@@ -235,7 +235,7 @@ function setComponentProp(name: string, value: any) {
 }
 
 const componentTheme = ((props.prose ? theme.prose : theme) as any)[camelName]
-const meta = await fetchComponentMeta(name as any)
+const { data: meta } = await useFetchComponentMeta(name as any)
 
 function mapKeys(obj: object, parentKey = ''): any {
   return Object.entries(obj || {}).flatMap(([key, value]: [string, any]) => {
@@ -253,7 +253,7 @@ const options = computed(() => {
   const keys = mapKeys(props.props || {})
 
   return keys.map((key: string) => {
-    const prop = meta?.meta?.props?.find((prop: any) => prop.name === key)
+    const prop = meta.value?.meta?.props?.find((prop: any) => prop.name === key)
     const propItems = get(props.items, key, [])
     const items = propItems.length
       ? propItems.map((item: any) => ({
@@ -422,7 +422,7 @@ ${props.slots?.default}
       continue
     }
 
-    const prop = meta?.meta?.props?.find((prop: any) => prop.name === key)
+    const prop = meta.value?.meta?.props?.find((prop: any) => prop.name === key)
     const propDefault = prop && (prop.default ?? prop.tags?.find(tag => tag.name === 'defaultValue')?.text ?? componentTheme?.defaultVariants?.[prop.name])
     const name = kebabCase(key)
 
@@ -486,9 +486,9 @@ const codeKey = computed(() => `component-code-${name}-${hash(props)}-${helperFo
 const wrapperContainer = ref<HTMLElement | null>(null)
 const componentContainer = ref<HTMLElement | null>(null)
 
-const { data: ast } = await useAsyncData(codeKey, async () => {
+const { data: ast } = useAsyncData(codeKey, async () => {
   if (!props.prettier) {
-    return parseMarkdown(code.value)
+    return cachedParseMarkdown(code.value)
   }
 
   let formatted = ''
@@ -503,8 +503,8 @@ const { data: ast } = await useAsyncData(codeKey, async () => {
     formatted = code.value
   }
 
-  return parseMarkdown(formatted)
-}, { watch: [code, helperForChangeComponentProps] })
+  return cachedParseMarkdown(formatted)
+}, { lazy: import.meta.client, watch: [code] })
 </script>
 
 <template>
@@ -512,7 +512,7 @@ const { data: ast } = await useAsyncData(codeKey, async () => {
     <div ref="wrapperContainer" class="relative group/component">
       <div
         v-if="options.length"
-        class="flex flex-wrap items-start gap-[10px] text-(--ui-color-design-tinted-na-content) bg-(--ui-color-design-tinted-na-bg) border-(--ui-color-design-tinted-na-stroke) border border-b-0 relative rounded-t-(--ui-border-radius-md) p-[10px] overflow-x-auto"
+        class="flex flex-wrap items-start gap-[10px] text-(--ui-color-design-tinted-na-content) bg-(--ui-color-design-tinted-na-bg) border-muted border border-b-0 relative rounded-t-(--ui-border-radius-md) p-[10px] overflow-x-auto"
       >
         <template v-for="option in options" :key="option.name">
           <B24FormField
@@ -553,7 +553,7 @@ const { data: ast } = await useAsyncData(codeKey, async () => {
         v-if="component"
         ref="componentContainer"
         style="background-position: 10px 10px"
-        class="flex justify-center border border-b-0 border-(--ui-color-design-tinted-na-stroke) relative p-[16px] z-[1]"
+        class="flex justify-center border border-b-0 border-muted relative p-4 z-[1]"
         :class="[
           !options.length && 'rounded-t-md',
           props.class,
@@ -569,6 +569,7 @@ const { data: ast } = await useAsyncData(codeKey, async () => {
           </template>
         </component>
       </div>
+
       <ClientOnly>
         <LazyComponentThemeVisualizer
           :container="componentContainer"

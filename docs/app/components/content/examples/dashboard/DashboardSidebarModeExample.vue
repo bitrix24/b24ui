@@ -32,7 +32,7 @@ const items: NavigationMenuItem[] = [
       :mode="mode"
     >
       <template #header="{ collapsed }">
-        <Logo v-if="!collapsed" class="h-5 w-auto text-(--b24ui-typography-label-color)" />
+        <Logo v-if="!collapsed" class="h-5 w-auto text-label" />
         <B24Icon v-else class="size-10 text-[#2fc6f6] mx-auto" />
       </template>
 

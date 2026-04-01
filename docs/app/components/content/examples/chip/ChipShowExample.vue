@@ -18,6 +18,6 @@ onMounted(() => {
 
 <template>
   <B24Chip :color="color" :show="show" inset>
-    <B24Avatar src="/b24ui/avatar/employee.png" />
+    <B24Avatar src="/b24ui/avatar/employee.png" loading="lazy" />
   </B24Chip>
 </template>

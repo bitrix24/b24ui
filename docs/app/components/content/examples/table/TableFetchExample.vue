@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { TableColumn } from '@bitrix24/b24ui-nuxt'
+import type { AvatarProps, TableColumn } from '@bitrix24/b24ui-nuxt'
 
 const B24Avatar = resolveComponent('B24Avatar')
 
@@ -8,11 +8,11 @@ type User = {
   name: string
   username: string
   email: string
-  avatar: { src: string }
+  avatar: AvatarProps
   company: { name: string }
 }
 
-const { data, status } = await useFetch<User[]>('https://jsonplaceholder.typicode.com/users', {
+const { data, status } = useLazyFetch<User[]>('https://jsonplaceholder.typicode.com/users', {
   key: 'table-users',
   transform: (data) => {
     return data?.map(user => ({
@@ -20,7 +20,7 @@ const { data, status } = await useFetch<User[]>('https://jsonplaceholder.typicod
       avatar: { src: `https://i.pravatar.cc/120?img=${user.id}`, alt: `${user.name} avatar` }
     })) || []
   },
-  lazy: true
+  server: false
 })
 
 const columns: TableColumn<User>[] = [{
@@ -33,10 +33,11 @@ const columns: TableColumn<User>[] = [{
     return h('div', { class: 'flex items-center gap-3' }, [
       h(B24Avatar, {
         ...row.original.avatar,
+        loading: 'lazy',
         size: 'lg'
       }),
       h('div', undefined, [
-        h('p', { class: 'font-(--ui-font-weight-medium) text-(--b24ui-typography-legend-color)' }, row.original.name),
+        h('p', { class: 'font-(--ui-font-weight-medium) text-legend' }, row.original.name),
         h('p', { class: '' }, `@${row.original.username}`)
       ])
     ])
@@ -52,5 +53,10 @@ const columns: TableColumn<User>[] = [{
 </script>
 
 <template>
-  <B24Table :data="data" :columns="columns" :loading="status === 'pending'" class="flex-1 h-[290px]" />
+  <B24Table
+    :data="data"
+    :columns="columns"
+    :loading="status === 'pending' || status === 'idle'"
+    class="flex-1 h-[290px]"
+  />
 </template>

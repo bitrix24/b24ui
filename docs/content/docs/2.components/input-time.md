@@ -177,9 +177,11 @@ Use the `avatar` prop to show an [Avatar](/docs/components/avatar/) inside the I
 prettier: true
 ignore:
   - avatar.src
+  - avatar.loading
 props:
   avatar:
     src: '/b24ui/avatar/employee.png'
+    loading: lazy
   size: md
 ---
 ::

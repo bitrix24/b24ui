@@ -15,6 +15,7 @@ links:
   - label: TanStack Table
     avatar:
       src: https://github.com/tanstack.png
+      loading: lazy
     to: https://tanstack.com/table/latest
 ---
 
@@ -84,17 +85,17 @@ props:
 
 Use the `columns` prop as an array of [ColumnDef](https://tanstack.com/table/latest/docs/api/core/column-def) objects with properties like:
 
-- `accessorKey`: [The key of the row object to use when extracting the value for the column.]{class="text-(--b24ui-typography-description-color)"}
-- `header`: [The header to display for the column. If a string is passed, it can be used as a default for the column ID. If a function is passed, it will be passed a props object for the header and should return the rendered header value (the exact type depends on the adapter being used).]{class="text-(--b24ui-typography-description-color)"}
-- `footer`: [The footer to display for the column. Works exactly like header, but is displayed under the table.]{class="text-(--b24ui-typography-description-color)"}
-- `cell`: [The cell to display each row for the column. If a function is passed, it will be passed a props object for the cell and should return the rendered cell value (the exact type depends on the adapter being used).]{class="text-(--b24ui-typography-description-color)"}
-- `meta`: [Extra properties for the column.]{class="text-(--b24ui-typography-description-color)"}
+- `accessorKey`: [The key of the row object to use when extracting the value for the column.]{class="text-description"}
+- `header`: [The header to display for the column. If a string is passed, it can be used as a default for the column ID. If a function is passed, it will be passed a props object for the header and should return the rendered header value (the exact type depends on the adapter being used).]{class="text-description"}
+- `footer`: [The footer to display for the column. Works exactly like header, but is displayed under the table.]{class="text-description"}
+- `cell`: [The cell to display each row for the column. If a function is passed, it will be passed a props object for the cell and should return the rendered cell value (the exact type depends on the adapter being used).]{class="text-description"}
+- `meta`: [Extra properties for the column.]{class="text-description"}
   - `class`:
-    - `td`: [The classes to apply to the `td` element.]{class="text-(--b24ui-typography-description-color)"}
-    - `th`: [The classes to apply to the `th` element.]{class="text-(--b24ui-typography-description-color)"}
+    - `td`: [The classes to apply to the `td` element.]{class="text-description"}
+    - `th`: [The classes to apply to the `th` element.]{class="text-description"}
   - `style`:
-    - `td`: [The style to apply to the `td` element.]{class="text-(--b24ui-typography-description-color)"}
-    - `th`: [The style to apply to the `th` element.]{class="text-(--b24ui-typography-description-color)"}
+    - `td`: [The style to apply to the `td` element.]{class="text-description"}
+    - `th`: [The style to apply to the `th` element.]{class="text-description"}
 
 In order to render components or other HTML elements, you will need to use the Vue [`h` function](https://vuejs.org/api/render-function.html#h) inside the `header` and `cell` props. This is different from other components that use slots but allows for more flexibility.
 
@@ -123,9 +124,9 @@ When rendering components with `h`, you can either use the `resolveComponent` fu
 Use the `meta` prop as an object ([TableMeta](https://tanstack.com/table/latest/docs/api/core/table#meta)) to pass properties like:
 
 - `class`:
-  - `tr`: [The classes to apply to the `tr` element.]{class="text-(--b24ui-typography-description-color)"}
+  - `tr`: [The classes to apply to the `tr` element.]{class="text-description"}
 - `style`:
-  - `tr`: [The style to apply to the `tr` element.]{class="text-(--b24ui-typography-description-color)"}
+  - `tr`: [The style to apply to the `tr` element.]{class="text-description"}
 
 ::component-example
 ---
@@ -588,6 +589,10 @@ class: '!p-0'
 ---
 ::
 
+::note
+This example uses `useLazyFetch` with `server: false` to fetch data on the client without blocking the initial render. The loading state checks for both `pending` and `idle` status to display a loading indicator before and during the fetch.
+::
+
 ### With infinite scroll
 
 If you use server-side pagination, you can use the [`useInfiniteScroll`](https://vueuse.org/core/useInfiniteScroll/#useinfinitescroll) composable to load more data as the user scrolls.
@@ -603,6 +608,10 @@ overflowHidden: true
 name: 'table-infinite-scroll-example'
 class: '!p-0'
 ---
+::
+
+::note
+This example uses `useLazyFetch` with `server: false` to fetch data on the client without blocking the initial render. The loading state checks for both `pending` and `idle` status to display a loading indicator before and during the fetch. Additional pages are loaded as the user scrolls.
 ::
 
 ### With drag and drop
@@ -711,7 +720,7 @@ This will give you access to the following:
 
 | Name | Type |
 | ---- | ---- |
-| `tableRef`{lang="ts-type"} | `Ref<HTMLTableElement \| null>`{lang="ts-type"}                                            |
+| `tableRef`{lang="ts-type"} | `Ref<HTMLTableElement \| null>`{lang="ts-type"} |
 | `tableApi`{lang="ts-type"} | [`Table`{lang="ts-type"}](https://tanstack.com/table/latest/docs/api/core/table#table-api) |
 
 ## Theme

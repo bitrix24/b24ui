@@ -175,9 +175,9 @@ props:
 slots:
   default: |
 
-    <B24Avatar src="/b24ui/avatar/employee.png" />
+    <B24Avatar src="/b24ui/avatar/employee.png" loading="lazy" />
 ---
-:b24-avatar{src="/b24ui/avatar/employee.png"}
+:b24-avatar{src="/b24ui/avatar/employee.png" loading="lazy"}
 ::
 
 ### Standalone
@@ -193,7 +193,7 @@ props:
 ::
 
 ::note
-It's used this way in the [`InputMenu`](/docs/components/input-menu/), [`Select`](/docs/components/select/) or [`SelectMenu`](/docs/components/select-menu/) components for example.
+It's used this way in the [`CommandPalette`](/docs/components/command-palette/), [`InputMenu`](/docs/components/input-menu/), [`Select`](/docs/components/select/) or [`SelectMenu`](/docs/components/select-menu/) components for example.
 ::
 
 ## Examples

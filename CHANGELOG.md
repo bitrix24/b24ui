@@ -1,13 +1,26 @@
 # Changelog
 
+## [2.5.4](https://github.com/bitrix24/b24ui/compare/v2.5.5...v2.5.4) (2026-04-xx)
+
+* chore(agents): add guide for coding agents
+* docs: improve build performance and client-side navigation
+
 ## [2.5.3](https://github.com/bitrix24/b24ui/compare/v2.5.2...v2.5.3) (2026-03-30)
 
-* feat(skills): add skills
-* feat(Container): improve theme
-* feat(ProseCard): support iconName
-* feat(theming): add bg and border like `text-default`, `bg-elevated`, `border-muted`
-* fix(module): add `@source` on components
-* docs(install): add templates
+### Features
+
+* **skills:** add skills
+* **Container:** improve theme
+* **ProseCard:** support iconName
+* **theming:** add bg and border like `text-default`, `bg-elevated`, `border-muted`
+
+### Bug Fixes
+
+* **module:** add `@source` on components
+
+### Docs
+
+* **install:** add templates
 
 ## [2.5.2](https://github.com/bitrix24/b24ui/compare/v2.5.1...v2.5.2) (2026-03-26)
 

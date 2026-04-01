@@ -133,6 +133,7 @@ external:
 ignore:
   - messages
   - avatar.src
+  - avatar.loading
 hide:
   - shouldScrollToBottom
 collapse: true
@@ -151,6 +152,7 @@ props:
     variant: message
     avatar:
       src: https://github.com/bitrix24.png
+      loading: lazy
   messages:
     - id: '6045235a-a435-46b8-989d-2df38ca2eb47'
       role: user
@@ -191,6 +193,7 @@ external:
 ignore:
   - messages
   - avatar.src
+  - avatar.loading
   - assistant.actions
 hide:
   - shouldScrollToBottom
@@ -444,17 +447,20 @@ function onSubmit() {
 </script>
 
 <template>
-  <B24Card>
-    <B24Container>
-      <B24ChatMessages :messages="chat.messages" :status="chat.status">
-        <template #content="{ message }">
-          <template v-for="(part, index) in message.parts" :key="`${message.id}-${part.type}-${index}`">
-            <MDC v-if="part.type === 'text' && message.role === 'assistant'" :value="part.text" :cache-key="`${message.id}-${index}`" class="*:first:mt-0 *:last:mb-0" />
-            <p v-else-if="part.type === 'text' && message.role === 'user'" class="whitespace-pre-wrap">{{ part.text }}</p>
+  <B24DashboardPanel>
+    <template #body>
+      <B24Container>
+        <B24ChatMessages :messages="chat.messages" :status="chat.status">
+          <template #content="{ message }">
+            <template v-for="(part, index) in message.parts" :key="`${message.id}-${part.type}-${index}`">
+              <MDC v-if="part.type === 'text' && message.role === 'assistant'" :value="part.text" :cache-key="`${message.id}-${index}`" class="*:first:mt-0 *:last:mb-0" />
+              <p v-else-if="part.type === 'text' && message.role === 'user'" class="whitespace-pre-wrap">{{ part.text }}</p>
+            </template>
           </template>
-        </template>
-      </B24ChatMessages>
-    </B24Container>
+        </B24ChatMessages>
+      </B24Container>
+    </template>
+
     <template #footer>
       <B24Container class="pb-4 sm:pb-6">
         <B24ChatPrompt v-model="input" :error="chat.error" @submit="onSubmit">
@@ -462,7 +468,7 @@ function onSubmit() {
         </B24ChatPrompt>
       </B24Container>
     </template>
-  </B24Card>
+  </B24DashboardPanel>
 </template>
 ```
 

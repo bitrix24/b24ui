@@ -24,9 +24,11 @@ prettier: true
 ignore:
   - src
   - alt
+  - loading
 props:
   src: '/b24ui/avatar/employee.png'
   alt: 'employee'
+  loading: lazy
 ---
 ::
 
@@ -46,8 +48,11 @@ Use the `src` prop to set the image URL.
 ::component-code
 ---
 prettier: true
+ignore:
+  - loading
 props:
   src: 'https://github.com/bitrix24.png'
+  loading: lazy
 ---
 ::
 
@@ -60,9 +65,11 @@ Use the `size` prop to set the size of the Avatar.
 prettier: true
 ignore:
   - src
+  - loading
 props:
   size: 2xl
   src: '/b24ui/avatar/assistant.png'
+  loading: lazy
 ---
 ::
 
@@ -127,10 +134,12 @@ Use the `chip` prop to display a chip around the Avatar.
 prettier: true
 ignore:
   - src
+  - loading
   - chip.inset
   - chip.hideZero
 props:
   src: '/b24ui/avatar/assistant.png'
+  loading: lazy
   chip:
     text: '+1'
     inset: true

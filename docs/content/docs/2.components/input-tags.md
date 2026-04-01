@@ -210,11 +210,14 @@ prettier: true
 ignore:
   - modelValue
   - avatar.src
+  - avatar.loading
 external:
   - modelValue
 props:
   modelValue: ['Bitrix24']
-  avatar.src: '/b24ui/avatar/employee.png'
+  avatar:
+    src: '/b24ui/avatar/employee.png'
+    loading: lazy
   size: md
 ---
 ::

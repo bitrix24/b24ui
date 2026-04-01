@@ -130,9 +130,11 @@ Use the `avatar` prop to show an [Avatar](/docs/components/avatar/) inside the B
 prettier: true
 ignore:
   - avatar.src
+  - avatar.loading
 props:
   avatar:
     src: '/b24ui/avatar/employee.png'
+    loading: lazy
   size: md
   color: 'air-primary'
 slots:
@@ -150,6 +152,7 @@ prettier: true
 props:
   avatar:
     src: '/b24ui/avatar/employee.png'
+    loading: lazy
   size: md
   color: 'air-primary'
 ---

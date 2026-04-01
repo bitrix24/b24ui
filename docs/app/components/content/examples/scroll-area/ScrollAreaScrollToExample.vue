@@ -41,7 +41,7 @@ function scrollToItem(index: number) {
       />
     </B24ScrollArea>
 
-    <B24FieldGroup size="sm" class="px-4 py-3 border-t border-(--ui-color-design-tinted-na-stroke) w-full">
+    <B24FieldGroup size="sm" class="px-4 py-3 border-t border-muted w-full">
       <B24Button
         label="Top"
         @click="scrollToTop"

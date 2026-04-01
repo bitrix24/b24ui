@@ -38,6 +38,7 @@ props:
     - - label: Bitrix24
         avatar:
           src: 'https://github.com/bitrix24.png'
+          loading: lazy
         type: label
     - - label: Profile
       - label: Billing
@@ -113,6 +114,7 @@ props:
     - - label: Bitrix24
         avatar:
           src: 'https://github.com/bitrix24.png'
+          loading: lazy
         type: label
     - - label: Profile
       - label: Billing

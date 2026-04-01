@@ -38,7 +38,7 @@ const items = computed<NavigationMenuItem[]>(() => [
 <template>
   <B24Header>
     <template #title>
-      <Logo class="h-6 w-auto text-(--b24ui-typography-label-color)" />
+      <Logo class="h-6 w-auto text-label" />
     </template>
 
     <B24NavigationMenu :items="items" />

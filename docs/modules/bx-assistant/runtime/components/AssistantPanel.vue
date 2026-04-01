@@ -240,7 +240,7 @@ onMounted(() => {
 
       <div
         :class="[
-          'bg-(--ui-color-bg-content-primary)',
+          'bg-default',
           'min-h-0',
           'flex-1',
           'overflow-y-auto scrollbar-thin d--scrollbar-transparent'
@@ -251,7 +251,7 @@ onMounted(() => {
           :messages="chat.messages"
           compact
           :status="chat.status"
-          :user="{ b24ui: { content: 'text-sm bg-(--ui-color-design-tinted-na-bg) border-(--ui-color-design-tinted-na-stroke) border-(length:--ui-design-tinted-na-stroke-weight) text-(--ui-color-design-tinted-na-content)' } }"
+          :user="{ b24ui: { content: 'text-sm bg-(--ui-color-design-tinted-na-bg) border-muted border-(length:--ui-design-tinted-na-stroke-weight) text-(--ui-color-design-tinted-na-content)' } }"
           :assistant="{ b24ui: { content: 'ring-0 border-0 bg-transparent ps-0 pe-0' } }"
           :b24ui="{ indicator: '*:bg-ai-350', root: 'h-auto!' }"
           class="px-4 py-4"
@@ -337,7 +337,7 @@ onMounted(() => {
 
       <div
         :class="[
-          'bg-(--ui-color-bg-content-primary)',
+          'bg-default',
           'w-full',
           'shrink-0',
           'px-4 py-2'
@@ -412,7 +412,7 @@ onMounted(() => {
       'fixed top-0 z-50',
       'h-dvh overflow-hidden',
       'border-l border-(--ui-color-divider-vibrant-default)',
-      'bg-(--ui-color-bg-content-primary)',
+      'bg-default',
       'transition-[right,width] duration-200 ease-linear will-change-[right,width]'
     ]"
     :style="{
@@ -435,7 +435,7 @@ onMounted(() => {
     inset
     :title="displayTitle"
     description="Get help navigating the documentation, understanding concepts, and finding answers."
-    :b24ui="{ content: 'ring-0 base-mode bg-(--ui-color-bg-content-primary)' }"
+    :b24ui="{ content: 'ring-0 base-mode bg-default' }"
   >
     <template #content>
       <ReuseChatContent :show-expand-button="false" />

@@ -118,7 +118,7 @@ function getDropdownActions(user: User): DropdownMenuItem[][] {
   <B24Table :data="data" :columns="columns" class="flex-1">
     <template #name-cell="{ row }">
       <div class="flex items-center gap-3">
-        <B24Avatar :src="`https://i.pravatar.cc/120?img=${row.original.id}`" size="lg" :alt="`${row.original.name} avatar`" />
+        <B24Avatar :src="`https://i.pravatar.cc/120?img=${row.original.id}`" size="lg" loading="lazy" :alt="`${row.original.name} avatar`" />
         <div>
           <p class="font-(--ui-font-weight-medium)">
             {{ row.original.name }}

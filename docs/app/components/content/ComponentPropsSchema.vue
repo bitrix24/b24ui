@@ -44,12 +44,12 @@ const schemaProps = computed(() => {
 </script>
 
 <template>
-  <ProseCollapsible v-if="schemaProps?.length" class="mt-1 mb-0">
+  <ProseCollapsible v-if="schemaProps?.length" :unmount-on-hide="true" class="mt-1 mb-0">
     <ProseUl>
       <ProseLi v-for="schemaProp in schemaProps" :key="schemaProp.name">
         <HighlightInlineType :type="`${schemaProp.name}${schemaProp.required === false ? '?' : ''}: ${schemaProp.type}`" />
 
-        <MDC v-if="schemaProp.description" :value="schemaProp.description" class="text-(--b24ui-typography-description-color) my-1" :cache-key="`${kebabCase(route.path)}-${prop.name}-${schemaProp.name}-description`" />
+        <MDC v-if="schemaProp.description" :value="schemaProp.description" class="text-description my-1" :cache-key="`${kebabCase(route.path)}-${prop.name}-${schemaProp.name}-description`" />
       </ProseLi>
     </ProseUl>
   </ProseCollapsible>

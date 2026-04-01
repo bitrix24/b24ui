@@ -53,8 +53,11 @@ prettier: true
 ignore:
   - description
   - avatar.src
+  - avatar.loading
 props:
-  avatar.src: '/b24ui/avatar/employee.png'
+  avatar:
+    src: '/b24ui/avatar/employee.png'
+    loading: lazy
   description: Let's signal the manager that the deal is not moving, the manager does not call the client back and does not respond to his messages. Let's assign a task to the manager on behalf of the manager
 ---
 ::
@@ -69,9 +72,12 @@ prettier: true
 ignore:
   - description
   - avatar.src
+  - avatar.loading
 props:
   angle: top
-  avatar.src: '/b24ui/avatar/employee.png'
+  avatar:
+    src: '/b24ui/avatar/employee.png'
+    loading: lazy
   description: Let's signal the manager that the deal is not moving, the manager does not call the client back and does not respond to his messages. Let's assign a task to the manager on behalf of the manager
 ---
 ::

@@ -8,16 +8,16 @@ You can customize the items with avatars, icons, and descriptions.`)
 const items: EditorMentionMenuItem[] = [
   {
     label: 'bitrix24',
-    avatar: { src: 'https://github.com/bitrix24.png' },
+    avatar: { src: 'https://github.com/bitrix24.png', loading: 'lazy' as const },
     description: 'Bitrix24 profile'
   },
   {
     label: 'Employee',
-    avatar: { src: '/b24ui/avatar/employee.png' }
+    avatar: { src: '/b24ui/avatar/employee.png', loading: 'lazy' as const }
   },
   {
     label: 'Assistant',
-    avatar: { src: '/b24ui/avatar/assistant.png' },
+    avatar: { src: '/b24ui/avatar/assistant.png', loading: 'lazy' as const },
     disabled: true
   }
 ]

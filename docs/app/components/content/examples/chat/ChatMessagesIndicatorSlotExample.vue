@@ -10,7 +10,7 @@
     status="submitted"
     :should-scroll-to-bottom="false"
     :user="{
-      avatar: { src: '/b24ui/avatar/employee.png' },
+      avatar: { src: '/b24ui/avatar/employee.png', loading: 'lazy' },
       variant: 'message',
       side: 'right'
     }"

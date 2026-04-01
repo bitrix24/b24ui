@@ -21,6 +21,6 @@ const groups = [
     virtualize
     :fuse="{ resultLimit: 1000 }"
     :groups="groups"
-    class="flex-1 h-[320px]"
+    class="flex-1 h-80"
   />
 </template>

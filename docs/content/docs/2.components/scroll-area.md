@@ -15,8 +15,8 @@ links:
   - label: TanStack Virtual
     avatar:
       src: https://github.com/tanstack.png
+      loading: lazy
     to: https://tanstack.com/virtual/latest
-
 ---
 
 ## Usage
@@ -169,6 +169,10 @@ overflowHidden: true
 name: 'scroll-area-infinite-scroll-example'
 class: '!p-0'
 ---
+::
+
+::note
+This example uses `useLazyFetch` with `server: false` to fetch data on the client without blocking the initial render. The loading state checks for both `pending` and `idle` status to display a loading indicator before and during the fetch. Additional pages are loaded as the user scrolls.
 ::
 
 ### With default slot

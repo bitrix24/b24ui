@@ -224,8 +224,6 @@ slots:
 :placeholder{class="h-48 m-4"}
 ::
 
-@todo add overlayBlur
-
 ### Modal
 
 Use the `modal` prop to control whether the Drawer blocks interaction with outside content. Defaults to `true`.
@@ -303,8 +301,6 @@ slots:
 ::warning
 Make sure to add the `data-vaul-drawer-wrapper` directive to a parent element of your app to make this work.
 
-@todo fix this bg-default
-
 ```vue [app.vue]
 <template>
   <B24App>
@@ -316,8 +312,6 @@ Make sure to add the `data-vaul-drawer-wrapper` directive to a parent element of
   </B24App>
 </template>
 ```
-
-@todo fix this bg-default
 
 ```ts [nuxt.config.ts]
 export default defineNuxtConfig({
@@ -396,6 +390,10 @@ You can use a [CommandPalette](/docs/components/command-palette/) component insi
 collapse: true
 name: 'drawer-command-palette-example'
 ---
+::
+
+::note
+This example uses `useLazyFetch` with `immediate: false` to only fetch data when the Drawer opens.
 ::
 
 ## API

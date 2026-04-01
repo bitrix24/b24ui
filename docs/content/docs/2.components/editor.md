@@ -15,6 +15,7 @@ links:
   - label: TipTap
     avatar:
       src: https://github.com/ueberdosis.png
+      loading: lazy
     to: https://tiptap.dev/
 ---
 

@@ -20,7 +20,7 @@ const items: BreadcrumbItem[] = [
 <template>
   <B24Breadcrumb :items="items">
     <template #separator>
-      <span class="mx-2 text-(--b24ui-typography-legend-color)">/</span>
+      <span class="mx-2 text-legend">/</span>
     </template>
   </B24Breadcrumb>
 </template>

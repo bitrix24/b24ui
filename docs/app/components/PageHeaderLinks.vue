@@ -77,7 +77,7 @@ async function copyPage() {
       :items="items"
       :content="{ side: 'bottom', align: 'end', sideOffset: 4 }"
       :b24ui="{
-        content: 'w-[192px]',
+        content: 'w-48',
         itemLeadingIcon: ['mr-[5px]'],
         itemLeadingAvatar: ['mr-[5px]']
       }"

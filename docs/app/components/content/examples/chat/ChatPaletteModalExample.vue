@@ -31,7 +31,7 @@ function onSubmit() {
         <B24ChatMessages
           :messages="chat.messages"
           :status="chat.status"
-          :user="{ side: 'left', variant: 'message', avatar: { src: '/b24ui/avatar/employee.png' } }"
+          :user="{ side: 'left', variant: 'message', avatar: { src: '/b24ui/avatar/employee.png', loading: 'lazy' as const } }"
           :assistant="{ icon: RobotIcon }"
         >
           <template #content="{ message }">

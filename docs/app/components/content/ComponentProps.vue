@@ -4,7 +4,7 @@ import type { ComponentMeta } from 'vue-component-meta'
 import * as theme from '#build/b24ui'
 
 const props = withDefaults(defineProps<{
-  name?: string
+  slug?: string
   ignore?: string[]
   prose?: boolean
 }>(), {
@@ -39,18 +39,18 @@ const props = withDefaults(defineProps<{
 
 const route = useRoute()
 
-const camelName = camelCase(props.name ?? route.path.split('/').filter(Boolean).pop() ?? '')
+const camelName = camelCase(props.slug ?? route.path.split('/').filter(Boolean).pop() ?? '')
 const componentName = props.prose ? `Prose${upperFirst(camelName)}` : `B24${upperFirst(camelName)}`
 
 const componentTheme = ((props.prose ? theme.prose : theme) as any)[camelName]
-const meta = await fetchComponentMeta(componentName as any)
+const { data: meta } = await useFetchComponentMeta(componentName as any)
 
 const metaProps: ComputedRef<ComponentMeta['props']> = computed(() => {
-  if (!meta?.meta?.props?.length) {
+  if (!meta.value?.meta?.props?.length) {
     return []
   }
 
-  return meta.meta.props.filter((prop) => {
+  return meta.value.meta.props.filter((prop) => {
     return !props.ignore?.includes(prop.name)
   }).map((prop) => {
     if (prop.default) {
@@ -105,21 +105,21 @@ const metaProps: ComputedRef<ComponentMeta['props']> = computed(() => {
     :row-hover="false"
     :class="[
       'overflow-x-auto w-full',
-      'border border-(--ui-color-design-tinted-na-stroke)',
+      'border border-muted',
       '[&>table>tbody>tr>th]:align-top',
       '[&>table>tbody>tr>td]:align-top',
 
       '[&>table>thead>tr>th]:border-e',
       '[&>table>thead>tr>th]:last:border-e-0',
-      '[&>table>thead>tr>th]:border-(--ui-color-design-tinted-na-stroke)',
+      '[&>table>thead>tr>th]:border-muted',
 
       '[&>table>tbody>tr>td]:border-e',
       '[&>table>tbody>tr>td]:last:border-e-0',
-      '[&>table>tbody>tr>td]:border-(--ui-color-design-tinted-na-stroke)',
+      '[&>table>tbody>tr>td]:border-muted',
 
       '[&>table>tbody>tr>th]:border-e',
       '[&>table>tbody>tr>th]:last:border-e-0',
-      '[&>table>tbody>tr>th]:border-(--ui-color-design-tinted-na-stroke)'
+      '[&>table>tbody>tr>th]:border-muted'
     ]"
   >
     <ProseThead>

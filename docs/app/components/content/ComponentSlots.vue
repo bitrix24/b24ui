@@ -11,7 +11,7 @@ const route = useRoute()
 const camelName = camelCase(props.slug ?? route.path.split('/').filter(Boolean).pop() ?? '')
 const name = `${props.prose ? 'Prose' : 'B24'}${upperFirst(camelName)}`
 
-const meta = await fetchComponentMeta(name as any)
+const { data: meta } = await useFetchComponentMeta(name as any)
 </script>
 
 <template>
@@ -20,21 +20,21 @@ const meta = await fetchComponentMeta(name as any)
     :row-hover="false"
     :class="[
       'overflow-x-auto w-full',
-      'border border-(--ui-color-design-tinted-na-stroke)',
+      'border border-muted',
       '[&>table>tbody>tr>th]:align-top',
       '[&>table>tbody>tr>td]:align-top',
 
       '[&>table>thead>tr>th]:border-e',
       '[&>table>thead>tr>th]:last:border-e-0',
-      '[&>table>thead>tr>th]:border-(--ui-color-design-tinted-na-stroke)',
+      '[&>table>thead>tr>th]:border-muted',
 
       '[&>table>tbody>tr>td]:border-e',
       '[&>table>tbody>tr>td]:last:border-e-0',
-      '[&>table>tbody>tr>td]:border-(--ui-color-design-tinted-na-stroke)',
+      '[&>table>tbody>tr>td]:border-muted',
 
       '[&>table>tbody>tr>th]:border-e',
       '[&>table>tbody>tr>th]:last:border-e-0',
-      '[&>table>tbody>tr>th]:border-(--ui-color-design-tinted-na-stroke)'
+      '[&>table>tbody>tr>th]:border-muted'
     ]"
   >
     <ProseThead>

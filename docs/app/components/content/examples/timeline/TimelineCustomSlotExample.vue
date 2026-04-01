@@ -27,9 +27,11 @@ const items = [{
   slot: 'development' as const,
   developers: [
     {
-      src: 'https://github.com/bitrix-tools.png'
+      src: 'https://github.com/bitrix-tools.png',
+      loading: 'lazy' as const
     }, {
-      src: 'https://github.com/bitrix24.png'
+      src: 'https://github.com/bitrix24.png',
+      loading: 'lazy' as const
     }
   ]
 }, {

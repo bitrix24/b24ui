@@ -33,7 +33,7 @@ function getChip(value: string) {
 </script>
 
 <template>
-  <B24Select v-model="value" :items="items" value-key="value" class="w-[192px]">
+  <B24Select v-model="value" :items="items" value-key="value" class="w-48">
     <template #leading="{ modelValue, b24ui }">
       <B24Chip
         v-if="modelValue"

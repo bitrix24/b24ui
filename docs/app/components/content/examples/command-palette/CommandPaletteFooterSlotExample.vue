@@ -66,7 +66,7 @@ const groups = [
   <B24CommandPalette :groups="groups" class="flex-1 h-80">
     <template #footer>
       <div class="flex items-center justify-between gap-2">
-        <Bitrix24Icon class="size-5 text-(--b24ui-typography-label-color) ml-1" />
+        <Bitrix24Icon class="size-5 text-label ml-1" />
         <div class="flex items-center gap-1">
           <B24Button label="Open Command" size="sm">
             <template #trailing>

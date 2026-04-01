@@ -31,7 +31,7 @@ const slots = defineSlots<PageHeaderSlots>()
       <div class="flex flex-col items-start justify-between gap-1.5">
         <div class="flex flex-row flex-wrap items-center justify-between gap-2 w-full pb-2">
           <div class="w-full md:flex-1 min-w-0">
-            <ProseH1 v-if="props.title || !!slots.title" class="mb-0 truncate text-(--b24ui-typography-label-color) leading-(--ui-font-line-height-xs) font-(--ui-font-weight-light)">
+            <ProseH1 v-if="props.title || !!slots.title" class="mb-0 truncate text-label leading-(--ui-font-line-height-xs) font-(--ui-font-weight-light)">
               <slot name="title">
                 {{ props.title }}
               </slot>

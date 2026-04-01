@@ -66,7 +66,7 @@ const localeList = computed(() => {
     <div class="grid gap-6 grid-cols-2 md:grid-cols-3">
       <div v-for="locale in localeList" :key="locale.code">
         <div class="flex gap-3 items-center">
-          <B24Avatar size="md" class="text-(--b24ui-typography-legend-color)">
+          <B24Avatar size="md" class="text-legend">
             {{ getEmojiFlag(locale.locale) }}
           </B24Avatar>
 

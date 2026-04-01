@@ -90,10 +90,13 @@ Use the `avatar` prop to show an [Avatar](/docs/components/avatar/).
 prettier: true
 ignore:
   - avatar.src
+  - avatar.loading
 cast:
   icon: 'RocketIcon'
 props:
-  avatar.src: '/b24ui/avatar/employee.png'
+  avatar:
+    src: '/b24ui/avatar/employee.png'
+    loading: lazy
   seconds: 120
   size: xl
 ---

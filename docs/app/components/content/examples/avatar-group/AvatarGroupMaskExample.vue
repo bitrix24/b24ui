@@ -8,17 +8,20 @@
     <B24Avatar
       src="/b24ui/avatar/assistant.png"
       alt="Benjamin Canac"
+      loading="lazy"
       class="rounded-none squircle"
     />
 
     <B24Avatar
       src="https://github.com/bitrix24.png"
       alt="Bitrix24"
+      loading="lazy"
     />
 
     <B24Avatar
       src="/b24ui/avatar/employee.png"
       alt="Employee Name"
+      loading="lazy"
       class="rounded-none squircle"
     />
   </B24AvatarGroup>

@@ -167,7 +167,7 @@ watch(open, (isOpen) => {
       <template #content>
         <div
           ref="popoverContentRef"
-          class="px-2.5 py-1.5 text-(length:--ui-font-size-xs) font-(--ui-font-weight-semi-bold) text-(--b24ui-typography-label-color) border-b border-(--ui-color-divider-default)"
+          class="px-2.5 py-1.5 text-(length:--ui-font-size-xs) font-(--ui-font-weight-semi-bold) text-label border-b border-(--ui-color-divider-default)"
         >
           Theme slots
         </div>
@@ -185,14 +185,14 @@ watch(open, (isOpen) => {
                 class="text-(length:--ui-font-size-xs) font-(--ui-font-weight-medium)"
                 :class="[
                   getSlotRenderLocation(slotName) !== 'none'
-                    ? 'text-(--b24ui-typography-label-color)'
-                    : 'text-(--b24ui-typography-description-color)'
+                    ? 'text-label'
+                    : 'text-description'
                 ]"
               >{{ slotName }}</code>
-              <span v-if="getSlotRenderLocation(slotName) === 'portal'" class="text-[10px] text-(--b24ui-typography-description-color)">(in portal)</span>
-              <span v-else-if="getSlotRenderLocation(slotName) === 'none'" class="text-[10px] text-(--b24ui-typography-description-color)">(not rendered)</span>
+              <span v-if="getSlotRenderLocation(slotName) === 'portal'" class="text-[10px] text-description">(in portal)</span>
+              <span v-else-if="getSlotRenderLocation(slotName) === 'none'" class="text-[10px] text-description">(not rendered)</span>
             </div>
-            <div v-if="getSlotClasses(slotName)" class="mt-0.5 text-[10px] text-(--b24ui-typography-description-color) line-clamp-2 font-[family-name:var(--ui-font-family-system-mono)]">
+            <div v-if="getSlotClasses(slotName)" class="mt-0.5 text-[10px] text-description line-clamp-2 font-[family-name:var(--ui-font-family-system-mono)]">
               {{ getSlotClasses(slotName) }}
             </div>
           </div>

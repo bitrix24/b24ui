@@ -7,7 +7,8 @@ const users = ref([
     target: '_blank',
     avatar: {
       src: 'https://github.com/bitrix24.png',
-      alt: 'bitrix24'
+      alt: 'bitrix24',
+      loading: 'lazy' as const
     }
   },
   {
@@ -17,10 +18,10 @@ const users = ref([
     target: '_blank',
     avatar: {
       src: 'https://github.com/bitrix-tools.png',
-      alt: 'bitrix-tools'
+      alt: 'bitrix-tools',
+      loading: 'lazy' as const
     }
   },
-
   {
     name: 'Bitrix24',
     description: 'bitrix24',
@@ -28,7 +29,8 @@ const users = ref([
     target: '_blank',
     avatar: {
       src: 'https://github.com/bitrix24.png',
-      alt: 'bitrix24'
+      alt: 'bitrix24',
+      loading: 'lazy' as const
     }
   },
   {
@@ -38,7 +40,8 @@ const users = ref([
     target: '_blank',
     avatar: {
       src: 'https://github.com/bitrix-tools.png',
-      alt: 'bitrix-tools'
+      alt: 'bitrix-tools',
+      loading: 'lazy' as const
     }
   }
 ])

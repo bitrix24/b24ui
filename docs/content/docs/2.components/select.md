@@ -41,7 +41,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -66,7 +66,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -105,7 +105,7 @@ props:
       value: 'in_progress'
     - label: 'Done'
       value: 'done'
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -140,7 +140,7 @@ props:
       - Carrot
       - Courgette
       - Leek
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -173,7 +173,7 @@ props:
       id: 'in_progress'
     - label: 'Done'
       id: 'done'
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -206,7 +206,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -233,7 +233,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -272,7 +272,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -299,7 +299,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -326,7 +326,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -360,7 +360,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -407,7 +407,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -437,7 +437,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -467,7 +467,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -497,7 +497,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -527,7 +527,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -542,19 +542,22 @@ ignore:
   - items
   - modelValue
   - avatar.src
+  - avatar.loading
   - class
 external:
   - items
   - modelValue
 props:
   modelValue: 'Backlog'
-  avatar.src: '/b24ui/avatar/employee.png'
+  avatar:
+    src: '/b24ui/avatar/employee.png'
+    loading: lazy
   items:
     - Backlog
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -580,7 +583,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -605,7 +608,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -631,7 +634,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -661,7 +664,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -691,7 +694,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -721,7 +724,7 @@ props:
     - Todo
     - In Progress
     - Done
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -765,7 +768,7 @@ props:
     - Carrot
     - Courgette
     - Leek
-  class: 'w-[192px]'
+  class: 'w-48'
 ---
 ::
 
@@ -818,7 +821,6 @@ In this example, the avatar is computed from the `value` property of the selecte
 You can also use the `#leading` slot to display the selected avatar.
 ::
 
-
 ### With chip in items
 
 You can use the `chip` property to display a [Chip](/docs/components/chip/) inside the items.
@@ -869,6 +871,10 @@ collapse: true
 ---
 ::
 
+::note
+This example uses `useLazyFetch` with `immediate: false` to only fetch data when the menu opens, avoiding unnecessary API calls on page load.
+::
+
 ### With infinite scroll
 
 You can use the [`useInfiniteScroll`](https://vueuse.org/core/useInfiniteScroll/) composable to load more data as the user scrolls.
@@ -883,6 +889,10 @@ highlights:
 overflowHidden: true
 name: 'select-infinite-scroll-example'
 ---
+::
+
+::note
+This example uses `useLazyFetch` with `immediate: false` so data is only loaded as the user scrolls.
 ::
 
 ### With full content width

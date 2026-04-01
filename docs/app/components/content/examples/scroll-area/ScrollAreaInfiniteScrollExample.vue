@@ -20,7 +20,7 @@ type UserResponse = {
 
 const skip = ref(0)
 
-const { data, status, execute } = await useFetch('https://dummyjson.com/users?limit=10&select=firstName,lastName,username,email,image', {
+const { data, status } = useLazyFetch('https://dummyjson.com/users?limit=10&select=firstName,lastName,username,email,image', {
   key: 'scroll-area-users-infinite-scroll',
   params: { skip },
   transform: async (data?: UserResponse) => {
@@ -28,8 +28,7 @@ const { data, status, execute } = await useFetch('https://dummyjson.com/users?li
     await sleepAction(1000)
     return data?.users
   },
-  lazy: true,
-  immediate: false
+  server: false
 })
 
 const users = ref<User[]>([])
@@ -40,8 +39,6 @@ watch(data, () => {
     ...(data.value || [])
   ]
 })
-
-execute()
 
 const scrollArea = useTemplateRef('scrollArea')
 
@@ -82,11 +79,11 @@ onMounted(() => {
   </B24ScrollArea>
 
   <B24Progress
-    v-show="status === 'pending'"
+    v-show="status === 'pending' || status === 'idle'"
     animation="elastic"
     indeterminate
     size="xs"
     class="absolute top-0 inset-x-0 z-1"
-    :b24ui="{ base: 'bg-(--ui-color-bg-content-primary)' }"
+    :b24ui="{ base: 'bg-default' }"
   />
 </template>

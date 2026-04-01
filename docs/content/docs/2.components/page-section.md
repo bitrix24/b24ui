@@ -86,7 +86,7 @@ cast:
 props:
   title: 'Bitrix24. Your ultimate workspace.'
   description: 'An all-in-one free platform to manage your team and run your sales, Bitrix24 is designed to be seamlessly integrated into all your business processes and help you manage them with the highest precision and efficiency.'
-    icon: 'RocketIcon'
+  icon: 'RocketIcon'
 ---
 ::
 
@@ -180,10 +180,10 @@ props:
 slots:
   default: |
 
-    <img src="/b24ui/assets/demo/communications-main.png.webp" width="352" height="647" alt="Illustration" class="w-full rounded-lg" />
+    <img src="/b24ui/assets/demo/communications-main.png.webp" width="352" height="647" alt="Illustration" class="w-full rounded-lg" loading="lazy" />
 ---
 
-:img{src="/b24ui/assets/demo/communications-main.png.webp" width="352" height="647" alt="Illustration" class="w-full rounded-lg"}
+:img{src="/b24ui/assets/demo/communications-main.png.webp" width="352" height="647" alt="Illustration" class="w-full rounded-lg" loading="lazy"}
 ::
 
 ### Reverse
@@ -231,10 +231,10 @@ props:
 slots:
   default: |
 
-    <img src="/b24ui/assets/demo/communications-main.png.webp" width="352" height="647" alt="Illustration" class="w-full rounded-lg" />
+    <img src="/b24ui/assets/demo/communications-main.png.webp" width="352" height="647" alt="Illustration" class="w-full rounded-lg" loading="lazy" />
 ---
 
-:img{src="/b24ui/assets/demo/communications-main.png.webp" width="352" height="647" alt="Illustration" class="w-full rounded-lg"}
+:img{src="/b24ui/assets/demo/communications-main.png.webp" width="352" height="647" alt="Illustration" class="w-full rounded-lg" loading="lazy"}
 ::
 
 ## API

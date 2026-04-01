@@ -188,6 +188,6 @@ const items: EditorToolbarItem[][] = [
     :extensions="[TextAlign.configure({ types: ['heading', 'paragraph'] })]"
     class="w-full min-h-37 flex flex-col gap-4"
   >
-    <B24EditorToolbar :editor="editor" :items="items" class="sm:px-8 overflow-x-auto bg-(--ui-color-bg-content-primary)" />
+    <B24EditorToolbar :editor="editor" :items="items" class="sm:px-8 overflow-x-auto bg-default" />
   </B24Editor>
 </template>

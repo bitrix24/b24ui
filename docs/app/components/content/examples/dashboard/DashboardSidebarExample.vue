@@ -65,7 +65,7 @@ const items: NavigationMenuItem[][] = [
     class="border-e-1"
   >
     <template #header="{ collapsed }">
-      <Logo v-if="!collapsed" class="h-5 w-auto shrink-0 text-(--b24ui-typography-label-color)" />
+      <Logo v-if="!collapsed" class="h-5 w-auto shrink-0 text-label" />
       <B24Icon v-else class="size-10 text-[#2fc6f6] mx-auto" />
     </template>
 
@@ -88,7 +88,10 @@ const items: NavigationMenuItem[][] = [
 
     <template #footer="{ collapsed }">
       <B24Button
-        :avatar="{ src: 'https://github.com/bitrix24.png' }"
+        :avatar="{
+          src: 'https://github.com/bitrix24.png',
+          loading: 'lazy' as const
+        }"
         :label="collapsed ? undefined : 'Bitrix24'"
         class="w-full"
         :block="collapsed"

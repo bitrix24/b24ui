@@ -12,6 +12,8 @@ import DemonstrationOnIcon from '@bitrix24/b24icons-vue/outline/DemonstrationOnI
 import Bitrix24Icon from '@bitrix24/b24icons-vue/common-service/Bitrix24Icon'
 import AiStarsIcon from '@bitrix24/b24icons-vue/outline/AiStarsIcon'
 
+// const isDev = import.meta.dev
+
 const route = useRoute()
 const { framework } = useFrameworks()
 const pageUrl = route.path
@@ -174,6 +176,7 @@ onMounted(() => {
           class="align-middle"
         />
       </template>
+
       <template #description>
         <MDC
           v-if="page.description"
@@ -211,23 +214,11 @@ onMounted(() => {
           :b24ui="{ leadingIcon: 'mr-[5px]' }"
         >
           <template v-if="link.avatar" #leading>
-            <B24Avatar
-              v-bind="link.avatar"
-              size="2xs"
-              :alt="`${link.label}`"
-              :b24ui="{ root: 'mr-[5px]', image: 'w-[18px] h-[12px]' }"
-            />
+            <B24Avatar v-bind="link.avatar" size="2xs" :alt="`${link.label} avatar`" :b24ui="{ root: 'mr-[5px]', image: 'w-[18px] h-[12px]' }" />
           </template>
         </B24Button>
       </template>
     </PageHeader>
-
-    <template v-if="page?.body?.toc?.links?.length" #right>
-      <B24ContentToc
-        :links="page.body.toc.links"
-        class="sticky top-(--b24ui-header-height) px-3 py-3 pb-0 lg:p-4 lg:top-(--b24ui-header-height) scrollbar-thin scrollbar-transparent bg-(--ui-color-accent-soft-element-violet)/60 dark:bg-(--ui-color-copilot-bg-content-3)/40 lg:bg-transparent dark:lg:bg-transparent backdrop-blur-md lg:ms-0 overflow-y-auto max-h-[calc(100vh-var(--b24ui-header-height))] lg:col-span-2 order-first lg:order-last z-2"
-      />
-    </template>
 
     <B24PageBody class="mt-0">
       <B24Card
@@ -246,5 +237,12 @@ onMounted(() => {
         <B24ContentSurround :surround="(surround as any)" />
       </B24Card>
     </B24PageBody>
+
+    <template v-if="page?.body?.toc?.links?.length" #right>
+      <B24ContentToc
+        :links="page.body.toc.links"
+        class="sticky top-(--b24ui-header-height) px-3 py-3 pb-0 lg:p-4 lg:top-(--b24ui-header-height) scrollbar-thin scrollbar-transparent bg-(--ui-color-accent-soft-element-violet)/60 dark:bg-(--ui-color-copilot-bg-content-3)/40 lg:bg-transparent dark:lg:bg-transparent backdrop-blur-md lg:ms-0 overflow-y-auto max-h-[calc(100vh-var(--b24ui-header-height))] lg:col-span-2 order-first lg:order-last z-2"
+      />
+    </template>
   </B24Page>
 </template>

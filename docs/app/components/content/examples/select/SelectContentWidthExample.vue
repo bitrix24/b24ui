@@ -4,19 +4,24 @@ import Expand1Icon from '@bitrix24/b24icons-vue/actions/Expand1Icon'
 
 const value = ref<string>()
 
-const { data: users } = await useFetch('https://jsonplaceholder.typicode.com/users', {
+const { data: users, execute } = await useLazyFetch('https://jsonplaceholder.typicode.com/users', {
   key: 'typicode-users-email',
   transform: (data: { id: number, name: string, email: string }[]) => {
     return data?.map(user => ({
       label: user.name,
       email: user.email,
       value: String(user.id),
-      avatar: { src: `https://i.pravatar.cc/120?img=${user.id}` }
+      avatar: { src: `https://i.pravatar.cc/120?img=${user.id}`, loading: 'lazy' as const }
     }))
   },
-  lazy: true,
-  onRequestError({ request }) { console.warn('[fetch request error]', request) }
+  immediate: false
 })
+
+function onOpen() {
+  if (!users.value?.length) {
+    execute()
+  }
+}
 </script>
 
 <template>
@@ -28,12 +33,13 @@ const { data: users } = await useFetch('https://jsonplaceholder.typicode.com/use
     placeholder="Select user"
     value-key="value"
     :b24ui="{ content: 'min-w-fit', viewport: 'min-w-fit', item: 'min-w-fit' }"
-    class="w-[192px]"
+    class="w-48"
+    @update:open="onOpen"
   >
     <template #item-label="{ item }">
       {{ item.label }}
 
-      <span class="text-(--b24ui-typography-description-color)">
+      <span class="text-description">
         {{ item.email }}
       </span>
     </template>

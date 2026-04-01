@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { markRaw } from 'vue'
 import json5 from 'json5'
 import { camelCase } from 'scule'
 import { hash } from 'ohash'
@@ -61,20 +60,18 @@ const strippedTheme = computed(() => {
 })
 
 const component = computed(() => {
-  const content = props.prose
-    ? { prose: { [camelName]: strippedTheme.value } }
-    : { [camelName]: strippedTheme.value }
+  // const content = props.prose
+  //   ? { prose: { [camelName]: strippedTheme.value } }
+  //   : { [camelName]: strippedTheme.value }
+  //
+  // if (props.extra?.length) {
+  //   props.extra.forEach((extra) => {
+  //     const target = props.prose ? content.prose! : content
+  //     target[extra as keyof typeof target] = computedTheme.value[extra as keyof typeof computedTheme.value]
+  //   })
+  // }
 
-  if (props.extra?.length) {
-    props.extra.forEach((extra) => {
-      const target = props.prose ? content.prose! : content
-      target[extra as keyof typeof target] = computedTheme.value[extra as keyof typeof computedTheme.value]
-    })
-  }
-
-  return {
-    b24ui: content
-  }
+  return strippedTheme.value
 })
 
 const themeLink = computed(() => {
@@ -83,32 +80,12 @@ const themeLink = computed(() => {
   return `${config.public.gitUrl}/tree/main/src/theme/${slug}.ts`
 })
 
-const { data: ast } = await useAsyncData(`component-theme-${camelName}-${hash({ props })}`, async () => {
+const { data: ast } = useAsyncData(`component-theme-${camelName}-${hash({ props })}`, async () => {
   const md = `
-::code-collapse{class="nuxt-only"}
+::code-collapse
 
-\`\`\`ts [app.config.ts]
-export default defineAppConfig(${json5.stringify(component.value, null, 2).replace(/,([ |\t\n]+[}|\])])/g, '$1')})
-\`\`\`\
-
-::
-
-::code-collapse{class="vue-only"}
-
-\`\`\`ts [vite.config.ts]
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import bitrix24UIPluginVite from '@bitrix24/b24ui-nuxt/vite'
-
-export default defineConfig({
-  plugins: [
-    vue(),
-    bitrix24UIPluginVite(${json5.stringify(component.value, null, 2).replace(/,([ |\t\n]+[}|\])])/g, '$1')
-      .split('\n')
-      .map((line, i) => i === 0 ? line : `    ${line}`)
-      .join('\n')})
-  ]
-})
+\`\`\`ts [${themeLink.value}]
+export default ${json5.stringify(component.value, null, 2).replace(/,([ |\t\n]+[}|\])])/g, '$1')}
 \`\`\`
 
 ::
@@ -121,8 +98,8 @@ Some colors in \`compoundVariants\` are omitted for readability. Check out the s
   : ''}
 `
 
-  return markRaw(await parseMarkdown(md))
-}, { watch: [framework] })
+  return cachedParseMarkdown(md)
+}, { lazy: import.meta.client, watch: [framework] })
 </script>
 
 <template>

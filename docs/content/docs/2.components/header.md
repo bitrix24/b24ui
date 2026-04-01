@@ -72,12 +72,12 @@ props:
 slots:
   title: |
 
-    <Logo class="h-6 w-auto text-(--b24ui-typography-label-color)" />
+    <Logo class="h-6 w-auto text-label" />
 class: '!px-0 !pt-0'
 ---
 
 #title
-:logo{class="h-6 w-auto text-(--b24ui-typography-label-color)"}
+:logo{class="h-6 w-auto text-label"}
 ::
 
 ### To
@@ -110,13 +110,13 @@ slots:
   left: |
 
     <NuxtLink to="/docs"">
-      <Logo class="h-6 w-auto text-(--b24ui-typography-label-color)" />
+      <Logo class="h-6 w-auto text-label" />
     </NuxtLink>
 ---
 
 #left
 ::nuxt-link{to="/docs"}
-:logo{class="h-6 w-auto text-(--b24ui-typography-label-color)"}
+:logo{class="h-6 w-auto text-label"}
 ::
 ::
 

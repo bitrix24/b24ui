@@ -601,12 +601,15 @@ ignore:
   - items
   - modelValue
   - avatar.src
+  - avatar.loading
 external:
   - items
   - modelValue
 props:
   modelValue: 'Backlog'
-  avatar.src: '/b24ui/avatar/employee.png'
+  avatar:
+    src: '/b24ui/avatar/employee.png'
+    loading: lazy
   items:
     - Backlog
     - Todo
@@ -914,6 +917,10 @@ name: 'input-menu-fetch-example'
 ---
 ::
 
+::note
+This example uses `useLazyFetch` with `immediate: false` to only fetch data when the menu opens, avoiding unnecessary API calls on page load.
+::
+
 ### With ignore filter
 
 Set the `ignore-filter` prop to `true` to disable the internal search and use your own search logic.
@@ -926,7 +933,7 @@ name: 'input-menu-ignore-filter-example'
 ::
 
 ::note
-This example uses [`refDebounced`](https://vueuse.org/shared/refDebounced/#refdebounced) to debounce the API calls.
+This example uses [`refDebounced`](https://vueuse.org/shared/refDebounced/#refdebounced) to debounce the API calls. The fetch is deferred with `immediate: false` so no request is made until the user types.
 ::
 
 ### With filter fields
@@ -938,6 +945,10 @@ Use the `filter-fields` prop with an array of fields to filter on. Defaults to `
 collapse: true
 name: 'input-menu-filter-fields-example'
 ---
+::
+
+::note
+This example uses `useLazyFetch` with `immediate: false` to only fetch data when the menu opens, avoiding unnecessary API calls on page load.
 ::
 
 ### With virtualization
@@ -971,6 +982,10 @@ name: 'input-menu-infinite-scroll-example'
 ---
 ::
 
+::note
+This example uses `useLazyFetch` with `immediate: false` so data is only loaded as the user scrolls.
+::
+
 ### With full content width
 
 You can expand the content to the full width of its items by adding the `min-w-fit` class on the `b24ui.content`,`b24ui.item` and `b24ui.viewport` slots.
@@ -991,6 +1006,10 @@ You can use the InputMenu as a country picker with lazy loading. Countries are o
 collapse: true
 name: 'input-menu-countries-example'
 ---
+::
+
+::note
+This example uses `useLazyFetch` with `immediate: false` to only load countries when the menu is first opened.
 ::
 
 ## API

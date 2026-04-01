@@ -50,11 +50,13 @@ ignore:
   - name
   - description
   - avatar.src
+  - avatar.loading
 props:
   name: 'John Doe'
   description: 'Software Engineer'
   avatar:
     src: '/b24ui/avatar/employee.png'
+    loading: lazy
 ---
 ::
 

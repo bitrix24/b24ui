@@ -31,7 +31,7 @@ const items: NavigationMenuItem[] = [
       }"
     >
       <template #header>
-        <Logo class="h-5 w-auto text-(--b24ui-typography-label-color)" />
+        <Logo class="h-5 w-auto text-label" />
       </template>
 
       <B24NavigationMenu

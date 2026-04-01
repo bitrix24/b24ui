@@ -10,7 +10,8 @@ const users = [
     to: 'https://github.com/bitrix24',
     target: '_blank',
     avatar: {
-      src: '/b24ui/avatar/assistant.png'
+      src: '/b24ui/avatar/assistant.png',
+      loading: 'lazy' as const
     }
   },
   {
@@ -19,24 +20,25 @@ const users = [
     to: 'https://github.com/bitrix24',
     target: '_blank',
     avatar: {
-      src: 'https://github.com/bitrix24.png'
+      src: 'https://github.com/bitrix24.png',
+      loading: 'lazy' as const
     }
   },
   {
     label: 'Employee Name',
     suffix: 'employee',
     to: 'https://github.com/bitrix24',
-    avatarSrc: '/b24ui/avatar/employee.png',
     target: '_blank',
     avatar: {
-      src: '/b24ui/avatar/employee.png'
+      src: '/b24ui/avatar/employee.png',
+      loading: 'lazy' as const
     }
   }
 ]
 </script>
 
 <template>
-  <B24Modal v-model:open="open" :b24ui="{ content: 'p-0 pt-0 pb-[10px]' }">
+  <B24Modal v-model:open="open" :b24ui="{ content: 'p-0 pt-0 pb-2.5' }">
     <B24Button
       label="Search users..."
       :icon="SearchIcon"

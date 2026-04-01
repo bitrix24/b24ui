@@ -676,15 +676,15 @@ const suggestionItems = [
 const mentionItems: EditorMentionMenuItem[] = [
   {
     label: 'bitrix24',
-    avatar: { src: 'https://github.com/bitrix24.png' }
+    avatar: { src: 'https://github.com/bitrix24.png', loading: 'lazy' as const }
   },
   {
     label: 'Employee',
-    avatar: { src: '/b24ui/avatar/employee.png' }
+    avatar: { src: '/b24ui/avatar/employee.png', loading: 'lazy' as const }
   },
   {
     label: 'Assistant',
-    avatar: { src: '/b24ui/avatar/assistant.png' }
+    avatar: { src: '/b24ui/avatar/assistant.png', loading: 'lazy' as const }
   }
 ]
 
@@ -718,7 +718,7 @@ const emojiItems: EditorEmojiMenuItem[] = gitHubEmojis.filter(emoji => !emoji.na
     <B24EditorToolbar
       :editor="editor"
       :items="fixedToolbarItems"
-      class="border-b border-(--ui-color-design-tinted-na-stroke) absolute top-0 inset-x-0 px-8 mr-2 sm:px-16 py-2 z-20 bg-(--ui-color-bg-content-primary) overflow-x-auto rounded-t-md"
+      class="border-b border-(--ui-color-design-tinted-na-stroke) absolute top-0 inset-x-0 px-8 mr-2 sm:px-16 py-2 z-20 bg-default overflow-x-auto rounded-t-md"
     >
       <template #link>
         <EditorLinkPopover :editor="editor" auto-open />

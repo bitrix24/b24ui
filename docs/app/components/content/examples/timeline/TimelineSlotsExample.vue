@@ -9,7 +9,8 @@ const items = [{
   date: '2025-05-24T14:58:55Z',
   action: 'opened this',
   avatar: {
-    src: '/b24ui/avatar/employee.png'
+    src: '/b24ui/avatar/employee.png',
+    loading: 'lazy' as const
   }
 }, {
   username: 'Employee Name',
@@ -22,7 +23,8 @@ const items = [{
   action: 'commented on this',
   description: 'I\'ve made a few changes, let me know what you think! Basically I updated the design, removed unnecessary divs, used Avatar component for the indicator since it supports icon already.',
   avatar: {
-    src: '/b24ui/avatar/assistant.png'
+    src: '/b24ui/avatar/assistant.png',
+    loading: 'lazy' as const
   }
 }, {
   username: 'Employee Name',
@@ -30,7 +32,8 @@ const items = [{
   action: 'commented on this',
   description: 'Looks great! Good job on cleaning it up.',
   avatar: {
-    src: '/b24ui/avatar/employee.png'
+    src: '/b24ui/avatar/employee.png',
+    loading: 'lazy' as const
   }
 }, {
   username: 'Assistant Name',
@@ -46,13 +49,13 @@ const items = [{
     size="xs"
     :b24ui="{
       date: 'float-end ms-1',
-      description: 'px-3 py-2 ring ring-(--ui-color-g-glass-grey-bg-2) mt-2 rounded-md text-(--b24ui-typography-description-color)'
+      description: 'px-3 py-2 ring ring-(--ui-color-g-glass-grey-bg-2) mt-2 rounded-md text-description'
     }"
     class="w-[384px]"
   >
     <template #title="{ item }">
       <span>{{ item.username }}</span>
-      <span class="font-normal text-(--b24ui-typography-label-color)">&nbsp;{{ item.action }}</span>
+      <span class="font-normal text-label">&nbsp;{{ item.action }}</span>
     </template>
 
     <template #date="{ item }">

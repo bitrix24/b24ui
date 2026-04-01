@@ -6,7 +6,8 @@ const users = [
     to: 'https://github.com/bitrix24',
     target: '_blank',
     avatar: {
-      src: '/b24ui/avatar/assistant.png'
+      src: '/b24ui/avatar/assistant.png',
+      loading: 'lazy' as const
     }
   },
   {
@@ -15,17 +16,18 @@ const users = [
     to: 'https://github.com/bitrix24',
     target: '_blank',
     avatar: {
-      src: 'https://github.com/bitrix24.png'
+      src: 'https://github.com/bitrix24.png',
+      loading: 'lazy' as const
     }
   },
   {
     label: 'Employee Name',
     suffix: 'employee',
     to: 'https://github.com/bitrix24',
-    avatarSrc: '/b24ui/avatar/employee.png',
     target: '_blank',
     avatar: {
-      src: '/b24ui/avatar/employee.png'
+      src: '/b24ui/avatar/employee.png',
+      loading: 'lazy' as const
     }
   }
 ]

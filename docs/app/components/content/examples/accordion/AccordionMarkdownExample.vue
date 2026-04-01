@@ -30,7 +30,7 @@ const items = [
     :default-value="['3']"
     :b24ui="{
       trigger: 'text-base',
-      body: 'text-base text-(--b24ui-typography-description-color)'
+      body: 'text-base text-description'
     }"
   >
     <template #body="{ item }">

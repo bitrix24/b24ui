@@ -29,7 +29,7 @@ const value = ref(items.value[0])
 </script>
 
 <template>
-  <B24SelectMenu v-model="value" :items="items" class="w-[192px]">
+  <B24SelectMenu v-model="value" :items="items" class="w-48">
     <template #leading="{ modelValue, b24ui }">
       <B24Chip
         v-if="modelValue"

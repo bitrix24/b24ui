@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { camelCase } from 'scule'
+import { camelCase, upperFirst } from 'scule'
 import { hash } from 'ohash'
 import { useElementSize } from '@vueuse/core'
 import { get, set } from '#b24ui/utils'
@@ -95,7 +95,11 @@ const config = useRuntimeConfig()
 
 const camelName = camelCase(props.name)
 
-const data = await fetchComponentExample(camelName)
+const exampleModules = import.meta.glob('~/components/content/examples/**/*.vue')
+const exampleMatch = Object.entries(exampleModules).find(([path]) => path.endsWith(`/${upperFirst(camelName)}.vue`))
+const resolvedComponent = exampleMatch ? defineAsyncComponent(exampleMatch[1] as any) : undefined
+
+const { data } = await useFetchComponentExample(camelName)
 
 const componentProps = reactive({ ...(props.props || {}) })
 
@@ -107,8 +111,8 @@ const code = computed(() => {
 `
   }
 
-  code += `\`\`\`${props.lang} ${props.preview ? '' : ` [${props.filename ?? data.pascalName}.${props.lang}]`}${props.highlights?.length ? `{${props.highlights.join('-')}}` : ''}
-${data?.code ?? ''}
+  code += `\`\`\`${props.lang} ${props.preview ? '' : ` [${props.filename ?? data.value?.pascalName}.${props.lang}]`}${props.highlights?.length ? `{${props.highlights.join('-')}}` : ''}
+${data.value?.code ?? ''}
 \`\`\``
 
   if (props.collapse) {
@@ -119,9 +123,9 @@ ${data?.code ?? ''}
   return code
 })
 
-const { data: ast } = await useAsyncData(`component-example-${camelName}${hash({ props: componentProps, collapse: props.collapse })}`, async () => {
+const { data: ast } = useAsyncData(`component-example-${camelName}${hash({ props: componentProps, collapse: props.collapse })}`, async () => {
   if (!props.prettier) {
-    return parseMarkdown(code.value)
+    return cachedParseMarkdown(code.value)
   }
 
   let formatted = ''
@@ -136,8 +140,8 @@ const { data: ast } = await useAsyncData(`component-example-${camelName}${hash({
     formatted = code.value
   }
 
-  return parseMarkdown(formatted)
-}, { watch: [code] })
+  return cachedParseMarkdown(formatted)
+}, { lazy: import.meta.client, watch: [code] })
 
 const optionsValues = ref(props.options?.reduce((acc, option) => {
   if (option.name) {
@@ -185,7 +189,7 @@ const urlSearchParams = computed(() => {
         >
           <div
             v-if="props.options?.length || !!slots.options"
-            class="flex gap-4 p-4 border-b border-(--ui-color-design-tinted-na-stroke)"
+            class="flex gap-4 p-4 border-b border-muted"
           >
             <slot name="options" />
 
@@ -225,12 +229,12 @@ const urlSearchParams = computed(() => {
             :class="[props.class, { 'dark:bg-gray-950/50 rounded-t-md': props.elevated }, !iframeMobile && 'max-w-[1300px]']"
           />
           <div
-            v-else
+            v-else-if="resolvedComponent"
             ref="componentContainer"
-            class="flex justify-center p-[16px] bg-grid-example [mask-image:linear-gradient(0deg,rgba(255,255,255,0.09),rgba(255,255,255,0.18))"
+            class="flex justify-center p-4 bg-grid-example [mask-image:linear-gradient(0deg,rgba(255,255,255,0.09),rgba(255,255,255,0.18))"
             :class="[props.class, { 'dark:bg-gray-950/50 rounded-t-md': props.elevated }]"
           >
-            <component :is="camelName" v-bind="{ ...componentProps, ...optionsValues }" />
+            <component :is="resolvedComponent" v-bind="{ ...componentProps, ...optionsValues }" />
           </div>
         </div>
 

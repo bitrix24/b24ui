@@ -15,6 +15,7 @@ const phone = ref('')
 const countryCode = ref('US')
 
 const { data: phoneCodes, status, execute } = await useLazyFetch<PhoneCode[]>('/api/phone-codes.json', {
+  key: 'api-phone-codes',
   immediate: false
 })
 
@@ -81,7 +82,7 @@ watch(countryCode, () => {
       class="w-full max-w-[200px]"
       :b24ui="{
         base: 'ps-(--dial-code-length)',
-        leading: 'pointer-events-none text-(--b24ui-typography-label-color)'
+        leading: 'pointer-events-none text-label'
       }"
     >
       <template #leading>

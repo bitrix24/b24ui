@@ -77,7 +77,7 @@ defineShortcuts(shortcuts)
             maxlength="1000"
             :b24ui="{
               root: 'group w-full! min-w-0 sm:max-w-96 transition-all duration-300 ease-out [@media(hover:hover)]:hover:scale-105 [@media(hover:hover)]:focus-within:scale-105',
-              base: 'base-mode bg-(--ui-color-bg-content-primary) shadow-lg rounded-xl text-md',
+              base: 'base-mode bg-default shadow-lg rounded-xl text-md',
               trailing: 'pe-2'
             }"
             @keydown.enter.exact.prevent="handleSubmit"

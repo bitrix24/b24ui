@@ -29,6 +29,7 @@ role: 'user'
 id: '1'
 avatar:
   src: 'https://github.com/bitrix24.png'
+  loading: lazy
 ---
 ::
 
@@ -160,6 +161,7 @@ ignore:
 props:
   avatar:
     src: 'https://github.com/bitrix24.png'
+    loading: lazy
   variant: 'message'
   side: 'right'
   parts:

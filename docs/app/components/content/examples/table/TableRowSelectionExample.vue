@@ -122,7 +122,7 @@ const rowSelection = ref({ 1: true })
     :b24ui="{
       header: 'p-[12px] px-[14px] py-[14px] sm:px-[14px] sm:py-[14px]',
       body: 'p-0 sm:px-0 sm:py-0',
-      footer: 'p-[12px] px-[14px] py-[14px] sm:px-[14px] sm:py-[14px] text-(length:--ui-font-size-xs) text-(--b24ui-typography-legend-color)'
+      footer: 'p-[12px] px-[14px] py-[14px] sm:px-[14px] sm:py-[14px] text-(length:--ui-font-size-xs) text-legend'
     }"
   >
     <B24Table

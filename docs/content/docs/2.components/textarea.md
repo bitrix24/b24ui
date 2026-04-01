@@ -205,8 +205,11 @@ prettier: true
 ignore:
   - placeholder
   - avatar.src
+  - loading.src
 props:
-  avatar.src: '/b24ui/avatar/employee.png'
+  avatar:
+    src: '/b24ui/avatar/employee.png'
+    loading: lazy
   placeholder: 'Search...'
   rows: 1
 ---

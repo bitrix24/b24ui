@@ -159,7 +159,7 @@ const items = computed(() => [
     <B24EditorToolbar
       :editor="editor"
       :items="items"
-      class="border-b border-(--ui-color-design-tinted-na-stroke) py-2 px-8 sm:px-16 overflow-x-auto"
+      class="border-b border-muted py-2 px-8 sm:px-16 overflow-x-auto"
     />
   </B24Editor>
 </template>

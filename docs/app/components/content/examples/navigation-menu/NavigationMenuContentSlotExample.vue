@@ -77,10 +77,10 @@ const items = [
 
         <li v-for="child in item.children" :key="child.label">
           <B24Link class="group text-(length:--ui-font-size-sm) text-left rounded-(--ui-border-radius-md) p-3 transition-colors hover:no-underline hover:bg-(--ui-color-bg-content-secondary)">
-            <p class="font-(--ui-font-weight-medium) text-(--b24ui-typography-legend-color) group-hover:text-(--ui-color-accent-main-primary-alt-2)">
+            <p class="font-(--ui-font-weight-medium) text-legend group-hover:text-(--ui-color-accent-main-primary-alt-2)">
               {{ child.label }}
             </p>
-            <p class="text-(--b24ui-typography-description-color) line-clamp-2">
+            <p class="text-description line-clamp-2">
               {{ child.description }}
             </p>
           </B24Link>
