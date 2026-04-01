@@ -6,6 +6,7 @@
 * docs: improve build performance and client-side navigation
 * fix(Error): support `status` and `statusText` properties
 * fix(ContentSurround): handle RTL mode
+* chore(deps): update dependency reka-ui to v2.9.0
 
 ## [2.5.3](https://github.com/bitrix24/b24ui/compare/v2.5.2...v2.5.3) (2026-03-30)
 

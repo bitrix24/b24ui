@@ -23,7 +23,7 @@ describe('Checkbox', () => {
     ['with label', { props: { label: 'Label' } }],
     ['with required', { props: { label: 'Label', required: true } }],
     ['with description', { props: { label: 'Label', description: 'Description' } }],
-    ...sizes.map((size: string) => [`with size ${size}`, { props: { size } }]),
+    ...sizes.map((size: string) => [`with size ${size}`, { props: { size, defaultValue: true } }]),
     ['with color air-primary-success', { props: { color: 'air-primary-success', defaultValue: true } }],
     ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
     ['with as', { props: { as: 'section' } }],
