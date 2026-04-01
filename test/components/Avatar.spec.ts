@@ -20,8 +20,9 @@ describe('Avatar', () => {
     ['with as', { props: { as: 'section' } }],
     ['with as (object)', { props: { src: 'https://github.com/bitrix24.png', as: { root: 'section', img: 'p' } } }],
     ['with as (partial object)', { props: { src: 'https://github.com/bitrix24.png', as: { img: 'p' } } }],
-    ['with class', { props: { class: 'bg-white' } }],
+    ['with class', { props: { class: 'bg-default' } }],
     ['with b24ui', { props: { b24ui: { fallback: 'font-bold' } } }],
+    ['with custom size', { props: { class: 'size-100', src: 'https://github.com/bitrix24.png' } }],
     // Slots
     ['with default slot', { slots: { default: '🚀' } }]
   ])

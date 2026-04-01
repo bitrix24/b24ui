@@ -77,17 +77,17 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.avatar
   size: size.value
 }))
 
-const sizePx = computed(() => ({
-  '3xs': 10,
-  '2xs': 14,
-  'xs': 18,
-  'sm': 22,
-  'md': 32,
-  'lg': 42,
-  'xl': 48,
-  '2xl': 60,
-  '3xl': 94
-})[props.size || 'md'])
+const rootClass = computed(() => b24ui.value.root({ class: [uiProp.value?.root, props.class] }))
+
+const sizePx = computed(() => {
+  const sizeClass = rootClass.value.split(' ').find(c => /^size-\d+$/.test(c))
+  if (sizeClass) {
+    const num = Number.parseFloat(sizeClass.split('-')[1] ?? '')
+    if (!Number.isNaN(num)) return num * 4
+  }
+
+  return null
+})
 
 const error = ref(false)
 
@@ -108,7 +108,7 @@ function onError() {
     :as="as.root"
     v-bind="props.chip ? (typeof props.chip === 'object' ? { inset: true, ...props.chip } : { inset: true }) : {}"
     data-slot="root"
-    :class="b24ui.root({ class: [uiProp?.root, props.class] })"
+    :class="rootClass"
     :style="props.style"
   >
     <component
