@@ -57,6 +57,7 @@ import { Primitive } from 'reka-ui'
 import { createReusableTemplate } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useComponentUI } from '../../composables/useComponentUI'
+import { useLocale } from '../../composables/useLocale'
 import { tv } from '../../utils/tv'
 import icons from '../../dictionary/icons'
 import B24Link from '../Link.vue'
@@ -66,6 +67,7 @@ defineOptions({ inheritAttrs: false })
 const props = defineProps<ContentSurroundProps<T>>()
 defineSlots<ContentSurroundSlots<T>>()
 
+const { dir } = useLocale()
 const appConfig = useAppConfig() as ContentSurround['AppConfig']
 const uiProp = useComponentUI('contentSurround', props)
 
@@ -79,6 +81,9 @@ const [DefineLinkTemplate, ReuseLinkTemplate] = createReusableTemplate<{ link?: 
 
 // eslint-disable-next-line vue/no-dupe-keys
 const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.contentSurround || {}) })())
+
+const prevIcon = computed(() => props.prevIcon || (dir.value === 'rtl' ? icons.arrowRight : icons.arrowLeft))
+const nextIcon = computed(() => props.nextIcon || (dir.value === 'rtl' ? icons.arrowLeft : icons.arrowRight))
 </script>
 
 <template>
@@ -118,7 +123,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.conten
   </DefineLinkTemplate>
 
   <Primitive v-if="surround" :as="as" v-bind="$attrs" data-slot="root" :class="b24ui.root({ class: [uiProp?.root, props.class] })">
-    <ReuseLinkTemplate :link="surround[0]" :icon="prevIcon || icons.arrowLeft" direction="left" />
-    <ReuseLinkTemplate :link="surround[1]" :icon="nextIcon || icons.arrowRight" direction="right" />
+    <ReuseLinkTemplate :link="surround[0]" :icon="prevIcon" direction="left" />
+    <ReuseLinkTemplate :link="surround[1]" :icon="nextIcon" direction="right" />
   </Primitive>
 </template>

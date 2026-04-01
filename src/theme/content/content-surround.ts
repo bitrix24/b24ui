@@ -57,7 +57,7 @@ export default {
         linkLeadingIcon: 'group-active:-translate-x-0.5'
       },
       right: {
-        link: 'text-right',
+        link: 'text-end',
         linkLeadingIcon: 'group-active:translate-x-0.5'
       }
     }
