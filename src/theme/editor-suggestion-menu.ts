@@ -23,7 +23,7 @@ export default {
     ].join(' '),
     viewport: [
       'relative',
-      'w-full max-h-[40vh] min-w-[192px] max-w-[240px]',
+      'w-full max-h-[40vh] min-w-48 max-w-60',
       'overflow-x-hidden overflow-y-auto scrollbar-thin' // scrollbar-transparent
     ].join(' '),
     group: 'grid', // p-1 isolate
@@ -67,10 +67,10 @@ export default {
     itemLeadingAvatarSize: '',
     itemWrapper: 'ms-[4px] flex-1 flex flex-col text-start min-w-0',
     itemLabel: [
-      'max-w-[240px] truncate -mt-px',
+      'max-w-60 truncate -mt-px',
       'group-data-[state=checked]:text-(--ui-color-accent-main-primary)'
     ].join(' '),
-    itemDescription: 'max-w-[240px] truncate -mt-[6px] text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)',
+    itemDescription: 'max-w-60 truncate -mt-[6px] text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)',
     itemLabelExternalIcon: 'inline-block size-[16px] text-(--ui-color-design-plain-content-icon-secondary)'
   },
   variants: {
@@ -88,30 +88,30 @@ export default {
         itemLeadingAvatarSize: '3xs'
       },
       sm: {
-        label: 'px-[18px] text-(length:--ui-font-size-xs)/[normal] gap-[18px]',
-        item: 'px-[18px] :text-(length:--ui-font-size-xs)/[normal] gap-[18px]',
+        label: 'px-4.5 text-(length:--ui-font-size-xs)/[normal] gap-4.5',
+        item: 'px-4.5 :text-(length:--ui-font-size-xs)/[normal] gap-4.5',
         itemLeadingIcon: 'size-4 text-(length:--ui-font-size-sm)/[normal]',
         itemLeadingAvatarSize: '3xs'
       },
       md: {
-        label: 'px-[18px] text-(length:--ui-font-size-sm)/[normal] gap-[18px]',
-        item: 'h-[36px] px-[18px] text-(length:--ui-font-size-sm)/[normal] gap-[18px]',
-        itemLeadingIcon: 'size-[18px] text-(length:--ui-font-size-lg)/[normal]',
-        itemLeadingAvatar: 'size-[16px] me-[8px]', // @memo 18-2px
+        label: 'px-4.5 text-(length:--ui-font-size-sm)/[normal] gap-4.5',
+        item: 'h-[36px] px-4.5 text-(length:--ui-font-size-sm)/[normal] gap-4.5',
+        itemLeadingIcon: 'size-4.5 text-(length:--ui-font-size-lg)/[normal]',
+        itemLeadingAvatar: 'size-[16px] me-2', // @memo 18-2px
         itemLeadingAvatarSize: '2xs' // @memo this wrong
       },
       lg: {
         label: 'px-[20px] :text-(length:--ui-font-size-sm)/[normal] gap-[20px]',
         item: 'px-[20px] text-(length:--ui-font-size-sm)/[normal] gap-[20px]',
-        itemLeadingIcon: 'size-[18px] text-(length:--ui-font-size-lg)/[normal]',
-        itemLeadingAvatar: 'size-[16px] me-[8px]', // @memo 18-2px
+        itemLeadingIcon: 'size-4.5 text-(length:--ui-font-size-lg)/[normal]',
+        itemLeadingAvatar: 'size-[16px] me-2', // @memo 18-2px
         itemLeadingAvatarSize: '2xs' // @memo this wrong
       },
       xl: {
         label: 'px-[20px] text-(length:--ui-font-size-sm)/[normal] gap-[20px]',
         item: 'px-[20px] text-(length:--ui-font-size-lg)/[normal] gap-[20px]',
         itemLeadingIcon: 'size-[20px] text-(length:--ui-font-size-2xl)/[normal]',
-        itemLeadingAvatar: 'size-[16px] me-[8px]', // @memo 18-2px
+        itemLeadingAvatar: 'size-[16px] me-2', // @memo 18-2px
         itemLeadingAvatarSize: 'xs' // @memo this wrong
       }
     },

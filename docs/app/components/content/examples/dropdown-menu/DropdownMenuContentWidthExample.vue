@@ -32,7 +32,7 @@ const items: DropdownMenuItem[][] = [
 </script>
 
 <template>
-  <B24DropdownMenu :items="items" :b24ui="{ content: 'w-(--reka-dropdown-menu-trigger-width)', viewport: 'w-(--reka-dropdown-menu-trigger-width)' }">
+  <B24DropdownMenu :items="items" :b24ui="{ content: 'w-(--reka-dropdown-menu-trigger-width)', viewport: 'min-w-(--reka-dropdown-menu-trigger-width) w-(--reka-dropdown-menu-trigger-width)' }">
     <B24Button
       label="Open"
       class="w-46"

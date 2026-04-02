@@ -161,9 +161,9 @@ export default {
       inset: false,
       class: {
         content: [
-          'max-h-full sm:max-h-[calc(100%-18px)] right-[5px] top-0 sm:top-[18px] bottom-0',
+          'max-h-full sm:max-h-[calc(100%-18px)] right-[5px] top-0 sm:top-4.5 bottom-0',
           'w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)]',
-          'sm:rounded-t-[18px]'
+          'sm:rounded-t-4.5'
         ].join(' ')
       }
     },

@@ -25,29 +25,29 @@ export default defineLocale<Messages>({
       prevYear: 'السنة السابقة'
     },
     carousel: {
-      dots: 'اختر شريحة للعرض',
+      dots: 'اختر الشريحة لعرضها',
       goto: 'انتقل إلى {slide}',
       next: 'التالي',
       prev: 'السابق'
     },
     chatPrompt: {
-      placeholder: 'اكتب رسالتك هنا...'
+      placeholder: 'أدخل رسالتك هنا...'
     },
     chatPromptSubmit: {
       label: 'إرسال'
     },
     colorMode: {
-      dark: 'مظلم',
+      dark: 'داكن',
       light: 'فاتح',
-      switchToDark: 'التغيير إلى الوضع المظلم',
-      switchToLight: 'التغيير إلى الوضع الفاتح',
+      switchToDark: 'التبديل إلى الوضع الداكن',
+      switchToLight: 'التبديل إلى الوضع الفاتح',
       system: 'النظام'
     },
     commandPalette: {
       back: 'رجوع',
       close: 'إغلاق',
       noData: 'لا توجد بيانات',
-      noMatch: 'لم يتم العثور على نتائج',
+      noMatch: 'لم يتم العثور على تطابقات',
       placeholder: 'أدخل أمرًا أو ابحث...'
     },
     contentSearch: {
@@ -59,6 +59,10 @@ export default defineLocale<Messages>({
     },
     contentToc: {
       title: 'في هذه الصفحة'
+    },
+    dropdownMenu: {
+      noMatch: 'لا توجد بيانات مطابقة',
+      search: 'بحث...'
     },
     dashboardSearch: {
       theme: 'الموضوع'
@@ -78,7 +82,7 @@ export default defineLocale<Messages>({
       clear: 'حاول مرة أخرى'
     },
     fileUpload: {
-      removeFile: 'حذف {filename}'
+      removeFile: 'إزالة {filename}'
     },
     header: {
       close: 'إغلاق القائمة',
@@ -87,7 +91,7 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: 'إنشاء "{label}"',
       noData: 'لا توجد بيانات',
-      noMatch: 'لم يتم العثور على نتائج'
+      noMatch: 'لم يتم العثور على تطابقات'
     },
     inputNumber: {
       decrement: 'إنقاص',
@@ -97,17 +101,17 @@ export default defineLocale<Messages>({
       close: 'إغلاق'
     },
     pricingTable: {
-      caption: 'مقارنة الخطط التسعيرية'
+      caption: 'مقارنة خطط التسعير'
     },
     prose: {
       codeCollapse: {
         closeText: 'إخفاء',
-        name: 'الكود',
+        name: 'code',
         openText: 'إظهار'
       },
       collapsible: {
         closeText: 'إخفاء',
-        name: 'الخصائص',
+        name: 'properties',
         openText: 'إظهار'
       },
       pre: {
@@ -117,7 +121,7 @@ export default defineLocale<Messages>({
     selectMenu: {
       create: 'إنشاء "{label}"',
       noData: 'لا توجد بيانات',
-      noMatch: 'لم يتم العثور على نتائج',
+      noMatch: 'لم يتم العثور على تطابقات',
       search: 'بحث...'
     },
     slideover: {
@@ -133,7 +137,7 @@ export default defineLocale<Messages>({
       open: 'فتح التنقل',
       close: 'إغلاق التنقل',
       slideoverTitle: 'التنقل',
-      slideoverDescription: 'التنقل بين المحتويات'
+      slideoverDescription: 'تنقل المحتوى'
     }
   }
 })

@@ -41,9 +41,9 @@ export default {
     linkLeadingAvatarSize: 'xs',
     linkLeadingChipSize: 'sm',
     linkLeadingHint: [
-      'inline-flex m-0 absolute -top-[5px] left-[8px]',
+      'inline-flex m-0 absolute -top-[5px] left-2',
       'text-(length:--ui-font-size-4xs)',
-      'leading-[8px]',
+      'leading-2',
       'font-semibold',
       'text-(--b24ui-typography-description-color)',
       'uppercase',
@@ -69,11 +69,11 @@ export default {
       'text-start'
     ].join(' '),
     childLinkWrapper: 'min-w-0 flex-1 flex flex-row items-center justify-start rtl:justify-end gap-0.5',
-    childLinkIcon: 'size-[18px] shrink-0',
+    childLinkIcon: 'size-4.5 shrink-0',
     childLinkHint: [
       'inline-flex m-0 absolute -top-[2px] left-[24px]',
       'text-(length:--ui-font-size-4xs)',
-      'leading-[8px]',
+      'leading-2',
       'font-semibold',
       'text-(--b24ui-typography-description-color)',
       'uppercase',
@@ -127,7 +127,7 @@ export default {
         linkLabelWrapper: 'gap-[4px] truncate',
         childList: 'grid px-0 py-(--menu-popup-padding)',
         childLink: [
-          'px-[18px]', // @memo 10 + 15 = 25 != 18px
+          'px-4.5', // @memo 10 + 15 = 25 != 18px
           'min-w-[195px]',
           'whitespace-nowrap',
           'font-[family-name:var(--ui-font-family-primary)]',
@@ -161,7 +161,7 @@ export default {
         linkLabelWrapper: 'relative h-[22px]',
         childList: '',
         childLink: [
-          'px-[18px]', // @memo 10 + 15 = 25 != 18
+          'px-4.5', // @memo 10 + 15 = 25 != 18
           'min-w-[195px]',
           'whitespace-nowrap',
           'font-[family-name:var(--ui-font-family-primary)]',
@@ -172,7 +172,7 @@ export default {
         // @memo 10 + 15 = 25 != 18
         childLabel: [
           'w-full min-w-[195px] h-(--popup-window-delimiter-section-height)',
-          'px-[18px] mt-(--menu-item-block-stack-space)',
+          'px-4.5 mt-(--menu-item-block-stack-space)',
           'flex flex-row rtl:flex-row-reverse items-center',
           'select-none outline-none whitespace-nowrap',
           'text-start',
@@ -218,7 +218,7 @@ export default {
       orientation: 'horizontal',
       class: {
         childList: '',
-        content: 'w-[240px]'
+        content: 'w-60'
       }
     },
     {

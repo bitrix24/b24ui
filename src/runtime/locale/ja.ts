@@ -10,7 +10,7 @@ export default defineLocale<Messages>({
       close: '閉じる'
     },
     authForm: {
-      hidePassword: 'パスワードを非表示',
+      hidePassword: 'パスワードを隠す',
       showPassword: 'パスワードを表示',
       submit: '続ける'
     },
@@ -18,19 +18,19 @@ export default defineLocale<Messages>({
       close: '閉じる'
     },
     calendar: {
-      nextMonth: '次の月',
-      nextYear: '次の年',
-      prevMonth: '前の月',
-      prevYear: '前の年'
+      nextMonth: '翌月',
+      nextYear: '翌年',
+      prevMonth: '前月',
+      prevYear: '前年'
     },
     carousel: {
       dots: '表示するスライドを選択',
-      goto: '{slide}に移動',
+      goto: '{slide} に移動',
       next: '次へ',
       prev: '前へ'
     },
     chatPrompt: {
-      placeholder: 'メッセージを入力してください...'
+      placeholder: 'メッセージを入力...'
     },
     chatPromptSubmit: {
       label: '送信'
@@ -45,12 +45,12 @@ export default defineLocale<Messages>({
     commandPalette: {
       back: '戻る',
       close: '閉じる',
-      noData: 'データなし',
-      noMatch: '一致する項目が見つかりません',
-      placeholder: 'コマンドを入力または検索...'
+      noData: 'データがありません',
+      noMatch: '一致する結果が見つかりません',
+      placeholder: 'コマンドまたは検索を入力...'
     },
     contentSearch: {
-      links: '検索結果',
+      links: '結果',
       theme: 'テーマ'
     },
     contentSearchButton: {
@@ -58,6 +58,10 @@ export default defineLocale<Messages>({
     },
     contentToc: {
       title: 'このページの内容'
+    },
+    dropdownMenu: {
+      noMatch: '一致するデータがありません',
+      search: '検索…'
     },
     dashboardSearch: {
       theme: 'テーマ'
@@ -67,7 +71,7 @@ export default defineLocale<Messages>({
     },
     dashboardSidebarCollapse: {
       collapse: 'サイドバーを折りたたむ',
-      expand: 'サイドバーを展開する'
+      expand: 'サイドバーを展開'
     },
     dashboardSidebarToggle: {
       close: 'サイドバーを閉じる',
@@ -77,16 +81,16 @@ export default defineLocale<Messages>({
       clear: '再試行'
     },
     fileUpload: {
-      removeFile: '{filename}を削除'
+      removeFile: '{filename} を削除'
     },
     header: {
       close: 'メニューを閉じる',
       open: 'メニューを開く'
     },
     inputMenu: {
-      create: '"{label}"を作成',
-      noData: 'データなし',
-      noMatch: '一致する項目が見つかりません'
+      create: '"{label}" を作成',
+      noData: 'データがありません',
+      noMatch: '一致する結果が見つかりません'
     },
     inputNumber: {
       decrement: '減らす',
@@ -96,34 +100,34 @@ export default defineLocale<Messages>({
       close: '閉じる'
     },
     pricingTable: {
-      caption: 'プラン比較'
+      caption: '料金プラン比較'
     },
     prose: {
       codeCollapse: {
-        closeText: '折りたたむ',
+        closeText: '隠す',
         name: 'コード',
-        openText: '展開する'
+        openText: '表示'
       },
       collapsible: {
-        closeText: '折りたたむ',
+        closeText: '隠す',
         name: 'プロパティ',
-        openText: '展開する'
+        openText: '表示'
       },
       pre: {
         copy: 'コピー'
       }
     },
     selectMenu: {
-      create: '"{label}"を作成',
-      noData: 'データなし',
-      noMatch: '一致する項目が見つかりません',
+      create: '"{label}" を作成',
+      noData: 'データがありません',
+      noMatch: '一致する結果が見つかりません',
       search: '検索...'
     },
     slideover: {
       close: '閉じる'
     },
     table: {
-      noData: 'データなし'
+      noData: 'データがありません'
     },
     toast: {
       close: '閉じる'

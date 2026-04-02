@@ -38,16 +38,16 @@ export default defineLocale<Messages>({
     colorMode: {
       dark: 'Темна',
       light: 'Світла',
-      switchToDark: 'Переключити на темний режим',
-      switchToLight: 'Переключити на світлий режим',
+      switchToDark: 'Перейти на темну тему',
+      switchToLight: 'Перейти на світлу тему',
       system: 'Системна'
     },
     commandPalette: {
       back: 'Назад',
       close: 'Закрити',
       noData: 'Немає даних',
-      noMatch: 'Збігів не знайдено',
-      placeholder: 'Введіть команду або виконайте пошук...'
+      noMatch: 'Нічого не знайдено',
+      placeholder: 'Введіть команду або пошук...'
     },
     contentSearch: {
       links: 'Результати',
@@ -58,6 +58,10 @@ export default defineLocale<Messages>({
     },
     contentToc: {
       title: 'На цій сторінці'
+    },
+    dropdownMenu: {
+      noMatch: 'Немає відповідних даних',
+      search: 'Пошук…'
     },
     dashboardSearch: {
       theme: 'Тема'
@@ -86,7 +90,7 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: 'Створити "{label}"',
       noData: 'Немає даних',
-      noMatch: 'Збігів не знайдено'
+      noMatch: 'Нічого не знайдено'
     },
     inputNumber: {
       decrement: 'Зменшити',
@@ -100,23 +104,23 @@ export default defineLocale<Messages>({
     },
     prose: {
       codeCollapse: {
-        closeText: 'Сховати',
+        closeText: 'Приховати',
         name: 'код',
         openText: 'Показати'
       },
       collapsible: {
-        closeText: 'Сховати',
+        closeText: 'Приховати',
         name: 'властивості',
         openText: 'Показати'
       },
       pre: {
-        copy: 'Скопіювати'
+        copy: 'Копіювати'
       }
     },
     selectMenu: {
       create: 'Створити "{label}"',
       noData: 'Немає даних',
-      noMatch: 'Збігів не знайдено',
+      noMatch: 'Нічого не знайдено',
       search: 'Пошук...'
     },
     slideover: {

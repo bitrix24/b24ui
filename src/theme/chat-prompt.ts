@@ -6,10 +6,10 @@
 
 export default {
   slots: {
-    root: 'relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-[8px] py-[8px] w-full rounded-lg',
-    header: 'flex items-center gap-[8px]',
+    root: 'relative flex flex-col items-stretch gap-[2px] ps-[12px] pe-2 py-2 w-full rounded-lg',
+    header: 'flex items-center gap-2',
     body: 'py-[4px] items-start',
-    footer: 'flex items-center justify-end gap-[8px]',
+    footer: 'flex items-center justify-end gap-2',
     base: 'pt-[1px] pb-[0px]' // text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)
   },
   variants: {

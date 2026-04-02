@@ -4,6 +4,7 @@ import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { renderEach } from '../component-render'
 import type { AppConfig } from '@nuxt/schema'
 import DropdownMenu from '../../src/runtime/components/DropdownMenu.vue'
+import type { DropdownMenuItem } from '../../src/runtime/components/DropdownMenu.vue'
 import type { ComponentConfig } from '../../src/runtime/types/tv'
 import { expectSlotProps } from '../utils/types'
 import theme from '#build/b24ui/dropdown-menu'
@@ -15,7 +16,7 @@ type DropdownMenu = ComponentConfig<typeof theme, AppConfig, 'dropdownMenu'>
 describe('DropdownMenu', () => {
   const colors = Object.keys(theme.variants.color) as any
 
-  const items = [
+  const items: DropdownMenuItem[][] = [
     [{
       label: 'My account',
       avatar: {
@@ -86,13 +87,13 @@ describe('DropdownMenu', () => {
       disabled: true
     }], [{
       label: 'Logout',
-      color: 'error',
+      color: 'air-primary-alert',
       icon: SignIcon,
       kbds: ['shift', 'meta', 'q']
     }]
   ]
 
-  const itemsWithDescription = [
+  const itemsWithDescription: DropdownMenuItem[][] = [
     [{
       label: 'My account',
       description: 'Account settings',
@@ -127,6 +128,8 @@ describe('DropdownMenu', () => {
     ...colors.map((color: string) => [`with color ${color}`, { props: { ...props, color } }]),
     ['with externalIcon', { props: { ...props, externalIcon: SignIcon } }],
     ['without externalIcon', { props: { ...props, externalIcon: false } }],
+    ['with filter', { props: { ...props, filter: true } }],
+    ['with filter and searchTerm', { props: { ...props, filter: true, searchTerm: 'No match value' } }],
     ['with class', { props: { ...props, class: 'min-w-96' } }],
     ['with b24ui', { props: { ...props, b24ui: { itemLeadingIcon: 'size-4' } } }],
     // Slots

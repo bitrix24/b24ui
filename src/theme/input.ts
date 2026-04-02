@@ -80,9 +80,9 @@ export default {
         base: 'h-[34px] gap-1.5 text-(length:--ui-font-size-lg)/[normal]',
         leading: 'px-2',
         trailing: 'px-2',
-        leadingIcon: 'size-[18px]',
+        leadingIcon: 'size-4.5',
         leadingAvatarSize: '2xs',
-        trailingIcon: 'size-[18px]'
+        trailingIcon: 'size-4.5'
       },
       lg: {
         base: 'h-[38px] gap-2 text-(length:--ui-font-size-lg)/[normal]',

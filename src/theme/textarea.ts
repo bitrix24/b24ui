@@ -13,7 +13,7 @@ export default {
     root: 'isolate relative inline-flex items-center',
     base: [
       'px-3',
-      'w-full pt-[7px] pb-[8px] border-0 focus:outline-none',
+      'w-full pt-[7px] pb-2 border-0 focus:outline-none',
       'disabled:cursor-not-allowed',
       'disabled:pointer-events-auto',
       'disabled:select-none',
@@ -31,18 +31,18 @@ export default {
       'text-(length:--ui-font-size-lg)/(--ui-font-line-height-2xs)',
       'align-middle'
     ].join(' '),
-    leading: 'absolute inset-y-[7px] start-0 flex items-start px-[8px]',
+    leading: 'absolute inset-y-[7px] start-0 flex items-start px-2',
     leadingIcon: [
       'shrink-0',
-      'size-[18px]',
+      'size-4.5',
       'text-(--b24ui-icon-color)'
     ].join(' '),
     leadingAvatar: 'shrink-0 size-[20px]',
     leadingAvatarSize: '2xs',
-    trailing: 'absolute inset-y-[8px] end-0 flex items-start px-[6px]',
+    trailing: 'absolute inset-y-2 end-0 flex items-start px-[6px]',
     trailingIcon: [
       'shrink-0',
-      'size-[18px]',
+      'size-4.5',
       'text-(--b24ui-icon-color)'
     ].join(' '),
     tag: [

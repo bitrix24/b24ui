@@ -25,9 +25,7 @@ onMounted(() => {
   <PlaygroundPage>
     <div class="relative w-full min-h-[360px] flex items-center justify-center">
       <canvas ref="myCanvas" class="z-0 absolute inset-0 size-full" />
-      <div
-        class="text-center backdrop-blur-sm bg-(--ui-color-design-outline-na-bg) border border-(--ui-color-design-outline-na-stroke) text-(--ui-color-design-outline-na-content) max-w-[550px] px-[60px] py-5xl rounded-[24px] flex flex-col items-center justify-center gap-xs2"
-      >
+      <div class="text-center backdrop-blur-sm bg-(--ui-color-design-outline-na-bg) border border-(--ui-color-design-outline-na-stroke) text-(--ui-color-design-outline-na-content) max-w-[550px] px-[60px] py-5xl rounded-[24px] flex flex-col items-center justify-center gap-xs2">
         <B24Avatar
           :icon="HamburgerMenuIcon"
           alt="DropdownMenu"
@@ -55,6 +53,7 @@ onMounted(() => {
           <B24DropdownMenu
             :items="dropdownMenuItems"
             arrow
+            filter
             :content="{ side: 'bottom', align: 'center' }"
           >
             <B24Button color="air-secondary-accent" :icon="MoreMIcon" />

@@ -51,7 +51,7 @@ export default () => {
         viewport: [
           'relative',
           'scroll-py-1',
-          'w-[240px] max-h-[40vh]',
+          'w-60 max-h-[40vh]',
           'overflow-x-hidden overflow-y-auto scrollbar-thin'
         ].join(' '),
         arrow: 'fill-(--ui-color-bg-content-primary)',
@@ -59,7 +59,7 @@ export default () => {
         empty: [
           'h-(--popup-window-delimiter-section-height)',
           'mt-(--menu-item-block-stack-space)',
-          'py-[8px]',
+          'py-2',
           'select-none outline-none whitespace-nowrap',
           'text-center',
           'text-(length:--popup-window-delimiter-font-size)/(--ui-font-line-height-lg)',
@@ -68,7 +68,7 @@ export default () => {
         ].join(' '),
         label: [
           'w-full min-w-[195px] h-(--popup-window-delimiter-section-height)',
-          'px-[18px] mt-(--menu-item-block-stack-space)',
+          'px-4.5 mt-(--menu-item-block-stack-space)',
           'flex flex-row rtl:flex-row-reverse items-center',
           'select-none outline-none whitespace-nowrap',
           'text-start',
@@ -77,11 +77,11 @@ export default () => {
           'font-(--ui-font-weight-normal)',
           'after:ms-[10px] after:block after:flex-1 after:min-w-[15px] after:h-px after:bg-(--ui-color-divider-vibrant-default)'
         ].join(' '),
-        separator: 'my-[8px] mx-[18px] h-[1px] bg-(--ui-color-divider-vibrant-default)',
+        separator: 'my-2 mx-4.5 h-[1px] bg-(--ui-color-divider-vibrant-default)',
         item: [
           'group',
           'w-full min-w-[195px] h-[36px]',
-          'px-[18px] mt-(--menu-item-block-stack-space)',
+          'px-4.5 mt-(--menu-item-block-stack-space)',
           'relative',
           'flex flex-row rtl:flex-row-reverse items-center',
           'select-none outline-none whitespace-nowrap',
@@ -152,9 +152,9 @@ export default () => {
             base: 'h-[34px] gap-1.5 text-(length:--ui-font-size-lg)/[normal]',
             leading: 'px-2',
             trailing: 'px-2',
-            leadingIcon: 'size-[18px]',
+            leadingIcon: 'size-4.5',
             leadingAvatarSize: '2xs',
-            trailingIcon: 'size-[18px]'
+            trailingIcon: 'size-4.5'
           },
           lg: {
             base: 'h-[38px] gap-2 text-(length:--ui-font-size-lg)/[normal]',

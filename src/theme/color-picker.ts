@@ -12,7 +12,7 @@ export default {
     selector: 'rounded-(--ui-border-radius-md) touch-none',
     selectorBackground: 'w-full h-full relative rounded-(--ui-border-radius-md)',
     selectorThumb: '-translate-y-1/2 -translate-x-1/2 absolute size-4 ring-2 ring-(--ui-color-base-white-fixed) rounded-full cursor-pointer data-[disabled]:cursor-not-allowed',
-    track: 'w-[8px] relative rounded-(--ui-border-radius-md) touch-none',
+    track: 'w-2 relative rounded-(--ui-border-radius-md) touch-none',
     trackThumb: 'absolute transform -translate-y-1/2 -translate-x-[4px] rtl:translate-x-[4px] size-4 rounded-full ring-2 ring-(--ui-color-base-white-fixed) cursor-pointer data-[disabled]:cursor-not-allowed'
   },
   variants: {

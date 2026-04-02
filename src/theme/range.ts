@@ -88,7 +88,7 @@ export default {
       orientation: 'horizontal',
       size: 'md',
       class: {
-        track: 'h-[8px]'
+        track: 'h-2'
       }
     },
     {
@@ -125,7 +125,7 @@ export default {
       orientation: 'vertical',
       size: 'md',
       class: {
-        track: 'w-[8px]'
+        track: 'w-2'
       }
     },
     {

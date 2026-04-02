@@ -20,7 +20,7 @@ export default {
     leading: [
       'absolute',
       'style-tinted-no-accent-1',
-      '-ms-[18px] top-[12px]',
+      '-ms-4.5 top-[12px]',
       'opacity-0',
       'group-hover:opacity-100',
       'group-focus:opacity-100',

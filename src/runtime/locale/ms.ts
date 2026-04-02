@@ -10,7 +10,7 @@ export default defineLocale<Messages>({
       close: 'Tutup'
     },
     authForm: {
-      hidePassword: 'Sembunyi kata laluan',
+      hidePassword: 'Sembunyikan kata laluan',
       showPassword: 'Tunjukkan kata laluan',
       submit: 'Teruskan'
     },
@@ -18,10 +18,10 @@ export default defineLocale<Messages>({
       close: 'Tutup'
     },
     calendar: {
-      nextMonth: 'Bulan depan',
-      nextYear: 'Tahun depan',
-      prevMonth: 'Bulan lepas',
-      prevYear: 'Tahun lepas'
+      nextMonth: 'Bulan seterusnya',
+      nextYear: 'Tahun seterusnya',
+      prevMonth: 'Bulan sebelumnya',
+      prevYear: 'Tahun sebelumnya'
     },
     carousel: {
       dots: 'Pilih slaid untuk dipaparkan',
@@ -30,7 +30,7 @@ export default defineLocale<Messages>({
       prev: 'Sebelumnya'
     },
     chatPrompt: {
-      placeholder: 'Taip mesej anda di sini...'
+      placeholder: 'Masukkan mesej anda di sini...'
     },
     chatPromptSubmit: {
       label: 'Hantar'
@@ -38,8 +38,8 @@ export default defineLocale<Messages>({
     colorMode: {
       dark: 'Gelap',
       light: 'Terang',
-      switchToDark: 'Tukar kepada mod gelap',
-      switchToLight: 'Tukar kepada mod terang',
+      switchToDark: 'Tukar ke mod gelap',
+      switchToLight: 'Tukar ke mod terang',
       system: 'Sistem'
     },
     commandPalette: {
@@ -47,10 +47,10 @@ export default defineLocale<Messages>({
       close: 'Tutup',
       noData: 'Tiada data',
       noMatch: 'Tiada padanan ditemui',
-      placeholder: 'Taip arahan atau cari...'
+      placeholder: 'Masukkan arahan atau carian...'
     },
     contentSearch: {
-      links: 'Hasil',
+      links: 'Keputusan',
       theme: 'Tema'
     },
     contentSearchButton: {
@@ -58,6 +58,10 @@ export default defineLocale<Messages>({
     },
     contentToc: {
       title: 'Pada halaman ini'
+    },
+    dropdownMenu: {
+      noMatch: 'Tiada data yang sepadan',
+      search: 'Cari…'
     },
     dashboardSearch: {
       theme: 'Tema'
@@ -96,17 +100,17 @@ export default defineLocale<Messages>({
       close: 'Tutup'
     },
     pricingTable: {
-      caption: 'Perbandingan rancangan harga'
+      caption: 'Perbandingan pelan harga'
     },
     prose: {
       codeCollapse: {
-        closeText: 'Sembunyi',
+        closeText: 'Sembunyikan',
         name: 'kod',
         openText: 'Tunjukkan'
       },
       collapsible: {
-        closeText: 'Sembunyi',
-        name: 'ciri-ciri',
+        closeText: 'Sembunyikan',
+        name: 'sifat',
         openText: 'Tunjukkan'
       },
       pre: {

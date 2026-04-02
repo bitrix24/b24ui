@@ -26,8 +26,8 @@ export default defineLocale<Messages>({
     carousel: {
       dots: '选择要显示的幻灯片',
       goto: '转到 {slide}',
-      next: '下一步',
-      prev: '上一步'
+      next: '下一个',
+      prev: '上一个'
     },
     chatPrompt: {
       placeholder: '在此输入您的消息...'
@@ -59,6 +59,10 @@ export default defineLocale<Messages>({
     contentToc: {
       title: '本页内容'
     },
+    dropdownMenu: {
+      noMatch: '无匹配数据',
+      search: '搜索…'
+    },
     dashboardSearch: {
       theme: '主题'
     },
@@ -77,7 +81,7 @@ export default defineLocale<Messages>({
       clear: '重试'
     },
     fileUpload: {
-      removeFile: '删除 {filename}'
+      removeFile: '移除 {filename}'
     },
     header: {
       close: '关闭菜单',
@@ -96,7 +100,7 @@ export default defineLocale<Messages>({
       close: '关闭'
     },
     pricingTable: {
-      caption: '价格计划比较'
+      caption: '价格方案对比'
     },
     prose: {
       codeCollapse: {

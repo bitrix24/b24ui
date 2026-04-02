@@ -26,8 +26,8 @@ export default defineLocale<Messages>({
     carousel: {
       dots: 'Wybierz slajd do wyświetlenia',
       goto: 'Przejdź do {slide}',
-      next: 'Dalej',
-      prev: 'Wstecz'
+      next: 'Następny',
+      prev: 'Poprzedni'
     },
     chatPrompt: {
       placeholder: 'Wpisz swoją wiadomość tutaj...'
@@ -40,14 +40,14 @@ export default defineLocale<Messages>({
       light: 'Jasny',
       switchToDark: 'Przełącz na tryb ciemny',
       switchToLight: 'Przełącz na tryb jasny',
-      system: 'Systemowy'
+      system: 'System'
     },
     commandPalette: {
       back: 'Wstecz',
       close: 'Zamknij',
       noData: 'Brak danych',
-      noMatch: 'Nie znaleziono dopasowań',
-      placeholder: 'Wpisz komendę lub wyszukaj...'
+      noMatch: 'Nie znaleziono pasujących wyników',
+      placeholder: 'Wpisz polecenie lub szukaj...'
     },
     contentSearch: {
       links: 'Wyniki',
@@ -59,6 +59,10 @@ export default defineLocale<Messages>({
     contentToc: {
       title: 'Na tej stronie'
     },
+    dropdownMenu: {
+      noMatch: 'Brak pasujących danych',
+      search: 'Szukaj…'
+    },
     dashboardSearch: {
       theme: 'Motyw'
     },
@@ -66,12 +70,12 @@ export default defineLocale<Messages>({
       label: 'Szukaj...'
     },
     dashboardSidebarCollapse: {
-      collapse: 'Zwiń panel boczny',
-      expand: 'Rozwiń panel boczny'
+      collapse: 'Zwiń pasek boczny',
+      expand: 'Rozwiń pasek boczny'
     },
     dashboardSidebarToggle: {
-      close: 'Zamknij panel boczny',
-      open: 'Otwórz panel boczny'
+      close: 'Zamknij pasek boczny',
+      open: 'Otwórz pasek boczny'
     },
     error: {
       clear: 'Spróbuj ponownie'
@@ -86,7 +90,7 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: 'Utwórz "{label}"',
       noData: 'Brak danych',
-      noMatch: 'Nie znaleziono dopasowań'
+      noMatch: 'Nie znaleziono pasujących wyników'
     },
     inputNumber: {
       decrement: 'Zmniejsz',
@@ -116,7 +120,7 @@ export default defineLocale<Messages>({
     selectMenu: {
       create: 'Utwórz "{label}"',
       noData: 'Brak danych',
-      noMatch: 'Nie znaleziono dopasowań',
+      noMatch: 'Nie znaleziono pasujących wyników',
       search: 'Szukaj...'
     },
     slideover: {

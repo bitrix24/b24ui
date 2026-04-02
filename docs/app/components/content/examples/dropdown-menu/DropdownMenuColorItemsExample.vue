@@ -32,7 +32,7 @@ const items: DropdownMenuItem[][] = [
 </script>
 
 <template>
-  <B24DropdownMenu :items="items" :b24ui="{ content: 'w-48' }">
+  <B24DropdownMenu :items="items" :b24ui="{ content: 'w-48', viewport: 'w-48' }">
     <B24Button label="Open" :icon="HamburgerMenuIcon" />
   </B24DropdownMenu>
 </template>

@@ -18,7 +18,7 @@ export default {
     description: 'leading-(--ui-font-line-height-2xs) text-(--b24ui-typography-description-color)',
     error: 'text-(--ui-color-accent-main-alert)',
     errorWrapper: 'flex flex-row flex-nowrap items-center gap-0.5',
-    errorIcon: 'size-[18px]',
+    errorIcon: 'size-4.5',
     help: 'leading-(--ui-font-line-height-2xs) italic text-(--b24ui-typography-description-color)'
   },
   variants: {
@@ -30,7 +30,7 @@ export default {
       // xss: { root: 'text-(length:--ui-font-size-3xs)', errorIcon: 'size-[16px]' },
       xs: { root: 'text-(length:--ui-font-size-xs)', errorIcon: 'size-[16px]' },
       sm: { root: 'text-(length:--ui-font-size-xs)', errorIcon: 'size-[16px]' },
-      md: { root: 'text-(length:--ui-font-size-sm)', errorIcon: 'size-[18px]' },
+      md: { root: 'text-(length:--ui-font-size-sm)', errorIcon: 'size-4.5' },
       lg: { root: 'text-(length:--ui-font-size-md)' }
       // xl: { root: 'text-(length:--ui-font-size-md)' }
     },

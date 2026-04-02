@@ -99,7 +99,7 @@ export default {
       lg: {
         base: 'size-[20px]',
         container: 'h-[20px]',
-        wrapper: 'text-(length:--ui-font-size-xl) leading-[18px]',
+        wrapper: 'text-(length:--ui-font-size-xl) leading-4.5',
         label: ''
       }
     },

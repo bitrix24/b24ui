@@ -10,27 +10,27 @@ export default defineLocale<Messages>({
       close: 'Kapat'
     },
     authForm: {
-      hidePassword: 'Parolayı Gizle',
-      showPassword: 'Parolayı Göster',
-      submit: 'Devam Et'
+      hidePassword: 'Parolayı gizle',
+      showPassword: 'Parolayı göster',
+      submit: 'Devam et'
     },
     banner: {
       close: 'Kapat'
     },
     calendar: {
-      nextMonth: 'Sonraki Ay',
-      nextYear: 'Sonraki Yıl',
-      prevMonth: 'Önceki Ay',
-      prevYear: 'Önceki Yıl'
+      nextMonth: 'Sonraki ay',
+      nextYear: 'Sonraki yıl',
+      prevMonth: 'Önceki ay',
+      prevYear: 'Önceki yıl'
     },
     carousel: {
-      dots: 'Gösterilecek slaytı seçin',
-      goto: '{slide}\'a git',
-      next: 'İleri',
-      prev: 'Geri'
+      dots: 'Görüntülenecek slaydı seç',
+      goto: '{slide} sayfasına git',
+      next: 'Sonraki',
+      prev: 'Önceki'
     },
     chatPrompt: {
-      placeholder: 'Mesajınızı buraya yazın...'
+      placeholder: 'Mesajınızı buraya girin...'
     },
     chatPromptSubmit: {
       label: 'Gönder'
@@ -47,7 +47,7 @@ export default defineLocale<Messages>({
       close: 'Kapat',
       noData: 'Veri yok',
       noMatch: 'Eşleşme bulunamadı',
-      placeholder: 'Bir komut girin veya arama yapın...'
+      placeholder: 'Komut gir veya ara...'
     },
     contentSearch: {
       links: 'Sonuçlar',
@@ -58,6 +58,10 @@ export default defineLocale<Messages>({
     },
     contentToc: {
       title: 'Bu sayfada'
+    },
+    dropdownMenu: {
+      noMatch: 'Eşleşen veri yok',
+      search: 'Ara…'
     },
     dashboardSearch: {
       theme: 'Tema'
@@ -74,10 +78,10 @@ export default defineLocale<Messages>({
       open: 'Kenar çubuğunu aç'
     },
     error: {
-      clear: 'Tekrar Dene'
+      clear: 'Tekrar dene'
     },
     fileUpload: {
-      removeFile: '{filename} dosyasını sil'
+      removeFile: '{filename} dosyasını kaldır'
     },
     header: {
       close: 'Menüyü kapat',
@@ -90,23 +94,23 @@ export default defineLocale<Messages>({
     },
     inputNumber: {
       decrement: 'Azalt',
-      increment: 'Artır'
+      increment: 'Arttır'
     },
     modal: {
       close: 'Kapat'
     },
     pricingTable: {
-      caption: 'Fiyat planlarının karşılaştırılması'
+      caption: 'Fiyat planları karşılaştırması'
     },
     prose: {
       codeCollapse: {
         closeText: 'Gizle',
-        name: 'kod',
+        name: 'code',
         openText: 'Göster'
       },
       collapsible: {
         closeText: 'Gizle',
-        name: 'özellikler',
+        name: 'properties',
         openText: 'Göster'
       },
       pre: {
@@ -129,10 +133,10 @@ export default defineLocale<Messages>({
       close: 'Kapat'
     },
     sidebarLayout: {
-      open: 'Gezintiyi aç',
-      close: 'Gezintiyi kapat',
-      slideoverTitle: 'Gezinti',
-      slideoverDescription: 'İçerik gezintisi'
+      open: 'Navigasyonu aç',
+      close: 'Navigasyonu kapat',
+      slideoverTitle: 'Navigasyon',
+      slideoverDescription: 'İçerik navigasyonu'
     }
   }
 })

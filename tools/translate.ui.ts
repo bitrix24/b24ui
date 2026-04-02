@@ -6,10 +6,10 @@
  */
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import {createInterface} from 'node:readline/promises'
+import { createInterface } from 'node:readline/promises'
 import OpenAI from 'openai'
-import {config} from 'dotenv'
-import {contentLocales} from '../src/runtime/dictionary/i18n'
+import { config } from 'dotenv'
+import { contentLocales } from '../src/runtime/dictionary/i18n'
 
 config({ path: '.env', quiet: true })
 
@@ -28,6 +28,7 @@ const openai = new OpenAI({
 
 async function translateText(
   text: string,
+  targetText: string,
   sourceLang: string,
   targetLang: string
 ) {
@@ -36,12 +37,22 @@ async function translateText(
       model: 'deepseek-chat',
       messages: [{
         role: 'user',
-        content: `Translate the following TS value from ${sourceLang} to ${targetLang}.
-                  Keep all placeholders like {0}, {name} intact.
-                  Don't translate: ${EXCLUDED_WORDS.join(', ')}.
-                  Never add explanations.
-                  Return only the translation without any additional text or quotes.
-                  Text: ${text}`
+        content: `Your task is to localize language phrases (the \`message\` field) from ${sourceLang} to ${targetLang}.
+Take the \`name\`, \`code\`, \`locale\`, and \`dir\` fields from this code:
+\`\`\`ts
+${targetText}
+\`\`\`
+
+Take the language phrases from the \`message\` field from this code:
+\`\`\`ts
+${text}
+\`\`\`
+
+Important:
+- Keep all placeholders, such as {0} and {name}, unchanged.
+- Do not translate: ${EXCLUDED_WORDS.join(', ')}.
+- Never add explanations.
+- Return only the translation without additional text or quotes..`
       }],
       temperature: 1.3
     })
@@ -96,12 +107,14 @@ async function main() {
     // Processing other languages
     for (const locale of locales.filter(l => l !== sourceLang)) {
       const localePath = path.join(CONTENT_PATH, `${locale}.ts`)
+      const targetData = await fs.readFile(localePath, 'utf-8')
 
       console.log(`Translating [${localeInfo[sourceLang]?.name || '??'} (${localeInfo[sourceLang]?.code || sourceLang})] to [${localeInfo[locale]?.name || '??'} (${localeInfo[locale]?.code || locale})] ...`)
 
       // Translation and update
       const translated = await translateText(
         mainData,
+        targetData,
         `${localeInfo[sourceLang]?.name || '??'} (${localeInfo[sourceLang]?.code || sourceLang})`,
         `${localeInfo[locale]?.name || '??'} (${localeInfo[locale]?.code || locale})`
       )

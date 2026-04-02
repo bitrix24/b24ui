@@ -10,9 +10,9 @@ export default defineLocale<Messages>({
       close: 'Schließen'
     },
     authForm: {
-      hidePassword: 'Passwort verbergen',
+      hidePassword: 'Passwort ausblenden',
       showPassword: 'Passwort anzeigen',
-      submit: 'Fortfahren'
+      submit: 'Weiter'
     },
     banner: {
       close: 'Schließen'
@@ -24,7 +24,7 @@ export default defineLocale<Messages>({
       prevYear: 'Vorheriges Jahr'
     },
     carousel: {
-      dots: 'Wählen Sie eine Folie zur Anzeige aus',
+      dots: 'Folie zum Anzeigen auswählen',
       goto: 'Gehe zu {slide}',
       next: 'Weiter',
       prev: 'Zurück'
@@ -58,6 +58,10 @@ export default defineLocale<Messages>({
     },
     contentToc: {
       title: 'Auf dieser Seite'
+    },
+    dropdownMenu: {
+      noMatch: 'Keine passenden Daten',
+      search: 'Suchen…'
     },
     dashboardSearch: {
       theme: 'Thema'
@@ -96,18 +100,18 @@ export default defineLocale<Messages>({
       close: 'Schließen'
     },
     pricingTable: {
-      caption: 'Preisplanvergleich'
+      caption: 'Preispläne im Vergleich'
     },
     prose: {
       codeCollapse: {
         closeText: 'Ausblenden',
-        name: 'Code',
-        openText: 'Einblenden'
+        name: 'code',
+        openText: 'Anzeigen'
       },
       collapsible: {
         closeText: 'Ausblenden',
         name: 'Eigenschaften',
-        openText: 'Einblenden'
+        openText: 'Anzeigen'
       },
       pre: {
         copy: 'Kopieren'

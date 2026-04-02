@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import type { DropdownMenuItem } from '@bitrix24/b24ui-nuxt'
 import HamburgerMenuIcon from '@bitrix24/b24icons-vue/outline/HamburgerMenuIcon'
-import CloudDownloadIcon from '@bitrix24/b24icons-vue/outline/CloudDownloadIcon'
-import ClockWithArrowIcon from '@bitrix24/b24icons-vue/main/ClockWithArrowIcon'
 import Bookmark2Icon from '@bitrix24/b24icons-vue/outline/Bookmark2Icon'
-import WindowScreenIcon from '@bitrix24/b24icons-vue/social/WindowScreenIcon'
+import ClockWithArrowIcon from '@bitrix24/b24icons-vue/main/ClockWithArrowIcon'
+import CloudDownloadIcon from '@bitrix24/b24icons-vue/outline/CloudDownloadIcon'
 
 const showBookmarks = ref(true)
 const showHistory = ref(false)
@@ -12,41 +11,33 @@ const showDownloads = ref(false)
 
 const items = computed(() => [
   {
-    label: 'Interface',
-    icon: WindowScreenIcon,
-    type: 'label' as const
-  },
-  {
     label: 'Show Bookmarks',
     icon: Bookmark2Icon,
-    type: 'checkbox' as const,
+    slot: 'switch' as const,
     checked: showBookmarks.value,
-    onUpdateChecked(checked: boolean) {
-      showBookmarks.value = checked
-    },
     onSelect(e: Event) {
       e.preventDefault()
+      showBookmarks.value = !showBookmarks.value
     }
   },
   {
     label: 'Show History',
     icon: ClockWithArrowIcon,
-    type: 'checkbox' as const,
+    slot: 'switch' as const,
     checked: showHistory.value,
-    onUpdateChecked(checked: boolean) {
-      showHistory.value = checked
+    onSelect(e: Event) {
+      e.preventDefault()
+      showHistory.value = !showHistory.value
     }
-  },
-  {
-    type: 'separator' as const
   },
   {
     label: 'Show Downloads',
     icon: CloudDownloadIcon,
-    type: 'checkbox' as const,
+    slot: 'switch' as const,
     checked: showDownloads.value,
-    onUpdateChecked(checked: boolean) {
-      showDownloads.value = checked
+    onSelect(e: Event) {
+      e.preventDefault()
+      showDownloads.value = !showDownloads.value
     }
   }
 ] satisfies DropdownMenuItem[])
@@ -55,5 +46,9 @@ const items = computed(() => [
 <template>
   <B24DropdownMenu :items="items" :content="{ align: 'start' }" :b24ui="{ content: 'w-48', viewport: 'w-48' }">
     <B24Button label="Open" :icon="HamburgerMenuIcon" />
+
+    <template #switch-trailing="{ item }">
+      <B24Switch :model-value="item.checked" tabindex="-1" />
+    </template>
   </B24DropdownMenu>
 </template>

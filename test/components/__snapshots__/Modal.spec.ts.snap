@@ -340,7 +340,7 @@ exports[`Modal > renders with footer slot correctly 1`] = `
     </div>
     <!--v-if-->
   </div>
-  <div data-slot="footer" class="flex items-center justify-between gap-[10px] border-t-1 border-t-(--ui-color-divider-default) pt-[18px]">Footer slot</div>
+  <div data-slot="footer" class="flex items-center justify-between gap-[10px] border-t-1 border-t-(--ui-color-divider-default) pt-4.5">Footer slot</div>
 </div>
 
 

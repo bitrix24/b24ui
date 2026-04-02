@@ -125,7 +125,7 @@ export default {
         indicator: 'after:size-[6px]'
       },
       md: {
-        fieldset: 'gap-x-[16px] gap-y-[8px]',
+        fieldset: 'gap-x-[16px] gap-y-2',
         legend: 'text-(length:--ui-font-size-sm)',
         base: 'size-[16px]',
         item: 'text-(length:--ui-font-size-lg)',
@@ -134,13 +134,13 @@ export default {
         indicator: 'after:size-[6px]'
       },
       lg: {
-        fieldset: 'gap-x-[16px] gap-y-[8px]',
+        fieldset: 'gap-x-[16px] gap-y-2',
         legend: 'text-(length:--ui-font-size-sm)',
         base: 'size-[20px]',
         item: 'text-(length:--ui-font-size-xl)',
-        label: 'leading-[18px]',
+        label: 'leading-4.5',
         container: 'h-[20px]',
-        indicator: 'after:size-[8px]'
+        indicator: 'after:size-2'
       }
     },
     disabled: {

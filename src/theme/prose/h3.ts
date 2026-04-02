@@ -18,7 +18,7 @@ export default {
     leading: [
       'absolute',
       'style-tinted-no-accent-1',
-      '-ms-[18px] top-[9px]',
+      '-ms-4.5 top-[9px]',
       'opacity-0',
       'group-hover:opacity-100',
       'group-focus:opacity-100',

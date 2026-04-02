@@ -24,10 +24,10 @@ export default defineLocale<Messages>({
       prevYear: 'Anno precedente'
     },
     carousel: {
-      dots: 'Seleziona slide da visualizzare',
+      dots: 'Seleziona la slide da visualizzare',
       goto: 'Vai a {slide}',
-      next: 'Avanti',
-      prev: 'Indietro'
+      next: 'Successiva',
+      prev: 'Precedente'
     },
     chatPrompt: {
       placeholder: 'Inserisci il tuo messaggio qui...'
@@ -47,7 +47,7 @@ export default defineLocale<Messages>({
       close: 'Chiudi',
       noData: 'Nessun dato',
       noMatch: 'Nessuna corrispondenza trovata',
-      placeholder: 'Inserisci comando o effettua una ricerca...'
+      placeholder: 'Inserisci comando o cerca...'
     },
     contentSearch: {
       links: 'Risultati',
@@ -59,6 +59,10 @@ export default defineLocale<Messages>({
     contentToc: {
       title: 'In questa pagina'
     },
+    dropdownMenu: {
+      noMatch: 'Nessun dato corrispondente',
+      search: 'Cerca…'
+    },
     dashboardSearch: {
       theme: 'Tema'
     },
@@ -66,7 +70,7 @@ export default defineLocale<Messages>({
       label: 'Cerca...'
     },
     dashboardSidebarCollapse: {
-      collapse: 'Comprimi barra laterale',
+      collapse: 'Riduci barra laterale',
       expand: 'Espandi barra laterale'
     },
     dashboardSidebarToggle: {

@@ -212,7 +212,7 @@ export default {
       class: {
         base: 'p-0 ps-0 pe-0',
         wrapper: 'p-[1px] gap-0',
-        leadingIcon: 'size-[18px]'
+        leadingIcon: 'size-4.5'
       }
     },
     {

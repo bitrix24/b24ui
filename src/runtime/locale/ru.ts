@@ -26,8 +26,8 @@ export default defineLocale<Messages>({
     carousel: {
       dots: 'Выберите слайд для отображения',
       goto: 'Перейти к {slide}',
-      next: 'Далее',
-      prev: 'Назад'
+      next: 'Следующий',
+      prev: 'Предыдущий'
     },
     chatPrompt: {
       placeholder: 'Введите ваше сообщение здесь...'
@@ -38,8 +38,8 @@ export default defineLocale<Messages>({
     colorMode: {
       dark: 'Тёмная',
       light: 'Светлая',
-      switchToDark: 'Переключиться на тёмный режим',
-      switchToLight: 'Переключиться на светлый режим',
+      switchToDark: 'Переключить на тёмный режим',
+      switchToLight: 'Переключить на светлый режим',
       system: 'Системная'
     },
     commandPalette: {
@@ -47,7 +47,7 @@ export default defineLocale<Messages>({
       close: 'Закрыть',
       noData: 'Нет данных',
       noMatch: 'Совпадений не найдено',
-      placeholder: 'Введите команду или выполните поиск...'
+      placeholder: 'Введите команду или поиск...'
     },
     contentSearch: {
       links: 'Результаты',
@@ -58,6 +58,10 @@ export default defineLocale<Messages>({
     },
     contentToc: {
       title: 'На этой странице'
+    },
+    dropdownMenu: {
+      noMatch: 'Нет подходящих данных',
+      search: 'Поиск…'
     },
     dashboardSearch: {
       theme: 'Тема'
@@ -96,7 +100,7 @@ export default defineLocale<Messages>({
       close: 'Закрыть'
     },
     pricingTable: {
-      caption: 'Сравнение ценных планов'
+      caption: 'Сравнение тарифных планов'
     },
     prose: {
       codeCollapse: {
@@ -110,7 +114,7 @@ export default defineLocale<Messages>({
         openText: 'Показать'
       },
       pre: {
-        copy: 'Скопировать'
+        copy: 'Копировать'
       }
     },
     selectMenu: {

@@ -262,8 +262,8 @@ export default () => {
         orientation: 'vertical',
         size: 'md',
         class: {
-          increment: 'top-0 pe-0 [&>button]:h-[18px] scale-80',
-          decrement: 'bottom-0 pe-0 [&>button]:h-[18px] scale-80'
+          increment: 'top-0 pe-0 [&>button]:h-4.5 scale-80',
+          decrement: 'bottom-0 pe-0 [&>button]:h-4.5 scale-80'
         }
       },
       {

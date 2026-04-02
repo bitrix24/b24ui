@@ -22,14 +22,14 @@ export default {
     ].join(' '),
     viewport: [
       'relative',
-      'w-full max-h-[40vh] min-w-[192px]',
+      'w-full max-h-[40vh] min-w-48',
       'scroll-py-1',
       'overflow-x-hidden overflow-y-auto scrollbar-thin' // scrollbar-transparent
     ].join(' '),
     group: 'grid',
     label: [
       'w-full h-(--popup-window-delimiter-section-height)',
-      'px-[18px] mt-(--menu-item-block-stack-space)',
+      'px-4.5 mt-(--menu-item-block-stack-space)',
       'flex flex-row rtl:flex-row-reverse items-center',
       'select-none outline-none whitespace-nowrap',
       'text-start',
@@ -38,11 +38,11 @@ export default {
       'font-(--ui-font-weight-normal)',
       'after:ms-[10px] after:block after:flex-1 after:min-w-[15px] after:h-px after:bg-(--ui-color-divider-vibrant-default)'
     ].join(' '),
-    separator: 'my-[8px] mx-[18px] h-[1px] bg-(--ui-color-divider-vibrant-default)',
+    separator: 'my-2 mx-4.5 h-[1px] bg-(--ui-color-divider-vibrant-default)',
     item: [
       'group',
       'w-full h-[36px]',
-      'px-[18px] mt-(--menu-item-block-stack-space)',
+      'px-4.5 mt-(--menu-item-block-stack-space)',
       'relative',
       'flex flex-row rtl:flex-row-reverse items-center',
       'select-none outline-none whitespace-nowrap',
@@ -60,7 +60,7 @@ export default {
     ].join(' '),
     itemLeadingIcon: [
       'shrink-0',
-      'size-[18px]',
+      'size-4.5',
       'text-(--ui-color-design-plain-content-icon-secondary)',
       'group-data-highlighted:text-(--ui-color-accent-main-primary)',
       'group-data-[state=open]:text-(--ui-color-accent-main-primary)',
@@ -75,10 +75,10 @@ export default {
     itemWrapper: 'flex-1 flex flex-col text-start min-w-0',
     itemTrailingKbdsSize: 'md',
     itemLabel: [
-      'max-w-[240px] truncate -mt-px',
+      'max-w-60 truncate -mt-px',
       'group-data-[state=checked]:text-(--ui-color-accent-main-primary)'
     ].join(' '),
-    itemDescription: 'max-w-[240px] truncate -mt-[6px] text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)',
+    itemDescription: 'max-w-60 truncate -mt-[6px] text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)',
     itemLabelExternalIcon: 'inline-block size-[16px] text-(--ui-color-design-plain-content-icon-secondary)'
   },
   variants: {

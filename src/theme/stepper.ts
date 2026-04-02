@@ -64,7 +64,7 @@ export default {
         icon: 'size-[28px]',
         title: 'text-(length:--ui-font-size-sm)',
         description: 'text-(length:--ui-font-size-sm)',
-        wrapper: 'mt-[8px]'
+        wrapper: 'mt-2'
       },
       md: {
         trigger: 'size-[42px] text-(length:--ui-font-size-xl)',

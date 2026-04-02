@@ -72,11 +72,11 @@ export default {
         legend: 'text-(length:--ui-font-size-xs)'
       },
       md: {
-        fieldset: 'gap-x-[16px] gap-y-[8px]',
+        fieldset: 'gap-x-[16px] gap-y-2',
         legend: 'text-(length:--ui-font-size-sm)'
       },
       lg: {
-        fieldset: 'gap-x-[16px] gap-y-[8px]',
+        fieldset: 'gap-x-[16px] gap-y-2',
         legend: 'text-(length:--ui-font-size-sm)'
       }
     },

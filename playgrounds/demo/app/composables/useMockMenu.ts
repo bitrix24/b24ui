@@ -99,7 +99,19 @@ const _useMockMenu = () => {
     [
       {
         label: 'Team',
-        icon: Persons3Icon
+        icon: Persons3Icon,
+        filter: {
+          placeholder: 'Search members...'
+        },
+        children: [
+          {
+            label: 'Bitrix24',
+            avatar: { src: 'https://github.com/bitrix24.png' }
+          }, {
+            label: 'Bitrix',
+            avatar: { src: 'https://github.com/bitrix-tools.png' }
+          }
+        ]
       },
       {
         label: 'Invite users',

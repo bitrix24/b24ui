@@ -12,7 +12,7 @@ export default {
       'text-(length:--ui-font-size-5xl)',
       '[&>code]:text-(length:--ui-font-size-4xl)/7'
     ].join(' '),
-    link: 'inline-flex items-center gap-[8px]'
+    link: 'inline-flex items-center gap-2'
   },
   variants: {
     accent: {

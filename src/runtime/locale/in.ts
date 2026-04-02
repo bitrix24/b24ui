@@ -10,7 +10,7 @@ export default defineLocale<Messages>({
       close: 'बंद करें'
     },
     authForm: {
-      hidePassword: 'पासवर्ड छिपाएं',
+      hidePassword: 'पासवर्ड छुपाएं',
       showPassword: 'पासवर्ड दिखाएं',
       submit: 'जारी रखें'
     },
@@ -30,7 +30,7 @@ export default defineLocale<Messages>({
       prev: 'पिछला'
     },
     chatPrompt: {
-      placeholder: 'अपना संदेश यहाँ दर्ज करें...'
+      placeholder: 'अपना संदेश यहां दर्ज करें...'
     },
     chatPromptSubmit: {
       label: 'भेजें'
@@ -43,10 +43,10 @@ export default defineLocale<Messages>({
       system: 'सिस्टम'
     },
     commandPalette: {
-      back: 'वापस',
+      back: 'पीछे',
       close: 'बंद करें',
       noData: 'कोई डेटा नहीं',
-      noMatch: 'कोई मैच नहीं मिला',
+      noMatch: 'कोई मिलान नहीं मिला',
       placeholder: 'कमांड दर्ज करें या खोजें...'
     },
     contentSearch: {
@@ -57,7 +57,11 @@ export default defineLocale<Messages>({
       label: 'खोजें...'
     },
     contentToc: {
-      title: 'इस पेज पर'
+      title: 'इस पृष्ठ पर'
+    },
+    dropdownMenu: {
+      noMatch: 'कोई मिलान डेटा नहीं',
+      search: 'खोजें…'
     },
     dashboardSearch: {
       theme: 'थीम'
@@ -86,7 +90,7 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: '"{label}" बनाएं',
       noData: 'कोई डेटा नहीं',
-      noMatch: 'कोई मैच नहीं मिला'
+      noMatch: 'कोई मिलान नहीं मिला'
     },
     inputNumber: {
       decrement: 'घटाएं',
@@ -100,12 +104,12 @@ export default defineLocale<Messages>({
     },
     prose: {
       codeCollapse: {
-        closeText: 'छिपाएं',
+        closeText: 'छुपाएं',
         name: 'कोड',
         openText: 'दिखाएं'
       },
       collapsible: {
-        closeText: 'छिपाएं',
+        closeText: 'छुपाएं',
         name: 'गुण',
         openText: 'दिखाएं'
       },
@@ -116,7 +120,7 @@ export default defineLocale<Messages>({
     selectMenu: {
       create: '"{label}" बनाएं',
       noData: 'कोई डेटा नहीं',
-      noMatch: 'कोई मैच नहीं मिला',
+      noMatch: 'कोई मिलान नहीं मिला',
       search: 'खोजें...'
     },
     slideover: {

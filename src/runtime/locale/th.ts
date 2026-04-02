@@ -25,9 +25,9 @@ export default defineLocale<Messages>({
     },
     carousel: {
       dots: 'เลือกสไลด์เพื่อแสดง',
-      goto: 'ไปยัง {slide}',
-      next: 'ต่อไป',
-      prev: 'ย้อนกลับ'
+      goto: 'ไปที่ {slide}',
+      next: 'ถัดไป',
+      prev: 'ก่อนหน้า'
     },
     chatPrompt: {
       placeholder: 'พิมพ์ข้อความของคุณที่นี่...'
@@ -36,17 +36,17 @@ export default defineLocale<Messages>({
       label: 'ส่ง'
     },
     colorMode: {
-      dark: 'โหมดกลางคืน',
-      light: 'โหมดกลางวัน',
-      switchToDark: 'เปลี่ยนเป็นโหมดกลางคืน',
-      switchToLight: 'เปลี่ยนเป็นโหมดกลางวัน',
-      system: 'ตามระบบ'
+      dark: 'มืด',
+      light: 'สว่าง',
+      switchToDark: 'เปลี่ยนเป็นโหมดมืด',
+      switchToLight: 'เปลี่ยนเป็นโหมดสว่าง',
+      system: 'ระบบ'
     },
     commandPalette: {
       back: 'ย้อนกลับ',
       close: 'ปิด',
       noData: 'ไม่มีข้อมูล',
-      noMatch: 'ไม่พบรายการที่ตรงกัน',
+      noMatch: 'ไม่พบข้อมูลที่ตรงกัน',
       placeholder: 'ป้อนคำสั่งหรือค้นหา...'
     },
     contentSearch: {
@@ -57,7 +57,11 @@ export default defineLocale<Messages>({
       label: 'ค้นหา...'
     },
     contentToc: {
-      title: 'บนหน้านี้'
+      title: 'ในหน้านี้'
+    },
+    dropdownMenu: {
+      noMatch: 'ไม่มีข้อมูลที่ตรงกัน',
+      search: 'ค้นหา…'
     },
     dashboardSearch: {
       theme: 'ธีม'
@@ -86,27 +90,27 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: 'สร้าง "{label}"',
       noData: 'ไม่มีข้อมูล',
-      noMatch: 'ไม่พบรายการที่ตรงกัน'
+      noMatch: 'ไม่พบข้อมูลที่ตรงกัน'
     },
     inputNumber: {
-      decrement: 'ลดลง',
-      increment: 'เพิ่มขึ้น'
+      decrement: 'ลดค่า',
+      increment: 'เพิ่มค่า'
     },
     modal: {
       close: 'ปิด'
     },
     pricingTable: {
-      caption: 'การเปรียบเทียบแผนราคา'
+      caption: 'เปรียบเทียบแผนราคา'
     },
     prose: {
       codeCollapse: {
         closeText: 'ซ่อน',
-        name: 'โค้ด',
+        name: 'code',
         openText: 'แสดง'
       },
       collapsible: {
         closeText: 'ซ่อน',
-        name: 'คุณสมบัติ',
+        name: 'properties',
         openText: 'แสดง'
       },
       pre: {
@@ -116,7 +120,7 @@ export default defineLocale<Messages>({
     selectMenu: {
       create: 'สร้าง "{label}"',
       noData: 'ไม่มีข้อมูล',
-      noMatch: 'ไม่พบรายการที่ตรงกัน',
+      noMatch: 'ไม่พบข้อมูลที่ตรงกัน',
       search: 'ค้นหา...'
     },
     slideover: {

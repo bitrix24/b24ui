@@ -28,7 +28,7 @@ prettier: true
 collapse: true
 ignore:
   - items
-  - ui.content
+  - b24b24ui.content
 external:
   - items
 externalTypes:
@@ -47,11 +47,26 @@ props:
           - ','
       - label: Keyboard shortcuts
     - - label: Team
+        filter:
+          placeholder: 'Search members...'
+        children:
+          - - label: Bitrix24
+              avatar:
+                src: 'https://github.com/bitrix24.png'
+                loading: lazy
+            - label: Bitrix
+              avatar:
+                src: 'https://github.com/bitrix-tools.png'
+                loading: lazy
       - label: Invite users
         children:
           - - label: Email
             - label: Message
           - - label: More
+              children:
+                - label: Import from Slack
+                - label: Import from Trello
+                - label: Import from Asana
       - label: New team
         kbds:
           - meta
@@ -64,6 +79,7 @@ props:
       - label: API
         disabled: true
     - - label: Logout
+        color: air-primary-alert
         kbds:
           - shift
           - meta
@@ -93,6 +109,9 @@ Use the `items` prop as an array of objects with the following properties:
 - `onSelect?: (e: Event) => void`{lang="ts-type"}
 - [`onUpdateChecked?: (checked: boolean) => void`{lang="ts-type"}](#with-checkbox-items)
 - `children?: DropdownMenuItem[] | DropdownMenuItem[][]`{lang="ts-type"}
+- [`filter?: boolean | InputProps`{lang="ts-type"}](#with-filter-items)
+- `filterFields?: string[]`{lang="ts-type"}
+- `ignoreFilter?: boolean`{lang="ts-type"}
 - `class?: any`{lang="ts-type"}
 - `b24ui?: { item?: ClassNameValue, label?: ClassNameValue, separator?: ClassNameValue, itemLeadingIcon?: ClassNameValue, itemLeadingAvatarSize?: ClassNameValue, itemLeadingAvatar?: ClassNameValue, itemLabel?: ClassNameValue, itemLabelExternalIcon?: ClassNameValue, itemTrailing?: ClassNameValue, itemTrailingIcon?: ClassNameValue, itemTrailingKbds?: ClassNameValue, itemTrailingKbdsSize?: ClassNameValue }`{lang="ts-type"}
 
@@ -104,7 +123,7 @@ prettier: true
 collapse: true
 ignore:
   - items
-  - ui.content
+  - b24ui.content
 external:
   - items
 externalTypes:
@@ -128,6 +147,10 @@ props:
           - - label: Email
             - label: Message
           - - label: More
+              children:
+                - label: Import from Slack
+                - label: Import from Trello
+                - label: Import from Asana
       - label: New team
         kbds:
           - meta
@@ -171,7 +194,7 @@ prettier: true
 collapse: true
 ignore:
   - items
-  - ui.content
+  - b24ui.content
 external:
   - items
 externalTypes:
@@ -204,6 +227,59 @@ slots:
 :b24-button{label="Open"}
 ::
 
+### Filter :badge{label="Soon" class="align-text-top"}
+
+Use the `filter` prop to display a filter input inside the DropdownMenu. Defaults to `false`.
+
+::note{to="#with-ignore-filter"}
+Use the `ignore-filter` prop to disable the internal search and use your own search logic.
+::
+
+::note{to="#with-filter-fields"}
+Use the `filter-fields` prop to specify which fields to filter by. By default, it uses the `labelKey` prop.
+::
+
+You can pass any property from the [Input](/docs/components/input/) component to customize it.
+
+::component-code
+---
+prettier: true
+collapse: true
+ignore:
+  - filter
+  - items
+  - content.align
+  - b24ui.content
+external:
+  - items
+externalTypes:
+  - DropdownMenuItem[]
+props:
+  items:
+    - label: Profile
+    - label: Billing
+    - label: Settings
+    - label: Team
+    - label: Invite users
+    - label: New team
+  filter: true
+  content:
+    align: start
+  b24ui:
+    content: 'w-48'
+slots:
+  default: |
+
+    <B24Button label="Open" />
+---
+
+:b24-button{label="Open"}
+::
+
+::tip{to="#with-filter-items"}
+You can also enable the filter on specific sub-menus using the `filter` field on items with `children`.
+::
+
 ### Arrow
 
 Use the `arrow` prop to display an arrow on the DropdownMenu.
@@ -215,7 +291,7 @@ collapse: true
 ignore:
   - arrow
   - items
-  - ui.content
+  - b24ui.content
 external:
   - items
 externalTypes:
@@ -245,7 +321,7 @@ prettier: true
 collapse: true
 ignore:
   - items
-  - b24ui.content
+  - b24b24ui.content
 external:
   - items
 externalTypes:
@@ -277,7 +353,7 @@ prettier: true
 collapse: true
 ignore:
   - items
-  - ui.content
+  - b24ui.content
 external:
   - items
 externalTypes:
@@ -288,7 +364,7 @@ props:
     - label: Profile
     - label: Billing
     - label: Settings
-  ui:
+  b24ui:
     content: 'w-48'
 slots:
   default: |
@@ -324,6 +400,17 @@ You can use the `color` property to highlight certain items with a color.
 ---
 collapse: true
 name: 'dropdown-menu-color-items-example'
+---
+::
+
+### With filter items :badge{label="Soon" class="align-text-top"}
+
+You can use the `filter` property on items with `children` to display a filter input inside the sub-menu.
+
+::component-example
+---
+collapse: true
+name: 'dropdown-menu-filter-items-example'
 ---
 ::
 
@@ -364,9 +451,46 @@ name: 'dropdown-menu-custom-slot-example'
 You can also use the `#item`, `#item-leading`, `#item-label` and `#item-trailing` slots to customize all items.
 ::
 
+### With switch in items
+
+You can use the `slot` property with a `#{{ slot }}-trailing` slot to render a [Switch](/docs/components/switch/) inside an item.
+
+::component-example
+---
+collapse: true
+name: 'dropdown-menu-switch-items-example'
+---
+::
+
+### With ignore filter :badge{label="Soon" class="align-text-top"}
+
+When using the `filter` prop or the `filter` field on items with `children`, you can set the `ignore-filter` prop to `true` to disable the internal search and use your own search logic.
+
+::component-example
+---
+collapse: true
+name: 'dropdown-menu-ignore-filter-example'
+---
+::
+
+::note
+This example uses [`refDebounced`](https://vueuse.org/shared/refDebounced/#refdebounced) to debounce the API calls. The fetch is deferred with `immediate: false` so no request is made until the menu opens.
+::
+
+### With filter fields :badge{label="Soon" class="align-text-top"}
+
+When using the `filter` prop or the `filter` field on items with `children`, you can set the `filter-fields` prop with an array of fields to filter on. Defaults to `[labelKey]`.
+
+::component-example
+---
+collapse: true
+name: 'dropdown-menu-filter-fields-example'
+---
+::
+
 ### With trigger content width
 
-You can expand the content to the full width of its button by adding the `w-(--reka-dropdown-menu-trigger-width)` class on the `b24ui.content` and `b24ui.viewport` slot.
+You can expand the content to the full width of its button by adding the `w-(--reka-dropdown-menu-trigger-width)` class on the `b24b24ui.content` and adding the `min-w-(--reka-dropdown-menu-trigger-width) w-(--reka-dropdown-menu-trigger-width)` class `b24ui.viewport` slot.
 
 ::component-example
 ---

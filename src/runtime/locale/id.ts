@@ -18,8 +18,8 @@ export default defineLocale<Messages>({
       close: 'Tutup'
     },
     calendar: {
-      nextMonth: 'Bulan berikutnya',
-      nextYear: 'Tahun berikutnya',
+      nextMonth: 'Bulan depan',
+      nextYear: 'Tahun depan',
       prevMonth: 'Bulan sebelumnya',
       prevYear: 'Tahun sebelumnya'
     },
@@ -30,7 +30,7 @@ export default defineLocale<Messages>({
       prev: 'Sebelumnya'
     },
     chatPrompt: {
-      placeholder: 'Ketik pesan Anda di sini...'
+      placeholder: 'Masukkan pesan Anda di sini...'
     },
     chatPromptSubmit: {
       label: 'Kirim'
@@ -46,8 +46,8 @@ export default defineLocale<Messages>({
       back: 'Kembali',
       close: 'Tutup',
       noData: 'Tidak ada data',
-      noMatch: 'Tidak ditemukan hasil yang cocok',
-      placeholder: 'Ketik perintah atau cari...'
+      noMatch: 'Tidak ada hasil yang cocok',
+      placeholder: 'Masukkan perintah atau cari...'
     },
     contentSearch: {
       links: 'Hasil',
@@ -59,6 +59,10 @@ export default defineLocale<Messages>({
     contentToc: {
       title: 'Di halaman ini'
     },
+    dropdownMenu: {
+      noMatch: 'Tidak ada data yang cocok',
+      search: 'Cari…'
+    },
     dashboardSearch: {
       theme: 'Tema'
     },
@@ -66,12 +70,12 @@ export default defineLocale<Messages>({
       label: 'Cari...'
     },
     dashboardSidebarCollapse: {
-      collapse: 'Ciutkan panel samping',
-      expand: 'Bentangkan panel samping'
+      collapse: 'Ciutkan bilah sisi',
+      expand: 'Bentangkan bilah sisi'
     },
     dashboardSidebarToggle: {
-      close: 'Tutup panel samping',
-      open: 'Buka panel samping'
+      close: 'Tutup bilah sisi',
+      open: 'Buka bilah sisi'
     },
     error: {
       clear: 'Coba lagi'
@@ -86,7 +90,7 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: 'Buat "{label}"',
       noData: 'Tidak ada data',
-      noMatch: 'Tidak ditemukan hasil yang cocok'
+      noMatch: 'Tidak ada hasil yang cocok'
     },
     inputNumber: {
       decrement: 'Kurangi',
@@ -116,7 +120,7 @@ export default defineLocale<Messages>({
     selectMenu: {
       create: 'Buat "{label}"',
       noData: 'Tidak ada data',
-      noMatch: 'Tidak ditemukan hasil yang cocok',
+      noMatch: 'Tidak ada hasil yang cocok',
       search: 'Cari...'
     },
     slideover: {

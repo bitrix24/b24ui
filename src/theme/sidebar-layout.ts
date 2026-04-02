@@ -20,7 +20,7 @@ export default {
       'air-sidebar',
       'before:absolute before:inset-0 before:z-[-1]',
       'before:bg-(--leftmenu-bg-expanded)',
-      'w-[240px]',
+      'w-60',
       'pe-[3px] rtl:me-[14px]',
       'inset-y-0 left-0',
       'max-lg:hidden'
@@ -230,7 +230,7 @@ export default {
         header: 'ps-[calc(var(--content-area-shift)-10px)] pe-[calc(var(--content-area-shift))] lg:px-(--content-area-shift)',
         pageWrapper: 'lg:px-(--content-area-shift)',
         container: '', // lg:mx-(--content-area-shift)
-        contentWrapper: '' // 'lg:pl-[240px] '
+        contentWrapper: '' // 'lg:pl-60 '
       }
     },
     {

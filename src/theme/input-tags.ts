@@ -129,14 +129,14 @@ export default () => {
           ].join(' '),
           leading: 'px-2',
           trailing: 'px-2',
-          leadingIcon: 'size-[18px]',
-          trailingIcon: 'size-[18px]',
+          leadingIcon: 'size-4.5',
+          trailingIcon: 'size-4.5',
           input: 'text-(length:--ui-font-size-lg)/[normal]',
           item: [
             'text-(length:--ui-font-size-sm)/(--main-ui-square-item-height)',
             'gap-[4px]'
           ].join(' '),
-          itemDeleteIcon: 'size-[18px]'
+          itemDeleteIcon: 'size-4.5'
         },
         lg: {
           base: [

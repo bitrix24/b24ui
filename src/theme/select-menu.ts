@@ -14,7 +14,7 @@ export default () => {
       viewport: [
         'relative',
         'scroll-py-1',
-        'w-[240px] max-h-[40vh]',
+        'w-60 max-h-[40vh]',
         'overflow-x-hidden overflow-y-auto scrollbar-thin'
       ].join(' '),
       content: (content: string) => [

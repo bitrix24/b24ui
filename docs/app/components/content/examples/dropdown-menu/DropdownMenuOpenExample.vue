@@ -27,7 +27,7 @@ const items: DropdownMenuItem[] = [
 </script>
 
 <template>
-  <B24DropdownMenu v-model:open="open" :items="items" :b24ui="{ content: 'w-[200px]', viewport: 'w-[200px]' }">
+  <B24DropdownMenu v-model:open="open" :items="items" :b24ui="{ content: 'w-50', viewport: 'w-50' }">
     <B24Button label="Open" :icon="HamburgerMenuIcon" />
   </B24DropdownMenu>
 </template>

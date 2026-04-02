@@ -12,7 +12,7 @@ export default {
       'font-(--ui-font-weight-semi-bold)',
       'flex items-center gap-[6px]'
     ].join(' '),
-    list: 'flex flex-col gap-[8px]',
+    list: 'flex flex-col gap-2',
     item: 'relative',
     link: [
       'group',

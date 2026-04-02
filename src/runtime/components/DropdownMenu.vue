@@ -4,7 +4,7 @@ import type { DropdownMenuRootProps, DropdownMenuRootEmits, DropdownMenuContentP
 import type { VNode } from 'vue'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/b24ui/dropdown-menu'
-import type { AvatarProps, KbdProps, LinkProps, IconComponent } from '../types'
+import type { AvatarProps, InputProps, KbdProps, LinkProps, IconComponent } from '../types'
 import type { ArrayOrNested, DynamicSlots, GetItemKeys, MergeTypes, NestedItem, EmitsToProps } from '../types/utils'
 import type { ComponentConfig } from '../types/tv'
 
@@ -32,6 +32,9 @@ export interface DropdownMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cust
   checked?: boolean
   open?: boolean
   defaultOpen?: boolean
+  filter?: boolean | Omit<InputProps, 'modelValue' | 'defaultValue'>
+  filterFields?: string[]
+  ignoreFilter?: boolean
   children?: ArrayOrNested<DropdownMenuItem>
   onSelect?: (e: Event) => void
   onUpdateChecked?: (checked: boolean) => void
@@ -40,6 +43,7 @@ export interface DropdownMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cust
   [key: string]: any
 }
 
+// @memo we not use: size
 export interface DropdownMenuProps<T extends ArrayOrNested<DropdownMenuItem> = ArrayOrNested<DropdownMenuItem>> extends Omit<DropdownMenuRootProps, 'dir'> {
   items?: T
   /**
@@ -81,6 +85,23 @@ export interface DropdownMenuProps<T extends ArrayOrNested<DropdownMenuItem> = A
    */
   descriptionKey?: GetItemKeys<T>
   /**
+   * Whether to display a filter input or not.
+   * Can be an object to pass additional props to the input.
+   * `{ placeholder: 'Search...', noBorder: true }`{lang="ts-type"}
+   * @defaultValue false
+   */
+  filter?: boolean | Omit<InputProps, 'modelValue' | 'defaultValue'>
+  /**
+   * The fields to filter by.
+   * @defaultValue [labelKey]
+   */
+  filterFields?: string[]
+  /**
+   * When `true`, items will not be filtered which is useful for custom filtering.
+   * @defaultValue false
+   */
+  ignoreFilter?: boolean
+  /**
    * @defaultValue false
    */
   disabled?: boolean
@@ -102,6 +123,7 @@ export type DropdownMenuSlots<
   'item-label'?: (props: { item: T, active: boolean, index: number }) => VNode[]
   'item-description'?: (props: { item: T, active: boolean, index: number }) => VNode[]
   'item-trailing'?: SlotProps<T>
+  'empty'?(props: { searchTerm: string }): VNode[]
   'content-top'?: (props: { sub: boolean }) => VNode[]
   'content-bottom'?: (props: { sub: boolean }) => VNode[]
 }
@@ -126,10 +148,14 @@ const props = withDefaults(defineProps<DropdownMenuProps<T>>(), {
   modal: true,
   externalIcon: true,
   labelKey: 'label',
-  descriptionKey: 'description'
+  descriptionKey: 'description',
+  filter: false,
+  ignoreFilter: false
 })
 const emits = defineEmits<DropdownMenuEmits>()
 const slots = defineSlots<DropdownMenuSlots<T>>()
+
+const searchTerm = defineModel<string>('searchTerm', { default: '' })
 
 const appConfig = useAppConfig() as DropdownMenu['AppConfig']
 const uiProp = useComponentUI('dropdownMenu', props)
@@ -158,6 +184,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dropdo
     </DropdownMenuTrigger>
 
     <B24DropdownMenuContent
+      v-model:search-term="searchTerm"
       data-slot="content"
       :class="b24ui.content({ class: [!slots.default && uiProp?.content, props.class] })"
       :b24ui="b24ui"
@@ -170,6 +197,9 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dropdo
       :description-key="(descriptionKey as string & keyof NestedItem<T>)"
       :checked-icon="checkedIcon"
       :external-icon="externalIcon"
+      :filter="filter"
+      :filter-fields="filterFields"
+      :ignore-filter="ignoreFilter"
     >
       <template v-for="(_, name) in getProxySlots()" #[name]="slotData">
         <slot :name="(name as keyof DropdownMenuSlots<T>)" v-bind="slotData" />

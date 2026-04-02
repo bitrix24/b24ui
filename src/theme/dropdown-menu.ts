@@ -2,6 +2,7 @@
  * DropdownMenu
  * A menu to display actions when clicking on an element.
  * ---
+ * @memo not use size - md
  * @see src/theme/context-menu.ts
  * @see src/theme/editor-suggestion-menu.ts
  */
@@ -21,9 +22,11 @@ export default {
       'px-0 py-(--menu-popup-padding) bitrix-mobile:py-0!',
       'pointer-events-auto'
     ].join(' '),
+    input: 'border-b border-default w-full',
+    empty: 'text-center text-description p-2.5 text-sm',
     viewport: [
       'relative',
-      'w-full max-h-[40vh] min-w-[192px]',
+      'w-full max-h-[40vh] min-w-48',
       'overflow-x-hidden overflow-y-auto scrollbar-thin'
     ].join(' '),
     arrow: 'fill-(--ui-color-bg-content-primary)',
@@ -31,7 +34,7 @@ export default {
     label: [
       'w-full h-(--popup-window-delimiter-section-height)',
       'bitrix-mobile:h-[27px]',
-      'px-[18px] mt-(--menu-item-block-stack-space)',
+      'px-4.5 mt-(--menu-item-block-stack-space)',
       'bitrix-mobile:pe-0 bitrix-mobile:mt-0 bitrix-mobile:-mb-[12px]',
       'flex flex-row rtl:flex-row-reverse items-center',
       'select-none outline-none whitespace-nowrap',
@@ -82,7 +85,7 @@ export default {
       'group-data-[state=checked]:text-(--ui-color-accent-main-primary)',
       'transition-colors'
     ].join(' '),
-    itemLeadingAvatar: 'shrink-0 size-[16px] me-[8px]', // @memo 18-2px
+    itemLeadingAvatar: 'shrink-0 size-[16px] me-2', // @memo 18-2px
     itemLeadingAvatarSize: '2xs', // @memo this wrong
     itemTrailing: 'ml-auto rtl:ml-0 rtl:mr-auto inline-flex gap-1.5 items-center',
     itemTrailingIcon: 'shrink-0 size-[25px] text-(--ui-color-accent-main-primary)',
@@ -90,10 +93,10 @@ export default {
     itemTrailingKbdsSize: 'md',
     itemWrapper: 'flex-1 flex flex-col text-start min-w-0',
     itemLabel: [
-      'max-w-[240px] truncate -mt-px',
+      'max-w-60 truncate -mt-px',
       'group-data-[state=checked]:text-(--ui-color-accent-main-primary)'
     ].join(' '),
-    itemDescription: 'max-w-[240px] truncate -mt-[6px] text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)',
+    itemDescription: 'max-w-60 truncate -mt-[6px] text-(--b24ui-typography-description-color) text-(length:--ui-font-size-sm)',
     itemLabelExternalIcon: 'inline-block size-[25px] text-(--ui-color-base-5)'
   },
   variants: {

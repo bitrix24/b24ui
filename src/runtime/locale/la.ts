@@ -30,7 +30,7 @@ export default defineLocale<Messages>({
       prev: 'Anterior'
     },
     chatPrompt: {
-      placeholder: 'Escribe tu mensaje aquí...'
+      placeholder: 'Ingresa tu mensaje aquí...'
     },
     chatPromptSubmit: {
       label: 'Enviar'
@@ -47,7 +47,7 @@ export default defineLocale<Messages>({
       close: 'Cerrar',
       noData: 'Sin datos',
       noMatch: 'No se encontraron coincidencias',
-      placeholder: 'Introduce un comando o busca...'
+      placeholder: 'Ingresa comando o busca...'
     },
     contentSearch: {
       links: 'Resultados',
@@ -59,6 +59,10 @@ export default defineLocale<Messages>({
     contentToc: {
       title: 'En esta página'
     },
+    dropdownMenu: {
+      noMatch: 'No hay datos coincidentes',
+      search: 'Buscar…'
+    },
     dashboardSearch: {
       theme: 'Tema'
     },
@@ -66,12 +70,12 @@ export default defineLocale<Messages>({
       label: 'Buscar...'
     },
     dashboardSidebarCollapse: {
-      collapse: 'Contraer panel lateral',
-      expand: 'Expandir panel lateral'
+      collapse: 'Contraer barra lateral',
+      expand: 'Expandir barra lateral'
     },
     dashboardSidebarToggle: {
-      close: 'Cerrar panel lateral',
-      open: 'Abrir panel lateral'
+      close: 'Cerrar barra lateral',
+      open: 'Abrir barra lateral'
     },
     error: {
       clear: 'Intentar de nuevo'
@@ -89,8 +93,8 @@ export default defineLocale<Messages>({
       noMatch: 'No se encontraron coincidencias'
     },
     inputNumber: {
-      decrement: 'Disminuir',
-      increment: 'Aumentar'
+      decrement: 'Decrementar',
+      increment: 'Incrementar'
     },
     modal: {
       close: 'Cerrar'

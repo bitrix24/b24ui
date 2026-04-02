@@ -24,10 +24,10 @@ export default defineLocale<Messages>({
       prevYear: 'Алдыңғы жыл'
     },
     carousel: {
-      dots: 'Көрсету үшін слайдты таңдаңыз',
+      dots: 'Көрсетілетін слайдты таңдау',
       goto: '{slide} слайдына өту',
       next: 'Келесі',
-      prev: 'Артқа'
+      prev: 'Алдыңғы'
     },
     chatPrompt: {
       placeholder: 'Хабарламаңызды осында енгізіңіз...'
@@ -40,14 +40,14 @@ export default defineLocale<Messages>({
       light: 'Ашық',
       switchToDark: 'Қараңғы режимге ауысу',
       switchToLight: 'Ашық режимге ауысу',
-      system: 'Жүйелік'
+      system: 'Жүйе'
     },
     commandPalette: {
       back: 'Артқа',
       close: 'Жабу',
       noData: 'Деректер жоқ',
       noMatch: 'Сәйкестік табылмады',
-      placeholder: 'Пәрменді енгізіңіз немесе іздеу орындаңыз...'
+      placeholder: 'Бұйрық енгізіңіз немесе іздеңіз...'
     },
     contentSearch: {
       links: 'Нәтижелер',
@@ -58,6 +58,10 @@ export default defineLocale<Messages>({
     },
     contentToc: {
       title: 'Осы бетте'
+    },
+    dropdownMenu: {
+      noMatch: 'Сәйкес деректер жоқ',
+      search: 'Іздеу…'
     },
     dashboardSearch: {
       theme: 'Тақырып'
@@ -74,10 +78,10 @@ export default defineLocale<Messages>({
       open: 'Бүйір панельді ашу'
     },
     error: {
-      clear: 'Қайта көру'
+      clear: 'Қайтадан көру'
     },
     fileUpload: {
-      removeFile: '{filename} жөндеу'
+      removeFile: '{filename} файлын жою'
     },
     header: {
       close: 'Мәзірді жабу',
@@ -96,7 +100,7 @@ export default defineLocale<Messages>({
       close: 'Жабу'
     },
     pricingTable: {
-      caption: 'Бағдарлық жоспарларды салыстыру'
+      caption: 'Баға жоспарларын салыстыру'
     },
     prose: {
       codeCollapse: {
@@ -106,7 +110,7 @@ export default defineLocale<Messages>({
       },
       collapsible: {
         closeText: 'Жасыру',
-        name: 'қасиеттер',
+        name: 'сипаттамалар',
         openText: 'Көрсету'
       },
       pre: {
@@ -132,7 +136,7 @@ export default defineLocale<Messages>({
       open: 'Навигацияны ашу',
       close: 'Навигацияны жабу',
       slideoverTitle: 'Навигация',
-      slideoverDescription: 'Мазмұн бойынша навигация'
+      slideoverDescription: 'Мазмұн навигациясы'
     }
   }
 })

@@ -140,7 +140,7 @@ export default {
     {
       orientation: 'horizontal',
       size: 'md',
-      class: 'h-[8px]'
+      class: 'h-2'
     },
     {
       orientation: 'horizontal',
@@ -162,7 +162,7 @@ export default {
     {
       orientation: 'vertical',
       size: 'md',
-      class: 'w-[8px]'
+      class: 'w-2'
     },
     {
       orientation: 'vertical',

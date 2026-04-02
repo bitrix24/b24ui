@@ -26,7 +26,7 @@ export default {
     footer: [
       'flex items-center justify-between gap-[10px]',
       'border-t border-t-1 border-t-(--ui-color-divider-default)',
-      'pt-[18px]'
+      'pt-4.5'
     ].join(' '),
     title: [
       'font-[family-name:var(--ui-font-family-primary)]',

@@ -1,22 +1,20 @@
 <script setup lang="ts">
-import type { AvatarProps } from '@bitrix24/b24ui-nuxt'
+import type { DropdownMenuItem } from '@bitrix24/b24ui-nuxt'
 import { refDebounced } from '@vueuse/core'
-import UserIcon from '@bitrix24/b24icons-vue/common-b24/UserIcon'
-import Expand1Icon from '@bitrix24/b24icons-vue/actions/Expand1Icon'
+import HamburgerMenuIcon from '@bitrix24/b24icons-vue/outline/HamburgerMenuIcon'
 import SearchIcon from '@bitrix24/b24icons-vue/outline/SearchIcon'
 
 const searchTerm = ref('')
 const searchTermDebounced = refDebounced(searchTerm, 200)
 
 const { data: users, status, execute } = await useLazyFetch('https://jsonplaceholder.typicode.com/users', {
-  key: 'select-menu-users-search',
+  key: 'dropdown-menu-users-search',
   params: { q: searchTermDebounced },
   transform: (data: { id: number, name: string }[]) => {
     return data?.map(user => ({
       label: user.name,
-      value: String(user.id),
       avatar: { src: `https://i.pravatar.cc/120?img=${user.id}`, loading: 'lazy' as const }
-    }))
+    })) as DropdownMenuItem[]
   },
   immediate: false
 })
@@ -29,27 +27,18 @@ function onOpen() {
 </script>
 
 <template>
-  <B24SelectMenu
+  <B24DropdownMenu
     v-model:search-term="searchTerm"
-    :items="users"
-    :search-input="{
+    :items="users || []"
+    :filter="{
       icon: SearchIcon,
       loading: status === 'pending'
     }"
     ignore-filter
-    :icon="UserIcon"
-    :trailing-icon="Expand1Icon"
-    placeholder="Select user"
-    class="w-48"
+    :content="{ align: 'start' }"
+    :b24ui="{ content: 'w-48', viewport: 'w-48' }"
     @update:open="onOpen"
   >
-    <template #leading="{ modelValue, b24ui }">
-      <B24Avatar
-        v-if="modelValue"
-        v-bind="modelValue.avatar"
-        :size="(b24ui.leadingAvatarSize() as AvatarProps['size'])"
-        :class="b24ui.leadingAvatar()"
-      />
-    </template>
-  </B24SelectMenu>
+    <B24Button label="Open" :icon="HamburgerMenuIcon" />
+  </B24DropdownMenu>
 </template>

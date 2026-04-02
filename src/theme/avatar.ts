@@ -28,7 +28,7 @@ export default {
       },
       '2xs': {
         root: 'size-[20px] text-(length:--ui-font-size-4xs)/(--ui-font-line-height-reset) font-(--ui-font-weight-regular)',
-        icon: 'size-[18px]'
+        icon: 'size-4.5'
       },
       'xs': {
         root: 'size-[24px] text-(length:--ui-font-size-3xs)/(--ui-font-line-height-reset) font-(--ui-font-weight-regular)',

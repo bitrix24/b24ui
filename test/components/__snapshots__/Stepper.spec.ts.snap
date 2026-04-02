@@ -786,7 +786,7 @@ exports[`Stepper > renders with size sm horizontal correctly 1`] = `
         </button>
         <div data-orientation="horizontal" role="none" data-state="active" data-slot="separator" class="absolute rounded-(--ui-border-radius-circle) group-data-[disabled]:opacity-75 group-data-[state=completed]:bg-(--b24ui-background-active) bg-(--ui-color-base-6) top-[calc(50%-2px)] h-0.5 start-[calc(50%+20px)] end-[calc(-50%+20px)]"></div>
       </div>
-      <div data-slot="wrapper" class="mt-[8px]">
+      <div data-slot="wrapper" class="mt-2">
         <div id="reka-stepper-item-title-v-0-0-0" data-slot="title" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-legend-color) text-(length:--ui-font-size-sm)">Address</div>
         <div id="reka-stepper-item-description-v-0-0-1" data-slot="description" class="text-(--b24ui-typography-description-color) text-wrap text-(length:--ui-font-size-sm)">Add your address here</div>
       </div>
@@ -799,7 +799,7 @@ exports[`Stepper > renders with size sm horizontal correctly 1`] = `
         </button>
         <div data-orientation="horizontal" role="none" data-state="inactive" data-slot="separator" class="absolute rounded-(--ui-border-radius-circle) group-data-[disabled]:opacity-75 group-data-[state=completed]:bg-(--b24ui-background-active) bg-(--ui-color-base-6) top-[calc(50%-2px)] h-0.5 start-[calc(50%+20px)] end-[calc(-50%+20px)]"></div>
       </div>
-      <div data-slot="wrapper" class="mt-[8px]">
+      <div data-slot="wrapper" class="mt-2">
         <div id="reka-stepper-item-title-v-0-0-2" data-slot="title" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-legend-color) text-(length:--ui-font-size-sm)">Shipping</div>
         <div id="reka-stepper-item-description-v-0-0-3" data-slot="description" class="text-(--b24ui-typography-description-color) text-wrap text-(length:--ui-font-size-sm)">Set your preferred shipping method</div>
       </div>
@@ -810,7 +810,7 @@ exports[`Stepper > renders with size sm horizontal correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="mt-[8px]">
+      <div data-slot="wrapper" class="mt-2">
         <div id="reka-stepper-item-title-v-0-0-4" data-slot="title" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-legend-color) text-(length:--ui-font-size-sm)">Checkout</div>
         <div id="reka-stepper-item-description-v-0-0-5" data-slot="description" class="text-(--b24ui-typography-description-color) text-wrap text-(length:--ui-font-size-sm)">Confirm your order</div>
       </div>
@@ -832,7 +832,7 @@ exports[`Stepper > renders with size sm vertical correctly 1`] = `
         </button>
         <div data-orientation="vertical" role="none" data-state="active" data-slot="separator" class="absolute rounded-(--ui-border-radius-circle) group-data-[disabled]:opacity-75 group-data-[state=completed]:bg-(--b24ui-background-active) bg-(--ui-color-base-6) start-[calc(50%-1px)] -bottom-[10px] w-0.5 top-[38px]"></div>
       </div>
-      <div data-slot="wrapper" class="mt-[8px]">
+      <div data-slot="wrapper" class="mt-2">
         <div id="reka-stepper-item-title-v-0-0-0" data-slot="title" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-legend-color) text-(length:--ui-font-size-sm)">Address</div>
         <div id="reka-stepper-item-description-v-0-0-1" data-slot="description" class="text-(--b24ui-typography-description-color) text-wrap text-(length:--ui-font-size-sm)">Add your address here</div>
       </div>
@@ -845,7 +845,7 @@ exports[`Stepper > renders with size sm vertical correctly 1`] = `
         </button>
         <div data-orientation="vertical" role="none" data-state="inactive" data-slot="separator" class="absolute rounded-(--ui-border-radius-circle) group-data-[disabled]:opacity-75 group-data-[state=completed]:bg-(--b24ui-background-active) bg-(--ui-color-base-6) start-[calc(50%-1px)] -bottom-[10px] w-0.5 top-[38px]"></div>
       </div>
-      <div data-slot="wrapper" class="mt-[8px]">
+      <div data-slot="wrapper" class="mt-2">
         <div id="reka-stepper-item-title-v-0-0-2" data-slot="title" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-legend-color) text-(length:--ui-font-size-sm)">Shipping</div>
         <div id="reka-stepper-item-description-v-0-0-3" data-slot="description" class="text-(--b24ui-typography-description-color) text-wrap text-(length:--ui-font-size-sm)">Set your preferred shipping method</div>
       </div>
@@ -856,7 +856,7 @@ exports[`Stepper > renders with size sm vertical correctly 1`] = `
         </button>
         <!--v-if-->
       </div>
-      <div data-slot="wrapper" class="mt-[8px]">
+      <div data-slot="wrapper" class="mt-2">
         <div id="reka-stepper-item-title-v-0-0-4" data-slot="title" class="font-(--ui-font-weight-medium) text-(--b24ui-typography-legend-color) text-(length:--ui-font-size-sm)">Checkout</div>
         <div id="reka-stepper-item-description-v-0-0-5" data-slot="description" class="text-(--b24ui-typography-description-color) text-wrap text-(length:--ui-font-size-sm)">Confirm your order</div>
       </div>

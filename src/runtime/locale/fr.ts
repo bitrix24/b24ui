@@ -24,13 +24,13 @@ export default defineLocale<Messages>({
       prevYear: 'Année précédente'
     },
     carousel: {
-      dots: 'Sélectionner une diapositive à afficher',
+      dots: 'Sélectionner la diapositive à afficher',
       goto: 'Aller à {slide}',
       next: 'Suivant',
       prev: 'Précédent'
     },
     chatPrompt: {
-      placeholder: 'Entrez votre message ici...'
+      placeholder: 'Saisissez votre message ici...'
     },
     chatPromptSubmit: {
       label: 'Envoyer'
@@ -46,8 +46,8 @@ export default defineLocale<Messages>({
       back: 'Retour',
       close: 'Fermer',
       noData: 'Aucune donnée',
-      noMatch: 'Aucune correspondance trouvée',
-      placeholder: 'Entrez une commande ou recherchez...'
+      noMatch: 'Aucun résultat trouvé',
+      placeholder: 'Saisir une commande ou rechercher...'
     },
     contentSearch: {
       links: 'Résultats',
@@ -58,6 +58,10 @@ export default defineLocale<Messages>({
     },
     contentToc: {
       title: 'Sur cette page'
+    },
+    dropdownMenu: {
+      noMatch: 'Aucune donnée correspondante',
+      search: 'Rechercher…'
     },
     dashboardSearch: {
       theme: 'Thème'
@@ -86,7 +90,7 @@ export default defineLocale<Messages>({
     inputMenu: {
       create: 'Créer "{label}"',
       noData: 'Aucune donnée',
-      noMatch: 'Aucune correspondance trouvée'
+      noMatch: 'Aucun résultat trouvé'
     },
     inputNumber: {
       decrement: 'Décrémenter',
@@ -96,7 +100,7 @@ export default defineLocale<Messages>({
       close: 'Fermer'
     },
     pricingTable: {
-      caption: 'Comparaison des forfaits tarifaires'
+      caption: 'Comparaison des offres tarifaires'
     },
     prose: {
       codeCollapse: {
@@ -116,7 +120,7 @@ export default defineLocale<Messages>({
     selectMenu: {
       create: 'Créer "{label}"',
       noData: 'Aucune donnée',
-      noMatch: 'Aucune correspondance trouvée',
+      noMatch: 'Aucun résultat trouvé',
       search: 'Rechercher...'
     },
     slideover: {
