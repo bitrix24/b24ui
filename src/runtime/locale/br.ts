@@ -2,9 +2,9 @@ import type { Messages } from '../types'
 import { defineLocale } from '../composables/defineLocale'
 
 export default defineLocale<Messages>({
-  name: 'English',
-  code: 'en',
-  locale: 'en',
+  name: 'Português (Brasil)',
+  code: 'br',
+  locale: 'pt-BR',
   messages: {
     alert: {
       close: 'Fechar'
@@ -24,7 +24,7 @@ export default defineLocale<Messages>({
       prevYear: 'Ano anterior'
     },
     carousel: {
-      dots: 'Selecionar slide para exibir',
+      dots: 'Selecione o slide para exibir',
       goto: 'Ir para {slide}',
       next: 'Próximo',
       prev: 'Anterior'
@@ -38,8 +38,8 @@ export default defineLocale<Messages>({
     colorMode: {
       dark: 'Escuro',
       light: 'Claro',
-      switchToDark: 'Mudar para o modo escuro',
-      switchToLight: 'Mudar para o modo claro',
+      switchToDark: 'Mudar para modo escuro',
+      switchToLight: 'Mudar para modo claro',
       system: 'Sistema'
     },
     commandPalette: {
