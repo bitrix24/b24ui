@@ -38,21 +38,23 @@ async function translateText(
       messages: [{
         role: 'user',
         content: `Your task is to localize language phrases (the \`message\` field) from ${sourceLang} to ${targetLang}.
-Take the \`name\`, \`code\`, \`locale\`, and \`dir\` fields from this code:
+Take the \`name\`, \`code\`, \`locale\`, and \`dir\` fields from this code (destination file):
 \`\`\`ts
 ${targetText}
 \`\`\`
 
-Take the language phrases from the \`message\` field from this code:
+Take the language phrases from the \`message\` field from this code (source file):
 \`\`\`ts
 ${text}
 \`\`\`
 
 Important:
+- import block \`import ...\` save from destination file
+- declaration block save from destination file \`export default defineLocale<Messages>({\`
 - Keep all placeholders, such as {0} and {name}, unchanged.
 - Do not translate: ${EXCLUDED_WORDS.join(', ')}.
 - Never add explanations.
-- Return only the translation without additional text or quotes..`
+- Return only the result of the work, without explanations or unnecessary quotes.`
       }],
       temperature: 1.3
     })

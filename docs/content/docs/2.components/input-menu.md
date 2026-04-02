@@ -16,6 +16,10 @@ links:
     avatar:
       src: /b24ui/avatar/rekaui.svg
     to: https://reka-ui.com/docs/components/combobox
+  - label: Autocomplete
+    avatar:
+      src: /b24ui/avatar/rekaui.svg
+    to: https://reka-ui.com/docs/components/autocomplete
 ---
 
 ## Usage
@@ -252,6 +256,24 @@ props:
     - In Progress
     - Done
 ---
+::
+
+### Autocomplete :badge{label="Soon" class="align-text-top"}
+
+Use the `autocomplete` prop to turn the InputMenu into a free-form text input with suggestions. The `modelValue` becomes the input text (`string`) instead of a selected item.
+
+::component-example
+---
+name: 'input-menu-autocomplete-example'
+---
+::
+
+::caution
+When `autocomplete` is `true`, `multiple`, `by`, `resetSearchTermOnSelect` and `resetModelValueOnClear` are not applicable.
+::
+
+::tip
+Use the `content.hideWhenEmpty` prop to hide the menu when there are no matching suggestions.
 ::
 
 ### Content
