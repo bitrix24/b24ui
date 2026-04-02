@@ -2,13 +2,14 @@
 
 ## [2.5.4](https://github.com/bitrix24/b24ui/compare/v2.5.5...v2.5.4) (2026-04-xx)
 
+* feat(module)!: use `moduleDependencies` to manipulate options
 * feat(Tooltip): support global content configuration via App tooltip prop
-* chore(agents): add guide for coding agents
-* docs: improve build performance and client-side navigation
 * fix(Error): support `status` and `statusText` properties
 * fix(ContentSurround): handle RTL mode
-* chore(deps): update dependency reka-ui to v2.9.0
 * fix(Avatar): use resolved size for image width/height
+* chore(agents): add guide for coding agents
+* chore(deps): update dependency reka-ui to v2.9.0
+* docs: improve build performance and client-side navigation
 
 ## [2.5.3](https://github.com/bitrix24/b24ui/compare/v2.5.2...v2.5.3) (2026-03-30)
 
