@@ -10,6 +10,7 @@
 * chore(agents): add guide for coding agents
 * chore(deps): update dependency reka-ui to v2.9.0
 * docs: improve build performance and client-side navigation
+* docs(table): add column span example
 
 ## [2.5.3](https://github.com/bitrix24/b24ui/compare/v2.5.2...v2.5.3) (2026-03-30)
 
