@@ -94,14 +94,15 @@ defineShortcuts({
       <B24DashboardPanel
         :b24ui="{
           body: [
-            !route.path.startsWith('/components') && 'justify-center items-center',
             route.path.startsWith('/components') && 'mt-17',
             route.path.startsWith('/components/scroll-area') && 'p-0!'
           ]
         }"
       >
         <template #body>
-          <NuxtPage />
+          <div class="flex flex-col items-center justify-center min-h-full shrink-0">
+            <NuxtPage />
+          </div>
         </template>
       </B24DashboardPanel>
 

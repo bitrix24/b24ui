@@ -14,6 +14,7 @@
 * chore(agents): add guide for coding agents
 * chore(deps): update dependency reka-ui to v2.9.0
 * chore(translate-ui): add script with `ai`
+* playground: prevent component cutoff on small screen heights
 
 ## [2.5.3](https://github.com/bitrix24/b24ui/compare/v2.5.2...v2.5.3) (2026-03-30)
 
