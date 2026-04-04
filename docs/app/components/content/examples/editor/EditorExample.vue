@@ -751,6 +751,12 @@ const emojiItems: EditorEmojiMenuItem[] = gitHubEmojis.filter(emoji => !emoji.na
       }"
     />
 
+    <B24EditorSuggestionMenu :editor="editor" :items="suggestionItems" />
+
+    <B24EditorMentionMenu :editor="editor" :items="mentionItems" />
+
+    <B24EditorEmojiMenu :editor="editor" :items="emojiItems" />
+
     <B24EditorDragHandle v-slot="{ b24ui, onClick }" :editor="editor" @node-change="selectedNode = $event">
       <B24Button
         :icon="PlusLIcon"
@@ -782,10 +788,6 @@ const emojiItems: EditorEmojiMenuItem[] = gitHubEmojis.filter(emoji => !emoji.na
         />
       </B24DropdownMenu>
     </B24EditorDragHandle>
-
-    <B24EditorSuggestionMenu :editor="editor" :items="suggestionItems" />
-    <B24EditorMentionMenu :editor="editor" :items="mentionItems" />
-    <B24EditorEmojiMenu :editor="editor" :items="emojiItems" />
   </B24Editor>
 </template>
 

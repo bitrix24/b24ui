@@ -43,6 +43,8 @@ const suggestionItems: EditorSuggestionMenuItem[][] = [
     class="w-full min-h-35"
     :b24ui="{ base: 'p-8 sm:px-16' }"
   >
+    <B24EditorSuggestionMenu :editor="editor" :items="suggestionItems" />
+
     <B24EditorDragHandle v-slot="{ b24ui, onClick }" :editor="editor">
       <B24Button
         :icon="PlusLIcon"
@@ -64,7 +66,5 @@ const suggestionItems: EditorSuggestionMenuItem[][] = [
         :class="b24ui.handle()"
       />
     </B24EditorDragHandle>
-
-    <B24EditorSuggestionMenu :editor="editor" :items="suggestionItems" />
   </B24Editor>
 </template>

@@ -2,6 +2,9 @@
 
 ## [2.5.4](https://github.com/bitrix24/b24ui/compare/v2.5.5...v2.5.4) (2026-04-xx)
 
+@todo:
+- feat(Sidebar): new component
+
 * feat(module)!: use `moduleDependencies` to manipulate options
 * feat(Tooltip): support global content configuration via App tooltip prop
 * feat(DropdownMenu): add `filter` prop
@@ -13,6 +16,7 @@
 * fix(ProsePre): move shiki line highlight styles to theme
 * docs: improve build performance and client-side navigation
 * docs(table): add column span example
+* docs(editor): reorder drag handle as last child in examples
 * chore(agents): add guide for coding agents
 * chore(deps): update dependency reka-ui to v2.9.0
 * chore(translate-ui): add script with `ai`
