@@ -31,6 +31,9 @@ describe('Switch', () => {
     ...sizes.map((size: string) => [`with size ${size}`, { props: { size } }]),
     ['with color success', { props: { color: 'air-primary-success', defaultValue: true } }],
     ['with ariaLabel', { attrs: { 'aria-label': 'Aria label' } }],
+    ['with trueValue/falseValue as string', { props: { trueValue: 'on', falseValue: 'off', defaultValue: 'on' } }],
+    ['with trueValue/falseValue as number', { props: { trueValue: 1, falseValue: 0, defaultValue: 1 } }],
+    ['with trueValue/falseValue unchecked', { props: { trueValue: 'on', falseValue: 'off', defaultValue: 'off' } }],
     ['with as', { props: { as: 'section' } }],
     ['with class', { props: { class: 'inline-flex' } }],
     ['with b24ui', { props: { b24ui: { wrapper: 'ms-4' } } }],
@@ -64,6 +67,23 @@ describe('Switch', () => {
       const input = wrapper.findComponent({ name: 'SwitchRoot' })
       await input.vm.$emit('update:modelValue', true)
       expect(wrapper.emitted()).toMatchObject({ change: [[{ type: 'change' }]] })
+    })
+
+    test('toggle with custom trueValue/falseValue via click', async () => {
+      const wrapper = mount(Switch, {
+        props: { trueValue: 'on', falseValue: 'off', defaultValue: 'off' }
+      })
+      const button = wrapper.find('button')
+
+      await button.trigger('click')
+      await flushPromises()
+      expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['on'])
+      expect(wrapper.emitted('change')).toHaveLength(1)
+
+      await button.trigger('click')
+      await flushPromises()
+      expect(wrapper.emitted('update:modelValue')?.[1]).toEqual(['off'])
+      expect(wrapper.emitted('change')).toHaveLength(2)
     })
   })
 

@@ -6,6 +6,7 @@
 * feat(Tooltip): support global content configuration via App tooltip prop
 * feat(DropdownMenu): add `filter` prop
 * feat(InputMenu): add `autocomplete` prop
+* feat(Checkbox/Switch): add support for `trueValue` / `falseValue`
 * fix(Error): support `status` and `statusText` properties
 * fix(ContentSurround): handle RTL mode
 * fix(Avatar): use resolved size for image width/height
