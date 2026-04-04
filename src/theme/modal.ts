@@ -15,37 +15,37 @@ export default {
     content: [
       'base-mode',
       'bg-(--ui-color-bg-content-primary)',
-      'flex flex-col gap-[20px]',
-      'focus:outline-none',
-      'p-[24px] pt-[20px]'
+      'flex flex-col gap-1',
+      'focus:outline-none'
     ].join(' '),
-    contentWrapper: 'flex flex-col gap-[15px] pt-[4px]',
-    header: 'flex items-start justify-between gap-[6px]',
-    wrapper: '',
-    body: 'flex-1 text-(length:--ui-font-size-md) leading-normal',
+    contentWrapper: 'flex flex-col gap-1',
+    header: 'px-4 py-4 pb-4 sm:px-6 flex items-stretch justify-between gap-1.5 min-h-(--b24ui-header-height)',
+    wrapper: 'min-h-full flex-1 flex flex-col items-start justify-center gap-1',
+    body: 'px-4 pb-4 sm:px-6 flex-1 text-(length:--ui-font-size-md) leading-normal',
     footer: [
-      'flex items-center justify-between gap-[10px]',
-      'border-t border-t-1 border-t-(--ui-color-divider-default)',
-      'pt-4.5'
+      'px-4 pt-4.5 pb-4 sm:px-6',
+      'flex items-center justify-between gap-2.5',
+      'border-t border-t-1 border-t-(--ui-color-divider-default)'
     ].join(' '),
     title: [
       'font-[family-name:var(--ui-font-family-primary)]',
       'text-(--b24ui-typography-label-color)',
       'font-(--ui-font-weight-medium)',
       'mb-0',
-      'text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)'
+      'text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)',
+      'break-words'
     ].join(' '),
     description: [
-      'mt-1',
       'text-(--b24ui-typography-description-color)',
-      'text-(length:--ui-font-size-sm)'
+      'text-(length:--ui-font-size-sm)',
+      'break-words'
     ].join(' '),
-    close: '-mt-[4px]'
+    close: '-mt-0.5'
   },
   variants: {
     overlayBlur: {
-      auto: { overlay: 'motion-safe:backdrop-blur-[2px]' },
-      on: { overlay: 'backdrop-blur-[2px]' },
+      auto: { overlay: 'motion-safe:backdrop-blur-0.5' },
+      on: { overlay: 'backdrop-blur-0.5' },
       off: { overlay: '' }
     },
     transition: {

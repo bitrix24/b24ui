@@ -23,14 +23,14 @@ export default {
       'h-full'
     ].join(' '),
     header: [
-      'py-[20px] px-[20px]',
-      'flex items-center gap-x-[12px] gap-y-1.5',
-      'overflow-hidden'
+      'py-5 px-5',
+      'flex items-center gap-x-3 gap-y-1.5'
+      // 'overflow-hidden'
     ].join(' '),
-    wrapper: 'min-h-[30px]',
+    wrapper: '',
     body: [
       'size-full',
-      'flex-1 overflow-y-auto pb-2.5 px-[20px]'
+      'flex-1 overflow-y-auto pb-2.5 px-5'
     ].join(' '),
     footer: [
       'absolute inset-x-0 bottom-0',
@@ -78,18 +78,20 @@ export default {
         content: ''
       },
       right: {
-        content: '' // sm:rounded-t-none
+        content: '', // sm:rounded-t-none
+        header: 'py-1 min-h-(--b24ui-header-height)'
       },
       bottom: {
         content: ''
       },
       left: {
-        content: '' // sm:rounded-t-none
+        content: '', // sm:rounded-t-none
+        header: 'py-1 min-h-(--b24ui-header-height)'
       }
     },
     inset: {
       true: {
-        content: 'rounded-4.5'
+        content: 'rounded-[18px]'
       }
     },
     transition: {
@@ -163,7 +165,7 @@ export default {
         content: [
           'max-h-full sm:max-h-[calc(100%-18px)] right-[5px] top-0 sm:top-4.5 bottom-0',
           'w-[calc(100%-60px-5px)] sm:w-[calc(100%-150px-70px)]',
-          'sm:rounded-t-4.5'
+          'sm:rounded-t-[18px]'
         ].join(' ')
       }
     },
