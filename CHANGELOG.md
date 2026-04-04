@@ -10,6 +10,7 @@
 * fix(Error): support `status` and `statusText` properties
 * fix(ContentSurround): handle RTL mode
 * fix(Avatar): use resolved size for image width/height
+* fix(ProsePre): move shiki line highlight styles to theme
 * docs: improve build performance and client-side navigation
 * docs(table): add column span example
 * chore(agents): add guide for coding agents

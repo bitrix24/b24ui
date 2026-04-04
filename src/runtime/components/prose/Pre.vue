@@ -73,16 +73,3 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.prose?
     <pre data-slot="base" :class="b24ui.base({ class: [uiProp?.base, props.class] })" v-bind="$attrs"><slot /></pre>
   </div>
 </template>
-
-<style>
-.shiki span.line {
-  display: block;
-}
-
-.shiki span.line.highlight {
-  margin: 0 -16px;
-  padding: 0 16px;
-
-  @apply bg-(--ui-color-g-plastic-bluish-bg)/30;
-}
-</style>

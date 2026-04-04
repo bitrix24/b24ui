@@ -36,7 +36,10 @@ export default {
       'whitespace-pre-wrap',
       'break-words',
       'overflow-x-auto',
-      'focus:outline-none'
+      'focus:outline-none',
+      '**:[.line]:block',
+      '**:[.line.highlight]:-mx-4 **:[.line.highlight]:px-4',
+      '**:[.line.highlight]:bg-(--ui-color-g-plastic-bluish-bg)/30!'
     ].join(' ')
   },
   variants: {
