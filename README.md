@@ -1,5 +1,10 @@
 # Bitrix24 UI
 
+[![npm version][npm-version-src]][npm-version-href]
+[![npm downloads][npm-downloads-src]][npm-downloads-href]
+[![License][license-src]][license-href]
+[![Bitrix24 UI][b24ui-src]][b24ui-href]
+
 Bitrix24 UI for developing web applications REST API for NUXT & VUE
 
 Find more details in the [documentation](https://bitrix24.github.io/b24ui/)
@@ -99,3 +104,16 @@ Learn more in the [installation guide](https://bitrix24.github.io/b24ui/docs/get
 - [unovue/reka-ui](https://github.com/unovue/reka-ui)
 - [tailwindlabs/tailwindcss](https://github.com/tailwindlabs/tailwindcss)
 - [vueuse/vueuse](https://github.com/vueuse/vueuse)
+
+<!-- Badges -->
+[npm-version-src]: https://img.shields.io/npm/v/@bitrix24/b24ui-nuxt.svg?style=flat&colorA=020420&colorB=2fc6f6
+[npm-version-href]: https://www.npmjs.com/package/@bitrix24/b24ui-nuxt
+
+[npm-downloads-src]: https://img.shields.io/npm/dm/@bitrix24/b24ui-nuxt.svg?style=flat&colorA=020420&colorB=2fc6f6
+[npm-downloads-href]: https://npm.chart.dev/@bitrix24/b24ui-nuxt
+
+[license-src]: https://img.shields.io/github/license/bitrix24/b24ui.svg?style=flat&colorA=020420&colorB=2fc6f6
+[license-href]: https://github.com/bitrix24/b24ui/blob/main/LICENSE
+
+[b24ui-src]: https://img.shields.io/badge/Bitrix24%20-UI%20Kit-2fc6f6?labelColor=020420
+[b24ui-href]: https://apidocs.bitrix24.com/
