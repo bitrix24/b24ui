@@ -2,10 +2,8 @@
 
 ## [2.5.4](https://github.com/bitrix24/b24ui/compare/v2.5.5...v2.5.4) (2026-04-xx)
 
-@todo:
-- feat(Sidebar): new component
-
 * feat(module)!: use `moduleDependencies` to manipulate options
+* feat(Sidebar): new component
 * feat(Tooltip): support global content configuration via App tooltip prop
 * feat(DropdownMenu): add `filter` prop
 * feat(InputMenu): add `autocomplete` prop
@@ -14,6 +12,7 @@
 * fix(ContentSurround): handle RTL mode
 * fix(Avatar): use resolved size for image width/height
 * fix(ProsePre): move shiki line highlight styles to theme
+* fix(Modal|Slideover): improve theme
 * docs: improve build performance and client-side navigation
 * docs(table): add column span example
 * docs(editor): reorder drag handle as last child in examples

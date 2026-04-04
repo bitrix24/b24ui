@@ -276,7 +276,7 @@ const openSliderTopAndBottomVer2 = async () => {
       class="edge-dark"
       :b24ui="{
         content: 'max-h-[56px] sm:shadow-none bg-transparent dark:bg-transparent',
-        header: 'ps-[86px]'
+        header: 'ps-[86px] py-3'
       }"
     >
       <template #header>
@@ -382,7 +382,7 @@ const openSliderTopAndBottomVer2 = async () => {
       class="edge-dark"
       :b24ui="{
         content: 'max-h-[56px] sm:shadow-none bg-transparent dark:bg-transparent',
-        header: 'ps-[86px]'
+        header: 'ps-[86px] py-3'
       }"
     >
       <template #header>
