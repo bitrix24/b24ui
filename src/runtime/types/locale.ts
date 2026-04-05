@@ -120,6 +120,10 @@ export type Messages = {
       copy: string
     }
   }
+  sidebar: {
+    close: string
+    toggle: string
+  }
   selectMenu: {
     create: string
     noData: string
