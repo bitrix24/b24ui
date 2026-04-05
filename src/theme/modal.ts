@@ -15,24 +15,28 @@ export default {
     content: [
       'base-mode',
       'bg-(--ui-color-bg-content-primary)',
-      'flex flex-col gap-1',
+      'flex flex-col gap-0',
       'focus:outline-none'
     ].join(' '),
-    contentWrapper: 'flex flex-col gap-1',
-    header: 'px-4 py-4 pb-4 sm:px-6 flex items-stretch justify-between gap-1.5 min-h-(--b24ui-header-height)',
-    wrapper: 'min-h-full flex-1 flex flex-col items-start justify-center gap-1',
-    body: 'px-4 pb-4 sm:px-6 flex-1 text-(length:--ui-font-size-md) leading-normal',
+    contentWrapper: 'flex-1 flex flex-col gap-0',
+    header: 'px-4 py-4 sm:px-6 flex items-stretch justify-between gap-1.5 min-h-(--b24ui-header-height)',
+    wrapper: 'min-h-full flex-1 flex flex-col items-start justify-center gap-0',
+    body: [
+      'px-4 sm:px-6 flex-1 text-(length:--ui-font-size-md) leading-normal',
+      'text-(--ui-color-base-2)',
+      'text-(length:--ui-font-size-md)'
+    ].join(' '),
     footer: [
-      'px-4 pt-4.5 pb-4 sm:px-6',
-      'flex items-center justify-between gap-2.5',
-      'border-t border-t-1 border-t-(--ui-color-divider-default)'
+      'px-4 py-4 sm:px-6 sm:py-6',
+      'flex items-center justify-between gap-3'
+      // 'border-t border-t-1 border-t-(--ui-color-divider-default)'
     ].join(' '),
     title: [
       'font-[family-name:var(--ui-font-family-primary)]',
-      'text-(--b24ui-typography-label-color)',
-      'font-(--ui-font-weight-medium)',
+      'text-(--ui-color-base-1)',
+      'font-(--ui-font-weight-bold)',
       'mb-0',
-      'text-[calc(var(--ui-font-size-2xl)+2px)]/(--ui-font-size-2xl)',
+      'text-[calc(var(--ui-font-size-2xl)+1px)]/(--ui-font-size-2xl)',
       'break-words'
     ].join(' '),
     description: [
@@ -40,7 +44,7 @@ export default {
       'text-(length:--ui-font-size-sm)',
       'break-words'
     ].join(' '),
-    close: '-mt-0.5'
+    close: '[--ui-btn-height:24px]'
   },
   variants: {
     overlayBlur: {
@@ -56,18 +60,18 @@ export default {
     },
     fullscreen: {
       true: {
-        content: 'inset-0'
+        content: 'inset-0',
+        // header: 'border-b-1 border-b-(--ui-color-divider-default)',
+        body: 'py-4'
       },
       false: {
         content: [
-          // // 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
           'w-[calc(100vw-2rem)] max-w-[32rem]',
-          // // 'max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)]',
-          'rounded-[calc(var(--ui-border-radius-xl)-2px)] shadow-lg'
+          'rounded-[calc(var(--ui-border-radius-2xl)+2px)] shadow-lg'
           // @memo see components/popup.css
           // 'ring ring-(--popup-window-border)'
         ].join(' '),
-        contentWrapper: '' // //  overflow-hidden
+        contentWrapper: '' // overflow-hidden
       }
     },
     overlay: {
@@ -107,6 +111,14 @@ export default {
           'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
           'max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-4rem)]' // //  overflow-hidden
         ].join(' '),
+        contentWrapper: 'overflow-hidden'
+      }
+    },
+    {
+      scrollable: false,
+      fullscreen: true,
+      class: {
+        content: 'max-h-[calc(100dvh)]',
         contentWrapper: 'overflow-hidden'
       }
     }
