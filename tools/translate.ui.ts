@@ -43,14 +43,15 @@ Take the \`name\`, \`code\`, \`locale\`, and \`dir\` fields from this code (dest
 ${targetText}
 \`\`\`
 
-Take the language phrases from the \`message\` field from this code (source file):
+Take all language phrases from the \`message\` field in this code (source file):
 \`\`\`ts
 ${text}
 \`\`\`
 
 Important:
-- import block \`import ...\` save from destination file
-- declaration block save from destination file \`export default defineLocale<Messages>({\`
+- The source data may contain new blocks. These need to be translated and inserted into the final data.
+- Import block \`import ...\` save from destination file
+- Declaration block save from destination file \`export default defineLocale<Messages>({\`
 - Keep all placeholders, such as {0} and {name}, unchanged.
 - Do not translate: ${EXCLUDED_WORDS.join(', ')}.
 - Never add explanations.
