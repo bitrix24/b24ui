@@ -137,6 +137,10 @@ export default defineLocale<Messages>({
       close: 'Cerrar navegación',
       slideoverTitle: 'Navegación',
       slideoverDescription: 'Navegación de contenido'
+    },
+    sidebar: {
+      close: 'Cerrar',
+      toggle: 'Alternar'
     }
   }
 })

@@ -117,6 +117,10 @@ export default defineLocale<Messages>({
         copy: 'कॉपी करें'
       }
     },
+    sidebar: {
+      close: 'बंद करें',
+      toggle: 'टॉगल करें'
+    },
     selectMenu: {
       create: '"{label}" बनाएं',
       noData: 'कोई डेटा नहीं',

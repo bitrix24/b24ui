@@ -117,6 +117,10 @@ export default defineLocale<Messages>({
         copy: 'Копіювати'
       }
     },
+    sidebar: {
+      close: 'Закрити',
+      toggle: 'Перемкнути'
+    },
     selectMenu: {
       create: 'Створити "{label}"',
       noData: 'Немає даних',

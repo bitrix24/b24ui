@@ -117,6 +117,10 @@ export default defineLocale<Messages>({
         copy: 'Copia'
       }
     },
+    sidebar: {
+      close: 'Chiudi',
+      toggle: 'Attiva/Disattiva'
+    },
     selectMenu: {
       create: 'Crea "{label}"',
       noData: 'Nessun dato',

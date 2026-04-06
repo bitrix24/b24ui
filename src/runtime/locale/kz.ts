@@ -117,6 +117,10 @@ export default defineLocale<Messages>({
         copy: 'Көшіру'
       }
     },
+    sidebar: {
+      close: 'Жабу',
+      toggle: 'Ауыстыру'
+    },
     selectMenu: {
       create: '"{label}" жасау',
       noData: 'Деректер жоқ',

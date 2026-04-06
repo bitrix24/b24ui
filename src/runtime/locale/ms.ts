@@ -117,6 +117,10 @@ export default defineLocale<Messages>({
         copy: 'Salin'
       }
     },
+    sidebar: {
+      close: 'Tutup',
+      toggle: 'Togol'
+    },
     selectMenu: {
       create: 'Cipta "{label}"',
       noData: 'Tiada data',

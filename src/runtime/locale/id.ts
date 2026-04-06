@@ -117,6 +117,10 @@ export default defineLocale<Messages>({
         copy: 'Salin'
       }
     },
+    sidebar: {
+      close: 'Tutup',
+      toggle: 'Alihkan'
+    },
     selectMenu: {
       create: 'Buat "{label}"',
       noData: 'Tidak ada data',

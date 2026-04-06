@@ -117,6 +117,10 @@ export default defineLocale<Messages>({
         copy: 'Sao chép'
       }
     },
+    sidebar: {
+      close: 'Đóng',
+      toggle: 'Chuyển đổi'
+    },
     selectMenu: {
       create: 'Tạo "{label}"',
       noData: 'Không có dữ liệu',
