@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { ToasterProps } from '@bitrix24/b24ui-nuxt'
+
 const appConfig = useAppConfig()
 </script>
 
@@ -8,7 +10,7 @@ const appConfig = useAppConfig()
       label="toaster.max"
     >
       <B24InputNumber
-        v-model="appConfig.toaster.max"
+        v-model="(appConfig.toaster as ToasterProps).max"
         :min="0"
         :max="100"
       />

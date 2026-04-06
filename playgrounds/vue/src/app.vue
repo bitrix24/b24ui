@@ -105,7 +105,11 @@ defineShortcuts({
         </template>
       </B24DashboardSidebar>
 
+      <Suspense v-if="route.path.startsWith('/components/sidebar')">
+        <RouterView />
+      </Suspense>
       <B24DashboardPanel
+        v-else
         :b24ui="{
           body: [
             route.path.startsWith('/components') && 'mt-17',

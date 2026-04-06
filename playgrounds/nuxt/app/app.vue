@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { Direction, ToasterProps } from '@bitrix24/b24ui-nuxt'
 import HamburgerMenuIcon from '@bitrix24/b24icons-vue/outline/HamburgerMenuIcon'
 
 const route = useRoute()
@@ -6,6 +7,10 @@ const router = useRouter()
 const appConfig = useAppConfig()
 const { components, groups, items } = useNavigation()
 const { colorList, colorModel, syncColorModePreference, toggleDarkMode } = useThemeMode()
+
+const dir = computed(() => {
+  return appConfig.dir as Direction | undefined
+})
 
 useHead({
   title: 'Bitrix24 UI - Playground',
@@ -15,7 +20,7 @@ useHead({
   ],
   htmlAttrs: {
     lang: 'en',
-    dir: computed(() => appConfig.dir)
+    dir
   }
 })
 
@@ -35,7 +40,7 @@ defineShortcuts({
 </script>
 
 <template>
-  <B24App :toaster="appConfig.toaster" :dir="appConfig.dir">
+  <B24App :toaster="appConfig.toaster as ToasterProps" :dir="dir">
     <B24DashboardGroup unit="px" storage="local">
       <B24DashboardSidebar
         id="default"
@@ -91,7 +96,9 @@ defineShortcuts({
         </template>
       </B24DashboardSidebar>
 
+      <NuxtPage v-if="route.path.startsWith('/components/sidebar')" />
       <B24DashboardPanel
+        v-else
         :b24ui="{
           body: [
             route.path.startsWith('/components') && 'mt-17',

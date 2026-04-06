@@ -49,4 +49,14 @@
   --border-color-muted: var(--ui-color-design-tinted-na-stroke);
   --border-color-accented: var(--ui-color-accent-soft-element-blue);
   --border-color-bg: var(--ui-color-bg-content-primary);
+
+  --ring-color-default: var(--ui-color-divider-default);
+  --ring-color-muted: var(--ui-color-divider-less);
+  --ring-color-accented: var(--ui-color-divider-accent);
+  --ring-color-bg: var(--ui-color-bg-content-primary);
+
+  --divide-color-default: var(--ui-color-divider-default);
+  --divide-color-muted: var(--ui-color-divider-less);
+  --divide-color-accented: var(--ui-color-divider-accent);
+  --divide-color-bg: var(--ui-color-bg-content-primary);
 }

@@ -36,7 +36,7 @@ defineShortcuts({
       left: 'shrink-0',
       right: 'shrink overflow-x-auto py-2'
     }"
-    class="absolute top-0 inset-x-0 z-5 backdrop-blur-md bg-(--ui-color-base-0)/5"
+    class="absolute top-0 inset-x-0 z-5"
   >
     <template #leading>
       <B24FieldGroup size="sm">

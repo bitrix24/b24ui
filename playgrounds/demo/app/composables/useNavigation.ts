@@ -80,6 +80,7 @@ const components = [
   'select',
   'separator',
   'shortcuts',
+  'sidebar',
   'skeleton',
   'slideover',
   'range',

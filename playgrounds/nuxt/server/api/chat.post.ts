@@ -11,9 +11,10 @@ export default defineEventHandler(async (event) => {
   return streamText({
     model: deepseek('deepseek-reasoner'),
     maxOutputTokens: 1000,
-    system: `You are a helpful assistant for Bitrix24 UI, a UI library for Nuxt and Vue.`,
+    system: `You are a helpful assistant. When answering questions, search the web for up-to-date information when relevant.`,
     messages: await convertToModelMessages(messages),
-    stopWhen: stepCountIs(6),
+    stopWhen: stepCountIs(2),
+    tools: {},
     providerOptions: {
       openai: {
         reasoningEffort: 'low',

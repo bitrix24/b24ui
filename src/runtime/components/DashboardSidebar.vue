@@ -76,7 +76,7 @@ const props = withDefaults(defineProps<DashboardSidebarProps<T>>(), {
   toggle: true,
   toggleSide: 'left',
   minSize: 200,
-  defaultSize: 240,
+  defaultSize: 240, // 15rem
   maxSize: 250,
   resizable: false,
   collapsible: false,

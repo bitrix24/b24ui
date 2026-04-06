@@ -283,7 +283,7 @@ export {}
 }
 
 export function addTemplates(options: ModuleOptions, nuxt: Nuxt, resolve: Resolver['resolve']) {
-  const templates = getTemplates(options, nuxt.options.appConfig.b24ui, nuxt, resolve)
+  const templates = getTemplates(options, (nuxt.options.appConfig.b24ui ?? {}) as Record<string, any>, nuxt, resolve)
   for (const template of templates) {
     if (template.filename!.endsWith('.d.ts')) {
       addTypeTemplate(template as NuxtTypeTemplate)

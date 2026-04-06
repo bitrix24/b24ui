@@ -1,4 +1,4 @@
-import type { Direction } from '@bitrix24/b24ui-nuxt'
+import type { Direction, ToasterProps } from '@bitrix24/b24ui-nuxt'
 
 export default defineAppConfig({
   dir: 'ltr' as Direction,
@@ -8,7 +8,7 @@ export default defineAppConfig({
     max: 5,
     expand: true,
     disableSwipe: false
-  },
+  } as ToasterProps,
   b24ui: {},
   colorMode: true,
   colorModeInitialValue: 'edge-dark' as const,

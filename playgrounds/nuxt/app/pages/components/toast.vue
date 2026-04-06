@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { ToasterProps } from '@bitrix24/b24ui-nuxt'
 import theme from '#build/b24ui/toaster'
 import themeToast from '#build/b24ui/toast'
 import { useAppConfig } from '#imports'
@@ -160,26 +161,26 @@ function removeToast() {
 <template>
   <PlaygroundPage>
     <template #controls>
-      <B24Select v-model="appConfig.toaster.position" size="xs" placeholder="Position" :items="positions" />
+      <B24Select v-model="(appConfig.toaster as ToasterProps).position" size="xs" placeholder="Position" :items="positions" />
       <B24FormField
         label="Duration"
-        :hint="`${appConfig.toaster.duration} ms.`"
+        :hint="`${(appConfig.toaster as ToasterProps).duration} ms.`"
         name="duration"
         size="xs"
         class="min-w-32"
       >
         <B24Range
-          v-model="appConfig.toaster.duration"
+          v-model="(appConfig.toaster as ToasterProps).duration"
           aria-label="Duration"
           :min="1000"
           :max="50000"
           :step="500"
         />
       </B24FormField>
-      <B24Input v-model="appConfig.toaster.max" size="xs" placeholder="Max" type="number" class="min-w-24 w-24" />
+      <B24Input v-model="(appConfig.toaster as ToasterProps).max" size="xs" placeholder="Max" type="number" class="min-w-24 w-24" />
 
-      <B24Switch v-model="appConfig.toaster.disableSwipe" size="xs" label="DisableSwipe" />
-      <B24Switch v-model="appConfig.toaster.expand" size="xs" label="Expand" />
+      <B24Switch v-model="(appConfig.toaster as ToasterProps).disableSwipe" size="xs" label="DisableSwipe" />
+      <B24Switch v-model="(appConfig.toaster as ToasterProps).expand" size="xs" label="Expand" />
       <B24Switch v-model="isShowProgress" size="xs" label="isShowProgress" />
     </template>
 

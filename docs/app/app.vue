@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { ToasterProps } from '@bitrix24/b24ui-nuxt'
 import { withTrailingSlash } from 'ufo'
 
 const route = useRoute()
@@ -48,7 +49,7 @@ provide('files', files)
 </script>
 
 <template>
-  <B24App :toaster="appConfig.toaster">
+  <B24App :toaster="appConfig.toaster as ToasterProps">
     <NuxtLoadingIndicator color="var(--ui-color-design-filled-warning-bg)" :height="3" />
 
     <div

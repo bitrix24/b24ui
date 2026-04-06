@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { ToasterProps } from '@bitrix24/b24ui-nuxt'
+
 const appConfig = useAppConfig()
 </script>
 
@@ -8,7 +10,7 @@ const appConfig = useAppConfig()
       label="toaster.expand"
     >
       <B24SelectMenu
-        v-model="appConfig.toaster.expand"
+        v-model="(appConfig.toaster as ToasterProps).expand"
         :items="[true, false]"
         :search-input="false"
       />

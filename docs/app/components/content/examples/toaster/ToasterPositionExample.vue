@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { ToasterProps } from '@bitrix24/b24ui-nuxt'
 import theme from '#build/b24ui/toaster'
 
 const positions = Object.keys(theme.variants.position)
@@ -11,7 +12,7 @@ const appConfig = useAppConfig()
       label="toaster.position"
     >
       <B24SelectMenu
-        v-model="appConfig.toaster.position"
+        v-model="(appConfig.toaster as ToasterProps).position"
         :items="positions"
         :search-input="false"
       />

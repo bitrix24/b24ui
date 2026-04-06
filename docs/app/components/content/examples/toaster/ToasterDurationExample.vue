@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { ToasterProps } from '@bitrix24/b24ui-nuxt'
+
 const appConfig = useAppConfig()
 </script>
 
@@ -8,7 +10,7 @@ const appConfig = useAppConfig()
       label="toaster.duration"
     >
       <B24InputNumber
-        v-model="appConfig.toaster.duration"
+        v-model="(appConfig.toaster as ToasterProps).duration"
         :min="0"
         :format-options="{ style: 'decimal' }"
       />
