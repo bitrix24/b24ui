@@ -172,7 +172,7 @@ const urlSearchParams = computed(() => {
 </script>
 
 <template>
-  <div ref="el" class="my-5">
+  <div ref="el" class="my-5" :style="{ '--b24ui-header-height': '3.625rem' }">
     <template v-if="preview">
       <div
         ref="wrapperContainer"

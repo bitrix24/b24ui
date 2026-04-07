@@ -4,7 +4,7 @@ description: 'A collapsible sidebar with multiple visual style options.'
 category: layout
 links:
   - label: GitHub
-    icon: i-simple-icons-github
+    iconName: GitHubIcon
     to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Sidebar.vue
   - label: Demo
     iconName: DemonstrationOnIcon
@@ -12,7 +12,7 @@ links:
   - label: Nuxt UI
     iconName: NuxtIcon
     to: https://ui.nuxt.com/docs/components/sidebar
-navigation.badge: New
+navigation.badge: Soon
 ---
 
 ::warning
@@ -378,7 +378,7 @@ class: '!p-0 !justify-start h-[500px] contain-[paint]'
 ::
 
 ::note
-The `--ui-header-height` variable defaults to `4rem` and is used by the Header. Adjust it if your navbar uses a different height.
+The `--b24ui-header-height` variable defaults to `3.625rem` and is used by the Header. Adjust it if your navbar uses a different height.
 ::
 
 ### With AI chat

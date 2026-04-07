@@ -508,7 +508,7 @@ const { data: ast } = useAsyncData(codeKey, async () => {
 </script>
 
 <template>
-  <div class="my-5">
+  <div class="my-5" :style="{ '--b24ui-header-height': '3.625rem' }">
     <div ref="wrapperContainer" class="relative group/component">
       <div
         v-if="options.length"
