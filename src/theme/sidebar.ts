@@ -20,7 +20,10 @@ export default {
     rail: [
       'absolute inset-y-0 z-20 hidden w-4 transition-all ease-linear after:absolute after:inset-y-0 after:left-1/2 after:w-px lg:flex hover:after:bg-(--ui-color-divider-accent)',
       'after:transition-colors'
-    ].join(' ')
+    ].join(' '),
+    // @memo For compatibility with DashboardSidebar & Header
+    content: '',
+    overlay: ''
   },
   variants: {
     side: {

@@ -197,15 +197,33 @@ const Menu = computed(() => ({
   drawer: B24Drawer
 })[props.mode as SidebarMode])
 
-const menuProps = toRef(() => defu(props.menu, {
-  title: props.title,
-  description: props.description,
-  close: props.close,
-  closeIcon: props.closeIcon,
-  content: {
-    onOpenAutoFocus: (e: Event) => e.preventDefault()
-  }
-}, props.mode === 'modal' ? { } : props.mode === 'slideover' ? { side: props.side, inset: props.variant === 'inset' } : {}) as SidebarMenu<T>)
+const menuProps = toRef(() => {
+  const modeSettings = props.mode === 'modal'
+    ? { fullscreen: true, transition: false, b24ui: { content: 'p-0 pt-0' } }
+    : props.mode === 'slideover'
+      ? { side: props.side, inset: props.variant === 'inset', close: false }
+      : {}
+
+  return defu(
+    props.menu,
+    {
+      title: props.title,
+      description: props.description,
+      close: props.close,
+      closeIcon: props.closeIcon
+    },
+    { content: { onOpenAutoFocus: (e: Event) => e.preventDefault() } },
+    modeSettings,
+    {
+      b24ui: {
+        overlay: b24ui.value.overlay({ class: uiProp.value?.overlay }),
+        content: b24ui.value.content({
+          class: [modeSettings.b24ui?.content, uiProp.value?.content]
+        })
+      }
+    }
+  ) as SidebarMenu<T>
+})
 </script>
 
 <template>

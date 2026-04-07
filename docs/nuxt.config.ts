@@ -56,6 +56,7 @@ const pages = [
   '/docs/components/kbd/',
   '/docs/components/progress/',
   '/docs/components/separator/',
+  '/docs/components/sidebar/',
   '/docs/components/skeleton/',
   // endregion ////
   // region Form ////

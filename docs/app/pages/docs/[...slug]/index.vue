@@ -24,7 +24,12 @@ definePageMeta({
   layout: 'docs'
 })
 
-const { isEnabled, open } = useAssistant()
+// @memo this for NUXT.UI.docs
+const { open, messages } = useChat()
+const isOpen = computed(() => open.value)
+// @memo this for docus
+const { isEnabled } = useAssistant()
+// const { isEnabled, open, isOpen } = useAssistant()
 
 const { data: page } = await useAsyncData(kebabCase(pageUrl), () => queryCollection('docs').path(pageUrl).first())
 if (!page.value) {
@@ -154,6 +159,22 @@ const cardColorContext = computed(() => {
 onMounted(() => {
   isMounted.value = true
 })
+
+function makeExplain() {
+  // @memo this for NUXT.UI.docs
+  messages.value = [
+    ...messages.value,
+    {
+      id: String(Date.now()),
+      role: 'user',
+      parts: [{ type: 'text', text: `Read the documentation page at ${page.value?.path} and summarize it. I want to ask questions about it.` }]
+    }
+  ]
+  open.value = true
+
+  // @memo this for docus
+  // openAIChat(`Explain the page ${pageUrl}`, true)
+}
 </script>
 
 <template>
@@ -192,7 +213,7 @@ onMounted(() => {
           label="Explain with AI"
           color="air-selection"
           size="sm"
-          @click="open(`Explain the page ${pageUrl}`, true)"
+          @click="makeExplain"
         />
         <PageHeaderLinks />
         <B24DropdownMenu
@@ -238,7 +259,7 @@ onMounted(() => {
       </B24Card>
     </B24PageBody>
 
-    <template v-if="page?.body?.toc?.links?.length" #right>
+    <template v-if="page?.body?.toc?.links?.length && !isOpen" #right>
       <B24ContentToc
         :links="page.body.toc.links"
         class="sticky top-(--b24ui-header-height) px-3 py-3 pb-0 lg:p-4 lg:top-(--b24ui-header-height) scrollbar-thin scrollbar-transparent bg-(--ui-color-accent-soft-element-violet)/60 dark:bg-(--ui-color-copilot-bg-content-3)/40 lg:bg-transparent dark:lg:bg-transparent backdrop-blur-md lg:ms-0 overflow-y-auto max-h-[calc(100vh-var(--b24ui-header-height))] lg:col-span-2 order-first lg:order-last z-2"

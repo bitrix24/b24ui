@@ -15,7 +15,7 @@ defineProps<{
   navigation?: ContentNavigationItem[]
 }>()
 
-const { links, groups, fullscreen, searchTerm } = useSearch()
+const { links, groups, searchTerm } = useSearch()
 const { track } = useAnalytics()
 
 watchDebounced(searchTerm, (term) => {
@@ -32,7 +32,6 @@ watchDebounced(searchTerm, (term) => {
     :files="files"
     :groups="groups"
     :navigation="navigation"
-    :fullscreen="fullscreen"
     :color-mode="false"
     :fuse="{ resultLimit: 115 }"
   />

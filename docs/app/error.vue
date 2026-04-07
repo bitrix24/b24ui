@@ -6,12 +6,14 @@ const props = defineProps<{
 }>()
 
 const route = useRoute()
+const { style, link } = useTheme()
 
 const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs', ['framework']))
 
 useHead({
   meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
-  link: [],
+  link,
+  style,
   htmlAttrs: { lang: 'en' }
 })
 

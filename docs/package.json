@@ -38,7 +38,7 @@
     "nuxt": "^4.3.1",
     "nuxt-component-meta": "^0.17.2",
     "nuxt-llms": "^0.2.0",
-    "nuxt-og-image": "^5.1.13",
+    "nuxt-og-image": "^6.3.2",
     "prettier": "^3.8.1",
     "shiki": "^3.23.0",
     "shiki-stream": "^0.1.4",

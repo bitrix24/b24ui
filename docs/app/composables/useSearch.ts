@@ -1,8 +1,9 @@
+import type { ContentSearchLink } from '@bitrix24/b24ui-nuxt'
 import PlayLIcon from '@bitrix24/b24icons-vue/outline/PlayLIcon'
 import DeveloperResourcesIcon from '@bitrix24/b24icons-vue/outline/DeveloperResourcesIcon'
 import ViewmodeCodeIcon from '@bitrix24/b24icons-vue/editor/ViewmodeCodeIcon'
 import FormattingIcon from '@bitrix24/b24icons-vue/editor/FormattingIcon'
-// import FormIcon from '@bitrix24/b24icons-vue/outline/FormIcon'
+import FormIcon from '@bitrix24/b24icons-vue/outline/FormIcon'
 // import DemonstrationOnIcon from '@bitrix24/b24icons-vue/outline/DemonstrationOnIcon'
 import RobotIcon from '@bitrix24/b24icons-vue/outline/RobotIcon'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
@@ -11,41 +12,48 @@ export function useSearch() {
   const route = useRoute()
   const { frameworks } = useFrameworks()
   const { track } = useAnalytics()
+  // @memo this for NUXT.UI.docs
+  const { open, messages } = useChat()
+  const { isEnabled: isAssistantEnabled } = useAssistant()
 
-  const config = useRuntimeConfig()
-  const { open: openAIChat } = useAIChat()
-  const { open: openContentSearch } = useContentSearch()
+  // @memo this for docus
+  // const { open: openAIChat } = useAIChat()
+  // const { open: openContentSearch } = useContentSearch()
 
-  const fullscreen = ref(false)
   const searchTerm = ref('')
 
-  function onSelect(e: any) {
-    e.preventDefault()
-
+  function onSelect() {
     track('AI Chat Opened', { hasSearchTerm: !!searchTerm.value })
 
-    openContentSearch.value = false
-    openAIChat(searchTerm.value, true)
+    // @memo this for NUXT.UI.docs
+    if (searchTerm.value) {
+      messages.value = [...messages.value, {
+        id: String(Date.now()),
+        role: 'user',
+        parts: [{ type: 'text', text: searchTerm.value }]
+      }]
+    }
+
+    open.value = true
+
+    // @memo this for docus
+    // openContentSearch.value = false
+    // openAIChat(searchTerm.value, true)
   }
 
   const links = computed(() => [
-    ...(
-      config.public.useAI
-        ? [
-            !searchTerm.value && {
-              label: 'Ask AI',
-              description: 'Ask the AI assistant powered by our custom MCP server for help.',
-              icon: RobotIcon,
-              b24ui: {
-                itemLeadingIcon: 'text-(--ui-color-accent-main-primary) group-data-highlighted:not-group-data-disabled:text-(--ui-color-copilot-accent-primary)'
-              },
-              onSelect
-            }
-          ]
-        : []
-    ),
+    isAssistantEnabled.value && !searchTerm.value && {
+      label: 'Ask AI',
+      description: 'Ask the AI assistant powered by our custom MCP server for help.',
+      icon: RobotIcon,
+      kbds: ['meta', 'i'],
+      b24ui: {
+        itemLeadingIcon: 'text-primary group-data-highlighted:not-group-data-disabled:text-primary-copilot'
+      },
+      onSelect
+    },
     {
-      label: 'Docs',
+      label: 'Get Started',
       description: 'Learn how to get started with Bitrix24 UI.',
       icon: PlayLIcon,
       to: '/docs/getting-started/',
@@ -72,18 +80,12 @@ export function useSearch() {
       to: '/docs/typography/',
       active: route.path.startsWith('/docs/typography')
     },
-    // {
-    //   label: 'Templates',
-    //   icon: FormIcon,
-    //   description: 'Explore official templates built with Bitrix24 UI.',
-    //   to: '/templates/'
-    // },
-    // {
-    //   label: 'Showcase',
-    //   icon: DemonstrationOnIcon,
-    //   description: 'Explore some of the amazing projects built with Bitrix24 UI.',
-    //   to: '/showcase/'
-    // },
+    {
+      label: 'Templates',
+      icon: FormIcon,
+      description: 'Explore official templates built with Bitrix24 UI.',
+      to: '/templates/'
+    },
     {
       label: 'GitHub',
       description: 'Check out the Bitrix24 UI repository and follow development on GitHub.',
@@ -91,25 +93,30 @@ export function useSearch() {
       to: 'https://github.com/bitrix24/b24ui',
       target: '_blank'
     }
-  ].filter(link => !!link))
+  ].filter(link => !!link) as ContentSearchLink[])
 
   const groups = computed(() => [
     ...(
-      config.public.useAI
+      isAssistantEnabled.value
         ? [{
             id: 'ai',
             label: 'AI',
             ignoreFilter: true,
-            items: searchTerm.value
-              ? [{
-                  label: `Ask AI for “${searchTerm.value}”`,
-                  icon: RobotIcon,
-                  b24ui: {
-                    itemLeadingIcon: 'text-(--ui-color-accent-main-primary) group-data-highlighted:not-group-data-disabled:text-(--ui-color-copilot-accent-primary)'
-                  },
-                  onSelect
-                }]
-              : []
+            postFilter: (searchTerm: string, items: any[]) => {
+              if (!searchTerm) {
+                return []
+              }
+
+              return items
+            },
+            items: [{
+              label: 'Ask AI',
+              icon: RobotIcon,
+              b24ui: {
+                itemLeadingIcon: 'text-primary group-data-highlighted:not-group-data-disabled:text-primary-copilot'
+              },
+              onSelect
+            }]
           }]
         : []
     ),
@@ -123,7 +130,6 @@ export function useSearch() {
   return {
     links,
     groups,
-    fullscreen,
     searchTerm
   }
 }
