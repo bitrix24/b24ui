@@ -36,8 +36,6 @@ const emit = defineEmits<{
   'update:open': [value: boolean]
 }>()
 
-const appConfig = useAppConfig()
-
 const isControlled = computed(() => props.open !== undefined)
 const internalOpen = ref(props.defaultOpen ?? props.streaming)
 const startTime = ref<number | null>(props.streaming ? Date.now() : null)
