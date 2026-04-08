@@ -1,17 +1,17 @@
 /**
  * Sidebar
+ * A collapsible sidebar with multiple visual style options.
  * ---
- * @todo fix color
  */
 export default {
   slots: {
-    root: 'peer [--sidebar-width:15rem] [--sidebar-width-icon:4.125rem]',
+    root: 'peer [--sidebar-width:15rem] [--sidebar-width-icon:4.5rem]',
     gap: 'relative w-(--sidebar-width) bg-transparent transition-[width] duration-200 ease-linear',
     container: 'fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear lg:flex',
     inner: 'flex size-full flex-col overflow-hidden divide-y divide-default',
     header: 'flex items-center gap-1.5 overflow-hidden px-4 min-h-(--b24ui-header-height)',
     wrapper: 'min-w-0 flex-1',
-    title: 'text-highlighted font-semibold truncate',
+    title: 'text-label font-semibold truncate',
     description: 'text-muted text-sm truncate',
     actions: 'flex items-center gap-1.5 shrink-0',
     close: '',
@@ -113,8 +113,8 @@ export default {
       variant: 'floating',
       collapsible: 'icon',
       class: {
-        gap: 'data-[state=collapsed]:w-[calc(var(--sidebar-width-icon)+--spacing(8))]',
-        container: 'data-[state=collapsed]:w-[calc(var(--sidebar-width-icon)+--spacing(8)+2px)]'
+        gap: 'data-[state=collapsed]:w-[calc(var(--sidebar-width-icon)+--spacing(6.5))]',
+        container: 'data-[state=collapsed]:w-[calc(var(--sidebar-width-icon)+--spacing(6.5)+2px)]'
       }
     },
     {

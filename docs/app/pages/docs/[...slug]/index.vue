@@ -232,10 +232,10 @@ function makeExplain() {
           v-bind="link"
           :icon="iconFromIconName(link?.iconName)"
           size="md"
-          :b24ui="{ leadingIcon: 'mr-[5px]' }"
+          :b24ui="{ baseLine: 'gap-1.5' }"
         >
           <template v-if="link.avatar" #leading>
-            <B24Avatar v-bind="link.avatar" size="2xs" :alt="`${link.label} avatar`" :b24ui="{ root: 'mr-[5px]', image: 'w-[18px] h-[12px]' }" />
+            <B24Avatar v-bind="link.avatar" loading="lazy" size="2xs" :alt="`${link.label} avatar`" :b24ui="{ image: 'w-4.5 h-3' }" />
           </template>
         </B24Button>
       </template>

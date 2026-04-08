@@ -15,10 +15,6 @@ links:
 navigation.badge: Soon
 ---
 
-::warning
-🧬 👀 We are still updating this page. Some data may be missing here — we will complete it shortly.
-::
-
 ## Usage
 
 The Sidebar component is a standalone, fixed sidebar that pushes the page content. On desktop, it renders inline and can be collapsed; on mobile, it opens a [Modal](/docs/components/modal/), [Slideover](/docs/components/slideover/) or [Drawer](/docs/components/drawer/) component.
@@ -35,7 +31,7 @@ collapse: true
 prettier: true
 name: 'sidebar-example'
 overflowHidden: true
-class: '!p-0 !justify-start h-[500px] contain-[paint]'
+class: '!p-0 !justify-st2art h-[500px] contain-[paint]'
 ---
 ::
 

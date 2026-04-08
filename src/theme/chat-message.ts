@@ -87,7 +87,7 @@ export default {
       variant: ['message', 'event', 'system'],
       compact: false,
       class: {
-        content: 'ps-[14px] pe-[10px] py-2 rounded-md min-h-[42px]',
+        content: 'px-3 py-2 rounded-md min-h-[42px]',
         leading: 'mt-2'
       }
     },
@@ -95,7 +95,7 @@ export default {
       variant: ['message', 'event', 'system'],
       compact: true,
       class: {
-        content: 'ps-[14px] pe-[10px] py-2 rounded-sm min-h-[32px]',
+        content: 'px-3 py-2 rounded-sm min-h-[32px]',
         leading: 'mt-1'
       }
     },

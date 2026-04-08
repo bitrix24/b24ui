@@ -3,9 +3,10 @@ import type { NavigationMenuItem, SidebarProps } from '@bitrix24/b24ui-nuxt'
 import HomeIcon from '@bitrix24/b24icons-vue/outline/HomeIcon'
 import MailIcon from '@bitrix24/b24icons-vue/outline/MailIcon'
 import ContactIcon from '@bitrix24/b24icons-vue/outline/ContactIcon'
-
-// @todo fix icons
-// @todo fix colors
+import CloseChatIcon from '@bitrix24/b24icons-vue/outline/CloseChatIcon'
+import OpenChatIcon from '@bitrix24/b24icons-vue/outline/OpenChatIcon'
+import Bitrix24Icon from '@bitrix24/b24icons-vue/common-b24/Bitrix24Icon'
+import B24Icon from '@bitrix24/b24icons-vue/main/B24Icon'
 
 // Ignore the props for the example
 defineProps<Pick<SidebarProps, 'variant' | 'collapsible' | 'side'>>()
@@ -34,7 +35,7 @@ const items: NavigationMenuItem[] = [
   <div
     class="flex flex-1"
     :class="[
-      variant === 'inset' && 'bg-neutral-50 dark:bg-neutral-950',
+      variant === 'inset' && 'bg-(--ui-color-g-plastic-greish-bg) dark:bg-(--ui-color-base-black-fixed)',
       side === 'right' && 'flex-row-reverse'
     ]"
   >
@@ -48,7 +49,8 @@ const items: NavigationMenuItem[] = [
       }"
     >
       <template #header>
-        <div dd-name="i-logos-nuxt-icon" class="size-8" />
+        <Bitrix24Icon v-if="open" class="w-auto h-5 " />
+        <B24Icon v-else class="w-auto h-8 text-[#2fc6f6]" />
       </template>
 
       <B24NavigationMenu
@@ -66,9 +68,9 @@ const items: NavigationMenuItem[] = [
           side === 'right' && 'justify-end'
         ]"
       >
-        <!-- @todo i-lucide-panel-right -->
         <B24Button
-          dd-icon="side === 'left' ? 'i-lucide-panel-left' : 'i-lucide-panel-right'"
+          :icon="side === 'right' ? OpenChatIcon : CloseChatIcon"
+          color="air-tertiary"
           aria-label="Toggle sidebar"
           @click="open = !open"
         />

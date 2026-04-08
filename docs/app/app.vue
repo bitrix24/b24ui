@@ -6,7 +6,9 @@ const route = useRoute()
 const appConfig = useAppConfig()
 const config = useRuntimeConfig()
 const { style, link } = useTheme()
-const { isEnabled: isAssistantEnabled, panelWidth: assistantPanelWidth, shouldPushContent } = useAssistant()
+const { isEnabled: isAssistantEnabled } = useAssistant()
+// @memo this for docus
+// const { isEnabled: isAssistantEnabled, panelWidth: assistantPanelWidth, shouldPushContent } = useAssistant()
 
 const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs', ['framework', 'category', 'description', 'badge']))
 const { data: files } = useLazyAsyncData(
@@ -58,11 +60,12 @@ provide('files', files)
       <div
         class="flex-1 min-w-0"
         :class="[
-          route.path.startsWith('/docs/') && 'root',
-          'transition-[margin-right] duration-200 ease-linear will-change-[margin-right]'
+          route.path.startsWith('/docs/') && 'root'
+          // @memo this for docus
+          // 'transition-[margin-right] duration-200 ease-linear will-change-[margin-right]'
           // { 'docus-sub-header': subNavigationMode === 'header' }
+          // !!! move to attr and add quotes :style={ marginRight: shouldPushContent ? `${assistantPanelWidth}px` : '0' } !!
         ]"
-        :style="{ marginRight: shouldPushContent ? `${assistantPanelWidth}px` : '0' }"
       >
         <template v-if="!route.path.startsWith('/examples')">
           <Banner />
@@ -79,15 +82,17 @@ provide('files', files)
 
           <ClientOnly>
             <Search :files="files" :navigation="navigationByFramework" />
-            <template v-if="isAssistantEnabled">
+            <!-- @memo this for docus -->
+            <!-- template v-if="isAssistantEnabled">
               <LazyAssistantPanel />
               <LazyAssistantFloatingInput />
-            </template>
+            </template -->
           </ClientOnly>
         </template>
       </div>
 
-      <template v-if="!route.path.startsWith('/examples')">
+      <!-- @memo this for NUXT.UI.docs -->
+      <template v-if="isAssistantEnabled && !route.path.startsWith('/examples')">
         <ClientOnly>
           <Chat />
         </ClientOnly>

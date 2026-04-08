@@ -438,7 +438,8 @@ export default defineNuxtConfig({
       '@nuxtjs/mdc',
       'nuxt/dist',
       'nuxt-og-image',
-      resolve('./app/components')
+      resolve('./app/components'),
+      resolve('./modules')
     ],
     metaFields: {
       type: false,

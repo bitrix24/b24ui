@@ -52,8 +52,8 @@ export default {
     ].join(' '),
     item: [
       'group',
-      'w-full h-[36px]',
-      'bitrix-mobile:h-[42px]',
+      'w-full h-9',
+      'bitrix-mobile:h-10.5',
       'px-4.5 pe-2 mt-(--menu-item-block-stack-space)',
       'bitrix-mobile:mt-0',
       'relative',
@@ -85,7 +85,7 @@ export default {
       'group-data-[state=checked]:text-(--ui-color-accent-main-primary)',
       'transition-colors'
     ].join(' '),
-    itemLeadingAvatar: 'shrink-0 size-[16px] me-2', // @memo 18-2px
+    itemLeadingAvatar: 'shrink-0 size-[16px]', // @memo 18-2px
     itemLeadingAvatarSize: '2xs', // @memo this wrong
     itemTrailing: 'ml-auto rtl:ml-0 rtl:mr-auto inline-flex gap-1.5 items-center',
     itemTrailingIcon: 'shrink-0 size-[25px] text-(--ui-color-accent-main-primary)',

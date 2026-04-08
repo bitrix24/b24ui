@@ -44,6 +44,7 @@ const items: NavigationMenuItem[] = [
       <div class="h-(--b24ui-header-height) shrink-0 flex items-center px-4 border-b border-default">
         <B24Button
           :icon="OpenChatIcon"
+          color="air-tertiary"
           aria-label="Toggle sidebar"
           @click="open = !open"
         />

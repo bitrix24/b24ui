@@ -17,17 +17,17 @@ export default {
     root: 'relative flex [&>div]:min-w-0 font-[family-name:var(--ui-font-family-secondary)]',
     list: 'isolate min-w-0',
     label: [
-      'w-full h-[22px] overflow-hidden mt-[10px]',
+      'w-full h-5.5 overflow-hidden mt-2.5',
       'opacity-70 text-legend text-(length:--ui-font-size-sm)'
     ].join(' '),
     item: 'min-w-0',
     link: [
-      'min-w-[38px] w-full max-w-full', // max-w-[212px]
+      'min-w-9.5 w-full max-w-full',
       'p-0',
       'm-0',
       'group relative',
       'cursor-pointer',
-      'flex items-center gap-[2px]',
+      'flex items-center gap-0.5',
       'font-(--ui-font-weight-normal) text-(length:--ui-font-size-lg)',
       'focus:outline-none focus-visible:rounded-(--menu-item-border-radius) focus-visible:outline-none focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-(--ui-color-base-4)',
       'rounded-(--menu-item-border-radius)',
@@ -36,7 +36,7 @@ export default {
       'hover:bg-(--menu-item-background-hover) data-[state=open]:bg-(--menu-item-background-hover)',
       'border-0'
     ].join(' '),
-    linkLeadingIcon: 'shrink-0 size-[26px]',
+    linkLeadingIcon: 'shrink-0 size-6.5',
     linkLeadingAvatar: 'shrink-0',
     linkLeadingAvatarSize: 'xs',
     linkLeadingChipSize: 'sm',
@@ -51,17 +51,17 @@ export default {
     ].join(' '),
     linkLeadingBadge: 'inline-flex m-0 absolute',
     linkLeadingBadgeSize: 'xs',
-    linkTrailing: 'group inline-flex mt-[2px] items-center',
+    linkTrailing: 'group inline-flex mt-0.5 items-center',
     linkTrailingIcon: [
       'text-(--ui-color-design-plain-na-content-icon)',
       'shrink-0'
     ].join(' '),
     linkLabel: 'truncate', // @memo remove -mt-px
     linkLabelWrapper: 'flex items-center justify-between rtl:flex-row-reverse',
-    linkLabelExternalIcon: 'inline-block size-[16px] text-(--ui-color-design-plain-content-icon-secondary)',
+    linkLabelExternalIcon: 'inline-block size-4 text-(--ui-color-design-plain-content-icon-secondary)',
     childList: 'isolate',
     childLabel: '',
-    childItem: 'h-[36px] mt-(--menu-item-block-stack-space)',
+    childItem: 'h-9 mt-(--menu-item-block-stack-space)',
     childLink: [
       'group relative',
       'size-full',
@@ -71,7 +71,7 @@ export default {
     childLinkWrapper: 'min-w-0 flex-1 flex flex-row items-center justify-start rtl:justify-end gap-0.5',
     childLinkIcon: 'size-4.5 shrink-0',
     childLinkHint: [
-      'inline-flex m-0 absolute -top-[2px] left-[24px]',
+      'inline-flex m-0 absolute -top-0.5 left-6',
       'text-(length:--ui-font-size-4xs)',
       'leading-2',
       'font-semibold',
@@ -81,9 +81,9 @@ export default {
     ].join(' '),
     childLinkBadge: 'inline-flex m-0',
     childLinkBadgeSize: 'xs',
-    childLinkLabel: 'truncate ms-[2px] -mt-px',
+    childLinkLabel: 'truncate ms-0.5 -mt-px',
     childLinkLabelExternalIcon: 'inline-block size-4 text-(--ui-color-design-plain-content-icon-secondary)',
-    separator: 'h-px bg-(--leftmenu-bg-divider) my-[16px]',
+    separator: 'h-px bg-(--leftmenu-bg-divider) my-4',
     popoverWrapper: 'px-0 py-(--menu-popup-padding)',
     viewportWrapper: 'absolute top-[53px] left-0 flex w-full',
     viewport: [
@@ -99,7 +99,7 @@ export default {
       'transition-[width,height] duration-200 origin-[top_center]', // left
       // @memo see components/popup.css
       // 'border border-(--popup-window-border)'
-      'z-[1]'
+      'z-1'
     ].join(' '),
     content: ''
   },
@@ -111,20 +111,20 @@ export default {
         item: 'empty:hidden',
         link: [
           'menu-item-horizontal',
-          'h-[32px] min-h-[32px]',
-          'px-[10px]',
+          'h-8 min-h-8',
+          'px-2.5',
           'leading-7',
           'border border-(--menu-item-background) hover:border-(--ui-color-design-plain-na-focused-stroke) data-[state=open]:bg-(--ui-color-design-plain-na-focused-stroke)',
           'bitrix-mobile:px-3',
-          'bitrix-mobile:h-[34px] bitrix-mobile:min-h-[34px]',
+          'bitrix-mobile:h-8.5 bitrix-mobile:min-h-8.5',
           'bitrix-mobile:text-(--ui-color-base-4) bitrix-mobile:border-(--ui-color-base-7)',
           'bitrix-mobile:leading-6 bitrix-mobile:text-(length:--ui-font-size-md)',
           // @memo This is a temporary solution until we connect the required font.
           'bitrix-mobile:scale-x-[0.92]'
         ].join(' '),
-        linkTrailingIcon: 'size-[16px]',
-        linkLeadingBadge: '-top-[6px] -right-[14px] -translate-x-1/2',
-        linkLabelWrapper: 'gap-[4px] truncate',
+        linkTrailingIcon: 'size-4',
+        linkLeadingBadge: '-top-1.5 -right-3.5 -translate-x-1/2',
+        linkLabelWrapper: 'gap-1 truncate',
         childList: 'grid px-0 py-(--menu-popup-padding)',
         childLink: [
           'px-4.5', // @memo 10 + 15 = 25 != 18px
@@ -150,15 +150,15 @@ export default {
         link: [
           'menu-item-vertical',
           'overflow-hidden',
-          'h-[38px] min-h-[38px]',
-          'p-[6px]',
+          'h-9.5 min-h-9.5',
+          'p-1.5',
           'flex-row rtl:flex-row-reverse justify-between',
           'data-[state=open]:text-(length:--ui-font-size-sm) data-[state=open]:opacity-70'
         ].join(' '),
-        linkLeadingIcon: '', // group-data-[state=open]:size-[22px]
-        linkTrailingIcon: 'size-[20px] group-data-[state=open]:rotate-180 transition-transform duration-200',
-        linkLeadingBadge: '-top-[4px] left-[24px] -translate-x-1/2',
-        linkLabelWrapper: 'relative h-[22px]',
+        linkLeadingIcon: '', // group-data-[state=open]:size-5.5
+        linkTrailingIcon: 'size-5 group-data-[state=open]:rotate-180 transition-transform duration-200',
+        linkLeadingBadge: '-top-1 left-6 -translate-x-1/2',
+        linkLabelWrapper: 'relative h-5.5',
         childList: '',
         childLink: [
           'px-4.5', // @memo 10 + 15 = 25 != 18
@@ -179,7 +179,7 @@ export default {
           'text-(length:--ui-size-sm)',
           'text-(--b24ui-typography-legend-color)',
           'font-(--ui-font-weight-normal)',
-          'after:ms-[10px] after:block after:flex-1 after:min-w-[15px] after:h-px after:bg-(--ui-color-divider-vibrant-default)'
+          'after:ms-2.5 after:block after:flex-1 after:min-w-[15px] after:h-px after:bg-(--ui-color-divider-vibrant-default)'
         ].join(' ')
       }
     },

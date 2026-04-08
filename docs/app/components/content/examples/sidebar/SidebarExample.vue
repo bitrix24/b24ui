@@ -25,25 +25,35 @@ const teams = ref([
     label: 'Assistant Name',
     avatar: {
       src: '/b24ui/avatar/assistant.png',
-      alt: 'assistant'
+      alt: 'assistant',
+      loading: 'lazy' as const
     }
   },
   {
     label: 'Bitrix24',
     avatar: {
       src: 'https://github.com/bitrix24.png',
-      alt: 'bitrix24'
+      alt: 'bitrix24',
+      loading: 'lazy' as const
     }
   },
   {
     label: 'Employee Name',
     avatar: {
       src: '/b24ui/avatar/employee.png',
-      alt: 'employee'
+      alt: 'employee',
+      loading: 'lazy' as const
     }
   }
 ])
 const selectedTeam = ref(teams.value[0])
+const selectedTeamFormatted = computed(() => {
+  return open.value
+    ? selectedTeam.value
+    : {
+        avatar: selectedTeam.value!.avatar
+      }
+})
 
 const teamsItems = computed<DropdownMenuItem[][]>(() => {
   return [
@@ -121,7 +131,7 @@ const userItems = computed<DropdownMenuItem[][]>(() => (
       {
         label: 'Settings',
         icon: SettingsIcon,
-        to: '/settings'
+        to: '/templates/'
       }
     ],
     [
@@ -194,14 +204,14 @@ defineShortcuts(extractShortcuts(teamsItems.value))
         <B24DropdownMenu
           :items="teamsItems"
           :content="{ align: 'start', collisionPadding: 12 }"
-          :b24ui="{ content: 'w-(--reka-dropdown-menu-trigger-width) min-w-48', viewport: 'min-w-(--reka-dropdown-menu-trigger-width) w-(--reka-dropdown-menu-trigger-width)' }"
+          :b24ui="{ content: 'w-[270px]', viewport: 'w-[270px] max-h-[62vh]' }"
         >
           <B24Button
-            v-bind="selectedTeam"
-            use-dropdown
-            square
-            class="w-full data-[state=open]:bg-elevated overflow-hidden"
-            :b24ui="{ trailingIcon: 'text-dimmed ms-auto' }"
+            v-bind="selectedTeamFormatted"
+            :use-dropdown="open"
+            color="air-tertiary"
+            class="w-full data-[state=open]:bg-(--ui-btn-background-hover) overflow-hidden"
+            :b24ui="{ trailingIcon: 'text-dimmed ms-auto', label: 'flex-1' }"
           />
         </B24DropdownMenu>
       </template>
@@ -218,15 +228,16 @@ defineShortcuts(extractShortcuts(teamsItems.value))
       <template #footer>
         <B24DropdownMenu
           :items="userItems"
-          :content="{ align: 'center', collisionPadding: 12 }"
-          :b24ui="{ content: 'w-(--reka-dropdown-menu-trigger-width) min-w-48' }"
+          :content="{ align: 'start', side: 'top', sideOffset: 4, collisionPadding: 12 }"
+          :b24ui="{ content: 'w-[200px]', viewport: 'w-[200px] max-h-[62vh]' }"
         >
           <B24Button
             v-bind="user"
-            :label="user?.name"
-            use-dropdown
-            class="w-full data-[state=open]:bg-elevated overflow-hidden"
-            :b24ui="{ trailingIcon: 'text-dimmed ms-auto' }"
+            :label="open ? user?.name : undefined"
+            :use-dropdown="open"
+            color="air-tertiary"
+            class="w-full data-[state=open]:bg-(--ui-btn-background-hover) overflow-hidden"
+            :b24ui="{ trailingIcon: 'text-dimmed ms-auto', label: 'flex-1' }"
           />
         </B24DropdownMenu>
       </template>
@@ -237,6 +248,8 @@ defineShortcuts(extractShortcuts(teamsItems.value))
         <B24Button
           :icon="CloseChatIcon"
           aria-label="Toggle sidebar"
+          size="md"
+          color="air-tertiary"
           @click="open = !open"
         />
       </div>

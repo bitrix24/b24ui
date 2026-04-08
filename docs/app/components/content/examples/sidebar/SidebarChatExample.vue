@@ -2,7 +2,7 @@
 import type { UIMessage } from 'ai'
 import { DefaultChatTransport, isTextUIPart } from 'ai'
 import { Chat } from '@ai-sdk/vue'
-import CloseChatIcon from '@bitrix24/b24icons-vue/outline/CloseChatIcon'
+import OpenChatIcon from '@bitrix24/b24icons-vue/outline/OpenChatIcon'
 
 const config = useRuntimeConfig()
 const open = ref(true)
@@ -58,9 +58,9 @@ const b24ui = {
   <div class="flex flex-1">
     <div class="flex-1 flex flex-col">
       <div class="h-(--b24ui-header-height) shrink-0 flex items-center justify-end px-4 border-b border-default">
-        <!-- @todo i-lucide-panel-right -->
         <B24Button
-          :icon="CloseChatIcon"
+          :icon="OpenChatIcon"
+          color="air-tertiary"
           aria-label="Toggle sidebar"
           @click="open = !open"
         />
