@@ -100,7 +100,7 @@ To persist the dismissed state across page reloads, you must specify an `id` pro
 
 ### Close Icon
 
-Use the `close-icon` prop to customize the close button [Icon](https://bitrix24.github.io/b24icons/icons/). Defaults to `CrossMIcon`.
+Use the `close-icon` prop to customize the close button [Icon](https://bitrix24.github.io/b24icons/icons/).
 
 ::component-example
 ---

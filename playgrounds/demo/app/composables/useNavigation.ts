@@ -24,6 +24,7 @@ const components = [
   'calendar',
   'card',
   // 'carousel',
+  'chat-reasoning',
   'chat-shimmer',
   // 'changelog-version',
   'checkbox-group',

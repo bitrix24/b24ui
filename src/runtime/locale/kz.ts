@@ -117,6 +117,11 @@ export default defineLocale<Messages>({
         copy: 'Көшіру'
       }
     },
+    chatReasoning: {
+      thinking: 'Ойлануда...',
+      thought: 'Ой',
+      thoughtFor: '{duration} уақыт бойы ойлану'
+    },
     sidebar: {
       close: 'Жабу',
       toggle: 'Ауыстыру'

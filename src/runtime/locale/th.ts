@@ -117,6 +117,11 @@ export default defineLocale<Messages>({
         copy: 'คัดลอก'
       }
     },
+    chatReasoning: {
+      thinking: 'กำลังคิด...',
+      thought: 'ความคิด',
+      thoughtFor: 'คิดเป็นเวลา {duration}'
+    },
     sidebar: {
       close: 'ปิด',
       toggle: 'สลับ'

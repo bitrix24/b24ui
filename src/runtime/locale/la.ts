@@ -35,6 +35,11 @@ export default defineLocale<Messages>({
     chatPromptSubmit: {
       label: 'Enviar'
     },
+    chatReasoning: {
+      thinking: 'Pensando...',
+      thought: 'Pensamiento',
+      thoughtFor: 'Pensamiento por {duration}'
+    },
     colorMode: {
       dark: 'Oscuro',
       light: 'Claro',

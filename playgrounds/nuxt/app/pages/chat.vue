@@ -1,32 +1,28 @@
 <script setup lang="ts">
 import type { UIMessage } from 'ai'
+import { isReasoningUIPart, isTextUIPart } from 'ai'
 import { Chat } from '@ai-sdk/vue'
+import { isStreamingPart } from '@bitrix24/b24ui-nuxt/utils/ai'
 import AlertIcon from '@bitrix24/b24icons-vue/outline/AlertIcon'
 import RobotIcon from '@bitrix24/b24icons-vue/outline/RobotIcon'
 
 const toast = useToast()
 
-const messages: UIMessage[] = [
-  {
-    id: '1',
-    role: 'user',
-    parts: [{ type: 'text', text: 'Hello, how are you?' }]
-  },
-  {
-    id: '2',
-    role: 'assistant',
-    parts: [{ type: 'text', text: 'I\'m good, thank you! How can I help you today?' }]
-  }
-]
+const messages: UIMessage[] = []
 const input = ref('')
 
 const chat = new Chat({
   messages,
   onError(error) {
-    const { message: description } = typeof error.message === 'string' && error.message[0] === '{' ? JSON.parse(error.message) : error
+    let message = error.message
+    try {
+      if (typeof message === 'string' && message[0] === '{') {
+        message = JSON.parse(message).message || message
+      }
+    } catch { /* keep original */ }
 
     toast.add({
-      description,
+      description: message,
       icon: AlertIcon,
       color: 'air-primary-alert',
       duration: 0
@@ -35,6 +31,8 @@ const chat = new Chat({
 })
 
 function onSubmit() {
+  if (!input.value.trim()) return
+
   chat.sendMessage({ text: input.value })
 
   input.value = ''
@@ -55,26 +53,31 @@ function onSubmit() {
       <template #content="{ message }">
         <template
           v-for="(part, index) in message.parts"
-          :key="`${message.id}-${part.type}-${index}${'state' in part ? `-${part.state}` : ''}`"
+          :key="`${message.id}-${part.type}-${index}`"
         >
+          <B24ChatReasoning
+            v-if="isReasoningUIPart(part)"
+            :text="part.text"
+            :streaming="isStreamingPart(message, index, chat)"
+            chevron="leading"
+            :b24ui="{ body: 'scrollbar-thin scrollbar-transparent' }"
+          >
+            <MDC
+              :value="part.text"
+              :cache-key="`${message.id}-${index}`"
+              class="*:first:mt-0 *:last:mb-0"
+            />
+          </B24ChatReasoning>
           <MDC
-            v-if="part.type === 'text' && message.role === 'assistant'"
+            v-else-if="isTextUIPart(part)"
             :value="part.text"
             :cache-key="`${message.id}-${index}`"
             class="*:first:mt-0 *:last:mb-0"
           />
-          <p v-else-if="part.type === 'text' && message.role === 'user'" class="whitespace-pre-wrap">
-            {{ part.text }}
-          </p>
-          <p
-            v-else-if="part.type === 'reasoning'"
-            class="text-sm text-(--b24ui-typography-description-color) my-5"
-          >
-            {{ part.state === 'done' ? 'Thoughts' : 'Thinking...' }}
-          </p>
         </template>
       </template>
     </B24ChatMessages>
+
     <B24ChatPrompt
       v-model="input"
       :error="chat.error"

@@ -140,6 +140,8 @@ const pages = [
   '/docs/components/chat-palette/',
   '/docs/components/chat-prompt/',
   '/docs/components/chat-prompt-submit/',
+  '/docs/components/chat-reasoning/',
+  '/docs/components/chat-shimmer/',
   // endregion ////
   // region editor ////
   '/docs/components/editor/',

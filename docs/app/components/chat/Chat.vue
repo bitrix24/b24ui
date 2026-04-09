@@ -4,6 +4,7 @@ import type { ToolUIPart, DynamicToolUIPart } from 'ai'
 import type { IconComponent } from '@bitrix24/b24ui-nuxt'
 import { DefaultChatTransport, isToolUIPart, isReasoningUIPart, isTextUIPart, getToolName } from 'ai'
 import { Chat } from '@ai-sdk/vue'
+import { isStreamingPart } from '@bitrix24/b24ui-nuxt/utils/ai'
 import { useMemoize } from '@vueuse/core'
 import * as theme from '#build/b24ui'
 import ProseStreamPre from '../prose/PreStream.vue'
@@ -265,27 +266,23 @@ defineShortcuts({
         compact
         class="px-0 gap-2"
         :user="{ b24ui: { container: 'max-w-full' } }"
-        :assistant="{ b24ui: { content: 'flex flex-col gap-2' } }"
       >
         <template #content="{ message }">
           <template v-for="(part, index) in message.parts" :key="`${message.id}-${part.type}-${index}`">
-            <ChatReasoning
+            <B24ChatReasoning
               v-if="isReasoningUIPart(part)"
               :text="part.text"
-              :streaming="chat.status === 'streaming' && message.id === chat.messages.at(-1)?.id && index === message.parts.length - 1"
+              :streaming="isStreamingPart(message, index, chat)"
               :icon="AiStarsIcon"
               chevron="leading"
             >
-              <template #default="{ reasoningText }">
-                <MDCCached
-                  v-if="reasoningText"
-                  :value="reasoningText"
-                  :cache-key="`reasoning-${message.id}-${index}`"
-                  :parser-options="{ highlight: false }"
-                  class="*:first:mt-0 *:last:mb-0"
-                />
-              </template>
-            </ChatReasoning>
+              <MDCCached
+                :value="part.text"
+                :cache-key="`reasoning-${message.id}-${index}`"
+                :parser-options="{ highlight: false }"
+                class="*:first:mt-0 *:last:mb-0"
+              />
+            </B24ChatReasoning>
             <MDCCached
               v-else-if="isTextUIPart(part) && part.text.length > 0"
               :value="part.text"

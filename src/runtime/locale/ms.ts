@@ -117,6 +117,11 @@ export default defineLocale<Messages>({
         copy: 'Salin'
       }
     },
+    chatReasoning: {
+      thinking: 'Berfikir...',
+      thought: 'Fikiran',
+      thoughtFor: 'Fikiran untuk {duration}'
+    },
     sidebar: {
       close: 'Tutup',
       toggle: 'Togol'

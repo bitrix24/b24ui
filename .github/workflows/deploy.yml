@@ -15,13 +15,21 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        node: [ 22 ]
+
     env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
       NUXT_PUBLIC_USE_AI: false
       NUXT_PUBLIC_SITE_URL: https://bitrix24.github.io
       NUXT_PUBLIC_BASE_URL: /b24ui
       NUXT_PUBLIC_CANONICAL_URL: https://bitrix24.github.io
       NUXT_PUBLIC_GIT_URL: https://github.com/bitrix24/b24ui
+
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -29,13 +37,12 @@ jobs:
           fetch-depth: 0
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v5
 
       - name: Install node
         uses: actions/setup-node@v6
         with:
-          node-version: 'lts/*'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: ${{ matrix.node }}
           cache: pnpm
 
       - name: Setup Pages
@@ -61,16 +68,16 @@ jobs:
           cp -r playgrounds/demo/dist/* combined-artifact/demo/
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: combined-artifact
   deploy:
     environment:
-      name: 'github-pages'
+      name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     needs: build
     runs-on: ubuntu-latest
-    name: 'Deploy'
+    name: Deploy
     steps:
       - name: Deploy to GitHub Pages
         id: deployment

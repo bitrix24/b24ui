@@ -117,6 +117,11 @@ export default defineLocale<Messages>({
         copy: 'コピー'
       }
     },
+    chatReasoning: {
+      thinking: '考え中...',
+      thought: '思考',
+      thoughtFor: '{duration} 間の思考'
+    },
     sidebar: {
       close: '閉じる',
       toggle: '切り替え'

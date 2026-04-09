@@ -117,6 +117,11 @@ export default defineLocale<Messages>({
         copy: 'Kopyala'
       }
     },
+    chatReasoning: {
+      thinking: 'Düşünüyor...',
+      thought: 'Düşünce',
+      thoughtFor: '{duration} süresince düşünüldü'
+    },
     sidebar: {
       close: 'Kapat',
       toggle: 'Aç/Kapat'

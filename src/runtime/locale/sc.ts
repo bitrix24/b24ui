@@ -117,6 +117,11 @@ export default defineLocale<Messages>({
         copy: '复制'
       }
     },
+    chatReasoning: {
+      thinking: '思考中...',
+      thought: '思考',
+      thoughtFor: '为 {duration} 的思考'
+    },
     sidebar: {
       close: '关闭',
       toggle: '切换'

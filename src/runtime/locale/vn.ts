@@ -117,6 +117,11 @@ export default defineLocale<Messages>({
         copy: 'Sao chép'
       }
     },
+    chatReasoning: {
+      thinking: 'Đang suy nghĩ...',
+      thought: 'Suy nghĩ',
+      thoughtFor: 'Suy nghĩ cho {duration}'
+    },
     sidebar: {
       close: 'Đóng',
       toggle: 'Chuyển đổi'

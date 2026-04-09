@@ -117,6 +117,11 @@ export default defineLocale<Messages>({
         copy: 'Kopieren'
       }
     },
+    chatReasoning: {
+      thinking: 'Denke...',
+      thought: 'Gedanke',
+      thoughtFor: 'Gedanke für {duration}'
+    },
     sidebar: {
       close: 'Schließen',
       toggle: 'Umschalten'

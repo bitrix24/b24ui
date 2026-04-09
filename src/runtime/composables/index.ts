@@ -4,6 +4,7 @@ export * from './useFileUpload'
 export * from './useKbd'
 export * from './useOverlay'
 export * from './useResizable'
+export * from './useScrollShadow'
 export * from './useScrollspy'
 export * from './useToast'
 // special composables

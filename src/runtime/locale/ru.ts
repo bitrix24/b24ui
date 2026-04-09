@@ -30,7 +30,7 @@ export default defineLocale<Messages>({
       prev: 'Предыдущий'
     },
     chatPrompt: {
-      placeholder: 'Введите ваше сообщение здесь...'
+      placeholder: 'Введите ваше сообщение здесь…'
     },
     chatPromptSubmit: {
       label: 'Отправить'
@@ -47,14 +47,14 @@ export default defineLocale<Messages>({
       close: 'Закрыть',
       noData: 'Нет данных',
       noMatch: 'Совпадений не найдено',
-      placeholder: 'Введите команду или поиск...'
+      placeholder: 'Введите команду или поиск…'
     },
     contentSearch: {
       links: 'Результаты',
       theme: 'Тема'
     },
     contentSearchButton: {
-      label: 'Поиск...'
+      label: 'Поиск…'
     },
     contentToc: {
       title: 'На этой странице'
@@ -67,7 +67,7 @@ export default defineLocale<Messages>({
       theme: 'Тема'
     },
     dashboardSearchButton: {
-      label: 'Поиск...'
+      label: 'Поиск…'
     },
     dashboardSidebarCollapse: {
       collapse: 'Свернуть боковую панель',
@@ -117,6 +117,11 @@ export default defineLocale<Messages>({
         copy: 'Копировать'
       }
     },
+    chatReasoning: {
+      thinking: 'Размышляет…',
+      thought: 'Размышление завершено',
+      thoughtFor: 'Размышление заняло {duration}'
+    },
     sidebar: {
       close: 'Закрыть',
       toggle: 'Переключить'
@@ -125,7 +130,7 @@ export default defineLocale<Messages>({
       create: 'Создать "{label}"',
       noData: 'Нет данных',
       noMatch: 'Совпадений не найдено',
-      search: 'Поиск...'
+      search: 'Поиск…'
     },
     slideover: {
       close: 'Закрыть'

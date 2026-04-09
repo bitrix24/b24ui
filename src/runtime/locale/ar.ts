@@ -118,6 +118,11 @@ export default defineLocale<Messages>({
         copy: 'نسخ'
       }
     },
+    chatReasoning: {
+      thinking: 'جاري التفكير...',
+      thought: 'فكرة',
+      thoughtFor: 'فكرة لمدة {duration}'
+    },
     sidebar: {
       close: 'إغلاق',
       toggle: 'تبديل'
