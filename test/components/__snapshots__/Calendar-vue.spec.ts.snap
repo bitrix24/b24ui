@@ -24,7 +24,7 @@ exports[`Calendar > renders with as correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -214,7 +214,7 @@ exports[`Calendar > renders with b24ui correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -404,7 +404,7 @@ exports[`Calendar > renders with class correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -594,7 +594,7 @@ exports[`Calendar > renders with color success correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -784,7 +784,7 @@ exports[`Calendar > renders with day slot correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -974,7 +974,7 @@ exports[`Calendar > renders with default value correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -1164,7 +1164,7 @@ exports[`Calendar > renders with disabled correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" aria-disabled="true" data-disabled="" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" aria-disabled="true" data-disabled="" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -1354,7 +1354,7 @@ exports[`Calendar > renders with heading slot correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -1544,7 +1544,7 @@ exports[`Calendar > renders with isDateDisabled correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -1734,7 +1734,7 @@ exports[`Calendar > renders with isDateUnavailable correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -1924,7 +1924,7 @@ exports[`Calendar > renders with modelValue correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -2114,7 +2114,7 @@ exports[`Calendar > renders with multiple correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -2304,7 +2304,7 @@ exports[`Calendar > renders with nextMonth correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -2494,7 +2494,7 @@ exports[`Calendar > renders with nextYear correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -2684,7 +2684,7 @@ exports[`Calendar > renders with numberOfMonths correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -2843,7 +2843,7 @@ exports[`Calendar > renders with numberOfMonths correctly 1`] = `
         </tr>
       </tbody>
     </table>
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -3033,7 +3033,7 @@ exports[`Calendar > renders with prevMonth correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -3223,7 +3223,7 @@ exports[`Calendar > renders with prevYear correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -3416,7 +3416,7 @@ exports[`Calendar > renders with range correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -3603,7 +3603,7 @@ exports[`Calendar > renders with readonly correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" aria-readonly="true" data-readonly="" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" aria-readonly="true" data-readonly="" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -3793,7 +3793,7 @@ exports[`Calendar > renders with size lg correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -3983,7 +3983,7 @@ exports[`Calendar > renders with size md correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -4173,7 +4173,7 @@ exports[`Calendar > renders with size sm correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-3xs)">S</th>
@@ -4363,7 +4363,7 @@ exports[`Calendar > renders with size xs correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col sm:flex-row sm:space-x-4 sm:space-y-0 space-y-2 pt-2">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-4xs)">S</th>
@@ -4553,7 +4553,7 @@ exports[`Calendar > renders with week-day slot correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -4743,7 +4743,7 @@ exports[`Calendar > renders with weekNumbers correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-8 [&amp;>*:first-child]:col-start-2">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -4933,7 +4933,7 @@ exports[`Calendar > renders with weekStartsOn correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">M</th>
@@ -5123,7 +5123,7 @@ exports[`Calendar > renders with weekdayFormat correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">Sun</th>
@@ -5313,7 +5313,7 @@ exports[`Calendar > renders without fixedWeeks correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -5465,7 +5465,7 @@ exports[`Calendar > renders without monthControls correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
@@ -5655,7 +5655,7 @@ exports[`Calendar > renders without yearControls correctly 1`] = `
     <!--v-if-->
   </div>
   <div data-slot="body" class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-    <table tabindex="-1" role="grid" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
+    <table tabindex="-1" role="application" data-slot="grid" class="w-full border-collapse select-none space-y-1 focus:outline-none">
       <thead aria-hidden="true">
         <tr data-slot="gridWeekDaysRow" class="mb-1 grid w-full grid-cols-7">
           <th data-slot="headCell" class="font-(--ui-font-weight-normal) text-(--ui-color-design-plain-na-content-secondary) text-(length:--ui-font-size-xs)">S</th>
