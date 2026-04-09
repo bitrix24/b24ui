@@ -331,7 +331,79 @@ exports[`Form > yup validation works > with error 1`] = `
 </form>"
 `;
 
+exports[`Form > yup validation works > with error 2`] = `
+"<form id="42" class="">
+  <div data-slot="root" class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="emailField">
+    <div data-slot="wrapper" class="leading-(--ui-font-line-height-reset) mb-[10px]">
+      <!--v-if-->
+      <!--v-if-->
+    </div>
+    <div data-slot="container" class="">
+      <div data-slot="root" class="isolate relative inline-flex items-center">
+        <!--v-if--><input id="email" type="text" name="email" data-slot="base" class="px-3 w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-auto disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition-colors duration-300 ease-linear text-(--ui-color-base-1) style-blurred-bg-input placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle text-ellipsis whitespace-nowrap group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 h-[34px] gap-1.5 text-(length:--ui-font-size-lg)/[normal] style-filled rounded-(--ui-border-radius-sm) ring ring-inset ring-(--ui-color-design-outline-stroke) focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-(--b24ui-border-color) hover:not-disabled:not-data-disabled:ring-1 hover:not-disabled:not-data-disabled:ring-inset hover:not-disabled:not-data-disabled:ring-(--b24ui-border-color) data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color) md:text-(length:--ui-font-size-lg)/[normal]" autocomplete="off" aria-invalid="false" value="bob@dylan.com">
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <div data-slot="root" class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="passwordField">
+    <div data-slot="wrapper" class="leading-(--ui-font-line-height-reset) mb-[10px]">
+      <!--v-if-->
+      <!--v-if-->
+    </div>
+    <div data-slot="container" class="">
+      <div data-slot="root" class="isolate relative inline-flex items-center">
+        <!--v-if--><input id="password" type="text" name="password" data-slot="base" class="px-3 w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-auto disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition-colors duration-300 ease-linear text-(--ui-color-base-1) style-blurred-bg-input placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle text-ellipsis whitespace-nowrap group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 h-[34px] gap-1.5 text-(length:--ui-font-size-lg)/[normal] style-filled-alert rounded-(--ui-border-radius-sm) ring ring-inset ring-(--b24ui-border-color) focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-(--b24ui-border-color) hover:ring-1 hover:ring-inset hover:ring-(--b24ui-border-color) data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color) md:text-(length:--ui-font-size-lg)/[normal]" autocomplete="off" aria-invalid="true" value="short" aria-describedby="v-1-error">
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+      <div id="v-1-error" data-slot="error" class="text-(--ui-color-accent-main-alert) mt-[4px]">
+        <div data-slot="errorWrapper" class="flex flex-row flex-nowrap items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" data-slot="icon" class="size-4.5 mt-[2px]">
+            <path fill="currentColor" fill-rule="evenodd" d="m20.016 15.912-6.88-11.457c-.53-.88-1.792-.88-2.311 0l-6.88 11.457c-.54.902.113 2.041 1.162 2.041h13.758a1.347 1.347 0 0 0 1.15-2.04m-9.022-7.465a.91.91 0 0 1 .913-.914h.124a.91.91 0 0 1 .914.914v3.417a.91.91 0 0 1-.914.913h-.124a.91.91 0 0 1-.913-.913zm2.131 6.63c0 .632-.518 1.151-1.15 1.151s-1.15-.519-1.15-1.15c0-.632.519-1.15 1.15-1.15.632 0 1.15.518 1.15 1.15" clip-rule="evenodd"></path>
+          </svg>
+          <div>Must be at least 8 characters</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>"
+`;
+
 exports[`Form > yup validation works > without error 1`] = `
+"<form id="42" class="">
+  <div data-slot="root" class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="emailField">
+    <div data-slot="wrapper" class="leading-(--ui-font-line-height-reset) mb-[10px]">
+      <!--v-if-->
+      <!--v-if-->
+    </div>
+    <div data-slot="container" class="">
+      <div data-slot="root" class="isolate relative inline-flex items-center">
+        <!--v-if--><input id="email" type="text" name="email" data-slot="base" class="px-3 w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-auto disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition-colors duration-300 ease-linear text-(--ui-color-base-1) style-blurred-bg-input placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle text-ellipsis whitespace-nowrap group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 h-[34px] gap-1.5 text-(length:--ui-font-size-lg)/[normal] style-filled rounded-(--ui-border-radius-sm) ring ring-inset ring-(--ui-color-design-outline-stroke) focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-(--b24ui-border-color) hover:not-disabled:not-data-disabled:ring-1 hover:not-disabled:not-data-disabled:ring-inset hover:not-disabled:not-data-disabled:ring-(--b24ui-border-color) data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color) md:text-(length:--ui-font-size-lg)/[normal]" autocomplete="off" aria-invalid="false" value="bob@dylan.com">
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+  <div data-slot="root" class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="passwordField">
+    <div data-slot="wrapper" class="leading-(--ui-font-line-height-reset) mb-[10px]">
+      <!--v-if-->
+      <!--v-if-->
+    </div>
+    <div data-slot="container" class="">
+      <div data-slot="root" class="isolate relative inline-flex items-center">
+        <!--v-if--><input id="password" type="text" name="password" data-slot="base" class="px-3 w-full py-0 border-0 focus:outline-none disabled:cursor-not-allowed disabled:pointer-events-auto disabled:select-none disabled:opacity-30 disabled:resize-none appearance-none transition-colors duration-300 ease-linear text-(--ui-color-base-1) style-blurred-bg-input placeholder:text-(--ui-color-design-plain-na-content-secondary) hover:text-(--ui-color-base-1) focus:text-(--ui-color-base-1) active:text-(--ui-color-base-1) font-[family-name:var(--ui-font-family-primary)] font-(--ui-font-weight-regular) align-middle text-ellipsis whitespace-nowrap group-not-only:not-first:after:content-[''] group-not-only:not-first:after:absolute group-not-only:not-first:after:top-[7px] group-not-only:not-first:after:bottom-[6px] group-not-only:not-first:after:left-0 group-not-only:not-first:after:w-px group-not-only:not-first:after:bg-current/30 h-[34px] gap-1.5 text-(length:--ui-font-size-lg)/[normal] style-filled rounded-(--ui-border-radius-sm) ring ring-inset ring-(--ui-color-design-outline-stroke) focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-(--b24ui-border-color) hover:not-disabled:not-data-disabled:ring-1 hover:not-disabled:not-data-disabled:ring-inset hover:not-disabled:not-data-disabled:ring-(--b24ui-border-color) data-[state=open]:ring-1 data-[state=open]:ring-inset data-[state=open]:ring-(--b24ui-border-color) md:text-(length:--ui-font-size-lg)/[normal]" autocomplete="off" aria-invalid="false" value="validpassword">
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+</form>"
+`;
+
+exports[`Form > yup validation works > without error 2`] = `
 "<form id="42" class="">
   <div data-slot="root" class="font-[family-name:var(--ui-font-family-system)] font-(--ui-font-weight-regular) text-(length:--ui-font-size-sm)" id="emailField">
     <div data-slot="wrapper" class="leading-(--ui-font-line-height-reset) mb-[10px]">

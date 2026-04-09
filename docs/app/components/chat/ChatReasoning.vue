@@ -2,7 +2,6 @@
 import type { IconComponent } from '@bitrix24/b24ui-nuxt'
 import { CollapsibleRoot, CollapsibleTrigger, CollapsibleContent } from 'reka-ui'
 import { useScroll, useResizeObserver } from '@vueuse/core'
-import ChatShimmer from './ChatShimmer.vue'
 import ChevronDownLIcon from '@bitrix24/b24icons-vue/outline/ChevronDownLIcon'
 
 const props = withDefaults(defineProps<{
@@ -162,7 +161,7 @@ watch(() => props.text, () => {
           class="size-4 shrink-0"
         />
 
-        <ChatShimmer v-if="streaming" :text="thinkingMessage" class="truncate" />
+        <B24ChatShimmer v-if="streaming" :text="thinkingMessage" class="truncate" />
         <span v-else class="truncate">{{ thinkingMessage }}</span>
 
         <Component

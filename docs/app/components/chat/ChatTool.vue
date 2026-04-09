@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { IconComponent } from '@bitrix24/b24ui-nuxt'
 import { CollapsibleRoot, CollapsibleTrigger, CollapsibleContent } from 'reka-ui'
-import ChatShimmer from './ChatShimmer.vue'
 
 const props = withDefaults(defineProps<{
   text: string
@@ -89,7 +88,7 @@ const collapsible = computed(() => !!slots.default)
         />
 
         <span class="truncate">
-          <ChatShimmer v-if="streaming" :text="text" />
+          <B24ChatShimmer v-if="streaming" :text="text" />
           <template v-else>{{ text }}</template>
           <span v-if="suffix" class="text-dimmed ms-1">{{ suffix }}</span>
         </span>

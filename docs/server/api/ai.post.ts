@@ -8,13 +8,13 @@ import { createDeepSeek } from '@ai-sdk/deepseek'
  * @todo fix this
  */
 
-const maxStepCount = 20
+const maxStepCount = 8
 
 export default defineEventHandler(async (event) => {
   const { messages } = await readBody(event)
 
   if (!messages || !Array.isArray(messages)) {
-    throw createError({ statusCode: 400, message: 'Invalid or missing messages array.' })
+    throw createError({ status: 400, message: 'Invalid or missing messages array.' })
   }
 
   const config = useRuntimeConfig()

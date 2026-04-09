@@ -4,6 +4,7 @@
 
 * feat(module)!: use `moduleDependencies` to manipulate options
 * feat(Sidebar): new component
+* feat(ChatShimmer): new component
 * feat(Tooltip): support global content configuration via App tooltip prop
 * feat(DropdownMenu): add `filter` prop
 * feat(InputMenu): add `autocomplete` prop
