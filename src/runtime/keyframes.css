@@ -615,3 +615,13 @@
     background-position: 0% center;
   }
 }
+
+@keyframes shimmer-rtl {
+  from {
+    background-position: 0% center;
+  }
+
+  to {
+    background-position: 100% center;
+  }
+}
