@@ -112,7 +112,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashbo
       </template>
 
       <template #trailing="{ b24ui: b24uiProxy }">
-        <div data-slot="trailing" :class="b24ui.trailing({ class: uiProp?.trailing })">
+        <span data-slot="trailing" :class="b24ui.trailing({ class: uiProp?.trailing })">
           <slot name="trailing" :b24ui="b24uiProxy">
             <template v-if="!collapsed && kbds?.length">
               <B24Kbd
@@ -123,7 +123,7 @@ const b24ui = computed(() => tv({ extend: tv(theme), ...(appConfig.b24ui?.dashbo
               />
             </template>
           </slot>
-        </div>
+        </span>
       </template>
     </B24Button>
   </DefineButtonTemplate>

@@ -18,6 +18,7 @@
 * fix(ProsePre): move shiki line highlight styles to theme
 * fix(Modal|Slideover): improve theme
 * fix(ChatShimmer): handle RTL mode
+* fix(DashboardSearchButton): use valid HTML structure for trailing slot
 * 
 * docs: improve build performance and client-side navigation
 * docs(table): add column span example
