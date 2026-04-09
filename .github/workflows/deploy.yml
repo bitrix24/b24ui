@@ -23,7 +23,7 @@ jobs:
         node: [ 22 ]
 
     env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      # FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
       NUXT_PUBLIC_USE_AI: false
       NUXT_PUBLIC_SITE_URL: https://bitrix24.github.io
       NUXT_PUBLIC_BASE_URL: /b24ui
