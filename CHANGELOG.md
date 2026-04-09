@@ -26,6 +26,7 @@
 * chore(agents): add guide for coding agents
 * chore(deps): update dependency reka-ui to v2.9.0
 * chore(translate-ui): add script with `ai`
+* chore(deps): update nuxt framework to ^4.4.2
 * 
 * playground: prevent component cutoff on small screen heights
 

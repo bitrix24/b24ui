@@ -17,7 +17,7 @@ const mdPath = computed(() => `${withoutTrailingSlash(`${config.public.siteUrl}$
 const items = [
   {
     label: 'Copy Markdown link',
-    icon: LinkIcon,
+    avatar: { icon: LinkIcon },
     onSelect() {
       track('Page Action', { action: 'Copy Markdown Link' })
       copy(mdPath.value)
@@ -29,7 +29,7 @@ const items = [
   },
   {
     label: 'View as Markdown',
-    icon: MarkdownIcon,
+    avatar: { icon: MarkdownIcon },
     target: '_blank',
     to: `${withoutTrailingSlash(`/raw${route.path}`)}.md`,
     onSelect() {
@@ -76,9 +76,7 @@ async function copyPage() {
     <B24DropdownMenu
       :items="items"
       :content="{ side: 'bottom', align: 'end', sideOffset: 4 }"
-      :b24ui="{
-        content: 'w-48'
-      }"
+      :b24ui="{ content: 'w-54', viewport: 'w-54' }"
     >
       <B24Button color="air-secondary-accent" use-dropdown />
     </B24DropdownMenu>
