@@ -9,10 +9,6 @@ links:
   - label: Nuxt UI
     iconName: NuxtIcon
     to: https://ui.nuxt.com/docs/components/chat-messages
-  - label: AI SDK
-    icon: i-simple-icons-vercel
-    to: https://ai-sdk.dev/
-    target: _blank
 ---
 
 ## Usage
@@ -110,7 +106,7 @@ props:
 ::
 
 ::note
-Here's the detail of the different statuses from the AI SDK v5 Chat class:
+Here's the detail of the different statuses from the AI SDK Chat class:
 
 - `submitted`: The message has been sent to the API and we're awaiting the start of the response stream.
 - `streaming`: The response is actively streaming in from the API, receiving chunks of data.
@@ -374,138 +370,8 @@ Use the `should-scroll-to-bottom` prop to enable/disable bottom auto scroll when
 
 ## Examples
 
-The Chat components are designed to be used with the [Vercel AI SDK](https://ai-sdk.dev/), specifically the [`Chat`](https://ai-sdk.dev/docs/reference/ai-sdk-ui/chat) class for managing chat state and streaming responses.
-
-First, install the required dependencies:
-
-::code-group{sync="pm"}
-
-```bash [pnpm]
-pnpm add ai @ai-sdk/deepseek @ai-sdk/vue
-```
-
-```bash [yarn]
-yarn add ai @ai-sdk/deepseek @ai-sdk/vue
-```
-
-```bash [npm]
-npm install ai @ai-sdk/deepseek @ai-sdk/vue
-```
-
-```bash [bun]
-bun add ai @ai-sdk/deepseek @ai-sdk/vue
-```
-
-::
-
-Then, create a server API endpoint to handle chat requests using [`streamText`](https://ai-sdk.dev/docs/reference/ai-sdk-core/stream-text) from the AI SDK.
-You can use the [DeepSeek Provider](https://ai-sdk.dev/providers/ai-sdk-providers/deepseek to access AI model through a centralized endpoint:
-
-```ts [server/api/chat.post.ts]
-import { streamText, convertToModelMessages } from 'ai'
-import { createDeepSeek } from '@ai-sdk/deepseek'
-
-export default defineEventHandler(async (event) => {
-  const { messages } = await readBody(event)
-
-  const deepseek = createDeepSeek({
-    apiKey: process.env.DEEPSEEK_API_KEY ?? ''
-  })
-
-  return streamText({
-    model: deepseek('deepseek-reasoner'), // or 'deepseek-chat'
-    maxOutputTokens: 10000,
-    system: 'You are a helpful assistant.',
-    messages: await convertToModelMessages(messages)
-  }).toUIMessageStreamResponse()
-})
-```
-
-### Within a page
-
-Use the ChatMessages component with the `Chat` class from AI SDK v5 to display a list of chat messages within a page.
-
-Pass the `messages` prop alongside the `status` prop that will be used for the auto scroll and the indicator display.
-
-```vue [pages/\[id\\].vue] {2-4,25-28}
-<script setup lang="ts">
-import { isReasoningUIPart, isTextUIPart } from 'ai'
-import { Chat } from '@ai-sdk/vue'
-import { isStreamingPart } from '@bitrix24/b24ui-nuxt/utils/ai'
-
-const input = ref('')
-
-const chat = new Chat({
-  onError(error) {
-    console.error(error)
-  }
-})
-
-function onSubmit() {
-  chat.sendMessage({ text: input.value })
-
-  input.value = ''
-}
-</script>
-
-<template>
-  <B24DashboardPanel>
-    <template #body>
-      <B24Container>
-        <B24ChatMessages
-          :messages="chat.messages"
-          :status="chat.status"
-        >
-          <template #content="{ message }">
-            <template
-              v-for="(part, index) in message.parts"
-              :key="`${message.id}-${part.type}-${index}`"
-            >
-              <B24ChatReasoning
-                v-if="isReasoningUIPart(part)"
-                :text="part.text"
-                :streaming="isStreamingPart(message, index, chat)"
-              >
-                <MDC
-                  :value="part.text"
-                  :cache-key="`reasoning-${message.id}-${index}`"
-                  class="*:first:mt-0 *:last:mb-0"
-                />
-              </B24ChatReasoning>
-
-              <MDC
-                v-else-if="isTextUIPart(part)"
-                :value="part.text"
-                :cache-key="`${message.id}-${index}`"
-                class="*:first:mt-0 *:last:mb-0"
-              />
-            </template>
-          </template>
-        </B24ChatMessages>
-      </B24Container>
-    </template>
-
-    <template #footer>
-      <B24Container class="pb-4 sm:pb-6">
-        <B24ChatPrompt
-          v-model="input"
-          :error="chat.error"
-          @submit="onSubmit"
-        >
-          <B24ChatPromptSubmit
-            :status="chat.status"
-            @stop="chat.stop()"
-            @reload="chat.regenerate()"
-          />
-        </B24ChatPrompt>
-      </B24Container>
-    </template>
-  </B24DashboardPanel>
-</template>
-```
-
-::note
-In this example, we use the `MDC` component from [`@nuxtjs/mdc`](https://github.com/nuxt-modules/mdc) to render the assistant messages as markdown. User messages are rendered as plain text to prevent XSS vulnerabilities. As Bitrix24 UI provides pre-styled prose components, your content will be automatically styled.
+::tip{to="/docs/components/chat/"}
+Check the **Chat** overview page for installation instructions, server setup and usage examples.
 ::
 
 ### With indicator slot
@@ -520,7 +386,6 @@ collapse: true
 ---
 ::
 
-
 ## API
 
 ### Props
@@ -534,12 +399,20 @@ collapse: true
 ::tip
 You can use all the slots of the [`ChatMessage`](/docs/components/chat-message/#slots) component inside ChatMessages, they are automatically forwarded allowing you to customize individual messages when using the `messages` prop.
 
-```vue{5-9}
+```vue{4-13}
 <template>
   <B24ChatMessages :messages="messages" :status="status">
-    <template v-for="(part, index) in message.parts" :key="`${message.id}-${part.type}-${index}`">
-      <MDC v-if="part.type === 'text' && message.role === 'assistant'" :value="part.text" :cache-key="`${message.id}-${index}`" class="*:first:mt-0 *:last:mb-0" />
-      <p v-else-if="part.type === 'text' && message.role === 'user'" class="whitespace-pre-wrap">{{ part.text }}</p>
+    <template #content="{ message }">
+      <template
+        v-for="(part, index) in message.parts"
+        :key="`${message.id}-${part.type}-${index}`"
+      >
+        <MDC
+          :value="part.text"
+          :cache-key="`${message.id}-${index}`"
+          class="*:first:mt-0 *:last:mb-0"
+        />
+      </template>
     </template>
   </B24ChatMessages>
 </template>

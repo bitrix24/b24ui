@@ -11,6 +11,7 @@
 * feat(InputMenu): add `autocomplete` prop
 * feat(Checkbox/Switch): add support for `trueValue` / `falseValue`
 * feat(FileUpload): add `fileImage` prop
+* feat(ChatTool): new component
 * 
 * fix(Error): support `status` and `statusText` properties
 * fix(ContentSurround): handle RTL mode

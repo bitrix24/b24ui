@@ -40,16 +40,16 @@ placeholder: 'Select a model'
 modelValue: 'deepseek'
 size: 'sm'
 items:
-  - label: 'Gemini 2.5 Pro'
-    value: 'gemini-2.5-pro'
-  - label: 'GPT-4o'
-    value: 'gpt-4o'
+  - label: 'BitrixGPT 5'
+    value: 'bitrix-gpt-5'
+  - label: 'Claude Opus 4.6'
+    value: 'claude-opus-4.6'
+  - label: 'Gemini 3 Pro'
+    value: 'gemini-3-pro'
+  - label: 'GPT-5'
+    value: 'gpt-5'
   - label: 'DeepSeek'
     value: 'deepseek'
-  - label: 'Claude 3.5 Sonnet'
-    value: 'claude-3.5-sonnet'
-  - label: 'Llama 4'
-    value: 'llama-4'
 ---
 ::::
 
@@ -80,92 +80,11 @@ props:
 
 ## Examples
 
-::tip{to="/docs/components/chat-messages/#examples"}
-Check the **ChatMessages** documentation for server API setup and installation instructions.
+::tip{to="/docs/components/chat/"}
+Check the **Chat** overview page for installation instructions, server setup and usage examples.
 ::
 
-### Within a page
-
-Use the ChatPrompt component with the `Chat` class from AI SDK v5 to display a chat prompt within a page.
-
-Pass the `input` prop alongside the `error` prop to disable the textarea when an error occurs.
-
-```vue [pages/\[id\\].vue] {2-4,6,14-18,60-64}
-<script setup lang="ts">
-import { isReasoningUIPart, isTextUIPart } from 'ai'
-import { Chat } from '@ai-sdk/vue'
-import { isStreamingPart } from '@bitrix24/b24ui-nuxt/utils/ai'
-
-const input = ref('')
-
-const chat = new Chat({
-  onError(error) {
-    console.error(error)
-  }
-})
-
-function onSubmit() {
-  chat.sendMessage({ text: input.value })
-
-  input.value = ''
-}
-</script>
-
-<template>
-  <B24DashboardPanel>
-    <template #body>
-      <B24Container>
-        <B24ChatMessages
-          :messages="chat.messages"
-          :status="chat.status"
-          >
-          <template #content="{ message }">
-            <template
-              v-for="(part, index) in message.parts"
-              :key="`${message.id}-${part.type}-${index}`"
-            >
-              <B24ChatReasoning
-                v-if="isReasoningUIPart(part)"
-                :text="part.text"
-                :streaming="isStreamingPart(message, index, chat)"
-              >
-                <MDC
-                  :value="part.text"
-                  :cache-key="`reasoning-${message.id}-${index}`"
-                  class="*:first:mt-0 *:last:mb-0"
-                />
-              </B24ChatReasoning>
-  
-              <MDC
-                v-else-if="isTextUIPart(part)"
-                :value="part.text"
-                :cache-key="`${message.id}-${index}`"
-                class="*:first:mt-0 *:last:mb-0"
-              />
-            </template>
-          </template>
-        </B24ChatMessages>
-      </B24Container>
-    </template>
-
-    <template #footer>
-      <B24Container class="pb-4 sm:pb-6">
-        <B24ChatPrompt
-          v-model="input"
-          :error="chat.error"
-          @submit="onSubmit"
-        >
-          <B24ChatPromptSubmit
-            :status="chat.status"
-            @stop="chat.stop()"
-            @reload="chat.regenerate()"
-          />
-        </B24ChatPrompt>
-      </B24Container>
-    </template>
-  </B24DashboardPanel>
-</template>
-```
+### As a starting point
 
 You can also use it as a starting point for a chat interface.
 

@@ -135,6 +135,7 @@ const pages = [
   '/docs/components/dashboard-toolbar/',
   // endregion ////
   // region Chat ////
+  '/docs/components/chat/',
   '/docs/components/chat-message/',
   '/docs/components/chat-messages/',
   '/docs/components/chat-palette/',
@@ -142,6 +143,7 @@ const pages = [
   '/docs/components/chat-prompt-submit/',
   '/docs/components/chat-reasoning/',
   '/docs/components/chat-shimmer/',
+  '/docs/components/chat-tools/',
   // endregion ////
   // region editor ////
   '/docs/components/editor/',

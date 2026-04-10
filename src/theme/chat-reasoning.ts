@@ -19,8 +19,8 @@ export default {
       'focus-visible:outline-offset-2 focus-visible:outline-primary',
       'transition-colors'
     ].join(' '),
-    leading: 'relative size-4 shrink-0',
-    leadingIcon: 'size-4 shrink-0',
+    leading: 'relative size-5 shrink-0',
+    leadingIcon: 'size-5 shrink-0',
     chevronIcon: 'size-4 shrink-0 group-data-[state=open]:rotate-180 transition-transform duration-200',
     label: 'truncate',
     trailingIcon: 'size-4 shrink-0 group-data-[state=open]:rotate-180 transition-transform duration-200',

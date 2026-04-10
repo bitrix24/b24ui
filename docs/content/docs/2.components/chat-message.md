@@ -41,7 +41,7 @@ Use the `ChatMessages` component to display a list of chat messages.
 
 ### Parts
 
-Use the `parts` prop to display the message content using the AI SDK v5 format.
+Use the `parts` prop to display the message content using the AI SDK format.
 
 ::component-code
 ---
@@ -61,7 +61,7 @@ props:
 ::
 
 ::note
-The `parts` prop is the recommended format for AI SDK v5. Each part has a `type` (e.g., 'text') and corresponding content.
+The `parts` prop is the recommended format for the AI SDK. Each part has a `type` (e.g., 'text') and corresponding content.
 ::
 
 ### Side
@@ -205,10 +205,16 @@ props:
   parts:
     - type: 'text'
       id: '1'
-      text: 'Bitrix24 UI offers several features for building AI chatbots including the ChatMessage, ChatMessages, and ChatPrompt components. Best practices include using the Chat class from AI SDK v5, implementing proper message styling with variants, and utilizing the built-in actions for message interactions. The components are fully customizable with theming support and responsive design.'
+      text: 'Bitrix24 UI offers several features for building AI chatbots including the ChatMessage, ChatMessages, and ChatPrompt components. Best practices include using the Chat class from AI SDK, implementing proper message styling with variants, and utilizing the built-in actions for message interactions. The components are fully customizable with theming support and responsive design.'
   role: 'user'
   id: '1'
 ---
+::
+
+## Examples
+
+::tip{to="/docs/components/chat/"}
+Check the **Chat** overview page for installation instructions, server setup and usage examples.
 ::
 
 ## API

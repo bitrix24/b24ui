@@ -1,10 +1,14 @@
 <script setup lang="ts">
+import { isReasoningUIPart, isTextUIPart, isToolUIPart, getToolName } from 'ai'
 import type { UIMessage } from 'ai'
-import { isReasoningUIPart, isTextUIPart } from 'ai'
 import { Chat } from '@ai-sdk/vue'
-import { isStreamingPart } from '@bitrix24/b24ui-nuxt/utils/ai'
+import { isReasoningStreaming, isToolStreaming } from '@bitrix24/b24ui-nuxt/utils/ai'
 import AlertIcon from '@bitrix24/b24icons-vue/outline/AlertIcon'
 import RobotIcon from '@bitrix24/b24icons-vue/outline/RobotIcon'
+
+type MayHasQuery = {
+  query?: string
+}
 
 const toast = useToast()
 
@@ -37,6 +41,18 @@ function onSubmit() {
 
   input.value = ''
 }
+
+function getDomain(url: string): string {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '')
+  } catch {
+    return url
+  }
+}
+
+function getFaviconUrl(url: string): string {
+  return `https://www.google.com/s2/favicons?sz=32&domain=${getDomain(url)}`
+}
 </script>
 
 <template>
@@ -58,22 +74,56 @@ function onSubmit() {
           <B24ChatReasoning
             v-if="isReasoningUIPart(part)"
             :text="part.text"
-            :streaming="isStreamingPart(message, index, chat)"
+            :streaming="isReasoningStreaming(message, index, chat)"
             chevron="leading"
             :b24ui="{ body: 'scrollbar-thin scrollbar-transparent' }"
           >
             <MDC
               :value="part.text"
-              :cache-key="`${message.id}-${index}`"
+              :cache-key="`reasoning-${message.id}-${index}`"
               class="*:first:mt-0 *:last:mb-0"
             />
           </B24ChatReasoning>
-          <MDC
-            v-else-if="isTextUIPart(part)"
-            :value="part.text"
-            :cache-key="`${message.id}-${index}`"
-            class="*:first:mt-0 *:last:mb-0"
-          />
+          <template v-else-if="isTextUIPart(part)">
+            <MDC
+              v-if="message.role === 'assistant'"
+              :value="part.text"
+              :cache-key="`${message.id}-${index}`"
+              class="*:first:mt-0 *:last:mb-0"
+            />
+            <p v-else-if="message.role === 'user'" class="whitespace-pre-wrap">
+              {{ part.text }}
+            </p>
+          </template>
+
+          <B24ChatTool
+            v-else-if="isToolUIPart(part) && getToolName(part) === 'web_search'"
+            :text="isToolStreaming(part) ? 'Searching the web...' : 'Searched the web'"
+            :suffix="(part.input as MayHasQuery)?.query"
+            :streaming="isToolStreaming(part)"
+            chevron="leading"
+          >
+            <div v-if="part.output && (part.output as any[]).length" class="p-1 border border-default rounded-md max-h-40 overflow-y-auto">
+              <a
+                v-for="source in (part.output as any[])"
+                :key="source.url"
+                :href="source.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-2 px-2 py-1 text-sm text-muted hover:text-default hover:bg-elevated/50 transition-colors min-w-0 rounded-md"
+              >
+                <img
+                  :src="getFaviconUrl(source.url)"
+                  :alt="getDomain(source.url)"
+                  class="size-4 shrink-0 rounded-sm"
+                  loading="lazy"
+                  @error="($event.target as HTMLImageElement).style.display = 'none'"
+                >
+                <span class="truncate">{{ source.title || source.url }}</span>
+                <span class="text-xs text-dimmed ms-auto shrink-0">{{ getDomain(source.url) }}</span>
+              </a>
+            </div>
+          </B24ChatTool>
         </template>
       </template>
     </B24ChatMessages>
@@ -82,7 +132,7 @@ function onSubmit() {
       v-model="input"
       :error="chat.error"
       variant="outline"
-      class="sticky bottom-0 light"
+      class="sticky bottom-0"
       @submit="onSubmit"
     >
       <B24ChatPromptSubmit :status="chat.status" @stop="chat.stop()" @reload="chat.regenerate()" />

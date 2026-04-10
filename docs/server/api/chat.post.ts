@@ -12,6 +12,12 @@ export default defineEventHandler(async (event) => {
     // @todo fix me deepseek-reasoner | deepseek-chat
     model: deepseek('deepseek-reasoner'),
     system: 'You are a helpful assistant for Bitrix24 UI, a UI library for Nuxt and Vue.',
-    messages: await convertToModelMessages(messages)
+    messages: await convertToModelMessages(messages),
+    providerOptions: {
+      openai: {
+        reasoningEffort: 'low',
+        reasoningSummary: 'detailed'
+      }
+    }
   }).toUIMessageStreamResponse()
 })

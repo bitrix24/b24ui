@@ -4,10 +4,6 @@ description: 'A page grid divided into three columns: left sidebar, main content
 category: page
 links:
   - label: GitHub
-    icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/blob/v4/src/runtime/components/Page.vue
-links:
-  - label: GitHub
     iconName: GitHubIcon
     to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/Page.vue
   - label: Nuxt UI

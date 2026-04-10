@@ -5,7 +5,6 @@ category: components
 links:
   - label: GitHub
     iconName: GitHubIcon
-    icon: i-simple-icons-github
     to: https://github.com/bitrix24/b24ui/blob/main/src/runtime/components/prose/CodePreview.vue
   - label: Nuxt UI
     iconName: NuxtIcon

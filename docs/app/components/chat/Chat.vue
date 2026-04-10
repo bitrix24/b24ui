@@ -4,7 +4,7 @@ import type { ToolUIPart, DynamicToolUIPart } from 'ai'
 import type { IconComponent } from '@bitrix24/b24ui-nuxt'
 import { DefaultChatTransport, isToolUIPart, isReasoningUIPart, isTextUIPart, getToolName } from 'ai'
 import { Chat } from '@ai-sdk/vue'
-import { isStreamingPart } from '@bitrix24/b24ui-nuxt/utils/ai'
+import { isReasoningStreaming, isToolStreaming } from '@bitrix24/b24ui-nuxt/utils/ai'
 import { useMemoize } from '@vueuse/core'
 import * as theme from '#build/b24ui'
 import ProseStreamPre from '../prose/PreStream.vue'
@@ -128,19 +128,19 @@ function getToolMessage(state: ToolState, toolName: string, input: Record<string
   const readVerb = state === 'output-available' ? 'Read' : 'Reading'
 
   return {
-    'list-components': `${searchVerb} components`,
-    'list-composables': `${searchVerb} composables`,
-    'get-component': `${readVerb} ${upperName(input.componentName || '')} component`,
-    'get-component-metadata': `${readVerb} metadata for component ${upperName(input.componentName || '')}`,
-    'list-templates': `${searchVerb} templates${input.category ? ` in ${input.category} category` : ''}`,
-    'get-template': `${readVerb} template ${upperName(input.templateName || '')}`,
-    'get-documentation-page': `${readVerb} ${input.path || ''} page`,
-    'list-documentation-pages': `${searchVerb} documentation pages`,
-    'list-getting-started-guides': `${searchVerb} documentation guides`,
-    'get-migration-guide': `${readVerb} migration guide${input.version ? ` for ${input.version}` : ''}`,
-    'list-examples': `${searchVerb} examples`,
-    'get-example': `${readVerb} ${upperName(input.exampleName || '')} example`,
-    'search-components-by-category': `${searchVerb} components${input.category ? ` in ${input.category} category` : ''}${input.search ? ` for "${input.search}"` : ''}`
+    'b24-ui-list-components': `${searchVerb} components`,
+    'b24-ui-list-composables': `${searchVerb} composables`,
+    'b24-ui-get-component': `${readVerb} ${upperName(input.componentName || '')} component`,
+    'b24-ui-get-component-metadata': `${readVerb} metadata for component ${upperName(input.componentName || '')}`,
+    'b24-ui-list-templates': `${searchVerb} templates${input.category ? ` in ${input.category} category` : ''}`,
+    'b24-ui-get-template': `${readVerb} template ${upperName(input.templateName || '')}`,
+    'b24-ui-get-documentation-page': `${readVerb} ${input.path || ''} page`,
+    'b24-ui-list-documentation-pages': `${searchVerb} documentation pages`,
+    'b24-ui-list-getting-started-guides': `${searchVerb} documentation guides`,
+    'b24-ui-get-migration-guide': `${readVerb} migration guide${input.version ? ` for ${input.version}` : ''}`,
+    'b24-ui-list-examples': `${searchVerb} examples`,
+    'b24-ui-get-example': `${readVerb} ${upperName(input.exampleName || '')} example`,
+    'b24-ui-search-components-by-category': `${searchVerb} components${input.category ? ` in ${input.category} category` : ''}${input.search ? ` for "${input.search}"` : ''}`
   }[toolName] || `${searchVerb} ${toolName}`
 }
 
@@ -272,7 +272,7 @@ defineShortcuts({
             <B24ChatReasoning
               v-if="isReasoningUIPart(part)"
               :text="part.text"
-              :streaming="isStreamingPart(message, index, chat)"
+              :streaming="isReasoningStreaming(message, index, chat)"
               :icon="AiStarsIcon"
               chevron="leading"
             >
@@ -291,11 +291,11 @@ defineShortcuts({
               :parser-options="{ highlight: false }"
               class="*:first:mt-0 *:last:mb-0"
             />
-            <ChatTool
+            <B24ChatTool
               v-else-if="isToolUIPart(part)"
               :text="getToolText(part)"
               :icon="getToolIcon(part)"
-              :streaming="part.state !== 'output-available'"
+              :streaming="isToolStreaming(part)"
             />
           </template>
         </template>

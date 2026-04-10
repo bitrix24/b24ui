@@ -5,10 +5,10 @@ import { createDeepSeek } from '@ai-sdk/deepseek'
 
 /**
  * @docs https://ai-sdk.dev/providers/ai-sdk-providers/deepseek
- * @todo fix this
+ * @memo sync with: docs/content/docs/2.components/chat.md:297
  */
 
-const maxStepCount = 8
+const maxStepCount = 6
 
 export default defineEventHandler(async (event) => {
   const { messages } = await readBody(event)
@@ -33,7 +33,7 @@ export default defineEventHandler(async (event) => {
     console.error('MCP client error:', error)
 
     throw createError({
-      statusCode: 503,
+      status: 503,
       message: 'Unable to connect to the documentation service. Please try again later.'
     })
   }
