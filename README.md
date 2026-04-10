@@ -97,6 +97,16 @@ app.mount('#app')
 
 Learn more in the [installation guide](https://bitrix24.github.io/b24ui/docs/getting-started/installation/vue/).
 
+## Contribution
+
+Thank you for considering contributing to Bitrix24 UI. Here are a few ways you can get involved:
+
+- Reporting Bugs: If you come across any bugs or issues, please check out the reporting bugs guide to learn how to submit a bug report.
+- Suggestions: Have any thoughts to enhance Bitrix24 UI? We'd love to hear them! Check out the [contribution guide](https://bitrix24.github.io/b24ui/docs/getting-started/contribution/) to share your suggestions.
+
+> [!TIP]
+> We provide contributing guidelines through [`AGENTS.md`](https://github.com/bitrix24/b24ui/blob/main/AGENTS.md) for AI assistants to help you contribute to Bitrix24 UI. It is automatically picked up by all AI coding agents and guides through component structure, theming patterns, testing conventions, and documentation guidelines.
+
 ## Credits
 
 - [nuxt/nuxt](https://github.com/nuxt/nuxt)
