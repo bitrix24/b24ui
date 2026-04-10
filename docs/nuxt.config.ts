@@ -143,7 +143,7 @@ const pages = [
   '/docs/components/chat-prompt-submit/',
   '/docs/components/chat-reasoning/',
   '/docs/components/chat-shimmer/',
-  '/docs/components/chat-tools/',
+  '/docs/components/chat-tool/',
   // endregion ////
   // region editor ////
   '/docs/components/editor/',
